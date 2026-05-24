@@ -4,7 +4,14 @@
 
 ## Inbox
 
-<!-- marketing-14 candidate 2026-05-24T10:00Z
+## Active
+
+
+## Waiting
+
+<!-- 사용자 결정, 외부 조건, 안전 확인 대기. 같은 질문을 반복하지 않고 상태만 보존한다. -->
+
+<!-- marketing-14 waiting 2026-05-24T11:07Z
 제목: Virtue 첫 주 활성화-리텐션 연결표 작성
 소스 노트: /home/ubuntu/dev/knowledge-lab/source/external-links/marketing/2026-05-24-week-one-activation-plg.md
 근거: Amplitude/ProductLed 자료는 신규 획득만으로 리텐션이 생기지 않으며, 핵심 가치 순간과 activation point를 일찍 관찰해야 한다고 본다. Virtue는 prelaunch라 수치 판정 대신 첫 10-20명에 대해 유입 문장, J1-J4 잡, first value, second value, 7일 내 재가치 경험을 연결해야 한다.
@@ -13,15 +20,9 @@
 Owner route: Marketer 주도, Planner 검수. Developer/Operator는 기존 이벤트명(add_flow_started, deed_judged, deed_saved, level_up_viewed) 인용 정확성만 확인.
 성공 기준: virtue-rebirth-app의 docs/first-week-activation-retention-bridge.md 1개 추가; J1-J4별 first/second value 표, 첫 10-20명 관찰 행 템플릿, prelaunch 해석 금지선, 503/가용성 이슈는 마케팅 실패가 아닌 관찰 차단으로 분리하는 운영 경계 포함.
 첫 검증 게이트: 기존 docs/first-real-user-baseline-template.md, docs/time-to-value-observation-brief.md, docs/activation-milestone-ladder.md의 J1-J4 및 이벤트 매핑을 변경 없이 계승했는지 확인하고, `rg '<<<<<<<|=======|>>>>>>>' docs/first-week-activation-retention-bridge.md || true`가 비어 있는지 확인한다.
-Routing: Inbox
+Blocker: Claude Code local execution is unavailable in this environment (`Not logged in · Please run /login`). First delegated run hung without output and was terminated; second delegated run with `--bare --verbose --output-format stream-json` returned authentication_failed. No virtue-rebirth-app files changed.
+Report: reports/marketing-14/2026-05-24T1107Z-local.md
 -->
-
-## Active
-
-
-## Waiting
-
-<!-- 사용자 결정, 외부 조건, 안전 확인 대기. 같은 질문을 반복하지 않고 상태만 보존한다. -->
 
 ## Archive
 
