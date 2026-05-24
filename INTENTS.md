@@ -4,16 +4,6 @@
 
 ## Inbox
 
-### marketing-15 — Virtue 웹/iOS 활성화 이벤트 패리티 브리프 작성
-
-- Source note: `/home/ubuntu/dev/knowledge-lab/source/external-links/marketing/2026-05-24-activation-metric-event-bundles.md`
-- Rationale: PostHog 활성화 지표 방식은 단일 이벤트보다 3-5개 이벤트 묶음과 장기 리텐션 검증을 권장한다. Virtue는 prelaunch라 리텐션 상관 분석 전 단계이며, 현재 웹은 `add_flow_started`/`add_flow_abandoned`/`deed_judged`/`deed_saved`/`level_up_viewed`까지 비교적 풍부하고 iOS는 `deed_judge_attempted`/`deed_judged`/`deed_saved` 중심이라 플랫폼별 활성화 해석이 어긋날 수 있다.
-- Expected impact: 첫 10-20명 관찰과 출시 후 PostHog 리뷰에서 "활성화 문제"와 "플랫폼 계측 불일치"를 분리해 오판을 줄인다.
-- Permission level: L1 내부 문서 작성만 허용. 코드, PostHog 설정, 대시보드, 배포, 외부 발송, 비용 변경 금지.
-- Owner route: Infinity가 Claude Code에 `virtue-rebirth-app` 문서 작업으로 위임 가능. 권장 산출물은 `apps/web/docs/ios-activation-event-parity-brief.md`.
-- Success criteria: 웹/iOS 이벤트 발화 위치, 속성 차이, J1-J4 활성화 후보 묶음, prelaunch 해석 금지선, 출시 후 첫 검증 게이트가 한 문서에 정리된다.
-- First verification gate: `rg 'posthog.capture|Analytics.capture' apps/web/src apps/ios/Sources -S` 결과와 문서 표가 일치하고, `src/`, iOS 코드, PostHog 설정 변경이 0건인지 확인한다.
-
 ## Active
 
 
@@ -22,6 +12,8 @@
 <!-- 사용자 결정, 외부 조건, 안전 확인 대기. 같은 질문을 반복하지 않고 상태만 보존한다. -->
 
 ## Archive
+
+<!-- marketing-15 completed 2026-05-24T22:07Z → intents/archive/marketing-15.md (Virtue 웹/iOS 활성화 이벤트 패리티 브리프 작성 완료. 산출물은 virtue-rebirth-app `10e3fa2`의 `apps/web/docs/ios-activation-event-parity-brief.md`. 문서는 웹/iOS 이벤트 발화 위치, 속성 차이, J1-J4 활성화 후보 묶음, prelaunch 해석 금지선, 출시 후 첫 검증 게이트를 포함. 핵심 발견: iOS는 add_flow_started/add_flow_abandoned/level_up_viewed/deed_rerolled/deed_save_capped 부재, deed_saved 속성 웹 12 vs iOS 3, deed_judged 웹 9 vs iOS 7, iOS만 platform=ios super-property 등록. 신규 이벤트·속성·코드·카피·대시보드·외부발송·비용·시크릿·권한 변경 0. reports/marketing-15/2026-05-24T2207Z-local.md) -->
 
 <!-- marketing-14 completed 2026-05-24T15:56Z → intents/archive/marketing-14.md (Virtue 첫 주 활성화-리텐션 연결표 작성 완료. 실제 산출물은 이미 virtue-rebirth-app `ff6a769`로 `apps/web/docs/first-week-activation-retention-bridge.md`에 push되어 있었고, Infinity 상태만 Waiting에 남아 있던 것을 정리. 문서는 J1~J4 first value→7일 내 second value 연결표, 첫 10~20명 관찰 행 템플릿, prelaunch 해석 금지선, 503/가용성 차단 분리, synthetic/test 트래픽 제외 원칙, 기존 4개 이벤트 발화 위치를 포함. 신규 이벤트·속성·코드·카피·대시보드·외부발송·비용·시크릿·권한 변경 0. reports/marketing-14/2026-05-24T1107Z-local.md, 2026-05-24T1556Z-archive.md) -->
 
