@@ -4,17 +4,20 @@
 
 ## Inbox
 
-### marketing-15 — Virtue 웹/iOS 활성화 이벤트 패리티 브리프 작성
-
-- Source note: `/home/ubuntu/dev/knowledge-lab/source/external-links/marketing/2026-05-24-activation-metric-event-bundles.md`
-- Rationale: PostHog 활성화 지표 방식은 단일 이벤트보다 3-5개 이벤트 묶음과 장기 리텐션 검증을 권장한다. Virtue는 prelaunch라 리텐션 상관 분석 전 단계이며, 현재 웹은 `add_flow_started`/`add_flow_abandoned`/`deed_judged`/`deed_saved`/`level_up_viewed`까지 비교적 풍부하고 iOS는 `deed_judge_attempted`/`deed_judged`/`deed_saved` 중심이라 플랫폼별 활성화 해석이 어긋날 수 있다.
-- Expected impact: 첫 10-20명 관찰과 출시 후 PostHog 리뷰에서 "활성화 문제"와 "플랫폼 계측 불일치"를 분리해 오판을 줄인다.
-- Permission level: L1 내부 문서 작성만 허용. 코드, PostHog 설정, 대시보드, 배포, 외부 발송, 비용 변경 금지.
-- Owner route: Infinity가 Claude Code에 `virtue-rebirth-app` 문서 작업으로 위임 가능. 권장 산출물은 `apps/web/docs/ios-activation-event-parity-brief.md`.
-- Success criteria: 웹/iOS 이벤트 발화 위치, 속성 차이, J1-J4 활성화 후보 묶음, prelaunch 해석 금지선, 출시 후 첫 검증 게이트가 한 문서에 정리된다.
-- First verification gate: `rg 'posthog.capture|Analytics.capture' apps/web/src apps/ios/Sources -S` 결과와 문서 표가 일치하고, `src/`, iOS 코드, PostHog 설정 변경이 0건인지 확인한다.
 
 ## Active
+
+### marketing-15 — Virtue 웹/iOS 활성화 이벤트 패리티 브리프 작성
+
+- status: in_progress
+- priority: high
+- permission: L1 (내부 문서 작성만)
+- goal: 웹/iOS 이벤트 발화 위치·속성 차이·J1-J4 활성화 후보 묶음·prelaunch 해석 금지선·출시 후 첫 검증 게이트를 한 문서에 정리
+- success_criteria: `rg 'posthog.capture|Analytics.capture'` 결과와 문서 표 일치, 코드·PostHog 설정 변경 0건
+- context: virtue-rebirth-app apps/web/src, apps/ios/Sources, /home/ubuntu/dev/knowledge-lab/source/external-links/marketing/2026-05-24-activation-metric-event-bundles.md
+- output: apps/web/docs/ios-activation-event-parity-brief.md (virtue-rebirth-app)
+- cloud_draft: artifacts/marketing-15/ios-activation-event-parity-brief.md
+- next_action: Local Claude Code가 cloud draft 기반으로 virtue-rebirth-app에 문서 작성 후 커밋/push
 
 
 ## Waiting
