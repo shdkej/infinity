@@ -676,7 +676,7 @@
     // 괄호 안의 outcome 텍스트를 카드 요약(title)으로 사용해 한눈에 결과가 보이도록 한다.
     function parseArchiveComments(activeBody) {
       if (!activeBody) return [];
-      const re = /<!--\s*(.+?)\s*-->/g;
+      const re = /<!--\s*([\s\S]+?)\s*-->/g;
       const out = [];
       let m;
       while ((m = re.exec(activeBody)) !== null) {
@@ -715,7 +715,7 @@
     // INTENTS.md 의 Inbox/Active/Waiting 요약 코멘트를 카드로 추출
     function parseIntentComments(body, lane) {
       if (!body) return [];
-      const re = /<!--\s*(.+?)\s*-->/g;
+      const re = /<!--\s*([\s\S]+?)\s*-->/g;
       const out = [];
       let m;
       while ((m = re.exec(body)) !== null) {
@@ -723,11 +723,13 @@
         const idm = text.match(/^([a-z]+-\d+)\b/);
         if (!idm) continue;
         const dtm = text.match(/(\d{4}-\d{2}-\d{2}(?:T\d{2}:\d{2}(?::\d{2})?Z?)?)/);
-        const pathm = text.match(/(?:→|->)\s*([^\s)]+\.md)/);
-        const titlem = text.match(/\(([^)]+)\)\s*$/);
+        const pathm = text.match(/(?:Report|Detail|상세|리포트)\s*:\s*([^\s)]+\.md)/i)
+          || text.match(/(?:→|->)\s*([^\s)]+\.md)/);
+        const titlem = text.match(/(?:^|\n)(?:제목|title)\s*:\s*(.+)/i)
+          || text.match(/\(([^)]+)\)\s*$/);
         out.push({
           id: idm[1],
-          title: titlem ? titlem[1] : text,
+          title: titlem ? titlem[1].trim() : text,
           bodyLines: [text],
           meta: {
             status: lane,

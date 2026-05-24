@@ -11,20 +11,9 @@
 
 <!-- 사용자 결정, 외부 조건, 안전 확인 대기. 같은 질문을 반복하지 않고 상태만 보존한다. -->
 
-<!-- marketing-14 waiting 2026-05-24T11:07Z
-제목: Virtue 첫 주 활성화-리텐션 연결표 작성
-소스 노트: /home/ubuntu/dev/knowledge-lab/source/external-links/marketing/2026-05-24-week-one-activation-plg.md
-근거: Amplitude/ProductLed 자료는 신규 획득만으로 리텐션이 생기지 않으며, 핵심 가치 순간과 activation point를 일찍 관찰해야 한다고 본다. Virtue는 prelaunch라 수치 판정 대신 첫 10-20명에 대해 유입 문장, J1-J4 잡, first value, second value, 7일 내 재가치 경험을 연결해야 한다.
-예상 임팩트: 출시 전 작은 표본을 전환율로 과대해석하지 않고, 어떤 유입 문장이 어떤 잡의 반복 가치로 이어지는지 정리해 이후 포지셔닝/온보딩/측정 판단의 기준선을 만든다.
-권한 수준: L1 내부 문서 작성. 신규 이벤트, PostHog 설정/대시보드, 코드 변경, 배포, 외부 발송, 공개 포스트, 비용 발생은 없음.
-Owner route: Marketer 주도, Planner 검수. Developer/Operator는 기존 이벤트명(add_flow_started, deed_judged, deed_saved, level_up_viewed) 인용 정확성만 확인.
-성공 기준: virtue-rebirth-app의 docs/first-week-activation-retention-bridge.md 1개 추가; J1-J4별 first/second value 표, 첫 10-20명 관찰 행 템플릿, prelaunch 해석 금지선, 503/가용성 이슈는 마케팅 실패가 아닌 관찰 차단으로 분리하는 운영 경계 포함.
-첫 검증 게이트: 기존 docs/first-real-user-baseline-template.md, docs/time-to-value-observation-brief.md, docs/activation-milestone-ladder.md의 J1-J4 및 이벤트 매핑을 변경 없이 계승했는지 확인하고, `rg '<<<<<<<|=======|>>>>>>>' docs/first-week-activation-retention-bridge.md || true`가 비어 있는지 확인한다.
-Blocker: Claude Code local execution is unavailable in this environment (`Not logged in · Please run /login`). First delegated run hung without output and was terminated; second delegated run with `--bare --verbose --output-format stream-json` returned authentication_failed. No virtue-rebirth-app files changed.
-Report: reports/marketing-14/2026-05-24T1107Z-local.md
--->
-
 ## Archive
+
+<!-- marketing-14 completed 2026-05-24T15:56Z → intents/archive/marketing-14.md (Virtue 첫 주 활성화-리텐션 연결표 작성 완료. 실제 산출물은 이미 virtue-rebirth-app `ff6a769`로 `apps/web/docs/first-week-activation-retention-bridge.md`에 push되어 있었고, Infinity 상태만 Waiting에 남아 있던 것을 정리. 문서는 J1~J4 first value→7일 내 second value 연결표, 첫 10~20명 관찰 행 템플릿, prelaunch 해석 금지선, 503/가용성 차단 분리, synthetic/test 트래픽 제외 원칙, 기존 4개 이벤트 발화 위치를 포함. 신규 이벤트·속성·코드·카피·대시보드·외부발송·비용·시크릿·권한 변경 0. reports/marketing-14/2026-05-24T1107Z-local.md, 2026-05-24T1556Z-archive.md) -->
 
 <!-- marketing-13 completed 2026-05-23T22:07Z → intents/archive/marketing-13.md (Virtue 경쟁 대안 기반 포지셔닝 브리프: J1 기록형/J2 누적형/J3 AI 호기심형/J4 회고형 × 5축(경쟁 대안·Virtue 차별 속성·고객 가치·현재 첫 화면 신호·첫 10명 검증 질문)을 한 표로 정리. April Dunford(경쟁 대안에서 출발)+Seth Godin(smallest viable audience) 렌즈. 핵심: J1·J4 최강 대안은 "아무것도 안 하기", 첫 화면 신호는 J2 최강·J3는 /add 이전 사실상 부재(코드 file:line 근거), 후보 positioning 문구 4종은 internal draft·앱 미반영·copy-spec 금지어 0. 기존 6개 이벤트(add_flow_started/deed_judged/deed_saved/level_up_viewed/deed_rerolled/deed_save_capped) 인용만, 신규 이벤트·속성·코드·카피·대시보드·외부발송·비용·시크릿·권한 변경 0. 7개 선행 문서 충돌 0. 처리 경위: cloud draft(e7e4d35)가 Inbox→Active 구조화 + artifacts/marketing-13/에 초안 작성 → 직전 local Claude Code 실행이 실제 apps/web/docs/competitive-alternatives-positioning-brief.md 작성·커밋(virtue-rebirth-app dc0ce55)·push 후 무응답 종료 → 본 실행이 workflow-master 4역할 병렬 재합성으로 교차검증하고 검증 게이트 4종(충돌마커 empty/금지어 메타맥락만/스코프 doc-only/git clean·HEAD==origin) PASS 확인 후 Active→Archive 마감. 레지스트리 docs/는 약칭, 정본은 apps/web/docs/. reports/marketing-13/2026-05-23T2207Z.md(final), 2026-05-23T2206Z.md(cloud draft 단계)) -->
 
