@@ -1,0 +1,8 @@
+# secrets
+config/telegram.env
+*.env
+.env
+
+# omc/tooling
+.omc/
+.DS_Store
