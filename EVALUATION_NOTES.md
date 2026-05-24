@@ -487,3 +487,6 @@ Infinity intent 처리 품질을 평가해 다음 pickup/구조화/실행에서 
 
 - 대상 intent: 2026-05-20 기준 marketing-01 히스토리 병합 후 잔존 파일
 - 평가: `INTENTS.md`와 archive는 marketing-01 완료를 가리키는데 `intents/active/marketing-01.md`와 `intents/inbox/marketing-01.md`가 함께 남아 있으면, registry 우선 원칙만으로는 디렉터리 기반 대시보드·자동화가 stale 상태를 다시 pickup할 수 있다. 병합/복구 heartbeat는 `INTENTS.md`뿐 아니라 lane 디렉터리의 동일 id 중복을 검사해 완료 intent의 active/inbox 잔존 파일을 정리하거나 명시적으로 무시해야 한다.
+
+- 대상 intent: 2026-05-24 독립 repo 전환 후 marketing-08 lane 잔존
+- 평가: prompt-archive에서 infinity를 분리할 때 `INTENTS.md`는 비어 있지만 `intents/active/marketing-08.md`가 archive와 함께 남은 상태까지 그대로 옮겨져 split 이후에도 stale pickup 위험이 유지된다. repo 이전/clone 대상 변경은 파일 이동 성공만 보지 말고 `INTENTS.md`와 lane 디렉터리 정합성, 최근 evaluator notes/index 이관 여부를 함께 검증해야 한다.
