@@ -4,20 +4,21 @@
 
 ## Inbox
 
-<!-- marketing-14 candidate 2026-05-24T10:00Z
-제목: Virtue 첫 주 활성화-리텐션 연결표 작성
-소스 노트: /home/ubuntu/dev/knowledge-lab/source/external-links/marketing/2026-05-24-week-one-activation-plg.md
-근거: Amplitude/ProductLed 자료는 신규 획득만으로 리텐션이 생기지 않으며, 핵심 가치 순간과 activation point를 일찍 관찰해야 한다고 본다. Virtue는 prelaunch라 수치 판정 대신 첫 10-20명에 대해 유입 문장, J1-J4 잡, first value, second value, 7일 내 재가치 경험을 연결해야 한다.
-예상 임팩트: 출시 전 작은 표본을 전환율로 과대해석하지 않고, 어떤 유입 문장이 어떤 잡의 반복 가치로 이어지는지 정리해 이후 포지셔닝/온보딩/측정 판단의 기준선을 만든다.
-권한 수준: L1 내부 문서 작성. 신규 이벤트, PostHog 설정/대시보드, 코드 변경, 배포, 외부 발송, 공개 포스트, 비용 발생은 없음.
-Owner route: Marketer 주도, Planner 검수. Developer/Operator는 기존 이벤트명(add_flow_started, deed_judged, deed_saved, level_up_viewed) 인용 정확성만 확인.
-성공 기준: virtue-rebirth-app의 docs/first-week-activation-retention-bridge.md 1개 추가; J1-J4별 first/second value 표, 첫 10-20명 관찰 행 템플릿, prelaunch 해석 금지선, 503/가용성 이슈는 마케팅 실패가 아닌 관찰 차단으로 분리하는 운영 경계 포함.
-첫 검증 게이트: 기존 docs/first-real-user-baseline-template.md, docs/time-to-value-observation-brief.md, docs/activation-milestone-ladder.md의 J1-J4 및 이벤트 매핑을 변경 없이 계승했는지 확인하고, `rg '<<<<<<<|=======|>>>>>>>' docs/first-week-activation-retention-bridge.md || true`가 비어 있는지 확인한다.
-Routing: Inbox
--->
 
 ## Active
 
+### marketing-14: Virtue 첫 주 활성화-리텐션 연결표 작성
+- status: in_progress
+- priority: medium
+- permission: L1
+- mode: prepare (cloud 완료) → execute_local
+- goal: 첫 10-20명에 대해 유입 문장→J1-J4 잡→first value→second value→7일 내 재가치 경험을 연결하는 표를 작성하여 이후 포지셔닝/온보딩/측정 판단의 기준선 확립
+- success_criteria: virtue-rebirth-app의 docs/first-week-activation-retention-bridge.md 1개 추가; J1-J4별 first/second value 표, 첫 10-20명 관찰 행 템플릿, prelaunch 해석 금지선, 503/가용성 이슈는 마케팅 실패가 아닌 관찰 차단으로 분리하는 운영 경계 포함
+- context: virtue-rebirth-app/docs/first-real-user-baseline-template.md, docs/time-to-value-observation-brief.md, docs/activation-milestone-ladder.md
+- source: /home/ubuntu/dev/knowledge-lab/source/external-links/marketing/2026-05-24-week-one-activation-plg.md
+- owner: Marketer 주도, Planner 검수
+- cloud_draft: artifacts/marketing-14/first-week-activation-retention-bridge-draft.md
+- next: local Claude Code가 cloud_draft를 기반으로 virtue-rebirth-app/docs/first-week-activation-retention-bridge.md 작성, 검증 게이트 통과 후 커밋/push
 
 ## Waiting
 
