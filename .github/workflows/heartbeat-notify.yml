@@ -101,7 +101,9 @@ jobs:
               echo "Skip: report has no actions"
               exit 0
             fi
-            CONTENT=$(head -30 "$REPORT")
+            # 리포트는 .html 이므로 태그/CSS를 그대로 보내면 안 된다.
+            # 태그를 벗겨 제목 + 결론 2축만 읽히는 텍스트로 추출한다.
+            CONTENT=$(python3 scripts/html_report_to_text.py "$REPORT")
             MSG=$(printf '🤖 Heartbeat Report\n\n%s' "$CONTENT")
           else
             MSG=$(printf '🤖 Heartbeat Update\n\n%s' "$COMMIT_MSG")
