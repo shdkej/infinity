@@ -4,6 +4,16 @@
 
 ## Inbox
 
+- id: marketing-18
+  title: Virtue AEO / Agent-ready 공개 표면 감사표
+  source_note: `/home/ubuntu/dev/knowledge-lab/source/external-links/marketing/2026-05-26-aeo-agent-ready-research.md`
+  rationale: GeekNews GN#354의 AEO/Agent-ready/GEO/AAO 링크들은 검색 순위보다 AI/에이전트가 제품을 찾고, 읽고, 요약하고, 선택할 수 있는 공개 표면이 중요해졌다는 흐름을 보여준다. Virtue는 아직 prelaunch라 외부 노출 확대보다 먼저 공개 설명면과 기계 판독 가능성을 감사해야 한다.
+  expected_impact: 공개 사이트/문서가 AI answer engine과 코딩/브라우징 에이전트에게 어떤 제품으로 읽히는지 점검하고, 바로 바꿀 수 있는 내부 문서 항목과 사용자 승인 필요한 공개 변경 항목을 분리한다.
+  permission_level: L0/L1 리서치 및 내부 감사표 작성만 허용. robots/sitemap/metadata/llms.txt/공개 페이지/배포/외부 제출/비용 집행은 제안만 하고 Waiting 또는 별도 승인으로 분리한다.
+  owner_route: Infinity router → Claude Code 문서 작업 후보. 우선 정본은 `virtue-rebirth-app/apps/web/docs/` 내부 AEO 감사 브리프로 작성한다.
+  success_criteria: Virtue public homepage, canonical product explainer, robots.txt, sitemap, structured metadata, Markdown/llms.txt 후보, agent answer snippet, capability/value signaling을 한 표로 점검하고 각 항목을 `이미 충분함 / 내부 문서 필요 / 공개 변경 필요 / 승인 필요`로 분류한다.
+  first_verification_gate: 코드·카피·배포·robots/sitemap/metadata 변경 0건으로 감사표만 생성하고, 기존 positioning/JTBD/activation 문서와 충돌하지 않는지 확인한다.
+
 
 ## Active
 
