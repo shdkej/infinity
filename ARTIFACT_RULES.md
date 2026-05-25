@@ -71,7 +71,7 @@ Infinity 문서는 아래 3개 역할로 통일한다. 새 문서를 만들 때 
 
 ## Heartbeat가 지켜야 할 흐름
 
-1. 실행 결과를 `reports/{id}/{timestamp}.md`로 남긴다 — 이것은 **로그**다.
+1. 실행 결과를 `reports/{id}/{timestamp}.html`로 남긴다 — 이것은 **로그**다. (양식은 아래 "Report 양식" 참고)
 2. 의미 있는 산출물이 생기면 `artifacts/{id}/...`로 만든다. active intent 본문에 두지 않는다.
 3. Intent가 완료되면:
    - `intents/active/{id}.md` → `intents/archive/{id}.md`로 이동
@@ -79,6 +79,40 @@ Infinity 문서는 아래 3개 역할로 통일한다. 새 문서를 만들 때 
    - `INTENTS.md`의 Active 블록 제거, 완료 코멘트 추가 (`<!-- {id} completed YYYY-MM-DDTHH:MM → intents/archive/{id}.md (한 줄 결과) -->`)
 4. 대시보드 등 외부 도구가 detail 링크를 기대하면 archive 경로가 유효한지 확인한다.
 5. 완료 직후 같은 내용을 `detail` 파일로 다시 만들지 않는다. 추가 원문이 필요하면 `artifacts/{id}/...`에 별도 역할을 부여한다.
+
+## Report 양식 (HTML, 결론 2축)
+
+최종 보고(Report)는 **HTML로 작성**하고, **"결론 2축"을 맨 위에 큼직하게** 둔다. 상세·메타·로그는 접는다.
+이 2축은 사후에 파싱하는 것이 아니라, **작업이 끝나는 순간 에이전트가 직접 도출해 채우는 산출물**이다.
+
+### 결론 2축 (필수)
+
+모든 Report/원장은 아래 2축을 한 줄(또는 짧게)로 반드시 채운다. 작업하면서 이 두 질문의 답을 먼저 정하고 보고를 쓴다.
+
+- **축1 = 맥락/대상/문제** — 왜 이 작업을 했나, 무엇에 대한 것인가
+- **축2 = 결과/해법/발견** — 그래서 어떻게 됐나
+
+축 라벨은 Intent id의 prefix로 작업 성격을 판별해 자동 선택한다.
+
+| 성격 | id prefix | 축1 라벨 | 축2 라벨 |
+|------|-----------|----------|----------|
+| **조사형** | `research`, `wiki`, `doc` | 🔍 무엇을 조사/정리했나 | 📊 핵심 결과 |
+| **개선형** | `marketing`, `product`, `dev`, `build`, `pages` | 🔴 무엇이 문제였나 | ✅ 어떻게 해결하나 |
+| **감시형** | `monitor`, `maintenance`, `router` | 🟡 무엇을 점검했나 | ✅ 이상 여부·조치 |
+| **범용(폴백)** | 그 외 / 분류 불가 | 무엇을 했나 | 결과 |
+
+새 카테고리가 생기면 가장 가까운 성격에 매핑하고, 애매하면 범용 라벨을 쓴다.
+
+### 작성 규칙
+
+- 위치: `reports/{id}/{timestamp}.html`
+- 템플릿: `reports/_TEMPLATE.html` 을 복사해 `{{...}}` 자리표시자를 치환한다. (`_`로 시작하는 파일은 대시보드가 무시한다)
+- **제약**: 대시보드는 이 파일을 `iframe sandbox="allow-same-origin"` 으로 렌더하므로 **JS·외부 리소스는 동작하지 않는다.** 스타일은 인라인 `<style>` 로만, 접기는 `<details>`(JS 불필요)로 한다.
+- 색/톤은 대시보드(`docs/index.html`)의 CSS 변수와 통일한다 (`--bg #0f172a`, `--panel #1e293b`, `--accent #38bdf8` 등).
+- 구조: **헤더(id·제목·상태) → 결론 2축(큼직) → `<details>` 상세(수행 작업/산출물) → `<details>` 메타/다음 액션**.
+- 같은 시점의 보고를 `.md` 와 `.html` 로 함께 두면 대시보드는 **`.html` 을 우선** 노출한다. 신규 보고는 `.html` 하나만 만든다.
+
+> Report 는 여전히 "실행 로그"다. 2축은 그 로그의 결론을 사람이 한눈에 보게 하는 장치이며, canonical index 는 `intents/archive/{id}.md` 에 둔다는 원칙은 그대로다. 원장에도 동일한 2축(`result_summary`가 축2에 해당)을 남긴다.
 
 ## Migration Note (현 상태)
 

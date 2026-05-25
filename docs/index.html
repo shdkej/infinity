@@ -244,6 +244,7 @@
       line-height: 1;
     }
     .detail-block.collapsed > :not(h3) { display: none; }
+    .detail-loading { color: var(--muted); font-size: 13px; padding: 8px 2px; }
     .modal-body { row-gap: 18px; }
     .detail-block.kind-summary { border-color: #475569; }
     .detail-block.kind-summary h3 { background: #1f2937; border-left-color: #94a3b8; }
@@ -464,9 +465,12 @@
       const listing = await ghDir("reports/" + encodeURIComponent(id));
       if (!listing) return null;
       const files = listing
-        .filter(x => x.type === "file" && detectKind(x.name))
+        .filter(x => x.type === "file" && detectKind(x.name) && !/^_/.test(x.name))
         .sort((a, b) => a.name.localeCompare(b.name));
-      const latest = files[files.length - 1];
+      // 같은 시점 보고서가 .md / .html 로 함께 있으면 HTML 최종본을 우선 노출한다.
+      const htmlFiles = files.filter(x => detectKind(x.name) === "html");
+      const pool = htmlFiles.length ? htmlFiles : files;
+      const latest = pool[pool.length - 1];
       if (!latest || !latest.download_url) return null;
       const kind = detectKind(latest.name);
       const entry = { name: latest.name, kind, url: latest.download_url };
@@ -486,16 +490,18 @@
       "kind-empty": "Empty",
     };
 
-    function makeBlock(title, kindClass) {
+    function makeBlock(title, kindClass, opts) {
+      opts = opts || {};
       const block = document.createElement("section");
       block.className = "detail-block" + (kindClass ? " " + kindClass : "");
       const collapsible = kindClass !== "kind-summary";
-      if (collapsible) block.classList.add("collapsed");
+      const startCollapsed = collapsible && !opts.expanded;
+      if (startCollapsed) block.classList.add("collapsed");
       const h = document.createElement("h3");
       if (collapsible) {
         h.setAttribute("role", "button");
         h.tabIndex = 0;
-        h.setAttribute("aria-expanded", "false");
+        h.setAttribute("aria-expanded", String(!!opts.expanded));
       }
       const label = document.createElement("span");
       label.className = "label";
@@ -505,7 +511,7 @@
       titleEl.textContent = title;
       const icon = document.createElement("span");
       icon.className = "collapse-icon";
-      icon.textContent = collapsible ? "펼치기" : "";
+      icon.textContent = collapsible ? (startCollapsed ? "펼치기" : "접기") : "";
       h.appendChild(label);
       h.appendChild(titleEl);
       h.appendChild(icon);
@@ -546,8 +552,8 @@
       block.appendChild(img);
     }
 
-    function addHtmlBlock(title, text, kindClass) {
-      const block = makeBlock(title, kindClass);
+    function addHtmlBlock(title, text, kindClass, opts) {
+      const block = makeBlock(title, kindClass, opts);
       const frame = document.createElement("iframe");
       frame.className = "preview";
       frame.setAttribute("sandbox", "allow-same-origin");
@@ -556,10 +562,10 @@
       block.appendChild(frame);
     }
 
-    function renderArtifactEntry(title, entry, kindClass) {
+    function renderArtifactEntry(title, entry, kindClass, opts) {
       if (!entry) return;
       if (entry.kind === "image") addImageBlock(title, entry.url, kindClass);
-      else if (entry.kind === "html") addHtmlBlock(title, entry.text, kindClass);
+      else if (entry.kind === "html") addHtmlBlock(title, entry.text, kindClass, opts);
       else addDetailBlock(title, entry.text, kindClass);
     }
 
@@ -595,16 +601,29 @@
       detailModal.setAttribute("aria-hidden", "false");
       document.body.classList.add("modal-open");
 
+      const loadingEl = document.createElement("div");
+      loadingEl.className = "detail-loading";
+      loadingEl.textContent = "불러오는 중…";
+      detailBody.appendChild(loadingEl);
+
+      const { archive, detailPath, detailText, artifacts, report } = await loadDetailBundle(item);
+      detailBody.replaceChildren();
+
+      // 1) 결론 먼저 — 최신 HTML 리포트(결론 2축)를 맨 위에 펼친 채로 노출한다.
+      if (report) {
+        renderArtifactEntry("결론: reports/" + item.id + "/" + report.name, report, "kind-report", { expanded: true });
+      }
+
+      // 2) 카드 요약은 메타만. 긴 본문 덤프는 제거(원장/리포트에 이미 있음).
       const summary = [
         "source: " + (item.source || sourceLabel || ""),
         item.meta.status ? "status: " + item.meta.status : "",
         item.meta.decision ? "decision: " + item.meta.decision : "",
         pickUpdated(item) ? "updated: " + pickUpdated(item) : "",
       ].filter(Boolean).join("\n");
-      addDetailBlock("카드 요약", summary + "\n\n" + (item.bodyLines || []).join("\n"), "kind-summary");
+      addDetailBlock("카드 요약", summary, "kind-summary");
 
-      const { archive, detailPath, detailText, artifacts, report } = await loadDetailBundle(item);
-
+      // 3) 나머지(원장/상세/산출물)는 접어둔다.
       const archivePath = archive ? normalizePath(archive.path) : "";
       const normalizedDetailPath = normalizePath(detailPath);
       if (archive) addDetailBlock("Intent 원장: " + archive.path, archive.text, "kind-archive");
@@ -614,7 +633,6 @@
       for (const a of artifacts) {
         renderArtifactEntry("Artifact: artifacts/" + item.id + "/" + a.name, a, "kind-artifact");
       }
-      if (report) renderArtifactEntry("최근 리포트: reports/" + item.id + "/" + report.name, report, "kind-report");
 
       if (rateLimited) {
         addDetailBlock("GitHub API 제한", "미인증 API 호출(60/시간) 한도에 도달했습니다. 잠시 후 다시 시도해주세요. (artifacts/reports 디렉토리 listing이 누락될 수 있습니다.)", "kind-empty");

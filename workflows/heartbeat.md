@@ -131,7 +131,7 @@ Prepared findings: {cloud research/prepare summary}
 Allowed: L0/L1 actions only unless user approval exists
 Forbidden: L2/L3 actions without explicit approval
 Verification: {tests/build/lint/screenshot/direct inspection}
-Report back to: reports/{intent-id}/{timestamp}.md
+Report back to: reports/{intent-id}/{timestamp}.html (결론 2축 양식, ARTIFACT_RULES.md 참조)
 ```
 
 실행 중 L2 액션이 필요해지면:
@@ -145,25 +145,28 @@ Report back to: reports/{intent-id}/{timestamp}.md
 2. 현재까지의 안전한 작업만 기록
 3. 사용자에게 직접 수행 또는 명시 승인 필요 사항을 안내
 
-### 9. 결과 기록
+### 9. 결과 기록 (결론 2축 HTML)
 
-`reports/{intent-id}/{timestamp}.md` 형식으로 기록:
+보고는 `reports/{intent-id}/{timestamp}.html` 로 기록한다. **양식·카테고리별 축 라벨·작성 규칙은 `ARTIFACT_RULES.md`의 "Report 양식 (HTML, 결론 2축)"이 단일 출처다.**
 
-```markdown
-# [intent-id] Heartbeat Report
+보고를 쓰기 전에 먼저 이 작업의 **결론 2축**을 각각 한 줄로 도출한다. 이것이 자동 추출의 핵심이다 — 사후 파싱이 아니라 작업 종료 시점에 에이전트가 직접 결론을 산출한다.
 
-- timestamp: YYYY-MM-DDTHH:MM
-- status_before: active
-- status_after: in_progress
-- actions_taken:
-  - (L0) docker-compose.yml 분석
-  - (L1) mock-exporter 코드 작성
-- next_actions:
-  - (L2) docker-compose up -d → 승인 대기
-- findings: Mock Exporter 누락이 원인
+1. Intent id prefix로 작업 성격(조사형/개선형/감시형/범용)과 축 라벨을 선택한다.
+2. **축1(맥락/대상/문제)** 과 **축2(결과/해법/발견)** 를 각각 한 줄로 정한다. 비우지 않는다.
+3. `reports/_TEMPLATE.html` 을 복사해 2축을 채우고, 수행 작업·산출물·메타·다음 액션은 `<details>` 안에 넣는다.
+4. 같은 2축을 완료 시 `intents/archive/{id}.md` 의 `result_summary`(축2)에도 반영한다.
+
+```
+헤더:  [intent-id] 제목                          [상태 뱃지]
+─────────────────────────────────────────────
+{축1 라벨}  맥락/문제 한 줄
+{축2 라벨}  결과/해법 한 줄
+─────────────────────────────────────────────
+▸ 상세 — 수행한 작업 / 산출물        (details, 접힘)
+▸ 실행 메타 / 다음 액션              (details, 접힘)
 ```
 
-Report는 실행 로그다. 사용자가 나중에 한눈에 볼 최종 문서는 `intents/archive/{intent-id}.md`의 `Intent 원장`이다.
+Report는 실행 로그다. 2축은 그 로그의 결론을 한눈에 보게 하는 장치이고, 사용자가 나중에 볼 최종 문서는 `intents/archive/{intent-id}.md`의 `Intent 원장`이다.
 
 완료 처리 시 문서 역할은 반드시 아래처럼 통일한다.
 
