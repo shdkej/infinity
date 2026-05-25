@@ -4,18 +4,19 @@
 
 ## Inbox
 
-- id: marketing-17
-  title: Virtue 첫 세션 정성 마찰 관찰 프로토콜
-  source_note: `/home/ubuntu/dev/knowledge-lab/source/external-links/marketing/2026-05-25-first-session-friction-evidence.md`
-  rationale: 첫 실사용자 표본이 작을 때 `deed_judged`/`deed_saved` 전환율보다 반복 클릭, 입력 보류, 저장 전 이탈, 결과 이해 실패 같은 행동 증거가 activation 마찰을 더 빨리 설명한다.
-  expected_impact: prelaunch/초기 출시 단계에서 작은 수치를 과대해석하지 않고, 첫 10-20명 관찰을 제품/카피/온보딩 개선 후보로 변환할 수 있다.
-  permission_level: L1 문서 작성 + L2 agent-approved push; session replay 도구 도입, 개인정보/트래킹 변경, 외부 사용자 관찰 요청은 제외.
-  owner_route: Infinity가 Claude Code로 `virtue-rebirth-app` 내부 문서 작성 위임.
-  success_criteria: J1-J4별 첫 가치 경로에 적용할 수 있는 정성 마찰 태그, `value-critical/value-adjacent/non-critical at activation` 분류, 첫 3명/첫 10명 검증 게이트가 한 문서에 정리된다.
-  first_verification_gate: 신규 이벤트/속성/대시보드/코드/카피/배포 변경 없이 문서만 추가되고, 기존 `first-session-jtbd-matrix`, `three-screen-value-path-audit`, `ios-activation-event-parity-brief`와 충돌하지 않는다.
-
 ## Active
 
+- id: marketing-17
+  title: Virtue 첫 세션 정성 마찰 관찰 프로토콜
+  status: in_progress
+  priority: high
+  permission: L1
+  goal: J1-J4별 정성 마찰 태그 + value-critical/adjacent/non-critical 분류 + 첫 3명/10명 검증 게이트를 한 문서로 정리
+  success_criteria: 신규 이벤트·속성·코드·카피·배포 변경 없이 docs 문서만 추가, 기존 선행 문서와 충돌 없음
+  context: virtue-rebirth-app/apps/web/docs/
+  mode: prepare→execute_local
+  detail: intents/active/marketing-17.md
+  artifact: artifacts/marketing-17/first-session-qualitative-friction-protocol.md
 
 ## Waiting
 
