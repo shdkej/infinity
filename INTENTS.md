@@ -4,15 +4,6 @@
 
 ## Inbox
 
-- id: marketing-17
-  title: Virtue 첫 세션 정성 마찰 관찰 프로토콜
-  source_note: `/home/ubuntu/dev/knowledge-lab/source/external-links/marketing/2026-05-25-first-session-friction-evidence.md`
-  rationale: 첫 실사용자 표본이 작을 때 `deed_judged`/`deed_saved` 전환율보다 반복 클릭, 입력 보류, 저장 전 이탈, 결과 이해 실패 같은 행동 증거가 activation 마찰을 더 빨리 설명한다.
-  expected_impact: prelaunch/초기 출시 단계에서 작은 수치를 과대해석하지 않고, 첫 10-20명 관찰을 제품/카피/온보딩 개선 후보로 변환할 수 있다.
-  permission_level: L1 문서 작성 + L2 agent-approved push; session replay 도구 도입, 개인정보/트래킹 변경, 외부 사용자 관찰 요청은 제외.
-  owner_route: Infinity가 Claude Code로 `virtue-rebirth-app` 내부 문서 작성 위임.
-  success_criteria: J1-J4별 첫 가치 경로에 적용할 수 있는 정성 마찰 태그, `value-critical/value-adjacent/non-critical at activation` 분류, 첫 3명/첫 10명 검증 게이트가 한 문서에 정리된다.
-  first_verification_gate: 신규 이벤트/속성/대시보드/코드/카피/배포 변경 없이 문서만 추가되고, 기존 `first-session-jtbd-matrix`, `three-screen-value-path-audit`, `ios-activation-event-parity-brief`와 충돌하지 않는다.
 
 ## Active
 
@@ -22,6 +13,8 @@
 <!-- 사용자 결정, 외부 조건, 안전 확인 대기. 같은 질문을 반복하지 않고 상태만 보존한다. -->
 
 ## Archive
+
+<!-- marketing-17 completed 2026-05-25T22:07Z → intents/archive/marketing-17.md (Virtue 첫 세션 정성 마찰 관찰 프로토콜 작성 완료. 산출물은 virtue-rebirth-app `2a8c694`의 `apps/web/docs/first-session-friction-observation-protocol.md`(신규 +289). 첫 10~20명 소표본에서 `deed_judged`/`deed_saved` 전환율보다 미완료 세션의 첫 가시적 막힘을 먼저 행동 증거로 기록하는 관찰 렌즈. (1) J1~J4 첫 가치 경로를 `/` 대시보드→`/add` 입력→결과 카드→저장→`/` 복귀 위에 매핑, (2) 수기 정성 마찰 태그 F1~F9(반복클릭/입력보류/입력이탈/결과카드 이해못함/저장보류·건너뜀/대시보드payoff 못알아챔/AI약속 공백/누적payoff 공백/카피·의미 불일치)를 Intent 지정 9종과 1:1 정의, (3) 단계별 잡 value-critical/value-adjacent/non-critical at activation 분류, (4) 신규 계측 없는 첫 3명/첫 10명 검증 게이트. 정합: F7=three-screen §3-A J3 앞단 끊김, F8+F6=§3-B J2 뒷단 누출, "AI 채점 대기"는 처분 대상이라 별도 태그 없이 friction-audit에 위임. Goldcast/LogRocket+Arise GTM/Hi-Books+세스 고딘 렌즈 합성. 기존 4개 이벤트만 인용, 신규 이벤트·속성·대시보드·세션리플레이·코드·카피·배포·외부발송·비용·시크릿·권한·개인정보 변경 0. 지정 3문서 포함 선행 9문서 충돌 0. workflow-master 파일 부재 기록 후 4역할 병렬 합성. L2 agent-approved push 정상 fast-forward(87b8877→2a8c694, HEAD==origin/master). reports/marketing-17/2026-05-25T2207Z-local.md) -->
 
 <!-- research-09 completed 2026-05-25T12:30Z → intents/archive/research-09.md (1인기업 강점 살리기 vs 한계 조기 규정 리서치. 강점(24h 피벗·1인=10~20인 AI 레버리지·니치 집중)은 구조적 실재, "혼자라 못해"는 대개 시장이 아닌 자기규정(성장 천장은 "귀 사이의 공간"=통제·완벽주의·두려움). 단 시스템 부재로 인한 실제 천장도 존재 → 답은 양자택일이 아닌 분별: ①강점은 끝까지 살린다 ②한계는 규정 전 검증한다(측정된 사실인가 미검증 믿음인가) ③진짜 천장은 고용이 아니라 자동화·AI·시스템으로 올린다. 산출물 artifacts/research-09/solopreneur-strength-vs-limits.md(정-반-합+분별표+출처6), 보고서 reports/research-09/2026-05-25T1230Z.html. 공개 사이트/코드 변경 0) -->
 
