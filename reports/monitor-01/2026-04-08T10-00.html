@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>monitor-01 · Report</title>
+<style>
+  :root{--bg:#0f172a;--panel:#1e293b;--panel-2:#273449;--text:#e2e8f0;--muted:#94a3b8;--accent:#38bdf8;--ok:#22c55e;--warn:#f59e0b;--bad:#ef4444;--line:#334155;}
+  *{box-sizing:border-box;}
+  body{margin:0;padding:18px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;background:var(--bg);color:var(--text);line-height:1.6;font-size:14px;}
+  .report{max-width:820px;margin:0 auto;}
+  .head{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:16px;}
+  .id{font-family:ui-monospace,Menlo,monospace;font-size:12px;color:var(--accent);}
+  h1{font-size:18px;margin:0;flex:1 1 auto;}
+  .badge{display:inline-block;padding:2px 10px;border-radius:6px;font-size:12px;font-weight:600;}
+  .badge.warn{background:#78350f;color:#fde68a;}
+  .verdict{display:grid;gap:12px;margin-bottom:16px;}
+  .axis{border-left:3px solid var(--line);padding:2px 0 2px 14px;}
+  .axis.check{border-color:var(--warn);} .axis.result{border-color:var(--ok);}
+  .axis .label{font-size:12px;font-weight:600;color:var(--muted);margin-bottom:4px;}
+  .axis .body{font-size:16px;line-height:1.5;}
+  .axis .body b{color:#fff;}
+  details{background:var(--panel);border:1px solid var(--line);border-radius:10px;margin-bottom:10px;}
+  summary{cursor:pointer;padding:11px 14px;font-size:12px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;list-style:none;}
+  summary::-webkit-details-marker{display:none;}
+  summary::before{content:"▸ ";color:var(--accent);}
+  details[open] summary::before{content:"▾ ";}
+  .details-body{padding:0 16px 14px;}
+  ul{margin:6px 0;padding-left:20px;} li{margin:3px 0;}
+  code{font-family:ui-monospace,Menlo,monospace;font-size:12px;background:var(--panel-2);padding:1px 6px;border-radius:4px;color:#cbd5e1;}
+  .meta{display:flex;flex-wrap:wrap;gap:6px;}
+  .chip{background:var(--panel-2);border:1px solid var(--line);border-radius:999px;padding:2px 10px;font-size:11px;color:var(--muted);}
+  .foot{color:var(--muted);font-size:11px;text-align:center;margin-top:16px;}
+</style>
+</head>
+<body>
+<div class="report">
+
+  <div class="head">
+    <span class="id">monitor-01</span>
+    <h1>Layer 2 프로덕트 품질 모니터링 점검</h1>
+    <span class="badge warn">blocked · 승인 대기</span>
+  </div>
+
+  <div class="verdict">
+    <div class="axis check">
+      <div class="label">🟡 무엇을 점검했나</div>
+      <div class="body">Grafana "Layer 2 프로덕트 품질" 대시보드 — <b>전체 패널 No Data</b>.
+        근본 원인: YACE 로컬 설정(AWS/RUM job)이 <b>k8s ConfigMap에 동기화되지 않아</b> RUM 메트릭이 Prometheus에 수집되지 않음.</div>
+    </div>
+    <div class="axis result">
+      <div class="label">✅ 이상 여부 · 조치</div>
+      <div class="body">조치(채택): <b>YACE ConfigMap에 AWS/RUM job 동기화 + 대시보드 쿼리를 YACE 메트릭명으로 수정</b> (Reuse Before Create, 새 Exporter 불필요).
+        ArgoCD 동기화(배포)는 <b>L2 — 승인 대기 중</b>.</div>
+    </div>
+  </div>
+
+  <details>
+    <summary>상세 — 대시보드가 기대하는 메트릭</summary>
+    <div class="details-body">
+      <ul>
+        <li>응답시간 p95/p99/평균: <code>http_request_duration_seconds_bucket</code> (histogram)</li>
+        <li>요청 처리량: <code>http_requests_total</code> / 오류율: <code>frontend_error_total</code> (counter)</li>
+        <li>Core Web Vitals: <code>web_vitals_lcp/fid/cls</code> (gauge)</li>
+        <li>CloudWatch RUM: <code>aws_rum_*</code> (LCP/FID/CLS, JS·HTTP errors, sessions)</li>
+        <li>HTTP 서비스 메트릭은 실제 앱 계측 필요 → 별도 Intent로 분리</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary>실행 메타 / 다음 액션</summary>
+    <div class="details-body">
+      <div class="meta">
+        <span class="chip">시각 2026-04-08T10:00 (1회차)</span>
+        <span class="chip">declared → blocked</span>
+        <span class="chip">L0 분석</span>
+      </div>
+      <ul>
+        <li>(L1) k8s YACE ConfigMap에 AWS/RUM job 추가</li>
+        <li>(L1) layer-product.json 쿼리를 YACE 메트릭명으로 수정</li>
+        <li>(L2) ArgoCD 동기화 → 승인 필요</li>
+      </ul>
+    </div>
+  </details>
+
+  <div class="foot">Agent-First Heartbeat · Infinity</div>
+</div>
+</body>
+</html>
