@@ -4,6 +4,16 @@
 
 ## Inbox
 
+### marketing-16 — Virtue 첫 세션 3-스크린 가치 경로 감사표
+
+- source note: `/home/ubuntu/dev/knowledge-lab/source/external-links/marketing/2026-05-25-three-screen-value-onboarding.md`
+- rationale: Lenny Distilled activation/onboarding 정리는 온보딩을 기능 설명이 아니라 즉시 가치 전달로 보며, Amplitude benchmark도 early value와 retention 연결을 강조한다. Virtue는 prelaunch라 수치 판정보다 J1-J4별 첫 세션 가치 경로가 세 화면 안에 닫히는지 내부 감사가 먼저다.
+- expected impact: 첫 10-20명 관찰 전에 "사용자가 어떤 약속을 보고 어떤 행동으로 어떤 가치를 확인하는가"를 화면 단위로 고정해, 획득/활성화/리텐션 해석 언어를 줄인다.
+- permission level: L1/L2 내부 문서 작업만 허용. 코드, 카피 반영, 신규 이벤트, 대시보드, 외부 발송, 공개 포스트, 비용 집행은 금지하고 필요 시 Waiting/approval-needed로 분리.
+- owner route: Infinity router → Claude Code 문서 작업 후보. 정본은 `virtue-rebirth-app/apps/web/docs/` 아래 내부 브리프로 생성.
+- success criteria: J1 기록형, J2 누적형, J3 AI 호기심형, J4 회고형 각각에 대해 `첫 약속 -> 첫 행동 -> 첫 가치 확인` 3단계 표가 있고, 세 화면 안에 닫히지 않는 구간과 기존 이벤트(`add_flow_started`, `deed_judged`, `deed_saved`, `level_up_viewed`) 연결이 표시되어 있다.
+- first verification gate: 기존 `first-session-jtbd-matrix`, `activation-milestone-ladder`, `ios-activation-event-parity-brief`와 충돌 없이 신규 이벤트/속성/프로덕션 코드 변경 0건인지 확인한다.
+
 ## Active
 
 
