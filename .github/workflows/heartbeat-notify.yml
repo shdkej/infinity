@@ -41,9 +41,11 @@ jobs:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: |
-          # 최근 24시간 Heartbeat 커밋 요약
+          # 최근 24시간 Infinity 처리 커밋 요약.
+          # 커밋 author는 로컬 Claude/웹/수동 push 경로에 따라 shdkej 등으로 남을 수 있으므로
+          # author가 아니라 Infinity 운영 파일 경로를 기준으로 집계한다.
           SINCE=$(TZ=Asia/Seoul date -d '24 hours ago' --iso-8601=seconds 2>/dev/null || date -v-24H '+%Y-%m-%dT%H:%M:%S')
-          COMMITS=$(git log --since="$SINCE" --oneline --author="Claude" -- reports/ INTENTS.md GATES.md)
+          COMMITS=$(git log --since="$SINCE" --oneline -- reports/ INTENTS.md GATES.md)
           COMMIT_COUNT=$(echo "$COMMITS" | grep -c . || true)
 
           # 현재 INTENTS.md Active 상태
@@ -52,7 +54,7 @@ jobs:
           # 현재 GATES.md 대기 중
           PENDING=$(sed -n '/^## 대기 중/,/^## /p' GATES.md | grep -c "^###" || true)
 
-          MSG=$(printf "☀️ 아침 리캡 (최근 24시간)\n\nHeartbeat 활동: %s건\n승인 대기: %s건\n\n--- 커밋 이력 ---\n%s" "$COMMIT_COUNT" "$PENDING" "$COMMITS")
+          MSG=$(printf "☀️ 아침 리캡 (최근 24시간)\n\nInfinity 처리 활동: %s건\n승인 대기: %s건\n\n--- 커밋 이력 ---\n%s" "$COMMIT_COUNT" "$PENDING" "$COMMITS")
 
           curl -s "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
             -d "chat_id=${TELEGRAM_CHAT_ID}" \
