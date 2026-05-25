@@ -4,16 +4,6 @@
 
 ## Inbox
 
-### marketing-16 — Virtue 첫 세션 3-스크린 가치 경로 감사표
-
-- source note: `/home/ubuntu/dev/knowledge-lab/source/external-links/marketing/2026-05-25-three-screen-value-onboarding.md`
-- rationale: Lenny Distilled activation/onboarding 정리는 온보딩을 기능 설명이 아니라 즉시 가치 전달로 보며, Amplitude benchmark도 early value와 retention 연결을 강조한다. Virtue는 prelaunch라 수치 판정보다 J1-J4별 첫 세션 가치 경로가 세 화면 안에 닫히는지 내부 감사가 먼저다.
-- expected impact: 첫 10-20명 관찰 전에 "사용자가 어떤 약속을 보고 어떤 행동으로 어떤 가치를 확인하는가"를 화면 단위로 고정해, 획득/활성화/리텐션 해석 언어를 줄인다.
-- permission level: L1/L2 내부 문서 작업만 허용. 코드, 카피 반영, 신규 이벤트, 대시보드, 외부 발송, 공개 포스트, 비용 집행은 금지하고 필요 시 Waiting/approval-needed로 분리.
-- owner route: Infinity router → Claude Code 문서 작업 후보. 정본은 `virtue-rebirth-app/apps/web/docs/` 아래 내부 브리프로 생성.
-- success criteria: J1 기록형, J2 누적형, J3 AI 호기심형, J4 회고형 각각에 대해 `첫 약속 -> 첫 행동 -> 첫 가치 확인` 3단계 표가 있고, 세 화면 안에 닫히지 않는 구간과 기존 이벤트(`add_flow_started`, `deed_judged`, `deed_saved`, `level_up_viewed`) 연결이 표시되어 있다.
-- first verification gate: 기존 `first-session-jtbd-matrix`, `activation-milestone-ladder`, `ios-activation-event-parity-brief`와 충돌 없이 신규 이벤트/속성/프로덕션 코드 변경 0건인지 확인한다.
-
 ## Active
 
 
@@ -22,6 +12,8 @@
 <!-- 사용자 결정, 외부 조건, 안전 확인 대기. 같은 질문을 반복하지 않고 상태만 보존한다. -->
 
 ## Archive
+
+<!-- marketing-16 completed 2026-05-25T10:07Z → intents/archive/marketing-16.md (Virtue 첫 세션 3-스크린 가치 경로 감사표 작성 완료. 산출물은 virtue-rebirth-app `87b8877`의 `apps/web/docs/three-screen-value-path-audit.md`. 문서는 S1 `/` 대시보드 → S2 `/add` 입력 → S3 `/add` 결과 카드의 3개 개념 화면으로 J1 기록형/J2 누적형/J3 AI 호기심형/J4 회고형의 `첫 약속 -> 첫 행동 -> 첫 가치 확인` 경로를 표로 고정. 핵심 발견: J3는 `deed_judged`로 S3에서 가치 확인은 닫히지만 S1 AI 약속이 없어 앞단 끊김, J2는 `deed_saved` 저장은 닫히지만 누적/진화 payoff가 `/` 복귀 또는 조건부 `level_up_viewed`에 의존해 뒷단 누출, J1·J4는 `deed_saved`로 S3에서 첫 세션 가치 닫힘. 기존 4개 이벤트(`add_flow_started`, `deed_judged`, `deed_saved`, `level_up_viewed`)만 매핑, 신규 이벤트·속성·코드·카피·대시보드·외부발송·비용·시크릿·권한 변경 0. L2 push는 agent-approved 조건 확인 후 정상 fast-forward push. reports/marketing-16/2026-05-25T1007Z-local.md) -->
 
 <!-- marketing-15 completed 2026-05-24T22:07Z → intents/archive/marketing-15.md (Virtue 웹/iOS 활성화 이벤트 패리티 브리프 작성 완료. 산출물은 virtue-rebirth-app `10e3fa2`의 `apps/web/docs/ios-activation-event-parity-brief.md`. 문서는 웹/iOS 이벤트 발화 위치, 속성 차이, J1-J4 활성화 후보 묶음, prelaunch 해석 금지선, 출시 후 첫 검증 게이트를 포함. 핵심 발견: iOS는 add_flow_started/add_flow_abandoned/level_up_viewed/deed_rerolled/deed_save_capped 부재, deed_saved 속성 웹 12 vs iOS 3, deed_judged 웹 9 vs iOS 7, iOS만 platform=ios super-property 등록. 신규 이벤트·속성·코드·카피·대시보드·외부발송·비용·시크릿·권한 변경 0. reports/marketing-15/2026-05-24T2207Z-local.md) -->
 
