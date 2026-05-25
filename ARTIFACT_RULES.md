@@ -108,8 +108,11 @@ Infinity 문서는 아래 3개 역할로 통일한다. 새 문서를 만들 때 
 - 위치: `reports/{id}/{timestamp}.html`
 - 템플릿: `reports/_TEMPLATE.html` 을 복사해 `{{...}}` 자리표시자를 치환한다. (`_`로 시작하는 파일은 대시보드가 무시한다)
 - **제약**: 대시보드는 이 파일을 `iframe sandbox="allow-same-origin"` 으로 렌더하므로 **JS·외부 리소스는 동작하지 않는다.** 스타일은 인라인 `<style>` 로만, 접기는 `<details>`(JS 불필요)로 한다.
-- 색/톤은 대시보드(`docs/index.html`)의 CSS 변수와 통일한다 (`--bg #0f172a`, `--panel #1e293b`, `--accent #38bdf8` 등).
-- 구조: **헤더(id·제목·상태) → 결론 2축(큼직) → `<details>` 상세(수행 작업/산출물) → `<details>` 메타/다음 액션**.
+- 디자인은 **"Quiet Note"** 시스템을 따른다 — 따뜻한 본(bone) 배경(`--bg #f4f2ea`) + 저채도 단일 악센트. `_TEMPLATE.html`의 CSS는 그대로 두고 `:root`의 **`--a1`/`--a1-deep` 두 줄만 카테고리색으로 교체**한다 (축2는 항상 sage 고정):
+  - 조사형(research/wiki/doc): `--a1:#5a6f8a; --a1-deep:#3f536e;` (slate-blue) — 라벨 "무엇을 조사했나 / 핵심 결과"
+  - 개선형(marketing/product/dev/build/pages): `--a1:#a9745a; --a1-deep:#8a5c45;` (clay) — 라벨 "무엇이 문제였나 / 어떻게 해결하나"
+  - 감시형(monitor/maintenance/router): `--a1:#b08545; --a1-deep:#8a6633;` (muted gold) — 라벨 "무엇을 점검했나 / 이상 여부·조치"
+- 구조: **eyebrow(id·상태) → 제목 + dek 한 줄 → 결론 2축(좌측 컬러 라인) → `<details>` 상세 → `<details>` 메타**. JS 없이 CSS `animation-delay`로 스태거 로드.
 - 같은 시점의 보고를 `.md` 와 `.html` 로 함께 두면 대시보드는 **`.html` 을 우선** 노출한다. 신규 보고는 `.html` 하나만 만든다.
 
 > Report 는 여전히 "실행 로그"다. 2축은 그 로그의 결론을 사람이 한눈에 보게 하는 장치이며, canonical index 는 `intents/archive/{id}.md` 에 둔다는 원칙은 그대로다. 원장에도 동일한 2축(`result_summary`가 축2에 해당)을 남긴다.
