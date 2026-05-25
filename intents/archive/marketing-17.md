@@ -47,4 +47,5 @@ Virtue 첫 실사용자 표본이 작을 때(첫 10~20명) `deed_judged`/`deed_s
 
 ## Reports
 
-- `reports/marketing-17/2026-05-25T2207Z-local.md`
+- `reports/marketing-17/2026-05-25T2207Z-local.html`
+- legacy log: `reports/marketing-17/2026-05-25T2207Z-local.md`
