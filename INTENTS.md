@@ -4,17 +4,6 @@
 
 ## Inbox
 
-<!-- marketing-19 candidate 2026-05-26T10:00Z
-제목: Virtue 신규 사용자 홈 화면 FAE 감사표 작성
-근거 노트: /home/ubuntu/dev/knowledge-lab/source/external-links/marketing/2026-05-26-home-dashboard-fae.md
-Rationale: Virtue는 prelaunch라 획득 확대보다 첫 사용자가 `/`에서 J1/J2/J4=`deed_saved`, J3=`deed_judged`로 향하는 길을 이해하는지 먼저 배워야 한다. ProductQuant/Skene/Delivering Value 공통 렌즈는 첫 홈 화면을 기능 메뉴가 아니라 First Activation Event 방향판으로 보라고 한다.
-Expected impact: 첫 10-20명 관찰 전에 홈 화면 CTA, 빈 상태, 최근 덕행 영역, 누적/환생종 신호가 첫 활성화 행동으로 이어지는지 내부 기준을 고정해 관찰 노이즈를 줄인다.
-Permission level: L1 내부 문서/감사표만 허용. 공개 카피 반영, 배포, 새 트래킹/프라이버시 변경, 외부 발송은 Waiting/approval-needed.
-Owner route: Infinity router -> Claude Code, virtue-rebirth-app 문서 산출물 후보.
-Success criteria: 신규 문서 1개가 `/` 홈 화면을 J1-J4별 FAE 방향성, "무엇을 먼저/왜 지금/하면 무엇이 생김" 질문, 기존 이벤트(`add_flow_started`, `deed_judged`, `deed_saved`, `level_up_viewed`) 관찰 게이트로 정리한다. 코드/카피/이벤트/대시보드 변경 0.
-First verification gate: 선행 문서 `three-screen-value-path-audit`, `first-session-friction-observation-protocol`, `empty-state/first-action` 계열과 충돌 없이 중복 범위를 "홈 화면 FAE 방향판"으로 한정했는지 확인한다.
--->
-
 
 ## Active
 
@@ -24,6 +13,8 @@ First verification gate: 선행 문서 `three-screen-value-path-audit`, `first-s
 <!-- 사용자 결정, 외부 조건, 안전 확인 대기. 같은 질문을 반복하지 않고 상태만 보존한다. -->
 
 ## Archive
+
+<!-- marketing-19 completed 2026-05-26T10:07Z → intents/archive/marketing-19.md (Virtue 신규 사용자 홈 화면 FAE 감사표 작성 완료. 산출물은 virtue-rebirth-app `3d90648`의 `apps/web/docs/home-screen-fae-audit.md`(신규 1파일). `/` 홈 화면을 일반 기능 메뉴가 아니라 First Activation Event 방향판으로 보고 J1/J2/J4→`deed_saved`, J3→`deed_judged` 경로를 CTA·빈 상태·최근 덕행 영역·누적/환생종 신호별로 "무엇을 먼저/왜 지금/하면 무엇이 생김" 3질문에 매핑. 핵심 발견: 홈은 J1/J2 약속에 강하지만 J3 AI 신호는 `/add` 이전 사실상 부재해 three-screen §3-A의 J3 앞단 끊김과 일치. 기존 이벤트 `add_flow_started`·`deed_judged`·`deed_saved`·`level_up_viewed`만 관찰 게이트로 인용, 코드·카피·이벤트·대시보드·배포·외부발송·비용·시크릿·권한 변경 0. 선행 8문서 충돌 0, workflow-master 파일 부재 기록 후 4역할 병렬 합성. L2 agent-approved push 정상 fast-forward(f74cf59→3d90648, HEAD==origin/master). reports/marketing-19/2026-05-26T1007Z-local.md) -->
 
 <!-- marketing-18 completed 2026-05-26T00:07Z → intents/archive/marketing-18.md (Virtue AEO / Agent-ready 공개 표면 감사표 작성 완료. 산출물은 virtue-rebirth-app `f74cf59`의 `apps/web/docs/aeo-agent-ready-surface-audit.md`(신규 1파일). prelaunch Virtue가 AI 답변엔진/브라우징·코딩 에이전트에게 어떤 제품으로 읽히는지 감사. AEO 5축 렌즈(발견 가능성·파싱 용이성·토큰 효율성·기능/가치 시그널링·접근 제어)로 성공기준 지정 8개 표면 항목을 분류: 이미 충분함=capability/value signaling(내부 정의는 7+ 선행 문서로 충분) / 내부 문서 필요=canonical product explainer·llms.txt 후보·agent answer snippet(L1 즉시 가능, 본 문서가 1차 산출) / 공개 변경 필요(proposal-only)=public homepage 파싱 가능화·robots.txt·sitemap·structured metadata(OG/JSON-LD/canonical) / 승인 필요(Waiting)=위 공개 변경의 배포·외부 제출·비용. 핵심 발견: 전 앱 페이지가 `"use client"`라 초기 HTML이 빈 셸 → 봇은 title+description 2줄만 읽음, 이 비가시성은 prelaunch 전략과 우연히 정렬됐을 뿐 의도된 접근 제어 아님. §4에 agent answer snippet 내부 후보(무엇/누가 J1~J4/언제/왜 다른가) + 저토큰 1줄 요약 + copy-spec 금지어 대조. robots/sitemap/metadata/layout/공개 페이지/소스/배포/env/시크릿/애널리틱스 스키마 변경 0건, 외부 호출·제출·비용 0. 선행 6문서(jtbd-matrix/competitive/three-screen/first-impression/mva/copy-spec) + research-08 충돌 0. workflow-master 파일 부재 기록 후 4역할 병렬 합성. L2 agent-approved push 정상 fast-forward(2a8c694→f74cf59, HEAD==origin/master). reports/marketing-18/2026-05-26T0007Z-local.md) -->
 
