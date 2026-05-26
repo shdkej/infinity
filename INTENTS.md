@@ -4,19 +4,20 @@
 
 ## Inbox
 
-<!-- marketing-19 candidate 2026-05-26T10:00Z
-제목: Virtue 신규 사용자 홈 화면 FAE 감사표 작성
-근거 노트: /home/ubuntu/dev/knowledge-lab/source/external-links/marketing/2026-05-26-home-dashboard-fae.md
-Rationale: Virtue는 prelaunch라 획득 확대보다 첫 사용자가 `/`에서 J1/J2/J4=`deed_saved`, J3=`deed_judged`로 향하는 길을 이해하는지 먼저 배워야 한다. ProductQuant/Skene/Delivering Value 공통 렌즈는 첫 홈 화면을 기능 메뉴가 아니라 First Activation Event 방향판으로 보라고 한다.
-Expected impact: 첫 10-20명 관찰 전에 홈 화면 CTA, 빈 상태, 최근 덕행 영역, 누적/환생종 신호가 첫 활성화 행동으로 이어지는지 내부 기준을 고정해 관찰 노이즈를 줄인다.
-Permission level: L1 내부 문서/감사표만 허용. 공개 카피 반영, 배포, 새 트래킹/프라이버시 변경, 외부 발송은 Waiting/approval-needed.
-Owner route: Infinity router -> Claude Code, virtue-rebirth-app 문서 산출물 후보.
-Success criteria: 신규 문서 1개가 `/` 홈 화면을 J1-J4별 FAE 방향성, "무엇을 먼저/왜 지금/하면 무엇이 생김" 질문, 기존 이벤트(`add_flow_started`, `deed_judged`, `deed_saved`, `level_up_viewed`) 관찰 게이트로 정리한다. 코드/카피/이벤트/대시보드 변경 0.
-First verification gate: 선행 문서 `three-screen-value-path-audit`, `first-session-friction-observation-protocol`, `empty-state/first-action` 계열과 충돌 없이 중복 범위를 "홈 화면 FAE 방향판"으로 한정했는지 확인한다.
--->
-
 
 ## Active
+
+### marketing-19 Virtue 신규 사용자 홈 화면 FAE 감사표 작성
+- id: marketing-19
+- status: in_progress
+- mode: prepare+draft (cloud 완료) → execute_local (virtue-rebirth-app push)
+- priority: medium
+- permission: L1
+- goal: `/` 홈 화면이 J1~J4 신규 사용자를 First Activation Event(FAE)로 안내하는 방향판인지 내부 감사표 작성. 코드/카피/이벤트/대시보드 변경 0.
+- context: virtue-rebirth-app/apps/web/docs/, artifacts/marketing-19/home-fae-audit-draft.md
+- success_criteria: 신규 문서 1개가 홈 화면을 J1-J4별 FAE 방향성·"무엇을 먼저/왜 지금/하면 무엇이 생김"·기존 이벤트 관찰 게이트로 정리. 선행 문서 3종 충돌 0.
+- next_action: Local Claude Code → artifacts/marketing-19/home-fae-audit-draft.md를 virtue-rebirth-app apps/web/docs/home-fae-audit.md로 커밋·push (L2 agent-approved)
+- created_at: 2026-05-26T12:00Z
 
 
 ## Waiting
