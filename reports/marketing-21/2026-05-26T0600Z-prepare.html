@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>[marketing-21] Virtue /add 입력-결과 균형 감사표 — Cloud Prepare</title>
+<style>
+  :root {
+    --bg: #f4f2ea;
+    --surface: #faf9f5;
+    --border: #e0ddd4;
+    --text: #2c2c2c;
+    --muted: #6b6b6b;
+    --a1: #a9745a;
+    --a1-deep: #8a5c45;
+    --a2: #6b8a6e;
+    --a2-deep: #4f6e52;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: 'Georgia', serif; font-size: 15px; line-height: 1.7; padding: 2rem 1.5rem; max-width: 720px; margin: 0 auto; }
+  .eyebrow { font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin-bottom: .5rem; }
+  h1 { font-size: 1.45rem; font-weight: 600; margin-bottom: .35rem; }
+  .dek { color: var(--muted); font-size: .93rem; margin-bottom: 1.8rem; }
+  .axis-block { border-left: 4px solid var(--a1); padding: .6rem 1rem; margin-bottom: .75rem; background: var(--surface); border-radius: 0 4px 4px 0; }
+  .axis-block.a2 { border-left-color: var(--a2); }
+  .axis-label { font-size: .72rem; text-transform: uppercase; letter-spacing: .07em; color: var(--a1-deep); margin-bottom: .15rem; font-weight: 700; }
+  .axis-block.a2 .axis-label { color: var(--a2-deep); }
+  .axis-value { font-size: .97rem; }
+  details { margin-top: 1.2rem; border: 1px solid var(--border); border-radius: 4px; background: var(--surface); }
+  summary { padding: .7rem 1rem; cursor: pointer; font-size: .88rem; font-weight: 600; color: var(--a1-deep); list-style: none; }
+  summary::-webkit-details-marker { display: none; }
+  summary::before { content: '\25B8 '; }
+  details[open] summary::before { content: '\25BE '; }
+  .details-body { padding: .8rem 1rem 1rem; font-size: .9rem; line-height: 1.65; }
+  table { width: 100%; border-collapse: collapse; font-size: .85rem; margin: .6rem 0; }
+  th { background: var(--border); padding: .4rem .6rem; text-align: left; font-size: .78rem; }
+  td { padding: .4rem .6rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+  .badge { display: inline-block; padding: .1rem .5rem; border-radius: 3px; font-size: .72rem; font-weight: 700; letter-spacing: .05em; background: var(--a1); color: #fff; text-transform: uppercase; }
+  .badge.ok { background: var(--a2); }
+  ul { margin: .4rem 0 .4rem 1.2rem; }
+  li { margin-bottom: .2rem; }
+  code { background: var(--border); padding: .1rem .3rem; border-radius: 2px; font-size: .85em; font-family: monospace; }
+</style>
+</head>
+<body>
+
+<div class="eyebrow">marketing-21 &nbsp;&middot;&nbsp; <span class="badge">in_progress</span> &nbsp;&middot;&nbsp; 2026-05-26 &nbsp;&middot;&nbsp; Cloud Prepare</div>
+<h1>Virtue <code>/add</code> 입력-결과 균형 감사표</h1>
+<p class="dek">prelaunch 소표본 해석 오류 방지를 위한 /add 경로 잡별 가치 분리 — cloud prepare 완료, 로컬 실행 대기</p>
+
+<div class="axis-block">
+  <div class="axis-label">&#x1F534; 무엇이 문제였나</div>
+  <div class="axis-value">/add 경로에서 J3 <code>deed_judged</code>와 J1/J2/J4 <code>deed_saved</code> 가치 발현 시점이 혼재 &rarr; prelaunch 소표본에서 J3 저장 전 이탈을 마찰로 오분류할 위험</div>
+</div>
+
+<div class="axis-block a2">
+  <div class="axis-label">&#x2705; 어떻게 해결하나</div>
+  <div class="axis-value">입력 부담·결과 강도·click tax·J3 저장 전 정상 종료 기준 분리한 감사표 드래프트 완성 (<code>artifacts/marketing-21/</code>); 로컬 Claude Code가 virtue-rebirth-app에 배치 후 push 예정</div>
+</div>
+
+<details>
+  <summary>수행 작업 / 산출물</summary>
+  <div class="details-body">
+    <p><strong>이번 Heartbeat 수행 내역 (Cloud Prepare):</strong></p>
+    <ul>
+      <li>INTENTS.md Inbox &rarr; Active 전환 (marketing-21, status: in_progress)</li>
+      <li><code>artifacts/marketing-21/add-flow-input-output-balance-audit.md</code> 드래프트 작성<br>
+        &nbsp;&nbsp;— 8단계 흐름 표(A1~A7), J1-J4 first value 분석, input burden, output strength, click tax,<br>
+        &nbsp;&nbsp;&nbsp;&nbsp; J3 저장 전 정상 종료 판정 기준표, prelaunch 해석 금지선, 관찰 게이트, 검증 게이트</li>
+      <li><code>artifacts/marketing-21/local-execution-prompt.md</code> 위임 프롬프트 작성</li>
+    </ul>
+    <p style="margin-top:.8rem;"><strong>드래프트 검증 게이트:</strong></p>
+    <table>
+      <tr><th>항목</th><th>결과</th></tr>
+      <tr><td><code>input burden</code> 명시</td><td><span class="badge ok">&#x2713; §3</span></td></tr>
+      <tr><td><code>output strength</code> 명시</td><td><span class="badge ok">&#x2713; §4</span></td></tr>
+      <tr><td><code>click tax</code> 명시</td><td><span class="badge ok">&#x2713; §5</span></td></tr>
+      <tr><td><code>deed_judged</code> 명시</td><td><span class="badge ok">&#x2713; §1,2,6</span></td></tr>
+      <tr><td><code>deed_saved</code> 명시</td><td><span class="badge ok">&#x2713; §1,2,6</span></td></tr>
+      <tr><td>J3 저장 전 정상 종료 정의</td><td><span class="badge ok">&#x2713; §2</span></td></tr>
+      <tr><td>코드/카피/계측 변경</td><td><span class="badge ok">0건</span></td></tr>
+      <tr><td>신규 이벤트</td><td><span class="badge ok">0건</span></td></tr>
+      <tr><td>선행 문서 충돌 마커</td><td><span class="badge ok">없음</span></td></tr>
+    </table>
+  </div>
+</details>
+
+<details>
+  <summary>실행 메타 / 다음 액션</summary>
+  <div class="details-body">
+    <table>
+      <tr><th>필드</th><th>값</th></tr>
+      <tr><td>모드</td><td>prepare (cloud) &rarr; execute_local 대기</td></tr>
+      <tr><td>권한</td><td>L1 (문서 감사만)</td></tr>
+      <tr><td>소요</td><td>cloud prepare 1 Heartbeat</td></tr>
+      <tr><td>대상 repo</td><td>virtue-rebirth-app</td></tr>
+      <tr><td>대상 경로</td><td>apps/web/docs/add-flow-input-output-balance-audit.md</td></tr>
+      <tr><td>위임 프롬프트</td><td><code>artifacts/marketing-21/local-execution-prompt.md</code></td></tr>
+    </table>
+    <p style="margin-top:.6rem;"><strong>다음 액션:</strong> 로컬 Claude Code &rarr; local-execution-prompt.md 참조 &rarr; virtue-rebirth-app에 드래프트 배치 &rarr; 검증 게이트 통과 &rarr; L2 agent-approved push &rarr; reports/marketing-21/{timestamp}-local.html</p>
+  </div>
+</details>
+
+</body>
+</html>
