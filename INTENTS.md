@@ -4,7 +4,6 @@
 
 ## Inbox
 
-
 ## Active
 
 
@@ -13,6 +12,8 @@
 <!-- 사용자 결정, 외부 조건, 안전 확인 대기. 같은 질문을 반복하지 않고 상태만 보존한다. -->
 
 ## Archive
+
+<!-- marketing-20 completed 2026-05-26T15:07Z → intents/archive/marketing-20.md (Virtue 첫 60초 가치 관찰 스크립트 작성 완료. 산출물은 virtue-rebirth-app `993547f`의 `apps/web/docs/first-60-second-value-observation-script.md`(신규 1파일, 248줄). prelaunch/low-signal에서 첫 10~20명이 사용 시작 60초 안에 첫 가치에 닿는지를 신규 계측 0으로 사람이 라이브 판독하는 현장 대본. ProductLed TTV<60s 트렌드(출처노트 후보 C)를 첫 사용자 말·행동으로 직접 확인. J1~J4 × (60초 첫 가치 순간/화면 증거/대응 이벤트) 표를 심장으로, J1/J2/J4=`deed_saved`·J3=`deed_judged`(저장 선택) 매핑을 jtbd-matrix 재정의 없이 계승. 60초 시계 메커닉(start=`/` 첫 land, stop=첫 가치 OR 60초, 무계측 손기록)에 가용성≠가치 분리(503·judge지연·캡은 시계 제외 `availability-blocked`) 적용. 관찰자 셋업 허용 4방법/금지(은밀녹화·신규리플레이·계측설치·외부모집), 잡별 [조용한관찰] vs [허용된대화 한정 질문], J3 trust-aware 3축(BASIS/FINAL CHOICE/TRUST). 기록은 baseline 컬럼 재사용+신설 3칸(60초 도달여부·도달순간·본증거)만, 새 표·텔레메트리 0. pass/hold/follow-up 잡별 경계 + "60초 미도달≠실패" 분해(첫막힘/가용성/지연가치). 전환율·리텐션·PMF·세그먼트·% 산출 금지, synthetic/mock(임시판정·641 데모시드) 제외. 기존 6이벤트만 육안 인지보조로 인용, 신규 이벤트·속성·코드·카피·대시보드·세션리플레이·외부발송·정책·비용·시크릿·권한 변경 0. 선행 7문서(jtbd/three-screen/TTV/baseline/friction/ladder/copy-spec) 충돌 0, copy-spec 금지어 0(메타맥락만). workflow-master 파일 양 repo 부재 기록 후 4역할 병렬 합성. L2 agent-approved push 정상 fast-forward(3d90648→993547f, HEAD==origin/master). reports/marketing-20/2026-05-26T1507Z-local.html) -->
 
 <!-- marketing-19 completed 2026-05-26T10:07Z → intents/archive/marketing-19.md (Virtue 신규 사용자 홈 화면 FAE 감사표 작성 완료. 산출물은 virtue-rebirth-app `3d90648`의 `apps/web/docs/home-screen-fae-audit.md`(신규 1파일). `/` 홈 화면을 일반 기능 메뉴가 아니라 First Activation Event 방향판으로 보고 J1/J2/J4→`deed_saved`, J3→`deed_judged` 경로를 CTA·빈 상태·최근 덕행 영역·누적/환생종 신호별로 "무엇을 먼저/왜 지금/하면 무엇이 생김" 3질문에 매핑. 핵심 발견: 홈은 J1/J2 약속에 강하지만 J3 AI 신호는 `/add` 이전 사실상 부재해 three-screen §3-A의 J3 앞단 끊김과 일치. 기존 이벤트 `add_flow_started`·`deed_judged`·`deed_saved`·`level_up_viewed`만 관찰 게이트로 인용, 코드·카피·이벤트·대시보드·배포·외부발송·비용·시크릿·권한 변경 0. 선행 8문서 충돌 0, workflow-master 파일 부재 기록 후 4역할 병렬 합성. L2 agent-approved push 정상 fast-forward(f74cf59→3d90648, HEAD==origin/master). reports/marketing-19/2026-05-26T1007Z-local.md) -->
 
