@@ -4,15 +4,6 @@
 
 ## Inbox
 
-- marketing-21: Virtue `/add` 입력-결과 균형 감사표 작성
-  - source_note: `/home/ubuntu/dev/knowledge-lab/source/external-links/marketing/2026-05-26-ai-onboarding-input-output.md`
-  - rationale: AI 온보딩의 핵심은 낮은 입력으로 첫 결과를 빨리 보여주는 것인데, Virtue의 AI 가치가 처음 드러나는 `/add` 단계는 사진/메모/판정/결과/저장 사이에서 J3 `deed_judged`와 J1/J2/J4 `deed_saved` 가치가 섞여 있음.
-  - expected_impact: prelaunch 첫 10-20명 관찰 전에 입력 부담, 결과 강도, click tax, 저장 전 정상 종료 기준을 분리해 작은 표본 해석 오류를 줄임.
-  - permission_level: L1 문서 감사만. 신규 이벤트, 카피 반영, 추적/프라이버시 변경, 배포, 외부 발송, 비용 사용 금지.
-  - owner_route: Infinity router -> Claude Code, `virtue-rebirth-app` 내부 문서 산출.
-  - success_criteria: `/add` 경로를 단계별로 감사하고 J1-J4별 first value, 기존 이벤트(`add_flow_started`, `deed_judged`, `deed_saved`, 보조 `deed_rerolled`/`deed_save_capped`), prelaunch 해석 금지선을 한 문서에 고정.
-  - first_verification_gate: 문서에 `input burden`, `output strength`, `click tax`, `deed_judged`, `deed_saved`, `J3 저장 전 정상 종료`가 모두 명시되고 코드/카피/계측 변경 0건임을 확인.
-
 ## Active
 
 
@@ -21,6 +12,8 @@
 <!-- 사용자 결정, 외부 조건, 안전 확인 대기. 같은 질문을 반복하지 않고 상태만 보존한다. -->
 
 ## Archive
+
+<!-- marketing-21 completed 2026-05-26T22:07Z → intents/archive/marketing-21.md (Virtue `/add` 입력-결과 균형 감사표 작성 완료. 산출물은 virtue-rebirth-app `95cc836`의 `apps/web/docs/add-input-output-balance-audit.md`(신규 1파일). AI 가치가 처음 드러나는 `/add`를 input burden(입력 부담)/output strength(결과 강도)/click tax(불필요 단계) 세 렌즈로 단계별(A 사진→B 메모(선택 ≤120자)→C 판정 트리거→D 결과 카드→E 저장) 감사하고 전 단계 `add/page.tsx` file:line 앵커. 심장 표=단계×(input burden/output strength/click tax/기존 이벤트 증거). 핵심 발견: output strength 정점은 저장(E)이 아니라 결과 카드(D, `deed_judged`)이고 입력 표면은 이미 얇으며(사진1+선택메모+1탭) `/add` 내부 click tax는 낮음 — 진짜 세금은 앞단(J3 약속 부재)·뒷단(J2 누적 누출). 잡별 첫 가치 명시 분리: J1 기록형/J2 누적형/J4 회고형=`deed_saved`(저장 후), J3 AI 호기심형=`deed_judged`(저장 전). `J3 저장 전 정상 종료`=J3가 `deed_judged` 후 `deed_saved` 없이 끝내는 것은 이탈 아닌 잡 충족 자연 종료, 동일 judged-without-saved가 J1/J2/J4엔 저장 전 이탈 후보(코드상 `deed_judged`:106이 `deed_saved`:183보다 항상 먼저라 식별 가능). 보조 `deed_rerolled`(:149 최대3회 호기심·양면 신뢰)·`deed_save_capped`(:167 early return 미저장 의도된 마찰). prelaunch 금지선: availability≠value, 갭 잡 분리 없이 이탈 단정 금지, 전환율·리텐션·PMF·% 산출 금지, synthetic/mock 제외, 변경 금지. 필수 문자열 6종 모두 명시(input burden 8/output strength 7/click tax 9/deed_judged 18/deed_saved 16/J3 저장 전 정상 종료 4). 신규 이벤트·코드·카피·계측·대시보드·세션리플레이·배포·외부발송·비용·시크릿·권한·개인정보 변경 0, 기존 발화 이벤트만 인용. 선행 5문서(jtbd-matrix/three-screen/friction-audit/60s-script/copy-spec) 충돌 0, copy-spec 금지어 신규 카피 0(메타 맥락만). workflow-master 파일 양 repo 부재 기록 후 4역할 렌즈 합성. L2 agent-approved push 정상 fast-forward(993547f→95cc836, HEAD==origin/master). reports/marketing-21/2026-05-26T2207Z-local.html) -->
 
 <!-- marketing-20 completed 2026-05-26T15:07Z → intents/archive/marketing-20.md (Virtue 첫 60초 가치 관찰 스크립트 작성 완료. 산출물은 virtue-rebirth-app `993547f`의 `apps/web/docs/first-60-second-value-observation-script.md`(신규 1파일, 248줄). prelaunch/low-signal에서 첫 10~20명이 사용 시작 60초 안에 첫 가치에 닿는지를 신규 계측 0으로 사람이 라이브 판독하는 현장 대본. ProductLed TTV<60s 트렌드(출처노트 후보 C)를 첫 사용자 말·행동으로 직접 확인. J1~J4 × (60초 첫 가치 순간/화면 증거/대응 이벤트) 표를 심장으로, J1/J2/J4=`deed_saved`·J3=`deed_judged`(저장 선택) 매핑을 jtbd-matrix 재정의 없이 계승. 60초 시계 메커닉(start=`/` 첫 land, stop=첫 가치 OR 60초, 무계측 손기록)에 가용성≠가치 분리(503·judge지연·캡은 시계 제외 `availability-blocked`) 적용. 관찰자 셋업 허용 4방법/금지(은밀녹화·신규리플레이·계측설치·외부모집), 잡별 [조용한관찰] vs [허용된대화 한정 질문], J3 trust-aware 3축(BASIS/FINAL CHOICE/TRUST). 기록은 baseline 컬럼 재사용+신설 3칸(60초 도달여부·도달순간·본증거)만, 새 표·텔레메트리 0. pass/hold/follow-up 잡별 경계 + "60초 미도달≠실패" 분해(첫막힘/가용성/지연가치). 전환율·리텐션·PMF·세그먼트·% 산출 금지, synthetic/mock(임시판정·641 데모시드) 제외. 기존 6이벤트만 육안 인지보조로 인용, 신규 이벤트·속성·코드·카피·대시보드·세션리플레이·외부발송·정책·비용·시크릿·권한 변경 0. 선행 7문서(jtbd/three-screen/TTV/baseline/friction/ladder/copy-spec) 충돌 0, copy-spec 금지어 0(메타맥락만). workflow-master 파일 양 repo 부재 기록 후 4역할 병렬 합성. L2 agent-approved push 정상 fast-forward(3d90648→993547f, HEAD==origin/master). reports/marketing-20/2026-05-26T1507Z-local.html) -->
 
