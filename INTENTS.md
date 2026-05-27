@@ -4,15 +4,6 @@
 
 ## Inbox
 
-- id: marketing-22
-  title: Virtue 리텐션 예측 활성화 브리프 작성
-  source_note: `/home/ubuntu/dev/knowledge-lab/source/external-links/marketing/2026-05-27-retention-predictive-activation.md`
-  rationale: prelaunch 상태에서 `add_flow_started` 같은 첫 행동과 D7 재가치로 이어질 가능성이 있는 first value/depth signal을 분리해야 작은 표본을 과대해석하지 않는다.
-  expected_impact: 첫 10-20명 관찰 시 J1-J4별 활성화 정의와 D7 재가치 증거를 같은 언어로 기록해 출시 전 온보딩/메시징 판단 품질을 높인다.
-  permission_level: L1 내부 문서 작성 + L2 agent-approved git push 가능; 공개 포스팅, 외부 연락, 비용, 프로덕션 코드/계측/프라이버시 변경 금지.
-  owner_route: Infinity가 Claude Code에 `virtue-rebirth-app` 내부 문서 작업으로 위임.
-  success_criteria: `apps/web/docs/retention-predictive-activation-brief.md`에 J1-J4별 first value, retention-predictive depth signal, D7 재가치 질문, 기존 이벤트 증거, prelaunch 해석 금지선이 포함된다.
-  first_verification_gate: 신규 문서 1개만 변경하고 `deed_judged`, `deed_saved`, `level_up_viewed`, `D7`, `prelaunch` 문자열이 모두 존재하는지 확인한다.
 
 ## Active
 
@@ -22,6 +13,8 @@
 <!-- 사용자 결정, 외부 조건, 안전 확인 대기. 같은 질문을 반복하지 않고 상태만 보존한다. -->
 
 ## Archive
+
+<!-- marketing-22 completed 2026-05-27T10:07Z → intents/archive/marketing-22.md (Virtue 리텐션 예측 활성화 브리프 작성 완료. 산출물은 virtue-rebirth-app `179ca70`의 `apps/web/docs/retention-predictive-activation-brief.md`(신규 1파일, 166줄). 출처노트(Amplitude 7% Retention Rule / Lenny Distilled 활성화 메모)의 "좋은 활성화=장기 리텐션 상관, vanity 클릭 아님 / D7 복귀는 조기신호이나 prelaunch 벤치마크로 베끼지 말 것"을 Virtue에 번역. 핵심: 활성화를 3층으로 분리 — 첫 행동(intent) `add_flow_started`(:72, 낮은 예측력·vanity) / first value(aha; J1·J2·J4=`deed_saved`:183, J3=`deed_judged`:106 저장 전) / retention-predictive depth signal(반복 `deed_saved`·`level_up_viewed`:199·`deed_rerolled`:149·D7 내 second value, 높을 가능성이나 작은 표본은 정성). 심장 표=J1~J4 × (first value · depth signal · D7 재가치 질문 · 기존 이벤트 증거). D7 재가치 질문 5선(D0 first value·D7 return·D7 second value evidence·same-job continuity·source promise fit)은 숫자가 아니라 손기록 질문, baseline·first-week-bridge 기존 양식 칸 재사용(새 표·컬럼 0). 작은 표본 depth는 비율 아닌 정성(`level_up_viewed`=누적 payoff 알아챘는가), availability≠value(503·지연·`deed_save_capped`:167 early return 제외). prelaunch 금지선: D7 외부 벤치마크 베끼기·첫 행동 지표 승격·전환율/리텐션/PMF/% 산출·judged−saved 갭 이탈 단정(J3 정상 종료)·한 명 신호 확정·depth 1회로 리텐션 확보 단정 금지, synthetic/mock 제외, 변경 금지. 필수 문자열 5종 모두 존재(deed_judged 15/deed_saved 25/level_up_viewed 8/D7 34/prelaunch 11). 신규 이벤트·코드·카피·계측·대시보드·세션리플레이·배포·외부발송·비용·시크릿·권한·개인정보 변경 0, 기존 6발화 이벤트만 인용(앵커 72/106/149/167/183/199 현행 일치 drift 0). 선행 8문서 충돌 0, copy-spec 금지어 신규 카피 0(`선행`=「선행 문서」 동음이의 메타만). workflow-master 파일 양 repo 부재 기록 후 4역할 렌즈 수동 합성 + 독립 verifier 승인 분리(GO 5/5). L2 agent-approved push 정상 fast-forward(95cc836→179ca70, HEAD==origin/master). reports/marketing-22/2026-05-27T1007Z-local.html) -->
 
 <!-- marketing-21 completed 2026-05-26T22:07Z → intents/archive/marketing-21.md (Virtue `/add` 입력-결과 균형 감사표 작성 완료. 산출물은 virtue-rebirth-app `95cc836`의 `apps/web/docs/add-input-output-balance-audit.md`(신규 1파일). AI 가치가 처음 드러나는 `/add`를 input burden(입력 부담)/output strength(결과 강도)/click tax(불필요 단계) 세 렌즈로 단계별(A 사진→B 메모(선택 ≤120자)→C 판정 트리거→D 결과 카드→E 저장) 감사하고 전 단계 `add/page.tsx` file:line 앵커. 심장 표=단계×(input burden/output strength/click tax/기존 이벤트 증거). 핵심 발견: output strength 정점은 저장(E)이 아니라 결과 카드(D, `deed_judged`)이고 입력 표면은 이미 얇으며(사진1+선택메모+1탭) `/add` 내부 click tax는 낮음 — 진짜 세금은 앞단(J3 약속 부재)·뒷단(J2 누적 누출). 잡별 첫 가치 명시 분리: J1 기록형/J2 누적형/J4 회고형=`deed_saved`(저장 후), J3 AI 호기심형=`deed_judged`(저장 전). `J3 저장 전 정상 종료`=J3가 `deed_judged` 후 `deed_saved` 없이 끝내는 것은 이탈 아닌 잡 충족 자연 종료, 동일 judged-without-saved가 J1/J2/J4엔 저장 전 이탈 후보(코드상 `deed_judged`:106이 `deed_saved`:183보다 항상 먼저라 식별 가능). 보조 `deed_rerolled`(:149 최대3회 호기심·양면 신뢰)·`deed_save_capped`(:167 early return 미저장 의도된 마찰). prelaunch 금지선: availability≠value, 갭 잡 분리 없이 이탈 단정 금지, 전환율·리텐션·PMF·% 산출 금지, synthetic/mock 제외, 변경 금지. 필수 문자열 6종 모두 명시(input burden 8/output strength 7/click tax 9/deed_judged 18/deed_saved 16/J3 저장 전 정상 종료 4). 신규 이벤트·코드·카피·계측·대시보드·세션리플레이·배포·외부발송·비용·시크릿·권한·개인정보 변경 0, 기존 발화 이벤트만 인용. 선행 5문서(jtbd-matrix/three-screen/friction-audit/60s-script/copy-spec) 충돌 0, copy-spec 금지어 신규 카피 0(메타 맥락만). workflow-master 파일 양 repo 부재 기록 후 4역할 렌즈 합성. L2 agent-approved push 정상 fast-forward(993547f→95cc836, HEAD==origin/master). reports/marketing-21/2026-05-26T2207Z-local.html) -->
 
