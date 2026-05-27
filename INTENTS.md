@@ -4,15 +4,6 @@
 
 ## Inbox
 
-- marketing-23: Virtue 온보딩 지표 운영 판독표 작성
-  - source note: `/home/ubuntu/dev/knowledge-lab/source/external-links/marketing/2026-05-27-onboarding-metrics-practice.md`
-  - rationale: Appcues 온보딩 지표 루프를 Virtue prelaunch 기준에 맞게 번역해 activation/TTV/drop-off/D1-D7 retention을 한 판독표로 묶는다. 작은 표본에서 completion이나 첫 클릭을 vanity metric으로 승격하지 않도록 기존 first-value 문서들을 운영 리듬으로 정렬한다.
-  - expected impact: 첫 10-20명 관찰 때 "어느 이벤트를 볼지"보다 "어떤 가치 증거로 해석할지"가 선명해져 launch 전후 지표 과대해석과 중복 문서 생산을 줄인다.
-  - permission level: L1/L2 internal-doc only. 새 이벤트, 코드, 카피, 대시보드, 배포, 외부발송, 비용, 개인정보/트래킹 변경 금지.
-  - owner route: Infinity -> Claude Code 가능. 정본 위치는 `virtue-rebirth-app` 내부 docs 후보.
-  - success criteria: 기존 이벤트(`add_flow_started`, `deed_judged`, `deed_saved`, `level_up_viewed`, `deed_rerolled`, `deed_save_capped`)만 사용하고, J1/J2/J4=`deed_saved`, J3=`deed_judged` first-value 정의를 유지한다. 산출물은 activation event, TTV 시작/종료점, drop-off 해석 주의, D1/D7 재가치 질문, synthetic/test 제외 원칙을 한 표로 포함한다.
-  - first verification gate: 작업 전 `virtue-rebirth-app`에서 이벤트 발화 위치와 선행 문서(`first-session-jtbd-matrix`, `time-to-value`, `first-60-second-value`, `retention-predictive-activation`)를 확인하고 충돌이 있으면 문서 작성을 멈춘다.
-
 ## Active
 
 
@@ -21,6 +12,8 @@
 <!-- 사용자 결정, 외부 조건, 안전 확인 대기. 같은 질문을 반복하지 않고 상태만 보존한다. -->
 
 ## Archive
+
+<!-- marketing-23 completed 2026-05-27T22:07Z → intents/archive/marketing-23.md [projects: virtue; type: strategy; topics: activation,retention,analytics] (Virtue 온보딩 지표 운영 판독표 작성 완료. 산출물은 virtue-rebirth-app `808231c`의 `apps/web/docs/onboarding-metrics-reading-table.md`(신규 1파일, 168줄). Appcues 온보딩 지표 루프(activation/TTV/funnel drop-off/retention + vanity completion 분리)를 Virtue prelaunch 기준으로 번역해 흩어진 선행 문서(m06 first value·m10 TTV·m20 60초 라이브·m22 depth/D7)를 한 운영 판독표로 정렬. 심장 표(§2)=J1~J4 × (activation event · TTV 시작→종료 · drop-off 해석 주의 · D1/D7 재가치 질문 · synthetic/test 제외 단서) 한 표로 6차원 모두 포함. first value 매핑 계승(J1/J2/J4=`deed_saved`:183, J3=`deed_judged`:106 저장 전, 재정의 0). TTV start=`add_flow_started`:72 → end=잡별 first value. drop-off(§4) `/`land→add_flow_started→deed_judged→deed_saved→조건부 level_up_viewed:199, 각 갭은 이탈 아닌 "어디서 멈췄나" 진단이고 judged−saved 갭은 잡별 부호 전환(J1/J2/J4 저장전 이탈후보 vs J3 정상종료), `add_flow_abandoned`:78은 코드상 미저장 이탈 짝 사실만 인용. synthetic/test 제외(§5) mock폴백·데모시드641·localStorage반복·메이커self-test 표시후 집계제외(삭제 아님). 운영 리듬(§6) 주간 activation·drop-off/월간 retention 손기록·자동집계 0. prelaunch 금지선(§7): completion·첫클릭·conversion·retention%·PMF 결론 금지, judged−saved 이탈단정 금지(J3 정상종료), availability≠value(`deed_save_capped`:167 early return 저장 미발화 → TTV종료·재가치 집계 제외), 한명신호 확정·단계→세그먼트 크기 금지, 변경 금지. 필수 용어 전부 존재(activation event 4/TTV 23/drop-off 13/D1 15/D7 22/synthetic 8/test 8) + 6이벤트 전부(add_flow_started 12/deed_judged 15/deed_saved 21/level_up_viewed 7/deed_rerolled 4/deed_save_capped 5). 신규 이벤트·속성·코드·카피·계측·대시보드·세션리플레이·배포·외부발송·비용·시크릿·권한·개인정보 변경 0, 기존 6발화 이벤트만 인용(앵커 72/106/149/167/183/199 현행 일치 drift 0), 신규 이벤트 제안 0. 선행 6문서+copy-spec 충돌 0, copy-spec 금지어 신규 카피 0(`선행`=「선행 문서」 동음이의 메타만). workflow-master 파일 양 repo 부재 기록 후 4역할 렌즈 수동 합성 + 독립 verifier(GO 6/6) 승인 분리. L2 agent-approved push 정상 fast-forward(179ca70→808231c, HEAD==origin/master). reports/marketing-23/2026-05-27T2207Z-local.html) -->
 
 <!-- marketing-22 completed 2026-05-27T10:07Z → intents/archive/marketing-22.md (Virtue 리텐션 예측 활성화 브리프 작성 완료. 산출물은 virtue-rebirth-app `179ca70`의 `apps/web/docs/retention-predictive-activation-brief.md`(신규 1파일, 166줄). 출처노트(Amplitude 7% Retention Rule / Lenny Distilled 활성화 메모)의 "좋은 활성화=장기 리텐션 상관, vanity 클릭 아님 / D7 복귀는 조기신호이나 prelaunch 벤치마크로 베끼지 말 것"을 Virtue에 번역. 핵심: 활성화를 3층으로 분리 — 첫 행동(intent) `add_flow_started`(:72, 낮은 예측력·vanity) / first value(aha; J1·J2·J4=`deed_saved`:183, J3=`deed_judged`:106 저장 전) / retention-predictive depth signal(반복 `deed_saved`·`level_up_viewed`:199·`deed_rerolled`:149·D7 내 second value, 높을 가능성이나 작은 표본은 정성). 심장 표=J1~J4 × (first value · depth signal · D7 재가치 질문 · 기존 이벤트 증거). D7 재가치 질문 5선(D0 first value·D7 return·D7 second value evidence·same-job continuity·source promise fit)은 숫자가 아니라 손기록 질문, baseline·first-week-bridge 기존 양식 칸 재사용(새 표·컬럼 0). 작은 표본 depth는 비율 아닌 정성(`level_up_viewed`=누적 payoff 알아챘는가), availability≠value(503·지연·`deed_save_capped`:167 early return 제외). prelaunch 금지선: D7 외부 벤치마크 베끼기·첫 행동 지표 승격·전환율/리텐션/PMF/% 산출·judged−saved 갭 이탈 단정(J3 정상 종료)·한 명 신호 확정·depth 1회로 리텐션 확보 단정 금지, synthetic/mock 제외, 변경 금지. 필수 문자열 5종 모두 존재(deed_judged 15/deed_saved 25/level_up_viewed 8/D7 34/prelaunch 11). 신규 이벤트·코드·카피·계측·대시보드·세션리플레이·배포·외부발송·비용·시크릿·권한·개인정보 변경 0, 기존 6발화 이벤트만 인용(앵커 72/106/149/167/183/199 현행 일치 drift 0). 선행 8문서 충돌 0, copy-spec 금지어 신규 카피 0(`선행`=「선행 문서」 동음이의 메타만). workflow-master 파일 양 repo 부재 기록 후 4역할 렌즈 수동 합성 + 독립 verifier 승인 분리(GO 5/5). L2 agent-approved push 정상 fast-forward(95cc836→179ca70, HEAD==origin/master). reports/marketing-22/2026-05-27T1007Z-local.html) -->
 

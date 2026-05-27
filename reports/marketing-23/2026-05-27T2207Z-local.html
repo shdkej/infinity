@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Infinity Report · marketing-23</title>
+<style>
+  :root{
+    --bg:#f4f2ea; --panel:#fbfaf5; --ink:#2c2a25; --soft:#807c70; --faint:#a8a496; --line:#e3dfd2;
+    --a2:#5f7a5e; --a2-deep:#3f5740;            /* 축2(결과/해법) = sage, 고정 */
+    --a1:#a9745a; --a1-deep:#8a5c45;            /* 축1 = 개선형 clay */
+    --sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;}
+  body{background:var(--bg); color:var(--ink); font-family:var(--sans);
+    font-size:14px; line-height:1.68; -webkit-font-smoothing:antialiased;}
+  .sheet{max-width:720px; margin:0 auto; padding:48px 34px 46px;}
+  .reveal{opacity:0; animation:fade .7s ease forwards;}
+  @keyframes fade{from{opacity:0; transform:translateY(9px);} to{opacity:1; transform:none;}}
+
+  .eyebrow{display:flex; align-items:center; gap:10px; font-family:var(--mono);
+    font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--soft);}
+  .eyebrow .id{color:var(--a2-deep); font-weight:600;}
+  .eyebrow .dot{width:5px; height:5px; border-radius:50%; background:var(--a2);}
+  .eyebrow .status{margin-left:auto; color:var(--a2-deep);}
+  h1{font-size:29px; line-height:1.3; font-weight:700; letter-spacing:-.01em; margin:20px 0 0;}
+  .dek{font-size:15.5px; color:var(--soft); margin:13px 0 0; max-width:52ch;}
+  .hr{height:1px; background:var(--line); margin:30px 0;}
+
+  .axis{padding:0 0 4px 22px; position:relative; margin-bottom:30px;}
+  .axis::before{content:""; position:absolute; left:0; top:6px; bottom:6px; width:2px; border-radius:2px;}
+  .axis.ax1::before{background:var(--a1);} .axis.ax2::before{background:var(--a2);}
+  .axis.ax1{--ul:var(--a1);} .axis.ax2{--ul:var(--a2);}
+  .axis .label{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase;
+    margin-bottom:9px; display:flex; align-items:center; gap:8px;}
+  .axis.ax1 .label{color:var(--a1-deep);} .axis.ax2 .label{color:var(--a2-deep);}
+  .axis .label .n{font-weight:600; opacity:.6;}
+  .axis .text{font-size:18px; line-height:1.6; color:#37352e;}
+  .axis .text b{font-weight:700; color:var(--ink); border-bottom:2px solid var(--ul);}
+  ol.find{list-style:none; counter-reset:f; margin:16px 0 0; padding:0;}
+  ol.find li{position:relative; padding:8px 0 8px 26px; font-size:15px; color:#37352e; border-top:1px solid var(--line);}
+  ol.find li:first-child{border-top:none;}
+  ol.find li::before{counter-increment:f; content:counter(f); position:absolute; left:0; top:9px;
+    font-family:var(--mono); font-size:12px; font-weight:600; color:var(--a1-deep);}
+
+  details{border:1px solid var(--line); border-radius:10px; background:var(--panel); margin-bottom:10px;}
+  summary{cursor:pointer; list-style:none; padding:14px 16px; display:flex; align-items:center; gap:11px;
+    font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft);}
+  summary::-webkit-details-marker{display:none;}
+  summary .chev{width:8px; height:8px; border-right:2px solid var(--a2-deep); border-bottom:2px solid var(--a2-deep);
+    transform:rotate(-45deg); transition:.25s; flex:none; margin-left:2px;}
+  details[open] summary .chev{transform:rotate(45deg);}
+  summary:hover{color:var(--ink);}
+  .body{padding:2px 16px 18px;}
+  table{border-collapse:collapse; width:100%; font-size:13px; margin:4px 0 12px;}
+  th,td{border-bottom:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top;}
+  th{font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft); font-weight:600;}
+  td:first-child{color:var(--a2-deep); font-weight:600; white-space:nowrap;}
+  .body p{color:var(--soft);}
+  .body ul{margin:6px 0; padding-left:18px;} .body li{margin:5px 0;}
+  code{font-family:var(--mono); font-size:12px; background:#edeae0; padding:1px 6px; border-radius:3px; color:var(--a2-deep);}
+  a{color:var(--a2-deep); text-underline-offset:3px;}
+  .chips{display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px;}
+  .chip{font-family:var(--mono); font-size:10.5px; letter-spacing:.05em; color:var(--soft); border:1px solid var(--line); border-radius:999px; padding:3px 10px;}
+  .foot{margin-top:30px; padding-top:15px; border-top:1px solid var(--line);
+    display:flex; justify-content:space-between; font-family:var(--mono); font-size:10px;
+    letter-spacing:.13em; text-transform:uppercase; color:var(--faint);}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="eyebrow reveal">
+    <span class="dot"></span>
+    <span class="id">marketing-23</span>
+    <span>Marketing Brief</span>
+    <span class="status">archived</span>
+  </div>
+  <h1 class="reveal" style="animation-delay:.05s">Virtue 온보딩 지표 운영 판독표</h1>
+  <p class="dek reveal" style="animation-delay:.09s">Appcues 온보딩 지표 루프(activation·TTV·drop-off·D1/D7 retention)를 Virtue prelaunch first-value 정의로 번역해, 흩어진 선행 문서를 한 운영 판독표로 묶은 내부 문서.</p>
+
+  <div class="hr reveal" style="animation-delay:.12s"></div>
+
+  <div class="axis ax1 reveal" style="animation-delay:.16s">
+    <div class="label"><span class="n">01</span> 무엇이 문제였나</div>
+    <div class="text">선행 문서들이 first value·TTV·60초 판독·D7 depth를 각각 잘게 정의하면서 <b>지표 후보는 많아졌지만 운영 리듬이 흐려졌다.</b> prelaunch 첫 10~20명에서 <b>completion·첫 클릭·전환율·retention %·PMF</b>를 결론으로 만들면 작은 표본을 과대 해석한다.</div>
+  </div>
+
+  <div class="axis ax2 reveal" style="animation-delay:.22s">
+    <div class="label"><span class="n">02</span> 어떻게 해결하나</div>
+    <div class="text">잡(J1~J4)별 <b>activation event → TTV 시작/종료 → drop-off 해석 주의 → D1/D7 재가치 질문 → synthetic/test 제외</b>를 <b>한 판독표(§2)</b>로 묶었다. 기존 6개 발화 이벤트만 인용, <b>신규 이벤트·코드·카피·대시보드 0건</b>. Virtue <code>808231c</code>에 단일 문서로 push.</div>
+    <ol class="find">
+      <li>한 표가 6개 차원을 모두 덮음: first value(J1·J2·J4 <code>deed_saved</code>, J3 <code>deed_judged</code>) · TTV(start <code>add_flow_started</code> → end first value) · drop-off · D1/D7 · 제외 단서.</li>
+      <li>drop-off는 진단 도구지 실패 판정 아님 — <code>deed_judged</code>−<code>deed_saved</code> 갭은 잡별로 부호가 뒤집힘(J3는 정상 종료).</li>
+      <li>prelaunch 금지선: completion≠goal, 첫 클릭 승격·전환율·retention %·PMF 결론 금지, availability≠value, synthetic/mock 제외.</li>
+    </ol>
+  </div>
+
+  <div class="reveal" style="animation-delay:.27s">
+  <details open>
+    <summary><span class="chev"></span> 실행 요약 · 검증</summary>
+    <div class="body">
+      <p>workflow-master 파일이 양 repo(Infinity·virtue-rebirth-app)에 <b>부재</b> → 지시문에 따라 부재를 기록하고 4역할(Planner/Developer/Marketer/Operator) 렌즈를 <b>수동 합성</b>(중간 복잡도). 단일 공유 파일은 master가 직접 작성·중재하고, 승인 패스는 <b>독립 verifier</b>(Explore, read-only)로 분리.</p>
+      <table>
+        <tr><th>게이트</th><th>결과</th><th>증거</th></tr>
+        <tr><td>A 파일 존재</td><td>PASS</td><td>168줄 신규 생성</td></tr>
+        <tr><td>B 필수 용어</td><td>PASS</td><td>activation event·TTV·drop-off·D1·D7·synthetic/test 모두 존재(completion 8·conversion 2·retention 14·PMF 5)</td></tr>
+        <tr><td>B2 6개 이벤트</td><td>PASS</td><td><code>add_flow_started</code>12 · <code>deed_judged</code>15 · <code>deed_saved</code>21 · <code>level_up_viewed</code>7 · <code>deed_rerolled</code>4 · <code>deed_save_capped</code>5</td></tr>
+        <tr><td>C first-value 매핑</td><td>PASS</td><td>J1/J2/J4=<code>deed_saved</code>, J3=<code>deed_judged</code> 유지·재정의 0</td></tr>
+        <tr><td>D 충돌 마커</td><td>PASS</td><td>git 충돌 마커 0</td></tr>
+        <tr><td>E 금지어</td><td>PASS</td><td><code>선행</code>=「선행 문서」 동음이의(메타)만, 사용자 카피 0</td></tr>
+        <tr><td>F 이벤트 앵커</td><td>PASS</td><td><code>add/page.tsx</code> 72/106/149/167/183/199 현행 코드 일치, drift 0</td></tr>
+        <tr><td>독립 verifier</td><td>GO 6/6</td><td>한 표 6차원·앵커·매핑 계승·금지선 5종·신규 이벤트 0·금지어 모두 PASS</td></tr>
+      </table>
+      <p><b>문서 구조:</b> §0 목적·전제(선행 6문서 계승/위임) · §1 한 판독표 필요성(vanity completion 분리) · §2 운영 판독표(심장, 한 표 6차원) · §3 보충 메모(TTV 출처·immediate/long-term·D1≠D7·availability) · §4 drop-off 단계·해석 주의 · §5 synthetic/test 제외 · §6 운영 리듬(주간 activation·drop-off / 월간 retention, 손기록) · §7 prelaunch 금지선 · §8 기존 이벤트 증거(코드 근거) · §9 충돌 점검 · Out of scope · 검증 매핑.</p>
+      <p><b>핵심 발견:</b> 같은 <code>deed_saved</code>라도 가치 방향이 다르다(J1 즉시 / J2 누적 / J4 지연)이고, J3만 <code>deed_judged</code>가 first value이며 저장 없는 종료가 정상이다. <code>deed_save_capped</code> 발화 시도는 early return으로 <code>deed_saved</code> 미발화 → TTV 종료·재가치 집계 제외. drop-off는 멈춤 위치를 찾는 진단 도구이지 합격/불합격이 아니다.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="chev"></span> 실행 메타 · 산출물 · L2 승인</summary>
+    <div class="body">
+      <div class="chips">
+        <span class="chip">2026-05-27T22:07Z</span>
+        <span class="chip">execute_local</span>
+        <span class="chip">Inbox → Archive</span>
+      </div>
+      <ul>
+        <li>산출물 <code>virtue-rebirth-app: apps/web/docs/onboarding-metrics-reading-table.md</code> (신규 1파일, 168줄)</li>
+        <li>Virtue commit <code>808231c</code> (이전 HEAD <code>179ca70</code> fast-forward), push <code>179ca70..808231c master -&gt; master</code>, HEAD == origin/master, 워킹트리 clean</li>
+        <li>Infinity: <code>intents/archive/marketing-23.md</code> · <code>INTENTS.md</code>(Inbox→Archive) · 본 report</li>
+        <li>워크플로우 로그 <code>~/.claude/logs/workflow_2026-05-27_marketing-23.log</code></li>
+      </ul>
+      <p><b>approval: agent-approved L2.</b> 판단 근거 — 목표 intent 직결, 되돌림 가능(단일 doc 추가), 비용 0, 프로덕션 데이터/운영 권한/시크릿 변경 0, 타인 메시지 0, 실행 전 상태 확인(HEAD==origin/master·clean), 실행 후 검증(게이트 7종 + 독립 verifier GO 6/6). force-push 아님, 타인 작업 덮어쓰지 않음(fast-forward). 영향 범위 — virtue-rebirth-app 내부 문서 1개 + Infinity 원장/리포트, 코드·런타임·계측 무변경.</p>
+      <p><b>금지 경계 준수:</b> 코드·카피·텔레메트리·이벤트 스키마·대시보드·세션리플레이·배포·프로덕션 데이터·프라이버시·권한·시크릿·유료 API·외부 발송·공개 포스팅·광고 변경 0건. 기존 발화 중 6개 이벤트만 인용, 신규 이벤트 제안 0.</p>
+    </div>
+  </details>
+  </div>
+
+  <div class="foot reveal" style="animation-delay:.3s">
+    <span>Agent-First Heartbeat</span>
+    <span>Infinity · marketing-23</span>
+  </div>
+</div>
+</body>
+</html>
