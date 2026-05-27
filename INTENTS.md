@@ -4,18 +4,29 @@
 
 ## Inbox
 
-- id: marketing-22
-  title: Virtue 리텐션 예측 활성화 브리프 작성
-  source_note: `/home/ubuntu/dev/knowledge-lab/source/external-links/marketing/2026-05-27-retention-predictive-activation.md`
-  rationale: prelaunch 상태에서 `add_flow_started` 같은 첫 행동과 D7 재가치로 이어질 가능성이 있는 first value/depth signal을 분리해야 작은 표본을 과대해석하지 않는다.
-  expected_impact: 첫 10-20명 관찰 시 J1-J4별 활성화 정의와 D7 재가치 증거를 같은 언어로 기록해 출시 전 온보딩/메시징 판단 품질을 높인다.
-  permission_level: L1 내부 문서 작성 + L2 agent-approved git push 가능; 공개 포스팅, 외부 연락, 비용, 프로덕션 코드/계측/프라이버시 변경 금지.
-  owner_route: Infinity가 Claude Code에 `virtue-rebirth-app` 내부 문서 작업으로 위임.
-  success_criteria: `apps/web/docs/retention-predictive-activation-brief.md`에 J1-J4별 first value, retention-predictive depth signal, D7 재가치 질문, 기존 이벤트 증거, prelaunch 해석 금지선이 포함된다.
-  first_verification_gate: 신규 문서 1개만 변경하고 `deed_judged`, `deed_saved`, `level_up_viewed`, `D7`, `prelaunch` 문자열이 모두 존재하는지 확인한다.
+<!-- 비어 있음 -->
 
 ## Active
 
+- id: marketing-22
+  title: Virtue 리텐션 예측 활성화 브리프 작성
+  status: in_progress
+  priority: high
+  permission: L1 내부 문서 작성 + L2 agent-approved git push 가능
+  goal: prelaunch 상태에서 add_flow_started 같은 첫 행동과 D7 재가치로 이어질 first value/depth signal을 분리하여 첫 10-20명 관찰 시 해석 품질을 높인다
+  success_criteria: apps/web/docs/retention-predictive-activation-brief.md에 J1-J4별 first value, retention-predictive depth signal, D7 재가치 질문, 기존 이벤트 증거, prelaunch 해석 금지선이 포함된다
+  context:
+    source_note: /home/ubuntu/dev/knowledge-lab/source/external-links/marketing/2026-05-27-retention-predictive-activation.md
+    target_file: virtue-rebirth-app/apps/web/docs/retention-predictive-activation-brief.md
+    artifact_draft: infinity/artifacts/marketing-22/retention-predictive-activation-brief.md
+  next_action: |
+    Cloud draft 완료 (artifacts/marketing-22/retention-predictive-activation-brief.md).
+    로컬 Claude Code에서:
+    1. artifact 내용을 virtue-rebirth-app/apps/web/docs/retention-predictive-activation-brief.md로 작성
+    2. 검증: deed_judged, deed_saved, level_up_viewed, D7, prelaunch 문자열 존재 확인
+    3. 신규 문서 1개만 변경 확인
+    4. L2 agent-approved push
+  first_verification_gate: 신규 문서 1개만 변경하고 deed_judged, deed_saved, level_up_viewed, D7, prelaunch 문자열이 모두 존재하는지 확인한다
 
 ## Waiting
 
@@ -23,7 +34,7 @@
 
 ## Archive
 
-<!-- marketing-21 completed 2026-05-26T22:07Z → intents/archive/marketing-21.md (Virtue `/add` 입력-결과 균형 감사표 작성 완료. 산출물은 virtue-rebirth-app `95cc836`의 `apps/web/docs/add-input-output-balance-audit.md`(신규 1파일). AI 가치가 처음 드러나는 `/add`를 input burden(입력 부담)/output strength(결과 강도)/click tax(불필요 단계) 세 렌즈로 단계별(A 사진→B 메모(선택 ≤120자)→C 판정 트리거→D 결과 카드→E 저장) 감사하고 전 단계 `add/page.tsx` file:line 앵커. 심장 표=단계×(input burden/output strength/click tax/기존 이벤트 증거). 핵심 발견: output strength 정점은 저장(E)이 아니라 결과 카드(D, `deed_judged`)이고 입력 표면은 이미 얇으며(사진1+선택메모+1탭) `/add` 내부 click tax는 낮음 — 진짜 세금은 앞단(J3 약속 부재)·뒷단(J2 누적 누출). 잡별 첫 가치 명시 분리: J1 기록형/J2 누적형/J4 회고형=`deed_saved`(저장 후), J3 AI 호기심형=`deed_judged`(저장 전). `J3 저장 전 정상 종료`=J3가 `deed_judged` 후 `deed_saved` 없이 끝내는 것은 이탈 아닌 잡 충족 자연 종료, 동일 judged-without-saved가 J1/J2/J4엔 저장 전 이탈 후보(코드상 `deed_judged`:106이 `deed_saved`:183보다 항상 먼저라 식별 가능). 보조 `deed_rerolled`(:149 최대3회 호기심·양면 신뢰)·`deed_save_capped`(:167 early return 미저장 의도된 마찰). prelaunch 금지선: availability≠value, 갭 잡 분리 없이 이탈 단정 금지, 전환율·리텐션·PMF·% 산출 금지, synthetic/mock 제외, 변경 금지. 필수 문자열 6종 모두 명시(input burden 8/output strength 7/click tax 9/deed_judged 18/deed_saved 16/J3 저장 전 정상 종료 4). 신규 이벤트·코드·카피·계측·대시보드·세션리플레이·배포·외부발송·비용·시크릿·권한·개인정보 변경 0, 기존 발화 이벤트만 인용. 선행 5문서(jtbd-matrix/three-screen/friction-audit/60s-script/copy-spec) 충돌 0, copy-spec 금지어 신규 카피 0(메타 맥락만). workflow-master 파일 양 repo 부재 기록 후 4역할 렌즈 합성. L2 agent-approved push 정상 fast-forward(993547f→95cc836, HEAD==origin/master). reports/marketing-21/2026-05-26T2207Z-local.html) -->
+<!-- marketing-21 completed 2026-05-26T22:07Z → intents/archive/marketing-21.md (Virtue `/add` 입력-결과 균형 감사표 작성 완료. 산출물은 virtue-rebirth-app `95cc836`의 `apps/web/docs/add-input-output-balance-audit.md`(신규 1파일). AI 가치가 처음 드러나는 `/add`를 input burden(입력 부담)/output strength(결과 강도)/click tax(불필요 단계) 세 렌즈로 단계별(A 사진→B 메모(선택 ≤120자)→C 판정 트리거→D 결과 카드→E 저장) 감사하고 전 단계 `add/page.tsx` file:line 앵커. 심장 표=단계×(input burden/output strength/click tax/기존 이벤트 증거). 핵심 발견: output strength 정점은 저장(E)이 아니라 결과 카드(D, `deed_judged`)이고 입력 표면은 이미 얇으며(사진1+선택메모+1탭) `/add` 내부 click tax는 낮음 — 진짜 세금은 앞단(J3 약속 부재)·뒷단(J2 누적 누출). 잡별 첫 가치 명시 분리: J1 기록형/J2 누적형/J4 회고형=`deed_saved`(저장 후), J3 AI 호기심형=`deed_judged`(저장 전). `J3 저장 전 정상 종료`=J3가 `deed_judged` 후 `deed_saved` 없이 끝내는 것은 이탈 아닌 잡 충족 자연 종료, 동일 judged-without-saved가 J1/J2/J4엔 저장 전 이탈 후보(코드상 `deed_judged`:106이 `deed_saved`:183보다 항상 먼저라 식별 가능). 보조 `deed_rerolled`(:149 최대3회 호기심·양면 신뢰)·`deed_save_capped`(:167 early return 미저장 의도된 마찰). prelaunch 금지선: availability≠value, 갭 잡 분리 없이 이탈 단정 금지, 전환율·리텐션·PMF·% 산출 금지, synthetic/mock 제외, 변경 금지. 필수 문자열 6종 모두 명시(input burden 8/output strength 7/click tax 9/deed_judged 18/deed_saved 16/J3 저장 전 정상 종료 4). 신규 이벤트·코드·카피·계측·대시보드·배포·외부발송·비용·시크릿·권한·개인정보 변경 0, 기존 발화 이벤트만 인용. 선행 5문서(jtbd-matrix/three-screen/friction-audit/60s-script/copy-spec) 충돌 0, copy-spec 금지어 신규 카피 0(메타 맥락만). workflow-master 파일 양 repo 부재 기록 후 4역할 렌즈 합성. L2 agent-approved push 정상 fast-forward(993547f→95cc836, HEAD==origin/master). reports/marketing-21/2026-05-26T2207Z-local.html) -->
 
 <!-- marketing-20 completed 2026-05-26T15:07Z → intents/archive/marketing-20.md (Virtue 첫 60초 가치 관찰 스크립트 작성 완료. 산출물은 virtue-rebirth-app `993547f`의 `apps/web/docs/first-60-second-value-observation-script.md`(신규 1파일, 248줄). prelaunch/low-signal에서 첫 10~20명이 사용 시작 60초 안에 첫 가치에 닿는지를 신규 계측 0으로 사람이 라이브 판독하는 현장 대본. ProductLed TTV<60s 트렌드(출처노트 후보 C)를 첫 사용자 말·행동으로 직접 확인. J1~J4 × (60초 첫 가치 순간/화면 증거/대응 이벤트) 표를 심장으로, J1/J2/J4=`deed_saved`·J3=`deed_judged`(저장 선택) 매핑을 jtbd-matrix 재정의 없이 계승. 60초 시계 메커닉(start=`/` 첫 land, stop=첫 가치 OR 60초, 무계측 손기록)에 가용성≠가치 분리(503·judge지연·캡은 시계 제외 `availability-blocked`) 적용. 관찰자 셋업 허용 4방법/금지(은밀녹화·신규리플레이·계측설치·외부모집), 잡별 [조용한관찰] vs [허용된대화 한정 질문], J3 trust-aware 3축(BASIS/FINAL CHOICE/TRUST). 기록은 baseline 컬럼 재사용+신설 3칸(60초 도달여부·도달순간·본증거)만, 새 표·텔레메트리 0. pass/hold/follow-up 잡별 경계 + "60초 미도달≠실패" 분해(첫막힘/가용성/지연가치). 전환율·리텐션·PMF·세그먼트·% 산출 금지, synthetic/mock(임시판정·641 데모시드) 제외. 기존 6이벤트만 육안 인지보조로 인용, 신규 이벤트·속성·코드·카피·대시보드·세션리플레이·외부발송·정책·비용·시크릿·권한 변경 0. 선행 7문서(jtbd/three-screen/TTV/baseline/friction/ladder/copy-spec) 충돌 0, copy-spec 금지어 0(메타맥락만). workflow-master 파일 양 repo 부재 기록 후 4역할 병렬 합성. L2 agent-approved push 정상 fast-forward(3d90648→993547f, HEAD==origin/master). reports/marketing-20/2026-05-26T1507Z-local.html) -->
 
