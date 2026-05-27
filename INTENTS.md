@@ -4,6 +4,16 @@
 
 ## Inbox
 
+- id: marketing-22
+  title: Virtue 리텐션 예측 활성화 브리프 작성
+  source_note: `/home/ubuntu/dev/knowledge-lab/source/external-links/marketing/2026-05-27-retention-predictive-activation.md`
+  rationale: prelaunch 상태에서 `add_flow_started` 같은 첫 행동과 D7 재가치로 이어질 가능성이 있는 first value/depth signal을 분리해야 작은 표본을 과대해석하지 않는다.
+  expected_impact: 첫 10-20명 관찰 시 J1-J4별 활성화 정의와 D7 재가치 증거를 같은 언어로 기록해 출시 전 온보딩/메시징 판단 품질을 높인다.
+  permission_level: L1 내부 문서 작성 + L2 agent-approved git push 가능; 공개 포스팅, 외부 연락, 비용, 프로덕션 코드/계측/프라이버시 변경 금지.
+  owner_route: Infinity가 Claude Code에 `virtue-rebirth-app` 내부 문서 작업으로 위임.
+  success_criteria: `apps/web/docs/retention-predictive-activation-brief.md`에 J1-J4별 first value, retention-predictive depth signal, D7 재가치 질문, 기존 이벤트 증거, prelaunch 해석 금지선이 포함된다.
+  first_verification_gate: 신규 문서 1개만 변경하고 `deed_judged`, `deed_saved`, `level_up_viewed`, `D7`, `prelaunch` 문자열이 모두 존재하는지 확인한다.
+
 ## Active
 
 
