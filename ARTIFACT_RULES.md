@@ -13,6 +13,56 @@
 | `reports/{id}/{timestamp}.md` | 단일 실행 로그 (heartbeat run 결과, 진행 보고) | 누적 |
 | `reports/heartbeat/` | **전역** heartbeat 요약만 (intent 결과 보고서가 아님) | 누적 |
 
+## Archive Tag Standard
+
+Archive intent는 대시보드에서 프로젝트별/성격별로 묶어 볼 수 있도록 아래 3축 태그를 포함한다.
+
+| 필드 | 필수 | 값 규칙 | 책임 |
+|------|------|---------|------|
+| `projects` | 필수 | 1~3개, controlled vocabulary | 어떤 프로젝트/제품/시스템에 걸린 일인가 |
+| `task_type` | 필수 | 정확히 1개, MECE | 이 태스크의 주된 성격은 무엇인가 |
+| `topics` | 선택 | 0~3개, controlled vocabulary | 보조 주제/렌즈는 무엇인가 |
+
+### Project Tags
+
+프로젝트 태그는 여러 개를 허용한다. 다만 한 태스크에 3개를 넘기지 않는다.
+
+- `virtue` — Virtue / 덕 쌓기 앱, 관련 마케팅·제품·계측 문서
+- `infinity` — Infinity 운영 시스템, 큐, 대시보드, 태스크 원장
+- `knowledge-lab` — Knowledge Lab 원본/source/wiki 체계
+- `agent-wiki` — 공개 agent-wiki 사이트, diary/publish/build 흐름
+- `openclaw` — OpenClaw 런타임, 스킬, 에이전트 운영
+- `infrastructure` — 서버, 배포, DNS, Kubernetes, GitHub Actions, 보안
+- `personal-ops` — 회고, 생활 기록, 캘린더, 자동화된 개인 운영
+- `research-bank` — 특정 실행 프로젝트에 묶이지 않는 외부 리서치/학습 자산
+
+새 프로젝트 태그는 반복될 가능성이 높고 위 목록으로 표현이 어려울 때만 추가한다. 일회성 이름은 `topics` 또는 원장 본문에 남긴다.
+
+### Task Type Tags
+
+`task_type`은 정확히 하나만 고른다.
+
+- `research` — 외부/내부 자료 조사, 시장·기술·사례 리서치
+- `strategy` — 방향성, 포지셔닝, 기준표, 운영 원칙 수립
+- `design` — UX/IA/문서 구조/시스템 설계
+- `implementation` — 코드/문서/설정의 실제 생성·수정
+- `verification` — 빌드, 배포, 원격 raw/page/API, 지표 확인
+- `maintenance` — 정리, 마이그레이션, 깨진 상태 복구, 워크플로우 보강
+- `monitoring` — 주기 점검, 알림, 상태 감시
+- `coordination` — 로컬/클라우드/서브에이전트 위임과 작업 라우팅
+
+여러 성격이 섞이면 최종 산출물의 주된 책임을 기준으로 하나만 선택한다. 예를 들어 "리서치 후 내부 브리프 작성"은 `research`, "리서치를 바탕으로 제품 기준표 확정"은 `strategy`, "깨진 자동화 수정"은 `maintenance`다.
+
+### Topic Tags
+
+`topics`는 보조 필터다. 최대 3개만 쓴다.
+
+- `growth`, `marketing`, `product`, `activation`, `retention`, `analytics`
+- `ai-agents`, `llm`, `wiki`, `automation`, `workflow`, `dashboard`
+- `infra`, `security`, `calendar`, `review`, `finance`, `health`, `content`
+
+`topics`는 프로젝트 태그와 중복 의미로 쓰지 않는다. 예를 들어 Virtue 마케팅 작업은 `projects: [virtue]`, `topics: [marketing]`처럼 둔다.
+
 ## 핵심 원칙
 
 1. **Reports는 실행 로그이고 결과물이 아니다.** 동일한 결론을 두 번 찾기 위해 사람이 reports 디렉터리를 뒤져야 하면 운영 실패다. 결과는 archive intent에 요약하고, 산출물은 `artifacts/{id}/`로 옮긴다.
@@ -48,6 +98,9 @@ Infinity 문서는 아래 3개 역할로 통일한다. 새 문서를 만들 때 
 - id: {intent-id}
 - status: archived
 - completed_at: YYYY-MM-DDTHH:MM
+- projects: [virtue]
+- task_type: strategy
+- topics: [activation, analytics]
 - result_summary: 한 줄 결과
 - artifacts:
   - path: artifacts/{id}/foo.md
@@ -76,7 +129,7 @@ Infinity 문서는 아래 3개 역할로 통일한다. 새 문서를 만들 때 
 3. Intent가 완료되면:
    - `intents/active/{id}.md` → `intents/archive/{id}.md`로 이동
    - 위 표준 포맷으로 재작성하면서 artifacts / reports / commits / urls 링크
-   - `INTENTS.md`의 Active 블록 제거, 완료 코멘트 추가 (`<!-- {id} completed YYYY-MM-DDTHH:MM → intents/archive/{id}.md (한 줄 결과) -->`)
+   - `INTENTS.md`의 Active 블록 제거, 완료 코멘트 추가 (`<!-- {id} completed YYYY-MM-DDTHH:MM → intents/archive/{id}.md [projects: virtue; type: strategy; topics: activation,analytics] (한 줄 결과) -->`)
 4. 대시보드 등 외부 도구가 detail 링크를 기대하면 archive 경로가 유효한지 확인한다.
 5. 완료 직후 같은 내용을 `detail` 파일로 다시 만들지 않는다. 추가 원문이 필요하면 `artifacts/{id}/...`에 별도 역할을 부여한다.
 

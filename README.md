@@ -20,6 +20,16 @@ scripts/notify.sh   ← Telegram 발송기
 .github/workflows/heartbeat-notify.yml ← push/스케줄 기반 Telegram 알림
 ```
 
+## 태그 축
+
+완료 archive에는 대시보드 필터링을 위해 세 축을 기록한다.
+
+- `projects`: 관련 프로젝트. 1~3개, 복수 허용. 예: `virtue`, `infinity`, `agent-wiki`.
+- `task_type`: 태스크 성격. 정확히 1개. 예: `research`, `strategy`, `implementation`, `maintenance`.
+- `topics`: 보조 주제. 0~3개. 예: `activation`, `analytics`, `workflow`.
+
+정식 vocabulary와 archive 코멘트 표기는 `ARTIFACT_RULES.md`를 따른다.
+
 ## 운영 원칙
 
 - **No-op이면 커밋하지 않는다.** 변화 없는 Heartbeat는 push하지 않아 알림 노이즈가 없다. push = 의미 있는 변화.

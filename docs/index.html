@@ -109,6 +109,23 @@
       color: var(--muted); font-size: 11px;
       display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 6px;
     }
+    .tags {
+      display: flex; gap: 4px; flex-wrap: wrap;
+      margin: 4px 0 2px;
+    }
+    .tag {
+      display: inline-block;
+      padding: 1px 6px;
+      border-radius: 999px;
+      border: 1px solid #475569;
+      background: #172033;
+      color: #cbd5e1;
+      font-size: 10px;
+      line-height: 1.6;
+    }
+    .tag.project { border-color: #0e7490; color: #a5f3fc; background: #083344; }
+    .tag.type { border-color: #92400e; color: #fde68a; background: #3b2507; }
+    .tag.topic { border-color: #475569; color: #cbd5e1; background: #172033; }
     .card .snippet {
       color: #cbd5e1; font-size: 12px;
       white-space: pre-wrap; word-break: break-word;
@@ -160,6 +177,25 @@
     }
     .archive-filter-input::placeholder { color: var(--muted); }
     .archive-filter-input:focus { outline: none; border-color: var(--accent); }
+    .tag-filter-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      padding: 6px 0 0;
+    }
+    .tag-filter-button {
+      border-radius: 999px;
+      padding: 2px 7px;
+      font-size: 10px;
+      background: #172033;
+      border-color: #334155;
+      color: #cbd5e1;
+    }
+    .tag-filter-button.active {
+      background: #083344;
+      border-color: #0e7490;
+      color: #a5f3fc;
+    }
     .group-head {
       font-size: 10px;
       color: var(--muted);
@@ -350,7 +386,8 @@
         <div class="count" data-count></div>
       </div>
       <div class="archive-filter">
-        <input class="archive-filter-input" id="archive-filter-input" type="search" placeholder="필터 (id / 내용)" aria-label="Archive 필터" />
+        <input class="archive-filter-input" id="archive-filter-input" type="search" placeholder="필터 (id / 내용 / 태그)" aria-label="Archive 필터" />
+        <div class="tag-filter-row" id="archive-tag-filter" aria-label="Archive 태그 필터"></div>
       </div>
       <div class="cards" data-cards></div>
     </section>
@@ -714,6 +751,7 @@
           .replace(/\s{2,}/g, " ")
           .trim();
         const title = outcome || cleaned || text;
+        const tagMeta = { ...inferTagMeta(text, idm ? idm[1] : ""), ...extractTagMeta(text) };
         out.push({
           id: idm ? idm[1] : "",
           title,
@@ -723,6 +761,7 @@
             completed_at: dtm ? dtm[1] : "",
             detail: pathm ? pathm[1] : "",
             outcome,
+            ...tagMeta,
           },
           source: "INTENTS.md archive",
         });
@@ -787,6 +826,75 @@
           || item.meta.created
           || item.meta.requested
           || "";
+    }
+
+    function splitTagList(value) {
+      if (!value) return [];
+      return String(value)
+        .replace(/^\[|\]$/g, "")
+        .split(/[,/]/)
+        .map(x => x.trim().replace(/^["'`]|["'`]$/g, ""))
+        .filter(Boolean);
+    }
+
+    function extractTagMeta(text) {
+      const meta = {};
+      const projects = text.match(/\bprojects?\s*:\s*([^\];)\n]+)/i);
+      const type = text.match(/\b(?:task_type|type)\s*:\s*([a-z0-9_-]+)/i);
+      const topics = text.match(/\btopics?\s*:\s*([^\];)\n]+)/i);
+      if (projects) meta.projects = splitTagList(projects[1]);
+      if (type) meta.task_type = type[1].trim();
+      if (topics) meta.topics = splitTagList(topics[1]);
+      return meta;
+    }
+
+    function inferTagMeta(text, id) {
+      const lower = String(text || "").toLowerCase();
+      const prefix = String(id || "").split("-")[0];
+      const projects = [];
+      const topics = [];
+      let task_type = "";
+
+      if (lower.includes("virtue") || lower.includes("덕 쌓기")) projects.push("virtue");
+      if (lower.includes("infinity")) projects.push("infinity");
+      if (lower.includes("agent-wiki") || lower.includes("agent wiki")) projects.push("agent-wiki");
+      if (lower.includes("knowledge lab") || lower.includes("knowledge-lab")) projects.push("knowledge-lab");
+      if (lower.includes("openclaw")) projects.push("openclaw");
+      if (lower.includes("github actions") || lower.includes("kubernetes") || lower.includes("배포")) projects.push("infrastructure");
+
+      if (prefix === "research") task_type = "research";
+      else if (prefix === "marketing") task_type = "strategy";
+      else if (prefix === "product" || prefix === "build" || prefix === "pages") task_type = "implementation";
+      else if (prefix === "wiki") task_type = "maintenance";
+      else if (prefix === "monitor") task_type = "monitoring";
+      else if (prefix === "maintenance") task_type = "maintenance";
+
+      if (prefix === "marketing") topics.push("marketing");
+      if (lower.includes("activation") || lower.includes("활성화")) topics.push("activation");
+      if (lower.includes("retention") || lower.includes("리텐션")) topics.push("retention");
+      if (lower.includes("analytics") || lower.includes("posthog") || lower.includes("계측")) topics.push("analytics");
+      if (lower.includes("workflow") || lower.includes("워크플로우")) topics.push("workflow");
+      if (lower.includes("dashboard") || lower.includes("대시보드")) topics.push("dashboard");
+      if (lower.includes("wiki")) topics.push("wiki");
+      if (lower.includes("ai ") || lower.includes("llm") || lower.includes("agent")) topics.push("ai-agents");
+
+      const uniq = xs => Array.from(new Set(xs)).slice(0, 3);
+      const meta = {};
+      const inferredProjects = uniq(projects);
+      const inferredTopics = uniq(topics);
+      if (inferredProjects.length) meta.projects = inferredProjects;
+      if (task_type) meta.task_type = task_type;
+      if (inferredTopics.length) meta.topics = inferredTopics;
+      return meta;
+    }
+
+    function allTags(item) {
+      const meta = item.meta || {};
+      return [
+        ...(Array.isArray(meta.projects) ? meta.projects : splitTagList(meta.projects)),
+        meta.task_type || "",
+        ...(Array.isArray(meta.topics) ? meta.topics : splitTagList(meta.topics)),
+      ].filter(Boolean);
     }
 
     // Archive 컬럼 정렬용: completed_at / resolved 를 updated 보다 우선
@@ -870,6 +978,32 @@
       }
       card.appendChild(metaEl);
 
+      const projects = Array.isArray(it.meta.projects) ? it.meta.projects : splitTagList(it.meta.projects);
+      const topics = Array.isArray(it.meta.topics) ? it.meta.topics : splitTagList(it.meta.topics);
+      if (projects.length || it.meta.task_type || topics.length) {
+        const tagsEl = document.createElement("div");
+        tagsEl.className = "tags";
+        for (const p of projects) {
+          const chip = document.createElement("span");
+          chip.className = "tag project";
+          chip.textContent = p;
+          tagsEl.appendChild(chip);
+        }
+        if (it.meta.task_type) {
+          const chip = document.createElement("span");
+          chip.className = "tag type";
+          chip.textContent = it.meta.task_type;
+          tagsEl.appendChild(chip);
+        }
+        for (const topic of topics) {
+          const chip = document.createElement("span");
+          chip.className = "tag topic";
+          chip.textContent = topic;
+          tagsEl.appendChild(chip);
+        }
+        card.appendChild(tagsEl);
+      }
+
       if (compact) {
         // Archive: 결과(outcome)가 있으면 그것만 1~2줄로, 없으면 본문에서 추출
         const summary = (it.meta && it.meta.outcome) || snippetFromBody(it.bodyLines);
@@ -917,16 +1051,57 @@
 
     function applyArchiveFilter(items) {
       const q = archiveFilterQuery();
-      if (!q) return items;
+      const tag = activeArchiveTag;
       return items.filter(it => {
         const blob = [
           it.id || "",
           it.title || "",
           (it.meta && it.meta.outcome) || "",
+          allTags(it).join(" "),
           (it.bodyLines || []).join(" "),
         ].join(" ").toLowerCase();
-        return blob.includes(q);
+        const qOk = !q || blob.includes(q);
+        const tagOk = !tag || allTags(it).map(x => String(x).toLowerCase()).includes(tag);
+        return qOk && tagOk;
       });
+    }
+
+    function renderArchiveTagFilter(items) {
+      const host = document.getElementById("archive-tag-filter");
+      if (!host) return;
+      const counts = new Map();
+      for (const item of items) {
+        for (const tag of allTags(item)) {
+          const key = String(tag).toLowerCase();
+          counts.set(key, (counts.get(key) || 0) + 1);
+        }
+      }
+      if (activeArchiveTag && !counts.has(activeArchiveTag)) activeArchiveTag = "";
+      host.replaceChildren();
+      const tags = Array.from(counts.entries())
+        .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+        .slice(0, 18);
+      if (!tags.length) return;
+      const allBtn = document.createElement("button");
+      allBtn.className = "tag-filter-button" + (!activeArchiveTag ? " active" : "");
+      allBtn.type = "button";
+      allBtn.textContent = "all";
+      allBtn.addEventListener("click", () => {
+        activeArchiveTag = "";
+        renderColumn("done", lastDoneItems, lastDoneSource);
+      });
+      host.appendChild(allBtn);
+      for (const [tag, count] of tags) {
+        const btn = document.createElement("button");
+        btn.className = "tag-filter-button" + (activeArchiveTag === tag ? " active" : "");
+        btn.type = "button";
+        btn.textContent = tag + " " + count;
+        btn.addEventListener("click", () => {
+          activeArchiveTag = activeArchiveTag === tag ? "" : tag;
+          renderColumn("done", lastDoneItems, lastDoneSource);
+        });
+        host.appendChild(btn);
+      }
     }
 
     function renderColumn(key, items, sourceLabel) {
@@ -936,6 +1111,7 @@
       cards.innerHTML = "";
 
       if (key === "done") {
+        renderArchiveTagFilter(items);
         const filtered = applyArchiveFilter(items);
         count.textContent = filtered.length === items.length
           ? items.length + "개"
@@ -1035,6 +1211,7 @@
 
     let lastDoneItems = [];
     let lastDoneSource = "GATES.md";
+    let activeArchiveTag = "";
 
     function rescheduleAuto() {
       if (timer) { clearInterval(timer); timer = null; }
