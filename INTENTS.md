@@ -4,17 +4,19 @@
 
 ## Inbox
 
-- marketing-23: Virtue 온보딩 지표 운영 판독표 작성
-  - source note: `/home/ubuntu/dev/knowledge-lab/source/external-links/marketing/2026-05-27-onboarding-metrics-practice.md`
-  - rationale: Appcues 온보딩 지표 루프를 Virtue prelaunch 기준에 맞게 번역해 activation/TTV/drop-off/D1-D7 retention을 한 판독표로 묶는다. 작은 표본에서 completion이나 첫 클릭을 vanity metric으로 승격하지 않도록 기존 first-value 문서들을 운영 리듬으로 정렬한다.
-  - expected impact: 첫 10-20명 관찰 때 "어느 이벤트를 볼지"보다 "어떤 가치 증거로 해석할지"가 선명해져 launch 전후 지표 과대해석과 중복 문서 생산을 줄인다.
-  - permission level: L1/L2 internal-doc only. 새 이벤트, 코드, 카피, 대시보드, 배포, 외부발송, 비용, 개인정보/트래킹 변경 금지.
-  - owner route: Infinity -> Claude Code 가능. 정본 위치는 `virtue-rebirth-app` 내부 docs 후보.
-  - success criteria: 기존 이벤트(`add_flow_started`, `deed_judged`, `deed_saved`, `level_up_viewed`, `deed_rerolled`, `deed_save_capped`)만 사용하고, J1/J2/J4=`deed_saved`, J3=`deed_judged` first-value 정의를 유지한다. 산출물은 activation event, TTV 시작/종료점, drop-off 해석 주의, D1/D7 재가치 질문, synthetic/test 제외 원칙을 한 표로 포함한다.
-  - first verification gate: 작업 전 `virtue-rebirth-app`에서 이벤트 발화 위치와 선행 문서(`first-session-jtbd-matrix`, `time-to-value`, `first-60-second-value`, `retention-predictive-activation`)를 확인하고 충돌이 있으면 문서 작성을 멈춘다.
-
 ## Active
 
+### marketing-23 · Virtue 온보딩 지표 운영 판독표 작성
+- status: in_progress
+- priority: high
+- permission: L1 (internal-doc only, 새 이벤트·코드·배포·외부발송·비용 금지)
+- mode: prepare (cloud done) → execute_local
+- project: virtue-rebirth-app
+- goal: Appcues 온보딩 지표 루프를 Virtue prelaunch 기준에 번역해 activation/TTV/drop-off/D1-D7 retention을 한 판독표로 묶는다
+- success_criteria: 기존 6개 이벤트(add_flow_started·deed_judged·deed_saved·level_up_viewed·deed_rerolled·deed_save_capped)만 사용, J1/J2/J4=deed_saved·J3=deed_judged 유지, activation/TTV/drop-off/D1/D7/synthetic제외 원칙을 한 표에 포함
+- context: /home/ubuntu/dev/knowledge-lab/source/external-links/marketing/2026-05-27-onboarding-metrics-practice.md
+- artifact: artifacts/marketing-23/onboarding-metrics-reading-table-draft.md
+- next_action: Local Claude Code가 출처 노트 반영 후 virtue-rebirth-app apps/web/docs/에 최종 문서 작성·push
 
 ## Waiting
 
