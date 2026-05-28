@@ -4,6 +4,8 @@
 
 ## Inbox
 
+<!-- marketing-25 inbox 2026-05-28T22:00Z [projects: virtue; type: strategy; topics: onboarding,analytics,activation,ai-agents] (Virtue human/test/agent 트래픽 판독 경계표 작성. source_note=/home/ubuntu/dev/knowledge-lab/source/external-links/marketing/2026-05-28-human-agent-onboarding-metrics.md. rationale=prelaunch/low-signal에서 aggregate activation에 사람 실사용자, 메이커 self-test, synthetic/mock, 플랫폼 차이, 장래 agent/API 호출이 섞이면 `deed_judged`/`deed_saved` 의미가 오염됨. expected_impact=첫 10~20명 baseline과 launch 이후 PostHog 판독의 신뢰도 상승, 작은 표본 과대해석 방지. permission=L1 내부 문서/판독표, 코드·계측·대시보드·배포·외부발송·비용·개인정보 변경 금지. owner_route=Infinity router → Claude Code 문서 작업. success_criteria=기존 이벤트(`add_flow_started`,`deed_judged`,`deed_saved`,`level_up_viewed`,`deed_rerolled`,`deed_save_capped`)를 human real-use / maker self-test / synthetic-mock / platform-difference / future agent-API 관점으로 나눠 해석 금지선과 첫 verification gate를 문서화한다. first_verification_gate=새 문서 1개만 추가, 신규 이벤트·속성·코드 변경 0, 기존 iOS parity/onboarding metrics/baseline/trust 문서와 충돌 0, conflict marker 0.) -->
+
 ## Active
 
 
