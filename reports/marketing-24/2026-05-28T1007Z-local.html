@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Infinity Report · marketing-24</title>
+<style>
+  :root{
+    --bg:#f4f2ea; --panel:#fbfaf5; --ink:#2c2a25; --soft:#807c70; --faint:#a8a496; --line:#e3dfd2;
+    --a2:#5f7a5e; --a2-deep:#3f5740;            /* 축2(결과/해법) = sage, 고정 */
+    --a1:#a9745a; --a1-deep:#8a5c45;            /* 축1 = 개선형 clay */
+    --sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;}
+  body{background:var(--bg); color:var(--ink); font-family:var(--sans);
+    font-size:14px; line-height:1.68; -webkit-font-smoothing:antialiased;}
+  .sheet{max-width:720px; margin:0 auto; padding:48px 34px 46px;}
+  .reveal{opacity:0; animation:fade .7s ease forwards;}
+  @keyframes fade{from{opacity:0; transform:translateY(9px);} to{opacity:1; transform:none;}}
+
+  .eyebrow{display:flex; align-items:center; gap:10px; font-family:var(--mono);
+    font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--soft);}
+  .eyebrow .id{color:var(--a2-deep); font-weight:600;}
+  .eyebrow .dot{width:5px; height:5px; border-radius:50%; background:var(--a2);}
+  .eyebrow .status{margin-left:auto; color:var(--a2-deep);}
+  h1{font-size:29px; line-height:1.3; font-weight:700; letter-spacing:-.01em; margin:20px 0 0;}
+  .dek{font-size:15.5px; color:var(--soft); margin:13px 0 0; max-width:52ch;}
+  .hr{height:1px; background:var(--line); margin:30px 0;}
+
+  .axis{padding:0 0 4px 22px; position:relative; margin-bottom:30px;}
+  .axis::before{content:""; position:absolute; left:0; top:6px; bottom:6px; width:2px; border-radius:2px;}
+  .axis.ax1::before{background:var(--a1);} .axis.ax2::before{background:var(--a2);}
+  .axis.ax1{--ul:var(--a1);} .axis.ax2{--ul:var(--a2);}
+  .axis .label{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase;
+    margin-bottom:9px; display:flex; align-items:center; gap:8px;}
+  .axis.ax1 .label{color:var(--a1-deep);} .axis.ax2 .label{color:var(--a2-deep);}
+  .axis .label .n{font-weight:600; opacity:.6;}
+  .axis .text{font-size:18px; line-height:1.6; color:#37352e;}
+  .axis .text b{font-weight:700; color:var(--ink); border-bottom:2px solid var(--ul);}
+  ol.find{list-style:none; counter-reset:f; margin:16px 0 0; padding:0;}
+  ol.find li{position:relative; padding:8px 0 8px 26px; font-size:15px; color:#37352e; border-top:1px solid var(--line);}
+  ol.find li:first-child{border-top:none;}
+  ol.find li::before{counter-increment:f; content:counter(f); position:absolute; left:0; top:9px;
+    font-family:var(--mono); font-size:12px; font-weight:600; color:var(--a1-deep);}
+
+  details{border:1px solid var(--line); border-radius:10px; background:var(--panel); margin-bottom:10px;}
+  summary{cursor:pointer; list-style:none; padding:14px 16px; display:flex; align-items:center; gap:11px;
+    font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft);}
+  summary::-webkit-details-marker{display:none;}
+  summary .chev{width:8px; height:8px; border-right:2px solid var(--a2-deep); border-bottom:2px solid var(--a2-deep);
+    transform:rotate(-45deg); transition:.25s; flex:none; margin-left:2px;}
+  details[open] summary .chev{transform:rotate(45deg);}
+  summary:hover{color:var(--ink);}
+  .body{padding:2px 16px 18px;}
+  table{border-collapse:collapse; width:100%; font-size:13px; margin:4px 0 12px;}
+  th,td{border-bottom:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top;}
+  th{font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft); font-weight:600;}
+  td:first-child{color:var(--a2-deep); font-weight:600; white-space:nowrap;}
+  .body p{color:var(--soft);}
+  .body ul{margin:6px 0; padding-left:18px;} .body li{margin:5px 0;}
+  code{font-family:var(--mono); font-size:12px; background:#edeae0; padding:1px 6px; border-radius:3px; color:var(--a2-deep);}
+  a{color:var(--a2-deep); text-underline-offset:3px;}
+  .chips{display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px;}
+  .chip{font-family:var(--mono); font-size:10.5px; letter-spacing:.05em; color:var(--soft); border:1px solid var(--line); border-radius:999px; padding:3px 10px;}
+  .foot{margin-top:30px; padding-top:15px; border-top:1px solid var(--line);
+    display:flex; justify-content:space-between; font-family:var(--mono); font-size:10px;
+    letter-spacing:.13em; text-transform:uppercase; color:var(--faint);}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="eyebrow reveal">
+    <span class="dot"></span>
+    <span class="id">marketing-24</span>
+    <span>Marketing Brief</span>
+    <span class="status">archived</span>
+  </div>
+  <h1 class="reveal" style="animation-delay:.05s">Virtue AI 판정 신뢰 보정 감사표</h1>
+  <p class="dek reveal" style="animation-delay:.09s">Google People + AI Guidebook의 신뢰 보정 렌즈(과신 ↔ 불신 사이의 적정 신뢰)를 Virtue 첫 세션 J1~J4 잡으로 번역해, AI 판정이 호기심으로만 소비되는지 저장/재방문 이유로 이어지는지 판독 기준을 만든 내부 문서.</p>
+
+  <div class="hr reveal" style="animation-delay:.12s"></div>
+
+  <div class="axis ax1 reveal" style="animation-delay:.16s">
+    <div class="label"><span class="n">01</span> 무엇이 문제였나</div>
+    <div class="text">Virtue의 첫 가치는 <code>/add</code> 결과 카드(<code>deed_judged</code>)에서 강하게 드러나지만, AI 판정이 <b>"신기함"으로만 소비되면</b> J3 호기심형에게는 짧은 만족만 주고 J1/J2/J4에게는 저장·재방문을 설득하지 못한다. 동시에 사진 1장 + 짧은 메모라는 <b>얕은 입력</b>에서 나온 점수를 사용자가 정체성 피드백으로 <b>과신</b>하거나, mock 한 번에 <b>불신</b>으로 식을 위험이 prelaunch 단계에서 점검되지 않았다.</div>
+  </div>
+
+  <div class="axis ax2 reveal" style="animation-delay:.22s">
+    <div class="label"><span class="n">02</span> 어떻게 해결하나</div>
+    <div class="text">잡(J1~J4)별 <b>첫 가치 이벤트 → 필요한 설명 수준 → 과신 위험 → 불신 위험 → 사용자 제어(재시도/저장/무시/수정) → 정성 관찰 질문</b>을 <b>한 감사표(§2)</b>로 묶었다. 기존 발화 이벤트만 인용, <b>신규 이벤트·코드·카피·제품 변경 0건</b>(제안은 §7 proposal-only). Virtue <code>c3afb52</code>에 단일 문서로 push.</div>
+    <ol class="find">
+      <li>한 표가 6개 차원을 모두 덮음: first value(J1·J2·J4 <code>deed_saved</code>, J3 <code>deed_judged</code> 저장 전) · 설명 수준 · 과신/불신 · 제어 · 관찰 질문.</li>
+      <li>핵심 발견: <b>출력 수정·수동 우회 제어가 없다</b> — 판정에 동의 안 할 때 쓸 수 있는 건 재시도(<code>deed_rerolled</code> ≤3)나 폐기뿐. 과신은 수동적 수용으로, 불신은 이탈로 흐르기 쉽다(§4 제어권 감사).</li>
+      <li>J3가 신뢰 보정의 본체 — 같은 얕은 입력 점수를 정체성 거울로 과신(최대 위험)하거나 mock 라벨에 냉소(불신)로 진폭이 가장 크다. 라이브 J3 trust-aware 큐는 60초 스크립트 §4-1에 위임(중복 0).</li>
+    </ol>
+  </div>
+
+  <div class="reveal" style="animation-delay:.27s">
+  <details open>
+    <summary><span class="chev"></span> 실행 요약 · 검증</summary>
+    <div class="body">
+      <p>workflow-master 파일이 양 repo(Infinity·virtue-rebirth-app)에 <b>부재</b> → 지시문에 따라 부재를 기록하고 4역할(Planner/Developer/Marketer/Operator) 렌즈를 <b>수동 합성</b>. 승인 패스는 <b>독립 verifier</b>(Explore, read-only)로 분리.</p>
+      <table>
+        <tr><th>게이트</th><th>결과</th><th>증거</th></tr>
+        <tr><td>A 파일 존재</td><td>PASS</td><td>136줄 신규 생성</td></tr>
+        <tr><td>B 필수 정규식</td><td>PASS</td><td><code>deed_judged|deed_saved|trust|신뢰|J1|J2|J3|J4</code> 46매치 (trust 13·신뢰 26·과신 20·불신 14)</td></tr>
+        <tr><td>B2 이벤트 화이트리스트</td><td>PASS</td><td>인용 = <code>deed_judged</code>·<code>deed_saved</code>·<code>deed_rerolled</code>·<code>deed_save_capped</code>·<code>add_flow_abandoned</code>만. <code>deed_judge_attempted</code> 등 비허용 0</td></tr>
+        <tr><td>C first-value 매핑</td><td>PASS</td><td>J1/J2/J4=<code>deed_saved</code>, J3=<code>deed_judged</code> 계승·재정의 0</td></tr>
+        <tr><td>D diff 스코프</td><td>PASS</td><td><code>git diff --cached --stat</code> = 문서 1파일(+136)만</td></tr>
+        <tr><td>E 충돌 마커</td><td>PASS</td><td>git 충돌 마커 0</td></tr>
+        <tr><td>F 금지어</td><td>PASS</td><td><code>선행</code> 미사용(「앞선 문서」로 대체), copy-spec 금지어 0</td></tr>
+        <tr><td>G 이벤트 앵커</td><td>PASS</td><td><code>add/page.tsx</code> 23/78/106/149/167/183 현행 코드 일치, drift 0</td></tr>
+        <tr><td>독립 verifier</td><td>GO 6/6</td><td>한 표 6차원·매핑 계승·화이트리스트·앵커+출력수정부재·스코프·m20 위임 모두 PASS</td></tr>
+      </table>
+      <p><b>문서 구조:</b> §0 목적·전제(J1~J4 계승, 라이브 큐 m20 위임) · §1 신뢰 보정 렌즈(3요소 능력/일관성/선의, 과신·불신·보정·설명=활성화 장치) · §2 신뢰 보정 감사표(심장, 4행 × 6차원) · §3 잡별 보충(J3 본체, J1↔J4 시점 차, J2 일관성, 확신도 부재) · §4 제어권 감사(재시도/저장/무시·되돌리기 실재 vs 출력 수정 공백) · §5 정성 관찰 질문 모음 · §6 prelaunch 금지선 · §7 proposal-only · §8 충돌 점검 · Out of scope · 검증 매핑.</p>
+      <p><b>핵심 발견:</b> 같은 결과 카드라도 신뢰 보정 역할이 잡별로 다르다 — J1엔 통과점(낮은 설명), J2엔 일관성(누적 공정성), J3엔 본체(높은 설명·최대 과신 위험), J4엔 영구 주석(사후 수정 불가 공백). 현재 출력 수정·수동 우회 제어가 없어 적정 신뢰 형성 경로가 재시도(≤3)·폐기로 좁다. 확신도 숫자(%) 부재는 출처 권고와 우연히 정렬한 의도된 보정일 수 있어 "확신도=신뢰 상승" 가정을 금지선에 둠.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="chev"></span> 실행 메타 · 산출물 · L2 승인</summary>
+    <div class="body">
+      <div class="chips">
+        <span class="chip">2026-05-28T10:07Z</span>
+        <span class="chip">execute_local</span>
+        <span class="chip">Inbox → Archive</span>
+      </div>
+      <ul>
+        <li>산출물 <code>virtue-rebirth-app: apps/web/docs/ai-judgment-trust-calibration-audit.md</code> (신규 1파일, 136줄)</li>
+        <li>Virtue commit <code>c3afb52</code> (이전 HEAD <code>808231c</code> fast-forward), push <code>808231c..c3afb52 master -&gt; master</code>, HEAD == origin/master, 워킹트리 clean</li>
+        <li>Infinity: <code>intents/archive/marketing-24.md</code> · <code>INTENTS.md</code>(Inbox→Archive) · 본 report</li>
+        <li>출처 노트 <code>source/external-links/marketing/2026-05-28-ai-trust-calibration.md</code> (Google People + AI Guidebook, Explainability + Trust / Feedback + Control)</li>
+      </ul>
+      <p><b>approval: agent-approved L2.</b> 판단 근거 — 목표 intent 직결, 되돌림 가능(단일 doc 추가), 비용 0, 프로덕션 데이터/운영 권한/시크릿 변경 0, 타인 메시지 0, 실행 전 상태 확인(HEAD==origin/master·clean), 실행 후 검증(게이트 8종 + 독립 verifier GO 6/6). force-push 아님, 타인 작업 덮어쓰지 않음(fast-forward). 영향 범위 — virtue-rebirth-app 내부 문서 1개 + Infinity 원장/리포트, 코드·런타임·계측 무변경.</p>
+      <p><b>금지 경계 준수:</b> 앱 코드·텔레메트리·공개 카피·배포·외부 메시징·비용·시크릿·권한·프로덕션 데이터 변경 0건. 기존 발화 이벤트만 인용(화이트리스트 내 5종), 신규 이벤트 제안 0. 신규 이벤트·결과 카드 신뢰 카피·출력 수정 제어·확신도 표시는 모두 §7 proposal-only로 분리.</p>
+    </div>
+  </details>
+  </div>
+
+  <div class="foot reveal" style="animation-delay:.3s">
+    <span>Agent-First Heartbeat</span>
+    <span>Infinity · marketing-24</span>
+  </div>
+</div>
+</body>
+</html>
