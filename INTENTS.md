@@ -4,17 +4,19 @@
 
 ## Inbox
 
-- marketing-24: Virtue AI 판정 신뢰 보정 감사표 작성
-  - source note: `/home/ubuntu/dev/knowledge-lab/source/external-links/marketing/2026-05-28-ai-trust-calibration.md`
-  - rationale: Google People + AI Guidebook은 AI 제품 신뢰를 "무조건 믿게 만들기"가 아니라 사용자가 언제 믿고 언제 자기 판단을 써야 하는지 보정하는 문제로 본다. Virtue의 첫 가치가 `/add` 결과 카드와 `deed_judged`/`deed_saved` 사이에서 갈리므로, prelaunch 단계에서 J1~J4별 신뢰 설명·한계·제어권을 먼저 감사할 필요가 있다.
-  - expected impact: 첫 10~20명 관찰 전, AI 판정이 호기심으로만 소비되는지 저장/재방문 이유로 이어지는지 판독 기준을 선명하게 만든다.
-  - permission level: L2 내부 문서 작업. 코드, 공개 카피, 계측, 배포, 외부 발송, 비용 변경 없음.
-  - owner route: Infinity router → Claude Code, 대상 repo `/home/ubuntu/dev/virtue-rebirth-app`, 산출물 후보 `apps/web/docs/ai-judgment-trust-calibration-audit.md`.
-  - success criteria: J1~J4별 첫 가치(`deed_judged` 또는 `deed_saved`), 필요한 설명 수준, 과신/불신 위험, 사용자 제어(재시도/저장/무시/수정 가능성), 정성 관찰 질문이 한 표에 정리된다. 기존 이벤트만 인용하고 신규 이벤트/카피/코드 제안은 proposal-only로 분리한다.
-  - first verification gate: 문서 생성 후 `rg 'deed_judged|deed_saved|trust|신뢰|J1|J2|J3|J4' apps/web/docs/ai-judgment-trust-calibration-audit.md`가 핵심 매핑을 모두 찾고, `git diff --stat`이 문서 1파일 변경만 보여야 한다.
-
 ## Active
 
+### marketing-24
+- id: marketing-24
+- title: Virtue AI 판정 신뢰 보정 감사표 작성
+- status: in_progress
+- priority: high
+- permission: L2 (내부 문서 작업, agent-approved)
+- mode: execute_local (클라우드 초안 완료 → virtue-rebirth-app push 대기)
+- goal: J1~J4별 AI 판정 신뢰 설명·한계·제어권을 감사한 표를 apps/web/docs/ai-judgment-trust-calibration-audit.md 1파일로 작성
+- success_criteria: rg 'deed_judged|deed_saved|trust|신뢰|J1|J2|J3|J4' apps/web/docs/ai-judgment-trust-calibration-audit.md 핵심 매핑 전부 탐지 + git diff --stat 문서 1파일 변경만 표시
+- artifact_draft: artifacts/marketing-24/ai-judgment-trust-calibration-audit.md
+- next: 로컬 Claude Code가 artifact에서 virtue-rebirth-app apps/web/docs/에 복사·커밋·push 후 검증 게이트 실행
 
 ## Waiting
 
