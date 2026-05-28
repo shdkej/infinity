@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Infinity Report · marketing-25</title>
+<style>
+  :root{
+    --bg:#f4f2ea; --panel:#fbfaf5; --ink:#2c2a25; --soft:#807c70; --faint:#a8a496; --line:#e3dfd2;
+    --a2:#5f7a5e; --a2-deep:#3f5740;            /* 축2(결과/해법) = sage, 고정 */
+    --a1:#a9745a; --a1-deep:#8a5c45;            /* 축1 = 개선형 clay */
+    --sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;}
+  body{background:var(--bg); color:var(--ink); font-family:var(--sans);
+    font-size:14px; line-height:1.68; -webkit-font-smoothing:antialiased;}
+  .sheet{max-width:720px; margin:0 auto; padding:48px 34px 46px;}
+  .reveal{opacity:0; animation:fade .7s ease forwards;}
+  @keyframes fade{from{opacity:0; transform:translateY(9px);} to{opacity:1; transform:none;}}
+
+  .eyebrow{display:flex; align-items:center; gap:10px; font-family:var(--mono);
+    font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--soft);}
+  .eyebrow .id{color:var(--a2-deep); font-weight:600;}
+  .eyebrow .dot{width:5px; height:5px; border-radius:50%; background:var(--a2);}
+  .eyebrow .status{margin-left:auto; color:var(--a2-deep);}
+  h1{font-size:29px; line-height:1.3; font-weight:700; letter-spacing:-.01em; margin:20px 0 0;}
+  .dek{font-size:15.5px; color:var(--soft); margin:13px 0 0; max-width:52ch;}
+  .hr{height:1px; background:var(--line); margin:30px 0;}
+
+  .axis{padding:0 0 4px 22px; position:relative; margin-bottom:30px;}
+  .axis::before{content:""; position:absolute; left:0; top:6px; bottom:6px; width:2px; border-radius:2px;}
+  .axis.ax1::before{background:var(--a1);} .axis.ax2::before{background:var(--a2);}
+  .axis.ax1{--ul:var(--a1);} .axis.ax2{--ul:var(--a2);}
+  .axis .label{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase;
+    margin-bottom:9px; display:flex; align-items:center; gap:8px;}
+  .axis.ax1 .label{color:var(--a1-deep);} .axis.ax2 .label{color:var(--a2-deep);}
+  .axis .label .n{font-weight:600; opacity:.6;}
+  .axis .text{font-size:18px; line-height:1.6; color:#37352e;}
+  .axis .text b{font-weight:700; color:var(--ink); border-bottom:2px solid var(--ul);}
+  ol.find{list-style:none; counter-reset:f; margin:16px 0 0; padding:0;}
+  ol.find li{position:relative; padding:8px 0 8px 26px; font-size:15px; color:#37352e; border-top:1px solid var(--line);}
+  ol.find li:first-child{border-top:none;}
+  ol.find li::before{counter-increment:f; content:counter(f); position:absolute; left:0; top:9px;
+    font-family:var(--mono); font-size:12px; font-weight:600; color:var(--a1-deep);}
+
+  details{border:1px solid var(--line); border-radius:10px; background:var(--panel); margin-bottom:10px;}
+  summary{cursor:pointer; list-style:none; padding:14px 16px; display:flex; align-items:center; gap:11px;
+    font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft);}
+  summary::-webkit-details-marker{display:none;}
+  summary .chev{width:8px; height:8px; border-right:2px solid var(--a2-deep); border-bottom:2px solid var(--a2-deep);
+    transform:rotate(-45deg); transition:.25s; flex:none; margin-left:2px;}
+  details[open] summary .chev{transform:rotate(45deg);}
+  summary:hover{color:var(--ink);}
+  .body{padding:2px 16px 18px;}
+  table{border-collapse:collapse; width:100%; font-size:13px; margin:4px 0 12px;}
+  th,td{border-bottom:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top;}
+  th{font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft); font-weight:600;}
+  td:first-child{color:var(--a2-deep); font-weight:600; white-space:nowrap;}
+  .body p{color:var(--soft);}
+  .body ul{margin:6px 0; padding-left:18px;} .body li{margin:5px 0;}
+  code{font-family:var(--mono); font-size:12px; background:#edeae0; padding:1px 6px; border-radius:3px; color:var(--a2-deep);}
+  a{color:var(--a2-deep); text-underline-offset:3px;}
+  .chips{display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px;}
+  .chip{font-family:var(--mono); font-size:10.5px; letter-spacing:.05em; color:var(--soft); border:1px solid var(--line); border-radius:999px; padding:3px 10px;}
+  .foot{margin-top:30px; padding-top:15px; border-top:1px solid var(--line);
+    display:flex; justify-content:space-between; font-family:var(--mono); font-size:10px;
+    letter-spacing:.13em; text-transform:uppercase; color:var(--faint);}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="eyebrow reveal">
+    <span class="dot"></span>
+    <span class="id">marketing-25</span>
+    <span>Marketing Brief</span>
+    <span class="status">local · pushed</span>
+  </div>
+  <h1 class="reveal" style="animation-delay:.05s">Virtue human/test/agent 트래픽 판독 경계표</h1>
+  <p class="dek reveal" style="animation-delay:.09s">Userpilot·Appcues 2026 온보딩 지표 가이드를 트래픽 <b>출처 축</b>으로 번역해, 사람 실사용·메이커 테스트·synthetic/mock·플랫폼 차이·장래 agent/API를 같은 activation으로 섞지 않도록 분류 경계를 고정한 내부 문서.</p>
+
+  <div class="hr reveal" style="animation-delay:.12s"></div>
+
+  <div class="axis ax1 reveal" style="animation-delay:.16s">
+    <div class="label"><span class="n">01</span> 무엇이 문제였나</div>
+    <div class="text">선행 문서는 활성화를 <b>잡 축(m06·m23)</b>·<b>플랫폼 축(m15)</b>으로 분리했지만, 세 번째 축 — <b>누가/무엇이 만든 트래픽인가</b> — 가 비어 있었다. mock 기본값·데모 시드·메이커 self-test·localStorage 반복·웹/iOS 차이·장래 agent 호출이 한 aggregate에 섞이면 <b>사람 온보딩 진단이 좋아 보이거나 나빠 보인다.</b></div>
+  </div>
+
+  <div class="axis ax2 reveal" style="animation-delay:.22s">
+    <div class="label"><span class="n">02</span> 어떻게 해결하나</div>
+    <div class="text">다섯 트래픽 종류별로 <b>식별 단서 → 기존 이벤트 나타남 → 사람과 같은 판독 규칙인가 → 집계 처리 → 해석 금지선</b>을 <b>한 경계표(§2)</b>로 묶었다. 기존 6개 발화 이벤트만 인용, <b>신규 이벤트·코드·카피·대시보드 0건</b>. Virtue <code>f5fde73</code>에 단일 문서로 push.</div>
+    <ol class="find">
+      <li>5행 경계표: A 사람 실사용(baseline 본행) · B 메이커 self-test(표시 후 제외) · C synthetic/mock(J3 first value 부적합) · D 플랫폼 차이(<code>platform</code> 분리 후 최소공약수 비교) · E 장래 agent/API(미발생, 생기면 별도 규칙).</li>
+      <li>분류는 판독에 선행한다 — 트래픽 종류가 정해지기 전엔 activation/TTV/retention 칸을 읽지 않는다(§5 no-read).</li>
+      <li>first value 정의 유지: J1/J2/J4 <code>deed_saved</code> · J3 <code>deed_judged</code> 그대로 계승, 재정의 0(§4). agent activation·retention은 사람과 다른 규칙으로 <b>제안만</b>(§6, 미구현).</li>
+    </ol>
+  </div>
+
+  <div class="reveal" style="animation-delay:.27s">
+  <details open>
+    <summary><span class="chev"></span> 실행 요약 · 검증</summary>
+    <div class="body">
+      <p>workflow-master 파일이 양 repo(Infinity·virtue-rebirth-app)에 <b>부재</b> → 지시문에 따라 부재를 기록하고 4역할(Planner/Developer/Marketer/Operator) 렌즈를 <b>수동 합성</b>(중간 복잡도). 분류 축은 m06/m23(잡)·m15(플랫폼)과 겹치지 않는 <b>트래픽 출처 축</b>으로 설계해 중복·충돌을 피했다.</p>
+      <table>
+        <tr><th>게이트</th><th>결과</th><th>증거</th></tr>
+        <tr><td>A 파일 존재</td><td>PASS</td><td>177줄 신규 1파일 (<code>git commit</code> 177 insertions)</td></tr>
+        <tr><td>B 5개 트래픽 종류</td><td>PASS</td><td>A 사람 실사용 · B 메이커 self-test · C synthetic/mock · D 플랫폼 차이 · E 장래 agent/API (§2 5행)</td></tr>
+        <tr><td>B2 6개 이벤트</td><td>PASS</td><td><code>add_flow_started</code>5 · <code>deed_judged</code>13 · <code>deed_saved</code>15 · <code>level_up_viewed</code>6 · <code>deed_rerolled</code>3 · <code>deed_save_capped</code>4</td></tr>
+        <tr><td>C first-value 매핑</td><td>PASS</td><td>J1/J2/J4=<code>deed_saved</code>, J3=<code>deed_judged</code> 유지·재정의 0 (§4·§7·검증매핑)</td></tr>
+        <tr><td>D no-read/금지선</td><td>PASS</td><td>§5 첫 검증 게이트 절 + 초기 baseline 절 (분류 전 숫자 읽기 금지·aggregate 합산 전환율 금지)</td></tr>
+        <tr><td>E 충돌 마커</td><td>PASS</td><td>라인-시작 실제 마커 0 (<code>rg '^(&lt;{7}|={7}|&gt;{7})'</code> → 0). 160행 매치는 <b>문서화된 검증 명령</b>(m15 doc와 동일 패턴)</td></tr>
+        <tr><td>F 이벤트 앵커</td><td>PASS</td><td><code>add/page.tsx</code> 72/106/149/167/183/199 현행 코드 일치, drift 0 · iOS <code>platform=ios</code> <code>Analytics.swift:23</code> 일치</td></tr>
+        <tr><td>G 코드 변경 0</td><td>PASS</td><td><code>git diff --stat -- apps/web/src apps/ios/Sources</code> 빈 출력</td></tr>
+        <tr><td>H 타 문서 미변경</td><td>PASS</td><td>repo 전체 변경 1파일(신규 doc만). 기존 docs 수정 0, §7 충돌 점검 표 채움</td></tr>
+      </table>
+      <p><b>문서 구조:</b> §0 목적·전제(baseline 신뢰 보존 + aggregate 과대해석 방지, 선행 5문서 계승/위임) · §1 왜 트래픽을 섞으면 안 되는가(세 번째 축) · §2 트래픽 판독 경계표(심장, 5행×6열) · §3 보충 메모(분류 선행·다중 분류 시 강한 제외 우선·표시≠삭제·availability≠value) · §4 사람 activation 판독 그대로(계승) · §5 첫 검증 게이트·초기 baseline 금지선(no-read) · §6 장래 agent/API 경계 제안(proposal-only) · §7 충돌 점검 · §8 기존 이벤트 증거(코드 근거) · Out of scope · 검증 매핑.</p>
+      <p><b>핵심 발견:</b> 같은 이벤트 수라도 <b>누가/무엇이</b> 만들었는지가 다르면 같은 activation으로 묶지 않는다. A만 baseline 본행, B·C는 표시 후 제외, D는 플랫폼 분리 후 공통 명명 이벤트(<code>deed_judge_attempted</code>·<code>deed_judged</code>·<code>deed_saved</code>)만 비교, E는 미발생이며 생기면 사람과 다른 규칙(첫 작업 무오류 완료 / 설정자 재호출)으로 분리. 한 세션이 여러 분류에 걸치면 더 강한 제외 사유(B·C)가 D보다 앞선다.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="chev"></span> 실행 메타 · 산출물 · L2 승인</summary>
+    <div class="body">
+      <div class="chips">
+        <span class="chip">2026-05-28T22:07Z</span>
+        <span class="chip">execute_local</span>
+        <span class="chip">doc-only · L2</span>
+      </div>
+      <ul>
+        <li>산출물 <code>virtue-rebirth-app: apps/web/docs/traffic-source-reading-boundary-table.md</code> (신규 1파일, 177줄)</li>
+        <li>Virtue commit <code>f5fde73</code> (이전 HEAD <code>c3afb52</code> fast-forward), push <code>c3afb52..f5fde73 master -&gt; master</code>, HEAD == origin/master, 워킹트리 clean (0 ahead/0 behind)</li>
+        <li>출처 노트 <code>source/external-links/marketing/2026-05-28-human-agent-onboarding-metrics.md</code> (Userpilot 2026 · Appcues 2026)</li>
+        <li>본 report <code>reports/marketing-25/2026-05-28T2207Z-local.html</code></li>
+        <li>Infinity INTENTS.md / archive 이동은 <b>라우터에 위임</b> — 본 작업에서 건드리지 않음</li>
+      </ul>
+      <p><b>approval: agent-approved L2.</b> 판단 근거 — 목표 intent(marketing-25) 직결, 되돌림 가능(단일 doc 추가, <code>git revert</code> 가능), 비용 0, 프로덕션 데이터/운영 권한/시크릿 변경 0, 타인 메시지 0(본인 origin push), 실행 전 상태 확인(HEAD==origin/master <code>c3afb52</code>·clean·0 ahead/0 behind), 실행 후 검증(게이트 A~H + 이벤트 앵커 drift 0). force-push 아님, fast-forward(<code>c3afb52..f5fde73</code>), 타인 작업 덮어쓰지 않음. 영향 범위 — virtue-rebirth-app 내부 문서 1개, 코드·런타임·계측 무변경.</p>
+      <p><b>금지 경계 준수:</b> 소스 코드·카피·텔레메트리·이벤트 스키마·이벤트 속성·대시보드·PostHog/스키마·세션리플레이·배포·공개 사이트 카피·외부 발송·비용·프로덕션 데이터·시크릿·권한 변경·삭제 0건. 기존 발화 중 6개 이벤트만 인용, 신규 이벤트 제안 0. agent/API·런치 후 대시보드는 §2 E행·§6에 <b>경계 제안(approval-needed)</b> 으로만 보관, 구현 0.</p>
+    </div>
+  </details>
+  </div>
+
+  <div class="foot reveal" style="animation-delay:.3s">
+    <span>Agent-First Heartbeat</span>
+    <span>Infinity · marketing-25</span>
+  </div>
+</div>
+</body>
+</html>
