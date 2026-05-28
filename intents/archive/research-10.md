@@ -16,7 +16,7 @@
     role: final
 - commits:
   - repo: infinity
-    sha: 5fd37d6
+    sha: fd507dd
     note: research-10 산출물·원장·보고서·INTENTS 정리
 - urls: []
 - next_actions:
