@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>[marketing-25] Virtue human/test/agent 트래픽 판독 경계표</title>
+<style>
+  body { font-family: -apple-system, sans-serif; max-width: 800px; margin: 2em auto; padding: 0 1.5em; color: #222; }
+  h2 { margin-bottom: 0.3em; }
+  .badge { display: inline-block; padding: 0.15em 0.7em; border-radius: 3px; font-size: 0.8em; font-weight: bold; background: #f0ad4e; color: white; vertical-align: middle; margin-left: 0.5em; }
+  .axis-table { width: 100%; border-collapse: collapse; margin: 1.2em 0; }
+  .axis-table td { border: 1px solid #ccc; padding: 0.6em 1em; vertical-align: top; }
+  .axis-table td:first-child { width: 8em; color: #666; font-size: 0.85em; font-weight: bold; background: #f9f9f9; white-space: nowrap; }
+  details { margin: 1em 0; border: 1px solid #ddd; border-radius: 4px; padding: 0.5em 1em; }
+  summary { cursor: pointer; font-weight: bold; padding: 0.3em 0; }
+  ul { margin: 0.5em 0; padding-left: 1.5em; }
+  li { margin: 0.3em 0; }
+  code { background: #f4f4f4; padding: 0.1em 0.3em; border-radius: 2px; font-size: 0.9em; }
+  .divider { border: none; border-top: 2px solid #333; margin: 0.8em 0; }
+</style>
+</head>
+<body>
+
+<h2>[marketing-25] Virtue human/test/agent 트래픽 판독 경계표 <span class="badge">waiting</span></h2>
+<hr class="divider">
+
+<table class="axis-table">
+  <tr>
+    <td>문제 (축1)</td>
+    <td>prelaunch Virtue PostHog에 human real-use·maker self-test·synthetic-mock·platform 차이·future agent-API 트래픽이 혼재해 <code>deed_judged</code>/<code>deed_saved</code> 수치 해석이 오염될 위험 (onboarding-metrics-reading-table §5 언급했으나 이벤트 단위 경계 미정의)</td>
+  </tr>
+  <tr>
+    <td>결과 (축2)</td>
+    <td>6이벤트 × 5트래픽 유형(H/M/S/P/A) 판독 경계표 + 해석 금지선 6항목 + Verification Gate V1/V2/V3 cloud draft 완료 (<code>artifacts/marketing-25/human-agent-traffic-boundary-table.md</code>). 로컬 virtue-rebirth-app push 대기 중 (<code>artifacts/marketing-25/local-execution-prompt.md</code>)</td>
+  </tr>
+</table>
+
+<details open>
+<summary>▸ 수행한 작업 / 산출물</summary>
+
+<h3>수행 작업</h3>
+<ul>
+  <li>INTENTS.md Inbox <code>marketing-25</code> → Active (status: waiting) 이동 완료</li>
+  <li>5가지 트래픽 유형 정의 (H/M/S/P/A) 작성</li>
+  <li>6이벤트 × 5유형 판독 경계표 작성 (✅/⚠️/❌ + 해석 주의 포함)</li>
+  <li>해석 금지선 6항목 작성</li>
+  <li>Verification Gate V1(트래픽 분류)/V2(이벤트 해석 전)/V3(표본 크기) 작성</li>
+  <li>선행 문서 5개 연결 확인 (ios-parity·onboarding-metrics·baseline-template·trust-calibration·input-output-audit)</li>
+  <li>로컬 실행 프롬프트 (<code>artifacts/marketing-25/local-execution-prompt.md</code>) 작성</li>
+</ul>
+
+<h3>산출물</h3>
+<ul>
+  <li><code>artifacts/marketing-25/human-agent-traffic-boundary-table.md</code> — 판독 경계표 cloud draft (145줄)</li>
+  <li><code>artifacts/marketing-25/local-execution-prompt.md</code> — 로컬 Claude Code 실행 프롬프트</li>
+  <li><code>reports/marketing-25/2026-05-28T2200Z.html</code> — 본 리포트</li>
+</ul>
+
+<h3>Cloud 단계 검증</h3>
+<ul>
+  <li>6개 이벤트 앵커(72/106/149/167/183/199) 모두 포함: ✅</li>
+  <li>5트래픽 유형(H/M/S/P/A) 모두 정의: ✅</li>
+  <li>해석 금지선 6항목 포함: ✅</li>
+  <li>Verification Gate 3개(V1/V2/V3) 포함: ✅</li>
+  <li>신규 이벤트·속성·코드·카피·계측·대시보드·배포·외부발송·비용·시크릿·권한·개인정보 변경: 0</li>
+  <li>선행 5문서 충돌 마커: 0</li>
+  <li>J1~J4 first value 매핑 재정의: 0 (J1/J2/J4=deed_saved, J3=deed_judged 계승)</li>
+</ul>
+</details>
+
+<details>
+<summary>▸ 실행 메타 / 다음 액션</summary>
+<ul>
+  <li><strong>실행 모드</strong>: Cloud prepare/draft (L1)</li>
+  <li><strong>source_note</strong>: /home/ubuntu/dev/knowledge-lab/source/external-links/marketing/2026-05-28-human-agent-onboarding-metrics.md (로컬 접근 불가 — inbox 기술 내용과 선행 Archive 맥락 기반으로 draft 작성)</li>
+  <li><strong>현재 status</strong>: waiting (로컬 virtue-rebirth-app push 대기)</li>
+  <li><strong>L2 판단</strong>: 로컬 push는 L2 agent-approved 조건 충족 (되돌림 가능, 비용 없음, 프로덕션 데이터 무관, 타인 메시지 없음) — 로컬 환경 접근 불가로 대기</li>
+  <li><strong>다음 액션</strong>: Local Claude Code가 <code>artifacts/marketing-25/local-execution-prompt.md</code>를 실행하여 virtue-rebirth-app에 push 후 INTENTS.md를 archived로 마감</li>
+</ul>
+</details>
+
+</body>
+</html>
