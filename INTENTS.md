@@ -4,6 +4,20 @@
 
 ## Inbox
 
+### research-10 PC·인터넷 시대 전환사 리서치
+- mode: research
+- priority: medium
+- permission: L0/L1
+- goal: 공통 PC/인터넷이 없던 시대에서 오늘날의 일반 보급까지 사회가 어떻게 이동했는지, 주요 변곡점과 사람들의 인식 변화를 역사적으로 정리한다.
+- scope:
+  - PC 보급: 개인용 컴퓨터가 가정·일터에 들어오기까지의 흐름(메인프레임→PC→노트북, 가격·접근성·보급률 변화)
+  - 인터넷 보급: 연구망에서 대중 인터넷으로의 확산(다이얼업→브로드밴드→모바일/스마트폰, 접속률 변화)
+  - 주요 변곡점: 흐름을 바꾼 결정적 사건·제품·정책을 시대순으로(GUI/대중 OS, 웹·브라우저 등장, 닷컴, 광대역, 모바일 전환 등)
+  - 인식 변화: "특수한 도구 → 당연한 인프라"로 사람들의 태도·기대·일상 통합이 어떻게 바뀌었나
+  - 출처/산출물: 신뢰 가능한 출처 정리 + `artifacts/research-10/`에 종합 문서, `reports/research-10/`에 결론 2축 HTML
+- tags: projects=knowledge-lab,infinity; task_type=research; topics=history,internet,computing
+- constraints: 지금은 intake만 — 웹 리서치/실행은 다음 Heartbeat에서. 공개 사이트/코드 변경 0.
+
 ## Active
 
 
