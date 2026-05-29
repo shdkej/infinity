@@ -4,6 +4,8 @@
 
 ## Inbox
 
+<!-- marketing-27 candidate 2026-05-29T22:00Z [projects: virtue; type: strategy; topics: positioning,messaging,activation,prelaunch] 제목: Virtue 첫 사용자 메시지 혼란 로그 작성. Source note: /home/ubuntu/dev/knowledge-lab/source/external-links/marketing/2026-05-29-positioning-message-confusion.md. Rationale: prelaunch/low-signal에서는 activation rate보다 사용자가 Virtue를 어떤 대체재/제품 상자에 넣고 어디서 설명을 되묻는지 먼저 보존해야 함. Expected impact: J1-J4 첫 가치 관찰표에 사용자 언어와 포지셔닝 혼란을 연결해, 공개 카피 변경 전 근거 있는 메시지 후보를 만들 수 있음. Permission level: L1 내부 문서/분석만, 외부 발송·유료 패널·공개 카피 변경·계측 변경 없음. Owner route: Infinity -> Claude Code in virtue-rebirth-app docs. Success criteria: 기존 first-real-user/first-60-second/friction 문서와 충돌 없이 message confusion log 양식 1개를 추가하고, 필수 칸(사용자가 붙인 제품명/대체재, 되물은 문장, 가장 먼저 이해한 가치, J1-J4 해석, 후속 카피 후보 여부)을 포함. First verification gate: 신규 이벤트/코드/카피/배포 diff 0, 외부 액션 0, conflict marker 0, 기존 J1-J4 first value 매핑 계승. -->
+
 
 ## Active
 
