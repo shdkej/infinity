@@ -4,10 +4,22 @@
 
 ## Inbox
 
-<!-- marketing-26 candidate 2026-05-29T10:00Z [projects: virtue; type: strategy; topics: retention,habit,recovery,copy] 제목: Virtue recovery-over-streak 리텐션 렌즈 작성. Source note: /home/ubuntu/dev/knowledge-lab/source/external-links/marketing/2026-05-29-streak-flexibility-recovery-retention.md. Rationale: Duolingo/Reforge/HabitBoard 학습상 연속성 장치는 retention에 유효할 수 있으나, Virtue의 덕행 기록은 강한 streak reset이나 shame pressure로 읽히면 제품 신뢰를 해칠 수 있음. Expected impact: 정식 출시 전 첫 7일 재방문 루프를 "연속일 보호"가 아니라 "빠진 뒤 회복 가능성"으로 판독해 J1/J2/J4 `deed_saved`와 J3 `deed_judged`를 섞어 읽는 위험을 줄임. Permission level: L1 internal-doc only; 신규 이벤트·코드·카피 반영·대시보드·외부발송·비용·개인정보/트래킹 변경 금지. Owner route: Infinity router → Claude Code 가능, 대상 repo는 virtue-rebirth-app 문서 1파일(`apps/web/docs/recovery-over-streak-retention-lens.md`)만. Success criteria: 기존 `seven-day-deed-loop.md`, `first-week-activation-retention-bridge.md`, `retention-predictive-activation-brief.md`와 충돌 없이 recovery/skip/monthly completion/comeback session 렌즈를 J1-J4 표로 정리하고, public copy/feature 변경은 proposal-only로 분리. First verification gate: conflict marker 0, 신규 이벤트명 0, 코드 diff 0, 기존 first value 매핑(J1/J2/J4=`deed_saved`, J3=`deed_judged`) 유지. -->
-
 ## Active
 
+### marketing-26: Virtue recovery-over-streak 리텐션 렌즈 작성
+- id: marketing-26
+- status: in_progress
+- priority: high
+- permission: L1
+- mode: prepare(cloud 완료) → execute_local(Claude Code)
+- project: virtue
+- goal: recovery/skip/monthly completion/comeback session 렌즈를 J1-J4 표로 정리. public copy/feature 변경은 proposal-only로 분리.
+- target_file: virtue-rebirth-app/apps/web/docs/recovery-over-streak-retention-lens.md
+- success_criteria: conflict marker 0 / 신규 이벤트명 0 / 코드 diff 0 / first value 매핑(J1/J2/J4=deed_saved, J3=deed_judged) 유지 / 기존 3 선행 문서 충돌 없음
+- cloud_prep: artifacts/marketing-26/draft.md
+- exec_prompt: artifacts/marketing-26/local-exec-prompt.md
+- created_at: 2026-05-29T06:00Z
+- updated_at: 2026-05-29T06:00Z
 
 ## Waiting
 
