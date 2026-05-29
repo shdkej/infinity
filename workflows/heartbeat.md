@@ -116,7 +116,7 @@ Heartbeat
 
 - **Cloud 작업** (조사, 비교, 요약, 계획, 초안): Heartbeat Agent가 직접 수행
 - **Local 작업** (코드 수정, 테스트, 빌드, 브라우저/터미널 조작): Claude Code에 위임
-- **Claude Code 작업 강제 규칙**: Claude Code에 위임하는 모든 Infinity 작업은 먼저 `workflow-master` 스킬/워크플로우를 사용하도록 지시한다. 단순 파일 1개 수정처럼 명백히 작은 작업도 최소한 workflow-master의 복잡도 판단과 계획/검증 관문을 거치게 한다.
+- **Claude Code 작업 강제 규칙**: Claude Code에 위임하는 모든 Infinity 작업은 먼저 `workflow-master` 스킬/에이전트를 사용하도록 지시한다. workflow-master는 repo-local 파일보다 `~/.claude` 기준으로 먼저 찾는다: `~/.claude/skills/workflow-master/`와 `~/.claude/agents/workflow-master.md`. 단순 파일 1개 수정처럼 명백히 작은 작업도 최소한 workflow-master의 복잡도 판단과 계획/검증 관문을 거치게 한다.
 - **복잡한 작업** (다역할 필요): workflow-master가 Planner, Developer, Marketer, Operator 관점으로 분해·중재한 뒤, 실제 로컬 실행을 진행한다.
 
 Claude Code 위임 프롬프트에는 최소한 아래를 포함한다.
@@ -124,7 +124,7 @@ Claude Code 위임 프롬프트에는 최소한 아래를 포함한다.
 ```markdown
 Infinity Intent: {intent-id} {title}
 Mode: execute_local | verify_local
-Required workflow: Use workflow-master first. Read and follow `.agent/workflows/workflow-master.md` or `WORKFLOW-MASTER.md` when present before doing implementation work. Do not proceed as a single direct executor unless workflow-master explicitly classifies the task as trivial and records that decision.
+Required workflow: Use workflow-master first. Find it under `~/.claude/skills/workflow-master/` and `~/.claude/agents/workflow-master.md` before falling back to repo-local `.agent/workflows/workflow-master.md` or `WORKFLOW-MASTER.md`. Do not proceed as a single direct executor unless workflow-master explicitly classifies the task as trivial and records that decision.
 Goal: {goal}
 Context: {relevant files, urls, prior reports}
 Prepared findings: {cloud research/prepare summary}
