@@ -4,8 +4,6 @@
 
 ## Inbox
 
-<!-- marketing-27 candidate 2026-05-29T22:00Z [projects: virtue; type: strategy; topics: positioning,messaging,activation,prelaunch] 제목: Virtue 첫 사용자 메시지 혼란 로그 작성. Source note: /home/ubuntu/dev/knowledge-lab/source/external-links/marketing/2026-05-29-positioning-message-confusion.md. Rationale: prelaunch/low-signal에서는 activation rate보다 사용자가 Virtue를 어떤 대체재/제품 상자에 넣고 어디서 설명을 되묻는지 먼저 보존해야 함. Expected impact: J1-J4 첫 가치 관찰표에 사용자 언어와 포지셔닝 혼란을 연결해, 공개 카피 변경 전 근거 있는 메시지 후보를 만들 수 있음. Permission level: L1 내부 문서/분석만, 외부 발송·유료 패널·공개 카피 변경·계측 변경 없음. Owner route: Infinity -> Claude Code in virtue-rebirth-app docs. Success criteria: 기존 first-real-user/first-60-second/friction 문서와 충돌 없이 message confusion log 양식 1개를 추가하고, 필수 칸(사용자가 붙인 제품명/대체재, 되물은 문장, 가장 먼저 이해한 가치, J1-J4 해석, 후속 카피 후보 여부)을 포함. First verification gate: 신규 이벤트/코드/카피/배포 diff 0, 외부 액션 0, conflict marker 0, 기존 J1-J4 first value 매핑 계승. -->
-
 
 ## Active
 
@@ -15,6 +13,8 @@
 <!-- 사용자 결정, 외부 조건, 안전 확인 대기. 같은 질문을 반복하지 않고 상태만 보존한다. -->
 
 ## Archive
+
+<!-- marketing-27 completed 2026-05-29T22:25Z → reports/marketing-27/2026-05-29T2225Z-local.md [projects: virtue; type: strategy; topics: positioning,messaging,activation,prelaunch] (Virtue 첫 사용자 메시지 혼란 로그 작성 완료. 산출물은 virtue-rebirth-app `f69f309`의 `apps/web/docs/first-user-message-confusion-log.md`(신규 1파일, 159줄). Wynter/April Dunford 포지셔닝 혼란 렌즈를 Virtue prelaunch 내부 관찰표로 축소해, 사용자가 붙인 제품명/대체재·되물은 문장·가장 먼저 이해한 가치·J1~J4 해석·후속 카피 후보 여부를 한 행에 기록하는 message confusion log를 추가. 기존 first-real-user baseline, first-60-second observation, first-session friction protocol, traffic-source boundary와 연결. 핵심 경계: 사용자 언어는 증거이지 결정 자체가 아니며, 작은 표본을 activation rate/conversion/retention/PMF/benchmark로 읽지 않는다. traffic-source를 먼저 분리하고 synthetic/mock/self-test 언어를 사람 메시지 증거에 섞지 않는다. J1/J2/J4=`deed_saved`, J3=`deed_judged` first value 매핑 계승. 신규 이벤트·코드·카피·계측·dashboard·session replay·배포·외부발송·비용·시크릿·권한·개인정보 변경 0. 직전 cron의 Claude 위임 timeout 이후 수동 직접 처리. L2 agent-approved push 정상 fast-forward, HEAD==origin/master.) -->
 
 <!-- marketing-26 completed 2026-05-29T11:07Z → intents/archive/marketing-26.md [projects: virtue; type: strategy; topics: retention,habit,recovery,copy] (Virtue recovery-over-streak 리텐션 렌즈 작성 완료. 산출물은 virtue-rebirth-app `7372aab`의 `apps/web/docs/recovery-over-streak-retention-lens.md`(신규 1파일, 166줄). Duolingo/Reforge/HabitBoard source note를 Virtue prelaunch 첫 7일 판독 렌즈로 번역해, recovery/skip/monthly completion/comeback session을 J1~J4 표로 정리. first value 매핑은 J1/J2/J4=`deed_saved`, J3=`deed_judged` 그대로 계승. 핵심: 연속일/streak reset보다 빠진 뒤 돌아오는 세션을 정성 신호로 보되, skip·comeback·monthly completion을 KPI/전환율/합격선으로 읽지 않는다. J3는 저장 없이 `deed_judged`에서 가치가 닫힐 수 있으므로 saved-deed loop에 섞지 않는다. 공개 카피·기능·운영 후보는 proposal-only로 분리하고 반영 0. 신규 이벤트·코드·카피 반영·대시보드·세션리플레이·배포·외부발송·비용·시크릿·권한·개인정보 변경 0. 검증: conflict marker 0, 코드 diff 0, 기존 이벤트 범위만 인용, HEAD==origin/master. L2 agent-approved push 정상 fast-forward(virtue commits `4ff2b96`, `7372aab`). reports/marketing-26/2026-05-29T1107Z-local.md) -->
 
