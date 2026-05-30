@@ -131,7 +131,13 @@ Prepared findings: {cloud research/prepare summary}
 Allowed: L0/L1 actions only unless user approval exists
 Forbidden: L2/L3 actions without explicit approval
 Verification: {tests/build/lint/screenshot/direct inspection}
-Report back to: reports/{intent-id}/{timestamp}.html (결론 2축 양식, ARTIFACT_RULES.md 참조)
+Report back to: reports/{intent-id}/{timestamp}.html (필수 HTML, 결론 2축 양식, ARTIFACT_RULES.md 참조)
+HTML report contract:
+- Create the final run report as HTML, not Markdown.
+- Use reports/_TEMPLATE.html and fill axis 1, axis 2, details, and execution metadata.
+- Before claiming done, verify the file exists and contains <html, <body, axis ax1, axis ax2, and <details.
+- If the delegated work itself cannot write the report, return enough facts for Heartbeat to write the HTML report before archiving.
+- Do not mark the Infinity intent complete with only a chat summary or .md report.
 ```
 
 실행 중 L2 액션이 필요해지면:
@@ -155,6 +161,8 @@ Report back to: reports/{intent-id}/{timestamp}.html (결론 2축 양식, ARTIFA
 2. **축1(맥락/대상/문제)** 과 **축2(결과/해법/발견)** 를 각각 한 줄로 정한다. 비우지 않는다.
 3. `reports/_TEMPLATE.html` 을 복사해 2축을 채우고, 수행 작업·산출물·메타·다음 액션은 `<details>` 안에 넣는다.
 4. 같은 2축을 완료 시 `intents/archive/{id}.md` 의 `result_summary`(축2)에도 반영한다.
+5. 완료 전에 HTML 파일 검증을 수행한다: `test -s reports/{id}/{timestamp}.html` 후 `<html`, `<body`, `axis ax1`, `axis ax2`, `<details` 존재를 확인한다.
+6. Claude Code/workflow-master가 HTML report를 남기지 않고 종료했으면, Heartbeat가 관측한 변경·검증·커밋 결과로 `reports/_TEMPLATE.html` 기반 report를 직접 작성한 뒤에만 archive한다.
 
 ```
 헤더:  [intent-id] 제목                          [상태 뱃지]
@@ -172,7 +180,7 @@ Report는 실행 로그다. 2축은 그 로그의 결론을 한눈에 보게 하
 
 1. `Intent 원장`: `intents/archive/{id}.md` 하나만 canonical final index로 만든다.
 2. `Artifact`: 재사용할 원문/초안/분석/프롬프트/데이터는 `artifacts/{id}/...`에 둔다.
-3. `Report`: 실행 과정 로그만 `reports/{id}/{timestamp}.md`에 둔다.
+3. `Report`: 실행 과정 로그만 `reports/{id}/{timestamp}.html`에 둔다.
 4. `Detail`이라는 별도 최종 문서는 만들지 않는다. archive path와 detail path가 같아지는 중복 구조를 생성하지 않는다.
 5. `INTENTS.md` 완료 코멘트에는 archive path와 한 줄 결과를 함께 남겨 대시보드가 `Intent 원장` 카드로 요약할 수 있게 한다.
 
@@ -292,7 +300,7 @@ Intent가 완료 기준을 충족하거나 사용자가 완료 처리하면:
 1. `intents/active/{id}.md` → `intents/archive/{id}.md`로 이동하고, archive 문서를 **canonical final index** 포맷으로 재작성한다.
    - 최소 필드: `id`, `status: archived`, `completed_at`, `result_summary`, `artifacts`, `reports`, `commits`, `urls`, `next_actions`
 2. 결과로서 가치 있는 산출물은 `artifacts/{id}/...`에 보관하고 archive intent에서 참조한다. **active intent 본문에 결과를 누적하지 않는다.**
-3. 실행 로그는 `reports/{id}/{timestamp}.md`에 남기되, **로그이지 결론이 아니다.** 동일 결론을 reports에서 찾아 헤매게 하지 않는다.
+3. 실행 로그는 `reports/{id}/{timestamp}.html`에 남기되, **로그이지 결론이 아니다.** 동일 결론을 reports에서 찾아 헤매게 하지 않는다.
 4. `INTENTS.md`의 `## Active` 또는 `## Waiting`에서 블록을 제거하고 `## Archive`에 완료 코멘트(`<!-- {id} completed YYYY-MM-DDTHH:MM → intents/archive/{id}.md (한 줄 결과) -->`)를 남긴다.
 5. 대시보드 등 외부 소비자가 `detail:` 경로를 참조한다면 archive 경로가 유효한지 확인한다.
 6. 완료 직후 같은 내용을 `Detail` 문서로 다시 만들지 않는다. 최종 문서는 `Intent 원장`, 원문 산출물은 `Artifact`, 실행 로그는 `Report`로 분리한다.

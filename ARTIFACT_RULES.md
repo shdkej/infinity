@@ -10,7 +10,7 @@
 | `intents/active/{id}.md` | 활성 Intent의 **현재 상태와 다음 액션만** | 진행 중 |
 | `intents/archive/{id}.md` | 완료된 Intent의 **canonical final index** (결과 요약 + 산출물·리포트·커밋·URL 링크) | 영구 |
 | `artifacts/{id}/...` | **결과로서 가치 있는 산출물** (research 결과, 설계 초안, 구현 산출물, 데이터) | 영구 |
-| `reports/{id}/{timestamp}.md` | 단일 실행 로그 (heartbeat run 결과, 진행 보고) | 누적 |
+| `reports/{id}/{timestamp}.html` | 단일 실행 로그 (heartbeat run 결과, 진행 보고) | 누적 |
 | `reports/heartbeat/` | **전역** heartbeat 요약만 (intent 결과 보고서가 아님) | 누적 |
 
 ## Archive Tag Standard
@@ -78,7 +78,7 @@ Infinity 문서는 아래 3개 역할로 통일한다. 새 문서를 만들 때 
 |------|------|------|---------------|
 | Intent 원장 | `intents/archive/{id}.md` | Intent의 최종 상태, 결과 요약, 성공 기준 충족 여부, 링크 인덱스 | `Intent 원장` |
 | Artifact | `artifacts/{id}/...` | 재사용 가능한 산출물 원문. 조사 결과, 설계안, 실행 프롬프트, 데이터, 화면/HTML 등 | `Artifact` |
-| Report | `reports/{id}/{timestamp}.md` | 특정 실행 1회의 로그. 무엇을 했고 무엇을 검증했는지 기록 | `Report` |
+| Report | `reports/{id}/{timestamp}.html` | 특정 실행 1회의 HTML 로그. 무엇을 했고 무엇을 검증했는지 기록 | `Report` |
 
 ### 중복 금지
 
@@ -87,6 +87,7 @@ Infinity 문서는 아래 3개 역할로 통일한다. 새 문서를 만들 때 
 - active 상태에서 임시 상세가 필요하면 `intents/active/{id}.md` 또는 `artifacts/{id}/...` 중 하나를 선택한다. 같은 내용을 둘 다 만들지 않는다.
 - 대시보드/자동화는 같은 path가 `archive`와 `detail` 양쪽에서 발견되면 하나의 `Intent 원장`으로 합쳐야 한다.
 - 사람이 읽는 최종 요약은 Report에만 남기지 말고 반드시 Intent 원장의 `result_summary`, `artifacts`, `reports`, `commits`, `urls`, `next_actions`에 반영한다.
+- 신규 Report는 Markdown으로 만들지 않는다. 과거 `.md` report는 legacy로만 읽고, 새 실행 로그는 반드시 HTML이다.
 
 ## Archive Intent 표준 포맷
 
@@ -107,7 +108,7 @@ Infinity 문서는 아래 3개 역할로 통일한다. 새 문서를 만들 때 
     role: design | research | implementation | data
     note: 짧은 설명
 - reports:
-  - path: reports/{id}/{timestamp}.md
+  - path: reports/{id}/{timestamp}.html
     role: final | run | heartbeat
 - commits:
   - repo: prompt-archive | space | ...
@@ -160,6 +161,9 @@ Infinity 문서는 아래 3개 역할로 통일한다. 새 문서를 만들 때 
 
 - 위치: `reports/{id}/{timestamp}.html`
 - 템플릿: `reports/_TEMPLATE.html` 을 복사해 `{{...}}` 자리표시자를 치환한다. (`_`로 시작하는 파일은 대시보드가 무시한다)
+- 완료 게이트: `reports/{id}/{timestamp}.html` 파일이 실제로 존재하고 비어 있지 않으며, `<html`, `<body`, `axis ax1`, `axis ax2`, `<details`를 포함해야 한다. 이 검증 없이 완료 처리하지 않는다.
+- Claude/workflow-master 위임 작업도 같은 규칙을 따른다. 위임받은 에이전트가 코드·문서 변경은 끝냈지만 HTML report를 남기지 않았다면, Heartbeat는 직접 `reports/_TEMPLATE.html`로 관측 결과를 보강해 HTML report를 만든 뒤 완료한다.
+- Markdown report만 존재하는 경우 신규 완료로 인정하지 않는다. 같은 실행에서 `.md`가 함께 생겼다면 `.html`을 final report로 archive에 연결하고 `.md`는 보조 로그로만 둔다.
 - **제약**: 대시보드는 이 파일을 `iframe sandbox="allow-same-origin"` 으로 렌더하므로 **JS·외부 리소스는 동작하지 않는다.** 스타일은 인라인 `<style>` 로만, 접기는 `<details>`(JS 불필요)로 한다.
 - 디자인은 **"Quiet Note"** 시스템을 따른다 — 따뜻한 본(bone) 배경(`--bg #f4f2ea`) + 저채도 단일 악센트. `_TEMPLATE.html`의 CSS는 그대로 두고 `:root`의 **`--a1`/`--a1-deep` 두 줄만 카테고리색으로 교체**한다 (축2는 항상 sage 고정):
   - 조사형(research/wiki/doc): `--a1:#5a6f8a; --a1-deep:#3f536e;` (slate-blue) — 라벨 "무엇을 조사했나 / 핵심 결과"
