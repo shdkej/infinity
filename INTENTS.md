@@ -4,6 +4,15 @@
 
 ## Inbox
 
+- `marketing-28` Virtue prelaunch monetization boundary brief 작성 후보
+  - source note: `/home/ubuntu/dev/knowledge-lab/source/external-links/marketing/2026-05-30-plg-pricing-triggers.md`
+  - rationale: Stripe PLG pricing guide와 Growth Unhinged 2026 monetization 관찰상, 가격/제한은 첫 가치 이전에 나오면 activation을 가리고 첫 가치 이후의 자연스러운 확장 순간에 붙어야 한다. Virtue는 아직 정식 출시 전이므로 가격 결정이 아니라 "무엇을 지금 잠그지 말아야 하는가"를 문서화하는 단계가 맞다.
+  - expected impact: 출시 전 paywall/AI cap/저장 제한 논의를 activation 관찰과 분리해, 첫 10-20명 학습에서 가격 신호와 마찰 신호를 혼동하지 않게 한다.
+  - permission level: L1/L2 내부 문서 작업만 허용. 공개 가격표, 결제 연동, 비용 발생, 프로덕션 코드/트래킹 변경, 외부 커뮤니케이션은 Waiting/approval-needed.
+  - owner route: Inbox -> Claude Code 후보. 대상 repo는 `/home/ubuntu/dev/virtue-rebirth-app`, 산출물은 `apps/web/docs/` 아래 docs-only brief.
+  - success criteria: J1-J4별 첫 가치 이전 금지 제한, 첫 가치 이후 확장 트리거 후보, `deed_save_capped` 오독 금지, 승인 필요 경계가 한 문서에 정리된다.
+  - first verification gate: 새 문서가 기존 first-value 매핑(J1/J2/J4=`deed_saved`, J3=`deed_judged`)을 재정의하지 않고, 신규 이벤트/카피/결제/배포 변경 없이 docs-only diff로 끝나는지 확인한다.
+
 
 ## Active
 
