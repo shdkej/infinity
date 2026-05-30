@@ -4,16 +4,6 @@
 
 ## Inbox
 
-- `marketing-28` Virtue prelaunch monetization boundary brief 작성 후보
-  - source note: `/home/ubuntu/dev/knowledge-lab/source/external-links/marketing/2026-05-30-plg-pricing-triggers.md`
-  - rationale: Stripe PLG pricing guide와 Growth Unhinged 2026 monetization 관찰상, 가격/제한은 첫 가치 이전에 나오면 activation을 가리고 첫 가치 이후의 자연스러운 확장 순간에 붙어야 한다. Virtue는 아직 정식 출시 전이므로 가격 결정이 아니라 "무엇을 지금 잠그지 말아야 하는가"를 문서화하는 단계가 맞다.
-  - expected impact: 출시 전 paywall/AI cap/저장 제한 논의를 activation 관찰과 분리해, 첫 10-20명 학습에서 가격 신호와 마찰 신호를 혼동하지 않게 한다.
-  - permission level: L1/L2 내부 문서 작업만 허용. 공개 가격표, 결제 연동, 비용 발생, 프로덕션 코드/트래킹 변경, 외부 커뮤니케이션은 Waiting/approval-needed.
-  - owner route: Inbox -> Claude Code 후보. 대상 repo는 `/home/ubuntu/dev/virtue-rebirth-app`, 산출물은 `apps/web/docs/` 아래 docs-only brief.
-  - success criteria: J1-J4별 첫 가치 이전 금지 제한, 첫 가치 이후 확장 트리거 후보, `deed_save_capped` 오독 금지, 승인 필요 경계가 한 문서에 정리된다.
-  - first verification gate: 새 문서가 기존 first-value 매핑(J1/J2/J4=`deed_saved`, J3=`deed_judged`)을 재정의하지 않고, 신규 이벤트/카피/결제/배포 변경 없이 docs-only diff로 끝나는지 확인한다.
-
-
 ## Active
 
 
@@ -22,6 +12,8 @@
 <!-- 사용자 결정, 외부 조건, 안전 확인 대기. 같은 질문을 반복하지 않고 상태만 보존한다. -->
 
 ## Archive
+
+<!-- marketing-28 completed 2026-05-30T10:07Z → reports/marketing-28/2026-05-30T1007Z-local.md [projects: virtue; type: strategy; topics: monetization,pricing,activation,prelaunch] (Virtue prelaunch 유료화 경계 브리프 작성 완료. 산출물은 virtue-rebirth-app `c0dcf7d`의 `apps/web/docs/prelaunch-monetization-boundary-brief.md`(신규 1파일, 136줄). Stripe PLG pricing 2026/Growth Unhinged monetization source note를 Virtue prelaunch 내부 경계표로 번역해, J1~J4별 first value 이전 do-not-lock 제한과 first value 이후 확장/유료화 trigger candidate를 분리. first value 매핑은 J1/J2/J4=`deed_saved`, J3=`deed_judged` 그대로 계승, 재정의 0. 핵심 경계: 가격·플랜·금액 결정 0, 첫 가치 이전 결제정보/계정강제/핵심행동 0회 잠금 금지, §3 후보는 반복 가치 관찰 전 확정/구현 금지. `deed_save_capped`는 30덕 상한 early-return으로 `deed_saved` 미발화하는 availability/friction 신호이며 monetization intent/upgrade demand로 환산 금지. 공개 가격표·결제 연동·트래킹 변경·paywall 실험·트리거 확정·배포·외부발송·비용·시크릿·권한 변경은 Waiting/approval-needed로 명시. 신규 이벤트·코드·카피·결제·트래킹·대시보드·세션리플레이·배포·외부발송·비용·시크릿·권한·개인정보 변경 0. 검증: doc-only diff, 코드 diff 0, conflict marker 0, HEAD==origin/master. L2 agent-approved push 정상 fast-forward.) -->
 
 <!-- marketing-27 completed 2026-05-29T22:25Z → reports/marketing-27/2026-05-29T2225Z-local.md [projects: virtue; type: strategy; topics: positioning,messaging,activation,prelaunch] (Virtue 첫 사용자 메시지 혼란 로그 작성 완료. 산출물은 virtue-rebirth-app `f69f309`의 `apps/web/docs/first-user-message-confusion-log.md`(신규 1파일, 159줄). Wynter/April Dunford 포지셔닝 혼란 렌즈를 Virtue prelaunch 내부 관찰표로 축소해, 사용자가 붙인 제품명/대체재·되물은 문장·가장 먼저 이해한 가치·J1~J4 해석·후속 카피 후보 여부를 한 행에 기록하는 message confusion log를 추가. 기존 first-real-user baseline, first-60-second observation, first-session friction protocol, traffic-source boundary와 연결. 핵심 경계: 사용자 언어는 증거이지 결정 자체가 아니며, 작은 표본을 activation rate/conversion/retention/PMF/benchmark로 읽지 않는다. traffic-source를 먼저 분리하고 synthetic/mock/self-test 언어를 사람 메시지 증거에 섞지 않는다. J1/J2/J4=`deed_saved`, J3=`deed_judged` first value 매핑 계승. 신규 이벤트·코드·카피·계측·dashboard·session replay·배포·외부발송·비용·시크릿·권한·개인정보 변경 0. 직전 cron의 Claude 위임 timeout 이후 수동 직접 처리. L2 agent-approved push 정상 fast-forward, HEAD==origin/master.) -->
 
