@@ -4,6 +4,16 @@
 
 ## Inbox
 
+<!-- marketing-29 candidate 2026-05-30T22:00Z [projects: virtue; type: strategy; topics: ai-product,activation,trust,measurement,prelaunch]
+Title: Virtue AI outcome proxy dictionary 작성
+Source note: /home/ubuntu/workspace/knowledge-lab/source/external-links/marketing/2026-05-30-ai-outcome-proxy.md
+Rationale: Intercom outcome-based AI value framing과 Reforge North Star quality 렌즈를 근거로, Virtue prelaunch 이벤트를 activity가 아니라 사용자 인정 가치의 proxy로 읽는 내부 경계가 필요합니다.
+Expected impact: 작은/synthetic 수치를 activation·trust·pricing intent로 과대해석하는 위험을 낮추고 첫 10-20명 관찰에서 `deed_judged`, `deed_saved`, `deed_rerolled`, `level_up_viewed`, `deed_save_capped`를 J1-J4별로 더 정확히 판독합니다.
+Permission level: L2 agent-approved 문서 작업. 신규 이벤트·속성·코드·계측·공개 카피·대시보드·세션리플레이·배포·외부발송·비용·시크릿·권한·개인정보 변경은 금지.
+Owner route: Infinity Inbox -> Claude Code 또는 SAM 로컬 실행.
+Success criteria: virtue-rebirth-app docs에 J1-J4 x 이벤트 x proxy type(activity/acceptance/curiosity/friction/retention) x quality condition x misread warning 표가 추가되고, 기존 first-value 매핑(J1/J2/J4=`deed_saved`, J3=`deed_judged`)을 재정의하지 않습니다.
+First verification gate: 코드 diff 0, 신규 이벤트/속성 0, 기존 6개 이벤트 이름 drift 0, conflict marker 0, prelaunch decision-grade 금지선 포함. -->
+
 ## Active
 
 
