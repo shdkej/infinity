@@ -4,15 +4,6 @@
 
 ## Inbox
 
-<!-- marketing-29 candidate 2026-05-30T22:00Z [projects: virtue; type: strategy; topics: ai-product,activation,trust,measurement,prelaunch]
-Title: Virtue AI outcome proxy dictionary 작성
-Source note: /home/ubuntu/workspace/knowledge-lab/source/external-links/marketing/2026-05-30-ai-outcome-proxy.md
-Rationale: Intercom outcome-based AI value framing과 Reforge North Star quality 렌즈를 근거로, Virtue prelaunch 이벤트를 activity가 아니라 사용자 인정 가치의 proxy로 읽는 내부 경계가 필요합니다.
-Expected impact: 작은/synthetic 수치를 activation·trust·pricing intent로 과대해석하는 위험을 낮추고 첫 10-20명 관찰에서 `deed_judged`, `deed_saved`, `deed_rerolled`, `level_up_viewed`, `deed_save_capped`를 J1-J4별로 더 정확히 판독합니다.
-Permission level: L2 agent-approved 문서 작업. 신규 이벤트·속성·코드·계측·공개 카피·대시보드·세션리플레이·배포·외부발송·비용·시크릿·권한·개인정보 변경은 금지.
-Owner route: Infinity Inbox -> Claude Code 또는 SAM 로컬 실행.
-Success criteria: virtue-rebirth-app docs에 J1-J4 x 이벤트 x proxy type(activity/acceptance/curiosity/friction/retention) x quality condition x misread warning 표가 추가되고, 기존 first-value 매핑(J1/J2/J4=`deed_saved`, J3=`deed_judged`)을 재정의하지 않습니다.
-First verification gate: 코드 diff 0, 신규 이벤트/속성 0, 기존 6개 이벤트 이름 drift 0, conflict marker 0, prelaunch decision-grade 금지선 포함. -->
 
 ## Active
 
@@ -22,6 +13,8 @@ First verification gate: 코드 diff 0, 신규 이벤트/속성 0, 기존 6개 �
 <!-- 사용자 결정, 외부 조건, 안전 확인 대기. 같은 질문을 반복하지 않고 상태만 보존한다. -->
 
 ## Archive
+
+<!-- marketing-29 completed 2026-05-30T22:07Z → reports/marketing-29/2026-05-30T2207Z-local.md [projects: virtue; type: strategy; topics: ai-product,activation,trust,measurement,prelaunch] (Virtue AI outcome proxy 사전 작성 완료. 산출물은 virtue-rebirth-app `22f3aea`의 `apps/web/docs/ai-outcome-proxy-dictionary.md`(신규 1파일). Intercom outcome-based value framing + Reforge North Star quality 렌즈를 Virtue prelaunch 내부 판독 사전으로 번역해, "AI가 무언가 했다"는 활동량과 "사용자가 인정했는가"라는 사용자 인정 가치 proxy를 분리. §1 proxy type 5종 사전(activity/acceptance/curiosity/friction/retention) 정의. §2 심장표1=6개 발화 이벤트 × 지배적 proxy type × quality condition × misread warning(코드 앵커 72/106/149/167/183/199 인용). §3 심장표2=J1~J4 × 이벤트 × proxy 판독 × quality condition × misread warning, 같은 `deed_judged`가 J3엔 curiosity first value·다른 잡엔 통과점으로 부호 전환. §4 misread 7종(활동량=가치, judged−saved 갭=이탈, cap=유료수요, reroll=불신, level_up 1회=리텐션, 저장수=만족도, synthetic=인정 금지). §5 prelaunch decision-grade 금지선(전환율/PMF/벤치마크 산출·1명 단정·activity 승격·cap monetization 환산 금지). first value 매핑 J1/J2/J4=`deed_saved`, J3=`deed_judged` 그대로 계승, 재정의 0. 기존 6 발화 이벤트만 인용(보조 add_flow_abandoned:78·deed_judge_attempted:135 사실만 참조, 신규 invented 0). 선행 m06/m28/m25/m22/copy-spec 충돌 0. 신규 이벤트·속성·코드·카피·계측·대시보드·세션리플레이·공개카피·배포·외부발송·비용·시크릿·권한·개인정보 변경 0. 검증 게이트 7종 PASS: 코드 diff 0, 신규 이벤트/속성 0, 6개 이벤트 이름 drift 0(started6/judged13/saved21/level_up8/rerolled5/capped7), conflict marker 0, first-value 매핑 1, decision-grade 금지선 포함, HEAD==origin/master. Infinity dirty 무관 파일(EVALUATION_NOTES.md·workflows/heartbeat.md) staging 제외. L2 agent-approved push 정상 fast-forward(c0dcf7d→22f3aea).) -->
 
 <!-- marketing-28 completed 2026-05-30T10:07Z → reports/marketing-28/2026-05-30T1007Z-local.md [projects: virtue; type: strategy; topics: monetization,pricing,activation,prelaunch] (Virtue prelaunch 유료화 경계 브리프 작성 완료. 산출물은 virtue-rebirth-app `c0dcf7d`의 `apps/web/docs/prelaunch-monetization-boundary-brief.md`(신규 1파일, 136줄). Stripe PLG pricing 2026/Growth Unhinged monetization source note를 Virtue prelaunch 내부 경계표로 번역해, J1~J4별 first value 이전 do-not-lock 제한과 first value 이후 확장/유료화 trigger candidate를 분리. first value 매핑은 J1/J2/J4=`deed_saved`, J3=`deed_judged` 그대로 계승, 재정의 0. 핵심 경계: 가격·플랜·금액 결정 0, 첫 가치 이전 결제정보/계정강제/핵심행동 0회 잠금 금지, §3 후보는 반복 가치 관찰 전 확정/구현 금지. `deed_save_capped`는 30덕 상한 early-return으로 `deed_saved` 미발화하는 availability/friction 신호이며 monetization intent/upgrade demand로 환산 금지. 공개 가격표·결제 연동·트래킹 변경·paywall 실험·트리거 확정·배포·외부발송·비용·시크릿·권한 변경은 Waiting/approval-needed로 명시. 신규 이벤트·코드·카피·결제·트래킹·대시보드·세션리플레이·배포·외부발송·비용·시크릿·권한·개인정보 변경 0. 검증: doc-only diff, 코드 diff 0, conflict marker 0, HEAD==origin/master. L2 agent-approved push 정상 fast-forward.) -->
 
