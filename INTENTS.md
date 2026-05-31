@@ -4,6 +4,14 @@
 
 ## Inbox
 
+- [ ] marketing-30: Virtue 첫 결과 공유성 판독 기준 작성
+  - source note: `/home/ubuntu/workspace/knowledge-lab/source/external-links/marketing/2026-05-31-ai-onboarding-execute-shareworthy.md`
+  - rationale: ProductLed의 AI 온보딩 렌즈는 60초 가치와 낮은 입력 대비 강한 출력뿐 아니라 "공유하거나 추천하고 싶은 첫 경험"을 핵심 신호로 본다. Virtue는 prelaunch라 지표 판정 대신 첫 10~20명 관찰에서 결과 카드의 강도를 손기록할 기준이 필요하다.
+  - expected impact: `deed_judged`/`deed_saved` 같은 활동량을 사용자 인정 가치와 분리하고, J3 저장 전 정상 종료를 더 정확히 읽는다.
+  - permission level: L2 agent-approved, 문서 전용. 코드, 카피 반영, 신규 이벤트, PostHog 설정, 배포, 외부 발송, 비용 변경 없음.
+  - owner route: SAM/Infinity -> Claude Code 또는 로컬 Codex 문서 작업.
+  - success criteria: `virtue-rebirth-app/apps/web/docs/` 아래에 J1~J4별 shareworthy first-result 관찰 기준, 행동 증거, prelaunch 금지선, 기존 이벤트 매핑을 포함한 내부 브리프 1개가 생긴다.
+  - first verification gate: 기존 first value 매핑(J1/J2/J4=`deed_saved`, J3=`deed_judged`)을 재정의하지 않고, 새 계측/카피/공개 액션이 없으며, conflict marker가 없다.
 
 ## Active
 
