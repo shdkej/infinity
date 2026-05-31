@@ -25,12 +25,16 @@ jobs:
         id: time_check
         run: |
           KST_HOUR=$(TZ=Asia/Seoul date +%H)
+          EVENT_NAME="${GITHUB_EVENT_NAME:-unknown}"
           if [ "$KST_HOUR" -lt 8 ] || [ "$KST_HOUR" -ge 22 ]; then
             echo "mode=quiet" >> "$GITHUB_OUTPUT"
             echo "Quiet hours (KST ${KST_HOUR}시). Skipping."
-          elif [ "$KST_HOUR" -eq 8 ]; then
+          elif [ "$KST_HOUR" -eq 8 ] && [ "$EVENT_NAME" = "schedule" ]; then
             echo "mode=recap" >> "$GITHUB_OUTPUT"
             echo "Morning recap time."
+          elif [ "$KST_HOUR" -eq 8 ]; then
+            echo "mode=quiet" >> "$GITHUB_OUTPUT"
+            echo "KST 08시 push/workflow_dispatch notification suppressed; scheduled recap owns the morning slot."
           else
             echo "mode=normal" >> "$GITHUB_OUTPUT"
           fi
