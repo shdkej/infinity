@@ -4,6 +4,8 @@
 
 ## Inbox
 
+- <!-- marketing-candidate: Virtue 첫 세션 제품 본체/범퍼 경계표 작성 [projects: virtue; type: strategy; topics: onboarding,activation,jtbd,prelaunch] source: `/home/ubuntu/workspace/knowledge-lab/source/external-links/marketing/2026-05-31-product-led-onboarding-bumpers.md`; rationale: PLG 온보딩은 투어가 아니라 제품이 첫 가치를 만들고 범퍼는 이탈 지점만 보조해야 하므로, Virtue의 `/`, `/add`, 결과 카드, 저장 후 홈 복귀를 J1~J4별 제품 본체/범퍼로 분리할 필요가 있음; expected impact: 첫 10~20명 관찰에서 "설명 부족"과 "제품 약속/결과 불일치"를 섞어 읽는 위험을 줄이고, prelaunch에서 새 계측 없이 더 선명한 활성화 판독 가능; permission level: L1/L2 내부 문서 작업, 공개/비용/배포/트래킹 변경 금지; owner route: Infinity → Claude Code 또는 SAM 로컬 문서 작업; success criteria: virtue-rebirth-app 내부 docs에 J1~J4 × 첫 세션 표면 × 본체/범퍼 역할 × 정상 종료/막힘 판독 기준 표가 생기고 기존 first value 매핑(`deed_saved`, `deed_judged`)을 재정의하지 않음; first verification gate: conflict marker 0, 코드 diff 0, 신규 이벤트/속성/카피/배포 0, 기존 marketing docs와 J3 저장 없는 first value 충돌 0. -->
+
 
 ## Active
 
