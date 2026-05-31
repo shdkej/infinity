@@ -116,7 +116,8 @@ Heartbeat
 
 - **Cloud 작업** (조사, 비교, 요약, 계획, 초안): Heartbeat Agent가 직접 수행
 - **Local 작업** (코드 수정, 테스트, 빌드, 브라우저/터미널 조작): Claude Code에 위임
-- **Claude Code 작업 강제 규칙**: Claude Code에 위임하는 모든 Infinity 작업은 먼저 `workflow-master` 스킬/에이전트를 사용하도록 지시한다. workflow-master는 repo-local 파일보다 `~/.claude` 기준으로 먼저 찾는다: `~/.claude/skills/workflow-master/`와 `~/.claude/agents/workflow-master.md`. 단순 파일 1개 수정처럼 명백히 작은 작업도 최소한 workflow-master의 복잡도 판단과 계획/검증 관문을 거치게 한다.
+- **Claude Code 호출 경로(임시 기본값)**: 당분간 Infinity의 local Claude 위임은 새 `claude -p` 프로세스보다 기존 pt/purplemux Claude Code tmux pane을 우선 사용한다. OpenClaw workspace의 `skills/pt-claude-tmux/SKILL.md` 절차를 따른다: `tmux -L purple`로 Claude pane을 찾고, capture로 현재 상태를 확인한 뒤, `C-c`와 `/clear`로 stale prompt를 정리하고, 하나의 짧고 경계가 분명한 prompt를 보낸 다음 결과를 capture한다. 사용 가능한 pt Claude pane이 없거나 busy/unsafe 상태이면 한 번만 bounded `claude --dangerously-skip-permissions -p` 호출로 fallback할 수 있다.
+- **Claude Code 작업 규칙**: `local-code` 또는 multi-file/shared behavior처럼 비단순 작업은 `workflow-master` 스킬/에이전트를 사용하도록 지시한다. workflow-master는 repo-local 파일보다 `~/.claude` 기준으로 먼저 찾는다: `~/.claude/skills/workflow-master/`와 `~/.claude/agents/workflow-master.md`. 단일 내부 문서/리포트 같은 명백한 `simple-doc` 작업은 직접 lightweight prompt로 처리할 수 있다.
 - **복잡한 작업** (다역할 필요): workflow-master가 Planner, Developer, Marketer, Operator 관점으로 분해·중재한 뒤, 실제 로컬 실행을 진행한다.
 
 Claude Code 위임 프롬프트에는 최소한 아래를 포함한다.
@@ -124,7 +125,8 @@ Claude Code 위임 프롬프트에는 최소한 아래를 포함한다.
 ```markdown
 Infinity Intent: {intent-id} {title}
 Mode: execute_local | verify_local
-Required workflow: Use workflow-master first. Find it under `~/.claude/skills/workflow-master/` and `~/.claude/agents/workflow-master.md` before falling back to repo-local `.agent/workflows/workflow-master.md` or `WORKFLOW-MASTER.md`. Do not proceed as a single direct executor unless workflow-master explicitly classifies the task as trivial and records that decision.
+Invocation: Prefer the existing pt/purplemux Claude pane via `tmux -L purple`; capture first, clear stale input, send this bounded prompt once, then capture the result. Fall back to a fresh bounded Claude Code call only if no usable pt pane exists.
+Workflow: For nontrivial local-code or multi-file/shared behavior, use workflow-master first. Find it under `~/.claude/skills/workflow-master/` and `~/.claude/agents/workflow-master.md` before falling back to repo-local `.agent/workflows/workflow-master.md` or `WORKFLOW-MASTER.md`. For a clearly tiny simple-doc task, direct execution is acceptable.
 Goal: {goal}
 Context: {relevant files, urls, prior reports}
 Prepared findings: {cloud research/prepare summary}
@@ -134,6 +136,8 @@ Verification: {tests/build/lint/screenshot/direct inspection}
 Report back to: reports/{intent-id}/{timestamp}.html (필수 HTML, 결론 2축 양식, ARTIFACT_RULES.md 참조)
 HTML report contract:
 - Create the final run report as HTML, not Markdown.
+- This applies to every meaningful completion, including `simple-doc` and direct lightweight prompts.
+- A new `.md` report may be kept as a legacy/raw log, but it never satisfies the completion gate by itself.
 - Use reports/_TEMPLATE.html and fill axis 1, axis 2, details, and execution metadata.
 - Before claiming done, verify the file exists and contains <html, <body, axis ax1, axis ax2, and <details.
 - If the delegated work itself cannot write the report, return enough facts for Heartbeat to write the HTML report before archiving.
@@ -154,6 +158,8 @@ HTML report contract:
 ### 9. 결과 기록 (결론 2축 HTML)
 
 보고는 `reports/{intent-id}/{timestamp}.html` 로 기록한다. **양식·카테고리별 축 라벨·작성 규칙은 `ARTIFACT_RULES.md`의 "Report 양식 (HTML, 결론 2축)"이 단일 출처다.**
+
+`simple-doc`처럼 작고 직접 처리한 작업도 예외가 아니다. 새 Markdown report만 남기고 완료 처리하지 않는다. Markdown은 보조 로그로 둘 수 있지만, 완료/Archive/INTENTS 링크는 HTML report를 기준으로 한다.
 
 보고를 쓰기 전에 먼저 이 작업의 **결론 2축**을 각각 한 줄로 도출한다. 이것이 자동 추출의 핵심이다 — 사후 파싱이 아니라 작업 종료 시점에 에이전트가 직접 결론을 산출한다.
 
