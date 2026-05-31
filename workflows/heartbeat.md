@@ -119,6 +119,7 @@ Heartbeat
 - **Claude Code 호출 경로(임시 기본값)**: 당분간 Infinity의 local Claude 위임은 새 `claude -p` 프로세스보다 기존 pt/purplemux Claude Code tmux pane을 우선 사용한다. OpenClaw workspace의 `skills/pt-claude-tmux/SKILL.md` 절차를 따른다: `tmux -L purple`로 Claude pane을 찾고, capture로 현재 상태를 확인한 뒤, `C-c`와 `/clear`로 stale prompt를 정리하고, 하나의 짧고 경계가 분명한 prompt를 보낸 다음 결과를 capture한다. 사용 가능한 pt Claude pane이 없거나 busy/unsafe 상태이면 한 번만 bounded `claude --dangerously-skip-permissions -p` 호출로 fallback할 수 있다.
 - **Claude Code 작업 규칙**: `local-code` 또는 multi-file/shared behavior처럼 비단순 작업은 `workflow-master` 스킬/에이전트를 사용하도록 지시한다. workflow-master는 repo-local 파일보다 `~/.claude` 기준으로 먼저 찾는다: `~/.claude/skills/workflow-master/`와 `~/.claude/agents/workflow-master.md`. 단일 내부 문서/리포트 같은 명백한 `simple-doc` 작업은 직접 lightweight prompt로 처리할 수 있다.
 - **복잡한 작업** (다역할 필요): workflow-master가 Planner, Developer, Marketer, Operator 관점으로 분해·중재한 뒤, 실제 로컬 실행을 진행한다.
+- **마케팅 학습 루프**: `marketing-*`, activation, onboarding, retention, monetization, positioning, AI value/proxy 관련 intent는 Marketer가 이전 마케팅 산출물을 먼저 읽고 학습하게 한다. 위임 프롬프트에 `INTENTS.md` Archive 요약, `artifacts/marketing-*`, `reports/marketing-*/*.html`, 관련 Virtue `apps/web/docs/`를 참고해 계승/수정/충돌 지점을 명시하라고 넣는다.
 
 Claude Code 위임 프롬프트에는 최소한 아래를 포함한다.
 
@@ -130,6 +131,7 @@ Workflow: For nontrivial local-code or multi-file/shared behavior, use workflow-
 Goal: {goal}
 Context: {relevant files, urls, prior reports}
 Prepared findings: {cloud research/prepare summary}
+Marketing learning context: For marketing/activation/retention/monetization/positioning/AI-value work, make Marketer read prior `INTENTS.md` marketing Archive summaries, `artifacts/marketing-*`, `reports/marketing-*/*.html`, and relevant Virtue `apps/web/docs/` before proposing new claims. Require explicit inherited assumptions, changed assumptions, and conflicts.
 Allowed: L0/L1 actions only unless user approval exists
 Forbidden: L2/L3 actions without explicit approval
 Verification: {tests/build/lint/screenshot/direct inspection}
