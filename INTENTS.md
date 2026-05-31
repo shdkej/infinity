@@ -4,14 +4,6 @@
 
 ## Inbox
 
-- [ ] marketing-30: Virtue 첫 결과 공유성 판독 기준 작성
-  - source note: `/home/ubuntu/workspace/knowledge-lab/source/external-links/marketing/2026-05-31-ai-onboarding-execute-shareworthy.md`
-  - rationale: ProductLed의 AI 온보딩 렌즈는 60초 가치와 낮은 입력 대비 강한 출력뿐 아니라 "공유하거나 추천하고 싶은 첫 경험"을 핵심 신호로 본다. Virtue는 prelaunch라 지표 판정 대신 첫 10~20명 관찰에서 결과 카드의 강도를 손기록할 기준이 필요하다.
-  - expected impact: `deed_judged`/`deed_saved` 같은 활동량을 사용자 인정 가치와 분리하고, J3 저장 전 정상 종료를 더 정확히 읽는다.
-  - permission level: L2 agent-approved, 문서 전용. 코드, 카피 반영, 신규 이벤트, PostHog 설정, 배포, 외부 발송, 비용 변경 없음.
-  - owner route: SAM/Infinity -> Claude Code 또는 로컬 Codex 문서 작업.
-  - success criteria: `virtue-rebirth-app/apps/web/docs/` 아래에 J1~J4별 shareworthy first-result 관찰 기준, 행동 증거, prelaunch 금지선, 기존 이벤트 매핑을 포함한 내부 브리프 1개가 생긴다.
-  - first verification gate: 기존 first value 매핑(J1/J2/J4=`deed_saved`, J3=`deed_judged`)을 재정의하지 않고, 새 계측/카피/공개 액션이 없으며, conflict marker가 없다.
 
 ## Active
 
@@ -21,6 +13,8 @@
 <!-- 사용자 결정, 외부 조건, 안전 확인 대기. 같은 질문을 반복하지 않고 상태만 보존한다. -->
 
 ## Archive
+
+<!-- marketing-30 completed 2026-05-31T10:07Z → reports/marketing-30/2026-05-31T1007Z-local.html [projects: virtue; type: strategy; topics: onboarding,activation,ai-product,prelaunch] (Virtue 첫 결과 공유성 판독 기준 작성 완료. 산출물은 virtue-rebirth-app의 `apps/web/docs/shareworthy-first-result-observation-criteria.md`(신규 1파일). ProductLed AI 온보딩 렌즈의 세 신호 중 ③ "공유하거나 추천하고 싶은 첫 경험"만 잡별로 번역(①60초 가치·②입력 대비 결과 강도는 m20/m21이 이미 소유). 핵심 신규 판독: 공유성(shareworthiness)을 first value·acceptance와 구분되는 별도 축(resonance/advocacy)으로 정의 — "첫 결과"를 (a)가치 도달 (b)공유성 (c)저장 후 누적 payoff 세 층으로 분리. 저장 없이 공유성 있음(J3 결과 읽고 보여 주고 닫음=정상)·저장 있으나 공유성 없음(J1 묵묵한 저장) 모두 가능하므로 공유성은 항상 저장 전 시점에서 따로 기록. §2 행동 증거 사전 B1~B6(웃음/놀람/반박/다르게 보기 재시도/보여 주기/재전달) 중 B4만 on-instrument(`deed_rerolled`:149), 나머지 5종 off-instrument → 저장수·재판정수로 공유성 환산 금지, 손기록 전용. §3 심장표 J1~J4 × first value × 공유성 관찰 순간 × 기대 행동 증거 × 누적 payoff 분리 × 기존 이벤트 매핑 × misread. §4 Inform/Guide/Execute/Orchestrate 감사: `/add`는 `deed_judged`:106 결과 카드 생성으로 이미 Execute 도달(기존 증거), 단 Execute≠자동 shareworthy이고 그 손기록 양식 부재가 본 문서 공백. first value 매핑 J1/J2/J4=`deed_saved`:183, J3=`deed_judged`:106 그대로 계승, 재정의 0. 기존 6 발화 이벤트만 인용(앵커 72/106/149/167/183/199 drift 0), `deed_save_capped`:167은 availability/friction(upgrade 환산 금지) 계승. §5 prelaunch 금지선(전환율/PMF/벤치마크 산출·1명 단정·저장수=공유성 환산·cap=공유/upgrade 신호·J3 judged−saved 갭=가치 부재·synthetic 혼입·신규 이벤트/코드/카피/계측/배포/외부발송/비용/권한 변경 금지). §6 계승/변경/충돌/승격 분리: 선행 6문서(jtbd-matrix/proxy-dictionary/input-output-balance/60s-script/monetization-boundary/copy-spec) 충돌 0. 검증 게이트 PASS: conflict marker 0, virtue 코드 diff 0(doc 1파일만), HTML 보고서 <html/<body/axis ax1/axis ax2/<details 포함 + details에 계승한 기준·이번에 새로 배운 것·다음 Marketer 규칙·승격 후보 포함, HEAD==origin/master. 신규 이벤트·속성·코드·카피·계측·대시보드·세션리플레이·배포·외부발송·비용·시크릿·권한·개인정보 변경 0. durable learning "Shareworthiness Is A Separate Axis"를 MARKETING_LEARNINGS.md에 승격. Infinity EVALUATION_NOTES.md는 staging 제외. L2 agent-approved push.) -->
 
 <!-- marketing-29 completed 2026-05-30T22:07Z → reports/marketing-29/2026-05-30T2207Z-local.html [projects: virtue; type: strategy; topics: ai-product,activation,trust,measurement,prelaunch] (Virtue AI outcome proxy 사전 작성 완료. 산출물은 virtue-rebirth-app `22f3aea`의 `apps/web/docs/ai-outcome-proxy-dictionary.md`(신규 1파일). Intercom outcome-based value framing + Reforge North Star quality 렌즈를 Virtue prelaunch 내부 판독 사전으로 번역해, "AI가 무언가 했다"는 활동량과 "사용자가 인정했는가"라는 사용자 인정 가치 proxy를 분리. §1 proxy type 5종 사전(activity/acceptance/curiosity/friction/retention) 정의. §2 심장표1=6개 발화 이벤트 × 지배적 proxy type × quality condition × misread warning(코드 앵커 72/106/149/167/183/199 인용). §3 심장표2=J1~J4 × 이벤트 × proxy 판독 × quality condition × misread warning, 같은 `deed_judged`가 J3엔 curiosity first value·다른 잡엔 통과점으로 부호 전환. §4 misread 7종(활동량=가치, judged−saved 갭=이탈, cap=유료수요, reroll=불신, level_up 1회=리텐션, 저장수=만족도, synthetic=인정 금지). §5 prelaunch decision-grade 금지선(전환율/PMF/벤치마크 산출·1명 단정·activity 승격·cap monetization 환산 금지). first value 매핑 J1/J2/J4=`deed_saved`, J3=`deed_judged` 그대로 계승, 재정의 0. 기존 6 발화 이벤트만 인용(보조 add_flow_abandoned:78·deed_judge_attempted:135 사실만 참조, 신규 invented 0). 선행 m06/m28/m25/m22/copy-spec 충돌 0. 신규 이벤트·속성·코드·카피·계측·대시보드·세션리플레이·공개카피·배포·외부발송·비용·시크릿·권한·개인정보 변경 0. 검증 게이트 7종 PASS: 코드 diff 0, 신규 이벤트/속성 0, 6개 이벤트 이름 drift 0(started6/judged13/saved21/level_up8/rerolled5/capped7), conflict marker 0, first-value 매핑 1, decision-grade 금지선 포함, HEAD==origin/master. Infinity dirty 무관 파일(EVALUATION_NOTES.md·workflows/heartbeat.md) staging 제외. L2 agent-approved push 정상 fast-forward(c0dcf7d→22f3aea). Legacy Markdown log도 보존.) -->
 

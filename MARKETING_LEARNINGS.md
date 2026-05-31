@@ -76,6 +76,13 @@
 - **주의:** 작은 표본 메시지 하나로 positioning, activation, conversion, retention, PMF를 확정하지 않는다.
 - **출처:** `marketing-27`, `marketing-13`, `marketing-11`.
 
+### Shareworthiness Is A Separate Axis
+
+- **결론:** "첫 결과"는 한 칸이 아니라 세 층이다. (a) 가치 도달, (b) 공유성(공명/추천), (c) 저장 후 누적 payoff를 분리해서 읽는다. 공유성은 first value·acceptance와 독립이며, 저장 없이 공유성 있음(J3)·저장 있으나 공유성 없음(J1)이 모두 가능하다.
+- **적용:** AI 온보딩·activation·첫 결과 강도 판독에서 공유성은 항상 저장 전 시점에서 따로 손기록한다. 공유성 행동 증거(웃음/놀람/반박/보여 주기/재전달)는 대부분 off-instrument이므로 `deed_saved`·`deed_rerolled` 횟수로 환산하지 않는다.
+- **주의:** 저장수·재판정수를 공유성으로 환산하지 않는다. J3 judged−saved 갭을 공유성/가치 부재로 읽지 않는다(저장 없이 보여 주고 닫힘이 정상).
+- **출처:** `marketing-30`, `marketing-29`, `marketing-21`, `marketing-20`.
+
 ## 다음 Marketer 체크리스트
 
 1. 이번 intent가 어떤 기존 기준을 계승하는지 3개 이하로 적는다.
