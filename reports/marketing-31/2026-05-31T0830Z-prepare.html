@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>marketing-31 Prepare Report</title>
+<style>
+  :root{
+    --bg:#f4f2ea; --panel:#fbfaf5; --ink:#2c2a25; --soft:#807c70; --faint:#a8a496; --line:#e3dfd2;
+    --a2:#5f7a5e; --a2-deep:#3f5740;
+    --a1:#a9745a; --a1-deep:#8a5c45;
+    --sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;}
+  body{background:var(--bg); color:var(--ink); font-family:var(--sans);
+    font-size:14px; line-height:1.68; -webkit-font-smoothing:antialiased;}
+  .sheet{max-width:720px; margin:0 auto; padding:48px 34px 46px;}
+  .reveal{opacity:0; animation:fade .7s ease forwards;}
+  @keyframes fade{from{opacity:0; transform:translateY(9px);} to{opacity:1; transform:none;}}
+  .eyebrow{display:flex; align-items:center; gap:10px; font-family:var(--mono);
+    font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--soft);}
+  .eyebrow .id{color:var(--a2-deep); font-weight:600;}
+  .eyebrow .dot{width:5px; height:5px; border-radius:50%; background:var(--a2);}
+  .eyebrow .status{margin-left:auto; color:var(--a2-deep);}
+  h1{font-size:29px; line-height:1.3; font-weight:700; letter-spacing:-.01em; margin:20px 0 0;}
+  .dek{font-size:15.5px; color:var(--soft); margin:13px 0 0; max-width:52ch;}
+  .hr{height:1px; background:var(--line); margin:30px 0;}
+  .axis{padding:0 0 4px 22px; position:relative; margin-bottom:30px;}
+  .axis::before{content:""; position:absolute; left:0; top:6px; bottom:6px; width:2px; border-radius:2px;}
+  .axis.ax1::before{background:var(--a1);} .axis.ax2::before{background:var(--a2);}
+  .axis.ax1{--ul:var(--a1);} .axis.ax2{--ul:var(--a2);}
+  .axis .label{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase;
+    margin-bottom:9px; display:flex; align-items:center; gap:8px;}
+  .axis.ax1 .label{color:var(--a1-deep);} .axis.ax2 .label{color:var(--a2-deep);}
+  .axis .label .n{font-weight:600; opacity:.6;}
+  .axis .text{font-size:18px; line-height:1.6; color:#37352e;}
+  .axis .text b{font-weight:700; color:var(--ink); border-bottom:2px solid var(--ul);}
+  details{border:1px solid var(--line); border-radius:10px; background:var(--panel); margin-bottom:10px;}
+  summary{cursor:pointer; list-style:none; padding:14px 16px; display:flex; align-items:center; gap:11px;
+    font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft);}
+  summary::-webkit-details-marker{display:none;}
+  summary .chev{width:8px; height:8px; border-right:2px solid var(--a2-deep); border-bottom:2px solid var(--a2-deep);
+    transform:rotate(-45deg); transition:.25s; flex:none; margin-left:2px;}
+  details[open] summary .chev{transform:rotate(45deg);}
+  summary:hover{color:var(--ink);}
+  .body{padding:2px 16px 18px;}
+  table{border-collapse:collapse; width:100%; font-size:13px; margin:4px 0 12px;}
+  th,td{border-bottom:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top;}
+  th{font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft); font-weight:600;}
+  td:first-child{color:var(--a2-deep); font-weight:600; white-space:nowrap;}
+  .body p{color:var(--soft);}
+  .body ul{margin:6px 0; padding-left:18px;} .body li{margin:5px 0;}
+  code{font-family:var(--mono); font-size:12px; background:#edeae0; padding:1px 6px; border-radius:3px; color:var(--a2-deep);}
+  .chips{display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px;}
+  .chip{font-family:var(--mono); font-size:10.5px; letter-spacing:.05em; color:var(--soft); border:1px solid var(--line); border-radius:999px; padding:3px 10px;}
+  .foot{margin-top:30px; padding-top:15px; border-top:1px solid var(--line);
+    display:flex; justify-content:space-between; font-family:var(--mono); font-size:10px;
+    letter-spacing:.13em; text-transform:uppercase; color:var(--faint);}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="eyebrow reveal">
+    <span class="dot"></span>
+    <span class="id">marketing-31</span>
+    <span>Cloud Prepare · Strategy</span>
+    <span class="status">in_progress</span>
+  </div>
+  <h1 class="reveal" style="animation-delay:.05s">Virtue 첫 세션 제품 본체/범퍼 경계표 작성</h1>
+  <p class="dek reveal" style="animation-delay:.09s">PLG 온보딩 렌즈로 첫 세션을 제품 본체(Product Body)와 범퍼(Bumper)로 분리하는 판독 기준표 초안 — Cloud prepare 완료, Local execute 대기</p>
+
+  <div class="hr reveal" style="animation-delay:.12s"></div>
+
+  <div class="axis ax1 reveal" style="animation-delay:.16s">
+    <div class="label"><span class="n">01</span> 🔴 무엇이 문제였나</div>
+    <div class="text">prelaunch 첫 세션 활성화 판독에서 <b>"범퍼 부족(설명/투어)"과 "제품 본체 약속 불일치"를 구분 없이 읽으면</b> — J3 앞단 끊김 같은 본체 공백을 범퍼로 해결하려는 오류가 생기고, 개선 우선순위가 흐려짐</div>
+  </div>
+
+  <div class="axis ax2 reveal" style="animation-delay:.22s">
+    <div class="label"><span class="n">02</span> ✅ 어떻게 해결하나</div>
+    <div class="text"><b>J1~J4 × 첫 세션 5개 표면(S1~S5) × 본체/범퍼 역할 × 정상종료/막힘 판독 기준 표</b> 초안 작성 완료 — Local Claude Code가 <code>virtue-rebirth-app/apps/web/docs/</code>에 반영 예정</div>
+  </div>
+
+  <div class="reveal" style="animation-delay:.27s">
+  <details open>
+    <summary><span class="chev"></span> 이번 Heartbeat에서 수행한 작업</summary>
+    <div class="body">
+      <ul>
+        <li>Inbox의 <code>marketing-candidate</code> → <code>marketing-31</code>로 구조화, Active <code>in_progress</code>로 이동</li>
+        <li>PLG 본체/범퍼 개념을 Virtue J1~J4 × 5개 표면(S1~S5)으로 번역한 draft 초안 작성</li>
+        <li>심장 표: J1/J2/J3/J4 × S1(홈)~S5(홈복귀) × 본체역할/범퍼역할/정상종료/막힘판독</li>
+        <li>선행 문서 연결 확인: m06/m16/m17/m19/m21 충돌 0건</li>
+        <li>first value 매핑 계승: J1/J2/J4=<code>deed_saved</code>, J3=<code>deed_judged</code> 재정의 없음</li>
+        <li>J3 판독 금지 계승: <code>deed_judged</code> 후 저장 없음 = J3 정상 종료 (이탈 아님)</li>
+      </ul>
+      <p>계승한 기준 (MARKETING_LEARNINGS.md):</p>
+      <ul>
+        <li>First Value Mapping — J1/J2/J4=deed_saved, J3=deed_judged 계승</li>
+        <li>Prelaunch Decision Boundary — 작은 표본 비율/전환율/PMF 결론 금지</li>
+        <li>Availability And Friction Are Not Value — deed_save_capped 범퍼 판단 금지</li>
+      </ul>
+      <p>이번에 새로 추가한 것:</p>
+      <ul>
+        <li>본체 vs 범퍼 분류 기준 — prelaunch 막힘 관찰에서 "어디서 막혔나(본체)"와 "어디서 길을 잃었나(범퍼)"를 구분하는 새 렌즈</li>
+        <li>J3 본체 공백(S1 `/` AI 약속 부재)은 범퍼(툴팁/투어)로 해결 불가 — 본체 강화 필요 (기존 three-screen §3-A 앞단 끊김 재확인)</li>
+        <li>J2 S5에서 level_up_viewed가 본체이자 범퍼 역할을 겸하는 유일한 표면</li>
+      </ul>
+      <p>다음 Marketer에게 넘길 규칙:</p>
+      <ul>
+        <li>본체 강화와 범퍼 배치를 혼동하지 않는다. J3 앞단 끊김은 범퍼가 아니라 홈 화면 AI 약속 본체 강화로 해결한다.</li>
+        <li>deed_save_capped를 범퍼 필요 신호로 읽지 않는다 (availability/friction 신호 계승).</li>
+        <li>본체/범퍼 조치 후보는 반복 신호 관찰 후 proposal-only로 분리한다.</li>
+      </ul>
+      <p>durable learning candidate (승격 보류 — 단일 Heartbeat 도출, local execute 후 재확인):</p>
+      <ul>
+        <li>"Product Body Before Bumper": prelaunch 활성화 막힘 관찰에서 범퍼(설명/투어)를 추가하기 전에 본체 경로가 잡별로 작동하는지 먼저 확인한다. 특히 J3는 홈 화면 AI 약속 부재(본체 공백)가 막힘 원인이므로 범퍼로 해결할 수 없다.</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="chev"></span> 다음 액션 · 실행 메타</summary>
+    <div class="body">
+      <div class="chips">
+        <span class="chip">2026-05-31T08:30Z</span>
+        <span class="chip">Heartbeat Cloud Prepare</span>
+        <span class="chip">inbox → in_progress</span>
+      </div>
+      <table>
+        <tr><th>항목</th><th>내용</th></tr>
+        <tr><td>다음 액션</td><td>Local Claude Code → <code>virtue-rebirth-app/apps/web/docs/first-session-product-body-bumper-map.md</code> 작성 후 커밋·push</td></tr>
+        <tr><td>실행 방식</td><td>tmux -L purple pt Claude pane 우선, fallback: claude --dangerously-skip-permissions -p</td></tr>
+        <tr><td>Workflow</td><td>simple-doc — 단일 doc 작성, workflow-master 불필요</td></tr>
+        <tr><td>draft 위치</td><td><code>artifacts/marketing-31/first-session-product-body-bumper-map-draft.md</code></td></tr>
+        <tr><td>검증 게이트</td><td>conflict marker 0 / 코드 diff 0 / 신규 이벤트·속성·카피·배포 0 / 선행 문서 충돌 0 / HEAD==origin/master</td></tr>
+        <tr><td>리포트 위치</td><td><code>reports/marketing-31/{timestamp}.html</code></td></tr>
+        <tr><td>승인 레벨</td><td>L1 — 내부 문서 작업, 자율 실행 가능</td></tr>
+      </table>
+    </div>
+  </details>
+  </div>
+
+  <div class="foot reveal" style="animation-delay:.3s">
+    <span>Agent-First Heartbeat</span>
+    <span>Infinity · Intent Note</span>
+  </div>
+</div>
+</body>
+</html>
