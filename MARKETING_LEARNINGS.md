@@ -90,6 +90,13 @@
 - **주의:** 막힘은 4분류로 라우팅이 다르다 — 길을 잃음(범퍼 후보)·결과 기대 불일치(제품 약속/결과 후보)·가용성 차단(availability/friction)·정상 종료(이탈 아님). J3에 저장 유도 범퍼를 무조건 붙이면 첫 가치 흐름을 방해한다. 저장률·재판정수로 막힘 성격을 단정하지 않는다.
 - **출처:** `marketing-31`, `marketing-30`, `marketing-16`, `marketing-21`, `marketing-06`.
 
+### First-Input Defaults Steer The Job
+
+- **결론:** AI 제품의 첫 입력 기본값(placeholder·예시·추천 질문·기본 프롬프트)은 사용자가 어떤 잡으로 제품을 이해할지 정하는 조향 장치다. Virtue는 예시·추천 질문 0의 "질문형 placeholder + 빈 슬롯" 단일 패턴이라 기능 설명형(support-bot 유도) 위험은 구조적으로 0이지만, 잡별 조향도 0이라 같은 중립 placeholder(`뭐 했어요?`)가 J1~J4를 구분 없이 부른다.
+- **적용:** 첫 입력을 읽을 때 "어떤 기본값이 이 잡을 불렀는가(첫 입력 출처)"를 먼저 분리한 뒤 후속 행동을 본다. "두 번째 메시지" 신호는 잡별 두 번째 행동으로 번역한다 — J1/J4=`deed_saved`, J2=`level_up_viewed`/두 번째 저장, J3=`deed_rerolled`/다른 입력 후 재판정(저장 강요 안 함). 첫 입력 단계에서 J3(AI 약속이 `/add` 안에서야 등장)·J2(누적 보상은 두 번째 저장 이후)가 가장 약하게 불린다.
+- **주의:** 전역 예시/placeholder 최적화 금지 — 한 잡을 살리는 예시가 다른 잡을 구경/support-bot 모드로 끌 수 있다. 조향이 필요하면 잡별로, 반드시 관찰로 먼저 확인한다. mock 모드 라벨(`임시 판정`)이 J3 첫 인상을 낮추는 문제는 런타임 모드 정책이며 카피 변경 범위 밖(proposal-only). J3 judged−saved 갭을 가치 부재/이탈로 단정하지 않는다.
+- **출처:** `marketing-32`, `marketing-06`, `marketing-21`, `marketing-30`, `marketing-31`.
+
 ## 다음 Marketer 체크리스트
 
 1. 이번 intent가 어떤 기존 기준을 계승하는지 3개 이하로 적는다.
