@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>marketing-33 · Infinity Report</title>
+<style>
+  :root{--bg:#f4f2ea;--panel:#fbfaf5;--ink:#2c2a25;--soft:#807c70;--faint:#a8a496;--line:#e3dfd2;--a2:#5f7a5e;--a2-deep:#3f5740;--a1:#a9745a;--a1-deep:#8a5c45;--sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;--mono:ui-monospace,"SF Mono",Menlo,monospace}*{box-sizing:border-box}html,body{margin:0}body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:14px;line-height:1.68}.sheet{max-width:720px;margin:0 auto;padding:48px 34px 46px}.eyebrow{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--soft)}.id{color:var(--a2-deep);font-weight:600}.dot{width:5px;height:5px;border-radius:50%;background:var(--a2)}.status{margin-left:auto;color:var(--a2-deep)}h1{font-size:29px;line-height:1.3;font-weight:700;margin:20px 0 0}.dek{font-size:15.5px;color:var(--soft);margin:13px 0 0;max-width:52ch}.hr{height:1px;background:var(--line);margin:30px 0}.axis{padding:0 0 4px 22px;position:relative;margin-bottom:30px}.axis:before{content:"";position:absolute;left:0;top:6px;bottom:6px;width:2px;border-radius:2px}.axis.ax1:before{background:var(--a1)}.axis.ax2:before{background:var(--a2)}.label{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:9px}.ax1 .label{color:var(--a1-deep)}.ax2 .label{color:var(--a2-deep)}.text{font-size:18px;line-height:1.6;color:#37352e}.text b{font-weight:700;color:var(--ink);border-bottom:2px solid var(--a1)}details{border:1px solid var(--line);border-radius:10px;background:var(--panel);margin-bottom:10px}summary{cursor:pointer;list-style:none;padding:14px 16px;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--soft)}summary::-webkit-details-marker{display:none}.body{padding:2px 16px 18px}.body ul{margin:6px 0;padding-left:18px}.body li{margin:5px 0}table{border-collapse:collapse;width:100%;font-size:13px;margin:4px 0 12px}th,td{border-bottom:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}th{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--soft);font-weight:600}td:first-child{color:var(--a2-deep);font-weight:600;white-space:nowrap}code{font-family:var(--mono);font-size:12px;background:#edeae0;padding:1px 6px;border-radius:3px;color:var(--a2-deep)}.chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}.chip{font-family:var(--mono);font-size:10.5px;color:var(--soft);border:1px solid var(--line);border-radius:999px;padding:3px 10px}.foot{margin-top:30px;padding-top:15px;border-top:1px solid var(--line);display:flex;justify-content:space-between;font-family:var(--mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--faint)}
+</style>
+</head>
+<body>
+<div class="sheet">
+  <div class="eyebrow"><span class="dot"></span><span class="id">marketing-33</span><span>Intent Report</span><span class="status">completed</span></div>
+  <h1>Virtue 활성화 후보 등록부</h1>
+  <p class="dek">PostHog 활성화 렌즈("단일 이벤트가 아니라 3~5개 묶음 + 제품별 window를 리텐션과 대조하라")를 Virtue J1~J4 잡별 후보 묶음·관찰 window를 미리 고정하는 내부 등록부로 번역한 실행 로그.</p>
+  <div class="hr"></div>
+  <div class="axis ax1"><div class="label">01 무엇이 문제였나</div><div class="text">활성화 묶음·window가 여러 문서에 흩어져 있으면, 출시 후 작은 데이터가 생겼을 때 <b>결과가 좋아 보이는 묶음·시간창을 사후에 골라(cherry-pick)</b> "이게 우리 활성화"라고 잘못 선언하게 된다. J3 저장 없음·J2 누적 지연·synthetic 혼입을 활성화 실패로 오독할 위험도 함께 커진다.</div></div>
+  <div class="axis ax2"><div class="label">02 어떻게 해결하나</div><div class="text"><b>활성화 후보 등록부</b>를 추가해 J1~J4 잡별 후보 묶음(A1~A4)과 <b>관찰 window(W-IMM 첫 세션 · W-CONF D7)</b>를 한 표에 동결했다. 출시 후 검증은 "새로 조립"이 아니라 <b>"등록된 후보를 대조"</b>하는 일이 된다. 플랫폼 패리티는 m15, 운영 리듬은 m23에 위임.</div></div>
+  <details open><summary>수행한 작업 · 검증</summary><div class="body"><ul>
+    <li>산출물: <code>/home/ubuntu/dev/virtue-rebirth-app/apps/web/docs/activation-candidate-registry.md</code> (신규 1파일)</li>
+    <li>§2 등록부 심장표: J1~J4 × (등록 ID A1~A4 · first value(계승) · 후보 묶음 3~5 · 관찰 window · 사용 가능 기존 이벤트 · 수기 관찰 칸 · 금지 해석) — 성공기준 6요소를 한 표에 수렴.</li>
+    <li>§3 window 정의: <b>W-IMM</b>(첫 세션 내 first value) / <b>W-CONF</b>(D7 내 재가치) — m23 immediate vs long-term TTV와 정렬, 새 정의 0. availability(503·지연·<code>deed_save_capped</code>) 구간은 window 제외.</li>
+    <li>§4 출시 후 게이트(10명 OR 7일) + 등록 ID별 점검 체크리스트. 게이트는 "등록 후보를 데이터로 대조 가능한가"만 확인, 전환율·리텐션 상관 결론은 보류.</li>
+    <li>핵심 설계: 묶음은 <b>완료 이벤트 우선</b>(시작=의도). A3(J3)만 <code>deed_judged</code>가 first value라 <b>묶음에 <code>deed_saved</code>를 필수로 등록하지 않음</b>(저장 없는 종료=정상).</li>
+    <li>first value 매핑 계승: J1/J2/J4=<code>deed_saved</code>:183, J3=<code>deed_judged</code>:106. 재정의 0. 인용 이벤트 <code>add_flow_started</code>:72 / <code>deed_judged</code>:106 / <code>deed_rerolled</code>:149 / <code>deed_save_capped</code>:167 / <code>deed_saved</code>:183 / <code>level_up_viewed</code>:199 현행 일치(drift 0).</li>
+    <li>검증 게이트 PASS: 코드 diff 0(<code>git diff --stat apps/web/src apps/ios/Sources</code> 빈 출력), git status=docs 1파일만, 실제 충돌 마커 0(line-start 정규식 NONE; 단일 grep 매치는 §8 문서화된 검증 명령 줄), 신규 이벤트/속성 0, 선행 7문서+copy-spec 충돌 0.</li>
+    <li>출처노트 부재 처리: Intent가 가리킨 <code>source/external-links/marketing/2026-06-01-activation-metric-bundles.md</code>가 로컬에 없어(<code>source/</code> 트리 자체 부재) Intent rationale 요지 + 검증된 m15 §4 묶음 원칙에 근거함을 §0에 명시.</li>
+  </ul></div></details>
+  <details><summary>학습 루프 · 원장</summary><div class="body"><ul>
+    <li><b>계승한 기준:</b> first value 매핑(J1/J2/J4=<code>deed_saved</code>, J3=<code>deed_judged</code>) 재정의 0 · 활성화=단일 magic 아닌 3~5 묶음(m15 §4) · J3 저장 없는 종료=정상 · availability≠value(<code>deed_save_capped</code> early return → window 제외) · 트래픽/synthetic 분류 선행 · prelaunch 비결정 등급(전환율/리텐션%/PMF/벤치마크 환산 금지).</li>
+    <li><b>이번에 새로 배운 것:</b> Virtue 활성화 후보의 흩어진 재료(m15 묶음 · m22 D7 · m23 TTV · m10 time gap)는 이미 충분하나, <b>"출시 후 묶음·window 사후 선택(cherry-pick)" 위험</b>은 별도로 막아야 한다. 그래서 묶음(A1~A4)과 window(W-IMM/W-CONF)를 <b>등록 단위로 동결</b>해, 검증을 "조립"이 아닌 "대조"로 바꾸는 등록부 자체가 산출물의 가치다. window는 시점이 아니라 시간창(첫 세션/D7)이며 둘 다 후보지 합격선이 아니다.</li>
+    <li><b>다음 Marketer에게 넘길 규칙:</b> 활성화를 읽을 때 ① 묶음·window를 데이터 본 뒤 새로 만들지 말고 등록부 A1~A4에서 꺼내 대조한다. ② A3(J3) 묶음에 <code>deed_saved</code>를 필수로 요구하지 않는다(judged−saved 갭=이탈 단정 금지). ③ window 도달을 합격선으로 못박지 않는다. ④ 플랫폼 차이는 m15, 운영 리듬은 m23, time gap은 m10에 위임하고 등록부에서 재정의하지 않는다.</li>
+    <li><b>MARKETING_LEARNINGS.md 승격 후보(보류):</b> "활성화 후보 묶음·window는 출시 전에 등록(동결)해 두고, 출시 후엔 새로 조립하지 말고 등록된 후보를 리텐션과 대조한다. window는 시점이 아니라 시간창(첫 세션/D7)이며 후보지 합격선이 아니다." → 본 산출물은 기존 <b>"First Value Mapping"·"Prelaunch Decision Boundary"</b> 기준의 *적용 절차*에 해당하므로 새 항목 신설 대신 두 기준에 흡수 가능. 단일 등록부 1건이라 durable 승격은 다음 실사용 대조 후로 보류.</li>
+  </ul></div></details>
+  <details><summary>실행 메타 · 산출물</summary><div class="body"><div class="chips"><span class="chip">2026-06-01T22:07Z</span><span class="chip">local Claude Code</span><span class="chip">simple-doc · agent-approved L2</span></div><ul><li>Report: <code>reports/marketing-33/2026-06-01T2207Z-local.html</code></li><li>Source note: <code>source/external-links/marketing/2026-06-01-activation-metric-bundles.md</code> (로컬 부재 — Intent rationale 요지 근거)</li><li>Artifact: <code>apps/web/docs/activation-candidate-registry.md</code> (신규 1파일)</li><li>주요 계승 문서: <code>first-session-jtbd-matrix.md</code>(m06) · <code>ios-activation-event-parity-brief.md</code>(m15) · <code>retention-predictive-activation-brief.md</code>(m22) · <code>onboarding-metrics-reading-table.md</code>(m23) · <code>time-to-value-observation-brief.md</code>(m10)</li><li>인용 코드: <code>apps/web/src/app/add/page.tsx</code> (6개 이벤트 발화 위치)</li></ul></div></details>
+  <div class="foot"><span>Agent-First Heartbeat</span><span>Infinity · Intent Note</span></div>
+</div>
+</body>
+</html>
