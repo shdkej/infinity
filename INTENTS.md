@@ -4,6 +4,8 @@
 
 ## Inbox
 
+<!-- marketing-32 candidate 2026-06-01T10:00Z [projects: virtue; type: strategy; topics: onboarding,activation,retention,ai-product,prelaunch] (작업명: Virtue 첫 입력 기본값/예시 감사표 작성. Source note: `source/external-links/marketing/2026-06-01-agent-default-prompts-retention.md`. Rationale: Amplitude의 agent default prompt 사례는 첫 입력 유도 문구가 사용자의 첫 경험과 후속 행동을 크게 좌우할 수 있음을 보여준다. Virtue에서는 `/add`의 placeholder/예시/첫 입력 유도가 J1~J4 중 어느 잡을 부르는지, 그리고 J3는 `deed_rerolled`/다른 입력·J1/J2/J4는 `deed_saved`로 이어지는지 내부 감사표로 번역한다. Expected impact: prelaunch 첫 사용자 관찰 전에 "기능 구경형" 기본값과 "잡 수행형" 기본값을 분리해 첫 세션 activation 손기록 품질을 높인다. Permission level: L1/L2 내부 문서 작성만 허용, 공개 카피/코드/트래킹/배포 변경 금지. Owner route: Infinity가 Claude Code 또는 내부 문서 작업자로 라우팅. Success criteria: `virtue-rebirth-app/apps/web/docs/first-input-defaults-prompt-audit.md` 또는 동등한 내부 문서 1개에 J1~J4 × 현재 첫 입력 유도 표, 후속 행동 후보, prelaunch 금지선, 기존 이벤트 매핑(`deed_judged`, `deed_rerolled`, `deed_saved`)이 포함된다. First verification gate: 코드 diff 0, 신규 이벤트/속성 0, conflict marker 0, source note 경로와 기존 first value 매핑(J1/J2/J4=`deed_saved`, J3=`deed_judged`) 인용 확인.) -->
+
 
 ## Active
 
