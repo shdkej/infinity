@@ -102,13 +102,14 @@ jobs:
           REPORT=$(echo "$CHANGED" | grep 'reports/' | head -1)
           HAS_GATES=$(echo "$CHANGED" | grep -c '^GATES.md$' || true)
 
-          # Marketing work is noisy if the user gets both:
-          # 1) "Heartbeat Update" for candidate/inbox routing, and
-          # 2) a later completion report for the actual work.
-          #
-          # For marketing-only INTENTS.md updates, keep the commit/push as the
-          # queue source of truth but suppress the Telegram notice. Completion,
-          # blocker, approval, and report notifications still go through.
+          # Marketing/세스고딘 work is now heartbeat/dashboard-visible but not
+          # Telegram-notified by default. The user explicitly asked to stop chat
+          # delivery because heartbeat can surface marketing state later.
+          if printf '%s\n%s\n' "$CHANGED" "$COMMIT_MSG" | grep -iqE 'marketing|세스고딘|growth|activation|retention|monetization|positioning'; then
+            echo "Skip: marketing notification suppressed"
+            exit 0
+          fi
+
           if [ -z "$REPORT" ] && [ "$HAS_GATES" -eq 0 ]; then
             if echo "$CHANGED" | grep -qx 'INTENTS.md' && printf '%s' "$COMMIT_MSG" | grep -iqE 'marketing|세스고딘|growth'; then
               echo "Skip: marketing candidate-only intent update"
