@@ -4,6 +4,8 @@
 
 ## Inbox
 
+<!-- marketing-33 candidate 2026-06-01T22:00Z [projects: virtue; type: strategy; topics: activation,measurement,retention,prelaunch] (출처노트: `source/external-links/marketing/2026-06-01-activation-metric-bundles.md`. Action candidate: Virtue J1-J4별 activation 후보 묶음과 관찰 window를 정리하는 내부 `activation candidate registry` 작성. Rationale: PostHog activation metric 렌즈는 단일 이벤트가 아니라 3-5개 이벤트 묶음과 제품별 window를 retention과 대조하라고 권한다. Virtue는 prelaunch라 수치 판정은 금지하지만, J1/J2/J4=`deed_saved`, J3=`deed_judged` first value 매핑을 유지한 채 출시 후 검증 후보를 미리 고정할 수 있다. Expected impact: 작은 실사용 데이터가 생겼을 때 J3 저장 없음, J2 누적 payoff 지연, synthetic/mock 혼입을 activation 실패로 오독하는 위험 감소. Permission level: L1/L2 internal doc only, 공개 카피/코드/트래킹/대시보드/외부발송/비용 변경 금지. Owner route: Infinity router -> Claude Code if local doc execution is needed. Success criteria: J1-J4별 후보 묶음, activation window, 사용 가능한 기존 이벤트, 수기 관찰 칸, 금지 해석, 출시 후 검증 게이트가 한 문서에 정리되고 선행 first value 문서와 충돌 0. First verification gate: 기존 6개 이벤트명(`add_flow_started`, `deed_judged`, `deed_saved`, `level_up_viewed`, `deed_rerolled`, `deed_save_capped`)만 인용했는지와 신규 계측/카피/코드 diff 0인지 확인.) -->
+
 
 ## Active
 
