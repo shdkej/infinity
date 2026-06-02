@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>marketing-34 — PLG Foundation Exit Gate</title>
+<style>
+  :root{
+    --bg:#f4f2ea; --panel:#fbfaf5; --ink:#2c2a25; --soft:#807c70; --faint:#a8a496; --line:#e3dfd2;
+    --a2:#5f7a5e; --a2-deep:#3f5740;
+    --a1:#a9745a; --a1-deep:#8a5c45;
+    --sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;}
+  body{background:var(--bg); color:var(--ink); font-family:var(--sans);
+    font-size:14px; line-height:1.68; -webkit-font-smoothing:antialiased;}
+  .sheet{max-width:720px; margin:0 auto; padding:48px 34px 46px;}
+  .reveal{opacity:0; animation:fade .7s ease forwards;}
+  @keyframes fade{from{opacity:0; transform:translateY(9px);} to{opacity:1; transform:none;}}
+  .eyebrow{display:flex; align-items:center; gap:10px; font-family:var(--mono);
+    font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--soft);}
+  .eyebrow .id{color:var(--a2-deep); font-weight:600;}
+  .eyebrow .dot{width:5px; height:5px; border-radius:50%; background:var(--a2);}
+  .eyebrow .status{margin-left:auto; color:var(--a2-deep);}
+  h1{font-size:29px; line-height:1.3; font-weight:700; letter-spacing:-.01em; margin:20px 0 0;}
+  .dek{font-size:15.5px; color:var(--soft); margin:13px 0 0; max-width:52ch;}
+  .hr{height:1px; background:var(--line); margin:30px 0;}
+  .axis{padding:0 0 4px 22px; position:relative; margin-bottom:30px;}
+  .axis::before{content:""; position:absolute; left:0; top:6px; bottom:6px; width:2px; border-radius:2px;}
+  .axis.ax1::before{background:var(--a1);} .axis.ax2::before{background:var(--a2);}
+  .axis.ax1{--ul:var(--a1);} .axis.ax2{--ul:var(--a2);}
+  .axis .label{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase;
+    margin-bottom:9px; display:flex; align-items:center; gap:8px;}
+  .axis.ax1 .label{color:var(--a1-deep);} .axis.ax2 .label{color:var(--a2-deep);}
+  .axis .label .n{font-weight:600; opacity:.6;}
+  .axis .text{font-size:18px; line-height:1.6; color:#37352e;}
+  .axis .text b{font-weight:700; color:var(--ink); border-bottom:2px solid var(--ul);}
+  details{border:1px solid var(--line); border-radius:10px; background:var(--panel); margin-bottom:10px;}
+  summary{cursor:pointer; list-style:none; padding:14px 16px; display:flex; align-items:center; gap:11px;
+    font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft);}
+  summary::-webkit-details-marker{display:none;}
+  summary .chev{width:8px; height:8px; border-right:2px solid var(--a2-deep); border-bottom:2px solid var(--a2-deep);
+    transform:rotate(-45deg); transition:.25s; flex:none; margin-left:2px;}
+  details[open] summary .chev{transform:rotate(45deg);}
+  .body{padding:2px 16px 18px;}
+  table{border-collapse:collapse; width:100%; font-size:13px; margin:4px 0 12px;}
+  th,td{border-bottom:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top;}
+  th{font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft); font-weight:600;}
+  td:first-child{color:var(--a2-deep); font-weight:600; white-space:nowrap;}
+  .body p{color:var(--soft);}
+  .body ul{margin:6px 0; padding-left:18px;} .body li{margin:5px 0;}
+  code{font-family:var(--mono); font-size:12px; background:#edeae0; padding:1px 6px; border-radius:3px; color:var(--a2-deep);}
+  .chips{display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px;}
+  .chip{font-family:var(--mono); font-size:10.5px; letter-spacing:.05em; color:var(--soft); border:1px solid var(--line); border-radius:999px; padding:3px 10px;}
+  .foot{margin-top:30px; padding-top:15px; border-top:1px solid var(--line);
+    display:flex; justify-content:space-between; font-family:var(--mono); font-size:10px;
+    letter-spacing:.13em; text-transform:uppercase; color:var(--faint);}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="eyebrow reveal">
+    <span class="dot"></span>
+    <span class="id">marketing-34</span>
+    <span>Cloud Prepare</span>
+    <span class="status">in_progress</span>
+  </div>
+  <h1 class="reveal" style="animation-delay:.05s">Virtue PLG Foundation Exit Gate</h1>
+  <p class="dek reveal" style="animation-delay:.09s">Foundation→Activation 단계 전환 기준 문서 초안 작성. G1~G7 체크리스트 7항목 완성.</p>
+
+  <div class="hr reveal" style="animation-delay:.12s"></div>
+
+  <div class="axis ax1 reveal" style="animation-delay:.16s">
+    <div class="label"><span class="n">01</span> 무엇이 문제였나</div>
+    <div class="text">Virtue Foundation→Activation 단계 전환 기준 문서 부재. 출시 후 <b>첫 사용자 데이터 수신 전</b> activation bundle·D7 second value·source promise fit을 단일 기준으로 읽기 위한 exit gate 없음 → 작은 표본 과대해석 및 문서 간 기준 혼선 위험.</div>
+  </div>
+
+  <div class="axis ax2 reveal" style="animation-delay:.22s">
+    <div class="label"><span class="n">02</span> 어떻게 해결하나</div>
+    <div class="text"><b>G1~G7 exit gate 체크리스트 초안 완성</b>. 기존 12개 문서 인용, 신규 이벤트·속성·카피·계측 0. <code>artifacts/marketing-34/plg-foundation-exit-gate-draft.md</code>에 저장 + 로컬 실행 프롬프트 첨부. 다음 스텝: 로컬 Claude Code에서 virtue-rebirth-app <code>apps/web/docs/</code>에 반영·커밋·push.</div>
+  </div>
+
+  <div class="reveal" style="animation-delay:.27s">
+  <details open>
+    <summary><span class="chev"></span> 수행한 작업 · 산출물</summary>
+    <div class="body">
+      <table>
+        <tr><th>항목</th><th>내용</th></tr>
+        <tr><td>모드</td><td>cloud prepare + draft</td></tr>
+        <tr><td>초안 경로</td><td><code>artifacts/marketing-34/plg-foundation-exit-gate-draft.md</code></td></tr>
+        <tr><td>대상 경로</td><td>virtue-rebirth-app <code>apps/web/docs/plg-foundation-exit-gate.md</code></td></tr>
+        <tr><td>Gate 항목</td><td>G1 First Value Mapping · G2 Activation Bundle · G3 D7 Second Value · G4 Traffic Source · G5 Source Promise Fit · G6 Availability/Friction · G7 해석 금지선</td></tr>
+        <tr><td>인용 문서</td><td>12개 (activation-candidate-registry / first-session-jtbd-matrix / first-real-user-baseline-template / time-to-value-observation-brief / first-week-activation-retention-bridge / onboarding-metrics-reading-table / retention-predictive-activation-brief / traffic-source-reading-boundary-table / minimum-viable-audience-brief / prelaunch-monetization-boundary-brief / first-60-second-value-observation-script / first-session-friction-observation-protocol)</td></tr>
+        <tr><td>신규 이벤트/속성/카피</td><td>0</td></tr>
+        <tr><td>외부 벤치마크 수치</td><td>0 (Virtue 합격선으로 쓰지 않음)</td></tr>
+      </table>
+      <p>계승한 기준:</p>
+      <ul>
+        <li>First Value Mapping: J1/J2/J4=<code>deed_saved</code>(183), J3=<code>deed_judged</code>(106) — MARKETING_LEARNINGS.md 계승</li>
+        <li>Prelaunch Decision Boundary: 첫 10~20명/D7 관찰은 정성 질문, PMF/전환율/retention% 산출 금지</li>
+        <li>Traffic Source Before Metrics: 분류가 판독에 선행 (G4)</li>
+        <li>Availability And Friction Are Not Value: <code>deed_save_capped</code>/503/지연 = availability (G6)</li>
+      </ul>
+      <p>이번에 새로 배운 것:</p>
+      <ul>
+        <li>Foundation exit gate는 "문서가 있는가"가 아닌 "기준이 잠겼는가"를 묻는다 — 10명 데이터 도착이 자동 통과 조건이 아님</li>
+        <li>G1~G7 중 G2(activation bundle 등록)가 선행 문서(marketing-33)로 이미 가장 잘 완비돼 있음. G5(source promise fit)와 G7(해석 금지선 일람)이 단일 문서에서 확인하기 가장 어려운 항목</li>
+      </ul>
+      <p>다음 Marketer에게 넘길 규칙:</p>
+      <ul>
+        <li>Foundation exit gate는 Activation 단계 보고서 첫 줄에서 G1~G7 통과 여부를 확인해야 한다</li>
+        <li>gate 항목이 새로 완비될 때마다 해당 체크박스를 이 문서에서 체크하고 참조 문서 경로를 업데이트한다</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="chev"></span> 실행 메타 · 다음 액션</summary>
+    <div class="body">
+      <div class="chips">
+        <span class="chip">2026-06-02T06:00Z</span>
+        <span class="chip">heartbeat / cloud-prepare</span>
+        <span class="chip">inbox → active in_progress</span>
+        <span class="chip">L1</span>
+      </div>
+      <ul>
+        <li>Inbox candidate → Active in_progress 이동 완료 (<code>INTENTS.md</code> 업데이트)</li>
+        <li>초안: <code>artifacts/marketing-34/plg-foundation-exit-gate-draft.md</code></li>
+        <li>다음 액션: 로컬 Claude Code에서 virtue-rebirth-app <code>apps/web/docs/plg-foundation-exit-gate.md</code>에 반영 후 검증 게이트 5종 통과 → 커밋·push → HTML 보고서 완료 → intent archived</li>
+        <li>approval: cloud-prepare (L0/L1 범위, self-approved)</li>
+      </ul>
+    </div>
+  </details>
+  </div>
+
+  <div class="foot reveal" style="animation-delay:.3s">
+    <span>Agent-First Heartbeat</span>
+    <span>Infinity · Intent Note</span>
+  </div>
+</div>
+</body>
+</html>
