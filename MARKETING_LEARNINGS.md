@@ -97,6 +97,13 @@
 - **주의:** 전역 예시/placeholder 최적화 금지 — 한 잡을 살리는 예시가 다른 잡을 구경/support-bot 모드로 끌 수 있다. 조향이 필요하면 잡별로, 반드시 관찰로 먼저 확인한다. mock 모드 라벨(`임시 판정`)이 J3 첫 인상을 낮추는 문제는 런타임 모드 정책이며 카피 변경 범위 밖(proposal-only). J3 judged−saved 갭을 가치 부재/이탈로 단정하지 않는다.
 - **출처:** `marketing-32`, `marketing-06`, `marketing-21`, `marketing-30`, `marketing-31`.
 
+### Measurement Readiness Is A Separate Gate
+
+- **결론:** PLG는 Foundation→Activation→Conversion 순서이고, Foundation의 종료 조건은 "활성화가 좋다"가 아니라 "활성화율·기준선을 측정할 수 있는 상태"다. 측정 *가능성*(정의 완료)과 측정 *값의 성패*(좋고 나쁨)는 별개의 게이트다.
+- **적용:** 활성화/단계 판단 작업은 먼저 측정 가능 상태(first value 매핑·후보 묶음+window·TTV 시작/종료점·D7 질문·기준선 양식·이벤트 발화·트래픽 분리)가 준비됐는지 확인한 뒤 값을 읽는다. Activation 단계 진입은 외부 벤치마크 수치가 아니라 데이터 품질·synthetic 제외·가용성 차단·같은 잡 재가치 4가지로 판단한다.
+- **주의:** 측정 가능 상태와 측정값 성패를 섞지 않는다. 외부 수치(TTV<5분·D7 N%·activation 40%)를 prelaunch 합격선으로 복사하지 않는다. 측정 불가 상태의 비율을 활성화로 읽지 않는다. 출시 후 검증 발동 시점·도착 점검은 등록부 게이트(m33 §4)에 위임한다. [[Prelaunch Decision Boundary]]를 보완하는 새 축이다.
+- **출처:** `marketing-34`, `marketing-33`, `marketing-22`, `marketing-10`.
+
 ## 다음 Marketer 체크리스트
 
 1. 이번 intent가 어떤 기존 기준을 계승하는지 3개 이하로 적는다.
