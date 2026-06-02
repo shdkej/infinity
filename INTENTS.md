@@ -4,19 +4,6 @@
 
 ## Inbox
 
-<!-- marketing-35 candidate [projects: virtue; type: strategy; topics: onboarding,activation,checklist,prelaunch]
-제목: Virtue 잡별 온보딩 체크리스트 감사표 작성
-Source note: /home/ubuntu/workspace/knowledge-lab/source/external-links/marketing/2026-06-02-action-oriented-onboarding-checklists.md
-Rationale: Appcues/Supademo/ProductLed의 공통 렌즈는 체크리스트를 기능 안내가 아니라 activation event까지의 3~5개 행동 경로로 제한하라는 것이다. Virtue는 J1/J2/J4 first value가 `deed_saved`, J3 first value가 `deed_judged`로 다르므로, 단일 체크리스트를 붙이면 J3 정상 종료를 저장 실패로 오독할 위험이 있다.
-Expected impact: 출시 전 UI 구현 없이 체크리스트 후보/범퍼/금지 항목을 잡별로 분리해 첫 10~20명 관찰 때 "어디서 길을 잃었는가"를 더 명확히 판독한다.
-Permission level: L1/L2 internal documentation only. 공개 발송, 비용, tracking/privacy 설정, production code, 배포 변경 금지.
-Owner route: Infinity router → Claude Code local execution in /home/ubuntu/dev/virtue-rebirth-app as doc-only if Active capacity allows.
-Success criteria: 신규 내부 문서 1개에 J1~J4별 checklist-eligible action, product bumper, contextual fallback, do-not-include 항목을 표로 정리하고 기존 first value/activation registry/product-body-vs-bumper 문서와 충돌 0을 확인한다.
-First verification gate: 기존 이벤트만 인용하고 신규 이벤트·속성·카피·계측·대시보드·세션리플레이·배포 0, J3 저장 없는 종료 정상 경계 보존, conflict marker 0, git diff가 docs-only임을 확인한다.
-Routing: Inbox
--->
-
-
 ## Active
 
 
@@ -25,6 +12,8 @@ Routing: Inbox
 <!-- 사용자 결정, 외부 조건, 안전 확인 대기. 같은 질문을 반복하지 않고 상태만 보존한다. -->
 
 ## Archive
+
+<!-- marketing-35 completed 2026-06-02T23:07Z → reports/marketing-35/2026-06-02T2207Z-local.html [projects: virtue; type: strategy; topics: onboarding,activation,checklist] (Virtue 잡별 온보딩 체크리스트 감사표 작성 완료. 산출물은 virtue-rebirth-app의 `apps/web/docs/onboarding-checklist-audit-table.md`(신규 1파일, commit `a300095`). 핵심: 체크리스트는 first value 위치를 따라 잡별로 길이·종료점이 다르며 J1/J2/J4는 입력→판정→저장, J3는 입력→판정에서 종료하고 저장 강제는 DO-NOT-INCLUDE. 항목을 CL-ELIGIBLE/BUMPER-ONLY/CONTEXTUAL-FALLBACK/DO-NOT-INCLUDE 4분류로 나누고, 폴백은 B-LOST에만 발동하며 B-MISMATCH/B-AVAIL/B-NORMAL에는 발동하지 않도록 경계를 고정. first value 매핑 J1/J2/J4=`deed_saved`:183, J3=`deed_judged`:106 및 `deed_save_capped`:167=availability/friction 계승. 신규 이벤트·속성·카피·계측·대시보드·세션리플레이·코드·배포·외부발송·비용·권한 변경 0. HTML 보고서 `<html`/`<body`/axis ax1/axis ax2/`<details` 포함 확인. MARKETING_LEARNINGS.md 승격 후보는 단일 실행이라 report 안에 보류. Infinity dirty 무관 파일(EVALUATION_NOTES.md) staging 제외. L2 agent-approved push.) -->
 
 <!-- marketing-34 completed 2026-06-02T11:07Z → reports/marketing-34/2026-06-02T1007Z-local.html [projects: virtue; type: strategy; topics: plg,activation,measurement] (Virtue PLG Foundation exit gate 문서 작성 완료. 산출물은 virtue-rebirth-app의 `apps/web/docs/plg-foundation-exit-gate.md`(신규 1파일). 핵심: Foundation 종료 조건은 "활성화가 좋다"가 아니라 first value 매핑, 후보 묶음/window, TTV 시작/종료점, D7 질문, baseline 양식, 이벤트 도착 검증, traffic/source+availability 분리까지 측정 가능한 상태인가로 고정. G1~G7 중 G6 도착 검증만 출시 후 확인 대기이며, Activation 진입 판단은 외부 벤치마크 수치가 아니라 데이터 품질·synthetic 제외·가용성 차단·같은 잡 재가치로 분리. first value 매핑 J1/J2/J4=`deed_saved`, J3=`deed_judged`, `deed_save_capped`=availability/friction, synthetic/mock/self-test 비결정 기준 계승. 신규 이벤트·속성·카피·계측·대시보드·코드·배포·외부발송·비용·권한 변경 0. HTML 보고서 `<html`/`<body`/axis ax1/axis ax2/`<details` 포함 확인. MARKETING_LEARNINGS.md에 durable learning "Measurement Readiness Is A Separate Gate" 승격. Infinity dirty 무관 파일(EVALUATION_NOTES.md) staging 제외. L2 agent-approved push.) -->
 

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>marketing-35 · Infinity Report</title>
+<style>
+  :root{--bg:#f4f2ea;--panel:#fbfaf5;--ink:#2c2a25;--soft:#807c70;--faint:#a8a496;--line:#e3dfd2;--a2:#5f7a5e;--a2-deep:#3f5740;--a1:#a9745a;--a1-deep:#8a5c45;--sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;--mono:ui-monospace,"SF Mono",Menlo,monospace}*{box-sizing:border-box}html,body{margin:0}body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:14px;line-height:1.68}.sheet{max-width:720px;margin:0 auto;padding:48px 34px 46px}.eyebrow{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--soft)}.id{color:var(--a2-deep);font-weight:600}.dot{width:5px;height:5px;border-radius:50%;background:var(--a2)}.status{margin-left:auto;color:var(--a2-deep)}h1{font-size:29px;line-height:1.3;font-weight:700;margin:20px 0 0}.dek{font-size:15.5px;color:var(--soft);margin:13px 0 0;max-width:54ch}.hr{height:1px;background:var(--line);margin:30px 0}.axis{padding:0 0 4px 22px;position:relative;margin-bottom:30px}.axis:before{content:"";position:absolute;left:0;top:6px;bottom:6px;width:2px;border-radius:2px}.axis.ax1:before{background:var(--a1)}.axis.ax2:before{background:var(--a2)}.label{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:9px}.ax1 .label{color:var(--a1-deep)}.ax2 .label{color:var(--a2-deep)}.text{font-size:18px;line-height:1.6;color:#37352e}.text b{font-weight:700;color:var(--ink);border-bottom:2px solid var(--a1)}.ax2 .text b{border-bottom-color:var(--a2)}details{border:1px solid var(--line);border-radius:10px;background:var(--panel);margin-bottom:10px}summary{cursor:pointer;list-style:none;padding:14px 16px;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--soft)}summary::-webkit-details-marker{display:none}.body{padding:2px 16px 18px}.body ul{margin:6px 0;padding-left:18px}.body li{margin:5px 0}table{border-collapse:collapse;width:100%;font-size:13px;margin:4px 0 12px}th,td{border-bottom:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}th{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--soft);font-weight:600}td:first-child{color:var(--a2-deep);font-weight:600;white-space:nowrap}code{font-family:var(--mono);font-size:12px;background:#edeae0;padding:1px 6px;border-radius:3px;color:var(--a2-deep)}.chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}.chip{font-family:var(--mono);font-size:10.5px;color:var(--soft);border:1px solid var(--line);border-radius:999px;padding:3px 10px}.foot{margin-top:30px;padding-top:15px;border-top:1px solid var(--line);display:flex;justify-content:space-between;font-family:var(--mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--faint)}
+</style>
+</head>
+<body>
+<div class="sheet">
+  <div class="eyebrow"><span class="dot"></span><span class="id">marketing-35</span><span>Intent Report</span><span class="status">completed</span></div>
+  <h1>Virtue 잡별 온보딩 체크리스트 감사표</h1>
+  <p class="dek">행동 중심 온보딩 체크리스트(Appcues/Supademo/ProductLed)를 Virtue 잡별 first value 경로에 맞춰 적격/범퍼/맥락 폴백/금지 4분류로 감사한 실행 로그.</p>
+  <div class="hr"></div>
+  <div class="axis ax1"><div class="label">01 무엇이 문제였나</div><div class="text">first value가 잡별로 다른데(J1/J2/J4=<code>deed_saved</code>, J3=<code>deed_judged</code>) 단일 체크리스트를 붙이면 <b>J3의 정상 종료(저장 없이 판정에서 닫힘)를 "저장 미완료"로 오독</b>하고, 기능 안내 목록이 first value 경로를 가린다.</div></div>
+  <div class="axis ax2"><div class="label">02 어떻게 해결하나</div><div class="text"><b>잡별 체크리스트 감사표</b>를 추가해 각 행동을 <b>적격(CL-ELIGIBLE)·범퍼·맥락 폴백·금지</b> 4분류로 가르고, 체크리스트를 잡의 first value에서 끊었다 — J1/J2/J4는 저장까지, <b>J3는 판정에서 종료(저장은 금지 항목)</b>. 폴백은 막힘 4분류 중 B-LOST에만 발동.</div></div>
+  <details open><summary>수행한 작업 · 검증</summary><div class="body"><ul>
+    <li>산출물: <code>/home/ubuntu/dev/virtue-rebirth-app/apps/web/docs/onboarding-checklist-audit-table.md</code> (신규 1파일)</li>
+    <li>§1 항목 4분류 정의(CL-ELIGIBLE 적격 / BUMPER-ONLY 범퍼 / CONTEXTUAL-FALLBACK 맥락 폴백 / DO-NOT-INCLUDE 금지) + 3원칙(체크리스트는 first value 위치를 따라감 / 범퍼는 약한 본체 못 가림 / 강제보다 dismissible).</li>
+    <li>§2 잡별 감사표: J1~J4 × (적격·범퍼·폴백·금지) × 행동 동사 × 이벤트·표면 근거. 행동을 기능명이 아닌 동사로 기재.</li>
+    <li>핵심: 같은 "저장하기"가 J1엔 <b>적격</b>, J3엔 <b>금지</b>로 부호가 뒤집힌다. J3 체크리스트는 입력→판정 2단계에서 끝나고, 저장 강제는 B-NORMAL(정상 종료) 보존을 위해 금지.</li>
+    <li>§4 맥락 폴백 발동 규칙: B-LOST에만 발동, B-MISMATCH(제품)·B-AVAIL(가용성)·B-NORMAL(정상 종료)에는 발동 안 함.</li>
+    <li>§5 공통 do-not-include: 기능 안내형·J3 저장 강제·가용성을 유료화로 전환·후행 가치 강제·결제/계정 강제·완료율 합격선.</li>
+    <li>first value 매핑 보존: J1/J2/J4=<code>deed_saved</code>:183, J3=<code>deed_judged</code>:106. 재정의 0.</li>
+    <li>기존 이벤트만 인용(앵커 현행 일치: <code>add_flow_started</code>:72 · <code>deed_judged</code>:106 · <code>deed_judge_attempted</code>:135 · <code>deed_rerolled</code>:149 · <code>deed_save_capped</code>:167 · <code>deed_saved</code>:183 · <code>level_up_viewed</code>:199). <code>deed_save_capped</code>=availability/friction(upgrade 환산 금지).</li>
+    <li>검증 게이트: conflict marker 0, Virtue git diff = doc 1파일만(docs-only), 신규 이벤트/속성/카피/계측/대시보드/세션리플레이/배포/외부발송 0, 선행 7문서(jtbd-matrix·body-vs-bumper·activation-registry·first-input·ai-outcome-proxy·plg-foundation·copy-spec) 충돌 0, J3 저장 없는 종료 정상 경계 보존.</li>
+  </ul></div></details>
+  <details><summary>학습 루프 · 원장</summary><div class="body"><ul>
+    <li><b>계승한 기준:</b> first value 매핑(J1/J2/J4=<code>deed_saved</code>, J3=<code>deed_judged</code>) 재정의 0 · <code>deed_save_capped</code>=availability/friction · synthetic/mock/self-test·소수 표본 비결정 등급 · J3 저장 없는 종료=정상(B-NORMAL) · 본체/범퍼 + 막힘 4분류(Product Body vs Bumper By Job, m31).</li>
+    <li><b>이번에 새로 배운 것:</b> 체크리스트는 first value 위치를 따라 <b>잡별로 길이·종료점이 다르다</b> — J1/J2/J4는 입력→판정→저장 3단계, J3는 입력→판정 2단계에서 끝난다. 같은 "저장하기"가 J1엔 적격, J3엔 금지로 부호가 뒤집힌다. 맥락 폴백(conversational bumper)은 막힘 4분류 중 <b>B-LOST에만</b> 발동한다.</li>
+    <li><b>다음 Marketer에게 넘길 규칙:</b> 체크리스트를 감사할 때 먼저 잡의 first value 이벤트(저장이냐 판정이냐)를 확인하고 거기서 체크리스트를 끊는다. J3에 저장을 필수 체크로 넣지 않는다. 안내는 B-LOST에만 띄우고, 가용성·정상 종료·제품 불일치엔 띄우지 않는다. 체크리스트 완료율을 활성화 합격선으로 쓰지 않는다.</li>
+    <li><b>MARKETING_LEARNINGS.md 승격 후보:</b> "Checklist Follows First Value By Job" — 온보딩 체크리스트는 first value 위치를 따라 잡별 길이·종료점이 다르고(J1/J2/J4=저장 종료, J3=판정 종료), 맥락 폴백은 B-LOST에만 발동. [[Product Body vs Bumper By Job]]·[[Measurement Readiness Is A Separate Gate]] 보완. 단일 실행 산출물이라 durable 승격은 다음 재사용 시 재확인 권장 — 이번엔 report 안에 보류.</li>
+  </ul></div></details>
+  <details><summary>실행 메타 · 산출물</summary><div class="body"><div class="chips"><span class="chip">2026-06-02T22:07Z</span><span class="chip">local Claude Code</span><span class="chip">simple-doc · agent-approved L2</span></div><ul><li>Report: <code>reports/marketing-35/2026-06-02T2207Z-local.html</code></li><li>Source note: <code>source/external-links/marketing/2026-06-02-action-oriented-onboarding-checklists.md</code></li><li>Artifact: <code>apps/web/docs/onboarding-checklist-audit-table.md</code></li><li>Intent 원장: <code>intents/archive/marketing-35.md</code></li></ul></div></details>
+  <div class="foot"><span>Agent-First Heartbeat</span><span>Infinity · Intent Note</span></div>
+</div>
+</body>
+</html>
