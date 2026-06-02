@@ -4,6 +4,8 @@
 
 ## Inbox
 
+<!-- marketing-34 candidate 2026-06-02T10:00Z [projects: virtue; type: strategy; topics: plg,activation,measurement,prelaunch] (제목: Virtue PLG Foundation exit gate 문서 작성. 출처 노트: `/home/ubuntu/workspace/knowledge-lab/source/external-links/marketing/2026-06-02-plg-foundation-phase-gate.md`. 근거: PLG Handbook의 Foundation→Activation 단계 모델과 ProductLed의 activation tracking gap을 Virtue prelaunch에 적용하면, 첫 사용자 데이터가 생기기 전에는 개선 성패 판단보다 "측정 가능 상태와 해석 금지선"을 잠그는 것이 먼저다. 예상 임팩트: 출시 후 첫 10~20명 또는 7일 관찰 시 activation bundle, D7 second value, source promise fit을 한 기준으로 읽게 하여 작은 표본 과대해석과 문서 간 기준 혼선을 줄인다. 권한: L1/L2 internal-doc only; 공개 발송, 비용, production code, deploy, tracking/privacy 설정 변경 금지. Owner route: Infinity router → Claude Code 문서 작업. 성공 기준: `apps/web/docs/`에 Foundation exit gate 한 장 추가, 기존 first value/activation candidate/baseline/TTV/D7 문서만 인용, 신규 이벤트·속성·카피·계측·대시보드 0, 외부 벤치마크 수치를 Virtue 합격선으로 쓰지 않음. 첫 검증 게이트: 관련 기존 문서 경로와 이벤트 anchor 확인, conflict marker 0, git diff가 doc/report 범위에만 있는지 확인.) -->
+
 
 ## Active
 
