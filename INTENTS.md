@@ -4,20 +4,21 @@
 
 ## Inbox
 
-<!-- marketing-35 candidate [projects: virtue; type: strategy; topics: onboarding,activation,checklist,prelaunch]
-제목: Virtue 잡별 온보딩 체크리스트 감사표 작성
-Source note: /home/ubuntu/workspace/knowledge-lab/source/external-links/marketing/2026-06-02-action-oriented-onboarding-checklists.md
-Rationale: Appcues/Supademo/ProductLed의 공통 렌즈는 체크리스트를 기능 안내가 아니라 activation event까지의 3~5개 행동 경로로 제한하라는 것이다. Virtue는 J1/J2/J4 first value가 `deed_saved`, J3 first value가 `deed_judged`로 다르므로, 단일 체크리스트를 붙이면 J3 정상 종료를 저장 실패로 오독할 위험이 있다.
-Expected impact: 출시 전 UI 구현 없이 체크리스트 후보/범퍼/금지 항목을 잡별로 분리해 첫 10~20명 관찰 때 "어디서 길을 잃었는가"를 더 명확히 판독한다.
-Permission level: L1/L2 internal documentation only. 공개 발송, 비용, tracking/privacy 설정, production code, 배포 변경 금지.
-Owner route: Infinity router → Claude Code local execution in /home/ubuntu/dev/virtue-rebirth-app as doc-only if Active capacity allows.
-Success criteria: 신규 내부 문서 1개에 J1~J4별 checklist-eligible action, product bumper, contextual fallback, do-not-include 항목을 표로 정리하고 기존 first value/activation registry/product-body-vs-bumper 문서와 충돌 0을 확인한다.
-First verification gate: 기존 이벤트만 인용하고 신규 이벤트·속성·카피·계측·대시보드·세션리플레이·배포 0, J3 저장 없는 종료 정상 경계 보존, conflict marker 0, git diff가 docs-only임을 확인한다.
-Routing: Inbox
--->
-
 
 ## Active
+
+<!-- marketing-35 in_progress [projects: virtue; type: strategy; topics: onboarding,activation,checklist,prelaunch]
+제목: Virtue 잡별 온보딩 체크리스트 감사표 작성
+priority: medium
+permission: L1
+goal: Appcues/Supademo/ProductLed 체크리스트 렌즈를 Virtue J1~J4 잡별 온보딩 체크리스트 감사표로 번역. 단일 체크리스트가 J3 정상 종료(deed_judged, 저장 없음)를 저장 실패로 오독하지 않도록 잡별 분리.
+context:
+  source_note: /home/ubuntu/workspace/knowledge-lab/source/external-links/marketing/2026-06-02-action-oriented-onboarding-checklists.md
+  target: /home/ubuntu/dev/virtue-rebirth-app/apps/web/docs/job-specific-onboarding-checklist-audit.md
+  prior_docs: [first-session-jtbd-matrix, activation-candidate-registry, product-body-vs-bumper-boundary-table, first-input-defaults-prompt-audit]
+success_criteria: J1~J4별 checklist-eligible action, product bumper, contextual fallback, do-not-include 항목 표 1개, 기존 문서 충돌 0
+status_note: 2026-06-02T2230Z Cloud 초안 완료 → artifacts/marketing-35/. 로컬 Claude Code로 virtue-rebirth-app/apps/web/docs/에 파일 쓰기 및 L2 agent-approved push 대기.
+-->
 
 
 ## Waiting
