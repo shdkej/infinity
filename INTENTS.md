@@ -4,6 +4,8 @@
 
 ## Inbox
 
+<!-- marketing-36 candidate [projects: virtue; type: strategy; topics: ai-agent,activation,measurement,prelaunch] Virtue prelaunch 분석 skill sheet 작성. source note: `source/external-links/marketing/2026-06-03-agent-first-product-surfaces.md`. rationale: PostHog agent-first 원칙상 agent가 매번 제품 taxonomy/쿼리 금지선/activation 정의를 재발견하면 오독과 반복 비용이 생긴다. expected impact: 다음 마케팅/Infinity 실행이 J1/J2/J4=`deed_saved`, J3=`deed_judged`, synthetic 제외, availability 분리, J3 저장 미강제, activation 후보 묶음을 한 장에서 참조해 prelaunch 저신호를 과해석하지 않게 한다. permission: L1/L2 doc-only, 제품 코드·public copy·tracking/privacy·PostHog 설정·배포 변경 금지. owner route: Infinity -> Claude Code/local doc execution in virtue-rebirth-app docs. success criteria: `apps/web/docs/virtue-prelaunch-analysis-skill-sheet.md` 또는 동등한 내부 문서 1개가 생성되고, 기존 first value/금지선 문서와 충돌 0, 신규 이벤트/속성 0, conflict marker 0. first verification gate: 작성 전 기존 `apps/web/docs/*activation*`, `*onboarding*`, `*jtbd*`, `*baseline*` 문서에서 first value 매핑과 prelaunch 금지선을 확인하고, 작성 후 `rg '<<<<<<<|=======|>>>>>>>'` clean + 코드 diff 0 확인. routing: Inbox. -->
+
 ## Active
 
 
