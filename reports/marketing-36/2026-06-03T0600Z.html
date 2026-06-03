@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>marketing-36 · Prepare Report</title>
+<style>
+  :root{
+    --bg:#f4f2ea; --panel:#fbfaf5; --ink:#2c2a25; --soft:#807c70; --faint:#a8a496; --line:#e3dfd2;
+    --a2:#5f7a5e; --a2-deep:#3f5740;
+    --a1:#a9745a; --a1-deep:#8a5c45;
+    --sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;}
+  body{background:var(--bg); color:var(--ink); font-family:var(--sans); font-size:14px; line-height:1.68; -webkit-font-smoothing:antialiased;}
+  .sheet{max-width:720px; margin:0 auto; padding:48px 34px 46px;}
+  .reveal{opacity:0; animation:fade .7s ease forwards;}
+  @keyframes fade{from{opacity:0; transform:translateY(9px);} to{opacity:1; transform:none;}}
+  .eyebrow{display:flex; align-items:center; gap:10px; font-family:var(--mono); font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--soft);}
+  .eyebrow .id{color:var(--a2-deep); font-weight:600;}
+  .eyebrow .dot{width:5px; height:5px; border-radius:50%; background:var(--a2);}
+  .eyebrow .status{margin-left:auto; color:var(--a2-deep);}
+  h1{font-size:29px; line-height:1.3; font-weight:700; letter-spacing:-.01em; margin:20px 0 0;}
+  .dek{font-size:15.5px; color:var(--soft); margin:13px 0 0; max-width:52ch;}
+  .hr{height:1px; background:var(--line); margin:30px 0;}
+  .axis{padding:0 0 4px 22px; position:relative; margin-bottom:30px;}
+  .axis::before{content:""; position:absolute; left:0; top:6px; bottom:6px; width:2px; border-radius:2px;}
+  .axis.ax1::before{background:var(--a1);} .axis.ax2::before{background:var(--a2);}
+  .axis.ax1{--ul:var(--a1);} .axis.ax2{--ul:var(--a2);}
+  .axis .label{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase; margin-bottom:9px; display:flex; align-items:center; gap:8px;}
+  .axis.ax1 .label{color:var(--a1-deep);} .axis.ax2 .label{color:var(--a2-deep);}
+  .axis .label .n{font-weight:600; opacity:.6;}
+  .axis .text{font-size:18px; line-height:1.6; color:#37352e;}
+  .axis .text b{font-weight:700; color:var(--ink); border-bottom:2px solid var(--ul);}
+  details{border:1px solid var(--line); border-radius:10px; background:var(--panel); margin-bottom:10px;}
+  summary{cursor:pointer; list-style:none; padding:14px 16px; display:flex; align-items:center; gap:11px; font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft);}
+  summary::-webkit-details-marker{display:none;}
+  summary .chev{width:8px; height:8px; border-right:2px solid var(--a2-deep); border-bottom:2px solid var(--a2-deep); transform:rotate(-45deg); transition:.25s; flex:none; margin-left:2px;}
+  details[open] summary .chev{transform:rotate(45deg);}
+  summary:hover{color:var(--ink);}
+  .body{padding:2px 16px 18px;}
+  table{border-collapse:collapse; width:100%; font-size:13px; margin:4px 0 12px;}
+  th,td{border-bottom:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top;}
+  th{font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft); font-weight:600;}
+  td:first-child{color:var(--a2-deep); font-weight:600; white-space:nowrap;}
+  .body p{color:var(--soft);}
+  .body ul{margin:6px 0; padding-left:18px;} .body li{margin:5px 0;}
+  code{font-family:var(--mono); font-size:12px; background:#edeae0; padding:1px 6px; border-radius:3px; color:var(--a2-deep);}
+  .chips{display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px;}
+  .chip{font-family:var(--mono); font-size:10.5px; letter-spacing:.05em; color:var(--soft); border:1px solid var(--line); border-radius:999px; padding:3px 10px;}
+  .foot{margin-top:30px; padding-top:15px; border-top:1px solid var(--line); display:flex; justify-content:space-between; font-family:var(--mono); font-size:10px; letter-spacing:.13em; text-transform:uppercase; color:var(--faint);}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="eyebrow reveal">
+    <span class="dot"></span>
+    <span class="id">marketing-36</span>
+    <span>Prepare Report</span>
+    <span class="status">in_progress</span>
+  </div>
+  <h1 class="reveal" style="animation-delay:.05s">Virtue Prelaunch 분석 Skill Sheet</h1>
+  <p class="dek reveal" style="animation-delay:.09s">에이전트 반복 재발견 비용을 없애는 1-page 분석 참조 — cloud prepare 완료, 로컬 실행 대기</p>
+
+  <div class="hr reveal" style="animation-delay:.12s"></div>
+
+  <div class="axis ax1 reveal" style="animation-delay:.16s">
+    <div class="label"><span class="n">01</span> 🔴 무엇이 문제였나</div>
+    <div class="text">에이전트가 Virtue 분석 시 <b>product taxonomy · first value · activation 정의를 매번 재발견</b>하면 오독과 반복 비용이 발생한다</div>
+  </div>
+
+  <div class="axis ax2 reveal" style="animation-delay:.22s">
+    <div class="label"><span class="n">02</span> ✅ 어떻게 해결하나</div>
+    <div class="text">J1~J4 first value 매핑, activation 등록부 A1~A4, prelaunch 금지선, availability 분리를 <b>§0~§7 skill sheet로 통합</b> — 초안 완료, virtue-rebirth-app docs 로컬 실행 대기</div>
+  </div>
+
+  <div class="reveal" style="animation-delay:.27s">
+  <details open>
+    <summary><span class="chev"></span> 준비 작업 내역</summary>
+    <div class="body">
+      <p>Cloud prepare 단계 완료. <code>artifacts/marketing-36/virtue-prelaunch-analysis-skill-sheet-draft.md</code> 생성.</p>
+      <table>
+        <tr><th>섹션</th><th>내용</th></tr>
+        <tr><td>§0 First Value Mapping</td><td>J1/J2/J4=deed_saved(:183), J3=deed_judged(:106), J3 저장 미강제 규칙 명시</td></tr>
+        <tr><td>§1 이벤트 화이트리스트</td><td>6개 핵심 이벤트 + 앵커 라인 + deed_save_capped=availability 강조</td></tr>
+        <tr><td>§2 Activation 후보 묶음</td><td>A1~A4 등록부, W-IMM/W-CONF window (marketing-33 계승)</td></tr>
+        <tr><td>§3 Availability 분리표</td><td>deed_save_capped·503·판정 지연·J3 정상 종료 분류</td></tr>
+        <tr><td>§4 Prelaunch 금지선</td><td>8개 금지 항목 (rate %·PMF·cherry-pick 등)</td></tr>
+        <tr><td>§5 Traffic 선분류</td><td>A(사람)·B(self-test)·C(synthetic)·D(플랫폼)·E(agent) 5종</td></tr>
+        <tr><td>§6 문서 인덱스</td><td>선행 9개 관련 문서 경로와 역할</td></tr>
+        <tr><td>§7 에이전트 사용 패턴</td><td>분석 전 확인 순서 4단계</td></tr>
+      </table>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="chev"></span> 검증 게이트 (로컬 실행 시)</summary>
+    <div class="body">
+      <ul>
+        <li><code>rg '&lt;&lt;&lt;&lt;&lt;&lt;&lt;|=======|&gt;&gt;&gt;&gt;&gt;&gt;&gt;'</code> → 0 확인</li>
+        <li><code>git diff --stat apps/web/src apps/ios/Sources</code> → 빈 출력</li>
+        <li><code>git status</code> → docs/virtue-prelaunch-analysis-skill-sheet.md 1파일만</li>
+        <li>기존 *activation*, *onboarding*, *jtbd*, *baseline* 문서 충돌 없음</li>
+        <li>신규 이벤트·속성·카피·계측·배포·외부발송·비용·권한 변경 0</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="chev"></span> 실행 메타 · 산출물</summary>
+    <div class="body">
+      <div class="chips">
+        <span class="chip">2026-06-03T06:00Z</span>
+        <span class="chip">Heartbeat · cloud prepare</span>
+        <span class="chip">inbox → in_progress</span>
+        <span class="chip">approval: L1 auto</span>
+      </div>
+      <ul>
+        <li>초안 <code>artifacts/marketing-36/virtue-prelaunch-analysis-skill-sheet-draft.md</code></li>
+        <li>계승한 기준: First Value Mapping, Availability And Friction Are Not Value, Prelaunch Decision Boundary, Traffic Source Before Metrics, Measurement Readiness Is A Separate Gate</li>
+        <li>이번에 새로 배운 것: 15개 marketing 산출물 핵심 기준을 단일 agent-reference sheet로 통합하는 것이 효율적임</li>
+        <li>다음 Marketer에게 넘길 규칙: 이 skill sheet를 분석 전 읽기 시작점으로 고정, §6 인덱스로 원본 문서 참조</li>
+        <li>MARKETING_LEARNINGS.md 승격 후보: 없음 (기존 기준 통합이므로 신규 learning 없음)</li>
+      </ul>
+    </div>
+  </details>
+  </div>
+
+  <div class="foot reveal" style="animation-delay:.3s">
+    <span>Agent-First Heartbeat</span>
+    <span>Infinity · Intent Note</span>
+  </div>
+</div>
+</body>
+</html>
