@@ -7,6 +7,30 @@
 
 ## Active
 
+### [research-11] 1인 브랜드 전략 10개 실사례 조사
+
+- status: active
+- priority: medium
+- permission: L0/L1
+- mode: research
+- projects: [personal-brand, content-strategy, samuel]
+- task_type: research
+- topics: [brand, positioning, creator]
+- requested_at: 2026-06-03T23:15Z
+- requested_by: user
+- goal: 1인 브랜드 전략 실사례 10개를 조사해, 사용자가 자신의 콘텐츠/여행/제품/워크샵 브랜드 전략에 재사용할 수 있는 패턴으로 정리한다.
+- context:
+    - 사용자는 Threads/블로그/인스타/유튜브 글감과 제목을 계속 다듬고 있다.
+    - 최근 글쓰기 기준은 쉬운 글, 간결한 문장, 결론 먼저, 경험·감정·유머·비유·호기심, 첫 줄 한 줄 요약, 길게 쓰고 덜어내기다.
+    - 2026-07-08 시작 예정인 세계여행 프로젝트는 유튜브 영상, 여행 중 앱 만들기, AI 미니 워크샵 3축으로 운영한다.
+    - 조사는 "유명해서 좋다"가 아니라 1인이 어떤 포지셔닝, 반복 포맷, 배포 채널, 수익화/제품화 경로를 만들었는지 중심으로 본다.
+- success_criteria:
+    - 실사례 10개를 고르고, 각 사례마다 `핵심 포지셔닝`, `반복 콘텐츠 폼`, `신뢰를 만든 경험/증거`, `수익화 또는 제품화 연결`, `사용자가 가져올 수 있는 전략`을 정리한다.
+    - 국내/해외 사례를 섞되, 단순 인플루언서보다 1인 브랜드가 제품·서비스·교육·콘텐츠로 이어진 사례를 우선한다.
+    - 사용자의 3축(유튜브, 앱, AI 워크샵)에 적용 가능한 패턴을 따로 뽑는다.
+    - 최종 산출물은 `artifacts/research-11/solo-brand-strategy-10-cases.md`에 저장하고, `reports/research-11/`에는 HTML 보고서를 남긴다.
+    - 공개 발송, 외부 제출, 유료 도구 사용, 사용자 계정 액션, 브랜드명/카피 확정은 하지 않는다.
+
 
 ## Waiting
 
