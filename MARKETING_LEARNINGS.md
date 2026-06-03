@@ -104,6 +104,13 @@
 - **주의:** 측정 가능 상태와 측정값 성패를 섞지 않는다. 외부 수치(TTV<5분·D7 N%·activation 40%)를 prelaunch 합격선으로 복사하지 않는다. 측정 불가 상태의 비율을 활성화로 읽지 않는다. 출시 후 검증 발동 시점·도착 점검은 등록부 게이트(m33 §4)에 위임한다. [[Prelaunch Decision Boundary]]를 보완하는 새 축이다.
 - **출처:** `marketing-34`, `marketing-33`, `marketing-22`, `marketing-10`.
 
+### Correlation Readiness Is A Separate Gate
+
+- **결론:** 활성화를 *측정할 수 있는 상태*([[Measurement Readiness Is A Separate Gate]])와, 그 활성화를 *retention과 대조할 수 있는 상태*는 별개의 게이트다. 후자는 충분 표본 외에 사전 등록된 쿼리 모양·관찰 창 tier·제외 조건이 모두 있어야 정직하다.
+- **적용:** retention/상관/D30/monetization 대조 작업은 데이터 도착 *전에* 묶음 완료 정의·창 tier(D7 우선·D30/14일 보류)·제외(mock/synthetic/self-test/availability cap/503)·pseudo-query shape를 등록부로 고정하고, 실제 쿼리 실행·대시보드 구성은 decision-grade 표본·접근권한이 있을 때로 분리한다. 묶음 완료 집단 vs 미완료 집단 비교에서 J3는 `deed_judged` 기준으로만 완료 판정(저장 불요).
+- **주의:** pseudo-query를 실행 결과로 착각하지 않는다. 빈 장기 창(D30)을 "리텐션 없음"으로 읽지 않는다(D7로 자연 주기 확인 후 연다). judged−saved 갭을 묶음 미완료·이탈로 환산하지 않는다. 묶음 완료율을 activation rate·전환율·유의성으로 환산하지 않는다. 제외 세션은 삭제하지 않고 가용성/마찰 관찰용으로 보존한다.
+- **출처:** `marketing-37`, `marketing-34`, `marketing-33`, `marketing-22`.
+
 ## 다음 Marketer 체크리스트
 
 1. 이번 intent가 어떤 기존 기준을 계승하는지 3개 이하로 적는다.

@@ -4,14 +4,6 @@
 
 ## Inbox
 
-- marketing-37: Virtue activation-retention correlation readiness spec 작성
-  - source_note: `/home/ubuntu/workspace/knowledge-lab/source/external-links/marketing/2026-06-03-activation-retention-correlation.md`
-  - rationale: PostHog/Amplitude/Reforge 학습 노트는 activation을 단일 이벤트가 아니라 retention으로 검증할 후보 묶음과 시간창으로 보라고 정리한다. Virtue는 prelaunch라 수치 판단은 보류하되, A1~A4 후보를 출시 후 retention과 대조할 준비 문서가 있으면 작은 표본을 사후 선택하는 위험을 줄일 수 있다.
-  - expected_impact: 출시 후 첫 실사용 데이터가 들어왔을 때 `deed_saved`/`deed_judged` first value 후보를 같은 기준으로 대조하고, J3 judged-saved 갭·availability cap·synthetic 세션을 오독하지 않게 한다.
-  - permission_level: L1 내부 문서 작성 + L2 agent-approved normal push only. 제품 코드, 이벤트/속성, PostHog 설정, 대시보드, privacy/tracking, 배포, 외부 발송, 비용 변경 금지.
-  - owner_route: Infinity router -> local Claude Code 또는 SAM 실행. 대상 산출물은 `/home/ubuntu/dev/virtue-rebirth-app/apps/web/docs/activation-retention-correlation-readiness.md` 권장.
-  - success_criteria: A1~A4 후보 묶음, first value 매핑(J1/J2/J4=`deed_saved`, J3=`deed_judged`), activation window 후보, retention 대조 질문(D7 우선, D30 보류), 제외 조건(mock/synthetic/self-test/availability cap/503), pseudo-query shape, prelaunch 금지 해석이 한 문서에 정리된다.
-  - first_verification_gate: source note와 기존 `activation-candidate-registry.md`를 인용하고, 신규 이벤트/속성/코드/대시보드 변경 0, conflict marker 0, 선행 first value 매핑 충돌 0을 확인한다.
 
 ## Active
 
@@ -21,6 +13,8 @@
 <!-- 사용자 결정, 외부 조건, 안전 확인 대기. 같은 질문을 반복하지 않고 상태만 보존한다. -->
 
 ## Archive
+
+<!-- marketing-37 completed 2026-06-03T22:07Z → reports/marketing-37/2026-06-03T2207Z-local.html [projects: virtue; type: strategy; topics: activation,retention,analytics] (Virtue activation-retention correlation readiness spec 작성 완료. 산출물은 virtue-rebirth-app `b5c0d2e`의 `apps/web/docs/activation-retention-correlation-readiness.md`(신규 1파일, docs-only). 핵심: m33의 A1~A4 activation 후보 묶음과 W-IMM/W-CONF window를 재정의하지 않고, 출시 후 retention 대조에 필요한 D7 우선/D30 보류 질문, X-MOCK/X-SYNTH/X-SELF/X-CAP/X-503 제외 조건, 읽기 전용 pseudo-query shape, prelaunch 금지선을 사전 등록. first value 매핑 J1/J2/J4=`deed_saved`:183, J3=`deed_judged`:106 계승, A3 미완료 정의는 `deed_judged` 부재로 고정해 judged−saved 갭을 이탈/묶음 미완료로 환산 금지. 신규 이벤트·속성·코드·카피·PostHog 설정·대시보드·tracking/privacy·배포·외부발송·비용·권한 변경 0. HTML 보고서 `<html`/`<body`/axis ax1/axis ax2/`<details` 포함 확인 + details에 계승한 기준·이번에 새로 배운 것·다음 Marketer 규칙·승격 후보 포함. MARKETING_LEARNINGS.md에 durable learning "Correlation Readiness Is A Separate Gate" 승격. Infinity dirty 무관 파일(EVALUATION_NOTES.md) staging 제외. L2 agent-approved push.) -->
 
 <!-- marketing-36 completed 2026-06-03T10:07Z → reports/marketing-36/2026-06-03T1007Z-local.html [projects: virtue; type: strategy; topics: ai-agent,activation,measurement,prelaunch] (Virtue prelaunch 분석 Skill Sheet 작성 완료. 산출물은 virtue-rebirth-app의 `apps/web/docs/virtue-prelaunch-analysis-skill-sheet.md`(신규 1파일, docs-only). 핵심: prelaunch 판단 기준(4-Job taxonomy·first value 매핑·발화 이벤트 어휘+앵커·availability 분리·막힘 4분류·activation 측정 가능 상태·금지선 9개·코퍼스 소유 문서 지도)이 12개+ 문서에 분산돼 분석마다 재발견 비용이 드는 문제를, 읽기 전용 참조 1장에 인덱싱해 "참조 후 대조"로 전환. 시트는 새 결론을 만들지 않는 파생물이며 충돌 시 원본 file:line과 MARKETING_LEARNINGS.md가 우선. first value 매핑 J1/J2/J4=`deed_saved`:183, J3=`deed_judged`:106, `deed_save_capped`:167=availability/friction 계승. J3 judged−saved 갭=정상 종료 가능·저장 미강제, synthetic/mock/self-test 비결정 등급 보존. 이벤트 앵커 현행 일치(rg drift 0): add_flow_started:72·add_flow_abandoned:78·deed_judged:106·deed_judge_attempted:135·deed_rerolled:149·deed_save_capped:167·deed_saved:183·level_up_viewed:199. 가정 분리: 계승=원장 전 항목/변경=없음/충돌=0(시트는 파생물). 신규 이벤트·속성·카피·tracking/privacy·PostHog 설정·대시보드·세션리플레이·코드·배포·외부발송·비용·권한·개인정보 변경 0. 줄머리 conflict marker 0(단일 rg -c 매치는 §8 문서화된 검증 명령 줄), 코드 diff 0(`git diff --stat apps/web/src apps/ios` 빈 출력). source note는 로컬 부재 → rationale 요지만 근거(§9.3). HTML 보고서 `<html`/`<body`/axis ax1/axis ax2/`<details`(4) 포함 확인 + details에 계승한 기준·이번에 새로 배운 것·다음 Marketer 규칙·승격 후보 포함. MARKETING_LEARNINGS.md 승격 후보 "Prelaunch Analysis Skill Sheet As A Single Lookup"은 운영 절차 후보이자 단일 실행이라 report 안에 보류. Infinity dirty 무관 파일(EVALUATION_NOTES.md) staging 제외. L2 agent-approved push.) -->
 

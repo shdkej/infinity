@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Infinity Report · marketing-37</title>
+<style>
+  :root{
+    --bg:#f4f2ea; --panel:#fbfaf5; --ink:#2c2a25; --soft:#807c70; --faint:#a8a496; --line:#e3dfd2;
+    --a2:#5f7a5e; --a2-deep:#3f5740;            /* 축2(결과/해법) = sage 고정 */
+    --a1:#a9745a; --a1-deep:#8a5c45;            /* 축1 = 개선형 clay */
+    --sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;}
+  body{background:var(--bg); color:var(--ink); font-family:var(--sans);
+    font-size:14px; line-height:1.68; -webkit-font-smoothing:antialiased;}
+  .sheet{max-width:720px; margin:0 auto; padding:48px 34px 46px;}
+  .reveal{opacity:0; animation:fade .7s ease forwards;}
+  @keyframes fade{from{opacity:0; transform:translateY(9px);} to{opacity:1; transform:none;}}
+
+  .eyebrow{display:flex; align-items:center; gap:10px; font-family:var(--mono);
+    font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--soft);}
+  .eyebrow .id{color:var(--a2-deep); font-weight:600;}
+  .eyebrow .dot{width:5px; height:5px; border-radius:50%; background:var(--a2);}
+  .eyebrow .status{margin-left:auto; color:var(--a2-deep);}
+  h1{font-size:29px; line-height:1.3; font-weight:700; letter-spacing:-.01em; margin:20px 0 0;}
+  .dek{font-size:15.5px; color:var(--soft); margin:13px 0 0; max-width:54ch;}
+  .hr{height:1px; background:var(--line); margin:30px 0;}
+
+  .axis{padding:0 0 4px 22px; position:relative; margin-bottom:30px;}
+  .axis::before{content:""; position:absolute; left:0; top:6px; bottom:6px; width:2px; border-radius:2px;}
+  .axis.ax1::before{background:var(--a1);} .axis.ax2::before{background:var(--a2);}
+  .axis.ax1{--ul:var(--a1);} .axis.ax2{--ul:var(--a2);}
+  .axis .label{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase;
+    margin-bottom:9px; display:flex; align-items:center; gap:8px;}
+  .axis.ax1 .label{color:var(--a1-deep);} .axis.ax2 .label{color:var(--a2-deep);}
+  .axis .label .n{font-weight:600; opacity:.6;}
+  .axis .text{font-size:18px; line-height:1.6; color:#37352e;}
+  .axis .text b{font-weight:700; color:var(--ink); border-bottom:2px solid var(--ul);}
+  ol.find{list-style:none; counter-reset:f; margin:16px 0 0; padding:0;}
+  ol.find li{position:relative; padding:8px 0 8px 26px; font-size:15px; color:#37352e; border-top:1px solid var(--line);}
+  ol.find li:first-child{border-top:none;}
+  ol.find li::before{counter-increment:f; content:counter(f); position:absolute; left:0; top:9px;
+    font-family:var(--mono); font-size:12px; font-weight:600; color:var(--a1-deep);}
+
+  details{border:1px solid var(--line); border-radius:10px; background:var(--panel); margin-bottom:10px;}
+  summary{cursor:pointer; list-style:none; padding:14px 16px; display:flex; align-items:center; gap:11px;
+    font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft);}
+  summary::-webkit-details-marker{display:none;}
+  summary .chev{width:8px; height:8px; border-right:2px solid var(--a2-deep); border-bottom:2px solid var(--a2-deep);
+    transform:rotate(-45deg); transition:.25s; flex:none; margin-left:2px;}
+  details[open] summary .chev{transform:rotate(45deg);}
+  summary:hover{color:var(--ink);}
+  .body{padding:2px 16px 18px;}
+  table{border-collapse:collapse; width:100%; font-size:13px; margin:4px 0 12px;}
+  th,td{border-bottom:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top;}
+  th{font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft); font-weight:600;}
+  td:first-child{color:var(--a2-deep); font-weight:600; white-space:nowrap;}
+  .body p{color:var(--soft);}
+  .body ul{margin:6px 0; padding-left:18px;} .body li{margin:5px 0;}
+  code{font-family:var(--mono); font-size:12px; background:#edeae0; padding:1px 6px; border-radius:3px; color:var(--a2-deep);}
+  a{color:var(--a2-deep); text-underline-offset:3px;}
+  .chips{display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px;}
+  .chip{font-family:var(--mono); font-size:10.5px; letter-spacing:.05em; color:var(--soft); border:1px solid var(--line); border-radius:999px; padding:3px 10px;}
+  .foot{margin-top:30px; padding-top:15px; border-top:1px solid var(--line);
+    display:flex; justify-content:space-between; font-family:var(--mono); font-size:10px;
+    letter-spacing:.13em; text-transform:uppercase; color:var(--faint);}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="eyebrow reveal">
+    <span class="dot"></span>
+    <span class="id">marketing-37</span>
+    <span>Research Note</span>
+    <span class="status">completed</span>
+  </div>
+  <h1 class="reveal" style="animation-delay:.05s">Activation–Retention Correlation Readiness Spec</h1>
+  <p class="dek reveal" style="animation-delay:.09s">등록된 A1~A4 활성화 후보를 출시 후 retention과 대조할 때, 쿼리 모양·비교 질문·제외 조건을 사전 고정해 작은 표본의 사후 선택(cherry-pick)을 막는 prelaunch 준비 문서.</p>
+
+  <div class="hr reveal" style="animation-delay:.12s"></div>
+
+  <div class="axis ax1 reveal" style="animation-delay:.16s">
+    <div class="label"><span class="n">01</span> 무엇이 문제였나</div>
+    <div class="text">활성화 후보 묶음(A1~A4)과 window는 m33에 <b>등록</b>됐지만, 그것을 retention과 <b>대조할 쿼리 모양·비교 질문·제외 조건이 흩어져</b> 있었다. 출시 후 첫 데이터(10~20명)가 들어오면 결과가 좋아 보이는 묶음·창을 골라 "이게 우리 활성화"라 선언하는 <b>사후 선택 위험</b>이 그대로 남는다.</div>
+  </div>
+
+  <div class="axis ax2 reveal" style="animation-delay:.22s">
+    <div class="label"><span class="n">02</span> 어떻게 해결하나</div>
+    <div class="text">A1~A4 묶음 · first value 매핑 · window(D7 우선/D30 보류) · 제외 조건 · <b>읽기 전용 pseudo-query shape</b> · 금지 해석을 한 문서에 고정. correlation readiness를 measurement readiness(m34) 다음 <b>별개 게이트</b>로 분리하고, 실제 쿼리 실행은 decision-grade 표본·접근권한이 있을 때로 <b>명시 보류</b>.</div>
+    <ol class="find">
+      <li>산출물 <code>apps/web/docs/activation-retention-correlation-readiness.md</code> (신규 1파일, docs-only)</li>
+      <li>pseudo-query는 <b>실행 아님</b> — 기존 6개 이벤트만 placeholder로 인용, 신규 이벤트/속성/코드/대시보드/tracking 변경 0</li>
+      <li>A3 미완료 정의는 <code>deed_judged</code> 부재이고, <b>judged−saved 갭은 정상 종료</b>(이탈/미완료 아님)로 골격에 고정</li>
+      <li>제외 X-MOCK/X-SYNTH/X-SELF/X-CAP/X-503은 retention 대조 <b>전에</b> 끝낸다 (분류가 판독에 선행)</li>
+    </ol>
+  </div>
+
+  <div class="reveal" style="animation-delay:.27s">
+  <details open>
+    <summary><span class="chev"></span> 마케팅 학습 루프 · 계승/변경/충돌/승격</summary>
+    <div class="body">
+
+      <p><b>계승한 기준 (inherited assumptions)</b></p>
+      <ul>
+        <li><b>First Value Mapping</b> — J1/J2/J4=<code>deed_saved</code>:183, J3=<code>deed_judged</code>:106. 재정의 0 (m06).</li>
+        <li><b>활성화 후보 등록부</b> — A1~A4 묶음 + W-IMM/W-CONF window를 대조 단위로 그대로 계승 (m33). 묶음 재구성 0.</li>
+        <li><b>Measurement Readiness Is A Separate Gate</b> — 측정 가능성 ≠ 측정값 성패 (m34). 본 문서는 그 다음 칸.</li>
+        <li><b>Availability And Friction Are Not Value</b> — <code>deed_save_capped</code>:167·503=availability/friction, value/monetization 아님.</li>
+        <li><b>Traffic Source Before Metrics</b> — mock/synthetic/self-test 분리가 판독에 선행 (m25). D7 질문 원문은 m22 §5, 503 경계는 m14 위임.</li>
+      </ul>
+
+      <p><b>이번에 새로 배운 것 (changed / newly learned)</b></p>
+      <ul>
+        <li><b>correlation readiness는 measurement readiness와 별개 게이트다.</b> 활성화가 측정 가능해도 retention과 대조하려면 (a)충분 표본 (b)사전 등록된 쿼리 모양 (c)사전 합의 제외 조건이 더 필요하다. 본 문서는 (b)(c)를 고정하고 (a)는 prelaunch 미충족이라 <b>실행을 보류</b>.</li>
+        <li><b>retention 대조 창은 tier로 나눈다 — D7 우선, D30 보류.</b> D30(출처노트의 "14·30일 다른 창")은 자연 주기가 D7로 먼저 보인 뒤 여는 후보 창. prelaunch 첫 리뷰에서 빈 D30 창을 "리텐션 없음"으로 읽지 않는다.</li>
+        <li><b>pseudo-query shape는 실행이 아니라 모양 고정 장치다.</b> 묶음 완료 집단 vs 미완료 집단의 D7 재방문 대조 골격(STEP 0~5)을 사전에 동결하면, 출시 후 검증이 "조립"이 아니라 "대조"가 된다.</li>
+        <li><b>A3의 미완료 정의가 다른 잡과 부호가 다르다.</b> A3 미완료는 <code>deed_judged</code> 자체 부재이고, <code>deed_judged</code> 후 <code>deed_saved</code> 없음은 정상 완료다. 쿼리 STEP 2에서 J3에만 이 분기를 명시.</li>
+      </ul>
+
+      <p><b>선행 산출물과의 충돌 (conflicts) — 0건</b></p>
+      <ul>
+        <li>m06/m33/m22/m14/m34/m23/m10/m25/m11/copy-spec 정의를 한 글자도 바꾸지 않음. first value 매핑 충돌 0, 묶음 정의 충돌 0, J3 저장 없는 정상 종료 충돌 0 (본문 §8 no-conflict 표).</li>
+        <li>줄머리 conflict marker 0, 코드 diff 0, 신규 이벤트/속성 0.</li>
+      </ul>
+
+      <p><b>다음 Marketer에게 넘길 규칙 (rules to pass on)</b></p>
+      <ul>
+        <li>retention/상관/D30/monetization 대조 작업은 <b>쿼리 모양·창 tier·제외 조건을 데이터 도착 전에 등록</b>하고, 실행은 decision-grade 표본·접근권한이 있을 때로 분리한다.</li>
+        <li>D30·14일 등 더 긴 창은 D7로 자연 주기가 확인된 뒤에만 연다. 빈 장기 창을 신호 부재로 읽지 않는다.</li>
+        <li>묶음 완료 집단 vs 미완료 집단 비교에서 J3는 <code>deed_judged</code> 기준으로만 완료 판정(저장 불요).</li>
+        <li>제외(X-*)는 retention 대조 전에 끝내고, 제외 세션은 삭제하지 않고 가용성/마찰 관찰용으로 보존한다.</li>
+      </ul>
+
+      <p><b>MARKETING_LEARNINGS.md 승격 후보</b></p>
+      <ul>
+        <li><b>승격함:</b> "Correlation Readiness Is A Separate Gate From Measurement Readiness" — measurement readiness(m34)와 구분되는 durable·재사용 절차 규칙(쿼리 모양+창 tier D7/D30+제외 사전 등록, 실행 보류, J3 갭 보호)이라 원장에 승격. 기존 [[Measurement Readiness Is A Separate Gate]]를 보완하는 다음 칸.</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="chev"></span> 검증 게이트 · 산출물</summary>
+    <div class="body">
+      <table>
+        <tr><th>게이트</th><th>결과</th></tr>
+        <tr><td>코드 diff</td><td>0 (<code>git diff --stat apps/web/src apps/ios/Sources</code> 빈 출력)</td></tr>
+        <tr><td>신규 이벤트/속성/대시보드</td><td>0 (기존 6개 이벤트만 인용, 앵커 72/106/149/167/183/199 drift 0)</td></tr>
+        <tr><td>줄머리 conflict marker</td><td>0 (<code>grep -nE '^(&lt;&lt;&lt;|===|&gt;&gt;&gt;)'</code> → NONE)</td></tr>
+        <tr><td>first value 매핑 충돌</td><td>0 (J1/J2/J4=<code>deed_saved</code>, J3=<code>deed_judged</code> 계승)</td></tr>
+        <tr><td>source note 인용</td><td>✅ <code>2026-06-03-activation-retention-correlation.md</code> (로컬 존재) + m33 registry 인용</td></tr>
+        <tr><td>성공기준 7요소</td><td>✅ 묶음·매핑·window·D7/D30 질문·제외·pseudo-query·금지선 (본문 부록 체크리스트)</td></tr>
+        <tr><td>report gate</td><td>✅ <code>&lt;html</code>/<code>&lt;body</code>/axis ax1/axis ax2/<code>&lt;details</code> 포함</td></tr>
+      </table>
+      <div class="chips">
+        <span class="chip">2026-06-03T22:07Z</span>
+        <span class="chip">Infinity heartbeat · marketing-37</span>
+        <span class="chip">Inbox → completed</span>
+      </div>
+      <ul>
+        <li>산출물 <code>apps/web/docs/activation-retention-correlation-readiness.md</code></li>
+        <li>제외: Infinity <code>EVALUATION_NOTES.md</code>(무관 dirty) staging 제외</li>
+        <li>L2 agent-approved normal push (Virtue origin/master, Infinity origin/main)</li>
+      </ul>
+    </div>
+  </details>
+  </div>
+
+  <div class="foot reveal" style="animation-delay:.3s">
+    <span>Agent-First Heartbeat</span>
+    <span>Infinity · Intent Note</span>
+  </div>
+</div>
+</body>
+</html>
