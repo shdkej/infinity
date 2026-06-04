@@ -4,6 +4,15 @@
 
 ## Inbox
 
+- [ ] **marketing-39 — Virtue Human-AI readiness trace map 작성**
+  - source note: `/home/ubuntu/workspace/knowledge-lab/source/external-links/marketing/2026-06-04-human-ai-readiness-traces.md`
+  - rationale: 인간-AI 제품 평가는 모델 정확도보다 outcome/reliance/safety/learning 상호작용 흔적으로 봐야 한다. Virtue prelaunch에서는 작은 지표 해석 대신 J1~J4 first value 뒤 사용자가 AI 판정을 조언으로 이해하고 제어하는지 관찰할 준비가 필요하다.
+  - expected impact: 첫 10명 관찰에서 `deed_saved`, `deed_judged`, `deed_rerolled`, 미저장 종료를 신뢰/불신으로 단정하지 않고 readiness trace로 분리해, 출시 후 activation-retention 해석의 오독을 줄인다.
+  - permission level: L1/L2 docs-only. 신규 이벤트·속성·PostHog dashboard·tracking/privacy·카피·배포·외부 발송·비용 변경 금지.
+  - owner route: Infinity router → Claude Code가 `/home/ubuntu/dev/virtue-rebirth-app/apps/web/docs/`에 내부 문서 1개 작성.
+  - success criteria: outcome/reliance/safety/learning 4축, U-C-I 관찰 질문, J1~J4 first value 매핑, J3 judged-without-save 정상 종료 경계, `deed_saved`≠AI 판정 동의 경계, 신규 계측 금지선이 한 문서에 정리된다.
+  - first verification gate: source note 인용, 선행 문서(`ai-judgment-trust-control-observation-boundary-table.md`, `activation-candidate-registry.md`, `first-real-user-baseline-template.md`)와 충돌 0, conflict marker 0, 코드 diff 0.
+
 
 
 ## Active
