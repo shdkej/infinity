@@ -4,6 +4,8 @@
 
 ## Inbox
 
+<!-- marketing-38 candidate 2026-06-04T10:00Z [projects: virtue; type: strategy; topics: ai-trust,activation,onboarding,prelaunch] 제목: Virtue AI 판정 신뢰/제어권 관찰 경계표 작성. Source note: /home/ubuntu/workspace/knowledge-lab/source/external-links/marketing/2026-06-04-ai-trust-low-stakes-delegation.md. Rationale: EY 2026 AI Sentiment Report와 McKinsey 2026 AI Trust 관점은 AI adoption이 confidence보다 빠르고, 낮은 위험의 반복 경험·근거 가시성·사람의 마지막 선택권이 위임 신뢰를 만든다고 본다. Virtue는 prelaunch라 수치 판단보다 J1~J4 첫 세션에서 AI 판정이 조언/선택권으로 읽히는지 먼저 고정해야 한다. Expected impact: J3 `deed_judged` 정상 종료와 J1/J2/J4 `deed_saved`를 과신/불신 또는 저장 강제로 오독하지 않고, 첫 사용자 관찰에서 신뢰/제어권 신호를 일관되게 읽는다. Permission level: L1/L2 docs-only; public copy, production code, tracking/privacy, dashboard, deploy, external message, paid action 없음. Owner route: Infinity router → Claude Code docs task in /home/ubuntu/dev/virtue-rebirth-app. Success criteria: 기존 first value 매핑(J1/J2/J4=`deed_saved`, J3=`deed_judged`)과 trust calibration/60s observation 문서 계승, J1~J4 × 낮은 위험 경험 × 근거 가시성 × 사용자 선택권 × 과신/불신 신호 표 포함, `deed_rerolled`/저장/미저장 종료/수기 반응을 새 이벤트 없이 매핑, 신규 이벤트·속성·카피·tracking/privacy·배포 변경 0. First verification gate: source note 인용 확인, 선행 trust/activation 문서와 충돌 0, conflict marker 0, git diff가 docs-only인지 확인. Routing: Inbox. -->
+
 
 ## Active
 
