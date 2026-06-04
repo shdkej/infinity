@@ -55,6 +55,13 @@
 - **주의:** 신뢰는 무조건 높이는 대상이 아니라 과신과 불신 사이의 적정 보정 문제다. 확신도 숫자나 출력 수정 UX는 proposal-only다.
 - **출처:** `marketing-24`, `marketing-20`, `marketing-21`.
 
+### No Autonomous Action Bounds The Trust Question
+
+- **결론:** AI 제품의 신뢰 문제 *모양*은 그 AI가 자율 외부 행동을 하는지에 따라 갈린다. Virtue처럼 외부 행동 없이 판정만 보여주는 제품은 McKinsey 구분에서 "틀린 행동"이 아니라 "틀린 말" 영역에만 있어, 신뢰 질문이 "AI가 자동으로 무엇을 해도 되나"에서 "사용자가 출력을 조언(마지막 선택 내 것)으로 읽나, 판결(정체성 사실)로 읽나"로 수축한다.
+- **적용:** AI 신뢰 작업은 먼저 "이 AI가 자율 외부 행동을 하는가"를 묻는다. 아니면 agentic guardrail·monitoring·accountability 플레이북을 신뢰 해법으로 가져오지 않는다. 위험의 본체는 행동적 해가 아니라 자기인식 오보정이다. Virtue에서 낮은 위험 축(저장 비강제·무시 비용 0·외부 효과 0)은 이미 구조적 최대치이므로, 관찰은 위험을 낮추는 게 아니라 사용자가 낮은 위험·마지막 선택권을 *인지*하는지를 본다.
+- **주의:** `deed_saved`를 판정 승인/만족으로, judged−saved 갭을 불신/이탈로 읽지 않는다. 확신도 %·출력 수정·trust 이벤트는 proposal-only. [[Trust Calibration By Job]]을 보완하는 새 축이다.
+- **출처:** `marketing-38`, `marketing-24`, `marketing-20`.
+
 ### Monetization Boundary
 
 - **결론:** 첫 가치 이전에 결제정보, 계정강제, 핵심행동 잠금, 가격/플랜 확정은 두지 않는다.

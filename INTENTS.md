@@ -4,7 +4,6 @@
 
 ## Inbox
 
-<!-- marketing-38 candidate 2026-06-04T10:00Z [projects: virtue; type: strategy; topics: ai-trust,activation,onboarding,prelaunch] 제목: Virtue AI 판정 신뢰/제어권 관찰 경계표 작성. Source note: /home/ubuntu/workspace/knowledge-lab/source/external-links/marketing/2026-06-04-ai-trust-low-stakes-delegation.md. Rationale: EY 2026 AI Sentiment Report와 McKinsey 2026 AI Trust 관점은 AI adoption이 confidence보다 빠르고, 낮은 위험의 반복 경험·근거 가시성·사람의 마지막 선택권이 위임 신뢰를 만든다고 본다. Virtue는 prelaunch라 수치 판단보다 J1~J4 첫 세션에서 AI 판정이 조언/선택권으로 읽히는지 먼저 고정해야 한다. Expected impact: J3 `deed_judged` 정상 종료와 J1/J2/J4 `deed_saved`를 과신/불신 또는 저장 강제로 오독하지 않고, 첫 사용자 관찰에서 신뢰/제어권 신호를 일관되게 읽는다. Permission level: L1/L2 docs-only; public copy, production code, tracking/privacy, dashboard, deploy, external message, paid action 없음. Owner route: Infinity router → Claude Code docs task in /home/ubuntu/dev/virtue-rebirth-app. Success criteria: 기존 first value 매핑(J1/J2/J4=`deed_saved`, J3=`deed_judged`)과 trust calibration/60s observation 문서 계승, J1~J4 × 낮은 위험 경험 × 근거 가시성 × 사용자 선택권 × 과신/불신 신호 표 포함, `deed_rerolled`/저장/미저장 종료/수기 반응을 새 이벤트 없이 매핑, 신규 이벤트·속성·카피·tracking/privacy·배포 변경 0. First verification gate: source note 인용 확인, 선행 trust/activation 문서와 충돌 0, conflict marker 0, git diff가 docs-only인지 확인. Routing: Inbox. -->
 
 
 ## Active
@@ -15,6 +14,8 @@
 <!-- 사용자 결정, 외부 조건, 안전 확인 대기. 같은 질문을 반복하지 않고 상태만 보존한다. -->
 
 ## Archive
+
+<!-- marketing-38 completed 2026-06-04T10:27Z → reports/marketing-38/2026-06-04T1007Z-local.html [projects: virtue; type: strategy; topics: ai-trust,activation,onboarding,prelaunch] (Virtue AI 판정 신뢰/제어권 관찰 경계표 작성 완료. 산출물은 virtue-rebirth-app의 `apps/web/docs/ai-judgment-trust-control-observation-boundary-table.md`(신규 1파일, docs-only). EY·McKinsey 2026 AI trust 렌즈를 J1~J4 첫 세션 관찰 기준으로 번역해, AI 판정을 "믿어라"가 아니라 "근거를 보고 사람이 마지막 선택을 한다"로 읽는 경계를 고정. J1/J2/J4=`deed_saved`, J3=`deed_judged` first value 매핑과 m24 trust calibration/60초 관찰 기준 계승. 기존 이벤트만 인용했고 신규 이벤트·속성·카피·tracking/privacy·dashboard·배포·외부발송·비용·권한 변경 0. HTML 보고서 `<html`/`<body`/axis ax1/axis ax2/`<details` 포함 확인. MARKETING_LEARNINGS.md에 durable learning "Trust Is Read Through Control, Not Agreement" 승격. Infinity dirty 무관 파일(EVALUATION_NOTES.md) staging 제외. Heartbeat가 partial timeout 후 산출물과 Archive 전환을 검증해 정리.) -->
 
 <!-- research-11 completed 2026-06-04T00:27Z → intents/archive/research-11.md [projects: personal-brand,content-strategy,research-bank; type: research; topics: content,marketing,product] (1인 브랜드 전략 10개 실사례 조사 완료. 산출물은 artifacts/research-11/solo-brand-strategy-10-cases.md, HTML 보고서는 reports/research-11/2026-06-04T0007Z.html. 국내 3·해외 7 사례를 포지셔닝·반복 콘텐츠 폼·신뢰 자산·수익화/제품화 경로·사용자 적용 전략으로 정리. 핵심 패턴: 콘텐츠는 입구, 제품/교육/서비스가 본체, 같은 경험을 영상·글·코스·제품으로 변환해 재사용한다. 사용자 3축 적용은 유튜브=도달, 여행 중 앱 만들기=증거, AI 미니 워크샵=수익화/교육으로 한 깔때기를 만드는 방향. Levels·Danny Postma는 여행+AI/앱+공개빌딩 축과 가장 직접적으로 맞닿은 사례. 공개 발송·외부 제출·유료 도구·사용자 계정 액션·브랜드명/카피 확정 0. 코드·배포·외부 호출 변경 0. HTML 보고서 gate(`<html`, `<body`, `axis ax1`, `axis ax2`, `<details`) 통과. Claude fallback timeout 뒤 heartbeat가 관련 draft를 검증하고 Active→Archive 정리.) -->
 
