@@ -7,36 +7,14 @@
 
 ## Active
 
-### [research-11] 1인 브랜드 전략 10개 실사례 조사
-
-- status: active
-- priority: medium
-- permission: L0/L1
-- mode: research
-- projects: [personal-brand, content-strategy, samuel]
-- task_type: research
-- topics: [brand, positioning, creator]
-- requested_at: 2026-06-03T23:15Z
-- requested_by: user
-- goal: 1인 브랜드 전략 실사례 10개를 조사해, 사용자가 자신의 콘텐츠/여행/제품/워크샵 브랜드 전략에 재사용할 수 있는 패턴으로 정리한다.
-- context:
-    - 사용자는 Threads/블로그/인스타/유튜브 글감과 제목을 계속 다듬고 있다.
-    - 최근 글쓰기 기준은 쉬운 글, 간결한 문장, 결론 먼저, 경험·감정·유머·비유·호기심, 첫 줄 한 줄 요약, 길게 쓰고 덜어내기다.
-    - 2026-07-08 시작 예정인 세계여행 프로젝트는 유튜브 영상, 여행 중 앱 만들기, AI 미니 워크샵 3축으로 운영한다.
-    - 조사는 "유명해서 좋다"가 아니라 1인이 어떤 포지셔닝, 반복 포맷, 배포 채널, 수익화/제품화 경로를 만들었는지 중심으로 본다.
-- success_criteria:
-    - 실사례 10개를 고르고, 각 사례마다 `핵심 포지셔닝`, `반복 콘텐츠 폼`, `신뢰를 만든 경험/증거`, `수익화 또는 제품화 연결`, `사용자가 가져올 수 있는 전략`을 정리한다.
-    - 국내/해외 사례를 섞되, 단순 인플루언서보다 1인 브랜드가 제품·서비스·교육·콘텐츠로 이어진 사례를 우선한다.
-    - 사용자의 3축(유튜브, 앱, AI 워크샵)에 적용 가능한 패턴을 따로 뽑는다.
-    - 최종 산출물은 `artifacts/research-11/solo-brand-strategy-10-cases.md`에 저장하고, `reports/research-11/`에는 HTML 보고서를 남긴다.
-    - 공개 발송, 외부 제출, 유료 도구 사용, 사용자 계정 액션, 브랜드명/카피 확정은 하지 않는다.
-
 
 ## Waiting
 
 <!-- 사용자 결정, 외부 조건, 안전 확인 대기. 같은 질문을 반복하지 않고 상태만 보존한다. -->
 
 ## Archive
+
+<!-- research-11 completed 2026-06-04T00:27Z → intents/archive/research-11.md [projects: personal-brand,content-strategy,research-bank; type: research; topics: content,marketing,product] (1인 브랜드 전략 10개 실사례 조사 완료. 산출물은 artifacts/research-11/solo-brand-strategy-10-cases.md, HTML 보고서는 reports/research-11/2026-06-04T0007Z.html. 국내 3·해외 7 사례를 포지셔닝·반복 콘텐츠 폼·신뢰 자산·수익화/제품화 경로·사용자 적용 전략으로 정리. 핵심 패턴: 콘텐츠는 입구, 제품/교육/서비스가 본체, 같은 경험을 영상·글·코스·제품으로 변환해 재사용한다. 사용자 3축 적용은 유튜브=도달, 여행 중 앱 만들기=증거, AI 미니 워크샵=수익화/교육으로 한 깔때기를 만드는 방향. Levels·Danny Postma는 여행+AI/앱+공개빌딩 축과 가장 직접적으로 맞닿은 사례. 공개 발송·외부 제출·유료 도구·사용자 계정 액션·브랜드명/카피 확정 0. 코드·배포·외부 호출 변경 0. HTML 보고서 gate(`<html`, `<body`, `axis ax1`, `axis ax2`, `<details`) 통과. Claude fallback timeout 뒤 heartbeat가 관련 draft를 검증하고 Active→Archive 정리.) -->
 
 <!-- marketing-37 completed 2026-06-03T22:07Z → reports/marketing-37/2026-06-03T2207Z-local.html [projects: virtue; type: strategy; topics: activation,retention,analytics] (Virtue activation-retention correlation readiness spec 작성 완료. 산출물은 virtue-rebirth-app `b5c0d2e`의 `apps/web/docs/activation-retention-correlation-readiness.md`(신규 1파일, docs-only). 핵심: m33의 A1~A4 activation 후보 묶음과 W-IMM/W-CONF window를 재정의하지 않고, 출시 후 retention 대조에 필요한 D7 우선/D30 보류 질문, X-MOCK/X-SYNTH/X-SELF/X-CAP/X-503 제외 조건, 읽기 전용 pseudo-query shape, prelaunch 금지선을 사전 등록. first value 매핑 J1/J2/J4=`deed_saved`:183, J3=`deed_judged`:106 계승, A3 미완료 정의는 `deed_judged` 부재로 고정해 judged−saved 갭을 이탈/묶음 미완료로 환산 금지. 신규 이벤트·속성·코드·카피·PostHog 설정·대시보드·tracking/privacy·배포·외부발송·비용·권한 변경 0. HTML 보고서 `<html`/`<body`/axis ax1/axis ax2/`<details` 포함 확인 + details에 계승한 기준·이번에 새로 배운 것·다음 Marketer 규칙·승격 후보 포함. MARKETING_LEARNINGS.md에 durable learning "Correlation Readiness Is A Separate Gate" 승격. Infinity dirty 무관 파일(EVALUATION_NOTES.md) staging 제외. L2 agent-approved push.) -->
 

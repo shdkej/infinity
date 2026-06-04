@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Infinity Report · research-11</title>
+<style>
+  :root{
+    --bg:#f4f2ea; --panel:#fbfaf5; --ink:#2c2a25; --soft:#807c70; --faint:#a8a496; --line:#e3dfd2;
+    --a2:#5f7a5e; --a2-deep:#3f5740;            /* 축2 = sage, 고정 */
+    --a1:#5a6f8a; --a1-deep:#3f536e;            /* 축1 = 조사형 slate-blue */
+    --sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;}
+  body{background:var(--bg); color:var(--ink); font-family:var(--sans);
+    font-size:14px; line-height:1.68; -webkit-font-smoothing:antialiased;}
+  .sheet{max-width:720px; margin:0 auto; padding:48px 34px 46px;}
+  .reveal{opacity:0; animation:fade .7s ease forwards;}
+  @keyframes fade{from{opacity:0; transform:translateY(9px);} to{opacity:1; transform:none;}}
+
+  .eyebrow{display:flex; align-items:center; gap:10px; font-family:var(--mono);
+    font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--soft);}
+  .eyebrow .id{color:var(--a2-deep); font-weight:600;}
+  .eyebrow .dot{width:5px; height:5px; border-radius:50%; background:var(--a2);}
+  .eyebrow .status{margin-left:auto; color:var(--a2-deep);}
+  h1{font-size:29px; line-height:1.3; font-weight:700; letter-spacing:-.01em; margin:20px 0 0;}
+  .dek{font-size:15.5px; color:var(--soft); margin:13px 0 0; max-width:52ch;}
+  .hr{height:1px; background:var(--line); margin:30px 0;}
+
+  .axis{padding:0 0 4px 22px; position:relative; margin-bottom:30px;}
+  .axis::before{content:""; position:absolute; left:0; top:6px; bottom:6px; width:2px; border-radius:2px;}
+  .axis.ax1::before{background:var(--a1);} .axis.ax2::before{background:var(--a2);}
+  .axis.ax1{--ul:var(--a1);} .axis.ax2{--ul:var(--a2);}
+  .axis .label{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase;
+    margin-bottom:9px; display:flex; align-items:center; gap:8px;}
+  .axis.ax1 .label{color:var(--a1-deep);} .axis.ax2 .label{color:var(--a2-deep);}
+  .axis .label .n{font-weight:600; opacity:.6;}
+  .axis .text{font-size:18px; line-height:1.6; color:#37352e;}
+  .axis .text b{font-weight:700; color:var(--ink); border-bottom:2px solid var(--ul);}
+  ol.find{list-style:none; counter-reset:f; margin:16px 0 0; padding:0;}
+  ol.find li{position:relative; padding:8px 0 8px 26px; font-size:15px; color:#37352e; border-top:1px solid var(--line);}
+  ol.find li:first-child{border-top:none;}
+  ol.find li::before{counter-increment:f; content:counter(f); position:absolute; left:0; top:9px;
+    font-family:var(--mono); font-size:12px; font-weight:600; color:var(--a1-deep);}
+
+  details{border:1px solid var(--line); border-radius:10px; background:var(--panel); margin-bottom:10px;}
+  summary{cursor:pointer; list-style:none; padding:14px 16px; display:flex; align-items:center; gap:11px;
+    font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft);}
+  summary::-webkit-details-marker{display:none;}
+  summary .chev{width:8px; height:8px; border-right:2px solid var(--a2-deep); border-bottom:2px solid var(--a2-deep);
+    transform:rotate(-45deg); transition:.25s; flex:none; margin-left:2px;}
+  details[open] summary .chev{transform:rotate(45deg);}
+  summary:hover{color:var(--ink);}
+  .body{padding:2px 16px 18px;}
+  table{border-collapse:collapse; width:100%; font-size:13px; margin:4px 0 12px;}
+  th,td{border-bottom:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top;}
+  th{font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft); font-weight:600;}
+  td:first-child{color:var(--a2-deep); font-weight:600; white-space:nowrap;}
+  .body p{color:var(--soft);}
+  .body ul{margin:6px 0; padding-left:18px;} .body li{margin:5px 0;}
+  code{font-family:var(--mono); font-size:12px; background:#edeae0; padding:1px 6px; border-radius:3px; color:var(--a2-deep);}
+  a{color:var(--a2-deep); text-underline-offset:3px;}
+  .chips{display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px;}
+  .chip{font-family:var(--mono); font-size:10.5px; letter-spacing:.05em; color:var(--soft); border:1px solid var(--line); border-radius:999px; padding:3px 10px;}
+  .foot{margin-top:30px; padding-top:15px; border-top:1px solid var(--line);
+    display:flex; justify-content:space-between; font-family:var(--mono); font-size:10px;
+    letter-spacing:.13em; text-transform:uppercase; color:var(--faint);}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="eyebrow reveal">
+    <span class="dot"></span>
+    <span class="id">research-11</span>
+    <span>Research Note</span>
+    <span class="status">완료 · archived</span>
+  </div>
+  <h1 class="reveal" style="animation-delay:.05s">1인 브랜드 전략 10개 실사례</h1>
+  <p class="dek reveal" style="animation-delay:.09s">"유명해서"가 아니라 1인이 콘텐츠를 제품·교육으로 이어낸 구조를 본다. 국내 3 / 해외 7, 사용자의 3축(유튜브·여행 중 앱·AI 워크샵)에 적용 패턴 정리.</p>
+
+  <div class="hr reveal" style="animation-delay:.12s"></div>
+
+  <div class="axis ax1 reveal" style="animation-delay:.16s">
+    <div class="label"><span class="n">01</span> 무엇을 조사·정리했나</div>
+    <div class="text">1인이 만든 <b>포지셔닝·반복 포맷·신뢰 자산·수익화 경로</b>를 기준으로 솔로 브랜드 10개(Pieter Levels·Justin Welsh·Ali Abdaal·MKBHD·드로우앤드류·자청·Danny Postma·Pat Flynn·켈리최·Sahil Bloom)를 골라, 사례마다 5개 필드로 해부했다.</div>
+  </div>
+
+  <div class="axis ax2 reveal" style="animation-delay:.22s">
+    <div class="label"><span class="n">02</span> 핵심 결과</div>
+    <div class="text">10개 전부가 <b>콘텐츠=입구, 제품=본체, 형태 변환 재활용</b> 구조를 따른다. 사용자의 3축은 따로 노는 게 아니라 <b>유튜브(도달)→build in public 앱(증거)→AI 워크샵(수익화)</b>의 한 깔때기로 묶일 때 가장 강하다.</div>
+    <ol class="find">
+      <li><b>한 줄 포지셔닝</b> — 모두 자신을 한 문장/한 단어로 설명한다("공개 빌더", "역행자", "웰씽킹").</li>
+      <li><b>시그니처 포맷 반복</b> — 새 포맷을 계속 만들기보다 하나를 오래 변주한다.</li>
+      <li><b>신뢰는 증거에서</b> — 경력·트랙레코드·투명 공개. 말이 아니라 검증 가능한 사실.</li>
+      <li><b>제품 전에 오디언스</b> — 거의 모두 무료 콘텐츠로 오디언스를 먼저 쌓고 제품을 냈다.</li>
+      <li><b>여행+1인+공개빌딩</b> — Levels·Postma가 사용자의 3축과 거의 동일한 검증된 길을 보여준다.</li>
+    </ol>
+  </div>
+
+  <div class="reveal" style="animation-delay:.27s">
+  <details open>
+    <summary><span class="chev"></span> 사례 10개 요약 · 축별 적용</summary>
+    <div class="body">
+      <table>
+        <tr><th>인물</th><th>한 줄 포지셔닝</th><th>제품화 경로</th><th>사용자 축</th></tr>
+        <tr><td>Pieter Levels</td><td>공개적으로 빠르게 출시하는 개발자</td><td>SaaS 다수(Nomad List·Photo AI)</td><td>여행·앱 ⭐</td></tr>
+        <tr><td>Justin Welsh</td><td>1인 사업 운영체제를 파는 솔로프리너</td><td>자가학습 코스</td><td>워크샵</td></tr>
+        <tr><td>Ali Abdaal</td><td>근거 기반으로 가르치는 전직 의사</td><td>코호트 코스·책</td><td>유튜브 ⭐</td></tr>
+        <tr><td>MKBHD</td><td>가장 신뢰받는 테크 리뷰어</td><td>광고·머치·팟캐스트</td><td>유튜브</td></tr>
+        <tr><td>드로우앤드류</td><td>좋아하는 일로 사는 퍼스널 브랜딩 코치</td><td>책·클래스</td><td>유튜브</td></tr>
+        <tr><td>자청</td><td>무자본·자동수익을 증명한 라이프해커</td><td>책·클래스·사업체</td><td>워크샵·교육</td></tr>
+        <tr><td>Danny Postma</td><td>혼자 AI 제품을 양산하는 인디해커</td><td>AI SaaS(HeadshotPro)</td><td>여행·AI앱 ⭐</td></tr>
+        <tr><td>Pat Flynn</td><td>수익을 투명 공개하는 온라인 사업 교사</td><td>코스·커뮤니티</td><td>워크샵</td></tr>
+        <tr><td>켈리최</td><td>웰씽킹을 전하는 글로벌 창업가</td><td>책·강연·습관 프로그램</td><td>유튜브·교육</td></tr>
+        <tr><td>Sahil Bloom</td><td>호기심을 자산으로 바꾸는 작가</td><td>책·뉴스레터</td><td>콘텐츠</td></tr>
+      </table>
+      <p><b>축별 핵심 권고</b></p>
+      <ul>
+        <li><b>유튜브</b> — 하나의 카테고리를 오래(MKBHD), 검증된 직업 정체성을 닻으로(Abdaal), 변화 서사를 중심에(드로우앤드류).</li>
+        <li><b>여행 중 앱</b> — build in public이 곧 마케팅(Levels), 작게·끝까지·매출 공개·SEO로 1인 운영(Postma).</li>
+        <li><b>AI 미니 워크샵</b> — 시스템을 자가학습 패키지로(Welsh), 무료로 가르치고 깊이는 코호트로(Abdaal), 투명 공개가 전환(Pat Flynn), 자기만의 한 단어/프레임(자청).</li>
+      </ul>
+      <p>전체 원문은 산출물 <code>artifacts/research-11/solo-brand-strategy-10-cases.md</code>에서 사례별 5개 필드(핵심 포지셔닝 / 반복 콘텐츠 폼 / 신뢰를 만든 경험·증거 / 수익화·제품화 연결 / 사용자가 가져올 수 있는 전략)로 확인.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="chev"></span> 실행 메타 · 산출물</summary>
+    <div class="body">
+      <div class="chips">
+        <span class="chip">2026-06-04T00:07Z</span>
+        <span class="chip">Agent-First Heartbeat</span>
+        <span class="chip">active → archived</span>
+        <span class="chip">research / L0~L1</span>
+      </div>
+      <ul>
+        <li>산출물 <code>artifacts/research-11/solo-brand-strategy-10-cases.md</code> (10개 사례 × 5필드 + 공통 패턴 6 + 3축 적용 + 출처 10)</li>
+        <li>원장 <code>intents/archive/research-11.md</code></li>
+        <li>방법: 웹 리서치로 사례별 포지셔닝·포맷·신뢰·수익화 검증. 매출/구독자 수치는 공개 인터뷰·위키 기준 추정치이며 시점에 따라 다름.</li>
+        <li>경계 준수: 공개 발송·외부 제출·유료 도구·사용자 계정 액션·브랜드명/카피 확정 0. 코드·배포 변경 0.</li>
+      </ul>
+    </div>
+  </details>
+  </div>
+
+  <div class="foot reveal" style="animation-delay:.3s">
+    <span>Agent-First Heartbeat</span>
+    <span>Infinity · Intent Note</span>
+  </div>
+</div>
+</body>
+</html>
