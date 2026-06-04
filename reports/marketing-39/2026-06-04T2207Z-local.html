@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>marketing-39 · Virtue 인간-AI 준비도 흔적 지도</title>
+<style>
+  :root{
+    --bg:#f4f2ea; --panel:#fbfaf5; --ink:#2c2a25; --soft:#807c70; --faint:#a8a496; --line:#e3dfd2;
+    --a2:#5f7a5e; --a2-deep:#3f5740;            /* 축2(결과/해법) = sage, 고정 */
+    --a1:#a9745a; --a1-deep:#8a5c45;            /* 축1 = 개선형(marketing) clay */
+    --sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;}
+  body{background:var(--bg); color:var(--ink); font-family:var(--sans);
+    font-size:14px; line-height:1.68; -webkit-font-smoothing:antialiased;}
+  .sheet{max-width:720px; margin:0 auto; padding:48px 34px 46px;}
+  .reveal{opacity:0; animation:fade .7s ease forwards;}
+  @keyframes fade{from{opacity:0; transform:translateY(9px);} to{opacity:1; transform:none;}}
+
+  .eyebrow{display:flex; align-items:center; gap:10px; font-family:var(--mono);
+    font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--soft);}
+  .eyebrow .id{color:var(--a2-deep); font-weight:600;}
+  .eyebrow .dot{width:5px; height:5px; border-radius:50%; background:var(--a2);}
+  .eyebrow .status{margin-left:auto; color:var(--a2-deep);}
+  h1{font-size:29px; line-height:1.3; font-weight:700; letter-spacing:-.01em; margin:20px 0 0;}
+  .dek{font-size:15.5px; color:var(--soft); margin:13px 0 0; max-width:52ch;}
+  .hr{height:1px; background:var(--line); margin:30px 0;}
+
+  .axis{padding:0 0 4px 22px; position:relative; margin-bottom:30px;}
+  .axis::before{content:""; position:absolute; left:0; top:6px; bottom:6px; width:2px; border-radius:2px;}
+  .axis.ax1::before{background:var(--a1);} .axis.ax2::before{background:var(--a2);}
+  .axis.ax1{--ul:var(--a1);} .axis.ax2{--ul:var(--a2);}
+  .axis .label{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase;
+    margin-bottom:9px; display:flex; align-items:center; gap:8px;}
+  .axis.ax1 .label{color:var(--a1-deep);} .axis.ax2 .label{color:var(--a2-deep);}
+  .axis .label .n{font-weight:600; opacity:.6;}
+  .axis .text{font-size:18px; line-height:1.6; color:#37352e;}
+  .axis .text b{font-weight:700; color:var(--ink); border-bottom:2px solid var(--ul);}
+  ol.find{list-style:none; counter-reset:f; margin:16px 0 0; padding:0;}
+  ol.find li{position:relative; padding:8px 0 8px 26px; font-size:15px; color:#37352e; border-top:1px solid var(--line);}
+  ol.find li:first-child{border-top:none;}
+  ol.find li::before{counter-increment:f; content:counter(f); position:absolute; left:0; top:9px;
+    font-family:var(--mono); font-size:12px; font-weight:600; color:var(--a1-deep);}
+
+  details{border:1px solid var(--line); border-radius:10px; background:var(--panel); margin-bottom:10px;}
+  summary{cursor:pointer; list-style:none; padding:14px 16px; display:flex; align-items:center; gap:11px;
+    font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft);}
+  summary::-webkit-details-marker{display:none;}
+  summary .chev{width:8px; height:8px; border-right:2px solid var(--a2-deep); border-bottom:2px solid var(--a2-deep);
+    transform:rotate(-45deg); transition:.25s; flex:none; margin-left:2px;}
+  details[open] summary .chev{transform:rotate(45deg);}
+  summary:hover{color:var(--ink);}
+  .body{padding:2px 16px 18px;}
+  table{border-collapse:collapse; width:100%; font-size:13px; margin:4px 0 12px;}
+  th,td{border-bottom:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top;}
+  th{font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft); font-weight:600;}
+  td:first-child{color:var(--a2-deep); font-weight:600; white-space:nowrap;}
+  .body p{color:var(--soft);}
+  .body ul{margin:6px 0; padding-left:18px;} .body li{margin:5px 0;}
+  code{font-family:var(--mono); font-size:12px; background:#edeae0; padding:1px 6px; border-radius:3px; color:var(--a2-deep);}
+  a{color:var(--a2-deep); text-underline-offset:3px;}
+  .chips{display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px;}
+  .chip{font-family:var(--mono); font-size:10.5px; letter-spacing:.05em; color:var(--soft); border:1px solid var(--line); border-radius:999px; padding:3px 10px;}
+  .foot{margin-top:30px; padding-top:15px; border-top:1px solid var(--line);
+    display:flex; justify-content:space-between; font-family:var(--mono); font-size:10px;
+    letter-spacing:.13em; text-transform:uppercase; color:var(--faint);}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="eyebrow reveal">
+    <span class="dot"></span>
+    <span class="id">marketing-39</span>
+    <span>Run Report · docs-only</span>
+    <span class="status">archived</span>
+  </div>
+  <h1 class="reveal" style="animation-delay:.05s">Virtue 인간-AI 준비도 흔적 지도</h1>
+  <p class="dek reveal" style="animation-delay:.09s">arXiv "From Accuracy to Readiness" 렌즈로 첫 10명을 outcome/reliance/safety/learning 4축으로 읽는다. 새 이벤트·카피·코드 0의 docs-only 흔적 지도 1파일.</p>
+
+  <div class="hr reveal" style="animation-delay:.12s"></div>
+
+  <div class="axis ax1 reveal" style="animation-delay:.16s">
+    <div class="label"><span class="n">01</span> 무엇이 문제였나</div>
+    <div class="text">인간-AI 제품을 <b>정확도·만족도·activation %</b>로 읽으면 첫 경험을 오독한다. 출처 노트(arXiv·Userpilot)는 평가 단위가 자기보고식 trust보다 <b>상호작용 흔적</b>(저장·재시도·무시·수정·재방문)에 가깝다고 본다. Virtue prelaunch 첫 10명에서 J3 <code>deed_judged</code> 정상 종료를 outcome 미달로, <code>deed_saved</code>를 AI 판정 동의로, <code>deed_rerolled</code>를 불신으로 합산하기 쉬웠다.</div>
+  </div>
+
+  <div class="axis ax2 reveal" style="animation-delay:.22s">
+    <div class="label"><span class="n">02</span> 어떻게 해결하나</div>
+    <div class="text">논문의 <b>outcome · reliance · safety · learning 4축</b>과 <b>U-C-I lifecycle</b>을 첫 10명 관찰 언어로 번역했다. 네 축은 <b>재료가 다른 별개 축</b>이며 한 축의 신호를 다른 축으로 합산하지 않는다는 경계를 고정하고, J1~J4 잡별로 흔적을 한 표로 매핑했다.</div>
+    <ol class="find">
+      <li><b>흔적 지도(심장):</b> 잡별 outcome/reliance/safety/learning을 기존 이벤트만으로 매핑.</li>
+      <li><b>새 경계:</b> 네 축은 별개 — 저장수를 동의·신뢰·학습으로 합산 금지. <code>deed_saved</code>≠AI 판정 동의(outcome≠agreement).</li>
+      <li><b>U-C-I 질문:</b> 한계 이해·마지막 선택권 체감·시간에 따라 더 잘 씀(수기 전용).</li>
+      <li><b>승격 후보:</b> <code>Readiness Trace Over Accuracy</code> durable learning 1건.</li>
+    </ol>
+  </div>
+
+  <div class="reveal" style="animation-delay:.27s">
+  <details open>
+    <summary><span class="chev"></span> 상세 · 산출물 · 검증 · 학습 루프</summary>
+    <div class="body">
+
+      <p><b>산출물 (Virtue, docs-only 1파일)</b></p>
+      <ul>
+        <li><code>apps/web/docs/human-ai-readiness-trace-map.md</code> — 첫 10명 × outcome/reliance/safety/learning 4축 × J1~J4 흔적 지도 + U-C-I 질문. m06/m11/m20/m31/m33/m38 계승, 재정의 0.</li>
+      </ul>
+
+      <p><b>핵심 흔적 지도 (요약)</b></p>
+      <table>
+        <tr><th>잡</th><th>outcome</th><th>reliance(결과 뒤)</th><th>safety(오보정)</th></tr>
+        <tr><td>J1 기록형</td><td><code>deed_saved</code> 즉시 만족</td><td>저장=목적, 재시도 거의 없음</td><td>낮은 점수에 저장 망설임 / 무시(정상)</td></tr>
+        <tr><td>J2 누적형</td><td><code>deed_saved</code> 누적감</td><td>점수 추격 재시도 잦음</td><td>슬롯머신화 / 출렁임에 누적 무의미</td></tr>
+        <tr><td>J3 호기심형</td><td><code>deed_judged</code>(저장 전)</td><td>저장=선택, 재시도=최고 가치, 무시=정상</td><td>정체성 거울 과신(최대) / mock 냉소</td></tr>
+        <tr><td>J4 회고형</td><td><code>deed_saved</code> 지연 가치</td><td>저장=항목 생성, 출력 수정 부재</td><td>빗나간 주석 영구 부착 수용 / AI만 절하</td></tr>
+      </table>
+      <p>learning 축은 4축 중 prelaunch 첫 세션으로 못 채워 D7 후보 등록만(결론 0). 인용 이벤트는 전부 기존 발화: <code>add_flow_started</code>:72 · <code>add_flow_abandoned</code>:78 · <code>deed_judged</code>:106 · <code>deed_rerolled</code>:149 · <code>deed_save_capped</code>:167 · <code>deed_saved</code>:183 · <code>level_up_viewed</code>:199. 신규 이벤트·속성 0.</p>
+
+      <p><b>가정 분리</b></p>
+      <ul>
+        <li><b>계승:</b> First Value Mapping(J1/J2/J4=<code>deed_saved</code>, J3=<code>deed_judged</code>) · AI Outcome Proxy Separation · No Autonomous Action Bounds The Trust Question · Trust Calibration By Job · Availability And Friction Are Not Value.</li>
+        <li><b>변경:</b> 없음. 기존 결론·이벤트·정의 불변. <code>deed_saved</code>≠AI 판정 동의(outcome≠agreement) nuance는 AI Outcome Proxy Separation의 <i>강화</i>이지 변경 아님.</li>
+        <li><b>충돌:</b> 선행 8문서와 0 (§7 표). source note 인용, 외부 논문 프레임은 성과 기준·벤치마크로 미반입.</li>
+      </ul>
+
+      <p><b>검증 게이트</b></p>
+      <ul>
+        <li>Source note 인용 확인 — <code>source/external-links/marketing/2026-06-04-human-ai-readiness-traces.md</code>.</li>
+        <li>선행 3문서 충돌 점검 — m38 trust-control 경계표 / m33 activation 등록부 / m11 baseline 양식 + m06/m20/m31/copy-spec. 충돌 0.</li>
+        <li>Conflict marker 0, 이벤트 앵커 drift 0(<code>rg</code> 재확인: 72/78/106/149/167/183/199), 코드 diff 0 — <code>apps/web/docs/</code> 1파일만 추가.</li>
+        <li>HTML report gate: <code>&lt;html</code>·<code>&lt;body</code>·axis ax1·axis ax2·<code>&lt;details</code> 포함.</li>
+      </ul>
+
+      <p><b>학습 루프</b></p>
+      <ul>
+        <li><b>계승한 기준:</b> First Value Mapping · AI Outcome Proxy Separation · No Autonomous Action Bounds The Trust Question.</li>
+        <li><b>이번에 새로 배운 것:</b> 인간-AI 준비도는 정확도가 아니라 상호작용 흔적으로 본다. outcome(닿음)·reliance(결과 뒤 행동)·safety(오보정 흔적)·learning(D7 더 잘 씀)은 재료가 다른 별개 축이고, 한 축 신호를 다른 축으로 합산하면 오독이다. 특히 <code>deed_saved</code>는 outcome 도달이지 AI 판정 동의가 아니다. prelaunch 첫 10명은 learning을 못 채워 outcome·reliance·safety 3축만 적고 learning은 출시 후 D7로 연다.</li>
+        <li><b>다음 Marketer에게 넘길 규칙:</b> ① 첫 경험은 정확도·만족도 한 칸이 아니라 4축으로 분리해 읽고, 한 축이 비어도 다른 축의 실패로 읽지 않는다. ② <code>deed_saved</code>≠동의, judged−saved 갭≠outcome 미달/이탈, <code>deed_rerolled</code>≠safety 불신, <code>deed_save_capped</code>≠value. ③ learning은 후보 등록까지만 — D7은 "믿었나"가 아니라 "더 잘 쓰나". ④ 4축 컬럼 정식 추가·D7 계측·trust 이벤트는 proposal-only.</li>
+        <li><b>MARKETING_LEARNINGS.md 승격:</b> <code>Readiness Trace Over Accuracy</code> 1건(durable, 모든 비행동 AI 판정 제품 반복 적용)을 원장에 승격. "learning 축은 첫 세션으로 못 채워 3축만 적는다"는 인스턴스 사실이라 report 보류.</li>
+      </ul>
+
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="chev"></span> 실행 메타 · 산출물</summary>
+    <div class="body">
+      <div class="chips">
+        <span class="chip">2026-06-04T22:07Z</span>
+        <span class="chip">Infinity router → local Claude Code</span>
+        <span class="chip">Inbox → Archive</span>
+        <span class="chip">class: simple-doc / docs-only</span>
+      </div>
+      <ul>
+        <li>산출물 <code>virtue-rebirth-app:apps/web/docs/human-ai-readiness-trace-map.md</code></li>
+        <li>Source note <code>source/external-links/marketing/2026-06-04-human-ai-readiness-traces.md</code></li>
+        <li>원장 <code>infinity:MARKETING_LEARNINGS.md</code> — durable learning <code>Readiness Trace Over Accuracy</code> 승격</li>
+      </ul>
+    </div>
+  </details>
+  </div>
+
+  <div class="foot reveal" style="animation-delay:.3s">
+    <span>Agent-First Heartbeat</span>
+    <span>Infinity · marketing-39</span>
+  </div>
+</div>
+</body>
+</html>

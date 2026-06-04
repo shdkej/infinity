@@ -4,17 +4,6 @@
 
 ## Inbox
 
-- [ ] **marketing-39 — Virtue Human-AI readiness trace map 작성**
-  - source note: `/home/ubuntu/workspace/knowledge-lab/source/external-links/marketing/2026-06-04-human-ai-readiness-traces.md`
-  - rationale: 인간-AI 제품 평가는 모델 정확도보다 outcome/reliance/safety/learning 상호작용 흔적으로 봐야 한다. Virtue prelaunch에서는 작은 지표 해석 대신 J1~J4 first value 뒤 사용자가 AI 판정을 조언으로 이해하고 제어하는지 관찰할 준비가 필요하다.
-  - expected impact: 첫 10명 관찰에서 `deed_saved`, `deed_judged`, `deed_rerolled`, 미저장 종료를 신뢰/불신으로 단정하지 않고 readiness trace로 분리해, 출시 후 activation-retention 해석의 오독을 줄인다.
-  - permission level: L1/L2 docs-only. 신규 이벤트·속성·PostHog dashboard·tracking/privacy·카피·배포·외부 발송·비용 변경 금지.
-  - owner route: Infinity router → Claude Code가 `/home/ubuntu/dev/virtue-rebirth-app/apps/web/docs/`에 내부 문서 1개 작성.
-  - success criteria: outcome/reliance/safety/learning 4축, U-C-I 관찰 질문, J1~J4 first value 매핑, J3 judged-without-save 정상 종료 경계, `deed_saved`≠AI 판정 동의 경계, 신규 계측 금지선이 한 문서에 정리된다.
-  - first verification gate: source note 인용, 선행 문서(`ai-judgment-trust-control-observation-boundary-table.md`, `activation-candidate-registry.md`, `first-real-user-baseline-template.md`)와 충돌 0, conflict marker 0, 코드 diff 0.
-
-
-
 ## Active
 
 
@@ -23,6 +12,8 @@
 <!-- 사용자 결정, 외부 조건, 안전 확인 대기. 같은 질문을 반복하지 않고 상태만 보존한다. -->
 
 ## Archive
+
+<!-- marketing-39 completed 2026-06-04T23:08Z → reports/marketing-39/2026-06-04T2207Z-local.html [projects: virtue; type: strategy; topics: ai-trust,activation,onboarding] (Virtue Human-AI readiness trace map 작성 완료. 산출물은 virtue-rebirth-app `4ebf2a5`의 `apps/web/docs/human-ai-readiness-trace-map.md`(신규 1파일, docs-only). arXiv "From Accuracy to Readiness"와 Userpilot U-C-I 렌즈를 첫 10명 관찰 기준으로 번역해 outcome/reliance/safety/learning 4축과 U-C-I 질문을 J1~J4 first value 뒤 행동 흔적으로 매핑. 핵심 경계: `deed_saved`는 AI 판정 동의가 아니고, J3 judged-without-save는 정상 종료 가능하며, `deed_rerolled`는 불신만이 아니라 호기심/학습 행동일 수 있다. 신규 이벤트·속성·카피·tracking/privacy·PostHog dashboard·코드·배포·외부발송·비용·권한 변경 0. HTML 보고서 `<html`/`<body`/axis ax1/axis ax2/`<details` 포함 확인. MARKETING_LEARNINGS.md에 durable learning "Readiness Trace Over Accuracy" 승격. Infinity dirty 무관 파일(EVALUATION_NOTES.md) staging 제외. L2 agent-approved push.) -->
 
 <!-- marketing-38 completed 2026-06-04T10:27Z → reports/marketing-38/2026-06-04T1007Z-local.html [projects: virtue; type: strategy; topics: ai-trust,activation,onboarding,prelaunch] (Virtue AI 판정 신뢰/제어권 관찰 경계표 작성 완료. 산출물은 virtue-rebirth-app의 `apps/web/docs/ai-judgment-trust-control-observation-boundary-table.md`(신규 1파일, docs-only). EY·McKinsey 2026 AI trust 렌즈를 J1~J4 첫 세션 관찰 기준으로 번역해, AI 판정을 "믿어라"가 아니라 "근거를 보고 사람이 마지막 선택을 한다"로 읽는 경계를 고정. J1/J2/J4=`deed_saved`, J3=`deed_judged` first value 매핑과 m24 trust calibration/60초 관찰 기준 계승. 기존 이벤트만 인용했고 신규 이벤트·속성·카피·tracking/privacy·dashboard·배포·외부발송·비용·권한 변경 0. HTML 보고서 `<html`/`<body`/axis ax1/axis ax2/`<details` 포함 확인. MARKETING_LEARNINGS.md에 durable learning "Trust Is Read Through Control, Not Agreement" 승격. Infinity dirty 무관 파일(EVALUATION_NOTES.md) staging 제외. Heartbeat가 partial timeout 후 산출물과 Archive 전환을 검증해 정리.) -->
 

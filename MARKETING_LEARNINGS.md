@@ -118,6 +118,13 @@
 - **주의:** pseudo-query를 실행 결과로 착각하지 않는다. 빈 장기 창(D30)을 "리텐션 없음"으로 읽지 않는다(D7로 자연 주기 확인 후 연다). judged−saved 갭을 묶음 미완료·이탈로 환산하지 않는다. 묶음 완료율을 activation rate·전환율·유의성으로 환산하지 않는다. 제외 세션은 삭제하지 않고 가용성/마찰 관찰용으로 보존한다.
 - **출처:** `marketing-37`, `marketing-34`, `marketing-33`, `marketing-22`.
 
+### Readiness Trace Over Accuracy
+
+- **결론:** 인간-AI 제품의 첫 경험은 정확도·만족도 한 칸이 아니라 outcome/reliance/safety/learning 4축의 상호작용 흔적으로 읽는다. 네 축은 서로 다른 축이며 한 축의 신호를 다른 축으로 합산하지 않는다.
+- **적용:** Virtue 같은 비행동 AI 판정 제품에서는 outcome=잡별 first value(J1/J2/J4 `deed_saved`, J3 `deed_judged`), reliance=결과 뒤 저장·재시도·무시·수정·재방문, safety=자기인식 오보정·과소의존 흔적, learning=D7에 "이전 판정 이후 더 잘 쓰는가"로 분리한다.
+- **주의:** `deed_saved`를 AI 판정 동의/승인으로, judged−saved 갭을 outcome 미달/이탈로, `deed_rerolled`를 불신으로, `deed_save_capped`를 value로 읽지 않는다. prelaunch 첫 세션에서는 learning 결론을 내지 않고 후보만 등록한다.
+- **출처:** `marketing-39`, `marketing-38`, `marketing-24`.
+
 ## 다음 Marketer 체크리스트
 
 1. 이번 intent가 어떤 기존 기준을 계승하는지 3개 이하로 적는다.
