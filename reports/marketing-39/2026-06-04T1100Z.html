@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>marketing-39 Report</title>
+<style>
+  :root{
+    --bg:#f4f2ea; --panel:#fbfaf5; --ink:#2c2a25; --soft:#807c70; --faint:#a8a496; --line:#e3dfd2;
+    --a2:#5f7a5e; --a2-deep:#3f5740;
+    --a1:#a9745a; --a1-deep:#8a5c45;
+    --sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;}
+  body{background:var(--bg); color:var(--ink); font-family:var(--sans);
+    font-size:14px; line-height:1.68; -webkit-font-smoothing:antialiased;}
+  .sheet{max-width:720px; margin:0 auto; padding:48px 34px 46px;}
+  .reveal{opacity:0; animation:fade .7s ease forwards;}
+  @keyframes fade{from{opacity:0; transform:translateY(9px);} to{opacity:1; transform:none;}}
+  .eyebrow{display:flex; align-items:center; gap:10px; font-family:var(--mono);
+    font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--soft);}
+  .eyebrow .id{color:var(--a2-deep); font-weight:600;}
+  .eyebrow .dot{width:5px; height:5px; border-radius:50%; background:var(--a2);}
+  .eyebrow .status{margin-left:auto; color:var(--a2-deep);}
+  h1{font-size:29px; line-height:1.3; font-weight:700; letter-spacing:-.01em; margin:20px 0 0;}
+  .dek{font-size:15.5px; color:var(--soft); margin:13px 0 0; max-width:52ch;}
+  .hr{height:1px; background:var(--line); margin:30px 0;}
+  .axis{padding:0 0 4px 22px; position:relative; margin-bottom:30px;}
+  .axis::before{content:""; position:absolute; left:0; top:6px; bottom:6px; width:2px; border-radius:2px;}
+  .axis.ax1::before{background:var(--a1);} .axis.ax2::before{background:var(--a2);}
+  .axis.ax1{--ul:var(--a1);} .axis.ax2{--ul:var(--a2);}
+  .axis .label{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase;
+    margin-bottom:9px; display:flex; align-items:center; gap:8px;}
+  .axis.ax1 .label{color:var(--a1-deep);} .axis.ax2 .label{color:var(--a2-deep);}
+  .axis .label .n{font-weight:600; opacity:.6;}
+  .axis .text{font-size:18px; line-height:1.6; color:#37352e;}
+  .axis .text b{font-weight:700; color:var(--ink); border-bottom:2px solid var(--ul);}
+  details{border:1px solid var(--line); border-radius:10px; background:var(--panel); margin-bottom:10px;}
+  summary{cursor:pointer; list-style:none; padding:14px 16px; display:flex; align-items:center; gap:11px;
+    font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft);}
+  summary::-webkit-details-marker{display:none;}
+  summary .chev{width:8px; height:8px; border-right:2px solid var(--a2-deep); border-bottom:2px solid var(--a2-deep);
+    transform:rotate(-45deg); transition:.25s; flex:none; margin-left:2px;}
+  details[open] summary .chev{transform:rotate(45deg);}
+  summary:hover{color:var(--ink);}
+  .body{padding:2px 16px 18px;}
+  table{border-collapse:collapse; width:100%; font-size:13px; margin:4px 0 12px;}
+  th,td{border-bottom:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top;}
+  th{font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft); font-weight:600;}
+  td:first-child{color:var(--a2-deep); font-weight:600; white-space:nowrap;}
+  .body p{color:var(--soft);}
+  .body ul{margin:6px 0; padding-left:18px;} .body li{margin:5px 0;}
+  code{font-family:var(--mono); font-size:12px; background:#edeae0; padding:1px 6px; border-radius:3px; color:var(--a2-deep);}
+  .chips{display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px;}
+  .chip{font-family:var(--mono); font-size:10.5px; letter-spacing:.05em; color:var(--soft); border:1px solid var(--line); border-radius:999px; padding:3px 10px;}
+  .foot{margin-top:30px; padding-top:15px; border-top:1px solid var(--line);
+    display:flex; justify-content:space-between; font-family:var(--mono); font-size:10px;
+    letter-spacing:.13em; text-transform:uppercase; color:var(--faint);}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="eyebrow reveal">
+    <span class="dot"></span>
+    <span class="id">marketing-39</span>
+    <span>Strategy Note</span>
+    <span class="status">in_progress · cloud prepare done</span>
+  </div>
+  <h1 class="reveal" style="animation-delay:.05s">Virtue Human-AI Readiness Trace Map</h1>
+  <p class="dek reveal" style="animation-delay:.09s">첫 10명 관찰에서 deed_saved·deed_judged·deed_rerolled를 readiness trace로 분리하는 4축 관찰 기준</p>
+
+  <div class="hr reveal" style="animation-delay:.12s"></div>
+
+  <div class="axis ax1 reveal" style="animation-delay:.16s">
+    <div class="label"><span class="n">01</span> 🔴 무엇이 문제였나</div>
+    <div class="text">동일 이벤트(<b>deed_saved · deed_judged</b>)를 "AI 신뢰/불신" 이분법으로 읽으면 prelaunch 첫 10명 관찰에서 <b>해석 오류</b> 발생 — deed_saved ≠ AI 판정 동의, J3 미저장 ≠ 이탈</div>
+  </div>
+
+  <div class="axis ax2 reveal" style="animation-delay:.22s">
+    <div class="label"><span class="n">02</span> ✅ 어떻게 해결하나</div>
+    <div class="text"><b>outcome / reliance / safety / learning</b> 4축 + U-C-I 관찰 질문 + J3 judged-without-save 정상 종료 경계로 readiness trace 분류 초안 완료 — 로컬 push 후 virtue-rebirth-app 반영 대기</div>
+  </div>
+
+  <div class="reveal" style="animation-delay:.27s">
+  <details open>
+    <summary><span class="chev"></span> 수행 작업 및 산출물</summary>
+    <div class="body">
+      <table>
+        <tr><th>항목</th><th>내용</th></tr>
+        <tr><td>Inbox 처리</td><td>marketing-39 구조화 후 Active(in_progress)로 이동</td></tr>
+        <tr><td>문서 초안</td><td><code>artifacts/marketing-39/human-ai-readiness-trace-map.md</code></td></tr>
+        <tr><td>4축 정의</td><td>Outcome / Reliance / Safety / Learning × 기존 이벤트 매핑</td></tr>
+        <tr><td>U-C-I 표</td><td>J1~J4 × Understand / Control / Iterate 관찰 질문</td></tr>
+        <tr><td>J3 경계</td><td>judged-without-save 정상 종료 경계 명시 (§4)</td></tr>
+        <tr><td>deed_saved 경계</td><td>AI 판정 동의 ≠ deed_saved:183 발화 명시</td></tr>
+        <tr><td>계측 금지선</td><td>신규 이벤트·속성·PostHog 설정 변경 0 (§5)</td></tr>
+      </table>
+      <p>source note 로컬 부재 → rationale 요지만 근거. 선행 문서 대조는 로컬 Claude Code 실행 시 수행.</p>
+    </div>
+  </details>
+
+  <details open>
+    <summary><span class="chev"></span> 계승한 기준 · 새로 배운 것 · 다음 Marketer 규칙</summary>
+    <div class="body">
+      <p><strong>계승한 기준</strong></p>
+      <ul>
+        <li>J1/J2/J4 = <code>deed_saved</code>:183, J3 = <code>deed_judged</code>:106 first value (재정의 0)</li>
+        <li><code>deed_save_capped</code>:167 = availability early return (outcome trace 제외)</li>
+        <li>synthetic/mock/self-test 제외 원칙</li>
+        <li>이벤트 앵커 6종 현행 유지</li>
+      </ul>
+      <p><strong>이번에 새로 배운 것</strong></p>
+      <ul>
+        <li>readiness는 survey-based trust score보다 행동 흔적(trace)으로 관찰한다</li>
+        <li>deed_saved와 AI 판정 동의를 분리하는 것이 4축 Outcome 해석의 핵심 전제</li>
+        <li>J3 미저장은 Safety 관점에서 positive readiness 신호일 수 있다</li>
+      </ul>
+      <p><strong>다음 Marketer에게 넘길 규칙</strong></p>
+      <ul>
+        <li>deed_saved = 사용자 행동 완료, AI 판정 동의가 아님 — 1번 전제</li>
+        <li>J3 미저장 = safety readiness 가능 신호 (부재 신호 아님)</li>
+        <li>Learning 축은 D7 이후에만 의미 있음</li>
+        <li>readiness trace는 분류이지 판정이 아니다</li>
+      </ul>
+      <p><strong>MARKETING_LEARNINGS.md 승격 후보</strong></p>
+      <ul>
+        <li>"Readiness Is Traced, Not Scored" — 행동 흔적으로 관찰, 점수화 금지. 로컬 실행 후 선행 문서 대조 완료 시 승격 검토.</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="chev"></span> 실행 메타 · 산출물</summary>
+    <div class="body">
+      <div class="chips">
+        <span class="chip">2026-06-04T11:00Z</span>
+        <span class="chip">cloud heartbeat</span>
+        <span class="chip">inbox → active (in_progress)</span>
+        <span class="chip">mode: prepare</span>
+      </div>
+      <ul>
+        <li>산출물 <code>artifacts/marketing-39/human-ai-readiness-trace-map.md</code></li>
+        <li>활성 인텐트 <code>intents/active/marketing-39.md</code></li>
+        <li>이 리포트 <code>reports/marketing-39/2026-06-04T1100Z.html</code></li>
+      </ul>
+      <p><strong>다음 액션</strong>: 로컬 Claude Code가 선행 문서 3개 대조 후 virtue-rebirth-app/apps/web/docs/에 저장, HTML report 완료, Archive 처리</p>
+      <p><strong>검증 게이트</strong> (로컬 실행 시): conflict marker 0, 코드 diff 0, 이벤트 앵커 drift 0, 선행 문서 3개 충돌 0</p>
+      <p><strong>approval</strong>: L1 docs-only, cloud prepare 단계는 자율 실행</p>
+    </div>
+  </details>
+  </div>
+
+  <div class="foot reveal" style="animation-delay:.3s">
+    <span>Agent-First Heartbeat</span>
+    <span>Infinity · Intent Note</span>
+  </div>
+</div>
+</body>
+</html>
