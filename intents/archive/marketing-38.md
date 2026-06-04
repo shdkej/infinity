@@ -19,7 +19,7 @@
     sha: eca1d80
     note: docs-only AI 판정 신뢰/제어권 관찰 경계표 추가.
   - repo: infinity
-    sha: TBD
+    sha: 350a000
     note: marketing-38 archive + MARKETING_LEARNINGS durable learning 승격 + 보고서.
 - urls: []
 - next_actions:
