@@ -4,8 +4,6 @@
 
 ## Inbox
 
-<!-- marketing-40 candidate 2026-06-05T10:00Z [projects: virtue; type: strategy; topics: onboarding,activation,friction,nudges] 제목: Virtue 막힘 지점 넛지 경계표 작성. Source note: /home/ubuntu/workspace/knowledge-lab/source/external-links/marketing/2026-06-05-behavior-triggered-onboarding-nudges.md. Rationale: Amplitude/Lenny 렌즈상 넛지는 팝업 형식이 아니라 행동 기반 막힘 지점의 도움이어야 하며, Virtue prelaunch에서는 `add_flow_started`/`deed_judged`/`deed_saved`/`deed_rerolled`/`deed_save_capped`의 기존 경계로 정상 종료와 나쁜 마찰을 먼저 분리해야 한다. Expected impact: 첫 10명 관찰 전에 저장 강요, J3 정상 종료 오독, cap/availability 구간의 conversion 압박을 줄이고 first value 접근을 돕는 도움 후보만 남긴다. Permission level: L1/L2 docs-only, 신규 이벤트·tracking/privacy·PostHog dashboard·코드·배포·공개발송·비용 변경 금지. Owner route: Infinity router → Claude Code 로컬 문서 작업. Success criteria: virtue-rebirth-app 내부 docs에 기존 이벤트 조합별 도움 후보/띄우지 말아야 할 경우/수기 관찰 질문/prelaunch 금지선 표 1개 작성, 기존 first value와 J3 정상 종료 경계 충돌 0, 코드 diff 0. First verification gate: source note와 기존 activation/readiness 문서를 대조하고 `rg '<<<<<<<|=======|>>>>>>>'` 및 docs-only git diff 확인. Routing: Inbox. -->
-
 ## Active
 
 
@@ -14,6 +12,8 @@
 <!-- 사용자 결정, 외부 조건, 안전 확인 대기. 같은 질문을 반복하지 않고 상태만 보존한다. -->
 
 ## Archive
+
+<!-- marketing-40 completed 2026-06-05T10:07Z → reports/marketing-40/2026-06-05T1007Z-local.html [projects: virtue; type: strategy; topics: onboarding,activation,friction] (Virtue 막힘 지점 넛지 경계표 작성 완료. 산출물은 virtue-rebirth-app `d1cac9b`의 `apps/web/docs/stuck-point-nudge-boundary-table.md`(신규 1파일, docs-only). Amplitude/Lenny behavior-triggered guidance 렌즈를 Virtue prelaunch의 기존 이벤트 조합 trigger 표로 번역해 T1~T6별 도움 후보, 띄우지 말아야 할 경우, 수기 관찰 질문, prelaunch 금지선을 고정. 핵심: 넛지의 단위는 표면이 아니라 event trigger이며 기본값은 "아무것도 띄우지 않음"; B-LOST에서만 후보가 되고 B-AVAIL/B-NORMAL/B-MISMATCH/first value 도달 경로 위에는 띄우지 않는다. J1/J2/J4=`deed_saved`, J3=`deed_judged` first value 매핑과 `deed_save_capped`=availability/friction 경계 계승. 신규 이벤트·속성·카피·tracking/privacy·PostHog dashboard·코드·배포·공개발송·비용·권한 변경 0. HTML 보고서 `<html`/`<body`/axis ax1/axis ax2/`<details` 포함 확인 + details에 계승한 기준·이번에 새로 배운 것·다음 Marketer 규칙·승격 후보 포함. MARKETING_LEARNINGS.md에 durable learning "Nudges Are Event-Triggered, And Show-Nothing Is The Default" 승격. Infinity dirty 무관 파일(EVALUATION_NOTES.md) staging 제외. L2 agent-approved push.) -->
 
 <!-- marketing-39 completed 2026-06-04T23:08Z → reports/marketing-39/2026-06-04T2207Z-local.html [projects: virtue; type: strategy; topics: ai-trust,activation,onboarding] (Virtue Human-AI readiness trace map 작성 완료. 산출물은 virtue-rebirth-app `4ebf2a5`의 `apps/web/docs/human-ai-readiness-trace-map.md`(신규 1파일, docs-only). arXiv "From Accuracy to Readiness"와 Userpilot U-C-I 렌즈를 첫 10명 관찰 기준으로 번역해 outcome/reliance/safety/learning 4축과 U-C-I 질문을 J1~J4 first value 뒤 행동 흔적으로 매핑. 핵심 경계: `deed_saved`는 AI 판정 동의가 아니고, J3 judged-without-save는 정상 종료 가능하며, `deed_rerolled`는 불신만이 아니라 호기심/학습 행동일 수 있다. 신규 이벤트·속성·카피·tracking/privacy·PostHog dashboard·코드·배포·외부발송·비용·권한 변경 0. HTML 보고서 `<html`/`<body`/axis ax1/axis ax2/`<details` 포함 확인. MARKETING_LEARNINGS.md에 durable learning "Readiness Trace Over Accuracy" 승격. Infinity dirty 무관 파일(EVALUATION_NOTES.md) staging 제외. L2 agent-approved push.) -->
 

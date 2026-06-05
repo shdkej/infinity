@@ -97,6 +97,13 @@
 - **주의:** 막힘은 4분류로 라우팅이 다르다 — 길을 잃음(범퍼 후보)·결과 기대 불일치(제품 약속/결과 후보)·가용성 차단(availability/friction)·정상 종료(이탈 아님). J3에 저장 유도 범퍼를 무조건 붙이면 첫 가치 흐름을 방해한다. 저장률·재판정수로 막힘 성격을 단정하지 않는다.
 - **출처:** `marketing-31`, `marketing-30`, `marketing-16`, `marketing-21`, `marketing-06`.
 
+### Nudges Are Event-Triggered, And Show-Nothing Is The Default
+
+- **결론:** 온보딩 넛지는 팝업 형식이 아니라 기존 행동 조합(trigger)의 맥락 도움이다. 도움의 기본값은 "띄우지 않음"이며, B-LOST(길 잃음)로 분류된 막힘에서만 후보가 된다.
+- **적용:** 넛지/체크리스트/툴팁 후보를 만들 때 먼저 이벤트 조합과 잡 맥락을 대조한다. `add_flow_started` 후 미판정은 가용성·탐색·mock/self-test를 제외한 뒤 B-LOST일 때만 입력 보조 후보가 되고, `deed_judged` 후 미저장은 J3에서는 정상 종료라 저장 넛지를 띄우지 않는다. `deed_rerolled`는 의도 관찰 전 보류, `deed_save_capped`는 제한 설명·회복 경로 문제로만 둔다.
+- **주의:** trigger는 도움의 조건이지 자동 발동 근거가 아니다. B-MISMATCH(결과 기대 불일치)는 제품 약속/결과 문제라 넛지로 가리지 않고, B-AVAIL은 availability/friction으로 분리한다. first value 도달 직후 전환·공유·유료 넛지를 끼우지 않는다.
+- **출처:** `marketing-40`, `marketing-35`, `marketing-31`, `marketing-17`.
+
 ### First-Input Defaults Steer The Job
 
 - **결론:** AI 제품의 첫 입력 기본값(placeholder·예시·추천 질문·기본 프롬프트)은 사용자가 어떤 잡으로 제품을 이해할지 정하는 조향 장치다. Virtue는 예시·추천 질문 0의 "질문형 placeholder + 빈 슬롯" 단일 패턴이라 기능 설명형(support-bot 유도) 위험은 구조적으로 0이지만, 잡별 조향도 0이라 같은 중립 placeholder(`뭐 했어요?`)가 J1~J4를 구분 없이 부른다.
