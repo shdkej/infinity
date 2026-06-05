@@ -132,6 +132,13 @@
 - **주의:** `deed_saved`를 AI 판정 동의/승인으로, judged−saved 갭을 outcome 미달/이탈로, `deed_rerolled`를 불신으로, `deed_save_capped`를 value로 읽지 않는다. prelaunch 첫 세션에서는 learning 결론을 내지 않고 후보만 등록한다.
 - **출처:** `marketing-39`, `marketing-38`, `marketing-24`.
 
+### PQL Is A Bundle, Not A Single Event
+
+- **결론:** PQL/upgrade-readiness는 activation(first value)이 아니라 그 다음 층이며, 단일 이벤트가 아니라 반복+재방문 행동 묶음이다. 출시 후 작은 숫자에서 `deed_save_capped` 1회 같은 단일 이벤트를 "더 원해서 막혔다 = 업그레이드 수요"로 읽는 것이 가장 흔한 오독이다.
+- **적용:** 출시 후 high-intent/upgrade 신호는 (A) PQL 후보(반복 `deed_saved`/`deed_judged` + D7 재방문 묶음 — retention·conversion과 *대조할 대상*, 결론 아님) / (B) 비후보·가짜 PQL(단일 이벤트·availability·정상 종료·다의적 단발) / (C) Waiting·approval-needed(채점·임계값·가격·신규 tracking·대시보드·공개 카피) 세 칸으로 먼저 가른다. 신호를 읽기 전 ① 단일 이벤트인가 ② 가용성/마찰인가 ③ J3 정상 종료(judged−saved 갭)인가 ④ 반복+재방문 묶음인가를 순서대로 통과시킨다. A3(J3)는 저장 없이도 반복 `deed_judged`로 후보가 된다. 실제 retention 대조 방법은 [[Correlation Readiness Is A Separate Gate]](m37)에 위임한다.
+- **주의:** 첫 10명·첫 7일은 PQL을 *확정*하는 시점이 아니라 후보를 *대조 가능한지* 확인하는 시점이다. PQL 임계값·전환율·upgrade demand·외부 PQL 벤치마크를 산출하지 않는다. `deed_save_capped`는 availability/friction이지 upgrade demand가 아니다([[Availability And Friction Are Not Value]]). [[Monetization Boundary]]·[[Measurement Readiness Is A Separate Gate]]를 보완하는 새 축이다.
+- **출처:** `marketing-41`, `marketing-33`, `marketing-28`, `marketing-37`, `marketing-29`.
+
 ## 다음 Marketer 체크리스트
 
 1. 이번 intent가 어떤 기존 기준을 계승하는지 3개 이하로 적는다.
