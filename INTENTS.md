@@ -4,6 +4,8 @@
 
 ## Inbox
 
+<!-- marketing-41 candidate 2026-06-05T22:00Z [projects: virtue; type: strategy; topics: plg,pql,activation,monetization,prelaunch] 제목: Virtue post-launch PQL/upgrade 신호 경계표. Source note: source/external-links/marketing/2026-06-05-plg-pql-activation-boundary.md. Rationale: Mixpanel PLG 2026 렌즈는 activation/PQL이 단일 클릭이 아니라 retention·conversion과 대조 가능한 행동 묶음이어야 함을 강조한다. Virtue는 prelaunch라 PQL 임계값을 만들 단계가 아니지만, 출시 후 작은 숫자를 `deed_save_capped`·`deed_rerolled`·`level_up_viewed` 같은 단일 이벤트로 과대해석할 위험이 있다. Expected impact: 출시 후 high-intent/upgrade 판단을 "행동 묶음 후보 + 금지 오독"으로 고정해 early monetization·tracking·public action 오판을 줄인다. Permission level: L2 docs-only, 신규 이벤트·속성·카피·tracking/privacy·pricing·public/outbound·cost·deploy 변경 0. Owner route: Infinity → Claude Code local docs task in /home/ubuntu/dev/virtue-rebirth-app. Success criteria: apps/web/docs/에 내부 문서 1개 작성; A1~A4 activation 후보와 prelaunch-monetization-boundary의 `deed_save_capped` 오독 금지 계승; PQL 후보/비후보/Waiting approval 신호 표 포함; first value 매핑(J1/J2/J4=`deed_saved`, J3=`deed_judged`) 재정의 0; conflict marker 0; 코드 diff 0. First verification gate: 문서가 PQL 임계값·conversion rate·upgrade demand를 산출하지 않고, "출시 후 첫 10명 또는 첫 7일 이후 대조할 후보"로만 남겼는지 확인. -->
+
 ## Active
 
 
