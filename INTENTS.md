@@ -4,9 +4,24 @@
 
 ## Inbox
 
-<!-- marketing-40 candidate 2026-06-05T10:00Z [projects: virtue; type: strategy; topics: onboarding,activation,friction,nudges] 제목: Virtue 막힘 지점 넛지 경계표 작성. Source note: /home/ubuntu/workspace/knowledge-lab/source/external-links/marketing/2026-06-05-behavior-triggered-onboarding-nudges.md. Rationale: Amplitude/Lenny 렌즈상 넛지는 팝업 형식이 아니라 행동 기반 막힘 지점의 도움이어야 하며, Virtue prelaunch에서는 `add_flow_started`/`deed_judged`/`deed_saved`/`deed_rerolled`/`deed_save_capped`의 기존 경계로 정상 종료와 나쁜 마찰을 먼저 분리해야 한다. Expected impact: 첫 10명 관찰 전에 저장 강요, J3 정상 종료 오독, cap/availability 구간의 conversion 압박을 줄이고 first value 접근을 돕는 도움 후보만 남긴다. Permission level: L1/L2 docs-only, 신규 이벤트·tracking/privacy·PostHog dashboard·코드·배포·공개발송·비용 변경 금지. Owner route: Infinity router → Claude Code 로컬 문서 작업. Success criteria: virtue-rebirth-app 내부 docs에 기존 이벤트 조합별 도움 후보/띄우지 말아야 할 경우/수기 관찰 질문/prelaunch 금지선 표 1개 작성, 기존 first value와 J3 정상 종료 경계 충돌 0, 코드 diff 0. First verification gate: source note와 기존 activation/readiness 문서를 대조하고 `rg '<<<<<<<|=======|>>>>>>>'` 및 docs-only git diff 확인. Routing: Inbox. -->
-
 ## Active
+
+### marketing-40: Virtue 막힘 지점 넛지 경계표 작성
+- **id**: marketing-40
+- **status**: in_progress
+- **priority**: medium
+- **permission**: L1 docs-only (신규 이벤트·속성·카피·tracking/privacy·PostHog dashboard·코드·배포·공개발송·비용 변경 금지)
+- **projects**: virtue
+- **type**: strategy
+- **topics**: onboarding, activation, friction, nudges
+- **goal**: 기존 이벤트 조합별 도움 후보/띄우지 말아야 할 경우/수기 관찰 질문/prelaunch 금지선 표 1개를 virtue-rebirth-app 내부 docs에 작성
+- **success_criteria**:
+  - virtue-rebirth-app `apps/web/docs/friction-point-nudge-boundary-table.md` 신규 1파일
+  - 기존 first value(J1/J2/J4=`deed_saved`, J3=`deed_judged`)와 J3 정상 종료 경계 충돌 0
+  - 코드 diff 0 (docs-only)
+- **cloud_draft**: artifacts/marketing-40/friction-point-nudge-boundary-table.md ✓
+- **next_action**: 로컬 Claude Code → §9 execute_local 지시 따라 virtue-rebirth-app에 파일 생성 + 커밋/푸시 + HTML 리포트 작성
+- **source_note**: /home/ubuntu/workspace/knowledge-lab/source/external-links/marketing/2026-06-05-behavior-triggered-onboarding-nudges.md (로컬 확인 필요)
 
 
 ## Waiting

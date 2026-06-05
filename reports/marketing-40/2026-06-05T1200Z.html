@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>marketing-40 · Virtue 막힘 지점 넛지 경계표</title>
+<style>
+  :root{
+    --bg:#f4f2ea; --panel:#fbfaf5; --ink:#2c2a25; --soft:#807c70; --faint:#a8a496; --line:#e3dfd2;
+    --a2:#5f7a5e; --a2-deep:#3f5740;
+    --a1:#a9745a; --a1-deep:#8a5c45;
+    --sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;}
+  body{background:var(--bg); color:var(--ink); font-family:var(--sans);
+    font-size:14px; line-height:1.68; -webkit-font-smoothing:antialiased;}
+  .sheet{max-width:720px; margin:0 auto; padding:48px 34px 46px;}
+  .reveal{opacity:0; animation:fade .7s ease forwards;}
+  @keyframes fade{from{opacity:0; transform:translateY(9px);} to{opacity:1; transform:none;}}
+
+  .eyebrow{display:flex; align-items:center; gap:10px; font-family:var(--mono);
+    font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--soft);}
+  .eyebrow .id{color:var(--a2-deep); font-weight:600;}
+  .eyebrow .dot{width:5px; height:5px; border-radius:50%; background:var(--a2);}
+  .eyebrow .status{margin-left:auto; color:var(--a2-deep);}
+  h1{font-size:29px; line-height:1.3; font-weight:700; letter-spacing:-.01em; margin:20px 0 0;}
+  .dek{font-size:15.5px; color:var(--soft); margin:13px 0 0; max-width:52ch;}
+  .hr{height:1px; background:var(--line); margin:30px 0;}
+
+  .axis{padding:0 0 4px 22px; position:relative; margin-bottom:30px;}
+  .axis::before{content:""; position:absolute; left:0; top:6px; bottom:6px; width:2px; border-radius:2px;}
+  .axis.ax1::before{background:var(--a1);} .axis.ax2::before{background:var(--a2);}
+  .axis.ax1{--ul:var(--a1);} .axis.ax2{--ul:var(--a2);}
+  .axis .label{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase;
+    margin-bottom:9px; display:flex; align-items:center; gap:8px;}
+  .axis.ax1 .label{color:var(--a1-deep);} .axis.ax2 .label{color:var(--a2-deep);}
+  .axis .label .n{font-weight:600; opacity:.6;}
+  .axis .text{font-size:18px; line-height:1.6; color:#37352e;}
+  .axis .text b{font-weight:700; color:var(--ink); border-bottom:2px solid var(--ul);}
+
+  details{border:1px solid var(--line); border-radius:10px; background:var(--panel); margin-bottom:10px;}
+  summary{cursor:pointer; list-style:none; padding:14px 16px; display:flex; align-items:center; gap:11px;
+    font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft);}
+  summary::-webkit-details-marker{display:none;}
+  summary .chev{width:8px; height:8px; border-right:2px solid var(--a2-deep); border-bottom:2px solid var(--a2-deep);
+    transform:rotate(-45deg); transition:.25s; flex:none; margin-left:2px;}
+  details[open] summary .chev{transform:rotate(45deg);}
+  summary:hover{color:var(--ink);}
+  .body{padding:2px 16px 18px;}
+  table{border-collapse:collapse; width:100%; font-size:13px; margin:4px 0 12px;}
+  th,td{border-bottom:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top;}
+  th{font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft); font-weight:600;}
+  td:first-child{color:var(--a2-deep); font-weight:600; white-space:nowrap;}
+  .body p{color:var(--soft);}
+  .body ul{margin:6px 0; padding-left:18px;} .body li{margin:5px 0;}
+  code{font-family:var(--mono); font-size:12px; background:#edeae0; padding:1px 6px; border-radius:3px; color:var(--a2-deep);}
+  a{color:var(--a2-deep); text-underline-offset:3px;}
+  .chips{display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px;}
+  .chip{font-family:var(--mono); font-size:10.5px; letter-spacing:.05em; color:var(--soft); border:1px solid var(--line); border-radius:999px; padding:3px 10px;}
+  .foot{margin-top:30px; padding-top:15px; border-top:1px solid var(--line);
+    display:flex; justify-content:space-between; font-family:var(--mono); font-size:10px;
+    letter-spacing:.13em; text-transform:uppercase; color:var(--faint);}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="eyebrow reveal">
+    <span class="dot"></span>
+    <span class="id">marketing-40</span>
+    <span>Heartbeat Run</span>
+    <span class="status">IN_PROGRESS</span>
+  </div>
+  <h1 class="reveal" style="animation-delay:.05s">Virtue 막힘 지점 넛지 경계표</h1>
+  <p class="dek reveal" style="animation-delay:.09s">Cloud draft 완료. 로컬 실행으로 virtue-rebirth-app에 반영 예정.</p>
+
+  <div class="hr reveal" style="animation-delay:.12s"></div>
+
+  <div class="axis ax1 reveal" style="animation-delay:.16s">
+    <div class="label"><span class="n">01</span> 무엇이 문제였나</div>
+    <div class="text">
+      J3 저장 없는 정상 종료를 이탈로 오독하거나, <b>cap 구간에서 conversion 압박</b>을 붙이거나,
+      재판정을 불신 신호로 읽는 경우 prelaunch 첫 관찰 단계에서 넛지가
+      first value 흐름을 오히려 방해할 수 있다.
+    </div>
+  </div>
+
+  <div class="axis ax2 reveal" style="animation-delay:.22s">
+    <div class="label"><span class="n">02</span> 어떻게 해결하나</div>
+    <div class="text">
+      기존 이벤트 9개 조합(N1~N9)별 <b>도움 후보 / 금지 시점 / 수기 관찰 질문</b>과
+      막힘 4분류 라우팅, prelaunch 금지선 8개를 경계표 1장으로 정리해
+      <code>artifacts/marketing-40/friction-point-nudge-boundary-table.md</code>에 초안 완성.
+      로컬 실행 후 virtue-rebirth-app <code>apps/web/docs/</code>에 반영 예정.
+    </div>
+  </div>
+
+  <div class="reveal" style="animation-delay:.27s">
+  <details open>
+    <summary><span class="chev"></span> 수행한 작업 · 산출물</summary>
+    <div class="body">
+      <table>
+        <tr><th>항목</th><th>내용</th></tr>
+        <tr><td>Inbox 처리</td><td>marketing-40 candidate → 구조화된 Intent로 변환, Active 등록</td></tr>
+        <tr><td>MARKETING_LEARNINGS.md 계승</td><td>First Value Mapping, Product Body vs Bumper, Availability And Friction, AI Outcome Proxy, Trust Calibration, Readiness Trace 기준 반영</td></tr>
+        <tr><td>source note</td><td>로컬 경로 미확인 → Intent rationale 요지(Amplitude/Lenny 행동 기반 넛지 렌즈) 대체 적용</td></tr>
+        <tr><td>심장표</td><td>N1~N9 이벤트 조합별 6축(막힘분류·잡·도움후보·금지시점·관찰질문) 완성</td></tr>
+        <tr><td>막힘 라우팅</td><td>B-AVAIL → B-NORMAL(J3) → B-LOST/B-MISMATCH 순서 라우팅 고정</td></tr>
+        <tr><td>잡별 요약</td><td>J1/J2/J3/J4 × 넛지 가능 구간 / 절대 금지 구간</td></tr>
+        <tr><td>금지선</td><td>8개 prelaunch 금지선 명시</td></tr>
+        <tr><td>수기 관찰 질문</td><td>B-LOST/B-MISMATCH/B-AVAIL/J3 B-NORMAL 4구간 질문 후보</td></tr>
+        <tr><td>검증 게이트</td><td>7개 (conflict marker, 코드 diff, 신규 이벤트, first value 매핑, J3 금지 3종)</td></tr>
+        <tr><td>로컬 실행 지시</td><td>§9에 execute_local 프롬프트 첨부</td></tr>
+      </table>
+      <p>이번 Heartbeat 범위: Cloud <code>draft</code> 완료. 실제 virtue-rebirth-app 파일 생성은 로컬 실행 단계.</p>
+    </div>
+  </details>
+
+  <details open>
+    <summary><span class="chev"></span> 계승한 기준 · 이번에 새로 배운 것 · 다음 Marketer 규칙</summary>
+    <div class="body">
+      <p><strong>계승한 기준</strong></p>
+      <ul>
+        <li>First Value Mapping: J1/J2/J4=<code>deed_saved</code>, J3=<code>deed_judged</code> (재정의 0)</li>
+        <li>막힘 4분류 B-LOST/B-MISMATCH/B-AVAIL/B-NORMAL (m31 계승)</li>
+        <li><code>deed_save_capped</code>=availability/friction, monetization intent 아님 (m28 계승)</li>
+        <li>J3 저장 없는 종료 = 정상 (m21/m31/m39 계승)</li>
+        <li><code>deed_rerolled</code> = 탐색·학습 행동 (m30 계승)</li>
+      </ul>
+      <p><strong>이번에 새로 배운 것</strong></p>
+      <ul>
+        <li>넛지 경계 작업은 "어떤 도움을 줄까"보다 먼저 B-분류가 선행해야 한다 — 같은 이탈 이벤트(<code>add_flow_abandoned</code>)도 잡과 직전 화면에 따라 B-NORMAL/B-LOST/B-MISMATCH로 갈린다.</li>
+        <li>B-AVAIL과 B-NORMAL은 "도움 금지" 구간이지, "무시" 구간이 아니다 — 상태 안내(B-AVAIL)와 관찰(B-NORMAL)은 별도 액션이 필요하다.</li>
+      </ul>
+      <p><strong>다음 Marketer에게 넘길 규칙</strong></p>
+      <ul>
+        <li>넛지를 설계하기 전에 N1~N9 표에서 해당 이벤트 조합을 찾고, 막힘 분류를 먼저 확인한다.</li>
+        <li>J3 세션에서 어떤 넛지도 붙이기 전에 §4.1 "J3 저장 유도 금지"를 체크한다.</li>
+        <li><code>deed_save_capped</code> 후 UI 개입은 §4.2 상태 안내만, upgrade 유도 문구는 절대 금지.</li>
+      </ul>
+      <p><strong>durable learning 후보</strong></p>
+      <ul>
+        <li>"Nudge Boundary Is Classified Before Triggered" — 단일 실행, 관찰 후 MARKETING_LEARNINGS.md 승격 판단.</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="chev"></span> 실행 메타 · 산출물</summary>
+    <div class="body">
+      <div class="chips">
+        <span class="chip">2026-06-05T12:00Z</span>
+        <span class="chip">Heartbeat Cloud Draft</span>
+        <span class="chip">Inbox → Active (in_progress)</span>
+      </div>
+      <ul>
+        <li>초안 <code>artifacts/marketing-40/friction-point-nudge-boundary-table.md</code></li>
+        <li>리포트 <code>reports/marketing-40/2026-06-05T1200Z.html</code></li>
+        <li>다음 액션: 로컬 Claude Code → virtue-rebirth-app <code>apps/web/docs/friction-point-nudge-boundary-table.md</code> 생성 후 커밋/푸시, HTML 리포트 작성, INTENTS.md completed 처리</li>
+        <li>approval: L1 docs-only (신규 이벤트·코드·배포·외부발송·비용 변경 0)</li>
+      </ul>
+    </div>
+  </details>
+  </div>
+
+  <div class="foot reveal" style="animation-delay:.3s">
+    <span>Agent-First Heartbeat</span>
+    <span>Infinity · Intent Note</span>
+  </div>
+</div>
+</body>
+</html>
