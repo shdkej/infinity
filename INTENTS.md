@@ -4,6 +4,8 @@
 
 ## Inbox
 
+<!-- marketing-43 candidate 2026-06-06T22:00Z [projects: virtue; type: strategy; topics: retention,reactivation,onboarding,prelaunch] (Virtue 첫 주 재초대 경계표 작성. Source note: `/home/ubuntu/workspace/knowledge-lab/source/external-links/marketing/2026-06-06-first-week-reactivation.md`. Rationale: Amplitude의 win-back/첫 주 retention 렌즈를 Virtue prelaunch에 그대로 수치 목표로 이식하지 말고, D1/D3/D7 미방문을 실패 판정 전에 잡별 first value 이후의 value recall 후보로 분류해야 함. Expected impact: 첫 10명/첫 7일 후 `deed_saved`/`deed_judged` 이후 미방문을 onboarding 실패·업그레이드 수요·관심 없음으로 성급히 단정하는 오독을 줄이고, 승인 전 내부 재초대 경계를 고정. Permission level: L1/L2 docs-only; 공개 발송, 이메일/푸시/in-app 메시지, retargeting, tracking/privacy 변경은 Waiting/approval-needed. Owner route: Infinity -> Claude Code local docs task in `/home/ubuntu/dev/virtue-rebirth-app`. Success criteria: docs-only 문서가 J1/J2/J3/J4별 first value, missed second value, 돌아올 이유, 보내면 안 되는 조건, availability/synthetic 제외, 승인 필요선을 한 표로 고정하고 기존 이벤트만 인용. First verification gate: 신규 이벤트·속성·카피 배포·대시보드·코드·외부발송·비용 변경 0; first 10명 또는 first 7일에는 rate/% 결론 없이 분류 가능성만 확인.) -->
+
 
 ## Active
 
