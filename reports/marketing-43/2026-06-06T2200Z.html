@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>[marketing-43] Virtue 첫 주 재초대 경계표 — Cloud Prepare</title>
+<style>
+  body { font-family: system-ui, sans-serif; max-width: 820px; margin: 2rem auto; padding: 0 1rem; color: #1a1a1a; }
+  .header { border-bottom: 2px solid #333; padding-bottom: 1rem; margin-bottom: 1.5rem; }
+  .badge { display: inline-block; padding: 0.25rem 0.75rem; border-radius: 4px; font-size: 0.8rem; font-weight: bold; background: #e3f2fd; color: #1565c0; }
+  .axis { background: #f5f5f5; border-left: 4px solid #555; padding: 0.75rem 1rem; margin: 0.75rem 0; }
+  .axis-label { font-size: 0.75rem; color: #888; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.25rem; font-weight: 600; }
+  details { margin: 1rem 0; border: 1px solid #e0e0e0; border-radius: 4px; }
+  summary { padding: 0.75rem 1rem; cursor: pointer; font-weight: 600; background: #fafafa; border-radius: 4px; }
+  .details-content { padding: 1rem; border-top: 1px solid #e0e0e0; }
+  table { border-collapse: collapse; width: 100%; font-size: 0.82rem; margin: 0.75rem 0; }
+  th, td { border: 1px solid #ddd; padding: 0.45rem 0.6rem; text-align: left; vertical-align: top; }
+  th { background: #f5f5f5; font-weight: 600; }
+  code { background: #f0f0f0; padding: 0.1em 0.3em; border-radius: 3px; font-size: 0.88em; font-family: monospace; }
+  ul { margin: 0.5rem 0; padding-left: 1.5rem; }
+  li { margin: 0.3rem 0; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>[marketing-43] Virtue 첫 주 재초대 경계표</h1>
+  <span class="badge">prepare — active (Cloud 단계 완료)</span>
+</div>
+
+<div class="axis">
+  <div class="axis-label" id="ax1">대상/문제 (맥락)</div>
+  Amplitude 첫 주 retention 렌즈를 Virtue prelaunch에 수치 이식 없이 번역 — D1/D3/D7 미방문을 onboarding 실패·업그레이드 수요·관심 없음으로 성급히 단정하는 오독 방지를 위한 잡별 value recall 분류 경계표 필요
+</div>
+
+<div class="axis">
+  <div class="axis-label" id="ax2">결과/해법 (이번 실행)</div>
+  Cloud prepare 완료: VR 4분류(A/B/C/X) + 잡별 경계표 초안 + 로컬 실행 지시를 <code>artifacts/marketing-43/</code>에 저장; INTENTS.md Active 등록 완료; Local Claude Code 실행 대기
+</div>
+
+<details>
+<summary>▸ 수행한 작업 (Inbox 처리 + Cloud Prepare)</summary>
+<div class="details-content">
+
+<h3>1. Inbox 처리</h3>
+<ul>
+  <li>marketing-43 candidate (2026-06-06T22:00Z) 구조화 완료</li>
+  <li>Active 슬롯 확인: 0/3 → 즉시 Active 등록</li>
+  <li>INTENTS.md 업데이트: Inbox 제거 → Active 추가</li>
+</ul>
+
+<h3>2. Cloud Prepare 결과물</h3>
+<ul>
+  <li><code>artifacts/marketing-43/first-week-reactivation-boundary-draft.md</code></li>
+  <li>VR 분류 체계 (A/B/C/X), 잡별 경계표 초안, 로컬 실행 지시, 검증 게이트 포함</li>
+</ul>
+
+<h3>3. 계승 기반 확인</h3>
+<table>
+  <tr><th>항목</th><th>값</th><th>출처</th></tr>
+  <tr><td>J1/J2/J4 first value</td><td><code>deed_saved</code>:183</td><td>marketing-42, m06</td></tr>
+  <tr><td>J3 first value</td><td><code>deed_judged</code>:106 (저장 없는 종료=정상)</td><td>marketing-42, m21</td></tr>
+  <tr><td><code>deed_save_capped</code>:167</td><td>availability/friction (재초대/업그레이드 해석 금지)</td><td>marketing-41, m28</td></tr>
+  <tr><td>synthetic/mock</td><td>분류 제외</td><td>marketing-42, m25</td></tr>
+</table>
+
+<h3>4. VR 분류 설계</h3>
+<table>
+  <tr><th>분류</th><th>기준</th><th>처리 방향</th></tr>
+  <tr><td><strong>VR-A</strong></td><td>First value 도달 이후 D1/D3/D7 미방문</td><td>Value recall 후보 — 잡별 경계 내 관찰</td></tr>
+  <tr><td><strong>VR-B</strong></td><td>First value 미도달 미방문</td><td>재초대 전 별도 진단 (first session 완성 선행)</td></tr>
+  <tr><td><strong>VR-C</strong></td><td><code>deed_save_capped</code> 기록, first value 미도달</td><td>Availability/friction 확인 먼저</td></tr>
+  <tr><td><strong>VR-X</strong></td><td>Synthetic/mock/self-test/메이커</td><td>분류 대상 아님, 집계 제외</td></tr>
+</table>
+
+</div>
+</details>
+
+<details>
+<summary>▸ 실행 메타 / 다음 액션</summary>
+<div class="details-content">
+
+<h3>실행 메타</h3>
+<ul>
+  <li>실행 위치: Cloud (prepare)</li>
+  <li>실행 시각: 2026-06-06T22:30Z</li>
+  <li>권한: L1 (docs-only), L2 agent-approved push</li>
+  <li>approval: agent-approved L2 — 영향 범위: infinity repo 내 INTENTS.md/artifacts/reports만, virtue-rebirth-app 변경 없음, 되돌림 가능, 비용 없음, 판단 근거: PERMISSIONS.md L2 자체 승인 조건 6개 모두 충족</li>
+</ul>
+
+<h3>다음 액션</h3>
+<ul>
+  <li>Local Claude Code가 <code>artifacts/marketing-43/first-week-reactivation-boundary-draft.md</code>를 참조하여 <code>apps/web/docs/first-week-reactivation-boundary-table.md</code> 작성</li>
+  <li>검증 게이트 통과 후 <code>reports/marketing-43/{timestamp}-local.html</code> HTML 보고서 제출</li>
+  <li>HTML 보고서 검증: <code>&lt;html</code>, <code>&lt;body</code>, <code>axis ax1</code>, <code>axis ax2</code>, <code>&lt;details</code> 포함 확인</li>
+  <li>MARKETING_LEARNINGS.md durable learning 승격 후보 확인 후 Archive 이관</li>
+</ul>
+
+<h3>계승한 기준</h3>
+<ul>
+  <li>J1/J2/J4 first value = <code>deed_saved</code>:183 (marketing-42)</li>
+  <li>J3 first value = <code>deed_judged</code>:106, 저장 없는 종료 = 정상 (marketing-42, m21)</li>
+  <li><code>deed_save_capped</code> = availability/friction, 재초대/업그레이드 수요 해석 금지 (marketing-41, m28)</li>
+  <li>prelaunch: rate/% 결론 없이 분류 가능성만 확인 (marketing-42)</li>
+  <li>VR-B 상태에서 재초대 발송 금지 (first session 완성이 선행)</li>
+</ul>
+
+<h3>이번에 새로 배운 것</h3>
+<ul>
+  <li>재초대 경계의 핵심 구분은 "first value 도달 여부"이며, VR-A (도달 후 미방문)와 VR-B (미도달 미방문)는 완전히 다른 처리 경로를 가진다</li>
+  <li>J3는 deed_judged 이후 미방문이 정상 종료일 수 있어 재초대 대상 판단에 가장 신중해야 하는 잡이다</li>
+</ul>
+
+<h3>다음 Marketer 규칙</h3>
+<ul>
+  <li>재초대 대상 분류는 반드시 VR 분류 먼저 → 잡 판별 순서로 진행한다</li>
+  <li>D1/D3/D7 숫자를 보기 전에 VR-X (제외 대상) 먼저 걸러낸다</li>
+  <li>재초대 발송 지시는 Waiting/approval-needed — 어떤 경우도 Cloud prepare 단계에서 결정하지 않는다</li>
+</ul>
+
+<h3>MARKETING_LEARNINGS.md 승격 후보</h3>
+<ul>
+  <li>후보: "Reactivation Starts With First Value Classification, Not D-Day Numbers" — VR-A/B/C/X 분류가 숫자 읽기보다 선행한다는 원칙. 단일 실행이라 다음 local 실행 완료 후 실사용 대조 시 승격 여부 결정.</li>
+</ul>
+
+</div>
+</details>
+
+</body>
+</html>
