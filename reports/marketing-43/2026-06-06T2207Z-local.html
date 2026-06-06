@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>marketing-43 · Virtue 첫 주 재초대 경계표</title>
+<style>
+  :root{
+    --bg:#f4f2ea; --panel:#fbfaf5; --ink:#2c2a25; --soft:#807c70; --faint:#a8a496; --line:#e3dfd2;
+    --a2:#5f7a5e; --a2-deep:#3f5740;            /* 축2(결과/해법) = sage, 고정 */
+    --a1:#a9745a; --a1-deep:#8a5c45;            /* 축1 = 개선형(clay) */
+    --sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;}
+  body{background:var(--bg); color:var(--ink); font-family:var(--sans);
+    font-size:14px; line-height:1.68; -webkit-font-smoothing:antialiased;}
+  .sheet{max-width:720px; margin:0 auto; padding:48px 34px 46px;}
+  .reveal{opacity:0; animation:fade .7s ease forwards;}
+  @keyframes fade{from{opacity:0; transform:translateY(9px);} to{opacity:1; transform:none;}}
+
+  .eyebrow{display:flex; align-items:center; gap:10px; font-family:var(--mono);
+    font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--soft);}
+  .eyebrow .id{color:var(--a2-deep); font-weight:600;}
+  .eyebrow .dot{width:5px; height:5px; border-radius:50%; background:var(--a2);}
+  .eyebrow .status{margin-left:auto; color:var(--a2-deep);}
+  h1{font-size:29px; line-height:1.3; font-weight:700; letter-spacing:-.01em; margin:20px 0 0;}
+  .dek{font-size:15.5px; color:var(--soft); margin:13px 0 0; max-width:52ch;}
+  .hr{height:1px; background:var(--line); margin:30px 0;}
+
+  .axis{padding:0 0 4px 22px; position:relative; margin-bottom:30px;}
+  .axis::before{content:""; position:absolute; left:0; top:6px; bottom:6px; width:2px; border-radius:2px;}
+  .axis.ax1::before{background:var(--a1);} .axis.ax2::before{background:var(--a2);}
+  .axis.ax1{--ul:var(--a1);} .axis.ax2{--ul:var(--a2);}
+  .axis .label{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase;
+    margin-bottom:9px; display:flex; align-items:center; gap:8px;}
+  .axis.ax1 .label{color:var(--a1-deep);} .axis.ax2 .label{color:var(--a2-deep);}
+  .axis .label .n{font-weight:600; opacity:.6;}
+  .axis .text{font-size:18px; line-height:1.6; color:#37352e;}
+  .axis .text b{font-weight:700; color:var(--ink); border-bottom:2px solid var(--ul);}
+  ol.find{list-style:none; counter-reset:f; margin:16px 0 0; padding:0;}
+  ol.find li{position:relative; padding:8px 0 8px 26px; font-size:15px; color:#37352e; border-top:1px solid var(--line);}
+  ol.find li:first-child{border-top:none;}
+  ol.find li::before{counter-increment:f; content:counter(f); position:absolute; left:0; top:9px;
+    font-family:var(--mono); font-size:12px; font-weight:600; color:var(--a1-deep);}
+
+  details{border:1px solid var(--line); border-radius:10px; background:var(--panel); margin-bottom:10px;}
+  summary{cursor:pointer; list-style:none; padding:14px 16px; display:flex; align-items:center; gap:11px;
+    font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft);}
+  summary::-webkit-details-marker{display:none;}
+  summary .chev{width:8px; height:8px; border-right:2px solid var(--a2-deep); border-bottom:2px solid var(--a2-deep);
+    transform:rotate(-45deg); transition:.25s; flex:none; margin-left:2px;}
+  details[open] summary .chev{transform:rotate(45deg);}
+  summary:hover{color:var(--ink);}
+  .body{padding:2px 16px 18px;}
+  table{border-collapse:collapse; width:100%; font-size:13px; margin:4px 0 12px;}
+  th,td{border-bottom:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top;}
+  th{font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft); font-weight:600;}
+  td:first-child{color:var(--a2-deep); font-weight:600; white-space:nowrap;}
+  .body p{color:var(--soft);}
+  .body ul{margin:6px 0; padding-left:18px;} .body li{margin:5px 0;}
+  code{font-family:var(--mono); font-size:12px; background:#edeae0; padding:1px 6px; border-radius:3px; color:var(--a2-deep);}
+  a{color:var(--a2-deep); text-underline-offset:3px;}
+  .chips{display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px;}
+  .chip{font-family:var(--mono); font-size:10.5px; letter-spacing:.05em; color:var(--soft); border:1px solid var(--line); border-radius:999px; padding:3px 10px;}
+  .foot{margin-top:30px; padding-top:15px; border-top:1px solid var(--line);
+    display:flex; justify-content:space-between; font-family:var(--mono); font-size:10px;
+    letter-spacing:.13em; text-transform:uppercase; color:var(--faint);}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="eyebrow reveal">
+    <span class="dot"></span>
+    <span class="id">marketing-43</span>
+    <span>Marketing Note</span>
+    <span class="status">complete</span>
+  </div>
+  <h1 class="reveal" style="animation-delay:.05s">Virtue 첫 주 재초대 경계표</h1>
+  <p class="dek reveal" style="animation-delay:.09s">첫 주 D1/D3/D7 미방문을 onboarding 실패가 아니라 잡별 재초대 후보로 읽도록, 어디까지 갔나·무엇을 놓쳤나·돌아올 이유·보내면 안 되는 조건·승인 필요선을 한 표로 고정한 docs-only 내부 경계표. 발송 0건.</p>
+
+  <div class="hr reveal" style="animation-delay:.12s"></div>
+
+  <div class="axis ax1 reveal" style="animation-delay:.16s">
+    <div class="label"><span class="n">01</span> 무엇이 문제였나</div>
+    <div class="text">Virtue는 prelaunch라 retention 수치를 성패로 읽을 단계가 아닌데, 출시 후 작은 데이터가 들어오면 <b>D1/D7 미방문을 곧장 onboarding 실패·가치 부족·관심 없음으로 단정하는 오독</b>이 가장 흔하다. Amplitude win-back/D7 렌즈를 수치 목표로 이식하면 더 위험하다 — 미방문은 단일 churn이 아니라 "어떤 first value까지 갔고 어떤 second value 앞에서 멈췄나"를 읽는 segmentation 문제다.</div>
+  </div>
+
+  <div class="axis ax2 reveal" style="animation-delay:.22s">
+    <div class="label"><span class="n">02</span> 어떻게 해결하나</div>
+    <div class="text">미방문 사용자를 발송 대상이 아니라 <b>RC-WARM / RC-PRE-LOST / RC-NORMAL / RC-AVAIL / RC-EXCLUDED</b> 5종으로 먼저 가르고, J1~J4별 first value·놓친 second value·돌아올 이유(value recall 방향)·보내면 안 되는 조건·승인 필요선을 한 표로 고정했다(docs-only 1파일). 재초대 기본값은 <b>"보내지 않음"</b>이며 모든 발송은 approval-needed. rate/% 결론 0.</div>
+    <ol class="find">
+      <li>미방문 ≠ 실패 — first value까지 간 미방문(RC-WARM)은 warm 후보, value recall(할인 아님) 방향만</li>
+      <li>같은 미방문도 잡별 부호 다름 — J3 judged 후 미저장=정상 종료(RC-NORMAL, 저장 독촉 금지), J1/J2/J4면 보류</li>
+      <li>availability(`deed_save_capped`/503)·synthetic/self-test는 재초대 후보 아님 — 분리·보존</li>
+      <li>코드 diff 0 · 신규 이벤트/속성/tracking/대시보드/카피/발송/비용 0 · 충돌 마커 0 · 이벤트 앵커 drift 0</li>
+    </ol>
+  </div>
+
+  <div class="reveal" style="animation-delay:.27s">
+  <details open>
+    <summary><span class="chev"></span> 상세 · 산출물 + 재초대 경계 + 검증</summary>
+    <div class="body">
+      <p>산출물: <code>apps/web/docs/first-week-reactivation-boundary-table.md</code> (신규 1파일, docs-only). 첫 주 미방문을 잡별 재초대 후보로 읽는 내부 경계표다.</p>
+
+      <p><b>재초대 후보 분류(RC-*):</b></p>
+      <table>
+        <tr><th>분류</th><th>정의 (기존 이벤트)</th><th>후보?</th></tr>
+        <tr><td>RC-WARM</td><td>first value 도달 후 7일 내 second value 없이 미방문</td><td>후보(강함)</td></tr>
+        <tr><td>RC-PRE-LOST</td><td>first value 전 멈춤 중 B-LOST(길 잃음)만</td><td>후보(약함)</td></tr>
+        <tr><td>RC-NORMAL</td><td>J3 <code>deed_judged</code>만 보고 저장 없이 닫힘=정상 종료</td><td>후보 아님</td></tr>
+        <tr><td>RC-AVAIL</td><td><code>deed_save_capped</code>:167·503·지연</td><td>후보 아님</td></tr>
+        <tr><td>RC-EXCLUDED</td><td>synthetic/mock/self-test·봇·내부QA</td><td>후보 아님</td></tr>
+      </table>
+
+      <p><b>J1~J4 심장표(요약):</b> J1 기록형=마지막 저장 이어 쓰기 / J2 누적형=누적·진화 payoff 다시 보기 / J3 호기심형=다른 사례 비교(저장 강요 없음) / J4 회고형=지난 판단 조용히 다시 보기. first value 매핑 J1/J2/J4=<code>deed_saved</code>:183, J3=<code>deed_judged</code>:106 재정의 0.</p>
+
+      <p><b>First verification gate(PASS):</b> 문서가 reactivation rate·churn·retention%·PMF·전환율을 <em>산출하지 않는다</em>. 모든 임계값/% 언급은 §5 금지선의 *금지 문장*이며, 미방문은 "첫 10명 또는 첫 7일 분류 후보"로만 남겼다. 신규 이벤트·속성·tracking/privacy·대시보드·카피·발송 0건.</p>
+
+      <p><b>검증 게이트(PASS):</b></p>
+      <ul>
+        <li>코드 diff 0 — <code>git diff --stat -- apps/web/src apps/ios</code> 빈 출력</li>
+        <li>git status — docs 1파일만 untracked(무관 파일 staging 0)</li>
+        <li>줄머리 conflict marker 0 (<code>^&lt;&lt;&lt;&lt;&lt;&lt;&lt;|^=======|^&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code> NONE)</li>
+        <li>이벤트 앵커 현행 일치 drift 0 — 72/78/106/135/149/167/183/199</li>
+        <li>source note path 인용 — <code>source/external-links/marketing/2026-06-06-first-week-reactivation.md</code> (로컬 존재 시 요지, 부재 시 Intent rationale)</li>
+        <li>신규 이벤트·속성·tracking/privacy·대시보드·세션리플레이·카피·발송·retargeting·배포·외부발송·비용·권한 변경 0</li>
+        <li>HTML report gate — <code>&lt;html</code>/<code>&lt;body</code>/axis ax1/axis ax2/<code>&lt;details</code> 포함</li>
+      </ul>
+
+      <p><b>계승한 기준 (inherited assumptions):</b> first value 매핑(J1/J2/J4=<code>deed_saved</code>:183, J3=<code>deed_judged</code>:106) 재정의 0 · first value→7일 second value 연결+관찰 양식+위생(<code>first-week-activation-retention-bridge.md</code> m14) · 막힘 4분류 B-LOST/B-MISMATCH/B-AVAIL/B-NORMAL(m31) · show-nothing default(<code>stuck-point-nudge-boundary-table.md</code> m40) · recovery/comeback 정성 관찰(<code>recovery-over-streak-retention-lens.md</code> m26) · <code>deed_save_capped</code>:167=availability/friction, upgrade 환산 금지(m28·m29·원장) · J3 judged−saved 갭=정상 종료(이탈 아님) · synthetic/mock/self-test 비결정 등급 · retention 대조는 m37, PQL 결론은 m41 위임.</p>
+
+      <p><b>이번에 새로 배운 것 (changed/new assumptions):</b> 첫 주 <em>미방문(non-return)</em>은 실패 판정이 아니라 잡별 <b>재초대 후보</b>로 읽는다. m14가 "second value로 *연결된* 경우"를 정의했다면, 본 문서는 "연결이 *끊긴* 경우"를 RC-WARM/RC-PRE-LOST/RC-NORMAL/RC-AVAIL/RC-EXCLUDED로 가르는 층을 추가한다. 핵심: ① first value까지 간 미방문은 warm 후보(value recall 대상, 할인/과장 아님), ② 같은 미방문도 잡별 부호가 다름(J3 judged 후 미저장=정상 종료라 후보 아님, J1/J2/J4면 보류), ③ 재초대 기본값도 넛지처럼 "보내지 않음"이고 모든 발송은 approval-needed. (이전 가정 변경 아님 — 기존 축 위에 "미방문 단위 재초대 읽기" 층을 *추가*.)</p>
+
+      <p><b>다음 Marketer에게 넘길 규칙:</b> 미방문 사용자를 보면 순서대로 통과시킨다 — ① RC-EXCLUDED(synthetic/test) 분리 → ② RC-AVAIL(cap/503/지연) 분리 → ③ first value 발화 여부(발화=RC-WARM) → ④ 미발화면 종료 성격(J3 정상 종료=RC-NORMAL / first value 전 멈춤은 막힘 4분류로 B-LOST만 RC-PRE-LOST) → ⑤ "보내면 안 되는 조건"+승인 필요선 통과 못하면 보내지 않음(기본값=보내지 않음). 미방문을 reactivation rate/churn/retention%로 환산하지 않는다. RC-WARM을 PQL로 읽지 않는다(m41 위임).</p>
+
+      <p><b>선행 산출물과의 충돌 (conflicts with prior outputs):</b> 충돌 0(§8 점검표 전부 "없음"). m06 잡 정의·m14 second value 연결·m31 막힘 4분류·m40 show-nothing·m26 recovery·m41 PQL·m28 monetization을 모두 재정의 없이 계승하고, 본 문서는 그 위에 "미방문→재초대 분류" 층만 더한다. <code>copy-spec.md</code> 카피 0건(돌아올 이유는 방향 후보일 뿐 확정 문안 아님).</p>
+
+      <p><b>MARKETING_LEARNINGS.md 승격 후보:</b> "First-Week Non-Return Is A Reactivation Candidate, Not A Failure" — 첫 주 미방문은 실패가 아니라 잡별 재초대 후보이며, first value까지 간 미방문(RC-WARM)은 value recall 대상, J3 judged 후 미저장은 정상 종료(후보 아님), availability/synthetic은 후보 아님으로 분리한다. 재초대 기본값은 "보내지 않음"이고 모든 발송은 approval-needed. 기존 <code>First Value Mapping</code>·<code>Recovery Over Streak</code>·<code>Prelaunch Decision Boundary</code>·<code>Nudges Are Event-Triggered, And Show-Nothing Is The Default</code>를 보완하는 새 축. <b>판단: 승격함</b> — 미방문을 재초대 후보로 가르는 절차는 다음 retention/reactivation 작업이 반복 계승할 durable 가치가 있고, 단일 사례·synthetic 신호가 아니라 잡별 구조에서 도출됐다.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="chev"></span> 실행 메타 · 산출물</summary>
+    <div class="body">
+      <div class="chips">
+        <span class="chip">2026-06-06T22:07Z</span>
+        <span class="chip">cron:marketing → Infinity Inbox</span>
+        <span class="chip">Inbox → Archive</span>
+        <span class="chip">approval: agent-approved L2</span>
+      </div>
+      <ul>
+        <li>산출물 <code>apps/web/docs/first-week-reactivation-boundary-table.md</code> (virtue-rebirth-app)</li>
+        <li>projects: virtue · task_type: strategy · topics: retention, reactivation, onboarding</li>
+        <li>계승: <code>first-week-activation-retention-bridge.md</code>(m14) · <code>first-session-jtbd-matrix.md</code>(m06) · <code>product-body-vs-bumper-boundary-table.md</code>(m31) · <code>stuck-point-nudge-boundary-table.md</code>(m40) · <code>recovery-over-streak-retention-lens.md</code>(m26) · <code>post-launch-pql-upgrade-signal-boundary-table.md</code>(m41)</li>
+        <li>출처노트: <code>source/external-links/marketing/2026-06-06-first-week-reactivation.md</code> (Amplitude win-back/D7 + ProductLed AI onboarding)</li>
+      </ul>
+    </div>
+  </details>
+  </div>
+
+  <div class="foot reveal" style="animation-delay:.3s">
+    <span>Agent-First Heartbeat</span>
+    <span>Infinity · marketing-43</span>
+  </div>
+</div>
+</body>
+</html>

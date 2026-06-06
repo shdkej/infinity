@@ -146,6 +146,13 @@
 - **주의:** 이벤트 수↑를 가치↑로, 짧은 세션을 이탈로, 저장 없는 종료(J3)를 실패로, 반복 `deed_rerolled`를 불신으로, `deed_save_capped`를 가치/upgrade demand로, 클릭 많은 세션을 engagement로 읽지 않는다. 세션 분류를 비율·임계값·activation rate로 환산하지 않는다. 대조 방법은 [[Correlation Readiness Is A Separate Gate]](m37), PQL 결론은 [[PQL Is A Bundle, Not A Single Event]](m41) 위임. [[AI Outcome Proxy Separation]]·[[Availability And Friction Are Not Value]]·[[Product Body vs Bumper By Job]]·[[Readiness Trace Over Accuracy]]를 보완하는 새 축이다.
 - **출처:** `marketing-42`, `marketing-29`, `marketing-31`, `marketing-39`, `marketing-41`.
 
+### First-Week Non-Return Is A Reactivation Candidate, Not A Failure
+
+- **결론:** 첫 주(D1/D3/D7) 미방문(non-return)은 실패 판정이 아니라 잡별 재초대 후보다. 미방문은 단일 churn이 아니라 "어떤 first value까지 갔고 어떤 second value 앞에서 멈췄나"를 읽는 segmentation 문제이며, first value까지 간 미방문은 이미 가치를 한 번 본 warm 후보다.
+- **적용:** 미방문 사용자를 발송 대상으로 보기 전에 RC-WARM(first value 도달 후 second value 없이 미방문=value recall 후보) / RC-PRE-LOST(first value 전 멈춤 중 B-LOST만) / RC-NORMAL(J3 `deed_judged` 후 저장 없이 정상 종료=후보 아님) / RC-AVAIL(`deed_save_capped`·503·지연=후보 아님) / RC-EXCLUDED(synthetic/mock/self-test=후보 아님)로 먼저 가른다. 순서는 ① EXCLUDED 분리 → ② AVAIL 분리 → ③ first value 발화 여부 → ④ 종료 성격(J3 정상 종료/막힘 4분류 B-LOST) → ⑤ do-not-send+승인선. 재초대 기본값은 "보내지 않음"이고 메시지는 할인/과장이 아니라 value recall(전에 하려던 일·도달한 결과·놓친 다음 가치)이다.
+- **주의:** D1/D7 미방문을 onboarding 실패·가치 부족·관심 없음으로 단정하지 않는다. judged−saved 갭을 이탈로(J3 정상 종료), `deed_save_capped`를 재초대/upgrade 수요로, RC-WARM을 PQL로 읽지 않는다. 미방문률을 reactivation rate·churn·retention%로 환산하지 않는다. 공개 발송·이메일/푸시/in-app·retargeting은 모두 approval-needed. retention 대조는 [[Correlation Readiness Is A Separate Gate]](m37), PQL 결론은 [[PQL Is A Bundle, Not A Single Event]](m41) 위임. [[First Value Mapping]]·[[Recovery Over Streak]]·[[Prelaunch Decision Boundary]]·[[Nudges Are Event-Triggered, And Show-Nothing Is The Default]]를 보완하는 새 축이다.
+- **출처:** `marketing-43`, `marketing-14`, `marketing-26`, `marketing-40`, `marketing-41`.
+
 ## 다음 Marketer 체크리스트
 
 1. 이번 intent가 어떤 기존 기준을 계승하는지 3개 이하로 적는다.
