@@ -139,6 +139,13 @@
 - **주의:** 첫 10명·첫 7일은 PQL을 *확정*하는 시점이 아니라 후보를 *대조 가능한지* 확인하는 시점이다. PQL 임계값·전환율·upgrade demand·외부 PQL 벤치마크를 산출하지 않는다. `deed_save_capped`는 availability/friction이지 upgrade demand가 아니다([[Availability And Friction Are Not Value]]). [[Monetization Boundary]]·[[Measurement Readiness Is A Separate Gate]]를 보완하는 새 축이다.
 - **출처:** `marketing-41`, `marketing-33`, `marketing-28`, `marketing-37`, `marketing-29`.
 
+### Session Value Is Read By Job, Not Event Count
+
+- **결론:** AI 제품의 세션 가치는 이벤트/클릭 수가 아니라 잡별 first value 도달과 종료 성격으로 읽는다. fewer actions가 더 빠른 가치일 수 있고(J3 짧은 무저장 세션=성공), 많은 행동이 마찰일 수 있다(반복 reroll·cap·다이벤트 무가치=보류/마찰). 한 세션은 성공/정상/보류/마찰 네 칸으로 갈라 읽되 결론이 아니라 대조 후보로 둔다.
+- **적용:** 세션·활성화 판독 작업은 raw event/click volume을 세션 품질·engagement·activation으로 환산하지 말고, 한 세션을 ① 잡과 first value 확인 → ② first value 이벤트 발화 여부(→성공) → ③ 미발화면 종료 성격(J3 정상 종료=성공 / `deed_save_capped`=마찰 / B-LOST·다의=보류) 순서로 분류한다. 같은 "짧고 저장 없는 세션"이 J3엔 성공, J1/J2/J4엔 보류다.
+- **주의:** 이벤트 수↑를 가치↑로, 짧은 세션을 이탈로, 저장 없는 종료(J3)를 실패로, 반복 `deed_rerolled`를 불신으로, `deed_save_capped`를 가치/upgrade demand로, 클릭 많은 세션을 engagement로 읽지 않는다. 세션 분류를 비율·임계값·activation rate로 환산하지 않는다. 대조 방법은 [[Correlation Readiness Is A Separate Gate]](m37), PQL 결론은 [[PQL Is A Bundle, Not A Single Event]](m41) 위임. [[AI Outcome Proxy Separation]]·[[Availability And Friction Are Not Value]]·[[Product Body vs Bumper By Job]]·[[Readiness Trace Over Accuracy]]를 보완하는 새 축이다.
+- **출처:** `marketing-42`, `marketing-29`, `marketing-31`, `marketing-39`, `marketing-41`.
+
 ## 다음 Marketer 체크리스트
 
 1. 이번 intent가 어떤 기존 기준을 계승하는지 3개 이하로 적는다.
