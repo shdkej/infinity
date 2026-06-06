@@ -4,6 +4,8 @@
 
 ## Inbox
 
+<!-- marketing-42 candidate 2026-06-06T10:00Z [projects: virtue; type: strategy; topics: ai-product,activation,retention,measurement] (Virtue value-per-session 판독표 작성. Source note: `source/external-links/marketing/2026-06-06-ai-value-per-session.md`. Rationale: Mixpanel 2026 AI/product analytics 렌즈는 AI 제품에서 fewer actions가 빠른 가치일 수도 있고, raw usage volume보다 workflow 안의 measurable value가 중요하다고 본다. Virtue prelaunch에서는 `deed_judged`/`deed_rerolled`/`deed_saved` 같은 이벤트 수를 activation 품질로 바로 읽는 오독을 막고, 짧은 세션·저장 없는 종료·반복 reroll·클릭 많은 세션을 성공/정상/보류/마찰로 분리하는 내부 기준이 필요하다. Expected impact: 출시 후 첫 10명/첫 7일 관찰에서 "이벤트 수 증가=좋음"과 "짧은 세션=나쁨"의 단순판정을 줄이고, 잡별 first value 이후 세션당 가치 증거를 일관되게 읽는다. Permission level: L1 docs-only, no code/copy/tracking/privacy/dashboard/deploy/external-send/cost. Owner route: Infinity -> Claude Code local docs task in `/home/ubuntu/dev/virtue-rebirth-app`. Success criteria: 신규 내부 문서 1개가 기존 first value 매핑(J1/J2/J4=`deed_saved`, J3=`deed_judged`)과 기존 이벤트만 인용하고, 세션당 가치 판독표/오독 금지선/첫 검증 게이트를 포함하며, 신규 계측·임계값·전환율·PQL·가격 해석을 만들지 않는다. First verification gate: 문서 diff가 docs-only이고 conflict marker 0, source note path 인용, 기존 이벤트 앵커 drift 0, 신규 tracking/privacy/public copy 변경 0.) -->
+
 
 ## Active
 
