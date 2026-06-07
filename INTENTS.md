@@ -4,10 +4,28 @@
 
 ## Inbox
 
-<!-- marketing-45 candidate 2026-06-07T22:00Z [projects: virtue; type: strategy; topics: ai-trust,positioning,onboarding,prelaunch] (제목: Virtue AI 약속 문장 decision-control 감사표. Source note: /home/ubuntu/workspace/knowledge-lab/source/external-links/marketing/2026-06-07-ai-control-not-decision.md. Rationale: Gartner 2026 AI shopping survey는 사용자가 AI의 완전한 결정 대행보다 조사·비교·선택권 강화에 더 열려 있음을 보여준다. Virtue의 AI 판정도 "AI가 덕을 결정한다"로 과장되면 신뢰/제어권 리스크가 생기므로, 홈·/add·결과 카드·내부 agent answer snippet의 문장을 결정 대행 vs 선택권 강화로 분류하는 docs-only 감사가 필요하다. Expected impact: prelaunch 첫 사용자에게 AI 판정을 권위가 아니라 참고 가능한 판단 보조로 읽히게 해 J3 정상 종료와 J1/J2/J4 저장 행동을 더 안전하게 해석한다. Permission level: L2 docs-only, 신규 코드·카피 반영·tracking/privacy·대시보드·배포·외부발송·비용 변경 0. Owner route: Infinity router → Claude Code local docs 작업. Success criteria: 감사표가 기존 first value 매핑(J1/J2/J4=deed_saved, J3=deed_judged)과 m24/m38 trust-control 경계를 재정의하지 않고, 제품 표면별 autonomy-overclaim 위험·선택권 강화 문장 후보·approval-needed 경계를 한 표로 남긴다. First verification gate: source note path 인용, 기존 이벤트 앵커 drift 0, 공개 앱 카피/코드 diff 0, conflict marker 0, 승인 없이 배포/외부 메시지 없음.) -->
-
 
 ## Active
+
+### marketing-45 · Virtue AI 약속 문장 decision-control 감사표
+- id: marketing-45
+- status: active
+- priority: medium
+- permission: L2 (docs-only, agent self-approve 조건 충족)
+- projects: [virtue]
+- task_type: strategy
+- topics: [ai-trust, positioning, onboarding, prelaunch]
+- goal: 홈·/add·결과 카드·agent snippet의 AI 약속 문장을 결정 대행 vs 선택권 강화로 분류하는 감사표 작성
+- mode: prepare (Cloud 완료) → execute_local
+- context:
+  - source: /home/ubuntu/workspace/knowledge-lab/source/external-links/marketing/2026-06-07-ai-control-not-decision.md
+  - target: virtue-rebirth-app/apps/web/docs/
+  - prior: reports/marketing-44/2026-06-07T1007Z-local.html (30초 행동 감사표)
+  - draft: artifacts/marketing-45/ai-promise-audit-draft.md
+- next_action: [local] source note 읽고 제품 표면별 실제 카피 매핑 후 감사표 완성 → virtue-rebirth-app/apps/web/docs/ai-promise-decision-control-audit.md
+- detail: intents/active/marketing-45.md
+- registered_at: 2026-06-07T22:00Z
+
 
 
 ## Waiting
