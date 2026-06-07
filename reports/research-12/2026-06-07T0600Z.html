@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>research-12 Report</title>
+<style>
+  :root{
+    --bg:#f4f2ea; --panel:#fbfaf5; --ink:#2c2a25; --soft:#807c70; --faint:#a8a496; --line:#e3dfd2;
+    --a2:#5f7a5e; --a2-deep:#3f5740;
+    --a1:#5a6f8a; --a1-deep:#3f536e;
+    --sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;}
+  body{background:var(--bg); color:var(--ink); font-family:var(--sans);
+    font-size:14px; line-height:1.68; -webkit-font-smoothing:antialiased;}
+  .sheet{max-width:720px; margin:0 auto; padding:48px 34px 46px;}
+  .reveal{opacity:0; animation:fade .7s ease forwards;}
+  @keyframes fade{from{opacity:0; transform:translateY(9px);} to{opacity:1; transform:none;}}
+  .eyebrow{display:flex; align-items:center; gap:10px; font-family:var(--mono);
+    font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--soft);}
+  .eyebrow .id{color:var(--a2-deep); font-weight:600;}
+  .eyebrow .dot{width:5px; height:5px; border-radius:50%; background:var(--a2);}
+  .eyebrow .status{margin-left:auto; color:var(--a2-deep);}
+  h1{font-size:29px; line-height:1.3; font-weight:700; letter-spacing:-.01em; margin:20px 0 0;}
+  .dek{font-size:15.5px; color:var(--soft); margin:13px 0 0; max-width:52ch;}
+  .hr{height:1px; background:var(--line); margin:30px 0;}
+  .axis{padding:0 0 4px 22px; position:relative; margin-bottom:30px;}
+  .axis::before{content:""; position:absolute; left:0; top:6px; bottom:6px; width:2px; border-radius:2px;}
+  .axis.ax1::before{background:var(--a1);} .axis.ax2::before{background:var(--a2);}
+  .axis.ax1{--ul:var(--a1);} .axis.ax2{--ul:var(--a2);}
+  .axis .label{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase;
+    margin-bottom:9px; display:flex; align-items:center; gap:8px;}
+  .axis.ax1 .label{color:var(--a1-deep);} .axis.ax2 .label{color:var(--a2-deep);}
+  .axis .label .n{font-weight:600; opacity:.6;}
+  .axis .text{font-size:18px; line-height:1.6; color:#37352e;}
+  .axis .text b{font-weight:700; color:var(--ink); border-bottom:2px solid var(--ul);}
+  details{border:1px solid var(--line); border-radius:10px; background:var(--panel); margin-bottom:10px;}
+  summary{cursor:pointer; list-style:none; padding:14px 16px; display:flex; align-items:center; gap:11px;
+    font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft);}
+  summary::-webkit-details-marker{display:none;}
+  summary .chev{width:8px; height:8px; border-right:2px solid var(--a2-deep); border-bottom:2px solid var(--a2-deep);
+    transform:rotate(-45deg); transition:.25s; flex:none; margin-left:2px;}
+  details[open] summary .chev{transform:rotate(45deg);}
+  summary:hover{color:var(--ink);}
+  .body{padding:2px 16px 18px;}
+  table{border-collapse:collapse; width:100%; font-size:13px; margin:4px 0 12px;}
+  th,td{border-bottom:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top;}
+  th{font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft); font-weight:600;}
+  td:first-child{color:var(--a2-deep); font-weight:600; white-space:nowrap;}
+  .body p{color:var(--soft);}
+  .body ul{margin:6px 0; padding-left:18px;} .body li{margin:5px 0;}
+  code{font-family:var(--mono); font-size:12px; background:#edeae0; padding:1px 6px; border-radius:3px; color:var(--a2-deep);}
+  a{color:var(--a2-deep); text-underline-offset:3px;}
+  .chips{display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px;}
+  .chip{font-family:var(--mono); font-size:10.5px; letter-spacing:.05em; color:var(--soft); border:1px solid var(--line); border-radius:999px; padding:3px 10px;}
+  .foot{margin-top:30px; padding-top:15px; border-top:1px solid var(--line);
+    display:flex; justify-content:space-between; font-family:var(--mono); font-size:10px;
+    letter-spacing:.13em; text-transform:uppercase; color:var(--faint);}
+  h3{margin:16px 0 8px; font-size:14px; color:var(--a1-deep);}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="eyebrow reveal">
+    <span class="dot"></span>
+    <span class="id">research-12</span>
+    <span>Research Note</span>
+    <span class="status">COMPLETED</span>
+  </div>
+  <h1 class="reveal" style="animation-delay:.05s">형식 따르기 vs 비틀기 판단 기준</h1>
+  <p class="dek reveal" style="animation-delay:.09s">콘텐츠·제품·UI·브랜드에서 장르 문법을 언제 따르고 언제 비틀 것인가 — 국내외 10사례, 4범주, 5개 프로젝트 적용표</p>
+
+  <div class="hr reveal" style="animation-delay:.12s"></div>
+
+  <div class="axis ax1 reveal" style="animation-delay:.16s">
+    <div class="label"><span class="n">01</span> 🔍 무엇을 조사했나</div>
+    <div class="text">콘텐츠·제품·UI·브랜드에서 <b>"형식을 따라야 하는 것"과 "비틀어야 하는 것"</b>을 구분하는 실전 판단 기준 — 콘텐츠 포맷 5, 제품 UX 3, 브랜드 포지셔닝 2, 국내 사례 2개 포함 총 10사례, 세계여행·Threads·카드뉴스·Virtue·워크샵 5프로젝트 적용표</div>
+  </div>
+
+  <div class="axis ax2 reveal" style="animation-delay:.22s">
+    <div class="label"><span class="n">02</span> 📊 핵심 결과</div>
+    <div class="text"><b>형식은 독자의 인지 지도(따른다), 관점·내용은 창작자의 목소리(비튼다).</b> 판단 기준은 인지 비용↔차별화 필요성의 긴장관계 — "장르 문법을 충분히 따라야 비틀기의 가치가 드러난다". 비틀기만 있으면 혼란, 따르기만 있으면 묻힌다.</div>
+  </div>
+
+  <div class="reveal" style="animation-delay:.27s">
+  <details open>
+    <summary><span class="chev"></span> 조사 결과 상세</summary>
+    <div class="body">
+      <h3>핵심 4층 프레임워크</h3>
+      <table>
+        <tr><th>층</th><th>따를 것</th><th>비틀 것</th><th>판단 질문</th></tr>
+        <tr><td>가치 층</td><td>사용자가 기대하는 핵심 가치 전달 패턴</td><td>그 가치를 보는 관점·렌즈</td><td>"이것이 없으면 사용자가 혼란스러운가?"</td></tr>
+        <tr><td>정책 층</td><td>플랫폼·장르 문법 (썸네일, UI 패턴)</td><td>장르 안에서 자신만의 규칙</td><td>"이 플랫폼의 첫 화면 규칙은?"</td></tr>
+        <tr><td>실행 층</td><td>포맷 길이, UX 흐름, 콘텐츠 템플릿</td><td>실제 내용, 어조, 예상치 못한 연결</td><td>"형식에 놀라는가, 내용에 놀라는가?"</td></tr>
+        <tr><td>순환 층</td><td>반복 가능한 패턴 (팬의 기대)</td><td>그 패턴 안에서의 놀라움</td><td>"다음 편을 기대하게 만드는 것은?"</td></tr>
+      </table>
+
+      <h3>주요 사례 10개</h3>
+      <table>
+        <tr><th>사례</th><th>범주</th><th>따른 것</th><th>비튼 것</th></tr>
+        <tr><td>세스 고딘</td><td>콘텐츠</td><td>단문 블로그 형식</td><td>마케팅=윤리 관점</td></tr>
+        <tr><td>MrBeast</td><td>콘텐츠</td><td>유튜브 썸네일 규범</td><td>실제로 실행하는 스케일</td></tr>
+        <tr><td>Wait But Why</td><td>콘텐츠</td><td>긴 형식 블로그</td><td>막대 그림 + 철학 논증</td></tr>
+        <tr><td>뉴닉 (국내)</td><td>콘텐츠</td><td>뉴스레터 형식</td><td>친구 어조 + 맥락 중심</td></tr>
+        <tr><td>퍼블리 (국내)</td><td>콘텐츠</td><td>리포트/문서 형식</td><td>실무자 솔직함</td></tr>
+        <tr><td>Notion</td><td>제품 UX</td><td>페이지/계층 구조</td><td>노트=데이터베이스 개념</td></tr>
+        <tr><td>Duolingo</td><td>제품 UX</td><td>언어 학습 구조</td><td>게임 메타포 (스트릭/생명)</td></tr>
+        <tr><td>Wordle</td><td>제품 UX</td><td>단어 퍼즐 형식</td><td>하루 1개 + 공유 문화</td></tr>
+        <tr><td>Dollar Shave Club</td><td>브랜드</td><td>제품 소개 구조</td><td>CEO 직접 대화 + 유머</td></tr>
+        <tr><td>Apple Think Different</td><td>브랜드</td><td>(형식 자체도 비틀기)</td><td>제품 없이 가치관만 광고</td></tr>
+      </table>
+
+      <h3>사용자 5 프로젝트 적용표</h3>
+      <table>
+        <tr><th>프로젝트</th><th>따를 것</th><th>비틀 것</th><th>금지할 오독</th></tr>
+        <tr><td>세계여행 유튜브</td><td>브이로그 썸네일/제목 규범, 15분 편집 리듬</td><td>여행 중 앱 만들기 결합, AI/개발을 여행 맥락으로</td><td>먹방+경관 고정 틀 완전 따르기</td></tr>
+        <tr><td>Threads 글쓰기</td><td>짧은 단문, 화제성 훅</td><td>AI·개발·여행 교차점의 독특한 관점</td><td>트렌드만 쫓기 / 순수 일기만</td></tr>
+        <tr><td>카드뉴스 라이브러리</td><td>1장=1 메시지, 시각 일관성, 시리즈 포맷</td><td>개발자/여행자/AI 실험자의 독특한 앵글</td><td>정보 나열형 카드뉴스</td></tr>
+        <tr><td>Virtue 앱</td><td>앱 UI 패턴 (홈→기록→결과), 덕행 트래킹 폼</td><td>AI 덕행 판정, 회복 중심 리텐션</td><td>기존 습관 앱 UI 그대로 복사</td></tr>
+        <tr><td>AI 미니 워크샵</td><td>워크샵 구조 (문제→실습→Q&amp;A)</td><td>AI로 무언가를 완성하는 경험 중심</td><td>강의식 일방 전달만</td></tr>
+      </table>
+
+      <h3>반례 — 형식도 비틀려다 실패한 사례</h3>
+      <ul>
+        <li><strong>Google+</strong>: 소셜 미디어 개념 자체를 재정의하려 했으나 Facebook 네트워크 효과 벽 → 형식 비틀기는 전환 비용만 높임</li>
+        <li><strong>Clubhouse</strong>: 오디오 소셜 형식 비틀기는 novelty 있었으나 sticky habit 부재 → 형식 비틀기는 반복 사용 이유가 있어야 함</li>
+      </ul>
+
+      <h3>단일 판단 질문</h3>
+      <p>"이 요소가 <strong>독자/사용자가 다음에 무엇을 할지 알게 해주는가</strong>(인지 지도) → 따른다<br />
+      아니면 <strong>창작자가 누구인지 말해주는가</strong>(목소리) → 비튼다"</p>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="chev"></span> 실행 메타 · 산출물</summary>
+    <div class="body">
+      <div class="chips">
+        <span class="chip">2026-06-07T06:00Z</span>
+        <span class="chip">heartbeat / cloud-research</span>
+        <span class="chip">active → archived</span>
+      </div>
+      <ul>
+        <li>산출물 <code>artifacts/research-12/format-vs-twist-decision-frame.md</code></li>
+        <li>아카이브 <code>intents/archive/research-12.md</code></li>
+        <li>사례 10개 (콘텐츠 5, 제품 UX 3, 브랜드 2), 국내 사례 2개 (뉴닉, 퍼블리) 포함</li>
+        <li>성공 기준 5/5 충족: 사례 8+, 4층 구조, 프로젝트 적용표, artifacts 작성, HTML report gate 통과</li>
+        <li>L0 cloud research — 외부 발송·코드 변경·비용·권한 변경 0</li>
+      </ul>
+    </div>
+  </details>
+  </div>
+
+  <div class="foot reveal" style="animation-delay:.3s">
+    <span>Agent-First Heartbeat</span>
+    <span>Infinity · Intent Note</span>
+  </div>
+</div>
+</body>
+</html>
