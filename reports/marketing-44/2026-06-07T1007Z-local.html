@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>marketing-44 · 결과 카드 직후 30초 행동 감사표</title>
+<style>
+  :root{
+    --bg:#f4f2ea; --panel:#fbfaf5; --ink:#2c2a25; --soft:#807c70; --faint:#a8a496; --line:#e3dfd2;
+    --a2:#5f7a5e; --a2-deep:#3f5740;            /* 축2(결과/해법) = sage, 고정 */
+    --a1:#a9745a; --a1-deep:#8a5c45;            /* 축1 = 개선형(marketing) clay */
+    --sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;}
+  body{background:var(--bg); color:var(--ink); font-family:var(--sans);
+    font-size:14px; line-height:1.68; -webkit-font-smoothing:antialiased;}
+  .sheet{max-width:720px; margin:0 auto; padding:48px 34px 46px;}
+  .reveal{opacity:0; animation:fade .7s ease forwards;}
+  @keyframes fade{from{opacity:0; transform:translateY(9px);} to{opacity:1; transform:none;}}
+
+  .eyebrow{display:flex; align-items:center; gap:10px; font-family:var(--mono);
+    font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--soft);}
+  .eyebrow .id{color:var(--a2-deep); font-weight:600;}
+  .eyebrow .dot{width:5px; height:5px; border-radius:50%; background:var(--a2);}
+  .eyebrow .status{margin-left:auto; color:var(--a2-deep);}
+  h1{font-size:29px; line-height:1.3; font-weight:700; letter-spacing:-.01em; margin:20px 0 0;}
+  .dek{font-size:15.5px; color:var(--soft); margin:13px 0 0; max-width:52ch;}
+  .hr{height:1px; background:var(--line); margin:30px 0;}
+
+  .axis{padding:0 0 4px 22px; position:relative; margin-bottom:30px;}
+  .axis::before{content:""; position:absolute; left:0; top:6px; bottom:6px; width:2px; border-radius:2px;}
+  .axis.ax1::before{background:var(--a1);} .axis.ax2::before{background:var(--a2);}
+  .axis.ax1{--ul:var(--a1);} .axis.ax2{--ul:var(--a2);}
+  .axis .label{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase;
+    margin-bottom:9px; display:flex; align-items:center; gap:8px;}
+  .axis.ax1 .label{color:var(--a1-deep);} .axis.ax2 .label{color:var(--a2-deep);}
+  .axis .label .n{font-weight:600; opacity:.6;}
+  .axis .text{font-size:18px; line-height:1.6; color:#37352e;}
+  .axis .text b{font-weight:700; color:var(--ink); border-bottom:2px solid var(--ul);}
+  ol.find{list-style:none; counter-reset:f; margin:16px 0 0; padding:0;}
+  ol.find li{position:relative; padding:8px 0 8px 26px; font-size:15px; color:#37352e; border-top:1px solid var(--line);}
+  ol.find li:first-child{border-top:none;}
+  ol.find li::before{counter-increment:f; content:counter(f); position:absolute; left:0; top:9px;
+    font-family:var(--mono); font-size:12px; font-weight:600; color:var(--a1-deep);}
+
+  details{border:1px solid var(--line); border-radius:10px; background:var(--panel); margin-bottom:10px;}
+  summary{cursor:pointer; list-style:none; padding:14px 16px; display:flex; align-items:center; gap:11px;
+    font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft);}
+  summary::-webkit-details-marker{display:none;}
+  summary .chev{width:8px; height:8px; border-right:2px solid var(--a2-deep); border-bottom:2px solid var(--a2-deep);
+    transform:rotate(-45deg); transition:.25s; flex:none; margin-left:2px;}
+  details[open] summary .chev{transform:rotate(45deg);}
+  summary:hover{color:var(--ink);}
+  .body{padding:2px 16px 18px;}
+  table{border-collapse:collapse; width:100%; font-size:13px; margin:4px 0 12px;}
+  th,td{border-bottom:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top;}
+  th{font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft); font-weight:600;}
+  td:first-child{color:var(--a2-deep); font-weight:600; white-space:nowrap;}
+  .body p{color:var(--soft);}
+  .body ul{margin:6px 0; padding-left:18px;} .body li{margin:5px 0;}
+  code{font-family:var(--mono); font-size:12px; background:#edeae0; padding:1px 6px; border-radius:3px; color:var(--a2-deep);}
+  a{color:var(--a2-deep); text-underline-offset:3px;}
+  .chips{display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px;}
+  .chip{font-family:var(--mono); font-size:10.5px; letter-spacing:.05em; color:var(--soft); border:1px solid var(--line); border-radius:999px; padding:3px 10px;}
+  .foot{margin-top:30px; padding-top:15px; border-top:1px solid var(--line);
+    display:flex; justify-content:space-between; font-family:var(--mono); font-size:10px;
+    letter-spacing:.13em; text-transform:uppercase; color:var(--faint);}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="eyebrow reveal">
+    <span class="dot"></span>
+    <span class="id">marketing-44</span>
+    <span>Research Note</span>
+    <span class="status">completed</span>
+  </div>
+  <h1 class="reveal" style="animation-delay:.05s">Virtue 결과 카드 직후 30초 행동 감사표</h1>
+  <p class="dek reveal" style="animation-delay:.09s">AI 판정 결과 카드(<code>deed_judged</code>) 직후의 행동 흐름을 잡별로 활성화/정상/보류/마찰로 읽는 내부 판독표. 신규 계측·발송·코드 변경 0.</p>
+
+  <div class="hr reveal" style="animation-delay:.12s"></div>
+
+  <div class="axis ax1 reveal" style="animation-delay:.16s">
+    <div class="label"><span class="n">01</span> 🔴 무엇이 문제였나</div>
+    <div class="text"><code>deed_judged</code> 발화는 결과 카드가 <b>생성됐다</b>는 사실일 뿐, 사용자가 이해·수용했는지, 저장·재시도·종료 중 무엇이 자연스러운 다음 행동인지 말해주지 않는다. 특히 <b>J3는 저장 없이 닫혀도 정상</b>, J1/J2/J4는 저장 뒤 누적 payoff로 못 이어지면 첫 응답 흐름이 끊긴다. 결과 직후 행동을 세션 전체와 섞어 읽으면 <code>deed_save_capped</code>·무저장 종료·반복 reroll을 가치 부재/이탈/불신으로 <b>오독</b>하기 쉽다.</div>
+  </div>
+
+  <div class="axis ax2 reveal" style="animation-delay:.22s">
+    <div class="label"><span class="n">02</span> ✅ 어떻게 해결하나</div>
+    <div class="text">결과 카드(<code>deed_judged</code>:106)를 T0로 두고 <b>직후 30초를 별도 판독 단위로 고정</b>한 감사표를 docs-only로 추가했다. 같은 결과 카드가 <b>J3엔 도착점, J1/J2/J4엔 통과점</b>이라 직후 행동의 부호가 잡마다 뒤집힘을 명시하고, 보내면 안 되는 조건·바꾸면 안 되는 조건까지 못박았다.</div>
+    <ol class="find">
+      <li>결과 직후 첫 행동을 J1~J4 × <b>활성화/정상/보류/마찰</b> 4칸으로 분류(§3) — 기존 이벤트 앵커만 매핑.</li>
+      <li>"30초"는 계측이 아니라 <b>수기 관찰 프레임</b>(타이머·duration 이벤트 0)임을 못박음.</li>
+      <li>do-not-send(발송 기본값 "보내지 않음", approval-needed) · do-not-change(코드·카피·이벤트 0)를 §5에 분리 고정.</li>
+      <li>first value 매핑·<code>deed_save_capped</code>=availability/friction 재정의 0, event anchor drift 0, code diff 0, conflict marker 0.</li>
+    </ol>
+  </div>
+
+  <div class="reveal" style="animation-delay:.27s">
+  <details open>
+    <summary><span class="chev"></span> 상세 · 감사표 핵심과 검증</summary>
+    <div class="body">
+      <p><b>산출물:</b> <code>apps/web/docs/post-response-30-second-action-audit-table.md</code> (virtue-rebirth-app, 신규 1파일, docs-only).</p>
+
+      <p><b>§3 결과 직후 행동 → 잡별 판독(요약)</b></p>
+      <table>
+        <tr><th>결과 직후 첫 행동</th><th>J1/J2/J4 (통과점)</th><th>J3 (도착점)</th></tr>
+        <tr><td>저장 <code>deed_saved</code>:183</td><td>활성화 (first value)</td><td>정상+ (저장은 덤)</td></tr>
+        <tr><td>저장 없이 닫힘</td><td>보류 (막힘 4분류 후 결정)</td><td>정상 (저장 불요)</td></tr>
+        <tr><td>재시도 <code>deed_rerolled</code>:149</td><td>보류 (다의적)</td><td>보류 (불신 단정 금지)</td></tr>
+        <tr><td>한도 <code>deed_save_capped</code>:167</td><td>마찰 (저장 차단)</td><td>해당 약함</td></tr>
+        <tr><td>근거 읽기·보여 주기 (off-instr.)</td><td>보류(손기록)</td><td>정상/공유성 후보(손기록)</td></tr>
+      </table>
+
+      <p><b>계승한 기준</b></p>
+      <ul>
+        <li>first value: J1/J2/J4=<code>deed_saved</code>:183, J3=<code>deed_judged</code>:106 (m06) — 재정의 0.</li>
+        <li>세션당 가치 판독표 성공/정상/보류/마찰 (m42) — 본 문서는 그 안 <i>결과 직후 창</i>만 분리.</li>
+        <li>막힘 4분류 B-LOST/B-MISMATCH/B-AVAIL/B-NORMAL (m31); <code>deed_save_capped</code>=availability/friction (m28·m29·원장).</li>
+        <li>넛지 기본값 show-nothing·B-LOST에만 후보 (m40); 발송 기본값 "보내지 않음"·approval-needed (m43).</li>
+        <li>synthetic/mock/self-test·소표본 비결정 등급 (m25·원장); retention 대조 m37, PQL 결론 m41 위임.</li>
+      </ul>
+
+      <p><b>이번에 새로 배운 것</b></p>
+      <ul>
+        <li>가치 전달은 결과 이벤트 발화가 아니라 <b>직후 행동 흐름</b>으로 드러난다(Mixpanel post-response flow 렌즈).</li>
+        <li>같은 결과 카드가 <b>J3엔 도착점·J1/J2/J4엔 통과점</b>이라 "결과 직후 행동"의 부호가 잡마다 뒤집힌다.</li>
+        <li>결과 직후 30초는 세션 전체와 분리된 판독 단위이며 "30초"는 계측이 아니라 관찰 프레임. on-instrument는 save/reroll/cap/종료뿐, 나머지는 off-instrument 손기록.</li>
+        <li>읽기와 발송·변경은 별개 — 둘 다 기본값 "하지 않음".</li>
+      </ul>
+
+      <p><b>다음 Marketer에게 넘길 규칙</b></p>
+      <ul>
+        <li>결과 직후를 읽기 전: ① 카드가 도착점(J3)인가 통과점(J1/J2/J4)인가 → ② first value 행동 발화 여부(활성화) → ③ 미발화면 종료 성격(J3 정상 / cap 마찰 / reroll·B-LOST 보류) → ④ 읽기를 발송·변경 근거로 쓰려는 충동(있으면 멈춤, approval-needed).</li>
+        <li>결과 직후 분류는 사례 단위 대조 후보일 뿐 비율·임계값·전환율로 환산 금지. "30초"를 계측 임계값으로 굳히지 않음.</li>
+      </ul>
+
+      <p><b>MARKETING_LEARNINGS.md 승격 후보</b></p>
+      <ul>
+        <li><b>"Post-Response Flow Reveals Value, Not The Result Event"</b> — 가치 전달은 결과/응답 이벤트 발화가 아니라 직후 행동 흐름으로 읽으며, 같은 결과 카드가 J3엔 도착점·J1/J2/J4엔 통과점이라 부호가 잡마다 뒤집힌다. 읽기를 발송·변경에 자동 연결하지 않는다. <code>Session Value Is Read By Job</code>·<code>AI Outcome Proxy Separation</code>·<code>Nudges Are Event-Triggered…</code>를 보완하는 새 축. → 본 패스에서 원장 승격함.</li>
+      </ul>
+
+      <p><b>변경한 가정 / 충돌</b></p>
+      <ul>
+        <li>변경한 가정: <b>없음.</b> 본 문서는 기존 기준 위에 "결과 직후 30초 판독" 층만 더한다.</li>
+        <li>선행 문서 충돌: <b>0</b> (§8 no-conflict 표). 어긋나면 원본 file:line·MARKETING_LEARNINGS.md 우선.</li>
+      </ul>
+
+      <p><b>검증 게이트 (PASS)</b></p>
+      <ul>
+        <li>event anchor drift <b>0</b> — 72/78/106/135/149/167/183/199 현행 일치(<code>rg</code> 재확인).</li>
+        <li>code diff <b>0</b> — <code>git diff --stat apps/web/src apps/ios</code> 빈 출력. 산출물 docs 1파일.</li>
+        <li>conflict marker <b>0</b> — 줄머리 <code>&lt;&lt;&lt;/===/&gt;&gt;&gt;</code> 없음(본문 인용은 §10 검증 명령 줄).</li>
+        <li>source note <code>source/external-links/marketing/2026-06-07-ai-post-response-flow.md</code> 로컬 존재·인용.</li>
+        <li>신규 이벤트·속성·카피·tracking/privacy·대시보드·세션리플레이·타이머·발송·비용·권한 변경 0.</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="chev"></span> 실행 메타 · 산출물</summary>
+    <div class="body">
+      <div class="chips">
+        <span class="chip">2026-06-07T10:07Z</span>
+        <span class="chip">heartbeat → claude local</span>
+        <span class="chip">Inbox → Archive</span>
+        <span class="chip">approval: agent-approved L2</span>
+      </div>
+      <ul>
+        <li>산출물 <code>apps/web/docs/post-response-30-second-action-audit-table.md</code> (virtue-rebirth-app)</li>
+        <li>리포트 <code>reports/marketing-44/2026-06-07T1007Z-local.html</code> (infinity)</li>
+        <li>출처노트 <code>source/external-links/marketing/2026-06-07-ai-post-response-flow.md</code></li>
+        <li>이벤트 앵커 <code>apps/web/src/app/add/page.tsx</code> 72/78/106/135/149/167/183/199 (drift 0)</li>
+        <li>permission: L1/L2 docs-only · 공개 카피·신규 tracking/privacy·대시보드·세션리플레이·외부발송·비용 변경 금지</li>
+      </ul>
+    </div>
+  </details>
+  </div>
+
+  <div class="foot reveal" style="animation-delay:.3s">
+    <span>Agent-First Heartbeat</span>
+    <span>Infinity · Intent Note</span>
+  </div>
+</div>
+</body>
+</html>

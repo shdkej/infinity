@@ -146,6 +146,13 @@
 - **주의:** 이벤트 수↑를 가치↑로, 짧은 세션을 이탈로, 저장 없는 종료(J3)를 실패로, 반복 `deed_rerolled`를 불신으로, `deed_save_capped`를 가치/upgrade demand로, 클릭 많은 세션을 engagement로 읽지 않는다. 세션 분류를 비율·임계값·activation rate로 환산하지 않는다. 대조 방법은 [[Correlation Readiness Is A Separate Gate]](m37), PQL 결론은 [[PQL Is A Bundle, Not A Single Event]](m41) 위임. [[AI Outcome Proxy Separation]]·[[Availability And Friction Are Not Value]]·[[Product Body vs Bumper By Job]]·[[Readiness Trace Over Accuracy]]를 보완하는 새 축이다.
 - **출처:** `marketing-42`, `marketing-29`, `marketing-31`, `marketing-39`, `marketing-41`.
 
+### Post-Response Flow Reveals Value, Not The Result Event
+
+- **결론:** AI 제품의 가치 전달은 결과/응답 이벤트가 발화했다는 사실이 아니라 그 직후 사용자가 무엇을 하는지로 읽는다. Virtue의 결과 카드(`deed_judged`)는 J3에서는 도착점(first value)이지만 J1/J2/J4에서는 저장 전 통과점이라, 같은 "저장 없이 닫힘"도 잡에 따라 정상 종료와 보류로 갈린다.
+- **적용:** 결과 카드 직후 30초를 세션 전체와 분리된 수기 관찰 프레임으로 두고, 먼저 ① 카드가 도착점인가 통과점인가 ② first value 행동이 이미 도달했거나 직후 발화했는가 ③ 미발화면 종료 성격이 정상/보류/마찰 중 무엇인가를 본다. on-instrument 신호는 `deed_saved`, `deed_rerolled`, `deed_save_capped`, 종료뿐이고 근거 읽기·보여 주기·망설임은 손기록으로만 남긴다.
+- **주의:** `deed_judged` 발화만으로 이해/수용/가치 전달을 확정하지 않는다. 결과 직후 분류를 post-response score, activation rate, 전환율, retention%, PQL, upgrade demand, 자동 넛지, 공개 카피, 신규 tracking/dashboard/session replay로 연결하지 않는다. "30초"는 계측 임계값이나 신규 duration 속성이 아니다. [[Session Value Is Read By Job, Not Event Count]]·[[AI Outcome Proxy Separation]]·[[Nudges Are Event-Triggered, And Show-Nothing Is The Default]]를 보완하는 새 축이다.
+- **출처:** `marketing-44`, `marketing-42`, `marketing-29`, `marketing-40`.
+
 ### First-Week Non-Return Is A Reactivation Candidate, Not A Failure
 
 - **결론:** 첫 주(D1/D3/D7) 미방문(non-return)은 실패 판정이 아니라 잡별 재초대 후보다. 미방문은 단일 churn이 아니라 "어떤 first value까지 갔고 어떤 second value 앞에서 멈췄나"를 읽는 segmentation 문제이며, first value까지 간 미방문은 이미 가치를 한 번 본 warm 후보다.
