@@ -7,52 +7,14 @@
 
 ## Active
 
-### research-12: 형식은 따르고 관점은 비트는 기준 조사
-
-- status: active
-- priority: medium
-- permission: L0/L1
-- mode: research
-- created_at: 2026-06-07T04:01Z
-- projects: [content-strategy, product-design, personal-brand]
-- task_type: research
-- topics: [format, differentiation, creative-strategy]
-- source: Telegram #9929
-
-#### Original Intent
-
-사용자 질문: "어떤것은 다른 것을 따라가고 (형식) 어떤것은 기존 것을 비틀어야 하는가. 인피니티에 조사 좀 부탁해"
-
-#### Goal
-
-콘텐츠, 제품, UI, 브랜드, 학습/작업 시스템에서 "기존 형식을 따라가야 하는 것"과 "기존 것을 비틀어야 하는 것"을 구분하는 실전 판단 기준을 조사한다.
-
-#### Research Questions
-
-1. 사용자가 이미 익숙한 형식을 따라야 신뢰·이해·학습비용이 좋아지는 영역은 무엇인가?
-2. 기존 형식을 비틀어야 차별화·기억·창작 가치가 생기는 영역은 무엇인가?
-3. "형식은 익숙하게, 관점/내용/맥락은 새롭게"가 유효한 사례와 반례는 무엇인가?
-4. 세계여행 프로젝트, Threads/YouTube 글쓰기, 카드뉴스 라이브러리, Virtue/앱 제작에 적용할 수 있는 의사결정 표는 어떻게 만들 수 있는가?
-
-#### Success Criteria
-
-- [ ] 국내/해외 사례 8개 이상 조사: 콘텐츠 포맷, 제품 UX, 브랜드 포지셔닝, 교육/워크샵 중 최소 3범주 포함
-- [ ] 따라가야 할 층과 비틀어야 할 층을 `가치 → 정책 → 실행 → 순환` 구조로 정리
-- [ ] 사용자 프로젝트 적용표 작성: 세계여행 유튜브, Threads, 카드뉴스, 앱/워크샵 각각에 대해 "따를 것 / 비틀 것 / 금지할 오독" 제시
-- [ ] 결과 산출물 `artifacts/research-12/format-vs-twist-decision-frame.md` 작성
-- [ ] HTML report `reports/research-12/{timestamp}.html` 작성 및 report gate 통과
-
-#### Boundaries
-
-- 공개 발송, 브랜드명 확정, 실제 카피/디자인 배포, 유료 도구 사용, 외부 계정 액션 없음.
-- 이 조사는 L0/L1 조사·정리 과제다. 실행 변경이 필요하면 별도 Intent로 분리한다.
-
 
 ## Waiting
 
 <!-- 사용자 결정, 외부 조건, 안전 확인 대기. 같은 질문을 반복하지 않고 상태만 보존한다. -->
 
 ## Archive
+
+<!-- research-12 completed 2026-06-07T04:07Z → intents/archive/research-12.md [projects: content-strategy,product-design,personal-brand; type: research; topics: format,differentiation,creative-strategy] (형식은 따르고 관점은 비트는 기준 조사 완료. 산출물 artifacts/research-12/format-vs-twist-decision-frame.md, HTML reports/research-12/2026-06-07T0407Z-local.html. 핵심: "그릇은 따르고 내용물은 비튼다" — 결과물을 6개 층(L1 탐색·L2 입력·L3 신뢰·L4 관점·L5 톤·L6 사례연결)으로 분해해, 실패하면 떠나는 층(L1·L2)은 따르고 L3 신뢰·안전은 절대 비틀지 않으며 잊히면 끝인 층(L4~L6)은 비튼다. 형식까지 비틀면 학습비용 폭발, 내용까지 따르면 복제품. 콘텐츠 포맷(MrBeast·Morning Brew·배민)·제품 UX(토스·Airbnb·Google, 반례 Tesla 물리버튼 제거)·브랜드 포지셔닝(Liquid Death·Oatly)·교육/워크샵(Duolingo·TED/세바시) 4범주 10사례 × 따른 형식·비튼 층·실패 위험으로 검증. 가치(형식=신뢰·학습비용, 비틀기=차별·기억, 층이 달라 비충돌)→정책(L1·L2 따르고 L3 절대 안 비틀고 L4~L6 비튼다)→실행(레이어 분해 후 1~2개 층만 세게, 익숙한 그릇+낯선 내용, 80/20)→순환(형식은 이탈/완료율, 비틀기는 저장/공유로 측정; 이탈↑면 형식 복귀, 기억 0이면 더 비틀고 잘 먹힌 비틀기는 시그니처로 고정) 구조로 정리. 사용자 4프로젝트 적용표(세계여행 유튜브=썸네일·페이싱 따르고 단일 각도·솔직 톤 비틀고 형식 실험 금지 / Threads=첫 줄 요약·짧은 문단 따르고 관점·비유 비틀고 정보 과다 금지 / 카드뉴스=카드 수·구성·가독 따르고 큐레이션·연결·시리즈 컨셉 비틀고 레이아웃 비틀기 금지 / 앱·워크샵=결제·인증·실습 구조 따르고 핵심 가치 제안·프레임 비틀고 L3 신뢰·워크샵 형식 비틀기 금지) + 체크리스트 7 + 출처 10. 공개 발송·브랜드명/카피 확정·실제 디자인 배포·유료 도구·외부 계정 액션 0, 코드·배포 변경 0. 수치는 공개 보도·위키 기준 추정치 명시. HTML report gate(`<html`/`<body`/axis ax1/axis ax2/`<details`) 통과. Infinity dirty 무관 파일(EVALUATION_NOTES.md) staging 제외.) -->
 
 <!-- marketing-43 completed 2026-06-06T22:07Z → reports/marketing-43/2026-06-06T2207Z-local.html [projects: virtue; type: strategy; topics: retention,reactivation,onboarding] (Virtue 첫 주 재초대 경계표 작성 완료. 산출물은 virtue-rebirth-app의 `apps/web/docs/first-week-reactivation-boundary-table.md`(신규 1파일, docs-only). Amplitude win-back/D7 + ProductLed AI onboarding 렌즈를 Virtue prelaunch 기준으로 번역해, 첫 주 D1/D3/D7 미방문을 onboarding 실패가 아니라 잡별 재초대 후보로 읽는 경계표를 고정. 미방문을 RC-WARM(first value 도달 후 second value 없이 미방문=value recall 후보)/RC-PRE-LOST(first value 전 멈춤 중 B-LOST만)/RC-NORMAL(J3 judged 후 저장 없이 정상 종료=후보 아님)/RC-AVAIL(`deed_save_capped`·503·지연=후보 아님)/RC-EXCLUDED(synthetic/mock/self-test=후보 아님) 5종으로 먼저 가르고, J1~J4별 first value·놓친 second value·돌아올 이유(value recall 방향)·보내면 안 되는 조건·승인 필요선을 한 표로 고정. 핵심: 미방문≠실패, first value까지 간 미방문은 warm 후보, 같은 미방문도 잡별 부호 다름(J3 정상 종료라 저장 독촉 금지), 재초대 기본값은 "보내지 않음"이고 모든 발송은 approval-needed. first value 매핑 J1/J2/J4=`deed_saved`:183, J3=`deed_judged`:106 재정의 0. m14 second value 연결·m31 막힘 4분류·m40 show-nothing·m26 recovery·m41 PQL·m28 monetization 계승, retention 대조 m37·PQL 결론 m41 위임. First verification gate PASS: 첫 10명 또는 첫 7일에 reactivation rate/churn/retention%/% 결론 없이 분류 가능성만 확인. 신규 이벤트·속성·카피·발송·retargeting·tracking/privacy·대시보드·세션리플레이·코드·배포·외부발송·비용·권한 변경 0, code diff 0, conflict marker 0, source note path 인용, 이벤트 앵커 72/78/106/135/149/167/183/199 drift 0. HTML 보고서 `<html`/`<body`/axis ax1/axis ax2/`<details` 포함 확인 + details에 계승한 기준·이번에 새로 배운 것·다음 Marketer 규칙·승격 후보 포함. MARKETING_LEARNINGS.md에 durable learning "First-Week Non-Return Is A Reactivation Candidate, Not A Failure" 승격. Infinity dirty 무관 파일(EVALUATION_NOTES.md) staging 제외. L2 agent-approved push.) -->
 
