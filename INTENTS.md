@@ -4,6 +4,8 @@
 
 ## Inbox
 
+<!-- marketing-44 candidate 2026-06-07T10:00Z [projects: virtue; type: strategy; topics: ai-product,activation,onboarding,measurement] 제목: Virtue 결과 카드 직후 30초 행동 감사표 작성. Source note: /home/ubuntu/workspace/knowledge-lab/source/external-links/marketing/2026-06-07-ai-post-response-flow.md. Rationale: AI 첫 응답의 가치는 이벤트 수가 아니라 응답 직후 행동 흐름으로 드러나며, Virtue는 J3 미저장 정상 종료와 J1/J2/J4 저장 전/후 흐름을 구분해야 함. Expected impact: prelaunch 첫 10명 관찰에서 `deed_judged`, `deed_rerolled`, `deed_saved`, `deed_save_capped`를 activation/normal/hold/friction으로 오독 없이 분류. Permission level: L1/L2 docs-only, 기존 이벤트 인용만, 공개 카피·신규 tracking/privacy·대시보드·세션리플레이·외부발송·비용 변경 금지. Owner route: Infinity -> Claude Code local docs task in /home/ubuntu/dev/virtue-rebirth-app. Success criteria: apps/web/docs에 post-response flow 감사표 1개 작성, J1~J4별 결과 직후 30초 행동 분류와 보내면 안 되는 조건 포함, 기존 event anchor drift 0, conflict marker 0, code diff 0. First verification gate: 첫 10명 또는 첫 7일에 비율/retention 결론 없이 관찰표가 행 단위로 채워질 수 있는지만 확인. Routing: Inbox.) -->
+
 
 ## Active
 
