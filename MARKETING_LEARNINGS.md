@@ -160,6 +160,13 @@
 - **주의:** D1/D7 미방문을 onboarding 실패·가치 부족·관심 없음으로 단정하지 않는다. judged−saved 갭을 이탈로(J3 정상 종료), `deed_save_capped`를 재초대/upgrade 수요로, RC-WARM을 PQL로 읽지 않는다. 미방문률을 reactivation rate·churn·retention%로 환산하지 않는다. 공개 발송·이메일/푸시/in-app·retargeting은 모두 approval-needed. retention 대조는 [[Correlation Readiness Is A Separate Gate]](m37), PQL 결론은 [[PQL Is A Bundle, Not A Single Event]](m41) 위임. [[First Value Mapping]]·[[Recovery Over Streak]]·[[Prelaunch Decision Boundary]]·[[Nudges Are Event-Triggered, And Show-Nothing Is The Default]]를 보완하는 새 축이다.
 - **출처:** `marketing-43`, `marketing-14`, `marketing-26`, `marketing-40`, `marketing-41`.
 
+### Decision-Delegation Risk Rides The Verb, Control Rides The Affordance
+
+- **결론:** 비자율 AI 판정 제품에서 약속 문장의 결정-위임 위험은 한곳에 몰리지 않고 *동사 프레임*에 실린다. `채점`·`판정`은 AI를 채점관/심판으로 세우는 판결 프레임("AI가 결정한다")이고, `본`·`읽은`·`보여주기`는 해석 제공자로 두는 관점 프레임("AI가 정리하고 마지막 선택은 나")이다. 반대로 제어 체감은 카피가 아니라 *결과 후 선택 affordance*(취소·한 번 더·저장, 0점도 저장 가능, 무저장 종료 비용 0)에 실려, 마지막 결정권은 카피와 무관하게 구조적으로 이미 사용자에게 있다. 그래서 위험은 "권한 부재"가 아니라 "문장이 권한을 덜 보이게 함"이다.
+- **적용:** AI 약속 문장(홈·`/add`·결과 카드·내부 snippet)을 읽을 때 ① 동사가 판결/관점 프레임 중 무엇인가 → ② 같은 흐름 안에서 프레임이 섞이는가(불일치=위험 1차 소재; Virtue는 버튼 `AI 채점` vs 헤더 `AI가 본 오늘`로 섞임) → ③ 제어권은 결과 후 선택 affordance 존재로 본다 → ④ 후보 문구는 전부 proposal-only로 둔다. 가장 큰 레버는 새 UI가 아니라 판결→관점 프레임 정렬이다.
+- **주의:** 프레임 분류를 "카피를 바꿔야 한다"는 결정으로 환산하지 않는다(전부 proposal-only). affordance 존재를 "사용자가 제어를 *인지*했다"로 단정하지 않는다(인지 여부는 m38 관찰 위임). 공개 버튼/헤더/힌트/온보딩 카피·llms.txt·cap 정책 변경은 모두 approval-needed. 외부 설문 수치(Gartner)를 Virtue 성과 기준으로 복사하지 않는다. [[No Autonomous Action Bounds The Trust Question]]·[[Trust Calibration By Job]]을 보완하는 카피 축이다.
+- **출처:** `marketing-45`, `marketing-38`, `marketing-24`, `marketing-32`, `marketing-18`.
+
 ## 다음 Marketer 체크리스트
 
 1. 이번 intent가 어떤 기존 기준을 계승하는지 3개 이하로 적는다.
