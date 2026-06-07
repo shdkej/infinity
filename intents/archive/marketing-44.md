@@ -19,7 +19,7 @@
     sha: 838f8a2
     note: docs-only artifact commit
   - repo: infinity
-    sha: pending
+    sha: cbcfaba
     note: report, archive, learning promotion
 - urls: []
 - next_actions:
