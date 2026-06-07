@@ -35,6 +35,7 @@ Archive intent는 대시보드에서 프로젝트별/성격별로 묶어 볼 수
 - `infrastructure` — 서버, 배포, DNS, Kubernetes, GitHub Actions, 보안
 - `personal-ops` — 회고, 생활 기록, 캘린더, 자동화된 개인 운영
 - `research-bank` — 특정 실행 프로젝트에 묶이지 않는 외부 리서치/학습 자산
+- `naver-shopping` — 네이버쇼핑몰/스마트스토어 수익화 에이전트, 전략, 지표, 승인 대기, 운영 라우팅
 
 새 프로젝트 태그는 반복될 가능성이 높고 위 목록으로 표현이 어려울 때만 추가한다. 일회성 이름은 `topics` 또는 원장 본문에 남긴다.
 
