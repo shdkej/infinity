@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Infinity Report · naver-shopping-01 demand research</title>
+<style>
+  :root{
+    --bg:#f4f2ea; --panel:#fbfaf5; --ink:#2c2a25; --soft:#807c70; --faint:#a8a496; --line:#e3dfd2;
+    --a2:#5f7a5e; --a2-deep:#3f5740;
+    --a1:#4a6fa5; --a1-deep:#2d5282;
+    --sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;}
+  body{background:var(--bg); color:var(--ink); font-family:var(--sans);
+    font-size:14px; line-height:1.68; -webkit-font-smoothing:antialiased;}
+  .sheet{max-width:720px; margin:0 auto; padding:48px 34px 46px;}
+  .reveal{opacity:0; animation:fade .7s ease forwards;}
+  @keyframes fade{from{opacity:0; transform:translateY(9px);} to{opacity:1; transform:none;}}
+  .eyebrow{display:flex; align-items:center; gap:10px; font-family:var(--mono);
+    font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--soft);}
+  .eyebrow .id{color:var(--a1-deep); font-weight:600;}
+  .eyebrow .dot{width:5px; height:5px; border-radius:50%; background:var(--a1);}
+  .eyebrow .status{margin-left:auto; color:var(--a1-deep);}
+  h1{font-size:29px; line-height:1.3; font-weight:700; letter-spacing:-.01em; margin:20px 0 0;}
+  .dek{font-size:15.5px; color:var(--soft); margin:13px 0 0; max-width:52ch;}
+  .hr{height:1px; background:var(--line); margin:30px 0;}
+  .axis{padding:0 0 4px 22px; position:relative; margin-bottom:30px;}
+  .axis::before{content:""; position:absolute; left:0; top:6px; bottom:6px; width:2px; border-radius:2px;}
+  .axis.ax1::before{background:var(--a1);} .axis.ax2::before{background:var(--a2);}
+  .axis.ax1{--ul:var(--a1);} .axis.ax2{--ul:var(--a2);}
+  .axis .label{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase;
+    margin-bottom:9px; display:flex; align-items:center; gap:8px;}
+  .axis.ax1 .label{color:var(--a1-deep);} .axis.ax2 .label{color:var(--a2-deep);}
+  .axis .label .n{font-weight:600; opacity:.6;}
+  .axis .text{font-size:18px; line-height:1.6; color:#37352e;}
+  .axis .text b{font-weight:700; color:var(--ink); border-bottom:2px solid var(--ul);}
+  details{border:1px solid var(--line); border-radius:10px; background:var(--panel); margin-bottom:10px;}
+  summary{cursor:pointer; list-style:none; padding:14px 16px; display:flex; align-items:center; gap:11px;
+    font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft);}
+  summary::-webkit-details-marker{display:none;}
+  summary .chev{width:8px; height:8px; border-right:2px solid var(--a2-deep); border-bottom:2px solid var(--a2-deep);
+    transform:rotate(-45deg); transition:.25s; flex:none; margin-left:2px;}
+  details[open] summary .chev{transform:rotate(45deg);}
+  summary:hover{color:var(--ink);}
+  .body{padding:2px 16px 18px;}
+  table{border-collapse:collapse; width:100%; font-size:13px; margin:4px 0 12px;}
+  th,td{border-bottom:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top;}
+  th{font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase;
+    color:var(--soft); font-weight:600;}
+  td:first-child{color:var(--a1-deep); font-weight:600; white-space:nowrap;}
+  .body p{color:var(--soft); margin:8px 0;}
+  .body ul{margin:6px 0; padding-left:18px;} .body li{margin:5px 0;}
+  code{font-family:var(--mono); font-size:12px; background:#edeae0; padding:1px 6px;
+    border-radius:3px; color:var(--a1-deep);}
+  .chips{display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px;}
+  .chip{font-family:var(--mono); font-size:10.5px; letter-spacing:.05em; color:var(--soft);
+    border:1px solid var(--line); border-radius:999px; padding:3px 10px;}
+  .badge-watch{color:#b08545; background:#fef8e7; border:1px solid #e8d79c;
+    padding:1px 8px; border-radius:999px; font-size:11px; white-space:nowrap;}
+  .badge-draft{color:#3f5740; background:#e8f2e8; border:1px solid #a3c4a4;
+    padding:1px 8px; border-radius:999px; font-size:11px; white-space:nowrap;}
+  .foot{margin-top:30px; padding-top:15px; border-top:1px solid var(--line);
+    display:flex; justify-content:space-between; font-family:var(--mono); font-size:10px;
+    letter-spacing:.13em; text-transform:uppercase; color:var(--faint);}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="eyebrow reveal">
+    <span class="dot"></span>
+    <span class="id">naver-shopping-01</span>
+    <span>Cloud L0 Research · Demand Signal</span>
+    <span class="status">active</span>
+  </div>
+  <h1 class="reveal" style="animation-delay:.05s">공개 웹 수요 신호 조사: 여행 제품 카테고리</h1>
+  <p class="dek reveal" style="animation-delay:.09s">Naver IP 제한 / Commerce ID 대기 중 국내외 공개 데이터로 2026 여행 제품 수요 신호와 경쟁 랜드스케이프를 확인한다.</p>
+
+  <div class="hr reveal" style="animation-delay:.12s"></div>
+
+  <div class="axis ax1 reveal" style="animation-delay:.16s">
+    <div class="label"><span class="n">01</span> 조사 대상 / 문제</div>
+    <div class="text">네이버쇼핑 IP 제한·Commerce ID 대기로 직접 수요 확인 불가한 상황에서, <b>공개 시장 데이터로 여행 제품 카테고리별 수요 신호</b>를 확보할 수 있는가.</div>
+  </div>
+
+  <div class="axis ax2 reveal" style="animation-delay:.22s">
+    <div class="label"><span class="n">02</span> 발견 / 결론</div>
+    <div class="text"><b>여행 기록 키트(다이어리·스크랩·스티커 묶음)</b>와 <b>감성 여행 굿즈(로컈·커스텀)</b>가 fit 최상위 후보로 확인됨 — 한국 문방구 시장 CAGR 4.52%·2026 굿즈 트렌드(스토리&gt;품질)·디로그 앱 수요 일치. 패킹 큐브는 경쟁 과밀로 강등.</div>
+  </div>
+
+  <div class="reveal" style="animation-delay:.27s">
+
+  <details open>
+    <summary><span class="chev"></span> 제품 후보 평가표</summary>
+    <div class="body">
+      <table>
+        <tr>
+          <th>후보 카테고리</th>
+          <th>User-fit</th>
+          <th>수요 신호</th>
+          <th>경쟁도</th>
+          <th>마진 추정</th>
+          <th>판단</th>
+        </tr>
+        <tr>
+          <td>여행 기록 키트<br><small style="font-weight:normal;color:#807c70">(다이어리+스티커+스크랩)</small></td>
+          <td>★★★★★</td>
+          <td>문방구 시장 $1.7B→$2.53B·CAGR 4.52%; 디로그 앱 4.9★/3,700DL/월; 개인화 급성장</td>
+          <td>보통 (틈새 프리미엄 가능)</td>
+          <td>50–70%</td>
+          <td><span class="badge-draft">✅ draft 승격</span></td>
+        </tr>
+        <tr>
+          <td>감성 여행 굿즈<br><small style="font-weight:normal;color:#807c70">(로컈+커스텀 소품)</small></td>
+          <td>★★★★</td>
+          <td>2026 굿즈 4대 키워드: 스토리&gt;품질·로컈·맞춤·지속가능; 필코노미(감정소비) 강세</td>
+          <td>보통 (차별화 여지 있음)</td>
+          <td>40–60%</td>
+          <td><span class="badge-draft">✅ draft 승격</span></td>
+        </tr>
+        <tr>
+          <td>여행 준비 키트<br><small style="font-weight:normal;color:#807c70">(패킹 시스템)</small></td>
+          <td>★★★★</td>
+          <td>여행 가방·액세서리 수요 증가; 신년 재정비 트렌드</td>
+          <td>과밀 (Samsonite·TUMI·전문쇼 포화)</td>
+          <td>30–50%</td>
+          <td><span class="badge-watch">🔸 watch</span></td>
+        </tr>
+        <tr>
+          <td>아웃도어/산트립 용품</td>
+          <td>★★★</td>
+          <td>산트립·Z세대 히킹 트렌드 강세; 검색량 급증</td>
+          <td>과밀 (확립 브랜드 지배)</td>
+          <td>25–45%</td>
+          <td><span class="badge-watch">🔸 watch</span></td>
+        </tr>
+      </table>
+    </div>
+  </details>
+
+  <details open>
+    <summary><span class="chev"></span> 시장 맥락 · 근거</summary>
+    <div class="body">
+      <ul>
+        <li><b>한국 문방구 시장</b>: USD 1.7B(2024) → USD 2.53B(2033), CAGR 4.52%. 개인화·핸드크래프트·지속가능성 주도. 핸드바운드 가죽 저널·아티산 캘리그래피 세트 견인.</li>
+        <li><b>2026 관광 트렌드 (KNTO D.U.A.L.I.S.M.)</b>: 디지털+감성, 럭셔리+실속 이원 공존. Individual Value Spectrum — 중요한 경험에는 기꺼이 투자, 나머지는 절약.</li>
+        <li><b>2026 여행 기념품 트렌드</b>: 장식품 → 일상 사용 물건으로 전환. 한국 여행자 70%가 "디자인 아름다운 주방·팩트리용품 구매 의향" 응답 (글로벌 평균 68%).</li>
+        <li><b>2026 굿즈 4대 키워드</b>: 불안 해소 / 로컈 경험 / 개인 맞춤 / 지속가능성. 스토리텔링·디자인이 품질보다 소비 결정 요인.</li>
+        <li><b>여행 기록 앱 수요</b>: 디로그(사진일기·여행기록) 2025 Google Award Winner, 4.9★ AppStore, ~3,700DL/월. 앱 수요가 물리적 기록 제품 니즈와 공명.</li>
+        <li><b>MZ 여행 트렌드</b>: 소도시·로컈·산트립·중앙아시아(숙박 검색 +225%). 체험 중심, 일상의 진정성 추구 (Trip.com 2026).</li>
+        <li><b>경쟁 지형</b>: 패킹 큐브 = travelgear.co.kr·travelmate.co.kr·travelload.co.kr 전문쇼 포화. 여행 일지·다이어리 = 틈새 시장, 프리미엄 포지셔닝 여지.</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="chev"></span> 콘텐츠 앵글 · 측정 경로 · 승인 게이트</summary>
+    <div class="body">
+      <table>
+        <tr><th>항목</th><th>여행 기록 키트</th><th>감성 여행 굿즈</th></tr>
+        <tr><td>콘텐츠 앵글</td><td>"이번 여행 모두 기록하기" — 기록하는 사람이 자연스럽게 콘텐츠 생성 가능</td><td>"내가 고른 여행 소품" — 큐레이션 자체가 콘텐츠</td></tr>
+        <tr><td>측정 경로</td><td>스마트스토어 클릭률·리뷰 키워드·재구매율</td><td>SNS 저장수·태그·스토어 팔로우 전환</td></tr>
+        <tr><td>승인 게이트</td><td>상품 등록 전 사용자 확인 (상품 선정·가격)</td><td>공급처·단가 확인 후 사용자 승인</td></tr>
+      </table>
+      <p><b>미검증 사항</b>: 이 리서치는 공개 웹 기반이며 실제 네이버쇼핑 경쟁상품 수·리뷰량·가격대는 Commerce ID 해제 후 직접 확인 필요.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="chev"></span> 실행 메타 · 다음 액션</summary>
+    <div class="body">
+      <div class="chips">
+        <span class="chip">2026-06-08T1900Z</span>
+        <span class="chip">Cloud L0 Research</span>
+        <span class="chip">active → active</span>
+        <span class="chip">6개 쿼리</span>
+        <span class="chip">L2 agent-approved push</span>
+      </div>
+      <ul>
+        <li>리포트: <code>reports/naver-shopping-01/2026-06-08T1900Z-research.html</code></li>
+        <li>다음 액션: Commerce ID 해제 후 → 여행 기록 키트·감성 굿즈 네이버쇼핑 경쟁상품 직접 스캔</li>
+        <li>초안 준비 가능(L0): 상품 등록 초안 구조 및 SEO 키워드 후보 준비</li>
+        <li>승인 필요(L2): 실제 상품 등록</li>
+      </ul>
+      <p><b>L2 자체 승인 근거</b> — 목표 Intent 직접 연결, 되돌림 가능(일반 커밋·non-force push), 비용 없음, 프로덕션/시크릿/타인 메시지 무관. GitHub Sync Policy 준수.</p>
+    </div>
+  </details>
+
+  </div>
+
+  <div class="foot reveal" style="animation-delay:.3s">
+    <span>Agent-First Heartbeat</span>
+    <span>Infinity · naver-shopping-01</span>
+  </div>
+</div>
+</body>
+</html>
