@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>marketing-47 · Virtue 첫 10명 design-user ask script</title>
+<style>
+  :root{
+    --bg:#f4f2ea; --panel:#fbfaf5; --ink:#2c2a25; --soft:#807c70; --faint:#a8a496; --line:#e3dfd2;
+    --a2:#5f7a5e; --a2-deep:#3f5740;            /* 축2(결과/해법) = sage, 고정 */
+    --a1:#a9745a; --a1-deep:#8a5c45;            /* 축1 = 개선형(marketing) clay */
+    --sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;}
+  body{background:var(--bg); color:var(--ink); font-family:var(--sans);
+    font-size:14px; line-height:1.68; -webkit-font-smoothing:antialiased;}
+  .sheet{max-width:720px; margin:0 auto; padding:48px 34px 46px;}
+  .reveal{opacity:0; animation:fade .7s ease forwards;}
+  @keyframes fade{from{opacity:0; transform:translateY(9px);} to{opacity:1; transform:none;}}
+
+  .eyebrow{display:flex; align-items:center; gap:10px; font-family:var(--mono);
+    font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--soft);}
+  .eyebrow .id{color:var(--a2-deep); font-weight:600;}
+  .eyebrow .dot{width:5px; height:5px; border-radius:50%; background:var(--a2);}
+  .eyebrow .status{margin-left:auto; color:var(--a2-deep);}
+  h1{font-size:29px; line-height:1.3; font-weight:700; letter-spacing:-.01em; margin:20px 0 0;}
+  .dek{font-size:15.5px; color:var(--soft); margin:13px 0 0; max-width:52ch;}
+  .hr{height:1px; background:var(--line); margin:30px 0;}
+
+  .axis{padding:0 0 4px 22px; position:relative; margin-bottom:30px;}
+  .axis::before{content:""; position:absolute; left:0; top:6px; bottom:6px; width:2px; border-radius:2px;}
+  .axis.ax1::before{background:var(--a1);} .axis.ax2::before{background:var(--a2);}
+  .axis.ax1{--ul:var(--a1);} .axis.ax2{--ul:var(--a2);}
+  .axis .label{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase;
+    margin-bottom:9px; display:flex; align-items:center; gap:8px;}
+  .axis.ax1 .label{color:var(--a1-deep);} .axis.ax2 .label{color:var(--a2-deep);}
+  .axis .label .n{font-weight:600; opacity:.6;}
+  .axis .text{font-size:18px; line-height:1.6; color:#37352e;}
+  .axis .text b{font-weight:700; color:var(--ink); border-bottom:2px solid var(--ul);}
+  ol.find{list-style:none; counter-reset:f; margin:16px 0 0; padding:0;}
+  ol.find li{position:relative; padding:8px 0 8px 26px; font-size:15px; color:#37352e; border-top:1px solid var(--line);}
+  ol.find li:first-child{border-top:none;}
+  ol.find li::before{counter-increment:f; content:counter(f); position:absolute; left:0; top:9px;
+    font-family:var(--mono); font-size:12px; font-weight:600; color:var(--a1-deep);}
+
+  details{border:1px solid var(--line); border-radius:10px; background:var(--panel); margin-bottom:10px;}
+  summary{cursor:pointer; list-style:none; padding:14px 16px; display:flex; align-items:center; gap:11px;
+    font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft);}
+  summary::-webkit-details-marker{display:none;}
+  summary .chev{width:8px; height:8px; border-right:2px solid var(--a2-deep); border-bottom:2px solid var(--a2-deep);
+    transform:rotate(-45deg); transition:.25s; flex:none; margin-left:2px;}
+  details[open] summary .chev{transform:rotate(45deg);}
+  summary:hover{color:var(--ink);}
+  .body{padding:2px 16px 18px;}
+  table{border-collapse:collapse; width:100%; font-size:13px; margin:4px 0 12px;}
+  th,td{border-bottom:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top;}
+  th{font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft); font-weight:600;}
+  td:first-child{color:var(--a2-deep); font-weight:600; white-space:nowrap;}
+  .body p{color:var(--soft);}
+  .body ul{margin:6px 0; padding-left:18px;} .body li{margin:5px 0;}
+  code{font-family:var(--mono); font-size:12px; background:#edeae0; padding:1px 6px; border-radius:3px; color:var(--a2-deep);}
+  a{color:var(--a2-deep); text-underline-offset:3px;}
+  .chips{display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px;}
+  .chip{font-family:var(--mono); font-size:10.5px; letter-spacing:.05em; color:var(--soft); border:1px solid var(--line); border-radius:999px; padding:3px 10px;}
+  .foot{margin-top:30px; padding-top:15px; border-top:1px solid var(--line);
+    display:flex; justify-content:space-between; font-family:var(--mono); font-size:10px;
+    letter-spacing:.13em; text-transform:uppercase; color:var(--faint);}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="eyebrow reveal">
+    <span class="dot"></span>
+    <span class="id">marketing-47</span>
+    <span>Strategy Note</span>
+    <span class="status">completed</span>
+  </div>
+  <h1 class="reveal" style="animation-delay:.05s">Virtue 첫 10명 design-user ask script</h1>
+  <p class="dek reveal" style="animation-delay:.09s">정식 출시 전, 첫 10명에게 보여주기 *전에* 준비하는 내부 초대·질문·기록 양식. 작은 표본을 성패 수치가 아니라 반복 문제 언어·첫 가치 위치·결정-위임 인지로 읽기 위한 docs-only 산출물. 공개 발송·프로덕션 카피·계측·배포·비용 변경 0.</p>
+
+  <div class="hr reveal" style="animation-delay:.12s"></div>
+
+  <div class="axis ax1 reveal" style="animation-delay:.16s">
+    <div class="label"><span class="n">01</span> 🔴 무엇이 문제였나</div>
+    <div class="text">Virtue는 아직 <b>prelaunch</b>라 확장 채널이나 작은 PostHog 숫자보다 <b>첫 사용자 학습 루프</b>가 먼저다. 그런데 첫 10명에게 보여줄 때 초대 문장·질문·기록 양식이 없으면 작은 표본을 <b>성패율</b>로 잘못 읽거나, 잡별 first value가 어디서 왔는지·사용자가 AI 출력을 <b>판결로 오해</b>하는지를 일관되게 못 잡는다. 성찰형 제품에서 과한 도움은 사용자의 결정을 대신해 <b>수집하려던 자기 말 자체를 소거</b>할 위험도 있다.</div>
+  </div>
+
+  <div class="axis ax2 reveal" style="animation-delay:.22s">
+    <div class="label"><span class="n">02</span> ✅ 어떻게 해결하나</div>
+    <div class="text">발송 전 내부 준비물로 <b>초대(§A) → 사용 전 2문항(§B) → 첫 세션 후 3문항(§C) → 자기 말 기록 칸(§D)</b> 4지점 손기록 스크립트를 한 장으로 고정했다. 초대·질문은 전부 <b>proposal-only 내부 후보</b>이고, first value는 잡별(J1·J2·J4=<code>deed_saved</code>, J3=<code>deed_judged</code>)로, AI 결과 질문은 m45 동사 프레임(<b>판결 아닌 관점</b>)으로 둔다.</div>
+    <ol class="find">
+      <li>J1~J4 초대 문장 후보를 잡별 first value를 미리 가리키게 작성 — J3는 결과 카드 후 무저장 종료를 정상으로 둠(§A).</li>
+      <li>도움의 목표를 "결정 대행"이 아니라 <b>"사용자가 자기 말로 가치를 말하게"</b>로 고정 — §D 기록 칸은 원문 그대로, 신규 계측 0(§D·§E).</li>
+      <li>선행 3문서(baseline-template·60초 관찰·decision-control 감사)와 <b>층이 다른 추가</b>로 정렬, 충돌 0(§0).</li>
+      <li>공개 발송·프로덕션 카피·신규 계측·배포·비용·권한 변경은 전부 approval-needed로 분리, 외부 행동 0(§F).</li>
+    </ol>
+  </div>
+
+  <div class="reveal" style="animation-delay:.27s">
+  <details open>
+    <summary><span class="chev"></span> 상세 · 스크립트 핵심과 검증</summary>
+    <div class="body">
+      <p><b>산출물:</b> <code>artifacts/marketing-47/virtue-first-10-design-user-ask-script.md</code> (infinity, 신규 1파일, docs-only). Virtue 앱 레포가 로컬에 없어 ARTIFACT_RULES에 따라 Infinity artifact로 생성.</p>
+
+      <p><b>§A 잡별 초대 문장 후보 (proposal-only) — first value 매핑</b></p>
+      <table>
+        <tr><th>잡</th><th>first value</th><th>초대 문장 동사 프레임</th></tr>
+        <tr><td>J1 기록형</td><td><code>deed_saved</code></td><td>"적어두면 남는다"(기록) — 평가 아님</td></tr>
+        <tr><td>J2 누적형</td><td><code>deed_saved</code></td><td>"쌓여서 보인다"(누적 시작점)</td></tr>
+        <tr><td>J3 AI 호기심형</td><td><code>deed_judged</code></td><td>"AI가 읽어주는/보여주는"(관점) — "채점/판정받는"(판결) 회피, 결과 후 무저장 종료 정상</td></tr>
+        <tr><td>J4 회고형</td><td><code>deed_saved</code></td><td>"돌아볼 거리가 된다"(회고 재료)</td></tr>
+      </table>
+
+      <p><b>§B 사용 전 2문항 / §C 첫 세션 후 3문항</b></p>
+      <table>
+        <tr><th>질문</th><th>무엇을 읽나</th></tr>
+        <tr><td>B1 현재 행동·대체재</td><td>현재 문제 언어, 대체재, 안 하는 이유</td></tr>
+        <tr><td>B2 잡 신호·기대</td><td>어떤 잡(J1~J4)으로 들어오나, 기대 가치</td></tr>
+        <tr><td>C1 첫 가치 위치</td><td>first value 도달·위치 — J3=결과 카드, J1/J2/J4=저장 후</td></tr>
+        <tr><td>C2 부담·마찰</td><td>friction 신호 — <code>deed_save_capped</code>·503·지연은 availability/friction으로 분류</td></tr>
+        <tr><td>C3 결정-위임 인지</td><td>출력을 판결(정체성 사실)로 읽나 조언(마지막 선택 내 것)으로 읽나 (m45·m38)</td></tr>
+      </table>
+
+      <p><b>§D 자기 말 기록 칸</b></p>
+      <ul>
+        <li>진행자 질문 "친구가 이거 뭐냐 물으면 뭐라 설명할 거예요?" → 답을 <b>원문 그대로</b> 기록(요약·해석 금지).</li>
+        <li>열: 사용자 / 잡 추정 / 자기 말 설명 / 붙인 이름·대체재 / 되물음·오해 / 트래픽(사람·self-test). <code>first-real-user-baseline-template</code>로 흘러듦(수기만, 신규 계측 0).</li>
+      </ul>
+
+      <p><b>계승한 기준</b></p>
+      <ul>
+        <li>first value: J1·J2·J4=<code>deed_saved</code>, J3=<code>deed_judged</code> (m06 [[First Value Mapping]]) — 재정의 0.</li>
+        <li>작은 표본은 방향 재료, decision-grade 아님 ([[Prelaunch Decision Boundary]]).</li>
+        <li><code>deed_save_capped</code>·503·지연 = availability/friction, value 아님 ([[Availability And Friction Are Not Value]]).</li>
+        <li>사용자 언어는 증거이지 결정 자체가 아니다 (m27 [[Message Confusion As Evidence]]).</li>
+        <li>비자율 AI라 위험=자기인식 오보정, 결정-위임 위험은 동사 프레임에 실림 (m38·m45 [[Decision-Delegation Risk Rides The Verb, Control Rides The Affordance]]).</li>
+        <li>성찰·선택이 본체인 경험형 제품에서 do-for-you는 제품 의미를 소거 (m46 [[Agent-Led Growth Fits Task-Completion Products, Not Experience Products]]).</li>
+      </ul>
+
+      <p><b>이번에 새로 배운 것</b></p>
+      <ul>
+        <li>prelaunch 첫 사용자 학습은 확장 채널 최적화보다 <b>먼저</b>이고, 산출은 성패율이 아니라 (a) 반복 문제 언어 (b) 자기 말로 설명한 가치 (c) 결정-위임 인지 <b>세 언어</b>로 읽는다.</li>
+        <li>성찰형 제품에서 첫 사용자 <b>도움의 목표는 결정 대행이 아니라 "자기 말로 가치를 말하게" 하는 것</b> — 도움이 성찰을 대행하면 수집하려던 자기 말 자체가 사라진다. m46(경험형 제품 do-for-you=의미 소거)을 <b>온보딩·도움 설계 층</b>으로 확장한 것.</li>
+        <li>수집은 단발 설문이 아니라 <b>invite → pre → post(first value·friction·decision-control) → 자기 말 기록</b> 4지점 손기록 루프다. 초대 문장도 m45 동사 프레임을 따라야 J3에서 "AI가 대신 정함" 오해가 입구에서부터 줄어든다.</li>
+      </ul>
+
+      <p><b>다음 Marketer에게 넘길 규칙</b></p>
+      <ul>
+        <li>첫 사용자/prelaunch 학습 작업이 들어오면: ① 채널 최적화·작은 숫자 해석보다 invite→pre→post→자기말 4지점 손기록을 먼저 둔다 → ② 산출을 성패율이 아니라 세 언어(문제 언어·자기 말 가치·결정-위임 인지)로 읽는다 → ③ first value는 잡별(J1/J2/J4=<code>deed_saved</code>, J3=<code>deed_judged</code>), J3 무저장 종료는 정상 → ④ 도움 문장·질문은 전부 proposal-only, 공개 발송·카피는 approval.</li>
+        <li>maker self-test/synthetic/mock은 첫 10명에서 제외·표시. <code>deed_save_capped</code>는 availability/friction이지 value/upgrade 수요 아님.</li>
+      </ul>
+
+      <p><b>MARKETING_LEARNINGS.md 승격 후보</b></p>
+      <ul>
+        <li><b>"First-User Learning Loop Reads Language, And Help Means Articulation Not Delegation"</b> — prelaunch 첫 사용자 학습은 확장 채널보다 먼저이고, 산출은 성패율이 아니라 반복 문제 언어·자기 말로 설명한 가치·결정-위임 인지로 읽는다. 성찰형 제품에서 첫 사용자 도움의 목표는 결정 대행이 아니라 자기 말로 가치를 말하게 하는 것이며, 수집은 invite→pre→post→자기 말 기록 4지점 손기록 루프다. <code>Message Confusion As Evidence</code>(m27)·<code>Prelaunch Decision Boundary</code>·<code>Agent-Led Growth…Experience Products</code>(m46)·<code>Decision-Delegation Risk Rides The Verb</code>(m45)를 보완하는 <b>첫 사용자 수집 루프 축</b>. → 본 패스에서 원장 승격함.</li>
+      </ul>
+
+      <p><b>변경한 가정 / 충돌</b></p>
+      <ul>
+        <li>변경한 가정: <b>없음.</b> 기존 경계를 재정의하지 않고 "초대·질문·기록" 수집 루프 층만 추가한다.</li>
+        <li>선행 문서 충돌: <b>0.</b> <code>first-real-user-baseline-template</code>(기록표)·<code>first-60-second-value-observation-script</code>(세션 중 관찰)·<code>ai-promise-decision-control-audit-table</code>(m45 카피 프레임)과 층이 다르고 같은 방향. 출처노트 명시 세 문서와 정렬, 외부 행동 0.</li>
+      </ul>
+
+      <p><b>검증 게이트 (PASS)</b></p>
+      <ul>
+        <li>docs-only diff — Infinity artifact 1파일 + report 1파일 + 원장/INTENTS/archive. 코드·앱 변경 0(Virtue 앱 레포 로컬 부재, 접근 0).</li>
+        <li>first value 매핑 재정의 0 — J1/J2/J4=<code>deed_saved</code>, J3=<code>deed_judged</code> 기본값 유지(앱 미접근으로 line-anchor 인용은 범위 밖, 이벤트명만 사용).</li>
+        <li>신규 이벤트·속성·tracking·privacy·dashboard·session replay·배포·비용·권한·공개 발송·프로덕션 카피 변경 <b>0</b>.</li>
+        <li>출처노트 <code>source/external-links/marketing/2026-06-08-founder-led-first-users.md</code> 로컬 존재·인용.</li>
+        <li>HTML 게이트 — <code>&lt;html</code>·<code>&lt;body</code>·<code>axis ax1</code>·<code>axis ax2</code>·<code>&lt;details</code> 포함, details에 계승한 기준·이번에 새로 배운 것·다음 Marketer 규칙·승격 후보 포함.</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="chev"></span> 실행 메타 · 산출물</summary>
+    <div class="body">
+      <div class="chips">
+        <span class="chip">2026-06-08T22:07Z</span>
+        <span class="chip">heartbeat → claude local</span>
+        <span class="chip">Inbox → Archive</span>
+        <span class="chip">approval: agent-approved L2</span>
+      </div>
+      <ul>
+        <li>산출물 <code>artifacts/marketing-47/virtue-first-10-design-user-ask-script.md</code> (infinity)</li>
+        <li>리포트 <code>reports/marketing-47/2026-06-08T2207Z-local.html</code> (infinity)</li>
+        <li>출처노트 <code>source/external-links/marketing/2026-06-08-founder-led-first-users.md</code></li>
+        <li>원장 승격 <code>MARKETING_LEARNINGS.md</code> · "First-User Learning Loop Reads Language, And Help Means Articulation Not Delegation"</li>
+        <li>permission: L2 docs-only · 공개 발송/DM/광고·프로덕션 카피·신규 계측·tracking/privacy·dashboard·session replay·배포·비용·권한 변경 금지</li>
+      </ul>
+    </div>
+  </details>
+  </div>
+
+  <div class="foot reveal" style="animation-delay:.3s">
+    <span>Agent-First Heartbeat</span>
+    <span>Infinity · Intent Note</span>
+  </div>
+</div>
+</body>
+</html>

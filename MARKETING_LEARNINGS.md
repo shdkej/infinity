@@ -174,6 +174,13 @@
 - **주의:** "AI 제품이니까 agent-first 유통부터"는 범주 오류다. agent-to-agent recommendation·MCP 노출 수치를 제품 성과 기준으로 복사하지 않는다. 공개·실행 표면(robots/sitemap/llms.txt·API/MCP·programmatic auth·usage-based pricing)은 모두 approval-needed. agent path를 열면 "외부 자율 행동 없음"(m38)과 "사람 마지막 선택"(m45) 두 구조적 안전장치가 동시에 무너진다. [[No Autonomous Action Bounds The Trust Question]]·[[Decision-Delegation Risk Rides The Verb, Control Rides The Affordance]]·[[Prelaunch Decision Boundary]]를 보완하는 유통 전략 축이다.
 - **출처:** `marketing-46`, `marketing-38`, `marketing-45`, `marketing-18`.
 
+### First-User Learning Loop Reads Language, And Help Means Articulation Not Delegation
+
+- **결론:** prelaunch 첫 사용자(첫 10명) 학습은 확장 채널 최적화나 작은 숫자 해석보다 *먼저*이고, 그 산출은 성패율이 아니라 (a) 반복되는 문제 언어 (b) 사용자가 자기 말로 설명한 가치 (c) 결정-위임 인지 세 언어로 읽는다. 성찰·기록·자기 선택이 본체인 제품에서 첫 사용자 도움의 목표는 사용자의 결정을 *대신*하는 것이 아니라 사용자가 가치를 *자기 말로 말하게* 하는 것이다 — 도움이 성찰을 대행하면 수집하려던 자기 말 자체가 사라진다.
+- **적용:** 첫 사용자 학습을 invite(잡별 초대) → pre(사용 전 2문항: 현재 행동·대체재 / 잡 신호·기대) → post(첫 세션 후 3문항: first value 위치 / friction / 결정-위임 인지) → 자기 말 기록 칸 4지점 손기록 루프로 둔다. 초대·질문 문장은 전부 proposal-only 내부 후보이고 m45 동사 프레임(판결 아닌 관점)을 따른다. first value는 잡별(J1/J2/J4=`deed_saved`, J3=`deed_judged`)로 읽고 J3 결과 후 무저장 종료는 정상이다.
+- **주의:** 첫 10명을 성패율·activation rate·PMF·전환율·retention%로 환산하지 않는다. 자기 말 기록은 신규 계측이 아니라 손기록(원문 그대로)만이다. maker self-test/synthetic/mock은 제외·표시한다. `deed_save_capped`·503·지연은 availability/friction이지 value/upgrade demand가 아니다. 공개 발송/DM/광고·프로덕션 카피·신규 이벤트/속성/tracking/privacy/dashboard/session replay·배포·비용·권한 변경은 모두 approval-needed. [[Message Confusion As Evidence]]·[[Prelaunch Decision Boundary]]·[[Agent-Led Growth Fits Task-Completion Products, Not Experience Products]]·[[Decision-Delegation Risk Rides The Verb, Control Rides The Affordance]]를 보완하는 첫 사용자 수집 루프 축이다.
+- **출처:** `marketing-47`, `marketing-27`, `marketing-08`, `marketing-46`, `marketing-45`.
+
 ## 다음 Marketer 체크리스트
 
 1. 이번 intent가 어떤 기존 기준을 계승하는지 3개 이하로 적는다.
