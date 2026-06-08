@@ -4,6 +4,7 @@
 
 ## Inbox
 
+<!-- marketing-46 inbox 2026-06-08T10:00Z → intents/inbox/marketing-46.md [projects: virtue; type: strategy; topics: agent-led-growth,ai-product,distribution,prelaunch] (Virtue agent-led growth fit/no-fit 경계표 후보. Source note: `/home/ubuntu/workspace/knowledge-lab/source/external-links/marketing/2026-06-08-agent-led-growth-boundary.md`. AI 제품 유통 논의가 API/MCP/agent docs 쪽으로 기울지만 Virtue는 prelaunch human-first 성찰 앱이므로, 지금 만들지 않을 것과 나중에 재검토할 조건을 docs-only로 분리. L2 docs-only; 공개 카피·robots/sitemap/llms.txt·API/MCP·tracking/privacy·배포·외부발송·비용 변경은 approval-needed.) -->
 
 ## Active
 
