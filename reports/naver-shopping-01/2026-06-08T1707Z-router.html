@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<!-- 감시형(router) — Quiet Note. JS/외부리소스 금지, 인라인 CSS만. -->
+<title>Infinity Report · naver-shopping-01 router sync</title>
+<style>
+  :root{
+    --bg:#f4f2ea; --panel:#fbfaf5; --ink:#2c2a25; --soft:#807c70; --faint:#a8a496; --line:#e3dfd2;
+    --a2:#5f7a5e; --a2-deep:#3f5740;            /* 축2 = sage 고정 */
+    --a1:#b08545; --a1-deep:#8a6633;            /* 축1 = 감시형 muted gold */
+    --sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;}
+  body{background:var(--bg); color:var(--ink); font-family:var(--sans);
+    font-size:14px; line-height:1.68; -webkit-font-smoothing:antialiased;}
+  .sheet{max-width:720px; margin:0 auto; padding:48px 34px 46px;}
+  .reveal{opacity:0; animation:fade .7s ease forwards;}
+  @keyframes fade{from{opacity:0; transform:translateY(9px);} to{opacity:1; transform:none;}}
+  .eyebrow{display:flex; align-items:center; gap:10px; font-family:var(--mono);
+    font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--soft);}
+  .eyebrow .id{color:var(--a2-deep); font-weight:600;}
+  .eyebrow .dot{width:5px; height:5px; border-radius:50%; background:var(--a2);}
+  .eyebrow .status{margin-left:auto; color:var(--a2-deep);}
+  h1{font-size:29px; line-height:1.3; font-weight:700; letter-spacing:-.01em; margin:20px 0 0;}
+  .dek{font-size:15.5px; color:var(--soft); margin:13px 0 0; max-width:52ch;}
+  .hr{height:1px; background:var(--line); margin:30px 0;}
+  .axis{padding:0 0 4px 22px; position:relative; margin-bottom:30px;}
+  .axis::before{content:""; position:absolute; left:0; top:6px; bottom:6px; width:2px; border-radius:2px;}
+  .axis.ax1::before{background:var(--a1);} .axis.ax2::before{background:var(--a2);}
+  .axis.ax1{--ul:var(--a1);} .axis.ax2{--ul:var(--a2);}
+  .axis .label{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase;
+    margin-bottom:9px; display:flex; align-items:center; gap:8px;}
+  .axis.ax1 .label{color:var(--a1-deep);} .axis.ax2 .label{color:var(--a2-deep);}
+  .axis .label .n{font-weight:600; opacity:.6;}
+  .axis .text{font-size:18px; line-height:1.6; color:#37352e;}
+  .axis .text b{font-weight:700; color:var(--ink); border-bottom:2px solid var(--ul);}
+  ol.find{list-style:none; counter-reset:f; margin:16px 0 0; padding:0;}
+  ol.find li{position:relative; padding:8px 0 8px 26px; font-size:15px; color:#37352e; border-top:1px solid var(--line);}
+  ol.find li:first-child{border-top:none;}
+  ol.find li::before{counter-increment:f; content:counter(f); position:absolute; left:0; top:9px;
+    font-family:var(--mono); font-size:12px; font-weight:600; color:var(--a1-deep);}
+  details{border:1px solid var(--line); border-radius:10px; background:var(--panel); margin-bottom:10px;}
+  summary{cursor:pointer; list-style:none; padding:14px 16px; display:flex; align-items:center; gap:11px;
+    font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft);}
+  summary::-webkit-details-marker{display:none;}
+  summary .chev{width:8px; height:8px; border-right:2px solid var(--a2-deep); border-bottom:2px solid var(--a2-deep);
+    transform:rotate(-45deg); transition:.25s; flex:none; margin-left:2px;}
+  details[open] summary .chev{transform:rotate(45deg);}
+  summary:hover{color:var(--ink);}
+  .body{padding:2px 16px 18px;}
+  table{border-collapse:collapse; width:100%; font-size:13px; margin:4px 0 12px;}
+  th,td{border-bottom:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top;}
+  th{font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft); font-weight:600;}
+  td:first-child{color:var(--a2-deep); font-weight:600; white-space:nowrap;}
+  .body p{color:var(--soft);}
+  .body ul{margin:6px 0; padding-left:18px;} .body li{margin:5px 0;}
+  code{font-family:var(--mono); font-size:12px; background:#edeae0; padding:1px 6px; border-radius:3px; color:var(--a2-deep);}
+  a{color:var(--a2-deep); text-underline-offset:3px;}
+  .chips{display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px;}
+  .chip{font-family:var(--mono); font-size:10.5px; letter-spacing:.05em; color:var(--soft); border:1px solid var(--line); border-radius:999px; padding:3px 10px;}
+  .foot{margin-top:30px; padding-top:15px; border-top:1px solid var(--line);
+    display:flex; justify-content:space-between; font-family:var(--mono); font-size:10px;
+    letter-spacing:.13em; text-transform:uppercase; color:var(--faint);}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="eyebrow reveal">
+    <span class="dot"></span>
+    <span class="id">naver-shopping-01</span>
+    <span>Router / Sync Note</span>
+    <span class="status">active</span>
+  </div>
+  <h1 class="reveal" style="animation-delay:.05s">parent ↔ infinity 서브모듈 동기화 점검</h1>
+  <p class="dek reveal" style="animation-delay:.09s">직전 로컬 런이 fd6e977을 푸시했는데도 Knowledge Lab이 <code>m infinity</code>로 남은 이유를 확인하고 동기화한다.</p>
+
+  <div class="hr reveal" style="animation-delay:.12s"></div>
+
+  <div class="axis ax1 reveal" style="animation-delay:.16s">
+    <div class="label"><span class="n">01</span> 무엇을 점검했나</div>
+    <div class="text">parent Knowledge Lab의 <b>infinity 서브모듈 동기화 상태</b>와 이번 router 런의 <b>HTML run report 게이트</b>. fd6e977(14:39Z 로그인 읽기전용 테스트)을 푸시한 뒤에도 parent가 <code>m infinity</code>로 표시되는 원인을 추적했다.</div>
+  </div>
+
+  <div class="axis ax2 reveal" style="animation-delay:.22s">
+    <div class="label"><span class="n">02</span> 이상 여부 · 조치</div>
+    <div class="text">포인터 드리프트는 <b>없었다</b> — parent gitlink · infinity HEAD · origin/main 모두 fd6e977로 일치. <code>m infinity</code>의 실제 원인은 서브모듈 작업트리의 미커밋 <b>EVALUATION_NOTES.md</b>(naver-shopping-01과 무관한 evaluator 노트)였다. 이번 run report를 생성·스코프 커밋·푸시하고 parent 포인터를 새 커밋으로 동기화했다.</div>
+    <ol class="find">
+      <li>infinity: 이 HTML 리포트만 스코프 스테이징 → 커밋 → origin/main push</li>
+      <li>parent: <code>infinity</code> 포인터만 스테이징 → 커밋 → origin/main push (L2 agent-approved)</li>
+      <li>EVALUATION_NOTES.md는 범위 밖(무관 dirty)이라 미접촉 → parent의 <code>(modified content)</code>는 잔존</li>
+    </ol>
+  </div>
+
+  <div class="reveal" style="animation-delay:.27s">
+  <details open>
+    <summary><span class="chev"></span> 상세 · 진단 근거</summary>
+    <div class="body">
+      <table>
+        <tr><th>대상</th><th>상태</th></tr>
+        <tr><td>parent gitlink</td><td><code>160000 fd6e977 infinity</code></td></tr>
+        <tr><td>infinity HEAD</td><td><code>fd6e977</code></td></tr>
+        <tr><td>infinity origin/main</td><td><code>fd6e977</code> (동일)</td></tr>
+        <tr><td><code>m infinity</code> 원인</td><td>서브모듈 미커밋 <code>EVALUATION_NOTES.md</code> (modified content), 포인터 드리프트 아님</td></tr>
+      </table>
+      <p><b>L2 자체 승인 근거</b> — 목표 intent(naver-shopping-01) 직접 연결, 되돌림 가능(일반 커밋·non-force push), 비용 없음, 프로덕션/시크릿/타인 메시지 무관. GitHub Sync Policy의 "스코프 커밋만, 무관 dirty 미스테이징, force 금지" 준수.</p>
+      <ul>
+        <li>금지 미수행: force push / reset / 무관 dirty 스테이징 / 코드·상품·계정·주문·광고·공개 변경 / 브라우저 재시도 / 외부 메시지 없음</li>
+        <li>intent는 <b>active 유지</b> — 14:39Z 블로커(Commerce ID 전환, 사용자측 1회 확인)는 그대로</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="chev"></span> 실행 메타 · 산출물</summary>
+    <div class="body">
+      <div class="chips">
+        <span class="chip">2026-06-08T17:07Z</span>
+        <span class="chip">infinity cron</span>
+        <span class="chip">active → active</span>
+      </div>
+      <ul><li>리포트 <code>reports/naver-shopping-01/2026-06-08T1707Z-router.html</code></li></ul>
+    </div>
+  </details>
+  </div>
+
+  <div class="foot reveal" style="animation-delay:.3s">
+    <span>Agent-First Heartbeat</span>
+    <span>Infinity · naver-shopping-01</span>
+  </div>
+</div>
+</body>
+</html>
