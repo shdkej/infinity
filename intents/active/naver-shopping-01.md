@@ -8,7 +8,7 @@
 - owner: SAM
 - source_agent: `/home/ubuntu/.openclaw/workspace/agents/naver-shopping-agent/`
 - created_at: 2026-06-07T23:24Z
-- updated_at: 2026-06-08T14:07Z
+- updated_at: 2026-06-08T1530Z
 
 ## Purpose
 
@@ -26,8 +26,25 @@
 - Knowledge Lab / agent-wiki should be used as source context for product-fit judgment
 - scoped normal GitHub push is allowed so Infinity/Naver-agent state becomes visible remotely
 - Naver QR login session was confirmed in the live browser session on 2026-06-08T12:01Z; read-only checks may proceed while the session remains valid
+- Public source demand validation 1st pass completed 2026-06-08T1530Z: packing/prep candidates draft-promoted with indirect signals
 
 ## Active Blockers
+
+### 2026-06-08T1530Z - 공개 소스 수요 검증 1패스 (Cloud Heartbeat)
+
+- route: cloud-research
+- status: in_progress
+- source: cloud heartbeat (공개 웹 리서치)
+- work_done:
+  - 네이버 DataLab 직접 접근 없이 공개 콘텐츠 생태계에서 간접 수요 신호 수집
+  - 여행 스크랩북 오프라인 클래스(피치바이피치) 존재 확인 → 지불 의향 있는 세그먼트
+  - Etsy/Amazon 한국 여행 플래너 카테고리 활성 — 국제 수요 존재
+  - 2025 오픈서베이: 네이버가 여행 준비 주 채널, 여행=콘텐츠 중심 경험 진화
+  - 여행 준비 블로그 생태계(KKday·트립스토어·브런치) 활발
+- demand_verdict: 패킹/준비 후보 draft 승격 근거 충분 (콘텐츠 수요 + fit 신호 정렬)
+- demand_gaps: 직접 경쟁 스캔(네이버쇼핑 리뷰수·판매량) 미확인 — Electron 세션 복구 시 수행
+- work_continues: yes
+- next_action: 경쟁 제품 스캔 (Electron 세션 복구 대기) + product-curation.md 수요 검증 메모 반영
 
 ### 2026-06-08T14:07Z - 환경 차단 지속 확인 + Knowledge Lab 큐레이션 1패스 수행
 
