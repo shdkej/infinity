@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<!-- Infinity 보고 양식 — 조사형 (slate-blue). JS·외부 리소스 금지, 인라인 CSS만. -->
+<title>Infinity Report · naver-shopping-01</title>
+<style>
+  :root{
+    --bg:#f4f2ea; --panel:#fbfaf5; --ink:#2c2a25; --soft:#807c70; --faint:#a8a496; --line:#e3dfd2;
+    --a2:#5f7a5e; --a2-deep:#3f5740;
+    --a1:#5a6f8a; --a1-deep:#3f536e;
+    --sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;}
+  body{background:var(--bg); color:var(--ink); font-family:var(--sans);
+    font-size:14px; line-height:1.68; -webkit-font-smoothing:antialiased;}
+  .sheet{max-width:720px; margin:0 auto; padding:48px 34px 46px;}
+  .reveal{opacity:0; animation:fade .7s ease forwards;}
+  @keyframes fade{from{opacity:0; transform:translateY(9px);} to{opacity:1; transform:none;}}
+
+  .eyebrow{display:flex; align-items:center; gap:10px; font-family:var(--mono);
+    font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--soft);}
+  .eyebrow .id{color:var(--a2-deep); font-weight:600;}
+  .eyebrow .dot{width:5px; height:5px; border-radius:50%; background:var(--a2);}
+  .eyebrow .status{margin-left:auto; color:var(--a2-deep);}
+  h1{font-size:29px; line-height:1.3; font-weight:700; letter-spacing:-.01em; margin:20px 0 0;}
+  .dek{font-size:15.5px; color:var(--soft); margin:13px 0 0; max-width:52ch;}
+  .hr{height:1px; background:var(--line); margin:30px 0;}
+
+  .axis{padding:0 0 4px 22px; position:relative; margin-bottom:30px;}
+  .axis::before{content:""; position:absolute; left:0; top:6px; bottom:6px; width:2px; border-radius:2px;}
+  .axis.ax1::before{background:var(--a1);} .axis.ax2::before{background:var(--a2);}
+  .axis.ax1{--ul:var(--a1);} .axis.ax2{--ul:var(--a2);}
+  .axis .label{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase;
+    margin-bottom:9px; display:flex; align-items:center; gap:8px;}
+  .axis.ax1 .label{color:var(--a1-deep);} .axis.ax2 .label{color:var(--a2-deep);}
+  .axis .label .n{font-weight:600; opacity:.6;}
+  .axis .text{font-size:18px; line-height:1.6; color:#37352e;}
+  .axis .text b{font-weight:700; color:var(--ink); border-bottom:2px solid var(--ul);}
+  ol.find{list-style:none; counter-reset:f; margin:16px 0 0; padding:0;}
+  ol.find li{position:relative; padding:8px 0 8px 26px; font-size:15px; color:#37352e; border-top:1px solid var(--line);}
+  ol.find li:first-child{border-top:none;}
+  ol.find li::before{counter-increment:f; content:counter(f); position:absolute; left:0; top:9px;
+    font-family:var(--mono); font-size:12px; font-weight:600; color:var(--a1-deep);}
+
+  details{border:1px solid var(--line); border-radius:10px; background:var(--panel); margin-bottom:10px;}
+  summary{cursor:pointer; list-style:none; padding:14px 16px; display:flex; align-items:center; gap:11px;
+    font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft);}
+  summary::-webkit-details-marker{display:none;}
+  summary .chev{width:8px; height:8px; border-right:2px solid var(--a2-deep); border-bottom:2px solid var(--a2-deep);
+    transform:rotate(-45deg); transition:.25s; flex:none; margin-left:2px;}
+  details[open] summary .chev{transform:rotate(45deg);}
+  summary:hover{color:var(--ink);}
+  .body{padding:2px 16px 18px;}
+  table{border-collapse:collapse; width:100%; font-size:13px; margin:4px 0 12px;}
+  th,td{border-bottom:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top;}
+  th{font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft); font-weight:600;}
+  td:first-child{color:var(--a2-deep); font-weight:600; white-space:nowrap;}
+  .body p{color:var(--soft);}
+  .body ul{margin:6px 0; padding-left:18px;} .body li{margin:5px 0;}
+  code{font-family:var(--mono); font-size:12px; background:#edeae0; padding:1px 6px; border-radius:3px; color:var(--a2-deep);}
+  a{color:var(--a2-deep); text-underline-offset:3px;}
+  .chips{display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px;}
+  .chip{font-family:var(--mono); font-size:10.5px; letter-spacing:.05em; color:var(--soft); border:1px solid var(--line); border-radius:999px; padding:3px 10px;}
+  .foot{margin-top:30px; padding-top:15px; border-top:1px solid var(--line);
+    display:flex; justify-content:space-between; font-family:var(--mono); font-size:10px;
+    letter-spacing:.13em; text-transform:uppercase; color:var(--faint);}
+  .tag{display:inline-block; font-family:var(--mono); font-size:10px; letter-spacing:.08em; text-transform:uppercase;
+    border:1px solid var(--line); border-radius:4px; padding:2px 7px; color:var(--soft); margin-right:4px; margin-bottom:4px;}
+  .tag.fit{border-color:var(--a2); color:var(--a2-deep); background:#f0f5f0;}
+  .tag.warn{border-color:#c49a4a; color:#8a6633; background:#fdf8ee;}
+  .cand{border:1px solid var(--line); border-radius:10px; background:var(--panel); padding:16px 18px; margin-bottom:12px;}
+  .cand h3{font-size:15px; font-weight:700; margin:0 0 8px; color:var(--ink);}
+  .cand .sub{font-size:12px; color:var(--soft); margin-bottom:10px;}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="eyebrow reveal">
+    <span class="dot"></span>
+    <span class="id">naver-shopping-01</span>
+    <span>Cloud Research · 조사형</span>
+    <span class="status">active (공개 리서치)</span>
+  </div>
+  <h1 class="reveal" style="animation-delay:.05s">상품 큐레이션 후보 — 공개 리서치</h1>
+  <p class="dek reveal" style="animation-delay:.09s">브라우저 세션 없는 상태에서 사용자 프로필(여행·메모리메이킹·기록) 기반으로 공개 데이터를 조사해 1차 큐레이션 후보 3종을 도출했다.</p>
+
+  <div class="hr reveal" style="animation-delay:.12s"></div>
+
+  <div class="axis ax1 reveal" style="animation-delay:.16s">
+    <div class="label"><span class="n">01</span> 무엇을 조사했나</div>
+    <div class="text">네이버쇼핑 2026 상반기 <b>공개 트렌드 데이터</b>에서 사용자 프로필(여행·메모리메이킹·AI 크리에이터·기록 리듬)과 교차점이 높은 <b>상품 카테고리 후보</b>를 식별했다.</div>
+    <ol class="find">
+      <li>2026 필름·즉석카메라 트렌드 — MZ 세대의 &ldquo;아날로그 기록 리추얼&rdquo; 급부상, 졸업·여행 시즌 검색 증가</li>
+      <li>2026 다이어리/트래블저널 트렌드 — &ldquo;회고&rdquo; 키워드 강세, 카테고리별 목적 다이어리 세분화 수요</li>
+      <li>2026 여행파우치/트래블기어 수요 — 국제선 검색량 전년 대비 34% 증가, 기능+미감 통합 제품 선호</li>
+      <li>스마트스토어 수수료 구조 — 네이버페이(3.74%) + 쇼핑연동(2%) = 총 5~6%; 단가 설계 시 마진 산출 기준</li>
+    </ol>
+  </div>
+
+  <div class="axis ax2 reveal" style="animation-delay:.22s">
+    <div class="label"><span class="n">02</span> 핵심 결과</div>
+    <div class="text">3개 고적합 후보 도출 — <b>인스탁스 즉석카메라</b>(메모리메이킹 핵심 + 2026 신제품), <b>트래블 저널</b>(기록 리듬 완전 일치 + 회고 트렌드), <b>여행파우치</b>(여행 수요 34% YoY 상승) — 셋 모두 사용자가 <b>자연스럽게 콘텐츠를 생산할 수 있는</b> angle 존재.</div>
+  </div>
+
+  <div class="reveal" style="animation-delay:.27s">
+  <details open>
+    <summary><span class="chev"></span> 상품 후보 상세 — 큐레이션 카드 3종</summary>
+    <div class="body">
+
+      <div class="cand">
+        <h3>① 후지필름 인스탁스 Mini Evo Cinema (즉석카메라)</h3>
+        <div class="sub">카테고리: 카메라 &gt; 즉석카메라 / 우선순위: 높음</div>
+        <table>
+          <tr><th>항목</th><th>내용</th></tr>
+          <tr><td>User-fit 근거</td><td>여행+메모리메이킹 핵심 아이템. MZ &ldquo;아날로그 기록 리추얼&rdquo; 트렌드(2026 졸업·여행 시즌 급증). 사용자의 여행 기록 루틴과 직결.</td></tr>
+          <tr><td>수요 신호</td><td>2026년 필름카메라 키워드 MZ 세대 구매 급증. Instax Mini Evo Cinema 신제품 출시(짧은 비디오+QR코드 인쇄 기능). 여행+기록 교차 수요 강함.</td></tr>
+          <tr><td>마진 노트</td><td>본체 10만원대. 브랜드 강해 마진 압박 있지만 필름 소모품(3만원대/팩) 재구매 LTV 높음. 번들 전략 가능.</td></tr>
+          <tr><td>콘텐츠 각도</td><td>&ldquo;여행지에서 찍은 인스탁스 1컷&rdquo; 일상 루틴, 여행 기록 책자 만들기 등 사용자 자연 생산 콘텐츠.</td></tr>
+          <tr><td>등록 마찰</td><td>후지필름 공식 유통망과 경쟁. 정품 인증·AS 안내 필수. 사진 품질 비교 콘텐츠로 차별화 필요.</td></tr>
+          <tr><td>측정 경로</td><td>월별 판매수 + 필름 재구매율 + 리뷰 키워드(&ldquo;여행&rdquo;, &ldquo;기록&rdquo;, &ldquo;선물&rdquo;)</td></tr>
+          <tr><td>승인 경계</td><td>가격·재고·프로모션 변경 전 게이트 유지</td></tr>
+        </table>
+        <span class="tag fit">여행</span><span class="tag fit">메모리메이킹</span><span class="tag fit">콘텐츠각도</span><span class="tag warn">경쟁강함</span>
+      </div>
+
+      <div class="cand">
+        <h3>② 트래블 저널 / 여행 다이어리</h3>
+        <div class="sub">카테고리: 문구·사무 &gt; 다이어리·노트 / 우선순위: 높음</div>
+        <table>
+          <tr><th>항목</th><th>내용</th></tr>
+          <tr><td>User-fit 근거</td><td>여행+기록 완전 일치. 2026 다이어리 트렌드 키워드 &ldquo;회고&rdquo; 강세. 사용자의 문서화 리듬에서 가장 직접적인 상품.</td></tr>
+          <tr><td>수요 신호</td><td>2026 다이어리 카테고리 강세. 여행 노트 세분화 수요 확인(여행 전용 다이어리, 스탬프 페이지, 포켓 수납 등). 연초 외 여행 시즌마다 수요 발생.</td></tr>
+          <tr><td>마진 노트</td><td>단가 5,000~20,000원. 마진율 30~50% 가능. 묶음 판매(저널+펜+스티커) 시 단가 상승.</td></tr>
+          <tr><td>콘텐츠 각도</td><td>&ldquo;한 장 기록법&rdquo;, 여행 저널링 루틴 소개. 사용자가 실제 쓴 저널 사진 공유 → 신뢰 콘텐츠.</td></tr>
+          <tr><td>등록 마찰</td><td>진입 장벽 낮음, 경쟁 많음. 디자인 차별화 또는 여행 특화 큐레이션 패키지 전략 필요.</td></tr>
+          <tr><td>측정 경로</td><td>재구매율 + 리뷰 키워드(&ldquo;여행&rdquo;, &ldquo;선물&rdquo;, &ldquo;기록&rdquo;) + 묶음 구매 비율</td></tr>
+          <tr><td>승인 경계</td><td>신규 상품 등록·가격 변경 전 게이트 유지</td></tr>
+        </table>
+        <span class="tag fit">여행</span><span class="tag fit">기록리듬</span><span class="tag fit">콘텐츠각도</span><span class="tag warn">경쟁많음</span>
+      </div>
+
+      <div class="cand">
+        <h3>③ 여행 파우치 / 트래블 오거나이저</h3>
+        <div class="sub">카테고리: 여행·레저 &gt; 여행파우치·소품 / 우선순위: 중간</div>
+        <table>
+          <tr><th>항목</th><th>내용</th></tr>
+          <tr><td>User-fit 근거</td><td>여행+일상 정리 시스템. 사용자의 &ldquo;daily system&rdquo; 프로필에 부합. 여행 소품 큐레이션의 기본 아이템.</td></tr>
+          <tr><td>수요 신호</td><td>2026 국제선 항공 검색량 전년 대비 34% 증가. 여행파우치는 신세계면세점 등 오프라인도 카테고리 확대. 여행 가방·액세서리가 패션 카테고리 약 20% 점유.</td></tr>
+          <tr><td>마진 노트</td><td>단가 10,000~30,000원. 마진 30~40%. SKU 다양성(색상·소재·사이즈) 관리 필요.</td></tr>
+          <tr><td>콘텐츠 각도</td><td>&ldquo;미니멀 여행 짐 싸기&rdquo;, 파우치 조합법 소개. 여행 루틴 콘텐츠 안에 자연 배치 가능.</td></tr>
+          <tr><td>등록 마찰</td><td>색상·소재 경쟁 강함. 뚜렷한 컨셉(예: 문서 보관용 여행 파우치, 기록 도구 전용 등) 없으면 차별화 어려움.</td></tr>
+          <tr><td>측정 경로</td><td>SKU별 판매 비율 + 리뷰 키워드 + 재구매율</td></tr>
+          <tr><td>승인 경계</td><td>신규 등록·가격·재고 변경 전 게이트 유지</td></tr>
+        </table>
+        <span class="tag fit">여행</span><span class="tag fit">일상정리</span><span class="tag warn">차별화필요</span>
+      </div>
+
+      <p><b>로컬 에이전트 전달 액션 (Electron 세션 복구 시 우선 실행)</b></p>
+      <ul>
+        <li>인스탁스 Mini Evo Cinema: 네이버쇼핑 실제 검색량·경쟁 지수·가격대 확인</li>
+        <li>트래블 저널: &ldquo;여행노트&rdquo;/&ldquo;트래블다이어리&rdquo; 키워드 월간 검색량 및 리뷰 누적 상위 상품 분석</li>
+        <li>여행파우치: &ldquo;여행파우치&rdquo;/&ldquo;트래블오거나이저&rdquo; 키워드 경쟁 강도 및 상위 판매자 구성 확인</li>
+      </ul>
+      <p><b>무세션 추가 리서치 가능 항목</b></p>
+      <ul>
+        <li>후지필름 공식 사이트에서 2026 인스탁스 최신 모델·가격·필름 소모품 정보 확인 가능</li>
+        <li>Knowledge Lab / agent-wiki의 여행·기록 관련 source-note에서 제품 fit 판단 보완 가능</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="chev"></span> 실행 메타 · 산출물</summary>
+    <div class="body">
+      <div class="chips">
+        <span class="chip">2026-06-08T1400Z</span>
+        <span class="chip">cloud-research / heartbeat</span>
+        <span class="chip">mode: prepare</span>
+        <span class="chip">approval: L0 자율 실행</span>
+      </div>
+      <ul>
+        <li>리포트 <code>reports/naver-shopping-01/2026-06-08T1400Z-cloud-research.html</code> (본 파일)</li>
+      </ul>
+      <p>배경: 브라우저 세션(Electron) 환경 차단 상태(13:07Z 확인). 공개 데이터 기반 조사형 리포트. write/account/customer/budget/publishing 게이트 유지. 비용·시크릿·타인 알림 없음 → L0 자율 실행.</p>
+      <p>출처: 나스미디어 블로그(필름카메라 트렌드), 오픈서베이 2026 온라인 쇼핑 트렌드, DHL/Trip.com 여행 수요 데이터, 스마트스토어 수수료 공개 자료.</p>
+    </div>
+  </details>
+  </div>
+
+  <div class="foot reveal" style="animation-delay:.3s">
+    <span>Agent-First Heartbeat</span>
+    <span>Infinity · naver-shopping-01</span>
+  </div>
+</div>
+</body>
+</html>
