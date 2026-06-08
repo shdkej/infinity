@@ -167,6 +167,13 @@
 - **주의:** 프레임 분류를 "카피를 바꿔야 한다"는 결정으로 환산하지 않는다(전부 proposal-only). affordance 존재를 "사용자가 제어를 *인지*했다"로 단정하지 않는다(인지 여부는 m38 관찰 위임). 공개 버튼/헤더/힌트/온보딩 카피·llms.txt·cap 정책 변경은 모두 approval-needed. 외부 설문 수치(Gartner)를 Virtue 성과 기준으로 복사하지 않는다. [[No Autonomous Action Bounds The Trust Question]]·[[Trust Calibration By Job]]을 보완하는 카피 축이다.
 - **출처:** `marketing-45`, `marketing-38`, `marketing-24`, `marketing-32`, `marketing-18`.
 
+### Agent-Led Growth Fits Task-Completion Products, Not Experience Products
+
+- **결론:** agent-led growth(에이전트가 API·문서를 발견하고 task completion으로 활성화)가 맞는지는 "제품에 AI가 있는가"가 아니라 **"가치를 누가 완료하는가(task completion subject)"**로 갈린다. 에이전트의 task completion이 곧 가치인 제품(API/B2B/워크플로 편입형)엔 맞지만, 사람의 경험·선택이 본체인 제품(Virtue 같은 성찰/기록/자기 해석)엔 do-for-you 유통이 제품 의미를 *소거*한다(성찰을 대행하면 성찰이 사라진다).
+- **적용:** AI 유통 논의가 들어오면 ① "가치를 누가 완료하나"(에이전트 task vs 사람 경험·선택)를 먼저 묻는다 → ② agent-readable 후보를 **read-about(설명: 에이전트가 읽고 사람에게 안내)** vs **do-for-you(실행: 에이전트가 대신 사용)**로 가른다 → ③ "사람 경험·선택" 제품이면 do-for-you(MCP/API/agent onboarding/스키마·에러코드·예제)는 no-fit, 공개 read-about(llms.txt 등)는 approval 후보 → ④ 재검토는 실사용 신호 기반 launch/post-launch gate(설명→export→연결→실행 표면 순)로만 연다. read-about 표면도 m45 동사 프레임(판결 vs 관점)을 따른다.
+- **주의:** "AI 제품이니까 agent-first 유통부터"는 범주 오류다. agent-to-agent recommendation·MCP 노출 수치를 제품 성과 기준으로 복사하지 않는다. 공개·실행 표면(robots/sitemap/llms.txt·API/MCP·programmatic auth·usage-based pricing)은 모두 approval-needed. agent path를 열면 "외부 자율 행동 없음"(m38)과 "사람 마지막 선택"(m45) 두 구조적 안전장치가 동시에 무너진다. [[No Autonomous Action Bounds The Trust Question]]·[[Decision-Delegation Risk Rides The Verb, Control Rides The Affordance]]·[[Prelaunch Decision Boundary]]를 보완하는 유통 전략 축이다.
+- **출처:** `marketing-46`, `marketing-38`, `marketing-45`, `marketing-18`.
+
 ## 다음 Marketer 체크리스트
 
 1. 이번 intent가 어떤 기존 기준을 계승하는지 3개 이하로 적는다.

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>marketing-46 · Virtue agent-led growth fit / no-fit 경계표</title>
+<style>
+  :root{
+    --bg:#f4f2ea; --panel:#fbfaf5; --ink:#2c2a25; --soft:#807c70; --faint:#a8a496; --line:#e3dfd2;
+    --a2:#5f7a5e; --a2-deep:#3f5740;            /* 축2(결과/해법) = sage, 고정 */
+    --a1:#a9745a; --a1-deep:#8a5c45;            /* 축1 = 개선형(marketing) clay */
+    --sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;}
+  body{background:var(--bg); color:var(--ink); font-family:var(--sans);
+    font-size:14px; line-height:1.68; -webkit-font-smoothing:antialiased;}
+  .sheet{max-width:720px; margin:0 auto; padding:48px 34px 46px;}
+  .reveal{opacity:0; animation:fade .7s ease forwards;}
+  @keyframes fade{from{opacity:0; transform:translateY(9px);} to{opacity:1; transform:none;}}
+
+  .eyebrow{display:flex; align-items:center; gap:10px; font-family:var(--mono);
+    font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--soft);}
+  .eyebrow .id{color:var(--a2-deep); font-weight:600;}
+  .eyebrow .dot{width:5px; height:5px; border-radius:50%; background:var(--a2);}
+  .eyebrow .status{margin-left:auto; color:var(--a2-deep);}
+  h1{font-size:29px; line-height:1.3; font-weight:700; letter-spacing:-.01em; margin:20px 0 0;}
+  .dek{font-size:15.5px; color:var(--soft); margin:13px 0 0; max-width:52ch;}
+  .hr{height:1px; background:var(--line); margin:30px 0;}
+
+  .axis{padding:0 0 4px 22px; position:relative; margin-bottom:30px;}
+  .axis::before{content:""; position:absolute; left:0; top:6px; bottom:6px; width:2px; border-radius:2px;}
+  .axis.ax1::before{background:var(--a1);} .axis.ax2::before{background:var(--a2);}
+  .axis.ax1{--ul:var(--a1);} .axis.ax2{--ul:var(--a2);}
+  .axis .label{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase;
+    margin-bottom:9px; display:flex; align-items:center; gap:8px;}
+  .axis.ax1 .label{color:var(--a1-deep);} .axis.ax2 .label{color:var(--a2-deep);}
+  .axis .label .n{font-weight:600; opacity:.6;}
+  .axis .text{font-size:18px; line-height:1.6; color:#37352e;}
+  .axis .text b{font-weight:700; color:var(--ink); border-bottom:2px solid var(--ul);}
+  ol.find{list-style:none; counter-reset:f; margin:16px 0 0; padding:0;}
+  ol.find li{position:relative; padding:8px 0 8px 26px; font-size:15px; color:#37352e; border-top:1px solid var(--line);}
+  ol.find li:first-child{border-top:none;}
+  ol.find li::before{counter-increment:f; content:counter(f); position:absolute; left:0; top:9px;
+    font-family:var(--mono); font-size:12px; font-weight:600; color:var(--a1-deep);}
+
+  details{border:1px solid var(--line); border-radius:10px; background:var(--panel); margin-bottom:10px;}
+  summary{cursor:pointer; list-style:none; padding:14px 16px; display:flex; align-items:center; gap:11px;
+    font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft);}
+  summary::-webkit-details-marker{display:none;}
+  summary .chev{width:8px; height:8px; border-right:2px solid var(--a2-deep); border-bottom:2px solid var(--a2-deep);
+    transform:rotate(-45deg); transition:.25s; flex:none; margin-left:2px;}
+  details[open] summary .chev{transform:rotate(45deg);}
+  summary:hover{color:var(--ink);}
+  .body{padding:2px 16px 18px;}
+  table{border-collapse:collapse; width:100%; font-size:13px; margin:4px 0 12px;}
+  th,td{border-bottom:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top;}
+  th{font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft); font-weight:600;}
+  td:first-child{color:var(--a2-deep); font-weight:600; white-space:nowrap;}
+  .body p{color:var(--soft);}
+  .body ul{margin:6px 0; padding-left:18px;} .body li{margin:5px 0;}
+  code{font-family:var(--mono); font-size:12px; background:#edeae0; padding:1px 6px; border-radius:3px; color:var(--a2-deep);}
+  a{color:var(--a2-deep); text-underline-offset:3px;}
+  .chips{display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px;}
+  .chip{font-family:var(--mono); font-size:10.5px; letter-spacing:.05em; color:var(--soft); border:1px solid var(--line); border-radius:999px; padding:3px 10px;}
+  .foot{margin-top:30px; padding-top:15px; border-top:1px solid var(--line);
+    display:flex; justify-content:space-between; font-family:var(--mono); font-size:10px;
+    letter-spacing:.13em; text-transform:uppercase; color:var(--faint);}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="eyebrow reveal">
+    <span class="dot"></span>
+    <span class="id">marketing-46</span>
+    <span>Research Note</span>
+    <span class="status">completed</span>
+  </div>
+  <h1 class="reveal" style="animation-delay:.05s">Virtue agent-led growth fit / no-fit 경계표</h1>
+  <p class="dek reveal" style="animation-delay:.09s">"AI 제품이면 agent-first 유통부터"라는 오독을 막기 위해, Virtue prelaunch에 agent-led growth가 맞는 조건과 맞지 않는 조건을 한 장으로 가른 docs-only 경계표. 공개 카피·robots/sitemap/llms.txt·API/MCP·코드 변경 0.</p>
+
+  <div class="hr reveal" style="animation-delay:.12s"></div>
+
+  <div class="axis ax1 reveal" style="animation-delay:.16s">
+    <div class="label"><span class="n">01</span> 🔴 무엇이 문제였나</div>
+    <div class="text">AI 제품 유통 논의가 <b>agent-led growth</b>(에이전트가 API·문서를 발견하고 <i>task completion</i>으로 활성화)로 기울면서, "AI 제품이니까 agent-first 유통·MCP·API·agent docs부터"라는 <b>범주 오류</b>가 생긴다. Virtue는 아직 첫 10명 학습도 안 끝난 <b>prelaunch</b>이고, 가치 본체가 사람의 성찰·기록·자기 선택이라 이 논의를 그대로 복사하면 무거운 표면을 먼저 만들고 제품 의미를 흐릴 위험이 있다.</div>
+  </div>
+
+  <div class="axis ax2 reveal" style="animation-delay:.22s">
+    <div class="label"><span class="n">02</span> ✅ 어떻게 해결하나</div>
+    <div class="text">유통 모드를 가르는 기준을 "AI 제품인가"가 아니라 <b>"가치를 누가 완료하나(task completion subject)"</b>로 다시 세우고, 8개 판단 차원의 fit / no-fit / Virtue 현재 위치를 한 표로 고정했다. Virtue가 "사람이 경험·선택" 칸에 있는 한 agent-readable은 <b>설명(read-about)까지만 후보</b>, <b>실행(do-for-you: MCP/API/agent onboarding)은 no-fit</b>이다.</div>
+    <ol class="find">
+      <li>8개 차원 전부에서 Virtue는 현재 <b>no-fit 또는 보존 대상</b> — 안 만드는 이유는 게으름이 아니라 제품 의미·구조적 안전장치 보존(§3).</li>
+      <li>agent-readable 표면을 <b>read-about(설명) vs do-for-you(실행)</b>로 갈라, 공개 read-about는 approval 후보·do-for-you는 no-fit으로 분리(§4).</li>
+      <li>나중에 다시 열 <b>launch/post-launch gate</b> G1~G4(설명→export→연결→실행 표면 순)를 실사용 신호 기준으로 사전 정의(§5).</li>
+      <li>금지선·first value 매핑 재정의 0, event anchor drift 0, code diff 0, conflict marker 0(§6).</li>
+    </ol>
+  </div>
+
+  <div class="reveal" style="animation-delay:.27s">
+  <details open>
+    <summary><span class="chev"></span> 상세 · 경계표 핵심과 검증</summary>
+    <div class="body">
+      <p><b>산출물:</b> <code>apps/web/docs/agent-led-growth-fit-no-fit-boundary-table.md</code> (virtue-rebirth-app, 신규 1파일, docs-only).</p>
+
+      <p><b>§3 fit / no-fit 경계표 (요약)</b></p>
+      <table>
+        <tr><th>판단 차원</th><th>fit</th><th>no-fit · Virtue 현재</th></tr>
+        <tr><td>가치 생성 주체</td><td>에이전트 task 완료=가치</td><td>사람 경험·선택=가치 → <b>no-fit</b></td></tr>
+        <tr><td>activation 정의</td><td>API 성공·task completion</td><td>사람 aha (J1/J2/J4 <code>deed_saved:188</code>, J3 <code>deed_judged:107</code>) → <b>no-fit</b></td></tr>
+        <tr><td>제품 표면</td><td>문서·스키마=product surface</td><td>화면·결과 카드=surface → <b>no-fit</b></td></tr>
+        <tr><td>AI 자율 행동</td><td>에이전트 자율 실행=제품</td><td>비자율 판정만 → <b>no-fit</b> (m38)</td></tr>
+        <tr><td>마지막 선택권</td><td>에이전트 결정 대행 가능</td><td>0점도 저장·무저장 종료 비용 0 → 사람 선택 보장 (m45)</td></tr>
+        <tr><td>제품 단계</td><td>반복·외부 연결 수요 확인됨</td><td>prelaunch, 첫 10명 학습 전 → <b>no-fit</b></td></tr>
+      </table>
+
+      <p><b>§4 agent-readable 허용 경계 (read-about vs do-for-you)</b></p>
+      <table>
+        <tr><th>표면</th><th>모드</th><th>지금</th></tr>
+        <tr><td>제품 설명 내부 snippet</td><td>read-about</td><td>내부 docs-only 허용 (공개는 approval)</td></tr>
+        <tr><td>llms.txt / robots / sitemap</td><td>read-about(공개)</td><td><b>approval-needed</b>, 생성/변경 0</td></tr>
+        <tr><td>스키마·에러코드·예제</td><td>do-for-you</td><td><b>no-fit</b>, 만들지 않음</td></tr>
+        <tr><td>공개 API / MCP server</td><td>do-for-you</td><td><b>no-fit + approval</b></td></tr>
+        <tr><td>agent onboarding / workflow template</td><td>do-for-you</td><td><b>no-fit</b> (성찰 대행=의미 소거)</td></tr>
+      </table>
+
+      <p><b>§5 launch / post-launch gate (재검토 조건)</b></p>
+      <table>
+        <tr><th>게이트</th><th>여는 신호</th><th>재검토 대상</th></tr>
+        <tr><td>G1 read-about 공개</td><td>설명·공유 반복 요청, AEO 유입</td><td>llms.txt 등 공개 설명 표면</td></tr>
+        <tr><td>G2 export 수요</td><td>기록 내보내기/이전 요청</td><td>사람용 export 경로</td></tr>
+        <tr><td>G3 외부 연결</td><td>다른 도구·루틴 연결 명시 요청</td><td>제한적 연동 (read/export 우선)</td></tr>
+        <tr><td>G4 agent path 본격</td><td>G1~G3 + 반복·재방문 묶음</td><td>MCP/API/onboarding (§2 질문 재판정)</td></tr>
+      </table>
+
+      <p><b>계승한 기준</b></p>
+      <ul>
+        <li>first value: J1/J2/J4=<code>deed_saved</code>:188, J3=<code>deed_judged</code>:107 (m06 [[First Value Mapping]]) — 재정의 0.</li>
+        <li>비자율 AI라 외부 자율 행동 없음·위험=자기인식 오보정 (m38 [[No Autonomous Action Bounds The Trust Question]]).</li>
+        <li>마지막 결정권은 결과 후 affordance(취소·한 번 더·저장 <code>:386,399,408</code>)에 구조적으로 실림 (m45 [[Decision-Delegation Risk Rides The Verb]]).</li>
+        <li>AEO 내부 snippet=공개 미반영·proposal-only, 공개 표면은 approval (m18).</li>
+        <li>prelaunch 작은 표본은 방향 재료, decision-grade 아님 ([[Prelaunch Decision Boundary]]); 첫 가치 전 결제·잠금 금지 ([[Monetization Boundary]]); synthetic/mock/self-test 비결정 등급 (m25·m11).</li>
+      </ul>
+
+      <p><b>이번에 새로 배운 것</b></p>
+      <ul>
+        <li>유통 모드 선택은 "AI 제품인가"가 아니라 <b>"가치를 누가 완료하나(task completion subject)"</b>로 갈린다.</li>
+        <li>에이전트 task completion이 곧 가치인 제품(API/B2B/워크플로 편입형)엔 agent-led growth가 맞지만, 사람의 경험·선택이 본체인 Virtue엔 <b>do-for-you 유통이 제품 의미를 소거</b>한다(성찰을 대행하면 성찰이 사라진다).</li>
+        <li>그래서 Virtue에서 agent-readable은 <b>read-about(설명)까지만 후보, do-for-you(실행: MCP/API/onboarding)는 no-fit</b>. m38(자율 행동 없음)·m45(사람 마지막 선택)를 신뢰/카피 층에서 <b>유통 전략 층으로 확장</b>한 것.</li>
+        <li>8개 판단 차원 전부에서 Virtue는 no-fit 또는 보존 대상 — agent path를 열면 "외부 자율 행동 없음"과 "사람 마지막 선택" 두 안전장치가 동시에 무너진다.</li>
+      </ul>
+
+      <p><b>다음 Marketer에게 넘길 규칙</b></p>
+      <ul>
+        <li>agent-led growth/AI 유통 논의가 들어오면: ① "가치를 누가 완료하나"를 먼저 묻는다(에이전트 task vs 사람 경험·선택) → ② agent-readable 후보는 read-about인가 do-for-you인가로 가른다 → ③ Virtue가 "사람 경험·선택" 칸이면 do-for-you는 no-fit, 공개 read-about는 approval 후보 → ④ 재검토는 §5 게이트(실사용 신호) 로만 연다.</li>
+        <li>read-about 표면도 "사람 대신 에이전트가 Virtue를 쓴다"로 읽히지 않게 m45 동사 프레임(판결 vs 관점)을 따른다. agent-to-agent rec·MCP 노출 수치를 Virtue 성과 기준으로 복사 금지.</li>
+      </ul>
+
+      <p><b>MARKETING_LEARNINGS.md 승격 후보</b></p>
+      <ul>
+        <li><b>"Agent-Led Growth Fits Task-Completion Products, Not Experience Products"</b> — agent-led growth가 맞는지는 '제품에 AI가 있는가'가 아니라 '가치를 누가 완료하는가'로 갈린다. 에이전트의 task completion이 곧 가치인 제품(API/B2B/워크플로 편입형)엔 맞지만, 사람의 경험·선택이 본체인 제품엔 do-for-you 유통이 제품 의미를 소거한다. 후자에서 agent-readable은 설명(read-about)까지만 후보, 실행(do-for-you: MCP/API/agent onboarding)은 no-fit이며, 재검토는 실사용 신호 기반 launch/post-launch gate로만 연다. 공개·실행 표면은 모두 approval-needed. <code>No Autonomous Action Bounds The Trust Question</code>(m38)·<code>Decision-Delegation Risk Rides The Verb</code>(m45)·m18을 보완하는 <b>유통 전략 축</b>. → 본 패스에서 원장 승격함.</li>
+      </ul>
+
+      <p><b>변경한 가정 / 충돌</b></p>
+      <ul>
+        <li>변경한 가정: <b>없음.</b> 기존 경계를 재정의하지 않고 유통 의사결정 차원만 추가한다.</li>
+        <li>선행 문서 충돌: <b>0.</b> m18=공개 agent 표면 감사, m38=신뢰 신호 관찰, m45=카피 프레임 감사, 본 문서=유통 모드 fit/no-fit. 출처 노트 명시 세 학습(Decision-Delegation Risk·No Autonomous Action·Prelaunch Decision Boundary)과 같은 방향, 충돌 0.</li>
+      </ul>
+
+      <p><b>검증 게이트 (PASS)</b></p>
+      <ul>
+        <li>event anchor drift <b>0</b> — 73/79/107/140/154/172/188/204 현행 일치(<code>grep</code> 재확인, 이름/제거 0).</li>
+        <li>code diff <b>0</b> — <code>git diff --stat apps/web/src apps/ios</code> 빈 출력. 산출물 docs 1파일(<code>??</code> 신규).</li>
+        <li>conflict marker <b>0</b> — 줄머리 <code>&lt;&lt;&lt;/===/&gt;&gt;&gt;</code> 없음.</li>
+        <li>affordance 인용 일치 — 결과 후 3선택 <code>:386,399,408</code> 현행 확인.</li>
+        <li>source note <code>source/external-links/marketing/2026-06-08-agent-led-growth-boundary.md</code> 로컬 존재·인용.</li>
+        <li>robots/sitemap/llms.txt·API/MCP·공개 카피·tracking/privacy·대시보드·세션리플레이·배포·외부발송·비용·권한 변경 <b>0</b>.</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="chev"></span> 실행 메타 · 산출물</summary>
+    <div class="body">
+      <div class="chips">
+        <span class="chip">2026-06-08T10:07Z</span>
+        <span class="chip">heartbeat → claude local</span>
+        <span class="chip">Inbox → Archive</span>
+        <span class="chip">approval: agent-approved L2</span>
+      </div>
+      <ul>
+        <li>산출물 <code>apps/web/docs/agent-led-growth-fit-no-fit-boundary-table.md</code> (virtue-rebirth-app)</li>
+        <li>리포트 <code>reports/marketing-46/2026-06-08T1007Z-local.html</code> (infinity)</li>
+        <li>출처노트 <code>source/external-links/marketing/2026-06-08-agent-led-growth-boundary.md</code></li>
+        <li>이벤트 앵커 <code>apps/web/src/app/add/page.tsx</code> 73/79/107/140/154/172/188/204 (drift 0)</li>
+        <li>permission: L2 docs-only · robots/sitemap/llms.txt·API/MCP·공개 카피·tracking/privacy·배포·외부발송·비용·권한 변경 금지</li>
+      </ul>
+    </div>
+  </details>
+  </div>
+
+  <div class="foot reveal" style="animation-delay:.3s">
+    <span>Agent-First Heartbeat</span>
+    <span>Infinity · Intent Note</span>
+  </div>
+</div>
+</body>
+</html>
