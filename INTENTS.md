@@ -12,7 +12,7 @@
 
 <!-- 사용자 결정, 외부 조건, 안전 확인 대기. 같은 질문을 반복하지 않고 상태만 보존한다. -->
 
-<!-- naver-shopping-01 waiting 2026-06-07T23:28Z → intents/active/naver-shopping-01.md [projects: naver-shopping,infinity,personal-ops; type: coordination; topics: automation,workflow,marketing] (네이버쇼핑 에이전트 blocker 라우팅 연결. SAM이 처리 가능한 리서치/전략/지표 blocker는 직접 처리하고, 네이버 로그인·스토어 권한·공개 네이버쇼핑 검색 접근 제한·승인/비용/외부영향 blocker만 09:00 KST 사용자 확인 또는 Infinity Waiting으로 보존.) -->
+<!-- naver-shopping-01 waiting 2026-06-07T23:28Z → intents/active/naver-shopping-01.md [projects: naver-shopping,infinity,personal-ops; type: coordination; topics: automation,workflow,marketing; decision: 네이버/스마트스토어 읽기 전용 브라우저 세션을 써도 될까요?; options: 허용 | 보류; default: 보류; reason: 실계정 대시보드와 네이버쇼핑 검색을 확인해야 경쟁상품/지표 검증이 정확해집니다.; next: 허용하면 로그인된 브라우저로 읽기 전용 확인만 진행] (네이버/스마트스토어 읽기 전용 접근 여부) -->
 
 ## Archive
 
