@@ -7,7 +7,7 @@
 
 ## Active
 
-<!-- naver-shopping-01 active 2026-06-08T14:07Z → intents/active/naver-shopping-01.md [projects: naver-shopping,infinity,personal-ops; type: coordination; topics: automation,workflow,marketing; status: env-blocked-read-only] (읽기 전용 네이버 세션 위임 실행에서 도달 불가(Electron 데스크톱 필요); Knowledge Lab 기반 큐레이션 1패스 — 여행 후보 재프레이밍·패킹 후보 승격) -->
+<!-- naver-shopping-01 active 2026-06-08T16:07Z → intents/active/naver-shopping-01.md [projects: naver-shopping,infinity,personal-ops; type: coordination; topics: automation,workflow,marketing; status: partial-access-commerce-id-needed] (14:39Z 로그인 브라우저 읽기 전용 테스트 동기화: 네이버 메인은 로그인 상태이나 스마트스토어 센터는 Commerce ID 게이트에서 멈춤·공개 쇼핑검색 IP제한 지속 → 차단 위치가 env-unreachable에서 Commerce ID 전환(사용자측)으로 이동. 가용성 차단이지 실패 아님; 09:00 KST 1건 보고) -->
 
 ## Waiting
 
