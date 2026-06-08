@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<!-- 조사형 (research) — Quiet Note. JS/외부리소스 금지, 인라인 CSS만. -->
+<title>Infinity Report · naver-shopping-01 cloud research</title>
+<style>
+  :root{
+    --bg:#f4f2ea; --panel:#fbfaf5; --ink:#2c2a25; --soft:#807c70; --faint:#a8a496; --line:#e3dfd2;
+    --a2:#5f7a5e; --a2-deep:#3f5740;
+    --a1:#5a6f8a; --a1-deep:#3f536e;
+    --sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;}
+  body{background:var(--bg); color:var(--ink); font-family:var(--sans);
+    font-size:14px; line-height:1.68; -webkit-font-smoothing:antialiased;}
+  .sheet{max-width:720px; margin:0 auto; padding:48px 34px 46px;}
+  .reveal{opacity:0; animation:fade .7s ease forwards;}
+  @keyframes fade{from{opacity:0; transform:translateY(9px);} to{opacity:1; transform:none;}}
+  .eyebrow{display:flex; align-items:center; gap:10px; font-family:var(--mono);
+    font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--soft);}
+  .eyebrow .id{color:var(--a2-deep); font-weight:600;}
+  .eyebrow .dot{width:5px; height:5px; border-radius:50%; background:var(--a2);}
+  .eyebrow .status{margin-left:auto; color:var(--a2-deep);}
+  h1{font-size:29px; line-height:1.3; font-weight:700; letter-spacing:-.01em; margin:20px 0 0;}
+  .dek{font-size:15.5px; color:var(--soft); margin:13px 0 0; max-width:52ch;}
+  .hr{height:1px; background:var(--line); margin:30px 0;}
+  .axis{padding:0 0 4px 22px; position:relative; margin-bottom:30px;}
+  .axis::before{content:""; position:absolute; left:0; top:6px; bottom:6px; width:2px; border-radius:2px;}
+  .axis.ax1::before{background:var(--a1);} .axis.ax2::before{background:var(--a2);}
+  .axis.ax1{--ul:var(--a1);} .axis.ax2{--ul:var(--a2);}
+  .axis .label{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase;
+    margin-bottom:9px; display:flex; align-items:center; gap:8px;}
+  .axis.ax1 .label{color:var(--a1-deep);} .axis.ax2 .label{color:var(--a2-deep);}
+  .axis .label .n{font-weight:600; opacity:.6;}
+  .axis .text{font-size:18px; line-height:1.6; color:#37352e;}
+  .axis .text b{font-weight:700; color:var(--ink); border-bottom:2px solid var(--ul);}
+  ol.find{list-style:none; counter-reset:f; margin:16px 0 0; padding:0;}
+  ol.find li{position:relative; padding:8px 0 8px 26px; font-size:15px; color:#37352e; border-top:1px solid var(--line);}
+  ol.find li:first-child{border-top:none;}
+  ol.find li::before{counter-increment:f; content:counter(f); position:absolute; left:0; top:9px;
+    font-family:var(--mono); font-size:12px; font-weight:600; color:var(--a1-deep);}
+  details{border:1px solid var(--line); border-radius:10px; background:var(--panel); margin-bottom:10px;}
+  summary{cursor:pointer; list-style:none; padding:14px 16px; display:flex; align-items:center; gap:11px;
+    font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft);}
+  summary::-webkit-details-marker{display:none;}
+  summary .chev{width:8px; height:8px; border-right:2px solid var(--a2-deep); border-bottom:2px solid var(--a2-deep);
+    transform:rotate(-45deg); transition:.25s; flex:none; margin-left:2px;}
+  details[open] summary .chev{transform:rotate(45deg);}
+  summary:hover{color:var(--ink);}
+  .body{padding:2px 16px 18px;}
+  table{border-collapse:collapse; width:100%; font-size:13px; margin:4px 0 12px;}
+  th,td{border-bottom:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top;}
+  th{font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft); font-weight:600;}
+  td:first-child{color:var(--a2-deep); font-weight:600; white-space:nowrap;}
+  .body p{color:var(--soft);}
+  .body ul{margin:6px 0; padding-left:18px;} .body li{margin:5px 0;}
+  code{font-family:var(--mono); font-size:12px; background:#edeae0; padding:1px 6px; border-radius:3px; color:var(--a2-deep);}
+  a{color:var(--a2-deep); text-underline-offset:3px;}
+  .chips{display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px;}
+  .chip{font-family:var(--mono); font-size:10.5px; letter-spacing:.05em; color:var(--soft); border:1px solid var(--line); border-radius:999px; padding:3px 10px;}
+  .foot{margin-top:30px; padding-top:15px; border-top:1px solid var(--line);
+    display:flex; justify-content:space-between; font-family:var(--mono); font-size:10px;
+    letter-spacing:.13em; text-transform:uppercase; color:var(--faint);}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="eyebrow reveal">
+    <span class="dot"></span>
+    <span class="id">naver-shopping-01</span>
+    <span>Cloud Research · 조사형</span>
+    <span class="status">active</span>
+  </div>
+  <h1 class="reveal" style="animation-delay:.05s">여행 수요 공개 리서치 — '시선·준비' 포지셔닝의 시장 근거 검증</h1>
+  <p class="dek reveal" style="animation-delay:.09s">14:07Z 큐레이션 재프레이밍('여행 시선·준비 키트')의 시장 근거를 공개 웹 리서치로 확인한다. Naver DataLab은 cloud 환경에서 차단되어 있어 글로벌·한국 시장 데이터와 경쟁 지형 분석으로 대체했다.</p>
+
+  <div class="hr reveal" style="animation-delay:.12s"></div>
+
+  <div class="axis ax1 reveal" style="animation-delay:.16s">
+    <div class="label"><span class="n">01</span> 무엇을 조사했나</div>
+    <div class="text">글로벌 패킹큐브 시장·한국 여행 리테일 규모·2026 한국 여행 트렌드·경쟁 브랜드(Branden Seoul)·앱 생태계를 <b>공개 웹 리서치</b>로 수집했다. Naver DataLab·shopping.naver.com은 이 cloud 환경에서 접근 불가(로컬 에이전트 호스트에 이어 cloud 환경도 차단 확인).</div>
+  </div>
+
+  <div class="axis ax2 reveal" style="animation-delay:.22s">
+    <div class="label"><span class="n">02</span> 핵심 결과</div>
+    <div class="text">여행 수요는 <b>구조적 성장 확인</b>(한국 5.2% CAGR). 기능 조직 프리미엄은 Branden Seoul이 점유. 2026 트렌드는 '기록·보관'보다 <b>'경험·시선·현재'</b> — 14:07Z 재프레이밍 방향 일치. Naver 검색량은 DataLab 없이 미확인.</div>
+    <ol class="find">
+      <li>한국 여행 리테일: $12.69B(2025) → $21.07B(2035), 5.2% CAGR — 수요 성장 구조적 확인</li>
+      <li>글로벌 패킹큐브: $1.3B(2024) → $2.5B(2033), 8.2% CAGR — 카테고리 자체 건강</li>
+      <li>2026 한국 여행 트렌드: 체험 중심·소도시·AI가 준비 간소화 → 경험에 집중하는 방향으로 이동</li>
+      <li>경쟁 지형: Branden Seoul(No.1, 프리미엄 압축큐브·안티도난백) vs Daiso(~₩5,000 기초 오거나이저) — 중간 '시선·준비' 포지셔닝 공백</li>
+      <li>앱 경쟁: TripCheck·PackEasy·PackPoint·Wanderlog — 디지털 플래닝 영역은 포화 상태</li>
+      <li>미확인: Naver DataLab 검색량(여행준비·여행계획·패킹리스트) — cloud 환경에서도 차단</li>
+    </ol>
+  </div>
+
+  <div class="reveal" style="animation-delay:.27s">
+  <details open>
+    <summary><span class="chev"></span> 상세 · 데이터 출처·경쟁 지형·포지셔닝 기회</summary>
+    <div class="body">
+      <table>
+        <tr><th>지표</th><th>수치</th><th>출처</th></tr>
+        <tr><td>한국 여행 리테일</td><td>$12.69B(2025)→$21.07B(2035), 5.2% CAGR</td><td>Expert Market Research</td></tr>
+        <tr><td>글로벌 패킹큐브</td><td>$1.3B(2024)→$2.5B(2033), 8.2% CAGR</td><td>Verified Market Reports</td></tr>
+        <tr><td>2026 여행 성장</td><td>2024 대비 24% 더 많은 여행 계획</td><td>Google Spring Shopping Trends</td></tr>
+        <tr><td>Branden Seoul</td><td>한국 No.1 오거나이저. 압축큐브·안티도난백·행잉워시백. Shilla DFS·Pinkoi·YesStyle 유통</td><td>Branden.store, The Bag Creature</td></tr>
+        <tr><td>Daiso</td><td>~₩5,000 여행 오거나이저/파우치 — 저가 엔드 점유</td><td>KKday 블로그</td></tr>
+        <tr><td>DataLab 접근</td><td>datalab.naver.com + search.shopping.naver.com 모두 이 cloud env 차단</td><td>직접 확인</td></tr>
+      </table>
+      <p><b>포지셔닝 기회 요약</b></p>
+      <ul>
+        <li>'기능 조직 프리미엄'(Branden)과 '기능 조직 저가'(Daiso) 사이에 '여행 시선·준비' 각도는 명시적 경쟁자 없음</li>
+        <li>그러나 시장 공백 ≠ 수요 확인 — Naver 검색량 수치 없이 규모 판단 불가</li>
+        <li>콘텐츠-퍼스트 각도(사용자의 홋카이도 플래닝 실패 경험, 여행 시선 글)가 기능 경쟁보다 현실적인 진입 차별화</li>
+        <li>2026 트렌드('경험·현재 체감')는 '기록/스크랩' 프레이밍보다 '시선·준비' 프레이밍을 지지 — 14:07Z 재정렬과 일치</li>
+      </ul>
+      <p><b>다음 액션</b></p>
+      <ul>
+        <li>로컬 환경 or 사용자 브라우저에서 Naver DataLab: '여행준비', '여행계획', '패킹리스트', '패킹큐브' 검색량 확인</li>
+        <li>스마트스토어 Commerce ID 전환 완료 후: 경쟁 상품 수·리뷰 분포 확인 가능</li>
+        <li>DataLab 검색량 확인 전까지: product-curation.md 여행/패킹 후보는 '시장 증거 미확인' 상태 유지</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="chev"></span> 실행 메타 · 산출물</summary>
+    <div class="body">
+      <div class="chips">
+        <span class="chip">2026-06-08T1800Z</span>
+        <span class="chip">cloud heartbeat</span>
+        <span class="chip">active → active</span>
+        <span class="chip">L0 research</span>
+      </div>
+      <ul><li>리포트 <code>reports/naver-shopping-01/2026-06-08T1800Z-cloud-research.html</code></li></ul>
+      <p>승인 불필요: 웹 리서치·공개 데이터 수집(L0). 비용/시크릿/타인 알림 없음. DataLab·shopping.naver cloud 환경 차단 확인 후 대체 공개 소스 사용. HTML 게이트: &lt;html &lt;body axis ax1 axis ax2 &lt;details 포함 확인.</p>
+    </div>
+  </details>
+  </div>
+
+  <div class="foot reveal" style="animation-delay:.3s">
+    <span>Agent-First Heartbeat</span>
+    <span>Infinity · naver-shopping-01</span>
+  </div>
+</div>
+</body>
+</html>
