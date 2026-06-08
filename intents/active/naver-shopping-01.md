@@ -8,7 +8,7 @@
 - owner: SAM
 - source_agent: `/home/ubuntu/.openclaw/workspace/agents/naver-shopping-agent/`
 - created_at: 2026-06-07T23:24Z
-- updated_at: 2026-06-08T13:07Z
+- updated_at: 2026-06-08T14:07Z
 
 ## Purpose
 
@@ -28,6 +28,18 @@
 - Naver QR login session was confirmed in the live browser session on 2026-06-08T12:01Z; read-only checks may proceed while the session remains valid
 
 ## Active Blockers
+
+### 2026-06-08T14:07Z - 환경 차단 지속 확인 + Knowledge Lab 큐레이션 1패스 수행
+
+- route: environment-session-needed
+- status: waiting (변동 없음)
+- source: delegated local run
+- blocker: 이 호스트에 `purplemux` CLI가 설치돼 있지 않고, 떠 있는 브라우저는 헤드리스 Playwright Chromium(CDP :18800)뿐이며 열린 탭은 worldpackers/Infinity/example.com 등으로 네이버 세션이 없다. 12:01Z QR 세션은 닿지 않는다.
+- not_blocker: 계정 문제 아님. 환경/런타임 문제다. (13:07Z와 동일)
+- sam_action: 브라우저를 공격적으로 재시도하지 않고, 대신 Knowledge Lab 핵심 자료(`source/shdkej-content/Idea/Travel.md`)로 제품 큐레이션 1패스 수행.
+- work_done: 여행 후보를 '기록/스크랩 키트'→'여행 시선·준비 키트'로 재프레이밍, 패킹/계획 후보를 watch→draft 승격, AI/워크숍 후보 강등. 수요는 여전히 미검증(공개/읽기전용 차단) — fit 증거이지 시장 증거 아님.
+- work_continues: yes (공개/문서 기반)
+- next_9am_message: 13:07Z와 동일 — "읽기 전용 네이버 확인을 자동으로 이어가려면 데스크톱 앱에 로그인된 네이버 탭을 열어둬야 한다"를 1건으로 보고. (중복 누적 금지, 한 줄 유지)
 
 ### 2026-06-08T13:07Z - 읽기 전용 브라우저 확인 환경 차단 (Electron 세션 없음)
 

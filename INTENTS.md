@@ -7,7 +7,7 @@
 
 ## Active
 
-<!-- naver-shopping-01 active 2026-06-08T12:14Z → intents/active/naver-shopping-01.md [projects: naver-shopping,infinity,personal-ops; type: coordination; topics: automation,workflow,marketing; status: browser_session_ready] (네이버 QR 로그인 세션 확인됨; 읽기 전용 네이버/스마트스토어 확인 재개) -->
+<!-- naver-shopping-01 active 2026-06-08T14:07Z → intents/active/naver-shopping-01.md [projects: naver-shopping,infinity,personal-ops; type: coordination; topics: automation,workflow,marketing; status: env-blocked-read-only] (읽기 전용 네이버 세션 위임 실행에서 도달 불가(Electron 데스크톱 필요); Knowledge Lab 기반 큐레이션 1패스 — 여행 후보 재프레이밍·패킹 후보 승격) -->
 
 ## Waiting
 
