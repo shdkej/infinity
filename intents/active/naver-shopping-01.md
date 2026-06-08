@@ -1,13 +1,14 @@
 # naver-shopping-01: 네이버쇼핑 에이전트 운영/차단 라우팅
 
 - id: naver-shopping-01
-- status: waiting
+- status: active
 - projects: [naver-shopping, infinity, personal-ops]
 - task_type: coordination
 - topics: [automation, workflow, marketing]
 - owner: SAM
 - source_agent: `/home/ubuntu/.openclaw/workspace/agents/naver-shopping-agent/`
 - created_at: 2026-06-07T23:24Z
+- updated_at: 2026-06-08T12:14Z
 
 ## Purpose
 
@@ -24,17 +25,30 @@
 - user clarified that product curation is a core job and that matching the user's taste matters
 - Knowledge Lab / agent-wiki should be used as source context for product-fit judgment
 - scoped normal GitHub push is allowed so Infinity/Naver-agent state becomes visible remotely
+- Naver QR login session was confirmed in the live browser session on 2026-06-08T12:01Z; read-only checks may proceed while the session remains valid
 
 ## Active Blockers
 
-## Decision Card
+## Resolved Decision
 
 - decision: 네이버/스마트스토어 읽기 전용 브라우저 세션을 써도 될까요?
-- options: 허용 | 보류
-- default: 보류
+- decision_result: 허용
+- resolved_at: 2026-06-08T12:01Z
+- evidence: QR login approval moved the same browser session to the logged-in Naver main page.
 - reason: 실계정 대시보드와 네이버쇼핑 검색을 확인해야 경쟁상품/지표 검증이 정확해집니다.
-- next: 허용하면 로그인된 브라우저로 읽기 전용 확인만 진행
+- next: 로그인된 브라우저로 읽기 전용 확인만 진행
 - dashboard_summary: 네이버/스마트스토어 읽기 전용 접근 여부
+
+### 2026-06-08T12:01Z - 사용자 QR 로그인 완료 / Waiting 해제
+
+- route: user-session-confirmed
+- status: active
+- source: Telegram QR login flow + live browser snapshot
+- evidence: same browser session opened the logged-in Naver main page after QR approval
+- user_needed: none for read-only Naver Shopping / SmartStore checks while the session remains valid
+- sam_action: resume read-only Naver Shopping / SmartStore checks; keep write, account, customer, budget, and publishing actions behind approval
+- work_continues: yes
+- next_9am_message: report only meaningful findings or new user-side blockers
 
 ### 2026-06-07T23:24Z - 초기 네이버 로그인/스토어 권한 확인
 
