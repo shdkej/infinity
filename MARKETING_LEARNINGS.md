@@ -45,7 +45,7 @@
 
 - **결론:** "AI가 활동했다"와 "사용자가 결과를 인정했다"는 다른 proxy다.
 - **적용:** AI 관련 마케팅/제품 판단은 activity, acceptance, curiosity, friction, retention proxy를 분리해서 읽는다.
-- **주의:** activity proxy를 value proxy로 승격하지 않는다. 저장수, reroll, level_up 1회, judged-save 갭을 단독으로 만족도/불신/리텐션/이탈로 단정하지 않는다.
+- **주의:** activity proxy를 value proxy로 승격하지 않는다. 저장수, reroll, level_up 1회, judged-save 갈을 단독으로 만족도/불신/리텐션/이탈로 단정하지 않는다.
 - **출처:** `marketing-24`, `marketing-29`.
 
 ### Trust Calibration By Job
@@ -57,9 +57,9 @@
 
 ### No Autonomous Action Bounds The Trust Question
 
-- **결론:** AI 제품의 신뢰 문제 *모양*은 그 AI가 자율 외부 행동을 하는지에 따라 갈린다. Virtue처럼 외부 행동 없이 판정만 보여주는 제품은 McKinsey 구분에서 "틀린 행동"이 아니라 "틀린 말" 영역에만 있어, 신뢰 질문이 "AI가 자동으로 무엇을 해도 되나"에서 "사용자가 출력을 조언(마지막 선택 내 것)으로 읽나, 판결(정체성 사실)로 읽나"로 수축한다.
-- **적용:** AI 신뢰 작업은 먼저 "이 AI가 자율 외부 행동을 하는가"를 묻는다. 아니면 agentic guardrail·monitoring·accountability 플레이북을 신뢰 해법으로 가져오지 않는다. 위험의 본체는 행동적 해가 아니라 자기인식 오보정이다. Virtue에서 낮은 위험 축(저장 비강제·무시 비용 0·외부 효과 0)은 이미 구조적 최대치이므로, 관찰은 위험을 낮추는 게 아니라 사용자가 낮은 위험·마지막 선택권을 *인지*하는지를 본다.
-- **주의:** `deed_saved`를 판정 승인/만족으로, judged−saved 갭을 불신/이탈로 읽지 않는다. 확신도 %·출력 수정·trust 이벤트는 proposal-only. [[Trust Calibration By Job]]을 보완하는 새 축이다.
+- **결론:** AI 제품의 신뢰 문제 *모양*은 그 AI가 자율 외부 행동을 하는지에 따라 갈린다. Virtue시럳 외부 행동 없이 판정만 보여주는 제품은 McKinsey 구분에서 "틀린 행동"이 아니라 "틀린 말" 영역에만 있어, 신뢰 질문이 "AI가 자동으로 무엇을 해도 되나"에서 "사용자가 출력을 조언(마지막 선택 내 것)으로 읽나, 판결(정체성 사실)로 읽나"로 수축한다.
+- **적용:** AI 신뢰 작업은 먼저 "이 AI가 자율 외부 행동을 하는가"를 묻는다. 아니면 agentic guardrail·monitoring·accountability 플레이북을 신뢰 해법으로 가져오지 않는다. 위험의 본체는 행동적 해가 아니라 자기인식 오보정이다. Virtue에서 낙은 위험 축(저장 비강제·무시 비용 0·외부 효과 0)은 이미 구조적 최대치이므로, 관찰은 위험을 낙추는 게 아니라 사용자가 낙은 위험·마지막 선택권을 *인지*하는지를 본다.
+- **주의:** `deed_saved`를 판정 승인/만족으로, judged−saved 갈을 불신/이탈로 읽지 않는다. 확신도 %·출력 수정·trust 이벤트는 proposal-only. [[Trust Calibration By Job]]을 보완하는 새 축이다.
 - **출처:** `marketing-38`, `marketing-24`, `marketing-20`.
 
 ### Monetization Boundary
@@ -71,7 +71,7 @@
 
 ### Recovery Over Streak
 
-- **결론:** Virtue 리텐션은 streak 유지보다 빠진 뒤 돌아오는 회복 신호를 더 조심스럽게 봐야 한다.
+- **결론:** Virtue 리텐션은 streak 유지보다 빠진 뒤 돌아오는 회복 신호를 더 조심스럽게 요야 한다.
 - **적용:** recovery, skip, comeback session, monthly completion은 정성 관찰 질문으로 둔다.
 - **주의:** skip, comeback, monthly completion을 KPI, 전환율, 합격선으로 읽지 않는다.
 - **출처:** `marketing-26`, `marketing-22`.
@@ -87,90 +87,97 @@
 
 - **결론:** "첫 결과"는 한 칸이 아니라 세 층이다. (a) 가치 도달, (b) 공유성(공명/추천), (c) 저장 후 누적 payoff를 분리해서 읽는다. 공유성은 first value·acceptance와 독립이며, 저장 없이 공유성 있음(J3)·저장 있으나 공유성 없음(J1)이 모두 가능하다.
 - **적용:** AI 온보딩·activation·첫 결과 강도 판독에서 공유성은 항상 저장 전 시점에서 따로 손기록한다. 공유성 행동 증거(웃음/놀람/반박/보여 주기/재전달)는 대부분 off-instrument이므로 `deed_saved`·`deed_rerolled` 횟수로 환산하지 않는다.
-- **주의:** 저장수·재판정수를 공유성으로 환산하지 않는다. J3 judged−saved 갭을 공유성/가치 부재로 읽지 않는다(저장 없이 보여 주고 닫힘이 정상).
+- **주의:** 저장수·재판정수를 공유성으로 환산하지 않는다. J3 judged−saved 갈을 공유성/가치 부재로 읽지 않는다(저장 없이 보여 주고 닫힌이 정상).
 - **출처:** `marketing-30`, `marketing-29`, `marketing-21`, `marketing-20`.
 
 ### Product Body vs Bumper By Job
 
 - **결론:** 첫 세션 표면은 가치를 *만드는* 제품 본체와 이탈 지점만 돕는 범퍼로 갈리며, 같은 표면이 잡에 따라 부호가 뒤집힌다. 제품 본체가 약하면 범퍼(체크리스트·툴팁·설명)로 못 가린다.
-- **적용:** 표면을 first value 위치 기준으로 본체/범퍼로 분류한다. J1/J2/J4는 저장 후 홈(`deed_saved`)이 본체, J3는 결과 카드(`deed_judged`)가 본체이고 저장은 범퍼(선택)다. 홈은 J2엔 본체(누적 payoff), J1엔 범퍼(다음 행동 안내)다.
-- **주의:** 막힘은 4분류로 라우팅이 다르다 — 길을 잃음(범퍼 후보)·결과 기대 불일치(제품 약속/결과 후보)·가용성 차단(availability/friction)·정상 종료(이탈 아님). J3에 저장 유도 범퍼를 무조건 붙이면 첫 가치 흐름을 방해한다. 저장률·재판정수로 막힘 성격을 단정하지 않는다.
+- **적용:** 표면을 first value 위치 기준으로 본체/범퍼로 분류한다. J1/J2/J4는 저장 후 홈(`deed_saved`)이 본체, J3는 결과 카드(`deed_judged`)가 본체이고 저장은 범퍼(선택)다. 홈은 J2에는 본체(누적 payoff), J1에는 범퍼(다음 행동 안내)다.
+- **주의:** 막힐은 4분류로 라우팅이 다르다 — 길을 잃음(범퍼 후보)·결과 기대 불일치(제품 약속/결과 후보)·가용성 차단(availability/friction)·정상 종료(이탈 아님). J3에 저장 유도 범퍼를 무조건 붙이면 첫 가치 흐름을 방해한다. 저장률·재판정수로 막힐 성격을 단정하지 않는다.
 - **출처:** `marketing-31`, `marketing-30`, `marketing-16`, `marketing-21`, `marketing-06`.
 
 ### Nudges Are Event-Triggered, And Show-Nothing Is The Default
 
-- **결론:** 온보딩 넛지는 팝업 형식이 아니라 기존 행동 조합(trigger)의 맥락 도움이다. 도움의 기본값은 "띄우지 않음"이며, B-LOST(길 잃음)로 분류된 막힘에서만 후보가 된다.
-- **적용:** 넛지/체크리스트/툴팁 후보를 만들 때 먼저 이벤트 조합과 잡 맥락을 대조한다. `add_flow_started` 후 미판정은 가용성·탐색·mock/self-test를 제외한 뒤 B-LOST일 때만 입력 보조 후보가 되고, `deed_judged` 후 미저장은 J3에서는 정상 종료라 저장 넛지를 띄우지 않는다. `deed_rerolled`는 의도 관찰 전 보류, `deed_save_capped`는 제한 설명·회복 경로 문제로만 둔다.
-- **주의:** trigger는 도움의 조건이지 자동 발동 근거가 아니다. B-MISMATCH(결과 기대 불일치)는 제품 약속/결과 문제라 넛지로 가리지 않고, B-AVAIL은 availability/friction으로 분리한다. first value 도달 직후 전환·공유·유료 넛지를 끼우지 않는다.
+- **결론:** 온보딩 뇯지는 팝업 형식이 아니라 기존 행동 조합(trigger)의 맥락 도움이다. 도움의 기본값은 "끄워지 않음"이며, B-LOST(길 잊음)로 분류된 막힐에서만 후보가 된다.
+- **적용:** 뇯지/체크리스트/툴팁 후보를 만들 때 먼저 이벤트 조합과 잡 맥락을 대조한다. `add_flow_started` 후 미판정은 가용성·탐색·mock/self-test를 제외한 뒤 B-LOST일 때만 입력 보조 후보가 되고, `deed_judged` 후 미저장은 J3에서는 정상 종료라 저장 뇯지를 끄워지 않는다. `deed_rerolled`는 의도 관찰 전 보류, `deed_save_capped`는 제한 설명·회복 경로 문제로만 둔다.
+- **주의:** trigger는 도움의 조건이지 자동 발동 근거가 아니다. B-MISMATCH(결과 기대 불일치)는 제품 약속/결과 문제라 뇯지로 가리지 않고, B-AVAIL은 availability/friction으로 분리한다. first value 도달 직후 전환·공유·유료 뇯지를 끼워넣지 않는다.
 - **출처:** `marketing-40`, `marketing-35`, `marketing-31`, `marketing-17`.
 
 ### First-Input Defaults Steer The Job
 
-- **결론:** AI 제품의 첫 입력 기본값(placeholder·예시·추천 질문·기본 프롬프트)은 사용자가 어떤 잡으로 제품을 이해할지 정하는 조향 장치다. Virtue는 예시·추천 질문 0의 "질문형 placeholder + 빈 슬롯" 단일 패턴이라 기능 설명형(support-bot 유도) 위험은 구조적으로 0이지만, 잡별 조향도 0이라 같은 중립 placeholder(`뭐 했어요?`)가 J1~J4를 구분 없이 부른다.
+- **결론:** AI 제품의 첫 입력 기본값(placeholder·예시·추천 질문·기본 프롬프트)는 사용자가 어떤 잡으로 제품을 이해할지 정하는 조향 장치다. Virtue는 예시·추천 질문 0의 "질문형 placeholder + 빈 슬롯" 단일 패턴이라 기능 설명형(support-bot 유도) 위험은 구조적으로 0이지만, 잡별 조향도 0이라 같은 중립 placeholder(`뚁 했어요?`)가 J1~J4를 구분 없이 부른다.
 - **적용:** 첫 입력을 읽을 때 "어떤 기본값이 이 잡을 불렀는가(첫 입력 출처)"를 먼저 분리한 뒤 후속 행동을 본다. "두 번째 메시지" 신호는 잡별 두 번째 행동으로 번역한다 — J1/J4=`deed_saved`, J2=`level_up_viewed`/두 번째 저장, J3=`deed_rerolled`/다른 입력 후 재판정(저장 강요 안 함). 첫 입력 단계에서 J3(AI 약속이 `/add` 안에서야 등장)·J2(누적 보상은 두 번째 저장 이후)가 가장 약하게 불린다.
-- **주의:** 전역 예시/placeholder 최적화 금지 — 한 잡을 살리는 예시가 다른 잡을 구경/support-bot 모드로 끌 수 있다. 조향이 필요하면 잡별로, 반드시 관찰로 먼저 확인한다. mock 모드 라벨(`임시 판정`)이 J3 첫 인상을 낮추는 문제는 런타임 모드 정책이며 카피 변경 범위 밖(proposal-only). J3 judged−saved 갭을 가치 부재/이탈로 단정하지 않는다.
+- **주의:** 전역 예시/placeholder 최적화 금지 — 한 잡을 살리는 예시가 다른 잡을 구경/support-bot 모드로 끐 수 있다. 조향이 필요하면 잡별로, 반드시 관찰로 먼저 확인한다. mock 모드 라벨(`임시 판정`)이 J3 첫 인상을 낙추는 문제는 런타임 모드 정책이며 카피 변경 범위 밖(proposal-only). J3 judged−saved 갈을 가치 부재/이탈로 단정하지 않는다.
 - **출처:** `marketing-32`, `marketing-06`, `marketing-21`, `marketing-30`, `marketing-31`.
 
 ### Measurement Readiness Is A Separate Gate
 
-- **결론:** PLG는 Foundation→Activation→Conversion 순서이고, Foundation의 종료 조건은 "활성화가 좋다"가 아니라 "활성화율·기준선을 측정할 수 있는 상태"다. 측정 *가능성*(정의 완료)과 측정 *값의 성패*(좋고 나쁨)는 별개의 게이트다.
-- **적용:** 활성화/단계 판단 작업은 먼저 측정 가능 상태(first value 매핑·후보 묶음+window·TTV 시작/종료점·D7 질문·기준선 양식·이벤트 발화·트래픽 분리)가 준비됐는지 확인한 뒤 값을 읽는다. Activation 단계 진입은 외부 벤치마크 수치가 아니라 데이터 품질·synthetic 제외·가용성 차단·같은 잡 재가치 4가지로 판단한다.
-- **주의:** 측정 가능 상태와 측정값 성패를 섞지 않는다. 외부 수치(TTV<5분·D7 N%·activation 40%)를 prelaunch 합격선으로 복사하지 않는다. 측정 불가 상태의 비율을 활성화로 읽지 않는다. 출시 후 검증 발동 시점·도착 점검은 등록부 게이트(m33 §4)에 위임한다. [[Prelaunch Decision Boundary]]를 보완하는 새 축이다.
+- **결론:** PLG는 Foundation→Activation→Conversion 순서이고, Foundation의 종료 조건은 "활성화가 좋다"가 아니라 "활성화율·기준선을 측정할 수 있는 상태"다. 측정 *가능성*(정의 완료)과 측정 *값의 성패*(좋고 나쁼)는 별개의 게이트다.
+- **적용:** 활성화/단계 판단 작업은 먼저 측정 가능 상태(first value 매핑·후보 묶음+window·TTV 시작/종료점·D7 질문·기준선 양식·이벤트 발화·트래픽 분리)가 준비됨지 확인한 뒤 값을 읽는다. Activation 단계 진입은 외부 벤치마크 수치가 아니라 데이터 품질·synthetic 제외·가용성 차단·같은 잡 재가치 4가지로 판단한다.
+- **주의:** 측정 가능 상태와 측정값 성패를 섞지 않는다. 외부 수치(TTV<5분·D7 N%·activation 40%)를 prelaunch 합격선으로 복사하지 않는다. 측정 불가 상태의 비율을 활성화로 읽지 않는다. 출시 후 검증 발동 시점·도산 점검은 등록부 게이트(m33 §4)에 위임한다. [[Prelaunch Decision Boundary]]를 보완하는 새 축이다.
 - **출처:** `marketing-34`, `marketing-33`, `marketing-22`, `marketing-10`.
 
 ### Correlation Readiness Is A Separate Gate
 
 - **결론:** 활성화를 *측정할 수 있는 상태*([[Measurement Readiness Is A Separate Gate]])와, 그 활성화를 *retention과 대조할 수 있는 상태*는 별개의 게이트다. 후자는 충분 표본 외에 사전 등록된 쿼리 모양·관찰 창 tier·제외 조건이 모두 있어야 정직하다.
 - **적용:** retention/상관/D30/monetization 대조 작업은 데이터 도착 *전에* 묶음 완료 정의·창 tier(D7 우선·D30/14일 보류)·제외(mock/synthetic/self-test/availability cap/503)·pseudo-query shape를 등록부로 고정하고, 실제 쿼리 실행·대시보드 구성은 decision-grade 표본·접근권한이 있을 때로 분리한다. 묶음 완료 집단 vs 미완료 집단 비교에서 J3는 `deed_judged` 기준으로만 완료 판정(저장 불요).
-- **주의:** pseudo-query를 실행 결과로 착각하지 않는다. 빈 장기 창(D30)을 "리텐션 없음"으로 읽지 않는다(D7로 자연 주기 확인 후 연다). judged−saved 갭을 묶음 미완료·이탈로 환산하지 않는다. 묶음 완료율을 activation rate·전환율·유의성으로 환산하지 않는다. 제외 세션은 삭제하지 않고 가용성/마찰 관찰용으로 보존한다.
+- **주의:** pseudo-query를 실행 결과로 착각하지 않는다. 빈 장기 창(D30)을 "리텐션 없음"으로 읽지 않는다(D7로 자연 주기 확인 후 연다). judged−saved 갈을 묶음 미완료·이탈로 환산하지 않는다. 묶음 완료율을 activation rate·전환율·유의성으로 환산하지 않는다. 제외 세션은 삭제하지 않고 가용성/마찰 관찰용으로 보존한다.
 - **출처:** `marketing-37`, `marketing-34`, `marketing-33`, `marketing-22`.
 
 ### Readiness Trace Over Accuracy
 
 - **결론:** 인간-AI 제품의 첫 경험은 정확도·만족도 한 칸이 아니라 outcome/reliance/safety/learning 4축의 상호작용 흔적으로 읽는다. 네 축은 서로 다른 축이며 한 축의 신호를 다른 축으로 합산하지 않는다.
 - **적용:** Virtue 같은 비행동 AI 판정 제품에서는 outcome=잡별 first value(J1/J2/J4 `deed_saved`, J3 `deed_judged`), reliance=결과 뒤 저장·재시도·무시·수정·재방문, safety=자기인식 오보정·과소의존 흔적, learning=D7에 "이전 판정 이후 더 잘 쓰는가"로 분리한다.
-- **주의:** `deed_saved`를 AI 판정 동의/승인으로, judged−saved 갭을 outcome 미달/이탈로, `deed_rerolled`를 불신으로, `deed_save_capped`를 value로 읽지 않는다. prelaunch 첫 세션에서는 learning 결론을 내지 않고 후보만 등록한다.
+- **주의:** `deed_saved`를 AI 판정 동의/승인으로, judged−saved 갈을 outcome 미달/이탈로, `deed_rerolled`를 불신으로, `deed_save_capped`를 value로 읽지 않는다. prelaunch 첫 세션에서는 learning 결론을 내지 않고 후보만 등록한다.
 - **출처:** `marketing-39`, `marketing-38`, `marketing-24`.
 
 ### PQL Is A Bundle, Not A Single Event
 
 - **결론:** PQL/upgrade-readiness는 activation(first value)이 아니라 그 다음 층이며, 단일 이벤트가 아니라 반복+재방문 행동 묶음이다. 출시 후 작은 숫자에서 `deed_save_capped` 1회 같은 단일 이벤트를 "더 원해서 막혔다 = 업그레이드 수요"로 읽는 것이 가장 흔한 오독이다.
-- **적용:** 출시 후 high-intent/upgrade 신호는 (A) PQL 후보(반복 `deed_saved`/`deed_judged` + D7 재방문 묶음 — retention·conversion과 *대조할 대상*, 결론 아님) / (B) 비후보·가짜 PQL(단일 이벤트·availability·정상 종료·다의적 단발) / (C) Waiting·approval-needed(채점·임계값·가격·신규 tracking·대시보드·공개 카피) 세 칸으로 먼저 가른다. 신호를 읽기 전 ① 단일 이벤트인가 ② 가용성/마찰인가 ③ J3 정상 종료(judged−saved 갭)인가 ④ 반복+재방문 묶음인가를 순서대로 통과시킨다. A3(J3)는 저장 없이도 반복 `deed_judged`로 후보가 된다. 실제 retention 대조 방법은 [[Correlation Readiness Is A Separate Gate]](m37)에 위임한다.
+- **적용:** 출시 후 high-intent/upgrade 신호는 (A) PQL 후보(반복 `deed_saved`/`deed_judged` + D7 재방문 묶음 — retention·conversion과 *대조할 대상*, 결론 아님) / (B) 비후보·가짜 PQL(단일 이벤트·availability·정상 종료·다의적 단발) / (C) Waiting·approval-needed(채점·임계값·가격·신규 tracking·대시보드·공개 카피) 세 칸으로 먼저 갈라다. 신호를 읽기 전 ① 단일 이벤트인가 ② 가용성/마찰인가 ③ J3 정상 종료(judged−saved 갈)인가 ④ 반복+재방문 묶음인가를 순서대로 통과시킨다. A3(J3)는 저장 없이도 반복 `deed_judged`로 후보가 된다. 실제 retention 대조 방법은 [[Correlation Readiness Is A Separate Gate]](m37)에 위임한다.
 - **주의:** 첫 10명·첫 7일은 PQL을 *확정*하는 시점이 아니라 후보를 *대조 가능한지* 확인하는 시점이다. PQL 임계값·전환율·upgrade demand·외부 PQL 벤치마크를 산출하지 않는다. `deed_save_capped`는 availability/friction이지 upgrade demand가 아니다([[Availability And Friction Are Not Value]]). [[Monetization Boundary]]·[[Measurement Readiness Is A Separate Gate]]를 보완하는 새 축이다.
 - **출처:** `marketing-41`, `marketing-33`, `marketing-28`, `marketing-37`, `marketing-29`.
 
 ### Session Value Is Read By Job, Not Event Count
 
 - **결론:** AI 제품의 세션 가치는 이벤트/클릭 수가 아니라 잡별 first value 도달과 종료 성격으로 읽는다. fewer actions가 더 빠른 가치일 수 있고(J3 짧은 무저장 세션=성공), 많은 행동이 마찰일 수 있다(반복 reroll·cap·다이벤트 무가치=보류/마찰). 한 세션은 성공/정상/보류/마찰 네 칸으로 갈라 읽되 결론이 아니라 대조 후보로 둔다.
-- **적용:** 세션·활성화 판독 작업은 raw event/click volume을 세션 품질·engagement·activation으로 환산하지 말고, 한 세션을 ① 잡과 first value 확인 → ② first value 이벤트 발화 여부(→성공) → ③ 미발화면 종료 성격(J3 정상 종료=성공 / `deed_save_capped`=마찰 / B-LOST·다의=보류) 순서로 분류한다. 같은 "짧고 저장 없는 세션"이 J3엔 성공, J1/J2/J4엔 보류다.
+- **적용:** 세션·활성화 판독 작업은 raw event/click volume을 세션 품질·engagement·activation으로 환산하지 말고, 한 세션을 ① 잡과 first value 확인 → ② first value 이벤트 발화 여부(→성공) → ③ 미발화면 종료 성격(J3 정상 종료=성공 / `deed_save_capped`=마찰 / B-LOST·다의=보류) 순서로 분류한다. 같은 "짧고 저장 없는 세션"이 J3에 성공, J1/J2/J4에 보류다.
 - **주의:** 이벤트 수↑를 가치↑로, 짧은 세션을 이탈로, 저장 없는 종료(J3)를 실패로, 반복 `deed_rerolled`를 불신으로, `deed_save_capped`를 가치/upgrade demand로, 클릭 많은 세션을 engagement로 읽지 않는다. 세션 분류를 비율·임계값·activation rate로 환산하지 않는다. 대조 방법은 [[Correlation Readiness Is A Separate Gate]](m37), PQL 결론은 [[PQL Is A Bundle, Not A Single Event]](m41) 위임. [[AI Outcome Proxy Separation]]·[[Availability And Friction Are Not Value]]·[[Product Body vs Bumper By Job]]·[[Readiness Trace Over Accuracy]]를 보완하는 새 축이다.
 - **출처:** `marketing-42`, `marketing-29`, `marketing-31`, `marketing-39`, `marketing-41`.
 
 ### Post-Response Flow Reveals Value, Not The Result Event
 
-- **결론:** AI 제품의 가치 전달은 결과/응답 이벤트가 발화했다는 사실이 아니라 그 직후 사용자가 무엇을 하는지로 읽는다. Virtue의 결과 카드(`deed_judged`)는 J3에서는 도착점(first value)이지만 J1/J2/J4에서는 저장 전 통과점이라, 같은 "저장 없이 닫힘"도 잡에 따라 정상 종료와 보류로 갈린다.
-- **적용:** 결과 카드 직후 30초를 세션 전체와 분리된 수기 관찰 프레임으로 두고, 먼저 ① 카드가 도착점인가 통과점인가 ② first value 행동이 이미 도달했거나 직후 발화했는가 ③ 미발화면 종료 성격이 정상/보류/마찰 중 무엇인가를 본다. on-instrument 신호는 `deed_saved`, `deed_rerolled`, `deed_save_capped`, 종료뿐이고 근거 읽기·보여 주기·망설임은 손기록으로만 남긴다.
-- **주의:** `deed_judged` 발화만으로 이해/수용/가치 전달을 확정하지 않는다. 결과 직후 분류를 post-response score, activation rate, 전환율, retention%, PQL, upgrade demand, 자동 넛지, 공개 카피, 신규 tracking/dashboard/session replay로 연결하지 않는다. "30초"는 계측 임계값이나 신규 duration 속성이 아니다. [[Session Value Is Read By Job, Not Event Count]]·[[AI Outcome Proxy Separation]]·[[Nudges Are Event-Triggered, And Show-Nothing Is The Default]]를 보완하는 새 축이다.
+- **결론:** AI 제품의 가치 전달은 결과/응답 이벤트가 발화했다는 사실이 아니라 그 직후 사용자가 무엇을 하는지로 읽는다. Virtue의 결과 카드(`deed_judged`)는 J3에서는 도착점(first value)이지만 J1/J2/J4에서는 저장 전 통과점이라, 같은 "저장 없이 닫힌"도 잡에 따라 정상 종료와 보류로 갈린다.
+- **적용:** 결과 카드 직후 30초를 세션 전체와 분리된 수기 관찰 프레임으로 두고, 먼저 ① 카드가 도착점인가 통과점인가 ② first value 행동이 이미 도달했거나 직후 발화했는가 ③ 미발화면 종료 성격이 정상/보류/마찰 중 무엇인가를 본다. on-instrument 신호는 `deed_saved`, `deed_rerolled`, `deed_save_capped`, 종료등이고 근거 읽기·보여 주기·망설임은 손기록으로만 남긴다.
+- **주의:** `deed_judged` 발화만으로 이해/수용/가치 전달을 확정하지 않는다. 결과 직후 분류를 post-response score, activation rate, 전환율, retention%, PQL, upgrade demand, 자동 뇯지, 공개 카피, 신규 tracking/dashboard/session replay로 연결하지 않는다. "30초"는 계측 임계값이나 신규 duration 속성이 아니다. [[Session Value Is Read By Job, Not Event Count]]·[[AI Outcome Proxy Separation]]·[[Nudges Are Event-Triggered, And Show-Nothing Is The Default]]를 보완하는 새 축이다.
 - **출처:** `marketing-44`, `marketing-42`, `marketing-29`, `marketing-40`.
 
 ### First-Week Non-Return Is A Reactivation Candidate, Not A Failure
 
-- **결론:** 첫 주(D1/D3/D7) 미방문(non-return)은 실패 판정이 아니라 잡별 재초대 후보다. 미방문은 단일 churn이 아니라 "어떤 first value까지 갔고 어떤 second value 앞에서 멈췄나"를 읽는 segmentation 문제이며, first value까지 간 미방문은 이미 가치를 한 번 본 warm 후보다.
-- **적용:** 미방문 사용자를 발송 대상으로 보기 전에 RC-WARM(first value 도달 후 second value 없이 미방문=value recall 후보) / RC-PRE-LOST(first value 전 멈춤 중 B-LOST만) / RC-NORMAL(J3 `deed_judged` 후 저장 없이 정상 종료=후보 아님) / RC-AVAIL(`deed_save_capped`·503·지연=후보 아님) / RC-EXCLUDED(synthetic/mock/self-test=후보 아님)로 먼저 가른다. 순서는 ① EXCLUDED 분리 → ② AVAIL 분리 → ③ first value 발화 여부 → ④ 종료 성격(J3 정상 종료/막힘 4분류 B-LOST) → ⑤ do-not-send+승인선. 재초대 기본값은 "보내지 않음"이고 메시지는 할인/과장이 아니라 value recall(전에 하려던 일·도달한 결과·놓친 다음 가치)이다.
-- **주의:** D1/D7 미방문을 onboarding 실패·가치 부족·관심 없음으로 단정하지 않는다. judged−saved 갭을 이탈로(J3 정상 종료), `deed_save_capped`를 재초대/upgrade 수요로, RC-WARM을 PQL로 읽지 않는다. 미방문률을 reactivation rate·churn·retention%로 환산하지 않는다. 공개 발송·이메일/푸시/in-app·retargeting은 모두 approval-needed. retention 대조는 [[Correlation Readiness Is A Separate Gate]](m37), PQL 결론은 [[PQL Is A Bundle, Not A Single Event]](m41) 위임. [[First Value Mapping]]·[[Recovery Over Streak]]·[[Prelaunch Decision Boundary]]·[[Nudges Are Event-Triggered, And Show-Nothing Is The Default]]를 보완하는 새 축이다.
+- **결론:** 첫 주(D1/D3/D7) 미방문(non-return)은 실패 판정이 아니라 잡별 재초대 후보다. 미방문은 단일 churn이 아니라 "어떤 first value까지 갔고 어떤 second value 앞에서 멈쭔나"를 읽는 segmentation 문제이며, first value까지 간 미방문은 이미 가치를 한 번 본 warm 후보다.
+- **적용:** 미방문 사용자를 발송 대상으로 보기 전에 RC-WARM(first value 도달 후 second value 없이 미방문=value recall 후보) / RC-PRE-LOST(first value 전 멈쭔 중 B-LOST만) / RC-NORMAL(J3 `deed_judged` 후 저장 없이 정상 종료=후보 아님) / RC-AVAIL(`deed_save_capped`·503·지연=후보 아님) / RC-EXCLUDED(synthetic/mock/self-test=후보 아님)로 먼저 갈라다. 순서는 ① EXCLUDED 분리 → ② AVAIL 분리 → ③ first value 발화 여부 → ④ 종료 성격(J3 정상 종료/막힐 4분류 B-LOST) → ⑤ do-not-send+승인선. 재초대 기본값은 "보내지 않음"이고 메시지는 할인/과장이 아니라 value recall(전에 하려던 일·도달한 결과·놓친 다음 가치)이다.
+- **주의:** D1/D7 미방문을 onboarding 실패·가치 부족·관심 없음으로 단정하지 않는다. judged−saved 갈을 이탈로(J3 정상 종료), `deed_save_capped`를 재초대/upgrade 수요로, RC-WARM을 PQL로 읽지 않는다. 미방문률을 reactivation rate·churn·retention%로 환산하지 않는다. 공개 발송·이메일/푸시/in-app·retargeting은 모두 approval-needed. retention 대조는 [[Correlation Readiness Is A Separate Gate]](m37), PQL 결론은 [[PQL Is A Bundle, Not A Single Event]](m41) 위임. [[First Value Mapping]]·[[Recovery Over Streak]]·[[Prelaunch Decision Boundary]]·[[Nudges Are Event-Triggered, And Show-Nothing Is The Default]]를 보완하는 새 축이다.
 - **출처:** `marketing-43`, `marketing-14`, `marketing-26`, `marketing-40`, `marketing-41`.
 
 ### Decision-Delegation Risk Rides The Verb, Control Rides The Affordance
 
-- **결론:** 비자율 AI 판정 제품에서 약속 문장의 결정-위임 위험은 한곳에 몰리지 않고 *동사 프레임*에 실린다. `채점`·`판정`은 AI를 채점관/심판으로 세우는 판결 프레임("AI가 결정한다")이고, `본`·`읽은`·`보여주기`는 해석 제공자로 두는 관점 프레임("AI가 정리하고 마지막 선택은 나")이다. 반대로 제어 체감은 카피가 아니라 *결과 후 선택 affordance*(취소·한 번 더·저장, 0점도 저장 가능, 무저장 종료 비용 0)에 실려, 마지막 결정권은 카피와 무관하게 구조적으로 이미 사용자에게 있다. 그래서 위험은 "권한 부재"가 아니라 "문장이 권한을 덜 보이게 함"이다.
+- **결론:** 비자율 AI 판정 제품에서 약속 문장의 결정-위임 위험은 한곳에 댄리지 않고 *동사 프레임*에 실린다. `채점`·`판정`은 AI를 채점관/심판으로 세우는 판결 프레임("AI가 결정한다")이고, `본`·`읽은`·`보여주기`는 해석 제공자로 두는 관점 프레임("AI가 정리하고 마지막 선택은 나")이다. 반대로 제어 체감은 카피가 아니라 *결과 후 선택 affordance*(취소·한 번 더·저장, 0점도 저장 가능, 무저장 종료 비용 0)에 실려, 마지막 결정권은 카피와 무관하게 구조적으로 이미 사용자에게 있다. 그래서 위험은 "권한 부재"가 아니라 "문장이 권한을 덜 보이게 함"이다.
 - **적용:** AI 약속 문장(홈·`/add`·결과 카드·내부 snippet)을 읽을 때 ① 동사가 판결/관점 프레임 중 무엇인가 → ② 같은 흐름 안에서 프레임이 섞이는가(불일치=위험 1차 소재; Virtue는 버튼 `AI 채점` vs 헤더 `AI가 본 오늘`로 섞임) → ③ 제어권은 결과 후 선택 affordance 존재로 본다 → ④ 후보 문구는 전부 proposal-only로 둔다. 가장 큰 레버는 새 UI가 아니라 판결→관점 프레임 정렬이다.
-- **주의:** 프레임 분류를 "카피를 바꿔야 한다"는 결정으로 환산하지 않는다(전부 proposal-only). affordance 존재를 "사용자가 제어를 *인지*했다"로 단정하지 않는다(인지 여부는 m38 관찰 위임). 공개 버튼/헤더/힌트/온보딩 카피·llms.txt·cap 정책 변경은 모두 approval-needed. 외부 설문 수치(Gartner)를 Virtue 성과 기준으로 복사하지 않는다. [[No Autonomous Action Bounds The Trust Question]]·[[Trust Calibration By Job]]을 보완하는 카피 축이다.
+- **주의:** 프레임 분류를 "카피를 바꾸어야 한다"는 결정으로 환산하지 않는다(전부 proposal-only). affordance 존재를 "사용자가 제어를 *인지*했다"로 단정하지 않는다(인지 여부는 m38 관찰 위임). 공개 버튼/헤더/힌트/온보딩 카피·llms.txt·cap 정책 변경은 모두 approval-needed. 외부 설문 수치(Gartner)를 Virtue 성과 기준으로 복사하지 않는다. [[No Autonomous Action Bounds The Trust Question]]·[[Trust Calibration By Job]]을 보완하는 카피 축이다.
 - **출처:** `marketing-45`, `marketing-38`, `marketing-24`, `marketing-32`, `marketing-18`.
+
+### Agent-Led Growth Conflicts With Non-Autonomous Trust Frame Until Human First Value Is Validated
+
+- **결론:** API/MCP 기반 agent-led growth는 Virtue시럱 non-autonomous(외부 행동 없음) trust 프레임을 가진 제품에 prelaunch 단계에서는 맞지 않는다. 에이전트가 Virtue를 대신 호출하면 (a) 인간-우선 trust 프레임이 "에이전트가 대신 판정"으로 바뀌고, (b) 에이전트 트래픽이 사람 신호를 오염시켜 first value 검증이 불가능해진다. passive 발견(llms.txt·OG·AEO 설명 문서)는 에이전트 호출을 유발하지 않으므로 fit now이고, API/MCP/에이전트 배치/과금은 실 사용자 first value 검증 후로 미루다.
+- **적용:** agent-led growth 가능성을 검토할 때 먼저 ① 제품이 non-autonomous 프레임인가 → ② 에이전트 트래픽을 사람 트래픽과 분리할 측정 계획이 있는가 → ③ 실 사용자 50+명의 first value 도달이 확인됩는가를 순서대로 확인한다. 모두 충족 전에는 passive 발견만 허용하고 API/MCP/에이전트 배치/agent onboarding은 보류한다.
+- **주의:** "AI 제품이면 agent-first 유통이 당연하다"는 전제를 가져오지 않는다. passive 발견(llms.txt·OG·FAQ)과 active agent 호출(API/MCP 배치 처리)을 혼동하지 않는다. `llms.txt`에 에이전트 호출 허용을 approval 없이 명시하지 않는다. 에이전트 트래픽 추가 전 분리 측정 계획이 없으면 [[Traffic Source Before Metrics]] 위반이다.
+- **출처:** `marketing-46`, `marketing-38`, `marketing-45`, `marketing-25`.
 
 ## 다음 Marketer 체크리스트
 
 1. 이번 intent가 어떤 기존 기준을 계승하는지 3개 이하로 적는다.
-2. 기존 기준을 바꿀 필요가 있다면 변경 이유와 충돌한 선행 산출물을 적는다.
+2. 기존 기준을 바꾸 필요가 있다면 변경 이유와 충돌한 선행 산출물을 적는다.
 3. 새 이벤트, 속성, 카피, 가격, 계측, dashboard, session replay, 배포, 외부 발송, 비용, 권한, 개인정보 변경은 proposal-only 또는 approval-needed로 분리한다.
 4. report의 `<details>` 안에 `계승한 기준`, `이번에 새로 배운 것`, `다음 작업에 넘길 규칙`을 남긴다.
-5. durable learning candidate가 있으면 이 파일에 추가할 문장 형태로 제안한다.
+5. durable learning candidate가 있으만 이 파일에 추가할 문장 형태로 제안한다.
