@@ -8,7 +8,7 @@
 - owner: SAM
 - source_agent: `/home/ubuntu/.openclaw/workspace/agents/naver-shopping-agent/`
 - created_at: 2026-06-07T23:24Z
-- updated_at: 2026-06-08T23:07Z
+- updated_at: 2026-06-08T23:30Z
 
 ## Purpose
 
@@ -28,8 +28,20 @@
 - Naver QR login session was confirmed in the live browser session on 2026-06-08T12:01Z; read-only checks may proceed while the session remains valid
 - 2026-06-08T14:39Z read-only test: Naver main shows logged-in affordances, but SmartStore Center stops at the Commerce ID login page; public Naver Shopping search still IP-restricted. Block location moved from "env/session unreachable" to "Commerce ID transition (user-side)".
 - 2026-06-08T23:07Z curation convergence pass (access still blocked): folded the two travel candidates into a single **Travel-Prep System cluster** (same source `Idea/Travel.md`, overlapping artifact) and produced a fit-only provisional ranking — #1 cluster > #2 AI/creator workflow (watch). The 09:00 "first seed" menu is now a recommendation the user can override. Market demand still UNVALIDATED — fit evidence only; availability block, not failure.
+- 2026-06-08T23:30Z SKU-shape refinement pass: narrowed the first Travel-Prep hypothesis to a **Travel Scenario Card / Checklist Insert Set** rather than a generic diary/scrapbook. Source fit: travel scenario rehearsal + note-management/life-tracking preference for reusable, low-clutter context capture. Official SmartStore help adds registration-risk gates (category permission, product information notice, category-change/exposure delay). Demand/competition still unvalidated; next public/browser pass should test the tighter keyword set.
 
 ## Active Blockers
+
+### 2026-06-08T23:30Z - Travel-Prep SKU shape refined while access remains blocked
+
+- route: agent-solvable
+- status: resolved-local
+- source: Naver Shopping Agent operation-log `2026-06-08T23:30:00Z`
+- blocker: no new user blocker. Existing SmartStore Commerce ID gate and public Naver Shopping IP restriction remain unchanged.
+- user_needed: none beyond the existing 09:00 Commerce ID/read-only browser and first-seed decision.
+- sam_action: refined first candidate from broad "travel diary / organization" to "Travel Scenario Card / Checklist Insert Set"; added fit/operational scorecard and official registration-risk gates.
+- work_continues: yes (DataLab/browser competitor validation next when access path is available)
+- next_9am_message: update the first-seed recommendation wording to "Travel-Prep System, narrowed to structured travel scenario/checklist cards" and avoid presenting generic travel diary as the default.
 
 ### 2026-06-08T14:39Z - 로그인 브라우저 읽기 전용 테스트: 부분 접근(스마트스토어 Commerce ID 게이트)
 

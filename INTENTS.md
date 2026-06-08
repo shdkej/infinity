@@ -8,7 +8,7 @@
 
 ## Active
 
-<!-- naver-shopping-01 active 2026-06-08T23:07Z → intents/active/naver-shopping-01.md [projects: naver-shopping,infinity,personal-ops; type: coordination; topics: automation,workflow,marketing; status: partial-access-commerce-id-needed] (23:07Z 큐레이션 수렴 패스: 접근 차단 지속(공개검색 IP제한·SmartStore Commerce ID 사용자측 게이트)에 적합도 근거만으로 두 여행 후보를 단일 Travel-Prep System 묶음으로 통합하고 #1 묶음>#2 AI/creator로 잠정 랭킹, 09:00 열린 메뉴를 추천으로 대체. 시장수요는 여전히 미검증=fit근거. 가용성 차단이지 실패 아님; 09:00 KST 1건 보고. report 2026-06-08T2307Z-local.html) -->
+<!-- naver-shopping-01 active 2026-06-08T23:30Z → intents/active/naver-shopping-01.md [projects: naver-shopping,infinity,personal-ops; type: coordination; topics: automation,workflow,marketing; status: partial-access-commerce-id-needed] (23:30Z SKU-shape refinement: 접근 차단은 지속(공개검색 IP제한·SmartStore Commerce ID 사용자측 게이트)하므로 Knowledge Lab + 공식 SmartStore help 기반으로 첫 Travel-Prep 후보를 generic 여행 다이어리/스크랩북이 아니라 Travel Scenario Card / Checklist Insert Set로 좁힘. 근거: 실제 여행 시나리오/배차/숙소/패킹 마찰 + 물리 노트는 기억엔 좋지만 흩어지면 재사용이 어렵다는 note/life-tracking 신호. 공식 리스크: 카테고리 권한·상품정보제공고시·카테고리 변경/노출 지연 체크 필요. 수요/경쟁은 여전히 미검증. 09:00 KST 질문은 기존 Commerce ID/read-only 접근 + 이 좁힌 첫 seed 추천으로 보고. report 2026-06-08T2330Z-local.html) -->
 
 ## Waiting
 
