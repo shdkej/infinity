@@ -4,6 +4,7 @@
 
 ## Inbox
 
+<!-- marketing-47 inbox 2026-06-08T22:00Z → intents/inbox/marketing-47.md [projects: virtue; type: strategy; topics: prelaunch,first-users,positioning,onboarding] (출처노트 `/home/ubuntu/workspace/knowledge-lab/source/external-links/marketing/2026-06-08-founder-led-first-users.md` 기반. Virtue 첫 10명 design-user ask script 후보: 잡별 초대 문장, 사용 전 2문항, 첫 세션 후 3문항, 사용자가 자기 말로 설명한 Virtue 기록 칸, 승인 필요선을 docs-only로 정리. 공개 발송/DM/광고/프로덕션 카피·계측·배포·비용은 approval-needed. First gate: 기존 baseline/60초 관찰/decision-control 문서와 충돌 없이 외부 행동 0.) -->
 
 ## Active
 
