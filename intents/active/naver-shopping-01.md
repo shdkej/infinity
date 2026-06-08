@@ -8,7 +8,7 @@
 - owner: SAM
 - source_agent: `/home/ubuntu/.openclaw/workspace/agents/naver-shopping-agent/`
 - created_at: 2026-06-07T23:24Z
-- updated_at: 2026-06-08T16:07Z
+- updated_at: 2026-06-08T23:07Z
 
 ## Purpose
 
@@ -27,6 +27,7 @@
 - scoped normal GitHub push is allowed so Infinity/Naver-agent state becomes visible remotely
 - Naver QR login session was confirmed in the live browser session on 2026-06-08T12:01Z; read-only checks may proceed while the session remains valid
 - 2026-06-08T14:39Z read-only test: Naver main shows logged-in affordances, but SmartStore Center stops at the Commerce ID login page; public Naver Shopping search still IP-restricted. Block location moved from "env/session unreachable" to "Commerce ID transition (user-side)".
+- 2026-06-08T23:07Z curation convergence pass (access still blocked): folded the two travel candidates into a single **Travel-Prep System cluster** (same source `Idea/Travel.md`, overlapping artifact) and produced a fit-only provisional ranking — #1 cluster > #2 AI/creator workflow (watch). The 09:00 "first seed" menu is now a recommendation the user can override. Market demand still UNVALIDATED — fit evidence only; availability block, not failure.
 
 ## Active Blockers
 

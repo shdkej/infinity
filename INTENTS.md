@@ -8,7 +8,7 @@
 
 ## Active
 
-<!-- naver-shopping-01 active 2026-06-08T16:07Z → intents/active/naver-shopping-01.md [projects: naver-shopping,infinity,personal-ops; type: coordination; topics: automation,workflow,marketing; status: partial-access-commerce-id-needed] (14:39Z 로그인 브라우저 읽기 전용 테스트 동기화: 네이버 메인은 로그인 상태이나 스마트스토어 센터는 Commerce ID 게이트에서 멈춤·공개 쇼핑검색 IP제한 지속 → 차단 위치가 env-unreachable에서 Commerce ID 전환(사용자측)으로 이동. 가용성 차단이지 실패 아님; 09:00 KST 1건 보고) -->
+<!-- naver-shopping-01 active 2026-06-08T23:07Z → intents/active/naver-shopping-01.md [projects: naver-shopping,infinity,personal-ops; type: coordination; topics: automation,workflow,marketing; status: partial-access-commerce-id-needed] (23:07Z 큐레이션 수렴 패스: 접근 차단 지속(공개검색 IP제한·SmartStore Commerce ID 사용자측 게이트)에 적합도 근거만으로 두 여행 후보를 단일 Travel-Prep System 묶음으로 통합하고 #1 묶음>#2 AI/creator로 잠정 랭킹, 09:00 열린 메뉴를 추천으로 대체. 시장수요는 여전히 미검증=fit근거. 가용성 차단이지 실패 아님; 09:00 KST 1건 보고. report 2026-06-08T2307Z-local.html) -->
 
 ## Waiting
 
