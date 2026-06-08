@@ -1,14 +1,14 @@
 # naver-shopping-01: 네이버쇼핑 에이전트 운영/차단 라우팅
 
 - id: naver-shopping-01
-- status: active
+- status: in_progress
 - projects: [naver-shopping, infinity, personal-ops]
 - task_type: coordination
 - topics: [automation, workflow, marketing]
 - owner: SAM
 - source_agent: `/home/ubuntu/.openclaw/workspace/agents/naver-shopping-agent/`
 - created_at: 2026-06-07T23:24Z
-- updated_at: 2026-06-08T12:14Z
+- updated_at: 2026-06-08T14:00Z
 
 ## Purpose
 
@@ -26,8 +26,16 @@
 - Knowledge Lab / agent-wiki should be used as source context for product-fit judgment
 - scoped normal GitHub push is allowed so Infinity/Naver-agent state becomes visible remotely
 - Naver QR login session was confirmed in the live browser session on 2026-06-08T12:01Z; read-only checks may proceed while the session remains valid
+- **2026-06-08T14:00Z**: Cloud prepare 완료 — 상품 후보 5종(여행 파우치, 메모리 다이어리, 패킹 큐브, 창작자 노트, 포터블 메모 시스템) 수요 신호·사용자 적합성 1차 매핑. 로컬 브라우저로 경쟁가 확인 필요. 리포트: `reports/naver-shopping-01/2026-06-08T1400Z-prepare.html`
 
 ## Active Blockers
+
+## Next Action (Local — Browser Session Required)
+
+- 후보 5종 네이버 쇼핑 검색량·경쟁가·리뷰 수 확인
+- 스마트스토어 상위 3개 경쟁 상품 비교
+- 실제 마진 계산 (도매가 조사)
+- 등록 마찰 확인 (카테고리 매칭·원산지)
 
 ## Resolved Decision
 
