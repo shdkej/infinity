@@ -8,7 +8,7 @@
 - owner: SAM
 - source_agent: `/home/ubuntu/.openclaw/workspace/agents/naver-shopping-agent/`
 - created_at: 2026-06-07T23:24Z
-- updated_at: 2026-06-08T12:14Z
+- updated_at: 2026-06-08T13:07Z
 
 ## Purpose
 
@@ -28,6 +28,18 @@
 - Naver QR login session was confirmed in the live browser session on 2026-06-08T12:01Z; read-only checks may proceed while the session remains valid
 
 ## Active Blockers
+
+### 2026-06-08T13:07Z - 읽기 전용 브라우저 확인 환경 차단 (Electron 세션 없음)
+
+- route: environment-session-needed
+- status: waiting
+- source: delegated local run (purplemux CLI/HTTP)
+- blocker: QR 로그인은 12:01Z에 성공했으나, 그때의 web-browser 탭은 이미 닫혀 있었고 새로 만든 web-browser 탭은 `Browser bridge unavailable (Electron-only feature)`를 반환했다. 이 호스트에 Electron 데스크톱 프로세스가 떠 있지 않아 헤드리스 위임 실행에서는 네이버/스마트스토어 읽기 전용 대시보드를 열 수 없다.
+- not_blocker: 사용자 계정 로그인 실패가 아님. 환경/런타임 문제다.
+- user_needed: 읽기 전용 확인을 자동으로 이어가려면 purplemux **데스크톱(Electron) 앱**에서 로그인된 네이버 탭을 열어둔 상태여야 한다. 그렇지 않으면 공개/공식 문서 기반 작업만 가능하다.
+- sam_action: Electron 브라우저 세션이 살아있는 동안에만 읽기 전용 확인을 수행. 그 외에는 공개 리서치·전략·지표·큐레이션 템플릿 작업을 계속하고, write/account/customer/budget/publishing은 승인 게이트 유지.
+- work_continues: yes (공개/문서 기반)
+- next_9am_message: "읽기 전용 네이버 확인을 자동으로 이어가려면 데스크톱 앱에 로그인된 네이버 탭을 열어둔 채로 둬야 한다"를 1건으로 보고.
 
 ## Resolved Decision
 

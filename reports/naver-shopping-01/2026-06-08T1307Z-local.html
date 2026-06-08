@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<!-- Infinity 보고 양식 — "Quiet Note" / 감시형(muted gold). JS·외부 리소스 금지, 인라인 CSS만. -->
+<title>Infinity Report · naver-shopping-01</title>
+<style>
+  :root{
+    --bg:#f4f2ea; --panel:#fbfaf5; --ink:#2c2a25; --soft:#807c70; --faint:#a8a496; --line:#e3dfd2;
+    --a2:#5f7a5e; --a2-deep:#3f5740;            /* 축2 = sage, 고정 */
+    --a1:#b08545; --a1-deep:#8a6633;            /* 축1 = 감시형 muted gold */
+    --sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;}
+  body{background:var(--bg); color:var(--ink); font-family:var(--sans);
+    font-size:14px; line-height:1.68; -webkit-font-smoothing:antialiased;}
+  .sheet{max-width:720px; margin:0 auto; padding:48px 34px 46px;}
+  .reveal{opacity:0; animation:fade .7s ease forwards;}
+  @keyframes fade{from{opacity:0; transform:translateY(9px);} to{opacity:1; transform:none;}}
+
+  .eyebrow{display:flex; align-items:center; gap:10px; font-family:var(--mono);
+    font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--soft);}
+  .eyebrow .id{color:var(--a2-deep); font-weight:600;}
+  .eyebrow .dot{width:5px; height:5px; border-radius:50%; background:var(--a2);}
+  .eyebrow .status{margin-left:auto; color:var(--a2-deep);}
+  h1{font-size:29px; line-height:1.3; font-weight:700; letter-spacing:-.01em; margin:20px 0 0;}
+  .dek{font-size:15.5px; color:var(--soft); margin:13px 0 0; max-width:52ch;}
+  .hr{height:1px; background:var(--line); margin:30px 0;}
+
+  .axis{padding:0 0 4px 22px; position:relative; margin-bottom:30px;}
+  .axis::before{content:""; position:absolute; left:0; top:6px; bottom:6px; width:2px; border-radius:2px;}
+  .axis.ax1::before{background:var(--a1);} .axis.ax2::before{background:var(--a2);}
+  .axis.ax1{--ul:var(--a1);} .axis.ax2{--ul:var(--a2);}
+  .axis .label{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase;
+    margin-bottom:9px; display:flex; align-items:center; gap:8px;}
+  .axis.ax1 .label{color:var(--a1-deep);} .axis.ax2 .label{color:var(--a2-deep);}
+  .axis .label .n{font-weight:600; opacity:.6;}
+  .axis .text{font-size:18px; line-height:1.6; color:#37352e;}
+  .axis .text b{font-weight:700; color:var(--ink); border-bottom:2px solid var(--ul);}
+  ol.find{list-style:none; counter-reset:f; margin:16px 0 0; padding:0;}
+  ol.find li{position:relative; padding:8px 0 8px 26px; font-size:15px; color:#37352e; border-top:1px solid var(--line);}
+  ol.find li:first-child{border-top:none;}
+  ol.find li::before{counter-increment:f; content:counter(f); position:absolute; left:0; top:9px;
+    font-family:var(--mono); font-size:12px; font-weight:600; color:var(--a1-deep);}
+
+  details{border:1px solid var(--line); border-radius:10px; background:var(--panel); margin-bottom:10px;}
+  summary{cursor:pointer; list-style:none; padding:14px 16px; display:flex; align-items:center; gap:11px;
+    font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft);}
+  summary::-webkit-details-marker{display:none;}
+  summary .chev{width:8px; height:8px; border-right:2px solid var(--a2-deep); border-bottom:2px solid var(--a2-deep);
+    transform:rotate(-45deg); transition:.25s; flex:none; margin-left:2px;}
+  details[open] summary .chev{transform:rotate(45deg);}
+  summary:hover{color:var(--ink);}
+  .body{padding:2px 16px 18px;}
+  table{border-collapse:collapse; width:100%; font-size:13px; margin:4px 0 12px;}
+  th,td{border-bottom:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top;}
+  th{font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft); font-weight:600;}
+  td:first-child{color:var(--a2-deep); font-weight:600; white-space:nowrap;}
+  .body p{color:var(--soft);}
+  .body ul{margin:6px 0; padding-left:18px;} .body li{margin:5px 0;}
+  code{font-family:var(--mono); font-size:12px; background:#edeae0; padding:1px 6px; border-radius:3px; color:var(--a2-deep);}
+  a{color:var(--a2-deep); text-underline-offset:3px;}
+  .chips{display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px;}
+  .chip{font-family:var(--mono); font-size:10.5px; letter-spacing:.05em; color:var(--soft); border:1px solid var(--line); border-radius:999px; padding:3px 10px;}
+  .foot{margin-top:30px; padding-top:15px; border-top:1px solid var(--line);
+    display:flex; justify-content:space-between; font-family:var(--mono); font-size:10px;
+    letter-spacing:.13em; text-transform:uppercase; color:var(--faint);}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="eyebrow reveal">
+    <span class="dot"></span>
+    <span class="id">naver-shopping-01</span>
+    <span>Run Log · 감시형</span>
+    <span class="status">blocked (environment)</span>
+  </div>
+  <h1 class="reveal" style="animation-delay:.05s">읽기 전용 네이버 확인 — 라이브 브라우저 세션 도달 불가</h1>
+  <p class="dek reveal" style="animation-delay:.09s">QR 로그인은 12:01Z에 성공했지만, 헤드리스 위임 실행에서는 그 세션에 닿을 수 없었다. 환경 차단을 기록하고 라우팅한다.</p>
+
+  <div class="hr reveal" style="animation-delay:.12s"></div>
+
+  <div class="axis ax1 reveal" style="animation-delay:.16s">
+    <div class="label"><span class="n">01</span> 🟡 무엇을 점검했나</div>
+    <div class="text">QR 로그인 확인(12:01Z) 이후 <b>네이버/스마트스토어 읽기 전용 확인</b>을 자동으로 이어갈 수 있는지 — 즉 로그인된 <b>라이브 브라우저 세션에 도달 가능한지</b>를 점검했다.</div>
+  </div>
+
+  <div class="axis ax2 reveal" style="animation-delay:.22s">
+    <div class="label"><span class="n">02</span> ✅ 이상 여부 · 조치</div>
+    <div class="text">도달 <b>불가</b>. 12:01Z의 web-browser 탭은 이미 닫혀 있었고, 새 탭은 <b>Browser bridge unavailable (Electron-only)</b>를 반환했다 — 이 호스트에 Electron 데스크톱이 없다. <b>계정 문제가 아니라 환경 문제</b>로 분류하고 Active Blocker로 라우팅했다.</div>
+    <ol class="find">
+      <li>모든 workspace에 라이브 web-browser 탭 없음 (claude-code 1 · terminal 1만 존재)</li>
+      <li>새로 만든 web-browser 탭의 url/navigate/screenshot 모두 <code>Browser bridge unavailable (Electron-only feature)</code></li>
+      <li>Electron 프로세스 미실행 → 헤드리스 서버 컨텍스트는 브라우저 브리지에 접근 불가</li>
+      <li>프로브 탭은 생성 후 즉시 닫아 잔여 상태 없음 (읽기 전용·되돌림 가능)</li>
+    </ol>
+  </div>
+
+  <div class="reveal" style="animation-delay:.27s">
+  <details open>
+    <summary><span class="chev"></span> 상세 · 진단 경로와 다음 액션</summary>
+    <div class="body">
+      <table>
+        <tr><th>점검</th><th>결과</th></tr>
+        <tr><td>탭 인벤토리</td><td>ws-J_HAhJ: claude-code 1개 / ws-yGPqJx: terminal(bash) 1개 / ws-j_zzGF: 0개 — 라이브 브라우저 탭 없음</td></tr>
+        <tr><td>새 web-browser 탭</td><td>생성 성공(panelType=web-browser)했으나 브라우저 브리지 호출 전부 실패</td></tr>
+        <tr><td>브리지 에러</td><td><code>Browser bridge unavailable (Electron-only feature)</code> (url·navigate·screenshot 공통)</td></tr>
+        <tr><td>원인</td><td>Electron 데스크톱 프로세스 미실행. purplemux 서버는 headless Next.js standalone으로만 동작</td></tr>
+        <tr><td>분류</td><td>environment-session-needed (계정 로그인 실패 아님)</td></tr>
+      </table>
+      <p><b>다음 액션</b></p>
+      <ul>
+        <li>읽기 전용 확인을 자동으로 이어가려면 purplemux <b>데스크톱(Electron) 앱</b>에서 로그인된 네이버 탭을 열어둔 상태를 유지해야 한다.</li>
+        <li>그 전까지 SAM은 공개/공식 문서 기반 리서치·전략·지표·큐레이션 템플릿 작업을 계속한다.</li>
+        <li>write / account / customer / budget / publishing 은 승인 게이트 유지.</li>
+        <li>09:00 KST 보고에 위 한 문장만 사용자 측 블로커로 포함.</li>
+      </ul>
+      <p><b>재사용 학습 후보(미승격)</b>: "헤드리스 위임 실행은 Electron web-browser 탭을 구동할 수 없다 — 읽기 전용 브라우저 확인은 데스크톱 앱이 살아있을 때만 가능." 마케팅 학습이 아니라 운영 학습이므로 MARKETING_LEARNINGS.md로 승격하지 않음.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="chev"></span> 실행 메타 · 산출물</summary>
+    <div class="body">
+      <div class="chips">
+        <span class="chip">2026-06-08T13:07Z</span>
+        <span class="chip">delegated local run</span>
+        <span class="chip">browser_session_ready → environment-blocked</span>
+        <span class="chip">approval: agent-approved L2 (read-only diagnostic)</span>
+      </div>
+      <ul>
+        <li>업데이트 <code>agents/naver-shopping-agent/operation-log.md</code> (openclaw-backups)</li>
+        <li>업데이트 <code>intents/active/naver-shopping-01.md</code> (infinity, Active Blocker 추가)</li>
+        <li>리포트 <code>reports/naver-shopping-01/2026-06-08T1307Z-local.html</code> (infinity, 본 파일)</li>
+      </ul>
+      <p>판단 근거: 읽기 전용 진단, 되돌림 가능(프로브 탭 즉시 닫음), 비용/시크릿/타인 알림 없음 → L2 자체 승인 조건 충족. 검증: 탭 인벤토리·브리지 에러 재현 3회 일관.</p>
+    </div>
+  </details>
+  </div>
+
+  <div class="foot reveal" style="animation-delay:.3s">
+    <span>Agent-First Heartbeat</span>
+    <span>Infinity · naver-shopping-01</span>
+  </div>
+</div>
+</body>
+</html>
