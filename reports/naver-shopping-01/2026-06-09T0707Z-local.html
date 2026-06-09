@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<!-- Infinity 보고 양식 — Quiet Note (조사형 slate-blue). 인라인 CSS만, JS 금지, 접기는 <details>. -->
+<title>naver-shopping-01 · 경쟁 화이트스페이스 스캔 → PIVOT</title>
+<style>
+  :root{
+    --bg:#f4f2ea; --panel:#fbfaf5; --ink:#2c2a25; --soft:#807c70; --faint:#a8a496; --line:#e3dfd2;
+    --a2:#5f7a5e; --a2-deep:#3f5740;
+    --a1:#5a6f8a; --a1-deep:#3f536e;
+    --sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;}
+  body{background:var(--bg); color:var(--ink); font-family:var(--sans);
+    font-size:14px; line-height:1.68; -webkit-font-smoothing:antialiased;}
+  .sheet{max-width:720px; margin:0 auto; padding:48px 34px 46px;}
+  .reveal{opacity:0; animation:fade .7s ease forwards;}
+  @keyframes fade{from{opacity:0; transform:translateY(9px);} to{opacity:1; transform:none;}}
+  .eyebrow{display:flex; align-items:center; gap:10px; font-family:var(--mono);
+    font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--soft);}
+  .eyebrow .id{color:var(--a2-deep); font-weight:600;}
+  .eyebrow .dot{width:5px; height:5px; border-radius:50%; background:var(--a2);}
+  .eyebrow .status{margin-left:auto; color:var(--a2-deep);}
+  h1{font-size:29px; line-height:1.3; font-weight:700; letter-spacing:-.01em; margin:20px 0 0;}
+  .dek{font-size:15.5px; color:var(--soft); margin:13px 0 0; max-width:52ch;}
+  .hr{height:1px; background:var(--line); margin:30px 0;}
+  .axis{padding:0 0 4px 22px; position:relative; margin-bottom:30px;}
+  .axis::before{content:""; position:absolute; left:0; top:6px; bottom:6px; width:2px; border-radius:2px;}
+  .axis.ax1::before{background:var(--a1);} .axis.ax2::before{background:var(--a2);}
+  .axis.ax1{--ul:var(--a1);} .axis.ax2{--ul:var(--a2);}
+  .axis .label{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase;
+    margin-bottom:9px; display:flex; align-items:center; gap:8px;}
+  .axis.ax1 .label{color:var(--a1-deep);} .axis.ax2 .label{color:var(--a2-deep);}
+  .axis .label .n{font-weight:600; opacity:.6;}
+  .axis .text{font-size:18px; line-height:1.6; color:#37352e;}
+  .axis .text b{font-weight:700; color:var(--ink); border-bottom:2px solid var(--ul);}
+  ol.find{list-style:none; counter-reset:f; margin:16px 0 0; padding:0;}
+  ol.find li{position:relative; padding:8px 0 8px 26px; font-size:15px; color:#37352e; border-top:1px solid var(--line);}
+  ol.find li:first-child{border-top:none;}
+  ol.find li::before{counter-increment:f; content:counter(f); position:absolute; left:0; top:9px;
+    font-family:var(--mono); font-size:12px; font-weight:600; color:var(--a1-deep);}
+  details{border:1px solid var(--line); border-radius:10px; background:var(--panel); margin-bottom:10px;}
+  summary{cursor:pointer; list-style:none; padding:14px 16px; display:flex; align-items:center; gap:11px;
+    font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft);}
+  summary::-webkit-details-marker{display:none;}
+  summary .chev{width:8px; height:8px; border-right:2px solid var(--a2-deep); border-bottom:2px solid var(--a2-deep);
+    transform:rotate(-45deg); transition:.25s; flex:none; margin-left:2px;}
+  details[open] summary .chev{transform:rotate(45deg);}
+  summary:hover{color:var(--ink);}
+  .body{padding:2px 16px 18px;}
+  table{border-collapse:collapse; width:100%; font-size:13px; margin:4px 0 12px;}
+  th,td{border-bottom:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top;}
+  th{font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft); font-weight:600;}
+  td:first-child{color:var(--a2-deep); font-weight:600; white-space:nowrap;}
+  .body p{color:var(--soft);}
+  .body ul{margin:6px 0; padding-left:18px;} .body li{margin:5px 0;}
+  code{font-family:var(--mono); font-size:12px; background:#edeae0; padding:1px 6px; border-radius:3px; color:var(--a2-deep);}
+  a{color:var(--a2-deep); text-underline-offset:3px;}
+  .chips{display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px;}
+  .chip{font-family:var(--mono); font-size:10.5px; letter-spacing:.05em; color:var(--soft); border:1px solid var(--line); border-radius:999px; padding:3px 10px;}
+  .foot{margin-top:30px; padding-top:15px; border-top:1px solid var(--line);
+    display:flex; justify-content:space-between; font-family:var(--mono); font-size:10px;
+    letter-spacing:.13em; text-transform:uppercase; color:var(--faint);}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="eyebrow reveal">
+    <span class="dot"></span>
+    <span class="id">naver-shopping-01</span>
+    <span>Research Note</span>
+    <span class="status">PIVOT (directional)</span>
+  </div>
+  <h1 class="reveal" style="animation-delay:.05s">보류됐던 경쟁 화이트스페이스 스캔을 OpenAPI로 실행 → 정식 PIVOT</h1>
+  <p class="dek reveal" style="animation-delay:.09s">스캔은 차단된 게 아니라 미실행이었다. Naver OpenAPI 쇼핑검색이 HTTP 418 웹차단을 우회한다는 사실(06:10Z 분리)을 이용해, 결정 핵심 4개 키워드의 top-20을 읽고 룰브릭을 적용했다.</p>
+
+  <div class="hr reveal" style="animation-delay:.12s"></div>
+
+  <div class="axis ax1 reveal" style="animation-delay:.16s">
+    <div class="label"><span class="n">01</span> 무엇을 조사했나</div>
+    <div class="text">첫 시드(Travel-Prep)의 <b>경쟁 화이트스페이스</b>를 Naver OpenAPI 쇼핑검색으로 실측했다. <b>HTTP 418은 웹/시각 증거만 막을 뿐</b> 공식 OpenAPI 결과·가격 경로는 막지 않았다 — "경쟁 스캔 차단"은 웹전용 차단을 과대해석한 라벨이었다.</div>
+  </div>
+
+  <div class="axis ax2 reveal" style="animation-delay:.22s">
+    <div class="label"><span class="n">02</span> 핵심 결과</div>
+    <div class="text">정식 판정 <b>PIVOT(방향성)</b>: 독립 체크리스트 카드 존(<b>여행 체크리스트</b> 124,564건, 1,200–3,400원 코모디티 포화)이 아니라, <b>트래블러스노트 표준사이즈(패스포트/미디움) 여행준비 구조화 인서트</b>로 첫 SKU를 재설계한다 — 일반 괘선 인서트만 있는 브랜드 리필 규격 위 콘텐츠 경쟁.</div>
+    <ol class="find">
+      <li><b>여행 체크리스트</b> top-20 = 저가 체크리스트/다이어리속지 포화 → 화이트스페이스 아님(수요는 있으나 마진 없음).</li>
+      <li><b>트래블러스노트 리필/속지</b>(1,042/450) = 밀집 브랜드 리필 생태계, 인서트는 전부 무지·도트·그리드·위클리·먼슬리 일반 괘선.</li>
+      <li>표준 위 <b>구조화된 여행준비 인서트</b>가 얇음 = 실제 화이트스페이스 → PIVOT 방향.</li>
+    </ol>
+  </div>
+
+  <div class="reveal" style="animation-delay:.27s">
+  <details open>
+    <summary><span class="chev"></span> 경쟁 스캔 표 · 룰브릭 판정</summary>
+    <div class="body">
+      <p>1회 바운드 읽기전용 OpenAPI 프로브 (<code>/v1/search/shop.json</code>, display=20, sort=sim, 키는 <code>~/.env</code>, 시크릿 미출력).</p>
+      <table>
+        <thead><tr><th>키워드 (의도)</th><th>API total</th><th>top-20 포맷</th><th>가격대</th><th>화이트스페이스?</th></tr></thead>
+        <tbody>
+          <tr><td>여행 체크리스트 (Core)</td><td>124,564</td><td>저가 체크리스트/플래너/다이어리속지, 밀집</td><td>1,200–3,400원 (코모디티)</td><td>NO — 구조화 체크리스트 이미 존재·저가</td></tr>
+          <tr><td>여행계획표 (Core)</td><td>15,007</td><td>스터디플래너/귀여운테마 플래너 결합</td><td>1,120–5,520원</td><td>NO — 코모디티 플래너존</td></tr>
+          <tr><td>트래블러스노트 리필 (Anchor)</td><td>1,042</td><td>100% 노트/수첩 리필, 일반 괘선(무지·도트·그리드·위클리·먼슬리), 패스포트/미디움</td><td>~1,500–5,200원 (+프리미엄 미도리/오리지널)</td><td>YES(얇음) — 표준 위 여행준비 구조화 인서트 부재</td></tr>
+          <tr><td>트래블러스노트 속지 (Anchor)</td><td>450</td><td>동일 브랜드 리필 표면</td><td>~1,500–4,500원</td><td>YES(얇음) — 구조화 콘텐츠 인서트 부재</td></tr>
+        </tbody>
+      </table>
+      <p><b>룰브릭:</b> PROMOTE 실패(Core 키워드 DataLab 얇음/하락 + 여행 체크리스트 포화 + 바닥 마진) · PIVOT 성립(수요가 트래블러스노트 앵커와 Overlap 파우치에 집중). → 첫 SKU = <b>트래블러스노트 표준사이즈 여행준비 구조화 인서트</b>(브랜드 리필 규격 위 콘텐츠 경쟁), 독립 체크리스트 카드 아님.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="chev"></span> 가정 원장 · 한계 · 재사용 학습</summary>
+    <div class="body">
+      <ul>
+        <li><b>상속(불변):</b> fit ≠ 시장증거 · 작은 방향성 신호는 PMF/매출 판정 아님(Prelaunch Decision Boundary) · 접근 차단은 가용성이지 수요 신호 아님.</li>
+        <li><b>이번 변경:</b> 판정이 "보류(경쟁 스캔 차단)" → "해소 → 방향성 PIVOT". 스캔은 OpenAPI로 내내 닿을 수 있었음(웹/API 접근상태 분리, 06:10Z). 이전 "경쟁 스캔 차단" 프레임은 418의 과대해석.</li>
+        <li><b>충돌:</b> 역전 없음 — OpenAPI 스캔이 DataLab 주도 PIVOT(04/05/06:07Z)을 <b>확증</b>. 정제 1건: 여행 체크리스트 인서트 수요는 실재하나 <b>코모디티화</b> → 수요-부재가 아니라 마진-부재.</li>
+        <li><b>재사용 학습 후보(보류, 2번째 사례 필요):</b> "리서치 차단을 선언하기 전 웹-접근상태와 API-접근상태를 분리하라 — HTTP 418 웹차단은 공식 OpenAPI 경로를 막지 않는다. '경쟁 스캔 차단' 판정이 웹전용 차단의 오라벨일 수 있다." (에이전트 자체 툴링에 적용한 '가용성 ≠ 가치' 규칙.)</li>
+        <li><b>한계:</b> OpenAPI는 결과폭+가격만 제공, 리뷰깊이·시각랭크·광고는 못 줌(웹검색 여전히 418) → 방향성일 뿐 PROMOTE급 아님. 종이 마진 얇아 1,500–5,200원 코모디티 대비 콘텐츠/디자인 프리미엄 필요.</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="chev"></span> 실행 메타 · 산출물</summary>
+    <div class="body">
+      <div class="chips">
+        <span class="chip">2026-06-09T07:07Z</span>
+        <span class="chip">local cron · read-only · L1</span>
+        <span class="chip">active-partial-validated → active-pivot-directional</span>
+      </div>
+      <ul>
+        <li>판정 갱신 <code>keyword-competitor-validation-plan.md</code> (07:07Z 실행 증거 + 정식 PIVOT 판정)</li>
+        <li>큐레이션 상태 변경 <code>product-curation.md</code> (held → PIVOT)</li>
+        <li>운영 로그 <code>operation-log.md</code> · 의도 원장 <code>intents/active/naver-shopping-01.md</code> · <code>INTENTS.md</code></li>
+        <li>접근 경계: 읽기전용만. 상품등록/가격·배송·재고/광고·비용/고객·주문/계정/공개발행 미접촉.</li>
+      </ul>
+    </div>
+  </details>
+  </div>
+
+  <div class="foot reveal" style="animation-delay:.3s">
+    <span>Agent-First Heartbeat</span>
+    <span>Infinity · naver-shopping-01</span>
+  </div>
+</div>
+</body>
+</html>
