@@ -8,7 +8,7 @@
 - owner: SAM
 - source_agent: `/home/ubuntu/.openclaw/workspace/agents/naver-shopping-agent/`
 - created_at: 2026-06-07T23:24Z
-- updated_at: 2026-06-08T23:30Z
+- updated_at: 2026-06-09T01:00Z
 
 ## Purpose
 
@@ -29,6 +29,7 @@
 - 2026-06-08T14:39Z read-only test: Naver main shows logged-in affordances, but SmartStore Center stops at the Commerce ID login page; public Naver Shopping search still IP-restricted. Block location moved from "env/session unreachable" to "Commerce ID transition (user-side)".
 - 2026-06-08T23:07Z curation convergence pass (access still blocked): folded the two travel candidates into a single **Travel-Prep System cluster** (same source `Idea/Travel.md`, overlapping artifact) and produced a fit-only provisional ranking — #1 cluster > #2 AI/creator workflow (watch). The 09:00 "first seed" menu is now a recommendation the user can override. Market demand still UNVALIDATED — fit evidence only; availability block, not failure.
 - 2026-06-08T23:30Z SKU-shape refinement pass: narrowed the first Travel-Prep hypothesis to a **Travel Scenario Card / Checklist Insert Set** rather than a generic diary/scrapbook. Source fit: travel scenario rehearsal + note-management/life-tracking preference for reusable, low-clutter context capture. Official SmartStore help adds registration-risk gates (category permission, product information notice, category-change/exposure delay). Demand/competition still unvalidated; next public/browser pass should test the tighter keyword set.
+- 2026-06-09T01:00Z cloud research pass: public web research on global travel stationery market. Etsy "travel planner inserts" category active at $3–15 USD; no Korean brand found with dedicated scenario-card product → differentiation space confirmed. Korean demand still unvalidated (IP block + Commerce ID gate). Pricing hypothesis: 5,900–8,900 KRW target. Artifact: `artifacts/naver-shopping-01/research-travel-stationery-market-2026-06-09.md`.
 
 ## Active Blockers
 
@@ -66,7 +67,7 @@
 - sam_action: 브라우저를 공격적으로 재시도하지 않고, 대신 Knowledge Lab 핵심 자료(`source/shdkej-content/Idea/Travel.md`)로 제품 큐레이션 1패스 수행.
 - work_done: 여행 후보를 '기록/스크랩 키트'→'여행 시선·준비 키트'로 재프레이밍, 패킹/계획 후보를 watch→draft 승격, AI/워크숍 후보 강등. 수요는 여전히 미검증(공개/읽기전용 차단) — fit 증거이지 시장 증거 아님.
 - work_continues: yes (공개/문서 기반)
-- next_9am_message: 13:07Z와 동일 — "읽기 전용 네이버 확인을 자동으로 이어가려면 데스크톱 앱에 로그인된 네이버 탭을 열어둬야 한다"를 1건으로 보고. (중복 누적 금지, 한 줄 유지)
+- next_9am_message: 13:07Z와 동일 — "읽기 전용 네이버 확인을 자동으로 이어가려면 데스크톱 앱에 로그인된 네이버 탭을 열어둔 채로 둬야 한다"를 1건으로 보고. (중복 누적 금지, 한 줄 유지)
 
 ### 2026-06-08T13:07Z - 읽기 전용 브라우저 확인 환경 차단 (Electron 세션 없음)
 
@@ -77,7 +78,7 @@
 - not_blocker: 사용자 계정 로그인 실패가 아님. 환경/런타임 문제다.
 - user_needed: 읽기 전용 확인을 자동으로 이어가려면 purplemux **데스크톱(Electron) 앱**에서 로그인된 네이버 탭을 열어둔 상태여야 한다. 그렇지 않으면 공개/공식 문서 기반 작업만 가능하다.
 - sam_action: Electron 브라우저 세션이 살아있는 동안에만 읽기 전용 확인을 수행. 그 외에는 공개 리서치·전략·지표·큐레이션 템플릿 작업을 계속하고, write/account/customer/budget/publishing은 승인 게이트 유지.
-- work_continues: yes (공개/문서 기반)
+- work_continues: yes
 - next_9am_message: "읽기 전용 네이버 확인을 자동으로 이어가려면 데스크톱 앱에 로그인된 네이버 탭을 열어둔 채로 둬야 한다"를 1건으로 보고.
 
 ## Resolved Decision
