@@ -8,7 +8,7 @@
 - owner: SAM
 - source_agent: `/home/ubuntu/.openclaw/workspace/agents/naver-shopping-agent/`
 - created_at: 2026-06-07T23:24Z
-- updated_at: 2026-06-08T23:30Z
+- updated_at: 2026-06-09T00:00Z
 
 ## Purpose
 
@@ -29,20 +29,21 @@
 - 2026-06-08T14:39Z read-only test: Naver main shows logged-in affordances, but SmartStore Center stops at the Commerce ID login page; public Naver Shopping search still IP-restricted. Block location moved from "env/session unreachable" to "Commerce ID transition (user-side)".
 - 2026-06-08T23:07Z curation convergence pass (access still blocked): folded the two travel candidates into a single **Travel-Prep System cluster** (same source `Idea/Travel.md`, overlapping artifact) and produced a fit-only provisional ranking — #1 cluster > #2 AI/creator workflow (watch). The 09:00 "first seed" menu is now a recommendation the user can override. Market demand still UNVALIDATED — fit evidence only; availability block, not failure.
 - 2026-06-08T23:30Z SKU-shape refinement pass: narrowed the first Travel-Prep hypothesis to a **Travel Scenario Card / Checklist Insert Set** rather than a generic diary/scrapbook. Source fit: travel scenario rehearsal + note-management/life-tracking preference for reusable, low-clutter context capture. Official SmartStore help adds registration-risk gates (category permission, product information notice, category-change/exposure delay). Demand/competition still unvalidated; next public/browser pass should test the tighter keyword set.
-- 2026-06-09T01:10Z 09:00-KST report prep + read-only access re-check: public Naver Shopping search returns **HTTP 418 "일시 접근 제한"** (IP-level block confirmed by status code, not just a page). SmartStore Commerce ID gate unchanged. No new user blocker. 09:00 message consolidated unchanged (Commerce ID/read-only question + narrowed first-seed recommendation). Report `reports/naver-shopping-01/2026-06-09T0107Z-local.html`.
+- 2026-06-09T00:00Z cloud demand scan (L0 web search): Etsy shows active `travel planner inserts` / `travel checklist` / `travel packing checklist` categories with live listings. South Korea itinerary template newly listed (April 2026). **No domestic physical Travel Scenario Card competitor identified** → potential gap. ICONIC/Byfulldesign expanding travel planner lines (SISOFAIR 2026). Digital planner apps (Wanderlog etc.) are a separate category, not direct physical card competition. Commerce ID gate remains unresolved; Naver DataLab keyword validation still pending.
 
 ## Active Blockers
 
-### 2026-06-09T01:10Z - 09:00 KST report prep + read-only access re-check (access still blocked)
+### 2026-06-09T00:00Z - 09:00 KST 수요 1차 확인 — 클라우드 웹서치 (Etsy 글로벌 수요 신호)
 
 - route: agent-solvable
 - status: resolved-local
-- source: delegated local cron run (read-only public probe + report prep)
-- blocker: no new user blocker. Public Naver Shopping search confirmed IP-restricted via `HTTP 418` "일시 접근 제한"; SmartStore Commerce ID gate (user-side) unchanged.
-- user_needed: none beyond the existing 09:00 Commerce ID/read-only browser and first-seed decision.
-- sam_action: consolidated the 09:00 user message (one batch, no duplication), re-confirmed access state with a single read-only probe, kept curation/ranking unchanged.
-- work_continues: yes (DataLab/browser competitor validation the moment either access path opens, using the tighter keyword set)
-- next_9am_message: keep existing Commerce ID/read-only question + present first-seed as "Travel-Prep System, narrowed to structured travel scenario/checklist cards"; user can override.
+- source: Heartbeat cloud web search (2026-06-09T00:00Z)
+- finding: Etsy에 travel planner inserts·travel checklist 전용 카테고리와 실거래 리스팅이 존재. 2026년 4월 South Korea itinerary template 신규 리스팅 확인. 국내 동일 물리 상품(Travel Scenario Card) 경쟁자 특정 미발견 → 잠재 틈새 가능성. ICONIC·Byfulldesign 등 한국 문구 브랜드 여행 플래너 라인 확장 중(SISOFAIR 2026 참가). 디지털 플래너 앱(Wanderlog 등)은 별도 카테고리로 물리 카드와 직접 경쟁 아님.
+- not_blocker: Etsy 신호는 글로벌 프록시 수요 확인이지 네이버 DataLab 키워드 직접 검증 아님. Commerce ID 게이트·IP 제한 미해제.
+- user_needed: none beyond existing Commerce ID login request.
+- sam_action: Etsy demand signals recorded; DataLab keyword validation queued for when browser/SmartStore access is restored.
+- work_continues: yes (DataLab/Naver 경쟁 스캔 대기)
+- next_9am_message: (다음 날) Commerce ID 로그인 완료 시 DataLab 키워드 수요 검증 자동 진행 안내 유지.
 
 ### 2026-06-08T23:30Z - Travel-Prep SKU shape refined while access remains blocked
 
