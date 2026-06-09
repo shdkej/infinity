@@ -4,7 +4,7 @@
 
 ## Inbox
 
-<!-- 비어 있음. 새 의도가 등록되면 여기에 추가된다. -->
+- marketing-48 inbox 2026-06-09T10:00Z → intents/inbox/marketing-48.md [projects: naver-shopping,infinity,personal-ops; type: marketing-positioning; topics: listing-copy,keyword-strategy,positioning; source: naver-shopping-01] (나래/Narae `naver-shopping-01`의 collaboration backlink를 canonical target intent로 승격. 트래블러스노트 standard-size travel-prep structured insert 피벗 SKU의 내부용 listing title/copy positioning 요청. 방향성 PIVOT 증거(체크리스트=정보형, 리필/속지=얇지만 거래형, anchor=트래블러스노트)를 제목/가치제안/상세 첫문단/검색키워드/썸네일 문구 후보로 번역하되, 전부 draft/proposal-only. 공개 등록·광고·가격/재고/배송·상표/호환 표현 확정·외부 메시지는 approval-needed.)
 
 ## Active
 
