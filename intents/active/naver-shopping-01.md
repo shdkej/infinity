@@ -8,7 +8,7 @@
 - owner: SAM
 - source_agent: `/home/ubuntu/.openclaw/workspace/agents/naver-shopping-agent/`
 - created_at: 2026-06-07T23:24Z
-- updated_at: 2026-06-09T07:07Z
+- updated_at: 2026-06-09T08:07Z
 
 ## Purpose
 
@@ -40,7 +40,21 @@
 
 - 2026-06-09T07:07Z **Competition white-space scan RUN via OpenAPI → held verdict resolved to formal PIVOT.** The verdict's missing input was never truly *blocked*, only un-run: the 06:10Z run showed Naver OpenAPI shopping search bypasses the HTTP 418 web block. Ran the scan (one bounded read-only OpenAPI probe, top-20, 4 decision-critical keywords) + applied the rubric. **Core `여행 체크리스트` (total ~124,564) is saturated, not white space** — top-20 is dense low-price checklist/diary-insert at **1,200–3,400원** (a structured checklist already exists, commoditized); **`여행계획표` (~15,007)** is the same commodity planner zone. The **트래블러스노트 리필/속지** anchor (1,042/450, ~1,500–5,200원) is a dense **branded** refill ecosystem of **generic-ruling** inserts on standard 패스포트/미디움 sizes → a **travel-prep-structured** insert on that standard is the thin/absent white space. **Formal verdict: PIVOT (directional)** — first SKU = 트래블러스노트 standard-size travel-prep structured insert competing on content inside the branded refill spec, not a standalone checklist card. Limit: OpenAPI gives result-breadth+price but not review depth / visual rank (web search still 418) → directional, not PROMOTE-grade; thin paper margin requires a content/design premium over commodity inserts. Report `reports/naver-shopping-01/2026-06-09T0707Z-local.html`.
 
+- 2026-06-09T08:07Z **ADS axis pulled → pivot's buyers are transactional; checklist keyword is informational; review-depth re-blocked (429).** Bounded read-only step on the PROMOTE-grade triad after 07:07Z. Reached the **ads** axis via SearchAd `/keywordstool` ad-depth/click/CTR fields (never pulled before): `트래블러스노트리필` has high ad CTR (PC 1.11%/mobile 1.59%) + ad depth 6 despite tiny volume (250/mo) → **buyers click ads = transactional intent** (first intent signal for the pivot); `여행체크리스트` has high mobile search (1,740/mo) but **0.03% ad CTR** → **informational, not buying** demand (re-confirms "don't lead with a standalone checklist" from the intent side); anchor `트래블러스노트` is the traffic engine (6,420/mo, depth 8, CTR 2.44%). New caution: pivot-keyword market is thin (리필+속지 ≈ 430/mo) **and** ad-contested (depth 6) → must ride the entrenched anchor's paid placement. Review-depth re-tested: a SmartStore product-page GET returned **HTTP 429** (distinct from search 418) → review counts unreachable via both paths; visual rank still 418 (not retried). PROMOTE-grade triad now **ads = obtained, review-depth = blocked (429), visual-rank = blocked (418)** → verdict stays **PIVOT (directional)**, now with an ads-intent layer; not PROMOTE-grade. Report `reports/naver-shopping-01/2026-06-09T0807Z-local.html`.
+
 ## Active Blockers
+
+### 2026-06-09T08:07Z - Ads axis obtained (transactional pivot / informational checklist); review-depth re-blocked (HTTP 429)
+
+- route: agent-solvable
+- status: resolved-local
+- source: delegated local cron run (read-only, SearchAd ad-depth/CTR + one product-page availability test)
+- finding: attempted **one** bounded PROMOTE-grade step on the review-depth/visual-rank/ads triad and reached the axis an existing path can serve — **ads** — via SearchAd `/keywordstool` (ad-depth/click/CTR fields, never pulled before). (1) **Pivot is transactional:** `트래블러스노트리필` ad CTR PC 1.11% / mobile 1.59% + ad depth 6 on tiny 250/mo volume → real buyers, not browsers. (2) **Checklist is informational:** `여행체크리스트` 1,740/mo mobile search but **0.03% ad CTR** → demand-to-read, not demand-to-buy; independently re-confirms the 07:07Z "don't lead with a standalone checklist." (3) **Anchor is the traffic engine:** `트래블러스노트` 6,420/mo, ad depth 8, CTR 2.44%. (4) **Caution:** pivot-keyword market thin (리필 250 + 속지 180 ≈ 430/mo) **and** ad-contested (depth 6) → the SKU must ride the entrenched anchor's paid placement, not the refill keywords alone.
+- blocker: no new user blocker. **Review-depth** re-tested via one SmartStore product-page GET → **HTTP 429** (rate-limited; distinct from the search 418), so review counts are unreachable from this host via both the search page (418) and the product page (429). **Visual-rank** still 418 (not retried). PROMOTE-grade triad: ads = obtained, review-depth = blocked (429), visual-rank = blocked (418). SmartStore Commerce ID gate unchanged.
+- user_needed: none. (A logged-in browser / unblocked web path is what unlocks review-depth + visual-rank for a PROMOTE-grade call; user-side Commerce ID action still only needed if the visible SmartStore dashboard is required.)
+- sam_action: ran the SearchAd ads pull + one product-page availability test; added 08:07Z execution evidence (ads axis) to `keyword-competitor-validation-plan.md`; added ads-intent evidence + status to `product-curation.md`; logged operation entry; wrote HTML run report.
+- work_continues: yes (review-depth + visual rank when a logged-in browser path or web access opens; then a listing-draft can be prepared behind the approval boundary).
+- next_9am_message: report that the **ads axis is now in** — the pivot's buyers are transactional (refill-keyword ad CTR high) and the standalone-checklist keyword is informational (dead ad CTR) — and that only review-depth (429) + visual-rank (418) remain for a PROMOTE-grade call. Do not repeat approval questions.
 
 ### 2026-06-09T07:07Z - Competition white-space scan resolved → PIVOT (review-depth/visual-rank still 418-blocked)
 
