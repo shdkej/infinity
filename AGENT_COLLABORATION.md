@@ -16,7 +16,7 @@ When one agent needs another agent to do real work, create or update a target-ag
 
 Examples:
 
-- Naver Shopping Agent needs Marketer help -> create `marketing-*`.
+- 나래 / Naver Shopping Agent needs Marketer help -> create `marketing-*`.
 - Research Agent needs Wiki compilation -> create `wiki-*`.
 - Marketer needs product implementation -> create `product-*` or `build-*`.
 

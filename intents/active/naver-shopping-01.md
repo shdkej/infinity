@@ -1,4 +1,4 @@
-# naver-shopping-01: 네이버쇼핑 에이전트 운영/차단 라우팅
+# naver-shopping-01: 나래(Naver Shopping Agent) 운영/차단 라우팅
 
 - id: naver-shopping-01
 - status: active
@@ -6,9 +6,10 @@
 - task_type: coordination
 - topics: [automation, workflow, marketing]
 - owner: SAM
+- display_name: 나래 / Narae
 - source_agent: `/home/ubuntu/.openclaw/workspace/agents/naver-shopping-agent/`
 - created_at: 2026-06-07T23:24Z
-- updated_at: 2026-06-09T09:07Z
+- updated_at: 2026-06-09T09:45Z
 
 ## Purpose
 
@@ -17,6 +18,7 @@
 ## Current State
 
 - independent agent workspace exists
+- user-facing name is fixed as **나래 / Narae**; internal id/path remains `naver-shopping-agent`
 - silent work loop is scheduled at 08:30 KST
 - visible report is scheduled at 09:00 KST
 - blocker routing is being connected to Infinity
