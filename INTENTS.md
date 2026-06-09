@@ -4,7 +4,7 @@
 
 ## Inbox
 
-- marketing-48 inbox 2026-06-09T10:00Z → intents/inbox/marketing-48.md [projects: naver-shopping,infinity,personal-ops; type: marketing-positioning; topics: listing-copy,keyword-strategy,positioning; source: naver-shopping-01] (나래/Narae `naver-shopping-01`의 collaboration backlink를 canonical target intent로 승격. 트래블러스노트 standard-size travel-prep structured insert 피벗 SKU의 내부용 listing title/copy positioning 요청. 방향성 PIVOT 증거(체크리스트=정보형, 리필/속지=얇지만 거래형, anchor=트래블러스노트)를 제목/가치제안/상세 첫문단/검색키워드/썸네일 문구 후보로 번역하되, 전부 draft/proposal-only. 공개 등록·광고·가격/재고/배송·상표/호환 표현 확정·외부 메시지는 approval-needed.)
+<!-- 비어 있음. 새 의도가 등록되면 여기에 추가된다. -->
 
 ## Active
 
@@ -15,6 +15,8 @@
 <!-- 사용자 결정, 외부 조건, 안전 확인 대기. 같은 질문을 반복하지 않고 상태만 보존한다. -->
 
 ## Archive
+
+<!-- marketing-48 completed 2026-06-09T10:57Z → reports/marketing-48/2026-06-09T1057Z-local.html [projects: naver-shopping,infinity,personal-ops; type: marketing-positioning; topics: listing-copy,keyword-strategy,positioning; source: naver-shopping-01] (나래/Narae `naver-shopping-01`의 target-agent 요청을 처리해 트래블러스노트 standard-size travel-prep structured insert 피벗 SKU의 내부 listing title/copy 포지셔닝 후보군 작성 완료. 산출물 `artifacts/marketing-48/travelers-notebook-insert-listing-copy-positioning.md`. 제목 후보 8개, 금지/주의 제목 패턴, 1문장 가치제안, 상세페이지 첫 문단 후보, 검색 키워드 묶음, 썸네일 문구, 승격 전 검증 게이트 포함. 핵심: 큰 검색량 단어를 제목 맨 앞에 두지 않고, 리필/속지 구매 맥락과 여행준비 구조를 먼저 세움. 모든 문구는 draft/proposal-only, 브랜드명/호환/규격 표현은 approval-needed, 가격/배송/재고/옵션/광고/상품등록/공개상세/고객·주문·계정 액션 0. 게이트: `rg '여행 체크리스트.*트래블러스노트|트래블러스노트.*여행 체크리스트' artifacts/marketing-48` no-match, artifact에 draft/proposal-only/approval-needed 포함, HTML report `<html`/`<body`/axis ax1/axis ax2/`<details` 확인. MARKETING_LEARNINGS 승격 후보는 단일 사례라 report에 보류.) -->
 
 <!-- marketing-47 completed 2026-06-08T22:07Z → reports/marketing-47/2026-06-08T2207Z-local.html [projects: virtue; type: strategy; topics: prelaunch,first-users,onboarding] (Virtue 첫 10명 design-user ask script 작성 완료. 산출물은 Infinity `artifacts/marketing-47/virtue-first-10-design-user-ask-script.md`(신규 1파일, docs-only — Virtue 앱 레포 로컬 부재로 ARTIFACT_RULES에 따라 Infinity artifact로 생성). 출처노트(YC/Lenny "초기 사용자는 확장 채널보다 직접 학습 루프로 만든다")를 Virtue prelaunch 첫 사용자 학습 루프로 번역해, 정식 출시 전 내부 준비물로 초대→사용 전 2문항→첫 세션 후 3문항→자기 말 기록 칸 4지점 손기록 스크립트를 한 장으로 고정. 잡별 초대 문장 후보(J1 기록형·J2 누적형·J3 AI 호기심형·J4 회고형)는 각 잡 first value를 미리 가리키게 작성(J1/J2/J4=`deed_saved`, J3=`deed_judged`, J3 무저장 종료 정상), m45 동사 프레임(판결 아닌 관점) 적용. 사용 전 2문항=현재 행동·대체재 / 잡 신호·기대; 첫 세션 후 3문항=first value 위치 / friction(`deed_save_capped`·503·지연=availability/friction) / 결정-위임 인지(출력을 판결 vs 조언으로 읽나, m45·m38). "사용자가 자기 말로 설명한 Virtue" 기록 칸은 원문 그대로 손기록(신규 계측 0), first-real-user-baseline-template로 흘러듦. 핵심: 첫 사용자 학습은 확장 채널보다 먼저이고 산출은 성패율이 아니라 (a)반복 문제 언어 (b)자기 말로 설명한 가치 (c)결정-위임 인지 세 언어로 읽으며, 성찰형 제품에서 도움의 목표는 결정 대행이 아니라 자기 말로 가치를 말하게 하는 것(도움이 성찰 대행하면 수집 대상 소거). 선행 3문서(first-real-user-baseline-template·first-60-second-value-observation-script·ai-promise-decision-control-audit-table) 충돌 0 — 층이 다른 추가. 변경한 가정 없음, 외부 행동 0. 금지선: 공개 발송/DM/광고·프로덕션 카피·신규 이벤트/속성/tracking/privacy/dashboard/session replay·배포·비용·권한 변경 0, 코드 접근·변경 0(앱 레포 로컬 부재). HTML 보고서 `<html`/`<body`/axis ax1/axis ax2/`<details` 포함 확인 + details에 계승한 기준·이번에 새로 배운 것·다음 Marketer 규칙·승격 후보 포함. MARKETING_LEARNINGS.md에 durable learning "First-User Learning Loop Reads Language, And Help Means Articulation Not Delegation" 승격. Infinity dirty 무관 파일(EVALUATION_NOTES.md) staging 제외. L2 agent-approved push.) -->
 
