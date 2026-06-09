@@ -8,7 +8,7 @@
 
 ## Active
 
-<!-- naver-shopping-01 active 2026-06-09T04:07Z → intents/active/naver-shopping-01.md [projects: naver-shopping,infinity,personal-ops; type: coordination; topics: automation,workflow,marketing; status: active-partial-validated] (DataLab 접근 복구(이전 IP 차단 → 카테고리 키워드랭크 API 실데이터 반환)로 첫 시드 부분 검증. 다이어리/플래너(50001039) 상위20에 여행 키워드 0건(구조화 수요는 스터디·위클리 플래너), 노트/수첩(50001040) 유일 견고 여행 앵커는 트래블러스노트 4위(인서트 생태계) → 구조화 "여행 체크리스트" 단독보다 인서트 포맷 탑재(PIVOT 방향). 단정 아님: 카테고리 상대 랭크일 뿐 절대량/트렌드 아님, 네이버쇼핑 검색 HTTP 418 지속으로 경쟁 화이트스페이스 스캔 미검증, click-trend 엔드포인트 keyword 파라미터 포맷 미해결. 승인 경계(상품등록/가격·배송·재고/광고·비용/고객·주문/계정/공개발행)는 유지. Report reports/naver-shopping-01/2026-06-09T0407Z-local.html.) -->
+<!-- naver-shopping-01 active 2026-06-09T06:07Z → intents/active/naver-shopping-01.md [projects: naver-shopping,infinity,personal-ops; type: coordination; topics: automation,workflow,marketing; status: active-partial-validated] (바운드 읽기전용 DataLab 추가 검증. 인서트/리필 수요는 실재하나 브랜드 앵커형 — 트래블러스노트리필(12/12, 1월 피크)·트래블러스노트속지(12/12, 12월 피크)는 밀집인데 일반 인서트 용어 먼슬리속지·데일리속지는 0/12 공백 → PIVOT을 "트래블러스노트 브랜드 리필/속지 생태계 탑재"로 더 좁힘(일반 인서트 SKU 아님). 인구통계: 전용 demographic-rank 엔드포인트 없음(click-trend의 age/gender/device 필터만), 지수가 세그먼트별 자기정규화라 고volume 키워드는 모든 세그먼트가 12/12로 차서 비중 복원 불가(트래블러스노트는 성별·연령·기기 스큐 회수 불가) — 얇은 여행플래너만 방향성 여성 스큐(여 11/12 vs 남 8/12). 네이버쇼핑 검색 HTTP 418 재확인(무공격 재시도)으로 경쟁 화이트스페이스 스캔 여전히 미실행 → 정식 PROMOTE/HOLD 판정 보류. 동시 06:10Z 런이 Naver OpenAPI 키 경로를 별도 추가(상호보완). 승인 경계(상품등록/가격·배송·재고/광고·비용/고객·주문/계정/공개발행) 유지. Report reports/naver-shopping-01/2026-06-09T0607Z-local.html.) -->
 
 ## Waiting
 

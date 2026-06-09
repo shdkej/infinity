@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Infinity Report · naver-shopping-01 · 2026-06-09T0607Z</title>
+<style>
+  :root{
+    --bg:#f4f2ea; --panel:#fbfaf5; --ink:#2c2a25; --soft:#807c70; --faint:#a8a496; --line:#e3dfd2;
+    --a2:#5f7a5e; --a2-deep:#3f5740;
+    --a1:#5a6f8a; --a1-deep:#3f536e;
+    --sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;}
+  body{background:var(--bg); color:var(--ink); font-family:var(--sans);
+    font-size:14px; line-height:1.68; -webkit-font-smoothing:antialiased;}
+  .sheet{max-width:720px; margin:0 auto; padding:48px 34px 46px;}
+  .reveal{opacity:0; animation:fade .7s ease forwards;}
+  @keyframes fade{from{opacity:0; transform:translateY(9px);} to{opacity:1; transform:none;}}
+  .eyebrow{display:flex; align-items:center; gap:10px; font-family:var(--mono);
+    font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--soft);}
+  .eyebrow .id{color:var(--a2-deep); font-weight:600;}
+  .eyebrow .dot{width:5px; height:5px; border-radius:50%; background:var(--a2);}
+  .eyebrow .status{margin-left:auto; color:var(--a2-deep);}
+  h1{font-size:29px; line-height:1.3; font-weight:700; letter-spacing:-.01em; margin:20px 0 0;}
+  .dek{font-size:15.5px; color:var(--soft); margin:13px 0 0; max-width:52ch;}
+  .hr{height:1px; background:var(--line); margin:30px 0;}
+  .axis{padding:0 0 4px 22px; position:relative; margin-bottom:30px;}
+  .axis::before{content:""; position:absolute; left:0; top:6px; bottom:6px; width:2px; border-radius:2px;}
+  .axis.ax1::before{background:var(--a1);} .axis.ax2::before{background:var(--a2);}
+  .axis.ax1{--ul:var(--a1);} .axis.ax2{--ul:var(--a2);}
+  .axis .label{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase;
+    margin-bottom:9px; display:flex; align-items:center; gap:8px;}
+  .axis.ax1 .label{color:var(--a1-deep);} .axis.ax2 .label{color:var(--a2-deep);}
+  .axis .label .n{font-weight:600; opacity:.6;}
+  .axis .text{font-size:18px; line-height:1.6; color:#37352e;}
+  .axis .text b{font-weight:700; color:var(--ink); border-bottom:2px solid var(--ul);}
+  ol.find{list-style:none; counter-reset:f; margin:16px 0 0; padding:0;}
+  ol.find li{position:relative; padding:8px 0 8px 26px; font-size:15px; color:#37352e; border-top:1px solid var(--line);}
+  ol.find li:first-child{border-top:none;}
+  ol.find li::before{counter-increment:f; content:counter(f); position:absolute; left:0; top:9px;
+    font-family:var(--mono); font-size:12px; font-weight:600; color:var(--a1-deep);}
+  details{border:1px solid var(--line); border-radius:10px; background:var(--panel); margin-bottom:10px;}
+  summary{cursor:pointer; list-style:none; padding:14px 16px; display:flex; align-items:center; gap:11px;
+    font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft);}
+  summary::-webkit-details-marker{display:none;}
+  summary .chev{width:8px; height:8px; border-right:2px solid var(--a2-deep); border-bottom:2px solid var(--a2-deep);
+    transform:rotate(-45deg); transition:.25s; flex:none; margin-left:2px;}
+  details[open] summary .chev{transform:rotate(45deg);}
+  summary:hover{color:var(--ink);}
+  .body{padding:2px 16px 18px;}
+  table{border-collapse:collapse; width:100%; font-size:13px; margin:4px 0 12px;}
+  th,td{border-bottom:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top;}
+  th{font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft); font-weight:600;}
+  td:first-child{color:var(--a2-deep); font-weight:600; white-space:nowrap;}
+  .body p{color:var(--soft);}
+  .body ul{margin:6px 0; padding-left:18px;} .body li{margin:5px 0;}
+  code{font-family:var(--mono); font-size:12px; background:#edeae0; padding:1px 6px; border-radius:3px; color:var(--a2-deep);}
+  .spark{font-family:var(--mono); font-size:12px; letter-spacing:.5px; color:var(--a2-deep);}
+  a{color:var(--a2-deep); text-underline-offset:3px;}
+  .chips{display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px;}
+  .chip{font-family:var(--mono); font-size:10.5px; letter-spacing:.05em; color:var(--soft); border:1px solid var(--line); border-radius:999px; padding:3px 10px;}
+  .foot{margin-top:30px; padding-top:15px; border-top:1px solid var(--line);
+    display:flex; justify-content:space-between; font-family:var(--mono); font-size:10px;
+    letter-spacing:.13em; text-transform:uppercase; color:var(--faint);}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="eyebrow reveal">
+    <span class="dot"></span>
+    <span class="id">naver-shopping-01</span>
+    <span>Research Note</span>
+    <span class="status">active · 부분 검증 심화</span>
+  </div>
+  <h1 class="reveal" style="animation-delay:.05s">인서트 수요는 진짜지만 <b>브랜드 앵커형</b> — 일반 인서트가 아니라 트래블러스노트 리필/속지다</h1>
+  <p class="dek reveal" style="animation-delay:.09s">PIVOT 타깃인 인서트/리필 생태계의 수요 깊이를 측정했다. <b>트래블러스노트리필·속지는 12/12개월 밀집</b>인데 일반 인서트 용어(먼슬리속지·데일리속지)는 <b>빈 시계열</b>이었다. 인서트 수요는 실재하나 <b>브랜드(트래블러스노트)에 앵커</b>돼 있다. 동시에 DataLab 인구통계는 자기정규화의 벽에 부딪혔다.</p>
+
+  <div class="hr reveal" style="animation-delay:.12s"></div>
+
+  <div class="axis ax1 reveal" style="animation-delay:.16s">
+    <div class="label"><span class="n">01</span> 무엇을 했나</div>
+    <div class="text">05:07Z의 남은 다음-단계를 바운드로 이어갔다. 네이버쇼핑 공개검색 1회 가용성 프로브(<code>HTTP 418</code> 변동 없음·무공격 재시도) 후, 가장 에이전트가 풀 수 있는 DataLab 단계 두 가지를 실행했다 — (a) <b>인서트 포맷 수요 깊이</b>(리필/속지/일반 인서트), (b) <b>인구통계 스큐</b>(트래블러스노트·여행플래너의 성별·연령·기기 필터).</div>
+  </div>
+
+  <div class="axis ax2 reveal" style="animation-delay:.22s">
+    <div class="label"><span class="n">02</span> 핵심 결과</div>
+    <div class="text">인서트/리필 수요는 <b>실재하나 브랜드 앵커형</b>이다. <b>트래블러스노트리필(12/12, 1월 피크)·트래블러스노트속지(12/12, 12월 피크)</b>는 앵커의 연말·연초 리필 시즌을 따라 밀집인데, <b>일반 인서트 용어(먼슬리속지·데일리속지)는 0/12 빈 시계열</b>이다. → PIVOT이 <b>"트래블러스노트 브랜드 리필/속지 탑재"</b>로 한 단계 더 좁혀졌다 — 일반 인서트 SKU가 아니다.</div>
+    <ol class="find">
+      <li>인서트 깊이: <b>트래블러스노트리필·속지 = 12/12 밀집</b>(연말·연초 피크) vs <b>먼슬리속지·데일리속지 = 0/12</b> → 인서트 수요는 <b>브랜드 앵커형</b></li>
+      <li>인구통계 <b>자기정규화의 벽</b>: 전용 demographic-rank 엔드포인트 없음(click-trend의 age/gender/device 필터만), 지수가 세그먼트별 자기정규화라 <b>고volume 키워드는 비중 복원 불가</b></li>
+      <li>트래블러스노트: 성별·연령·기기 모든 세그먼트 12/12로 차서 <b>스큐 회수 불가</b>(세그먼트 평균을 비중으로 읽지 말 것)</li>
+      <li>얇은 <b>여행플래너만 방향성 여성 스큐</b>: 여 11/12 vs 남 8/12(남성 4개월 결측) — 저volume 키워드라 세그먼트 억제가 드러남</li>
+      <li>네이버쇼핑 공개검색 <code>HTTP 418</code> 지속 → 경쟁 화이트스페이스 스캔 여전히 미실행 → 정식 PROMOTE/HOLD 판정 <b>보류</b></li>
+    </ol>
+  </div>
+
+  <div class="reveal" style="animation-delay:.27s">
+  <details open>
+    <summary><span class="chev"></span> 증거 · 해석 · 가정 원장</summary>
+    <div class="body">
+      <p><b>① 인서트 포맷 수요 깊이 (cid 50001040 노트/수첩, 필터 없음, 자기정규화 max=100, period 2025-06~2026-05)</b></p>
+      <table>
+        <tr><th>키워드</th><th>월 수</th><th>형태</th></tr>
+        <tr><td>트래블러스노트리필</td><td><b>12/12</b></td><td>1월(202601) 피크 — 밀집, 앵커 리필 시즌 추종</td></tr>
+        <tr><td>트래블러스노트속지</td><td><b>12/12</b></td><td>12월(202512) 피크 — 밀집</td></tr>
+        <tr><td>먼슬리속지 (일반)</td><td><b>0</b></td><td>빈 시계열 = 저volume</td></tr>
+        <tr><td>데일리속지 (일반)</td><td><b>0</b></td><td>빈 시계열 = 저volume</td></tr>
+      </table>
+      <p>해석(단정 아님): 인서트/리필 수요는 <b>실재하고 견고</b>(브랜드 리필·속지 둘 다 12/12, 연말·연초 피크가 앵커와 일치)하지만 <b>"트래블러스노트"라는 브랜드에 앵커</b>돼 있다. 일반 먼슬리/데일리 속지에는 지속 베이스가 없다. → PIVOT을 <b>트래블러스노트 호환 리필/속지 라인</b>으로 좁히고, 무브랜드 일반 인서트 SKU는 피한다.</p>
+
+      <p><b>② 인구통계 — 엔드포인트 발견 + 방법론적 벽</b></p>
+      <table>
+        <tr><th>키워드</th><th>세그먼트</th><th>월 수</th><th>읽기</th></tr>
+        <tr><td>트래블러스노트</td><td>성별 f / m</td><td>12/12 · 12/12</td><td>둘 다 밀집 → <b>스큐 회수 불가</b></td></tr>
+        <tr><td>트래블러스노트</td><td>연령 10/20/30/40/50대</td><td>모두 12/12</td><td>전 연령대 밀집 → 스큐 회수 불가</td></tr>
+        <tr><td>트래블러스노트</td><td>기기 pc / mo</td><td>12/12 · 12/12</td><td>둘 다 밀집</td></tr>
+        <tr><td>여행플래너</td><td>성별 f</td><td>11/12</td><td>더 밀집</td></tr>
+        <tr><td>여행플래너</td><td>성별 m</td><td>8/12 (4 결측)</td><td>더 듬성 → 방향성 <b>여성 스큐</b></td></tr>
+      </table>
+      <p>전용 demographic-rank 엔드포인트(<code>getKeywordDeviceRank</code>/<code>GenderRank</code>/<code>AgeRank</code>)는 모두 <b>404</b> — 인구통계 분해는 <code>getKeywordClickTrend</code>에 <code>age</code>/<code>gender</code>/<code>device</code> 필터를 거는 방식뿐이다. 그런데 지수가 <b>세그먼트별 자기정규화(각 max=100)</b>라, 고volume 키워드는 모든 세그먼트가 네이버의 월-억제 임계 위에 있어 12/12로 차버린다 → <b>비중(share) 복원 불가</b>. 월-결측 프록시는 <b>저volume 키워드에서만</b> 세그먼트를 분별한다(여행플래너 사례). <b>주의: 트래블러스노트의 세그먼트 평균(예: 남 67 vs 여 49)을 비중으로 읽으면 거짓 주장이 된다 — 각자 max=100으로 정규화돼 있으므로 비교 불가.</b></p>
+
+      <p><b>③ 가정 원장 (상속 / 변경 / 충돌 / 다음-에이전트 규칙 / 승격 후보)</b></p>
+      <ul>
+        <li><b>상속(유지):</b> fit 증거 ≠ 시장 증거; 작은 방향 신호는 PMF/전환/매출 판정 아님(Prelaunch Decision Boundary); 접근 차단(418/Commerce ID)은 가용성 조건이지 수요 신호 아님(Availability And Friction Are Not Value).</li>
+        <li><b>변경(이번 런):</b> PIVOT을 "인서트 포맷 탑재"에서 <b>"트래블러스노트 브랜드 리필/속지 생태계 탑재"</b>로 한 단계 좁힘 — 브랜드 리필/속지만 밀집, 일반 인서트는 빈 시계열. 05:07Z의 "자기정규화 = 절대비교 불가" 한계를 인구통계로 확장 검증.</li>
+        <li><b>충돌:</b> 없음(반전 아님). 05:07Z 방향(인서트 앵커)의 연장·정밀화. 단, 동시 06:10Z 런이 <b>Naver OpenAPI 키 경로</b>로 별도 경쟁 샘플링을 추가했다(상호보완; 공개 웹 랭킹/리뷰 스캔은 여전히 418로 차단).</li>
+        <li><b>다음-에이전트 규칙:</b> (a) DataLab 인구통계는 <b>고volume 키워드에서 비중을 복원하려 하지 말 것</b> — 모든 세그먼트가 12/12로 찬다. 세그먼트 평균은 비중이 아니다. (b) 월-결측 프록시는 <b>저volume 키워드의 세그먼트 스큐</b>에만 쓴다. (c) 인서트 검증은 <b>브랜드 리필/속지 용어</b>(트래블러스노트리필·속지)로 하고 일반 인서트 용어는 베이스 없음으로 둔다. (d) 418 해제 또는 로그인 브라우저 전까지 경쟁 verdict 보류.</li>
+        <li><b>MARKETING_LEARNINGS 승격 후보(보류, 단일 런):</b> "DataLab 자기정규화 클릭 지수에서 <b>인구통계 비중은 고volume 키워드에서 복원 불가</b>(모든 세그먼트가 전월 충족) — 월-결측 세그먼트 스큐는 저volume 키워드에서만 방향성으로 읽어라." 기존 <i>Measurement Readiness Is A Separate Gate</i>의 '측정 가능 상태와 측정값을 섞지 않는다' 원칙과 동형. 실 경쟁 스캔 1회 더 후에만 승격.</li>
+      </ul>
+
+      <p><b>④ 다음 실행(접근 복귀·해제 시)</b></p>
+      <ul>
+        <li>418 해제 또는 로그인 브라우저 경로 확보 시 네이버쇼핑 상위20 경쟁 스캔(포맷 버킷·가격대·리뷰깊이·화이트스페이스) → PROMOTE/PIVOT/HOLD 정식 판정. (동시 06:10Z 런의 OpenAPI 샘플링과 합쳐 읽기.)</li>
+        <li>인서트 검증은 <b>트래블러스노트 호환 리필/속지 규격</b>(사이즈·제본·페이지 구성)으로 좁혀 진행. 인구통계 각도는 자기정규화 한계로 디프라이오리티.</li>
+      </ul>
+
+      <p><b>경계:</b> 읽기 전용 리서치·계획만 수행. 상품등록·리스팅·가격/배송/재고/옵션·광고/예산·고객/주문·계정/스토어 설정·공개 게시는 건별 명시 승인 전까지 미실행.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="chev"></span> 실행 메타 · 산출물</summary>
+    <div class="body">
+      <div class="chips">
+        <span class="chip">2026-06-09T0607Z</span>
+        <span class="chip">local cron (read-only)</span>
+        <span class="chip">active(부분 검증 심화)</span>
+        <span class="chip">probes: ~17 bounded reqs · ~1.2s spacing · no aggressive retry</span>
+        <span class="chip">concurrent: 06:10Z OpenAPI run (complementary)</span>
+      </div>
+      <ul>
+        <li>리포트 <code>reports/naver-shopping-01/2026-06-09T0607Z-local.html</code></li>
+        <li>플랜·증거 기록 <code>agents/naver-shopping-agent/keyword-competitor-validation-plan.md</code></li>
+        <li>운영 로그 <code>agents/naver-shopping-agent/operation-log.md</code></li>
+        <li>큐레이션 측정경로 <code>agents/naver-shopping-agent/product-curation.md</code></li>
+        <li>인텐트 <code>intents/active/naver-shopping-01.md</code> · 인덱스 <code>INTENTS.md</code></li>
+      </ul>
+    </div>
+  </details>
+  </div>
+
+  <div class="foot reveal" style="animation-delay:.3s">
+    <span>Agent-First Heartbeat</span>
+    <span>Infinity · Intent Note</span>
+  </div>
+</div>
+</body>
+</html>

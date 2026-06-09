@@ -8,7 +8,7 @@
 - owner: SAM
 - source_agent: `/home/ubuntu/.openclaw/workspace/agents/naver-shopping-agent/`
 - created_at: 2026-06-07T23:24Z
-- updated_at: 2026-06-09T05:07Z
+- updated_at: 2026-06-09T06:07Z
 
 ## Purpose
 
@@ -34,9 +34,23 @@
 - 2026-06-09T02:42Z user replied **"다 허용"** to the 09:00 pending decisions and asked for a guide from shopping mall creation to management. Read-only user browser/profile checks are allowed, the first seed is approved as **Travel-Prep System / Travel Scenario Card / Checklist Insert Set**, and the direct-operation path may be prepared. Live commerce/account/cost/customer/public actions still require exact action-level logging and confirmation before execution. Guide created at `/home/ubuntu/.openclaw/workspace/agents/naver-shopping-agent/shopping-mall-operations-guide.md`.
 - 2026-06-09T04:07Z **DataLab access restored → first seed PARTIALLY validated (directional).** Bounded read-only probes found DataLab reachable again (was IP-blocked) with the category keyword-rank API returning real data. Executed the plan's DataLab portion: **다이어리/플래너 (cid 50001039) top-20 has 0 travel keywords** (structured-planning demand = 스터디플래너/위클리플래너); **노트/수첩 (cid 50001040)** only durable travel anchor is **트래블러스노트 (rank 4)** — an insert/refill ecosystem leaning memory + flexible journaling. → Core "structured 여행 체크리스트" is not top demand; real anchor is the Traveler's-Notebook **insert format** → leans **PIVOT** (ride standard insert specs vs standalone checklist). Caveats: relative category rank only (not absolute volume/trend; click-trend param format unresolved); Naver Shopping search still HTTP 418 so the competition white-space scan stays unvalidated. Report `reports/naver-shopping-01/2026-06-09T0407Z-local.html`.
 
+- 2026-06-09T06:07Z **Insert demand is brand-anchored + demographics hit the self-normalization wall.** Bounded read-only DataLab pass. Insert-format depth: **트래블러스노트리필 (12/12, Jan peak)** and **트래블러스노트속지 (12/12, Dec peak)** are both dense, but generic insert terms 먼슬리속지·데일리속지 are empty (0/12) → the insert/refill demand is real but **brand-anchored to 트래블러스노트**, sharpening the PIVOT (ride 트래블러스노트 리필/속지, not a generic insert). Demographics: no dedicated demographic-rank endpoints (filter params only) and the self-normalised index makes **shares unrecoverable for high-volume keywords** (트래블러스노트 fills every gender/age/device segment 12/12); only the thinner 여행플래너 shows a directional **female skew** (f 11/12 vs m 8/12). Naver Shopping search HTTP 418 re-confirmed (no retry) → competition white-space scan still unrun → formal verdict still held. Report `reports/naver-shopping-01/2026-06-09T0607Z-local.html`.
+
 - 2026-06-09T05:07Z **DataLab click-trend param format SOLVED → insert-format PIVOT cross-confirmed.** `getKeywordClickTrend` needs a single plain keyword scoped by `cid` (comma/JSON splits it → empty series). 12-month series across the two paper categories: **only 트래블러스노트 has a dense 12/12-month series** (year-end peak); structured Core terms (여행체크리스트·패킹리스트·여행준비물·해외여행준비) are empty/thin (month-gaps ≈ low absolute volume); 여행플래너·여행계획표 are seasonal-spike-only on a shallow base. Same PIVOT direction as 04:07Z, now cross-confirmed by time-series density. Caveats: self-normalised index (no cross-keyword absolute volume); demographics not pulled; Naver Shopping search still HTTP 418 (re-confirmed) so competition white-space scan unrun → formal verdict held. Report `reports/naver-shopping-01/2026-06-09T0507Z-local.html`.
 
 ## Active Blockers
+
+### 2026-06-09T06:07Z - Insert demand brand-anchored + demographics self-normalization wall (competition scan still 418-blocked)
+
+- route: agent-solvable
+- status: resolved-local
+- source: delegated local cron run (read-only, insert-format depth + demographics)
+- finding: (1) **Insert/refill demand is brand-anchored, not generic** — 트래블러스노트리필 (12/12, Jan peak) and 트래블러스노트속지 (12/12, Dec peak) are dense and track the anchor's year-end/new-year refill season, but generic insert terms 먼슬리속지·데일리속지 are empty (0/12). → the PIVOT sharpens to "ride the 트래블러스노트-branded 리필/속지 ecosystem," not a generic insert SKU. (2) **Demographics methodological wall** — no dedicated demographic-rank endpoints (only `age`/`gender`/`device` filters on the click-trend endpoint), and the index is self-normalised per segment, so a high-volume keyword fills every segment 12/12 → demographic **shares are unrecoverable for dense keywords** (트래블러스노트 shows no usable skew). Only the thinner 여행플래너 reveals a directional female skew (f 11/12 vs m 8/12).
+- blocker: no new user blocker. Naver Shopping public search still HTTP 418 (re-confirmed, no aggressive retry) → competition white-space scan not run → formal PROMOTE/HOLD verdict still held. SmartStore Commerce ID gate unchanged. Demographic shares unrecoverable for dense keywords is an endpoint limitation, not a user blocker.
+- user_needed: none. (User-side Commerce ID action still only needed if the visible SmartStore dashboard is required later.)
+- sam_action: recorded insert-depth + demographics evidence in `keyword-competitor-validation-plan.md`; deepened `product-curation.md` Naver/public evidence; logged operation entry; wrote HTML run report.
+- work_continues: yes (run competition top-20 scan when 418 lifts or a logged-in browser path exists; the demographics angle is now bounded by the self-normalization limit, so deprioritize unless a thin-keyword skew is specifically needed).
+- next_9am_message: report the sharpened insert-format pivot (real but **brand-anchored** to 트래블러스노트 리필/속지) and note competition scan still blocked by 418. Do not repeat approval questions.
 
 ### 2026-06-09T05:07Z - DataLab click-trend format solved → insert-format PIVOT cross-confirmed (competition scan still 418-blocked)
 
