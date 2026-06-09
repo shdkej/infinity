@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Infinity Report — naver-shopping-01</title>
+<style>
+  :root{
+    --bg:#f4f2ea; --panel:#fbfaf5; --ink:#2c2a25; --soft:#807c70; --faint:#a8a496; --line:#e3dfd2;
+    --a2:#5f7a5e; --a2-deep:#3f5740;
+    --a1:#5a6f8a; --a1-deep:#3f536e;
+    --sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;}
+  body{background:var(--bg); color:var(--ink); font-family:var(--sans);
+    font-size:14px; line-height:1.68; -webkit-font-smoothing:antialiased;}
+  .sheet{max-width:720px; margin:0 auto; padding:48px 34px 46px;}
+  .reveal{opacity:0; animation:fade .7s ease forwards;}
+  @keyframes fade{from{opacity:0; transform:translateY(9px);} to{opacity:1; transform:none;}}
+  .eyebrow{display:flex; align-items:center; gap:10px; font-family:var(--mono);
+    font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--soft);}
+  .eyebrow .id{color:var(--a2-deep); font-weight:600;}
+  .eyebrow .dot{width:5px; height:5px; border-radius:50%; background:var(--a2);}
+  .eyebrow .status{margin-left:auto; color:var(--a2-deep);}
+  h1{font-size:29px; line-height:1.3; font-weight:700; letter-spacing:-.01em; margin:20px 0 0;}
+  .dek{font-size:15.5px; color:var(--soft); margin:13px 0 0; max-width:52ch;}
+  .hr{height:1px; background:var(--line); margin:30px 0;}
+  .axis{padding:0 0 4px 22px; position:relative; margin-bottom:30px;}
+  .axis::before{content:""; position:absolute; left:0; top:6px; bottom:6px; width:2px; border-radius:2px;}
+  .axis.ax1::before{background:var(--a1);} .axis.ax2::before{background:var(--a2);}
+  .axis.ax1{--ul:var(--a1);} .axis.ax2{--ul:var(--a2);}
+  .axis .label{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase;
+    margin-bottom:9px; display:flex; align-items:center; gap:8px;}
+  .axis.ax1 .label{color:var(--a1-deep);} .axis.ax2 .label{color:var(--a2-deep);}
+  .axis .label .n{font-weight:600; opacity:.6;}
+  .axis .text{font-size:18px; line-height:1.6; color:#37352e;}
+  .axis .text b{font-weight:700; color:var(--ink); border-bottom:2px solid var(--ul);}
+  details{border:1px solid var(--line); border-radius:10px; background:var(--panel); margin-bottom:10px;}
+  summary{cursor:pointer; list-style:none; padding:14px 16px; display:flex; align-items:center; gap:11px;
+    font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft);}
+  summary::-webkit-details-marker{display:none;}
+  summary .chev{width:8px; height:8px; border-right:2px solid var(--a2-deep); border-bottom:2px solid var(--a2-deep);
+    transform:rotate(-45deg); transition:.25s; flex:none; margin-left:2px;}
+  details[open] summary .chev{transform:rotate(45deg);}
+  summary:hover{color:var(--ink);}
+  .body{padding:2px 16px 18px;}
+  table{border-collapse:collapse; width:100%; font-size:13px; margin:4px 0 12px;}
+  th,td{border-bottom:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top;}
+  th{font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft); font-weight:600;}
+  td:first-child{color:var(--a2-deep); font-weight:600; white-space:nowrap;}
+  .body p{color:var(--soft);}
+  .body ul{margin:6px 0; padding-left:18px;} .body li{margin:5px 0;}
+  code{font-family:var(--mono); font-size:12px; background:#edeae0; padding:1px 6px; border-radius:3px; color:var(--a2-deep);}
+  a{color:var(--a2-deep); text-underline-offset:3px;}
+  .chips{display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px;}
+  .chip{font-family:var(--mono); font-size:10.5px; letter-spacing:.05em; color:var(--soft); border:1px solid var(--line); border-radius:999px; padding:3px 10px;}
+  .foot{margin-top:30px; padding-top:15px; border-top:1px solid var(--line);
+    display:flex; justify-content:space-between; font-family:var(--mono); font-size:10px;
+    letter-spacing:.13em; text-transform:uppercase; color:var(--faint);}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="eyebrow reveal">
+    <span class="dot"></span>
+    <span class="id">naver-shopping-01</span>
+    <span>Cloud Research Note</span>
+    <span class="status">active-partial-validated</span>
+  </div>
+  <h1 class="reveal" style="animation-delay:.05s">트래블러스노트 리필/속지 경쟁 환경 — 대안 소스 조사</h1>
+  <p class="dek reveal" style="animation-delay:.09s">네이버쇼핑 HTTP 418 차단 상태에서 공개 소스로 경쟁 환경을 매핑한 클라우드 Heartbeat 리서치 패스.</p>
+
+  <div class="hr reveal" style="animation-delay:.12s"></div>
+
+  <div class="axis ax1 reveal" style="animation-delay:.16s">
+    <div class="label"><span class="n">01</span> 무엇을 했나</div>
+    <div class="text">네이버쇼핑 418 차단 우회 — <b>공개 소스</b>(글로벌 리테일러·한국 유통 채널·핸드메이드 플랫폼)로 트래블러스노트 리필/속지 경쟁 구조 매핑</div>
+  </div>
+
+  <div class="axis ax2 reveal" style="animation-delay:.22s">
+    <div class="label"><span class="n">02</span> 결과</div>
+    <div class="text"><b>공식 브랜드가 표준 형식 전체를 점유</b>(₩4,500~12,000), 화이트스페이스는 <b>여행 전용 특화 형식</b>(시나리오형 체크리스트·기억 캡처·목적지별 레퍼런스)에만 존재 → DataLab 4패스와 PIVOT 방향 교차 확인</div>
+  </div>
+
+  <div class="reveal" style="animation-delay:.27s">
+  <details open>
+    <summary><span class="chev"></span> 경쟁 환경 상세</summary>
+    <div class="body">
+      <p><strong>공식 TRAVELER'S COMPANY 라인업 (한국 유통)</strong></p>
+      <table>
+        <tr><th>항목</th><th>내용</th></tr>
+        <tr><td>한국 공식 유통사</td><td>omise.co.kr (O.MI.SE), midori-yti.co.kr</td></tr>
+        <tr><td>소매 채널</td><td>교보문고 핫트랙스, 텐바이텐, point-of-view.kr, shop-gmgs.com</td></tr>
+        <tr><td>패스포트 사이즈 리필</td><td>₩4,500~5,400 — MD 유선·방안·무지·크래프트·도화지</td></tr>
+        <tr><td>레귤러 사이즈 리필</td><td>₩7,000~12,000 — 동일 형식 + 포켓 다이어리·카드 홀더·지퍼 케이스·레터지</td></tr>
+        <tr><td>커버된 형식</td><td>유선(001)·방안(002)·무지(003)·크래프트·수채·주간·월간 — 표준 전체</td></tr>
+        <tr><td>용지 품질</td><td>MD 페이퍼 (만년필 OK, 번짐 최소)</td></tr>
+      </table>
+
+      <p><strong>서드파티 / 호환 속지 (국내)</strong></p>
+      <table>
+        <tr><th>판매자</th><th>가격</th><th>특징</th></tr>
+        <tr><td>복면사과 까르네</td><td>₩4,800</td><td>TN 호환, 공식의 절반 이하</td></tr>
+        <tr><td>아이디어스</td><td>₩8,000~20,000 (추정)</td><td>핸드메이드 커스텀, 다수 셀러</td></tr>
+        <tr><td>텐바이텐 메이드바이 콤비</td><td>미확인</td><td>TN 호환 패스포트 속지</td></tr>
+      </table>
+
+      <p><strong>서드파티 (글로벌 Etsy)</strong></p>
+      <table>
+        <tr><th>형식</th><th>가격대 (USD)</th><th>비고</th></tr>
+        <tr><td>2026 월간/주간 인서트</td><td>$5~15</td><td>인쇄본 + PDF 다운로드</td></tr>
+        <tr><td>Korea Local Things (공식 한정판)</td><td>프리미엄</td><td>TRAVELER'S COMPANY 공식 특판</td></tr>
+      </table>
+
+      <p><strong>화이트스페이스 분석</strong></p>
+      <ul>
+        <li><strong>진입 불가 (AVOID)</strong>: 유선·방안·무지 등 표준 형식 — 공식 브랜드가 합리적 가격에 완전 장악, 서드파티도 가격 경쟁 중</li>
+        <li><strong>진입 가능 (PIVOT 후보)</strong>:
+          <ul>
+            <li>여행 시나리오형 체크리스트 인서트 (공항→호텔→현지 흐름)</li>
+            <li>기억 캡처 포맷 (사진 여백 + 메모 조합, 여행 데브리프 구조)</li>
+            <li>한국 여행 레퍼런스 인서트 (환율·교통·예약 정보 삽입형)</li>
+            <li>시스템 번들 (준비·여행 중·회고 3-인서트 키트)</li>
+            <li>AI-assisted 개인화 인서트 (사용자 콘텐츠/AI 워크플로우 결합)</li>
+          </ul>
+        </li>
+      </ul>
+
+      <p><strong>PIVOT 교차 확인 요약</strong></p>
+      <table>
+        <tr><th>근거</th><th>방향</th></tr>
+        <tr><td>DataLab 카테고리 랭크 (04:07Z)</td><td>트래블러스노트만 다이어리/노트 카테고리 top 앵커</td></tr>
+        <tr><td>DataLab 클릭 트렌드 (05:07Z)</td><td>트래블러스노트만 12/12 밀도, 여행 체크리스트 계열 공백</td></tr>
+        <tr><td>인서트 수요 깊이 (06:07Z)</td><td>트래블러스노트리필·속지 12/12, 일반 인서트 용어 0/12</td></tr>
+        <tr><td>공개 소스 경쟁 구조 (08:07Z, 이번 패스)</td><td>표준 형식 전체 공식 브랜드 점유, 특화 형식 공백 확인</td></tr>
+      </table>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="chev"></span> 실행 메타 · 다음 액션</summary>
+    <div class="body">
+      <div class="chips">
+        <span class="chip">2026-06-09T0807Z</span>
+        <span class="chip">Heartbeat Cloud Research</span>
+        <span class="chip">L0 자율 실행</span>
+        <span class="chip">active-partial-validated → active-partial-validated</span>
+      </div>
+      <table>
+        <tr><th>항목</th><th>내용</th></tr>
+        <tr><td>접근 방법</td><td>WebSearch (네이버쇼핑 418 대안) — omise.co.kr, midori-yti.co.kr, Etsy, 아이디어스, 텐바이텐 스니펫</td></tr>
+        <tr><td>접근 제한</td><td>midori-yti.co.kr / omise.co.kr / JetPens / EndlessPens → HTTP 403; 가격은 검색 스니펫·서드파티 소스로 추론</td></tr>
+        <tr><td>PIVOT 방향 확신도</td><td>DataLab 4패스 + 공개 소스 교차 → 방향 확정 수준. 공식 판정(PROMOTE/HOLD)은 Naver top-20 스캔 후</td></tr>
+        <tr><td>공식 판정 보류 사유</td><td>Naver Shopping top-20 스캔 여전히 418 차단 (SKU 수·가격·리뷰 수 미확인)</td></tr>
+      </table>
+      <p><strong>다음 액션 (우선순위순)</strong></p>
+      <ul>
+        <li>① <strong>Product Brief 초안</strong> (L0, 즉시 가능): 여행 시나리오형 인서트 1종 — 타깃·fit·판매 포인트·등록 게이트·콘텐츠 앵글</li>
+        <li>② <strong>Naver Shopping top-20 스캔</strong> (418 해제 or 로그인 브라우저 확보 시): PROMOTE/HOLD 공식 판정</li>
+        <li>③ SmartStore Commerce ID 게이트 (사용자측, 필요 시): 대시보드 직접 확인</li>
+      </ul>
+    </div>
+  </details>
+  </div>
+
+  <div class="foot reveal" style="animation-delay:.3s">
+    <span>Agent-First Heartbeat</span>
+    <span>Infinity · Intent Note</span>
+  </div>
+</div>
+</body>
+</html>
