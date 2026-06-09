@@ -8,7 +8,7 @@
 - owner: SAM
 - source_agent: `/home/ubuntu/.openclaw/workspace/agents/naver-shopping-agent/`
 - created_at: 2026-06-07T23:24Z
-- updated_at: 2026-06-09T04:07Z
+- updated_at: 2026-06-09T05:07Z
 
 ## Purpose
 
@@ -34,7 +34,21 @@
 - 2026-06-09T02:42Z user replied **"다 허용"** to the 09:00 pending decisions and asked for a guide from shopping mall creation to management. Read-only user browser/profile checks are allowed, the first seed is approved as **Travel-Prep System / Travel Scenario Card / Checklist Insert Set**, and the direct-operation path may be prepared. Live commerce/account/cost/customer/public actions still require exact action-level logging and confirmation before execution. Guide created at `/home/ubuntu/.openclaw/workspace/agents/naver-shopping-agent/shopping-mall-operations-guide.md`.
 - 2026-06-09T04:07Z **DataLab access restored → first seed PARTIALLY validated (directional).** Bounded read-only probes found DataLab reachable again (was IP-blocked) with the category keyword-rank API returning real data. Executed the plan's DataLab portion: **다이어리/플래너 (cid 50001039) top-20 has 0 travel keywords** (structured-planning demand = 스터디플래너/위클리플래너); **노트/수첩 (cid 50001040)** only durable travel anchor is **트래블러스노트 (rank 4)** — an insert/refill ecosystem leaning memory + flexible journaling. → Core "structured 여행 체크리스트" is not top demand; real anchor is the Traveler's-Notebook **insert format** → leans **PIVOT** (ride standard insert specs vs standalone checklist). Caveats: relative category rank only (not absolute volume/trend; click-trend param format unresolved); Naver Shopping search still HTTP 418 so the competition white-space scan stays unvalidated. Report `reports/naver-shopping-01/2026-06-09T0407Z-local.html`.
 
+- 2026-06-09T05:07Z **DataLab click-trend param format SOLVED → insert-format PIVOT cross-confirmed.** `getKeywordClickTrend` needs a single plain keyword scoped by `cid` (comma/JSON splits it → empty series). 12-month series across the two paper categories: **only 트래블러스노트 has a dense 12/12-month series** (year-end peak); structured Core terms (여행체크리스트·패킹리스트·여행준비물·해외여행준비) are empty/thin (month-gaps ≈ low absolute volume); 여행플래너·여행계획표 are seasonal-spike-only on a shallow base. Same PIVOT direction as 04:07Z, now cross-confirmed by time-series density. Caveats: self-normalised index (no cross-keyword absolute volume); demographics not pulled; Naver Shopping search still HTTP 418 (re-confirmed) so competition white-space scan unrun → formal verdict held. Report `reports/naver-shopping-01/2026-06-09T0507Z-local.html`.
+
 ## Active Blockers
+
+### 2026-06-09T05:07Z - DataLab click-trend format solved → insert-format PIVOT cross-confirmed (competition scan still 418-blocked)
+
+- route: agent-solvable
+- status: resolved-local
+- source: delegated local cron run (read-only, click-trend format + 12-month time series)
+- finding: Solved the 04:07Z open item — `getKeywordClickTrend.naver` takes a **single plain keyword scoped by `cid`** (commas/JSON split the param → empty series; one keyword per request). Pulled the seed's 12-month series: **only 트래블러스노트 has a dense 12/12-month series** (year-end planner/refill peak); structured Core terms (여행체크리스트·패킹리스트·여행준비물·해외여행준비) are empty/thin in the paper categories (Naver hides low-volume months → gaps ≈ low absolute volume); 여행플래너·여행계획표 show only seasonal spikes on a shallow base. → **cross-confirms the PIVOT direction** (ride the Traveler's-Notebook insert format) by time-series density, independent of the 04:07Z category-rank signal.
+- blocker: no new user blocker. Naver Shopping public search still HTTP 418 (re-confirmed, no aggressive retry) → competition white-space scan not run → formal PROMOTE/HOLD verdict still held. SmartStore Commerce ID gate unchanged. Click-trend index is self-normalised per keyword (no cross-keyword absolute volume); demographics not yet pulled.
+- user_needed: none. (User-side Commerce ID action still only needed if the visible SmartStore dashboard is required later.)
+- sam_action: recorded format + 12-month evidence in `keyword-competitor-validation-plan.md`; deepened `product-curation.md` Naver/public evidence; logged operation entry; wrote HTML run report.
+- work_continues: yes (run competition top-20 scan when 418 lifts or a logged-in browser path exists; optional demographics pass for 트래블러스노트/여행플래너).
+- next_9am_message: report the deepened finding (click-trend format solved; only 트래블러스노트 has durable 12-month demand among the seed keywords → insert-format pivot is firmer) and note competition scan still blocked by 418. Do not repeat approval questions.
 
 ### 2026-06-09T04:07Z - DataLab access restored, first seed partially validated (competition scan still blocked)
 

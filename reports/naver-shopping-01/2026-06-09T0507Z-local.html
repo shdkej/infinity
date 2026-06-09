@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Infinity Report · naver-shopping-01 · 2026-06-09T0507Z</title>
+<style>
+  :root{
+    --bg:#f4f2ea; --panel:#fbfaf5; --ink:#2c2a25; --soft:#807c70; --faint:#a8a496; --line:#e3dfd2;
+    --a2:#5f7a5e; --a2-deep:#3f5740;
+    --a1:#5a6f8a; --a1-deep:#3f536e;
+    --sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;}
+  body{background:var(--bg); color:var(--ink); font-family:var(--sans);
+    font-size:14px; line-height:1.68; -webkit-font-smoothing:antialiased;}
+  .sheet{max-width:720px; margin:0 auto; padding:48px 34px 46px;}
+  .reveal{opacity:0; animation:fade .7s ease forwards;}
+  @keyframes fade{from{opacity:0; transform:translateY(9px);} to{opacity:1; transform:none;}}
+  .eyebrow{display:flex; align-items:center; gap:10px; font-family:var(--mono);
+    font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--soft);}
+  .eyebrow .id{color:var(--a2-deep); font-weight:600;}
+  .eyebrow .dot{width:5px; height:5px; border-radius:50%; background:var(--a2);}
+  .eyebrow .status{margin-left:auto; color:var(--a2-deep);}
+  h1{font-size:29px; line-height:1.3; font-weight:700; letter-spacing:-.01em; margin:20px 0 0;}
+  .dek{font-size:15.5px; color:var(--soft); margin:13px 0 0; max-width:52ch;}
+  .hr{height:1px; background:var(--line); margin:30px 0;}
+  .axis{padding:0 0 4px 22px; position:relative; margin-bottom:30px;}
+  .axis::before{content:""; position:absolute; left:0; top:6px; bottom:6px; width:2px; border-radius:2px;}
+  .axis.ax1::before{background:var(--a1);} .axis.ax2::before{background:var(--a2);}
+  .axis.ax1{--ul:var(--a1);} .axis.ax2{--ul:var(--a2);}
+  .axis .label{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase;
+    margin-bottom:9px; display:flex; align-items:center; gap:8px;}
+  .axis.ax1 .label{color:var(--a1-deep);} .axis.ax2 .label{color:var(--a2-deep);}
+  .axis .label .n{font-weight:600; opacity:.6;}
+  .axis .text{font-size:18px; line-height:1.6; color:#37352e;}
+  .axis .text b{font-weight:700; color:var(--ink); border-bottom:2px solid var(--ul);}
+  ol.find{list-style:none; counter-reset:f; margin:16px 0 0; padding:0;}
+  ol.find li{position:relative; padding:8px 0 8px 26px; font-size:15px; color:#37352e; border-top:1px solid var(--line);}
+  ol.find li:first-child{border-top:none;}
+  ol.find li::before{counter-increment:f; content:counter(f); position:absolute; left:0; top:9px;
+    font-family:var(--mono); font-size:12px; font-weight:600; color:var(--a1-deep);}
+  details{border:1px solid var(--line); border-radius:10px; background:var(--panel); margin-bottom:10px;}
+  summary{cursor:pointer; list-style:none; padding:14px 16px; display:flex; align-items:center; gap:11px;
+    font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft);}
+  summary::-webkit-details-marker{display:none;}
+  summary .chev{width:8px; height:8px; border-right:2px solid var(--a2-deep); border-bottom:2px solid var(--a2-deep);
+    transform:rotate(-45deg); transition:.25s; flex:none; margin-left:2px;}
+  details[open] summary .chev{transform:rotate(45deg);}
+  summary:hover{color:var(--ink);}
+  .body{padding:2px 16px 18px;}
+  table{border-collapse:collapse; width:100%; font-size:13px; margin:4px 0 12px;}
+  th,td{border-bottom:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top;}
+  th{font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft); font-weight:600;}
+  td:first-child{color:var(--a2-deep); font-weight:600; white-space:nowrap;}
+  .body p{color:var(--soft);}
+  .body ul{margin:6px 0; padding-left:18px;} .body li{margin:5px 0;}
+  code{font-family:var(--mono); font-size:12px; background:#edeae0; padding:1px 6px; border-radius:3px; color:var(--a2-deep);}
+  .spark{font-family:var(--mono); font-size:12px; letter-spacing:.5px; color:var(--a2-deep);}
+  a{color:var(--a2-deep); text-underline-offset:3px;}
+  .chips{display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px;}
+  .chip{font-family:var(--mono); font-size:10.5px; letter-spacing:.05em; color:var(--soft); border:1px solid var(--line); border-radius:999px; padding:3px 10px;}
+  .foot{margin-top:30px; padding-top:15px; border-top:1px solid var(--line);
+    display:flex; justify-content:space-between; font-family:var(--mono); font-size:10px;
+    letter-spacing:.13em; text-transform:uppercase; color:var(--faint);}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="eyebrow reveal">
+    <span class="dot"></span>
+    <span class="id">naver-shopping-01</span>
+    <span>Research Note</span>
+    <span class="status">active · 부분 검증 심화</span>
+  </div>
+  <h1 class="reveal" style="animation-delay:.05s">클릭 트렌드 포맷 해결 → 트래블러스노트만 견고한 12개월 수요</h1>
+  <p class="dek reveal" style="animation-delay:.09s">미해결이던 DataLab <code>getKeywordClickTrend</code> 키워드 파라미터 포맷을 풀었다. 12개월 트렌드를 실측하니, 시드 키워드 중 <b>트래블러스노트</b>만 12/12개월 빈틈 없는 시계열(연말 피크)을 갖고, 구조화 체크리스트·플래너 용어는 대부분 빈 달투성이(저volume)였다.</p>
+
+  <div class="hr reveal" style="animation-delay:.12s"></div>
+
+  <div class="axis ax1 reveal" style="animation-delay:.16s">
+    <div class="label"><span class="n">01</span> 무엇을 했나</div>
+    <div class="text">04:07Z의 미해결 항목인 <b>클릭 트렌드 keyword 파라미터 포맷</b>을 바운드 프로브로 해결했다. 포맷은 <b>콤마·JSON이 아니라 단일 평문 키워드 + 해당 cid</b>였다. 이어 Core/Niche/앵커 10개 키워드의 <b>12개월 실측 시계열</b>을 수집했다. 네이버쇼핑 검색은 <code>HTTP 418</code> 변화 없음(가용성) — 경쟁 스캔 미실행.</div>
+  </div>
+
+  <div class="axis ax2 reveal" style="animation-delay:.22s">
+    <div class="label"><span class="n">02</span> 핵심 결과</div>
+    <div class="text">시드 키워드 중 <b>트래블러스노트만</b> 12개월 내내 데이터가 존재(<b>연말 10~1월 피크</b> = 다이어리·리필 시즌)했다. 구조화 Core 용어(여행체크리스트·패킹리스트·여행준비물·해외여행준비)는 종이 카테고리에서 <b>빈 시계열</b>(네이버가 저volume 달을 숨김)이었다. 04:07Z의 <b>PIVOT 방향</b>이 더 단단해졌다 — 인서트 포맷이 유일한 실수요 앵커.</div>
+    <ol class="find">
+      <li><code>getKeywordClickTrend</code> 포맷 해결: <b>단일 평문 keyword + cid 스코프</b>(콤마/JSON 금지) — 04:07Z 미해결 항목 종료</li>
+      <li>트래블러스노트(노트/수첩): <b>12/12개월</b> 시계열, 연말(10~1월) 피크 → 유일한 견고·밀집 여행 앵커</li>
+      <li>구조화 Core(여행체크리스트·패킹리스트·여행준비물·해외여행준비): 종이 카테고리에서 <b>빈 시계열</b>(저volume 신호)</li>
+      <li>여행플래너·여행계획표: 데이터는 있으나 듬성하고 <b>계절성 스파이크</b>(5월/1월) → 코어 베이스 아닌 시즌·콘텐츠 각도</li>
+      <li>네이버쇼핑 공개검색 <code>HTTP 418</code> 지속 → 경쟁 화이트스페이스 스캔 여전히 미실행(정식 verdict 보류)</li>
+    </ol>
+  </div>
+
+  <div class="reveal" style="animation-delay:.27s">
+  <details open>
+    <summary><span class="chev"></span> 증거 · 해석 · 가정 원장</summary>
+    <div class="body">
+      <p><b>① 파라미터 포맷 해결 (재현 가능)</b></p>
+      <table>
+        <tr><th>시도</th><th>요청 형태</th><th>결과</th></tr>
+        <tr><td>04:07Z (미해결)</td><td><code>keyword=a,b,c</code> / JSON 배열</td><td>서버가 콤마로 분할 → 모든 series <code>data:[]</code></td></tr>
+        <tr><td>이번 런 (해결)</td><td><code>keyword=트래블러스노트</code> 단일 평문 + <code>cid=50001040</code></td><td>HTTP 200 · 12포인트 실데이터</td></tr>
+      </table>
+      <p>핵심: <code>getKeywordClickTrend.naver</code>는 <code>keyword</code>를 콤마 구분 토큰으로 취급하므로 <b>키워드 1개 = 요청 1개</b>로 보내고, <code>cid</code>는 그 키워드가 속한 카테고리로 스코프해야 한다. 다중 비교는 요청을 나눠 합친다.</p>
+
+      <p><b>② 12개월 클릭 트렌드 실측 (period 2025-06 ~ 2026-05, 키워드별 자기정규화 max=100)</b></p>
+      <table>
+        <tr><th>키워드 (intent)</th><th>cid</th><th>월 수</th><th>형태</th></tr>
+        <tr><td>트래블러스노트 (앵커)</td><td>노트/수첩</td><td><b>12/12</b></td><td>연말 피크(11·12월=96·100) <span class="spark">▂▁▂▂▄█▇▅▃▂▂▂</span> — 견고</td></tr>
+        <tr><td>여행플래너 (Core)</td><td>다이어리/플래너</td><td>12/12</td><td>노이즈·5월말 스파이크(100) <span class="spark">▃▅▂▅▆▃▄▂▄▂▁█</span></td></tr>
+        <tr><td>여행계획표 (Core)</td><td>다이어리/플래너</td><td>8/12 (4달 결측)</td><td>듬성·1월 피크 — thin</td></tr>
+        <tr><td>여행체크리스트 (Core)</td><td>다이어리/플래너</td><td>8/12 (4달 결측)</td><td>듬성·하락 — thin</td></tr>
+        <tr><td>여행체크리스트 (Core)</td><td>노트/수첩</td><td><b>0</b></td><td>빈 시계열 = 저volume</td></tr>
+        <tr><td>패킹리스트 (Core)</td><td>노트/수첩</td><td><b>0</b></td><td>빈 시계열</td></tr>
+        <tr><td>여행준비물 (Core)</td><td>노트/수첩</td><td><b>0</b></td><td>빈 시계열</td></tr>
+        <tr><td>해외여행준비 (Niche)</td><td>노트/수첩</td><td><b>0</b></td><td>빈 시계열</td></tr>
+        <tr><td>여행다이어리 (Contrast)</td><td>노트/수첩</td><td>12/12</td><td>하락(-61% H2vsH1)</td></tr>
+        <tr><td>트래블저널 (Contrast)</td><td>노트/수첩</td><td><b>0</b></td><td>빈 시계열</td></tr>
+      </table>
+      <p>주의: 이 엔드포인트의 값은 <b>키워드별 자기정규화 지수</b>(각자 max=100)라 <b>키워드 간 절대 volume 비교 불가</b>. 다만 네이버는 저volume 달을 숨기므로 <b>월 결측 = 약한 절대 volume 프록시</b>로 읽을 수 있다. 인구통계(연령·성별) 스큐는 이번 런 미수집(추가 필터 요청 필요) — 보류.</p>
+
+      <p><b>③ 해석 (단정 아님, 방향성)</b></p>
+      <ul>
+        <li>시드 키워드 가운데 <b>유일하게 12개월 밀집 시계열을 가진 여행 키워드 = 트래블러스노트</b>. 04:07Z의 "유일한 견고 앵커" 랭크 신호를 <b>시계열 밀도</b>로 독립 재확인.</li>
+        <li>구조화 "여행 체크리스트/준비물/패킹" Core 용어는 종이 카테고리에서 <b>지속 베이스가 없음</b>(빈 달 또는 thin). → 독립 체크리스트 SKU의 수요 근거가 약함.</li>
+        <li>여행플래너·여행계획표는 <b>계절성 스파이크</b>(여름 직전 5월, 연초 1월)는 있으나 베이스가 얕다 → 코어 SKU 베이스보다는 <b>시즌 윈도우/콘텐츠 각도</b>로 적합.</li>
+        <li>종합: <b>PIVOT 방향(인서트 포맷 탑재)</b>이 한 단계 더 단단해짐. 단, 경쟁 화이트스페이스(418)가 미검증이라 PROMOTE/HOLD <b>정식 판정은 여전히 보류</b>.</li>
+      </ul>
+
+      <p><b>④ 가정 원장 (상속 / 변경 / 충돌 / 다음-에이전트 규칙 / 승격 후보)</b></p>
+      <ul>
+        <li><b>상속(유지):</b> fit 증거 ≠ 시장 증거; 작은 방향 신호는 PMF/전환/매출 판정 아님(Prelaunch Decision Boundary); 접근 차단(418/Commerce ID)은 가용성 조건이지 수요 신호 아님(Availability And Friction Are Not Value).</li>
+        <li><b>변경(이번 런):</b> 04:07Z의 미해결 항목 "클릭 트렌드 포맷"을 <b>해결</b>. 첫 시드 증거를 "카테고리 상대 랭크"에서 <b>"12개월 시계열 밀도"</b>로 보강 — 같은 PIVOT 결론을 다른 측정으로 교차 확인.</li>
+        <li><b>충돌:</b> 플랜의 Core 가설(구조화 체크리스트가 핵심 수요)이 시계열로도 약화됨(빈/thin) — 04:07Z 충돌의 연장·강화이지 반전 아님.</li>
+        <li><b>다음-에이전트 규칙:</b> (a) DataLab 클릭 트렌드는 <b>키워드 1개=요청 1개, cid 스코프</b>로 호출한다. (b) 값은 자기정규화 지수이니 키워드 간 절대 비교를 하지 말고 <b>월 결측을 저volume 프록시</b>로만 쓴다. (c) 418 해제 또는 로그인 브라우저 경로 전까지 경쟁 verdict를 내지 않는다.</li>
+        <li><b>MARKETING_LEARNINGS 승격 후보(보류, 단일 런):</b> "DataLab 자기정규화 클릭 지수는 키워드 간 절대 수요 비교용이 아니다 — 월 결측(숨김)을 저volume 프록시로, 시계열 밀도를 지속수요 프록시로 읽어라." 기존 <i>Traffic Source Before Metrics</i>의 '지표 해석 전 분류' 원칙과 동형. 실 경쟁 스캔으로 한 번 더 확인 후에만 승격.</li>
+      </ul>
+
+      <p><b>⑤ 다음 실행(접근 복귀·해제 시)</b></p>
+      <ul>
+        <li>418 해제 또는 로그인 브라우저 경로 확보 시 네이버쇼핑 상위20 경쟁 스캔(포맷 버킷·가격대·리뷰깊이·화이트스페이스) → PROMOTE/PIVOT/HOLD 정식 판정.</li>
+        <li>선택: 트래블러스노트·여행플래너에 한해 연령·성별 필터로 인구통계 스큐 1패스(인서트 카피·타깃 각도용).</li>
+      </ul>
+
+      <p><b>경계:</b> 읽기 전용 리서치·계획만 수행. 상품등록·리스팅·가격/배송/재고/옵션·광고/예산·고객/주문·계정/스토어 설정·공개 게시는 건별 명시 승인 전까지 미실행.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="chev"></span> 실행 메타 · 산출물</summary>
+    <div class="body">
+      <div class="chips">
+        <span class="chip">2026-06-09T0507Z</span>
+        <span class="chip">local cron (read-only)</span>
+        <span class="chip">active(부분 검증) → active(부분 검증 심화)</span>
+        <span class="chip">probes: 13 bounded reqs · no aggressive retry</span>
+      </div>
+      <ul>
+        <li>리포트 <code>reports/naver-shopping-01/2026-06-09T0507Z-local.html</code></li>
+        <li>플랜·증거 기록 <code>agents/naver-shopping-agent/keyword-competitor-validation-plan.md</code></li>
+        <li>운영 로그 <code>agents/naver-shopping-agent/operation-log.md</code></li>
+        <li>큐레이션 측정경로 <code>agents/naver-shopping-agent/product-curation.md</code></li>
+        <li>인텐트 <code>intents/active/naver-shopping-01.md</code></li>
+      </ul>
+    </div>
+  </details>
+  </div>
+
+  <div class="foot reveal" style="animation-delay:.3s">
+    <span>Agent-First Heartbeat</span>
+    <span>Infinity · Intent Note</span>
+  </div>
+</div>
+</body>
+</html>
