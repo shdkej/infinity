@@ -8,7 +8,7 @@
 - owner: SAM
 - source_agent: `/home/ubuntu/.openclaw/workspace/agents/naver-shopping-agent/`
 - created_at: 2026-06-07T23:24Z
-- updated_at: 2026-06-09T02:42Z
+- updated_at: 2026-06-09T06:00Z
 
 ## Purpose
 
@@ -31,6 +31,7 @@
 - 2026-06-08T23:30Z SKU-shape refinement pass: narrowed the first Travel-Prep hypothesis to a **Travel Scenario Card / Checklist Insert Set** rather than a generic diary/scrapbook. Source fit: travel scenario rehearsal + note-management/life-tracking preference for reusable, low-clutter context capture. Official SmartStore help adds registration-risk gates (category permission, product information notice, category-change/exposure delay). Demand/competition still unvalidated; next public/browser pass should test the tighter keyword set.
 - 2026-06-09T01:10Z 09:00-KST report prep + read-only access re-check: public Naver Shopping search returns **HTTP 418 "일시 접근 제한"** (IP-level block confirmed by status code, not just a page). SmartStore Commerce ID gate unchanged. No new user blocker. 09:00 message consolidated unchanged (Commerce ID/read-only question + narrowed first-seed recommendation). Report `reports/naver-shopping-01/2026-06-09T0107Z-local.html`.
 - 2026-06-09T02:42Z user replied **"다 허용"** to the 09:00 pending decisions and asked for a guide from shopping mall creation to management. Read-only user browser/profile checks are allowed, the first seed is approved as **Travel-Prep System / Travel Scenario Card / Checklist Insert Set**, and the direct-operation path may be prepared. Live commerce/account/cost/customer/public actions still require exact action-level logging and confirmation before execution. Guide created at `/home/ubuntu/.openclaw/workspace/agents/naver-shopping-agent/shopping-mall-operations-guide.md`.
+- 2026-06-09T06:00Z cloud prepare pass (Heartbeat): 사용자 "다 허용" 승인 기반 클라우드 리스팅 초안 패스 수행. `artifacts/naver-shopping-01/travel-prep-listing-draft.md` 신규 생성 — 상품명 3종 후보, 스마트스토어 카테고리 후보, 키워드 검증 대기 리스트 6종, 가격 전략, 등록 리스크 게이트 5종, 다음 DataLab 액션 포함. 접근 상태 변동 없음(공개 Naver Shopping HTTP 418 지속, SmartStore Commerce ID 게이트 대기). 리포트: `reports/naver-shopping-01/2026-06-09T0600Z.html`.
 
 ## Active Blockers
 
