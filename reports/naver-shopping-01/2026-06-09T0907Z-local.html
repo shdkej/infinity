@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>naver-shopping-01 · 피벗 SKU 리스팅 프리플라이트(무액션)</title>
+<style>
+  :root{
+    --bg:#f4f2ea; --panel:#fbfaf5; --ink:#2c2a25; --soft:#807c70; --faint:#a8a496; --line:#e3dfd2;
+    --a2:#5f7a5e; --a2-deep:#3f5740;
+    --a1:#a9745a; --a1-deep:#8a5c45;
+    --sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;}
+  body{background:var(--bg); color:var(--ink); font-family:var(--sans);
+    font-size:14px; line-height:1.68; -webkit-font-smoothing:antialiased;}
+  .sheet{max-width:720px; margin:0 auto; padding:48px 34px 46px;}
+  .reveal{opacity:0; animation:fade .7s ease forwards;}
+  @keyframes fade{from{opacity:0; transform:translateY(9px);} to{opacity:1; transform:none;}}
+  .eyebrow{display:flex; align-items:center; gap:10px; font-family:var(--mono);
+    font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--soft);}
+  .eyebrow .id{color:var(--a2-deep); font-weight:600;}
+  .eyebrow .dot{width:5px; height:5px; border-radius:50%; background:var(--a2);}
+  .eyebrow .status{margin-left:auto; color:var(--a2-deep);}
+  h1{font-size:29px; line-height:1.3; font-weight:700; letter-spacing:-.01em; margin:20px 0 0;}
+  .dek{font-size:15.5px; color:var(--soft); margin:13px 0 0; max-width:52ch;}
+  .hr{height:1px; background:var(--line); margin:30px 0;}
+  .axis{padding:0 0 4px 22px; position:relative; margin-bottom:30px;}
+  .axis::before{content:""; position:absolute; left:0; top:6px; bottom:6px; width:2px; border-radius:2px;}
+  .axis.ax1::before{background:var(--a1);} .axis.ax2::before{background:var(--a2);}
+  .axis.ax1{--ul:var(--a1);} .axis.ax2{--ul:var(--a2);}
+  .axis .label{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase;
+    margin-bottom:9px; display:flex; align-items:center; gap:8px;}
+  .axis.ax1 .label{color:var(--a1-deep);} .axis.ax2 .label{color:var(--a2-deep);}
+  .axis .label .n{font-weight:600; opacity:.6;}
+  .axis .text{font-size:18px; line-height:1.6; color:#37352e;}
+  .axis .text b{font-weight:700; color:var(--ink); border-bottom:2px solid var(--ul);}
+  ol.find{list-style:none; counter-reset:f; margin:16px 0 0; padding:0;}
+  ol.find li{position:relative; padding:8px 0 8px 26px; font-size:15px; color:#37352e; border-top:1px solid var(--line);}
+  ol.find li:first-child{border-top:none;}
+  ol.find li::before{counter-increment:f; content:counter(f); position:absolute; left:0; top:9px;
+    font-family:var(--mono); font-size:12px; font-weight:600; color:var(--a1-deep);}
+  details{border:1px solid var(--line); border-radius:10px; background:var(--panel); margin-bottom:10px;}
+  summary{cursor:pointer; list-style:none; padding:14px 16px; display:flex; align-items:center; gap:11px;
+    font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft);}
+  summary::-webkit-details-marker{display:none;}
+  summary .chev{width:8px; height:8px; border-right:2px solid var(--a2-deep); border-bottom:2px solid var(--a2-deep);
+    transform:rotate(-45deg); transition:.25s; flex:none; margin-left:2px;}
+  details[open] summary .chev{transform:rotate(45deg);}
+  summary:hover{color:var(--ink);}
+  .body{padding:2px 16px 18px;}
+  table{border-collapse:collapse; width:100%; font-size:13px; margin:4px 0 12px;}
+  th,td{border-bottom:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top;}
+  th{font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft); font-weight:600;}
+  td:first-child{color:var(--a2-deep); font-weight:600; white-space:nowrap;}
+  .body p{color:var(--soft);}
+  .body ul{margin:6px 0; padding-left:18px;} .body li{margin:5px 0;}
+  code{font-family:var(--mono); font-size:12px; background:#edeae0; padding:1px 6px; border-radius:3px; color:var(--a2-deep);}
+  a{color:var(--a2-deep); text-underline-offset:3px;}
+  .chips{display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px;}
+  .chip{font-family:var(--mono); font-size:10.5px; letter-spacing:.05em; color:var(--soft); border:1px solid var(--line); border-radius:999px; padding:3px 10px;}
+  .foot{margin-top:30px; padding-top:15px; border-top:1px solid var(--line);
+    display:flex; justify-content:space-between; font-family:var(--mono); font-size:10px;
+    letter-spacing:.13em; text-transform:uppercase; color:var(--faint);}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="eyebrow reveal">
+    <span class="dot"></span>
+    <span class="id">naver-shopping-01</span>
+    <span>Research Note</span>
+    <span class="status">PIVOT · 방향성 (리스팅 프리플라이트)</span>
+  </div>
+  <h1 class="reveal" style="animation-delay:.05s">증거를 체크리스트로 — 피벗 SKU의 리스팅 프리플라이트(라이브 액션 0)</h1>
+  <p class="dek reveal" style="animation-delay:.09s">08:07Z 광고 축 이후, 승인된 방향성 PIVOT의 <b>다음 무액션 운영 산출물</b>을 준비했다. 흩어진 증거 제약을 라이브 등록 전 검증 가능한 게이트로 묶은 <b>리스팅 프리플라이트 체크리스트</b>다. 새 네이버 호출 없음.</p>
+
+  <div class="hr reveal" style="animation-delay:.12s"></div>
+
+  <div class="axis ax1 reveal" style="animation-delay:.16s">
+    <div class="label"><span class="n">01</span> 무엇이 문제였나</div>
+    <div class="text">피벗(트래블러스노트 표준사이즈 여행준비 구조화 속지)은 0707/0807Z에 <b>방향성으로 승인</b>됐지만, 운영 측 리스팅 준비 문서(ops-guide Phase 4–5)는 여전히 <b>피벗 이전 SKU명</b>("Travel Scenario Card / Checklist Insert Set")과 일반 필드를 담고 있었다. 피벗이 만든 <b>하드 제약</b>(거래형 vs 정보형 의도, 얇고 광고경합인 시장, 앵커 유료노출 의존, 코모디티 가격대 프리미엄 정당화)을 실제 등록 시 강제할 장치가 없었다.</div>
+  </div>
+
+  <div class="axis ax2 reveal" style="animation-delay:.22s">
+    <div class="label"><span class="n">02</span> 어떻게 해결하나</div>
+    <div class="text">피벗 전용 <b>프리플라이트 체크리스트</b> 1건을 신규 작성했다(<code>listing-preflight-travelers-notebook-insert.md</code>). 증거를 <b>실행 게이트</b>로 인코딩 — 제목을 <b>'여행 체크리스트'로 리드 금지</b>(정보형), 차별화는 <b>콘텐츠/구조가 유일한 프리미엄 정당화</b>, 가격·재고·옵션은 <b>placeholder</b>로만. 전부 draft·라이브 액션 0이며 ops-guide Phase 4–5를 대체하지 않고 날카롭게 한다.</div>
+    <ol class="find">
+      <li><b>거래형/정보형 게이트:</b> 메인 후크는 앵커/리필 스펙(트래블러스노트 호환·표준사이즈 속지)에 붙이고, '여행 체크리스트'는 보조 서술어로만(광고 CTR 0.03% = 정보형).</li>
+      <li><b>프리미엄 정당화:</b> 코모디티 속지 1,500–5,200원 위 가격은 무지 종이가 아니라 <b>구조화 콘텐츠</b>(시나리오·3층 질문·숙소·패킹·비용·관찰→가설→적용)로만 설명.</li>
+      <li><b>앵커 의존 주의:</b> 리필+속지 ≈ 430/mo + 광고 depth 6 → 리필 키워드 단독 불가, 앵커 유료노출 경쟁 필요(유료 단계는 승인 게이트).</li>
+      <li><b>방향성 한계 명시:</b> 리뷰깊이(429)·시각랭크(418) 미확인 → 라이브 PROMOTE 결정 불가, 프리플라이트만 허용.</li>
+      <li><b>승인 경계 재명시:</b> 소싱·등록·가격/배송/재고/옵션·광고/예산·고객/주문·계정/스토어설정·공개발행 전부 미접촉.</li>
+    </ol>
+  </div>
+
+  <div class="reveal" style="animation-delay:.27s">
+  <details open>
+    <summary><span class="chev"></span> 상세 · 프리플라이트 구조 + 증거 매핑</summary>
+    <div class="body">
+      <p>체크리스트 5개 섹션이 각각 어떤 증거 제약을 강제하는지:</p>
+      <table>
+        <tr><th>섹션</th><th>강제하는 게이트</th><th>증거 출처</th></tr>
+        <tr><td>A. 스펙 고정</td><td>패스포트/미디움 표준 트림 확정, 단일 사이즈로 옵션부담↓, '호환' 표기로 상표 임퍼소네이션 회피</td><td>0707Z 화이트스페이스</td></tr>
+        <tr><td>B. 콘텐츠 차별화</td><td>"왜 1,500–5,200원 위인가"를 한 문장으로; 사용자 실경험(홋카이도/시나리오)에서 도출</td><td>0707Z 가격대 · 사용자 fit</td></tr>
+        <tr><td>C. 제목/키워드</td><td>앵커·리필 스펙에 후크; '여행 체크리스트'는 리드 금지(정보형)</td><td>0807Z 광고 CTR</td></tr>
+        <tr><td>D. 필수 필드</td><td>ops-guide Phase 4 필드 enumerate; 가격/재고/옵션 placeholder</td><td>ops-guide Phase 4</td></tr>
+        <tr><td>E. 등록마찰/컴플라</td><td>카테고리권한·상품정보제공고시·규제품 미혼입·이미지권리·노출지연</td><td>공식 SmartStore help</td></tr>
+      </table>
+      <p><b>판정 변동 없음:</b> <b>PIVOT (방향성)</b>. 이번 런은 새 시장 증거를 만든 게 아니라, 기존 증거를 라이브 직전에 깨지지 않게 고정하는 <b>운영 산출물</b>이다. 리뷰깊이(429)·시각랭크(418)가 미확인이라 PROMOTE급은 여전히 아님.</p>
+      <p><b>다음:</b> 읽기전용 로그인 브라우저가 상품페이지에 닿으면 리뷰깊이·시각랭크 행을 채워 PROMOTE/HOLD 재평가 → 스펙고정(A)+콘텐츠차별화(B) 완료 후에야 라이브 리스팅 draft를 사용자 승인용으로 제시. 09:00 메시지: 광고 축에 이어 피벗 SKU 리스팅 프리플라이트를 무액션으로 준비했고, 남은 건 리뷰깊이(429)·시각랭크(418)뿐임을 보고. 승인 질문 반복 금지.</p>
+      <p><b>승인 경계(유지):</b> 소싱·상품등록·가격/배송/재고/옵션·광고/예산·고객/주문·계정/스토어설정·공개발행은 건별 명시 승인 전까지 미접촉.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="chev"></span> 실행 메타 · 산출물</summary>
+    <div class="body">
+      <div class="chips">
+        <span class="chip">2026-06-09T09:07Z</span>
+        <span class="chip">Infinity local cron · docs L1</span>
+        <span class="chip">PIVOT(directional + ads) → PIVOT(directional + listing-preflight)</span>
+      </div>
+      <ul>
+        <li>신규 산출물 <code>naver-shopping-agent/listing-preflight-travelers-notebook-insert.md</code> (피벗 SKU 리스팅 프리플라이트, 5섹션 + 승인경계)</li>
+        <li>운영로그 <code>naver-shopping-agent/operation-log.md</code> (09:07Z 엔트리)</li>
+        <li>의도 원장 <code>infinity/intents/active/naver-shopping-01.md</code> · <code>infinity/INTENTS.md</code></li>
+        <li><b>이번 런 성격:</b> 시장 조사가 아니라 무액션 <b>운영 산출물 준비</b> — 새 네이버 호출 없음(418/429 그대로, 공격적 재시도 없음).</li>
+        <li><b>이어받은 기준:</b> fit ≠ market evidence; 방향성 신호는 PROMOTE 결론 아님; 접근 차단은 availability(가치 아님); 광고 CTR이 정보형/거래형을 검색량보다 잘 가른다.</li>
+        <li><b>경계 준수:</b> draft만 — 가격/재고/옵션 placeholder, 라이브 액션 0.</li>
+      </ul>
+    </div>
+  </details>
+  </div>
+
+  <div class="foot reveal" style="animation-delay:.3s">
+    <span>Agent-First Heartbeat</span>
+    <span>Infinity · Intent Note</span>
+  </div>
+</div>
+</body>
+</html>
