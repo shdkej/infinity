@@ -8,7 +8,7 @@
 
 ## Active
 
-<!-- naver-shopping-01 active 2026-06-09T02:42Z → intents/active/naver-shopping-01.md [projects: naver-shopping,infinity,personal-ops; type: coordination; topics: automation,workflow,marketing; status: active-user-approved] (09:00 KST 질문에 사용자가 "다 허용" 답변. read-only 사용자 브라우저/프로필 기반 네이버쇼핑·스마트스토어 확인 허용, 첫 seed는 Travel-Prep System / Travel Scenario Card / Checklist Insert Set로 승인, 쇼핑몰 생성부터 관리까지 직접 운영 준비 경로 허용. Naver agent에 `shopping-mall-operations-guide.md` 생성. 단 live 상품등록/수정, 가격·배송·재고, 광고·비용, 고객/주문/환불/정산, 계정/스토어 설정, 공개 발행은 실행 전 exact action logging + action-level confirmation 유지. 기술 블로커: SmartStore Commerce ID 전환은 대시보드가 계속 막힐 경우 사용자측 1회 필요할 수 있고, 이 호스트의 공개 네이버쇼핑 검색은 HTTP 418/IP 제한 지속.) -->
+<!-- naver-shopping-01 active 2026-06-09T04:07Z → intents/active/naver-shopping-01.md [projects: naver-shopping,infinity,personal-ops; type: coordination; topics: automation,workflow,marketing; status: active-partial-validated] (DataLab 접근 복구(이전 IP 차단 → 카테고리 키워드랭크 API 실데이터 반환)로 첫 시드 부분 검증. 다이어리/플래너(50001039) 상위20에 여행 키워드 0건(구조화 수요는 스터디·위클리 플래너), 노트/수첩(50001040) 유일 견고 여행 앵커는 트래블러스노트 4위(인서트 생태계) → 구조화 "여행 체크리스트" 단독보다 인서트 포맷 탑재(PIVOT 방향). 단정 아님: 카테고리 상대 랭크일 뿐 절대량/트렌드 아님, 네이버쇼핑 검색 HTTP 418 지속으로 경쟁 화이트스페이스 스캔 미검증, click-trend 엔드포인트 keyword 파라미터 포맷 미해결. 승인 경계(상품등록/가격·배송·재고/광고·비용/고객·주문/계정/공개발행)는 유지. Report reports/naver-shopping-01/2026-06-09T0407Z-local.html.) -->
 
 ## Waiting
 

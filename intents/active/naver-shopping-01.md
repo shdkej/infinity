@@ -8,7 +8,7 @@
 - owner: SAM
 - source_agent: `/home/ubuntu/.openclaw/workspace/agents/naver-shopping-agent/`
 - created_at: 2026-06-07T23:24Z
-- updated_at: 2026-06-09T02:42Z
+- updated_at: 2026-06-09T04:07Z
 
 ## Purpose
 
@@ -32,8 +32,21 @@
 - 2026-06-09T01:10Z 09:00-KST report prep + read-only access re-check: public Naver Shopping search returns **HTTP 418 "일시 접근 제한"** (IP-level block confirmed by status code, not just a page). SmartStore Commerce ID gate unchanged. No new user blocker. 09:00 message consolidated unchanged (Commerce ID/read-only question + narrowed first-seed recommendation). Report `reports/naver-shopping-01/2026-06-09T0107Z-local.html`.
 - 2026-06-09T03:07Z tighter keyword/competitor validation plan prepared for the approved first seed (read-only). Single access probe re-confirmed Naver Shopping search + DataLab IP-blocked from this host (availability, not demand). New plan `keyword-competitor-validation-plan.md` segments the seed's keywords by buyer intent (Core planning/checklist · Niche scenario · Overlap packing · Contrast diary), adds a per-keyword capture schema, a read-only competitor scan protocol, and a PROMOTE/PIVOT/HOLD rubric; `여행 다이어리`/`트래블저널` demoted from core demand to a contrast set. Demand/competition still UNVALIDATED — plan executes when read-only access returns. Report `reports/naver-shopping-01/2026-06-09T0307Z-local.html`.
 - 2026-06-09T02:42Z user replied **"다 허용"** to the 09:00 pending decisions and asked for a guide from shopping mall creation to management. Read-only user browser/profile checks are allowed, the first seed is approved as **Travel-Prep System / Travel Scenario Card / Checklist Insert Set**, and the direct-operation path may be prepared. Live commerce/account/cost/customer/public actions still require exact action-level logging and confirmation before execution. Guide created at `/home/ubuntu/.openclaw/workspace/agents/naver-shopping-agent/shopping-mall-operations-guide.md`.
+- 2026-06-09T04:07Z **DataLab access restored → first seed PARTIALLY validated (directional).** Bounded read-only probes found DataLab reachable again (was IP-blocked) with the category keyword-rank API returning real data. Executed the plan's DataLab portion: **다이어리/플래너 (cid 50001039) top-20 has 0 travel keywords** (structured-planning demand = 스터디플래너/위클리플래너); **노트/수첩 (cid 50001040)** only durable travel anchor is **트래블러스노트 (rank 4)** — an insert/refill ecosystem leaning memory + flexible journaling. → Core "structured 여행 체크리스트" is not top demand; real anchor is the Traveler's-Notebook **insert format** → leans **PIVOT** (ride standard insert specs vs standalone checklist). Caveats: relative category rank only (not absolute volume/trend; click-trend param format unresolved); Naver Shopping search still HTTP 418 so the competition white-space scan stays unvalidated. Report `reports/naver-shopping-01/2026-06-09T0407Z-local.html`.
 
 ## Active Blockers
+
+### 2026-06-09T04:07Z - DataLab access restored, first seed partially validated (competition scan still blocked)
+
+- route: agent-solvable
+- status: resolved-local
+- source: delegated local cron run (read-only partial plan execution)
+- finding: DataLab category keyword-rank API is reachable again from this host (state change from prior IP-block). Partial directional evidence: structured travel-checklist demand is not a top keyword in 다이어리/플래너; the only durable travel anchor is 트래블러스노트 (insert ecosystem) in 노트/수첩 → leans PIVOT toward riding standard insert specs.
+- blocker: no new user blocker. Naver Shopping public search still HTTP 418 → competition top-20 / white-space scan not run. DataLab `getKeywordClickTrend` keyword-param format unresolved (no absolute volume/12-mo trend yet). SmartStore Commerce ID gate unchanged.
+- user_needed: none. (User-side Commerce ID action still only needed if the visible SmartStore dashboard is required later.)
+- sam_action: recorded execution evidence in `keyword-competitor-validation-plan.md`; updated `product-curation.md` Naver/public evidence from UNVALIDATED to partial-directional; logged operation entry; wrote HTML run report.
+- work_continues: yes (solve click-trend param format; run competition scan when 418 lifts or a logged-in browser path exists).
+- next_9am_message: report the new partial finding (DataLab back; structured-checklist demand not top, real anchor = 트래블러스노트 insert format → consider insert-format pivot) and note competition scan still blocked by 418. Do not repeat approval questions.
 
 ### 2026-06-09T03:07Z - Tighter validation plan prepared (access still blocked)
 
