@@ -8,7 +8,7 @@
 
 ## Active
 
-<!-- naver-shopping-01 active 2026-06-08T23:30Z → intents/active/naver-shopping-01.md [projects: naver-shopping,infinity,personal-ops; type: coordination; topics: automation,workflow,marketing; status: partial-access-commerce-id-needed] (23:30Z SKU-shape refinement: 접근 차단은 지속(공개검색 IP제한·SmartStore Commerce ID 사용자측 게이트)하므로 Knowledge Lab + 공식 SmartStore help 기반으로 첫 Travel-Prep 후보를 generic 여행 다이어리/스크랩북이 아니라 Travel Scenario Card / Checklist Insert Set로 좁힘. 근거: 실제 여행 시나리오/배차/숙소/패킹 마찰 + 물리 노트는 기억엔 좋지만 흩어지면 재사용이 어렵다는 note/life-tracking 신호. 공식 리스크: 카테고리 권한·상품정보제공고시·카테고리 변경/노출 지연 체크 필요. 수요/경쟁은 여전히 미검증. 09:00 KST 질문은 기존 Commerce ID/read-only 접근 + 이 좁힌 첫 seed 추천으로 보고. report 2026-06-08T2330Z-local.html. 01:10Z 09:00-보고 준비 패스: 공개 검색 HTTP 418 "일시 접근 제한"으로 IP 차단 재확인, Commerce ID 게이트 불변, 신규 사용자 블로커 0, 큐레이션 변동 0. report 2026-06-09T0107Z-local.html) -->
+<!-- naver-shopping-01 active 2026-06-09T02:42Z → intents/active/naver-shopping-01.md [projects: naver-shopping,infinity,personal-ops; type: coordination; topics: automation,workflow,marketing; status: active-user-approved] (09:00 KST 질문에 사용자가 "다 허용" 답변. read-only 사용자 브라우저/프로필 기반 네이버쇼핑·스마트스토어 확인 허용, 첫 seed는 Travel-Prep System / Travel Scenario Card / Checklist Insert Set로 승인, 쇼핑몰 생성부터 관리까지 직접 운영 준비 경로 허용. Naver agent에 `shopping-mall-operations-guide.md` 생성. 단 live 상품등록/수정, 가격·배송·재고, 광고·비용, 고객/주문/환불/정산, 계정/스토어 설정, 공개 발행은 실행 전 exact action logging + action-level confirmation 유지. 기술 블로커: SmartStore Commerce ID 전환은 대시보드가 계속 막힐 경우 사용자측 1회 필요할 수 있고, 이 호스트의 공개 네이버쇼핑 검색은 HTTP 418/IP 제한 지속.) -->
 
 ## Waiting
 

@@ -8,7 +8,7 @@
 - owner: SAM
 - source_agent: `/home/ubuntu/.openclaw/workspace/agents/naver-shopping-agent/`
 - created_at: 2026-06-07T23:24Z
-- updated_at: 2026-06-08T23:30Z
+- updated_at: 2026-06-09T02:42Z
 
 ## Purpose
 
@@ -30,8 +30,22 @@
 - 2026-06-08T23:07Z curation convergence pass (access still blocked): folded the two travel candidates into a single **Travel-Prep System cluster** (same source `Idea/Travel.md`, overlapping artifact) and produced a fit-only provisional ranking — #1 cluster > #2 AI/creator workflow (watch). The 09:00 "first seed" menu is now a recommendation the user can override. Market demand still UNVALIDATED — fit evidence only; availability block, not failure.
 - 2026-06-08T23:30Z SKU-shape refinement pass: narrowed the first Travel-Prep hypothesis to a **Travel Scenario Card / Checklist Insert Set** rather than a generic diary/scrapbook. Source fit: travel scenario rehearsal + note-management/life-tracking preference for reusable, low-clutter context capture. Official SmartStore help adds registration-risk gates (category permission, product information notice, category-change/exposure delay). Demand/competition still unvalidated; next public/browser pass should test the tighter keyword set.
 - 2026-06-09T01:10Z 09:00-KST report prep + read-only access re-check: public Naver Shopping search returns **HTTP 418 "일시 접근 제한"** (IP-level block confirmed by status code, not just a page). SmartStore Commerce ID gate unchanged. No new user blocker. 09:00 message consolidated unchanged (Commerce ID/read-only question + narrowed first-seed recommendation). Report `reports/naver-shopping-01/2026-06-09T0107Z-local.html`.
+- 2026-06-09T02:42Z user replied **"다 허용"** to the 09:00 pending decisions and asked for a guide from shopping mall creation to management. Read-only user browser/profile checks are allowed, the first seed is approved as **Travel-Prep System / Travel Scenario Card / Checklist Insert Set**, and the direct-operation path may be prepared. Live commerce/account/cost/customer/public actions still require exact action-level logging and confirmation before execution. Guide created at `/home/ubuntu/.openclaw/workspace/agents/naver-shopping-agent/shopping-mall-operations-guide.md`.
 
 ## Active Blockers
+
+### 2026-06-09T02:42Z - User approved pending 09:00 decisions and requested operations guide
+
+- route: user-approved / agent-solvable
+- status: active
+- source: Telegram reply to the 09:00 KST report
+- decision_result: "다 허용"
+- resolved: read-only user browser/profile for Naver Shopping/SmartStore checks; first Travel-Prep seed; direct-operation preparation path; full creation-to-management guide request.
+- blocker: user decision blocker is resolved. Technical access can still block specific probes: SmartStore may require user-side Commerce ID transition if the dashboard stops there, and this host's direct public Naver Shopping search is IP-restricted.
+- user_needed: none for strategy, guide, DataLab/public-source work, listing drafts, scorecards, or read-only user-browser checks. User-side Commerce ID action may be needed only if the visible dashboard remains unavailable.
+- sam_action: create and maintain the shopping mall operations guide; run the next read-only competitor/keyword validation via allowed user-browser/profile path when available; prepare exact live-action drafts before any external change.
+- work_continues: yes
+- next_9am_message: do not repeat the approval questions. Report only new findings, new hard blockers, or the next exact live action that needs confirmation.
 
 ### 2026-06-09T01:10Z - 09:00 KST report prep + read-only access re-check (access still blocked)
 
