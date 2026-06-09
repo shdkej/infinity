@@ -11,6 +11,8 @@
 
 INTENTS.md의 `## Inbox` 섹션을 먼저 확인한다. 자유 형식 텍스트가 있으면:
 
+먼저 `AGENT_COLLABORATION.md`를 필요한 만큼 읽어 source-agent -> target-agent 요청인지 판별한다. Inbox 항목에 `target_agent`가 이미 있으면 그 값을 보존하고 target agent 기준으로 라우팅한다.
+
 1. 내용을 분석하여 구조화된 Intent로 변환
 2. 적절한 ID 부여 (카테고리-번호, 예: monitor-02, dev-01)
 3. priority, permission, goal, success_criteria를 추론하여 채움
@@ -18,6 +20,8 @@ INTENTS.md의 `## Inbox` 섹션을 먼저 확인한다. 자유 형식 텍스트�
 5. `## Active`가 이미 3개면 Inbox에 남기고 간단한 구조화 메모만 추가
 6. Inbox에서 Active로 이동한 항목만 제거
 7. Telegram 알림은 실제 실행, blocker, 완료처럼 사용자에게 의미 있는 변화가 있을 때만 보낸다.
+
+`marketing-*` 또는 `target_agent: marketer` 요청은 두 번짜리 Marketing growth review cron을 기다리지 않는다. Heartbeat/Infinity router가 실행 가능한 marketing intent로 취급하고, 필요한 경우 Marketer 학습 루프로 바로 넘긴다.
 
 추론이 어려운 필드는 비워두지 말고 Telegram으로 사용자에게 질문한다.
 
@@ -119,7 +123,7 @@ Heartbeat
 - **Claude Code 호출 경로(임시 기본값)**: 당분간 Infinity의 local Claude 위임은 새 `claude -p` 프로세스보다 기존 pt/purplemux Claude Code tmux pane을 우선 사용한다. OpenClaw workspace의 `skills/pt-claude-tmux/SKILL.md` 절차를 따른다: `tmux -L purple`로 Claude pane을 찾고, capture로 현재 상태를 확인한 뒤, `C-c`와 `/clear`로 stale prompt를 정리하고, 하나의 짧고 경계가 분명한 prompt를 보낸 다음 결과를 capture한다. 사용 가능한 pt Claude pane이 없거나 busy/unsafe 상태이면 한 번만 bounded `claude --dangerously-skip-permissions -p` 호출로 fallback할 수 있다.
 - **Claude Code 작업 규칙**: `local-code` 또는 multi-file/shared behavior처럼 비단순 작업은 `workflow-master` 스킬/에이전트를 사용하도록 지시한다. workflow-master는 repo-local 파일보다 `~/.claude` 기준으로 먼저 찾는다: `~/.claude/skills/workflow-master/`와 `~/.claude/agents/workflow-master.md`. 단일 내부 문서/리포트 같은 명백한 `simple-doc` 작업은 직접 lightweight prompt로 처리할 수 있다.
 - **복잡한 작업** (다역할 필요): workflow-master가 Planner, Developer, Marketer, Operator 관점으로 분해·중재한 뒤, 실제 로컬 실행을 진행한다.
-- **마케팅 학습 루프**: `marketing-*`, activation, onboarding, retention, monetization, positioning, AI value/proxy 관련 intent는 Marketer가 `MARKETING_LEARNINGS.md`를 1순위로 읽고, 이전 마케팅 산출물을 근거로 학습하게 한다. 위임 프롬프트에 `MARKETING_LEARNINGS.md`, `INTENTS.md` Archive 요약, `artifacts/marketing-*`, `reports/marketing-*/*.html`, 관련 Virtue `apps/web/docs/`를 참고해 계승/수정/충돌 지점을 명시하라고 넣는다.
+- **마케팅 학습 루프**: `marketing-*`, `target_agent: marketer`, activation, onboarding, retention, monetization, positioning, AI value/proxy 관련 intent는 Marketer가 `MARKETING_LEARNINGS.md`를 1순위로 읽고, 이전 마케팅 산출물을 근거로 학습하게 한다. 위임 프롬프트에 `MARKETING_LEARNINGS.md`, `INTENTS.md` Archive 요약, `artifacts/marketing-*`, `reports/marketing-*/*.html`, 관련 Virtue `apps/web/docs/`를 참고해 계승/수정/충돌 지점을 명시하라고 넣는다. Naver Shopping 등 다른 source agent가 만든 target-agent 요청도 같은 루프로 처리하되, source agent 산출물은 요청 근거로만 쓰고 Marketer output을 네이버 수요 증거로 오인하지 않는다.
 
 Claude Code 위임 프롬프트에는 최소한 아래를 포함한다.
 
@@ -199,7 +203,7 @@ Report는 실행 로그다. 2축은 그 로그의 결론을 한눈에 보게 하
 
 마케팅/세스고딘 작업은 하트비트·대시보드·일일 회고에서 확인할 수 있게 기록만 남기고, Telegram 실시간 알림은 기본적으로 보내지 않는다. 후보 발굴, Inbox 등록, 학습 노트 저장, 완료 report, Archive 전환, routine Waiting 업데이트 모두 조용히 처리한다. 사용자가 현재 대화에서 명시적으로 요청한 승인 질문이나 비마케팅 시스템 장애가 아니라면 `NO_REPLY`로 닫는다.
 
-마케팅/세스고딘 작업이 SAM에게 전달할 routine 신호가 있으면 사용자 채팅 대신 `/home/ubuntu/.openclaw/workspace/system/data/agent-inbox/marketing.jsonl`에 JSONL 한 줄로 남긴다. 필드는 `ts`, `source`, `scope`, `item_id`, `signal`, `diagnosis`, `action_candidate`, `measurement`, `routing`, `artifacts`, `urgency`, `needs_sam_decision`, `needs_user_approval`, `user_visible`를 기본으로 한다. 이 큐는 에이전트끼리 주고받는 입력이며, local Claude는 메시지 수신·판단을 위해 호출하지 않는다. local Claude는 실제 로컬 파일/코드/테스트/브라우저/빌드/검증이 필요한 경우에만 사용한다.
+마케팅/세스고딘 작업이 SAM에게 전달할 routine 신호가 있으면 사용자 채팅 대신 `/home/ubuntu/.openclaw/workspace/system/data/agent-inbox/marketing.jsonl`에 JSONL 한 줄로 남긴다. 필드는 `ts`, `source`, `scope`, `item_id`, `signal`, `diagnosis`, `action_candidate`, `measurement`, `routing`, `artifacts`, `urgency`, `needs_sam_decision`, `needs_user_approval`, `user_visible`를 기본으로 한다. 이 큐는 에이전트끼리 주고받는 보조 입력이며, target-agent 실행 트리거가 아니다. 실행이 필요한 협업 요청은 `INTENTS.md` Inbox의 `marketing-*` 또는 `target_agent: marketer` intent로 존재해야 한다. local Claude는 메시지 수신·판단을 위해 호출하지 않는다. local Claude는 실제 로컬 파일/코드/테스트/브라우저/빌드/검증이 필요한 경우에만 사용한다.
 
 KST 08시 아침 리캡은 `schedule` 이벤트 하나가 소유한다. 같은 08시대에 `reports/**`, `INTENTS.md`, `GATES.md` push가 발생해도 push 기반 알림은 보내지 않는다. 08시 리캡은 최근 24시간 변화 요약 1개만 사용자에게 보인다.
 
