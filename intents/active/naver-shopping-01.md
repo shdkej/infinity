@@ -29,8 +29,20 @@
 - 2026-06-08T14:39Z read-only test: Naver main shows logged-in affordances, but SmartStore Center stops at the Commerce ID login page; public Naver Shopping search still IP-restricted. Block location moved from "env/session unreachable" to "Commerce ID transition (user-side)".
 - 2026-06-08T23:07Z curation convergence pass (access still blocked): folded the two travel candidates into a single **Travel-Prep System cluster** (same source `Idea/Travel.md`, overlapping artifact) and produced a fit-only provisional ranking — #1 cluster > #2 AI/creator workflow (watch). The 09:00 "first seed" menu is now a recommendation the user can override. Market demand still UNVALIDATED — fit evidence only; availability block, not failure.
 - 2026-06-08T23:30Z SKU-shape refinement pass: narrowed the first Travel-Prep hypothesis to a **Travel Scenario Card / Checklist Insert Set** rather than a generic diary/scrapbook. Source fit: travel scenario rehearsal + note-management/life-tracking preference for reusable, low-clutter context capture. Official SmartStore help adds registration-risk gates (category permission, product information notice, category-change/exposure delay). Demand/competition still unvalidated; next public/browser pass should test the tighter keyword set.
+- 2026-06-09T01:10Z 09:00-KST report prep + read-only access re-check: public Naver Shopping search returns **HTTP 418 "일시 접근 제한"** (IP-level block confirmed by status code, not just a page). SmartStore Commerce ID gate unchanged. No new user blocker. 09:00 message consolidated unchanged (Commerce ID/read-only question + narrowed first-seed recommendation). Report `reports/naver-shopping-01/2026-06-09T0107Z-local.html`.
 
 ## Active Blockers
+
+### 2026-06-09T01:10Z - 09:00 KST report prep + read-only access re-check (access still blocked)
+
+- route: agent-solvable
+- status: resolved-local
+- source: delegated local cron run (read-only public probe + report prep)
+- blocker: no new user blocker. Public Naver Shopping search confirmed IP-restricted via `HTTP 418` "일시 접근 제한"; SmartStore Commerce ID gate (user-side) unchanged.
+- user_needed: none beyond the existing 09:00 Commerce ID/read-only browser and first-seed decision.
+- sam_action: consolidated the 09:00 user message (one batch, no duplication), re-confirmed access state with a single read-only probe, kept curation/ranking unchanged.
+- work_continues: yes (DataLab/browser competitor validation the moment either access path opens, using the tighter keyword set)
+- next_9am_message: keep existing Commerce ID/read-only question + present first-seed as "Travel-Prep System, narrowed to structured travel scenario/checklist cards"; user can override.
 
 ### 2026-06-08T23:30Z - Travel-Prep SKU shape refined while access remains blocked
 

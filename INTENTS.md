@@ -8,7 +8,7 @@
 
 ## Active
 
-<!-- naver-shopping-01 active 2026-06-08T23:30Z → intents/active/naver-shopping-01.md [projects: naver-shopping,infinity,personal-ops; type: coordination; topics: automation,workflow,marketing; status: partial-access-commerce-id-needed] (23:30Z SKU-shape refinement: 접근 차단은 지속(공개검색 IP제한·SmartStore Commerce ID 사용자측 게이트)하므로 Knowledge Lab + 공식 SmartStore help 기반으로 첫 Travel-Prep 후보를 generic 여행 다이어리/스크랩북이 아니라 Travel Scenario Card / Checklist Insert Set로 좁힘. 근거: 실제 여행 시나리오/배차/숙소/패킹 마찰 + 물리 노트는 기억엔 좋지만 흩어지면 재사용이 어렵다는 note/life-tracking 신호. 공식 리스크: 카테고리 권한·상품정보제공고시·카테고리 변경/노출 지연 체크 필요. 수요/경쟁은 여전히 미검증. 09:00 KST 질문은 기존 Commerce ID/read-only 접근 + 이 좁힌 첫 seed 추천으로 보고. report 2026-06-08T2330Z-local.html) -->
+<!-- naver-shopping-01 active 2026-06-08T23:30Z → intents/active/naver-shopping-01.md [projects: naver-shopping,infinity,personal-ops; type: coordination; topics: automation,workflow,marketing; status: partial-access-commerce-id-needed] (23:30Z SKU-shape refinement: 접근 차단은 지속(공개검색 IP제한·SmartStore Commerce ID 사용자측 게이트)하므로 Knowledge Lab + 공식 SmartStore help 기반으로 첫 Travel-Prep 후보를 generic 여행 다이어리/스크랩북이 아니라 Travel Scenario Card / Checklist Insert Set로 좁힘. 근거: 실제 여행 시나리오/배차/숙소/패킹 마찰 + 물리 노트는 기억엔 좋지만 흩어지면 재사용이 어렵다는 note/life-tracking 신호. 공식 리스크: 카테고리 권한·상품정보제공고시·카테고리 변경/노출 지연 체크 필요. 수요/경쟁은 여전히 미검증. 09:00 KST 질문은 기존 Commerce ID/read-only 접근 + 이 좁힌 첫 seed 추천으로 보고. report 2026-06-08T2330Z-local.html. 01:10Z 09:00-보고 준비 패스: 공개 검색 HTTP 418 "일시 접근 제한"으로 IP 차단 재확인, Commerce ID 게이트 불변, 신규 사용자 블로커 0, 큐레이션 변동 0. report 2026-06-09T0107Z-local.html) -->
 
 ## Waiting
 
