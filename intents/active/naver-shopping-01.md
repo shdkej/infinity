@@ -30,9 +30,21 @@
 - 2026-06-08T23:07Z curation convergence pass (access still blocked): folded the two travel candidates into a single **Travel-Prep System cluster** (same source `Idea/Travel.md`, overlapping artifact) and produced a fit-only provisional ranking — #1 cluster > #2 AI/creator workflow (watch). The 09:00 "first seed" menu is now a recommendation the user can override. Market demand still UNVALIDATED — fit evidence only; availability block, not failure.
 - 2026-06-08T23:30Z SKU-shape refinement pass: narrowed the first Travel-Prep hypothesis to a **Travel Scenario Card / Checklist Insert Set** rather than a generic diary/scrapbook. Source fit: travel scenario rehearsal + note-management/life-tracking preference for reusable, low-clutter context capture. Official SmartStore help adds registration-risk gates (category permission, product information notice, category-change/exposure delay). Demand/competition still unvalidated; next public/browser pass should test the tighter keyword set.
 - 2026-06-09T01:10Z 09:00-KST report prep + read-only access re-check: public Naver Shopping search returns **HTTP 418 "일시 접근 제한"** (IP-level block confirmed by status code, not just a page). SmartStore Commerce ID gate unchanged. No new user blocker. 09:00 message consolidated unchanged (Commerce ID/read-only question + narrowed first-seed recommendation). Report `reports/naver-shopping-01/2026-06-09T0107Z-local.html`.
+- 2026-06-09T03:07Z tighter keyword/competitor validation plan prepared for the approved first seed (read-only). Single access probe re-confirmed Naver Shopping search + DataLab IP-blocked from this host (availability, not demand). New plan `keyword-competitor-validation-plan.md` segments the seed's keywords by buyer intent (Core planning/checklist · Niche scenario · Overlap packing · Contrast diary), adds a per-keyword capture schema, a read-only competitor scan protocol, and a PROMOTE/PIVOT/HOLD rubric; `여행 다이어리`/`트래블저널` demoted from core demand to a contrast set. Demand/competition still UNVALIDATED — plan executes when read-only access returns. Report `reports/naver-shopping-01/2026-06-09T0307Z-local.html`.
 - 2026-06-09T02:42Z user replied **"다 허용"** to the 09:00 pending decisions and asked for a guide from shopping mall creation to management. Read-only user browser/profile checks are allowed, the first seed is approved as **Travel-Prep System / Travel Scenario Card / Checklist Insert Set**, and the direct-operation path may be prepared. Live commerce/account/cost/customer/public actions still require exact action-level logging and confirmation before execution. Guide created at `/home/ubuntu/.openclaw/workspace/agents/naver-shopping-agent/shopping-mall-operations-guide.md`.
 
 ## Active Blockers
+
+### 2026-06-09T03:07Z - Tighter validation plan prepared (access still blocked)
+
+- route: agent-solvable
+- status: resolved-local
+- source: delegated local cron run (read-only plan prep)
+- blocker: no new user blocker. Single bounded probe re-confirmed public Naver Shopping search and DataLab unreachable from this host's egress (availability/IP, not a demand signal); SmartStore Commerce ID gate unchanged. No aggressive retries.
+- user_needed: none beyond the existing read-only browser/profile and Commerce ID transition that may be required only if the dashboard stays blocked.
+- sam_action: built `keyword-competitor-validation-plan.md` in the Naver agent repo — intent-segmented keyword set, per-keyword capture schema, read-only competitor scan protocol, PROMOTE/PIVOT/HOLD rubric; referenced it from `product-curation.md` measurement path.
+- work_continues: yes (execute the plan the moment a read-only user browser/profile or unblocked DataLab path is available)
+- next_9am_message: do not repeat approval questions; report only the executed scan result or the next exact live action needing confirmation.
 
 ### 2026-06-09T02:42Z - User approved pending 09:00 decisions and requested operations guide
 

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Infinity Report · naver-shopping-01 · 키워드/경쟁 검증 플랜</title>
+<style>
+  :root{
+    --bg:#f4f2ea; --panel:#fbfaf5; --ink:#2c2a25; --soft:#807c70; --faint:#a8a496; --line:#e3dfd2;
+    --a2:#5f7a5e; --a2-deep:#3f5740;
+    --a1:#5a6f8a; --a1-deep:#3f536e;
+    --sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;}
+  body{background:var(--bg); color:var(--ink); font-family:var(--sans);
+    font-size:14px; line-height:1.68; -webkit-font-smoothing:antialiased;}
+  .sheet{max-width:720px; margin:0 auto; padding:48px 34px 46px;}
+  .reveal{opacity:0; animation:fade .7s ease forwards;}
+  @keyframes fade{from{opacity:0; transform:translateY(9px);} to{opacity:1; transform:none;}}
+  .eyebrow{display:flex; align-items:center; gap:10px; font-family:var(--mono);
+    font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--soft);}
+  .eyebrow .id{color:var(--a2-deep); font-weight:600;}
+  .eyebrow .dot{width:5px; height:5px; border-radius:50%; background:var(--a2);}
+  .eyebrow .status{margin-left:auto; color:var(--a2-deep);}
+  h1{font-size:29px; line-height:1.3; font-weight:700; letter-spacing:-.01em; margin:20px 0 0;}
+  .dek{font-size:15.5px; color:var(--soft); margin:13px 0 0; max-width:52ch;}
+  .hr{height:1px; background:var(--line); margin:30px 0;}
+  .axis{padding:0 0 4px 22px; position:relative; margin-bottom:30px;}
+  .axis::before{content:""; position:absolute; left:0; top:6px; bottom:6px; width:2px; border-radius:2px;}
+  .axis.ax1::before{background:var(--a1);} .axis.ax2::before{background:var(--a2);}
+  .axis.ax1{--ul:var(--a1);} .axis.ax2{--ul:var(--a2);}
+  .axis .label{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase;
+    margin-bottom:9px; display:flex; align-items:center; gap:8px;}
+  .axis.ax1 .label{color:var(--a1-deep);} .axis.ax2 .label{color:var(--a2-deep);}
+  .axis .label .n{font-weight:600; opacity:.6;}
+  .axis .text{font-size:18px; line-height:1.6; color:#37352e;}
+  .axis .text b{font-weight:700; color:var(--ink); border-bottom:2px solid var(--ul);}
+  ol.find{list-style:none; counter-reset:f; margin:16px 0 0; padding:0;}
+  ol.find li{position:relative; padding:8px 0 8px 26px; font-size:15px; color:#37352e; border-top:1px solid var(--line);}
+  ol.find li:first-child{border-top:none;}
+  ol.find li::before{counter-increment:f; content:counter(f); position:absolute; left:0; top:9px;
+    font-family:var(--mono); font-size:12px; font-weight:600; color:var(--a1-deep);}
+  details{border:1px solid var(--line); border-radius:10px; background:var(--panel); margin-bottom:10px;}
+  summary{cursor:pointer; list-style:none; padding:14px 16px; display:flex; align-items:center; gap:11px;
+    font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft);}
+  summary::-webkit-details-marker{display:none;}
+  summary .chev{width:8px; height:8px; border-right:2px solid var(--a2-deep); border-bottom:2px solid var(--a2-deep);
+    transform:rotate(-45deg); transition:.25s; flex:none; margin-left:2px;}
+  details[open] summary .chev{transform:rotate(45deg);}
+  summary:hover{color:var(--ink);}
+  .body{padding:2px 16px 18px;}
+  table{border-collapse:collapse; width:100%; font-size:13px; margin:4px 0 12px;}
+  th,td{border-bottom:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top;}
+  th{font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft); font-weight:600;}
+  td:first-child{color:var(--a2-deep); font-weight:600; white-space:nowrap;}
+  .body p{color:var(--soft);}
+  .body ul{margin:6px 0; padding-left:18px;} .body li{margin:5px 0;}
+  code{font-family:var(--mono); font-size:12px; background:#edeae0; padding:1px 6px; border-radius:3px; color:var(--a2-deep);}
+  a{color:var(--a2-deep); text-underline-offset:3px;}
+  .chips{display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px;}
+  .chip{font-family:var(--mono); font-size:10.5px; letter-spacing:.05em; color:var(--soft); border:1px solid var(--line); border-radius:999px; padding:3px 10px;}
+  .foot{margin-top:30px; padding-top:15px; border-top:1px solid var(--line);
+    display:flex; justify-content:space-between; font-family:var(--mono); font-size:10px;
+    letter-spacing:.13em; text-transform:uppercase; color:var(--faint);}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="eyebrow reveal">
+    <span class="dot"></span>
+    <span class="id">naver-shopping-01</span>
+    <span>Research Note</span>
+    <span class="status">active · resolved-local</span>
+  </div>
+  <h1 class="reveal" style="animation-delay:.05s">첫 시드의 키워드/경쟁 검증 플랜을 더 좁혔다</h1>
+  <p class="dek reveal" style="animation-delay:.09s">승인된 첫 시드(Travel-Prep System / Travel Scenario Card · Checklist Insert Set)에 대해, 접근이 열리는 즉시 실행할 read-only 검증 플랜을 구매의도 기준으로 더 정밀하게 준비했다. 수요는 아직 미검증.</p>
+
+  <div class="hr reveal" style="animation-delay:.12s"></div>
+
+  <div class="axis ax1 reveal" style="animation-delay:.16s">
+    <div class="label"><span class="n">01</span> 🔍 무엇을 조사/정리했나</div>
+    <div class="text">기존 measurement path는 <b>계획·체크리스트</b> 키워드와 <b>다이어리·저널</b> 키워드를 한 덩어리로 묶고 있었다. 구조화 준비(prep) SKU에는 다이어리류가 인접 대조 의도일 뿐 핵심 수요가 아니라, 그 검색량을 시드 수요로 세면 과대평가된다. 그래서 <b>볼륨을 읽기 전에 구매의도부터 분리</b>하는 플랜으로 다시 짰다. 이번 런의 단일 접근 프로브는 공개 네이버쇼핑 검색·DataLab 모두 이 호스트에서 차단(가용성 문제이지 수요 신호 아님)임을 재확인했고, 반복 재시도는 하지 않았다.</div>
+  </div>
+
+  <div class="axis ax2 reveal" style="animation-delay:.22s">
+    <div class="label"><span class="n">02</span> 📊 핵심 결과</div>
+    <div class="text">실행 가능한 <b>키워드/경쟁 검증 플랜</b>을 Naver agent 레포에 신규 산출(<code>keyword-competitor-validation-plan.md</code>). 핵심은 의도 4분할과 PROMOTE/PIVOT/HOLD 판단 규칙이다.</div>
+    <ol class="find">
+      <li><b>Core</b> 계획/체크리스트 · <b>Niche</b> 시나리오·레이어 · <b>Overlap</b> 패킹굿즈 · <b>Contrast</b> 다이어리(드리프트 방지용)로 키워드 분할.</li>
+      <li><code>여행 다이어리</code>·<code>트래블저널</code>을 핵심 수요 → <b>대조 의도</b>로 강등(준비형 SKU 수요로 오집계 방지).</li>
+      <li>키워드별 read-only 캡처 스키마(12개월 트렌드 방향·인구·경쟁 수·가격대·상위20 포맷·리뷰·<b>white-space</b>)와 중단 조건 포함 스캔 프로토콜.</li>
+      <li>방향성만 보는 판단 규칙: 비하락 트렌드 + white space 존재 + 종이/프린터블 마진 → PROMOTE / 수요가 패킹·다이어리에 쏠림 → PIVOT / 하락+포화 → HOLD.</li>
+    </ol>
+  </div>
+
+  <div class="reveal" style="animation-delay:.27s">
+  <details open>
+    <summary><span class="chev"></span> 상세 · 가정 원장 · 경계</summary>
+    <div class="body">
+      <p><b>계승한 기준 (변경 없음)</b></p>
+      <ul>
+        <li>Fit 증거 ≠ 시장 증거 — 이 시드는 lived-friction fit만 있고 수요는 미검증(<code>product-curation.md</code>).</li>
+        <li>작은/방향성 신호는 PMF·전환율·매출 확정이 아님 — Prelaunch Decision Boundary(<code>MARKETING_LEARNINGS.md</code>).</li>
+        <li>접근 차단(HTTP 418 / Commerce ID 게이트)은 <b>가용성</b> 조건이지 수요 신호가 아니며 시드를 무효화하지 않음 — Availability And Friction Are Not Value.</li>
+      </ul>
+      <p><b>이번에 바꾼 것</b></p>
+      <ul>
+        <li>시드 키워드를 평면 리스트 → <b>구매의도 4분할</b>(Core/Niche/Overlap/Contrast)로 재구성. 다이어리류를 핵심 수요에서 대조 세트로 강등.</li>
+      </ul>
+      <p><b>충돌 (플래그)</b></p>
+      <ul>
+        <li><code>product-curation.md</code>의 기존 measurement path가 다이어리 용어를 같은 시드 리스트에 두었던 것을 대조 의도로 재분류(반전 아닌 정밀화). 해당 한 줄을 이 플랜 참조로 갱신함.</li>
+      </ul>
+      <p><b>재사용 학습 후보 (단일 런 — 보류)</b></p>
+      <ul>
+        <li>"쇼핑 검색량을 읽기 전에 키워드 구매의도부터 분리하라 — 구조화 준비형 SKU에는 장식형 기록 키워드가 핵심 수요가 아닌 인접 대조 세트다." (source-before-metric 원칙의 변주.) 실제 스캔으로 확인된 뒤에만 승격. <code>MARKETING_LEARNINGS.md</code>는 Virtue 원장이라 여기엔 승격하지 않음.</li>
+      </ul>
+      <p><b>경계 (read-only)</b></p>
+      <ul>
+        <li>상품 등록/수정, 가격·배송·재고·옵션, 광고·비용, 고객/주문/환불/정산, 계정·스토어 설정, 공개 발행은 모두 실행 전 action-level 확인 유지. 이번 산출은 계획·문서뿐이며 외부 변경 0.</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="chev"></span> 실행 메타 · 산출물</summary>
+    <div class="body">
+      <div class="chips">
+        <span class="chip">2026-06-09T03:07Z</span>
+        <span class="chip">local cron · L1 read-only</span>
+        <span class="chip">active → active (resolved-local)</span>
+      </div>
+      <ul>
+        <li>산출물 <code>agents/naver-shopping-agent/keyword-competitor-validation-plan.md</code> (신규)</li>
+        <li>갱신 <code>agents/naver-shopping-agent/product-curation.md</code> (measurement path) · <code>operation-log.md</code></li>
+        <li>Infinity <code>intents/active/naver-shopping-01.md</code> (상태·blocker)</li>
+        <li>접근 프로브: 공개 네이버쇼핑 검색·DataLab 모두 차단(단일 시도, 재시도 없음) — 가용성 차단이지 수요 신호 아님.</li>
+        <li>다음 액션: read-only 사용자 브라우저/프로필 또는 차단 해제된 DataLab 경로가 열리면 플랜 실행.</li>
+      </ul>
+    </div>
+  </details>
+  </div>
+
+  <div class="foot reveal" style="animation-delay:.3s">
+    <span>Agent-First Heartbeat</span>
+    <span>Infinity · naver-shopping-01</span>
+  </div>
+</div>
+</body>
+</html>
