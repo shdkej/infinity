@@ -1,48 +1,48 @@
 # marketing-48: 트래블러스노트 여행준비 속지 제목/카피 포지셔닝
 
 - id: marketing-48
-- status: completed
+- status: archived
+- completed_at: 2026-06-09T10:00Z
 - projects: [naver-shopping, infinity, personal-ops]
-- task_type: marketing-positioning
-- topics: [naver-shopping, listing-copy, positioning, keyword-strategy]
-- owner: Marketer
-- source_agent: naver-shopping-agent
-- source_intent: naver-shopping-01
-- target_agent: Marketer
-- request_type: title-copy-positioning
-- created_at: 2026-06-09T10:00Z
-- completed_at: 2026-06-09T10:57Z
-- user_visible: false
-- artifact: `/home/ubuntu/workspace/knowledge-lab/infinity/artifacts/marketing-48/travelers-notebook-insert-listing-copy-positioning.md`
-- report: `/home/ubuntu/workspace/knowledge-lab/infinity/reports/marketing-48/2026-06-09T1057Z-local.html`
+- task_type: strategy
+- topics: [marketing, listing-copy, positioning]
+- result_summary: 트래블러스노트 여행준비 속지 피벗 SKU의 listing copy 내부 초안 완성 — 제목 8개·금지 패턴·가치제안·첫 문단·키워드·썸네일·검증 게이트, 전부 draft/proposal-only, 공개 등록 전 approval 경계 7개 정의
 
-## Completion Summary
+## 요약
 
-나래/Narae `naver-shopping-01`의 트래블러스노트 standard-size travel-prep structured insert 피벗 SKU를 내부용 listing title/copy 후보군으로 번역했다.
+naver-shopping-01이 확정한 방향성 PIVOT(트래블러스노트 표준사이즈 여행준비 구조화 속지)의 내부 listing copy 포지셔닝 초안.
 
-핵심 판단:
+핵심 제약:
+- `여행 체크리스트` 제목 첫 위치 금지 — 정보형 수요 (SearchAd CTR 0.03%)
+- `트래블러스노트리필/속지` 거래형 앵커 키워드로 구매 의도 포착
+- 가격대 코모디티 → 구조/콘텐츠가 유일한 프리미엄 정당화
+- 상표/호환 표현 공개 사용 → approval-needed
 
-- `여행 체크리스트`는 정보형 신호라 제목 리드로 두지 않는다.
-- 리필/속지 구매 맥락과 여행준비 구조를 먼저 세운다.
-- 브랜드명, `호환`, `규격` 표현은 approval-needed로 남긴다.
-- 가격, 배송, 재고, 옵션, 광고, 공개 상세페이지, 상품 등록, 고객/주문/계정 액션은 전부 미실행이다.
-- 결과물은 공개 가능한 최종 카피가 아니라 **draft / proposal-only** 내부 후보군이다.
+## 산출물
 
-## Verification
+- artifacts:
+  - path: artifacts/marketing-48/travelers-notebook-insert-listing-copy-positioning.md
+    role: research
+    note: 제목 8개·금지 패턴·가치제안·첫 문단·키워드·썸네일·검증 게이트 내부 초안
 
-- artifact includes `draft`, `proposal-only`, and `approval-needed`.
-- title gate no-match:
+## 리포트
 
-```bash
-rg '여행 체크리스트.*트래블러스노트|트래블러스노트.*여행 체크리스트' artifacts/marketing-48
-```
+- reports:
+  - path: reports/marketing-48/2026-06-09T1000Z-heartbeat.html
+    role: final
 
-- report gate contains `<html`, `<body`, `axis ax1`, `axis ax2`, and `<details`.
+## 소스 증거
 
-## Source Evidence
+- reports/naver-shopping-01/2026-06-09T0707Z-local.html — 경쟁 white-space 스캔, PIVOT 확정
+- reports/naver-shopping-01/2026-06-09T0807Z-local.html — 광고 CTR (거래형 피벗 / 정보형 체크리스트)
+- reports/naver-shopping-01/2026-06-09T0907Z-local.html — listing-preflight 체크리스트 작성
 
-- `/home/ubuntu/workspace/knowledge-lab/infinity/intents/active/naver-shopping-01.md`
-- `/home/ubuntu/workspace/knowledge-lab/infinity/reports/naver-shopping-01/2026-06-09T0707Z-local.html`
-- `/home/ubuntu/workspace/knowledge-lab/infinity/reports/naver-shopping-01/2026-06-09T0807Z-local.html`
-- `/home/ubuntu/workspace/knowledge-lab/infinity/reports/naver-shopping-01/2026-06-09T0907Z-local.html`
-- `/home/ubuntu/.openclaw/workspace/agents/naver-shopping-agent/listing-preflight-travelers-notebook-insert.md`
+## 다음 액션
+
+- 수동 검증 게이트 통과 후 공개 등록 가능:
+  1. SmartStore 리뷰 깊이 확인 (HTTP 429 해제 후)
+  2. 시각 랭크 확인 (HTTP 418 해제 후)
+  3. 트래블러스노트 상표/호환 표현 사용 여부 결정
+  4. 가격·재고·옵션 확정
+  5. 상품 등록 사전 심사 (카테고리 권한, 상품 정보 고시)
+  6. 광고 예산 설정 승인

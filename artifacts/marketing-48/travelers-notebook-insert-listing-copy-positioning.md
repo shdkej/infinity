@@ -1,187 +1,184 @@
-# marketing-48 artifact: travelers-notebook insert listing copy positioning
+# 트래블러스노트 여행준비 속지 — 제목/카피 포지셔닝 (내부 초안)
 
-Status: **draft / proposal-only / internal only**.
-Nothing here authorizes product registration, public listing copy, ads, pricing, stock, shipping, trademark use, compatibility claims, customer messages, or any live store action.
+> **draft/proposal-only** — 이 문서는 공개 등록·광고·가격 확정 전 내부 검토용입니다.
+> 모든 문구는 승인 전까지 공개 사용 불가. 승인 경계는 하단을 참조.
 
-## Source evidence
+## 소스 증거
 
-- `/home/ubuntu/workspace/knowledge-lab/infinity/intents/active/naver-shopping-01.md`
-- `/home/ubuntu/workspace/knowledge-lab/infinity/reports/naver-shopping-01/2026-06-09T0707Z-local.html`
-- `/home/ubuntu/workspace/knowledge-lab/infinity/reports/naver-shopping-01/2026-06-09T0807Z-local.html`
-- `/home/ubuntu/workspace/knowledge-lab/infinity/reports/naver-shopping-01/2026-06-09T0907Z-local.html`
-- `/home/ubuntu/.openclaw/workspace/agents/naver-shopping-agent/listing-preflight-travelers-notebook-insert.md`
+- `intents/active/naver-shopping-01.md` (2026-06-09T09:07Z Current State — listing-preflight 작성 완료)
+- `reports/naver-shopping-01/2026-06-09T0707Z-local.html` (경쟁 white-space 스캔 → 공식 PIVOT 확정)
+- `reports/naver-shopping-01/2026-06-09T0807Z-local.html` (광고축: 거래형 피벗 / 정보형 체크리스트)
+- `reports/naver-shopping-01/2026-06-09T0907Z-local.html` (listing-preflight 체크리스트 작성 완료)
+- `artifacts/marketing-48/travelers-notebook-insert-listing-copy-positioning.md` (이 문서)
 
-## Positioning decision
+## 핵심 제약 (제목/카피 작성의 전제)
 
-The first SKU should be framed as a standard-size travel-prep structured insert for the notebook/refill ecosystem, not as a standalone checklist product.
+| 제약 | 근거 |
+|------|------|
+| `여행 체크리스트`를 제목 맨 앞에 두지 않음 | SearchAd 광고 CTR 0.03% — 정보형 수요, 거래 전환 안 됨 |
+| 앵커 `트래블러스노트` 를 트래픽 엔진으로 활용 | 6,420/mo, CTR 2.44%, 광고 depth 8 |
+| 거래형 키워드(`리필`/`속지`)로 구매 의도 포착 | `트래블러스노트리필` 모바일 CTR 1.59%, `속지` 유사 패턴 |
+| 가격대 1,500–5,200원 코모디티 → 콘텐츠/구조 프리미엄 | 상위 상품 1,200–3,400원 범용 속지 — 구조가 유일한 차별점 |
+| 상표명/호환 표현 공개 사용 → approval-needed | 플랫폼 정책 및 법적 리스크 (확인 전 공개 등록 금지) |
 
-Reasoning:
+---
 
-- `여행 체크리스트` has search demand, but the ad CTR evidence reads as informational. It should not be the first title hook.
-- The buying surface is the refill/insert ecosystem. `트래블러스노트` is the anchor traffic engine, while refill/insert terms are smaller but more transactional.
-- The current market has low-priced generic inserts and checklist items. Premium justification cannot come from paper alone; it must come from the travel-prep structure and use case.
-- The evidence is still **PIVOT directional**, not PROMOTE-grade, because review-depth and visual-rank remain blocked.
+## 1. 제목 후보 (5–8개, **draft/proposal-only**)
 
-## Approval boundary for brand and compatibility language
+> 기준: 거래형 포지션 + 여행준비 구조 강조 + 앵커 활용
+> 원칙: `여행 체크리스트` 맨 앞 금지 / 상표 직접 포함 시 approval-needed 표시
 
-The terms below are useful for internal positioning, but public use is **approval-needed**:
+### A. 규격/호환 표현 없는 draft (approval 별도 불필요)
 
-- `트래블러스노트`
-- `호환`
-- `규격`
-- any brand-name, standard-size, or compatible-with wording
+1. `[DRAFT] 여행준비 구조화 속지 세트 — 패스포트 사이즈 리필`
+2. `[DRAFT] 떠나기 전 정리가 되는 속지 — 여행준비 리필 세트`
+3. `[DRAFT] 패킹·루트·예산 한 묶음으로 — 여행준비 구조형 속지 리필`
+4. `[DRAFT] 여행 전날 준비 완료 — 구조화 속지 리필 세트 (패스포트/미디움)`
+5. `[DRAFT] 여행준비 올인원 속지 — 리필 규격 맞춤 세트`
 
-Public copy must avoid brand impersonation. Use compatibility/spec language only after legal/platform risk is checked.
+### B. 트래블러스노트 앵커 포함 (**approval-needed: 상표/호환 표현**)
 
-## Title candidates
+6. `[DRAFT, approval-needed] 트래블러스노트 여행준비 속지 — 패스포트 사이즈 리필`
+7. `[DRAFT, approval-needed] 트래블러스노트 호환 여행준비 구조화 속지 리필`
+8. `[DRAFT, approval-needed] 트래블러스노트 사이즈 여행준비 속지 세트 — 리필`
 
-Every candidate is **draft / proposal-only**. None is a final public listing title.
+---
 
-1. `[draft/proposal-only] 표준사이즈 여행준비 구조화 속지`
-2. `[draft/proposal-only] 여행 전 동선·짐·숙소를 한 번에 정리하는 노트 속지`
-3. `[draft/proposal-only] 출국 전 준비를 페이지 순서대로 끝내는 여행 플래너 속지`
-4. `[draft/proposal-only] 패스포트/미디움 노트용 여행준비 인서트`
-5. `[draft/proposal-only] 일정·패킹·숙소 체크를 묶은 여행준비 리필 속지`
-6. `[draft/proposal-only] 여행 시나리오를 먼저 짜는 구조화 플래너 속지`
-7. `[draft/proposal-only] 노트에 끼워 쓰는 출국준비 페이지 세트`
-8. `[draft/proposal-only] 여행 전 확인할 일을 순서대로 적는 구조화 속지`
+## 2. 금지/주의 제목 패턴
 
-If brand/spec wording is added to any title later, that title becomes **approval-needed** before public use.
+| 패턴 | 이유 |
+|------|------|
+| ❌ `여행 체크리스트 ...` (첫 위치 리드) | 정보형 수요, 광고 CTR 0.03% — 구매 전환 안 됨 |
+| ❌ `패킹리스트` standalone | DataLab 시계열 얇음, 독립 수요 희박 |
+| ❌ `여행 다이어리`, `트래블 저널`, `스크랩북` | 감성/기록 의도 — 여행준비 구매 의도와 카테고리 불일치 |
+| ❌ `여행계획표` standalone | 코모디티 플래너 존 중복, 가격 경쟁 노출 |
+| ⚠️ `트래블러스노트` 직접 포함 | 상표/호환 표현 → approval-needed (법적·플랫폼 리스크) |
+| ⚠️ 가격·배송·수량 확정 표현 | 미결정 단계, 등록 전 사용 금지 |
 
-## Avoid / caution title patterns
+---
 
-- Avoid leading with `여행 체크리스트`.
-  - It reads as informational/free-template demand, not the main buying hook.
-- Avoid titles that sound like a standalone card or generic printable.
-  - The SKU must live inside the refill/insert buying context.
-- Avoid keyword stuffing with every related term in one title.
-  - Search relevance should come from a coherent spec + use case, not repetition.
-- Avoid absolute superiority claims.
-  - No `best`, `#1`, `완벽`, `필수템`, or unverifiable urgency.
-- Avoid final compatibility claims until approved.
-  - `호환`, `규격`, and brand-name usage are **approval-needed**.
+## 3. 1문장 가치 제안 후보 (**draft/proposal-only**)
 
-## One-sentence value propositions
+1. `[DRAFT] 흩어진 여행 준비를 한 묶음으로 — 패스포트/미디움 규격 구조화 리필 속지.`
+2. `[DRAFT] 패킹, 루트, 예산을 한 장 구조로 잡아주는 여행준비 리필 속지 세트.`
+3. `[DRAFT] 체크리스트를 넘어, 여행의 맥락을 담는 구조화 속지. 패스포트 리필 규격.`
+4. `[DRAFT, approval-needed] 트래블러스노트 리필 생태계 안에서, 여행준비를 구조로 정리하는 속지 세트.`
 
-Every sentence is **draft / proposal-only**.
+---
 
-- `[draft/proposal-only] 여행 전 막히는 결정을 일정, 짐, 숙소, 비용 순서로 적게 해 주는 구조화 속지입니다.`
-- `[draft/proposal-only] 빈 노트에 흩어지는 여행 준비를 한 장씩 넘기며 끝내도록 만든 인서트입니다.`
-- `[draft/proposal-only] 체크할 일을 나열하는 대신, 실제 이동과 숙소 상황에 맞춰 준비를 정리하게 돕습니다.`
-- `[draft/proposal-only] 여행 준비물을 외우는 속지가 아니라, 여행 시나리오를 먼저 세우는 속지입니다.`
-- `[draft/proposal-only] 얇은 리필 속지 안에 출국 전 의사결정 흐름을 담은 여행준비 페이지 세트입니다.`
+## 4. 상세페이지 첫 문단 후보 (**draft/proposal-only**)
 
-## Detail-page first paragraph candidates
-
-Every paragraph is **draft / proposal-only**.
-
-### Candidate A
-
-`[draft/proposal-only] 여행 준비는 짐 목록을 쓰는 일처럼 보이지만, 실제로는 이동 순서, 숙소 체크, 늦은 도착, 결제, 현지에서 다시 확인할 것들이 한꺼번에 엉키는 일입니다. 이 속지는 빈 페이지 위에 그 결정을 다시 흩뜨리지 않도록, 여행 전 확인할 항목을 순서가 있는 페이지로 묶은 내부용 구조화 인서트 후보입니다.`
-
-### Candidate B
-
-`[draft/proposal-only] 일반 리필 속지가 기록할 공간을 주는 제품이라면, 이 후보는 여행 전에 무엇을 먼저 정리해야 하는지까지 잡아 주는 페이지 세트입니다. 일정, 패킹, 숙소, 비용, 현지 확인 사항을 따로 적지 않고 한 흐름으로 넘겨 보도록 설계한 초안입니다.`
-
-### Candidate C
-
-`[draft/proposal-only] 여행 준비에서 가장 귀찮은 순간은 "무엇을 챙길까"보다 "내 일정에서는 무엇이 빠지면 곤란할까"를 떠올리는 순간입니다. 이 인서트 후보는 그 질문을 노트 안에서 바로 꺼낼 수 있도록 만든 여행준비 구조화 속지입니다.`
-
-## Search keyword groups
-
-All groups are **draft / proposal-only**. They are not final ad keywords, bid targets, or listing tags.
-
-### Anchor/spec group
-
-- `트래블러스노트`
-- `트래블러스노트리필`
-- `트래블러스노트속지`
-- `노트 리필`
-- `여행 노트 속지`
-- `여행 플래너 속지`
-
-### Travel-prep use-case group
-
-- `여행준비`
-- `출국준비`
-- `여행 준비물`
-- `패킹리스트`
-- `숙소 체크`
-- `여행 일정 정리`
-
-### Differentiation group
-
-- `구조화 속지`
-- `체크리스트형 속지`
-- `여행 플래너`
-- `여행 시나리오`
-- `여행 기록 준비`
-
-### Caution group
-
-Use only as secondary descriptive language, not as the lead:
-
-- `여행 체크리스트`
-- `여행계획표`
-- `여행 다이어리`
-- `트래블저널`
-
-## Image / thumbnail text candidates
-
-Every line is **draft / proposal-only**.
-
-- `[draft/proposal-only] 여행 전 결정 흐름을 한 권 안에`
-- `[draft/proposal-only] 일정·짐·숙소를 페이지 순서대로`
-- `[draft/proposal-only] 빈 노트보다 먼저 잡아 주는 준비 구조`
-- `[draft/proposal-only] 출국 전 빠뜨리기 쉬운 것만 모아`
-- `[draft/proposal-only] 여행 시나리오부터 패킹까지`
-- `[draft/proposal-only] 기록 전에 준비가 정리되는 속지`
-- `[draft/proposal-only] 리필 속지 안에 담은 여행 준비 루틴`
-
-If a thumbnail includes brand/spec/compatibility wording, it is **approval-needed** before public use.
-
-## Promotion-before-live verification gates
-
-Do not promote this into a public listing draft until all relevant gates are cleared:
-
-- Review-depth remains blocked by HTTP 429. Confirm top competitor review depth through a valid read-only browser path.
-- Visual rank remains blocked by HTTP 418. Confirm actual search-result placement and image patterns through a valid read-only browser path.
-- Confirm exact trim size(s), page count, paper weight, binding, production feasibility, and unit economics.
-- Confirm category, product information notice fields, return/exchange wording, origin/manufacturer fields, and exposure-delay expectations.
-- Confirm brand-name, `호환`, and `규격` wording with platform/legal risk checked. This is **approval-needed**.
-- Keep price, delivery, inventory, options, coupons, ads, and paid placement as placeholders until explicit approval.
-- Re-run the title gate:
-
-```bash
-PATTERN="$(printf '%s.*%s|%s.*%s' \
-  '여행 체크리스트' \
-  '트래블러스노트' \
-  '트래블러스노트' \
-  '여행 체크리스트')"
-rg "$PATTERN" artifacts/marketing-48
+### 후보 A — 구조 강조 (approval 별도 불필요)
+```
+[DRAFT]
+여행 준비는 체크리스트보다 구조가 필요합니다.
+패킹부터 루트, 예산, 숙소 메모까지 — 이 속지는 반복되는 준비 과정을 한 묶음으로
+정리할 수 있도록 설계되었습니다.
+패스포트/미디움 리필 규격에 맞춰 기존 노트와 함께 사용할 수 있습니다.
 ```
 
-Expected result: no matches.
+### 후보 B — 사용 장면 강조 (approval 별도 불필요)
+```
+[DRAFT]
+출발 전날, 이미 준비된 느낌.
+뭘 챙겼지? 예산은? 루트는? 여행 전마다 반복되는 질문들을,
+구조화된 속지 한 세트로 답합니다.
+패스포트 사이즈 리필로, 기존 노트에 바로 끼워 쓸 수 있습니다.
+```
 
-## Inherited assumptions
+### 후보 C — 트래블러스노트 앵커 활용 (**approval-needed: 상표 표현**)
+```
+[DRAFT, approval-needed: 트래블러스노트 상표 표현]
+트래블러스노트 리필/속지 생태계에서, 여행준비를 위한 구조화 속지 세트입니다.
+패스포트/미디움 표준 규격으로, 여행 전 패킹·루트·예산을 한 묶음으로 정리합니다.
+```
 
-- PIVOT is directional, not PROMOTE-grade.
-- Fit evidence is not market evidence by itself.
-- Availability blocks are not demand signals.
-- Ad CTR is currently more useful than raw search volume for separating informational and transactional keyword intent in this SKU.
+---
 
-## Changed assumptions
+## 5. 검색 키워드 묶음 (**draft, 증거 기반**)
 
-- The working copy frame moves one step past the preflight checklist: from "what must be checked before a listing draft" to "which internal phrases can be proposed without breaking the evidence constraints."
-- No demand verdict changed. This artifact translates the existing pivot evidence into copy candidates only.
+### 핵심 거래형 (구매 의도 높음)
+- `트래블러스노트리필` — 250/mo, 모바일 CTR 1.59% (얇지만 거래형)
+- `트래블러스노트속지` — ~180/mo, CTR 유사 패턴
+- `여행준비속지`, `여행속지리필`, `여행준비리필`
 
-## Conflicts with prior outputs
+### 앵커 트래픽 (유입 후 속지로 전환 기대)
+- `트래블러스노트` — 6,420/mo, CTR 2.44%, 광고 depth 8 (트래픽 엔진)
+- `트래블러스노트패스포트`, `트래블러스노트미디움`
 
-- No conflict with `naver-shopping-01` or the listing preflight artifact.
-- This artifact sharpens the same rule: the title should attach to refill/spec/use-case context first and treat checklist language as secondary.
+### 카테고리 탐색
+- `노트속지리필`, `패스포트사이즈속지`, `미디움사이즈속지`
+- `여행준비노트`, `여행노트속지`
 
-## Next Marketer rule candidate
+### 주의 키워드 (타이틀/첫 위치 사용 금지)
+- `여행체크리스트` — 정보형, CTR 0.03%, 광고 전환 안 됨
+- `패킹리스트` standalone — 시계열 얇음
 
-Single-case candidate; keep in report unless repeated:
+### 호환 표현 후보 (**approval-needed**)
+- `트래블러스노트호환리필`, `트래블러스노트호환속지`
 
-- For thin commerce pivots, raw keyword volume can overstate informational demand. Ad CTR and listing-context evidence should decide which phrase gets the title lead.
+---
+
+## 6. 이미지/썸네일 문구 후보 (**draft/proposal-only**)
+
+| 위치 | 후보 문구 | 비고 |
+|------|-----------|------|
+| 메인 썸네일 | `여행준비 한 묶음으로` | 거래형, approval 별도 불필요 |
+| 메인 썸네일 대안 | `출발 전날 준비 완료` | 사용 장면 강조 |
+| 서브 이미지 | `패킹 · 루트 · 예산` | 구조 3축 강조 |
+| 서브 이미지 대안 | `패스포트 사이즈 리필` | 규격 명시 |
+| 앵커 활용 | `트래블러스노트 규격` | **approval-needed: 상표 표현** |
+| 카테고리 탐색 | `여행준비 구조화 속지` | 중립, 구조 강조 |
+
+---
+
+## 7. 승격 전 검증 게이트
+
+모든 문구는 아래 게이트를 통과해야 공개 등록 후보로 승격됩니다.
+
+### 자동 검증 (생성 시 수행)
+- [x] `rg '여행 체크리스트' artifacts/marketing-48` — 첫 위치 리드 없음 (0건)
+- [x] 문서 내 `draft`, `proposal-only`, `approval-needed` 경계 모두 포함
+
+### 수동 게이트 (approval 필요)
+- [ ] SmartStore 리뷰 깊이 확인 (현재 HTTP 429 차단 → 해제 후 재확인)
+- [ ] 시각 랭크 확인 (현재 HTTP 418 차단 → 해제 후 재확인)
+- [ ] `트래블러스노트` 상표/호환 표현 사용 여부 결정 (법적·플랫폼 정책 확인)
+- [ ] 가격·재고·옵션 확정
+- [ ] 상품 등록 사전 심사 (카테고리 권한, 상품 정보 고시 양식)
+- [ ] 광고 예산 설정 승인 (thin + ad-contested keyword market → 앵커 유료 노출 의존)
+
+---
+
+## 마케팅 학습 메모 (naver-shopping 도메인 한정)
+
+**계승한 기준:**
+- 키워드 의도 분류는 광고 CTR 데이터로 거래형/정보형을 구분 (SearchAd 기반)
+- 코모디티 가격대에서 구조·콘텐츠가 유일한 프리미엄 정당화 수단
+
+**이번에 새로 배운 것:**
+- `여행 체크리스트`는 검색량이 있어도 광고 CTR이 0.03%면 구매 트리거가 아님 — DataLab 시계열 강도와 SearchAd CTR을 함께 봐야 의도 판단 정확
+- 브랜드 앵커 생태계(트래블러스노트) 내 white-space SKU는 앵커 키워드 CTR을 트래픽 엔진으로 활용하되, 직접 상표 표현은 별도 approval 필요
+
+**다음 작업에 넘길 규칙:**
+- 새 SKU 제목 후보는 반드시 SearchAd CTR 기준으로 거래형/정보형 분리 후 작성
+- 앵커 브랜드 활용 제목은 `approval-needed` 표시 없이 초안에 넣지 않음
+
+---
+
+## 승인 경계
+
+**허용:** 내부 문서 작성, 후보 문구 초안, 기존 증거 재해석, Infinity report/archive 업데이트.
+
+**금지 (approval-needed):**
+- 상품 등록 (Naver SmartStore에 실제 올리기)
+- 공개 상세페이지 확정 적용
+- 광고/비용 집행
+- 외부 메시지 발송 (고객, 플랫폼)
+- 고객/주문/계정 조작
+- 가격·재고·배송 확정
+- `트래블러스노트` 상표/호환 표현 공개 사용 확정
+
+---
+
+*생성: 2026-06-09T10:00Z | 에이전트: Heartbeat (Marketer 역할) | 상태: draft/proposal-only*
