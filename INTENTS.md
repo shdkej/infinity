@@ -4,7 +4,7 @@
 
 ## Inbox
 
-<!-- 비어 있음. 새 의도가 등록되면 여기에 추가된다. -->
+<!-- marketing-49 inbox 2026-06-09T22:00Z [projects: virtue; type: strategy; topics: ai-product,activation,retention,onboarding; source_note: /home/ubuntu/workspace/knowledge-lab/source/external-links/marketing/2026-06-09-ai-passive-activation-retention.md] (Virtue 결과 카드 직후 "수동 감탄 vs 자기화 행동" 판독표를 docs-only로 작성한다. 근거: ChartMogul AI activation/retention 노트는 AI가 빠른 첫 가치를 만들수록 사용자가 수동적으로 감탄만 하고 반복 맥락을 만들지 못할 위험을 지적한다. 예상 임팩트: prelaunch 첫 10명 관찰에서 `deed_judged` 이후 저장 없는 종료를 J3 정상 완료 / 수동 감탄 / 마찰·가용성으로 더 선명하게 분리한다. Permission: L1/L2 docs-only, 신규 이벤트·속성·tracking/privacy·dashboard/session replay·공개 카피·발송·가격/결제·배포·외부 액션 금지. Owner route: Infinity → Claude Code 또는 로컬 docs 작업. Success criteria: 기존 J1/J2/J4=`deed_saved`, J3=`deed_judged` 매핑을 재정의하지 않고, first-user baseline/design-user ask script와 연결되는 수기 판독 칸 3-5개를 제안한다. First verification gate: 문서가 source note path를 인용하고, 결과 직후 행동을 저장/재작성/선택/자기 말 설명/무저장 정상 종료/수동 감탄/마찰로 구분하며, 신규 계측 0과 approval-needed 경계를 명시한다.) -->
 
 ## Active
 
