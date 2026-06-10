@@ -181,6 +181,13 @@
 - **주의:** 첫 10명을 성패율·activation rate·PMF·전환율·retention%로 환산하지 않는다. 자기 말 기록은 신규 계측이 아니라 손기록(원문 그대로)만이다. maker self-test/synthetic/mock은 제외·표시한다. `deed_save_capped`·503·지연은 availability/friction이지 value/upgrade demand가 아니다. 공개 발송/DM/광고·프로덕션 카피·신규 이벤트/속성/tracking/privacy/dashboard/session replay·배포·비용·권한 변경은 모두 approval-needed. [[Message Confusion As Evidence]]·[[Prelaunch Decision Boundary]]·[[Agent-Led Growth Fits Task-Completion Products, Not Experience Products]]·[[Decision-Delegation Risk Rides The Verb, Control Rides The Affordance]]를 보완하는 첫 사용자 수집 루프 축이다.
 - **출처:** `marketing-47`, `marketing-27`, `marketing-08`, `marketing-46`, `marketing-45`.
 
+### Guided First-Value Is A Four-Stage Handoff
+
+- **결론:** AI 온보딩의 guided first value는 더 빠른 AI 산출이 아니라 **첫 입력 전 → AI 판단 대기 → 결과 해석 → 저장/종료** 4구간 handoff에서 사용자의 행동권과 통제감을 보존하는 문제다. 각 구간의 도움은 잡별 종료점에 맞아야 한다. J1/J2/J4는 `deed_saved`에서 닫히고, J3는 `deed_judged`에서 닫히므로 저장 안내는 J3에선 선택 범퍼다.
+- **적용:** 첫 세션 감사는 ① 어느 구간에서 사용자가 "직접 해냈다"고 느꼈는가 ② AI를 대신 결정으로 읽었는가, 보라고 정리한 것으로 읽었는가를 손기록한다. guided break는 `first_input`, `ai_wait`, `result_interpretation`, `save_or_exit` 중 첫 끊김으로 표시하고, 이후 B-LOST/B-MISMATCH/B-AVAIL/B-NORMAL 성격을 분리한다.
+- **주의:** 빠른 `deed_judged`를 모든 잡의 activation으로, 저장 없는 J3 종료를 이탈로, AI 대기/지연/503/`deed_save_capped`를 value나 upgrade demand로 읽지 않는다. guided break 발견을 곧바로 넛지·카피·신규 이벤트·tracking/privacy·dashboard/session replay·배포로 옮기지 않는다. 모두 approval-needed다.
+- **출처:** `marketing-51`, `marketing-49`, `marketing-47`, `marketing-45`, `marketing-32`.
+
 ### Purchase Situation Before Object Shape
 
 - **결론:** 커머스 카테고리가 이미 붐비고 오브젝트 형태가 제네릭이면, 상품 포지셔닝은 오브젝트명에서 나오지 않는다. 먼저 "어떤 구매 상황에서 왜 이 버전이 필요한가"를 이름 붙이고, 넓은 카테고리 키워드는 그 다음에 검색 다리로만 쓴다.
