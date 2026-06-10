@@ -9,7 +9,7 @@
 - display_name: 나래 / Narae
 - source_agent: `/home/ubuntu/.openclaw/workspace/agents/naver-shopping-agent/`
 - created_at: 2026-06-07T23:24Z
-- updated_at: 2026-06-10T04:07Z
+- updated_at: 2026-06-10T05:07Z
 
 ## Purpose
 
@@ -56,8 +56,21 @@
 - 2026-06-10T02:07Z **Question/workshop-card top-20 scan completed → category real, but generic-game saturated.** Bounded read-only Naver OpenAPI top-20 + SearchAd scan completed for `질문 카드`, `대화 카드`, `워크샵 카드`, `아이스브레이킹 카드`, `인사이트 카드`. Artifact: `naver-shopping-agent/question-workshop-card-openapi-scan-2026-06-10.md`. Result: `질문 카드` total 18,935 and `대화 카드` 18,233 are real but dominated by generic relationship/icebreaking/party-game cards; `워크샵 카드` total 6,986 has the cleanest workshop language but SearchAd exact demand is under 20/mo; `아이스브레이킹카드` and `인사이트카드` show high CTR on tiny volumes, while `인사이트 카드` is noisy with tarot/oracle results. Directional verdict stays **DRAFT** but do not route a listing approval yet. Next safe action is Marketer positioning collaboration only if needed to choose a sharper non-generic use case (AI/creator workshop, travel insight-to-content, founder reflection, product-observation, or team retrospective cards). No live store/listing/price/stock/shipping/ads/customer/order/account/public action occurred. Report `reports/naver-shopping-01/2026-06-10T0207Z-local.html`.
 - 2026-06-10T03:07Z **Marketer positioning collaboration completed for question/workshop-card family.** Target-agent result `marketing-50` selected the non-generic purchase situation before any listing approval: lead frame = **AI/creator workshop facilitation cards**; secondary sub-tests = product-observation/founder reflection, team retrospective, travel insight-to-content. Broad `질문 카드`/`대화 카드` demand should be used only as a search bridge because top results are generic relationship/icebreaking/game language; `워크샵 카드` is cleaner but exact demand is too thin to carry the category alone. Artifact `artifacts/marketing-50/question-workshop-card-positioning-selection.md`, report `reports/marketing-50/2026-06-10T0307Z-local.html`. No live store/listing/price/stock/shipping/ads/customer/order/account/public action occurred. Next safe action: one more evidence pass on visual-rank/review-depth if browser access opens, or bounded OpenAPI title-language extension if it remains blocked.
 - 2026-06-10T04:07Z **Title-language extension run → AI/creator frame confirmed copy-led (no native keyword), bridge = `워크샵 질문 카드`.** Browser visual-rank/review-depth remained blocked, so executed the bounded OpenAPI title-language extension (top-10, `sort=sim`, 6 terms). Finding: the AI/creator workshop lead frame has **no native title-language evidence** — `AI 워크샵 카드` (38,619) and `크리에이터 워크샵 카드` (10,172) dilute into the generic 야유회/팀빌딩/타로 game pool, so neither can be a title-leading keyword. The only real workshop-language bridge is `워크샵 질문 카드` (23,997), and even it leans company-recreation/icebreaking → differentiation must live in copy, not the keyword. `회고 카드` (37, anime-collectible noise) and `기획 워크샵 카드` (11,907, 명찰/현수막 event-supplies) are dead/off-target object keywords; `인사이트 카드` (2,927) stays tarot/oracle-noisy but holds one premium precedent (`코칭 인사이트 질문카드 … 교육 워크숍`, 33,000원). Verdict stays **DRAFT, copy-led (sub-test grade for keyword)**: searchable bridge `워크샵 질문 카드` > broad `질문 카드`/`대화 카드`, differentiation carried by AI/creator-workshop-room copy. Title-language evidence is now exhausted via OpenAPI; only visual-rank (418) + review-depth (429) remain for a promotion call, and they need a logged-in browser path. Artifact `naver-shopping-agent/question-workshop-card-title-language-extension-2026-06-10.md`. No live store/listing/price/stock/shipping/ads/customer/order/account/public action occurred. Report `reports/naver-shopping-01/2026-06-10T0407Z-local.html`.
+- 2026-06-10T05:07Z **질문/워크샵 카드 AI/creator 프레임 리스팅 프리플라이트 초안 준비.** (cloud prepare 모드) 04:07Z title-language 소진 후, 트래블러스노트 패턴을 따라 listing preflight 아티팩트를 준비했다. 5개 섹션 포함: 스펙 후보·콘텐츠 차별화 게이트(generic 게임과 구분되는 AI/creator 워크숍 실용 조건)·제목/키워드 포지셔닝 hard rules(`질문 카드`/`대화 카드` 제목 선두 금지, bridge = `워크샵 질문 카드`)·스마트스토어 필수 필드·컴플라이언스 게이트(카테고리 권한, 교육효과 주장 회피). 코칭 워크숍 전례(33,000원) 기준 20,000–40,000원 가격 밴드 유효 근거 포함. Artifact `artifacts/naver-shopping-01/question-workshop-card-listing-preflight-2026-06-10.md`. visual-rank(418)/review-depth(429) 여전히 차단 중. 상품등록/가격·배송·재고/광고·고객·주문·계정·공개발행은 여전히 action-level approval-needed. report `reports/naver-shopping-01/2026-06-10T0507Z-prepare.html`.
 
 ## Active Blockers
+
+### 2026-06-10T05:07Z - 리스팅 프리플라이트 초안 준비 (visual-rank/review-depth 차단 지속)
+
+- route: agent-solvable (prepare mode)
+- status: resolved-local
+- source: cloud prepare pass (Heartbeat, no Naver API call)
+- finding: 04:07Z title-language 소진 후 다음 단계 — 트래블러스노트 패턴 적용. `artifacts/naver-shopping-01/question-workshop-card-listing-preflight-2026-06-10.md` 작성. 5개 섹션: 스펙 후보(A6/명함 카드, 30–60매, 무광 코팅 300g, MOQ 미정)·콘텐츠 차별화 게이트 4개 필수(generic 파티/커플 게임과 구분되는 AI/creator 워크숍 실용 조건)+3개 선택·제목/키워드 hard rules(`질문 카드`/`대화 카드` 선두 금지, bridge = `워크샵 질문 카드`, premium precedent = 코칭 인사이트 질문카드 33,000원)·스마트스토어 필수 필드(카테고리 권한·상품정보고시·가격 밴드 20,000–40,000원)·컴플라이언스 게이트(카테고리 권한 신청·교육효과 주장 회피·접근 한계 명시).
+- blocker: no new user blocker. visual-rank(HTTP 418) + review-depth(HTTP 429) 여전히 차단. SmartStore Commerce ID 게이트 미변경.
+- user_needed: none. (로그인 브라우저 경로가 열리면 visual-rank/review-depth 확인 가능.)
+- sam_action: listing preflight 초안 아티팩트 생성; 09:00 KST 메시지 후보 업데이트.
+- work_continues: yes (로그인 브라우저 경로 오픈 시 visual-rank/review-depth → 더 날카로운 pre-approval packet; Marketer copy candidates 협업은 preflight 승인 후).
+- next_9am_message: report that the AI/creator workshop card 리스팅 프리플라이트 초안이 준비됐음 (스펙·콘텐츠 차별화 게이트·제목 hard rules·컴플라이언스). visual-rank/review-depth는 여전히 차단 중. Do not repeat prior approval questions.
 
 ### 2026-06-10T04:07Z - Title-language extension run → AI/creator frame confirmed copy-led (visual-rank/review-depth still blocked)
 
