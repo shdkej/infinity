@@ -17,6 +17,8 @@
 
 ## Current State
 
+- 2026-06-10T23:30Z **Question/workshop-card sourcing-friction screen added (docs-only).** Marketer `marketing-50` already selected the purchase situation before object shape: AI/creator workshop facilitation cards. This pass converted that positioning into a practical SKU gate: validate small-batch production route, MOQ, unit cost, card/box spec, category/product-info friction, and margin floor before any listing-direction approval. Verdict unchanged: **DRAFT / copy-led, not listing-ready**. No new Naver calls, no live store/listing/price/stock/shipping/ads/customer/order/account/public action. Artifact: `/home/ubuntu/.openclaw/workspace/agents/naver-shopping-agent/question-workshop-card-sourcing-friction-screen-2026-06-10.md`.
+
 - independent agent workspace exists
 - user-facing name is fixed as **나래 / Narae**; internal id/path remains `naver-shopping-agent`
 - silent work loop is scheduled at 08:30 KST

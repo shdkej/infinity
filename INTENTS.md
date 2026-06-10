@@ -146,3 +146,6 @@
 <!-- wiki-01 completed 2026-04-21T00:00 → intents/archive/wiki-01.md -->
 <!-- build-01 completed 2026-04-21T00:30 → intents/archive/build-01.md -->
 <!-- research-05 re-run completed 2026-04-23T10:00 → intents/archive/research-05.md (3차) -->
+# 2026-06-10T23:30Z - naver-shopping-01 source update
+
+- `naver-shopping-01`: Added a docs-only sourcing-friction gate for the question/workshop-card family after applying the `marketing-50` rule, "purchase situation before object shape." The candidate remains DRAFT / copy-led; next useful check is small-batch production, MOQ, unit cost, category/product-info friction, and margin floor before any listing approval. No new target-agent request opened and no live commerce/account/public action occurred.
