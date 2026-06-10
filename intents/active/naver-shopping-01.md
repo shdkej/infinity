@@ -9,7 +9,7 @@
 - display_name: 나래 / Narae
 - source_agent: `/home/ubuntu/.openclaw/workspace/agents/naver-shopping-agent/`
 - created_at: 2026-06-07T23:24Z
-- updated_at: 2026-06-10T04:07Z
+- updated_at: 2026-06-10T15:07Z
 
 ## Purpose
 
@@ -56,8 +56,21 @@
 - 2026-06-10T02:07Z **Question/workshop-card top-20 scan completed → category real, but generic-game saturated.** Bounded read-only Naver OpenAPI top-20 + SearchAd scan completed for `질문 카드`, `대화 카드`, `워크샵 카드`, `아이스브레이킹 카드`, `인사이트 카드`. Artifact: `naver-shopping-agent/question-workshop-card-openapi-scan-2026-06-10.md`. Result: `질문 카드` total 18,935 and `대화 카드` 18,233 are real but dominated by generic relationship/icebreaking/party-game cards; `워크샵 카드` total 6,986 has the cleanest workshop language but SearchAd exact demand is under 20/mo; `아이스브레이킹카드` and `인사이트카드` show high CTR on tiny volumes, while `인사이트 카드` is noisy with tarot/oracle results. Directional verdict stays **DRAFT** but do not route a listing approval yet. Next safe action is Marketer positioning collaboration only if needed to choose a sharper non-generic use case (AI/creator workshop, travel insight-to-content, founder reflection, product-observation, or team retrospective cards). No live store/listing/price/stock/shipping/ads/customer/order/account/public action occurred. Report `reports/naver-shopping-01/2026-06-10T0207Z-local.html`.
 - 2026-06-10T03:07Z **Marketer positioning collaboration completed for question/workshop-card family.** Target-agent result `marketing-50` selected the non-generic purchase situation before any listing approval: lead frame = **AI/creator workshop facilitation cards**; secondary sub-tests = product-observation/founder reflection, team retrospective, travel insight-to-content. Broad `질문 카드`/`대화 카드` demand should be used only as a search bridge because top results are generic relationship/icebreaking/game language; `워크샵 카드` is cleaner but exact demand is too thin to carry the category alone. Artifact `artifacts/marketing-50/question-workshop-card-positioning-selection.md`, report `reports/marketing-50/2026-06-10T0307Z-local.html`. No live store/listing/price/stock/shipping/ads/customer/order/account/public action occurred. Next safe action: one more evidence pass on visual-rank/review-depth if browser access opens, or bounded OpenAPI title-language extension if it remains blocked.
 - 2026-06-10T04:07Z **Title-language extension run → AI/creator frame confirmed copy-led (no native keyword), bridge = `워크샵 질문 카드`.** Browser visual-rank/review-depth remained blocked, so executed the bounded OpenAPI title-language extension (top-10, `sort=sim`, 6 terms). Finding: the AI/creator workshop lead frame has **no native title-language evidence** — `AI 워크샵 카드` (38,619) and `크리에이터 워크샵 카드` (10,172) dilute into the generic 야유회/팀빌딩/타로 game pool, so neither can be a title-leading keyword. The only real workshop-language bridge is `워크샵 질문 카드` (23,997), and even it leans company-recreation/icebreaking → differentiation must live in copy, not the keyword. `회고 카드` (37, anime-collectible noise) and `기획 워크샵 카드` (11,907, 명찰/현수막 event-supplies) are dead/off-target object keywords; `인사이트 카드` (2,927) stays tarot/oracle-noisy but holds one premium precedent (`코칭 인사이트 질문카드 … 교육 워크숍`, 33,000원). Verdict stays **DRAFT, copy-led (sub-test grade for keyword)**: searchable bridge `워크샵 질문 카드` > broad `질문 카드`/`대화 카드`, differentiation carried by AI/creator-workshop-room copy. Title-language evidence is now exhausted via OpenAPI; only visual-rank (418) + review-depth (429) remain for a promotion call, and they need a logged-in browser path. Artifact `naver-shopping-agent/question-workshop-card-title-language-extension-2026-06-10.md`. No live store/listing/price/stock/shipping/ads/customer/order/account/public action occurred. Report `reports/naver-shopping-01/2026-06-10T0407Z-local.html`.
+- 2026-06-10T15:07Z **User correction applied → workshop/question-card monetization path withdrawn.** The user said workshop-related Naver work is not a good revenue path because it is too micro and workshop content is not a monetization element. Naver agent state now withdraws **AI/creator workshop facilitation cards** from the SmartStore/Naver product-candidate stream. Do not continue Naver validation, listing positioning, SearchAd expansion, Marketer positioning, sourcing, pricing, approval routing, or live action for workshop/question-card products unless the user explicitly reopens that path. Workshop content remains usable only as travel/people/AI conversation and learning context. No live store/listing/price/stock/shipping/ads/customer/order/account/public action occurred. Report `reports/naver-shopping-01/2026-06-10T1507Z-router.html`.
 
 ## Active Blockers
+
+### 2026-06-10T15:07Z - Workshop/question-card monetization path withdrawn by user correction
+
+- route: user-correction / router-update
+- status: resolved-local
+- source: Naver Shopping Agent state update after user feedback: "워크샵 관련 네이버작업도 별로야. 너무 미시적이야. 워크샵 컨텐츠는 수익과 연결시킬 요소는 아니야."
+- finding: the previous `marketing-50` lead frame and 04:07Z title-language pass are now historical evidence only. They should not drive Naver SKU validation, listing copy, SearchAd expansion, approval routing, sourcing, pricing, or public store action.
+- blocker: no approval blocker and no new access blocker. This is a user-directed withdrawal, not a request for live work.
+- user_needed: none.
+- sam_action: linked the Naver agent withdrawal back into Infinity and wrote the HTML router report.
+- work_continues: yes, but the next Naver product discovery must avoid the workshop/question-card monetization path unless explicitly reopened.
+- next_9am_message: do not ask for workshop/question-card approval. If reporting is needed, state that the path was withdrawn from Naver monetization and keep workshop signals as non-revenue learning/context only.
 
 ### 2026-06-10T04:07Z - Title-language extension run → AI/creator frame confirmed copy-led (visual-rank/review-depth still blocked)
 
