@@ -19,7 +19,7 @@
     role: final
 - commits:
   - repo: infinity
-    sha: 1bf4e5e
+    sha: 5a34bc4
     note: archived after local verification
 - urls: []
 - next_actions:
