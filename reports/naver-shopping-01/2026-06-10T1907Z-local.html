@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>naver-shopping-01 report</title>
+<style>
+  :root{--bg:#f4f2ea;--panel:#fbfaf5;--ink:#2c2a25;--soft:#807c70;--faint:#a8a496;--line:#e3dfd2;--a1:#a9745a;--a1-deep:#8a5c45;--a2:#5f7a5e;--a2-deep:#3f5740;--sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;--mono:ui-monospace,"SF Mono",Menlo,monospace}
+  *{box-sizing:border-box} html,body{margin:0} body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:14px;line-height:1.68}.sheet{max-width:720px;margin:0 auto;padding:48px 34px 46px}.eyebrow{display:flex;gap:10px;font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--soft)}.dot{width:5px;height:5px;border-radius:50%;background:var(--a2);margin-top:8px}.id{color:var(--a2-deep);font-weight:600}.status{margin-left:auto;color:var(--a2-deep)}h1{font-size:29px;line-height:1.3;margin:20px 0 0}.dek{font-size:15.5px;color:var(--soft);margin:13px 0 0}.hr{height:1px;background:var(--line);margin:30px 0}.axis{padding:0 0 4px 22px;position:relative;margin-bottom:30px}.axis:before{content:"";position:absolute;left:0;top:6px;bottom:6px;width:2px}.axis.ax1:before{background:var(--a1)}.axis.ax2:before{background:var(--a2)}.label{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:9px}.ax1 .label{color:var(--a1-deep)}.ax2 .label{color:var(--a2-deep)}.text{font-size:18px;line-height:1.6;color:#37352e}.text b{border-bottom:2px solid currentColor}details{border:1px solid var(--line);border-radius:10px;background:var(--panel);margin-bottom:10px}summary{cursor:pointer;list-style:none;padding:14px 16px;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--soft)}summary::-webkit-details-marker{display:none}.body{padding:2px 16px 18px}.body ul{margin:6px 0;padding-left:18px}.body li{margin:5px 0}table{border-collapse:collapse;width:100%;font-size:13px;margin:4px 0 12px}th,td{border-bottom:1px solid var(--line);padding:9px 11px;text-align:left;vertical-align:top}th{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--soft)}td:first-child{color:var(--a2-deep);font-weight:600;white-space:nowrap}code{font-family:var(--mono);font-size:12px;background:#edeae0;padding:1px 6px;border-radius:3px;color:var(--a2-deep)}.chips{display:flex;flex-wrap:wrap;gap:6px}.chip{font-family:var(--mono);font-size:10.5px;color:var(--soft);border:1px solid var(--line);border-radius:999px;padding:3px 10px}.foot{margin-top:30px;padding-top:15px;border-top:1px solid var(--line);display:flex;justify-content:space-between;font-family:var(--mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--faint)}
+</style>
+</head>
+<body>
+<div class="sheet">
+  <div class="eyebrow"><span class="dot"></span><span class="id">naver-shopping-01</span><span>Improvement Note</span><span class="status">resolved-local</span></div>
+  <h1>Arrival-day 후보는 아직 sourcing으로 가지 않는다</h1>
+  <p class="dek">Anti-theft/document carry WATCH branch의 다음 게이트로 sourcing/friction screen을 실행했다.</p>
+  <div class="hr"></div>
+  <div class="axis ax1">
+    <div class="label"><span>01</span> 무엇이 문제였나</div>
+    <div class="text">18:07Z 스캔은 arrival-day/anti-theft 수요가 강하다는 점은 보여줬지만, <b>가방·지갑·파우치·폰스트랩</b>의 운영마찰과 commodity risk를 분리하지 못하면 바로 sourcing 승인 질문으로 과속할 수 있었다.</div>
+  </div>
+  <div class="axis ax2">
+    <div class="label"><span>02</span> 어떻게 해결하나</div>
+    <div class="text">더 가벼운 표면을 따로 읽은 결과, <b>WATCH / no approval packet</b>을 유지한다. `캐리어네임택`/`러기지택`은 낮은 운영마찰 watch surface이고, phone anti-theft strap은 buyer signal은 강하지만 compatibility/quality risk가 더 크다.</div>
+  </div>
+  <details open>
+    <summary>상세 판독</summary>
+    <div class="body">
+      <table>
+        <tr><th>surface</th><th>signal</th><th>판독</th></tr>
+        <tr><td>캐리어네임택/러기지택</td><td>`캐리어네임택` 7,310/mo, `러기지택` 3,780/mo</td><td>가장 낮은 운영마찰 watch surface. 단, 이름표 이상의 arrival-day 차별화가 필요하다.</td></tr>
+        <tr><td>폰 도난방지 스트랩</td><td>`핸드폰도난방지스트랩` 1,890/mo, mobile CTR 4.42%</td><td>buyer intent는 강하지만 품질·호환·스타일 경쟁이 커서 first SKU로 과속하지 않는다.</td></tr>
+        <tr><td>비상/안전 카드</td><td>`여행 비상카드` 153, `여행 안전카드` 3,896 OpenAPI total</td><td>story는 좋지만 native Naver object keyword가 약하고 결과가 RFID/주차/의료 카드로 노이즈가 크다.</td></tr>
+      </table>
+      <ul>
+        <li>Supplier contact, sample order, sourcing, listing, price/shipping/stock/options, ads, customer/order, account/store, public publishing: 0.</li>
+        <li>다음 안전 액션은 paper/card-led arrival-day insert keyword test 또는 luggage-tag differentiation test다.</li>
+      </ul>
+    </div>
+  </details>
+  <details>
+    <summary>실행 메타 · 산출물</summary>
+    <div class="body">
+      <div class="chips"><span class="chip">2026-06-10T19:07Z</span><span class="chip">cron</span><span class="chip">active → active</span></div>
+      <ul>
+        <li>산출물 <code>naver-shopping-agent/arrival-day-failure-prevention-sourcing-friction-screen-2026-06-10.md</code></li>
+        <li>업데이트 <code>naver-shopping-agent/product-curation.md</code>, <code>naver-shopping-agent/operation-log.md</code>, <code>intents/active/naver-shopping-01.md</code>, <code>INTENTS.md</code></li>
+      </ul>
+    </div>
+  </details>
+  <div class="foot"><span>Agent-First Heartbeat</span><span>Infinity · Intent Note</span></div>
+</div>
+</body>
+</html>
