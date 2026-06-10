@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Naver Shopping Router Report</title>
+<style>
+  :root{
+    --bg:#f4f2ea; --panel:#fbfaf5; --ink:#2c2a25; --soft:#807c70; --faint:#a8a496; --line:#e3dfd2;
+    --a2:#5f7a5e; --a2-deep:#3f5740;
+    --a1:#b08545; --a1-deep:#8a6633;
+    --sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box;} html,body{margin:0;}
+  body{background:var(--bg); color:var(--ink); font-family:var(--sans); font-size:14px; line-height:1.68;}
+  .sheet{max-width:720px; margin:0 auto; padding:48px 34px 46px;}
+  .eyebrow{display:flex; align-items:center; gap:10px; font-family:var(--mono); font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--soft);}
+  .eyebrow .id{color:var(--a2-deep); font-weight:600;} .eyebrow .dot{width:5px; height:5px; border-radius:50%; background:var(--a2);} .eyebrow .status{margin-left:auto; color:var(--a2-deep);}
+  h1{font-size:29px; line-height:1.3; font-weight:700; margin:20px 0 0;}
+  .dek{font-size:15.5px; color:var(--soft); margin:13px 0 0; max-width:52ch;}
+  .hr{height:1px; background:var(--line); margin:30px 0;}
+  .axis{padding:0 0 4px 22px; position:relative; margin-bottom:30px;}
+  .axis::before{content:""; position:absolute; left:0; top:6px; bottom:6px; width:2px; border-radius:2px;}
+  .axis.ax1::before{background:var(--a1);} .axis.ax2::before{background:var(--a2);}
+  .axis .label{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase; margin-bottom:9px;}
+  .axis.ax1 .label{color:var(--a1-deep);} .axis.ax2 .label{color:var(--a2-deep);}
+  .axis .text{font-size:18px; line-height:1.6; color:#37352e;}
+  details{border:1px solid var(--line); border-radius:10px; background:var(--panel); margin-bottom:10px;}
+  summary{cursor:pointer; list-style:none; padding:14px 16px; display:flex; align-items:center; gap:11px; font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft);}
+  summary::-webkit-details-marker{display:none;} .chev{width:8px; height:8px; border-right:2px solid var(--a2-deep); border-bottom:2px solid var(--a2-deep); transform:rotate(-45deg);}
+  details[open] .chev{transform:rotate(45deg);} .body{padding:2px 16px 18px;}
+  table{border-collapse:collapse; width:100%; font-size:13px; margin:4px 0 12px;}
+  th,td{border-bottom:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top;}
+  th{font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft);}
+  td:first-child{color:var(--a2-deep); font-weight:600; white-space:nowrap;}
+  code{font-family:var(--mono); font-size:12px; background:#edeae0; padding:1px 6px; border-radius:3px; color:var(--a2-deep);}
+  .chips{display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px;} .chip{font-family:var(--mono); font-size:10.5px; color:var(--soft); border:1px solid var(--line); border-radius:999px; padding:3px 10px;}
+  .foot{margin-top:30px; padding-top:15px; border-top:1px solid var(--line); display:flex; justify-content:space-between; font-family:var(--mono); font-size:10px; letter-spacing:.13em; text-transform:uppercase; color:var(--faint);}
+</style>
+</head>
+<body>
+<div class="sheet">
+  <div class="eyebrow"><span class="dot"></span><span class="id">naver-shopping-01</span><span>Monitoring Note</span><span class="status">active</span></div>
+  <h1>Anti-Theft / Document Carry Scan</h1>
+  <p class="dek">워크샵/질문카드 수익화 경로를 철회한 뒤, 남아 있던 WATCH 후보를 읽기 전용으로 검증했다.</p>
+  <div class="hr"></div>
+  <div class="axis ax1">
+    <div class="label"><span class="n">01</span> 무엇을 점검했나</div>
+    <div class="text">Arrival-day failure prevention 후보인 <b>여권케이스·여행지갑·여행파우치·소매치기 방지·도난방지 가방·RFID 차단 지갑</b>의 Naver OpenAPI top-20과 SearchAd exact signals를 확인했다.</div>
+  </div>
+  <div class="axis ax2">
+    <div class="label"><span class="n">02</span> 이상 여부·조치</div>
+    <div class="text">수요는 강하지만 시장은 generic accessory / bag 경쟁이다. 결론은 <b>WATCH / split path</b>이며, listing approval이 아니라 sourcing/friction screen이 다음 게이트다.</div>
+  </div>
+  <details open>
+    <summary><span class="chev"></span> 핵심 결과</summary>
+    <div class="body">
+      <table>
+        <tr><th>항목</th><th>결과</th></tr>
+        <tr><td>강한 수요</td><td><code>여권케이스</code> 12,140/mo, <code>여행파우치</code> 3,860/mo, <code>RFID차단지갑</code> 1,480/mo, <code>도난방지가방</code> 6,400/mo.</td></tr>
+        <tr><td>주의</td><td><code>도난방지가방</code>은 mobile CTR 6.84%로 강하지만 가방 품질·반품·광고경쟁 리스크가 커서 첫 승인 후보로 올리지 않는다.</td></tr>
+        <tr><td>결론</td><td>도난/문서/도착일 리스크는 좋은 문제지만, 제품 표면은 generic passport case, pouch, phone tether, anti-theft bag으로 이미 채워져 있다.</td></tr>
+      </table>
+    </div>
+  </details>
+  <details>
+    <summary><span class="chev"></span> 실행 메타 · 산출물</summary>
+    <div class="body">
+      <div class="chips"><span class="chip">2026-06-10T18:07Z</span><span class="chip">cron</span><span class="chip">active → active</span></div>
+      <ul>
+        <li>산출물 <code>/home/ubuntu/.openclaw/workspace/agents/naver-shopping-agent/anti-theft-document-carry-openapi-scan-2026-06-10.md</code></li>
+        <li>수정 <code>product-curation.md</code>, <code>operation-log.md</code>, <code>INTENTS.md</code>, <code>intents/active/naver-shopping-01.md</code></li>
+        <li>금지선: live store/listing/price/stock/shipping/ads/customer/order/account/public action 0.</li>
+      </ul>
+    </div>
+  </details>
+  <div class="foot"><span>Agent-First Heartbeat</span><span>Infinity · Intent Note</span></div>
+</div>
+</body>
+</html>
