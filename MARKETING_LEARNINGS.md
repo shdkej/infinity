@@ -188,6 +188,13 @@
 - **주의:** 빠른 `deed_judged`를 모든 잡의 activation으로, 저장 없는 J3 종료를 이탈로, AI 대기/지연/503/`deed_save_capped`를 value나 upgrade demand로 읽지 않는다. guided break 발견을 곧바로 넛지·카피·신규 이벤트·tracking/privacy·dashboard/session replay·배포로 옮기지 않는다. 모두 approval-needed다.
 - **출처:** `marketing-51`, `marketing-49`, `marketing-47`, `marketing-45`, `marketing-32`.
 
+### Prompt Design Teaches Desired Result, Not UI Or Judgment
+
+- **결론:** AI 온보딩의 첫 입력 prompt design은 사용자가 UI를 배우게 하는 일이 아니라, AI에게 원하는 결과를 짧게 알려주게 하는 일이다. Virtue에서는 이를 **UI instruction / judgment delegation / desired-result teaching** 세 칸으로 먼저 분리한다. 좋은 첫 입력 문구는 기능 설명을 늘리지 않고, `채점`/`판정`식 판단 위임도 키우지 않으며, 사용자가 원하는 기록·누적·AI 관점·회고 결과를 자기 말로 지정하게 돕는다.
+- **적용:** `/add` placeholder·힌트·예시·버튼 문구 후보를 볼 때 ① 이 문장이 단순 조작 설명인가 ② AI에게 결정을 맡기게 하는가 ③ 사용자가 원하는 산출물을 AI에게 알려주게 하는가를 표시한다. click tax는 "원하는 결과와 무관한 탐색·튜토리얼·메뉴 이동"일 때만 줄이고, 성찰을 만드는 입력 시간 자체는 제거 대상이 아니다. 잡별 예시는 observation 후 proposal-only로만 다룬다.
+- **주의:** 전역 예시/placeholder 최적화 금지. 한 잡을 살리는 예시는 다른 잡을 구경·support-bot·판정 위임 모드로 끌 수 있다. 공개 카피, 버튼/placeholder 변경, 신규 이벤트·속성·개인화·tracking/privacy·dashboard/session replay·배포는 approval-needed다. J3는 `deed_judged`에서 first value가 닫히므로 저장을 정상 후속 행동으로 강제하지 않는다.
+- **출처:** `marketing-52`, `marketing-51`, `marketing-32`, `marketing-45`.
+
 ### Purchase Situation Before Object Shape
 
 - **결론:** 커머스 카테고리가 이미 붐비고 오브젝트 형태가 제네릭이면, 상품 포지셔닝은 오브젝트명에서 나오지 않는다. 먼저 "어떤 구매 상황에서 왜 이 버전이 필요한가"를 이름 붙이고, 넓은 카테고리 키워드는 그 다음에 검색 다리로만 쓴다.
