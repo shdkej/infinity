@@ -16,7 +16,7 @@
     role: final
 - commits:
   - repo: infinity
-    sha: pending
+    sha: d7db9b8
     note: Archive, artifact, report, and marketing learning update.
 - urls: []
 - next_actions:
