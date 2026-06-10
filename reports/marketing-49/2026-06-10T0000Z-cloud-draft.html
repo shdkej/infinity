@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Infinity Report — marketing-49</title>
+<style>
+  :root{
+    --bg:#f4f2ea; --panel:#fbfaf5; --ink:#2c2a25; --soft:#807c70; --faint:#a8a496; --line:#e3dfd2;
+    --a2:#5f7a5e; --a2-deep:#3f5740;
+    --a1:#a9745a; --a1-deep:#8a5c45;
+    --sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;}
+  body{background:var(--bg); color:var(--ink); font-family:var(--sans);
+    font-size:14px; line-height:1.68; -webkit-font-smoothing:antialiased;}
+  .sheet{max-width:720px; margin:0 auto; padding:48px 34px 46px;}
+  .reveal{opacity:0; animation:fade .7s ease forwards;}
+  @keyframes fade{from{opacity:0; transform:translateY(9px);} to{opacity:1; transform:none;}}
+  .eyebrow{display:flex; align-items:center; gap:10px; font-family:var(--mono);
+    font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--soft);}
+  .eyebrow .id{color:var(--a2-deep); font-weight:600;}
+  .eyebrow .dot{width:5px; height:5px; border-radius:50%; background:var(--a2);}
+  .eyebrow .status{margin-left:auto; color:var(--a2-deep);}
+  h1{font-size:29px; line-height:1.3; font-weight:700; letter-spacing:-.01em; margin:20px 0 0;}
+  .dek{font-size:15.5px; color:var(--soft); margin:13px 0 0; max-width:52ch;}
+  .hr{height:1px; background:var(--line); margin:30px 0;}
+  .axis{padding:0 0 4px 22px; position:relative; margin-bottom:30px;}
+  .axis::before{content:""; position:absolute; left:0; top:6px; bottom:6px; width:2px; border-radius:2px;}
+  .axis.ax1::before{background:var(--a1);} .axis.ax2::before{background:var(--a2);}
+  .axis.ax1{--ul:var(--a1);} .axis.ax2{--ul:var(--a2);}
+  .axis .label{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase;
+    margin-bottom:9px; display:flex; align-items:center; gap:8px;}
+  .axis.ax1 .label{color:var(--a1-deep);} .axis.ax2 .label{color:var(--a2-deep);}
+  .axis .label .n{font-weight:600; opacity:.6;}
+  .axis .text{font-size:18px; line-height:1.6; color:#37352e;}
+  .axis .text b{font-weight:700; color:var(--ink); border-bottom:2px solid var(--ul);}
+  details{border:1px solid var(--line); border-radius:10px; background:var(--panel); margin-bottom:10px;}
+  summary{cursor:pointer; list-style:none; padding:14px 16px; display:flex; align-items:center; gap:11px;
+    font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft);}
+  summary::-webkit-details-marker{display:none;}
+  summary .chev{width:8px; height:8px; border-right:2px solid var(--a2-deep); border-bottom:2px solid var(--a2-deep);
+    transform:rotate(-45deg); transition:.25s; flex:none; margin-left:2px;}
+  details[open] summary .chev{transform:rotate(45deg);}
+  summary:hover{color:var(--ink);}
+  .body{padding:2px 16px 18px;}
+  table{border-collapse:collapse; width:100%; font-size:13px; margin:4px 0 12px;}
+  th,td{border-bottom:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top;}
+  th{font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft); font-weight:600;}
+  td:first-child{color:var(--a2-deep); font-weight:600; white-space:nowrap;}
+  .body p{color:var(--soft);}
+  .body ul{margin:6px 0; padding-left:18px;} .body li{margin:5px 0;}
+  code{font-family:var(--mono); font-size:12px; background:#edeae0; padding:1px 6px; border-radius:3px; color:var(--a2-deep);}
+  .chips{display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px;}
+  .chip{font-family:var(--mono); font-size:10.5px; letter-spacing:.05em; color:var(--soft); border:1px solid var(--line); border-radius:999px; padding:3px 10px;}
+  .foot{margin-top:30px; padding-top:15px; border-top:1px solid var(--line);
+    display:flex; justify-content:space-between; font-family:var(--mono); font-size:10px;
+    letter-spacing:.13em; text-transform:uppercase; color:var(--faint);}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="eyebrow reveal">
+    <span class="dot"></span>
+    <span class="id">marketing-49</span>
+    <span>Marketing · Strategy Note</span>
+    <span class="status">COMPLETED</span>
+  </div>
+  <h1 class="reveal" style="animation-delay:.05s">수동 감탄 vs 자기화 행동 판독표</h1>
+  <p class="dek reveal" style="animation-delay:.09s">Virtue 결과 카드 직후 30초 — Passive Admiration Trap 분리 기준 초안 (docs-only)</p>
+
+  <div class="hr reveal" style="animation-delay:.12s"></div>
+
+  <div class="axis ax1 reveal" style="animation-delay:.16s">
+    <div class="label"><span class="n">01</span> 무엇이 문제였나</div>
+    <div class="text">AI가 빠른 첫 가치를 만들면 사용자가 <b>수동 감탄</b>으로 끝날 위험 — <code>deed_judged</code> 이후 저장·재시도·닫힘의 on-instrument 3분류만으로는 "인상만 받고 자기 맥락에 편입하지 않는" 행동 성격을 포착할 수 없다</div>
+  </div>
+
+  <div class="axis ax2 reveal" style="animation-delay:.22s">
+    <div class="label"><span class="n">02</span> 어떻게 해결하나</div>
+    <div class="text">결과 직후 7가지 행동 분류표 + 수기 판독 칸 <b>A~E (5개)</b> 초안 완료 — 신규 계측 0, 손기록만, J3 정상 종료·수동 감탄·마찰을 기존 first value 매핑을 재정의하지 않고 분리</div>
+  </div>
+
+  <div class="reveal" style="animation-delay:.27s">
+  <details open>
+    <summary><span class="chev"></span> 수행한 작업</summary>
+    <div class="body">
+      <p>MARKETING_LEARNINGS.md(m44, m42, m40, m47, m06 등) 선독 후 marketing-49 의도에 따라 docs-only 판독표 초안 작성.</p>
+      <table>
+        <thead><tr><th>칸</th><th>목적</th><th>방법</th></tr></thead>
+        <tbody>
+          <tr><td>칸 A</td><td>결과 직후 첫 행동 (필수)</td><td>on-instrument + 손기록 체크박스</td></tr>
+          <tr><td>칸 B</td><td>자기화 깊이</td><td>자기 말 설명 손기록</td></tr>
+          <tr><td>칸 C</td><td>머뭇거림 원인 분류</td><td>B-LOST / B-MISMATCH / 정상 종료</td></tr>
+          <tr><td>칸 D</td><td>재방문 의향 (1문항)</td><td>Y/N/모르겠다 — KPI 금지</td></tr>
+          <tr><td>칸 E</td><td>판정 주체 인식 (J3 선택)</td><td>m45/m38 관찰 재료</td></tr>
+        </tbody>
+      </table>
+      <ul>
+        <li>기존 J1/J2/J4=<code>deed_saved</code>, J3=<code>deed_judged</code> 매핑 재정의 없음 ✓</li>
+        <li>source note path 인용 ✓</li>
+        <li>저장/재작성/선택/자기 말 설명/무저장 정상 종료/수동 감탄/마찰 전 분류 포함 ✓</li>
+        <li>신규 계측 = 0 ✓</li>
+        <li>approval-needed 경계 명시 ✓</li>
+      </ul>
+      <p><strong>계승한 기준:</strong> m44(Post-Response Flow), m42(Session Value By Job), m40(Nudges Are Event-Triggered), m47(First-User Learning Loop), m06(First Value Mapping)</p>
+      <p><strong>새로 배운 것:</strong> 수동 감탄은 on-instrument로 포착 불가 — 손기록만 가능; 머뭇거림은 B-LOST/B-MISMATCH/정상 종료 세 갈래 반드시 분기 필요.</p>
+      <p><strong>다음 Marketer에게:</strong> 칸 B(자기 말 설명)가 자기화 깊이 최우선 지표. 칸 C 선행 없이 수동 감탄→넛지 전환 금지. J3 무저장 종료를 수동 감탄으로 오분류 금지.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="chev"></span> 실행 메타 · 산출물</summary>
+    <div class="body">
+      <div class="chips">
+        <span class="chip">2026-06-10T00:00Z</span>
+        <span class="chip">Heartbeat cloud draft</span>
+        <span class="chip">inbox → archived</span>
+        <span class="chip">L1 docs-only</span>
+        <span class="chip">신규 계측 0</span>
+      </div>
+      <ul>
+        <li>산출물 <code>artifacts/marketing-49/virtue-post-response-behavior-readout.md</code></li>
+        <li>아카이브 <code>intents/archive/marketing-49.md</code></li>
+        <li>Telegram 알림: 없음 (마케팅 작업 — 조용히 처리)</li>
+      </ul>
+    </div>
+  </details>
+  </div>
+
+  <div class="foot reveal" style="animation-delay:.3s">
+    <span>Agent-First Heartbeat</span>
+    <span>Infinity · Intent Note</span>
+  </div>
+</div>
+</body>
+</html>
