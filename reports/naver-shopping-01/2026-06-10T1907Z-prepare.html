@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Naver Shopping Prepare Report</title>
+<style>
+  :root{
+    --bg:#f4f2ea; --panel:#fbfaf5; --ink:#2c2a25; --soft:#807c70; --faint:#a8a496; --line:#e3dfd2;
+    --a2:#5f7a5e; --a2-deep:#3f5740;
+    --a1:#5a6f8a; --a1-deep:#3f536e;
+    --sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box;} html,body{margin:0;}
+  body{background:var(--bg); color:var(--ink); font-family:var(--sans); font-size:14px; line-height:1.68;}
+  .sheet{max-width:720px; margin:0 auto; padding:48px 34px 46px;}
+  .eyebrow{display:flex; align-items:center; gap:10px; font-family:var(--mono); font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--soft);}
+  .eyebrow .id{color:var(--a2-deep); font-weight:600;} .eyebrow .dot{width:5px; height:5px; border-radius:50%; background:var(--a2);} .eyebrow .status{margin-left:auto; color:var(--a2-deep);}
+  h1{font-size:29px; line-height:1.3; font-weight:700; margin:20px 0 0;}
+  .dek{font-size:15.5px; color:var(--soft); margin:13px 0 0; max-width:52ch;}
+  .hr{height:1px; background:var(--line); margin:30px 0;}
+  .axis{padding:0 0 4px 22px; position:relative; margin-bottom:30px;}
+  .axis::before{content:""; position:absolute; left:0; top:6px; bottom:6px; width:2px; border-radius:2px;}
+  .axis.ax1::before{background:var(--a1);} .axis.ax2::before{background:var(--a2);}
+  .axis .label{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase; margin-bottom:9px;}
+  .axis.ax1 .label{color:var(--a1-deep);} .axis.ax2 .label{color:var(--a2-deep);}
+  .axis .text{font-size:18px; line-height:1.6; color:#37352e;}
+  .axis .text b{font-weight:700; border-bottom:2px solid currentColor;}
+  details{border:1px solid var(--line); border-radius:10px; background:var(--panel); margin-bottom:10px;}
+  summary{cursor:pointer; list-style:none; padding:14px 16px; display:flex; align-items:center; gap:11px; font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft);}
+  summary::-webkit-details-marker{display:none;} .chev{width:8px; height:8px; border-right:2px solid var(--a2-deep); border-bottom:2px solid var(--a2-deep); transform:rotate(-45deg);}
+  details[open] .chev{transform:rotate(45deg);} .body{padding:2px 16px 18px;}
+  table{border-collapse:collapse; width:100%; font-size:13px; margin:4px 0 12px;}
+  th,td{border-bottom:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top;}
+  th{font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft);}
+  td:first-child{color:var(--a2-deep); font-weight:600; white-space:nowrap;}
+  code{font-family:var(--mono); font-size:12px; background:#edeae0; padding:1px 6px; border-radius:3px; color:var(--a2-deep);}
+  .chips{display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px;} .chip{font-family:var(--mono); font-size:10.5px; color:var(--soft); border:1px solid var(--line); border-radius:999px; padding:3px 10px;}
+  .body ul{margin:6px 0; padding-left:18px;} .body li{margin:5px 0;}
+  .foot{margin-top:30px; padding-top:15px; border-top:1px solid var(--line); display:flex; justify-content:space-between; font-family:var(--mono); font-size:10px; letter-spacing:.13em; text-transform:uppercase; color:var(--faint);}
+</style>
+</head>
+<body>
+<div class="sheet">
+  <div class="eyebrow"><span class="dot"></span><span class="id">naver-shopping-01</span><span>Prepare Note</span><span class="status">active</span></div>
+  <h1>Arrival-Day Failure-Prevention Kit 가설 수립</h1>
+  <p class="dek">Anti-theft commodity 시장에서 벗어나 소싱 위험이 낙은 paper-based 제품 표면 3가지를 도출했다.</p>
+  <div class="hr"></div>
+  <div class="axis ax1">
+    <div class="label"><span class="n">01</span> 무엇을 조사했나</div>
+    <div class="text">18:07Z anti-theft WATCH 스캔 이후 commodity(여권케이스·여행파우치·RFID지갑·도난방지가방)가 아닌 <b>소싱 위험이 낙은 비commodity 제품 표면</b>을 탐색했다.</div>
+  </div>
+  <div class="axis ax2">
+    <div class="label"><span class="n">02</span> 핵심 결과</div>
+    <div class="text">가설 3가지 도출 완료: <b>(A) 여행 비상 정보 카드 세트</b>, <b>(B) 도착일 안전 체크리스트 카드</b>, <b>(C) 여행 서류 백업 시스템</b>. 다음 스캔 키워드 8개 준비.</div>
+  </div>
+  <details open>
+    <summary><span class="chev"></span> 가설 상세</summary>
+    <div class="body">
+      <table>
+        <tr><th>가설</th><th>제품 형태</th><th>테스트 키워드</th><th>소싱 위험</th></tr>
+        <tr><td>A. 여행 비상 카드 세트</td><td>라미네이팅 카드 4-6장 (긴급연락처·숙소주소·분실대응)</td><td><code>여행 비상 카드</code>, <code>여행 긴급연락처 카드</code></td><td>낙음 (인쇄물)</td></tr>
+        <tr><td>B. 도착일 체크리스트 카드</td><td>양면 라미네이팅 카드 1-2장 (도착 직후 확인 항목)</td><td><code>도착일 여행 체크리스트</code>, <code>여행 안전 체크리스트 카드</code></td><td>낙음 (인쇄물)</td></tr>
+        <tr><td>C. 서류 백업 시스템</td><td>여권/카드 사본 보관 봉투 + 비상연락처 기입 카드</td><td><code>여행 서류 분리 보관</code>, <code>여행 서류 백업</code></td><td>중간 (방수봉투)</td></tr>
+      </table>
+      <p><strong>제외 결정:</strong> 여권케이스·여행파우치·RFID지갑·도난방지가방 (commodity/sourcing), 워크샵 카드 (사용자 철회), 트래블러스노트 속지 (사용자 거부)</p>
+      <p><strong>다음 액션:</strong> 가설 키워드 8개에 대한 bounded read-only Naver OpenAPI/SearchAd 스캔 (다음 heartbeat, 로컈 실행)</p>
+    </div>
+  </details>
+  <details>
+    <summary><span class="chev"></span> 실행 메타 · 산출물</summary>
+    <div class="body">
+      <div class="chips"><span class="chip">2026-06-10T19:07Z</span><span class="chip">cloud-prepare</span><span class="chip">active → active</span></div>
+      <ul>
+        <li>산출물 <code>artifacts/naver-shopping-01/arrival-day-failure-prevention-kit-hypothesis-2026-06-10.md</code></li>
+        <li>수정 <code>intents/active/naver-shopping-01.md</code>, <code>INTENTS.md</code></li>
+        <li>금지선: live store/listing/price/stock/shipping/ads/customer/order/account/public action 0.</li>
+        <li>approval: L0 Cloud prepare (no L2 needed)</li>
+      </ul>
+    </div>
+  </details>
+  <div class="foot"><span>Agent-First Heartbeat</span><span>Infinity · Intent Note</span></div>
+</div>
+</body>
+</html>
