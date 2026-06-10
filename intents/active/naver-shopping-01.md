@@ -9,7 +9,7 @@
 - display_name: 나래 / Narae
 - source_agent: `/home/ubuntu/.openclaw/workspace/agents/naver-shopping-agent/`
 - created_at: 2026-06-07T23:24Z
-- updated_at: 2026-06-09T15:07Z
+- updated_at: 2026-06-10T00:08Z
 
 ## Purpose
 
@@ -51,6 +51,7 @@
 - 2026-06-09T14:07Z **Marketer positioning folded into a single approval-ready packet in the Naver source stream (no live action).** The marketing-48 copy candidates lived in Infinity artifacts and the evidence/preflight constraints in the Naver workspace; they were synthesized into one user-approval-ready internal packet `naver-shopping-agent/listing-copy-preapproval-travelers-notebook-insert.md`. It binds the candidate titles/value props/detail intro/keyword groups/thumbnail text to the preflight constraint gates, states what the user is asked to approve (internal direction only) vs not authorized (sourcing/registration/price/ads/customer/account/publishing), and includes inherited assumptions, changed assumptions, conflicts-with-prior-outputs, and reusable learning candidates. All draft/proposal-only. Hard rules kept: title does not lead with the big-volume informational checklist phrase (leads from refill/insert/spec/use-case); brand/`호환`/`규격` wording is approval-needed; verdict stays **PIVOT (directional)**, not PROMOTE-grade because review-depth 429 + visual-rank 418 remain blocked. No demand verdict changed. No new Naver calls (418/429 unchanged, no aggressive retry). Report `reports/naver-shopping-01/2026-06-09T1407Z-local.html`.
 
 - 2026-06-09T15:07Z **Pre-approval packet routed to the 09:00 KST queue (no immediate user interruption).** The 14:07Z approval-ready internal packet was not an urgent live-action approval; it was added to `naver-shopping-agent/questions-for-9am.md` so the next visible morning report can ask the user to approve or edit the listing/copy direction in one batch. This preserves the user's "check only at 09:00 KST" operating preference. No demand verdict changed, no Naver calls were made, and no live listing/price/stock/shipping/ads/customer/order/account/store/public action occurred. Approval boundary remains: any live draft, public copy, brand/spec/compatibility wording, sourcing, registration, pricing, ads, or customer/account action requires explicit action-level approval. Report `reports/naver-shopping-01/2026-06-09T1507Z-router.html`.
+- 2026-06-10T00:08Z **User rejected / parked the Travelers Notebook travel-prep insert direction as too generic.** The 09:00 approval question is resolved as "do not continue this as the first SKU." Discovery resets to a sharper candidate search: avoid generic checklist/planner/insert shapes; require a clearer purchase reason tied to lived travel friction, route-risk rehearsal, local-question field capture, field-insight reuse, or workshop/conversation artifacts. No live listing/price/stock/shipping/ads/customer/order/account/store/public action occurred.
 
 ## Active Blockers
 
