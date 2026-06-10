@@ -9,7 +9,7 @@
 - display_name: 나래 / Narae
 - source_agent: `/home/ubuntu/.openclaw/workspace/agents/naver-shopping-agent/`
 - created_at: 2026-06-07T23:24Z
-- updated_at: 2026-06-10T20:07Z
+- updated_at: 2026-06-10T21:07Z
 
 ## Purpose
 
@@ -60,6 +60,7 @@
 - 2026-06-10T18:07Z **Anti-theft/document carry WATCH scan completed → demand strong but commodity/sourcing-heavy.** After workshop/question-card monetization was withdrawn, a bounded read-only OpenAPI/SearchAd pass tested the remaining WATCH branch (`여권케이스`, `여행지갑`, `여행파우치`, `소매치기 방지`, `도난방지 가방`, `RFID 차단 지갑`, `트래블 오거나이저`). Artifact: `naver-shopping-agent/anti-theft-document-carry-openapi-scan-2026-06-10.md`. Result: demand is materially stronger than the workshop-card branch (`여권케이스` 12,140/mo, `여행파우치` 3,860/mo, `RFID차단지갑` 1,480/mo, `도난방지가방` 6,400/mo with mobile CTR 6.84%), but top results are generic passport cases, wallets, pouches, phone tethers, and anti-theft bags. Verdict stays **WATCH / split path, not listing-approval-ready**: any viable candidate needs an arrival-day failure-prevention kit angle plus a sourcing/friction screen; `도난방지 가방` is too bag-quality/return/ad-risk heavy for first approval routing. No live store/listing/price/stock/shipping/ads/customer/order/account/public action occurred. Report `reports/naver-shopping-01/2026-06-10T1807Z-local.html`.
 - 2026-06-10T19:07Z **Arrival-day sourcing/friction screen completed → WATCH maintained, no sourcing approval.** Followed the 18:07Z scan with a lighter-surface friction screen: `캐리어네임택`/`러기지택`, phone anti-theft straps, 목걸이 여권지갑, emergency/safety cards, passport-copy prompts. Artifact `naver-shopping-agent/arrival-day-failure-prevention-sourcing-friction-screen-2026-06-10.md`, report `reports/naver-shopping-01/2026-06-10T1907Z-local.html`. `캐리어네임택`/`러기지택` is the best lower-friction watch surface (`캐리어네임택` 7,310/mo; `러기지택` 3,780/mo), while `핸드폰도난방지스트랩` has stronger buyer intent (1,890/mo, mobile CTR 4.42%) but more compatibility/quality/style risk. Emergency/safety cards carry the most original arrival-day story but have weak/noisy Naver object keywords. Verdict: **WATCH / no approval packet**. Do not ask for sourcing approval yet; next safe path is a paper/card-led arrival-day failure-prevention insert keyword test or a luggage-tag differentiation test. Live store/listing/price/shipping/stock/options/ads/customer/order/account/public actions 0.
 - 2026-06-10T20:07Z **Paper/card-led arrival-day insert keyword test completed → HOLD, not lead SKU.** Resolved one of the 19:07Z safe next actions with a bounded OpenAPI top-10 + SearchAd exact check until rate limit. Artifact `naver-shopping-agent/arrival-day-insert-keyword-test-2026-06-10.md`, report `reports/naver-shopping-01/2026-06-10T2007Z-local.html`. `해외여행 체크리스트` is the only clean-ish paper/planner shelf (OpenAPI 32,278; SearchAd 310 PC + 1,750 mobile/mo), but mobile CTR is only 0.05% and the shelf is generic checklist/planner commodity. `여행 준비 카드` and `여행 체크리스트 카드` are polluted by trading cards, photo-card holders, boards, wallets, and imported goods. Emergency/safety/contact-card language is story-rich but keyword-weak, non-travel, or privacy/safety-sensitive. Verdict: **HOLD / do not make the paper-card insert a lead SKU**. The arrival-day failure-prevention idea remains a content spine; next safe path is a luggage-tag/carrier-name-tag differentiation test. Live store/listing/price/shipping/stock/options/ads/customer/order/account/public actions 0.
+- 2026-06-10T21:07Z **Luggage-tag/carrier-name-tag differentiation test: EXPLORE.** Cloud web research found active craftsy/custom segment on Naver: 럭키플래닛, 아이디어스, 커스텀전문샵, 이너팩토리 at ₩6,800~30,000+. Keyword `캐리어네임택`/`러기지택` has craftsy-not-commodity character (unlike generic `해외여행 체크리스트`). Privacy risk manageable (nickname-only, no address). Arrival-day story moderate fit reframed as "도착순간 내 캐리어 찾기". User-fit: travel memory-making YES, documentation rhythm YES, daily-system WEAK. Verdict: **EXPLORE (not HOLD)**. Artifact `naver-shopping-agent/luggage-tag-keyword-test-2026-06-10.md`, report `reports/naver-shopping-01/2026-06-10T2107Z-local.html`. Next action: validate keyword volume (`캐리어네임택` OpenAPI/SearchAd) + shelf import-flood check — requires local Naver access. Live store/listing/price/shipping/stock/options/ads/customer/order/account/public actions 0.
 
 ## Active Blockers
 
@@ -74,6 +75,17 @@
 - sam_action: created `arrival-day-insert-keyword-test-2026-06-10.md`, updated `product-curation.md`, logged operation entry, wrote HTML report.
 - work_continues: yes. The remaining low-friction branch is a `캐리어네임택`/`러기지택` customization-differentiation test before any supplier/sample/listing path.
 - next_9am_message: no immediate user interruption. If summarized at 09:00, say the paper/card insert path stayed HOLD and no approval is needed.
+
+### 2026-06-10T21:07Z - Luggage-tag/carrier-name-tag differentiation test: EXPLORE
+
+- route: agent-solvable
+- status: resolved-local
+- source: Heartbeat cloud web research (L0 research mode)
+- finding: Active craftsy/custom segment found: 럭키플래닛, 아이디어스, 커스텀전문샵 at ₩6,800~30,000+. Keyword `캐리어네임택`/`러기지택` is craftsy not commodity. Privacy risk manageable (nickname-only). Arrival-day story moderate fit as "도착순간 내 캐리어 찾기".
+- blocker: keyword volume (OpenAPI/SearchAd) and shelf import-flood check require local Naver access.
+- user_needed: none for cloud research phase.
+- sam_action: queue keyword volume validation when local Naver access available.
+- work_continues: yes
 
 ### 2026-06-10T19:07Z - Arrival-day sourcing/friction screen completed (WATCH, no approval packet)
 
