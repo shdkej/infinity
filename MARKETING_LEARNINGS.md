@@ -181,6 +181,13 @@
 - **주의:** 첫 10명을 성패율·activation rate·PMF·전환율·retention%로 환산하지 않는다. 자기 말 기록은 신규 계측이 아니라 손기록(원문 그대로)만이다. maker self-test/synthetic/mock은 제외·표시한다. `deed_save_capped`·503·지연은 availability/friction이지 value/upgrade demand가 아니다. 공개 발송/DM/광고·프로덕션 카피·신규 이벤트/속성/tracking/privacy/dashboard/session replay·배포·비용·권한 변경은 모두 approval-needed. [[Message Confusion As Evidence]]·[[Prelaunch Decision Boundary]]·[[Agent-Led Growth Fits Task-Completion Products, Not Experience Products]]·[[Decision-Delegation Risk Rides The Verb, Control Rides The Affordance]]를 보완하는 첫 사용자 수집 루프 축이다.
 - **출처:** `marketing-47`, `marketing-27`, `marketing-08`, `marketing-46`, `marketing-45`.
 
+### Purchase Situation Before Object Shape
+
+- **결론:** 커머스 카테고리가 이미 붐비고 오브젝트 형태가 제네릭이면, 상품 포지셔닝은 오브젝트명에서 나오지 않는다. 먼저 "어떤 구매 상황에서 왜 이 버전이 필요한가"를 이름 붙이고, 넓은 카테고리 키워드는 그 다음에 검색 다리로만 쓴다.
+- **적용:** Naver Shopping 후보가 사용자에게 "너무 일반적"으로 보였거나 OpenAPI top results가 generic game/checklist/planner language로 포화된 경우, Marketer는 title/copy보다 먼저 구매 상황을 선택한다. 예: `질문 카드`가 아니라 AI/creator workshop room, `여행 체크리스트`가 아니라 refill/spec/use-case 맥락.
+- **주의:** 큰 OpenAPI total, SearchAd volume, generic object keyword는 demand base일 수 있지만 differentiation proof가 아니다. broad keyword를 title lead로 두기 전에 정보성/제네릭/카테고리-노이즈 여부를 분리한다. 소싱·상품등록·공개 카피·가격·배송·재고·광고·계정/고객/주문 액션은 approval-needed다.
+- **출처:** `marketing-50`, `marketing-48`, `naver-shopping-01`.
+
 ## 다음 Marketer 체크리스트
 
 1. 이번 intent가 어떤 기존 기준을 계승하는지 3개 이하로 적는다.

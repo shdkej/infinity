@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>marketing-50 · question/workshop card positioning</title>
+<style>
+  :root{
+    --bg:#f4f2ea; --panel:#fbfaf5; --ink:#2c2a25; --soft:#807c70; --faint:#a8a496; --line:#e3dfd2;
+    --a2:#5f7a5e; --a2-deep:#3f5740;
+    --a1:#a9745a; --a1-deep:#8a5c45;
+    --sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box;} html,body{margin:0;}
+  body{background:var(--bg); color:var(--ink); font-family:var(--sans); font-size:14px; line-height:1.68; -webkit-font-smoothing:antialiased;}
+  .sheet{max-width:720px; margin:0 auto; padding:48px 34px 46px;}
+  .reveal{opacity:0; animation:fade .7s ease forwards;}
+  @keyframes fade{from{opacity:0; transform:translateY(9px);} to{opacity:1; transform:none;}}
+  .eyebrow{display:flex; align-items:center; gap:10px; font-family:var(--mono); font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--soft);}
+  .eyebrow .id{color:var(--a2-deep); font-weight:600;} .eyebrow .dot{width:5px; height:5px; border-radius:50%; background:var(--a2);} .eyebrow .status{margin-left:auto; color:var(--a2-deep);}
+  h1{font-size:29px; line-height:1.3; font-weight:700; letter-spacing:-.01em; margin:20px 0 0;}
+  .dek{font-size:15.5px; color:var(--soft); margin:13px 0 0; max-width:52ch;}
+  .hr{height:1px; background:var(--line); margin:30px 0;}
+  .axis{padding:0 0 4px 22px; position:relative; margin-bottom:30px;}
+  .axis::before{content:""; position:absolute; left:0; top:6px; bottom:6px; width:2px; border-radius:2px;}
+  .axis.ax1::before{background:var(--a1);} .axis.ax2::before{background:var(--a2);}
+  .axis.ax1{--ul:var(--a1);} .axis.ax2{--ul:var(--a2);}
+  .axis .label{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase; margin-bottom:9px; display:flex; align-items:center; gap:8px;}
+  .axis.ax1 .label{color:var(--a1-deep);} .axis.ax2 .label{color:var(--a2-deep);}
+  .axis .label .n{font-weight:600; opacity:.6;} .axis .text{font-size:18px; line-height:1.6; color:#37352e;}
+  .axis .text b{font-weight:700; color:var(--ink); border-bottom:2px solid var(--ul);}
+  details{border:1px solid var(--line); border-radius:10px; background:var(--panel); margin-bottom:10px;}
+  summary{cursor:pointer; list-style:none; padding:14px 16px; display:flex; align-items:center; gap:11px; font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft);}
+  summary::-webkit-details-marker{display:none;} summary .chev{width:8px; height:8px; border-right:2px solid var(--a2-deep); border-bottom:2px solid var(--a2-deep); transform:rotate(-45deg); transition:.25s; flex:none; margin-left:2px;}
+  details[open] summary .chev{transform:rotate(45deg);} summary:hover{color:var(--ink);}
+  .body{padding:2px 16px 18px;} table{border-collapse:collapse; width:100%; font-size:13px; margin:4px 0 12px;}
+  th,td{border-bottom:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top;}
+  th{font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft); font-weight:600;}
+  td:first-child{color:var(--a2-deep); font-weight:600; white-space:nowrap;} .body p{color:var(--soft);}
+  .body ul{margin:6px 0; padding-left:18px;} .body li{margin:5px 0;}
+  code{font-family:var(--mono); font-size:12px; background:#edeae0; padding:1px 6px; border-radius:3px; color:var(--a2-deep);}
+  .chips{display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px;} .chip{font-family:var(--mono); font-size:10.5px; letter-spacing:.05em; color:var(--soft); border:1px solid var(--line); border-radius:999px; padding:3px 10px;}
+  .foot{margin-top:30px; padding-top:15px; border-top:1px solid var(--line); display:flex; justify-content:space-between; font-family:var(--mono); font-size:10px; letter-spacing:.13em; text-transform:uppercase; color:var(--faint);}
+</style>
+</head>
+<body>
+<div class="sheet">
+  <div class="eyebrow reveal"><span class="dot"></span><span class="id">marketing-50</span><span>Strategy Note</span><span class="status">archived</span></div>
+  <h1 class="reveal" style="animation-delay:.05s">질문/워크샵 카드 비제네릭 포지셔닝</h1>
+  <p class="dek reveal" style="animation-delay:.09s">나래의 두 번째 상품 탐색에서 카드 카테고리의 구매 이유를 좁혔습니다.</p>
+  <div class="hr reveal" style="animation-delay:.12s"></div>
+  <div class="axis ax1 reveal" style="animation-delay:.16s">
+    <div class="label"><span class="n">01</span> 무엇이 문제였나</div>
+    <div class="text"><b>질문 카드</b>와 <b>대화 카드</b>는 실제 카테고리지만, top-20이 커플·가족·술자리·보드게임 언어로 포화되어 있습니다. 오브젝트명만으로는 사용자가 싫어한 "너무 일반적" 문제가 반복됩니다.</div>
+  </div>
+  <div class="axis ax2 reveal" style="animation-delay:.22s">
+    <div class="label"><span class="n">02</span> 어떻게 해결하나</div>
+    <div class="text">다음 후보는 <b>AI/creator workshop facilitation cards</b>를 리드 프레임으로 두고, broad 카드 키워드는 보조 다리로만 씁니다. 상품 승인 요청은 아직 보내지 않습니다.</div>
+  </div>
+  <div class="reveal" style="animation-delay:.27s">
+  <details open>
+    <summary><span class="chev"></span> 상세</summary>
+    <div class="body">
+      <table>
+        <tr><th>항목</th><th>결과</th></tr>
+        <tr><td>산출물</td><td><code>artifacts/marketing-50/question-workshop-card-positioning-selection.md</code></td></tr>
+        <tr><td>추천 리드</td><td>AI / creator workshop facilitation cards</td></tr>
+        <tr><td>보조 테스트</td><td>product-observation / founder reflection, team retrospective, travel insight-to-content</td></tr>
+        <tr><td>금지선</td><td>소싱·상품등록·공개 카피·가격·배송·재고·옵션·광고·고객/주문/계정/스토어 액션 0</td></tr>
+      </table>
+    </div>
+  </details>
+  <details>
+    <summary><span class="chev"></span> 계승한 기준</summary>
+    <div class="body">
+      <ul>
+        <li>사용자 fit은 demand evidence가 아니며, OpenAPI/SearchAd는 방향성 자료입니다.</li>
+        <li>큰 검색량 문구가 곧 title lead가 되지는 않습니다. 문구가 정보성/제네릭 수요인지 먼저 봅니다.</li>
+        <li>작은 표본과 tiny SearchAd terms는 decision-grade metric으로 승격하지 않습니다.</li>
+      </ul>
+    </div>
+  </details>
+  <details>
+    <summary><span class="chev"></span> 이번에 새로 배운 것</summary>
+    <div class="body">
+      <ul>
+        <li><code>질문 카드</code>/<code>대화 카드</code>는 workshop demand가 아니라 broad object-shape demand입니다.</li>
+        <li><code>워크샵 카드</code>는 언어가 더 깨끗하지만 exact SearchAd demand가 너무 얇아 단독 demand base로 쓰기 어렵습니다.</li>
+        <li>따라서 넓은 카드 키워드는 보조 다리, 구매 상황은 AI/creator workshop room으로 분리해야 합니다.</li>
+      </ul>
+    </div>
+  </details>
+  <details>
+    <summary><span class="chev"></span> 다음 Marketer에게 넘길 규칙</summary>
+    <div class="body">
+      <p>커머스 카테고리가 붐비고 오브젝트 형태가 제네릭이면, 오브젝트명이 아니라 구매 상황을 먼저 리드한다. 넓은 키워드는 그 다음에 다리로 쓴다.</p>
+    </div>
+  </details>
+  <details>
+    <summary><span class="chev"></span> MARKETING_LEARNINGS.md 승격 후보</summary>
+    <div class="body">
+      <p>Generic commerce objects do not create positioning by themselves. After a generic-rejection, the Marketer must first name the purchase situation and only then borrow category keywords.</p>
+    </div>
+  </details>
+  <details>
+    <summary><span class="chev"></span> 실행 메타 · 산출물</summary>
+    <div class="body">
+      <div class="chips">
+        <span class="chip">2026-06-10T03:07Z</span>
+        <span class="chip">heartbeat</span>
+        <span class="chip">active source → archive</span>
+      </div>
+      <ul>
+        <li>산출물 <code>artifacts/marketing-50/question-workshop-card-positioning-selection.md</code></li>
+        <li>소스 <code>naver-shopping-01</code>, <code>question-workshop-card-openapi-scan-2026-06-10.md</code></li>
+      </ul>
+    </div>
+  </details>
+  </div>
+  <div class="foot reveal" style="animation-delay:.3s"><span>Agent-First Heartbeat</span><span>Infinity · Intent Note</span></div>
+</div>
+</body>
+</html>
