@@ -4,7 +4,7 @@
 
 ## Inbox
 
-<!-- 비어 있음. 새 의도가 등록되면 여기에 추가된다. -->
+<!-- marketing-51 inbox 2026-06-10T10:00Z [projects: virtue; type: strategy; topics: marketing,activation,product; permission: L1-docs-only; owner_route: Infinity→Claude Code] Virtue guided first-value 첫 세션 감사표 작성. Source note: `source/external-links/marketing/2026-06-10-ai-onboarding-guided-first-value.md`. Rationale: prelaunch Virtue는 AI 결과의 빠른 산출보다 사용자가 직접 해냈다고 느끼는 첫 가치와 통제감이 activation 품질을 가른다. Expected impact: 첫 10명 관찰에서 빈 입력/AI 대기/결과 해석/저장·종료 중 어디서 guided path가 끊기는지 신규 계측 없이 판독 가능. Success criteria: `apps/web/docs/` 또는 Infinity artifact에 4구간 감사표(첫 입력 전, AI 판단 대기, 결과 해석, 저장/종료), 수기 관찰 질문 2개, 기존 first value 기준(J1/J2/J4=`deed_saved`, J3=`deed_judged`)과 금지선(신규 이벤트·tracking/privacy·공개 카피·배포 0) 포함. First verification gate: 선행 문서 `first-real-user-baseline-template`, `first-10-design-user-ask-script`, `post-result-self-appropriation-reading-table`와 충돌 없이 보완 관계임을 확인하고 conflict marker no-match. -->
 
 ## Active
 
