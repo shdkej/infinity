@@ -8,7 +8,7 @@
 
 ## Active
 
-<!-- naver-shopping-01 active 2026-06-10T00:08Z → intents/active/naver-shopping-01.md [display: 나래/Narae; projects: naver-shopping,infinity,personal-ops; type: coordination; topics: automation,workflow,marketing; status: active-discovery-reset; approval: no-current-user-blocker] (사용자-facing 이름 나래/Narae 확정, 내부 id/path는 naver-shopping-agent 유지. 00:08Z: 사용자가 트래블러스노트/여행준비 속지 listing-copy 방향을 "너무 일반적"이라고 판단해 첫 SKU 후보에서 내렸다. 09:00 승인 질문은 resolved/rejected. 다음 탐색은 일반 체크리스트·플래너·속지 문법을 피하고, 실제 여행 실패/동선 리스크/현지 질문 수집/필드 인사이트 재사용/워크숍 대화 도구처럼 구매 이유가 더 선명한 후보를 찾는다. 새 네이버 호출 없음. 라이브 상품등록/가격·배송·재고/광고·고객·주문·계정·공개발행/브랜드·호환·규격 표현은 여전히 action-level approval-needed. archive 안 함(active 유지).) -->
+<!-- naver-shopping-01 active 2026-06-10T01:07Z → intents/active/naver-shopping-01.md [display: 나래/Narae; projects: naver-shopping,infinity,personal-ops; type: coordination; topics: automation,workflow,marketing; status: active-second-discovery; approval: no-current-user-blocker] (사용자-facing 이름 나래/Narae 확정, 내부 id/path는 naver-shopping-agent 유지. 00:08Z 사용자가 트래블러스노트/여행준비 속지 방향을 "너무 일반적"이라고 판단해 첫 SKU 후보에서 내림. 01:07Z docs-only 2차 탐색: Knowledge Lab + bounded Naver OpenAPI/SearchAd로 후보군 재분류. 다음 검증 타깃은 질문카드/워크샵카드 product family(`질문 카드` OpenAPI ~18,840, `워크샵 카드` ~6,955; SearchAd `질문카드` 650/mo, `대화카드` 300/mo, small high-CTR `아이스브레이킹카드`/`인사이트카드`). anti-theft/document carry는 WATCH, route-risk/local-question travel cards는 HOLD. 다음 안전 액션은 질문/워크샵 카드 top-20 카테고리 스캔. 라이브 상품등록/가격·배송·재고/광고·고객·주문·계정·공개발행은 여전히 action-level approval-needed. archive 안 함(active 유지).) -->
 
 ## Waiting
 
