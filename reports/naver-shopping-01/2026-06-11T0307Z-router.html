@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Infinity Report</title>
+<style>
+  :root{
+    --bg:#f4f2ea; --panel:#fbfaf5; --ink:#2c2a25; --soft:#807c70; --faint:#a8a496; --line:#e3dfd2;
+    --a2:#5f7a5e; --a2-deep:#3f5740;
+    --a1:#b08545; --a1-deep:#8a6633;
+    --sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;}
+  body{background:var(--bg); color:var(--ink); font-family:var(--sans);
+    font-size:14px; line-height:1.68; -webkit-font-smoothing:antialiased;}
+  .sheet{max-width:720px; margin:0 auto; padding:48px 34px 46px;}
+  .reveal{opacity:0; animation:fade .7s ease forwards;}
+  @keyframes fade{from{opacity:0; transform:translateY(9px);} to{opacity:1; transform:none;}}
+  .eyebrow{display:flex; align-items:center; gap:10px; font-family:var(--mono);
+    font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--soft);}
+  .eyebrow .id{color:var(--a2-deep); font-weight:600;}
+  .eyebrow .dot{width:5px; height:5px; border-radius:50%; background:var(--a2);}
+  .eyebrow .status{margin-left:auto; color:var(--a2-deep);}
+  h1{font-size:29px; line-height:1.3; font-weight:700; letter-spacing:-.01em; margin:20px 0 0;}
+  .dek{font-size:15.5px; color:var(--soft); margin:13px 0 0; max-width:52ch;}
+  .hr{height:1px; background:var(--line); margin:30px 0;}
+  .axis{padding:0 0 4px 22px; position:relative; margin-bottom:30px;}
+  .axis::before{content:""; position:absolute; left:0; top:6px; bottom:6px; width:2px; border-radius:2px;}
+  .axis.ax1::before{background:var(--a1);} .axis.ax2::before{background:var(--a2);}
+  .axis.ax1{--ul:var(--a1);} .axis.ax2{--ul:var(--a2);}
+  .axis .label{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase;
+    margin-bottom:9px; display:flex; align-items:center; gap:8px;}
+  .axis.ax1 .label{color:var(--a1-deep);} .axis.ax2 .label{color:var(--a2-deep);}
+  .axis .label .n{font-weight:600; opacity:.6;}
+  .axis .text{font-size:18px; line-height:1.6; color:#37352e;}
+  .axis .text b{font-weight:700; color:var(--ink); border-bottom:2px solid var(--ul);}
+  ol.find{list-style:none; counter-reset:f; margin:16px 0 0; padding:0;}
+  ol.find li{position:relative; padding:8px 0 8px 26px; font-size:15px; color:#37352e; border-top:1px solid var(--line);}
+  ol.find li:first-child{border-top:none;}
+  ol.find li::before{counter-increment:f; content:counter(f); position:absolute; left:0; top:9px;
+    font-family:var(--mono); font-size:12px; font-weight:600; color:var(--a1-deep);}
+  details{border:1px solid var(--line); border-radius:10px; background:var(--panel); margin-bottom:10px;}
+  summary{cursor:pointer; list-style:none; padding:14px 16px; display:flex; align-items:center; gap:11px;
+    font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft);}
+  summary::-webkit-details-marker{display:none;}
+  summary .chev{width:8px; height:8px; border-right:2px solid var(--a2-deep); border-bottom:2px solid var(--a2-deep);
+    transform:rotate(-45deg); transition:.25s; flex:none; margin-left:2px;}
+  details[open] summary .chev{transform:rotate(45deg);}
+  summary:hover{color:var(--ink);}
+  .body{padding:2px 16px 18px;}
+  table{border-collapse:collapse; width:100%; font-size:13px; margin:4px 0 12px;}
+  th,td{border-bottom:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top;}
+  th{font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft); font-weight:600;}
+  td:first-child{color:var(--a2-deep); font-weight:600; white-space:nowrap;}
+  .body p{color:var(--soft);}
+  .body ul{margin:6px 0; padding-left:18px;} .body li{margin:5px 0;}
+  code{font-family:var(--mono); font-size:12px; background:#edeae0; padding:1px 6px; border-radius:3px; color:var(--a2-deep);}
+  a{color:var(--a2-deep); text-underline-offset:3px;}
+  .chips{display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px;}
+  .chip{font-family:var(--mono); font-size:10.5px; letter-spacing:.05em; color:var(--soft); border:1px solid var(--line); border-radius:999px; padding:3px 10px;}
+  .foot{margin-top:30px; padding-top:15px; border-top:1px solid var(--line);
+    display:flex; justify-content:space-between; font-family:var(--mono); font-size:10px;
+    letter-spacing:.13em; text-transform:uppercase; color:var(--faint);}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="eyebrow reveal">
+    <span class="dot"></span>
+    <span class="id">naver-shopping-01</span>
+    <span>Router Note</span>
+    <span class="status">active · prepare</span>
+  </div>
+  <h1 class="reveal" style="animation-delay:.05s">캐리어네임택/러기지택 분화 테스트 준비</h1>
+  <p class="dek reveal" style="animation-delay:.09s">paper/card HOLD 이후 차기 테스트 대상 키워드 공간 클라우드 분석 · 로컬 실행 계획 수립</p>
+
+  <div class="hr reveal" style="animation-delay:.12s"></div>
+
+  <div class="axis ax1 reveal" style="animation-delay:.16s">
+    <div class="label"><span class="n">01</span> 무엇을 점검했나</div>
+    <div class="text"><b>paper/card HOLD 확인</b> → 캐리어네임택(7,310/mo)·러기지택(3,780/mo) 기존 데이터 재검토; <b>차별화 각도 부재</b>가 핵심 미결 사항</div>
+  </div>
+
+  <div class="axis ax2 reveal" style="animation-delay:.22s">
+    <div class="label"><span class="n">02</span> 이상 여부·조치</div>
+    <div class="text">블로커 없음. <b>여행 정체성(travel identity) 각도</b> — 단순 이름표 → 여행 시작 의식 제품 — 로 차별화 가설 수립; 로컬 크론용 OpenAPI/SearchAd 테스트 계획 준비 완료</div>
+    <ol class="find">
+      <li><code>캐리어네임택 커스텀</code> / <code>가죽 러기지택</code> / <code>캐리어태그 각인</code> — 로컬 top-10 OpenAPI 스캔 대상 키워드</li>
+      <li>PROMOTE 루브릭: 상위 10개 경쟁사 &lt;50개 · avg 가격 &gt;15,000 KRW · 커스텀/각인 옵션 없는 공백</li>
+      <li>유저 적합도 HIGH: 여행+기억 만들기+여행 준비 시스템 테마와 부합 · 카테고리 등록 마찰 LOW 예상</li>
+    </ol>
+  </div>
+
+  <div class="reveal" style="animation-delay:.27s">
+  <details open>
+    <summary><span class="chev"></span> 클라우드 prepare 분석 내용</summary>
+    <div class="body">
+      <p><strong>이전 데이터 요약</strong></p>
+      <table>
+        <tr><th>키워드</th><th>월 검색량</th><th>출처</th><th>현황</th></tr>
+        <tr><td>캐리어네임택</td><td>7,310/mo</td><td>SearchAd 2026-06-10T19:07Z</td><td>볼륨 있음, 차별화 필요</td></tr>
+        <tr><td>러기지택</td><td>3,780/mo</td><td>SearchAd 2026-06-10T19:07Z</td><td>볼륨 낮음, 프리미엄 틈새</td></tr>
+        <tr><td>해외여행 체크리스트</td><td>— (OpenAPI)</td><td>2026-06-10T20:07Z</td><td>HOLD — generic, low CTR</td></tr>
+      </table>
+
+      <p><strong>차별화 가설</strong></p>
+      <ul>
+        <li><strong>현재 시장</strong>: 대부분 단순 이름+전화번호 표시 (2,000~8,000 KRW 범위 bulk)</li>
+        <li><strong>차별화 포인트</strong>: 여행 정체성 오브젝트 — &ldquo;캐리어가 벨트에 나타나는 그 순간&rdquo; → 도착 불안 해소 + 여행 시작 의식</li>
+        <li><strong>소재/방식</strong>: 가죽 각인 / 커스텀 텍스트 / 미니멀 디자인</li>
+        <li><strong>가격대 타깃</strong>: 18,000~25,000 KRW (프리미엄 커스텀 구간)</li>
+        <li><strong>번들 각도</strong>: 여행 시나리오 카드+체크리스트 인서트와 &ldquo;여행 키트&rdquo; 세트 조합 가능</li>
+      </ul>
+
+      <p><strong>유저 적합도 평가</strong></p>
+      <ul>
+        <li>여행 + 기억 만들기 + 문서화 리듬 — HIGH 부합</li>
+        <li>Knowledge Lab 여행/개인 시스템 테마 — HIGH 부합</li>
+        <li>콘텐츠 생산 각도: &ldquo;나의 여행 키트 세팅&rdquo; 자연스럽게 연결</li>
+        <li>저클러터·재사용 선호와 부합 (일회성 소비재 아님)</li>
+      </ul>
+
+      <p><strong>카테고리 등록 마찰 평가</strong></p>
+      <ul>
+        <li>예상 카테고리: 여행용품 &gt; 캐리어 액세서리 또는 패션잡화</li>
+        <li>상품 정보 고시: 가죽제품/생활잡화 — 종이/카드보다 단순</li>
+        <li>특별 안전 인증 불필요</li>
+        <li>MOQ: 가죽 커스텀 1~10개 / PVC 벌크 50+개 — 소량 시작 가능</li>
+      </ul>
+
+      <p><strong>로컬 크론 실행 계획</strong></p>
+      <ul>
+        <li>OpenAPI top-10: <code>캐리어네임택 커스텀</code>, <code>가죽 러기지택</code>, <code>캐리어태그 각인</code>, <code>여행 이름표 개인화</code></li>
+        <li>SearchAd 정확 검색: <code>캐리어네임택 커스텀</code>, <code>러기지택 가죽</code></li>
+        <li>DataLab: 여행용품 카테고리 트렌드 체크</li>
+        <li>판단 루브릭:
+          <ul>
+            <li>PROMOTE: 상위 10개 중 독립몰 &lt;50개 + avg &gt;15,000 KRW + 커스텀/각인 옵션 없는 공백</li>
+            <li>WATCH: 경쟁 100+ or 강한 브랜드, 그러나 차별화 각도 존재</li>
+            <li>PIVOT: commodity 가격 경쟁 (avg &lt;8,000 KRW, review 1,000+ 범람)</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="chev"></span> 실행 메타 · 산출물</summary>
+    <div class="body">
+      <div class="chips">
+        <span class="chip">2026-06-11T0307Z</span>
+        <span class="chip">heartbeat · cloud prepare</span>
+        <span class="chip">active → active (no status change)</span>
+      </div>
+      <ul>
+        <li>산출물 <code>reports/naver-shopping-01/2026-06-11T0307Z-router.html</code></li>
+        <li>intent 업데이트 <code>intents/active/naver-shopping-01.md</code> (Current State 신규 항목 추가)</li>
+        <li>다음 로컬 실행: 캐리어네임택 커스텀 differentiation scan (OpenAPI + SearchAd)</li>
+        <li>사용자 알림 불필요: 신규 블로커 없음, 자율 실행 가능 단계</li>
+      </ul>
+    </div>
+  </details>
+  </div>
+
+  <div class="foot reveal" style="animation-delay:.3s">
+    <span>Agent-First Heartbeat</span>
+    <span>Infinity · Intent Note</span>
+  </div>
+</div>
+</body>
+</html>
