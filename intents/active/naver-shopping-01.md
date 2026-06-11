@@ -9,13 +9,15 @@
 - display_name: 나래 / Narae
 - source_agent: `/home/ubuntu/.openclaw/workspace/agents/naver-shopping-agent/`
 - created_at: 2026-06-07T23:24Z
-- updated_at: 2026-06-10T20:07Z
+- updated_at: 2026-06-11T0607Z
 
 ## Purpose
 
 네이버쇼핑몰 수익화 전담 에이전트가 막히는 지점을 SAM이 관리자처럼 분류하고, 사용자가 직접 확인해야 하는 항목만 09:00 KST 메시지로 묶는다.
 
 ## Current State
+
+- 2026-06-11T0607Z **Luggage-tag/carrier-name-tag differentiation test (cloud research pass).** Cloud-side keyword taxonomy complete. Market term audit from public product listings and search results: `캐리어 네임택` is the dominant compound keyword in actual product names (多 smart store listings); `러기지택` is secondary transliteration; `짐표` appears informal/low-frequency in product titles (less used by sellers). Differentiation signals: premium angle = leather/custom (`가죽 캐리어 네임택`, `자수 캐리어네임택`); B2B angle = travel agency group gift (`단체선물`); crossover = `어린이집 이름표 + 캐리어택`. Naver Shopping search still IP-blocked from cloud host (HTTP 418); Naver DataLab category-level blocked; ItemScout auth-gated. **Volume/competition numbers for `짐표` vs `캐리어 네임택` require local SearchAd keyword tool pass.** Next safe action: user runs Naver SearchAd Keyword Planner with [짐표, 캐리어네임택, 러기지택, 여행이름표] to get PC+mobile monthly volume → validate differentiation direction. No Naver calls, no live store/listing action. Artifact: none (cloud-only pass). Report: `reports/naver-shopping-01/2026-06-11T0607Z-router.html`. Maintain active status.
 
 - 2026-06-10T23:30Z **Question/workshop-card sourcing-friction screen added (docs-only).** Marketer `marketing-50` already selected the purchase situation before object shape: AI/creator workshop facilitation cards. This pass converted that positioning into a practical SKU gate: validate small-batch production route, MOQ, unit cost, card/box spec, category/product-info friction, and margin floor before any listing-direction approval. Verdict unchanged: **DRAFT / copy-led, not listing-ready**. No new Naver calls, no live store/listing/price/stock/shipping/ads/customer/order/account/public action. Artifact: `/home/ubuntu/.openclaw/workspace/agents/naver-shopping-agent/question-workshop-card-sourcing-friction-screen-2026-06-10.md`.
 
