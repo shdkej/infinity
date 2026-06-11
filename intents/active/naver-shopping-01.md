@@ -17,6 +17,8 @@
 
 ## Current State
 
+- 2026-06-11T1145Z **Luggage-tag/carrier-name-tag differentiation test — prepare complete (docs-only, cloud prepare mode).** OpenAPI/SearchAd 실행 불가(IP 차단) → keyword 후보와 구매상황 framing 준비. 분석 결과: 가방 이름표/네임태그 카테고리는 구매상황이 분산됨(분실방지·공항식별·스타일·개인정보보호·선물·단체). `캐리어 이름표`(실용/명확)·`여행 네임태그`(여행 특화)·`QR 네임태그`(개인정보 보호 차별화)가 첫 검증 후보. 브랜드-앵커(트래블러스노트) 패턴 없음 → 구매상황 분리로 진입 가능. 다음 안전 액션: local 에이전트가 Naver OpenAPI/SearchAd로 keyword 9개(`캐리어 이름표`, `여행 네임태그`, `캐리어 네임태그`, `네임태그 캐리어`, `가방 이름표`, `캐리어 태그 레더`, `QR 네임태그`, `여행 가방 분실방지`, `캐리어 분실방지 태그`) 검증 실행. report `reports/naver-shopping-01/2026-06-11T1145Z.html`. 라이브 상품등록/가격·배송·재고/광고·고객·주문·계정·공개발행 0.
+
 - 2026-06-10T23:30Z **Question/workshop-card sourcing-friction screen added (docs-only).** Marketer `marketing-50` already selected the purchase situation before object shape: AI/creator workshop facilitation cards. This pass converted that positioning into a practical SKU gate: validate small-batch production route, MOQ, unit cost, card/box spec, category/product-info friction, and margin floor before any listing-direction approval. Verdict unchanged: **DRAFT / copy-led, not listing-ready**. No new Naver calls, no live store/listing/price/stock/shipping/ads/customer/order/account/public action. Artifact: `/home/ubuntu/.openclaw/workspace/agents/naver-shopping-agent/question-workshop-card-sourcing-friction-screen-2026-06-10.md`.
 
 - independent agent workspace exists
