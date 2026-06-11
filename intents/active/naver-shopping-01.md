@@ -9,13 +9,15 @@
 - display_name: 나래 / Narae
 - source_agent: `/home/ubuntu/.openclaw/workspace/agents/naver-shopping-agent/`
 - created_at: 2026-06-07T23:24Z
-- updated_at: 2026-06-10T20:07Z
+- updated_at: 2026-06-11T0007Z
 
 ## Purpose
 
 네이버쇼핑몰 수익화 전담 에이전트가 막히는 지점을 SAM이 관리자처럼 분류하고, 사용자가 직접 확인해야 하는 항목만 09:00 KST 메시지로 묶는다.
 
 ## Current State
+
+- 2026-06-11T0007Z **Luggage-tag / carrier-name-tag differentiation test (cloud-only).** QR코드·이니셜·디자인 세 경로로 개인정보 리스크 해소 가능성 확인. `캐리어 네임택` object language는 `해외여행 체크리스트`보다 선반이 명확하고 사용자 fit 높음. 소싱 마찰(소량 아크릴 커스텀) 낮음. 판정: **CANDIDATE** / 라이브 Naver 키워드 수요·경쟁 강도는 클라우드 IP 차단으로 미검증. 다음 액션: 사용자/로컬 브라우저로 `캐리어 네임택` SearchAd 검증 후 sourcing friction screen 또는 listing-direction 승인 요청. 산출물 `artifacts/naver-shopping-01/luggage-tag-differentiation-test-2026-06-11.md`, 리포트 `reports/naver-shopping-01/2026-06-11T0007Z-cloud.html'. 라이브 상품등록/가격·배송·재고/광고·고객·주문·계정·공개발행 0.
 
 - 2026-06-10T23:30Z **Question/workshop-card sourcing-friction screen added (docs-only).** Marketer `marketing-50` already selected the purchase situation before object shape: AI/creator workshop facilitation cards. This pass converted that positioning into a practical SKU gate: validate small-batch production route, MOQ, unit cost, card/box spec, category/product-info friction, and margin floor before any listing-direction approval. Verdict unchanged: **DRAFT / copy-led, not listing-ready**. No new Naver calls, no live store/listing/price/stock/shipping/ads/customer/order/account/public action. Artifact: `/home/ubuntu/.openclaw/workspace/agents/naver-shopping-agent/question-workshop-card-sourcing-friction-screen-2026-06-10.md`.
 
