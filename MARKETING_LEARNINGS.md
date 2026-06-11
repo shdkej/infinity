@@ -202,6 +202,13 @@
 - **주의:** 큰 OpenAPI total, SearchAd volume, generic object keyword는 demand base일 수 있지만 differentiation proof가 아니다. broad keyword를 title lead로 두기 전에 정보성/제네릭/카테고리-노이즈 여부를 분리한다. 소싱·상품등록·공개 카피·가격·배송·재고·광고·계정/고객/주문 액션은 approval-needed다.
 - **출처:** `marketing-50`, `marketing-48`, `naver-shopping-01`.
 
+### `deed_judged` Is AI's Task, Not User's Task-Completion For J1/J2/J4
+
+- **결론:** AI 온보딩에서 `deed_judged` 발화는 AI가 자신의 작업(판정 반환)을 마친 신호이며, 사용자의 task-completion과 동치가 아니다. **J3만이 AI task completion = 사용자 task completion이 일치**하는 잡이다. J1/J2/J4에서 사용자의 task는 `deed_judged` 이후 `deed_saved`에서 완료된다. 이 분리를 `사용자 의도 → AI가 수행한 작업 → 사용자가 선택한 다음 행동` 3열 렌즈로 구조화한다.
+- **적용:** AI 온보딩 판독에서 ① "AI가 결과를 냈는가"(`deed_judged` 발화) ② "사용자가 원하던 것을 얻었는가"(잡별 task-completion)를 먼저 분리한다. judged-saved 갭이 있을 때 잡을 먼저 확인한다 — J3라면 정상 종료 후보, J1/J2/J4라면 B-LOST/B-MISMATCH/B-AVAIL/B-NORMAL 분리 대상이다.
+- **주의:** `deed_judged` 발화만으로 J1/J2/J4 activation 완료를 확정하지 않는다. judged−saved 갭을 J3에서 이탈/가치 부재로 읽지 않는다. `deed_save_capped`는 availability/friction이며 업그레이드/가치 신호가 아니다([[Availability And Friction Are Not Value]]). task-completion 비율, 전환율, PMF 확정은 [[Prelaunch Decision Boundary]] 위임. [[AI Outcome Proxy Separation]]·[[First Value Mapping]]·[[Post-Response Flow Reveals Value, Not The Result Event]]를 보완하는 task-completion 구조 축이다.
+- **출처:** `marketing-53`, `marketing-51`, `marketing-49`, `marketing-44`, `marketing-29`.
+
 ## 다음 Marketer 체크리스트
 
 1. 이번 intent가 어떤 기존 기준을 계승하는지 3개 이하로 적는다.
