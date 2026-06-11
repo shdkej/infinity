@@ -17,6 +17,8 @@
 
 ## Current State
 
+- 2026-06-11T0307Z **캐리어네임택/러기지택 분화 테스트 클라우드 prepare pass.** paper/card HOLD 이후 차기 테스트 대상인 `캐리어네임택`/`러기지택` 키워드 공간의 차별화 진입 각도를 클라우드에서 분석. 기존 데이터: `캐리어네임택` 7,310/mo, `러기지택` 3,780/mo (2026-06-10T19:07Z 로컬 스캔). 결론: 볼륨은 있으나 단순 이름 표시 이상의 차별화 각도가 필요한 상태. 클라우드 분석: **여행 정체성(travel identity) 각도** — 단순 이름표 → 여행 시작 의식(ritual) 제품. 커스텀/각인/가죽 소재가 차별화 지점. 유저 적합도: 여행+기억 만들기+여행 준비 시스템 테마와 고도 부합. 카테고리 등록 마찰: 여행용품/패션잡화 예상, 특별 인증 불필요. 로컬 크론 실행 계획 준비: OpenAPI `캐리어네임택 커스텀`/`가죽 러기지택`/`캐리어태그 각인` top-10 + SearchAd 정확 검색 + DataLab 여행용품 트렌드. 판단 루브릭: PROMOTE(<50 경쟁사 avg >15k KRW 브랜드 없음) / WATCH(>100 경쟁 or 강 브랜드, 차별화 가능) / PIVOT(가격 전쟁 commodity). 라이브 상품등록/가격·배송·재고/광고·고객·주문·계정·공개발행 0. Report `reports/naver-shopping-01/2026-06-11T0307Z-router.html`.
+
 - 2026-06-10T23:30Z **Question/workshop-card sourcing-friction screen added (docs-only).** Marketer `marketing-50` already selected the purchase situation before object shape: AI/creator workshop facilitation cards. This pass converted that positioning into a practical SKU gate: validate small-batch production route, MOQ, unit cost, card/box spec, category/product-info friction, and margin floor before any listing-direction approval. Verdict unchanged: **DRAFT / copy-led, not listing-ready**. No new Naver calls, no live store/listing/price/stock/shipping/ads/customer/order/account/public action. Artifact: `/home/ubuntu/.openclaw/workspace/agents/naver-shopping-agent/question-workshop-card-sourcing-friction-screen-2026-06-10.md`.
 
 - independent agent workspace exists
