@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Infinity Report — naver-shopping-01</title>
+<style>
+  :root{
+    --bg:#f4f2ea; --panel:#fbfaf5; --ink:#2c2a25; --soft:#807c70; --faint:#a8a496; --line:#e3dfd2;
+    --a2:#5f7a5e; --a2-deep:#3f5740;
+    --a1:#5a6f8a; --a1-deep:#3f536e;
+    --sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;}
+  body{background:var(--bg); color:var(--ink); font-family:var(--sans); font-size:14px; line-height:1.68; -webkit-font-smoothing:antialiased;}
+  .sheet{max-width:720px; margin:0 auto; padding:48px 34px 46px;}
+  .eyebrow{display:flex; align-items:center; gap:10px; font-family:var(--mono); font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--soft);}
+  .eyebrow .id{color:var(--a2-deep); font-weight:600;}
+  .eyebrow .dot{width:5px; height:5px; border-radius:50%; background:var(--a2);}
+  .eyebrow .status{margin-left:auto; color:var(--a2-deep);}
+  h1{font-size:29px; line-height:1.3; font-weight:700; letter-spacing:-.01em; margin:20px 0 0;}
+  .dek{font-size:15.5px; color:var(--soft); margin:13px 0 0; max-width:52ch;}
+  .hr{height:1px; background:var(--line); margin:30px 0;}
+  .axis{padding:0 0 4px 22px; position:relative; margin-bottom:30px;}
+  .axis::before{content:""; position:absolute; left:0; top:6px; bottom:6px; width:2px; border-radius:2px;}
+  .axis.ax1::before{background:var(--a1);} .axis.ax2::before{background:var(--a2);}
+  .axis.ax1{--ul:var(--a1);} .axis.ax2{--ul:var(--a2);}
+  .axis .label{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase; margin-bottom:9px; display:flex; align-items:center; gap:8px;}
+  .axis.ax1 .label{color:var(--a1-deep);} .axis.ax2 .label{color:var(--a2-deep);}
+  .axis .label .n{font-weight:600; opacity:.6;}
+  .axis .text{font-size:18px; line-height:1.6; color:#37352e;}
+  .axis .text b{font-weight:700; color:var(--ink); border-bottom:2px solid var(--ul);}
+  details{border:1px solid var(--line); border-radius:10px; background:var(--panel); margin-bottom:10px;}
+  summary{cursor:pointer; list-style:none; padding:14px 16px; display:flex; align-items:center; gap:11px; font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft);}
+  summary::-webkit-details-marker{display:none;}
+  summary .chev{width:8px; height:8px; border-right:2px solid var(--a2-deep); border-bottom:2px solid var(--a2-deep); transform:rotate(-45deg); transition:.25s; flex:none; margin-left:2px;}
+  details[open] summary .chev{transform:rotate(45deg);}
+  .body{padding:2px 16px 18px;}
+  table{border-collapse:collapse; width:100%; font-size:13px; margin:4px 0 12px;}
+  th,td{border-bottom:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top;}
+  th{font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft); font-weight:600;}
+  td:first-child{color:var(--a2-deep); font-weight:600; white-space:nowrap;}
+  .body p{color:var(--soft);}
+  .body ul{margin:6px 0; padding-left:18px;} .body li{margin:5px 0;}
+  code{font-family:var(--mono); font-size:12px; background:#edeae0; padding:1px 6px; border-radius:3px; color:var(--a2-deep);}
+  .chips{display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px;}
+  .chip{font-family:var(--mono); font-size:10.5px; letter-spacing:.05em; color:var(--soft); border:1px solid var(--line); border-radius:999px; padding:3px 10px;}
+  .foot{margin-top:30px; padding-top:15px; border-top:1px solid var(--line); display:flex; justify-content:space-between; font-family:var(--mono); font-size:10px; letter-spacing:.13em; text-transform:uppercase; color:var(--faint);}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="eyebrow">
+    <span class="dot"></span>
+    <span class="id">naver-shopping-01</span>
+    <span>나래/Narae · Keyword Prepare</span>
+    <span class="status">ACTIVE</span>
+  </div>
+  <h1>Luggage-tag / Carrier Name-tag 차별화 분석</h1>
+  <p class="dek">Cloud prepare mode — Naver OpenAPI/SearchAd IP 차단으로 구매상황 프레이밍과 keyword 후보 목록을 정리했다. local 에이전트 검증 대기.</p>
+
+  <div class="hr"></div>
+
+  <div class="axis ax1">
+    <div class="label"><span class="n">01</span> 무엇을 조사했나</div>
+    <div class="text"><b>luggage-tag/carrier-name-tag</b> 카테고리의 구매상황 6개와 keyword 차별화 후보를 cloud prepare mode로 분석했다 (Naver API 로컈 검증 대기).</div>
+  </div>
+
+  <div class="axis ax2">
+    <div class="label"><span class="n">02</span> 핵심 결과</div>
+    <div class="text">브랜드-앵콴 없는 카테고리 확인. <b><code>캐리어 이름표</code>·<code>여행 네임태그</code>·<code>QR 네임태그</code></b>가 구매상황 분리 최우선 검증 후보.</div>
+  </div>
+
+  <details open>
+    <summary><span class="chev"></span> 구매상황 분류 · Keyword 후보</summary>
+    <div class="body">
+      <table>
+        <tr><th>구매상황</th><th>핵심 언어</th><th>keyword 후보</th></tr>
+        <tr><td>분실방지</td><td>"내 가방 찾기" 공항 분실 대비</td><td><code>캔리어 분실방지 태그</code>, <code>여행 가방 분실방지</code></td></tr>
+        <tr><td>공항 식별</td><td>컨베이어 벨트에서 빠르게 찾기</td><td><code>캙리어 이름표</code>, <code>네임태그 캘리어</code></td></tr>
+        <tr><td>스타일</td><td>개성 있는 컴리어 표시</td><td><code>컨리어 태그 레더</code>, <code>가방 이름표</code></td></tr>
+        <tr><td>개인정보 보호</td><td>주소 노출 없이 식별</td><td><code>QR 네임태그</code>, <code>QR 네임태그 여행</code></td></tr>
+        <tr><td>선물</td><td>여행 선물 세트 구성</td><td><code>여행 네임태그</code>, <code>컴리어 네임태그</code></td></tr>
+        <tr><td>단체여행</td><td>투어/워크숍 그룹 식별</td><td><code>단체 여행 이름표</code></td></tr>
+      </table>
+      <p>트래블러스노트와 달리 브랜드-앵콴 없음 → 구매상황 분리로 진입 가능. 단 <code>이름표</code> 카테고리는 학교/사무용품 노이즈 존재 가능성 있음 — OpenAPI 검증 필요.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="chev"></span> 실행 메타 · 다음 액션</summary>
+    <div class="body">
+      <div class="chips">
+        <span class="chip">2026-06-11T1145Z</span>
+        <span class="chip">heartbeat / cloud prepare</span>
+        <span class="chip">active → active (in_progress)</span>
+      </div>
+      <ul>
+        <li>다음 액션: local 에이전트가 Naver OpenAPI/SearchAd로 keyword 9개 검증 실행</li>
+        <li>검증 후보: <code>컴리어 이름표</code> / <code>여행 네임태그</code> / <code>캓리어 네임태그</code> / <code>네임태그 켔리어</code> / <code>가방 이름표</code> / <code>캛리어 태그 레더</code> / <code>QR 네임태그</code> / <code>여행 가방 분실방지</code> / <code>컴리어 분실방지 태그</code></li>
+        <li>라이브 상품등록/가격·배송·재고/광고·고객·주문·계정·공개발행 0</li>
+      </ul>
+    </div>
+  </details>
+
+  <div class="foot">
+    <span>Agent-First Heartbeat</span>
+    <span>Infinity · Intent Note</span>
+  </div>
+</div>
+</body>
+</html>
