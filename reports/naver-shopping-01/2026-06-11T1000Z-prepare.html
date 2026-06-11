@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>naver-shopping-01 Prepare Report</title>
+<style>
+  :root{
+    --bg:#f4f2ea; --panel:#fbfaf5; --ink:#2c2a25; --soft:#807c70; --faint:#a8a496; --line:#e3dfd2;
+    --a2:#5f7a5e; --a2-deep:#3f5740;
+    --a1:#b08545; --a1-deep:#8a6633;
+    --sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;}
+  body{background:var(--bg); color:var(--ink); font-family:var(--sans);
+    font-size:14px; line-height:1.68; -webkit-font-smoothing:antialiased;}
+  .sheet{max-width:720px; margin:0 auto; padding:48px 34px 46px;}
+  .reveal{opacity:0; animation:fade .7s ease forwards;}
+  @keyframes fade{from{opacity:0; transform:translateY(9px);} to{opacity:1; transform:none;}}
+  .eyebrow{display:flex; align-items:center; gap:10px; font-family:var(--mono);
+    font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--soft);}
+  .eyebrow .id{color:var(--a2-deep); font-weight:600;}
+  .eyebrow .dot{width:5px; height:5px; border-radius:50%; background:var(--a1);}
+  .eyebrow .status{margin-left:auto; color:var(--a1-deep);}
+  h1{font-size:29px; line-height:1.3; font-weight:700; letter-spacing:-.01em; margin:20px 0 0;}
+  .dek{font-size:15.5px; color:var(--soft); margin:13px 0 0; max-width:52ch;}
+  .hr{height:1px; background:var(--line); margin:30px 0;}
+  .axis{padding:0 0 4px 22px; position:relative; margin-bottom:30px;}
+  .axis::before{content:""; position:absolute; left:0; top:6px; bottom:6px; width:2px; border-radius:2px;}
+  .axis.ax1::before{background:var(--a1);} .axis.ax2::before{background:var(--a2);}
+  .axis.ax1{--ul:var(--a1);} .axis.ax2{--ul:var(--a2);}
+  .axis .label{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase;
+    margin-bottom:9px; display:flex; align-items:center; gap:8px;}
+  .axis.ax1 .label{color:var(--a1-deep);} .axis.ax2 .label{color:var(--a2-deep);}
+  .axis .label .n{font-weight:600; opacity:.6;}
+  .axis .text{font-size:18px; line-height:1.6; color:#37352e;}
+  .axis .text b{font-weight:700; color:var(--ink); border-bottom:2px solid var(--ul);}
+  details{border:1px solid var(--line); border-radius:10px; background:var(--panel); margin-bottom:10px;}
+  summary{cursor:pointer; list-style:none; padding:14px 16px; display:flex; align-items:center; gap:11px;
+    font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft);}
+  summary::-webkit-details-marker{display:none;}
+  summary .chev{width:8px; height:8px; border-right:2px solid var(--a2-deep); border-bottom:2px solid var(--a2-deep);
+    transform:rotate(-45deg); transition:.25s; flex:none; margin-left:2px;}
+  details[open] summary .chev{transform:rotate(45deg);}
+  summary:hover{color:var(--ink);}
+  .body{padding:2px 16px 18px;}
+  table{border-collapse:collapse; width:100%; font-size:13px; margin:4px 0 12px;}
+  th,td{border-bottom:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top;}
+  th{font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft); font-weight:600;}
+  td:first-child{color:var(--a1-deep); font-weight:600; white-space:nowrap;}
+  .body p{color:var(--soft);}
+  .body ul{margin:6px 0; padding-left:18px;} .body li{margin:5px 0;}
+  code{font-family:var(--mono); font-size:12px; background:#edeae0; padding:1px 6px; border-radius:3px; color:var(--a2-deep);}
+  .chips{display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px;}
+  .chip{font-family:var(--mono); font-size:10.5px; letter-spacing:.05em; color:var(--soft); border:1px solid var(--line); border-radius:999px; padding:3px 10px;}
+  .foot{margin-top:30px; padding-top:15px; border-top:1px solid var(--line);
+    display:flex; justify-content:space-between; font-family:var(--mono); font-size:10px;
+    letter-spacing:.13em; text-transform:uppercase; color:var(--faint);}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="eyebrow reveal">
+    <span class="dot"></span>
+    <span class="id">naver-shopping-01</span>
+    <span>나래 / Narae — Prepare</span>
+    <span class="status">ACTIVE · PREPARE</span>
+  </div>
+  <h1 class="reveal" style="animation-delay:.05s">러기지 태그 / 캐리어 이름표 키워드 차별화 테스트 — 클라우드 준비</h1>
+  <p class="dek reveal" style="animation-delay:.09s">도착지 실패방지 인서트 HOLD 이후 다음 SKU 후보 키워드 준비. 네이버 쇼핑 IP 차단으로 실검은 로컬 실행 필요.</p>
+
+  <div class="hr reveal" style="animation-delay:.12s"></div>
+
+  <div class="axis ax1 reveal" style="animation-delay:.16s">
+    <div class="label"><span class="n">01</span> 무엇을 점검했나</div>
+    <div class="text"><b>러기지 태그 / 캐리어 이름표</b> 키워드 — 범용 수하물 태그(commodity)와 커스텀/퍼스널라이즈드 세그먼트 간 차별화 가능성. 클라우드에서 접근 가능한 일반 지식 기반 키워드 가설 정리. 실검은 로컬 Naver Shopping 접근 시 실행.</div>
+  </div>
+
+  <div class="axis ax2 reveal" style="animation-delay:.22s">
+    <div class="label"><span class="n">02</span> 이상 여부 · 조치</div>
+    <div class="text">네이버 쇼핑 <b>IP 차단 지속</b> (클라우드 접근 불가) — 실검 불가. 키워드 가설 5종 + 차별화 구매 상황 3종 + 테스트 프로토콜을 준비 완료. 로컬 에이전트가 이 준비 문서로 즉시 실행 가능.</div>
+  </div>
+
+  <div class="reveal" style="animation-delay:.27s">
+  <details open>
+    <summary><span class="chev"></span> 테스트 키워드 가설 및 차별화 구매 상황</summary>
+    <div class="body">
+      <table>
+        <tr><th>키워드 그룹</th><th>대표 키워드</th><th>가설 세그먼트</th><th>차별화 가능성</th></tr>
+        <tr><td>A. 범용</td><td>러기지 태그, 짐표, 캐리어 태그</td><td>commodity</td><td>낮음 (글로벌 수입 포화)</td></tr>
+        <tr><td>B. 이름표형</td><td>캐리어 이름표, 여행 이름표, 수하물 이름표</td><td>실용/분실방지</td><td>중간 (구매 상황 선명)</td></tr>
+        <tr><td>C. 커스텀/각인</td><td>가죽 러기지 태그, 이니셜 캐리어 이름표, 커스텀 네임태그</td><td>프리미엄/선물</td><td>높음 (구매 상황 + 차별화)</td></tr>
+        <tr><td>D. 감성/여행</td><td>빈티지 러기지 태그, 여행 네임택, 트래블 태그</td><td>라이프스타일</td><td>중간-높음 (사용자 핏)</td></tr>
+        <tr><td>E. 선물세트</td><td>여행 선물 이름표, 캐리어 선물</td><td>선물 구매 상황</td><td>중간 (시즌 의존)</td></tr>
+      </table>
+
+      <p><b>구매 상황 3종 (m50 Purchase Situation Before Object Shape 적용):</b></p>
+      <ul>
+        <li>상황 1: "해외여행 전 캐리어 분실 방지를 위해 이름표가 필요한 사람" → 실용/긴급 수요</li>
+        <li>상황 2: "캐리어를 내 스타일로 꾸미고 싶은 사람" → 감성/퍼스널라이즈 수요</li>
+        <li>상황 3: "여행 선물을 찾는 사람" → 선물 구매 수요</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="chev"></span> 로컬 실행 프로토콜 (나래 에이전트용)</summary>
+    <div class="body">
+      <p>이 섹션은 로컬 나래 에이전트가 Naver Shopping 접근 가능 시 실행할 프로토콜이다.</p>
+      <ol style="padding-left:18px; color:var(--soft);">
+        <li>각 키워드 그룹 (A~E)에서 대표 1~2개 키워드로 OpenAPI 검색 → total 수치 기록</li>
+        <li>SearchAd 키워드 도구로 PC + mobile 월간 검색량 확인</li>
+        <li>Top 10 상품 성격 분류: 글로벌 수입 commodity / 국내 커스텀 / 브랜드 차별화</li>
+        <li>그룹 C (커스텀/각인) 또는 D (감성/여행)에서 white-space 확인</li>
+        <li>판정 기준 적용:
+          <ul>
+            <li>PROMOTE: 커스텀/선물 각도에서 top 10 비어 있고 SearchAd volume 적정 → 다음 단계 진입</li>
+            <li>PIVOT: 차별화 angle 존재하지만 keyword-weak → 구매 상황 재설정</li>
+            <li>HOLD: commodity 포화, 차별화 angle 없음 → 다음 SKU 후보로 이동</li>
+          </ul>
+        </li>
+      </ol>
+      <p><b>이전 맥락:</b> arrival-day-insert 키워드 테스트 → HOLD (buyer intent 약함, generic commodity). 러기지 태그는 더 명확한 구매 상황(분실방지/선물)이 있어 차별화 각도 발견 가능성 더 높음.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="chev"></span> 실행 메타 · 현황</summary>
+    <div class="body">
+      <div class="chips">
+        <span class="chip">2026-06-11T10:00Z</span>
+        <span class="chip">Heartbeat / prepare</span>
+        <span class="chip">active-arrival-day-insert-hold → luggage-tag-prepare</span>
+      </div>
+      <ul>
+        <li>모드: <code>prepare</code> (cloud) — 실검은 로컬 실행 필요</li>
+        <li>네이버 쇼핑 공개 검색: IP 차단 지속 (HTTP 418)</li>
+        <li>라이브 상품등록·가격·배송·재고·광고·고객·주문·계정·공개발행: <b>0</b></li>
+        <li>다음 액션: 로컬 나래 에이전트가 위 프로토콜로 키워드 실검 실행</li>
+      </ul>
+    </div>
+  </details>
+  </div>
+
+  <div class="foot reveal" style="animation-delay:.3s">
+    <span>Agent-First Heartbeat</span>
+    <span>Infinity · Intent Note</span>
+  </div>
+</div>
+</body>
+</html>
