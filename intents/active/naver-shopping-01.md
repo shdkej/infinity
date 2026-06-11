@@ -9,13 +9,15 @@
 - display_name: 나래 / Narae
 - source_agent: `/home/ubuntu/.openclaw/workspace/agents/naver-shopping-agent/`
 - created_at: 2026-06-07T23:24Z
-- updated_at: 2026-06-10T20:07Z
+- updated_at: 2026-06-11T01:07Z
 
 ## Purpose
 
 네이버쇼핑몰 수익화 전담 에이전트가 막히는 지점을 SAM이 관리자처럼 분류하고, 사용자가 직접 확인해야 하는 항목만 09:00 KST 메시지로 묶는다.
 
 ## Current State
+
+- 2026-06-11T01:07Z **캐리어네임택/러기지택 차별화 cloud prepare pass 완료.** 자수/인쇄/가죽/스마트 4유형 시장 플레이어 웹 조사 완료. 자수 커스텀(힐링메이커스 9,900원~, 슬샵 11,400원)이 user-fit 대상 가장 유망. 4개 SearchAd/OpenAPI 테스트 질문 + PROMOTE/WATCH/HOLD 루브릭 로컬 에이전트에 전달 완료. 산출물 `artifacts/naver-shopping-01/luggage-tag-differentiation-prepare-2026-06-11.md`. 리포트 `reports/naver-shopping-01/2026-06-11T0107Z-cloud.html`. 다음 로컬 액션: SearchAd `캐리어네임택`/`러기지택`/`커스텀 캐리어네임택` 볼륨 + OpenAPI top-20 가격 분포 차별화 테스트. 라이브 상품등록/가격·배송/광고·고객·주문·계정·공개발행 0. archive 안 함(active 유지).
 
 - 2026-06-10T23:30Z **Question/workshop-card sourcing-friction screen added (docs-only).** Marketer `marketing-50` already selected the purchase situation before object shape: AI/creator workshop facilitation cards. This pass converted that positioning into a practical SKU gate: validate small-batch production route, MOQ, unit cost, card/box spec, category/product-info friction, and margin floor before any listing-direction approval. Verdict unchanged: **DRAFT / copy-led, not listing-ready**. No new Naver calls, no live store/listing/price/stock/shipping/ads/customer/order/account/public action. Artifact: `/home/ubuntu/.openclaw/workspace/agents/naver-shopping-agent/question-workshop-card-sourcing-friction-screen-2026-06-10.md`.
 
@@ -64,6 +66,18 @@
 - 2026-06-10T20:07Z **Paper/card-led arrival-day insert keyword test completed → HOLD, not lead SKU.** Resolved one of the 19:07Z safe next actions with a bounded OpenAPI top-10 + SearchAd exact check until rate limit. Artifact `naver-shopping-agent/arrival-day-insert-keyword-test-2026-06-10.md`, report `reports/naver-shopping-01/2026-06-10T2007Z-local.html`. `해외여행 체크리스트` is the only clean-ish paper/planner shelf (OpenAPI 32,278; SearchAd 310 PC + 1,750 mobile/mo), but mobile CTR is only 0.05% and the shelf is generic checklist/planner commodity. `여행 준비 카드` and `여행 체크리스트 카드` are polluted by trading cards, photo-card holders, boards, wallets, and imported goods. Emergency/safety/contact-card language is story-rich but keyword-weak, non-travel, or privacy/safety-sensitive. Verdict: **HOLD / do not make the paper-card insert a lead SKU**. The arrival-day failure-prevention idea remains a content spine; next safe path is a luggage-tag/carrier-name-tag differentiation test. Live store/listing/price/shipping/stock/options/ads/customer/order/account/public actions 0.
 
 ## Active Blockers
+
+### 2026-06-11T01:07Z - 캐리어네임택/러기지택 차별화 cloud prepare pass 완료
+
+- route: agent-solvable
+- status: resolved-local
+- source: cloud heartbeat research pass (web search, market mapping)
+- finding: 자수/인쇄/가죽/스마트 4유형 플레이어 확인. 자수 커스텀(9,900~11,400원)이 user-fit 가장 강함. 4개 SearchAd/OpenAPI 테스트 질문 + PROMOTE/WATCH/HOLD 루브릭 준비 완료. 산출물: `artifacts/naver-shopping-01/luggage-tag-differentiation-prepare-2026-06-11.md`.
+- blocker: no new user blocker. 로컬 환경의 Naver OpenAPI/SearchAd 접근으로만 차별화 테스트 완료 가능.
+- user_needed: none.
+- sam_action: 웹 조사 및 테스트 기준 정리 (artifact 작성), cloud HTML report 작성.
+- work_continues: yes. 다음 로컬 에이전트 액션: SearchAd `캐리어네임택`/`러기지택` 볼륨 + OpenAPI top-20 차별화 테스트.
+- next_9am_message: no user interruption. 내부 prepare pass 완료만 기록.
 
 ### 2026-06-10T20:07Z - Paper/card-led arrival-day insert keyword test completed (HOLD, not lead SKU)
 
