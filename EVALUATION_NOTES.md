@@ -490,3 +490,36 @@ Infinity intent 처리 품질을 평가해 다음 pickup/구조화/실행에서 
 
 - 대상 intent: 2026-05-24 독립 repo 전환 후 marketing-08 lane 잔존
 - 평가: prompt-archive에서 infinity를 분리할 때 `INTENTS.md`는 비어 있지만 `intents/active/marketing-08.md`가 archive와 함께 남은 상태까지 그대로 옮겨져 split 이후에도 stale pickup 위험이 유지된다. repo 이전/clone 대상 변경은 파일 이동 성공만 보지 말고 `INTENTS.md`와 lane 디렉터리 정합성, 최근 evaluator notes/index 이관 여부를 함께 검증해야 한다.
+
+- 대상 intent: 2026-05-30 기준 workflow-master 위임 규칙 변경 초안
+- 평가: `OPERATING_LESSONS.md`는 Claude Code 위임마다 workflow-master 우선을 강제하지만, 현재 `workflows/heartbeat.md` 미커밋 diff는 simple-doc 직접 실행 예외와 pt/purplemux 우선 호출을 도입한다. 이 예외가 의도라면 lessons/index까지 함께 갱신해 규칙 충돌을 없애고, 아니라면 heartbeat 초안을 병합 전에 되돌려야 한다.
+
+- 대상 intent: 2026-05-31 기준 evaluator 최근 노트와 현재 diff 불일치
+- 평가: 직전 평가가 미커밋 `workflows/heartbeat.md` diff를 근거로 규칙 충돌을 남겼지만 현재 diff는 사라지고 `EVALUATION_NOTES.md`만 미커밋 상태다. evaluator는 최근 노트를 근거로 반복 판단하기 전에 현재 `git diff`를 재확인해 이미 해소된 초안 충돌을 새 운영 문제처럼 누적하지 않아야 한다.
+
+- 대상 intent: 2026-06-02 기준 marketing-27~33 Archive 정합성
+- 평가: `INTENTS.md`가 marketing-27~31·33을 완료로 가리키고 report도 남겼지만 `intents/archive/{id}.md` canonical archive가 없으면, 다음 heartbeat/사용자는 긴 registry 주석이나 report를 다시 파야 한다. 완료 전이는 `INTENTS.md` 주석만으로 닫지 말고 report와 별개로 archive detail 파일 존재까지 게이트로 확인해야 한다.
+
+- 대상 intent: 2026-06-04 기준 marketing-34~37 Archive 정합성
+- 평가: 직전 지적 이후에도 최신 marketing 완료 항목들이 `INTENTS.md`와 HTML report에는 쌓였지만 `intents/archive/{id}.md` canonical detail 없이 닫히고 있다. 다음 heartbeat는 새 실행 pickup 전에 최근 Archive 전체에서 registry 완료 주석·report·archive detail 파일 3자 정합성을 먼저 복구해야 한다.
+
+- 대상 intent: 2026-06-05 기준 marketing-38~39 Archive 정합성
+- 평가: marketing-38~39까지 같은 archive detail 누락이 이어졌으므로, 다음 heartbeat는 신규 marketing 실행보다 먼저 `INTENTS.md` 완료 주석과 `reports/marketing-*`를 바탕으로 `intents/archive/marketing-34..39.md` canonical index를 복구하는 정리 작업을 우선해야 한다.
+
+- 대상 intent: 2026-06-06 기준 marketing-40~41 Archive 정합성
+- 평가: marketing-34~39 archive detail은 복구됐지만 최신 완료 marketing-40~41은 여전히 `INTENTS.md`와 report만 있고 `intents/archive/{id}.md`가 없으므로, 복구 작업은 과거 범위 일괄 생성이 아니라 새 완료 전이마다 canonical archive 파일 존재를 게이트로 막아야 한다.
+
+- 대상 intent: 2026-06-07 기준 marketing-40~43/research-12 Archive 정합성
+- 평가: 최신 marketing-43과 research-12는 canonical archive가 생겼지만 중간 완료 marketing-40~42는 여전히 report만 있고 `intents/archive/{id}.md`가 없으므로, 다음 heartbeat는 “최신 완료만 OK”로 통과하지 말고 최근 완료 범위 전체의 archive detail 누락을 backfill한 뒤 신규 실행을 이어가야 한다.
+
+- 대상 intent: 2026-06-08 기준 marketing-40~45 Archive 정합성
+- 평가: marketing-44는 archive detail이 생겼지만 marketing-45가 다시 `INTENTS.md`·report만 있고 `intents/archive/marketing-45.md` 없이 완료됐다. Archive 게이트는 과거 누락 backfill과 별도로 "이번에 완료한 id의 canonical archive 파일 존재"를 완료 전이 직후 필수 검증으로 실행해야 한다.
+
+- 대상 intent: 2026-06-09 기준 marketing-46~47 Archive 정합성
+- 평가: marketing-47은 `intents/archive/marketing-47.md`가 있지만 직전 완료 marketing-46은 여전히 archive detail 없이 `INTENTS.md`·report만 남아 있어, 완료 게이트가 최신 1건만 확인하는 방식으로 새고 있다. 다음 heartbeat는 신규 실행 전 최근 완료 범위를 연속 검사해 `marketing-40~42·45~46` 누락을 backfill하고, 완료 전이마다 해당 id의 canonical archive 존재를 필수 조건으로 막아야 한다.
+
+- 대상 intent: 2026-06-10 기준 evaluator 경로 정합성
+- 평가: 현재 cron은 canonical root `/home/ubuntu/workspace/knowledge-lab/infinity`를 명시하지만 `evaluators/infinity-evaluator.md` 본문은 여전히 prompt-archive 경로를 가리킨다. 다음 정리 때 evaluator 지침 자체를 canonical root로 고쳐, cron payload가 없거나 짧아져도 obsolete path를 읽지 않게 해야 한다.
+
+- 대상 intent: 2026-06-11 기준 naver-shopping-01 사용자 취향 보정
+- 평가: 키워드 수요가 있던 `캐리어네임택`/`러기지택`도 사용자 취향에서 낮게 평가되면 다음 실행 후보에서 즉시 강등되어야 한다. sourcing-first 전환은 "수요 스캔 → 상품화"가 아니라 `사용자 선호/소싱 난이도/품질·반품 리스크`를 선행 게이트로 두고, 기존 next_action까지 함께 덮어써야 수요 데이터가 철회된 후보를 되살리지 않는다.
