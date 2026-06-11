@@ -17,6 +17,8 @@
 
 ## Current State
 
+- 2026-06-11T00:07Z **러기지택/캐리어네임택 차별화 테스트 플랜 준비 완료 (cloud prepare 패스).** 로컬 API 없이 클라우드 Heartbeat가 차별화 테스트 프레임워크와 가설 5개를 수립했다. 가설: (1) 긴급연락처 표시 차별화 (도착일 실패방지 스토리 연결), (2) 국제여행 한영 이중언어 포맷, (3) 커스터마이징 수준·가격대 분포, (4) 여행 키트 번들 구성, (5) 콘텐츠 차별화 스토리 (도착일 실패방지). API 호출 계획: OpenAPI top-20 + SearchAd exact → `캐리어네임택`, `러기지택`, `여행 이름표`, `캐리어 이름표` + 확장 키워드 `긴급연락처 이름표`, `해외여행 이름표`. PROMOTE/PIVOT/HOLD 루브릭 포함. 산출물: `artifacts/naver-shopping-01/luggage-tag-differentiation-test-plan-2026-06-11.md`. 리포트: `reports/naver-shopping-01/2026-06-11T0007Z-cloud.html`. 실제 top-20 스캔은 로컬 크론(08:30 KST) 실행 예정. 라이브 스토어/상품등록/가격·배송·재고/광고·고객·주문·계정·공개발행 0.
+
 - 2026-06-10T23:30Z **Question/workshop-card sourcing-friction screen added (docs-only).** Marketer `marketing-50` already selected the purchase situation before object shape: AI/creator workshop facilitation cards. This pass converted that positioning into a practical SKU gate: validate small-batch production route, MOQ, unit cost, card/box spec, category/product-info friction, and margin floor before any listing-direction approval. Verdict unchanged: **DRAFT / copy-led, not listing-ready**. No new Naver calls, no live store/listing/price/stock/shipping/ads/customer/order/account/public action. Artifact: `/home/ubuntu/.openclaw/workspace/agents/naver-shopping-agent/question-workshop-card-sourcing-friction-screen-2026-06-10.md`.
 
 - independent agent workspace exists
