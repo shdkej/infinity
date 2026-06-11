@@ -195,6 +195,13 @@
 - **주의:** 전역 예시/placeholder 최적화 금지. 한 잡을 살리는 예시는 다른 잡을 구경·support-bot·판정 위임 모드로 끌 수 있다. 공개 카피, 버튼/placeholder 변경, 신규 이벤트·속성·개인화·tracking/privacy·dashboard/session replay·배포는 approval-needed다. J3는 `deed_judged`에서 first value가 닫히므로 저장을 정상 후속 행동으로 강제하지 않는다.
 - **출처:** `marketing-52`, `marketing-51`, `marketing-32`, `marketing-45`.
 
+### Task Completion In AI Onboarding Is User's Next Action, Not AI's Act
+
+- **결론:** AI 온보딩의 task completion은 AI가 행동한 시점이 아니라 **사용자가 AI가 제공한 것에 반응해 선택한 시점**이다. `deed_judged`는 AI의 기여 완료이고, 사용자의 task completion은 J1/J2/J4에서 `deed_saved`, J3에서 `deed_judged`다. "AI가 판정했다"와 "사용자가 작업을 완료했다"는 다른 사건이다.
+- **적용:** AI 온보딩 활성화/첫 세션 분석에서 `deed_judged` 발생을 J1/J2/J4 task completion으로 읽지 않는다. 잡별 task-completion 기준(J1/J2/J4=`deed_saved`, J3=`deed_judged`)을 먼저 확인하고, judged 이후 사용자가 선택한 행동(save / reroll / cap / exit)을 task complete / in-progress / blocked / normal-exit로 분류한다. 첫 10명 관찰에서 "deed_judged 몇 번" 대신 "judged 후 어떤 행동을 선택했나"를 손기록한다.
+- **주의:** J3 judged→exit는 정상 task success다 — 저장을 독촉하거나 이탈로 읽지 않는다. `deed_save_capped`는 task 포기가 아니라 availability 차단이다. `deed_rerolled`는 task failure로 단정하지 않는다. deed_judged 카운트가 높다고 activation rate가 높다고 환산하지 않는다. [[First Value Mapping]]·[[Post-Response Flow Reveals Value, Not The Result Event]]·[[Guided First-Value Is A Four-Stage Handoff]]를 보완하는 온보딩 completion 읽기 축이다.
+- **출처:** `marketing-53`, `marketing-52`, `marketing-51`, `marketing-44`.
+
 ### Purchase Situation Before Object Shape
 
 - **결론:** 커머스 카테고리가 이미 붐비고 오브젝트 형태가 제네릭이면, 상품 포지셔닝은 오브젝트명에서 나오지 않는다. 먼저 "어떤 구매 상황에서 왜 이 버전이 필요한가"를 이름 붙이고, 넓은 카테고리 키워드는 그 다음에 검색 다리로만 쓴다.
