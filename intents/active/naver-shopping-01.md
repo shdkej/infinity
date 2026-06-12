@@ -9,13 +9,15 @@
 - display_name: 나래 / Narae
 - source_agent: `/home/ubuntu/.openclaw/workspace/agents/naver-shopping-agent/`
 - created_at: 2026-06-07T23:24Z
-- updated_at: 2026-06-11T00:35Z
+- updated_at: 2026-06-12T0507Z
 
 ## Purpose
 
 네이버쇼핑몰 수익화 전담 에이전트가 막히는 지점을 SAM이 관리자처럼 분류하고, 사용자가 직접 확인해야 하는 항목만 09:00 KST 메시지로 묶는다.
 
 ## Current State
+
+- 2026-06-12T0507Z **Sourcing-first screen completed (cloud L0).** 8개 상품 후보군을 소싱 마찰·옵션 복잡도·QA 리스크·사용자 적합도·네이버 수요 5축으로 스크린. **1순위: 여행 스티커 세트·마스킹테이프 세트** (전 기준 최고점 — 마찰 LOW, QA VERY LOW, 수요 STRONG, 적합 HIGH). **2순위: TN 호환 액세서리(펜루프), 케이블 파우치**. 여권케이스는 소재 QA 부담으로 보류. 다음 안전 액션: 국내 스티커 인쇄소 단가·MOQ 확인(로컬 실행), 마스킹테이프 DataLab 수요 검증. Artifact: `artifacts/naver-shopping-01/sourcing-first-screen-2026-06-12.md`. 라이브 상품등록/가격·배송·재고/광고·고객·주문·계정·공개발행 0.
 
 - 2026-06-11T00:35Z **User preference update → sourcing-first, luggage tags downgraded.** User said Narae should focus more on sourcing than product-making, and that luggage tags are not a preferred product. Narae workspace docs now default to sourceable ready-made goods / light bundles before custom product-making, and the previous `캐리어네임택` / `러기지택` customization-differentiation branch is downgraded. Next safe work should be a broader sourcing-first screen for goods with low sample friction, low option complexity, manageable QA/return risk, and stronger user preference. No live store/listing/price/stock/shipping/ads/customer/order/account/public action occurred.
 
