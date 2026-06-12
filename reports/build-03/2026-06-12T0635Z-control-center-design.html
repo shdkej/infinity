@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>build-03 Control Center / Ops CMS</title>
+  <style>
+    body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #1f2933; background: #f6f7f9; }
+    main { max-width: 960px; margin: 0 auto; padding: 40px 20px 56px; }
+    h1 { font-size: 30px; margin: 0 0 10px; }
+    h2 { font-size: 18px; margin-top: 28px; }
+    p, li { line-height: 1.65; }
+    .meta { color: #64748b; margin-bottom: 24px; }
+    .axis { border-left: 5px solid #2f6f73; background: #fff; padding: 16px 18px; margin: 14px 0; border-radius: 8px; box-shadow: 0 1px 2px rgba(15,23,42,.06); }
+    .ax1 { border-color: #2f6f73; }
+    .ax2 { border-color: #c26a4a; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+    .card { background: #fff; border: 1px solid #d9dee7; border-radius: 8px; padding: 14px; }
+    code { background: #eef2f7; padding: 2px 5px; border-radius: 4px; }
+    details { background: #fff; border: 1px solid #d9dee7; border-radius: 8px; padding: 14px 16px; margin-top: 14px; }
+    summary { cursor: pointer; font-weight: 700; }
+  </style>
+</head>
+<body>
+<main>
+  <h1>Control Center / Ops CMS 설계 인벤토리</h1>
+  <p class="meta">build-03 · 2026-06-12T06:35Z · docs-only · 구현/배포 변경 없음</p>
+
+  <section class="axis ax1">
+    <h2>axis ax1 · 판단</h2>
+    <p>이 intent는 push 실패가 아니라 구현 전 설계 상태로 Inbox에 남아 있던 케이스다. 이번 실행에서는 안전한 L0/L1 범위 안에서 대시보드/정적페이지 인벤토리와 MVP 정보 구조를 만들고, 구현은 별도 승인 영역으로 남겼다.</p>
+  </section>
+
+  <section class="axis ax2">
+    <h2>axis ax2 · 결과</h2>
+    <p>아티팩트 <code>artifacts/build-03/control-center-dashboard-ops-cms-inventory.md</code>를 생성했고, Status, Travel, Card Library, Infinity, Virtue, Family Wedding 운영 표면을 1차로 묶었다.</p>
+  </section>
+
+  <section>
+    <h2>포함한 표면</h2>
+    <div class="grid">
+      <div class="card">Status · <code>status.aws.shdkej.com</code></div>
+      <div class="card">Travel Ops · <code>travel.aws.shdkej.com</code></div>
+      <div class="card">Card News Library · <code>library.aws.shdkej.com</code></div>
+      <div class="card">Infinity · <code>infinity.aws.shdkej.com</code></div>
+      <div class="card">Virtue Static · <code>virtue.aws.shdkej.com</code></div>
+      <div class="card">Family Wedding · <code>shdkej.github.io/family-wedding-2026-06-27</code></div>
+    </div>
+  </section>
+
+  <details open>
+    <summary>계승한 기준</summary>
+    <ul>
+      <li>Control Center는 범용 CMS가 아니라 운영 원장, 수정 진입점, 배포/검증 상태판으로 시작한다.</li>
+      <li>완료 기준은 로컬 수정이 아니라 push 후 공개 URL 검증이다.</li>
+      <li>쓰기 API, 배포 버튼, Terraform/AWS 변경, 프로덕션 영향은 별도 승인 전까지 열지 않는다.</li>
+    </ul>
+  </details>
+
+  <details>
+    <summary>다음 구현 후보</summary>
+    <ul>
+      <li><code>sites/registry.json</code>과 Infinity 원장을 읽는 read-only 내부 HTML부터 만든다.</li>
+      <li>Travel / Infinity / Status 세 표면만 먼저 연결한다.</li>
+      <li>자동 버튼은 검증 명령 표시에서 시작하고, 실행 권한은 후속 승인 뒤 붙인다.</li>
+    </ul>
+  </details>
+</main>
+</body>
+</html>

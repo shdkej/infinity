@@ -4,8 +4,6 @@
 
 ## Inbox
 
-<!-- build-03 inbox 2026-06-11T23:03Z → intents/inbox/build-03.md [display: Control Center / Ops CMS; projects: infinity,personal-ops,infrastructure; type: design; topics: dashboard,workflow,automation; status: inbox-dashboard-ops-cms-scope] (사용자가 트래블 대시보드와 다른 대시보드들을 한곳에서 관리하는 CMS 아이디어를 Infinity에 넣어달라고 요청. 범위는 범용 CMS가 아니라 대시보드 운영 CMS: registry, editable source data links, deploy/verify 상태, change log, 수정→빌드→push→URL 확인 흐름. 첫 액션은 현재 Travel/Status/Infinity/Card Library/static pages의 원장·데이터·배포 경로를 inventory로 묶고 MVP 정보구조/권한 경계를 설계하는 것. 구현/배포는 후속 승격 후 진행.) -->
-
 
 
 ## Active
@@ -17,6 +15,8 @@
 <!-- 사용자 결정, 외부 조건, 안전 확인 대기. 같은 질문을 반복하지 않고 상태만 보존한다. -->
 
 ## Archive
+
+<!-- build-03 completed 2026-06-12T06:35Z → reports/build-03/2026-06-12T0635Z-control-center-design.html [projects: infinity,personal-ops,infrastructure; type: design; topics: dashboard,workflow,automation] (Control Center / Ops CMS 설계 인벤토리 완료. 산출물 `artifacts/build-03/control-center-dashboard-ops-cms-inventory.md`. 결론: 범용 CMS가 아니라 운영 원장 + 수정 진입점 + 배포/검증 상태판으로 시작. 1차 인벤토리에 Status, Travel Ops, Card News Library, Infinity, Virtue Static, Family Wedding 포함. 각 표면별 공개 URL, 정본/로컬 위치, 데이터 원천, 빌드/생성, 배포/검증 경계를 정리. MVP 정보 구조는 Registry, Data Edit Panel, Deploy State, Change Log 네 층. 구현/배포 버튼/write API/Terraform/AWS/프로덕션 변경은 승인 전이라 미실행. HTML report gate(`<html`/`<body`/`axis ax1`/`axis ax2`/`<details`) 통과.) -->
 
 <!-- marketing-54 completed 2026-06-11T22:07Z → reports/marketing-54/2026-06-11T2207Z-local.html [projects: virtue; type: strategy; topics: onboarding,activation,prelaunch,feedback-loop] (Virtue 첫 10명 관찰/질문 스크립트 기대-획득-막힘 이유 루프 감사표 작성 완료. 산출물 `artifacts/marketing-54/virtue-first-10-expectation-outcome-blocker-loop-audit.md`. 출처노트 `source/external-links/marketing/2026-06-11-onboarding-feedback-loop.md`는 knowledge-lab 루트 기준 존재 확인. J1/J2/J4=`deed_saved`, J3=`deed_judged` first-value 매핑 유지. 정상 종료, 혼란 종료, 가치 미전달, 이미 충분해서 종료를 manual exit class로 분리. 신규 이벤트·인앱 서베이·tracking/privacy·공개 카피·배포·외부발송·비용 변경 0. conflict marker 0건. HTML report gate(`<html`/`<body`/`axis ax1`/`axis ax2`/`<details`) 통과.) -->
 
