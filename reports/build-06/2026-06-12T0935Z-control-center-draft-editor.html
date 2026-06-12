@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <title>build-06 Control Center Draft Editor MVP</title>
+    <style>
+      body { margin: 0; padding: 32px; font-family: ui-monospace, Menlo, Consolas, monospace; background: #f4f1ea; color: #182026; line-height: 1.55; }
+      main { max-width: 960px; margin: 0 auto; }
+      h1 { margin: 0 0 8px; font-family: Georgia, serif; font-size: 38px; line-height: 1; }
+      .meta, .axis { color: #66717d; }
+      .card { border: 1px solid #d7dde5; background: #fffdf8; padding: 18px; margin: 14px 0; }
+      code { background: #fbfaf5; padding: 1px 4px; }
+      details { border-top: 1px dashed #d7dde5; padding: 12px 0; }
+      summary { cursor: pointer; font-weight: 700; }
+      li { margin: 6px 0; }
+    </style>
+  </head>
+  <body>
+    <main>
+      <p class="meta">build-06 · 2026-06-12T09:35Z · implementation + deploy</p>
+      <h1>Control Center Draft Editor MVP</h1>
+      <p>기존 Status Control Center에 draft-only <b>Editable CMS / Draft Editor</b> 섹션을 추가했다. 첫 대상은 Family Wedding 안내장의 <b>NOTICE</b> 필드이며, 입력값은 정본 파일을 쓰지 않고 브라우저 메모리에서 unified <b>diff preview</b>로만 표시된다.</p>
+
+      <section class="card">
+        <p class="axis ax1"><b>axis ax1 · 사용자 가치</b></p>
+        <p>사용자는 이제 Control Center 공개 URL에서 수정 가능한 표면과 필드를 보고, NOTICE 새 문구를 입력해 어떤 변경이 일어날지 diff로 먼저 확인할 수 있다.</p>
+      </section>
+
+      <section class="card">
+        <p class="axis ax2"><b>axis ax2 · 운영 경계</b></p>
+        <p>write API, auth/permission, GitHub/AWS token server function, production deploy button, automatic commit-push from UI, Terraform/AWS resource, cost, destructive, secret editing은 구현하지 않았다. UI는 <code>preview.write=none</code> 경계를 명시한다.</p>
+      </section>
+
+      <details open>
+        <summary>수행한 작업</summary>
+        <ul>
+          <li>파일: <code>/home/ubuntu/workspace/space/infra-aws-static-sites/sites/status/dist/control-center/index.html</code></li>
+          <li>추가: <code>Draft Editor</code>, <code>Family Wedding 안내장</code>, <code>NOTICE field input</code>, <code>diff preview</code>, read-only change log example.</li>
+          <li>상태 feed 재생성: <code>sites/status/dist/status.json</code>.</li>
+          <li>Space repo commit/push: <code>d389511 feat(status): add control center draft editor</code>.</li>
+        </ul>
+      </details>
+
+      <details>
+        <summary>검증</summary>
+        <ul>
+          <li>정적 서버 응답에서 <code>Draft Editor</code>, <code>Family Wedding</code>, <code>diff preview</code>, <code>NOTICE field input</code> 확인.</li>
+          <li>Chromium headless DOM에서 JS 초기 렌더 후 <code>Draft-only diff preview generated</code>, <code>oldHash</code>, <code>newHash</code>, 추가 diff 라인 확인.</li>
+          <li>S3 sync: <code>s3://static-status-aws-shdkej-com</code>에 Control Center HTML과 <code>status.json</code> 업로드.</li>
+          <li>CloudFront invalidation: <code>I94000R114RC8NKS2P8OP48GQ</code>.</li>
+          <li>공개 URL: <code>https://status.aws.shdkej.com/control-center/index.html</code>에서 목표 문자열 확인.</li>
+        </ul>
+      </details>
+
+      <details>
+        <summary>다음 경계</summary>
+        <ul>
+          <li>실제 정본 파일 저장, 승인형 publish/deploy action, 토큰 서버, 권한 모델은 다음 intent에서 별도 승인/설계가 필요하다.</li>
+          <li>이번 작업은 Control Center의 "수정 시작 가능" 감각을 만드는 첫 draft edit MVP로 닫는다.</li>
+        </ul>
+      </details>
+    </main>
+  </body>
+</html>
