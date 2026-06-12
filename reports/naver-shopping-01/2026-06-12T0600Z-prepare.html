@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>naver-shopping-01 · 소싱-퍼스트 스크린</title>
+<style>
+  :root{
+    --bg:#f4f2ea; --panel:#fbfaf5; --ink:#2c2a25; --soft:#807c70; --faint:#a8a496; --line:#e3dfd2;
+    --a2:#5f7a5e; --a2-deep:#3f5740;
+    --a1:#a9745a; --a1-deep:#8a5c45;
+    --sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;}
+  body{background:var(--bg); color:var(--ink); font-family:var(--sans);
+    font-size:14px; line-height:1.68; -webkit-font-smoothing:antialiased;}
+  .sheet{max-width:720px; margin:0 auto; padding:48px 34px 46px;}
+  .reveal{opacity:0; animation:fade .7s ease forwards;}
+  @keyframes fade{from{opacity:0; transform:translateY(9px);} to{opacity:1; transform:none;}}
+
+  .eyebrow{display:flex; align-items:center; gap:10px; font-family:var(--mono);
+    font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--soft);}
+  .eyebrow .id{color:var(--a2-deep); font-weight:600;}
+  .eyebrow .dot{width:5px; height:5px; border-radius:50%; background:var(--a2);}
+  .eyebrow .status{margin-left:auto; color:var(--a2-deep);}
+  h1{font-size:29px; line-height:1.3; font-weight:700; letter-spacing:-.01em; margin:20px 0 0;}
+  .dek{font-size:15.5px; color:var(--soft); margin:13px 0 0; max-width:52ch;}
+  .hr{height:1px; background:var(--line); margin:30px 0;}
+
+  .axis{padding:0 0 4px 22px; position:relative; margin-bottom:30px;}
+  .axis::before{content:""; position:absolute; left:0; top:6px; bottom:6px; width:2px; border-radius:2px;}
+  .axis.ax1::before{background:var(--a1);} .axis.ax2::before{background:var(--a2);}
+  .axis.ax1{--ul:var(--a1);} .axis.ax2{--ul:var(--a2);}
+  .axis .label{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase;
+    margin-bottom:9px; display:flex; align-items:center; gap:8px;}
+  .axis.ax1 .label{color:var(--a1-deep);} .axis.ax2 .label{color:var(--a2-deep);}
+  .axis .label .n{font-weight:600; opacity:.6;}
+  .axis .text{font-size:18px; line-height:1.6; color:#37352e;}
+  .axis .text b{font-weight:700; color:var(--ink); border-bottom:2px solid var(--ul);}
+  ol.find{list-style:none; counter-reset:f; margin:16px 0 0; padding:0;}
+  ol.find li{position:relative; padding:8px 0 8px 26px; font-size:15px; color:#37352e; border-top:1px solid var(--line);}
+  ol.find li:first-child{border-top:none;}
+  ol.find li::before{counter-increment:f; content:counter(f); position:absolute; left:0; top:9px;
+    font-family:var(--mono); font-size:12px; font-weight:600; color:var(--a1-deep);}
+
+  details{border:1px solid var(--line); border-radius:10px; background:var(--panel); margin-bottom:10px;}
+  summary{cursor:pointer; list-style:none; padding:14px 16px; display:flex; align-items:center; gap:11px;
+    font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft);}
+  summary::-webkit-details-marker{display:none;}
+  summary .chev{width:8px; height:8px; border-right:2px solid var(--a2-deep); border-bottom:2px solid var(--a2-deep);
+    transform:rotate(-45deg); transition:.25s; flex:none; margin-left:2px;}
+  details[open] summary .chev{transform:rotate(45deg);}
+  summary:hover{color:var(--ink);}
+  .body{padding:2px 16px 18px;}
+  table{border-collapse:collapse; width:100%; font-size:13px; margin:4px 0 12px;}
+  th,td{border-bottom:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top;}
+  th{font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft); font-weight:600;}
+  td:first-child{color:var(--a2-deep); font-weight:600; white-space:nowrap;}
+  .body p{color:var(--soft);}
+  .body ul{margin:6px 0; padding-left:18px;} .body li{margin:5px 0;}
+  code{font-family:var(--mono); font-size:12px; background:#edeae0; padding:1px 6px; border-radius:3px; color:var(--a2-deep);}
+  a{color:var(--a2-deep); text-underline-offset:3px;}
+  .chips{display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px;}
+  .chip{font-family:var(--mono); font-size:10.5px; letter-spacing:.05em; color:var(--soft); border:1px solid var(--line); border-radius:999px; padding:3px 10px;}
+  .foot{margin-top:30px; padding-top:15px; border-top:1px solid var(--line);
+    display:flex; justify-content:space-between; font-family:var(--mono); font-size:10px;
+    letter-spacing:.13em; text-transform:uppercase; color:var(--faint);}
+  .verdict-pass{color:#3f5740; font-weight:700;}
+  .verdict-hold{color:#8a6633; font-weight:700;}
+  .verdict-no{color:#8a4545; font-weight:700;}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="eyebrow reveal">
+    <span class="dot"></span>
+    <span class="id">naver-shopping-01</span>
+    <span>Sourcing Screen · Prepare</span>
+    <span class="status">active → in_progress</span>
+  </div>
+  <h1 class="reveal" style="animation-delay:.05s">나래 소싱-퍼스트 상품 후보군 스크린</h1>
+  <p class="dek reveal" style="animation-delay:.09s">러기지택 하향 후 첫 번째 넓은 소싱 가능 상품 탐색. 여행·메모리메이킹·AI 크리에이터 교차 카테고리 대상.</p>
+
+  <div class="hr reveal" style="animation-delay:.12s"></div>
+
+  <div class="axis ax1 reveal" style="animation-delay:.16s">
+    <div class="label"><span class="n">01</span> 무엇이 문제였나</div>
+    <div class="text">소싱 우선 전환 후 <b>검증된 첫 SKU 후보가 없음</b> — 러기지택·캐리어네임택 하향, 제작형 상품 배제 이후 실제 소싱 가능한 여행/기록 카테고리를 전수 탐색하지 않은 상태.</div>
+  </div>
+
+  <div class="axis ax2 reveal" style="animation-delay:.22s">
+    <div class="label"><span class="n">02</span> 어떻게 해결하나</div>
+    <div class="text"><b>5개 PASS 후보 확정</b> — 압축파우치 세트(1위)·여권케이스(2위)·폴라로이드 앨범(3위)·투명파우치(4위)·목걸이 카드지갑(5위). 모두 저마찰 소싱·단순 옵션·사용자 취향 정합. 다음 단계: 1-3위 중 1개 상품으로 등록 준비 진입.</div>
+    <ol class="find">
+      <li>압축/정리 파우치 세트 — 수요 최고(~50,000/mo), 소싱 최이지, 여행 핵심</li>
+      <li>여권케이스 — 안정적 연중 수요(~30,000/mo), 표준 카테고리, 마진 구조 명확</li>
+      <li>폴라로이드/인스탁스 앨범 — 메모리메이킹 완벽 정합, 차별화 포지셔닝 가능</li>
+    </ol>
+  </div>
+
+  <div class="reveal" style="animation-delay:.27s">
+  <details open>
+    <summary><span class="chev"></span> 스크린 상세 결과</summary>
+    <div class="body">
+      <table>
+        <thead>
+          <tr><th>순위</th><th>상품</th><th>샘플마찰</th><th>옵션복잡도</th><th>QA리스크</th><th>취향정합</th><th>수요</th><th>판정</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>1</td><td>압축/정리 파우치 세트</td><td>★★★★★</td><td>★★★★☆</td><td>★★★★☆</td><td>★★★★☆</td><td>~50k/mo</td><td><span class="verdict-pass">✅ PASS</span></td></tr>
+          <tr><td>2</td><td>여권케이스/여권지갑</td><td>★★★★★</td><td>★★★★★</td><td>★★★★★</td><td>★★★★☆</td><td>~30k/mo</td><td><span class="verdict-pass">✅ PASS</span></td></tr>
+          <tr><td>3</td><td>폴라로이드/인스탁스 앨범</td><td>★★★★☆</td><td>★★★★★</td><td>★★★★★</td><td>★★★★★</td><td>~15k/mo</td><td><span class="verdict-pass">✅ PASS</span></td></tr>
+          <tr><td>4</td><td>투명 파우치 (케이블정리)</td><td>★★★★★</td><td>★★★★★</td><td>★★★★★</td><td>★★★☆☆</td><td>~20k/mo</td><td><span class="verdict-pass">✅ PASS</span></td></tr>
+          <tr><td>5</td><td>목걸이 카드지갑</td><td>★★★★★</td><td>★★★★★</td><td>★★★★☆</td><td>★★★★☆</td><td>~25k/mo</td><td><span class="verdict-pass">✅ PASS</span></td></tr>
+          <tr><td>—</td><td>여행 목베개</td><td>★★★★☆</td><td>★★★★★</td><td>★★★☆☆</td><td>★★★☆☆</td><td>~20k/mo</td><td><span class="verdict-hold">⚠️ HOLD</span></td></tr>
+          <tr><td>—</td><td>여행 미니 다이어리</td><td>★★★★★</td><td>★★★★☆</td><td>★★★★★</td><td>★★★★☆</td><td>~10k/mo</td><td><span class="verdict-hold">⚠️ HOLD</span></td></tr>
+          <tr><td>—</td><td>여행 어댑터/멀티탭</td><td>★★★☆☆</td><td>★★★☆☆</td><td>★★☆☆☆</td><td>★★★☆☆</td><td>~15k/mo</td><td><span class="verdict-no">❌ 내림</span></td></tr>
+        </tbody>
+      </table>
+
+      <p><strong>1위 압축/정리 파우치 세트</strong>: 도매꾹/도매인에 MOQ 5개부터 가능. 원가 3,000-8,000원, 소비자가 15,000-25,000원 구간. "여행 짐 3분 정리" 콘텐츠 각도 자연스러움.</p>
+      <p><strong>2위 여권케이스</strong>: 연중 안정 수요. 원가 2,000-5,000원, 소비자가 8,000-18,000원. 경쟁 강하나 초기 테스트 카테고리로 적합.</p>
+      <p><strong>3위 폴라로이드/인스탁스 앨범</strong>: 메모리메이킹 사용자 취향 완벽 정합. 호환 기종(미니/와이드 등) 표 필요 → 등록 마찰 약간 있음. "여행 사진 정리법" 콘텐츠 각도.</p>
+      <p><strong>HOLD 목베개</strong>: 충전재(메모리폼/마이크로비드) 품질 편차, 반품 사유 복잡할 수 있음.</p>
+      <p><strong>HOLD 여행 다이어리</strong>: 이전 "트래블러스노트/여행속지" 하향 판정과 동일 리스크. 차별화 포인트 없으면 진입 어려움.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="chev"></span> 이전 스크린 인계 현황</summary>
+    <div class="body">
+      <table>
+        <thead><tr><th>상품</th><th>결과</th><th>이유</th></tr></thead>
+        <tbody>
+          <tr><td>트래블러스노트/여행속지</td><td><span class="verdict-no">❌ 내림</span></td><td>"너무 일반적", 차별화 없음 (2026-06-08)</td></tr>
+          <tr><td>캐리어네임택/러기지택</td><td><span class="verdict-no">❌ 내림</span></td><td>사용자 선호 낮음 (2026-06-11)</td></tr>
+          <tr><td>워크샵 질문카드</td><td><span class="verdict-hold">⚠️ DRAFT</span></td><td>소싱 마찰 높음, 리스팅 불가 (2026-06-10)</td></tr>
+          <tr><td>해외여행 체크리스트 카드</td><td><span class="verdict-hold">⚠️ HOLD</span></td><td>buyer intent 약함, 카드류 노이즈 (2026-06-10)</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="chev"></span> 다음 단계 · 실행 메타</summary>
+    <div class="body">
+      <div class="chips">
+        <span class="chip">2026-06-12T06:00Z</span>
+        <span class="chip">heartbeat · cloud-prepare</span>
+        <span class="chip">active → in_progress</span>
+        <span class="chip">L0 · no-approval-needed</span>
+      </div>
+      <ul>
+        <li><strong>즉시:</strong> 나래 에이전트에 1-3위 상품 전달, 도매 소싱처 확인 요청</li>
+        <li><strong>1-3위 중 1개 선택:</strong> 압축파우치 세트 (수요·마진 최우선) 또는 여권케이스 (안전한 입문)</li>
+        <li><strong>다음 단계:</strong> 선택 상품 경쟁 분석 → 마진 시뮬레이션 → 등록 준비</li>
+        <li><strong>승인 경계:</strong> 실제 상품 등록/가격·배송·재고/광고는 사용자 승인 전 미실행</li>
+      </ul>
+      <ul>
+        <li>산출물 <code>artifacts/naver-shopping-01/sourcing-first-screen-2026-06-12.md</code></li>
+      </ul>
+    </div>
+  </details>
+  </div>
+
+  <div class="foot reveal" style="animation-delay:.3s">
+    <span>Agent-First Heartbeat</span>
+    <span>Infinity · Intent Note</span>
+  </div>
+</div>
+</body>
+</html>
