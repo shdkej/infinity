@@ -9,13 +9,15 @@
 - display_name: 나래 / Narae
 - source_agent: `/home/ubuntu/.openclaw/workspace/agents/naver-shopping-agent/`
 - created_at: 2026-06-07T23:24Z
-- updated_at: 2026-06-11T00:35Z
+- updated_at: 2026-06-12T0930Z
 
 ## Purpose
 
 네이버쇼핑몰 수익화 전담 에이전트가 막히는 지점을 SAM이 관리자처럼 분류하고, 사용자가 직접 확인해야 하는 항목만 09:00 KST 메시지로 묶는다.
 
 ## Current State
+
+- 2026-06-12T0930Z **Heartbeat sourcing-first screen completed → 투명 파우치 세트·압축 파우치 세트 1순위 확정.** Previous HOLD/downgraded items excluded (paper/card insert, luggage tags, Traveler's Notebook inserts, workshop cards). A 4-axis cloud-prepare screen (sourcing friction · option complexity · QA/return risk · user taste fit) was run across travel-accessory categories using purchase-situation framing (MARKETING_LEARNINGS m50). Result: **투명 파우치 세트(TSA용)** and **여행 압축 파우치 세트** score LOW/LOW/LOW/HIGH on all four axes and align with the "출발 준비 시스템" purchase context. Next safe action: local Naver DataLab/OpenAPI validation of `여행 파우치 세트`, `여행 압축 파우치`, `기내 파우치 세트` keywords (demand trend + SearchAd CTR + top-20 competition). No live store/listing/price/stock/shipping/ads/customer/order/account/public action occurred. Artifact: `artifacts/naver-shopping-01/sourcing-first-screen-2026-06-12.md`, report: `reports/naver-shopping-01/2026-06-12T0930Z-sourcing-screen.html`.
 
 - 2026-06-11T00:35Z **User preference update → sourcing-first, luggage tags downgraded.** User said Narae should focus more on sourcing than product-making, and that luggage tags are not a preferred product. Narae workspace docs now default to sourceable ready-made goods / light bundles before custom product-making, and the previous `캐리어네임택` / `러기지택` customization-differentiation branch is downgraded. Next safe work should be a broader sourcing-first screen for goods with low sample friction, low option complexity, manageable QA/return risk, and stronger user preference. No live store/listing/price/stock/shipping/ads/customer/order/account/public action occurred.
 
