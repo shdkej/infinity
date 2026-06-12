@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <title>build-07 Control Center Next.js Supabase CMS</title>
+    <style>
+      body { margin: 0; padding: 32px; font-family: ui-monospace, Menlo, Consolas, monospace; background: #f5f7f5; color: #17201a; line-height: 1.55; }
+      main { max-width: 980px; margin: 0 auto; }
+      h1 { margin: 0 0 8px; font-family: Georgia, serif; font-size: 38px; line-height: 1; }
+      .meta, .axis { color: #5b6b63; }
+      .card { border: 1px solid #d6ded8; background: #fffefa; padding: 18px; margin: 14px 0; border-radius: 8px; }
+      code { background: #f0f3ef; padding: 1px 4px; border-radius: 4px; }
+      details { border-top: 1px dashed #cbd6ce; padding: 12px 0; }
+      summary { cursor: pointer; font-weight: 700; }
+      li { margin: 6px 0; }
+    </style>
+  </head>
+  <body>
+    <main>
+      <p class="meta">build-07 · 2026-06-12T10:05Z · implementation + web CRUD verification</p>
+      <h1>Control Center Next.js Supabase CMS</h1>
+      <p>Control Center CMS를 실제 웹에서 데이터를 만들고 고칠 수 있는 <b>Next.js + Supabase CRUD MVP</b>로 배포했다. 공개 주소는 <code>https://cms.oracle.shdkej.com</code>이다.</p>
+
+      <section class="card">
+        <p class="axis ax1"><b>axis ax1 · 사용자 가치</b></p>
+        <p>사용자는 이제 CMS 화면에서 Family Wedding NOTICE 같은 운영 값을 직접 생성, 수정, 삭제할 수 있다. 이번 데이터는 Supabase scratch table에 머물며 실제 공개 페이지 반영은 별도 승인 단계로 남겨 두었다.</p>
+      </section>
+
+      <section class="card">
+        <p class="axis ax2"><b>axis ax2 · 운영 경계</b></p>
+        <p>서비스 키는 Kubernetes Secret에서 server-side route만 사용한다. 브라우저에는 service role key를 노출하지 않는다. production page write, commit/push from UI, deploy button, auth/permission, rollback은 <code>build-08</code>에서 다룬다.</p>
+      </section>
+
+      <details open>
+        <summary>수행한 작업</summary>
+        <ul>
+          <li>Space app: <code>apps/control-center-cms</code>.</li>
+          <li>ArgoCD application: <code>argocd/apps/control-center-cms.yaml</code>.</li>
+          <li>Kubernetes deployment/service/ingress: <code>control-center-cms</code>.</li>
+          <li>Supabase table: <code>public.control_center_items</code>.</li>
+          <li>Space commits: <code>c1a168e</code>, <code>8abc407</code>.</li>
+        </ul>
+      </details>
+
+      <details>
+        <summary>검증</summary>
+        <ul>
+          <li>Local Next.js build PASS.</li>
+          <li>Kubernetes rollout 1/1 available.</li>
+          <li>HTTPS 200: <code>https://cms.oracle.shdkej.com</code>.</li>
+          <li>Public API create, patch, get, delete PASS.</li>
+          <li>Browser UI create, edit, delete PASS.</li>
+          <li>Persistent ready sample: <code>66061087-4ce3-4586-b223-f1eb50620d2d</code>.</li>
+        </ul>
+      </details>
+
+      <details>
+        <summary>다음 경계</summary>
+        <ul>
+          <li><code>build-08</code>: authenticated publish pipeline.</li>
+          <li>첫 대상은 Family Wedding NOTICE record → diff preview → 승인형 publish → source write → commit/push → deploy verification.</li>
+          <li>권한, audit log, rollback handle을 함께 열어야 한다.</li>
+        </ul>
+      </details>
+    </main>
+  </body>
+</html>

@@ -4,7 +4,7 @@
 
 ## Inbox
 
-<!-- build-07 inbox 2026-06-12T09:38Z → intents/inbox/build-07.md [display: Control Center Save/Publish Boundary; projects: infinity,personal-ops,infrastructure; type: design; topics: dashboard,cms,editing,deploy,security; status: needs-save-publish-boundary] (build-06 Draft Editor MVP는 정본 파일을 쓰지 않는 diff preview까지 완료. 실제 CMS 저장/commit-push/deploy/auth/token 서버 기능은 위험도가 올라가므로 다음 후속 intent로 연결. 첫 안전 액션은 local-only draft save, server-side write API, GitHub commit/push, deploy action, auth/permission, audit log, rollback 경계를 승인 단위로 나누는 것.) -->
+<!-- build-08 inbox 2026-06-12T10:05Z → intents/inbox/build-08.md [display: Control Center Authenticated Publish Pipeline; projects: infinity,personal-ops,infrastructure; type: implementation; topics: dashboard,cms,auth,publish,deploy; status: needs-auth-publish-boundary] (build-07은 Next.js + Supabase scratch CRUD로 웹 데이터 생성/수정/삭제까지 완료. 다음 단계는 실제 공개 페이지 정본 반영을 열기 전 auth/permission, approval gate, source repo write, commit/push, deploy trigger, rollback, audit log를 하나의 publish pipeline으로 설계/구현하는 것. 실제 production page write/deploy는 승인 경계 유지.) -->
 
 
 
@@ -17,6 +17,8 @@
 <!-- 사용자 결정, 외부 조건, 안전 확인 대기. 같은 질문을 반복하지 않고 상태만 보존한다. -->
 
 ## Archive
+
+<!-- build-07 completed 2026-06-12T10:05Z → reports/build-07/2026-06-12T1005Z-control-center-nextjs-supabase-cms.html [display: Control Center Next.js Supabase CRUD MVP; projects: infinity,personal-ops,infrastructure; type: implementation; topics: dashboard,cms,editing,supabase,deploy] (Control Center CMS를 read-only/diff preview에서 실제 웹 CRUD MVP로 확장. Space에 Next.js 15 앱 `apps/control-center-cms`와 ArgoCD app/K8s deployment/service/ingress 추가, 공개 URL `https://cms.oracle.shdkej.com`. Supabase project `ihpfnzwqbntjcirtrkjd`에 `public.control_center_items` table 생성, RLS enabled, 서비스 키는 Kubernetes Secret `control-center-cms-env`에만 보관. Space commits `c1a168e Add control center CMS app`, `8abc407 Pin CMS pnpm runtime`. 검증: local build PASS, deployment rollout 1/1 available, HTTPS 200, public API create/patch/get/delete PASS, 브라우저 UI에서 create→edit→delete 직접 조작 PASS. persistent ready sample 1건 유지: `66061087-4ce3-4586-b223-f1eb50620d2d`. 실제 Family Wedding 공개 페이지 write/publish/auth/rollback은 미구현이며 next `build-08` Inbox로 연결.) -->
 
 <!-- build-06 completed 2026-06-12T09:35Z → reports/build-06/2026-06-12T0935Z-control-center-draft-editor.html [display: Control Center Draft Edit MVP; projects: infinity,personal-ops,infrastructure; type: implementation; topics: dashboard,cms,editing,diff-preview,deploy] (기존 Status Control Center에 draft-only Editable CMS/Draft Editor 섹션 구현. Family Wedding NOTICE field input → unified diff preview가 브라우저 메모리에서 즉시 생성되며 정본 파일 write 없음. write API/auth/permission/GitHub·AWS token server function/production deploy button/UI 자동 commit-push/Terraform·AWS 리소스/비용/destructive/secret 편집 0. Space repo commit/push `d389511 feat(status): add control center draft editor`. Status feed 재생성, S3 sync, CloudFront invalidation `I94000R114RC8NKS2P8OP48GQ`, 공개 URL `https://status.aws.shdkej.com/control-center/index.html`에서 `Draft Editor`, `Family Wedding`, `diff preview`, `NOTICE field input` 확인. next: `build-07` Inbox에서 Save/Publish 경계 설계로 연결.) -->
 
