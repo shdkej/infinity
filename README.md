@@ -33,11 +33,11 @@ scripts/notify.sh   ← Telegram 발송기
 ## 운영 원칙
 
 - **No-op이면 커밋하지 않는다.** 변화 없는 Heartbeat는 push하지 않아 알림 노이즈가 없다. push = 의미 있는 변화.
-- **아침 7시 리캡**은 push와 독립된 스케줄(`cron: 0 22 * * *`, KST 07:00)로 보장된다. KST 07시대 push 알림은 같은 리캡을 중복 발송하지 않도록 조용히 넘긴다. 리캡은 커밋 로그를 그대로 보내지 않고, Archive 완료·다음 Inbox/Active·대기 항목을 카드형으로 요약한다.
+- **아침 7시 리캡**은 GitHub scheduled workflow가 아니라 OpenClaw 로컬 cron(KST 07:00)이 소유한다. KST 07시대 push 알림은 같은 리캡을 중복 발송하지 않도록 조용히 넘긴다. 리캡은 커밋 로그를 그대로 보내지 않고, Archive 완료·다음 Inbox/Active·대기 항목을 카드형으로 요약한다.
 - **Cloud prepares, Local executes**: 조사/계획/초안은 클라우드, 파일 수정/실행/검증은 로컬 Claude Code에 위임한다.
 
 ## 연동
 
 - 원격 routine(claude.ai)이 이 레포를 clone → `workflows/heartbeat.md` 프로토콜대로 실행 → 커밋·push.
-- `heartbeat-notify.yml`이 Telegram 알림을 보낸다. 필요한 GitHub Secrets: `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID`.
+- `heartbeat-notify.yml`은 push 기반 Telegram 알림만 맡는다. 아침 리캡은 OpenClaw cron이 `scripts/morning_recap_message.py`를 실행해 전달한다.
 - [knowledge-lab](https://github.com/shdkej/knowledge-lab)에 submodule로 포함되어 통합 지식 허브에서 함께 조회된다.

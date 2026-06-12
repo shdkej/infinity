@@ -2,10 +2,6 @@ name: Heartbeat Telegram Notify
 
 on:
   workflow_dispatch:
-  # 아침 7시 리캡 보장 — no-op Heartbeat는 더 이상 커밋하지 않으므로
-  # push에 의존하지 않고 독립 스케줄로 깨운다. KST 07:00 = UTC 22:00.
-  schedule:
-    - cron: '0 22 * * *'
   push:
     paths:
       - 'reports/**'
@@ -18,7 +14,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          # recap(schedule)은 24시간 git log가 필요하고, normal은 HEAD~1 diff가 필요하다.
+          # normal push notifications need HEAD~1 diff.
           fetch-depth: 0
 
       - name: Check time and mode (KST)
@@ -29,30 +25,12 @@ jobs:
           if [ "$KST_HOUR" -lt 7 ] || [ "$KST_HOUR" -ge 22 ]; then
             echo "mode=quiet" >> "$GITHUB_OUTPUT"
             echo "Quiet hours (KST ${KST_HOUR}시). Skipping."
-          elif [ "$KST_HOUR" -eq 7 ] && [ "$EVENT_NAME" = "schedule" ]; then
-            echo "mode=recap" >> "$GITHUB_OUTPUT"
-            echo "Morning recap time."
           elif [ "$KST_HOUR" -eq 7 ]; then
             echo "mode=quiet" >> "$GITHUB_OUTPUT"
-            echo "KST 07시 push/workflow_dispatch notification suppressed; scheduled recap owns the morning slot."
+            echo "KST 07시 push/workflow_dispatch notification suppressed; OpenClaw cron owns the morning recap."
           else
             echo "mode=normal" >> "$GITHUB_OUTPUT"
           fi
-
-      - name: Morning recap (KST 07시)
-        if: steps.time_check.outputs.mode == 'recap'
-        env:
-          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-        run: |
-          MSG=$(python3 scripts/morning_recap_message.py)
-
-          curl -s "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
-            -d "chat_id=${TELEGRAM_CHAT_ID}" \
-            --data-urlencode "text=${MSG}" \
-            > /dev/null 2>&1
-
-          echo "Morning recap sent"
 
       - name: Normal notification
         if: steps.time_check.outputs.mode == 'normal'
