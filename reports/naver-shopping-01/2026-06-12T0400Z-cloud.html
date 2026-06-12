@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>naver-shopping-01 | 소싱-first 광범위 상품 스크린 2차</title>
+<style>
+  :root{
+    --bg:#f4f2ea; --panel:#fbfaf5; --ink:#2c2a25; --soft:#807c70; --faint:#a8a496; --line:#e3dfd2;
+    --a2:#5f7a5e; --a2-deep:#3f5740;
+    --a1:#5a6f8a; --a1-deep:#3f536e;
+    --sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;}
+  body{background:var(--bg); color:var(--ink); font-family:var(--sans);
+    font-size:14px; line-height:1.68; -webkit-font-smoothing:antialiased;}
+  .sheet{max-width:720px; margin:0 auto; padding:48px 34px 46px;}
+  .reveal{opacity:0; animation:fade .7s ease forwards;}
+  @keyframes fade{from{opacity:0; transform:translateY(9px);} to{opacity:1; transform:none;}}
+  .eyebrow{display:flex; align-items:center; gap:10px; font-family:var(--mono);
+    font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--soft);}
+  .eyebrow .id{color:var(--a2-deep); font-weight:600;}
+  .eyebrow .dot{width:5px; height:5px; border-radius:50%; background:var(--a2);}
+  .eyebrow .status{margin-left:auto; color:var(--a2-deep);}
+  h1{font-size:29px; line-height:1.3; font-weight:700; letter-spacing:-.01em; margin:20px 0 0;}
+  .dek{font-size:15.5px; color:var(--soft); margin:13px 0 0; max-width:52ch;}
+  .hr{height:1px; background:var(--line); margin:30px 0;}
+  .axis{padding:0 0 4px 22px; position:relative; margin-bottom:30px;}
+  .axis::before{content:""; position:absolute; left:0; top:6px; bottom:6px; width:2px; border-radius:2px;}
+  .axis.ax1::before{background:var(--a1);} .axis.ax2::before{background:var(--a2);}
+  .axis.ax1{--ul:var(--a1);} .axis.ax2{--ul:var(--a2);}
+  .axis .label{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase;
+    margin-bottom:9px; display:flex; align-items:center; gap:8px;}
+  .axis.ax1 .label{color:var(--a1-deep);} .axis.ax2 .label{color:var(--a2-deep);}
+  .axis .label .n{font-weight:600; opacity:.6;}
+  .axis .text{font-size:18px; line-height:1.6; color:#37352e;}
+  .axis .text b{font-weight:700; color:var(--ink); border-bottom:2px solid var(--ul);}
+  ol.find{list-style:none; counter-reset:f; margin:16px 0 0; padding:0;}
+  ol.find li{position:relative; padding:8px 0 8px 26px; font-size:15px; color:#37352e; border-top:1px solid var(--line);}
+  ol.find li:first-child{border-top:none;}
+  ol.find li::before{counter-increment:f; content:counter(f); position:absolute; left:0; top:9px;
+    font-family:var(--mono); font-size:12px; font-weight:600; color:var(--a1-deep);}
+  details{border:1px solid var(--line); border-radius:10px; background:var(--panel); margin-bottom:10px;}
+  summary{cursor:pointer; list-style:none; padding:14px 16px; display:flex; align-items:center; gap:11px;
+    font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft);}
+  summary::-webkit-details-marker{display:none;}
+  summary .chev{width:8px; height:8px; border-right:2px solid var(--a2-deep); border-bottom:2px solid var(--a2-deep);
+    transform:rotate(-45deg); transition:.25s; flex:none; margin-left:2px;}
+  details[open] summary .chev{transform:rotate(45deg);}
+  summary:hover{color:var(--ink);}
+  .body{padding:2px 16px 18px;}
+  table{border-collapse:collapse; width:100%; font-size:13px; margin:4px 0 12px;}
+  th,td{border-bottom:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top;}
+  th{font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft); font-weight:600;}
+  td:first-child{color:var(--a2-deep); font-weight:600; white-space:nowrap;}
+  .body p{color:var(--soft);}
+  .body ul{margin:6px 0; padding-left:18px;} .body li{margin:5px 0;}
+  code{font-family:var(--mono); font-size:12px; background:#edeae0; padding:1px 6px; border-radius:3px; color:var(--a2-deep);}
+  a{color:var(--a2-deep); text-underline-offset:3px;}
+  .chips{display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px;}
+  .chip{font-family:var(--mono); font-size:10.5px; letter-spacing:.05em; color:var(--soft); border:1px solid var(--line); border-radius:999px; padding:3px 10px;}
+  .foot{margin-top:30px; padding-top:15px; border-top:1px solid var(--line);
+    display:flex; justify-content:space-between; font-family:var(--mono); font-size:10px;
+    letter-spacing:.13em; text-transform:uppercase; color:var(--faint);}
+  .badge-active{background:#e8f0e8; color:#3f5740; border-radius:4px; padding:2px 8px; font-size:11px; font-family:var(--mono);}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="eyebrow reveal">
+    <span class="dot"></span>
+    <span class="id">naver-shopping-01</span>
+    <span>나래 / Narae — 소싱 스크린</span>
+    <span class="status"><span class="badge-active">active</span></span>
+  </div>
+  <h1 class="reveal" style="animation-delay:.05s">소싱-first 광범위 상품 스크린 2차</h1>
+  <p class="dek reveal" style="animation-delay:.09s">이전 다운그레이드 3종(러기지택·여행카드·종이인서트) 이후, 소싱 마찰 낮고 사용자 취향에 맞는 기성품 카테고리 7종 평가</p>
+
+  <div class="hr reveal" style="animation-delay:.12s"></div>
+
+  <div class="axis ax1 reveal" style="animation-delay:.16s">
+    <div class="label"><span class="n">01</span> 무엇을 조사했나</div>
+    <div class="text">소싱-first 전환(2026-06-11) 후 첫 광범위 카테고리 스크린 — 여행·크리에이터·메모리 메이킹 교차점에서 <b>기성품 소싱 가능한 7개 카테고리</b>를 소싱 마찰·SKU 복잡도·QA 리스크·사용자 취향 4개 축으로 평가</div>
+  </div>
+
+  <div class="axis ax2 reveal" style="animation-delay:.22s">
+    <div class="label"><span class="n">02</span> 핵심 결과</div>
+    <div class="text"><b>케이블 정리 파우치</b> + <b>데스크 케이블 클립</b> 1순위 선정 (소싱 마찰 최소·단일 SKU·buyer intent 강함); <b>포토카드 수납 앨범</b> 2순위 (메모리 메이킹 취향 직결); 다음: ItemScout + 네이버 데이터랩 키워드 수치 검증</div>
+    <ol class="find">
+      <li>🥇 여행용 케이블/이어폰 정리 파우치 — 1688 소싱, 색상 1~2종, 여행+크리에이터 교차</li>
+      <li>🥇 데스크 케이블 정리 클립/홀더 — 단일 SKU, 묶음 판매 가능, 홈오피스/크리에이터</li>
+      <li>🥈 폴라로이드/포토카드 수납 앨범 — 메모리 메이킹 취향 직결, 연중 안정 수요</li>
+    </ol>
+  </div>
+
+  <div class="reveal" style="animation-delay:.27s">
+  <details open>
+    <summary><span class="chev"></span> 7개 카테고리 스크린 결과</summary>
+    <div class="body">
+      <table>
+        <thead><tr><th>#</th><th>상품</th><th>소싱 마찰</th><th>SKU 복잡도</th><th>QA 리스크</th><th>취향 부합</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td><b>여행용 케이블/이어폰 정리 파우치</b></td><td>낮음</td><td>낮음 (색상 1~2)</td><td>낮음</td><td>★★★★★</td></tr>
+          <tr><td>2</td><td><b>데스크 케이블 정리 클립/홀더</b></td><td>매우 낮음</td><td>매우 낮음 (원SKU)</td><td>낮음</td><td>★★★★★</td></tr>
+          <tr><td>3</td><td><b>폴라로이드/포토카드 수납 앨범</b></td><td>낮음</td><td>낮음</td><td>낮음</td><td>★★★★★</td></tr>
+          <tr><td>4</td><td>여행용 트래블 파우치 세트 (소형)</td><td>낮음</td><td>중간 (사이즈 2~3)</td><td>낮음</td><td>★★★★☆</td></tr>
+          <tr><td>5</td><td>접이식 폰/태블릿 거치대</td><td>낮음</td><td>낮음</td><td>낮음</td><td>★★★★☆</td></tr>
+          <tr><td>6</td><td>다이어리/노트 번들 세트 (기성품)</td><td>낮음</td><td>낮음</td><td>낮음</td><td>★★★★☆</td></tr>
+          <tr><td>7</td><td>여행용 TSA 자물쇠/번호키</td><td>낮음</td><td>낮음 (색상만)</td><td>낮음</td><td>★★★☆☆</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="chev"></span> AI/크리에이터 특화 소싱 아이디어</summary>
+    <div class="body">
+      <table>
+        <thead><tr><th>아이디어</th><th>설명</th><th>소싱처</th></tr></thead>
+        <tbody>
+          <tr><td>데스크 세팅 케이블 클립 번들</td><td>모니터 뒷면 부착형 클립 5~10개 묶음. "홈오피스 케이블 정리" 키워드</td><td>1688, 도매꾹</td></tr>
+          <tr><td>접이식 노트북/태블릿 스탠드</td><td>크리에이터 이동식 세팅 소품. 알루미늄 소재 소형</td><td>1688, 도매매</td></tr>
+          <tr><td>마그네틱 메모 패드 + 펜 세트</td><td>냉장고/모니터 부착형. 일상 기록 취향 직결</td><td>도매꾹</td></tr>
+          <tr><td>포켓 노트 + 사진 수납 번들</td><td>여행 기록용 소형 노트 + 폴라로이드 포켓 세트 Light bundle</td><td>국내 도매꾹</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="chev"></span> 다운그레이드 확정 vs 신규 추천 비교</summary>
+    <div class="body">
+      <table>
+        <thead><tr><th>항목</th><th>상태</th><th>이유</th></tr></thead>
+        <tbody>
+          <tr><td>러기지태그/캐리어네임택</td><td>⬇️ 다운그레이드</td><td>사용자 선호 낮음 + 경쟁 포화</td></tr>
+          <tr><td>여행 시나리오 카드</td><td>⬇️ 다운그레이드</td><td>커스텀 제작 필요</td></tr>
+          <tr><td>종이 카드/인서트</td><td>⬇️ 다운그레이드</td><td>buyer intent 약함 (CTR 0.05%)</td></tr>
+          <tr><td><b>케이블 정리 파우치</b></td><td>✅ 신규 1순위</td><td>기능 명확 + buyer intent 강함</td></tr>
+          <tr><td><b>데스크 케이블 클립</b></td><td>✅ 신규 1순위</td><td>원SKU + 반복 구매 가능</td></tr>
+          <tr><td><b>포토카드 앨범</b></td><td>✅ 신규 2순위</td><td>메모리 메이킹 취향 + 시즌 없음</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="chev"></span> 실행 메타 · 다음 액션</summary>
+    <div class="body">
+      <div class="chips">
+        <span class="chip">2026-06-12T0400Z</span>
+        <span class="chip">heartbeat-cloud-research</span>
+        <span class="chip">active-sourcing-first-luggage-tags-downgraded → active-sourcing-first-candidates-screen-done</span>
+        <span class="chip">L0 자율 실행</span>
+      </div>
+      <p><strong>다음 안전 액션 (로컬 에이전트):</strong></p>
+      <ul>
+        <li>ItemScout(itemscout.io)에서 키워드 검색량·경쟁률 수치 확인: <code>여행 케이블파우치</code>, <code>충전기 수납파우치</code>, <code>데스크 케이블 클립</code>, <code>포토카드 앨범</code></li>
+        <li>네이버 데이터랩 쇼핑인사이트에서 위 카테고리 계절성 확인</li>
+        <li>수치 검증 후 listing-direction approval 여부 판단</li>
+        <li>1688에서 샘플 소싱 검색 (1순위 후보 2종)</li>
+      </ul>
+      <p><strong>승인 경계:</strong> 상품 등록·가격·배송·광고·고객·주문·계정·공개발행은 모두 사용자 승인 필요</p>
+    </div>
+  </details>
+  </div>
+
+  <div class="foot reveal" style="animation-delay:.3s">
+    <span>Agent-First Heartbeat</span>
+    <span>Infinity · Intent Note</span>
+  </div>
+</div>
+</body>
+</html>
