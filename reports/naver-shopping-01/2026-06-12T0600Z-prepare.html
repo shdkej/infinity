@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Infinity Report</title>
+<style>
+  :root{
+    --bg:#f4f2ea; --panel:#fbfaf5; --ink:#2c2a25; --soft:#807c70; --faint:#a8a496; --line:#e3dfd2;
+    --a2:#5f7a5e; --a2-deep:#3f5740;
+    --a1:#5a6f8a; --a1-deep:#3f536e;
+    --sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;}
+  body{background:var(--bg); color:var(--ink); font-family:var(--sans);
+    font-size:14px; line-height:1.68; -webkit-font-smoothing:antialiased;}
+  .sheet{max-width:720px; margin:0 auto; padding:48px 34px 46px;}
+  .reveal{opacity:0; animation:fade .7s ease forwards;}
+  @keyframes fade{from{opacity:0; transform:translateY(9px);} to{opacity:1; transform:none;}}
+  .eyebrow{display:flex; align-items:center; gap:10px; font-family:var(--mono);
+    font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--soft);}
+  .eyebrow .id{color:var(--a2-deep); font-weight:600;}
+  .eyebrow .dot{width:5px; height:5px; border-radius:50%; background:var(--a2);}
+  .eyebrow .status{margin-left:auto; color:var(--a2-deep);}
+  h1{font-size:29px; line-height:1.3; font-weight:700; letter-spacing:-.01em; margin:20px 0 0;}
+  .dek{font-size:15.5px; color:var(--soft); margin:13px 0 0; max-width:52ch;}
+  .hr{height:1px; background:var(--line); margin:30px 0;}
+  .axis{padding:0 0 4px 22px; position:relative; margin-bottom:30px;}
+  .axis::before{content:""; position:absolute; left:0; top:6px; bottom:6px; width:2px; border-radius:2px;}
+  .axis.ax1::before{background:var(--a1);} .axis.ax2::before{background:var(--a2);}
+  .axis.ax1{--ul:var(--a1);} .axis.ax2{--ul:var(--a2);}
+  .axis .label{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase;
+    margin-bottom:9px; display:flex; align-items:center; gap:8px;}
+  .axis.ax1 .label{color:var(--a1-deep);} .axis.ax2 .label{color:var(--a2-deep);}
+  .axis .label .n{font-weight:600; opacity:.6;}
+  .axis .text{font-size:18px; line-height:1.6; color:#37352e;}
+  .axis .text b{font-weight:700; color:var(--ink); border-bottom:2px solid var(--ul);}
+  details{border:1px solid var(--line); border-radius:10px; background:var(--panel); margin-bottom:10px;}
+  summary{cursor:pointer; list-style:none; padding:14px 16px; display:flex; align-items:center; gap:11px;
+    font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft);}
+  summary::-webkit-details-marker{display:none;}
+  summary .chev{width:8px; height:8px; border-right:2px solid var(--a2-deep); border-bottom:2px solid var(--a2-deep);
+    transform:rotate(-45deg); transition:.25s; flex:none; margin-left:2px;}
+  details[open] summary .chev{transform:rotate(45deg);}
+  .body{padding:2px 16px 18px;}
+  table{border-collapse:collapse; width:100%; font-size:13px; margin:4px 0 12px;}
+  th,td{border-bottom:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top;}
+  th{font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft); font-weight:600;}
+  td:first-child{color:var(--a2-deep); font-weight:600; white-space:nowrap;}
+  .body p{color:var(--soft);}
+  .body ul{margin:6px 0; padding-left:18px;} .body li{margin:5px 0;}
+  code{font-family:var(--mono); font-size:12px; background:#edeae0; padding:1px 6px; border-radius:3px; color:var(--a2-deep);}
+  .chips{display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px;}
+  .chip{font-family:var(--mono); font-size:10.5px; letter-spacing:.05em; color:var(--soft); border:1px solid var(--line); border-radius:999px; padding:3px 10px;}
+  .foot{margin-top:30px; padding-top:15px; border-top:1px solid var(--line);
+    display:flex; justify-content:space-between; font-family:var(--mono); font-size:10px;
+    letter-spacing:.13em; text-transform:uppercase; color:var(--faint);}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="eyebrow reveal">
+    <span class="dot"></span>
+    <span class="id">naver-shopping-01</span>
+    <span>Heartbeat Prepare Run</span>
+    <span class="status">active</span>
+  </div>
+  <h1 class="reveal" style="animation-delay:.05s">나래 소싱-우선 더 넓은 후보 스크린 준비</h1>
+  <p class="dek reveal" style="animation-delay:.09s">러기지택·워크샵카드·종이삽입물 이후, 사용자 선호 기준으로 소싱-우선 후보 6개 카테고리 Cloud prepare 아티팩트 생성</p>
+
+  <div class="hr reveal" style="animation-delay:.12s"></div>
+
+  <div class="axis ax1 reveal" style="animation-delay:.16s">
+    <div class="label"><span class="n">01</span> 무엇을 조사했나</div>
+    <div class="text">사용자 선호(소싱 중심, 러기지택 하향) 이후 <b>더 넓은 소싱-우선 후보 카테고리</b>를 Cloud에서 분류 — 폴라로이드 액세서리·디지털 정리 파우치·여행 스티커 등 6개 후보 및 로컬 스크린 템플릿</div>
+  </div>
+
+  <div class="axis ax2 reveal" style="animation-delay:.22s">
+    <div class="label"><span class="n">02</span> 핵심 결과</div>
+    <div class="text"><b>6개 소싱-우선 후보 카테고리 + 스크린 템플릿</b> prepare 아티팩트 생성 완료. 우선순위: 폴라로이드 액세서리(User fit 최고) → 여행/플래너 스티커 → 디지털 정리 파우치. 로컬 에이전트가 다음 실행에서 OpenAPI + SearchAd 스크린 진행.</div>
+  </div>
+
+  <div class="reveal" style="animation-delay:.27s">
+  <details open>
+    <summary><span class="chev"></span> 수행 작업 및 산출물</summary>
+    <div class="body">
+      <p>이번 Heartbeat에서 수행한 Cloud 작업:</p>
+      <ul>
+        <li>이전 스크린 결과 요약 (러기지택 DOWNGRADED, 워크샵카드 WITHDRAWN, 반도난 WATCH, 종이카드 HOLD)</li>
+        <li>사용자 선호 기준(travel, memory-making, AI/creator workflow, documentation rhythm)으로 6개 후보 카테고리 도출 및 우선순위 설정</li>
+        <li>각 카테고리별 User fit, 소싱 경로, 옵션 복잡도, QA 리스크, Naver 테스트 키워드, Content angle 정리</li>
+        <li>로컬 Naver Shopping Agent 실행을 위한 Demand/Competition/Keyword/Sourcing 스크린 템플릿 작성</li>
+        <li>판정 기준표(PASS/WATCH/DRAFT/HOLD) 정의</li>
+      </ul>
+      <table>
+        <tr><th>카테고리</th><th>User Fit</th><th>우선순위</th></tr>
+        <tr><td>폴라로이드/즉석사진 액세서리</td><td>travel+memory-making (최고)</td><td>1순위</td></tr>
+        <tr><td>여행/플래너 스티커 세트</td><td>documentation+travel (높음)</td><td>2순위</td></tr>
+        <tr><td>디지털 액세서리 정리 파우치</td><td>AI/creator+travel (높음)</td><td>3순위</td></tr>
+        <tr><td>마그네틱 북마크 세트</td><td>documentation+daily (높음)</td><td>4순위</td></tr>
+        <tr><td>미니 폰 스탠드/링홀더</td><td>creator workflow (중간)</td><td>5순위</td></tr>
+        <tr><td>투명 지퍼 파우치 세트</td><td>travel/packing (중간)</td><td>6순위</td></tr>
+      </table>
+    </div>
+  </details>
+
+  <details open>
+    <summary><span class="chev"></span> Inbox 처리: build-03 Active 이동</summary>
+    <div class="body">
+      <p>Inbox에서 대기 중이던 <code>build-03</code> (Control Center / Ops CMS)를 Active로 이동했다.</p>
+      <ul>
+        <li>Active 슬롯: 1개 사용 중 → 슬롯 2개 남아 즉시 이동 가능</li>
+        <li><code>intents/inbox/build-03.md</code> → <code>intents/active/build-03.md</code></li>
+        <li>첫 액션: 현재 대시보드/정적 페이지 인벤토리 조사 (L0 Cloud 작업)</li>
+        <li>INTENTS.md Inbox 항목 제거, Active 항목 추가 완료</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="chev"></span> 실행 메타 · 산출물</summary>
+    <div class="body">
+      <div class="chips">
+        <span class="chip">2026-06-12T06:00Z</span>
+        <span class="chip">Heartbeat Cloud Prepare</span>
+        <span class="chip">active → active</span>
+      </div>
+      <ul>
+        <li>산출물 <code>artifacts/naver-shopping-01/sourcing-first-broader-screen-candidates-2026-06-12.md</code></li>
+        <li>INTENTS.md 업데이트: build-03 Inbox→Active 이동</li>
+        <li>신규 intent: <code>intents/active/build-03.md</code></li>
+        <li>다음: 로컬 Naver Shopping Agent가 prepare 아티팩트 기반으로 OpenAPI+SearchAd 스크린 실행</li>
+      </ul>
+    </div>
+  </details>
+  </div>
+
+  <div class="foot reveal" style="animation-delay:.3s">
+    <span>Agent-First Heartbeat</span>
+    <span>Infinity · Intent Note</span>
+  </div>
+</div>
+</body>
+</html>
