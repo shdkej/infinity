@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Infinity Report</title>
+<style>
+  :root{
+    --bg:#f4f2ea; --panel:#fbfaf5; --ink:#2c2a25; --soft:#807c70; --faint:#a8a496; --line:#e3dfd2;
+    --a2:#5f7a5e; --a2-deep:#3f5740;
+    --a1:#a9745a; --a1-deep:#8a5c45;
+    --sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;}
+  body{background:var(--bg); color:var(--ink); font-family:var(--sans);
+    font-size:14px; line-height:1.68; -webkit-font-smoothing:antialiased;}
+  .sheet{max-width:720px; margin:0 auto; padding:48px 34px 46px;}
+  .reveal{opacity:0; animation:fade .7s ease forwards;}
+  @keyframes fade{from{opacity:0; transform:translateY(9px);} to{opacity:1; transform:none;}}
+  .eyebrow{display:flex; align-items:center; gap:10px; font-family:var(--mono);
+    font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--soft);}
+  .eyebrow .id{color:var(--a2-deep); font-weight:600;}
+  .eyebrow .dot{width:5px; height:5px; border-radius:50%; background:var(--a2);}
+  .eyebrow .status{margin-left:auto; color:var(--a2-deep);}
+  h1{font-size:29px; line-height:1.3; font-weight:700; letter-spacing:-.01em; margin:20px 0 0;}
+  .dek{font-size:15.5px; color:var(--soft); margin:13px 0 0; max-width:52ch;}
+  .hr{height:1px; background:var(--line); margin:30px 0;}
+  .axis{padding:0 0 4px 22px; position:relative; margin-bottom:30px;}
+  .axis::before{content:""; position:absolute; left:0; top:6px; bottom:6px; width:2px; border-radius:2px;}
+  .axis.ax1::before{background:var(--a1);} .axis.ax2::before{background:var(--a2);}
+  .axis.ax1{--ul:var(--a1);} .axis.ax2{--ul:var(--a2);}
+  .axis .label{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase;
+    margin-bottom:9px; display:flex; align-items:center; gap:8px;}
+  .axis.ax1 .label{color:var(--a1-deep);} .axis.ax2 .label{color:var(--a2-deep);}
+  .axis .label .n{font-weight:600; opacity:.6;}
+  .axis .text{font-size:18px; line-height:1.6; color:#37352e;}
+  .axis .text b{font-weight:700; color:var(--ink); border-bottom:2px solid var(--ul);}
+  details{border:1px solid var(--line); border-radius:10px; background:var(--panel); margin-bottom:10px;}
+  summary{cursor:pointer; list-style:none; padding:14px 16px; display:flex; align-items:center; gap:11px;
+    font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft);}
+  summary::-webkit-details-marker{display:none;}
+  summary .chev{width:8px; height:8px; border-right:2px solid var(--a2-deep); border-bottom:2px solid var(--a2-deep);
+    transform:rotate(-45deg); transition:.25s; flex:none; margin-left:2px;}
+  details[open] summary .chev{transform:rotate(45deg);}
+  summary:hover{color:var(--ink);}
+  .body{padding:2px 16px 18px;}
+  table{border-collapse:collapse; width:100%; font-size:13px; margin:4px 0 12px;}
+  th,td{border-bottom:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top;}
+  th{font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft); font-weight:600;}
+  td:first-child{color:var(--a2-deep); font-weight:600; white-space:nowrap;}
+  .body p{color:var(--soft);}
+  .body ul{margin:6px 0; padding-left:18px;} .body li{margin:5px 0;}
+  code{font-family:var(--mono); font-size:12px; background:#edeae0; padding:1px 6px; border-radius:3px; color:var(--a2-deep);}
+  .chips{display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px;}
+  .chip{font-family:var(--mono); font-size:10.5px; letter-spacing:.05em; color:var(--soft); border:1px solid var(--line); border-radius:999px; padding:3px 10px;}
+  .foot{margin-top:30px; padding-top:15px; border-top:1px solid var(--line);
+    display:flex; justify-content:space-between; font-family:var(--mono); font-size:10px;
+    letter-spacing:.13em; text-transform:uppercase; color:var(--faint);}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="eyebrow reveal">
+    <span class="dot"></span>
+    <span class="id">naver-shopping-01</span>
+    <span>Prepare Note</span>
+    <span class="status">active → active</span>
+  </div>
+  <h1 class="reveal" style="animation-delay:.05s">나래 소싱 우선 광역 스크린 준비</h1>
+  <p class="dek reveal" style="animation-delay:.09s">소싱 우선 전환 후 미검증 여행 카테고리 10개 사전 평가 + 로컬 검증 우선순위 수립</p>
+
+  <div class="hr reveal" style="animation-delay:.12s"></div>
+
+  <div class="axis ax1 reveal" style="animation-delay:.16s">
+    <div class="label"><span class="n">01</span> 🔴 무엇이 문제였나</div>
+    <div class="text">소싱 우선 방향 전환 후 <b>검증되지 않은 여행 카테고리가 다수 남음</b> — 기존 스크린(트래블러스노트 PIVOT, 안티도난 WATCH, 체크리스트 HOLD, 워크샵카드 철회) 외 10개 카테고리가 사전 평가 없이 대기 중</div>
+  </div>
+
+  <div class="axis ax2 reveal" style="animation-delay:.22s">
+    <div class="label"><span class="n">02</span> ✅ 어떻게 해결하나</div>
+    <div class="text">소싱 마찰·옵션 복잡도·반품 위험·사용자 선호 4축으로 <b>10개 카테고리 사전 평가 완료</b> — Top 3(소분용기·압축팩·케이블파우치)를 다음 로컬 SearchAd + OpenAPI 검증 대상으로 확정</div>
+  </div>
+
+  <div class="reveal" style="animation-delay:.27s">
+  <details open>
+    <summary><span class="chev"></span> 후보 평가 결과</summary>
+    <div class="body">
+      <table>
+        <tr>
+          <th>#</th><th>카테고리</th><th>소싱마찰</th><th>옵션복잡</th><th>반품위험</th><th>선호적합</th><th>우선</th>
+        </tr>
+        <tr><td>1</td><td>여행용 소분용기 세트</td><td>Low</td><td>Low</td><td>Low</td><td>High</td><td>⭐⭐⭐</td></tr>
+        <tr><td>2</td><td>여행 압축팩</td><td>Low</td><td>Low</td><td>Low</td><td>High</td><td>⭐⭐⭐</td></tr>
+        <tr><td>3</td><td>케이블/이어폰 파우치</td><td>Low</td><td>Low</td><td>Low</td><td>High</td><td>⭐⭐⭐</td></tr>
+        <tr><td>4</td><td>여행용 안대/귀마개</td><td>Low</td><td>Low</td><td>Low</td><td>Medium</td><td>⭐⭐</td></tr>
+        <tr><td>5</td><td>스크래치 세계지도</td><td>Low</td><td>Low</td><td>Low</td><td>Med-High</td><td>⭐⭐</td></tr>
+        <tr><td>6</td><td>여행용 실내화/슬리퍼</td><td>Low</td><td>Low-Med</td><td>Low</td><td>Medium</td><td>⭐⭐</td></tr>
+        <tr><td>7</td><td>여행 세면 파우치</td><td>Low</td><td>Medium</td><td>Low</td><td>Medium</td><td>⭐⭐</td></tr>
+        <tr><td>8</td><td>초경량/접이식 우산</td><td>Low</td><td>Medium</td><td>Low-Med</td><td>Medium</td><td>⭐⭐</td></tr>
+        <tr><td>9</td><td>여행용 수하물 스트랩</td><td>Low</td><td>Low</td><td>Low</td><td>Low-Med</td><td>⭐</td></tr>
+        <tr><td>10</td><td>여행용 빨래집게/클립</td><td>Low</td><td>Low</td><td>Low</td><td>Low</td><td>⭐</td></tr>
+      </table>
+      <ul>
+        <li><strong>Top 3 (⭐⭐⭐)</strong>: 소분용기, 압축팩, 케이블파우치 — 4축 모두 Low, 사용자 선호 High</li>
+        <li><strong>2순위 (⭐⭐)</strong>: 안대/귀마개, 스크래치지도, 실내화, 세면파우치, 우산 — 선호 Medium, 일부 리스크</li>
+        <li><strong>낮음 (⭐)</strong>: 수하물 스트랩, 빨래집게 — 사용자 선호 적합도 낮음</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="chev"></span> Top 3 검증 계획 상세</summary>
+    <div class="body">
+      <p><strong>1순위: 여행용 소분용기 세트</strong></p>
+      <ul>
+        <li>키워드: <code>여행 소분용기</code>, <code>실리콘 소분 용기</code>, <code>여행 화장품 소분</code>, <code>소분 용기 세트</code></li>
+        <li>목표: 월 검색량 1,000↑, 모바일 CTR 1%↑, 상위 가격대 확인</li>
+        <li>리스크: commodity화 가능 → 세트 구성/디자인 차별화 검토</li>
+      </ul>
+      <p><strong>2순위: 여행 압축팩</strong></p>
+      <ul>
+        <li>키워드: <code>여행 압축팩</code>, <code>압축 파우치</code>, <code>옷 압축팩</code>, <code>의류 압축팩</code></li>
+        <li>목표: 월 검색량 2,000↑, 여름 시즌 스파이크 패턴 확인</li>
+        <li>리스크: 가격 하락선 확인 필수</li>
+      </ul>
+      <p><strong>3순위: 케이블/이어폰 정리 파우치</strong></p>
+      <ul>
+        <li>키워드: <code>케이블 파우치</code>, <code>이어폰 파우치</code>, <code>케이블 정리 케이스</code>, <code>멀티 케이블 파우치</code></li>
+        <li>목표: 월 검색량 500↑, 전자기기 카테고리 진입 장벽 확인</li>
+        <li>리스크: 여행 시즌성 미약 가능, IT 전문 셀러 경쟁</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="chev"></span> 실행 메타 · 산출물</summary>
+    <div class="body">
+      <div class="chips">
+        <span class="chip">2026-06-12T00:00Z</span>
+        <span class="chip">heartbeat / cloud-prepare</span>
+        <span class="chip">active → active</span>
+      </div>
+      <ul>
+        <li>산출물 <code>artifacts/naver-shopping-01/sourcing-first-broad-screen-2026-06-12.md</code></li>
+        <li>다음 실행: 로컬 SearchAd + OpenAPI + DataLab 검증 패스 (Top 3 후보)</li>
+        <li>알림: 없음 (마케팅 작업 — 조용한 기록)</li>
+      </ul>
+    </div>
+  </details>
+  </div>
+
+  <div class="foot reveal" style="animation-delay:.3s">
+    <span>Agent-First Heartbeat</span>
+    <span>Infinity · Intent Note</span>
+  </div>
+</div>
+</body>
+</html>
