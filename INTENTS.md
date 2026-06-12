@@ -4,8 +4,6 @@
 
 ## Inbox
 
-<!-- build-05 inbox 2026-06-12T07:18Z → intents/inbox/build-05.md [display: Control Center Editable CMS; projects: infinity,personal-ops,infrastructure; type: implementation; topics: dashboard,cms,editing,deploy,automation; status: needs-design-and-safe-edit-flow] (사용자 피드백: "CMS는 수정이 핵심"이므로 build-04 read-only Control Center를 실제 수정 진입점으로 확장해야 함. 첫 안전 액션은 editable surface schema + Family Wedding/Travel 등 작은 정적 표면의 field-level draft edit/diff preview 설계. write API/auth/permission/production deploy button/GitHub·AWS token server function/Terraform·AWS resource/cost/destructive action은 별도 승인 경계.) -->
-
 
 
 ## Active
@@ -17,6 +15,8 @@
 <!-- 사용자 결정, 외부 조건, 안전 확인 대기. 같은 질문을 반복하지 않고 상태만 보존한다. -->
 
 ## Archive
+
+<!-- build-05 completed 2026-06-12T07:30Z → reports/build-05/2026-06-12T0730Z-local.html [projects: infinity,personal-ops,infrastructure; type: design; topics: dashboard,cms,automation] (Control Center Editable CMS 첫 안전 액션 = editable surface schema + field-level draft edit/diff preview 설계 완료. 산출물 `artifacts/build-05/control-center-editable-cms-design.md`, canonical index `intents/archive/build-05.md`. `editableSurfaces` 스키마(id/필드/anchor/검증/preview/publish/changeLog) 정의, 첫 editable target으로 Family Wedding 안내장 3필드(NOTICE/본문 도입/OG description) 인스턴스, anchor 기반 unified diff preview 흐름 설계. 핵심 안전장치 `preview.write:"none"`로 정본 파일 미변경, publish/deploy는 전부 approval-needed 자리로만 표시. write API/auth/permission/production deploy button/GitHub·AWS token server function/Terraform·AWS resource/cost/destructive/외부 발송/secret 편집은 본 문서에서 설계 경계 텍스트로만 다루고 미구현. change-log 모델로 commit SHA/deploy run/public URL 검증 연결. doc-only inside Infinity. HTML report gate(`<html`/`<body`/`axis ax1`/`axis ax2`/`<details`) 통과.) -->
 
 <!-- build-04 completed 2026-06-12T06:55Z → reports/build-04/2026-06-12T0655Z-control-center-deploy.html [projects: infinity,personal-ops,infrastructure; type: implementation; topics: dashboard,cms,deploy,automation] (Dashboard Control Center read-only MVP 배포 완료. 공개 URL `https://status.aws.shdkej.com/control-center/index.html`. 산출물 `artifacts/build-04/control-center-mvp-deployment.md`. 구현은 기존 Status 정적 사이트 하위 경로 `sites/status/dist/control-center/index.html`에 추가해 새 AWS 리소스/Terraform 없이 진행. Status 첫 화면에 `./control-center/index.html` 진입 링크 추가. 페이지는 status.json과 fallback registry를 읽어 Status, Travel Ops, Card News Library, Infinity, Virtue, Family Wedding 운영 표면을 source data/build/verify/approval boundary와 함께 표시. 쓰기 API/auth/permission/자동 배포 버튼/Terraform/AWS 리소스/프로덕션 앱 동작/비용/외부 메시지 변경 0. HTML report gate(`<html`/`<body`/`axis ax1`/`axis ax2`/`<details`) 통과. 공개 URL HTTP 200 및 `Dashboard Control Center`, `Surface Registry`, `Approval Boundary` 문자열 확인.) -->
 

@@ -1,7 +1,7 @@
 # build-05: Control Center Editable CMS
 
 - id: build-05
-- status: inbox
+- status: completed
 - projects: [infinity, personal-ops, infrastructure]
 - task_type: implementation
 - topics: [dashboard, cms, editing, deploy, automation]
@@ -65,3 +65,13 @@ L0/L1/L2 범위에서 설계, schema, read-only/draft UI, diff preview, 내부 c
 
 - 사용자의 핵심 피드백: "CMS는 수정이 핵심"이다. Control Center가 상태판으로만 남으면 목적을 충족하지 못한다.
 - 시작점은 큰 CMS가 아니라 SAM이 이미 수동으로 처리하는 작은 수정 루프를 제품화하는 것이다.
+
+## Completion
+
+- completed_at: 2026-06-12T07:30Z
+- scope_done: 첫 안전 액션(설계만) — editable surface schema + field-level draft edit/diff preview
+- artifact: `artifacts/build-05/control-center-editable-cms-design.md`
+- report: `reports/build-05/2026-06-12T0730Z-local.html`
+- outcome: `editableSurfaces` 스키마와 Family Wedding 안내장 3필드(NOTICE/본문 도입/OG description) 첫 인스턴스, anchor 기반 unified diff preview 흐름, change-log 모델을 설계했다. 핵심 안전장치는 `preview.write:"none"`(정본 파일 미변경)과 publish/deploy의 approval-needed 분리다.
+- boundary_kept: write API / auth·permission / production deploy button / GitHub·AWS token 서버 function / Terraform·AWS resource / 비용·destructive / 외부 발송 / secret 편집은 본 단계에서 설계 경계 텍스트로만 다루고 미구현. doc-only inside Infinity.
+- next: Control Center UI에 read-only 바인딩 → 정본 미변경 diff 생성기 소규모 구현 → Family Wedding NOTICE 1필드 수동 루프 2–3회 검증 → 이후 deploy 버튼/token 서버 기능은 승인형 별도 intent.

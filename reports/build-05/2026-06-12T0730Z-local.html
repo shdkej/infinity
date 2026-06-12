@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>build-05 Control Center Editable CMS 설계</title>
+  <style>
+    body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #1f2933; background: #f6f7f9; }
+    main { max-width: 960px; margin: 0 auto; padding: 40px 20px 56px; }
+    h1 { font-size: 30px; margin: 0 0 10px; }
+    h2 { font-size: 18px; margin-top: 28px; }
+    p, li { line-height: 1.65; }
+    a { color: #2952cc; }
+    .meta { color: #64748b; margin-bottom: 24px; }
+    .axis { border-left: 5px solid #2f6f73; background: #fff; padding: 16px 18px; margin: 14px 0; border-radius: 8px; box-shadow: 0 1px 2px rgba(15,23,42,.06); }
+    .ax1 { border-color: #2f6f73; }
+    .ax2 { border-color: #c26a4a; }
+    code { background: #eef2f7; padding: 2px 5px; border-radius: 4px; }
+    details { background: #fff; border: 1px solid #d9dee7; border-radius: 8px; padding: 14px 16px; margin-top: 14px; }
+    summary { cursor: pointer; font-weight: 700; }
+  </style>
+</head>
+<body>
+<main>
+  <h1>Control Center Editable CMS — 설계 (첫 안전 액션)</h1>
+  <p class="meta">build-05 · 2026-06-12T07:30Z · doc-only design · 승인 전 단계</p>
+
+  <section class="axis ax1">
+    <h2>axis ax1 · 판단</h2>
+    <p>사용자 피드백 <strong>"CMS는 수정이 핵심"</strong>에 따라 build-04 read-only Control Center를 실제 수정 진입점으로 확장해야 한다. 다만 첫 안전 액션은 코드 실행이 아니라 <strong>editable surface 스키마 + field-level draft edit/diff preview 설계</strong>다. write API / auth / production deploy / token 서버 기능 / Terraform·AWS 리소스는 본 단계에서 <strong>설계 경계 텍스트로만</strong> 다루고 구현하지 않는다.</p>
+  </section>
+
+  <section class="axis ax2">
+    <h2>axis ax2 · 결과</h2>
+    <p>설계 산출물 <code>artifacts/build-05/control-center-editable-cms-design.md</code>를 작성했다. <code>editableSurfaces</code> 스키마, Family Wedding 안내장 3필드(NOTICE / 본문 도입 / OG description) 첫 인스턴스, anchor 기반 unified diff preview 흐름(<code>preview.write: "none"</code>), change-log 모델, intent 성공 기준 매핑을 담았다. 정본 파일은 변경하지 않으며 publish/deploy는 전부 approval-needed 자리로만 남겼다.</p>
+  </section>
+
+  <details open>
+    <summary>이번 단계에서 한 것</summary>
+    <ul>
+      <li><code>editableSurfaces</code> 선언적 스키마 형상 정의 (id/필드/anchor/검증/preview/publish/changeLog)</li>
+      <li>첫 editable target으로 Family Wedding 안내장 3필드 인스턴스 설계</li>
+      <li>입력 → 위치결정(anchor) → 검증 → unified diff preview → 커밋 초안 흐름 정의 (정본 미변경)</li>
+      <li>commit SHA / deploy run / public URL 검증을 잇는 change-log 모델</li>
+      <li>build-05 성공 기준 5개를 설계로 매핑</li>
+    </ul>
+  </details>
+
+  <details>
+    <summary>닫아둔 범위 (승인 경계)</summary>
+    <ul>
+      <li>write API — 정본 파일 직접 쓰기 미구현, placeholder만</li>
+      <li>auth / permission, 다중 사용자 roles — 미설계</li>
+      <li>production deploy button, GitHub/AWS token 서버 function — approval-needed 자리로만</li>
+      <li>Terraform / AWS resource 추가 0, 비용·destructive·force-push·외부 발송 없음</li>
+      <li>비밀값(secret) 편집은 editable field에서 원천 제외</li>
+    </ul>
+  </details>
+
+  <details>
+    <summary>다음 단계 후보 (별도 승인/단계)</summary>
+    <ul>
+      <li>Control Center UI에 <code>editableSurfaces</code> 읽기 전용 바인딩 + diff preview 렌더</li>
+      <li>정본 미변경 unified diff 생성기 소규모 구현 (write API 아님)</li>
+      <li>Family Wedding NOTICE 1필드 수동 수정 루프 2–3회로 change-log 모델 검증</li>
+      <li>안정화 후 deploy 버튼/token 서버 기능은 승인형 별도 intent로 분리</li>
+    </ul>
+  </details>
+</main>
+</body>
+</html>
