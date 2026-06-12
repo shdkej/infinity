@@ -15,7 +15,7 @@
 - report: reports/build-07/2026-06-12T1005Z-control-center-nextjs-supabase-cms.html
 - artifact: artifacts/build-07/control-center-nextjs-supabase-crud-mvp.md
 - public_url: https://cms.oracle.shdkej.com
-- space_commits: [c1a168e, 8abc407]
+- space_commits: [c1a168e, 8abc407, b9af95c]
 
 ## User Request
 
@@ -37,6 +37,7 @@ Control Center CMS를 read-only/diff preview에서 실제 웹 CRUD MVP로 확장
 - `pnpm --dir apps/control-center-cms build` PASS.
 - Kubernetes deployment `control-center-cms` rollout 1/1 available.
 - `https://cms.oracle.shdkej.com` HTTPS 200.
+- ArgoCD application `control-center-cms` Synced/Healthy.
 - Public API create -> patch -> get -> delete PASS.
 - Browser UI에서 Create -> Edit -> Delete를 직접 수행해 웹 데이터 조작을 확인했다.
 - 남겨둔 ready sample record: `66061087-4ce3-4586-b223-f1eb50620d2d`.

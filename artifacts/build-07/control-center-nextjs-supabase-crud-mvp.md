@@ -13,6 +13,7 @@ Control Center CMS를 사용자가 직접 웹에서 데이터를 만들고 고�
 - Commits:
   - `c1a168e Add control center CMS app`
   - `8abc407 Pin CMS pnpm runtime`
+  - `b9af95c Limit CMS ArgoCD manifests`
 
 ## Data Model
 
@@ -62,6 +63,7 @@ Done:
 - Supabase table.
 - Server-side CRUD.
 - Kubernetes deploy.
+- ArgoCD Synced/Healthy after limiting the source directory include to the manifest files.
 - Browser data manipulation.
 
 Not done:
