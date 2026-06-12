@@ -2,10 +2,10 @@ name: Heartbeat Telegram Notify
 
 on:
   workflow_dispatch:
-  # 아침 8시 리캡 보장 — no-op Heartbeat는 더 이상 커밋하지 않으므로
-  # push에 의존하지 않고 독립 스케줄로 깨운다. KST 08:00 = UTC 23:00.
+  # 아침 7시 리캡 보장 — no-op Heartbeat는 더 이상 커밋하지 않으므로
+  # push에 의존하지 않고 독립 스케줄로 깨운다. KST 07:00 = UTC 22:00.
   schedule:
-    - cron: '0 23 * * *'
+    - cron: '0 22 * * *'
   push:
     paths:
       - 'reports/**'
@@ -26,39 +26,26 @@ jobs:
         run: |
           KST_HOUR=$(TZ=Asia/Seoul date +%H)
           EVENT_NAME="${GITHUB_EVENT_NAME:-unknown}"
-          if [ "$KST_HOUR" -lt 8 ] || [ "$KST_HOUR" -ge 22 ]; then
+          if [ "$KST_HOUR" -lt 7 ] || [ "$KST_HOUR" -ge 22 ]; then
             echo "mode=quiet" >> "$GITHUB_OUTPUT"
             echo "Quiet hours (KST ${KST_HOUR}시). Skipping."
-          elif [ "$KST_HOUR" -eq 8 ] && [ "$EVENT_NAME" = "schedule" ]; then
+          elif [ "$KST_HOUR" -eq 7 ] && [ "$EVENT_NAME" = "schedule" ]; then
             echo "mode=recap" >> "$GITHUB_OUTPUT"
             echo "Morning recap time."
-          elif [ "$KST_HOUR" -eq 8 ]; then
+          elif [ "$KST_HOUR" -eq 7 ]; then
             echo "mode=quiet" >> "$GITHUB_OUTPUT"
-            echo "KST 08시 push/workflow_dispatch notification suppressed; scheduled recap owns the morning slot."
+            echo "KST 07시 push/workflow_dispatch notification suppressed; scheduled recap owns the morning slot."
           else
             echo "mode=normal" >> "$GITHUB_OUTPUT"
           fi
 
-      - name: Morning recap (KST 08시)
+      - name: Morning recap (KST 07시)
         if: steps.time_check.outputs.mode == 'recap'
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: |
-          # 최근 24시간 Infinity 처리 커밋 요약.
-          # 커밋 author는 로컬 Claude/웹/수동 push 경로에 따라 shdkej 등으로 남을 수 있으므로
-          # author가 아니라 Infinity 운영 파일 경로를 기준으로 집계한다.
-          SINCE=$(TZ=Asia/Seoul date -d '24 hours ago' --iso-8601=seconds 2>/dev/null || date -v-24H '+%Y-%m-%dT%H:%M:%S')
-          COMMITS=$(git log --since="$SINCE" --oneline -- reports/ INTENTS.md GATES.md)
-          COMMIT_COUNT=$(echo "$COMMITS" | grep -c . || true)
-
-          # 현재 INTENTS.md Active 상태
-          ACTIVE=$(grep -A1 "^## Active" INTENTS.md | tail -1)
-
-          # 현재 GATES.md 대기 중
-          PENDING=$(sed -n '/^## 대기 중/,/^## /p' GATES.md | grep -c "^###" || true)
-
-          MSG=$(printf "☀️ 아침 리캡 (최근 24시간)\n\nInfinity 처리 활동: %s건\n승인 대기: %s건\n\n--- 커밋 이력 ---\n%s" "$COMMIT_COUNT" "$PENDING" "$COMMITS")
+          MSG=$(python3 scripts/morning_recap_message.py)
 
           curl -s "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
             -d "chat_id=${TELEGRAM_CHAT_ID}" \

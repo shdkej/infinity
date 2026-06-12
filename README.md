@@ -33,7 +33,7 @@ scripts/notify.sh   ← Telegram 발송기
 ## 운영 원칙
 
 - **No-op이면 커밋하지 않는다.** 변화 없는 Heartbeat는 push하지 않아 알림 노이즈가 없다. push = 의미 있는 변화.
-- **아침 8시 리캡**은 push와 독립된 스케줄(`cron: 0 23 * * *`, KST 08:00)로 보장된다. KST 08시대 push 알림은 같은 리캡을 중복 발송하지 않도록 조용히 넘긴다.
+- **아침 7시 리캡**은 push와 독립된 스케줄(`cron: 0 22 * * *`, KST 07:00)로 보장된다. KST 07시대 push 알림은 같은 리캡을 중복 발송하지 않도록 조용히 넘긴다. 리캡은 커밋 로그를 그대로 보내지 않고, Archive 완료·다음 Inbox/Active·대기 항목을 카드형으로 요약한다.
 - **Cloud prepares, Local executes**: 조사/계획/초안은 클라우드, 파일 수정/실행/검증은 로컬 Claude Code에 위임한다.
 
 ## 연동

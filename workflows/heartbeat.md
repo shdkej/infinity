@@ -205,7 +205,7 @@ Report는 실행 로그다. 2축은 그 로그의 결론을 한눈에 보게 하
 
 마케팅/세스고딘 작업이 SAM에게 전달할 routine 신호가 있으면 사용자 채팅 대신 `/home/ubuntu/.openclaw/workspace/system/data/agent-inbox/marketing.jsonl`에 JSONL 한 줄로 남긴다. 필드는 `ts`, `source`, `scope`, `item_id`, `signal`, `diagnosis`, `action_candidate`, `measurement`, `routing`, `artifacts`, `urgency`, `needs_sam_decision`, `needs_user_approval`, `user_visible`를 기본으로 한다. 이 큐는 에이전트끼리 주고받는 보조 입력이며, target-agent 실행 트리거가 아니다. 실행이 필요한 협업 요청은 `INTENTS.md` Inbox의 `marketing-*` 또는 `target_agent: marketer` intent로 존재해야 한다. local Claude는 메시지 수신·판단을 위해 호출하지 않는다. local Claude는 실제 로컬 파일/코드/테스트/브라우저/빌드/검증이 필요한 경우에만 사용한다.
 
-KST 08시 아침 리캡은 `schedule` 이벤트 하나가 소유한다. 같은 08시대에 `reports/**`, `INTENTS.md`, `GATES.md` push가 발생해도 push 기반 알림은 보내지 않는다. 08시 리캡은 최근 24시간 변화 요약 1개만 사용자에게 보인다.
+KST 07시 아침 리캡은 `schedule` 이벤트 하나가 소유한다. 같은 07시대에 `reports/**`, `INTENTS.md`, `GATES.md` push가 발생해도 push 기반 알림은 보내지 않는다. 07시 리캡은 최근 24시간 변화 요약 1개만 사용자에게 보인다. 리캡은 raw commit log가 아니라 완료 Archive, 다음 Inbox/Active, Waiting/GATES 대기를 한눈에 보이는 카드형 텍스트로 보낸다.
 
 **알림 포맷:**
 
