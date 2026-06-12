@@ -5,7 +5,7 @@
 ## Inbox
 
 
-<!-- build-08 inbox 2026-06-12T10:05Z → intents/inbox/build-08.md [display: Control Center Authenticated Publish Pipeline; projects: infinity,personal-ops,infrastructure; type: implementation; topics: dashboard,cms,auth,publish,deploy; status: needs-auth-publish-boundary] (build-07은 Next.js + Supabase scratch CRUD로 웹 데이터 생성/수정/삭제까지 완료. 다음 단계는 실제 공개 페이지 정본 반영을 열기 전 auth/permission, approval gate, source repo write, commit/push, deploy trigger, rollback, audit log를 하나의 publish pipeline으로 설계/구현하는 것. 실제 production page write/deploy는 승인 경계 유지.) -->
+<!-- build-09 inbox 2026-06-12T10:40Z → intents/inbox/build-09.md [display: Control Center Authenticated Publish + Rollback; projects: infinity,personal-ops,infrastructure; type: implementation; topics: dashboard,cms,auth,publish,deploy,rollback; status: needs-auth-publish-boundary] (build-08은 shadcn/ui 운영툴 + Supabase control_center_nodes 트리로 Status 구성을 웹에서 만들고 저장하는 CMS까지 완료. 다음 단계는 그 구성/record를 실제 공개 페이지 정본으로 반영하는 publish 파이프라인 — diff preview, 승인형 publish, source repo write, commit/push, deploy trigger, public URL 검증, rollback handle. 실제 production page write/deploy·auth/permission 변경은 승인 경계 유지.) -->
 
 
 
@@ -18,6 +18,8 @@
 <!-- 사용자 결정, 외부 조건, 안전 확인 대기. 같은 질문을 반복하지 않고 상태만 보존한다. -->
 
 ## Archive
+
+<!-- build-08 completed 2026-06-12T10:40Z → reports/build-08/2026-06-12T1040Z-control-center-shadcn-status-composition.html [display: Control Center shadcn UI + Status Composition CMS; projects: infinity,personal-ops,infrastructure; type: implementation; topics: dashboard,cms,ui,status,supabase,deploy] (build-07 평면 CRUD CMS를 shadcn/ui 운영툴로 재구성하고 Status 페이지 구성을 웹에서 관리 가능하게 함. shadcn/ui(Tailwind v3, Button/Card/Badge/Input/Textarea/Label/Select/Tabs/Separator/Switch/Sheet drawer), 다크모드/모바일 대응. Supabase `public.control_center_nodes` self-referential 트리(surface/section/card/link, title/subtitle/url/status/sort_order/visible) + `public.control_center_activity` 감사 로그 신규, 둘 다 RLS enabled·정책 없음=service-role only. 기존 `control_center_items`는 Surface Registry 탭으로 유지. API `/api/nodes` CRUD+reorder, `/api/activity`, 모든 mutation이 activity 기록. UI=Status 구성 트리(순서/노출 토글+Edit drawer)·라이브 Preview·Surface Registry·Activity. 서비스 키는 K8s Secret `control-center-cms-env`에만. Space commits `f253ba9`, `904a6d5`. Supabase migration `control_center_status_composition`(project `ihpfnzwqbntjcirtrkjd`). 검증: local build PASS, rollout 1/1, ArgoCD Synced/Healthy, HTTPS 200, UI 마커 렌더, live `/api/nodes` create(201)→edit(200)→visibility(200)→invalid(400)→delete(200) PASS + activity 반영. 함정: root .gitignore의 bare `nodes` 패턴이 app/api/nodes/ 무음 제외→첫 배포 404, `git add -f`로 해소. 실제 production page write/publish·auth/permission·rollback은 미실행(승인 경계). next `build-09` Inbox로 연결.) -->
 
 <!-- marketing-55 completed 2026-06-12T10:12Z → intents/archive/marketing-55.md [display: Virtue Prelaunch Activation Measurement Contract; projects: virtue; type: strategy; topics: activation,measurement,prelaunch] (Mixpanel 2026 PLG 측정 렌즈를 Virtue prelaunch first-value 계약으로 번역한 docs-only artifact 작성. 산출물 `artifacts/marketing-55/virtue-prelaunch-activation-measurement-contract.md`, report `reports/marketing-55/2026-06-12T1012Z-local.html`. J1/J2/J4=`deed_saved`, J3=`deed_judged` 매핑 유지. `count now`/`observe manually`/`do not judge yet`로 first-10 관찰을 분리하고 PQL/paid conversion/expansion/viral coefficient는 launch-after gate로 고정. 신규 이벤트·tracking/privacy·dashboard·public copy·deploy·external message·cost 0. `build-08` 미수정.) -->
 
