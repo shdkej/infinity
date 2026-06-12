@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <title>marketing-55 local report</title>
+  <style>
+    body { font-family: system-ui, sans-serif; margin: 32px; line-height: 1.55; color: #202124; }
+    .axis { border-left: 4px solid #a9745a; padding-left: 12px; margin: 16px 0; }
+    .ax1 { background: #fbfaf5; }
+    .ax2 { background: #f4f8f1; }
+    code { background: #f1f5f9; padding: 1px 4px; border-radius: 4px; }
+  </style>
+</head>
+<body>
+  <h1>marketing-55: Virtue Prelaunch Activation Measurement Contract</h1>
+  <p>Mixpanel 2026 PLG 측정 렌즈를 Virtue prelaunch에 맞게 번역해 first-value 중심의 docs-only 계약서를 작성했다.</p>
+  <section class="axis ax1">
+    <h2>axis ax1: 무엇이 문제였나</h2>
+    <p>가입, 페이지뷰, 작은 이벤트 수, J3의 no-save 경로가 섞이면 prelaunch Virtue의 activation을 과대해석하기 쉽다.</p>
+  </section>
+  <section class="axis ax2">
+    <h2>axis ax2: 어떻게 해결하나</h2>
+    <p>J1/J2/J4는 <code>deed_saved</code>, J3는 <code>deed_judged</code>를 유지하고, <code>count now</code> / <code>observe manually</code> / <code>do not judge yet</code>로 first-10 관찰 계약을 분리했다.</p>
+  </section>
+  <details open>
+    <summary>Verification</summary>
+    <ul>
+      <li>Artifact: <code>artifacts/marketing-55/virtue-prelaunch-activation-measurement-contract.md</code></li>
+      <li>Source note: <code>source/external-links/marketing/2026-06-12-plg-activation-measurement.md</code></li>
+      <li>PQL, paid conversion, expansion, viral coefficient are launch-after gates.</li>
+      <li>New events, tracking/privacy, dashboard, public copy, deployment, external message, cost changes: 0</li>
+      <li>Conflict markers in generated files: 0</li>
+    </ul>
+  </details>
+</body>
+</html>

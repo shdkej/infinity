@@ -4,7 +4,6 @@
 
 ## Inbox
 
-<!-- marketing-55 inbox 2026-06-12T10:00Z → intents/inbox/marketing-55.md [display: Virtue Prelaunch Activation Measurement Contract; projects: virtue; type: strategy; topics: activation,measurement,onboarding,prelaunch,plg; status: needs-activation-measurement-contract] (출처노트 `source/external-links/marketing/2026-06-12-plg-activation-measurement.md`. Mixpanel 2026 PLG 측정 렌즈를 Virtue prelaunch에 맞게 번역: signup/pageview보다 first value 행동 계약이 먼저이며, PQL/paid conversion/expansion/viral coefficient는 launch-after gate로 분리. 첫 안전 액션은 잡별 first value, 기존 이벤트, 수기 관찰 질문, `count now`/`observe manually`/`do not judge yet`를 한 표로 묶는 L1 docs-only 문서 작성. 신규 이벤트·tracking/privacy·dashboard·public copy·deploy·external message·cost 0.) -->
 
 <!-- build-08 inbox 2026-06-12T10:05Z → intents/inbox/build-08.md [display: Control Center Authenticated Publish Pipeline; projects: infinity,personal-ops,infrastructure; type: implementation; topics: dashboard,cms,auth,publish,deploy; status: needs-auth-publish-boundary] (build-07은 Next.js + Supabase scratch CRUD로 웹 데이터 생성/수정/삭제까지 완료. 다음 단계는 실제 공개 페이지 정본 반영을 열기 전 auth/permission, approval gate, source repo write, commit/push, deploy trigger, rollback, audit log를 하나의 publish pipeline으로 설계/구현하는 것. 실제 production page write/deploy는 승인 경계 유지.) -->
 
@@ -19,6 +18,8 @@
 <!-- 사용자 결정, 외부 조건, 안전 확인 대기. 같은 질문을 반복하지 않고 상태만 보존한다. -->
 
 ## Archive
+
+<!-- marketing-55 completed 2026-06-12T10:12Z → intents/archive/marketing-55.md [display: Virtue Prelaunch Activation Measurement Contract; projects: virtue; type: strategy; topics: activation,measurement,prelaunch] (Mixpanel 2026 PLG 측정 렌즈를 Virtue prelaunch first-value 계약으로 번역한 docs-only artifact 작성. 산출물 `artifacts/marketing-55/virtue-prelaunch-activation-measurement-contract.md`, report `reports/marketing-55/2026-06-12T1012Z-local.html`. J1/J2/J4=`deed_saved`, J3=`deed_judged` 매핑 유지. `count now`/`observe manually`/`do not judge yet`로 first-10 관찰을 분리하고 PQL/paid conversion/expansion/viral coefficient는 launch-after gate로 고정. 신규 이벤트·tracking/privacy·dashboard·public copy·deploy·external message·cost 0. `build-08` 미수정.) -->
 
 <!-- build-07 completed 2026-06-12T10:05Z → reports/build-07/2026-06-12T1005Z-control-center-nextjs-supabase-cms.html [display: Control Center Next.js Supabase CRUD MVP; projects: infinity,personal-ops,infrastructure; type: implementation; topics: dashboard,cms,editing,supabase,deploy] (Control Center CMS를 read-only/diff preview에서 실제 웹 CRUD MVP로 확장. Space에 Next.js 15 앱 `apps/control-center-cms`와 ArgoCD app/K8s deployment/service/ingress 추가, 공개 URL `https://cms.oracle.shdkej.com`. Supabase project `ihpfnzwqbntjcirtrkjd`에 `public.control_center_items` table 생성, RLS enabled, 서비스 키는 Kubernetes Secret `control-center-cms-env`에만 보관. Space commits `c1a168e Add control center CMS app`, `8abc407 Pin CMS pnpm runtime`, `b9af95c Limit CMS ArgoCD manifests`. 검증: local build PASS, deployment rollout 1/1 available, ArgoCD Synced/Healthy, HTTPS 200, public API create/patch/get/delete PASS, 브라우저 UI에서 create→edit→delete 직접 조작 PASS. persistent ready sample 1건 유지: `66061087-4ce3-4586-b223-f1eb50620d2d`. 실제 Family Wedding 공개 페이지 write/publish/auth/rollback은 미구현이며 next `build-08` Inbox로 연결.) -->
 
