@@ -4,6 +4,8 @@
 
 ## Inbox
 
+<!-- marketing-56 candidate 2026-06-12T22:00Z [display: Virtue First Reliable Value Observation Columns; projects: virtue; type: strategy; topics: ai-plg,activation,onboarding,prelaunch; source_note: source/external-links/marketing/2026-06-12-ai-plg-first-reliable-value.md; permission: L1 docs-only; owner_route: Infinity/SAM docs executor] (Rationale: AI PLG activation should distinguish first use from first reliable value, but Virtue prelaunch should not add tracking or over-read small metrics. Expected impact: first 10 user observations can separate accepted output, useful-result time, retry/rejudge reason, and reproducibility understanding without production/privacy changes. Success criteria: existing first-10 observation contract gains 4 concise columns/questions and preserves J1/J2/J4=`deed_saved`, J3=`deed_judged` interpretation boundary. First verification gate: confirm source note exists, no new event/tracking/privacy/public copy/deploy/cost change, conflict markers 0.) -->
+
 
 
 
