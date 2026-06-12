@@ -3,7 +3,7 @@
 - intent: build-04
 - status: deployed
 - created_at: 2026-06-12T06:55Z
-- public_url: https://status.aws.shdkej.com/control-center/
+- public_url: https://status.aws.shdkej.com/control-center/index.html
 - source_intent: build-03
 - implementation_scope: read-only static MVP
 
@@ -14,7 +14,7 @@ Dashboard Control Center의 첫 MVP를 기존 Status 정적 사이트 아래에 
 새 AWS 리소스나 Terraform 변경 없이 기존 `status.aws.shdkej.com` 배포 레인을 사용했다. 현재 주소는 다음과 같다.
 
 ```text
-https://status.aws.shdkej.com/control-center/
+https://status.aws.shdkej.com/control-center/index.html
 ```
 
 ## 구현 범위
@@ -41,7 +41,7 @@ https://status.aws.shdkej.com/control-center/
 - 로컬 파일 존재: `sites/status/dist/control-center/index.html`
 - Status entry link: `sites/status/dist/index.html`에 `./control-center/` 링크 추가
 - HTML smoke check: `Dashboard Control Center`, `Surface Registry`, `Approval Boundary`, `Change Log Model` 확인
-- 공개 URL 검증: `https://status.aws.shdkej.com/control-center/` HTTP 200 및 핵심 문자열 확인
+- 공개 URL 검증: `https://status.aws.shdkej.com/control-center/index.html` HTTP 200 및 핵심 문자열 확인
 
 ## 다음 단계 후보
 
