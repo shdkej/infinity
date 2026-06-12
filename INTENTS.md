@@ -4,6 +4,8 @@
 
 ## Inbox
 
+<!-- build-05 inbox 2026-06-12T07:18Z → intents/inbox/build-05.md [display: Control Center Editable CMS; projects: infinity,personal-ops,infrastructure; type: implementation; topics: dashboard,cms,editing,deploy,automation; status: needs-design-and-safe-edit-flow] (사용자 피드백: "CMS는 수정이 핵심"이므로 build-04 read-only Control Center를 실제 수정 진입점으로 확장해야 함. 첫 안전 액션은 editable surface schema + Family Wedding/Travel 등 작은 정적 표면의 field-level draft edit/diff preview 설계. write API/auth/permission/production deploy button/GitHub·AWS token server function/Terraform·AWS resource/cost/destructive action은 별도 승인 경계.) -->
+
 
 
 ## Active
