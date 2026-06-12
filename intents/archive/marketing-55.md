@@ -16,7 +16,7 @@
     role: final
 - commits:
   - repo: infinity
-    sha: 329858e
+    sha: 06481e4
     note: archived activation measurement contract after local verification
 - urls: []
 - next_actions:
