@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>[naver-shopping-01] 소싱-퍼스트 후보 스크린</title>
+<style>
+  :root{
+    --bg:#f4f2ea; --panel:#fbfaf5; --ink:#2c2a25; --soft:#807c70; --faint:#a8a496; --line:#e3dfd2;
+    --a2:#5f7a5e; --a2-deep:#3f5740;
+    --a1:#5a6f8a; --a1-deep:#3f536e;
+    --sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;}
+  body{background:var(--bg); color:var(--ink); font-family:var(--sans);
+    font-size:14px; line-height:1.68; -webkit-font-smoothing:antialiased;}
+  .sheet{max-width:720px; margin:0 auto; padding:48px 34px 46px;}
+  .reveal{opacity:0; animation:fade .7s ease forwards;}
+  @keyframes fade{from{opacity:0; transform:translateY(9px);} to{opacity:1; transform:none;}}
+  .eyebrow{display:flex; align-items:center; gap:10px; font-family:var(--mono);
+    font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--soft);}
+  .eyebrow .id{color:var(--a2-deep); font-weight:600;}
+  .eyebrow .dot{width:5px; height:5px; border-radius:50%; background:var(--a2);}
+  .eyebrow .status{margin-left:auto; color:var(--a2-deep);}
+  h1{font-size:29px; line-height:1.3; font-weight:700; letter-spacing:-.01em; margin:20px 0 0;}
+  .dek{font-size:15.5px; color:var(--soft); margin:13px 0 0; max-width:52ch;}
+  .hr{height:1px; background:var(--line); margin:30px 0;}
+  .axis{padding:0 0 4px 22px; position:relative; margin-bottom:30px;}
+  .axis::before{content:""; position:absolute; left:0; top:6px; bottom:6px; width:2px; border-radius:2px;}
+  .axis.ax1::before{background:var(--a1);} .axis.ax2::before{background:var(--a2);}
+  .axis.ax1{--ul:var(--a1);} .axis.ax2{--ul:var(--a2);}
+  .axis .label{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase;
+    margin-bottom:9px; display:flex; align-items:center; gap:8px;}
+  .axis.ax1 .label{color:var(--a1-deep);} .axis.ax2 .label{color:var(--a2-deep);}
+  .axis .label .n{font-weight:600; opacity:.6;}
+  .axis .text{font-size:18px; line-height:1.6; color:#37352e;}
+  .axis .text b{font-weight:700; color:var(--ink); border-bottom:2px solid var(--ul);}
+  details{border:1px solid var(--line); border-radius:10px; background:var(--panel); margin-bottom:10px;}
+  summary{cursor:pointer; list-style:none; padding:14px 16px; display:flex; align-items:center; gap:11px;
+    font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft);}
+  summary::-webkit-details-marker{display:none;}
+  summary .chev{width:8px; height:8px; border-right:2px solid var(--a2-deep); border-bottom:2px solid var(--a2-deep);
+    transform:rotate(-45deg); transition:.25s; flex:none; margin-left:2px;}
+  details[open] summary .chev{transform:rotate(45deg);}
+  summary:hover{color:var(--ink);}
+  .body{padding:2px 16px 18px;}
+  table{border-collapse:collapse; width:100%; font-size:13px; margin:4px 0 12px;}
+  th,td{border-bottom:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top;}
+  th{font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft); font-weight:600;}
+  td:first-child{color:var(--a2-deep); font-weight:600; white-space:nowrap;}
+  .body p{color:var(--soft);}
+  .body ul{margin:6px 0; padding-left:18px;} .body li{margin:5px 0;}
+  code{font-family:var(--mono); font-size:12px; background:#edeae0; padding:1px 6px; border-radius:3px; color:var(--a2-deep);}
+  a{color:var(--a2-deep); text-underline-offset:3px;}
+  .chips{display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px;}
+  .chip{font-family:var(--mono); font-size:10.5px; letter-spacing:.05em; color:var(--soft); border:1px solid var(--line); border-radius:999px; padding:3px 10px;}
+  .foot{margin-top:30px; padding-top:15px; border-top:1px solid var(--line);
+    display:flex; justify-content:space-between; font-family:var(--mono); font-size:10px;
+    letter-spacing:.13em; text-transform:uppercase; color:var(--faint);}
+  .verdict{display:inline-block; font-size:13px; font-weight:600; padding:2px 10px; border-radius:4px; margin-left:8px;}
+  .proceed{background:#d6e8d4; color:#2e5c2b;}
+  .watch{background:#f0e6c4; color:#6b4c10;}
+  .hold{background:#e8d4d4; color:#5c2b2b;}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="eyebrow reveal">
+    <span class="dot"></span>
+    <span class="id">naver-shopping-01</span>
+    <span>Research Note</span>
+    <span class="status">cloud · 2026-06-12T16:00Z</span>
+  </div>
+  <h1 class="reveal" style="animation-delay:.05s">나래 소싱-퍼스트 후보 스크린</h1>
+  <p class="dek reveal" style="animation-delay:.09s">러기지택·워크샵카드·종이인서트 기각 이후 — 사용자 취향(소싱 중심, 여행/정리/기록) 기반 6종 후보 스크린</p>
+
+  <div class="hr reveal" style="animation-delay:.12s"></div>
+
+  <div class="axis ax1 reveal" style="animation-delay:.16s">
+    <div class="label"><span class="n">01</span> 🔍 무엇을 조사/정리했나</div>
+    <div class="text">소싱 첫 후보 3종(러기지택·워크샵카드·종이인서트) 기각 후, <b>사용자 취향 기반</b> 더 넓은 소싱-퍼스트 후보 6종 스크린 수행. 기준: 낮은 샘플 마찰, 낮은 옵션 복잡도, 관리 가능한 QA/반품 리스크.</div>
+  </div>
+
+  <div class="axis ax2 reveal" style="animation-delay:.22s">
+    <div class="label"><span class="n">02</span> 📊 핵심 결과</div>
+    <div class="text"><b>패킹큐브·압축파우치·세면도구파우치 3종 Proceed</b>, 여권케이스 디자인 차별화 조건부 진행. 다음 단계: 1688 공급업체 비교 및 네이버 경쟁가 조사 (로컬 실행 필요).</div>
+  </div>
+
+  <div class="reveal" style="animation-delay:.27s">
+  <details open>
+    <summary><span class="chev"></span> 후보 SKU 스크린 결과 (6종)</summary>
+    <div class="body">
+      <table>
+        <thead><tr><th>SKU</th><th>판정</th><th>소싱</th><th>옵션</th><th>QA 위험</th><th>수요</th><th>사용자 핏</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>패킹큐브 세트</td>
+            <td><span class="verdict proceed">✅ Proceed</span></td>
+            <td>1688, ~3,000원</td>
+            <td>낮음</td>
+            <td>낮음</td>
+            <td>높음</td>
+            <td>⭐⭐⭐</td>
+          </tr>
+          <tr>
+            <td>여행 압축 파우치</td>
+            <td><span class="verdict proceed">✅ Proceed</span></td>
+            <td>1688, ~2,000원</td>
+            <td>매우 낮음</td>
+            <td>낮음</td>
+            <td>매우 높음</td>
+            <td>⭐⭐⭐</td>
+          </tr>
+          <tr>
+            <td>세면도구 파우치</td>
+            <td><span class="verdict proceed">✅ Proceed</span></td>
+            <td>1688, ~3,000원</td>
+            <td>낮음</td>
+            <td>낮음-보통</td>
+            <td>높음</td>
+            <td>⭐⭐</td>
+          </tr>
+          <tr>
+            <td>여권 케이스</td>
+            <td><span class="verdict watch">⚠️ 조건부</span></td>
+            <td>1688, ~2,500원</td>
+            <td>낮음</td>
+            <td>낮음</td>
+            <td>높음</td>
+            <td>⭐⭐</td>
+          </tr>
+          <tr>
+            <td>접이식 에코백</td>
+            <td><span class="verdict watch">⚠️ Watch</span></td>
+            <td>1688, ~1,500원</td>
+            <td>매우 낮음</td>
+            <td>매우 낮음</td>
+            <td>보통</td>
+            <td>⭐⭐</td>
+          </tr>
+          <tr>
+            <td>목 쿠션</td>
+            <td><span class="verdict watch">⚠️ Watch</span></td>
+            <td>1688, ~2,000원</td>
+            <td>낮음</td>
+            <td>보통</td>
+            <td>높음</td>
+            <td>⭐</td>
+          </tr>
+        </tbody>
+      </table>
+      <p><strong>여권케이스 조건</strong>: 미니멀 디자인 차별화 필수 (경쟁도 매우 높음). RFID 기능 포함 시 검증 어려움 → 디자인만으로 차별화 권장.</p>
+      <p><strong>에코백/목쿠션 Watch 이유</strong>: 에코백은 commodity화 심각, 목쿠션은 반품 위험 주관적. 상위 SKU 진행 후 번들/보완재로 재검토.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="chev"></span> 다음 액션 (로컬 실행 필요)</summary>
+    <div class="body">
+      <ul>
+        <li>[ ] <strong>패킹큐브</strong>: 1688 공급업체 3-5곳 비교 (가격, MOQ, 배송비, 최소 샘플 단가)</li>
+        <li>[ ] <strong>압축파우치</strong>: 네이버쇼핑 경쟁 가격대 분석 (상위 10개 판매자, 8,000-15,000원 구간)</li>
+        <li>[ ] <strong>여권케이스</strong>: 미니멀 디자인 후보 3종 발굴 (1688 탐색)</li>
+        <li>[ ] 최종 1-2개 SKU 사용자 승인 후 샘플 오더</li>
+      </ul>
+      <p>네이버쇼핑 직접 검색은 IP 제한(HTTP 418)으로 이 환경에서 불가. 로컬 Claude Code / 나래 에이전트에서 실행 필요.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="chev"></span> 실행 메타 · 산출물</summary>
+    <div class="body">
+      <div class="chips">
+        <span class="chip">2026-06-12T16:00Z</span>
+        <span class="chip">cloud heartbeat</span>
+        <span class="chip">active → active (in_progress)</span>
+        <span class="chip">L0 research</span>
+      </div>
+      <ul>
+        <li>산출물 <code>artifacts/naver-shopping-01/sourcing-first-screen-2026-06-12.md</code></li>
+        <li>이전 리포트: <code>reports/naver-shopping-01/2026-06-10T2007Z-local.html</code></li>
+        <li>Naver 직접 접근: IP 제한으로 불가 (HTTP 418) — 수요 검증은 일반 웹 리서치로 대체</li>
+      </ul>
+    </div>
+  </details>
+  </div>
+
+  <div class="foot reveal" style="animation-delay:.3s">
+    <span>Agent-First Heartbeat</span>
+    <span>Infinity · Intent Note</span>
+  </div>
+</div>
+</body>
+</html>
