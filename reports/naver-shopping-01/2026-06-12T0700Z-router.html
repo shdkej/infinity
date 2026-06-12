@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Sourcing-First Candidate Screen</title>
+<style>
+  :root{
+    --bg:#f4f2ea; --panel:#fbfaf5; --ink:#2c2a25; --soft:#807c70; --faint:#a8a496; --line:#e3dfd2;
+    --a2:#5f7a5e; --a2-deep:#3f5740;
+    --a1:#b08545; --a1-deep:#8a6633;
+    --sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box;} html,body{margin:0;}
+  body{background:var(--bg); color:var(--ink); font-family:var(--sans); font-size:14px; line-height:1.68; -webkit-font-smoothing:antialiased;}
+  .sheet{max-width:720px; margin:0 auto; padding:48px 34px 46px;}
+  .reveal{opacity:0; animation:fade .7s ease forwards;} @keyframes fade{from{opacity:0; transform:translateY(9px);} to{opacity:1; transform:none;}}
+  .eyebrow{display:flex; align-items:center; gap:10px; font-family:var(--mono); font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--soft);}
+  .eyebrow .id{color:var(--a2-deep); font-weight:600;} .eyebrow .dot{width:5px; height:5px; border-radius:50%; background:var(--a2);} .eyebrow .status{margin-left:auto; color:var(--a2-deep);}
+  h1{font-size:29px; line-height:1.3; font-weight:700; letter-spacing:-.01em; margin:20px 0 0;}
+  .dek{font-size:15.5px; color:var(--soft); margin:13px 0 0; max-width:52ch;} .hr{height:1px; background:var(--line); margin:30px 0;}
+  .axis{padding:0 0 4px 22px; position:relative; margin-bottom:30px;} .axis::before{content:""; position:absolute; left:0; top:6px; bottom:6px; width:2px; border-radius:2px;}
+  .axis.ax1::before{background:var(--a1);} .axis.ax2::before{background:var(--a2);} .axis.ax1{--ul:var(--a1);} .axis.ax2{--ul:var(--a2);}
+  .axis .label{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase; margin-bottom:9px; display:flex; align-items:center; gap:8px;}
+  .axis.ax1 .label{color:var(--a1-deep);} .axis.ax2 .label{color:var(--a2-deep);} .axis .label .n{font-weight:600; opacity:.6;}
+  .axis .text{font-size:18px; line-height:1.6; color:#37352e;} .axis .text b{font-weight:700; color:var(--ink); border-bottom:2px solid var(--ul);}
+  details{border:1px solid var(--line); border-radius:10px; background:var(--panel); margin-bottom:10px;}
+  summary{cursor:pointer; list-style:none; padding:14px 16px; display:flex; align-items:center; gap:11px; font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft);}
+  summary::-webkit-details-marker{display:none;} summary .chev{width:8px; height:8px; border-right:2px solid var(--a2-deep); border-bottom:2px solid var(--a2-deep); transform:rotate(-45deg); transition:.25s; flex:none; margin-left:2px;}
+  details[open] summary .chev{transform:rotate(45deg);} summary:hover{color:var(--ink);} .body{padding:2px 16px 18px;}
+  table{border-collapse:collapse; width:100%; font-size:13px; margin:4px 0 12px;} th,td{border-bottom:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top;}
+  th{font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft); font-weight:600;} td:first-child{color:var(--a2-deep); font-weight:600; white-space:nowrap;}
+  .body p{color:var(--soft);} .body ul{margin:6px 0; padding-left:18px;} .body li{margin:5px 0;} code{font-family:var(--mono); font-size:12px; background:#edeae0; padding:1px 6px; border-radius:3px; color:var(--a2-deep);}
+  .chips{display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px;} .chip{font-family:var(--mono); font-size:10.5px; letter-spacing:.05em; color:var(--soft); border:1px solid var(--line); border-radius:999px; padding:3px 10px;}
+  .foot{margin-top:30px; padding-top:15px; border-top:1px solid var(--line); display:flex; justify-content:space-between; font-family:var(--mono); font-size:10px; letter-spacing:.13em; text-transform:uppercase; color:var(--faint);}
+</style>
+</head>
+<body>
+<div class="sheet">
+  <div class="eyebrow reveal"><span class="dot"></span><span class="id">naver-shopping-01</span><span>Router Note</span><span class="status">active → active</span></div>
+  <h1 class="reveal" style="animation-delay:.05s">Sourcing-First Candidate Screen</h1>
+  <p class="dek reveal" style="animation-delay:.09s">러기지택 제외·도착일 insert HOLD·워크숍 카드 DRAFT 이후 소싱 우선 기준으로 신규 SKU 후보 5개를 광범위 스크린했다.</p>
+  <div class="hr reveal" style="animation-delay:.12s"></div>
+  <div class="axis ax1 reveal" style="animation-delay:.16s">
+    <div class="label"><span class="n">01</span> 무엇을 점검했나</div>
+    <div class="text">소싱 우선 전환(2026-06-11) 이후 <b>사용자 선호 카테고리(여행·기억기록·AI크리에이터·일상시스템)에 맞는 신규 SKU 후보</b>가 있는지 점검했다. 이전 3개 방향이 모두 보류/드래프트 상태라 신규 스크린이 필요했다.</div>
+  </div>
+  <div class="axis ax2 reveal" style="animation-delay:.22s">
+    <div class="label"><span class="n">02</span> 이상 여부·조치</div>
+    <div class="text">5개 후보 중 <b>폴라로이드 앨범</b>(유저핏 최상·수요 검증됨)과 <b>와시테이프 세트</b>(소싱 난이도 최저·리스크 최저)를 PRIORITY-1로 선정. 로컬 에이전트에 키워드 검증·소싱 채널·단가 계산 위임 준비 완료.</div>
+  </div>
+  <div class="reveal" style="animation-delay:.27s">
+    <details open>
+      <summary><span class="chev"></span> 후보 스크린 결과</summary>
+      <div class="body">
+        <table>
+          <tr><th>후보</th><th>유저핏</th><th>소싱 난이도</th><th>판정</th></tr>
+          <tr><td>폴라로이드 앨범</td><td>★★★★★ 여행·기억기록 핵심</td><td>쉬움 (기성품)</td><td><b>PRIORITY-1</b></td></tr>
+          <tr><td>와시테이프 세트</td><td>★★★★☆ 기록 습관·다이어리</td><td>매우 쉬움 (국내 도매)</td><td><b>PRIORITY-1</b></td></tr>
+          <tr><td>미니 화이트보드</td><td>★★★☆☆ AI/크리에이터 작업실</td><td>중간</td><td>PRIORITY-2</td></tr>
+          <tr><td>여행 충전 파우치</td><td>★★★☆☆ 여행+디지털 실용</td><td>쉬움</td><td>PRIORITY-2</td></tr>
+          <tr><td>여행 소품 파우치</td><td>★★☆☆☆ 범용·경쟁 과밀</td><td>쉬움</td><td>PRIORITY-3</td></tr>
+        </table>
+        <ul>
+          <li>제외 유지: 러기지택/캐리어네임택 (사용자 선호도 낮음), 도착일 insert (키워드 약함), 워크숍 카드 (copy-led DRAFT 유지)</li>
+          <li>공개 Naver 검색량은 지식 기반 추정 — 로컬 OpenAPI/SearchAd 검증 미수행</li>
+          <li>승인 경계: 상품 등록·가격·재고·배송 설정은 사용자 확인 후 진행</li>
+        </ul>
+      </div>
+    </details>
+    <details>
+      <summary><span class="chev"></span> 로컬 위임 요청</summary>
+      <div class="body">
+        <p>나래 로컬 에이전트에 위임할 다음 작업:</p>
+        <ul>
+          <li><code>폴라로이드 앨범</code>, <code>포토카드 앨범</code> — Naver OpenAPI + SearchAd 키워드 볼륨·경쟁 조회</li>
+          <li><code>마스킹 테이프 세트</code>, <code>와시테이프</code> — 키워드 볼륨 조회</li>
+          <li>국내 도매 소싱 채널 확인 (도매꾹/도매토피아 샘플 가격 1–2건)</li>
+          <li>단가·마진 플로어 계산 (목표 마진율 40% 이상)</li>
+          <li>결과 기반 리드 SKU 방향 1개를 09:00 KST 보고에 포함</li>
+        </ul>
+      </div>
+    </details>
+    <details>
+      <summary><span class="chev"></span> 실행 메타 · 산출물</summary>
+      <div class="body">
+        <div class="chips"><span class="chip">2026-06-12T07:00Z</span><span class="chip">heartbeat-cloud</span><span class="chip">active → active</span></div>
+        <ul>
+          <li>산출물 <code>artifacts/naver-shopping-01/sourcing-first-candidate-screen-2026-06-12.md</code></li>
+          <li>mode: prepare (L0 cloud research — Naver API 없이 지식 기반 스크린)</li>
+          <li>approval: none needed — read-only research; 라이브 커머스 액션 없음</li>
+          <li>다음: 로컬 에이전트에 PRIORITY-1 후보 키워드 검증 위임</li>
+        </ul>
+      </div>
+    </details>
+  </div>
+  <div class="foot reveal" style="animation-delay:.3s"><span>Agent-First Heartbeat</span><span>Infinity · Intent Note</span></div>
+</div>
+</body>
+</html>
