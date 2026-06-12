@@ -205,7 +205,9 @@ Report는 실행 로그다. 2축은 그 로그의 결론을 한눈에 보게 하
 
 마케팅/세스고딘 작업이 SAM에게 전달할 routine 신호가 있으면 사용자 채팅 대신 `/home/ubuntu/.openclaw/workspace/system/data/agent-inbox/marketing.jsonl`에 JSONL 한 줄로 남긴다. 필드는 `ts`, `source`, `scope`, `item_id`, `signal`, `diagnosis`, `action_candidate`, `measurement`, `routing`, `artifacts`, `urgency`, `needs_sam_decision`, `needs_user_approval`, `user_visible`를 기본으로 한다. 이 큐는 에이전트끼리 주고받는 보조 입력이며, target-agent 실행 트리거가 아니다. 실행이 필요한 협업 요청은 `INTENTS.md` Inbox의 `marketing-*` 또는 `target_agent: marketer` intent로 존재해야 한다. local Claude는 메시지 수신·판단을 위해 호출하지 않는다. local Claude는 실제 로컬 파일/코드/테스트/브라우저/빌드/검증이 필요한 경우에만 사용한다.
 
-KST 07시 아침 리캡은 OpenClaw 로컬 cron이 소유한다. GitHub scheduled workflow는 지연/누락될 수 있으므로 아침 리캡 책임자로 쓰지 않는다. 같은 07시대에 `reports/**`, `INTENTS.md`, `GATES.md` push가 발생해도 push 기반 알림은 보내지 않는다. 07시 리캡은 최근 24시간 변화 요약 1개만 사용자에게 보인다. 리캡은 raw commit log가 아니라 완료 Archive, 다음 Inbox/Active, Waiting/GATES 대기를 한눈에 보이는 카드형 텍스트로 보낸다.
+KST 07시 아침 리캡은 OpenClaw 로컬 cron이 소유한다. GitHub scheduled workflow는 지연/누락될 수 있으므로 아침 리캡 책임자로 쓰지 않는다. 07시 리캡은 최근 24시간 변화 요약 1개만 사용자에게 보인다. 리캡은 raw commit log가 아니라 완료 Archive, 다음 Inbox/Active, Waiting/GATES 대기를 한눈에 보이는 카드형 텍스트로 보낸다.
+
+GitHub Actions push 기반 Telegram 알림은 사용하지 않는다. 일반 push는 원격 원장/대시보드/서브모듈 동기화만 담당하고, 사용자 채팅 알림은 OpenClaw cron 리캡, 명시적 승인 요청, 반복 실패/장애처럼 현재 판단이 필요한 경우에만 별도 경로로 보낸다.
 
 **알림 포맷:**
 
@@ -241,14 +243,14 @@ KST 07시 아침 리캡은 OpenClaw 로컬 cron이 소유한다. GitHub schedule
 
 ## 커밋 규칙 (no-op이면 커밋하지 않는다)
 
-Heartbeat가 push하면 `heartbeat-notify.yml`이 자동 실행되어 Telegram 알림을 보낸다. 그래서 **변화 없는 Heartbeat는 아무것도 커밋·push하지 않는다.** 이것이 알림 노이즈를 막는 단일 규칙이다.
+GitHub Actions push 알림은 사용하지 않는다. 그래도 **변화 없는 Heartbeat는 아무것도 커밋·push하지 않는다.** push는 원격 원장과 대시보드 상태를 바꾸는 기록 행위이므로, 의미 있는 변경이 있을 때만 남긴다.
 
 - 이번 Heartbeat에서 사용자에게 의미 있는 변화(실제 실행/완료/blocker/승인요청/상태 전환)가 **없으면**: 작업 디렉토리를 그대로 두고 **커밋도 push도 하지 않는다.** 조용히 종료한다.
 - **liveness 리포트를 만들지 않는다.** `reports/heartbeat/{timestamp}.md` 같은 "조용한 종료/idle" 요약 파일을 남기지 않는다. heartbeat가 언제 돌았는지를 git에 기록하지 않는다(추적하지 않는다).
-- 의미 있는 변화가 **있을 때만** 해당 산출물(리포트/INTENTS.md/GATES.md/코드)을 커밋·push한다. 그때 notify가 그 내용을 알림으로 보낸다.
-- 예외: 마케팅 후보를 `INTENTS.md`에 등록하는 준비 단계는 의미 있는 기록이지만 사용자 알림은 보내지 않는다. 이후 실제 실행 완료 리포트나 승인/blocker 알림이 작업당 1개의 사용자-visible 요약 역할을 한다.
+- 의미 있는 변화가 **있을 때만** 해당 산출물(리포트/INTENTS.md/GATES.md/코드)을 커밋·push한다. push 자체는 사용자 알림을 만들지 않는다.
+- 마케팅 후보를 `INTENTS.md`에 등록하는 준비 단계는 의미 있는 기록이지만 사용자 알림은 보내지 않는다. 이후 실제 실행 완료 리포트나 승인/blocker는 대시보드/리캡 또는 별도 승인 요청 경로에서 다룬다.
 
-> 결과적으로 push = 의미 있는 변화다. 알림 여부를 커밋 메시지 문구로 다시 판별할 필요가 없다.
+> 결과적으로 push = 의미 있는 원장 변화다. Telegram 알림 여부는 push가 아니라 사용자 판단 필요성으로 결정한다.
 
 ## Intent 생명주기 관리
 
