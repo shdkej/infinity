@@ -4,6 +4,8 @@
 
 ## Inbox
 
+<!-- build-07 inbox 2026-06-12T09:38Z → intents/inbox/build-07.md [display: Control Center Save/Publish Boundary; projects: infinity,personal-ops,infrastructure; type: design; topics: dashboard,cms,editing,deploy,security; status: needs-save-publish-boundary] (build-06 Draft Editor MVP는 정본 파일을 쓰지 않는 diff preview까지 완료. 실제 CMS 저장/commit-push/deploy/auth/token 서버 기능은 위험도가 올라가므로 다음 후속 intent로 연결. 첫 안전 액션은 local-only draft save, server-side write API, GitHub commit/push, deploy action, auth/permission, audit log, rollback 경계를 승인 단위로 나누는 것.) -->
+
 
 
 ## Active
@@ -16,7 +18,7 @@
 
 ## Archive
 
-<!-- build-06 completed 2026-06-12T09:35Z → reports/build-06/2026-06-12T0935Z-control-center-draft-editor.html [display: Control Center Draft Edit MVP; projects: infinity,personal-ops,infrastructure; type: implementation; topics: dashboard,cms,editing,diff-preview,deploy] (기존 Status Control Center에 draft-only Editable CMS/Draft Editor 섹션 구현. Family Wedding NOTICE field input → unified diff preview가 브라우저 메모리에서 즉시 생성되며 정본 파일 write 없음. write API/auth/permission/GitHub·AWS token server function/production deploy button/UI 자동 commit-push/Terraform·AWS 리소스/비용/destructive/secret 편집 0. Space repo commit/push `d389511 feat(status): add control center draft editor`. Status feed 재생성, S3 sync, CloudFront invalidation `I94000R114RC8NKS2P8OP48GQ`, 공개 URL `https://status.aws.shdkej.com/control-center/index.html`에서 `Draft Editor`, `Family Wedding`, `diff preview`, `NOTICE field input` 확인.) -->
+<!-- build-06 completed 2026-06-12T09:35Z → reports/build-06/2026-06-12T0935Z-control-center-draft-editor.html [display: Control Center Draft Edit MVP; projects: infinity,personal-ops,infrastructure; type: implementation; topics: dashboard,cms,editing,diff-preview,deploy] (기존 Status Control Center에 draft-only Editable CMS/Draft Editor 섹션 구현. Family Wedding NOTICE field input → unified diff preview가 브라우저 메모리에서 즉시 생성되며 정본 파일 write 없음. write API/auth/permission/GitHub·AWS token server function/production deploy button/UI 자동 commit-push/Terraform·AWS 리소스/비용/destructive/secret 편집 0. Space repo commit/push `d389511 feat(status): add control center draft editor`. Status feed 재생성, S3 sync, CloudFront invalidation `I94000R114RC8NKS2P8OP48GQ`, 공개 URL `https://status.aws.shdkej.com/control-center/index.html`에서 `Draft Editor`, `Family Wedding`, `diff preview`, `NOTICE field input` 확인. next: `build-07` Inbox에서 Save/Publish 경계 설계로 연결.) -->
 
 <!-- build-05 completed 2026-06-12T07:30Z → reports/build-05/2026-06-12T0730Z-local.html [projects: infinity,personal-ops,infrastructure; type: design; topics: dashboard,cms,automation] (Control Center Editable CMS 첫 안전 액션 = editable surface schema + field-level draft edit/diff preview 설계 완료. 산출물 `artifacts/build-05/control-center-editable-cms-design.md`, canonical index `intents/archive/build-05.md`. `editableSurfaces` 스키마(id/필드/anchor/검증/preview/publish/changeLog) 정의, 첫 editable target으로 Family Wedding 안내장 3필드(NOTICE/본문 도입/OG description) 인스턴스, anchor 기반 unified diff preview 흐름 설계. 핵심 안전장치 `preview.write:"none"`로 정본 파일 미변경, publish/deploy는 전부 approval-needed 자리로만 표시. write API/auth/permission/production deploy button/GitHub·AWS token server function/Terraform·AWS resource/cost/destructive/외부 발송/secret 편집은 본 문서에서 설계 경계 텍스트로만 다루고 미구현. change-log 모델로 commit SHA/deploy run/public URL 검증 연결. doc-only inside Infinity. next: `build-06` Active에서 Draft Editor MVP 구현으로 연결. HTML report gate(`<html`/`<body`/`axis ax1`/`axis ax2`/`<details`) 통과.) -->
 
