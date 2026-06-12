@@ -16,8 +16,8 @@
     role: final
 - commits:
   - repo: infinity
-    sha: pending
-    note: Commit after heartbeat verification.
+    sha: 08b4ec1
+    note: Archived marketing-56 artifact, report, and INTENTS transition.
 - urls: []
 - next_actions:
   - Use this artifact only as an internal first-user observation aid; any product telemetry, public copy, tracking/privacy, pricing, cap, or deployment change remains approval-gated.
