@@ -70,6 +70,7 @@ Archive intent는 대시보드에서 프로젝트별/성격별로 묶어 볼 수
 2. **Active intent는 짧게 유지한다.** 분석/결과를 본문에 누적하지 말고, 산출물은 `artifacts/{id}/`에 만들고 active intent에서는 참조만 한다.
 3. **완료 시 archive intent가 canonical index가 된다.** 사용자가 "그래서 뭐 했더라"를 찾을 때 한 파일만 봐도 산출물 / 리포트 / 커밋 / URL 까지 한 번에 도달해야 한다.
 4. **`drafts/`는 폐기.** 과거 drafts 산출물은 모두 `artifacts/{id}/`로 이동했다. 모든 신규 detail 링크는 `artifacts/{id}/` 또는 `intents/archive/{id}.md`만 가리킨다.
+5. **Archive는 프로젝트 종료와 다를 수 있다.** 프로젝트성 작업은 한 intent가 설계·조사·MVP 같은 한 단계를 끝내고 Archive로 가더라도, 원래 사용자 목표가 남아 있으면 반드시 다음 intent를 `Inbox`/`Active`/`Waiting` 중 하나로 연결한다. Archive 요약에는 `next` 또는 후속 intent id를 남긴다.
 
 ## 문서 역할 표준
 
@@ -89,6 +90,7 @@ Infinity 문서는 아래 3개 역할로 통일한다. 새 문서를 만들 때 
 - 대시보드/자동화는 같은 path가 `archive`와 `detail` 양쪽에서 발견되면 하나의 `Intent 원장`으로 합쳐야 한다.
 - 사람이 읽는 최종 요약은 Report에만 남기지 말고 반드시 Intent 원장의 `result_summary`, `artifacts`, `reports`, `commits`, `urls`, `next_actions`에 반영한다.
 - 신규 Report는 Markdown으로 만들지 않는다. 과거 `.md` report는 legacy로만 읽고, 새 실행 로그는 반드시 HTML이다.
+- 프로젝트성 작업에서 `next_actions`가 "구현", "배포", "검증", "승인 후 실행"처럼 실제 후속 단계를 가리키면, 같은 turn 또는 같은 heartbeat에서 후속 intent를 만든다. 사용자가 다시 요청해야만 이어지는 상태로 두지 않는다.
 
 ## Archive Intent 표준 포맷
 
@@ -124,11 +126,28 @@ Infinity 문서는 아래 3개 역할로 통일한다. 새 문서를 만들 때 
 
 기존 archive 문서(`build-01.md`, `research-06.md` 등)는 형식이 일관되지 않지만 이 패스에서는 마이그레이션하지 않는다. **신규 archive부터** 이 포맷을 따른다.
 
+### 프로젝트 연속성 게이트
+
+아래 중 하나라도 참이면 archive 전환 전에 후속 상태를 명시해야 한다.
+
+- 원래 사용자 요청이 배포/사용 가능한 기능인데 현재 intent가 설계·조사·인벤토리만 완료했다.
+- `next_actions`가 실제 구현/배포/검증 단계를 요구한다.
+- 사용자가 "계속", "프로젝트", "CMS", "앱", "대시보드", "사이트"처럼 장기 산출물을 기대했다.
+- 완료 요약에 "미구현", "approval-needed", "별도 intent" 같은 문구가 들어간다.
+
+후속 상태는 다음 중 하나로 남긴다.
+
+- `Active`: 다음 단계가 명확하고 안전하며 바로 진행 가능하다.
+- `Inbox`: 다음 단계는 필요하지만 슬롯/우선순위 정리가 필요하다.
+- `Waiting`: 사용자 결정, 외부 계정, 비용, 권한, 시크릿, 공개 발송, destructive action이 필요하다.
+- `No continuation`: 원래 목표가 실제로 끝났거나 사용자가 명시적으로 중단했다.
+
 ## Heartbeat가 지켜야 할 흐름
 
 1. 실행 결과를 `reports/{id}/{timestamp}.html`로 남긴다 — 이것은 **로그**다. (양식은 아래 "Report 양식" 참고)
 2. 의미 있는 산출물이 생기면 `artifacts/{id}/...`로 만든다. active intent 본문에 두지 않는다.
 3. Intent가 완료되면:
+   - 원래 프로젝트 목표가 끝났는지 먼저 판정하고, 끝나지 않았으면 후속 intent id 또는 Waiting blocker를 만든다.
    - `intents/active/{id}.md` → `intents/archive/{id}.md`로 이동
    - 위 표준 포맷으로 재작성하면서 artifacts / reports / commits / urls 링크
    - `INTENTS.md`의 Active 블록 제거, 완료 코멘트 추가 (`<!-- {id} completed YYYY-MM-DDTHH:MM → intents/archive/{id}.md [projects: virtue; type: strategy; topics: activation,analytics] (한 줄 결과) -->`)

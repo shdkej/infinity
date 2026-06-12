@@ -12,7 +12,7 @@ Infinity evaluator가 매 실행마다 `EVALUATION_NOTES.md` 전체를 다시 �
 - **Blocked는 상태 필드로**: 장기 blocked, 승인 대기, 채널 실패는 report 누적보다 `status`, `blocked_reason`, `channel_state`, `next_check_at`, `owner_action/user_action` 같은 필드로 남기는 편이 낫다.
 - **승인 해소 후 resume**: `GATES.md`가 resolved 되었으면 다음 정시 heartbeat를 기다리지 말고 `approved_at`, `resume_deadline`, `last_progress_at`을 남기거나 즉시 resume 후보로 올려야 한다.
 - **완료 검증**: 배포형 intent는 URL 200만으로 닫지 말고 핵심 콘텐츠 경로 2~3개와 사용자 시나리오 기준 검증을 통과해야 한다.
-- **후속 intent 연속성**: 같은 프로젝트의 후속 Inbox가 이미 있으면 재등록을 요구하지 말고 기존 식별자/phase 또는 명확한 새 번호 규칙으로 이어받아야 한다.
+- **후속 intent 연속성**: 같은 프로젝트의 후속 Inbox/Active/Waiting이 이미 있으면 재등록을 요구하지 말고 기존 식별자/phase 또는 명확한 새 번호 규칙으로 이어받아야 한다. 프로젝트성 작업은 설계·조사 intent가 Archive로 닫혀도 원래 목표가 남아 있으면 후속 intent를 자동 연결해야 하며, 사용자가 다시 요청해야만 이어지는 상태로 두지 않는다.
 - **No-op이면 커밋 안 함**: 변화 없는 Heartbeat는 커밋·push하지 않는다. liveness/idle 요약 리포트를 남기지 않고 heartbeat age도 추적하지 않는다. (2026-05-24 결정 — push = 의미 있는 변화)
 - **Lane 디렉터리 정합성**: 완료 전이는 `INTENTS.md` Archive와 `intents/archive/{id}.md`만 확인하지 말고, 같은 id의 `intents/active`/`intents/inbox` 잔존 파일 제거까지 검증한다. repo 이전/분리 때도 이 검사를 반복한다.
 - **반복 평가 억제**: 같은 blocked/승인 문제를 새 근거 없이 반복 append하지 않는다. 새로운 운영 결정을 바꿀 때만 평가 노트를 추가한다.

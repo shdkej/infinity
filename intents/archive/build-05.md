@@ -74,4 +74,4 @@ L0/L1/L2 범위에서 설계, schema, read-only/draft UI, diff preview, 내부 c
 - report: `reports/build-05/2026-06-12T0730Z-local.html`
 - outcome: `editableSurfaces` 스키마와 Family Wedding 안내장 3필드(NOTICE/본문 도입/OG description) 첫 인스턴스, anchor 기반 unified diff preview 흐름, change-log 모델을 설계했다. 핵심 안전장치는 `preview.write:"none"`(정본 파일 미변경)과 publish/deploy의 approval-needed 분리다.
 - boundary_kept: write API / auth·permission / production deploy button / GitHub·AWS token 서버 function / Terraform·AWS resource / 비용·destructive / 외부 발송 / secret 편집은 본 단계에서 설계 경계 텍스트로만 다루고 미구현. doc-only inside Infinity.
-- next: Control Center UI에 read-only 바인딩 → 정본 미변경 diff 생성기 소규모 구현 → Family Wedding NOTICE 1필드 수동 루프 2–3회 검증 → 이후 deploy 버튼/token 서버 기능은 승인형 별도 intent.
+- next: `build-06` Active로 연결. Control Center UI에 draft-only editor를 붙이고 Family Wedding NOTICE 1필드 입력 → 정본 미변경 diff preview를 구현한다. 이후 실제 저장/write API/deploy 버튼/token 서버 기능은 승인형 별도 intent.

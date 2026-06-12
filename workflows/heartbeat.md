@@ -324,6 +324,7 @@ Intent가 완료 기준을 충족하거나 사용자가 완료 처리하면:
 4. `INTENTS.md`의 `## Active` 또는 `## Waiting`에서 블록을 제거하고 `## Archive`에 완료 코멘트(`<!-- {id} completed YYYY-MM-DDTHH:MM → intents/archive/{id}.md (한 줄 결과) -->`)를 남긴다.
 5. 대시보드 등 외부 소비자가 `detail:` 경로를 참조한다면 archive 경로가 유효한지 확인한다.
 6. 완료 직후 같은 내용을 `Detail` 문서로 다시 만들지 않는다. 최종 문서는 `Intent 원장`, 원문 산출물은 `Artifact`, 실행 로그는 `Report`로 분리한다.
+7. 프로젝트성 작업은 Archive 전에 원래 사용자 목표가 끝났는지 판정한다. 끝나지 않았으면 후속 intent를 `Inbox`/`Active`/`Waiting` 중 하나로 만들고 archive 요약에 `next: {id}`를 남긴다.
 
 ```
 INTENTS.md                ← 활성 Intent만 (가볍게)
