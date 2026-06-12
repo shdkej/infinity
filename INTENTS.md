@@ -4,6 +4,8 @@
 
 ## Inbox
 
+<!-- marketing-55 inbox 2026-06-12T10:00Z → intents/inbox/marketing-55.md [display: Virtue Prelaunch Activation Measurement Contract; projects: virtue; type: strategy; topics: activation,measurement,onboarding,prelaunch,plg; status: needs-activation-measurement-contract] (출처노트 `source/external-links/marketing/2026-06-12-plg-activation-measurement.md`. Mixpanel 2026 PLG 측정 렌즈를 Virtue prelaunch에 맞게 번역: signup/pageview보다 first value 행동 계약이 먼저이며, PQL/paid conversion/expansion/viral coefficient는 launch-after gate로 분리. 첫 안전 액션은 잡별 first value, 기존 이벤트, 수기 관찰 질문, `count now`/`observe manually`/`do not judge yet`를 한 표로 묶는 L1 docs-only 문서 작성. 신규 이벤트·tracking/privacy·dashboard·public copy·deploy·external message·cost 0.) -->
+
 <!-- build-08 inbox 2026-06-12T10:05Z → intents/inbox/build-08.md [display: Control Center Authenticated Publish Pipeline; projects: infinity,personal-ops,infrastructure; type: implementation; topics: dashboard,cms,auth,publish,deploy; status: needs-auth-publish-boundary] (build-07은 Next.js + Supabase scratch CRUD로 웹 데이터 생성/수정/삭제까지 완료. 다음 단계는 실제 공개 페이지 정본 반영을 열기 전 auth/permission, approval gate, source repo write, commit/push, deploy trigger, rollback, audit log를 하나의 publish pipeline으로 설계/구현하는 것. 실제 production page write/deploy는 승인 경계 유지.) -->
 
 
