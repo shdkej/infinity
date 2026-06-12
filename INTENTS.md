@@ -5,7 +5,6 @@
 ## Inbox
 
 
-<!-- build-09 inbox 2026-06-12T10:40Z → intents/inbox/build-09.md [display: Control Center Authenticated Publish + Rollback; projects: infinity,personal-ops,infrastructure; type: implementation; topics: dashboard,cms,auth,publish,deploy,rollback; status: needs-auth-publish-boundary] (build-08은 shadcn/ui 운영툴 + Supabase control_center_nodes 트리로 Status 구성을 웹에서 만들고 저장하는 CMS까지 완료. 다음 단계는 그 구성/record를 실제 공개 페이지 정본으로 반영하는 publish 파이프라인 — diff preview, 승인형 publish, source repo write, commit/push, deploy trigger, public URL 검증, rollback handle. 실제 production page write/deploy·auth/permission 변경은 승인 경계 유지.) -->
 
 
 
@@ -16,6 +15,8 @@
 ## Waiting
 
 <!-- 사용자 결정, 외부 조건, 안전 확인 대기. 같은 질문을 반복하지 않고 상태만 보존한다. -->
+
+<!-- build-09 waiting 2026-06-12T10:47Z → intents/waiting/build-09.md [display: Control Center Authenticated Publish + Rollback; projects: infinity,personal-ops,infrastructure; type: implementation; topics: dashboard,cms,auth,publish,deploy,rollback; decision: dry-run-only-first | single-target-publish | wait; default: dry-run-only-first] (안전한 1차 작업으로 non-secret publish/rollback spec 작성: `artifacts/build-09/control-center-authenticated-publish-rollback-spec.md`. 권장 첫 타깃은 Family Wedding production copy가 아니라 `status-control-center-feed`. 실제 production page write/deploy, auth/permission change, source repo write, commit/push automation, deploy trigger, rollback execution은 승인 전 보류. 질문: Control Center publish pipeline을 먼저 dry-run only로 열지, 단일 target publish까지 승인할지, 대기할지 결정 필요.) -->
 
 ## Archive
 
