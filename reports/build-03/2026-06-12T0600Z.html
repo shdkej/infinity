@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>build-03 Report · 2026-06-12</title>
+<style>
+  :root{
+    --bg:#f4f2ea; --panel:#fbfaf5; --ink:#2c2a25; --soft:#807c70; --faint:#a8a496; --line:#e3dfd2;
+    --a2:#5f7a5e; --a2-deep:#3f5740;
+    --a1:#a9745a; --a1-deep:#8a5c45;
+    --sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;}
+  body{background:var(--bg); color:var(--ink); font-family:var(--sans); font-size:14px; line-height:1.68; -webkit-font-smoothing:antialiased;}
+  .sheet{max-width:720px; margin:0 auto; padding:48px 34px 46px;}
+  .reveal{opacity:0; animation:fade .7s ease forwards;}
+  @keyframes fade{from{opacity:0; transform:translateY(9px);} to{opacity:1; transform:none;}}
+  .eyebrow{display:flex; align-items:center; gap:10px; font-family:var(--mono); font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--soft);}
+  .eyebrow .id{color:var(--a2-deep); font-weight:600;}
+  .eyebrow .dot{width:5px; height:5px; border-radius:50%; background:var(--a2);}
+  .eyebrow .status{margin-left:auto; color:var(--a2-deep);}
+  h1{font-size:29px; line-height:1.3; font-weight:700; letter-spacing:-.01em; margin:20px 0 0;}
+  .dek{font-size:15.5px; color:var(--soft); margin:13px 0 0; max-width:52ch;}
+  .hr{height:1px; background:var(--line); margin:30px 0;}
+  .axis{padding:0 0 4px 22px; position:relative; margin-bottom:30px;}
+  .axis::before{content:""; position:absolute; left:0; top:6px; bottom:6px; width:2px; border-radius:2px;}
+  .axis.ax1::before{background:var(--a1);} .axis.ax2::before{background:var(--a2);}
+  .axis.ax1{--ul:var(--a1);} .axis.ax2{--ul:var(--a2);}
+  .axis .label{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase; margin-bottom:9px; display:flex; align-items:center; gap:8px;}
+  .axis.ax1 .label{color:var(--a1-deep);} .axis.ax2 .label{color:var(--a2-deep);}
+  .axis .label .n{font-weight:600; opacity:.6;}
+  .axis .text{font-size:18px; line-height:1.6; color:#37352e;}
+  .axis .text b{font-weight:700; color:var(--ink); border-bottom:2px solid var(--ul);}
+  details{border:1px solid var(--line); border-radius:10px; background:var(--panel); margin-bottom:10px;}
+  summary{cursor:pointer; list-style:none; padding:14px 16px; display:flex; align-items:center; gap:11px; font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft);}
+  summary::-webkit-details-marker{display:none;}
+  summary .chev{width:8px; height:8px; border-right:2px solid var(--a2-deep); border-bottom:2px solid var(--a2-deep); transform:rotate(-45deg); transition:.25s; flex:none; margin-left:2px;}
+  details[open] summary .chev{transform:rotate(45deg);}
+  summary:hover{color:var(--ink);}
+  .body{padding:2px 16px 18px;}
+  table{border-collapse:collapse; width:100%; font-size:13px; margin:4px 0 12px;}
+  th,td{border-bottom:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top;}
+  th{font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft); font-weight:600;}
+  td:first-child{color:var(--a2-deep); font-weight:600; white-space:nowrap;}
+  .body p{color:var(--soft);}
+  .body ul{margin:6px 0; padding-left:18px;} .body li{margin:5px 0;}
+  code{font-family:var(--mono); font-size:12px; background:#edeae0; padding:1px 6px; border-radius:3px; color:var(--a2-deep);}
+  .chips{display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px;}
+  .chip{font-family:var(--mono); font-size:10.5px; letter-spacing:.05em; color:var(--soft); border:1px solid var(--line); border-radius:999px; padding:3px 10px;}
+  .foot{margin-top:30px; padding-top:15px; border-top:1px solid var(--line); display:flex; justify-content:space-between; font-family:var(--mono); font-size:10px; letter-spacing:.13em; text-transform:uppercase; color:var(--faint);}
+</style>
+</head>
+<body>
+<div class="sheet">
+  <div class="eyebrow reveal">
+    <span class="dot"></span>
+    <span class="id">build-03</span>
+    <span>Design Note</span>
+    <span class="status">ACTIVE</span>
+  </div>
+  <h1 class="reveal" style="animation-delay:.05s">Control Center / Ops CMS</h1>
+  <p class="dek reveal" style="animation-delay:.09s">Inbox에서 Active로 승격 — 대시보드 운영 레지스트리 설계 시작. Cloud prepare: 초안 inventory 작성 완료.</p>
+
+  <div class="hr reveal" style="animation-delay:.12s"></div>
+
+  <div class="axis ax1 reveal" style="animation-delay:.16s">
+    <div class="label"><span class="n">01</span> 무엇이 문제였나</div>
+    <div class="text">Travel/Status/Infinity/Card Library/wedding 등 <b>5개+ 대시보드가 흙어져</b> 있어 운영 비용이 높고 현재 상태를 한눈에 볼 수 없음. 데이터 소스, 배포 경로, 공개 URL이 각각 다른 위치에 분산.</div>
+  </div>
+
+  <div class="axis ax2 reveal" style="animation-delay:.22s">
+    <div class="label"><span class="n">02</span> 어떻게 해결하나</div>
+    <div class="text">운영 Control Center를 설계: <b>registry + data-edit links + deploy-status + change-log</b> 4개 레이어. MVP는 static HTML 레지스트리부터 시작, 반복 수정만 버튼화. 이번 Heartbeat에서 초안 inventory 작성 완료 — 다음 단계는 로컬에서 실제 경로 확인 후 완성.</div>
+  </div>
+
+  <div class="reveal" style="animation-delay:.27s">
+  <details open>
+    <summary><span class="chev"></span> 이번 Heartbeat 작업 내역</summary>
+    <div class="body">
+      <ul>
+        <li>build-03 Inbox → Active 승격 (Active 슬롯 여유 있음, 2/3 사용)</li>
+        <li><code>intents/active/build-03.md</code> 생성 (status: active)</li>
+        <li><code>artifacts/build-03/dashboard-inventory-draft.md</code> 초안 작성 — known context 기반</li>
+        <li>Cloud prepare: 7개 대시보드/페이지 식별, 각각 URL/경로/데이터소스/배포방식/위험도 분류</li>
+        <li>MVP 정보구조 초안 (registry → data sources → deploy log → quick actions)</li>
+      </ul>
+      <p><strong>알려진 서피스:</strong> Virtue App(✅운영), Agent Wiki(✅운영), Infinity Dashboard, Travel Dashboard, Status Dashboard, Card News Library, Wedding Page (⚠️로컈 확인 필요 5건)</p>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="chev"></span> 다음 액션 (Local)</summary>
+    <div class="body">
+      <ul>
+        <li>로컬 경로 확인: <code>ls ~/dev/</code>, <code>ls ~/</code></li>
+        <li>공개 URL 체크: virtue, wiki, 기타 대시보드</li>
+        <li>완성된 inventory → <code>artifacts/build-03/dashboard-inventory.md</code></li>
+        <li>MVP Control Center 설계 → <code>artifacts/build-03/control-center-design.md</code></li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="chev"></span> 실행 메타 · 산출물</summary>
+    <div class="body">
+      <div class="chips">
+        <span class="chip">2026-06-12T0600Z</span>
+        <span class="chip">heartbeat · cloud-prepare</span>
+        <span class="chip">inbox → active</span>
+      </div>
+      <ul>
+        <li>산출물 <code>artifacts/build-03/dashboard-inventory-draft.md</code></li>
+        <li>산출물 <code>intents/active/build-03.md</code></li>
+        <li>권한: L0 (cloud research/draft)</li>
+      </ul>
+    </div>
+  </details>
+  </div>
+
+  <div class="foot reveal" style="animation-delay:.3s">
+    <span>Agent-First Heartbeat</span>
+    <span>Infinity · Intent Note</span>
+  </div>
+</div>
+</body>
+</html>
