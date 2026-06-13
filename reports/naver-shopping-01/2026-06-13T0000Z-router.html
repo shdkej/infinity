@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>[naver-shopping-01] 소싱-퍼스트 광범위 스크리닝</title>
+<style>
+  :root{
+    --bg:#f4f2ea; --panel:#fbfaf5; --ink:#2c2a25; --soft:#807c70; --faint:#a8a496; --line:#e3dfd2;
+    --a2:#5f7a5e; --a2-deep:#3f5740;
+    --a1:#a9745a; --a1-deep:#8a5c45;
+    --sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box;} html,body{margin:0;}
+  body{background:var(--bg); color:var(--ink); font-family:var(--sans); font-size:14px; line-height:1.68; -webkit-font-smoothing:antialiased;}
+  .sheet{max-width:720px; margin:0 auto; padding:48px 34px 46px;}
+  .reveal{opacity:0; animation:fade .7s ease forwards;} @keyframes fade{from{opacity:0; transform:translateY(9px);} to{opacity:1; transform:none;}}
+  .eyebrow{display:flex; align-items:center; gap:10px; font-family:var(--mono); font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--soft);}
+  .eyebrow .id{color:var(--a2-deep); font-weight:600;} .eyebrow .dot{width:5px; height:5px; border-radius:50%; background:var(--a2);} .eyebrow .status{margin-left:auto; color:var(--a2-deep);}
+  h1{font-size:29px; line-height:1.3; font-weight:700; letter-spacing:-.01em; margin:20px 0 0;}
+  .dek{font-size:15.5px; color:var(--soft); margin:13px 0 0; max-width:52ch;} .hr{height:1px; background:var(--line); margin:30px 0;}
+  .axis{padding:0 0 4px 22px; position:relative; margin-bottom:30px;} .axis::before{content:""; position:absolute; left:0; top:6px; bottom:6px; width:2px; border-radius:2px;}
+  .axis.ax1::before{background:var(--a1);} .axis.ax2::before{background:var(--a2);} .axis.ax1{--ul:var(--a1);} .axis.ax2{--ul:var(--a2);}
+  .axis .label{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase; margin-bottom:9px; display:flex; align-items:center; gap:8px;}
+  .axis.ax1 .label{color:var(--a1-deep);} .axis.ax2 .label{color:var(--a2-deep);} .axis .label .n{font-weight:600; opacity:.6;}
+  .axis .text{font-size:18px; line-height:1.6; color:#37352e;} .axis .text b{font-weight:700; color:var(--ink); border-bottom:2px solid var(--ul);}
+  details{border:1px solid var(--line); border-radius:10px; background:var(--panel); margin-bottom:10px;}
+  summary{cursor:pointer; list-style:none; padding:14px 16px; display:flex; align-items:center; gap:11px; font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft);}
+  summary::-webkit-details-marker{display:none;} summary .chev{width:8px; height:8px; border-right:2px solid var(--a2-deep); border-bottom:2px solid var(--a2-deep); transform:rotate(-45deg); transition:.25s; flex:none; margin-left:2px;}
+  details[open] summary .chev{transform:rotate(45deg);} summary:hover{color:var(--ink);} .body{padding:2px 16px 18px;}
+  table{border-collapse:collapse; width:100%; font-size:13px; margin:4px 0 12px;} th,td{border-bottom:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top;}
+  th{font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft); font-weight:600;} td:first-child{color:var(--a2-deep); font-weight:600; white-space:nowrap;}
+  .body p{color:var(--soft);} .body ul{margin:6px 0; padding-left:18px;} .body li{margin:5px 0;} code{font-family:var(--mono); font-size:12px; background:#edeae0; padding:1px 6px; border-radius:3px; color:var(--a2-deep);}
+  .chips{display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px;} .chip{font-family:var(--mono); font-size:10.5px; letter-spacing:.05em; color:var(--soft); border:1px solid var(--line); border-radius:999px; padding:3px 10px;}
+  .foot{margin-top:30px; padding-top:15px; border-top:1px solid var(--line); display:flex; justify-content:space-between; font-family:var(--mono); font-size:10px; letter-spacing:.13em; text-transform:uppercase; color:var(--faint);}
+  .badge{display:inline-block; font-family:var(--mono); font-size:10px; letter-spacing:.08em; background:var(--a2); color:#fff; border-radius:4px; padding:2px 7px; margin-left:8px; vertical-align:middle;}
+</style>
+</head>
+<body>
+<div class="sheet">
+  <div class="eyebrow reveal"><span class="dot"></span><span class="id">naver-shopping-01</span><span>Coordination Note</span><span class="status">prepare · active</span></div>
+  <h1 class="reveal" style="animation-delay:.05s">소싱-퍼스트 광범위 스크리닝</h1>
+  <p class="dek reveal" style="animation-delay:.09s">2026-06-11 사용자 선호 업데이트(소싱 중심, 러기지택 제외) 이후 첫 광범위 후보 스크리닝을 Cloud prepare 모드로 수행했다.</p>
+  <div class="hr reveal" style="animation-delay:.12s"></div>
+  <div class="axis ax1 reveal" style="animation-delay:.16s">
+    <div class="label"><span class="n">01</span> 맥락 · 문제</div>
+    <div class="text">소싱-퍼스트 전환 후 <b>다음 후보 카테고리를 결정하지 못한 채 2일이 경과</b>했다. DataLab/쇼핑 검색 모두 접근 제약이 있어 키워드 검증 없이 진행해야 한다.</div>
+  </div>
+  <div class="axis ax2 reveal" style="animation-delay:.22s">
+    <div class="label"><span class="n">02</span> 결과 · 선정</div>
+    <div class="text">5개 카테고리 1차 평가 완료. <b>노트/메모장 세트</b>(사용자 선호 최고, 소싱 용이)와 <b>케이블 정리 용품</b>(크리에이터 적합, 저위험)을 우선 검증 대상으로 선정했다.</div>
+  </div>
+  <div class="reveal" style="animation-delay:.27s">
+    <details open>
+      <summary><span class="chev"></span> 후보 평가표</summary>
+      <div class="body">
+        <table>
+          <tr><th>후보</th><th>소싱</th><th>샘플마찰</th><th>옵션복잡도</th><th>QA위험</th><th>선호</th><th>판정</th></tr>
+          <tr><td>노트/메모장 세트</td><td>HIGH</td><td>LOW</td><td>LOW-MED</td><td>LOW</td><td>HIGH</td><td><strong>★ A</strong></td></tr>
+          <tr><td>케이블 정리 용품</td><td>HIGH</td><td>LOW</td><td>LOW</td><td>LOW</td><td>MED-HIGH</td><td><strong>★ A</strong></td></tr>
+          <tr><td>다용도 파우치</td><td>HIGH</td><td>LOW</td><td>MED</td><td>LOW-MED</td><td>MED</td><td>B (WATCH)</td></tr>
+          <tr><td>스티커/다이어리 스티커</td><td>HIGH</td><td>LOW</td><td>LOW</td><td>LOW</td><td>MED</td><td>B (보조)</td></tr>
+          <tr><td>데스크 오거나이저</td><td>HIGH</td><td>LOW-MED</td><td>MED</td><td>MED</td><td>MED</td><td>B (보조)</td></tr>
+        </table>
+      </div>
+    </details>
+    <details open>
+      <summary><span class="chev"></span> 기각 목록</summary>
+      <div class="body">
+        <ul>
+          <li><strong>러기지택 / 캐리어네임택</strong> — 사용자 명시 비선호 (2026-06-11)</li>
+          <li><strong>여행 체크리스트 카드</strong> — HOLD: 키워드 약, 바이어 인텐트 낮음</li>
+          <li><strong>워크샵 질문 카드</strong> — DRAFT: 카피 레드, 소싱 부적합</li>
+          <li><strong>트래블러스노트 속지</strong> — 브랜드 종속, 진입 장벽 높음</li>
+        </ul>
+      </div>
+    </details>
+    <details>
+      <summary><span class="chev"></span> 다음 액션 (Narae용)</summary>
+      <div class="body">
+        <ul>
+          <li>DataLab 재접근 시: <code>노트</code> / <code>수첩</code> / <code>케이블정리</code> 12개월 클릭 트렌드 조회</li>
+          <li>SmartStore Commerce ID 해소 후: 카테고리별 상품정보제공고시 항목 확인</li>
+          <li>국내 도매 채널 스캔: 도매꾹/오너클랜 단가 및 MOQ 확인</li>
+          <li>09:00 KST 리캡: TOP 2 후보를 사용자에게 제시해 우선순위 확인</li>
+        </ul>
+      </div>
+    </details>
+    <details>
+      <summary><span class="chev"></span> 실행 메타</summary>
+      <div class="body">
+        <div class="chips"><span class="chip">2026-06-13T00:00Z</span><span class="chip">cloud prepare · L0</span><span class="chip">active → active</span><span class="chip">approval: none needed</span></div>
+        <ul>
+          <li>산출물: <code>artifacts/naver-shopping-01/sourcing-first-broader-screen-2026-06-13.md</code></li>
+          <li>접근 제약: 네이버 쇼핑 검색 HTTP 418, SmartStore Commerce ID 게이트 — 키워드 수요 검증 미완</li>
+          <li>라이브 스토어/상품등록/가격/재고/광고/고객/주문/계정/공개 발행 0건</li>
+          <li>다음 Heartbeat: DataLab 접근 가능 시 A등급 2개 키워드 검증 수행</li>
+        </ul>
+      </div>
+    </details>
+  </div>
+  <div class="foot reveal" style="animation-delay:.3s"><span>Agent-First Heartbeat</span><span>Infinity · naver-shopping-01</span></div>
+</div>
+</body>
+</html>
