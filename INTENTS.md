@@ -4,6 +4,8 @@
 
 ## Inbox
 
+<!-- marketing-58 inbox 2026-06-13T22:00Z [display: Virtue First Successful Output Contract; projects: virtue; type: strategy; topics: agentic-plg,activation,outcome-clarity,prelaunch] (출처노트 `source/external-links/marketing/2026-06-13-agentic-plg-outcome-readable.md`. Rationale: agentic PLG에서는 activation을 UI interaction보다 first successful output과 outcome-readable quality로 봐야 하므로, Virtue J1-J4별 첫 성공 출력 계약을 문서화한다. Expected impact: launch 전 작은 지표를 과해석하지 않고, 사람/에이전트 모두에게 `deed_judged`와 `deed_saved`가 어떤 좋은 결과인지 일관되게 설명할 수 있다. Permission level: L1 docs-only. Owner route: Infinity router → Claude Code local docs task. Success criteria: J1/J2/J4=`deed_saved`, J3=`deed_judged` 매핑을 유지하면서 잡별 화면 증거, 성공 출력 문장, 사용자 다음 행동, agent-readable 품질 기준, first-10 수기 관찰 컬럼을 포함한다. First verification gate: 출처노트 존재 확인, conflict marker 0, 신규 이벤트·tracking/privacy·public copy·robots/sitemap·MCP/API·pricing·deploy·external message·cost 변경 0.) -->
+
 
 
 ## Active
