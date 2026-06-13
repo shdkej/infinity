@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Infinity Report — naver-shopping-01 Sourcing Screen</title>
+<style>
+  :root{
+    --bg:#f4f2ea; --panel:#fbfaf5; --ink:#2c2a25; --soft:#807c70; --faint:#a8a496; --line:#e3dfd2;
+    --a2:#5f7a5e; --a2-deep:#3f5740;
+    --a1:#b08545; --a1-deep:#8a6633;
+    --sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;}
+  body{background:var(--bg); color:var(--ink); font-family:var(--sans);
+    font-size:14px; line-height:1.68; -webkit-font-smoothing:antialiased;}
+  .sheet{max-width:720px; margin:0 auto; padding:48px 34px 46px;}
+  .reveal{opacity:0; animation:fade .7s ease forwards;}
+  @keyframes fade{from{opacity:0; transform:translateY(9px);} to{opacity:1; transform:none;}}
+  .eyebrow{display:flex; align-items:center; gap:10px; font-family:var(--mono);
+    font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--soft);}
+  .eyebrow .id{color:var(--a2-deep); font-weight:600;}
+  .eyebrow .dot{width:5px; height:5px; border-radius:50%; background:var(--a2);}
+  .eyebrow .status{margin-left:auto; color:var(--a2-deep);}
+  h1{font-size:29px; line-height:1.3; font-weight:700; letter-spacing:-.01em; margin:20px 0 0;}
+  .dek{font-size:15.5px; color:var(--soft); margin:13px 0 0; max-width:52ch;}
+  .hr{height:1px; background:var(--line); margin:30px 0;}
+  .axis{padding:0 0 4px 22px; position:relative; margin-bottom:30px;}
+  .axis::before{content:""; position:absolute; left:0; top:6px; bottom:6px; width:2px; border-radius:2px;}
+  .axis.ax1::before{background:var(--a1);} .axis.ax2::before{background:var(--a2);}
+  .axis.ax1{--ul:var(--a1);} .axis.ax2{--ul:var(--a2);}
+  .axis .label{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase;
+    margin-bottom:9px; display:flex; align-items:center; gap:8px;}
+  .axis.ax1 .label{color:var(--a1-deep);} .axis.ax2 .label{color:var(--a2-deep);}
+  .axis .label .n{font-weight:600; opacity:.6;}
+  .axis .text{font-size:18px; line-height:1.6; color:#37352e;}
+  .axis .text b{font-weight:700; color:var(--ink); border-bottom:2px solid var(--ul);}
+  details{border:1px solid var(--line); border-radius:10px; background:var(--panel); margin-bottom:10px;}
+  summary{cursor:pointer; list-style:none; padding:14px 16px; display:flex; align-items:center; gap:11px;
+    font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft);}
+  summary::-webkit-details-marker{display:none;}
+  summary .chev{width:8px; height:8px; border-right:2px solid var(--a2-deep); border-bottom:2px solid var(--a2-deep);
+    transform:rotate(-45deg); transition:.25s; flex:none; margin-left:2px;}
+  details[open] summary .chev{transform:rotate(45deg);}
+  summary:hover{color:var(--ink);}
+  .body{padding:2px 16px 18px;}
+  table{border-collapse:collapse; width:100%; font-size:13px; margin:4px 0 12px;}
+  th,td{border-bottom:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top;}
+  th{font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft); font-weight:600;}
+  td:first-child{color:var(--a2-deep); font-weight:600; white-space:nowrap;}
+  .body p{color:var(--soft);}
+  .body ul{margin:6px 0; padding-left:18px;} .body li{margin:5px 0;}
+  code{font-family:var(--mono); font-size:12px; background:#edeae0; padding:1px 6px; border-radius:3px; color:var(--a2-deep);}
+  a{color:var(--a2-deep); text-underline-offset:3px;}
+  .chips{display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px;}
+  .chip{font-family:var(--mono); font-size:10.5px; letter-spacing:.05em; color:var(--soft); border:1px solid var(--line); border-radius:999px; padding:3px 10px;}
+  .foot{margin-top:30px; padding-top:15px; border-top:1px solid var(--line);
+    display:flex; justify-content:space-between; font-family:var(--mono); font-size:10px;
+    letter-spacing:.13em; text-transform:uppercase; color:var(--faint);}
+  .badge{display:inline-block; font-size:11px; padding:2px 8px; border-radius:4px; font-weight:600;}
+  .badge-pass{background:#d4edda; color:#2d6a4f;}
+  .badge-consider{background:#d0e8f5; color:#1a5276;}
+  .badge-low{background:#fef3cd; color:#7d5a00;}
+  .badge-skip{background:#f8d7da; color:#721c24;}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="eyebrow reveal">
+    <span class="dot"></span>
+    <span class="id">naver-shopping-01</span>
+    <span>Routing Note · Sourcing Screen</span>
+    <span class="status">in_progress</span>
+  </div>
+  <h1 class="reveal" style="animation-delay:.05s">나래 소싱 1차 광역 스크린</h1>
+  <p class="dek reveal" style="animation-delay:.09s">러기지택·페이퍼카드 철회 후 사용자 취향(여행·기록·AI크리에이터) 기준 소싱 우선 후보 10개 범주 평가</p>
+
+  <div class="hr reveal" style="animation-delay:.12s"></div>
+
+  <div class="axis ax1 reveal" style="animation-delay:.16s">
+    <div class="label"><span class="n">01</span> 무엇을 점검했나</div>
+    <div class="text">나래(Narae) 소싱 후보군 재스크린 — <b>러기지택·페이퍼카드·워크샵카드 철회 후</b> 사용자 취향(여행·기록·AI크리에이터·데일리시스템) 기준으로 10개 카테고리를 소싱 마찰·옵션 복잡성·QA 위험·수요·마진·콘텐츠 각도 6축으로 평가</div>
+  </div>
+
+  <div class="axis ax2 reveal" style="animation-delay:.22s">
+    <div class="label"><span class="n">02</span> 이상 여부·조치</div>
+    <div class="text"><b>와시테이프 세트·여행 스티커 세트 STRONG LEAD</b> (소싱 최저마찰 + 사용자 적합 최고 + 마진 우수). 여권케이스·포켓노트 CONSIDER. 로컬 에이전트에 1순위 샘플 발주 지침 전달.</div>
+  </div>
+
+  <div class="reveal" style="animation-delay:.27s">
+  <details open>
+    <summary><span class="chev"></span> 후보 평가 요약</summary>
+    <div class="body">
+      <table>
+        <thead><tr>
+          <th>후보</th>
+          <th>사용자적합</th>
+          <th>소싱마찰</th>
+          <th>수요</th>
+          <th>마진</th>
+          <th>결론</th>
+        </tr></thead>
+        <tbody>
+          <tr>
+            <td>와시테이프/마스킹테이프 세트</td>
+            <td>HIGH</td>
+            <td>매우 낮음</td>
+            <td>높음 (~80K/mo)</td>
+            <td>우수</td>
+            <td><span class="badge badge-pass">✅ STRONG LEAD</span></td>
+          </tr>
+          <tr>
+            <td>스티커 세트 (여행·다꾸 테마)</td>
+            <td>HIGH</td>
+            <td>매우 낮음</td>
+            <td>높음 (~60K/mo)</td>
+            <td>매우 우수</td>
+            <td><span class="badge badge-pass">✅ STRONG LEAD</span></td>
+          </tr>
+          <tr>
+            <td>여권케이스/여행지갑</td>
+            <td>HIGH</td>
+            <td>낮음</td>
+            <td>높음 (~40K/mo)</td>
+            <td>좋음</td>
+            <td><span class="badge badge-consider">🔵 CONSIDER</span></td>
+          </tr>
+          <tr>
+            <td>포켓노트/트래블노트</td>
+            <td>HIGH</td>
+            <td>중간</td>
+            <td>중간 (~20K/mo)</td>
+            <td>좋음</td>
+            <td><span class="badge badge-consider">🔵 CONSIDER</span></td>
+          </tr>
+          <tr>
+            <td>인화 사진 앨범/포토홀더</td>
+            <td>HIGH</td>
+            <td>낮음</td>
+            <td>중간-높음</td>
+            <td>좋음</td>
+            <td><span class="badge badge-consider">🔵 CONSIDER</span></td>
+          </tr>
+          <tr>
+            <td>케이블 파우치</td>
+            <td>HIGH</td>
+            <td>낮음</td>
+            <td>중간 (~15K/mo)</td>
+            <td>좋음</td>
+            <td><span class="badge badge-low">🟡 LOWER PRIORITY</span></td>
+          </tr>
+          <tr>
+            <td>핸드폰 스트랩/폰참</td>
+            <td>중간</td>
+            <td>낮음</td>
+            <td>높음 (~80K/mo)</td>
+            <td>좋음</td>
+            <td><span class="badge badge-low">🟡 LOWER PRIORITY</span></td>
+          </tr>
+          <tr>
+            <td>노트 스탬프 세트</td>
+            <td>HIGH</td>
+            <td>중간</td>
+            <td>중간</td>
+            <td>좋음</td>
+            <td><span class="badge badge-consider">🔵 CONSIDER (번들용)</span></td>
+          </tr>
+          <tr>
+            <td>케이블 클립 정리</td>
+            <td>중간</td>
+            <td>매우 낮음</td>
+            <td>중간 (~10K/mo)</td>
+            <td>보통</td>
+            <td><span class="badge badge-low">🟡 LOWER PRIORITY</span></td>
+          </tr>
+          <tr>
+            <td>독서대/북홀더</td>
+            <td>중간</td>
+            <td>낮음</td>
+            <td>중간</td>
+            <td>보통</td>
+            <td><span class="badge badge-skip">❌ SKIP</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </details>
+
+  <details open>
+    <summary><span class="chev"></span> 로컬 에이전트 다음 실행 지침</summary>
+    <div class="body">
+      <p>이 prepare 리포트를 받은 로컬 나래 에이전트의 다음 실행 순서:</p>
+      <ul>
+        <li><strong>1순위 — 와시테이프 세트 샘플 발주 준비</strong>: 알리익스프레스 <code>washi tape set</code> 검색, 5종+ 세트·개당 700원 이하·MOQ 50개 이하 조건 후보 3종 선정. Product Curation Card 초안 작성.</li>
+        <li><strong>2순위 — 스티커 세트 네이버 경쟁 밀도 확인</strong>: <code>여행스티커세트</code>, <code>다꾸스티커 여행</code> 키워드 네이버 쇼핑 상위 10개 평균 가격·리뷰 수 기록. 소싱 루트(국내 도매 vs 알리) 비교.</li>
+        <li><strong>두 후보 완료 후</strong>: 1개 최종 선택 → Product Curation Card 완성 → SAM에게 라우팅 (user-fit thesis + demand signal + margin note + content angle 포함)</li>
+      </ul>
+      <p>모든 액션은 L0/L1 범위. 실제 등록·광고·재고·주문은 Approval Boundary.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="chev"></span> 실행 메타 · 산출물</summary>
+    <div class="body">
+      <div class="chips">
+        <span class="chip">2026-06-13T06:13Z</span>
+        <span class="chip">heartbeat · cloud L0 prepare</span>
+        <span class="chip">active → in_progress</span>
+        <span class="chip">agent-approved L0</span>
+      </div>
+      <ul>
+        <li>산출물 <code>artifacts/naver-shopping-01/sourcing-first-broader-screen-2026-06-13.md</code></li>
+        <li>평가 범주: 10개</li>
+        <li>STRONG LEAD: 2개 (와시테이프, 스티커 세트)</li>
+        <li>CONSIDER: 3개 (여권케이스, 포켓노트, 사진앨범)</li>
+        <li>이전 리포트: <code>reports/naver-shopping-01/2026-06-10T2007Z-local.html</code> (paper-card HOLD)</li>
+        <li>네이버 직접 API 조회 없음 (호스트 접근 제한으로 공개 추정치 사용)</li>
+      </ul>
+    </div>
+  </details>
+  </div>
+
+  <div class="foot reveal" style="animation-delay:.3s">
+    <span>Agent-First Heartbeat · SAM</span>
+    <span>Infinity · naver-shopping-01</span>
+  </div>
+</div>
+</body>
+</html>
