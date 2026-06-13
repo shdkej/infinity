@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Infinity Report — marketing-57</title>
+<style>
+  :root{
+    --bg:#f4f2ea; --panel:#fbfaf5; --ink:#2c2a25; --soft:#807c70; --faint:#a8a496; --line:#e3dfd2;
+    --a2:#5f7a5e; --a2-deep:#3f5740;
+    --a1:#a9745a; --a1-deep:#8a5c45;
+    --sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;}
+  body{background:var(--bg); color:var(--ink); font-family:var(--sans);
+    font-size:14px; line-height:1.68; -webkit-font-smoothing:antialiased;}
+  .sheet{max-width:720px; margin:0 auto; padding:48px 34px 46px;}
+  .reveal{opacity:0; animation:fade .7s ease forwards;}
+  @keyframes fade{from{opacity:0; transform:translateY(9px);} to{opacity:1; transform:none;}}
+  .eyebrow{display:flex; align-items:center; gap:10px; font-family:var(--mono);
+    font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--soft);}
+  .eyebrow .id{color:var(--a2-deep); font-weight:600;}
+  .eyebrow .dot{width:5px; height:5px; border-radius:50%; background:var(--a2);}
+  .eyebrow .status{margin-left:auto; color:var(--a2-deep);}
+  h1{font-size:29px; line-height:1.3; font-weight:700; letter-spacing:-.01em; margin:20px 0 0;}
+  .dek{font-size:15.5px; color:var(--soft); margin:13px 0 0; max-width:52ch;}
+  .hr{height:1px; background:var(--line); margin:30px 0;}
+  .axis{padding:0 0 4px 22px; position:relative; margin-bottom:30px;}
+  .axis::before{content:""; position:absolute; left:0; top:6px; bottom:6px; width:2px; border-radius:2px;}
+  .axis.ax1::before{background:var(--a1);} .axis.ax2::before{background:var(--a2);}
+  .axis.ax1{--ul:var(--a1);} .axis.ax2{--ul:var(--a2);}
+  .axis .label{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase;
+    margin-bottom:9px; display:flex; align-items:center; gap:8px;}
+  .axis.ax1 .label{color:var(--a1-deep);} .axis.ax2 .label{color:var(--a2-deep);}
+  .axis .label .n{font-weight:600; opacity:.6;}
+  .axis .text{font-size:18px; line-height:1.6; color:#37352e;}
+  .axis .text b{font-weight:700; color:var(--ink); border-bottom:2px solid var(--ul);}
+  details{border:1px solid var(--line); border-radius:10px; background:var(--panel); margin-bottom:10px;}
+  summary{cursor:pointer; list-style:none; padding:14px 16px; display:flex; align-items:center; gap:11px;
+    font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft);}
+  summary::-webkit-details-marker{display:none;}
+  summary .chev{width:8px; height:8px; border-right:2px solid var(--a2-deep); border-bottom:2px solid var(--a2-deep);
+    transform:rotate(-45deg); transition:.25s; flex:none; margin-left:2px;}
+  details[open] summary .chev{transform:rotate(45deg);}
+  summary:hover{color:var(--ink);}
+  .body{padding:2px 16px 18px;}
+  table{border-collapse:collapse; width:100%; font-size:13px; margin:4px 0 12px;}
+  th,td{border-bottom:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top;}
+  th{font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft); font-weight:600;}
+  td:first-child{color:var(--a2-deep); font-weight:600; white-space:nowrap;}
+  .body p{color:var(--soft);}
+  .body ul{margin:6px 0; padding-left:18px;} .body li{margin:5px 0;}
+  code{font-family:var(--mono); font-size:12px; background:#edeae0; padding:1px 6px; border-radius:3px; color:var(--a2-deep);}
+  .chips{display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px;}
+  .chip{font-family:var(--mono); font-size:10.5px; letter-spacing:.05em; color:var(--soft); border:1px solid var(--line); border-radius:999px; padding:3px 10px;}
+  .foot{margin-top:30px; padding-top:15px; border-top:1px solid var(--line);
+    display:flex; justify-content:space-between; font-family:var(--mono); font-size:10px;
+    letter-spacing:.13em; text-transform:uppercase; color:var(--faint);}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="eyebrow reveal">
+    <span class="dot"></span>
+    <span class="id">marketing-57</span>
+    <span>Virtue Prelaunch · Strategy</span>
+    <span class="status">✅ archived</span>
+  </div>
+  <h1 class="reveal" style="animation-delay:.05s">Value Unit &amp; Limit Trust Observation Columns</h1>
+  <p class="dek reveal" style="animation-delay:.09s">AI pricing/credit 자료 기반 — prelaunch first-10 관찰표에 value unit / limit trust 컬럼 2세트 추가</p>
+
+  <div class="hr reveal" style="animation-delay:.12s"></div>
+
+  <div class="axis ax1 reveal" style="animation-delay:.16s">
+    <div class="label"><span class="n">01</span> 무엇이 문제였나</div>
+    <div class="text">Virtue prelaunch 첫-10 관찰에서 <b>limit 반응과 value unit 이해</b> 부재를 pricing intent로 오독할 위험이 있었다</div>
+  </div>
+
+  <div class="axis ax2 reveal" style="animation-delay:.22s">
+    <div class="label"><span class="n">02</span> 어떻게 해결하나</div>
+    <div class="text">value unit named/match + limit encountered/read <b>컬럼 4개</b>와 cap/copy <b>해석 금지선 7개</b>를 관찰표에 추가해 오독 방지층 확보</div>
+  </div>
+
+  <div class="reveal" style="animation-delay:.27s">
+  <details open>
+    <summary><span class="chev"></span> 수행 작업 · 산출물</summary>
+    <div class="body">
+      <table>
+        <tr><th>항목</th><th>내용</th></tr>
+        <tr><td>Inbox 수신</td><td>2026-06-13T10:00Z — AI pricing/credit trust UX 자료 기반 관찰 컬럼 추가 요청</td></tr>
+        <tr><td>MARKETING_LEARNINGS 계승</td><td>Availability And Friction Are Not Value · Trust Calibration By Job · No Autonomous Action Bounds · First Value Mapping · Prelaunch Decision Boundary</td></tr>
+        <tr><td>추가 컬럼 A: Value Unit</td><td>value unit named (사용자가 가치를 명명할 수 있는가) + value unit match (명명한 가치가 실제 first-value event와 일치하는가)</td></tr>
+        <tr><td>추가 컬럼 B: Limit Trust</td><td>limit encountered (세션 중 제한/캡 발생 여부) + limit read (사용자의 제한 해석: quality gate / resource cap / gatekeeping)</td></tr>
+        <tr><td>cap/copy 해석 금지선</td><td>7개 명시 — deed_save_capped를 upgrade demand·pricing intent·value로 읽는 오독 방지</td></tr>
+        <tr><td>J3 특별 주의</td><td>AI result 후 cap → "AI가 숨겼다" 프레임 위험 가장 높음, billing gate 후보가 아님</td></tr>
+      </table>
+      <ul>
+        <li>산출물: <code>artifacts/marketing-57/virtue-value-unit-limit-trust-observation-columns.md</code></li>
+        <li>선행 산출물 compatibility: marketing-47/54/55/56 모두 호환</li>
+        <li>신규 이벤트·tracking/privacy·dashboard·public copy·deploy·pricing·billing·credit·cap policy·cost: 0</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="chev"></span> 실행 메타 · 다음 액션</summary>
+    <div class="body">
+      <div class="chips">
+        <span class="chip">2026-06-13T12:00Z</span>
+        <span class="chip">Heartbeat · cloud docs</span>
+        <span class="chip">inbox → archived</span>
+        <span class="chip">L1 docs-only</span>
+      </div>
+      <ul>
+        <li>first-10 관찰 실행 시 marketing-47/54/55/56/57 컬럼 통합 관찰표 사용</li>
+        <li>"gatekeeping" 읽기 반복 → copy/trust 후보 proposal-only 등록</li>
+        <li>value unit 불일치 반복 → onboarding frame 후보 proposal-only 등록</li>
+        <li>J3 limit trust 부정 패턴 → product-framing 후보 (billing gate 아님)</li>
+      </ul>
+      <p>archive: <code>intents/archive/marketing-57.md</code></p>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="chev"></span> 계승 기준 · 새 학습 · 다음 규칙</summary>
+    <div class="body">
+      <ul>
+        <li><strong>계승한 기준:</strong> deed_save_capped=availability/friction(not value), trust-by-job, no-autonomous-action risk=self-calibration-mismatch, J1/J2/J4=deed_saved+J3=deed_judged, prelaunch=directional-only</li>
+        <li><strong>새로 배운 것:</strong> Limit 반응은 quality gate / resource cap / gatekeeping 3가지 해석 유형으로 분리해야 함. Value unit 명명 가능 여부는 새 계측 없이 언어로 관찰 가능. J3 limit trust가 가장 위험함.</li>
+        <li><strong>다음 규칙:</strong> gatekeeping 읽기 반복 시 copy 후보(not pricing), value unit mismatch 시 onboarding frame 후보, J3 부정 limit trust 시 product-framing 후보 — 전부 proposal-only</li>
+      </ul>
+    </div>
+  </details>
+  </div>
+
+  <div class="foot reveal" style="animation-delay:.3s">
+    <span>Agent-First Heartbeat · 2026-06-13T12:00Z</span>
+    <span>Infinity · marketing-57</span>
+  </div>
+</div>
+</body>
+</html>
