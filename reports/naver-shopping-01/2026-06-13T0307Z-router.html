@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>naver-shopping-01 · 소싱 우선 스크린 준비 · 2026-06-13</title>
+<style>
+  :root{
+    --bg:#f4f2ea; --panel:#fbfaf5; --ink:#2c2a25; --soft:#807c70; --faint:#a8a496; --line:#e3dfd2;
+    --a2:#5f7a5e; --a2-deep:#3f5740;
+    --a1:#b08545; --a1-deep:#8a6633;
+    --sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;}
+  body{background:var(--bg); color:var(--ink); font-family:var(--sans);
+    font-size:14px; line-height:1.68; -webkit-font-smoothing:antialiased;}
+  .sheet{max-width:720px; margin:0 auto; padding:48px 34px 46px;}
+  .reveal{opacity:0; animation:fade .7s ease forwards;}
+  @keyframes fade{from{opacity:0; transform:translateY(9px);} to{opacity:1; transform:none;}}
+
+  .eyebrow{display:flex; align-items:center; gap:10px; font-family:var(--mono);
+    font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--soft);}
+  .eyebrow .id{color:var(--a2-deep); font-weight:600;}
+  .eyebrow .dot{width:5px; height:5px; border-radius:50%; background:var(--a2);}
+  .eyebrow .status{margin-left:auto; color:var(--a2-deep);}
+  h1{font-size:29px; line-height:1.3; font-weight:700; letter-spacing:-.01em; margin:20px 0 0;}
+  .dek{font-size:15.5px; color:var(--soft); margin:13px 0 0; max-width:52ch;}
+  .hr{height:1px; background:var(--line); margin:30px 0;}
+
+  .axis{padding:0 0 4px 22px; position:relative; margin-bottom:30px;}
+  .axis::before{content:""; position:absolute; left:0; top:6px; bottom:6px; width:2px; border-radius:2px;}
+  .axis.ax1::before{background:var(--a1);} .axis.ax2::before{background:var(--a2);}
+  .axis.ax1{--ul:var(--a1);} .axis.ax2{--ul:var(--a2);}
+  .axis .label{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase;
+    margin-bottom:9px; display:flex; align-items:center; gap:8px;}
+  .axis.ax1 .label{color:var(--a1-deep);} .axis.ax2 .label{color:var(--a2-deep);}
+  .axis .label .n{font-weight:600; opacity:.6;}
+  .axis .text{font-size:18px; line-height:1.6; color:#37352e;}
+  .axis .text b{font-weight:700; color:var(--ink); border-bottom:2px solid var(--ul);}
+  ol.find{list-style:none; counter-reset:f; margin:16px 0 0; padding:0;}
+  ol.find li{position:relative; padding:8px 0 8px 26px; font-size:15px; color:#37352e; border-top:1px solid var(--line);}
+  ol.find li:first-child{border-top:none;}
+  ol.find li::before{counter-increment:f; content:counter(f); position:absolute; left:0; top:9px;
+    font-family:var(--mono); font-size:12px; font-weight:600; color:var(--a1-deep);}
+
+  details{border:1px solid var(--line); border-radius:10px; background:var(--panel); margin-bottom:10px;}
+  summary{cursor:pointer; list-style:none; padding:14px 16px; display:flex; align-items:center; gap:11px;
+    font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft);}
+  summary::-webkit-details-marker{display:none;}
+  summary .chev{width:8px; height:8px; border-right:2px solid var(--a2-deep); border-bottom:2px solid var(--a2-deep);
+    transform:rotate(-45deg); transition:.25s; flex:none; margin-left:2px;}
+  details[open] summary .chev{transform:rotate(45deg);}
+  summary:hover{color:var(--ink);}
+  .body{padding:2px 16px 18px;}
+  table{border-collapse:collapse; width:100%; font-size:13px; margin:4px 0 12px;}
+  th,td{border-bottom:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top;}
+  th{font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft); font-weight:600;}
+  td:first-child{color:var(--a2-deep); font-weight:600; white-space:nowrap;}
+  .body p{color:var(--soft);}
+  .body ul{margin:6px 0; padding-left:18px;} .body li{margin:5px 0;}
+  code{font-family:var(--mono); font-size:12px; background:#edeae0; padding:1px 6px; border-radius:3px; color:var(--a2-deep);}
+  a{color:var(--a2-deep); text-underline-offset:3px;}
+  .chips{display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px;}
+  .chip{font-family:var(--mono); font-size:10.5px; letter-spacing:.05em; color:var(--soft); border:1px solid var(--line); border-radius:999px; padding:3px 10px;}
+  .foot{margin-top:30px; padding-top:15px; border-top:1px solid var(--line);
+    display:flex; justify-content:space-between; font-family:var(--mono); font-size:10px;
+    letter-spacing:.13em; text-transform:uppercase; color:var(--faint);}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="eyebrow reveal">
+    <span class="dot"></span>
+    <span class="id">naver-shopping-01</span>
+    <span>Router Note</span>
+    <span class="status">IN_PROGRESS</span>
+  </div>
+  <h1 class="reveal" style="animation-delay:.05s">소싱 우선 광범위 스크린 준비</h1>
+  <p class="dek reveal" style="animation-delay:.09s">사용자 선호(소싱 중심, 러기지택 제외) 반영 후 신규 7개 카테고리 후보 체계화 및 로컬 검증 프롬프트 완성</p>
+
+  <div class="hr reveal" style="animation-delay:.12s"></div>
+
+  <div class="axis ax1 reveal" style="animation-delay:.16s">
+    <div class="label"><span class="n">01</span> 무엇을 점검했나</div>
+    <div class="text">2026-06-11 사용자 업데이트 이후 <b>다음 소싱 후보 경로</b> 체계화 — 기검증 6개 경로 제외하고 신규 7개 카테고리 후보를 4점 기준으로 평가</div>
+  </div>
+
+  <div class="axis ax2 reveal" style="animation-delay:.22s">
+    <div class="label"><span class="n">02</span> 이상 여부·조치</div>
+    <div class="text"><b>5개 카테고리 (11점) 로컬 검증 대기</b> — 인스탁스앨범·여행스탬프·데코스티커·케이블파우치·독서노트; 2개는 HOLD(슬림카드지갑·폰스트랩)</div>
+    <ol class="find">
+      <li>C1 인스탁스/폴라로이드 미니 앨범 (11점) — 여행 메모리 메이킹, 소싱 쉬움</li>
+      <li>C2 여행 스탬프 세트 (11점) — 문서화 리듬, 저옵션, 저QA리스크</li>
+      <li>C3 데코 스티커 팩 (11점) — 창작 리듬, 매우 낮은 마찰</li>
+      <li>C5 케이블/테크 정리 파우치 (11점) — AI/크리에이터 워크플로우, 테크 캐리</li>
+      <li>C6 독서/리딩 로그 노트 (11점) — 지식 정리, 사용자적합 최고점</li>
+    </ol>
+  </div>
+
+  <div class="reveal" style="animation-delay:.27s">
+  <details open>
+    <summary><span class="chev"></span> 수행 작업 · 판단 근거</summary>
+    <div class="body">
+      <p>기검증 경로(트래블러스노트속지·여행체크리스트카드·워크샵카드·러기지택·도난방지가방·RFID지갑) 제외 후, 사용자적합 프레임(여행·메모리·AI크리에이터·시스템) 기준으로 신규 후보를 스크리닝했다.</p>
+      <table>
+        <tr><th>카테고리</th><th>점수</th><th>주요 검증 키워드</th><th>판정</th></tr>
+        <tr><td>C1 인스탁스앨범</td><td>11</td><td>인스탁스 앨범, 미니 사진 앨범</td><td>✅ 검증 대상</td></tr>
+        <tr><td>C2 여행스탬프세트</td><td>11</td><td>여행 스탬프, 스탬프 세트</td><td>✅ 검증 대상</td></tr>
+        <tr><td>C3 데코스티커팩</td><td>11</td><td>여행 스티커, 씰 스티커</td><td>✅ 검증 대상</td></tr>
+        <tr><td>C4 슬림카드지갑</td><td>9</td><td>—</td><td>HOLD (anti-theft WATCH 기존 처리)</td></tr>
+        <tr><td>C5 케이블파우치</td><td>11</td><td>케이블 파우치, 여행 케이블 정리</td><td>✅ 검증 대상</td></tr>
+        <tr><td>C6 독서로그노트</td><td>11</td><td>독서 노트, 리딩 로그</td><td>✅ 검증 대상</td></tr>
+        <tr><td>C7 핸드폰스트랩</td><td>9</td><td>—</td><td>조건부 HOLD (호환 리스크)</td></tr>
+      </table>
+      <ul>
+        <li>Cloud SAM 작업 범위: 후보 목록화 + 기준 정의 + 로컬 실행 프롬프트 작성 (실제 Naver API 호출 없음)</li>
+        <li>라이브 상품등록/가격/배송/재고/광고/고객/주문/계정/공개발행: <strong>0건</strong></li>
+        <li>산출물: <code>artifacts/naver-shopping-01/sourcing-first-broader-screen-prep-2026-06-13.md</code></li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="chev"></span> 실행 메타 · 다음 액션</summary>
+    <div class="body">
+      <div class="chips">
+        <span class="chip">2026-06-13T0307Z</span>
+        <span class="chip">Heartbeat · Cloud SAM</span>
+        <span class="chip">active → in_progress (준비)</span>
+      </div>
+      <ul>
+        <li>다음: 나래 로컬 에이전트가 C1·C2·C3·C5·C6 대상 Naver OpenAPI top-20 + SearchAd exact check 수행</li>
+        <li>판정 기준: PROMOTE(total>3,000 + mobile CTR>1%) / PIVOT(차별화앵글) / HOLD(commodity)</li>
+        <li>상위 후보 1–2개 → sourcing approval 패킷 → <code>questions-for-9am.md</code> 추가</li>
+        <li>산출물: <code>artifacts/naver-shopping-01/sourcing-first-broader-screen-prep-2026-06-13.md</code></li>
+      </ul>
+    </div>
+  </details>
+  </div>
+
+  <div class="foot reveal" style="animation-delay:.3s">
+    <span>Agent-First Heartbeat</span>
+    <span>Infinity · Intent Note</span>
+  </div>
+</div>
+</body>
+</html>
