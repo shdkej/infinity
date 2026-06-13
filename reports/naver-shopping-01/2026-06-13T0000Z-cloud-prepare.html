@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>naver-shopping-01 | 소싱-우선 후보 스크린</title>
+<style>
+  :root{
+    --bg:#f4f2ea; --panel:#fbfaf5; --ink:#2c2a25; --soft:#807c70; --faint:#a8a496; --line:#e3dfd2;
+    --a2:#5f7a5e; --a2-deep:#3f5740;
+    --a1:#5a6f8a; --a1-deep:#3f536e;
+    --sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;}
+  body{background:var(--bg); color:var(--ink); font-family:var(--sans);
+    font-size:14px; line-height:1.68; -webkit-font-smoothing:antialiased;}
+  .sheet{max-width:720px; margin:0 auto; padding:48px 34px 46px;}
+  .reveal{opacity:0; animation:fade .7s ease forwards;}
+  @keyframes fade{from{opacity:0; transform:translateY(9px);} to{opacity:1; transform:none;}}
+  .eyebrow{display:flex; align-items:center; gap:10px; font-family:var(--mono);
+    font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--soft);}
+  .eyebrow .id{color:var(--a2-deep); font-weight:600;}
+  .eyebrow .dot{width:5px; height:5px; border-radius:50%; background:var(--a2);}
+  .eyebrow .status{margin-left:auto; color:var(--a2-deep);}
+  h1{font-size:29px; line-height:1.3; font-weight:700; letter-spacing:-.01em; margin:20px 0 0;}
+  .dek{font-size:15.5px; color:var(--soft); margin:13px 0 0; max-width:52ch;}
+  .hr{height:1px; background:var(--line); margin:30px 0;}
+  .axis{padding:0 0 4px 22px; position:relative; margin-bottom:30px;}
+  .axis::before{content:""; position:absolute; left:0; top:6px; bottom:6px; width:2px; border-radius:2px;}
+  .axis.ax1::before{background:var(--a1);} .axis.ax2::before{background:var(--a2);}
+  .axis.ax1{--ul:var(--a1);} .axis.ax2{--ul:var(--a2);}
+  .axis .label{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase;
+    margin-bottom:9px; display:flex; align-items:center; gap:8px;}
+  .axis.ax1 .label{color:var(--a1-deep);} .axis.ax2 .label{color:var(--a2-deep);}
+  .axis .label .n{font-weight:600; opacity:.6;}
+  .axis .text{font-size:18px; line-height:1.6; color:#37352e;}
+  .axis .text b{font-weight:700; color:var(--ink); border-bottom:2px solid var(--ul);}
+  details{border:1px solid var(--line); border-radius:10px; background:var(--panel); margin-bottom:10px;}
+  summary{cursor:pointer; list-style:none; padding:14px 16px; display:flex; align-items:center; gap:11px;
+    font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft);}
+  summary::-webkit-details-marker{display:none;}
+  summary .chev{width:8px; height:8px; border-right:2px solid var(--a2-deep); border-bottom:2px solid var(--a2-deep);
+    transform:rotate(-45deg); transition:.25s; flex:none; margin-left:2px;}
+  details[open] summary .chev{transform:rotate(45deg);}
+  summary:hover{color:var(--ink);}
+  .body{padding:2px 16px 18px;}
+  table{border-collapse:collapse; width:100%; font-size:13px; margin:4px 0 12px;}
+  th,td{border-bottom:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top;}
+  th{font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft); font-weight:600;}
+  td:first-child{color:var(--a2-deep); font-weight:600; white-space:nowrap;}
+  .body p{color:var(--soft);}
+  .body ul{margin:6px 0; padding-left:18px;} .body li{margin:5px 0;}
+  code{font-family:var(--mono); font-size:12px; background:#edeae0; padding:1px 6px; border-radius:3px; color:var(--a2-deep);}
+  a{color:var(--a2-deep); text-underline-offset:3px;}
+  .chips{display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px;}
+  .chip{font-family:var(--mono); font-size:10.5px; letter-spacing:.05em; color:var(--soft); border:1px solid var(--line); border-radius:999px; padding:3px 10px;}
+  .foot{margin-top:30px; padding-top:15px; border-top:1px solid var(--line);
+    display:flex; justify-content:space-between; font-family:var(--mono); font-size:10px;
+    letter-spacing:.13em; text-transform:uppercase; color:var(--faint);}
+  .badge{display:inline-block; font-family:var(--mono); font-size:10px; font-weight:700;
+    padding:2px 8px; border-radius:4px; vertical-align:middle; margin-left:4px;}
+  .p1{background:#d4ecd4; color:#2e5e2e;}
+  .p2{background:#d4e4f0; color:#1e4a6e;}
+  .p3{background:#f0e8cc; color:#6e4e10;}
+  .p4{background:#e8e4dc; color:#4a4640;}
+  .h{color:#2c6e2c; font-weight:600;} .m{color:#6e5a1a; font-weight:600;} .l{color:#6e3a3a; font-weight:600;}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="eyebrow reveal">
+    <span class="dot"></span>
+    <span class="id">naver-shopping-01</span>
+    <span>Cloud Prepare · 나래/Narae</span>
+    <span class="status">active</span>
+  </div>
+  <h1 class="reveal" style="animation-delay:.05s">소싱-우선 후보 스크린</h1>
+  <p class="dek reveal" style="animation-delay:.09s">러기지택 하향 이후 미탐색 카테고리 10종 적합도 분석 — 로컬 Naver API 검증 우선순위 제안</p>
+
+  <div class="hr reveal" style="animation-delay:.12s"></div>
+
+  <div class="axis ax1 reveal" style="animation-delay:.16s">
+    <div class="label"><span class="n">01</span> 무엇을 조사했나</div>
+    <div class="text">소싱 우선 전환 후 <b>아직 검증하지 않은 카테고리 10종</b>을 사용자 핏·소싱 마찰·옵션 복잡도 기준으로 1차 평가했다. 이전 스크린에서 제외된 여권케이스·케이블 파우치·접이식 슬리퍼가 가장 깨끗한 후보로 부상했다.</div>
+  </div>
+
+  <div class="axis ax2 reveal" style="animation-delay:.22s">
+    <div class="label"><span class="n">02</span> 핵심 결과</div>
+    <div class="text"><b>여권케이스·케이블 파우치·접이식 슬리퍼</b>를 1순위 로컬 검증 대상으로 제안한다. 세 카테고리 모두 사용자 핏 높음, 소싱 마찰 낮음, 키워드 노이즈 적음. 다음 로컬 Naver API 실행 시 이 세 키워드부터 OpenAPI + SearchAd 체크를 시작한다.</div>
+  </div>
+
+  <div class="reveal" style="animation-delay:.27s">
+  <details open>
+    <summary><span class="chev"></span> 후보 스크린 결과 (10종)</summary>
+    <div class="body">
+      <p>소싱-우선 기준: 기성품 소싱 가능 / 샘플 1~5개 주문 가능 / 옵션 수 5개 미만 / QA·반품 리스크 낮음 / 사용자 핏(여행·기억·AI창작·일상시스템)</p>
+      <table>
+        <thead><tr>
+          <th>카테고리</th><th>Naver 키워드 후보</th><th>사용자핏</th><th>소싱용이</th><th>옵션복잡</th><th>우선순위</th>
+        </tr></thead>
+        <tbody>
+          <tr>
+            <td>여권케이스/홀더</td>
+            <td><code>여권케이스</code> <code>여권 지갑</code> <code>여행 지갑</code></td>
+            <td><span class="h">H</span></td><td><span class="h">H</span></td><td><span class="h">낮음</span></td>
+            <td><span class="badge p1">1순위</span></td>
+          </tr>
+          <tr>
+            <td>케이블 정리 파우치</td>
+            <td><code>케이블 파우치</code> <code>전자기기 파우치</code> <code>케이블 정리 케이스</code></td>
+            <td><span class="h">H</span></td><td><span class="h">H</span></td><td><span class="h">낮음</span></td>
+            <td><span class="badge p1">1순위</span></td>
+          </tr>
+          <tr>
+            <td>접이식 실내화/슬리퍼</td>
+            <td><code>여행 슬리퍼</code> <code>접이식 슬리퍼</code> <code>여행용 실내화</code></td>
+            <td><span class="m">M</span></td><td><span class="h">H</span></td><td><span class="h">낮음</span></td>
+            <td><span class="badge p1">1순위</span></td>
+          </tr>
+          <tr>
+            <td>여행 멀티파우치</td>
+            <td><code>여행 파우치</code> <code>멀티 파우치</code> <code>여행 소품 파우치</code></td>
+            <td><span class="h">H</span></td><td><span class="h">H</span></td><td><span class="m">중간</span></td>
+            <td><span class="badge p2">2순위</span></td>
+          </tr>
+          <tr>
+            <td>여행 포토 미니앨범</td>
+            <td><code>여행 사진 앨범</code> <code>폴라로이드 앨범</code> <code>미니 포토북</code></td>
+            <td><span class="h">H</span></td><td><span class="m">M</span></td><td><span class="h">낮음</span></td>
+            <td><span class="badge p2">2순위</span></td>
+          </tr>
+          <tr>
+            <td>즉석사진 케이스/홀더</td>
+            <td><code>폴라로이드 카드 홀더</code> <code>즉석 사진 케이스</code> <code>포토카드 케이스</code></td>
+            <td><span class="h">H</span></td><td><span class="m">M</span></td><td><span class="m">중간</span></td>
+            <td><span class="badge p2">2순위</span></td>
+          </tr>
+          <tr>
+            <td>여행 네임택 스티커</td>
+            <td><code>여행 가방 스티커</code> <code>여행 라벨 스티커</code></td>
+            <td><span class="m">M</span></td><td><span class="h">H</span></td><td><span class="h">낮음</span></td>
+            <td><span class="badge p3">3순위</span></td>
+          </tr>
+          <tr>
+            <td>노트+펜 세트</td>
+            <td><code>여행 노트</code> <code>노트 펜 세트</code> <code>다이어리 펜</code></td>
+            <td><span class="m">M</span></td><td><span class="h">H</span></td><td><span class="m">중간</span></td>
+            <td><span class="badge p3">3순위</span></td>
+          </tr>
+          <tr>
+            <td>여행 목베개</td>
+            <td><code>여행 목베개</code> <code>메모리폼 목베개</code></td>
+            <td><span class="m">M</span></td><td><span class="h">H</span></td><td><span class="m">중간</span></td>
+            <td><span class="badge p3">3순위</span></td>
+          </tr>
+          <tr>
+            <td>포스트잇/플래그 세트</td>
+            <td><code>미니 포스트잇</code> <code>인덱스 플래그</code> <code>메모 세트</code></td>
+            <td><span class="m">M</span></td><td><span class="h">H</span></td><td><span class="m">중간</span></td>
+            <td><span class="badge p4">4순위</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </details>
+
+  <details open>
+    <summary><span class="chev"></span> 1순위 후보 근거</summary>
+    <div class="body">
+      <ul>
+        <li><strong>여권케이스/홀더</strong> — 여행 필수품, 명확한 구매 객체, 사이즈·색상 외 옵션 없음, RFID 차단 기능 추가만 해도 차별화 가능. 키워드가 선반(shelf)에서 깨끗하게 분리됨. 사용자 여행 핏 직결.</li>
+        <li><strong>케이블 정리 파우치</strong> — AI/창작자 워크플로우 핏. 원격근무자·디지털 노마드 포지션과 자연스럽게 연결. 옵션 복잡도 낮음(색상·크기만). 경량 콘텐츠 앵글: "여행 짐 쌀 때 케이블 정리" 자연 연결.</li>
+        <li><strong>접이식 슬리퍼</strong> — 기내·호텔 실사용 여행 아이템. 기성품 소싱 경로 다양함(OEM 미니 슬리퍼). 색상 외 옵션 없음. 러기지택과 달리 사용자 선호 하향 이유 없음.</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="chev"></span> 제외·보류 이유</summary>
+    <div class="body">
+      <ul>
+        <li><strong>러기지택/캐리어네임택</strong> — 사용자 선호 하향 (2026-06-11). 이번 스크린에서 재검토 안 함.</li>
+        <li><strong>해외여행 체크리스트 insert / 여행준비카드</strong> — 이전 스크린 결과 HOLD (commodity·저구매의도·키워드 노이즈).</li>
+        <li><strong>핸드폰 도난방지 스트랩</strong> — WATCH 상태 유지. 수요 신호는 있으나 호환성·품질 리스크. 1순위 검증 후 재평가.</li>
+        <li><strong>AI/창작자 워크샵 카드</strong> — copy-led 상태. 시각적 순위/리뷰 깊이 데이터 없이 상품 방향 결정 불가.</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="chev"></span> 로컬 실행 지시</summary>
+    <div class="body">
+      <p>다음 로컬 Naver 에이전트 실행 시 아래 순서로 OpenAPI + SearchAd 체크를 수행한다.</p>
+      <table>
+        <thead><tr><th>순서</th><th>키워드</th><th>체크 항목</th></tr></thead>
+        <tbody>
+          <tr><td>1-A</td><td><code>여권케이스</code></td><td>OpenAPI top-10 상품수·가격대, SearchAd exact 월 검색량·PC/모바일 분리</td></tr>
+          <tr><td>1-B</td><td><code>케이블 파우치</code></td><td>위와 동일. 경쟁 밀도, 브랜드 노이즈 여부 확인</td></tr>
+          <tr><td>1-C</td><td><code>접이식 슬리퍼</code></td><td>위와 동일. 소재·사이즈 옵션 노이즈 수준 확인</td></tr>
+          <tr><td>2</td><td>1순위 중 2개 이상 통과 시</td><td>소싱 마진 시뮬레이션 (목표 판가·알리/1688 견적 기반)</td></tr>
+          <tr><td>3</td><td>1순위 모두 탈락 시</td><td>2순위(여행 파우치·포토 미니앨범) 즉시 진행</td></tr>
+        </tbody>
+      </table>
+      <p>API 레이트 리밋 발생 시: 첫 번째 키워드 결과만 기록하고 다음 Heartbeat에 이어서 진행.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="chev"></span> 실행 메타 · 산출물</summary>
+    <div class="body">
+      <div class="chips">
+        <span class="chip">2026-06-13T00:00Z</span>
+        <span class="chip">Heartbeat / cloud prepare</span>
+        <span class="chip">mode: prepare (L0)</span>
+        <span class="chip">active → active</span>
+      </div>
+      <ul>
+        <li>산출물 <code>reports/naver-shopping-01/2026-06-13T0000Z-cloud-prepare.html</code></li>
+        <li>수행: cloud-only research — Naver API 호출 없음, 로컬 파일 수정 없음</li>
+        <li>다음 액션: 로컬 Naver 에이전트가 1순위 3종 키워드를 OpenAPI + SearchAd로 검증</li>
+        <li>approval: L0 자율 수행 — 사용자 승인 불필요</li>
+      </ul>
+    </div>
+  </details>
+  </div>
+
+  <div class="foot reveal" style="animation-delay:.3s">
+    <span>Agent-First Heartbeat · 2026-06-13</span>
+    <span>Infinity · naver-shopping-01</span>
+  </div>
+</div>
+</body>
+</html>
