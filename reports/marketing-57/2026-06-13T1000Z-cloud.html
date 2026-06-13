@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Infinity Report — marketing-57</title>
+<style>
+  :root{
+    --bg:#f4f2ea; --panel:#fbfaf5; --ink:#2c2a25; --soft:#807c70; --faint:#a8a496; --line:#e3dfd2;
+    --a2:#5f7a5e; --a2-deep:#3f5740;
+    --a1:#a9745a; --a1-deep:#8a5c45;
+    --sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;}
+  body{background:var(--bg); color:var(--ink); font-family:var(--sans); font-size:14px; line-height:1.68; -webkit-font-smoothing:antialiased;}
+  .sheet{max-width:720px; margin:0 auto; padding:48px 34px 46px;}
+  .reveal{opacity:0; animation:fade .7s ease forwards;}
+  @keyframes fade{from{opacity:0; transform:translateY(9px);} to{opacity:1; transform:none;}}
+  .eyebrow{display:flex; align-items:center; gap:10px; font-family:var(--mono); font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--soft);}
+  .eyebrow .id{color:var(--a2-deep); font-weight:600;}
+  .eyebrow .dot{width:5px; height:5px; border-radius:50%; background:var(--a2);}
+  .eyebrow .status{margin-left:auto; color:var(--a2-deep);}
+  h1{font-size:29px; line-height:1.3; font-weight:700; letter-spacing:-.01em; margin:20px 0 0;}
+  .dek{font-size:15.5px; color:var(--soft); margin:13px 0 0; max-width:52ch;}
+  .hr{height:1px; background:var(--line); margin:30px 0;}
+  .axis{padding:0 0 4px 22px; position:relative; margin-bottom:30px;}
+  .axis::before{content:""; position:absolute; left:0; top:6px; bottom:6px; width:2px; border-radius:2px;}
+  .axis.ax1::before{background:var(--a1);} .axis.ax2::before{background:var(--a2);}
+  .axis.ax1{--ul:var(--a1);} .axis.ax2{--ul:var(--a2);}
+  .axis .label{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase; margin-bottom:9px; display:flex; align-items:center; gap:8px;}
+  .axis.ax1 .label{color:var(--a1-deep);} .axis.ax2 .label{color:var(--a2-deep);}
+  .axis .label .n{font-weight:600; opacity:.6;}
+  .axis .text{font-size:18px; line-height:1.6; color:#37352e;}
+  .axis .text b{font-weight:700; color:var(--ink); border-bottom:2px solid var(--ul);}
+  details{border:1px solid var(--line); border-radius:10px; background:var(--panel); margin-bottom:10px;}
+  summary{cursor:pointer; list-style:none; padding:14px 16px; display:flex; align-items:center; gap:11px; font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft);}
+  summary::-webkit-details-marker{display:none;}
+  summary .chev{width:8px; height:8px; border-right:2px solid var(--a2-deep); border-bottom:2px solid var(--a2-deep); transform:rotate(-45deg); transition:.25s; flex:none; margin-left:2px;}
+  details[open] summary .chev{transform:rotate(45deg);}
+  summary:hover{color:var(--ink);}
+  .body{padding:2px 16px 18px;}
+  table{border-collapse:collapse; width:100%; font-size:13px; margin:4px 0 12px;}
+  th,td{border-bottom:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top;}
+  th{font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft); font-weight:600;}
+  td:first-child{color:var(--a2-deep); font-weight:600; white-space:nowrap;}
+  .body p{color:var(--soft);}
+  .body ul{margin:6px 0; padding-left:18px;} .body li{margin:5px 0;}
+  code{font-family:var(--mono); font-size:12px; background:#edeae0; padding:1px 6px; border-radius:3px; color:var(--a2-deep);}
+  .chips{display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px;}
+  .chip{font-family:var(--mono); font-size:10.5px; letter-spacing:.05em; color:var(--soft); border:1px solid var(--line); border-radius:999px; padding:3px 10px;}
+  .foot{margin-top:30px; padding-top:15px; border-top:1px solid var(--line); display:flex; justify-content:space-between; font-family:var(--mono); font-size:10px; letter-spacing:.13em; text-transform:uppercase; color:var(--faint);}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="eyebrow reveal">
+    <span class="dot"></span>
+    <span class="id">marketing-57</span>
+    <span>Strategy · Docs-Only</span>
+    <span class="status">completed</span>
+  </div>
+  <h1 class="reveal" style="animation-delay:.05s">Virtue Value Unit And Limit Trust Observation</h1>
+  <p class="dek reveal" style="animation-delay:.09s">AI pricing/credit 패턴에서 trust UX 신호를 추출해 Virtue first-10 관찰표에 value unit / limit trust 컬럼 2개와 cap/copy 해석 금지선 5개를 추가한다.</p>
+
+  <div class="hr reveal" style="animation-delay:.12s"></div>
+
+  <div class="axis ax1 reveal" style="animation-delay:.16s">
+    <div class="label"><span class="n">01</span> 무엇이 문제였나</div>
+    <div class="text">Virtue prelaunch first-10 관찰표에는 <b>사용자가 cap·제한을 만났을 때 어떻게 읽는지</b>, 그리고 <b>세션에서 "무엇을 받았는지" 이해하는지</b>를 수집하는 컬럼이 없었다. 수익화 이전에도 hybrid·credit·usage gate는 trust UX이며, 이를 관찰하지 않으면 launch 이후 cap 문구 판단에 근거가 없다.</div>
+  </div>
+
+  <div class="axis ax2 reveal" style="animation-delay:.22s">
+    <div class="label"><span class="n">02</span> 어떻게 해결하나</div>
+    <div class="text">기존 marketing-56 컬럼 뒤에 <b>가치 단위 이해</b>(명확/막연/없음/미확인)와 <b>제한 신뢰 읽기</b>(공정·명확/임의적/숨겨짐/미도달/미확인) 컬럼 2개를 수기 관찰 레이어로 추가. cap/copy 해석 금지선 5개를 명시해 prelaunch에서 성급한 cap 문구 변경을 막는다. 신규 이벤트·tracking·public copy·deploy·pricing 0.</div>
+  </div>
+
+  <div class="reveal" style="animation-delay:.27s">
+  <details open>
+    <summary><span class="chev"></span> 수행한 작업 · 핵심 판단</summary>
+    <div class="body">
+      <table>
+        <thead><tr><th>항목</th><th>내용</th></tr></thead>
+        <tbody>
+          <tr><td>Source note</td><td><code>source/external-links/marketing/2026-06-13-ai-pricing-trust-credits.md</code> 생성. AI hybrid/credit/usage gate 패턴, value unit 불명확 문제, limit trust signal, 해석 금지선 정리.</td></tr>
+          <tr><td>신규 컬럼 1</td><td>가치 단위 이해 — 사용자가 세션에서 받은 것을 말로 표현할 수 있는가. J1/J2/J4=deed 1개, J3=판정 카드 1개가 단위 후보.</td></tr>
+          <tr><td>신규 컬럼 2</td><td>제한 신뢰 읽기 — cap/제한을 공정·명확/임의적/숨겨짐/미도달로 분류. cap 미도달 세션에서는 미도달로만 표시.</td></tr>
+          <tr><td>금지선 5개</td><td>숫자 cap copy 추가 / 희소성 프레이밍 / credit·billing 언어 도입 / cap 정책 변경 / 컬럼 결과를 upgrade signal로 전환 — 모두 first-10 관찰 완료 전 금지.</td></tr>
+          <tr><td>기존 매핑 유지</td><td>J1/J2/J4 = deed_saved, J3 = deed_judged. marketing-54/55/56 호환 확인.</td></tr>
+          <tr><td>approval: agent-approved L2</td><td>L1 docs-only, 되돌림 가능, 비용 0, 외부 발송 0, priceduction 변경 0. 자체 승인 조건 모두 만족.</td></tr>
+        </tbody>
+      </table>
+
+      <p><strong>계승한 기준:</strong></p>
+      <ul>
+        <li>Availability And Friction Are Not Value — deed_save_capped는 availability, upgrade demand 아님</li>
+        <li>No Autonomous Action Bounds The Trust Question — Virtue trust는 조언 vs 판결 읽기 문제</li>
+        <li>Prelaunch Decision Boundary — 첫 10명은 방향 재료, 확정 지표 아님</li>
+      </ul>
+
+      <p><strong>이번에 새로 배운 것:</strong></p>
+      <ul>
+        <li>AI 제품에서 value unit 이해 부재 → cap 경험이 임의적으로 느껴지는 경로가 명확함</li>
+        <li>Virtue의 trust 질문(조언 vs 판결)과 cap trust 질문(공정 vs 임의)은 독립 레이어임</li>
+        <li>J3는 cap 미도달이 정상이므로 제한 신뢰 읽기에서 "미도달"이 기본값</li>
+      </ul>
+
+      <p><strong>다음 작업에 넘길 규칙:</strong></p>
+      <ul>
+        <li>first-10 관찰 후 가치 단위 이해 "없음"이 다수이면 → 세션 시작 전 간단한 "이 세션에서 무엇을 할 수 있는지" 안내 proposal-only</li>
+        <li>제한 신뢰 읽기 "임의적"이 다수이면 → cap 문구에 맥락 설명 추가 proposal-only</li>
+        <li>두 컬럼 결과의 상관 관찰은 launch 이후 gate에서만</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="chev"></span> 실행 메타 · 산출물</summary>
+    <div class="body">
+      <div class="chips">
+        <span class="chip">2026-06-13T10:00Z</span>
+        <span class="chip">heartbeat / cloud</span>
+        <span class="chip">inbox → completed</span>
+        <span class="chip">L1 docs-only</span>
+        <span class="chip">agent-approved L2</span>
+      </div>
+      <ul>
+        <li>산출물 <code>artifacts/marketing-57/virtue-value-unit-limit-trust-observation-columns.md</code></li>
+        <li>source note <code>source/external-links/marketing/2026-06-13-ai-pricing-trust-credits.md</code></li>
+        <li>archive <code>intents/archive/marketing-57.md</code></li>
+        <li>report <code>reports/marketing-57/2026-06-13T1000Z-cloud.html</code></li>
+      </ul>
+    </div>
+  </details>
+  </div>
+
+  <div class="foot reveal" style="animation-delay:.3s">
+    <span>Agent-First Heartbeat</span>
+    <span>Infinity · Intent Note</span>
+  </div>
+</div>
+</body>
+</html>
