@@ -4,7 +4,7 @@
 
 ## Inbox
 
-<!-- marketing-57 inbox 2026-06-13T10:00Z [display: Virtue Value Unit And Limit Trust Observation; projects: virtue; type: strategy; topics: ai-pricing,activation,trust,prelaunch; source_note: ../source/external-links/marketing/2026-06-13-ai-pricing-trust-credits.md; permission: L1 docs-only; owner_route: Infinity router -> Claude Code docs artifact; success_criteria: first-10 관찰표에 value unit / limit trust 컬럼 후보와 cap/copy 해석 금지선을 추가하되 pricing/billing/credit/cap/tracking/privacy/public copy/deploy 변경 0; first_verification_gate: 출처노트 존재 확인, 기존 J1/J2/J4=deed_saved 및 J3=deed_judged 매핑 유지, public/cost-bearing/product-affecting action 0] (근거: AI pricing/credit 자료는 hybrid·credit·usage gate가 수익화 이전에도 trust UX임을 시사. 기대 임팩트: Virtue prelaunch에서 무료 cap·제한 문구를 성급히 바꾸지 않고, 첫 사용자 관찰에서 고객이 어떤 행동을 가치 단위로 이해하는지 수집해 launch 이후 가격/제한 논의의 오판을 줄인다.) -->
+
 
 ## Active
 
@@ -15,6 +15,8 @@
 <!-- 사용자 결정, 외부 조건, 안전 확인 대기. 같은 질문을 반복하지 않고 상태만 보존한다. -->
 
 ## Archive
+<!-- marketing-57 completed 2026-06-13T10:07Z → intents/archive/marketing-57.md [display: Virtue Value Unit And Limit Trust Observation; projects: virtue; type: strategy; topics: ai-pricing,activation,trust,prelaunch] (first-10 관찰표에 value_unit_heard / limit_trust_signal / cap_copy_risk / value_before_limit / support_phrase_needed 후보 컬럼을 L1 docs-only로 추가. 산출물 `artifacts/marketing-57/virtue-value-unit-limit-trust-observation.md`, report `reports/marketing-57/2026-06-13T1007Z-local.html`. J1/J2/J4=`deed_saved`, J3=`deed_judged` 유지. pricing/billing/credit/cap/tracking/privacy/public copy/deploy/cost-bearing/product-affecting change 0.) -->
+
 
 <!-- marketing-56 completed 2026-06-12T22:35Z → intents/archive/marketing-56.md [display: Virtue First Reliable Value Observation Columns; projects: virtue; type: strategy; topics: activation,onboarding,analytics] (AI PLG first reliable value lens를 Virtue first-10 관찰 계약에 L1 docs-only로 반영. 산출물 `artifacts/marketing-56/virtue-first-reliable-value-observation-columns.md`, report `reports/marketing-56/2026-06-12T2235Z-local.html`. 수기 컬럼 4개 accepted output / useful-result time / retry-rejudge reason / reproducibility understanding 추가. J1/J2/J4=`deed_saved`, J3=`deed_judged` 유지. 신규 이벤트·tracking/privacy·dashboard·public copy·deploy·external message·pricing·cap·cost 0.) -->
 
