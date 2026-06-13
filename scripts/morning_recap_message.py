@@ -43,7 +43,7 @@ def parse_comments(body: str, state: str) -> list[dict[str, str]]:
     items: list[dict[str, str]] = []
     for comment in re.findall(r"<!--\s*(.*?)\s*-->", body, re.S):
         compact = re.sub(r"\s+", " ", comment).strip()
-        head = re.match(r"(?P<id>[a-z]+-\d+)\s+(?P<state>\w+)\s+(?P<ts>\d{4}-\d{2}-\d{2}T\d{2}:\d{2}Z)?", compact)
+        head = re.match(r"(?P<id>[a-z]+(?:-[a-z]+)*-\d+)\s+(?P<state>\w+)\s+(?P<ts>\d{4}-\d{2}-\d{2}T\d{2}:\d{2}Z)?", compact)
         if not head:
             continue
         display = re.search(r"\[display:\s*([^;\]]+)", compact)
