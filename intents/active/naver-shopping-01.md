@@ -9,13 +9,15 @@
 - display_name: 나래 / Narae
 - source_agent: `/home/ubuntu/.openclaw/workspace/agents/naver-shopping-agent/`
 - created_at: 2026-06-07T23:24Z
-- updated_at: 2026-06-13T06:07Z
+- updated_at: 2026-06-13T09:07Z
 
 ## Purpose
 
 네이버쇼핑몰 수익화 전담 에이전트가 막히는 지점을 SAM이 관리자자럼 분류하고, 사용자가 직접 확인해야 하는 항목만 09:00 KST 메시지로 묶는다.
 
 ## Current State
+
+- 2026-06-13T0907Z **소싱 가격 리서치 라운드 1 (cloud research).** 소싱-퍼스트 스크린 라운드 1 상위 2종(포토 포켓 앨범, 투명 스티커 세트)에 대한 국내 소매가 및 중국 소싱 가격 비교 완료. **포토 포켓 앨범**: G마켓 소매 3,100~5,100원 저가 경쟁 명확 → Alibaba 도매 ~$6.22/pc(≈8,500원+)가 소매가 초과, 단순 재판매 마진 불가. 프리미엄/여행 테마 포지셔닝으로 8,000원 이상 소매가 타겟 필요. 1688 실가 확인 필요(로컬). **투명 스티커 세트**: 쿠팡 소매 7,040~8,800원 vs 소싱 예상 1,000~2,000원 → 마진 양호. 여행/아날로그 테마 차별화 가능. **우선순위 갱신**: 투명 스티커 1순위, 포켓 앨범 2순위(마진 리스크 차이). 산출물: `artifacts/naver-shopping-01/sourcing-price-screen-2026-06-13.md`, 리포트: `reports/naver-shopping-01/2026-06-13T0907Z-research.html`. 라이브 상품등록/가격·배송·재고/광고·고객·주문·계정·공개발행 0.
 
 - 2026-06-13T0607Z **소싱-퍼스트 스크린 라운드 1 (cloud research).** 2026-06-11 사용자 선호 업데이트(소싱 중심, 러기지택 내렸) 이후 첫 소싱-퍼스트 스크린 수행. 탈락 확정 항목(러기지택, 종이 카드 인서트, 트래블러스노트 속지, 워크샵/질문 카드)을 제외하고 신규 후보 5개 카테고리 평가: ① **포토 포켓 앨범 / 여행 사진 앨범** (사용자 fit ★★★, 소싱 용이, 옵션 복잡도 낙음 → DataLab 1순위), ② **투명 스티커 세트 / 다꾸 스티커** (기록/일상시스템 fit ★★★, 소싱 용이, 디자인 테마 차별화 가능 → DataLab 1순위), ③ **케이블/전자기기 파우치** (여행+크리에이터 fit ★★ → DataLab 2순위), ④ **여행 메모 스탬프** (소싱 마찰 중간 → DataLab 3순위), ⑤ **씰 봉투 / 레터셋** (여행 기록 fit ★★ → DataLab 3순위). 구매 상황 우선(m50 기준): 포토 앨범='여행 다녀온 후 사진 정리', 스티커='다이어리 꾸미기'. Naver Shopping/DataLab 접근 없음(cloud-only). 라이브 상품등록/가격·배송·재고/광고·고객·주문·계정·공개발행 0. 산출물: `artifacts/naver-shopping-01/sourcing-first-screen-round1-2026-06-13.md`, 리포트: `reports/naver-shopping-01/2026-06-13T0607Z-research.html`.
 
@@ -81,7 +83,7 @@
 - user clarified that product curation is a core job and that matching the user's taste matters
 - Knowledge Lab / agent-wiki should be used as source context for product-fit judgment
 - scoped normal GitHub push is allowed so Infinity/Naver-agent state becomes visible remotely
-- Naver QR login session was confirmed in the live browser session on 2026-06-08T12:01Z; read-only checks may proceed while the session remains valid
+- Naver QR login session was confirmed in the live browser session on 2026-06-08T12:01Z; read-only checks may proceed while session remains valid
 - 2026-06-08T14:39Z read-only test: Naver main shows logged-in affordances, but SmartStore Center stops at the Commerce ID login page; public Naver Shopping search still IP-restricted. Block location moved from "env/session unreachable" to "Commerce ID transition (user-side)".
 
 ## Pending Blockers
