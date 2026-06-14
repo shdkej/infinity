@@ -22,6 +22,7 @@ Infinity 운영 중 intent 처리 방식에 실제로 영향을 주는 규칙만
 - Intent 결과물이 `drafts/`, `reports/`, active intent 본문에 흩어지면 사용자가 같은 결론을 다시 찾기 위해 운영자처럼 디렉터리를 뒤져야 한다. 운영 규칙: 산출물은 `infinity/artifacts/{id}/`, 실행 로그는 `infinity/reports/{id}/`, **canonical 결과는 `infinity/intents/archive/{id}.md`에 링크 인덱스로** 모은다. 자세한 규칙은 `infinity/ARTIFACT_RULES.md`. `drafts/`는 2026-05-13에 폐기되어 `artifacts/{id}/`로 이관 완료.
 - Archive intent는 짧은 회고문서가 아니라 **canonical index**다. artifacts / reports / commits / urls / next_actions 링크가 모두 한 문서에 모여 있어야 다음 Heartbeat나 사용자가 한 번에 도달 가능하다.
 - 대시보드와 문서 생성 규칙은 `Intent 원장 / Artifact / Report` 3역할로 통일한다. 완료 문서와 detail 문서가 같은 내용을 중복으로 가리키면 운영자가 헷갈리므로, 완료 상태의 canonical detail은 `infinity/intents/archive/{id}.md` 하나만 사용하고 별도 원문은 `artifacts/{id}/...`에 둔다.
+- 사용자가 직접 해야 하는 설정, 계정 전환, 브라우저 세션, 승인, 외부 조건은 병렬 작업이 계속 가능하더라도 Waiting에 적극적으로 걸어 둔다. Active 실행과 사용자-side Waiting은 공존할 수 있다.
 ## 2026-05-13 — Claude Code 위임은 workflow-master 우선
 
 - 사용자가 명시적으로 요청: Claude Code가 작업할 때 workflow-master 스킬을 쓰도록 강제.
