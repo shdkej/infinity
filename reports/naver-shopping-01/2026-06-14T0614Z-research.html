@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>naver-shopping-01 · 소싱 스크린 라운드 2</title>
+<style>
+  :root{
+    --bg:#f4f2ea; --panel:#fbfaf5; --ink:#2c2a25; --soft:#807c70; --faint:#a8a496; --line:#e3dfd2;
+    --a2:#5f7a5e; --a2-deep:#3f5740;
+    --a1:#5a6f8a; --a1-deep:#3f536e;
+    --sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;}
+  body{background:var(--bg); color:var(--ink); font-family:var(--sans);
+    font-size:14px; line-height:1.68; -webkit-font-smoothing:antialiased;}
+  .sheet{max-width:720px; margin:0 auto; padding:48px 34px 46px;}
+  .reveal{opacity:0; animation:fade .7s ease forwards;}
+  @keyframes fade{from{opacity:0; transform:translateY(9px);} to{opacity:1; transform:none;}}
+  .eyebrow{display:flex; align-items:center; gap:10px; font-family:var(--mono);
+    font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--soft);}
+  .eyebrow .id{color:var(--a2-deep); font-weight:600;}
+  .eyebrow .dot{width:5px; height:5px; border-radius:50%; background:var(--a2);}
+  .eyebrow .status{margin-left:auto; color:var(--a2-deep);}
+  h1{font-size:29px; line-height:1.3; font-weight:700; letter-spacing:-.01em; margin:20px 0 0;}
+  .dek{font-size:15.5px; color:var(--soft); margin:13px 0 0; max-width:52ch;}
+  .hr{height:1px; background:var(--line); margin:30px 0;}
+  .axis{padding:0 0 4px 22px; position:relative; margin-bottom:30px;}
+  .axis::before{content:""; position:absolute; left:0; top:6px; bottom:6px; width:2px; border-radius:2px;}
+  .axis.ax1::before{background:var(--a1);} .axis.ax2::before{background:var(--a2);}
+  .axis.ax1{--ul:var(--a1);} .axis.ax2{--ul:var(--a2);}
+  .axis .label{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase;
+    margin-bottom:9px; display:flex; align-items:center; gap:8px;}
+  .axis.ax1 .label{color:var(--a1-deep);} .axis.ax2 .label{color:var(--a2-deep);}
+  .axis .label .n{font-weight:600; opacity:.6;}
+  .axis .text{font-size:18px; line-height:1.6; color:#37352e;}
+  .axis .text b{font-weight:700; color:var(--ink); border-bottom:2px solid var(--ul);}
+  details{border:1px solid var(--line); border-radius:10px; background:var(--panel); margin-bottom:10px;}
+  summary{cursor:pointer; list-style:none; padding:14px 16px; display:flex; align-items:center; gap:11px;
+    font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft);}
+  summary::-webkit-details-marker{display:none;}
+  summary .chev{width:8px; height:8px; border-right:2px solid var(--a2-deep); border-bottom:2px solid var(--a2-deep);
+    transform:rotate(-45deg); transition:.25s; flex:none; margin-left:2px;}
+  details[open] summary .chev{transform:rotate(45deg);}
+  summary:hover{color:var(--ink);}
+  .body{padding:2px 16px 18px;}
+  table{border-collapse:collapse; width:100%; font-size:13px; margin:4px 0 12px;}
+  th,td{border-bottom:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top;}
+  th{font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft); font-weight:600;}
+  td:first-child{color:var(--a2-deep); font-weight:600; white-space:nowrap;}
+  .body p{color:var(--soft);}
+  .body ul{margin:6px 0; padding-left:18px;} .body li{margin:5px 0;}
+  code{font-family:var(--mono); font-size:12px; background:#edeae0; padding:1px 6px; border-radius:3px; color:var(--a2-deep);}
+  a{color:var(--a2-deep); text-underline-offset:3px;}
+  .chips{display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px;}
+  .chip{font-family:var(--mono); font-size:10.5px; letter-spacing:.05em; color:var(--soft); border:1px solid var(--line); border-radius:999px; padding:3px 10px;}
+  .foot{margin-top:30px; padding-top:15px; border-top:1px solid var(--line);
+    display:flex; justify-content:space-between; font-family:var(--mono); font-size:10px;
+    letter-spacing:.13em; text-transform:uppercase; color:var(--faint);}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="eyebrow reveal">
+    <span class="dot"></span>
+    <span class="id">naver-shopping-01</span>
+    <span>Research Note</span>
+    <span class="status">active</span>
+  </div>
+  <h1 class="reveal" style="animation-delay:.05s">여행-adjacent 소품 소싱 스크린 라운드 2</h1>
+  <p class="dek reveal" style="animation-delay:.09s">케이블 파우치 · 도난방지 스트랩 · 압축 파우치 3개 카테고리 심층 평가 (cloud-only)</p>
+
+  <div class="hr reveal" style="animation-delay:.12s"></div>
+
+  <div class="axis ax1 reveal" style="animation-delay:.16s">
+    <div class="label"><span class="n">01</span> 🔍 무엇을 조사했나</div>
+    <div class="text">2026-06-14 방향 전환에 따라 <b>여행-adjacent 기능 소품 3종</b> — 케이블/충전기 파우치, 휴대폰 도난방지 스트랩/테더, 압축/세탁물 분리 파우치 — 소싱 스크린 라운드 2 수행 (DataLab/Shopping 접근 없음, cloud-only)</div>
+  </div>
+
+  <div class="axis ax2 reveal" style="animation-delay:.22s">
+    <div class="label"><span class="n">02</span> 📊 핵심 결과</div>
+    <div class="text"><b>케이블/충전기 파우치</b>가 구매 상황 명확도·소싱 용이도·크리에이터 콘텐츠 연계 3기준 DataLab 1순위 — 다음 로컬 실행은 <code>케이블 파우치</code> DataLab 수요 검증 및 타오바오 샘플가 확인</div>
+  </div>
+
+  <div class="reveal" style="animation-delay:.27s">
+  <details open>
+    <summary><span class="chev"></span> 3개 카테고리 평가 결과</summary>
+    <div class="body">
+      <table>
+        <tr><th>순위</th><th>카테고리</th><th>사용자fit</th><th>소싱</th><th>구매상황</th><th>DataLab 우선순위</th></tr>
+        <tr><td>1</td><td>케이블/충전기 파우치</td><td>★★★</td><td>★★★</td><td>★★★</td><td>1순위</td></tr>
+        <tr><td>2</td><td>압축/세탁물 분리 파우치</td><td>★★★</td><td>★★★</td><td>★★★</td><td>2순위 (경쟁 주의)</td></tr>
+        <tr><td>3</td><td>휴대폰 도난방지 스트랩</td><td>★★</td><td>★★★</td><td>★★</td><td>3순위 (수요 불확실)</td></tr>
+      </table>
+      <p><strong>케이블 파우치 핵심 구매 상황:</strong> "여행 전 짐 싸는 중 케이블이 엉켜서" — 구매 타이밍 명확, 크리에이터/여행 콘텐츠 자연 연계, 예상 소싱가 1,500–3,000원 / 판매가 8,000–15,000원</p>
+      <p><strong>압축 파우치 주의:</strong> <code>압축팩</code> 단독 키워드는 대형 셀러 지배 → <code>세탁물 분리 파우치</code> / <code>여행 속옷 파우치</code>로 세부화 필수, 예상 소싱가 1,000–2,500원</p>
+      <p><strong>도난방지 스트랩:</strong> 수요 볼륨 불확실 — DataLab 검증 후 판단, 예상 소싱가 500–1,500원 / 마진율 ~65%이나 절대 마진 낮음</p>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="chev"></span> 키워드 후보 · 소싱 요약</summary>
+    <div class="body">
+      <table>
+        <tr><th>카테고리</th><th>DataLab 우선 키워드</th><th>제외 키워드</th><th>소싱가 (예상)</th></tr>
+        <tr><td>케이블 파우치</td><td>케이블 파우치, 전자기기 파우치</td><td>여행 파우치 (과밀)</td><td>1,500–3,000원</td></tr>
+        <tr><td>압축/세탁물 파우치</td><td>세탁물 분리 파우치, 여행 속옷 파우치</td><td>압축팩 단독 (과밀)</td><td>1,000–2,500원</td></tr>
+        <tr><td>도난방지 스트랩</td><td>폰 스트랩 여행, 스마트폰 분실방지</td><td>(볼륨 검증 필요)</td><td>500–1,500원</td></tr>
+      </table>
+      <p>Round 1 1순위(포토 앨범·투명 스티커)는 스테이셔너리/다꾸 시장으로 별도 경쟁 생태계. DataLab 데이터 없이 Round 1 vs Round 2 수요 크기 비교 불가 → 케이블 파우치를 포토 앨범과 함께 DataLab 비교 검증 권장.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="chev"></span> 다음 액션 (나래 로컬 실행)</summary>
+    <div class="body">
+      <ul>
+        <li>DataLab <code>케이블 파우치</code> / <code>전자기기 파우치</code> 12개월 클릭 트렌드 + 카테고리 순위 확인</li>
+        <li>DataLab <code>세탁물 분리 파우치</code> / <code>여행 속옷 파우치</code> 수요 확인</li>
+        <li>DataLab <code>폰 스트랩 여행</code> / <code>스마트폰 분실방지</code> 볼륨 확인</li>
+        <li>케이블 파우치 타오바오 샘플 조달가 범위 재확인</li>
+        <li>(선택) Round 1 포토 앨범 vs Round 2 케이블 파우치 DataLab 수요 직접 비교</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="chev"></span> 실행 메타 · 산출물</summary>
+    <div class="body">
+      <div class="chips">
+        <span class="chip">2026-06-14T0614Z</span>
+        <span class="chip">heartbeat · cloud L0</span>
+        <span class="chip">active → active</span>
+      </div>
+      <ul>
+        <li>산출물 <code>artifacts/naver-shopping-01/sourcing-first-screen-round2-2026-06-14.md</code></li>
+        <li>이전 라운드 <code>artifacts/naver-shopping-01/sourcing-first-screen-round1-2026-06-13.md</code></li>
+        <li>승인 경계: 라이브 상품등록·가격·재고·광고·고객/주문/계정·공개발행 = 0</li>
+        <li>Waiting 유지: SmartStore Commerce ID / read-only 브라우저 / 공개 Naver Shopping 검색 제한</li>
+      </ul>
+    </div>
+  </details>
+  </div>
+
+  <div class="foot reveal" style="animation-delay:.3s">
+    <span>Agent-First Heartbeat</span>
+    <span>Infinity · Intent Note</span>
+  </div>
+</div>
+</body>
+</html>
