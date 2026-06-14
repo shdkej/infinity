@@ -4,18 +4,20 @@
 
 ## Inbox
 
-<!-- marketing-59 inbox 2026-06-14T10:00Z → intents/inbox/marketing-59.md [display: Virtue Launch-Ready PLG Signal Gate; projects: virtue; type: strategy; topics: plg,activation,measurement,prelaunch; source_note: source/external-links/marketing/2026-06-14-plg-signal-hierarchy.md; permission: L1 docs-only; owner_route: Infinity router -> Claude Code docs-only; success: 지금 볼 신호/보류할 신호/launch 이후 볼 신호 표와 first-10 수기 review gate 작성; first_gate: source note 존재, 선행 marketing-55/56/58 충돌 없음, conflict marker 0, production code/tracking/privacy 변경 0] (최신 PLG 자료의 first win/activation/PQL 우선순위를 Virtue prelaunch 신호 위계로 번역한다. 기대효과: acquisition 문제, activation 문제, measurement-too-early 상태를 첫 10명 관찰에서 혼동하지 않게 한다.) -->
-
 
 
 
 ## Active
+
+<!-- marketing-59 active 2026-06-14T12:00Z → intents/inbox/marketing-59.md [display: Virtue Launch-Ready PLG Signal Gate; projects: virtue; type: strategy; topics: plg,activation,measurement,prelaunch; status: waiting; permission: L1 docs-only; block: source note 미존재(source/external-links/marketing/2026-06-14-plg-signal-hierarchy.md)] (source note가 레포에 없어 실행 대기. 사용자가 해당 파일을 추가하거나 prior artifacts만으로 진행 허용 시 즉시 실행.) -->
 
 <!-- naver-shopping-01 active 2026-06-11T00:35Z → intents/active/naver-shopping-01.md [display: 나래/Narae; projects: naver-shopping,infinity,personal-ops; type: coordination; topics: automation,workflow,marketing; status: active-sourcing-first; approval: user-setup-waiting-visible] (사용자-facing 이름 나래/Narae 확정, 내부 id/path는 naver-shopping-agent 유지. 2026-06-11 사용자 선호 업데이트: 나래는 상품제작보다 소싱 중심으로 보고, 러기지택/캐리어네임택은 선호 낮은 상품이라 다음 리드에서 내림. 2026-06-14 현재 실행 방향은 기성 여행-adjacent 소품 소싱 스크린이며 우선순위는 케이블/충전기 파우치 → 휴대폰 도난방지 스트랩/테더 → 압축/세탁물 분리 파우치. 사용자 설정이 필요한 SmartStore Commerce ID / 읽기 전용 브라우저 / 공개 Naver Shopping 검색 제한은 Waiting 카드로 별도 노출한다. 라이브 상품등록/가격·배송·재고/광고·고객·주문·계정·공개발행 0. archive 안 함(active 유지).) -->
 
 ## Waiting
 
 <!-- 사용자 결정, 외부 조건, 안전 확인 대기. 같은 질문을 반복하지 않고 상태만 보존한다. -->
+
+<!-- marketing-59 waiting 2026-06-14T12:00Z → intents/inbox/marketing-59.md [display: Virtue Launch-Ready PLG Signal Gate; projects: virtue; decision: PLG 신호 위계 표 작성을 위한 source note 추가 또는 진행 방식 결정; options: source/external-links/marketing/2026-06-14-plg-signal-hierarchy.md 추가 후 재실행 | prior artifacts(marketing-55/56/58)만으로 진행 허용; default: source note 추가 대기; reason: first verification gate — source note 미존재; next: source note 확인 후 지금 볼/보류/launch 이후 신호 표와 first-10 수기 review gate 즉시 작성] (marketing-55 수립된 count-now/observe-manually/do-not-judge-yet 3분류를 PLG first-win/activation/PQL 위계로 구체화하는 작업. prior artifacts만으로 진행 허용 시 source note 없이도 실행 가능.) -->
 
 <!-- naver-shopping-01 waiting 2026-06-14T05:45Z → intents/active/naver-shopping-01.md [display: 나래/Narae; projects: naver-shopping,infinity,personal-ops; type: coordination; topics: automation,workflow,commerce; decision: 네이버 커머스 사용자 설정 3가지를 언제 열어줄지 결정; options: 지금 Commerce ID/브라우저 세션 확인 | 나래는 공개/공식 데이터만으로 계속 진행 | 보류; default: 나래는 공개/공식 데이터만으로 계속 진행; reason: SmartStore Commerce ID, read-only browser access, and public Naver Shopping search restriction are user-side/external-condition blockers; next: 마스터가 Commerce ID/브라우저 접근을 열어주면 나래가 read-only 검증을 재개] (마스터 피드백 반영: 사용자가 해야 하는 설정/승인/외부조건은 적극적으로 Waiting에 걸어 둔다. 현재 대기: SmartStore Commerce ID 전환/로그인 확인, 사용자 브라우저 프로필 기반 read-only 접근 가능 여부, 에이전트 호스트의 공개 Naver Shopping 검색 제한 해소 또는 대체 접근. SAM/나래는 그 전까지 OpenAPI/SearchAd/공식 문서/공개 웹 중심의 소싱-퍼스트 리서치를 계속한다. 라이브 상품등록·가격·배송·재고·광고·고객/주문/계정 액션 0.) -->
 
