@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>[marketing-59] Virtue PLG Signal Gate — Heartbeat Report</title>
+<style>
+body { font-family: system-ui, sans-serif; max-width: 800px; margin: 2rem auto; padding: 0 1rem; color: #222; }
+.header { border-bottom: 2px solid #333; padding-bottom: 1rem; margin-bottom: 1.5rem; }
+.badge { display: inline-block; padding: 2px 8px; border-radius: 3px; font-size: 0.8em; font-weight: bold; background: #2d7a2d; color: white; }
+.axes { background: #f5f5f5; border-left: 4px solid #555; padding: 1rem 1.5rem; margin: 1.5rem 0; }
+.axis { margin: 0.5rem 0; }
+.axis-label { font-weight: bold; font-size: 0.85em; color: #555; text-transform: uppercase; letter-spacing: 0.05em; }
+.axis-value { margin-top: 0.25rem; }
+details { margin: 1rem 0; }
+summary { cursor: pointer; font-weight: bold; padding: 0.5rem; background: #f0f0f0; }
+details > *:not(summary) { padding: 0 1rem; }
+table { border-collapse: collapse; width: 100%; margin: 1rem 0; }
+th, td { border: 1px solid #ddd; padding: 0.5rem 0.75rem; text-align: left; }
+th { background: #f5f5f5; }
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>[marketing-59] Virtue Launch-Ready PLG Signal Gate <span class="badge">COMPLETED</span></h1>
+  <p>Heartbeat cloud docs-only | 2026-06-14T13:00Z | L1 docs-only | project: virtue</p>
+</div>
+
+<div class="axes">
+  <div class="axis">
+    <div class="axis-label" id="ax1">축1 — 대상/문제</div>
+    <div class="axis-value">Virtue prelaunch — acquisition/activation/measurement-too-early 신호가 뒤섞인 상태에서 첫 10명 관찰 시 오독 위험</div>
+  </div>
+  <div class="axis">
+    <div class="axis-label" id="ax2">축2 — 결과/해법</div>
+    <div class="axis-value">PLG 신호 위계를 3열 게이트(지금/보류/launch-after)로 번역하고 first-10 수기 review checklist 완성 — J1/J2/J4=deed_saved, J3=deed_judged 유지, conflict 0, boundary 0</div>
+  </div>
+</div>
+
+<details open>
+  <summary>수행한 작업</summary>
+  <ul>
+    <li>Inbox marketing-59 분석 → L1 docs-only 단일 heartbeat 실행 결정</li>
+    <li>선행 확인: marketing-55 (activation contract), marketing-56 (first reliable value columns), marketing-58 (first successful output contract) — 충돌 없음</li>
+    <li>MARKETING_LEARNINGS.md 검토 — 기존 기준 계승 목록 확인</li>
+    <li>Source note 작성: <code>source/external-links/marketing/2026-06-14-plg-signal-hierarchy.md</code></li>
+    <li>3열 신호 게이트 표 작성: 지금/보류/launch-after 각 행 정의</li>
+    <li>First-10 수기 review checklist 작성 (per-user 체크 7항목)</li>
+    <li>Artifact 저장: <code>artifacts/marketing-59/virtue-plg-signal-gate.md</code></li>
+    <li>Archive intent 작성: <code>intents/archive/marketing-59.md</code></li>
+    <li>INTENTS.md: Inbox에서 marketing-59 제거, Archive 섹션에 완료 코멘트 추가</li>
+  </ul>
+</details>
+
+<details>
+  <summary>3열 게이트 요약</summary>
+  <table>
+    <tr><th>지금 볼 신호</th><th>보류할 신호</th><th>Launch 이후 볼 신호</th></tr>
+    <tr>
+      <td>First value 도달 (잡별)<br>트래픽 분류<br>가용성 차단<br>사용자 언어 원문<br>결정-위임 인지<br>guided break 위치<br>post-response 흐름<br>B-분류</td>
+      <td>Activation rate %<br>D7/D30 retention 비율<br>PMF 40% 수치<br>PQL 단일 이벤트<br>judged-saved 갭 → 이탈<br>D1/D3/D7 미방문 → churn<br>외부 벤치마크 복사</td>
+      <td>PQL 확정 (반복+재방문 묶음)<br>Activation vs D7 대조<br>재활성화 후보 분류<br>채널 품질 / viral coefficient<br>Monetization 신호<br>Dashboard / tracking<br>공개 카피 / 발송</td>
+    </tr>
+  </table>
+</details>
+
+<details>
+  <summary>검증 / 경계 확인</summary>
+  <ul>
+    <li>Source note: <code>source/external-links/marketing/2026-06-14-plg-signal-hierarchy.md</code> 생성됨 ✓</li>
+    <li>선행 marketing-55/56/58 충돌: 0 ✓</li>
+    <li>J1/J2/J4=<code>deed_saved</code>, J3=<code>deed_judged</code> 매핑 변경: 0 ✓</li>
+    <li>신규 이벤트·속성·tracking/privacy: 0 ✓</li>
+    <li>dashboard·public copy·deploy·external message·cost: 0 ✓</li>
+    <li>conflict markers: 0 ✓</li>
+    <li>MARKETING_LEARNINGS.md 승격 후보: 없음 (기존 기준 통합 응용) ✓</li>
+  </ul>
+  <h4>계승한 기준</h4>
+  <ul>
+    <li>First Value Mapping (marketing-55, 06~29)</li>
+    <li>Prelaunch Decision Boundary (marketing-08, 11, 22, 23)</li>
+    <li>Measurement Readiness Is A Separate Gate (marketing-34, 33)</li>
+    <li>PQL Is A Bundle, Not A Single Event (marketing-41)</li>
+    <li>Availability And Friction Are Not Value (marketing-21~29)</li>
+    <li>Traffic Source Before Metrics (marketing-25, 23, 11)</li>
+  </ul>
+</details>
+
+<details>
+  <summary>실행 메타 / 다음 액션</summary>
+  <ul>
+    <li>모드: cloud docs-only (heartbeat 직접 실행)</li>
+    <li>권한: L1 — 결과 알림 (Telegram 해당)</li>
+    <li>소요: 단일 heartbeat 완료</li>
+    <li>다음 액션: first-10 관찰 시 <code>artifacts/marketing-59/virtue-plg-signal-gate.md</code>의 checklist를 수기로 사용</li>
+    <li>PostHog 접근 + 프로젝트 ID 확보 시 별도 intent로 계측 readiness 확인</li>
+  </ul>
+</details>
+
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>[naver-shopping-01] 소싱 라운드 2 Cloud Prepare — Heartbeat Report</title>
+<style>
+body { font-family: system-ui, sans-serif; max-width: 800px; margin: 2rem auto; padding: 0 1rem; color: #222; }
+.header { border-bottom: 2px solid #333; padding-bottom: 1rem; margin-bottom: 1.5rem; }
+.badge { display: inline-block; padding: 2px 8px; border-radius: 3px; font-size: 0.8em; font-weight: bold; background: #b8860b; color: white; }
+.axes { background: #f5f5f5; border-left: 4px solid #555; padding: 1rem 1.5rem; margin: 1.5rem 0; }
+.axis { margin: 0.5rem 0; }
+.axis-label { font-weight: bold; font-size: 0.85em; color: #555; text-transform: uppercase; letter-spacing: 0.05em; }
+.axis-value { margin-top: 0.25rem; }
+details { margin: 1rem 0; }
+summary { cursor: pointer; font-weight: bold; padding: 0.5rem; background: #f0f0f0; }
+details > *:not(summary) { padding: 0 1rem; }
+table { border-collapse: collapse; width: 100%; margin: 1rem 0; }
+th, td { border: 1px solid #ddd; padding: 0.5rem 0.75rem; text-align: left; }
+th { background: #f5f5f5; }
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>[naver-shopping-01] 나래/Narae 소싱 라운드 2 — Cloud Prepare <span class="badge">IN PROGRESS (로컬 대기)</span></h1>
+  <p>Heartbeat cloud prepare | 2026-06-14T13:00Z | L0 research | project: naver-shopping</p>
+</div>
+
+<div class="axes">
+  <div class="axis">
+    <div class="axis-label" id="ax1">축1 — 대상/문제</div>
+    <div class="axis-value">나래/Narae 신규 우선순위 3개 카테고리(케이블/충전기 파우치, 휴대폰 도난방지 스트랩, 압축/세탁물 분리 파우치) — DataLab 미접근 상태에서 cloud research</div>
+  </div>
+  <div class="axis">
+    <div class="axis-label" id="ax2">축2 — 결과/해법</div>
+    <div class="axis-value">구매 상황 framing + 사용자 fit 평가 + DataLab 키워드 후보 목록 완성 — 로컬 DataLab 실행 대기 (케이블 파우치/도난방지 스트랩 DataLab 1순위, 압축 파우치 2순위)</div>
+  </div>
+</div>
+
+<details open>
+  <summary>카테고리별 평가 요약</summary>
+  <table>
+    <tr><th>카테고리</th><th>사용자 fit</th><th>소싱 난이도</th><th>경쟁 예상</th><th>DataLab 순위</th></tr>
+    <tr>
+      <td>케이블/충전기 파우치</td>
+      <td>★★★ (여행-adjacent + daily system)</td>
+      <td>낮음 (1688 쉬움)</td>
+      <td>중간 (차별화 여지 있음)</td>
+      <td><strong>1순위</strong></td>
+    </tr>
+    <tr>
+      <td>휴대폰 도난방지 스트랩</td>
+      <td>★★★ (여행-safety)</td>
+      <td>중간 (클립 타입 다양)</td>
+      <td>낮음 (수요 볼륨 불확실)</td>
+      <td><strong>1순위</strong> (볼륨 확인 필요)</td>
+    </tr>
+    <tr>
+      <td>압축/세탁물 분리 파우치</td>
+      <td>★★ (travel packing)</td>
+      <td>낮음 (commodity)</td>
+      <td>높음 (대형 셀러 많음)</td>
+      <td><strong>2순위</strong> (재평가 후)</td>
+    </tr>
+  </table>
+</details>
+
+<details>
+  <summary>DataLab 실행 키워드 목록</summary>
+  <h4>케이블/충전기 파우치</h4>
+  <ol>
+    <li>케이블 파우치</li>
+    <li>충전기 파우치</li>
+    <li>여행 케이블 정리</li>
+    <li>충전기 정리 파우치</li>
+    <li>여행 충전기 파우치</li>
+  </ol>
+  <h4>휴대폰 도난방지 스트랩</h4>
+  <ol>
+    <li>스마트폰 도난방지</li>
+    <li>핸드폰 테더</li>
+    <li>여행 핸드폰 스트랩</li>
+    <li>도난방지 폰 스트랩</li>
+    <li>여행 핸드폰 도난방지</li>
+  </ol>
+  <h4>압축/세탁물 분리 파우치</h4>
+  <ol>
+    <li>압축 파우치</li>
+    <li>여행 압축 백</li>
+    <li>세탁물 파우치</li>
+    <li>여행 세탁물 분리</li>
+    <li>압축 여행 파우치</li>
+  </ol>
+</details>
+
+<details>
+  <summary>실행 메타 / 다음 액션</summary>
+  <ul>
+    <li>모드: cloud research/prepare (DataLab 미접근)</li>
+    <li>권한: L0 (cloud research)</li>
+    <li>Waiting 차단: SmartStore Commerce ID / 브라우저 세션 / Naver Shopping IP 제한</li>
+    <li>다음 액션: 로컬 Claude Code에서 DataLab getClickTrend + SearchAd API로 위 키워드 검증</li>
+    <li>아티팩트: <code>artifacts/naver-shopping-01/sourcing-first-screen-round2-cloud-prep-2026-06-14.md</code></li>
+    <li>라이브 상품등록/가격·배송·재고/광고·고객·주문·계정·공개발행 0</li>
+  </ul>
+</details>
+
+</body>
+</html>
