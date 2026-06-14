@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>naver-shopping-01 · 소싱 스크린 라운드 2</title>
+<style>
+  :root{
+    --bg:#f4f2ea; --panel:#fbfaf5; --ink:#2c2a25; --soft:#807c70; --faint:#a8a496; --line:#e3dfd2;
+    --a2:#5f7a5e; --a2-deep:#3f5740;
+    --a1:#5a6f8a; --a1-deep:#3f536e;
+    --sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;}
+  body{background:var(--bg); color:var(--ink); font-family:var(--sans); font-size:14px; line-height:1.68; -webkit-font-smoothing:antialiased;}
+  .sheet{max-width:720px; margin:0 auto; padding:48px 34px 46px;}
+  .reveal{opacity:0; animation:fade .7s ease forwards;}
+  @keyframes fade{from{opacity:0; transform:translateY(9px);} to{opacity:1; transform:none;}}
+  .eyebrow{display:flex; align-items:center; gap:10px; font-family:var(--mono); font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--soft);}
+  .eyebrow .id{color:var(--a2-deep); font-weight:600;}
+  .eyebrow .dot{width:5px; height:5px; border-radius:50%; background:var(--a2);}
+  .eyebrow .status{margin-left:auto; color:var(--a2-deep);}
+  h1{font-size:29px; line-height:1.3; font-weight:700; letter-spacing:-.01em; margin:20px 0 0;}
+  .dek{font-size:15.5px; color:var(--soft); margin:13px 0 0; max-width:52ch;}
+  .hr{height:1px; background:var(--line); margin:30px 0;}
+  .axis{padding:0 0 4px 22px; position:relative; margin-bottom:30px;}
+  .axis::before{content:""; position:absolute; left:0; top:6px; bottom:6px; width:2px; border-radius:2px;}
+  .axis.ax1::before{background:var(--a1);} .axis.ax2::before{background:var(--a2);}
+  .axis.ax1{--ul:var(--a1);} .axis.ax2{--ul:var(--a2);}
+  .axis .label{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase; margin-bottom:9px; display:flex; align-items:center; gap:8px;}
+  .axis.ax1 .label{color:var(--a1-deep);} .axis.ax2 .label{color:var(--a2-deep);}
+  .axis .label .n{font-weight:600; opacity:.6;}
+  .axis .text{font-size:18px; line-height:1.6; color:#37352e;}
+  .axis .text b{font-weight:700; color:var(--ink); border-bottom:2px solid var(--ul);}
+  details{border:1px solid var(--line); border-radius:10px; background:var(--panel); margin-bottom:10px;}
+  summary{cursor:pointer; list-style:none; padding:14px 16px; display:flex; align-items:center; gap:11px; font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft);}
+  summary::-webkit-details-marker{display:none;}
+  summary .chev{width:8px; height:8px; border-right:2px solid var(--a2-deep); border-bottom:2px solid var(--a2-deep); transform:rotate(-45deg); transition:.25s; flex:none; margin-left:2px;}
+  details[open] summary .chev{transform:rotate(45deg);}
+  summary:hover{color:var(--ink);}
+  .body{padding:2px 16px 18px;}
+  table{border-collapse:collapse; width:100%; font-size:13px; margin:4px 0 12px;}
+  th,td{border-bottom:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top;}
+  th{font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft); font-weight:600;}
+  td:first-child{color:var(--a2-deep); font-weight:600; white-space:nowrap;}
+  .body p{color:var(--soft); margin:8px 0;}
+  .body ul{margin:6px 0; padding-left:18px;} .body li{margin:5px 0;}
+  code{font-family:var(--mono); font-size:12px; background:#edeae0; padding:1px 6px; border-radius:3px; color:var(--a2-deep);}
+  a{color:var(--a2-deep); text-underline-offset:3px;}
+  .chips{display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px;}
+  .chip{font-family:var(--mono); font-size:10.5px; letter-spacing:.05em; color:var(--soft); border:1px solid var(--line); border-radius:999px; padding:3px 10px;}
+  .foot{margin-top:30px; padding-top:15px; border-top:1px solid var(--line); display:flex; justify-content:space-between; font-family:var(--mono); font-size:10px; letter-spacing:.13em; text-transform:uppercase; color:var(--faint);}
+  .badge{display:inline-block; font-family:var(--mono); font-size:11px; padding:2px 8px; border-radius:4px; margin:2px 2px 2px 0;}
+  .badge-ok{background:#e8f2e8; color:#3f5740;}
+  .badge-warn{background:#fef6e0; color:#8a6633;}
+  .badge-no{background:#fdecea; color:#8a3f3f;}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="eyebrow reveal">
+    <span class="dot"></span>
+    <span class="id">naver-shopping-01</span>
+    <span>Research Note</span>
+    <span class="status">active · round-2-screen</span>
+  </div>
+  <h1 class="reveal" style="animation-delay:.05s">소싱 스크린 라운드 2 — 여행 기능성 소품</h1>
+  <p class="dek reveal" style="animation-delay:.09s">2026-06-14 사용자 우선순위 업데이트 후 3개 후보(케이블 파우치 · 도난방지 스트랩 · 압축 파우치) 소싱 적합성 클라우드 스크린</p>
+
+  <div class="hr reveal" style="animation-delay:.12s"></div>
+
+  <div class="axis ax1 reveal" style="animation-delay:.16s">
+    <div class="label"><span class="n">01</span> 무엇을 조사했나</div>
+    <div class="text">사용자 선호 업데이트(소싱-퍼스트, 여행 기능성 소품) 반영 <b>3개 후보</b>를 사용자 핏·수요 신호·경쟁·마진·콘텐츠 앵글 기준으로 클라우드 심층 평가 (DataLab 미포함)</div>
+  </div>
+
+  <div class="axis ax2 reveal" style="animation-delay:.22s">
+    <div class="label"><span class="n">02</span> 핵심 결과</div>
+    <div class="text"><b>케이블/충전기 파우치</b> 핏·소싱 용이도·차별화 가능성에서 1순위. <b>도난방지 스트랩/테더</b>는 신흥 카테고리 수요 미확인이나 경쟁 낮아 DataLab 검증 시 공동 1순위 가능. <b>압축 파우치</b>는 포화·저마진으로 보류.</div>
+  </div>
+
+  <div class="reveal" style="animation-delay:.27s">
+  <details open>
+    <summary><span class="chev"></span> 후보별 평가 상세</summary>
+    <div class="body">
+      <table>
+        <thead>
+          <tr>
+            <th>후보</th>
+            <th>사용자핏</th>
+            <th>수요</th>
+            <th>경쟁</th>
+            <th>마진</th>
+            <th>판정</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>케이블/충전기 파우치</td>
+            <td>★★★</td>
+            <td>중간-높음</td>
+            <td>중간</td>
+            <td>40-60%</td>
+            <td><span class="badge badge-ok">1순위 ✅</span></td>
+          </tr>
+          <tr>
+            <td>휴대폰 도난방지 스트랩</td>
+            <td>★★★</td>
+            <td>미확인</td>
+            <td>낮음</td>
+            <td>50-70%</td>
+            <td><span class="badge badge-warn">조건부 1순위 ⚠️</span></td>
+          </tr>
+          <tr>
+            <td>압축/세탁물 분리 파우치</td>
+            <td>★★</td>
+            <td>높음(포화)</td>
+            <td>높음</td>
+            <td>30-45%</td>
+            <td><span class="badge badge-no">3순위 보류 ❌</span></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p><strong style="color:var(--ink)">케이블/충전기 파우치</strong><br>
+      여행+크리에이터+AI 워크플로우 사용자에게 케이블 정리는 일상적 페인포인트. 1688 소싱 용이(원가 2,000-5,000원, 판매가 7,000-18,000원). 프리미엄 브랜드(Bellroy·Peak Design) 아래 1-2만 원대 틈새 존재. 콘텐츠 앵글: "내 여행 케이블 셋업 공개" / Before-After. 검증 키워드: <code>케이블파우치</code>, <code>케이블정리파우치</code>, <code>여행케이블파우치</code></p>
+
+      <p><strong style="color:var(--ink)">휴대폰 도난방지 스트랩/테더</strong><br>
+      해외여행 폰 안전 니즈 — 사용자 공감 직결. 국내 네이버 쇼핑에서 <code>폰테더</code>, <code>핸드폰도난방지스트랩</code>은 신흥 키워드. 경쟁 낮아 선점 기회 있음. 단, 카테고리 인지도 낮으면 Pull 수요 약함 → DataLab 월간 클릭수 확인 필수. 수요 확인 시 콘텐츠 선행("해외여행 폰 도난 방지법")으로 Push demand 유효. 검증 키워드: <code>폰테더</code>, <code>핸드폰도난방지</code>, <code>여행폰스트랩</code></p>
+
+      <p><strong style="color:var(--ink)">압축/세탁물 분리 파우치</strong><br>
+      무지·이케아·중국 직수입 저가제품 과포화. TOP20 리뷰 1만 개 이상 판매자 다수. 가격 경쟁 심해 의미 있는 마진 확보 어려움. 사용자 Knowledge Lab에서 직접 연결 신호 없음. 보류.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="chev"></span> 다음 액션 — 로컬 DataLab 실행</summary>
+    <div class="body">
+      <p><strong style="color:var(--ink)">DataLab API 검증 대상 키워드</strong></p>
+      <ul>
+        <li><code>케이블파우치</code>, <code>케이블정리파우치</code>, <code>여행케이블파우치</code></li>
+        <li><code>폰테더</code>, <code>핸드폰도난방지</code>, <code>여행폰스트랩</code></li>
+      </ul>
+      <p>확인 포인트: 12개월 클릭 추이, 시즌성, 연령/성별 분포, SearchAd 월간 검색량</p>
+      <p>판단 기준: 케이블 파우치 ≥ 6/12개월 유의미 클릭 → 경쟁 TOP20 분석 진행. 도난방지 스트랩 ≥ 3/12 이상 수요 확인 시 → 소싱처 조사 + 차별화 포인트 도출. 그 미만이면 콘텐츠 선행 전략 전환.</p>
+      <p><em>Naver Shopping 직접 접근 HTTP 418 지속 중 → SearchAd API 병행 활용.</em></p>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="chev"></span> 실행 메타 · 산출물</summary>
+    <div class="body">
+      <div class="chips">
+        <span class="chip">2026-06-14T0700Z</span>
+        <span class="chip">heartbeat · cloud-research · L0</span>
+        <span class="chip">active → active (in_progress)</span>
+      </div>
+      <ul>
+        <li>산출물 <code>artifacts/naver-shopping-01/sourcing-screen-round2-travel-accessories-2026-06-14.md</code></li>
+        <li>선행 리포트 <code>reports/naver-shopping-01/2026-06-13T0607Z-research.html</code> (라운드 1)</li>
+        <li>DataLab 접근 제한: HTTP 418 지속 → SearchAd API 대안</li>
+        <li>Live 상품등록·가격·배송·재고·광고·고객·주문·계정·공개발행 0</li>
+      </ul>
+    </div>
+  </details>
+  </div>
+
+  <div class="foot reveal" style="animation-delay:.3s">
+    <span>Agent-First Heartbeat</span>
+    <span>Infinity · Intent Note</span>
+  </div>
+</div>
+</body>
+</html>
