@@ -4,6 +4,8 @@
 
 ## Inbox
 
+<!-- marketing-60 inbox 2026-06-14T22:00Z → intents/inbox/marketing-60.md [display: Virtue Outcome-Readable Docs Audit; projects: virtue; type: strategy; topics: agentic-plg,activation,outcome-docs,prelaunch; source_note: source/external-links/marketing/2026-06-14-agentic-plg-outcome-docs.md; permission: L1 docs-only; owner_route: Infinity router -> Claude Code docs-only; success: J1-J4별 좋은 결과/나쁜 결과/다음 행동 기준과 first-10 결과 품질 수기 판독 칸 작성; first_gate: source note 존재, marketing-58/59 first successful output 및 signal gate와 충돌 없음, conflict marker 0, production code/tracking/privacy/public copy/deploy 변경 0] (Agentic PLG 학습을 Virtue prelaunch 결과 중심 문서 감사로 번역한다. 기대효과: 기능 설명이 아니라 사용자가 받은 결과·검증 기준·다음 행동을 사람과 에이전트가 모두 읽을 수 있게 만든다.) -->
+
 <!-- marketing-59 inbox 2026-06-14T10:00Z → intents/inbox/marketing-59.md [display: Virtue Launch-Ready PLG Signal Gate; projects: virtue; type: strategy; topics: plg,activation,measurement,prelaunch; source_note: source/external-links/marketing/2026-06-14-plg-signal-hierarchy.md; permission: L1 docs-only; owner_route: Infinity router -> Claude Code docs-only; success: 지금 볼 신호/보류할 신호/launch 이후 볼 신호 표와 first-10 수기 review gate 작성; first_gate: source note 존재, 선행 marketing-55/56/58 충돌 없음, conflict marker 0, production code/tracking/privacy 변경 0] (최신 PLG 자료의 first win/activation/PQL 우선순위를 Virtue prelaunch 신호 위계로 번역한다. 기대효과: acquisition 문제, activation 문제, measurement-too-early 상태를 첫 10명 관찰에서 혼동하지 않게 한다.) -->
 
 
