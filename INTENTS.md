@@ -4,6 +4,7 @@
 
 ## Inbox
 
+<!-- marketing-59 inbox 2026-06-14T10:00Z → intents/inbox/marketing-59.md [display: Virtue Launch-Ready PLG Signal Gate; projects: virtue; type: strategy; topics: plg,activation,measurement,prelaunch; source_note: source/external-links/marketing/2026-06-14-plg-signal-hierarchy.md; permission: L1 docs-only; owner_route: Infinity router -> Claude Code docs-only; success: 지금 볼 신호/보류할 신호/launch 이후 볼 신호 표와 first-10 수기 review gate 작성; first_gate: source note 존재, 선행 marketing-55/56/58 충돌 없음, conflict marker 0, production code/tracking/privacy 변경 0] (최신 PLG 자료의 first win/activation/PQL 우선순위를 Virtue prelaunch 신호 위계로 번역한다. 기대효과: acquisition 문제, activation 문제, measurement-too-early 상태를 첫 10명 관찰에서 혼동하지 않게 한다.) -->
 
 
 
