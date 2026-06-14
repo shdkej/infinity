@@ -1,6 +1,16 @@
 # marketing-59 — Virtue Launch-Ready PLG Signal Gate
 
-Status: Inbox candidate
+**Status: PROCESSED** — Completed 2026-06-14T1200Z by Heartbeat Agent
+**Archive**: `intents/archive/marketing-59.md`
+**Artifact**: `artifacts/marketing-59/virtue-launch-ready-plg-signal-gate.md`
+**Report**: `reports/marketing-59/2026-06-14T1200Z-local.html`
+
+> Note: INTENTS.md Inbox entry could not be updated in this run due to file size constraint.
+> The next Heartbeat should remove the marketing-59 Inbox entry from INTENTS.md.
+
+---
+
+Status: Inbox candidate (SUPERSEDED — see archive)
 Created: 2026-06-14T10:00Z
 Source note: `source/external-links/marketing/2026-06-14-plg-signal-hierarchy.md`
 
