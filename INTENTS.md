@@ -4,6 +4,8 @@
 
 ## Inbox
 
+<!-- marketing-61 inbox 2026-06-15T10:00Z → intents/inbox/marketing-61.md [display: Virtue Launch-After Activation Cohort Boundary; projects: virtue; type: strategy; topics: plg,activation,pql,measurement,prelaunch; permission: L1-docs-only; owner-route: Infinity→Claude Code] (출처노트 `source/external-links/marketing/2026-06-15-plg-activation-pql-boundary.md` 기반. rationale: Mixpanel 2026 PLG 렌즈는 activation을 signup/pageview가 아니라 retention을 예측하는 first-value 행동으로 정의하고, PQL은 제품별 frequency+breadth+depth 임계값으로 launch 이후 검증해야 한다고 봄. expected impact: Virtue prelaunch first-10 수기 관찰과 launch-after 정량 cohort/PQL 판단을 섞지 않아 작은 지표 오독을 줄임. success criteria: J1-J4별 activation 후보, 7일 재방문/반복 가치 후보, PQL 보류선, cap/limit 신호 해석 경계가 docs-only artifact에 명확히 분리됨. first verification gate: 출처노트 존재 확인, 선행 marketing-55/59/60과 충돌 0, 신규 이벤트·tracking/privacy·dashboard·public copy·pricing·deploy·external message·cost 변경 0.) -->
+
 ## Active
 
 <!-- naver-shopping-01 active 2026-06-15T00:14Z → intents/active/naver-shopping-01.md [display: 나래/Narae; projects: naver-shopping,infinity,personal-ops; type: coordination; topics: automation,workflow,marketing; status: active-sourcing-first; approval: user-setup-waiting-visible] (사용자-facing 이름 나래/Narae 확정, 내부 id/path는 naver-shopping-agent 유지. 2026-06-15 ready-made OpenAPI/SearchAd screen 결과: 휴대폰 도난방지 스트랩/테더가 WATCH lead, 압축/패킹 파우치는 WATCH, 케이블/충전기 파우치는 HOLD as lead. 다음 안전 액션은 상품 추천/승인 요청이 아니라 phone strap/tether subtype 및 compression pouch subtype의 소싱 마찰·클레임·옵션·반품 리스크 검증. 사용자 설정이 필요한 SmartStore Commerce ID / 읽기 전용 브라우저 / 공개 Naver Shopping 검색 제한은 Waiting 카드로 별도 노출한다. 라이브 상품등록/가격·배송·재고/광고·고객·주문·계정·공개발행 0. archive 안 함(active 유지).) -->
