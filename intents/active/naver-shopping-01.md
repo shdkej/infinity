@@ -10,13 +10,15 @@
 - source_agent: `/home/ubuntu/.openclaw/workspace/agents/naver-shopping-agent/`
 - created_at: 2026-06-07T23:24Z
 - updated_at: 2026-06-14T05:45Z
-- updated_at_latest: 2026-06-15T00:14Z
+- updated_at_latest: 2026-06-15T07:00Z
 
 ## Purpose
 
 네이버쇼핑몰 수익화 전담 에이전트가 막히는 지점을 SAM이 관리자자럼 분류하고, 사용자가 직접 확인해야 하는 항목만 09:00 KST 메시지로 묶는다.
 
 ## Current State
+
+- 2026-06-15T07:00Z **서브타입 소싱 마찰 스크린 완료.** Phone strap/tether 3개 서브타입(손목·크로스바디·패치+스트랩) 및 compression/packing pouch 3개 서브타입(압축파우치·패킹큐브·세탁물파우치)의 소싱 마찰·옵션 복잡도·반품 리스크를 공개 지식 기반으로 평가. **손목 스트랩(나일론/파라코드+유니버설 클립) WATCH LEAD 확정** — 소싱 최저 마찰, 여행 포지셔닝 clean, SearchAd 4.26% mobile CTR 뒷받침. 크로스바디 스트랩 WATCH 유지. 태그홀더 패치는 PopSocket IP 리스크·접착 반품으로 HOLD. **압축파우치 standalone lead HOLD** — 반품율 매우 높고 경쟁 포화; 대신 **패킹큐브 세트 + 세탁물파우치 번들** WATCH 전환. 다음 안전 액션: `핸드폰손목줄`/`여행용손목스트랩`/`패킹큐브` SearchAd 검증 후 손목 스트랩 소싱 패킷 초안. 라이브 상품등록/가격·배송·재고/광고·고객·주문·계정·공개발행 0. Artifact: `artifacts/naver-shopping-01/subtype-sourcing-friction-screen-2026-06-15.md`; report: `reports/naver-shopping-01/2026-06-15T0700Z-research.html`.
 
 - 2026-06-15T00:14Z **Ready-made sourcing OpenAPI/SearchAd screen completed.** Frozen keyword set was tested with read-only Naver OpenAPI Shopping Search and SearchAd. No user-facing listing/sourcing approval yet. **Phone anti-theft strap / tether component becomes the WATCH lead** because exact SearchAd signal is strongest (`핸드폰도난방지스트랩` 280 PC + 1,500 mobile/mo, mobile CTR 4.26%; `도난방지스트랩` 280 + 1,260/mo, mobile CTR 3.28%) and OpenAPI title language is clean around Europe travel / pickpocket / loss-prevention. **Compression / packing pouch remains WATCH** (`압축파우치` 1,230 PC + 7,020 mobile/mo, mobile CTR 3.21%) but has crowded textile/option/return burden. **Cable/charger pouch drops to HOLD as lead** because exact SearchAd signal is thin despite OpenAPI result breadth. Next safe pass: subtype-level sourcing-friction screen for phone strap/tether and compression pouch before any approval packet. Artifact: `artifacts/naver-shopping-01/ready-made-sourcing-openapi-searchad-screen-2026-06-15.md`; report: `reports/naver-shopping-01/2026-06-15T0014Z-local.html`. Live commerce/account/public actions 0.
 
@@ -28,7 +30,7 @@
 
 - 2026-06-11T00:08Z Traveler's-notebook insert / travel-prep general was "너무 일반적" and removed from the first SKU candidate list (user feedback at 14:09Z on Jun 10 also removed workshop/question-card monetization path from Naver revenue/SKU candidates).
 
-- 2026-06-10T20:07Z **Paper/card-led arrival-day failure-prevention insert keyword test complete.** `해외여행 체크리스트` is a clean-ish paper/planner shelf (OpenAPI 32,278; SearchAd 310 PC + 1,750 mobile/mo) but mobile CTR 0.05% — weak buyer intent, generic checklist/planner commodity. `여행 준비 카드`/`여행 체크리스트 카드` have trading cards/photo-card holders/boards/wallets/imported goods noise. Emergency/safety/contact-card language is story-rich but keyword-weak/non-travel/privacy-sensitive. Conclusion: **HOLD / paper-card insert is not the lead SKU**. Artifact: `naver-shopping-agent/arrival-day-insert-keyword-test-2026-06-10.md`, report: `reports/naver-shopping-01/2026-06-10T2007Z-local.html`.
+- 2026-06-10T20:07Z **Paper/card-led arrival-day failure-prevention insert keyword test complete.** `해외여행 체크리스트` is a clean-ish paper/planner shelf (OpenAPI 32,278; SearchAd 310 PC + 1,750 mobile/mo) but mobile CTR 0.05% — weak buyer intent, generic checklist/planner commodity. `여행 준비 카드`/`여행 체크리스트 카드` have trading cards/photo-card holders/boards/wallets/imported goods noise. Conclusion: **HOLD / paper-card insert is not the lead SKU**. Artifact: `naver-shopping-agent/arrival-day-insert-keyword-test-2026-06-10.md`, report: `reports/naver-shopping-01/2026-06-10T2007Z-local.html`.
 
 - 2026-06-10T19:07Z Arrival-day failure-prevention angle: paper or card insert explored as a physical object for the first seed. Keyword test plan prepared (see 20:07Z result).
 
