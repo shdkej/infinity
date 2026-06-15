@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>naver-shopping-01 · Subtype Sourcing-Friction Screen · 2026-06-15</title>
+<style>
+  :root{
+    --bg:#f4f2ea; --panel:#fbfaf5; --ink:#2c2a25; --soft:#807c70; --faint:#a8a496; --line:#e3dfd2;
+    --a2:#5f7a5e; --a2-deep:#3f5740;
+    --a1:#5a6f8a; --a1-deep:#3f536e;
+    --sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;}
+  body{background:var(--bg); color:var(--ink); font-family:var(--sans);
+    font-size:14px; line-height:1.68; -webkit-font-smoothing:antialiased;}
+  .sheet{max-width:720px; margin:0 auto; padding:48px 34px 46px;}
+  .reveal{opacity:0; animation:fade .7s ease forwards;}
+  @keyframes fade{from{opacity:0; transform:translateY(9px);} to{opacity:1; transform:none;}}
+  .eyebrow{display:flex; align-items:center; gap:10px; font-family:var(--mono);
+    font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--soft);}
+  .eyebrow .id{color:var(--a2-deep); font-weight:600;}
+  .eyebrow .dot{width:5px; height:5px; border-radius:50%; background:var(--a2);}
+  .eyebrow .status{margin-left:auto; color:var(--a2-deep);}
+  h1{font-size:29px; line-height:1.3; font-weight:700; letter-spacing:-.01em; margin:20px 0 0;}
+  .dek{font-size:15.5px; color:var(--soft); margin:13px 0 0; max-width:52ch;}
+  .hr{height:1px; background:var(--line); margin:30px 0;}
+  .axis{padding:0 0 4px 22px; position:relative; margin-bottom:30px;}
+  .axis::before{content:""; position:absolute; left:0; top:6px; bottom:6px; width:2px; border-radius:2px;}
+  .axis.ax1::before{background:var(--a1);} .axis.ax2::before{background:var(--a2);}
+  .axis.ax1{--ul:var(--a1);} .axis.ax2{--ul:var(--a2);}
+  .axis .label{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase;
+    margin-bottom:9px; display:flex; align-items:center; gap:8px;}
+  .axis.ax1 .label{color:var(--a1-deep);} .axis.ax2 .label{color:var(--a2-deep);}
+  .axis .label .n{font-weight:600; opacity:.6;}
+  .axis .text{font-size:18px; line-height:1.6; color:#37352e;}
+  .axis .text b{font-weight:700; color:var(--ink); border-bottom:2px solid var(--ul);}
+  details{border:1px solid var(--line); border-radius:10px; background:var(--panel); margin-bottom:10px;}
+  summary{cursor:pointer; list-style:none; padding:14px 16px; display:flex; align-items:center; gap:11px;
+    font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft);}
+  summary::-webkit-details-marker{display:none;}
+  summary .chev{width:8px; height:8px; border-right:2px solid var(--a2-deep); border-bottom:2px solid var(--a2-deep);
+    transform:rotate(-45deg); transition:.25s; flex:none; margin-left:2px;}
+  details[open] summary .chev{transform:rotate(45deg);}
+  summary:hover{color:var(--ink);}
+  .body{padding:2px 16px 18px;}
+  table{border-collapse:collapse; width:100%; font-size:13px; margin:4px 0 12px;}
+  th,td{border-bottom:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top;}
+  th{font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft); font-weight:600;}
+  td:first-child{color:var(--a2-deep); font-weight:600; white-space:nowrap;}
+  .body p{color:var(--soft);}
+  .body ul{margin:6px 0; padding-left:18px;} .body li{margin:5px 0;}
+  code{font-family:var(--mono); font-size:12px; background:#edeae0; padding:1px 6px; border-radius:3px; color:var(--a2-deep);}
+  .chips{display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px;}
+  .chip{font-family:var(--mono); font-size:10.5px; letter-spacing:.05em; color:var(--soft); border:1px solid var(--line); border-radius:999px; padding:3px 10px;}
+  .foot{margin-top:30px; padding-top:15px; border-top:1px solid var(--line);
+    display:flex; justify-content:space-between; font-family:var(--mono); font-size:10px;
+    letter-spacing:.13em; text-transform:uppercase; color:var(--faint);}
+  .badge{display:inline-block; font-family:var(--mono); font-size:10px; padding:2px 8px; border-radius:4px; font-weight:600;}
+  .go{background:#d4edda; color:#1a6131;}
+  .watch{background:#fff3cd; color:#7a5a00;}
+  .hold{background:#f8d7da; color:#6a1c1c;}
+</style>
+</head>
+<body>
+<div class="sheet">
+  <div class="eyebrow reveal">
+    <span class="dot"></span>
+    <span class="id">naver-shopping-01</span>
+    <span>Research Note</span>
+    <span class="status">active · sourcing-first</span>
+  </div>
+  <h1 class="reveal" style="animation-delay:.05s">서브타입 소싱 마찰 스크린</h1>
+  <p class="dek reveal" style="animation-delay:.09s">Phone strap/tether 4종 + Compression pouch 4종 서브타입별 소싱 채널·클레임 패턴·옵션 복잡도 평가</p>
+
+  <div class="hr reveal" style="animation-delay:.12s"></div>
+
+  <div class="axis ax1 reveal" style="animation-delay:.16s">
+    <div class="label"><span class="n">01</span> 무엇을 조사했나</div>
+    <div class="text">WATCH 2종(<b>phone strap</b>, <b>compression pouch</b>)을 각각 4개 서브타입으로 분해하여 1688/공개 리뷰 기반 소싱 마찰·클레임·옵션 복잡도 분석</div>
+  </div>
+
+  <div class="axis ax2 reveal" style="animation-delay:.22s">
+    <div class="label"><span class="n">02</span> 핵심 결과</div>
+    <div class="text"><b>Phone strap 손목+범용클립 서브타입 GO</b> — 마찰 낮고 클레임 관리 가능. Compression pouch는 WATCH 유지하되 후순위; phone strap 검증 후 번들 후보로 재평가 권장</div>
+  </div>
+
+  <div class="reveal" style="animation-delay:.27s">
+  <details open>
+    <summary><span class="chev"></span> 서브타입 판정표</summary>
+    <div class="body">
+      <p style="margin-bottom:12px; font-weight:600; color:var(--ink);">&#128241; Phone Anti-Theft Strap / Tether</p>
+      <table>
+        <tr><th>서브타입</th><th>소싱 마찰</th><th>클레임 위험</th><th>사용자 fit</th><th>판정</th></tr>
+        <tr><td>A. 손목+범용클립 스트랩</td><td>낮음</td><td>낮음–중간</td><td>★★★</td><td><span class="badge go">GO</span></td></tr>
+        <tr><td>B. 크로스바디/목걸이 스트랩</td><td>중간</td><td>높음 (케이스 호환)</td><td>★★★</td><td><span class="badge watch">WATCH</span></td></tr>
+        <tr><td>C. 패치+스트랩 세트</td><td>중간</td><td>중간 (접착 실패)</td><td>★★</td><td><span class="badge hold">HOLD</span></td></tr>
+        <tr><td>D. 보안 케이블/테더</td><td>매우 낮음</td><td>낮음</td><td>★★</td><td><span class="badge watch">WATCH (번들)</span></td></tr>
+      </table>
+      <p style="margin-top:16px; margin-bottom:12px; font-weight:600; color:var(--ink);">&#129523; Compression / Packing Pouch</p>
+      <table>
+        <tr><th>서브타입</th><th>소싱 마찰</th><th>클레임 위험</th><th>사용자 fit</th><th>판정</th></tr>
+        <tr><td>A. 롤업 압축팩</td><td>높음 (경쟁·옵션)</td><td>높음 (내구성)</td><td>★★</td><td><span class="badge watch">WATCH — 후순위</span></td></tr>
+        <tr><td>B. 진공 압축팩</td><td>높음</td><td>중간</td><td>★★</td><td><span class="badge hold">HOLD</span></td></tr>
+        <tr><td>C. 세탁물/젖은 옷 파우치</td><td>낮음</td><td>낮음</td><td>★★</td><td><span class="badge hold">HOLD (수요 부족)</span></td></tr>
+        <tr><td>D. 패킹큐브</td><td>중간</td><td>중간</td><td>★★</td><td><span class="badge watch">WATCH (번들 후보)</span></td></tr>
+      </table>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="chev"></span> Phone Strap 세부 분석</summary>
+    <div class="body">
+      <p><strong>Subtype A (손목+범용클립): GO 근거</strong></p>
+      <ul>
+        <li>1688 MOQ 50–100, 단가 700–2,500 KRW 수준 — 초기 투자 부담 낮음</li>
+        <li>케이스 구멍 없이 코너 클립으로 장착 → 호환성 문제 최소화</li>
+        <li>공개 리뷰 주요 불만: 클립 강도, 스트랩 길이 선호 → 공급사 QA로 관리 가능</li>
+        <li>색상 2–3종 (블랙/베이지/카키) → 옵션 복잡도 낮음</li>
+        <li>카피 각도: "유럽여행/혼여 도난방지 필수템" — 사용자 정체성(여행·기억·보안)과 직결</li>
+        <li>SearchAd 신호: <code>핸드폰도난방지스트랩</code> 280 PC + 1,500 mobile/mo, CTR 4.26%</li>
+      </ul>
+      <p><strong>Subtype B (크로스바디): WATCH 이유</strong></p>
+      <ul>
+        <li>케이스 러그/마그세이프 링 필요 → 기종별 호환 이슈 고착</li>
+        <li>"케이스에 안 맞아요", "고리가 끊어져요" 유형 클레임 높음</li>
+        <li>호환 케이스 번들 소싱 해결 후 재평가</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="chev"></span> Compression Pouch 세부 분석</summary>
+    <div class="body">
+      <p><strong>롤업 압축팩 후순위 판정 근거</strong></p>
+      <ul>
+        <li>SearchAd: <code>압축파우치</code> 1,230 PC + 7,020 mobile/mo — 수요는 강하나 대형 셀러 점유</li>
+        <li>공개 리뷰 1위 불만: "한번 쓰고 압축이 안 됨", 지퍼/밸브 내구성 → QA 부담 높음</li>
+        <li>S/M/L × 색상 × 밸브 방식 → 신규 스토어가 감당하기 어려운 옵션 수</li>
+        <li>"비닐 냄새" 계열 클레임은 사전 예방 어려움</li>
+      </ul>
+      <p><strong>번들 재평가 조건</strong></p>
+      <ul>
+        <li>Phone strap Subtype A 샘플 검증 완료 후 "여행 도난방지+정리 세트" 번들로 재검토</li>
+        <li>패킹큐브(Subtype D)가 더 나은 번들 후보 — 내구성 클레임 상대적으로 낮음</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="chev"></span> 다음 액션</summary>
+    <div class="body">
+      <ul>
+        <li>[local] 1688에서 범용 클립 손목 스트랩 공급사 쇼트리스트 (리뷰 200건+, 평점 4.7+, MOQ ≤100, 단가 ≤2,000 KRW)</li>
+        <li>[cloud] "여행 도난방지 필수템" 리스팅 카피 초안 작성 (다음 Heartbeat)</li>
+        <li>[cloud] 샘플 발주 스펙 시트 초안 (색상·수량·배송 조건)</li>
+        <li>[사용자 승인 경계] 실주문·리스팅 등록·공개 발행·가격·재고 액션 없음</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="chev"></span> 실행 메타 · 산출물</summary>
+    <div class="body">
+      <div class="chips">
+        <span class="chip">2026-06-15T0607Z</span>
+        <span class="chip">heartbeat · cloud research · L0</span>
+        <span class="chip">active → active (sourcing-first)</span>
+      </div>
+      <ul>
+        <li>산출물 <code>artifacts/naver-shopping-01/subtype-sourcing-friction-screen-2026-06-15.md</code></li>
+        <li>선행 아티팩트 <code>artifacts/naver-shopping-01/ready-made-sourcing-openapi-searchad-screen-2026-06-15.md</code></li>
+        <li>권한: L0 cloud research — 라이브 커머스/계정/공개 발행 액션 0</li>
+      </ul>
+    </div>
+  </details>
+  </div>
+
+  <div class="foot reveal" style="animation-delay:.3s">
+    <span>Agent-First Heartbeat</span>
+    <span>Infinity · Intent Note</span>
+  </div>
+</div>
+</body>
+</html>
