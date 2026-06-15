@@ -10,7 +10,7 @@
 - source_agent: `/home/ubuntu/.openclaw/workspace/agents/naver-shopping-agent/`
 - created_at: 2026-06-07T23:24Z
 - updated_at: 2026-06-14T05:45Z
-- updated_at_latest: 2026-06-15T00:14Z
+- updated_at_latest: 2026-06-15T0900Z
 
 ## Purpose
 
@@ -18,7 +18,9 @@
 
 ## Current State
 
-- 2026-06-15T00:14Z **Ready-made sourcing OpenAPI/SearchAd screen completed.** Frozen keyword set was tested with read-only Naver OpenAPI Shopping Search and SearchAd. No user-facing listing/sourcing approval yet. **Phone anti-theft strap / tether component becomes the WATCH lead** because exact SearchAd signal is strongest (`핸드폰도난방지스트랩` 280 PC + 1,500 mobile/mo, mobile CTR 4.26%; `도난방지스트랩` 280 + 1,260/mo, mobile CTR 3.28%) and OpenAPI title language is clean around Europe travel / pickpocket / loss-prevention. **Compression / packing pouch remains WATCH** (`압축파우치` 1,230 PC + 7,020 mobile/mo, mobile CTR 3.21%) but has crowded textile/option/return burden. **Cable/charger pouch drops to HOLD as lead** because exact SearchAd signal is thin despite OpenAPI result breadth. Next safe pass: subtype-level sourcing-friction screen for phone strap/tether and compression pouch before any approval packet. Artifact: `artifacts/naver-shopping-01/ready-made-sourcing-openapi-searchad-screen-2026-06-15.md`; report: `reports/naver-shopping-01/2026-06-15T0014Z-local.html`. Live commerce/account/public actions 0.
+- 2026-06-15T0900Z **서브타입 소싱 마찰 스크린 완료.** 도난방지 스트랩 5개 서브타입·압축 파우치 4개 서브타입 클라우드 리서치 실시. **핵심 판정**: 손목형 도난방지 스트랩(코드+패치)이 소싱 마찰 LOW·범용 호환성·유럽여행 소매치기방지 각도로 승인 패킷 진입 가능 ✅; 압축 파우치는 OpenAPI 175,568 극포화·다이소 경쟁·브랜든 점유로 단독 리드 HOLD 강등 ❌ (번들 보조 아이템으로만 재고려). 다음 단계: 도난방지 스트랩 손목형 승인 패킷 작성. Artifact: `artifacts/naver-shopping-01/sourcing-friction-screen-2026-06-15.md`; 리포트: `reports/naver-shopping-01/2026-06-15T0900Z-research.html`. 라이브 상품등록/가격·배송·재고/광고·고객·주문·계정·공개발행 0.
+
+- 2026-06-15T00:14Z **Ready-made sourcing OpenAPI/SearchAd screen completed.** Frozen keyword set was tested with read-only Naver OpenAPI Shopping Search and SearchAd. No user-facing listing/sourcing approval yet. **Phone anti-theft strap / tether component becomes the WATCH lead** because exact SearchAd signal is strongest (`핸드폰도난방지스트랩` 280 PC + 1,500 mobile/mo, mobile CTR 4.26%; `도난방지스트랩` 280 + 1,260/mo, mobile CTR 3.28%) and OpenAPI title language is clean around Europe travel / pickpocket / loss-prevention. **Compression / packing pouch remains WATCH** (`압축파우치` 1,230 PC + 7,020 mobile/mo, mobile CTR 3.21%) but has crowded textile/option/return burden. **Cable/charger pouch drops to HOLD as lead** because exact SearchAd buyer signal is thin despite OpenAPI result breadth. Next safe pass: subtype-level sourcing-friction screen for phone strap/tether and compression pouch before any approval packet. Artifact: `artifacts/naver-shopping-01/ready-made-sourcing-openapi-searchad-screen-2026-06-15.md`; report: `reports/naver-shopping-01/2026-06-15T0014Z-local.html`. Live commerce/account/public actions 0.
 
 - 2026-06-14T05:45Z **User-side setup blockers promoted to visible Infinity Waiting.** User corrected that Commerce ID and similar user setup requirements should be actively placed in Infinity Waiting. `INTENTS.md` now keeps `naver-shopping-01` active for sourcing-first research, but also exposes a Waiting decision card for SmartStore Commerce ID, read-only browser access, and public Naver Shopping search restriction. SAM/Narae should continue OpenAPI/SearchAd/official/public research while waiting; no live commerce/account action occurs.
 
