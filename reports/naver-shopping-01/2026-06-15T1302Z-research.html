@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>naver-shopping-01 · Sourcing-Friction Screen</title>
+<style>
+  :root{
+    --bg:#f4f2ea; --panel:#fbfaf5; --ink:#2c2a25; --soft:#807c70; --faint:#a8a496; --line:#e3dfd2;
+    --a2:#5f7a5e; --a2-deep:#3f5740;
+    --a1:#5a6f8a; --a1-deep:#3f536e;
+    --sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;}
+  body{background:var(--bg); color:var(--ink); font-family:var(--sans);
+    font-size:14px; line-height:1.68; -webkit-font-smoothing:antialiased;}
+  .sheet{max-width:720px; margin:0 auto; padding:48px 34px 46px;}
+  .reveal{opacity:0; animation:fade .7s ease forwards;}
+  @keyframes fade{from{opacity:0; transform:translateY(9px);} to{opacity:1; transform:none;}}
+  .eyebrow{display:flex; align-items:center; gap:10px; font-family:var(--mono);
+    font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--soft);}
+  .eyebrow .id{color:var(--a2-deep); font-weight:600;}
+  .eyebrow .dot{width:5px; height:5px; border-radius:50%; background:var(--a2);}
+  .eyebrow .status{margin-left:auto; color:var(--a2-deep);}
+  h1{font-size:29px; line-height:1.3; font-weight:700; letter-spacing:-.01em; margin:20px 0 0;}
+  .dek{font-size:15.5px; color:var(--soft); margin:13px 0 0; max-width:52ch;}
+  .hr{height:1px; background:var(--line); margin:30px 0;}
+  .axis{padding:0 0 4px 22px; position:relative; margin-bottom:30px;}
+  .axis::before{content:""; position:absolute; left:0; top:6px; bottom:6px; width:2px; border-radius:2px;}
+  .axis.ax1::before{background:var(--a1);} .axis.ax2::before{background:var(--a2);}
+  .axis.ax1{--ul:var(--a1);} .axis.ax2{--ul:var(--a2);}
+  .axis .label{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase;
+    margin-bottom:9px; display:flex; align-items:center; gap:8px;}
+  .axis.ax1 .label{color:var(--a1-deep);} .axis.ax2 .label{color:var(--a2-deep);}
+  .axis .label .n{font-weight:600; opacity:.6;}
+  .axis .text{font-size:18px; line-height:1.6; color:#37352e;}
+  .axis .text b{font-weight:700; color:var(--ink); border-bottom:2px solid var(--ul);}
+  details{border:1px solid var(--line); border-radius:10px; background:var(--panel); margin-bottom:10px;}
+  summary{cursor:pointer; list-style:none; padding:14px 16px; display:flex; align-items:center; gap:11px;
+    font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft);}
+  summary::-webkit-details-marker{display:none;}
+  summary .chev{width:8px; height:8px; border-right:2px solid var(--a2-deep); border-bottom:2px solid var(--a2-deep);
+    transform:rotate(-45deg); transition:.25s; flex:none; margin-left:2px;}
+  details[open] summary .chev{transform:rotate(45deg);}
+  summary:hover{color:var(--ink);}
+  .body{padding:2px 16px 18px;}
+  table{border-collapse:collapse; width:100%; font-size:13px; margin:4px 0 12px;}
+  th,td{border-bottom:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top;}
+  th{font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft); font-weight:600;}
+  td:first-child{color:var(--a2-deep); font-weight:600; white-space:nowrap;}
+  .body p{color:var(--soft);}
+  .body ul{margin:6px 0; padding-left:18px;} .body li{margin:5px 0;}
+  code{font-family:var(--mono); font-size:12px; background:#edeae0; padding:1px 6px; border-radius:3px; color:var(--a2-deep);}
+  a{color:var(--a2-deep); text-underline-offset:3px;}
+  .chips{display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px;}
+  .chip{font-family:var(--mono); font-size:10.5px; letter-spacing:.05em; color:var(--soft); border:1px solid var(--line); border-radius:999px; padding:3px 10px;}
+  .foot{margin-top:30px; padding-top:15px; border-top:1px solid var(--line);
+    display:flex; justify-content:space-between; font-family:var(--mono); font-size:10px;
+    letter-spacing:.13em; text-transform:uppercase; color:var(--faint);}
+  .verdict-row{display:flex; gap:8px; flex-wrap:wrap; margin:12px 0;}
+  .verdict{font-family:var(--mono); font-size:12px; padding:4px 12px; border-radius:999px; font-weight:600;}
+  .v-proceed{background:#d4e8d0; color:#2d5a28;}
+  .v-watch{background:#fef3cd; color:#7a5a10;}
+  .v-hold{background:#ede0d4; color:#7a3a1a;}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="eyebrow reveal">
+    <span class="dot"></span>
+    <span class="id">naver-shopping-01</span>
+    <span>Research Note</span>
+    <span class="status">active</span>
+  </div>
+  <h1 class="reveal" style="animation-delay:.05s">Phone Strap &amp; Compression Pouch<br>Sourcing-Friction Screen</h1>
+  <p class="dek reveal" style="animation-delay:.09s">WATCH 후보 2종의 subtype 소싱 마찰·클레임·옵션·반품 리스크 정밀 검증</p>
+
+  <div class="hr reveal" style="animation-delay:.12s"></div>
+
+  <div class="axis ax1 reveal" style="animation-delay:.16s">
+    <div class="label"><span class="n">01</span> 무엇을 조사했나</div>
+    <div class="text">OpenAPI/SearchAd WATCH 판정 2종(핸드폰 스트랩·압축 파우치)의 <b>서브타입 소싱 마찰</b> — 클레임 위험·옵션 복잡도·반품 리스크를 subtype별로 분해 검증</div>
+  </div>
+
+  <div class="axis ax2 reveal" style="animation-delay:.22s">
+    <div class="label"><span class="n">02</span> 핵심 결과</div>
+    <div class="text"><b>손목 스트랩 LOW 마찰 → 소싱 스펙 진행 권장</b> / 압축 파우치 MEDIUM-HIGH 마찰 → 샘플 우선 검증 필요 / 세탁물 파우치·롤링팩·태그패치는 HOLD</div>
+    <div class="verdict-row">
+      <span class="verdict v-proceed">손목 스트랩 PROCEED</span>
+      <span class="verdict v-watch">압축 파우치 WATCH (샘플)</span>
+      <span class="verdict v-hold">세탁물 파우치 HOLD</span>
+    </div>
+  </div>
+
+  <div class="reveal" style="animation-delay:.27s">
+  <details open>
+    <summary><span class="chev"></span> A. 핸드폰 스트랩 / 분실방지 손목줄 서브타입 분석</summary>
+    <div class="body">
+      <table>
+        <tr><th>서브타입</th><th>MOQ</th><th>공장가</th><th>마진</th><th>마찰</th><th>판정</th></tr>
+        <tr><td>손목 스트랩</td><td>50~100</td><td>300~800 KRW</td><td>12~43x</td><td>낮음</td><td><strong>PROCEED</strong></td></tr>
+        <tr><td>목걸이/크로스바디</td><td>50~200</td><td>500~1,500 KRW</td><td>9~36x</td><td>낮음~중간</td><td>2nd SKU</td></tr>
+        <tr><td>태그홀더 패치 세트</td><td>100~500</td><td>800~2,000 KRW</td><td>6~25x</td><td>중간</td><td>HOLD</td></tr>
+      </table>
+      <p><strong>클레임 완화:</strong></p>
+      <ul>
+        <li>호환성: "일반 직사각 케이스 대부분 호환" 명시, 두꺼운 케이스 제외 안내</li>
+        <li>"도난방지" → "분실방지줄" / "도난예방" 표현으로 교체 (과장 클레임 제거)</li>
+        <li>줄 내구도: 소재(나일론/TPU)·강도(kg) 스펙 표기</li>
+      </ul>
+      <p><strong>소싱 스펙 초안 (손목 스트랩):</strong></p>
+      <ul>
+        <li>1688 검색어: <code>手机防盗腕带</code> / <code>防丢失手腕绳</code></li>
+        <li>목표 공장가: USD 0.35 (~500 KRW) 이하 / MOQ 50</li>
+        <li>색상: 블랙 + 베이지 2종</li>
+        <li>줄 두께 4mm↑, 길이 25~30cm, 고리 내경 10mm↑ (알루미늄 카라비너)</li>
+      </ul>
+    </div>
+  </details>
+
+  <details open>
+    <summary><span class="chev"></span> B. 압축 파우치 서브타입 분석</summary>
+    <div class="body">
+      <table>
+        <tr><th>서브타입</th><th>수요</th><th>마찰</th><th>경쟁</th><th>판정</th></tr>
+        <tr><td>단순 압축 파우치 5L</td><td>1,230 PC + 7,020 mobile/mo</td><td>중간~높음</td><td>포화 (175K+)</td><td><strong>WATCH → 샘플</strong></td></tr>
+        <tr><td>롤링 압축팩</td><td>포함됨</td><td>높음</td><td>포화</td><td>HOLD</td></tr>
+        <tr><td>세탁물/웨트백</td><td>&lt;10 PC/mo</td><td>낮음</td><td>낮음</td><td>HOLD (수요 없음)</td></tr>
+      </table>
+      <p><strong>핵심 우려:</strong></p>
+      <ul>
+        <li>시장 포화: OpenAPI 175,568건 — 저가 중국직배와 직접 경쟁</li>
+        <li>압축 효과 불일치: 반품의 주원인. "50% 절약" 문구 금지, 용량(L)만 명시</li>
+        <li>옵션 복잡도: 사이즈(3L/5L/8L)·소재(나일론/TPU)·색상 → SKU 최소화 필수</li>
+        <li>사용자 Fit: 기능성/실용적 아이템; 여행 스토리 연결 각도는 있으나 스트랩보다 약함</li>
+      </ul>
+      <p><strong>진행 조건:</strong> 손목 스트랩 샘플 품질 확인 후, 5L 나일론 단품 2종(블랙+그레이)으로만 추가</p>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="chev"></span> 최종 판정 비교표</summary>
+    <div class="body">
+      <table>
+        <tr><th>후보</th><th>마찰</th><th>사용자 Fit</th><th>시장</th><th>마진</th><th>판정</th></tr>
+        <tr><td>손목 스트랩</td><td>낮음</td><td>높음</td><td>활성/비포화</td><td>12~43x</td><td><strong>PROCEED → 소싱 스펙</strong></td></tr>
+        <tr><td>목걸이 스트랩</td><td>낮음~중간</td><td>높음</td><td>활성</td><td>9~36x</td><td>2nd SKU</td></tr>
+        <tr><td>압축 파우치 5L</td><td>중간~높음</td><td>중간</td><td>포화</td><td>5~40x</td><td>WATCH → 샘플</td></tr>
+        <tr><td>세탁물 파우치</td><td>낮음</td><td>중간</td><td>수요 없음</td><td>—</td><td>HOLD</td></tr>
+      </table>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="chev"></span> 다음 액션</summary>
+    <div class="body">
+      <ul>
+        <li><strong>[L0 즉시]</strong> 손목 스트랩 Alibaba/1688 소싱 스펙 문서 완성 → <code>artifacts/naver-shopping-01/</code></li>
+        <li><strong>[다음 09:00 KST]</strong> 손목 스트랩 소싱 스펙 사용자 확인 (샘플 발주 승인 여부)</li>
+        <li><strong>[손목 스트랩 샘플 후]</strong> 5L 압축 파우치 샘플 추가 여부 결정</li>
+        <li><strong>[HOLD]</strong> 세탁물 파우치·롤링팩·태그패치 — 현 단계 진행 안 함</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="chev"></span> 실행 메타 · 산출물</summary>
+    <div class="body">
+      <div class="chips">
+        <span class="chip">2026-06-15T13:02Z</span>
+        <span class="chip">heartbeat · cloud research (L0)</span>
+        <span class="chip">active → active</span>
+      </div>
+      <ul>
+        <li>아티팩트 <code>artifacts/naver-shopping-01/sourcing-friction-screen-phone-strap-compression-2026-06-15.md</code></li>
+        <li>이전 스크린 <code>artifacts/naver-shopping-01/ready-made-sourcing-openapi-searchad-screen-2026-06-15.md</code></li>
+        <li>라이브 상품등록/가격·배송·재고/광고·고객·주문·계정·공개발행 0</li>
+      </ul>
+    </div>
+  </details>
+  </div>
+
+  <div class="foot reveal" style="animation-delay:.3s">
+    <span>Agent-First Heartbeat</span>
+    <span>Infinity · Intent Note</span>
+  </div>
+</div>
+</body>
+</html>
