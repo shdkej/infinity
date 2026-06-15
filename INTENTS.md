@@ -6,6 +6,8 @@
 
 ## Active
 
+<!-- research-14 active 2026-06-15T23:57Z → intents/active/research-14.md [display: 모놀리스 아키텍처 보완 맥락 조사; projects: infinity,research-bank; type: research; topics: software-architecture,history,systems-design; status: delegated-to-infinity] (사용자 질문: "어떤 것을 보완하기 위해 모놀리스라는 아키텍처가 달성되었을까". SAM 직접 답변/조사/Archive 금지. Infinity workflow가 모놀리스가 보완한 문제, 얻은 장점, 이후 한계, "모놀리스"가 사후적 명명인지의 맥락을 신뢰 가능한 자료 기반으로 정리해야 한다. 산출 전 공개 발송·코드·배포·외부 액션 0.) -->
+
 <!-- naver-shopping-01 active 2026-06-15T00:14Z → intents/active/naver-shopping-01.md [display: 나래/Narae; projects: naver-shopping,infinity,personal-ops; type: coordination; topics: automation,workflow,marketing; status: active-sourcing-first; approval: user-setup-waiting-visible] (사용자-facing 이름 나래/Narae 확정, 내부 id/path는 naver-shopping-agent 유지. 2026-06-15 ready-made OpenAPI/SearchAd screen 결과: 휴대폰 도난방지 스트랩/테더가 WATCH lead, 압축/패킹 파우치는 WATCH, 케이블/충전기 파우치는 HOLD as lead. 다음 안전 액션은 상품 추천/승인 요청이 아니라 phone strap/tether subtype 및 compression pouch subtype의 소싱 마찰·클레임·옵션·반품 리스크 검증. 사용자 설정이 필요한 SmartStore Commerce ID / 읽기 전용 브라우저 / 공개 Naver Shopping 검색 제한은 Waiting 카드로 별도 노출한다. 라이브 상품등록/가격·배송·재고/광고·고객·주문·계정·공개발행 0. archive 안 함(active 유지).) -->
 
 ## Waiting
