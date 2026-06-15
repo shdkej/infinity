@@ -10,13 +10,15 @@
 - source_agent: `/home/ubuntu/.openclaw/workspace/agents/naver-shopping-agent/`
 - created_at: 2026-06-07T23:24Z
 - updated_at: 2026-06-14T05:45Z
-- updated_at_latest: 2026-06-15T00:14Z
+- updated_at_latest: 2026-06-15T0700Z
 
 ## Purpose
 
 네이버쇼핑몰 수익화 전담 에이전트가 막히는 지점을 SAM이 관리자자럼 분류하고, 사용자가 직접 확인해야 하는 항목만 09:00 KST 메시지로 묶는다.
 
 ## Current State
+
+- 2026-06-15T0700Z **서브타입 소싱 마찰 스크린 완료.** 핸드폰 스트랩 4종(코일형/크로스보디/태그홀더패치/케이스일체형)과 압축 파우치 3종(롤압축/세탁물/납작압축)을 옵션 복잡도·호환성·클레임·소싱 마찰 기준으로 평가. 결론: **코일형 분실방지 스트랩 = PROCEED** (저마찰, 범용, 색상 옵션만, 기종 무관, 소싱 단가 <3,000 KRW, 리테일 9,900-12,900 KRW). 크로스보디 어댑터 스트랩 = WATCH. 태그홀더 패치 = HOLD (접착 클레임 구조적). 케이스 일체형 = REJECT (기종별 옵션). 압축 파우치: 롤압축 세트 = WATCH (기대값 불일치 리스크); 세탁물 파우치 = HOLD (수요 <20 mobile/mo); 납작압축 S+L = WATCH. **다음 단계: 코일형 스트랩 소싱 샘플 리스트 (AliExpress/Alibaba 3-5 공급사, MOQ 5-20pc, 목표 단가 <3,000 KRW)**. Artifact: `artifacts/naver-shopping-01/subtype-friction-screen-2026-06-15.md`; report: `reports/naver-shopping-01/2026-06-15T0700Z-research.html`. 라이브 커머스·계정·공개 발행 액션 0.
 
 - 2026-06-15T00:14Z **Ready-made sourcing OpenAPI/SearchAd screen completed.** Frozen keyword set was tested with read-only Naver OpenAPI Shopping Search and SearchAd. No user-facing listing/sourcing approval yet. **Phone anti-theft strap / tether component becomes the WATCH lead** because exact SearchAd signal is strongest (`핸드폰도난방지스트랩` 280 PC + 1,500 mobile/mo, mobile CTR 4.26%; `도난방지스트랩` 280 + 1,260/mo, mobile CTR 3.28%) and OpenAPI title language is clean around Europe travel / pickpocket / loss-prevention. **Compression / packing pouch remains WATCH** (`압축파우치` 1,230 PC + 7,020 mobile/mo, mobile CTR 3.21%) but has crowded textile/option/return burden. **Cable/charger pouch drops to HOLD as lead** because exact SearchAd signal is thin despite OpenAPI result breadth. Next safe pass: subtype-level sourcing-friction screen for phone strap/tether and compression pouch before any approval packet. Artifact: `artifacts/naver-shopping-01/ready-made-sourcing-openapi-searchad-screen-2026-06-15.md`; report: `reports/naver-shopping-01/2026-06-15T0014Z-local.html`. Live commerce/account/public actions 0.
 
