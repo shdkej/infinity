@@ -4,14 +4,9 @@
 
 ## Inbox
 
-<!-- marketing-59 inbox 2026-06-14T10:00Z → intents/inbox/marketing-59.md [display: Virtue Launch-Ready PLG Signal Gate; projects: virtue; type: strategy; topics: plg,activation,measurement,prelaunch; source_note: source/external-links/marketing/2026-06-14-plg-signal-hierarchy.md; permission: L1 docs-only; owner_route: Infinity router -> Claude Code docs-only; success: 지금 볼 신호/보류할 신호/launch 이후 볼 신호 표와 first-10 수기 review gate 작성; first_gate: source note 존재, 선행 marketing-55/56/58 충돌 없음, conflict marker 0, production code/tracking/privacy 변경 0] (최신 PLG 자료의 first win/activation/PQL 우선순위를 Virtue prelaunch 신호 위계로 번역한다. 기대효과: acquisition 문제, activation 문제, measurement-too-early 상태를 첫 10명 관찰에서 혼동하지 않게 한다.) -->
-
-
-
-
 ## Active
 
-<!-- naver-shopping-01 active 2026-06-11T00:35Z → intents/active/naver-shopping-01.md [display: 나래/Narae; projects: naver-shopping,infinity,personal-ops; type: coordination; topics: automation,workflow,marketing; status: active-sourcing-first; approval: user-setup-waiting-visible] (사용자-facing 이름 나래/Narae 확정, 내부 id/path는 naver-shopping-agent 유지. 2026-06-11 사용자 선호 업데이트: 나래는 상품제작보다 소싱 중심으로 보고, 러기지택/캐리어네임택은 선호 낮은 상품이라 다음 리드에서 내림. 2026-06-14 현재 실행 방향은 기성 여행-adjacent 소품 소싱 스크린이며 우선순위는 케이블/충전기 파우치 → 휴대폰 도난방지 스트랩/테더 → 압축/세탁물 분리 파우치. 사용자 설정이 필요한 SmartStore Commerce ID / 읽기 전용 브라우저 / 공개 Naver Shopping 검색 제한은 Waiting 카드로 별도 노출한다. 라이브 상품등록/가격·배송·재고/광고·고객·주문·계정·공개발행 0. archive 안 함(active 유지).) -->
+<!-- naver-shopping-01 active 2026-06-15T00:14Z → intents/active/naver-shopping-01.md [display: 나래/Narae; projects: naver-shopping,infinity,personal-ops; type: coordination; topics: automation,workflow,marketing; status: active-sourcing-first; approval: user-setup-waiting-visible] (사용자-facing 이름 나래/Narae 확정, 내부 id/path는 naver-shopping-agent 유지. 2026-06-15 ready-made OpenAPI/SearchAd screen 결과: 휴대폰 도난방지 스트랩/테더가 WATCH lead, 압축/패킹 파우치는 WATCH, 케이블/충전기 파우치는 HOLD as lead. 다음 안전 액션은 상품 추천/승인 요청이 아니라 phone strap/tether subtype 및 compression pouch subtype의 소싱 마찰·클레임·옵션·반품 리스크 검증. 사용자 설정이 필요한 SmartStore Commerce ID / 읽기 전용 브라우저 / 공개 Naver Shopping 검색 제한은 Waiting 카드로 별도 노출한다. 라이브 상품등록/가격·배송·재고/광고·고객·주문·계정·공개발행 0. archive 안 함(active 유지).) -->
 
 ## Waiting
 
@@ -21,6 +16,8 @@
 
 ## Archive
 <!-- marketing-60 completed 2026-06-14T22:07Z → intents/archive/marketing-60.md [display: Virtue Outcome-Readable Docs Audit; projects: virtue; type: strategy; topics: activation,outcome-docs,prelaunch] (Agentic PLG outcome-docs 렌즈를 Virtue first-10 결과 판독 감사표로 번역. 산출물 `artifacts/marketing-60/virtue-outcome-readable-docs-audit.md`, report `reports/marketing-60/2026-06-14T2207Z-local.html`. J1-J4별 좋은 결과/나쁜 결과/다음 행동 기준, 사람/에이전트 공통 판독 칸, first successful output 및 signal gate와의 충돌 방지 기준 포함. 신규 이벤트·tracking/privacy·public copy·deploy·external message·cost 변경 0. HTML report gate passed.) -->
+
+<!-- marketing-59 completed 2026-06-14T10:07Z → intents/archive/marketing-59.md [display: Virtue Launch-Ready PLG Signal Gate; projects: virtue; type: strategy; topics: plg,activation,measurement,prelaunch] (PLG first win/activation/PQL signal hierarchy translated into a Virtue prelaunch docs-only first-10 gate. Artifact `artifacts/marketing-59/virtue-launch-ready-plg-signal-gate.md`, report `reports/marketing-59/2026-06-14T1007Z-local.html`. Clear separation of look-now first successful output and activation quality, hold-for-now acquisition/channel judgments, and launch-after PQL/retention/pricing/measurement conclusions. First-10 manual review columns added for source/job fit, expected first win, job-specific first successful output, evidence quality, next action, activation/acquisition/measurement reads, and launch-after flags. Source note exists; marketing-55/56/58 predecessor gate satisfied. Production code/tracking/privacy/public copy/deploy/external messaging/cost changes 0. HTML report gate passed.) -->
 
 <!-- marketing-58 completed 2026-06-13T22:07Z → intents/archive/marketing-58.md [display: Virtue First Successful Output Contract; projects: virtue; type: strategy; topics: agentic-plg,activation,outcome-clarity,prelaunch] (Virtue J1-J4 first successful output contract를 L1 docs-only로 작성. 산출물 `artifacts/marketing-58/virtue-first-successful-output-contract.md`, report `reports/marketing-58/2026-06-13T2207Z-local.html`. J1/J2/J4=`deed_saved`, J3=`deed_judged` 매핑 유지. 잡별 화면 증거, 성공 출력 문장, 사용자 다음 행동, agent-readable 품질 기준, first-10 수기 관찰 컬럼 포함. 출처노트 존재 확인. 신규 이벤트·tracking/privacy·public copy·robots/sitemap·MCP/API·pricing·deploy·external message·cost 변경 0. conflict marker 0.) -->
 

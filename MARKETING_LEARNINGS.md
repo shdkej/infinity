@@ -209,3 +209,7 @@
 3. 새 이벤트, 속성, 카피, 가격, 계측, dashboard, session replay, 배포, 외부 발송, 비용, 권한, 개인정보 변경은 proposal-only 또는 approval-needed로 분리한다.
 4. report의 `<details>` 안에 `계승한 기준`, `이번에 새로 배운 것`, `다음 작업에 넘길 규칙`을 남긴다.
 5. durable learning candidate가 있으면 이 파일에 추가할 문장 형태로 제안한다.
+
+## Launch-Ready PLG Signals Are Layered By Time
+
+For Virtue prelaunch, separate first-10 look-now signals (job-specific first successful output and activation quality) from hold-for-now acquisition/channel ambiguity and launch-after PQL, retention, pricing, and instrumentation conclusions. Preserve PQL-like phrases as candidate notes, not scores.

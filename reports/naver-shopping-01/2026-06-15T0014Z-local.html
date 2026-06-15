@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>naver-shopping-01 · Ready-Made Sourcing Screen</title>
+  <style>
+    body{margin:0;background:#f7f3ec;color:#20201d;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.55}
+    main{max-width:980px;margin:0 auto;padding:48px 20px}
+    .eyebrow{font-size:13px;text-transform:uppercase;letter-spacing:.08em;color:#756f64}
+    h1{font-size:34px;line-height:1.15;margin:10px 0 12px}
+    .dek{font-size:18px;color:#47423b;max-width:780px}
+    section{margin-top:28px;padding-top:24px;border-top:1px solid #ddd4c6}
+    table{width:100%;border-collapse:collapse;background:#fffaf2;border:1px solid #ded4c4}
+    th,td{padding:12px 10px;border-bottom:1px solid #e8dece;text-align:left;vertical-align:top;font-size:14px}
+    th{background:#efe5d5}
+    .chip{display:inline-block;border:1px solid #c9bca8;border-radius:999px;padding:3px 8px;margin-right:6px;background:#fff}
+    .callout{background:#20201d;color:#fff;padding:18px 20px;border-radius:8px}
+    code{background:#eee3d1;padding:2px 4px;border-radius:4px}
+  </style>
+</head>
+<body>
+  <main>
+    <div class="eyebrow">Infinity · naver-shopping-01 · 2026-06-15T00:14Z</div>
+    <h1>기성 여행 소품 OpenAPI/SearchAd 스크린</h1>
+    <p class="dek">케이블/충전기 파우치, 휴대폰 도난방지 스트랩, 압축/세탁물 파우치를 읽기 전용 공식 API로 비교했습니다. 지금 사용자 승인으로 올릴 상품은 아직 없고, 다음 검증 대상은 휴대폰 스트랩/테더와 압축 파우치의 소싱 마찰입니다.</p>
+
+    <section>
+      <h2>결론</h2>
+      <p><span class="chip">WATCH lead</span> 휴대폰 도난방지 스트랩/테더가 가장 강합니다. 단, 도난 방지 보장처럼 쓰면 안 되고 분실·낙하·소매치기 리스크를 낮추는 보조 스트랩으로만 다뤄야 합니다.</p>
+      <p><span class="chip">WATCH</span> 압축/패킹 파우치는 수요가 강하지만 옵션·섬유·반품 리스크가 큽니다.</p>
+      <p><span class="chip">HOLD</span> 케이블/충전기 파우치는 결과 수는 있으나 SearchAd 클릭 신호가 약해 단독 리드로는 내립니다.</p>
+    </section>
+
+    <section>
+      <h2>증거 표</h2>
+      <table>
+        <thead><tr><th>후보군</th><th>OpenAPI</th><th>SearchAd</th><th>판정</th></tr></thead>
+        <tbody>
+          <tr><td>케이블/충전기 파우치</td><td><code>케이블 파우치</code> 137,908 total, median 8,000원<br><code>여행 케이블 파우치</code> 52,319 total, median 5,796원</td><td><code>케이블파우치</code> 130 PC + 250 mobile/mo, mobile CTR 0.68%<br><code>전자기기파우치</code> CTR 0</td><td>HOLD as lead</td></tr>
+          <tr><td>휴대폰 도난방지 스트랩/테더</td><td><code>핸드폰 도난방지 스트랩</code> 33,062 total, median 9,900원<br><code>휴대폰 분실방지 스트랩</code> 68,843 total, median 12,200원</td><td><code>핸드폰도난방지스트랩</code> 280 PC + 1,500 mobile/mo, mobile CTR 4.26%<br><code>도난방지스트랩</code> 280 + 1,260/mo, mobile CTR 3.28%</td><td>WATCH lead</td></tr>
+          <tr><td>압축/세탁물 파우치</td><td><code>압축 파우치</code> 175,568 total, median 25,800원<br><code>여행 압축 파우치</code> 106,206 total, median 14,490원</td><td><code>압축파우치</code> 1,230 PC + 7,020 mobile/mo, mobile CTR 3.21%<br><code>여행용압축파우치</code> 440 + 1,600/mo, mobile CTR 3.06%</td><td>WATCH</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>다음 액션</h2>
+      <div class="callout">상품 추천이 아니라 소싱 마찰 검증으로 갑니다. 1) 휴대폰 스트랩/테더 subtype 3개, 2) 압축 파우치 subtype 2개를 샘플·옵션·클레임·반품 리스크로 좁히고, 둘 다 약하면 더 넓은 기성 여행 소품 탐색으로 되돌립니다.</div>
+    </section>
+  </main>
+</body>
+</html>
