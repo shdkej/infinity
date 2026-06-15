@@ -10,19 +10,21 @@
 - source_agent: `/home/ubuntu/.openclaw/workspace/agents/naver-shopping-agent/`
 - created_at: 2026-06-07T23:24Z
 - updated_at: 2026-06-14T05:45Z
-- updated_at_latest: 2026-06-15T00:14Z
+- updated_at_latest: 2026-06-15T07:00Z
 
 ## Purpose
 
-네이버쇼핑몰 수익화 전담 에이전트가 막히는 지점을 SAM이 관리자자럼 분류하고, 사용자가 직접 확인해야 하는 항목만 09:00 KST 메시지로 묶는다.
+네이버쿠핑몰 수익화 전담 에이전트가 막히는 지점을 SAM이 관리자자럼 분류하고, 사용자가 직접 확인해야 하는 항목만 09:00 KST 메시지로 묶는다.
 
 ## Current State
+
+- 2026-06-15T07:00Z **소싱 마찰 스크린 완료.** 손목 스트랩(Subtype A) PROCEED: 옵션 복잡도 낙음, SearchAd 신호 가장 강함(핸드폰도난방지스트랩 280 PC + 1,500 mobile/mo, CTR 4.26%), 마진 75–90%. 크로스바디 스트랩 HOLD (소싱 마찰 높음, SKU 분리 부담). 택홀더+테더 세트는 번들 옵션. 압축 파우치 세트 조건부 WATCH (반품률 10–20% → 1688 품질 확인 선결). 세탁물 파우치 HOLD (수요 약함). 다음 안전 액션: 손목 스트랩 샘플 소싱 승인 요청 (사용자 세션 필요 → Waiting 카드 유지). Artifact: `artifacts/naver-shopping-01/sourcing-friction-screen-2026-06-15.md`; report: `reports/naver-shopping-01/2026-06-15T0700Z-research.html`. 라이브 상품등록/가격·배송·재고/광고·고객·주문·계정·공개발행 0.
 
 - 2026-06-15T00:14Z **Ready-made sourcing OpenAPI/SearchAd screen completed.** Frozen keyword set was tested with read-only Naver OpenAPI Shopping Search and SearchAd. No user-facing listing/sourcing approval yet. **Phone anti-theft strap / tether component becomes the WATCH lead** because exact SearchAd signal is strongest (`핸드폰도난방지스트랩` 280 PC + 1,500 mobile/mo, mobile CTR 4.26%; `도난방지스트랩` 280 + 1,260/mo, mobile CTR 3.28%) and OpenAPI title language is clean around Europe travel / pickpocket / loss-prevention. **Compression / packing pouch remains WATCH** (`압축파우치` 1,230 PC + 7,020 mobile/mo, mobile CTR 3.21%) but has crowded textile/option/return burden. **Cable/charger pouch drops to HOLD as lead** because exact SearchAd signal is thin despite OpenAPI result breadth. Next safe pass: subtype-level sourcing-friction screen for phone strap/tether and compression pouch before any approval packet. Artifact: `artifacts/naver-shopping-01/ready-made-sourcing-openapi-searchad-screen-2026-06-15.md`; report: `reports/naver-shopping-01/2026-06-15T0014Z-local.html`. Live commerce/account/public actions 0.
 
 - 2026-06-14T05:45Z **User-side setup blockers promoted to visible Infinity Waiting.** User corrected that Commerce ID and similar user setup requirements should be actively placed in Infinity Waiting. `INTENTS.md` now keeps `naver-shopping-01` active for sourcing-first research, but also exposes a Waiting decision card for SmartStore Commerce ID, read-only browser access, and public Naver Shopping search restriction. SAM/Narae should continue OpenAPI/SearchAd/official/public research while waiting; no live commerce/account action occurs.
 
-- 2026-06-13T0607Z **소싱-퍼스트 스크린 라운드 1 (cloud research).** 2026-06-11 사용자 선호 업데이트(소싱 중심, 러기지택 내렸) 이후 첫 소싱-퍼스트 스크린 수행. 탈락 확정 항목(러기지택, 종이 카드 인서트, 트래블러스노트 속지, 워크샵/질문 카드)을 제외하고 신규 후보 5개 카테고리 평가: ① **포토 포켓 앨범 / 여행 사진 앨범** (사용자 fit ★★★, 소싱 용이, 옵션 복잡도 낙음 → DataLab 1순위), ② **투명 스티커 세트 / 다꾸 스티커** (기록/일상시스템 fit ★★★, 소싱 용이, 디자인 테마 차별화 가능 → DataLab 1순위), ③ **케이블/전자기기 파우치** (여행+크리에이터 fit ★★ → DataLab 2순위), ④ **여행 메모 스탬프** (소싱 마찰 중간 → DataLab 3순위), ⑤ **씰 봉투 / 레터셋** (여행 기록 fit ★★ → DataLab 3순위). 구매 상황 우선(m50 기준): 포토 앨범='여행 다녀온 후 사진 정리', 스티커='다이어리 꾸미기'. Naver Shopping/DataLab 접근 없음(cloud-only). 라이브 상품등록/가격·배송·재고/광고·고객·주문·계정·공개발행 0. 산출물: `artifacts/naver-shopping-01/sourcing-first-screen-round1-2026-06-13.md`, 리포트: `reports/naver-shopping-01/2026-06-13T0607Z-research.html`.
+- 2026-06-13T0607Z **소싱-퍼스트 스크린 라운드 1 (cloud research).** 2026-06-11 사용자 선호 업데이트(소싱 중심, 러기지택 내렸) 이후 첫 소싱-퍼스트 스크린 수행. 탈락 확정 항목(러기지택, 종이 카드 인서트, 트래블러스노트 속지, 워크샵/질문 카드)을 제외하고 신규 후보 5개 카테고리 평가: ① **포토 포켓 앨범 / 여행 사진 앨범** (사용자 fit ★★★, 소싱 용이, 옵션 복잡도 낙음 → DataLab 1순위), ② **툯명 스티커 세트 / 다꽄 스티커** (기록/일상시스템 fit ★★★, 소싱 용이, 디자인 테마 차별화 가능 → DataLab 1순위), ③ **케이블/전자기기 파우치** (여행+크리에이터 fit ★★ → DataLab 2순위), ④ **여행 메모 스탬프** (소싱 마찰 중간 → DataLab 3순위), ⑤ **씨일 봉투 / 레터셋** (여행 기록 fit ★★ → DataLab 3순위). 구매 상황 우선(m50 기준): 포토 앨범='여행 다녀온 후 사진 정리', 스티커='다이어리 꽃미기'. Naver Shopping/DataLab 접근 없음(cloud-only). 라이브 상품등록/가격·배송·재고/광고·고객·주문·계정·공개발행 0. 산출물: `artifacts/naver-shopping-01/sourcing-first-screen-round1-2026-06-13.md`, 리포트: `reports/naver-shopping-01/2026-06-13T0607Z-research.html`.
 
 - 2026-06-11T00:35Z **User preference update → sourcing-first, luggage tags downgraded.** User said Narae should focus more on sourcing than product-making, and that luggage tags are not a preferred product. Narae workspace docs now default to sourceable ready-made goods / light bundles before custom product-making, and the previous `캐리어네임택` / `러기지택` customization-differentiation branch is downgraded. Next safe work should be a broader sourcing-first screen for goods with low sample friction, low option complexity, manageable QA/return risk, and stronger user preference. No live store/listing/price/stock/shipping/ads/customer/order/account/public action occurred.
 
@@ -111,7 +113,7 @@
 - work_continues: yes
 - next_9am_message: ask in one batch with other queued questions.
 
-### 2026-06-07T23:28Z - 네이버쇼핑 공개 검색 접근 제한
+### 2026-06-07T23:28Z - 네이버쿠핑 공개 검색 접근 제한
 
 - route: user-session-needed
 - status: waiting
