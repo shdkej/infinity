@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Infinity Report</title>
+<style>
+  :root{
+    --bg:#f4f2ea; --panel:#fbfaf5; --ink:#2c2a25; --soft:#807c70; --faint:#a8a496; --line:#e3dfd2;
+    --a2:#5f7a5e; --a2-deep:#3f5740;
+    --a1:#5a6f8a; --a1-deep:#3f536e;
+    --sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;}
+  body{background:var(--bg); color:var(--ink); font-family:var(--sans);
+    font-size:14px; line-height:1.68; -webkit-font-smoothing:antialiased;}
+  .sheet{max-width:720px; margin:0 auto; padding:48px 34px 46px;}
+  .reveal{opacity:0; animation:fade .7s ease forwards;}
+  @keyframes fade{from{opacity:0; transform:translateY(9px);} to{opacity:1; transform:none;}}
+  .eyebrow{display:flex; align-items:center; gap:10px; font-family:var(--mono);
+    font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--soft);}
+  .eyebrow .id{color:var(--a2-deep); font-weight:600;}
+  .eyebrow .dot{width:5px; height:5px; border-radius:50%; background:var(--a2);}
+  .eyebrow .status{margin-left:auto; color:var(--a2-deep);}
+  h1{font-size:29px; line-height:1.3; font-weight:700; letter-spacing:-.01em; margin:20px 0 0;}
+  .dek{font-size:15.5px; color:var(--soft); margin:13px 0 0; max-width:52ch;}
+  .hr{height:1px; background:var(--line); margin:30px 0;}
+  .axis{padding:0 0 4px 22px; position:relative; margin-bottom:30px;}
+  .axis::before{content:""; position:absolute; left:0; top:6px; bottom:6px; width:2px; border-radius:2px;}
+  .axis.ax1::before{background:var(--a1);} .axis.ax2::before{background:var(--a2);}
+  .axis.ax1{--ul:var(--a1);} .axis.ax2{--ul:var(--a2);}
+  .axis .label{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase;
+    margin-bottom:9px; display:flex; align-items:center; gap:8px;}
+  .axis.ax1 .label{color:var(--a1-deep);} .axis.ax2 .label{color:var(--a2-deep);}
+  .axis .label .n{font-weight:600; opacity:.6;}
+  .axis .text{font-size:18px; line-height:1.6; color:#37352e;}
+  .axis .text b{font-weight:700; color:var(--ink); border-bottom:2px solid var(--ul);}
+  details{border:1px solid var(--line); border-radius:10px; background:var(--panel); margin-bottom:10px;}
+  summary{cursor:pointer; list-style:none; padding:14px 16px; display:flex; align-items:center; gap:11px;
+    font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft);}
+  summary::-webkit-details-marker{display:none;}
+  summary .chev{width:8px; height:8px; border-right:2px solid var(--a2-deep); border-bottom:2px solid var(--a2-deep);
+    transform:rotate(-45deg); transition:.25s; flex:none; margin-left:2px;}
+  details[open] summary .chev{transform:rotate(45deg);}
+  summary:hover{color:var(--ink);}
+  .body{padding:2px 16px 18px;}
+  table{border-collapse:collapse; width:100%; font-size:13px; margin:4px 0 12px;}
+  th,td{border-bottom:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top;}
+  th{font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft); font-weight:600;}
+  td:first-child{color:var(--a2-deep); font-weight:600; white-space:nowrap;}
+  .body p{color:var(--soft);}
+  .body ul{margin:6px 0; padding-left:18px;} .body li{margin:5px 0;}
+  code{font-family:var(--mono); font-size:12px; background:#edeae0; padding:1px 6px; border-radius:3px; color:var(--a2-deep);}
+  .chips{display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px;}
+  .chip{font-family:var(--mono); font-size:10.5px; letter-spacing:.05em; color:var(--soft); border:1px solid var(--line); border-radius:999px; padding:3px 10px;}
+  .foot{margin-top:30px; padding-top:15px; border-top:1px solid var(--line);
+    display:flex; justify-content:space-between; font-family:var(--mono); font-size:10px;
+    letter-spacing:.13em; text-transform:uppercase; color:var(--faint);}
+</style>
+</head>
+<body>
+<div class="sheet">
+  <div class="eyebrow reveal">
+    <span class="dot"></span>
+    <span class="id">naver-shopping-01</span>
+    <span>Research Note</span>
+    <span class="status">active-sourcing-first</span>
+  </div>
+  <h1 class="reveal" style="animation-delay:.05s">Phone Strap + 압축파우치 서브타입 소싱 마찰 스크린</h1>
+  <p class="dek reveal" style="animation-delay:.09s">WATCH 리드 2종의 소싱 마찰·옵션 복잡도·반품 리스크를 서브타입 수준으로 점검. 카라비너 세트를 phone strap 1순위로, 압축파우치 옷 압축 메인은 DOWNGRADE, 세면도구 파우치를 신규 WATCH로 진입.</p>
+
+  <div class="hr reveal" style="animation-delay:.12s"></div>
+
+  <div class="axis ax1 reveal" style="animation-delay:.16s">
+    <div class="label"><span class="n">01</span> 무엇을 조사했나</div>
+    <div class="text">WATCH 리드 <b>Phone strap/tether</b>와 <b>압축파우치</b> 각각 4가지 서브타입에 대해 소싱 마찰·옵션 복잡도·반품 리스크·클레임 패턴을 cloud research로 점검 (1688 시장 신호, 한국 쇼핑 플랫폼 상품 실사, 글로벌 제품 리뷰)</div>
+  </div>
+
+  <div class="axis ax2 reveal" style="animation-delay:.22s">
+    <div class="label"><span class="n">02</span> 핵심 결과</div>
+    <div class="text">Phone strap → <b>카라비너+태그홀더 세트</b>를 1순위 서브타입 확정 (옵션 단순·원사이즈·픽포켓 여행 스토리 최강); 압축파우치 옷 압축 메인은 반품 부담 과다로 <b>DOWNGRADE</b>, <b>세면도구/화장품 파우치</b>를 신규 WATCH로 추가 진입</div>
+  </div>
+
+  <div class="reveal" style="animation-delay:.27s">
+
+  <details open>
+    <summary><span class="chev"></span> Phone Strap/Tether 서브타입 결과</summary>
+    <div class="body">
+      <table>
+        <thead><tr><th>서브타입</th><th>소싱 마찰</th><th>옵션 복잡도</th><th>반품 리스크</th><th>판정</th></tr></thead>
+        <tbody>
+          <tr><td>카라비너+태그홀더 세트</td><td>Low-Med</td><td>Low-Med</td><td>Low</td><td>★ PROCEED 1순위</td></tr>
+          <tr><td>파라코드 손목 스트랩</td><td>Low</td><td>Medium</td><td>Low-Med</td><td>PROCEED 보조</td></tr>
+          <tr><td>스프링줄</td><td>Low-Med</td><td>Low</td><td>Medium</td><td>PROCEED 폴백</td></tr>
+          <tr><td>스틸 케이블 테더</td><td>Med-High</td><td>Low</td><td>Low</td><td>HOLD</td></tr>
+        </tbody>
+      </table>
+      <ul>
+        <li><strong>카라비너+태그홀더 세트 ★</strong>: 원사이즈 (핸드폰 모델 무관). 카카오 톡딜·홈플러스·오늘의집에서 실제 판매 확인(수요 검증). 단가 ¥8-20. "폰을 잃어버리면 끝나는 유럽 여행" 픽포켓 스토리, 세트 언박싱 콘텐츠 자연스러움.</li>
+        <li><strong>파라코드 손목 스트랩</strong>: 색상 14+ 다양. 라이프스타일 각도 가능. 손목 사이즈·색상 차이 클레임 주의. 첫 SKU는 카라비너 세트 후 확장 검토.</li>
+        <li><strong>스프링줄</strong>: 스프링 단선 클레임 주의. 가장 단순한 형태. 폴백 옵션.</li>
+        <li><strong>스틸 케이블 테더</strong>: 기업/보안 제품 느낌, 여행 감성 불일치. HOLD.</li>
+      </ul>
+    </div>
+  </details>
+
+  <details open>
+    <summary><span class="chev"></span> 압축파우치 서브타입 결과</summary>
+    <div class="body">
+      <table>
+        <thead><tr><th>서브타입</th><th>소싱 마찰</th><th>옵션 복잡도</th><th>반품 리스크</th><th>판정</th></tr></thead>
+        <tbody>
+          <tr><td>세면도구/화장품 파우치</td><td>Low</td><td>Low</td><td>Low</td><td>★ 신규 WATCH</td></tr>
+          <tr><td>케이블/전자기기 파우치</td><td>Low-Med</td><td>Medium</td><td>Low</td><td>WATCH (보조)</td></tr>
+          <tr><td>경량 파우치 세트</td><td>Medium</td><td>Med-High</td><td>Medium</td><td>CAUTION/HOLD</td></tr>
+          <tr><td>옷 압축팩/큐브</td><td>Medium</td><td>HIGH</td><td>HIGH</td><td>DOWNGRADE 확정</td></tr>
+        </tbody>
+      </table>
+      <ul>
+        <li><strong>세면도구/화장품 파우치 ★ (신규 WATCH)</strong>: 소싱 마찰·옵션 복잡도·반품 리스크 모두 가장 낮음. PVC 투명 파우치·패브릭 파우치 등 소재 선택 단순. 기내 액체류 규정(100ml) 스토리 포인트. 이전 스크린 미고려 → 이번 WATCH 진입.</li>
+        <li><strong>케이블/전자기기 파우치</strong>: HOLD as lead 상태 유지. 크리에이터/AI 워크플로우 각도 있으나 단독 리드보다 번들 구성으로 검토.</li>
+        <li><strong>경량 파우치 세트</strong>: 세트 재고 관리 부담. 1인 운영자 초기 단계에 과도. HOLD.</li>
+        <li><strong>옷 압축팩/큐브</strong>: "압축 효과 기대 이하" 클레임 다발, 지퍼 마찰, 브랜든·트래블기어 경쟁 포화. DOWNGRADE 확정.</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="chev"></span> 다음 액션</summary>
+    <div class="body">
+      <p><strong>① Phone Strap — 카라비너+태그홀더 세트 (1순위):</strong></p>
+      <ul>
+        <li>1688 <code>카라비너 手机防盗绳 套装</code> 샘플 단가·MOQ 확인</li>
+        <li>SearchAd <code>카라비너 핸드폰 스트랩</code> / <code>여행 도난방지 세트</code> / <code>핸드폰 도난방지 줄 세트</code> 추가 조회</li>
+        <li>리스팅 제목 후보: "유럽여행 필수 핸드폰 도난방지 카라비너 세트 (태그홀더+스트랩)"</li>
+      </ul>
+      <p><strong>② 압축파우치 — 세면도구/화장품 파우치 (신규 WATCH):</strong></p>
+      <ul>
+        <li>DataLab + SearchAd: <code>세면파우치</code> / <code>여행 화장품 파우치</code> / <code>기내 투명파우치</code> / <code>PVC 파우치</code> 키워드 조회</li>
+        <li>네이버쇼핑 경쟁 밀도 점검 (public search 접근 가능 시)</li>
+        <li><code>압축파우치</code> 메인 키워드 DataLab 재조회는 DOWNGRADE로 불필요</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="chev"></span> 실행 메타 · 산출물</summary>
+    <div class="body">
+      <div class="chips">
+        <span class="chip">2026-06-15T06:00Z</span>
+        <span class="chip">heartbeat cloud-research L0</span>
+        <span class="chip">active-sourcing-first → active-sourcing-first</span>
+      </div>
+      <ul>
+        <li>산출물 <code>artifacts/naver-shopping-01/subtype-sourcing-friction-screen-2026-06-15.md</code></li>
+        <li>모드: L0 cloud research (web search + market signal analysis)</li>
+        <li>로컬 실행: 0 / Naver Shopping public search: 여전히 제한</li>
+        <li>라이브 상품등록·가격·배송·재고·광고·고객·주문·계정·공개발행 액션: 0</li>
+      </ul>
+    </div>
+  </details>
+  </div>
+
+  <div class="foot reveal" style="animation-delay:.3s">
+    <span>Agent-First Heartbeat</span>
+    <span>Infinity · Intent Note</span>
+  </div>
+</div>
+</body>
+</html>
