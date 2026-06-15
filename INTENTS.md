@@ -4,6 +4,8 @@
 
 ## Inbox
 
+<!-- marketing-62 inbox 2026-06-15T22:00Z [display: Virtue Agent-Delegated First Task Trust Gate; projects: virtue; type: strategy; topics: ai-native-plg,activation,trust,prelaunch; permission: L1 docs-only; owner_route: Infinity router -> Claude Code] (Source note: `source/external-links/marketing/2026-06-15-ai-native-plg-delegation.md`. Rationale: AI-native PLG activation should read the first trusted delegated task, not only UI clicks. Expected impact: reduce `deed_judged`/`deed_saved` over- or under-reading during first-10 prelaunch observation, especially J3 judged-only value vs J1/J2/J4 saved-as-acceptance. Success criteria: produce a docs-only Virtue prelaunch gate that separates click completed / delegated task completed / trusted next action by J1-J4, cites existing first-value contracts, and changes no product code, tracking/privacy, public copy, deploy, pricing, external messaging, or cost-bearing surface. First verification gate: source note exists, prior marketing-55/58/60/61 boundaries are checked for conflicts, and conflict markers are 0.) -->
+
 
 
 ## Active
