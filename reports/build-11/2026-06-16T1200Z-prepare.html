@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Infinity Report — build-11</title>
+<style>
+  :root{
+    --bg:#f4f2ea; --panel:#fbfaf5; --ink:#2c2a25; --soft:#807c70; --faint:#a8a496; --line:#e3dfd2;
+    --a2:#5f7a5e; --a2-deep:#3f5740;
+    --a1:#a9745a; --a1-deep:#8a5c45;
+    --sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;}
+  body{background:var(--bg); color:var(--ink); font-family:var(--sans);
+    font-size:14px; line-height:1.68; -webkit-font-smoothing:antialiased;}
+  .sheet{max-width:720px; margin:0 auto; padding:48px 34px 46px;}
+  .reveal{opacity:0; animation:fade .7s ease forwards;}
+  @keyframes fade{from{opacity:0; transform:translateY(9px);} to{opacity:1; transform:none;}}
+  .eyebrow{display:flex; align-items:center; gap:10px; font-family:var(--mono);
+    font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--soft);}
+  .eyebrow .id{color:var(--a2-deep); font-weight:600;}
+  .eyebrow .dot{width:5px; height:5px; border-radius:50%; background:var(--a2);}
+  .eyebrow .status{margin-left:auto; color:var(--a2-deep);}
+  h1{font-size:29px; line-height:1.3; font-weight:700; letter-spacing:-.01em; margin:20px 0 0;}
+  .dek{font-size:15.5px; color:var(--soft); margin:13px 0 0; max-width:52ch;}
+  .hr{height:1px; background:var(--line); margin:30px 0;}
+  .axis{padding:0 0 4px 22px; position:relative; margin-bottom:30px;}
+  .axis::before{content:""; position:absolute; left:0; top:6px; bottom:6px; width:2px; border-radius:2px;}
+  .axis.ax1::before{background:var(--a1);} .axis.ax2::before{background:var(--a2);}
+  .axis.ax1{--ul:var(--a1);} .axis.ax2{--ul:var(--a2);}
+  .axis .label{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase;
+    margin-bottom:9px; display:flex; align-items:center; gap:8px;}
+  .axis.ax1 .label{color:var(--a1-deep);} .axis.ax2 .label{color:var(--a2-deep);}
+  .axis .label .n{font-weight:600; opacity:.6;}
+  .axis .text{font-size:18px; line-height:1.6; color:#37352e;}
+  .axis .text b{font-weight:700; color:var(--ink); border-bottom:2px solid var(--ul);}
+  details{border:1px solid var(--line); border-radius:10px; background:var(--panel); margin-bottom:10px;}
+  summary{cursor:pointer; list-style:none; padding:14px 16px; display:flex; align-items:center; gap:11px;
+    font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft);}
+  summary::-webkit-details-marker{display:none;}
+  summary .chev{width:8px; height:8px; border-right:2px solid var(--a2-deep); border-bottom:2px solid var(--a2-deep);
+    transform:rotate(-45deg); transition:.25s; flex:none; margin-left:2px;}
+  details[open] summary .chev{transform:rotate(45deg);}
+  summary:hover{color:var(--ink);}
+  .body{padding:2px 16px 18px;}
+  table{border-collapse:collapse; width:100%; font-size:13px; margin:4px 0 12px;}
+  th,td{border-bottom:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top;}
+  th{font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft); font-weight:600;}
+  td:first-child{color:var(--a2-deep); font-weight:600; white-space:nowrap;}
+  .body p,.body ul,.body li{color:var(--soft);}
+  .body ul{margin:6px 0; padding-left:18px;} .body li{margin:5px 0;}
+  code{font-family:var(--mono); font-size:12px; background:#edeae0; padding:1px 6px; border-radius:3px; color:var(--a2-deep);}
+  .chips{display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px;}
+  .chip{font-family:var(--mono); font-size:10.5px; letter-spacing:.05em; color:var(--soft); border:1px solid var(--line); border-radius:999px; padding:3px 10px;}
+  .foot{margin-top:30px; padding-top:15px; border-top:1px solid var(--line);
+    display:flex; justify-content:space-between; font-family:var(--mono); font-size:10px;
+    letter-spacing:.13em; text-transform:uppercase; color:var(--faint);}
+</style>
+</head>
+<body>
+<div class="sheet">
+  <div class="eyebrow reveal">
+    <span class="dot"></span>
+    <span class="id">build-11</span>
+    <span>Prepare Note</span>
+    <span class="status">in_progress</span>
+  </div>
+  <h1 class="reveal" style="animation-delay:.05s">Status 3D Full-Image Floating Menu Redesign</h1>
+  <p class="dek reveal" style="animation-delay:.09s">build-10 glass hero 레이아웃 → 3D full-bleed background + floating HUD overlay 재구조화 준비 리포트</p>
+
+  <div class="hr reveal" style="animation-delay:.12s"></div>
+
+  <div class="axis ax1 reveal" style="animation-delay:.16s">
+    <div class="label"><span class="n">01</span> 무엇이 문제였나</div>
+    <div class="text">build-10의 <b>glass hero card 중심 레이아웃</b>이 3D 배경 이미지를 장식으로 격하 — 사용자가 원하는 "이미지가 화면의 주인공"인 느낌을 전달하지 못했다</div>
+  </div>
+
+  <div class="axis ax2 reveal" style="animation-delay:.22s">
+    <div class="label"><span class="n">02</span> 어떻게 해결하나</div>
+    <div class="text"><b>3D full-bleed raster 배경 + fixed overlay HUD/nav rail</b>로 구조 전환: 모든 status UI를 이미지 위에 얇게 레이어링된 fixed glass layer로 재배치. 배경 우선, UI는 그 위에 floating.</div>
+  </div>
+
+  <div class="reveal" style="animation-delay:.27s">
+  <details open>
+    <summary><span class="chev"></span> 구현 계획 (로컬 실행 대상)</summary>
+    <div class="body">
+      <p>대상 파일: <code>sites/status/dist/index.html</code> 전면 재작성 (status.json feed 로직 유지).</p>
+      <table>
+        <tr><th>레이어</th><th>역할</th><th>구현 방식</th></tr>
+        <tr><td>bg-layer</td><td>3D full-bleed 배경</td><td><code>position:fixed; inset:0; z-index:0</code> — dark deep-space CSS gradient (추천) 또는 Three.js canvas</td></tr>
+        <tr><td>hud-overlay</td><td>전체 오버레이 컨테이너</td><td><code>position:fixed; inset:0; z-index:10; pointer-events:none</code></td></tr>
+        <tr><td>top-rail</td><td>Floating 상단 내비게이션</td><td>로고 + 시스템 점수 + 현재 시각. <code>rgba(10,10,10,0.55)</code> + <code>backdrop-filter:blur(8px)</code>. height:48px.</td></tr>
+        <tr><td>status-hud</td><td>Compact 상태 HUD</td><td>우측 상단 고정. healthy/degraded/down 카운트 3개 pill. Glass 반투명.</td></tr>
+        <tr><td>bottom-cluster</td><td>Live Checks / Surfaces / Agent Lane</td><td>하단 floating tile cluster. 가로 스크롤. 각 타일 ~160px.</td></tr>
+      </table>
+      <p><strong>배경 옵션 우선순위:</strong></p>
+      <ul>
+        <li><strong>A (권장)</strong>: CSS dark gradient — <code>linear-gradient(135deg, #050810 0%, #0d1421 40%, #112030 100%)</code>. 이미지 의존성 0, 즉시 효과.</li>
+        <li><strong>B</strong>: Three.js lightweight particle/geometry scene — <code>&lt;canvas position:fixed; z-index:-1&gt;</code>. 모바일 canvas blank 검증 필수.</li>
+        <li><strong>C</strong>: AI-생성 3D 렌더 JPG → <code>assets/3d-bg.jpg</code>. build-10과 동일한 raster 방식이나 배경이 100% 지배하도록 구조 변경.</li>
+      </ul>
+      <p><strong>색상 팔레트:</strong> bg <code>#050810</code>→<code>#0d1421</code>, glass <code>rgba(255,255,255,0.07)</code> border <code>rgba(255,255,255,0.12)</code>, text <code>#e8eaf0</code>, accent <code>#4fa3d1</code></p>
+      <p><strong>금지 사항:</strong> <code>sites/travel/dist/travel-data.json</code> 등 unrelated dirty 파일 수정 금지. force-push 금지. Terraform 금지.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="chev"></span> 로컬 실행 프롬프트</summary>
+    <div class="body">
+      <p>pt/purplemux Claude pane (<code>tmux -L purple</code>) 또는 <code>claude --dangerously-skip-permissions -p</code>로 전달:</p>
+      <p><em>Infinity Intent: build-11 — Status 3D Full-Image Floating Menu Redesign<br>
+Mode: execute_local<br>
+Repo: /home/ubuntu/workspace/space/infra-aws-static-sites<br>
+Target: sites/status/dist/index.html (전면 재작성)<br>
+Goal: 3D full-bleed background + floating HUD overlay 구조. 배경이 viewport 100% 점유. status UI는 fixed overlay로만. top-rail(nav) + status-hud(compact pill) + bottom-cluster(tile drawer).<br>
+Reference: artifacts/build-11/implementation-plan.md (구현 계획 상세)<br>
+Allowed: L0/L1 — 파일 수정, 빌드, commit/push<br>
+Forbidden: travel-data.json 등 unrelated 파일 수정, force-push, Terraform<br>
+Verification: desktop 1440px + mobile 390px 스크린샷, status.json feed 정상 렌더, python3 scripts/build-status-json.py --resolve-aws --check<br>
+Report: reports/build-11/[timestamp]Z-local.html (HTML, 결론 2축 필수)</em></p>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="chev"></span> 실행 메타 · 산출물</summary>
+    <div class="body">
+      <div class="chips">
+        <span class="chip">2026-06-16T12:00Z</span>
+        <span class="chip">heartbeat / prepare</span>
+        <span class="chip">active → in_progress</span>
+      </div>
+      <ul>
+        <li>아티팩트 <code>artifacts/build-11/implementation-plan.md</code></li>
+        <li>선행: build-10 glass hero 구조 (사용자 피드백: "이 느낌이 아님")</li>
+        <li>다음: 로컬 Claude Code에서 <code>sites/status/dist/index.html</code> 재작성 → deploy</li>
+      </ul>
+    </div>
+  </details>
+  </div>
+
+  <div class="foot reveal" style="animation-delay:.3s">
+    <span>Agent-First Heartbeat</span>
+    <span>Infinity · Intent Note</span>
+  </div>
+</div>
+</body>
+</html>

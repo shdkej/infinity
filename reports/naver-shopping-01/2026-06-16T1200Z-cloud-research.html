@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Infinity Report — naver-shopping-01</title>
+<style>
+  :root{
+    --bg:#f4f2ea; --panel:#fbfaf5; --ink:#2c2a25; --soft:#807c70; --faint:#a8a496; --line:#e3dfd2;
+    --a2:#5f7a5e; --a2-deep:#3f5740;
+    --a1:#5a6f8a; --a1-deep:#3f536e;
+    --sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;}
+  body{background:var(--bg); color:var(--ink); font-family:var(--sans);
+    font-size:14px; line-height:1.68; -webkit-font-smoothing:antialiased;}
+  .sheet{max-width:720px; margin:0 auto; padding:48px 34px 46px;}
+  .reveal{opacity:0; animation:fade .7s ease forwards;}
+  @keyframes fade{from{opacity:0; transform:translateY(9px);} to{opacity:1; transform:none;}}
+  .eyebrow{display:flex; align-items:center; gap:10px; font-family:var(--mono);
+    font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--soft);}
+  .eyebrow .id{color:var(--a2-deep); font-weight:600;}
+  .eyebrow .dot{width:5px; height:5px; border-radius:50%; background:var(--a2);}
+  .eyebrow .status{margin-left:auto; color:var(--a2-deep);}
+  h1{font-size:29px; line-height:1.3; font-weight:700; letter-spacing:-.01em; margin:20px 0 0;}
+  .dek{font-size:15.5px; color:var(--soft); margin:13px 0 0; max-width:52ch;}
+  .hr{height:1px; background:var(--line); margin:30px 0;}
+  .axis{padding:0 0 4px 22px; position:relative; margin-bottom:30px;}
+  .axis::before{content:""; position:absolute; left:0; top:6px; bottom:6px; width:2px; border-radius:2px;}
+  .axis.ax1::before{background:var(--a1);} .axis.ax2::before{background:var(--a2);}
+  .axis.ax1{--ul:var(--a1);} .axis.ax2{--ul:var(--a2);}
+  .axis .label{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase;
+    margin-bottom:9px; display:flex; align-items:center; gap:8px;}
+  .axis.ax1 .label{color:var(--a1-deep);} .axis.ax2 .label{color:var(--a2-deep);}
+  .axis .label .n{font-weight:600; opacity:.6;}
+  .axis .text{font-size:18px; line-height:1.6; color:#37352e;}
+  .axis .text b{font-weight:700; color:var(--ink); border-bottom:2px solid var(--ul);}
+  details{border:1px solid var(--line); border-radius:10px; background:var(--panel); margin-bottom:10px;}
+  summary{cursor:pointer; list-style:none; padding:14px 16px; display:flex; align-items:center; gap:11px;
+    font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft);}
+  summary::-webkit-details-marker{display:none;}
+  summary .chev{width:8px; height:8px; border-right:2px solid var(--a2-deep); border-bottom:2px solid var(--a2-deep);
+    transform:rotate(-45deg); transition:.25s; flex:none; margin-left:2px;}
+  details[open] summary .chev{transform:rotate(45deg);}
+  summary:hover{color:var(--ink);}
+  .body{padding:2px 16px 18px;}
+  table{border-collapse:collapse; width:100%; font-size:13px; margin:4px 0 12px;}
+  th,td{border-bottom:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top;}
+  th{font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft); font-weight:600;}
+  td:first-child{color:var(--a2-deep); font-weight:600; white-space:nowrap;}
+  .body p,.body ul,.body li{color:var(--soft);}
+  .body ul{margin:6px 0; padding-left:18px;} .body li{margin:5px 0;}
+  code{font-family:var(--mono); font-size:12px; background:#edeae0; padding:1px 6px; border-radius:3px; color:var(--a2-deep);}
+  .chips{display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px;}
+  .chip{font-family:var(--mono); font-size:10.5px; letter-spacing:.05em; color:var(--soft); border:1px solid var(--line); border-radius:999px; padding:3px 10px;}
+  .foot{margin-top:30px; padding-top:15px; border-top:1px solid var(--line);
+    display:flex; justify-content:space-between; font-family:var(--mono); font-size:10px;
+    letter-spacing:.13em; text-transform:uppercase; color:var(--faint);}
+</style>
+</head>
+<body>
+<div class="sheet">
+  <div class="eyebrow reveal">
+    <span class="dot"></span>
+    <span class="id">naver-shopping-01</span>
+    <span>Research Note</span>
+    <span class="status">active</span>
+  </div>
+  <h1 class="reveal" style="animation-delay:.05s">나래(Narae) — 손목 스트랩 소싱 Cloud Research</h1>
+  <p class="dek reveal" style="animation-delay:.09s">1688/타오바오 직접 접근 대신 AliExpress/Alibaba proxy로 손목 스트랩 도매 데이터 수집 + 로컬 1688 실행용 검색어 세트 준비</p>
+
+  <div class="hr reveal" style="animation-delay:.12s"></div>
+
+  <div class="axis ax1 reveal" style="animation-delay:.16s">
+    <div class="label"><span class="n">01</span> 무엇을 조사했나</div>
+    <div class="text">1688/타오바오 손목 스트랩 샘플 소싱 — 클라우드 접근 가능 proxy 경로(AliExpress, Alibaba, Accio)로 <b>도매 단가·MOQ·재질·리드타임</b> 데이터 수집 시도</div>
+  </div>
+
+  <div class="axis ax2 reveal" style="animation-delay:.22s">
+    <div class="label"><span class="n">02</span> 핵심 결과</div>
+    <div class="text">AliExpress proxy 기준 <b>단가 $0.15–$2.00, MOQ 20–100개, 소량 샘플 가능</b> — 나일론/실리콘 재질. 1688 직접 접근은 로컬 브라우저 필요. 중국어 검색어 세트·스크리닝 기준 준비 완료.</div>
+  </div>
+
+  <div class="reveal" style="animation-delay:.27s">
+  <details open>
+    <summary><span class="chev"></span> Cloud Proxy 리서치 결과</summary>
+    <div class="body">
+      <table>
+        <tr><th>항목</th><th>데이터</th><th>출처</th></tr>
+        <tr><td>단가 (소량)</td><td>$0.50–$2.00/개 (20–100개 MOQ)</td><td>AliExpress proxy</td></tr>
+        <tr><td>단가 (대량)</td><td>$0.09–$0.40/개 (5,000–100,000개)</td><td>Alibaba/Accio proxy</td></tr>
+        <tr><td>최소 샘플 MOQ</td><td>5–20개 (일부 공급업체)</td><td>AliExpress proxy</td></tr>
+        <tr><td>일반 MOQ</td><td>20–100개</td><td>AliExpress/Alibaba</td></tr>
+        <tr><td>재질</td><td>나일론, 폴리에스터, 실리콘, 아크릴</td><td>AliExpress proxy</td></tr>
+        <tr><td>주요 산지</td><td>광저우, 선전</td><td>Alibaba/Accio proxy</td></tr>
+        <tr><td>1688 직접 접근</td><td>로컬 브라우저 필요 — IP 제한</td><td>이전 실행 확인</td></tr>
+      </table>
+      <p>Accio.com (403), mivibzzz.com (403) — 직접 fetching 불가. AliExpress/Alibaba WebSearch 결과로 proxy 추정.</p>
+      <p><strong>주의:</strong> 위 가격은 AliExpress 기반 추정값. 1688 직소싱 가격은 30–50% 더 저렴할 수 있음.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="chev"></span> 1688 로컬 실행용 검색어 세트</summary>
+    <div class="body">
+      <p>로컬 Claude Code에서 1688.com 브라우저 접근 시 사용:</p>
+      <table>
+        <tr><th>검색어 (중국어)</th><th>설명</th><th>우선순위</th></tr>
+        <tr><td><code>手机防盗腕绳</code></td><td>핸드폰 도난방지 손목줄</td><td>HIGH</td></tr>
+        <tr><td><code>手机腕带防丢</code></td><td>핸드폰 손목 걸이 분실방지</td><td>HIGH</td></tr>
+        <tr><td><code>防丢手机绑带</code></td><td>분실방지 핸드폰 묶음 줄</td><td>HIGH</td></tr>
+        <tr><td><code>手腕手机挂绳</code></td><td>손목 핸드폰 걸이끈</td><td>MEDIUM</td></tr>
+        <tr><td><code>手机短挂绳批发</code></td><td>핸드폰 짧은 줄 도매</td><td>MEDIUM</td></tr>
+      </table>
+      <p><strong>스크리닝 기준:</strong></p>
+      <ul>
+        <li>단가: 1–3 CNY/개 (100개 기준) 목표</li>
+        <li>샘플 MOQ: 10–30개 이하</li>
+        <li>재질: 나일론 또는 폴리에스터 (실리콘은 QA 이슈 가능성)</li>
+        <li>공급업체 평점: ⭐4.5 이상</li>
+        <li>클레임/반품 리스크: 리뷰에서 "断裂" (끊김), "异味" (이취) 키워드 없는 것</li>
+        <li>리드타임: 7–14일 이내</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="chev"></span> 나래 소싱 퍼스트 현황</summary>
+    <div class="body">
+      <p><strong>확정 후보:</strong> 손목 스트랩 (손목형 분실/낙하 방지 보조 줄) — GREEN 등급</p>
+      <ul>
+        <li>Naver 수요: <code>핸드폰도난방지스트랩</code> 280 PC + 1,500 mobile/월, mobile CTR 4.26%</li>
+        <li>소싱 마찰: 저 (이전 스크린 결과 — 낙하방지 보조줄 서브타입)</li>
+        <li>다음 스텝: 1688 직접 검색 → 공급업체 3–5개 shortlist → 샘플 비용 확인</li>
+      </ul>
+      <p><strong>Waiting 항목 (변화 없음):</strong> SmartStore Commerce ID, 브라우저 세션, 공개 Naver Shopping 검색 — 사용자 설정 필요.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="chev"></span> 실행 메타 · 산출물</summary>
+    <div class="body">
+      <div class="chips">
+        <span class="chip">2026-06-16T12:00Z</span>
+        <span class="chip">heartbeat / research (cloud)</span>
+        <span class="chip">active → active</span>
+      </div>
+      <ul>
+        <li>아티팩트 <code>artifacts/naver-shopping-01/1688-wrist-strap-search-guide.md</code></li>
+        <li>선행: 소싱 마찰 스크린 완료 (2026-06-15) — 손목 스트랩 GREEN</li>
+        <li>다음: 로컬 브라우저에서 1688 직접 검색 → 샘플 조회</li>
+      </ul>
+    </div>
+  </details>
+  </div>
+
+  <div class="foot reveal" style="animation-delay:.3s">
+    <span>Agent-First Heartbeat</span>
+    <span>Infinity · Intent Note</span>
+  </div>
+</div>
+</body>
+</html>
