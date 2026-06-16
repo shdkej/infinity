@@ -3,6 +3,7 @@
 > Heartbeat Agent가 주기적으로 읽고 실행하는 의도 목록.
 
 ## Inbox
+<!-- marketing-63 inbox 2026-06-16T10:00Z [display: Virtue Agent-Readable Analytics Context Card; projects: virtue; type: strategy; topics: ai-agents,analytics,activation,measurement,prelaunch; source: ../source/external-links/marketing/2026-06-16-ai-analytics-semantic-context.md; permission: L1 docs-only; owner-route: infinity-router -> Claude Code/docs] (Rationale: Amplitude의 AI analytics semantic-layer 사례를 Virtue prelaunch 측정 문맥으로 번역. 기존 `deed_judged`/`deed_saved`/`level_up_viewed`, J1-J4 first value, synthetic/test 제외, cap/limit 오독 방지, launch-before/launch-after 판단선을 한 장짜리 agent-readable analytics context card로 묶어 SAM/Infinity/마케팅 에이전트가 같은 정의로 후속 분석하게 한다. Expected impact: PostHog 접근이나 실사용자 데이터가 생겼을 때 빠르지만 그럴듯한 오답을 줄이고 첫 분석 질문을 정의 확인 -> 데이터 품질 확인 -> 행동 변화 확인 순서로 고정. Success criteria: 신규 이벤트/tracking/privacy/dashboard/public copy/deploy 없이 문서 1개가 생성되고, 선행 marketing-55~62와 충돌 없이 공식 이벤트 정의·제외 규칙·insufficient-signal 문구가 포함됨. First verification gate: 출처 노트 존재, conflict marker 0, 금지된 production/code/tracking 변경 0, 기존 first-10/launch-after 문서와 J1-J4 activation mapping 일치.) -->
 
 ## Active
 
