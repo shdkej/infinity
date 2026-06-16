@@ -10,7 +10,7 @@
 - source_agent: `/home/ubuntu/.openclaw/workspace/agents/naver-shopping-agent/`
 - created_at: 2026-06-07T23:24Z
 - updated_at: 2026-06-14T05:45Z
-- updated_at_latest: 2026-06-15T0200Z
+- updated_at_latest: 2026-06-16T0700Z
 
 ## Purpose
 
@@ -18,7 +18,9 @@
 
 ## Current State
 
-- 2026-06-15T0200Z **소싱 마찰 스크린 완료.** 휴대폰 스트랩/테더 3가지(손목·크로스바디·태그홀더) + 압축 파우치 2가지(여행 세트·세탁물 분리)를 소싱 마찰 기준으로 평가. **손목 스트랩(분실·낙하 방지 보조 줄) GREEN: 저마찰·저클레임·안정적 마진.** 압축 파우치 WATCH→HOLD 하향(경쟁 포화 175,568 리스팅 + QA·클레임 부담). 크로스바디 스트랩은 2차 후보(손목 스트랩 샘플 성공 후 재검토). **다음 단계: 1688/타오바오 손목 스트랩 샘플 조회 — 로컈 실행 필요.** 라이브 상품등록/가격·배송·재고/광고·고객·주문·계정·공개발행 0. 산출물: `artifacts/naver-shopping-01/sourcing-friction-screen-2026-06-15.md`; 리포트: `reports/naver-shopping-01/2026-06-15T0200Z-research.html`.
+- 2026-06-16T0700Z **1688/타오바오 소싱 쿼리 준비 완료 (클라우드).** 손목 스트랩 GREEN 결론을 바탕으로 1688 검색어 5종(手机腕带·手机防丢绳 등), 가격 기준(개당 ¥2–18), MOQ(50–200개), 품질 평가 체크리스트, 클레임 패턴 4가지, 마진 스케치, 로컬 실행 지시를 준비. **다음 단계: 로컬 실행 → 1688 공급업체 쇼트리스트 3–5개.** 산출물: `artifacts/naver-shopping-01/1688-taobao-sourcing-query-2026-06-16.md`; 리포트: `reports/naver-shopping-01/2026-06-16T0700Z-research.html`. 라이브 상품등록/가격·배송·재고/광고·고객·주문·계정·공개발행 0.
+
+- 2026-06-15T0200Z **소싱 마찰 스크린 완료.** 휴대폰 스트랩/테더 3가지(손목·크로스바디·태그홀더) + 압축 파우치 2가지(여행 세트·세탁물 분리)를 소싱 마찰 기준으로 평가. **손목 스트랩(분실·낙하 방지 보조 줄) GREEN: 저마찰·저클레임·안정적 마진.** 압축 파우치 WATCH→HOLD 하향(경쟁 포화 175,568 리스팅 + QA·클레임 부담). 크로스바디 스트랩은 2차 후보(손목 스트랩 샘플 성공 후 재검토). **다음 단계: 1688/타오바오 손목 스트랩 샘플 조회 — 로컬 실행 필요.** 라이브 상품등록/가격·배송·재고/광고·고객·주문·계정·공개발행 0. 산출물: `artifacts/naver-shopping-01/sourcing-friction-screen-2026-06-15.md`; 리포트: `reports/naver-shopping-01/2026-06-15T0200Z-research.html`.
 
 - 2026-06-15T00:14Z **Ready-made sourcing OpenAPI/SearchAd screen completed.** Frozen keyword set was tested with read-only Naver OpenAPI Shopping Search and SearchAd. No user-facing listing/sourcing approval yet. **Phone anti-theft strap / tether component becomes the WATCH lead** because exact SearchAd signal is strongest (`핸드폰도난방지스트랩` 280 PC + 1,500 mobile/mo, mobile CTR 4.26%; `도난방지스트랩` 280 + 1,260/mo, mobile CTR 3.28%) and OpenAPI title language is clean around Europe travel / pickpocket / loss-prevention. **Compression / packing pouch remains WATCH** (`압축파우치` 1,230 PC + 7,020 mobile/mo, mobile CTR 3.21%) but has crowded textile/option/return burden. **Cable/charger pouch drops to HOLD as lead** because exact SearchAd buyer signal is thin despite OpenAPI result breadth. Next safe pass: subtype-level sourcing-friction screen for phone strap/tether and compression pouch before any approval packet. Artifact: `artifacts/naver-shopping-01/ready-made-sourcing-openapi-searchad-screen-2026-06-15.md`; report: `reports/naver-shopping-01/2026-06-15T0014Z-local.html`. Live commerce/account/public actions 0.
 
