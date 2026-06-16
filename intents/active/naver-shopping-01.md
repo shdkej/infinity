@@ -10,13 +10,15 @@
 - source_agent: `/home/ubuntu/.openclaw/workspace/agents/naver-shopping-agent/`
 - created_at: 2026-06-07T23:24Z
 - updated_at: 2026-06-14T05:45Z
-- updated_at_latest: 2026-06-15T0200Z
+- updated_at_latest: 2026-06-16T1430Z
 
 ## Purpose
 
 네이버쓼핑몰 수익화 전담 에이전트가 막히는 지점을 SAM이 관리자자럼 분류하고, 사용자가 직접 확인해야 하는 항목만 09:00 KST 메시지로 묶는다.
 
 ## Current State
+
+- 2026-06-16T1430Z **1688 손목 스트랩 소싱 사전 조회 완료.** 공개 1688/중국 도매 신호 기준으로 `手机防丢绳 / 手腕绳 / 手机挂绳` 단가·MOQ·소재·공급처 허브를 확인했다. 결과: 폴리에스터 단순형 CNY 0.10~1.50, 나일론+조절 클립 CNY 0.68~3.80, 목표 단가 CNY ≤3 / MOQ ≤50 충족 가능. **이 단계는 더 반복하지 않는다.** 다음 유효 액션은 클라우드 리서치가 아니라 로컬 브라우저/사용자 세션 기반으로 1688에서 공급사 2~3개를 실제 비교하고, 나일론+조절 클립 블랙/네이비 샘플 주문 후보를 고르는 것이다. 라이브 상품등록·광고·가격·배송·재고·고객/주문·계정 액션 0. 리포트: `reports/naver-shopping-01/2026-06-16T1430Z-research.html`.
 
 - 2026-06-15T0200Z **소싱 마찰 스크린 완료.** 휴대폰 스트랩/테더 3가지(손목·크로스바디·태그홀더) + 압축 파우치 2가지(여행 세트·세탁물 분리)를 소싱 마찰 기준으로 평가. **손목 스트랩(분실·낙하 방지 보조 줄) GREEN: 저마찰·저클레임·안정적 마진.** 압축 파우치 WATCH→HOLD 하향(경쟁 포화 175,568 리스팅 + QA·클레임 부담). 크로스바디 스트랩은 2차 후보(손목 스트랩 샘플 성공 후 재검토). **다음 단계: 1688/타오바오 손목 스트랩 샘플 조회 — 로컈 실행 필요.** 라이브 상품등록/가격·배송·재고/광고·고객·주문·계정·공개발행 0. 산출물: `artifacts/naver-shopping-01/sourcing-friction-screen-2026-06-15.md`; 리포트: `reports/naver-shopping-01/2026-06-15T0200Z-research.html`.
 
@@ -47,6 +49,15 @@
 - 2026-06-08T14:39Z read-only test: SmartStore Center stops at Commerce ID login page; public Naver Shopping search IP-restricted.
 
 ## Pending Blockers
+
+### 2026-06-16T14:30Z - 1688 준비 단계 반복 금지
+
+- route: loop-guard
+- status: active-constraint
+- completed_step: cloud/public 1688 price/MOQ/supplier-hub pre-research for wrist strap.
+- do_not_repeat: `手机防丢绳 / 手腕绳 / 手机挂绳` 공개 단가·MOQ 사전 조회만 반복하는 작업.
+- next_valid_action: 로컬 브라우저/사용자 세션으로 1688 실제 공급사 2~3개 비교, 리뷰/최근거래/MOQ/색상/소재 확인, 샘플 주문 후보 선정.
+- if_local_access_unavailable: 새 리서치 반복 대신 Waiting으로 유지하고 사용자에게 "1688/브라우저 세션이 필요하다"고만 보고.
 
 ### 2026-06-08T03:00Z - Commerce ID 확인 필요
 

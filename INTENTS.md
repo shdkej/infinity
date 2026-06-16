@@ -8,7 +8,7 @@
 
 ## Active
 
-<!-- naver-shopping-01 active 2026-06-15T00:14Z → intents/active/naver-shopping-01.md [display: 나래/Narae; projects: naver-shopping,infinity,personal-ops; type: coordination; topics: automation,workflow,marketing; status: active-sourcing-first; approval: user-setup-waiting-visible] (사용자-facing 이름 나래/Narae 확정, 내부 id/path는 naver-shopping-agent 유지. 2026-06-15 ready-made OpenAPI/SearchAd screen 결과: 휴대폰 도난방지 스트랩/테더가 WATCH lead, 압축/패킹 파우치는 WATCH, 케이블/충전기 파우치는 HOLD as lead. 다음 안전 액션은 상품 추천/승인 요청이 아니라 phone strap/tether subtype 및 compression pouch subtype의 소싱 마찰·클레임·옵션·반품 리스크 검증. 사용자 설정이 필요한 SmartStore Commerce ID / 읽기 전용 브라우저 / 공개 Naver Shopping 검색 제한은 Waiting 카드로 별도 노출한다. 라이브 상품등록/가격·배송·재고/광고·고객·주문·계정·공개발행 0. archive 안 함(active 유지).) -->
+<!-- naver-shopping-01 active 2026-06-16T14:30Z → intents/active/naver-shopping-01.md [display: 나래/Narae; projects: naver-shopping,infinity,personal-ops; type: coordination; topics: automation,workflow,marketing; status: active-sourcing-first; approval: user-setup-waiting-visible] (2026-06-16 1688 손목 스트랩 공개 소싱 사전 조회 완료: `手机防丢绳 / 手腕绳 / 手机挂绳`, 폴리에스터 CNY 0.10~1.50, 나일론+조절 클립 CNY 0.68~3.80, 목표 단가 CNY ≤3/MOQ ≤50 충족 가능. 이 cloud/public prepare 단계는 반복 금지. 다음 유효 액션은 로컬 브라우저/사용자 세션으로 1688 공급사 2~3개 실제 비교 및 샘플 주문 후보 선정. 1688/브라우저 세션이 없으면 새 리서치 반복 대신 Waiting 유지. 라이브 상품등록·가격·배송·재고·광고·고객·주문·계정·공개발행 0. archive 안 함(active 유지).) -->
 
 ## Waiting
 
