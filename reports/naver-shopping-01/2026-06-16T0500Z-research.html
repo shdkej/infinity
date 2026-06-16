@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Infinity Report — naver-shopping-01 1688 소싱 준비</title>
+<style>
+  :root{
+    --bg:#f4f2ea; --panel:#fbfaf5; --ink:#2c2a25; --soft:#807c70; --faint:#a8a496; --line:#e3dfd2;
+    --a2:#5f7a5e; --a2-deep:#3f5740;
+    --a1:#5a6f8a; --a1-deep:#3f536e;
+    --sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;}
+  body{background:var(--bg); color:var(--ink); font-family:var(--sans);
+    font-size:14px; line-height:1.68; -webkit-font-smoothing:antialiased;}
+  .sheet{max-width:720px; margin:0 auto; padding:48px 34px 46px;}
+  .reveal{opacity:0; animation:fade .7s ease forwards;}
+  @keyframes fade{from{opacity:0; transform:translateY(9px);} to{opacity:1; transform:none;}}
+  .eyebrow{display:flex; align-items:center; gap:10px; font-family:var(--mono);
+    font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--soft);}
+  .eyebrow .id{color:var(--a2-deep); font-weight:600;}
+  .eyebrow .dot{width:5px; height:5px; border-radius:50%; background:var(--a2);}
+  .eyebrow .status{margin-left:auto; color:var(--a2-deep);}
+  h1{font-size:29px; line-height:1.3; font-weight:700; letter-spacing:-.01em; margin:20px 0 0;}
+  .dek{font-size:15.5px; color:var(--soft); margin:13px 0 0; max-width:52ch;}
+  .hr{height:1px; background:var(--line); margin:30px 0;}
+  .axis{padding:0 0 4px 22px; position:relative; margin-bottom:30px;}
+  .axis::before{content:""; position:absolute; left:0; top:6px; bottom:6px; width:2px; border-radius:2px;}
+  .axis.ax1::before{background:var(--a1);} .axis.ax2::before{background:var(--a2);}
+  .axis.ax1{--ul:var(--a1);} .axis.ax2{--ul:var(--a2);}
+  .axis .label{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase;
+    margin-bottom:9px; display:flex; align-items:center; gap:8px;}
+  .axis.ax1 .label{color:var(--a1-deep);} .axis.ax2 .label{color:var(--a2-deep);}
+  .axis .label .n{font-weight:600; opacity:.6;}
+  .axis .text{font-size:18px; line-height:1.6; color:#37352e;}
+  .axis .text b{font-weight:700; color:var(--ink); border-bottom:2px solid var(--ul);}
+  details{border:1px solid var(--line); border-radius:10px; background:var(--panel); margin-bottom:10px;}
+  summary{cursor:pointer; list-style:none; padding:14px 16px; display:flex; align-items:center; gap:11px;
+    font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft);}
+  summary::-webkit-details-marker{display:none;}
+  summary .chev{width:8px; height:8px; border-right:2px solid var(--a2-deep); border-bottom:2px solid var(--a2-deep);
+    transform:rotate(-45deg); transition:.25s; flex:none; margin-left:2px;}
+  details[open] summary .chev{transform:rotate(45deg);}
+  summary:hover{color:var(--ink);}
+  .body{padding:2px 16px 18px;}
+  table{border-collapse:collapse; width:100%; font-size:13px; margin:4px 0 12px;}
+  th,td{border-bottom:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top;}
+  th{font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft); font-weight:600;}
+  td:first-child{color:var(--a2-deep); font-weight:600; white-space:nowrap;}
+  .body p{color:var(--soft);}
+  .body ul{margin:6px 0; padding-left:18px;} .body li{margin:5px 0;}
+  code{font-family:var(--mono); font-size:12px; background:#edeae0; padding:1px 6px; border-radius:3px; color:var(--a2-deep);}
+  a{color:var(--a2-deep); text-underline-offset:3px;}
+  .chips{display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px;}
+  .chip{font-family:var(--mono); font-size:10.5px; letter-spacing:.05em; color:var(--soft); border:1px solid var(--line); border-radius:999px; padding:3px 10px;}
+  .foot{margin-top:30px; padding-top:15px; border-top:1px solid var(--line);
+    display:flex; justify-content:space-between; font-family:var(--mono); font-size:10px;
+    letter-spacing:.13em; text-transform:uppercase; color:var(--faint);}
+  h3{font-size:13px; margin-top:16px; margin-bottom:8px; color:var(--ink);}
+  ol{padding-left:20px;} ol li{margin:5px 0;}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="eyebrow reveal">
+    <span class="dot"></span>
+    <span class="id">naver-shopping-01</span>
+    <span>Research Note</span>
+    <span class="status">in_progress</span>
+  </div>
+  <h1 class="reveal" style="animation-delay:.05s">1688 손목 폰 스트랩 소싱 준비</h1>
+  <p class="dek reveal" style="animation-delay:.09s">클라우드 단가 벤치마크 · 1688 검색 키워드 · 샘플 조건 정리 — 로컬 실행 브리프</p>
+
+  <div class="hr reveal" style="animation-delay:.12s"></div>
+
+  <div class="axis ax1 reveal" style="animation-delay:.16s">
+    <div class="label"><span class="n">01</span> 무엇을 조사했나</div>
+    <div class="text">
+      소싱 마찰 스크린(06-15) <b>GREEN 판정 손목 스트랩</b>의 1688 세션 준비 — Alibaba/made-in-china 공개 도매 데이터로 단가 벤치마크·검색 키워드·샘플 기준·국내 경쟁 각도 수집.
+    </div>
+  </div>
+
+  <div class="axis ax2 reveal" style="animation-delay:.22s">
+    <div class="label"><span class="n">02</span> 핵심 결과</div>
+    <div class="text">
+      도매 단가 <b>$0.30–$1.34/unit (400–1,800 KRW)</b>; 1688 목표 ≤1,000 KRW·MOQ ≤100개. 국내 여행 각도 <b>#유럽여행필수템</b> 이미 유효 — 로컬 1688 세션용 브리프 완성.
+    </div>
+  </div>
+
+  <div class="reveal" style="animation-delay:.27s">
+  <details open>
+    <summary><span class="chev"></span> 조사 상세 · 1688 브리프</summary>
+    <div class="body">
+      <h3>단가 벤치마크 (Alibaba/Made-in-China 공개 데이터)</h3>
+      <table>
+        <tr><th>채널</th><th>단가 범위</th><th>MOQ</th><th>비고</th></tr>
+        <tr><td>Alibaba 도매</td><td>$0.30–$1.34 (~400–1,800 KRW)</td><td>50–1,000개</td><td>No-MOQ 옵션도 존재(프리미엄 가격)</td></tr>
+        <tr><td>1688 목표</td><td>≤500–1,000 KRW</td><td>≤100개</td><td>Alibaba보다 30–50% 저렴 예상</td></tr>
+        <tr><td>스마트스토어 판매가</td><td>7,900–9,900 KRW</td><td>—</td><td>경쟁 수준 기준</td></tr>
+      </table>
+      <h3>마진 시뮬레이션</h3>
+      <table>
+        <tr><th>항목</th><th>금액 (KRW)</th></tr>
+        <tr><td>소싱 목표가</td><td>≤800</td></tr>
+        <tr><td>판매가</td><td>8,900</td></tr>
+        <tr><td>Naver 수수료 (~6%)</td><td>–534</td></tr>
+        <tr><td>배송비 (판매자 부담 시)</td><td>–2,500</td></tr>
+        <tr><td>예상 순마진/unit</td><td>≥5,000 (~56%)</td></tr>
+      </table>
+      <h3>1688 검색 키워드 (우선순위)</h3>
+      <ul>
+        <li><code>手机防丢绳 手腕</code> — 폰 분실방지줄, 손목형 (가장 정확)</li>
+        <li><code>手腕手机挂绳</code> — 손목 폰 걸이줄</li>
+        <li><code>手机腕带挂绳</code> — 폰 손목 밴드형 걸이줄</li>
+        <li><code>防手滑手机绳</code> — 미끄럼방지 폰줄 (낙하 방지 각도)</li>
+      </ul>
+      <h3>샘플 조건</h3>
+      <ul>
+        <li>단가 ≤10 CNY (협상 목표 ≤5 CNY)</li>
+        <li>MOQ ≤100개; 샘플 2–5개 가능한 공급사 우선</li>
+        <li>색상: 블랙·네이비·포레스트그린 우선</li>
+        <li>소재: 나일론/폴리에스터 (케이스 구멍 불필요한 클립+버클 타입)</li>
+        <li>공급사 평점 4.8+, 月销量 100+, 运费险 제공</li>
+      </ul>
+      <h3>국내 경쟁/마케팅 각도</h3>
+      <ul>
+        <li><strong>더옐로우</strong>: <code>#핸드폰도난방지스트랩 #유럽여행필수템</code> 이미 활성 사용</li>
+        <li>→ "여행 중 스마트폰 분실·낙하를 줄이는 손목 연결 보조줄" 재프레임 유효 확인</li>
+        <li>콘텐츠 각도: 유럽 여행 / 피크포켓 방지 / 스마트폰 낙하 예방</li>
+      </ul>
+      <h3>로컬 실행 체크리스트</h3>
+      <ol>
+        <li>1688.com 로그인 → 위 키워드로 검색</li>
+        <li>가격 필터 ≤10 CNY, 月销量 높은 순 정렬</li>
+        <li>공급사 평점 4.8+ / 运费险 확인</li>
+        <li>2–3개 공급사 선정 → 각 3개 샘플 주문 (총 6–9개)</li>
+        <li>수령 후: 버클 200회 개폐, 스마트폰 무게(200g) 낙하 시뮬레이션, 봉제 마감 확인</li>
+      </ol>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="chev"></span> 실행 메타 · 산출물</summary>
+    <div class="body">
+      <div class="chips">
+        <span class="chip">2026-06-16T0500Z</span>
+        <span class="chip">heartbeat · cloud-research L0</span>
+        <span class="chip">active → in_progress</span>
+      </div>
+      <ul>
+        <li>산출물 <code>artifacts/naver-shopping-01/sourcing-prep-1688-wrist-strap-2026-06-16.md</code></li>
+        <li>전 단계: <code>artifacts/naver-shopping-01/sourcing-friction-screen-2026-06-15.md</code></li>
+        <li>다음 액션: 로컬 1688 세션 — 브리프 기반 샘플 조회 및 주문</li>
+        <li>라이브 상거래 액션 0건 (등록·가격·재고·광고·고객·주문 0)</li>
+      </ul>
+    </div>
+  </details>
+  </div>
+
+  <div class="foot reveal" style="animation-delay:.3s">
+    <span>Agent-First Heartbeat</span>
+    <span>Infinity · Intent Note</span>
+  </div>
+</div>
+</body>
+</html>
