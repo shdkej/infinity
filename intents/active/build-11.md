@@ -1,13 +1,14 @@
 # build-11: Status 3D Full-Image Floating Menu Redesign
 
 - id: build-11
-- status: active
+- status: in_progress
 - projects: [infinity, personal-ops, infrastructure]
 - task_type: implementation
 - topics: [status, dashboard, ui, 3d-background, floating-menu]
 - owner: Infinity
 - display_name: Status 3D Full-Image Floating Menu Redesign
 - created_at: 2026-06-16T11:30Z
+- updated_at: 2026-06-16T11:30Z
 - source: user correction after build-10 — "음 이 느낌이 아니야"
 - predecessor: build-10
 - target_repo: `/home/ubuntu/workspace/space/infra-aws-static-sites`
@@ -48,13 +49,22 @@
 - 레이아웃은 desktop과 mobile 모두에서 이미지의 존재감이 먼저 보여야 한다.
 - 텍스트는 적게, 상태 정보는 스캔 가능한 메뉴처럼.
 
-## Implementation Notes
+## Prepare Artifact (Cloud — 완료)
 
-- 인터넷/레퍼런스 확인은 `3D hero background`, `floating glassmorphism navigation`, `HUD overlay dashboard`, `web 3D background CSS/Three.js` 중심으로 다시 본다.
-- 정적 Status 페이지라면 새 3D-like raster background 생성 또는 lightweight Three.js scene 중 하나를 선택한다.
-- Three.js를 쓰면 모바일/데스크톱 canvas nonblank 검증이 필수다.
-- raster background를 쓰면 `assets/`에 3D full-image를 두고, UI는 absolute/fixed overlay로 얹는다.
-- `status.json` feed 구조는 유지하되 표시 계층을 메뉴형으로 바꾼다.
+- **산출물**: `artifacts/build-11/index-prepare-v1.html`
+- **내용**: CSS perspective grid full-bleed 배경 + floating nav rail (상단 pill) + center HUD (큰 ok/total 숫자 + spinning ring) + bottom drawer (Live Checks / Surfaces / Agent Lane 3개 tile 섹션)
+- **상태**: 로컬 실행 대기. 아래 체크리스트 따라 배포하면 됨.
+
+## Next Actions (Local Claude 실행)
+
+1. `artifacts/build-11/index-prepare-v1.html` → `sites/status/dist/index.html` 복사
+2. 로컬 브라우저에서 `python3 -m http.server` 미리보기
+3. 데스크톱 + 모바일 스크린샷 촬영
+4. 텍스트/메뉴 overlap 점검
+5. `python3 scripts/build-status-json.py --resolve-aws --check`
+6. 커밋 & 푸시
+7. S3/CloudFront 배포 및 원격 https://status.aws.shdkej.com 확인
+8. unrelated dirty files(`sites/travel/dist/travel-data.json` 등) 건드리지 않기
 
 ## Verification Required
 

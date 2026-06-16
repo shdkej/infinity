@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Status · AWS</title>
+<!--
+  build-11 prepare artifact
+  3D full-bleed CSS background + floating nav rail + center HUD + bottom drawer
+  로컬 실행 시 sites/status/dist/index.html 로 복사 후 검증.
+  status.json 피드 구조: { overall, checks[], surfaces[], agents[], updated_at }
+  각 항목: { name, status('ok'|'warn'|'err'), latency_ms(선택) }
+-->
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --bg:#070b14;
+  --glass:rgba(12,20,38,0.65);
+  --glass-border:rgba(100,180,255,0.12);
+  --accent:#3a8fff;
+  --ok:#00e8a0;
+  --warn:#ffc444;
+  --err:#ff5a5a;
+  --text:#d8e4f8;
+  --text-soft:rgba(216,228,248,0.55);
+  --mono:ui-monospace,"SF Mono","Fira Code",monospace;
+  --sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+}
+html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);font-family:var(--sans);}
+
+/* ─── 3D Background ─── */
+.bg-scene{position:fixed;inset:0;overflow:hidden;z-index:0;}
+.grid-floor{
+  position:absolute;width:200%;height:200%;left:-50%;top:10%;
+  background-image:
+    linear-gradient(rgba(58,143,255,.15) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(58,143,255,.15) 1px,transparent 1px);
+  background-size:80px 80px;
+  transform:perspective(600px) rotateX(60deg);transform-origin:50% 0%;
+  animation:gs 18s linear infinite;
+}
+@keyframes gs{from{background-position:0 0;}to{background-position:0 80px;}}
+.orb{position:absolute;border-radius:50%;filter:blur(80px);opacity:.35;animation:of 12s ease-in-out infinite;}
+.orb-1{width:600px;height:600px;top:-200px;right:-100px;background:radial-gradient(circle,#2050aa,transparent);animation-duration:14s;}
+.orb-2{width:400px;height:400px;bottom:-100px;left:-80px;background:radial-gradient(circle,#00d4aa,transparent);animation-duration:18s;animation-delay:-4s;}
+.orb-3{width:300px;height:300px;top:40%;left:40%;background:radial-gradient(circle,#3a3a8f,transparent);animation-duration:22s;animation-delay:-8s;}
+@keyframes of{0%,100%{transform:translate(0,0)scale(1);}33%{transform:translate(-20px,15px)scale(1.05);}66%{transform:translate(15px,-10px)scale(.95);}}
+.bg-scene::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(ellipse at 70% 20%, rgba(30,60,120,.25) 0%, transparent 60%),
+             radial-gradient(ellipse at 20% 80%, rgba(0,80,60,.2) 0%, transparent 50%);
+}
+
+/* ─── Top Nav Rail ─── */
+.nav-rail{
+  position:fixed;top:24px;left:50%;transform:translateX(-50%);z-index:100;
+  display:flex;align-items:center;gap:20px;padding:10px 24px;
+  background:var(--glass);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  border:1px solid var(--glass-border);border-radius:999px;
+  font-family:var(--mono);font-size:12px;letter-spacing:.08em;white-space:nowrap;
+}
+.nav-logo{color:var(--accent);font-weight:700;letter-spacing:.15em;text-transform:uppercase;}
+.nav-sep{color:var(--text-soft);opacity:.4;}
+.nav-dot{
+  width:7px;height:7px;border-radius:50%;background:var(--ok);
+  box-shadow:0 0 8px var(--ok);animation:pulse 2s ease-in-out infinite;
+  display:inline-block;vertical-align:middle;margin-right:6px;
+}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:.45;}}
+.nav-status-text{color:var(--ok);}
+.nav-time{color:var(--text-soft);font-size:11px;}
+
+/* ─── Center HUD ─── */
+.hud{
+  position:fixed;top:50%;left:50%;transform:translate(-50%,-56%);
+  z-index:50;text-align:center;pointer-events:none;
+  user-select:none;
+}
+.hud-ring{
+  width:260px;height:260px;border-radius:50%;
+  border:1px solid var(--glass-border);
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  animation:rs 30s linear infinite;
+}
+.hud-ring::before{
+  content:"";position:absolute;width:8px;height:8px;
+  background:var(--ok);border-radius:50%;top:-4px;left:50%;margin-left:-4px;
+  box-shadow:0 0 10px var(--ok);
+}
+.hud-ring-2{
+  width:320px;height:320px;border-radius:50%;
+  border:1px dashed rgba(100,180,255,0.06);
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  animation:rs 50s linear infinite reverse;
+}
+@keyframes rs{from{transform:translate(-50%,-50%)rotate(0);}to{transform:translate(-50%,-50%)rotate(360deg);}}
+.hud-badge{
+  font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--ok);margin-bottom:12px;opacity:.85;
+}
+.hud-number{
+  font-size:clamp(56px,10vw,96px);font-weight:800;letter-spacing:-.04em;line-height:1;
+  color:var(--text);text-shadow:0 0 60px rgba(58,143,255,.3);margin-bottom:4px;
+}
+.hud-label{font-family:var(--mono);font-size:13px;color:var(--text-soft);letter-spacing:.1em;}
+.hud-sub{font-family:var(--mono);font-size:11px;color:var(--text-soft);margin-top:8px;opacity:.6;}
+
+/* ─── Bottom Drawer ─── */
+.drawer{
+  position:fixed;bottom:0;left:0;right:0;z-index:100;
+  transform:translateY(calc(100% - 48px));
+  transition:transform .4s cubic-bezier(.16,1,.3,1);
+}
+.drawer.open{transform:translateY(0);}
+.drawer-handle{
+  display:flex;align-items:center;justify-content:center;gap:8px;height:48px;
+  background:var(--glass);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  border-top:1px solid var(--glass-border);border-left:1px solid var(--glass-border);border-right:1px solid var(--glass-border);
+  border-radius:16px 16px 0 0;margin:0 20px;
+  cursor:pointer;font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:var(--text-soft);text-transform:uppercase;
+  transition:color .2s;
+}
+.drawer-handle:hover{color:var(--text);}
+.chev{display:inline-block;transition:transform .4s;}
+.drawer.open .chev{transform:rotate(180deg);}
+.drawer-body{
+  background:var(--glass);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);
+  border-top:1px solid var(--glass-border);padding:20px 24px 28px;
+  display:flex;gap:24px;overflow-x:auto;max-height:260px;
+  scrollbar-width:thin;scrollbar-color:rgba(255,255,255,.1) transparent;
+}
+.tile-section{flex:1;min-width:160px;}
+.tile-label{font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--text-soft);margin-bottom:10px;opacity:.7;}
+.tiles{display:flex;flex-direction:column;gap:6px;}
+.tile{
+  display:flex;align-items:center;gap:10px;padding:8px 12px;
+  background:rgba(255,255,255,.04);border:1px solid var(--glass-border);border-radius:8px;
+  font-size:12px;color:var(--text);transition:background .2s;
+}
+.tile:hover{background:rgba(255,255,255,.07);}
+.tile-dot{width:6px;height:6px;border-radius:50%;flex:none;}
+.tile-dot.ok{background:var(--ok);box-shadow:0 0 6px var(--ok);}
+.tile-dot.warn{background:var(--warn);box-shadow:0 0 6px var(--warn);}
+.tile-dot.err{background:var(--err);box-shadow:0 0 6px var(--err);}
+.tile-dot.unk{background:var(--text-soft);opacity:.5;}
+.tile-name{flex:1;}
+.tile-ms{font-family:var(--mono);font-size:10px;color:var(--text-soft);}
+
+@media(max-width:600px){
+  .nav-rail{top:12px;padding:8px 16px;gap:12px;font-size:11px;}
+  .nav-time{display:none;}
+  .hud-number{font-size:56px;}
+  .drawer-body{flex-direction:column;}
+}
+</style>
+</head>
+<body>
+
+<!-- 3D Background Layer -->
+<div class="bg-scene" aria-hidden="true">
+  <div class="grid-floor"></div>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+</div>
+
+<!-- Top Floating Nav Rail -->
+<header class="nav-rail" role="banner">
+  <span class="nav-logo">&#x2B21; AWS</span>
+  <span class="nav-sep">|</span>
+  <span>
+    <span class="nav-dot" id="nav-dot"></span>
+    <span class="nav-status-text" id="nav-txt">Checking&#x2026;</span>
+  </span>
+  <span class="nav-sep">&#xB7;</span>
+  <span class="nav-time" id="nav-time"></span>
+</header>
+
+<!-- Center HUD -->
+<main class="hud" role="main" aria-label="System status overview">
+  <div class="hud-ring"></div>
+  <div class="hud-ring-2"></div>
+  <div class="hud-badge" id="hud-badge">LOADING</div>
+  <div class="hud-number" id="hud-number">&#x2014;</div>
+  <div class="hud-label" id="hud-label">services</div>
+  <div class="hud-sub" id="hud-sub">fetching status&#x2026;</div>
+</main>
+
+<!-- Bottom Floating Drawer -->
+<div class="drawer" id="drawer" role="complementary" aria-label="Status detail drawer">
+  <div class="drawer-handle" id="drawer-handle" role="button" tabindex="0" aria-expanded="false">
+    <span class="chev">&#x25B2;</span>
+    <span>Status Details</span>
+  </div>
+  <div class="drawer-body">
+    <div class="tile-section">
+      <div class="tile-label">Live Checks</div>
+      <div class="tiles" id="t-checks">
+        <div class="tile"><span class="tile-dot unk"></span><span class="tile-name">Loading&#x2026;</span></div>
+      </div>
+    </div>
+    <div class="tile-section">
+      <div class="tile-label">Surfaces</div>
+      <div class="tiles" id="t-surfaces">
+        <div class="tile"><span class="tile-dot unk"></span><span class="tile-name">Loading&#x2026;</span></div>
+      </div>
+    </div>
+    <div class="tile-section">
+      <div class="tile-label">Agent Lane</div>
+      <div class="tiles" id="t-agents">
+        <div class="tile"><span class="tile-dot unk"></span><span class="tile-name">Loading&#x2026;</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Clock
+function tick(){
+  var t=new Date();
+  document.getElementById('nav-time').textContent=
+    t.toISOString().slice(0,16).replace('T',' ')+' UTC';
+}
+tick();setInterval(tick,30000);
+
+// Drawer toggle
+var drawer=document.getElementById('drawer');
+var handle=document.getElementById('drawer-handle');
+handle.addEventListener('click',function(){
+  var open=drawer.classList.toggle('open');
+  handle.setAttribute('aria-expanded',open);
+});
+handle.addEventListener('keydown',function(e){
+  if(e.key==='Enter'||e.key===' ')handle.click();
+});
+
+// Status class helper
+function cls(s){
+  if(!s)return'unk';
+  s=String(s).toLowerCase();
+  if(['ok','operational','healthy','up'].indexOf(s)>-1)return'ok';
+  if(['warn','warning','degraded','slow'].indexOf(s)>-1)return'warn';
+  if(['err','error','down','fail','failed'].indexOf(s)>-1)return'err';
+  return'unk';
+}
+
+// Render tile list
+function renderTiles(id,items){
+  var el=document.getElementById(id);
+  if(!items||!items.length){
+    el.innerHTML='<div class="tile"><span class="tile-dot unk"></span><span class="tile-name">&#x2014;</span></div>';
+    return;
+  }
+  el.innerHTML=items.map(function(x){
+    var c=cls(x.status||x.state);
+    var ms=x.latency_ms?'<span class="tile-ms">'+x.latency_ms+'ms</span>':'';
+    return'<div class="tile"><span class="tile-dot '+c+'"></span><span class="tile-name">'+(x.name||x.id||'?')+'</span>'+ms+'</div>';
+  }).join('');
+}
+
+// Fetch status.json
+fetch('./status.json?t='+Date.now())
+  .then(function(r){return r.json();})
+  .then(function(d){
+    var checks=d.checks||d.services||[];
+    var surfaces=d.surfaces||d.sites||[];
+    var agents=d.agents||d.agent_lane||[];
+    var all=checks.concat(surfaces).concat(agents);
+    var ok=all.filter(function(x){return cls(x.status||x.state)==='ok';}).length;
+    var total=all.length;
+    var overall=d.overall||d.status||'unknown';
+    var c=cls(overall);
+    var color=c==='ok'?'var(--ok)':c==='warn'?'var(--warn)':'var(--err)';
+
+    document.getElementById('hud-badge').textContent=c==='ok'?'OPERATIONAL':overall.toUpperCase();
+    document.getElementById('hud-badge').style.color=color;
+    document.getElementById('hud-number').textContent=total?ok+'/'+total:'&#x2014;';
+    document.getElementById('hud-label').textContent='services';
+    document.getElementById('hud-sub').textContent=d.updated_at?'updated '+d.updated_at:'live';
+    document.getElementById('nav-txt').textContent=c==='ok'?'All Operational':overall;
+    document.getElementById('nav-txt').style.color=color;
+    document.getElementById('nav-dot').style.background=color;
+    document.getElementById('nav-dot').style.boxShadow='0 0 8px '+color;
+
+    renderTiles('t-checks',checks);
+    renderTiles('t-surfaces',surfaces);
+    renderTiles('t-agents',agents);
+  })
+  .catch(function(){
+    var red='var(--err)';
+    document.getElementById('hud-badge').textContent='OFFLINE';
+    document.getElementById('hud-badge').style.color=red;
+    document.getElementById('nav-txt').textContent='Unable to fetch';
+    document.getElementById('nav-txt').style.color=red;
+    document.getElementById('nav-dot').style.background=red;
+    document.getElementById('nav-dot').style.boxShadow='0 0 8px '+red;
+    document.getElementById('hud-sub').textContent='status.json not reachable';
+    ['t-checks','t-surfaces','t-agents'].forEach(function(id){
+      document.getElementById(id).innerHTML=
+        '<div class="tile"><span class="tile-dot err"></span><span class="tile-name">Unavailable</span></div>';
+    });
+  });
+</script>
+</body>
+</html>

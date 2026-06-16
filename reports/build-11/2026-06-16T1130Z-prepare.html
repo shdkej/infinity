@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Infinity Report</title>
+<style>
+  :root{
+    --bg:#f4f2ea; --panel:#fbfaf5; --ink:#2c2a25; --soft:#807c70; --faint:#a8a496; --line:#e3dfd2;
+    --a2:#5f7a5e; --a2-deep:#3f5740;
+    --a1:#a9745a; --a1-deep:#8a5c45;
+    --sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;}
+  body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:14px;line-height:1.68;-webkit-font-smoothing:antialiased;}
+  .sheet{max-width:720px;margin:0 auto;padding:48px 34px 46px;}
+  .reveal{opacity:0;animation:fade .7s ease forwards;}
+  @keyframes fade{from{opacity:0;transform:translateY(9px);}to{opacity:1;transform:none;}}
+  .eyebrow{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--soft);}
+  .eyebrow .id{color:var(--a2-deep);font-weight:600;}
+  .eyebrow .dot{width:5px;height:5px;border-radius:50%;background:var(--a2);}
+  .eyebrow .status{margin-left:auto;color:var(--a2-deep);}
+  h1{font-size:29px;line-height:1.3;font-weight:700;letter-spacing:-.01em;margin:20px 0 0;}
+  .dek{font-size:15.5px;color:var(--soft);margin:13px 0 0;max-width:52ch;}
+  .hr{height:1px;background:var(--line);margin:30px 0;}
+  .axis{padding:0 0 4px 22px;position:relative;margin-bottom:30px;}
+  .axis::before{content:"";position:absolute;left:0;top:6px;bottom:6px;width:2px;border-radius:2px;}
+  .axis.ax1::before{background:var(--a1);}.axis.ax2::before{background:var(--a2);}
+  .axis.ax1{--ul:var(--a1);}.axis.ax2{--ul:var(--a2);}
+  .axis .label{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:9px;display:flex;align-items:center;gap:8px;}
+  .axis.ax1 .label{color:var(--a1-deep);}.axis.ax2 .label{color:var(--a2-deep);}
+  .axis .label .n{font-weight:600;opacity:.6;}
+  .axis .text{font-size:18px;line-height:1.6;color:#37352e;}
+  .axis .text b{font-weight:700;color:var(--ink);border-bottom:2px solid var(--ul);}
+  details{border:1px solid var(--line);border-radius:10px;background:var(--panel);margin-bottom:10px;}
+  summary{cursor:pointer;list-style:none;padding:14px 16px;display:flex;align-items:center;gap:11px;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--soft);}
+  summary::-webkit-details-marker{display:none;}
+  summary .chev{width:8px;height:8px;border-right:2px solid var(--a2-deep);border-bottom:2px solid var(--a2-deep);transform:rotate(-45deg);transition:.25s;flex:none;margin-left:2px;}
+  details[open] summary .chev{transform:rotate(45deg);}
+  summary:hover{color:var(--ink);}
+  .body{padding:2px 16px 18px;}
+  table{border-collapse:collapse;width:100%;font-size:13px;margin:4px 0 12px;}
+  th,td{border-bottom:1px solid var(--line);padding:9px 11px;text-align:left;vertical-align:top;}
+  th{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--soft);font-weight:600;}
+  td:first-child{color:var(--a2-deep);font-weight:600;white-space:nowrap;}
+  .body p{color:var(--soft);}
+  .body ul{margin:6px 0;padding-left:18px;}.body li{margin:5px 0;}
+  code{font-family:var(--mono);font-size:12px;background:#edeae0;padding:1px 6px;border-radius:3px;color:var(--a2-deep);}
+  a{color:var(--a2-deep);text-underline-offset:3px;}
+  .chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px;}
+  .chip{font-family:var(--mono);font-size:10.5px;letter-spacing:.05em;color:var(--soft);border:1px solid var(--line);border-radius:999px;padding:3px 10px;}
+  .foot{margin-top:30px;padding-top:15px;border-top:1px solid var(--line);display:flex;justify-content:space-between;font-family:var(--mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--faint);}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="eyebrow reveal">
+    <span class="dot"></span>
+    <span class="id">build-11</span>
+    <span>Prepare Note</span>
+    <span class="status">in_progress</span>
+  </div>
+  <h1 class="reveal" style="animation-delay:.05s">Status 3D Full-Image Floating Menu Redesign</h1>
+  <p class="dek reveal" style="animation-delay:.09s">build-10 피드백 기반 전면 재설계 준비 완료 — 3D full-bleed CSS 배경 + floating nav rail &middot; center HUD &middot; bottom drawer overlay 구조</p>
+
+  <div class="hr reveal" style="animation-delay:.12s"></div>
+
+  <div class="axis ax1 reveal" style="animation-delay:.16s">
+    <div class="label"><span class="n">01</span> &#x1F534; 무엇이 문제였나</div>
+    <div class="text">build-10이 <b>&ldquo;이 느낌이 아님&rdquo;</b> &mdash; 큰 glass card &middot; hero headline이 주인공이 되어 3D 배경 이미지가 장식으로 전락한 레이아웃</div>
+  </div>
+
+  <div class="axis ax2 reveal" style="animation-delay:.22s">
+    <div class="label"><span class="n">02</span> &#x2705; 어떻게 해결하나</div>
+    <div class="text">CSS 투시 격자 full-bleed 배경 + floating nav rail &middot; center HUD &middot; bottom drawer overlay로 <b>전면 재설계</b>; status.json 피드 구조 유지, 로컬 실행 ready</div>
+  </div>
+
+  <div class="reveal" style="animation-delay:.27s">
+  <details open>
+    <summary><span class="chev"></span> 수행한 작업 &middot; 준비된 산출물</summary>
+    <div class="body">
+      <table>
+        <thead><tr><th>항목</th><th>내용</th></tr></thead>
+        <tbody>
+          <tr><td>모드</td><td>cloud prepare (L0) &mdash; 로컬 실행 대기</td></tr>
+          <tr><td>산출물</td><td><code>artifacts/build-11/index-prepare-v1.html</code></td></tr>
+          <tr><td>배경</td><td>CSS perspective grid (rotateX 60deg) + 3개 blur orb + 방사형 ambient glow</td></tr>
+          <tr><td>Nav Rail</td><td>fixed top center, glass pill, 실시간 UTC clock, 상태 dot + 텍스트</td></tr>
+          <tr><td>Center HUD</td><td>spinning ring, 큰 ok/total 숫자, OPERATIONAL 뱃지, updated_at 표시</td></tr>
+          <tr><td>Bottom Drawer</td><td>48px 핸들(▲), 슬라이드 열기, 3 tile 섹션 (Live Checks / Surfaces / Agent Lane)</td></tr>
+          <tr><td>status.json 호환</td><td>{ overall, checks[], surfaces[], agents[], updated_at } 구조 유지</td></tr>
+          <tr><td>모바일</td><td>@media(max-width:600px) nav 축소, drawer-body 세로 스택</td></tr>
+        </tbody>
+      </table>
+      <p><strong>다음 로컬 실행 단계:</strong></p>
+      <ul>
+        <li>산출물을 <code>sites/status/dist/index.html</code>로 복사</li>
+        <li>로컬 브라우저에서 <code>python3 -m http.server</code>로 미리보기 확인</li>
+        <li>데스크톱 + 모바일 스크린샷 촬영</li>
+        <li>텍스트/메뉴 overlap 점검</li>
+        <li><code>python3 scripts/build-status-json.py --resolve-aws --check</code> 실행</li>
+        <li>커밋 &amp; 푸시 후 S3/CloudFront 배포 확인</li>
+        <li>unrelated dirty file(<code>sites/travel/dist/travel-data.json</code> 등) 건드리지 않기</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="chev"></span> 실행 메타 &middot; 산출물</summary>
+    <div class="body">
+      <div class="chips">
+        <span class="chip">2026-06-16T1130Z</span>
+        <span class="chip">Heartbeat cloud prepare</span>
+        <span class="chip">active &rarr; in_progress</span>
+      </div>
+      <ul>
+        <li>산출물 <code>artifacts/build-11/index-prepare-v1.html</code></li>
+        <li>리포트 <code>reports/build-11/2026-06-16T1130Z-prepare.html</code></li>
+        <li>다음 실행: 로컬 Claude Code &mdash; 복사 &middot; 검증 &middot; 배포</li>
+      </ul>
+    </div>
+  </details>
+  </div>
+
+  <div class="foot reveal" style="animation-delay:.3s">
+    <span>Agent-First Heartbeat</span>
+    <span>Infinity &middot; Intent Note</span>
+  </div>
+</div>
+</body>
+</html>
