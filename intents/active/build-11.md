@@ -1,13 +1,14 @@
 # build-11: Status 3D Full-Image Floating Menu Redesign
 
 - id: build-11
-- status: active
+- status: in_progress
 - projects: [infinity, personal-ops, infrastructure]
 - task_type: implementation
 - topics: [status, dashboard, ui, 3d-background, floating-menu]
 - owner: Infinity
 - display_name: Status 3D Full-Image Floating Menu Redesign
 - created_at: 2026-06-16T11:30Z
+- updated_at: 2026-06-16T12:15Z
 - source: user correction after build-10 — "음 이 느낌이 아니야"
 - predecessor: build-10
 - target_repo: `/home/ubuntu/workspace/space/infra-aws-static-sites`
@@ -48,21 +49,43 @@
 - 레이아웃은 desktop과 mobile 모두에서 이미지의 존재감이 먼저 보여야 한다.
 - 텍스트는 적게, 상태 정보는 스캔 가능한 메뉴처럼.
 
-## Implementation Notes
+## Current State (2026-06-16T12:15Z)
 
-- 인터넷/레퍼런스 확인은 `3D hero background`, `floating glassmorphism navigation`, `HUD overlay dashboard`, `web 3D background CSS/Three.js` 중심으로 다시 본다.
-- 정적 Status 페이지라면 새 3D-like raster background 생성 또는 lightweight Three.js scene 중 하나를 선택한다.
-- Three.js를 쓰면 모바일/데스크톱 canvas nonblank 검증이 필수다.
-- raster background를 쓰면 `assets/`에 3D full-image를 두고, UI는 absolute/fixed overlay로 얹는다.
-- `status.json` feed 구조는 유지하되 표시 계층을 메뉴형으로 바꾼다.
+Cloud prepare 완료. 구현 초안 `artifacts/build-11/index.html` 작성.
+
+- **완료**: CSS 3D full-bleed scene (perspective grid + glowing orb + stars + floating particles) + 얇은 glassmorphism floating nav + compact HUD (bottom-left, overall badge + 3-metric strip: Checks / Surfaces / Agents) + 스크롤 bottom drawer cluster (Live Checks / Surfaces / Agent Lane, 각 collapsible). `status.json` 피드 자동 파싱, 유연한 스키마 처리.
+- **다음 액션**: 로컬에서 `sites/status/dist/index.html`에 적용, `python3 scripts/build-status-json.py --resolve-aws --check` 실행, 스크린샷 검증, 커밋/푸시.
+
+## Next Action (Local Execution Required)
+
+```bash
+# 1. artifacts/build-11/index.html을 실제 target에 복사
+# (infinity repo clone 경로에서)
+cp artifacts/build-11/index.html \
+  /home/ubuntu/workspace/space/infra-aws-static-sites/sites/status/dist/index.html
+
+# 2. status.json 재생성
+cd /home/ubuntu/workspace/space/infra-aws-static-sites
+python3 scripts/build-status-json.py --resolve-aws --check
+
+# 3. 로컬 확인
+python3 -m http.server 8123 --directory sites/status/dist
+
+# 4. 스크린샷: desktop 1440x1100, mobile 390x1200
+
+# 5. 커밋 & 푸시
+git add sites/status/dist/index.html sites/status/dist/status.json
+git commit -m "build-11: 3D full-bleed scene + floating HUD status page"
+git push
+```
 
 ## Verification Required
 
-- Local render check.
-- Desktop screenshot.
-- Mobile screenshot.
-- Text/menu overlap check.
-- `python3 scripts/build-status-json.py --resolve-aws --check`.
+- Local render check (http://localhost:8123).
+- Desktop screenshot (1440x1100).
+- Mobile screenshot (390x1200).
+- No text/menu overlap on 3D scene.
+- `python3 scripts/build-status-json.py --resolve-aws --check` PASS.
 - Commit/push.
 - Deploy to Status S3/CloudFront and verify remote markers.
 
