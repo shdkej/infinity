@@ -1,15 +1,18 @@
 # build-11: Status 3D Full-Image Floating Menu Redesign
 
 - id: build-11
-- status: active
+- status: completed
 - projects: [infinity, personal-ops, infrastructure]
 - task_type: implementation
 - topics: [status, dashboard, ui, 3d-background, floating-menu]
 - owner: Infinity
 - display_name: Status 3D Full-Image Floating Menu Redesign
 - created_at: 2026-06-16T11:30Z
+- completed_at: 2026-06-16T21:56Z
 - source: user correction after build-10 — "음 이 느낌이 아니야"
 - predecessor: build-10
+- completion_mode: user-confirmed
+- report: reports/build-11/2026-06-16T2156Z-user-confirmed-archive.md
 - target_repo: `/home/ubuntu/workspace/space/infra-aws-static-sites`
 - target_surface: `https://status.aws.shdkej.com`
 - target_files:
@@ -72,3 +75,9 @@
 - No Terraform/new AWS resource unless separately approved.
 - No force-push.
 - No secrets or credential changes.
+
+## Archive Note
+
+2026-06-16T21:53Z 마스터가 `build-11`은 끝났고 마음에 들었다고 명시했다. SAM의 직전 상태 점검에서는 별도 `reports/build-11` 산출물과 Status repo 구현 커밋이 확인되지 않았지만, 사용자의 완료 판정을 우선하여 `build-11`을 Archive 처리한다.
+
+같은 요청에서 마스터는 Status 대시보드를 "어제 11시부로 되어 있던" 상태로 되돌리라고 지시했다. Space repo 기준으로 `a415066` 이전의 가장 가까운 Status 상태인 `8fdb46e`를 복원 대상으로 삼아 Hers/glass 변경과 배경 asset을 제거한다.
