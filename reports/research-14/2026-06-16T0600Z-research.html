@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>research-14 · 모놀리스 아키텍처 보완 맥락 조사</title>
+<style>
+  :root{
+    --bg:#f4f2ea; --panel:#fbfaf5; --ink:#2c2a25; --soft:#807c70; --faint:#a8a496; --line:#e3dfd2;
+    --a2:#5f7a5e; --a2-deep:#3f5740;
+    --a1:#5a6f8a; --a1-deep:#3f536e;
+    --sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;}
+  body{background:var(--bg); color:var(--ink); font-family:var(--sans);
+    font-size:14px; line-height:1.68; -webkit-font-smoothing:antialiased;}
+  .sheet{max-width:720px; margin:0 auto; padding:48px 34px 46px;}
+  .reveal{opacity:0; animation:fade .7s ease forwards;}
+  @keyframes fade{from{opacity:0; transform:translateY(9px);} to{opacity:1; transform:none;}}
+  .eyebrow{display:flex; align-items:center; gap:10px; font-family:var(--mono);
+    font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--soft);}
+  .eyebrow .id{color:var(--a2-deep); font-weight:600;}
+  .eyebrow .dot{width:5px; height:5px; border-radius:50%; background:var(--a2);}
+  .eyebrow .status{margin-left:auto; color:var(--a2-deep);}
+  h1{font-size:29px; line-height:1.3; font-weight:700; letter-spacing:-.01em; margin:20px 0 0;}
+  .dek{font-size:15.5px; color:var(--soft); margin:13px 0 0; max-width:52ch;}
+  .hr{height:1px; background:var(--line); margin:30px 0;}
+  .axis{padding:0 0 4px 22px; position:relative; margin-bottom:30px;}
+  .axis::before{content:""; position:absolute; left:0; top:6px; bottom:6px; width:2px; border-radius:2px;}
+  .axis.ax1::before{background:var(--a1);} .axis.ax2::before{background:var(--a2);}
+  .axis.ax1{--ul:var(--a1);} .axis.ax2{--ul:var(--a2);}
+  .axis .label{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase;
+    margin-bottom:9px; display:flex; align-items:center; gap:8px;}
+  .axis.ax1 .label{color:var(--a1-deep);} .axis.ax2 .label{color:var(--a2-deep);}
+  .axis .label .n{font-weight:600; opacity:.6;}
+  .axis .text{font-size:18px; line-height:1.6; color:#37352e;}
+  .axis .text b{font-weight:700; color:var(--ink); border-bottom:2px solid var(--ul);}
+  ol.find{list-style:none; counter-reset:f; margin:16px 0 0; padding:0;}
+  ol.find li{position:relative; padding:8px 0 8px 26px; font-size:15px; color:#37352e; border-top:1px solid var(--line);}
+  ol.find li:first-child{border-top:none;}
+  ol.find li::before{counter-increment:f; content:counter(f); position:absolute; left:0; top:9px;
+    font-family:var(--mono); font-size:12px; font-weight:600; color:var(--a1-deep);}
+  details{border:1px solid var(--line); border-radius:10px; background:var(--panel); margin-bottom:10px;}
+  summary{cursor:pointer; list-style:none; padding:14px 16px; display:flex; align-items:center; gap:11px;
+    font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft);}
+  summary::-webkit-details-marker{display:none;}
+  summary .chev{width:8px; height:8px; border-right:2px solid var(--a2-deep); border-bottom:2px solid var(--a2-deep);
+    transform:rotate(-45deg); transition:.25s; flex:none; margin-left:2px;}
+  details[open] summary .chev{transform:rotate(45deg);}
+  summary:hover{color:var(--ink);}
+  .body{padding:2px 16px 18px;}
+  table{border-collapse:collapse; width:100%; font-size:13px; margin:4px 0 12px;}
+  th,td{border-bottom:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top;}
+  th{font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft); font-weight:600;}
+  td:first-child{color:var(--a2-deep); font-weight:600; white-space:nowrap;}
+  .body p{color:var(--soft);}
+  .body ul{margin:6px 0; padding-left:18px;} .body li{margin:5px 0;}
+  code{font-family:var(--mono); font-size:12px; background:#edeae0; padding:1px 6px; border-radius:3px; color:var(--a2-deep);}
+  a{color:var(--a2-deep); text-underline-offset:3px;}
+  .chips{display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px;}
+  .chip{font-family:var(--mono); font-size:10.5px; letter-spacing:.05em; color:var(--soft); border:1px solid var(--line); border-radius:999px; padding:3px 10px;}
+  .foot{margin-top:30px; padding-top:15px; border-top:1px solid var(--line);
+    display:flex; justify-content:space-between; font-family:var(--mono); font-size:10px;
+    letter-spacing:.13em; text-transform:uppercase; color:var(--faint);}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="eyebrow reveal">
+    <span class="dot"></span>
+    <span class="id">research-14</span>
+    <span>Research Note</span>
+    <span class="status">completed</span>
+  </div>
+  <h1 class="reveal" style="animation-delay:.05s">모놀리스 아키텍처 보완 맥락 조사</h1>
+  <p class="dek reveal" style="animation-delay:.09s">사용자 질문: "어떤 것을 보완하기 위해 모놀리스라는 아키텍처가 달성되었을까"</p>
+
+  <div class="hr reveal" style="animation-delay:.12s"></div>
+
+  <div class="axis ax1 reveal" style="animation-delay:.16s">
+    <div class="label"><span class="n">01</span> 무엇을 조사했나</div>
+    <div class="text">모놀리스 이전 소프트웨어가 겪던 <b>분산·배포·운영 조율 문제</b>와, 단일 프로세스 구조가 이를 어떻게 자연스럽게 해결했는지의 역사적 맥락</div>
+  </div>
+
+  <div class="axis ax2 reveal" style="animation-delay:.22s">
+    <div class="label"><span class="n">02</span> 핵심 결과</div>
+    <div class="text"><b>"모놀리스"는 의도된 아키텍처가 아니라 사후 명명</b>이며, 분산 실패·네트워크 오버헤드·배포 복잡도를 자연스럽게 제거한 당시의 기본값이었다. 마이크로서비스 담론(2012–2014)이 이 용어를 소급 부여했다.</div>
+    <ol class="find">
+      <li>보완한 것: 분산 실패, 네트워크 오버헤드, 복잡한 배포 파이프라인, 분산 트랜잭션 없이 ACID 가능</li>
+      <li>얻은 것: 단순한 개발 모델, 빠른 함수 호출 성능, 단일 배포 아티팩트, 쉬운 디버깅</li>
+      <li>나중에 생긴 한계: 선택적 확장 불가, 기술 스택 고정, Conway's Law 충돌, 장애 확산</li>
+      <li>"모놀리스"는 1960–1990년대에 존재했지만, 그 이름은 2012–2014년에야 붙여졌다</li>
+      <li>현재는 "Modular Monolith"가 의도적 선택으로 재평가되는 중</li>
+    </ol>
+  </div>
+
+  <div class="reveal" style="animation-delay:.27s">
+  <details open>
+    <summary><span class="chev"></span> 상세 조사 내용</summary>
+    <div class="body">
+      <table>
+        <tr><th>구분</th><th>내용</th></tr>
+        <tr><td>보완한 것</td><td>분산 실패(partial failure), 네트워크 지연·오버헤드, 직렬화/역직렬화 비용, 서비스 간 인증, 분산 트랜잭션 복잡성, 배포 파이프라인 복잡도</td></tr>
+        <tr><td>얻은 것</td><td>인프로세스 함수 호출(μs 단위), 단일 DB ACID 트랜잭션, 단일 빌드 아티팩트, 단일 런타임 모니터링, 단일 IDE 디버거 적용 가능</td></tr>
+        <tr><td>나중에 생긴 한계</td><td>병목 컴포넌트만 선택 확장 불가, 기술 스택 고정(언어·런타임), 대형 팀 코드 충돌(Conway's Law), 배포 단위가 커서 롤백 위험 증가, 인지 부하 증가, 단일 장애점</td></tr>
+        <tr><td>역사적 맥락</td><td>1960–1990s: 단일 프로세스가 기본값 / 2000s: SOA·ESB 등장 / 2012–2014: 마이크로서비스 담론 부상, "monolith" 소급 명명 / 2016–현재: Modular Monolith 재평가</td></tr>
+      </table>
+      <p>사후 명명 근거: Sam Newman, Martin Fowler가 마이크로서비스를 설명하기 위해 대비 개념으로 "monolith"를 사용. Netflix/Amazon 전환 사례(2012–2014)가 트리거.</p>
+      <p>현재 재평가: Shopify, Stack Overflow, DHH(Rails creator)가 모놀리스의 단순성 장점을 재조명. "Modular Monolith" 패턴이 소규모 팀의 합리적 선택으로 인정됨.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="chev"></span> 실행 메타 · 산출물</summary>
+    <div class="body">
+      <div class="chips">
+        <span class="chip">2026-06-16T06:00Z</span>
+        <span class="chip">Infinity Heartbeat</span>
+        <span class="chip">active → archived</span>
+      </div>
+      <ul>
+        <li>아티팩트 <code>artifacts/research-14/monolith-architecture-context-2026-06-16.md</code></li>
+        <li>아카이브 <code>intents/archive/research-14.md</code></li>
+        <li>공개 발송·코드·배포·외부 계정 액션 0</li>
+      </ul>
+    </div>
+  </details>
+  </div>
+
+  <div class="foot reveal" style="animation-delay:.3s">
+    <span>Agent-First Heartbeat</span>
+    <span>Infinity · Intent Note</span>
+  </div>
+</div>
+</body>
+</html>
