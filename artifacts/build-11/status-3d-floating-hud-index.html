@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Status — shdkej</title>
+<style>
+/* ── Reset ─────────────────────────────────────── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html,body{height:100%;overflow:hidden;}
+
+/* ── 3D Deep Space Background ──────────────────── */
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Helvetica Neue",sans-serif;
+  background:
+    radial-gradient(ellipse 140% 70% at 15% 85%, rgba(12,4,68,.9) 0%,transparent 55%),
+    radial-gradient(ellipse 90% 55% at 85% 10%, rgba(25,8,80,.75) 0%,transparent 48%),
+    radial-gradient(ellipse 55% 40% at 55% 50%, rgba(4,15,55,.55) 0%,transparent 60%),
+    linear-gradient(150deg,#04061a 0%,#080d22 30%,#060a1c 65%,#020409 100%);
+  color:rgba(255,255,255,.88);
+}
+
+/* optional raster 3D image layer — set opacity to 0.7-0.9 if assets/status-3d-bg.png exists */
+body::before{
+  content:"";position:fixed;inset:0;
+  background:url('assets/status-3d-bg.png') center/cover no-repeat;
+  opacity:0;z-index:0;pointer-events:none;
+  transition:opacity 1s;
+}
+
+/* ── Star layers (pure CSS parallax) ───────────── */
+.stars,.stars2,.stars3{
+  position:fixed;inset:0;pointer-events:none;z-index:0;
+  background-repeat:repeat;animation:starDrift linear infinite;
+}
+.stars{
+  background-image:
+    radial-gradient(1px 1px at 8% 12%,rgba(255,255,255,.7) 0%,transparent 0%),
+    radial-gradient(1px 1px at 23% 38%,rgba(255,255,255,.5) 0%,transparent 0%),
+    radial-gradient(1px 1px at 41% 7%,rgba(255,255,255,.6) 0%,transparent 0%),
+    radial-gradient(1px 1px at 57% 22%,rgba(255,255,255,.4) 0%,transparent 0%),
+    radial-gradient(1px 1px at 72% 55%,rgba(255,255,255,.6) 0%,transparent 0%),
+    radial-gradient(1px 1px at 88% 14%,rgba(255,255,255,.5) 0%,transparent 0%),
+    radial-gradient(1px 1px at 35% 62%,rgba(255,255,255,.7) 0%,transparent 0%),
+    radial-gradient(1px 1px at 65% 80%,rgba(255,255,255,.4) 0%,transparent 0%),
+    radial-gradient(1px 1px at 12% 75%,rgba(255,255,255,.5) 0%,transparent 0%),
+    radial-gradient(1px 1px at 92% 68%,rgba(255,255,255,.6) 0%,transparent 0%),
+    radial-gradient(1.5px 1.5px at 49% 45%,rgba(255,255,255,.8) 0%,transparent 0%),
+    radial-gradient(1px 1px at 78% 33%,rgba(200,210,255,.5) 0%,transparent 0%),
+    radial-gradient(1px 1px at 18% 90%,rgba(255,255,255,.4) 0%,transparent 0%),
+    radial-gradient(1px 1px at 53% 93%,rgba(255,255,255,.5) 0%,transparent 0%),
+    radial-gradient(2px 2px at 82% 88%,rgba(255,255,255,.6) 0%,transparent 0%);
+  background-size:800px 800px;animation-duration:160s;
+}
+.stars2{
+  background-image:
+    radial-gradient(1px 1px at 15% 20%,rgba(255,255,255,.5) 0%,transparent 0%),
+    radial-gradient(1px 1px at 45% 30%,rgba(200,220,255,.6) 0%,transparent 0%),
+    radial-gradient(1px 1px at 70% 10%,rgba(255,255,255,.4) 0%,transparent 0%),
+    radial-gradient(1px 1px at 90% 45%,rgba(255,255,255,.5) 0%,transparent 0%),
+    radial-gradient(2px 2px at 30% 70%,rgba(255,255,255,.7) 0%,transparent 0%),
+    radial-gradient(1px 1px at 62% 88%,rgba(255,255,255,.5) 0%,transparent 0%),
+    radial-gradient(1px 1px at 5% 50%,rgba(200,200,255,.6) 0%,transparent 0%),
+    radial-gradient(1px 1px at 38% 95%,rgba(255,255,255,.4) 0%,transparent 0%),
+    radial-gradient(1.5px 1.5px at 85% 75%,rgba(255,255,255,.7) 0%,transparent 0%);
+  background-size:600px 600px;animation-duration:120s;
+}
+.stars3{
+  background-image:
+    radial-gradient(2px 2px at 20% 15%,rgba(255,255,255,.8) 0%,transparent 0%),
+    radial-gradient(1px 1px at 55% 60%,rgba(200,230,255,.9) 0%,transparent 0%),
+    radial-gradient(1.5px 1.5px at 75% 40%,rgba(255,255,255,.7) 0%,transparent 0%),
+    radial-gradient(2px 2px at 10% 80%,rgba(255,255,255,.6) 0%,transparent 0%),
+    radial-gradient(1px 1px at 95% 20%,rgba(220,220,255,.8) 0%,transparent 0%);
+  background-size:1200px 1200px;animation-duration:220s;
+}
+@keyframes starDrift{from{background-position:0 0;}to{background-position:800px 600px;}}
+
+/* ── Glass utility ──────────────────────────────── */
+.glass{
+  background:rgba(255,255,255,.055);
+  backdrop-filter:blur(16px) saturate(160%);
+  -webkit-backdrop-filter:blur(16px) saturate(160%);
+  border:1px solid rgba(255,255,255,.11);
+}
+
+/* ── Status dot ─────────────────────────────────── */
+.dot{display:inline-block;border-radius:50%;flex-shrink:0;box-shadow:0 0 8px currentColor;}
+.dot.ok{background:#4ade80;color:#4ade80;}
+.dot.warn{background:#facc15;color:#facc15;}
+.dot.err{background:#f87171;color:#f87171;}
+.dot.unknown{background:rgba(255,255,255,.3);color:rgba(255,255,255,.3);box-shadow:none;}
+
+/* ── Floating Nav Rail ──────────────────────────── */
+.nav{
+  position:fixed;top:14px;left:50%;transform:translateX(-50%);
+  width:min(94vw,920px);border-radius:18px;z-index:100;
+  padding:11px 20px;
+  display:flex;align-items:center;gap:14px;
+  animation:navIn .6s ease forwards;opacity:0;
+}
+@keyframes navIn{from{opacity:0;transform:translateX(-50%) translateY(-6px);}to{opacity:1;transform:translateX(-50%) translateY(0);}}
+.nav .site{
+  font-size:11px;letter-spacing:.07em;color:rgba(255,255,255,.42);
+  font-family:ui-monospace,"SF Mono",monospace;white-space:nowrap;
+}
+.nav .overall{
+  display:flex;align-items:center;gap:8px;flex:1;justify-content:center;
+}
+.nav .overall .dot{width:7px;height:7px;}
+.nav .overall-text{font-size:13px;font-weight:500;color:rgba(255,255,255,.82);}
+.nav .ts{
+  font-size:10.5px;color:rgba(255,255,255,.3);
+  font-family:ui-monospace,"SF Mono",monospace;white-space:nowrap;
+}
+
+/* ── Central HUD Score ──────────────────────────── */
+.hud{
+  position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);
+  border-radius:24px;padding:32px 44px;text-align:center;
+  z-index:50;min-width:170px;
+  animation:hudIn .9s ease .2s forwards;opacity:0;
+}
+@keyframes hudIn{from{opacity:0;transform:translate(-50%,-53%) scale(.96);}to{opacity:1;transform:translate(-50%,-50%) scale(1);}}
+.hud .score-num{
+  font-size:76px;font-weight:700;line-height:1;
+  background:linear-gradient(135deg,#fff 40%,rgba(150,200,255,.75));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  letter-spacing:-2px;
+}
+.hud .score-label{
+  font-size:10px;letter-spacing:.24em;text-transform:uppercase;
+  color:rgba(255,255,255,.34);margin-top:8px;
+  font-family:ui-monospace,"SF Mono",monospace;
+}
+
+/* ── Floating Tile Cluster ──────────────────────── */
+.tiles{
+  position:fixed;bottom:18px;left:50%;transform:translateX(-50%);
+  width:min(96vw,920px);
+  display:flex;gap:10px;z-index:100;
+  animation:tilesIn .7s ease .15s forwards;opacity:0;
+}
+@keyframes tilesIn{from{opacity:0;transform:translateX(-50%) translateY(10px);}to{opacity:1;transform:translateX(-50%) translateY(0);}}
+.tile{flex:1;border-radius:16px;padding:14px 16px;cursor:default;transition:background .2s;}
+.tile:hover{background:rgba(255,255,255,.09);}
+.tile .t-label{
+  font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;
+  color:rgba(255,255,255,.35);margin-bottom:9px;
+  font-family:ui-monospace,"SF Mono",monospace;
+}
+.tile .t-rows{display:flex;flex-direction:column;gap:5px;min-height:60px;}
+.t-row{display:flex;align-items:center;gap:7px;}
+.t-row .dot{width:5px;height:5px;}
+.t-row .rname{color:rgba(255,255,255,.62);flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:12px;}
+.t-row .rval{color:rgba(255,255,255,.38);font-family:ui-monospace,"SF Mono",monospace;font-size:10.5px;white-space:nowrap;}
+.t-empty{color:rgba(255,255,255,.25);font-size:11.5px;line-height:2;}
+
+/* ── Mobile ─────────────────────────────────────── */
+@media(max-width:620px){
+  .nav{top:10px;padding:9px 14px;border-radius:14px;}
+  .nav .ts{display:none;}
+  .nav .site{display:none;}
+  .hud .score-num{font-size:58px;}
+  .hud{padding:24px 30px;}
+  .tiles{bottom:12px;gap:7px;}
+  .tile{padding:12px 11px;}
+  .t-row .rname{font-size:11px;}
+}
+</style>
+</head>
+<body>
+
+<div class="stars"></div>
+<div class="stars2"></div>
+<div class="stars3"></div>
+
+<!-- Floating Navigation Rail -->
+<nav class="nav glass">
+  <span class="site">status.aws.shdkej.com</span>
+  <div class="overall">
+    <span class="dot unknown" id="ovDot"></span>
+    <span class="overall-text" id="ovText">Loading&hellip;</span>
+  </div>
+  <time class="ts" id="tsEl"></time>
+</nav>
+
+<!-- Central HUD Score -->
+<div class="hud glass">
+  <div class="score-num" id="scoreNum">--</div>
+  <div class="score-label">Operational</div>
+</div>
+
+<!-- Bottom Floating Tile Cluster -->
+<div class="tiles">
+  <div class="tile glass">
+    <div class="t-label">Live Checks</div>
+    <div class="t-rows" id="liveRows"><div class="t-empty">Loading&hellip;</div></div>
+  </div>
+  <div class="tile glass">
+    <div class="t-label">Surfaces</div>
+    <div class="t-rows" id="surfaceRows"><div class="t-empty">Loading&hellip;</div></div>
+  </div>
+  <div class="tile glass">
+    <div class="t-label">Agent Lane</div>
+    <div class="t-rows" id="agentRows"><div class="t-empty">Loading&hellip;</div></div>
+  </div>
+</div>
+
+<script>
+(function(){
+  function sc(s){
+    if(s===true||s==='ok'||s==='healthy'||s==='up'||s===200)return 'ok';
+    if(s==='warn'||s==='degraded'||s==='slow')return 'warn';
+    if(s===false||s==='err'||s==='error'||s==='down')return 'err';
+    return 'unknown';
+  }
+  function row(name,status,val){
+    return '<div class="t-row"><span class="dot '+sc(status)+'"></span>'
+      +'<span class="rname">'+name+'</span>'
+      +(val?'<span class="rval">'+val+'</span>':'')
+      +'</div>';
+  }
+  function fill(id,items,nameKey,statusKey,valKey){
+    var el=document.getElementById(id);
+    if(!items||!items.length){el.innerHTML='<div class="t-empty">None</div>';return;}
+    el.innerHTML=items.slice(0,6).map(function(i){
+      return row(i[nameKey]||i.name||i.id||i.label||'—',i[statusKey]||i.status,valKey?i[valKey]:null);
+    }).join('');
+  }
+
+  fetch('status.json').then(function(r){return r.json();}).then(function(d){
+    /* overall */
+    var st=sc(d.overall_status||d.status||d.overall_ok);
+    var dot=document.getElementById('ovDot');
+    dot.className='dot '+st;
+    document.getElementById('ovText').textContent=d.overall_message||d.message||(st==='ok'?'All Systems Operational':st==='warn'?'Partial Degradation':'Service Disruption');
+
+    /* timestamp */
+    var ts=d.generated_at||d.timestamp||d.ts||d.updated_at;
+    if(ts){
+      try{
+        var dt=new Date(ts);
+        document.getElementById('tsEl').textContent=dt.toUTCString().replace(' GMT','Z');
+      }catch(e){document.getElementById('tsEl').textContent=ts;}
+    }
+
+    /* score from live checks */
+    var checks=d.checks||d.live_checks||d.services||[];
+    var okCount=checks.filter(function(c){return sc(c.status||c.ok)===ok;}).length;
+    /* fallback: count anything not err */
+    var goodCount=checks.filter(function(c){var s=sc(c.status||c.ok||c.health);return s!=='err';}).length;
+    var total=checks.length||1;
+    var pct=Math.round((goodCount/total)*100);
+    document.getElementById('scoreNum').textContent=pct||'--';
+
+    fill('liveRows',   checks,                        'name','status','ms');
+    fill('surfaceRows',d.surfaces||d.endpoints||[],   'name','status','http_status');
+    fill('agentRows',  d.agents||d.agent_lane||d.lane||[], 'name','status','last_run');
+  }).catch(function(){
+    document.getElementById('ovDot').className='dot err';
+    document.getElementById('ovText').textContent='Status feed unavailable';
+    document.getElementById('scoreNum').textContent='?';
+    ['liveRows','surfaceRows','agentRows'].forEach(function(id){
+      document.getElementById(id).innerHTML='<div class="t-empty">Feed error</div>';
+    });
+  });
+})();
+</script>
+</body>
+</html>
