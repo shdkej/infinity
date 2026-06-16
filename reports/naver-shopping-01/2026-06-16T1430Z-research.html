@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>naver-shopping-01 — 1688 손목 스트랩 소싱 사전 조회</title>
+<style>
+  :root{
+    --bg:#f4f2ea; --panel:#fbfaf5; --ink:#2c2a25; --soft:#807c70; --faint:#a8a496; --line:#e3dfd2;
+    --a2:#5f7a5e; --a2-deep:#3f5740;
+    --a1:#5a6f8a; --a1-deep:#3f536e;
+    --sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;}
+  body{background:var(--bg); color:var(--ink); font-family:var(--sans); font-size:14px; line-height:1.68; -webkit-font-smoothing:antialiased;}
+  .sheet{max-width:720px; margin:0 auto; padding:48px 34px 46px;}
+  .reveal{opacity:0; animation:fade .7s ease forwards;}
+  @keyframes fade{from{opacity:0; transform:translateY(9px);} to{opacity:1; transform:none;}}
+  .eyebrow{display:flex; align-items:center; gap:10px; font-family:var(--mono); font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--soft);}
+  .eyebrow .id{color:var(--a2-deep); font-weight:600;}
+  .eyebrow .dot{width:5px; height:5px; border-radius:50%; background:var(--a2);}
+  .eyebrow .status{margin-left:auto; color:var(--a2-deep);}
+  h1{font-size:29px; line-height:1.3; font-weight:700; letter-spacing:-.01em; margin:20px 0 0;}
+  .dek{font-size:15.5px; color:var(--soft); margin:13px 0 0; max-width:52ch;}
+  .hr{height:1px; background:var(--line); margin:30px 0;}
+  .axis{padding:0 0 4px 22px; position:relative; margin-bottom:30px;}
+  .axis::before{content:""; position:absolute; left:0; top:6px; bottom:6px; width:2px; border-radius:2px;}
+  .axis.ax1::before{background:var(--a1);} .axis.ax2::before{background:var(--a2);}
+  .axis.ax1{--ul:var(--a1);} .axis.ax2{--ul:var(--a2);}
+  .axis .label{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase; margin-bottom:9px; display:flex; align-items:center; gap:8px;}
+  .axis.ax1 .label{color:var(--a1-deep);} .axis.ax2 .label{color:var(--a2-deep);}
+  .axis .label .n{font-weight:600; opacity:.6;}
+  .axis .text{font-size:18px; line-height:1.6; color:#37352e;}
+  .axis .text b{font-weight:700; color:var(--ink); border-bottom:2px solid var(--ul);}
+  ol.find{list-style:none; counter-reset:f; margin:16px 0 0; padding:0;}
+  ol.find li{position:relative; padding:8px 0 8px 26px; font-size:15px; color:#37352e; border-top:1px solid var(--line);}
+  ol.find li:first-child{border-top:none;}
+  ol.find li::before{counter-increment:f; content:counter(f); position:absolute; left:0; top:9px; font-family:var(--mono); font-size:12px; font-weight:600; color:var(--a1-deep);}
+  details{border:1px solid var(--line); border-radius:10px; background:var(--panel); margin-bottom:10px;}
+  summary{cursor:pointer; list-style:none; padding:14px 16px; display:flex; align-items:center; gap:11px; font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft);}
+  summary::-webkit-details-marker{display:none;}
+  summary .chev{width:8px; height:8px; border-right:2px solid var(--a2-deep); border-bottom:2px solid var(--a2-deep); transform:rotate(-45deg); transition:.25s; flex:none; margin-left:2px;}
+  details[open] summary .chev{transform:rotate(45deg);}
+  summary:hover{color:var(--ink);}
+  .body{padding:2px 16px 18px;}
+  table{border-collapse:collapse; width:100%; font-size:13px; margin:4px 0 12px;}
+  th,td{border-bottom:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top;}
+  th{font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft); font-weight:600;}
+  td:first-child{color:var(--a2-deep); font-weight:600; white-space:nowrap;}
+  .body p{color:var(--soft); margin:10px 0 6px;}
+  .body ul{margin:6px 0; padding-left:18px;} .body li{margin:5px 0;}
+  code{font-family:var(--mono); font-size:12px; background:#edeae0; padding:1px 6px; border-radius:3px; color:var(--a2-deep);}
+  .foot{margin-top:30px; padding-top:15px; border-top:1px solid var(--line); display:flex; justify-content:space-between; font-family:var(--mono); font-size:10px; letter-spacing:.13em; text-transform:uppercase; color:var(--faint);}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="eyebrow reveal">
+    <span class="dot"></span>
+    <span class="id">naver-shopping-01</span>
+    <span>Research Note</span>
+    <span class="status">active · sourcing-first</span>
+  </div>
+  <h1 class="reveal" style="animation-delay:.05s">1688 손목 스트랩 소싱 사전 조회</h1>
+  <p class="dek reveal" style="animation-delay:.09s">手机防丢绳 手腕 — 클라우드 공개 데이터 조회, 로컬 샘플 주문 준비</p>
+
+  <div class="hr reveal" style="animation-delay:.12s"></div>
+
+  <div class="axis ax1 reveal" style="animation-delay:.16s">
+    <div class="label"><span class="n">01</span> 🔍 무엇을 조사했나</div>
+    <div class="text">1688.com <b>手机防丢绳 / 手腕绳 / 手机挂绳</b> 도매 단가·MOQ·소재·공급처 분포 — 소싱 마찰 스크린 후속 클라우드 사전 조회</div>
+  </div>
+
+  <div class="axis ax2 reveal" style="animation-delay:.22s">
+    <div class="label"><span class="n">02</span> 📊 핵심 결과</div>
+    <div class="text">소싱가 <b>CNY 0.1~3.8 (약 18~690 KRW)</b>, 나일론/폴리에스터 단순 구조; 목표 단가 CNY ≤5, MOQ ≤50개 충족 가능. <b>로컬 브라우저 실행으로 샘플 주문 준비 완료</b></div>
+    <ol class="find">
+      <li>나일론 폴리에스터 단순 손목 스트랩: CNY 0.10~1.50 — 최저가 구간</li>
+      <li>조절 클립 + 나일론 혼합: CNY 0.68~3.80 — 권장 구간</li>
+      <li>PU 가죽 손목 스트랩: CNY 1.00~10.26 — 프리미엄</li>
+      <li>공급처 허브: 둥관(东莞), 선전(深圳), 이우(义乌), 허베이(河北)</li>
+    </ol>
+  </div>
+
+  <div class="reveal" style="animation-delay:.27s">
+  <details open>
+    <summary><span class="chev"></span> 조회 상세 및 다음 액션</summary>
+    <div class="body">
+      <p><strong>1688 공개 데이터 요약</strong></p>
+      <table>
+        <tr><th>소재</th><th>단가 (CNY)</th><th>한화 환산</th><th>평가</th></tr>
+        <tr><td>폴리에스터 단순형</td><td>0.10~1.50</td><td>18~273 KRW</td><td>GREEN — 마진 최우수</td></tr>
+        <tr><td>나일론 + 조절 클립</td><td>0.68~3.80</td><td>124~690 KRW</td><td>GREEN — 권장 (내구성↑)</td></tr>
+        <tr><td>PU 가죽</td><td>1.00~10.26</td><td>182~1,866 KRW</td><td>YELLOW — 프리미엄용</td></tr>
+        <tr><td>중국직구 혼합 세트</td><td>2.25~6.72</td><td>409~1,222 KRW</td><td>YELLOW — 옵션 복잡도 주의</td></tr>
+      </table>
+
+      <p><strong>샘플 주문 기준</strong></p>
+      <ul>
+        <li>검색어: <code>手机防丢绳 手腕</code> 또는 <code>手腕绳 手机 防丢</code></li>
+        <li>목표 단가: CNY ≤3 (≈545 KRW) — 판매가 6,900~9,900 KRW 시 마진 5,000~7,000 KRW</li>
+        <li>목표 MOQ: ≤50개 (총 소싱 비용 ≤150,000 KRW 유지)</li>
+        <li>우선 컬러: 블랙, 네이비 (범용 색상)</li>
+        <li>소재 우선순위: 나일론+조절 클립 → 폴리에스터 단순형</li>
+        <li>인증 필터: 알리바바 2년+ 인증 공급사 또는 "Must-Find Factory 2026" 등재</li>
+      </ul>
+
+      <p><strong>다음 단계 (로컬 실행 필요)</strong></p>
+      <ul>
+        <li>1688.com 브라우저 접속 → <code>手机防丢绳 手腕</code> 검색</li>
+        <li>단가 CNY ≤3, MOQ ≤50 필터 적용</li>
+        <li>2~3개 공급사 비교 (리뷰 50건+, 최근 거래 있는 곳)</li>
+        <li>나일론+조절 클립 블랙/네이비 샘플 주문</li>
+        <li>예상 배송: 10~15일 → 수령 후 QA → 스마트스토어 상품 등록 검토</li>
+      </ul>
+
+      <p><strong>Waiting 상태 유지 항목</strong> (변경 없음)</p>
+      <ul>
+        <li>Commerce ID 로그인 확인 (user-session-needed)</li>
+        <li>read-only 브라우저 접근 (user-session-needed)</li>
+        <li>라이브 상품등록·광고·결제·계정 액션: 0 (변동 없음)</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="chev"></span> 실행 메타 · 산출물</summary>
+    <div class="body">
+      <div style="display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px;">
+        <span style="font-family:var(--mono); font-size:10.5px; color:var(--soft); border:1px solid var(--line); border-radius:999px; padding:3px 10px;">2026-06-16T1430Z</span>
+        <span style="font-family:var(--mono); font-size:10.5px; color:var(--soft); border:1px solid var(--line); border-radius:999px; padding:3px 10px;">Heartbeat · cloud research L0</span>
+        <span style="font-family:var(--mono); font-size:10.5px; color:var(--soft); border:1px solid var(--line); border-radius:999px; padding:3px 10px;">active → active (research done)</span>
+      </div>
+      <ul>
+        <li>선행: sourcing-friction-screen-2026-06-15.md (artifacts/naver-shopping-01/)</li>
+        <li>이번 리포트: 공개 웹 기반 1688 단가·MOQ 사전 조회 (L0)</li>
+        <li>다음 단계: 로컬 브라우저로 1688.com 실제 샘플 조회 + 주문 (user session required)</li>
+        <li>라이브 커머스 액션 0</li>
+      </ul>
+    </div>
+  </details>
+  </div>
+
+  <div class="foot reveal" style="animation-delay:.3s">
+    <span>Agent-First Heartbeat</span>
+    <span>Infinity · naver-shopping-01</span>
+  </div>
+</div>
+</body>
+</html>
