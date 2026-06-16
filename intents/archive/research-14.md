@@ -16,7 +16,7 @@
     role: final
 - commits:
   - repo: infinity
-    sha: 2b8c333
+    sha: 2992ae5
     note: research-14 artifact/report/archive update
 - urls:
   - url: https://martinfowler.com/articles/microservices.html
