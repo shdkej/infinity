@@ -12,7 +12,7 @@
 
 ## Follow-Up Action
 
-Status dashboard restore is handled in Space repo by restoring the Status static files to the closest pre-glass state around 2026-06-16 11:00 UTC, using `8fdb46e` as the source for `sites/status/dist/index.html` and `sites/status/dist/status.json`, and removing the Hers/glass background image asset added by `a415066`.
+Status dashboard restore was first attempted to the closest pre-glass state (`8fdb46e`), but the user corrected that the intended next version was the one with the background image. Final Status state is restored to the `a415066` background-image version and deployed through Space commit `565cb67`.
 
 ## Boundary
 
