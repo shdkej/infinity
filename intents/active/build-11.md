@@ -1,23 +1,45 @@
 # build-11: Status 3D Full-Image Floating Menu Redesign
 
 - id: build-11
-- status: active
+- status: in_progress
 - projects: [infinity, personal-ops, infrastructure]
 - task_type: implementation
 - topics: [status, dashboard, ui, 3d-background, floating-menu]
 - owner: Infinity
 - display_name: Status 3D Full-Image Floating Menu Redesign
 - created_at: 2026-06-16T11:30Z
+- updated_at: 2026-06-16T12:30Z
 - source: user correction after build-10 — "음 이 느낌이 아니야"
 - predecessor: build-10
 - target_repo: `/home/ubuntu/workspace/space/infra-aws-static-sites`
 - target_surface: `https://status.aws.shdkej.com`
 - target_files:
   - `sites/status/dist/index.html`
+  - `sites/status/dist/assets/bg-3d.jpg` ← 신규 필요
   - `sites/status/dist/status.json`
-  - `sites/status/dist/assets/`
 
-## User Feedback
+## Current State (2026-06-16T12:30Z)
+
+**Prepare 완료.** Cloud Heartbeat가 3D full-bleed background + floating HUD/nav 구조로 index-draft.html 초안 작성 완료.
+
+- 초안: `artifacts/build-11/index-draft.html`
+- 리포트: `reports/build-11/2026-06-16T1230Z-prepare.html`
+
+**다음 단계 (execute_local)**: 로컬 Claude Code에서 아래를 순서대로 실행.
+
+1. `artifacts/build-11/index-draft.html` → `sites/status/dist/index.html` 복사
+2. 3D 배경 이미지 `sites/status/dist/assets/bg-3d.jpg` 생성/배치
+   - 권장: AI 이미지 생성 (dark space, 3D abstract, depth) 또는 CC0 3D render
+   - 최소 1920×1080, jpg/webp
+3. `python3 scripts/build-status-json.py --resolve-aws --check` 로 status.json 최신화
+4. Chromium screenshot — desktop 1440×1100, mobile 390×1200
+   - 3D 이미지가 fullscreen 채우는지 확인
+   - floating rail/HUD/cluster가 이미지 위에 overlay 되는지 확인
+5. S3/CloudFront 배포 및 `https://status.aws.shdkej.com` 원격 확인
+6. 결과 리포트: `reports/build-11/{timestamp}-deploy.html`
+7. 이 파일의 status를 `completed`로 업데이트
+
+## User Feedback (원본)
 
 마스터가 `build-10` 결과에 대해 방향이 다르다고 피드백했다.
 
@@ -27,44 +49,35 @@
 - 포인트는 **3D 풀 이미지가 백그라운드에 있는 것**이다.
 - 메뉴/상태 정보는 그 위에 **살짝 떠 있는 정도**여야 한다.
 - 현재 build-10처럼 glass card와 hero copy가 전면에 오는 구성이 아니다.
-- Infinity로 업데이트해 달라고 요청했다.
 
-## Design Direction
+## Design Direction (Cloud Prepare 산출물)
 
-### Reject From build-10
+### 구조
 
-- 밝은 wellness glass tone 자체는 참고 가능하지만, 현재 구조처럼 큰 headline + 큰 status card + panel grid가 주인공이면 안 된다.
-- 배경 이미지는 장식이 아니라 첫 화면의 주된 시각 자산이어야 한다.
-- 메뉴는 독립 섹션/카드 덩어리보다 floating overlay에 가까워야 한다.
+```
+[FULL VIEWPORT = 3D 배경 이미지/씬]
+  ↑ z:100  nav-rail   — 상단 fixed 48px glass strip (브랜드 + 상태 chips)
+  ↑ z:50   hud-pill   — center floating badge (Overall status + timestamp)
+  ↑ z:50   cluster    — 하단 3-column glass tiles (Checks / Surfaces / Agents)
+```
 
-### Target
+### CSS 핵심
 
-- 첫 viewport는 3D full-bleed scene/image 중심.
-- 3D object/image는 화면 대부분을 차지하고, operational status UI는 그 위에 얇게 레이어링.
-- 메뉴 구조는 재배치:
-  - 상단 또는 측면에 얇은 floating navigation/status rail.
-  - 주요 상태는 compact HUD 형태.
-  - Live Checks / Surfaces / Agent Lane은 하단 또는 측면의 floating drawer/tile cluster로 재구성.
-- 레이아웃은 desktop과 mobile 모두에서 이미지의 존재감이 먼저 보여야 한다.
-- 텍스트는 적게, 상태 정보는 스캔 가능한 메뉴처럼.
+- 배경: `url('assets/bg-3d.jpg') center/cover no-repeat fixed` + aurora gradient CSS fallback
+- Glass: `backdrop-filter: blur(20px) saturate(1.5)` + `rgba(255,255,255,0.06)` bg
+- Live dot: `animation: blink 2.4s ease-in-out infinite` (green glow)
+- 3-column grid: `repeat(3,1fr)`, mobile → 1fr stack
 
-## Implementation Notes
+### status.json 매핑
 
-- 인터넷/레퍼런스 확인은 `3D hero background`, `floating glassmorphism navigation`, `HUD overlay dashboard`, `web 3D background CSS/Three.js` 중심으로 다시 본다.
-- 정적 Status 페이지라면 새 3D-like raster background 생성 또는 lightweight Three.js scene 중 하나를 선택한다.
-- Three.js를 쓰면 모바일/데스크톱 canvas nonblank 검증이 필수다.
-- raster background를 쓰면 `assets/`에 3D full-image를 두고, UI는 absolute/fixed overlay로 얹는다.
-- `status.json` feed 구조는 유지하되 표시 계층을 메뉴형으로 바꾼다.
-
-## Verification Required
-
-- Local render check.
-- Desktop screenshot.
-- Mobile screenshot.
-- Text/menu overlap check.
-- `python3 scripts/build-status-json.py --resolve-aws --check`.
-- Commit/push.
-- Deploy to Status S3/CloudFront and verify remote markers.
+| json 필드 | 표시 위치 |
+|-----------|----------|
+| `issues[]` (active) | HUD pill 색상 + 라벨 |
+| `checked_at` | HUD timestamp |
+| `summary{}` | Rail chips |
+| `checks[]` | 하단 Live Checks tile |
+| `surfaces[]` | 하단 Surfaces tile |
+| `agents[]` | 하단 Agent Lane tile |
 
 ## Boundaries
 

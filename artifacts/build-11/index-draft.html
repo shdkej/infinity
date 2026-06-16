@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Status</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --gb:rgba(255,255,255,0.06);
+  --gb2:rgba(255,255,255,0.10);
+  --border:rgba(255,255,255,0.12);
+  --blur:blur(20px) saturate(1.5);
+  --t:#e8e6f2;
+  --td:rgba(232,230,242,0.55);
+  --g:#4eed85;
+  --w:#f5a623;
+  --r:#f87171;
+  --mono:ui-monospace,"SF Mono",Menlo,monospace;
+  --sans:-apple-system,BlinkMacSystemFont,"Pretendard","Apple SD Gothic Neo",sans-serif;
+}
+html,body{height:100%;overflow:hidden}
+body{
+  font-family:var(--sans);
+  color:var(--t);
+  /* bg-3d.jpg를 로컬에서 assets/ 에 배치하면 자동 적용. 없으면 aurora gradient fallback. */
+  background:
+    url('assets/bg-3d.jpg') center/cover no-repeat fixed,
+    radial-gradient(ellipse at 22% 32%, rgba(80,25,160,0.88) 0%, transparent 52%),
+    radial-gradient(ellipse at 78% 68%, rgba(15,55,120,0.82) 0%, transparent 52%),
+    radial-gradient(ellipse at 52% 18%, rgba(110,18,55,0.55) 0%, transparent 44%),
+    linear-gradient(158deg, #04040f 0%, #0a0620 42%, #050d18 100%);
+  min-height:100vh;
+}
+
+/* ─── Floating Top Nav Rail ──────────────────────────────── */
+.rail{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  height:48px;padding:0 20px;
+  display:flex;align-items:center;gap:12px;
+  background:var(--gb);
+  backdrop-filter:var(--blur);
+  -webkit-backdrop-filter:var(--blur);
+  border-bottom:1px solid var(--border);
+}
+.rail-brand{
+  display:flex;align-items:center;gap:7px;
+  font-family:var(--mono);font-size:11px;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--td);
+}
+.live-dot{
+  width:5px;height:5px;border-radius:50%;
+  background:var(--g);box-shadow:0 0 8px var(--g);
+  animation:blink 2.4s ease-in-out infinite;
+}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+.rail-sp{flex:1}
+.rail-chips{display:flex;gap:10px;align-items:center}
+.chip-dot{
+  display:flex;align-items:center;gap:5px;
+  font-family:var(--mono);font-size:9px;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--td);
+}
+.d{width:4px;height:4px;border-radius:50%}
+.d-ok{background:var(--g)}.d-warn{background:var(--w)}.d-err{background:var(--r)}
+
+/* ─── Central HUD ────────────────────────────────────────── */
+.hud{
+  position:fixed;
+  top:50%;left:50%;transform:translate(-50%,-58%);
+  z-index:50;text-align:center;
+  display:flex;flex-direction:column;align-items:center;gap:10px;
+}
+.hud-pill{
+  display:inline-flex;align-items:center;gap:9px;
+  background:var(--gb2);
+  backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur);
+  border:1px solid var(--border);border-radius:999px;
+  padding:9px 22px;
+  font-family:var(--mono);font-size:11px;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--td);
+}
+.hud-ts{
+  font-family:var(--mono);font-size:9px;
+  letter-spacing:.10em;text-transform:uppercase;
+  color:var(--td);opacity:.42;
+}
+
+/* ─── Bottom Floating Cluster ────────────────────────────── */
+.cluster{
+  position:fixed;bottom:20px;left:50%;transform:translateX(-50%);
+  z-index:50;width:min(94vw,800px);
+  display:grid;grid-template-columns:repeat(3,1fr);gap:10px;
+}
+.tile{
+  background:var(--gb);
+  backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur);
+  border:1px solid var(--border);border-radius:12px;
+  padding:12px 14px;
+}
+.tl{
+  font-family:var(--mono);font-size:9px;
+  letter-spacing:.16em;text-transform:uppercase;
+  color:var(--td);margin-bottom:9px;
+}
+.tr{
+  display:flex;justify-content:space-between;align-items:center;
+  font-size:11.5px;color:var(--td);
+  padding:3px 0;border-bottom:1px solid rgba(255,255,255,0.04);
+}
+.tr:last-child{border:none}
+.tag{
+  font-family:var(--mono);font-size:9px;
+  padding:1px 6px;border-radius:4px;letter-spacing:.06em;
+}
+.tag-ok{color:var(--g);background:rgba(78,237,133,.10)}
+.tag-warn{color:var(--w);background:rgba(245,166,35,.10)}
+.tag-err{color:var(--r);background:rgba(248,113,113,.10)}
+
+/* ─── Mobile ─────────────────────────────────────────────── */
+@media(max-width:600px){
+  .cluster{grid-template-columns:1fr;bottom:12px;width:90vw}
+  .hud{top:44%;width:90vw}
+  .hud-pill{font-size:10px;padding:8px 18px}
+  .rail-chips .chip-dot:nth-child(n+3){display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- Floating Top Nav Rail -->
+<nav class="rail">
+  <div class="rail-brand"><span class="live-dot"></span>Status</div>
+  <div class="rail-sp"></div>
+  <div class="rail-chips" id="rail-chips">
+    <!-- status.json summary 기반으로 JS가 채움. 없으면 아래 기본값 표시 -->
+    <div class="chip-dot"><span class="d d-ok"></span>infra</div>
+    <div class="chip-dot"><span class="d d-ok"></span>agents</div>
+    <div class="chip-dot"><span class="d d-ok"></span>sites</div>
+  </div>
+</nav>
+
+<!-- Central Status HUD -->
+<div class="hud" id="hud">
+  <div class="hud-pill">
+    <span class="live-dot" id="hud-dot"></span>
+    <span id="hud-label">All Operational</span>
+  </div>
+  <div class="hud-ts" id="hud-ts">—</div>
+</div>
+
+<!-- Bottom Floating Cluster -->
+<div class="cluster" id="cluster">
+  <div class="tile"><div class="tl">Live Checks</div><div id="rows-checks"></div></div>
+  <div class="tile"><div class="tl">Surfaces</div><div id="rows-surfaces"></div></div>
+  <div class="tile"><div class="tl">Agent Lane</div><div id="rows-agents"></div></div>
+</div>
+
+<script>
+/* status.json 구조: { checked_at, issues:[], checks:[], surfaces:[], agents:[], summary:{} }
+   기존 scripts/build-status-json.py 결과를 그대로 사용한다. */
+const mkTag=(ok,txt,cls)=>`<span class="tag ${cls||( ok?'tag-ok':'tag-err')}">${txt}</span>`;
+(async()=>{
+  try{
+    const d=await(await fetch('status.json')).json();
+    // HUD
+    const issues=(d.issues||[]).filter(i=>i.active!==false);
+    const healthy=issues.length===0;
+    if(!healthy){
+      const dot=document.getElementById('hud-dot');
+      dot.style.background='var(--w)';dot.style.boxShadow='0 0 8px var(--w)';
+    }
+    document.getElementById('hud-label').textContent=
+      healthy?'All Operational':`${issues.length} Active Issue${issues.length>1?'s':''}`;
+    const ts=d.checked_at||d.updated_at;
+    if(ts) document.getElementById('hud-ts').textContent=
+      'checked '+new Date(ts).toLocaleString('ko-KR',{timeZone:'Asia/Seoul',hour:'2-digit',minute:'2-digit'});
+    // Rail chips from summary
+    if(d.summary&&Object.keys(d.summary).length){
+      const rc=document.getElementById('rail-chips');
+      rc.innerHTML=Object.entries(d.summary).slice(0,5).map(([k,v])=>
+        `<div class="chip-dot"><span class="d d-${v?'ok':'warn'}"></span>${k}</div>`
+      ).join('');
+    }
+    // Live Checks tile
+    const rchk=document.getElementById('rows-checks');
+    (d.checks||[]).forEach(c=>{
+      rchk.innerHTML+=`<div class="tr"><span>${c.name}</span>${mkTag(c.ok,c.ok?'OK':'FAIL')}</div>`;
+    });
+    // Surfaces tile
+    const rsrf=document.getElementById('rows-surfaces');
+    (d.surfaces||[]).forEach(s=>{
+      rsrf.innerHTML+=`<div class="tr"><span>${s.name}</span>${mkTag(s.ok,s.status||'OK')}</div>`;
+    });
+    // Agent Lane tile
+    const ragt=document.getElementById('rows-agents');
+    (d.agents||[]).forEach(a=>{
+      ragt.innerHTML+=`<div class="tr"><span>${a.name}</span>${mkTag(a.active,'active','tag-ok')}</div>`;
+    });
+  }catch(e){
+    document.getElementById('hud-label').textContent='Status Unavailable';
+    document.getElementById('hud-ts').textContent=e.message;
+  }
+})();
+</script>
+</body>
+</html>
