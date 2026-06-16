@@ -1,7 +1,7 @@
 # naver-shopping-01: 나래(Naver Shopping Agent) 운영/차단 라우팅
 
 - id: naver-shopping-01
-- status: active
+- status: in_progress
 - projects: [naver-shopping, infinity, personal-ops]
 - task_type: coordination
 - topics: [automation, workflow, marketing]
@@ -10,7 +10,7 @@
 - source_agent: `/home/ubuntu/.openclaw/workspace/agents/naver-shopping-agent/`
 - created_at: 2026-06-07T23:24Z
 - updated_at: 2026-06-14T05:45Z
-- updated_at_latest: 2026-06-15T0200Z
+- updated_at_latest: 2026-06-16T0203Z
 
 ## Purpose
 
@@ -18,7 +18,9 @@
 
 ## Current State
 
-- 2026-06-15T0200Z **소싱 마찰 스크린 완료.** 휴대폰 스트랩/테더 3가지(손목·크로스바디·태그홀더) + 압축 파우치 2가지(여행 세트·세탁물 분리)를 소싱 마찰 기준으로 평가. **손목 스트랩(분실·낙하 방지 보조 줄) GREEN: 저마찰·저클레임·안정적 마진.** 압축 파우치 WATCH→HOLD 하향(경쟁 포화 175,568 리스팅 + QA·클레임 부담). 크로스바디 스트랩은 2차 후보(손목 스트랩 샘플 성공 후 재검토). **다음 단계: 1688/타오바오 손목 스트랩 샘플 조회 — 로컈 실행 필요.** 라이브 상품등록/가격·배송·재고/광고·고객·주문·계정·공개발행 0. 산출물: `artifacts/naver-shopping-01/sourcing-friction-screen-2026-06-15.md`; 리포트: `reports/naver-shopping-01/2026-06-15T0200Z-research.html`.
+- 2026-06-16T0203Z **1688 소싱 브리프 완성 (cloud prepare L0).** 손목 스트랩(손목 연결 보조줄) GREEN 판정 이후 로컬 실행 단계 준비. 1688/타오바오 검색어 5종(`手机防丢绳 手腕`, `手腕手机绳`, `手机腕带绳`, `防丢手机绑绳`, `手机挂绳 手腕`), MOQ ≤50개 / 단가 ≤5 CNY 필터, QA 체크포인트 8개, 예상 마진율 74–84%(원가 1,100–1,800 KRW / 판매가 8,900 KRW) 산출. 산출물: `artifacts/naver-shopping-01/1688-sourcing-brief-2026-06-16.md`; 리포트: `reports/naver-shopping-01/2026-06-16T0203Z-research.html`. **다음 단계: 로컬에서 1688 `手机防丢绳 手腕` 검색 → MOQ/단가 필터링 → 2–3개 샘플 주문.** 라이브 커머스/계정/공개발행 0.
+
+- 2026-06-15T0200Z **소싱 마찰 스크린 완료.** 휴대폰 스트랩/테더 3가지(손목·크로스바디·태그홀더) + 압축 파우치 2가지(여행 세트·세탁물 분리)를 소싱 마찰 기준으로 평가. **손목 스트랩(분실·낙하 방지 보조 줄) GREEN: 저마찰·저클레임·안정적 마진.** 압축 파우치 WATCH→HOLD 하향(경쟁 포화 175,568 리스팅 + QA·클레임 부담). 크로스바디 스트랩은 2차 후보(손목 스트랩 샘플 성공 후 재검토). **다음 단계: 1688/타오바오 손목 스트랩 샘플 조회 — 로컬 실행 필요.** 라이브 상품등록/가격·배송·재고/광고·고객·주문·계정·공개발행 0. 산출물: `artifacts/naver-shopping-01/sourcing-friction-screen-2026-06-15.md`; 리포트: `reports/naver-shopping-01/2026-06-15T0200Z-research.html`.
 
 - 2026-06-15T00:14Z **Ready-made sourcing OpenAPI/SearchAd screen completed.** Frozen keyword set was tested with read-only Naver OpenAPI Shopping Search and SearchAd. No user-facing listing/sourcing approval yet. **Phone anti-theft strap / tether component becomes the WATCH lead** because exact SearchAd signal is strongest (`핸드폰도난방지스트랩` 280 PC + 1,500 mobile/mo, mobile CTR 4.26%; `도난방지스트랩` 280 + 1,260/mo, mobile CTR 3.28%) and OpenAPI title language is clean around Europe travel / pickpocket / loss-prevention. **Compression / packing pouch remains WATCH** (`압축파우치` 1,230 PC + 7,020 mobile/mo, mobile CTR 3.21%) but has crowded textile/option/return burden. **Cable/charger pouch drops to HOLD as lead** because exact SearchAd buyer signal is thin despite OpenAPI result breadth. Next safe pass: subtype-level sourcing-friction screen for phone strap/tether and compression pouch before any approval packet. Artifact: `artifacts/naver-shopping-01/ready-made-sourcing-openapi-searchad-screen-2026-06-15.md`; report: `reports/naver-shopping-01/2026-06-15T0014Z-local.html`. Live commerce/account/public actions 0.
 
@@ -47,6 +49,14 @@
 - 2026-06-08T14:39Z read-only test: SmartStore Center stops at Commerce ID login page; public Naver Shopping search IP-restricted.
 
 ## Pending Blockers
+
+### 2026-06-16T0203Z - 1688 샘플 조회 로컬 실행 대기
+
+- route: local-execution-needed
+- status: waiting-for-local
+- blocker: 1688.com 브라우저 접근 + 실제 샘플 주문은 로컬 실행 필요
+- sam_action: 소싱 브리프 완성 (`artifacts/naver-shopping-01/1688-sourcing-brief-2026-06-16.md`). 로컬에서 브라우저로 1688 접속 → `手机防丢绳 手腕` 검색 → MOQ ≤50, 단가 ≤5 CNY 필터 → 샘플 2–3개 주문.
+- work_continues: yes (크로스바디 스트랩 스크린, 상세 페이지 초안 등 병행 가능)
 
 ### 2026-06-08T03:00Z - Commerce ID 확인 필요
 
