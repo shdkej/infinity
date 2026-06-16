@@ -1,13 +1,14 @@
 # build-11: Status 3D Full-Image Floating Menu Redesign
 
 - id: build-11
-- status: active
+- status: in_progress
 - projects: [infinity, personal-ops, infrastructure]
 - task_type: implementation
 - topics: [status, dashboard, ui, 3d-background, floating-menu]
 - owner: Infinity
 - display_name: Status 3D Full-Image Floating Menu Redesign
 - created_at: 2026-06-16T11:30Z
+- updated_at: 2026-06-16T12:00Z
 - source: user correction after build-10 — "음 이 느낌이 아니야"
 - predecessor: build-10
 - target_repo: `/home/ubuntu/workspace/space/infra-aws-static-sites`
@@ -48,6 +49,24 @@
 - 레이아웃은 desktop과 mobile 모두에서 이미지의 존재감이 먼저 보여야 한다.
 - 텍스트는 적게, 상태 정보는 스캔 가능한 메뉴처럼.
 
+## Current Progress (updated 2026-06-16T12:00Z)
+
+**Prepare phase complete.**
+
+- 3D CSS scene 설계 완료: moving perspective grid + glowing orbs + horizon fade
+- Top floating nav rail: glass backdrop, overall status pill, UTC clock
+- Bottom HUD grid: status.json surfaces + agent_lane 자동 파싱, compact dot+name tiles
+- Right side drawer: live_checks, icon(●/◐/○)+name, mobile 숨김
+- 초안 저장: `artifacts/build-11/status-page-draft.html`
+- 리포트: `reports/build-11/2026-06-16T1200Z-prepare.html`
+
+**다음 단계 (execute_local 필요):**
+1. `sites/status/dist/index.html`을 draft로 교체
+2. 브라우저에서 desktop + mobile 스크린샷 확인
+3. `python3 scripts/build-status-json.py --resolve-aws --check` 실행
+4. 커밋 + S3/CloudFront 배포
+5. `https://status.aws.shdkej.com` 원격 확인 후 완료 처리
+
 ## Implementation Notes
 
 - 인터넷/레퍼런스 확인은 `3D hero background`, `floating glassmorphism navigation`, `HUD overlay dashboard`, `web 3D background CSS/Three.js` 중심으로 다시 본다.
@@ -55,6 +74,8 @@
 - Three.js를 쓰면 모바일/데스크톱 canvas nonblank 검증이 필수다.
 - raster background를 쓰면 `assets/`에 3D full-image를 두고, UI는 absolute/fixed overlay로 얹는다.
 - `status.json` feed 구조는 유지하되 표시 계층을 메뉴형으로 바꾼다.
+- **현재 draft는 순수 CSS 3D (Three.js 없음) — 가볍고 정적 S3 배포에 바로 사용 가능.**
+- 실제 3D 이미지 에셋(bg.jpg)이 있으면 `.bg-scene` background-image로 교체해 더 강한 3D 연출 가능.
 
 ## Verification Required
 

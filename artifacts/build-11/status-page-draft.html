@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="ko">
+<!--
+  build-11: Status 3D Full-Image Floating Menu Redesign
+  Design: 3D full-bleed background + floating nav rail + compact HUD overlay
+  Mode: prepare draft — local execution required for final render/deploy
+-->
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Status</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 100%; height: 100%; overflow: hidden; background: #070712; }
+
+  /* ── 3D Background Scene ── */
+  .bg-scene {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    background: radial-gradient(ellipse 120% 80% at 30% 20%, #0d1540 0%, #070712 60%);
+    overflow: hidden;
+  }
+
+  /* Glowing orbs */
+  .orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(90px);
+    animation: orbPulse 8s ease-in-out infinite alternate;
+    will-change: transform, opacity;
+  }
+  .orb-1 {
+    width: 700px; height: 700px;
+    background: radial-gradient(circle, #1a2aff 0%, #0a0a60 60%);
+    top: -220px; left: -150px;
+    opacity: 0.35;
+  }
+  .orb-2 {
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, #6600cc 0%, #220044 60%);
+    bottom: -100px; right: -80px;
+    opacity: 0.3;
+    animation-delay: 3s;
+  }
+  .orb-3 {
+    width: 280px; height: 280px;
+    background: radial-gradient(circle, #0066ff 0%, #001144 60%);
+    top: 35%; left: 45%;
+    opacity: 0.25;
+    animation-delay: 5s;
+  }
+  @keyframes orbPulse {
+    from { transform: scale(1) translate(0, 0); opacity: 0.25; }
+    to   { transform: scale(1.15) translate(20px, -15px); opacity: 0.45; }
+  }
+
+  /* 3D Perspective Grid Floor */
+  .bg-grid {
+    position: absolute;
+    inset: -20% -10%;
+    background-image:
+      linear-gradient(rgba(80, 110, 255, 0.12) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(80, 110, 255, 0.12) 1px, transparent 1px);
+    background-size: 55px 55px;
+    transform: perspective(450px) rotateX(62deg) translateY(30%) scale(2.2);
+    transform-origin: 50% 100%;
+    animation: gridScroll 10s linear infinite;
+    pointer-events: none;
+  }
+  @keyframes gridScroll {
+    from { background-position: 0 0; }
+    to   { background-position: 0 55px; }
+  }
+
+  /* Horizon fade */
+  .bg-fade {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom,
+      #070712 0%,
+      transparent 20%,
+      transparent 55%,
+      #070712 100%
+    );
+    pointer-events: none;
+  }
+
+  /* ── Main Layout Overlay ── */
+  .overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 10;
+    display: grid;
+    grid-template-rows: 52px 1fr 100px;
+    pointer-events: none;
+  }
+  .overlay > * { pointer-events: auto; }
+
+  /* ── Top Nav Rail ── */
+  .nav-rail {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 0 22px;
+    background: rgba(7, 7, 18, 0.72);
+    backdrop-filter: blur(24px) saturate(1.4);
+    -webkit-backdrop-filter: blur(24px) saturate(1.4);
+    border-bottom: 1px solid rgba(80, 110, 255, 0.18);
+  }
+
+  .nav-logo {
+    font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: rgba(160, 180, 255, 0.8);
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+
+  .nav-sep {
+    width: 1px;
+    height: 18px;
+    background: rgba(80, 110, 255, 0.2);
+    flex-shrink: 0;
+  }
+
+  .nav-status-pill {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 4px 13px;
+    border-radius: 999px;
+    background: rgba(0, 255, 130, 0.08);
+    border: 1px solid rgba(0, 255, 130, 0.22);
+    font-size: 11px;
+    font-family: ui-monospace, monospace;
+    letter-spacing: 0.1em;
+    color: rgba(100, 255, 170, 0.9);
+    transition: background 0.4s, border-color 0.4s;
+  }
+  .nav-status-pill.warn {
+    background: rgba(255, 180, 0, 0.08);
+    border-color: rgba(255, 180, 0, 0.22);
+    color: rgba(255, 210, 100, 0.9);
+  }
+  .nav-status-pill.err {
+    background: rgba(255, 60, 80, 0.08);
+    border-color: rgba(255, 60, 80, 0.22);
+    color: rgba(255, 120, 140, 0.9);
+  }
+
+  .status-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #00ff88;
+    box-shadow: 0 0 7px #00ff88;
+    flex-shrink: 0;
+    animation: blink 2.5s ease-in-out infinite;
+  }
+  .warn .status-dot  { background: #ffb800; box-shadow: 0 0 7px #ffb800; }
+  .err  .status-dot  { background: #ff3c50; box-shadow: 0 0 7px #ff3c50; }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.35; }
+  }
+
+  .nav-spacer { flex: 1; }
+
+  .nav-time {
+    font-family: ui-monospace, monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.12em;
+    color: rgba(100, 120, 200, 0.45);
+  }
+
+  /* ── Center (transparent — shows 3D BG) ── */
+  .center { pointer-events: none; }
+
+  /* ── Right Side Drawer (Live Checks) ── */
+  .side-drawer {
+    position: fixed;
+    right: 16px;
+    top: 64px;
+    bottom: 112px;
+    width: 188px;
+    z-index: 20;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    overflow-y: auto;
+    scrollbar-width: none;
+  }
+  .side-drawer::-webkit-scrollbar { display: none; }
+
+  .drawer-label {
+    font-family: ui-monospace, monospace;
+    font-size: 9.5px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(80, 100, 180, 0.5);
+    padding: 0 4px 4px;
+    flex-shrink: 0;
+  }
+
+  .check-item {
+    padding: 8px 12px;
+    border-radius: 9px;
+    background: rgba(7, 7, 25, 0.82);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(80, 110, 255, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11.5px;
+    color: rgba(180, 195, 255, 0.8);
+    transition: border-color 0.2s;
+  }
+  .check-item:hover { border-color: rgba(80, 110, 255, 0.25); }
+  .check-icon { font-size: 11px; flex-shrink: 0; }
+  .check-icon.ok   { color: #00ff88; }
+  .check-icon.warn { color: #ffb800; }
+  .check-icon.err  { color: #ff3c50; }
+
+  /* ── Bottom HUD ── */
+  .hud {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 0 22px 18px;
+    background: linear-gradient(to top,
+      rgba(7, 7, 18, 0.88) 0%,
+      rgba(7, 7, 18, 0.55) 60%,
+      transparent 100%
+    );
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+  }
+
+  .hud-label {
+    font-family: ui-monospace, monospace;
+    font-size: 9.5px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(80, 100, 180, 0.4);
+    margin-bottom: 9px;
+  }
+
+  .hud-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .hud-tile {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 14px;
+    border-radius: 8px;
+    background: rgba(12, 12, 35, 0.85);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border: 1px solid rgba(80, 110, 255, 0.12);
+    min-width: 120px;
+    transition: border-color 0.2s;
+  }
+  .hud-tile:hover { border-color: rgba(80, 110, 255, 0.28); }
+
+  .tile-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .tile-dot.ok   { background: #00ff88; box-shadow: 0 0 5px #00ff8866; }
+  .tile-dot.warn { background: #ffb800; box-shadow: 0 0 5px #ffb80066; }
+  .tile-dot.err  { background: #ff3c50; box-shadow: 0 0 5px #ff3c5066; }
+
+  .tile-name {
+    font-size: 11.5px;
+    color: rgba(180, 195, 255, 0.85);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 130px;
+  }
+
+  /* ── Mobile ── */
+  @media (max-width: 640px) {
+    .overlay { grid-template-rows: 48px 1fr 90px; }
+    .side-drawer { display: none; }
+    .nav-time { display: none; }
+    .hud-grid { gap: 6px; }
+    .hud-tile { min-width: 100px; padding: 6px 10px; }
+    .tile-name { font-size: 10.5px; max-width: 80px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- 3D Background -->
+<div class="bg-scene">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+  <div class="bg-grid"></div>
+  <div class="bg-fade"></div>
+</div>
+
+<!-- Right Side Drawer: Live Checks -->
+<div class="side-drawer" id="sideDrawer">
+  <div class="drawer-label">Live Checks</div>
+</div>
+
+<!-- Main Overlay -->
+<div class="overlay">
+
+  <!-- Top Nav Rail -->
+  <nav class="nav-rail">
+    <span class="nav-logo">Status</span>
+    <div class="nav-sep"></div>
+    <div class="nav-status-pill" id="statusPill">
+      <span class="status-dot"></span>
+      <span id="overallStatus">Operational</span>
+    </div>
+    <div class="nav-spacer"></div>
+    <span class="nav-time" id="clockEl">--:-- UTC</span>
+  </nav>
+
+  <!-- Center: transparent 3D BG visible -->
+  <div class="center"></div>
+
+  <!-- Bottom HUD: Surfaces + Agent Lane -->
+  <footer class="hud">
+    <div class="hud-label" id="hudLabel">Surfaces · Agents</div>
+    <div class="hud-grid" id="hudGrid"></div>
+  </footer>
+
+</div>
+
+<script>
+(function(){
+  /* Clock */
+  function tick() {
+    var d = new Date();
+    var h = ('0'+d.getUTCHours()).slice(-2);
+    var m = ('0'+d.getUTCMinutes()).slice(-2);
+    document.getElementById('clockEl').textContent = h + ':' + m + ' UTC';
+  }
+  setInterval(tick, 1000);
+  tick();
+
+  /* Status helpers */
+  function cls(s) {
+    if (!s) return 'ok';
+    s = String(s).toLowerCase();
+    if (s === 'ok' || s === 'up' || s.includes('operational') || s.includes('healthy') || s.includes('active')) return 'ok';
+    if (s.includes('warn') || s.includes('degraded') || s.includes('partial') || s.includes('slow')) return 'warn';
+    return 'err';
+  }
+  function icon(c) { return c === 'ok' ? '●' : c === 'warn' ? '◐' : '○'; }
+
+  /* Render tiles */
+  function renderTiles(items, container) {
+    items.forEach(function(item) {
+      var name = item.name || item.label || item.id || 'Service';
+      var state = item.status || item.state || 'ok';
+      var c = cls(state);
+      var el = document.createElement('div');
+      el.className = 'hud-tile';
+      el.title = name + ' — ' + state;
+      el.innerHTML =
+        '<span class="tile-dot ' + c + '"></span>' +
+        '<span class="tile-name">' + escHtml(name) + '</span>';
+      container.appendChild(el);
+    });
+  }
+
+  function renderChecks(items, container) {
+    items.forEach(function(item) {
+      var name = item.name || item.label || item.id || 'Check';
+      var state = item.status || item.state || 'ok';
+      var c = cls(state);
+      var el = document.createElement('div');
+      el.className = 'check-item';
+      el.title = name + ' — ' + state;
+      el.innerHTML =
+        '<span class="check-icon ' + c + '">' + icon(c) + '</span>' +
+        '<span>' + escHtml(name) + '</span>';
+      container.appendChild(el);
+    });
+  }
+
+  function escHtml(s) {
+    return String(s)
+      .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  }
+
+  /* Overall status banner */
+  function setOverall(surfaces, agents, checks) {
+    var all = [].concat(surfaces, agents, checks).map(function(i){
+      return i.status || i.state || 'ok';
+    });
+    var pill = document.getElementById('statusPill');
+    var label = document.getElementById('overallStatus');
+    var hasErr  = all.some(function(s){ return cls(s) === 'err'; });
+    var hasWarn = all.some(function(s){ return cls(s) === 'warn'; });
+    if (hasErr) {
+      pill.classList.add('err');
+      label.textContent = 'Degraded';
+    } else if (hasWarn) {
+      pill.classList.add('warn');
+      label.textContent = 'Partial';
+    }
+  }
+
+  /* Load status.json */
+  function load() {
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', './status.json');
+    xhr.onload = function() {
+      if (xhr.status === 200) {
+        try { render(JSON.parse(xhr.responseText)); }
+        catch(e) { fallback(); }
+      } else { fallback(); }
+    };
+    xhr.onerror = function() { fallback(); };
+    xhr.send();
+  }
+
+  function render(data) {
+    var surfaces = data.surfaces || data.Surfaces || [];
+    var agents   = data.agent_lane || data['Agent Lane'] || data.agents || [];
+    var checks   = data.live_checks || data['Live Checks'] || data.checks || [];
+    var hud = document.getElementById('hudGrid');
+    var side = document.getElementById('sideDrawer');
+    /* keep the drawer label */
+    var lbl = side.querySelector('.drawer-label');
+    side.innerHTML = '';
+    if (lbl) side.appendChild(lbl);
+
+    renderTiles(surfaces, hud);
+    renderTiles(agents, hud);
+    renderChecks(checks, side);
+    setOverall(surfaces, agents, checks);
+
+    /* Refresh every 60 seconds */
+    setTimeout(load, 60000);
+  }
+
+  function fallback() {
+    var hud = document.getElementById('hudGrid');
+    hud.innerHTML = '<div class="hud-tile"><span class="tile-dot warn"></span><span class="tile-name">status.json loading…</span></div>';
+    setTimeout(load, 10000);
+  }
+
+  load();
+})();
+</script>
+
+</body>
+</html>
