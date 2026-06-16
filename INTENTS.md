@@ -4,6 +4,8 @@
 
 ## Inbox
 
+<!-- marketing-64 inbox 2026-06-16T22:00Z → intents/inbox/marketing-64.md [display: Virtue Early Behavior Intent Sequence Columns; projects: virtue; type: strategy; topics: plg,activation,behavioral-analytics,prelaunch; source: source/external-links/marketing/2026-06-16-plg-behavioral-intent-signals.md; permission: L1 docs-only; owner-route: Infinity→Claude Code] (Mixpanel 2026 PLG 행동 기반 의도 신호 렌즈를 Virtue prelaunch first-10 관찰 문맥으로 번역. 후보 작업: 기존 first-10/activation 관찰 문서에 `activation event vs intent sequence` 구분과 early_behavior_sequence 컬럼 묶음(첫 탐색 기능, 멈춘 화면, 건너뛴 행동, 저장 후 다음 행동)을 제안한다. 근거: 가입·페이지뷰보다 활성화 정의와 초기 행동 시퀀스가 launch-after 분석 문맥을 만든다. 예상 임팩트: `deed_saved`/`deed_judged` 단일 이벤트 과잉해석 감소, J1-J4별 의도/마찰 판독력 향상. 성공 기준: 신규 이벤트·tracking/privacy·dashboard·public copy·deploy 없이 docs-only 산출물 1개, 기존 marketing-55~63 activation 문서와 충돌 0. 첫 검증 게이트: source note 존재 확인, conflict marker 0, synthetic/test 및 prelaunch low-signal 금지선 유지.) -->
+
 ## Active
 
 <!-- naver-shopping-01 active 2026-06-15T00:14Z → intents/active/naver-shopping-01.md [display: 나래/Narae; projects: naver-shopping,infinity,personal-ops; type: coordination; topics: automation,workflow,marketing; status: active-sourcing-first; approval: user-setup-waiting-visible] (사용자-facing 이름 나래/Narae 확정, 내부 id/path는 naver-shopping-agent 유지. 2026-06-15 ready-made OpenAPI/SearchAd screen 결과: 휴대폰 도난방지 스트랩/테더가 WATCH lead, 압축/패킹 파우치는 WATCH, 케이블/충전기 파우치는 HOLD as lead. 다음 안전 액션은 상품 추천/승인 요청이 아니라 phone strap/tether subtype 및 compression pouch subtype의 소싱 마찰·클레임·옵션·반품 리스크 검증. 사용자 설정이 필요한 SmartStore Commerce ID / 읽기 전용 브라우저 / 공개 Naver Shopping 검색 제한은 Waiting 카드로 별도 노출한다. 라이브 상품등록/가격·배송·재고/광고·고객·주문·계정·공개발행 0. archive 안 함(active 유지).) -->
