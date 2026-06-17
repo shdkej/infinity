@@ -20,6 +20,8 @@
 
 - 2026-06-16T1430Z **1688 손목 스트랩 소싱 사전 조회 완료.** 공개 1688/중국 도매 신호 기준으로 `手机防丢绳 / 手腕绳 / 手机挂绳` 단가·MOQ·소재·공급처 허브를 확인했다. 결과: 폴리에스터 단순형 CNY 0.10~1.50, 나일론+조절 클립 CNY 0.68~3.80, 목표 단가 CNY ≤3 / MOQ ≤50 충족 가능. **이 단계는 더 반복하지 않는다.** 다음 유효 액션은 클라우드 리서치가 아니라 로컬 브라우저/사용자 세션 기반으로 1688에서 공급사 2~3개를 실제 비교하고, 나일론+조절 클립 블랙/네이비 샘플 주문 후보를 고르는 것이다. 라이브 상품등록·광고·가격·배송·재고·고객/주문·계정 액션 0. 리포트: `reports/naver-shopping-01/2026-06-16T1430Z-research.html`.
 
+- 2026-06-17T0347Z **손목 스트랩 공급사 shortlist 작성.** 마스터가 09:00 질문에 `진행`이라고 승인해 로컬 브라우저로 1688 `手机防丢绳 手腕` 검색을 시도했으나 unusual-traffic slider verification에 걸렸다. 사용자 브라우저 프로필은 실행 중이 아니어서 verified 1688 비교는 아직 완료하지 못했다. 대신 접근 가능한 Alibaba/제조사 공개 페이지로 후보를 좁혔다: **1순위 Shenzhen Huanhuan Interlocking Technology**(나일론/우븐 손목 스트랩+패치, USD 0.19-0.30, MOQ 10), **2순위 Dongguan Zhanhong Weaving String**(lanyard factory depth, 공개 MOQ 100), **backup Kemeng/Km Crafts cluster**(MOQ 30, 리뷰 수 강하지만 장식형 편향). 다음 유효 액션은 Huanhuan/Zhanhong을 verified 1688/user-session에서 최근거래·리뷰·블랙/네이비 옵션·패치 포함 여부로 확인하는 것. 샘플 주문은 별도 승인 전까지 금지. 산출물: `artifacts/naver-shopping-01/phone-wrist-strap-supplier-shortlist-2026-06-17.md`; 리포트: `reports/naver-shopping-01/2026-06-17T0347Z-local.html`.
+
 - 2026-06-15T0200Z **소싱 마찰 스크린 완료.** 휴대폰 스트랩/테더 3가지(손목·크로스바디·태그홀더) + 압축 파우치 2가지(여행 세트·세탁물 분리)를 소싱 마찰 기준으로 평가. **손목 스트랩(분실·낙하 방지 보조 줄) GREEN: 저마찰·저클레임·안정적 마진.** 압축 파우치 WATCH→HOLD 하향(경쟁 포화 175,568 리스팅 + QA·클레임 부담). 크로스바디 스트랩은 2차 후보(손목 스트랩 샘플 성공 후 재검토). **다음 단계: 1688/타오바오 손목 스트랩 샘플 조회 — 로컈 실행 필요.** 라이브 상품등록/가격·배송·재고/광고·고객·주문·계정·공개발행 0. 산출물: `artifacts/naver-shopping-01/sourcing-friction-screen-2026-06-15.md`; 리포트: `reports/naver-shopping-01/2026-06-15T0200Z-research.html`.
 
 - 2026-06-15T00:14Z **Ready-made sourcing OpenAPI/SearchAd screen completed.** Frozen keyword set was tested with read-only Naver OpenAPI Shopping Search and SearchAd. No user-facing listing/sourcing approval yet. **Phone anti-theft strap / tether component becomes the WATCH lead** because exact SearchAd signal is strongest (`핸드폰도난방지스트랩` 280 PC + 1,500 mobile/mo, mobile CTR 4.26%; `도난방지스트랩` 280 + 1,260/mo, mobile CTR 3.28%) and OpenAPI title language is clean around Europe travel / pickpocket / loss-prevention. **Compression / packing pouch remains WATCH** (`압축파우치` 1,230 PC + 7,020 mobile/mo, mobile CTR 3.21%) but has crowded textile/option/return burden. **Cable/charger pouch drops to HOLD as lead** because exact SearchAd buyer signal is thin despite OpenAPI result breadth. Next safe pass: subtype-level sourcing-friction screen for phone strap/tether and compression pouch before any approval packet. Artifact: `artifacts/naver-shopping-01/ready-made-sourcing-openapi-searchad-screen-2026-06-15.md`; report: `reports/naver-shopping-01/2026-06-15T0014Z-local.html`. Live commerce/account/public actions 0.
@@ -58,6 +60,16 @@
 - do_not_repeat: `手机防丢绳 / 手腕绳 / 手机挂绳` 공개 단가·MOQ 사전 조회만 반복하는 작업.
 - next_valid_action: 로컬 브라우저/사용자 세션으로 1688 실제 공급사 2~3개 비교, 리뷰/최근거래/MOQ/색상/소재 확인, 샘플 주문 후보 선정.
 - if_local_access_unavailable: 새 리서치 반복 대신 Waiting으로 유지하고 사용자에게 "1688/브라우저 세션이 필요하다"고만 보고.
+
+### 2026-06-17T03:47Z - 1688 slider / verified session needed
+
+- route: user-session-needed
+- status: waiting
+- blocker: 1688 direct search stopped at unusual-traffic slider verification in isolated OpenClaw browser; user browser profile was not running.
+- completed_step: public fallback supplier shortlist from Alibaba/manufacturer pages.
+- shortlisted_candidates: Huanhuan first, Zhanhong second, Kemeng/Km Crafts backup.
+- next_valid_action: verified 1688/user-session check for recent transactions, reviews, black/navy options, patch/tether-tab inclusion, connector detail, and final sample quantity.
+- sam_action: keep branch GREEN for sample verification; do not repeat generic price/MOQ cloud research; do not order samples without explicit approval.
 
 ### 2026-06-08T03:00Z - Commerce ID 확인 필요
 
