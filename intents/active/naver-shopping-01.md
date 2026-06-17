@@ -10,7 +10,7 @@
 - source_agent: `/home/ubuntu/.openclaw/workspace/agents/naver-shopping-agent/`
 - created_at: 2026-06-07T23:24Z
 - updated_at: 2026-06-14T05:45Z
-- updated_at_latest: 2026-06-16T1430Z
+- updated_at_latest: 2026-06-17T1200Z
 
 ## Purpose
 
@@ -18,9 +18,11 @@
 
 ## Current State
 
-- 2026-06-16T1430Z **1688 손목 스트랩 소싱 사전 조회 완료.** 공개 1688/중국 도매 신호 기준으로 `手机防丢绳 / 手腕绳 / 手机挂绳` 단가·MOQ·소재·공급처 허브를 확인했다. 결과: 폴리에스터 단순형 CNY 0.10~1.50, 나일론+조절 클립 CNY 0.68~3.80, 목표 단가 CNY ≤3 / MOQ ≤50 충족 가능. **이 단계는 더 반복하지 않는다.** 다음 유효 액션은 클라우드 리서치가 아니라 로컬 브라우저/사용자 세션 기반으로 1688에서 공급사 2~3개를 실제 비교하고, 나일론+조절 클립 블랙/네이비 샘플 주문 후보를 고르는 것이다. 라이브 상품등록·광고·가격·배송·재고·고객/주문·계정 액션 0. 리포트: `reports/naver-shopping-01/2026-06-16T1430Z-research.html`.
+- 2026-06-17T1200Z **샘플 검증 준비 완료 (cloud prepare).** 1688 verified session 대기 중인 상태에서 cloud가 수행할 수 있는 prepare 작업 완료: (1) Huanhuan/Zhanhong/Kemeng 3개 공급사 현장 확인 체크리스트 작성 (색상·MOQ·리뷰·최근거래·커넥터·패치 여부 + 샘플 주문 요청서 초안), (2) 네이버 스마트스토어 손목 스트랩 등록 초안 작성 (상품명 후보 3개, 핵심 키워드 SearchAd 기반, 원가 KRW ~600-720 → 추천 판매가 KRW 1,800-2,500, 상품 설명, 이미지 촬영 가이드 4컷, 콘텐츠 앵글 4개). 1688 공개 단가/MOQ 재조회는 loop-guard 준수하여 미수행. 사용자 브라우저 세션이 열리면 체크리스트 1회로 공급사 확정 가능. 추가 cloud prepare 불필요. 샘플 주문·라이브 등록·가격·배송·재고·광고·고객·주문·계정·공개발행 0. 산출물: `artifacts/naver-shopping-01/wrist-strap-1688-verification-checklist.md`, `artifacts/naver-shopping-01/naver-listing-draft-wrist-strap.md`; 리포트: `reports/naver-shopping-01/2026-06-17T1200Z-prepare.html`.
 
 - 2026-06-17T0347Z **손목 스트랩 공급사 shortlist 작성.** 마스터가 09:00 질문에 `진행`이라고 승인해 로컬 브라우저로 1688 `手机防丢绳 手腕` 검색을 시도했으나 unusual-traffic slider verification에 걸렸다. 사용자 브라우저 프로필은 실행 중이 아니어서 verified 1688 비교는 아직 완료하지 못했다. 대신 접근 가능한 Alibaba/제조사 공개 페이지로 후보를 좁혔다: **1순위 Shenzhen Huanhuan Interlocking Technology**(나일론/우븐 손목 스트랩+패치, USD 0.19-0.30, MOQ 10), **2순위 Dongguan Zhanhong Weaving String**(lanyard factory depth, 공개 MOQ 100), **backup Kemeng/Km Crafts cluster**(MOQ 30, 리뷰 수 강하지만 장식형 편향). 다음 유효 액션은 Huanhuan/Zhanhong을 verified 1688/user-session에서 최근거래·리뷰·블랙/네이비 옵션·패치 포함 여부로 확인하는 것. 샘플 주문은 별도 승인 전까지 금지. 산출물: `artifacts/naver-shopping-01/phone-wrist-strap-supplier-shortlist-2026-06-17.md`; 리포트: `reports/naver-shopping-01/2026-06-17T0347Z-local.html`.
+
+- 2026-06-16T1430Z **1688 손목 스트랩 소싱 사전 조회 완료.** 공개 1688/중국 도매 신호 기준으로 `手机防丢绳 / 手腕绳 / 手机挂绳` 단가·MOQ·소재·공급처 허브를 확인했다. 결과: 폴리에스터 단순형 CNY 0.10~1.50, 나일론+조절 클립 CNY 0.68~3.80, 목표 단가 CNY ≤3 / MOQ ≤50 충족 가능. **이 단계는 더 반복하지 않는다.** 다음 유효 액션은 클라우드 리서치가 아니라 로컬 브라우저/사용자 세션 기반으로 1688에서 공급사 2~3개를 실제 비교하고, 나일론+조절 클립 블랙/네이비 샘플 주문 후보를 고르는 것이다. 라이브 상품등록·광고·가격·배송·재고·고객/주문·계정 액션 0. 리포트: `reports/naver-shopping-01/2026-06-16T1430Z-research.html`.
 
 - 2026-06-15T0200Z **소싱 마찰 스크린 완료.** 휴대폰 스트랩/테더 3가지(손목·크로스바디·태그홀더) + 압축 파우치 2가지(여행 세트·세탁물 분리)를 소싱 마찰 기준으로 평가. **손목 스트랩(분실·낙하 방지 보조 줄) GREEN: 저마찰·저클레임·안정적 마진.** 압축 파우치 WATCH→HOLD 하향(경쟁 포화 175,568 리스팅 + QA·클레임 부담). 크로스바디 스트랩은 2차 후보(손목 스트랩 샘플 성공 후 재검토). **다음 단계: 1688/타오바오 손목 스트랩 샘플 조회 — 로컈 실행 필요.** 라이브 상품등록/가격·배송·재고/광고·고객·주문·계정·공개발행 0. 산출물: `artifacts/naver-shopping-01/sourcing-friction-screen-2026-06-15.md`; 리포트: `reports/naver-shopping-01/2026-06-15T0200Z-research.html`.
 
@@ -51,6 +53,17 @@
 - 2026-06-08T14:39Z read-only test: SmartStore Center stops at Commerce ID login page; public Naver Shopping search IP-restricted.
 
 ## Pending Blockers
+
+### 2026-06-17T1200Z - cloud prepare 완료 / 검증 세션 대기
+
+- route: prepare-complete-session-waiting
+- status: ready-for-local-session
+- completed_in_this_heartbeat:
+  - 1688 현장 확인 체크리스트: `artifacts/naver-shopping-01/wrist-strap-1688-verification-checklist.md`
+  - 네이버 등록 초안: `artifacts/naver-shopping-01/naver-listing-draft-wrist-strap.md`
+- next_valid_action: 사용자 브라우저 세션으로 체크리스트 실행 → Huanhuan/Zhanhong 1개 확정 → SAM 샘플 주문 승인 요청
+- do_not_repeat_cloud: 체크리스트 + 등록 초안 완성. 추가 cloud prepare 불필요. 반복 금지.
+- cloud_action_remaining: 없음 (세션 열리면 로컬 실행으로 넘어감)
 
 ### 2026-06-16T14:30Z - 1688 준비 단계 반복 금지
 
