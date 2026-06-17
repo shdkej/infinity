@@ -88,16 +88,14 @@
 <!-- marketing-03 completed 2026-04-20T22:00Z → intents/archive/marketing-03.md -->
 <!-- marketing-02 completed 2026-04-19T22:00Z → intents/archive/marketing-02.md -->
 <!-- marketing-01 completed 2026-05-21T09:50Z → intents/archive/marketing-01.md -->
-<!-- wiki-05 completed → intents/archive/wiki-05.md -->
-<!-- wiki-04 completed → intents/archive/wiki-04.md -->
-<!-- wiki-03 completed → intents/archive/wiki-03.md -->
-<!-- wiki-02 completed → intents/archive/wiki-02.md -->
-<!-- wiki-01 completed → intents/archive/wiki-01.md -->
-<!-- build-08 completed → intents/archive/build-08.md -->
-<!-- build-07 completed → intents/archive/build-07.md -->
-<!-- build-06 completed → intents/archive/build-06.md -->
-<!-- build-05 completed → intents/archive/build-05.md -->
-<!-- build-04 completed → intents/archive/build-04.md -->
-<!-- build-03 completed → intents/archive/build-03.md -->
+<!-- wiki-05 completed 2026-04-25T00:00 → intents/archive/wiki-05.md -->
+<!-- wiki-04 completed 2026-04-25T00:00 → intents/archive/wiki-04.md -->
+<!-- wiki-02 completed 2026-04-19T02:45 → intents/archive/wiki-02.md -->
+<!-- wiki-03 completed 2026-04-20T13:30 → intents/archive/wiki-03.md -->
+<!-- research-05 completed 2026-04-21T00:00 → intents/archive/research-05.md -->
+<!-- wiki-01 completed 2026-04-21T00:00 → intents/archive/wiki-01.md -->
 <!-- build-01 completed 2026-04-21T00:30 → intents/archive/build-01.md -->
 <!-- research-05 re-run completed 2026-04-23T10:00 → intents/archive/research-05.md (3차) -->
+# 2026-06-10T23:30Z - naver-shopping-01 source update
+
+- `naver-shopping-01`: Added a docs-only sourcing-friction gate for the question/workshop-card family after applying the `marketing-50` rule, "purchase situation before object shape." The candidate remains DRAFT / copy-led; next useful check is small-batch production, MOQ, unit cost, category/product-info friction, and margin floor before any listing approval. No new target-agent request opened and no live commerce/account/public action occurred.
