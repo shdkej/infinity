@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>marketing-66 Report</title>
+<style>
+  :root{
+    --bg:#f4f2ea; --panel:#fbfaf5; --ink:#2c2a25; --soft:#807c70; --faint:#a8a496; --line:#e3dfd2;
+    --a2:#5f7a5e; --a2-deep:#3f5740;
+    --a1:#a9745a; --a1-deep:#8a5c45;
+    --sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;}
+  body{background:var(--bg); color:var(--ink); font-family:var(--sans);
+    font-size:14px; line-height:1.68; -webkit-font-smoothing:antialiased;}
+  .sheet{max-width:720px; margin:0 auto; padding:48px 34px 46px;}
+  .reveal{opacity:0; animation:fade .7s ease forwards;}
+  @keyframes fade{from{opacity:0; transform:translateY(9px);} to{opacity:1; transform:none;}}
+
+  .eyebrow{display:flex; align-items:center; gap:10px; font-family:var(--mono);
+    font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--soft);}
+  .eyebrow .id{color:var(--a2-deep); font-weight:600;}
+  .eyebrow .dot{width:5px; height:5px; border-radius:50%; background:var(--a2);}
+  .eyebrow .status{margin-left:auto; color:var(--a2-deep);}
+  h1{font-size:29px; line-height:1.3; font-weight:700; letter-spacing:-.01em; margin:20px 0 0;}
+  .dek{font-size:15.5px; color:var(--soft); margin:13px 0 0; max-width:52ch;}
+  .hr{height:1px; background:var(--line); margin:30px 0;}
+
+  .axis{padding:0 0 4px 22px; position:relative; margin-bottom:30px;}
+  .axis::before{content:""; position:absolute; left:0; top:6px; bottom:6px; width:2px; border-radius:2px;}
+  .axis.ax1::before{background:var(--a1);} .axis.ax2::before{background:var(--a2);}
+  .axis.ax1{--ul:var(--a1);} .axis.ax2{--ul:var(--a2);}
+  .axis .label{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase;
+    margin-bottom:9px; display:flex; align-items:center; gap:8px;}
+  .axis.ax1 .label{color:var(--a1-deep);} .axis.ax2 .label{color:var(--a2-deep);}
+  .axis .label .n{font-weight:600; opacity:.6;}
+  .axis .text{font-size:18px; line-height:1.6; color:#37352e;}
+  .axis .text b{font-weight:700; color:var(--ink); border-bottom:2px solid var(--ul);}
+
+  details{border:1px solid var(--line); border-radius:10px; background:var(--panel); margin-bottom:10px;}
+  summary{cursor:pointer; list-style:none; padding:14px 16px; display:flex; align-items:center; gap:11px;
+    font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft);}
+  summary::-webkit-details-marker{display:none;}
+  summary .chev{width:8px; height:8px; border-right:2px solid var(--a2-deep); border-bottom:2px solid var(--a2-deep);
+    transform:rotate(-45deg); transition:.25s; flex:none; margin-left:2px;}
+  details[open] summary .chev{transform:rotate(45deg);}
+  summary:hover{color:var(--ink);}
+  .body{padding:2px 16px 18px;}
+  table{border-collapse:collapse; width:100%; font-size:13px; margin:4px 0 12px;}
+  th,td{border-bottom:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top;}
+  th{font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft); font-weight:600;}
+  td:first-child{color:var(--a2-deep); font-weight:600; white-space:nowrap;}
+  .body p{color:var(--soft);}
+  .body ul{margin:6px 0; padding-left:18px;} .body li{margin:5px 0;}
+  code{font-family:var(--mono); font-size:12px; background:#edeae0; padding:1px 6px; border-radius:3px; color:var(--a2-deep);}
+  .chips{display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px;}
+  .chip{font-family:var(--mono); font-size:10.5px; letter-spacing:.05em; color:var(--soft); border:1px solid var(--line); border-radius:999px; padding:3px 10px;}
+  .foot{margin-top:30px; padding-top:15px; border-top:1px solid var(--line);
+    display:flex; justify-content:space-between; font-family:var(--mono); font-size:10px;
+    letter-spacing:.13em; text-transform:uppercase; color:var(--faint);}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="eyebrow reveal">
+    <span class="dot"></span>
+    <span class="id">marketing-66</span>
+    <span>Strategy Note</span>
+    <span class="status">COMPLETED</span>
+  </div>
+  <h1 class="reveal" style="animation-delay:.05s">Virtue Agentic Context Map</h1>
+  <p class="dek reveal" style="animation-delay:.09s">J1-J4별 user_intent · context_before/after_output · agent_misread_boundary를 한 표로 정리한 내부 문맥 지도</p>
+
+  <div class="hr reveal" style="animation-delay:.12s"></div>
+
+  <div class="axis ax1 reveal" style="animation-delay:.16s">
+    <div class="label"><span class="n">01</span> 무엇이 문제였나</div>
+    <div class="text">Virtue J1-J4 첫 세션의 앞뒤 문맥이 잡별로 달라, <b>public explainer·FAQ·에이전트 추천 경로</b>가 같은 의도 언어를 쓰지 않으면 context 오독이 발생한다.</div>
+  </div>
+
+  <div class="axis ax2 reveal" style="animation-delay:.22s">
+    <div class="label"><span class="n">02</span> 어떻게 해결하나</div>
+    <div class="text">J1-J4별 user_intent · context_before/after_output · agent_misread_boundary를 한 표로 정리해, <b>prelaunch 내부 기준 문서로 고정</b>했다.</div>
+  </div>
+
+  <div class="reveal" style="animation-delay:.27s">
+  <details open>
+    <summary><span class="chev"></span> 수행한 작업 · 산출물</summary>
+    <div class="body">
+      <table>
+        <tr><th>항목</th><th>내용</th></tr>
+        <tr><td>source note</td><td><code>source/external-links/marketing/2026-06-17-agentic-plg-context-moat.md</code> 생성</td></tr>
+        <tr><td>artifact</td><td><code>artifacts/marketing-66/virtue-agentic-context-map.md</code> — J1-J4 5컬럼 문맥 지도</td></tr>
+        <tr><td>columns</td><td>user_intent · context_before_output · first_output · context_after_output · agent_misread_boundary</td></tr>
+        <tr><td>jobs covered</td><td>J1 기록형 · J2 누적형 · J3 AI 호기심형 · J4 회고형</td></tr>
+        <tr><td>conflict markers</td><td>0 (marketing-18/55/58/60/63/65 확인)</td></tr>
+        <tr><td>금지선</td><td>신규 이벤트·tracking·privacy·API·MCP·public copy·deploy·cost 변경 0</td></tr>
+        <tr><td>verification gate</td><td>source note 존재 ✓ · conflict marker 0 ✓ · existing docs references ✓ · prelaunch low-signal 금지선 ✓</td></tr>
+      </table>
+      <p>이 문맥 지도는 marketing-65 trust evidence inventory의 앞뒤 문맥을 보강한다. context_before_output은 사용자의 intent 입장에서, context_after_output은 first value 완료 기준에서 읽는다. agent_misread_boundary는 에이전트가 Virtue를 task-completion 도구나 productivity tracker로 오독하는 지점을 명시한다.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="chev"></span> Marketer 인수인계 · 학습 후보</summary>
+    <div class="body">
+      <p><b>계승한 기준:</b></p>
+      <ul>
+        <li>First Value Mapping (m06~10): J1/J2/J4=<code>deed_saved</code>, J3=<code>deed_judged</code></li>
+        <li>No Autonomous Action (m38): 외부 행동 없음 = 구조적 전제</li>
+        <li>Agent-Led Growth Fit (m46): Virtue는 do-for-you 유통 no-fit</li>
+      </ul>
+      <p><b>이번에 새로 만든 것:</b></p>
+      <ul>
+        <li>J1-J4 context flow (before→output→after) 한 표 첫 정리</li>
+        <li>agent_misread_boundary 컬럼 — 에이전트 오독 유형 명시</li>
+        <li>context_before_output / context_after_output 컬럼 도입 (marketing-65 trust evidence 표와 직교)</li>
+      </ul>
+      <p><b>다음 작업에 넘길 규칙:</b></p>
+      <ul>
+        <li>llms.txt / public explainer 작성 시 이 문맥 지도를 J1-J4 의도 언어 표준으로 사용 (approval-needed)</li>
+        <li>에이전트 read-about 경로에서 "J3 무저장 종료 = 정상"을 명시하지 않으면 오독 발생</li>
+        <li>context_before_output을 first-10 관찰의 사용 전 2문항 설계 근거로 활용 가능 (m47 계승)</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="chev"></span> 실행 메타 · 산출물</summary>
+    <div class="body">
+      <div class="chips">
+        <span class="chip">2026-06-17T2200Z</span>
+        <span class="chip">Heartbeat Inbox 처리</span>
+        <span class="chip">inbox → archived</span>
+      </div>
+      <ul>
+        <li>source note <code>source/external-links/marketing/2026-06-17-agentic-plg-context-moat.md</code></li>
+        <li>artifact <code>artifacts/marketing-66/virtue-agentic-context-map.md</code></li>
+        <li>archive <code>intents/archive/marketing-66.md</code></li>
+        <li>report <code>reports/marketing-66/2026-06-17T2200Z.html</code></li>
+      </ul>
+    </div>
+  </details>
+  </div>
+
+  <div class="foot reveal" style="animation-delay:.3s">
+    <span>Agent-First Heartbeat</span>
+    <span>Infinity · Intent Note</span>
+  </div>
+</div>
+</body>
+</html>

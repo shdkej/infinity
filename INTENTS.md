@@ -4,8 +4,6 @@
 
 ## Inbox
 
-<!-- marketing-66 inbox 2026-06-17T22:00Z [display: Virtue Agentic Context Map; projects: virtue; type: strategy; topics: agentic-plg,positioning,activation,prelaunch; source: ../source/external-links/marketing/2026-06-17-agentic-plg-context-moat.md; permission: L1 docs-only; owner: Infinity/SAM -> Claude Code] (Userpilot agentic PLG + Mixpanel PLG 2026 학습노트를 근거로, Virtue J1-J4별 user_intent, context_before_output, first_output, context_after_output, agent_misread_boundary를 한 표로 정리하는 내부 문맥 지도 작성 후보. rationale: prelaunch/low-signal 단계에서는 acquisition 판단보다 첫 사용자와 에이전트가 Virtue의 결과를 어떤 문맥으로 읽어야 하는지 고정하는 일이 launch-ready 자산. expected impact: trust evidence inventory 이후의 앞뒤 문맥을 보강해 public explainer/FAQ/llms.txt/onboarding/first-10 관찰표가 같은 의도 언어를 공유함. success criteria: 기존 marketing-18/55/58/60/63/65 문서와 충돌 없이 J1-J4 문맥 흐름과 오독 경계를 정리; 신규 이벤트·tracking/privacy·API/MCP·public copy·deploy·external message·cost 변경 0. first verification gate: source note 존재, conflict marker 0, existing docs references 확인, prelaunch low-signal 금지선 유지.) -->
-
 ## Active
 <!-- marketing-64 completed 2026-06-17T01:18Z → intents/archive/marketing-64.md [display: Virtue Early Behavior Intent Sequence Columns; projects: virtue; type: strategy; topics: activation,analytics,marketing] (Mixpanel PLG 행동 기반 의도 신호 렌즈를 Virtue prelaunch first-10 관찰 문맥으로 번역. docs-only artifact로 activation event vs intent sequence 구분과 early_behavior_sequence 컬럼 묶음(첫 탐색 기능, 멈춘 화면, 건너뛴 행동, 저장 후 다음 행동, 한 문장 판독)을 제안. 신규 이벤트·tracking/privacy·dashboard·public copy·deploy·synthetic/test 데이터 0. 기존 marketing-55~63 activation 문서군과 충돌 없이 prelaunch low-signal 금지선 유지. HTML report gate 통과.) -->
 
@@ -23,3 +21,4 @@
 <!-- build-11 completed 2026-06-16T21:56Z → intents/archive/build-11.md [display: Status 3D Full-Image Floating Menu Redesign; projects: infinity,personal-ops,infrastructure; type: implementation; topics: status,dashboard,ui,3d-background,floating-menu; completion: user-confirmed] -->
 <!-- marketing-64 completed 2026-06-17T01:18Z → intents/archive/marketing-64.md [display: Virtue Early Behavior Intent Sequence Columns; projects: virtue; type: strategy] -->
 <!-- marketing-65 completed 2026-06-17T10:24Z → intents/archive/marketing-65.md [display: Virtue Agent Trust Evidence Inventory; projects: virtue; type: strategy] -->
+<!-- marketing-66 completed 2026-06-17T22:00Z → intents/archive/marketing-66.md (J1-J4 문맥 지도 완성. user_intent·context_before/after_output·agent_misread_boundary 5컬럼. 신규 이벤트·tracking·public copy 0. 기존 marketing-18/55/58/60/63/65 충돌 0.) -->
