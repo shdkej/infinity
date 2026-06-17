@@ -4,6 +4,8 @@
 
 ## Inbox
 
+<!-- marketing-65 inbox 2026-06-17T10:01Z [display: Virtue Agent Trust Evidence Inventory; projects: virtue; type: strategy; topics: ai-agents,trust,activation,aeo,prelaunch; source: ../source/external-links/marketing/2026-06-17-agent-trust-economy.md; permission: L1 docs-only; owner: Infinity/SAM -> Claude Code] (CMR trust economy + ProductLed PLG x AI 학습노트를 근거로, Virtue J1-J4 첫 출력별로 사람이 이해하는 가치와 에이전트가 검증 가능한 신뢰 증거를 나란히 정리하는 내부 inventory 작성 후보. rationale: prelaunch/low-signal 단계에서는 퍼널 숫자 판단보다 첫 출력의 검증 가능성·오해 방지 경계가 launch-ready 자산. expected impact: public copy/llms.txt/FAQ/온보딩/first-10 관찰표가 같은 신뢰 근거를 공유해 agent-readable 표면의 혼선을 줄임. success criteria: 기존 marketing-18/55/58/60/64 문서와 충돌 없이 J1-J4별 first output, evidence, limitation, privacy/storage boundary, do-not-recommend 상황을 한 표로 정리; 신규 이벤트·tracking/privacy·public copy·deploy·external message·cost 변경 0. first verification gate: source note 존재, conflict marker 0, existing docs references 확인, prelaunch low-signal 금지선 유지.) -->
+
 
 ## Active
 <!-- marketing-64 completed 2026-06-17T01:18Z → intents/archive/marketing-64.md [display: Virtue Early Behavior Intent Sequence Columns; projects: virtue; type: strategy; topics: activation,analytics,marketing] (Mixpanel PLG 행동 기반 의도 신호 렌즈를 Virtue prelaunch first-10 관찰 문맥으로 번역. docs-only artifact로 activation event vs intent sequence 구분과 early_behavior_sequence 컬럼 묶음(첫 탐색 기능, 멈춘 화면, 건너뛴 행동, 저장 후 다음 행동, 한 문장 판독)을 제안. 신규 이벤트·tracking/privacy·dashboard·public copy·deploy·synthetic/test 데이터 0. 기존 marketing-55~63 activation 문서군과 충돌 없이 prelaunch low-signal 금지선 유지. HTML report gate 통과.) -->
