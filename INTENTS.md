@@ -5,6 +5,7 @@
 ## Inbox
 
 <!-- build-12 inbox 2026-06-18T07:00Z → follow-up from research-15 [display: Status 3D Character Background Prototype; projects: personal-ops,infinity,design-system; type: implementation; topics: 3d-background,interactive-character,skill] (research-15 완료. 옵션 B(Spline) prototype 또는 옵션 A(R3F) 구현 중 선택 후 Status 페이지에 3D 캐릭터 배경 레이어 적용. artifacts/research-15/3d-character-bg-feasibility.md 참조.) -->
+<!-- research-16 inbox 2026-06-18T07:15Z → intents/inbox/research-16.md [display: Parsed 3D Character Stage Implementation Options; projects: personal-ops,infinity,design-system; type: research; topics: 3d-background,interactive-character,spline,unicorn-studio,threejs,skill] (SAM이 YouTube reference `https://www.youtube.com/watch?v=dROkEnvxch4`를 Gemini direct video understanding으로 먼저 파싱해 `artifacts/research-16/youtube-reference-parse.md`에 저장했다. 핵심 참조는 Figma stylescape → AI 3D asset generation(Magnific/Freepik) → Spline cursor-reactive 3D object → Unicorn Studio animated texture/background workflow. Infinity는 이 parsed input을 기반으로 Sam Samuel의 CharacterStage/FloatingHUD를 구현하는 full 3D, Spline/embed, pre-rendered+parallax 대안을 비교하고 Status 적용안 + reusable skill outline을 산출한다.) -->
 
 
 ## Active
