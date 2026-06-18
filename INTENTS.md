@@ -4,6 +4,7 @@
 
 ## Inbox
 
+<!-- marketing-67 inbox 2026-06-18T10:00Z → intents/inbox/marketing-67.md [display: Virtue AI Authorization Boundary Table; projects: virtue; type: strategy; topics: ai-agents,trust,authorization,prelaunch] (source: source/external-links/marketing/2026-06-18-agent-authorization-boundary.md. WEF/Capgemini ACAP 관점을 Virtue prelaunch 신뢰 경계로 번역. J1-J4별 user_delegates / virtue_may_do / virtue_must_not_do / human_decision_required / evidence_to_show 표 작성 후보. L1 docs-only. production code·deploy·tracking/privacy·PostHog·public copy·external message·cost 변경 금지.) -->
 
 ## Active
 
