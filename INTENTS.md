@@ -4,6 +4,8 @@
 
 ## Inbox
 
+<!-- marketing-68 inbox 2026-06-18T2200Z → intents/inbox/marketing-68.md [display: Virtue Agent-Readable Surface Audit; projects: virtue; type: strategy; topics: ai-agents,agentic-web,trust,discoverability,prelaunch; permission: L1 docs-only; source: source/external-links/marketing/2026-06-18-agentic-web-access-policy.md] (HUMAN 2026 AI traffic benchmark + OpenAI agent guide 근거. prelaunch low-signal 유지. live/repo public surface를 read-only로 감사하고, agent may read / agent must not infer / human handoff wording / launch-after reuse 축을 정리. production code·deploy·public copy·robots/llms 실제 배포·tracking/privacy·PostHog·external message·cost 변경 금지.) -->
+
 ## Active
 
 
