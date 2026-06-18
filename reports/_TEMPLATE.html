@@ -4,10 +4,11 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <!--
-  Infinity 보고 양식 — "Quiet Note" 디자인 시스템 (결론 2축 + 접기)
+  Infinity 보고 양식 — "Quiet Note" 디자인 시스템 (모바일 우선 · 결론 2축 + 핵심 내용)
   ────────────────────────────────────────────────────────────
   제약: 대시보드 iframe(sandbox=allow-same-origin)에서 렌더 → JS·외부 리소스 금지, 인라인 CSS만.
   접기는 <details>(JS 불필요). {{...}} 자리표시자를 치환해 reports/{id}/{timestamp}.html 로 저장.
+  리서치형 report는 HTML만 열어도 핵심 발견·근거·비교·다음 판단이 읽혀야 한다.
 
   ▷ 카테고리별 색: :root 의 --a1/--a1-deep 두 줄만 교체한다. (축2는 항상 sage 고정)
      · 조사형 (research/wiki/doc)            : --a1:#5a6f8a; --a1-deep:#3f536e;  (slate-blue)  라벨 "무엇을 조사했나 / 핵심 결과"
@@ -24,23 +25,23 @@
     --mono:ui-monospace,"SF Mono",Menlo,monospace;
   }
   *{box-sizing:border-box;}
-  html,body{margin:0;}
+  html,body{margin:0; width:100%; max-width:100%; overflow-x:hidden;}
   body{background:var(--bg); color:var(--ink); font-family:var(--sans);
     font-size:14px; line-height:1.68; -webkit-font-smoothing:antialiased;}
-  .sheet{max-width:720px; margin:0 auto; padding:48px 34px 46px;}
+  .sheet{width:min(100%,720px); max-width:720px; margin:0 auto; padding:32px 18px 40px;}
   .reveal{opacity:0; animation:fade .7s ease forwards;}
   @keyframes fade{from{opacity:0; transform:translateY(9px);} to{opacity:1; transform:none;}}
 
   .eyebrow{display:flex; align-items:center; gap:10px; font-family:var(--mono);
-    font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--soft);}
+    font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--soft); flex-wrap:wrap;}
   .eyebrow .id{color:var(--a2-deep); font-weight:600;}
   .eyebrow .dot{width:5px; height:5px; border-radius:50%; background:var(--a2);}
-  .eyebrow .status{margin-left:auto; color:var(--a2-deep);}
-  h1{font-size:29px; line-height:1.3; font-weight:700; letter-spacing:-.01em; margin:20px 0 0;}
+  .eyebrow .status{color:var(--a2-deep);}
+  h1{font-size:clamp(24px,7vw,29px); line-height:1.3; font-weight:700; letter-spacing:0; margin:20px 0 0; overflow-wrap:anywhere;}
   .dek{font-size:15.5px; color:var(--soft); margin:13px 0 0; max-width:52ch;}
   .hr{height:1px; background:var(--line); margin:30px 0;}
 
-  .axis{padding:0 0 4px 22px; position:relative; margin-bottom:30px;}
+  .axis{padding:0 0 4px 18px; position:relative; margin-bottom:26px;}
   .axis::before{content:""; position:absolute; left:0; top:6px; bottom:6px; width:2px; border-radius:2px;}
   .axis.ax1::before{background:var(--a1);} .axis.ax2::before{background:var(--a2);}
   .axis.ax1{--ul:var(--a1);} .axis.ax2{--ul:var(--a2);}
@@ -48,7 +49,7 @@
     margin-bottom:9px; display:flex; align-items:center; gap:8px;}
   .axis.ax1 .label{color:var(--a1-deep);} .axis.ax2 .label{color:var(--a2-deep);}
   .axis .label .n{font-weight:600; opacity:.6;}
-  .axis .text{font-size:18px; line-height:1.6; color:#37352e;}
+  .axis .text{font-size:clamp(16px,4.4vw,18px); line-height:1.62; color:#37352e; overflow-wrap:anywhere;}
   .axis .text b{font-weight:700; color:var(--ink); border-bottom:2px solid var(--ul);}
   ol.find{list-style:none; counter-reset:f; margin:16px 0 0; padding:0;}
   ol.find li{position:relative; padding:8px 0 8px 26px; font-size:15px; color:#37352e; border-top:1px solid var(--line);}
@@ -56,7 +57,7 @@
   ol.find li::before{counter-increment:f; content:counter(f); position:absolute; left:0; top:9px;
     font-family:var(--mono); font-size:12px; font-weight:600; color:var(--a1-deep);}
 
-  details{border:1px solid var(--line); border-radius:10px; background:var(--panel); margin-bottom:10px;}
+  details{border:1px solid var(--line); border-radius:8px; background:var(--panel); margin-bottom:10px; overflow:hidden;}
   summary{cursor:pointer; list-style:none; padding:14px 16px; display:flex; align-items:center; gap:11px;
     font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft);}
   summary::-webkit-details-marker{display:none;}
@@ -64,20 +65,43 @@
     transform:rotate(-45deg); transition:.25s; flex:none; margin-left:2px;}
   details[open] summary .chev{transform:rotate(45deg);}
   summary:hover{color:var(--ink);}
-  .body{padding:2px 16px 18px;}
-  table{border-collapse:collapse; width:100%; font-size:13px; margin:4px 0 12px;}
-  th,td{border-bottom:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top;}
+  .body{padding:2px 16px 18px; min-width:0;}
+  .section{margin:4px 0 18px;}
+  .section-title{font-family:var(--mono); font-size:10.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--a1-deep); margin:0 0 8px;}
+  .callout{border-left:2px solid var(--a2); background:#f2efe5; padding:11px 13px; color:#4a473f; margin:12px 0 16px;}
+  .content-grid{display:grid; grid-template-columns:1fr; gap:10px; margin:10px 0;}
+  .mini-card{border:1px solid var(--line); background:#f8f6ef; border-radius:8px; padding:12px 13px; min-width:0;}
+  .mini-card b{display:block; color:var(--ink); margin-bottom:5px;}
+  .mini-card p{margin:0;}
+  table{border-collapse:collapse; width:100%; max-width:100%; table-layout:fixed; font-size:13px; margin:4px 0 12px;}
+  th,td{border-bottom:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top; overflow-wrap:anywhere; word-break:break-word;}
   th{font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft); font-weight:600;}
-  td:first-child{color:var(--a2-deep); font-weight:600; white-space:nowrap;}
-  .body p{color:var(--soft);}
+  td:first-child{color:var(--a2-deep); font-weight:600; white-space:normal;}
+  .body p{color:var(--soft); overflow-wrap:anywhere;}
   .body ul{margin:6px 0; padding-left:18px;} .body li{margin:5px 0;}
-  code{font-family:var(--mono); font-size:12px; background:#edeae0; padding:1px 6px; border-radius:3px; color:var(--a2-deep);}
-  a{color:var(--a2-deep); text-underline-offset:3px;}
+  code{font-family:var(--mono); font-size:12px; background:#edeae0; padding:1px 6px; border-radius:3px; color:var(--a2-deep); overflow-wrap:anywhere; word-break:break-word;}
+  pre{white-space:pre-wrap; overflow-wrap:anywhere; word-break:break-word; max-width:100%;}
+  a{color:var(--a2-deep); text-underline-offset:3px; overflow-wrap:anywhere; word-break:break-word;}
   .chips{display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px;}
   .chip{font-family:var(--mono); font-size:10.5px; letter-spacing:.05em; color:var(--soft); border:1px solid var(--line); border-radius:999px; padding:3px 10px;}
   .foot{margin-top:30px; padding-top:15px; border-top:1px solid var(--line);
-    display:flex; justify-content:space-between; font-family:var(--mono); font-size:10px;
+    display:flex; flex-wrap:wrap; gap:6px 14px; justify-content:space-between; font-family:var(--mono); font-size:10px;
     letter-spacing:.13em; text-transform:uppercase; color:var(--faint);}
+
+  @media (min-width:720px){
+    .sheet{padding:48px 34px 46px;}
+    .eyebrow{letter-spacing:.18em;}
+    .eyebrow .status{margin-left:auto;}
+    .axis{padding-left:22px; margin-bottom:30px;}
+    .content-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
+  }
+  @media (max-width:640px){
+    table,thead,tbody,tr,th,td{display:block; width:100%;}
+    thead{display:none;}
+    tr{border:1px solid var(--line); border-radius:8px; padding:9px 10px; margin:0 0 10px; background:#f8f6ef;}
+    td{border-bottom:0; padding:5px 0;}
+    td:first-child{font-family:var(--mono); font-size:11px; letter-spacing:.05em;}
+  }
 </style>
 </head>
 <body>
@@ -107,6 +131,33 @@
   </div>
 
   <div class="reveal" style="animation-delay:.27s">
+  <details open>
+    <summary><span class="chev"></span> 핵심 내용 · 리서치 본문</summary>
+    <div class="body">
+      <div class="section">
+        <div class="section-title">핵심 발견</div>
+        <ol class="find">
+          <li>{{FINDING_1}}</li>
+          <li>{{FINDING_2}}</li>
+          <li>{{FINDING_3}}</li>
+        </ol>
+      </div>
+
+      <div class="callout">{{RECOMMENDATION}}</div>
+
+      <div class="content-grid">
+        <div class="mini-card">
+          <b>근거 · 소스</b>
+          <p>{{EVIDENCE_SUMMARY}}</p>
+        </div>
+        <div class="mini-card">
+          <b>다음 판단</b>
+          <p>{{NEXT_DECISION}}</p>
+        </div>
+      </div>
+    </div>
+  </details>
+
   <details open>
     <summary><span class="chev"></span> {{DETAIL_TITLE}}</summary>
     <div class="body">{{DETAIL_BODY}}</div>

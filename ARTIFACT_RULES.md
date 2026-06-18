@@ -156,8 +156,10 @@ Infinity 문서는 아래 3개 역할로 통일한다. 새 문서를 만들 때 
 
 ## Report 양식 (HTML, 결론 2축)
 
-최종 보고(Report)는 **HTML로 작성**하고, **"결론 2축"을 맨 위에 큼직하게** 둔다. 상세·메타·로그는 접는다.
+최종 보고(Report)는 **HTML로 작성**하고, **"결론 2축"을 맨 위에 큼직하게** 둔다. 그 아래에는 사용자가 HTML만 열어도 핵심 내용을 바로 읽을 수 있는 본문을 둔다. 상세·메타·로그는 접는다.
 이 2축은 사후에 파싱하는 것이 아니라, **작업이 끝나는 순간 에이전트가 직접 도출해 채우는 산출물**이다.
+
+Report는 여전히 실행 로그지만, 특히 조사형(`research`, `wiki`, `doc`)은 얇은 링크 카드가 되면 실패다. 핵심 발견, 근거, 비교, 다음 판단이 HTML 안에 포함되어야 한다. Artifact는 원문/재사용 산출물이고, Report는 그 실행의 읽을 수 있는 요약 표면이다.
 
 ### 결론 2축 (필수)
 
@@ -182,14 +184,18 @@ Infinity 문서는 아래 3개 역할로 통일한다. 새 문서를 만들 때 
 - 위치: `reports/{id}/{timestamp}.html`
 - 템플릿: `reports/_TEMPLATE.html` 을 복사해 `{{...}}` 자리표시자를 치환한다. (`_`로 시작하는 파일은 대시보드가 무시한다)
 - 완료 게이트: `reports/{id}/{timestamp}.html` 파일이 실제로 존재하고 비어 있지 않으며, `<html`, `<body`, `axis ax1`, `axis ax2`, `<details`를 포함해야 한다. 이 검증 없이 완료 처리하지 않는다.
+- 연구형 Report는 `핵심 내용 · 리서치 본문` 영역을 반드시 채운다. 최소 3개, 가능하면 5~7개의 핵심 발견을 쓰고, 각 발견은 사용자가 다음 결정을 할 수 있을 만큼 구체적이어야 한다.
+- 연구형 Report에는 반드시 `근거 · 소스`, `다음 판단`, 필요 시 `옵션 비교` 또는 `추천안`이 들어간다. "자세한 내용은 artifact 참고"만으로 끝내지 않는다.
+- 긴 표는 모바일에서 좌우 스크롤을 요구하지 않게 2열 이하로 줄이거나, 항목형 카드/목록으로 바꾼다. URL, 코드, 파일 경로, 긴 단어는 줄바꿈되게 작성한다.
 - Claude/workflow-master 위임 작업도 같은 규칙을 따른다. 위임받은 에이전트가 코드·문서 변경은 끝냈지만 HTML report를 남기지 않았다면, Heartbeat는 직접 `reports/_TEMPLATE.html`로 관측 결과를 보강해 HTML report를 만든 뒤 완료한다.
 - Markdown report만 존재하는 경우 신규 완료로 인정하지 않는다. 같은 실행에서 `.md`가 함께 생겼다면 `.html`을 final report로 archive에 연결하고 `.md`는 보조 로그로만 둔다.
 - **제약**: 대시보드는 이 파일을 `iframe sandbox="allow-same-origin"` 으로 렌더하므로 **JS·외부 리소스는 동작하지 않는다.** 스타일은 인라인 `<style>` 로만, 접기는 `<details>`(JS 불필요)로 한다.
+- 모바일 기준은 390px 폭이다. 브라우저 검증이 가능하면 `document.documentElement.scrollWidth <= window.innerWidth`를 확인하고, 어렵다면 템플릿 CSS의 `overflow-x:hidden`, 긴 텍스트 wrapping, 모바일 테이블 stacking 규칙을 깨지 않았는지 눈으로 확인한다.
 - 디자인은 **"Quiet Note"** 시스템을 따른다 — 따뜻한 본(bone) 배경(`--bg #f4f2ea`) + 저채도 단일 악센트. `_TEMPLATE.html`의 CSS는 그대로 두고 `:root`의 **`--a1`/`--a1-deep` 두 줄만 카테고리색으로 교체**한다 (축2는 항상 sage 고정):
   - 조사형(research/wiki/doc): `--a1:#5a6f8a; --a1-deep:#3f536e;` (slate-blue) — 라벨 "무엇을 조사했나 / 핵심 결과"
   - 개선형(marketing/product/dev/build/pages): `--a1:#a9745a; --a1-deep:#8a5c45;` (clay) — 라벨 "무엇이 문제였나 / 어떻게 해결하나"
   - 감시형(monitor/maintenance/router): `--a1:#b08545; --a1-deep:#8a6633;` (muted gold) — 라벨 "무엇을 점검했나 / 이상 여부·조치"
-- 구조: **eyebrow(id·상태) → 제목 + dek 한 줄 → 결론 2축(좌측 컬러 라인) → `<details>` 상세 → `<details>` 메타**. JS 없이 CSS `animation-delay`로 스태거 로드.
+- 구조: **eyebrow(id·상태) → 제목 + dek 한 줄 → 결론 2축(좌측 컬러 라인) → `<details open>` 핵심 내용 → `<details open>` 상세 → `<details>` 메타**. JS 없이 CSS `animation-delay`로 스태거 로드.
 - 같은 시점의 보고를 `.md` 와 `.html` 로 함께 두면 대시보드는 **`.html` 을 우선** 노출한다. 신규 보고는 `.html` 하나만 만든다.
 
 > Report 는 여전히 "실행 로그"다. 2축은 그 로그의 결론을 사람이 한눈에 보게 하는 장치이며, canonical index 는 `intents/archive/{id}.md` 에 둔다는 원칙은 그대로다. 원장에도 동일한 2축(`result_summary`가 축2에 해당)을 남긴다.

@@ -144,8 +144,11 @@ HTML report contract:
 - Create the final run report as HTML, not Markdown.
 - This applies to every meaningful completion, including `simple-doc` and direct lightweight prompts.
 - A new `.md` report may be kept as a legacy/raw log, but it never satisfies the completion gate by itself.
-- Use reports/_TEMPLATE.html and fill axis 1, axis 2, details, and execution metadata.
+- Use reports/_TEMPLATE.html and fill axis 1, axis 2, core content, details, and execution metadata.
+- For research/wiki/doc work, do not produce a thin wrapper around artifact links. Put the essential findings directly in the HTML: 3-7 key findings, evidence/source notes, recommendation or option comparison, and next decision.
+- Treat 390px mobile as the primary viewport. Long URLs, code, paths, and table cells must wrap; wide tables should become stacked rows/cards or short lists instead of requiring horizontal scrolling.
 - Before claiming done, verify the file exists and contains <html, <body, axis ax1, axis ax2, and <details.
+- When browser verification is available, check that `document.documentElement.scrollWidth <= window.innerWidth` at a 390px viewport.
 - If the delegated work itself cannot write the report, return enough facts for Heartbeat to write the HTML report before archiving.
 - Do not mark the Infinity intent complete with only a chat summary or .md report.
 ```
@@ -171,9 +174,11 @@ HTML report contract:
 
 1. Intent id prefix로 작업 성격(조사형/개선형/감시형/범용)과 축 라벨을 선택한다.
 2. **축1(맥락/대상/문제)** 과 **축2(결과/해법/발견)** 를 각각 한 줄로 정한다. 비우지 않는다.
-3. `reports/_TEMPLATE.html` 을 복사해 2축을 채우고, 수행 작업·산출물·메타·다음 액션은 `<details>` 안에 넣는다.
+3. `reports/_TEMPLATE.html` 을 복사해 2축을 채우고, 핵심 내용·수행 작업·산출물·메타·다음 액션은 `<details>` 안에 넣는다.
+   - 조사형(`research`, `wiki`, `doc`)은 `핵심 내용 · 리서치 본문`을 비우지 않는다. 핵심 발견 3~7개, 근거/소스, 추천안 또는 옵션 비교, 다음 판단을 HTML 안에 직접 쓴다.
+   - 모바일 390px 기준으로 읽히게 쓴다. 긴 표를 그대로 붙이지 말고 카드/목록으로 요약하며, 좌우 스크롤을 요구하지 않는다.
 4. 같은 2축을 완료 시 `intents/archive/{id}.md` 의 `result_summary`(축2)에도 반영한다.
-5. 완료 전에 HTML 파일 검증을 수행한다: `test -s reports/{id}/{timestamp}.html` 후 `<html`, `<body`, `axis ax1`, `axis ax2`, `<details` 존재를 확인한다.
+5. 완료 전에 HTML 파일 검증을 수행한다: `test -s reports/{id}/{timestamp}.html` 후 `<html`, `<body`, `axis ax1`, `axis ax2`, `<details` 존재를 확인한다. 브라우저 검증이 가능하면 390px viewport에서 `document.documentElement.scrollWidth <= window.innerWidth`도 확인한다.
 6. Claude Code/workflow-master가 HTML report를 남기지 않고 종료했으면, Heartbeat가 관측한 변경·검증·커밋 결과로 `reports/_TEMPLATE.html` 기반 report를 직접 작성한 뒤에만 archive한다.
 7. 마케팅 관련 report의 `<details>`에는 `계승한 기준`, `이번에 새로 배운 것`, `다음 Marketer에게 넘길 규칙`을 포함한다. durable learning candidate가 있으면 `MARKETING_LEARNINGS.md`에 승격하거나, 애매하면 report 안에만 보류한다.
 
