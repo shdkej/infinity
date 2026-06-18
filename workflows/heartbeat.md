@@ -145,6 +145,7 @@ HTML report contract:
 - This applies to every meaningful completion, including `simple-doc` and direct lightweight prompts.
 - A new `.md` report may be kept as a legacy/raw log, but it never satisfies the completion gate by itself.
 - Use reports/_TEMPLATE.html and fill axis 1, axis 2, core content, details, and execution metadata.
+- Before writing the HTML, outline the report in a MECE structure. Findings, options, risks, evidence, and next actions should not repeat each other, and the main decision axes should not be missing.
 - For research/wiki/doc work, do not produce a thin wrapper around artifact links. Put the essential findings directly in the HTML: 3-7 key findings, evidence/source notes, recommendation or option comparison, and next decision.
 - Treat 390px mobile as the primary viewport. Long URLs, code, paths, and table cells must wrap; wide tables should become stacked rows/cards or short lists instead of requiring horizontal scrolling.
 - Before claiming done, verify the file exists and contains <html, <body, axis ax1, axis ax2, and <details.
@@ -170,17 +171,19 @@ HTML report contract:
 
 `simple-doc`처럼 작고 직접 처리한 작업도 예외가 아니다. 새 Markdown report만 남기고 완료 처리하지 않는다. Markdown은 보조 로그로 둘 수 있지만, 완료/Archive/INTENTS 링크는 HTML report를 기준으로 한다.
 
-보고를 쓰기 전에 먼저 이 작업의 **결론 2축**을 각각 한 줄로 도출한다. 이것이 자동 추출의 핵심이다 — 사후 파싱이 아니라 작업 종료 시점에 에이전트가 직접 결론을 산출한다.
+보고를 쓰기 전에 먼저 이 작업의 **결론 2축**을 각각 한 줄로 도출하고, 그 아래 본문은 **MECE 구조**로 나눈다. 이것이 자동 추출의 핵심이다 — 사후 파싱이 아니라 작업 종료 시점에 에이전트가 직접 결론과 구조를 산출한다.
 
 1. Intent id prefix로 작업 성격(조사형/개선형/감시형/범용)과 축 라벨을 선택한다.
 2. **축1(맥락/대상/문제)** 과 **축2(결과/해법/발견)** 를 각각 한 줄로 정한다. 비우지 않는다.
-3. `reports/_TEMPLATE.html` 을 복사해 2축을 채우고, 핵심 내용·수행 작업·산출물·메타·다음 액션은 `<details>` 안에 넣는다.
+3. 본문을 MECE하게 나눈다. 같은 말을 반복하지 말고, `문제/맥락`, `선택지`, `근거`, `제약/리스크`, `추천`, `다음 결정`처럼 판단 축이 겹치지 않게 배치한다.
+4. `reports/_TEMPLATE.html` 을 복사해 2축을 채우고, 핵심 내용·수행 작업·산출물·메타·다음 액션은 `<details>` 안에 넣는다.
    - 조사형(`research`, `wiki`, `doc`)은 `핵심 내용 · 리서치 본문`을 비우지 않는다. 핵심 발견 3~7개, 근거/소스, 추천안 또는 옵션 비교, 다음 판단을 HTML 안에 직접 쓴다.
+   - 핵심 발견 3~7개는 같은 의미를 다른 말로 반복하지 않는다. 각각은 서로 다른 판단 축이나 근거를 담당해야 한다.
    - 모바일 390px 기준으로 읽히게 쓴다. 긴 표를 그대로 붙이지 말고 카드/목록으로 요약하며, 좌우 스크롤을 요구하지 않는다.
-4. 같은 2축을 완료 시 `intents/archive/{id}.md` 의 `result_summary`(축2)에도 반영한다.
-5. 완료 전에 HTML 파일 검증을 수행한다: `test -s reports/{id}/{timestamp}.html` 후 `<html`, `<body`, `axis ax1`, `axis ax2`, `<details` 존재를 확인한다. 브라우저 검증이 가능하면 390px viewport에서 `document.documentElement.scrollWidth <= window.innerWidth`도 확인한다.
-6. Claude Code/workflow-master가 HTML report를 남기지 않고 종료했으면, Heartbeat가 관측한 변경·검증·커밋 결과로 `reports/_TEMPLATE.html` 기반 report를 직접 작성한 뒤에만 archive한다.
-7. 마케팅 관련 report의 `<details>`에는 `계승한 기준`, `이번에 새로 배운 것`, `다음 Marketer에게 넘길 규칙`을 포함한다. durable learning candidate가 있으면 `MARKETING_LEARNINGS.md`에 승격하거나, 애매하면 report 안에만 보류한다.
+5. 같은 2축을 완료 시 `intents/archive/{id}.md` 의 `result_summary`(축2)에도 반영한다.
+6. 완료 전에 HTML 파일 검증을 수행한다: `test -s reports/{id}/{timestamp}.html` 후 `<html`, `<body`, `axis ax1`, `axis ax2`, `<details` 존재를 확인한다. 브라우저 검증이 가능하면 390px viewport에서 `document.documentElement.scrollWidth <= window.innerWidth`도 확인한다.
+7. Claude Code/workflow-master가 HTML report를 남기지 않고 종료했으면, Heartbeat가 관측한 변경·검증·커밋 결과로 `reports/_TEMPLATE.html` 기반 report를 직접 작성한 뒤에만 archive한다.
+8. 마케팅 관련 report의 `<details>`에는 `계승한 기준`, `이번에 새로 배운 것`, `다음 Marketer에게 넘길 규칙`을 포함한다. durable learning candidate가 있으면 `MARKETING_LEARNINGS.md`에 승격하거나, 애매하면 report 안에만 보류한다.
 
 ```
 헤더:  [intent-id] 제목                          [상태 뱃지]
