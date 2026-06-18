@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>research-15 · 3D Interactive Character Background</title>
+<style>
+  :root{
+    --bg:#f4f2ea; --panel:#fbfaf5; --ink:#2c2a25; --soft:#807c70; --faint:#a8a496; --line:#e3dfd2;
+    --a2:#5f7a5e; --a2-deep:#3f5740;
+    --a1:#5a6f8a; --a1-deep:#3f536e;
+    --sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box;} html,body{margin:0;}
+  body{background:var(--bg); color:var(--ink); font-family:var(--sans); font-size:14px; line-height:1.68; -webkit-font-smoothing:antialiased;}
+  .sheet{max-width:720px; margin:0 auto; padding:48px 34px 46px;}
+  .reveal{opacity:0; animation:fade .7s ease forwards;} @keyframes fade{from{opacity:0; transform:translateY(9px);} to{opacity:1; transform:none;}}
+  .eyebrow{display:flex; align-items:center; gap:10px; font-family:var(--mono); font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--soft);}
+  .eyebrow .id{color:var(--a2-deep); font-weight:600;} .eyebrow .dot{width:5px; height:5px; border-radius:50%; background:var(--a2);}
+  .eyebrow .status{margin-left:auto; color:var(--a2-deep);}
+  h1{font-size:29px; line-height:1.3; font-weight:700; letter-spacing:-.01em; margin:20px 0 0;}
+  .dek{font-size:15.5px; color:var(--soft); margin:13px 0 0; max-width:52ch;}
+  .hr{height:1px; background:var(--line); margin:30px 0;}
+  .axis{padding:0 0 4px 22px; position:relative; margin-bottom:30px;} .axis::before{content:""; position:absolute; left:0; top:6px; bottom:6px; width:2px; border-radius:2px;}
+  .axis.ax1::before{background:var(--a1);} .axis.ax2::before{background:var(--a2);} .axis.ax1{--ul:var(--a1);} .axis.ax2{--ul:var(--a2);}
+  .axis .label{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase; margin-bottom:9px; display:flex; align-items:center; gap:8px;}
+  .axis.ax1 .label{color:var(--a1-deep);} .axis.ax2 .label{color:var(--a2-deep);}
+  .axis .label .n{font-weight:600; opacity:.6;} .axis .text{font-size:18px; line-height:1.6; color:#37352e;}
+  .axis .text b{font-weight:700; color:var(--ink); border-bottom:2px solid var(--ul);}
+  details{border:1px solid var(--line); border-radius:10px; background:var(--panel); margin-bottom:10px;}
+  summary{cursor:pointer; list-style:none; padding:14px 16px; display:flex; align-items:center; gap:11px; font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft);}
+  summary::-webkit-details-marker{display:none;} summary .chev{width:8px; height:8px; border-right:2px solid var(--a2-deep); border-bottom:2px solid var(--a2-deep); transform:rotate(-45deg); transition:.25s; flex:none; margin-left:2px;}
+  details[open] summary .chev{transform:rotate(45deg);} .body{padding:2px 16px 18px;}
+  table{border-collapse:collapse; width:100%; font-size:13px; margin:4px 0 12px;} th,td{border-bottom:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top;}
+  th{font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft); font-weight:600;} td:first-child{color:var(--a2-deep); font-weight:600; white-space:nowrap;}
+  .body p{color:var(--soft);} .body ul{margin:6px 0; padding-left:18px;} .body li{margin:5px 0;}
+  code{font-family:var(--mono); font-size:12px; background:#edeae0; padding:1px 6px; border-radius:3px; color:var(--a2-deep);}
+  .chips{display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px;} .chip{font-family:var(--mono); font-size:10.5px; letter-spacing:.05em; color:var(--soft); border:1px solid var(--line); border-radius:999px; padding:3px 10px;}
+  .foot{margin-top:30px; padding-top:15px; border-top:1px solid var(--line); display:flex; justify-content:space-between; font-family:var(--mono); font-size:10px; letter-spacing:.13em; text-transform:uppercase; color:var(--faint);}
+</style>
+</head>
+<body>
+<div class="sheet">
+  <div class="eyebrow reveal"><span class="dot"></span><span class="id">research-15</span><span>Research Note</span><span class="status">archived</span></div>
+  <h1 class="reveal" style="animation-delay:.05s">3D Interactive Character Background Feasibility</h1>
+  <p class="dek reveal" style="animation-delay:.09s">Sam Samuel 웹의 핵심 공간 문법을 full 3D, Spline, pre-rendered fallback 세 단계로 비교했다.</p>
+  <div class="hr reveal" style="animation-delay:.12s"></div>
+  <div class="axis ax1 reveal" style="animation-delay:.16s">
+    <div class="label"><span class="n">01</span> 무엇을 조사/정리했나</div>
+    <div class="text">YouTube 레퍼런스를 직접 추출하려 했지만 서버 추출은 봇 확인에 막혔다. 대신 intent가 정의한 <b>interactive 3D character background + floating HUD/buttons</b> 문법을 웹 구현 옵션으로 정리했다.</div>
+  </div>
+  <div class="axis ax2 reveal" style="animation-delay:.22s">
+    <div class="label"><span class="n">02</span> 핵심 결과</div>
+    <div class="text">다음 Status 적용은 <b>pre-rendered scene + pointer parallax</b>가 가장 안전하고, 재사용 skill 단계에서는 Three.js/R3F 기반 scene + HUD 시스템으로 확장하는 것이 맞다.</div>
+  </div>
+  <div class="reveal" style="animation-delay:.27s">
+  <details open>
+    <summary><span class="chev"></span> 상세</summary>
+    <div class="body">
+      <table>
+        <tr><th>Option</th><th>Verdict</th></tr>
+        <tr><td>Full 3D</td><td>가장 강하지만 모바일 성능, asset pipeline, 검증 비용이 높다. reusable skill의 최종형에 적합하다.</td></tr>
+        <tr><td>Spline</td><td>빠른 프로토타입에는 좋지만 runtime/hosting/export 통제력이 약하다.</td></tr>
+        <tr><td>Pre-rendered</td><td>Status 첫 적용에 가장 안전하다. 이미지/비디오/sequence에 HUD와 parallax만 얹는다.</td></tr>
+      </table>
+      <p>문서 계획은 DESIGN.md에 Spatial Character Background, DESIGN_SYSTEM.md에 Scene + HUD pattern, future skill에는 scene-hud-background 책임을 기록하는 것으로 정리했다.</p>
+    </div>
+  </details>
+  <details>
+    <summary><span class="chev"></span> 실행 메타 · 산출물</summary>
+    <div class="body">
+      <div class="chips"><span class="chip">2026-06-18T0701Z</span><span class="chip">heartbeat</span><span class="chip">inbox → archived</span></div>
+      <ul>
+        <li>산출물 <code>artifacts/research-15/3d-interactive-character-background-feasibility.md</code></li>
+        <li>경계: 코드 수정, 배포, 유료 가입, 공개 발행 없음.</li>
+      </ul>
+    </div>
+  </details>
+  </div>
+  <div class="foot reveal" style="animation-delay:.3s"><span>Agent-First Heartbeat</span><span>Infinity · Intent Note</span></div>
+</div>
+</body>
+</html>
