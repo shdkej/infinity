@@ -1,7 +1,7 @@
 # naver-shopping-01: 나래(Naver Shopping Agent) 운영/차단 라우팅
 
 - id: naver-shopping-01
-- status: active
+- status: waiting
 - projects: [naver-shopping, infinity, personal-ops]
 - task_type: coordination
 - topics: [automation, workflow, marketing]
@@ -10,13 +10,15 @@
 - source_agent: `/home/ubuntu/.openclaw/workspace/agents/naver-shopping-agent/`
 - created_at: 2026-06-07T23:24Z
 - updated_at: 2026-06-14T05:45Z
-- updated_at_latest: 2026-06-17T1200Z
+- updated_at_latest: 2026-06-18T04:00Z
 
 ## Purpose
 
 네이버쓼핑몰 수익화 전담 에이전트가 막히는 지점을 SAM이 관리자자럼 분류하고, 사용자가 직접 확인해야 하는 항목만 09:00 KST 메시지로 묶는다.
 
 ## Current State
+
+- 2026-06-18T04:00Z **Heartbeat 상태 전환: active → waiting.** cloud prepare 완료 확인. 다음 유효 액션은 사용자 브라우저 세션만으로 가능. 추가 cloud 리서치 반복 금지(loop-guard + do_not_repeat_cloud 활성). 이 Heartbeat에서 수행한 액션 없음(상태 전환만). sample-order-gated 유지.
 
 - 2026-06-17T1200Z **샘플 검증 준비 완료 (cloud prepare).** 1688 verified session 대기 중인 상태에서 cloud가 수행할 수 있는 prepare 작업 완료: (1) Huanhuan/Zhanhong/Kemeng 3개 공급사 현장 확인 체크리스트 작성 (색상·MOQ·리뷰·최근거래·커넥터·패치 여부 + 샘플 주문 요청서 초안), (2) 네이버 스마트스토어 손목 스트랩 등록 초안 작성 (상품명 후보 3개, 핵심 키워드 SearchAd 기반, 원가 KRW ~600-720 → 추천 판매가 KRW 1,800-2,500, 상품 설명, 이미지 촬영 가이드 4컷, 콘텐츠 앵글 4개). 1688 공개 단가/MOQ 재조회는 loop-guard 준수하여 미수행. 사용자 브라우저 세션이 열리면 체크리스트 1회로 공급사 확정 가능. 추가 cloud prepare 불필요. 샘플 주문·라이브 등록·가격·배송·재고·광고·고객·주문·계정·공개발행 0. 산출물: `artifacts/naver-shopping-01/wrist-strap-1688-verification-checklist.md`, `artifacts/naver-shopping-01/naver-listing-draft-wrist-strap.md`; 리포트: `reports/naver-shopping-01/2026-06-17T1200Z-prepare.html`.
 
@@ -53,6 +55,17 @@
 - 2026-06-08T14:39Z read-only test: SmartStore Center stops at Commerce ID login page; public Naver Shopping search IP-restricted.
 
 ## Pending Blockers
+
+### 2026-06-18T04:00Z - waiting 전환 / 사용자 브라우저 세션 대기
+
+- route: user-session-needed
+- status: waiting
+- reason: cloud prepare 완료. 다음 유효 액션(1688 공급사 현장 확인, 네이버 등록)은 사용자 브라우저 세션 필요.
+- do_not_repeat_cloud: 활성 — 체크리스트 + 등록 초안 완성. 추가 cloud prepare 금지.
+- next_valid_action: 사용자 브라우저 세션으로 wrist-strap-1688-verification-checklist.md 실행 → Huanhuan/Zhanhong 1개 확정 → SAM 샘플 주문 승인 요청
+- artifacts_ready:
+  - `artifacts/naver-shopping-01/wrist-strap-1688-verification-checklist.md`
+  - `artifacts/naver-shopping-01/naver-listing-draft-wrist-strap.md`
 
 ### 2026-06-17T1200Z - cloud prepare 완료 / 검증 세션 대기
 
