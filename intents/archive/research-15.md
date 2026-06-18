@@ -15,9 +15,9 @@
   - path: reports/research-15/2026-06-18T0701Z-local.html
     role: final
 - commits:
-  - repo: none
-    sha: pending
-    note: heartbeat local artifact only in this run
+  - repo: infinity
+    sha: e741270
+    note: archived research-15 artifact, report, and intent registry update
 - urls:
   - url: https://www.youtube.com/watch?v=dROkEnvxch4
     note: reference video; server extraction blocked by YouTube bot confirmation, so used only as directional brief
