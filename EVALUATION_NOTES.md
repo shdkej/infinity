@@ -523,3 +523,12 @@ Infinity intent 처리 품질을 평가해 다음 pickup/구조화/실행에서 
 
 - 대상 intent: 2026-06-11 기준 naver-shopping-01 사용자 취향 보정
 - 평가: 키워드 수요가 있던 `캐리어네임택`/`러기지택`도 사용자 취향에서 낮게 평가되면 다음 실행 후보에서 즉시 강등되어야 한다. sourcing-first 전환은 "수요 스캔 → 상품화"가 아니라 `사용자 선호/소싱 난이도/품질·반품 리스크`를 선행 게이트로 두고, 기존 next_action까지 함께 덮어써야 수요 데이터가 철회된 후보를 되살리지 않는다.
+
+- 대상 intent: 2026-06-12 기준 build-04/marketing-53~54 Archive 정합성
+- 평가: 최근 완료 항목 중 build-03은 canonical archive가 있지만 build-04와 marketing-53~54는 `INTENTS.md`가 report만 가리키고 `intents/archive/{id}.md`가 없어 archive gate가 다시 새고 있다. 다음 heartbeat는 신규 실행 전 "이번에 완료한 id의 archive detail 존재 + registry 링크가 archive를 향함"을 함께 검증해야 한다.
+
+- 대상 intent: 2026-06-13 기준 build-04/06/07/08 및 marketing-53~54 Archive 정합성
+- 평가: build-06~08은 뒤늦게 canonical archive 파일이 생겼지만 `INTENTS.md` 링크가 여전히 report를 향하고, build-04·marketing-53~54는 archive 파일 자체가 없다. Archive 복구는 파일 생성만으로 닫지 말고 `INTENTS.md -> intents/archive/{id}.md` 링크 전환까지 같은 작업의 완료 조건으로 묶어야 한다.
+
+- 대상 intent: 2026-06-17 기준 marketing-64 pending report 해소
+- 평가: `reports/heartbeat/*pending*`가 남아 있어도 현재 `INTENTS.md`와 `intents/archive/{id}.md`가 이미 정합하면 새 실행은 stale pending report를 실패로 재처리하지 말고, 후속 heartbeat에서 "resolved/superseded" 표식을 남겨 혼선을 줄여야 한다.
