@@ -1,0 +1,136 @@
+/* spatial-presence.css
+   build-12: Status 3D Character Background — Option D (Pre-rendered + CSS Pointer Parallax)
+   Target: sites/status/dist/assets/spatial-presence.css
+   Reference: artifacts/research-16/3d-character-stage-options.md */
+
+/* ─── Tokens ───────────────────────────────── */
+:root {
+  --character-z: 0;
+  --hud-z: 10;
+  --hud-bg: rgba(244, 242, 234, 0.75);
+  --hud-blur: blur(8px);
+  --character-scale-desktop: 75vh;
+  --character-scale-tablet: 50vh;
+  --character-scale-mobile: 30vh;
+  --parallax-desktop: 8;  /* degrees — JS reads as number via getComputedStyle */
+  --parallax-mobile: 4;
+  --sp-transition: transform 0.12s ease-out;
+}
+
+/* ─── Stage (full-viewport background layer) ─ */
+.character-stage {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: var(--character-z);
+  pointer-events: none;
+  overflow: hidden;
+  background-color: #f4f2ea; /* Quiet Note — fallback if no image */
+}
+
+/* ─── Character Layer ────────────────────── */
+.character-layer {
+  position: absolute;
+  bottom: 0;
+  right: 8%;
+  height: var(--character-scale-desktop);
+  width: auto;
+  max-height: 90vh;
+  transform-origin: center bottom;
+  transition: var(--sp-transition);
+  will-change: transform;
+}
+
+.character-layer img,
+.character-layer video {
+  display: block;
+  height: 100%;
+  width: auto;
+  object-fit: contain;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* Depth factor tokens — JS reads via getComputedStyle */
+.depth-far  { --depth-factor: 0.3; }
+.depth-mid  { --depth-factor: 0.6; }
+.depth-near { --depth-factor: 1.0; }
+
+/* ─── Placeholder gradient (Phase 1, no asset) ─ */
+.character-placeholder {
+  display: block;
+  height: var(--character-scale-desktop);
+  width: 38vw;
+  max-width: 480px;
+  background: linear-gradient(
+    155deg,
+    rgba(210, 195, 170, 0.35) 0%,
+    rgba(190, 170, 140, 0.18) 45%,
+    rgba(244, 242, 234, 0.0) 85%
+  );
+  border-radius: 48% 52% 0 0 / 36% 36% 0 0;
+  transform-origin: center bottom;
+}
+
+/* ─── Atmospheric Overlay ──────────────── */
+.atmosphere {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse 80% 55% at 50% 105%,
+    rgba(244, 238, 218, 0.55) 0%,
+    transparent 68%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ─── HUD z-index guard ────────────────── */
+/* Apply .hud-layer to existing HUD wrapper, or use these selectors if they match */
+.hud-layer,
+[data-hud] {
+  position: relative;
+  z-index: var(--hud-z);
+  pointer-events: all;
+}
+
+/* ─── prefers-reduced-motion ───────────── */
+@media (prefers-reduced-motion: reduce) {
+  .character-layer {
+    transition: none !important;
+    transform: none !important;
+  }
+  .character-layer video { display: none; }
+}
+
+/* ─── Mobile (< 640px) ─────────────────── */
+@media (max-width: 639px) {
+  .character-layer {
+    height: var(--character-scale-mobile);
+    right: auto;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .character-placeholder {
+    height: var(--character-scale-mobile);
+    width: 60vw;
+    max-width: 260px;
+  }
+  /* JS also reads this reduced value */
+  :root { --parallax-desktop: var(--parallax-mobile); }
+}
+
+/* ─── Tablet (640–1023px) ──────────────── */
+@media (min-width: 640px) and (max-width: 1023px) {
+  .character-layer {
+    height: var(--character-scale-tablet);
+    right: 10%;
+  }
+  .character-placeholder {
+    height: var(--character-scale-tablet);
+  }
+}
+
+/* ─── Horizontal scroll guard ─────────── */
+body { overflow-x: hidden; }

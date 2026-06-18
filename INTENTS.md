@@ -7,11 +7,12 @@
 
 ## Active
 
-<!-- build-12 active 2026-06-18T08:00Z → intents/active/build-12.md [display: Status 3D Character Background Prototype; projects: personal-ops,infinity,design-system; type: implementation; topics: 3d-background,interactive-character,skill; status: active] (research-16 완료. Option D(pre-rendered+CSS parallax) 기준으로 Status 페이지 배경 레이어 scope 확정. artifacts/research-16/3d-character-stage-options.md 참조.) -->
 
 ## Waiting
 
 <!-- 사용자 결정, 외부 조건, 안전 확인 대기. 같은 질문을 반복하지 않고 상태만 보존한다. -->
+
+<!-- build-12 waiting 2026-06-18T11:00Z → intents/active/build-12.md [display: Status 3D Character Background Prototype; projects: personal-ops,infinity,design-system; type: implementation; topics: 3d-background,interactive-character,skill; status: waiting; reason: execute_local — infra-aws-static-sites 로컬 레포 파일 수정 필요; do_not_repeat_cloud: true; next: 로컬 Claude Code가 artifacts/build-12/ 파일을 사용해 sites/status/dist/ 구현 후 검증 게이트 통과] (2026-06-18T11:00Z heartbeat: cloud prepare 완료. spatial-presence.css · index-html-patch.md · local-execution-prompt.md 작성 완료. 반복 cloud 작업 금지.) -->
 
 <!-- naver-shopping-01 waiting 2026-06-18T04:00Z → intents/active/naver-shopping-01.md [display: 나래/Narae; projects: naver-shopping,infinity,personal-ops; type: coordination; topics: automation,workflow,marketing; decision: 사용자 브라우저 세션 열어서 1688 체크리스트 실행 → 공급사(Huanhuan/Zhanhong) 확정 → 샘플 주문 승인 요청; options: 지금 브라우저 열어서 체크리스트 실행 | 나래 대기 유지 | 보류; reason: 1688 verified session 필요(unusual-traffic slider), SmartStore Commerce ID login wall; next: 사용자 브라우저 세션이 열리면 체크리스트 1회로 공급사 확정 + 샘플 주문 승인 요청 가능. cloud prepare 완료, do_not_repeat_cloud 활성, 추가 cloud 작업 없음.] (2026-06-18 heartbeat: cloud prepare 완료 확인. 1688 현장 확인 체크리스트(artifacts/naver-shopping-01/wrist-strap-1688-verification-checklist.md) + 네이버 등록 초안(artifacts/naver-shopping-01/naver-listing-draft-wrist-strap.md) 작성 완료. 다음 유효 액션은 사용자 브라우저 세션만으로 가능. loop-guard 활성, 반복 cloud 리서치 금지. sample-order-gated 유지.) -->
 

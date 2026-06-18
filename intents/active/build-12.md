@@ -1,7 +1,7 @@
 # build-12: Status 3D Character Background Prototype
 
 - id: build-12
-- status: active
+- status: waiting
 - priority: medium
 - projects: [personal-ops, infinity, design-system]
 - task_type: implementation
@@ -10,6 +10,8 @@
 - created_at: 2026-06-18T07:00Z
 - activated_at: 2026-06-18T08:00Z
 - source: follow-up from research-15, research-16
+- cloud_prepare: completed 2026-06-18T11:00Z
+- do_not_repeat_cloud: true
 
 ## Goal
 
@@ -39,21 +41,34 @@ Status 페이지에 3D 캐릭터 배경 레이어를 적용한다.
 - 연구 기반: artifacts/research-16/3d-character-stage-options.md
 - 이전 연구: artifacts/research-15/3d-character-bg-feasibility.md
 - 현재 Status: build-11에서 4-card floating 레이아웃 완성
+- Target repo: `/home/ubuntu/workspace/space/infra-aws-static-sites`
+- Target surface: `https://status.aws.shdkej.com`
+- Target files:
+  - `sites/status/dist/index.html`
+  - `sites/status/dist/assets/spatial-presence.css` (신규)
+  - `DESIGN.md`, `DESIGN_SYSTEM.md`
 - CSS 토큰 참조:
   - `--character-z: 0; --hud-z: 10; --hud-bg: rgba(244,242,234,0.75); --hud-blur: blur(8px)`
   - `--character-scale-desktop: 75vh; --character-scale-mobile: 30vh`
-  - `--parallax-desktop: 8deg; --parallax-mobile: 4deg`
-- character asset: AI 생성 still(Midjourney/Freepik/Ideogram) 또는 Blender render → poster WebP 먼저, WebM은 선택
+  - `--parallax-desktop: 8; --parallax-mobile: 4`
+- character asset: Phase 1은 placeholder gradient, Phase 2는 AI 생성 still(poster WebP)
 
-## Next Action (execute_local)
+## Cloud Prepare 완료 (2026-06-18T11:00Z)
 
-Status 페이지에 Option D(pre-rendered + CSS parallax) 배경 레이어 구현:
-1. 캐릭터 poster asset 소스 결정 (AI 생성 still 또는 placeholder gradient로 시작)
-2. `CharacterBackground` 컴포넌트 또는 CSS-only background 구현
-3. CSS tokens + SpatialPresence 패턴을 DESIGN_SYSTEM.md에 추가
-4. DESIGN.md에 `## Spatial Presence Layer` 추가
-5. success criteria 전부 통과 확인
-6. report: `reports/build-12/{timestamp}.html`
+구현 파일 준비 완료 — do_not_repeat_cloud 활성:
+- `artifacts/build-12/spatial-presence.css` — CSS 전체 구현체
+- `artifacts/build-12/index-html-patch.md` — HTML 패치 가이드
+- `artifacts/build-12/local-execution-prompt.md` — 로컬 Claude Code 실행 프롬프트
+
+## Next Action (execute_local — 로컬 Claude Code)
+
+`artifacts/build-12/local-execution-prompt.md`를 로컬 Claude Code에 전달하여 실행:
+1. `spatial-presence.css`를 `sites/status/dist/assets/`에 복사
+2. `index.html`에 CSS 링크·`.character-stage` div·parallax JS 추가
+3. HUD 래퍼 z-index 확인 및 `.hud-layer` 클래스 적용
+4. `DESIGN.md` + `DESIGN_SYSTEM.md` 업데이트
+5. 검증 게이트 모두 통과 확인
+6. HTML report 작성 + push → `reports/build-12/{timestamp}Z.html`
 
 ## Phase 2 (별도 intent, build-12 완료 후)
 
