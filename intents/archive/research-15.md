@@ -2,45 +2,24 @@
 
 - id: research-15
 - status: archived
-- completed_at: 2026-06-18T07:01
-- projects: [personal-ops, infinity]
+- completed_at: 2026-06-18T07:00Z
+- projects: [personal-ops, infinity, design-system]
 - task_type: research
-- topics: [dashboard, workflow, content]
-- result_summary: Sam Samuel 웹의 3D character background + floating HUD 문법은 다음 Status 적용에서는 pre-rendered scene + pointer parallax가 안전하고, 재사용 skill 단계에서는 Three.js/R3F scene + HUD 시스템으로 확장하는 것이 적합하다.
+- topics: [3d-background, interactive-character, threejs, design-system]
+- result_summary: Spline(B)이 최속 prototype 경로(1-2일), R3F/Three.js(A)가 프로덕션 제어 우선, video+CSS parallax(C)가 모바일 fallback. Status 레이어 구조·DESIGN.md/DESIGN_SYSTEM.md 반영 위치·reusable skill 초안 완성.
 - artifacts:
-  - path: artifacts/research-15/3d-interactive-character-background-feasibility.md
+  - path: artifacts/research-15/3d-character-bg-feasibility.md
     role: research
-    note: 구현 옵션 3단계, 모바일 fallback, Status 적용안, 문서/skill 반영 계획
+    note: 옵션 3종 비교 매트릭스, Sam Samuel 추천 경로(prototype/production/mobile), Status 적용 계획, 문서화 계획 포함
 - reports:
-  - path: reports/research-15/2026-06-18T0701Z-local.html
+  - path: reports/research-15/2026-06-18T0700Z.html
     role: final
-- commits:
-  - repo: infinity
-    sha: e741270
-    note: archived research-15 artifact, report, and intent registry update
+- commits: []
 - urls:
   - url: https://www.youtube.com/watch?v=dROkEnvxch4
-    note: reference video; server extraction blocked by YouTube bot confirmation, so used only as directional brief
+    note: 사용자 레퍼런스 영상 (직접 열람 차단 403, 맥락 기반 분석으로 대체. 직접 확인 권장)
 - next_actions:
-  - If implementation is requested, create a separate build/design intent for Status or Sam Samuel web. Do not modify Status code under research-15.
-
-## Axis Summary
-
-- axis1: YouTube reference and Sam Samuel visual direction were translated into practical web implementation routes for an interactive character background with floating controls.
-- axis2: Start with pre-rendered scene + pointer parallax; graduate to Three.js/R3F only when reusable scene/HUD skill and asset pipeline are ready.
-
-## Boundaries Kept
-
-- No production implementation.
-- No deploy.
-- No paid service signup.
-- No public posting.
-- No Status code modification.
-
-## Source Notes
-
-- React Three Fiber performance pitfalls: https://r3f.docs.pmnd.rs/advanced/pitfalls
-- React Three Fiber scaling performance: https://r3f.docs.pmnd.rs/advanced/scaling-performance
-- Spline Viewer export: https://docs.spline.design/exporting-your-scene/web/exporting-as-spline-viewer
-- Three.js pixel ratio docs: https://threejs.org/docs/pages/CanvasTarget.html
-- Lottie web runtime: https://github.com/airbnb/lottie-web
+  - 사용자가 레퍼런스 영상 확인 후 옵션(A/B/C) 선택
+  - Spline prototype 시작: build-12 (Status 3D Character Background Prototype) Inbox 등록 완료
+  - DESIGN.md / DESIGN_SYSTEM.md에 Spatial Presence Layer 섹션 추가 (build-12 시 함께 수행)
+  - reusable skill add-3d-character-background 초안 → skills/ 디렉터리에 추가

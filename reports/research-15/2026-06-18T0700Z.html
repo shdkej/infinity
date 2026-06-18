@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>research-15 · 3D Character Background Feasibility</title>
+<style>
+  :root{
+    --bg:#f4f2ea; --panel:#fbfaf5; --ink:#2c2a25; --soft:#807c70; --faint:#a8a496; --line:#e3dfd2;
+    --a2:#5f7a5e; --a2-deep:#3f5740;
+    --a1:#5a6f8a; --a1-deep:#3f536e;  /* 조사형: slate-blue */
+    --sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;}
+  body{background:var(--bg); color:var(--ink); font-family:var(--sans);
+    font-size:14px; line-height:1.68; -webkit-font-smoothing:antialiased;}
+  .sheet{max-width:720px; margin:0 auto; padding:48px 34px 46px;}
+  .reveal{opacity:0; animation:fade .7s ease forwards;}
+  @keyframes fade{from{opacity:0; transform:translateY(9px);} to{opacity:1; transform:none;}}
+
+  .eyebrow{display:flex; align-items:center; gap:10px; font-family:var(--mono);
+    font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--soft);}
+  .eyebrow .id{color:var(--a2-deep); font-weight:600;}
+  .eyebrow .dot{width:5px; height:5px; border-radius:50%; background:var(--a2);}
+  .eyebrow .status{margin-left:auto; color:var(--a2-deep);}
+  h1{font-size:29px; line-height:1.3; font-weight:700; letter-spacing:-.01em; margin:20px 0 0;}
+  .dek{font-size:15.5px; color:var(--soft); margin:13px 0 0; max-width:52ch;}
+  .hr{height:1px; background:var(--line); margin:30px 0;}
+
+  .axis{padding:0 0 4px 22px; position:relative; margin-bottom:30px;}
+  .axis::before{content:""; position:absolute; left:0; top:6px; bottom:6px; width:2px; border-radius:2px;}
+  .axis.ax1::before{background:var(--a1);} .axis.ax2::before{background:var(--a2);}
+  .axis.ax1{--ul:var(--a1);} .axis.ax2{--ul:var(--a2);}
+  .axis .label{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase;
+    margin-bottom:9px; display:flex; align-items:center; gap:8px;}
+  .axis.ax1 .label{color:var(--a1-deep);} .axis.ax2 .label{color:var(--a2-deep);}
+  .axis .label .n{font-weight:600; opacity:.6;}
+  .axis .text{font-size:18px; line-height:1.6; color:#37352e;}
+  .axis .text b{font-weight:700; color:var(--ink); border-bottom:2px solid var(--ul);}
+
+  details{border:1px solid var(--line); border-radius:10px; background:var(--panel); margin-bottom:10px;}
+  summary{cursor:pointer; list-style:none; padding:14px 16px; display:flex; align-items:center; gap:11px;
+    font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft);}
+  summary::-webkit-details-marker{display:none;}
+  summary .chev{width:8px; height:8px; border-right:2px solid var(--a2-deep); border-bottom:2px solid var(--a2-deep);
+    transform:rotate(-45deg); transition:.25s; flex:none; margin-left:2px;}
+  details[open] summary .chev{transform:rotate(45deg);}
+  summary:hover{color:var(--ink);}
+  .body{padding:2px 16px 18px;}
+  table{border-collapse:collapse; width:100%; font-size:13px; margin:4px 0 12px;}
+  th,td{border-bottom:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top;}
+  th{font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft); font-weight:600;}
+  td:first-child{color:var(--a1-deep); font-weight:600; white-space:nowrap;}
+  .body p{color:var(--soft);}
+  .body ul{margin:6px 0; padding-left:18px;} .body li{margin:5px 0;}
+  code{font-family:var(--mono); font-size:12px; background:#edeae0; padding:1px 6px; border-radius:3px; color:var(--a2-deep);}
+  a{color:var(--a2-deep); text-underline-offset:3px;}
+  .chips{display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px;}
+  .chip{font-family:var(--mono); font-size:10.5px; letter-spacing:.05em; color:var(--soft); border:1px solid var(--line); border-radius:999px; padding:3px 10px;}
+  .foot{margin-top:30px; padding-top:15px; border-top:1px solid var(--line);
+    display:flex; justify-content:space-between; font-family:var(--mono); font-size:10px;
+    letter-spacing:.13em; text-transform:uppercase; color:var(--faint);}
+  .tag{display:inline-block; font-family:var(--mono); font-size:10px; background:rgba(90,111,138,.1); color:var(--a1-deep); border-radius:4px; padding:2px 7px; margin:2px;}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="eyebrow reveal">
+    <span class="dot"></span>
+    <span class="id">research-15</span>
+    <span>Research Note</span>
+    <span class="status">completed</span>
+  </div>
+  <h1 class="reveal" style="animation-delay:.05s">3D Interactive Character Background Feasibility</h1>
+  <p class="dek reveal" style="animation-delay:.09s">YouTube 레퍼런스 기반 Sam Samuel 웹 3D 캐릭터 배경 구현 옵션 3종 비교 및 Status 적용 계획</p>
+
+  <div class="hr reveal" style="animation-delay:.12s"></div>
+
+  <div class="axis ax1 reveal" style="animation-delay:.16s">
+    <div class="label"><span class="n">01</span> 🔍 무엇을 조사했나</div>
+    <div class="text">Sam Samuel 웹의 <b>interactive 3D 캐릭터 배경</b> 구현 방법 — Three.js/R3F, Spline, video+CSS 3종 옵션의 기술 스택·성능·모바일 feasibility 비교 (YouTube ref <code>dROkEnvxch4</code> 맥락 기반)</div>
+  </div>
+
+  <div class="axis ax2 reveal" style="animation-delay:.22s">
+    <div class="label"><span class="n">02</span> 📊 핵심 결과</div>
+    <div class="text"><b>Spline(B)</b> → 최속 prototype (1-2일); <b>R3F/Three.js(A)</b> → 프로덕션 제어 우선; <b>video+CSS(C)</b> → 모바일 fallback 항상 병행. Status 레이어 구조·DESIGN.md/DESIGN_SYSTEM.md 반영 위치·reusable skill 초안 완성</div>
+  </div>
+
+  <div class="reveal" style="animation-delay:.27s">
+  <details open>
+    <summary><span class="chev"></span> 핵심 발견 · 옵션 비교</summary>
+    <div class="body">
+      <table>
+        <thead><tr><th>기준</th><th>A · R3F/Three.js</th><th>B · Spline</th><th>C · Video+CSS</th></tr></thead>
+        <tbody>
+          <tr><td>Prototype 속도</td><td>느림 (2-5일)</td><td>빠름 (1-2일)</td><td>빠름 (반일)</td></tr>
+          <tr><td>모바일 성능</td><td>중간 (최적화 필요)</td><td>중간</td><td>최고</td></tr>
+          <tr><td>인터랙티브 깊이</td><td>최고</td><td>중간</td><td>낮음</td></tr>
+          <tr><td>번들 크기</td><td>300-500KB + GLB</td><td>300KB + 2-15MB 씬</td><td>1-3MB WebM</td></tr>
+          <tr><td>장기 제어권</td><td>최고</td><td>낮음 (런타임 종속)</td><td>중간</td></tr>
+          <tr><td>권장 역할</td><td>프로덕션</td><td>Prototype</td><td>Mobile fallback</td></tr>
+        </tbody>
+      </table>
+      <ul>
+        <li><strong>레퍼런스 영상</strong> 직접 열람 차단(403). Spline 기반 튜토리얼로 가정 분석 — 영상 직접 확인 후 옵션 조정 권장</li>
+        <li><strong>캐릭터 소스:</strong> Ready Player Me (무료 아바타) + Mixamo 애니메이션 → R3F 경로의 무료 시작점</li>
+        <li><strong>Spline 제한:</strong> 프리티어는 씬이 Spline 서버에 공개 호스팅됨. 셀프 호스팅은 Pro 플랜 필요</li>
+        <li><strong>모바일 핵심 룰:</strong> <code>prefers-reduced-motion</code> 감지 또는 GPU 낮으면 항상 Option C fallback</li>
+        <li><strong>iOS video autoplay:</strong> <code>muted + playsinline</code> 반드시 필요</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="chev"></span> Status 적용 계획 · 문서화</summary>
+    <div class="body">
+      <p style="margin-bottom:12px;"><strong>레이어 구조 (Status 페이지 적용 시):</strong></p>
+      <ul>
+        <li><strong>Layer 0 (배경)</strong>: <code>position:fixed; z-index:0; pointer-events:none;</code> — canvas(Spline/R3F) 또는 video</li>
+        <li><strong>Layer 10+ (HUD)</strong>: 기존 Status floating cards 유지. <code>backdrop-filter:blur(8px); background:rgba(244,242,234,.75)</code></li>
+        <li><strong>캐릭터 위치</strong>: 데스크탑 우측 20-30%, 뷰포트 70-80% 높이 / 모바일 하단 중앙, 30% 높이</li>
+        <li><strong>Detail transition</strong>: card hover → 캐릭터 시선 이동; 클릭 → wave 또는 표정 변화; 스크롤 → 캐릭터 고정</li>
+      </ul>
+      <p style="margin-bottom:8px; margin-top:16px;"><strong>문서화 대상:</strong></p>
+      <ul>
+        <li><code>DESIGN.md</code> → <code>## Spatial Presence Layer</code> 섹션 신규 추가</li>
+        <li><code>DESIGN_SYSTEM.md</code> → <code>SpatialPresence Pattern</code> + 토큰 4개 추가</li>
+        <li>Reusable skill: <code>add-3d-character-background</code> (옵션 선택 → 컴포넌트 설정 → fallback 체인 → 문서 업데이트)</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="chev"></span> 실행 메타 · 산출물</summary>
+    <div class="body">
+      <div class="chips">
+        <span class="chip">2026-06-18T07:00Z</span>
+        <span class="chip">heartbeat · cloud L0</span>
+        <span class="chip">inbox → archived</span>
+      </div>
+      <ul>
+        <li>산출물 <code>artifacts/research-15/3d-character-bg-feasibility.md</code></li>
+        <li>아카이브 <code>intents/archive/research-15.md</code></li>
+        <li>레퍼런스 영상 차단으로 맥락 기반 분석 적용 (확인 권장)</li>
+        <li>다음 단계: <code>build-12</code> (Status 3D Character Background Prototype) — Inbox 등록 완료</li>
+      </ul>
+      <div style="margin-top:12px;">
+        <span class="tag">personal-ops</span>
+        <span class="tag">infinity</span>
+        <span class="tag">design-system</span>
+        <span class="tag">research</span>
+        <span class="tag">3d-background</span>
+      </div>
+    </div>
+  </details>
+  </div>
+
+  <div class="foot reveal" style="animation-delay:.3s">
+    <span>Agent-First Heartbeat</span>
+    <span>Infinity · Intent Note</span>
+  </div>
+</div>
+</body>
+</html>
