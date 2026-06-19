@@ -4,8 +4,6 @@
 
 ## Inbox
 
-<!-- marketing-68 inbox 2026-06-18T2200Z → intents/inbox/marketing-68.md [display: Virtue Agent-Readable Surface Audit; projects: virtue; type: strategy; topics: ai-agents,agentic-web,trust,discoverability,prelaunch; permission: L1 docs-only; source: source/external-links/marketing/2026-06-18-agentic-web-access-policy.md] (HUMAN 2026 AI traffic benchmark + OpenAI agent guide 근거. prelaunch low-signal 유지. live/repo public surface를 read-only로 감사하고, agent may read / agent must not infer / human handoff wording / launch-after reuse 축을 정리. production code·deploy·public copy·robots/llms 실제 배포·tracking/privacy·PostHog·external message·cost 변경 금지.) -->
-
 ## Active
 
 
@@ -16,6 +14,7 @@
 <!-- naver-shopping-01 waiting 2026-06-18T04:00Z → intents/active/naver-shopping-01.md [display: 나래/Narae; projects: naver-shopping,infinity,personal-ops; type: coordination; topics: automation,workflow,marketing; decision: 사용자 브라우저 세션 열어서 1688 체크리스트 실행 → 공급사(Huanhuan/Zhanhong) 확정 → 샘플 주문 승인 요청; options: 지금 브라우저 열어서 체크리스트 실행 | 나래 대기 유지 | 보류; reason: 1688 verified session 필요(unusual-traffic slider), SmartStore Commerce ID login wall; next: 사용자 브라우저 세션이 열리면 체크리스트 1회로 공급사 확정 + 샘플 주문 승인 요청 가능. cloud prepare 완료, do_not_repeat_cloud 활성, 추가 cloud 작업 없음.] (2026-06-18 heartbeat: cloud prepare 완료 확인. 1688 현장 확인 체크리스트(artifacts/naver-shopping-01/wrist-strap-1688-verification-checklist.md) + 네이버 등록 초안(artifacts/naver-shopping-01/naver-listing-draft-wrist-strap.md) 작성 완료. 다음 유효 액션은 사용자 브라우저 세션만으로 가능. loop-guard 활성, 반복 cloud 리서치 금지. sample-order-gated 유지.) -->
 
 ## Archive
+<!-- marketing-68 completed 2026-06-19T0000Z → intents/archive/marketing-68.md [projects: virtue; type: strategy; topics: ai-agents,trust,prelaunch] (4개 표면 × 5축 감사표 완성. agent may read/must not infer/human handoff wording/launch-after reuse 기준 확립. 신규 이벤트·production code·deploy·public copy·robots/llms·tracking/privacy·PostHog·external message·cost 변경 0건. marketing-65/66/67 계승, 충돌 0.) -->
 <!-- build-12 completed 2026-06-18T11:57Z → intents/archive/build-12.md [projects: personal-ops,infinity,design-system; type: implementation; topics: 3d-background,interactive-character,skill] (Option D pre-rendered+CSS parallax 구현 완료. z-index 0 공간 무대 위 HUD(z-index 10), 데스크탑 perspective+78vh/모바일 30vh parallax off, reduced-motion fallback, 390px 무스크롤. DESIGN.md·DESIGN_SYSTEM.md 반영. space@64049a5 배포·라이브 검증. next: Phase 2 AI poster.) -->
 <!-- marketing-67 completed 2026-06-18T12:00Z → intents/archive/marketing-67.md (J1-J4별 AI 권한 경계 5컬럼표 완성. 신규 이벤트·tracking/privacy·public copy·deploy·external message·cost 변경 0건. marketing-38/45/65/66 계승, 충돌 0.) -->
 <!-- research-16 completed 2026-06-18T08:00Z → intents/archive/research-16.md (SAM YouTube parse 기반 CharacterStage 구현 옵션 재비교 완료. Status-first = Option D(pre-rendered+CSS parallax); Spline prototype = Phase 2; R3F 프로덕션 = Phase 3. 산출물: artifacts/research-16/3d-character-stage-options.md) -->

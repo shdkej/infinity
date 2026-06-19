@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>marketing-68 — Virtue Agent-Readable Surface Audit</title>
+<style>
+  :root{
+    --bg:#f4f2ea; --panel:#fbfaf5; --ink:#2c2a25; --soft:#807c70; --faint:#a8a496; --line:#e3dfd2;
+    --a2:#5f7a5e; --a2-deep:#3f5740;
+    --a1:#a9745a; --a1-deep:#8a5c45;
+    --sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0; width:100%; max-width:100%; overflow-x:hidden;}
+  body{background:var(--bg); color:var(--ink); font-family:var(--sans);
+    font-size:14px; line-height:1.68; -webkit-font-smoothing:antialiased;}
+  .sheet{width:min(100%,720px); max-width:720px; margin:0 auto; padding:32px 18px 40px;}
+  .reveal{opacity:0; animation:fade .7s ease forwards;}
+  @keyframes fade{from{opacity:0; transform:translateY(9px);} to{opacity:1; transform:none;}}
+  .eyebrow{display:flex; align-items:center; gap:10px; font-family:var(--mono);
+    font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--soft); flex-wrap:wrap;}
+  .eyebrow .id{color:var(--a2-deep); font-weight:600;}
+  .eyebrow .dot{width:5px; height:5px; border-radius:50%; background:var(--a2);}
+  .eyebrow .status{color:var(--a2-deep);}
+  h1{font-size:clamp(24px,7vw,29px); line-height:1.3; font-weight:700; letter-spacing:0; margin:20px 0 0; overflow-wrap:anywhere;}
+  .dek{font-size:15.5px; color:var(--soft); margin:13px 0 0; max-width:52ch;}
+  .hr{height:1px; background:var(--line); margin:30px 0;}
+  .axis{padding:0 0 4px 18px; position:relative; margin-bottom:26px;}
+  .axis::before{content:""; position:absolute; left:0; top:6px; bottom:6px; width:2px; border-radius:2px;}
+  .axis.ax1::before{background:var(--a1);} .axis.ax2::before{background:var(--a2);}
+  .axis.ax1{--ul:var(--a1);} .axis.ax2{--ul:var(--a2);}
+  .axis .label{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase;
+    margin-bottom:9px; display:flex; align-items:center; gap:8px;}
+  .axis.ax1 .label{color:var(--a1-deep);} .axis.ax2 .label{color:var(--a2-deep);}
+  .axis .label .n{font-weight:600; opacity:.6;}
+  .axis .text{font-size:clamp(16px,4.4vw,18px); line-height:1.62; color:#37352e; overflow-wrap:anywhere;}
+  .axis .text b{font-weight:700; color:var(--ink); border-bottom:2px solid var(--ul);}
+  ol.find{list-style:none; counter-reset:f; margin:16px 0 0; padding:0;}
+  ol.find li{position:relative; padding:8px 0 8px 26px; font-size:15px; color:#37352e; border-top:1px solid var(--line);}
+  ol.find li:first-child{border-top:none;}
+  ol.find li::before{counter-increment:f; content:counter(f); position:absolute; left:0; top:9px;
+    font-family:var(--mono); font-size:12px; font-weight:600; color:var(--a1-deep);}
+  details{border:1px solid var(--line); border-radius:8px; background:var(--panel); margin-bottom:10px; overflow:hidden;}
+  summary{cursor:pointer; list-style:none; padding:14px 16px; display:flex; align-items:center; gap:11px;
+    font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft);}
+  summary::-webkit-details-marker{display:none;}
+  summary .chev{width:8px; height:8px; border-right:2px solid var(--a2-deep); border-bottom:2px solid var(--a2-deep);
+    transform:rotate(-45deg); transition:.25s; flex:none; margin-left:2px;}
+  details[open] summary .chev{transform:rotate(45deg);}
+  summary:hover{color:var(--ink);}
+  .body{padding:2px 16px 18px; min-width:0;}
+  .section{margin:4px 0 18px;}
+  .section-title{font-family:var(--mono); font-size:10.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--a1-deep); margin:0 0 8px;}
+  .callout{border-left:2px solid var(--a2); background:#f2efe5; padding:11px 13px; color:#4a473f; margin:12px 0 16px;}
+  .content-grid{display:grid; grid-template-columns:1fr; gap:10px; margin:10px 0;}
+  .mini-card{border:1px solid var(--line); background:#f8f6ef; border-radius:8px; padding:12px 13px; min-width:0;}
+  .mini-card b{display:block; color:var(--ink); margin-bottom:5px;}
+  .mini-card p{margin:0;}
+  table{border-collapse:collapse; width:100%; max-width:100%; table-layout:fixed; font-size:13px; margin:4px 0 12px;}
+  th,td{border-bottom:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top; overflow-wrap:anywhere; word-break:break-word;}
+  th{font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft); font-weight:600;}
+  td:first-child{color:var(--a2-deep); font-weight:600; white-space:normal;}
+  .body p{color:var(--soft); overflow-wrap:anywhere;}
+  .body ul{margin:6px 0; padding-left:18px;} .body li{margin:5px 0;}
+  code{font-family:var(--mono); font-size:12px; background:#edeae0; padding:1px 6px; border-radius:3px; color:var(--a2-deep); overflow-wrap:anywhere; word-break:break-word;}
+  a{color:var(--a2-deep); text-underline-offset:3px; overflow-wrap:anywhere; word-break:break-word;}
+  .chips{display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px;}
+  .chip{font-family:var(--mono); font-size:10.5px; letter-spacing:.05em; color:var(--soft); border:1px solid var(--line); border-radius:999px; padding:3px 10px;}
+  .foot{margin-top:30px; padding-top:15px; border-top:1px solid var(--line);
+    display:flex; flex-wrap:wrap; gap:6px 14px; justify-content:space-between; font-family:var(--mono); font-size:10px;
+    letter-spacing:.13em; text-transform:uppercase; color:var(--faint);}
+  @media (min-width:720px){
+    .sheet{padding:48px 34px 46px;}
+    .eyebrow{letter-spacing:.18em;}
+    .eyebrow .status{margin-left:auto;}
+    .axis{padding-left:22px; margin-bottom:30px;}
+    .content-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
+  }
+  @media (max-width:640px){
+    table,thead,tbody,tr,th,td{display:block; width:100%;}
+    thead{display:none;}
+    tr{border:1px solid var(--line); border-radius:8px; padding:9px 10px; margin:0 0 10px; background:#f8f6ef;}
+    td{border-bottom:0; padding:5px 0;}
+    td:first-child{font-family:var(--mono); font-size:11px; letter-spacing:.05em;}
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="eyebrow reveal">
+    <span class="dot"></span>
+    <span class="id">marketing-68</span>
+    <span>Strategy Note</span>
+    <span class="status">completed</span>
+  </div>
+  <h1 class="reveal" style="animation-delay:.05s">Virtue Agent-Readable Surface Audit</h1>
+  <p class="dek reveal" style="animation-delay:.09s">4개 공개 표면의 오독 경계 확립 — agent may read / must not infer / human handoff wording / launch-after reuse 기준표</p>
+
+  <div class="hr reveal" style="animation-delay:.12s"></div>
+
+  <div class="axis ax1 reveal" style="animation-delay:.16s">
+    <div class="label"><span class="n">01</span> 무엇이 문제였나</div>
+    <div class="text">Virtue의 agent-readable 표면(Landing · README · llms.txt · In-app 카피)에서 <b>AI 판결 프레임 언어가 에이전트에게 그대로 노출</b>될 경우의 오독 경계가 내부적으로 미정의 상태였다</div>
+  </div>
+
+  <div class="axis ax2 reveal" style="animation-delay:.22s">
+    <div class="label"><span class="n">02</span> 어떻게 해결하나</div>
+    <div class="text">4개 표면 × 5축(current evidence / agent may read / agent must not infer / human handoff wording / launch-after reuse) <b>감사표 완성</b>. 공통 경계 1세트 확립, human handoff wording 후보 4개, zero-change 확인</div>
+  </div>
+
+  <div class="reveal" style="animation-delay:.27s">
+  <details open>
+    <summary><span class="chev"></span> 핵심 내용 · 감사 결과</summary>
+    <div class="body">
+      <div class="section">
+        <div class="section-title">핵심 발견</div>
+        <ol class="find">
+          <li><strong>오독 위험은 언어 레이어에만 존재</strong> — Virtue는 외부 자율 행동이 구조적으로 없으므로(m38), 에이전트가 읽어도 "AI가 대신 행동하는 경로"는 없다. 오독 위험은 오직 "AI가 대신 결정한다"는 판결 프레임 언어에서만 생긴다.</li>
+          <li><strong>In-app 카피의 판결/관점 프레임 불일치가 주된 소재</strong> — "AI 채점"(판결 프레임) vs "AI가 본 오늘"(관점 프레임) 혼재(m45). 에이전트 크롤 시 판결 프레임이 그대로 노출된다.</li>
+          <li><strong>공통 경계 1세트가 전 표면에 동일 적용 가능</strong> — Virtue의 구조적 보호(사람 마지막 선택, 외부 자율 행동 없음)가 전 표면 공통 경계를 보장한다. 표면별 차이는 "현재 content 확인 가능 여부"와 "launch-after 재사용 경로"뿐이다.</li>
+          <li><strong>llms.txt만 미배포 상태</strong> — 나머지 3개 표면은 현재 content 기반 감사 가능. llms.txt는 이 표 공통 경계로 초안 작성 가능, 실제 배포는 approval-needed.</li>
+          <li><strong>human handoff wording 후보 4개 확보</strong> — 내부 기준으로만 사용. 공개 반영은 approval-needed. 관점 프레임(m45) 일관 적용을 위한 후보 완비.</li>
+        </ol>
+      </div>
+
+      <div class="callout">즉시 실행 가능한 다음 단계: llms.txt 초안을 Inbox에 등록(L1 docs-only). In-app 카피 프레임 정렬은 m45 proposal-only 유지. 공개 표면 변경(robots/llms 배포, public copy, deploy)은 모두 approval-needed.</div>
+
+      <div class="content-grid">
+        <div class="mini-card">
+          <b>근거 · 소스</b>
+          <p>marketing-65 (신뢰 증거 분류), marketing-66 (agentic context map / agent_misread_boundary), marketing-67 (AI 권한 경계표 / virtue_must_not_do), MARKETING_LEARNINGS m38/m45/m46</p>
+        </div>
+        <div class="mini-card">
+          <b>다음 판단</b>
+          <p>llms.txt 초안 Inbox 등록 여부(L1 작업). In-app "AI 채점" → "AI가 본 오늘" 프레임 정렬 proposal 시점. llms.txt 실제 배포 시점(approval-needed).</p>
+        </div>
+      </div>
+    </div>
+  </details>
+
+  <details open>
+    <summary><span class="chev"></span> Surface Audit 상세</summary>
+    <div class="body">
+      <div class="section">
+        <div class="section-title">표면별 감사표 (5축)</div>
+        <table>
+          <thead><tr>
+            <th>Surface</th>
+            <th>Agent May Read</th>
+            <th>Agent Must Not Infer</th>
+            <th>Human Handoff Wording</th>
+            <th>Launch-After Reuse</th>
+          </tr></thead>
+          <tbody>
+            <tr>
+              <td>Landing metadata</td>
+              <td>제품 목적, 비자율 AI 설명</td>
+              <td>도덕 판단 자동 대행, 자동 저장</td>
+              <td>"AI가 정리한 관점 — 마지막 저장은 내 선택"</td>
+              <td>SEO / AI search answer card</td>
+            </tr>
+            <tr>
+              <td>Public README / docs</td>
+              <td>기술 스택, 제품 개요</td>
+              <td>사용자 데이터 구조 추론, AI 자율 행동</td>
+              <td>"AI는 판정·저장 모두 사용자 선택으로만 작동"</td>
+              <td>developer docs 기반 재사용</td>
+            </tr>
+            <tr>
+              <td>llms.txt 후보 (미배포)</td>
+              <td>제품 목적, J1-J4 잡 설명 (read-about)</td>
+              <td>프라이빗 기록 접근, 자동 행동, API 경로</td>
+              <td>"All saving decisions remain with the user. No autonomous action."</td>
+              <td>AI search 가시성 draft (배포 approval-needed)</td>
+            </tr>
+            <tr>
+              <td>In-app 카피 (버튼·카드)</td>
+              <td>결과 카드 텍스트 (read-only)</td>
+              <td>AI 채점 = 사용자 합의, 저장 = 판정 승인</td>
+              <td>"AI가 본 오늘" 관점 프레임 일관 적용 (proposal-only)</td>
+              <td>FAQ / "Virtue가 하지 않는 것" explainer</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="section">
+        <div class="section-title">Human Handoff Wording 후보 (proposal-only)</div>
+        <ul>
+          <li>"AI가 본 오늘 — 마지막 저장은 내 선택" (관점 프레임, m45 계승)</li>
+          <li>"AI 판정이 아니라 AI 관점. 저장은 내 결정." (판결/관점 구분 명시)</li>
+          <li>"AI는 정리하고, 나는 선택한다." (최소 표현)</li>
+          <li>(EN) "Virtue AI provides perspective on user-recorded actions. All saving and sharing decisions remain with the user. No autonomous action is taken on behalf of the user." (llms.txt 후보)</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <div class="section-title">구조적 제약 (변경 불가)</div>
+        <ul>
+          <li><strong>외부 자율 행동 없음 (m38)</strong>: 오독 위험은 언어 레이어에만 존재</li>
+          <li><strong>사람 마지막 선택 (m45, marketing-67)</strong>: 저장·공유·재시도 전부 사용자 결정</li>
+          <li><strong>Do-for-you 경로 없음 (m46)</strong>: API/MCP/programmatic auth는 approval-needed</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="chev"></span> 실행 메타 · 산출물</summary>
+    <div class="body">
+      <div class="chips">
+        <span class="chip">2026-06-19T0000Z</span>
+        <span class="chip">Heartbeat scheduled</span>
+        <span class="chip">inbox → completed</span>
+        <span class="chip">L1 docs-only</span>
+      </div>
+      <ul>
+        <li>산출물 <code>artifacts/marketing-68/agent-readable-surface-audit.md</code></li>
+        <li>archive <code>intents/archive/marketing-68.md</code></li>
+      </ul>
+      <div class="section">
+        <div class="section-title">Zero-Change Confirmation</div>
+        <p>production code 0건 · deploy 0건 · public copy 반영 0건 · robots/llms 실제 배포 0건 · tracking/privacy/PostHog 0건 · external message 0건 · cost 0건</p>
+      </div>
+      <div class="section">
+        <div class="section-title">계승한 기준</div>
+        <p>marketing-65 신뢰 증거 분류 · marketing-66 agent_misread_boundary · marketing-67 virtue_must_not_do / human_decision_required · m45 판결/관점 프레임 · m46 read-about vs do-for-you</p>
+      </div>
+      <div class="section">
+        <div class="section-title">이번에 새로 배운 것</div>
+        <p>agent may read / must not infer 경계는 표면마다 달라질 필요 없다. Virtue 구조적 보호가 공통 경계 1세트를 전 표면에 적용 가능하게 한다.</p>
+      </div>
+      <div class="section">
+        <div class="section-title">다음 작업에 넘길 규칙</div>
+        <p>llms.txt 초안: 이 표 공통 경계 그대로 사용 가능 (작성 L1, 배포 approval-needed). In-app 카피 정렬: m45 "AI가 본 오늘" 프레임으로 통일 proposal 후 approval-needed. llms.txt/robots.txt 배포 시 "Do-for-you 경로 없음" 명시 필수.</p>
+      </div>
+    </div>
+  </details>
+  </div>
+
+  <div class="foot reveal" style="animation-delay:.3s">
+    <span>Agent-First Heartbeat</span>
+    <span>Infinity · Intent Note</span>
+  </div>
+</div>
+</body>
+</html>
