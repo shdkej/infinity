@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>marketing-70 — Virtue Empty-State Proof Audit</title>
+<style>
+  :root{
+    --bg:#f4f2ea; --panel:#fbfaf5; --ink:#2c2a25; --soft:#807c70; --faint:#a8a496; --line:#e3dfd2;
+    --a2:#5f7a5e; --a2-deep:#3f5740;
+    --a1:#a9745a; --a1-deep:#8a5c45;
+    --sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0; width:100%; max-width:100%; overflow-x:hidden;}
+  body{background:var(--bg); color:var(--ink); font-family:var(--sans); font-size:14px; line-height:1.68; -webkit-font-smoothing:antialiased;}
+  .sheet{width:min(100%,720px); max-width:720px; margin:0 auto; padding:32px 18px 40px;}
+  .reveal{opacity:0; animation:fade .7s ease forwards;}
+  @keyframes fade{from{opacity:0;transform:translateY(9px);}to{opacity:1;transform:none;}}
+  .eyebrow{display:flex; align-items:center; gap:10px; font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--soft); flex-wrap:wrap;}
+  .eyebrow .id{color:var(--a2-deep); font-weight:600;}
+  .eyebrow .dot{width:5px; height:5px; border-radius:50%; background:var(--a2);}
+  .eyebrow .status{color:var(--a2-deep);}
+  h1{font-size:clamp(24px,7vw,29px); line-height:1.3; font-weight:700; margin:20px 0 0; overflow-wrap:anywhere;}
+  .dek{font-size:15.5px; color:var(--soft); margin:13px 0 0; max-width:52ch;}
+  .hr{height:1px; background:var(--line); margin:30px 0;}
+  .axis{padding:0 0 4px 18px; position:relative; margin-bottom:26px;}
+  .axis::before{content:""; position:absolute; left:0; top:6px; bottom:6px; width:2px; border-radius:2px;}
+  .axis.ax1::before{background:var(--a1);} .axis.ax2::before{background:var(--a2);}
+  .axis .label{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase; margin-bottom:9px; display:flex; align-items:center; gap:8px;}
+  .axis.ax1 .label{color:var(--a1-deep);} .axis.ax2 .label{color:var(--a2-deep);}
+  .axis .label .n{font-weight:600; opacity:.6;}
+  .axis .text{font-size:clamp(16px,4.4vw,18px); line-height:1.62; color:#37352e; overflow-wrap:anywhere;}
+  .axis .text b{font-weight:700; color:var(--ink); border-bottom:2px solid var(--a1);}
+  .axis.ax2 .text b{border-bottom-color:var(--a2);}
+  ol.find{list-style:none; counter-reset:f; margin:16px 0 0; padding:0;}
+  ol.find li{position:relative; padding:8px 0 8px 26px; font-size:15px; color:#37352e; border-top:1px solid var(--line);}
+  ol.find li:first-child{border-top:none;}
+  ol.find li::before{counter-increment:f; content:counter(f); position:absolute; left:0; top:9px; font-family:var(--mono); font-size:12px; font-weight:600; color:var(--a1-deep);}
+  details{border:1px solid var(--line); border-radius:8px; background:var(--panel); margin-bottom:10px; overflow:hidden;}
+  summary{cursor:pointer; list-style:none; padding:14px 16px; display:flex; align-items:center; gap:11px; font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft);}
+  summary::-webkit-details-marker{display:none;}
+  summary .chev{width:8px; height:8px; border-right:2px solid var(--a2-deep); border-bottom:2px solid var(--a2-deep); transform:rotate(-45deg); transition:.25s; flex:none; margin-left:2px;}
+  details[open] summary .chev{transform:rotate(45deg);}
+  .body{padding:2px 16px 18px; min-width:0;}
+  .section{margin:4px 0 18px;}
+  .section-title{font-family:var(--mono); font-size:10.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--a1-deep); margin:0 0 8px;}
+  .callout{border-left:2px solid var(--a2); background:#f2efe5; padding:11px 13px; color:#4a473f; margin:12px 0 16px;}
+  .content-grid{display:grid; grid-template-columns:1fr; gap:10px; margin:10px 0;}
+  .mini-card{border:1px solid var(--line); background:#f8f6ef; border-radius:8px; padding:12px 13px; min-width:0;}
+  .mini-card b{display:block; color:var(--ink); margin-bottom:5px;}
+  .mini-card p{margin:0; color:var(--soft);}
+  .body p{color:var(--soft); overflow-wrap:anywhere;}
+  .body ul{margin:6px 0; padding-left:18px;} .body li{margin:5px 0;}
+  code{font-family:var(--mono); font-size:12px; background:#edeae0; padding:1px 6px; border-radius:3px; color:var(--a2-deep); overflow-wrap:anywhere; word-break:break-word;}
+  .chips{display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px;}
+  .chip{font-family:var(--mono); font-size:10.5px; letter-spacing:.05em; color:var(--soft); border:1px solid var(--line); border-radius:999px; padding:3px 10px;}
+  .foot{margin-top:30px; padding-top:15px; border-top:1px solid var(--line); display:flex; flex-wrap:wrap; gap:6px 14px; justify-content:space-between; font-family:var(--mono); font-size:10px; letter-spacing:.13em; text-transform:uppercase; color:var(--faint);}
+  @media (min-width:720px){
+    .sheet{padding:48px 34px 46px;}
+    .content-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="eyebrow reveal">
+    <span class="dot"></span>
+    <span class="id">marketing-70</span>
+    <span>Strategy · Prelaunch · Docs-Only</span>
+    <span class="status">Archived</span>
+  </div>
+  <h1 class="reveal" style="animation-delay:.05s">Virtue Empty-State Proof Audit</h1>
+  <p class="dek reveal" style="animation-delay:.09s">홈 <code>최근 덕행</code> 빈 상태의 seeded proof gap을 J1-J4별로 감사하고 prelaunch 기준을 고정한다.</p>
+
+  <div class="hr reveal" style="animation-delay:.12s"></div>
+
+  <div class="axis ax1 reveal" style="animation-delay:.16s">
+    <div class="label"><span class="n">01</span> 무엇이 문제였나</div>
+    <div class="text">홈 <code>최근 덕행</code> 빈 상태에 CTA는 있으나 <b>저장 후 payoff 카드 형태를 보여주는 proof preview가 없음</b> — J2(누적형)가 gap 최대 job이며, J3(AI 호기심형)는 홈보다 <code>/add</code> 결과 카드 자체가 핵심.</div>
+  </div>
+
+  <div class="axis ax2 reveal" style="animation-delay:.22s">
+    <div class="label"><span class="n">02</span> 어떻게 해결하나</div>
+    <div class="text">J1-J4 x seeded proof 필요도·오해 위험·preview 후보 감사표 완성. <b>동사 프레임 정렬(m45) 선행 후 J2 누적 카드 → J1 단일 카드 순 구현 권장.</b> production·tracking·deploy 변경 없이 docs-only 기준 고정.</div>
+  </div>
+
+  <div class="reveal" style="animation-delay:.27s">
+  <details open>
+    <summary><span class="chev"></span> 핵심 내용 · 감사 본문</summary>
+    <div class="body">
+      <div class="section">
+        <div class="section-title">핵심 발견</div>
+        <ol class="find">
+          <li><b>J2가 seeded proof 최우선 job</b>: 누적형의 first value(deed_saved x 2 + level_up_viewed)는 홈 feed에 카드가 쌓이는 모습 자체다. 빈 상태가 누적 payoff를 상상하게 못 하면 J2 동기가 가장 약하게 불린다.</li>
+          <li><b>J3는 홈 proof가 핵심이 아님</b>: J3의 first value는 /add 결과 카드(deed_judged)다. 홈 empty-state proof는 J3 전환에 직접 기여가 낮다. J3에는 /add flow 자체의 결과 카드 미리보기가 더 효과적이다.</li>
+          <li><b>오해 위험: "이미 내 데이터"로 보임</b>: seeded proof 카드가 실제 사용자 데이터처럼 보이면 J1/J2 신뢰가 깨진다. "예시" 레이블 또는 시각적 구분이 필수 조건이다.</li>
+          <li><b>동사 프레임 정렬 선행 필요 (m45)</b>: 기존에 확인된 버튼 <code>AI 채점</code>(판결) vs 헤더 <code>AI가 본 오늘</code>(관점) 불일치를 먼저 해소해야 한다. 불일치 상태에서 proof 카드를 추가하면 오독 위험이 증폭된다.</li>
+          <li><b>J4는 영구성 표현이 필요</b>: 회고형은 "영구적으로 달고 싶다"는 동기가 있어, proof 카드에 날짜·아카이브 느낌이 없으면 보존 신뢰가 약해진다.</li>
+        </ol>
+      </div>
+      <div class="callout">구현 권장 순서: ① 동사 프레임 정렬(m45) → ② J2 누적 카드 스택 seeded proof → ③ J1 단일 카드 seeded proof → ④ J4 영구성 카드 — 모두 approval-needed. J3는 별도로 /add 결과 카드 미리보기로 접근.</div>
+      <div class="content-grid">
+        <div class="mini-card">
+          <b>근거 · 소스</b>
+          <p>marketing-31 (Product Body vs Bumper), marketing-45 (Verb Frame), marketing-66 (J1-J4 Context Map), marketing-68 (Agent-Readable Surface Audit). 홈 feed 역할이 job별로 다름은 m31 계승.</p>
+        </div>
+        <div class="mini-card">
+          <b>다음 판단</b>
+          <p>동사 프레임 정렬(m45) 승인 → J2 proof 구현 → J1 proof 구현 순. J3는 /add flow 검토로 분리. 모두 approval-needed.</p>
+        </div>
+      </div>
+    </div>
+  </details>
+
+  <details open>
+    <summary><span class="chev"></span> J1-J4 x Seeded Proof 감사표</summary>
+    <div class="body">
+      <div class="section">
+        <div class="section-title">J1 — 기록형</div>
+        <ul>
+          <li>홈 feed 역할: 범퍼 (다음 행동 안내)</li>
+          <li>seeded proof 필요도: 중상</li>
+          <li>oops risk: 예시 카드가 실제 내 데이터처럼 보임</li>
+          <li>안전 표시: "예시 카드" 레이블 or 연한 배경</li>
+          <li>preview 후보: 행동명 + AI 짧은 관점 + 저장 표시 (단일 카드)</li>
+        </ul>
+      </div>
+      <div class="section">
+        <div class="section-title">J2 — 누적형 (최우선 gap)</div>
+        <ul>
+          <li>홈 feed 역할: 본체 (누적 payoff) — 가장 큰 gap</li>
+          <li>seeded proof 필요도: 높음</li>
+          <li>oops risk: 여러 예시 카드가 "이미 내가 기록한 것" 오해</li>
+          <li>안전 표시: "예시 흐름" 레이블 + 점선 등 시각적 구분</li>
+          <li>preview 후보: 3-5개 카드 스택 + 레벨 뱃지 예시</li>
+        </ul>
+      </div>
+      <div class="section">
+        <div class="section-title">J3 — AI 호기심형</div>
+        <ul>
+          <li>홈 feed 역할: 무관 (J3 첫 가치는 /add 결과 카드)</li>
+          <li>seeded proof 필요도: 낮음 — 홈 proof는 J3에 직접 기여 낮음</li>
+          <li>oops risk: 해당 없음</li>
+          <li>preview 후보: /add flow 결과 카드 미리보기 (별도 검토)</li>
+        </ul>
+      </div>
+      <div class="section">
+        <div class="section-title">J4 — 회고형</div>
+        <ul>
+          <li>홈 feed 역할: 본체 (영구 보존 확인)</li>
+          <li>seeded proof 필요도: 중</li>
+          <li>oops risk: 카드가 가볍게 보이면 영구성 의심</li>
+          <li>안전 표시: 날짜·아카이브 아이콘 있는 진지한 카드 예시</li>
+          <li>preview 후보: 의미 있는 기억 카드 + AI 주석 + 날짜 표시</li>
+        </ul>
+      </div>
+      <div class="section">
+        <div class="section-title">Gap 분석 (기존 노트 대비)</div>
+        <ul>
+          <li><b>G1</b>: 동사 프레임 감사(m45)는 있으나 empty-state proof preview 감사 없었음 → 이번에 채움</li>
+          <li><b>G2</b>: J1-J4 context_before_output(m66) 정의됐으나 job별 proof 필요도 매핑 없었음 → 이번에 채움</li>
+          <li><b>G3</b>: Agent-readable surface 감사(m68)는 있으나 human-facing empty-state proof surface 감사 없었음 → 이번에 채움</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="chev"></span> Marketer 인수인계</summary>
+    <div class="body">
+      <div class="section">
+        <div class="section-title">계승한 기준</div>
+        <ul>
+          <li>Product Body vs Bumper By Job (m31): 홈 feed J2=본체, J1=범퍼</li>
+          <li>Decision-Delegation Risk Rides The Verb (m45): 동사 프레임 정렬 우선</li>
+          <li>Prelaunch Decision Boundary: 코드 변경 전 docs-only 기준 고정</li>
+        </ul>
+      </div>
+      <div class="section">
+        <div class="section-title">이번에 새로 만든 것</div>
+        <ul>
+          <li>J1-J4 x seeded proof 필요도 매핑 (기존 미존재)</li>
+          <li>오해 위험 x 안전 표시 방법 명세</li>
+          <li>G1/G2/G3 gap 정리 (m45/m66/m68 대비)</li>
+        </ul>
+      </div>
+      <div class="section">
+        <div class="section-title">다음 작업에 넘길 규칙</div>
+        <ul>
+          <li>J2가 seeded proof 우선 job이다 (누적 payoff 시각화)</li>
+          <li>seeded proof 구현 전 반드시 동사 프레임 정렬(m45)을 먼저 완료한다</li>
+          <li>"예시" 레이블은 UI에서 필수 (실제 데이터 오해 방지)</li>
+          <li>J3는 홈 proof보다 /add 결과 카드 자체 미리보기가 더 효과적</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="chev"></span> 실행 메타 · 산출물</summary>
+    <div class="body">
+      <div class="chips">
+        <span class="chip">2026-06-19T22:00Z</span>
+        <span class="chip">Heartbeat · Cloud Research</span>
+        <span class="chip">inbox → archived</span>
+        <span class="chip">L1 docs-only</span>
+      </div>
+      <ul>
+        <li>아티팩트 <code>artifacts/marketing-70/virtue-empty-state-proof-audit.md</code></li>
+        <li>아카이브 <code>intents/archive/marketing-70.md</code></li>
+        <li>계승: marketing-31, marketing-45, marketing-66, marketing-68</li>
+        <li>충돌: 0</li>
+        <li>production code · deploy · tracking/privacy · public copy · external message · cost 변경 0</li>
+      </ul>
+    </div>
+  </details>
+  </div>
+
+  <div class="foot reveal" style="animation-delay:.3s">
+    <span>Agent-First Heartbeat</span>
+    <span>Infinity · Intent Note</span>
+  </div>
+</div>
+</body>
+</html>
