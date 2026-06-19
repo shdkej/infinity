@@ -3,6 +3,7 @@
 > Heartbeat Agent가 주기적으로 읽고 실행하는 의도 목록.
 
 ## Inbox
+<!-- marketing-69 inbox 2026-06-19T1000Z → source/external-links/marketing/2026-06-19-agent-readiness-discovery.md [display: Virtue Agent Readiness Baseline; projects: virtue; type: strategy; topics: ai-agents,agentic-web,discoverability,trust,prelaunch; permission: L1 read-only; owner_route: Infinity/Claude Code; rationale: Cloudflare Agent Readiness와 Mintlify 사례 기준으로 public URL의 agent-readable 발견성·권한 신호를 현재 상태 그대로 기록; expected_impact: launch 전 llms/robots/header 작업의 과장·오독 위험 감소; success_criteria: robots/sitemap/Link header/Markdown or llms discovery/Content Signals 상태표와 marketing-68 대비 gap 정리; first_verification_gate: production code·deploy·tracking/privacy·public copy·external message·cost 변경 0, https://virtue.oracle.shdkej.com read-only 확인만 수행] -->
 
 ## Active
 
