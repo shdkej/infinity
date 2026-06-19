@@ -4,6 +4,8 @@
 
 ## Inbox
 
+<!-- marketing-70 inbox 2026-06-19T2200Z [display: Virtue Empty-State Proof Audit; projects: virtue; type: strategy; topics: onboarding,activation,empty-state,proof,prelaunch; source: source/external-links/marketing/2026-06-19-empty-state-proof-seeding.md; permission: L1 docs-only; owner: Infinity router or Claude Code; rationale: 라이브 홈의 `최근 덕행` 빈 상태가 CTA는 있으나 기록 후 어떤 카드가 쌓이는지에 대한 proof seeded preview는 약함. prelaunch에서는 코드 변경보다 first-session proof surface 기준을 문서로 고정하는 편이 안전함; expected-impact: 첫 방문자가 `/add` 전에 저장 후 payoff를 더 빨리 상상하게 만드는 내부 기준 확보; success: 감사표가 J1-J4별 seeded proof 유무, 오해 위험, preview 후보를 정리하고 production/tracking/privacy/public copy/deploy 변경 0을 유지; first-gate: 홈 `최근 덕행` 영역을 read-only로 캡처해 현재 empty-state 구조와 기존 empty-state/FAE 노트 대비 gap 3개 이내로 정리 ] -->
+
 ## Active
 <!-- naver-shopping-01 active 2026-06-18T0711Z → intents/active/naver-shopping-01.md [display: 나래/Narae; projects: naver-shopping,infinity,personal-ops; type: coordination; topics: automation,workflow,marketing; status: smartstore-access-confirmed-1688-hold; approval: sample-order-gated] (마스터가 SmartStore 가입/로그인을 완료했고, mac-cdp 사용자 브라우저로 `미니멀모음` SmartStore Center와 상품등록 폼(`/products/standard-group-product/create`)까지 read-only 확인. 등록 폼 필수 구조 확인: 카테고리, 상품명, 이미지/상세설명, 브랜드/제조사, KC/원산지, 상품정보제공고시, 배송/반품, 검색설정. 1688 계정 등록은 원치 않아 verified 공급사 확정은 보류. 샘플 주문·라이브 등록·저장·가격·배송·재고·광고·고객·주문·계정·공개발행 0. archive 안 함(active 유지).) -->
 
