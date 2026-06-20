@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Infinity Report</title>
+<style>
+  :root{
+    --bg:#f4f2ea; --panel:#fbfaf5; --ink:#2c2a25; --soft:#807c70; --faint:#a8a496; --line:#e3dfd2;
+    --a2:#5f7a5e; --a2-deep:#3f5740;
+    --a1:#a9745a; --a1-deep:#8a5c45;
+    --sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0; width:100%; max-width:100%; overflow-x:hidden;}
+  body{background:var(--bg); color:var(--ink); font-family:var(--sans); font-size:14px; line-height:1.68;}
+  .sheet{width:min(100%,720px); max-width:720px; margin:0 auto; padding:32px 18px 40px;}
+  .eyebrow{display:flex; align-items:center; gap:10px; font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--soft); flex-wrap:wrap;}
+  .eyebrow .id{color:var(--a2-deep); font-weight:600;}
+  .eyebrow .dot{width:5px; height:5px; border-radius:50%; background:var(--a2);}
+  .eyebrow .status{color:var(--a2-deep);}
+  h1{font-size:clamp(24px,7vw,29px); line-height:1.3; font-weight:700; margin:20px 0 0; overflow-wrap:anywhere;}
+  .dek{font-size:15.5px; color:var(--soft); margin:13px 0 0; max-width:52ch;}
+  .hr{height:1px; background:var(--line); margin:30px 0;}
+  .axis{padding:0 0 4px 18px; position:relative; margin-bottom:26px;}
+  .axis::before{content:""; position:absolute; left:0; top:6px; bottom:6px; width:2px; border-radius:2px;}
+  .axis.ax1::before{background:var(--a1);} .axis.ax2::before{background:var(--a2);}
+  .axis .label{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase; margin-bottom:9px; display:flex; align-items:center; gap:8px;}
+  .axis.ax1 .label{color:var(--a1-deep);} .axis.ax2 .label{color:var(--a2-deep);}
+  .axis .label .n{font-weight:600; opacity:.6;}
+  .axis .text{font-size:clamp(16px,4.4vw,18px); line-height:1.62; color:#37352e; overflow-wrap:anywhere;}
+  details{border:1px solid var(--line); border-radius:8px; background:var(--panel); margin-bottom:10px; overflow:hidden;}
+  summary{cursor:pointer; list-style:none; padding:14px 16px; display:flex; align-items:center; gap:11px; font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft);}
+  summary::-webkit-details-marker{display:none;}
+  summary .chev{width:8px; height:8px; border-right:2px solid var(--a2-deep); border-bottom:2px solid var(--a2-deep); transform:rotate(-45deg); transition:.25s; flex:none; margin-left:2px;}
+  details[open] summary .chev{transform:rotate(45deg);}
+  .body{padding:2px 16px 18px; min-width:0;}
+  .section-title{font-family:var(--mono); font-size:10.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--a1-deep); margin:0 0 8px;}
+  ol.find{list-style:none; counter-reset:f; margin:16px 0 0; padding:0;}
+  ol.find li{position:relative; padding:8px 0 8px 26px; font-size:15px; color:#37352e; border-top:1px solid var(--line);}
+  ol.find li:first-child{border-top:none;}
+  ol.find li::before{counter-increment:f; content:counter(f); position:absolute; left:0; top:9px; font-family:var(--mono); font-size:12px; font-weight:600; color:var(--a1-deep);}
+  .callout{border-left:2px solid var(--a2); background:#f2efe5; padding:11px 13px; color:#4a473f; margin:12px 0 16px;}
+  .content-grid{display:grid; grid-template-columns:1fr; gap:10px; margin:10px 0;}
+  .mini-card{border:1px solid var(--line); background:#f8f6ef; border-radius:8px; padding:12px 13px; min-width:0;}
+  .mini-card b{display:block; color:var(--ink); margin-bottom:5px;}
+  .mini-card p,.body p,.body li{color:var(--soft); overflow-wrap:anywhere;}
+  .body ul{margin:6px 0; padding-left:18px;}
+  code{font-family:var(--mono); font-size:12px; background:#edeae0; padding:1px 6px; border-radius:3px; color:var(--a2-deep);}
+  .chips{display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px;}
+  .chip{font-family:var(--mono); font-size:10.5px; letter-spacing:.05em; color:var(--soft); border:1px solid var(--line); border-radius:999px; padding:3px 10px;}
+  .foot{margin-top:30px; padding-top:15px; border-top:1px solid var(--line); display:flex; flex-wrap:wrap; gap:6px 14px; justify-content:space-between; font-family:var(--mono); font-size:10px; letter-spacing:.13em; text-transform:uppercase; color:var(--faint);}
+  @media (min-width:720px){.sheet{padding:48px 34px 46px;}.content-grid{grid-template-columns:repeat(2,minmax(0,1fr));}}
+</style>
+</head>
+<body>
+<div class="sheet">
+  <div class="eyebrow">
+    <span class="dot"></span>
+    <span class="id">marketing-72</span>
+    <span>Research Note</span>
+    <span class="status">archived</span>
+  </div>
+  <h1>Virtue First-Session Intent Hint Compare</h1>
+  <p class="dek">J1~J4 first-session 가설을 첫 화면에서 더 빨리 확인하기 위한 1문항 의도 힌트 비교안을 proposal-only 문서로 정리했습니다.</p>
+  <div class="hr"></div>
+
+  <div class="axis ax1">
+    <div class="label"><span class="n">01</span> 🔴 무엇이 문제였나</div>
+    <div class="text">Virtue는 <b>J1~J4 잡 가설은 이미 있지만</b> 첫 세션 표면에서 사용자가 무엇을 먼저 원했는지 확인할 최소 질문이 없어, hero/CTA/proof를 어느 잡에 먼저 맞출지 내부 기준이 약했습니다.</div>
+  </div>
+
+  <div class="axis ax2">
+    <div class="label"><span class="n">02</span> ✅ 어떻게 해결하나</div>
+    <div class="text"><b>“가장 먼저 받고 싶은 가치”를 묻는 1문항</b>을 추천안으로 두고, 한국어 선택지 4개, J1~J4 임시 매핑, 질문 후 즉시 달라질 surface 분기 원칙을 한 문서로 묶었습니다.</div>
+  </div>
+
+  <details open>
+    <summary><span class="chev"></span> 핵심 내용 · 리서치 본문</summary>
+    <div class="body">
+      <div class="section-title">핵심 발견</div>
+      <ol class="find">
+        <li>직설적인 “왜 왔나요”형 질문은 분석용으론 분명하지만 prelaunch 첫 화면에서는 설문/분류 느낌이 강해, first-session trust gate를 해칠 가능성이 큽니다.</li>
+        <li>“무엇을 먼저 받고 싶은가”형 질문은 분류감보다 맞춤 약속을 강조하기 쉬워, persona-panel 첫 검증 게이트에 가장 적합합니다.</li>
+        <li>J3는 결과 preview가 본체이고 저장은 선택 범퍼라서, 질문 이후 surface 분기에서 J1/J2/J4와 같은 저장 중심 약속을 그대로 쓰면 first value를 흐릴 수 있습니다.</li>
+      </ol>
+      <div class="callout">추천안은 질문 자체보다 “질문 후 실제로 무엇이 달라지는가”를 바로 설명할 수 있게 만드는 것입니다. 질문 뒤 hero, CTA 보조문구, proof preview 중 최소 하나는 즉시 달라져야 합니다.</div>
+      <div class="content-grid">
+        <div class="mini-card">
+          <b>근거 · 소스</b>
+          <p>Formbricks/Appcues 온보딩 survey 원칙, Virtue first-session JTBD 메모, 그리고 현재 live surface 관찰을 결합했습니다.</p>
+        </div>
+        <div class="mini-card">
+          <b>다음 판단</b>
+          <p>persona-panel 또는 내부 수기 리뷰에서 “분류당함”보다 “바로 맞춰질 것 같음” 반응이 우세한지 확인한 뒤, approval-needed 후속 intent로 UI/copy proposal을 분리합니다.</p>
+        </div>
+      </div>
+    </div>
+  </details>
+
+  <details open>
+    <summary><span class="chev"></span> 계승 기준 · 상세</summary>
+    <div class="body">
+      <p><strong>계승한 기준</strong></p>
+      <ul>
+        <li><code>First Value Mapping</code>: J1/J2/J4와 J3의 first value가 다르므로 같은 질문 뒤 같은 약속을 주면 안 됩니다.</li>
+        <li><code>Prelaunch Decision Boundary</code>: 작은 표본 수치를 읽기보다 first-session 의도를 더 선명하게 드러내는 문서형 설계가 현재 단계에 더 안전합니다.</li>
+        <li><code>Prompt Design Teaches Desired Result, Not UI Or Judgment</code>: 사용자가 원하는 결과를 고르게 해야지, UI 사용법이나 판정 위임을 강화하면 안 됩니다.</li>
+      </ul>
+      <p><strong>이번에 새로 배운 것</strong></p>
+      <ul>
+        <li>온보딩 질문의 핵심은 세그먼트 정확도보다 “질문 후 바뀌는 약속이 보이는가”에 있습니다.</li>
+        <li>J4는 J1과 언어가 겹치므로 “미래의 나에게 남긴다”는 회고 톤으로 구분하는 편이 더 자연스럽습니다.</li>
+      </ul>
+      <p><strong>다음 작업에 넘길 규칙</strong></p>
+      <ul>
+        <li>실제 UI 제안이 생기면 질문 문구와 함께 hero/CTA/proof 중 무엇이 바뀌는지도 항상 한 세트로 제안합니다.</li>
+        <li>이 intent 범위에서는 code, deploy, tracking, privacy, public copy 변경을 하지 않습니다. 모두 approval-needed 후속 intent로 분리합니다.</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="chev"></span> 실행 메타 · 산출물</summary>
+    <div class="body">
+      <div class="chips">
+        <span class="chip">2026-06-20T2218Z</span>
+        <span class="chip">inter-session target-agent request</span>
+        <span class="chip">Inbox → Archive</span>
+      </div>
+      <ul>
+        <li>산출물 <code>artifacts/marketing-72/virtue-first-session-intent-hint-compare.html</code></li>
+      </ul>
+    </div>
+  </details>
+
+  <div class="foot">
+    <span>Agent-First Heartbeat</span>
+    <span>Infinity · Intent Note</span>
+  </div>
+</div>
+</body>
+</html>

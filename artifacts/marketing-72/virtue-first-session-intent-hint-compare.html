@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Virtue First-Session Intent Hint Compare</title>
+<style>
+  :root{
+    --bg:#f6f2e8; --panel:#fffdf8; --line:#e7dfcf; --ink:#2f2b25; --muted:#6b6459;
+    --clay:#a9745a; --sage:#5f7a5e;
+    --sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.65 var(--sans)}
+  .page{max-width:920px;margin:0 auto;padding:24px 16px 48px}
+  h1{font-size:30px;line-height:1.25;margin:0 0 10px}
+  h2{font-size:18px;margin:28px 0 10px}
+  p,li{color:var(--muted)}
+  .lead{font-size:16px;max-width:60ch}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:16px;margin-top:14px}
+  .grid{display:grid;grid-template-columns:1fr;gap:14px}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 0}
+  .chip{border:1px solid var(--line);border-radius:999px;padding:4px 10px;font-size:12px;color:var(--muted)}
+  table{width:100%;border-collapse:collapse;margin-top:10px}
+  th,td{padding:10px 8px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+  th{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+  td strong{color:var(--ink)}
+  .note{border-left:3px solid var(--sage);padding-left:12px;margin-top:12px}
+  .warn{border-left:3px solid var(--clay);padding-left:12px;margin-top:12px}
+  @media (min-width:760px){
+    .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <h1>Virtue 첫 세션 의도 힌트 비교안</h1>
+  <p class="lead">목표는 사용자를 분류하는 느낌을 키우지 않으면서도, 첫 화면이 어떤 잡을 먼저 약속해야 하는지 1문항으로 더 빨리 드러내는 것입니다. 이 문서는 J1~J4 가설을 위한 proposal-only 내부 기준입니다.</p>
+  <div class="chips">
+    <span class="chip">marketing-72</span>
+    <span class="chip">L1 docs-only</span>
+    <span class="chip">Virtue prelaunch</span>
+    <span class="chip">no code / no tracking / no deploy</span>
+  </div>
+
+  <h2>추천안</h2>
+  <div class="card">
+    <p><strong>질문:</strong> 지금 Virtue에서 가장 먼저 받고 싶은 건 무엇인가요?</p>
+    <table>
+      <thead>
+        <tr>
+          <th>선택지</th>
+          <th>임시 매핑</th>
+          <th>질문 후 바로 달라질 것</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>오늘 한 일을 가볍게 남기고 싶어요</strong></td>
+          <td>J1 기록형, J4 회고형 일부</td>
+          <td>hero는 기록 가벼움, CTA 보조문구는 부담 없이 남기기, proof는 짧은 저장 예시 우선</td>
+        </tr>
+        <tr>
+          <td><strong>쌓이는 모습이 보여야 계속 할 것 같아요</strong></td>
+          <td>J2 누적형</td>
+          <td>hero는 누적 payoff, CTA 보조문구는 이어서 쌓기, proof는 streak가 아니라 누적 카드/최근 덕행 묶음 우선</td>
+        </tr>
+        <tr>
+          <td><strong>AI가 오늘을 어떻게 볼지 궁금해요</strong></td>
+          <td>J3 AI 호기심형</td>
+          <td>hero는 AI 관점 preview, CTA 보조문구는 바로 보기, proof는 결과 카드 preview 우선, 저장은 선택 범퍼로 후순위</td>
+        </tr>
+        <tr>
+          <td><strong>나중에 돌아볼 한 줄을 남기고 싶어요</strong></td>
+          <td>J4 회고형, J1 일부</td>
+          <td>hero는 미래의 나에게 남기는 기록, CTA 보조문구는 짧은 회고, proof는 과거 기록을 다시 보는 느낌 우선</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="note">
+      <p><strong>추천 이유:</strong> “무엇을 하려 왔나”보다 “무엇을 먼저 받고 싶은가”가 덜 심문처럼 느껴집니다. 동시에 질문 뒤 어떤 화면 약속이 바뀌는지도 설명하기 쉽습니다.</p>
+    </div>
+  </div>
+
+  <h2>비교안</h2>
+  <div class="grid">
+    <div class="card">
+      <strong>안 A. 목적 직설형</strong>
+      <p>예: “오늘 왜 Virtue에 오셨나요?”</p>
+      <p>장점은 분석용으론 분명하지만, prelaunch 첫 화면에서는 설문/분류당함 느낌이 가장 큽니다. persona-panel에서 반감 확인용 대조군으로만 적합합니다.</p>
+    </div>
+    <div class="card">
+      <strong>안 B. 받고 싶은 가치형</strong>
+      <p>예: “가장 먼저 받고 싶은 건 무엇인가요?”</p>
+      <p>추천안입니다. 사용자가 원하는 첫 가치를 고르게 하므로, 질문 후 표면 분기 원칙과 직접 연결됩니다.</p>
+    </div>
+    <div class="card">
+      <strong>안 C. 행동 방식형</strong>
+      <p>예: “어떤 방식이 더 편한가요?”</p>
+      <p>카피는 부드럽지만 J2/J4와 J1/J3를 가르는 힘이 약합니다. UI 취향 조사처럼 흐를 위험이 있어 first-session intent 신호로는 약합니다.</p>
+    </div>
+  </div>
+
+  <h2>J1-J4 임시 매핑 원칙</h2>
+  <div class="card">
+    <table>
+      <thead>
+        <tr>
+          <th>잡</th>
+          <th>기본 연결 선택지</th>
+          <th>주의점</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>J1 기록형</td>
+          <td>오늘 한 일을 가볍게 남기고 싶어요</td>
+          <td>저장 부담이 커 보이면 이탈이 아니라 보류일 수 있으니 가벼움 강조가 필요</td>
+        </tr>
+        <tr>
+          <td>J2 누적형</td>
+          <td>쌓이는 모습이 보여야 계속 할 것 같아요</td>
+          <td>streak 압박보다 누적 payoff preview를 먼저 보여야 함</td>
+        </tr>
+        <tr>
+          <td>J3 AI 호기심형</td>
+          <td>AI가 오늘을 어떻게 볼지 궁금해요</td>
+          <td>저장은 first value가 아니라 선택 범퍼라서 결과 preview가 본체</td>
+        </tr>
+        <tr>
+          <td>J4 회고형</td>
+          <td>나중에 돌아볼 한 줄을 남기고 싶어요</td>
+          <td>J1과 겹치므로 “미래의 나에게 남긴다”는 톤 차이로 분기</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>질문 후 surface 분기 원칙</h2>
+  <div class="card">
+    <ol>
+      <li>질문을 했다면 다음 화면에서 최소 한 가지는 즉시 달라져야 합니다. hero, CTA 보조문구, proof preview 중 하나 이상이 선택지와 연결되어야 합니다.</li>
+      <li>J3 선택자에게는 결과 preview를 더 앞에 두고 저장/누적 약속은 뒤로 미룹니다.</li>
+      <li>J2 선택자에게는 첫 저장 이후 무엇이 쌓이는지 예고가 보여야 합니다. 그렇지 않으면 질문만 하고 약속을 안 지키는 흐름이 됩니다.</li>
+      <li>J1/J4 선택자에게는 “길게 쓰라”는 압박보다 가볍게 남길 수 있다는 안도감을 먼저 줍니다.</li>
+    </ol>
+    <div class="warn">
+      <p><strong>approval boundary:</strong> 이 문서는 proposal-only 내부 기준입니다. 실제 UI 삽입, 카피 변경, 이벤트/속성 추가, 개인화, 배포는 별도 approval-needed 후속 intent로 분리합니다.</p>
+    </div>
+  </div>
+
+  <h2>첫 검증 게이트</h2>
+  <div class="card">
+    <p>persona-panel 또는 내부 수기 리뷰에서 아래 둘을 함께 확인합니다.</p>
+    <ol>
+      <li>이 질문이 “분류당한다”보다 “바로 나한테 맞춰질 것 같다”에 더 가깝게 느껴지는가</li>
+      <li>선택 후 무엇이 달라지는지 한 문장으로 설명할 수 있는가</li>
+    </ol>
+  </div>
+</div>
+</body>
+</html>
