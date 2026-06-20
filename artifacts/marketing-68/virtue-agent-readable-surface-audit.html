@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Virtue Agent-Readable Surface Audit</title>
+  <style>
+    :root { color-scheme: light; --ink:#171717; --muted:#5f6368; --line:#d8dadd; --soft:#f6f7f8; --accent:#145a75; --warn:#8a4b00; }
+    body { margin:0; font:14px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; color:var(--ink); background:#fff; }
+    main { max-width: 1080px; margin: 0 auto; padding: 32px 24px 48px; }
+    h1 { font-size: 26px; line-height:1.2; margin:0 0 8px; letter-spacing:0; }
+    h2 { font-size: 17px; margin: 28px 0 10px; }
+    p { margin: 0 0 12px; }
+    .meta { color:var(--muted); margin-bottom:22px; }
+    .axis { border:1px solid var(--line); border-radius:8px; padding:16px; margin:14px 0; background:#fff; }
+    .axis h2 { margin-top:0; }
+    table { width:100%; border-collapse:collapse; margin: 10px 0 18px; }
+    th, td { border:1px solid var(--line); padding:10px 11px; vertical-align:top; text-align:left; }
+    th { background:var(--soft); font-weight:650; }
+    code { background:var(--soft); padding:1px 4px; border-radius:4px; }
+    .no { color:#7a1f1f; font-weight:650; }
+    .handoff { color:var(--warn); font-weight:650; }
+    details { border:1px solid var(--line); border-radius:8px; padding:12px 14px; margin-top:16px; background:#fbfbfb; }
+    summary { cursor:pointer; font-weight:650; }
+  </style>
+</head>
+<body>
+<main>
+  <h1>Virtue Agent-Readable Surface Audit</h1>
+  <p class="meta">Internal docs-only artifact for marketing-68. Scope: prelaunch public/repo-readable surfaces, agent trust boundaries, and launch-after reuse. No production code, deploy, tracking, privacy, PostHog, external messaging, cost, robots.txt, or llms.txt changes were made.</p>
+
+  <section class="axis ax1">
+    <h2>axis ax1: Agent-Readable Surface Map</h2>
+    <table>
+      <thead><tr><th>Surface</th><th>Agent may read</th><th>Agent must not infer</th><th>Human handoff wording</th></tr></thead>
+      <tbody>
+        <tr><td>Marketing homepage / prelaunch copy</td><td>High-level product category, declared use cases, public positioning, and explicit availability status.</td><td>Production readiness, customer outcomes, hidden integrations, pricing, or policy commitments that are not plainly published.</td><td>Ask the user to confirm availability, pricing, and operational scope before taking action.</td></tr>
+        <tr><td>Repository docs / README-like surfaces</td><td>Documented architecture, stated setup steps, visible license or contribution cues, and clearly named experimental status.</td><td>That unpublished branches, internal notes, or examples are supported user-facing commitments.</td><td>Treat repo docs as technical context and request maintainer confirmation before acting on behalf of Virtue.</td></tr>
+        <tr><td>Future <code>llms.txt</code> / agent policy page</td><td>Allowed pages, canonical product description, contact route, and explicit do-not-use boundaries once published.</td><td>Permission to bypass auth, scrape private data, trigger workflows, or speak for the company.</td><td>Use the published contact or support path when a task requires authority beyond reading public pages.</td></tr>
+        <tr><td>External references about agentic web access</td><td>General industry expectations: AI traffic is material enough to measure, and agents need concise permission/context cues.</td><td>That benchmarks transfer directly to Virtue traffic, or that broad AI-agent guidance is a legal consent model.</td><td>Escalate policy, privacy, analytics, and access-control decisions to a human owner.</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="axis ax2">
+    <h2>axis ax2: Launch-After Reuse Checklist</h2>
+    <table>
+      <thead><tr><th>Reusable component</th><th>Prelaunch draft stance</th><th>Launch-after gate</th></tr></thead>
+      <tbody>
+        <tr><td>Agent summary</td><td>Keep low-signal and factual: what Virtue is, what it is not yet claiming, and where humans decide.</td><td>Update only after public copy, product status, and owner-approved claims are stable.</td></tr>
+        <tr><td>May-read list</td><td>List public docs and marketing pages only; do not imply access to private dashboards, user data, or workflow execution.</td><td>Map to actual public URLs and confirm robots/llms policy with engineering and privacy owners.</td></tr>
+        <tr><td>Must-not-infer list</td><td>Block assumptions about authorization, legal advice, financial advice, security posture, and production integrations.</td><td>Review with legal/privacy/security before publishing or embedding in public agent instructions.</td></tr>
+        <tr><td>Human handoff</td><td>Use simple language: agents can summarize public context, but a person must approve commitments and account-specific action.</td><td>Connect to the real support/contact path and any verified domain ownership mechanism.</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <h2>Recommended Boundary Copy</h2>
+  <table>
+    <thead><tr><th>Use</th><th>Draft wording</th></tr></thead>
+    <tbody>
+      <tr><td>Agent may read</td><td>Agents may read Virtue's public pages and public repository documentation to summarize the product, implementation context, and published status.</td></tr>
+      <tr><td>Agent must not infer</td><td>Agents must not infer customer authorization, operational readiness, pricing, legal/privacy commitments, or permission to perform actions unless those details are explicitly published and current.</td></tr>
+      <tr><td>Human handoff</td><td>When a request involves account-specific data, commitments, integrations, spending, deployment, or policy interpretation, hand off to a human Virtue owner for confirmation.</td></tr>
+    </tbody>
+  </table>
+
+  <details>
+    <summary>Source and constraint notes</summary>
+    <p>Intent basis: marketing-68 requested a read-only audit across agent may-read, must-not-infer, human handoff wording, and launch-after reuse. The source note references 2026 human AI traffic benchmarks and OpenAI agent guidance as directional inputs, not as directly binding Virtue policy.</p>
+    <p class="no">Explicit non-actions: no production code, deploy, public copy, robots/llms publication, tracking/privacy, PostHog, external message, or cost change.</p>
+  </details>
+</main>
+</body>
+</html>

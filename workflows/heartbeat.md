@@ -124,6 +124,7 @@ Heartbeat
 - **Claude Code 작업 규칙**: `local-code` 또는 multi-file/shared behavior처럼 비단순 작업은 `workflow-master` 스킬/에이전트를 사용하도록 지시한다. workflow-master는 repo-local 파일보다 `~/.claude` 기준으로 먼저 찾는다: `~/.claude/skills/workflow-master/`와 `~/.claude/agents/workflow-master.md`. 단일 내부 문서/리포트 같은 명백한 `simple-doc` 작업은 직접 lightweight prompt로 처리할 수 있다.
 - **복잡한 작업** (다역할 필요): workflow-master가 Planner, Developer, Marketer, Operator 관점으로 분해·중재한 뒤, 실제 로컬 실행을 진행한다.
 - **마케팅 학습 루프**: `marketing-*`, `target_agent: marketer`, activation, onboarding, retention, monetization, positioning, AI value/proxy 관련 intent는 Marketer가 `MARKETING_LEARNINGS.md`를 1순위로 읽고, 이전 마케팅 산출물을 근거로 학습하게 한다. 위임 프롬프트에 `MARKETING_LEARNINGS.md`, `INTENTS.md` Archive 요약, `artifacts/marketing-*`, `reports/marketing-*/*.html`, 관련 Virtue `apps/web/docs/`를 참고해 계승/수정/충돌 지점을 명시하라고 넣는다. Naver Shopping 등 다른 source agent가 만든 target-agent 요청도 같은 루프로 처리하되, source agent 산출물은 요청 근거로만 쓰고 Marketer output을 네이버 수요 증거로 오인하지 않는다.
+- **마케팅 언어 규칙**: `marketing-*` 또는 `target_agent: marketer` 산출물은 기본적으로 한국어로 작성한다. Infinity Inbox 제목, intent 본문, artifact 본문, report 본문, archive summary, SAM internal inbox note, Waiting 이유, 다음 액션까지 모두 한국어 우선으로 쓴다. 파일 경로, URL, 코드, CLI 명령, 환경변수, JSON 필드명, 고유 서비스명/제품명만 필요할 때 원문을 유지한다. 영어 초안이나 영어 제목을 먼저 만들고 번역하는 흐름이 아니라, 처음부터 한국어 정본을 만든다.
 
 Claude Code 위임 프롬프트에는 최소한 아래를 포함한다.
 
@@ -136,6 +137,7 @@ Goal: {goal}
 Context: {relevant files, urls, prior reports}
 Prepared findings: {cloud research/prepare summary}
 Marketing learning context: For marketing/activation/retention/monetization/positioning/AI-value work, make Marketer read `MARKETING_LEARNINGS.md` first, then prior `INTENTS.md` marketing Archive summaries, `artifacts/marketing-*`, `reports/marketing-*/*.html`, and relevant Virtue `apps/web/docs/` before proposing new claims. Require explicit inherited assumptions, changed assumptions, conflicts, and 1-3 durable learning candidates for `MARKETING_LEARNINGS.md`.
+Language: For marketing/activation/retention/monetization/positioning/AI-value work, write the canonical output in Korean from the start. Use Korean for Infinity intent titles/body, artifacts, HTML report prose, archive summaries, Waiting/blocker notes, and SAM internal inbox summaries. Keep only file paths, URLs, code/JSON field names, CLI commands, and proper nouns in the original language when useful.
 Allowed: L0/L1 actions only unless user approval exists
 Forbidden: L2/L3 actions without explicit approval
 Verification: {tests/build/lint/screenshot/direct inspection}

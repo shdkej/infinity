@@ -532,3 +532,6 @@ Infinity intent 처리 품질을 평가해 다음 pickup/구조화/실행에서 
 
 - 대상 intent: 2026-06-17 기준 marketing-64 pending report 해소
 - 평가: `reports/heartbeat/*pending*`가 남아 있어도 현재 `INTENTS.md`와 `intents/archive/{id}.md`가 이미 정합하면 새 실행은 stale pending report를 실패로 재처리하지 말고, 후속 heartbeat에서 "resolved/superseded" 표식을 남겨 혼선을 줄여야 한다.
+
+- 대상 intent: 2026-06-19 기준 research-16 lane 정합성
+- 평가: `INTENTS.md`와 `intents/archive/research-16.md`는 완료를 가리키지만 `intents/inbox/research-16.md`가 그대로 남아 있어 파일 기반 pickup이 완료 intent를 재처리할 수 있다. 다음 heartbeat는 신규 실행 전 registry의 Inbox가 비어 있어도 `intents/inbox/*` 잔존 파일을 별도 검사해 archive 완료 id와 충돌하면 삭제 또는 superseded 표식을 남겨야 한다.

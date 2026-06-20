@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Virtue AI Authorization Boundary Table</title>
+  <style>
+    :root { color-scheme: light; --ink:#17211f; --muted:#59645f; --line:#cbd8d1; --soft:#f4f7f5; --accent:#0f766e; --warn:#9a3412; }
+    body { margin:0; font-family: Arial, Helvetica, sans-serif; color:var(--ink); background:#ffffff; }
+    main { max-width: 1120px; margin: 0 auto; padding: 32px 20px 48px; }
+    h1 { font-size: 28px; margin: 0 0 8px; letter-spacing: 0; }
+    h2 { font-size: 18px; margin: 28px 0 10px; }
+    p { line-height: 1.55; color: var(--muted); }
+    .axis { border: 1px solid var(--line); border-radius: 8px; padding: 14px 16px; margin: 14px 0; background: var(--soft); }
+    .axis strong { color: var(--ink); }
+    table { width: 100%; border-collapse: collapse; margin-top: 14px; table-layout: fixed; }
+    th, td { border: 1px solid var(--line); padding: 10px; vertical-align: top; font-size: 13px; line-height: 1.45; }
+    th { background: #e8f1ed; text-align: left; color: #10221f; }
+    td:first-child, th:first-child { width: 78px; font-weight: 700; }
+    .must-not { color: var(--warn); font-weight: 700; }
+    details { margin-top: 24px; border: 1px solid var(--line); border-radius: 8px; padding: 12px 14px; }
+    summary { cursor: pointer; font-weight: 700; }
+    ul { margin: 8px 0 0 20px; padding: 0; }
+  </style>
+</head>
+<body>
+<main>
+  <h1>Virtue AI Authorization Boundary Table</h1>
+  <p>Internal prelaunch strategy artifact translating the WEF and Capgemini agent-control framing into Virtue journey-level authorization boundaries. This is not public copy and does not change product behavior, analytics, privacy posture, deployment, or cost.</p>
+
+  <section class="axis ax1">
+    <strong>axis ax1: Delegation depth.</strong>
+    The boundary moves from user-authored drafts toward agent-assisted orchestration, but every step keeps the human decision owner visible.
+  </section>
+  <section class="axis ax2">
+    <strong>axis ax2: Evidence burden.</strong>
+    The more Virtue acts on behalf of a user, the more it must show source evidence, reversible state, and an explicit confirmation point.
+  </section>
+
+  <h2>Authorization Boundaries</h2>
+  <table aria-label="Virtue AI authorization boundaries by journey">
+    <thead>
+      <tr>
+        <th>Journey</th>
+        <th>User delegates</th>
+        <th>Virtue may do</th>
+        <th>Virtue must not do</th>
+        <th>Human decision required</th>
+        <th>Evidence to show</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>J1<br>Capture</td>
+        <td>Collect raw context, goals, constraints, and unresolved questions from the user or connected workspace.</td>
+        <td>Normalize notes, identify missing context, group related facts, and ask for clarification when confidence is low.</td>
+        <td class="must-not">Infer consent, invent facts, contact external parties, publish content, or alter source records.</td>
+        <td>Whether the captured intent is accurate enough to become an active brief.</td>
+        <td>Original snippets, source locations, uncertainty labels, and a short list of assumptions.</td>
+      </tr>
+      <tr>
+        <td>J2<br>Shape</td>
+        <td>Turn the brief into options, tradeoffs, drafts, target segments, or positioning hypotheses.</td>
+        <td>Compare alternatives, reuse approved learnings, draft internal artifacts, and flag conflicts with prior strategy.</td>
+        <td class="must-not">Claim market validation, create public promises, change tracking/privacy settings, or choose the strategy unilaterally.</td>
+        <td>Which option becomes the working direction and which claims are allowed.</td>
+        <td>Decision matrix, rejected alternatives, source citations, and known gaps.</td>
+      </tr>
+      <tr>
+        <td>J3<br>Prepare</td>
+        <td>Convert the approved direction into launch-ready internal assets, checklists, or implementation prompts.</td>
+        <td>Produce drafts, map dependencies, prepare review packets, and define verification gates for later execution.</td>
+        <td class="must-not">Deploy, message customers, spend money, create new data collection, or bypass approval gates.</td>
+        <td>Approval to execute, publish, spend, or ask another agent to perform code or operational work.</td>
+        <td>Reviewable artifact, approval checklist, risk register, and explicit go/no-go gates.</td>
+      </tr>
+      <tr>
+        <td>J4<br>Act</td>
+        <td>Execute a narrow approved action with a defined scope, rollback path, and success gate.</td>
+        <td>Carry out the authorized local action, verify the result, and record completion evidence.</td>
+        <td class="must-not">Expand scope, make irreversible business decisions, run unapproved outreach, or hide failure states.</td>
+        <td>Any escalation beyond the approved scope, external visibility, payment, legal/privacy impact, or irreversible change.</td>
+        <td>Before/after state, command or artifact evidence, verification result, rollback note, and completion report.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <details>
+    <summary>Completion notes</summary>
+    <ul>
+      <li>Success gate met: J1-J4 table includes user_delegates, virtue_may_do, virtue_must_not_do, human_decision_required, and evidence_to_show.</li>
+      <li>Scope held to L1 docs-only: no production code, deploy, tracking/privacy, PostHog, public copy, external message, or cost change.</li>
+      <li>Used only local context for the WEF/Capgemini ACAP framing and existing Virtue prelaunch positioning constraints.</li>
+    </ul>
+  </details>
+</main>
+</body>
+</html>

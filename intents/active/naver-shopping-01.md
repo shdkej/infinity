@@ -10,13 +10,15 @@
 - source_agent: `/home/ubuntu/.openclaw/workspace/agents/naver-shopping-agent/`
 - created_at: 2026-06-07T23:24Z
 - updated_at: 2026-06-14T05:45Z
-- updated_at_latest: 2026-06-18T04:00Z
+- updated_at_latest: 2026-06-18T07:11Z
 
 ## Purpose
 
 네이버쓼핑몰 수익화 전담 에이전트가 막히는 지점을 SAM이 관리자자럼 분류하고, 사용자가 직접 확인해야 하는 항목만 09:00 KST 메시지로 묶는다.
 
 ## Current State
+
+- 2026-06-18T07:11Z **SmartStore 접근 블로커 해소 / 네이버 등록 폼 진입 확인.** 마스터가 네이버 SmartStore 가입/로그인을 완료했고, `mac-cdp` 사용자 브라우저 세션으로 `미니멀모음` SmartStore Center와 새 상품등록 폼(`/products/standard-group-product/create`)까지 read-only로 확인했다. 확인된 등록 폼 필수 구조: 카테고리, 그룹상품명/상품명, 이미지/상세설명, 브랜드/제조사, 과세/상품상태, KC/안전관리/원산지, 상품정보제공고시, 배송/반품, 검색설정. 저장/상품등록/가격·배송·재고·광고·고객·주문·계정 변경·공개발행 0. 마스터가 1688 계정 등록은 원치 않는다고 밝혔으므로 1688 verified 공급사 확정은 보류, 네이버 측 접근 가능 상태만 확보.
 
 - 2026-06-18T04:00Z **Heartbeat 상태 전환: active → waiting.** cloud prepare 완료 확인. 다음 유효 액션은 사용자 브라우저 세션만으로 가능. 추가 cloud 리서치 반복 금지(loop-guard + do_not_repeat_cloud 활성). 이 Heartbeat에서 수행한 액션 없음(상태 전환만). sample-order-gated 유지.
 
@@ -59,10 +61,10 @@
 ### 2026-06-18T04:00Z - waiting 전환 / 사용자 브라우저 세션 대기
 
 - route: user-session-needed
-- status: waiting
-- reason: cloud prepare 완료. 다음 유효 액션(1688 공급사 현장 확인, 네이버 등록)은 사용자 브라우저 세션 필요.
+- status: partially-resolved
+- reason: cloud prepare 완료. 네이버 SmartStore 가입/로그인 및 상품등록 폼 접근은 2026-06-18T07:11Z에 해소됨. 1688 공급사 현장 확인은 마스터가 계정 등록을 원치 않아 보류.
 - do_not_repeat_cloud: 활성 — 체크리스트 + 등록 초안 완성. 추가 cloud prepare 금지.
-- next_valid_action: 사용자 브라우저 세션으로 wrist-strap-1688-verification-checklist.md 실행 → Huanhuan/Zhanhong 1개 확정 → SAM 샘플 주문 승인 요청
+- next_valid_action: 1688을 계속 쓰지 않는 경우, 공급사 확정 없이 네이버 폼에는 진입 가능하되 샘플 수령 전 저장/공개 금지. 대체 공급처 검토 또는 1688 보류 유지 중 선택 필요.
 - artifacts_ready:
   - `artifacts/naver-shopping-01/wrist-strap-1688-verification-checklist.md`
   - `artifacts/naver-shopping-01/naver-listing-draft-wrist-strap.md`
@@ -100,18 +102,18 @@
 ### 2026-06-08T03:00Z - Commerce ID 확인 필요
 
 - route: user-session-needed
-- status: waiting
+- status: resolved-2026-06-18T07:11Z
 - blocker: SmartStore Commerce ID login wall
-- user_needed: Commerce ID 로그인 확인 또는 이전 ID에서 전환 완료 확인.
-- sam_action: public research, strategy, competitor/category investigation 계속.
+- user_needed: 완료됨. 마스터가 가입/로그인했고 `미니멀모음` SmartStore Center 및 상품등록 폼 접근 확인.
+- sam_action: SmartStore read-only 확인 가능. 샘플 수령 전 라이브 등록/저장/가격·배송·재고/계정 변경은 승인 게이트 유지.
 - work_continues: yes
 
 ### 2026-06-07T23:24Z - 네이버 로그인/스토어 권한 확인
 
 - route: user-session-needed
-- status: waiting
+- status: resolved-2026-06-18T07:11Z
 - blocker: SmartStore/Naver account state and read-only browser access not confirmed.
-- sam_action: continue public research, strategy updates.
+- sam_action: SmartStore Center와 상품등록 폼 read-only 접근 확인 완료. 라이브 액션은 승인 전 금지.
 - work_continues: yes
 
 ### 2026-06-07T23:28Z - 네이버쓼핑 공개 검색 접근 제한
