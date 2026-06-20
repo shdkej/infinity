@@ -4,6 +4,7 @@
 
 ## Inbox
 
+<!-- marketing-71 inbox 2026-06-20T1000Z [display: Virtue Seeded Proof Proposal Compare; projects: virtue; type: strategy; topics: activation,onboarding,proof,prelaunch; source_note: /home/ubuntu/workspace/knowledge-lab/source/external-links/marketing/2026-06-20-prelaunch-seeded-proof-onboarding.md; rationale: marketing-70이 CTA 부족보다 proof preview gap을 확인했고, 새 비교 노트는 prelaunch AI 온보딩에서 seeded proof가 CTA보다 선행되어야 한다는 근거를 묶었다.; expected_impact: 첫 화면 empty state 다음 행동을 더 구체적으로 상상하게 만들어 J1/J2 첫 가치 이해를 높일 내부 기준 확보.; permission_level: L1 docs-only; owner_route: Infinity router -> Claude Code; success_criteria: `proof 없음 / 단일 샘플 카드 / 누적 카드 스택` 3안 비교표와 J1-J4 오해 위험, approval-needed 구현 메모를 1개 문서로 정리.; first_verification_gate: persona-panel 또는 내부 수기 리뷰에서 `무엇이 쌓일지 바로 보였다` 판단이 3개 기본 페르소나 중 2개 이상에서 확보.] -->
 
 ## Active
 <!-- naver-shopping-01 active 2026-06-18T0711Z → intents/active/naver-shopping-01.md [display: 나래/Narae; projects: naver-shopping,infinity,personal-ops; type: coordination; topics: automation,workflow,marketing; status: smartstore-access-confirmed-1688-hold; approval: sample-order-gated] (마스터가 SmartStore 가입/로그인을 완료했고, mac-cdp 사용자 브라우저로 `미니멀모음` SmartStore Center와 상품등록 폼(`/products/standard-group-product/create`)까지 read-only 확인. 등록 폼 필수 구조 확인: 카테고리, 상품명, 이미지/상세설명, 브랜드/제조사, KC/원산지, 상품정보제공고시, 배송/반품, 검색설정. 1688 계정 등록은 원치 않아 verified 공급사 확정은 보류. 샘플 주문·라이브 등록·저장·가격·배송·재고·광고·고객·주문·계정·공개발행 0. archive 안 함(active 유지).) -->
