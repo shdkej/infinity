@@ -7,6 +7,7 @@
 
 ## Active
 <!-- naver-shopping-01 active 2026-06-18T0711Z → intents/active/naver-shopping-01.md [display: 나래/Narae; projects: naver-shopping,infinity,personal-ops; type: coordination; topics: automation,workflow,marketing; status: smartstore-access-confirmed-1688-hold; approval: sample-order-gated] (마스터가 SmartStore 가입/로그인을 완료했고, mac-cdp 사용자 브라우저로 `미니멀모음` SmartStore Center와 상품등록 폼(`/products/standard-group-product/create`)까지 read-only 확인. 등록 폼 필수 구조 확인: 카테고리, 상품명, 이미지/상세설명, 브랜드/제조사, KC/원산지, 상품정보제공고시, 배송/반품, 검색설정. 1688 계정 등록은 원치 않아 verified 공급사 확정은 보류. 샘플 주문·라이브 등록·저장·가격·배송·재고·광고·고객·주문·계정·공개발행 0. archive 안 함(active 유지).) -->
+<!-- research-18 active 2026-06-20T0951Z → intents/active/research-18.md [display: 자동화 시스템 신뢰성 강화 리서치; projects: infinity,research-bank,personal-ops; type: research; topics: automation,reliability,operations,monitoring,resilience] (사용자 질문: "잘 고장나는 자동화 시스템을 단단하게 하는 방법은?" 자주 깨지는 자동화를 더 안정적으로 만드는 실패 패턴, 설계 원칙, 관측성, 복구성, 우선순위를 조사한다. 산출물 예정: artifacts/research-18/automation-hardening-principles.md) -->
 
 ## Waiting
 
