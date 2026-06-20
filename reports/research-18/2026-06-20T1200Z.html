@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>research-18 · 자동화 시스템 신뢰성 강화</title>
+<style>
+  :root{
+    --bg:#f4f2ea; --panel:#fbfaf5; --ink:#2c2a25; --soft:#807c70; --faint:#a8a496; --line:#e3dfd2;
+    --a2:#5f7a5e; --a2-deep:#3f5740;
+    --a1:#5a6f8a; --a1-deep:#3f536e;
+    --sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0; width:100%; max-width:100%; overflow-x:hidden;}
+  body{background:var(--bg); color:var(--ink); font-family:var(--sans);
+    font-size:14px; line-height:1.68; -webkit-font-smoothing:antialiased;}
+  .sheet{width:min(100%,720px); max-width:720px; margin:0 auto; padding:32px 18px 40px;}
+  .reveal{opacity:0; animation:fade .7s ease forwards;}
+  @keyframes fade{from{opacity:0; transform:translateY(9px);} to{opacity:1; transform:none;}}
+  .eyebrow{display:flex; align-items:center; gap:10px; font-family:var(--mono);
+    font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--soft); flex-wrap:wrap;}
+  .eyebrow .id{color:var(--a2-deep); font-weight:600;}
+  .eyebrow .dot{width:5px; height:5px; border-radius:50%; background:var(--a2);}
+  .eyebrow .status{color:var(--a2-deep);}
+  h1{font-size:clamp(24px,7vw,29px); line-height:1.3; font-weight:700; letter-spacing:0; margin:20px 0 0; overflow-wrap:anywhere;}
+  .dek{font-size:15.5px; color:var(--soft); margin:13px 0 0; max-width:52ch;}
+  .hr{height:1px; background:var(--line); margin:30px 0;}
+  .axis{padding:0 0 4px 18px; position:relative; margin-bottom:26px;}
+  .axis::before{content:""; position:absolute; left:0; top:6px; bottom:6px; width:2px; border-radius:2px;}
+  .axis.ax1::before{background:var(--a1);} .axis.ax2::before{background:var(--a2);}
+  .axis.ax1{--ul:var(--a1);} .axis.ax2{--ul:var(--a2);}
+  .axis .label{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase;
+    margin-bottom:9px; display:flex; align-items:center; gap:8px;}
+  .axis.ax1 .label{color:var(--a1-deep);} .axis.ax2 .label{color:var(--a2-deep);}
+  .axis .label .n{font-weight:600; opacity:.6;}
+  .axis .text{font-size:clamp(16px,4.4vw,18px); line-height:1.62; color:#37352e; overflow-wrap:anywhere;}
+  .axis .text b{font-weight:700; color:var(--ink); border-bottom:2px solid var(--ul);}
+  ol.find{list-style:none; counter-reset:f; margin:16px 0 0; padding:0;}
+  ol.find li{position:relative; padding:8px 0 8px 26px; font-size:15px; color:#37352e; border-top:1px solid var(--line);}
+  ol.find li:first-child{border-top:none;}
+  ol.find li::before{counter-increment:f; content:counter(f); position:absolute; left:0; top:9px;
+    font-family:var(--mono); font-size:12px; font-weight:600; color:var(--a1-deep);}
+  details{border:1px solid var(--line); border-radius:8px; background:var(--panel); margin-bottom:10px; overflow:hidden;}
+  summary{cursor:pointer; list-style:none; padding:14px 16px; display:flex; align-items:center; gap:11px;
+    font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft);}
+  summary::-webkit-details-marker{display:none;}
+  summary .chev{width:8px; height:8px; border-right:2px solid var(--a2-deep); border-bottom:2px solid var(--a2-deep);
+    transform:rotate(-45deg); transition:.25s; flex:none; margin-left:2px;}
+  details[open] summary .chev{transform:rotate(45deg);}
+  summary:hover{color:var(--ink);}
+  .body{padding:2px 16px 18px; min-width:0;}
+  .section{margin:4px 0 18px;}
+  .section-title{font-family:var(--mono); font-size:10.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--a1-deep); margin:0 0 8px;}
+  .callout{border-left:2px solid var(--a2); background:#f2efe5; padding:11px 13px; color:#4a473f; margin:12px 0 16px;}
+  .content-grid{display:grid; grid-template-columns:1fr; gap:10px; margin:10px 0;}
+  .mini-card{border:1px solid var(--line); background:#f8f6ef; border-radius:8px; padding:12px 13px; min-width:0;}
+  .mini-card b{display:block; color:var(--ink); margin-bottom:5px;}
+  .mini-card p{margin:0;}
+  table{border-collapse:collapse; width:100%; max-width:100%; table-layout:fixed; font-size:13px; margin:4px 0 12px;}
+  th,td{border-bottom:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top; overflow-wrap:anywhere; word-break:break-word;}
+  th{font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft); font-weight:600;}
+  td:first-child{color:var(--a2-deep); font-weight:600; white-space:normal;}
+  .body p{color:var(--soft); overflow-wrap:anywhere;}
+  .body ul{margin:6px 0; padding-left:18px;} .body li{margin:5px 0;}
+  code{font-family:var(--mono); font-size:12px; background:#edeae0; padding:1px 6px; border-radius:3px; color:var(--a2-deep); overflow-wrap:anywhere; word-break:break-word;}
+  a{color:var(--a2-deep); text-underline-offset:3px; overflow-wrap:anywhere; word-break:break-word;}
+  .chips{display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px;}
+  .chip{font-family:var(--mono); font-size:10.5px; letter-spacing:.05em; color:var(--soft); border:1px solid var(--line); border-radius:999px; padding:3px 10px;}
+  .foot{margin-top:30px; padding-top:15px; border-top:1px solid var(--line);
+    display:flex; flex-wrap:wrap; gap:6px 14px; justify-content:space-between; font-family:var(--mono); font-size:10px;
+    letter-spacing:.13em; text-transform:uppercase; color:var(--faint);}
+  @media (min-width:720px){
+    .sheet{padding:48px 34px 46px;}
+    .content-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
+  }
+  @media (max-width:640px){
+    table,thead,tbody,tr,th,td{display:block; width:100%;}
+    thead{display:none;}
+    tr{border:1px solid var(--line); border-radius:8px; padding:9px 10px; margin:0 0 10px; background:#f8f6ef;}
+    td{border-bottom:0; padding:5px 0;}
+    td:first-child{font-family:var(--mono); font-size:11px; letter-spacing:.05em;}
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="eyebrow reveal">
+    <span class="dot"></span>
+    <span class="id">research-18</span>
+    <span>Research Note</span>
+    <span class="status">completed</span>
+  </div>
+  <h1 class="reveal" style="animation-delay:.05s">자동화 시스템 신뢰성 강화 리서치</h1>
+  <p class="dek reveal" style="animation-delay:.09s">잘 고장나는 자동화를 단단하게 만드는 실패 패턴, 설계 원칙, 투자 우선순위</p>
+
+  <div class="hr reveal" style="animation-delay:.12s"></div>
+
+  <div class="axis ax1 reveal" style="animation-delay:.16s">
+    <div class="label"><span class="n">01</span> 🔍 무엇을 조사/정리했나</div>
+    <div class="text">잘 고장나는 자동화 시스템의 <b>6개 대표 실패 패턴</b> (트리거·실행·상태·의존성·관측·핸드오프)과 왜 취약해지는지</div>
+  </div>
+
+  <div class="axis ax2 reveal" style="animation-delay:.22s">
+    <div class="label"><span class="n">02</span> 📊 핵심 결과</div>
+    <div class="text"><b>관측성 → 재시도 안전성 → 실패 격리</b> 순으로 투자. 개인 자동화는 알림+멱등성+수동우회 3단계가 먼저, 팀/서비스는 Runbook·Circuit Breaker까지 추가</div>
+  </div>
+
+  <div class="reveal" style="animation-delay:.27s">
+  <details open>
+    <summary><span class="chev"></span> 핵심 내용 · 리서치 본문</summary>
+    <div class="body">
+      <div class="section">
+        <div class="section-title">핵심 발견 (7개)</div>
+        <ol class="find">
+          <li>자동화 실패의 핵심은 <strong>멱등성 부재</strong>다 — 재시도하면 데이터가 오염되거나 중복 발송이 생기는 구조가 가장 흔한 취약점이며, 이것이 해결되지 않으면 재시도 자체가 위험해진다.</li>
+          <li><strong>무음 실패(silent failure)</strong>가 문제를 키운다 — 에러가 났지만 아무도 모르는 상태가 수 시간 지속되다가 사후에 발견되는 패턴이 가장 많은 운영 비용을 만든다.</li>
+          <li><strong>트리거 실패는 진단이 가장 어렵다</strong> — 실행 실패는 로그에 남지만, 작업이 실행조차 안 됐다는 사실은 별도의 watchdog나 마지막 성공 시각 알림 없이는 알 수 없다.</li>
+          <li>개인 자동화의 단단함은 <strong>관측성 + 수동 우회 2개만 챙겨도 80% 달성</strong>된다 — 실패를 알 수 있고, 수동으로 돌릴 수 있으면 나머지는 시간이 해결한다.</li>
+          <li><strong>점진적 하드닝</strong>이 현실적이다 — Level 1(볼 수 있게) → Level 2(재실행 안전하게) → Level 3(격리하고 복구) 순서로 투자할 때 ROI가 가장 높다.</li>
+          <li><strong>Circuit Breaker</strong>는 팀/프로덕션 자동화에서 필수 — 외부 의존성 하나의 장애가 파이프라인 전체를 멈추는 cascading failure를 막는 핵심 장치다.</li>
+          <li><strong>Runbook 없으면 관측성이 있어도 대응이 느리다</strong> — 무엇을 보고 어떻게 고치는지를 사전에 문서화해야만 알림이 실제 복구 속도를 높인다.</li>
+        </ol>
+      </div>
+
+      <div class="callout">핵심 투자 순서: ① 실패를 알 수 있게(관측성) → ② 재실행을 안전하게(멱등성) → ③ 한 실패가 전체를 망가뜨리지 않게(격리). 이 순서를 건너뛰면 뒤의 개선이 무의미해진다.</div>
+
+      <div class="content-grid">
+        <div class="mini-card">
+          <b>근거 · 소스</b>
+          <p>Site Reliability Engineering(Google SRE) 원칙, Netflix Hystrix Circuit Breaker 패턴, AWS Well-Architected Reliability Pillar, Cindy Sridharan "Distributed Systems Observability", 실무 자동화 운영 패턴 합산</p>
+        </div>
+        <div class="mini-card">
+          <b>다음 판단</b>
+          <p>현재 운영 중인 Heartbeat·GitHub Actions·cron 기반 자동화에 Level 1 체크리스트 대조. 실패 알림이 없는 자동화를 먼저 식별하는 것이 최우선 액션.</p>
+        </div>
+      </div>
+    </div>
+  </details>
+
+  <details open>
+    <summary><span class="chev"></span> 상세 — 실패 패턴 × 하드닝 매핑</summary>
+    <div class="body">
+      <div class="section">
+        <div class="section-title">실패 패턴별 대응 원칙</div>
+        <table>
+          <thead><tr><th>실패 유형</th><th>핵심 대응</th></tr></thead>
+          <tbody>
+            <tr><td>트리거 실패</td><td>마지막 성공 시각 감시 알림 + watchdog cron</td></tr>
+            <tr><td>실행 타임아웃</td><td>타임아웃 명시 + 재시도 + 체크포인트</td></tr>
+            <tr><td>상태/멱등성</td><td>upsert 패턴 + idempotency key + 동시실행 lock</td></tr>
+            <tr><td>의존성 만료</td><td>인증 토큰 만료 알림 + 자동 갱신</td></tr>
+            <tr><td>무음 실패</td><td>구조화 로그 + 실패 알림 1개</td></tr>
+            <tr><td>핸드오프 실패</td><td>dead letter queue + 보상 트랜잭션 문서화</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="section">
+        <div class="section-title">3단계 하드닝 체크리스트</div>
+        <ul>
+          <li><strong>Level 1 (Observable)</strong>: 실패 알림 1개 · 실행 로그 · 수동 재실행 문서화</li>
+          <li><strong>Level 2 (Retryable)</strong>: 멱등성 보장 · 지수 백오프 재시도 · 동시 실행 방지</li>
+          <li><strong>Level 3 (Resilient)</strong>: Dead letter queue · Circuit Breaker · Runbook · 자동 롤백</li>
+        </ul>
+      </div>
+      <div class="section">
+        <div class="section-title">개인 vs 팀 우선순위 차이</div>
+        <ul>
+          <li><strong>개인</strong>: 알림(무음 실패 차단) → 멱등성 → 수동 우회. 혼자 운영하므로 Runbook보다 수동 우회가 먼저.</li>
+          <li><strong>팀/서비스</strong>: 관측성 → 멱등성+재시도 → Runbook → Circuit Breaker. 다른 사람도 대응할 수 있어야 하므로 문서화가 필수.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="chev"></span> 실행 메타 · 산출물</summary>
+    <div class="body">
+      <div class="chips">
+        <span class="chip">2026-06-20T12:00Z</span>
+        <span class="chip">heartbeat cloud research</span>
+        <span class="chip">active → completed</span>
+        <span class="chip">L0 자율실행</span>
+      </div>
+      <ul>
+        <li>산출물 <code>artifacts/research-18/automation-hardening-principles.md</code></li>
+        <li>아카이브 <code>intents/archive/research-18.md</code></li>
+      </ul>
+    </div>
+  </details>
+  </div>
+
+  <div class="foot reveal" style="animation-delay:.3s">
+    <span>Agent-First Heartbeat</span>
+    <span>Infinity · Intent Note</span>
+  </div>
+</div>
+</body>
+</html>
