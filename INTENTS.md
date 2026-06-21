@@ -4,6 +4,15 @@
 
 ## Inbox
 
+- `marketing-74` Virtue `/add` 입력 전 기대 형성 비교안
+  source note: `/home/ubuntu/workspace/knowledge-lab/source/external-links/marketing/2026-06-21-add-preinput-proof-bridge.md`
+  rationale: 홈 J3 브리지는 정리됐지만 `/add` 첫 표면은 여전히 입력 요구가 결과 기대보다 먼저 보여 J3/J4의 hesitation gap을 분리 관찰할 기준이 필요함.
+  expected impact: first-10 관찰에서 홈 미진입과 `/add` 제출 전 망설임을 구분하고, approval-needed 공개 카피 변경 전 가장 안전한 expectation bridge 방향을 좁힘.
+  permission level: L1 docs-only
+  owner route: Infinity router -> Claude Code
+  success criteria: `현행 / sample 결과 1줄 / 결과+권한 경계 1줄` 3안 비교표와 J1/J3/J4 오해 위험, 추천 기본안 1개가 한국어 문서 1건으로 정리됨.
+  first verification gate: production/tracking/privacy/public copy/deploy/external message/cost 변경 0, `/add` 라이브 표면 read-only 근거와 source note 인용이 명시됨.
+
 ## Active
 
 
