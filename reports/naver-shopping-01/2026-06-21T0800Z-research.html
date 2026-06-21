@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>[naver-shopping-01] 크로스바디/넥 폰 스트랩 2차 SKU 소싱 스크린</title>
+<style>
+  :root{
+    --bg:#f4f2ea; --panel:#fbfaf5; --ink:#2c2a25; --soft:#807c70; --faint:#a8a496; --line:#e3dfd2;
+    --a2:#5f7a5e; --a2-deep:#3f5740;
+    --a1:#5a6f8a; --a1-deep:#3f536e;
+    --sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0; width:100%; max-width:100%; overflow-x:hidden;}
+  body{background:var(--bg); color:var(--ink); font-family:var(--sans); font-size:14px; line-height:1.68; -webkit-font-smoothing:antialiased;}
+  .sheet{width:min(100%,720px); max-width:720px; margin:0 auto; padding:32px 18px 40px;}
+  .reveal{opacity:0; animation:fade .7s ease forwards;}
+  @keyframes fade{from{opacity:0; transform:translateY(9px);} to{opacity:1; transform:none;}}
+  .eyebrow{display:flex; align-items:center; gap:10px; font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--soft); flex-wrap:wrap;}
+  .eyebrow .id{color:var(--a2-deep); font-weight:600;}
+  .eyebrow .dot{width:5px; height:5px; border-radius:50%; background:var(--a2);}
+  .eyebrow .status{color:var(--a2-deep);}
+  h1{font-size:clamp(24px,7vw,29px); line-height:1.3; font-weight:700; margin:20px 0 0; overflow-wrap:anywhere;}
+  .dek{font-size:15.5px; color:var(--soft); margin:13px 0 0; max-width:52ch;}
+  .hr{height:1px; background:var(--line); margin:30px 0;}
+  .axis{padding:0 0 4px 18px; position:relative; margin-bottom:26px;}
+  .axis::before{content:""; position:absolute; left:0; top:6px; bottom:6px; width:2px; border-radius:2px;}
+  .axis.ax1::before{background:var(--a1);} .axis.ax2::before{background:var(--a2);}
+  .axis.ax1{--ul:var(--a1);} .axis.ax2{--ul:var(--a2);}
+  .axis .label{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase; margin-bottom:9px; display:flex; align-items:center; gap:8px;}
+  .axis.ax1 .label{color:var(--a1-deep);} .axis.ax2 .label{color:var(--a2-deep);}
+  .axis .label .n{font-weight:600; opacity:.6;}
+  .axis .text{font-size:clamp(16px,4.4vw,18px); line-height:1.62; color:#37352e; overflow-wrap:anywhere;}
+  .axis .text b{font-weight:700; color:var(--ink); border-bottom:2px solid var(--ul);}
+  ol.find{list-style:none; counter-reset:f; margin:16px 0 0; padding:0;}
+  ol.find li{position:relative; padding:8px 0 8px 26px; font-size:15px; color:#37352e; border-top:1px solid var(--line);}
+  ol.find li:first-child{border-top:none;}
+  ol.find li::before{counter-increment:f; content:counter(f); position:absolute; left:0; top:9px; font-family:var(--mono); font-size:12px; font-weight:600; color:var(--a1-deep);}
+  details{border:1px solid var(--line); border-radius:8px; background:var(--panel); margin-bottom:10px; overflow:hidden;}
+  summary{cursor:pointer; list-style:none; padding:14px 16px; display:flex; align-items:center; gap:11px; font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft);}
+  summary::-webkit-details-marker{display:none;}
+  summary .chev{width:8px; height:8px; border-right:2px solid var(--a2-deep); border-bottom:2px solid var(--a2-deep); transform:rotate(-45deg); transition:.25s; flex:none; margin-left:2px;}
+  details[open] summary .chev{transform:rotate(45deg);}
+  summary:hover{color:var(--ink);}
+  .body{padding:2px 16px 18px; min-width:0;}
+  .section{margin:4px 0 18px;}
+  .section-title{font-family:var(--mono); font-size:10.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--a1-deep); margin:0 0 8px;}
+  .callout{border-left:2px solid var(--a2); background:#f2efe5; padding:11px 13px; color:#4a473f; margin:12px 0 16px;}
+  .content-grid{display:grid; grid-template-columns:1fr; gap:10px; margin:10px 0;}
+  .mini-card{border:1px solid var(--line); background:#f8f6ef; border-radius:8px; padding:12px 13px; min-width:0;}
+  .mini-card b{display:block; color:var(--ink); margin-bottom:5px;}
+  .mini-card p{margin:0; color:var(--soft);}
+  table{border-collapse:collapse; width:100%; max-width:100%; table-layout:fixed; font-size:13px; margin:4px 0 12px;}
+  th,td{border-bottom:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top; overflow-wrap:anywhere; word-break:break-word;}
+  th{font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft); font-weight:600;}
+  td:first-child{color:var(--a2-deep); font-weight:600;}
+  .body p{color:var(--soft); overflow-wrap:anywhere;}
+  .body ul{margin:6px 0; padding-left:18px;} .body li{margin:5px 0;}
+  code{font-family:var(--mono); font-size:12px; background:#edeae0; padding:1px 6px; border-radius:3px; color:var(--a2-deep); overflow-wrap:anywhere; word-break:break-word;}
+  .chips{display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px;}
+  .chip{font-family:var(--mono); font-size:10.5px; letter-spacing:.05em; color:var(--soft); border:1px solid var(--line); border-radius:999px; padding:3px 10px;}
+  .foot{margin-top:30px; padding-top:15px; border-top:1px solid var(--line); display:flex; flex-wrap:wrap; gap:6px 14px; justify-content:space-between; font-family:var(--mono); font-size:10px; letter-spacing:.13em; text-transform:uppercase; color:var(--faint);}
+  @media (min-width:720px){
+    .sheet{padding:48px 34px 46px;}
+    .content-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
+  }
+  @media (max-width:640px){
+    table,thead,tbody,tr,th,td{display:block; width:100%;}
+    thead{display:none;}
+    tr{border:1px solid var(--line); border-radius:8px; padding:9px 10px; margin:0 0 10px; background:#f8f6ef;}
+    td{border-bottom:0; padding:5px 0;}
+    td:first-child{font-family:var(--mono); font-size:11px; letter-spacing:.05em;}
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="eyebrow reveal">
+    <span class="dot"></span>
+    <span class="id">naver-shopping-01</span>
+    <span>Research Note</span>
+    <span class="status">in_progress</span>
+  </div>
+  <h1 class="reveal" style="animation-delay:.05s">크로스바디/넥 폰 스트랩 2차 SKU 소싱 스크린</h1>
+  <p class="dek reveal" style="animation-delay:.09s">2026-06-21 마스터 결정(크로스바디 2차 SKU 확보)에 따른 cloud research. alibaba.com 대체 공급처 접근법과 손목+크로스바디 병행 샘플 경로 포함.</p>
+
+  <div class="hr reveal" style="animation-delay:.12s"></div>
+
+  <div class="axis ax1 reveal" style="animation-delay:.16s">
+    <div class="label"><span class="n">01</span> 무엇을 조사했나</div>
+    <div class="text">크로스바디/넥 폰 스트랩 소싱 환경 + alibaba.com 대체 공급처 접근 가능성 (1688 세션 없이 Huanhuan/Zhanhong 계열 접근 경로 탐색)</div>
+  </div>
+
+  <div class="axis ax2 reveal" style="animation-delay:.22s">
+    <div class="label"><span class="n">02</span> 핵심 결과</div>
+    <div class="text"><b>범용 훅/D링형 크로스바디 숄더 스트랩 GREEN 조건부 전환.</b> alibaba.com 계정 없이 기존 공급사 계열 접근 확인. 손목+크로스바디 단일 샘플 주문 라운드로 2 SKU 동시 검증 가능.</div>
+  </div>
+
+  <div class="reveal" style="animation-delay:.27s">
+  <details open>
+    <summary><span class="chev"></span> 핵심 내용 · 리서치 본문</summary>
+    <div class="body">
+      <div class="section">
+        <div class="section-title">핵심 발견</div>
+        <ol class="find">
+          <li><strong>소싱 환경</strong> — Alibaba 국제몰 크로스바디/넥 폰 스트랩 598개+. MOQ 10–100개, 단가 USD 0.75–1.50 (약 1,000–2,000 KRW). 손목 스트랩보다 높으나 판매가 9,900–15,000 KRW 기준 마진 허용.</li>
+          <li><strong>옵션 복잡도 제어</strong> — 케이스 일체형은 모델 호환 분기로 HIGH. 범용 훅/D링형(손목 스트랩과 동일 연결 구조) 선택 시 LOW-MEDIUM으로 제어 가능 → 1순위 타입.</li>
+          <li><strong>대체 공급처</strong> — alibaba.com 브라우징은 계정 불필요. Huanhuan(Shenzhen)·Zhanhong(Dongguan) 계열 국제몰 등록 확인. 1688 직접 세션 없이 공급사 확인·리뷰 접근 가능. 가격 20–30% 높게 표시될 수 있으나 컨택 전 단계는 무료.</li>
+          <li><strong>클레임 리스크</strong> — 넥(목걸이) 타입은 주관적 불편함 클레임 위험. 크로스바디(숄더) 타입 우선 선택 권장. 포지셔닝: "소매치기 방지" X → "핸즈프리 여행 필수템 / 분실 방지" ✓.</li>
+          <li><strong>네이버 키워드</strong> — "핸드폰 목걸이 스트랩", "크로스바디 폰스트랩" 판매자 다수 활성. 실제 SearchAd 검색량·CTR은 로컬 접근 필요 — 이번 heartbeat 미확인.</li>
+          <li><strong>병행 효율</strong> — 손목+크로스바디를 동일 Alibaba 공급사에서 단일 주문 라운드로 동시 샘플 주문 가능. 공급사 컨택 1회로 2 SKU 검증.</li>
+          <li><strong>다음 경계</strong> — (L0 즉시) alibaba.com 브라우징·공급사 확인. (로컬 필요) SearchAd 크로스바디 실측. (L2 sample-order-gated) 공급사 컨택 + 샘플 주문 결제.</li>
+        </ol>
+      </div>
+
+      <div class="callout">추천: 크로스바디 스트랩은 범용 훅/D링형 숄더 타입으로 확정. alibaba.com에서 손목 스트랩 공급사(Huanhuan/Zhanhong 계열) 확인 시 크로스바디도 함께 조회 → 단일 샘플 주문 승인 요청. 1688 계정 없이 시작 가능.</div>
+
+      <div class="content-grid">
+        <div class="mini-card">
+          <b>근거 · 소스</b>
+          <p>alibaba.com 공개 검색 (2026-06-21). 기존 sourcing-friction-screen-2026-06-15.md YELLOW 판정 계승. phone-wrist-strap-supplier-shortlist-2026-06-17.md 공급사 계열 확인.</p>
+        </div>
+        <div class="mini-card">
+          <b>다음 판단</b>
+          <p>alibaba.com에서 손목+크로스바디 공급사 확인 (계정 불필요). 두 SKU 병행 샘플 주문 승인 요청. SearchAd 크로스바디 키워드는 주문 전·후 어느 시점에 확인해도 됨.</p>
+        </div>
+      </div>
+    </div>
+  </details>
+
+  <details open>
+    <summary><span class="chev"></span> 타입 비교 · 대체 플랫폼 · 계승 원칙</summary>
+    <div class="body">
+      <div class="section">
+        <div class="section-title">크로스바디 타입별 소싱 마찰</div>
+        <table>
+          <thead><tr><th>타입</th><th>복잡도</th><th>클레임</th><th>권장</th></tr></thead>
+          <tbody>
+            <tr><td>범용 훅/D링형 숄더</td><td>LOW-MEDIUM</td><td>LOW-MEDIUM</td><td>✅ 1순위</td></tr>
+            <tr><td>목걸이(넥)형</td><td>LOW-MEDIUM</td><td>MEDIUM</td><td>⚠️ 2순위</td></tr>
+            <tr><td>케이스 일체형</td><td>HIGH</td><td>HIGH</td><td>❌ 제외</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="section">
+        <div class="section-title">대체 소싱 플랫폼 (1688 없이)</div>
+        <table>
+          <thead><tr><th>플랫폼</th><th>계정</th><th>특징</th></tr></thead>
+          <tbody>
+            <tr><td>alibaba.com</td><td>브라우징 불필요</td><td>Huanhuan/Zhanhong 계열 접근, 지금 바로</td></tr>
+            <tr><td>DHgate</td><td>불필요</td><td>소량 주문 용이, 2차</td></tr>
+            <tr><td>Global Sources</td><td>필요</td><td>대량 발주 시</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="section">
+        <div class="section-title">계승 원칙</div>
+        <ul>
+          <li>"소매치기 방지" 주장 금지 → "핸즈프리 여행 필수템 / 분실 방지" 포지셔닝</li>
+          <li>샘플 주문·라이브 등록·저장·가격·배송·재고·광고·고객·주문·계정·공개발행 0 원칙 유지</li>
+          <li>손목 스트랩 1688 cloud 반복 조사 금지(loop-guard) 유지 — 크로스바디 스크린은 별도 신규 작업으로 이번에 완료</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="chev"></span> 실행 메타 · 산출물</summary>
+    <div class="body">
+      <div class="chips">
+        <span class="chip">2026-06-21T0800Z</span>
+        <span class="chip">Heartbeat cloud research L0</span>
+        <span class="chip">waiting → in_progress</span>
+      </div>
+      <ul>
+        <li>산출물: <code>artifacts/naver-shopping-01/crossbody-strap-sourcing-screen-2026-06-21.md</code></li>
+        <li>intent 상태: <code>waiting → in_progress</code></li>
+        <li>SearchAd 크로스바디 키워드 미확인 (로컬 접근 필요)</li>
+        <li>샘플 주문·라이브 등록·저장·가격·배송·재고·광고·고객·주문·계정·공개발행 0</li>
+      </ul>
+    </div>
+  </details>
+  </div>
+
+  <div class="foot reveal" style="animation-delay:.3s">
+    <span>Agent-First Heartbeat</span>
+    <span>Infinity · naver-shopping-01</span>
+  </div>
+</div>
+</body>
+</html>
