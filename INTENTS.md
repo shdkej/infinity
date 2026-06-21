@@ -6,7 +6,7 @@
 
 
 ## Active
-<!-- naver-shopping-01 active 2026-06-21T0106Z → intents/active/naver-shopping-01.md [display: 나래/Narae; projects: naver-shopping,infinity,personal-ops; type: coordination; topics: automation,workflow,marketing; status: alt-supplier-review-plus-second-sku; approval: sample-order-gated] (마스터가 `대체 공급처 검토 및 다른 소싱 상품 1개 더 확보`를 결정했다. 1순위 상품은 손목 스트랩 유지, 공급처는 Huanhuan → Zhanhong → Kemeng 실용형 backup 순으로 검토, 추가 SKU는 크로스바디/넥 폰 스트랩으로 확보. SmartStore 상품등록 폼 read-only 접근은 이미 확인됨. 샘플 주문·라이브 등록·저장·가격·배송·재고·광고·고객·주문·계정·공개발행 0. archive 안 함(active 유지).) -->
+<!-- naver-shopping-01 in_progress 2026-06-21T0800Z → intents/active/naver-shopping-01.md [display: 나래/Narae; projects: naver-shopping,infinity,personal-ops; type: coordination; topics: automation,workflow,marketing; status: crossbody-screen-done-sample-order-gated; approval: sample-order-gated] (크로스바디/넥 폰 스트랩 2차 SKU 소싱 스크린 완료. 범용 훅/D링형 숄더 타입 GREEN 조건부 전환, alibaba.com 계정 없이 Huanhuan/Zhanhong 접근 가능 — 1688 세션 불필요. 손목+크로스바디 단일 샘플 주문 라운드 경로 확보. SearchAd 키워드 및 샘플 주문은 로컬/승인 대기. 산출물: artifacts/naver-shopping-01/crossbody-strap-sourcing-screen-2026-06-21.md. 샘플 주문·라이브 등록·저장·가격·배송·재고·광고·고객·주문·계정·공개발행 0.) -->
 
 ## Waiting
 
