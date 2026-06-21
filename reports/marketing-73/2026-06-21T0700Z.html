@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>marketing-73 Report</title>
+<style>
+  :root{
+    --bg:#f4f2ea; --panel:#fbfaf5; --ink:#2c2a25; --soft:#807c70; --faint:#a8a496; --line:#e3dfd2;
+    --a2:#5f7a5e; --a2-deep:#3f5740;
+    --a1:#a9745a; --a1-deep:#8a5c45;
+    --sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;width:100%;max-width:100%;overflow-x:hidden;}
+  body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:14px;line-height:1.68;-webkit-font-smoothing:antialiased;}
+  .sheet{width:min(100%,720px);max-width:720px;margin:0 auto;padding:32px 18px 40px;}
+  .reveal{opacity:0;animation:fade .7s ease forwards;}
+  @keyframes fade{from{opacity:0;transform:translateY(9px);}to{opacity:1;transform:none;}}
+  .eyebrow{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--soft);flex-wrap:wrap;}
+  .eyebrow .id{color:var(--a2-deep);font-weight:600;}
+  .eyebrow .dot{width:5px;height:5px;border-radius:50%;background:var(--a2);}
+  .eyebrow .status{color:var(--a2-deep);}
+  h1{font-size:clamp(24px,7vw,29px);line-height:1.3;font-weight:700;letter-spacing:0;margin:20px 0 0;overflow-wrap:anywhere;}
+  .dek{font-size:15.5px;color:var(--soft);margin:13px 0 0;max-width:52ch;overflow-wrap:anywhere;}
+  .hr{height:1px;background:var(--line);margin:30px 0;}
+  .axis{padding:0 0 4px 18px;position:relative;margin-bottom:26px;}
+  .axis::before{content:"";position:absolute;left:0;top:6px;bottom:6px;width:2px;border-radius:2px;}
+  .axis.ax1::before{background:var(--a1);} .axis.ax2::before{background:var(--a2);}
+  .axis.ax1{--ul:var(--a1);} .axis.ax2{--ul:var(--a2);}
+  .axis .label{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:9px;display:flex;align-items:center;gap:8px;}
+  .axis.ax1 .label{color:var(--a1-deep);} .axis.ax2 .label{color:var(--a2-deep);}
+  .axis .label .n{font-weight:600;opacity:.6;}
+  .axis .text{font-size:clamp(16px,4.4vw,18px);line-height:1.62;color:#37352e;overflow-wrap:anywhere;}
+  .axis .text b{font-weight:700;color:var(--ink);border-bottom:2px solid var(--ul);}
+  ol.find{list-style:none;counter-reset:f;margin:16px 0 0;padding:0;}
+  ol.find li{position:relative;padding:8px 0 8px 26px;font-size:15px;color:#37352e;border-top:1px solid var(--line);overflow-wrap:anywhere;}
+  ol.find li:first-child{border-top:none;}
+  ol.find li::before{counter-increment:f;content:counter(f);position:absolute;left:0;top:9px;font-family:var(--mono);font-size:12px;font-weight:600;color:var(--a1-deep);}
+  details{border:1px solid var(--line);border-radius:8px;background:var(--panel);margin-bottom:10px;overflow:hidden;}
+  summary{cursor:pointer;list-style:none;padding:14px 16px;display:flex;align-items:center;gap:11px;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--soft);}
+  summary::-webkit-details-marker{display:none;}
+  summary .chev{width:8px;height:8px;border-right:2px solid var(--a2-deep);border-bottom:2px solid var(--a2-deep);transform:rotate(-45deg);transition:.25s;flex:none;margin-left:2px;}
+  details[open] summary .chev{transform:rotate(45deg);}
+  .body{padding:2px 16px 18px;min-width:0;}
+  .section{margin:4px 0 18px;}
+  .section-title{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--a1-deep);margin:0 0 8px;}
+  .callout{border-left:2px solid var(--a2);background:#f2efe5;padding:11px 13px;color:#4a473f;margin:12px 0 16px;overflow-wrap:anywhere;}
+  .content-grid{display:grid;grid-template-columns:1fr;gap:10px;margin:10px 0;}
+  .mini-card{border:1px solid var(--line);background:#f8f6ef;border-radius:8px;padding:12px 13px;min-width:0;}
+  .mini-card b{display:block;color:var(--ink);margin-bottom:5px;}
+  .mini-card p{margin:0;overflow-wrap:anywhere;}
+  table{border-collapse:collapse;width:100%;max-width:100%;table-layout:fixed;font-size:13px;margin:4px 0 12px;}
+  th,td{border-bottom:1px solid var(--line);padding:9px 11px;text-align:left;vertical-align:top;overflow-wrap:anywhere;word-break:break-word;}
+  th{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--soft);font-weight:600;}
+  td:first-child{color:var(--a2-deep);font-weight:600;}
+  .body p{color:var(--soft);overflow-wrap:anywhere;}
+  .body ul{margin:6px 0;padding-left:18px;} .body li{margin:5px 0;overflow-wrap:anywhere;}
+  code{font-family:var(--mono);font-size:12px;background:#edeae0;padding:1px 6px;border-radius:3px;color:var(--a2-deep);overflow-wrap:anywhere;word-break:break-word;}
+  .chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px;}
+  .chip{font-family:var(--mono);font-size:10.5px;letter-spacing:.05em;color:var(--soft);border:1px solid var(--line);border-radius:999px;padding:3px 10px;}
+  .foot{margin-top:30px;padding-top:15px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:6px 14px;justify-content:space-between;font-family:var(--mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--faint);}
+  @media(min-width:720px){
+    .sheet{padding:48px 34px 46px;}
+    .content-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
+  }
+  @media(max-width:640px){
+    table,thead,tbody,tr,th,td{display:block;width:100%;}
+    thead{display:none;}
+    tr{border:1px solid var(--line);border-radius:8px;padding:9px 10px;margin:0 0 10px;background:#f8f6ef;}
+    td{border-bottom:0;padding:5px 0;}
+    td:first-child{font-family:var(--mono);font-size:11px;letter-spacing:.05em;}
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="eyebrow reveal">
+    <span class="dot"></span>
+    <span class="id">marketing-73</span>
+    <span>Virtue · J3 AI 브리지 비교</span>
+    <span class="status">archived</span>
+  </div>
+  <h1 class="reveal" style="animation-delay:.05s">J3 첫 화면 AI 약속 브리지 비교안</h1>
+  <p class="dek reveal" style="animation-delay:.09s">홈 `/`의 J3 AI 호기심형 진입 경로 공백에 대한 최소 배치 3안 비교. L1 docs-only, proposal-only.</p>
+
+  <div class="hr reveal" style="animation-delay:.12s"></div>
+
+  <div class="axis ax1 reveal" style="animation-delay:.16s">
+    <div class="label"><span class="n">01</span> 편 무었이 문제였나</div>
+    <div class="text">홈 <b>`/`에서 J3 AI 호기심형 진입 경로가 비어 있고</b>, 중립 placeholder가 J1~J4를 구분 없이 불러 J3이 가장 약하게 진입함</div>
+  </div>
+
+  <div class="axis ax2 reveal" style="animation-delay:.22s">
+    <div class="label"><span class="n">02</span> ✅ 어떻게 해결하나</div>
+    <div class="text"><b>빈 상태 ghost AI 결과 카드(Option C)</b>가 J3 기대 강화 최대·J1/J4 훼손 최소 추천안임; CTA 보조 힌트(B)가 가장 보수적 차선. 구현은 approval-needed.</div>
+  </div>
+
+  <div class="reveal" style="animation-delay:.27s">
+  <details open>
+    <summary><span class="chev"></span> 핵심 내용 · 비교 결과</summary>
+    <div class="body">
+      <div class="section">
+        <div class="section-title">핵심 발견</div>
+        <ol class="find">
+          <li>홈 `/`의 J3 진입 경로 공백: 현재 hero/CTA/빈 상태 모두 J1(기록형) 중심. J3 AI 호기심형 사용자가 `/add` 진입 전 어떤 AI 결과를 기대할 수 있는지 신호가 거의 없음.</li>
+          <li>Option C(빈 상태 ghost AI 결과 카드): J1/J4 약속 훼손 위험 낙음 + J3 기대 강화 가장 크다. marketing-70/71 seeded proof 방식의 자연스러운 확장.</li>
+          <li>Option B(CTA 보조 힌트): footprint 최소·안전성 최고이지만 J3 신호 강도 낙음. Prelaunch 무변경 원칙에 가장 맞는 차선.</li>
+          <li>Option A(hero 관점 문구): J3 신호는 있지만 hero 영역 분열 위험(J1/J4 포커스 약화). 관찰 후 검토 권장.</li>
+          <li>세 안 모두 동사 프레임을 관점 프레임으로 유지하는 것을 전제함. 버튼 `AI 채점` 정렬은 별도 approval-needed.</li>
+        </ol>
+      </div>
+
+      <div class="callout">Option C 제언: 빈 상태에 ghost/preview 표식이 붙은 샘플 AI 판정 결과 카드 1장. J1/J4 펌널과 독립적으로 배치 가능. ghost 표식 명확하면 실제 데이터 혼동 없음. 구현은 approval-needed.</div>
+
+      <div class="content-grid">
+        <div class="mini-card">
+          <b>근거 · 소스</b>
+          <p>marketing-32(첫 입력 기본값이 잡을 정함), marketing-31(제품 본체 vs 범퍼), marketing-45(동사 프레임 위험), marketing-70(empty state 감사), marketing-71(seeded proof 비교)</p>
+        </div>
+        <div class="mini-card">
+          <b>다음 판단</b>
+          <p>Option C 구현 진행 여부 (approval-needed). 동사 프레임 정렬 (별도 승인). 내부 관찰 후 3안 조합 또는 단일 선택.</p>
+        </div>
+      </div>
+    </div>
+  </details>
+
+  <details open>
+    <summary><span class="chev"></span> 마케팅 학습 · 안전 점검</summary>
+    <div class="body">
+      <div class="section">
+        <div class="section-title">계승한 기준</div>
+        <ul>
+          <li>First Value Mapping (m06): J3 first value = <code>deed_judged</code>. 저장 안내는 J3에 선택 범퍼.</li>
+          <li>Product Body vs Bumper By Job (m31): 홈은 J3에게 범퍼/입구. 빈 상태가 AI 결과 미리보기 적합.</li>
+          <li>Decision-Delegation Risk Rides The Verb (m45): 관점 프레임 vs 판결 프레임 분리. 다음 Marketer에게 인계.</li>
+          <li>marketing-70/71 seeded proof: ghost/sample 표식 원칙을 J3 결과 카드로 확장 제언.</li>
+        </ul>
+      </div>
+      <div class="section">
+        <div class="section-title">이번에 새로 배운 것</div>
+        <ul>
+          <li>J3 진입 경로 공백은 hero/CTA/빈 상태 3개 표면 각각 다른 위험프로파일을 가짐. hero는 분열 위험, CTA는 됩 위험, 빈 상태는 seeded proof 연장 적합.</li>
+        </ul>
+      </div>
+      <div class="section">
+        <div class="section-title">다음 작업에 넘길 규칙 후보</div>
+        <ul>
+          <li>J3 AI 브리지는 빈 상태(seeded proof) 표면이 hero/CTA보다 J1/J4 훼손 없이 알릴 수 있는 유일한 지점. 이 배치 우선순위를 MARKETING_LEARNINGS.md 승격 후보로 검토.</li>
+        </ul>
+      </div>
+      <div class="section">
+        <div class="section-title">안전 점검</div>
+        <ul>
+          <li>production code changes: 0</li>
+          <li>deploys: 0</li>
+          <li>tracking/privacy changes: 0</li>
+          <li>public copy changes: 0</li>
+          <li>external messages: 0</li>
+          <li>cost: 0</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="chev"></span> 실행 메타 · 산출물</summary>
+    <div class="body">
+      <div class="chips">
+        <span class="chip">2026-06-21T0700Z</span>
+        <span class="chip">Heartbeat scheduled</span>
+        <span class="chip">Inbox → archived</span>
+        <span class="chip">L1 docs-only</span>
+      </div>
+      <ul>
+        <li>아티팩트 <code>artifacts/marketing-73/virtue-j3-ai-bridge-compare.html</code></li>
+        <li>아카이브 <code>intents/archive/marketing-73.md</code></li>
+        <li>리포트 <code>reports/marketing-73/2026-06-21T0700Z.html</code></li>
+      </ul>
+    </div>
+  </details>
+  </div>
+
+  <div class="foot reveal" style="animation-delay:.3s">
+    <span>Agent-First Heartbeat</span>
+    <span>Infinity · Intent Note</span>
+  </div>
+</div>
+</body>
+</html>
