@@ -1,7 +1,7 @@
 # naver-shopping-01: 나래(Naver Shopping Agent) 운영/차단 라우팅
 
 - id: naver-shopping-01
-- status: in_progress
+- status: waiting
 - projects: [naver-shopping, infinity, personal-ops]
 - task_type: coordination
 - topics: [automation, workflow, marketing]
@@ -10,13 +10,15 @@
 - source_agent: `/home/ubuntu/.openclaw/workspace/agents/naver-shopping-agent/`
 - created_at: 2026-06-07T23:24Z
 - updated_at: 2026-06-14T05:45Z
-- updated_at_latest: 2026-06-21T0800Z
+- updated_at_latest: 2026-06-21T1000Z
 
 ## Purpose
 
 네이버쌌핑몰 수익화 전담 에이전트가 막히는 지점을 SAM이 관리자자럼 분류하고, 사용자가 직접 확인해야 하는 항목만 09:00 KST 메시지로 묶는다.
 
 ## Current State
+
+- 2026-06-21T1000Z **상태 전환: in_progress → waiting.** cloud 소싱 준비 모두 완료 — 손목 스트랩 체크리스트·등록 초안(2026-06-17), 크로스바디 소싱 스크린(2026-06-21T0800Z). 추가 cloud 작업 없음(do_not_repeat_cloud 활성, cloud_action_remaining: 없음). 다음 유효 액션: alibaba.com 국제몰 로컬 브라우저로 Huanhuan/Zhanhong 공급사 확인 → 손목+크로스바디 병행 샘플 주문 사용자 명시 승인 요청. 사용자 로컬 세션 및 승인 전까지 반복 cloud 조회 금지.
 
 - 2026-06-21T0800Z **크로스바디/넥 폰 스트랩 2차 SKU 소싱 스크린 완료 (cloud research).** 마스터 2026-06-21T0106Z 결정(크로스바디 2차 SKU 확보)을 받아 cloud 소싱 스크린 수행. 핵심 결과: (1) 범용 훅/D링형 숄더 스트랩 선택 시 YELLOW→GREEN 조건부 전환, 옵션 복잡도 LOW-MEDIUM 제어 가능. (2) alibaba.com 국제몰 브라우징은 계정 불필요 — Huanhuan/Zhanhong 계열 접근 가능, 1688 직접 세션 불필요. (3) 손목+크로스바디 단일 샘플 주문 라운드로 2 SKU 동시 검증 경로 확보. SearchAd 크로스바디 키워드 실측은 로켈 접근 필요. 샘플 주문·라이브 등록·저장·가격·배송·재고·광고·고객·주문·계정·공개발행 0. 산출물: `artifacts/naver-shopping-01/crossbody-strap-sourcing-screen-2026-06-21.md`; 리포트: `reports/naver-shopping-01/2026-06-21T0800Z-research.html`. do_not_repeat: 크로스바디 cloud 소싱 스크린 완료. 반복 금지.
 
@@ -62,6 +64,19 @@
 
 ## Pending Blockers
 
+### 2026-06-21T1000Z - cloud 준비 완료 / 로컬 세션 + 사용자 승인 대기
+
+- route: user-session-needed + approval-required
+- status: waiting
+- completed_cloud_work:
+  - 손목 스트랩 공급사 shortlist: `artifacts/naver-shopping-01/phone-wrist-strap-supplier-shortlist-2026-06-17.md`
+  - 1688 현장 확인 체크리스트: `artifacts/naver-shopping-01/wrist-strap-1688-verification-checklist.md`
+  - 네이버 등록 초안: `artifacts/naver-shopping-01/naver-listing-draft-wrist-strap.md`
+  - 크로스바디 소싱 스크린: `artifacts/naver-shopping-01/crossbody-strap-sourcing-screen-2026-06-21.md`
+- do_not_repeat_cloud: 활성 — 모든 cloud prepare 완료. 반복 금지.
+- next_valid_action: alibaba.com 국제몰(계정 불필요)에서 로컬 브라우저로 Huanhuan/Zhanhong 공급사 확인 → 손목+크로스바디 병행 샘플 주문 사용자 승인 요청
+- approval_needed: 샘플 주문 (사용자 명시 승인 필요 — Approval Boundaries 참조)
+
 ### 2026-06-18T04:00Z - 사용자 브라우저 세션 대기 / cloud prepare 완료
 
 - route: user-session-needed
@@ -83,7 +98,7 @@
   - 네이버 등록 초안: `artifacts/naver-shopping-01/naver-listing-draft-wrist-strap.md`
 - next_valid_action: alibaba.com에서 Huanhuan/Zhanhong 공급사 확인 → 손목+크로스바디 병행 샘플 주문 승인 요청
 - do_not_repeat_cloud: 체크리스트 + 등록 초안 완성, 크로스바디 스크린 완성. 운보 전체 적용. 반복 금지.
-- cloud_action_remaining: 없음 (세션 열리면 로콨 실행으로 넘어감)
+- cloud_action_remaining: 없음 (세션 열리면 로컬 실행으로 넘어감)
 
 ### 2026-06-16T14:30Z - 1688 준비 단계 반복 금지
 

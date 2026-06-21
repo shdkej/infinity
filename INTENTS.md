@@ -6,12 +6,13 @@
 
 
 ## Active
-<!-- naver-shopping-01 in_progress 2026-06-21T0800Z → intents/active/naver-shopping-01.md [display: 나래/Narae; projects: naver-shopping,infinity,personal-ops; type: coordination; topics: automation,workflow,marketing; status: crossbody-screen-done-sample-order-gated; approval: sample-order-gated] (크로스바디/넥 폰 스트랩 2차 SKU 소싱 스크린 완료. 범용 훅/D링형 숄더 타입 GREEN 조건부 전환, alibaba.com 계정 없이 Huanhuan/Zhanhong 접근 가능 — 1688 세션 불필요. 손목+크로스바디 단일 샘플 주문 라운드 경로 확보. SearchAd 키워드 및 샘플 주문은 로컬/승인 대기. 산출물: artifacts/naver-shopping-01/crossbody-strap-sourcing-screen-2026-06-21.md. 샘플 주문·라이브 등록·저장·가격·배송·재고·광고·고객·주문·계정·공개발행 0.) -->
+
 
 ## Waiting
 
 <!-- 사용자 결정, 외부 조건, 안전 확인 대기. 같은 질문을 반복하지 않고 상태만 보존한다. -->
 
+<!-- naver-shopping-01 waiting 2026-06-21T1000Z → intents/active/naver-shopping-01.md [display: 나래/Narae; projects: naver-shopping,infinity,personal-ops; type: coordination; topics: automation,workflow,marketing; status: sample-order-gated-session-waiting; approval: sample-order-gated] (cloud 소싱 준비 완료(크로스바디+손목 스트랩). alibaba.com 로컬 공급사 확인(계정 불필요) + 손목·크로스바디 병행 샘플 주문 사용자 승인 대기. do_not_repeat_cloud 활성.) -->
 
 ## Archive
 <!-- research-18 completed 2026-06-20T1200Z → intents/archive/research-18.md [display: 자동화 시스템 신뢰성 강화 리서치; projects: infinity,research-bank,personal-ops; type: research; topics: automation,reliability,operations] (6개 실패 패턴 분류·5개 설계 원칙·3단계 점진적 하드닝 프레임워크 정리. 개인은 관측성+멱등성+수동우회 3단계, 팀/서비스는 Runbook·Circuit Breaker까지 추가. HTML report gate passed.) -->
