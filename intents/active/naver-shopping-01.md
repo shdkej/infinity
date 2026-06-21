@@ -18,6 +18,8 @@
 
 ## Current State
 
+- 2026-06-21T01:00Z **사용자 결정 반영: 1688 대체 공급처 검토 + 추가 SKU 1개 확보.** 마스터가 verified 1688 only 경로 대신 **대체 공급처 검토**를 선택했고, 같은 라운드에서 **다른 소싱 상품 1개 더 확보**를 요청했다. 현재 안전한 해석은 다음과 같다: (1) 1순위 상품은 여전히 **손목 스트랩** 유지, (2) 공급처는 Huanhuan → Zhanhong → Kemeng utility-only backup 순으로 공개 시그널 기반 shortlist를 유지하되 확신도는 provisional로 둠, (3) 추가 SKU는 **크로스바디/넥 폰 스트랩**을 2차 sourcing candidate로 확보. 압축 파우치/세탁물 파우치/러기지택/patch-heavy bundle은 다시 열지 않는다. 샘플 주문·공급사 연락·네이버 저장/공개 등록은 계속 승인 게이트.
+
 - 2026-06-18T07:11Z **SmartStore 접근 블로커 해소 / 네이버 등록 폼 진입 확인.** 마스터가 네이버 SmartStore 가입/로그인을 완료했고, `mac-cdp` 사용자 브라우저 세션으로 `미니멀모음` SmartStore Center와 새 상품등록 폼(`/products/standard-group-product/create`)까지 read-only로 확인했다. 확인된 등록 폼 필수 구조: 카테고리, 그룹상품명/상품명, 이미지/상세설명, 브랜드/제조사, 과세/상품상태, KC/안전관리/원산지, 상품정보제공고시, 배송/반품, 검색설정. 저장/상품등록/가격·배송·재고·광고·고객·주문·계정 변경·공개발행 0. 마스터가 1688 계정 등록은 원치 않는다고 밝혔으므로 1688 verified 공급사 확정은 보류, 네이버 측 접근 가능 상태만 확보.
 
 - 2026-06-18T04:00Z **Heartbeat 상태 전환: active → waiting.** cloud prepare 완료 확인. 다음 유효 액션은 사용자 브라우저 세션만으로 가능. 추가 cloud 리서치 반복 금지(loop-guard + do_not_repeat_cloud 활성). 이 Heartbeat에서 수행한 액션 없음(상태 전환만). sample-order-gated 유지.

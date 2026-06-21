@@ -6,13 +6,12 @@
 
 
 ## Active
-<!-- naver-shopping-01 active 2026-06-18T0711Z → intents/active/naver-shopping-01.md [display: 나래/Narae; projects: naver-shopping,infinity,personal-ops; type: coordination; topics: automation,workflow,marketing; status: smartstore-access-confirmed-1688-hold; approval: sample-order-gated] (마스터가 SmartStore 가입/로그인을 완료했고, mac-cdp 사용자 브라우저로 `미니멀모음` SmartStore Center와 상품등록 폼(`/products/standard-group-product/create`)까지 read-only 확인. 등록 폼 필수 구조 확인: 카테고리, 상품명, 이미지/상세설명, 브랜드/제조사, KC/원산지, 상품정보제공고시, 배송/반품, 검색설정. 1688 계정 등록은 원치 않아 verified 공급사 확정은 보류. 샘플 주문·라이브 등록·저장·가격·배송·재고·광고·고객·주문·계정·공개발행 0. archive 안 함(active 유지).) -->
+<!-- naver-shopping-01 active 2026-06-21T0106Z → intents/active/naver-shopping-01.md [display: 나래/Narae; projects: naver-shopping,infinity,personal-ops; type: coordination; topics: automation,workflow,marketing; status: alt-supplier-review-plus-second-sku; approval: sample-order-gated] (마스터가 `대체 공급처 검토 및 다른 소싱 상품 1개 더 확보`를 결정했다. 1순위 상품은 손목 스트랩 유지, 공급처는 Huanhuan → Zhanhong → Kemeng 실용형 backup 순으로 검토, 추가 SKU는 크로스바디/넥 폰 스트랩으로 확보. SmartStore 상품등록 폼 read-only 접근은 이미 확인됨. 샘플 주문·라이브 등록·저장·가격·배송·재고·광고·고객·주문·계정·공개발행 0. archive 안 함(active 유지).) -->
 
 ## Waiting
 
 <!-- 사용자 결정, 외부 조건, 안전 확인 대기. 같은 질문을 반복하지 않고 상태만 보존한다. -->
 
-<!-- naver-shopping-01 waiting 2026-06-18T0711Z → intents/active/naver-shopping-01.md [display: 나래/Narae; projects: naver-shopping,infinity,personal-ops; type: coordination; topics: automation,workflow,marketing; decision: 1688 없이 진행할 대체 공급처/보류 판단 필요; options: 1688 보류 유지 | 대체 공급처 검토 | 나중에 1688 직접 인증; reason: SmartStore 접근은 해소됐지만 마스터가 1688 계정 등록을 원치 않음. 상품 공개등록은 샘플 수령 전 금지.; next: 네이버 폼 접근 가능 상태는 유지하고, 공급사 확정 전 라이브 저장/등록 없이 대체 소싱 또는 보류를 선택.] (2026-06-18T07:11Z: SmartStore Commerce ID/가입 블로커 resolved. 상품등록 폼 read-only 진입 확인. 1688 verified supplier check는 사용자 선호상 hold. sample-order-gated 유지.) -->
 
 ## Archive
 <!-- research-18 completed 2026-06-20T1200Z → intents/archive/research-18.md [display: 자동화 시스템 신뢰성 강화 리서치; projects: infinity,research-bank,personal-ops; type: research; topics: automation,reliability,operations] (6개 실패 패턴 분류·5개 설계 원칙·3단계 점진적 하드닝 프레임워크 정리. 개인은 관측성+멱등성+수동우회 3단계, 팀/서비스는 Runbook·Circuit Breaker까지 추가. HTML report gate passed.) -->
