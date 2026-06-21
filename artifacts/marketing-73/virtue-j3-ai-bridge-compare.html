@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Virtue J3 AI 브리지 비교안 | marketing-73</title>
+<style>
+  :root{
+    --bg:#f4f2ea; --panel:#fbfaf5; --ink:#2c2a25; --soft:#807c70; --faint:#a8a496; --line:#e3dfd2;
+    --a1:#a9745a; --a1-deep:#8a5c45;
+    --a2:#5f7a5e; --a2-deep:#3f5740;
+    --sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;width:100%;max-width:100%;overflow-x:hidden;}
+  body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:14px;line-height:1.68;}
+  .sheet{width:min(100%,720px);max-width:720px;margin:0 auto;padding:32px 18px 40px;}
+  h1{font-size:clamp(20px,5vw,26px);margin:0 0 6px;line-height:1.3;}
+  h2{font-size:12px;font-family:var(--mono);text-transform:uppercase;letter-spacing:.1em;color:var(--a1-deep);margin:24px 0 10px;}
+  .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--soft);margin-bottom:14px;}
+  .eyebrow b{color:var(--a2-deep);}
+  .dek{color:var(--soft);font-size:15px;margin:8px 0 24px;max-width:52ch;overflow-wrap:anywhere;}
+  .hr{height:1px;background:var(--line);margin:20px 0;}
+  .tag{display:inline-block;font-family:var(--mono);font-size:10px;letter-spacing:.05em;border:1px solid var(--line);border-radius:999px;padding:2px 9px;color:var(--soft);margin:2px;}
+  .option{border:1px solid var(--line);border-radius:10px;background:var(--panel);margin:12px 0;overflow:hidden;}
+  .option-header{padding:14px 16px;background:#f8f6ef;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+  .option-badge{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--a2-deep);border:1.5px solid var(--a2);border-radius:6px;padding:2px 8px;white-space:nowrap;}
+  .option-badge.rec{background:var(--a2);color:#fff;}
+  .option-title{font-size:15px;font-weight:600;overflow-wrap:anywhere;}
+  .option-body{padding:14px 16px;}
+  .where{font-family:var(--mono);font-size:10.5px;color:var(--a1-deep);letter-spacing:.06em;margin-bottom:6px;overflow-wrap:anywhere;}
+  .example{background:#f2efe5;border-left:2px solid var(--a1);padding:9px 12px;color:#4a473f;margin:10px 0;font-size:14px;overflow-wrap:anywhere;}
+  table{border-collapse:collapse;width:100%;max-width:100%;table-layout:fixed;font-size:13px;margin:10px 0;}
+  th{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--soft);font-weight:600;border-bottom:1px solid var(--line);padding:7px 10px;text-align:left;}
+  td{border-bottom:1px solid var(--line);padding:8px 10px;vertical-align:top;overflow-wrap:anywhere;word-break:break-word;}
+  td:first-child{color:var(--a2-deep);font-weight:600;width:38%;}
+  .risk-low{color:#5f7a5e;font-weight:600;}
+  .risk-mid{color:#b08545;font-weight:600;}
+  .callout{border-left:2px solid var(--a2);background:#f2efe5;padding:11px 13px;color:#4a473f;margin:16px 0;overflow-wrap:anywhere;}
+  .safety-note{font-family:var(--mono);font-size:10.5px;letter-spacing:.04em;color:var(--soft);margin-top:24px;border-top:1px solid var(--line);padding-top:12px;overflow-wrap:anywhere;}
+  code{font-family:var(--mono);font-size:12px;background:#edeae0;padding:1px 6px;border-radius:3px;color:var(--a2-deep);overflow-wrap:anywhere;word-break:break-word;}
+  ul{margin:0 0 12px;padding-left:18px;}
+  li{margin:5px 0;overflow-wrap:anywhere;}
+  @media(max-width:640px){
+    table,thead,tbody,tr,th,td{display:block;width:100%;}
+    thead{display:none;}
+    tr{border:1px solid var(--line);border-radius:8px;padding:9px 10px;margin:0 0 10px;background:#f8f6ef;}
+    td{border-bottom:0;padding:5px 0;}
+    td:first-child{font-family:var(--mono);font-size:11px;letter-spacing:.05em;width:100%;}
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+  <div class="eyebrow"><b>marketing-73</b> · Virtue · J3 AI 브리지 비교안</div>
+  <div class="tag">proposal-only</div>
+  <div class="tag">L1 docs-only</div>
+  <div class="tag">prelaunch</div>
+  <h1>J3 첫 화면 AI 약속 브리지 비교안</h1>
+  <p class="dek">홈 <code>/</code>에서 J3 AI 호기심형 진입 경로가 비어 있는 문제를 해결하기 위한 최소 배치 옵션 3안 비교. production/배포/tracking/public copy 변경 없음.</p>
+
+  <div class="hr"></div>
+  <h2>문제 맥락</h2>
+  <table>
+    <tr><td>현재 홈 약속 강도</td><td>J1(기록형) 강함. J2(누적형) 중간. J3(AI 호기심형) 거의 없음. J4(회고형) 중간.</td></tr>
+    <tr><td>J3 진입 경로 공백</td><td>중립 placeholder(<code>뛰 했어요?</code>)는 J1~J4를 구분 없이 부름. J3이 가장 약하게 불림 (marketing-32 First-Input Defaults 기준).</td></tr>
+    <tr><td>J3 first value 위치</td><td><code>deed_judged</code> — 결과 카드(AI 판정)가 제품 본체. 저장은 범퍼(선택). (marketing-31 Product Body vs Bumper 기준)</td></tr>
+    <tr><td>현재 empty state gap</td><td>marketing-70 감사에서 J3 seeded proof 없음 확인. safest next step = ghost/sample AI 결과 카드 비교안.</td></tr>
+    <tr><td>동사 프레임 위험</td><td>버튼 <code>AI 채점</code>은 판결 프레임. 관점 프레임(<code>AI가 본 오늘</code>)으로 정렬 필요. (marketing-45 기준)</td></tr>
+  </table>
+
+  <div class="hr"></div>
+  <h2>비교안 3개</h2>
+
+  <div class="option">
+    <div class="option-header">
+      <span class="option-badge">A</span>
+      <span class="option-title">hero 영역 관점 문구 추가</span>
+    </div>
+    <div class="option-body">
+      <div class="where">위치: 홈 hero headline / subheadline 아래</div>
+      <div class="example">예시: "기록하면 AI가 어떻게 읽었는지 보여드려요" (관점 프레임)</div>
+      <table>
+        <thead><tr><th>항목</th><th>평가</th></tr></thead>
+        <tbody>
+          <tr><td>J1/J4 훼손 위험</td><td class="risk-mid">중간 — hero가 "기록" 약속과 "AI 읽기" 약속으로 분열. J1/J4 포커스 약화 가능.</td></tr>
+          <tr><td>J3 기대 강화</td><td>중간 — AI 약속 명시적이지만 hero 공간이 좋아 다른 메시지와 경쟁.</td></tr>
+          <tr><td>공개 전제</td><td>없음 — proposal-only. 실제 카피 변경은 approval-needed.</td></tr>
+          <tr><td>구현 난이도</td><td>낙음 (텍스트 한 줄 추가)</td></tr>
+          <tr><td>안전성</td><td class="risk-mid">중간 — 가장 큰 레버이지만 가장 큰 위험. 관찰 후 검토 권장.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="option">
+    <div class="option-header">
+      <span class="option-badge">B</span>
+      <span class="option-title">CTA 보조 힌트 추가 (가장 보수적 차선)</span>
+    </div>
+    <div class="option-body">
+      <div class="where">위치: primary CTA 버튼 옆 또는 아래 보조 설명 한 줄</div>
+      <div class="example">예시 문구: "기록하면 AI가 읽어드려요" / "AI 관점으로 오늘 읽기"</div>
+      <table>
+        <thead><tr><th>항목</th><th>평가</th></tr></thead>
+        <tbody>
+          <tr><td>J1/J4 훼손 위험</td><td class="risk-low">낙음 — primary CTA 버튼 자체를 바꾸지 않음. J1/J4 흐름 그대로 유지.</td></tr>
+          <tr><td>J3 기대 강화</td><td>낙음~중간 — AI 약속을 전달하지만 보조적. 눈에 잘 안 띄일 가능성.</td></tr>
+          <tr><td>공개 전제</td><td>없음 — proposal-only. 보조 문구 변경은 approval-needed.</td></tr>
+          <tr><td>구현 난이도</td><td>낙음 (보조 텍스트 추가)</td></tr>
+          <tr><td>안전성</td><td class="risk-low">가장 높음 — 가장 작은 footprint. prelaunch 무변경 원칙에 가장 맞음.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="option">
+    <div class="option-header">
+      <span class="option-badge rec">C 추천</span>
+      <span class="option-title">빈 상태 ghost AI 결과 카드</span>
+    </div>
+    <div class="option-body">
+      <div class="where">위치: 홈 `최근 덕행` 빈 상태 영역 내 ghost/preview 표식 카드 1장</div>
+      <div class="example">예시: "AI 판정 예시" 표식이 붙은 샘플 결과 카드. "기록하면 이런 AI 판정을 받아볼 수 있어요." 형태. (marketing-71 seeded proof 방식 계승)</div>
+      <table>
+        <thead><tr><th>항목</th><th>평가</th></tr></thead>
+        <tbody>
+          <tr><td>J1/J4 훼손 위험</td><td class="risk-low">낙음 — 빈 상태 영역 내에만 배치. J1/J2 proof(카드 스택)와 병존 가능. ghost 표식으로 실제 데이터와 혼동 없음.</td></tr>
+          <tr><td>J3 기대 강화</td><td class="risk-low">가장 높음 — AI 결과 화면을 직접 미리 보여줌. J3 사용자가 /add 진입 전 AI 결과 기대를 시각적으로 확인 가능.</td></tr>
+          <tr><td>공개 전제</td><td>없음 — proposal-only. 구현은 approval-needed (code change).</td></tr>
+          <tr><td>구현 난이도</td><td>중간 — ghost 카드 컴포넌트 추가 필요. marketing-71 seeded proof 비교안의 "누적 카드 스택"을 J3 결과 카드로 확장하는 방식.</td></tr>
+          <tr><td>안전성</td><td>중간~높음 — J1/J4 훼손 최소 + J3 기대 강화 최대 조합. 구현 시 ghost 표식 명확해야 함.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="hr"></div>
+  <h2>비교 요약</h2>
+  <table>
+    <thead><tr><th>안</th><th>J1/J4 위험</th><th>J3 신호</th><th>안전성</th><th>추천도</th></tr></thead>
+    <tbody>
+      <tr><td>A. hero 관점 문구</td><td class="risk-mid">중간</td><td>중간</td><td class="risk-mid">중간</td><td>관찰 후 검토</td></tr>
+      <tr><td>B. CTA 보조 힌트</td><td class="risk-low">낙음</td><td>낙음~중간</td><td class="risk-low">가장 높음</td><td>보수적 차선</td></tr>
+      <tr><td>C. ghost AI 결과 카드</td><td class="risk-low">낙음</td><td class="risk-low">가장 높음</td><td>중간~높음</td><td><b>추천 (1순위)</b></td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout">
+    <b>추천안: Option C — 빈 상태 ghost AI 결과 카드</b><br>
+    J1/J4 약속 훼손 위험이 가장 낙으면서 J3 기대 강화가 가장 강한 조합. marketing-70/71 seeded proof 방식을 J3 결과 카드로 확장하는 자연스러운 연결점. ghost/preview 표식을 명확히 하면 실제 데이터 혼동 없음. 구현은 code change이므로 approval-needed.<br><br>
+    <b>차선: Option B — CTA 보조 힌트</b><br>
+    구현 footprint가 가장 작아 prelaunch 무변경 원칙에 가장 맞음. J3 신호 강도는 낙지만 J1/J4 흐름을 전혀 건드리지 않음.
+  </div>
+
+  <div class="hr"></div>
+  <h2>이 비교안의 범위 밖</h2>
+  <ul>
+    <li>동사 프레임 정렬 (버튼 <code>AI 채점</code> → 관점 프레임) — approval-needed (별도 intent)</li>
+    <li>hero 카피, CTA 문구, 빈 상태 카피 실제 변경 — approval-needed</li>
+    <li>ghost 카드 컴포넌트 구현 및 배포 — approval-needed</li>
+    <li>신규 tracking 이벤트, PostHog, session replay — approval-needed</li>
+    <li>공개 발송, 외부 메시지 — approval-needed</li>
+    <li>비용 변경 — 없음</li>
+  </ul>
+
+  <h2>계승한 기준</h2>
+  <ul>
+    <li><b>First Value Mapping (m06/m07/m09)</b>: J3 first value = <code>deed_judged</code>. 저장 안내는 J3에 선택 범퍼.</li>
+    <li><b>Product Body vs Bumper By Job (m31)</b>: J3 홈은 범퍼(입구), 결과 카드가 본체. 빈 상태는 본체 미리보기 역할.</li>
+    <li><b>Decision-Delegation Risk Rides The Verb (m45)</b>: 관점 프레임("AI가 보여줌")이 판결 프레임("AI가 채점")보다 안전. 예시 문구 모두 관점 프레임 적용.</li>
+    <li><b>marketing-70/71 seeded proof</b>: ghost/sample 표식 원칙을 J3 결과 카드로 확장.</li>
+  </ul>
+
+  <div class="safety-note">
+    approval: L1 docs-only · production code 0 · deploy 0 · tracking/privacy 0 · public copy 0 · external message 0 · cost 0
+  </div>
+</div>
+</body>
+</html>
