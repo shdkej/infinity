@@ -15,6 +15,15 @@
 
 ## Active
 
+- `research-20` 국내 1인 브랜딩 사례 재조사
+  trigger: user rejected `research-19` direction as too famous / too course-sales oriented.
+  scope: 국내에서 개인의 미감, 세계관, 작업물, 콘텐츠 톤, 제품/공간/서비스 운영으로 브랜딩을 쌓는 1인 또는 founder-led micro brand 사례.
+  hard exclusions: 드로우앤드류/드류앤드류, 자청, 신사임당/주언규, 김미경, 슈카월드, 궤도, 침착맨, 빠니보틀처럼 대중 유명인·강의/교육 판매 중심·대형 유튜버 중심 사례.
+  selection rule: follower size or course revenue is not a reason to include. Include only when the brand is recognizable through taste, visual language, recurring editorial stance, owned product/service, or small-community trust.
+  desired output: 10 cases with why it counts as branding, main surface/channel, brand cues, monetization if visible, what SAM/마스터 can learn, and why it is not just a lecture funnel.
+  permission level: L1 research-only
+  owner route: Infinity router -> Claude Code
+  success criteria: 사례 10개 중 최소 7개는 강의/교육 상품 판매가 핵심 수익모델이 아니어야 하며, 각 사례는 "브랜딩 증거"와 "제외 기준 통과 이유"를 명시한다.
 
 ## Waiting
 
