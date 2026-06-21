@@ -6,7 +6,7 @@
 
 
 ## Active
-
+<!-- research-19 active 2026-06-21T0559Z → intents/active/research-19.md [display: 국내 1인 브랜드 사례 10선; projects: infinity,research-bank,personal-brand; type: research; topics: one-person-brand,korea,creator-business,positioning; exclusions: drawandrew,jachung] (마스터가 국내 1인 브랜드 사례 10가지 조사를 요청했다. 드로우앤드류/드류앤드류와 자청은 제외. 각 사례는 포지셔닝, 핵심 채널, 상품/수익모델, 브랜드 자산, 성장 루프, SAM/마스터에게 적용할 점을 근거와 함께 정리한다. 산출물은 artifact + HTML report 필요.) -->
 
 ## Waiting
 
