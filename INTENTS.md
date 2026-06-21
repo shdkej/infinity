@@ -4,6 +4,14 @@
 
 ## Inbox
 
+- 마케팅 후보: Virtue J3 첫 화면 AI 약속 브리지 비교안
+  source_note: `/home/ubuntu/workspace/knowledge-lab/source/external-links/marketing/2026-06-21-ai-curiosity-entry-gap.md`
+  rationale: 라이브 홈 `/`는 J1 기록형 약속은 강하지만 J3 AI 호기심형 신호가 거의 없어, `/add` 진입 전 기대 경로가 비어 있다.
+  expected_impact: prelaunch 단계에서 J3 미진입을 AI 품질 문제와 분리하고, 홈 hero/CTA/빈 상태 중 어디에 최소 AI 브리지를 두는 게 안전한지 문서로 판단할 수 있다.
+  permission_level: L1 docs-only
+  owner_route: Infinity → Claude Code 또는 SAM 로컬 문서 작업
+  success_criteria: J3 브리지 2~3안 비교표가 있고, 각 안마다 J1/J4 약속 훼손 위험·J3 기대 강화 여부·공개 반영 전제 없음이 명시된다.
+  first_verification_gate: `rg -n "J3|AI|hero|CTA|빈 상태|위험" <output>` / `rg '<<<<<<<|=======|>>>>>>>' <output> || true`
 
 ## Active
 
