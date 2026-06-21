@@ -4,34 +4,30 @@
 
 ## Inbox
 
-- `marketing-74` Virtue `/add` 입력 전 기대 형성 비교안
-  source note: `/home/ubuntu/workspace/knowledge-lab/source/external-links/marketing/2026-06-21-add-preinput-proof-bridge.md`
-  rationale: 홈 J3 브리지는 정리됐지만 `/add` 첫 표면은 여전히 입력 요구가 결과 기대보다 먼저 보여 J3/J4의 hesitation gap을 분리 관찰할 기준이 필요함.
-  expected impact: first-10 관찰에서 홈 미진입과 `/add` 제출 전 망설임을 구분하고, approval-needed 공개 카피 변경 전 가장 안전한 expectation bridge 방향을 좁힘.
-  permission level: L1 docs-only
-  owner route: Infinity router -> Claude Code
-  success criteria: `현행 / sample 결과 1줄 / 결과+권한 경계 1줄` 3안 비교표와 J1/J3/J4 오해 위험, 추천 기본안 1개가 한국어 문서 1건으로 정리됨.
-  first verification gate: production/tracking/privacy/public copy/deploy/external message/cost 변경 0, `/add` 라이브 표면 read-only 근거와 source note 인용이 명시됨.
+<!-- 비어 있음 -->
 
 ## Active
 
-- `research-20` 국내 1인 브랜딩 사례 재조사
-  trigger: user rejected `research-19` direction as too famous / too course-sales oriented.
-  scope: 국내에서 개인의 미감, 세계관, 작업물, 콘텐츠 톤, 제품/공간/서비스 운영으로 브랜딩을 쌓는 1인 또는 founder-led micro brand 사례.
-  hard exclusions: 드로우앤드류/드류앤드류, 자청, 신사임당/주언규, 김미경, 슈카월드, 궤도, 침착맨, 빠니보틀처럼 대중 유명인·강의/교육 판매 중심·대형 유튜버 중심 사례.
-  selection rule: follower size or course revenue is not a reason to include. Include only when the brand is recognizable through taste, visual language, recurring editorial stance, owned product/service, or small-community trust.
-  desired output: 10 cases with why it counts as branding, main surface/channel, brand cues, monetization if visible, what SAM/마스터 can learn, and why it is not just a lecture funnel.
-  permission level: L1 research-only
-  owner route: Infinity router -> Claude Code
-  success criteria: 사례 10개 중 최소 7개는 강의/교육 상품 판매가 핵심 수익모델이 아니어야 하며, 각 사례는 "브랜딩 증거"와 "제외 기준 통과 이유"를 명시한다.
+- `marketing-74` Virtue `/add` 입력 전 기대 형성 비교안
+  status: active
+  priority: medium
+  permission_level: L1 docs-only
+  goal: Virtue `/add` 첫 표면에서 입력 요구가 결과 기대보다 먼저 보여 J3/J4 hesitation gap 발생. 현행·sample 결과 1줄·결과+권한 경계 1줄 등 3안 비교표와 추천 기본안 1개를 한국어 문서 1건으로 정리.
+  success_criteria: 3안 비교표(J1/J3/J4 오해 위험 포함) + 추천안 1개 한국어 문서 완성. production/tracking/privacy/public copy/deploy/external message/cost 변경 0.
+  context:
+    source_note: /home/ubuntu/workspace/knowledge-lab/source/external-links/marketing/2026-06-21-add-preinput-proof-bridge.md
+    prior: marketing-73(J3 AI 브리지 3안), marketing-71(seeded proof 비교)
+  owner_route: Infinity router -> Claude Code
+  mode: prepare (cloud 선행 조사 후 로컬 문서 작성 위임)
 
 ## Waiting
 
 <!-- 사용자 결정, 외부 조건, 안전 확인 대기. 같은 질문을 반복하지 않고 상태만 보존한다. -->
 
-<!-- naver-shopping-01 waiting 2026-06-21T1000Z → intents/active/naver-shopping-01.md [display: 나래/Narae; projects: naver-shopping,infinity,personal-ops; type: coordination; topics: automation,workflow,marketing; status: sample-order-gated-session-waiting; approval: sample-order-gated] (cloud 소싱 준비 완료(크로스바디+손목 스트랩). alibaba.com 로컈 공급사 확인(계정 불필요) + 손목·크로스바디 병행 샘플 주문 사용자 승인 대기. do_not_repeat_cloud 활성.) -->
+<!-- naver-shopping-01 waiting 2026-06-21T1000Z → intents/active/naver-shopping-01.md [display: 나래/Narae; projects: naver-shopping,infinity,personal-ops; type: coordination; topics: automation,workflow,marketing; status: sample-order-gated-session-waiting; approval: sample-order-gated] (cloud 소싱 준비 완료(크로스바디+손목 스트랩). alibaba.com 로컬 공급사 확인(계정 불필요) + 손목·크로스바디 병행 샘플 주문 사용자 승인 대기. do_not_repeat_cloud 활성.) -->
 
 ## Archive
+<!-- research-20 completed 2026-06-21T1200Z → intents/archive/research-20.md (강의/교육 퍼널 제외 국내 1인 브랜드 10선 재조사 완료. 취향·미감·공간·독립출판 기반 경로 다양성 입증. 10개 모두 강의 핵심 수익 아님. HTML report gate passed.) -->
 <!-- marketing-73 completed 2026-06-21T0700Z → intents/archive/marketing-73.md [projects: virtue; type: strategy; topics: marketing,activation,product] (J3 AI 브리지 3안 비교 완료. Option C(빈 상태 ghost AI 결과 카드)가 J3 기대 강화 최대·J1/J4 훼손 최소 추천안. Option B(CTA 보조 힌트)가 가장 보수적 차선. 구현은 approval-needed. HTML report gate passed.) -->
 <!-- research-19 completed 2026-06-21T0720Z → intents/archive/research-19.md (드로우앤드류·자청 제외 국내 1인 브랜드 10선 분석 완료. 공통 패턴: 무료 콘텐츠→신뢰→유료 교육/커뮤니티/상품 전환 퍼널. 마스터 1순위: 자기 성과 기반 지식 강의 실험. HTML report gate passed.) -->
 <!-- research-18 completed 2026-06-20T1200Z → intents/archive/research-18.md [display: 자동화 시스템 신뢰성 강화 리서치; projects: infinity,research-bank,personal-ops; type: research; topics: automation,reliability,operations] (6개 실패 패턴 분류·5개 설계 원칙·3단계 점진적 하드닝 프레임워크 정리. 개인은 관측성+멱등성+수동우회 3단계, 팀/서비스는 Runbook·Circuit Breaker까지 추가. HTML report gate passed.) -->

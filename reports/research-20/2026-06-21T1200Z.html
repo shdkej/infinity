@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>research-20 — 국내 1인 브랜딩 사례 10선</title>
+<style>
+  :root{
+    --bg:#f4f2ea; --panel:#fbfaf5; --ink:#2c2a25; --soft:#807c70; --faint:#a8a496; --line:#e3dfd2;
+    --a2:#5f7a5e; --a2-deep:#3f5740;
+    --a1:#5a6f8a; --a1-deep:#3f536e;
+    --sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0; width:100%; max-width:100%; overflow-x:hidden;}
+  body{background:var(--bg); color:var(--ink); font-family:var(--sans);
+    font-size:14px; line-height:1.68; -webkit-font-smoothing:antialiased;}
+  .sheet{width:min(100%,720px); max-width:720px; margin:0 auto; padding:32px 18px 40px;}
+  .reveal{opacity:0; animation:fade .7s ease forwards;}
+  @keyframes fade{from{opacity:0; transform:translateY(9px);} to{opacity:1; transform:none;}}
+  .eyebrow{display:flex; align-items:center; gap:10px; font-family:var(--mono);
+    font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--soft); flex-wrap:wrap;}
+  .eyebrow .id{color:var(--a2-deep); font-weight:600;}
+  .eyebrow .dot{width:5px; height:5px; border-radius:50%; background:var(--a2);}
+  .eyebrow .status{color:var(--a2-deep);}
+  h1{font-size:clamp(22px,6vw,28px); line-height:1.3; font-weight:700; margin:20px 0 0; overflow-wrap:anywhere;}
+  .dek{font-size:15px; color:var(--soft); margin:12px 0 0; max-width:52ch;}
+  .hr{height:1px; background:var(--line); margin:28px 0;}
+  .axis{padding:0 0 4px 18px; position:relative; margin-bottom:24px;}
+  .axis::before{content:""; position:absolute; left:0; top:6px; bottom:6px; width:2px; border-radius:2px;}
+  .axis.ax1::before{background:var(--a1);} .axis.ax2::before{background:var(--a2);}
+  .axis.ax1{--ul:var(--a1);} .axis.ax2{--ul:var(--a2);}
+  .axis .label{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase;
+    margin-bottom:8px; display:flex; align-items:center; gap:8px;}
+  .axis.ax1 .label{color:var(--a1-deep);} .axis.ax2 .label{color:var(--a2-deep);}
+  .axis .label .n{font-weight:600; opacity:.6;}
+  .axis .text{font-size:clamp(15px,4vw,17px); line-height:1.62; color:#37352e; overflow-wrap:anywhere;}
+  .axis .text b{font-weight:700; color:var(--ink); border-bottom:2px solid var(--ul);}
+  details{border:1px solid var(--line); border-radius:8px; background:var(--panel); margin-bottom:10px; overflow:hidden;}
+  summary{cursor:pointer; list-style:none; padding:14px 16px; display:flex; align-items:center; gap:11px;
+    font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft);}
+  summary::-webkit-details-marker{display:none;}
+  summary .chev{width:8px; height:8px; border-right:2px solid var(--a2-deep); border-bottom:2px solid var(--a2-deep);
+    transform:rotate(-45deg); transition:.25s; flex:none; margin-left:2px;}
+  details[open] summary .chev{transform:rotate(45deg);}
+  .body{padding:2px 16px 18px; min-width:0;}
+  .section{margin:4px 0 18px;}
+  .section-title{font-family:var(--mono); font-size:10.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--a1-deep); margin:0 0 8px;}
+  .callout{border-left:2px solid var(--a2); background:#f2efe5; padding:11px 13px; color:#4a473f; margin:12px 0 16px;}
+  table{border-collapse:collapse; width:100%; max-width:100%; table-layout:fixed; font-size:13px; margin:4px 0 12px;}
+  th,td{border-bottom:1px solid var(--line); padding:9px 10px; text-align:left; vertical-align:top; overflow-wrap:anywhere; word-break:break-word;}
+  th{font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft); font-weight:600;}
+  td:first-child{color:var(--a2-deep); font-weight:600;}
+  .body p{color:var(--soft);} .body ul{margin:6px 0; padding-left:18px;} .body li{margin:4px 0;}
+  .case-card{border:1px solid var(--line); border-radius:8px; background:#f8f6ef; padding:14px 16px; margin:0 0 12px;}
+  .case-card .case-name{font-weight:700; color:var(--ink); font-size:15px; margin-bottom:8px;}
+  .case-card .case-tag{display:inline-block; font-family:var(--mono); font-size:10px; letter-spacing:.05em; color:var(--a1-deep); border:1px solid var(--a1); border-radius:999px; padding:2px 8px; margin-right:5px; margin-bottom:6px;}
+  .case-card dl{margin:6px 0 0;}
+  .case-card dt{font-family:var(--mono); font-size:10.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--soft); margin-top:8px;}
+  .case-card dd{margin:2px 0 0 0; font-size:13.5px; color:#37352e; overflow-wrap:anywhere;}
+  .pass-badge{display:inline-block; font-family:var(--mono); font-size:10px; background:#e8f4e8; color:#3a6b39; border:1px solid #b5d9b4; border-radius:4px; padding:2px 7px;}
+  .chips{display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px;}
+  .chip{font-family:var(--mono); font-size:10.5px; letter-spacing:.05em; color:var(--soft); border:1px solid var(--line); border-radius:999px; padding:3px 10px;}
+  .foot{margin-top:28px; padding-top:14px; border-top:1px solid var(--line);
+    display:flex; flex-wrap:wrap; gap:6px 14px; justify-content:space-between; font-family:var(--mono); font-size:10px;
+    letter-spacing:.13em; text-transform:uppercase; color:var(--faint);}
+  @media (max-width:640px){
+    table,thead,tbody,tr,th,td{display:block; width:100%;}
+    thead{display:none;}
+    tr{border:1px solid var(--line); border-radius:8px; padding:9px 10px; margin:0 0 10px; background:#f8f6ef;}
+    td{border-bottom:0; padding:5px 0;}
+    td:first-child{font-family:var(--mono); font-size:11px; letter-spacing:.05em;}
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="eyebrow reveal">
+    <span class="dot"></span>
+    <span class="id">research-20</span>
+    <span>Research Note</span>
+    <span class="status">archived</span>
+  </div>
+  <h1 class="reveal" style="animation-delay:.05s">국내 1인 브랜딩 사례 10선<br>— 강의 없이 취향으로 쌓은 브랜드</h1>
+  <p class="dek reveal" style="animation-delay:.09s">드로우앤드류·자청 등 강의/교육 퍼널 중심 사례를 제외하고, 취향·미감·공간·독립출판·시각언어로 브랜딩한 국내 사례 재조사.</p>
+
+  <div class="hr reveal" style="animation-delay:.12s"></div>
+
+  <div class="axis ax1 reveal" style="animation-delay:.16s">
+    <div class="label"><span class="n">01</span> 무엇을 조사했나</div>
+    <div class="text">강의·교육 상품 판매가 핵심 수익이 아닌 국내 1인·founder-led 브랜드로, <b>취향·미감·공간·독립출판·시각언어</b>로 인지도를 쌓은 사례 10선. research-19에서 사용자가 거부한 방향(너무 유명·강의 중심)을 제외.</div>
+  </div>
+
+  <div class="axis ax2 reveal" style="animation-delay:.22s">
+    <div class="label"><span class="n">02</span> 핵심 결과</div>
+    <div class="text">10개 모두 강의/교육이 핵심 수익이 아님. <b>공통 경로: 무료·저관여 콘텐츠로 취향 축적 → 구독·공간·협업·제품으로 전환.</b> 분야: 독립출판 3, 편집/공간 3, 패션/편집숍 1, 캐릭터IP 1, 음악 1, 아트베이킹 1.</div>
+  </div>
+
+  <div class="reveal" style="animation-delay:.27s">
+  <details open>
+    <summary><span class="chev"></span> 사례 10선 — 브랜딩 증거 + 제외 기준 통과 이유</summary>
+    <div class="body">
+
+      <div class="case-card">
+        <div class="case-name">1. 이슬아 — 일간 이슬아 / 헤엄출판사</div>
+        <span class="case-tag">독립출판</span><span class="case-tag">뉴스레터</span>
+        <dl>
+          <dt>브랜딩 증거</dt>
+          <dd>2018년 매일 에세이를 이메일로 구독 판매(월 1만원, 20편). 입소문으로 폭발적 반응. 2019년 독립 출판사 '헤엄' 설립, 직접 기획·편집·디자인. 2018 독립출판 1위 선정.</dd>
+          <dt>주 채널</dt>
+          <dd>이메일 뉴스레터, 출판물(헤엄출판사), 저서</dd>
+          <dt>브랜드 단서</dt>
+          <dd>'후원'과 '구독' 사이 언어 선택, '일간'이라는 네이밍, 글쓰기 미학 자체가 상품</dd>
+          <dt>수익화</dt>
+          <dd>구독료, 도서 판매 — 강의 상품 없음</dd>
+          <dt>SAM/마스터 학습점</dt>
+          <dd>지식이 아니라 '관점의 일관성'이 구독 가치를 만든다. 일일 발행 규율이 신뢰를 만드는 구조.</dd>
+          <dt>제외 기준 통과</dt>
+          <dd><span class="pass-badge">강의 없음</span> 강의·교육 플랫폼 상품 없음. 글쓰기 자체가 제품.</dd>
+        </dl>
+      </div>
+
+      <div class="case-card">
+        <div class="case-name">2. 김겨울 — 겨울서점</div>
+        <span class="case-tag">북큐레이션</span><span class="case-tag">유튜브</span>
+        <dl>
+          <dt>브랜딩 증거</dt>
+          <dd>2017년부터 책 리뷰 YouTube 채널 '겨울서점' 운영. MBC FM 라디오 북클럽 진행. 저서 다수. '겨울서점'이라는 채널명 자체가 세계관을 담은 브랜드.</dd>
+          <dt>주 채널</dt>
+          <dd>YouTube(겨울서점), 라디오, 책</dd>
+          <dt>브랜드 단서</dt>
+          <dd>분야 편중 없는 깊은 리뷰, 감성적 독서 언어, '서점'이라는 공간 은유</dd>
+          <dt>수익화</dt>
+          <dd>라디오 진행료, 책 인세, 강연(간헐적) — 강의 플랫폼 없음</dd>
+          <dt>SAM/마스터 학습점</dt>
+          <dd>취향의 반복이 신뢰를 만든다. 채널명에 세계관을 담으면 브랜드와 콘텐츠가 분리되지 않는다.</dd>
+          <dt>제외 기준 통과</dt>
+          <dd><span class="pass-badge">강의 없음</span> 강의 상품 판매 없음. 독서 경험 공유가 핵심.</dd>
+        </dl>
+      </div>
+
+      <div class="case-card">
+        <div class="case-name">3. 어라운드 — AROUND 매거진</div>
+        <span class="case-tag">라이프스타일 잡지</span><span class="case-tag">공간</span>
+        <dl>
+          <dt>브랜딩 증거</dt>
+          <dd>2012년 창간 독립 라이프스타일 잡지. 감성적 편집 철학이 브랜드. 충북 보은 폐교를 복합문화공간 '어라운드 빌리지'로 확장. 매호 다른 주제로 일관된 취향 표현.</dd>
+          <dt>주 채널</dt>
+          <dd>잡지(연6회), 인스타그램(@aroundmagazine), 오프라인 공간</dd>
+          <dt>브랜드 단서</dt>
+          <dd>"사람과 주변" 편집 철학, 시즌별 주제 일관성, 공간으로의 브랜드 확장</dd>
+          <dt>수익화</dt>
+          <dd>잡지 구독·광고, 공간 운영 — 강의 없음</dd>
+          <dt>SAM/마스터 학습점</dt>
+          <dd>미디어 → 공간 확장 경로. 잡지가 브랜드 증명서가 되면 공간도 신뢰를 가지고 시작한다.</dd>
+          <dt>제외 기준 통과</dt>
+          <dd><span class="pass-badge">강의 없음</span> 교육 상품 없음. 미디어+공간 모델.</dd>
+        </dl>
+      </div>
+
+      <div class="case-card">
+        <div class="case-name">4. 최인아 — 최인아책방</div>
+        <span class="case-tag">독립서점</span><span class="case-tag">공간</span>
+        <dl>
+          <dt>브랜딩 증거</dt>
+          <dd>30년 광고 커리어(제일기획 부사장) 후 2016년 서울 역삼동에 독립 서점 개업. 12개 주제별 큐레이션, 높은 천장 공간 설계, 유료 회원제 '혼자의 서재'. 독립서점 열풍의 진원지 중 한 곳.</dd>
+          <dt>주 채널</dt>
+          <dd>오프라인 서점(북클럽 포함), 인스타그램(@inabooks)</dd>
+          <dt>브랜드 단서</dt>
+          <dd>"인생 고민 해결 공간" 컨셉, 광고인 커리어에서 비롯된 카피 감각, 건축적 공간 설계</dd>
+          <dt>수익화</dt>
+          <dd>북클럽 회원제, 도서 판매, 문화 행사 — 강의 없음</dd>
+          <dt>SAM/마스터 학습점</dt>
+          <dd>커리어 자산이 브랜드 공신력 원천이 된다. 이전 직업의 관점이 새 공간에 독자성을 부여.</dd>
+          <dt>제외 기준 통과</dt>
+          <dd><span class="pass-badge">강의 없음</span> 지식 강의 상품 없음. 공간+큐레이션이 핵심.</dd>
+        </dl>
+      </div>
+
+      <div class="case-card">
+        <div class="case-name">5. 이다혜 — 씨네21 기자/취향 작가</div>
+        <span class="case-tag">영화·책 큐레이터</span><span class="case-tag">미디어</span>
+        <dl>
+          <dt>브랜딩 증거</dt>
+          <dd>2000년부터 씨네21 기자. 팟캐스트 2개, 저서 6권 이상(《아무튼, 스릴러》 《처음부터 잘 쓰는 사람은 없습니다》 등), PUBLY 연재. 20년 이상 일관된 취향 편집 스탠스.</dd>
+          <dt>주 채널</dt>
+          <dd>씨네21, 팟캐스트, 책, PUBLY</dd>
+          <dt>브랜드 단서</dt>
+          <dd>스릴러/장르 문학 특화 취향, '책읽기+영화보기' 교차 큐레이션 언어</dd>
+          <dt>수익화</dt>
+          <dd>저술, 미디어 활동, 유료 콘텐츠 — 강의 상품이 핵심 아님</dd>
+          <dt>SAM/마스터 학습점</dt>
+          <dd>분야 전문성 + 취향 표현의 결합이 장기 브랜딩 기반. 20년 일관성이 신뢰 자산.</dd>
+          <dt>제외 기준 통과</dt>
+          <dd><span class="pass-badge">취향 중심</span> 간헐적 글쓰기 수업 있으나 취향 큐레이션이 핵심 정체성.</dd>
+        </dl>
+      </div>
+
+      <div class="case-card">
+        <div class="case-name">6. 웍스아웃 — Worksout</div>
+        <span class="case-tag">스트리트웨어 편집숍</span><span class="case-tag">패션 큐레이션</span>
+        <dl>
+          <dt>브랜딩 증거</dt>
+          <dd>2003년 창립. 강승혁 대표가 해외 스트리트웨어를 국내 커뮤니티에 소개하겠다는 미션으로 시작. 엄선된 브랜드 라인업과 독자적 편집 시각이 국내 스트리트 씬의 레퍼런스로 자리잡음.</dd>
+          <dt>주 채널</dt>
+          <dd>오프라인 매장(홍대·성수), 온라인 스토어(worksout.co.kr)</dd>
+          <dt>브랜드 단서</dt>
+          <dd>큐레이션 자체가 브랜드 정체성, 해외 브랜드 소싱 안목, 국내 스트리트 씬 형성에 기여</dd>
+          <dt>수익화</dt>
+          <dd>의류·굿즈 판매, 브랜드 협업 — 강의 없음</dd>
+          <dt>SAM/마스터 학습점</dt>
+          <dd>큐레이션 자체가 브랜드 아이덴티티가 됨. '무엇을 파느냐'보다 '무엇을 고르느냐'가 신뢰를 만든다.</dd>
+          <dt>제외 기준 통과</dt>
+          <dd><span class="pass-badge">강의 없음</span> 교육/강의 없음. 제품 큐레이션이 핵심.</dd>
+        </dl>
+      </div>
+
+      <div class="case-card">
+        <div class="case-name">7. 쿠숭이 — 인디 캐릭터 IP</div>
+        <span class="case-tag">캐릭터 IP</span><span class="case-tag">SNS 브랜딩</span>
+        <dl>
+          <dt>브랜딩 증거</dt>
+          <dd>X(트위터) 팔로워 3.3만의 인디 캐릭터임에도 브랜드 콜라보 시 굿즈 품절. 팔로워 규모가 아닌 세계관 밀도로 협업 가치를 증명한 사례.</dd>
+          <dt>주 채널</dt>
+          <dd>X(트위터), 인스타그램, 굿즈 팝업</dd>
+          <dt>브랜드 단서</dt>
+          <dd>독특한 캐릭터 세계관, 일관된 드로잉 스타일, 팬덤 커뮤니티 신뢰</dd>
+          <dt>수익화</dt>
+          <dd>브랜드 협업, 굿즈 판매 — 강의 없음</dd>
+          <dt>SAM/마스터 학습점</dt>
+          <dd>팔로워 수보다 세계관 밀도가 협업 가치를 결정한다. 소규모 팬덤도 충분히 상업 가치를 가진다.</dd>
+          <dt>제외 기준 통과</dt>
+          <dd><span class="pass-badge">강의 없음</span> 교육/강의 없음. 시각 언어 자체가 상품.</dd>
+        </dl>
+      </div>
+
+      <div class="case-card">
+        <div class="case-name">8. 요조 — 인디 뮤지션/취향 큐레이터</div>
+        <span class="case-tag">인디 음악</span><span class="case-tag">취향 세계관</span>
+        <dl>
+          <dt>브랜딩 증거</dt>
+          <dd>인디 뮤지션으로 시작해 고양이·책·음악의 3축으로 이루어진 일관된 세계관 구축. 소규모 팬덤 신뢰. 에세이 출판으로 취향 아카이브 확장.</dd>
+          <dt>주 채널</dt>
+          <dd>음악(앨범), 인스타그램, 에세이</dd>
+          <dt>브랜드 단서</dt>
+          <dd>고양이-책-음악의 3축 취향, 감성적 언어 일관성, '마니아 팬덤'과의 거리감 없는 소통</dd>
+          <dt>수익화</dt>
+          <dd>음악 판매, 공연, 에세이 출판 — 강의 없음</dd>
+          <dt>SAM/마스터 학습점</dt>
+          <dd>취향의 다축 교점이 강한 브랜드 이미지를 만든다. 하나의 분야를 넘어 연결되는 취향 지형도가 팬덤을 만든다.</dd>
+          <dt>제외 기준 통과</dt>
+          <dd><span class="pass-badge">강의 없음</span> 강의 판매 없음. 음악과 글이 상품.</dd>
+        </dl>
+      </div>
+
+      <div class="case-card">
+        <div class="case-name">9. 홍신애 — 요리연구가 / 씨즌서울</div>
+        <span class="case-tag">레스토랑</span><span class="case-tag">셰프 브랜딩</span>
+        <dl>
+          <dt>브랜딩 증거</dt>
+          <dd>씨즌서울 레스토랑 운영. 한식 재해석 철학을 공간과 음식으로 구현. 저서와 방송 출연은 브랜드 확산 수단이지 핵심 수익이 아님. 요리연구소 운영.</dd>
+          <dt>주 채널</dt>
+          <dd>레스토랑(씨즌서울), 요리연구소, 책, 방송(부수적)</dd>
+          <dt>브랜드 단서</dt>
+          <dd>한식 재해석 철학, 레스토랑 공간 미감, 재료 중심 요리 관점</dd>
+          <dt>수익화</dt>
+          <dd>레스토랑, 저서 — 강의/클래스 중심 아님</dd>
+          <dt>SAM/마스터 학습점</dt>
+          <dd>철학이 있는 공간이 브랜드 증거가 된다. 공간이 있으면 말보다 경험이 먼저 설득한다.</dd>
+          <dt>제외 기준 통과</dt>
+          <dd><span class="pass-badge">공간 중심</span> TV 출연 있으나 레스토랑+요리 철학이 핵심 표면. 강의 판매 중심 아님.</dd>
+        </dl>
+      </div>
+
+      <div class="case-card">
+        <div class="case-name">10. 윤세화 — 콘페티야드(Confettiyard)</div>
+        <span class="case-tag">아트 베이킹</span><span class="case-tag">협업 브랜딩</span>
+        <dl>
+          <dt>브랜딩 증거</dt>
+          <dd>조소/조형예술 전공 + 젠틀몬스터 공간팀 경력 → 베이킹 아티스트. 나이키·탬버린즈·프리츠한센·서울디자인페스티벌 등 고감도 브랜드와 협업. 디저트를 통한 예술+일상 세계관.</dd>
+          <dt>주 채널</dt>
+          <dd>인스타그램, 팝업 스토어, 브랜드 협업</dd>
+          <dt>브랜드 단서</dt>
+          <dd>아트-베이킹 교점의 독특한 시각 언어, 협업 브랜드 라인업 자체가 미감 증명</dd>
+          <dt>수익화</dt>
+          <dd>브랜드 협업 수수료, 케이크 판매, 팝업 — 베이킹 클래스 주업 아님</dd>
+          <dt>SAM/마스터 학습점</dt>
+          <dd>미적 연결고리가 강한 협업 선택 자체가 브랜딩이다. 협업 상대의 품격이 본인 브랜드 포지션을 말한다.</dd>
+          <dt>제외 기준 통과</dt>
+          <dd><span class="pass-badge">아트 협업 중심</span> 베이킹 클래스가 주업 아님. 협업+아트 세계관이 핵심.</dd>
+        </dl>
+      </div>
+
+    </div>
+  </details>
+
+  <details open>
+    <summary><span class="chev"></span> 공통 패턴 분석 + SAM/마스터 적용 포인트</summary>
+    <div class="body">
+      <div class="section">
+        <div class="section-title">공통 패턴</div>
+        <ul>
+          <li><b>무료 콘텐츠 → 취향 축적 → 유료 전환:</b> 10개 모두 먼저 취향을 무료로 표현하고 신뢰를 쌓은 뒤 수익화. 강의보다 더 다양한 전환 경로 존재(구독/공간/협업/제품).</li>
+          <li><b>채널 다각화 아닌 취향 일관성:</b> 여러 채널을 운영하지만 공통 세계관이 있음. 채널이 달라도 '이 사람다움'이 유지됨.</li>
+          <li><b>규모보다 밀도:</b> 쿠숭이처럼 팔로워 3.3만으로도 굿즈 품절 가능. 작은 팬덤이어도 세계관이 강하면 상업 가치 있음.</li>
+          <li><b>커리어 자산 활용:</b> 최인아(광고인), 윤세화(젠틀몬스터), 이다혜(씨네21) — 이전 직업의 관점이 브랜드 공신력 원천.</li>
+        </ul>
+      </div>
+      <div class="callout">
+        <b>SAM/마스터 1순위 실험 방향:</b> research-19에서 도출된 "자기 성과 기반 지식 강의"와 달리, 이 사례들은 <b>작업 자체가 상품</b>이 되는 경로를 보여줌. 강의 없이도 뉴스레터·독립 출판·공간·협업으로 브랜딩 가능. 단, 이 경로는 더 긴 신뢰 축적 시간이 필요.
+      </div>
+      <div class="section">
+        <div class="section-title">강의 vs 비강의 브랜딩 트레이드오프</div>
+        <table>
+          <thead><tr><th>항목</th><th>강의 기반(research-19)</th><th>취향/작업 기반(research-20)</th></tr></thead>
+          <tbody>
+            <tr><td>수익화 속도</td><td>빠름 (구조화된 정보 수요)</td><td>느림 (신뢰 축적 필요)</td></tr>
+            <tr><td>브랜드 지속성</td><td>콘텐츠 소비 속도 의존</td><td>취향 자산 누적형, 오래 지속</td></tr>
+            <tr><td>확장 경로</td><td>강의 → 커뮤니티 → 코칭</td><td>취향 → 제품/공간/협업 → 커뮤니티</td></tr>
+            <tr><td>경쟁 차별화</td><td>강사 포지셔닝 경쟁</td><td>세계관 자체가 모방 어려움</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="chev"></span> 실행 메타 · 산출물</summary>
+    <div class="body">
+      <div class="chips">
+        <span class="chip">2026-06-21T1200Z</span>
+        <span class="chip">heartbeat trigger</span>
+        <span class="chip">active → archived</span>
+        <span class="chip">Cloud research mode</span>
+      </div>
+      <ul>
+        <li>웹 리서치 10회+ 수행</li>
+        <li>아카이브: <code>intents/archive/research-20.md</code></li>
+        <li>리포트: <code>reports/research-20/2026-06-21T1200Z.html</code></li>
+      </ul>
+      <p>검증: 10개 사례 중 강의/교육 판매가 핵심 수익인 사례 0개 (성공 기준 ≥7개 통과). 각 사례 브랜딩 증거 + 제외 기준 통과 이유 명시 완료.</p>
+    </div>
+  </details>
+  </div>
+
+  <div class="foot reveal" style="animation-delay:.3s">
+    <span>Agent-First Heartbeat</span>
+    <span>Infinity · research-20</span>
+  </div>
+</div>
+</body>
+</html>
