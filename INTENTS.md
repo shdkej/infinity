@@ -6,7 +6,7 @@
 
 
 ## Active
-<!-- research-19 active 2026-06-21T0559Z → intents/active/research-19.md [display: 국내 1인 브랜드 사례 10선; projects: infinity,research-bank,personal-brand; type: research; topics: one-person-brand,korea,creator-business,positioning; exclusions: drawandrew,jachung] (마스터가 국내 1인 브랜드 사례 10가지 조사를 요청했다. 드로우앤드류/드류앤드류와 자청은 제외. 각 사례는 포지셔닝, 핵심 채널, 상품/수익모델, 브랜드 자산, 성장 루프, SAM/마스터에게 적용할 점을 근거와 함께 정리한다. 산출물은 artifact + HTML report 필요.) -->
+
 
 ## Waiting
 
@@ -15,6 +15,7 @@
 <!-- naver-shopping-01 waiting 2026-06-21T1000Z → intents/active/naver-shopping-01.md [display: 나래/Narae; projects: naver-shopping,infinity,personal-ops; type: coordination; topics: automation,workflow,marketing; status: sample-order-gated-session-waiting; approval: sample-order-gated] (cloud 소싱 준비 완료(크로스바디+손목 스트랩). alibaba.com 로컬 공급사 확인(계정 불필요) + 손목·크로스바디 병행 샘플 주문 사용자 승인 대기. do_not_repeat_cloud 활성.) -->
 
 ## Archive
+<!-- research-19 completed 2026-06-21T0720Z → intents/archive/research-19.md (드로우앤드류·자청 제외 국내 1인 브랜드 10선 분석 완료. 공통 패턴: 무료 콘텐츠→신뢰→유료 교육/커뮤니티/상품 전환 퍼널. 마스터 1순위: 자기 성과 기반 지식 강의 실험. HTML report gate passed.) -->
 <!-- research-18 completed 2026-06-20T1200Z → intents/archive/research-18.md [display: 자동화 시스템 신뢰성 강화 리서치; projects: infinity,research-bank,personal-ops; type: research; topics: automation,reliability,operations] (6개 실패 패턴 분류·5개 설계 원칙·3단계 점진적 하드닝 프레임워크 정리. 개인은 관측성+멱등성+수동우회 3단계, 팀/서비스는 Runbook·Circuit Breaker까지 추가. HTML report gate passed.) -->
 <!-- marketing-72 completed 2026-06-20T2218Z → intents/archive/marketing-72.md [display: Virtue First-Session Intent Hint Compare; projects: virtue; type: strategy; topics: activation,marketing,product] (L1 docs-only 비교 문서 완료. `가장 먼저 받고 싶은 가치` 질문 프레임을 추천안으로 두고, 한국어 선택지 4개, J1-J4 임시 매핑, 질문 후 hero/CTA/proof surface 분기 원칙을 1개 문서로 정리. production/tracking/privacy/public copy/deploy/external message/cost 변경 0. HTML report gate passed.) -->
 <!-- research-17 completed 2026-06-20T0700Z → intents/archive/research-17.md [display: 미군 연구 시스템 구조 리서치; projects: infinity,research-bank,world-models; type: research; topics: military,research-system,innovation,doctrine,training] (미군의 강점은 연구 능력 자체가 아니라 연구→교리→훈련→실전→AAR 피드백 루프의 제도화. DARPA PM 계약직 모델, PME 지속교육, AAR 의무화, 워게임·레드팀 구조 분석. 반례: F-35 조달관료제/IT 레거시/성공편향. 개인 적용 원칙 6개: AAR+TTP변환+실험분리+레드팀+빠른피드백+Mission Command. HTML report gate passed.) -->

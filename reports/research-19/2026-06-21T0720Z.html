@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>research-19 — 국내 1인 브랜드 사례 10선</title>
+<style>
+  :root{
+    --bg:#f4f2ea; --panel:#fbfaf5; --ink:#2c2a25; --soft:#807c70; --faint:#a8a496; --line:#e3dfd2;
+    --a2:#5f7a5e; --a2-deep:#3f5740;
+    --a1:#5a6f8a; --a1-deep:#3f536e;
+    --sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0; width:100%; max-width:100%; overflow-x:hidden;}
+  body{background:var(--bg); color:var(--ink); font-family:var(--sans); font-size:14px; line-height:1.68; -webkit-font-smoothing:antialiased;}
+  .sheet{width:min(100%,720px); max-width:720px; margin:0 auto; padding:32px 18px 40px;}
+  .reveal{opacity:0; animation:fade .7s ease forwards;}
+  @keyframes fade{from{opacity:0;transform:translateY(9px);}to{opacity:1;transform:none;}}
+  .eyebrow{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--soft);flex-wrap:wrap;}
+  .eyebrow .id{color:var(--a2-deep);font-weight:600;}
+  .eyebrow .dot{width:5px;height:5px;border-radius:50%;background:var(--a2);}
+  .eyebrow .status{color:var(--a2-deep);}
+  h1{font-size:clamp(24px,7vw,29px);line-height:1.3;font-weight:700;margin:20px 0 0;overflow-wrap:anywhere;}
+  .dek{font-size:15.5px;color:var(--soft);margin:13px 0 0;max-width:52ch;}
+  .hr{height:1px;background:var(--line);margin:30px 0;}
+  .axis{padding:0 0 4px 18px;position:relative;margin-bottom:26px;}
+  .axis::before{content:"";position:absolute;left:0;top:6px;bottom:6px;width:2px;border-radius:2px;}
+  .axis.ax1::before{background:var(--a1);}
+  .axis.ax2::before{background:var(--a2);}
+  .axis.ax1{--ul:var(--a1);}
+  .axis.ax2{--ul:var(--a2);}
+  .axis .label{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:9px;display:flex;align-items:center;gap:8px;}
+  .axis.ax1 .label{color:var(--a1-deep);}
+  .axis.ax2 .label{color:var(--a2-deep);}
+  .axis .label .n{font-weight:600;opacity:.6;}
+  .axis .text{font-size:clamp(16px,4.4vw,18px);line-height:1.62;color:#37352e;overflow-wrap:anywhere;}
+  .axis .text b{font-weight:700;color:var(--ink);border-bottom:2px solid var(--ul);}
+  ol.find{list-style:none;counter-reset:f;margin:16px 0 0;padding:0;}
+  ol.find li{position:relative;padding:8px 0 8px 26px;font-size:15px;color:#37352e;border-top:1px solid var(--line);}
+  ol.find li:first-child{border-top:none;}
+  ol.find li::before{counter-increment:f;content:counter(f);position:absolute;left:0;top:9px;font-family:var(--mono);font-size:12px;font-weight:600;color:var(--a1-deep);}
+  details{border:1px solid var(--line);border-radius:8px;background:var(--panel);margin-bottom:10px;overflow:hidden;}
+  summary{cursor:pointer;list-style:none;padding:14px 16px;display:flex;align-items:center;gap:11px;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--soft);}
+  summary::-webkit-details-marker{display:none;}
+  summary .chev{width:8px;height:8px;border-right:2px solid var(--a2-deep);border-bottom:2px solid var(--a2-deep);transform:rotate(-45deg);transition:.25s;flex:none;}
+  details[open] summary .chev{transform:rotate(45deg);}
+  .body{padding:2px 16px 18px;min-width:0;}
+  .section{margin:4px 0 18px;}
+  .section-title{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--a1-deep);margin:0 0 8px;}
+  .callout{border-left:2px solid var(--a2);background:#f2efe5;padding:11px 13px;color:#4a473f;margin:12px 0 16px;}
+  .grid2{display:grid;grid-template-columns:1fr;gap:10px;margin:10px 0;}
+  .mini{border:1px solid var(--line);background:#f8f6ef;border-radius:8px;padding:12px 13px;min-width:0;}
+  .mini b{display:block;color:var(--ink);margin-bottom:5px;}
+  .mini p{margin:0;font-size:13px;color:var(--soft);}
+  .cc{border:1px solid var(--line);background:#f8f6ef;border-radius:8px;padding:13px 14px;margin:0 0 10px;}
+  .cc-h{display:flex;align-items:flex-start;gap:10px;margin-bottom:6px;}
+  .cc-n{font-family:var(--mono);font-size:12px;font-weight:700;color:var(--a1-deep);flex:none;padding-top:2px;}
+  .cc-name{font-size:15px;font-weight:700;color:var(--ink);margin:0;}
+  .cc-pos{font-size:13px;color:var(--soft);margin:0 0 8px;}
+  .tags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:9px;}
+  .tag{font-family:var(--mono);font-size:10px;background:#edeae0;padding:2px 8px;border-radius:999px;color:var(--soft);}
+  .cr{font-size:13px;color:#37352e;margin:4px 0;}
+  .cr b{color:var(--a1-deep);font-size:10.5px;font-family:var(--mono);letter-spacing:.05em;text-transform:uppercase;display:block;margin-bottom:2px;}
+  .apply{border-left:2px solid var(--a2);background:#f0f4f0;padding:9px 12px;margin-top:10px;font-size:13px;color:#3d4a3d;}
+  .apply b{color:var(--a2-deep);font-size:10px;font-family:var(--mono);letter-spacing:.08em;text-transform:uppercase;display:block;margin-bottom:4px;}
+  .pc{border:1px solid var(--line);border-left:3px solid var(--a1);background:#f8f6ef;border-radius:8px;padding:12px 14px;margin:0 0 10px;}
+  .pc h4{margin:0 0 6px;font-size:14px;color:var(--ink);}
+  .pc p{margin:0;font-size:13px;color:var(--soft);}
+  .body ul{margin:6px 0;padding-left:18px;}
+  .body li{margin:5px 0;font-size:13px;}
+  .chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px;}
+  .chip{font-family:var(--mono);font-size:10.5px;color:var(--soft);border:1px solid var(--line);border-radius:999px;padding:3px 10px;}
+  code{font-family:var(--mono);font-size:12px;background:#edeae0;padding:1px 6px;border-radius:3px;color:var(--a2-deep);overflow-wrap:anywhere;word-break:break-word;}
+  .foot{margin-top:30px;padding-top:15px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:6px 14px;justify-content:space-between;font-family:var(--mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--faint);}
+  @media(min-width:720px){.sheet{padding:48px 34px 46px;}.grid2{grid-template-columns:repeat(2,minmax(0,1fr));}}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="eyebrow reveal">
+    <span class="dot"></span>
+    <span class="id">research-19</span>
+    <span>Research Note</span>
+    <span class="status">completed</span>
+  </div>
+  <h1 class="reveal" style="animation-delay:.05s">국내 1인 브랜드 사례 10선</h1>
+  <p class="dek reveal" style="animation-delay:.09s">드로우앤드류·자청 제외 — 포지셔닝·채널·수익구조·성장 루프 분석 및 마스터 적용 원칙</p>
+
+  <div class="hr reveal" style="animation-delay:.12s"></div>
+
+  <div class="axis ax1 reveal" style="animation-delay:.16s">
+    <div class="label"><span class="n">01</span> 무엇을 조사했나</div>
+    <div class="text">드로우앤드류·자청을 제외한 국내 기반 <b>1인 브랜드 10개 사례</b>의 포지셔닝·채널·수익모델·성장 루프를 분야 다양성(경제·자기계발·패션·온라인비즈·과학·교양·엔터·여행·커리어·뷰티) 기준으로 분석</div>
+  </div>
+
+  <div class="axis ax2 reveal" style="animation-delay:.22s">
+    <div class="label"><span class="n">02</span> 핵심 결과</div>
+    <div class="text">공통 패턴은 <b>무료 콘텐츠로 신뢰 → 유료 교육·커뮤니티·상품 전환</b> 퍼널; 마스터 적용 1순위는 "자기 성과를 1차 증거로 활용한 지식 강의" 실험 (신사임당 패턴)</div>
+    <ol class="find">
+      <li><b>포지셔닝 3축</b> — 분야+배경+관점이 모두 결합될 때 대체 불가 포지션 형성 (슈카=경제+펀드매니저+유머)</li>
+      <li><b>신뢰→수익 전환</b> — 무료 콘텐츠 단계 없이 수익화로 바로 뛰어드는 성공 사례는 없음</li>
+      <li><b>증거가 신뢰 단축키</b> — "내가 해봤다" 1차 증거(신사임당 100억+)가 강의 판매를 압도적으로 쉽게 만듦</li>
+      <li><b>반복 포맷 = 브랜드 자산</b> — 슈카체·침착맨 진행 스타일처럼 포맷 자체가 팬덤의 귀환 이유</li>
+      <li><b>라이프스타일 세계관</b> — 밀라논나·박막례처럼 존재 방식이 브랜드가 되면 협찬→상품 전환이 자연스러움</li>
+    </ol>
+  </div>
+
+  <div class="reveal" style="animation-delay:.27s">
+  <details open>
+    <summary><span class="chev"></span> 빠른 결론 — 3대 참고 패턴</summary>
+    <div class="body">
+      <div class="pc">
+        <h4>패턴 A — 전문성 틈새 선점 후 교육 상품화</h4>
+        <p>슈카·신사임당·궤도. 특정 분야 포지션 → 무료 콘텐츠 신뢰 → 강의·책·멤버십 수익화.<br>진입 공식: 전문 배경 → 유튜브 → 신뢰 축적 → 유료 지식 상품</p>
+      </div>
+      <div class="pc">
+        <h4>패턴 B — 라이프스타일 세계관으로 팬덤 구축</h4>
+        <p>밀라논나·침착맨·박막례. 콘텐츠가 아닌 "존재 방식"이 브랜드. 팬덤이 협찬·굿즈·자체 상품을 소비.</p>
+      </div>
+      <div class="pc">
+        <h4>패턴 C — 시스템 교육으로 플랫폼화</h4>
+        <p>김미경·퇴사학교·조승연. 개인 강의에서 플랫폼으로 확장. 수강생이 커뮤니티 자산이 되어 재방문·추천 구조.</p>
+      </div>
+    </div>
+  </details>
+
+  <details open>
+    <summary><span class="chev"></span> 사례 10개 — 개별 분석</summary>
+    <div class="body">
+
+      <div class="cc">
+        <div class="cc-h"><span class="cc-n">01</span><span class="cc-name">슈카월드 (전석재)</span></div>
+        <p class="cc-pos">"복잡한 경제를 재미있게 설명하는 전직 펀드매니저"</p>
+        <div class="tags"><span class="tag">경제/금융</span><span class="tag">YouTube 336만+</span><span class="tag">앤톡 커뮤니티</span></div>
+        <div class="cr"><b>수익모델</b>광고·멤버십·커뮤니티·기업강연·책</div>
+        <div class="cr"><b>브랜드 자산</b>"슈카체" 특유 말투, 슈카월드 우주 세계관, 앤톡·위폴 커뮤니티, 전직 펀드매니저 신뢰</div>
+        <div class="cr"><b>성장 루프</b>경제 이슈 유머 영상 → 바이럴 → 구독 → 멤버십/커뮤니티 → 강연·책 의뢰</div>
+        <div class="apply"><b>마스터 적용</b>전문 배경을 "친근한 언어"로 번역하는 것이 핵심. 커뮤니티를 별도 플랫폼으로 운영해 플랫폼 의존도 낮추기.</div>
+      </div>
+
+      <div class="cc">
+        <div class="cc-h"><span class="cc-n">02</span><span class="cc-name">김미경 (MKYU)</span></div>
+        <p class="cc-pos">"대한민국 여성의 삶을 재설계하는 구독 교육 플랫폼"</p>
+        <div class="tags"><span class="tag">자기계발/교육</span><span class="tag">MKYU 앱 구독</span><span class="tag">YouTube MKTV</span></div>
+        <div class="cr"><b>수익모델</b>MKYU 월정액 구독·온라인 클래스·오프라인 강연·책</div>
+        <div class="cr"><b>브랜드 자산</b>"김미경 강의" 20년+ 인지도, MKYU 커뮤니티, 베스트셀러 다수</div>
+        <div class="cr"><b>성장 루프</b>오프라인 강연 → 유튜브 무료 콘텐츠 → MKYU 유료 구독 → 책 → 신규 구독자</div>
+        <div class="apply"><b>마스터 적용</b>오프라인 전문성을 디지털 구독 상품으로 전환. "대학" 프레이밍이 권위와 체계를 동시에 부여.</div>
+      </div>
+
+      <div class="cc">
+        <div class="cc-h"><span class="cc-n">03</span><span class="cc-name">밀라논나 (장명숙)</span></div>
+        <p class="cc-pos">"밀라노에서 사는 70대 패션 전문가의 품위 있는 노후"</p>
+        <div class="tags"><span class="tag">패션/라이프스타일</span><span class="tag">YouTube 70만+</span><span class="tag">Instagram 114K</span></div>
+        <div class="cr"><b>수익모델</b>브랜드 협찬·컬래버·원데이 클래스·책</div>
+        <div class="cr"><b>브랜드 자산</b>한국인 최초 밀라노 패션 유학(1978), 이탈리아 명품 브랜드 한국 런칭 이력, "나이듦의 롤모델"</div>
+        <div class="cr"><b>성장 루프</b>라이프스타일 영상 → 팔로워 공감·동경 → 협찬·클래스 의뢰 → 책 → 신규 팔로워</div>
+        <div class="apply"><b>마스터 적용</b>"나이/한계와 다른 삶"이라는 역설적 포지셔닝. 삶의 배경 자체가 브랜드 자산.</div>
+      </div>
+
+      <div class="cc">
+        <div class="cc-h"><span class="cc-n">04</span><span class="cc-name">신사임당 (주언규)</span></div>
+        <p class="cc-pos">"직접 돈 벌어본 사람이 알려주는 온라인 비즈니스 실전"</p>
+        <div class="tags"><span class="tag">온라인 비즈니스</span><span class="tag">클래스101 톱10</span><span class="tag">채널 매각 20억</span></div>
+        <div class="cr"><b>수익모델</b>유료 온라인 강의·멘토링·제휴 마케팅 (누적 약 100억+)</div>
+        <div class="cr"><b>브랜드 자산</b>"실제로 해봤다" 증거 기반 신뢰, 채널 20억 매각이 자체 콘텐츠·화제성</div>
+        <div class="cr"><b>성장 루프</b>실전 성과 공개 → 신뢰 → 강의 판매 → 수강생 성과 사례 → 신규 수강생</div>
+        <div class="apply"><b>마스터 적용</b>"내가 직접 해봤다"는 1차 증거가 판매의 핵심. 성과 공개 → 강의 → 수강생 성과 순환 퍼널.</div>
+      </div>
+
+      <div class="cc">
+        <div class="cc-h"><span class="cc-n">05</span><span class="cc-name">궤도 (박인철)</span></div>
+        <p class="cc-pos">"물리학 박사가 과학을 세상과 연결한다"</p>
+        <div class="tags"><span class="tag">과학 대중화</span><span class="tag">안될과학 130만+</span><span class="tag">예능 크로스오버</span></div>
+        <div class="cr"><b>수익모델</b>책·기업 강연·방송 출연료·유튜브 광고</div>
+        <div class="cr"><b>브랜드 자산</b>연세대 물리학 박사 신뢰, "과학 커뮤니케이터" 직함 선점(14년), 침착맨 채널로 대중 인지도 도약</div>
+        <div class="cr"><b>성장 루프</b>전문 유튜브 → 예능 크로스오버 → 대중 인지도 → 강연·책·방송 의뢰</div>
+        <div class="apply"><b>마스터 적용</b>전문 유튜브→예능 크로스오버가 대중 도약 핵심. "직함"을 먼저 만들고 그 역할을 채워나가기.</div>
+      </div>
+
+      <div class="cc">
+        <div class="cc-h"><span class="cc-n">06</span><span class="cc-name">조승연 (탐구생활)</span></div>
+        <p class="cc-pos">"역사·문화·어원으로 세상을 다시 보게 하는 작가"</p>
+        <div class="tags"><span class="tag">지식/교양</span><span class="tag">YouTube 50만+</span><span class="tag">광고 투명 공개</span></div>
+        <div class="cr"><b>수익모델</b>YouTube 광고·협찬·책 인세·기업 인문학 강연</div>
+        <div class="cr"><b>브랜드 자산</b>다국어 능통+글로벌 거주 경험, "비교 문화사" 독자적 관점, 광고 투명 표시로 신뢰</div>
+        <div class="cr"><b>성장 루프</b>문화사 영상 → 지식 욕구 시청자 구독 → 책 → 강연 → 신규 구독자</div>
+        <div class="apply"><b>마스터 적용</b>"하나의 독특한 렌즈"가 콘텐츠 무한 생성의 원천. 글로벌 배경이 자연스러운 차별점.</div>
+      </div>
+
+      <div class="cc">
+        <div class="cc-h"><span class="cc-n">07</span><span class="cc-name">침착맨 (이말년)</span></div>
+        <p class="cc-pos">"30~40대 공감 코드의 웹툰 작가 출신 스트리머"</p>
+        <div class="tags"><span class="tag">엔터/스트리밍</span><span class="tag">YouTube 230만+</span><span class="tag">연매출 49억</span></div>
+        <div class="cr"><b>수익모델</b>YouTube 광고·스트리밍 후원·굿즈·협찬 (연매출 49억 6천)</div>
+        <div class="cr"><b>브랜드 자산</b>웹툰 기존 팬덤 이식, "침착하게" 진행 스타일, 팬 친화적 저가 굿즈, 다중 플랫폼 동시 송출</div>
+        <div class="cr"><b>성장 루프</b>라이브 스트리밍 → 유튜브 클립 편집본 → 구독 → 팬덤 굿즈·후원 → 재방문</div>
+        <div class="apply"><b>마스터 적용</b>기존 팬덤을 새 플랫폼으로 이식. 라이브→클립으로 1회 수고를 2개 채널 콘텐츠로 리사이클.</div>
+      </div>
+
+      <div class="cc">
+        <div class="cc-h"><span class="cc-n">08</span><span class="cc-name">빠니보틀 (박상현)</span></div>
+        <p class="cc-pos">"세계 어디서나 자유롭게 사는 1인 여행 크리에이터"</p>
+        <div class="tags"><span class="tag">여행/라이프스타일</span><span class="tag">YouTube 240만+</span><span class="tag">샌드박스 탈퇴 독립</span></div>
+        <div class="cr"><b>수익모델</b>YouTube 광고·협찬(여행/아웃도어)·책 출판</div>
+        <div class="cr"><b>브랜드 자산</b>"혼자 세계 여행" 독립적 라이프스타일, 몰입형 장편 브이로그 스타일, MCN 탈퇴 후 자율성 이미지</div>
+        <div class="cr"><b>성장 루프</b>장편 여행 영상 → 간접 여행 욕구 충족 → 구독 → 협찬 → 재투자</div>
+        <div class="apply"><b>마스터 적용</b>숏폼 범람 시대에 "긴 영상·깊은 몰입"으로 차별화. MCN 탈퇴→독립으로 브랜드 컨트롤권 확보.</div>
+      </div>
+
+      <div class="cc">
+        <div class="cc-h"><span class="cc-n">09</span><span class="cc-name">퇴사학교 (장수한)</span></div>
+        <p class="cc-pos">"행복한 일을 설계하는 직장인의 학교"</p>
+        <div class="tags"><span class="tag">커리어 전환</span><span class="tag">누적 수료 7,000명+</span><span class="tag">투자 유치</span></div>
+        <div class="cr"><b>수익모델</b>오프라인/온라인 클래스·커리어 컨설팅(커리어쉐어)·책</div>
+        <div class="cr"><b>브랜드 자산</b>"퇴사학교" 커리어 전환 상징, 삼성전자 출신 직접 경험 신뢰, 7,000명+ 수료생 커뮤니티</div>
+        <div class="cr"><b>성장 루프</b>SNS/브런치 콘텐츠 → 클래스 수강 → 수료생 입소문 → 재등록·컨설팅</div>
+        <div class="apply"><b>마스터 적용</b>"학교" 프레이밍이 권위+체계를 동시에 전달. 수료생 커뮤니티가 최고의 마케팅 채널.</div>
+      </div>
+
+      <div class="cc">
+        <div class="cc-h"><span class="cc-n">10</span><span class="cc-name">박막례 할머니</span></div>
+        <p class="cc-pos">"77세 할머니 유튜버, 나이를 모르는 라이프스타일"</p>
+        <div class="tags"><span class="tag">시니어 라이프스타일</span><span class="tag">YouTube 116만+</span><span class="tag">뷰티 브랜드 례례</span></div>
+        <div class="cr"><b>수익모델</b>YouTube 광고·협찬·뷰티 브랜드 "례례"(W컨셉 단독, 코스맥스 공동개발)·책</div>
+        <div class="cr"><b>브랜드 자산</b>시니어 유튜버 개척자 이미지, 손녀 김유라와의 세대 협업 스토리, "나이에 굴하지 않는 도전" 세계관</div>
+        <div class="cr"><b>성장 루프</b>진정성 라이프스타일 영상 → 공감·응원 팬덤 → 뷰티 브랜드 → 팬 구매</div>
+        <div class="apply"><b>마스터 적용</b>"한계를 넘는 도전" 자체가 브랜드 서사. 콘텐츠 팬덤에서 직접 소비 상품으로 연결.</div>
+      </div>
+
+    </div>
+  </details>
+
+  <details open>
+    <summary><span class="chev"></span> 공통 패턴 &amp; 마스터 적용 원칙</summary>
+    <div class="body">
+      <div class="section">
+        <div class="section-title">5가지 공통 성공 패턴</div>
+        <ul>
+          <li><b>포지셔닝 선점</b> — 분야+배경+관점 3축 조합으로 대체 불가 포지션</li>
+          <li><b>신뢰 자산 먼저</b> — 무료 콘텐츠 신뢰 축적 후 유료 상품으로 자연스러운 확장</li>
+          <li><b>반복 포맷으로 기억</b> — 독특한 형식이 쌓이면 포맷 자체가 브랜드 자산</li>
+          <li><b>커뮤니티가 방어막</b> — 팬덤 전환 후에는 경쟁사가 대체하기 어려움</li>
+          <li><b>1차 증거 기반 신뢰</b> — "실제로 했다"는 증거가 강의 판매를 압도적으로 쉽게 만듦</li>
+        </ul>
+      </div>
+      <div class="callout">
+        <b>마스터 1순위 적용 전략:</b><br>
+        "자기 성과(AI 자동화 실제 구축 사례)를 1차 증거로 공개 → 시리즈 콘텐츠 포맷 확립 → 지식 강의 또는 멤버십으로 첫 수익화 실험" (신사임당 패턴 + 슈카 커뮤니티 패턴 결합)
+      </div>
+      <div class="section">
+        <div class="section-title">다음 실험 후보 3개</div>
+        <ul>
+          <li><b>시리즈 콘텐츠 포맷</b> — "Infinity가 실제로 해본 AI 자동화 사례" 시리즈로 1차 증거 축적</li>
+          <li><b>뉴스레터 + 멤버십</b> — 주간 뉴스레터로 독자 모은 뒤 멤버십/강의로 전환</li>
+          <li><b>첫 상품 = 지식 강의</b> — "개인 자동화 시스템 구축" 강의로 가장 빠른 수익화 실험</li>
+        </ul>
+      </div>
+      <div class="grid2">
+        <div class="mini">
+          <b>근거 · 소스</b>
+          <p>나무위키·위키백과·뉴스 기사(한국경제·아시아경제·블로터·서울신문 등) 기반 공개 정보. 슈카 336만 구독, 침착맨 연매출 49억, 신사임당 채널 매각 20억, 박막례 뷰티 브랜드 W컨셉 단독 출시(2024.12) 교차 확인.</p>
+        </div>
+        <div class="mini">
+          <b>다음 판단</b>
+          <p>10선 중 마스터에게 직접 적용 가능한 패턴 1~2개를 선택해 Inbox에 실험 Intent 등록. 우선순위: (1) 시리즈 콘텐츠 포맷 확립, (2) 첫 강의 상품 기획.</p>
+        </div>
+      </div>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="chev"></span> 실행 메타 · 산출물</summary>
+    <div class="body">
+      <div class="chips">
+        <span class="chip">2026-06-21T0720Z</span>
+        <span class="chip">Heartbeat / research-19 active</span>
+        <span class="chip">active → completed</span>
+      </div>
+      <ul>
+        <li>마크다운 산출물 <code>artifacts/research-19/korean-one-person-brand-cases.md</code></li>
+        <li>HTML 리포트 <code>reports/research-19/2026-06-21T0720Z.html</code></li>
+        <li>아카이브 <code>intents/archive/research-19.md</code></li>
+      </ul>
+    </div>
+  </details>
+  </div>
+
+  <div class="foot reveal" style="animation-delay:.3s">
+    <span>Agent-First Heartbeat</span>
+    <span>Infinity · Intent Note</span>
+  </div>
+</div>
+</body>
+</html>
