@@ -88,10 +88,54 @@ def bullet(items: list[str], empty: str) -> str:
     return "\n".join(f"• {item}" for item in items)
 
 
+def recent_commit_events(since: str) -> list[dict[str, str]]:
+    raw = run_git(
+        [
+            "log",
+            f"--since={since}",
+            "--date=iso-strict",
+            "--format=%cI%x09%s",
+            "--",
+            "reports/",
+            "INTENTS.md",
+            "GATES.md",
+        ]
+    )
+    events: list[dict[str, str]] = []
+    for line in raw.splitlines():
+        if not line.strip() or "\t" not in line:
+            continue
+        ts_raw, subject = line.split("\t", 1)
+        try:
+            ts = dt.datetime.fromisoformat(ts_raw).astimezone(KST)
+        except ValueError:
+            continue
+        events.append({"hour": f"{ts:%H}", "subject": clean_summary(subject, 48)})
+    return events
+
+
+def hourly_timeline(now_kst: dt.datetime, events: list[dict[str, str]]) -> str:
+    notes_by_hour: dict[str, list[str]] = {}
+    for event in events:
+        notes_by_hour.setdefault(event["hour"], []).append(event["subject"])
+
+    start = now_kst.replace(minute=0, second=0, microsecond=0) - dt.timedelta(hours=23)
+    rows: list[str] = []
+    for offset in range(24):
+        hour = (start + dt.timedelta(hours=offset)).strftime("%H")
+        notes = notes_by_hour.get(hour, [])
+        if notes:
+            rows.append(f"🟩{hour} {notes[0]}")
+        else:
+            rows.append(f"⬜️{hour}")
+    return "\n".join(rows)
+
+
 def main() -> None:
     now_utc = dt.datetime.now(dt.timezone.utc)
     now_kst = now_utc.astimezone(KST)
     since = (now_utc - dt.timedelta(hours=24)).isoformat()
+    timeline_events = recent_commit_events(since)
     commit_count = len(
         [
             line
@@ -133,6 +177,10 @@ def main() -> None:
 {now_kst:%Y-%m-%d} KST · 최근 24시간 · 관련 커밋 {commit_count}개
 
 {headline}
+
+━━━━━━━━━━━━━━
+시간대별
+{hourly_timeline(now_kst, timeline_events)}
 
 ━━━━━━━━━━━━━━
 ✅ 완료
