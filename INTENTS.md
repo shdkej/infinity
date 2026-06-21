@@ -4,15 +4,6 @@
 
 ## Inbox
 
-- 마케팅 후보: Virtue J3 첫 화면 AI 약속 브리지 비교안
-  source_note: `/home/ubuntu/workspace/knowledge-lab/source/external-links/marketing/2026-06-21-ai-curiosity-entry-gap.md`
-  rationale: 라이브 홈 `/`는 J1 기록형 약속은 강하지만 J3 AI 호기심형 신호가 거의 없어, `/add` 진입 전 기대 경로가 비어 있다.
-  expected_impact: prelaunch 단계에서 J3 미진입을 AI 품질 문제와 분리하고, 홈 hero/CTA/빈 상태 중 어디에 최소 AI 브리지를 두는 게 안전한지 문서로 판단할 수 있다.
-  permission_level: L1 docs-only
-  owner_route: Infinity → Claude Code 또는 SAM 로컬 문서 작업
-  success_criteria: J3 브리지 2~3안 비교표가 있고, 각 안마다 J1/J4 약속 훼손 위험·J3 기대 강화 여부·공개 반영 전제 없음이 명시된다.
-  first_verification_gate: `rg -n "J3|AI|hero|CTA|빈 상태|위험" <output>` / `rg '<<<<<<<|=======|>>>>>>>' <output> || true`
-
 ## Active
 
 
@@ -20,14 +11,15 @@
 
 <!-- 사용자 결정, 외부 조건, 안전 확인 대기. 같은 질문을 반복하지 않고 상태만 보존한다. -->
 
-<!-- naver-shopping-01 waiting 2026-06-21T1000Z → intents/active/naver-shopping-01.md [display: 나래/Narae; projects: naver-shopping,infinity,personal-ops; type: coordination; topics: automation,workflow,marketing; status: sample-order-gated-session-waiting; approval: sample-order-gated] (cloud 소싱 준비 완료(크로스바디+손목 스트랩). alibaba.com 로컬 공급사 확인(계정 불필요) + 손목·크로스바디 병행 샘플 주문 사용자 승인 대기. do_not_repeat_cloud 활성.) -->
+<!-- naver-shopping-01 waiting 2026-06-21T1000Z → intents/active/naver-shopping-01.md [display: 나래/Narae; projects: naver-shopping,infinity,personal-ops; type: coordination; topics: automation,workflow,marketing; status: sample-order-gated-session-waiting; approval: sample-order-gated] (cloud 소싱 준비 완료(크로스바디+손목 스트랩). alibaba.com 로컈 공급사 확인(계정 불필요) + 손목·크로스바디 병행 샘플 주문 사용자 승인 대기. do_not_repeat_cloud 활성.) -->
 
 ## Archive
+<!-- marketing-73 completed 2026-06-21T0700Z → intents/archive/marketing-73.md [projects: virtue; type: strategy; topics: marketing,activation,product] (J3 AI 브리지 3안 비교 완료. Option C(빈 상태 ghost AI 결과 카드)가 J3 기대 강화 최대·J1/J4 훼손 최소 추천안. Option B(CTA 보조 힌트)가 가장 보수적 차선. 구현은 approval-needed. HTML report gate passed.) -->
 <!-- research-19 completed 2026-06-21T0720Z → intents/archive/research-19.md (드로우앤드류·자청 제외 국내 1인 브랜드 10선 분석 완료. 공통 패턴: 무료 콘텐츠→신뢰→유료 교육/커뮤니티/상품 전환 퍼널. 마스터 1순위: 자기 성과 기반 지식 강의 실험. HTML report gate passed.) -->
 <!-- research-18 completed 2026-06-20T1200Z → intents/archive/research-18.md [display: 자동화 시스템 신뢰성 강화 리서치; projects: infinity,research-bank,personal-ops; type: research; topics: automation,reliability,operations] (6개 실패 패턴 분류·5개 설계 원칙·3단계 점진적 하드닝 프레임워크 정리. 개인은 관측성+멱등성+수동우회 3단계, 팀/서비스는 Runbook·Circuit Breaker까지 추가. HTML report gate passed.) -->
 <!-- marketing-72 completed 2026-06-20T2218Z → intents/archive/marketing-72.md [display: Virtue First-Session Intent Hint Compare; projects: virtue; type: strategy; topics: activation,marketing,product] (L1 docs-only 비교 문서 완료. `가장 먼저 받고 싶은 가치` 질문 프레임을 추천안으로 두고, 한국어 선택지 4개, J1-J4 임시 매핑, 질문 후 hero/CTA/proof surface 분기 원칙을 1개 문서로 정리. production/tracking/privacy/public copy/deploy/external message/cost 변경 0. HTML report gate passed.) -->
 <!-- research-17 completed 2026-06-20T0700Z → intents/archive/research-17.md [display: 미군 연구 시스템 구조 리서치; projects: infinity,research-bank,world-models; type: research; topics: military,research-system,innovation,doctrine,training] (미군의 강점은 연구 능력 자체가 아니라 연구→교리→훈련→실전→AAR 피드백 루프의 제도화. DARPA PM 계약직 모델, PME 지속교육, AAR 의무화, 워게임·레드팀 구조 분석. 반례: F-35 조달관료제/IT 레거시/성공편향. 개인 적용 원칙 6개: AAR+TTP변환+실험분리+레드팀+빠른피드백+Mission Command. HTML report gate passed.) -->
-<!-- marketing-70 completed 2026-06-19T22:07Z → intents/archive/marketing-70.md [display: Virtue Empty-State Proof Audit; projects: virtue; type: strategy; topics: activation,empty-state,marketing] (라이브 홈 `최근 덕행` empty state를 read-only 캡처해 gap 3개와 J1-J4 seeded proof 감사표를 문서화. 결론은 CTA 부족보다 proof preview 부족이 핵심이며, safest next step은 ghost/sample 구조의 proposal-only 비교안이다. production/tracking/privacy/public copy/deploy/external message 변경 0. HTML report gate passed.) -->
+<!-- marketing-70 completed 2026-06-19T22:07Z → intents/archive/marketing-70.md [display: Virtue Empty-State Proof Audit; projects: virtue; type: strategy; topics: activation,empty-state,marketing] (라이브 홈 `최근 덕행` empty state를 read-only 캐포해 gap 3개와 J1-J4 seeded proof 감사표를 문서화. 결론은 CTA 부족보다 proof preview 부족이 핵심이며, safest next step은 ghost/sample 구조의 proposal-only 비교안이다. production/tracking/privacy/public copy/deploy/external message 변경 0. HTML report gate passed.) -->
 <!-- marketing-71 completed 2026-06-20T1108Z → intents/archive/marketing-71.md [display: Virtue Seeded Proof Proposal Compare; projects: virtue; type: strategy; topics: activation,onboarding,proof,prelaunch] (L1 docs-only 비교 문서 완료. `proof 없음 / 단일 샘플 카드 / 누적 카드 스택` 3안 비교표와 J1-J4 오해 위험, approval-needed 구현 메모를 1개 문서로 정리. 결론은 sample/preview 표식이 있는 누적 카드 스택이 가장 안전한 proposal-only 기본안. production/tracking/privacy/public copy/deploy/external message/cost 변경 0. HTML report gate passed.) -->
 <!-- marketing-69 completed 2026-06-19T10:07Z → intents/archive/marketing-69.md [display: Virtue Agent Readiness Baseline; projects: virtue; type: strategy; topics: ai-agents,agentic-web,discoverability,trust,prelaunch] (Virtue public URL read-only baseline completed. robots/sitemap/Link header/Markdown or llms discovery/Content Signals axes checked against marketing-68. Artifact/report: artifacts/marketing-69/virtue-agent-readiness-baseline.html and reports/marketing-69/2026-06-19T1007Z.html. production code·deploy·tracking/privacy·public copy·external message·robots/llms publication·cost 변경 0. HTML report gate passed.) -->
 <!-- marketing-68 completed 2026-06-19T0000Z → intents/archive/marketing-68.md [display: Virtue Agent-Readable Surface Audit; projects: virtue; type: strategy; topics: ai-agents,agentic-web,trust,discoverability,prelaunch] (public/repo-readable 4개 표면 × 5축 감사표 완성. Artifact: artifacts/marketing-68/virtue-agent-readable-surface-audit.html. agent may read / agent must not infer / human handoff wording / launch-after reuse 기준 확립. L1 docs-only; 신규 이벤트·production code·deploy·public copy·robots/llms·tracking/privacy·PostHog·external message·cost 변경 0. marketing-65/66/67 계승, 충돌 0. HTML report gate passed.) -->
