@@ -17,8 +17,8 @@ GATES = ROOT / "GATES.md"
 OPENCLAW_DB = Path("/home/ubuntu/.openclaw/state/openclaw.sqlite")
 KST = dt.timezone(dt.timedelta(hours=9), name="KST")
 EVALUATOR_JOBS = {
-    "f1027114-6430-433a-b4cb-6aa0dfc53157": "OpenClaw eval",
-    "986c49b2-c615-4134-b95a-2cf74217c5b7": "kl eval",
+    "f1027114-6430-433a-b4cb-6aa0dfc53157": "OpenClaw 평가",
+    "986c49b2-c615-4134-b95a-2cf74217c5b7": "kl 평가",
 }
 
 
@@ -168,7 +168,7 @@ def evaluator_events(start_utc: dt.datetime, end_utc: dt.datetime) -> list[dict[
             note = text or status or "error"
         elif quiet:
             marker = "⬜️"
-            note = "no findings"
+            note = "특이사항 없음"
         else:
             marker = "🟩"
             note = text
@@ -192,7 +192,7 @@ def evaluator_timeline(events: list[dict[str, str]]) -> str:
         name_events = [event for event in events if event["name"] == name]
         failures = sum(1 for event in name_events if event["marker"] == "🟥")
         findings = sum(1 for event in name_events if event["marker"] == "🟩")
-        parts.append(f"{name} {len(name_events)}회 ok {len(name_events) - failures} · findings {findings} · fail {failures}")
+        parts.append(f"{name} {len(name_events)}회 · 정상 {len(name_events) - failures} · 기록 {findings} · 실패 {failures}")
     summary = "요약: " + " / ".join(parts)
     rows = [f"{event['marker']}{event['time']} {event['name']} · {event['note']}" for event in events]
     return "\n".join([summary, *rows])
