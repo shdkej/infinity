@@ -1,0 +1,27 @@
+<html>
+<body>
+<h1>Virtue J3 AI Bridge Compare</h1>
+<p>Virtue 홈 첫 화면에서 J3 AI 호기심형 사용자의 기대 경로를 최소 브리지로 열어주는 3안 비교.</p>
+<div>axis ax1: placement surface</div>
+<div>axis ax2: promise risk vs curiosity lift</div>
+<pre>title: &quot;AI 호기심형은 홈에서 약속을 먼저 봐야 들어온다&quot;
+notes: &quot;기존 온보딩·proof·intent 학습 노트와 2026-06-21 라이브 Virtue 표면 관찰을 묶어 J3 AI 호기심형의 홈 진입 공백을 정리한 비교 메모.&quot;
+# AI 호기심형은 홈에서 약속을 먼저 봐야 들어온다
+- 수집 맥락: Virtue는 아직 prelaunch라 작은 퍼널 수치보다 첫 세션 약속의 정합도를 먼저 다듬어야 한다. 이번 메모는 기존 Knowledge Lab 마케팅 노트와 라이브 홈 `/`·입력 화면 `/add` 관찰을 묶어, J3 AI 호기심형이 어디에서 진입 동기를 잃는지 정리하기 위해 작성했다.
+- ProductLed, &quot;AI Onboarding: How To Activate Users In Under 60 Seconds&quot; (2026-01-13): https://productled.com/blog/ai-onboarding
+- AI 온보딩의 첫 기준은 &quot;AI가 있다&quot;가 아니라 &quot;이 화면에서 내가 어떤 결과를 기대할 수 있는가&quot;가 즉시 읽히는지다.
+- seeded proof 관점에서는 빈 상태가 단지 CTA를 미는 자리가 아니라, 행동 후 어떤 결과가 남는지 미리 증명하는 자리여야 한다.
+- Virtue 라이브 홈은 `오늘 1덕만 쌓아볼까요?`, `오늘 덕 쌓기`, `오늘 사소한 거 하나, 카메라로 콕.`으로 기록형/J1에는 강한 약속을 준다.
+- 반면 같은 홈에는 `AI가 어떻게 볼까`, `한 줄로 읽어준다`, `AI가 본 오늘` 같은 J3 신호가 거의 없다. AI 약속은 `/add`에서 입력 화면에 들어간 뒤에야 간접적으로 드러난다.
+- `/add` 화면에서도 첫 표면은 사진 업로드와 메모 입력 중심이라, AI 호기심형에게는 &quot;무엇을 올리면 어떤 해석을 받는가&quot;보다 입력 요구가 먼저 보일 수 있다.
+- 따라서 현재 공백은 AI 결과 품질의 문제가 아니라, J3가 홈에서 자신에게 맞는 문을 발견하기 전에 J1용 약속으로 끌려 들어가는 positioning gap에 가깝다.
+Virtue는 이미 내부 문서에서 J3 AI 호기심형을 별도 잡으로 분리해 두었고, `deed_judged`를 저장과 분리된 가치 순간으로 읽도록 정리해 두었다. 그런데 라이브 첫 화면은 여전히 &quot;남긴다&quot;는 약속이 중심이라, J3 사용자는 자신이 원하는 보상이 여기 있는지 `/add` 진입 전에는 확신하기 어렵다.</pre>
+<table border="1" cellspacing="0" cellpadding="6">
+<tr><th>Option</th><th>Placement</th><th>J3 expectation lift</th><th>J1/J4 risk</th><th>Public assumption</th></tr>
+<tr><td>Hero eyebrow + 보조 CTA</td><td>홈 hero 상단 짧은 eyebrow와 2차 CTA</td><td>첫 화면에서 즉시 AI 관련 가능성을 인지시켜 curiosity drop을 줄인다.</td><td>J1 기록형 약속을 AI-first 서비스로 오해시킬 수 있어 주 CTA보다 낮은 시각 우선순위가 필요하다. J4 신뢰형에는 실제 대행/자동 실행 약속처럼 읽히지 않도록 preview/proposal 문구가 필요하다.</td><td>공개 반영 전제 없음. 문서상 비교안만 정의.</td></tr>
+<tr><td>Primary CTA 아래 intent bridge</td><td>기존 주 CTA 바로 아래 1문장 설명 + 텍스트 링크</td><td>기록형 주 약속은 유지하면서 AI 호기심형에게만 우회 경로를 제공한다.</td><td>J1 약속 훼손이 가장 작지만 존재감이 낮아 J3 기대 강화 폭도 제한적이다. J4에는 안전하지만 너무 약하면 AI 품질 이슈와 미진입 이슈를 분리하기 어렵다.</td><td>공개 반영 전제 없음. 실험 후보 우선순위만 제안.</td></tr>
+<tr><td>Empty state preview card</td><td>최근 덕행/빈 상태 영역에 sample preview 카드 삽입</td><td>hero를 건드리지 않고도 AI가 어떤 도움을 주는지 예시 기반으로 보여줄 수 있다.</td><td>J1 홈의 핵심 약속은 비교적 보존되지만, 샘플이 실제 사용자 데이터처럼 보이면 J4 신뢰를 해칠 수 있다. sample/preview 표식이 필수다.</td><td>공개 반영 전제 없음. seeded proof 실험과 결합 가능성만 기록.</td></tr>
+</table>
+<details><summary>Recommendation</summary><p>가장 안전한 기본안은 `Primary CTA 아래 intent bridge`다. J1 기록형 약속을 유지하면서 J3 기대 경로를 분리해 열고, 이후 신호가 생기면 hero 또는 empty-state preview로 확장할 수 있다.</p></details>
+</body>
+</html>

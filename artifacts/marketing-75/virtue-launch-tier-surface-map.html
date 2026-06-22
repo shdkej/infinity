@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <title>marketing-75 Virtue launch tier and surface map</title>
+</head>
+<body>
+  <h1>marketing-75 Virtue 변경 등급표와 안내 표면 맵</h1>
+  <p>Virtue prelaunch 단계에서 모든 변경을 같은 강도로 알리지 않기 위한 내부 기준 문서다. 외부 공지나 배포 계획이 아니라, 무엇을 크게 설명하고 무엇을 제품 안에서 조용히 처리할지 구분하는 docs-only 가드레일이다.</p>
+
+  <section>
+    <h2>axis ax1</h2>
+    <p>변경이 사용자의 기대 경로와 다음 행동을 얼마나 바꾸는가</p>
+  </section>
+
+  <section>
+    <h2>axis ax2</h2>
+    <p>안내가 필요한 위치가 외부 채널인지 제품 안 맥락 표면인지</p>
+  </section>
+
+  <details open>
+    <summary>Tier 1-4 정의</summary>
+    <table border="1" cellspacing="0" cellpadding="6">
+      <thead>
+        <tr>
+          <th>Tier</th>
+          <th>정의</th>
+          <th>권장 안내 표면</th>
+          <th>설명 강도</th>
+          <th>금지선</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Tier 1</td>
+          <td>시각 polish, 문장 다듬기, 내부 품질 개선처럼 기대 경로를 바꾸지 않는 변경</td>
+          <td>기본적으로 무안내. 필요해도 화면 안 미세 힌트 1회</td>
+          <td>거의 침묵</td>
+          <td>외부 공지, 런칭 톤, 성과 약속 금지</td>
+        </tr>
+        <tr>
+          <td>Tier 2</td>
+          <td>기존 흐름은 유지하지만 이해를 돕는 보강. 다음 행동의 맥락이 더 선명해지는 변경</td>
+          <td>해당 화면의 contextual hint, sample label, empty-state helper</td>
+          <td>짧은 제품 내 안내</td>
+          <td>이메일/블로그 우선 공지 금지, 새 가치 제안처럼 과장 금지</td>
+        </tr>
+        <tr>
+          <td>Tier 3</td>
+          <td>first value 기대나 권한 해석을 실질적으로 바꾸는 변경</td>
+          <td>해당 화면 + 후속 교육 표면(결과 카드, 다음 화면) 연동</td>
+          <td>화면 안 설명 필요</td>
+          <td>출시 선언처럼 포장 금지, tracking/deploy 변경 자동 동반 금지</td>
+        </tr>
+        <tr>
+          <td>Tier 4</td>
+          <td>사용자 약속, 권한 경계, 제품 포지셔닝을 재정의하는 변경</td>
+          <td>제품 내 설명 + 별도 승인 후 외부/운영 표면 검토</td>
+          <td>명시적 설명 필요</td>
+          <td>현재 L1 범위에서는 실행 금지. approval-needed</td>
+        </tr>
+      </tbody>
+    </table>
+  </details>
+
+  <details>
+    <summary>핵심 화면 첫 분류</summary>
+    <table border="1" cellspacing="0" cellpadding="6">
+      <thead>
+        <tr>
+          <th>표면</th>
+          <th>기본 분류</th>
+          <th>이유</th>
+          <th>권장 안내 방식</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>/add</code> 첫 표면</td>
+          <td>Tier 3</td>
+          <td>입력 전에 결과 기대와 권한 불안을 어떻게 읽는지가 바뀌면 first action 자체가 달라진다</td>
+          <td>입력 직전 1-2줄 expectation bridge, 권한 경계 동시 표기</td>
+        </tr>
+        <tr>
+          <td>결과 카드</td>
+          <td>Tier 3</td>
+          <td>사용자가 받은 가치의 해석과 다음 행동이 직접 달라진다</td>
+          <td>카드 안 설명, sample/preview 표식, 후속 행동 힌트</td>
+        </tr>
+        <tr>
+          <td>홈 empty state</td>
+          <td>Tier 2</td>
+          <td>진입 기대를 보강하지만 실제 가치 발생은 아직 전 단계라 보강 성격이 더 강하다</td>
+          <td>ghost proof, helper line, sample preview</td>
+        </tr>
+      </tbody>
+    </table>
+  </details>
+
+  <details>
+    <summary>최근 Virtue 마케팅 산출물과의 연결 예시 3개</summary>
+    <table border="1" cellspacing="0" cellpadding="6">
+      <thead>
+        <tr>
+          <th>기존 산출물</th>
+          <th>연결 방식</th>
+          <th>등급 해석</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>marketing-74 <code>/add</code> 기대 형성 비교안</td>
+          <td>결과 기대와 권한 경계를 한 시야에 두는 문구는 Tier 3 안내 원칙의 직접 사례다</td>
+          <td><code>/add</code>는 단순 카피가 아니라 first action 해석을 바꾸므로 Tier 3</td>
+        </tr>
+        <tr>
+          <td>marketing-71 seeded proof proposal compare</td>
+          <td>홈 empty state의 sample/ghost proof는 launch가 아니라 Tier 2 보강으로 본다</td>
+          <td>진입 기대 보강이지만 실제 권한/가치 약속 재정의는 아니므로 Tier 2</td>
+        </tr>
+        <tr>
+          <td>marketing-73 J3 AI bridge compare</td>
+          <td>결과 카드 또는 ghost AI preview가 J3 기대 경로를 바꾸면 Tier 3로 승격해 화면 내 설명을 붙인다</td>
+          <td>AI 약속을 새 제품 약속처럼 크게 말하지 않고 해당 표면 안에서 설명해야 한다</td>
+        </tr>
+      </tbody>
+    </table>
+  </details>
+
+  <details>
+    <summary>검증 게이트</summary>
+    <p>production/tracking/privacy/public copy/deploy/external message/cost 변경 0. 외부 런칭 계획, 배포, 공지 채널 추가 없이 source note와 기존 Virtue docs-only 산출물을 연결해 내부 기준만 정리했다.</p>
+  </details>
+</body>
+</html>
