@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>marketing-77 구현 패킷 — Virtue UI/카피 변경</title>
+<style>
+  :root {
+    --bg:#f4f2ea; --panel:#fbfaf5; --ink:#2c2a25; --soft:#807c70;
+    --faint:#a8a496; --line:#e3dfd2;
+    --clay:#a9745a; --clay-deep:#8a5c45;
+    --go:#5f7a5e; --go-deep:#3f5740;
+    --warn:#b08545; --danger:#8a4444;
+    --mono:ui-monospace,"SF Mono",Menlo,monospace;
+    --sans:-apple-system,BlinkMacSystemFont,"Pretendard","Noto Sans KR",sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;width:100%;overflow-x:hidden;}
+  body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:14px;line-height:1.7;}
+  .sheet{width:min(100%,720px);max-width:720px;margin:0 auto;padding:28px 16px 44px;}
+  .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--soft);margin-bottom:10px;}
+  h1{font-size:clamp(20px,6vw,26px);font-weight:700;margin:0 0 8px;line-height:1.3;overflow-wrap:anywhere;}
+  .dek{color:var(--soft);font-size:15px;margin:0 0 22px;}
+  .hr{height:1px;background:var(--line);margin:22px 0;}
+  h2{font-size:11px;font-family:var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--clay-deep);margin:28px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--line);}
+  .badge{display:inline-block;font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;padding:3px 9px;border-radius:999px;background:var(--clay);color:#fff;margin-right:8px;vertical-align:middle;}
+  .badge.go{background:var(--go-deep);}
+  .badge.skip{background:var(--faint);}
+  .change-card{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:16px;margin-bottom:16px;}
+  .change-title{font-weight:700;font-size:16px;margin-bottom:4px;}
+  .change-meta{font-family:var(--mono);font-size:11px;color:var(--soft);margin-bottom:12px;}
+  .copy-box{background:#edeae0;border-radius:6px;padding:12px 14px;font-family:var(--mono);font-size:12px;white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word;margin:10px 0;color:var(--clay-deep);}
+  .rule{border-left:3px solid var(--go);padding:10px 13px;background:#f0f5f0;border-radius:0 6px 6px 0;margin:10px 0;font-size:13px;}
+  .rule b{color:var(--go-deep);}
+  .forbidden{border-left:3px solid var(--danger);padding:10px 13px;background:#fff4f4;border-radius:0 6px 6px 0;margin:10px 0;font-size:13px;}
+  .forbidden b{color:var(--danger);}
+  table{border-collapse:collapse;width:100%;font-size:13px;margin:4px 0 16px;table-layout:fixed;}
+  th,td{padding:9px 10px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top;overflow-wrap:anywhere;word-break:break-word;}
+  th{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--soft);font-weight:600;}
+  td:first-child{color:var(--clay-deep);font-weight:600;}
+  ul{padding-left:18px;margin:8px 0;}
+  li{margin:5px 0;}
+  code{font-family:var(--mono);font-size:12px;background:#edeae0;padding:1px 5px;border-radius:3px;color:var(--clay-deep);overflow-wrap:anywhere;word-break:break-word;}
+  .prompt-block{background:#1e1e1e;color:#d4d4d4;border-radius:8px;padding:14px 16px;font-family:var(--mono);font-size:12px;white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word;margin:10px 0;}
+  .foot{margin-top:28px;padding-top:14px;border-top:1px solid var(--line);font-family:var(--mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--faint);display:flex;flex-wrap:wrap;gap:8px;justify-content:space-between;}
+  @media(max-width:600px){
+    table,thead,tbody,tr,th,td{display:block;width:100%;}
+    thead{display:none;}
+    tr{border:1px solid var(--line);border-radius:8px;padding:10px;margin-bottom:10px;background:var(--panel);}
+    td{border:none;padding:4px 0;}
+    td:first-child{font-family:var(--mono);font-size:11px;color:var(--clay-deep);margin-bottom:4px;}
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="eyebrow">marketing-77 · 구현 패킷 · 2026-06-22 · user-approved</div>
+  <h1>Virtue UI/카피 구현 패킷</h1>
+  <p class="dek">marketing-74/76 기반 최소 패킷. <code>/add</code> 첫 표면 + 결과 카드 2개 표면만 변경한다.</p>
+
+  <div class="hr"></div>
+
+  <h2>우선순위 요약</h2>
+  <table>
+    <thead><tr><th>순위</th><th>표면</th><th>변경</th><th>gate</th></tr></thead>
+    <tbody>
+      <tr><td>1 (필수)</td><td><code>/add</code> 첫 표면</td><td>sample 결과 1줄 추가</td><td>Yes (marketing-76)</td></tr>
+      <tr><td>2 (필수)</td><td>결과 카드</td><td>J4 경계 문구 footer</td><td>Yes (marketing-76)</td></tr>
+      <tr><td>3 (건너뜀)</td><td>홈 empty state</td><td>ghost proof</td><td>No (marketing-76)</td></tr>
+    </tbody>
+  </table>
+
+  <div class="hr"></div>
+
+  <h2>Step 0 — 파일 탐색</h2>
+  <p style="color:var(--soft)">아래 커맨드로 대상 파일을 먼저 확인한다. 경로는 앱 버전에 따라 다를 수 있다.</p>
+  <div class="copy-box"># /add 페이지 컴포넌트 찾기
+find /home/ubuntu/dev/virtue-rebirth-app \\\n  \\( -path "*/app/add*" -o -path "*/pages/add*" \\) \\\n  -name "*.tsx" -o -name "*.jsx" 2>/dev/null
+
+# 결과 카드 컴포넌트 찾기
+grep -r "ResultCard\\|result.*card\\|덕행.*결과\\|결과.*카드" \\
+  /home/ubuntu/dev/virtue-rebirth-app/src \\
+  --include="*.tsx" --include="*.jsx" -l 2>/dev/null
+
+# 입력 폼 컴포넌트 찾기 (add 페이지 내 form)
+grep -r "form\\|input\\|textarea\\|뭐 했어요" \\
+  /home/ubuntu/dev/virtue-rebirth-app/src \\
+  --include="*.tsx" --include="*.jsx" -l 2>/dev/null | head -10</div>
+
+  <div class="hr"></div>
+
+  <h2>Change 1 — /add 첫 표면: sample 결과 1줄</h2>
+
+  <div class="change-card">
+    <div class="change-title"><span class="badge">Priority 1</span>/add 입력 상자 위 sample 힌트</div>
+    <div class="change-meta">marketing-74 Option B 기반 · J3 hesitation 직접 해소</div>
+
+    <p style="color:var(--soft)"><b>무엇을 추가하나:</b> 입력 상자(form/textarea) 위에, 사용자가 AI에서 받을 결과의 예시를 보여주는 ghost 힌트 1줄.</p>
+
+    <p style="color:var(--soft)"><b>추가할 카피 (정확한 문구):</b></p>
+    <div class="copy-box">예시  AI가 본 오늘: 미루던 결정을 드디어 했다. 결단력.</div>
+
+    <div class="rule">
+      <b>필수 요건:</b>
+      <ul>
+        <li>"예시" 또는 "sample" 레이블 반드시 포함 (marketing-71 seeded proof 원칙)</li>
+        <li>"AI가 본 오늘" 관점 프레임 사용 — "AI 채점" 금지 (m45 계승)</li>
+        <li>ghost/muted 스타일 — 실제 사용자 데이터처럼 보이지 않게</li>
+        <li>작은 텍스트, 낮은 opacity (0.5~0.65 권장)</li>
+      </ul>
+    </div>
+
+    <p style="color:var(--soft)"><b>React/Tailwind 예시 (앱 스타일에 맞게 조정):</b></p>
+    <div class="copy-box">{/* marketing-77: /add 입력 전 기대 형성 힌트 */}
+&lt;p className="text-xs text-muted-foreground/60 mb-2 font-light"&gt;
+  &lt;span className="font-mono text-[10px] uppercase tracking-widest mr-2 opacity-50"&gt;
+    예시
+  &lt;/span&gt;
+  AI가 본 오늘: 미루던 결정을 드디어 했다. 결단력.
+&lt;/p&gt;</div>
+
+    <div class="forbidden">
+      <b>금지:</b> 실제 API 호출, 실제 사용자 데이터, tracking 이벤트, "AI 채점" 문구, 정적 텍스트 이상의 UI 변경
+    </div>
+  </div>
+
+  <div class="hr"></div>
+
+  <h2>Change 2 — 결과 카드: J4 경계 문구 footer</h2>
+
+  <div class="change-card">
+    <div class="change-title"><span class="badge go">Priority 2</span>결과 카드 하단 경계 문구</div>
+    <div class="change-meta">marketing-74 J4 footer 권고 · marketing-76 Yes 판정</div>
+
+    <p style="color:var(--soft)"><b>무엇을 추가하나:</b> AI 결과를 보여주는 카드 컴포넌트의 하단(footer)에, AI 권한 경계를 안심시키는 문구 1줄.</p>
+
+    <p style="color:var(--soft)"><b>추가할 카피 (정확한 문구):</b></p>
+    <div class="copy-box">AI는 관점만 제시하며, 저장은 내가 결정합니다.</div>
+
+    <div class="rule">
+      <b>필수 요건:</b>
+      <ul>
+        <li>결과 콘텐츠 아래(footer)에 위치 — 결과 먼저, 경계 나중 (정보 순서 원칙)</li>
+        <li>작은 크기, 낮은 opacity, 구분선 위</li>
+        <li>관점 제안 톤 — 판결/경고처럼 보이지 않게</li>
+      </ul>
+    </div>
+
+    <p style="color:var(--soft)"><b>React/Tailwind 예시 (앱 스타일에 맞게 조정):</b></p>
+    <div class="copy-box">{/* marketing-77: J4 경계 안심 문구 */}
+&lt;p className="text-xs text-muted-foreground/50 mt-3 pt-3 border-t border-border/30"&gt;
+  AI는 관점만 제시하며, 저장은 내가 결정합니다.
+&lt;/p&gt;</div>
+
+    <div class="forbidden">
+      <b>금지:</b> 카드 구조 대규모 변경, 새 CTA 버튼, tracking 이벤트, 저장 동선 변경
+    </div>
+  </div>
+
+  <div class="hr"></div>
+
+  <h2>Change 3 — 홈 empty state (이번 패킷 건너뜀)</h2>
+  <div class="change-card">
+    <div class="change-title"><span class="badge skip">Skip</span>홈 empty state ghost proof</div>
+    <div class="change-meta">marketing-76 Gate: No — 설명 강화보다 preview/proof 보강이 우선</div>
+    <p style="color:var(--soft)">이번 최소 패킷에서는 건너뜀. marketing-76 No 판정 기준: "안내가 없다고 즉시 행동을 놓치는 단계가 아님." 추후 별도 intent로 분리 검토 가능.</p>
+  </div>
+
+  <div class="hr"></div>
+
+  <h2>검증 체크리스트</h2>
+  <table>
+    <thead><tr><th>항목</th><th>방법</th><th>기대 결과</th></tr></thead>
+    <tbody>
+      <tr><td>빌드</td><td><code>npm run build</code> 또는 <code>next build</code></td><td>에러 없음</td></tr>
+      <tr><td>sample 표식</td><td>화면에서 "예시" 레이블 시각 확인</td><td>명확히 표시됨</td></tr>
+      <tr><td>경계 문구</td><td>결과 카드 하단 텍스트 확인</td><td>작고 muted하게 렌더됨</td></tr>
+      <tr><td>tracking 없음</td><td>네트워크 탭 또는 코드 diff 확인</td><td>신규 이벤트 없음</td></tr>
+      <tr><td>copy 프레임</td><td>"AI 채점" 검색</td><td>결과 없음 (사용 금지)</td></tr>
+    </tbody>
+  </table>
+
+  <div class="hr"></div>
+
+  <h2>안전 경계 (approval 범위)</h2>
+  <div class="rule">
+    <b>허용:</b> product UI/copy 파일 수정, 빌드 확인, 일반 commit/push (non-force)
+  </div>
+  <div class="forbidden">
+    <b>금지:</b> tracking/analytics 이벤트 추가, privacy 변경, credential 수정, external message 발송, force push, 배포 자동화 변경, 비용 발생 작업
+  </div>
+
+  <div class="foot">
+    <span>marketing-77</span>
+    <span>Cloud prepare · user-approved</span>
+    <span>Infinity Heartbeat · 2026-06-22T12:00Z</span>
+  </div>
+</div>
+</body>
+</html>
