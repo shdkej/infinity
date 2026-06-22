@@ -17,6 +17,7 @@
   owner route: Infinity router -> local Claude Code / implementation agent.
   success criteria: implementation diff is scoped; no new tracking/privacy/external/cost/credential changes; copy follows marketing-74/76 guidance; ghost/sample/proof elements are clearly marked as preview/sample if used; tests/build or equivalent local verification pass; report records approval source and changed surfaces.
   cloud_prepare: 2026-06-22T1230Z — P1(/add 기대 브리지) · P2(결과 카드 footer) · P3(홈 ghost 카드) 구현 스펙 완료. artifacts/marketing-77/implementation-spec.md 참고. 로컬 Claude Code 실행 대기.
+  router note: 2026-06-22T13:40Z handoff report added after hourly recap regression; user-approved Active marketing implementation must not be collapsed into routine `NO_REPLY`.
 
 ## Waiting
 

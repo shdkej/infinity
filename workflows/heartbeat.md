@@ -23,6 +23,8 @@ INTENTS.md의 `## Inbox` 섹션을 먼저 확인한다. 자유 형식 텍스트�
 
 `marketing-*` 또는 `target_agent: marketer` 요청은 두 번짜리 Marketing growth review cron을 기다리지 않는다. Heartbeat/Infinity router가 실행 가능한 marketing intent로 취급하고, 필요한 경우 Marketer 학습 루프로 바로 넘긴다.
 
+사용자가 명시 승인한 `Active` 상태의 `marketing-*` 구현 intent는 routine triage가 아니다. Telegram 알림은 조용히 유지할 수 있지만, 라우터는 이를 `NO_REPLY`로 무시하지 않고 한 번의 bounded 실행 단위로 처리해야 한다. 이때 가능한 결과는 (a) 승인 범위 안의 작은 구현/검증/리포트, (b) 정확한 blocker를 `Waiting`에 남김, (c) 로컬 실행 프롬프트/준비 리포트 작성 중 하나다.
+
 추론이 어려운 필드는 비워두지 말고 Telegram으로 사용자에게 질문한다.
 
 ### 2. 의도 읽기
@@ -212,6 +214,8 @@ Report는 실행 로그다. 2축은 그 로그의 결론을 한눈에 보게 하
 `scripts/notify.sh`를 사용하여 알림 발송.
 
 마케팅/세스고딘 작업은 하트비트·대시보드·일일 회고에서 확인할 수 있게 기록만 남기고, Telegram 실시간 알림은 기본적으로 보내지 않는다. 후보 발굴, Inbox 등록, 학습 노트 저장, 완료 report, Archive 전환, routine Waiting 업데이트 모두 조용히 처리한다. 사용자가 현재 대화에서 명시적으로 요청한 승인 질문이나 비마케팅 시스템 장애가 아니라면 `NO_REPLY`로 닫는다.
+
+단, `NO_REPLY`는 사용자에게 실시간 알림을 보내지 않는다는 뜻이지, 승인된 Active 작업을 실행하지 않는다는 뜻이 아니다. 특히 `approval: user-approved`가 있는 `marketing-*` 구현 intent는 다음 라우터 사이클에서 작업 대상으로 잡혀야 하며, 실행 결과는 Archive/report/Waiting 또는 내부 inbox에 남긴다.
 
 마케팅/세스고딘 작업이 SAM에게 전달할 routine 신호가 있으면 사용자 채팅 대신 `/home/ubuntu/.openclaw/workspace/system/data/agent-inbox/marketing.jsonl`에 JSONL 한 줄로 남긴다. 필드는 `ts`, `source`, `scope`, `item_id`, `signal`, `diagnosis`, `action_candidate`, `measurement`, `routing`, `artifacts`, `urgency`, `needs_sam_decision`, `needs_user_approval`, `user_visible`를 기본으로 한다. 이 큐는 에이전트끼리 주고받는 보조 입력이며, target-agent 실행 트리거가 아니다. 실행이 필요한 협업 요청은 `INTENTS.md` Inbox의 `marketing-*` 또는 `target_agent: marketer` intent로 존재해야 한다. local Claude는 메시지 수신·판단을 위해 호출하지 않는다. local Claude는 실제 로컬 파일/코드/테스트/브라우저/빌드/검증이 필요한 경우에만 사용한다.
 

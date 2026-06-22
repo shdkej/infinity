@@ -1,7 +1,7 @@
 # marketing-77 Virtue 승인된 마케팅 UI/카피 구현 패킷
 
 - id: marketing-77
-- status: active
+- status: in_progress
 - created_at: 2026-06-22T11:25Z
 - projects: [virtue]
 - task_type: implementation
@@ -52,3 +52,9 @@
 
 - Do not archive until implementation and verification are actually complete.
 - If the app worktree has unrelated dirty changes or deployment ambiguity, record Waiting rather than overwriting.
+
+## Router Reflection Notes
+
+- 2026-06-22T12:30Z: cloud prepare completed implementation spec. See `artifacts/marketing-77/implementation-spec.md` and `reports/marketing-77/2026-06-22T1230Z.html`.
+- 2026-06-22T13:40Z: router regression diagnosed after the hourly recap still showed pure `NO_REPLY`. The approval itself was present in Active, but the live router had over-applied the marketing routine silence rule. Added handoff report: `reports/marketing-77/2026-06-22T1340Z-router-handoff.html`.
+- Next router/local implementation pass must either implement one scoped packet, or record a concrete Waiting blocker. Do not treat this Active user-approved implementation as routine marketing triage.
