@@ -8,17 +8,7 @@
 
 ## Active
 
-- `marketing-74` Virtue `/add` 입력 전 기대 형성 비교안
-  status: active
-  priority: medium
-  permission_level: L1 docs-only
-  goal: Virtue `/add` 첫 표면에서 입력 요구가 결과 기대보다 먼저 보여 J3/J4 hesitation gap 발생. 현행·sample 결과 1줄·결과+권한 경계 1줄 등 3안 비교표와 추천 기본안 1개를 한국어 문서 1건으로 정리.
-  success_criteria: 3안 비교표(J1/J3/J4 오해 위험 포함) + 추천안 1개 한국어 문서 완성. production/tracking/privacy/public copy/deploy/external message/cost 변경 0.
-  context:
-    source_note: /home/ubuntu/workspace/knowledge-lab/source/external-links/marketing/2026-06-21-add-preinput-proof-bridge.md
-    prior: marketing-73(J3 AI 브리지 3안), marketing-71(seeded proof 비교)
-  owner_route: Infinity router -> Claude Code
-  mode: prepare (cloud 선행 조사 후 로컬 문서 작성 위임)
+<!-- 비어 있음 -->
 
 ## Waiting
 
@@ -27,6 +17,7 @@
 <!-- naver-shopping-01 waiting 2026-06-21T1000Z → intents/active/naver-shopping-01.md [display: 나래/Narae; projects: naver-shopping,infinity,personal-ops; type: coordination; topics: automation,workflow,marketing; status: sample-order-gated-session-waiting; approval: sample-order-gated] (cloud 소싱 준비 완료(크로스바디+손목 스트랩). alibaba.com 로컬 공급사 확인(계정 불필요) + 손목·크로스바디 병행 샘플 주문 사용자 승인 대기. do_not_repeat_cloud 활성.) -->
 
 ## Archive
+<!-- marketing-74 completed 2026-06-22T0600Z → intents/archive/marketing-74.md [projects: virtue; type: strategy; topics: marketing,activation,product,onboarding] (/add 입력 전 기대 형성 3안 비교 완료. Option B(sample 결과 1줄)가 J3 hesitation 해소 최우선 추천안. J4 경계 문구는 결과 카드 footer 배치 권고. 구현은 approval-needed. HTML report gate passed.) -->
 <!-- research-20 completed 2026-06-21T1200Z → intents/archive/research-20.md (강의/교육 퍼널 제외 국내 1인 브랜드 10선 재조사 완료. 취향·미감·공간·독립출판 기반 경로 다양성 입증. 10개 모두 강의 핵심 수익 아님. HTML report gate passed.) -->
 <!-- marketing-73 completed 2026-06-21T0700Z → intents/archive/marketing-73.md [projects: virtue; type: strategy; topics: marketing,activation,product] (J3 AI 브리지 3안 비교 완료. Option C(빈 상태 ghost AI 결과 카드)가 J3 기대 강화 최대·J1/J4 훼손 최소 추천안. Option B(CTA 보조 힌트)가 가장 보수적 차선. 구현은 approval-needed. HTML report gate passed.) -->
 <!-- research-19 completed 2026-06-21T0720Z → intents/archive/research-19.md (드로우앤드류·자청 제외 국내 1인 브랜드 10선 분석 완료. 공통 패턴: 무료 콘텐츠→신뢰→유료 교육/커뮤니티/상품 전환 퍼널. 마스터 1순위: 자기 성과 기반 지식 강의 실험. HTML report gate passed.) -->

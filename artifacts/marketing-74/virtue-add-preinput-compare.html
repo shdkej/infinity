@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Virtue /add 입력 전 기대 형성 비교안 — marketing-74</title>
+<style>
+  :root {
+    --bg:#f4f2ea; --panel:#fbfaf5; --ink:#2c2a25; --soft:#807c70;
+    --faint:#a8a496; --line:#e3dfd2;
+    --clay:#a9745a; --clay-deep:#8a5c45;
+    --go:#5f7a5e; --go-deep:#3f5740;
+    --warn:#b08545;
+    --danger:#8a4444;
+    --sans:-apple-system,BlinkMacSystemFont,"Pretendard","Noto Sans KR",sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;width:100%;overflow-x:hidden;}
+  body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:14px;line-height:1.7;}
+  .sheet{width:min(100%,720px);max-width:720px;margin:0 auto;padding:28px 16px 44px;}
+  .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--soft);margin-bottom:10px;}
+  h1{font-size:clamp(20px,6vw,26px);font-weight:700;margin:0 0 8px;line-height:1.3;overflow-wrap:anywhere;}
+  .dek{color:var(--soft);font-size:15px;margin:0 0 22px;}
+  .hr{height:1px;background:var(--line);margin:22px 0;}
+  h2{font-size:11px;font-family:var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--clay-deep);margin:28px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--line);}
+
+  .problem{background:#fff8f4;border-left:3px solid var(--clay);padding:12px 14px;margin-bottom:24px;border-radius:0 6px 6px 0;}
+  .problem b{color:var(--clay-deep);}
+  code{font-family:var(--mono);font-size:12px;background:#edeae0;padding:1px 5px;border-radius:3px;color:var(--clay-deep);}
+
+  .option{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:14px 15px;margin-bottom:12px;}
+  .opt-head{display:flex;align-items:center;gap:10px;margin-bottom:8px;flex-wrap:wrap;}
+  .badge{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;padding:3px 9px;border-radius:999px;background:var(--line);color:var(--soft);white-space:nowrap;}
+  .badge.rec{background:var(--go-deep);color:#fff;}
+  .opt-title{font-weight:700;font-size:15px;}
+  .surface{font-family:var(--mono);font-size:12px;color:var(--soft);background:#edeae0;padding:9px 11px;border-radius:5px;margin:8px 0 10px;white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-all;line-height:1.55;}
+  .opt-desc{margin:0 0 10px;color:var(--soft);}
+  .risks{display:flex;flex-wrap:wrap;gap:6px;}
+  .risk{font-family:var(--mono);font-size:10.5px;padding:3px 9px;border-radius:999px;border:1px solid var(--line);}
+  .risk.low{color:var(--go-deep);border-color:var(--go);}
+  .risk.mid{color:var(--warn);border-color:var(--warn);}
+  .risk.high{color:var(--danger);border-color:var(--danger);}
+
+  table{border-collapse:collapse;width:100%;font-size:13px;margin:4px 0 16px;table-layout:fixed;}
+  th,td{padding:9px 10px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top;overflow-wrap:anywhere;word-break:break-word;}
+  th{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--soft);font-weight:600;}
+  td:first-child{color:var(--clay-deep);font-weight:600;}
+
+  @media(max-width:600px){
+    table,thead,tbody,tr,th,td{display:block;width:100%;}
+    thead{display:none;}
+    tr{border:1px solid var(--line);border-radius:8px;padding:10px;margin-bottom:10px;background:var(--panel);}
+    td{border:none;padding:4px 0;}
+    td:first-child{font-family:var(--mono);font-size:11px;color:var(--clay-deep);margin-bottom:4px;}
+  }
+
+  .rec-box{background:#f0f5f0;border-left:3px solid var(--go);padding:14px 16px;border-radius:0 8px 8px 0;margin-bottom:20px;}
+  .rec-label{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--go-deep);margin-bottom:6px;}
+  .rec-box ul{margin:10px 0 0;padding-left:18px;}
+  .rec-box li{margin:5px 0;color:var(--ink);}
+  .rec-box b{color:var(--go-deep);}
+  .rec-box .note{margin-top:10px;color:var(--soft);font-size:13px;}
+
+  .inherited{font-size:13px;color:var(--soft);padding-left:18px;}
+  .inherited li{margin:5px 0;}
+  .safety{font-family:var(--mono);font-size:11px;color:var(--faint);padding-top:14px;border-top:1px solid var(--line);margin-top:28px;}
+  .foot{margin-top:28px;padding-top:14px;border-top:1px solid var(--line);font-family:var(--mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--faint);display:flex;flex-wrap:wrap;gap:8px;justify-content:space-between;}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="eyebrow">marketing-74 · L1 docs-only · proposal-only · 2026-06-22</div>
+  <h1>Virtue /add 입력 전 기대 형성 비교안</h1>
+  <p class="dek">J3·J4 hesitation gap 해소를 위한 3안 비교 및 추천 기본안</p>
+
+  <div class="hr"></div>
+
+  <div class="problem">
+    <b>문제:</b> Virtue <code>/add</code> 첫 표면이 <b>입력 상자를 먼저 보여주는</b> 구조라, AI 결과 기대 없이 입력을 요구한다.<br><br>
+    → <b>J3 (AI 호기심형)</b>: "AI가 어떤 결과를 줄지 모르는데 입력해야 하나?" 주저<br>
+    → <b>J4 (회고형)</b>: "AI에게 개인 내용을 넘기기 전에 어디까지 하는지 알고 싶다" 우려
+  </div>
+
+  <h2>3안 개요</h2>
+
+  <div class="option">
+    <div class="opt-head">
+      <span class="badge">A · 현행</span>
+      <span class="opt-title">입력 상자만 (변경 없음)</span>
+    </div>
+    <div class="surface">[ 뭐 했어요?          ]
+[    입력 상자         ]</div>
+    <p class="opt-desc">AI 결과 예시 없음. 입력 요구 → 결과 기대 0. J3/J4 hesitation 최대.</p>
+    <div class="risks">
+      <span class="risk high">J3 주저 ★★★</span>
+      <span class="risk high">J4 우려 ★★★</span>
+      <span class="risk low">J1/J2 부담 없음</span>
+      <span class="risk low">구현 없음</span>
+    </div>
+  </div>
+
+  <div class="option">
+    <div class="opt-head">
+      <span class="badge rec">B · 추천안</span>
+      <span class="opt-title">Sample 결과 1줄</span>
+    </div>
+    <div class="surface">예시  AI가 본 오늘: 미루던 결정을 드디어 했다. 결단력.
+
+[ 뭐 했어요?          ]
+[    입력 상자         ]</div>
+    <p class="opt-desc">입력 상자 위에 ghost/sample 예시 1줄. "아, 이런 결과구나" 기대 형성. J3 hesitation 직접 해소.</p>
+    <div class="risks">
+      <span class="risk low">J3 주저 해소 ○</span>
+      <span class="risk mid">J4 우려 미해소 ★★</span>
+      <span class="risk low">J1/J2 부담 최소</span>
+      <span class="risk low">구현 낮음</span>
+    </div>
+  </div>
+
+  <div class="option">
+    <div class="opt-head">
+      <span class="badge">C · 결과+경계</span>
+      <span class="opt-title">결과+권한 경계 1줄</span>
+    </div>
+    <div class="surface">예시  AI가 본 오늘: 미루던 결정을 드디어 했다. 결단력.
+경계  AI는 관점만 제시하며, 저장은 내가 결정합니다.
+
+[ 뭐 했어요?          ]
+[    입력 상자         ]</div>
+    <p class="opt-desc">예시 1줄 + 권한 경계 1줄 동시 제공. J3·J4 hesitation 동시 해소. 단, 첫 인상에 텍스트 2줄 추가로 정보 부담 중간.</p>
+    <div class="risks">
+      <span class="risk low">J3 주저 해소 ○</span>
+      <span class="risk low">J4 우려 해소 ○</span>
+      <span class="risk mid">J1/J2 부담 중간 ★★</span>
+      <span class="risk low">구현 낮음</span>
+    </div>
+  </div>
+
+  <h2>비교표 — 안별 효과 요약</h2>
+  <table>
+    <thead>
+      <tr><th>안</th><th>J3 기대 형성</th><th>J4 경계 인지</th><th>J1/J2 부담</th><th>구현</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>A 현행</td>
+        <td>✕ 없음</td>
+        <td>✕ 없음</td>
+        <td>최소</td>
+        <td>없음</td>
+      </tr>
+      <tr>
+        <td>B Sample 결과 1줄</td>
+        <td>○ 직접 해소</td>
+        <td>△ 미해소</td>
+        <td>최소</td>
+        <td>낮음 (hint 1줄)</td>
+      </tr>
+      <tr>
+        <td>C 결과+권한 경계</td>
+        <td>○ 직접 해소</td>
+        <td>○ 해소</td>
+        <td>중간</td>
+        <td>낮음 (2줄 추가)</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>J1 · J3 · J4 오해 위험 상세</h2>
+  <table>
+    <thead>
+      <tr><th>잡</th><th>A 현행</th><th>B 결과 1줄</th><th>C 결과+경계</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>J1 일상 기록형</td>
+        <td>부담 없음. 맥락 이미 앎.</td>
+        <td>예시가 내 스타일과 다를 수 있지만 실제 사용에서 빠르게 해소됨. 위험 낮음.</td>
+        <td>텍스트 2줄이 많게 느껴질 수 있음. 빠르게 훑고 넘어감. 위험 낮음.</td>
+      </tr>
+      <tr>
+        <td>J3 AI 호기심형</td>
+        <td>결과 기대 없어 주저. 핵심 gap. 위험 ★★★</td>
+        <td>예시로 기대 형성 → 주저 해소. 실제 결과가 예시와 다르면 살짝 실망 가능. 위험 ★</td>
+        <td>예시 + 경계 문구로 J3 기대 충족. Option B와 동등. 위험 ★</td>
+      </tr>
+      <tr>
+        <td>J4 회고형</td>
+        <td>AI 권한 경계 불명확 → 개인 정보 공유 우려. 위험 ★★★</td>
+        <td>결과는 보이지만 권한 경계 없어 J4 우려 미해소. 결과 카드 단계 보완 필요. 위험 ★★</td>
+        <td>경계 문구 1줄로 J4 우려 직접 해소. 가장 완전. 위험 ★</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>추천 기본안</h2>
+  <div class="rec-box">
+    <div class="rec-label">추천</div>
+    <b>Option B (Sample 결과 1줄)</b>을 기본안으로 추천한다.<br><br>
+    이유:
+    <ul>
+      <li>J3 hesitation gap을 가장 직접적으로 해소한다.</li>
+      <li>J1/J2에 정보 부담을 최소로 추가한다.</li>
+      <li>구현이 가장 단순하다 (ghost 카드 1개 또는 hint 문구 1줄).</li>
+      <li>J4 권한 경계 우려는 <b>결과 카드 footer 1줄</b>로 <code>/add</code> 이후 단계에서 보완 가능하다. 결과를 본 뒤 경계를 인지하는 순서가 정보 부담도 적고 맥락상 자연스럽다.</li>
+    </ul>
+    <div class="note">
+      모든 문구는 <b>관점 프레임</b> 유지 필수: "AI 채점" 아닌 "AI가 본 오늘" 형식 (m45 계승).<br>
+      예시 카드에 <b>sample/예시 표식</b> 필수 (marketing-71 seeded proof 계승).<br>
+      구현·카피 변경은 별도 승인 필요 (approval-needed).
+    </div>
+  </div>
+
+  <h2>계승한 기준</h2>
+  <ul class="inherited">
+    <li><b>m45 (Decision-Delegation Risk Rides The Verb)</b>: 예시 문구는 판결 프레임 금지, 관점 프레임 유지. "AI 채점" → "AI가 본 오늘".</li>
+    <li><b>m32 (First-Input Defaults Steer The Job)</b>: 예시가 J3를 조향하면서 J1/J4에 영향 최소화하도록 중립 예시 사용.</li>
+    <li><b>m51 (Guided First-Value Is A Four-Stage Handoff)</b>: 첫 입력 전 구간 handoff에서 사용자 행동권 보존.</li>
+    <li><b>marketing-71 (seeded proof)</b>: sample/preview 표식 원칙 계승.</li>
+    <li><b>marketing-73 (J3 AI bridge)</b>: ghost AI 결과 카드 방식 계승. Option C(ghost 카드)가 J3 기대 강화 최대 원칙과 일관.</li>
+  </ul>
+
+  <div class="hr"></div>
+  <div class="safety">
+    production 변경 0 · deploy 0 · tracking/privacy 0 · public copy 0 · external message 0 · cost 0
+  </div>
+
+  <div class="foot">
+    <span>marketing-74</span>
+    <span>L1 docs-only · proposal-only</span>
+    <span>Infinity Heartbeat · 2026-06-22</span>
+  </div>
+
+</div>
+</body>
+</html>
