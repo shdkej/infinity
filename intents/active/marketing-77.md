@@ -2,10 +2,8 @@
 
 - id: marketing-77
 - status: waiting
-- waiting_since: 2026-06-22T1500Z
-- waiting_reason: 클라우드 Heartbeat에서 virtue-rebirth-app 직접 접근 불가. 로컬 Claude Code 실행 필요.
-- waiting_condition: 로컬 환경에서 실행 프롬프트 실행 시 Active 복귀. 실행 프롬프트: reports/marketing-77/2026-06-22T1500Z-local-exec-prompt.html
 - created_at: 2026-06-22T11:25Z
+- waiting_since: 2026-06-22T1500Z
 - projects: [virtue]
 - task_type: implementation
 - topics: [marketing, activation, product, ui-copy]
@@ -21,6 +19,16 @@
   - new tracking/privacy instrumentation or analytics events
   - credential, permission, or secret changes
   - force push or irreversible production operations
+
+## Waiting Reason
+
+`shdkej/virtue-rebirth-app`이 현재 클라우드 GitHub 세션 스코프 밖이고, 로컬 경로 `/home/ubuntu/dev/virtue-rebirth-app`도 원격 클라우드에서 접근 불가.
+
+**해결 선택지:**
+- 옵션 A: 세션에 `shdkej/virtue-rebirth-app` 추가 → 클라우드에서 PR 생성
+- 옵션 B: 로컬 터미널에서 구현 스펙 직접 적용
+
+구현 스펙: `artifacts/marketing-77/implementation-spec.md`
 
 ## Source Recommendations
 
@@ -60,4 +68,5 @@
 
 - 2026-06-22T12:30Z: cloud prepare completed implementation spec. See `artifacts/marketing-77/implementation-spec.md` and `reports/marketing-77/2026-06-22T1230Z.html`.
 - 2026-06-22T13:40Z: router regression diagnosed after the hourly recap still showed pure `NO_REPLY`. The approval itself was present in Active, but the live router had over-applied the marketing routine silence rule. Added handoff report: `reports/marketing-77/2026-06-22T1340Z-router-handoff.html`.
-- 2026-06-22T15:00Z: cloud Heartbeat (3rd pass) confirmed virtue-rebirth-app is not accessible from cloud container. Local execution prompt written to `reports/marketing-77/2026-06-22T1500Z-local-exec-prompt.html`. Status changed to waiting. Active 복귀 조건: 로컬 환경에서 위 실행 프롬프트 실행.
+- 2026-06-22T15:00Z: blocker confirmed — `shdkej/virtue-rebirth-app` not in GitHub session scope (allowed: prompt-archive, infinity only). Bash `/home/ubuntu/dev/` NOT_ACCESSIBLE from cloud. Status changed to `waiting`. Blocker report: `reports/marketing-77/2026-06-22T1500Z-blocker.html`. Telegram 사용자 알림 발송.
+- Next: 사용자가 옵션 A(세션 스코프 추가) 또는 옵션 B(로컬 실행) 선택 후 재개.
