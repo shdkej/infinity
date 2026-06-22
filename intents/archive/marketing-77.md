@@ -14,7 +14,10 @@
 - reports:
   - path: reports/marketing-77/2026-06-22T1431Z.html
     role: final
-- commits: []
+- commits:
+  - repo: virtue-rebirth-app
+    hash: ac3c464
+    note: Add Virtue AI guidance copy
 - urls: []
 - next_actions:
   - 홈 empty state ghost/sample proof preview는 별도 후속 intent로 분리 가능하다.
