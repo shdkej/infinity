@@ -4,7 +4,14 @@
 
 ## Inbox
 
-<!-- 비어 있음 -->
+- `marketing-78` 홈 `최근 덕행` 빈 상태 3요소 패킷 작성
+  source note path: `/home/ubuntu/workspace/knowledge-lab/source/external-links/marketing/2026-06-22-empty-state-triad-onboarding.md`
+  rationale: Appcues 2026 기준상 empty state는 `다음 행동 / 왜 중요한가 / 어떤 결과가 남는가`를 함께 보여줘야 하는데, 현재 Virtue 홈 recent empty state는 다음 행동만 비교적 선명하고 결과 예시가 약하다. `marketing-70/71/76/77` 계승으로 홈 표면만 다시 좁혀 정리할 가치가 있다.
+  expected impact: 첫 클릭 전 기대 형성 품질을 높이는 최소 변경 후보를 한국어 기준으로 압축해, 이후 approval-needed 구현 판단을 더 빠르게 만든다.
+  permission level: L1 docs-only
+  owner route: Infinity router -> Claude Code
+  success criteria: 홈 `최근 덕행` empty state에 대해 `한 줄 보조문구 / ghost sample card 1장 / 둘 다` 3안을 비교하고, 각 안이 3요소를 얼마나 채우는지와 기존 archive 문서 충돌 0을 한 문서에 정리한다.
+  first verification gate: 라이브 홈 read-only 캡처와 `marketing-70/71/76/77` archive 요약을 대조해 현재 갭이 `CTA 부족`이 아니라 `결과 예시 가시성 부족`인지 먼저 확인한다.
 
 ## Active
 
