@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Infinity Report — marketing-77</title>
+<style>
+  :root{
+    --bg:#f4f2ea; --panel:#fbfaf5; --ink:#2c2a25; --soft:#807c70; --faint:#a8a496; --line:#e3dfd2;
+    --a2:#5f7a5e; --a2-deep:#3f5740;
+    --a1:#a9745a; --a1-deep:#8a5c45;
+    --sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0; width:100%; max-width:100%; overflow-x:hidden;}
+  body{background:var(--bg); color:var(--ink); font-family:var(--sans); font-size:14px; line-height:1.68; -webkit-font-smoothing:antialiased;}
+  .sheet{width:min(100%,720px); max-width:720px; margin:0 auto; padding:32px 18px 40px;}
+  .reveal{opacity:0; animation:fade .7s ease forwards;}
+  @keyframes fade{from{opacity:0; transform:translateY(9px);} to{opacity:1; transform:none;}}
+  .eyebrow{display:flex; align-items:center; gap:10px; font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--soft); flex-wrap:wrap;}
+  .eyebrow .id{color:var(--a2-deep); font-weight:600;}
+  .eyebrow .dot{width:5px; height:5px; border-radius:50%; background:var(--a2);}
+  .eyebrow .status{color:var(--a2-deep);}
+  h1{font-size:clamp(24px,7vw,29px); line-height:1.3; font-weight:700; letter-spacing:0; margin:20px 0 0; overflow-wrap:anywhere;}
+  .dek{font-size:15.5px; color:var(--soft); margin:13px 0 0; max-width:52ch;}
+  .hr{height:1px; background:var(--line); margin:30px 0;}
+  .axis{padding:0 0 4px 18px; position:relative; margin-bottom:26px;}
+  .axis::before{content:""; position:absolute; left:0; top:6px; bottom:6px; width:2px; border-radius:2px;}
+  .axis.ax1::before{background:var(--a1);} .axis.ax2::before{background:var(--a2);}
+  .axis.ax1{--ul:var(--a1);} .axis.ax2{--ul:var(--a2);}
+  .axis .label{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase; margin-bottom:9px; display:flex; align-items:center; gap:8px;}
+  .axis.ax1 .label{color:var(--a1-deep);} .axis.ax2 .label{color:var(--a2-deep);}
+  .axis .label .n{font-weight:600; opacity:.6;}
+  .axis .text{font-size:clamp(16px,4.4vw,18px); line-height:1.62; color:#37352e; overflow-wrap:anywhere;}
+  .axis .text b{font-weight:700; color:var(--ink); border-bottom:2px solid var(--ul);}
+  ol.find{list-style:none; counter-reset:f; margin:16px 0 0; padding:0;}
+  ol.find li{position:relative; padding:8px 0 8px 26px; font-size:15px; color:#37352e; border-top:1px solid var(--line);}
+  ol.find li:first-child{border-top:none;}
+  ol.find li::before{counter-increment:f; content:counter(f); position:absolute; left:0; top:9px; font-family:var(--mono); font-size:12px; font-weight:600; color:var(--a1-deep);}
+  details{border:1px solid var(--line); border-radius:8px; background:var(--panel); margin-bottom:10px; overflow:hidden;}
+  summary{cursor:pointer; list-style:none; padding:14px 16px; display:flex; align-items:center; gap:11px; font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft);}
+  summary::-webkit-details-marker{display:none;}
+  summary .chev{width:8px; height:8px; border-right:2px solid var(--a2-deep); border-bottom:2px solid var(--a2-deep); transform:rotate(-45deg); transition:.25s; flex:none; margin-left:2px;}
+  details[open] summary .chev{transform:rotate(45deg);}
+  summary:hover{color:var(--ink);}
+  .body{padding:2px 16px 18px; min-width:0;}
+  .section{margin:4px 0 18px;}
+  .section-title{font-family:var(--mono); font-size:10.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--a1-deep); margin:0 0 8px;}
+  .callout{border-left:2px solid var(--a2); background:#f2efe5; padding:11px 13px; color:#4a473f; margin:12px 0 16px;}
+  .content-grid{display:grid; grid-template-columns:1fr; gap:10px; margin:10px 0;}
+  .mini-card{border:1px solid var(--line); background:#f8f6ef; border-radius:8px; padding:12px 13px; min-width:0;}
+  .mini-card b{display:block; color:var(--ink); margin-bottom:5px;}
+  .mini-card p{margin:0; color:var(--soft);}
+  table{border-collapse:collapse; width:100%; max-width:100%; table-layout:fixed; font-size:13px; margin:4px 0 12px;}
+  th,td{border-bottom:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top; overflow-wrap:anywhere; word-break:break-word;}
+  th{font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft); font-weight:600;}
+  td:first-child{color:var(--a2-deep); font-weight:600;}
+  .body p{color:var(--soft); overflow-wrap:anywhere;}
+  .body ul{margin:6px 0; padding-left:18px;} .body li{margin:5px 0;}
+  code{font-family:var(--mono); font-size:12px; background:#edeae0; padding:1px 6px; border-radius:3px; color:var(--a2-deep); overflow-wrap:anywhere; word-break:break-word;}
+  .chips{display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px;}
+  .chip{font-family:var(--mono); font-size:10.5px; letter-spacing:.05em; color:var(--soft); border:1px solid var(--line); border-radius:999px; padding:3px 10px;}
+  .foot{margin-top:30px; padding-top:15px; border-top:1px solid var(--line); display:flex; flex-wrap:wrap; gap:6px 14px; justify-content:space-between; font-family:var(--mono); font-size:10px; letter-spacing:.13em; text-transform:uppercase; color:var(--faint);}
+  @media (min-width:720px){
+    .sheet{padding:48px 34px 46px;}
+    .content-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
+  }
+  @media (max-width:640px){
+    table,thead,tbody,tr,th,td{display:block; width:100%;}
+    thead{display:none;}
+    tr{border:1px solid var(--line); border-radius:8px; padding:9px 10px; margin:0 0 10px; background:#f8f6ef;}
+    td{border-bottom:0; padding:5px 0;}
+    td:first-child{font-family:var(--mono); font-size:11px; letter-spacing:.05em;}
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="eyebrow reveal">
+    <span class="dot"></span>
+    <span class="id">marketing-77</span>
+    <span>Cloud Prepare · 개선형</span>
+    <span class="status">in_progress</span>
+  </div>
+  <h1 class="reveal" style="animation-delay:.05s">Virtue 마케팅 UI/카피 구현 패킷 — Cloud Prepare</h1>
+  <p class="dek reveal" style="animation-delay:.09s">marketing-70~76 approval-needed 산출물을 3개 표면 구현 스펙으로 정리 완료. 로컬 Claude Code 실행 대기 중.</p>
+
+  <div class="hr reveal" style="animation-delay:.12s"></div>
+
+  <div class="axis ax1 reveal" style="animation-delay:.16s">
+    <div class="label"><span class="n">01</span> 무엇이 문제였나</div>
+    <div class="text">6개 마케팅 분석(m70~76)에서 approval-needed로 멈춘 <b>3개 표면 구현 패킷이 없어</b> 사용자 승인 후에도 코드 변경으로 연결되지 않았다.</div>
+  </div>
+
+  <div class="axis ax2 reveal" style="animation-delay:.22s">
+    <div class="label"><span class="n">02</span> 어떻게 해결하나</div>
+    <div class="text">P1(/add 기대 브리지) → P2(결과 카드 footer) → P3(홈 ghost 카드) 순의 <b>구현 스펙을 완성</b>해 로컬 Claude Code로 이관. 승인 범위 외 변경 0.</div>
+  </div>
+
+  <div class="reveal" style="animation-delay:.27s">
+  <details open>
+    <summary><span class="chev"></span> 표면별 구현 스펙 요약</summary>
+    <div class="body">
+      <div class="section">
+        <div class="section-title">핵심 발견 — 3개 표면 결론</div>
+        <ol class="find">
+          <li><b>P1 /add 첫 화면 (최우선):</b> marketing-74 Option B — 입력 폼 근처 sample 결과 1줄. 카피: "예: AI가 오늘의 덕행을 정리했어요: 인내 × 3". 관점 프레임, 판결 동사 금지. 최소 변경, 즉시 되돌림 가능.</li>
+          <li><b>P2 결과 카드 footer (두 번째):</b> marketing-76 Yes + marketing-74 J4 배치 권고. 카드 하단에 1줄: "AI의 관점이에요 — 결정은 당신이 해요". 새 버튼/CTA 추가 금지.</li>
+          <li><b>P3 홈 empty state ghost 카드 (선택):</b> marketing-73 Option C. 덕행 0개일 때만 ghost AI 카드 1개 조건 표시. "샘플" 라벨 필수. 구현 난이도 중간, P1/P2 후 별도 결정.</li>
+          <li><b>공통 금지선:</b> tracking/privacy 신규 계측 0 · 판결 동사 금지 · ghost 라벨 없는 preview 금지 · 배포는 별도 L2 승인.</li>
+        </ol>
+      </div>
+
+      <div class="callout">구현 순서: P1 → P2 먼저 커밋 검증. P3는 P1/P2 완료 후 별도 결정 가능. P1만으로도 J3 hesitation 최우선 해소.</div>
+
+      <div class="content-grid">
+        <div class="mini-card">
+          <b>승인 근거</b>
+          <p>user 승인 2026-06-22T11:25Z. marketing-76 Gate Yes(/add·결과 카드), marketing-75 Tier 3 분류.</p>
+        </div>
+        <div class="mini-card">
+          <b>다음 판단</b>
+          <p>로컬 Claude Code가 virtue-rebirth-app에서 P1→P2 구현 및 검증. P3 포함 여부는 구현 중 결정 가능.</p>
+        </div>
+      </div>
+    </div>
+  </details>
+
+  <details open>
+    <summary><span class="chev"></span> 표면별 카피 · 위치 · 되돌림</summary>
+    <div class="body">
+      <table>
+        <thead>
+          <tr><th>표면</th><th>카피</th><th>위치</th><th>되돌림</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>P1 /add</td>
+            <td>"예: AI가 오늘의 덕행을 정리했어요: 인내 × 3"</td>
+            <td>입력 폼 위/아래 보조 텍스트</td>
+            <td>텍스트 1줄 제거</td>
+          </tr>
+          <tr>
+            <td>P2 결과 카드</td>
+            <td>"AI의 관점이에요 — 결정은 당신이 해요"</td>
+            <td>카드 footer 하단</td>
+            <td>footer 텍스트 제거</td>
+          </tr>
+          <tr>
+            <td>P3 홈 ghost</td>
+            <td>[샘플] 인내 × 3 · AI의 관점: 조용히 넘겼어요</td>
+            <td>최근 덕행 빈 상태 조건 분기</td>
+            <td>조건 분기 제거</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="chev"></span> 실행 메타 · 산출물</summary>
+    <div class="body">
+      <div class="chips">
+        <span class="chip">2026-06-22T1230Z</span>
+        <span class="chip">user-approved 2026-06-22T1125Z</span>
+        <span class="chip">active → in_progress</span>
+        <span class="chip">cloud prepare</span>
+      </div>
+      <ul>
+        <li>구현 스펙: <code>artifacts/marketing-77/implementation-spec.md</code></li>
+        <li>이 리포트: <code>reports/marketing-77/2026-06-22T1230Z.html</code></li>
+        <li>로컬 앱: <code>/home/ubuntu/dev/virtue-rebirth-app</code></li>
+        <li>참고: marketing-70, 71, 73, 74, 75, 76 아카이브</li>
+      </ul>
+    </div>
+  </details>
+  </div>
+
+  <div class="foot reveal" style="animation-delay:.3s">
+    <span>Agent-First Heartbeat</span>
+    <span>Infinity · Intent Note</span>
+  </div>
+</div>
+</body>
+</html>

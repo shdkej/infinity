@@ -9,12 +9,14 @@
 ## Active
 
 - `marketing-77` Virtue 승인된 마케팅 UI/카피 구현 패킷
+  status: in_progress
   trigger: user said `마케팅 작업 승인` at 2026-06-22T11:25Z.
   scope: 최근 approval-needed 마케팅 산출물(marketing-70/71/73/74/75/76)을 구현 가능한 최소 제품 내 UI/카피 변경 패킷으로 정리하고 적용한다. 우선순위는 (1) `/add` 첫 표면 기대/권한 브리지, (2) 결과 카드 맥락형 안내, (3) 홈 empty state ghost/sample proof preview 중 가장 작고 되돌리기 쉬운 조합이다.
   approval: user-approved for product UI/copy implementation. This approval does not include external announcements, paid actions, new tracking/privacy instrumentation, credential/permission changes, or irreversible production operations.
   permission level: L1/L2 product code and copy change after scoped verification; no force push.
   owner route: Infinity router -> local Claude Code / implementation agent.
   success criteria: implementation diff is scoped; no new tracking/privacy/external/cost/credential changes; copy follows marketing-74/76 guidance; ghost/sample/proof elements are clearly marked as preview/sample if used; tests/build or equivalent local verification pass; report records approval source and changed surfaces.
+  cloud_prepare: 2026-06-22T1230Z — P1(/add 기대 브리지) · P2(결과 카드 footer) · P3(홈 ghost 카드) 구현 스펙 완료. artifacts/marketing-77/implementation-spec.md 참고. 로컬 Claude Code 실행 대기.
 
 ## Waiting
 
