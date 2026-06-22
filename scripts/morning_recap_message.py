@@ -6,6 +6,7 @@ from __future__ import annotations
 import datetime as dt
 import os
 import re
+import sqlite3
 import subprocess
 from pathlib import Path
 
@@ -13,7 +14,12 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 INTENTS = ROOT / "INTENTS.md"
 GATES = ROOT / "GATES.md"
+OPENCLAW_DB = Path("/home/ubuntu/.openclaw/state/openclaw.sqlite")
 KST = dt.timezone(dt.timedelta(hours=9), name="KST")
+EVALUATOR_JOBS = {
+    "f1027114-6430-433a-b4cb-6aa0dfc53157": "OpenClaw eval",
+    "986c49b2-c615-4134-b95a-2cf74217c5b7": "kl eval",
+}
 
 
 def run_git(args: list[str]) -> str:
@@ -131,11 +137,74 @@ def hourly_timeline(now_kst: dt.datetime, events: list[dict[str, str]]) -> str:
     return "\n".join(rows)
 
 
+def evaluator_events(start_utc: dt.datetime, end_utc: dt.datetime) -> list[dict[str, str]]:
+    if not OPENCLAW_DB.exists():
+        return []
+    start_ms = int(start_utc.timestamp() * 1000)
+    end_ms = int(end_utc.timestamp() * 1000)
+    placeholders = ",".join("?" for _ in EVALUATOR_JOBS)
+    query = f"""
+        select job_id, run_at_ms, status, coalesce(summary, ''), coalesce(error, '')
+        from cron_run_logs
+        where job_id in ({placeholders})
+          and run_at_ms >= ?
+          and run_at_ms < ?
+        order by run_at_ms asc
+    """
+    try:
+        with sqlite3.connect(OPENCLAW_DB) as conn:
+            rows = conn.execute(query, [*EVALUATOR_JOBS.keys(), start_ms, end_ms]).fetchall()
+    except sqlite3.Error:
+        return []
+
+    events: list[dict[str, str]] = []
+    for job_id, run_at_ms, status, summary, error in rows:
+        ts = dt.datetime.fromtimestamp(run_at_ms / 1000, dt.timezone.utc).astimezone(KST)
+        raw = error or summary or status or ""
+        text = clean_summary(raw, 82)
+        quiet = status == "ok" and (not summary or summary.strip() == "NO_REPLY") and not error
+        if error or status != "ok":
+            marker = "🟥"
+            note = text or status or "error"
+        elif quiet:
+            marker = "⬜️"
+            note = "no findings"
+        else:
+            marker = "🟩"
+            note = text
+        events.append(
+            {
+                "time": f"{ts:%H:%M}",
+                "marker": marker,
+                "name": EVALUATOR_JOBS.get(job_id, job_id),
+                "note": note,
+            }
+        )
+    return events
+
+
+def evaluator_timeline(events: list[dict[str, str]]) -> str:
+    if not events:
+        return "⬜️ 평가기 실행 기록 없음"
+    names = list(dict.fromkeys(event["name"] for event in events))
+    parts = []
+    for name in names:
+        name_events = [event for event in events if event["name"] == name]
+        failures = sum(1 for event in name_events if event["marker"] == "🟥")
+        findings = sum(1 for event in name_events if event["marker"] == "🟩")
+        parts.append(f"{name} {len(name_events)}회 ok {len(name_events) - failures} · findings {findings} · fail {failures}")
+    summary = "요약: " + " / ".join(parts)
+    rows = [f"{event['marker']}{event['time']} {event['name']} · {event['note']}" for event in events]
+    return "\n".join([summary, *rows])
+
+
 def main() -> None:
     now_utc = dt.datetime.now(dt.timezone.utc)
     now_kst = now_utc.astimezone(KST)
-    since = (now_utc - dt.timedelta(hours=24)).isoformat()
+    since_dt = now_utc - dt.timedelta(hours=24)
+    since = since_dt.isoformat()
     timeline_events = recent_commit_events(since)
+    eval_events = evaluator_events(since_dt, now_utc)
     commit_count = len(
         [
             line
@@ -181,6 +250,10 @@ def main() -> None:
 ━━━━━━━━━━━━━━
 시간대별
 {hourly_timeline(now_kst, timeline_events)}
+
+━━━━━━━━━━━━━━
+평가기
+{evaluator_timeline(eval_events)}
 
 ━━━━━━━━━━━━━━
 ✅ 완료
