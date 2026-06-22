@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <title>marketing-77 implementation report</title>
+</head>
+<body>
+  <h1>marketing-77 Virtue 승인된 마케팅 UI/카피 구현</h1>
+  <p>사용자 승인 범위 안에서 <code>/add</code> 기대 브리지와 결과 카드 맥락형 안내 1줄을 구현한 로컬 완료 리포트다. 홈 empty state ghost 카드는 이번 패킷에서 제외했다.</p>
+
+  <section>
+    <h2>axis ax1</h2>
+    <p>실제 사용자 기대를 바꾸는 최소 표면만 수정했는가</p>
+  </section>
+
+  <section>
+    <h2>axis ax2</h2>
+    <p>검증 중 발견된 경고가 이번 변경인지, 기존 상태인지 분리했는가</p>
+  </section>
+
+  <details open>
+    <summary>변경 표면</summary>
+    <table border="1" cellspacing="0" cellpadding="6">
+      <thead>
+        <tr>
+          <th>표면</th>
+          <th>변경 내용</th>
+          <th>카피</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>/add</code> 입력 영역</td>
+          <td>메모 입력 아래 expectation bridge 1줄 추가</td>
+          <td>예: AI가 오늘의 덕행을 정리했어요: 인내 × 3</td>
+        </tr>
+        <tr>
+          <td>결과 카드 footer</td>
+          <td>관점/결정 경계 안내 1줄 추가</td>
+          <td>AI의 관점이에요. 결정은 당신이 해요.</td>
+        </tr>
+      </tbody>
+    </table>
+  </details>
+
+  <details>
+    <summary>검증 결과</summary>
+    <ul>
+      <li><code>pnpm lint</code>: 실패 아님. 기존 경고 4건만 보고됨. 이번 diff 파일(<code>src/app/add/page.tsx</code>)에는 새 lint 문제 없음.</li>
+      <li><code>pnpm typecheck</code>: 통과.</li>
+      <li><code>git diff</code>: <code>apps/web/src/app/add/page.tsx</code> 1파일만 변경.</li>
+    </ul>
+  </details>
+
+  <details>
+    <summary>안전 경계</summary>
+    <p>tracking/privacy/public announcement/cost/credential/deploy 변경 0. 판결 동사 추가 없음. sample/ghost 데이터는 이번 패킷에서 미구현이므로 해당 라벨 이슈 없음.</p>
+  </details>
+</body>
+</html>

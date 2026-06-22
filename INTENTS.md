@@ -8,17 +8,6 @@
 
 ## Active
 
-- `marketing-77` Virtue 승인된 마케팅 UI/카피 구현 패킷
-  status: in_progress
-  trigger: user said `마케팅 작업 승인` at 2026-06-22T11:25Z.
-  scope: 최근 approval-needed 마케팅 산출물(marketing-70/71/73/74/75/76)을 구현 가능한 최소 제품 내 UI/카피 변경 패킷으로 정리하고 적용한다. 우선순위는 (1) `/add` 첫 표면 기대/권한 브리지, (2) 결과 카드 맥락형 안내, (3) 홈 empty state ghost/sample proof preview 중 가장 작고 되돌리기 쉬운 조합이다.
-  approval: user-approved for product UI/copy implementation. This approval does not include external announcements, paid actions, new tracking/privacy instrumentation, credential/permission changes, or irreversible production operations.
-  permission level: L1/L2 product code and copy change after scoped verification; no force push.
-  owner route: Infinity router -> local Claude Code / implementation agent.
-  success criteria: implementation diff is scoped; no new tracking/privacy/external/cost/credential changes; copy follows marketing-74/76 guidance; ghost/sample/proof elements are clearly marked as preview/sample if used; tests/build or equivalent local verification pass; report records approval source and changed surfaces.
-  cloud_prepare: 2026-06-22T1230Z — P1(/add 기대 브리지) · P2(결과 카드 footer) · P3(홈 ghost 카드) 구현 스펙 완료. artifacts/marketing-77/implementation-spec.md 참고. 로컬 Claude Code 실행 대기.
-  router note: 2026-06-22T13:40Z handoff report added after hourly recap regression; user-approved Active marketing implementation must not be collapsed into routine `NO_REPLY`.
-
 ## Waiting
 
 <!-- 사용자 결정, 외부 조건, 안전 확인 대기. 같은 질문을 반복하지 않고 상태만 보존한다. -->
@@ -26,6 +15,7 @@
 <!-- naver-shopping-01 waiting 2026-06-21T1000Z → intents/active/naver-shopping-01.md [display: 나래/Narae; projects: naver-shopping,infinity,personal-ops; type: coordination; topics: automation,workflow,marketing; status: sample-order-gated-session-waiting; approval: sample-order-gated] (cloud 소싱 준비 완료(크로스바디+손목 스트랩). alibaba.com 로컬 공급사 확인(계정 불필요) + 손목·크로스바디 병행 샘플 주문 사용자 승인 대기. do_not_repeat_cloud 활성.) -->
 
 ## Archive
+<!-- marketing-77 completed 2026-06-22T1431Z → intents/archive/marketing-77.md [projects: virtue; type: implementation; topics: marketing,activation,product,ui-copy] (`/add` 기대 브리지 1줄 + 결과 카드 footer 안내 1줄 구현 완료. diff는 apps/web/src/app/add/page.tsx 한 파일에 제한. typecheck 통과, lint는 기존 경고 4건만 보고. tracking/privacy/external/cost/credential/deploy 변경 0.) -->
 <!-- marketing-76 completed 2026-06-22T1029Z → intents/archive/marketing-76.md [projects: virtue; type: strategy; topics: marketing,activation,product,in-app-guidance] (`/add`·결과 카드·홈 empty state 맥락형 안내 감사표 완료. Gate yes/no 판정은 `/add` Yes, 결과 카드 Yes, 홈 empty state No. production/tracking/privacy/public copy/deploy/external message/cost 변경 0. HTML report gate passed.) -->
 <!-- marketing-75 completed 2026-06-22T1029Z → intents/archive/marketing-75.md [projects: virtue; type: strategy; topics: marketing,activation,launch-communication,product] (Tier 1-4 변경 등급표와 권장 안내 표면 맵 완료. `/add`·결과 카드·홈 empty state를 각각 Tier 3/3/2로 분류하고 marketing-71/73/74 연결 예시 3개 정리. production/tracking/privacy/public copy/deploy/external message/cost 변경 0. HTML report gate passed.) -->
 <!-- marketing-74 completed 2026-06-22T0600Z → intents/archive/marketing-74.md [projects: virtue; type: strategy; topics: marketing,activation,product,onboarding] (/add 입력 전 기대 형성 3안 비교 완료. Option B(sample 결과 1줄)가 J3 hesitation 해소 최우선 추천안. J4 경계 문구는 결과 카드 footer 배치 권고. 구현은 approval-needed. HTML report gate passed.) -->
