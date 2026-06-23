@@ -4,6 +4,8 @@
 
 ## Inbox
 
+<!-- marketing-79 inbox 2026-06-23T1000Z [projects: virtue; type: strategy; topics: marketing,activation,prelaunch,observation] (출시 직후 첫 10명 활성화 관찰표 초안 작성. source: /home/ubuntu/workspace/knowledge-lab/source/external-links/marketing/2026-06-23-week-one-activation-observation.md. rationale: prelaunch 저신호 상태에서 작은 수치 최적화보다 첫 1주 관찰 창 합의가 우선. expected impact: launch 직후 activation 해석 속도와 일관성 개선. permission: L1 docs-only. owner route: Infinity router -> Claude Code docs task. success criteria: 홈 진입, `/add` 시작, `deed_judged`, `deed_saved`, D1 재방문까지 포함한 1장 관찰표 완성. first verification gate: 기존 Virtue activation 정의(J1/J2/J4=`deed_saved`, J3=`deed_judged`)와 충돌 없는지 검토.) -->
+
 ## Active
 
 ## Waiting
