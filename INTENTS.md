@@ -4,6 +4,15 @@
 
 ## Inbox
 
+- `marketing-80` Virtue 첫 피드백 일관성 감사표 작성
+  source note: `/home/ubuntu/workspace/knowledge-lab/source/external-links/marketing/2026-06-23-first-week-feedback-consistency.md`
+  rationale: Amplitude의 즉시 피드백 원칙과 2026-06-23 라이브 관찰에서 홈 카드 `612덕`과 `아직 비어있어요` 문장이 동시에 보여, 첫 가치 이후 시스템 상태 문장이 서로 어긋날 가능성이 드러남.
+  expected impact: 첫 세션에서 `내 행동이 남았는가`에 대한 신뢰 혼선을 줄일 우선 표면을 문서로 식별하고, launch 전 activation depth 해석 오류를 줄임.
+  permission level: L1 docs-only
+  owner route: marketer -> infinity router -> Claude Code
+  success criteria: 홈 요약 카드, `최근 덕행`, `/add` 결과, 저장 후 복귀 지점을 J1-J4 기준으로 점검한 1개 감사 문서가 생기고, 각 표면의 canonical feedback source와 모순 사례가 정리됨.
+  first verification gate: production/tracking/privacy/public message/code deploy 변경 없이 read-only 관찰 + 기존 코드/문서 대조만으로 초안 작성 가능함을 확인.
+
 ## Active
 
 ## Waiting
