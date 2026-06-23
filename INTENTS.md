@@ -6,6 +6,8 @@
 
 ## Active
 
+<!-- research-22 active 2026-06-23T2334Z → intents/active/research-22.md [display: AI 자료수집·정리·관리 운영법 조사; projects: infinity,research-bank,personal-ops,knowledge-management; type: research; topics: ai-research,information-management,knowledge-base,source-verification,workflow] (AI가 자료를 수집·정리·검증·보관·재사용·갱신하는 운영법 조사. 툴 목록보다 출처 보존, 신뢰도, 중복/오래된 정보 관리, SAM/Infinity/KL에 맞는 현실 루프 도출.) -->
+
 ## Waiting
 
 <!-- 사용자 결정, 외부 조건, 안전 확인 대기. 같은 질문을 반복하지 않고 상태만 보존한다. -->
