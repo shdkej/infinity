@@ -76,13 +76,13 @@
     <span class="status">waiting — 로컬 실행 필요</span>
   </div>
   <h1>아프지마 앱 병원 API 호출 흐름 검증</h1>
-  <p class="dek">이 Heartbeat에서 apujima 레포 접근 불가. 로컬 Claude Code 실행 프롬프트를 준비했다.</p>
+  <p class="dek">대상 레포는 shdkej/afzma. 로컬 Claude Code 실행 프롬프트를 준비했다.</p>
 
   <div class="hr"></div>
 
   <div class="axis ax1">
     <div class="label"><span class="n">01</span> 무엇이 차단되었나</div>
-    <div class="text">이 세션(원격 실행 환경)에서 <b>shdkej/apujima 레포 접근 불가</b>. 허용된 레포는 <code>shdkej/prompt-archive</code>, <code>shdkej/infinity</code>만이다.</div>
+    <div class="text">대상 레포는 <b>shdkej/afzma</b>다. 이 검증은 병원 API 흐름을 실제 로컬 앱 레포에서 확인해야 하므로 로컬 Claude Code 실행이 필요하다.</div>
   </div>
 
   <div class="axis ax2">
@@ -101,7 +101,7 @@ Mode: verify_local
 Allowed: L0/L1 only
 
 Step 1. 레포 위치 찾기
-~/dev/, ~/projects/, /home/ubuntu/dev/ 에서 apujima 폴더를 찾는다.
+~/dev/, ~/projects/, /home/ubuntu/dev/, /home/ubuntu/workspace/ 에서 afzma 폴더를 찾는다. 없으면 shdkej/afzma를 기준으로 안전하게 체크아웃한다.
 package.json, README.md 확인 → 앱 종류 파악
 
 Step 2. 병원 API 관련 코드 검색
@@ -135,7 +135,7 @@ Report: reports/build-13/2026-06-23T&lt;local-time&gt;-local.html</pre>
         </div>
         <div class="mini-card">
           <b>레포 위치 후보</b>
-          <p><code>~/dev/apujima</code><br><code>~/projects/apujima</code><br><code>/home/ubuntu/dev/apujima</code></p>
+          <p><code>~/dev/afzma</code><br><code>~/projects/afzma</code><br><code>/home/ubuntu/dev/afzma</code><br><code>/home/ubuntu/workspace/afzma</code></p>
         </div>
       </div>
     </div>
@@ -146,7 +146,7 @@ Report: reports/build-13/2026-06-23T&lt;local-time&gt;-local.html</pre>
     <div class="body">
       <ul>
         <li>이 세션 허용 레포: <code>shdkej/prompt-archive</code>, <code>shdkej/infinity</code></li>
-        <li><code>shdkej/apujima</code> 접근 시도 → Access denied</li>
+        <li>정정: 대상 레포는 <code>shdkej/afzma</code>다. 이전 <code>apujima</code> 표기는 잘못된 추정이었다.</li>
         <li>로컬 파일 시스템: 원격 isolated container에서 접근 불가</li>
         <li>외부 병원 API 직접 호출: 민감/비용 위험으로 로컬 검증 선행 필요</li>
       </ul>

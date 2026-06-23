@@ -4,26 +4,18 @@
 
 ## Inbox
 
-- `marketing-80` Virtue 첫 피드백 일관성 감사표 작성
-  source note: `/home/ubuntu/workspace/knowledge-lab/source/external-links/marketing/2026-06-23-first-week-feedback-consistency.md`
-  rationale: Amplitude의 즉시 피드백 원칙과 2026-06-23 라이브 관찰에서 홈 카드 `612덕`과 `아직 비어있어요` 문장이 동시에 보여, 첫 가치 이후 시스템 상태 문장이 서로 어긋날 가능성이 드러남.
-  expected impact: 첫 세션에서 `내 행동이 남았는가`에 대한 신뢰 혼선을 줄일 우선 표면을 문서로 식별하고, launch 전 activation depth 해석 오류를 줄임.
-  permission level: L1 docs-only
-  owner route: marketer -> infinity router -> Claude Code
-  success criteria: 홈 요약 카드, `최근 덕행`, `/add` 결과, 저장 후 복귀 지점을 J1-J4 기준으로 점검한 1개 감사 문서가 생기고, 각 표면의 canonical feedback source와 모순 사례가 정리됨.
-  first verification gate: production/tracking/privacy/public message/code deploy 변경 없이 read-only 관찰 + 기존 코드/문서 대조만으로 초안 작성 가능함을 확인.
-
 ## Active
 
 ## Waiting
 
 <!-- 사용자 결정, 외부 조건, 안전 확인 대기. 같은 질문을 반복하지 않고 상태만 보존한다. -->
 
-<!-- build-13 waiting 2026-06-23T1500Z → intents/active/build-13.md [display: 아프지마 앱 병원 API 호출 흐름 검증; projects: apujima,infinity,app-api-verification; type: implementation-verification; topics: hospital-api,api-flow,app-verification; blocker: apujima-repo-local-access] (이 Heartbeat 세션에서 shdkej/apujima 레포 접근 불가. 로컬 Claude Code 실행 필요. reports/build-13/2026-06-23T1500Z.html 에 실행 프롬프트 준비 완료. do_not_repeat_cloud 활성.) -->
+<!-- build-13 waiting 2026-06-24T0755KST → intents/active/build-13.md [display: 아프지마 앱 병원 API 호출 흐름 검증; projects: afzma,infinity,app-api-verification; type: implementation-verification; topics: hospital-api,api-flow,app-verification; blocker: afzma-local-execution-required] (대상 레포는 shdkej/afzma. 로컬에서 병원 API endpoint/client/route/env/UI 연결 흐름을 검증해야 함. 원격/Heartbeat 세션에서는 추정하지 말고 로컬 Claude Code 실행 필요. reports/build-13/2026-06-23T1500Z.html 의 기존 프롬프트는 afzma 기준으로 보정됨. do_not_repeat_cloud 활성.) -->
 
 <!-- naver-shopping-01 waiting 2026-06-21T1000Z → intents/active/naver-shopping-01.md [display: 나래/Narae; projects: naver-shopping,infinity,personal-ops; type: coordination; topics: automation,workflow,marketing; status: sample-order-gated-session-waiting; approval: sample-order-gated] (cloud 소싱 준비 완료(크로스바디+손목 스트랩). alibaba.com 로컬 공급사 확인(계정 불필요) + 손목·크로스바디 병행 샘플 주문 사용자 승인 대기. do_not_repeat_cloud 활성.) -->
 
 ## Archive
+<!-- marketing-80 completed 2026-06-23T2207Z → intents/archive/marketing-80.md [projects: virtue; type: strategy; topics: marketing,activation,product,feedback-consistency] (홈 요약 카드·\`최근 덕행\`·\`/add\` 결과·저장 후 복귀 지점을 J1-J4 기준으로 감사표로 정리. 결론은 요약 신호와 \`아직 비어있어요\` empty-state 공존이 첫 저장 이후 신뢰를 깎을 수 있으며, safest next step은 홈 empty-state gating 정렬. production/tracking/privacy/public message/code deploy/external cost 변경 0. HTML report gate passed.) -->
 <!-- research-21 completed 2026-06-23T1500Z → intents/archive/research-21.md (6인 비교표 완성. 작은단위기록→주제별조립→구조모순검증→편집변환 공통패턴 도출. 매일3줄→주간분류→월간조립 기록루프 제안. HTML report gate passed.) -->
 <!-- marketing-79 completed 2026-06-23T1000Z → intents/archive/marketing-79.md [projects: virtue; type: strategy; topics: marketing,activation,prelaunch] (첫 10명 활성화 1장 관찰표 초안 완성. 홈진입·/add·deed_judged·deed_saved·D1 재방문 5체크포인트 포함. J1/J2/J4=deed_saved·J3=deed_judged 기존 정의 충돌 0. HTML report gate passed.) -->
 <!-- marketing-78 completed 2026-06-22T1700Z → intents/archive/marketing-78.md [projects: virtue; type: strategy; topics: marketing,activation,product] (홈 `최근 덕행` empty state 3요소 비교 완료. ghost sample card 1장(Option B)이 결과 예시 가시성 갭 해소 최우선 추천안. 한 줄 보조문구(Option A)가 보수적 차선. 구현은 approval-needed. 기존 archive 충돌 0. HTML report gate passed.) -->

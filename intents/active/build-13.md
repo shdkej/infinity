@@ -10,6 +10,8 @@
 - created_at: 2026-06-23T14:14Z
 - permission_level: L1 local/read-only verification first; escalate before external-impact changes
 - trigger: "아프지마 앱 병원 API 확인해서 잘 호출하는지 흐름 확인 필요"
+- target_repo: shdkej/afzma
+- execution_note: 로컬에서 확인해야 함. 원격/Heartbeat 세션에서 추정하지 말고 `shdkej/afzma` 레포를 로컬 체크아웃한 뒤 병원 API 호출 흐름을 검증한다.
 
 ## 목표
 
@@ -17,7 +19,7 @@
 
 ## 첫 확인 범위
 
-- 대상 앱/레포 위치를 식별한다.
+- 대상 앱/레포는 `shdkej/afzma`다. 로컬에 없으면 `shdkej/afzma`를 기준으로 위치를 식별하거나 안전하게 체크아웃한다.
 - 병원 API 관련 endpoint, client 함수, route handler, 환경변수 이름을 찾는다.
 - API 호출 경로가 화면 또는 서버 action에서 실제로 연결되어 있는지 확인한다.
 - 로컬에서 가능한 경우 mock/fixture 또는 안전한 read-only 요청으로 호출 형태를 검증한다.
@@ -36,7 +38,7 @@
 - 병원 API 키, 토큰, 개인정보, 위치정보를 노출하지 않는다.
 - 운영 API에 쓰기 요청을 보내지 않는다.
 - 유료/민감 외부 호출은 사용자 승인 없이 반복하지 않는다.
-- 레포 위치가 불명확하면 추측으로 수정하지 말고 레포 식별 결과를 먼저 남긴다.
+- 레포 이름을 `apujima`로 추정하지 않는다. 대상은 `shdkej/afzma`다.
 
 ## 완료 기준
 
