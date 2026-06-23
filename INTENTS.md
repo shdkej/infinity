@@ -6,17 +6,16 @@
 
 ## Active
 
-<!-- build-13 active 2026-06-23T14:14Z → intents/active/build-13.md [display: 아프지마 앱 병원 API 호출 흐름 검증; projects: apujima,infinity,app-api-verification; type: implementation-verification; topics: hospital-api,api-flow,app-verification] (대상 앱/레포 위치 식별부터 시작해 병원 API endpoint/client/route/env 연결을 확인하고, 안전한 read-only 검증 또는 명확한 차단 사유를 HTML report로 남긴다. 외부 민감/유료 호출은 승인 전 반복 금지.) -->
-
-<!-- research-21 active 2026-06-23T14:12Z → intents/active/research-21.md [display: 기록에서 출판으로 이어지는 작업 시스템 조사; projects: infinity,research-bank,writing-system,personal-ops; type: research; topics: notes,publishing,knowledge-work,writers,scientists] (아인슈타인/작가/연구자 사례를 통해 기록 방식→정리 방식→확인/검증 방식→출판/결과물 변환 방식을 비교하고, 마스터님/SAM/Infinity에 적용할 현실적 기록 루프를 도출한다. L1 research-only.) -->
-
 ## Waiting
 
 <!-- 사용자 결정, 외부 조건, 안전 확인 대기. 같은 질문을 반복하지 않고 상태만 보존한다. -->
 
+<!-- build-13 waiting 2026-06-23T1500Z → intents/active/build-13.md [display: 아프지마 앱 병원 API 호출 흐름 검증; projects: apujima,infinity,app-api-verification; type: implementation-verification; topics: hospital-api,api-flow,app-verification; blocker: apujima-repo-local-access] (이 Heartbeat 세션에서 shdkej/apujima 레포 접근 불가. 로컬 Claude Code 실행 필요. reports/build-13/2026-06-23T1500Z.html 에 실행 프롬프트 준비 완료. do_not_repeat_cloud 활성.) -->
+
 <!-- naver-shopping-01 waiting 2026-06-21T1000Z → intents/active/naver-shopping-01.md [display: 나래/Narae; projects: naver-shopping,infinity,personal-ops; type: coordination; topics: automation,workflow,marketing; status: sample-order-gated-session-waiting; approval: sample-order-gated] (cloud 소싱 준비 완료(크로스바디+손목 스트랩). alibaba.com 로컬 공급사 확인(계정 불필요) + 손목·크로스바디 병행 샘플 주문 사용자 승인 대기. do_not_repeat_cloud 활성.) -->
 
 ## Archive
+<!-- research-21 completed 2026-06-23T1500Z → intents/archive/research-21.md (6인 비교표 완성. 작은단위기록→주제별조립→구조모순검증→편집변환 공통패턴 도출. 매일3줄→주간분류→월간조립 기록루프 제안. HTML report gate passed.) -->
 <!-- marketing-79 completed 2026-06-23T1000Z → intents/archive/marketing-79.md [projects: virtue; type: strategy; topics: marketing,activation,prelaunch] (첫 10명 활성화 1장 관찰표 초안 완성. 홈진입·/add·deed_judged·deed_saved·D1 재방문 5체크포인트 포함. J1/J2/J4=deed_saved·J3=deed_judged 기존 정의 충돌 0. HTML report gate passed.) -->
 <!-- marketing-78 completed 2026-06-22T1700Z → intents/archive/marketing-78.md [projects: virtue; type: strategy; topics: marketing,activation,product] (홈 `최근 덕행` empty state 3요소 비교 완료. ghost sample card 1장(Option B)이 결과 예시 가시성 갭 해소 최우선 추천안. 한 줄 보조문구(Option A)가 보수적 차선. 구현은 approval-needed. 기존 archive 충돌 0. HTML report gate passed.) -->
 <!-- marketing-77 completed 2026-06-22T1431Z → intents/archive/marketing-77.md [projects: virtue; type: implementation; topics: marketing,activation,product,ui-copy] (`/add` 기대 브리지 1줄 + 결과 카드 footer 안내 1줄 구현 완료. diff는 apps/web/src/app/add/page.tsx 한 파일에 제한. typecheck 통과, lint는 기존 경고 4건만 보고. tracking/privacy/external/cost/credential/deploy 변경 0.) -->
