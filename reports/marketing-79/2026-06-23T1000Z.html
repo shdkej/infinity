@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>marketing-79 Report</title>
+<style>
+  :root{
+    --bg:#f4f2ea; --panel:#fbfaf5; --ink:#2c2a25; --soft:#807c70; --faint:#a8a496; --line:#e3dfd2;
+    --a2:#5f7a5e; --a2-deep:#3f5740;
+    --a1:#a9745a; --a1-deep:#8a5c45;
+    --sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;width:100%;max-width:100%;overflow-x:hidden;}
+  body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:14px;line-height:1.68;-webkit-font-smoothing:antialiased;}
+  .sheet{width:min(100%,720px);max-width:720px;margin:0 auto;padding:32px 18px 40px;}
+  .reveal{opacity:0;animation:fade .7s ease forwards;}
+  @keyframes fade{from{opacity:0;transform:translateY(9px);}to{opacity:1;transform:none;}}
+  .eyebrow{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--soft);flex-wrap:wrap;}
+  .eyebrow .id{color:var(--a2-deep);font-weight:600;}
+  .eyebrow .dot{width:5px;height:5px;border-radius:50%;background:var(--a2);}
+  .eyebrow .status{color:var(--a2-deep);}
+  h1{font-size:clamp(22px,6vw,27px);line-height:1.3;font-weight:700;letter-spacing:0;margin:18px 0 0;overflow-wrap:anywhere;}
+  .dek{font-size:15px;color:var(--soft);margin:12px 0 0;max-width:52ch;}
+  .hr{height:1px;background:var(--line);margin:28px 0;}
+  .axis{padding:0 0 4px 18px;position:relative;margin-bottom:24px;}
+  .axis::before{content:"";position:absolute;left:0;top:6px;bottom:6px;width:2px;border-radius:2px;}
+  .axis.ax1::before{background:var(--a1);}.axis.ax2::before{background:var(--a2);}
+  .axis.ax1{--ul:var(--a1);}.axis.ax2{--ul:var(--a2);}
+  .axis .label{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:9px;display:flex;align-items:center;gap:8px;}
+  .axis.ax1 .label{color:var(--a1-deep);}.axis.ax2 .label{color:var(--a2-deep);}
+  .axis .label .n{font-weight:600;opacity:.6;}
+  .axis .text{font-size:clamp(15px,4vw,17px);line-height:1.62;color:#37352e;overflow-wrap:anywhere;}
+  .axis .text b{font-weight:700;color:var(--ink);border-bottom:2px solid var(--ul);}
+  ol.find{list-style:none;counter-reset:f;margin:14px 0 0;padding:0;}
+  ol.find li{position:relative;padding:7px 0 7px 24px;font-size:14px;color:#37352e;border-top:1px solid var(--line);}
+  ol.find li:first-child{border-top:none;}
+  ol.find li::before{counter-increment:f;content:counter(f);position:absolute;left:0;top:8px;font-family:var(--mono);font-size:11px;font-weight:600;color:var(--a1-deep);}
+  details{border:1px solid var(--line);border-radius:8px;background:var(--panel);margin-bottom:10px;overflow:hidden;}
+  summary{cursor:pointer;list-style:none;padding:13px 15px;display:flex;align-items:center;gap:10px;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--soft);}
+  summary::-webkit-details-marker{display:none;}
+  summary .chev{width:8px;height:8px;border-right:2px solid var(--a2-deep);border-bottom:2px solid var(--a2-deep);transform:rotate(-45deg);transition:.25s;flex:none;}
+  details[open] summary .chev{transform:rotate(45deg);}
+  .body{padding:2px 15px 16px;min-width:0;}
+  .section{margin:4px 0 16px;}
+  .section-title{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--a1-deep);margin:0 0 8px;}
+  .callout{border-left:2px solid var(--a2);background:#f2efe5;padding:10px 12px;color:#4a473f;margin:10px 0 14px;font-size:13.5px;}
+  .content-grid{display:grid;grid-template-columns:1fr;gap:9px;margin:9px 0;}
+  .mini-card{border:1px solid var(--line);background:#f8f6ef;border-radius:7px;padding:11px 12px;min-width:0;}
+  .mini-card b{display:block;color:var(--ink);margin-bottom:4px;font-size:13px;}
+  .mini-card p{margin:0;font-size:13px;color:var(--soft);}
+  .body p{color:var(--soft);overflow-wrap:anywhere;font-size:13.5px;}
+  .body ul{margin:5px 0;padding-left:16px;}.body li{margin:4px 0;font-size:13.5px;}
+  code{font-family:var(--mono);font-size:11.5px;background:#edeae0;padding:1px 5px;border-radius:3px;color:var(--a2-deep);overflow-wrap:anywhere;}
+  .chips{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:10px;}
+  .chip{font-family:var(--mono);font-size:10px;letter-spacing:.05em;color:var(--soft);border:1px solid var(--line);border-radius:999px;padding:2px 9px;}
+  .foot{margin-top:28px;padding-top:14px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:5px 12px;justify-content:space-between;font-family:var(--mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--faint);}
+  @media(min-width:720px){.sheet{padding:44px 32px 44px;}.content-grid{grid-template-columns:repeat(2,minmax(0,1fr));}}
+  @media(max-width:640px){table,thead,tbody,tr,th,td{display:block;width:100%;}thead{display:none;}tr{border:1px solid var(--line);border-radius:7px;padding:8px 10px;margin:0 0 8px;background:#f8f6ef;}td{border-bottom:0;padding:4px 0;}td:first-child{font-family:var(--mono);font-size:11px;}}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="eyebrow reveal">
+    <span class="dot"></span>
+    <span class="id">marketing-79</span>
+    <span>Strategy · Virtue · Prelaunch</span>
+    <span class="status">completed 2026-06-23T1000Z</span>
+  </div>
+  <h1 class="reveal" style="animation-delay:.05s">첫 10명 활성화 1장 관찰표</h1>
+  <p class="dek reveal" style="animation-delay:.09s">출시 직후 첫 10명의 행동을 잡별 first value 기준으로 일관되게 읽기 위한 1장 손기록 관찰표를 작성했다.</p>
+
+  <div class="hr reveal" style="animation-delay:.12s"></div>
+
+  <div class="axis ax1 reveal" style="animation-delay:.16s">
+    <div class="label"><span class="n">01</span> 무엇이 문제였나</div>
+    <div class="text">prelaunch 저신호 상태에서 첫 10명의 행동을 어떻게 읽을지 <b>잡별 기준이 없으면 같은 세션을 성공과 실패로 다르게 해석</b>하는 불일치가 생긴다</div>
+  </div>
+
+  <div class="axis ax2 reveal" style="animation-delay:.22s">
+    <div class="label"><span class="n">02</span> 어떻게 해결하나</div>
+    <div class="text">홈진입·/add·deed_judged·deed_saved·D1 재방문 <b>5 체크포인트 + 세션 성격 4분류 + 자기 말 칸</b>을 포함한 1장 관찰표 완성. J1/J2/J4=<code>deed_saved</code>·J3=<code>deed_judged</code> 기존 정의 충돌 0.</div>
+  </div>
+
+  <div class="reveal" style="animation-delay:.27s">
+  <details open>
+    <summary><span class="chev"></span> 핵심 발견</summary>
+    <div class="body">
+      <div class="section">
+        <ol class="find">
+          <li><b>잡이 체크포인트 해석을 결정한다.</b> 같은 &ldquo;저장 없이 닫힘&rdquo;이 J3에선 성공(deed_judged 후 정상종료)이고 J1/J2/J4에선 보류다. 표에 잡 추정 칸이 없으면 동일 세션을 관찰자마다 다르게 읽는다.</li>
+          <li><b>D1 재방문은 KPI가 아니라 RC 분류 출발점이다.</b> RC-WARM(first value 도달 후 D1 미방문)·RC-NORMAL(J3 무저장 정상종료 후 미방문)·RC-AVAIL(cap/503 후 미방문)을 먼저 가른 뒤 재초대 후보를 판단한다. 미방문률을 retention%로 환산하지 않는다.</li>
+          <li><b>세션 성격 4분류가 비율 집계보다 선행해야 한다.</b> 성공/B-LOST/B-MISMATCH/B-AVAIL 분류를 먼저 손기록해야 1주 후 정성 리뷰에서 어떤 유형이 막혔는지 알 수 있다. 분류 없이 세션 수만 세면 진단이 불가능하다.</li>
+          <li><b>자기 말 칸은 신규 계측이 아니라 손기록 전용이다.</b> 사용자가 제품을 어떤 언어로 부르는지·first value를 어떻게 표현하는지가 positioning 가설 검증 재료이며 공개 카피·이벤트 속성으로 즉시 전환해선 안 된다.</li>
+          <li><b>deed_save_capped·503·지연은 즉시 B-AVAIL로 분리해야 한다.</b> availability/friction 신호를 가치 신호나 upgrade 수요로 읽으면 가장 흔한 오독이 발생한다(MARKETING_LEARNINGS m28·m41).</li>
+        </ol>
+      </div>
+
+      <div class="callout">1주 관찰 후 표를 비율/activation rate/PMF로 환산하지 않는다. 잡 분포 파악·세션 성격별 빈도 확인·자기 말 원문 수집이 이 표의 목적이다.</div>
+
+      <div class="content-grid">
+        <div class="mini-card">
+          <b>근거 · 소스</b>
+          <p>MARKETING_LEARNINGS.md: m06(First Value Mapping), m28·m41(PQL/Availability), m42(Session Value By Job), m43(First-Week Non-Return), m47(First-User Learning Loop), m51(Guided First-Value Handoff). 기존 archive marketing-47/51 계승, 충돌 0.</p>
+        </div>
+        <div class="mini-card">
+          <b>다음 판단</b>
+          <p>1주차 관찰 완료 후: (a) 잡 분포 확인, (b) B-LOST 빈도가 높으면 /add 진입 전 기대 형성 재검토(marketing-74 계승), (c) B-MISMATCH가 높으면 결과 카드 문구 관점 프레임 재확인(m45). 표 자체 개선 필요시 Inbox에 등록.</p>
+        </div>
+      </div>
+    </div>
+  </details>
+
+  <details open>
+    <summary><span class="chev"></span> 관찰표 설계 상세</summary>
+    <div class="body">
+      <div class="section">
+        <div class="section-title">5 체크포인트 선택 근거</div>
+        <ul>
+          <li><b>홈 진입</b> — 세션 시작점. 진입 경로 메모와 함께 잡 추정 출발점.</li>
+          <li><b>/add 시작</b> — 첫 입력 진입. m51 4구간 handoff의 1번째 단계.</li>
+          <li><b>deed_judged</b> — AI 결과 수신. J3 first value 완료점. J1/J2/J4는 통과점.</li>
+          <li><b>deed_saved</b> — J1/J2/J4 first value 완료점. J3에선 선택 범퍼(강제 안 함).</li>
+          <li><b>D1 재방문</b> — RC 분류 출발점. 숫자가 아니라 성격(RC-WARM/NORMAL/AVAIL)을 기록.</li>
+        </ul>
+      </div>
+      <div class="section">
+        <div class="section-title">기존 정의 충돌 검토</div>
+        <ul>
+          <li>J1/J2/J4 first value = <code>deed_saved</code> — m06 정의와 일치. 충돌 0.</li>
+          <li>J3 first value = <code>deed_judged</code> — m06 정의와 일치. 저장 없는 종료를 정상종료로 표시. 충돌 0.</li>
+          <li>D1 재방문을 retention%/KPI로 읽지 않음 — m43 정의와 일치. 충돌 0.</li>
+          <li>자기 말을 공개 카피/이벤트로 전환 금지 — m47·m27 정의와 일치. 충돌 0.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="chev"></span> 실행 메타 · 산출물</summary>
+    <div class="body">
+      <div class="chips">
+        <span class="chip">2026-06-23T1000Z</span>
+        <span class="chip">Heartbeat · L1 docs-only</span>
+        <span class="chip">inbox → archived</span>
+        <span class="chip">production 변경 0</span>
+      </div>
+      <ul>
+        <li>산출물 <code>artifacts/marketing-79/week-one-activation-observation-table.html</code></li>
+        <li>아카이브 <code>intents/archive/marketing-79.md</code></li>
+      </ul>
+      <div class="section" style="margin-top:12px">
+        <div class="section-title">계승한 기준</div>
+        <ul>
+          <li>First Value Mapping (m06): J1/J2/J4=deed_saved, J3=deed_judged</li>
+          <li>First-User Learning Loop (m47): 자기 말 4지점 손기록 루프</li>
+          <li>Session Value Is Read By Job (m42): J3 무저장 정상종료 구별</li>
+        </ul>
+        <div class="section-title" style="margin-top:10px">이번에 새로 배운 것</div>
+        <ul>
+          <li>prelaunch 관찰표에서 잡 불명 사용자의 자기 말을 &ldquo;잡 추정 보조 신호&rdquo;로 처리하는 칸이 명시적으로 필요하다는 것을 설계 과정에서 확인.</li>
+        </ul>
+        <div class="section-title" style="margin-top:10px">다음 작업에 넘길 규칙</div>
+        <ul>
+          <li>D1 재방문 칸은 RC 분류 레이블(RC-WARM/NORMAL/AVAIL/EXCLUDED)을 함께 기록하게 다음 버전에서 개선 가능.</li>
+          <li>10명 초과 시 카드 번호만 추가하면 재사용 가능한 구조로 설계됨.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+  </div>
+
+  <div class="foot reveal" style="animation-delay:.3s">
+    <span>Agent-First Heartbeat</span>
+    <span>Infinity · Intent Note</span>
+  </div>
+</div>
+</body>
+</html>
