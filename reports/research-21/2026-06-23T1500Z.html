@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>research-21 — 기록에서 출판으로</title>
+<style>
+  :root{
+    --bg:#f4f2ea; --panel:#fbfaf5; --ink:#2c2a25; --soft:#807c70; --faint:#a8a496; --line:#e3dfd2;
+    --a2:#5f7a5e; --a2-deep:#3f5740;
+    --a1:#5a6f8a; --a1-deep:#3f536e;
+    --sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0; width:100%; max-width:100%; overflow-x:hidden;}
+  body{background:var(--bg); color:var(--ink); font-family:var(--sans);
+    font-size:14px; line-height:1.68; -webkit-font-smoothing:antialiased;}
+  .sheet{width:min(100%,720px); max-width:720px; margin:0 auto; padding:32px 18px 40px;}
+  .eyebrow{display:flex; align-items:center; gap:10px; font-family:var(--mono);
+    font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--soft); flex-wrap:wrap;}
+  .eyebrow .id{color:var(--a2-deep); font-weight:600;}
+  .eyebrow .dot{width:5px; height:5px; border-radius:50%; background:var(--a2);}
+  .eyebrow .status{color:var(--a2-deep);}
+  h1{font-size:clamp(22px,6vw,28px); line-height:1.3; font-weight:700; margin:18px 0 0; overflow-wrap:anywhere;}
+  .dek{font-size:15px; color:var(--soft); margin:12px 0 0; max-width:52ch;}
+  .hr{height:1px; background:var(--line); margin:28px 0;}
+  .axis{padding:0 0 4px 18px; position:relative; margin-bottom:24px;}
+  .axis::before{content:""; position:absolute; left:0; top:6px; bottom:6px; width:2px; border-radius:2px;}
+  .axis.ax1::before{background:var(--a1);} .axis.ax2::before{background:var(--a2);}
+  .axis.ax1{--ul:var(--a1);} .axis.ax2{--ul:var(--a2);}
+  .axis .label{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase;
+    margin-bottom:9px; display:flex; align-items:center; gap:8px;}
+  .axis.ax1 .label{color:var(--a1-deep);} .axis.ax2 .label{color:var(--a2-deep);}
+  .axis .label .n{font-weight:600; opacity:.6;}
+  .axis .text{font-size:clamp(15px,4vw,17px); line-height:1.6; color:#37352e; overflow-wrap:anywhere;}
+  .axis .text b{font-weight:700; color:var(--ink); border-bottom:2px solid var(--ul);}
+  ol.find{list-style:none; counter-reset:f; margin:14px 0 0; padding:0;}
+  ol.find li{position:relative; padding:8px 0 8px 26px; font-size:14px; color:#37352e; border-top:1px solid var(--line);}
+  ol.find li:first-child{border-top:none;}
+  ol.find li::before{counter-increment:f; content:counter(f); position:absolute; left:0; top:9px;
+    font-family:var(--mono); font-size:11px; font-weight:600; color:var(--a1-deep);}
+  details{border:1px solid var(--line); border-radius:8px; background:var(--panel); margin-bottom:10px; overflow:hidden;}
+  summary{cursor:pointer; list-style:none; padding:13px 15px; display:flex; align-items:center; gap:10px;
+    font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft);}
+  summary::-webkit-details-marker{display:none;}
+  summary .chev{width:8px; height:8px; border-right:2px solid var(--a2-deep); border-bottom:2px solid var(--a2-deep);
+    transform:rotate(-45deg); transition:.25s; flex:none;}
+  details[open] summary .chev{transform:rotate(45deg);}
+  .body{padding:2px 16px 18px; min-width:0;}
+  .section{margin:4px 0 18px;}
+  .section-title{font-family:var(--mono); font-size:10.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--a1-deep); margin:0 0 8px;}
+  .callout{border-left:2px solid var(--a2); background:#f2efe5; padding:11px 13px; color:#4a473f; margin:12px 0 16px; font-size:14px; overflow-wrap:anywhere;}
+  .content-grid{display:grid; grid-template-columns:1fr; gap:10px; margin:10px 0;}
+  .mini-card{border:1px solid var(--line); background:#f8f6ef; border-radius:8px; padding:12px 13px; min-width:0;}
+  .mini-card b{display:block; color:var(--ink); margin-bottom:5px; font-size:13px;}
+  .mini-card p{margin:0; font-size:13px; color:var(--soft); overflow-wrap:anywhere;}
+  table{border-collapse:collapse; width:100%; max-width:100%; font-size:12.5px; margin:4px 0 12px;}
+  th,td{border-bottom:1px solid var(--line); padding:8px 10px; text-align:left; vertical-align:top; overflow-wrap:anywhere; word-break:break-word;}
+  th{font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft); font-weight:600;}
+  td:first-child{color:var(--a2-deep); font-weight:600;}
+  .body p{color:var(--soft); overflow-wrap:anywhere; font-size:13.5px;}
+  .body ul{margin:6px 0; padding-left:18px;} .body li{margin:5px 0; font-size:13.5px; color:var(--soft);}
+  code{font-family:var(--mono); font-size:11.5px; background:#edeae0; padding:1px 5px; border-radius:3px; color:var(--a2-deep); overflow-wrap:anywhere;}
+  a{color:var(--a2-deep); text-underline-offset:3px; overflow-wrap:anywhere;}
+  .chips{display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px;}
+  .chip{font-family:var(--mono); font-size:10px; letter-spacing:.05em; color:var(--soft); border:1px solid var(--line); border-radius:999px; padding:3px 9px;}
+  .foot{margin-top:28px; padding-top:14px; border-top:1px solid var(--line);
+    display:flex; flex-wrap:wrap; gap:6px 14px; justify-content:space-between; font-family:var(--mono); font-size:10px;
+    letter-spacing:.13em; text-transform:uppercase; color:var(--faint);}
+  @media (min-width:720px){
+    .sheet{padding:48px 34px 46px;}
+    .content-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
+  }
+  @media (max-width:600px){
+    table,thead,tbody,tr,th,td{display:block; width:100%;}
+    thead{display:none;}
+    tr{border:1px solid var(--line); border-radius:8px; padding:9px 10px; margin:0 0 10px; background:#f8f6ef;}
+    td{border-bottom:0; padding:4px 0;}
+    td:first-child{font-family:var(--mono); font-size:11px; letter-spacing:.05em;}
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="eyebrow">
+    <span class="dot"></span>
+    <span class="id">research-21</span>
+    <span>Research Note</span>
+    <span class="status">completed</span>
+  </div>
+  <h1>기록에서 출판으로 이어지는 작업 시스템 조사</h1>
+  <p class="dek">아인슈타인·다윈·루만 등 6인의 기록→정리→검증→변환 흐름을 비교하고, SAM/Infinity에 적용할 현실적 기록 루프를 도출한다.</p>
+
+  <div class="hr"></div>
+
+  <div class="axis ax1">
+    <div class="label"><span class="n">01</span> 무엇을 조사했나</div>
+    <div class="text">기록이 단순 저장이 아니라 출판·논문·책의 <b>직접 재료</b>가 된 6인의 실제 운영 구조를 비교했다.</div>
+  </div>
+
+  <div class="axis ax2">
+    <div class="label"><span class="n">02</span> 핵심 결과</div>
+    <div class="text">공통 패턴: <b>작은 단위 기록 → 주제별 조립 → 구조적 모순 발견으로 검증 → 창작이 아닌 편집으로 변환</b>. 매일 짧은 캡처 → 주간 분류 → 월간 조립이 현실적 루프다.</div>
+  </div>
+
+  <details open>
+    <summary><span class="chev"></span> 6인 비교표 · 핵심 발견</summary>
+    <div class="body">
+      <div class="section">
+        <div class="section-title">기록→정리→검증→변환 비교</div>
+        <table>
+          <thead>
+            <tr>
+              <th>사례</th>
+              <th>기록</th>
+              <th>정리</th>
+              <th>검증</th>
+              <th>변환</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>아인슈타인</td>
+              <td>연구 노트·편지·초안 (Zürich Notebook 등)</td>
+              <td>주제별 묶음, 편지로 아이디어 정제</td>
+              <td>동료 서신, 물리적 일관성 확인</td>
+              <td>초안→수정→논문 제출</td>
+            </tr>
+            <tr>
+              <td>Niklas Luhmann</td>
+              <td>카드 1장 = 아이디어 1개 (90,000장)</td>
+              <td>고유 ID 번호로 카드 간 링크(하이퍼텍스트)</td>
+              <td>카드 탐색 중 충돌·모순 발견</td>
+              <td>클러스터 탐색→장 구조화→집필 (70권)</td>
+            </tr>
+            <tr>
+              <td>Charles Darwin</td>
+              <td>포켓 노트북 (A~E 시리즈)</td>
+              <td>번호 포트폴리오로 이전 (챕터별)</td>
+              <td>독서 목록 관리, 동료 편지 교환</td>
+              <td>포트폴리오→챕터 아웃라인→Origin of Species</td>
+            </tr>
+            <tr>
+              <td>Vladimir Nabokov</td>
+              <td>비선형 index cards (순서 없이 작성)</td>
+              <td>완성 후 번호 매김, 매일 순서 섞기</td>
+              <td>구술 전 카드 반복 검토·재작성</td>
+              <td>구술→아내가 타이핑→출판 (Lolita 등)</td>
+            </tr>
+            <tr>
+              <td>Greene / Holiday</td>
+              <td>독서·메모 → 카드 1장 1아이디어</td>
+              <td>색상별 분류 (주제·챕터 매핑)</td>
+              <td>카드 색상 시각 검토로 챕터 공백 발견</td>
+              <td>카드 조립→챕터→책 (10,000+장 → 10권)</td>
+            </tr>
+            <tr>
+              <td>Montaigne / Bacon</td>
+              <td>commonplace book (인용·관찰·격언)</td>
+              <td>주제별 섹션 분류</td>
+              <td>재독·수정·항목 제거</td>
+              <td>직접 에세이·격언집으로 발행</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="section">
+        <div class="section-title">핵심 발견 (서로 다른 판단 축)</div>
+        <ol class="find">
+          <li><b>단위 크기가 결정적이다.</b> 6인 모두 기록 단위를 매우 작게 유지했다 (카드 1장·메모 1개·노트 한 줄). 큰 단위로 기록하면 나중에 조립이 불가능하다.</li>
+          <li><b>정리 기준은 시간순이 아닌 주제/챕터순이다.</b> Darwin의 번호 포트폴리오, Greene의 색상 분류, Luhmann의 ID 링크 모두 주제 기반이다. 날짜 기반으로 정리하면 연결이 사라진다.</li>
+          <li><b>검증은 별도 단계가 아니라 정리 과정에서 자동 발생한다.</b> Darwin은 포트폴리오를 보다가 공백을 발견했고, Luhmann은 카드 탐색 중 모순을 발견했다. 검증 세션을 따로 잡지 않아도 된다.</li>
+          <li><b>변환은 창작이 아니라 편집이다.</b> 모든 사례에서 최종 책·논문은 기록에서 새로 쓴 것이 아니라 기존 메모를 선별·배열·다듬은 것이다. 출판 시 창의력이 아닌 편집력이 병목이다.</li>
+          <li><b>도구보다 루틴이 중요하다.</b> 루만의 박스, 나보코프의 카드, 다윈의 포트폴리오는 모두 다르다. 공통점은 매일/매주 반복하는 루틴이다. 도구를 바꿔도 루틴 없이는 작동하지 않는다.</li>
+          <li><b>동료 서신/외부 피드백은 검증 루프의 핵심이었다.</b> 아인슈타인과 다윈 모두 편지 교환이 아이디어를 다듬는 주요 경로였다. 혼자 쓰는 기록만으로 검증 루프가 완성되지 않는다.</li>
+        </ol>
+      </div>
+
+      <div class="callout">
+        <b>추천: 창작하려 하지 말고, 먼저 기록 밀도를 높여라.</b><br>
+        출판은 기록이 충분히 쌓이면 자연히 조립 가능해진다. 빈 기록 상태에서 "무언가를 써야 한다"는 압박은 변환 단계를 건너뛴 것이다. 매일 3줄을 쌓으면 월간 산출물이 생긴다.
+      </div>
+    </div>
+  </details>
+
+  <details open>
+    <summary><span class="chev"></span> SAM/Infinity 적용 루프</summary>
+    <div class="body">
+      <div class="section">
+        <div class="section-title">3단계 기록 루프</div>
+        <table>
+          <thead>
+            <tr><th>주기</th><th>행동</th><th>위치</th><th>소요</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>매일</td>
+              <td>짧은 단위 캡처: 생각 1개, 관찰 1개, 인용 1개. 주제 태그만 붙임</td>
+              <td>INTENTS.md Inbox 또는 빠른 메모</td>
+              <td>2–5분</td>
+            </tr>
+            <tr>
+              <td>주간</td>
+              <td>태그/주제별 분류 정리. 카드를 챕터/프로젝트 폴더로 이동. 공백 확인</td>
+              <td>Infinity artifacts/, INTENTS.md</td>
+              <td>15–20분</td>
+            </tr>
+            <tr>
+              <td>월간</td>
+              <td>밀도 높은 클러스터 하나를 골라 산출물로 변환 (리포트·아티클·아카이브)</td>
+              <td>reports/, artifacts/, prompt-archive</td>
+              <td>1–2시간</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="section">
+        <div class="section-title">Infinity에 바로 적용 가능한 규칙</div>
+        <ul>
+          <li><b>기록 단위:</b> INTENTS.md Inbox 항목은 1개 아이디어 단위로. 긴 생각은 2–3개로 쪼개어 등록</li>
+          <li><b>정리 기준:</b> Archive는 날짜 기준이 아닌 프로젝트/주제 태그로 클러스터링</li>
+          <li><b>검증 루프:</b> Heartbeat 리포트의 MECE 구조 요건이 이미 이 역할을 한다 (충돌·공백 자동 발견)</li>
+          <li><b>변환 트리거:</b> 같은 주제 archive가 5개 이상 쌓이면 "종합 산출물" Intent를 Inbox에 등록</li>
+          <li><b>외부 검증:</b> Heartbeat 완료 리포트를 prompt-archive에 커밋 → 외부 피드백 루프 대체</li>
+        </ul>
+      </div>
+
+      <div class="content-grid">
+        <div class="mini-card">
+          <b>지금 바로 시작하는 법</b>
+          <p>매일 3줄 이하 메모를 INTENTS.md Inbox에 던진다. 주간 Heartbeat가 구조화해 Active로 이동한다. 별도 노트 앱 불필요.</p>
+        </div>
+        <div class="mini-card">
+          <b>피해야 할 함정</b>
+          <p>완벽한 정리 시스템을 먼저 만들려다 기록 자체를 미루는 것. 먼저 쌓아야 정리할 것이 생긴다.</p>
+        </div>
+      </div>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="chev"></span> 실행 메타 · 산출물</summary>
+    <div class="body">
+      <div class="chips">
+        <span class="chip">2026-06-23T15:00Z</span>
+        <span class="chip">research-only L1</span>
+        <span class="chip">active → completed</span>
+      </div>
+      <ul>
+        <li>조사 사례: Einstein (Zürich Notebook), Luhmann (Zettelkasten), Darwin (notebooks+portfolios), Nabokov (index cards), Robert Greene / Ryan Holiday (notecard system), Montaigne / Francis Bacon (commonplace book)</li>
+        <li>산출물: <code>reports/research-21/2026-06-23T1500Z.html</code></li>
+        <li>Archive 예정: <code>intents/archive/research-21.md</code></li>
+        <li>외부 API 호출·비용 발생·코드 변경 없음 (read-only research)</li>
+      </ul>
+    </div>
+  </details>
+
+  <div class="foot">
+    <span>Agent-First Heartbeat</span>
+    <span>Infinity · research-21</span>
+  </div>
+</div>
+</body>
+</html>
