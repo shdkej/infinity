@@ -247,23 +247,23 @@ def main() -> None:
 
 {headline}
 
-━━━━━━━━━━━━━━
+---
 시간대별
 {hourly_timeline(now_kst, timeline_events)}
 
-━━━━━━━━━━━━━━
+---
 평가기
 {evaluator_timeline(eval_events)}
 
-━━━━━━━━━━━━━━
+---
 ✅ 완료
 {bullet(completed_lines, "최근 24시간 완료 Archive 없음")}
 
-━━━━━━━━━━━━━━
+---
 ➡️ 다음
 {bullet(next_lines, "Inbox/Active 비어 있음")}
 
-━━━━━━━━━━━━━━
+---
 🟡 대기
 {bullet(waiting_lines, "승인/외부 조건 대기 없음")}
 """

@@ -6,6 +6,10 @@
 
 ## Active
 
+<!-- build-13 active 2026-06-23T14:14Z → intents/active/build-13.md [display: 아프지마 앱 병원 API 호출 흐름 검증; projects: apujima,infinity,app-api-verification; type: implementation-verification; topics: hospital-api,api-flow,app-verification] (대상 앱/레포 위치 식별부터 시작해 병원 API endpoint/client/route/env 연결을 확인하고, 안전한 read-only 검증 또는 명확한 차단 사유를 HTML report로 남긴다. 외부 민감/유료 호출은 승인 전 반복 금지.) -->
+
+<!-- research-21 active 2026-06-23T14:12Z → intents/active/research-21.md [display: 기록에서 출판으로 이어지는 작업 시스템 조사; projects: infinity,research-bank,writing-system,personal-ops; type: research; topics: notes,publishing,knowledge-work,writers,scientists] (아인슈타인/작가/연구자 사례를 통해 기록 방식→정리 방식→확인/검증 방식→출판/결과물 변환 방식을 비교하고, 마스터님/SAM/Infinity에 적용할 현실적 기록 루프를 도출한다. L1 research-only.) -->
+
 ## Waiting
 
 <!-- 사용자 결정, 외부 조건, 안전 확인 대기. 같은 질문을 반복하지 않고 상태만 보존한다. -->
