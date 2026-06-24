@@ -4,6 +4,8 @@
 
 ## Inbox
 
+<!-- marketing-83 inbox 2026-06-24T2200Z [projects: virtue; type: strategy; topics: marketing,activation,onboarding,empty-state; source_note: /home/ubuntu/workspace/knowledge-lab/source/external-links/marketing/2026-06-24-secondary-onboarding-return-path.md; rationale: 첫 가치 뒤 반환 사용자에게 누적/요약 신호와 `아직 기록이 없어요.` empty-state가 함께 보여 next-step bridge가 끊긴다. expected_impact: 첫 저장/첫 판단 뒤 홈 복귀 신뢰와 다음 행동 선명도 개선. permission: L1 docs-only proposal; owner_route: Infinity router -> local execution; success: 홈 hero/요약/최근 덕행 3표면별 반환형 문장 후보와 gating 규칙을 J1/J2/J3/J4 기준으로 1장에 고정; first_gate: 라이브 홈 읽기 관찰과 marketing-80/81 결론 충돌 0 확인 후 proposal-only 비교 문서 작성] (Virtue 홈 반환형 empty-state gating 정렬 제안서 작성.) -->
+
 ## Active
 
 <!-- marketing-82 active 2026-06-24T2107Z → intents/active/marketing-82.md [projects: virtue; type: implementation; topics: marketing,activation,product; approval: user-approved] (Virtue 랜딩페이지 만들기. SAM이 즉시 처리하지 않고 Infinity hourly local router cron이 나중에 발견·처리하는 흐름 확인용 Active intent.) -->
