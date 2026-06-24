@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>research-23 · TTP learning loop</title>
+<style>
+  :root{
+    --bg:#f4f2ea; --panel:#fbfaf5; --ink:#2c2a25; --soft:#807c70; --faint:#a8a496; --line:#e3dfd2;
+    --a2:#5f7a5e; --a2-deep:#3f5740;
+    --a1:#5a6f8a; --a1-deep:#3f536e;
+    --sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0; width:100%; max-width:100%; overflow-x:hidden;}
+  body{background:var(--bg); color:var(--ink); font-family:var(--sans); font-size:14px; line-height:1.68; -webkit-font-smoothing:antialiased;}
+  .sheet{width:min(100%,720px); max-width:720px; margin:0 auto; padding:32px 18px 40px;}
+  .reveal{opacity:0; animation:fade .7s ease forwards;}
+  @keyframes fade{from{opacity:0; transform:translateY(9px);} to{opacity:1; transform:none;}}
+  .eyebrow{display:flex; align-items:center; gap:10px; font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--soft); flex-wrap:wrap;}
+  .eyebrow .id{color:var(--a2-deep); font-weight:600;}
+  .eyebrow .dot{width:5px; height:5px; border-radius:50%; background:var(--a2);}
+  .eyebrow .status{color:var(--a2-deep);}
+  h1{font-size:clamp(24px,7vw,29px); line-height:1.3; font-weight:700; letter-spacing:0; margin:20px 0 0; overflow-wrap:anywhere;}
+  .dek{font-size:15.5px; color:var(--soft); margin:13px 0 0; max-width:52ch;}
+  .hr{height:1px; background:var(--line); margin:30px 0;}
+  .axis{padding:0 0 4px 18px; position:relative; margin-bottom:26px;}
+  .axis::before{content:""; position:absolute; left:0; top:6px; bottom:6px; width:2px; border-radius:2px;}
+  .axis.ax1::before{background:var(--a1);} .axis.ax2::before{background:var(--a2);}
+  .axis.ax1{--ul:var(--a1);} .axis.ax2{--ul:var(--a2);}
+  .axis .label{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase; margin-bottom:9px; display:flex; align-items:center; gap:8px;}
+  .axis.ax1 .label{color:var(--a1-deep);} .axis.ax2 .label{color:var(--a2-deep);}
+  .axis .label .n{font-weight:600; opacity:.6;}
+  .axis .text{font-size:clamp(16px,4.4vw,18px); line-height:1.62; color:#37352e; overflow-wrap:anywhere;}
+  .axis .text b{font-weight:700; color:var(--ink); border-bottom:2px solid var(--ul);}
+  ol.find{list-style:none; counter-reset:f; margin:16px 0 0; padding:0;}
+  ol.find li{position:relative; padding:8px 0 8px 26px; font-size:15px; color:#37352e; border-top:1px solid var(--line);}
+  ol.find li:first-child{border-top:none;}
+  ol.find li::before{counter-increment:f; content:counter(f); position:absolute; left:0; top:9px; font-family:var(--mono); font-size:12px; font-weight:600; color:var(--a1-deep);}
+  details{border:1px solid var(--line); border-radius:8px; background:var(--panel); margin-bottom:10px; overflow:hidden;}
+  summary{cursor:pointer; list-style:none; padding:14px 16px; display:flex; align-items:center; gap:11px; font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft);}
+  summary::-webkit-details-marker{display:none;}
+  summary .chev{width:8px; height:8px; border-right:2px solid var(--a2-deep); border-bottom:2px solid var(--a2-deep); transform:rotate(-45deg); transition:.25s; flex:none; margin-left:2px;}
+  details[open] summary .chev{transform:rotate(45deg);}
+  summary:hover{color:var(--ink);}
+  .body{padding:2px 16px 18px; min-width:0;}
+  .section{margin:4px 0 18px;}
+  .section-title{font-family:var(--mono); font-size:10.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--a1-deep); margin:0 0 8px;}
+  .callout{border-left:2px solid var(--a2); background:#f2efe5; padding:11px 13px; color:#4a473f; margin:12px 0 16px;}
+  .content-grid{display:grid; grid-template-columns:1fr; gap:10px; margin:10px 0;}
+  .mini-card{border:1px solid var(--line); background:#f8f6ef; border-radius:8px; padding:12px 13px; min-width:0;}
+  .mini-card b{display:block; color:var(--ink); margin-bottom:5px;}
+  .mini-card p{margin:0;}
+  table{border-collapse:collapse; width:100%; max-width:100%; table-layout:fixed; font-size:13px; margin:4px 0 12px;}
+  th,td{border-bottom:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top; overflow-wrap:anywhere; word-break:break-word;}
+  th{font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft); font-weight:600;}
+  td:first-child{color:var(--a2-deep); font-weight:600; white-space:normal;}
+  .body p{color:var(--soft); overflow-wrap:anywhere;}
+  .body ul{margin:6px 0; padding-left:18px;} .body li{margin:5px 0;}
+  code{font-family:var(--mono); font-size:12px; background:#edeae0; padding:1px 6px; border-radius:3px; color:var(--a2-deep); overflow-wrap:anywhere; word-break:break-word;}
+  a{color:var(--a2-deep); text-underline-offset:3px; overflow-wrap:anywhere; word-break:break-word;}
+  .chips{display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px;}
+  .chip{font-family:var(--mono); font-size:10.5px; letter-spacing:.05em; color:var(--soft); border:1px solid var(--line); border-radius:999px; padding:3px 10px;}
+  .foot{margin-top:30px; padding-top:15px; border-top:1px solid var(--line); display:flex; flex-wrap:wrap; gap:6px 14px; justify-content:space-between; font-family:var(--mono); font-size:10px; letter-spacing:.13em; text-transform:uppercase; color:var(--faint);}
+  @media (min-width:720px){.sheet{padding:48px 34px 46px;} .eyebrow{letter-spacing:.18em;} .eyebrow .status{margin-left:auto;} .axis{padding-left:22px; margin-bottom:30px;} .content-grid{grid-template-columns:repeat(2,minmax(0,1fr));}}
+  @media (max-width:640px){table,thead,tbody,tr,th,td{display:block; width:100%;} thead{display:none;} tr{border:1px solid var(--line); border-radius:8px; padding:9px 10px; margin:0 0 10px; background:#f8f6ef;} td{border-bottom:0; padding:5px 0;} td:first-child{font-family:var(--mono); font-size:11px; letter-spacing:.05em;}}
+</style>
+</head>
+<body>
+<div class="sheet">
+  <div class="eyebrow reveal">
+    <span class="dot"></span>
+    <span class="id">research-23</span>
+    <span>Research Note</span>
+    <span class="status">archived</span>
+  </div>
+  <h1 class="reveal" style="animation-delay:.05s">미군 TTP 학습 루프</h1>
+  <p class="dek reveal" style="animation-delay:.09s">AAR가 어떻게 개인 경험을 조직의 SOP/TTP·훈련·교리로 바꾸는지, research-17의 후속으로 실제 변환 메커니즘만 좁게 정리했다.</p>
+  <div class="hr reveal" style="animation-delay:.12s"></div>
+
+  <div class="axis ax1 reveal" style="animation-delay:.16s">
+    <div class="label"><span class="n">01</span> 무엇을 조사/정리했나</div>
+    <div class="text">미군의 <b>TTP</b>가 단순 회고나 노하우 공유가 아니라, 현장 관찰을 조직자산으로 변환하는 절차인지 확인했다.</div>
+  </div>
+
+  <div class="axis ax2 reveal" style="animation-delay:.22s">
+    <div class="label"><span class="n">02</span> 핵심 결과</div>
+    <div class="text">핵심은 <b>관찰 → AAR → CALL/JLLIS 분석 → SOP/TTP 변환 → 훈련 검증 → 교리·교육 반영</b>의 폐쇄 루프다.</div>
+  </div>
+
+  <div class="reveal" style="animation-delay:.27s">
+  <details open>
+    <summary><span class="chev"></span> 핵심 내용 · 리서치 본문</summary>
+    <div class="body">
+      <div class="section">
+        <div class="section-title">핵심 발견</div>
+        <ol class="find">
+          <li>AAR는 감상문이 아니라 다음 훈련·작전의 수정점을 뽑는 입력 장치다.</li>
+          <li>CALL/JLLIS는 개별 부대 경험을 root-cause, trend, gap으로 압축하는 중앙 처리 계층이다.</li>
+          <li>SOP/TTP는 doctrine보다 작고 개인 팁보다 커서, 현장 학습이 다음 부대의 행동 표준으로 바뀌는 중간 포맷이다.</li>
+          <li>CTC·홈스테이션 훈련·PME가 바뀐 절차를 다시 시험하므로, 지식은 문서에서 끝나지 않고 반복 수행으로 검증된다.</li>
+          <li>개인/팀에 적용하면 "좋은 생각"을 체크리스트·운영 규칙·스킬·검수 gate로 바꾸는 것이 TTP 변환이다.</li>
+        </ol>
+      </div>
+
+      <div class="callout">조직자산화의 판정 기준은 간단하다. 배운 내용이 다음 사람이 같은 상황에서 더 빨리, 덜 틀리게 행동하도록 기본 절차를 바꿨는가.</div>
+
+      <div class="content-grid">
+        <div class="mini-card">
+          <b>근거 · 소스</b>
+          <p>Army.mil CALL 페이지, CALL Services Handbook, FM 7-0, Army University Press AAR 글, unit records/AAR handbook 기사.</p>
+        </div>
+        <div class="mini-card">
+          <b>다음 판단</b>
+          <p>SAM/Infinity 운영에는 "작업 후 AAR → docs/skill/cron prompt 변환 → 다음 실행 검증"을 기본 TTP 루프로 쓰면 된다.</p>
+        </div>
+      </div>
+    </div>
+  </details>
+
+  <details open>
+    <summary><span class="chev"></span> 변환 메커니즘</summary>
+    <div class="body">
+      <table>
+        <tbody>
+          <tr><td>1. 사건 포착</td><td>실전·훈련에서 AAR, observation, best practice, unit experience를 남긴다.</td></tr>
+          <tr><td>2. 차이 분석</td><td>계획·교리·현장 사이의 차이를 root cause와 반복 패턴으로 바꾼다.</td></tr>
+          <tr><td>3. 중앙 축적</td><td>CALL/JLLIS가 tactical부터 strategic 수준까지 lessons learned를 수집·분석·배포·보관한다.</td></tr>
+          <tr><td>4. 절차 변환</td><td>분석 결과를 SOP/TTP, checklist, training task, doctrine 후보로 만든다.</td></tr>
+          <tr><td>5. 훈련 검증</td><td>CTC, home-station training, PME에서 새 절차를 다시 수행하고 평가한다.</td></tr>
+          <tr><td>6. 제도 반영</td><td>반복 검증된 내용은 교리·교육·DOTMLPF-P 변화로 승격된다.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="chev"></span> 실행 메타 · 산출물</summary>
+    <div class="body">
+      <div class="chips">
+        <span class="chip">2026-06-24T2055Z</span>
+        <span class="chip">user request</span>
+        <span class="chip">direct local run</span>
+      </div>
+      <ul>
+        <li>산출물 <code>artifacts/research-23/us-ttp-learning-to-org-asset.md</code></li>
+        <li>후속 맥락 <code>research-17</code></li>
+      </ul>
+    </div>
+  </details>
+  </div>
+
+  <div class="foot reveal" style="animation-delay:.3s">
+    <span>SAM Local Execution</span>
+    <span>Infinity · Intent Note</span>
+  </div>
+</div>
+</body>
+</html>
