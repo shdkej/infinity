@@ -27,7 +27,7 @@
 ## commits
 
 - repo: infinity
-  sha: pending
+  sha: 8bcda42
   note: research-23 intent, artifact, report 추가
 - repo: knowledge-lab
   sha: pending
