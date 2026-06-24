@@ -6,6 +6,8 @@
 
 ## Active
 
+<!-- marketing-82 active 2026-06-24T2107Z → intents/active/marketing-82.md [projects: virtue; type: implementation; topics: marketing,activation,product; approval: user-approved] (Virtue 랜딩페이지 만들기. SAM이 즉시 처리하지 않고 Infinity hourly local router cron이 나중에 발견·처리하는 흐름 확인용 Active intent.) -->
+
 ## Waiting
 
 <!-- 사용자 결정, 외부 조건, 안전 확인 대기. 같은 질문을 반복하지 않고 상태만 보존한다. -->
