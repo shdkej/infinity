@@ -70,3 +70,9 @@ Virtue 랜딩페이지를 만든다.
 ## 현재 상태
 
 등록만 완료. SAM은 이번 턴에서 직접 구현하지 않는다. 다음 hourly Infinity router가 이 intent를 선택해 처리해야 한다.
+
+## 최근 진행
+
+- 2026-06-24T21:59:09Z hourly local router가 본 intent를 선택했다.
+- `reports/marketing-82/20260624T215909Z-handoff.html` 작성 완료.
+- 확인 결과 후보 repo ` /home/ubuntu/workspace/space/apps/virtue-rebirth ` 는 현재 infra manifest만 있고 랜딩페이지 소스 파일이 없어, 실제 Virtue 프론트엔드 소스 repo 식별이 다음 게이트다.
