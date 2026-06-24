@@ -4,8 +4,6 @@
 
 ## Inbox
 
-<!-- marketing-83 inbox 2026-06-24T2200Z [projects: virtue; type: strategy; topics: marketing,activation,onboarding,empty-state; source_note: /home/ubuntu/workspace/knowledge-lab/source/external-links/marketing/2026-06-24-secondary-onboarding-return-path.md; rationale: 첫 가치 뒤 반환 사용자에게 누적/요약 신호와 `아직 기록이 없어요.` empty-state가 함께 보여 next-step bridge가 끊긴다. expected_impact: 첫 저장/첫 판단 뒤 홈 복귀 신뢰와 다음 행동 선명도 개선. permission: L1 docs-only proposal; owner_route: Infinity router -> local execution; success: 홈 hero/요약/최근 덕행 3표면별 반환형 문장 후보와 gating 규칙을 J1/J2/J3/J4 기준으로 1장에 고정; first_gate: 라이브 홈 읽기 관찰과 marketing-80/81 결론 충돌 0 확인 후 proposal-only 비교 문서 작성] (Virtue 홈 반환형 empty-state gating 정렬 제안서 작성.) -->
-
 ## Active
 
 ## Waiting
@@ -15,6 +13,7 @@
 <!-- naver-shopping-01 waiting 2026-06-21T1000Z → intents/active/naver-shopping-01.md [display: 나래/Narae; projects: naver-shopping,infinity,personal-ops; type: coordination; topics: automation,workflow,marketing; status: sample-order-gated-session-waiting; approval: sample-order-gated] (cloud 소싱 준비 완료(크로스바디+손목 스트랩). alibaba.com 로컬 공급사 확인(계정 불필요) + 손목·크로스바디 병행 샘플 주문 사용자 승인 대기. do_not_repeat_cloud 활성.) -->
 
 ## Archive
+<!-- marketing-83 completed 2026-06-24T2300Z → intents/archive/marketing-83.md [projects: virtue; type: strategy; topics: marketing,activation,onboarding,empty-state] (홈 반환형 empty-state gating 정렬 제안서 완료. 3표면별 J1-J4 gating 규칙과 반환형 문장 후보를 proposal-only 1장 비교 문서로 정리. 핵심 발견: 최근 덕행 섹션이 전체 이력 0건과 오늘 이력 0건을 구분하지 않는 것이 충돌 원인. J3는 deed_judged gate, J1/J2/J4는 deed_saved gate로 별도 분기. production/tracking/privacy/public copy/deploy/external cost 변경 0. HTML report gate passed.) -->
 <!-- marketing-82 completed 2026-06-24T2308Z → intents/archive/marketing-82.md [projects: virtue; type: implementation; topics: marketing,activation,product] (Virtue 홈 첫 방문 zero-state를 랜딩형으로 재구성해 첫 가치와 다음 행동을 같은 화면에서 바로 읽히게 했다. `apps/web/src/app/page.tsx` 한 파일만 수정했고 lint는 기존 경고 4건만 보고.) -->
 <!-- research-23 completed 2026-06-24T2055Z → intents/archive/research-23.md [projects: infinity,research-bank,world-models; type: research; topics: military,workflow,knowledge-management] (미군 TTP 학습 루프 심화 완료. 핵심은 AAR→CALL/JLLIS→SOP/TTP→훈련 검증→교리·교육 반영의 폐쇄 루프. HTML report gate passed.) -->
 <!-- marketing-81 completed 2026-06-24T1007Z → intents/archive/marketing-81.md [projects: virtue; type: strategy; topics: marketing,activation,retention] (첫 저장/첫 판단 뒤 홈 복귀 secondary onboarding 감사표 완료. 핵심 결론은 새 교육보다 next-step bridge가 우선이며, 가장 위험한 충돌은 누적/요약 신호와 `아직 기록이 없어요.` empty-state가 같은 반환 세션에서 함께 보이는 상태. production/tracking/privacy/deploy/external message 변경 0. HTML report gate passed.) -->
