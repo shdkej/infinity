@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>research-22 handoff</title>
+<style>
+  :root{
+    --bg:#f4f2ea; --panel:#fbfaf5; --ink:#2c2a25; --soft:#807c70; --faint:#a8a496; --line:#e3dfd2;
+    --a2:#5f7a5e; --a2-deep:#3f5740;
+    --a1:#5a6f8a; --a1-deep:#3f536e;
+    --sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0; width:100%; max-width:100%; overflow-x:hidden;}
+  body{background:var(--bg); color:var(--ink); font-family:var(--sans); font-size:14px; line-height:1.68; -webkit-font-smoothing:antialiased;}
+  .sheet{width:min(100%,720px); max-width:720px; margin:0 auto; padding:32px 18px 40px;}
+  .reveal{opacity:0; animation:fade .7s ease forwards;}
+  @keyframes fade{from{opacity:0; transform:translateY(9px);} to{opacity:1; transform:none;}}
+  .eyebrow{display:flex; align-items:center; gap:10px; font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--soft); flex-wrap:wrap;}
+  .eyebrow .id{color:var(--a2-deep); font-weight:600;}
+  .eyebrow .dot{width:5px; height:5px; border-radius:50%; background:var(--a2);}
+  .eyebrow .status{color:var(--a2-deep);}
+  h1{font-size:clamp(24px,7vw,29px); line-height:1.3; font-weight:700; margin:20px 0 0; overflow-wrap:anywhere;}
+  .dek{font-size:15.5px; color:var(--soft); margin:13px 0 0; max-width:52ch;}
+  .hr{height:1px; background:var(--line); margin:30px 0;}
+  .axis{padding:0 0 4px 18px; position:relative; margin-bottom:26px;}
+  .axis::before{content:""; position:absolute; left:0; top:6px; bottom:6px; width:2px; border-radius:2px;}
+  .axis.ax1::before{background:var(--a1);} .axis.ax2::before{background:var(--a2);}
+  .axis .label{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase; margin-bottom:9px; display:flex; align-items:center; gap:8px;}
+  .axis.ax1 .label{color:var(--a1-deep);} .axis.ax2 .label{color:var(--a2-deep);}
+  .axis .label .n{font-weight:600; opacity:.6;}
+  .axis .text{font-size:clamp(16px,4.4vw,18px); line-height:1.62; color:#37352e; overflow-wrap:anywhere;}
+  .axis .text b{font-weight:700; color:var(--ink);}
+  ol.find{list-style:none; counter-reset:f; margin:16px 0 0; padding:0;}
+  ol.find li{position:relative; padding:8px 0 8px 26px; font-size:15px; color:#37352e; border-top:1px solid var(--line);}
+  ol.find li:first-child{border-top:none;}
+  ol.find li::before{counter-increment:f; content:counter(f); position:absolute; left:0; top:9px; font-family:var(--mono); font-size:12px; font-weight:600; color:var(--a1-deep);}
+  details{border:1px solid var(--line); border-radius:8px; background:var(--panel); margin-bottom:10px; overflow:hidden;}
+  summary{cursor:pointer; list-style:none; padding:14px 16px; display:flex; align-items:center; gap:11px; font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft);}
+  summary::-webkit-details-marker{display:none;}
+  summary .chev{width:8px; height:8px; border-right:2px solid var(--a2-deep); border-bottom:2px solid var(--a2-deep); transform:rotate(-45deg); transition:.25s; flex:none; margin-left:2px;}
+  details[open] summary .chev{transform:rotate(45deg);}
+  .body{padding:2px 16px 18px; min-width:0;}
+  .section{margin:4px 0 18px;}
+  .section-title{font-family:var(--mono); font-size:10.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--a1-deep); margin:0 0 8px;}
+  .callout{border-left:2px solid var(--a2); background:#f2efe5; padding:11px 13px; color:#4a473f; margin:12px 0 16px;}
+  .content-grid{display:grid; grid-template-columns:1fr; gap:10px; margin:10px 0;}
+  .mini-card{border:1px solid var(--line); background:#f8f6ef; border-radius:8px; padding:12px 13px; min-width:0;}
+  .mini-card b{display:block; color:var(--ink); margin-bottom:5px;}
+  .mini-card p{margin:0; color:var(--soft);}
+  table{border-collapse:collapse; width:100%; max-width:100%; table-layout:fixed; font-size:13px; margin:4px 0 12px;}
+  th,td{border-bottom:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top; overflow-wrap:anywhere; word-break:break-word;}
+  th{font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft); font-weight:600;}
+  td:first-child{color:var(--a2-deep); font-weight:600; white-space:normal;}
+  .body p,.body li{overflow-wrap:anywhere;}
+  .body ul{margin:6px 0; padding-left:18px;}
+  code{font-family:var(--mono); font-size:12px; background:#edeae0; padding:1px 6px; border-radius:3px; color:var(--a2-deep);}
+  .chips{display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px;}
+  .chip{font-family:var(--mono); font-size:10.5px; letter-spacing:.05em; color:var(--soft); border:1px solid var(--line); border-radius:999px; padding:3px 10px;}
+  .foot{margin-top:30px; padding-top:15px; border-top:1px solid var(--line); display:flex; flex-wrap:wrap; gap:6px 14px; justify-content:space-between; font-family:var(--mono); font-size:10px; letter-spacing:.13em; text-transform:uppercase; color:var(--faint);}
+  @media (min-width:720px){ .sheet{padding:48px 34px 46px;} .eyebrow .status{margin-left:auto;} .axis{padding-left:22px; margin-bottom:30px;} .content-grid{grid-template-columns:repeat(2,minmax(0,1fr));} }
+  @media (max-width:640px){ table,thead,tbody,tr,th,td{display:block; width:100%;} thead{display:none;} tr{border:1px solid var(--line); border-radius:8px; padding:9px 10px; margin:0 0 10px; background:#f8f6ef;} td{border-bottom:0; padding:5px 0;} td:first-child{font-family:var(--mono); font-size:11px; letter-spacing:.05em;} }
+</style>
+</head>
+<body>
+<div class="sheet">
+  <div class="eyebrow reveal">
+    <span class="dot"></span>
+    <span class="id">research-22</span>
+    <span>Research Note</span>
+    <span class="status">active handoff</span>
+  </div>
+  <h1 class="reveal" style="animation-delay:.05s">AI 자료수집·정리·관리 운영법 조사</h1>
+  <p class="dek reveal" style="animation-delay:.09s">이번 사이클은 리서치 범위를 실제 완료 가능한 묶음으로 자르고, 다음 실행이 바로 HTML 최종본에 수렴하도록 소스군과 표 구조를 고정하는 데 집중했다.</p>
+  <div class="hr reveal" style="animation-delay:.12s"></div>
+
+  <div class="axis ax1 reveal" style="animation-delay:.16s">
+    <div class="label"><span class="n">01</span> 무엇을 조사/정리했나</div>
+    <div class="text">SAM/Infinity/Knowledge Lab 환경에서 <b>AI가 수집한 자료를 나중에도 믿고 재사용할 수 있게 만드는 운영 루프</b>를 다루는 intent를 선별했고, 이번 실행에서는 이를 한 번의 heartbeat 안에 끝낼 수 있는 <b>근거 수집 순서와 산출물 골격</b>으로 재정의했다.</div>
+  </div>
+
+  <div class="axis ax2 reveal" style="animation-delay:.22s">
+    <div class="label"><span class="n">02</span> 핵심 결과</div>
+    <div class="text">즉시 완료 보고서로 밀어붙이기보다 <b>소스 4군 우선조사 + 단계별 운영표 + 도구 비교표 + 체크리스트 + 일/주/월 루프</b>를 다음 실행의 고정 산출물로 잠갔다. 이 intent는 아직 blocker가 아니라 <b>범위가 넓은 Active research</b> 상태이며, 다음 사이클은 아래 소스군만 읽고 최종 HTML report를 작성하면 된다.</div>
+  </div>
+
+  <div class="reveal" style="animation-delay:.27s">
+    <details open>
+      <summary><span class="chev"></span> 핵심 내용 · 리서치 본문</summary>
+      <div class="body">
+        <div class="section">
+          <div class="section-title">핵심 발견</div>
+          <ol class="find">
+            <li>이 intent의 요구사항은 툴 소개가 아니라 운영 설계이므로, 제품 마케팅 문서보다 원문 보존·출처 표기·신뢰도 규칙을 설명하는 1차 문서가 먼저 필요하다.</li>
+            <li>한 사이클 안에서 품질 있게 끝내려면 소스를 네 묶음으로 제한해야 한다: 검색형 AI 인용 정책, 개인 지식관리 도구의 원문/메타데이터 처리, 학술/참고문헌 관리 관행, 오래된 정보 갱신 루프 사례.</li>
+            <li>최종 산출물은 서술형 에세이보다 표 중심이 맞다. 요청된 다섯 결과물은 모두 `수집-정리-확인-보관-재사용-갱신` 축과 `신뢰도-출처-중복-갱신주기-재사용경로` 축으로 MECE하게 묶을 수 있다.</li>
+          </ol>
+        </div>
+
+        <div class="callout">다음 실행의 목표는 탐색을 넓히는 것이 아니라, 지정된 소스군만 읽어 `reports/research-22/{next-timestamp}.html` 최종본 하나를 완성하는 것이다. 외부 계정 연결·유료 가입·개인자료 업로드는 계속 금지한다.</div>
+
+        <div class="content-grid">
+          <div class="mini-card">
+            <b>근거 · 소스</b>
+            <p>이번 실행에서는 `INTENTS.md`의 Active 보드와 `intents/active/research-22.md`만 읽어 actionable 여부를 판정했다. 아직 외부 자료는 읽지 않았고, 다음 사이클의 우선 소스군만 확정했다.</p>
+          </div>
+          <div class="mini-card">
+            <b>다음 판단</b>
+            <p>다음 사이클에서 1차 소스 6~10개를 읽어도 요구 산출물을 모두 채울 수 있는지 보고, 가능하면 즉시 최종 HTML report 작성 후 archive 후보로 전환한다.</p>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <details open>
+      <summary><span class="chev"></span> 다음 실행 범위 · 소스군 · 출력 구조</summary>
+      <div class="body">
+        <div class="section">
+          <div class="section-title">우선 소스군</div>
+          <table>
+            <thead>
+              <tr><th>소스군</th><th>왜 필요한가</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Perplexity / NotebookLM / OpenAI 검색형 제품의 공식 인용·출처 정책 문서</td><td>AI가 가져온 답변을 나중에 다시 검증할 수 있는 최소 출처 보존 규칙을 정리하기 위해 필요.</td></tr>
+              <tr><td>Zotero / Readwise / Obsidian 공식 문서 중 메타데이터, 링크, 하이라이트, 원문 보존 설명</td><td>수집물을 어떤 단위로 저장하고 어떤 필드를 남겨야 재사용 가능한지 도구별 강약을 비교하기 위해 필요.</td></tr>
+              <tr><td>도서관·문헌관리·리서치 워크플로우 관련 1차 가이드</td><td>중복 제거, 버전 관리, 인용 단위, 신뢰등급 같은 운영 규칙을 툴 마케팅 문구가 아닌 보편 원칙으로 고정하기 위해 필요.</td></tr>
+              <tr><td>개인 지식관리/에이전트 위키 운영 사례 중 업데이트 루프를 설명하는 자료</td><td>오래된 정보 갱신, 사실 재검토, 루틴 설계를 `1일/주간/월간` 루프로 떨어뜨리기 위해 필요.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="section">
+          <div class="section-title">최종 보고서 고정 구조</div>
+          <ul>
+            <li>`수집 → 정리 → 확인 → 보관 → 재사용 → 갱신` 6단계 운영표</li>
+            <li>도구/방식 비교표: 검색형 AI, 레퍼런스 매니저, 노트 저장소, 하이라이트 수집기, agent-wiki류</li>
+            <li>소스 신뢰도 규칙: 1차/2차/요약본 구분, 원문 링크 필수, 인용 단위, 작성일/갱신일 기록</li>
+            <li>불신 방지 체크리스트: 출처 없음, 날짜 없음, 요약만 있고 원문 없음, 중복 요약, stale 가능성, 판단 메모 부재</li>
+            <li>마스터님용 루프: 일간 캡처, 주간 클러스터링/중복정리, 월간 리프레시/폐기/승격</li>
+          </ul>
+        </div>
+
+        <div class="section">
+          <div class="section-title">금지/경계</div>
+          <ul>
+            <li>외부 AI 서비스에 개인 자료나 비공개 문서를 업로드하지 않는다.</li>
+            <li>유료 플랜 가입, 계정 연결, 비용 발생 검증은 하지 않는다.</li>
+            <li>도구 홍보 카피를 사실처럼 인용하지 말고, 가능하면 공식 문서와 운영 가이드 중심으로 정리한다.</li>
+          </ul>
+        </div>
+      </div>
+    </details>
+
+    <details>
+      <summary><span class="chev"></span> 실행 메타 · 산출물</summary>
+      <div class="body">
+        <div class="chips">
+          <span class="chip">2026-06-24T0040Z</span>
+          <span class="chip">cron heartbeat</span>
+          <span class="chip">active → active</span>
+        </div>
+        <ul>
+          <li>산출물 <code>reports/research-22/2026-06-24T0040Z-handoff.html</code></li>
+        </ul>
+      </div>
+    </details>
+  </div>
+
+  <div class="foot reveal" style="animation-delay:.3s">
+    <span>Agent-First Heartbeat</span>
+    <span>Infinity · Intent Note</span>
+  </div>
+</div>
+</body>
+</html>
