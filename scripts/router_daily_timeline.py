@@ -19,6 +19,7 @@ def clean_summary(summary: str | None, limit: int = 90) -> str:
     text = " ".join(summary.strip().split())
     if text == "NO_REPLY":
         return ""
+    text = text.replace("긴급 차단 상태입니다.", "진행 기록입니다.")
     return text[: limit - 1].rstrip() + "…" if len(text) > limit else text
 
 
