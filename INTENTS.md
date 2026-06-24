@@ -10,11 +10,10 @@
 
 <!-- 사용자 결정, 외부 조건, 안전 확인 대기. 같은 질문을 반복하지 않고 상태만 보존한다. -->
 
-<!-- build-13 waiting 2026-06-24T0755KST → intents/active/build-13.md [display: 아프지마 앱 병원 API 호출 흐름 검증; projects: afzma,infinity,app-api-verification; type: implementation-verification; topics: hospital-api,api-flow,app-verification; blocker: afzma-local-execution-required] (대상 레포는 shdkej/afzma. 로컬에서 병원 API endpoint/client/route/env/UI 연결 흐름을 검증해야 함. 원격/Heartbeat 세션에서는 추정하지 말고 로컬 Claude Code 실행 필요. reports/build-13/2026-06-23T1500Z.html 의 기존 프롬프트는 afzma 기준으로 보정됨. do_not_repeat_cloud 활성.) -->
-
 <!-- naver-shopping-01 waiting 2026-06-21T1000Z → intents/active/naver-shopping-01.md [display: 나래/Narae; projects: naver-shopping,infinity,personal-ops; type: coordination; topics: automation,workflow,marketing; status: sample-order-gated-session-waiting; approval: sample-order-gated] (cloud 소싱 준비 완료(크로스바디+손목 스트랩). alibaba.com 로컬 공급사 확인(계정 불필요) + 손목·크로스바디 병행 샘플 주문 사용자 승인 대기. do_not_repeat_cloud 활성.) -->
 
 ## Archive
+<!-- build-13 completed 2026-06-24T0050Z → intents/archive/build-13.md [projects: afzma,infinity,app-api-verification; type: implementation-verification; topics: hospital-api,api-flow,app-verification] (로컬 shdkej/afzma read-only 검증 완료. UI→/api/chat·/api/history→controller→MedicalService→HIRA 병원 API 경로는 코드상 연결됨. HIRA_API_KEY 없음/오류/빈 응답 시 mock 병원 폴백. 실제 HIRA 네트워크 호출은 키·외부 API 경계 때문에 미실행. Claude Code는 401 인증 오류로 차단되어 SAM이 로컬 검증 수행. HTML report gate passed.) -->
 <!-- research-22 completed 2026-06-24T0800Z → intents/archive/research-22.md (6단계 운영표·도구 비교·현실 루프 완료. 소스 코퍼스 사전 정의+최소 정보 단위(URL·날짜·판단메모) 유지가 핵심. HTML report gate passed.) -->
 <!-- marketing-80 completed 2026-06-23T2207Z → intents/archive/marketing-80.md [projects: virtue; type: strategy; topics: marketing,activation,product,feedback-consistency] (홈 요약 카드·`최근 덕행`·`/add` 결과·저장 후 복귀 지점을 J1-J4 기준으로 감사표로 정리. 결론은 요약 신호와 `아직 비어있어요` empty-state 공존이 첫 저장 이후 신뢰를 깎을 수 있으며, safest next step은 홈 empty-state gating 정렬. production/tracking/privacy/public message/code deploy/external cost 변경 0. HTML report gate passed.) -->
 <!-- research-21 completed 2026-06-23T1500Z → intents/archive/research-21.md (6인 비교표 완성. 작은단위기록→주제별조립→구조모순검증→편집변환 공통패턴 도출. 매일3줄→주간분류→월간조립 기록루프 제안. HTML report gate passed.) -->
