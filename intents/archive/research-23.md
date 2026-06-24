@@ -30,7 +30,7 @@
   sha: 8bcda42
   note: research-23 intent, artifact, report 추가
 - repo: knowledge-lab
-  sha: pending
+  sha: 8e02478
   note: infinity submodule pointer update
 
 ## urls
