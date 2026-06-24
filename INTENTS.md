@@ -4,15 +4,6 @@
 
 ## Inbox
 
-- `marketing-81` Virtue 첫 저장 후 홈 복귀 secondary onboarding 감사표
-  source note path: `/home/ubuntu/workspace/knowledge-lab/source/external-links/marketing/2026-06-24-secondary-onboarding-return-path.md`
-  rationale: prelaunch 단계에서 첫 가치 전 onboarding 감사는 많이 쌓였지만, 첫 저장/첫 판단 뒤 홈 복귀 시점의 다음 행동 브리지는 아직 비어 있다. 현재 홈은 첫 기록 전 약속은 선명하지만 반환 사용자에게는 다시 처음 사용자 같은 empty-state와 CTA를 보여 줄 수 있다.
-  expected impact: 첫 가치 이후 activation depth 해석 충돌을 줄이고, J1/J2/J4/J3별로 가장 안전한 second-step 문장 후보를 docs-only로 정리할 수 있다.
-  permission level: L1 docs-only
-  owner route: Infinity router -> Claude Code docs-only
-  success criteria: 홈의 기존 표면만 대상으로 `현재 문장 / 사용자 상태 / 다음 행동 브리지 / 잡별 오독 위험 / 추천안`을 한 표로 정리하고, 신규 이벤트·tracking/privacy·배포·외부 발송 없이 J1/J2/J4와 J3의 second-step 차이를 분리한다.
-  first verification gate: source note 존재 확인, 기존 marketing-43/70/79/80 및 J1-J4 first value 계약과 충돌 0, conflict marker 0, production code 변경 0.
-
 ## Active
 
 ## Waiting
@@ -22,6 +13,7 @@
 <!-- naver-shopping-01 waiting 2026-06-21T1000Z → intents/active/naver-shopping-01.md [display: 나래/Narae; projects: naver-shopping,infinity,personal-ops; type: coordination; topics: automation,workflow,marketing; status: sample-order-gated-session-waiting; approval: sample-order-gated] (cloud 소싱 준비 완료(크로스바디+손목 스트랩). alibaba.com 로컬 공급사 확인(계정 불필요) + 손목·크로스바디 병행 샘플 주문 사용자 승인 대기. do_not_repeat_cloud 활성.) -->
 
 ## Archive
+<!-- marketing-81 completed 2026-06-24T1007Z → intents/archive/marketing-81.md [projects: virtue; type: strategy; topics: marketing,activation,retention] (첫 저장/첫 판단 뒤 홈 복귀 secondary onboarding 감사표 완료. 핵심 결론은 새 교육보다 next-step bridge가 우선이며, 가장 위험한 충돌은 누적/요약 신호와 `아직 기록이 없어요.` empty-state가 같은 반환 세션에서 함께 보이는 상태. production/tracking/privacy/deploy/external message 변경 0. HTML report gate passed.) -->
 <!-- build-13 completed 2026-06-24T0050Z → intents/archive/build-13.md [projects: afzma,infinity,app-api-verification; type: implementation-verification; topics: hospital-api,api-flow,app-verification] (로컬 shdkej/afzma read-only 검증 완료. UI→/api/chat·/api/history→controller→MedicalService→HIRA 병원 API 경로는 코드상 연결됨. HIRA_API_KEY 없음/오류/빈 응답 시 mock 병원 폴백. 실제 HIRA 네트워크 호출은 키·외부 API 경계 때문에 미실행. Claude Code는 401 인증 오류로 차단되어 SAM이 로컬 검증 수행. HTML report gate passed.) -->
 <!-- research-22 completed 2026-06-24T0800Z → intents/archive/research-22.md (6단계 운영표·도구 비교·현실 루프 완료. 소스 코퍼스 사전 정의+최소 정보 단위(URL·날짜·판단메모) 유지가 핵심. HTML report gate passed.) -->
 <!-- marketing-80 completed 2026-06-23T2207Z → intents/archive/marketing-80.md [projects: virtue; type: strategy; topics: marketing,activation,product,feedback-consistency] (홈 요약 카드·`최근 덕행`·`/add` 결과·저장 후 복귀 지점을 J1-J4 기준으로 감사표로 정리. 결론은 요약 신호와 `아직 비어있어요` empty-state 공존이 첫 저장 이후 신뢰를 깎을 수 있으며, safest next step은 홈 empty-state gating 정렬. production/tracking/privacy/public message/code deploy/external cost 변경 0. HTML report gate passed.) -->

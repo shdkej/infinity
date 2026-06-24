@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>marketing-81 report</title>
+<style>
+  :root{
+    --bg:#f4f2ea; --panel:#fbfaf5; --ink:#2c2a25; --soft:#807c70; --faint:#a8a496; --line:#e3dfd2;
+    --a2:#5f7a5e; --a2-deep:#3f5740; --a1:#a9745a; --a1-deep:#8a5c45;
+    --sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0; width:100%; max-width:100%; overflow-x:hidden;}
+  body{background:var(--bg); color:var(--ink); font-family:var(--sans); font-size:14px; line-height:1.68;}
+  .sheet{width:min(100%,720px); margin:0 auto; padding:32px 18px 40px;}
+  .eyebrow,.foot,.section-title,summary,.chip,.label{font-family:var(--mono);}
+  .eyebrow{display:flex; gap:10px; flex-wrap:wrap; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--soft);}
+  .eyebrow .id,.eyebrow .status{color:var(--a2-deep); font-weight:600;}
+  .dot{width:5px; height:5px; border-radius:50%; background:var(--a2); margin-top:6px;}
+  h1{font-size:clamp(24px,7vw,29px); line-height:1.3; margin:20px 0 0;}
+  .dek{font-size:15.5px; color:var(--soft); margin:13px 0 0; max-width:52ch;}
+  .hr{height:1px; background:var(--line); margin:30px 0;}
+  .axis{padding:0 0 4px 18px; position:relative; margin-bottom:26px;}
+  .axis::before{content:""; position:absolute; left:0; top:6px; bottom:6px; width:2px; border-radius:2px;}
+  .axis.ax1::before{background:var(--a1);}
+  .axis.ax2::before{background:var(--a2);}
+  .label{font-size:11px; letter-spacing:.12em; text-transform:uppercase; margin-bottom:9px; color:var(--a1-deep);}
+  .ax2 .label{color:var(--a2-deep);}
+  .text{font-size:clamp(16px,4.4vw,18px); line-height:1.62; color:#37352e;}
+  details{border:1px solid var(--line); border-radius:8px; background:var(--panel); margin-bottom:10px; overflow:hidden;}
+  summary{list-style:none; padding:14px 16px; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft);}
+  .body{padding:2px 16px 18px;}
+  .section-title{font-size:10.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--a1-deep); margin:0 0 8px;}
+  ol.find{list-style:none; counter-reset:f; margin:16px 0 0; padding:0;}
+  ol.find li{position:relative; padding:8px 0 8px 26px; border-top:1px solid var(--line);}
+  ol.find li:first-child{border-top:none;}
+  ol.find li::before{counter-increment:f; content:counter(f); position:absolute; left:0; top:9px; font-family:var(--mono); font-size:12px; font-weight:600; color:var(--a1-deep);}
+  .callout{border-left:2px solid var(--a2); background:#f2efe5; padding:11px 13px; color:#4a473f; margin:12px 0 16px;}
+  .content-grid{display:grid; grid-template-columns:1fr; gap:10px; margin:10px 0;}
+  .mini-card{border:1px solid var(--line); background:#f8f6ef; border-radius:8px; padding:12px 13px;}
+  .mini-card b{display:block; margin-bottom:5px;}
+  table{border-collapse:collapse; width:100%; table-layout:fixed; font-size:13px; margin:4px 0 12px;}
+  th,td{border-bottom:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top; overflow-wrap:anywhere; word-break:break-word;}
+  th{font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft);}
+  td:first-child{color:var(--a2-deep); font-weight:600;}
+  .chips{display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px;}
+  .chip{font-size:10.5px; letter-spacing:.05em; color:var(--soft); border:1px solid var(--line); border-radius:999px; padding:3px 10px;}
+  .foot{margin-top:30px; padding-top:15px; border-top:1px solid var(--line); display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; font-size:10px; letter-spacing:.13em; text-transform:uppercase; color:var(--faint);}
+  @media (max-width:640px){table,thead,tbody,tr,th,td{display:block; width:100%;} thead{display:none;} tr{border:1px solid var(--line); border-radius:8px; padding:9px 10px; margin:0 0 10px; background:#f8f6ef;} td{border-bottom:0; padding:5px 0;}}
+</style>
+</head>
+<body>
+<div class="sheet">
+  <div class="eyebrow">
+    <span class="dot"></span>
+    <span class="id">marketing-81</span>
+    <span>Strategy Note</span>
+    <span class="status">completed</span>
+  </div>
+  <h1>Virtue 첫 저장 후 홈 복귀 secondary onboarding 감사</h1>
+  <p class="dek">첫 가치 뒤 사용자를 다시 처음 사용자처럼 설명하지 않고, 기존 홈 표면만으로 다음 한 걸음을 어떻게 이어 줄지 docs-only로 정리했다.</p>
+  <div class="hr"></div>
+  <div class="axis ax1">
+    <div class="label">01 무엇이 문제였나</div>
+    <div class="text">Virtue 홈은 <b>첫 기록 전 약속</b>에는 선명하지만, <b>첫 저장 또는 첫 판단 뒤 복귀한 사용자</b>에게는 generic welcome과 empty-state가 남아 있어 next-step bridge가 약했다.</div>
+  </div>
+  <div class="axis ax2">
+    <div class="label">02 어떻게 해결하나</div>
+    <div class="text">이번 사이클에서는 코드 변경 없이 홈의 기존 세 표면인 <b>hero 보조문구</b>, <b>누적 카드 보조문구</b>, <b>`최근 덕행` empty-state gating</b>을 second-step bridge 후보로 고정하고, J1/J2/J4와 J3를 분리한 한 줄 방향을 문서화했다.</div>
+  </div>
+  <details open>
+    <summary>핵심 내용 · 리서치 본문</summary>
+    <div class="body">
+      <div class="section">
+        <div class="section-title">핵심 발견</div>
+        <ol class="find">
+          <li>secondary onboarding의 핵심은 재설명이 아니라 first value 직후의 작은 다음 행동 명료화다.</li>
+          <li>가장 큰 충돌은 누적/요약 신호와 <code>아직 기록이 없어요.</code> empty-state가 같은 반환 세션에서 함께 보이는 상태다.</li>
+          <li>J1/J2/J4는 반복 기록 브리지, J3는 다른 사례를 다시 AI로 보는 브리지가 더 자연스럽다.</li>
+        </ol>
+      </div>
+      <div class="callout">가장 안전한 다음 intent는 홈 전체 리디자인이 아니라 `최근 덕행` empty-state gating 정렬과 hero/summary 보조문구 비교를 분리해 proposal-only로 다루는 것이다.</div>
+      <div class="content-grid">
+        <div class="mini-card">
+          <b>근거 · 소스</b>
+          <p>Appcues 2026 secondary onboarding 요약 노트와 기존 `marketing-43`, `marketing-70`, `marketing-79`, `marketing-80` 산출물을 교차 확인했다.</p>
+        </div>
+        <div class="mini-card">
+          <b>다음 판단</b>
+          <p>approval-needed 후속으로 `최근 덕행` empty-state gating을 먼저 다룰지, hero/summary 보조문구를 먼저 다룰지 scope를 나눠 결정한다.</p>
+        </div>
+      </div>
+    </div>
+  </details>
+  <details open>
+    <summary>상세 · 표면별 감사 요약</summary>
+    <div class="body">
+      <table>
+        <thead>
+          <tr><th>표면</th><th>현재 읽힘</th><th>권장 브리지</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Hero</td><td>첫 입력 전 사용자에게 맞춰져 있음</td><td>반환 사용자는 "방금 남긴 흐름을 이어보기" 계열 보조문구로 분기</td></tr>
+          <tr><td>Primary CTA</td><td>`오늘 덕 쌓기` 자체는 유지 가능</td><td>왜 다시 눌러야 하는지 J1/J2/J4 vs J3 목적 문장을 인접 배치</td></tr>
+          <tr><td>Summary card</td><td>기억했다는 신호는 주지만 다음 행동은 비어 있음</td><td>누적/반복 이유를 붙이는 second-step bridge 후보 표면</td></tr>
+          <tr><td>`최근 덕행` empty state</td><td>저장 후에도 미기록 사용자처럼 읽힐 위험</td><td>가장 우선적으로 gating 정렬 또는 반환형 문장 대체 검토</td></tr>
+        </tbody>
+      </table>
+      <p>세부 표와 잡별 예문은 <code>artifacts/marketing-81/secondary-onboarding-return-audit.md</code>에 정리했다. production, tracking/privacy, deploy, external message 변경은 모두 0이다.</p>
+    </div>
+  </details>
+  <details>
+    <summary>실행 메타 · 산출물</summary>
+    <div class="body">
+      <div class="chips">
+        <span class="chip">2026-06-24T1007Z</span>
+        <span class="chip">cron heartbeat</span>
+        <span class="chip">Inbox → Archive</span>
+      </div>
+      <ul>
+        <li>산출물 <code>artifacts/marketing-81/secondary-onboarding-return-audit.md</code></li>
+      </ul>
+    </div>
+  </details>
+  <div class="foot">
+    <span>Agent-First Heartbeat</span>
+    <span>Infinity · Intent Note</span>
+  </div>
+</div>
+</body>
+</html>
