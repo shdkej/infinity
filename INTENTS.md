@@ -4,6 +4,15 @@
 
 ## Inbox
 
+- `marketing-81` Virtue 첫 저장 후 홈 복귀 secondary onboarding 감사표
+  source note path: `/home/ubuntu/workspace/knowledge-lab/source/external-links/marketing/2026-06-24-secondary-onboarding-return-path.md`
+  rationale: prelaunch 단계에서 첫 가치 전 onboarding 감사는 많이 쌓였지만, 첫 저장/첫 판단 뒤 홈 복귀 시점의 다음 행동 브리지는 아직 비어 있다. 현재 홈은 첫 기록 전 약속은 선명하지만 반환 사용자에게는 다시 처음 사용자 같은 empty-state와 CTA를 보여 줄 수 있다.
+  expected impact: 첫 가치 이후 activation depth 해석 충돌을 줄이고, J1/J2/J4/J3별로 가장 안전한 second-step 문장 후보를 docs-only로 정리할 수 있다.
+  permission level: L1 docs-only
+  owner route: Infinity router -> Claude Code docs-only
+  success criteria: 홈의 기존 표면만 대상으로 `현재 문장 / 사용자 상태 / 다음 행동 브리지 / 잡별 오독 위험 / 추천안`을 한 표로 정리하고, 신규 이벤트·tracking/privacy·배포·외부 발송 없이 J1/J2/J4와 J3의 second-step 차이를 분리한다.
+  first verification gate: source note 존재 확인, 기존 marketing-43/70/79/80 및 J1-J4 first value 계약과 충돌 0, conflict marker 0, production code 변경 0.
+
 ## Active
 
 ## Waiting
