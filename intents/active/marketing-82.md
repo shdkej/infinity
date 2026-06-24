@@ -76,3 +76,6 @@ Virtue 랜딩페이지를 만든다.
 - 2026-06-24T21:59:09Z hourly local router가 본 intent를 선택했다.
 - `reports/marketing-82/20260624T215909Z-handoff.html` 작성 완료.
 - 확인 결과 후보 repo ` /home/ubuntu/workspace/space/apps/virtue-rebirth ` 는 현재 infra manifest만 있고 랜딩페이지 소스 파일이 없어, 실제 Virtue 프론트엔드 소스 repo 식별이 다음 게이트다.
+- 2026-06-24T22:07:00Z hourly local router가 추가 bounded scan을 수행했다.
+- `reports/marketing-82/20260624T220700Z-handoff.html` 작성 완료.
+- 로컬 workspace에서 `space/infra-aws-static-sites/sites/virtue/dist/index.html`, `dist/add.html`, `dist/_next/*` 등 Virtue 배포 산출물은 확인했지만 editable app source repo는 아직 미식별이다. 다음 게이트는 이 dist 산출물을 생성하는 source repo/package 추적이다.
