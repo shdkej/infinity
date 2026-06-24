@@ -6,8 +6,6 @@
 
 ## Active
 
-<!-- research-22 active 2026-06-23T2334Z → intents/active/research-22.md [display: AI 자료수집·정리·관리 운영법 조사; projects: infinity,research-bank,personal-ops,knowledge-management; type: research; topics: ai-research,information-management,knowledge-base,source-verification,workflow] (AI가 자료를 수집·정리·검증·보관·재사용·갱신하는 운영법 조사. 툴 목록보다 출처 보존, 신뢰도, 중복/오래된 정보 관리, SAM/Infinity/KL에 맞는 현실 루프 도출.) -->
-
 ## Waiting
 
 <!-- 사용자 결정, 외부 조건, 안전 확인 대기. 같은 질문을 반복하지 않고 상태만 보존한다. -->
@@ -17,11 +15,12 @@
 <!-- naver-shopping-01 waiting 2026-06-21T1000Z → intents/active/naver-shopping-01.md [display: 나래/Narae; projects: naver-shopping,infinity,personal-ops; type: coordination; topics: automation,workflow,marketing; status: sample-order-gated-session-waiting; approval: sample-order-gated] (cloud 소싱 준비 완료(크로스바디+손목 스트랩). alibaba.com 로컬 공급사 확인(계정 불필요) + 손목·크로스바디 병행 샘플 주문 사용자 승인 대기. do_not_repeat_cloud 활성.) -->
 
 ## Archive
-<!-- marketing-80 completed 2026-06-23T2207Z → intents/archive/marketing-80.md [projects: virtue; type: strategy; topics: marketing,activation,product,feedback-consistency] (홈 요약 카드·\`최근 덕행\`·\`/add\` 결과·저장 후 복귀 지점을 J1-J4 기준으로 감사표로 정리. 결론은 요약 신호와 \`아직 비어있어요\` empty-state 공존이 첫 저장 이후 신뢰를 깎을 수 있으며, safest next step은 홈 empty-state gating 정렬. production/tracking/privacy/public message/code deploy/external cost 변경 0. HTML report gate passed.) -->
+<!-- research-22 completed 2026-06-24T0800Z → intents/archive/research-22.md (6단계 운영표·도구 비교·현실 루프 완료. 소스 코퍼스 사전 정의+최소 정보 단위(URL·날짜·판단메모) 유지가 핵심. HTML report gate passed.) -->
+<!-- marketing-80 completed 2026-06-23T2207Z → intents/archive/marketing-80.md [projects: virtue; type: strategy; topics: marketing,activation,product,feedback-consistency] (홈 요약 카드·`최근 덕행`·`/add` 결과·저장 후 복귀 지점을 J1-J4 기준으로 감사표로 정리. 결론은 요약 신호와 `아직 비어있어요` empty-state 공존이 첫 저장 이후 신뢰를 깎을 수 있으며, safest next step은 홈 empty-state gating 정렬. production/tracking/privacy/public message/code deploy/external cost 변경 0. HTML report gate passed.) -->
 <!-- research-21 completed 2026-06-23T1500Z → intents/archive/research-21.md (6인 비교표 완성. 작은단위기록→주제별조립→구조모순검증→편집변환 공통패턴 도출. 매일3줄→주간분류→월간조립 기록루프 제안. HTML report gate passed.) -->
 <!-- marketing-79 completed 2026-06-23T1000Z → intents/archive/marketing-79.md [projects: virtue; type: strategy; topics: marketing,activation,prelaunch] (첫 10명 활성화 1장 관찰표 초안 완성. 홈진입·/add·deed_judged·deed_saved·D1 재방문 5체크포인트 포함. J1/J2/J4=deed_saved·J3=deed_judged 기존 정의 충돌 0. HTML report gate passed.) -->
 <!-- marketing-78 completed 2026-06-22T1700Z → intents/archive/marketing-78.md [projects: virtue; type: strategy; topics: marketing,activation,product] (홈 `최근 덕행` empty state 3요소 비교 완료. ghost sample card 1장(Option B)이 결과 예시 가시성 갭 해소 최우선 추천안. 한 줄 보조문구(Option A)가 보수적 차선. 구현은 approval-needed. 기존 archive 충돌 0. HTML report gate passed.) -->
-<!-- marketing-77 completed 2026-06-22T1431Z → intents/archive/marketing-77.md [projects: virtue; type: implementation; topics: marketing,activation,product,ui-copy] (`/add` 기대 브리지 1줄 + 결과 카드 footer 안내 1줄 구현 완료. diff는 apps/web/src/app/add/page.tsx 한 파일에 제한. typecheck 통과, lint는 기존 경고 4건만 보고. tracking/privacy/external/cost/credential/deploy 변경 0.) -->
+<!-- marketing-77 completed 2026-06-22T1431Z → intents/archive/marketing-77.md [projects: virtue; type: strategy; topics: marketing,activation,product,ui-copy] (`/add` 기대 브리지 1줄 + 결과 카드 footer 안내 1줄 구현 완료. diff는 apps/web/src/app/add/page.tsx 한 파일에 제한. typecheck 통과, lint는 기존 경고 4건만 보고. tracking/privacy/external/cost/credential/deploy 변경 0.) -->
 <!-- marketing-76 completed 2026-06-22T1029Z → intents/archive/marketing-76.md [projects: virtue; type: strategy; topics: marketing,activation,product,in-app-guidance] (`/add`·결과 카드·홈 empty state 맥락형 안내 감사표 완료. Gate yes/no 판정은 `/add` Yes, 결과 카드 Yes, 홈 empty state No. production/tracking/privacy/public copy/deploy/external message/cost 변경 0. HTML report gate passed.) -->
 <!-- marketing-75 completed 2026-06-22T1029Z → intents/archive/marketing-75.md [projects: virtue; type: strategy; topics: marketing,activation,launch-communication,product] (Tier 1-4 변경 등급표와 권장 안내 표면 맵 완료. `/add`·결과 카드·홈 empty state를 각각 Tier 3/3/2로 분류하고 marketing-71/73/74 연결 예시 3개 정리. production/tracking/privacy/public copy/deploy/external message/cost 변경 0. HTML report gate passed.) -->
 <!-- marketing-74 completed 2026-06-22T0600Z → intents/archive/marketing-74.md [projects: virtue; type: strategy; topics: marketing,activation,product,onboarding] (/add 입력 전 기대 형성 3안 비교 완료. Option B(sample 결과 1줄)가 J3 hesitation 해소 최우선 추천안. J4 경계 문구는 결과 카드 footer 배치 권고. 구현은 approval-needed. HTML report gate passed.) -->
