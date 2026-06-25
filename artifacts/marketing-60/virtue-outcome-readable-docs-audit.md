@@ -24,10 +24,10 @@ Agentic PLG 학습을 Virtue prelaunch의 결과 중심 문서 감사표로 번�
 
 | Job | 좋은 결과 기준 | 나쁜 결과 기준 | 다음 행동 기준 | first-10 수기 판독 칸 |
 | --- | --- | --- | --- | --- |
-| J1 | 사용자가 저장할 만한 덕행 문장이 자기 상황과 맞고, 저장 뒤 다시 볼 이유가 생긴다. | 문장은 그럴듯하지만 사용자의 실제 장면과 어긋나거나 저장 이유가 약하다. | 저장 후 오늘 다시 실천하거나 나중에 확인할 손잡이가 보인다. | `source_scene`, `saved_phrase_quality`, `reuse_reason`, `next_action_visible`, `offscreen_followup` |
-| J2 | 사용자가 이미 한 행동을 덕행으로 이해하고, 기록이 자기효능감으로 이어진다. | 칭찬처럼 보이나 왜 덕행인지 설명되지 않거나 기록 가치가 낮다. | 저장 또는 공유 전 자기 언어로 한 번 더 다듬을 수 있다. | `actual_deed_fit`, `virtue_reason_clear`, `record_value`, `edit_needed`, `next_action_visible` |
-| J3 | 판단 결과가 사용자의 고민을 줄이고, 저장하지 않아도 결정 또는 재시도 방향이 선명하다. | 판정이 모호하거나 사용자가 다시 질문해야만 의미가 생긴다. | 저장 없이 닫혀도 정상일 수 있으며, 재판정/재입력/실행 중 하나가 자연스럽다. | `judgment_clarity`, `decision_reduced`, `save_not_required_reason`, `reroll_reason`, `next_action_visible` |
-| J4 | 장기적으로 쌓을 덕행 기록의 단위가 선명하고, 저장했을 때 누적 의미가 보인다. | 너무 추상적이거나 기록 단위가 커서 다음 입력이 막힌다. | 저장 후 다음 기록 주제나 반복 루프가 자연스럽다. | `accumulation_unit`, `saved_record_quality`, `next_deed_hint`, `repeat_loop_visible`, `offscreen_followup` |
+| J1 | 사용자가 저장할 만한 덕행 문장이 자기 상황과 맞고, 저장 뒤 다시 볼 이유가 생긴다. | 문장은 그럴듯하지만 사용자의 실제 장면과 어긋나거나 저장 이유가 약하다. | 저장 후 오늘 다시 실천하거나 나중에 확인할 손잡이가 보인다. | `source_scene`, `saved_phrase_quality`, `reuse_reason`, `next_action_visible`, `next_action_spoken`, `next_action_quote` |
+| J2 | 사용자가 이미 한 행동을 덕행으로 이해하고, 기록이 자기효능감으로 이어진다. | 칭찬처럼 보이나 왜 덕행인지 설명되지 않거나 기록 가치가 낮다. | 저장 또는 공유 전 자기 언어로 한 번 더 다듬을 수 있다. | `actual_deed_fit`, `virtue_reason_clear`, `record_value`, `edit_needed`, `next_action_visible`, `next_action_spoken` |
+| J3 | 판단 결과가 사용자의 고민을 줄이고, 저장하지 않아도 결정 또는 재시도 방향이 선명하다. | 판정이 모호하거나 사용자가 다시 질문해야만 의미가 생긴다. | 저장 없이 닫혀도 정상일 수 있으며, 재판정/재입력/실행 중 하나가 자연스럽다. | `judgment_clarity`, `decision_reduced`, `save_not_required_reason`, `reroll_reason`, `next_action_visible`, `normal_stop_vs_confusion` |
+| J4 | 장기적으로 쌓을 덕행 기록의 단위가 선명하고, 저장했을 때 누적 의미가 보인다. | 너무 추상적이거나 기록 단위가 커서 다음 입력이 막힌다. | 저장 후 다음 기록 주제나 반복 루프가 자연스럽다. | `accumulation_unit`, `saved_record_quality`, `next_deed_hint`, `repeat_loop_visible`, `next_action_spoken`, `next_action_quote` |
 
 ## 공통 판독 규칙
 
@@ -36,6 +36,7 @@ Agentic PLG 학습을 Virtue prelaunch의 결과 중심 문서 감사표로 번�
 3. J3는 저장 없는 종료가 실패가 아닐 수 있으므로 `save_not_required_reason`을 별도 기록한다.
 4. 나쁜 결과는 모델 실패만이 아니라, 좋은 문장인데도 사용자의 다음 행동을 만들지 못한 경우까지 포함한다.
 5. first-10 단계에서는 자동 점수화보다 수기 판독 칸을 우선한다.
+6. `next_action_spoken`은 관찰 직후 사용자가 자기 말로 다음 한 걸음을 바로 말했는지 기록한다. J3에서는 저장 계획이 아니라 `멈춤/재판정/실행` 중 무엇이 자연스러웠는지 적는다.
 
 ## 에이전트 판독용 상태값
 

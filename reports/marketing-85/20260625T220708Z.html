@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>marketing-85 Virtue first-10 next-step clarity reinforcement</title>
+<style>
+  :root{
+    --bg:#f4f2ea; --panel:#fbfaf5; --ink:#2c2a25; --soft:#807c70; --faint:#a8a496; --line:#e3dfd2;
+    --a2:#5f7a5e; --a2-deep:#3f5740; --a1:#a9745a; --a1-deep:#8a5c45;
+    --sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box;} html,body{margin:0; width:100%; max-width:100%; overflow-x:hidden;}
+  body{background:var(--bg); color:var(--ink); font-family:var(--sans); font-size:14px; line-height:1.68;}
+  .sheet{width:min(100%,720px); max-width:720px; margin:0 auto; padding:32px 18px 40px;}
+  .eyebrow{display:flex; align-items:center; gap:10px; font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--soft); flex-wrap:wrap;}
+  .eyebrow .id,.eyebrow .status{color:var(--a2-deep); font-weight:600;}
+  .eyebrow .dot{width:5px; height:5px; border-radius:50%; background:var(--a2);}
+  h1{font-size:clamp(24px,7vw,29px); line-height:1.3; margin:20px 0 0;}
+  .dek{font-size:15.5px; color:var(--soft); margin:13px 0 0; max-width:52ch;}
+  .hr{height:1px; background:var(--line); margin:30px 0;}
+  .axis{padding:0 0 4px 18px; position:relative; margin-bottom:26px;}
+  .axis::before{content:""; position:absolute; left:0; top:6px; bottom:6px; width:2px; border-radius:2px;}
+  .axis.ax1::before{background:var(--a1);} .axis.ax2::before{background:var(--a2);}
+  .label{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase; margin-bottom:9px;}
+  .ax1 .label{color:var(--a1-deep);} .ax2 .label{color:var(--a2-deep);}
+  .text{font-size:clamp(16px,4.4vw,18px); line-height:1.62; color:#37352e;}
+  details{border:1px solid var(--line); border-radius:8px; background:var(--panel); margin-bottom:10px; overflow:hidden;}
+  summary{cursor:pointer; list-style:none; padding:14px 16px; font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft);}
+  .body{padding:2px 16px 18px;}
+  .find{margin:0; padding-left:18px;}
+  .callout{border-left:2px solid var(--a2); background:#f2efe5; padding:11px 13px; color:#4a473f; margin:12px 0 16px;}
+  .content-grid{display:grid; grid-template-columns:1fr; gap:10px; margin:10px 0;}
+  .mini-card{border:1px solid var(--line); background:#f8f6ef; border-radius:8px; padding:12px 13px;}
+  .mini-card b{display:block; margin-bottom:5px;}
+  table{border-collapse:collapse; width:100%; table-layout:fixed; font-size:13px; margin:4px 0 12px;}
+  th,td{border-bottom:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top; overflow-wrap:anywhere;}
+  th{font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft);}
+  code{font-family:var(--mono); font-size:12px; background:#edeae0; padding:1px 6px; border-radius:3px; color:var(--a2-deep);}
+  .chips{display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px;}
+  .chip{font-family:var(--mono); font-size:10.5px; letter-spacing:.05em; color:var(--soft); border:1px solid var(--line); border-radius:999px; padding:3px 10px;}
+  .foot{margin-top:30px; padding-top:15px; border-top:1px solid var(--line); display:flex; flex-wrap:wrap; gap:6px 14px; justify-content:space-between; font-family:var(--mono); font-size:10px; letter-spacing:.13em; text-transform:uppercase; color:var(--faint);}
+ </style>
+</head>
+<body>
+<div class="sheet">
+  <div class="eyebrow">
+    <span class="dot"></span>
+    <span class="id">marketing-85</span>
+    <span>Docs-only reinforcement</span>
+    <span class="status">completed</span>
+  </div>
+  <h1>Virtue 첫 10명 관찰표에 다음 행동 명료성 질문을 추가했다</h1>
+  <p class="dek">first value 직후 사용자가 다음 한 걸음을 자기 말로 바로 설명할 수 있는지 읽도록, 기존 first-10 질문지와 outcome-readable 판독표를 좁게 보강했다.</p>
+  <div class="hr"></div>
+
+  <div class="axis ax1">
+    <div class="label">axis ax1 · 무엇이 문제였나</div>
+    <div class="text">기존 관찰표는 <b>first value 도달 여부</b>와 <b>J3 무저장 정상 종료</b>는 잘 읽었지만, 저장 또는 판단 직후 사용자가 <b>이제 뭘 하면 되는지</b>를 한 문장으로 바로 말했는지 기록하는 칸은 약했다.</div>
+  </div>
+
+  <div class="axis ax2">
+    <div class="label">axis ax2 · 어떻게 해결했나</div>
+    <div class="text"><b>세션 직후 4번째 질문</b>으로 다음 행동 명료성을 추가하고, 수기 판독 칸에 <code>next_action_spoken</code>과 <code>normal_stop_vs_confusion</code> 축을 붙여 J1/J2/J4와 J3를 다르게 읽도록 고정했다.</div>
+  </div>
+
+  <details open>
+    <summary>핵심 내용 · 리서치 본문</summary>
+    <div class="body">
+      <ol class="find">
+        <li><code>artifacts/marketing-47</code>에서 세션 직후 질문을 3개에서 4개로 늘리고, "저장하거나 판단을 본 바로 다음에 이제 뭘 하면 될지 말할 수 있었는가"를 직접 묻게 했다.</li>
+        <li>J1/J2/J4는 저장 뒤 홈/최근 덕행 기준의 다음 행동 언어를, J3는 저장 계획이 아니라 멈춤/재판정/실행 중 자연스러운 다음 행동을 듣도록 경계를 유지했다.</li>
+        <li><code>artifacts/marketing-60</code>의 first-10 수기 판독 칸에 next-step 메모 축을 추가해 결과 품질과 다음 행동 가시성을 함께 읽을 수 있게 했다.</li>
+      </ol>
+      <div class="callout">J3에서는 "다음 행동" 질문이 저장 강요가 되지 않아야 한다. 따라서 저장 유무 대신 정상 종료인지 혼란인지 구분하는 메모 축을 별도로 두었다.</div>
+      <div class="content-grid">
+        <div class="mini-card">
+          <b>근거 · 소스</b>
+          <p><code>source/external-links/marketing/2026-06-25-time-to-next-value-bridge.md</code>와 기존 marketing-47/60/84 문서 계보를 따라 time-to-next-value 공백만 좁게 반영했다.</p>
+        </div>
+        <div class="mini-card">
+          <b>다음 판단</b>
+          <p>실사용 first-10에서 <code>next_action_spoken</code> 원문을 모은 뒤, 반복적으로 막히는 잡만 후속 implementation/copy intent로 분리한다.</p>
+        </div>
+      </div>
+    </div>
+  </details>
+
+  <details open>
+    <summary>변경 요약</summary>
+    <div class="body">
+      <table>
+        <thead><tr><th>file</th><th>change</th></tr></thead>
+        <tbody>
+          <tr><td><code>artifacts/marketing-47/virtue-first-10-design-user-ask-script.md</code></td><td>세션 직후 4번째 질문과 잡별 next-step 읽기 규칙 추가</td></tr>
+          <tr><td><code>artifacts/marketing-60/virtue-outcome-readable-docs-audit.md</code></td><td><code>next_action_spoken</code>, <code>next_action_quote</code>, <code>normal_stop_vs_confusion</code> 수기 판독 축 추가</td></tr>
+        </tbody>
+      </table>
+      <p>production code, tracking, privacy, public copy, deploy, cost 변경은 없다.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>실행 메타 · 산출물</summary>
+    <div class="body">
+      <div class="chips">
+        <span class="chip">20260625T220708Z</span>
+        <span class="chip">Infinity hourly heartbeat</span>
+        <span class="chip">Inbox → Archive</span>
+      </div>
+      <ul>
+        <li>산출물 <code>artifacts/marketing-47/virtue-first-10-design-user-ask-script.md</code></li>
+        <li>산출물 <code>artifacts/marketing-60/virtue-outcome-readable-docs-audit.md</code></li>
+      </ul>
+    </div>
+  </details>
+
+  <div class="foot">
+    <span>Agent-First Heartbeat</span>
+    <span>Infinity · Intent Note</span>
+  </div>
+</div>
+</body>
+</html>
