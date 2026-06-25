@@ -20,6 +20,7 @@ EVALUATOR_JOBS = {
     "f1027114-6430-433a-b4cb-6aa0dfc53157": "OpenClaw 평가",
     "986c49b2-c615-4134-b95a-2cf74217c5b7": "kl 평가",
 }
+ROUTER_JOB_ID = "7502ef19-45c7-45f9-aa0e-b05c40ba670e"
 
 
 def run_git(args: list[str]) -> str:
@@ -116,14 +117,61 @@ def recent_commit_events(since: str) -> list[dict[str, str]]:
             ts = dt.datetime.fromisoformat(ts_raw).astimezone(KST)
         except ValueError:
             continue
-        events.append({"hour": f"{ts:%H}", "subject": clean_summary(subject, 48)})
+        events.append(
+            {
+                "hour": f"{ts:%H}",
+                "minute": f"{ts:%M}",
+                "source": "클라우드",
+                "subject": clean_summary(subject, 48),
+            }
+        )
+    return events
+
+
+def router_events(start_utc: dt.datetime, end_utc: dt.datetime) -> list[dict[str, str]]:
+    if not OPENCLAW_DB.exists():
+        return []
+    start_ms = int(start_utc.timestamp() * 1000)
+    end_ms = int(end_utc.timestamp() * 1000)
+    try:
+        with sqlite3.connect(OPENCLAW_DB) as conn:
+            rows = conn.execute(
+                """
+                select run_at_ms, status, coalesce(summary, ''), coalesce(error, '')
+                from cron_run_logs
+                where job_id = ?
+                  and run_at_ms >= ?
+                  and run_at_ms < ?
+                order by run_at_ms asc
+                """,
+                (ROUTER_JOB_ID, start_ms, end_ms),
+            ).fetchall()
+    except sqlite3.Error:
+        return []
+
+    events: list[dict[str, str]] = []
+    for run_at_ms, status, summary, error in rows:
+        ts = dt.datetime.fromtimestamp(run_at_ms / 1000, dt.timezone.utc).astimezone(KST)
+        text = "" if summary.strip() == "NO_REPLY" else clean_summary(error or summary, 72)
+        if error or status != "ok":
+            subject = text or status or "실패"
+        else:
+            subject = text
+        events.append(
+            {
+                "hour": f"{ts:%H}",
+                "minute": f"{ts:%M}",
+                "source": "로컬",
+                "subject": subject,
+            }
+        )
     return events
 
 
 def hourly_timeline(now_kst: dt.datetime, events: list[dict[str, str]]) -> str:
-    notes_by_hour: dict[str, list[str]] = {}
+    notes_by_hour: dict[str, list[dict[str, str]]] = {}
     for event in events:
-        notes_by_hour.setdefault(event["hour"], []).append(event["subject"])
+        notes_by_hour.setdefault(event["hour"], []).append(event)
 
     start = now_kst.replace(minute=0, second=0, microsecond=0) - dt.timedelta(hours=23)
     rows: list[str] = []
@@ -131,7 +179,13 @@ def hourly_timeline(now_kst: dt.datetime, events: list[dict[str, str]]) -> str:
         hour = (start + dt.timedelta(hours=offset)).strftime("%H")
         notes = notes_by_hour.get(hour, [])
         if notes:
-            rows.append(f"🟩{hour} {notes[0]}")
+            visible = [note for note in notes if note["subject"]]
+            if visible:
+                parts = [f"[{note['source']}] {note['subject']}" for note in visible[:2]]
+                suffix = f" 외 {len(visible) - 2}건" if len(visible) > 2 else ""
+                rows.append(f"🟩{hour} {' / '.join(parts)}{suffix}")
+            else:
+                rows.append(f"⬜️{hour}")
         else:
             rows.append(f"⬜️{hour}")
     return "\n".join(rows)
@@ -194,7 +248,12 @@ def evaluator_timeline(events: list[dict[str, str]]) -> str:
         findings = sum(1 for event in name_events if event["marker"] == "🟩")
         parts.append(f"{name} {len(name_events)}회 · 정상 {len(name_events) - failures} · 기록 {findings} · 실패 {failures}")
     summary = "요약: " + " / ".join(parts)
-    rows = [f"{event['marker']}{event['time']} {event['name']} · {event['note']}" for event in events]
+    visible = [event for event in events if event["marker"] != "⬜️"]
+    rows = [f"{event['marker']}{event['time']} {event['name']} · {event['note']}" for event in visible[:8]]
+    if len(visible) > 8:
+        rows.append(f"… 외 {len(visible) - 8}건")
+    if not rows:
+        rows.append("⬜️ 특이사항 없음")
     return "\n".join([summary, *rows])
 
 
@@ -203,7 +262,9 @@ def main() -> None:
     now_kst = now_utc.astimezone(KST)
     since_dt = now_utc - dt.timedelta(hours=24)
     since = since_dt.isoformat()
-    timeline_events = recent_commit_events(since)
+    cloud_events = recent_commit_events(since)
+    local_events = router_events(since_dt, now_utc)
+    timeline_events = [*cloud_events, *local_events]
     eval_events = evaluator_events(since_dt, now_utc)
     commit_count = len(
         [
@@ -243,12 +304,12 @@ def main() -> None:
         headline = "새 완료와 열린 작업이 모두 조용합니다."
 
     message = f"""🌅 Infinity 07:00 리캡
-{now_kst:%Y-%m-%d} KST · 최근 24시간 · 관련 커밋 {commit_count}개
+{now_kst:%Y-%m-%d} KST · 최근 24시간 · 관련 커밋 {commit_count}개 · 로컬 라우터 {len(local_events)}회
 
 {headline}
 
 ---
-시간대별
+로컬/클라우드 타임라인
 {hourly_timeline(now_kst, timeline_events)}
 
 ---

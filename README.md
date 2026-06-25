@@ -33,6 +33,7 @@ scripts/notify.sh   ← 승인/장애 등 명시적 알림용 Telegram 발송기
 
 - **No-op이면 커밋하지 않는다.** 변화 없는 Heartbeat는 push하지 않아 git history와 dashboard가 조용히 유지된다.
 - **아침 7시 리캡**은 GitHub scheduled workflow가 아니라 OpenClaw 로컬 cron(KST 07:00)이 소유한다. 리캡은 커밋 로그를 그대로 보내지 않고, Archive 완료·다음 Inbox/Active·대기 항목을 카드형으로 요약한다.
+- 리캡의 시간대별 섹션은 `[로컬]` OpenClaw 라우터 실행과 `[클라우드]` 커밋/Archive/원격 기록을 한 타임라인에 합쳐 보여준다. 별도 라우터 요약 알림은 기본적으로 보내지 않는다.
 - **Cloud prepares, Local executes**: 조사/계획/초안은 클라우드, 파일 수정/실행/검증은 로컬 Claude Code에 위임한다.
 
 ## 연동
