@@ -4,6 +4,15 @@
 
 ## Inbox
 
+- `marketing-85` Virtue 첫 10명 관찰표 `다음 행동 명료성` 질문 보강
+  source note: `/home/ubuntu/workspace/knowledge-lab/source/external-links/marketing/2026-06-25-time-to-next-value-bridge.md`
+  rationale: `marketing-79` 관찰표는 first value와 D1 재방문 판독 기준은 갖췄지만, 저장/판단 직후 사용자가 "다음에 뭘 할지"를 자기 말로 바로 설명했는지 기록하는 칸은 약하다. prelaunch 단계에서는 새 이벤트보다 이 수기 질문이 time-to-next-value 공백을 더 안전하게 드러낸다.
+  expected impact: 첫 저장 뒤 혼란과 정상 종료를 더 잘 분리하고, next-step bridge proposal 우선순위를 잡별(J1-J4)로 정교화할 수 있다.
+  permission level: L1 docs-only
+  owner route: Infinity Inbox -> Claude Code
+  success criteria: 기존 첫 10명 관찰표/기준 문서에 `저장 또는 판단 직후 다음에 무엇을 할지 한 문장으로 말했는가` 질문과 판정 메모 규칙이 충돌 없이 추가된다.
+  first verification gate: J1/J2/J4와 J3를 각각 읽었을 때 질문이 강요되지 않고, J3의 무저장 정상 종료를 실패로 오독하지 않는지 문서 검토 통과
+
 ## Active
 
 ## Waiting
