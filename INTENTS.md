@@ -6,11 +6,6 @@
 
 ## Active
 
-- `marketing-84` Virtue 첫 저장 뒤 next-step bridge 감사표/제안서
-  active path: `intents/active/marketing-84.md`
-  status: scoped-handoff-recorded
-  priority note: linked source note and target repo/files identified; next cycle should inspect the listed Virtue surfaces and produce the one-page audit/proposal artifact.
-
 ## Waiting
 
 <!-- 사용자 결정, 외부 조건, 안전 확인 대기. 같은 질문을 반복하지 않고 상태만 보존한다. -->
@@ -18,6 +13,7 @@
 <!-- naver-shopping-01 waiting 2026-06-21T1000Z → intents/active/naver-shopping-01.md [display: 나래/Narae; projects: naver-shopping,infinity,personal-ops; type: coordination; topics: automation,workflow,marketing; status: sample-order-gated-session-waiting; approval: sample-order-gated] (cloud 소싱 준비 완료(크로스바디+손목 스트랩). alibaba.com 로컬 공급사 확인(계정 불필요) + 손목·크로스바디 병행 샘플 주문 사용자 승인 대기. do_not_repeat_cloud 활성.) -->
 
 ## Archive
+<!-- marketing-84 completed 2026-06-25T1028Z → intents/archive/marketing-84.md [projects: virtue; type: strategy; topics: marketing,activation,retention] (첫 가치 다음의 next-step bridge 감사표/제안서 완료. J1/J2/J4의 canonical return surface는 홈 `최근 덕행`, J3는 `/add` 결과 카드로 구분. confirmation + next-step 1줄 proposal-only 제안 정리. production/tracking/privacy/public copy/deploy/external cost 변경 0. HTML report gate passed.) -->
 <!-- marketing-83 completed 2026-06-24T2300Z → intents/archive/marketing-83.md [projects: virtue; type: strategy; topics: marketing,activation,onboarding,empty-state] (홈 반환형 empty-state gating 정렬 제안서 완료. 3표면별 J1-J4 gating 규칙과 반환형 문장 후보를 proposal-only 1장 비교 문서로 정리. 핵심 발견: 최근 덕행 섹션이 전체 이력 0건과 오늘 이력 0건을 구분하지 않는 것이 충돌 원인. J3는 deed_judged gate, J1/J2/J4는 deed_saved gate로 별도 분기. production/tracking/privacy/public copy/deploy/external cost 변경 0. HTML report gate passed.) -->
 <!-- research-21 completed 2026-06-25T0507Z → intents/archive/research-21.md [projects: infinity,research-bank,personal-ops; type: research; topics: workflow,content] (6개 사례를 기록 방식·정리 방식·검증 방식·출판 변환 방식으로 비교해, Infinity용 일일 3줄·주간 3묶음·월간 1산출물 루프를 제안했다. HTML report gate passed.) -->
 <!-- marketing-82 completed 2026-06-24T2308Z → intents/archive/marketing-82.md [projects: virtue; type: implementation; topics: marketing,activation,product] (Virtue 홈 첫 방문 zero-state를 랜딩형으로 재구성해 첫 가치와 다음 행동을 같은 화면에서 바로 읽히게 했다. `apps/web/src/app/page.tsx` 한 파일만 수정했고 lint는 기존 경고 4건만 보고.) -->

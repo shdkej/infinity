@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <title>marketing-84 Virtue next-step bridge audit</title>
+</head>
+<body>
+  <h1>marketing-84 Virtue 첫 저장 뒤 next-step bridge 감사표/제안서</h1>
+  <p>첫 가치 직후의 <strong>time-to-next-value</strong>가 끊기지 않도록, Virtue의 <code>/add</code> 결과 카드와 홈 반환 표면을 J1-J4 기준으로 한 장에 다시 읽은 docs-only audit/proposal이다.</p>
+
+  <section>
+    <h2>axis ax1</h2>
+    <p>첫 가치 직후 사용자가 무엇이 남았는지와 다음 행동을 3초 안에 이해할 수 있는가</p>
+  </section>
+
+  <section>
+    <h2>axis ax2</h2>
+    <p>반환 표면 중 무엇을 canonical next-step surface로 볼지 표면별 우선순위를 고정할 수 있는가</p>
+  </section>
+
+  <details open>
+    <summary>표면 판정</summary>
+    <table border="1" cellspacing="0" cellpadding="6">
+      <thead>
+        <tr>
+          <th>표면</th>
+          <th>지금 하는 일</th>
+          <th>canonical 여부</th>
+          <th>판정 이유</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>/add</code> 결과 카드</td>
+          <td>방금 무슨 판단/점수가 나왔는지 보여준다</td>
+          <td>첫 가치 설명 표면</td>
+          <td>무슨 일이 일어났는지는 가장 잘 보이지만, 저장 후 다음 행동 우선순위를 오래 붙잡아 주지는 못한다</td>
+        </tr>
+        <tr>
+          <td>홈 hero / 덕력 카드</td>
+          <td>누적 수치와 큰 약속을 보여준다</td>
+          <td>보조 표면</td>
+          <td>기억됨은 보이지만 "그래서 다음에 뭘 하지?"를 한 문장으로 닫기엔 행동성이 약하다</td>
+        </tr>
+        <tr>
+          <td>홈 <code>최근 덕행</code></td>
+          <td>방금 남은 흔적을 가장 가까운 형태로 확인시킨다</td>
+          <td><strong>primary canonical surface</strong></td>
+          <td>saved proof와 next action bridge를 가장 자연스럽게 붙일 수 있다. marketing-80/81/83의 충돌 지점도 이 표면에 모인다</td>
+        </tr>
+      </tbody>
+    </table>
+  </details>
+
+  <details>
+    <summary>J1-J4 next-step bridge 표</summary>
+    <table border="1" cellspacing="0" cellpadding="6">
+      <thead>
+        <tr>
+          <th>잡</th>
+          <th>첫 가치 뒤 남는 proof</th>
+          <th>primary next action</th>
+          <th>canonical return surface</th>
+          <th>3초 설명 문장</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>J1 기록형</td>
+          <td>방금 저장한 기록 1건이 홈 recent에 남았다는 사실</td>
+          <td>다시 하나 더 남겨보기</td>
+          <td>홈 <code>최근 덕행</code></td>
+          <td>방금 남긴 기록이 여기에 쌓였고, 하나 더 남기면 오늘 흐름이 이어집니다.</td>
+        </tr>
+        <tr>
+          <td>J2 누적형</td>
+          <td>저장된 1건 + 누적 덕력이 실제로 움직였다는 신호</td>
+          <td>한 번 더 저장해서 누적감 확인하기</td>
+          <td>홈 <code>최근 덕행</code> + 덕력 카드 보조</td>
+          <td>방금 쌓인 기록이 남았고, 한 번 더 남기면 누적 리듬이 더 또렷해집니다.</td>
+        </tr>
+        <tr>
+          <td>J3 AI 호기심형</td>
+          <td><code>deed_judged</code> 결과 카드 자체가 first value일 수 있음</td>
+          <td>여기서 멈춰도 됨, 원하면 다른 입력으로 한 번 더 보기</td>
+          <td><code>/add</code> 결과 카드</td>
+          <td>AI가 이렇게 봤다는 건 이미 확인됐고, 더 궁금하면 다른 장면도 바로 볼 수 있습니다.</td>
+        </tr>
+        <tr>
+          <td>J4 회고형</td>
+          <td>나중에 돌아볼 항목이 실제로 남았다는 증거</td>
+          <td>방금 남은 기록을 확인하고 다음 기록을 상상하기</td>
+          <td>홈 <code>최근 덕행</code></td>
+          <td>이제 돌아볼 기록이 생겼고, 다음 한 건이 쌓이면 회고의 모양이 더 분명해집니다.</td>
+        </tr>
+      </tbody>
+    </table>
+  </details>
+
+  <details>
+    <summary>proposal-only 제안</summary>
+    <ol>
+      <li>J1/J2/J4 반환 상태에서는 홈 <code>최근 덕행</code> 영역이 first-visit empty-state 문장을 쓰지 않도록 유지한다.</li>
+      <li>반환형 bridge는 새 tooltip보다 <code>최근 덕행</code> 아래 또는 위의 짧은 confirmation + next-step 문장 1줄로 제한한다.</li>
+      <li>J3에는 저장 유도 bridge를 전역으로 강요하지 않고, <code>/add</code> 결과 카드에서 “멈춰도 됨 / 더 해볼 수 있음”의 선택권을 분리한다.</li>
+    </ol>
+  </details>
+
+  <details>
+    <summary>gate check</summary>
+    <ul>
+      <li>self-audit: 홈/저장 후 복귀 흐름을 읽었을 때 3초 안에 다음 행동을 한 문장으로 설명할 수 있도록 잡별 문장을 직접 넣었다.</li>
+      <li>marketing-80/81/83과 충돌 0: recent empty-state gating 충돌을 그대로 계승하고, next-step surface를 <code>최근 덕행</code>으로 고정했다.</li>
+      <li>production/tracking/privacy/public copy/deploy/external message/cost 변경 0.</li>
+    </ul>
+  </details>
+</body>
+</html>
