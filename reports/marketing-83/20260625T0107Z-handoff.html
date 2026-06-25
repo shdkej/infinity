@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>marketing-83 handoff</title>
+<style>
+  :root{--bg:#f4f2ea;--panel:#fbfaf5;--ink:#2c2a25;--soft:#807c70;--line:#e3dfd2;--a1:#a9745a;--a1-deep:#8a5c45;--a2:#5f7a5e;--a2-deep:#3f5740;font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;}
+  *{box-sizing:border-box} html,body{margin:0;background:var(--bg);color:var(--ink)} body{line-height:1.65;font-size:14px}
+  .sheet{max-width:720px;margin:0 auto;padding:32px 18px} .axis{padding-left:18px;position:relative;margin:0 0 22px}.axis:before{content:"";position:absolute;left:0;top:6px;bottom:6px;width:2px}.ax1:before{background:var(--a1)}.ax2:before{background:var(--a2)}
+  .label{font-size:11px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:8px;color:var(--a1-deep)} .ax2 .label{color:var(--a2-deep)}
+  details{border:1px solid var(--line);border-radius:8px;background:var(--panel);margin:0 0 10px} summary{padding:14px 16px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--soft);cursor:pointer}
+  .body{padding:0 16px 16px} code{background:#edeae0;padding:1px 5px;border-radius:3px}
+</style>
+</head>
+<body>
+<div class="sheet">
+  <h1>marketing-83 registry sync handoff</h1>
+  <div class="axis ax1">
+    <div class="label">axis ax1 · 무엇이 문제였나</div>
+    <div>이미 archive 완료된 <b>marketing-83</b>가 <code>INTENTS.md</code> Inbox에 남아 있어 인덱스와 canonical 상태가 어긋나 있었다.</div>
+  </div>
+  <div class="axis ax2">
+    <div class="label">axis ax2 · 어떻게 해결하나</div>
+    <div>Inbox 항목을 archive 완료 코멘트로 교체해 로컬 원장은 바로잡았지만, <code>git push</code>가 remote ahead로 거절되어 이번 사이클에서는 원격 동기화까지 끝내지 못했다.</div>
+  </div>
+
+  <details open>
+    <summary>핵심 내용</summary>
+    <div class="body">
+      <p>로컬 커밋: <code>be0130f Fix marketing-83 intent registry entry</code></p>
+      <p>실패 지점: <code>git -C /home/ubuntu/workspace/knowledge-lab/infinity push</code> 가 <code>! [rejected] main -&gt; main (fetch first)</code> 로 중단.</p>
+      <p>다음 범위: <code>infinity</code> repo에서 remote main 변경분을 확인한 뒤 non-interactive rebase/merge 정책에 따라 정리하고 push, 이후 부모 <code>knowledge-lab</code>에서 submodule pointer만 stage/push.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>실행 메타 · 산출물</summary>
+    <div class="body">
+      <ul>
+        <li>수정 파일 <code>INTENTS.md</code></li>
+        <li>handoff report <code>reports/marketing-83/20260625T0107Z-handoff.html</code></li>
+      </ul>
+    </div>
+  </details>
+</div>
+</body>
+</html>
