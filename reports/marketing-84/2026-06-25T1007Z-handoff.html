@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>marketing-84 handoff</title>
+<style>
+  :root{
+    --bg:#f4f2ea; --panel:#fbfaf5; --ink:#2c2a25; --soft:#807c70; --faint:#a8a496; --line:#e3dfd2;
+    --a2:#5f7a5e; --a2-deep:#3f5740;
+    --a1:#a9745a; --a1-deep:#8a5c45;
+    --sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0; width:100%; max-width:100%; overflow-x:hidden;}
+  body{background:var(--bg); color:var(--ink); font-family:var(--sans); font-size:14px; line-height:1.68;}
+  .sheet{width:min(100%,720px); max-width:720px; margin:0 auto; padding:32px 18px 40px;}
+  .eyebrow{display:flex; align-items:center; gap:10px; font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--soft); flex-wrap:wrap;}
+  .eyebrow .id{color:var(--a2-deep); font-weight:600;}
+  .eyebrow .dot{width:5px; height:5px; border-radius:50%; background:var(--a2);}
+  h1{font-size:clamp(24px,7vw,29px); line-height:1.3; font-weight:700; margin:20px 0 0; overflow-wrap:anywhere;}
+  .dek{font-size:15.5px; color:var(--soft); margin:13px 0 0; max-width:52ch;}
+  .hr{height:1px; background:var(--line); margin:30px 0;}
+  .axis{padding:0 0 4px 18px; position:relative; margin-bottom:26px;}
+  .axis::before{content:""; position:absolute; left:0; top:6px; bottom:6px; width:2px; border-radius:2px;}
+  .axis.ax1::before{background:var(--a1);} .axis.ax2::before{background:var(--a2);}
+  .axis .label{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase; margin-bottom:9px;}
+  .axis.ax1 .label{color:var(--a1-deep);} .axis.ax2 .label{color:var(--a2-deep);}
+  .axis .text{font-size:clamp(16px,4.4vw,18px); line-height:1.62; color:#37352e; overflow-wrap:anywhere;}
+  details{border:1px solid var(--line); border-radius:8px; background:var(--panel); margin-bottom:10px; overflow:hidden;}
+  summary{cursor:pointer; list-style:none; padding:14px 16px; display:flex; align-items:center; gap:11px; font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft);}
+  .body{padding:2px 16px 18px; min-width:0;}
+  .section-title{font-family:var(--mono); font-size:10.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--a1-deep); margin:0 0 8px;}
+  ol.find{list-style:none; counter-reset:f; margin:16px 0 0; padding:0;}
+  ol.find li{position:relative; padding:8px 0 8px 26px; font-size:15px; color:#37352e; border-top:1px solid var(--line);}
+  ol.find li:first-child{border-top:none;}
+  ol.find li::before{counter-increment:f; content:counter(f); position:absolute; left:0; top:9px; font-family:var(--mono); font-size:12px; font-weight:600; color:var(--a1-deep);}
+  .callout{border-left:2px solid var(--a2); background:#f2efe5; padding:11px 13px; color:#4a473f; margin:12px 0 16px;}
+  .content-grid{display:grid; grid-template-columns:1fr; gap:10px; margin:10px 0;}
+  .mini-card{border:1px solid var(--line); background:#f8f6ef; border-radius:8px; padding:12px 13px; min-width:0;}
+  .mini-card b{display:block; color:var(--ink); margin-bottom:5px;}
+  .chips{display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px;}
+  .chip{font-family:var(--mono); font-size:10.5px; letter-spacing:.05em; color:var(--soft); border:1px solid var(--line); border-radius:999px; padding:3px 10px;}
+  code{font-family:var(--mono); font-size:12px; background:#edeae0; padding:1px 6px; border-radius:3px; color:var(--a2-deep); overflow-wrap:anywhere; word-break:break-word;}
+  ul{padding-left:18px;}
+  @media (min-width:720px){ .sheet{padding:48px 34px 46px;} .content-grid{grid-template-columns:repeat(2,minmax(0,1fr));} }
+</style>
+</head>
+<body>
+<div class="sheet">
+  <div class="eyebrow">
+    <span class="dot"></span>
+    <span class="id">marketing-84</span>
+    <span>Implementation Handoff</span>
+    <span>active</span>
+  </div>
+  <h1>Virtue first-save return flow handoff recorded</h1>
+  <p class="dek">This cycle found one clear docs-only Inbox target and converted it into an explicit Active handoff so the next bounded pass can inspect the named Virtue surfaces and produce the one-page audit/proposal.</p>
+  <div class="hr"></div>
+
+  <div class="axis ax1">
+    <div class="label">01 무엇이 문제였나</div>
+    <div class="text">`marketing-84` had a concrete source note and success gate, but there was <b>no active ledger file, no report, and no scoped next-step record</b> linking that intent to the exact Virtue files to inspect.</div>
+  </div>
+
+  <div class="axis ax2">
+    <div class="label">02 어떻게 해결하나</div>
+    <div class="text">Recorded a bounded handoff that names the <b>next repo/files, output contract, verification gate, and guardrails</b> so the next cycle can finish the J1-J4 next-step bridge audit without re-triaging the intent.</div>
+  </div>
+
+  <details open>
+    <summary>핵심 내용 · 리서치 본문</summary>
+    <div class="body">
+      <div class="section-title">핵심 발견</div>
+      <ol class="find">
+        <li>The source note already narrows the task to the first-save and immediate return moment, so broad onboarding research is unnecessary for the next pass.</li>
+        <li>The exact local files to inspect are already identified in the source note: <code>/home/ubuntu/dev/virtue-rebirth-app/apps/web/src/app/page.tsx</code> and <code>/home/ubuntu/dev/virtue-rebirth-app/apps/web/src/app/add/page.tsx</code>.</li>
+        <li>The safest bounded action in this cycle was to create a durable progress record instead of guessing a finished audit without reading the target repo surfaces.</li>
+      </ol>
+      <div class="callout">Next cycle scope: inspect the named Virtue files and convert the source note into a one-page J1-J4 audit/proposal that answers what proof remains, what the primary next action is, and which return surface should be canonical.</div>
+      <div class="content-grid">
+        <div class="mini-card">
+          <b>근거 · 소스</b>
+          <p>Bounded scan of <code>INTENTS.md</code> plus the linked source note at <code>source/external-links/marketing/2026-06-25-time-to-next-value-bridge.md</code>.</p>
+        </div>
+        <div class="mini-card">
+          <b>다음 판단</b>
+          <p>Decide whether the next pass can complete the docs-only audit directly from the current `page.tsx` and `/add` surfaces, or whether a small follow-up artifact is needed for first-10 observation questions.</p>
+        </div>
+      </div>
+    </div>
+  </details>
+
+  <details open>
+    <summary>다음 실행 범위</summary>
+    <div class="body">
+      <ul>
+        <li>Inspect `/home/ubuntu/dev/virtue-rebirth-app/apps/web/src/app/page.tsx` and `/home/ubuntu/dev/virtue-rebirth-app/apps/web/src/app/add/page.tsx`.</li>
+        <li>Produce one document mapping J1-J4 to `무엇이 남았는가`, `다음에 무엇을 할까`, and the primary/canonical return surface.</li>
+        <li>Verify the document against the existing 3-second self-audit gate.</li>
+        <li>Do not broaden into production code, tracking changes, deploys, or external-cost work.</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary>실행 메타 · 산출물</summary>
+    <div class="body">
+      <div class="chips">
+        <span class="chip">2026-06-25T10:07:09Z</span>
+        <span class="chip">cron hourly triage</span>
+        <span class="chip">inbox → active</span>
+      </div>
+      <ul>
+        <li>report <code>reports/marketing-84/2026-06-25T1007Z-handoff.html</code></li>
+        <li>intent <code>intents/active/marketing-84.md</code></li>
+      </ul>
+    </div>
+  </details>
+</div>
+</body>
+</html>
