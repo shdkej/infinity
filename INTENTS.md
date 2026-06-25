@@ -4,6 +4,15 @@
 
 ## Inbox
 
+- `marketing-84` Virtue 첫 저장 뒤 next-step bridge 감사표/제안서
+  source: `/home/ubuntu/workspace/knowledge-lab/source/external-links/marketing/2026-06-25-time-to-next-value-bridge.md`
+  rationale: 첫 가치 직후 다음 행동이 흐려지면 retention 전 마찰이 생긴다. 현재 홈 복귀 표면의 canonical next step을 정리할 필요가 있다.
+  expected impact: 첫 저장 후 혼란 감소, second action 문장 정렬, first-10 관찰 질문 보강
+  permission level: L1 docs-only
+  owner route: Infinity Inbox -> Claude Code
+  success criteria: J1-J4별 반환 흐름에서 `무엇이 남았는가`와 `다음에 무엇을 할까`가 한 장 문서로 충돌 없이 정리된다.
+  first verification gate: 홈/`/add`/저장 후 복귀 흐름 self-audit에서 3초 안에 다음 행동을 한 문장으로 설명할 수 있어야 한다.
+
 ## Active
 
 ## Waiting
