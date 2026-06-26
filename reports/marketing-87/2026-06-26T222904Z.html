@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Infinity Report</title>
+<style>
+  :root{
+    --bg:#f4f2ea; --panel:#fbfaf5; --ink:#2c2a25; --soft:#807c70; --faint:#a8a496; --line:#e3dfd2;
+    --a2:#5f7a5e; --a2-deep:#3f5740;
+    --a1:#a9745a; --a1-deep:#8a5c45;
+    --sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0; width:100%; max-width:100%; overflow-x:hidden;}
+  body{background:var(--bg); color:var(--ink); font-family:var(--sans); font-size:14px; line-height:1.68; -webkit-font-smoothing:antialiased;}
+  .sheet{width:min(100%,720px); max-width:720px; margin:0 auto; padding:32px 18px 40px;}
+  .reveal{opacity:0; animation:fade .7s ease forwards;}
+  @keyframes fade{from{opacity:0; transform:translateY(9px);} to{opacity:1; transform:none;}}
+  .eyebrow{display:flex; align-items:center; gap:10px; font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--soft); flex-wrap:wrap;}
+  .eyebrow .id{color:var(--a2-deep); font-weight:600;}
+  .eyebrow .dot{width:5px; height:5px; border-radius:50%; background:var(--a2);}
+  .eyebrow .status{color:var(--a2-deep);}
+  h1{font-size:clamp(24px,7vw,29px); line-height:1.3; font-weight:700; margin:20px 0 0; overflow-wrap:anywhere;}
+  .dek{font-size:15.5px; color:var(--soft); margin:13px 0 0; max-width:52ch;}
+  .hr{height:1px; background:var(--line); margin:30px 0;}
+  .axis{padding:0 0 4px 18px; position:relative; margin-bottom:26px;}
+  .axis::before{content:""; position:absolute; left:0; top:6px; bottom:6px; width:2px; border-radius:2px;}
+  .axis.ax1::before{background:var(--a1);} .axis.ax2::before{background:var(--a2);}
+  .axis.ax1{--ul:var(--a1);} .axis.ax2{--ul:var(--a2);}
+  .axis .label{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase; margin-bottom:9px; display:flex; align-items:center; gap:8px;}
+  .axis.ax1 .label{color:var(--a1-deep);} .axis.ax2 .label{color:var(--a2-deep);}
+  .axis .label .n{font-weight:600; opacity:.6;}
+  .axis .text{font-size:clamp(16px,4.4vw,18px); line-height:1.62; color:#37352e; overflow-wrap:anywhere;}
+  .axis .text b{font-weight:700; color:var(--ink); border-bottom:2px solid var(--ul);}
+  ol.find{list-style:none; counter-reset:f; margin:16px 0 0; padding:0;}
+  ol.find li{position:relative; padding:8px 0 8px 26px; font-size:15px; color:#37352e; border-top:1px solid var(--line);}
+  ol.find li:first-child{border-top:none;}
+  ol.find li::before{counter-increment:f; content:counter(f); position:absolute; left:0; top:9px; font-family:var(--mono); font-size:12px; font-weight:600; color:var(--a1-deep);}
+  details{border:1px solid var(--line); border-radius:8px; background:var(--panel); margin-bottom:10px; overflow:hidden;}
+  summary{cursor:pointer; list-style:none; padding:14px 16px; display:flex; align-items:center; gap:11px; font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft);}
+  summary::-webkit-details-marker{display:none;}
+  summary .chev{width:8px; height:8px; border-right:2px solid var(--a2-deep); border-bottom:2px solid var(--a2-deep); transform:rotate(-45deg); transition:.25s; flex:none; margin-left:2px;}
+  details[open] summary .chev{transform:rotate(45deg);}
+  .body{padding:2px 16px 18px; min-width:0;}
+  .section{margin:4px 0 18px;}
+  .section-title{font-family:var(--mono); font-size:10.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--a1-deep); margin:0 0 8px;}
+  .callout{border-left:2px solid var(--a2); background:#f2efe5; padding:11px 13px; color:#4a473f; margin:12px 0 16px;}
+  .content-grid{display:grid; grid-template-columns:1fr; gap:10px; margin:10px 0;}
+  .mini-card{border:1px solid var(--line); background:#f8f6ef; border-radius:8px; padding:12px 13px; min-width:0;}
+  .mini-card b{display:block; color:var(--ink); margin-bottom:5px;}
+  .mini-card p{margin:0; color:var(--soft);}
+  table{border-collapse:collapse; width:100%; max-width:100%; table-layout:fixed; font-size:13px; margin:4px 0 12px;}
+  th,td{border-bottom:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top; overflow-wrap:anywhere; word-break:break-word;}
+  th{font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft); font-weight:600;}
+  td:first-child{color:var(--a2-deep); font-weight:600; white-space:normal;}
+  .body p{color:var(--soft); overflow-wrap:anywhere;}
+  .body ul{margin:6px 0; padding-left:18px;}
+  .body li{margin:5px 0;}
+  code{font-family:var(--mono); font-size:12px; background:#edeae0; padding:1px 6px; border-radius:3px; color:var(--a2-deep);}
+  .chips{display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px;}
+  .chip{font-family:var(--mono); font-size:10.5px; letter-spacing:.05em; color:var(--soft); border:1px solid var(--line); border-radius:999px; padding:3px 10px;}
+  .foot{margin-top:30px; padding-top:15px; border-top:1px solid var(--line); display:flex; flex-wrap:wrap; gap:6px 14px; justify-content:space-between; font-family:var(--mono); font-size:10px; letter-spacing:.13em; text-transform:uppercase; color:var(--faint);}
+  @media (min-width:720px){ .sheet{padding:48px 34px 46px;} .eyebrow .status{margin-left:auto;} .axis{padding-left:22px; margin-bottom:30px;} .content-grid{grid-template-columns:repeat(2,minmax(0,1fr));} }
+  @media (max-width:640px){ table,thead,tbody,tr,th,td{display:block; width:100%;} thead{display:none;} tr{border:1px solid var(--line); border-radius:8px; padding:9px 10px; margin:0 0 10px; background:#f8f6ef;} td{border-bottom:0; padding:5px 0;} td:first-child{font-family:var(--mono); font-size:11px; letter-spacing:.05em;} }
+</style>
+</head>
+<body>
+<div class="sheet">
+  <div class="eyebrow reveal">
+    <span class="dot"></span>
+    <span class="id">marketing-87</span>
+    <span>Research Note</span>
+    <span class="status">completed</span>
+  </div>
+  <h1 class="reveal" style="animation-delay:.05s">Virtue <code>/add</code> 첫 10~15세션 마찰 판독표</h1>
+  <p class="dek reveal" style="animation-delay:.09s">작은 전환 갭을 실패로 오판하지 않도록, 기존 이벤트와 replay 질문만으로 첫 세션들을 같은 기준으로 읽는 1장 판독표를 정리했습니다.</p>
+  <div class="hr reveal" style="animation-delay:.12s"></div>
+  <div class="axis ax1 reveal" style="animation-delay:.16s">
+    <div class="label"><span class="n">01</span> 무엇이 문제였나</div>
+    <div class="text">Virtue 프리런치 단계에서는 <b><code>deed_judged → deed_saved</code> 갭</b>을 바로 실패로 읽기 쉽지만, 실제로는 <b>공통 UX 마찰</b>, <b>J3 자연 종료</b>, <b>조용한 실패</b>, <b>다음 행동 불명확</b>이 섞여 있을 수 있습니다.</div>
+  </div>
+  <div class="axis ax2 reveal" style="animation-delay:.22s">
+    <div class="label"><span class="n">02</span> 어떻게 해결하나</div>
+    <div class="text">기존 이벤트 <b><code>add_flow_started → deed_judge_attempted → deed_judged → deed_saved</code></b>와 replay 질문을 묶어, 첫 10~15세션을 동일 기준으로 읽는 <b>4분류 판독표</b>를 만들었습니다. 이 표는 새 트래킹 없이도 J3 정상 종료와 실제 마찰을 분리하도록 설계했습니다.</div>
+  </div>
+  <div class="reveal" style="animation-delay:.27s">
+    <details open>
+      <summary><span class="chev"></span> 핵심 내용 · 리서치 본문</summary>
+      <div class="body">
+        <div class="section">
+          <div class="section-title">핵심 발견</div>
+          <ol class="find">
+            <li><code>deed_judged</code> 후 저장이 없다는 사실만으로 실패를 확정하면, J3처럼 "AI가 어떻게 보는지 확인"이 목적이었던 세션을 오판할 위험이 큽니다.</li>
+            <li>첫 10~15세션 단계에서는 전환율 요약보다, 여러 세션이 같은 지점에서 반복 정지하는지 보는 <b>공통 마찰 판독</b>이 더 유용합니다.</li>
+            <li>새 트래킹을 붙이지 않아도 기존 이벤트와 replay 질문만 있으면 <b>마찰 / 자연 종료 / 조용한 실패 / 다음 행동 불명확</b>의 4분류로 세션을 일관되게 읽을 수 있습니다.</li>
+          </ol>
+        </div>
+        <div class="callout">추천안은 숫자 최적화보다 해석 기준을 먼저 고정하는 것입니다. 먼저 replay 10건을 같은 표로 읽고, 그 다음에야 copy/온보딩 수정이 어떤 문제를 줄이려는 것인지 명확해집니다.</div>
+        <div class="content-grid">
+          <div class="mini-card">
+            <b>근거 · 소스</b>
+            <p>PostHog/Amplitude 요약 노트는 온보딩 이탈을 제품 거절보다 마찰 신호로 보고, funnel만이 아니라 replay와 맥락 분리를 함께 보라고 권합니다. 이를 Virtue의 J1~J4 계약과 연결해 판독표로 변환했습니다.</p>
+          </div>
+          <div class="mini-card">
+            <b>다음 판단</b>
+            <p>실제 replay 10건에서 4분류 중 무엇이 가장 반복되는지 확인한 뒤, 결과 카드 bridge 문구 수정이 필요한지 아니면 특정 단계 UX 마찰을 먼저 봐야 하는지 결정하면 됩니다.</p>
+          </div>
+        </div>
+      </div>
+    </details>
+    <details open>
+      <summary><span class="chev"></span> 판독표 구성 · 적용 규칙</summary>
+      <div class="body">
+        <p>artifact에는 세션별 기록용 표와 4분류 정의, replay 관찰 질문, 판독 규칙을 모두 넣었습니다. 분류 기준은 다음과 같습니다.</p>
+        <table>
+          <thead>
+            <tr><th>분류</th><th>핵심 기준</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>공통 UX 마찰</td><td>여러 세션이 같은 화면/문구/버튼 앞에서 반복 정지하는 경우</td></tr>
+            <tr><td>J3 자연 종료</td><td><code>deed_judged</code>까지 도달했고, 저장을 못 찾은 흔적보다 결과 확인 후 종료 흐름이 더 자연스러운 경우</td></tr>
+            <tr><td>조용한 실패</td><td>무반응, 로딩 정체, 재시도, 비정상 이탈처럼 기술/상태 이슈가 의심되는 경우</td></tr>
+            <tr><td>다음 행동 불명확</td><td>결과는 봤지만 저장/복귀/다음 행동이 읽히지 않아 머뭇거리는 경우</td></tr>
+          </tbody>
+        </table>
+        <p>운영 규칙도 간단히 고정했습니다. <code>deed_judged</code> 후 저장이 없다고 자동 실패로 기록하지 않고, J3 후보는 먼저 자연 종료 가능성을 검토합니다. 반대로 같은 단계 정지가 3회 이상 반복되면 개별 세션보다 공통 마찰을 우선 원인으로 봅니다.</p>
+      </div>
+    </details>
+    <details>
+      <summary><span class="chev"></span> 실행 메타 · 산출물</summary>
+      <div class="body">
+        <div class="chips">
+          <span class="chip">2026-06-26T222904Z</span>
+          <span class="chip">heartbeat-router</span>
+          <span class="chip">Inbox → Archive</span>
+        </div>
+        <ul>
+          <li>산출물 <code>artifacts/marketing-87/virtue-add-first-10-15-session-friction-reading-table.md</code></li>
+          <li>출처 <code>source/external-links/marketing/2026-06-26-onboarding-dropoff-context-vs-friction.md</code></li>
+        </ul>
+      </div>
+    </details>
+  </div>
+  <div class="foot reveal" style="animation-delay:.3s">
+    <span>Agent-First Heartbeat</span>
+    <span>Infinity · Intent Note</span>
+  </div>
+</div>
+</body>
+</html>

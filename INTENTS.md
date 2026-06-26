@@ -4,15 +4,6 @@
 
 ## Inbox
 
-- [ ] `marketing-87` Virtue `/add` 첫 10~15세션 마찰 판독표 만들기
-  출처 노트: `source/external-links/marketing/2026-06-26-onboarding-dropoff-context-vs-friction.md`
-  근거: 프리런치 단계에서는 작은 `deed_judged → deed_saved` 갭을 실패로 읽기보다, 공통 UX 마찰과 J3 자연 종료를 분리하는 판독 기준이 먼저 필요함.
-  기대효과: 다음 카피/온보딩 수정이 감이 아니라 반복 패턴에 근거하게 되고, J3 정상 종료를 불필요한 실패로 세지 않게 됨.
-  권한수준: L1 docs-only
-  오너 라우팅: Infinity router → Claude Code
-  성공기준: 기존 이벤트(`add_flow_started`, `deed_judge_attempted`, `deed_judged`, `deed_saved`)와 replay 관찰 질문을 묶은 1장 판독표 초안 완성.
-  첫 검증 게이트: 새 트래킹/배포 없이 문서만으로 10개 세션을 같은 기준으로 읽을 수 있는지 확인.
-
 ## Active
 
 <!-- marketing-86 completed 2026-06-26T10:28Z → intents/archive/marketing-86.md [projects: virtue, infinity; type: strategy; topics: marketing, activation, product] (J1/J2/J4는 홈 최근 덕행, J3는 결과 카드를 primary surface로 삼는 next action helper proposal 완료) -->
@@ -24,6 +15,7 @@
 <!-- naver-shopping-01 waiting 2026-06-21T1000Z → intents/active/naver-shopping-01.md [display: 나래/Narae; projects: naver-shopping,infinity,personal-ops; type: coordination; topics: automation,workflow,marketing; status: sample-order-gated-session-waiting; approval: sample-order-gated] (cloud 소싱 준비 완료(크로스바디+손목 스트랩). alibaba.com 로컬 공급사 확인(계정 불필요) + 손목·크로스바디 병행 샘플 주문 사용자 승인 대기. do_not_repeat_cloud 활성.) -->
 
 ## Archive
+<!-- marketing-87 completed 2026-06-26T222904Z → intents/archive/marketing-87.md [projects: virtue, infinity; type: strategy; topics: marketing, activation, product] (기존 `/add` 이벤트와 replay 관찰 질문을 묶어 첫 10~15세션을 공통 UX 마찰, J3 자연 종료, 조용한 실패, 다음 행동 불명확의 4분류로 읽는 1장 판독표 완성. production/tracking/privacy/public copy/deploy/external cost 변경 0. HTML report gate passed.) -->
 <!-- marketing-85 completed 2026-06-25T220708Z → intents/archive/marketing-85.md [projects: virtue; type: strategy; topics: marketing,activation,prelaunch,observation] (첫 10명 관찰표 `다음 행동 명료성` 질문 보강 완료. `artifacts/marketing-47`에 세션 직후 4번째 질문과 잡별 읽기 규칙을, `artifacts/marketing-60`에 `next_action_spoken`/`normal_stop_vs_confusion` 수기 판독 축을 추가. J3 무저장 정상 종료 경계 유지. production/tracking/privacy/public copy/deploy/external cost 변경 0. HTML report gate passed.) -->
 <!-- marketing-84 completed 2026-06-25T1028Z → intents/archive/marketing-84.md [projects: virtue; type: strategy; topics: marketing,activation,retention] (첫 가치 다음의 next-step bridge 감사표/제안서 완료. J1/J2/J4의 canonical return surface는 홈 `최근 덕행`, J3는 `/add` 결과 카드로 구분. confirmation + next-step 1줄 proposal-only 제안 정리. production/tracking/privacy/public copy/deploy/external cost 변경 0. HTML report gate passed.) -->
 <!-- marketing-83 completed 2026-06-24T2300Z → intents/archive/marketing-83.md [projects: virtue; type: strategy; topics: marketing,activation,onboarding,empty-state] (홈 반환형 empty-state gating 정렬 제안서 완료. 3표면별 J1-J4 gating 규칙과 반환형 문장 후보를 proposal-only 1장 비교 문서로 정리. 핵심 발견: 최근 덕행 섹션이 전체 이력 0건과 오늘 이력 0건을 구분하지 않는 것이 충돌 원인. J3는 deed_judged gate, J1/J2/J4는 deed_saved gate로 별도 분기. production/tracking/privacy/public copy/deploy/external cost 변경 0. HTML report gate passed.) -->
