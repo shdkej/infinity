@@ -6,11 +6,7 @@
 
 ## Active
 
-- `marketing-86` Virtue 첫 가치 직후 next action helper 제안서 작성
-  - path: `intents/active/marketing-86.md`
-  - status: handoff ready
-  - update: 2026-06-26T1007Z bounded docs-only handoff/report recorded from Inbox source note
-  - next gate: marketer가 J1-J4별 노출 시점/한 줄 helper/사라짐 조건/금지 문장을 1장 proposal로 정리하고 홈 반환 흐름 3초 self-audit 통과 여부를 함께 남긴다.
+<!-- marketing-86 completed 2026-06-26T10:28Z → intents/archive/marketing-86.md [projects: virtue, infinity; type: strategy; topics: marketing, activation, product] (J1/J2/J4는 홈 최근 덕행, J3는 결과 카드를 primary surface로 삼는 next action helper proposal 완료) -->
 
 ## Waiting
 
