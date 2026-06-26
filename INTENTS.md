@@ -4,6 +4,15 @@
 
 ## Inbox
 
+- [ ] `marketing-87` Virtue `/add` 첫 10~15세션 마찰 판독표 만들기
+  출처 노트: `source/external-links/marketing/2026-06-26-onboarding-dropoff-context-vs-friction.md`
+  근거: 프리런치 단계에서는 작은 `deed_judged → deed_saved` 갭을 실패로 읽기보다, 공통 UX 마찰과 J3 자연 종료를 분리하는 판독 기준이 먼저 필요함.
+  기대효과: 다음 카피/온보딩 수정이 감이 아니라 반복 패턴에 근거하게 되고, J3 정상 종료를 불필요한 실패로 세지 않게 됨.
+  권한수준: L1 docs-only
+  오너 라우팅: Infinity router → Claude Code
+  성공기준: 기존 이벤트(`add_flow_started`, `deed_judge_attempted`, `deed_judged`, `deed_saved`)와 replay 관찰 질문을 묶은 1장 판독표 초안 완성.
+  첫 검증 게이트: 새 트래킹/배포 없이 문서만으로 10개 세션을 같은 기준으로 읽을 수 있는지 확인.
+
 ## Active
 
 <!-- marketing-86 completed 2026-06-26T10:28Z → intents/archive/marketing-86.md [projects: virtue, infinity; type: strategy; topics: marketing, activation, product] (J1/J2/J4는 홈 최근 덕행, J3는 결과 카드를 primary surface로 삼는 next action helper proposal 완료) -->
