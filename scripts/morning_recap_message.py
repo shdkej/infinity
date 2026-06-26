@@ -248,16 +248,12 @@ def evaluator_timeline(events: list[dict[str, str]]) -> str:
         findings = sum(1 for event in name_events if event["marker"] == "🟩")
         parts.append(f"{name} {len(name_events)}회 · 정상 {len(name_events) - failures} · 기록 {findings} · 실패 {failures}")
     summary = "요약: " + " / ".join(parts)
-    visible = [
-        event
-        for event in events
-        if event["marker"] == "🟥" or (event["marker"] == "🟩" and not event["note"].startswith("RECORDED:"))
-    ]
+    visible = [event for event in events if event["marker"] != "⬜️"]
     rows = [f"{event['marker']}{event['time']} {event['name']} · {event['note']}" for event in visible[:8]]
     if len(visible) > 8:
         rows.append(f"… 외 {len(visible) - 8}건")
     if not rows:
-        rows.append("⬜️ 실패 없음 · 기록은 내부 보관")
+        rows.append("⬜️ 특이사항 없음")
     return "\n".join([summary, *rows])
 
 
