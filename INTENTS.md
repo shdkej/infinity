@@ -4,16 +4,13 @@
 
 ## Inbox
 
-- Virtue 첫 가치 직후 next action helper 제안서 작성
-  - source note: `/home/ubuntu/workspace/knowledge-lab/source/external-links/marketing/2026-06-26-post-first-value-next-action-helper.md`
-  - rationale: prelaunch 기준에서 긴 온보딩 재노출보다 잡별 `다음 한 걸음`을 짧게 보여주고 사라지는 helper가 더 적합한지 docs-only로 먼저 정리할 필요가 있음.
-  - expected impact: 첫 저장 뒤 혼란 감소, J1-J4별 반환형 문장 충돌 예방, first-10 관찰 질문 정교화
-  - permission level: L1 docs-only
-  - owner route: Infinity router -> marketer / Claude Code
-  - success criteria: J1-J4별로 노출 시점, 한 줄 문장, 사라짐 조건, 금지 문장이 1장 제안서에서 충돌 없이 정리됨
-  - first verification gate: 홈 반환 흐름을 읽었을 때 3초 안에 다음 행동을 한 문장으로 설명할 수 있는지 self-audit 통과
-
 ## Active
+
+- `marketing-86` Virtue 첫 가치 직후 next action helper 제안서 작성
+  - path: `intents/active/marketing-86.md`
+  - status: handoff ready
+  - update: 2026-06-26T1007Z bounded docs-only handoff/report recorded from Inbox source note
+  - next gate: marketer가 J1-J4별 노출 시점/한 줄 helper/사라짐 조건/금지 문장을 1장 proposal로 정리하고 홈 반환 흐름 3초 self-audit 통과 여부를 함께 남긴다.
 
 ## Waiting
 
