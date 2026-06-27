@@ -3,6 +3,7 @@
 > Heartbeat Agent가 주기적으로 읽고 실행하는 의도 목록.
 
 ## Inbox
+<!-- marketing-89 inbox 2026-06-27T2200Z [projects: virtue; type: strategy; topics: marketing, activation, product, return-state] (marketing-88 후속. `stats.total`, `stats.count`, `recent.length`의 source-of-truth와 홈 반환 상태 gating 기준을 정렬하는 docs-only 점검 후보. source: source/external-links/marketing/2026-06-27-return-state-verification-gate.md; success: retained proof 세션에서 empty-state 금지 조건과 허용 조건이 1장으로 고정됨.) -->
 
 ## Active
 
