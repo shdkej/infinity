@@ -4,6 +4,15 @@
 
 ## Inbox
 
+- [marketing-88] Virtue 홈 반환 상태 live/canonical drift audit
+  source note: `/home/ubuntu/workspace/knowledge-lab/source/external-links/marketing/2026-06-27-contextual-onboarding-drift.md`
+  rationale: 최근 온보딩 규칙과 로컬 코드는 반환 상태를 정리해 가고 있지만, 2026-06-27 라이브 홈은 `612덕` 누적 신호와 `아직 기록이 없어요.` empty-state가 함께 보여 source-of-truth 충돌이 남아 있다.
+  expected impact: 새 카피 추가 전 live/local/canonical 불일치를 한 장으로 드러내 반환 세션 신뢰 저하를 줄일 준비를 한다.
+  permission level: L1 docs-only
+  owner route: Infinity Inbox -> Claude Code
+  success criteria: home hero, 누적 카드, 최근 덕행, CTA 4표면에 대해 live/local/canonical 차이와 권장 source-of-truth가 정리된다.
+  first verification gate: 라이브 홈 HTML과 `/home/ubuntu/dev/virtue-rebirth-app/apps/web/src/app/page.tsx`, marketing-80/81/83/84/86 산출물을 나란히 읽었을 때 충돌 표면이 빠짐없이 표에 들어간다.
+
 ## Active
 
 <!-- marketing-86 completed 2026-06-26T10:28Z → intents/archive/marketing-86.md [projects: virtue, infinity; type: strategy; topics: marketing, activation, product] (J1/J2/J4는 홈 최근 덕행, J3는 결과 카드를 primary surface로 삼는 next action helper proposal 완료) -->
