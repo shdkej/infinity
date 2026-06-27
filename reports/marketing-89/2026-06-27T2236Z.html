@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>marketing-89 report</title>
+<style>
+  :root{
+    --bg:#f4f2ea; --panel:#fbfaf5; --ink:#2c2a25; --soft:#807c70; --faint:#a8a496; --line:#e3dfd2;
+    --a2:#5f7a5e; --a2-deep:#3f5740;
+    --a1:#a9745a; --a1-deep:#8a5c45;
+    --sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0; width:100%; max-width:100%; overflow-x:hidden;}
+  body{background:var(--bg); color:var(--ink); font-family:var(--sans); font-size:14px; line-height:1.68; -webkit-font-smoothing:antialiased;}
+  .sheet{width:min(100%,720px); max-width:720px; margin:0 auto; padding:32px 18px 40px;}
+  .reveal{opacity:0; animation:fade .7s ease forwards;}
+  @keyframes fade{from{opacity:0; transform:translateY(9px);} to{opacity:1; transform:none;}}
+  .eyebrow{display:flex; align-items:center; gap:10px; font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--soft); flex-wrap:wrap;}
+  .eyebrow .id{color:var(--a2-deep); font-weight:600;}
+  .eyebrow .dot{width:5px; height:5px; border-radius:50%; background:var(--a2);}
+  .eyebrow .status{color:var(--a2-deep);}
+  h1{font-size:clamp(24px,7vw,29px); line-height:1.3; font-weight:700; margin:20px 0 0; overflow-wrap:anywhere;}
+  .dek{font-size:15.5px; color:var(--soft); margin:13px 0 0; max-width:52ch;}
+  .hr{height:1px; background:var(--line); margin:30px 0;}
+  .axis{padding:0 0 4px 18px; position:relative; margin-bottom:26px;}
+  .axis::before{content:""; position:absolute; left:0; top:6px; bottom:6px; width:2px; border-radius:2px;}
+  .axis.ax1::before{background:var(--a1);} .axis.ax2::before{background:var(--a2);}
+  .axis.ax1 .label{color:var(--a1-deep);} .axis.ax2 .label{color:var(--a2-deep);}
+  .axis .label{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase; margin-bottom:9px; display:flex; align-items:center; gap:8px;}
+  .axis .label .n{font-weight:600; opacity:.6;}
+  .axis .text{font-size:clamp(16px,4.4vw,18px); line-height:1.62; color:#37352e; overflow-wrap:anywhere;}
+  .axis .text b{font-weight:700; color:var(--ink);}
+  ol.find{list-style:none; counter-reset:f; margin:16px 0 0; padding:0;}
+  ol.find li{position:relative; padding:8px 0 8px 26px; font-size:15px; color:#37352e; border-top:1px solid var(--line);}
+  ol.find li:first-child{border-top:none;}
+  ol.find li::before{counter-increment:f; content:counter(f); position:absolute; left:0; top:9px; font-family:var(--mono); font-size:12px; font-weight:600; color:var(--a1-deep);}
+  details{border:1px solid var(--line); border-radius:8px; background:var(--panel); margin-bottom:10px; overflow:hidden;}
+  summary{cursor:pointer; list-style:none; padding:14px 16px; display:flex; align-items:center; gap:11px; font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft);}
+  summary::-webkit-details-marker{display:none;}
+  summary .chev{width:8px; height:8px; border-right:2px solid var(--a2-deep); border-bottom:2px solid var(--a2-deep); transform:rotate(-45deg); transition:.25s; flex:none; margin-left:2px;}
+  details[open] summary .chev{transform:rotate(45deg);}
+  .body{padding:2px 16px 18px; min-width:0;}
+  .section{margin:4px 0 18px;}
+  .section-title{font-family:var(--mono); font-size:10.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--a1-deep); margin:0 0 8px;}
+  .callout{border-left:2px solid var(--a2); background:#f2efe5; padding:11px 13px; color:#4a473f; margin:12px 0 16px;}
+  .content-grid{display:grid; grid-template-columns:1fr; gap:10px; margin:10px 0;}
+  .mini-card{border:1px solid var(--line); background:#f8f6ef; border-radius:8px; padding:12px 13px; min-width:0;}
+  .mini-card b{display:block; color:var(--ink); margin-bottom:5px;}
+  .mini-card p{margin:0;}
+  table{border-collapse:collapse; width:100%; max-width:100%; table-layout:fixed; font-size:13px; margin:4px 0 12px;}
+  th,td{border-bottom:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top; overflow-wrap:anywhere; word-break:break-word;}
+  th{font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft); font-weight:600;}
+  td:first-child{color:var(--a2-deep); font-weight:600; white-space:normal;}
+  .body p{color:var(--soft); overflow-wrap:anywhere;}
+  .body ul{margin:6px 0; padding-left:18px;}
+  .body li{margin:5px 0;}
+  code{font-family:var(--mono); font-size:12px; background:#edeae0; padding:1px 6px; border-radius:3px; color:var(--a2-deep);}
+  .chips{display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px;}
+  .chip{font-family:var(--mono); font-size:10.5px; letter-spacing:.05em; color:var(--soft); border:1px solid var(--line); border-radius:999px; padding:3px 10px;}
+  .foot{margin-top:30px; padding-top:15px; border-top:1px solid var(--line); display:flex; flex-wrap:wrap; gap:6px 14px; justify-content:space-between; font-family:var(--mono); font-size:10px; letter-spacing:.13em; text-transform:uppercase; color:var(--faint);}
+  @media (min-width:720px){.sheet{padding:48px 34px 46px;}.eyebrow .status{margin-left:auto;}.axis{padding-left:22px; margin-bottom:30px;}.content-grid{grid-template-columns:repeat(2,minmax(0,1fr));}}
+  @media (max-width:640px){table,thead,tbody,tr,th,td{display:block; width:100%;} thead{display:none;} tr{border:1px solid var(--line); border-radius:8px; padding:9px 10px; margin:0 0 10px; background:#f8f6ef;} td{border-bottom:0; padding:5px 0;} td:first-child{font-family:var(--mono); font-size:11px; letter-spacing:.05em;}}
+</style>
+</head>
+<body>
+<div class="sheet">
+  <div class="eyebrow reveal">
+    <span class="dot"></span>
+    <span class="id">marketing-89</span>
+    <span>Strategy Note</span>
+    <span class="status">archived</span>
+  </div>
+  <h1 class="reveal" style="animation-delay:.05s">Virtue 홈 반환 상태 게이트를 baseline과 실제 기록으로 분리해 고정</h1>
+  <p class="dek reveal" style="animation-delay:.09s">`stats.total`, `stats.count`, `recent.length`가 각각 다른 질문에 답한다는 점을 계약으로 고정하고, retained proof 세션에서 first-visit empty-state가 언제 실패인지 한 장으로 정리했습니다.</p>
+  <div class="hr reveal" style="animation-delay:.12s"></div>
+
+  <div class="axis ax1 reveal" style="animation-delay:.16s">
+    <div class="label"><span class="n">01</span> 무엇이 문제였나</div>
+    <div class="text">라이브/로컬 맥락을 합치면 <b>`stats.total`은 baseline 포함 누적치</b>인데, 홈 표면 일부가 이를 retained history처럼 읽히게 만들면서 <b>`stats.count === 0`용 first-visit 카피</b>와 충돌할 여지가 있었습니다.</div>
+  </div>
+  <div class="axis ax2 reveal" style="animation-delay:.22s">
+    <div class="label"><span class="n">02</span> 어떻게 해결하나</div>
+    <div class="text">반환 상태의 canonical gate를 <b>`stats.count > 0`</b>로 고정하고, <b>`recent.length === 0`은 섹션 단위 예외</b>로만 다루며, `stats.total`은 누적 score/progression 용도로만 사용한다는 계약을 문서화했습니다.</div>
+  </div>
+
+  <div class="reveal" style="animation-delay:.27s">
+    <details open>
+      <summary><span class="chev"></span> 핵심 내용 · 리서치 본문</summary>
+      <div class="body">
+        <div class="section">
+          <div class="section-title">핵심 발견</div>
+          <ol class="find">
+            <li><code>stats.total</code>은 <code>INITIAL_VIRTUE(612)</code>와 저장된 deeds 합산값이라, 값이 크다는 사실만으로 저장 이력 존재를 증명하지 못합니다.</li>
+            <li>홈의 first-visit 분기는 <code>stats.count === 0</code>이고 최근 덕행 empty-state 분기는 <code>recent.length === 0</code>이라, 둘은 같은 질문에 답하지 않습니다.</li>
+            <li>따라서 반환 세션에서 문제의 본질은 "카피 부족"이 아니라 baseline, visit-state, recent-list state를 한 표면에서 섞어 읽히게 만드는 gating drift입니다.</li>
+          </ol>
+        </div>
+        <div class="callout">권장 계약: <b>visit-state는 `stats.count`가 독점</b>하고, <b>recent.length는 최근 리스트 렌더링에만 사용</b>하며, <b>`stats.total`은 누적 덕력/진행도 표면으로 한정</b>합니다.</div>
+        <div class="content-grid">
+          <div class="mini-card">
+            <b>근거 · 소스</b>
+            <p><code>apps/web/src/lib/store.ts</code>, <code>apps/web/src/lib/mock-data.ts</code>, <code>apps/web/src/app/page.tsx</code>, <code>marketing-88</code> 아카이브, 2026-06-27 return-state gate 노트를 대조했습니다.</p>
+          </div>
+          <div class="mini-card">
+            <b>다음 판단</b>
+            <p>후속 구현 intent는 home hero/CTA/recent section에서 first-visit 문구가 <code>stats.count > 0</code>일 때 단 하나도 남지 않도록 검증 게이트를 붙여야 합니다.</p>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <details open>
+      <summary><span class="chev"></span> 상태 계약 · 허용/금지 조합</summary>
+      <div class="body">
+        <div class="section">
+          <div class="section-title">Canonical State Table</div>
+          <table>
+            <thead>
+              <tr><th>값</th><th>역할</th><th>허용 사용</th><th>금지 사용</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><code>stats.total</code></td><td>baseline 포함 누적 덕력</td><td>score, species progression</td><td>first-visit / returning 판정</td></tr>
+              <tr><td><code>stats.count</code></td><td>저장된 덕행 개수</td><td>hero, CTA, first-visit gate</td><td>누적 덕력 설명 대체</td></tr>
+              <tr><td><code>recent.length</code></td><td>최근 덕행 카드 개수</td><td>recent section 렌더링</td><td>홈 전체 상태 판정</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="section">
+          <div class="section-title">허용 조건</div>
+          <ul>
+            <li>empty-state는 오직 <code>stats.count === 0</code> 그리고 <code>recent.length === 0</code>일 때만 허용됩니다.</li>
+            <li><code>stats.count &gt; 0</code>이면 hero는 returning 상태여야 하고 CTA도 returning 문구를 써야 합니다.</li>
+            <li><code>stats.count &gt; 0</code>인데 <code>recent.length === 0</code>이면 문제는 recent 섹션 동기화/렌더링이며, 홈 전체를 first-visit로 내리면 안 됩니다.</li>
+          </ul>
+        </div>
+        <div class="section">
+          <div class="section-title">금지 조건</div>
+          <ul>
+            <li><code>stats.count &gt; 0</code> 상태에서 <code>첫 덕 기록해보기</code>, <code>첫 기록이 여기에 쌓여요</code>, <code>아직 기록이 없어요</code> 계열 문구 노출</li>
+            <li><code>stats.total</code>이 612보다 크거나 같다는 이유만으로 저장 이력을 있다고 가정하는 카피/게이트</li>
+            <li>recent list empty를 전역 empty-state와 동일시하는 구현</li>
+          </ul>
+        </div>
+      </div>
+    </details>
+
+    <details>
+      <summary><span class="chev"></span> 실행 메타 · 산출물</summary>
+      <div class="body">
+        <div class="chips">
+          <span class="chip">2026-06-27T2236Z</span>
+          <span class="chip">inbox target: marketing-89</span>
+          <span class="chip">Inbox → archived</span>
+        </div>
+        <ul>
+          <li>산출물 <code>artifacts/marketing-89/return-state-source-of-truth.md</code></li>
+          <li>원장 <code>intents/archive/marketing-89.md</code></li>
+        </ul>
+      </div>
+    </details>
+  </div>
+
+  <div class="foot reveal" style="animation-delay:.3s">
+    <span>Agent-First Heartbeat</span>
+    <span>Infinity · Intent Note</span>
+  </div>
+</div>
+</body>
+</html>
