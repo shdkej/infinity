@@ -788,7 +788,7 @@
       while ((m = re.exec(activeBody)) !== null) {
         const text = m[1].trim();
         const idm = text.match(/^([a-z][a-z0-9]*(?:-[a-z0-9]+)*-\d+)\b/);
-        const dtm = text.match(/(\d{4}-\d{2}-\d{2}(?:T\d{2}:\d{2}(?::\d{2})?Z?)?)/);
+        const dtm = text.match(/(\d{4}-\d{2}-\d{2}(?:[T\s](?:\d{2}:\d{2}(?::\d{2})?|\d{4}(?:\d{2})?)Z?)?)/);
         const statm = text.match(/\b(completed|resolved|done|archived|closed|canceled|cancelled|rejected|approved|failed)\b/i);
         const pathm = text.match(/(?:→|->)\s*([^\s)]+\.md)/);
         const parenm = text.match(/\(([^()]+)\)\s*$/);
@@ -798,7 +798,7 @@
           .replace(/(?:→|->)\s*\S+/g, "")
           .replace(/\([^()]+\)\s*$/, "")
           .replace(/\b(completed|resolved|done|archived|closed|canceled|cancelled|rejected|approved|failed)\b/gi, "")
-          .replace(/\d{4}-\d{2}-\d{2}(?:[T\s]\d{2}:\d{2}(?::\d{2})?Z?)?/g, "")
+          .replace(/\d{4}-\d{2}-\d{2}(?:[T\s](?:\d{2}:\d{2}(?::\d{2})?|\d{4}(?:\d{2})?)Z?)?/g, "")
           .replace(/\s{2,}/g, " ")
           .trim();
         const title = outcome || cleaned || text;
@@ -830,7 +830,7 @@
         const text = m[1];
         const idm = text.match(/^([a-z][a-z0-9]*(?:-[a-z0-9]+)*-\d+)\b/);
         if (!idm) continue;
-        const dtm = text.match(/(\d{4}-\d{2}-\d{2}(?:T\d{2}:\d{2}(?::\d{2})?Z?)?)/);
+        const dtm = text.match(/(\d{4}-\d{2}-\d{2}(?:[T\s](?:\d{2}:\d{2}(?::\d{2})?|\d{4}(?:\d{2})?)Z?)?)/);
         const pathm = text.match(/(?:Report|Detail|상세|리포트)\s*:\s*([^\s)]+\.md)/i)
           || text.match(/(?:→|->)\s*([^\s)]+\.md)/);
         const titlem = text.match(/(?:^|\n)(?:제목|title)\s*:\s*(.+)/i)
@@ -982,18 +982,25 @@
           || "";
     }
 
-    // "YYYY-MM-DD" / "YYYY-MM-DDTHH:mm" / "YYYY-MM-DD HH:mm" 등 허용.
+    // "YYYY-MM-DD" / "YYYY-MM-DDTHH:mm" / "YYYY-MM-DD HH:mm" / "YYYY-MM-DDTHHmmssZ" 등 허용.
     // 파싱 실패 시 NaN 반환 → 비교에서 가장 뒤로 밀림.
     function parseDateMs(s) {
       if (!s) return NaN;
       const t = String(s).trim().replace(/^["'`]|["'`]$/g, "");
-      const m = t.match(/^(\d{4})-(\d{2})-(\d{2})(?:[T\s](\d{2}):(\d{2})(?::(\d{2}))?)?/);
+      const m = t.match(/^(\d{4})-(\d{2})-(\d{2})(?:[T\s](?:(\d{2}):(\d{2})(?::(\d{2}))?|(\d{2})(\d{2})(\d{2})?))?/);
       if (!m) {
         const d = Date.parse(t);
         return isNaN(d) ? NaN : d;
       }
-      const [_, y, mo, da, h, mi, se] = m;
-      return Date.UTC(+y, +mo - 1, +da, +(h || 0), +(mi || 0), +(se || 0));
+      const [_, y, mo, da, h, mi, se, compactH, compactMi, compactSe] = m;
+      return Date.UTC(
+        +y,
+        +mo - 1,
+        +da,
+        +(h || compactH || 0),
+        +(mi || compactMi || 0),
+        +(se || compactSe || 0)
+      );
     }
 
     // 최신 archive 항목이 위로 오도록 desc 정렬. 날짜 없으면 뒤로, 동률은 id/title/source 안정 fallback.
@@ -1005,7 +1012,7 @@
         if (aOk && bOk && ta !== tb) return tb - ta;
         if (aOk && !bOk) return -1;
         if (!aOk && bOk) return 1;
-        return (a.id || "").localeCompare(b.id || "")
+        return (b.id || "").localeCompare(a.id || "")
             || (a.title || "").localeCompare(b.title || "")
             || (a.source || "").localeCompare(b.source || "");
       });
@@ -1298,10 +1305,18 @@
         ).map(x => ({ ...x, source: x.source || "INTENTS.md" })),
         ...parseItems(gateSections["대기 중"] || gateSections["Waiting"] || "").map(x => ({ ...x, source: "GATES.md" })),
       ];
+      const archiveCommentItems = mergeById(
+        parseArchiveComments(intentSections["Archive"] || ""),
+        [
+          ...parseArchiveComments(intentSections["Inbox"] || ""),
+          ...parseArchiveComments(intentSections["Active"] || ""),
+          ...parseArchiveComments(intentSections["Waiting"] || ""),
+        ]
+      );
       const doneItems = sortDoneByCompletionDesc([
         ...parseItems(gateSections["처리 완료"] || gateSections["Resolved"] || "")
           .map(x => ({ ...x, source: "GATES.md" })),
-        ...parseArchiveComments(intentSections["Archive"] || intentSections["Active"] || ""),
+        ...archiveCommentItems,
       ]);
 
       renderColumn("inbox",   inboxItems,   "INTENTS.md");
