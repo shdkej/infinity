@@ -16,7 +16,7 @@
     role: final
 - commits:
   - repo: infinity
-    sha: PENDING
+    sha: 539b568
     note: marketing-90 artifact, report, archive update
 - urls:
   - url: https://virtue.oracle.shdkej.com
