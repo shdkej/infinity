@@ -3,6 +3,7 @@
 > Heartbeat Agent가 주기적으로 읽고 실행하는 의도 목록.
 
 ## Inbox
+<!-- marketing-91 pending 2026-06-28T2201Z [projects: virtue, infinity; type: strategy; topics: marketing, activation, measurement, prelaunch] (Virtue 온보딩 상태 언어 매핑표 작성. 기존 이벤트 조합과 홈 반환 사례를 `정상 진행 / 자연 종료 / 마찰 / 상태 모순`으로 고정해 프리런치 관찰과 구현 handoff의 해석 드리프트를 줄인다. source: source/external-links/marketing/2026-06-28-onboarding-state-language.md) -->
 <!-- marketing-89 completed 2026-06-27T2236Z → intents/archive/marketing-89.md [projects: virtue, infinity; type: strategy; topics: marketing, activation, product] (Virtue 홈 반환 상태에서 `stats.total`, `stats.count`, `recent.length`의 계약과 empty-state 허용/금지 조건을 1장으로 고정했다.) -->
 
 ## Active
