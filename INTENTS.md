@@ -4,14 +4,6 @@
 
 ## Inbox
 <!-- marketing-89 completed 2026-06-27T2236Z → intents/archive/marketing-89.md [projects: virtue, infinity; type: strategy; topics: marketing, activation, product] (Virtue 홈 반환 상태에서 `stats.total`, `stats.count`, `recent.length`의 계약과 empty-state 허용/금지 조건을 1장으로 고정했다.) -->
-- `marketing-90` Virtue 첫 세션 3게이트 압축표 작성 [projects: virtue, infinity; type: strategy; topics: marketing, onboarding, activation, product]
-  source: `/home/ubuntu/workspace/knowledge-lab/source/external-links/marketing/2026-06-28-first-session-three-gates.md`
-  rationale: 홈 진입 약속, `/add` 입력 기대, 반환 상태 일관성 학습이 따로 흩어져 있어 후속 구현 범위가 다시 넓어질 수 있다. 먼저 3게이트로 압축해 현재 가장 먼저 깨지는 게이트를 고정한다.
-  expected impact: 카피 부족과 상태 계약 문제를 섞어 읽는 리스크를 줄이고, 다음 implementation/verification intent 범위를 더 작게 자를 수 있다.
-  permission: L1 docs-only
-  owner route: Infinity Inbox -> Claude Code
-  success criteria: 3게이트와 각 증상, 기존 근거 노트, 우선 보수 대상이 한 문서에 압축된다.
-  first verification gate: 라이브 홈과 최근 3개 마케팅 노트를 함께 읽었을 때 현재 깨진 게이트와 이유를 3문장 안에 설명할 수 있다.
 
 ## Active
 
@@ -24,6 +16,7 @@
 <!-- naver-shopping-01 waiting 2026-06-21T1000Z → intents/active/naver-shopping-01.md [display: 나래/Narae; projects: naver-shopping,infinity,personal-ops; type: coordination; topics: automation,workflow,marketing; status: sample-order-gated-session-waiting; approval: sample-order-gated] (cloud 소싱 준비 완료(크로스바디+손목 스트랩). alibaba.com 로컬 공급사 확인(계정 불필요) + 손목·크로스바디 병행 샘플 주문 사용자 승인 대기. do_not_repeat_cloud 활성.) -->
 
 ## Archive
+<!-- marketing-90 completed 2026-06-28T1007Z → intents/archive/marketing-90.md [projects: virtue, infinity; type: strategy; topics: marketing, activation, product] (Virtue 첫 세션을 진입 약속, 입력 기대, 반환 일관성의 3게이트로 압축했고 현재 우선 보수 대상은 gate 3 반환 일관성으로 고정했다. HTML report gate passed.) -->
 <!-- marketing-88 completed 2026-06-27T1007Z → intents/archive/marketing-88.md [projects: virtue, infinity; type: strategy; topics: marketing, activation, product] (라이브 홈, 로컬 홈 코드, 최근 canonical 제안서를 대조해 반환 세션 state drift를 한 장으로 정리했다. 핵심은 `612덕` retained proof와 `아직 기록이 없어요` 계열 empty-state의 동시 노출이며, 다음 조치는 copy 추가가 아니라 home return-state gating 구현/검증 1조각이다. HTML report gate passed.) -->
 <!-- marketing-87 completed 2026-06-26T222904Z → intents/archive/marketing-87.md [projects: virtue, infinity; type: strategy; topics: marketing, activation, product] (기존 `/add` 이벤트와 replay 관찰 질문을 묶어 첫 10~15세션을 공통 UX 마찰, J3 자연 종료, 조용한 실패, 다음 행동 불명확의 4분류로 읽는 1장 판독표 완성. production/tracking/privacy/public copy/deploy/external cost 변경 0. HTML report gate passed.) -->
 <!-- marketing-85 completed 2026-06-25T220708Z → intents/archive/marketing-85.md [projects: virtue; type: strategy; topics: marketing,activation,prelaunch,observation] (첫 10명 관찰표 `다음 행동 명료성` 질문 보강 완료. `artifacts/marketing-47`에 세션 직후 4번째 질문과 잡별 읽기 규칙을, `artifacts/marketing-60`에 `next_action_spoken`/`normal_stop_vs_confusion` 수기 판독 축을 추가. J3 무저장 정상 종료 경계 유지. production/tracking/privacy/public copy/deploy/external cost 변경 0. HTML report gate passed.) -->
