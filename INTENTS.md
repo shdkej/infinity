@@ -6,6 +6,8 @@
 
 ## Active
 
+<!-- research-24 active 2026-06-29T0028Z → intents/active/research-24.md [display: 기록→출판 3줄 포맷 첫 적용; projects: infinity,research-bank,personal-ops; type: workflow-draft; topics: workflow,content,review,publication; priority: medium] (research-21의 기록→출판 루프를 실제 일일 기록용 `capture / claim / open_loop` 3줄 포맷 초안으로 줄이고, 회고·Threads·카드뉴스 산출물이 매번 다시 해석되지 않게 작은 적용안을 만든다.) -->
+
 ## Waiting
 
 <!-- 사용자 결정, 외부 조건, 안전 확인 대기. 같은 질문을 반복하지 않고 상태만 보존한다. -->
