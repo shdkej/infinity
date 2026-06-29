@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>marketing-92 report</title>
+<style>
+  :root{
+    --bg:#f4f2ea; --panel:#fbfaf5; --ink:#2c2a25; --soft:#807c70; --faint:#a8a496; --line:#e3dfd2;
+    --a2:#5f7a5e; --a2-deep:#3f5740;
+    --a1:#a9745a; --a1-deep:#8a5c45;
+    --sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0; width:100%; max-width:100%; overflow-x:hidden;}
+  body{background:var(--bg); color:var(--ink); font-family:var(--sans); font-size:14px; line-height:1.68; -webkit-font-smoothing:antialiased;}
+  .sheet{width:min(100%,720px); max-width:720px; margin:0 auto; padding:32px 18px 40px;}
+  .eyebrow{display:flex; align-items:center; gap:10px; font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--soft); flex-wrap:wrap;}
+  .eyebrow .id{color:var(--a2-deep); font-weight:600;}
+  .eyebrow .dot{width:5px; height:5px; border-radius:50%; background:var(--a2);}
+  h1{font-size:clamp(24px,7vw,29px); line-height:1.3; font-weight:700; margin:20px 0 0; overflow-wrap:anywhere;}
+  .dek{font-size:15.5px; color:var(--soft); margin:13px 0 0; max-width:52ch;}
+  .hr{height:1px; background:var(--line); margin:30px 0;}
+  .axis{padding:0 0 4px 18px; position:relative; margin-bottom:26px;}
+  .axis::before{content:""; position:absolute; left:0; top:6px; bottom:6px; width:2px; border-radius:2px;}
+  .axis.ax1::before{background:var(--a1);} .axis.ax2::before{background:var(--a2);}
+  .axis .label{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase; margin-bottom:9px; display:flex; align-items:center; gap:8px;}
+  .axis.ax1 .label{color:var(--a1-deep);} .axis.ax2 .label{color:var(--a2-deep);}
+  .axis .text{font-size:clamp(16px,4.4vw,18px); line-height:1.62; color:#37352e; overflow-wrap:anywhere;}
+  details{border:1px solid var(--line); border-radius:8px; background:var(--panel); margin-bottom:10px; overflow:hidden;}
+  summary{cursor:pointer; list-style:none; padding:14px 16px; display:flex; align-items:center; gap:11px; font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft);}
+  .body{padding:2px 16px 18px; min-width:0;}
+  ol.find{list-style:none; counter-reset:f; margin:16px 0 0; padding:0;}
+  ol.find li{position:relative; padding:8px 0 8px 26px; font-size:15px; color:#37352e; border-top:1px solid var(--line);}
+  ol.find li:first-child{border-top:none;}
+  ol.find li::before{counter-increment:f; content:counter(f); position:absolute; left:0; top:9px; font-family:var(--mono); font-size:12px; font-weight:600; color:var(--a1-deep);}
+  .callout{border-left:2px solid var(--a2); background:#f2efe5; padding:11px 13px; color:#4a473f; margin:12px 0 16px;}
+  .content-grid{display:grid; grid-template-columns:1fr; gap:10px; margin:10px 0;}
+  .mini-card{border:1px solid var(--line); background:#f8f6ef; border-radius:8px; padding:12px 13px; min-width:0;}
+  .mini-card b{display:block; color:var(--ink); margin-bottom:5px;}
+  .mini-card p{margin:0; color:var(--soft);}
+  .chips{display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px;}
+  .chip{font-family:var(--mono); font-size:10.5px; letter-spacing:.05em; color:var(--soft); border:1px solid var(--line); border-radius:999px; padding:3px 10px;}
+  code{font-family:var(--mono); font-size:12px; background:#edeae0; padding:1px 6px; border-radius:3px; color:var(--a2-deep); overflow-wrap:anywhere; word-break:break-word;}
+  a{color:var(--a2-deep); text-underline-offset:3px; overflow-wrap:anywhere; word-break:break-word;}
+  ul{padding-left:18px;}
+  li{margin:5px 0;}
+  .foot{margin-top:30px; padding-top:15px; border-top:1px solid var(--line); display:flex; flex-wrap:wrap; gap:6px 14px; justify-content:space-between; font-family:var(--mono); font-size:10px; letter-spacing:.13em; text-transform:uppercase; color:var(--faint);}
+  @media (min-width:720px){ .sheet{padding:48px 34px 46px;} .content-grid{grid-template-columns:repeat(2,minmax(0,1fr));} }
+</style>
+</head>
+<body>
+<div class="sheet">
+  <div class="eyebrow">
+    <span class="dot"></span>
+    <span class="id">marketing-92</span>
+    <span>Implementation Report</span>
+    <span>archived</span>
+  </div>
+  <h1>Virtue 홈 반환 상태 gating 구현/검증</h1>
+  <p class="dek">`stats.count`와 `recent.length`를 분리해, 복귀 사용자가 첫 방문 empty-state를 다시 보지 않도록 홈 최근 덕행 분기를 정리했습니다.</p>
+  <div class="hr"></div>
+
+  <div class="axis ax1">
+    <div class="label">axis ax1 · 무엇이 문제였나</div>
+    <div class="text">홈 화면은 <b>첫 방문</b>과 <b>복귀했지만 recent 데이터가 아직 비어 있는 상태</b>를 같은 empty-state로 처리해, 누적 덕력이 있는 세션에도 "첫 기록이 여기에 쌓여요"라는 카피가 다시 노출될 수 있었습니다.</div>
+  </div>
+
+  <div class="axis ax2">
+    <div class="label">axis ax2 · 어떻게 해결하나</div>
+    <div class="text"><b>`stats.count === 0`일 때만 first-visit</b>로 간주하고, <b>`stats.count &gt; 0 && recent.length === 0`</b>일 때는 retained proof surface의 빈 슬롯으로 취급해 "최근 덕행을 불러오는 중이에요" / "누적 덕력은 살아 있어요" 분기로 바꿨습니다.</div>
+  </div>
+
+  <details open>
+    <summary>핵심 내용 · 리서치 본문</summary>
+    <div class="body">
+      <ol class="find">
+        <li><code>apps/web/src/app/page.tsx</code>에서 `isFirstVisit`는 이미 <code>stats.count === 0</code>로 정의되어 있어 first-visit 기준은 충분히 좁혀져 있었습니다.</li>
+        <li>문제 지점은 `recent.length === 0`일 때 무조건 첫 방문 empty-state 카피를 보여주던 최근 덕행 카드였고, 이 때문에 retained proof가 없는 짧은 복귀 구간과 진짜 첫 방문이 섞여 보였습니다.</li>
+        <li>현재 패치는 `isReturningWithoutRecent`를 추가해 최근 덕행 카드의 제목/설명만 분기했고, 상단 덕력 카드·환생종 카드·메인 CTA는 건드리지 않아 범위를 home return-state gating 한 조각으로 제한했습니다.</li>
+      </ol>
+
+      <div class="callout">권장 결론: 이 intent는 이번 사이클에서 구현/정적 검증까지 끝났습니다. 다음 후속은 카피 확장이나 실사용 관찰이 아니라, 실제 복귀 세션에서 최근 덕행 데이터 복원 타이밍을 보고 싶을 때 별도 verification intent로 분리하는 편이 맞습니다.</div>
+
+      <div class="content-grid">
+        <div class="mini-card">
+          <b>근거 · 소스</b>
+          <p><code>apps/web/src/app/page.tsx:27-28</code>, <code>:148-160</code>의 분기와 <code>git diff -- apps/web/src/app/page.tsx</code>를 직접 확인했습니다. 정적 검증은 <code>pnpm --filter virtue-rebirth-app typecheck</code> 통과, <code>pnpm lint</code>는 기존 React effect warning 4건만 남았습니다.</p>
+        </div>
+        <div class="mini-card">
+          <b>다음 판단</b>
+          <p>이후에는 복귀 세션 hydration/동기화 타이밍을 실제 브라우저에서 관찰할 필요가 있을 때만 새 intent를 여세요. 이번 intent 안에서 copy polish나 `/add` proof capture 확장은 하지 않았습니다.</p>
+        </div>
+      </div>
+    </div>
+  </details>
+
+  <details open>
+    <summary>구현 상세</summary>
+    <div class="body">
+      <ul>
+        <li>파일: <code>/home/ubuntu/dev/virtue-rebirth-app/apps/web/src/app/page.tsx</code></li>
+        <li>추가 분기: <code>const isReturningWithoutRecent = stats.count &gt; 0 &amp;&amp; recent.length === 0;</code></li>
+        <li>변경 범위: 최근 덕행 EmptyState의 title/description만 분기</li>
+        <li>유지한 것: <code>stats.count === 0</code> first-visit 카드, 메인 CTA 라벨, recent list 렌더 로직</li>
+        <li>검증 메모: lint 경고는 이번 패치와 무관한 기존 <code>setState in effect</code> 경고 4건입니다.</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary>실행 메타 · 산출물</summary>
+    <div class="body">
+      <div class="chips">
+        <span class="chip">2026-06-29T1829Z</span>
+        <span class="chip">Infinity local router follow-up</span>
+        <span class="chip">waiting → archived</span>
+      </div>
+      <ul>
+        <li>report <code>reports/marketing-92/2026-06-29T1829Z.html</code></li>
+        <li>archive <code>intents/archive/marketing-92.md</code></li>
+      </ul>
+    </div>
+  </details>
+
+  <div class="foot">
+    <span>Agent-First Heartbeat</span>
+    <span>Infinity · Intent Note</span>
+  </div>
+</div>
+</body>
+</html>
