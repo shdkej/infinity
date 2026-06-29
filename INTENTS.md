@@ -4,6 +4,15 @@
 
 ## Inbox
 
+- `marketing-93` Virtue 행복한 첫 사용자/언어 적합성 판독표 작성
+  source_note: `/home/ubuntu/workspace/knowledge-lab/source/external-links/marketing/2026-06-29-happy-customers-language-fit.md`
+  rationale: 프리런치 단계에서 더 많은 유입보다 먼저 고정해야 할 것은 "누가 행복한 첫 사용자이고, 현재 홈·/add 문장이 누구를 위한 약속인지"다.
+  expected_impact: 이후 카피 논의와 첫 10명 관찰이 같은 언어를 쓰게 되어 J1/J2 강점과 J3 공백을 작게 검증할 수 있다.
+  permission_level: `L1 docs-only`
+  owner_route: `Infinity Inbox -> Claude Code`
+  success_criteria: 홈, `/add`, 반환 표면의 핵심 문장이 J1~J4 중 누구를 겨냥하는지와 놓치는 잡이 무엇인지 한 표로 설명된다.
+  first_verification_gate: 현재 홈 hero와 `/add` 진입 문장을 보고 "이 문장은 누구를 행복하게 하려는가"를 잡 기준으로 4문장 이내에 설명할 수 있다.
+
 ## Active
 
 ## Waiting
