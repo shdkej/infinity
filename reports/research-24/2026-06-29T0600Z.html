@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>research-24 — 기록→출판 3줄 포맷 첫 적용</title>
+<style>
+  :root{
+    --bg:#f4f2ea; --panel:#fbfaf5; --ink:#2c2a25; --soft:#807c70; --faint:#a8a496; --line:#e3dfd2;
+    --a2:#5f7a5e; --a2-deep:#3f5740;
+    --a1:#5a6f8a; --a1-deep:#3f536e;
+    --sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0; width:100%; max-width:100%; overflow-x:hidden;}
+  body{background:var(--bg); color:var(--ink); font-family:var(--sans);
+    font-size:14px; line-height:1.68; -webkit-font-smoothing:antialiased;}
+  .sheet{width:min(100%,720px); max-width:720px; margin:0 auto; padding:32px 18px 40px;}
+  .reveal{opacity:0; animation:fade .7s ease forwards;}
+  @keyframes fade{from{opacity:0; transform:translateY(9px);} to{opacity:1; transform:none;}}
+  .eyebrow{display:flex; align-items:center; gap:10px; font-family:var(--mono);
+    font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--soft); flex-wrap:wrap;}
+  .eyebrow .id{color:var(--a2-deep); font-weight:600;}
+  .eyebrow .dot{width:5px; height:5px; border-radius:50%; background:var(--a2);}
+  .eyebrow .status{color:var(--a2-deep);}
+  h1{font-size:clamp(24px,7vw,29px); line-height:1.3; font-weight:700; letter-spacing:0; margin:20px 0 0; overflow-wrap:anywhere;}
+  .dek{font-size:15.5px; color:var(--soft); margin:13px 0 0; max-width:52ch;}
+  .hr{height:1px; background:var(--line); margin:30px 0;}
+  .axis{padding:0 0 4px 18px; position:relative; margin-bottom:26px;}
+  .axis::before{content:""; position:absolute; left:0; top:6px; bottom:6px; width:2px; border-radius:2px;}
+  .axis.ax1::before{background:var(--a1);} .axis.ax2::before{background:var(--a2);}
+  .axis.ax1{--ul:var(--a1);} .axis.ax2{--ul:var(--a2);}
+  .axis .label{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase;
+    margin-bottom:9px; display:flex; align-items:center; gap:8px;}
+  .axis.ax1 .label{color:var(--a1-deep);} .axis.ax2 .label{color:var(--a2-deep);}
+  .axis .label .n{font-weight:600; opacity:.6;}
+  .axis .text{font-size:clamp(16px,4.4vw,18px); line-height:1.62; color:#37352e; overflow-wrap:anywhere;}
+  .axis .text b{font-weight:700; color:var(--ink); border-bottom:2px solid var(--ul);}
+  ol.find{list-style:none; counter-reset:f; margin:16px 0 0; padding:0;}
+  ol.find li{position:relative; padding:8px 0 8px 26px; font-size:15px; color:#37352e; border-top:1px solid var(--line);}
+  ol.find li:first-child{border-top:none;}
+  ol.find li::before{counter-increment:f; content:counter(f); position:absolute; left:0; top:9px;
+    font-family:var(--mono); font-size:12px; font-weight:600; color:var(--a1-deep);}
+  details{border:1px solid var(--line); border-radius:8px; background:var(--panel); margin-bottom:10px; overflow:hidden;}
+  summary{cursor:pointer; list-style:none; padding:14px 16px; display:flex; align-items:center; gap:11px;
+    font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft);}
+  summary::-webkit-details-marker{display:none;}
+  summary .chev{width:8px; height:8px; border-right:2px solid var(--a2-deep); border-bottom:2px solid var(--a2-deep);
+    transform:rotate(-45deg); transition:.25s; flex:none; margin-left:2px;}
+  details[open] summary .chev{transform:rotate(45deg);}
+  summary:hover{color:var(--ink);}
+  .body{padding:2px 16px 18px; min-width:0;}
+  .section{margin:4px 0 18px;}
+  .section-title{font-family:var(--mono); font-size:10.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--a1-deep); margin:0 0 8px;}
+  .callout{border-left:2px solid var(--a2); background:#f2efe5; padding:11px 13px; color:#4a473f; margin:12px 0 16px;}
+  .content-grid{display:grid; grid-template-columns:1fr; gap:10px; margin:10px 0;}
+  .mini-card{border:1px solid var(--line); background:#f8f6ef; border-radius:8px; padding:12px 13px; min-width:0;}
+  .mini-card b{display:block; color:var(--ink); margin-bottom:5px;}
+  .mini-card p{margin:0;}
+  table{border-collapse:collapse; width:100%; max-width:100%; table-layout:fixed; font-size:13px; margin:4px 0 12px;}
+  th,td{border-bottom:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top; overflow-wrap:anywhere; word-break:break-word;}
+  th{font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft); font-weight:600;}
+  td:first-child{color:var(--a2-deep); font-weight:600; white-space:normal;}
+  .body p{color:var(--soft); overflow-wrap:anywhere;}
+  .body ul{margin:6px 0; padding-left:18px;} .body li{margin:5px 0;}
+  code{font-family:var(--mono); font-size:12px; background:#edeae0; padding:1px 6px; border-radius:3px; color:var(--a2-deep); overflow-wrap:anywhere; word-break:break-word;}
+  pre{white-space:pre-wrap; overflow-wrap:anywhere; word-break:break-word; max-width:100%; background:#edeae0; padding:10px 12px; border-radius:6px; font-family:var(--mono); font-size:12px; line-height:1.6;}
+  a{color:var(--a2-deep); text-underline-offset:3px; overflow-wrap:anywhere; word-break:break-word;}
+  .chips{display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px;}
+  .chip{font-family:var(--mono); font-size:10.5px; letter-spacing:.05em; color:var(--soft); border:1px solid var(--line); border-radius:999px; padding:3px 10px;}
+  .foot{margin-top:30px; padding-top:15px; border-top:1px solid var(--line);
+    display:flex; flex-wrap:wrap; gap:6px 14px; justify-content:space-between; font-family:var(--mono); font-size:10px;
+    letter-spacing:.13em; text-transform:uppercase; color:var(--faint);}
+  @media (min-width:720px){
+    .sheet{padding:48px 34px 46px;}
+    .eyebrow{letter-spacing:.18em;}
+    .eyebrow .status{margin-left:auto;}
+    .axis{padding-left:22px; margin-bottom:30px;}
+    .content-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
+  }
+  @media (max-width:640px){
+    table,thead,tbody,tr,th,td{display:block; width:100%;}
+    thead{display:none;}
+    tr{border:1px solid var(--line); border-radius:8px; padding:9px 10px; margin:0 0 10px; background:#f8f6ef;}
+    td{border-bottom:0; padding:5px 0;}
+    td:first-child{font-family:var(--mono); font-size:11px; letter-spacing:.05em;}
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="eyebrow reveal">
+    <span class="dot"></span>
+    <span class="id">research-24</span>
+    <span>Workflow Draft</span>
+    <span class="status">completed</span>
+  </div>
+  <h1 class="reveal" style="animation-delay:.05s">기록→출판 3줄 포맷 첫 적용</h1>
+  <p class="dek reveal" style="animation-delay:.09s">capture / claim / open_loop 일일 포맷 경계 고정 및 산출물 연결 규칙 초안</p>
+
+  <div class="hr reveal" style="animation-delay:.12s"></div>
+
+  <div class="axis ax1 reveal" style="animation-delay:.16s">
+    <div class="label"><span class="n">01</span> 무엇을 조사했나</div>
+    <div class="text">research-21의 <b>capture / claim / open_loop</b> 제안을 실제 일일 기록에 바로 쓸 수 있는 포맷으로 내려받기 — 3필드 경계가 흔들려 같은 원본 기록이 산출물마다 매번 재해석되는 문제를 해결한다</div>
+  </div>
+
+  <div class="axis ax2 reveal" style="animation-delay:.22s">
+    <div class="label"><span class="n">02</span> 핵심 결과</div>
+    <div class="text">3필드를 <b>"있었던 것 / 내린 것 / 모르는 것"</b>으로 고정하고, 회고·Threads·카드뉴스가 각각 어느 필드를 읽는지 1장 규칙으로 연결했다</div>
+  </div>
+
+  <div class="reveal" style="animation-delay:.27s">
+  <details open>
+    <summary><span class="chev"></span> 핵심 발견</summary>
+    <div class="body">
+      <div class="section">
+        <div class="section-title">5가지 핵심 발견</div>
+        <ol class="find">
+          <li><strong>capture·claim·open_loop</strong>는 "있었던 것 / 내린 것 / 모르는 것"으로 의미가 겹치지 않는다. 세 필드가 구분되면 같은 원본 기록이 매번 다시 해석되는 현상이 없어진다.</li>
+          <li><strong>Threads는 반드시 claim에서 출발</strong>해야 사용자 목소리가 유지된다. capture 단독으로는 Threads가 되지 않는다 — capture만 쓰면 큐레이션으로 읽힌다.</li>
+          <li><strong>SAM 운영 지시는 open_loop [SAM] 접두어로만 표기</strong>한다. claim에 "SAM이 ~해줘야 한다"를 섞으면 사용자 판단과 운영 지시가 한 필드에 쌓여 읽기와 처리 모두 어렵다.</li>
+          <li><strong>산출물별 읽기 규칙이 다르다:</strong> 회고는 claim 위주, 카드뉴스는 claim+capture 세트, Threads는 claim→capture 순서. 규칙 없이는 산출물마다 임의로 필드를 조합하게 된다.</li>
+          <li><strong>하루 3분 목표</strong>로 포맷을 제한한다. open_loop는 없으면 비워도 된다. 세 칸을 모두 채워야 한다는 부담이 지속성을 깎는다.</li>
+        </ol>
+      </div>
+
+      <div class="callout">추천: <code>artifacts/research-24/daily-format.md</code>를 내일부터 적용한다. open_loop [SAM] 항목은 다음 Heartbeat에서 자동으로 처리 후보로 읽힌다.</div>
+
+      <div class="content-grid">
+        <div class="mini-card">
+          <b>근거 · 소스</b>
+          <p>research-21 아티팩트 (아인슈타인·다윈·울프·나보코프·루만·벤야민 6개 사례 비교), research-24 success criteria, 기존 회고·Threads 작성 경험</p>
+        </div>
+        <div class="mini-card">
+          <b>다음 판단</b>
+          <p>실제 daily log에 포맷 적용 후 첫 주간 묶음 생성 시 연결 규칙 검토. 맞지 않으면 research-25로 수정안 작성.</p>
+        </div>
+      </div>
+    </div>
+  </details>
+
+  <details open>
+    <summary><span class="chev"></span> 3줄 포맷 규칙 요약</summary>
+    <div class="body">
+      <div class="section">
+        <div class="section-title">필드 정의</div>
+        <table>
+          <thead><tr><th>필드</th><th>뜻</th><th>금지</th></tr></thead>
+          <tbody>
+            <tr><td>capture</td><td>오늘 만난 원재료. 출처 필수. 해석 없이.</td><td>해석/판단 섞기, 출처 없는 기억 요약</td></tr>
+            <tr><td>claim</td><td>오늘 내린 판단 1줄. "~이다/바꿨다" 형식.</td><td>SAM 운영 지시, capture 반복 요약</td></tr>
+            <tr><td>open_loop</td><td>아직 모르는 질문 1줄. 없으면 비워도 됨. [SAM] 접두어 가능.</td><td>—</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="section">
+        <div class="section-title">산출물 연결 규칙</div>
+        <table>
+          <thead><tr><th>산출물</th><th>읽는 필드</th><th>방법</th></tr></thead>
+          <tbody>
+            <tr><td>회고 (주간)</td><td>claim 위주</td><td>이번 주 claim 모아 "어떤 판단을 바꿨나" 정리</td></tr>
+            <tr><td>Threads 후보</td><td>claim → capture</td><td>claim이 첫 문장, 근거 capture를 뒤에 붙임</td></tr>
+            <tr><td>카드뉴스</td><td>claim + capture 세트</td><td>claim이 주제, capture가 근거, open_loop는 마지막 카드</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="section">
+        <div class="section-title">하루 기록 예시</div>
+        <pre>date: 2026-06-29
+
+capture: [LinkedIn] "GenAI 도입 초기 팀의 65%는 6개월 안에 사용률이 반 이하로 줄었다"
+claim: 도구 도입은 습관 설계가 빠지면 자연감소한다고 확신이 생겼다
+open_loop: Virtue D7 이상 지속 사용자의 공통 행동이 무엇인지 확인 필요 [SAM]</pre>
+      </div>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="chev"></span> 실행 메타 · 산출물</summary>
+    <div class="body">
+      <div class="chips">
+        <span class="chip">2026-06-29T06:00Z</span>
+        <span class="chip">heartbeat · L0 cloud draft</span>
+        <span class="chip">active → completed</span>
+      </div>
+      <ul>
+        <li>포맷 초안 <code>artifacts/research-24/daily-format.md</code></li>
+        <li>리포트 <code>reports/research-24/2026-06-29T0600Z.html</code></li>
+        <li>아카이브 <code>intents/archive/research-24.md</code></li>
+        <li>참조 <code>artifacts/research-21/record-to-publication-systems.md</code></li>
+      </ul>
+    </div>
+  </details>
+  </div>
+
+  <div class="foot reveal" style="animation-delay:.3s">
+    <span>Agent-First Heartbeat</span>
+    <span>Infinity · Intent Note</span>
+  </div>
+</div>
+</body>
+</html>

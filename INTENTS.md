@@ -6,8 +6,6 @@
 
 ## Active
 
-<!-- research-24 active 2026-06-29T0028Z → intents/active/research-24.md [display: 기록→출판 3줄 포맷 첫 적용; projects: infinity,research-bank,personal-ops; type: workflow-draft; topics: workflow,content,review,publication; priority: medium] (research-21의 기록→출판 루프를 실제 일일 기록용 `capture / claim / open_loop` 3줄 포맷 초안으로 줄이고, 회고·Threads·카드뉴스 산출물이 매번 다시 해석되지 않게 작은 적용안을 만든다.) -->
-
 ## Waiting
 
 <!-- 사용자 결정, 외부 조건, 안전 확인 대기. 같은 질문을 반복하지 않고 상태만 보존한다. -->
@@ -17,6 +15,7 @@
 ## Archive
 
 <!-- 이 섹션의 상세 이력은 2026-06-17T10:24Z Heartbeat 과정에서 INTENTS.md 갱신 중 일시 유실됨. 개별 intent 원장은 intents/archive/*.md 에 모두 보존되어 있음. -->
+<!-- research-24 completed 2026-06-29T0600Z → intents/archive/research-24.md (capture·claim·open_loop 3필드 경계를 "있었던 것 / 내린 것 / 모르는 것"으로 고정하고 회고·Threads·카드뉴스 산출물 연결 규칙을 1장으로 정리했다.) -->
 <!-- marketing-91 completed 2026-06-28T2229Z → intents/archive/marketing-91.md [projects: virtue, infinity; type: strategy; topics: marketing, activation, product] (기존 이벤트 조합과 홈 반환 사례를 `정상 진행 / 자연 종료 / 마찰 / 상태 모순` 4개 상태 언어로 고정했다.) -->
 <!-- marketing-90 completed 2026-06-28T1007Z → intents/archive/marketing-90.md [projects: virtue, infinity; type: strategy; topics: marketing, activation, product] (Virtue 첫 세션을 진입 약속, 입력 기대, 반환 일관성의 3게이트로 압축했고 현재 우선 보수 대상은 gate 3 반환 일관성으로 고정했다. HTML report gate passed.) -->
 <!-- marketing-89 completed 2026-06-27T2236Z → intents/archive/marketing-89.md [projects: virtue, infinity; type: strategy; topics: marketing, activation, product] (Virtue 홈 반환 상태에서 `stats.total`, `stats.count`, `recent.length`의 계약과 empty-state 허용/금지 조건을 1장으로 고정했다.) -->
