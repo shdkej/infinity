@@ -4,9 +4,9 @@
 
 ## Inbox
 
-<!-- marketing-92 inbox 2026-06-29T1000Z -> intents/inbox/marketing-92.md [display: Virtue 홈 반환 상태 gating 구현/검증 초안; projects: virtue,infinity; type: implementation-verification; topics: marketing,activation,return-state,gating; source_note: source/external-links/marketing/2026-06-29-return-state-gating-over-copy.md] (최근 3게이트 학습을 copy proposal이 아닌 home return-state gating 조각으로 축소한다. retained proof와 first-visit empty-state 동시 노출 금지 조건을 먼저 고정하고, 구현/검증은 Claude Code 라우팅 후보로 둔다.) -->
-
 ## Active
+
+<!-- marketing-92 active 2026-06-29T1115Z -> intents/active/marketing-92.md [display: Virtue 홈 반환 상태 gating 구현/검증 초안; projects: virtue,infinity; type: implementation-verification; topics: marketing,activation,return-state,gating; status: local-handoff-prepared] (반환 상태 게이트 자체는 명확하지만, 현재 로컬 `space/apps/virtue-rebirth`에는 앱 소스 트리가 없고 배포 매니페스트만 있어 즉시 구현/검증은 불가. handoff 리포트에 실제 확인 경로, 금지 조건, Claude Code 다음 프롬프트 범위를 남겼다.) -->
 
 ## Waiting
 

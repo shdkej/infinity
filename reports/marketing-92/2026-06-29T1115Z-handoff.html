@@ -1,0 +1,51 @@
+<html>
+  <body>
+    <section class="report">
+      <h1>marketing-92 Virtue 홈 반환 상태 gating handoff</h1>
+      <p>이번 사이클은 gating 계약을 다시 좁히고, 로컬 구현 경로 부재를 확인한 뒤 다음 로컬 실행 프롬프트 범위를 남기는 데 집중했습니다.</p>
+
+      <div class="axis ax1">
+        <h2>ax1. 지금 확정된 것</h2>
+        <ul>
+          <li><code>marketing-89</code>가 이미 <code>stats.count</code>를 visit-state gate, <code>recent.length</code>를 recent section gate로 고정했습니다.</li>
+          <li>이번 intent의 핵심은 copy polish가 아니라 retained proof와 first-visit empty-state 동시 노출 금지 조건을 실제 코드에 붙이는 것입니다.</li>
+          <li>라이브/로컬 대조 대상은 홈 hero, recent section empty-state, retained proof surface 세 지점이면 충분합니다.</li>
+        </ul>
+      </div>
+
+      <div class="axis ax2">
+        <h2>ax2. 이번 사이클의 blocker 성격</h2>
+        <ul>
+          <li>기존 근거 문서는 <code>apps/web/src/app/page.tsx</code>, <code>apps/web/src/lib/store.ts</code>를 가리키지만 현재 로컬에는 그 경로가 없습니다.</li>
+          <li><code>/home/ubuntu/workspace/space/apps/virtue-rebirth</code>에는 앱 소스 대신 배포 매니페스트만 있습니다.</li>
+          <li>따라서 이 사이클에서 임의 코드 수정이나 추정 구현을 진행하면 범위와 근거가 깨집니다.</li>
+        </ul>
+      </div>
+
+      <details open>
+        <summary>확인한 로컬 근거</summary>
+        <ul>
+          <li>소스 노트: <code>/home/ubuntu/workspace/knowledge-lab/source/external-links/marketing/2026-06-29-return-state-gating-over-copy.md</code></li>
+          <li>source-of-truth: <code>/home/ubuntu/workspace/knowledge-lab/infinity/artifacts/marketing-89/return-state-source-of-truth.md</code></li>
+          <li>로컬 Virtue 후보 경로: <code>/home/ubuntu/workspace/space/apps/virtue-rebirth</code></li>
+          <li>현재 경로 내용: <code>README.md</code>, <code>deployment.yaml</code>, <code>ingress.yaml</code>, <code>service.yaml</code></li>
+        </ul>
+      </details>
+
+      <details>
+        <summary>다음 Claude Code 실행 범위</summary>
+        <ol>
+          <li>실제 앱 소스 checkout 경로를 찾는다. 우선 <code>space</code> 내부 다른 app path, repo 문서, submodule/linked repo를 확인한다.</li>
+          <li>홈 source file에서 <code>stats.count</code>, <code>recent.length</code>, retained proof surface 분기 위치를 캡처한다.</li>
+          <li>허용 변경은 gating 정렬과 검증 코드/메모까지다. copy rewrite, 새 onboarding layer, tracking/privacy/production infra 변경은 금지한다.</li>
+          <li>검증 게이트: saved deed가 있는 반환 상태에서 first-visit empty-state 문구가 보이지 않아야 하고, <code>recent.length === 0</code> 예외는 recent section 복구 상태로만 남아야 한다.</li>
+        </ol>
+      </details>
+
+      <details>
+        <summary>권장 프롬프트 골격</summary>
+        <p>Virtue 홈 반환 상태 gating만 다루십시오. 먼저 실제 앱 소스 경로를 찾고, 홈/스토어 파일에서 <code>stats.count</code>와 <code>recent.length</code> 분기를 확인한 뒤, retained proof가 보이는 세션에서 first-visit empty-state가 남지 않도록 최소 수정안을 제시하거나 구현하십시오. copy polish, 리디자인, tracking, 배포는 범위 밖입니다. 검증은 로컬 코드 근거와 재현 문장 5줄 이내로 남기십시오.</p>
+      </details>
+    </section>
+  </body>
+</html>
