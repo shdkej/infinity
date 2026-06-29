@@ -9,7 +9,7 @@
 ## Waiting
 
 <!-- 사용자 결정, 외부 조건, 안전 확인 대기. 같은 질문을 반복하지 않고 상태만 보존한다. -->
-<!-- marketing-92 waiting 2026-06-29T1307Z -> intents/active/marketing-92.md [display: Virtue 홈 반환 상태 gating 구현/검증 초안; projects: virtue,infinity; type: implementation-verification; topics: marketing,activation,return-state,gating; status: source-checkout-blocked,push-sync-blocked] (handoff report 존재와 local source 부재를 재확인했다. `/home/ubuntu/workspace/space/apps/virtue-rebirth`에는 배포 매니페스트만 있고 앱 소스가 없어 구현/검증을 진행할 수 없다. 추가로 `infinity/main` push가 non-fast-forward로 거절되어 원격 반영 전 sync 정리가 필요하다.) -->
+<!-- marketing-92 waiting 2026-06-29T1557Z -> intents/active/marketing-92.md [display: Virtue 홈 반환 상태 gating 구현/검증 초안; projects: virtue,infinity; type: implementation-verification; topics: marketing,activation,return-state,gating; status: source-checkout-blocked] (stale Inbox 초안을 제거해 `infinity/main` 원격 반영까지 정리했다. 현재 남은 blocker는 `/home/ubuntu/workspace/space/apps/virtue-rebirth`에 배포 매니페스트만 있고 앱 소스가 없어 구현/검증을 진행할 수 없다는 점 하나다.) -->
 
 <!-- marketing-92 waiting 2026-06-29T1200Z → intents/active/marketing-92.md [display: Virtue 홈 반환 상태 gating 구현/검증 초안; projects: virtue,infinity; type: implementation-verification; topics: marketing,activation,return-state,gating; status: local-execution-pending] (핸드오프 리포트 준비 완료(reports/marketing-92/2026-06-29T1115Z-handoff.html). 로컬 Virtue 앱 소스 트리 접근 필요 — space/apps/virtue-rebirth에 배포 매니페스트만 있고 소스 없음. 로컬 Claude Code에서 재실행 후 재활성화.) -->
 
