@@ -9,10 +9,6 @@
 ## Waiting
 
 <!-- 사용자 결정, 외부 조건, 안전 확인 대기. 같은 질문을 반복하지 않고 상태만 보존한다. -->
-<!-- marketing-92 waiting 2026-06-29T1907Z -> intents/active/marketing-92.md [display: Virtue 홈 반환 상태 gating 구현/검증 초안; projects: virtue,infinity; type: implementation-verification; topics: marketing,activation,return-state,gating; status: local-execution-packet-ready] (`/home/ubuntu/dev/virtue-rebirth-app/apps/web/src/app/page.tsx`가 실제 홈 소스로 확인됐다. `stats.count`/`recent.length` 분기 캡처와 다음 로컬 Claude 실행용 exact file·verification gate·forbidden scope handoff(report)까지 기록했다.) -->
-
-<!-- marketing-92 waiting 2026-06-29T1200Z → intents/active/marketing-92.md [display: Virtue 홈 반환 상태 gating 구현/검증 초안; projects: virtue,infinity; type: implementation-verification; topics: marketing,activation,return-state,gating; status: local-execution-pending] (핸드오프 리포트 준비 완료(reports/marketing-92/2026-06-29T1115Z-handoff.html). 로컬 Virtue 앱 소스 트리 접근 필요 — space/apps/virtue-rebirth에 배포 매니페스트만 있고 소스 없음. 로컬 Claude Code에서 재실행 후 재활성화.) -->
-
 <!-- naver-shopping-01 waiting 2026-06-21T1000Z → intents/active/naver-shopping-01.md [display: 나래/Narae; projects: naver-shopping,infinity,personal-ops; type: coordination; topics: automation,workflow,marketing; status: sample-order-gated-session-waiting; approval: sample-order-gated] (cloud 소싱 준비 완료(크로스바디+손목 스트랩). alibaba.com 로컬 공급사 확인(계정 불필요) + 손목·크로스바디 병행 샘플 주문 사용자 승인 대기. do_not_repeat_cloud 활성.) -->
 
 ## Archive
