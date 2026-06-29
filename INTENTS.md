@@ -4,15 +4,6 @@
 
 ## Inbox
 
-- `marketing-93` Virtue 행복한 첫 사용자/언어 적합성 판독표 작성
-  source_note: `/home/ubuntu/workspace/knowledge-lab/source/external-links/marketing/2026-06-29-happy-customers-language-fit.md`
-  rationale: 프리런치 단계에서 더 많은 유입보다 먼저 고정해야 할 것은 "누가 행복한 첫 사용자이고, 현재 홈·/add 문장이 누구를 위한 약속인지"다.
-  expected_impact: 이후 카피 논의와 첫 10명 관찰이 같은 언어를 쓰게 되어 J1/J2 강점과 J3 공백을 작게 검증할 수 있다.
-  permission_level: `L1 docs-only`
-  owner_route: `Infinity Inbox -> Claude Code`
-  success_criteria: 홈, `/add`, 반환 표면의 핵심 문장이 J1~J4 중 누구를 겨냥하는지와 놓치는 잡이 무엇인지 한 표로 설명된다.
-  first_verification_gate: 현재 홈 hero와 `/add` 진입 문장을 보고 "이 문장은 누구를 행복하게 하려는가"를 잡 기준으로 4문장 이내에 설명할 수 있다.
-
 ## Active
 
 ## Waiting
@@ -21,6 +12,7 @@
 <!-- naver-shopping-01 waiting 2026-06-21T1000Z → intents/active/naver-shopping-01.md [display: 나래/Narae; projects: naver-shopping,infinity,personal-ops; type: coordination; topics: automation,workflow,marketing; status: sample-order-gated-session-waiting; approval: sample-order-gated] (cloud 소싱 준비 완료(크로스바디+손목 스트랩). alibaba.com 로컬 공급사 확인(계정 불필요) + 손목·크로스바디 병행 샘플 주문 사용자 승인 대기. do_not_repeat_cloud 활성.) -->
 
 ## Archive
+<!-- marketing-93 completed 2026-06-29T2207Z -> intents/archive/marketing-93.md [projects: virtue,infinity; type: strategy; topics: marketing,activation,product] (현재 홈·`/add`·반환 표면 언어를 J1~J4 기준으로 판독해, 지금 가장 잘 맞는 행복한 첫 사용자는 J1 기록형 중심이고 J2 누적형이 보조라는 기준표를 고정했다. HTML report gate passed.) -->
 <!-- marketing-92 completed 2026-06-29T1829Z -> intents/archive/marketing-92.md [projects: virtue,infinity; type: implementation; topics: marketing,activation,retention] (홈 최근 덕행 empty-state를 `stats.count`와 `recent.length`로 분리해 복귀 사용자의 first-visit 카피 재노출을 막고, typecheck 통과·기존 lint warning만 확인했다.) -->
 
 <!-- 이 섹션의 상세 이력은 2026-06-17T10:24Z Heartbeat 과정에서 INTENTS.md 갱신 중 일시 유실됨. 개별 intent 원장은 intents/archive/*.md 에 모두 보존되어 있음. -->

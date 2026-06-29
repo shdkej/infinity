@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>marketing-93 report</title>
+<style>
+  :root{
+    --bg:#f4f2ea; --panel:#fbfaf5; --ink:#2c2a25; --soft:#807c70; --faint:#a8a496; --line:#e3dfd2;
+    --a2:#5f7a5e; --a2-deep:#3f5740;
+    --a1:#a9745a; --a1-deep:#8a5c45;
+    --sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0; width:100%; max-width:100%; overflow-x:hidden;}
+  body{background:var(--bg); color:var(--ink); font-family:var(--sans); font-size:14px; line-height:1.68; -webkit-font-smoothing:antialiased;}
+  .sheet{width:min(100%,720px); max-width:720px; margin:0 auto; padding:32px 18px 40px;}
+  .reveal{opacity:0; animation:fade .7s ease forwards;}
+  @keyframes fade{from{opacity:0; transform:translateY(9px);} to{opacity:1; transform:none;}}
+  .eyebrow{display:flex; align-items:center; gap:10px; font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--soft); flex-wrap:wrap;}
+  .eyebrow .id{color:var(--a2-deep); font-weight:600;}
+  .eyebrow .dot{width:5px; height:5px; border-radius:50%; background:var(--a2);}
+  .eyebrow .status{color:var(--a2-deep);}
+  h1{font-size:clamp(24px,7vw,29px); line-height:1.3; font-weight:700; margin:20px 0 0; overflow-wrap:anywhere;}
+  .dek{font-size:15.5px; color:var(--soft); margin:13px 0 0; max-width:52ch;}
+  .hr{height:1px; background:var(--line); margin:30px 0;}
+  .axis{padding:0 0 4px 18px; position:relative; margin-bottom:26px;}
+  .axis::before{content:""; position:absolute; left:0; top:6px; bottom:6px; width:2px; border-radius:2px;}
+  .axis.ax1::before{background:var(--a1);} .axis.ax2::before{background:var(--a2);}
+  .axis.ax1{--ul:var(--a1);} .axis.ax2{--ul:var(--a2);}
+  .axis .label{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase; margin-bottom:9px; display:flex; align-items:center; gap:8px;}
+  .axis.ax1 .label{color:var(--a1-deep);} .axis.ax2 .label{color:var(--a2-deep);}
+  .axis .label .n{font-weight:600; opacity:.6;}
+  .axis .text{font-size:clamp(16px,4.4vw,18px); line-height:1.62; color:#37352e; overflow-wrap:anywhere;}
+  .axis .text b{font-weight:700; color:var(--ink); border-bottom:2px solid var(--ul);}
+  ol.find{list-style:none; counter-reset:f; margin:16px 0 0; padding:0;}
+  ol.find li{position:relative; padding:8px 0 8px 26px; font-size:15px; color:#37352e; border-top:1px solid var(--line);}
+  ol.find li:first-child{border-top:none;}
+  ol.find li::before{counter-increment:f; content:counter(f); position:absolute; left:0; top:9px; font-family:var(--mono); font-size:12px; font-weight:600; color:var(--a1-deep);}
+  details{border:1px solid var(--line); border-radius:8px; background:var(--panel); margin-bottom:10px; overflow:hidden;}
+  summary{cursor:pointer; list-style:none; padding:14px 16px; display:flex; align-items:center; gap:11px; font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft);}
+  summary::-webkit-details-marker{display:none;}
+  summary .chev{width:8px; height:8px; border-right:2px solid var(--a2-deep); border-bottom:2px solid var(--a2-deep); transform:rotate(-45deg); transition:.25s; flex:none; margin-left:2px;}
+  details[open] summary .chev{transform:rotate(45deg);}
+  .body{padding:2px 16px 18px; min-width:0;}
+  .section{margin:4px 0 18px;}
+  .section-title{font-family:var(--mono); font-size:10.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--a1-deep); margin:0 0 8px;}
+  .callout{border-left:2px solid var(--a2); background:#f2efe5; padding:11px 13px; color:#4a473f; margin:12px 0 16px;}
+  .content-grid{display:grid; grid-template-columns:1fr; gap:10px; margin:10px 0;}
+  .mini-card{border:1px solid var(--line); background:#f8f6ef; border-radius:8px; padding:12px 13px; min-width:0;}
+  .mini-card b{display:block; color:var(--ink); margin-bottom:5px;}
+  .mini-card p{margin:0;}
+  table{border-collapse:collapse; width:100%; max-width:100%; table-layout:fixed; font-size:13px; margin:4px 0 12px;}
+  th,td{border-bottom:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top; overflow-wrap:anywhere; word-break:break-word;}
+  th{font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft); font-weight:600;}
+  td:first-child{color:var(--a2-deep); font-weight:600; white-space:normal;}
+  .body p{color:var(--soft); overflow-wrap:anywhere;}
+  .body ul{margin:6px 0; padding-left:18px;}
+  .body li{margin:5px 0;}
+  code{font-family:var(--mono); font-size:12px; background:#edeae0; padding:1px 6px; border-radius:3px; color:var(--a2-deep); overflow-wrap:anywhere; word-break:break-word;}
+  .chips{display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px;}
+  .chip{font-family:var(--mono); font-size:10.5px; letter-spacing:.05em; color:var(--soft); border:1px solid var(--line); border-radius:999px; padding:3px 10px;}
+  .foot{margin-top:30px; padding-top:15px; border-top:1px solid var(--line); display:flex; flex-wrap:wrap; gap:6px 14px; justify-content:space-between; font-family:var(--mono); font-size:10px; letter-spacing:.13em; text-transform:uppercase; color:var(--faint);}
+  @media (min-width:720px){.sheet{padding:48px 34px 46px;}.eyebrow .status{margin-left:auto;}.axis{padding-left:22px; margin-bottom:30px;}.content-grid{grid-template-columns:repeat(2,minmax(0,1fr));}}
+  @media (max-width:640px){table,thead,tbody,tr,th,td{display:block; width:100%;} thead{display:none;} tr{border:1px solid var(--line); border-radius:8px; padding:9px 10px; margin:0 0 10px; background:#f8f6ef;} td{border-bottom:0; padding:5px 0;} td:first-child{font-family:var(--mono); font-size:11px; letter-spacing:.05em;}}
+</style>
+</head>
+<body>
+<div class="sheet">
+  <div class="eyebrow reveal">
+    <span class="dot"></span>
+    <span class="id">marketing-93</span>
+    <span>Research Note</span>
+    <span class="status">completed</span>
+  </div>
+  <h1 class="reveal" style="animation-delay:.05s">Virtue 행복한 첫 사용자 / 언어 적합성 판독표</h1>
+  <p class="dek reveal" style="animation-delay:.09s">현재 홈, <code>/add</code>, 홈 반환 표면의 핵심 문장을 J1~J4 잡 기준으로 읽어, 지금 어떤 첫 사용자를 가장 행복하게 만드는지 한 장으로 고정했다.</p>
+  <div class="hr reveal" style="animation-delay:.12s"></div>
+
+  <div class="axis ax1 reveal" style="animation-delay:.16s">
+    <div class="label"><span class="n">01</span> 무엇이 문제였나</div>
+    <div class="text">Virtue에는 J1~J4 잡 가설이 있었지만, <b>현재 제품 문장이 실제로 누구를 행복하게 하려는지</b>는 홈과 <code>/add</code> 표면 기준으로 한 장에 고정돼 있지 않았다.</div>
+  </div>
+
+  <div class="axis ax2 reveal" style="animation-delay:.22s">
+    <div class="label"><span class="n">02</span> 어떻게 해결하나</div>
+    <div class="text">판독 결과 현재 언어의 중심은 <b>J1 기록형</b>이고, J2 누적형이 보조로 붙는다. J3 AI 호기심형 가치는 <code>/add</code> 결과면에서만 분명해 늦게 드러나며, J4 회고형은 전면 약속보다 후속 의미에 가깝다.</div>
+  </div>
+
+  <div class="reveal" style="animation-delay:.27s">
+    <details open>
+      <summary><span class="chev"></span> 핵심 내용 · 리서치 본문</summary>
+      <div class="body">
+        <div class="section">
+          <div class="section-title">핵심 발견</div>
+          <ol class="find">
+            <li>홈 첫 방문 hero와 CTA는 "사소한 것 하나를 쉽게 남긴다"는 약속을 반복해 J1 기록형 적합도가 가장 높다.</li>
+            <li><code>나의 덕력</code>, 환생도, <code>이번 달 +N덕</code> 같은 누적 신호는 J2를 강화하지만, 그 보상은 첫 저장 이후에 더 선명해진다.</li>
+            <li>J3 AI 호기심형은 <code>AI 채점</code>, <code>AI가 본 오늘</code>에서만 강하게 드러나므로 홈 첫 화면만 보고는 "AI 해석을 보러 왔다"는 사람을 바로 끌어들이기 어렵다.</li>
+          </ol>
+        </div>
+
+        <div class="callout">현재 Virtue가 가장 잘 맞추는 행복한 첫 사용자는 "가볍게 기록하고 즉시 반응을 보고 싶은 사람"이다. 카피 논의의 다음 기준은 새로운 문장을 먼저 늘리는 것이 아니라, 이 사용자를 실제로 행복하게 만드는지 관찰 언어를 고정하는 것이다.</div>
+
+        <div class="content-grid">
+          <div class="mini-card">
+            <b>근거 · 소스</b>
+            <p>source note <code>2026-06-29-happy-customers-language-fit.md</code>, JTBD 문서 <code>first-session-jtbd-matrix.md</code>, 활성화 등록부 <code>activation-candidate-registry.md</code>, 그리고 현재 <code>apps/web/src/app/page.tsx</code> / <code>apps/web/src/app/add/page.tsx</code> 표면 문장을 함께 읽었다.</p>
+          </div>
+          <div class="mini-card">
+            <b>다음 판단</b>
+            <p>이후 첫 10명 관찰이나 카피 검토에서는 "이 문장이 J1 중심 행복한 첫 사용자에게 먹히는가"를 기본 판독축으로 쓰고, J3를 전면화할 필요가 생길 때만 별도 intent로 분리하는 편이 안전하다.</p>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <details open>
+      <summary><span class="chev"></span> 표면별 판정 상세</summary>
+      <div class="body">
+        <table>
+          <thead>
+            <tr>
+              <th>표면</th>
+              <th>가장 강한 잡</th>
+              <th>놓치는 잡</th>
+              <th>핵심 해석</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>홈 hero</td>
+              <td>J1 기록형</td>
+              <td>J4 회고형</td>
+              <td><code>사진 한 장이나 한 줄 메모만 남기면...</code> 구조가 진입 장벽을 낮추고 즉시 기록 약속을 강화한다.</td>
+            </tr>
+            <tr>
+              <td>홈 CTA / 시작 카드</td>
+              <td>J1 기록형</td>
+              <td>J4 회고형</td>
+              <td><code>첫 덕 기록해보기</code>와 즉시 보상 3줄이 기록 후 바로 무언가가 일어난다는 흐름을 만든다.</td>
+            </tr>
+            <tr>
+              <td><code>/add</code> 입력면</td>
+              <td>J1 기록형</td>
+              <td>J2, J3</td>
+              <td><code>오늘의 한 컷, 골라주세요</code>, <code>한 줄이면 충분해요</code>는 쉽게 남기게 하지만 AI/누적 동기는 버튼 전까지 약하다.</td>
+            </tr>
+            <tr>
+              <td><code>/add</code> 결과면</td>
+              <td>J3 AI 호기심형</td>
+              <td>J4 회고형</td>
+              <td><code>AI 채점</code>, <code>AI가 본 오늘</code>이 결과 순간의 가치를 만든다. 다만 홈보다 늦게 드러난다.</td>
+            </tr>
+            <tr>
+              <td>홈 반환 / 최근 덕행</td>
+              <td>J2 누적형</td>
+              <td>J3 AI 호기심형</td>
+              <td><code>나의 덕력</code>, <code>최근 덕행</code>, <code>누적 덕력은 살아 있어요.</code>가 저장 후 누적과 보관 의미를 강화한다.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
+
+    <details>
+      <summary><span class="chev"></span> 실행 메타 · 산출물</summary>
+      <div class="body">
+        <div class="chips">
+          <span class="chip">2026-06-29T2207Z</span>
+          <span class="chip">hourly-heartbeat</span>
+          <span class="chip">Inbox → Archive</span>
+        </div>
+        <ul>
+          <li>산출물 <code>artifacts/marketing-93/happy-customers-language-fit-table.md</code></li>
+        </ul>
+      </div>
+    </details>
+  </div>
+
+  <div class="foot reveal" style="animation-delay:.3s">
+    <span>Agent-First Heartbeat</span>
+    <span>Infinity · Intent Note</span>
+  </div>
+</div>
+</body>
+</html>
