@@ -4,6 +4,8 @@
 
 ## Inbox
 
+<!-- marketing-92 inbox 2026-06-29T1000Z -> intents/inbox/marketing-92.md [display: Virtue 홈 반환 상태 gating 구현/검증 초안; projects: virtue,infinity; type: implementation-verification; topics: marketing,activation,return-state,gating; source_note: source/external-links/marketing/2026-06-29-return-state-gating-over-copy.md] (최근 3게이트 학습을 copy proposal이 아닌 home return-state gating 조각으로 축소한다. retained proof와 first-visit empty-state 동시 노출 금지 조건을 먼저 고정하고, 구현/검증은 Claude Code 라우팅 후보로 둔다.) -->
+
 ## Active
 
 ## Waiting
