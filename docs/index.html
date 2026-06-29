@@ -830,6 +830,9 @@
         const text = m[1];
         const idm = text.match(/^([a-z][a-z0-9]*(?:-[a-z0-9]+)*-\d+)\b/);
         if (!idm) continue;
+        if (/\b(completed|resolved|done|archived|closed|canceled|cancelled|rejected|approved|failed)\b/i.test(text)) {
+          continue;
+        }
         const dtm = text.match(/(\d{4}-\d{2}-\d{2}(?:[T\s](?:\d{2}:\d{2}(?::\d{2})?|\d{4}(?:\d{2})?)Z?)?)/);
         const pathm = text.match(/(?:Report|Detail|상세|리포트)\s*:\s*([^\s)]+\.md)/i)
           || text.match(/(?:→|->)\s*([^\s)]+\.md)/);
@@ -1232,8 +1235,9 @@
       cards.innerHTML = "";
 
       if (key === "done") {
-        renderArchiveTagFilter(items);
-        const filtered = applyArchiveFilter(items);
+        const sortedItems = sortDoneByCompletionDesc(items);
+        renderArchiveTagFilter(sortedItems);
+        const filtered = sortDoneByCompletionDesc(applyArchiveFilter(sortedItems));
         count.textContent = filtered.length === items.length
           ? items.length + "개"
           : filtered.length + " / " + items.length + "개";

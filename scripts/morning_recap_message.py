@@ -16,6 +16,7 @@ INTENTS = ROOT / "INTENTS.md"
 GATES = ROOT / "GATES.md"
 OPENCLAW_DB = Path("/home/ubuntu/.openclaw/state/openclaw.sqlite")
 KST = dt.timezone(dt.timedelta(hours=9), name="KST")
+CLOSED_STATES = {"completed", "resolved", "done", "archived", "closed", "canceled", "cancelled", "rejected", "approved", "failed"}
 EVALUATOR_JOBS = {
     "f1027114-6430-433a-b4cb-6aa0dfc53157": "OpenClaw 평가",
     "986c49b2-c615-4134-b95a-2cf74217c5b7": "kl 평가",
@@ -50,8 +51,14 @@ def parse_comments(body: str, state: str) -> list[dict[str, str]]:
     items: list[dict[str, str]] = []
     for comment in re.findall(r"<!--\s*(.*?)\s*-->", body, re.S):
         compact = re.sub(r"\s+", " ", comment).strip()
-        head = re.match(r"(?P<id>[a-z]+(?:-[a-z]+)*-\d+)\s+(?P<state>\w+)\s+(?P<ts>\d{4}-\d{2}-\d{2}T\d{2}:\d{2}Z)?", compact)
+        head = re.match(
+            r"(?P<id>[a-z]+(?:-[a-z]+)*-\d+)\s+(?P<state>\w+)(?:\s+(?P<ts>\d{4}-\d{2}-\d{2}(?:[T\s](?:\d{2}:\d{2}(?::\d{2})?|\d{4}(?:\d{2})?)Z?)?))?",
+            compact,
+        )
         if not head:
+            continue
+        comment_state = (head.group("state") or "").lower()
+        if state != "completed" and comment_state in CLOSED_STATES:
             continue
         display = re.search(r"\[display:\s*([^;\]]+)", compact)
         status = re.search(r"status:\s*([^;\]]+)", compact)
@@ -75,13 +82,27 @@ def recent_completed(items: list[dict[str, str]], now_utc: dt.datetime) -> list[
     for item in items:
         if not item["ts"]:
             continue
-        try:
-            ts = dt.datetime.strptime(item["ts"], "%Y-%m-%dT%H:%MZ").replace(tzinfo=dt.timezone.utc)
-        except ValueError:
+        match = re.match(
+            r"(\d{4})-(\d{2})-(\d{2})(?:[T\s](?:(\d{2}):(\d{2})(?::(\d{2}))?|(\d{2})(\d{2})(\d{2})?))?",
+            item["ts"],
+        )
+        if not match:
             continue
+        year, month, day, hour, minute, second, compact_hour, compact_minute, compact_second = match.groups()
+        ts = dt.datetime(
+            int(year),
+            int(month),
+            int(day),
+            int(hour or compact_hour or 0),
+            int(minute or compact_minute or 0),
+            int(second or compact_second or 0),
+            tzinfo=dt.timezone.utc,
+        )
         if ts >= cutoff:
-            recent.append(item)
-    return recent
+            enriched = dict(item)
+            enriched["_ts_dt"] = ts
+            recent.append(enriched)
+    return sorted(recent, key=lambda x: x["_ts_dt"], reverse=True)
 
 
 def pending_gates(text: str) -> int:
