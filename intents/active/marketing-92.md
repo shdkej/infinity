@@ -1,17 +1,28 @@
 # marketing-92 Virtue 홈 반환 상태 gating 구현/검증
 
 - id: marketing-92
-- status: active
+- status: waiting
 - created_at: 2026-06-29T10:00Z
 - activated_at: 2026-06-29T11:15Z
+- waiting_since: 2026-06-29T1200Z
 - projects: [virtue, infinity]
 - task_type: implementation-verification
 - topics: [marketing, activation, return-state, gating]
 - permission_level: L2 implementation-verification
 - source_note: /home/ubuntu/workspace/knowledge-lab/source/external-links/marketing/2026-06-29-return-state-gating-over-copy.md
-- current_mode: local-handoff-prepared
+- current_mode: local-execution-pending
+- waiting_for: 로컬 Virtue 앱 소스 트리 접근 (space/apps/virtue-rebirth에 배포 매니페스트만 있고 소스 없음)
 
-## Why This Is Active
+## Why This Is Waiting
+
+클라우드 핸드오프 준비가 완료됐으나 로컬 Virtue 앱 소스 트리가 없어 코드 구현/검증이 불가. 로컬 Claude Code에서 실행 후 재활성화.
+
+## Cloud Preparation (완료)
+
+- gating 계약 정의 완료: `stats.count`, `recent.length`, retained proof surface 3개 조건
+- 핸드오프 리포트: `reports/marketing-92/2026-06-29T1115Z-handoff.html`
+
+## Why This Was Active
 
 최근 Virtue 관련 학습은 copy polish보다 gate 3 반환 상태 정합성이 더 우선이라는 점으로 수렴했다. 따라서 `retained proof`와 `first-visit empty-state` 동시 노출 금지 조건을 실제 코드/라이브 검증 조각으로 넘기는 일이 지금의 가장 작은 유효 작업이다.
 
@@ -27,7 +38,7 @@
 - recent empty-state는 `recent.length === 0`일 때만 섹션 단위로 다룬다
 - `stats.count > 0` 또는 retained proof surface가 보이는 세션에서는 first-visit 카피가 금지된다
 
-## Next Action
+## Next Action (로컬 Claude Code 실행 시)
 
 1. 실제 Virtue 앱 소스 저장소 또는 checkout 경로를 확인한다.
 2. 홈 source file에서 `stats.count`, `recent.length`, retained proof surface 분기 지점을 캡처한다.
