@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Infinity Report</title>
+<style>
+  :root{
+    --bg:#f4f2ea; --panel:#fbfaf5; --ink:#2c2a25; --soft:#807c70; --faint:#a8a496; --line:#e3dfd2;
+    --a2:#5f7a5e; --a2-deep:#3f5740;
+    --a1:#a9745a; --a1-deep:#8a5c45;
+    --sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0; width:100%; max-width:100%; overflow-x:hidden;}
+  body{background:var(--bg); color:var(--ink); font-family:var(--sans); font-size:14px; line-height:1.68; -webkit-font-smoothing:antialiased;}
+  .sheet{width:min(100%,720px); max-width:720px; margin:0 auto; padding:32px 18px 40px;}
+  .reveal{opacity:0; animation:fade .7s ease forwards;}
+  @keyframes fade{from{opacity:0; transform:translateY(9px);} to{opacity:1; transform:none;}}
+  .eyebrow{display:flex; align-items:center; gap:10px; font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--soft); flex-wrap:wrap;}
+  .eyebrow .id{color:var(--a2-deep); font-weight:600;}
+  .eyebrow .dot{width:5px; height:5px; border-radius:50%; background:var(--a2);}
+  .eyebrow .status{color:var(--a2-deep);}
+  h1{font-size:clamp(24px,7vw,29px); line-height:1.3; font-weight:700; margin:20px 0 0; overflow-wrap:anywhere;}
+  .dek{font-size:15.5px; color:var(--soft); margin:13px 0 0; max-width:52ch;}
+  .hr{height:1px; background:var(--line); margin:30px 0;}
+  .axis{padding:0 0 4px 18px; position:relative; margin-bottom:26px;}
+  .axis::before{content:""; position:absolute; left:0; top:6px; bottom:6px; width:2px; border-radius:2px;}
+  .axis.ax1::before{background:var(--a1);} .axis.ax2::before{background:var(--a2);}
+  .axis .label{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase; margin-bottom:9px; display:flex; align-items:center; gap:8px;}
+  .axis.ax1 .label{color:var(--a1-deep);} .axis.ax2 .label{color:var(--a2-deep);}
+  .axis .label .n{font-weight:600; opacity:.6;}
+  .axis .text{font-size:clamp(16px,4.4vw,18px); line-height:1.62; color:#37352e; overflow-wrap:anywhere;}
+  ol.find{list-style:none; counter-reset:f; margin:16px 0 0; padding:0;}
+  ol.find li{position:relative; padding:8px 0 8px 26px; font-size:15px; color:#37352e; border-top:1px solid var(--line);}
+  ol.find li:first-child{border-top:none;}
+  ol.find li::before{counter-increment:f; content:counter(f); position:absolute; left:0; top:9px; font-family:var(--mono); font-size:12px; font-weight:600; color:var(--a1-deep);}
+  details{border:1px solid var(--line); border-radius:8px; background:var(--panel); margin-bottom:10px; overflow:hidden;}
+  summary{cursor:pointer; list-style:none; padding:14px 16px; display:flex; align-items:center; gap:11px; font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft);}
+  summary::-webkit-details-marker{display:none;}
+  summary .chev{width:8px; height:8px; border-right:2px solid var(--a2-deep); border-bottom:2px solid var(--a2-deep); transform:rotate(-45deg); transition:.25s; flex:none; margin-left:2px;}
+  details[open] summary .chev{transform:rotate(45deg);}
+  .body{padding:2px 16px 18px; min-width:0;}
+  .section{margin:4px 0 18px;}
+  .section-title{font-family:var(--mono); font-size:10.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--a1-deep); margin:0 0 8px;}
+  .callout{border-left:2px solid var(--a2); background:#f2efe5; padding:11px 13px; color:#4a473f; margin:12px 0 16px;}
+  .content-grid{display:grid; grid-template-columns:1fr; gap:10px; margin:10px 0;}
+  .mini-card{border:1px solid var(--line); background:#f8f6ef; border-radius:8px; padding:12px 13px; min-width:0;}
+  .mini-card b{display:block; color:var(--ink); margin-bottom:5px;}
+  .mini-card p{margin:0; color:var(--soft); overflow-wrap:anywhere;}
+  .body p{color:var(--soft); overflow-wrap:anywhere;}
+  .body ul{margin:6px 0; padding-left:18px;}
+  .body li{margin:5px 0;}
+  code{font-family:var(--mono); font-size:12px; background:#edeae0; padding:1px 6px; border-radius:3px; color:var(--a2-deep); overflow-wrap:anywhere; word-break:break-word;}
+  .chips{display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px;}
+  .chip{font-family:var(--mono); font-size:10.5px; letter-spacing:.05em; color:var(--soft); border:1px solid var(--line); border-radius:999px; padding:3px 10px;}
+  .foot{margin-top:30px; padding-top:15px; border-top:1px solid var(--line); display:flex; flex-wrap:wrap; gap:6px 14px; justify-content:space-between; font-family:var(--mono); font-size:10px; letter-spacing:.13em; text-transform:uppercase; color:var(--faint);}
+  @media (min-width:720px){.sheet{padding:48px 34px 46px;}.eyebrow .status{margin-left:auto;}.axis{padding-left:22px; margin-bottom:30px;}.content-grid{grid-template-columns:repeat(2,minmax(0,1fr));}}
+</style>
+</head>
+<body>
+<div class="sheet">
+  <div class="eyebrow reveal">
+    <span class="dot"></span>
+    <span class="id">marketing-92</span>
+    <span>Implementation Handoff</span>
+    <span class="status">waiting</span>
+  </div>
+  <h1 class="reveal" style="animation-delay:.05s">Virtue 홈 gating 재실행용 정확한 체크아웃과 분기 지점 캡처</h1>
+  <p class="dek reveal" style="animation-delay:.09s">이번 사이클은 구현을 넓히지 않고, 다음 로컬 Claude 실행이 바로 들어갈 수 있도록 실제 소스 파일과 검증 포인트를 한 장으로 고정했다.</p>
+  <div class="hr reveal" style="animation-delay:.12s"></div>
+
+  <div class="axis ax1 reveal" style="animation-delay:.16s">
+    <div class="label"><span class="n">01</span> 무엇이 문제였나</div>
+    <div class="text">기존 Waiting 상태는 <code>/home/ubuntu/dev/virtue-rebirth-app</code> 이 실제 앱 체크아웃인지, 그리고 홈 gating 계약을 어디서 검증해야 하는지가 아직 실행 패킷 수준으로 고정되지 않았다는 점이었다.</div>
+  </div>
+
+  <div class="axis ax2 reveal" style="animation-delay:.22s">
+    <div class="label"><span class="n">02</span> 어떻게 해결하나</div>
+    <div class="text">실제 홈 소스는 <code>apps/web/src/app/page.tsx</code> 로 확인됐고, gating 분기는 이미 <code>stats.count === 0</code>, <code>stats.count &gt; 0 &amp;&amp; recent.length === 0</code>, <code>recent.length === 0</code> 조합으로 존재한다. 다음 실행은 이 파일만 열어 구현/검증을 마치면 된다.</div>
+  </div>
+
+  <div class="reveal" style="animation-delay:.27s">
+    <details open>
+      <summary><span class="chev"></span> 핵심 내용 · 리서치 본문</summary>
+      <div class="body">
+        <div class="section">
+          <div class="section-title">핵심 발견</div>
+          <ol class="find">
+            <li>후보 체크아웃 <code>/home/ubuntu/dev/virtue-rebirth-app</code> 안에 실제 홈 파일 <code>apps/web/src/app/page.tsx</code> 가 존재한다.</li>
+            <li>파일 상단에서 <code>const isFirstVisit = stats.count === 0;</code> 와 <code>const isReturningWithoutRecent = stats.count &gt; 0 &amp;&amp; recent.length === 0;</code> 가 이미 선언돼 있어 gating 계약을 다시 설계할 필요가 없다.</li>
+            <li>최근 덕행 empty-state 는 <code>recent.length === 0</code> 분기와 <code>isReturningWithoutRecent</code> title/description 분리로 연결돼 있어, 다음 실행의 검증 범위를 홈 한 파일과 타입체크로 제한할 수 있다.</li>
+          </ol>
+        </div>
+        <div class="callout">다음 로컬 실행은 copy polish, 리디자인, 배포 작업 없이 <code>apps/web/src/app/page.tsx</code> 의 홈 gate 정합성 검증과 필요한 최소 수정, 그리고 scoped verification 만 수행한다.</div>
+        <div class="content-grid">
+          <div class="mini-card">
+            <b>근거 · 소스</b>
+            <p><code>rg --files</code> 로 홈 파일 존재를 확인했고, <code>rg -n "stats.count|recent.length|retained|recent"</code> 및 해당 코드 스니펫 검토로 분기 위치를 캡처했다.</p>
+          </div>
+          <div class="mini-card">
+            <b>다음 판단</b>
+            <p>다음 실행에서 retained proof surface 가 같은 파일 또는 인접 컴포넌트에 있는지 캡처한 뒤, first-visit 카피가 재노출되지 않음을 확인하면 완료/재활성화 판단이 가능하다.</p>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <details open>
+      <summary><span class="chev"></span> 다음 로컬 실행 패킷</summary>
+      <div class="body">
+        <p>대상 체크아웃: <code>/home/ubuntu/dev/virtue-rebirth-app</code></p>
+        <p>우선 파일: <code>apps/web/src/app/page.tsx</code></p>
+        <ul>
+          <li><code>stats.count</code>, <code>recent.length</code>, retained proof surface 의 실제 렌더 경로를 한 번에 캡처한다.</li>
+          <li>허용 범위: 홈 gating 관련 최소 수정, 로컬 타입체크 또는 동등한 scoped verification.</li>
+          <li>금지 범위: copy polish 확장, 홈 리디자인, 배포/시크릿/외부 계정 작업, unrelated lint cleanup.</li>
+          <li>검증 게이트: returning session 에서 first-visit 카피 비노출, recent empty-state 문구 분기 유지, 변경 파일 scoped diff.</li>
+        </ul>
+      </div>
+    </details>
+
+    <details>
+      <summary><span class="chev"></span> 실행 메타 · 산출물</summary>
+      <div class="body">
+        <div class="chips">
+          <span class="chip">2026-06-29T1907Z</span>
+          <span class="chip">cron heartbeat</span>
+          <span class="chip">waiting → waiting</span>
+        </div>
+        <ul>
+          <li>산출물 <code>reports/marketing-92/2026-06-29T1907Z-handoff.html</code></li>
+        </ul>
+      </div>
+    </details>
+  </div>
+
+  <div class="foot reveal" style="animation-delay:.3s">
+    <span>Agent-First Heartbeat</span>
+    <span>Infinity · Intent Note</span>
+  </div>
+</div>
+</body>
+</html>
