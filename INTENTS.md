@@ -3,12 +3,8 @@
 > Heartbeat Agent가 주기적으로 읽고 실행하는 의도 목록.
 
 ## Inbox
-<!-- marketing-89 completed 2026-06-27T2236Z → intents/archive/marketing-89.md [projects: virtue, infinity; type: strategy; topics: marketing, activation, product] (Virtue 홈 반환 상태에서 `stats.total`, `stats.count`, `recent.length`의 계약과 empty-state 허용/금지 조건을 1장으로 고정했다.) -->
-<!-- marketing-91 completed 2026-06-28T2229Z → intents/archive/marketing-91.md [projects: virtue, infinity; type: strategy; topics: marketing, activation, product] (기존 이벤트 조합과 홈 반환 사례를 `정상 진행 / 자연 종료 / 마찰 / 상태 모순` 4개 상태 언어로 고정했다.) -->
 
 ## Active
-
-<!-- marketing-86 completed 2026-06-26T10:28Z → intents/archive/marketing-86.md [projects: virtue, infinity; type: strategy; topics: marketing, activation, product] (J1/J2/J4는 홈 최근 덕행, J3는 결과 카드를 primary surface로 삼는 next action helper proposal 완료) -->
 
 ## Waiting
 
@@ -17,9 +13,12 @@
 <!-- naver-shopping-01 waiting 2026-06-21T1000Z → intents/active/naver-shopping-01.md [display: 나래/Narae; projects: naver-shopping,infinity,personal-ops; type: coordination; topics: automation,workflow,marketing; status: sample-order-gated-session-waiting; approval: sample-order-gated] (cloud 소싱 준비 완료(크로스바디+손목 스트랩). alibaba.com 로컬 공급사 확인(계정 불필요) + 손목·크로스바디 병행 샘플 주문 사용자 승인 대기. do_not_repeat_cloud 활성.) -->
 
 ## Archive
+<!-- marketing-91 completed 2026-06-28T2229Z → intents/archive/marketing-91.md [projects: virtue, infinity; type: strategy; topics: marketing, activation, product] (기존 이벤트 조합과 홈 반환 사례를 `정상 진행 / 자연 종료 / 마찰 / 상태 모순` 4개 상태 언어로 고정했다.) -->
 <!-- marketing-90 completed 2026-06-28T1007Z → intents/archive/marketing-90.md [projects: virtue, infinity; type: strategy; topics: marketing, activation, product] (Virtue 첫 세션을 진입 약속, 입력 기대, 반환 일관성의 3게이트로 압축했고 현재 우선 보수 대상은 gate 3 반환 일관성으로 고정했다. HTML report gate passed.) -->
+<!-- marketing-89 completed 2026-06-27T2236Z → intents/archive/marketing-89.md [projects: virtue, infinity; type: strategy; topics: marketing, activation, product] (Virtue 홈 반환 상태에서 `stats.total`, `stats.count`, `recent.length`의 계약과 empty-state 허용/금지 조건을 1장으로 고정했다.) -->
 <!-- marketing-88 completed 2026-06-27T1007Z → intents/archive/marketing-88.md [projects: virtue, infinity; type: strategy; topics: marketing, activation, product] (라이브 홈, 로컬 홈 코드, 최근 canonical 제안서를 대조해 반환 세션 state drift를 한 장으로 정리했다. 핵심은 `612덕` retained proof와 `아직 기록이 없어요` 계열 empty-state의 동시 노출이며, 다음 조치는 copy 추가가 아니라 home return-state gating 구현/검증 1조각이다. HTML report gate passed.) -->
 <!-- marketing-87 completed 2026-06-26T222904Z → intents/archive/marketing-87.md [projects: virtue, infinity; type: strategy; topics: marketing, activation, product] (기존 `/add` 이벤트와 replay 관찰 질문을 묶어 첫 10~15세션을 공통 UX 마찰, J3 자연 종료, 조용한 실패, 다음 행동 불명확의 4분류로 읽는 1장 판독표 완성. production/tracking/privacy/public copy/deploy/external cost 변경 0. HTML report gate passed.) -->
+<!-- marketing-86 completed 2026-06-26T10:28Z → intents/archive/marketing-86.md [projects: virtue, infinity; type: strategy; topics: marketing, activation, product] (J1/J2/J4는 홈 최근 덕행, J3는 결과 카드를 primary surface로 삼는 next action helper proposal 완료) -->
 <!-- marketing-85 completed 2026-06-25T220708Z → intents/archive/marketing-85.md [projects: virtue; type: strategy; topics: marketing,activation,prelaunch,observation] (첫 10명 관찰표 `다음 행동 명료성` 질문 보강 완료. `artifacts/marketing-47`에 세션 직후 4번째 질문과 잡별 읽기 규칙을, `artifacts/marketing-60`에 `next_action_spoken`/`normal_stop_vs_confusion` 수기 판독 축을 추가. J3 무저장 정상 종료 경계 유지. production/tracking/privacy/public copy/deploy/external cost 변경 0. HTML report gate passed.) -->
 <!-- marketing-84 completed 2026-06-25T1028Z → intents/archive/marketing-84.md [projects: virtue; type: strategy; topics: marketing,activation,retention] (첫 가치 다음의 next-step bridge 감사표/제안서 완료. J1/J2/J4의 canonical return surface는 홈 `최근 덕행`, J3는 `/add` 결과 카드로 구분. confirmation + next-step 1줄 proposal-only 제안 정리. production/tracking/privacy/public copy/deploy/external cost 변경 0. HTML report gate passed.) -->
 <!-- marketing-83 completed 2026-06-24T2300Z → intents/archive/marketing-83.md [projects: virtue; type: strategy; topics: marketing,activation,onboarding,empty-state] (홈 반환형 empty-state gating 정렬 제안서 완료. 3표면별 J1-J4 gating 규칙과 반환형 문장 후보를 proposal-only 1장 비교 문서로 정리. 핵심 발견: 최근 덕행 섹션이 전체 이력 0건과 오늘 이력 0건을 구분하지 않는 것이 충돌 원인. J3는 deed_judged gate, J1/J2/J4는 deed_saved gate로 별도 분기. production/tracking/privacy/public copy/deploy/external cost 변경 0. HTML report gate passed.) -->
