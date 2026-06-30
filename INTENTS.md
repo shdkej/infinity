@@ -4,21 +4,6 @@
 
 ## Inbox
 
-### marketing-94 · 통과 세션 대조를 포함한 `/add` 리플레이 판독 보강
-
-- status: inbox
-- priority: medium
-- permission: L1 docs-only
-- owner_route: Infinity → Claude Code 또는 SAM 로컬 문서 작업
-- source_note_path: `/home/ubuntu/workspace/knowledge-lab/source/external-links/marketing/2026-06-30-pass-vs-hold-replay-contrast.md`
-
-보류 세션만 보면 J3 자연 종료와 실제 마찰이 섞여 과잉 수정이 생길 수 있다. 기존 `marketing-87`의 4분류 표를 유지한 채, `보류 5세션 + 통과 5세션`을 나란히 읽는 비교용 보조 문서 1장을 추가해 반복 마찰과 자연 종료를 더 안정적으로 분리한다.
-
-- rationale: PostHog의 최근 onboarding drop-off 실무 글은 보류 세션뿐 아니라 통과 세션도 같이 보라고 권한다. Virtue는 이미 4분류 표가 있으므로 새 체계보다 대조 읽기 규칙을 보강하는 편이 현재 단계에 맞다.
-- expected_impact: `judged but not saved`를 일괄 실패로 읽는 위험을 줄이고, 실제로 수정할 가치가 있는 공통 마찰만 더 선명하게 고른다.
-- success_criteria: `marketing-87` 산출물과 충돌하지 않는 비교용 문서 1개가 생기고, `공통 UX 마찰 / J3 자연 종료 / 조용한 실패 / 다음 행동 불명확` 4분류별로 통과 세션 대조 메모를 남길 수 있어야 한다.
-- first_verification_gate: `rg -n "통과 세션|보류 세션|공통 UX 마찰|J3 자연 종료|조용한 실패|다음 행동 불명확" <output>`, `rg '<<<<<<<|=======|>>>>>>>' <output> || true`
-
 ## Active
 
 ## Waiting
@@ -27,6 +12,7 @@
 <!-- naver-shopping-01 waiting 2026-06-21T1000Z → intents/active/naver-shopping-01.md [display: 나래/Narae; projects: naver-shopping,infinity,personal-ops; type: coordination; topics: automation,workflow,marketing; status: sample-order-gated-session-waiting; approval: sample-order-gated] (cloud 소싱 준비 완료(크로스바디+손목 스트랩). alibaba.com 로컬 공급사 확인(계정 불필요) + 손목·크로스바디 병행 샘플 주문 사용자 승인 대기. do_not_repeat_cloud 활성.) -->
 
 ## Archive
+<!-- marketing-94 completed 2026-06-30T1007Z -> intents/archive/marketing-94.md [projects: virtue,infinity; type: strategy; topics: marketing,activation,product,session-replay] (`marketing-87` 4분류를 유지한 채 pass-vs-hold 비교용 보조 문서 1장을 추가해, `judged but not saved`를 자동 실패로 읽지 않고 양쪽 세션에 반복되는 마찰만 다음 수정 후보로 올리는 규칙을 고정했다. HTML report gate passed.) -->
 <!-- marketing-93 completed 2026-06-29T2207Z -> intents/archive/marketing-93.md [projects: virtue,infinity; type: strategy; topics: marketing,activation,product] (현재 홈·`/add`·반환 표면 언어를 J1~J4 기준으로 판독해, 지금 가장 잘 맞는 행복한 첫 사용자는 J1 기록형 중심이고 J2 누적형이 보조라는 기준표를 고정했다. HTML report gate passed.) -->
 <!-- marketing-92 completed 2026-06-29T1829Z -> intents/archive/marketing-92.md [projects: virtue,infinity; type: implementation; topics: marketing,activation,retention] (홈 최근 덕행 empty-state를 `stats.count`와 `recent.length`로 분리해 복귀 사용자의 first-visit 카피 재노출을 막고, typecheck 통과·기존 lint warning만 확인했다.) -->
 
