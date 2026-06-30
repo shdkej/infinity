@@ -9,6 +9,7 @@
 ## Waiting
 
 <!-- 사용자 결정, 외부 조건, 안전 확인 대기. 같은 질문을 반복하지 않고 상태만 보존한다. -->
+<!-- marketing-95 waiting 2026-06-30T2200Z -> intents/waiting/marketing-95.md [projects: virtue,infinity; type: verification; topics: marketing,activation,deploy,return-state] (marketing-92 로컬 구현은 끝났지만 2026-06-30 22:00 UTC 라이브 홈 HTML에는 여전히 `612덕`와 첫 방문 카피, `첫 기록이 여기에 쌓여요.` empty-state가 함께 남아 있다. 앱 업데이트/배포 반영 전까지는 실패 재판정 대신 Waiting으로 유지하고, 배포 후 returning empty-state 분기 노출 여부만 다시 확인한다.) -->
 <!-- naver-shopping-01 waiting 2026-06-21T1000Z → intents/active/naver-shopping-01.md [display: 나래/Narae; projects: naver-shopping,infinity,personal-ops; type: coordination; topics: automation,workflow,marketing; status: sample-order-gated-session-waiting; approval: sample-order-gated] (cloud 소싱 준비 완료(크로스바디+손목 스트랩). alibaba.com 로컬 공급사 확인(계정 불필요) + 손목·크로스바디 병행 샘플 주문 사용자 승인 대기. do_not_repeat_cloud 활성.) -->
 
 ## Archive
