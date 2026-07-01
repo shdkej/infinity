@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Infinity Report — design-01</title>
+<style>
+  :root{
+    --bg:#f4f2ea; --panel:#fbfaf5; --ink:#2c2a25; --soft:#807c70; --faint:#a8a496; --line:#e3dfd2;
+    --a2:#5f7a5e; --a2-deep:#3f5740;
+    --a1:#a9745a; --a1-deep:#8a5c45;
+    --sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0; width:100%; max-width:100%; overflow-x:hidden;}
+  body{background:var(--bg); color:var(--ink); font-family:var(--sans);
+    font-size:14px; line-height:1.68; -webkit-font-smoothing:antialiased;}
+  .sheet{width:min(100%,720px); max-width:720px; margin:0 auto; padding:32px 18px 40px;}
+  .reveal{opacity:0; animation:fade .7s ease forwards;}
+  @keyframes fade{from{opacity:0; transform:translateY(9px);} to{opacity:1; transform:none;}}
+  .eyebrow{display:flex; align-items:center; gap:10px; font-family:var(--mono);
+    font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--soft); flex-wrap:wrap;}
+  .eyebrow .id{color:var(--a2-deep); font-weight:600;}
+  .eyebrow .dot{width:5px; height:5px; border-radius:50%; background:var(--a2);}
+  .eyebrow .status{color:var(--a2-deep);}
+  h1{font-size:clamp(24px,7vw,29px); line-height:1.3; font-weight:700; margin:20px 0 0; overflow-wrap:anywhere;}
+  .dek{font-size:15.5px; color:var(--soft); margin:13px 0 0; max-width:52ch;}
+  .hr{height:1px; background:var(--line); margin:30px 0;}
+  .axis{padding:0 0 4px 18px; position:relative; margin-bottom:26px;}
+  .axis::before{content:""; position:absolute; left:0; top:6px; bottom:6px; width:2px; border-radius:2px;}
+  .axis.ax1::before{background:var(--a1);} .axis.ax2::before{background:var(--a2);}
+  .axis.ax1{--ul:var(--a1);} .axis.ax2{--ul:var(--a2);}
+  .axis .label{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase;
+    margin-bottom:9px; display:flex; align-items:center; gap:8px;}
+  .axis.ax1 .label{color:var(--a1-deep);} .axis.ax2 .label{color:var(--a2-deep);}
+  .axis .label .n{font-weight:600; opacity:.6;}
+  .axis .text{font-size:clamp(16px,4.4vw,18px); line-height:1.62; color:#37352e; overflow-wrap:anywhere;}
+  .axis .text b{font-weight:700; color:var(--ink); border-bottom:2px solid var(--ul);}
+  ol.find{list-style:none; counter-reset:f; margin:16px 0 0; padding:0;}
+  ol.find li{position:relative; padding:8px 0 8px 26px; font-size:15px; color:#37352e; border-top:1px solid var(--line);}
+  ol.find li:first-child{border-top:none;}
+  ol.find li::before{counter-increment:f; content:counter(f); position:absolute; left:0; top:9px;
+    font-family:var(--mono); font-size:12px; font-weight:600; color:var(--a1-deep);}
+  details{border:1px solid var(--line); border-radius:8px; background:var(--panel); margin-bottom:10px; overflow:hidden;}
+  summary{cursor:pointer; list-style:none; padding:14px 16px; display:flex; align-items:center; gap:11px;
+    font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft);}
+  summary::-webkit-details-marker{display:none;}
+  summary .chev{width:8px; height:8px; border-right:2px solid var(--a2-deep); border-bottom:2px solid var(--a2-deep);
+    transform:rotate(-45deg); transition:.25s; flex:none; margin-left:2px;}
+  details[open] summary .chev{transform:rotate(45deg);}
+  .body{padding:2px 16px 18px; min-width:0;}
+  .section{margin:4px 0 18px;}
+  .section-title{font-family:var(--mono); font-size:10.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--a1-deep); margin:0 0 8px;}
+  .callout{border-left:2px solid var(--a2); background:#f2efe5; padding:11px 13px; color:#4a473f; margin:12px 0 16px;}
+  .content-grid{display:grid; grid-template-columns:1fr; gap:10px; margin:10px 0;}
+  .mini-card{border:1px solid var(--line); background:#f8f6ef; border-radius:8px; padding:12px 13px; min-width:0;}
+  .mini-card b{display:block; color:var(--ink); margin-bottom:5px;}
+  .mini-card p{margin:0; color:var(--soft);}
+  table{border-collapse:collapse; width:100%; max-width:100%; table-layout:fixed; font-size:13px; margin:4px 0 12px;}
+  th,td{border-bottom:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top; overflow-wrap:anywhere; word-break:break-word;}
+  th{font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft); font-weight:600;}
+  td:first-child{color:var(--a2-deep); font-weight:600;}
+  .body p{color:var(--soft); overflow-wrap:anywhere;}
+  .body ul{margin:6px 0; padding-left:18px;} .body li{margin:5px 0; color:var(--soft);}
+  code{font-family:var(--mono); font-size:12px; background:#edeae0; padding:1px 6px; border-radius:3px; color:var(--a2-deep); overflow-wrap:anywhere; word-break:break-word;}
+  .chips{display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px;}
+  .chip{font-family:var(--mono); font-size:10.5px; letter-spacing:.05em; color:var(--soft); border:1px solid var(--line); border-radius:999px; padding:3px 10px;}
+  .foot{margin-top:30px; padding-top:15px; border-top:1px solid var(--line);
+    display:flex; flex-wrap:wrap; gap:6px 14px; justify-content:space-between; font-family:var(--mono); font-size:10px;
+    letter-spacing:.13em; text-transform:uppercase; color:var(--faint);}
+  @media (min-width:720px){
+    .sheet{padding:48px 34px 46px;}
+    .axis{padding-left:22px; margin-bottom:30px;}
+    .content-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
+  }
+  @media (max-width:640px){
+    table,thead,tbody,tr,th,td{display:block; width:100%;}
+    thead{display:none;}
+    tr{border:1px solid var(--line); border-radius:8px; padding:9px 10px; margin:0 0 10px; background:#f8f6ef;}
+    td{border-bottom:0; padding:5px 0;}
+    td:first-child{font-family:var(--mono); font-size:11px; letter-spacing:.05em;}
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="eyebrow reveal">
+    <span class="dot"></span>
+    <span class="id">design-01</span>
+    <span>Cloud Prepare Phase</span>
+    <span class="status">in_progress</span>
+  </div>
+  <h1 class="reveal" style="animation-delay:.05s">카드뉴스 미감 업그레이드</h1>
+  <p class="dek reveal" style="animation-delay:.09s">시각 실패 패턴 5개 가설 + 실행 규칙 7개 초안 완성 — 로컬 <code>insight-card-maker</code> 검증 대기</p>
+
+  <div class="hr reveal" style="animation-delay:.12s"></div>
+
+  <div class="axis ax1 reveal" style="animation-delay:.16s">
+    <div class="label"><span class="n">01</span> 무엇이 문제였나</div>
+    <div class="text">카드뉴스 파이프라인에 <b>시각 미감 저하 패턴이 반복</b>되고 있으나, 실행 기준이 문서화되지 않아 매 세트마다 같은 실수가 재현되고 있다.</div>
+  </div>
+
+  <div class="axis ax2 reveal" style="animation-delay:.22s">
+    <div class="label"><span class="n">02</span> 어떻게 해결하나</div>
+    <div class="text"><b>5개 시각 실패 패턴 가설 + 7개 실행 규칙 초안</b>을 완성했다. 다음은 로컬에서 <code>insight-card-maker</code> 실제 출력물로 가설을 검증하고 규칙을 확정한다.</div>
+  </div>
+
+  <div class="reveal" style="animation-delay:.27s">
+  <details open>
+    <summary><span class="chev"></span> 핵심 내용 · 시각 실패 패턴 가설</summary>
+    <div class="body">
+      <div class="section">
+        <div class="section-title">5개 시각 실패 패턴 (Cloud 가설)</div>
+        <ol class="find">
+          <li><b>텍스트 패널 과다</b> — 반투명 패널이 사진 면적의 과반을 차지하면 실사진의 힘이 사라지고 일반 템플릿처럼 보인다. 사용자 명시 금지 조건(과한 반투명 텍스트 패널 금지)과 직접 충돌.</li>
+          <li><b>keyword-title 미적용</b> — 카드 1 제목이 keyword-title 기준을 통과하지 못하면 첫 장에서 스크롤이 멈추지 않는다. 제목은 hook의 첫 번째 게이트.</li>
+          <li><b>크롭/줌/비네트 처리 부재</b> — 원본 사진을 그대로 올리면 피사체 주변 여백이 어색하고 텍스트와 충돌한다. crop/zoom/그라데이션/비네트로 빈 공간 확보가 전제 조건.</li>
+          <li><b>news-mode CTA 카드 포맷 불일치</b> — 6번째 고정 CTA가 세트마다 달라지면 사용자 기대 패턴이 깨지고 브랜드 일관성이 손상된다.</li>
+          <li><b>모바일 텍스트 안전영역 미준수</b> — 390px 기준에서 텍스트 블록이 좌우 패딩 없이 카드 엣지에 붙으면 가독성이 떨어지고 클립핑 위험이 있다.</li>
+        </ol>
+      </div>
+
+      <div class="callout">다음 로컬 실행: 최근 카드뉴스 3-5세트에 위 5개 패턴을 대입해 실제 위반 빈도를 측정하고, 빈도 상위 항목부터 실행 규칙 7개를 확정한다.</div>
+
+      <div class="content-grid">
+        <div class="mini-card">
+          <b>근거 · 소스</b>
+          <p>사용자 명시 선호 (design-01 intent context): 실사진 기반 첫 장, keyword-title 기반 카드 1 제목, 과한 반투명 패널 금지, crop/zoom/그라데이션/비네트/빈 공간 확보 우선, news-mode 6번째 고정 CTA 보존. prompt-archive/DESIGN.md: "설명보다 구조를 먼저" / "따뜻함을 기능으로".</p>
+        </div>
+        <div class="mini-card">
+          <b>다음 판단</b>
+          <p>로컬에서 <code>skills/insight-card-maker</code> 최근 출력물 3-5세트 감사 → 실패 빈도 확인 → 실행 규칙 7개 확정 → 샘플 preview 1개 (모바일 390px 기준). 결과는 <code>artifacts/design-01/</code>에 저장.</p>
+        </div>
+      </div>
+    </div>
+  </details>
+
+  <details open>
+    <summary><span class="chev"></span> 실행 규칙 7개 초안</summary>
+    <div class="body">
+      <div class="section">
+        <div class="section-title">반복 적용 기준 초안 (로컬 검증 후 확정)</div>
+        <table>
+          <thead><tr><th style="width:12%">번호</th><th style="width:60%">규칙</th><th style="width:28%">검증 방법</th></tr></thead>
+          <tbody>
+            <tr><td>R1</td><td>첫 장: 실사진 1장 + keyword-title 통과 제목 + 비네트/그라데이션 (반투명 패널 면적 &lt; 사진의 25%)</td><td>keyword-title 스킬 통과 체크</td></tr>
+            <tr><td>R2</td><td>사진은 crop/zoom 처리 필수 — 주피사체 주변 빈 공간 의도적 확보</td><td>원본 vs 처리본 비교</td></tr>
+            <tr><td>R3</td><td>텍스트 블록: 카드당 2줄 이하, 좌우 패딩 16px 이상 (390px 기준)</td><td>모바일 뷰 육안 확인</td></tr>
+            <tr><td>R4</td><td>반투명 오버레이: 면적 &lt; 전체 카드의 30%, 불투명도 &lt; 60%</td><td>레이어 속성 확인</td></tr>
+            <tr><td>R5</td><td>6번째 카드: news-mode CTA 고정 포맷 유지 (변형 금지)</td><td>포맷 비교 체크리스트</td></tr>
+            <tr><td>R6</td><td>라이브러리 등록 기준: crop/zoom + 비네트 처리 완료 이미지만 입고</td><td>등록 전 처리 여부 확인</td></tr>
+            <tr><td>R7</td><td>출력 전 점검 게이트: keyword-title 통과 + 반투명 패널 면적 비율 체크</td><td>체크리스트 2항목 완료</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="chev"></span> 실행 메타 · 산출물</summary>
+    <div class="body">
+      <div class="chips">
+        <span class="chip">2026-07-01T0100Z</span>
+        <span class="chip">heartbeat · cloud-prepare</span>
+        <span class="chip">inbox → in_progress</span>
+      </div>
+      <ul>
+        <li>참조: <code>prompt-archive/DESIGN.md</code></li>
+        <li>참조: <code>prompt-archive/skills/keyword-title/SKILL.md</code> (경로 확인 완료)</li>
+        <li>참조: design-01 intent context (사용자 명시 선호 5개)</li>
+        <li>다음 산출물 예정: <code>artifacts/design-01/visual-rules.md</code></li>
+        <li>다음 산출물 예정: <code>artifacts/design-01/sample-preview.*</code></li>
+      </ul>
+      <p>insight-card-maker는 로컬 전용 스킬(GitHub 미노출)이므로 실제 출력물 감사는 로컬 실행 필요. 이 리포트는 Cloud prepare 단계의 가설만 담는다.</p>
+    </div>
+  </details>
+  </div>
+
+  <div class="foot reveal" style="animation-delay:.3s">
+    <span>Agent-First Heartbeat</span>
+    <span>Infinity · Intent Note</span>
+  </div>
+</div>
+</body>
+</html>

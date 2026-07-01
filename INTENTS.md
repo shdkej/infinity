@@ -4,23 +4,33 @@
 
 ## Inbox
 
-- 2026-07-02T00:48+09:00 / proposed_id: design-01 / title: 카드뉴스 미감 업그레이드 / priority: medium / target_agent: workflow-master / projects: content,card-news,design-system / task_type: design-audit / topics: card-news,visual-system,library
-  - goal: 카드뉴스 산출물의 미감을 한 단계 올리기 위해 최근 카드뉴스 결과물과 제작 파이프라인을 감사하고, 앞으로 반복 적용할 시각 기준과 샘플 개선안을 만든다.
-  - context: 사용자 선호는 실사진 기반 첫 장, `keyword-title` 기반 카드 1 제목, 과한 반투명 텍스트 패널 금지, crop/zoom/그라데이션/비네트/빈 공간 확보 우선, news-mode 6번째 고정 CTA 보존이다.
-  - success_criteria: 최근 카드뉴스 3-5세트의 시각 실패 패턴을 뽑고, 커버 구성/타이포/텍스트 안전영역/사진 선택/CTA/라이브러리 등록 기준을 5-7개 실행 규칙으로 정리하며, 최소 1개 샘플 카드나 preview를 모바일 기준으로 검증한다.
-  - constraints: 공개 라이브러리 대량 재렌더, 기존 산출물 일괄 교체, 외부 비용, 공개 배포, 사용자 이미지 라이브러리의 임의 생성 이미지 대체는 별도 승인 전에는 하지 않는다.
-  - first_action: 최근 카드뉴스 결과물과 `skills/insight-card-maker`, card-news library 데이터를 읽고 미감 저하 원인 5개를 먼저 압축한다.
-
-- 2026-07-02T00:52+09:00 / proposed_id: design-02 / title: 카드뉴스 첫페이지 후킹 개선 실험 / priority: high / target_agent: workflow-master / projects: content,card-news,design-system / task_type: experiment / topics: card-news,hook,cover
-  - schedule_window: 2026-07-02 05:00-08:00 KST.
-  - goal: 카드뉴스 첫 페이지가 스크롤을 멈추게 하는 힘을 높이기 위해 제목/이미지/여백/첫 문장 조합을 실험하고, 실험 결과와 다음 개선사항을 남긴다.
-  - context: `design-01`의 미감 개선 과제 중 첫 페이지 hook만 분리한 실행 과제다. 카드 1 제목은 `keyword-title` 기준을 통과해야 하며, 첫 장은 기존 업로드 실사진을 우선 사용한다.
-  - experiment_plan: 최근 카드뉴스 3-5세트의 첫 페이지를 기준 샘플로 삼고, hook 가설 3개 이상과 개선 후보 3개 이상을 만든 뒤, 가독성/호기심/주제 명료성/브랜드 결/모바일 안전영역 기준으로 비교한다.
-  - success_criteria: 실험 결과 요약, 이긴 hook 원칙, 버린 원칙, 다음 카드뉴스에 바로 적용할 개선안 3개, 필요 시 샘플 preview 1개를 `reports/design-02/`에 남긴다.
-  - constraints: 2026-07-02 08:00 KST 전에 작업을 닫는다. 승인 없이 공개 라이브러리 배포, 기존 카드뉴스 교체, 대량 재생성, 외부 비용, 사용자 이미지의 임의 생성 이미지 대체는 하지 않는다.
-  - first_action: 기존 카드뉴스 첫 페이지 3-5개를 골라 `왜 멈추지 않는지 / 왜 읽히는지`를 한 줄씩 판독한다.
-
 ## Active
+
+### design-01 · 카드뉴스 미감 업그레이드
+- id: design-01
+- status: in_progress
+- priority: medium
+- target_agent: workflow-master
+- projects: content, card-news, design-system
+- task_type: design-audit
+- topics: card-news, visual-system, library
+- goal: 카드뉴스 산출물의 미감을 한 단계 올리기 위해 최근 카드뉴스 결과물과 제작 파이프라인을 감사하고, 앞으로 반복 적용할 시각 기준과 샘플 개선안을 만든다.
+- next_action: 로컬에서 `skills/insight-card-maker` 출력물로 cloud prepare 가설(5개 실패 패턴, 7개 실행 규칙)을 검증하고 샘플 preview 1개를 모바일 기준으로 작성한다.
+- prepare_report: reports/design-01/2026-07-01T0100Z.html
+- constraints: 공개 라이브러리 대량 재렌더, 기존 산출물 일괄 교체, 외부 비용, 공개 배포, 사용자 이미지 라이브러리의 임의 생성 이미지 대체는 별도 승인 전에는 하지 않는다.
+
+### design-02 · 카드뉴스 첫페이지 후킹 개선 실험
+- id: design-02
+- status: active
+- priority: high
+- target_agent: workflow-master
+- schedule_window: 2026-07-02 05:00-08:00 KST
+- projects: content, card-news, design-system
+- task_type: design
+- topics: card-news, hook, cover
+- goal: 카드뉴스 첫 페이지가 스크롤을 멈추게 하는 힘을 높이기 위해 제목/이미지/여백/첫 문장 조합을 실험하고, 실험 결과와 다음 개선사항을 남긴다.
+- next_action: 2026-07-02 05:00 KST 이후 실행. 최근 카드뉴스 첫 페이지 3-5개를 골라 `왜 멈추지 않는지 / 왜 읽히는지`를 판독한다.
+- constraints: 2026-07-02 08:00 KST 전에 작업을 닫는다. 승인 없이 공개 라이브러리 배포, 기존 카드뉴스 교체, 대량 재생성, 외부 비용, 사용자 이미지의 임의 생성 이미지 대체는 하지 않는다.
 
 ## Waiting
 
@@ -33,43 +43,42 @@
 <!-- marketing-94 completed 2026-06-30T1007Z -> intents/archive/marketing-94.md [projects: virtue,infinity; type: strategy; topics: marketing,activation,product,session-replay] (`marketing-87` 4분류를 유지한 채 pass-vs-hold 비교용 보조 문서 1장을 추가해, `judged but not saved`를 자동 실패로 읽지 않고 양쪽 세션에 반복되는 마찰만 다음 수정 후보로 올리는 규칙을 고정했다. HTML report gate passed.) -->
 <!-- marketing-93 completed 2026-06-29T2207Z -> intents/archive/marketing-93.md [projects: virtue,infinity; type: strategy; topics: marketing,activation,product] (현재 홈·`/add`·반환 표면 언어를 J1~J4 기준으로 판독해, 지금 가장 잘 맞는 행복한 첫 사용자는 J1 기록형 중심이고 J2 누적형이 보조라는 기준표를 고정했다. HTML report gate passed.) -->
 <!-- marketing-92 completed 2026-06-29T1829Z -> intents/archive/marketing-92.md [projects: virtue,infinity; type: implementation; topics: marketing,activation,retention] (홈 최근 덕행 empty-state를 `stats.count`와 `recent.length`로 분리해 복귀 사용자의 first-visit 카피 재노출을 막고, typecheck 통과·기존 lint warning만 확인했다.) -->
-
 <!-- 이 섹션의 상세 이력은 2026-06-17T10:24Z Heartbeat 과정에서 INTENTS.md 갱신 중 일시 유실됨. 개별 intent 원장은 intents/archive/*.md 에 모두 보존되어 있음. -->
 <!-- research-24 completed 2026-06-29T0600Z → intents/archive/research-24.md (capture·claim·open_loop 3필드 경계를 "있었던 것 / 내린 것 / 모르는 것"으로 고정하고 회고·Threads·카드뉴스 산출물 연결 규칙을 1장으로 정리했다.) -->
 <!-- marketing-91 completed 2026-06-28T2229Z → intents/archive/marketing-91.md [projects: virtue, infinity; type: strategy; topics: marketing, activation, product] (기존 이벤트 조합과 홈 반환 사례를 `정상 진행 / 자연 종료 / 마찰 / 상태 모순` 4개 상태 언어로 고정했다.) -->
 <!-- marketing-90 completed 2026-06-28T1007Z → intents/archive/marketing-90.md [projects: virtue, infinity; type: strategy; topics: marketing, activation, product] (Virtue 첫 세션을 진입 약속, 입력 기대, 반환 일관성의 3게이트로 압축했고 현재 우선 보수 대상은 gate 3 반환 일관성으로 고정했다. HTML report gate passed.) -->
 <!-- marketing-89 completed 2026-06-27T2236Z → intents/archive/marketing-89.md [projects: virtue, infinity; type: strategy; topics: marketing, activation, product] (Virtue 홈 반환 상태에서 `stats.total`, `stats.count`, `recent.length`의 계약과 empty-state 허용/금지 조건을 1장으로 고정했다.) -->
-<!-- marketing-88 completed 2026-06-27T1007Z → intents/archive/marketing-88.md [projects: virtue, infinity; type: strategy; topics: marketing, activation, product] (라이브 홈, 로컬 홈 코드, 최근 canonical 제안서를 대조해 반환 세션 state drift를 한 장으로 정리했다. 핵심은 `612덕` retained proof와 `아직 기록이 없어요` 계열 empty-state의 동시 노출이며, 다음 조치는 copy 추가가 아니라 home return-state gating 구현/검증 1조각이다. HTML report gate passed.) -->
-<!-- marketing-87 completed 2026-06-26T222904Z → intents/archive/marketing-87.md [projects: virtue, infinity; type: strategy; topics: marketing, activation, product] (기존 `/add` 이벤트와 replay 관찰 질문을 묶어 첫 10~15세션을 공통 UX 마찰, J3 자연 종료, 조용한 실패, 다음 행동 불명확의 4분류로 읽는 1장 판독표 완성. production/tracking/privacy/public copy/deploy/external cost 변경 0. HTML report gate passed.) -->
+<!-- marketing-88 completed 2026-06-27T1007Z → intents/archive/marketing-88.md [projects: virtue, infinity; type: strategy; topics: marketing, activation, product] (라이브 홈, 로컬 홈 코드, 최근 canonical 제안서를 대조해 반환 세션 state drift를 한 장으로 정리했다. HTML report gate passed.) -->
+<!-- marketing-87 completed 2026-06-26T222904Z → intents/archive/marketing-87.md [projects: virtue, infinity; type: strategy; topics: marketing, activation, product] (기존 `/add` 이벤트와 replay 관찰 질문을 묶어 첫 10~15세션을 공통 UX 마찰, J3 자연 종료, 조용한 실패, 다음 행동 불명확의 4분류로 읽는 1장 판독표 완성. HTML report gate passed.) -->
 <!-- marketing-86 completed 2026-06-26T10:28Z → intents/archive/marketing-86.md [projects: virtue, infinity; type: strategy; topics: marketing, activation, product] (J1/J2/J4는 홈 최근 덕행, J3는 결과 카드를 primary surface로 삼는 next action helper proposal 완료) -->
-<!-- marketing-85 completed 2026-06-25T220708Z → intents/archive/marketing-85.md [projects: virtue; type: strategy; topics: marketing,activation,prelaunch,observation] (첫 10명 관찰표 `다음 행동 명료성` 질문 보강 완료. `artifacts/marketing-47`에 세션 직후 4번째 질문과 잡별 읽기 규칙을, `artifacts/marketing-60`에 `next_action_spoken`/`normal_stop_vs_confusion` 수기 판독 축을 추가. J3 무저장 정상 종료 경계 유지. production/tracking/privacy/public copy/deploy/external cost 변경 0. HTML report gate passed.) -->
-<!-- marketing-84 completed 2026-06-25T1028Z → intents/archive/marketing-84.md [projects: virtue; type: strategy; topics: marketing,activation,retention] (첫 가치 다음의 next-step bridge 감사표/제안서 완료. J1/J2/J4의 canonical return surface는 홈 `최근 덕행`, J3는 `/add` 결과 카드로 구분. confirmation + next-step 1줄 proposal-only 제안 정리. production/tracking/privacy/public copy/deploy/external cost 변경 0. HTML report gate passed.) -->
+<!-- marketing-85 completed 2026-06-25T220708Z → intents/archive/marketing-85.md [projects: virtue; type: strategy; topics: marketing,activation,prelaunch,observation] (첫 10명 관찰표 `다음 행동 명료성` 질문 보강 완료. HTML report gate passed.) -->
+<!-- marketing-84 completed 2026-06-25T1028Z → intents/archive/marketing-84.md [projects: virtue; type: strategy; topics: marketing,activation,retention] (첫 가치 다음의 next-step bridge 감사표/제안서 완료. HTML report gate passed.) -->
 <!-- research-21 completed 2026-06-25T0507Z → intents/archive/research-21.md [projects: infinity,research-bank,personal-ops; type: research; topics: workflow,content] (6개 사례를 기록 방식·정리 방식·검증 방식·출판 변환 방식으로 비교해, Infinity용 일일 3줄·주간 3묶음·월간 1산출물 루프를 제안했다. HTML report gate passed.) -->
-<!-- marketing-82 completed 2026-06-24T2308Z → intents/archive/marketing-82.md [projects: virtue; type: implementation; topics: marketing,activation,product] (Virtue 홈 첫 방문 zero-state를 랜딩형으로 재구성해 첫 가치와 다음 행동을 같은 화면에서 바로 읽히게 했다. `apps/web/src/app/page.tsx` 한 파일만 수정했고 lint는 기존 경고 4건만 보고.) -->
-<!-- marketing-83 completed 2026-06-24T2300Z → intents/archive/marketing-83.md [projects: virtue; type: strategy; topics: marketing,activation,onboarding,empty-state] (홈 반환형 empty-state gating 정렬 제안서 완료. 3표면별 J1-J4 gating 규칙과 반환형 문장 후보를 proposal-only 1장 비교 문서로 정리. 핵심 발견: 최근 덕행 섹션이 전체 이력 0건과 오늘 이력 0건을 구분하지 않는 것이 충돌 원인. J3는 deed_judged gate, J1/J2/J4는 deed_saved gate로 별도 분기. production/tracking/privacy/public copy/deploy/external cost 변경 0. HTML report gate passed.) -->
-<!-- research-23 completed 2026-06-24T2055Z → intents/archive/research-23.md [projects: infinity,research-bank,world-models; type: research; topics: military,workflow,knowledge-management] (미군 TTP 학습 루프 심화 완료. 핵심은 AAR→CALL/JLLIS→SOP/TTP→훈련 검증→교리·교육 반영의 폐쇄 루프. HTML report gate passed.) -->
-<!-- marketing-81 completed 2026-06-24T1007Z → intents/archive/marketing-81.md [projects: virtue; type: strategy; topics: marketing,activation,retention] (첫 저장/첫 판단 뒤 홈 복귀 secondary onboarding 감사표 완료. 핵심 결론은 새 교육보다 next-step bridge가 우선이며, 가장 위험한 충돌은 누적/요약 신호와 `아직 기록이 없어요.` empty-state가 같은 반환 세션에서 함께 보이는 상태. production/tracking/privacy/deploy/external message 변경 0. HTML report gate passed.) -->
-<!-- research-22 completed 2026-06-24T0800Z → intents/archive/research-22.md (6단계 운영표·도구 비교·현실 루프 완료. 소스 코퍼스 사전 정의+최소 정보 단위(URL·날짜·판단메모) 유지가 핵심. HTML report gate passed.) -->
-<!-- build-13 completed 2026-06-24T0050Z → intents/archive/build-13.md [projects: afzma,infinity,app-api-verification; type: implementation-verification; topics: hospital-api,api-flow,app-verification] (로컬 shdkej/afzma read-only 검증 완료. UI→/api/chat·/api/history→controller→MedicalService→HIRA 병원 API 경로는 코드상 연결됨. HIRA_API_KEY 없음/오류/빈 응답 시 mock 병원 폴백. 실제 HIRA 네트워크 호출은 키·외부 API 경계 때문에 미실행. Claude Code는 401 인증 오류로 차단되어 SAM이 로컬 검증 수행. HTML report gate passed.) -->
-<!-- marketing-80 completed 2026-06-23T2207Z → intents/archive/marketing-80.md [projects: virtue; type: strategy; topics: marketing,activation,product,feedback-consistency] (홈 요약 카드·`최근 덕행`·`/add` 결과·저장 후 복귀 지점을 J1-J4 기준으로 감사표로 정리. 결론은 요약 신호와 `아직 비어있어요` empty-state 공존이 첫 저장 이후 신뢰를 깎을 수 있으며, safest next step은 홈 empty-state gating 정렬. production/tracking/privacy/public message/code deploy/external cost 변경 0. HTML report gate passed.) -->
-<!-- marketing-79 completed 2026-06-23T1000Z → intents/archive/marketing-79.md [projects: virtue; type: strategy; topics: marketing,activation,prelaunch] (첫 10명 활성화 1장 관찰표 초안 완성. 홈진입·/add·deed_judged·deed_saved·D1 재방문 5체크포인트 포함. J1/J2/J4=deed_saved·J3=deed_judged 기존 정의 충돌 0. HTML report gate passed.) -->
-<!-- marketing-78 completed 2026-06-22T1700Z → intents/archive/marketing-78.md [projects: virtue; type: strategy; topics: marketing,activation,product] (홈 `최근 덕행` empty state 3요소 비교 완료. ghost sample card 1장(Option B)이 결과 예시 가시성 갭 해소 최우선 추천안. 한 줄 보조문구(Option A)가 보수적 차선. 구현은 approval-needed. 기존 archive 충돌 0. HTML report gate passed.) -->
-<!-- marketing-77 completed 2026-06-22T1431Z → intents/archive/marketing-77.md [projects: virtue; type: strategy; topics: marketing,activation,product,ui-copy] (`/add` 기대 브리지 1줄 + 결과 카드 footer 안내 1줄 구현 완료. diff는 apps/web/src/app/add/page.tsx 한 파일에 제한. typecheck 통과, lint는 기존 경고 4건만 보고. tracking/privacy/external/cost/credential/deploy 변경 0.) -->
-<!-- marketing-76 completed 2026-06-22T1029Z → intents/archive/marketing-76.md [projects: virtue; type: strategy; topics: marketing,activation,product,in-app-guidance] (`/add`·결과 카드·홈 empty state 맥락형 안내 감사표 완료. Gate yes/no 판정은 `/add` Yes, 결과 카드 Yes, 홈 empty state No. production/tracking/privacy/public copy/deploy/external message/cost 변경 0. HTML report gate passed.) -->
-<!-- marketing-75 completed 2026-06-22T1029Z → intents/archive/marketing-75.md [projects: virtue; type: strategy; topics: marketing,activation,launch-communication,product] (Tier 1-4 변경 등급표와 권장 안내 표면 맵 완료. `/add`·결과 카드·홈 empty state를 각각 Tier 3/3/2로 분류하고 marketing-71/73/74 연결 예시 3개 정리. production/tracking/privacy/public copy/deploy/external message/cost 변경 0. HTML report gate passed.) -->
-<!-- marketing-74 completed 2026-06-22T0600Z → intents/archive/marketing-74.md [projects: virtue; type: strategy; topics: marketing,activation,product,onboarding] (/add 입력 전 기대 형성 3안 비교 완료. Option B(sample 결과 1줄)가 J3 hesitation 해소 최우선 추천안. J4 경계 문구는 결과 카드 footer 배치 권고. 구현은 approval-needed. HTML report gate passed.) -->
-<!-- research-20 completed 2026-06-21T1200Z → intents/archive/research-20.md (강의/교육 퍼널 제외 국내 1인 브랜드 10선 재조사 완료. 취향·미감·공간·독립출판 기반 경로 다양성 입증. 10개 모두 강의 핵심 수익 아님. HTML report gate passed.) -->
-<!-- research-19 completed 2026-06-21T0720Z → intents/archive/research-19.md (드로우앤드류·자청 제외 국내 1인 브랜드 10선 분석 완료. 공통 패턴: 무료 콘텐츠→신뢰→유료 교육/커뮤니티/상품 전환 퍼널. 마스터 1순위: 자기 성과 기반 지식 강의 실험. HTML report gate passed.) -->
-<!-- marketing-73 completed 2026-06-21T0700Z → intents/archive/marketing-73.md [projects: virtue; type: strategy; topics: marketing,activation,product] (J3 AI 브리지 3안 비교 완료. Option C(빈 상태 ghost AI 결과 카드)가 J3 기대 강화 최대·J1/J4 훼손 최소 추천안. Option B(CTA 보조 힌트)가 가장 보수적 차선. 구현은 approval-needed. HTML report gate passed.) -->
-<!-- marketing-72 completed 2026-06-20T2218Z → intents/archive/marketing-72.md [display: Virtue First-Session Intent Hint Compare; projects: virtue; type: strategy; topics: activation,marketing,product] (L1 docs-only 비교 문서 완료. `가장 먼저 받고 싶은 가치` 질문 프레임을 추천안으로 두고, 한국어 선택지 4개, J1-J4 임시 매핑, 질문 후 hero/CTA/proof surface 분기 원칙을 1개 문서로 정리. production/tracking/privacy/public copy/deploy/external message/cost 변경 0. HTML report gate passed.) -->
-<!-- research-18 completed 2026-06-20T1200Z → intents/archive/research-18.md [display: 자동화 시스템 신뢰성 강화 리서치; projects: infinity,research-bank,personal-ops; type: research; topics: automation,reliability,operations] (6개 실패 패턴 분류·5개 설계 원칙·3단계 점진적 하드닝 프레임워크 정리. 개인은 관측성+멱등성+수동우회 3단계, 팀/서비스는 Runbook·Circuit Breaker까지 추가. HTML report gate passed.) -->
-<!-- marketing-71 completed 2026-06-20T1108Z → intents/archive/marketing-71.md [display: Virtue Seeded Proof Proposal Compare; projects: virtue; type: strategy; topics: activation,onboarding,proof,prelaunch] (L1 docs-only 비교 문서 완료. `proof 없음 / 단일 샘플 카드 / 누적 카드 스택` 3안 비교표와 J1-J4 오해 위험, approval-needed 구현 메모를 1개 문서로 정리. 결론은 sample/preview 표식이 있는 누적 카드 스택이 가장 안전한 proposal-only 기본안. production/tracking/privacy/public copy/deploy/external message/cost 변경 0. HTML report gate passed.) -->
-<!-- research-17 completed 2026-06-20T0700Z → intents/archive/research-17.md [display: 미군 연구 시스템 구조 리서치; projects: infinity,research-bank,world-models; type: research; topics: military,research-system,innovation,doctrine,training] (미군의 강점은 연구 능력 자체가 아니라 연구→교리→훈련→실전→AAR 피드백 루프의 제도화. DARPA PM 계약직 모델, PME 지속교육, AAR 의무화, 워게임·레드팀 구조 분석. 반례: F-35 조달관료제/IT 레거시/성공편향. 개인 적용 원칙 6개: AAR+TTP변환+실험분리+레드팀+빠른피드백+Mission Command. HTML report gate passed.) -->
-<!-- marketing-70 completed 2026-06-19T22:07Z → intents/archive/marketing-70.md [display: Virtue Empty-State Proof Audit; projects: virtue; type: strategy; topics: activation,empty-state,marketing] (라이브 홈 `최근 덕행` empty state를 read-only 캡처해 gap 3개와 J1-J4 seeded proof 감사표를 문서화. 결론은 CTA 부족보다 proof preview 부족이 핵심이며, safest next step은 ghost/sample 구조의 proposal-only 비교안이다. production/tracking/privacy/public copy/deploy/external message 변경 0. HTML report gate passed.) -->
-<!-- marketing-69 completed 2026-06-19T10:07Z → intents/archive/marketing-69.md [display: Virtue Agent Readiness Baseline; projects: virtue; type: strategy; topics: ai-agents,agentic-web,discoverability,trust,prelaunch] (Virtue public URL read-only baseline completed. HTML report gate passed.) -->
-<!-- marketing-68 completed 2026-06-19T0000Z → intents/archive/marketing-68.md [display: Virtue Agent-Readable Surface Audit; projects: virtue; type: strategy; topics: ai-agents,agentic-web,trust,discoverability,prelaunch] (public/repo-readable 4개 표면 × 5축 감사표 완성. L1 docs-only. HTML report gate passed.) -->
-<!-- marketing-67 completed 2026-06-18T12:07Z → intents/archive/marketing-67.md [display: Virtue AI Authorization Boundary Table; projects: virtue; type: strategy; topics: ai-agents,trust,authorization,prelaunch] (J1-J4별 authorization boundary table 완성. HTML report gate 통과.) -->
-<!-- build-12 completed 2026-06-18T11:57Z → intents/archive/build-12.md [projects: personal-ops,infinity,design-system; type: implementation; topics: 3d-background,interactive-character,skill] (Option D pre-rendered+CSS parallax 구현 완료. space@64049a5 배포·라이브 검증.) -->
+<!-- marketing-82 completed 2026-06-24T2308Z → intents/archive/marketing-82.md [projects: virtue; type: implementation; topics: marketing,activation,product] (Virtue 홈 첫 방문 zero-state를 랜딩형으로 재구성해 첫 가치와 다음 행동을 같은 화면에서 바로 읽히게 했다.) -->
+<!-- marketing-83 completed 2026-06-24T2300Z → intents/archive/marketing-83.md [projects: virtue; type: strategy; topics: marketing,activation,onboarding,empty-state] (홈 반환형 empty-state gating 정렬 제안서 완료. HTML report gate passed.) -->
+<!-- research-23 completed 2026-06-24T2055Z → intents/archive/research-23.md [projects: infinity,research-bank,world-models; type: research; topics: military,workflow,knowledge-management] (미군 TTP 학습 루프 심화 완료. HTML report gate passed.) -->
+<!-- marketing-81 completed 2026-06-24T1007Z → intents/archive/marketing-81.md [projects: virtue; type: strategy; topics: marketing,activation,retention] (첫 저장/첫 판단 뒤 홈 복귀 secondary onboarding 감사표 완료. HTML report gate passed.) -->
+<!-- research-22 completed 2026-06-24T0800Z → intents/archive/research-22.md (6단계 운영표·도구 비교·현실 루프 완료. HTML report gate passed.) -->
+<!-- build-13 completed 2026-06-24T0050Z → intents/archive/build-13.md [projects: afzma,infinity,app-api-verification; type: implementation-verification; topics: hospital-api,api-flow,app-verification] (로컬 shdkej/afzma read-only 검증 완료. HTML report gate passed.) -->
+<!-- marketing-80 completed 2026-06-23T2207Z → intents/archive/marketing-80.md [projects: virtue; type: strategy; topics: marketing,activation,product,feedback-consistency] (홈 요약 카드·`최근 덕행`·`/add` 결과·저장 후 복귀 지점을 J1-J4 기준으로 감사표로 정리. HTML report gate passed.) -->
+<!-- marketing-79 completed 2026-06-23T1000Z → intents/archive/marketing-79.md [projects: virtue; type: strategy; topics: marketing,activation,prelaunch] (첫 10명 활성화 1장 관찰표 초안 완성. HTML report gate passed.) -->
+<!-- marketing-78 completed 2026-06-22T1700Z → intents/archive/marketing-78.md [projects: virtue; type: strategy; topics: marketing,activation,product] (홈 `최근 덕행` empty state 3요소 비교 완료. HTML report gate passed.) -->
+<!-- marketing-77 completed 2026-06-22T1431Z → intents/archive/marketing-77.md [projects: virtue; type: strategy; topics: marketing,activation,product,ui-copy] (`/add` 기대 브리지 1줄 + 결과 카드 footer 안내 1줄 구현 완료.) -->
+<!-- marketing-76 completed 2026-06-22T1029Z → intents/archive/marketing-76.md [projects: virtue; type: strategy; topics: marketing,activation,product,in-app-guidance] (`/add`·결과 카드·홈 empty state 맥락형 안내 감사표 완료. HTML report gate passed.) -->
+<!-- marketing-75 completed 2026-06-22T1029Z → intents/archive/marketing-75.md [projects: virtue; type: strategy; topics: marketing,activation,launch-communication,product] (Tier 1-4 변경 등급표와 권장 안내 표면 맵 완료. HTML report gate passed.) -->
+<!-- marketing-74 completed 2026-06-22T0600Z → intents/archive/marketing-74.md [projects: virtue; type: strategy; topics: marketing,activation,product,onboarding] (/add 입력 전 기대 형성 3안 비교 완료. HTML report gate passed.) -->
+<!-- research-20 completed 2026-06-21T1200Z → intents/archive/research-20.md (강의/교육 퍼널 제외 국내 1인 브랜드 10선 재조사 완료. HTML report gate passed.) -->
+<!-- research-19 completed 2026-06-21T0720Z → intents/archive/research-19.md (드로우앤드류·자청 제외 국내 1인 브랜드 10선 분석 완료. HTML report gate passed.) -->
+<!-- marketing-73 completed 2026-06-21T0700Z → intents/archive/marketing-73.md [projects: virtue; type: strategy; topics: marketing,activation,product] (J3 AI 브리지 3안 비교 완료. HTML report gate passed.) -->
+<!-- marketing-72 completed 2026-06-20T2218Z → intents/archive/marketing-72.md [display: Virtue First-Session Intent Hint Compare; projects: virtue; type: strategy; topics: activation,marketing,product] (HTML report gate passed.) -->
+<!-- research-18 completed 2026-06-20T1200Z → intents/archive/research-18.md [display: 자동화 시스템 신뢰성 강화 리서치; projects: infinity,research-bank,personal-ops; type: research; topics: automation,reliability,operations] (HTML report gate passed.) -->
+<!-- marketing-71 completed 2026-06-20T1108Z → intents/archive/marketing-71.md [display: Virtue Seeded Proof Proposal Compare; projects: virtue; type: strategy; topics: activation,onboarding,proof,prelaunch] (HTML report gate passed.) -->
+<!-- research-17 completed 2026-06-20T0700Z → intents/archive/research-17.md [display: 미군 연구 시스템 구조 리서치; projects: infinity,research-bank,world-models; type: research; topics: military,research-system,innovation,doctrine,training] (HTML report gate passed.) -->
+<!-- marketing-70 completed 2026-06-19T22:07Z → intents/archive/marketing-70.md [display: Virtue Empty-State Proof Audit; projects: virtue; type: strategy; topics: activation,empty-state,marketing] (HTML report gate passed.) -->
+<!-- marketing-69 completed 2026-06-19T10:07Z → intents/archive/marketing-69.md [display: Virtue Agent Readiness Baseline; projects: virtue; type: strategy; topics: ai-agents,agentic-web,discoverability,trust,prelaunch] (HTML report gate passed.) -->
+<!-- marketing-68 completed 2026-06-19T0000Z → intents/archive/marketing-68.md [display: Virtue Agent-Readable Surface Audit; projects: virtue; type: strategy; topics: ai-agents,agentic-web,trust,discoverability,prelaunch] (HTML report gate passed.) -->
+<!-- marketing-67 completed 2026-06-18T12:07Z → intents/archive/marketing-67.md [display: Virtue AI Authorization Boundary Table; projects: virtue; type: strategy; topics: ai-agents,trust,authorization,prelaunch] (HTML report gate 통과.) -->
+<!-- build-12 completed 2026-06-18T11:57Z → intents/archive/build-12.md [projects: personal-ops,infinity,design-system; type: implementation; topics: 3d-background,interactive-character,skill] (Option D pre-rendered+CSS parallax 구현 완료.) -->
 <!-- research-16 completed 2026-06-18T08:00Z → intents/archive/research-16.md (SAM YouTube parse 기반 CharacterStage 구현 옵션 재비교 완료.) -->
 <!-- research-15 completed 2026-06-18T07:00Z → intents/archive/research-15.md [display: 3D Interactive Character Background Feasibility; projects: personal-ops,infinity,design-system; type: research; topics: 3d-background,interactive-character,threejs,design-system] -->
 <!-- marketing-66 completed 2026-06-17T22:07Z → intents/archive/marketing-66.md [display: Virtue Agentic Context Map; projects: virtue; type: strategy; topics: agentic-plg,positioning,activation,prelaunch] -->
