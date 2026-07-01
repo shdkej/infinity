@@ -4,15 +4,6 @@
 
 ## Inbox
 
-- `marketing-96` Virtue 프리런치 추천 언어 관찰표 보강
-  - source note: `source/external-links/marketing/2026-07-01-reference-user-language-before-channel-scale.md`
-  - rationale: 채널 확장 전 단계에서 필요한 것은 방문 수 판정이 아니라, 첫 사용자가 누구에게 어떤 한 줄로 Virtue를 소개하는지와 왜 추천을 망설이는지의 원문 수집이다.
-  - expected impact: 첫 5명 관찰만으로도 landing/초대 카피 후보의 실제 사용자 언어를 확보하고, 공유성 판단을 저장 여부와 분리해 읽기 쉬워진다.
-  - permission level: L1 문서 작업
-  - owner route: Infinity -> SAM -> Claude Code
-  - success criteria: 기존 실사용 관찰표 또는 인접 관찰 문서에 추천 언어 2필드가 추가되고, J1~J4 해석 충돌 없이 기록 예시 1세트가 함께 남는다.
-  - first verification gate: 제품 코드/계측 변경 없이 문서 diff만으로 필드 추가가 확인되고, 첫 실사용 원장과 충돌 여부를 수기 점검한다.
-
 ## Active
 
 ## Waiting
@@ -21,6 +12,7 @@
 <!-- marketing-95 waiting 2026-06-30T2200Z -> intents/waiting/marketing-95.md [projects: virtue,infinity; type: verification; topics: marketing,activation,deploy,return-state] (marketing-92 로컬 구현은 끝났지만 2026-06-30 22:00 UTC 라이브 홈 HTML에는 여전히 `612덕`와 첫 방문 카피, `첫 기록이 여기에 쌓여요.` empty-state가 함께 남아 있다. 앱 업데이트/배포 반영 전까지는 실패 재판정 대신 Waiting으로 유지하고, 배포 후 returning empty-state 분기 노출 여부만 다시 확인한다.) -->
 
 ## Archive
+<!-- marketing-96 completed 2026-07-01T1007Z → intents/archive/marketing-96.md [projects: virtue,infinity; type: implementation; topics: marketing,activation] (기존 `marketing-79` 관찰표에 붙여 쓰는 추천 언어 보강안을 추가해 `누구에게 뭐라고 소개하겠는가`와 `지금 추천을 망설이게 하는 이유` 2필드, 기록 규칙, J3 예시 1세트를 고정했다. HTML report gate passed.) -->
 <!-- naver-shopping-01 completed-first-pass 2026-07-01T0035Z → intents/archive/naver-shopping-01.md [display: 나래/Narae; projects: naver-shopping,infinity,personal-ops; type: coordination; topics: automation,workflow,marketing] (사용자 지시에 따라 나래 1차 작업 종료. 손목 스트랩 1순위 + 크로스바디/넥 폰 스트랩 2순위 샘플 검토 준비 상태를 보존하고, 명시적 재호출 전까지 alibaba.com 공급사 확인·샘플 주문 승인 요청·08:30/09:00 자동 루프를 중단한다.) -->
 <!-- marketing-94 completed 2026-06-30T1007Z -> intents/archive/marketing-94.md [projects: virtue,infinity; type: strategy; topics: marketing,activation,product,session-replay] (`marketing-87` 4분류를 유지한 채 pass-vs-hold 비교용 보조 문서 1장을 추가해, `judged but not saved`를 자동 실패로 읽지 않고 양쪽 세션에 반복되는 마찰만 다음 수정 후보로 올리는 규칙을 고정했다. HTML report gate passed.) -->
 <!-- marketing-93 completed 2026-06-29T2207Z -> intents/archive/marketing-93.md [projects: virtue,infinity; type: strategy; topics: marketing,activation,product] (현재 홈·`/add`·반환 표면 언어를 J1~J4 기준으로 판독해, 지금 가장 잘 맞는 행복한 첫 사용자는 J1 기록형 중심이고 J2 누적형이 보조라는 기준표를 고정했다. HTML report gate passed.) -->
