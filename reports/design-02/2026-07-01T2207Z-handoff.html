@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>design-02 handoff</title>
+<style>
+  :root{
+    --bg:#f4f2ea; --panel:#fbfaf5; --ink:#2c2a25; --soft:#807c70; --faint:#a8a496; --line:#e3dfd2;
+    --a2:#5f7a5e; --a2-deep:#3f5740;
+    --a1:#5a6f8a; --a1-deep:#3f536e;
+    --sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0; width:100%; max-width:100%; overflow-x:hidden;}
+  body{background:var(--bg); color:var(--ink); font-family:var(--sans); font-size:14px; line-height:1.68; -webkit-font-smoothing:antialiased;}
+  .sheet{width:min(100%,720px); max-width:720px; margin:0 auto; padding:32px 18px 40px;}
+  .eyebrow,.section-title,.chip,summary{font-family:var(--mono);}
+  .eyebrow{display:flex; align-items:center; gap:10px; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--soft); flex-wrap:wrap;}
+  .eyebrow .id,.eyebrow .status{color:var(--a2-deep); font-weight:600;}
+  .dot{width:5px; height:5px; border-radius:50%; background:var(--a2);}
+  h1{font-size:clamp(24px,7vw,29px); line-height:1.3; margin:20px 0 0;}
+  .dek{font-size:15.5px; color:var(--soft); margin:13px 0 0; max-width:52ch;}
+  .hr{height:1px; background:var(--line); margin:30px 0;}
+  .axis{padding:0 0 4px 18px; position:relative; margin-bottom:26px;}
+  .axis::before{content:""; position:absolute; left:0; top:6px; bottom:6px; width:2px; border-radius:2px;}
+  .axis.ax1::before{background:var(--a1);} .axis.ax2::before{background:var(--a2);}
+  .label{font-size:11px; letter-spacing:.12em; text-transform:uppercase; margin-bottom:9px; color:var(--a1-deep);}
+  .ax2 .label{color:var(--a2-deep);}
+  .text{font-size:clamp(16px,4.4vw,18px); line-height:1.62; color:#37352e;}
+  details{border:1px solid var(--line); border-radius:8px; background:var(--panel); margin-bottom:10px; overflow:hidden;}
+  summary{cursor:pointer; list-style:none; padding:14px 16px; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft);}
+  .body{padding:2px 16px 18px;}
+  .section{margin:4px 0 18px;}
+  .section-title{font-size:10.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--a1-deep); margin:0 0 8px;}
+  ol.find{list-style:none; counter-reset:f; margin:16px 0 0; padding:0;}
+  ol.find li{position:relative; padding:8px 0 8px 26px; border-top:1px solid var(--line);}
+  ol.find li:first-child{border-top:none;}
+  ol.find li::before{counter-increment:f; content:counter(f); position:absolute; left:0; top:9px; font-family:var(--mono); font-size:12px; font-weight:600; color:var(--a1-deep);}
+  .callout{border-left:2px solid var(--a2); background:#f2efe5; padding:11px 13px; color:#4a473f; margin:12px 0 16px;}
+  .content-grid{display:grid; grid-template-columns:1fr; gap:10px; margin:10px 0;}
+  .mini-card{border:1px solid var(--line); background:#f8f6ef; border-radius:8px; padding:12px 13px;}
+  .mini-card b{display:block; margin-bottom:5px;}
+  .chips{display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px;}
+  .chip{font-size:10.5px; letter-spacing:.05em; color:var(--soft); border:1px solid var(--line); border-radius:999px; padding:3px 10px;}
+  code{font-family:var(--mono); font-size:12px; background:#edeae0; padding:1px 6px; border-radius:3px; color:var(--a2-deep);}
+  ul{padding-left:18px;}
+  .foot{margin-top:30px; padding-top:15px; border-top:1px solid var(--line); display:flex; flex-wrap:wrap; gap:6px 14px; justify-content:space-between; font-family:var(--mono); font-size:10px; letter-spacing:.13em; text-transform:uppercase; color:var(--faint);}
+ </style>
+</head>
+<body>
+<div class="sheet">
+  <div class="eyebrow">
+    <span class="dot"></span>
+    <span class="id">design-02</span>
+    <span>Research Note</span>
+    <span class="status">active handoff</span>
+  </div>
+  <h1>카드뉴스 첫페이지 후킹 개선 실험 로컬 실행 핸드오프</h1>
+  <p class="dek">스케줄 윈도우는 열렸지만, 이번 사이클은 Intent triage 범위를 넘는 원본 카드뉴스 탐색을 시작하지 않고 다음 실행자가 바로 검토할 입력과 판정축만 고정한다.</p>
+  <div class="hr"></div>
+
+  <div class="axis ax1">
+    <div class="label">01 무엇을 조사/정리했나</div>
+    <div class="text">Active <b>design-02</b>의 실행 조건과 성공 기준을 다시 확인하고, 다음 로컬 실행자가 처음 열어야 할 최근 카드뉴스 첫 페이지 묶음과 비교 기준을 손실 없이 넘길 수 있는 최소 핸드오프 범위를 정리했다.</div>
+  </div>
+
+  <div class="axis ax2">
+    <div class="label">02 핵심 결과</div>
+    <div class="text">이번 heartbeat는 구현·재생성 없이 <b>정확한 다음 스코프</b>를 남기는 것으로 종료한다. 다음 실행은 최근 카드뉴스 첫 페이지 3~5개만 열어 훅 판독, 가설 3개, 개선안 3개, 필요 시 preview 1개까지 한 번에 닫는 것을 검증 게이트로 삼는다.</div>
+  </div>
+
+  <details open>
+    <summary>핵심 내용 · 리서치 본문</summary>
+    <div class="body">
+      <div class="section">
+        <div class="section-title">핵심 발견</div>
+        <ol class="find">
+          <li>현재 원장만으로는 실제 비교 대상인 "최근 카드뉴스 3~5세트"의 파일 경로나 preview 산출 위치가 지정돼 있지 않아, 이 사이클에서 무작정 탐색을 시작하면 bounded triage를 넘기 쉽다.</li>
+          <li>success criteria는 실험 결과 요약, 이긴 hook 원칙, 즉시 적용할 개선안 3개, HTML report다. 따라서 다음 실행은 자료 수집보다 판독과 요약을 한 번에 끝내는 좁은 범위가 더 적합하다.</li>
+          <li>제약상 공개 배포, 기존 카드뉴스 교체, 대량 재생성, 외부 비용, 임의 생성 이미지 대체는 금지되므로 첫 실행은 로컬 파일 판독과 필요 시 preview 1개 생성까지만 허용된다.</li>
+        </ol>
+      </div>
+
+      <div class="callout">다음 실행자는 최근 카드뉴스 첫 페이지 후보를 찾는 즉시 범위를 3~5개로 고정하고, 판독 메모와 hook 비교를 같은 report 안에서 닫아야 한다. 새 intent 분기나 대량 탐색으로 확장하지 않는다.</div>
+
+      <div class="content-grid">
+        <div class="mini-card">
+          <b>근거 · 소스</b>
+          <p><code>INTENTS.md</code> Active 항목과 <code>intents/active/design-02.md</code>의 목표, schedule window, success criteria, 금지사항만 확인했다.</p>
+        </div>
+        <div class="mini-card">
+          <b>다음 판단</b>
+          <p>다음 로컬 실행에서 최근 카드뉴스 저장 위치가 즉시 확인되면 실험을 완료 보고까지 진행하고, 위치가 불명확하면 경로 후보와 필요한 확인 질문만 남긴 Waiting 또는 handoff로 닫는다.</p>
+        </div>
+      </div>
+    </div>
+  </details>
+
+  <details open>
+    <summary>다음 로컬 실행 범위</summary>
+    <div class="body">
+      <div class="section">
+        <div class="section-title">열 파일 / 확인 대상</div>
+        <ul>
+          <li>최근 카드뉴스 output 또는 preview가 모이는 디렉터리 1곳만 특정한다.</li>
+          <li>그 안에서 첫 페이지 비교에 충분한 3~5세트만 고른다.</li>
+          <li><code>design-01</code> 실행 규칙 문서가 바로 옆에 있으면 keyword-title과 모바일 안전영역 기준만 재사용한다.</li>
+        </ul>
+      </div>
+      <div class="section">
+        <div class="section-title">검증 게이트</div>
+        <ul>
+          <li>각 샘플마다 "왜 멈추지 않는지 / 왜 읽히는지" 한 줄 판독이 있어야 한다.</li>
+          <li>hook 가설 3개 이상이 제목, 이미지 구도, 첫 문장 조합 축으로 분리돼야 한다.</li>
+          <li>개선안 3개는 가독성, 호기심, 주제 명료성, 브랜드 결, 모바일 안전영역 기준으로 비교돼야 한다.</li>
+          <li>최종 HTML report는 <code>reports/design-02/{timestamp}.html</code>에 남기고, 필요 시 preview 1개만 추가한다.</li>
+        </ul>
+      </div>
+      <div class="section">
+        <div class="section-title">금지사항</div>
+        <ul>
+          <li>공개 라이브러리 배포, 기존 카드뉴스 교체, 대량 재생성 금지</li>
+          <li>외부 비용 발생 작업, 외부 계정 연결, 임의 생성 이미지 대체 금지</li>
+          <li>비교 대상 탐색을 repo-wide audit로 키우지 말 것</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details>
+    <summary>실행 메타 · 산출물</summary>
+    <div class="body">
+      <div class="chips">
+        <span class="chip">2026-07-01T2207Z</span>
+        <span class="chip">cron heartbeat</span>
+        <span class="chip">active → active</span>
+      </div>
+      <ul>
+        <li>산출물 <code>reports/design-02/2026-07-01T2207Z-handoff.html</code></li>
+      </ul>
+    </div>
+  </details>
+
+  <div class="foot">
+    <span>Agent-First Heartbeat</span>
+    <span>Infinity · Intent Note</span>
+  </div>
+</div>
+</body>
+</html>
