@@ -11,6 +11,15 @@
   - constraints: 공개 라이브러리 대량 재렌더, 기존 산출물 일괄 교체, 외부 비용, 공개 배포, 사용자 이미지 라이브러리의 임의 생성 이미지 대체는 별도 승인 전에는 하지 않는다.
   - first_action: 최근 카드뉴스 결과물과 `skills/insight-card-maker`, card-news library 데이터를 읽고 미감 저하 원인 5개를 먼저 압축한다.
 
+- 2026-07-02T00:52+09:00 / proposed_id: design-02 / title: 카드뉴스 첫페이지 후킹 개선 실험 / priority: high / target_agent: workflow-master / projects: content,card-news,design-system / task_type: experiment / topics: card-news,hook,cover
+  - schedule_window: 2026-07-03 05:00-08:00 KST.
+  - goal: 카드뉴스 첫 페이지가 스크롤을 멈추게 하는 힘을 높이기 위해 제목/이미지/여백/첫 문장 조합을 실험하고, 실험 결과와 다음 개선사항을 남긴다.
+  - context: `design-01`의 미감 개선 과제 중 첫 페이지 hook만 분리한 실행 과제다. 카드 1 제목은 `keyword-title` 기준을 통과해야 하며, 첫 장은 기존 업로드 실사진을 우선 사용한다.
+  - experiment_plan: 최근 카드뉴스 3-5세트의 첫 페이지를 기준 샘플로 삼고, hook 가설 3개 이상과 개선 후보 3개 이상을 만든 뒤, 가독성/호기심/주제 명료성/브랜드 결/모바일 안전영역 기준으로 비교한다.
+  - success_criteria: 실험 결과 요약, 이긴 hook 원칙, 버린 원칙, 다음 카드뉴스에 바로 적용할 개선안 3개, 필요 시 샘플 preview 1개를 `reports/design-02/`에 남긴다.
+  - constraints: 2026-07-03 08:00 KST 전에 작업을 닫는다. 승인 없이 공개 라이브러리 배포, 기존 카드뉴스 교체, 대량 재생성, 외부 비용, 사용자 이미지의 임의 생성 이미지 대체는 하지 않는다.
+  - first_action: 기존 카드뉴스 첫 페이지 3-5개를 골라 `왜 멈추지 않는지 / 왜 읽히는지`를 한 줄씩 판독한다.
+
 ## Active
 
 ## Waiting
