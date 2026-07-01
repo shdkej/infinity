@@ -4,6 +4,13 @@
 
 ## Inbox
 
+- 2026-07-02T00:48+09:00 / proposed_id: design-01 / title: 카드뉴스 미감 업그레이드 / priority: medium / target_agent: workflow-master / projects: content,card-news,design-system / task_type: design-audit / topics: card-news,visual-system,library
+  - goal: 카드뉴스 산출물의 미감을 한 단계 올리기 위해 최근 카드뉴스 결과물과 제작 파이프라인을 감사하고, 앞으로 반복 적용할 시각 기준과 샘플 개선안을 만든다.
+  - context: 사용자 선호는 실사진 기반 첫 장, `keyword-title` 기반 카드 1 제목, 과한 반투명 텍스트 패널 금지, crop/zoom/그라데이션/비네트/빈 공간 확보 우선, news-mode 6번째 고정 CTA 보존이다.
+  - success_criteria: 최근 카드뉴스 3-5세트의 시각 실패 패턴을 뽑고, 커버 구성/타이포/텍스트 안전영역/사진 선택/CTA/라이브러리 등록 기준을 5-7개 실행 규칙으로 정리하며, 최소 1개 샘플 카드나 preview를 모바일 기준으로 검증한다.
+  - constraints: 공개 라이브러리 대량 재렌더, 기존 산출물 일괄 교체, 외부 비용, 공개 배포, 사용자 이미지 라이브러리의 임의 생성 이미지 대체는 별도 승인 전에는 하지 않는다.
+  - first_action: 최근 카드뉴스 결과물과 `skills/insight-card-maker`, card-news library 데이터를 읽고 미감 저하 원인 5개를 먼저 압축한다.
+
 ## Active
 
 ## Waiting
