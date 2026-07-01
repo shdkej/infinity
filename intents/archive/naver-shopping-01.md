@@ -1,7 +1,7 @@
 # naver-shopping-01: 나래(Naver Shopping Agent) 운영/차단 라우팅
 
 - id: naver-shopping-01
-- status: waiting
+- status: completed-first-pass
 - projects: [naver-shopping, infinity, personal-ops]
 - task_type: coordination
 - topics: [automation, workflow, marketing]
@@ -10,7 +10,15 @@
 - source_agent: `/home/ubuntu/.openclaw/workspace/agents/naver-shopping-agent/`
 - created_at: 2026-06-07T23:24Z
 - updated_at: 2026-06-14T05:45Z
-- updated_at_latest: 2026-06-21T1000Z
+- updated_at_latest: 2026-07-01T0035Z
+
+## Closure
+
+- 2026-07-01T0035Z **1차 종료.** 사용자가 "나래쪽 작업은 일단 1차로 여기서 끝내주고 마무리해줘. 다음에 명시적으로 호출하면 이후에 시작하자 인피니티도 종료해주고 크론도 종료해줘"라고 지시했다.
+- Scope closed: 손목 스트랩 1순위 + 크로스바디/넥 폰 스트랩 2순위 후보를 같은 샘플 라운드로 검토할 준비까지 완료한 상태에서 종료한다.
+- No further automatic work: 추가 cloud 소싱, alibaba.com 공급사 확인, 샘플 주문 승인 요청, SmartStore 등록 준비, 08:30/09:00 리포트 반복을 모두 중단한다.
+- Resume condition: 사용자가 나래/Narae 또는 `naver-shopping-01`을 명시적으로 다시 호출할 때만 재개한다.
+- Preserved handoff: 재개 시 마지막 유효 상태는 아래 Current State와 Pending Blockers에 보존된 "alibaba.com 국제몰에서 Huanhuan/Zhanhong 공급사 확인 → 손목+크로스바디 병행 샘플 검토 승인 요청"이다.
 
 ## Purpose
 
