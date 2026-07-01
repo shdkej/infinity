@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>design-02 report</title>
+<style>
+  :root{--bg:#f4f2ea;--panel:#fbfaf5;--ink:#2c2a25;--soft:#807c70;--faint:#a8a496;--line:#e3dfd2;--a2:#5f7a5e;--a2-deep:#3f5740;--a1:#a9745a;--a1-deep:#8a5c45;--sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;--mono:ui-monospace,"SF Mono",Menlo,monospace;}
+  *{box-sizing:border-box;} html,body{margin:0;width:100%;max-width:100%;overflow-x:hidden;} body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:14px;line-height:1.68;-webkit-font-smoothing:antialiased;}
+  .sheet{width:min(100%,720px);max-width:720px;margin:0 auto;padding:32px 18px 40px;} .reveal{opacity:0;animation:fade .7s ease forwards;} @keyframes fade{from{opacity:0;transform:translateY(9px);}to{opacity:1;transform:none;}}
+  .eyebrow{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--soft);flex-wrap:wrap;} .eyebrow .id{color:var(--a2-deep);font-weight:600;} .eyebrow .dot{width:5px;height:5px;border-radius:50%;background:var(--a2);} .eyebrow .status{color:var(--a2-deep);}
+  h1{font-size:clamp(24px,7vw,29px);line-height:1.3;font-weight:700;margin:20px 0 0;overflow-wrap:anywhere;} .dek{font-size:15.5px;color:var(--soft);margin:13px 0 0;max-width:52ch;} .hr{height:1px;background:var(--line);margin:30px 0;}
+  .axis{padding:0 0 4px 18px;position:relative;margin-bottom:26px;} .axis::before{content:"";position:absolute;left:0;top:6px;bottom:6px;width:2px;border-radius:2px;} .axis.ax1::before{background:var(--a1);} .axis.ax2::before{background:var(--a2);} .axis.ax1{--ul:var(--a1);} .axis.ax2{--ul:var(--a2);}
+  .axis .label{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:9px;display:flex;align-items:center;gap:8px;} .axis.ax1 .label{color:var(--a1-deep);} .axis.ax2 .label{color:var(--a2-deep);} .axis .label .n{font-weight:600;opacity:.6;}
+  .axis .text{font-size:clamp(16px,4.4vw,18px);line-height:1.62;color:#37352e;overflow-wrap:anywhere;} .axis .text b{font-weight:700;color:var(--ink);border-bottom:2px solid var(--ul);}
+  ol.find{list-style:none;counter-reset:f;margin:16px 0 0;padding:0;} ol.find li{position:relative;padding:8px 0 8px 26px;font-size:15px;color:#37352e;border-top:1px solid var(--line);} ol.find li:first-child{border-top:none;} ol.find li::before{counter-increment:f;content:counter(f);position:absolute;left:0;top:9px;font-family:var(--mono);font-size:12px;font-weight:600;color:var(--a1-deep);}
+  details{border:1px solid var(--line);border-radius:8px;background:var(--panel);margin-bottom:10px;overflow:hidden;} summary{cursor:pointer;list-style:none;padding:14px 16px;display:flex;align-items:center;gap:11px;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--soft);} summary::-webkit-details-marker{display:none;}
+  summary .chev{width:8px;height:8px;border-right:2px solid var(--a2-deep);border-bottom:2px solid var(--a2-deep);transform:rotate(-45deg);transition:.25s;flex:none;margin-left:2px;} details[open] summary .chev{transform:rotate(45deg);}
+  .body{padding:2px 16px 18px;min-width:0;} .section{margin:4px 0 18px;} .section-title{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--a1-deep);margin:0 0 8px;}
+  .callout{border-left:2px solid var(--a2);background:#f2efe5;padding:11px 13px;color:#4a473f;margin:12px 0 16px;} .content-grid{display:grid;grid-template-columns:1fr;gap:10px;margin:10px 0;} .mini-card{border:1px solid var(--line);background:#f8f6ef;border-radius:8px;padding:12px 13px;min-width:0;} .mini-card b{display:block;color:var(--ink);margin-bottom:5px;} .mini-card p{margin:0;}
+  table{border-collapse:collapse;width:100%;max-width:100%;table-layout:fixed;font-size:13px;margin:4px 0 12px;} th,td{border-bottom:1px solid var(--line);padding:9px 11px;text-align:left;vertical-align:top;overflow-wrap:anywhere;word-break:break-word;} th{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--soft);font-weight:600;}
+  .body p{color:var(--soft);overflow-wrap:anywhere;} .body ul{margin:6px 0;padding-left:18px;} .body li{margin:5px 0;} code{font-family:var(--mono);font-size:12px;background:#edeae0;padding:1px 6px;border-radius:3px;color:var(--a2-deep);}
+  .chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px;} .chip{font-family:var(--mono);font-size:10.5px;letter-spacing:.05em;color:var(--soft);border:1px solid var(--line);border-radius:999px;padding:3px 10px;}
+  .foot{margin-top:30px;padding-top:15px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:6px 14px;justify-content:space-between;font-family:var(--mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--faint);}
+  @media (min-width:720px){.sheet{padding:48px 34px 46px;}.eyebrow .status{margin-left:auto;}.axis{padding-left:22px;margin-bottom:30px;}.content-grid{grid-template-columns:repeat(2,minmax(0,1fr));}}
+  @media (max-width:640px){table,thead,tbody,tr,th,td{display:block;width:100%;} thead{display:none;} tr{border:1px solid var(--line);border-radius:8px;padding:9px 10px;margin:0 0 10px;background:#f8f6ef;} td{border-bottom:0;padding:5px 0;}}
+</style>
+</head>
+<body>
+<div class="sheet">
+  <div class="eyebrow reveal"><span class="dot"></span><span class="id">design-02</span><span>Hook Experiment</span><span class="status">archived</span></div>
+  <h1 class="reveal" style="animation-delay:.05s">카드뉴스 첫페이지 후킹 개선 실험</h1>
+  <p class="dek reveal" style="animation-delay:.09s">최근 두 표지를 비교해, 어떤 card 1 훅이 모바일에서 더 멈추게 하는지 분리 실험했습니다.</p>
+  <div class="hr reveal" style="animation-delay:.12s"></div>
+  <div class="axis ax1 reveal" style="animation-delay:.16s"><div class="label"><span class="n">01</span> 무엇이 문제였나</div><div class="text">총론형 표지는 읽히기는 하지만, <b>왜 지금 이 장에서 멈춰야 하는지</b>가 약했습니다. 하루 묶음 요약은 설명에는 맞아도 첫 장 훅에는 약했습니다.</div></div>
+  <div class="axis ax2 reveal" style="animation-delay:.22s"><div class="label"><span class="n">02</span> 어떻게 해결하나</div><div class="text">Card 1은 앞으로 <b>대상 명사 + 변화 동사</b> 구조를 기본으로 삼고, body는 짧게 줄여 제목이 판단 역할을 하게 만드는 편이 가장 안전합니다.</div></div>
+  <div class="reveal" style="animation-delay:.27s">
+    <details open>
+      <summary><span class="chev"></span> 핵심 내용 · 리서치 본문</summary>
+      <div class="body">
+        <div class="section"><div class="section-title">핵심 발견</div><ol class="find"><li><code>AI는 더 강해지고 더 관리됩니다</code>는 안정적이지만 총론형이라 멈춤 힘이 약했습니다.</li><li><code>이미지 생성의 입력이 내 데이터가 됩니다</code>는 주체와 변화가 동시에 드러나 호기심과 명료성이 더 높았습니다.</li><li>모바일 안전영역은 두 샘플 모두 합격이었고, 승부는 배치보다 제목 구조에서 갈렸습니다.</li></ol></div>
+        <div class="callout">이번 실험의 승자는 구체 변화형 훅입니다. "무슨 업계 흐름인가"보다 "무엇이 어떻게 달라지는가"를 제목에서 먼저 보이게 하세요.</div>
+        <div class="content-grid"><div class="mini-card"><b>근거 · 소스</b><p>두 샘플 cover JPG를 직접 비교했고, 대응 템플릿의 <code>title_gate</code>, crop/zoom, body 길이를 함께 읽었습니다. preview 파일 2개를 <code>reports/design-02/</code>에 보존했습니다.</p></div><div class="mini-card"><b>다음 판단</b><p>다음 카드 제작부터 제목 후보 채점표에 `대상 명사 존재`, `변화 동사 존재`, `멈춤 이유 한 줄 작성 가능` 세 칸을 추가할지 결정해야 합니다.</p></div></div>
+      </div>
+    </details>
+    <details open>
+      <summary><span class="chev"></span> 실험 결과 요약</summary>
+      <div class="body">
+        <table>
+          <thead><tr><th>비교 항목</th><th>판정</th></tr></thead>
+          <tbody>
+            <tr><td>이긴 원칙</td><td>구체 변화형 훅, 대상 명사 명시, title과 body의 역할 분리</td></tr>
+            <tr><td>버린 원칙</td><td>총론형 표지만으로 충분하다는 가정, 분위기 사진이 제목 약점을 보완한다는 가정</td></tr>
+            <tr><td>즉시 적용 1</td><td>`keyword-title` 후보 채점 시 대상 명사와 변화 동사를 필수 체크</td></tr>
+            <tr><td>즉시 적용 2</td><td>표지 body를 20-30% 줄여 제목이 설명을 떠안지 않게 조정</td></tr>
+            <tr><td>즉시 적용 3</td><td>표지 검수 때 `왜 멈출까` 한 줄이 안 나오면 제목 재선정</td></tr>
+          </tbody>
+        </table>
+        <p>상세 원문은 <code>artifacts/design-02/cover-hook-experiment.md</code>에 있습니다.</p>
+      </div>
+    </details>
+    <details>
+      <summary><span class="chev"></span> 실행 메타 · 산출물</summary>
+      <div class="body"><div class="chips"><span class="chip">2026-07-01T16:06Z</span><span class="chip">design-02 inbox</span><span class="chip">Inbox → Archive</span></div><ul><li>산출물 <code>artifacts/design-02/cover-hook-experiment.md</code></li><li>preview <code>reports/design-02/preview-cover-ai-news-five-2026-06-28.jpg</code></li><li>preview <code>reports/design-02/preview-cover-gemini-2026-07-01.jpg</code></li></ul></div>
+    </details>
+  </div>
+  <div class="foot reveal" style="animation-delay:.3s"><span>Agent-First Heartbeat</span><span>Infinity · Intent Note</span></div>
+</div>
+</body>
+</html>
