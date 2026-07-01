@@ -4,6 +4,15 @@
 
 ## Inbox
 
+- `marketing-96` Virtue 프리런치 추천 언어 관찰표 보강
+  - source note: `source/external-links/marketing/2026-07-01-reference-user-language-before-channel-scale.md`
+  - rationale: 채널 확장 전 단계에서 필요한 것은 방문 수 판정이 아니라, 첫 사용자가 누구에게 어떤 한 줄로 Virtue를 소개하는지와 왜 추천을 망설이는지의 원문 수집이다.
+  - expected impact: 첫 5명 관찰만으로도 landing/초대 카피 후보의 실제 사용자 언어를 확보하고, 공유성 판단을 저장 여부와 분리해 읽기 쉬워진다.
+  - permission level: L1 문서 작업
+  - owner route: Infinity -> SAM -> Claude Code
+  - success criteria: 기존 실사용 관찰표 또는 인접 관찰 문서에 추천 언어 2필드가 추가되고, J1~J4 해석 충돌 없이 기록 예시 1세트가 함께 남는다.
+  - first verification gate: 제품 코드/계측 변경 없이 문서 diff만으로 필드 추가가 확인되고, 첫 실사용 원장과 충돌 여부를 수기 점검한다.
+
 ## Active
 
 ## Waiting
