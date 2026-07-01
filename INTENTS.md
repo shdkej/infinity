@@ -6,32 +6,6 @@
 
 ## Active
 
-### design-01 · 카드뉴스 미감 업그레이드
-- id: design-01
-- status: in_progress
-- priority: medium
-- target_agent: workflow-master
-- projects: content, card-news, design-system
-- task_type: design-audit
-- topics: card-news, visual-system, library
-- goal: 카드뉴스 산출물의 미감을 한 단계 올리기 위해 최근 카드뉴스 결과물과 제작 파이프라인을 감사하고, 앞으로 반복 적용할 시각 기준과 샘플 개선안을 만든다.
-- next_action: 로컬에서 `skills/insight-card-maker` 출력물로 cloud prepare 가설(5개 실패 패턴, 7개 실행 규칙)을 검증하고 샘플 preview 1개를 모바일 기준으로 작성한다.
-- prepare_report: reports/design-01/2026-07-01T0100Z.html
-- constraints: 공개 라이브러리 대량 재렌더, 기존 산출물 일괄 교체, 외부 비용, 공개 배포, 사용자 이미지 라이브러리의 임의 생성 이미지 대체는 별도 승인 전에는 하지 않는다.
-
-### design-02 · 카드뉴스 첫페이지 후킹 개선 실험
-- id: design-02
-- status: active
-- priority: high
-- target_agent: workflow-master
-- schedule_window: 2026-07-02 05:00-08:00 KST
-- projects: content, card-news, design-system
-- task_type: design
-- topics: card-news, hook, cover
-- goal: 카드뉴스 첫 페이지가 스크롤을 멈추게 하는 힘을 높이기 위해 제목/이미지/여백/첫 문장 조합을 실험하고, 실험 결과와 다음 개선사항을 남긴다.
-- next_action: 2026-07-02 05:00 KST 이후 실행. 최근 카드뉴스 첫 페이지 3-5개를 골라 `왜 멈추지 않는지 / 왜 읽히는지`를 판독한다.
-- constraints: 2026-07-02 08:00 KST 전에 작업을 닫는다. 승인 없이 공개 라이브러리 배포, 기존 카드뉴스 교체, 대량 재생성, 외부 비용, 사용자 이미지의 임의 생성 이미지 대체는 하지 않는다.
-
 ## Waiting
 
 <!-- 사용자 결정, 외부 조건, 안전 확인 대기. 같은 질문을 반복하지 않고 상태만 보존한다. -->
