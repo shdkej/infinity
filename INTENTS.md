@@ -4,6 +4,15 @@
 
 ## Inbox
 
+- `marketing-98` Virtue 첫 10명 관찰표에 아하 경험/활성화 분리 칸 추가
+  - source note: `/home/ubuntu/workspace/knowledge-lab/source/external-links/marketing/2026-07-02-aha-vs-activation-split.md`
+  - rationale: 프리런치 상태에서 `judged but not saved` 같은 세션을 실패로 과해석하지 않으려면, 사용자 가치 발견 신호와 내부 activation 판정을 한 칸이 아니라 두 칸으로 분리한 관찰표가 필요하다.
+  - expected impact: 첫 세션 해석의 오독을 줄이고, 이후 카피/온보딩 수정이 더 정확한 사용자 언어를 근거로 움직이게 한다.
+  - permission level: L1 docs-only
+  - owner route: Infinity Inbox -> Claude Code
+  - success criteria: 기존 첫 10명 관찰표에 `가치 발견 신호`와 `activation 판정` 칸이 추가되고 J1~J4별 작성 예시가 최소 1개씩 붙는다.
+  - first verification gate: 관찰표만 보고도 한 세션을 `가치 발견 있음/없음`과 `activation 도달/미도달`로 별개 판정할 수 있다.
+
 ## Active
 
 ## Waiting
