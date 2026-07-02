@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>marketing-98 관찰표 독립 2판정 분리</title>
+<style>
+  :root{
+    --bg:#f4f2ea; --panel:#fbfaf5; --ink:#2c2a25; --soft:#807c70; --faint:#a8a496; --line:#e3dfd2;
+    --a2:#5f7a5e; --a2-deep:#3f5740;
+    --a1:#a9745a; --a1-deep:#8a5c45;
+    --sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0; width:100%; max-width:100%; overflow-x:hidden;}
+  body{background:var(--bg); color:var(--ink); font-family:var(--sans); font-size:14px; line-height:1.68;}
+  .sheet{width:min(100%,720px); max-width:720px; margin:0 auto; padding:32px 18px 40px;}
+  .eyebrow{display:flex; align-items:center; gap:10px; font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--soft); flex-wrap:wrap;}
+  .eyebrow .id{color:var(--a2-deep); font-weight:600;}
+  .eyebrow .dot{width:5px; height:5px; border-radius:50%; background:var(--a2);}
+  .eyebrow .status{color:var(--a2-deep);}
+  h1{font-size:clamp(22px,6vw,27px); line-height:1.3; font-weight:700; margin:18px 0 0; overflow-wrap:anywhere;}
+  .dek{font-size:15px; color:var(--soft); margin:12px 0 0; max-width:52ch;}
+  .hr{height:1px; background:var(--line); margin:28px 0;}
+  .axis{padding:0 0 4px 18px; position:relative; margin-bottom:24px;}
+  .axis::before{content:""; position:absolute; left:0; top:6px; bottom:6px; width:2px; border-radius:2px;}
+  .axis.ax1::before{background:var(--a1);} .axis.ax2::before{background:var(--a2);}
+  .axis.ax1{--ul:var(--a1);} .axis.ax2{--ul:var(--a2);}
+  .axis .label{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase; margin-bottom:9px; display:flex; align-items:center; gap:8px;}
+  .axis.ax1 .label{color:var(--a1-deep);} .axis.ax2 .label{color:var(--a2-deep);}
+  .axis .label .n{font-weight:600; opacity:.6;}
+  .axis .text{font-size:clamp(15px,4vw,17px); line-height:1.62; color:#37352e; overflow-wrap:anywhere;}
+  .axis .text b{font-weight:700; color:var(--ink); border-bottom:2px solid var(--ul);}
+  ol.find{list-style:none; counter-reset:f; margin:16px 0 0; padding:0;}
+  ol.find li{position:relative; padding:8px 0 8px 26px; font-size:14px; color:#37352e; border-top:1px solid var(--line);}
+  ol.find li:first-child{border-top:none;}
+  ol.find li::before{counter-increment:f; content:counter(f); position:absolute; left:0; top:9px; font-family:var(--mono); font-size:12px; font-weight:600; color:var(--a1-deep);}
+  details{border:1px solid var(--line); border-radius:8px; background:var(--panel); margin-bottom:10px; overflow:hidden;}
+  summary{cursor:pointer; list-style:none; padding:13px 15px; display:flex; align-items:center; gap:10px; font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft);}
+  summary::-webkit-details-marker{display:none;}
+  summary .chev{width:8px; height:8px; border-right:2px solid var(--a2-deep); border-bottom:2px solid var(--a2-deep); transform:rotate(-45deg); transition:.25s; flex:none;}
+  details[open] summary .chev{transform:rotate(45deg);}
+  .body{padding:2px 16px 16px; min-width:0;}
+  .section{margin:4px 0 16px;}
+  .section-title{font-family:var(--mono); font-size:10.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--a1-deep); margin:0 0 8px;}
+  .callout{border-left:2px solid var(--a2); background:#f2efe5; padding:10px 13px; color:#4a473f; margin:12px 0 14px; font-size:13.5px; line-height:1.6;}
+  .content-grid{display:grid; grid-template-columns:1fr; gap:10px; margin:10px 0;}
+  .mini-card{border:1px solid var(--line); background:#f8f6ef; border-radius:8px; padding:11px 13px;}
+  .mini-card b{display:block; color:var(--ink); margin-bottom:5px; font-size:13px;}
+  .mini-card p{margin:0; font-size:13px; color:var(--soft);}
+  .chips{display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px;}
+  .chip{font-family:var(--mono); font-size:10.5px; color:var(--soft); border:1px solid var(--line); border-radius:999px; padding:3px 10px;}
+  .body ul{margin:6px 0; padding-left:18px;} .body li{margin:5px 0; font-size:13.5px;}
+  code{font-family:var(--mono); font-size:12px; background:#edeae0; padding:1px 6px; border-radius:3px; color:var(--a2-deep);}
+  .foot{margin-top:28px; padding-top:14px; border-top:1px solid var(--line); display:flex; flex-wrap:wrap; gap:6px 14px; justify-content:space-between; font-family:var(--mono); font-size:10px; letter-spacing:.13em; text-transform:uppercase; color:var(--faint);}
+  @media(min-width:720px){.sheet{padding:46px 32px 44px;} .content-grid{grid-template-columns:repeat(2,minmax(0,1fr));}}
+</style>
+</head>
+<body>
+<div class="sheet">
+  <div class="eyebrow">
+    <span class="dot"></span>
+    <span class="id">marketing-98</span>
+    <span>Implementation Note</span>
+    <span class="status">completed</span>
+  </div>
+  <h1>Virtue 첫 10명 관찰표 독립 2판정 분리</h1>
+  <p class="dek">기존 관찰표에 가치 발견 신호·activation 판정 2칸을 추가해, J3 세션 오독 위험을 제거했다.</p>
+
+  <div class="hr"></div>
+
+  <div class="axis ax1">
+    <div class="label"><span class="n">01</span> 무엇이 문제였나</div>
+    <div class="text">기존 관찰표의 단일 판정 구조에서 <b>J3 `deed_judged 후 무저장` 세션을 실패로 오독</b>할 위험이 있었다. 가치 발견 신호와 activation 판정이 하나의 흐름에 혼재했다.</div>
+  </div>
+
+  <div class="axis ax2">
+    <div class="label"><span class="n">02</span> 어떻게 해결했나</div>
+    <div class="text"><b>가치 발견 신호</b>(있음/없음/불명)와 <b>activation 판정</b>(도달/미도달)을 각 카드의 독립 2칸으로 분리했다. J1~J4별 예시 1세트씩과 경계 케이스를 추가했다.</div>
+  </div>
+
+  <details open>
+    <summary><span class="chev"></span> 핵심 내용</summary>
+    <div class="body">
+      <div class="section">
+        <div class="section-title">핵심 발견</div>
+        <ol class="find">
+          <li>기존 표는 deed_event 도달 여부만으로 판정했다. J3의 "deed_judged 후 저장 없음"이 실패로 읽힐 수 있는 구조적 취약점이 있었다.</li>
+          <li>가치 발견 신호(사용자 발화·행동 단서)와 activation 판정(잡별 FV 임계값 도달)은 독립 판정이어야 한다. J3은 저장 없어도 <code>deed_judged</code> = activation 도달이다.</li>
+          <li>J1~J4 예시 각 1세트와 경계 케이스(가치 발견 있음 + activation 미도달)를 추가해, 관찰자가 표만 보고 두 판정을 별개로 내릴 수 있게 했다.</li>
+          <li>marketing-96의 추천 언어·추천 마찰 필드를 관찰 카드 본체에 통합해 보강안 문서 없이 단일 표로 운영 가능하게 했다.</li>
+        </ol>
+      </div>
+      <div class="callout">J3 사용자의 "deed_judged 후 무저장" 종료 = 가치 발견 있음 + activation 도달 = 정상 종료. 이 사실이 표에서 명확히 읽히는 것이 이번 수정의 핵심이다.</div>
+      <div class="content-grid">
+        <div class="mini-card">
+          <b>근거·소스</b>
+          <p>INTENTS.md Inbox marketing-98 rationale. marketing-94 (pass-vs-hold 오독 방지). marketing-96 addendum (추천 언어 필드 통합).</p>
+        </div>
+        <div class="mini-card">
+          <b>검증 게이트</b>
+          <p>관찰표만 보고 "가치 발견 있음/없음"과 "activation 도달/미도달"을 별개로 판정 가능. J1~J4 예시 각 1세트 존재.</p>
+        </div>
+      </div>
+    </div>
+  </details>
+
+  <details open>
+    <summary><span class="chev"></span> 수행 작업 · 산출물</summary>
+    <div class="body">
+      <ul>
+        <li>관찰 카드 10개 각각에 <code>독립 2판정</code> 섹션 추가: 가치 발견 신호(있음/없음/불명) + activation 판정(도달/미도달)</li>
+        <li>guide-grid에 "가치 발견 신호 vs. Activation 판정" 설명 카드 추가</li>
+        <li>J1~J4 예시 (각 1세트) + 경계 케이스 1세트 (details 접힘 섹션)</li>
+        <li>marketing-96 추천 언어·추천 마찰 필드를 각 카드에 통합</li>
+        <li>산출물: <code>artifacts/marketing-79/week-one-activation-observation-table.html</code> 업데이트</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="chev"></span> 실행 메타 · 산출물</summary>
+    <div class="body">
+      <div class="chips">
+        <span class="chip">2026-07-02T0200Z</span>
+        <span class="chip">heartbeat · cloud-draft · L1</span>
+        <span class="chip">inbox → archived</span>
+      </div>
+      <ul>
+        <li>산출물 <code>artifacts/marketing-79/week-one-activation-observation-table.html</code></li>
+        <li>아카이브 <code>intents/archive/marketing-98.md</code></li>
+        <li>리포트 <code>reports/marketing-98/2026-07-02T0200Z.html</code></li>
+      </ul>
+    </div>
+  </details>
+
+  <div class="foot">
+    <span>Agent-First Heartbeat</span>
+    <span>Infinity · marketing-98</span>
+  </div>
+</div>
+</body>
+</html>
