@@ -9,9 +9,9 @@
 ## Waiting
 
 <!-- 사용자 결정, 외부 조건, 안전 확인 대기. 같은 질문을 반복하지 않고 상태만 보존한다. -->
-<!-- marketing-95 waiting 2026-06-30T2200Z -> intents/waiting/marketing-95.md [projects: virtue,infinity; type: verification; topics: marketing,activation,deploy,return-state] (marketing-92 로컬 구현은 끝났지만 2026-06-30 22:00 UTC 라이브 홈 HTML에는 여전히 `612덕`와 첫 방문 카피, `첫 기록이 여기에 쌓여요.` empty-state가 함께 남아 있다. 앱 업데이트/배포 반영 전까지는 실패 재판정 대신 Waiting으로 유지하고, 배포 후 returning empty-state 분기 노출 여부만 다시 확인한다.) -->
 
 ## Archive
+<!-- marketing-95 completed 2026-07-02T0340Z -> intents/archive/marketing-95.md [projects: virtue,infinity; type: verification; topics: marketing,activation,deploy,return-state] (`virtue.aws.shdkej.com` 라이브에서 검증용 deed 1개를 넣은 returning state가 `나의 덕력 614덕`, `오늘 덕 쌓기`, 최근 덕행 리스트로 정상 표시됨을 확인했다. Fresh-state `612덕` 베이스라인 이슈는 이 검증 범위 밖으로 분리했다. HTML report gate passed.) -->
 <!-- design-02 completed 2026-07-01T1606Z → intents/archive/design-02.md [projects: knowledge-lab,infinity; type: design; topics: content,workflow] (최근 카드뉴스 첫 페이지 2종 비교 결과 총론형보다 대상+변화가 함께 보이는 구체 변화형 훅이 우세하다는 결론과 즉시 적용할 개선안 3개, preview 증거 2개를 남겼다.) -->
 <!-- design-01 completed 2026-07-01T1606Z → intents/archive/design-01.md [projects: knowledge-lab,infinity; type: design; topics: content,workflow] (최근 카드뉴스 표지/CTA 감사로 실패 패턴 5개와 표지 제목, 사진 안전영역, body 밀도, CTA 역할 분리, 라이브러리 메타 보강을 포함한 실행 규칙 7개를 고정했다.) -->
 <!-- marketing-96 completed 2026-07-01T1007Z → intents/archive/marketing-96.md [projects: virtue,infinity; type: implementation; topics: marketing,activation] (기존 `marketing-79` 관찰표에 붙여 쓰는 추천 언어 보강안을 추가해 `누구에게 뭐라고 소개하겠는가`와 `지금 추천을 망설이게 하는 이유` 2필드, 기록 규칙, J3 예시 1세트를 고정했다. HTML report gate passed.) -->

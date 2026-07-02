@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>marketing-95 live return-state verification</title>
+  <style>
+    :root { color-scheme: light; --ink:#18201d; --muted:#68716d; --line:#dfe7e1; --bg:#fbfcf9; --card:#ffffff; --ok:#2f7d55; --warn:#9a6a12; }
+    body { margin:0; font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background:var(--bg); color:var(--ink); }
+    main { max-width: 840px; margin: 0 auto; padding: 32px 18px 48px; }
+    .eyebrow { display:flex; gap:8px; flex-wrap:wrap; color:var(--muted); font-size:12px; letter-spacing:.02em; }
+    h1 { font-size: clamp(28px, 7vw, 48px); line-height:1.05; margin:14px 0 12px; letter-spacing:0; }
+    .dek { color:var(--muted); font-size:16px; line-height:1.65; margin:0 0 22px; }
+    .grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap:12px; margin:18px 0; }
+    .axis { border:1px solid var(--line); background:var(--card); border-radius:8px; padding:16px; }
+    .axis b { display:block; margin-bottom:8px; }
+    .ax1 { border-top:4px solid var(--ok); }
+    .ax2 { border-top:4px solid var(--warn); }
+    ul { margin:8px 0 0; padding-left:18px; line-height:1.7; }
+    details { border:1px solid var(--line); background:var(--card); border-radius:8px; padding:14px 16px; margin-top:12px; }
+    summary { cursor:pointer; font-weight:700; }
+    code { background:#eef4ef; border-radius:4px; padding:1px 4px; }
+  </style>
+</head>
+<body>
+<main>
+  <div class="eyebrow"><span>marketing-95</span><span>verification</span><span>2026-07-02T03:40Z</span></div>
+  <h1>Virtue returning state는 라이브에서 정상 표시됩니다</h1>
+  <p class="dek">검증 URL을 <code>https://virtue.aws.shdkej.com</code>로 정정한 뒤, 브라우저에서 복귀 사용자 상태를 구성해 홈 반환 표면이 first-visit empty-state로 남는지 확인했다.</p>
+
+  <section class="grid">
+    <div class="axis ax1">
+      <b>결론</b>
+      <ul>
+        <li>검증용 deed 1개가 있는 returning state에서 <code>나의 덕력 614덕</code>, <code>오늘 덕 쌓기</code>, 최근 덕행 리스트가 표시됐다.</li>
+        <li>따라서 <code>marketing-95</code>의 배포 반영 검증은 통과로 보고 Archive 처리한다.</li>
+      </ul>
+    </div>
+    <div class="axis ax2">
+      <b>분리한 범위</b>
+      <ul>
+        <li>Fresh state의 <code>612덕</code> 베이스라인과 <code>첫 기록이 여기에 쌓여요.</code> 문구 공존은 별도 UX 판단 문제다.</li>
+        <li>이번 intent는 실제 저장 기록이 있는 returning state의 gating 검증으로 닫는다.</li>
+      </ul>
+    </div>
+  </section>
+
+  <details open>
+    <summary>검증 메모</summary>
+    <ul>
+      <li><code>https://virtue.aws</code> 자체는 DNS 해석되지 않았다.</li>
+      <li><code>https://virtue.aws.shdkej.com</code>은 HTTP 200으로 응답했다.</li>
+      <li>OpenClaw browser에서 localStorage key <code>virtue.rebirth.v1</code>에 검증용 deed 1개를 넣고 reload했다.</li>
+      <li>결과 화면은 first-visit CTA가 아니라 returning CTA와 최근 덕행 리스트를 렌더링했다.</li>
+    </ul>
+  </details>
+</main>
+</body>
+</html>
