@@ -14,7 +14,7 @@
 - permission_level: Waiting
 - owner_route: Infinity Waiting -> deploy/update 후 Claude Code 또는 SAM read-only 확인
 - success_criteria: 라이브 홈에서 retained proof가 보이는 세션에는 first-visit hero copy와 `첫 기록이 여기에 쌓여요.` empty-state가 더 이상 함께 나타나지 않는다.
-- first_verification_gate: 배포 후 `curl -L https://virtue.oracle.shdkej.com` HTML에서 recent empty-state가 returning branch(`최근 덕행을 불러오는 중이에요.`)로 바뀌었는지, 또는 최근 기록 목록이 실제로 채워졌는지 확인한다.
+- first_verification_gate: 배포 후 `https://virtue.aws.shdkej.com`에서 recent empty-state가 returning branch(`최근 덕행을 불러오는 중이에요.`)로 바뀌었는지, 또는 최근 기록 목록이 실제로 채워졌는지 확인한다.
 
 ## Signal
 
@@ -23,6 +23,7 @@
   - CTA: `첫 덕 기록해보기`
   - recent empty-state: `첫 기록이 여기에 쌓여요.`
 - 같은 시점 로컬 코드 `/home/ubuntu/dev/virtue-rebirth-app/apps/web/src/app/page.tsx`는 `stats.count > 0 && recent.length === 0`일 때 returning copy를 보여 주도록 이미 분기한다.
+- 2026-07-02 03:37 UTC 사용자 정정으로 검증 도메인을 `https://virtue.aws.shdkej.com`로 수정했다. `https://virtue.aws` 자체는 DNS 해석되지 않으며, `virtue.aws.shdkej.com`은 HTTP 200으로 열렸다. Fresh state에서는 `612덕`과 `첫 기록이 여기에 쌓여요.`가 함께 보이고, 브라우저 localStorage에 검증용 deed 1개를 넣은 복귀 상태에서는 `나의 덕력 614덕`, `오늘 덕 쌓기`, 최근 덕행 리스트가 정상 표시됐다.
 
 ## Routing
 
