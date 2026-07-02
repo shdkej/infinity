@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>design-02 Handoff Report</title>
+<style>
+  :root{
+    --bg:#f4f2ea; --panel:#fbfaf5; --ink:#2c2a25; --soft:#807c70; --faint:#a8a496; --line:#e3dfd2;
+    --a2:#5f7a5e; --a2-deep:#3f5740;
+    --a1:#5a6f8a; --a1-deep:#3f536e;
+    --sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0; width:100%; max-width:100%; overflow-x:hidden;}
+  body{background:var(--bg); color:var(--ink); font-family:var(--sans); font-size:14px; line-height:1.68;}
+  .sheet{width:min(100%,720px); max-width:720px; margin:0 auto; padding:32px 18px 40px;}
+  .eyebrow,.foot,.section-title,summary,.axis .label,.chip{font-family:var(--mono);}
+  .eyebrow{display:flex; gap:10px; flex-wrap:wrap; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--soft);}
+  .eyebrow .id,.eyebrow .status{color:var(--a2-deep); font-weight:600;}
+  .dot{width:5px; height:5px; border-radius:50%; background:var(--a2); margin-top:7px;}
+  h1{font-size:clamp(24px,7vw,29px); line-height:1.3; margin:20px 0 0;}
+  .dek{font-size:15.5px; color:var(--soft); margin:13px 0 0; max-width:52ch;}
+  .hr{height:1px; background:var(--line); margin:30px 0;}
+  .axis{padding:0 0 4px 18px; position:relative; margin-bottom:26px;}
+  .axis::before{content:""; position:absolute; left:0; top:6px; bottom:6px; width:2px; border-radius:2px;}
+  .axis.ax1::before{background:var(--a1);} .axis.ax2::before{background:var(--a2);}
+  .axis .label{font-size:11px; letter-spacing:.12em; text-transform:uppercase; margin-bottom:9px; color:var(--a1-deep);}
+  .axis.ax2 .label{color:var(--a2-deep);}
+  .axis .text{font-size:clamp(16px,4.4vw,18px); line-height:1.62; color:#37352e;}
+  details{border:1px solid var(--line); border-radius:8px; background:var(--panel); margin-bottom:10px; overflow:hidden;}
+  summary{cursor:pointer; list-style:none; padding:14px 16px; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft);}
+  .body{padding:2px 16px 18px;}
+  .section-title{font-size:10.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--a1-deep); margin:0 0 8px;}
+  ol.find{list-style:none; counter-reset:f; margin:16px 0 0; padding:0;}
+  ol.find li{position:relative; padding:8px 0 8px 26px; border-top:1px solid var(--line);}
+  ol.find li:first-child{border-top:none;}
+  ol.find li::before{counter-increment:f; content:counter(f); position:absolute; left:0; top:9px; font-family:var(--mono); font-size:12px; font-weight:600; color:var(--a1-deep);}
+  .callout{border-left:2px solid var(--a2); background:#f2efe5; padding:11px 13px; color:#4a473f; margin:12px 0 16px;}
+  .content-grid{display:grid; grid-template-columns:1fr; gap:10px; margin:10px 0;}
+  .mini-card{border:1px solid var(--line); background:#f8f6ef; border-radius:8px; padding:12px 13px;}
+  .mini-card b{display:block; margin-bottom:5px;}
+  .chips{display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px;}
+  .chip{font-size:10.5px; letter-spacing:.05em; color:var(--soft); border:1px solid var(--line); border-radius:999px; padding:3px 10px;}
+  ul{margin:6px 0; padding-left:18px;}
+  code{font-family:var(--mono); font-size:12px; background:#edeae0; padding:1px 6px; border-radius:3px; color:var(--a2-deep);}
+  .foot{margin-top:30px; padding-top:15px; border-top:1px solid var(--line); display:flex; flex-wrap:wrap; justify-content:space-between; font-size:10px; letter-spacing:.13em; text-transform:uppercase; color:var(--faint);}
+  @media (min-width:720px){ .sheet{padding:48px 34px 46px;} .content-grid{grid-template-columns:repeat(2,minmax(0,1fr));} }
+</style>
+</head>
+<body>
+<div class="sheet">
+  <div class="eyebrow">
+    <span class="dot"></span>
+    <span class="id">design-02</span>
+    <span>Research Note</span>
+    <span class="status">handoff</span>
+  </div>
+  <h1>카드뉴스 첫페이지 후킹 개선 실험 실행 윈도우 경과</h1>
+  <p class="dek">이번 heartbeat 시점은 지정된 실험 창을 이미 지난 상태여서, 실행 대신 다음 로컬 실행자가 바로 이어갈 수 있는 범위와 판정축을 handoff로 고정했다.</p>
+  <div class="hr"></div>
+
+  <div class="axis ax1">
+    <div class="label">01 무엇을 조사했나</div>
+    <div class="text">`design-02`의 실행 가능 여부를 현재 시각 기준으로 판정했다. 원장에 적힌 <b>2026-07-02 05:00-08:00 KST</b> 윈도우와 현재 런타임 <b>2026-07-02 12:07 KST</b>가 충돌해 동일 사이클 내 실험 착수가 부적합한 상태임을 확인했다.</div>
+  </div>
+
+  <div class="axis ax2">
+    <div class="label">02 핵심 결과</div>
+    <div class="text">이번 사이클의 bounded action은 <b>실험 미실행 + handoff 기록</b>이다. 다음 실행자는 최근 카드뉴스 3-5세트의 첫 페이지 판독, hook 가설 3개 이상 도출, 개선 후보 3개 비교, 필요 시 preview 1개 생성까지를 같은 범위로 재개하면 된다.</div>
+  </div>
+
+  <details open>
+    <summary>핵심 내용 · 리서치 본문</summary>
+    <div class="body">
+      <div class="section">
+        <div class="section-title">핵심 발견</div>
+        <ol class="find">
+          <li>현재 Active intent 자체가 이미 다음 실행 범위와 성공 기준을 명확히 가지고 있어 추가 탐색보다 시간 윈도우 판정이 우선이었다.</li>
+          <li>지정된 05:00-08:00 KST 로컬 실험 창은 현재 12:07 KST 런타임에서 이미 지났으므로, 새 판독·샘플링을 시작하면 원장 제약을 어기는 실행이 된다.</li>
+          <li>따라서 이번 cycle의 안전한 단일 액션은 non-empty HTML handoff를 남겨 다음 실행자가 즉시 이어가게 하는 것이다.</li>
+        </ol>
+      </div>
+      <div class="callout">다음 실행에서는 `reports/design-02/2026-07-01T2207Z-handoff.html`와 `intents/active/design-02.md`를 기준으로, 최근 카드뉴스 원본/preview 경로를 열어 첫 장 3-5세트만 판독하고 결과를 새 HTML report로 닫는다.</div>
+      <div class="content-grid">
+        <div class="mini-card">
+          <b>근거 · 소스</b>
+          <p>`intents/active/design-02.md`의 schedule window, 다음 액션, success criteria와 기존 handoff report 1건을 기준으로 판단했다.</p>
+        </div>
+        <div class="mini-card">
+          <b>다음 판단</b>
+          <p>새 로컬 실행 창을 다시 잡을지, 아니면 시간 제약을 제거한 새 intent로 재등록할지 결정하면 된다.</p>
+        </div>
+      </div>
+    </div>
+  </details>
+
+  <details open>
+    <summary>상세 · 다음 실행 범위</summary>
+    <div class="body">
+      <ul>
+        <li>열 파일: <code>intents/active/design-02.md</code>, <code>reports/design-02/2026-07-01T2207Z-handoff.html</code>, 최근 카드뉴스 원본/preview 3-5세트</li>
+        <li>판정축: 가독성, 호기심, 주제 명료성, 브랜드 결, 모바일 안전영역</li>
+        <li>필수 산출: hook 가설 3개 이상, 개선 후보 3개 비교, 이긴 원칙/버린 원칙, 필요 시 preview 1개, 최종 HTML report</li>
+        <li>금지사항: 공개 라이브러리 배포, 기존 카드뉴스 교체, 대량 재생성, 외부 비용, 이미지 임의 생성 대체</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary>실행 메타 · 산출물</summary>
+    <div class="body">
+      <div class="chips">
+        <span class="chip">2026-07-02T0308Z</span>
+        <span class="chip">heartbeat cron</span>
+        <span class="chip">active → active</span>
+      </div>
+      <ul>
+        <li>산출물 <code>reports/design-02/2026-07-02T0308Z-handoff.html</code></li>
+      </ul>
+    </div>
+  </details>
+
+  <div class="foot">
+    <span>Agent-First Heartbeat</span>
+    <span>Infinity · Intent Note</span>
+  </div>
+</div>
+</body>
+</html>
