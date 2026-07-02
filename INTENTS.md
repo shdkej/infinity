@@ -4,6 +4,15 @@
 
 ## Inbox
 
+- `marketing-97 | Virtue 잡별 첫 질문/예시 후보 판독표 작성`
+  source_note_path: `/home/ubuntu/workspace/knowledge-lab/source/external-links/marketing/2026-07-02-single-intent-steering-before-examples.md`
+  rationale: 현재 `/add`는 중립 placeholder 1개만 있어 support-bot 위험은 낮지만 J2 누적형과 J3 AI 호기심형을 앞단에서 거의 부르지 못합니다. 전역 예시를 바로 넣기 전에, 질문 1개와 소수 예시 후보가 어떤 잡을 부르고 무엇을 밀어내는지 문서로 먼저 고정할 필요가 있습니다.
+  expected_impact: 이후 온보딩/카피 논의가 감각 싸움이 아니라 `click tax를 늘리지 않는 조향` 기준으로 좁혀집니다.
+  permission_level: L1 docs-only
+  owner_route: Infinity Inbox -> Claude Code
+  success_criteria: 질문 1개와 잡별 예시 후보 1~2개가 J1~J4 각각에 주는 도움과 위험이 한 표로 정리되고, 전역 예시 즉시 반영이 왜 이른지도 설명됩니다.
+  first_verification_gate: 현재 `/add` placeholder와 후보 질문들을 나란히 놓고 각 문장이 누구를 더 강하게 부르는지 4문장 이내로 설명할 수 있습니다.
+
 ## Active
 
 ## Waiting
@@ -23,11 +32,11 @@
 <!-- research-24 completed 2026-06-29T0600Z → intents/archive/research-24.md (capture·claim·open_loop 3필드 경계를 "있었던 것 / 내린 것 / 모르는 것"으로 고정하고 회고·Threads·카드뉴스 산출물 연결 규칙을 1장으로 정리했다.) -->
 <!-- marketing-91 completed 2026-06-28T2229Z → intents/archive/marketing-91.md [projects: virtue, infinity; type: strategy; topics: marketing, activation, product] (기존 이벤트 조합과 홈 반환 사례를 `정상 진행 / 자연 종료 / 마찰 / 상태 모순` 4개 상태 언어로 고정했다.) -->
 <!-- marketing-90 completed 2026-06-28T1007Z → intents/archive/marketing-90.md [projects: virtue, infinity; type: strategy; topics: marketing, activation, product] (Virtue 첫 세션을 진입 약속, 입력 기대, 반환 일관성의 3게이트로 압축했고 현재 우선 보수 대상은 gate 3 반환 일관성으로 고정했다. HTML report gate passed.) -->
-<!-- marketing-89 completed 2026-06-27T2236Z → intents/archive/marketing-89.md [projects: virtue, infinity; type: strategy; topics: marketing, activation, product] (Virtue 홈 반환 상태에서 `stats.total`, `stats.count`, `recent.length`의 계약과 empty-state 허용/금지 조건을 1장으로 고정했다.) -->
-<!-- marketing-88 completed 2026-06-27T1007Z → intents/archive/marketing-88.md [projects: virtue, infinity; type: strategy; topics: marketing, activation, product] (라이브 홈, 로컬 홈 코드, 최근 canonical 제안서를 대조해 반환 세션 state drift를 한 장으로 정리했다. HTML report gate passed.) -->
+<!-- marketing-89 completed 2026-06-27T2236Z → intents/archive/marketing-89.md [projects: virtue; type: strategy; topics: marketing,activation,product] (홈 반환 상태에서 `stats.total`, `stats.count`, `recent.length`의 계약과 empty-state 허용/금지 조건을 1장으로 고정했다.) -->
+<!-- marketing-88 completed 2026-06-27T1007Z → intents/archive/marketing-88.md [projects: virtue; type: strategy; topics: marketing,activation,product] (라이브 홈, 로컬 홈 코드, 최근 canonical 제안서를 대조해 반환 세션 state drift를 한 장으로 정리했다. HTML report gate passed.) -->
 <!-- marketing-87 completed 2026-06-26T222904Z → intents/archive/marketing-87.md [projects: virtue, infinity; type: strategy; topics: marketing, activation, product] (기존 `/add` 이벤트와 replay 관찰 질문을 묶어 첫 10~15세션을 공통 UX 마찰, J3 자연 종료, 조용한 실패, 다음 행동 불명확의 4분류로 읽는 1장 판독표 완성. HTML report gate passed.) -->
 <!-- marketing-86 completed 2026-06-26T10:28Z → intents/archive/marketing-86.md [projects: virtue, infinity; type: strategy; topics: marketing, activation, product] (J1/J2/J4는 홈 최근 덕행, J3는 결과 카드를 primary surface로 삼는 next action helper proposal 완료) -->
-<!-- marketing-85 completed 2026-06-25T220708Z → intents/archive/marketing-85.md [projects: virtue; type: strategy; topics: marketing,activation,prelaunch,observation] (첫 10명 관찰표 `다음 행동 명료성` 질문 보강 완료. HTML report gate passed.) -->
+<!-- marketing-85 completed 2026-06-25T220708Z → intents/archive/marketing-85.md [projects: virtue; type: strategy; topics: marketing,activation,prelaunch,observation] (첫 10명 활성화 1장 관찰표 `다음 행동 명료성` 질문 보강 완료. HTML report gate passed.) -->
 <!-- marketing-84 completed 2026-06-25T1028Z → intents/archive/marketing-84.md [projects: virtue; type: strategy; topics: marketing,activation,retention] (첫 가치 다음의 next-step bridge 감사표/제안서 완료. HTML report gate passed.) -->
 <!-- research-21 completed 2026-06-25T0507Z → intents/archive/research-21.md [projects: infinity,research-bank,personal-ops; type: research; topics: workflow,content] (6개 사례를 기록 방식·정리 방식·검증 방식·출판 변환 방식으로 비교해, Infinity용 일일 3줄·주간 3묶음·월간 1산출물 루프를 제안했다. HTML report gate passed.) -->
 <!-- marketing-82 completed 2026-06-24T2308Z → intents/archive/marketing-82.md [projects: virtue; type: implementation; topics: marketing,activation,product] (Virtue 홈 첫 방문 zero-state를 랜딩형으로 재구성해 첫 가치와 다음 행동을 같은 화면에서 바로 읽히게 했다.) -->
