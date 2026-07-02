@@ -4,15 +4,6 @@
 
 ## Inbox
 
-- `marketing-98` Virtue 첫 10명 관찰표에 아하 경험/활성화 분리 칸 추가
-  - source note: `/home/ubuntu/workspace/knowledge-lab/source/external-links/marketing/2026-07-02-aha-vs-activation-split.md`
-  - rationale: 프리런치 상태에서 `judged but not saved` 같은 세션을 실패로 과해석하지 않으려면, 사용자 가치 발견 신호와 내부 activation 판정을 한 칸이 아니라 두 칸으로 분리한 관찰표가 필요하다.
-  - expected impact: 첫 세션 해석의 오독을 줄이고, 이후 카피/온보딩 수정이 더 정확한 사용자 언어를 근거로 움직이게 한다.
-  - permission level: L1 docs-only
-  - owner route: Infinity Inbox -> Claude Code
-  - success criteria: 기존 첫 10명 관찰표에 `가치 발견 신호`와 `activation 판정` 칸이 추가되고 J1~J4별 작성 예시가 최소 1개씩 붙는다.
-  - first verification gate: 관찰표만 보고도 한 세션을 `가치 발견 있음/없음`과 `activation 도달/미도달`로 별개 판정할 수 있다.
-
 ## Active
 
 ## Waiting
@@ -20,6 +11,7 @@
 <!-- 사용자 결정, 외부 조건, 안전 확인 대기. 같은 질문을 반복하지 않고 상태만 보존한다. -->
 
 ## Archive
+<!-- marketing-98 completed 2026-07-02T2207Z → intents/archive/marketing-98.md [projects: virtue; type: implementation; topics: marketing,activation,product] (기존 first-10 observation artifact에 `가치 발견 신호`와 `activation 판정` 필드를 분리하고 J1~J4별 작성 예시를 추가했다.) -->
 <!-- marketing-97 completed 2026-07-02T0000Z → intents/archive/marketing-97.md [projects: virtue,infinity; type: strategy; topics: marketing,activation] (질문 A "오늘 기억하고 싶은 일이 있나요?"와 잡별 예시 후보 E1~E4를 J1~J4 기준으로 판독해, 전역 예시 즉시 반영이 이른 4가지 이유와 질문 A + E1 우선 채택 근거를 한 표로 고정했다.) -->
 <!-- marketing-95 completed 2026-07-02T0340Z -> intents/archive/marketing-95.md [projects: virtue,infinity; type: verification; topics: marketing,activation,deploy,return-state] (`virtue.aws.shdkej.com` 라이브에서 검증용 deed 1개를 넣은 returning state가 `나의 덕력 614덕`, `오늘 덕 쌓기`, 최근 덕행 리스트로 정상 표시됨을 확인했다. Fresh-state `612덕` 베이스라인 이슈는 이 검증 범위 밖으로 분리했다. HTML report gate passed.) -->
 <!-- design-02 completed 2026-07-01T1606Z → intents/archive/design-02.md [projects: knowledge-lab,infinity; type: design; topics: content,workflow] (최근 카드뉴스 첫 페이지 2종 비교 결과 총론형보다 대상+변화가 함께 보이는 구체 변화형 훅이 우세하다는 결론과 즉시 적용할 개선안 3개, preview 증거 2개를 남겼다.) -->
