@@ -4,15 +4,6 @@
 
 ## Inbox
 
-- `marketing-97 | Virtue 잡별 첫 질문/예시 후보 판독표 작성`
-  source_note_path: `/home/ubuntu/workspace/knowledge-lab/source/external-links/marketing/2026-07-02-single-intent-steering-before-examples.md`
-  rationale: 현재 `/add`는 중립 placeholder 1개만 있어 support-bot 위험은 낮지만 J2 누적형과 J3 AI 호기심형을 앞단에서 거의 부르지 못합니다. 전역 예시를 바로 넣기 전에, 질문 1개와 소수 예시 후보가 어떤 잡을 부르고 무엇을 밀어내는지 문서로 먼저 고정할 필요가 있습니다.
-  expected_impact: 이후 온보딩/카피 논의가 감각 싸움이 아니라 `click tax를 늘리지 않는 조향` 기준으로 좁혀집니다.
-  permission_level: L1 docs-only
-  owner_route: Infinity Inbox -> Claude Code
-  success_criteria: 질문 1개와 잡별 예시 후보 1~2개가 J1~J4 각각에 주는 도움과 위험이 한 표로 정리되고, 전역 예시 즉시 반영이 왜 이른지도 설명됩니다.
-  first_verification_gate: 현재 `/add` placeholder와 후보 질문들을 나란히 놓고 각 문장이 누구를 더 강하게 부르는지 4문장 이내로 설명할 수 있습니다.
-
 ## Active
 
 ## Waiting
@@ -20,6 +11,7 @@
 <!-- 사용자 결정, 외부 조건, 안전 확인 대기. 같은 질문을 반복하지 않고 상태만 보존한다. -->
 
 ## Archive
+<!-- marketing-97 completed 2026-07-02T0000Z → intents/archive/marketing-97.md [projects: virtue,infinity; type: strategy; topics: marketing,activation] (질문 A "오늘 기억하고 싶은 일이 있나요?"와 잡별 예시 후보 E1~E4를 J1~J4 기준으로 판독해, 전역 예시 즉시 반영이 이른 4가지 이유와 질문 A + E1 우선 채택 근거를 한 표로 고정했다.) -->
 <!-- marketing-95 completed 2026-07-02T0340Z -> intents/archive/marketing-95.md [projects: virtue,infinity; type: verification; topics: marketing,activation,deploy,return-state] (`virtue.aws.shdkej.com` 라이브에서 검증용 deed 1개를 넣은 returning state가 `나의 덕력 614덕`, `오늘 덕 쌓기`, 최근 덕행 리스트로 정상 표시됨을 확인했다. Fresh-state `612덕` 베이스라인 이슈는 이 검증 범위 밖으로 분리했다. HTML report gate passed.) -->
 <!-- design-02 completed 2026-07-01T1606Z → intents/archive/design-02.md [projects: knowledge-lab,infinity; type: design; topics: content,workflow] (최근 카드뉴스 첫 페이지 2종 비교 결과 총론형보다 대상+변화가 함께 보이는 구체 변화형 훅이 우세하다는 결론과 즉시 적용할 개선안 3개, preview 증거 2개를 남겼다.) -->
 <!-- design-01 completed 2026-07-01T1606Z → intents/archive/design-01.md [projects: knowledge-lab,infinity; type: design; topics: content,workflow] (최근 카드뉴스 표지/CTA 감사로 실패 패턴 5개와 표지 제목, 사진 안전영역, body 밀도, CTA 역할 분리, 라이브러리 메타 보강을 포함한 실행 규칙 7개를 고정했다.) -->
