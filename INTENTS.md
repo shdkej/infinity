@@ -4,6 +4,15 @@
 
 ## Inbox
 
+- `marketing-100` Virtue 홈 J1/J3 2갈래 시작선 검증 질문 1장 작성
+  - source note: `/home/ubuntu/workspace/knowledge-lab/source/external-links/marketing/2026-07-03-purpose-path-onboarding.md`
+  - rationale: 홈 첫 진입 비교에서 J1/J3 2갈래 시작선이 다음 후보로 남았지만, 실제 UI 반영 전 검증 질문과 보류 조건이 아직 한 장으로 고정되지 않았다.
+  - expected impact: 이후 카피/배치 논의를 `누구를 더 선명하게 부르는가`, `설명보다 길이 먼저 보이는가` 같은 공통 기준으로 정리할 수 있다.
+  - permission: L1 docs-only
+  - owner route: Infinity Inbox -> Claude Code
+  - success criteria: 첫 문장, 버튼 문구, 판정 질문, 보류 조건이 한 장에 정리되고 샘플 결과 preview와의 차이도 짧게 설명된다.
+  - first verification gate: 문서만 읽고도 `첫 화면만 보고 자기 길을 말할 수 있는가`를 판정할 수 있다.
+
 ## Active
 
 ## Waiting
