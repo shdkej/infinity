@@ -4,15 +4,6 @@
 
 ## Inbox
 
-- `marketing-100` Virtue 홈 J1/J3 2갈래 시작선 검증 질문 1장 작성
-  - source note: `/home/ubuntu/workspace/knowledge-lab/source/external-links/marketing/2026-07-03-purpose-path-onboarding.md`
-  - rationale: 홈 첫 진입 비교에서 J1/J3 2갈래 시작선이 다음 후보로 남았지만, 실제 UI 반영 전 검증 질문과 보류 조건이 아직 한 장으로 고정되지 않았다.
-  - expected impact: 이후 카피/배치 논의를 `누구를 더 선명하게 부르는가`, `설명보다 길이 먼저 보이는가` 같은 공통 기준으로 정리할 수 있다.
-  - permission: L1 docs-only
-  - owner route: Infinity Inbox -> Claude Code
-  - success criteria: 첫 문장, 버튼 문구, 판정 질문, 보류 조건이 한 장에 정리되고 샘플 결과 preview와의 차이도 짧게 설명된다.
-  - first verification gate: 문서만 읽고도 `첫 화면만 보고 자기 길을 말할 수 있는가`를 판정할 수 있다.
-
 ## Active
 
 ## Waiting
@@ -20,13 +11,14 @@
 <!-- 사용자 결정, 외부 조건, 안전 확인 대기. 같은 질문을 반복하지 않고 상태만 보존한다. -->
 
 ## Archive
+<!-- marketing-100 completed 2026-07-03T1400Z → intents/archive/marketing-100.md [projects: virtue,infinity; type: strategy; topics: marketing,activation,onboarding] (첫 문장·버튼 문구·판정 질문 Q1~Q4·보류 조건 5개·C안 비교를 한 장으로 고정했다. prelaunch 첫 10명 초대 시 구두 확인 후 채택 여부를 결정한다.) -->
 <!-- marketing-99 completed 2026-07-03T1230Z → intents/archive/marketing-99.md [projects: virtue,infinity; type: strategy; topics: marketing,activation,onboarding,home] (홈과 `/add` 실코드를 다시 앵커링해 단일 CTA 유지안, J1/J3 2갈래 시작선, 샘플 결과 preview 3안을 판독했고, prelaunch 다음 비교 후보로 J1/J3 2갈래 시작선을 남겼다. UI 반영/카피/배치 결정은 제외.) -->
 <!-- marketing-98 completed 2026-07-02T0200Z → intents/archive/marketing-98.md [projects: virtue,infinity; type: strategy; topics: marketing,activation,observation] (첫 10명 관찰표에 가치 발견 신호·activation 판정 독립 2칸을 추가하고 J1~J4별 예시 1세트씩 고정했다.) -->
 <!-- marketing-97 completed 2026-07-02T0000Z → intents/archive/marketing-97.md [projects: virtue,infinity; type: strategy; topics: marketing,activation] (질문 A "오늘 기억하고 싶은 일이 있나요?"와 잡별 예시 후보 E1~E4를 J1~J4 기준으로 판독해, 전역 예시 즉시 반영이 이른 4가지 이유와 질문 A + E1 우선 채택 근거를 한 표로 고정했다.) -->
 <!-- marketing-95 completed 2026-07-02T0340Z -> intents/archive/marketing-95.md [projects: virtue,infinity; type: verification; topics: marketing,activation,deploy,return-state] (`virtue.aws.shdkej.com` 라이브에서 검증용 deed 1개를 넣은 returning state가 `나의 덕력 614덕`, `오늘 덕 쌓기`, 최근 덕행 리스트로 정상 표시됨을 확인했다. Fresh-state `612덕` 베이스라인 이슈는 이 검증 범위 밖으로 분리했다. HTML report gate passed.) -->
 <!-- design-02 completed 2026-07-01T1606Z → intents/archive/design-02.md [projects: knowledge-lab,infinity; type: design; topics: content,workflow] (최근 카드뉴스 첫 페이지 2종 비교 결과 총론형보다 대상+변화가 함께 보이는 구체 변화형 훅이 우세하다는 결론과 즉시 적용할 개선안 3개, preview 증거 2개를 남겼다.) -->
 <!-- design-01 completed 2026-07-01T1606Z → intents/archive/design-01.md [projects: knowledge-lab,infinity; type: design; topics: content,workflow] (최근 카드뉴스 표지/CTA 감사로 실패 패턴 5개와 표지 제목, 사진 안전영역, body 밀도, CTA 역할 분리, 라이브러리 메타 보강을 포함한 실행 규칙 7개를 고정했다.) -->
-<!-- marketing-96 completed 2026-07-01T1007Z → intents/archive/marketing-96.md [projects: virtue,infinity; type: implementation; topics: marketing,activation] (기존 `marketing-79` 관찰표에 붙여 쓰는 추천 언어 보강안을 추가해 `누구에게 뭐라고 소개하겠는가`와 `지금 추천을 망설이게 하는 이유` 2필드, 기록 규칙, J3 예시 1세트를 고정했다. HTML report gate passed.) -->
+<!-- marketing-96 completed 2026-07-01T1007Z → intents/archive/marketing-96.md [projects: virtue,infinity; type: strategy; topics: marketing,activation] (기존 `marketing-79` 관찰표에 붙여 쓰는 추천 언어 보강안을 추가해 `누구에게 뭐라고 소개하겠는가`와 `지금 추천을 망설이게 하는 이유` 2필드, 기록 규칙, J3 예시 1세트를 고정했다. HTML report gate passed.) -->
 <!-- naver-shopping-01 completed-first-pass 2026-07-01T0035Z → intents/archive/naver-shopping-01.md [display: 나래/Narae; projects: naver-shopping,infinity,personal-ops; type: coordination; topics: automation,workflow,marketing] (사용자 지시에 따라 나래 1차 작업 종료. 손목 스트랩 1순위 + 크로스바디/넥 폰 스트랩 2순위 샘플 검토 준비 상태를 보존하고, 명시적 재호출 전까지 alibaba.com 공급사 확인·샘플 주문 승인 요청·08:30/09:00 자동 루프를 중단한다.) -->
 <!-- marketing-94 completed 2026-06-30T1007Z -> intents/archive/marketing-94.md [projects: virtue,infinity; type: strategy; topics: marketing,activation,product,session-replay] (`marketing-87` 4분류를 유지한 채 pass-vs-hold 비교용 보조 문서 1장을 추가해, `judged but not saved`를 자동 실패로 읽지 않고 양쪽 세션에 반복되는 마찰만 다음 수정 후보로 올리는 규칙을 고정했다. HTML report gate passed.) -->
 <!-- marketing-93 completed 2026-06-29T2207Z -> intents/archive/marketing-93.md [projects: virtue,infinity; type: strategy; topics: marketing,activation,product] (현재 홈·`/add`·반환 표면 언어를 J1~J4 기준으로 판독해, 지금 가장 잘 맞는 행복한 첫 사용자는 J1 기록형 중심이고 J2 누적형이 보조라는 기준표를 고정했다. HTML report gate passed.) -->
