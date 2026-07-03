@@ -4,9 +4,9 @@
 
 ## Inbox
 
-- `marketing-99` Virtue 홈 첫 진입 `목적별 첫 길` 비교안 작성 — source: `source/external-links/marketing/2026-07-03-purpose-path-onboarding.md` / rationale: 첫 방문자가 홈에서 자기 잡(J1 기록형 vs J3 AI 호기심형)을 스스로 해석해야 하는 부담을 줄이기 위해 `단일 CTA 유지`·`J1/J3 2갈래 시작선`·`샘플 결과 preview` 3안을 같은 표로 비교할 필요가 있음 / expected impact: 홈→`/add` 첫 행동 명료화, J3 앞단 약속 공백과 J1 빈 화면 부담을 동시에 줄일 후보 확보 / permission: L1 docs-only / owner route: Infinity → Claude Code / success criteria: 홈·`/add` 실코드 앵커와 기존 marketing-19·70·98을 기준으로 3안의 장단점, 금지선, 우선 실험 순서가 한 문서에 정리됨 / first verification gate: `apps/web/src/app/page.tsx`와 관련 Virtue 문서에서 현재 홈 신호 및 J1/J3 경계 재확인, 충돌 0 검증
-
 ## Active
+
+- `marketing-99` Virtue 홈 첫 진입 `목적별 첫 길` 비교안 작성 — source: `source/external-links/marketing/2026-07-03-purpose-path-onboarding.md` / permission: L1 docs-only / status: waiting-on-path-resolution / note: Inbox에 적힌 Virtue 코드 경로가 canonical root 아래에 없어 first verification gate를 아직 통과하지 못함. handoff report: `reports/marketing-99/20260703-100709-handoff.html`, state note: `intents/active/marketing-99.md`
 
 ## Waiting
 

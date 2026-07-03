@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>marketing-99 handoff</title>
+<style>
+  :root{
+    --bg:#f4f2ea; --panel:#fbfaf5; --ink:#2c2a25; --soft:#807c70; --faint:#a8a496; --line:#e3dfd2;
+    --a2:#5f7a5e; --a2-deep:#3f5740;
+    --a1:#a9745a; --a1-deep:#8a5c45;
+    --sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box;} html,body{margin:0; width:100%; max-width:100%; overflow-x:hidden;}
+  body{background:var(--bg); color:var(--ink); font-family:var(--sans); font-size:14px; line-height:1.68;}
+  .sheet{width:min(100%,720px); margin:0 auto; padding:32px 18px 40px;}
+  .eyebrow,.section-title,.chip,summary,.label{font-family:var(--mono);}
+  .eyebrow{display:flex; gap:10px; flex-wrap:wrap; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--soft);}
+  .dot{width:5px; height:5px; border-radius:50%; background:var(--a2); margin-top:8px;}
+  h1{font-size:28px; line-height:1.3; margin:20px 0 0;}
+  .dek{font-size:15.5px; color:var(--soft); margin:13px 0 0; max-width:52ch;}
+  .hr{height:1px; background:var(--line); margin:30px 0;}
+  .axis{padding:0 0 4px 18px; position:relative; margin-bottom:26px;}
+  .axis::before{content:""; position:absolute; left:0; top:6px; bottom:6px; width:2px; border-radius:2px;}
+  .axis.ax1::before{background:var(--a1);} .axis.ax2::before{background:var(--a2);}
+  .label{font-size:11px; letter-spacing:.12em; text-transform:uppercase; margin-bottom:9px; color:var(--a1-deep);}
+  .ax2 .label{color:var(--a2-deep);}
+  .text{font-size:17px; color:#37352e;}
+  details{border:1px solid var(--line); border-radius:8px; background:var(--panel); margin-bottom:10px; overflow:hidden;}
+  summary{cursor:pointer; list-style:none; padding:14px 16px; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft);}
+  .body{padding:2px 16px 18px;}
+  ol.find{list-style:none; counter-reset:f; margin:16px 0 0; padding:0;}
+  ol.find li{position:relative; padding:8px 0 8px 26px; border-top:1px solid var(--line);}
+  ol.find li:first-child{border-top:none;}
+  ol.find li::before{counter-increment:f; content:counter(f); position:absolute; left:0; top:9px; font-family:var(--mono); font-size:12px; font-weight:600; color:var(--a1-deep);}
+  .callout{border-left:2px solid var(--a2); background:#f2efe5; padding:11px 13px; color:#4a473f; margin:12px 0 16px;}
+  .mini-card{border:1px solid var(--line); background:#f8f6ef; border-radius:8px; padding:12px 13px; margin:10px 0;}
+  .mini-card b{display:block; margin-bottom:5px;}
+  ul{padding-left:18px;} code{font-family:var(--mono); font-size:12px; background:#edeae0; padding:1px 6px; border-radius:3px;}
+</style>
+</head>
+<body>
+<div class="sheet">
+  <div class="eyebrow">
+    <span class="dot"></span>
+    <span>marketing-99</span>
+    <span>Implementation Handoff</span>
+    <span>waiting</span>
+  </div>
+  <h1>Virtue 홈 첫 진입 목적별 첫 길 비교안은 착수 대상이지만, 이번 사이클에서는 코드 앵커 경로 불일치를 먼저 기록한다.</h1>
+  <p class="dek">Inbox 항목이 요구한 검증 게이트는 실제 홈 코드 앵커 확인을 포함한다. canonical root 안의 명시 경로가 stale 상태여서, 이번 실행은 handoff 범위를 고정하는 데서 멈춘다.</p>
+  <div class="hr"></div>
+
+  <div class="axis ax1">
+    <div class="label">01 무엇이 문제였나</div>
+    <div class="text">`marketing-99`는 분명한 L1 docs-only 작업이지만, Inbox 문구의 1차 검증 파일 `<code>apps/web/src/app/page.tsx</code>` 가 canonical root 아래에 없다. 소스 메모는 찾았지만 Virtue repo 실코드 기준점을 안전하게 확정하지 못했다.</div>
+  </div>
+
+  <div class="axis ax2">
+    <div class="label">02 어떻게 해결하나</div>
+    <div class="text">다음 사이클은 실제 Virtue 작업트리 위치를 먼저 고정한 뒤, 홈과 <code>/add</code> 표면을 앵커링해서 3안 비교표를 작성하면 된다. 이번 사이클은 그 선행 조건, 파일 후보, 금지선, 검증 게이트를 HTML handoff로 남겼다.</div>
+  </div>
+
+  <details open>
+    <summary>핵심 내용 · 리서치 본문</summary>
+    <div class="body">
+      <div class="section-title">핵심 발견</div>
+      <ol class="find">
+        <li>실제 소스 메모는 <code>/home/ubuntu/workspace/knowledge-lab/source/external-links/marketing/2026-07-03-purpose-path-onboarding.md</code> 에 존재하며, 비교 대상은 `단일 CTA 유지`·`J1/J3 2갈래 시작선`·`샘플 결과 preview` 3안으로 이미 좁혀져 있다.</li>
+        <li>Inbox 항목이 적은 Virtue 경로 <code>/home/ubuntu/workspace/knowledge-lab/virtue/apps/web/src/app/page.tsx</code> 는 존재하지 않았다. 그래서 "현재 홈 신호 및 J1/J3 경계 재확인" 게이트를 통과했다고 주장할 수 없다.</li>
+        <li><code>/home/ubuntu/workspace/space/apps/virtue-rebirth</code> 디렉터리는 후보로 발견됐지만, 이번 사이클 관측 시점에는 비어 있었고 실제 <code>page.tsx</code> 표면을 찾지 못했다. 즉 stale path 문제를 넘어 repo materialization 자체가 불명확하다.</li>
+      </ol>
+      <div class="callout">다음 실행은 먼저 "실제 Virtue 홈 파일이 어디에 있는가"를 확정해야 한다. 그 확인 전에는 비교안 본문을 완료 처리하지 않고, 보고서도 handoff로만 남긴다.</div>
+      <div class="mini-card">
+        <b>근거 · 소스</b>
+        <p>source note 1건, INTENTS Inbox 항목, prior archive <code>marketing-70</code>·<code>marketing-98</code>, Infinity marketing learnings, 그리고 존재 여부 확인용 로컬 경로 탐색만 사용했다.</p>
+      </div>
+      <div class="mini-card">
+        <b>다음 판단</b>
+        <p>실제 Virtue repo/worktree 위치가 확인되면 홈 파일과 <code>/add</code> 파일을 읽고, J1/J3 경계 기준으로 3안 비교표 artifact + final report를 작성한다. 위치가 계속 불명확하면 Waiting blocker로 유지한다.</p>
+      </div>
+    </div>
+  </details>
+
+  <details open>
+    <summary>다음 실행 범위 · 정확한 파일</summary>
+    <div class="body">
+      <p>다음 사이클에서 우선 확인할 파일:</p>
+      <ul>
+        <li><code>실제 Virtue repo root</code></li>
+        <li><code>{repo}/apps/web/src/app/page.tsx</code> 또는 동등한 홈 페이지 파일</li>
+        <li><code>{repo}/apps/web/src/app/add/page.tsx</code> 또는 동등한 입력/판정 시작 파일</li>
+        <li><code>/home/ubuntu/workspace/knowledge-lab/infinity/intents/archive/marketing-70.md</code></li>
+        <li><code>/home/ubuntu/workspace/knowledge-lab/infinity/intents/archive/marketing-98.md</code></li>
+        <li><code>/home/ubuntu/workspace/knowledge-lab/infinity/MARKETING_LEARNINGS.md</code></li>
+      </ul>
+      <p>완료 산출물 형태:</p>
+      <ul>
+        <li><code>artifacts/marketing-99/...</code> 에 3안 비교표</li>
+        <li><code>reports/marketing-99/{timestamp}.html</code> final report</li>
+        <li><code>intents/archive/marketing-99.md</code> 또는 concrete Waiting note</li>
+      </ul>
+      <p>금지선:</p>
+      <ul>
+        <li>production code, 공개 카피, 계측, dashboard, session replay, deploy 변경 금지</li>
+        <li>repo 위치가 불명확한 상태에서 comparison 완료 주장 금지</li>
+        <li>Virtue 외 경로에 broad git stage 금지</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary>실행 메타 · 산출물</summary>
+    <div class="body">
+      <ul>
+        <li>timestamp <code>20260703-100709</code></li>
+        <li>trigger <code>silent hourly cycle</code></li>
+        <li>status <code>inbox -&gt; waiting</code></li>
+        <li>artifact/report <code>reports/marketing-99/20260703-100709-handoff.html</code></li>
+      </ul>
+    </div>
+  </details>
+</div>
+</body>
+</html>
