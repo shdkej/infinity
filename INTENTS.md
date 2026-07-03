@@ -11,7 +11,7 @@
 <!-- 사용자 결정, 외부 조건, 안전 확인 대기. 같은 질문을 반복하지 않고 상태만 보존한다. -->
 
 ## Archive
-<!-- marketing-100 completed 2026-07-03T1400Z → intents/archive/marketing-100.md [projects: virtue,infinity; type: strategy; topics: marketing,activation,onboarding] (첫 문장·버튼 문구·판정 질문 Q1~Q4·보류 조건 5개·C안 비교를 한 장으로 고정했다. prelaunch 첫 10명 초대 시 구두 확인 후 채택 여부를 결정한다.) -->
+<!-- marketing-100 archived 2026-07-03 → intents/archive/marketing-100.md [projects: virtue,infinity; type: strategy; topics: marketing,activation,onboarding,home] (초안에서 첫 문장·버튼 문구·판정 질문·보류 조건·preview안 차이를 고정했고, 후속 보강에서 단일 CTA 대비 필요성 질문, pass/hold cutline, 채택 신호를 추가했다. 구현/배포/계측은 제외했다.) -->
 <!-- marketing-99 completed 2026-07-03T1230Z → intents/archive/marketing-99.md [projects: virtue,infinity; type: strategy; topics: marketing,activation,onboarding,home] (홈과 `/add` 실코드를 다시 앵커링해 단일 CTA 유지안, J1/J3 2갈래 시작선, 샘플 결과 preview 3안을 판독했고, prelaunch 다음 비교 후보로 J1/J3 2갈래 시작선을 남겼다. UI 반영/카피/배치 결정은 제외.) -->
 <!-- marketing-98 completed 2026-07-02T0200Z → intents/archive/marketing-98.md [projects: virtue,infinity; type: strategy; topics: marketing,activation,observation] (첫 10명 관찰표에 가치 발견 신호·activation 판정 독립 2칸을 추가하고 J1~J4별 예시 1세트씩 고정했다.) -->
 <!-- marketing-97 completed 2026-07-02T0000Z → intents/archive/marketing-97.md [projects: virtue,infinity; type: strategy; topics: marketing,activation] (질문 A "오늘 기억하고 싶은 일이 있나요?"와 잡별 예시 후보 E1~E4를 J1~J4 기준으로 판독해, 전역 예시 즉시 반영이 이른 4가지 이유와 질문 A + E1 우선 채택 근거를 한 표로 고정했다.) -->
