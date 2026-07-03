@@ -1,36 +1,35 @@
-# marketing-99 Virtue 홈 첫 진입 `목적별 첫 길` 비교안 작성
+# marketing-99 Virtue 홈 첫 진입 목적별 첫 길 비교안 작성
 
 - id: marketing-99
 - status: archived
-- completed_at: 2026-07-03T0000Z
+- completed_at: 2026-07-03T1230Z
 - projects: [virtue, infinity]
 - task_type: strategy
-- topics: [marketing, activation, onboarding]
-- result_summary: 홈 첫 방문자 단일 CTA 현황 기준으로 3안(A 현상유지·B J1/J3 2갈래·C 샘플preview)의 장단점·금지선·우선 실험 순서를 한 문서로 정리했다.
+- topics: [marketing, activation, onboarding, home]
+- result_summary: 홈(`/`)과 `/add` 실코드를 다시 앵커링해 단일 CTA 유지안, J1/J3 2갈래 시작선, 샘플 결과 preview 3안을 같은 기준으로 판독했고, prelaunch 다음 비교 후보로 J1/J3 2갈래 시작선을 남겼다. UI 반영/카피/배치 결정은 제외했다.
 - artifacts:
-  - path: artifacts/marketing-99/purpose-path-onboarding-compare.md
+  - path: /home/ubuntu/dev/virtue-rebirth-app/apps/web/docs/home-purpose-path-compare.md
     role: design
-    note: 3안 비교표, 우선 실험 순서, 금지선, 다음 마케터 인수인계
+    note: 홈 첫 진입 목적별 첫 길 3안 비교표와 판정 기준, 다음 규칙 정리
 - reports:
-  - path: reports/marketing-99/2026-07-03T0000Z.html
+  - path: reports/marketing-99/2026-07-03T1230Z.html
     role: final
 - commits: []
 - urls: []
 - next_actions:
-  - 첫 10명 관찰표(marketing-98 양식) 작성 후 J3 Gap G3 또는 J1 빈 화면 부담이 관찰되는지 확인
-  - 관찰 결과에 따라 Option C(샘플 preview) 구현 여부 결정 — 구현 시 별도 L1 intent로 분리
-  - Option B(2갈래 시작선)는 관찰 증거 확인 후에만 실험 고려
+  - 구현 전 단계에서 J1/J3 2갈래 시작선의 존재 여부를 확정하지 않고, 비교 기준과 판정 질문만 별도 intent로 구체화
+  - 실제 문구/버튼/배치 반영은 approval-needed 구현 intent로 분리
+  - 샘플 결과 preview는 B안 검토 뒤 2순위 실험 후보로만 유지
 
 ## Result
 
-- `apps/web/src/app/page.tsx:106-112` (단일 CTA) · `:125-131` (빈 상태)를 기준 앵커로, 3안 비교표를 docs-only로 완성했다.
-- **1순위**: Option C (샘플 결과 preview) — 낮은 실험 비용, 양쪽 잡 동시 신호. 금지: 실 데이터, mock 레이블.
-- **2순위**: Option B (J1/J3 2갈래 시작선) — J3 Gap G3 직접 해소 효과 크지만 관찰 선행 필수.
-- **유지 조건 (A)**: J3 Gap G3 + J1 빈 화면 부담 둘 다 관찰에서 주요 마찰로 안 나오면 현 상태 유지.
-- marketing-93 · marketing-19 · marketing-98 · MARKETING_LEARNINGS.md 계승 충돌 0.
+- 현재 홈은 J1 기록형 중심 단일 길이고, J3 AI 호기심형 약속은 `/add` 안에서야 분명해진다고 정리했다.
+- A안(단일 CTA 유지)은 가장 안전하지만 목적별 첫 길 문제를 거의 풀지 못한다고 판정했다.
+- B안(J1/J3 2갈래 시작선)은 목적 신호 선명도와 prelaunch 적합성의 균형이 가장 좋아 다음 비교 후보로 남겼다.
+- C안(샘플 결과 preview)은 proof는 강하지만 대표성 오해와 과한 약속 위험 때문에 2순위로 보류했다.
 
 ## Links
 
-- artifact: `artifacts/marketing-99/purpose-path-onboarding-compare.md`
-- report: `reports/marketing-99/2026-07-03T0000Z.html`
-- prior_context: marketing-19 (홈 FAE 감사), marketing-70 (empty-state proof), marketing-93 (J1 language-market fit), marketing-98 (관찰표)
+- artifact: `/home/ubuntu/dev/virtue-rebirth-app/apps/web/docs/home-purpose-path-compare.md`
+- report: `reports/marketing-99/2026-07-03T1230Z.html`
+- prior_context: `intents/archive/marketing-97.md`, `intents/archive/marketing-98.md`
