@@ -6,13 +6,12 @@
 
 ## Active
 
-- `marketing-99` Virtue 홈 첫 진입 `목적별 첫 길` 비교안 작성 — source: `source/external-links/marketing/2026-07-03-purpose-path-onboarding.md` / permission: L1 docs-only / status: waiting-on-path-resolution / note: Inbox에 적힌 Virtue 코드 경로가 canonical root 아래에 없어 first verification gate를 아직 통과하지 못함. handoff report: `reports/marketing-99/20260703-100709-handoff.html`, state note: `intents/active/marketing-99.md`
-
 ## Waiting
 
 <!-- 사용자 결정, 외부 조건, 안전 확인 대기. 같은 질문을 반복하지 않고 상태만 보존한다. -->
 
 ## Archive
+<!-- marketing-99 completed 2026-07-03T0000Z → intents/archive/marketing-99.md [projects: virtue,infinity; type: strategy; topics: marketing,activation,onboarding] (홈 첫 진입 3안(단일CTA유지·J1/J3 2갈래·샘플preview) 비교표와 우선 실험 순서를 고정했다.) -->
 <!-- marketing-98 completed 2026-07-02T0200Z → intents/archive/marketing-98.md [projects: virtue,infinity; type: strategy; topics: marketing,activation,observation] (첫 10명 관찰표에 가치 발견 신호·activation 판정 독립 2칸을 추가하고 J1~J4별 예시 1세트씩 고정했다.) -->
 <!-- marketing-97 completed 2026-07-02T0000Z → intents/archive/marketing-97.md [projects: virtue,infinity; type: strategy; topics: marketing,activation] (질문 A "오늘 기억하고 싶은 일이 있나요?"와 잡별 예시 후보 E1~E4를 J1~J4 기준으로 판독해, 전역 예시 즉시 반영이 이른 4가지 이유와 질문 A + E1 우선 채택 근거를 한 표로 고정했다.) -->
 <!-- marketing-95 completed 2026-07-02T0340Z -> intents/archive/marketing-95.md [projects: virtue,infinity; type: verification; topics: marketing,activation,deploy,return-state] (`virtue.aws.shdkej.com` 라이브에서 검증용 deed 1개를 넣은 returning state가 `나의 덕력 614덕`, `오늘 덕 쌓기`, 최근 덕행 리스트로 정상 표시됨을 확인했다. Fresh-state `612덕` 베이스라인 이슈는 이 검증 범위 밖으로 분리했다. HTML report gate passed.) -->
