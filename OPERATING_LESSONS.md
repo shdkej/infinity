@@ -30,3 +30,5 @@ Infinity 운영 중 intent 처리 방식에 실제로 영향을 주는 규칙만
 - 모든 Infinity → Claude Code 위임 프롬프트에 `Required workflow: Use workflow-master first`를 포함한다.
 - Claude Code는 대상 레포의 `.agent/workflows/workflow-master.md` 또는 `WORKFLOW-MASTER.md`를 먼저 읽고, 복잡도 판단/역할 분해/검증 흐름을 거친 뒤 실행해야 한다.
 - 이 규칙은 L2/L3 승인 경계를 완화하지 않는다.
+
+- INTENTS.md의 Inbox/Active/Waiting 항목은 대시보드 파서가 `### [id] 제목` 헤더 + `- snake_case_key: value` 불릿만 카드로 인식한다. 불릿 리스트(`- \`id\` 제목`)로만 넣으면 push가 돼도 대시보드에 보이지 않는다. (2026-07-04 ops-01/02 형식 실수에서 확인)
