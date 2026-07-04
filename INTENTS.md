@@ -6,14 +6,9 @@
 
 ## Active
 
-
-## Waiting
-
-<!-- 사용자 결정, 외부 조건, 안전 확인 대기. 같은 질문을 반복하지 않고 상태만 보존한다. -->
-
 ### [ops-01] weekly-main-workspace-autopush git sync를 결정적 스크립트로 이관
 
-- status: waiting
+- status: active
 - priority: medium
 - permission: L2 (approval-needed)
 - mode: execute_local
@@ -21,11 +16,12 @@
 - context: openclaw workspace — `system/scripts/weekly_workspace_sync.sh` (신규 생성 대상), `system/docs/CRON_REDESIGN_2026-07-04.md` 진단 5 / 변경안 D-2 참조
 - success_criteria: 다음 일요일 run이 스크립트 경로로 ok 완료되고, 크론 프롬프트에서 중복 git 규칙 블록이 제거된다
 - source_signal: sam-proposer — self-healer가 동일 git diff exit-code 실패에 프롬프트 패치 5겹 누적
-- gate: GATES.md 등록 완료 — 사용자 승인 대기 중
+- approval: user-approved 2026-07-04
+- gate: GATES.md 처리 완료 (approved 2026-07-04)
 
 ### [ops-02] tool-curator 규칙 분산을 canonical 블록 1곳으로 통합
 
-- status: waiting
+- status: active
 - priority: medium
 - permission: L2 (approval-needed)
 - mode: execute_local
@@ -33,7 +29,12 @@
 - context: openclaw workspace — `system/docs/EVALUATION_NOTES.md` 미해결 감시 항목 2건 ("tool-curator 규칙 분산", "tool-curator 링크 검증")
 - success_criteria: 반복 실행이 참조하는 규칙 원본이 1곳이 되고, 중복 블록 제거 diff와 링크 검증 조건의 canonical 위치가 확인된다
 - source_signal: sam-proposer — EVALUATION_NOTES.md 미해결 2건이 동일 원인(규칙 분산)을 가리킴
-- gate: GATES.md 등록 완료 — 사용자 승인 대기 중
+- approval: user-approved 2026-07-04
+- gate: GATES.md 처리 완료 (approved 2026-07-04)
+
+## Waiting
+
+<!-- 사용자 결정, 외부 조건, 안전 확인 대기. 같은 질문을 반복하지 않고 상태만 보존한다. -->
 
 ## Archive
 <!-- marketing-100 archived 2026-07-03 → intents/archive/marketing-100.md [projects: virtue,infinity; type: strategy; topics: marketing,activation,onboarding,home] (초안에서 첫 문장·버튼 문구·판정 질문·보류 조건·preview안 차이를 고정했고, 후속 보강에서 단일 CTA 대비 필요성 질문, pass/hold cutline, 채택 신호를 추가했다. 구현/배포/계측은 제외했다.) -->

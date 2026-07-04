@@ -5,19 +5,24 @@
 
 ## 대기 중
 
+## 처리 완료
+
 ### [ops-01] weekly-main-workspace-autopush git sync를 결정적 스크립트로 이관
 - requested: 2026-07-04 04:00 UTC
 - action: openclaw workspace에 `system/scripts/weekly_workspace_sync.sh` 신규 생성 + 해당 크론 command payload를 스크립트 경로로 전환, 첫 실행 push 동반 테스트
 - reason: self-healer가 동일 git diff exit-code 실패에 프롬프트 패치 5겹 누적; LLM 판단 불필요한 git sync를 결정적 스크립트로 교체하면 패치 루프 자체가 사라짐 (CRON_REDESIGN_2026-07-04.md 진단 5, 변경안 D-2)
 - impact: 크론 설정 변경 + git push 동반 테스트 필요 — 롤백 가능 (크론 payload 복원)
+- resolved: 2026-07-04 (사용자 '승인')
+- decision: approved
 
 ### [ops-02] tool-curator 규칙 분산을 canonical 블록 1곳으로 통합
 - requested: 2026-07-04 04:00 UTC
 - action: openclaw workspace의 SKILL.md/workflow 문서/fixed template 중 1곳 canonical 지정 + 나머지 포인터 교체 diff 생성 및 적용, 링크 검증 조건을 canonical 위치에 통합
 - reason: 반복 실행 규칙이 3곳 중복 → 드리프트; 링크 검증 조건이 실행 경로에 따라 누락 (EVALUATION_NOTES.md 미해결 감시 항목 2건)
 - impact: 스킬/워크플로우 정본 문서 수정 — 롤백 가능 (git revert)
+- resolved: 2026-07-04 (사용자 '승인')
+- decision: approved
 
-## 처리 완료
 
 ### [marketing-01] Virtue add-flow telemetry 머지/푸시 및 배포 승인
 - requested: 2026-05-21 08:07 UTC
