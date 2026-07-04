@@ -33,3 +33,4 @@ Infinity 운영 중 intent 처리 방식에 실제로 영향을 주는 규칙만
 
 - INTENTS.md의 Inbox/Active/Waiting 항목은 대시보드 파서가 `### [id] 제목` 헤더 + `- snake_case_key: value` 불릿만 카드로 인식한다. 불릿 리스트(`- \`id\` 제목`)로만 넣으면 push가 돼도 대시보드에 보이지 않는다. (2026-07-04 ops-01/02 형식 실수에서 확인)
 - 대시보드(`docs/index.html`) 수정 시 표면은 두 곳이다: GitHub Pages(`shdkej.com/infinity/`)는 push로 자동 반영되지만, `infinity.aws.shdkej.com`은 space 레포 `infra-aws-static-sites/sites/infinity/dist/` 복사 + S3(`static-infinity-aws-shdkej-com`) 업로드 + CloudFront(E3JYGTLQKF0AXX) invalidation까지 해야 반영된다. oracle 호스트는 비정본(stale). 2026-07-04에 aws 쪽이 여러 업데이트 뒤처져 있던 걸 확인 — 한쪽만 바꾸면 반대편 끝이 누락된다.
+- intent의 상태 정본은 INTENTS.md 레인 하나다. L2 approval-needed intent는 승인 전까지 레인이 `Waiting`이어야 하고(GATES.md 등록은 승인 요청 기록이지 레인이 아니다), 같은 intent가 Active와 GATES 대기 중에 동시에 있으면 상태 모순이다. 승인되면 Waiting→Active + GATES 처리 완료로 함께 전이한다. (2026-07-04 ops-01/02 이중 표시에서 확인)
