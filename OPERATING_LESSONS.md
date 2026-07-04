@@ -4,6 +4,7 @@ Infinity 운영 중 intent 처리 방식에 실제로 영향을 주는 규칙만
 
 ## 기록 원칙
 - 단순한 작업 기록이 아니라 다음 intent 처리 방식을 바꾸는 교훈만 남긴다.
+- 이 파일에는 Infinity intent 처리 교훈만 남긴다. 둘 이상 시스템(OpenClaw·Knowledge Lab·Infinity)에 적용되는 규칙은 정본인 `/home/ubuntu/.openclaw/workspace/system/docs/OPERATING_LESSONS.md`로 승격하고 여기엔 포인터만 둔다. 위키 편집 교훈은 `../logs/OPERATING_LESSONS.md`에 있다.
 - 승인 흐름, 병렬도, pickup 방식, 보고 방식처럼 운영 레벨의 규칙을 우선한다.
 - 재사용 가치가 낮은 일회성 메모는 쓰지 않는다.
 
