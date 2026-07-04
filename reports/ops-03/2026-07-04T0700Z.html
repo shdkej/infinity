@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>[ops-03] 데일리 리뷰 렌더 게이트 — Prepare</title>
+<style>
+  :root{
+    --bg:#f4f2ea; --panel:#fbfaf5; --ink:#2c2a25; --soft:#807c70; --faint:#a8a496; --line:#e3dfd2;
+    --a2:#5f7a5e; --a2-deep:#3f5740;
+    --a1:#b08545; --a1-deep:#8a6633;
+    --sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;width:100%;max-width:100%;overflow-x:hidden;}
+  body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:14px;line-height:1.68;-webkit-font-smoothing:antialiased;}
+  .sheet{width:min(100%,720px);max-width:720px;margin:0 auto;padding:32px 18px 40px;}
+  .reveal{opacity:0;animation:fade .7s ease forwards;}
+  @keyframes fade{from{opacity:0;transform:translateY(9px);}to{opacity:1;transform:none;}}
+  .eyebrow{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--soft);flex-wrap:wrap;}
+  .eyebrow .id{color:var(--a2-deep);font-weight:600;}
+  .eyebrow .dot{width:5px;height:5px;border-radius:50%;background:var(--a2);}
+  .eyebrow .status{color:var(--a2-deep);}
+  h1{font-size:clamp(24px,7vw,29px);line-height:1.3;font-weight:700;margin:20px 0 0;overflow-wrap:anywhere;}
+  .dek{font-size:15.5px;color:var(--soft);margin:13px 0 0;max-width:52ch;}
+  .hr{height:1px;background:var(--line);margin:30px 0;}
+  .axis{padding:0 0 4px 18px;position:relative;margin-bottom:26px;}
+  .axis::before{content:"";position:absolute;left:0;top:6px;bottom:6px;width:2px;border-radius:2px;}
+  .axis.ax1::before{background:var(--a1);}.axis.ax2::before{background:var(--a2);}
+  .axis.ax1{--ul:var(--a1);}.axis.ax2{--ul:var(--a2);}
+  .axis .label{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:9px;display:flex;align-items:center;gap:8px;}
+  .axis.ax1 .label{color:var(--a1-deep);}.axis.ax2 .label{color:var(--a2-deep);}
+  .axis .label .n{font-weight:600;opacity:.6;}
+  .axis .text{font-size:clamp(16px,4.4vw,18px);line-height:1.62;color:#37352e;overflow-wrap:anywhere;}
+  .axis .text b{font-weight:700;color:var(--ink);border-bottom:2px solid var(--ul);}
+  ol.find{list-style:none;counter-reset:f;margin:16px 0 0;padding:0;}
+  ol.find li{position:relative;padding:8px 0 8px 26px;font-size:15px;color:#37352e;border-top:1px solid var(--line);}
+  ol.find li:first-child{border-top:none;}
+  ol.find li::before{counter-increment:f;content:counter(f);position:absolute;left:0;top:9px;font-family:var(--mono);font-size:12px;font-weight:600;color:var(--a1-deep);}
+  details{border:1px solid var(--line);border-radius:8px;background:var(--panel);margin-bottom:10px;overflow:hidden;}
+  summary{cursor:pointer;list-style:none;padding:14px 16px;display:flex;align-items:center;gap:11px;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--soft);}
+  summary::-webkit-details-marker{display:none;}
+  summary .chev{width:8px;height:8px;border-right:2px solid var(--a2-deep);border-bottom:2px solid var(--a2-deep);transform:rotate(-45deg);transition:.25s;flex:none;margin-left:2px;}
+  details[open] summary .chev{transform:rotate(45deg);}
+  summary:hover{color:var(--ink);}
+  .body{padding:2px 16px 18px;min-width:0;}
+  .section{margin:4px 0 18px;}
+  .section-title{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--a1-deep);margin:0 0 8px;}
+  .callout{border-left:2px solid var(--a2);background:#f2efe5;padding:11px 13px;color:#4a473f;margin:12px 0 16px;}
+  .content-grid{display:grid;grid-template-columns:1fr;gap:10px;margin:10px 0;}
+  .mini-card{border:1px solid var(--line);background:#f8f6ef;border-radius:8px;padding:12px 13px;min-width:0;}
+  .mini-card b{display:block;color:var(--ink);margin-bottom:5px;}
+  .mini-card p{margin:0;color:var(--soft);}
+  .body p{color:var(--soft);overflow-wrap:anywhere;}
+  .body ul{margin:6px 0;padding-left:18px;}.body li{margin:5px 0;}
+  code{font-family:var(--mono);font-size:12px;background:#edeae0;padding:1px 6px;border-radius:3px;color:var(--a2-deep);overflow-wrap:anywhere;word-break:break-word;}
+  .chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px;}
+  .chip{font-family:var(--mono);font-size:10.5px;letter-spacing:.05em;color:var(--soft);border:1px solid var(--line);border-radius:999px;padding:3px 10px;}
+  .foot{margin-top:30px;padding-top:15px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:6px 14px;justify-content:space-between;font-family:var(--mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--faint);}
+  @media(min-width:720px){.sheet{padding:48px 34px 46px;}.axis{padding-left:22px;}.content-grid{grid-template-columns:repeat(2,minmax(0,1fr));}}
+</style>
+</head>
+<body>
+<div class="sheet">
+  <div class="eyebrow reveal">
+    <span class="dot"></span>
+    <span class="id">ops-03</span>
+    <span>Prepare · Heartbeat 2026-07-04</span>
+    <span class="status">active</span>
+  </div>
+  <h1 class="reveal" style="animation-delay:.05s">데일리 리뷰 렌더 게이트 고정</h1>
+  <p class="dek reveal" style="animation-delay:.09s">저장 직전 첫 줄 검증 게이트 추가 계획 수립 완료 — execute_local 대기 중</p>
+  <div class="hr reveal" style="animation-delay:.12s"></div>
+
+  <div class="axis ax1 reveal" style="animation-delay:.16s">
+    <div class="label"><span class="n">01</span> 무엇을 점검했나</div>
+    <div class="text">2026-06-24~29 daily review 초안 6건이 <b>내부 점검 메타 블록</b>(중복 게이트·확인 소스·소스 한계)으로 시작해 사용자 노출 본문보다 앞서는 반복 패턴 관찰됨.</div>
+  </div>
+
+  <div class="axis ax2 reveal" style="animation-delay:.22s">
+    <div class="label"><span class="n">02</span> 이상 여부·조치</div>
+    <div class="text">저장 직전 <b>렌더 게이트</b> 추가 계획 수립 완료. 메타 블록 키워드 패턴 3종 정의 및 execute_local 프롬프트 준비 — 로컬 Claude 실행 대기.</div>
+  </div>
+
+  <div class="reveal" style="animation-delay:.27s">
+  <details open>
+    <summary><span class="chev"></span> 핵심 발견 · 준비 계획</summary>
+    <div class="body">
+      <div class="section">
+        <div class="section-title">핵심 발견</div>
+        <ol class="find">
+          <li><strong>반복 패턴 확인</strong>: 6일 연속 daily review 초안 첫 줄이 내부 점검 메타 블록으로 시작. 생성 로직 또는 후처리에 필터 부재.</li>
+          <li><strong>수정 지점 우선순위</strong>: (a) 프롬프트에 메타 블록 위치 규칙 명시 vs (b) 저장 직전 스크립트 게이트. (b)가 더 결정적이고 프롬프트 변경 없이 적용 가능.</li>
+          <li><strong>메타 블록 식별 패턴</strong>: "중복 게이트", "확인 소스", "소스 한계" 키워드가 첫 3줄에서 발견되면 하단 이동 또는 제거 트리거.</li>
+          <li><strong>검증 기준</strong>: 수정 후 다음 daily review 첫 줄이 헤드라인/한 줄 요약으로 시작하면 success_criteria 충족.</li>
+        </ol>
+      </div>
+      <div class="callout">로컬 실행 필요: LOCAL_REVIEW_AUTOMATION.md 및 daily review 생성 스크립트가 OpenClaw 워크스페이스에 있어 이번 Heartbeat에서 직접 수정 불가. execute_local 프롬프트는 intents/active/ops-03.md에 준비됨.</div>
+      <div class="content-grid">
+        <div class="mini-card">
+          <b>execute_local 핵심 지시</b>
+          <p>LOCAL_REVIEW_AUTOMATION.md 및 daily review 생성 스크립트를 찾아 저장 직전 렌더 게이트를 추가한다. 내부 점검 패턴을 첫 3줄에서 발견하면 하단 이동 또는 제거.</p>
+        </div>
+        <div class="mini-card">
+          <b>다음 판단</b>
+          <p>로컬 Claude가 게이트 추가 후 다음 daily review 생성 샘플로 검증. 성공 시 ops-03 archive 처리.</p>
+        </div>
+      </div>
+    </div>
+  </details>
+
+  <details open>
+    <summary><span class="chev"></span> 수행 작업 · 다음 액션</summary>
+    <div class="body">
+      <ul>
+        <li>ops-03 Inbox → Active 이동 (구조화 완료)</li>
+        <li>반복 패턴 6일분 분석 및 수정 지점 2개 식별</li>
+        <li>메타 블록 키워드 패턴 3종 정의</li>
+        <li>execute_local 프롬프트 초안 작성 (intents/active/ops-03.md)</li>
+      </ul>
+      <p>다음: 로컬 Claude → LOCAL_REVIEW_AUTOMATION.md/생성 스크립트 렌더 게이트 추가 → 샘플 검증 → 완료 시 ops-03 archive.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="chev"></span> 실행 메타</summary>
+    <div class="body">
+      <div class="chips">
+        <span class="chip">2026-07-04T0700Z</span>
+        <span class="chip">Heartbeat Prepare</span>
+        <span class="chip">inbox → active</span>
+      </div>
+      <ul>
+        <li>이 리포트 <code>reports/ops-03/2026-07-04T0700Z.html</code></li>
+        <li>active intent <code>intents/active/ops-03.md</code></li>
+        <li>다음 리포트 <code>reports/ops-03/{timestamp}-local.html</code> (로컬 실행 후)</li>
+      </ul>
+    </div>
+  </details>
+  </div>
+
+  <div class="foot reveal" style="animation-delay:.3s">
+    <span>Agent-First Heartbeat</span>
+    <span>Infinity · Intent Note</span>
+  </div>
+</div>
+</body>
+</html>

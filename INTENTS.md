@@ -4,24 +4,29 @@
 
 ## Inbox
 
-### [ops-03] 자동 데일리 리뷰 본문 시작부 렌더 게이트 고정
-- proposed_by: sam-proposer
-- source_signal: system/docs/EVALUATION_NOTES.md#자동-데일리-리뷰-본문-시작부-내부-점검-문구-반복
-- rationale: 2026-06-24부터 2026-06-29까지 여러 daily review 초안이 `중복 게이트/확인 소스/소스 한계` 같은 내부 점검 문구로 시작해 사용자 노출 본문보다 메타 블록이 앞서는 문제가 반복 관찰됨.
-- expected_artifact: LOCAL_REVIEW_AUTOMATION.md 또는 해당 daily review 생성 규칙에 저장 직전 렌더 게이트를 추가하고, 필요하면 생성 템플릿/스크립트의 첫 줄 검증을 함께 정렬.
-- permission_level: implementation approval required
-- success_criteria: 새 daily review 샘플 또는 최신 생성물의 첫 줄이 헤드라인/한 줄 요약으로 시작하고, 내부 점검 메타 블록이 본문 하단 운영 메모로 이동하거나 저장 전 제거되는 것이 재현 가능하게 확인됨.
-
-### [ops-04] OpenClaw evaluator 경고성 탐색 템플릿 축소
-- proposed_by: sam-proposer
-- source_signal: system/docs/EVALUATION_NOTES.md#OpenClaw-evaluator-search-warning-series + openclaw cron runs
-- rationale: evaluator runs에서 `~` 경로 search, agent-scoped `git ls-files`, agent-scoped 전역 search, `2>/dev/null` literal target 같은 경고성 탐색이 여러 차례 기록되어 NO_REPLY 루프 비용과 diagnostics 소음을 반복적으로 키움.
-- expected_artifact: OpenClaw evaluator cron payload 또는 evaluator 정본 절차에서 기본 탐색을 `git status --short`와 필요한 절대경로 파일 읽기로 제한하고, no-match/optional search는 실패가 아닌 데이터로 처리하도록 정리.
-- permission_level: implementation approval required
-- success_criteria: evaluator 수동 또는 다음 정기 실행의 diagnostics에 search target/path 관련 warning이 남지 않고, 미해결 신호가 없을 때는 짧게 `NO_REPLY`로 종료됨.
-
 ## Active
 
+### [ops-03] 자동 데일리 리뷰 본문 시작부 렌더 게이트 고정
+- id: ops-03
+- status: active
+- priority: medium
+- permission: L2 (agent-approvable · 로컬 파일 수정 · rollback 가능)
+- mode: prepare (완료) → execute_local (대기 중)
+- goal: 데일리 리뷰 생성 로직에 저장 직전 렌더 게이트를 추가해, 첫 줄이 헤드라인/한 줄 요약으로 시작하고 내부 점검 메타 블록이 본문 하단으로 이동하거나 제거되도록 한다.
+- success_criteria: 새 daily review 샘플의 첫 줄이 헤드라인/한 줄 요약으로 시작하고, 내부 점검 메타 블록이 본문 하단 운영 메모로 이동 또는 제거되는 것이 재현 가능하게 확인됨.
+- context: LOCAL_REVIEW_AUTOMATION.md 또는 daily review 생성 규칙/스크립트; OpenClaw workspace EVALUATION_NOTES.md
+- next_action: 로컬 Claude에 execute_local 프롬프트 전달 (intents/active/ops-03.md 참조)
+
+### [ops-04] OpenClaw evaluator 경고성 탐색 템플릿 축소
+- id: ops-04
+- status: active
+- priority: medium
+- permission: L2 (agent-approvable · 로컬 파일 수정 · rollback 가능)
+- mode: prepare (완료) → execute_local (대기 중)
+- goal: OpenClaw evaluator cron payload 또는 evaluator 정본 절차에서 기본 탐색을 `git status --short`와 필요한 절대경로 파일 읽기로 제한하고, no-match/optional search를 실패가 아닌 데이터로 처리하도록 수정한다.
+- success_criteria: evaluator 다음 실행 diagnostics에 search target/path 관련 warning이 없고, 미해결 신호 없을 때 짧게 NO_REPLY로 종료됨.
+- context: OpenClaw evaluator cron payload; EVALUATION_NOTES.md (OpenClaw workspace)
+- next_action: 로컬 Claude에 execute_local 프롬프트 전달 (intents/active/ops-04.md 참조)
 
 ## Waiting
 
@@ -41,7 +46,7 @@
 <!-- naver-shopping-01 completed-first-pass 2026-07-01T0035Z → intents/archive/naver-shopping-01.md [display: 나래/Narae; projects: naver-shopping,infinity,personal-ops; type: coordination; topics: automation,workflow,marketing] (사용자 지시에 따라 나래 1차 작업 종료. 손목 스트랩 1순위 + 크로스바디/넥 폰 스트랩 2순위 샘플 검토 준비 상태를 보존하고, 명시적 재호출 전까지 alibaba.com 공급사 확인·샘플 주문 승인 요청·08:30/09:00 자동 루프를 중단한다.) -->
 <!-- marketing-94 completed 2026-06-30T1007Z -> intents/archive/marketing-94.md [projects: virtue,infinity; type: strategy; topics: marketing,activation,product,session-replay] (`marketing-87` 4분류를 유지한 채 pass-vs-hold 비교용 보조 문서 1장을 추가해, `judged but not saved`를 자동 실패로 읽지 않고 양쪽 세션에 반복되는 마찰만 다음 수정 후보로 올리는 규칙을 고정했다. HTML report gate passed.) -->
 <!-- marketing-93 completed 2026-06-29T2207Z -> intents/archive/marketing-93.md [projects: virtue,infinity; type: strategy; topics: marketing,activation,product] (현재 홈·`/add`·반환 표면 언어를 J1~J4 기준으로 판독해, 지금 가장 잘 맞는 행복한 첫 사용자는 J1 기록형 중심이고 J2 누적형이 보조라는 기준표를 고정했다. HTML report gate passed.) -->
-<!-- marketing-92 completed 2026-06-29T1829Z -> intents/archive/marketing-92.md [projects: virtue,infinity; type: implementation; topics: marketing,activation,retention] (홈 최근 덕행 empty-state를 `stats.count`와 `recent.length`로 분리해 복귀 사용자의 first-visit 카피 재노출을 막고, typecheck 통과·기존 lint warning만 확인했다.) -->
+<!-- marketing-92 completed 2026-06-29T1829Z -> intents/archive/marketing-92.md [projects: virtue,infinity; type: strategy; topics: marketing,activation,retention] (홈 최근 덕행 empty-state를 `stats.count`와 `recent.length`로 분리해 복귀 사용자의 first-visit 카피 재노출을 막고, typecheck 통과·기존 lint warning만 확인했다.) -->
 <!-- 이 섹션의 상세 이력은 2026-06-17T10:24Z Heartbeat 과정에서 INTENTS.md 갱신 중 일시 유실됨. 개별 intent 원장은 intents/archive/*.md 에 모두 보존되어 있음. -->
 <!-- research-24 completed 2026-06-29T0600Z → intents/archive/research-24.md (capture·claim·open_loop 3필드 경계를 "있었던 것 / 내린 것 / 모르는 것"으로 고정하고 회고·Threads·카드뉴스 산출물 연결 규칙을 1장으로 정리했다.) -->
 <!-- marketing-91 completed 2026-06-28T2229Z → intents/archive/marketing-91.md [projects: virtue, infinity; type: strategy; topics: marketing, activation, product] (기존 이벤트 조합과 홈 반환 사례를 `정상 진행 / 자연 종료 / 마찰 / 상태 모순` 4개 상태 언어로 고정했다.) -->
@@ -53,7 +58,7 @@
 <!-- marketing-85 completed 2026-06-25T220708Z → intents/archive/marketing-85.md [projects: virtue; type: strategy; topics: marketing,activation,prelaunch,observation] (첫 10명 활성화 1장 관찰표 `다음 행동 명료성` 질문 보강 완료. HTML report gate passed.) -->
 <!-- marketing-84 completed 2026-06-25T1028Z → intents/archive/marketing-84.md [projects: virtue; type: strategy; topics: marketing,activation,retention] (첫 가치 다음의 next-step bridge 감사표/제안서 완료. HTML report gate passed.) -->
 <!-- research-21 completed 2026-06-25T0507Z → intents/archive/research-21.md [projects: infinity,research-bank,personal-ops; type: research; topics: workflow,content] (6개 사례를 기록 방식·정리 방식·검증 방식·출판 변환 방식으로 비교해, Infinity용 일일 3줄·주간 3묶음·월간 1산출물 루프를 제안했다. HTML report gate passed.) -->
-<!-- marketing-82 completed 2026-06-24T2308Z → intents/archive/marketing-82.md [projects: virtue; type: implementation; topics: marketing,activation,product] (Virtue 홈 첫 방문 zero-state를 랜딩형으로 재구성해 첫 가치와 다음 행동을 같은 화면에서 바로 읽히게 했다.) -->
+<!-- marketing-82 completed 2026-06-24T2308Z → intents/archive/marketing-82.md [projects: virtue; type: strategy; topics: marketing,activation,product] (Virtue 홈 첫 방문 zero-state를 랜딩형으로 재구성해 첫 가치와 다음 행동을 같은 화면에서 바로 읽히게 했다.) -->
 <!-- marketing-83 completed 2026-06-24T2300Z → intents/archive/marketing-83.md [projects: virtue; type: strategy; topics: marketing,activation,onboarding,empty-state] (홈 반환형 empty-state gating 정렬 제안서 완료. HTML report gate passed.) -->
 <!-- research-23 completed 2026-06-24T2055Z → intents/archive/research-23.md [projects: infinity,research-bank,world-models; type: research; topics: military,workflow,knowledge-management] (미군 TTP 학습 루프 심화 완료. HTML report gate passed.) -->
 <!-- marketing-81 completed 2026-06-24T1007Z → intents/archive/marketing-81.md [projects: virtue; type: strategy; topics: marketing,activation,retention] (첫 저장/첫 판단 뒤 홈 복귀 secondary onboarding 감사표 완료. HTML report gate passed.) -->
