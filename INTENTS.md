@@ -4,6 +4,22 @@
 
 ## Inbox
 
+### [ops-03] 자동 데일리 리뷰 본문 시작부 렌더 게이트 고정
+- proposed_by: sam-proposer
+- source_signal: system/docs/EVALUATION_NOTES.md#자동-데일리-리뷰-본문-시작부-내부-점검-문구-반복
+- rationale: 2026-06-24부터 2026-06-29까지 여러 daily review 초안이 `중복 게이트/확인 소스/소스 한계` 같은 내부 점검 문구로 시작해 사용자 노출 본문보다 메타 블록이 앞서는 문제가 반복 관찰됨.
+- expected_artifact: LOCAL_REVIEW_AUTOMATION.md 또는 해당 daily review 생성 규칙에 저장 직전 렌더 게이트를 추가하고, 필요하면 생성 템플릿/스크립트의 첫 줄 검증을 함께 정렬.
+- permission_level: implementation approval required
+- success_criteria: 새 daily review 샘플 또는 최신 생성물의 첫 줄이 헤드라인/한 줄 요약으로 시작하고, 내부 점검 메타 블록이 본문 하단 운영 메모로 이동하거나 저장 전 제거되는 것이 재현 가능하게 확인됨.
+
+### [ops-04] OpenClaw evaluator 경고성 탐색 템플릿 축소
+- proposed_by: sam-proposer
+- source_signal: system/docs/EVALUATION_NOTES.md#OpenClaw-evaluator-search-warning-series + openclaw cron runs
+- rationale: evaluator runs에서 `~` 경로 search, agent-scoped `git ls-files`, agent-scoped 전역 search, `2>/dev/null` literal target 같은 경고성 탐색이 여러 차례 기록되어 NO_REPLY 루프 비용과 diagnostics 소음을 반복적으로 키움.
+- expected_artifact: OpenClaw evaluator cron payload 또는 evaluator 정본 절차에서 기본 탐색을 `git status --short`와 필요한 절대경로 파일 읽기로 제한하고, no-match/optional search는 실패가 아닌 데이터로 처리하도록 정리.
+- permission_level: implementation approval required
+- success_criteria: evaluator 수동 또는 다음 정기 실행의 diagnostics에 search target/path 관련 warning이 남지 않고, 미해결 신호가 없을 때는 짧게 `NO_REPLY`로 종료됨.
+
 ## Active
 
 
