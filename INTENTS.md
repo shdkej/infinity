@@ -6,37 +6,14 @@
 
 ## Active
 
-### [ops-01] weekly-main-workspace-autopush git sync를 결정적 스크립트로 이관
-
-- status: active
-- priority: medium
-- permission: L2 (approval-needed)
-- mode: execute_local
-- goal: LLM 판단이 필요 없는 git sync 작업을 프롬프트 대신 결정적 배시 스크립트로 교체하여 self-healer의 프롬프트 패치 누적 루프 제거
-- context: openclaw workspace — `system/scripts/weekly_workspace_sync.sh` (신규 생성 대상), `system/docs/CRON_REDESIGN_2026-07-04.md` 진단 5 / 변경안 D-2 참조
-- success_criteria: 다음 일요일 run이 스크립트 경로로 ok 완료되고, 크론 프롬프트에서 중복 git 규칙 블록이 제거된다
-- source_signal: sam-proposer — self-healer가 동일 git diff exit-code 실패에 프롬프트 패치 5겹 누적
-- approval: user-approved 2026-07-04
-- gate: GATES.md 처리 완료 (approved 2026-07-04)
-
-### [ops-02] tool-curator 규칙 분산을 canonical 블록 1곳으로 통합
-
-- status: active
-- priority: medium
-- permission: L2 (approval-needed)
-- mode: execute_local
-- goal: tool-curator 반복 실행이 참조하는 규칙 원본을 SKILL.md/workflow 문서/fixed template 중 1곳 canonical로 정리하고, 링크 검증 조건을 canonical 위치에 통합
-- context: openclaw workspace — `system/docs/EVALUATION_NOTES.md` 미해결 감시 항목 2건 ("tool-curator 규칙 분산", "tool-curator 링크 검증")
-- success_criteria: 반복 실행이 참조하는 규칙 원본이 1곳이 되고, 중복 블록 제거 diff와 링크 검증 조건의 canonical 위치가 확인된다
-- source_signal: sam-proposer — EVALUATION_NOTES.md 미해결 2건이 동일 원인(규칙 분산)을 가리킴
-- approval: user-approved 2026-07-04
-- gate: GATES.md 처리 완료 (approved 2026-07-04)
 
 ## Waiting
 
 <!-- 사용자 결정, 외부 조건, 안전 확인 대기. 같은 질문을 반복하지 않고 상태만 보존한다. -->
 
 ## Archive
+<!-- ops-01 completed 2026-07-04T1650Z → intents/archive/ops-01.md [projects: openclaw,infinity; type: implementation; topics: automation,cron,reliability] (weekly autopush git sync를 결정적 스크립트 system/scripts/weekly_workspace_sync.sh로 이관하고 크론을 command payload로 교체했다. 실측 19파일 커밋 push + 하네스 run ok 검증. self-healer 프롬프트 패치 누적 표면 제거. HTML report gate passed.) -->
+<!-- ops-02 completed 2026-07-04T1650Z → intents/archive/ops-02.md [projects: openclaw,infinity; type: implementation; topics: workflow,documentation,tool-curation] (tool-curator 실행 규칙을 SKILL.md 단일 정본으로 통합하고 workflow 문서는 사건 이력으로, 크론 payload는 얇은 인보커로 축소. 중복 규칙 순 176줄 제거. HTML report gate passed.) -->
 <!-- marketing-100 archived 2026-07-03 → intents/archive/marketing-100.md [projects: virtue,infinity; type: strategy; topics: marketing,activation,onboarding,home] (초안에서 첫 문장·버튼 문구·판정 질문·보류 조건·preview안 차이를 고정했고, 후속 보강에서 단일 CTA 대비 필요성 질문, pass/hold cutline, 채택 신호를 추가했다. 구현/배포/계측은 제외했다.) -->
 <!-- marketing-99 completed 2026-07-03T1230Z → intents/archive/marketing-99.md [projects: virtue,infinity; type: strategy; topics: marketing,activation,onboarding,home] (홈과 `/add` 실코드를 다시 앵커링해 단일 CTA 유지안, J1/J3 2갈래 시작선, 샘플 결과 preview 3안을 판독했고, prelaunch 다음 비교 후보로 J1/J3 2갈래 시작선을 남겼다. UI 반영/카피/배치 결정은 제외.) -->
 <!-- marketing-98 completed 2026-07-02T0200Z → intents/archive/marketing-98.md [projects: virtue,infinity; type: strategy; topics: marketing,activation,observation] (첫 10명 관찰표에 가치 발견 신호·activation 판정 독립 2칸을 추가하고 J1~J4별 예시 1세트씩 고정했다.) -->
