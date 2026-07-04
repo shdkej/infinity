@@ -4,25 +4,31 @@
 
 ## Inbox
 
+## Active
+
 ### [ops-01] weekly-main-workspace-autopush git sync를 결정적 스크립트로 이관
 
-- proposed_by: sam-proposer
-- source_signal: openclaw cron 실행 이력 — self-healer가 동일한 git diff exit-code 실패에 프롬프트 패치를 5겹 누적 (`system/docs/CRON_REDESIGN_2026-07-04.md` 진단 5, 변경안 D-2에서 후속 옵션으로 보류)
-- rationale: LLM 판단이 필요 없는 git sync를 프롬프트로 유지하면 실패마다 문구가 덧대져 부패한다. 결정적 스크립트로 이관하면 self-healer의 프롬프트 패치 루프 자체가 사라진다.
-- expected_artifact: openclaw workspace `system/scripts/weekly_workspace_sync.sh` + 해당 크론의 command payload 전환
-- permission_level: approval-needed (크론 설정 변경 + 실제 push 동반 테스트 필요)
-- success_criteria: 다음 일요일 run이 스크립트 경로로 ok 완료되고, 크론 프롬프트에서 중복 git 규칙 블록이 제거된다.
+- status: active
+- priority: medium
+- permission: L2 (approval-needed)
+- mode: execute_local
+- goal: LLM 판단이 필요 없는 git sync 작업을 프롬프트 대신 결정적 배시 스크립트로 교체하여 self-healer의 프롬프트 패치 누적 루프 제거
+- context: openclaw workspace — `system/scripts/weekly_workspace_sync.sh` (신규 생성 대상), `system/docs/CRON_REDESIGN_2026-07-04.md` 진단 5 / 변경안 D-2 참조
+- success_criteria: 다음 일요일 run이 스크립트 경로로 ok 완료되고, 크론 프롬프트에서 중복 git 규칙 블록이 제거된다
+- source_signal: sam-proposer — self-healer가 동일 git diff exit-code 실패에 프롬프트 패치 5겹 누적
+- gate: GATES.md 등록 완료 — 사용자 승인 대기 중
 
 ### [ops-02] tool-curator 규칙 분산을 canonical 블록 1곳으로 통합
 
-- proposed_by: sam-proposer
-- source_signal: openclaw workspace `system/docs/EVALUATION_NOTES.md` 미해결 감시 항목 2건 — "tool-curator 규칙 분산"(SKILL.md/workflow 문서/fixed template 중복 → 드리프트)과 "tool-curator 링크 검증"(링크 누락 메일 실패)이 같은 원인을 가리킴
-- rationale: 반복 실행이 따르는 규칙이 3곳에 중복되면 한 곳만 고쳐져 드리프트가 생기고, 링크 검증 같은 완료 조건이 실행 경로에 따라 누락된다.
-- expected_artifact: 반복 실행이 직접 참조하는 canonical 규칙 블록 1곳 확정, 나머지 위치는 포인터로 교체
-- permission_level: approval-needed (스킬/워크플로우 정본 문서 수정)
-- success_criteria: 반복 실행이 참조하는 규칙 원본이 1곳이 되고, 중복 블록 제거 diff와 링크 검증 조건의 canonical 위치가 확인된다.
-
-## Active
+- status: active
+- priority: medium
+- permission: L2 (approval-needed)
+- mode: execute_local
+- goal: tool-curator 반복 실행이 참조하는 규칙 원본을 SKILL.md/workflow 문서/fixed template 중 1곳 canonical로 정리하고, 링크 검증 조건을 canonical 위치에 통합
+- context: openclaw workspace — `system/docs/EVALUATION_NOTES.md` 미해결 감시 항목 2건 ("tool-curator 규칙 분산", "tool-curator 링크 검증")
+- success_criteria: 반복 실행이 참조하는 규칙 원본이 1곳이 되고, 중복 블록 제거 diff와 링크 검증 조건의 canonical 위치가 확인된다
+- source_signal: sam-proposer — EVALUATION_NOTES.md 미해결 2건이 동일 원인(규칙 분산)을 가리킴
+- gate: GATES.md 등록 완료 — 사용자 승인 대기 중
 
 ## Waiting
 
