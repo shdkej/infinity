@@ -19,6 +19,8 @@
     role: final
   - path: reports/design-02/2026-07-01T2010Z.html
     role: followup
+  - path: reports/design-02/2026-07-04T1107Z-cleanup.html
+    role: cleanup
 - commits: []
 - urls: []
 - next_actions:
