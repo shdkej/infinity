@@ -6,16 +6,7 @@
 
 ## Active
 
-### [ops-03] 자동 데일리 리뷰 본문 시작부 렌더 게이트 고정
-- id: ops-03
-- status: active
-- priority: medium
-- permission: L2 (agent-approvable · 로컬 파일 수정 · rollback 가능)
-- mode: prepare (완료) → execute_local (대기 중)
-- goal: 데일리 리뷰 생성 로직에 저장 직전 렌더 게이트를 추가해, 첫 줄이 헤드라인/한 줄 요약으로 시작하고 내부 점검 메타 블록이 본문 하단으로 이동하거나 제거되도록 한다.
-- success_criteria: 새 daily review 샘플의 첫 줄이 헤드라인/한 줄 요약으로 시작하고, 내부 점검 메타 블록이 본문 하단 운영 메모로 이동 또는 제거되는 것이 재현 가능하게 확인됨.
-- context: LOCAL_REVIEW_AUTOMATION.md 또는 daily review 생성 규칙/스크립트; OpenClaw workspace EVALUATION_NOTES.md
-- next_action: 로컬 Claude에 execute_local 프롬프트 전달 (intents/active/ops-03.md 참조)
+<!-- ops-03 completed 2026-07-05T02:07 → intents/archive/ops-03.md [projects: openclaw,personal-ops; type: implementation; topics: automation,review] (자동 회고 저장/발송 직전 렌더 게이트를 정본 규칙에 추가하고 OpenClaw 백업에 반영) -->
 
 ### [ops-04] OpenClaw evaluator 경고성 탐색 템플릿 축소
 - id: ops-04
