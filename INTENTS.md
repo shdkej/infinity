@@ -4,6 +4,14 @@
 
 ## Inbox
 
+### ops-05 카드뉴스 중간 산출물 경계 고정
+- proposed_by: sam-proposer
+- source_signal: system/docs/EVALUATION_NOTES.md#카드뉴스-산출물-경계
+- rationale: 카드뉴스 템플릿 초안, 렌더 JPG/WebP/run report, preview/sample 이미지가 정본 경로에 반복 누적되어 library 정본과 실험 산출물의 검토 경계가 흐려진다.
+- expected_artifact: 카드뉴스 생성/발행 흐름에서 정본 config/library/최종 asset과 ignored run/cache 산출물을 분리하는 작은 규칙 또는 스크립트 보강.
+- permission_level: L2 implementation after approval
+- success_criteria: 새 카드뉴스 실행 후 git status에는 추적해야 할 정본 파일만 남고, 실험 preview/sample/중간 config는 ignored cache 또는 명시적 tracked asset 경로에만 존재한다는 검증 명령이 남는다.
+
 ## Active
 
 ## Waiting
