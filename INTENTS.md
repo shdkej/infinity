@@ -4,15 +4,19 @@
 
 ## Inbox
 
-### [ops-06] weekly_review same-week block replacement gate
-- proposed_by: sam-proposer
-- source_signal: system/docs/EVALUATION_NOTES.md#weekly_review.md-동일-주차-중복-누적+최신-주차-중복-append-재현
-- rationale: The same weekly_review same-week duplication was observed in older weeks and again for 2026-W27, so the weekly review generator is still appending a fresh canonical block instead of replacing or role-splitting an existing block.
-- expected_artifact: A code/config or documented gate change that makes weekly review generation update/replace an existing same-week block, or explicitly separate draft/manual-note blocks from the canonical weekly review.
-- permission_level: impl
-- success_criteria: Running or dry-running the weekly review flow for a week that already exists leaves exactly one canonical block for that week, or two role-labeled blocks where only one is canonical, and the behavior is documented in the generator/workflow contract.
-
 ## Active
+
+### [ops-06] weekly_review 동일 주차 블록 교체 게이트
+- id: ops-06
+- status: active
+- priority: medium
+- permission: L1
+- mode: execute_local
+- project: openclaw
+- goal: weekly_review 생성기가 동일 주차에 대해 실행될 때 기존 블록을 교체하거나 역할 레이블로 분리하여, 주차별 canonical 블록이 항상 1개만 존재하도록 게이트를 추가한다
+- success_criteria: 기존 주차(예: W27)에 재실행 시 canonical 블록이 정확히 1개이고, 동작이 생성기/워크플로우 계약에 문서화된다
+- context: system/docs/EVALUATION_NOTES.md (weekly_review.md 동일 주차 중복 재현 감시 항목), OpenClaw weekly_review 생성기 스크립트
+- next_action: reports/ops-06/2026-07-06T1107Z.html prepare 리포트 작성 완료 → 로컬 Claude Code 위임 대기
 
 ## Waiting
 
