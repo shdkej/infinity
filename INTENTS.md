@@ -4,16 +4,6 @@
 
 ## Inbox
 
-### marketing-101 Virtue 잡별 activation 후보 묶음 레지스트리
-- proposed_by: seth-godin
-- source_signal: `/home/ubuntu/workspace/knowledge-lab/source/external-links/marketing/2026-06-01-activation-metric-bundles.md`
-- rationale: Virtue는 아직 prelaunch/저신호 상태라 단일 activation rate 판정보다 J1-J4 잡별 first value 후보와 검증 window를 먼저 고정해야 한다. 기존 `deed_judged`, `deed_saved`, `deed_rerolled`, 복귀/반복 저장 신호를 묶음으로 정의하면 출시 후 작은 숫자를 오독하지 않고 retention 대조 준비를 할 수 있다.
-- expected_artifact: J1-J4별 activation 후보 묶음, window, 현재 이벤트로 판독 가능한 항목, 수기 관찰만 가능한 항목, 표본 부족 시 금지 해석을 정리한 docs-only 레지스트리.
-- permission_level: L1 docs-only
-- owner_route: Infinity/SAM -> Claude Code 문서 작업
-- success_criteria: 레지스트리가 기존 first value 문서와 충돌하지 않고, 각 잡마다 첫 검증 게이트와 출시 전/출시 후 판독 기준을 1개 이상 포함한다.
-- first_verification_gate: `/home/ubuntu/workspace/knowledge-lab/source/external-links/marketing/2026-06-01-activation-metric-bundles.md`의 후속 실험 후보 1번과 연결되고, `marketing-79`~`marketing-100` archive 중 first value/관찰표 계열과 중복·충돌이 없는지 확인한다.
-
 ## Active
 
 ## Waiting
@@ -21,6 +11,7 @@
 <!-- 사용자 결정, 외부 조건, 안전 확인 대기. 같은 질문을 반복하지 않고 상태만 보존한다. -->
 
 ## Archive
+<!-- marketing-101 completed 2026-07-06T1018Z → intents/archive/marketing-101.md [projects: virtue,infinity; type: strategy; topics: marketing,activation] (J1-J4별 activation 후보 묶음·관찰 window·이벤트 판독 가능 항목·수기 관찰 항목·금지 해석을 1장 레지스트리로 고정했다. source_signal 로컬 파일 연결 미완.) -->
 <!-- ops-05 completed 2026-07-06T10:07 → intents/archive/ops-05.md [projects: openclaw,infinity,knowledge-lab; type: maintenance; topics: automation,workflow,content] (OpenClaw 카드뉴스 preview/sample/variant 및 초안 config 산출물이 새 실행 후 git status 검토면에 섞이지 않도록 .gitignore 경계를 보강했다. HTML report gate passed.) -->
 <!-- ops-04 completed 2026-07-05T0307Z → intents/archive/ops-04.md [projects: openclaw,infinity; type: implementation; topics: automation,workflow] (OpenClaw evaluator 정본이 `git status --short`, 절대경로 읽기, no-match 정상 처리 규칙을 이미 포함함을 확인하고 Active intent를 완료 처리했다. HTML report gate passed.) -->
 <!-- ops-03 completed 2026-07-05T02:07 → intents/archive/ops-03.md [projects: openclaw,personal-ops; type: implementation; topics: automation,review] (자동 회고 저장/발송 직전 렌더 게이트를 정본 규칙에 추가하고 OpenClaw 백업에 반영) -->
