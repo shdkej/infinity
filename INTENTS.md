@@ -4,6 +4,16 @@
 
 ## Inbox
 
+### marketing-101 Virtue 잡별 activation 후보 묶음 레지스트리
+- proposed_by: seth-godin
+- source_signal: `/home/ubuntu/workspace/knowledge-lab/source/external-links/marketing/2026-06-01-activation-metric-bundles.md`
+- rationale: Virtue는 아직 prelaunch/저신호 상태라 단일 activation rate 판정보다 J1-J4 잡별 first value 후보와 검증 window를 먼저 고정해야 한다. 기존 `deed_judged`, `deed_saved`, `deed_rerolled`, 복귀/반복 저장 신호를 묶음으로 정의하면 출시 후 작은 숫자를 오독하지 않고 retention 대조 준비를 할 수 있다.
+- expected_artifact: J1-J4별 activation 후보 묶음, window, 현재 이벤트로 판독 가능한 항목, 수기 관찰만 가능한 항목, 표본 부족 시 금지 해석을 정리한 docs-only 레지스트리.
+- permission_level: L1 docs-only
+- owner_route: Infinity/SAM -> Claude Code 문서 작업
+- success_criteria: 레지스트리가 기존 first value 문서와 충돌하지 않고, 각 잡마다 첫 검증 게이트와 출시 전/출시 후 판독 기준을 1개 이상 포함한다.
+- first_verification_gate: `/home/ubuntu/workspace/knowledge-lab/source/external-links/marketing/2026-06-01-activation-metric-bundles.md`의 후속 실험 후보 1번과 연결되고, `marketing-79`~`marketing-100` archive 중 first value/관찰표 계열과 중복·충돌이 없는지 확인한다.
+
 ## Active
 
 ### ops-05 카드뉴스 중간 산출물 경계 고정
