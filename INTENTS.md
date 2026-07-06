@@ -11,8 +11,8 @@
 <!-- 사용자 결정, 외부 조건, 안전 확인 대기. 같은 질문을 반복하지 않고 상태만 보존한다. -->
 
 ## Archive
-<!-- marketing-101 completed 2026-07-06T1018Z → intents/archive/marketing-101.md [projects: virtue,infinity; type: strategy; topics: marketing,activation] (J1-J4별 activation 후보 묶음·관찰 window·이벤트 판독 가능 항목·수기 관찰 항목·금지 해석을 1장 레지스트리로 고정했다. source_signal 로컬 파일 연결 미완.) -->
 <!-- ops-05 completed 2026-07-06T10:07 → intents/archive/ops-05.md [projects: openclaw,infinity,knowledge-lab; type: maintenance; topics: automation,workflow,content] (OpenClaw 카드뉴스 preview/sample/variant 및 초안 config 산출물이 새 실행 후 git status 검토면에 섞이지 않도록 .gitignore 경계를 보강했다. HTML report gate passed.) -->
+<!-- marketing-101 completed 2026-07-06T10:28 → intents/archive/marketing-101.md [projects: virtue,infinity; type: strategy; topics: marketing,activation,analytics] (J1-J4별 activation 후보 묶음, window, 현재 이벤트/수기 관찰 항목, 표본 부족 시 금지 해석을 registry로 고정했다. HTML report gate passed.) -->
 <!-- ops-04 completed 2026-07-05T0307Z → intents/archive/ops-04.md [projects: openclaw,infinity; type: implementation; topics: automation,workflow] (OpenClaw evaluator 정본이 `git status --short`, 절대경로 읽기, no-match 정상 처리 규칙을 이미 포함함을 확인하고 Active intent를 완료 처리했다. HTML report gate passed.) -->
 <!-- ops-03 completed 2026-07-05T02:07 → intents/archive/ops-03.md [projects: openclaw,personal-ops; type: implementation; topics: automation,review] (자동 회고 저장/발송 직전 렌더 게이트를 정본 규칙에 추가하고 OpenClaw 백업에 반영) -->
 <!-- ops-01 completed 2026-07-04T1650Z → intents/archive/ops-01.md [projects: openclaw,infinity; type: implementation; topics: automation,cron,reliability] (weekly autopush git sync를 결정적 스크립트 system/scripts/weekly_workspace_sync.sh로 이관하고 크론을 command payload로 교체했다. 실측 19파일 커밋 push + 하네스 run ok 검증. self-healer 프롬프트 패치 누적 표면 제거. HTML report gate passed.) -->
