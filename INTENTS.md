@@ -4,6 +4,14 @@
 
 ## Inbox
 
+### [ops-06] weekly_review same-week block replacement gate
+- proposed_by: sam-proposer
+- source_signal: system/docs/EVALUATION_NOTES.md#weekly_review.md-동일-주차-중복-누적+최신-주차-중복-append-재현
+- rationale: The same weekly_review same-week duplication was observed in older weeks and again for 2026-W27, so the weekly review generator is still appending a fresh canonical block instead of replacing or role-splitting an existing block.
+- expected_artifact: A code/config or documented gate change that makes weekly review generation update/replace an existing same-week block, or explicitly separate draft/manual-note blocks from the canonical weekly review.
+- permission_level: impl
+- success_criteria: Running or dry-running the weekly review flow for a week that already exists leaves exactly one canonical block for that week, or two role-labeled blocks where only one is canonical, and the behavior is documented in the generator/workflow contract.
+
 ## Active
 
 ## Waiting
