@@ -16,22 +16,12 @@
 
 ## Active
 
-### ops-05 카드뉴스 중간 산출물 경계 고정
-- id: ops-05
-- status: active
-- priority: medium
-- permission: L2 (agent-approvable after local state verification)
-- goal: 카드뉴스 생성 흐름에서 정본 config/library/최종 asset과 ignored run/cache 산출물을 분리하는 .gitignore 규칙 또는 검증 스크립트를 보강한다
-- success_criteria: 새 카드뉴스 실행 후 git status에 추적 대상 정본 파일만 남고, 실험 preview/sample/중간 config는 ignored 또는 명시적 tracked asset 경로에만 존재한다
-- context: system/docs/EVALUATION_NOTES.md#카드뉴스-산출물-경계 (OpenClaw workspace)
-- execution_mode: prepare 완료 (cloud) → execute_local 대기
-- detail: intents/active/ops-05.md
-
 ## Waiting
 
 <!-- 사용자 결정, 외부 조건, 안전 확인 대기. 같은 질문을 반복하지 않고 상태만 보존한다. -->
 
 ## Archive
+<!-- ops-05 completed 2026-07-06T10:07 → intents/archive/ops-05.md [projects: openclaw,infinity,knowledge-lab; type: maintenance; topics: automation,workflow,content] (OpenClaw 카드뉴스 preview/sample/variant 및 초안 config 산출물이 새 실행 후 git status 검토면에 섞이지 않도록 .gitignore 경계를 보강했다. HTML report gate passed.) -->
 <!-- ops-04 completed 2026-07-05T0307Z → intents/archive/ops-04.md [projects: openclaw,infinity; type: implementation; topics: automation,workflow] (OpenClaw evaluator 정본이 `git status --short`, 절대경로 읽기, no-match 정상 처리 규칙을 이미 포함함을 확인하고 Active intent를 완료 처리했다. HTML report gate passed.) -->
 <!-- ops-03 completed 2026-07-05T02:07 → intents/archive/ops-03.md [projects: openclaw,personal-ops; type: implementation; topics: automation,review] (자동 회고 저장/발송 직전 렌더 게이트를 정본 규칙에 추가하고 OpenClaw 백업에 반영) -->
 <!-- ops-01 completed 2026-07-04T1650Z → intents/archive/ops-01.md [projects: openclaw,infinity; type: implementation; topics: automation,cron,reliability] (weekly autopush git sync를 결정적 스크립트 system/scripts/weekly_workspace_sync.sh로 이관하고 크론을 command payload로 교체했다. 실측 19파일 커밋 push + 하네스 run ok 검증. self-healer 프롬프트 패치 누적 표면 제거. HTML report gate passed.) -->

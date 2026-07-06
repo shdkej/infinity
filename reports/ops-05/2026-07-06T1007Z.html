@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ops-05 카드뉴스 산출물 경계 고정</title>
+<style>
+  :root{--bg:#f4f2ea;--panel:#fbfaf5;--ink:#2c2a25;--soft:#807c70;--line:#e3dfd2;--a1:#b08545;--a1-deep:#8a6633;--a2:#5f7a5e;--a2-deep:#3f5740;--mono:ui-monospace,"SF Mono",Menlo,monospace;--sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif}
+  *{box-sizing:border-box} html,body{margin:0;max-width:100%;overflow-x:hidden} body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:14px;line-height:1.68}.sheet{width:min(100%,720px);margin:0 auto;padding:40px 18px}.eyebrow{display:flex;gap:10px;flex-wrap:wrap;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--soft)}.dot{width:5px;height:5px;border-radius:50%;background:var(--a2);margin-top:8px}.id{color:var(--a2-deep);font-weight:700}h1{font-size:clamp(24px,7vw,29px);line-height:1.3;margin:20px 0 0}.dek{font-size:15.5px;color:var(--soft);margin:13px 0 0}.hr{height:1px;background:var(--line);margin:30px 0}.axis{padding:0 0 4px 18px;position:relative;margin-bottom:26px}.axis:before{content:"";position:absolute;left:0;top:6px;bottom:6px;width:2px;border-radius:2px}.axis.ax1:before{background:var(--a1)}.axis.ax2:before{background:var(--a2)}.label{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:9px}.ax1 .label{color:var(--a1-deep)}.ax2 .label{color:var(--a2-deep)}.text{font-size:clamp(16px,4.4vw,18px);line-height:1.62}.text b{border-bottom:2px solid currentColor}details{border:1px solid var(--line);border-radius:8px;background:var(--panel);margin-bottom:10px;overflow:hidden}summary{cursor:pointer;list-style:none;padding:14px 16px;display:flex;gap:11px;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--soft)}summary::-webkit-details-marker{display:none}.body{padding:2px 16px 18px}.section-title{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--a1-deep);margin:0 0 8px}ol.find{list-style:none;counter-reset:f;margin:12px 0;padding:0}ol.find li{counter-increment:f;border-top:1px solid var(--line);padding:8px 0 8px 26px;position:relative}ol.find li:before{content:counter(f);position:absolute;left:0;font-family:var(--mono);font-weight:700;color:var(--a1-deep)}code{font-family:var(--mono);font-size:12px;background:#edeae0;padding:1px 6px;border-radius:3px;color:var(--a2-deep);overflow-wrap:anywhere}.foot{margin-top:30px;padding-top:15px;border-top:1px solid var(--line);font-family:var(--mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:#a8a496}
+</style>
+</head>
+<body>
+<div class="sheet">
+  <div class="eyebrow"><span class="dot"></span><span class="id">ops-05</span><span>Maintenance Note</span><span>archived</span></div>
+  <h1>카드뉴스 중간 산출물 경계 고정</h1>
+  <p class="dek">OpenClaw 카드뉴스 실행 후 preview/sample/variant 파일이 검토 대상 정본과 섞이지 않도록 ignore 경계를 보강했다.</p>
+  <div class="hr"></div>
+  <div class="axis ax1">
+    <div class="label"><span>01</span> 무엇을 점검했나</div>
+    <div class="text"><b>카드뉴스 산출물 경계</b>를 점검했다. 원문 평가 노트는 캐시를 <code>system/cache/</code> 또는 ignored run 경로로 보내고, 정본 템플릿과 라이브러리만 추적하라고 정리하고 있었다.</div>
+  </div>
+  <div class="axis ax2">
+    <div class="label"><span>02</span> 이상 여부·조치</div>
+    <div class="text"><b>.gitignore에 카드뉴스 preview/sample/variant와 초안 config 패턴을 추가</b>했다. 정본 library, published URL, 명시적으로 추적된 기존 assets는 건드리지 않았다.</div>
+  </div>
+  <details open>
+    <summary>핵심 내용 · 실행 본문</summary>
+    <div class="body">
+      <div class="section-title">핵심 발견</div>
+      <ol class="find">
+        <li><code>system/docs/EVALUATION_NOTES.md</code>는 카드뉴스 렌더 JPG/WebP/run report가 정본 문서와 같은 status에 섞이는 것을 운영 비용으로 기록하고 있었다.</li>
+        <li>실제 후보 디렉터리는 <code>system/reports/card-news/samples/</code>, <code>*-previews/</code>, <code>*-variants/</code> 계열이었다.</li>
+        <li>정본 경로인 <code>system/data/card-news/templates/</code> 전체를 무시하지 않고, <code>*-draft*</code>, <code>*-sample*</code>, <code>*-preview*</code> JSON만 ignore 대상으로 제한했다.</li>
+      </ol>
+      <p>검증은 scoped status와 <code>git check-ignore -v</code>로 수행했다. 새 초안 config 예시인 <code>example-draft.json</code>, <code>example-preview.json</code>가 새 규칙에 걸리는 것을 확인했고, 기존 사용자 변경인 평가 노트와 static page는 건드리지 않았다.</p>
+    </div>
+  </details>
+  <details open>
+    <summary>변경 및 검증</summary>
+    <div class="body">
+      <ul>
+        <li>OpenClaw commit: <code>e750534 Ignore card-news preview artifacts</code>, pushed to <code>openclaw-backups/main</code>.</li>
+        <li>추가 ignore: <code>system/reports/card-news/samples/</code>, <code>system/reports/card-news/*-previews/</code>, <code>system/reports/card-news/*-variants/</code>.</li>
+        <li>추가 ignore: <code>system/data/card-news/templates/*-draft*.json</code>, <code>*-sample*.json</code>, <code>*-preview*.json</code>.</li>
+      </ul>
+    </div>
+  </details>
+  <details>
+    <summary>실행 메타 · 산출물</summary>
+    <div class="body">
+      <ul>
+        <li>timestamp <code>2026-07-06T1007Z</code></li>
+        <li>status <code>active → archived</code></li>
+        <li>report <code>reports/ops-05/2026-07-06T1007Z.html</code></li>
+      </ul>
+    </div>
+  </details>
+  <div class="foot">Agent-First Heartbeat · Infinity Intent Note</div>
+</div>
+</body>
+</html>
