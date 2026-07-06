@@ -1,7 +1,7 @@
 # [ops-06] weekly_review 동일 주차 블록 교체 게이트
 
 - id: ops-06
-- status: active
+- status: waiting
 - priority: medium
 - permission: L1
 - mode: execute_local
@@ -30,9 +30,12 @@ weekly_review 생성기가 동일 주차에 대해 실행될 때 기존 블록�
 - path: reports/ops-06/2026-07-06T1107Z.html
 - status: 작성 완료
 
-## Next Action
+## Waiting Reason
 
-로컬 Claude Code 위임 — 아래 프롬프트를 pt/purplemux Claude pane에 전달:
+로컬 Claude Code 실행 대기. 생성기 스크립트 수정 및 dry-run 검증이 로컬 환경에서 필요하다.
+Cloud Heartbeat에서 prepare 단계 완료 (2026-07-06T12:XX). 로컬 pt/purplemux pane에 아래 프롬프트 전달 필요.
+
+## Next Action (로컬 Claude Code 위임 프롬프트)
 
 ```
 Infinity Intent: ops-06 weekly_review 동일 주차 블록 교체 게이트

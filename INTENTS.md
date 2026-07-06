@@ -6,9 +6,13 @@
 
 ## Active
 
+## Waiting
+
+<!-- 사용자 결정, 외부 조건, 안전 확인 대기. 같은 질문을 반복하지 않고 상태만 보존한다. -->
+
 ### [ops-06] weekly_review 동일 주차 블록 교체 게이트
 - id: ops-06
-- status: active
+- status: waiting
 - priority: medium
 - permission: L1
 - mode: execute_local
@@ -16,11 +20,8 @@
 - goal: weekly_review 생성기가 동일 주차에 대해 실행될 때 기존 블록을 교체하거나 역할 레이블로 분리하여, 주차별 canonical 블록이 항상 1개만 존재하도록 게이트를 추가한다
 - success_criteria: 기존 주차(예: W27)에 재실행 시 canonical 블록이 정확히 1개이고, 동작이 생성기/워크플로우 계약에 문서화된다
 - context: system/docs/EVALUATION_NOTES.md (weekly_review.md 동일 주차 중복 재현 감시 항목), OpenClaw weekly_review 생성기 스크립트
-- next_action: reports/ops-06/2026-07-06T1107Z.html prepare 리포트 작성 완료 → 로컬 Claude Code 위임 대기
-
-## Waiting
-
-<!-- 사용자 결정, 외부 조건, 안전 확인 대기. 같은 질문을 반복하지 않고 상태만 보존한다. -->
+- waiting_reason: 로컬 Claude Code 실행 대기. prepare 리포트 완료 (reports/ops-06/2026-07-06T1107Z.html). 생성기 스크립트 수정 및 dry-run 검증이 로컬 환경에서 필요하다.
+- next_action: 로컬 Claude Code 위임 (pt/purplemux pane) → 생성기 replace 로직 추가 → canonical 블록 1개 dry-run 검증 → HTML report 작성 → complete
 
 ## Archive
 <!-- ops-05 completed 2026-07-06T10:07 → intents/archive/ops-05.md [projects: openclaw,infinity,knowledge-lab; type: maintenance; topics: automation,workflow,content] (OpenClaw 카드뉴스 preview/sample/variant 및 초안 config 산출물이 새 실행 후 git status 검토면에 섞이지 않도록 .gitignore 경계를 보강했다. HTML report gate passed.) -->
