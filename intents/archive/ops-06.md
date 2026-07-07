@@ -15,12 +15,14 @@
     role: implementation
     note: 기존 weekly_review.md와 생성 블록을 입력받아 같은 주 canonical 블록이 1개인지 검증하는 helper
 - reports:
+  - path: reports/ops-06/2026-07-06T1107Z.html
+    role: prepare
   - path: reports/ops-06/2026-07-07T0007Z.html
     role: final
 - commits:
   - repo: infinity
-    sha: pending
-    note: commit after report gate
+    sha: 3e4b6ab
+    note: replacement gate helper, contract, report, and archive transition
 - urls: []
 - next_actions:
   - OpenClaw weekly review 생성기 본체가 확인되는 다음 사이클에서 `scripts/weekly_review_block_gate.py`의 동일 계약을 직접 호출하거나 동등 로직으로 이식한다.
