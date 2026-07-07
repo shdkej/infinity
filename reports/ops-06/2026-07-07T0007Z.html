@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ops-06 weekly_review replacement gate</title>
+<style>
+  :root{--bg:#f4f2ea;--panel:#fbfaf5;--ink:#2c2a25;--soft:#807c70;--line:#e3dfd2;--a1:#b08545;--a1-deep:#8a6633;--a2:#5f7a5e;--a2-deep:#3f5740;--mono:ui-monospace,"SF Mono",Menlo,monospace;--sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif}
+  *{box-sizing:border-box} html,body{margin:0;max-width:100%;overflow-x:hidden} body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:14px;line-height:1.68}.sheet{width:min(100%,720px);margin:0 auto;padding:42px 18px}.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--soft)}h1{font-size:28px;line-height:1.3;margin:16px 0 8px}.dek{color:var(--soft)}.hr{height:1px;background:var(--line);margin:26px 0}.axis{padding-left:18px;position:relative;margin-bottom:24px}.axis:before{content:"";position:absolute;left:0;top:6px;bottom:6px;width:2px}.axis.ax1:before{background:var(--a1)}.axis.ax2:before{background:var(--a2)}.label{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:8px}.ax1 .label{color:var(--a1-deep)}.ax2 .label{color:var(--a2-deep)}.text{font-size:17px}details{border:1px solid var(--line);border-radius:8px;background:var(--panel);margin-bottom:10px}summary{cursor:pointer;padding:14px 16px;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--soft)}.body{padding:0 16px 16px}code{font-family:var(--mono);background:#edeae0;padding:1px 5px;border-radius:3px;color:var(--a2-deep)}li{margin:6px 0}
+</style>
+</head>
+<body>
+<div class="sheet">
+  <div class="eyebrow">ops-06 · completed · maintenance</div>
+  <h1>weekly_review 같은 주 블록 replacement gate</h1>
+  <p class="dek">같은 ISO week의 canonical 회고가 반복 append되는 문제를 문서 계약과 dry-run helper로 막았다.</p>
+  <div class="hr"></div>
+  <div class="axis ax1"><div class="label">01 무엇을 점검했나</div><div class="text"><code>system/data/weekly_review.md</code>에 2026-W27을 포함한 같은 주 canonical 블록이 중복 누적되는 문제.</div></div>
+  <div class="axis ax2"><div class="label">02 이상 여부·조치</div><div class="text"><code>YYYY-Www</code>를 키로 canonical heading만 replace/dedupe하고 수동 메모는 보존하는 계약과 helper를 추가했다. 2026-W27 dry-run은 canonical count 1로 통과했다.</div></div>
+  <details open><summary>핵심 내용</summary><div class="body"><ul><li><code>artifacts/ops-06/weekly-review-replacement-contract.md</code>에 generator/workflow 계약을 기록했다.</li><li><code>scripts/weekly_review_block_gate.py</code>는 기존 파일과 생성 블록을 받아 첫 canonical 블록을 교체하고 추가 canonical 중복을 제거한다.</li><li>수동 생활/소비 메모처럼 canonical date-range heading이 아닌 같은 주 블록은 보존한다.</li></ul></div></details>
+  <details open><summary>검증</summary><div class="body"><p><code>python3 scripts/weekly_review_block_gate.py /home/ubuntu/.openclaw/workspace/system/data/weekly_review.md 2026-W27 /tmp/ops-06-weekly-block.md</code></p><p>결과: <code>PASS canonical block count for 2026-W27: 1</code></p></div></details>
+  <details><summary>실행 메타 · 산출물</summary><div class="body"><ul><li>산출물 <code>artifacts/ops-06/weekly-review-replacement-contract.md</code></li><li>helper <code>scripts/weekly_review_block_gate.py</code></li><li>archive <code>intents/archive/ops-06.md</code></li></ul></div></details>
+</div>
+</body>
+</html>

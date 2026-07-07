@@ -24,6 +24,7 @@
 - next_action: 로컬 Claude Code 위임 (pt/purplemux pane) → 생성기 replace 로직 추가 → canonical 블록 1개 dry-run 검증 → HTML report 작성 → complete
 
 ## Archive
+<!-- ops-06 completed 2026-07-07T0007Z → intents/archive/ops-06.md [projects: openclaw,infinity; type: maintenance; topics: automation,workflow,review] (weekly_review.md 같은 주 canonical 블록을 append가 아니라 replace/dedupe하는 계약과 로컬 dry-run helper를 추가했다. 2026-W27 dry-run PASS. HTML report gate passed.) -->
 <!-- ops-05 completed 2026-07-06T10:07 → intents/archive/ops-05.md [projects: openclaw,infinity,knowledge-lab; type: maintenance; topics: automation,workflow,content] (OpenClaw 카드뉴스 preview/sample/variant 및 초안 config 산출물이 새 실행 후 git status 검토면에 섞이지 않도록 .gitignore 경계를 보강했다. HTML report gate passed.) -->
 <!-- marketing-101 completed 2026-07-06T10:28 → intents/archive/marketing-101.md [projects: virtue,infinity; type: strategy; topics: marketing,activation,analytics] (J1-J4별 activation 후보 묶음, window, 현재 이벤트/수기 관찰 항목, 표본 부족 시 금지 해석을 registry로 고정했다. HTML report gate passed.) -->
 <!-- ops-04 completed 2026-07-05T0307Z → intents/archive/ops-04.md [projects: openclaw,infinity; type: implementation; topics: automation,workflow] (OpenClaw evaluator 정본이 `git status --short`, 절대경로 읽기, no-match 정상 처리 규칙을 이미 포함함을 확인하고 Active intent를 완료 처리했다. HTML report gate passed.) -->

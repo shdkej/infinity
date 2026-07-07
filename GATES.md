@@ -7,6 +7,14 @@
 
 ## 처리 완료
 
+### [ops-06] weekly_review same-week block replacement gate
+- requested: 2026-07-07 00:07 UTC
+- action: `system/data/weekly_review.md` 생성 흐름의 주차 키를 `YYYY-Www`로 고정하고, 같은 주 canonical heading은 append가 아니라 replace/dedupe해야 한다는 계약과 검증 helper를 추가
+- reason: 2026-W10/W11/W13/W15 및 최신 2026-W27에서 같은 주 canonical 회고 블록이 중복 누적됨
+- impact: 문서/검증 helper 변경 — 실제 OpenClaw 회고 파일이나 프로덕션 코드 변경 없음
+- resolved: 2026-07-07
+- decision: completed docs-only gate
+
 ### [ops-01] weekly-main-workspace-autopush git sync를 결정적 스크립트로 이관
 - requested: 2026-07-04 04:00 UTC
 - action: openclaw workspace에 `system/scripts/weekly_workspace_sync.sh` 신규 생성 + 해당 크론 command payload를 스크립트 경로로 전환, 첫 실행 push 동반 테스트
