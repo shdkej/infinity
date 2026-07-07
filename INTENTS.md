@@ -6,8 +6,12 @@
 
 ## Active
 
+## Waiting
+
+<!-- 사용자 결정, 외부 조건, 안전 확인 대기. 같은 질문을 반복하지 않고 상태만 보존한다. -->
+
 ### [ops-07] MEMORY/DREAMS 런타임 변경 경계 고정
-- status: active
+- status: waiting
 - priority: medium
 - permission: L2
 - proposed_by: sam-proposer
@@ -17,10 +21,11 @@
 - expected_artifact: MEMORY.md/DREAMS.md 런타임 변경을 평가·동기화 표면에서 분리하는 ignore/운영 규칙 또는 스크립트 보강
 - success_criteria: 새 dreaming/memory 실행 후 git status와 evaluator 입력에서 중간 런타임 파일이 정본 변경과 같은 실패/검토 신호로 분류되지 않는 것이 재현된다.
 - mode: execute_local
-- next_action: GATES.md 구현 승인 후 openclaw에서 .gitignore 또는 스크립트 보강 적용
+- waiting_reason: GATES.md 구현 승인 대기 중 (requested: 2026-07-07T07:00Z) — openclaw 로컬 실행 필요
+- next_action: 사용자가 GATES.md ops-07 승인 시 openclaw에서 .gitignore 또는 스크립트 보강 적용
 
 ### [ops-08] 자동 리뷰 산출물 추적 경계 고정
-- status: active
+- status: waiting
 - priority: medium
 - permission: L2
 - proposed_by: sam-proposer
@@ -30,11 +35,8 @@
 - expected_artifact: daily-reviews/monthly-review-sources 산출물의 tracked 정본 승격 기준 또는 ignored run/cache 분리 규칙
 - success_criteria: 새 자동 리뷰/월간 소스 실행 뒤 git status에는 승인된 정본 문서만 남고, 중간 산출물은 추적되거나 ignored 경로로 분리되어 재현성 있게 판정된다.
 - mode: execute_local
-- next_action: GATES.md 구현 승인 후 openclaw에서 .gitignore 또는 run/cache 분리 규칙 구현
-
-## Waiting
-
-<!-- 사용자 결정, 외부 조건, 안전 확인 대기. 같은 질문을 반복하지 않고 상태만 보존한다. -->
+- waiting_reason: GATES.md 구현 승인 대기 중 (requested: 2026-07-07T07:00Z) — openclaw 로컬 실행 필요
+- next_action: 사용자가 GATES.md ops-08 승인 시 openclaw에서 .gitignore 또는 run/cache 분리 규칙 구현
 
 ## Archive
 <!-- ops-06 completed 2026-07-07T0007Z → intents/archive/ops-06.md [projects: openclaw,infinity; type: maintenance; topics: automation,workflow,review] (weekly_review.md 같은 주 canonical 블록을 append가 아니라 replace/dedupe하는 계약과 로컬 dry-run helper를 추가했다. 2026-W27 dry-run PASS. HTML report gate passed.) -->
