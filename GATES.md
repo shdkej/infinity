@@ -5,6 +5,18 @@
 
 ## 대기 중
 
+### [ops-07] MEMORY/DREAMS 런타임 변경 경계 고정 구현 승인
+- requested: 2026-07-07T07:00Z
+- action: openclaw workspace에서 MEMORY.md/DREAMS.md 관련 런타임 중간 파일을 git status·evaluator 신호에서 분리하는 .gitignore 패턴 추가 또는 memory/dreams 처리 스크립트 보강
+- reason: dreaming 단계 파일과 원장이 함께 dirty로 남아 정본 변경과 런타임 기록의 경계가 흐려짐 (EVALUATION_NOTES.md#memory/dreaming-경계 재현 확인)
+- impact: openclaw workspace의 .gitignore 또는 memory/dreams 스크립트 변경 — 롤백 가능 (git revert)
+
+### [ops-08] 자동 리뷰 산출물 추적 경계 고정 구현 승인
+- requested: 2026-07-07T07:00Z
+- action: openclaw workspace에서 daily-reviews/ 및 monthly-review-sources/ 경로의 자동 생성 중간 산출물을 .gitignore에 추가하거나 ignored run/cache 경로로 분리하는 규칙 적용
+- reason: 자동 생성 산출물이 여러 날짜에 걸쳐 untracked 누적, 정본 문서 수정과 중간 생성물이 같은 검토 층위에 섞임 (EVALUATION_NOTES.md#자동-리뷰-월간-소스-산출물-untracked-누적)
+- impact: openclaw workspace의 .gitignore 또는 review 스크립트 변경 — 롤백 가능 (git revert)
+
 ## 처리 완료
 
 ### [ops-06] weekly_review same-week block replacement gate

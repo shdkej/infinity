@@ -4,23 +4,33 @@
 
 ## Inbox
 
+## Active
+
 ### [ops-07] MEMORY/DREAMS 런타임 변경 경계 고정
+- status: active
+- priority: medium
+- permission: L2
 - proposed_by: sam-proposer
 - source_signal: system/docs/EVALUATION_NOTES.md#memory/dreaming-경계
+- goal: dreaming/memory 실행 시 생성되는 중간 런타임 파일이 git status와 evaluator 입력에서 canonical 정본 변경과 구분되도록 ignore/운영 규칙 또는 스크립트를 보강한다
 - rationale: dreaming 단계 파일과 최종 원장이 함께 dirty로 남는 신호가 감시표와 반복 평가 기록에서 재현되어, 실제 정본 변경과 런타임 기록의 검토 경계가 흐려진다.
 - expected_artifact: MEMORY.md/DREAMS.md 런타임 변경을 평가·동기화 표면에서 분리하는 ignore/운영 규칙 또는 스크립트 보강
-- permission_level: implementation approval required
 - success_criteria: 새 dreaming/memory 실행 후 git status와 evaluator 입력에서 중간 런타임 파일이 정본 변경과 같은 실패/검토 신호로 분류되지 않는 것이 재현된다.
+- mode: execute_local
+- next_action: GATES.md 구현 승인 후 openclaw에서 .gitignore 또는 스크립트 보강 적용
 
 ### [ops-08] 자동 리뷰 산출물 추적 경계 고정
+- status: active
+- priority: medium
+- permission: L2
 - proposed_by: sam-proposer
 - source_signal: system/docs/EVALUATION_NOTES.md#자동-리뷰-월간-소스-산출물-untracked-누적
+- goal: daily review 초안과 monthly-review-sources 산출물이 정본 문서 수정과 같은 검토 층위에 섞이지 않도록 tracked 정본 승격 기준 또는 ignored run/cache 분리 규칙을 만든다
 - rationale: daily review 초안과 monthly-review-sources 산출물이 여러 날짜에 걸쳐 untracked로 누적되어, 정본 문서 수정과 반복 생성물이 같은 검토 층위에 섞인다.
 - expected_artifact: daily-reviews/monthly-review-sources 산출물의 tracked 정본 승격 기준 또는 ignored run/cache 분리 규칙
-- permission_level: implementation approval required
 - success_criteria: 새 자동 리뷰/월간 소스 실행 뒤 git status에는 승인된 정본 문서만 남고, 중간 산출물은 추적되거나 ignored 경로로 분리되어 재현성 있게 판정된다.
-
-## Active
+- mode: execute_local
+- next_action: GATES.md 구현 승인 후 openclaw에서 .gitignore 또는 run/cache 분리 규칙 구현
 
 ## Waiting
 
