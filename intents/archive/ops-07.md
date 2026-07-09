@@ -16,7 +16,7 @@
     role: final
 - commits:
   - repo: infinity
-    sha: b30cad8
+    sha: 8a3c68e
     note: push 후 커밋 해시 확인
 - urls: []
 - next_actions:
