@@ -4,15 +4,18 @@
 
 ## Inbox
 
-### [ops-09] 데일리 리뷰 Calendar Result 렌더 게이트 보강
-- proposed_by: sam-proposer
-- source_signal: system/docs/EVALUATION_NOTES.md#데일리-리뷰-Calendar-Result-헤더와-placeholder-최신-재현
-- rationale: 2026-07-08 리뷰에서 영어 운영 헤더가 노출된 뒤 2026-07-09 리뷰에서도 `## Calendar Result`와 `both` placeholder가 재현되어 사용자-facing 회고 품질을 떨어뜨렸다.
-- expected_artifact: 자동 데일리 리뷰 저장/발송 전 렌더 단계에서 `Calendar Result` 같은 영어 운영 헤더와 `both`/raw status placeholder를 차단하거나 한국어 사용자 문장으로 변환하는 규칙 또는 구현 보강.
-- permission_level: implementation approval required
-- success_criteria: 새 데일리 리뷰 dry-run 또는 최신 리뷰 재생성 결과 하단에 영어 운영 헤더와 raw placeholder가 없고, 캘린더 반영 결과가 한국어 문장으로 렌더되거나 렌더 실패 시 사용자용 저장이 보류됨을 확인한다.
-
 ## Active
+
+### [ops-09] 데일리 리뷰 Calendar Result 렌더 게이트 보강
+- id: ops-09
+- status: active
+- priority: high
+- permission: L2 (implementation approval required)
+- goal: 자동 데일리 리뷰 저장/발송 전 렌더 단계에서 `Calendar Result` 영어 운영 헤더와 `both`/raw status placeholder를 차단하거나 한국어 사용자 문장으로 변환
+- success_criteria: 새 데일리 리뷰 dry-run 결과에 영어 운영 헤더와 raw placeholder가 없고, 캘린더 반영 결과가 한국어 문장으로 렌더되거나 렌더 실패 시 사용자용 저장이 보류됨
+- context: LOCAL_REVIEW_AUTOMATION.md (렌더 게이트 원장), EVALUATION_NOTES.md#데일리-리뷰-Calendar-Result-헤더와-placeholder-최신-재현
+- proposed_by: sam-proposer
+- last_updated: 2026-07-09
 
 ## Waiting
 

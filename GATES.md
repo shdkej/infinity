@@ -5,6 +5,12 @@
 
 ## 대기 중
 
+### [ops-09] 데일리 리뷰 Calendar Result 렌더 게이트 보강 구현 승인
+- requested: 2026-07-09T07:00Z
+- action: LOCAL_REVIEW_AUTOMATION.md 렌더 게이트 규칙에 `## Calendar Result` 헤더 필터와 `both`/raw status placeholder → 한국어 변환 규칙 추가. 캘린더 연동 스크립트에서 status 값의 한국어 변환 단계 추가 검토.
+- reason: 2026-07-08·09 데일리 리뷰에서 `## Calendar Result` 영어 운영 헤더와 `both` raw placeholder 재현. ops-03 게이트가 해당 패턴을 미포함.
+- impact: LOCAL_REVIEW_AUTOMATION.md 및 캘린더 연동 스크립트 수정 — 롤백 가능 (git revert). 이미 발송된 리뷰에는 소급 미적용.
+
 ## 처리 완료
 
 ### [ops-08] 자동 리뷰 산출물 추적 경계 고정 구현 승인
@@ -46,7 +52,6 @@
 - impact: 스킬/워크플로우 정본 문서 수정 — 롤백 가능 (git revert)
 - resolved: 2026-07-04 (사용자 '승인')
 - decision: approved
-
 
 ### [marketing-01] Virtue add-flow telemetry 머지/푸시 및 배포 승인
 - requested: 2026-05-21 08:07 UTC

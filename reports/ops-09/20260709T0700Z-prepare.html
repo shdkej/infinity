@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>[ops-09] 렌더 게이트 보강 prepare</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,sans-serif;font-size:14px;padding:16px;max-width:600px;color:#111;line-height:1.5}
+header{border-bottom:2px solid #333;padding-bottom:10px;margin-bottom:14px}
+.intent-id{font-weight:bold;font-size:15px;margin-bottom:8px}
+.badge{display:inline-block;background:#e67;color:#fff;padding:2px 7px;border-radius:4px;font-size:11px;margin-left:6px}
+.axis{margin:6px 0;display:grid;grid-template-columns:auto 1fr;gap:6px;align-items:start}
+.axis-label{font-size:11px;color:#888;font-weight:bold;white-space:nowrap;padding-top:1px}
+.axis-value{font-size:13px}
+details{margin-top:12px;border:1px solid #ddd;border-radius:6px;overflow:hidden}
+summary{padding:9px 12px;cursor:pointer;font-weight:bold;background:#f5f5f5;font-size:13px;list-style:none}
+summary::-webkit-details-marker{display:none}
+.detail-body{padding:12px}
+ul{padding-left:16px}
+li{margin:5px 0;line-height:1.5}
+code{background:#eee;padding:1px 4px;border-radius:3px;font-size:12px;word-break:break-all}
+strong{font-weight:600}
+</style>
+</head>
+<body>
+<header>
+  <div class="intent-id">[ops-09] 데일리 리뷰 Calendar Result 렌더 게이트 보강<span class="badge">prepare</span></div>
+  <div class="axis ax1">
+    <span class="axis-label">맥락/문제</span>
+    <span class="axis-value">2026-07-08·09 데일리 리뷰에서 <code>## Calendar Result</code> 영어 헤더와 <code>both</code> raw placeholder 재현 — ops-03 게이트 미포함 패턴</span>
+  </div>
+  <div class="axis ax2">
+    <span class="axis-label">결과/해법</span>
+    <span class="axis-value">렌더 게이트 확장 구현 계획 수립 완료, L2 implementation 승인을 GATES.md에 등록</span>
+  </div>
+</header>
+
+<details open>
+  <summary>▸ 핵심 발견 / 구현 계획</summary>
+  <div class="detail-body">
+    <ul>
+      <li><strong>ops-03 게이트 한계</strong>: 저장/발송 직전 렌더 게이트는 <code>중복 게이트</code>·<code>## 중복</code>·<code>## 소스</code> 패턴만 차단 — <code>Calendar Result</code> 헤더와 <code>both</code> status 값은 미포함</li>
+      <li><strong>재현 패턴</strong>: 2026-07-08 첫 발생 → 2026-07-09 재현. 캘린더 연동 삽입 단계가 ops-03 게이트 이후이거나 별도 경로로 렌더됨</li>
+      <li><strong>구현 후보 A — 문서 규칙 추가</strong>: <code>LOCAL_REVIEW_AUTOMATION.md</code> 렌더 게이트에 <code>## Calendar Result</code> → 삭제 또는 <code>## 캘린더 반영 결과</code> 변환 규칙 추가</li>
+      <li><strong>구현 후보 B — 스크립트 status 변환</strong>: 캘린더 스크립트에서 <code>both</code> → <code>오늘·내일 모두</code>, <code>all_day</code> → <code>종일</code> 등 한국어 매핑 추가</li>
+      <li><strong>검증</strong>: 데일리 리뷰 dry-run 후 <code>Calendar Result</code>·<code>both</code> 미존재 확인</li>
+    </ul>
+  </div>
+</details>
+
+<details>
+  <summary>▸ 실행 메타 / 다음 액션</summary>
+  <div class="detail-body">
+    <ul>
+      <li>이번 Heartbeat: Inbox → Active 구조화, GATES.md L2 승인 등록</li>
+      <li>다음 액션: 사용자 승인 후 로컬 Claude Code로 A+B 구현 및 dry-run 검증</li>
+      <li>approval: L2 대기 중 (GATES.md 등록)</li>
+      <li>참조: <code>intents/archive/ops-03.md</code>, <code>LOCAL_REVIEW_AUTOMATION.md</code></li>
+      <li>실행 시각: 2026-07-09T07:00Z</li>
+    </ul>
+  </div>
+</details>
+</body>
+</html>
