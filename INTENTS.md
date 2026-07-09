@@ -6,25 +6,12 @@
 
 ## Active
 
-### [ops-08] 자동 리뷰 산출물 추적 경계 고정
-- status: active
-- priority: medium
-- permission: L2 approved
-- proposed_by: sam-proposer
-- source_signal: system/docs/EVALUATION_NOTES.md#자동-리뷰-월간-소스-산출물-untracked-누적
-- approved_at: 2026-07-09T03:25Z
-- goal: daily review 초안과 monthly-review-sources 산출물이 정본 문서 수정과 같은 검토 층위에 섞이지 않도록 tracked 정본 승격 기준 또는 ignored run/cache 분리 규칙을 만든다
-- rationale: daily review 초안과 monthly-review-sources 산출물이 여러 날짜에 걸쳐 untracked로 누적되어, 정본 문서 수정과 반복 생성물이 같은 검토 층위에 섞인다.
-- expected_artifact: daily-reviews/monthly-review-sources 산출물의 tracked 정본 승격 기준 또는 ignored run/cache 분리 규칙
-- success_criteria: 새 자동 리뷰/월간 소스 실행 뒤 git status에는 승인된 정본 문서만 남고, 중간 산출물은 추적되거나 ignored 경로로 분리되어 재현성 있게 판정된다.
-- mode: execute_local
-- next_action: openclaw에서 .gitignore 또는 run/cache 분리 규칙 구현
-
 ## Waiting
 
 <!-- 사용자 결정, 외부 조건, 안전 확인 대기. 같은 질문을 반복하지 않고 상태만 보존한다. -->
 
 ## Archive
+<!-- ops-08 completed 2026-07-09T03:58Z → intents/archive/ops-08.md [projects: openclaw,infinity; type: maintenance; topics: automation,workflow,review] (OpenClaw workspace의 daily-reviews/ 및 monthly-review-sources/를 runtime review 산출물로 .gitignore에 명시해 정본 문서 변경 검토면에서 분리했다. HTML report gate passed.) -->
 <!-- ops-07 completed 2026-07-09T0329Z → intents/archive/ops-07.md [projects: openclaw,infinity; type: maintenance; topics: automation,workflow] (MEMORY.md/DREAMS.md 런타임 원장을 .gitignore에 명시해 dreaming/memory 중간 산출물이 정본 변경 검토면에 섞이지 않도록 했다. HTML report gate passed.) -->
 <!-- ops-06 completed 2026-07-07T0007Z → intents/archive/ops-06.md [projects: openclaw,infinity; type: maintenance; topics: automation,workflow,review] (weekly_review.md 같은 주 canonical 블록을 append가 아니라 replace/dedupe하는 계약과 로컬 dry-run helper를 추가했다. 2026-W27 dry-run PASS. HTML report gate passed.) -->
 <!-- ops-05 completed 2026-07-06T10:07 → intents/archive/ops-05.md [projects: openclaw,infinity,knowledge-lab; type: maintenance; topics: automation,workflow,content] (OpenClaw 카드뉴스 preview/sample/variant 및 초안 config 산출물이 새 실행 후 git status 검토면에 섞이지 않도록 .gitignore 경계를 보강했다. HTML report gate passed.) -->
