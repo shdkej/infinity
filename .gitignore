@@ -6,3 +6,11 @@ config/telegram.env
 # omc/tooling
 .omc/
 .DS_Store
+
+# OpenClaw runtime ledgers
+# These files are produced during local memory/dreaming cycles and are
+# evaluated as runtime state, not Infinity canonical source changes.
+MEMORY.md
+DREAMS.md
+**/MEMORY.md
+**/DREAMS.md

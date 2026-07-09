@@ -6,20 +6,6 @@
 
 ## Active
 
-### [ops-07] MEMORY/DREAMS 런타임 변경 경계 고정
-- status: active
-- priority: medium
-- permission: L2 approved
-- proposed_by: sam-proposer
-- source_signal: system/docs/EVALUATION_NOTES.md#memory/dreaming-경계
-- approved_at: 2026-07-09T03:25Z
-- goal: dreaming/memory 실행 시 생성되는 중간 런타임 파일이 git status와 evaluator 입력에서 canonical 정본 변경과 구분되도록 ignore/운영 규칙 또는 스크립트를 보강한다
-- rationale: dreaming 단계 파일과 최종 원장이 함께 dirty로 남는 신호가 감시표와 반복 평가 기록에서 재현되어, 실제 정본 변경과 런타임 기록의 검토 경계가 흐려진다.
-- expected_artifact: MEMORY.md/DREAMS.md 런타임 변경을 평가·동기화 표면에서 분리하는 ignore/운영 규칙 또는 스크립트 보강
-- success_criteria: 새 dreaming/memory 실행 후 git status와 evaluator 입력에서 중간 런타임 파일이 정본 변경과 같은 실패/검토 신호로 분류되지 않는 것이 재현된다.
-- mode: execute_local
-- next_action: openclaw에서 .gitignore 또는 스크립트 보강 적용
-
 ### [ops-08] 자동 리뷰 산출물 추적 경계 고정
 - status: active
 - priority: medium
@@ -39,6 +25,7 @@
 <!-- 사용자 결정, 외부 조건, 안전 확인 대기. 같은 질문을 반복하지 않고 상태만 보존한다. -->
 
 ## Archive
+<!-- ops-07 completed 2026-07-09T0329Z → intents/archive/ops-07.md [projects: openclaw,infinity; type: maintenance; topics: automation,workflow] (MEMORY.md/DREAMS.md 런타임 원장을 .gitignore에 명시해 dreaming/memory 중간 산출물이 정본 변경 검토면에 섞이지 않도록 했다. HTML report gate passed.) -->
 <!-- ops-06 completed 2026-07-07T0007Z → intents/archive/ops-06.md [projects: openclaw,infinity; type: maintenance; topics: automation,workflow,review] (weekly_review.md 같은 주 canonical 블록을 append가 아니라 replace/dedupe하는 계약과 로컬 dry-run helper를 추가했다. 2026-W27 dry-run PASS. HTML report gate passed.) -->
 <!-- ops-05 completed 2026-07-06T10:07 → intents/archive/ops-05.md [projects: openclaw,infinity,knowledge-lab; type: maintenance; topics: automation,workflow,content] (OpenClaw 카드뉴스 preview/sample/variant 및 초안 config 산출물이 새 실행 후 git status 검토면에 섞이지 않도록 .gitignore 경계를 보강했다. HTML report gate passed.) -->
 <!-- marketing-101 completed 2026-07-06T10:28 → intents/archive/marketing-101.md [projects: virtue,infinity; type: strategy; topics: marketing,activation,analytics] (J1-J4별 activation 후보 묶음, window, 현재 이벤트/수기 관찰 항목, 표본 부족 시 금지 해석을 registry로 고정했다. HTML report gate passed.) -->
