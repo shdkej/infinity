@@ -19,7 +19,7 @@
     sha: ba893fd
     note: OpenClaw workspace ignore boundary
   - repo: infinity
-    sha: pending-this-archive-commit
+    sha: 82b866b
     note: ops-08 archive/report 기록
 - urls: []
 - next_actions:
