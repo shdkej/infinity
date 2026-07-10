@@ -8,14 +8,16 @@
 
 ### [ops-09] 데일리 리뷰 Calendar Result 렌더 게이트 보강
 - id: ops-09
-- status: active
+- status: in_progress
 - priority: high
-- permission: L2 (implementation approval required)
+- permission: L2 (agent-approved 2026-07-10T00:13Z)
 - goal: 자동 데일리 리뷰 저장/발송 전 렌더 단계에서 `Calendar Result` 영어 운영 헤더와 `both`/raw status placeholder를 차단하거나 한국어 사용자 문장으로 변환
 - success_criteria: 새 데일리 리뷰 dry-run 결과에 영어 운영 헤더와 raw placeholder가 없고, 캘린더 반영 결과가 한국어 문장으로 렌더되거나 렌더 실패 시 사용자용 저장이 보류됨
 - context: LOCAL_REVIEW_AUTOMATION.md (렌더 게이트 원장), EVALUATION_NOTES.md#데일리-리뷰-Calendar-Result-헤더와-placeholder-최신-재현
 - proposed_by: sam-proposer
-- last_updated: 2026-07-09
+- last_updated: 2026-07-10
+- approval: agent-approved L2 (2026-07-10T00:13Z) — L2 조건 전부 충족
+- local_execution: artifacts/ops-09/local-execution-prompt.md (로컬 Claude Code 실행 대기)
 
 ## Waiting
 
