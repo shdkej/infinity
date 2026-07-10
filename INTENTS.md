@@ -4,6 +4,17 @@
 
 ## Inbox
 
+### [marketing-102] Virtue D7 재가치 관찰 게이트 정렬
+- proposed_by: seth-godin
+- source_note: `/home/ubuntu/workspace/knowledge-lab/source/external-links/marketing/2026-05-27-retention-predictive-activation.md`
+- rationale: activation 후보가 많아진 상태에서 첫 행동 완료와 리텐션 예측 신호가 섞이면 prelaunch 작은 표본을 과대해석할 수 있다.
+- expected_artifact: 기존 첫 10-20명 관찰표와 `marketing-101` activation 후보 등록부를 대조해 J1-J4별 D7 재가치 질문, same-job 유지 여부, second value evidence 칸이 충분한지 1장으로 판정한다.
+- permission_level: L1 internal-doc only
+- owner_route: Infinity router → Claude Code local docs
+- expected_impact: 출시 전에는 새 계측 없이도 "첫 가치처럼 보인 행동"과 "다시 올 이유가 남은 행동"을 분리해, launch 이후 PostHog 수치 해석의 사후선택 위험을 줄인다.
+- success_criteria: 산출물에 J1/J2/J4=`deed_saved`, J3=`deed_judged` 기준과 D7 관찰 질문이 함께 있고, `add_flow_started`를 activation 성공으로 보지 않는 금지선이 명시된다.
+- first_verification_gate: 산출물 작성 후 `marketing-101`의 A1-A4 후보와 충돌하거나 중복 확장하지 않는지 확인한다.
+
 ## Active
 
 ## Waiting
