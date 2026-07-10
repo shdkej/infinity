@@ -21,7 +21,7 @@
 - proposed_by: sam-proposer
 - last_updated: 2026-07-10
 - approval: agent-approved L2 (2026-07-10T00:13Z) — L2 조건 전부 충족
-- waiting_reason: 로컬 Claude Code 실행 대기 — artifacts/ops-09/local-execution-prompt.md 준비 완료. 로컬 환경에서 LOCAL_REVIEW_AUTOMATION.md 수정 + dry-run 검증 후 완료 처리.
+- waiting_reason: 2026-07-10T12:07Z bounded progress — `/home/ubuntu/.openclaw/workspace/system/docs/LOCAL_REVIEW_AUTOMATION.md` 자동 회고 렌더 게이트에 `## Calendar Result` 차단과 `both`/`all_day`/`confirmed`/`tentative` 한국어 매핑 규칙을 추가했다. 실제 데일리 리뷰 dry-run 실행 경로가 이 사이클에서 확정되지 않아 완료 처리하지 않고, 다음 실행에서 dry-run 검증 후 archive 처리. Infinity push는 remote 선행 커밋 때문에 rejected(fetch first)되어 다음 사이클에서 scoped sync 필요.
 - local_execution: artifacts/ops-09/local-execution-prompt.md
 
 ## Archive
