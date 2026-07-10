@@ -4,6 +4,14 @@
 
 ## Inbox
 
+### [ops-10] Signal-to-intent proposer tool-failure diagnostics repair
+- proposed_by: sam-proposer
+- source_signal: openclaw cron runs#Signal-to-intent proposer repeated tool-failure diagnostics 2026-07-05..2026-07-09
+- rationale: The proposer has repeatedly finished as NO_REPLY while diagnostics report failed tool chains such as git status/stage/commit/push and cron inspection. This can hide real proposal or push blockers behind a routine-silent outcome.
+- expected_artifact: A small repair to the proposer workflow or prompt contract that prevents known diagnostic-only tool failures from recurring, or records a real blocker when commit/push cannot be completed.
+- permission_level: implementation approval required
+- success_criteria: The next two scheduled Signal-to-intent proposer runs finish without tool-failure diagnostics, or a failed push/commit path produces an explicit blocker instead of routine NO_REPLY.
+
 ## Active
 
 ## Waiting
