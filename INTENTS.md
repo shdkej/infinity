@@ -25,7 +25,7 @@
 - local_execution: artifacts/ops-09/local-execution-prompt.md
 
 ## Archive
-<!-- marketing-102 completed 2026-07-10T10:07 → intents/archive/marketing-102.md [projects: virtue,infinity; type: strategy; topics: marketing,activation,retention] (첫 10명 관찰표와 activation 후보 등록부를 대조해 J1/J2/J4=`deed_saved`, J3=`deed_judged` 기준의 D7 재가치 손기록 게이트를 정리했다. `add_flow_started` activation 성공 승격 금지. HTML report gate passed.) -->
+<!-- marketing-102 completed 2026-07-10T08:00Z → intents/archive/marketing-102.md [projects: virtue,infinity; type: strategy; topics: marketing,activation,retention] (기존 관찰표와 marketing-101 후보를 대조해 J1-J4별 D7 재가치 질문, same-job 유지 기준, add_flow_started 금지선을 1장으로 고정했다. HTML report gate passed.) -->
 <!-- ops-08 completed 2026-07-09T03:58Z → intents/archive/ops-08.md [projects: openclaw,infinity; type: maintenance; topics: automation,workflow,review] (OpenClaw workspace의 daily-reviews/ 및 monthly-review-sources/를 runtime review 산출물로 .gitignore에 명시해 정본 문서 변경 검토면에서 분리했다. HTML report gate passed.) -->
 <!-- ops-07 completed 2026-07-09T0329Z → intents/archive/ops-07.md [projects: openclaw,infinity; type: maintenance; topics: automation,workflow] (MEMORY.md/DREAMS.md 런타임 원장을 .gitignore에 명시해 dreaming/memory 중간 산출물이 정본 변경 검토면에 섞이지 않도록 했다. HTML report gate passed.) -->
 <!-- ops-06 completed 2026-07-07T0007Z → intents/archive/ops-06.md [projects: openclaw,infinity; type: maintenance; topics: automation,workflow,review] (weekly_review.md 같은 주 canonical 블록을 append가 아니라 replace/dedupe하는 계약과 로컬 dry-run helper를 추가했다. 2026-W27 dry-run PASS. HTML report gate passed.) -->

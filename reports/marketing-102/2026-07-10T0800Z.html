@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>[marketing-102] D7 재가치 관찰 게이트 정렬</title>
+<style>
+  :root{
+    --bg:#f4f2ea; --panel:#fbfaf5; --ink:#2c2a25; --soft:#807c70; --faint:#a8a496; --line:#e3dfd2;
+    --a2:#5f7a5e; --a2-deep:#3f5740;
+    --a1:#a9745a; --a1-deep:#8a5c45;
+    --sans:-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Pretendard','Noto Sans KR',sans-serif;
+    --mono:ui-monospace,'SF Mono',Menlo,monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0; width:100%; max-width:100%; overflow-x:hidden;}
+  body{background:var(--bg); color:var(--ink); font-family:var(--sans); font-size:14px; line-height:1.68;}
+  .sheet{width:min(100%,720px); max-width:720px; margin:0 auto; padding:32px 18px 40px;}
+  .eyebrow{display:flex; align-items:center; gap:10px; font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--soft); flex-wrap:wrap;}
+  .eyebrow .id{color:var(--a2-deep); font-weight:600;}
+  .eyebrow .dot{width:5px; height:5px; border-radius:50%; background:var(--a2);}
+  .eyebrow .status{color:var(--a2-deep);}
+  h1{font-size:clamp(20px,5.5vw,26px); line-height:1.3; font-weight:700; margin:16px 0 0; overflow-wrap:anywhere;}
+  .dek{font-size:14px; color:var(--soft); margin:10px 0 0; overflow-wrap:anywhere;}
+  .hr{height:1px; background:var(--line); margin:24px 0;}
+  .axis{padding:0 0 4px 18px; position:relative; margin-bottom:22px;}
+  .axis::before{content:""; position:absolute; left:0; top:6px; bottom:6px; width:2px; border-radius:2px;}
+  .axis.ax1::before{background:var(--a1);} .axis.ax2::before{background:var(--a2);}
+  .axis .label{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase; margin-bottom:7px; display:flex; align-items:center; gap:8px;}
+  .axis.ax1 .label{color:var(--a1-deep);} .axis.ax2 .label{color:var(--a2-deep);}
+  .axis .label .n{font-weight:600; opacity:.6;}
+  .axis .text{font-size:clamp(15px,4vw,17px); line-height:1.6; color:#37352e; overflow-wrap:anywhere;}
+  .axis .text b{font-weight:700; color:var(--ink); border-bottom:2px solid var(--a1);}
+  .axis.ax2 .text b{border-bottom-color:var(--a2);}
+  details{border:1px solid var(--line); border-radius:8px; background:var(--panel); margin-bottom:10px; overflow:hidden;}
+  summary{cursor:pointer; list-style:none; padding:14px 16px; display:flex; align-items:center; gap:11px; font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft);}
+  summary::-webkit-details-marker{display:none;}
+  summary .chev{width:8px; height:8px; border-right:2px solid var(--a2-deep); border-bottom:2px solid var(--a2-deep); transform:rotate(-45deg); transition:.25s; flex:none;}
+  details[open] summary .chev{transform:rotate(45deg);}
+  .body{padding:2px 16px 18px; min-width:0;}
+  .section-title{font-family:var(--mono); font-size:10.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--a1-deep); margin:14px 0 8px;}
+  .callout{border-left:2px solid var(--a2); background:#f2efe5; padding:11px 13px; color:#4a473f; margin:12px 0 16px; overflow-wrap:anywhere;}
+  ol.find{list-style:none; counter-reset:f; margin:10px 0 0; padding:0;}
+  ol.find li{position:relative; padding:8px 0 8px 26px; font-size:14px; color:#37352e; border-top:1px solid var(--line); overflow-wrap:anywhere;}
+  ol.find li:first-child{border-top:none;}
+  ol.find li::before{counter-increment:f; content:counter(f); position:absolute; left:0; top:9px; font-family:var(--mono); font-size:12px; font-weight:600; color:var(--a1-deep);}
+  code{font-family:var(--mono); font-size:12px; background:#edeae0; padding:1px 6px; border-radius:3px; color:var(--a2-deep); overflow-wrap:anywhere; word-break:break-all;}
+  .body ul{margin:6px 0; padding-left:18px;} .body li{margin:5px 0; overflow-wrap:anywhere;}
+  .chips{display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px;}
+  .chip{font-family:var(--mono); font-size:10.5px; letter-spacing:.05em; color:var(--soft); border:1px solid var(--line); border-radius:999px; padding:3px 10px;}
+  .foot{margin-top:24px; padding-top:14px; border-top:1px solid var(--line); display:flex; flex-wrap:wrap; gap:6px 14px; justify-content:space-between; font-family:var(--mono); font-size:10px; letter-spacing:.13em; text-transform:uppercase; color:var(--faint);}
+  @media(min-width:600px){.sheet{padding:44px 30px 44px;}}
+</style>
+</head>
+<body>
+<div class="sheet">
+  <div class="eyebrow">
+    <span class="dot"></span>
+    <span class="id">marketing-102</span>
+    <span>Marketing Note</span>
+    <span class="status">archived</span>
+  </div>
+  <h1>Virtue D7 재가치 관찰 게이트 정렬</h1>
+  <p class="dek">기존 activation 관찰표(marketing-79/98)와 후보 레지스트리(marketing-101)를 대조해 D7 재가치 판단 게이트를 1장으로 고정한 결과.</p>
+
+  <div class="hr"></div>
+
+  <div class="axis ax1">
+    <div class="label"><span class="n">01</span> 무엇이 문제였나</div>
+    <div class="text">prelaunch 소표본에서 <b>activation 신호와 D7 재가치 신호가 같은 관찰 표면에 섞이면</b>, 첫 세션의 &ldquo;첫 가치처럼 보인 행동&rdquo;을 D7 리텐션 예측으로 과대해석할 위험이 있다. 기존 관찰표에 D7 체크포인트, same-job 유지 질문, <code>add_flow_started</code> 금지선이 없었다.</div>
+  </div>
+
+  <div class="axis ax2">
+    <div class="label"><span class="n">02</span> 어떻게 해결하나</div>
+    <div class="text">J1-J4별 <b>D7 재가치 질문, same-job 유지 판정 기준, second value evidence, <code>add_flow_started</code> 금지선을 1장 게이트로 고정</b>했다. 기존 관찰표 구조는 그대로 두고, 이 표를 D7 관찰 시점에 붙여 쓴다.</div>
+  </div>
+
+  <details open>
+    <summary><span class="chev"></span> 핵심 발견 &middot; 판정 내용</summary>
+    <div class="body">
+      <div class="section-title">핵심 발견</div>
+      <ol class="find">
+        <li>기존 관찰표는 activation gate(D1까지)에는 충분하지만 D7 레이어가 없다 &mdash; D7 체크포인트, same-job 질문, second value 칸, <code>add_flow_started</code> 금지선 모두 미존재.</li>
+        <li>J3(AI 호기심형)는 D7에도 저장 없이 재방문할 수 있다 &mdash; <code>deed_judged</code>가 다시 일어나면 same-job 유지. &ldquo;저장 없으면 실패&rdquo; 독해 금지.</li>
+        <li><code>add_flow_started</code>는 activation에서도, D7 재가치에서도 성공 신호가 아니다 &mdash; /add 진입만으로는 잡별 재가치를 판단할 수 없다.</li>
+        <li>잡이 D1&rarr;D7 사이에 전환되면 same-job 유지 불가 &mdash; 잡 전환 자체는 별도 메모 항목.</li>
+        <li>marketing-101 A1-A4 후보 레지스트리와 충돌 없음 &mdash; D7 게이트는 activation 정의를 바꾸지 않고 그 이후 레이어를 추가한다.</li>
+      </ol>
+
+      <div class="callout">이 게이트를 쓰면 PostHog 수치 해석 시 &ldquo;첫 세션에 가치처럼 보인 행동&rdquo;과 &ldquo;D7에도 같은 잡으로 돌아온 행동&rdquo;을 분리할 수 있고, 사후선택 위험이 줄어든다.</div>
+
+      <div class="section-title">marketing-101 충돌 검증</div>
+      <ul>
+        <li>D7 재가치 질문은 marketing-101의 activation 정의(J1/J2/J4=<code>deed_saved</code>, J3=<code>deed_judged</code>)를 변경하지 않는다.</li>
+        <li>same-job 유지 기준은 first verification gate와 독립 작동 &mdash; 첫 세션 판정에 소급 없음.</li>
+        <li>second value evidence는 marketing-101 bundle &middot; window 항목을 D7 시점으로 좁힌 것 &mdash; 중복 확장 없음.</li>
+      </ul>
+    </div>
+  </details>
+
+  <details open>
+    <summary><span class="chev"></span> 수행 작업 &middot; 산출물</summary>
+    <div class="body">
+      <ul>
+        <li>기존 관찰표(marketing-79/98)와 activation registry(marketing-101)를 대조해 D7 레이어 공백 확인</li>
+        <li>J1-J4별 D7 재가치 질문, same-job 유지 판정, second value evidence를 잡별로 정리</li>
+        <li><code>add_flow_started</code> 금지선 명시 (activation 및 D7 모두 적용)</li>
+        <li>marketing-101 A1-A4 충돌 없음 검증</li>
+        <li>산출물: <code>artifacts/marketing-102/d7-revalue-gate-alignment.html</code></li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="chev"></span> 실행 메타 &middot; 다음 액션</summary>
+    <div class="body">
+      <div class="chips">
+        <span class="chip">2026-07-10T08:00Z</span>
+        <span class="chip">Heartbeat &middot; Cloud prepare/draft</span>
+        <span class="chip">Inbox &rarr; archived</span>
+        <span class="chip">L1 docs-only</span>
+      </div>
+      <div class="section-title">다음 액션</div>
+      <ul>
+        <li>첫 실사용자 D7 시점에 이 게이트를 붙여 사용한다.</li>
+        <li>5명 이상 D7 관찰 후 잡별 same-job 유지율 패턴 리뷰 &mdash; 패턴이 보이면 별도 intent로 열 것.</li>
+        <li>PostHog 수치 해석 시 D7 게이트 기준 참고해 사후선택 편향 방어.</li>
+      </ul>
+      <div class="section-title">계승 &middot; 새 규칙 후보</div>
+      <ul>
+        <li>계승: J1/J2/J4=<code>deed_saved</code>, J3=<code>deed_judged</code> first value 정의 (marketing-79/101)</li>
+        <li>이번에 고정: D7 재가치는 activation과 별도 레이어 &mdash; 같은 잡으로 돌아온 행동으로만 판단</li>
+        <li>durable learning 후보: &ldquo;<code>add_flow_started</code>는 어떤 판단 레이어에서도 성공 신호가 아니다&rdquo; &mdash; MARKETING_LEARNINGS.md 승격 후보</li>
+      </ul>
+    </div>
+  </details>
+
+  <div class="foot">
+    <span>Infinity Heartbeat &middot; marketing-102</span>
+    <span>2026-07-10T08:00Z</span>
+  </div>
+</div>
+</body>
+</html>
