@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>marketing-102 Virtue D7 재가치 관찰 게이트</title>
+<style>
+  :root{
+    --bg:#f4f2ea; --panel:#fbfaf5; --ink:#2c2a25; --soft:#807c70; --faint:#a8a496; --line:#e3dfd2;
+    --a2:#5f7a5e; --a2-deep:#3f5740;
+    --a1:#a9745a; --a1-deep:#8a5c45;
+    --sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0; width:100%; max-width:100%; overflow-x:hidden;}
+  body{background:var(--bg); color:var(--ink); font-family:var(--sans); font-size:14px; line-height:1.68; -webkit-font-smoothing:antialiased;}
+  .sheet{width:min(100%,720px); max-width:720px; margin:0 auto; padding:32px 18px 40px;}
+  .reveal{opacity:0; animation:fade .7s ease forwards;}
+  @keyframes fade{from{opacity:0; transform:translateY(9px);} to{opacity:1; transform:none;}}
+  .eyebrow{display:flex; align-items:center; gap:10px; font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--soft); flex-wrap:wrap;}
+  .eyebrow .id{color:var(--a2-deep); font-weight:600;}
+  .eyebrow .dot{width:5px; height:5px; border-radius:50%; background:var(--a2);}
+  .eyebrow .status{color:var(--a2-deep);}
+  h1{font-size:clamp(24px,7vw,29px); line-height:1.3; font-weight:700; letter-spacing:0; margin:20px 0 0; overflow-wrap:anywhere;}
+  .dek{font-size:15.5px; color:var(--soft); margin:13px 0 0; max-width:52ch;}
+  .hr{height:1px; background:var(--line); margin:30px 0;}
+  .axis{padding:0 0 4px 18px; position:relative; margin-bottom:26px;}
+  .axis::before{content:""; position:absolute; left:0; top:6px; bottom:6px; width:2px; border-radius:2px;}
+  .axis.ax1::before{background:var(--a1);} .axis.ax2::before{background:var(--a2);}
+  .axis.ax1{--ul:var(--a1);} .axis.ax2{--ul:var(--a2);}
+  .axis .label{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase; margin-bottom:9px; display:flex; align-items:center; gap:8px;}
+  .axis.ax1 .label{color:var(--a1-deep);} .axis.ax2 .label{color:var(--a2-deep);}
+  .axis .label .n{font-weight:600; opacity:.6;}
+  .axis .text{font-size:clamp(16px,4.4vw,18px); line-height:1.62; color:#37352e; overflow-wrap:anywhere;}
+  .axis .text b{font-weight:700; color:var(--ink); border-bottom:2px solid var(--ul);}
+  ol.find{list-style:none; counter-reset:f; margin:16px 0 0; padding:0;}
+  ol.find li{position:relative; padding:8px 0 8px 26px; font-size:15px; color:#37352e; border-top:1px solid var(--line);}
+  ol.find li:first-child{border-top:none;}
+  ol.find li::before{counter-increment:f; content:counter(f); position:absolute; left:0; top:9px; font-family:var(--mono); font-size:12px; font-weight:600; color:var(--a1-deep);}
+  details{border:1px solid var(--line); border-radius:8px; background:var(--panel); margin-bottom:10px; overflow:hidden;}
+  summary{cursor:pointer; list-style:none; padding:14px 16px; display:flex; align-items:center; gap:11px; font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft);}
+  summary::-webkit-details-marker{display:none;}
+  summary .chev{width:8px; height:8px; border-right:2px solid var(--a2-deep); border-bottom:2px solid var(--a2-deep); transform:rotate(-45deg); transition:.25s; flex:none; margin-left:2px;}
+  details[open] summary .chev{transform:rotate(45deg);}
+  .body{padding:2px 16px 18px; min-width:0;}
+  .section{margin:4px 0 18px;}
+  .section-title{font-family:var(--mono); font-size:10.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--a1-deep); margin:0 0 8px;}
+  .callout{border-left:2px solid var(--a2); background:#f2efe5; padding:11px 13px; color:#4a473f; margin:12px 0 16px;}
+  .content-grid{display:grid; grid-template-columns:1fr; gap:10px; margin:10px 0;}
+  .mini-card{border:1px solid var(--line); background:#f8f6ef; border-radius:8px; padding:12px 13px; min-width:0;}
+  .mini-card b{display:block; color:var(--ink); margin-bottom:5px;}
+  .mini-card p{margin:0;}
+  table{border-collapse:collapse; width:100%; max-width:100%; table-layout:fixed; font-size:13px; margin:4px 0 12px;}
+  th,td{border-bottom:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top; overflow-wrap:anywhere; word-break:break-word;}
+  th{font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft); font-weight:600;}
+  td:first-child{color:var(--a2-deep); font-weight:600; white-space:normal;}
+  .body p{color:var(--soft); overflow-wrap:anywhere;}
+  .body ul{margin:6px 0; padding-left:18px;} .body li{margin:5px 0;}
+  code{font-family:var(--mono); font-size:12px; background:#edeae0; padding:1px 6px; border-radius:3px; color:var(--a2-deep); overflow-wrap:anywhere; word-break:break-word;}
+  pre{white-space:pre-wrap; overflow-wrap:anywhere; word-break:break-word; max-width:100%;}
+  .chips{display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px;}
+  .chip{font-family:var(--mono); font-size:10.5px; letter-spacing:.05em; color:var(--soft); border:1px solid var(--line); border-radius:999px; padding:3px 10px;}
+  .foot{margin-top:30px; padding-top:15px; border-top:1px solid var(--line); display:flex; flex-wrap:wrap; gap:6px 14px; justify-content:space-between; font-family:var(--mono); font-size:10px; letter-spacing:.13em; text-transform:uppercase; color:var(--faint);}
+  @media (min-width:720px){.sheet{padding:48px 34px 46px;}.eyebrow{letter-spacing:.18em;}.eyebrow .status{margin-left:auto;}.axis{padding-left:22px; margin-bottom:30px;}.content-grid{grid-template-columns:repeat(2,minmax(0,1fr));}}
+  @media (max-width:640px){table,thead,tbody,tr,th,td{display:block; width:100%;} thead{display:none;} tr{border:1px solid var(--line); border-radius:8px; padding:9px 10px; margin:0 0 10px; background:#f8f6ef;} td{border-bottom:0; padding:5px 0;} td:first-child{font-family:var(--mono); font-size:11px; letter-spacing:.05em;}}
+</style>
+</head>
+<body>
+<div class="sheet">
+  <div class="eyebrow reveal">
+    <span class="dot"></span>
+    <span class="id">marketing-102</span>
+    <span>Strategy Note</span>
+    <span class="status">archived</span>
+  </div>
+  <h1 class="reveal" style="animation-delay:.05s">Virtue D7 재가치 관찰 게이트</h1>
+  <p class="dek reveal" style="animation-delay:.09s">첫 가치처럼 보인 행동과 다시 올 이유가 남은 행동을 분리하기 위해, 기존 관찰표와 activation 후보 등록부를 대조했다.</p>
+  <div class="hr reveal" style="animation-delay:.12s"></div>
+  <div class="axis ax1 reveal" style="animation-delay:.16s">
+    <div class="label"><span class="n">01</span> 무엇이 문제였나</div>
+    <div class="text">`marketing-79`와 `marketing-101`은 first value 기준은 맞지만, D7에서 <b>same-job 유지 여부</b>와 <b>second value evidence</b>를 한 행에 남기는 칸이 아직 명시적이지 않았다.</div>
+  </div>
+  <div class="axis ax2 reveal" style="animation-delay:.22s">
+    <div class="label"><span class="n">02</span> 어떻게 해결하나</div>
+    <div class="text">신규 계측 없이 D7 손기록 4칸을 붙인다. J1/J2/J4는 <b>`deed_saved`</b>, J3는 <b>`deed_judged`</b> 기준을 유지하고, `add_flow_started`는 성공 지표로 보지 않는다.</div>
+    <ol class="find">
+      <li>D7 return reason, same job, second value evidence, no-read를 분리한다.</li>
+      <li>J3의 저장 없는 종료와 재방문은 저장 전환이 아니라 AI 관점 재가치로 읽는다.</li>
+      <li>D7 미방문, cap, 503, latency는 retention 실패나 upgrade demand로 환산하지 않는다.</li>
+    </ol>
+  </div>
+  <div class="reveal" style="animation-delay:.27s">
+  <details open>
+    <summary><span class="chev"></span> 핵심 내용 · 리서치 본문</summary>
+    <div class="body">
+      <div class="section">
+        <div class="section-title">핵심 발견</div>
+        <ol class="find">
+          <li>`marketing-79`는 D1 재방문과 세션 성격 분류까지는 충분하지만 D7 second value 칸이 없다.</li>
+          <li>`marketing-101`의 A1-A4 후보는 D7 언어를 암시하나, 관찰자가 그대로 복사해 쓸 질문 형태는 아니다.</li>
+          <li>D7은 retention%가 아니라 "같은 잡으로 다시 가치가 생겼는가"를 묻는 정성 게이트가 맞다.</li>
+          <li>`add_flow_started`는 의도/탐색 신호다. activation 성공이나 재가치 증거로 승격하면 첫 행동과 첫 가치를 섞게 된다.</li>
+        </ol>
+      </div>
+      <div class="callout">결론: activation 후보를 새로 늘리지 않고, 기존 첫 10-20명 손기록에 D7 return reason, same job, second value evidence, no-read 칸만 덧붙인다.</div>
+      <div class="content-grid">
+        <div class="mini-card">
+          <b>근거 · 소스</b>
+          <p>`marketing-79` 관찰표, `marketing-101` activation 후보 등록부, 2026-05-27 retention-predictive activation 외부 노트를 대조했다.</p>
+        </div>
+        <div class="mini-card">
+          <b>다음 판단</b>
+          <p>실제 첫 10-20명 기록 후 D7 칸이 비어 있거나 중복된다면 관찰표 artifact를 직접 개정하는 후속 intent를 열 수 있다.</p>
+        </div>
+      </div>
+    </div>
+  </details>
+  <details open>
+    <summary><span class="chev"></span> 잡별 D7 질문</summary>
+    <div class="body">
+      <table>
+        <thead><tr><th>Job</th><th>D7 재가치 질문</th></tr></thead>
+        <tbody>
+          <tr><td>J1</td><td>지난번 저장한 기록 때문에 오늘도 한 가지를 남기고 싶어졌나? Evidence는 새 `deed_saved` 또는 반복 기록 자기 말.</td></tr>
+          <tr><td>J2</td><td>덕력, 누적, 레벨 같은 진행감이 다시 올 이유가 되었나? Evidence는 두 번째 저장, `level_up_viewed`, 누적 payoff 자기 말.</td></tr>
+          <tr><td>J3</td><td>AI가 본 관점이 궁금해서 다시 판정을 보거나 다른 입력을 넣었나? Evidence는 새 `deed_judged`, reroll, 결과 공유성 손기록.</td></tr>
+          <tr><td>J4</td><td>지난 기록을 다시 읽거나, 나중에 돌아볼 가치 때문에 새 기록을 남겼나? Evidence는 recall, legibility, 새 `deed_saved`.</td></tr>
+        </tbody>
+      </table>
+      <pre>D7 return reason (원문):
+D7 same job: [ ] same [ ] shifted [ ] unclear
+D7 second value evidence:
+D7 no-read: [ ] not-returned [ ] normal-stop [ ] availability [ ] excluded [ ] unclear</pre>
+    </div>
+  </details>
+  <details>
+    <summary><span class="chev"></span> 실행 메타 · 산출물</summary>
+    <div class="body">
+      <div class="chips">
+        <span class="chip">2026-07-10T1007Z</span>
+        <span class="chip">cron router</span>
+        <span class="chip">Inbox → Archive</span>
+      </div>
+      <ul>
+        <li>산출물 <code>artifacts/marketing-102/d7-revalue-observation-gate.md</code></li>
+        <li>대조 <code>artifacts/marketing-79/week-one-activation-observation-table.html</code></li>
+        <li>대조 <code>artifacts/marketing-101/activation-candidate-registry.md</code></li>
+      </ul>
+    </div>
+  </details>
+  </div>
+  <div class="foot reveal" style="animation-delay:.3s">
+    <span>Agent-First Heartbeat</span>
+    <span>Infinity · Intent Note</span>
+  </div>
+</div>
+</body>
+</html>
