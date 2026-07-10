@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ops-09 handoff</title>
+<style>
+  :root{--bg:#f4f2ea;--panel:#fbfaf5;--ink:#2c2a25;--soft:#807c70;--line:#e3dfd2;--a1:#b08545;--a1-deep:#8a6633;--a2:#5f7a5e;--a2-deep:#3f5740;--sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;--mono:ui-monospace,"SF Mono",Menlo,monospace}
+  *{box-sizing:border-box} html,body{margin:0;width:100%;max-width:100%;overflow-x:hidden} body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:14px;line-height:1.68}.sheet{width:min(100%,720px);margin:0 auto;padding:42px 18px}.eyebrow{display:flex;gap:10px;align-items:center;flex-wrap:wrap;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--soft)}.dot{width:5px;height:5px;border-radius:50%;background:var(--a2)}.id,.status{color:var(--a2-deep);font-weight:600}h1{font-size:clamp(24px,7vw,29px);line-height:1.3;margin:20px 0 0;letter-spacing:0}.dek{font-size:15.5px;color:var(--soft);margin:13px 0 0}.hr{height:1px;background:var(--line);margin:30px 0}.axis{position:relative;margin-bottom:26px;padding:0 0 4px 18px}.axis:before{content:"";position:absolute;left:0;top:6px;bottom:6px;width:2px;border-radius:2px}.axis.ax1:before{background:var(--a1)}.axis.ax2:before{background:var(--a2)}.label{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:9px}.ax1 .label{color:var(--a1-deep)}.ax2 .label{color:var(--a2-deep)}.text{font-size:clamp(16px,4.4vw,18px);line-height:1.62;color:#37352e;overflow-wrap:anywhere}.text b{border-bottom:2px solid currentColor}details{border:1px solid var(--line);border-radius:8px;background:var(--panel);margin-bottom:10px;overflow:hidden}summary{cursor:pointer;list-style:none;padding:14px 16px;display:flex;gap:11px;align-items:center;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--soft)}summary::-webkit-details-marker{display:none}.chev{width:8px;height:8px;border-right:2px solid var(--a2-deep);border-bottom:2px solid var(--a2-deep);transform:rotate(45deg);flex:none}.body{padding:2px 16px 18px;min-width:0}.section-title{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--a1-deep);margin:0 0 8px}ol{margin:8px 0 0;padding-left:22px}li{margin:6px 0}code{font-family:var(--mono);font-size:12px;background:#edeae0;padding:1px 6px;border-radius:3px;color:var(--a2-deep);overflow-wrap:anywhere;word-break:break-word}.callout{border-left:2px solid var(--a2);background:#f2efe5;padding:11px 13px;color:#4a473f;margin:12px 0 16px}.chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}.chip{font-family:var(--mono);font-size:10.5px;color:var(--soft);border:1px solid var(--line);border-radius:999px;padding:3px 10px}
+</style>
+</head>
+<body>
+<div class="sheet">
+  <div class="eyebrow"><span class="dot"></span><span class="id">ops-09</span><span>Handoff Note</span><span class="status">waiting</span></div>
+  <h1>Calendar Result 렌더 게이트 push blocker</h1>
+  <p class="dek">이 사이클은 이전 구현 커밋을 원격에 올리는 bounded action만 시도했고, 원격 선행 커밋 때문에 완료 처리하지 않았다.</p>
+  <div class="hr"></div>
+  <div class="axis ax1">
+    <div class="label"><span>01</span> 무엇을 점검했나</div>
+    <div class="text"><b>ops-09</b>의 이전 진행 커밋 <code>9c93714</code>을 Infinity <code>main</code>에 push해 기록을 닫을 수 있는지 확인했다.</div>
+  </div>
+  <div class="axis ax2">
+    <div class="label"><span>02</span> 이상 여부·조치</div>
+    <div class="text">원격 <code>origin/main</code>에 로컬에 없는 선행 커밋이 있어 push가 <b>fetch first</b>로 거절됐다. 로컬에는 사용자/타 실행으로 보이는 <code>EVALUATION_NOTES.md</code> 수정도 있어 자동 rebase는 하지 않았다.</div>
+  </div>
+  <details open>
+    <summary><span class="chev"></span> 핵심 내용 · 진행 기록</summary>
+    <div class="body">
+      <div class="section-title">이번 사이클 결과</div>
+      <ol>
+        <li><code>git push origin main</code> 실행 결과, <code>main -&gt; main (fetch first)</code> rejected를 재확인했다.</li>
+        <li>현재 Infinity 로컬 브랜치는 <code>origin/main</code>보다 1커밋 앞서 있으며, 앞선 커밋은 <code>Record ops-09 render gate progress</code>다.</li>
+        <li>작업 트리에 <code>EVALUATION_NOTES.md</code> 수정이 남아 있어 이 자동 사이클에서 fetch/rebase/merge를 진행하지 않았다.</li>
+      </ol>
+      <div class="callout">다음 실행의 정확한 범위는 원격 변경을 확인한 뒤 <code>9c93714</code>를 보존해 재정렬하고, 사용자 수정 파일을 건드리지 않는 scoped sync를 수행하는 것이다.</div>
+    </div>
+  </details>
+  <details open>
+    <summary><span class="chev"></span> 다음 범위</summary>
+    <div class="body">
+      <ol>
+        <li><code>git fetch origin main</code> 후 원격 선행 커밋이 INTENTS/report 영역과 충돌하는지 확인한다.</li>
+        <li><code>EVALUATION_NOTES.md</code>의 로컬 수정은 보존하고, 필요하면 임시 stash 대신 경로별 상태를 먼저 기록한다.</li>
+        <li>충돌이 없을 때만 <code>main</code>을 fast-forward/rebase하고 <code>9c93714</code> 포함 상태를 push한다.</li>
+        <li>Infinity push 후 부모 <code>/home/ubuntu/workspace/knowledge-lab</code>에서 <code>infinity</code> submodule pointer만 stage/commit/push한다.</li>
+      </ol>
+    </div>
+  </details>
+  <details>
+    <summary><span class="chev"></span> 실행 메타 · 산출물</summary>
+    <div class="body">
+      <div class="chips"><span class="chip">2026-07-10T13:07:43Z</span><span class="chip">cron 7502ef19</span><span class="chip">waiting -> waiting</span></div>
+      <ul>
+        <li>보고서 <code>reports/ops-09/20260710T130743-handoff.html</code></li>
+        <li>금지한 작업: broad repo-wide reset, unrelated file staging, 자동 merge/rebase 강행</li>
+      </ul>
+    </div>
+  </details>
+</div>
+</body>
+</html>

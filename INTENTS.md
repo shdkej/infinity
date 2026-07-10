@@ -22,6 +22,7 @@
 - last_updated: 2026-07-10
 - approval: agent-approved L2 (2026-07-10T00:13Z) — L2 조건 전부 충족
 - waiting_reason: 2026-07-10T12:07Z bounded progress — `/home/ubuntu/.openclaw/workspace/system/docs/LOCAL_REVIEW_AUTOMATION.md` 자동 회고 렌더 게이트에 `## Calendar Result` 차단과 `both`/`all_day`/`confirmed`/`tentative` 한국어 매핑 규칙을 추가했다. 실제 데일리 리뷰 dry-run 실행 경로가 이 사이클에서 확정되지 않아 완료 처리하지 않고, 다음 실행에서 dry-run 검증 후 archive 처리. Infinity push는 remote 선행 커밋 때문에 rejected(fetch first)되어 다음 사이클에서 scoped sync 필요.
+- waiting_reason: 2026-07-10T13:07Z push blocker — previous ops-09 progress commit `9c93714` push was retried and rejected again with `fetch first`. Local worktree also has an unstaged `EVALUATION_NOTES.md` change, so this cycle did not auto-rebase/merge. Handoff report: `reports/ops-09/20260710T130743-handoff.html`. Next bounded action: fetch remote main, inspect scoped conflict surface, preserve local edits, then push Infinity and parent `knowledge-lab` submodule pointer only if clean.
 - local_execution: artifacts/ops-09/local-execution-prompt.md
 
 ## Archive
