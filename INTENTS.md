@@ -6,9 +6,13 @@
 
 ## Active
 
+## Waiting
+
+<!-- 사용자 결정, 외부 조건, 안전 확인 대기. 같은 질문을 반복하지 않고 상태만 보존한다. -->
+
 ### [ops-09] 데일리 리뷰 Calendar Result 렌더 게이트 보강
 - id: ops-09
-- status: in_progress
+- status: waiting
 - priority: high
 - permission: L2 (agent-approved 2026-07-10T00:13Z)
 - goal: 자동 데일리 리뷰 저장/발송 전 렌더 단계에서 `Calendar Result` 영어 운영 헤더와 `both`/raw status placeholder를 차단하거나 한국어 사용자 문장으로 변환
@@ -17,11 +21,8 @@
 - proposed_by: sam-proposer
 - last_updated: 2026-07-10
 - approval: agent-approved L2 (2026-07-10T00:13Z) — L2 조건 전부 충족
-- local_execution: artifacts/ops-09/local-execution-prompt.md (로컬 Claude Code 실행 대기)
-
-## Waiting
-
-<!-- 사용자 결정, 외부 조건, 안전 확인 대기. 같은 질문을 반복하지 않고 상태만 보존한다. -->
+- waiting_reason: 로컬 Claude Code 실행 대기 — artifacts/ops-09/local-execution-prompt.md 준비 완료. 로컬 환경에서 LOCAL_REVIEW_AUTOMATION.md 수정 + dry-run 검증 후 완료 처리.
+- local_execution: artifacts/ops-09/local-execution-prompt.md
 
 ## Archive
 <!-- ops-08 completed 2026-07-09T03:58Z → intents/archive/ops-08.md [projects: openclaw,infinity; type: maintenance; topics: automation,workflow,review] (OpenClaw workspace의 daily-reviews/ 및 monthly-review-sources/를 runtime review 산출물로 .gitignore에 명시해 정본 문서 변경 검토면에서 분리했다. HTML report gate passed.) -->
