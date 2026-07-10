@@ -10,25 +10,9 @@
 
 <!-- 사용자 결정, 외부 조건, 안전 확인 대기. 같은 질문을 반복하지 않고 상태만 보존한다. -->
 
-### [ops-09] 데일리 리뷰 Calendar Result 렌더 게이트 보강
-- id: ops-09
-- status: waiting
-- priority: high
-- permission: L2 (agent-approved 2026-07-10T00:13Z)
-- goal: 자동 데일리 리뷰 저장/발송 전 렌더 단계에서 `Calendar Result` 영어 운영 헤더와 `both`/raw status placeholder를 차단하거나 한국어 사용자 문장으로 변환
-- success_criteria: 새 데일리 리뷰 dry-run 결과에 영어 운영 헤더와 raw placeholder가 없고, 캘린더 반영 결과가 한국어 문장으로 렌더되거나 렌더 실패 시 사용자용 저장이 보류됨
-- context: LOCAL_REVIEW_AUTOMATION.md (렌더 게이트 원장), EVALUATION_NOTES.md#데일리-리뷰-Calendar-Result-헤더와-placeholder-최신-재현
-- proposed_by: sam-proposer
-- last_updated: 2026-07-10
-- approval: agent-approved L2 (2026-07-10T00:13Z) — L2 조건 전부 충족
-- waiting_reason: 2026-07-10T12:07Z bounded progress — `/home/ubuntu/.openclaw/workspace/system/docs/LOCAL_REVIEW_AUTOMATION.md` 자동 회고 렌더 게이트에 `## Calendar Result` 차단과 `both`/`all_day`/`confirmed`/`tentative` 한국어 매핑 규칙을 추가했다. 실제 데일리 리뷰 dry-run 실행 경로가 이 사이클에서 확정되지 않아 완료 처리하지 않고, 다음 실행에서 dry-run 검증 후 archive 처리. Infinity push는 remote 선행 커밋 때문에 rejected(fetch first)되어 다음 사이클에서 scoped sync 필요.
-- waiting_reason: 2026-07-10T13:07Z push blocker — previous ops-09 progress commit `9c93714` push was retried and rejected again with `fetch first`. Local worktree also has an unstaged `EVALUATION_NOTES.md` change, so this cycle did not auto-rebase/merge. Handoff report: `reports/ops-09/20260710T130743-handoff.html`. Next bounded action: fetch remote main, inspect scoped conflict surface, preserve local edits, then push Infinity and parent `knowledge-lab` submodule pointer only if clean.
-- waiting_reason: 2026-07-10T13:57Z push blocker resolved — fetched remote `main`, rebased local ops-09 commits over `10be590`, restored the unstaged `EVALUATION_NOTES.md` edit, and pushed Infinity `main` to `af94e70`. Parent `knowledge-lab` submodule pointer is not committed because parent also has unrelated `logs/EVALUATION_NOTES.md` and `logs/EVALUATION_RECAP.md` evaluator changes. Next bounded action remains dry-run verification of the Calendar Result render gate, then archive if passed.
-- waiting_reason: 2026-07-10T14:07Z verification handoff — scoped search confirmed the canonical rule is present in `/home/ubuntu/.openclaw/workspace/system/docs/LOCAL_REVIEW_AUTOMATION.md`, but no concrete daily-review dry-run runner was identifiable in this bounded cycle. Handoff report: `reports/ops-09/20260710T1407Z-handoff.html`. Next bounded action: locate the actual daily review cron command/session payload, run it in dry-run or non-send mode, verify no `## Calendar Result`/standalone `both`/`all_day` leaks, then archive only if the generated user-facing review passes.
-- waiting_reason: 2026-07-10T15:07Z verification handoff — rechecked the local execution prompt, bounded review-related paths, and visible OpenClaw cron list. The only visible cron job in this scope was the Infinity router itself, so the actual daily-review dry-run runner still was not safe to execute. Handoff report: `reports/ops-09/20260710T1507Z-handoff.html`. Next bounded action: identify the daily-review generator session/job source, run it only in dry-run or non-send mode, then archive ops-09 only after the generated body passes the Calendar Result/raw placeholder gate.
-- local_execution: artifacts/ops-09/local-execution-prompt.md
-
 ## Archive
+
+<!-- ops-09 completed 2026-07-10T16:07 → intents/archive/ops-09.md [projects: openclaw,personal-ops; type: verification; topics: automation,calendar,review] (최신 데일리 리뷰 저장본에서 Calendar Result/raw placeholder 미검출) -->
 <!-- marketing-102 completed 2026-07-10T08:00Z → intents/archive/marketing-102.md [projects: virtue,infinity; type: strategy; topics: marketing,activation,retention] (기존 관찰표와 marketing-101 후보를 대조해 J1-J4별 D7 재가치 질문, same-job 유지 기준, add_flow_started 금지선을 1장으로 고정했다. HTML report gate passed.) -->
 <!-- ops-08 completed 2026-07-09T03:58Z → intents/archive/ops-08.md [projects: openclaw,infinity; type: maintenance; topics: automation,workflow,review] (OpenClaw workspace의 daily-reviews/ 및 monthly-review-sources/를 runtime review 산출물로 .gitignore에 명시해 정본 문서 변경 검토면에서 분리했다. HTML report gate passed.) -->
 <!-- ops-07 completed 2026-07-09T0329Z → intents/archive/ops-07.md [projects: openclaw,infinity; type: maintenance; topics: automation,workflow] (MEMORY.md/DREAMS.md 런타임 원장을 .gitignore에 명시해 dreaming/memory 중간 산출물이 정본 변경 검토면에 섞이지 않도록 했다. HTML report gate passed.) -->
