@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ops-09 verification handoff</title>
+<style>
+  body{margin:0;background:#f4f2ea;color:#2c2a25;font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;font-size:14px;line-height:1.7}
+  .sheet{max-width:720px;margin:0 auto;padding:40px 18px}
+  h1{font-size:28px;line-height:1.3;margin:14px 0}
+  .meta{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#807c70}
+  .axis{border-left:3px solid #b08545;padding-left:16px;margin:24px 0}
+  .axis.ax2{border-left-color:#5f7a5e}
+  .label{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#6d5834;margin-bottom:8px}
+  .ax2 .label{color:#3f5740}
+  details{border:1px solid #e3dfd2;border-radius:8px;background:#fbfaf5;margin:12px 0}
+  summary{cursor:pointer;padding:13px 15px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#807c70}
+  .body{padding:0 15px 16px}
+  code{background:#edeae0;border-radius:3px;padding:1px 5px;color:#3f5740}
+  li{margin:5px 0}
+</style>
+</head>
+<body>
+<main class="sheet">
+  <div class="meta">ops-09 · waiting handoff · 2026-07-10T15:07Z</div>
+  <h1>데일리 리뷰 렌더 게이트 검증 경로 재확인</h1>
+
+  <section class="axis ax1">
+    <div class="label">axis ax1 · 무엇을 점검했나</div>
+    <p>ops-09의 남은 조건은 새 데일리 리뷰 dry-run에서 <code>## Calendar Result</code>, 단독 <code>both</code>, <code>all_day</code> raw placeholder가 사용자 본문에 새지 않는지 확인하는 것이다.</p>
+  </section>
+
+  <section class="axis ax2">
+    <div class="label">axis ax2 · 이상 여부·조치</div>
+    <p>현재 사용 가능한 OpenClaw cron 목록에는 이 Infinity router job만 보였고, bounded local search에서도 실제 daily-review dry-run 실행 명령을 확정하지 못했다. 완료/Archive 처리 없이 Waiting에 검증 handoff를 남긴다.</p>
+  </section>
+
+  <details open>
+    <summary>점검 범위</summary>
+    <div class="body">
+      <ul>
+        <li><code>artifacts/ops-09/local-execution-prompt.md</code>의 verification contract를 재확인했다.</li>
+        <li><code>/home/ubuntu/.openclaw/workspace/system</code>와 Infinity 내에서 <code>daily review</code>, <code>데일리 리뷰</code>, <code>Calendar Result</code>, <code>dry-run</code>, <code>review</code> 관련 문자열을 bounded search 했다.</li>
+        <li>OpenClaw cron list를 확인했지만 현재 agent scope에서 노출된 job은 <code>Infinity intent local Claude router</code> 하나뿐이었다.</li>
+      </ul>
+    </div>
+  </details>
+
+  <details open>
+    <summary>다음 정확한 범위</summary>
+    <div class="body">
+      <ul>
+        <li>다음 사이클은 daily-review를 실제로 생성하는 session/job source를 OpenClaw runtime history 또는 운영 문서에서 좁혀야 한다.</li>
+        <li>명령이 확인되면 반드시 send/save side effect가 없는 dry-run 또는 non-send mode로 실행한다.</li>
+        <li>검증 게이트는 생성 본문에서 <code>## Calendar Result</code>, standalone <code>both</code>, <code>all_day</code>가 없어야 하며, 캘린더 결과가 한국어 사용자 문장으로 보이거나 저장이 보류되어야 한다.</li>
+        <li>검증 통과 전에는 ops-09를 Archive로 옮기지 않는다.</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary>실행 메타</summary>
+    <div class="body">
+      <ul>
+        <li>status: <code>waiting → waiting</code></li>
+        <li>trigger: hourly Infinity local router</li>
+        <li>report: <code>reports/ops-09/20260710T1507Z-handoff.html</code></li>
+      </ul>
+    </div>
+  </details>
+</main>
+</body>
+</html>
