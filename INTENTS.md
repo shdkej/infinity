@@ -4,6 +4,16 @@
 
 ## Inbox
 
+### [marketing-103] Virtue 첫 10명 관찰표 early behavior sequence 보강
+- proposed_by: sam-marketing
+- source_note: `/home/ubuntu/workspace/knowledge-lab/source/external-links/marketing/2026-06-16-plg-behavioral-intent-signals.md`
+- rationale: `deed_saved`나 `deed_judged` 같은 활성화 후보 이벤트만으로는 첫 사용자의 잡과 막힘을 구분하기 어렵다. 첫 탐색, 멈춤, 건너뜀, 다음 행동을 순서로 남기면 prelaunch 작은 표본에서도 과잉 해석을 줄일 수 있다.
+- expected_impact: 첫 10명 관찰이 이벤트 완료 여부를 넘어서 사용자의 의도와 도달 전 마찰을 함께 설명하게 된다.
+- permission_level: L1 docs-only
+- owner_route: Infinity Inbox -> Claude Code
+- success_criteria: 기존 첫 10명 관찰표 또는 activation 관찰 문서에 `early_behavior_sequence` 보조 칸 묶음과 J1-J4별 예시가 추가된다.
+- first_verification_gate: 문서만 읽고도 한 세션을 `의도처럼 보이는 행동`, `막힘처럼 보이는 행동`, `자연 종료`로 나누어 기록할 수 있다.
+
 ## Active
 
 ### [ops-10] Signal-to-intent proposer tool-failure diagnostics repair
