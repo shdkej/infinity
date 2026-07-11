@@ -4,16 +4,6 @@
 
 ## Inbox
 
-### [marketing-103] Virtue 첫 10명 관찰표 early behavior sequence 보강
-- proposed_by: sam-marketing
-- source_note: `/home/ubuntu/workspace/knowledge-lab/source/external-links/marketing/2026-06-16-plg-behavioral-intent-signals.md`
-- rationale: `deed_saved`나 `deed_judged` 같은 활성화 후보 이벤트만으로는 첫 사용자의 잡과 막힘을 구분하기 어렵다. 첫 탐색, 멈춤, 건너뜀, 다음 행동을 순서로 남기면 prelaunch 작은 표본에서도 과잉 해석을 줄일 수 있다.
-- expected_impact: 첫 10명 관찰이 이벤트 완료 여부를 넘어서 사용자의 의도와 도달 전 마찰을 함께 설명하게 된다.
-- permission_level: L1 docs-only
-- owner_route: Infinity Inbox -> Claude Code
-- success_criteria: 기존 첫 10명 관찰표 또는 activation 관찰 문서에 `early_behavior_sequence` 보조 칸 묶음과 J1-J4별 예시가 추가된다.
-- first_verification_gate: 문서만 읽고도 한 세션을 `의도처럼 보이는 행동`, `막힘처럼 보이는 행동`, `자연 종료`로 나누어 기록할 수 있다.
-
 ## Active
 
 ### [ops-10] Signal-to-intent proposer tool-failure diagnostics repair
@@ -34,9 +24,10 @@
 
 ## Archive
 
+<!-- marketing-103 completed 2026-07-11T11:00Z → intents/archive/marketing-103.md [projects: virtue,infinity; type: strategy; topics: marketing,activation,observation] (새 companion 문서에 early_behavior_sequence 칸 묶음과 J1-J4별 의도형/막힘형/자연종료 분류 기준 추가. 첫 10명 세션을 이벤트 완료 여부 넘어 행동 순서로 기록 가능. HTML report gate passed.) -->
 <!-- ops-09 completed 2026-07-10T16:07 → intents/archive/ops-09.md [projects: openclaw,personal-ops; type: verification; topics: automation,calendar,review] (최신 데일리 리뷰 저장본에서 Calendar Result/raw placeholder 미검출) -->
 <!-- marketing-102 completed 2026-07-10T08:00Z → intents/archive/marketing-102.md [projects: virtue,infinity; type: strategy; topics: marketing,activation,retention] (기존 관찰표와 marketing-101 후보를 대조해 J1-J4별 D7 재가치 질문, same-job 유지 기준, add_flow_started 금지선을 1장으로 고정했다. HTML report gate passed.) -->
-<!-- ops-08 completed 2026-07-09T03:58Z → intents/archive/ops-08.md [projects: openclaw,infinity; type: maintenance; topics: automation,workflow,review] (OpenClaw workspace의 daily-reviews/ 및 monthly-review-sources/를 runtime review 산출물로 .gitignore에 명시해 정본 문서 변경 검토면에서 분리했다. HTML report gate passed.) -->
+<!-- ops-08 completed 2026-07-09T03:58Z → intents/archive/ops-08.md [projects: openclaw,infinity; type: maintenance; topics: automation,workflow,review] (OpenClaw workspace의 daily-reviews/ 및 monthly-review-sources/를 runtime review 산출물로 .gitignore에 명시해 정본 변경 검토면에서 분리했다. HTML report gate passed.) -->
 <!-- ops-07 completed 2026-07-09T0329Z → intents/archive/ops-07.md [projects: openclaw,infinity; type: maintenance; topics: automation,workflow] (MEMORY.md/DREAMS.md 런타임 원장을 .gitignore에 명시해 dreaming/memory 중간 산출물이 정본 변경 검토면에 섞이지 않도록 했다. HTML report gate passed.) -->
 <!-- ops-06 completed 2026-07-07T0007Z → intents/archive/ops-06.md [projects: openclaw,infinity; type: maintenance; topics: automation,workflow,review] (weekly_review.md 같은 주 canonical 블록을 append가 아니라 replace/dedupe하는 계약과 로컬 dry-run helper를 추가했다. 2026-W27 dry-run PASS. HTML report gate passed.) -->
 <!-- ops-05 completed 2026-07-06T10:07 → intents/archive/ops-05.md [projects: openclaw,infinity,knowledge-lab; type: maintenance; topics: automation,workflow,content] (OpenClaw 카드뉴스 preview/sample/variant 및 초안 config 산출물이 새 실행 후 git status 검토면에 섞이지 않도록 .gitignore 경계를 보강했다. HTML report gate passed.) -->

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>marketing-103 early_behavior_sequence 보강</title>
+<style>
+  :root{--bg:#f4f2ea;--panel:#fbfaf5;--ink:#2c2a25;--soft:#807c70;--faint:#a8a496;--line:#e3dfd2;--a2:#5f7a5e;--a2-deep:#3f5740;--a1:#b08545;--a1-deep:#8a6633;--sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;--mono:ui-monospace,"SF Mono",Menlo,monospace;}
+  *{box-sizing:border-box;}html,body{margin:0;width:100%;max-width:100%;overflow-x:hidden;}
+  body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:14px;line-height:1.68;}
+  .sheet{width:min(100%,720px);margin:0 auto;padding:48px 34px 46px;}
+  .eyebrow{display:flex;gap:10px;align-items:center;flex-wrap:wrap;font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--soft);}
+  .dot{width:5px;height:5px;border-radius:50%;background:var(--a2);}.id{color:var(--a2-deep);font-weight:600;}.status{margin-left:auto;color:var(--a2-deep);}
+  h1{font-size:clamp(22px,6vw,27px);line-height:1.3;margin:20px 0 0;}
+  .dek{font-size:15px;color:var(--soft);margin:12px 0 0;max-width:52ch;}
+  .hr{height:1px;background:var(--line);margin:28px 0;}
+  .axis{padding:0 0 4px 22px;position:relative;margin-bottom:28px;}
+  .axis::before{content:"";position:absolute;left:0;top:6px;bottom:6px;width:2px;border-radius:2px;}
+  .axis.ax1::before{background:var(--a1);}.axis.ax2::before{background:var(--a2);}
+  .label{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:8px;}
+  .ax1 .label{color:var(--a1-deep);}.ax2 .label{color:var(--a2-deep);}
+  .text{font-size:clamp(15px,4vw,17px);line-height:1.62;color:#37352e;}
+  .text b{font-weight:700;color:var(--ink);}
+  details{border:1px solid var(--line);border-radius:8px;background:var(--panel);margin-bottom:10px;overflow:hidden;}
+  summary{cursor:pointer;list-style:none;padding:14px 16px;display:flex;gap:11px;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--soft);}
+  summary::-webkit-details-marker{display:none;}.body{padding:2px 16px 18px;}
+  .find{list-style:none;counter-reset:f;margin:14px 0 0;padding:0;}
+  .find li{position:relative;padding:8px 0 8px 26px;font-size:14px;color:#37352e;border-top:1px solid var(--line);}
+  .find li:first-child{border-top:none;}.find li::before{counter-increment:f;content:counter(f);position:absolute;left:0;top:9px;font-family:var(--mono);font-size:12px;font-weight:600;color:var(--a1-deep);}
+  code{font-family:var(--mono);font-size:12px;background:#edeae0;padding:1px 6px;border-radius:3px;color:var(--a2-deep);}
+  .foot{margin-top:28px;padding-top:14px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-family:var(--mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--faint);}
+</style>
+</head>
+<body>
+<div class="sheet">
+  <div class="eyebrow"><span class="dot"></span><span class="id">marketing-103</span><span>Strategy · Observation</span><span class="status">completed</span></div>
+  <h1>Virtue 첫 10명 관찰표 early_behavior_sequence 보강</h1>
+  <p class="dek">이벤트 완료 여부를 넘어 첫 사용자의 행동 순서를 의도형·막힘형·자연종료로 읽는 보조 칸을 추가했다.</p>
+  <div class="hr"></div>
+  <div class="axis ax1">
+    <div class="label">01 · 무엇을 보강했나</div>
+    <div class="text">기존 관찰표(<code>marketing-79</code>)는 체크포인트 도달 여부와 독립 2판정으로 구성됐다. <b>deed_saved / deed_judged 도달 이전의 행동 순서</b>—첫 탐색, 멈춤, 건너뜀, 재시도—는 기록 란이 없어 막힘을 자연종료와 구분하기 어려웠다.</div>
+  </div>
+  <div class="axis ax2">
+    <div class="label">02 · 결과</div>
+    <div class="text">새 companion 문서(<code>artifacts/marketing-103/early-behavior-sequence-guide.html</code>)에 <b>10개 사용자 카드 × early_behavior_sequence 칸(최대 5단계) + 성격 분류</b>를 만들었다. J1-J4별 예시 시퀀스를 가이드에 고정해 표본 없이도 일관된 기록이 가능하다. marketing-79 관찰표와 병행 사용한다.</div>
+  </div>
+  <details open>
+    <summary>핵심 발견 · 보강 내용</summary>
+    <div class="body">
+      <ol class="find">
+        <li>기존 5체크포인트(홈 진입→/add→deed_judged→deed_saved→D1)는 도달 여부만 기록. 체크포인트 사이 행동 순서 기록 란이 없었다.</li>
+        <li>3가지 행동 성격 분류 정의: <b>의도형</b>(목표를 향한 진행) · <b>막힘형</b>(정체·반복·이탈) · <b>자연종료</b>(first value 도달 후 자발 종료).</li>
+        <li>J1·J2·J3·J4별 예시 시퀀스를 가이드에 추가. J3 무저장 종료 = 자연종료 규칙을 시퀀스 예시로 보강.</li>
+        <li>성공 기준 충족: 문서만 읽고도 한 세션을 의도형·막힘형·자연종료로 나눠 기록 가능. 기존 독립 2판정과 충돌 없음.</li>
+        <li>artifact: <code>artifacts/marketing-103/early-behavior-sequence-guide.html</code> (새 companion 문서, marketing-79와 병행 사용)</li>
+      </ol>
+    </div>
+  </details>
+  <details>
+    <summary>실행 메타 · 다음 액션</summary>
+    <div class="body">
+      <ul>
+        <li>실행: Infinity Heartbeat Cloud — L1 docs-only, 직접 실행</li>
+        <li>approval: L1 자율 실행</li>
+        <li>ops-10: 로컬 픽스 적용(commit 46c7d62) 후 proposer 2회 검증 대기 중. Active 유지.</li>
+        <li>다음 액션: 첫 관찰 세션에서 early_behavior_sequence 사용 후 막힘형 패턴 발견 시 Inbox에 보강 intent 등록</li>
+      </ul>
+    </div>
+  </details>
+  <div class="foot"><span>marketing-103</span><span>Infinity Heartbeat · 2026-07-11T11:00Z</span></div>
+</div>
+</body>
+</html>
