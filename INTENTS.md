@@ -8,15 +8,17 @@
 
 ### [ops-10] Signal-to-intent proposer tool-failure diagnostics repair
 - id: ops-10
-- status: active
+- status: in_progress
 - priority: high
 - permission: L2 (agent-approvable)
 - goal: proposer가 git 도구 체인 실패(status/stage/commit/push) 시 NO_REPLY 대신 명시적 blocker를 INTENTS.md Inbox에 남기도록 프롬프트 계약 수정
 - success_criteria: 다음 두 번의 proposer 실행에서 tool-failure diagnostics 없이 완료, 또는 실패 시 INTENTS.md에 explicit blocker 항목 생성
 - context: openclaw workspace의 signal-to-intent proposer 워크플로우 / 프롬프트 계약
-- mode: execute_local → 로컬 Claude Code에 위임
+- mode: monitor — 로컬 수정 완료, Inbox blocker 생성 여부 감시
 - prepare_report: reports/ops-10/2026-07-10T1700Z-prepare.html
-- next_action: 로컬 Claude Code가 artifacts/ops-10/local-execution-prompt.md 실행
+- local_fix_report: reports/ops-10/20260711T1000Z-local-fix.html
+- local_fix_applied: 2026-07-11T10:09Z (OpenClaw commit 46c7d62)
+- next_action: 다음 Heartbeat에서 Inbox blocker 없음 확인 후 완료 처리 가능
 
 ## Waiting
 
