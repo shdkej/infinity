@@ -30,6 +30,7 @@
 ## Archive
 
 <!-- ops-10 completed 2026-07-11T12:07Z → intents/archive/ops-10.md [projects: openclaw,infinity; type: monitoring; topics: automation,workflow] (로컬 수정 후 다음 감시 사이클에서 Inbox blocker가 비어 있음을 확인해 proposer tool-failure diagnostics repair를 완료 처리했다. HTML report gate passed.) -->
+<!-- ops-11 completed 2026-07-11T23:07Z → intents/archive/ops-11.md [projects: openclaw,infinity; type: monitoring; topics: automation,workflow,dashboard] (quality-gates effectiveness.jsonl을 07:00 리캡/대시보드 append-only tracked 정본으로 확정하고 untracked 반복 노출 경계를 제거했다. HTML report gate passed.) -->
 <!-- marketing-103 completed 2026-07-11T11:00Z → intents/archive/marketing-103.md [projects: virtue,infinity; type: strategy; topics: marketing,activation,observation] (새 companion 문서에 early_behavior_sequence 칸 묶음과 J1-J4별 의도형/막힘형/자연종료 분류 기준 추가. 첫 10명 세션을 이벤트 완료 여부 넘어 행동 순서로 기록 가능. HTML report gate passed.) -->
 <!-- ops-09 completed 2026-07-10T16:07 → intents/archive/ops-09.md [projects: openclaw,personal-ops; type: verification; topics: automation,calendar,review] (최신 데일리 리뷰 저장본에서 Calendar Result/raw placeholder 미검출) -->
 <!-- marketing-102 completed 2026-07-10T08:00Z → intents/archive/marketing-102.md [projects: virtue,infinity; type: strategy; topics: marketing,activation,retention] (기존 관찰표와 marketing-101 후보를 대조해 J1-J4별 D7 재가치 질문, same-job 유지 기준, add_flow_started 금지선을 1장으로 고정했다. HTML report gate passed.) -->

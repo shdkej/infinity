@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ops-11 Quality Gate Ledger Boundary</title>
+<style>
+  :root{--bg:#f4f2ea;--panel:#fbfaf5;--ink:#2c2a25;--soft:#807c70;--faint:#a8a496;--line:#e3dfd2;--a2:#5f7a5e;--a2-deep:#3f5740;--a1:#b08545;--a1-deep:#8a6633;--sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;--mono:ui-monospace,"SF Mono",Menlo,monospace}
+  *{box-sizing:border-box} html,body{margin:0;width:100%;max-width:100%;overflow-x:hidden} body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:14px;line-height:1.68}
+  .sheet{width:min(100%,720px);margin:0 auto;padding:32px 18px 40px}.eyebrow{display:flex;gap:10px;align-items:center;flex-wrap:wrap;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--soft)}.dot{width:5px;height:5px;border-radius:50%;background:var(--a2)}.id,.status{color:var(--a2-deep);font-weight:600}
+  h1{font-size:clamp(24px,7vw,29px);line-height:1.3;margin:20px 0 0;letter-spacing:0}.dek{font-size:15.5px;color:var(--soft);margin:13px 0 0;max-width:52ch}.hr{height:1px;background:var(--line);margin:30px 0}
+  .axis{padding:0 0 4px 18px;position:relative;margin-bottom:26px}.axis:before{content:"";position:absolute;left:0;top:6px;bottom:6px;width:2px;border-radius:2px}.axis.ax1:before{background:var(--a1)}.axis.ax2:before{background:var(--a2)}.label{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:9px}.ax1 .label{color:var(--a1-deep)}.ax2 .label{color:var(--a2-deep)}.text{font-size:clamp(16px,4.4vw,18px);line-height:1.62;color:#37352e;overflow-wrap:anywhere}.text b{border-bottom:2px solid currentColor}
+  details{border:1px solid var(--line);border-radius:8px;background:var(--panel);margin-bottom:10px;overflow:hidden}summary{cursor:pointer;list-style:none;padding:14px 16px;display:flex;gap:11px;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--soft)}summary::-webkit-details-marker{display:none}.chev{width:8px;height:8px;border-right:2px solid var(--a2-deep);border-bottom:2px solid var(--a2-deep);transform:rotate(-45deg);margin-top:4px}details[open] .chev{transform:rotate(45deg)}.body{padding:2px 16px 18px}.section-title{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--a1-deep);margin:0 0 8px}
+  ol{margin:8px 0 0;padding-left:22px}li{margin:6px 0}code{font-family:var(--mono);font-size:12px;background:#edeae0;padding:1px 6px;border-radius:3px;color:var(--a2-deep);overflow-wrap:anywhere}.chips{display:flex;flex-wrap:wrap;gap:6px}.chip{font-family:var(--mono);font-size:10.5px;color:var(--soft);border:1px solid var(--line);border-radius:999px;padding:3px 10px}
+</style>
+</head>
+<body>
+<div class="sheet">
+  <div class="eyebrow"><span class="dot"></span><span class="id">ops-11</span><span>Monitoring Note</span><span class="status">archived</span></div>
+  <h1>품질 게이트 effectiveness 원장 경계 확정</h1>
+  <p class="dek">07:00 리캡이 append하는 effectiveness 원장을 런타임 캐시가 아니라 추적 정본으로 고정한 실행 로그.</p>
+  <div class="hr"></div>
+  <div class="axis ax1"><div class="label"><span>01</span> 무엇을 점검했나</div><div class="text">`system/data/quality-gates/effectiveness.jsonl`이 2026-07-10, 2026-07-11에 이어 2026-07-12 줄까지 생성됐지만 untracked로 남아 있던 경계를 확인했다.</div></div>
+  <div class="axis ax2"><div class="label"><span>02</span> 이상 여부·조치</div><div class="text">정본 정책은 <b>tracked append-only ledger</b>로 확정했다. README에 추적 규칙을 추가하고, 현재 effectiveness.jsonl을 Git 추적 대상으로 포함했다.</div></div>
+  <details open><summary><span class="chev"></span>핵심 내용</summary><div class="body">
+    <div class="section-title">조치</div>
+    <ol>
+      <li><code>/home/ubuntu/.openclaw/workspace/system/data/quality-gates/README.md</code>에 layer-check, decisions, failures, effectiveness 원장이 07:00 리캡과 대시보드의 append-only 정본임을 명시했다.</li>
+      <li><code>/home/ubuntu/.openclaw/workspace/system/data/quality-gates/effectiveness.jsonl</code>의 현재 3개 날짜 줄을 추적 대상으로 승격했다.</li>
+      <li>기존 문서 수정분이 이미 07:00 리캡 기준으로 맞춰져 있어, 새 정책과 충돌하지 않음을 확인했다.</li>
+    </ol>
+  </div></details>
+  <details open><summary><span class="chev"></span>검증</summary><div class="body">
+    <p><code>git status --short -- system/data/quality-gates/effectiveness.jsonl system/data/quality-gates/README.md ...</code> 기준으로 effectiveness 파일이 untracked 반복 노출 대상에서 추적 대상 변경으로 전환됐다.</p>
+    <p>완료 후 OpenClaw 백업 repo와 Infinity repo, 그리고 Knowledge Lab의 infinity submodule pointer를 각각 scoped staging으로 push한다.</p>
+  </div></details>
+  <details><summary><span class="chev"></span>실행 메타 · 산출물</summary><div class="body">
+    <div class="chips"><span class="chip">20260711T2307Z</span><span class="chip">cron:7502ef19</span><span class="chip">Inbox → Archive</span></div>
+    <ul><li>Report <code>reports/ops-11/20260711T2307Z.html</code></li><li>Archive <code>intents/archive/ops-11.md</code></li></ul>
+  </div></details>
+</div>
+</body>
+</html>
