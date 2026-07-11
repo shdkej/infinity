@@ -6,26 +6,13 @@
 
 ## Active
 
-### [ops-10] Signal-to-intent proposer tool-failure diagnostics repair
-- id: ops-10
-- status: in_progress
-- priority: high
-- permission: L2 (agent-approvable)
-- goal: proposer가 git 도구 체인 실패(status/stage/commit/push) 시 NO_REPLY 대신 명시적 blocker를 INTENTS.md Inbox에 남기도록 프롬프트 계약 수정
-- success_criteria: 다음 두 번의 proposer 실행에서 tool-failure diagnostics 없이 완료, 또는 실패 시 INTENTS.md에 explicit blocker 항목 생성
-- context: openclaw workspace의 signal-to-intent proposer 워크플로우 / 프롬프트 계약
-- mode: monitor — 로컬 수정 완료, Inbox blocker 생성 여부 감시
-- prepare_report: reports/ops-10/2026-07-10T1700Z-prepare.html
-- local_fix_report: reports/ops-10/20260711T1000Z-local-fix.html
-- local_fix_applied: 2026-07-11T10:09Z (OpenClaw commit 46c7d62)
-- next_action: 다음 Heartbeat에서 Inbox blocker 없음 확인 후 완료 처리 가능
-
 ## Waiting
 
 <!-- 사용자 결정, 외부 조건, 안전 확인 대기. 같은 질문을 반복하지 않고 상태만 보존한다. -->
 
 ## Archive
 
+<!-- ops-10 completed 2026-07-11T12:07Z → intents/archive/ops-10.md [projects: openclaw,infinity; type: monitoring; topics: automation,workflow] (로컬 수정 후 다음 감시 사이클에서 Inbox blocker가 비어 있음을 확인해 proposer tool-failure diagnostics repair를 완료 처리했다. HTML report gate passed.) -->
 <!-- marketing-103 completed 2026-07-11T11:00Z → intents/archive/marketing-103.md [projects: virtue,infinity; type: strategy; topics: marketing,activation,observation] (새 companion 문서에 early_behavior_sequence 칸 묶음과 J1-J4별 의도형/막힘형/자연종료 분류 기준 추가. 첫 10명 세션을 이벤트 완료 여부 넘어 행동 순서로 기록 가능. HTML report gate passed.) -->
 <!-- ops-09 completed 2026-07-10T16:07 → intents/archive/ops-09.md [projects: openclaw,personal-ops; type: verification; topics: automation,calendar,review] (최신 데일리 리뷰 저장본에서 Calendar Result/raw placeholder 미검출) -->
 <!-- marketing-102 completed 2026-07-10T08:00Z → intents/archive/marketing-102.md [projects: virtue,infinity; type: strategy; topics: marketing,activation,retention] (기존 관찰표와 marketing-101 후보를 대조해 J1-J4별 D7 재가치 질문, same-job 유지 기준, add_flow_started 금지선을 1장으로 고정했다. HTML report gate passed.) -->

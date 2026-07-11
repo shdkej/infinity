@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ops-10 Final Monitoring Report</title>
+<style>
+  :root{--bg:#f4f2ea;--panel:#fbfaf5;--ink:#2c2a25;--soft:#807c70;--faint:#a8a496;--line:#e3dfd2;--a2:#5f7a5e;--a2-deep:#3f5740;--a1:#b08545;--a1-deep:#8a6633;--sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;--mono:ui-monospace,"SF Mono",Menlo,monospace}
+  *{box-sizing:border-box}html,body{margin:0;width:100%;max-width:100%;overflow-x:hidden}body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:14px;line-height:1.68}.sheet{width:min(100%,720px);max-width:720px;margin:0 auto;padding:32px 18px 40px}.eyebrow{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--soft);flex-wrap:wrap}.eyebrow .id{color:var(--a2-deep);font-weight:600}.dot{width:5px;height:5px;border-radius:50%;background:var(--a2)}.status{color:var(--a2-deep)}h1{font-size:clamp(24px,7vw,29px);line-height:1.3;font-weight:700;letter-spacing:0;margin:20px 0 0;overflow-wrap:anywhere}.dek{font-size:15.5px;color:var(--soft);margin:13px 0 0;max-width:52ch}.hr{height:1px;background:var(--line);margin:30px 0}.axis{padding:0 0 4px 18px;position:relative;margin-bottom:26px}.axis:before{content:"";position:absolute;left:0;top:6px;bottom:6px;width:2px;border-radius:2px}.axis.ax1:before{background:var(--a1)}.axis.ax2:before{background:var(--a2)}.axis .label{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:9px;display:flex;align-items:center;gap:8px}.axis.ax1 .label{color:var(--a1-deep)}.axis.ax2 .label{color:var(--a2-deep)}.axis .text{font-size:clamp(16px,4.4vw,18px);line-height:1.62;color:#37352e;overflow-wrap:anywhere}.axis .text b{font-weight:700;color:var(--ink);border-bottom:2px solid var(--a2)}details{border:1px solid var(--line);border-radius:8px;background:var(--panel);margin-bottom:10px;overflow:hidden}summary{cursor:pointer;list-style:none;padding:14px 16px;display:flex;align-items:center;gap:11px;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--soft)}summary::-webkit-details-marker{display:none}.chev{width:8px;height:8px;border-right:2px solid var(--a2-deep);border-bottom:2px solid var(--a2-deep);transform:rotate(-45deg);transition:.25s;flex:none;margin-left:2px}details[open] .chev{transform:rotate(45deg)}.body{padding:2px 16px 18px;min-width:0}.section-title{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--a1-deep);margin:0 0 8px}ol.find{list-style:none;counter-reset:f;margin:16px 0 0;padding:0}ol.find li{position:relative;padding:8px 0 8px 26px;font-size:15px;color:#37352e;border-top:1px solid var(--line)}ol.find li:first-child{border-top:none}ol.find li:before{counter-increment:f;content:counter(f);position:absolute;left:0;top:9px;font-family:var(--mono);font-size:12px;font-weight:600;color:var(--a1-deep)}.callout{border-left:2px solid var(--a2);background:#f2efe5;padding:11px 13px;color:#4a473f;margin:12px 0 16px}.content-grid{display:grid;grid-template-columns:1fr;gap:10px;margin:10px 0}.mini-card{border:1px solid var(--line);background:#f8f6ef;border-radius:8px;padding:12px 13px;min-width:0}.mini-card b{display:block;color:var(--ink);margin-bottom:5px}.mini-card p{margin:0;color:var(--soft);overflow-wrap:anywhere}code{font-family:var(--mono);font-size:12px;background:#edeae0;padding:1px 6px;border-radius:3px;color:var(--a2-deep);overflow-wrap:anywhere}.chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}.chip{font-family:var(--mono);font-size:10.5px;letter-spacing:.05em;color:var(--soft);border:1px solid var(--line);border-radius:999px;padding:3px 10px}.foot{margin-top:30px;padding-top:15px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:6px 14px;justify-content:space-between;font-family:var(--mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--faint)}@media (min-width:720px){.sheet{padding:48px 34px 46px}.content-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+</style>
+</head>
+<body>
+<div class="sheet">
+  <div class="eyebrow"><span class="dot"></span><span class="id">ops-10</span><span>Monitoring Note</span><span class="status">archived</span></div>
+  <h1>Signal-to-intent proposer diagnostics monitor</h1>
+  <p class="dek">로컬 prompt contract 수정 뒤 Inbox blocker 발생 여부를 확인한 최종 감시 로그.</p>
+  <div class="hr"></div>
+  <div class="axis ax1">
+    <div class="label"><span>01</span> 무엇을 점검했나</div>
+    <div class="text">Signal-to-intent proposer가 git 도구 체인 실패를 조용히 <b>NO_REPLY</b>로 삼키지 않고 explicit blocker를 남기는지 확인하는 감시 intent.</div>
+  </div>
+  <div class="axis ax2">
+    <div class="label"><span>02</span> 이상 여부·조치</div>
+    <div class="text">2026-07-11 12:07 UTC bounded scan에서 <b>Inbox가 비어 있음</b>을 확인했고, Active next action의 완료 조건에 따라 ops-10을 archive 처리했다.</div>
+  </div>
+  <details open>
+    <summary><span class="chev"></span> 핵심 내용 · 리서치 본문</summary>
+    <div class="body">
+      <div class="section-title">핵심 발견</div>
+      <ol class="find">
+        <li>Active ops-10은 이미 local fix가 적용된 monitor 상태였고, next action은 다음 Heartbeat에서 Inbox blocker가 없는지 확인하는 것이었다.</li>
+        <li>이번 bounded scan에서 Inbox 섹션에는 새 blocker 또는 tool-failure diagnostics 항목이 없었다.</li>
+        <li>추가 구현이나 외부 호출 없이 Infinity 원장 갱신과 HTML report 기록만으로 완료 처리 가능한 상태였다.</li>
+      </ol>
+      <div class="callout">따라서 ops-10은 감시형 intent로 완료한다. 동일 failure mode가 재발하면 기존 intent를 되살리지 않고 새 blocker intent로 분리한다.</div>
+      <div class="content-grid">
+        <div class="mini-card"><b>근거 · 소스</b><p><code>INTENTS.md</code> Inbox/Active bounded excerpt, 기존 prepare/local-fix reports, Active next_action.</p></div>
+        <div class="mini-card"><b>다음 판단</b><p>No continuation. proposer가 향후 명시적 blocker를 만들면 별도 intent로 triage한다.</p></div>
+      </div>
+    </div>
+  </details>
+  <details open>
+    <summary><span class="chev"></span> 상세</summary>
+    <div class="body">
+      <p>이번 사이클은 ops-10의 감시 조건만 확인했다. OpenClaw 코드 또는 prompt 파일은 변경하지 않았고, Infinity의 archive 원장과 이 최종 report만 추가했다.</p>
+    </div>
+  </details>
+  <details>
+    <summary><span class="chev"></span> 실행 메타 · 산출물</summary>
+    <div class="body">
+      <div class="chips"><span class="chip">20260711T1207Z</span><span class="chip">cron router</span><span class="chip">active → archived</span></div>
+      <ul><li>산출물 <code>intents/archive/ops-10.md</code></li><li>보고서 <code>reports/ops-10/20260711T1207Z.html</code></li></ul>
+    </div>
+  </details>
+  <div class="foot"><span>Agent-First Heartbeat</span><span>Infinity · Intent Note</span></div>
+</div>
+</body>
+</html>
