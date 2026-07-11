@@ -22,7 +22,7 @@
     sha: 94e18c4
     note: quality-gates effectiveness ledger tracking boundary
   - repo: infinity
-    sha: 5cb08c1
+    sha: 5935a95
     note: ops-11 archive/report
 - urls: []
 - next_actions:
