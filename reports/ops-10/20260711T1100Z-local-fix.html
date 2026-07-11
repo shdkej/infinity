@@ -78,6 +78,15 @@
     <li>2026-07-11 21:30 UTC 실행부터 수리가 적용된 첫 실행 — 실패 시 <code>INTENTS.md</code> Inbox에 <code>proposer-blocker-20260711</code> 형식 항목이 생겨야 통과.</li>
   </ul>
 
+  <details>
+    <summary>다음 사이클 확인 범위</summary>
+    <ul>
+      <li><code>openclaw cron runs</code>에서 2026-07-11 21:30 UTC 이후 proposer 실행 결과를 확인한다.</li>
+      <li>도구 실패가 있었다면 <code>INTENTS.md</code> Inbox에 명시적 blocker가 기록됐는지 확인한다.</li>
+      <li>도구 실패가 없었다면 첫 검증 1회 통과로 기록하고, 두 번째 실행까지 ops-10을 active/monitor 상태로 둔다.</li>
+    </ul>
+  </details>
+
   <h2>실행 메타</h2>
   <p class="meta">
     timestamp: 20260711T1100Z<br/>
