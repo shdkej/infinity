@@ -4,15 +4,24 @@
 
 ## Inbox
 
-### [ops-11] 품질 게이트 effectiveness 원장 경계 확정
-- proposed_by: sam-proposer
-- source_signal: /home/ubuntu/.openclaw/workspace/system/docs/EVALUATION_NOTES.md#품질-게이트-효과-검증-원장-untracked-최신-날짜-재현
-- rationale: 2026-07-10과 2026-07-11 두 차례 `system/data/quality-gates/effectiveness.jsonl`이 정식 append 대상처럼 생성됐지만 untracked로 남아 07:00 통합 점검의 재현 가능한 정본인지 런타임 캐시인지 경계가 흐려졌다.
-- expected_artifact: OpenClaw 품질 게이트 effectiveness 원장의 추적/ignore 정책과 07:00 리캡 산출 경로가 일치하도록 문서 또는 설정/경로가 정리된 변경.
-- permission_level: impl
-- success_criteria: 새 07:00 리캡 실행 후 `system/data/quality-gates/effectiveness.jsonl`이 선택된 정책에 맞게 tracked 정본으로 남거나 ignored runtime 경로로만 생성되며, `git status --short`에 같은 파일이 매일 untracked로 반복 노출되지 않는다.
-
 ## Active
+
+### [ops-11] 품질 게이트 effectiveness 원장 경계 확정
+- id: ops-11
+- status: active
+- priority: medium
+- permission: L1
+- created_at: 2026-07-11
+- projects: [openclaw, infinity]
+- task_type: maintenance
+- topics: [automation, quality-gates, gitignore]
+- mode: prepare → execute_local
+- goal: `system/data/quality-gates/effectiveness.jsonl`의 tracked/ignored 정책을 확정하고, 07:00 리캡 산출 경로와 일치시킨다
+- success_criteria: 새 07:00 리캡 실행 후 `effectiveness.jsonl`이 선택된 정책에 맞게 동작하며 `git status --short`에 반복 untracked로 노출되지 않는다
+- source_signal: EVALUATION_NOTES.md#품질-게이트-효과-검증-원장-untracked-최신-날짜-재현
+- proposed_by: sam-proposer
+- prepare_report: reports/ops-11/2026-07-11T1200Z.html
+- local_prompt: artifacts/ops-11/local-execution-prompt.md
 
 ## Waiting
 
