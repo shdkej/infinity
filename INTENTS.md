@@ -4,6 +4,14 @@
 
 ## Inbox
 
+### [ops-11] 품질 게이트 effectiveness 원장 경계 확정
+- proposed_by: sam-proposer
+- source_signal: /home/ubuntu/.openclaw/workspace/system/docs/EVALUATION_NOTES.md#품질-게이트-효과-검증-원장-untracked-최신-날짜-재현
+- rationale: 2026-07-10과 2026-07-11 두 차례 `system/data/quality-gates/effectiveness.jsonl`이 정식 append 대상처럼 생성됐지만 untracked로 남아 07:00 통합 점검의 재현 가능한 정본인지 런타임 캐시인지 경계가 흐려졌다.
+- expected_artifact: OpenClaw 품질 게이트 effectiveness 원장의 추적/ignore 정책과 07:00 리캡 산출 경로가 일치하도록 문서 또는 설정/경로가 정리된 변경.
+- permission_level: impl
+- success_criteria: 새 07:00 리캡 실행 후 `system/data/quality-gates/effectiveness.jsonl`이 선택된 정책에 맞게 tracked 정본으로 남거나 ignored runtime 경로로만 생성되며, `git status --short`에 같은 파일이 매일 untracked로 반복 노출되지 않는다.
+
 ## Active
 
 ## Waiting
