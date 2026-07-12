@@ -7,6 +7,12 @@
 
 ## 처리 완료
 
+### [ops-12] 마케팅 크론 git 동기화 실패 gate 적용 — 로컬 실행
+- requested: 2026-07-12T10:07Z
+- resolved: 2026-07-12T10:07Z
+- decision: agent-approved L2
+- note: L2 자체 승인 조건 전부 충족. 로컬 실행 프롬프트: artifacts/ops-12/local-execution-prompt.md. 로컬 Claude Code가 Marketing-agent-growth-review 크론 프롬프트에 git failure gate 계약 추가 후 dry-run 검증 필요.
+
 ### [ops-09] 데일리 리뷰 Calendar Result 렌더 게이트 보강 구현 승인
 - requested: 2026-07-09T07:00Z
 - resolved: 2026-07-10T00:13Z
@@ -16,15 +22,15 @@
 ### [ops-08] 자동 리뷰 산출물 추적 경계 고정 구현 승인
 - requested: 2026-07-07T07:00Z
 - action: openclaw workspace에서 daily-reviews/ 및 monthly-review-sources/ 경로의 자동 생성 중간 산출물을 .gitignore에 추가하거나 ignored run/cache 경로로 분리하는 규칙 적용
-- reason: 자동 생성 산출물이 여러 날짜에 걸쳐 untracked 누적, 정본 문서 수정과 중간 생성물이 같은 검토 층위에 섞임 (EVALUATION_NOTES.md#자동-리뷰-월간-소스-산출물-untracked-누적)
+- reason: 자동 생성 산출물이 여러 날짜에 걸쳐 untracked 누적, 정본 문서 수정과 중간 생성물이 같은 검토 층위에 섯임
 - impact: openclaw workspace의 .gitignore 또는 review 스크립트 변경 — 롤백 가능 (git revert)
 - resolved: 2026-07-09T03:58Z
 - decision: completed (agent-approved L2 — infinity 리포 내 .gitignore 경계 패턴 추가. HTML report gate passed.)
 
 ### [ops-07] MEMORY/DREAMS 런타임 변경 경계 고정 구현 승인
 - requested: 2026-07-07T07:00Z
-- action: openclaw workspace에서 MEMORY.md/DREAMS.md 관련 런타임 중간 파일을 git status·evaluator 신호에서 분리하는 .gitignore 패턴 추가 또는 memory/dreams 처리 스크립트 보강
-- reason: dreaming 단계 파일과 원장이 함께 dirty로 남아 정본 변경과 런타임 기록의 경계가 흐려짐 (EVALUATION_NOTES.md#memory/dreaming-경계 재현 확인)
+- action: openclaw workspace에서 MEMORY.md/DREAMS.md 관련 런타임 중간 파일을 git status･evaluator 신호에서 분리하는 .gitignore 패턴 추가 또는 memory/dreams 처리 스크립트 보강
+- reason: dreaming 단계 파일과 원장이 함께 dirty로 남아 정본 변경과 런타임 기록의 경계가 흐려짐
 - impact: openclaw workspace의 .gitignore 또는 memory/dreams 스크립트 변경 — 롤백 가능 (git revert)
 - resolved: 2026-07-09T03:29Z
 - decision: completed (agent-approved L2 — infinity 리포 내 .gitignore 경계 패턴 추가. HTML report gate passed.)
@@ -40,7 +46,7 @@
 ### [ops-01] weekly-main-workspace-autopush git sync를 결정적 스크립트로 이관
 - requested: 2026-07-04 04:00 UTC
 - action: openclaw workspace에 `system/scripts/weekly_workspace_sync.sh` 신규 생성 + 해당 크론 command payload를 스크립트 경로로 전환, 첫 실행 push 동반 테스트
-- reason: self-healer가 동일 git diff exit-code 실패에 프롬프트 패치 5겹 누적; LLM 판단 불필요한 git sync를 결정적 스크립트로 교체하면 패치 루프 자체가 사라짐 (CRON_REDESIGN_2026-07-04.md 진단 5, 변경안 D-2)
+- reason: self-healer가 동일 git diff exit-code 실패에 프롬프트 패치 5겨 누적; LLM 판단 불필요한 git sync를 결정적 스크립트로 교체하면 패치 루프 자체가 사라짘
 - impact: 크론 설정 변경 + git push 동반 테스트 필요 — 롤백 가능 (크론 payload 복원)
 - resolved: 2026-07-04 (사용자 '승인')
 - decision: approved
@@ -48,7 +54,7 @@
 ### [ops-02] tool-curator 규칙 분산을 canonical 블록 1곳으로 통합
 - requested: 2026-07-04 04:00 UTC
 - action: openclaw workspace의 SKILL.md/workflow 문서/fixed template 중 1곳 canonical 지정 + 나머지 포인터 교체 diff 생성 및 적용, 링크 검증 조건을 canonical 위치에 통합
-- reason: 반복 실행 규칙이 3곳 중복 → 드리프트; 링크 검증 조건이 실행 경로에 따라 누락 (EVALUATION_NOTES.md 미해결 감시 항목 2건)
+- reason: 반복 실행 규칙이 3곳 중복 → 드리프트; 링크 검증 조건이 실행 경로에 따라 누락
 - impact: 스킬/워크플로우 정본 문서 수정 — 롤백 가능 (git revert)
 - resolved: 2026-07-04 (사용자 '승인')
 - decision: approved
@@ -76,7 +82,7 @@
 - note: build-01 완료 시 wiki-02/03에서 이미 Docsify로 GitHub Pages 구현 완료 확인. Jekyll 전환 불필요. Intent completed 처리.
 
 ### [wiki-03] 로컬 환경에서 agent-wiki push 수행
-- requested: 2026-04-20 11:00 (T11:00 에스컬레이션)
+- requested: 2026-04-20 11:00 (T11:00 에스컈레이션)
 - resolved: 2026-04-20 13:30
 - decision: approved
 - note: 사용자 `/infinity 승인 후 여기서 진행` — 로컬 SSH 인증으로 index.html push 완료 (commit d52641c). Intent completed → archive 이관
