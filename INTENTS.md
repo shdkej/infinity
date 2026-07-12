@@ -12,6 +12,7 @@
 
 ## Archive
 
+<!-- design-03 completed 2026-07-12T08:35Z → intents/archive/design-03.md [projects: personal-ops,content,design-system; type: research; topics: instagram,card-news,templates] (Instagram 카드뉴스용 힙하고 키치한 템플릿 10종을 리서치 중심으로 정리하고 한 장짜리 JPG 보드로 업로드했다. HTML report gate passed.) -->
 <!-- ops-10 completed 2026-07-11T12:07Z → intents/archive/ops-10.md [projects: openclaw,infinity; type: monitoring; topics: automation,workflow] (로컬 수정 후 다음 감시 사이클에서 Inbox blocker가 비어 있음을 확인해 proposer tool-failure diagnostics repair를 완료 처리했다. HTML report gate passed.) -->
 <!-- ops-11 completed 2026-07-11T23:07Z → intents/archive/ops-11.md [projects: openclaw,infinity; type: monitoring; topics: automation,workflow,dashboard] (quality-gates effectiveness.jsonl을 07:00 리캡/대시보드 append-only tracked 정본으로 확정하고 untracked 반복 노출 경계를 제거했다. HTML report gate passed.) -->
 <!-- marketing-103 completed 2026-07-11T11:00Z → intents/archive/marketing-103.md [projects: virtue,infinity; type: strategy; topics: marketing,activation,observation] (새 companion 문서에 early_behavior_sequence 칸 묶음과 J1-J4별 의도형/막힘형/자연종료 분류 기준 추가. 첫 10명 세션을 이벤트 완료 여부 넘어 행동 순서로 기록 가능. HTML report gate passed.) -->
