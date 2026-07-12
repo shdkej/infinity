@@ -51,3 +51,12 @@ Each template must keep:
 - one changeable kitsch detail
 - one strict constraint against generic chaos
 - one clear content use case
+
+## Korean Card-News Fit
+
+The board is a research synthesis, so the rough thumbnail text is not the final production layout. When converting to reusable presets, Korean copy should follow these constraints:
+
+- headlines stay at 1-3 short lines depending on the template
+- body copy goes into a calm caption rail, callout rows, or the next slide
+- decorative stickers, doodles, tiles, glitch lines, or objects must not cross Hangul strokes
+- the first production pass should start with the five highest-coverage templates before expanding the whole set
