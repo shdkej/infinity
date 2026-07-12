@@ -4,6 +4,14 @@
 
 ## Inbox
 
+### [ops-12] 마케팅 크론 git 동기화 실패 반복 경계 고정
+- proposed_by: sam-proposer
+- source_signal: openclaw cron runs#Marketing-agent-growth-review-repeated-git-tool-failure-diagnostics
+- rationale: 2026-07-10 10:03 UTC에는 `stash git changes → pull git changes → push git changes → stash git changes` 실패가, 2026-07-11 10:04 UTC에는 `stage git changes → rebase git branch` 실패가 반복되어 마케팅 크론이 routine `NO_REPLY`로 닫히면서 git 동기화 실패를 사용자-visible blocker로 승격하지 못할 수 있다.
+- expected_artifact: 마케팅 크론의 git sync/rebase/push 실패 처리 계약을 정본 프롬프트나 헬퍼에 반영한 짧은 repair note와 검증 로그
+- permission_level: L2 approval-required
+- success_criteria: 최근 마케팅 크론 run diagnostics의 git 실패 패턴 2건을 재현 입력으로 삼아, 실패 시 `NO_REPLY`가 아니라 명시적 blocker 또는 Waiting 상태가 남는 조건이 문서/프롬프트/헬퍼 중 실행 경로에 반영됐고, 다음 dry-run 또는 점검에서 같은 실패가 침묵 처리되지 않음이 확인된다.
+
 ## Active
 
 ## Waiting
