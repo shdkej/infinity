@@ -7,6 +7,12 @@
 
 ## 처리 완료
 
+### [ops-13] 마케팅 inbox 한국어 렌더 게이트 고정 — 로컬 실행
+- requested: 2026-07-13T07:00Z
+- resolved: 2026-07-13T07:00Z
+- decision: agent-approved L2
+- note: L2 자체 승인 조건 전부 충족. 로컬 실행 프롬프트: artifacts/ops-13/local-execution-prompt.md. 로컬 Claude Code가 마케팅 크론 저장 경로에 signal/diagnosis/action_candidate/measurement 영어 서술형 감지 게이트 추가 후 dry-run 검증 필요.
+
 ### [ops-12] 마케팅 크론 git 동기화 실패 gate 적용 — 로컬 실행
 - requested: 2026-07-12T10:07Z
 - resolved: 2026-07-12T10:07Z

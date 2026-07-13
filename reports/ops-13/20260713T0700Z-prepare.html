@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>[ops-13] 마케팅 inbox 한국어 렌더 게이트 고정 — Prepare Report</title>
+<style>
+  :root{--bg:#f4f2ea;--panel:#fbfaf5;--ink:#2c2a25;--soft:#807c70;--faint:#a8a496;--line:#e3dfd2;--a2:#5f7a5e;--a2-deep:#3f5740;--a1:#b08545;--a1-deep:#8a6633;--sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;--mono:ui-monospace,"SF Mono",Menlo,monospace}
+  *{box-sizing:border-box}html,body{margin:0;width:100%;max-width:100%;overflow-x:hidden}body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:14px;line-height:1.68}
+  .sheet{width:min(100%,720px);max-width:720px;margin:0 auto;padding:32px 18px 40px}
+  .eyebrow{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--soft);flex-wrap:wrap}.eyebrow .id{color:var(--a2-deep);font-weight:600}.dot{width:5px;height:5px;border-radius:50%;background:var(--a2)}.status{color:var(--a2-deep)}
+  h1{font-size:clamp(24px,7vw,29px);line-height:1.3;font-weight:700;margin:20px 0 0;overflow-wrap:anywhere}.dek{font-size:15.5px;color:var(--soft);margin:13px 0 0;max-width:52ch}.hr{height:1px;background:var(--line);margin:30px 0}
+  .axis{padding:0 0 4px 18px;position:relative;margin-bottom:26px}.axis::before{content:"";position:absolute;left:0;top:6px;bottom:6px;width:2px;border-radius:2px}.axis.ax1::before{background:var(--a1)}.axis.ax2::before{background:var(--a2)}
+  .axis .label{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:9px;display:flex;align-items:center;gap:8px}.axis.ax1 .label{color:var(--a1-deep)}.axis.ax2 .label{color:var(--a2-deep)}
+  .axis .text{font-size:clamp(16px,4.4vw,18px);line-height:1.62;color:#37352e;overflow-wrap:anywhere}.axis .text b{font-weight:700;color:var(--ink);border-bottom:2px solid var(--a2)}
+  ol.find{list-style:none;counter-reset:f;margin:16px 0 0;padding:0}ol.find li{position:relative;padding:8px 0 8px 26px;font-size:15px;color:#37352e;border-top:1px solid var(--line)}ol.find li:first-child{border-top:none}ol.find li::before{counter-increment:f;content:counter(f);position:absolute;left:0;top:9px;font-family:var(--mono);font-size:12px;font-weight:600;color:var(--a1-deep)}
+  details{border:1px solid var(--line);border-radius:8px;background:var(--panel);margin-bottom:10px;overflow:hidden}summary{cursor:pointer;list-style:none;padding:14px 16px;display:flex;align-items:center;gap:11px;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--soft)}summary::-webkit-details-marker{display:none}.chev{width:8px;height:8px;border-right:2px solid var(--a2-deep);border-bottom:2px solid var(--a2-deep);transform:rotate(-45deg);transition:.25s;flex:none;margin-left:2px}details[open] .chev{transform:rotate(45deg)}
+  .body{padding:2px 16px 18px;min-width:0}.section-title{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--a1-deep);margin:0 0 8px}
+  .callout{border-left:2px solid var(--a2);background:#f2efe5;padding:11px 13px;color:#4a473f;margin:12px 0 16px}
+  .content-grid{display:grid;grid-template-columns:1fr;gap:10px;margin:10px 0}.mini-card{border:1px solid var(--line);background:#f8f6ef;border-radius:8px;padding:12px 13px;min-width:0}.mini-card b{display:block;color:var(--ink);margin-bottom:5px}.mini-card p{margin:0;color:var(--soft);overflow-wrap:anywhere}
+  code{font-family:var(--mono);font-size:12px;background:#edeae0;padding:1px 6px;border-radius:3px;color:var(--a2-deep);overflow-wrap:anywhere;word-break:break-word}
+  .chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}.chip{font-family:var(--mono);font-size:10.5px;color:var(--soft);border:1px solid var(--line);border-radius:999px;padding:3px 10px}
+  .body p{color:var(--soft);overflow-wrap:anywhere}.body ul{margin:6px 0;padding-left:18px}.body li{margin:5px 0}
+  .foot{margin-top:30px;padding-top:15px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:6px 14px;justify-content:space-between;font-family:var(--mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--faint)}
+  @media(min-width:720px){.sheet{padding:48px 34px 46px}.content-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+</style>
+</head>
+<body>
+<div class="sheet">
+  <div class="eyebrow"><span class="dot"></span><span class="id">ops-13</span><span>Prepare Note</span><span class="status">in_progress → waiting</span></div>
+  <h1>마케팅 inbox 한국어 렌더 게이트 고정</h1>
+  <p class="dek">marketing.jsonl 저장 직전 signal/measurement 등 필드에 영어 서술형 문장이 혼재하는 패턴 진단 및 렌더 게이트 반영 계획.</p>
+  <div class="hr"></div>
+  <div class="axis ax1">
+    <div class="label"><span>01</span> 무엇을 점검했나</div>
+    <div class="text">2026-07-12~13 마케팅 inbox 항목의 <b>signal·measurement 필드에 영어 서술형 문장이 반복 혼재</b>하는 패턴을 점검했다. 심층 출처: <code>system/docs/EVALUATION_NOTES.md</code>.</div>
+  </div>
+  <div class="axis ax2">
+    <div class="label"><span>02</span> 이상 여부·조치</div>
+    <div class="text">저장 직전 렌더 게이트 <b>누락 확인</b>. L2 agent-approved로 로컬 실행 프롬프트를 준비했다: <code>artifacts/ops-13/local-execution-prompt.md</code>.</div>
+  </div>
+  <details open>
+    <summary><span class="chev"></span> 핵심 발견 · 준비 내용</summary>
+    <div class="body">
+      <div class="section-title">핵심 발견</div>
+      <ol class="find">
+        <li>2026-07-12 marketing inbox 항목에서 <code>signal</code>·<code>measurement</code> 필드에 영어 서술형 문장이 저장된 것이 EVALUATION_NOTES.md 신호로 감지됨.</li>
+        <li>2026-07-13 최신 항목에서 동일 패턴 재현 — <code>signal</code>·<code>measurement</code>에 영어 혼재가 계속되어 SAM 리캡·내부 원장 톤이 깨질 수 있음.</li>
+        <li>현재 마케팅 크론의 <code>marketing.jsonl</code> 저장 경로에 한국어 강제 렌더 게이트가 없음 — ops-12 git failure gate 수정과 동일 계층에서 누락된 상태.</li>
+        <li>heartbeat 프로토콜 §8 마케팅 언어 규칙은 한국어 우선을 명시하나, 실제 저장 직전 검증이 크론 실행 경로에 시행되지 않고 있음.</li>
+        <li>L2 자체 승인 조건 5개 충족: 목표 연결 ✓, 되돌림 가능(git revert) ✓, 비용 없음 ✓, 시크릿 미변경 ✓, 타인 알림 없음 ✓</li>
+      </ol>
+      <div class="callout">L2 agent-approved 처리. <code>artifacts/ops-13/local-execution-prompt.md</code>를 pt/purplemux Claude Code tmux pane에 전달해 마케팅 크론 저장 직전 렌더 게이트를 추가한다.</div>
+      <div class="content-grid">
+        <div class="mini-card"><b>근거 · 소스</b><p>INTENTS.md ops-13 source_signal (EVALUATION_NOTES.md#마케팅-에이전트-inbox-영어-문장-드리프트-최신-재현), heartbeat.md §8 마케팅 언어 규칙, ops-12 선례(git failure gate 동일 패턴)</p></div>
+        <div class="mini-card"><b>다음 판단</b><p>로컬 실행 완료 후 다음 heartbeat에서 검증 결과 확인. dry-run에서 영어 서술형 문장이 저장 보류 또는 한국어 변환됨이 확인되면 ops-13 archive 처리.</p></div>
+      </div>
+    </div>
+  </details>
+  <details open>
+    <summary><span class="chev"></span> 렌더 게이트 계약 요약</summary>
+    <div class="body">
+      <p>마케팅 크론 프롬프트/헬퍼에 추가할 렌더 게이트:</p>
+      <ul>
+        <li><code>signal</code>, <code>diagnosis</code>, <code>action_candidate</code>, <code>measurement</code> 필드 저장 직전, 영어 서술형 문장이 포함되어 있으면 한국어로 변환하거나 저장 보류</li>
+        <li>판별 기준: 필드 값이 영문 알파벳 위주(예: 첫 단어가 영어 단어)인 서술형 문장이면 게이트 발동</li>
+        <li>변환 불가 시(코드/URL/고유명사 등): 원문 유지 허용 — 일반 서술 문장만 게이트 적용</li>
+        <li>재현 입력: 2026-07-12, 2026-07-13 marketing inbox 항목의 signal·measurement 예시 사용</li>
+      </ul>
+      <p>상세 구현 위치 찾기 방법: <code>artifacts/ops-13/local-execution-prompt.md</code></p>
+    </div>
+  </details>
+  <details>
+    <summary><span class="chev"></span> 실행 메타 · 산출물</summary>
+    <div class="body">
+      <div class="chips"><span class="chip">20260713T0700Z</span><span class="chip">heartbeat cron</span><span class="chip">inbox → waiting</span><span class="chip">agent-approved L2</span></div>
+      <ul>
+        <li>산출물 <code>artifacts/ops-13/local-execution-prompt.md</code></li>
+        <li>리포트 <code>reports/ops-13/20260713T0700Z-prepare.html</code></li>
+      </ul>
+    </div>
+  </details>
+  <div class="foot"><span>Agent-First Heartbeat</span><span>Infinity · Intent Note</span></div>
+</div>
+</body>
+</html>

@@ -4,23 +4,36 @@
 
 ## Inbox
 
-### [ops-13] 마케팅 inbox 한국어 렌더 게이트 고정
-- proposed_by: sam-proposer
-- source_signal: system/docs/EVALUATION_NOTES.md#마케팅-에이전트-inbox-영어-문장-드리프트-최신-재현
-- rationale: 2026-07-12 마케팅 inbox 항목에 영어 운영 문장이 저장된 뒤, 2026-07-13 10:00 최신 항목에서도 `signal`과 `measurement`에 영어 서술형 문장이 다시 섞여 SAM 리캡과 내부 원장 톤이 깨질 수 있다.
-- expected_artifact: 마케팅 크론의 `system/data/agent-inbox/marketing.jsonl` 저장 직전 렌더 게이트를 정본 프롬프트나 헬퍼에 반영한 repair note와 검증 로그
-- permission_level: L2 approval-required
-- success_criteria: 2026-07-12와 2026-07-13 marketing inbox 항목을 재현 입력으로 삼아, `signal/diagnosis/action_candidate/measurement` 값의 영어 서술형 문장이 한국어 운영 문장으로 변환되거나 저장 보류되는 조건이 실행 경로에 반영됐고, dry-run 또는 다음 점검에서 같은 영어 문장 혼재가 저장되지 않음이 확인된다.
-
 ## Active
 
 ## Waiting
 
 <!-- 사용자 결정, 외부 조건, 안전 확인 대기. 같은 질문을 반복하지 않고 상태만 보존한다. -->
 
+### [ops-13] 마케팅 inbox 한국어 렌더 게이트 고정
+- status: waiting
+- priority: high
+- approval: agent-approved L2 (2026-07-13T07:00Z)
+- goal: 마케팅 크론의 system/data/agent-inbox/marketing.jsonl 저장 직전 signal/diagnosis/action_candidate/measurement 필드에 영어 서술형 문장이 혼재하지 않도록 렌더 게이트를 정본 프롬프트나 헬퍼에 반영
+- context: OpenClaw Marketing-agent-growth-review 크론 프롬프트/헬퍼, system/data/agent-inbox/marketing.jsonl
+- prepare_report: reports/ops-13/20260713T0700Z-prepare.html
+- local_exec: artifacts/ops-13/local-execution-prompt.md
+- waiting_reason: 로컬 Claude Code 실행 대기. pt/purplemux Claude pane에서 artifacts/ops-13/local-execution-prompt.md 실행 필요.
+- next_action: 로컬 Claude Code로 마케팅 크론 저장 직전 렌더 게이트(signal/diagnosis/action_candidate/measurement 필드 영어 서술형 감지 → 한국어 변환 또는 저장 보류) 반영 후 dry-run 검증
+
+### [ops-12] 마케팅 크론 git 동기화 실패 반복 경계 고정
+- status: waiting
+- priority: high
+- approval: agent-approved L2 (2026-07-12T10:07Z)
+- goal: 마케팅 크론의 git sync/rebase/push 실패를 NO_REPLY가 아니라 명시적 blocker로 처리하는 계약을 실행 경로에 반영
+- context: OpenClaw Marketing-agent-growth-review 크론 프롬프트/헬퍼
+- prepare_report: reports/ops-12/20260712T1007Z-prepare.html
+- local_exec: artifacts/ops-12/local-execution-prompt.md
+- waiting_reason: 로컬 Claude Code 실행 대기. pt/purplemux Claude pane에서 artifacts/ops-12/local-execution-prompt.md 실행 필요.
+- next_action: 로컬 Claude Code로 Marketing-agent-growth-review 크론 프롬프트에 git failure gate 추가 후 검증
+
 ## Archive
 
-<!-- ops-12 completed 2026-07-13T22:15Z → intents/archive/ops-12.md [projects: openclaw,infinity; type: monitoring; topics: automation,workflow] (Marketing-agent-growth-review 크론 payload에 git 실패 시 Infinity Inbox blocker를 남기는 gate를 추가하고 payload 조회로 반영을 확인했다. HTML report gate passed.) -->
 <!-- design-03 completed 2026-07-12T08:35Z → intents/archive/design-03.md [projects: personal-ops,content,design-system; type: research; topics: instagram,card-news,templates] (Instagram 카드뉴스용 힙하고 키치한 템플릿 10종을 리서치 중심으로 정리하고 한 장짜리 JPG 보드로 업로드했다. HTML report gate passed.) -->
 <!-- ops-10 completed 2026-07-11T12:07Z → intents/archive/ops-10.md [projects: openclaw,infinity; type: monitoring; topics: automation,workflow] (로컬 수정 후 다음 감시 사이클에서 Inbox blocker가 비어 있음을 확인해 proposer tool-failure diagnostics repair를 완료 처리했다. HTML report gate passed.) -->
 <!-- ops-11 completed 2026-07-11T23:07Z → intents/archive/ops-11.md [projects: openclaw,infinity; type: monitoring; topics: automation,workflow,dashboard] (quality-gates effectiveness.jsonl을 07:00 리캡/대시보드 append-only tracked 정본으로 확정하고 untracked 반복 노출 경계를 제거했다. HTML report gate passed.) -->
