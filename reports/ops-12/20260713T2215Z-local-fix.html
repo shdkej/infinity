@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ops-12 local fix</title>
+<style>
+  :root{--bg:#f4f2ea;--panel:#fbfaf5;--ink:#2c2a25;--soft:#807c70;--line:#e3dfd2;--a1:#b08545;--a1-deep:#8a6633;--a2:#5f7a5e;--a2-deep:#3f5740;--sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;--mono:ui-monospace,"SF Mono",Menlo,monospace}
+  *{box-sizing:border-box} html,body{margin:0;width:100%;max-width:100%;overflow-x:hidden} body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:14px;line-height:1.68}.sheet{width:min(100%,720px);margin:0 auto;padding:44px 22px}.eyebrow{display:flex;gap:10px;flex-wrap:wrap;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--soft)}.dot{width:5px;height:5px;border-radius:50%;background:var(--a2);margin-top:7px}h1{font-size:28px;line-height:1.3;margin:18px 0 10px;letter-spacing:0}.dek{color:var(--soft);margin:0 0 28px}.hr{height:1px;background:var(--line);margin:28px 0}.axis{padding:0 0 4px 20px;position:relative;margin-bottom:26px}.axis:before{content:"";position:absolute;left:0;top:6px;bottom:6px;width:2px;border-radius:2px}.axis.ax1:before{background:var(--a1)}.axis.ax2:before{background:var(--a2)}.label{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:9px}.ax1 .label{color:var(--a1-deep)}.ax2 .label{color:var(--a2-deep)}.text{font-size:17px;line-height:1.62}.text b{border-bottom:2px solid currentColor}details{border:1px solid var(--line);border-radius:8px;background:var(--panel);margin-bottom:10px;overflow:hidden}summary{cursor:pointer;list-style:none;padding:14px 16px;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--soft)}summary::-webkit-details-marker{display:none}.body{padding:2px 16px 18px}.section-title{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--a1-deep);margin:0 0 8px}ol{margin:8px 0 0;padding-left:22px}li{margin:6px 0}code{font-family:var(--mono);font-size:12px;background:#edeae0;padding:1px 6px;border-radius:3px;color:var(--a2-deep);overflow-wrap:anywhere}.callout{border-left:2px solid var(--a2);background:#f2efe5;padding:11px 13px;color:#4a473f;margin:12px 0 16px}.foot{margin-top:30px;padding-top:15px;border-top:1px solid var(--line);font-family:var(--mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:#a8a496}
+</style>
+</head>
+<body>
+<div class="sheet">
+  <div class="eyebrow"><span class="dot"></span><span>ops-12</span><span>Monitoring Note</span><span>completed</span></div>
+  <h1>마케팅 크론 git 실패 blocker 게이트 반영</h1>
+  <p class="dek">2026-07-13 22:15 UTC 로컬 실행 기록입니다.</p>
+  <div class="hr"></div>
+  <div class="axis ax1">
+    <div class="label"><span>01</span> 무엇을 점검했나</div>
+    <div class="text">마케팅 growth review 크론이 <b>git sync 실패를 NO_REPLY로 묵살하지 않도록</b> 하는 ops-12 계약을 실제 크론 payload에 반영했는지 점검했습니다.</div>
+  </div>
+  <div class="axis ax2">
+    <div class="label"><span>02</span> 이상 여부·조치</div>
+    <div class="text">크론 payload에 <b>GIT SYNC FAILURE GATE</b> 블록이 추가됐고, 실패 시 Infinity Inbox에 ops blocker를 남기는 Option A와 쓰기 불가 시 한국어 blocker를 출력하는 Option B가 포함됐음을 확인했습니다.</div>
+  </div>
+  <details open>
+    <summary>핵심 내용 · 실행 로그</summary>
+    <div class="body">
+      <div class="section-title">변경 및 검증</div>
+      <ol>
+        <li>기존 payload를 <code>artifacts/ops-12/cron-payload-before.txt</code>에 저장했습니다.</li>
+        <li>ops-12 계약을 반영한 payload를 <code>artifacts/ops-12/cron-payload-after.txt</code>에 저장했습니다.</li>
+        <li><code>openclaw cron get 4f272a0a-e0b4-46f3-a737-7e089c45b298</code> 결과에서 <code>GIT SYNC FAILURE GATE (ops-12</code>와 <code>append a new ops-* blocker</code> 문구가 모두 확인됐습니다.</li>
+      </ol>
+      <div class="callout">로컬 Claude 실행은 응답을 반환하지 않아 중단했지만, 그 과정에서 크론 payload 갱신과 before/after artifact 생성은 완료됐습니다. 후속 dry-run은 실제 git 실패 재현을 만들지 않는 범위에서 다음 마케팅 크론 실행이 검증면입니다.</div>
+    </div>
+  </details>
+  <details>
+    <summary>메타 · 경계</summary>
+    <div class="body">
+      <p>금지 경계: 생산 코드, 공개 발송, 비용 발생 작업은 수행하지 않았습니다. Infinity 정본에는 보고서와 artifact, intent archive만 반영합니다.</p>
+    </div>
+  </details>
+  <div class="foot">Infinity · ops-12 · 20260713T2215Z</div>
+</div>
+</body>
+</html>

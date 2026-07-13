@@ -18,19 +18,9 @@
 
 <!-- 사용자 결정, 외부 조건, 안전 확인 대기. 같은 질문을 반복하지 않고 상태만 보존한다. -->
 
-### [ops-12] 마케팅 크론 git 동기화 실패 반복 경계 고정
-- status: waiting
-- priority: high
-- approval: agent-approved L2 (2026-07-12T10:07Z)
-- goal: 마케팅 크론의 git sync/rebase/push 실패를 NO_REPLY가 아니라 명시적 blocker로 처리하는 계약을 실행 경로에 반영
-- context: OpenClaw Marketing-agent-growth-review 크론 프롬프트/헬퍼
-- prepare_report: reports/ops-12/20260712T1007Z-prepare.html
-- local_exec: artifacts/ops-12/local-execution-prompt.md
-- waiting_reason: 로컬 Claude Code 실행 대기. pt/purplemux Claude pane에서 artifacts/ops-12/local-execution-prompt.md 실행 필요.
-- next_action: 로컬 Claude Code로 Marketing-agent-growth-review 크론 프롬프트에 git failure gate 추가 후 검증
-
 ## Archive
 
+<!-- ops-12 completed 2026-07-13T22:15Z → intents/archive/ops-12.md [projects: openclaw,infinity; type: monitoring; topics: automation,workflow] (Marketing-agent-growth-review 크론 payload에 git 실패 시 Infinity Inbox blocker를 남기는 gate를 추가하고 payload 조회로 반영을 확인했다. HTML report gate passed.) -->
 <!-- design-03 completed 2026-07-12T08:35Z → intents/archive/design-03.md [projects: personal-ops,content,design-system; type: research; topics: instagram,card-news,templates] (Instagram 카드뉴스용 힙하고 키치한 템플릿 10종을 리서치 중심으로 정리하고 한 장짜리 JPG 보드로 업로드했다. HTML report gate passed.) -->
 <!-- ops-10 completed 2026-07-11T12:07Z → intents/archive/ops-10.md [projects: openclaw,infinity; type: monitoring; topics: automation,workflow] (로컬 수정 후 다음 감시 사이클에서 Inbox blocker가 비어 있음을 확인해 proposer tool-failure diagnostics repair를 완료 처리했다. HTML report gate passed.) -->
 <!-- ops-11 completed 2026-07-11T23:07Z → intents/archive/ops-11.md [projects: openclaw,infinity; type: monitoring; topics: automation,workflow,dashboard] (quality-gates effectiveness.jsonl을 07:00 리캡/대시보드 append-only tracked 정본으로 확정하고 untracked 반복 노출 경계를 제거했다. HTML report gate passed.) -->
