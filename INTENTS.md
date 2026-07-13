@@ -4,6 +4,14 @@
 
 ## Inbox
 
+### [ops-13] 마케팅 inbox 한국어 렌더 게이트 고정
+- proposed_by: sam-proposer
+- source_signal: system/docs/EVALUATION_NOTES.md#마케팅-에이전트-inbox-영어-문장-드리프트-최신-재현
+- rationale: 2026-07-12 마케팅 inbox 항목에 영어 운영 문장이 저장된 뒤, 2026-07-13 10:00 최신 항목에서도 `signal`과 `measurement`에 영어 서술형 문장이 다시 섞여 SAM 리캡과 내부 원장 톤이 깨질 수 있다.
+- expected_artifact: 마케팅 크론의 `system/data/agent-inbox/marketing.jsonl` 저장 직전 렌더 게이트를 정본 프롬프트나 헬퍼에 반영한 repair note와 검증 로그
+- permission_level: L2 approval-required
+- success_criteria: 2026-07-12와 2026-07-13 marketing inbox 항목을 재현 입력으로 삼아, `signal/diagnosis/action_candidate/measurement` 값의 영어 서술형 문장이 한국어 운영 문장으로 변환되거나 저장 보류되는 조건이 실행 경로에 반영됐고, dry-run 또는 다음 점검에서 같은 영어 문장 혼재가 저장되지 않음이 확인된다.
+
 ## Active
 
 ## Waiting
