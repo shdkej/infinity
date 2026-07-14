@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>[ops-14] Evaluator 읽기 예산 게이트 — Prepare</title>
+<style>
+  :root{
+    --bg:#f4f2ea; --panel:#fbfaf5; --ink:#2c2a25; --soft:#807c70; --faint:#a8a496; --line:#e3dfd2;
+    --a2:#5f7a5e; --a2-deep:#3f5740;
+    --a1:#b08545; --a1-deep:#8a6633;
+    --sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;width:100%;max-width:100%;overflow-x:hidden;}
+  body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:14px;line-height:1.68;-webkit-font-smoothing:antialiased;}
+  .sheet{width:min(100%,720px);max-width:720px;margin:0 auto;padding:32px 18px 40px;}
+  .reveal{opacity:0;animation:fade .7s ease forwards;}
+  @keyframes fade{from{opacity:0;transform:translateY(9px);}to{opacity:1;transform:none;}}
+  .eyebrow{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--soft);flex-wrap:wrap;}
+  .eyebrow .id{color:var(--a2-deep);font-weight:600;}
+  .eyebrow .dot{width:5px;height:5px;border-radius:50%;background:var(--a2);}
+  .eyebrow .status{color:var(--a2-deep);}
+  h1{font-size:clamp(22px,6vw,27px);line-height:1.3;font-weight:700;letter-spacing:0;margin:20px 0 0;overflow-wrap:anywhere;}
+  .dek{font-size:15px;color:var(--soft);margin:12px 0 0;max-width:52ch;}
+  .hr{height:1px;background:var(--line);margin:28px 0;}
+  .axis{padding:0 0 4px 18px;position:relative;margin-bottom:24px;}
+  .axis::before{content:"";position:absolute;left:0;top:6px;bottom:6px;width:2px;border-radius:2px;}
+  .axis.ax1::before{background:var(--a1);}
+  .axis.ax2::before{background:var(--a2);}
+  .axis.ax1{--ul:var(--a1);}
+  .axis.ax2{--ul:var(--a2);}
+  .axis .label{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:9px;display:flex;align-items:center;gap:8px;}
+  .axis.ax1 .label{color:var(--a1-deep);}
+  .axis.ax2 .label{color:var(--a2-deep);}
+  .axis .label .n{font-weight:600;opacity:.6;}
+  .axis .text{font-size:clamp(15px,4vw,17px);line-height:1.62;color:#37352e;overflow-wrap:anywhere;}
+  .axis .text b{font-weight:700;color:var(--ink);border-bottom:2px solid var(--ul);}
+  ol.find{list-style:none;counter-reset:f;margin:16px 0 0;padding:0;}
+  ol.find li{position:relative;padding:8px 0 8px 26px;font-size:14px;color:#37352e;border-top:1px solid var(--line);}
+  ol.find li:first-child{border-top:none;}
+  ol.find li::before{counter-increment:f;content:counter(f);position:absolute;left:0;top:9px;font-family:var(--mono);font-size:12px;font-weight:600;color:var(--a1-deep);}
+  details{border:1px solid var(--line);border-radius:8px;background:var(--panel);margin-bottom:10px;overflow:hidden;}
+  summary{cursor:pointer;list-style:none;padding:14px 16px;display:flex;align-items:center;gap:11px;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--soft);}
+  summary::-webkit-details-marker{display:none;}
+  summary .chev{width:8px;height:8px;border-right:2px solid var(--a2-deep);border-bottom:2px solid var(--a2-deep);transform:rotate(-45deg);transition:.25s;flex:none;margin-left:2px;}
+  details[open] summary .chev{transform:rotate(45deg);}
+  .body{padding:2px 16px 18px;min-width:0;}
+  .section{margin:4px 0 16px;}
+  .section-title{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--a1-deep);margin:0 0 8px;}
+  .callout{border-left:2px solid var(--a2);background:#f2efe5;padding:11px 13px;color:#4a473f;margin:12px 0 16px;}
+  .content-grid{display:grid;grid-template-columns:1fr;gap:10px;margin:10px 0;}
+  .mini-card{border:1px solid var(--line);background:#f8f6ef;border-radius:8px;padding:12px 13px;min-width:0;}
+  .mini-card b{display:block;color:var(--ink);margin-bottom:5px;}
+  .mini-card p{margin:0;color:var(--soft);overflow-wrap:anywhere;}
+  table{border-collapse:collapse;width:100%;max-width:100%;table-layout:fixed;font-size:13px;margin:4px 0 12px;}
+  th,td{border-bottom:1px solid var(--line);padding:9px 11px;text-align:left;vertical-align:top;overflow-wrap:anywhere;word-break:break-word;}
+  th{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--soft);font-weight:600;}
+  td:first-child{color:var(--a2-deep);font-weight:600;}
+  .body p{color:var(--soft);overflow-wrap:anywhere;}
+  .body ul{margin:6px 0;padding-left:18px;}
+  .body li{margin:5px 0;}
+  code{font-family:var(--mono);font-size:12px;background:#edeae0;padding:1px 6px;border-radius:3px;color:var(--a2-deep);overflow-wrap:anywhere;word-break:break-word;}
+  .chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px;}
+  .chip{font-family:var(--mono);font-size:10.5px;letter-spacing:.05em;color:var(--soft);border:1px solid var(--line);border-radius:999px;padding:3px 10px;}
+  .foot{margin-top:28px;padding-top:14px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:6px 14px;justify-content:space-between;font-family:var(--mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--faint);}
+  @media(min-width:720px){.sheet{padding:48px 34px 46px;}.content-grid{grid-template-columns:repeat(2,minmax(0,1fr));}}
+  @media(max-width:640px){table,thead,tbody,tr,th,td{display:block;width:100%;}thead{display:none;}tr{border:1px solid var(--line);border-radius:8px;padding:9px 10px;margin:0 0 10px;background:#f8f6ef;}td{border-bottom:0;padding:5px 0;}td:first-child{font-family:var(--mono);font-size:11px;letter-spacing:.05em;}}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="eyebrow reveal">
+    <span class="dot"></span>
+    <span class="id">ops-14</span>
+    <span>Prepare Report</span>
+    <span class="status">waiting · agent-approved L2</span>
+  </div>
+  <h1 class="reveal" style="animation-delay:.05s">OpenClaw Evaluator 읽기 예산 게이트 고정</h1>
+  <p class="dek reveal" style="animation-delay:.09s">NO_REPLY 실행 시 4.7万~6.7万 토큰을 소비하는 패턴을 읽기 예산 제한과 조기 종료 조건으로 차단한다.</p>
+
+  <div class="hr reveal" style="animation-delay:.12s"></div>
+
+  <div class="axis ax1 reveal" style="animation-delay:.16s">
+    <div class="label"><span class="n">01</span> 🟡 무엇을 점검했나</div>
+    <div class="text">OpenClaw evaluator가 <b>NO_REPLY 정상 종료</b>임에도 4.7万~6.7万 tokens을 반복 소비 — 4시간 간격 감시 크론의 비용 대비 신호 효율이 낮은 상태</div>
+  </div>
+
+  <div class="axis ax2 reveal" style="animation-delay:.22s">
+    <div class="label"><span class="n">02</span> ✅ 이상 여부·조치</div>
+    <div class="text"><b>읽기 예산 3종</b>(EVALUATION_NOTES.md tail 120줄, OPERATING_LESSONS.md 관련 섹션, 최근 24시간 크론 요약) + <b>조기 종료 조건</b>을 evaluator 정본에 반영하는 로컬 실행 계획 완료 — 실행은 로컬 Claude Code 대기</div>
+  </div>
+
+  <div class="reveal" style="animation-delay:.27s">
+  <details open>
+    <summary><span class="chev"></span> 핵심 내용 · 문제 분석</summary>
+    <div class="body">
+      <div class="section">
+        <div class="section-title">핵심 발견</div>
+        <ol class="find">
+          <li><strong>토큰 낭비 패턴 확인</strong> — sam-proposer가 최근 24시간 evaluator 실행 데이터에서 4.7万~6.7万 tokens/run을 측정. NO_REPLY 결론에도 전체 컨텍스트를 로드하는 구조적 원인.</li>
+          <li><strong>원인: 읽기 예산 미설정</strong> — 현재 evaluator는 EVALUATION_NOTES.md 전체, OPERATING_LESSONS.md 전체, 크론 로그 전체를 로드한 후에 NO_REPLY를 판단함. 결론이 초기에 확정되어도 읽기를 멈추지 않는다.</li>
+          <li><strong>해결 지점: 3가지 읽기 제한</strong> — (a) EVALUATION_NOTES.md는 <code>tail -n 120</code>만, (b) OPERATING_LESSONS.md는 관련 섹션 헤더로 필터, (c) 크론 실행 로그는 최근 24시간 요약만 허용.</li>
+          <li><strong>추가 조치: 조기 종료 게이트</strong> — 초기 스캔에서 미해결 이슈 없음이 확정되면 추가 읽기 없이 바로 NO_REPLY 반환. 재현 1개 확인 시 즉시 종료.</li>
+          <li><strong>검증 기준</strong> — 변경 후 다음 2회 실행에서 total_tokens가 이전 4.7万~6.7万 범위보다 의미 있게 낮아지면 성공.</li>
+        </ol>
+      </div>
+
+      <div class="callout">로컬 실행만 남은 상태다. <code>artifacts/ops-14/local-execution-prompt.md</code>를 pt/purplemux Claude pane에서 실행하면 된다. 클라우드 prepare 작업은 이 리포트로 완료.</div>
+
+      <div class="content-grid">
+        <div class="mini-card">
+          <b>근거 · 소스</b>
+          <p>system/docs/EVALUATION_NOTES.md의 "OpenClaw-evaluator-NO_REPLY-실행의-고토큰-반복" 섹션 (sam-proposer 신호). 4.7万~6.7万 tokens 범위는 실측값.</p>
+        </div>
+        <div class="mini-card">
+          <b>다음 판단</b>
+          <p>로컬 Claude Code에서 실행 프롬프트 수행. 완료 후 ops-14를 archived 처리하고 2회 검증 결과를 report에 기록.</p>
+        </div>
+      </div>
+    </div>
+  </details>
+
+  <details open>
+    <summary><span class="chev"></span> 실행 계획 상세</summary>
+    <div class="body">
+      <div class="section">
+        <div class="section-title">변경 대상</div>
+        <ul>
+          <li>OpenClaw evaluator 정본 프롬프트 또는 헬퍼 파일 (<code>~/.claude/agents/</code> 또는 <code>~/.claude/skills/</code> 하위)</li>
+          <li>읽기 제한: <code>EVALUATION_NOTES.md</code> tail 120줄, <code>OPERATING_LESSONS.md</code> 관련 섹션만, 크론 요약 최근 24시간</li>
+          <li>조기 종료: 미해결 이슈 없음 초기 감지 → 즉시 NO_REPLY 반환</li>
+        </ul>
+      </div>
+      <div class="section">
+        <div class="section-title">성공 기준 (success_criteria)</div>
+        <ul>
+          <li>evaluator 실행 경로가 3종 읽기 예산만 허용하도록 수정됨</li>
+          <li>조기 종료 조건이 반영됨</li>
+          <li>다음 2회 NO_REPLY 실행에서 total_tokens가 이전 범위보다 의미 있게 감소</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="chev"></span> 실행 메타 · 산출물</summary>
+    <div class="body">
+      <div class="chips">
+        <span class="chip">2026-07-14T00:00Z</span>
+        <span class="chip">heartbeat · cloud prepare</span>
+        <span class="chip">inbox → waiting</span>
+        <span class="chip">agent-approved L2</span>
+      </div>
+      <ul>
+        <li>로컬 실행 프롬프트 <code>artifacts/ops-14/local-execution-prompt.md</code></li>
+        <li>활성 Intent 파일 <code>intents/active/ops-14.md</code></li>
+        <li>GATES.md에 처리 완료 등록</li>
+        <li>INTENTS.md: Inbox 제거 → Waiting 이동</li>
+      </ul>
+    </div>
+  </details>
+  </div>
+
+  <div class="foot reveal" style="animation-delay:.3s">
+    <span>Agent-First Heartbeat</span>
+    <span>Infinity · ops-14 prepare</span>
+  </div>
+</div>
+</body>
+</html>

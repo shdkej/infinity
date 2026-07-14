@@ -7,6 +7,12 @@
 
 ## 처리 완료
 
+### [ops-14] OpenClaw evaluator 읽기 예산 게이트 고정 — 로컬 실행
+- requested: 2026-07-14T00:00Z
+- resolved: 2026-07-14T00:00Z
+- decision: agent-approved L2
+- note: L2 자체 승인 조건 전부 충족. 읽기 예산 제한(EVALUATION_NOTES.md tail 120줄, OPERATING_LESSONS.md 관련 섹션, 최근 24시간 크론 요약)과 조기 종료 조건 추가는 가역적 프롬프트 수정이며 비용 증가 없음. 로컬 실행 프롬프트: artifacts/ops-14/local-execution-prompt.md.
+
 ### [ops-13] 마케팅 inbox 한국어 렌더 게이트 고정 — 로컬 실행
 - requested: 2026-07-13T07:00Z
 - resolved: 2026-07-13T07:00Z

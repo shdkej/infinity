@@ -4,19 +4,22 @@
 
 ## Inbox
 
-### [ops-14] OpenClaw evaluator 읽기 예산 게이트 고정
-- proposed_by: sam-proposer
-- source_signal: system/docs/EVALUATION_NOTES.md#OpenClaw-evaluator-NO_REPLY-실행의-고토큰-반복
-- rationale: 최근 24시간 OpenClaw evaluator가 `NO_REPLY`로 정상 침묵 종료하면서도 매 실행 4.7만~6.7만 tokens를 쓰는 패턴이 반복되어, 4시간 간격 감시 크론의 비용 대비 신호 효율이 낮다.
-- expected_artifact: OpenClaw evaluator 정본 프롬프트 또는 관련 헬퍼에 읽기 예산과 조기 종료 조건을 고정한 repair note와 payload/다음 실행 검증 로그
-- permission_level: L2 approval-required
-- success_criteria: evaluator 실행 경로가 `OPERATING_LESSONS.md` 필요한 섹션, `EVALUATION_NOTES.md` tail 120줄, 최근 24시간 cron runs 요약만 읽도록 제한되고, 미해결 재현 1개가 확인되면 즉시 종료하는 조건이 반영됐으며, 다음 2회 실행에서 `NO_REPLY` 반복 시 total_tokens가 이전 4.7만~6.7만 범위보다 의미 있게 낮아졌음이 확인된다.
-
 ## Active
 
 ## Waiting
 
 <!-- 사용자 결정, 외부 조건, 안전 확인 대기. 같은 질문을 반복하지 않고 상태만 보존한다. -->
+
+### [ops-14] OpenClaw evaluator 읽기 예산 게이트 고정
+- status: waiting
+- priority: high
+- approval: agent-approved L2 (2026-07-14T00:00Z)
+- goal: OpenClaw evaluator 정본 프롬프트 또는 관련 헬퍼에 읽기 예산과 조기 종료 조건을 고정해 NO_REPLY 실행 시 4.7万~6.7万 토큰 소비를 의미 있게 낮춘다
+- context: system/docs/EVALUATION_NOTES.md, OpenClaw evaluator 정본 프롬프트/헬퍼
+- prepare_report: reports/ops-14/20260714T0000Z-prepare.html
+- local_exec: artifacts/ops-14/local-execution-prompt.md
+- waiting_reason: 로컬 Claude Code 실행 대기. pt/purplemux Claude pane에서 artifacts/ops-14/local-execution-prompt.md 실행 필요.
+- next_action: 로컬 Claude Code로 evaluator 읽기 예산 고정(OPERATING_LESSONS.md 관련 섹션, EVALUATION_NOTES.md tail 120줄, 최근 24시간 크론 요약만) 및 조기 종료 조건 추가 후 검증
 
 ### [ops-13] 마케팅 inbox 한국어 렌더 게이트 고정
 - status: waiting
