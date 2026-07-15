@@ -22,6 +22,7 @@
 - next_action: 로컬 Claude Code로 evaluator 읽기 예산 고정(OPERATING_LESSONS.md 관련 섹션, EVALUATION_NOTES.md tail 120줄, 최근 24시간 크론 요약만) 및 조기 종료 조건 추가 후 검증
 - progress_20260715T0907Z: bounded cron cycle에서 target file 탐색을 시작했으나 광범위 rg가 과도한 session 로그를 건드려 중단함. `reports/ops-14/20260715T0907Z-handoff.html`에 다음 실행 범위와 금지 범위를 고정했다. 다음 사이클은 `artifacts/ops-14/local-execution-prompt.md`의 탐색 명령만 실행하고, 발견된 evaluator 정본 1개에만 패치해야 한다.
 - progress_20260715T1008Z: 좁은 탐색으로 `/home/ubuntu/.claude/skills/infinity/SKILL.md`에 evaluator 읽기 예산과 조기 종료 게이트를 반영했다. 검증 grep 통과. 다음 2회 evaluator total_tokens 감소 관측 전이므로 Waiting 유지. 보고: `reports/ops-14/20260715T1008Z-local-fix.html`.
+- progress_20260715T1407Z: 이번 bounded cycle에서는 추가 패치 대상이 아니라 성공 기준의 남은 관측 게이트만 확인했다. 다음 조치는 evaluator NO_REPLY 실행 2회 total_tokens를 이전 4.7만~6.7만 범위와 비교해 낮아졌는지 기록하는 것이다. handoff: `reports/ops-14/20260715T1407Z-handoff.html`.
 
 ### [ops-13] 마케팅 inbox 한국어 렌더 게이트 고정
 - status: waiting

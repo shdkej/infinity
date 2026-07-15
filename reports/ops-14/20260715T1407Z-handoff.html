@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ops-14 handoff</title>
+<style>
+  body{margin:0;background:#f4f2ea;color:#2c2a25;font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;line-height:1.65}
+  .sheet{max-width:720px;margin:0 auto;padding:40px 18px}
+  .axis{padding-left:18px;margin:24px 0;position:relative}
+  .axis:before{content:"";position:absolute;left:0;top:6px;bottom:6px;width:2px}
+  .axis.ax1:before{background:#b08545}.axis.ax2:before{background:#5f7a5e}
+  .label{font:600 11px ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.12em;text-transform:uppercase;color:#807c70}
+  details{border:1px solid #e3dfd2;border-radius:8px;background:#fbfaf5;margin:12px 0;padding:12px 14px}
+  summary{cursor:pointer;font:600 11px ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.1em;text-transform:uppercase;color:#3f5740}
+  code{background:#edeae0;padding:1px 5px;border-radius:3px}
+</style>
+</head>
+<body>
+<main class="sheet">
+  <p><code>ops-14</code> · 20260715T1407Z · handoff</p>
+  <h1>OpenClaw evaluator 읽기 예산 게이트 관측 대기</h1>
+  <div class="axis ax1">
+    <div class="label">axis ax1 · 무엇을 점검했나</div>
+    <p>이전 cycle에서 <code>/home/ubuntu/.claude/skills/infinity/SKILL.md</code>에 evaluator 읽기 예산과 조기 종료 게이트가 이미 반영되어 있었다. 이번 cycle에서는 같은 구현을 반복하지 않고 남은 성공 기준을 확인했다.</p>
+  </div>
+  <div class="axis ax2">
+    <div class="label">axis ax2 · 다음 조치</div>
+    <p>다음 실행자는 evaluator NO_REPLY 실행 2회의 <code>total_tokens</code>만 확인해 기존 4.7만~6.7만 범위보다 의미 있게 낮아졌는지 기록한다. 관측 2건이 충족되기 전에는 archive 이동이나 완료 처리를 하지 않는다.</p>
+  </div>
+  <details open>
+    <summary>핵심 상태</summary>
+    <ul>
+      <li>구현 상태: 읽기 예산 3종과 조기 종료 조건은 반영 완료로 기록되어 있다.</li>
+      <li>남은 게이트: 다음 2회 evaluator NO_REPLY 실행의 token 감소 관측.</li>
+      <li>금지 범위: 광범위 session 로그 검색, repo-wide git 점검, 반복 패치.</li>
+    </ul>
+  </details>
+  <details>
+    <summary>다음 실행 범위</summary>
+    <p>최근 evaluator 실행 2건의 <code>total_tokens</code> 위치가 명확할 때만 해당 값과 비교 결과를 intent에 기록한다. 값이 없거나 위치가 불명확하면 Waiting blocker를 남기고 intent를 Active/Waiting에 유지한다.</p>
+  </details>
+</main>
+</body>
+</html>
