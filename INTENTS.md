@@ -10,20 +10,6 @@
 
 <!-- 사용자 결정, 외부 조건, 안전 확인 대기. 같은 질문을 반복하지 않고 상태만 보존한다. -->
 
-### [ops-14] OpenClaw evaluator 읽기 예산 게이트 고정
-- status: waiting
-- priority: high
-- approval: agent-approved L2 (2026-07-14T00:00Z)
-- goal: OpenClaw evaluator 정본 프롬프트 또는 관련 헬퍼에 읽기 예산과 조기 종료 조건을 고정해 NO_REPLY 실행 시 4.7万~6.7万 토큰 소비를 의미 있게 낮춘다
-- context: system/docs/EVALUATION_NOTES.md, OpenClaw evaluator 정본 프롬프트/헬퍼
-- prepare_report: reports/ops-14/20260714T0000Z-prepare.html
-- local_exec: artifacts/ops-14/local-execution-prompt.md
-- waiting_reason: 로컬 Claude Code 실행 대기. pt/purplemux Claude pane에서 artifacts/ops-14/local-execution-prompt.md 실행 필요.
-- next_action: 로컬 Claude Code로 evaluator 읽기 예산 고정(OPERATING_LESSONS.md 관련 섹션, EVALUATION_NOTES.md tail 120줄, 최근 24시간 크론 요약만) 및 조기 종료 조건 추가 후 검증
-- progress_20260715T0907Z: bounded cron cycle에서 target file 탐색을 시작했으나 광범위 rg가 과도한 session 로그를 건드려 중단함. `reports/ops-14/20260715T0907Z-handoff.html`에 다음 실행 범위와 금지 범위를 고정했다. 다음 사이클은 `artifacts/ops-14/local-execution-prompt.md`의 탐색 명령만 실행하고, 발견된 evaluator 정본 1개에만 패치해야 한다.
-- progress_20260715T1008Z: 좁은 탐색으로 `/home/ubuntu/.claude/skills/infinity/SKILL.md`에 evaluator 읽기 예산과 조기 종료 게이트를 반영했다. 검증 grep 통과. 다음 2회 evaluator total_tokens 감소 관측 전이므로 Waiting 유지. 보고: `reports/ops-14/20260715T1008Z-local-fix.html`.
-- progress_20260715T1407Z: 이번 bounded cycle에서는 추가 패치 대상이 아니라 성공 기준의 남은 관측 게이트만 확인했다. 다음 조치는 evaluator NO_REPLY 실행 2회 total_tokens를 이전 4.7만~6.7만 범위와 비교해 낮아졌는지 기록하는 것이다. handoff: `reports/ops-14/20260715T1407Z-handoff.html`.
-
 ### [ops-13] 마케팅 inbox 한국어 렌더 게이트 고정
 - status: waiting
 - priority: high
@@ -49,6 +35,7 @@
 
 ## Archive
 
+<!-- ops-14 completed 2026-07-15T15:07Z → intents/archive/ops-14.md [projects: openclaw,infinity; type: monitoring; topics: automation,workflow,llm] (evaluator NO_REPLY 실행 2건이 27,498 / 25,460 tokens로 내려가 읽기 예산 게이트 성공 기준을 충족했다. HTML report gate passed.) -->
 <!-- design-03 completed 2026-07-12T08:35Z → intents/archive/design-03.md [projects: personal-ops,content,design-system; type: research; topics: instagram,card-news,templates] (Instagram 카드뉴스용 힙하고 키치한 템플릿 10종을 리서치 중심으로 정리하고 한 장짜리 JPG 보드로 업로드했다. HTML report gate passed.) -->
 <!-- ops-10 completed 2026-07-11T12:07Z → intents/archive/ops-10.md [projects: openclaw,infinity; type: monitoring; topics: automation,workflow] (로컬 수정 후 다음 감시 사이클에서 Inbox blocker가 비어 있음을 확인해 proposer tool-failure diagnostics repair를 완료 처리했다. HTML report gate passed.) -->
 <!-- ops-11 completed 2026-07-11T23:07Z → intents/archive/ops-11.md [projects: openclaw,infinity; type: monitoring; topics: automation,workflow,dashboard] (quality-gates effectiveness.jsonl을 07:00 리캡/대시보드 append-only tracked 정본으로 확정하고 untracked 반복 노출 경계를 제거했다. HTML report gate passed.) -->

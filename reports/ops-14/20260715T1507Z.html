@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ops-14 evaluator read budget verification</title>
+<style>
+  :root{--bg:#f4f2ea;--panel:#fbfaf5;--ink:#2c2a25;--soft:#807c70;--line:#e3dfd2;--a1:#b08545;--a1-deep:#8a6633;--a2:#5f7a5e;--a2-deep:#3f5740;--sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;--mono:ui-monospace,"SF Mono",Menlo,monospace}
+  *{box-sizing:border-box} html,body{margin:0;max-width:100%;overflow-x:hidden} body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:14px;line-height:1.68}.sheet{width:min(100%,720px);margin:0 auto;padding:42px 18px}.eyebrow{display:flex;gap:10px;flex-wrap:wrap;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--soft)}.dot{width:5px;height:5px;border-radius:50%;background:var(--a2);margin-top:7px}.id,.status{color:var(--a2-deep);font-weight:600}h1{font-size:clamp(24px,7vw,29px);line-height:1.3;margin:20px 0 0}.dek{font-size:15.5px;color:var(--soft);margin:13px 0 0;max-width:54ch}.hr{height:1px;background:var(--line);margin:30px 0}.axis{padding:0 0 4px 18px;position:relative;margin-bottom:26px}.axis:before{content:"";position:absolute;left:0;top:6px;bottom:6px;width:2px;border-radius:2px}.axis.ax1:before{background:var(--a1)}.axis.ax2:before{background:var(--a2)}.label{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:9px}.ax1 .label{color:var(--a1-deep)}.ax2 .label{color:var(--a2-deep)}.text{font-size:clamp(16px,4.4vw,18px);line-height:1.62;color:#37352e}details{border:1px solid var(--line);border-radius:8px;background:var(--panel);margin-bottom:10px;overflow:hidden}summary{cursor:pointer;list-style:none;padding:14px 16px;display:flex;gap:11px;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--soft)}summary::-webkit-details-marker{display:none}.chev{width:8px;height:8px;border-right:2px solid var(--a2-deep);border-bottom:2px solid var(--a2-deep);transform:rotate(-45deg);margin-top:3px}.body{padding:2px 16px 18px}.content-grid{display:grid;grid-template-columns:1fr;gap:10px}.mini-card{border:1px solid var(--line);background:#f8f6ef;border-radius:8px;padding:12px 13px}.mini-card b{display:block;margin-bottom:5px}table{border-collapse:collapse;width:100%;table-layout:fixed;font-size:13px}th,td{border-bottom:1px solid var(--line);padding:9px 11px;text-align:left;vertical-align:top;overflow-wrap:anywhere}th{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--soft)}td:first-child{color:var(--a2-deep);font-weight:600}code{font-family:var(--mono);font-size:12px;background:#edeae0;padding:1px 6px;border-radius:3px;color:var(--a2-deep);overflow-wrap:anywhere}.foot{margin-top:30px;padding-top:15px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;font-family:var(--mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:#a8a496}@media(min-width:720px){.sheet{padding:48px 34px}.content-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:640px){table,thead,tbody,tr,th,td{display:block;width:100%}thead{display:none}tr{border:1px solid var(--line);border-radius:8px;padding:9px 10px;margin-bottom:10px;background:#f8f6ef}td{border-bottom:0;padding:5px 0}}
+</style>
+</head>
+<body>
+<main class="sheet">
+  <div class="eyebrow"><span class="dot"></span><span class="id">ops-14</span><span>Monitoring Report</span><span class="status">archived</span></div>
+  <h1>OpenClaw evaluator 읽기 예산 게이트 검증</h1>
+  <p class="dek">구현 후 남아 있던 성공 기준인 NO_REPLY 실행 2회의 토큰 감소 관측을 완료했다.</p>
+  <div class="hr"></div>
+  <section class="axis ax1">
+    <div class="label">01 axis ax1 · 무엇을 점검했나</div>
+    <div class="text">2026-07-15 10:08 UTC 패치 이후 <code>Infinity intent local Claude router</code>의 evaluator 관련 NO_REPLY 실행 토큰을 좁게 확인했다.</div>
+  </section>
+  <section class="axis ax2">
+    <div class="label">02 axis ax2 · 이상 여부·조치</div>
+    <div class="text">11:07 UTC 27,498 tokens, 12:07 UTC 25,460 tokens로 기존 47,000~67,000 범위보다 낮았다. 성공 기준을 충족해 ops-14를 archive 처리한다.</div>
+  </section>
+  <details open>
+    <summary><span class="chev"></span> 핵심 내용</summary>
+    <div class="body">
+      <div class="content-grid">
+        <div class="mini-card"><b>구현 확인</b><p><code>/home/ubuntu/.claude/skills/infinity/SKILL.md</code>에 읽기 예산 3종과 조기 종료 조건이 이미 반영되어 있었다.</p></div>
+        <div class="mini-card"><b>관측 결과</b><p>패치 전 대표값 64,714 tokens 대비 11:07/12:07 실행은 각각 약 57.5%, 60.7% 낮았다.</p></div>
+      </div>
+    </div>
+  </details>
+  <details open>
+    <summary><span class="chev"></span> 관측값</summary>
+    <div class="body">
+      <table>
+        <thead><tr><th>시각</th><th>total_tokens</th><th>결과</th></tr></thead>
+        <tbody>
+          <tr><td>2026-07-15T11:07:27Z</td><td>27,498</td><td><code>NO_REPLY</code></td></tr>
+          <tr><td>2026-07-15T12:07:12Z</td><td>25,460</td><td><code>NO_REPLY</code></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </details>
+  <details>
+    <summary><span class="chev"></span> 실행 메타 · 산출물</summary>
+    <div class="body">
+      <ul>
+        <li>trigger: <code>cron:7502ef19-45c7-45f9-aa0e-b05c40ba670e</code></li>
+        <li>status: <code>waiting</code> to <code>archived</code></li>
+        <li>report: <code>reports/ops-14/20260715T1507Z.html</code></li>
+      </ul>
+    </div>
+  </details>
+  <div class="foot"><span>Agent-First Heartbeat</span><span>Infinity · Intent Note</span></div>
+</main>
+</body>
+</html>
