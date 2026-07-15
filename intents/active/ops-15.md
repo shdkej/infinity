@@ -1,11 +1,13 @@
 # [ops-15] layer-check 당일 라인 작성 경로 분리
 
 - id: ops-15
-- status: active
+- status: waiting
+- waiting_on: user
 - priority: high
 - permission: L1
 - proposed_by: sam-proposer
 - created_at: 2026-07-15T09:00Z
+- updated_at: 2026-07-15T14:00Z
 
 ## Goal
 KST 당일 23:00 이전에 아침/오후 크론 경로가 `layer-check.jsonl`에 `date == today` 라인을 추가하지 않도록 경계 코드 또는 설정을 추가한다.
@@ -31,5 +33,9 @@ prepare (Cloud) → execute_local (Local Claude Code)
 ## Local Execution
 `artifacts/ops-15/local-execution-prompt.md`
 
+## Waiting Reason
+클라우드 prepare 완료 (2026-07-15T09:00Z). 로컬 Claude Code 실행 대기.
+pt/purplemux Claude pane에서 `artifacts/ops-15/local-execution-prompt.md` 실행 필요.
+
 ## Next Action
-로컬 Claude Code로 `artifacts/ops-15/local-execution-prompt.md` 실행. 아침/오후 경로에서 layer-check.jsonl 쓰기 게이트 추가 후 dry-run 검증.
+로컬 Claude Code로 아침/오후 경로에 layer-check.jsonl 쓰기 게이트 추가 후 dry-run 검증.
