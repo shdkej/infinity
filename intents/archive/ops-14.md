@@ -20,7 +20,7 @@
     role: final
 - commits:
   - repo: infinity
-    sha: d67ee46
+    sha: 3748e1f
     note: archive/report update for ops-14 completion
 - urls: []
 - next_actions:
