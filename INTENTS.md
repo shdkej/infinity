@@ -4,14 +4,6 @@
 
 ## Inbox
 
-### [ops-15] layer-check 당일 라인 작성 경로 분리
-- proposed_by: sam-proposer
-- source_signal: system/docs/EVALUATION_NOTES.md#layer-check.jsonl-당일-보류-라인-최신-재현
-- rationale: 2026-07-13에 이어 2026-07-14에도 정본 문서가 밤 데일리 리뷰만 당일 layer-check 라인을 쓰도록 요구하는데, 아침/오후 실행 경로가 당일 보류 라인을 먼저 추가해 역할 분리가 반복해서 깨졌다.
-- expected_artifact: OpenClaw 07:00 리캡/정정 스크립트/관련 문서 중 실제 당일 layer-check append 경로를 막는 코드 또는 설정 변경과 검증 기록
-- permission_level: impl
-- success_criteria: KST 당일 23:00 데일리 리뷰 전에는 system/data/quality-gates/layer-check.jsonl에 date == today 라인이 새로 생기지 않고, 어제 라인 백필과 밤 리뷰 append는 각각 정상 동작한다는 dry-run 또는 다음 실행 검증 기록이 남는다.
-
 ## Active
 
 ## Waiting
@@ -43,6 +35,7 @@
 
 ## Archive
 
+<!-- ops-15 completed 2026-07-15T22:07Z → intents/archive/ops-15.md [projects: openclaw,infinity; type: maintenance; topics: automation,workflow] (아침 점검 스킬의 layer-check 당일 append 지시를 밤 데일리 리뷰 전용 경계로 고정했다. HTML report gate passed.) -->
 <!-- ops-14 completed 2026-07-15T15:07Z → intents/archive/ops-14.md [projects: openclaw,infinity; type: monitoring; topics: automation,workflow,llm] (evaluator NO_REPLY 실행 2건이 27,498 / 25,460 tokens로 내려가 읽기 예산 게이트 성공 기준을 충족했다. HTML report gate passed.) -->
 <!-- design-03 completed 2026-07-12T08:35Z → intents/archive/design-03.md [projects: personal-ops,content,design-system; type: research; topics: instagram,card-news,templates] (Instagram 카드뉴스용 힙하고 키치한 템플릿 10종을 리서치 중심으로 정리하고 한 장짜리 JPG 보드로 업로드했다. HTML report gate passed.) -->
 <!-- ops-10 completed 2026-07-11T12:07Z → intents/archive/ops-10.md [projects: openclaw,infinity; type: monitoring; topics: automation,workflow] (로컬 수정 후 다음 감시 사이클에서 Inbox blocker가 비어 있음을 확인해 proposer tool-failure diagnostics repair를 완료 처리했다. HTML report gate passed.) -->
