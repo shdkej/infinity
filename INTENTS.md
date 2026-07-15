@@ -31,6 +31,7 @@
 - local_exec: artifacts/ops-13/local-execution-prompt.md
 - waiting_reason: 로컬 Claude Code 실행 대기. pt/purplemux Claude pane에서 artifacts/ops-13/local-execution-prompt.md 실행 필요.
 - next_action: 로컬 Claude Code로 마케팅 크론 저장 직전 렌더 게이트(signal/diagnosis/action_candidate/measurement 필드 영어 서술형 감지 → 한국어 변환 또는 저장 보류) 반영 후 dry-run 검증
+- progress_20260715T0808Z: `/home/ubuntu/.openclaw/workspace-marketing/MARKETING.md`에 `marketing.jsonl` 저장 직전 한국어 렌더 게이트 계약을 추가하고 `reports/ops-13/20260715T0808Z-local-fix.html`에 진행 보고를 남김. 다음 마케팅 크론 실행 후 최신 JSONL 설명 필드 검증 필요.
 
 ### [ops-12] 마케팅 크론 git 동기화 실패 반복 경계 고정
 - status: waiting
