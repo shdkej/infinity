@@ -22,6 +22,7 @@
 
 ### [ops-13] 마케팅 inbox 한국어 렌더 게이트 고정
 - status: waiting
+- waiting_on: user
 - priority: high
 - approval: agent-approved L2 (2026-07-13T07:00Z)
 - goal: 마케팅 크론의 system/data/agent-inbox/marketing.jsonl 저장 직전 signal/diagnosis/action_candidate/measurement 필드에 영어 서술형 문장이 혼재하지 않도록 렌더 게이트를 정본 프롬프트나 헬퍼에 반영
@@ -34,6 +35,7 @@
 
 ### [ops-12] 마케팅 크론 git 동기화 실패 반복 경계 고정
 - status: waiting
+- waiting_on: user
 - priority: high
 - approval: agent-approved L2 (2026-07-12T10:07Z)
 - goal: 마케팅 크론의 git sync/rebase/push 실패를 NO_REPLY가 아니라 명시적 blocker로 처리하는 계약을 실행 경로에 반영

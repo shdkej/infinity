@@ -47,6 +47,103 @@ def clean_summary(raw: str, limit: int = 120) -> str:
     return first[: limit - 1].rstrip() + "…" if len(first) > limit else first
 
 
+def parse_entries(body: str, state: str) -> list[dict[str, str]]:
+    """Waiting/Active/Inbox의 실제 `### [id] 제목` 엔트리를 파싱한다.
+
+    2026-07-15 이전 리캡은 HTML 주석만 읽어서, 사용자 행동을 기다리는
+    Waiting 엔트리(ops-12·13)가 '대기 없음'으로 발송되는 누락이 있었다.
+    """
+    items: list[dict[str, str]] = []
+    current: dict[str, str] | None = None
+    for line in body.splitlines():
+        head = re.match(r"^### \[([^\]]+)\]\s*(.*)", line)
+        if head:
+            current = {
+                "id": head.group(1),
+                "state": state,
+                "title": head.group(2).strip(),
+                "display": head.group(2).strip() or head.group(1),
+                "status": state,
+                "summary": "",
+                "fields": {},
+                "progress_dates": [],
+            }
+            items.append(current)
+            continue
+        if current is None:
+            continue
+        field = re.match(r"^- ([a-zA-Z_][a-zA-Z0-9_]*):\s*(.+)", line)
+        if field:
+            key, value = field.group(1), field.group(2).strip()
+            if key.startswith("progress_"):
+                ts = re.search(r"(\d{8})", key)
+                if ts:
+                    current["progress_dates"].append(ts.group(1))
+            else:
+                current["fields"][key] = value
+            if key == "status":
+                current["status"] = value
+    return items
+
+
+def parse_iso_date(text: str) -> dt.date | None:
+    match = re.search(r"(\d{4})-(\d{2})-(\d{2})", text or "")
+    if not match:
+        return None
+    try:
+        return dt.date(int(match.group(1)), int(match.group(2)), int(match.group(3)))
+    except ValueError:
+        return None
+
+
+def is_user_turn(entry: dict) -> bool:
+    """waiting_on: user가 정본. 필드 없는 과거 엔트리는 waiting_reason 휴리스틱으로 보완."""
+    waiting_on = entry["fields"].get("waiting_on", "").lower()
+    if waiting_on:
+        return waiting_on == "user"
+    reason = entry["fields"].get("waiting_reason", "")
+    return bool(re.search(r"로컬 Claude|사용자", reason))
+
+
+def waited_days(entry: dict, today: dt.date) -> int | None:
+    for key in ("approval", "requested", "waiting_reason"):
+        d = parse_iso_date(entry["fields"].get(key, ""))
+        if d:
+            return (today - d).days
+    return None
+
+
+def your_turn_lines(waiting_entries: list[dict], today: dt.date) -> list[str]:
+    lines = []
+    for entry in waiting_entries:
+        if not is_user_turn(entry):
+            continue
+        days = waited_days(entry, today)
+        prefix = f"[{days}일째] " if days and days >= 2 else ""
+        action = clean_summary(entry["fields"].get("next_action", ""), 90)
+        line = f"{prefix}{entry['id']} {entry['display']}"
+        if action:
+            line += f" — 첫 액션: {action}"
+        lines.append(line)
+    return lines
+
+
+def pipeline_line(entry: dict, today: dt.date) -> str:
+    stages = []
+    approval_date = parse_iso_date(entry["fields"].get("approval", ""))
+    if approval_date:
+        stages.append(f"L2 승인 {approval_date:%m-%d}")
+    if entry["progress_dates"]:
+        latest = max(entry["progress_dates"])
+        stages.append(f"L3 진행 {latest[4:6]}-{latest[6:8]}")
+    if entry["state"] == "waiting":
+        stages.append("내 공(내 손 대기)" if is_user_turn(entry) else "대기(외부/에이전트)")
+    else:
+        stages.append("실행중")
+    flow = " → ".join(stages) if stages else entry["status"]
+    return f"{entry['id']} {entry['display']} — {flow}"
+
+
 def parse_comments(body: str, state: str) -> list[dict[str, str]]:
     items: list[dict[str, str]] = []
     for comment in re.findall(r"<!--\s*(.*?)\s*-->", body, re.S):
@@ -298,36 +395,64 @@ def main() -> None:
     intents_text = INTENTS.read_text(encoding="utf-8")
     gates_text = GATES.read_text(encoding="utf-8") if GATES.exists() else ""
 
-    inbox = parse_comments(section(intents_text, "Inbox"), "inbox")
-    active = parse_comments(section(intents_text, "Active"), "active")
-    waiting = parse_comments(section(intents_text, "Waiting"), "waiting")
+    today_kst = now_kst.date()
+    inbox = parse_entries(section(intents_text, "Inbox"), "inbox")
+    active = parse_entries(section(intents_text, "Active"), "active")
+    waiting = parse_entries(section(intents_text, "Waiting"), "waiting")
     archive = parse_comments(section(intents_text, "Archive"), "completed")
     completed = recent_completed(archive, now_utc)
 
+    # 블록 1 — 내 공: 사용자 손을 기다리는 것만
+    turn_lines = your_turn_lines(waiting, today_kst)
+    gates_count = pending_gates(gates_text)
+    if gates_count:
+        turn_lines.insert(0, f"게이트 승인 대기 {gates_count}건 (GATES.md)")
+
+    # 블록 2 — 시스템이 한 일 (최근 24시간)
     completed_lines = [
         f"{item['display']} — {item['summary'] or item['id']}" for item in completed[:5]
     ]
-    next_lines = [
-        f"{item['display']} ({item['status']})" for item in (inbox + active)[:5]
+    # 완료됐지만 미통보: notified 규약(2026-07-16~) 이후 완료분만 검사
+    unnotified = [
+        item for item in completed
+        if item["_ts_dt"].date() >= dt.date(2026, 7, 16) and "notified" not in item.get("summary", "")
     ]
-    waiting_lines = [f"{item['display']} ({item['status']})" for item in waiting[:3]]
-    gates_count = pending_gates(gates_text)
-    if gates_count:
-        waiting_lines.insert(0, f"승인 대기 {gates_count}건")
+
+    # 블록 3 — 흐르는 중: 요청별 파이프라인 위치
+    flow_lines = [pipeline_line(e, today_kst) for e in (active + waiting)[:6]]
+    flow_lines += [f"{e['id']} {e['display']} — 접수(Inbox)" for e in inbox[:3]]
 
     open_count = len(inbox) + len(active)
-    waiting_count = len(waiting) + gates_count
-    if completed:
-        headline = f"최근 24시간 완료 {len(completed)}건, 열린 실행 {open_count}건, 대기 {waiting_count}건입니다."
-    elif inbox or active:
+    if turn_lines:
+        headline = f"제 쪽이 아니라 마스터님 손을 기다리는 게 {len(turn_lines)}건 있습니다."
+    elif completed:
+        headline = f"최근 24시간 완료 {len(completed)}건, 흐르는 중 {open_count + len(waiting)}건. 마스터님 손 대기는 없습니다."
+    elif inbox or active or waiting:
         headline = "새 완료는 없고, 이어갈 작업만 남아 있습니다."
     else:
         headline = "새 완료와 열린 작업이 모두 조용합니다."
+
+    unnotified_note = (
+        f"\n⚠️ 완료됐지만 미통보 {len(unnotified)}건: " + ", ".join(i["id"] for i in unnotified)
+        if unnotified else ""
+    )
 
     message = f"""🌅 Infinity 07:00 리캡
 {now_kst:%Y-%m-%d} KST · 최근 24시간 · 관련 커밋 {commit_count}개 · 로컬 라우터 {len(local_events)}회
 
 {headline}
+
+---
+🙋 내 공 — 오늘 마스터님이 하실 것
+{bullet(turn_lines, "제 쪽에서 기다리는 건 없습니다")}
+
+---
+✅ 시스템이 한 일 (24시간)
+{bullet(completed_lines, "최근 24시간 완료 Archive 없음")}{unnotified_note}
+
+---
+🔄 흐르는 중 — 요청별 위치
+{bullet(flow_lines, "흐르는 중인 요청 없음")}
 
 ---
 로컬/클라우드 타임라인
@@ -336,18 +461,6 @@ def main() -> None:
 ---
 평가기
 {evaluator_timeline(eval_events)}
-
----
-✅ 완료
-{bullet(completed_lines, "최근 24시간 완료 Archive 없음")}
-
----
-➡️ 다음
-{bullet(next_lines, "Inbox/Active 비어 있음")}
-
----
-🟡 대기
-{bullet(waiting_lines, "승인/외부 조건 대기 없음")}
 """
     print(message.strip())
 

@@ -285,6 +285,28 @@ Inbox ──→ Active ──→ in_progress ──→ archived
 - `waiting → Active`: 승인 수신 또는 조건 충족 시
 - `in_progress → archived`: success_criteria 충족 또는 사용자가 완료 처리할 때
 
+### waiting_on 필드 (2026-07-15 필수)
+
+`waiting` 전환 시 누구를 기다리는지 반드시 명시한다. 아침 리캡이 이 필드로 "내 공" 블록을 만든다 — 필드가 없으면 사용자 손 대기가 리캡에서 침묵 속에 묻힌다 (ops-12가 3일간 그랬다).
+
+```markdown
+- waiting_on: user | external | agent
+```
+
+- `user`: 사용자 행동 필요 (로컬 실행, 결정, 승인). 리캡 최상단 "내 공"에 경과일과 함께 노출된다.
+- `external`: 외부 조건 (배포 대기, 서드파티 응답).
+- `agent`: 다른 에이전트/크론 사이클 대기.
+
+### notified 마커 (2026-07-16부터 필수)
+
+완료는 통보까지가 완료다. Archive 주석에 사용자 통보 시각을 남긴다:
+
+```markdown
+<!-- ops-16 completed 2026-07-16T09:00Z notified: 2026-07-16T09:01Z → ... -->
+```
+
+2026-07-16 이후 완료분에 `notified`가 없으면 아침 리캡이 "완료됐지만 미통보 N건"으로 잡아낸다. 통보 1회 유실이 영구 침묵이 되지 않게 하는 안전장치다.
+
 ## GATES.md 관리
 
 승인 요청 시 GATES.md "대기 중" 섹션에 추가:
