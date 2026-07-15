@@ -4,6 +4,14 @@
 
 ## Inbox
 
+### [ops-15] layer-check 당일 라인 작성 경로 분리
+- proposed_by: sam-proposer
+- source_signal: system/docs/EVALUATION_NOTES.md#layer-check.jsonl-당일-보류-라인-최신-재현
+- rationale: 2026-07-13에 이어 2026-07-14에도 정본 문서가 밤 데일리 리뷰만 당일 layer-check 라인을 쓰도록 요구하는데, 아침/오후 실행 경로가 당일 보류 라인을 먼저 추가해 역할 분리가 반복해서 깨졌다.
+- expected_artifact: OpenClaw 07:00 리캡/정정 스크립트/관련 문서 중 실제 당일 layer-check append 경로를 막는 코드 또는 설정 변경과 검증 기록
+- permission_level: impl
+- success_criteria: KST 당일 23:00 데일리 리뷰 전에는 system/data/quality-gates/layer-check.jsonl에 date == today 라인이 새로 생기지 않고, 어제 라인 백필과 밤 리뷰 append는 각각 정상 동작한다는 dry-run 또는 다음 실행 검증 기록이 남는다.
+
 ## Active
 
 ## Waiting
