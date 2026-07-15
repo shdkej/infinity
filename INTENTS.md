@@ -6,6 +6,16 @@
 
 ## Active
 
+### [ops-15] layer-check 당일 라인 작성 경로 분리
+- status: active
+- priority: high
+- permission: L1
+- goal: KST 당일 23:00 데일리 리뷰 전에는 아침/오후 실행 경로가 layer-check.jsonl에 date == today 라인을 추가하지 않도록 경계를 코드 또는 설정으로 고정한다
+- context: system/data/quality-gates/layer-check.jsonl, OpenClaw 07:00 리캡 스크립트, 오후 크론 경로
+- success_criteria: KST 당일 23:00 전에는 layer-check.jsonl에 date == today 라인이 추가되지 않고, 어제 백필과 밤 리뷰 append는 정상 동작한다는 dry-run 또는 다음 실행 검증 기록이 남는다
+- prepare_report: reports/ops-15/20260715T0900Z-prepare.html
+- local_exec: artifacts/ops-15/local-execution-prompt.md
+
 ## Waiting
 
 <!-- 사용자 결정, 외부 조건, 안전 확인 대기. 같은 질문을 반복하지 않고 상태만 보존한다. -->
@@ -35,7 +45,6 @@
 
 ## Archive
 
-<!-- ops-15 completed 2026-07-15T22:07Z → intents/archive/ops-15.md [projects: openclaw,infinity; type: maintenance; topics: automation,workflow] (아침 점검 스킬의 layer-check 당일 append 지시를 밤 데일리 리뷰 전용 경계로 고정했다. HTML report gate passed.) -->
 <!-- ops-14 completed 2026-07-15T15:07Z → intents/archive/ops-14.md [projects: openclaw,infinity; type: monitoring; topics: automation,workflow,llm] (evaluator NO_REPLY 실행 2건이 27,498 / 25,460 tokens로 내려가 읽기 예산 게이트 성공 기준을 충족했다. HTML report gate passed.) -->
 <!-- design-03 completed 2026-07-12T08:35Z → intents/archive/design-03.md [projects: personal-ops,content,design-system; type: research; topics: instagram,card-news,templates] (Instagram 카드뉴스용 힙하고 키치한 템플릿 10종을 리서치 중심으로 정리하고 한 장짜리 JPG 보드로 업로드했다. HTML report gate passed.) -->
 <!-- ops-10 completed 2026-07-11T12:07Z → intents/archive/ops-10.md [projects: openclaw,infinity; type: monitoring; topics: automation,workflow] (로컬 수정 후 다음 감시 사이클에서 Inbox blocker가 비어 있음을 확인해 proposer tool-failure diagnostics repair를 완료 처리했다. HTML report gate passed.) -->

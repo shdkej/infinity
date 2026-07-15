@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ops-15 — layer-check 당일 라인 작성 경로 분리 [prepare]</title>
+<style>
+  :root{
+    --bg:#f4f2ea; --panel:#fbfaf5; --ink:#2c2a25; --soft:#807c70; --faint:#a8a496; --line:#e3dfd2;
+    --a2:#5f7a5e; --a2-deep:#3f5740;
+    --a1:#b08545; --a1-deep:#8a6633;
+    --sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0; width:100%; max-width:100%; overflow-x:hidden;}
+  body{background:var(--bg); color:var(--ink); font-family:var(--sans); font-size:14px; line-height:1.68; -webkit-font-smoothing:antialiased;}
+  .sheet{width:min(100%,720px); max-width:720px; margin:0 auto; padding:32px 18px 40px;}
+  .reveal{opacity:0; animation:fade .7s ease forwards;}
+  @keyframes fade{from{opacity:0; transform:translateY(9px);} to{opacity:1; transform:none;}}
+  .eyebrow{display:flex; align-items:center; gap:10px; font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--soft); flex-wrap:wrap;}
+  .eyebrow .id{color:var(--a2-deep); font-weight:600;}
+  .eyebrow .dot{width:5px; height:5px; border-radius:50%; background:var(--a2);}
+  .eyebrow .status{color:var(--a2-deep);}
+  h1{font-size:clamp(22px,6vw,27px); line-height:1.3; font-weight:700; margin:20px 0 0; overflow-wrap:anywhere;}
+  .dek{font-size:15px; color:var(--soft); margin:13px 0 0; max-width:52ch;}
+  .hr{height:1px; background:var(--line); margin:28px 0;}
+  .axis{padding:0 0 4px 18px; position:relative; margin-bottom:24px;}
+  .axis::before{content:""; position:absolute; left:0; top:6px; bottom:6px; width:2px; border-radius:2px;}
+  .axis.ax1::before{background:var(--a1);} .axis.ax2::before{background:var(--a2);}
+  .axis.ax1{--ul:var(--a1);} .axis.ax2{--ul:var(--a2);}
+  .axis .label{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase; margin-bottom:9px; display:flex; align-items:center; gap:8px;}
+  .axis.ax1 .label{color:var(--a1-deep);} .axis.ax2 .label{color:var(--a2-deep);}
+  .axis .label .n{font-weight:600; opacity:.6;}
+  .axis .text{font-size:clamp(15px,4vw,17px); line-height:1.62; color:#37352e; overflow-wrap:anywhere;}
+  .axis .text b{font-weight:700; color:var(--ink); border-bottom:2px solid var(--ul);}
+  ol.find{list-style:none; counter-reset:f; margin:14px 0 0; padding:0;}
+  ol.find li{position:relative; padding:8px 0 8px 26px; font-size:14px; color:#37352e; border-top:1px solid var(--line);}
+  ol.find li:first-child{border-top:none;}
+  ol.find li::before{counter-increment:f; content:counter(f); position:absolute; left:0; top:9px; font-family:var(--mono); font-size:12px; font-weight:600; color:var(--a1-deep);}
+  details{border:1px solid var(--line); border-radius:8px; background:var(--panel); margin-bottom:10px; overflow:hidden;}
+  summary{cursor:pointer; list-style:none; padding:14px 16px; display:flex; align-items:center; gap:11px; font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft);}
+  summary::-webkit-details-marker{display:none;}
+  summary .chev{width:8px; height:8px; border-right:2px solid var(--a2-deep); border-bottom:2px solid var(--a2-deep); transform:rotate(-45deg); transition:.25s; flex:none; margin-left:2px;}
+  details[open] summary .chev{transform:rotate(45deg);}
+  .body{padding:2px 16px 18px; min-width:0;}
+  .section{margin:4px 0 16px;}
+  .section-title{font-family:var(--mono); font-size:10.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--a1-deep); margin:0 0 8px;}
+  .callout{border-left:2px solid var(--a2); background:#f2efe5; padding:11px 13px; color:#4a473f; margin:12px 0 16px;}
+  .content-grid{display:grid; grid-template-columns:1fr; gap:10px; margin:10px 0;}
+  .mini-card{border:1px solid var(--line); background:#f8f6ef; border-radius:8px; padding:12px 13px; min-width:0;}
+  .mini-card b{display:block; color:var(--ink); margin-bottom:5px;}
+  .mini-card p{margin:0;}
+  .chips{display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px;}
+  .chip{font-family:var(--mono); font-size:10.5px; letter-spacing:.05em; color:var(--soft); border:1px solid var(--line); border-radius:999px; padding:3px 10px;}
+  .body p{color:var(--soft); overflow-wrap:anywhere;}
+  .body ul{margin:6px 0; padding-left:18px;} .body li{margin:5px 0;}
+  code{font-family:var(--mono); font-size:12px; background:#edeae0; padding:1px 6px; border-radius:3px; color:var(--a2-deep); overflow-wrap:anywhere; word-break:break-word;}
+  .foot{margin-top:28px; padding-top:14px; border-top:1px solid var(--line); display:flex; flex-wrap:wrap; gap:6px 14px; justify-content:space-between; font-family:var(--mono); font-size:10px; letter-spacing:.13em; text-transform:uppercase; color:var(--faint);}
+  @media(min-width:720px){.sheet{padding:48px 34px 46px;} .content-grid{grid-template-columns:repeat(2,minmax(0,1fr));}}
+</style>
+</head>
+<body>
+<div class="sheet">
+  <div class="eyebrow reveal">
+    <span class="dot"></span>
+    <span class="id">ops-15</span>
+    <span>감시형 · prepare</span>
+    <span class="status">active → local 실행 대기</span>
+  </div>
+  <h1 class="reveal" style="animation-delay:.05s">layer-check 당일 라인 작성 경로 분리</h1>
+  <p class="dek reveal" style="animation-delay:.09s">아침/오후 크론이 layer-check.jsonl에 date == today 라인을 반복 삽입하는 역할 분리 위반 — 로컬 실행 프롬프트 준비 완료</p>
+
+  <div class="hr reveal" style="animation-delay:.12s"></div>
+
+  <div class="axis ax1 reveal" style="animation-delay:.16s">
+    <div class="label"><span class="n">01</span> 🟡 무엇을 점검했나</div>
+    <div class="text"><b>layer-check.jsonl에 아침/오후 경로가 당일 라인을 반복 삽입</b>하는 역할 분리 위반 (2026-07-13, 07-14 연속 발생). KST 23:00 밤 데일리 리뷰만 today 라인을 써야 하는 정책이 깨졌다.</div>
+  </div>
+
+  <div class="axis ax2 reveal" style="animation-delay:.22s">
+    <div class="label"><span class="n">02</span> ✅ 이상 여부·조치</div>
+    <div class="text">경계 위반 확인. <b>호출자 기반 게이트(LAYER_CHECK_NIGHTLY 플래그) 또는 시간 기반 게이트를 아침/오후 스크립트에 추가</b>하는 로컬 실행 프롬프트 준비 완료 — artifacts/ops-15/local-execution-prompt.md</div>
+  </div>
+
+  <div class="reveal" style="animation-delay:.27s">
+  <details open>
+    <summary><span class="chev"></span> 핵심 발견 · 분석</summary>
+    <div class="body">
+      <div class="section">
+        <div class="section-title">핵심 발견</div>
+        <ol class="find">
+          <li><strong>2일 연속 재현:</strong> 2026-07-13과 07-14 모두 아침/오후 크론 경로가 layer-check.jsonl에 date == today 라인을 먼저 추가했다. 단발 버그가 아니라 구조적 경계 미설정이다.</li>
+          <li><strong>역할 분리 정책 존재하나 코드 경계 없음:</strong> 정책(23:00 데일리 리뷰만 today 라인 허용)은 EVALUATION_NOTES.md에 명시되어 있으나, 아침/오후 경로에서 이 조건을 체크하는 코드가 없다.</li>
+          <li><strong>수정 범위 좁음:</strong> 어제 백필 경로는 건드리지 않아도 된다. layer-check.jsonl에 date == today로 쓰는 경로만 게이트 추가 대상이다.</li>
+          <li><strong>두 가지 수정 방법:</strong> (A) 시간 기반 — KST 22:30 이전이면 today 라인 skip, (B) 호출자 기반 — LAYER_CHECK_NIGHTLY=1 플래그가 없으면 today 라인 skip. 방법 B가 역할 분리를 더 명확하게 표현한다.</li>
+          <li><strong>Dry-run으로 검증 가능:</strong> 아침 경로 mock 실행 후 jsonl 변경 없음 + 밤 리뷰 경로 mock 실행 후 today 라인 추가됨을 확인하면 성공 기준 충족.</li>
+        </ol>
+      </div>
+
+      <div class="callout">권장 수정: 밤 데일리 리뷰 크론에만 <code>LAYER_CHECK_NIGHTLY=1</code> 환경변수를 추가하고, layer-check.jsonl 쓰기 직전에 이 플래그 없이 date == today이면 skip하는 가드를 삽입한다. 코드 구조상 어려우면 KST 시간 기반 게이트(22:30 기준)로 대체.</div>
+
+      <div class="content-grid">
+        <div class="mini-card">
+          <b>근거 · 소스</b>
+          <p>system/docs/EVALUATION_NOTES.md#layer-check.jsonl-당일-보류-라인-최신-재현 — 2026-07-13, 07-14 재현 기록. INTENTS.md ops-15 source_signal 참조.</p>
+        </div>
+        <div class="mini-card">
+          <b>다음 판단</b>
+          <p>로컬 Claude Code가 artifacts/ops-15/local-execution-prompt.md 실행 → 쓰기 경로 grep → 게이트 추가 → dry-run 검증 → HTML report 생성. 결과는 ops-15 waiting 또는 완료로 전환.</p>
+        </div>
+      </div>
+    </div>
+  </details>
+
+  <details open>
+    <summary><span class="chev"></span> 로컬 실행 계획</summary>
+    <div class="body">
+      <div class="section">
+        <div class="section-title">실행 단계</div>
+        <ul>
+          <li><strong>Step 1:</strong> <code>grep -rn "layer-check.jsonl"</code> 로 모든 쓰기 경로 찾기</li>
+          <li><strong>Step 2:</strong> EVALUATION_NOTES.md 해당 섹션 읽어 재현 맥락 파악</li>
+          <li><strong>Step 3:</strong> 아침/오후 경로에 게이트 추가 (B: LAYER_CHECK_NIGHTLY 플래그, 또는 A: KST 시간 기반)</li>
+          <li><strong>Step 4:</strong> 어제 백필 경로는 변경하지 않음</li>
+          <li><strong>Step 5:</strong> Dry-run 검증 3가지: 아침 경로(today 라인 없음), 밤 경로(today 라인 있음), 백필(어제 라인 있음)</li>
+        </ul>
+      </div>
+      <div class="section">
+        <div class="section-title">허용 / 금지</div>
+        <ul>
+          <li>허용: L0/L1 — 파일 읽기, 코드 수정, dry-run, 커밋</li>
+          <li>금지: 프로덕션 layer-check.jsonl 직접 수정, 어제 백필 경로 수정</li>
+        </ul>
+      </div>
+      <p>실행 프롬프트 위치: <code>artifacts/ops-15/local-execution-prompt.md</code></p>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="chev"></span> 실행 메타 · 산출물</summary>
+    <div class="body">
+      <div class="chips">
+        <span class="chip">2026-07-15T09:00Z</span>
+        <span class="chip">heartbeat · prepare</span>
+        <span class="chip">inbox → active</span>
+      </div>
+      <ul>
+        <li>INTENTS.md ops-15 Inbox → Active 이동</li>
+        <li>Active 원장 <code>intents/active/ops-15.md</code></li>
+        <li>로컬 실행 프롬프트 <code>artifacts/ops-15/local-execution-prompt.md</code></li>
+        <li>이 prepare 리포트 <code>reports/ops-15/20260715T0900Z-prepare.html</code></li>
+      </ul>
+    </div>
+  </details>
+  </div>
+
+  <div class="foot reveal" style="animation-delay:.3s">
+    <span>Agent-First Heartbeat</span>
+    <span>Infinity · ops-15 prepare</span>
+  </div>
+</div>
+</body>
+</html>
