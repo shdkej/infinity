@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ops-14 handoff</title>
+<style>
+  body{margin:0;background:#f4f2ea;color:#2c2a25;font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;font-size:14px;line-height:1.65}
+  .sheet{max-width:720px;margin:0 auto;padding:40px 20px}
+  .eyebrow{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#807c70}
+  h1{font-size:28px;line-height:1.3;margin:18px 0 10px}
+  .dek{color:#807c70;margin:0 0 28px}
+  .axis{padding-left:18px;border-left:2px solid;margin:22px 0}
+  .axis.ax1{border-color:#b08545}.axis.ax2{border-color:#5f7a5e}
+  .label{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:8px}
+  .ax1 .label{color:#8a6633}.ax2 .label{color:#3f5740}
+  details{border:1px solid #e3dfd2;border-radius:8px;background:#fbfaf5;margin-top:18px}
+  summary{cursor:pointer;padding:14px 16px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#807c70}
+  .body{padding:0 16px 18px}
+  code{background:#edeae0;color:#3f5740;padding:1px 5px;border-radius:3px}
+  li{margin:6px 0}
+</style>
+</head>
+<body>
+<div class="sheet">
+  <div class="eyebrow">ops-14 · handoff · 20260715T0907Z</div>
+  <h1>OpenClaw evaluator 읽기 예산 게이트 고정 handoff</h1>
+  <p class="dek">이번 bounded cycle은 단일 actionable Waiting intent를 확인했고, 과도한 로그 검색이 발생한 지점에서 구현 대신 다음 실행 범위를 좁혀 기록했다.</p>
+
+  <div class="axis ax1">
+    <div class="label">axis ax1 · 무엇을 점검했나</div>
+    <div>대상 intent는 <code>ops-14</code>이며, 목표는 evaluator 정본 프롬프트/헬퍼에 <code>EVALUATION_NOTES.md tail 120줄</code>, <code>OPERATING_LESSONS.md 관련 섹션만</code>, <code>최근 24시간 크론 요약만</code> 읽도록 고정하고 NO_REPLY 조기 종료 게이트를 추가하는 것이다.</div>
+  </div>
+
+  <div class="axis ax2">
+    <div class="label">axis ax2 · 다음 조치</div>
+    <div>다음 실행자는 repo 전체 또는 session 로그 전체를 검색하지 말고, <code>artifacts/ops-14/local-execution-prompt.md</code>에 적힌 좁은 탐색 명령으로 evaluator 정본 파일 1개를 찾은 뒤 해당 파일에만 규칙을 추가한다.</div>
+  </div>
+
+  <details open>
+    <summary>핵심 내용 · handoff</summary>
+    <div class="body">
+      <h2>진행 기록</h2>
+      <ul>
+        <li><code>INTENTS.md</code> Waiting의 <code>ops-14</code>가 user-blocking local execution target임을 확인했다.</li>
+        <li><code>intents/active/ops-14.md</code>와 <code>artifacts/ops-14/local-execution-prompt.md</code>를 읽어 성공 조건과 금지 조건을 확인했다.</li>
+        <li>광범위 <code>rg</code>가 <code>/home/ubuntu/.openclaw/.../sessions</code> 대형 JSONL 로그를 건드려 토큰 폭증 위험이 확인됐다. 이 경로는 다음 실행에서 제외해야 한다.</li>
+      </ul>
+      <h2>다음 범위</h2>
+      <ul>
+        <li>먼저 <code>find ~/.claude -maxdepth 4 \( -iname '*evaluat*' -o -iname '*EVALUATION*' -o -iname '*openclaw*' \)</code> 결과에서 사람이 읽을 수 있는 prompt/helper 후보만 고른다.</li>
+        <li>필요하면 <code>system/docs/EVALUATION_NOTES.md</code> 문제 섹션과 tail 120줄만 확인한다. 전체 파일 로드는 금지한다.</li>
+        <li>선택한 evaluator 정본 파일에 읽기 예산 3종과 초기 스캔 후 NO_REPLY 조기 종료 조건을 추가한다.</li>
+      </ul>
+      <h2>검증 게이트</h2>
+      <ul>
+        <li>수정 파일에서 <code>tail</code>, <code>120</code>, <code>24</code>, <code>NO_REPLY</code>, <code>조기 종료</code> 또는 <code>early exit</code>를 grep으로 확인한다.</li>
+        <li>바로 total token 감소를 입증할 수 없으면 complete/archive하지 말고 Waiting progress로 남긴다.</li>
+        <li>Infinity 파일을 수정한 경우 <code>infinity</code> main push와 parent <code>knowledge-lab</code> submodule pointer push까지 완료해야 한다.</li>
+      </ul>
+      <h2>금지 범위</h2>
+      <ul>
+        <li><code>/home/ubuntu/.openclaw/**/sessions</code> 또는 전체 home 대상 광범위 검색 금지.</li>
+        <li>프로덕션 변경, force push, 대량 삭제, 비용 발생 작업 금지.</li>
+        <li>검증 전 archive 처리 금지.</li>
+      </ul>
+    </div>
+  </details>
+</div>
+</body>
+</html>

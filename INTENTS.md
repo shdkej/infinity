@@ -20,6 +20,7 @@
 - local_exec: artifacts/ops-14/local-execution-prompt.md
 - waiting_reason: 로컬 Claude Code 실행 대기. pt/purplemux Claude pane에서 artifacts/ops-14/local-execution-prompt.md 실행 필요.
 - next_action: 로컬 Claude Code로 evaluator 읽기 예산 고정(OPERATING_LESSONS.md 관련 섹션, EVALUATION_NOTES.md tail 120줄, 최근 24시간 크론 요약만) 및 조기 종료 조건 추가 후 검증
+- progress_20260715T0907Z: bounded cron cycle에서 target file 탐색을 시작했으나 광범위 rg가 과도한 session 로그를 건드려 중단함. `reports/ops-14/20260715T0907Z-handoff.html`에 다음 실행 범위와 금지 범위를 고정했다. 다음 사이클은 `artifacts/ops-14/local-execution-prompt.md`의 탐색 명령만 실행하고, 발견된 evaluator 정본 1개에만 패치해야 한다.
 
 ### [ops-13] 마케팅 inbox 한국어 렌더 게이트 고정
 - status: waiting
