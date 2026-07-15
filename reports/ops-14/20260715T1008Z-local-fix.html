@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ops-14 local fix</title>
+<style>
+  :root{--bg:#f4f2ea;--panel:#fbfaf5;--ink:#2c2a25;--soft:#807c70;--line:#e3dfd2;--a1:#5a6f8a;--a1-deep:#3f536e;--a2:#5f7a5e;--a2-deep:#3f5740;--mono:ui-monospace,"SF Mono",Menlo,monospace;--sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif}
+  *{box-sizing:border-box} html,body{margin:0;max-width:100%;overflow-x:hidden} body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:14px;line-height:1.68}
+  .sheet{width:min(100%,720px);margin:0 auto;padding:42px 20px}.eyebrow{display:flex;gap:10px;flex-wrap:wrap;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--soft)}.dot{width:5px;height:5px;border-radius:50%;background:var(--a2);margin-top:8px}.id,.status{color:var(--a2-deep);font-weight:600}h1{font-size:28px;line-height:1.3;margin:18px 0 8px}.dek{color:var(--soft);margin:0 0 28px}.hr{height:1px;background:var(--line);margin:26px 0}.axis{position:relative;padding-left:18px;margin:0 0 24px}.axis:before{content:"";position:absolute;left:0;top:6px;bottom:6px;width:2px;border-radius:2px}.axis.ax1:before{background:var(--a1)}.axis.ax2:before{background:var(--a2)}.label{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:8px}.ax1 .label{color:var(--a1-deep)}.ax2 .label{color:var(--a2-deep)}.text{font-size:17px;line-height:1.62}details{border:1px solid var(--line);border-radius:8px;background:var(--panel);margin-bottom:10px;overflow:hidden}summary{cursor:pointer;list-style:none;padding:14px 16px;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--soft)}summary::-webkit-details-marker{display:none}.body{padding:0 16px 18px}.section-title{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--a1-deep);margin:10px 0 8px}code{font-family:var(--mono);font-size:12px;background:#edeae0;padding:1px 6px;border-radius:3px;color:var(--a2-deep);overflow-wrap:anywhere}li{margin:5px 0}.foot{margin-top:28px;padding-top:14px;border-top:1px solid var(--line);font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--soft)}
+</style>
+</head>
+<body>
+<div class="sheet">
+  <div class="eyebrow"><span class="dot"></span><span class="id">ops-14</span><span>Implementation Note</span><span class="status">waiting</span></div>
+  <h1>OpenClaw evaluator 읽기 예산 게이트 1차 반영</h1>
+  <p class="dek">좁은 탐색으로 정본 후보를 확인하고, Infinity Claude skill에 NO_REPLY 고토큰 루프 방지 규칙을 추가했다.</p>
+  <div class="hr"></div>
+  <section class="axis ax1">
+    <div class="label">axis ax1 · 무엇을 했나</div>
+    <div class="text">OpenClaw evaluator가 참조하는 정본 후보 <code>/home/ubuntu/.claude/skills/infinity/SKILL.md</code>에 읽기 예산과 조기 종료 조건을 추가했다.</div>
+  </section>
+  <section class="axis ax2">
+    <div class="label">axis ax2 · 결과</div>
+    <div class="text"><code>EVALUATION_NOTES.md</code> tail 120줄, <code>OPERATING_LESSONS.md</code> 관련 섹션만, 크론 로그 최근 24시간 요약만 허용하도록 고정했고, 이슈 없음 또는 재현 1건 확인 시 추가 읽기 없이 종료하게 했다.</div>
+  </section>
+  <details open>
+    <summary>핵심 내용</summary>
+    <div class="body">
+      <div class="section-title">변경</div>
+      <ul>
+        <li><code>~/.claude/skills/infinity/SKILL.md</code> 상단 운영 지침 아래에 <code>Evaluator Read Budget</code> 섹션을 추가했다.</li>
+        <li>전체 문서 로드 금지, 최근 24시간 로그 제한, <code>NO_REPLY</code> 조기 종료 게이트를 명시했다.</li>
+      </ul>
+      <div class="section-title">검증</div>
+      <ul>
+        <li><code>grep -n "tail|120|24|조기 종료|NO_REPLY" ~/.claude/skills/infinity/SKILL.md</code>로 필수 문구 존재를 확인했다.</li>
+        <li>다음 2회 evaluator 실행의 total_tokens 감소는 아직 관측 전이므로 intent는 Waiting으로 유지한다.</li>
+      </ul>
+    </div>
+  </details>
+  <details open>
+    <summary>상세</summary>
+    <div class="body">
+      <p>이번 사이클은 이전 handoff의 금지 범위를 따라 광범위 세션 로그 탐색을 하지 않았다. <code>~/.claude/agents</code>, <code>~/.claude/skills</code>, <code>~/openclaw</code>의 좁은 후보 탐색과 <code>EVALUATION_NOTES.md</code> tail 확인만 수행했다.</p>
+    </div>
+  </details>
+  <details>
+    <summary>메타</summary>
+    <div class="body">
+      <ul>
+        <li>timestamp: 20260715T1008Z</li>
+        <li>local file changed: <code>/home/ubuntu/.claude/skills/infinity/SKILL.md</code></li>
+        <li>archive status: not archived, awaiting two-run token verification</li>
+      </ul>
+    </div>
+  </details>
+  <div class="foot">Infinity · local execution report</div>
+</div>
+</body>
+</html>
