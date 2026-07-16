@@ -10,20 +10,6 @@
 
 <!-- 사용자 결정, 외부 조건, 안전 확인 대기. 같은 질문을 반복하지 않고 상태만 보존한다. -->
 
-### [ops-15] layer-check 당일 라인 작성 경로 분리
-- status: waiting
-- waiting_on: user
-- priority: high
-- permission: L1
-- goal: KST 당일 23:00 데일리 리뷰 전에는 아침/오후 실행 경로가 layer-check.jsonl에 date == today 라인을 추가하지 않도록 경계를 코드 또는 설정으로 고정한다
-- context: system/data/quality-gates/layer-check.jsonl, OpenClaw 07:00 리캡 스크립트, 오후 크론 경로
-- success_criteria: KST 당일 23:00 전에는 layer-check.jsonl에 date == today 라인이 추가되지 않고, 어제 백필과 밤 리뷰 append는 정상 동작한다는 dry-run 또는 다음 실행 검증 기록이 남는다
-- prepare_report: reports/ops-15/20260715T0900Z-prepare.html
-- local_exec: artifacts/ops-15/local-execution-prompt.md
-- waiting_reason: 클라우드 prepare 완료. 로컬 Claude Code 실행 대기. pt/purplemux Claude pane에서 artifacts/ops-15/local-execution-prompt.md 실행 필요.
-- next_action: 로컬 Claude Code로 아침/오후 경로에 layer-check.jsonl 쓰기 게이트 추가 후 dry-run 검증
-- progress_20260716T1108Z: 로컬 파일 검색과 접근 가능한 OpenClaw cron 목록에서는 실제 layer-check append 주체가 노출되지 않아 코드 추정 수정 없이 `reports/ops-15/20260716T1108Z-handoff.html`에 다음 실행 범위와 검증 게이트를 기록.
-
 ### [ops-13] 마케팅 inbox 한국어 렌더 게이트 고정
 - status: waiting
 - waiting_on: user
