@@ -4,6 +4,16 @@
 
 ## Inbox
 
+### [marketing-105] 첫 주 재방문 이유 관찰 칸 보강
+- proposed_by: marketing-cron
+- source_signal: Knowledge Lab `source/external-links/marketing/2026-07-16-early-activation-retention-benchmark.md`
+- rationale: Virtue는 prelaunch라 획득 수치보다 첫 세션 이후 같은 job으로 다시 올 이유가 생겼는지를 먼저 봐야 한다. Amplitude 벤치마크 요약은 초기 활성화와 3개월 리텐션의 연결을 강조하므로, 기존 첫 10명 관찰표에 `첫 주 재방문 이유`를 분리하면 작은 표본에서도 더 유효한 activation 증거를 남길 수 있다.
+- expected_artifact: 첫 10명 관찰 companion 또는 관련 마케팅 관찰표에 `첫 주 재방문 이유` 칸, 기록 기준, J1-J4 예시 1세트 추가
+- permission_level: L1
+- owner_route: Infinity router → Claude Code
+- success_criteria: 관찰표에서 `/add` 완료/저장 여부와 별도로 "사용자가 다시 올 상황을 자기 말로 말했는가"를 기록할 수 있고, prelaunch 표본 부족 시 성패 단정 금지 문구가 유지된다.
+- first_verification_gate: 수정 후 산출물에서 `첫 주 재방문 이유`, `같은 job`, `성패 단정 금지` 또는 동등한 한국어 기준이 모두 확인된다.
+
 ### [ops-16] 카드뉴스 published 재현성 게이트 고정
 - proposed_by: sam-proposer
 - source_signal: system/docs/EVALUATION_NOTES.md#카드뉴스-published-템플릿-추적-경계-최신-재현
