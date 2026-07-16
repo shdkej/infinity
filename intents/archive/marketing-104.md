@@ -15,7 +15,10 @@
 - reports:
   - path: reports/marketing-104/20260716T1007Z.html
     role: final
-- commits: []
+- commits:
+  - repo: infinity
+    sha: ede8827
+    note: marketing-104 companion artifact, HTML report, and INTENTS archive update
 - urls: []
 - next_actions:
   - 첫 관찰 10명 기록 후 `다음 행동 불명료`가 특정 잡에서 반복되면 별도 UX 수정 intent로 분리
