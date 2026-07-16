@@ -535,3 +535,15 @@ Infinity intent 처리 품질을 평가해 다음 pickup/구조화/실행에서 
 
 - 대상 intent: 2026-06-19 기준 research-16 lane 정합성
 - 평가: `INTENTS.md`와 `intents/archive/research-16.md`는 완료를 가리키지만 `intents/inbox/research-16.md`가 그대로 남아 있어 파일 기반 pickup이 완료 intent를 재처리할 수 있다. 다음 heartbeat는 신규 실행 전 registry의 Inbox가 비어 있어도 `intents/inbox/*` 잔존 파일을 별도 검사해 archive 완료 id와 충돌하면 삭제 또는 superseded 표식을 남겨야 한다.
+
+- 대상 intent: 2026-07-04 기준 design-02 lane 정합성
+- 평가: `INTENTS.md`와 `intents/archive/design-02.md`는 완료를 가리키지만 `intents/active/design-02.md`가 더 늦은 handoff/fast-forward 실패 상태로 남아 있어 registry 우선만으로는 재실행·완료 판정이 엇갈릴 수 있다. 다음 heartbeat는 신규 실행 전 archive 완료 id의 active 잔존 파일을 삭제만 하지 말고, active 수정 시각·본문이 archive 이후인지 확인해 필요한 내용은 archive canonical index에 병합한 뒤 lane을 정리해야 한다.
+
+- 대상 intent: 2026-07-05 기준 ops-03 Archive lane 정합성
+- 평가: `intents/archive/ops-03.md`는 존재하지만 `INTENTS.md`의 ops-03 완료 주석이 Archive가 아니라 Active 섹션에 남아 있어 레인 정본이 다시 흐려졌다. 완료 전이는 archive 파일 생성과 함께 registry 주석 위치가 Archive 섹션인지까지 게이트로 확인해야 한다.
+
+- 대상 intent: 2026-07-11 기준 ops-10 승인 레인
+- 평가: `permission_level: implementation approval required`인 ops-10이 Inbox에만 남아 있으면 heartbeat가 구조화 전 신호로 계속 보거나 승인 없이 Active로 옮길 여지가 있다. 다음 heartbeat는 L2 구현 승인 필요 intent를 pickup 즉시 Waiting + `owner_action`/GATES 대기 상태로 정규화한 뒤 승인 후 Active로 전이해야 한다.
+
+- 대상 intent: 2026-07-16 기준 ops-12 registry/archive 충돌
+- 평가: `INTENTS.md`는 ops-12를 Waiting으로 보존하지만 `intents/archive/ops-12.md`는 2026-07-13 완료를 선언하므로, 다음 heartbeat는 신규 실행보다 먼저 registry lane을 archive 파일과 맞춰 완료 주석으로 전환하거나 archive 파일을 superseded로 명시해야 한다.

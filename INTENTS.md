@@ -22,6 +22,7 @@
 - local_exec: artifacts/ops-15/local-execution-prompt.md
 - waiting_reason: 클라우드 prepare 완료. 로컬 Claude Code 실행 대기. pt/purplemux Claude pane에서 artifacts/ops-15/local-execution-prompt.md 실행 필요.
 - next_action: 로컬 Claude Code로 아침/오후 경로에 layer-check.jsonl 쓰기 게이트 추가 후 dry-run 검증
+- progress_20260716T1108Z: 로컬 파일 검색과 접근 가능한 OpenClaw cron 목록에서는 실제 layer-check append 주체가 노출되지 않아 코드 추정 수정 없이 `reports/ops-15/20260716T1108Z-handoff.html`에 다음 실행 범위와 검증 게이트를 기록.
 
 ### [ops-13] 마케팅 inbox 한국어 렌더 게이트 고정
 - status: waiting
