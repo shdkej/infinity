@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>marketing-107 report</title>
+<style>
+  :root{--bg:#f4f2ea;--panel:#fbfaf5;--ink:#2c2a25;--soft:#807c70;--faint:#a8a496;--line:#e3dfd2;--a2:#5f7a5e;--a2-deep:#3f5740;--a1:#a9745a;--a1-deep:#8a5c45;--sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;--mono:ui-monospace,"SF Mono",Menlo,monospace;}
+  *{box-sizing:border-box;}html,body{margin:0;width:100%;max-width:100%;overflow-x:hidden;}body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:14px;line-height:1.68}.sheet{width:min(100%,720px);max-width:720px;margin:0 auto;padding:32px 18px 40px}.eyebrow{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--soft);flex-wrap:wrap}.eyebrow .id{color:var(--a2-deep);font-weight:600}.dot{width:5px;height:5px;border-radius:50%;background:var(--a2)}h1{font-size:clamp(24px,7vw,29px);line-height:1.3;font-weight:700;letter-spacing:0;margin:20px 0 0}.dek{font-size:15.5px;color:var(--soft);margin:13px 0 0}.hr{height:1px;background:var(--line);margin:30px 0}.axis{padding:0 0 4px 18px;position:relative;margin-bottom:26px}.axis:before{content:"";position:absolute;left:0;top:6px;bottom:6px;width:2px;border-radius:2px}.axis.ax1:before{background:var(--a1)}.axis.ax2:before{background:var(--a2)}.label{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:9px}.ax1 .label{color:var(--a1-deep)}.ax2 .label{color:var(--a2-deep)}.text{font-size:clamp(16px,4.4vw,18px);line-height:1.62;color:#37352e}.text b{border-bottom:2px solid currentColor}details{border:1px solid var(--line);border-radius:8px;background:var(--panel);margin-bottom:10px;overflow:hidden}summary{cursor:pointer;list-style:none;padding:14px 16px;display:flex;align-items:center;gap:11px;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--soft)}summary::-webkit-details-marker{display:none}.chev{width:8px;height:8px;border-right:2px solid var(--a2-deep);border-bottom:2px solid var(--a2-deep);transform:rotate(-45deg)}details[open] .chev{transform:rotate(45deg)}.body{padding:2px 16px 18px}.section-title{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--a1-deep);margin:0 0 8px}ol.find{list-style:none;counter-reset:f;margin:16px 0 0;padding:0}ol.find li{position:relative;padding:8px 0 8px 26px;font-size:15px;border-top:1px solid var(--line)}ol.find li:first-child{border-top:none}ol.find li:before{counter-increment:f;content:counter(f);position:absolute;left:0;top:9px;font-family:var(--mono);font-size:12px;font-weight:600;color:var(--a1-deep)}.callout{border-left:2px solid var(--a2);background:#f2efe5;padding:11px 13px;color:#4a473f;margin:12px 0 16px}.content-grid{display:grid;grid-template-columns:1fr;gap:10px}.mini-card{border:1px solid var(--line);background:#f8f6ef;border-radius:8px;padding:12px 13px}table{border-collapse:collapse;width:100%;table-layout:fixed;font-size:13px}th,td{border-bottom:1px solid var(--line);padding:9px 11px;text-align:left;vertical-align:top;overflow-wrap:anywhere}th{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--soft)}td:first-child{color:var(--a2-deep);font-weight:600}.chips{display:flex;flex-wrap:wrap;gap:6px}.chip{font-family:var(--mono);font-size:10.5px;color:var(--soft);border:1px solid var(--line);border-radius:999px;padding:3px 10px}code{font-family:var(--mono);font-size:12px;background:#edeae0;padding:1px 6px;border-radius:3px;color:var(--a2-deep)}@media(min-width:720px){.sheet{padding:48px 34px 46px}.content-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:640px){table,thead,tbody,tr,th,td{display:block;width:100%}thead{display:none}tr{border:1px solid var(--line);border-radius:8px;padding:9px 10px;margin:0 0 10px;background:#f8f6ef}td{border-bottom:0;padding:5px 0}}
+</style>
+</head>
+<body><div class="sheet">
+  <div class="eyebrow"><span class="dot"></span><span class="id">marketing-107</span><span>Implementation Note</span><span>archived</span></div>
+  <h1>첫 10명 관찰표 smallest audience fit 보강</h1>
+  <p class="dek">기존 activation·첫 가치 도달 companion 앞에 작은 관객 적합도 선행 분류 칸을 추가했다.</p>
+  <div class="hr"></div>
+  <div class="axis ax1"><div class="label"><span>01</span> 무엇이 문제였나</div><div class="text">첫 10명 관찰에서 <b>저장/판정 이벤트</b>가 어느 작은 관객의 반복 가치 신호인지 먼저 분리되지 않으면, J1-J4 해석과 재방문 맥락이 뒤섞인다.</div></div>
+  <div class="axis ax2"><div class="label"><span>02</span> 어떻게 해결하나</div><div class="text"><b><code>smallest_audience_fit</code>, fit 근거 원문, 다시 돌아올 상황, fit confidence</b> 4칸을 관찰표 앞단에 추가하는 companion 문서를 만들었다.</div></div>
+  <details open><summary><span class="chev"></span> 핵심 내용 · 리서치 본문</summary><div class="body">
+    <div class="section-title">핵심 발견</div>
+    <ol class="find">
+      <li><code>smallest_audience_fit</code>은 activation 판정이 아니라 선행 관객 분류다. 기존 `첫 가치 도달 시점`과 `결과 이해 신호`를 대체하지 않는다.</li>
+      <li>`다시 돌아올 상황`은 D1/D7 결과값이 아니라 같은 job으로 자연스럽게 제품을 다시 열 맥락을 적는 칸이다.</li>
+      <li>J3는 저장 없는 종료를 fit 낮음이나 retention 약함으로 자동 판정하지 않는다. AI 판정 비교 욕구가 다시 돌아올 상황이 될 수 있다.</li>
+    </ol>
+    <div class="callout">First verification gate: 기존 `첫 주 재방문 이유`와 `retention 예측 신호`를 중복하지 않도록, 새 칸을 activation/retention보다 앞의 관객 가설 분류로 제한했다.</div>
+    <div class="content-grid"><div class="mini-card"><b>근거 · 소스</b><p><code>artifacts/marketing-79/week-one-activation-observation-table.html</code>, <code>artifacts/marketing-104/first-value-retention-gate-addendum.md</code>, <code>MARKETING_LEARNINGS.md</code>의 First Value Mapping과 First-User Learning Loop 기준.</p></div><div class="mini-card"><b>다음 판단</b><p>실제 첫 세션에서 같은 `다시 돌아올 상황`이 반복될 때만 후속 관찰 질문 또는 UX intent로 분리한다. 공개 카피·계측 변경은 approval-needed다.</p></div></div>
+  </div></details>
+  <details open><summary><span class="chev"></span> 추가 칸 요약</summary><div class="body">
+    <table><thead><tr><th>칸</th><th>역할</th></tr></thead><tbody>
+      <tr><td><code>smallest_audience_fit</code></td><td>J1/J2/J3/J4/혼합/불명 중 가장 가까운 작은 관객 가설 표시</td></tr>
+      <tr><td>fit 근거 원문</td><td>이벤트명이 아니라 사용자 자기 말 한 줄</td></tr>
+      <tr><td>다시 돌아올 상황</td><td>같은 job으로 다시 열 상황</td></tr>
+      <tr><td>fit confidence</td><td>자기 말/행동 추정/이벤트만 여부에 따라 높음/중간/낮음</td></tr>
+    </tbody></table>
+  </div></details>
+  <details><summary><span class="chev"></span> 실행 메타 · 산출물</summary><div class="body"><div class="chips"><span class="chip">20260717T2214Z</span><span class="chip">cron</span><span class="chip">Inbox -> Archive</span></div><ul><li>산출물 <code>artifacts/marketing-107/smallest-audience-fit-addendum.md</code></li></ul></div></details>
+</div></body></html>
