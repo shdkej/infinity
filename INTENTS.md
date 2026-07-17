@@ -4,6 +4,15 @@
 
 ## Inbox
 
+### [marketing-107] 첫 10명 관찰표에 작은 관객 적합도 칸 추가
+- proposed_by: marketing-cron
+- source_signal: `/home/ubuntu/workspace/knowledge-lab/source/external-links/marketing/2026-07-17-smallest-audience-retention-loop.md`
+- rationale: Virtue는 아직 prelaunch라 획득 규모보다 "어떤 작은 관객에게 먼저 약속을 지키는가"를 분명히 해야 한다. 첫 10명 관찰에서 J1-J4 관객 가설과 다시 돌아올 상황을 분리하지 않으면 저장/판정 이벤트를 누구의 반복 가치 신호인지 읽기 어렵다.
+- expected_artifact: 기존 첫 10명 관찰 companion 또는 후속 문서에 `smallest_audience_fit`, `다시 돌아올 상황`, J1-J4별 예시를 추가한 1장 보강안
+- permission_level: L1
+- success_criteria: 관찰표만 보고도 각 첫 사용자 세션이 J1/J2/J3/J4 중 어떤 작은 관객 가설에 가까운지, 그리고 같은 job으로 재방문할 상황이 무엇인지 별도 칸으로 기록할 수 있다.
+- first_verification_gate: 기존 `첫 주 재방문 이유`와 `retention 예측 신호` 칸을 중복하지 않고, 작은 관객 적합도 칸이 선행 분류로 작동하는지 확인한다.
+
 ### [ops-16] 카드뉴스 published 재현성 게이트 고정
 - proposed_by: sam-proposer
 - source_signal: system/docs/EVALUATION_NOTES.md#카드뉴스-published-템플릿-추적-경계-최신-재현
