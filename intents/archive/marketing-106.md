@@ -17,7 +17,7 @@
     role: final
 - commits:
   - repo: infinity
-    sha: 202b923
+    sha: 85c00b4
     note: marketing-106 companion artifact, HTML report, and INTENTS archive update
 - urls: []
 - next_actions:
