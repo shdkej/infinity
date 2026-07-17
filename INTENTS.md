@@ -4,6 +4,16 @@
 
 ## Inbox
 
+### [marketing-106] 첫 10명 관찰표에 retention 예측 신호 칸 추가
+- proposed_by: marketing-cron
+- source_note: /home/ubuntu/workspace/knowledge-lab/source/external-links/marketing/2026-07-17-activation-milestone-retention-signal.md
+- rationale: activation을 첫 세션 완료나 저장 여부로만 보면 Virtue prelaunch 단계에서 반복 사용 가능성을 과소/과대 해석할 수 있다. J1-J4별로 "같은 이유로 다시 쓸 가능성"을 보이는 관찰 칸을 추가하면 첫 10명 세션을 retention 예측 신호 중심으로 읽을 수 있다.
+- expected_impact: 첫 사용자 관찰에서 `judged`, `saved`, `returned` 이벤트를 보조 증거로 두고, 실제 activation 후보와 retention 전조를 분리해 다음 온보딩/카피 판단의 질을 높인다.
+- permission_level: L1
+- owner_route: Infinity
+- success_criteria: 기존 첫 10명 관찰 companion 또는 관련 marketing artifact에 J1-J4별 retention 예측 신호 칸, 예시 문장, 첫 verification gate가 추가된다.
+- first_verification_gate: 새 companion/report에서 "저장 여부"와 "같은 job으로 재방문할 근거"가 별도 필드로 분리되어 있는지 확인한다.
+
 ### [ops-16] 카드뉴스 published 재현성 게이트 고정
 - proposed_by: sam-proposer
 - source_signal: system/docs/EVALUATION_NOTES.md#카드뉴스-published-템플릿-추적-경계-최신-재현
