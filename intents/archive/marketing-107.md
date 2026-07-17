@@ -16,8 +16,8 @@
     role: final
 - commits:
   - repo: infinity
-    sha: d144b9f
-    note: cron completion commit
+    sha: 700c2cb
+    note: completion artifact/report/archive commit
 - urls: []
 - next_actions:
   - 실제 첫 사용자 세션에서 같은 `다시 돌아올 상황`이 반복될 때만 후속 관찰 질문 또는 UX intent로 분리한다.
