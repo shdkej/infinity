@@ -16,8 +16,8 @@
     role: final
 - commits:
   - repo: infinity
-    sha: f8850fb
-    note: cron completion commit
+    sha: 92d45cc
+    note: cron completion content commit
 - urls: []
 - next_actions:
   - SAM/리캡에서 전체 전략이 아니라 "오늘 바로 고를 게시 후보 1개"만 먼저 사용자에게 올린다.
