@@ -8,6 +8,16 @@
 
 <!-- marketing-107 completed 2026-07-17T22:14 -> intents/archive/marketing-107.md [projects: virtue; type: implementation; topics: marketing,activation,retention] (첫 10명 관찰표 companion에 smallest audience fit 선행 분류 칸 추가) -->
 
+### [marketing-108] 첫 가치 경로 관점의 온보딩 관찰 companion 감사
+- proposed_by: marketing-cron
+- source_note: source/external-links/marketing/2026-07-18-product-led-onboarding-system.md
+- rationale: 제품 주도 온보딩은 개별 안내 문구가 아니라 사용자가 자기 목표에서 첫 가치까지 가는 시스템이어야 한다. 현재 Virtue는 prelaunch라 지표 판단보다 첫 10명 관찰표가 이 경로를 제대로 읽는지 확인하는 편이 더 적합하다.
+- expected_impact: 첫 사용자 관찰에서 버튼 클릭, 저장 여부, 결과 이해를 넘어서 `사용자 목표 → 첫 가치 도달 화면 → 가치 직전 막힘 → 다음 행동 명료성`을 같은 경로로 판독할 수 있다.
+- permission_level: L1
+- owner_route: Infinity
+- success_criteria: 기존 첫 10명 관찰 companion 또는 보조 문서에 first-value path 감사표가 추가되고, J1-J4 예시 중 최소 2개에 적용한 샘플 판독이 포함된다.
+- first_verification_gate: 산출물에서 새 칸이 Appcues 온보딩 노트의 시스템 관점과 연결되어 있으며, production code/deploy/tracking 변경 없이 문서 산출물만 변경했는지 확인한다.
+
 ## Active
 
 ## Waiting
