@@ -4,6 +4,8 @@
 
 ## Inbox
 
+<!-- marketing-109 accepted 2026-07-18T11:58Z → Active [projects: personal-brand,content,world-travel; type: strategy; topics: marketing,threads,instagram,content-growth] (Threads 부흥 및 Instagram 병행 성장 전략을 2주 실험안으로 작성하도록 접수) -->
+
 <!-- marketing-108 completed 2026-07-18T10:07 -> intents/archive/marketing-108.md [projects: virtue; type: implementation; topics: marketing,activation,product] (첫 10명 관찰 companion에 first-value path 감사표와 J1/J3/J4 샘플 판독 추가) -->
 
 <!-- ops-16 completed 2026-07-18T00:07 -> intents/archive/ops-16.md [projects: openclaw,infinity; type: maintenance; topics: content,workflow,automation] (카드뉴스 published 항목이 untracked local_config/source-assets를 참조하면 library build가 실패하도록 재현성 게이트 추가) -->
@@ -11,6 +13,23 @@
 <!-- marketing-107 completed 2026-07-17T22:14 -> intents/archive/marketing-107.md [projects: virtue; type: implementation; topics: marketing,activation,retention] (첫 10명 관찰표 companion에 smallest audience fit 선행 분류 칸 추가) -->
 
 ## Active
+
+### [marketing-109] Threads 부흥 및 Instagram 병행 성장 전략
+- status: active
+- priority: normal
+- projects: [personal-brand, content, world-travel]
+- task_type: strategy
+- topics: [marketing, threads, instagram, content-growth]
+- owner: marketing
+- requested_at: 2026-07-18T11:58Z
+- source: user request in Telegram
+- goal: 마스터님의 Threads를 다시 살릴 방법을 찾고, 같은 관찰/여행/제작 기록을 Instagram에서도 쓰일 수 있는 2주 단위 콘텐츠 실험 전략으로 압축한다.
+- context: 최근 쾰른/베를린 여행 Threads 초안 흐름, 세계여행 3축(YouTube 추억, 여행/사용자 통찰 앱, AI 미니 워크숍), 기존 카드뉴스/Instagram 템플릿 리서치.
+- next_action: 마케팅 에이전트가 최근 Threads 톤과 여행 콘텐츠 흐름을 기준으로 `Threads 재활성화 가설 3개`, `Instagram 병행 포맷 3개`, `2주 실험 캘린더`, `측정 기준`을 한 장으로 제안한다.
+- measurement: 2주 동안 게시 가능한 최소 실험 6~10개가 나오고, Threads와 Instagram이 서로 복붙이 아니라 역할이 분리되어야 한다.
+- approval_boundary: 전략/초안/캘린더 작성까지 허용. 실제 게시, DM, 광고 집행, 계정 설정 변경은 사용자 승인 전 금지.
+- artifacts:
+  - intents/active/marketing-109.md
 
 ## Waiting
 
