@@ -4,6 +4,14 @@
 
 ## Inbox
 
+### [ops-17] 카드뉴스 published 원본 자산 재현성 게이트 고정
+- proposed_by: sam-proposer
+- source_signal: system/docs/EVALUATION_NOTES.md#카드뉴스-사용자-원본-사진의-추적-경계-부재+카드뉴스-published-재현성-경계의-최신-프라하-항목-반복
+- rationale: `cologne-insight-2026-07-14`와 `czech-walk-prague-2026-07-16` published 항목이 사용자 원본 source-assets를 참조하지만 해당 입력 폴더가 untracked로 남아, 깨끗한 체크아웃에서 재렌더와 검수가 재현되지 않는 문제가 반복됐다.
+- expected_artifact: 카드뉴스 publish 완료 조건에 `local_config`뿐 아니라 참조 source-assets의 tracked/ignored/외부보관 경계를 검증하는 게이트 또는 정본 규칙 반영
+- permission_level: impl
+- success_criteria: untracked source-assets를 참조한 채 `status: published`로 닫히는 경로가 검증에서 실패하고, 최근 쾰른/프라하 사례 중 하나 이상으로 dry-run 또는 재현 테스트 결과가 남는다.
+
 <!-- marketing-109 completed 2026-07-18T12:07Z → intents/archive/marketing-109.md [projects: personal-brand,content,world-travel; type: strategy; topics: marketing,content-growth,instagram] (오늘 후보를 쾰른 셀프웨딩스냅 관찰 포스트로 좁히고 Threads 4개·Instagram 4개 2주 실험안을 완성했다. HTML report gate passed.) -->
 
 <!-- marketing-108 completed 2026-07-18T10:07 -> intents/archive/marketing-108.md [projects: virtue; type: implementation; topics: marketing,activation,product] (첫 10명 관찰 companion에 first-value path 감사표와 J1/J3/J4 샘플 판독 추가) -->
