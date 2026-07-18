@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>marketing-109 Threads Instagram 2주 실험안</title>
+<style>
+  :root{
+    --bg:#f4f2ea; --panel:#fbfaf5; --ink:#2c2a25; --soft:#807c70; --faint:#a8a496; --line:#e3dfd2;
+    --a2:#5f7a5e; --a2-deep:#3f5740;
+    --a1:#a9745a; --a1-deep:#8a5c45;
+    --sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box;} html,body{margin:0;width:100%;max-width:100%;overflow-x:hidden;}
+  body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:14px;line-height:1.68;-webkit-font-smoothing:antialiased;}
+  .sheet{width:min(100%,720px);max-width:720px;margin:0 auto;padding:32px 18px 40px;}
+  .eyebrow{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--soft);flex-wrap:wrap;}
+  .eyebrow .id{color:var(--a2-deep);font-weight:600}.eyebrow .dot{width:5px;height:5px;border-radius:50%;background:var(--a2)}.eyebrow .status{color:var(--a2-deep)}
+  h1{font-size:clamp(24px,7vw,29px);line-height:1.3;font-weight:700;letter-spacing:0;margin:20px 0 0;overflow-wrap:anywhere;}
+  .dek{font-size:15.5px;color:var(--soft);margin:13px 0 0;max-width:52ch}.hr{height:1px;background:var(--line);margin:30px 0}
+  .axis{padding:0 0 4px 18px;position:relative;margin-bottom:26px}.axis::before{content:"";position:absolute;left:0;top:6px;bottom:6px;width:2px;border-radius:2px}
+  .axis.ax1::before{background:var(--a1)}.axis.ax2::before{background:var(--a2)}.axis.ax1{--ul:var(--a1)}.axis.ax2{--ul:var(--a2)}
+  .axis .label{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:9px;display:flex;align-items:center;gap:8px}
+  .axis.ax1 .label{color:var(--a1-deep)}.axis.ax2 .label{color:var(--a2-deep)}.axis .label .n{font-weight:600;opacity:.6}
+  .axis .text{font-size:clamp(16px,4.4vw,18px);line-height:1.62;color:#37352e;overflow-wrap:anywhere}.axis .text b{font-weight:700;color:var(--ink);border-bottom:2px solid var(--ul)}
+  ol.find{list-style:none;counter-reset:f;margin:16px 0 0;padding:0}ol.find li{position:relative;padding:8px 0 8px 26px;font-size:15px;color:#37352e;border-top:1px solid var(--line)}ol.find li:first-child{border-top:none}ol.find li::before{counter-increment:f;content:counter(f);position:absolute;left:0;top:9px;font-family:var(--mono);font-size:12px;font-weight:600;color:var(--a1-deep)}
+  details{border:1px solid var(--line);border-radius:8px;background:var(--panel);margin-bottom:10px;overflow:hidden}summary{cursor:pointer;list-style:none;padding:14px 16px;display:flex;align-items:center;gap:11px;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--soft)}summary::-webkit-details-marker{display:none}.chev{width:8px;height:8px;border-right:2px solid var(--a2-deep);border-bottom:2px solid var(--a2-deep);transform:rotate(-45deg);transition:.25s;flex:none;margin-left:2px}details[open] summary .chev{transform:rotate(45deg)}
+  .body{padding:2px 16px 18px;min-width:0}.section{margin:4px 0 18px}.section-title{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--a1-deep);margin:0 0 8px}.callout{border-left:2px solid var(--a2);background:#f2efe5;padding:11px 13px;color:#4a473f;margin:12px 0 16px}.content-grid{display:grid;grid-template-columns:1fr;gap:10px;margin:10px 0}.mini-card{border:1px solid var(--line);background:#f8f6ef;border-radius:8px;padding:12px 13px;min-width:0}.mini-card b{display:block;color:var(--ink);margin-bottom:5px}.mini-card p{margin:0}
+  table{border-collapse:collapse;width:100%;max-width:100%;table-layout:fixed;font-size:13px;margin:4px 0 12px}th,td{border-bottom:1px solid var(--line);padding:9px 11px;text-align:left;vertical-align:top;overflow-wrap:anywhere;word-break:break-word}th{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--soft);font-weight:600}td:first-child{color:var(--a2-deep);font-weight:600;white-space:normal}.body p{color:var(--soft);overflow-wrap:anywhere}.body ul{margin:6px 0;padding-left:18px}.body li{margin:5px 0}code{font-family:var(--mono);font-size:12px;background:#edeae0;padding:1px 6px;border-radius:3px;color:var(--a2-deep);overflow-wrap:anywhere;word-break:break-word}.chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}.chip{font-family:var(--mono);font-size:10.5px;letter-spacing:.05em;color:var(--soft);border:1px solid var(--line);border-radius:999px;padding:3px 10px}.foot{margin-top:30px;padding-top:15px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:6px 14px;justify-content:space-between;font-family:var(--mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--faint)}
+  @media (min-width:720px){.sheet{padding:48px 34px 46px}.eyebrow .status{margin-left:auto}.axis{padding-left:22px;margin-bottom:30px}.content-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  @media (max-width:640px){table,thead,tbody,tr,th,td{display:block;width:100%}thead{display:none}tr{border:1px solid var(--line);border-radius:8px;padding:9px 10px;margin:0 0 10px;background:#f8f6ef}td{border-bottom:0;padding:5px 0}td:first-child{font-family:var(--mono);font-size:11px;letter-spacing:.05em}}
+</style>
+</head>
+<body>
+<div class="sheet">
+  <div class="eyebrow"><span class="dot"></span><span class="id">marketing-109</span><span>Strategy Note</span><span class="status">archived</span></div>
+  <h1>Threads 부흥 및 Instagram 병행 성장 전략</h1>
+  <p class="dek">최근 쾰른/베를린 여행 기록 톤을 기준으로 오늘 고를 1개와 2주 실험안을 좁혔다.</p>
+  <div class="hr"></div>
+  <div class="axis ax1"><div class="label"><span class="n">01</span> 무엇이 문제였나</div><div class="text">Threads를 다시 살리되 Instagram까지 같이 열어야 해서, <b>채널별 역할을 나누지 않으면 같은 여행 원재료를 복붙하는 전략</b>으로 흐를 위험이 있었다.</div></div>
+  <div class="axis ax2"><div class="label"><span class="n">02</span> 어떻게 해결하나</div><div class="text">오늘은 <b>쾰른 셀프웨딩스냅 관찰 포스트</b>를 우선 후보로 두고, 2주 동안 Threads 4개와 Instagram 4개를 역할 분리형으로 실험한다.</div></div>
+  <details open>
+    <summary><span class="chev"></span> 핵심 내용 · 리서치 본문</summary>
+    <div class="body">
+      <div class="section"><div class="section-title">핵심 발견</div><ol class="find">
+        <li>Threads는 완성 여행기가 아니라 짧은 관찰, 다음 도시 예고, 대화 유도에 맞다.</li>
+        <li>Instagram은 같은 텍스트의 재게시보다 사진 콜라주, 카드뉴스, 릴스 커버 같은 시각 구조로 바꿀 때 역할이 생긴다.</li>
+        <li>세계여행 3축은 한 게시물에 모두 넣지 않고 YouTube 추억, 앱/사용자 통찰, AI 미니 워크숍 중 하나만 얇게 연결해야 한다.</li>
+      </ol></div>
+      <div class="callout">SAM/리캡에는 전체 전략보다 "오늘 바로 고를 게시 후보 1개: 쾰른 셀프웨딩스냅 관찰 포스트"를 먼저 올리는 것이 좋다.</div>
+      <div class="content-grid">
+        <div class="mini-card"><b>근거 · 소스</b><p>활성 intent의 쾰른 Threads 초안 흐름, 세계여행 3축, Instagram 카드뉴스 템플릿 자산, Marketing Learnings의 작은 표본 언어 중심 판단 원칙을 반영했다.</p></div>
+        <div class="mini-card"><b>다음 판단</b><p>사용자가 오늘 올릴 1개를 고르면 Threads 본문 1개와 Instagram 표지/캡션 1개로만 다음 산출물을 좁힌다.</p></div>
+      </div>
+    </div>
+  </details>
+  <details open>
+    <summary><span class="chev"></span> 2주 실험 요약</summary>
+    <div class="body">
+      <table><thead><tr><th>축</th><th>내용</th></tr></thead><tbody>
+        <tr><td>오늘 후보</td><td>쾰른에서 셀프웨딩스냅을 찍고 나니, 여행이 꼭 장소를 소비하는 일만은 아니라는 생각이 들었습니다.</td></tr>
+        <tr><td>Threads 가설</td><td>짧은 관찰+다음 도시 예고, 여행 장면에서 제작 인사이트로 얇게 연결, 존댓말 기록형 톤 유지.</td></tr>
+        <tr><td>Instagram 포맷</td><td>사진 콜라주 4장, 카드뉴스 5장, 릴스 커버+짧은 캡션.</td></tr>
+        <tr><td>캘린더</td><td>2주 동안 Threads 4개와 Instagram 4개, 총 8개 후보로 제한한다.</td></tr>
+        <tr><td>측정</td><td>Threads는 답글의 구체성, Instagram은 저장/공유/프로필 이동을 보되 작은 표본에서 성패율로 단정하지 않는다.</td></tr>
+      </tbody></table>
+    </div>
+  </details>
+  <details>
+    <summary><span class="chev"></span> 실행 메타 · 산출물</summary>
+    <div class="body">
+      <div class="chips"><span class="chip">20260718T1207Z</span><span class="chip">cron</span><span class="chip">active → archived</span></div>
+      <ul>
+        <li>산출물 <code>artifacts/marketing-109/threads-instagram-2week-experiment.md</code></li>
+        <li>원장 <code>intents/archive/marketing-109.md</code></li>
+      </ul>
+      <div class="section"><div class="section-title">계승한 기준</div><p>작은 표본은 언어의 성격으로 읽고, 외부 게시/DM/광고/계정 변경은 사용자 승인 전 하지 않는다.</p></div>
+    </div>
+  </details>
+  <div class="foot"><span>Agent-First Heartbeat</span><span>Infinity · Intent Note</span></div>
+</div>
+</body>
+</html>
