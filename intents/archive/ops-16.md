@@ -20,7 +20,7 @@
     sha: c71ac09
     note: 카드뉴스 library 빌더 경계 검사
   - repo: infinity
-    sha: pending
+    sha: be90d1f
     note: ops-16 archive/report
 - urls: []
 - next_actions:
