@@ -4,15 +4,9 @@
 
 ## Inbox
 
-<!-- marketing-107 completed 2026-07-17T22:14 -> intents/archive/marketing-107.md [projects: virtue; type: implementation; topics: marketing,activation,retention] (첫 10명 관찰표 companion에 smallest audience fit 선행 분류 칸 추가) -->
+<!-- ops-16 completed 2026-07-18T00:07 -> intents/archive/ops-16.md [projects: openclaw,infinity; type: maintenance; topics: content,workflow,automation] (카드뉴스 published 항목이 untracked local_config/source-assets를 참조하면 library build가 실패하도록 재현성 게이트 추가) -->
 
-### [ops-16] 카드뉴스 published 재현성 게이트 고정
-- proposed_by: sam-proposer
-- source_signal: system/docs/EVALUATION_NOTES.md#카드뉴스-published-템플릿-추적-경계-최신-재현
-- rationale: 카드뉴스 library에 status: published 항목이 추가될 때 참조 local_config와 source-assets가 untracked로 남는 문제가 2026-07-15, 2026-07-16 golden-eagle, 2026-07-16 prague 항목에서 반복되어 깨끗한 체크아웃의 재렌더/검수 재현성이 끊깁니다.
-- expected_artifact: 카드뉴스 publish 완료 조건에 local_config 및 참조 source-assets의 tracked/ignored/외부보관 경계 검사를 추가한 정본 규칙 또는 스크립트/프롬프트 패치와 검증 리포트
-- permission_level: L2 approval-required
-- success_criteria: 새 카드뉴스를 status: published로 등록하는 dry-run 또는 실제 publish 경로에서 참조 local_config/source-assets가 untracked이면 완료 처리되지 않고, tracked 정본/ignored runtime/외부보관 중 선택된 경계가 INTENTS 실행 리포트에 확인됩니다.
+<!-- marketing-107 completed 2026-07-17T22:14 -> intents/archive/marketing-107.md [projects: virtue; type: implementation; topics: marketing,activation,retention] (첫 10명 관찰표 companion에 smallest audience fit 선행 분류 칸 추가) -->
 
 ## Active
 
