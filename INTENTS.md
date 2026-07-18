@@ -4,6 +4,17 @@
 
 ## Inbox
 
+### [marketing-110] 첫 10명 관찰표에 작은 청중 추천 언어 칸 추가
+- proposed_by: marketing-cron
+- source_signal: `/home/ubuntu/workspace/knowledge-lab/source/external-links/marketing/2026-07-18-smallest-audience-first-value-loop.md`
+- rationale: Virtue는 prelaunch라 넓은 획득 지표보다 누가 첫 가치를 자기 언어로 추천할 수 있는지 확인하는 편이 안전하다. 기존 J1-J4 관찰표에 작은 청중 후보와 추천 문장을 연결하면 채널 확장 전 메시지 평균화를 줄일 수 있다.
+- expected_impact: 첫 10명 관찰에서 단순 저장/판정 완료가 아니라 `누구에게 추천할 제품인가`와 `첫 가치가 어떤 말로 재현되는가`를 함께 남겨, 이후 홈 카피와 재초대 언어 후보를 더 좁게 고를 수 있다.
+- permission_level: L1
+- owner_route: Infinity → Claude Code docs-only
+- source_note_path: `/home/ubuntu/workspace/knowledge-lab/source/external-links/marketing/2026-07-18-smallest-audience-first-value-loop.md`
+- success_criteria: 기존 Virtue 첫 10명 관찰 companion 또는 관련 activation 문서에 `추천할 한 사람`, `그 사람에게 쓰는 한 문장`, `첫 가치 재현 조건` 칸과 J1-J4 중 최소 2개 예시가 추가된다.
+- first_verification_gate: 변경 후 `git diff --check`와 문서 내 영어-first 운영 문구 미혼입 확인을 통과한다.
+
 ### [ops-17] 카드뉴스 published 원본 자산 재현성 게이트 고정
 - proposed_by: sam-proposer
 - source_signal: system/docs/EVALUATION_NOTES.md#카드뉴스-사용자-원본-사진의-추적-경계-부재+카드뉴스-published-재현성-경계의-최신-프라하-항목-반복
