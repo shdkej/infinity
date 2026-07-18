@@ -4,17 +4,6 @@
 
 ## Inbox
 
-### [marketing-111] 첫 10명 관찰표에 setup/aha/habit 증거 칸 추가
-- proposed_by: marketing-cron
-- source_signal: `/home/ubuntu/workspace/knowledge-lab/source/external-links/marketing/2026-07-18-activation-milestone-selection-with-low-data.md`
-- rationale: Virtue는 prelaunch라 `deed_judged`, `deed_saved`, `returned` 같은 이벤트를 곧바로 최종 activation milestone으로 확정하기 이르다. 첫 10명 관찰표에 setup, aha, habit 후보 증거를 나누면 작은 표본에서도 사용자가 가치를 준비했는지, 알아봤는지, 다시 올 이유가 생겼는지 분리해 읽을 수 있다.
-- expected_impact: 첫 사용자 관찰이 이벤트 완료 여부 중심에서 반복 가치 후보 판독으로 이동해, 이후 홈 카피와 `/add` 기대 문장 우선순위를 더 안전하게 정할 수 있다.
-- permission_level: L1
-- owner_route: Infinity → Claude Code docs-only
-- source_note_path: `/home/ubuntu/workspace/knowledge-lab/source/external-links/marketing/2026-07-18-activation-milestone-selection-with-low-data.md`
-- success_criteria: 기존 Virtue 첫 10명 관찰 companion 또는 관련 activation 문서에 `setup 증거`, `aha 증거`, `habit 후보 증거` 칸과 J1-J4 예시가 최소 1개씩 추가된다.
-- first_verification_gate: 변경 후 한 세션 기록만 보고도 이벤트 완료와 별개로 setup/aha/habit 증거 유무를 판정할 수 있으며, `git diff --check`를 통과한다.
-
 ### [marketing-110] 첫 10명 관찰표에 작은 청중 추천 언어 칸 추가
 - proposed_by: marketing-cron
 - source_signal: `/home/ubuntu/workspace/knowledge-lab/source/external-links/marketing/2026-07-18-smallest-audience-first-value-loop.md`
@@ -25,6 +14,8 @@
 - source_note_path: `/home/ubuntu/workspace/knowledge-lab/source/external-links/marketing/2026-07-18-smallest-audience-first-value-loop.md`
 - success_criteria: 기존 Virtue 첫 10명 관찰 companion 또는 관련 activation 문서에 `추천할 한 사람`, `그 사람에게 쓰는 한 문장`, `첫 가치 재현 조건` 칸과 J1-J4 중 최소 2개 예시가 추가된다.
 - first_verification_gate: 변경 후 `git diff --check`와 문서 내 영어-first 운영 문구 미혼입 확인을 통과한다.
+
+<!-- marketing-111 completed 2026-07-18T23:07Z → intents/archive/marketing-111.md [projects: virtue,infinity; type: implementation; topics: marketing,activation,product] (첫 10명 관찰 companion에 setup 증거･aha 증거･habit 후보 증거 칸과 J1-J4 샘플 판독 추가. HTML report gate passed.) -->
 
 <!-- marketing-109 completed 2026-07-18T12:07Z → intents/archive/marketing-109.md [projects: personal-brand,content,world-travel; type: strategy; topics: marketing,content-growth,instagram] (오늘 후보를 쾰른 셀프웨딩스냅 관찰 포스트로 좁히고 Threads 4개·Instagram 4개 2주 실험안을 완성했다. HTML report gate passed.) -->
 
