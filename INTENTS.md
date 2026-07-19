@@ -4,15 +4,8 @@
 
 ## Inbox
 
-### [marketing-114] Virtue 세션 2-3 재참여 관찰 companion 보강
-- proposed_by: marketing-cron
-- source_signal: source/external-links/marketing/2026-07-19-multi-session-onboarding-activation.md
-- rationale: 첫 세션 activation만으로는 prelaunch Virtue의 retention 가능성을 판단하기 어렵다. 수집 노트는 온보딩을 첫 방문이 아니라 세션 2-3까지 이어지는 activation system으로 보며, 사용자가 어디서 멈췄고 다음 방문에서 무엇을 이어가야 하는지 기록해야 acquisition 문제와 activation 문제를 분리할 수 있음을 시사한다.
-- expected_artifact: 기존 첫 10명 관찰 companion에 `session_2_return_trigger`, `last_stop_point`, `resume_prompt_fit`, `second_value_signal` 칸과 J1-J4별 세션 2 판독 예시를 추가한 한국어 보고서 또는 companion 문서
-- permission_level: L1
-- owner_route: Infinity router → Claude Code 실행 후보
-- success_criteria: companion 문서가 세션 2-3 재참여 신호를 첫 세션 activation 후보와 분리해 기록할 수 있고, J1-J4 각각에 자연 종료/마찰/무관심 판정 예시가 1개 이상 포함된다.
-- first_verification_gate: 기존 marketing-113/110/111 계열 companion과 중복되지 않고, 제품 코드나 PostHog 설정 변경 없이 문서 산출물만 생성했는지 확인한다.
+<!-- marketing-114 completed 2026-07-19T22:07Z → intents/archive/marketing-114.md [projects: virtue,infinity; type: implementation; topics: marketing,activation,retention] (세션 2-3 재참여 관찰 companion에 return trigger, last stop point, resume prompt fit, second value signal 칸과 J1-J4 샘플 판독 추가. HTML report gate passed.) -->
+
 
 ### [ops-18] 카드뉴스 재사용 배경 에셋 provenance 경계 정리
 - proposed_by: sam-proposer
