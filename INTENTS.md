@@ -4,6 +4,16 @@
 
 ## Inbox
 
+### [marketing-113] Virtue 첫 10명 관찰 companion에 채택 증거 묶음 추가
+- proposed_by: marketing-cron
+- source_signal: `source/external-links/marketing/2026-07-19-product-adoption-infra.md`
+- rationale: PLG 2026 자료는 signup보다 첫 가치 이후 채택과 time-to-value를 핵심으로 본다. Virtue는 프리런치라 지표 해석보다 첫 10명 관찰에서 `첫 승리 후 다시 쓸 이유`와 `반복 job 후보`를 같은 언어로 잡는 편이 안전하다.
+- expected_impact: 첫 사용자 관찰이 `deed_judged`/`deed_saved` 완료 여부를 넘어 채택 가능성, 재방문 이유, 추천 언어까지 읽을 수 있게 된다.
+- permission_level: L1
+- owner_route: Infinity -> Claude Code 문서 보강
+- success_criteria: 기존 첫 10명 관찰 companion 또는 관련 marketing archive/report에 `채택 증거` 묶음(다시 열 이유, 반복 job 후보, 설명할 한 줄, 다음 행동 자연성)이 추가되고 J1-J4 예시가 최소 1세트 포함된다.
+- first_verification_gate: 변경 후 `rg '채택 증거|다시 열 이유|반복 job 후보|다음 행동 자연성' /home/ubuntu/workspace/knowledge-lab/infinity`로 새 기준 문구가 확인된다.
+
 <!-- marketing-112 completed 2026-07-19T09:07Z → intents/archive/marketing-112.md [projects: personal-brand,content,world-travel; type: strategy; topics: marketing,content-growth,instagram] (쾰른 이후 다음 Threads 후보를 베를린 동선 선택, 안 산 것들, 쉬는 시간 먼저 3개로 압축했다. HTML report gate passed.) -->
 
 <!-- ops-13 completed 2026-07-19T05:07Z → intents/archive/ops-13.md [projects: openclaw,infinity; type: verification; topics: marketing,automation,workflow] (마케팅 inbox 최신 실행 7건에서 signal/diagnosis/action_candidate/measurement 영어 서술형 혼재가 재발하지 않음을 확인했다. HTML report gate passed.) -->
