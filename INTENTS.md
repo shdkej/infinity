@@ -26,19 +26,9 @@
 
 <!-- 사용자 결정, 외부 조건, 안전 확인 대기. 같은 질문을 반복하지 않고 상태만 보존한다. -->
 
-### [ops-12] 마케팅 크론 git 동기화 실패 반복 경계 고정
-- status: waiting
-- waiting_on: user
-- priority: high
-- approval: agent-approved L2 (2026-07-12T10:07Z)
-- goal: 마케팅 크론의 git sync/rebase/push 실패를 NO_REPLY가 아니라 명시적 blocker로 처리하는 계약을 실행 경로에 반영
-- context: OpenClaw Marketing-agent-growth-review 크론 프롬프트/헬퍼
-- prepare_report: reports/ops-12/20260712T1007Z-prepare.html
-- local_exec: artifacts/ops-12/local-execution-prompt.md
-- waiting_reason: 로컬 Claude Code 실행 대기. pt/purplemux Claude pane에서 artifacts/ops-12/local-execution-prompt.md 실행 필요.
-- next_action: 로컬 Claude Code로 Marketing-agent-growth-review 크론 프롬프트에 git failure gate 추가 후 검증
-
 ## Archive
+
+<!-- ops-12 completed 2026-07-13T22:15Z → intents/archive/ops-12.md [projects: openclaw,infinity; type: monitoring; topics: automation,workflow] (Marketing-agent-growth-review 크론 payload에 GIT SYNC FAILURE GATE를 추가해 git 실패를 NO_REPLY로 묵살하지 않고 Infinity Inbox blocker 또는 한국어 blocker로 남기도록 반영했다. HTML report gate passed.) -->
 
 <!-- marketing-106 completed 2026-07-17T10:07Z → intents/archive/marketing-106.md [projects: virtue,infinity; type: strategy; topics: marketing,activation,retention] (첫 10명 관찰 companion에 저장 여부･같은 job 재방문 근거･retention 예측 신호･첫 verification gate 칸과 J1-J4 예시를 추가했다. HTML report gate passed.) -->
 
