@@ -16,7 +16,7 @@
     role: final
 - commits:
   - repo: infinity
-    sha: 393970e
+    sha: 231ee40
     note: docs: add Virtue session 2 reengagement companion (marketing-114)
 - urls: []
 - next_actions:
