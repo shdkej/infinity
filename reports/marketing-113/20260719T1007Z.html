@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>marketing-113 report</title>
+<style>
+:root{--bg:#f4f2ea;--panel:#fbfaf5;--ink:#2c2a25;--soft:#807c70;--line:#e3dfd2;--a1:#a9745a;--a1-deep:#8a5c45;--a2:#5f7a5e;--a2-deep:#3f5740;--mono:ui-monospace,"SF Mono",Menlo,monospace;--sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif}
+*{box-sizing:border-box}html,body{margin:0;max-width:100%;overflow-x:hidden}body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:14px;line-height:1.68}.sheet{width:min(100%,720px);margin:0 auto;padding:40px 20px}.eyebrow,.label,summary,.chip{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--soft)}h1{font-size:28px;line-height:1.3;margin:16px 0 8px}.dek{color:var(--soft);margin:0 0 28px}.axis{padding-left:18px;margin:0 0 24px;position:relative}.axis:before{content:"";position:absolute;left:0;top:5px;bottom:5px;width:2px}.axis.ax1:before{background:var(--a1)}.axis.ax2:before{background:var(--a2)}.axis.ax1 .label{color:var(--a1-deep)}.axis.ax2 .label{color:var(--a2-deep)}.text{font-size:17px}.text b{border-bottom:2px solid var(--a2)}details{border:1px solid var(--line);background:var(--panel);border-radius:8px;margin:10px 0;overflow:hidden}summary{cursor:pointer;list-style:none;padding:14px 16px}.body{padding:0 16px 18px}.find{margin:8px 0 0;padding-left:20px}.find li{margin:7px 0}.callout{border-left:2px solid var(--a2);background:#f2efe5;padding:11px 13px;margin:12px 0}.grid{display:grid;grid-template-columns:1fr;gap:10px}.mini{border:1px solid var(--line);border-radius:8px;background:#f8f6ef;padding:12px}code{font-family:var(--mono);background:#edeae0;padding:1px 5px;border-radius:3px;color:var(--a2-deep);word-break:break-word}@media(min-width:700px){.grid{grid-template-columns:1fr 1fr}.sheet{padding:48px 34px}}
+</style>
+</head>
+<body>
+<div class="sheet">
+  <div class="eyebrow">marketing-113 · archived · 2026-07-19T10:07Z</div>
+  <h1>Virtue 첫 10명 관찰표 채택 증거 보강</h1>
+  <p class="dek">PLG 채택 관점의 첫 가치 이후 재사용 언어를 기존 관찰 companion에 추가했다.</p>
+  <div class="axis ax1"><div class="label">01 무엇이 문제였나</div><div class="text">기존 첫 10명 관찰표는 이벤트 완료, 가치 발견, 추천 언어를 잘 분리했지만 <b>첫 가치 이후 다시 쓸 이유</b>를 별도 증거로 묶는 기준이 약했다.</div></div>
+  <div class="axis ax2"><div class="label">02 어떻게 해결하나</div><div class="text"><b>채택 증거 묶음</b>을 추가해 다시 열 이유, 반복 job 후보, 설명할 한 줄, 다음 행동 자연성을 함께 기록하게 했다. J1-J4 샘플 1세트도 같은 artifact에 넣었다.</div></div>
+  <details open><summary>핵심 내용 · 리서치 본문</summary><div class="body">
+    <ol class="find">
+      <li>채택 증거는 signup, 저장, 클릭 수가 아니라 첫 가치 이후 사용자가 말하는 재사용 명분으로 읽는다.</li>
+      <li>J1/J2/J4의 저장 완료와 J3의 저장 없는 정상 종료 경계는 그대로 유지했다.</li>
+      <li>반복 job 후보는 매일 기록, 누적 확인, AI 관점 확인, 하루 정리처럼 잡별로 다르게 적는다.</li>
+      <li>다음 행동 자연성은 CTA 반응이 아니라 사용자의 말과 다음 행동이 맞는지 보는 칸이다.</li>
+    </ol>
+    <div class="callout">기존 관찰표를 새 지표판으로 바꾸지 않고, 첫 10명 손기록 때 채택 가능성을 읽는 보조 렌즈만 추가했다.</div>
+    <div class="grid"><div class="mini"><b>근거 · 소스</b><p>Inbox source signal <code>2026-07-19-product-adoption-infra.md</code>와 기존 <code>artifacts/marketing-79/week-one-activation-observation-table.html</code> 구조를 기준으로 했다.</p></div><div class="mini"><b>다음 판단</b><p>실제 첫 10명 관찰에서 같은 반복 job 후보가 2명 이상 겹칠 때만 후속 UX/copy intent로 분리한다.</p></div></div>
+  </div></details>
+  <details open><summary>상세 · 변경 사항</summary><div class="body">
+    <ul>
+      <li>가이드 영역에 <code>채택 증거 묶음</code>을 추가했다.</li>
+      <li>J1-J4별 <code>다시 열 이유</code>, <code>반복 job 후보</code>, <code>설명할 한 줄</code>, <code>다음 행동 자연성</code> 샘플을 추가했다.</li>
+      <li>주의사항에 채택 증거를 수치로 환산하지 않는 경계를 추가했다.</li>
+    </ul>
+  </div></details>
+  <details><summary>실행 메타 · 산출물</summary><div class="body">
+    <span class="chip">Inbox → Archive</span>
+    <ul><li>산출물 <code>artifacts/marketing-79/week-one-activation-observation-table.html</code></li><li>검증 <code>rg '채택 증거|다시 열 이유|반복 job 후보|다음 행동 자연성'</code> PASS</li></ul>
+  </div></details>
+</div>
+</body>
+</html>

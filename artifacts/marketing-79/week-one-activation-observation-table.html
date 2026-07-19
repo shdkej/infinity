@@ -84,7 +84,7 @@ details.ex-d[open] summary .chev{transform:rotate(45deg);}
 </head>
 <body>
 <div class="sheet">
-  <div class="eyebrow">marketing-79 · artifact · virtue · prelaunch · updated 2026-07-02 (marketing-98)</div>
+  <div class="eyebrow">marketing-79 · artifact · virtue · prelaunch · updated 2026-07-19 (marketing-113)</div>
   <h1>Virtue 첫 10명 활성화 관찰표</h1>
   <p class="lead">출시 직후 1주차 손기록 전용. 이 표는 수치·전환율·PMF 판단 도구가 아니라 행동 성격을 잡별로 읽기 위한 정성 관찰 재료다. J3 사용자의 저장 없는 종료는 정상 종료다.</p>
 
@@ -116,6 +116,15 @@ details.ex-d[open] summary .chev{transform:rotate(45deg);}
         <li><b>activation 판정</b> — 잡별 FV 임계값 돀달 여부. J1/J2/J4 = <code>deed_saved</code>, J3 = <code>deed_judged</code>.</li>
         <li>둘은 <b>독립 판정</b>이다. J3이 저장 안 해도 activation = <b>돀달</b>. J1이 "재미네" 말해도 저장 전이면 activation = <b>미돀달</b>.</li>
         <li><code>judged but not saved</code> J3 세션 → 가치 발견 있음 + activation 돀달 → 정상 종료. 실패로 읽지 않는다.</li>
+      </ul>
+    </div>
+    <div class="gc wide">
+      <div class="gc-t">채택 증거 묶음 — 첫 가치 이후 다시 쓸 이유 (marketing-113)</div>
+      <ul>
+        <li><b>다시 열 이유</b> — 사용자가 내일/다음 주에 같은 화면을 다시 열 명분을 자기 말로 말했는가.</li>
+        <li><b>반복 job 후보</b> — 오늘 한 행동이 1회 재미인지, 같은 job으로 반복 가능한지 적는다. 예: 매일 기록, 누적 확인, AI 관점 확인, 하루 정리.</li>
+        <li><b>설명할 한 줄</b> — 누군가에게 Virtue를 어떻게 설명할지 한 문장으로 적는다. 추천 언어보다 넓은 채택 언어다.</li>
+        <li><b>다음 행동 자연성</b> — 저장/홈 복귀/다음 기록/공유/종료 중 어떤 다음 행동이 사용자의 말과 맞았는지 적는다. 억지 CTA 반응은 채택 증거가 아니다.</li>
       </ul>
     </div>
   </div>
@@ -154,6 +163,13 @@ details.ex-d[open] summary .chev{transform:rotate(45deg);}
         <div class="ex-row"><span class="ex-k">activation</span><span class="ex-v"><b>미돀달</b> · J1 FV = <code>deed_saved</code> 미완료</span></div>
         <div class="ex-row"><span class="ex-k">결과 분류</span><span class="ex-v">성공 아님. B-LOST 후보. 저장 경로 마찰 의심.</span></div>
       </div>
+      <div class="ex-card">
+        <div class="ex-t">채택 증거 묶음 · J1~J4 샘플</div>
+        <div class="ex-row"><span class="ex-k">J1</span><span class="ex-v">다시 열 이유: "내일도 한 줄 남기면 쌓일 것 같아" · 반복 job 후보: 매일 기록 · 설명할 한 줄: "착한 일을 게임처럼 기록하는 앱" · 다음 행동 자연성: 저장 후 홈에서 최근 덕행 확인.</span></div>
+        <div class="ex-row"><span class="ex-k">J2</span><span class="ex-v">다시 열 이유: "덕력이 얼마나 오르는지 보고 싶다" · 반복 job 후보: 누적 성장 확인 · 설명할 한 줄: "내 선행 점수가 자라는 앱" · 다음 행동 자연성: 저장 후 누적 숫자 확인.</span></div>
+        <div class="ex-row"><span class="ex-k">J3</span><span class="ex-v">다시 열 이유: "다른 행동도 AI가 뭐라 하는지 궁금하다" · 반복 job 후보: AI 관점 확인 · 설명할 한 줄: "내 행동을 덕으로 판정해주는 앱" · 다음 행동 자연성: 저장 없이 종료하거나 다른 입력을 시도해도 정상.</span></div>
+        <div class="ex-row"><span class="ex-k">J4</span><span class="ex-v">다시 열 이유: "하루 끝에 정리할 때 쓰면 좋겠다" · 반복 job 후보: 회고 루틴 · 설명할 한 줄: "오늘 한 좋은 일을 정리하게 해주는 앱" · 다음 행동 자연성: 저장 후 메모처럼 남겼다고 느끼는지 확인.</span></div>
+      </div>
     </div>
   </details>
 
@@ -190,10 +206,11 @@ details.ex-d[open] summary .chev{transform:rotate(45deg);}
       <li>D1 재방문 숫자는 KPI가 아니라 RC 분류 출발점이다 (RC-WARM vs RC-NORMAL 구분).</li>
       <li>자기 말은 원문 그대로 손기록한다. 공개 카피나 신규 이벤트로 전환하지 않는다.</li>
       <li>가치 발곬 신호와 activation 판정은 독립 판정이다. 하나를 다른 하나로 추론하지 않는다.</li>
+      <li>채택 증거는 signup·클릭·저장 수가 아니라 다시 열 이유, 반복 job 후보, 설명할 한 줄, 다음 행동 자연성을 함께 보고 적는다.</li>
     </ul>
   </div>
 
-  <div class="foot">marketing-79 · artifact · virtue · Infinity Heartbeat Agent · updated marketing-98</div>
+  <div class="foot">marketing-79 · artifact · virtue · Infinity Heartbeat Agent · updated marketing-113</div>
 </div>
 </body>
 </html>
