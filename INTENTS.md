@@ -4,6 +4,8 @@
 
 ## Inbox
 
+<!-- ops-13 completed 2026-07-19T05:07Z → intents/archive/ops-13.md [projects: openclaw,infinity; type: verification; topics: marketing,automation,workflow] (마케팅 inbox 최신 실행 7건에서 signal/diagnosis/action_candidate/measurement 영어 서술형 혼재가 재발하지 않음을 확인했다. HTML report gate passed.) -->
+
 <!-- marketing-110 completed 2026-07-19T00:08Z → intents/archive/marketing-110.md [projects: virtue,infinity; type: implementation; topics: marketing,activation,product] (첫 10명 관찰 companion에 추천할 한 사람･그 사람에게 쓰는 한 문장･첫 가치 재현 조건 칸과 J1-J4 샘플 판독 추가. HTML report gate passed.) -->
 
 <!-- marketing-111 completed 2026-07-18T23:07Z → intents/archive/marketing-111.md [projects: virtue,infinity; type: implementation; topics: marketing,activation,product] (첫 10명 관찰 companion에 setup 증거･aha 증거･habit 후보 증거 칸과 J1-J4 샘플 판독 추가. HTML report gate passed.) -->
@@ -23,19 +25,6 @@
 ## Waiting
 
 <!-- 사용자 결정, 외부 조건, 안전 확인 대기. 같은 질문을 반복하지 않고 상태만 보존한다. -->
-
-### [ops-13] 마케팅 inbox 한국어 렌더 게이트 고정
-- status: waiting
-- waiting_on: user
-- priority: high
-- approval: agent-approved L2 (2026-07-13T07:00Z)
-- goal: 마케팅 크론의 system/data/agent-inbox/marketing.jsonl 저장 직전 signal/diagnosis/action_candidate/measurement 필드에 영어 서술형 문장이 혼재하지 않도록 렌더 게이트를 정본 프롬프트나 헬퍼에 반영
-- context: OpenClaw Marketing-agent-growth-review 크론 프롬프트/헬퍼, system/data/agent-inbox/marketing.jsonl
-- prepare_report: reports/ops-13/20260713T0700Z-prepare.html
-- local_exec: artifacts/ops-13/local-execution-prompt.md
-- waiting_reason: 로컬 Claude Code 실행 대기. pt/purplemux Claude pane에서 artifacts/ops-13/local-execution-prompt.md 실행 필요.
-- next_action: 로컬 Claude Code로 마케팅 크론 저장 직전 렌더 게이트(signal/diagnosis/action_candidate/measurement 필드 영어 서술형 감지 → 한국어 변환 또는 저장 보류) 반영 후 dry-run 검증
-- progress_20260715T0808Z: `/home/ubuntu/.openclaw/workspace-marketing/MARKETING.md`에 `marketing.jsonl` 저장 직전 한국어 렌더 게이트 계약을 추가하고 `reports/ops-13/20260715T0808Z-local-fix.html`에 진행 보고를 남김. 다음 마케팅 크론 실행 후 최신 JSONL 설명 필드 검증 필요.
 
 ### [ops-12] 마케팅 크론 git 동기화 실패 반복 경계 고정
 - status: waiting
