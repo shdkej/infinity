@@ -16,7 +16,7 @@
     role: final
 - commits:
   - repo: infinity
-    sha: ccf337f
+    sha: 95d4a5e
     note: docs: add Virtue adoption evidence companion (marketing-113)
 - urls: []
 - next_actions:
