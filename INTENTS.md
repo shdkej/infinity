@@ -4,6 +4,23 @@
 
 ## Inbox
 
+### [marketing-112] 쾰른 이후 Threads 다음 후보 조사
+- proposed_by: sam-user-request
+- source_signal: 마스터님이 쾰른 Threads는 이미 올렸고, 마케팅 에이전트가 Threads 조사를 계속하고 있는지 확인했다.
+- priority: high
+- projects: [personal-brand, content, world-travel]
+- task_type: strategy
+- topics: [threads, content-growth, instagram]
+- goal: 기존 여행 선언부터 최근 쾰른 게시까지의 흐름을 기준으로, 다음 Threads 후보 3개와 Instagram 병행 여부를 좁힌다.
+- constraints:
+  - 실제 게시, DM, 광고, 계정 설정 변경은 하지 않는다.
+  - 사용자 계정 테마는 미니멀, 실용성, 소비취향 공유로 유지한다.
+  - Threads 작성 기준은 `prompt-archive/Threads.md`와 `keyword-title` threads 모드를 함께 적용한다.
+  - 쾰른은 이미 게시된 것으로 보고, 다음 후보는 베를린/소비취향/여행 중 실용 선택 중에서 고른다.
+- expected_artifact: `artifacts/marketing-112/threads-after-cologne-candidates.md`
+- success_criteria: 다음 게시 후보 3개가 각각 첫 문장 후크, 본문 방향, 썸네일/첫 이미지 문구, Instagram 병행 여부, 측정할 반응 언어를 포함한다.
+- first_action: 기존 `marketing-109` 산출물과 Threads/keyword-title 기준을 읽고, 쾰른 이후 바로 이어질 후보를 3개로 압축한다.
+
 <!-- ops-13 completed 2026-07-19T05:07Z → intents/archive/ops-13.md [projects: openclaw,infinity; type: verification; topics: marketing,automation,workflow] (마케팅 inbox 최신 실행 7건에서 signal/diagnosis/action_candidate/measurement 영어 서술형 혼재가 재발하지 않음을 확인했다. HTML report gate passed.) -->
 
 <!-- marketing-110 completed 2026-07-19T00:08Z → intents/archive/marketing-110.md [projects: virtue,infinity; type: implementation; topics: marketing,activation,product] (첫 10명 관찰 companion에 추천할 한 사람･그 사람에게 쓰는 한 문장･첫 가치 재현 조건 칸과 J1-J4 샘플 판독 추가. HTML report gate passed.) -->
