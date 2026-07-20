@@ -4,16 +4,7 @@
 
 ## Inbox
 
-### [marketing-116] Instagram 원본성 기준으로 카드뉴스 재가공 후보 1개 만들기
-- proposed_by: marketing-cron
-- source_signal: `/home/ubuntu/workspace/knowledge-lab/source/external-links/marketing/2026-07-20-instagram-originality-sns-reuse.md`
-- rationale: Instagram 추천면은 단순 repost보다 원본 제작자와 의미 있는 재가공을 더 우대하는 방향이므로, 여행/AI/product-work 소재도 원본 사진·직접 관찰·저장 가능한 판단 기준을 함께 담아야 한다.
-- expected_artifact: 최근 공개 가능 여행 또는 AI 작업 소재 1개를 골라 Instagram 카드뉴스 5장 구성안과 Threads 첫 줄 3안을 한국어로 작성한 초안
-- permission_level: L1
-- owner_route: Infinity SNS 작업 라우터
-- expected_impact: 단순 요약형 게시보다 저장·공유·댓글 가능성이 높은 원본성 기반 SNS 초안 확보
-- success_criteria: 카드뉴스 첫 장이 원본 사진/직접 제작 이미지 기준을 통과하고, Threads 첫 줄 3안이 각각 다른 반응 가설을 가진다.
-- first_verification_gate: 초안 작성 후 `원본 소재 여부`, `직접 관찰 포함 여부`, `저장 가능한 판단 기준 포함 여부`, `게시 전 승인 필요 여부` 4칸을 자체 점검한다.
+<!-- marketing-116 completed 2026-07-20T22:16Z → intents/archive/marketing-116.md [projects: infinity,knowledge-lab; type: strategy; topics: marketing,content,growth] (Instagram 원본성 기준을 직접 찍은 여행 사진 기반 카드뉴스 5장 구성안과 Threads 첫 줄 3안으로 번역하고 4칸 자체 점검을 남겼다. HTML report gate passed.) -->
 
 <!-- marketing-114 completed 2026-07-19T22:07Z → intents/archive/marketing-114.md [projects: virtue,infinity; type: implementation; topics: marketing,activation,retention] (세션 2-3 재참여 관찰 companion에 return trigger, last stop point, resume prompt fit, second value signal 칸과 J1-J4 샘플 판독 추가. HTML report gate passed.) -->
 
