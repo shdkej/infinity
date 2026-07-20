@@ -16,7 +16,7 @@
     role: final
 - commits:
   - repo: infinity
-    sha: f527f7e
+    sha: 196c679
     note: archive/report/artifact 기록
 - urls:
   - url: https://virtue.oracle.shdkej.com
