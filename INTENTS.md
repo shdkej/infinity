@@ -4,17 +4,9 @@
 
 ## Inbox
 
-### [marketing-115] Virtue AI 검색 인용성 감사표 작성
-- proposed_by: marketing-cron
-- source_signal: `/home/ubuntu/workspace/knowledge-lab/source/external-links/marketing/2026-07-20-ai-search-citation-evidence.md`
-- rationale: AI 검색/agent 발견 경로에서는 기존 검색 순위보다 인용 가능한 주장 단위, entity clarity, trust boundary가 중요해지고 있다. Virtue는 프리런치라 유입 수치를 키우기보다 공개 표면이 "무엇을 위한 제품인지"를 AI/agent가 안정적으로 읽을 수 있는지 먼저 점검하는 편이 맞다.
-- expected_artifact: 현재 라이브 페이지와 레포의 공개 metadata/텍스트/구조화 단서를 대상으로 brand entity, category, job, first value, trust boundary, claim evidence를 점검한 1장 감사표와 canonical answer block 초안.
-- permission_level: L1
-- owner_route: Infinity → Claude Code 또는 SAM 로컬 감사
-- success_criteria: 감사표가 각 항목을 `있음 / 약함 / 없음 / 공개 반영 승인 필요`로 분류하고, 공개 변경 없이도 다음 implementation 후보를 판단할 수 있다.
-- first_verification_gate: `https://virtue.oracle.shdkej.com`와 `/home/ubuntu/dev/virtue-rebirth-app`만 읽고도 AI/agent가 Virtue를 설명할 때 쓸 수 있는 5문장 초안이 도출된다.
-
 <!-- marketing-114 completed 2026-07-19T22:07Z → intents/archive/marketing-114.md [projects: virtue,infinity; type: implementation; topics: marketing,activation,retention] (세션 2-3 재참여 관찰 companion에 return trigger, last stop point, resume prompt fit, second value signal 칸과 J1-J4 샘플 판독 추가. HTML report gate passed.) -->
+
+<!-- marketing-115 completed 2026-07-20T10:07Z → intents/archive/marketing-115.md [projects: virtue,infinity; type: strategy; topics: marketing,ai-agents,product] (AI 검색 인용성 감사표와 canonical answer block 초안 작성. HTML report gate passed.) -->
 
 
 ### [ops-18] 카드뉴스 재사용 배경 에셋 provenance 경계 정리
