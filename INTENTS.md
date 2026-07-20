@@ -8,6 +8,12 @@
 
 <!-- marketing-115 completed 2026-07-20T10:07Z → intents/archive/marketing-115.md [projects: virtue,infinity; type: strategy; topics: marketing,ai-agents,product] (AI 검색 인용성 감사표와 canonical answer block 초안 작성. HTML report gate passed.) -->
 
+### [proposer-blocker-20260720] git 도구 체인 실패
+- proposed_by: signal-to-intent-proposer
+- source_signal: openclaw cron runs 명령 오류: Missing required option "--id <id>"
+- permission_level: L1
+- next_action: openclaw에서 cron runs 호출 형식과 proposer 진단 경로를 점검 필요
+
 
 ### [ops-18] 카드뉴스 재사용 배경 에셋 provenance 경계 정리
 - proposed_by: sam-proposer
