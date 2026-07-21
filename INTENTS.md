@@ -10,13 +10,6 @@
 
 <!-- marketing-115 completed 2026-07-20T10:07Z → intents/archive/marketing-115.md [projects: virtue,infinity; type: strategy; topics: marketing,ai-agents,product] (AI 검색 인용성 감사표와 canonical answer block 초안 작성. HTML report gate passed.) -->
 
-### [proposer-blocker-20260720] git 도구 체인 실패
-- proposed_by: signal-to-intent-proposer
-- source_signal: openclaw cron runs 명령 오류: Missing required option "--id <id>"
-- permission_level: L1
-- next_action: openclaw에서 cron runs 호출 형식과 proposer 진단 경로를 점검 필요
-
-
 ### [ops-18] 카드뉴스 재사용 배경 에셋 provenance 경계 정리
 - proposed_by: sam-proposer
 - source_signal: system/docs/EVALUATION_NOTES.md#insight-card-maker-재사용-배경-에셋-추적-경계+steel-background-재사용-에셋의-provenance-경계
@@ -60,6 +53,8 @@
 <!-- 사용자 결정, 외부 조건, 안전 확인 대기. 같은 질문을 반복하지 않고 상태만 보존한다. -->
 
 ## Archive
+
+<!-- proposer-blocker-20260720 resolved 2026-07-21T05:36Z → intents/archive/proposer-blocker-20260720.md [projects: openclaw,infinity; type: maintenance; topics: automation,cron,workflow] (사용자 승인 후 `openclaw cron runs --id 1a881731-a2f7-4faa-965f-dfbba9bac0e1 --limit 5`로 실제 실행 이력 조회를 검증했고, proposer 정본 문서와 cron payload에 id 포함 호출 규칙을 반영했다. HTML report gate passed.) -->
 
 <!-- ops-12 completed 2026-07-13T22:15Z → intents/archive/ops-12.md [projects: openclaw,infinity; type: monitoring; topics: automation,workflow] (Marketing-agent-growth-review 크론 payload에 GIT SYNC FAILURE GATE를 추가해 git 실패를 NO_REPLY로 묵살하지 않고 Infinity Inbox blocker 또는 한국어 blocker로 남기도록 반영했다. HTML report gate passed.) -->
 

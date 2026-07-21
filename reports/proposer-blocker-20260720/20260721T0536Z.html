@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <title>proposer-blocker-20260720 해소</title>
+  <style>
+    body { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; margin: 40px; color: #1d1b16; background: #faf8f2; }
+    main { max-width: 880px; margin: 0 auto; }
+    h1 { font-size: 34px; margin-bottom: 8px; }
+    .dek { color: #5e5a50; margin-bottom: 28px; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+    .axis { background: #fffdf8; border: 1px solid #e3ddd0; border-radius: 8px; padding: 18px; }
+    .label { font-size: 13px; color: #7d6b45; text-transform: uppercase; letter-spacing: .04em; margin-bottom: 8px; }
+    code { background: #eee8dc; padding: 2px 5px; border-radius: 4px; }
+    details { margin-top: 24px; background: #fffdf8; border: 1px solid #e3ddd0; border-radius: 8px; padding: 16px; }
+  </style>
+</head>
+<body>
+<main>
+  <h1>Signal-to-intent proposer blocker 해소</h1>
+  <p class="dek">사용자 승인 후 <code>openclaw cron runs</code> 호출 형식 오류를 실제 CLI와 cron payload 양쪽에서 정리했다.</p>
+
+  <section class="grid">
+    <div class="axis ax1">
+      <div class="label">axis ax1 · 원인</div>
+      <p>Proposer가 cron 실행 이력을 확인하면서 job id 없이 <code>openclaw cron runs</code>를 호출해 <code>Missing required option "--id &lt;id&gt;"</code> 오류가 발생했다.</p>
+    </div>
+    <div class="axis ax2">
+      <div class="label">axis ax2 · 조치</div>
+      <p><code>Signal-to-intent proposer</code> job id를 확인하고, 정본 문서와 실제 cron payload 모두에 <code>openclaw cron runs --id &lt;job-id&gt; --limit &lt;n&gt;</code> 규칙을 반영했다.</p>
+    </div>
+  </section>
+
+  <details open>
+    <summary>검증 메타</summary>
+    <ul>
+      <li>job id: <code>1a881731-a2f7-4faa-965f-dfbba9bac0e1</code></li>
+      <li>검증 명령: <code>openclaw cron runs --id 1a881731-a2f7-4faa-965f-dfbba9bac0e1 --limit 5</code></li>
+      <li>payload 확인: <code>openclaw cron get 1a881731-a2f7-4faa-965f-dfbba9bac0e1</code></li>
+      <li>OpenClaw 문서: <code>system/docs/SIGNAL_TO_INTENT_PROPOSER.md</code></li>
+      <li>다음 정기 실행: 2026-07-21T21:30:00Z</li>
+    </ul>
+  </details>
+</main>
+</body>
+</html>
