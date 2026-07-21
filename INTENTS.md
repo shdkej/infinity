@@ -4,15 +4,7 @@
 
 ## Inbox
 
-### [marketing-117] 여행 사진 기반 무음 첫 프레임 SNS 훅 실험
-- proposed_by: marketing-cron
-- source_signal: `/home/ubuntu/workspace/knowledge-lab/source/external-links/marketing/2026-07-21-mute-first-social-hooks.md`
-- rationale: Instagram/Shorts 피드에서는 소리 없이도 첫 프레임에서 소재와 관점이 보여야 저장·공유·댓글로 이어질 가능성이 높다. 최근 여행 사진을 단순 기록이 아니라 "멈출 이유가 있는 첫 장"으로 바꾸는 작은 실험이 필요하다.
-- expected_artifact: 최근 여행 사진 3장을 후보로 잡고, 각 사진별 Instagram 카드뉴스 1장 제목 5안과 Threads 첫 줄 5안을 갈등형/선택형/배운점형으로 정리한 한국어 초안
-- permission_level: L1
-- owner_route: Infinity SNS/content
-- success_criteria: 초안마다 원본 사진 맥락, 첫 프레임 훅, Threads 첫 줄, 24-48시간 측정 지표(저장·공유/DM·댓글·프로필 방문)가 함께 적혀 있다.
-- first_verification_gate: 공개 게시 없이 내부 초안만 만든 뒤, 카드뉴스 1장이 본문 없이도 "누구에게 어떤 판단을 주는지" 읽히는지 자체 점검한다.
+<!-- marketing-117 completed 2026-07-21T10:29Z → intents/archive/marketing-117.md [projects: infinity,knowledge-lab; type: strategy; topics: marketing,content,growth] (최근 여행 사진 3장 후보를 무음 첫 프레임 기준 카드뉴스 제목 5안과 Threads 첫 줄 5안으로 정리했다. HTML report gate passed.) -->
 
 <!-- marketing-116 completed 2026-07-20T22:16Z → intents/archive/marketing-116.md [projects: infinity,knowledge-lab; type: strategy; topics: marketing,content,growth] (Instagram 원본성 기준을 직접 찍은 여행 사진 기반 카드뉴스 5장 구성안과 Threads 첫 줄 3안으로 번역하고 4칸 자체 점검을 남겼다. HTML report gate passed.) -->
 
