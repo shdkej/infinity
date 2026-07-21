@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <title>ops-18 steel background provenance</title>
+  <style>
+    body { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; margin: 40px; color: #1d1b16; background: #faf8f2; }
+    main { max-width: 880px; margin: 0 auto; }
+    h1 { font-size: 32px; margin-bottom: 8px; }
+    .dek { color: #5e5a50; margin-bottom: 24px; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+    .axis { background: #fffdf8; border: 1px solid #e3ddd0; border-radius: 8px; padding: 18px; }
+    .label { font-size: 13px; color: #7d6b45; text-transform: uppercase; letter-spacing: .04em; margin-bottom: 8px; }
+    code { background: #eee8dc; padding: 2px 5px; border-radius: 4px; }
+    details { margin-top: 24px; background: #fffdf8; border: 1px solid #e3ddd0; border-radius: 8px; padding: 16px; }
+  </style>
+</head>
+<body>
+<main>
+  <h1>steel background provenance 정리</h1>
+  <p class="dek">재사용 배경 에셋의 필수 provenance를 ignored run 파일이 아니라 tracked asset 경계로 고정했다.</p>
+  <section class="grid">
+    <div class="axis ax1">
+      <div class="label">axis ax1 · 문제</div>
+      <p><code>asset.json</code>의 <code>source_reference</code>가 ignored <code>system/reports/card-news/runs/</code> 산출물을 가리켜 깨끗한 checkout에서 재사용 근거가 약해졌다.</p>
+    </div>
+    <div class="axis ax2">
+      <div class="label">axis ax2 · 조치</div>
+      <p><code>source_reference</code>를 tracked PNG로 바꾸고, ignored run은 <code>generation_log_reference</code>로 낮췄다. 스킬 문서에도 tracked provenance 규칙을 추가했다.</p>
+    </div>
+  </section>
+  <details open>
+    <summary>검증</summary>
+    <ul>
+      <li><code>python3 -m json.tool</code> 통과</li>
+      <li><code>asset.json</code>과 PNG는 git tracked</li>
+      <li>ignored run 파일은 필수 source reference에서 제거</li>
+    </ul>
+  </details>
+</main>
+</body>
+</html>

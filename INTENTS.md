@@ -10,22 +10,6 @@
 
 <!-- marketing-115 completed 2026-07-20T10:07Z → intents/archive/marketing-115.md [projects: virtue,infinity; type: strategy; topics: marketing,ai-agents,product] (AI 검색 인용성 감사표와 canonical answer block 초안 작성. HTML report gate passed.) -->
 
-### [ops-18] 카드뉴스 재사용 배경 에셋 provenance 경계 정리
-- proposed_by: sam-proposer
-- source_signal: system/docs/EVALUATION_NOTES.md#insight-card-maker-재사용-배경-에셋-추적-경계+steel-background-재사용-에셋의-provenance-경계
-- rationale: insight-card-maker가 steel background 재사용 에셋을 직접 참조하지만 에셋 폴더와 provenance가 ignored/untracked 산출물에 걸려 있어 깨끗한 체크아웃에서 재사용 근거가 사라진다는 신호가 두 번 관찰됐다.
-- expected_artifact: 재사용 배경 에셋의 tracked/외부보관/일회성 경계를 확정하고, 스킬 또는 에셋 메타데이터가 깨끗한 체크아웃에서 유효한 provenance만 참조하도록 정리한 변경.
-- permission_level: implementation approval required
-- success_criteria: `insight-card-maker`가 참조하는 steel background 경로와 `asset.json`의 source_reference가 tracked 파일 또는 공개/외부 보관 URL만 가리키며, `git status --short --ignored`에서 해당 재사용 에셋의 필수 입력이 untracked/ignored로 남지 않는다.
-
-### [ops-19] insight-card-maker Card 1 이미지 규칙 충돌 해소
-- proposed_by: sam-proposer
-- source_signal: system/docs/EVALUATION_NOTES.md#Card-1-원본사진-하드-규칙과-기존-published-수정-불일치+insight-card-maker-Card-1-원본-규칙과-샘-피드백-규칙-충돌
-- rationale: Card 1은 USER_ORIGINAL_PHOTO만 허용한다는 새 하드 규칙과 카드 1-5 모두에 샘 캐릭터가 보여야 한다는 피드백 규칙이 함께 남아, 다음 카드뉴스 수정자가 우선순위를 판정하기 어렵다는 신호가 두 번 관찰됐다.
-- expected_artifact: `skills/insight-card-maker/SKILL.md`와 관련 library/image_policy 규칙에서 Card 1 원본사진 우선, Cards 2-5 샘 캐릭터 적용 범위, 예외 승인 조건을 한 가지 해석으로 정리한 변경.
-- permission_level: implementation approval required
-- success_criteria: 스킬 문서에서 Card 1과 Cards 2-5 이미지 규칙이 서로 모순 없이 분리되고, 기존 published config를 재수정할 때 Card 1 예외 여부를 library `image_policy` 또는 사용자 승인 근거로 검증할 수 있다.
-
 <!-- marketing-113 completed 2026-07-19T10:07Z → intents/archive/marketing-113.md [projects: virtue,infinity; type: implementation; topics: marketing,activation,product] (첫 10명 관찰 companion에 채택 증거 묶음과 J1-J4 샘플 추가. HTML report gate passed.) -->
 
 <!-- marketing-112 completed 2026-07-19T09:07Z → intents/archive/marketing-112.md [projects: personal-brand,content,world-travel; type: strategy; topics: marketing,content-growth,instagram] (쾰른 이후 다음 Threads 후보를 베를린 동선 선택, 안 산 것들, 쉬는 시간 먼저 3개로 압축했다. HTML report gate passed.) -->
@@ -53,6 +37,10 @@
 <!-- 사용자 결정, 외부 조건, 안전 확인 대기. 같은 질문을 반복하지 않고 상태만 보존한다. -->
 
 ## Archive
+
+<!-- ops-19 completed 2026-07-21T06:12Z → intents/archive/ops-19.md [projects: openclaw,infinity; type: maintenance; topics: card-news,workflow,skill] (insight-card-maker에서 Card 1 기본 원본사진 규칙, Cards 2-5 샘 캐릭터 적용 범위, Card 1 예외 승인 기록 조건을 한 가지 해석으로 정리했다. HTML report gate passed.) -->
+
+<!-- ops-18 completed 2026-07-21T06:12Z → intents/archive/ops-18.md [projects: openclaw,infinity; type: maintenance; topics: card-news,assets,provenance] (steel background asset.json source_reference를 tracked PNG로 바꾸고 ignored run 파일은 generation_log_reference로 낮췄으며, insight-card-maker 재사용 배경 규칙에 tracked provenance 경계를 추가했다. HTML report gate passed.) -->
 
 <!-- proposer-blocker-20260720 resolved 2026-07-21T05:36Z → intents/archive/proposer-blocker-20260720.md [projects: openclaw,infinity; type: maintenance; topics: automation,cron,workflow] (사용자 승인 후 `openclaw cron runs --id 1a881731-a2f7-4faa-965f-dfbba9bac0e1 --limit 5`로 실제 실행 이력 조회를 검증했고, proposer 정본 문서와 cron payload에 id 포함 호출 규칙을 반영했다. HTML report gate passed.) -->
 

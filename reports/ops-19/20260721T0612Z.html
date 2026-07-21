@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <title>ops-19 Card 1 image rule</title>
+  <style>
+    body { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; margin: 40px; color: #1d1b16; background: #faf8f2; }
+    main { max-width: 880px; margin: 0 auto; }
+    h1 { font-size: 32px; margin-bottom: 8px; }
+    .dek { color: #5e5a50; margin-bottom: 24px; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+    .axis { background: #fffdf8; border: 1px solid #e3ddd0; border-radius: 8px; padding: 18px; }
+    .label { font-size: 13px; color: #7d6b45; text-transform: uppercase; letter-spacing: .04em; margin-bottom: 8px; }
+    code { background: #eee8dc; padding: 2px 5px; border-radius: 4px; }
+    details { margin-top: 24px; background: #fffdf8; border: 1px solid #e3ddd0; border-radius: 8px; padding: 16px; }
+  </style>
+</head>
+<body>
+<main>
+  <h1>Card 1 이미지 규칙 충돌 해소</h1>
+  <p class="dek">Card 1 원본사진 기본값과 Cards 2-5 샘 캐릭터 적용 범위를 분리하고, Card 1 예외 승인 기록 조건을 고정했다.</p>
+  <section class="grid">
+    <div class="axis ax1">
+      <div class="label">axis ax1 · 문제</div>
+      <p>스킬 문서가 Card 1은 원본사진만 허용한다고 하면서도 샘 피드백 뒤에는 카드 1-5 모두 샘이 보여야 한다고 적어 우선순위가 모호했다.</p>
+    </div>
+    <div class="axis ax2">
+      <div class="label">axis ax2 · 조치</div>
+      <p>샘 피드백의 기본 적용 범위를 <code>Cards 2-5</code>로 좁히고, Card 1 예외는 명시 승인과 <code>image_policy</code> 기록이 있을 때만 허용하도록 바꿨다.</p>
+    </div>
+  </section>
+  <details open>
+    <summary>검증</summary>
+    <ul>
+      <li>Card 1 기본값: <code>USER_ORIGINAL_PHOTO</code></li>
+      <li>샘 캐릭터 기본 적용: Cards 2-5</li>
+      <li>Card 1 예외 기록 문구: <code>Card 1 USER_ORIGINAL_PHOTO exception approved by user</code></li>
+    </ul>
+  </details>
+</main>
+</body>
+</html>
