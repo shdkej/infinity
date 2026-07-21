@@ -4,15 +4,6 @@
 
 ## Inbox
 
-### [marketing-118] Threads 질문형 테스트와 Instagram 카드뉴스 승격 캘린더
-- proposed_by: marketing-cron
-- source_signal: `source/external-links/marketing/2026-07-21-threads-comment-first-calendar.md`
-- rationale: Threads는 대화 신호를 먼저 얻기 좋고 Instagram carousel은 저장 가능한 판단 기준을 남기기 좋다. 최근 여행 사진/AI 뉴스/product-work 소재를 복붙하지 않고, Threads 반응이 붙은 관찰만 Instagram 카드뉴스로 승격하면 제작 부담과 원본성 리스크를 동시에 줄일 수 있다.
-- expected_artifact: 최근 소재 3개 기준 1주 SNS 캘린더 초안. 각 항목은 Threads 첫 줄/질문, Instagram carousel 승격 조건, 48시간 측정 항목을 포함한다.
-- permission_level: L1
-- success_criteria: 공개 게시 없이 초안만 완성되고, 각 후보가 답글 구체성·저장·공유·프로필 방문 중 최소 2개 측정 기준을 가진다.
-- first_verification_gate: 캘린더 초안의 모든 후보가 SNS 전용 범위이며 제품 온보딩/퍼널/계측 태스크로 번역되지 않았는지 확인한다.
-
 ### [ops-20] media inbound staged 사진 경계 정리
 - proposed_by: sam-proposer
 - source_signal: system/docs/EVALUATION_NOTES.md#media/inbound/openclaw-staged-* 원본 사진 누적 경계
@@ -30,6 +21,8 @@
 - success_criteria: 연속 3회 이상의 무소재 `NO_REPLY` 실행이 기존 산출 계약을 깨지 않으면서 낮은 입력 범위와 짧은 duration으로 종료되고, 의미 있는 SNS 후보가 있을 때는 기존 산출/Inbox 흐름이 유지됨
 
 <!-- marketing-117 completed 2026-07-21T10:29Z → intents/archive/marketing-117.md [projects: infinity,knowledge-lab; type: strategy; topics: marketing,content,growth] (최근 여행 사진 3장 후보를 무음 첫 프레임 기준 카드뉴스 제목 5안과 Threads 첫 줄 5안으로 정리했다. HTML report gate passed.) -->
+
+<!-- marketing-118 completed 2026-07-21T22:07Z → intents/archive/marketing-118.md [projects: infinity,knowledge-lab; type: strategy; topics: marketing,content,growth] (최근 소재 3개를 Threads 질문형 테스트와 Instagram 저장형 carousel 승격 조건으로 나눈 1주 SNS 캘린더 초안을 완성했다. HTML report gate passed.) -->
 
 <!-- marketing-116 completed 2026-07-20T22:16Z → intents/archive/marketing-116.md [projects: infinity,knowledge-lab; type: strategy; topics: marketing,content,growth] (Instagram 원본성 기준을 직접 찍은 여행 사진 기반 카드뉴스 5장 구성안과 Threads 첫 줄 3안으로 번역하고 4칸 자체 점검을 남겼다. HTML report gate passed.) -->
 
