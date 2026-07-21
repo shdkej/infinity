@@ -4,6 +4,22 @@
 
 ## Inbox
 
+### [ops-20] media inbound staged 사진 경계 정리
+- proposed_by: sam-proposer
+- source_signal: system/docs/EVALUATION_NOTES.md#media/inbound/openclaw-staged-* 원본 사진 누적 경계
+- rationale: 최근 사진 입력으로 생긴 staged 폴더 6개가 untracked로 남아 카드뉴스/일일 기록 원본과 임시 업로드 캐시가 같은 git 상태에 섞입니다.
+- expected_artifact: media/inbound staged 사진을 tracked private asset, ignored runtime cache, 카드뉴스 source-assets, 외부 URL 중 하나로 승격/정리하는 post-processing 규칙과 적용 경계
+- permission_level: impl
+- success_criteria: 새 사진 입력 후 `git status --short -- media/inbound`에 임시 staged 폴더가 누적되지 않고, 보존해야 하는 원본은 정해진 정본/외부보관 경로에서 재현 가능함
+
+### [ops-21] Marketing SNS review 고비용 NO_REPLY 루프 축소
+- proposed_by: sam-proposer
+- source_signal: openclaw cron runs#Marketing-agent-SNS-review-repeated-high-token-NO_REPLY-2026-07-18..2026-07-21
+- rationale: 최근 8회 중 다수 Marketing SNS review가 `NO_REPLY`로 끝났지만 4.7만~6.6만 tokens와 최대 858초를 사용해, SNS 소재가 없을 때의 조기 종료 경계가 약합니다.
+- expected_artifact: Marketing SNS review cron payload 또는 실행 규칙에 SNS 소재/사용자 발화/승인 필요 신호가 없으면 제한된 파일만 읽고 조기 `NO_REPLY`로 닫는 읽기 예산 게이트
+- permission_level: impl
+- success_criteria: 연속 3회 이상의 무소재 `NO_REPLY` 실행이 기존 산출 계약을 깨지 않으면서 낮은 입력 범위와 짧은 duration으로 종료되고, 의미 있는 SNS 후보가 있을 때는 기존 산출/Inbox 흐름이 유지됨
+
 <!-- marketing-117 completed 2026-07-21T10:29Z → intents/archive/marketing-117.md [projects: infinity,knowledge-lab; type: strategy; topics: marketing,content,growth] (최근 여행 사진 3장 후보를 무음 첫 프레임 기준 카드뉴스 제목 5안과 Threads 첫 줄 5안으로 정리했다. HTML report gate passed.) -->
 
 <!-- marketing-116 completed 2026-07-20T22:16Z → intents/archive/marketing-116.md [projects: infinity,knowledge-lab; type: strategy; topics: marketing,content,growth] (Instagram 원본성 기준을 직접 찍은 여행 사진 기반 카드뉴스 5장 구성안과 Threads 첫 줄 3안으로 번역하고 4칸 자체 점검을 남겼다. HTML report gate passed.) -->
