@@ -4,6 +4,15 @@
 
 ## Inbox
 
+### [marketing-118] Threads 질문형 테스트와 Instagram 카드뉴스 승격 캘린더
+- proposed_by: marketing-cron
+- source_signal: `source/external-links/marketing/2026-07-21-threads-comment-first-calendar.md`
+- rationale: Threads는 대화 신호를 먼저 얻기 좋고 Instagram carousel은 저장 가능한 판단 기준을 남기기 좋다. 최근 여행 사진/AI 뉴스/product-work 소재를 복붙하지 않고, Threads 반응이 붙은 관찰만 Instagram 카드뉴스로 승격하면 제작 부담과 원본성 리스크를 동시에 줄일 수 있다.
+- expected_artifact: 최근 소재 3개 기준 1주 SNS 캘린더 초안. 각 항목은 Threads 첫 줄/질문, Instagram carousel 승격 조건, 48시간 측정 항목을 포함한다.
+- permission_level: L1
+- success_criteria: 공개 게시 없이 초안만 완성되고, 각 후보가 답글 구체성·저장·공유·프로필 방문 중 최소 2개 측정 기준을 가진다.
+- first_verification_gate: 캘린더 초안의 모든 후보가 SNS 전용 범위이며 제품 온보딩/퍼널/계측 태스크로 번역되지 않았는지 확인한다.
+
 ### [ops-20] media inbound staged 사진 경계 정리
 - proposed_by: sam-proposer
 - source_signal: system/docs/EVALUATION_NOTES.md#media/inbound/openclaw-staged-* 원본 사진 누적 경계
