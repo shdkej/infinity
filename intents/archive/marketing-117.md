@@ -18,7 +18,7 @@
     role: final
 - commits:
   - repo: infinity
-    sha: 9b2e90c
+    sha: 1fce436
     note: marketing-117 artifact/report/archive 기록
 - urls: []
 - next_actions:
