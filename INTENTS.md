@@ -4,6 +4,14 @@
 
 ## Inbox
 
+### [ops-22] 카드뉴스 publish 최종 stage 게이트 보강
+- proposed_by: sam-proposer
+- source_signal: system/docs/EVALUATION_NOTES.md#카드뉴스-library-데이터와-공개-HTML-staging-분리+부다페스트-night-red-team-반영분의-staged/unstaged-분리
+- rationale: 카드뉴스 published 항목을 stage한 뒤 같은 slug의 공개 HTML, 템플릿, 품질노트 수정이 unstaged로 남는 사례가 두 번 관찰되어, 커밋 시 정본 데이터와 실제 공개 결과가 어긋날 수 있습니다.
+- expected_artifact: 카드뉴스 publish/commit 전 `items.json`, slug별 template/source-assets, 공개 HTML, red-team 이후 library/template 변경이 한 세트로 staged됐는지 확인하는 게이트 또는 체크리스트
+- permission_level: impl
+- success_criteria: 같은 카드뉴스 slug를 `git diff --cached`와 unstaged diff가 동시에 건드리면 완료/commit이 차단되고, red-team 반영 후 최종 library·template·HTML이 함께 stage된 상태에서만 publish 완료 처리됨
+
 ### [ops-20] media inbound staged 사진 경계 정리
 - proposed_by: sam-proposer
 - source_signal: system/docs/EVALUATION_NOTES.md#media/inbound/openclaw-staged-* 원본 사진 누적 경계
