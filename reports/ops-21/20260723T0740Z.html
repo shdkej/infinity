@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="ko">
+<head><meta charset="utf-8"><title>ops-21 marketing SNS no-action budget</title></head>
+<body>
+  <h1>ops-21 Marketing SNS review 고비용 NO_REPLY 루프 축소</h1>
+  <section class="axis ax1">
+    <h2>무엇을 막았나</h2>
+    <p>SNS 소재가 없는 회차가 broad Knowledge Lab, 긴 Infinity reports, Virtue/product 파일까지 읽고도 <code>NO_REPLY</code>로 끝나는 고비용 루프를 줄였다.</p>
+  </section>
+  <section class="axis ax2">
+    <h2>어떻게 고쳤나</h2>
+    <p>live cron payload에 bounded SNS seed scan 규칙을 추가했다. 신호가 없으면 <code>no_action</code> JSONL trace만 남기고 즉시 <code>NO_REPLY</code>로 종료한다.</p>
+  </section>
+  <details open>
+    <summary>검증</summary>
+    <p><code>openclaw cron edit</code> 결과 payload에 <code>NO_ACTION BOUNDED SCAN UPDATE 2026-07-23</code>가 포함됐다. 문서 정본 <code>system/docs/MARKETING_AGENT_INTERNAL_INBOX.md</code>에도 같은 경계를 추가했다.</p>
+  </details>
+</body>
+</html>
+

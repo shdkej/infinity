@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="ko">
+<head><meta charset="utf-8"><title>ops-20 media inbound boundary</title></head>
+<body>
+  <h1>ops-20 media inbound staged 사진 경계 정리</h1>
+  <section class="axis ax1">
+    <h2>무엇을 막았나</h2>
+    <p>OpenClaw가 임시 수신한 <code>media/inbound/openclaw-staged-*</code> 폴더가 git status에 untracked로 누적되어 카드뉴스 정본 변경과 섞이는 문제를 막았다.</p>
+  </section>
+  <section class="axis ax2">
+    <h2>어떻게 고쳤나</h2>
+    <p><code>.gitignore</code>에 <code>media/inbound/openclaw-staged-*/</code>를 추가해 inbound staged 폴더를 runtime cache로 분리했다.</p>
+  </section>
+  <details open>
+    <summary>검증</summary>
+    <p><code>git status --short --ignored -- media/inbound</code>에서 기존 staged 폴더 3개가 <code>!!</code> ignored 상태로 표시된다. 원본 파일은 삭제하지 않았다.</p>
+  </details>
+</body>
+</html>
+

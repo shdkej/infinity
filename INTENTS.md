@@ -4,30 +4,6 @@
 
 ## Inbox
 
-### [ops-22] 카드뉴스 publish 최종 stage 게이트 보강
-- proposed_by: sam-proposer
-- source_signal: system/docs/EVALUATION_NOTES.md#카드뉴스-library-데이터와-공개-HTML-staging-분리+부다페스트-night-red-team-반영분의-staged/unstaged-분리
-- rationale: 카드뉴스 published 항목을 stage한 뒤 같은 slug의 공개 HTML, 템플릿, 품질노트 수정이 unstaged로 남는 사례가 두 번 관찰되어, 커밋 시 정본 데이터와 실제 공개 결과가 어긋날 수 있습니다.
-- expected_artifact: 카드뉴스 publish/commit 전 `items.json`, slug별 template/source-assets, 공개 HTML, red-team 이후 library/template 변경이 한 세트로 staged됐는지 확인하는 게이트 또는 체크리스트
-- permission_level: impl
-- success_criteria: 같은 카드뉴스 slug를 `git diff --cached`와 unstaged diff가 동시에 건드리면 완료/commit이 차단되고, red-team 반영 후 최종 library·template·HTML이 함께 stage된 상태에서만 publish 완료 처리됨
-
-### [ops-20] media inbound staged 사진 경계 정리
-- proposed_by: sam-proposer
-- source_signal: system/docs/EVALUATION_NOTES.md#media/inbound/openclaw-staged-* 원본 사진 누적 경계
-- rationale: 최근 사진 입력으로 생긴 staged 폴더 6개가 untracked로 남아 카드뉴스/일일 기록 원본과 임시 업로드 캐시가 같은 git 상태에 섞입니다.
-- expected_artifact: media/inbound staged 사진을 tracked private asset, ignored runtime cache, 카드뉴스 source-assets, 외부 URL 중 하나로 승격/정리하는 post-processing 규칙과 적용 경계
-- permission_level: impl
-- success_criteria: 새 사진 입력 후 `git status --short -- media/inbound`에 임시 staged 폴더가 누적되지 않고, 보존해야 하는 원본은 정해진 정본/외부보관 경로에서 재현 가능함
-
-### [ops-21] Marketing SNS review 고비용 NO_REPLY 루프 축소
-- proposed_by: sam-proposer
-- source_signal: openclaw cron runs#Marketing-agent-SNS-review-repeated-high-token-NO_REPLY-2026-07-18..2026-07-21
-- rationale: 최근 8회 중 다수 Marketing SNS review가 `NO_REPLY`로 끝났지만 4.7만~6.6만 tokens와 최대 858초를 사용해, SNS 소재가 없을 때의 조기 종료 경계가 약합니다.
-- expected_artifact: Marketing SNS review cron payload 또는 실행 규칙에 SNS 소재/사용자 발화/승인 필요 신호가 없으면 제한된 파일만 읽고 조기 `NO_REPLY`로 닫는 읽기 예산 게이트
-- permission_level: impl
-- success_criteria: 연속 3회 이상의 무소재 `NO_REPLY` 실행이 기존 산출 계약을 깨지 않으면서 낮은 입력 범위와 짧은 duration으로 종료되고, 의미 있는 SNS 후보가 있을 때는 기존 산출/Inbox 흐름이 유지됨
-
 <!-- marketing-117 completed 2026-07-21T10:29Z → intents/archive/marketing-117.md [projects: infinity,knowledge-lab; type: strategy; topics: marketing,content,growth] (최근 여행 사진 3장 후보를 무음 첫 프레임 기준 카드뉴스 제목 5안과 Threads 첫 줄 5안으로 정리했다. HTML report gate passed.) -->
 
 <!-- marketing-118 completed 2026-07-21T22:07Z → intents/archive/marketing-118.md [projects: infinity,knowledge-lab; type: strategy; topics: marketing,content,growth] (최근 소재 3개를 Threads 질문형 테스트와 Instagram 저장형 carousel 승격 조건으로 나눈 1주 SNS 캘린더 초안을 완성했다. HTML report gate passed.) -->
@@ -65,6 +41,12 @@
 <!-- 사용자 결정, 외부 조건, 안전 확인 대기. 같은 질문을 반복하지 않고 상태만 보존한다. -->
 
 ## Archive
+
+<!-- ops-22 completed 2026-07-23T07:40Z → intents/archive/ops-22.md [projects: openclaw,infinity; type: maintenance; topics: card-news,workflow,git] (카드뉴스 publish stage 분리 차단 옵션 `build_card_news_library.py --check-stage`와 insight-card-maker commit 전 게이트를 추가했다. 현재 Budapest split 상태가 실패로 재현됨. HTML report gate passed.) -->
+
+<!-- ops-21 completed 2026-07-23T07:40Z → intents/archive/ops-21.md [projects: openclaw,infinity; type: maintenance; topics: marketing,cron,cost] (Marketing SNS review live cron에 bounded SNS seed scan 조기 종료 규칙을 추가하고 내부 inbox 문서에 무소재 no_action 조기 종료 경계를 고정했다. HTML report gate passed.) -->
+
+<!-- ops-20 completed 2026-07-23T07:40Z → intents/archive/ops-20.md [projects: openclaw,infinity; type: maintenance; topics: media,git,workflow] (`media/inbound/openclaw-staged-*`를 runtime cache로 .gitignore 처리해 새/기존 staged 수신 폴더가 git status 검토면에 누적되지 않게 했다. HTML report gate passed.) -->
 
 <!-- ops-19 completed 2026-07-21T06:12Z → intents/archive/ops-19.md [projects: openclaw,infinity; type: maintenance; topics: card-news,workflow,skill] (insight-card-maker에서 Card 1 기본 원본사진 규칙, Cards 2-5 샘 캐릭터 적용 범위, Card 1 예외 승인 기록 조건을 한 가지 해석으로 정리했다. HTML report gate passed.) -->
 

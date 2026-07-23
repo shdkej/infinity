@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="ko">
+<head><meta charset="utf-8"><title>ops-22 card-news stage gate</title></head>
+<body>
+  <h1>ops-22 카드뉴스 publish 최종 stage 게이트 보강</h1>
+  <section class="axis ax1">
+    <h2>무엇을 막았나</h2>
+    <p>카드뉴스 <code>items.json</code>만 staged되고 공개 HTML, template, red-team 반영분이 unstaged로 남아 정본 데이터와 공개 라이브러리가 어긋나는 커밋을 막았다.</p>
+  </section>
+  <section class="axis ax2">
+    <h2>어떻게 고쳤나</h2>
+    <p><code>build_card_news_library.py --check-stage</code>를 추가하고, insight-card-maker 발행 체크리스트에 commit 전 통과 조건을 넣었다.</p>
+  </section>
+  <details open>
+    <summary>검증</summary>
+    <p>현재 Budapest split 상태에서 check-stage가 실패하며 공개 HTML unstaged, <code>budapest-night-2026-07-21</code> mixed slug, <code>items.json</code> mixed 상태를 직접 지목했다.</p>
+  </details>
+</body>
+</html>
+
