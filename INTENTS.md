@@ -42,6 +42,8 @@
 
 ## Archive
 
+<!-- marketing-119 completed 2026-07-27T15:23Z → intents/archive/marketing-119.md [projects: personal-brand,content,world-travel; type: strategy; topics: marketing,content-growth,threads] (프라하·빈·부다페스트 콘텐츠 타이틀을 짐/미니멀 라벨이 아니라 도시를 옮기며 달라진 여행 기준 프레임으로 좁혔다. HTML report gate passed.) -->
+
 <!-- ops-22 completed 2026-07-23T07:40Z → intents/archive/ops-22.md [projects: openclaw,infinity; type: maintenance; topics: card-news,workflow,git] (카드뉴스 publish stage 분리 차단 옵션 `build_card_news_library.py --check-stage`와 insight-card-maker commit 전 게이트를 추가했다. 현재 Budapest split 상태가 실패로 재현됨. HTML report gate passed.) -->
 
 <!-- ops-21 completed 2026-07-23T07:40Z → intents/archive/ops-21.md [projects: openclaw,infinity; type: maintenance; topics: marketing,cron,cost] (Marketing SNS review live cron에 bounded SNS seed scan 조기 종료 규칙을 추가하고 내부 inbox 문서에 무소재 no_action 조기 종료 경계를 고정했다. HTML report gate passed.) -->
