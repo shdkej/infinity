@@ -40,7 +40,7 @@
 
 <!-- 사용자 결정, 외부 조건, 안전 확인 대기. 같은 질문을 반복하지 않고 상태만 보존한다. -->
 
-<!-- marketing-120 waiting 2026-07-28T06:20Z → intents/waiting/marketing-120.md [projects: personal-brand,content,world-travel; type: analysis; topics: marketing,content-growth,threads,review] (최신 Threads 4개 반응 회고 프레임을 만들었고, 실제 반응 숫자/캡처 확인 대기. 숫자 추정 금지.) -->
+<!-- marketing-120 waiting 2026-07-28T07:43Z → intents/waiting/marketing-120.md [projects: personal-brand,content,world-travel; type: analysis; topics: marketing,content-growth,threads,review] (원자료를 불러오지 못한 상태에서 만든 이전 preflight/report는 무효. 실제 Threads 글 본문과 반응 숫자/캡처를 받기 전까지 회고·가설·판정 진행 금지.) -->
 
 ## Archive
 

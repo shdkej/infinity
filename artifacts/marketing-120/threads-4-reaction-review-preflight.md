@@ -1,14 +1,20 @@
-# 현재 프레임상 Threads 4개 축 반응 회고 Preflight
+# 무효 처리됨: Threads 4개 반응 회고 Preflight
 
 - id: marketing-120
 - date: 2026-07-28
 - owner: SAM + marketing agent
-- status: waiting for actual reaction data
-- boundary: 공개 게시, 계정 조작, 광고, 제품/계측 변경 없음. 실제 숫자가 보이지 않는 항목은 추정하지 않는다.
+- status: invalidated, waiting for actual Threads posts and reaction data
+- boundary: 공개 게시, 계정 조작, 광고, 제품/계측 변경 없음. 실제 Threads 글 본문과 반응값이 보이지 않으면 회고·가설·판정을 진행하지 않는다.
+
+## 무효 처리 사유
+
+이 문서는 실제 Threads 글 본문과 반응 숫자/캡처를 확인하지 못한 상태에서 작성되었다. 사용자의 원 요청은 "스레드 4개 반응 확인 후 잘된 이유/안된 이유 회고"였으므로, 원자료를 불러오지 못한 시점에서 멈추고 사용자에게 입력을 요청했어야 한다.
+
+따라서 아래의 4개 축 기준 판독표, 반응 확인 전 가설, 다음 테스트 규칙은 **분석 근거로 재사용하지 않는다.** 실제 최신 4개 Threads 글과 반응값이 들어온 뒤 새 final artifact를 작성한다.
 
 ## 확인된 배경
 
-공개 검색에서는 `@minimal_collector` 계정이 보이지만, Threads 상세 게시물과 반응 숫자는 로그인/동적 로딩 장벽 때문에 현재 도구로 확인되지 않았다. 따라서 이번 문서는 실제 최신 4개 글의 성패 판정이 아니라, 현재 확보된 4개 콘텐츠 축에 대해 실제 반응 캡처를 받으면 바로 해석할 수 있는 회고 프레임이다.
+공개 검색에서는 `@minimal_collector` 계정이 보였지만, Threads 상세 게시물과 반응 숫자는 로그인/동적 로딩 장벽 때문에 현재 도구로 확인되지 않았다. 이 상태에서는 Threads 4개가 실제로 무엇인지 파악하지 못했으므로 회고를 진행하면 안 된다.
 
 기존 Infinity 기준:
 
