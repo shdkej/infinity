@@ -40,6 +40,8 @@
 
 <!-- 사용자 결정, 외부 조건, 안전 확인 대기. 같은 질문을 반복하지 않고 상태만 보존한다. -->
 
+<!-- marketing-120 waiting 2026-07-28T06:20Z → intents/waiting/marketing-120.md [projects: personal-brand,content,world-travel; type: analysis; topics: marketing,content-growth,threads,review] (최신 Threads 4개 반응 회고 프레임을 만들었고, 실제 반응 숫자/캡처 확인 대기. 숫자 추정 금지.) -->
+
 ## Archive
 
 <!-- marketing-119 completed 2026-07-27T15:23Z → intents/archive/marketing-119.md [projects: personal-brand,content,world-travel; type: strategy; topics: marketing,content-growth,threads] (프라하·빈·부다페스트 콘텐츠 타이틀을 짐/미니멀 라벨이 아니라 도시를 옮기며 달라진 여행 기준 프레임으로 좁혔다. HTML report gate passed.) -->
