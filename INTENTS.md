@@ -40,9 +40,10 @@
 
 <!-- 사용자 결정, 외부 조건, 안전 확인 대기. 같은 질문을 반복하지 않고 상태만 보존한다. -->
 
-<!-- marketing-120 waiting 2026-07-28T07:43Z → intents/waiting/marketing-120.md [projects: personal-brand,content,world-travel; type: analysis; topics: marketing,content-growth,threads,review] (원자료를 불러오지 못한 상태에서 만든 이전 preflight/report는 무효. 실제 Threads 글 본문과 반응 숫자/캡처를 받기 전까지 회고·가설·판정 진행 금지.) -->
 
 ## Archive
+
+<!-- marketing-120 archived 2026-08-02T20:35Z → intents/archive/marketing-120.md [projects: personal-brand,content,world-travel; type: analysis; topics: marketing,content-growth,threads,review] (사용자 요청으로 Waiting 항목을 정리했다. 실제 Threads 원자료가 없어 분석 결론은 내리지 않았고 기존 preflight/report는 무효로 보존.) -->
 
 <!-- marketing-119 completed 2026-07-27T15:23Z → intents/archive/marketing-119.md [projects: personal-brand,content,world-travel; type: strategy; topics: marketing,content-growth,threads] (프라하·빈·부다페스트 콘텐츠 타이틀을 짐/미니멀 라벨이 아니라 도시를 옮기며 달라진 여행 기준 프레임으로 좁혔다. HTML report gate passed.) -->
 
