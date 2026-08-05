@@ -36,6 +36,8 @@
 
 ## Active
 
+<!-- build-14 active 2026-08-05T21:58Z [projects: personal-ops,infinity,knowledge-lab; type: implementation; topics: dashboard,metrics,visualization,workflow] (시스템 지표를 매일 그래프로 보는 시각화 페이지를 8시간 내 첫 버전으로 만든다. Infinity를 중앙 공유 상태판으로 두고 Planner/Developer/Marketer/Operator 4역할 서브에이전트가 병렬 산출물을 남긴다.) -->
+
 ## Waiting
 
 <!-- 사용자 결정, 외부 조건, 안전 확인 대기. 같은 질문을 반복하지 않고 상태만 보존한다. -->
