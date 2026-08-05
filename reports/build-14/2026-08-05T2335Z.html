@@ -33,6 +33,7 @@
           <li>Developer는 기존 Infinity 정적 사이트 경로를 선택했다. 새 도메인, Terraform, Grafana 공개, CMS 확장은 제외했다.</li>
           <li>Marketer는 화면명을 `오늘의 시스템`으로 정하고 내부어를 `자동화`, `일감 흐름`, `하루 운영`, `지식 흐름`으로 바꾸는 기준을 제안했다.</li>
           <li>Operator는 공개 JSON에 원문 로그, 메시지, 위치, 일정, secret을 넣지 않는 집계값 경계를 고정했다.</li>
+          <li>Red-team review 후 샘플 데이터 오인 위험을 줄이기 위해 본문 배너, 상태 문구, 기간 선택지를 보완했다.</li>
         </ol>
       </div>
       <div class="callout">권장 다음 액션: `system-metrics.json`을 매일 생성하는 작은 generator를 추가하고, CLI 수집 항목에는 timeout/fallback을 반드시 둔다.</div>
@@ -43,7 +44,7 @@
         </div>
         <div class="mini-card">
           <b>검증</b>
-          <p>JSON parse 통과, secret scan은 실제 secret 값 미검출, desktop/mobile headless screenshot 확인. Chromium DBus/Vulkan 경고는 headless 환경 경고로 판단했다.</p>
+          <p>JSON parse 통과, secret scan은 실제 secret 값 미검출, desktop/mobile headless screenshot 확인. 라이브 URL은 후속 `space` 배포 완료 후 별도 확인 대상이다.</p>
         </div>
       </div>
     </div>
