@@ -20,7 +20,7 @@
 - Use `build-14` as the Infinity intent id.
 - Keep all intermediate outputs under `infinity/artifacts/build-14/`.
 - Avoid touching unrelated dirty files.
-- Use `https://infinity.aws.shdkej.com/build-14/` as the expected public route after the scoped `space` push deploys.
+- Use `https://infinity.aws.shdkej.com/build-14/index.html` as the verified public route. The current deploy workflow only creates extensionless routes for top-level HTML files.
 - Treat the current JSON as `sample_contract`; live daily generator is the next separate step.
 - Do not mark build-14 fully complete until GitHub Actions and the live URL are verified after the follow-up patch.
 

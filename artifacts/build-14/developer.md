@@ -10,7 +10,7 @@
 
 - 대상 페이지: `/home/ubuntu/workspace/space/infra-aws-static-sites/sites/infinity/dist/build-14/index.html`
 - 데이터 파일: `/home/ubuntu/workspace/space/infra-aws-static-sites/sites/infinity/dist/build-14/data/system-metrics.json`
-- 공개 예상 URL: `https://infinity.aws.shdkej.com/build-14/`
+- 공개 예상 URL: `https://infinity.aws.shdkej.com/build-14/index.html`
 - 구현 방식: self-contained static HTML/CSS/JS + public-safe JSON aggregate
 
 이 경로가 가장 단순하다. 새 도메인, 새 Terraform, 새 서버, Grafana 공개 설정, CMS 쓰기 권한이 필요 없다. 기존 `sites/registry.json`에 이미 `infinity.aws.shdkej.com`이 등록되어 있으므로 정적 배포 레인을 그대로 쓴다.
@@ -109,7 +109,7 @@
 2. JS가 최근 7/14/30일을 필터링하고 line chart와 최신 요약을 그린다.
 3. 수집 스크립트는 나중에 `system-metrics.json`만 갱신한다.
 4. `space` repo commit/push 후 기존 static site GitHub Actions가 `static-infinity-aws-shdkej-com`에 sync한다.
-5. 라이브 확인은 `https://infinity.aws.shdkej.com/build-14/`와 JSON URL을 둘 다 확인한다.
+5. 라이브 확인은 `https://infinity.aws.shdkej.com/build-14/index.html`와 JSON URL을 둘 다 확인한다. 현재 배포 워크플로우는 최상위 HTML만 extensionless route로 복제하므로 `/build-14/`는 공식 URL로 쓰지 않는다.
 
 ### 테스트 방법
 
@@ -117,7 +117,7 @@
 - secret scan: `rg -n "sk-|AKIA|BEGIN .*PRIVATE|api[_-]?key|token|secret|Authorization|Bearer" sites/infinity/dist/build-14`
 - local static server: `python3 -m http.server 8000 --directory sites/infinity/dist`
 - browser check: `/build-14/` desktop/mobile screenshot, chart nonblank, tabs/range control 동작, empty/stale fallback 확인
-- live check after deploy: `curl -I https://infinity.aws.shdkej.com/build-14/` and `curl -I https://infinity.aws.shdkej.com/build-14/data/system-metrics.json`
+- live check after deploy: `curl -I https://infinity.aws.shdkej.com/build-14/index.html` and `curl -I https://infinity.aws.shdkej.com/build-14/data/system-metrics.json`
 
 ## 8시간 MVP 체크리스트
 

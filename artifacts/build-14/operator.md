@@ -177,7 +177,7 @@ status 배포 스크립트가 `agents-live.json`을 삭제하지 않도록 exclu
 
 ### 라이브 검증
 
-- `https://infinity.aws.shdkej.com` HTTP 200 확인
+- `https://infinity.aws.shdkej.com/build-14/index.html` HTTP 200 확인
 - metric JSON HTTP 200 확인
 - 페이지의 `generatedAt` 또는 최신 날짜가 오늘(KST 기준)인지 확인
 - 그래프 3개 이상이 실제 데이터로 렌더되는지 확인
