@@ -36,14 +36,14 @@
 
 ## Active
 
-<!-- build-14 withdrawn 2026-08-06 [projects: personal-ops,infinity,knowledge-lab; type: implementation; topics: dashboard,metrics,visualization,workflow] (사용자 판단으로 시각화 결과물을 철회하고 공개 build-14 경로를 제거했다. 현재 라이브 경로는 Infinity Kanban fallback이며, sample metrics는 운영 화면으로 유지하지 않는다. 원장은 intents/archive/build-14.md.) -->
-
 ## Waiting
 
 <!-- 사용자 결정, 외부 조건, 안전 확인 대기. 같은 질문을 반복하지 않고 상태만 보존한다. -->
 
 
 ## Archive
+
+<!-- build-14 withdrawn 2026-08-06 [projects: personal-ops,infinity,knowledge-lab; type: implementation; topics: dashboard,metrics,visualization,workflow] (사용자 판단으로 시각화 결과물을 철회하고 공개 build-14 경로를 제거했다. 현재 라이브 경로는 Infinity Kanban fallback이며, sample metrics는 운영 화면으로 유지하지 않는다. 원장은 intents/archive/build-14.md.) -->
 
 <!-- marketing-120 archived 2026-08-02T20:35Z → intents/archive/marketing-120.md [projects: personal-brand,content,world-travel; type: analysis; topics: marketing,content-growth,threads,review] (사용자 요청으로 Waiting 항목을 정리했다. 실제 Threads 원자료가 없어 분석 결론은 내리지 않았고 기존 preflight/report는 무효로 보존.) -->
 
