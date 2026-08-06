@@ -1,6 +1,6 @@
 # build-14 - Daily System Metrics Visualization
 
-Status: Active
+Status: Withdrawn
 Created: 2026-08-05T21:58:20Z
 Deadline: 2026-08-06T05:58:20Z
 
@@ -50,3 +50,6 @@ Minimum useful version:
 - Operator가 배포/운영 경로를 확인.
 - Infinity HTML report contract를 만족하는 최종 report.
 
+## Closure
+
+- 2026-08-06: 사용자 판단으로 시각화 결과물을 철회하고 공개 `build-14` 경로를 제거했다. 현재 라이브 경로는 Infinity Kanban fallback이며, sample metrics는 운영 화면으로 유지하지 않는다.

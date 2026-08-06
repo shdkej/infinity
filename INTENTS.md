@@ -36,7 +36,7 @@
 
 ## Active
 
-<!-- build-14 active 2026-08-05T21:58Z [projects: personal-ops,infinity,knowledge-lab; type: implementation; topics: dashboard,metrics,visualization,workflow] (시스템 지표를 매일 그래프로 보는 시각화 페이지를 8시간 내 첫 버전으로 만든다. Infinity를 중앙 공유 상태판으로 두고 Planner/Developer/Marketer/Operator 4역할 서브에이전트가 병렬 산출물을 남긴다.) -->
+<!-- build-14 withdrawn 2026-08-06 [projects: personal-ops,infinity,knowledge-lab; type: implementation; topics: dashboard,metrics,visualization,workflow] (사용자 판단으로 시각화 결과물을 철회하고 공개 build-14 경로를 제거했다. 현재 라이브 경로는 Infinity Kanban fallback이며, sample metrics는 운영 화면으로 유지하지 않는다. 원장은 intents/archive/build-14.md.) -->
 
 ## Waiting
 
