@@ -4,6 +4,14 @@
 
 ## Inbox
 
+<!-- build-15 | target_agent: genie | source_agent: main | request_type: deployment | user_visible: true
+원 요청: 첨부된 Instagram Maker 정적페이지를 배포해줘.
+입력: /home/ubuntu/.openclaw/workspace/media/inbound/openclaw-staged-76421795-7722-4543-a709-0e52eff09de2/instagram-maker.tar---5060dc00-db57-41b1-8b94-d6c42d82db53.gz
+목표: 압축 파일의 index.html/styles.css/app.js/fonts를 정적페이지로 배포하고 실제 라이브 URL에서 렌더링을 확인한다.
+완료 기준: Planner·Developer·Marketer·Operator 전 단계 기록, Knowledge Lab 근거 확인, Red red_status: pass 및 report 경로, 배포 commit/push, 라이브 HTTP·화면 검증, Infinity HTML report와 Archive 원장.
+승인 경계: 사용자가 배포를 명시했으므로 정적페이지 배포는 승인됨. 새 공개 도메인·비용·권한·시크릿 변경은 별도 Waiting/승인.
+다음: Genie가 파일 구조와 기존 정적사이트 배포 경로를 확인한 뒤 실행한다. -->
+
 <!-- marketing-117 completed 2026-07-21T10:29Z → intents/archive/marketing-117.md [projects: infinity,knowledge-lab; type: strategy; topics: marketing,content,growth] (최근 여행 사진 3장 후보를 무음 첫 프레임 기준 카드뉴스 제목 5안과 Threads 첫 줄 5안으로 정리했다. HTML report gate passed.) -->
 
 <!-- marketing-118 completed 2026-07-21T22:07Z → intents/archive/marketing-118.md [projects: infinity,knowledge-lab; type: strategy; topics: marketing,content,growth] (최근 소재 3개를 Threads 질문형 테스트와 Instagram 저장형 carousel 승격 조건으로 나눈 1주 SNS 캘린더 초안을 완성했다. HTML report gate passed.) -->
