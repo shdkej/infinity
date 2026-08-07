@@ -1,8 +1,12 @@
 # build-17 — Instagram Maker CSS 및 모바일 Preview 레이아웃 수정
 
 - id: build-17
-- status: inbox
+- status: completed
 - target_agent: genie
+- priority: high
+- permission: L1 (로컬 정적 파일 수정·테스트·렌더 검증; 공개 배포·인프라 변경은 승인 필요)
+- goal: Instagram Maker의 CSS 로딩 원인과 모바일 preview 가로 overflow를 수정하고 데스크톱·모바일 렌더 증거를 남긴다.
+- success_criteria: CSS 로드 확인, 390px viewport에서 scrollWidth <= innerWidth 및 주요 조작 영역 가시성, 데스크톱 회귀 확인, Planner·Developer·Marketer·Operator·Red 기록, HTML report와 Infinity/parent 원격 push 검증
 - source_agent: main
 - created_at: 2026-08-07T14:03:00Z
 - projects: [infinity, static-sites, personal-ops]
@@ -40,3 +44,11 @@
 ## 다음 액션
 
 지니가 현재 Instagram Maker 구현 위치와 CSS 로딩 경로를 먼저 앵커링하고, 원인 수정 → 모바일/데스크톱 검증 → Red → report → Infinity/parent 원격 push 순서로 실행한다.
+
+## 완료 근거
+
+- static-sites commit/push: `abbe3f5058fd6ba33d0d31ecc86629c1130b96af` (`origin/master` verified)
+- CSS 수정: `body min-width:980px` 제거, 800px 이하 단일 열 반응형 분기, viewport-contained preview
+- CSS/font HTTP 200 및 Chromium 실제 렌더: `reports/build-17/build-17-mobile.png`, `reports/build-17/build-17-desktop.png`
+- Red: `artifacts/build-17/red.md`, `red_status: pass`
+- report: `reports/build-17/20260807T1415Z.html`
