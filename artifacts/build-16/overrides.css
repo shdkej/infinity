@@ -1,2 +1,5 @@
 .hero-cta{display:inline-flex;align-items:center;gap:12px;margin-top:22px;min-height:48px;padding:0 18px;border:0;background:var(--ink);color:var(--acid);font-size:12px;font-weight:900;cursor:pointer;transition:.2s}.hero-cta:hover{background:#39423a;transform:translateY(-1px)}.hero-cta span{font-size:16px}.upload-card{min-height:58px}.button-primary{font-size:11px}
 @media(max-width:700px){.hero-cta{width:100%;justify-content:space-between;margin-top:20px}.hero-copy{padding-bottom:24px}}
+/* Reopen correction: mobile follows edit → preview, desktop keeps controls readable. */
+@media(min-width:701px){.editor-panel{position:sticky;top:24px;max-height:calc(100vh - 48px);overflow:auto}}
+@media(max-width:700px){.editor-panel{order:-1}.preview-column{order:1}}
