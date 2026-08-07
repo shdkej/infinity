@@ -550,3 +550,6 @@ Infinity intent 처리 품질을 평가해 다음 pickup/구조화/실행에서 
 
 - 대상 intent: 2026-07-17 기준 ops-15 archive/report 충돌
 - 평가: `intents/archive/ops-15.md`는 완료를 선언하지만 더 늦은 `reports/ops-15/20260716T1108Z-handoff.html`은 waiting 유지를 선언하고 `INTENTS.md` Archive 주석에도 ops-15가 없어 정본 상태가 갈라졌다. 다음 heartbeat는 신규 실행 전 최신 report가 archive 이후 상태를 뒤집는지 확인하고, 뒤집는다면 registry lane과 archive canonical index 중 하나를 superseded/updated로 명시해야 한다.
+
+- 대상 intent: 2026-07-21 기준 marketing-107~116 registry lane 정합성
+- 평가: `INTENTS.md` Inbox 섹션에 completed 주석이 쌓이면 archive 파일이 있더라도 Inbox가 비어 있다는 운영 신호가 흐려진다. 완료 전이는 최신순 표시 목적이어도 Archive 섹션으로만 이동시키고, Inbox에는 실행 대기 항목만 남기는 것을 게이트로 확인해야 한다.

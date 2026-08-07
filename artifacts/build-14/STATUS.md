@@ -7,6 +7,7 @@
 - 2026-08-05T22:38Z: Developer selected the existing Infinity static app path and implemented a first local static page with sample aggregate JSON under `space/infra-aws-static-sites/sites/infinity/dist/build-14/`.
 - 2026-08-05T23:35Z: 4 role outputs completed. The page was renamed to `오늘의 시스템`, local JSON/HTML checks passed, and desktop/mobile screenshots confirmed the static page renders without layout overlap.
 - 2026-08-05T23:45Z: Red-team review found sample-data wording risk and incomplete live verification. The page now adds a visible sample banner, marks the hero state as sample, and limits the range selector to the available 7-day fixture.
+- 2026-08-06T00:29Z: Follow-up deployment completed successfully on GitHub Actions and `https://infinity.aws.shdkej.com/build-14/index.html` returned HTTP 200 with the sample-state banner and 7-day selector visible.
 
 ## Agent Outputs
 
@@ -22,7 +23,7 @@
 - Avoid touching unrelated dirty files.
 - Use `https://infinity.aws.shdkej.com/build-14/index.html` as the verified public route. The current deploy workflow only creates extensionless routes for top-level HTML files.
 - Treat the current JSON as `sample_contract`; live daily generator is the next separate step.
-- Do not mark build-14 fully complete until GitHub Actions and the live URL are verified after the follow-up patch.
+- First-version completion gates are satisfied. The live daily generator remains a separate follow-up intent.
 
 ## Next
 

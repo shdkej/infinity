@@ -1,0 +1,10 @@
+<!doctype html>
+<html lang="ko">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>build-15 Waiting Report</title>
+<style>body{font-family:system-ui,sans-serif;max-width:760px;margin:40px auto;padding:0 18px;background:#f4f2ea;color:#2c2a25;line-height:1.7}.axis{border-left:3px solid #a9745a;padding-left:16px;margin:24px 0}.ax2{border-color:#5f7a5e}details{background:#fbfaf5;border:1px solid #e3dfd2;padding:12px 16px;margin:12px 0}code{background:#edeae0;padding:2px 5px}</style></head>
+<body><p>build-15 · Waiting · 2026-08-06T22:01Z</p><h1>Instagram Maker 정적페이지 배포</h1>
+<div class="axis ax1"><b>무엇이 문제였나</b><p>네 역할 문서와 입력 자산 점검은 완료했지만 <code>instagram-maker</code>의 승인된 공개 URL·registry 항목·CloudFront/S3 대상이 확인되지 않았다.</p></div>
+<div class="axis ax2"><b>어떻게 해결하나</b><p>신규 도메인·registry·Terraform·AWS 권한/비용 변경은 별도 승인 대기다. 승인된 대상이 확정되면 동일 intent에서 scoped 배포, commit/push, 라이브 HTTP·화면 검증, Red 재검증을 순서대로 재개한다.</p></div>
+<details open><summary>핵심 내용</summary><ul><li>Planner·Developer·Marketer·Operator 산출물 존재</li><li>실제 배포·commit/push·라이브 검증 미실행</li><li>Red report: <code>artifacts/build-15/red.md</code>, <code>red_status: fail</code></li><li>Archive 금지: Red pass와 라이브 검증이 없음</li></ul></details>
+<details><summary>실행 메타</summary><p>Intent: build-15 · 상태: active → waiting · 근거: <code>INTENTS.md</code>, 역할별 artifact, Knowledge Lab 운영 문서</p></details>
+</body></html>

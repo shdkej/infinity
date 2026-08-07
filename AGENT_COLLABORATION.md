@@ -10,6 +10,8 @@ The general pattern is:
 
 `source agent -> target-agent Inbox intent -> target agent execution/report -> source intent update`
 
+For normal user work, the target agent is `genie`. Genie owns the full execution path and must run Knowledge Lab plus Planner, Developer, Marketer, Operator, and Red validation even when the source request appears simple.
+
 ## Canonical Route
 
 When one agent needs another agent to do real work, create or update a target-agent intent in Infinity.

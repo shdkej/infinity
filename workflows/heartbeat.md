@@ -5,13 +5,22 @@
 
 ## 동작 프로토콜
 
+## 지니 단일 실행 게이트
+
+모든 Inbox/Active Intent는 `target_agent: genie`로 정규화한다. 기존 `target_agent: marketer` 같은 역할 표기는 `delegated_role`로 보존하고, 직접 실행하지 않는다. `research`, `simple-doc`, `monitor`, `execute_local`, `verify_local` 등 mode와 작업 크기는 지니 내부 단계의 입력일 뿐 라우팅 예외가 아니다.
+
+- Heartbeat는 Inbox를 구조화하고 `genie`에 전달할 실행 입력을 만든다.
+- 실제 태스크 실행·보고·검증·Archive는 `/home/ubuntu/.openclaw/workspace-genie/GENIE_WORKFLOW.md` 계약을 따르는 지니가 소유한다.
+- Heartbeat Agent, Local Claude Code, 별도 workflow-master가 지니를 우회해 태스크를 직접 끝내지 않는다.
+- 지니 세션 생성이나 dispatch가 불가능하면 실행하지 말고 Intent를 `Waiting`에 두며, 원인과 재개 조건을 기록한다.
+
 매 Heartbeat마다 아래 순서를 따른다.
 
 ### 1. Inbox 처리
 
 INTENTS.md의 `## Inbox` 섹션을 먼저 확인한다. 자유 형식 텍스트가 있으면:
 
-먼저 `AGENT_COLLABORATION.md`를 필요한 만큼 읽어 source-agent -> target-agent 요청인지 판별한다. Inbox 항목에 `target_agent`가 이미 있으면 그 값을 보존하고 target agent 기준으로 라우팅한다.
+먼저 `AGENT_COLLABORATION.md`를 필요한 만큼 읽어 source-agent -> target-agent 요청인지 판별한다. Inbox 항목에 `target_agent`가 이미 있으면 원래 역할을 `delegated_role`로 보존하되, 실행 target은 `genie`로 정규화한다.
 
 1. 내용을 분석하여 구조화된 Intent로 변환
 2. 적절한 ID 부여 (카테고리-번호, 예: monitor-02, dev-01)
@@ -107,9 +116,9 @@ Intent의 `context` 필드(파일 경로, 서비스명 등)에서 프로젝트�
 
 ```
 Heartbeat
-  ├── Agent 1: Intent A (project: kop-web)     → workflow-master
-  ├── Agent 2: Intent B (project: monitoring)   → 직접 실행
-  └── Agent 3: Intent C (project: mimo)         → workflow-master
+  ├── Agent 1: Intent A (project: kop-web)      → genie
+  ├── Agent 2: Intent B (project: monitoring)   → genie
+  └── Agent 3: Intent C (project: mimo)         → genie
 ```
 
 - 각 Agent는 독립적으로 실행되며, 리포트도 각각 `reports/{intent-id}/`에 기록
@@ -118,13 +127,13 @@ Heartbeat
 
 ### 8. 실행
 
-각 Intent에 대해:
+각 Intent에 대해 지니에게 전달할 실행 입력을 만든다. Cloud/Local 구분은 지니가 네 역할을 거치며 결정한다.
 
-- **Cloud 작업** (조사, 비교, 요약, 계획, 초안): Heartbeat Agent가 직접 수행
-- **Local 작업** (코드 수정, 테스트, 빌드, 브라우저/터미널 조작): Claude Code에 위임
+- **Cloud 작업** (조사, 비교, 요약, 계획, 초안): 지니의 Knowledge Lab·Planner·Marketer·Operator 단계에서 처리
+- **Local 작업** (코드 수정, 테스트, 빌드, 브라우저/터미널 조작): 지니가 Developer·Operator 단계에서 Claude Code에 위임
 - **Claude Code 호출 경로(임시 기본값)**: 당분간 Infinity의 local Claude 위임은 새 `claude -p` 프로세스보다 기존 pt/purplemux Claude Code tmux pane을 우선 사용한다. OpenClaw workspace의 `skills/pt-claude-tmux/SKILL.md` 절차를 따른다: `tmux -L purple`로 Claude pane을 찾고, capture로 현재 상태를 확인한 뒤, `C-c`와 `/clear`로 stale prompt를 정리하고, 하나의 짧고 경계가 분명한 prompt를 보낸 다음 결과를 capture한다. 사용 가능한 pt Claude pane이 없거나 busy/unsafe 상태이면 한 번만 bounded `claude --dangerously-skip-permissions -p` 호출로 fallback할 수 있다.
-- **Claude Code 작업 규칙**: `local-code` 또는 multi-file/shared behavior처럼 비단순 작업은 `workflow-master` 스킬/에이전트를 사용하도록 지시한다. workflow-master는 repo-local 파일보다 `~/.claude` 기준으로 먼저 찾는다: `~/.claude/skills/workflow-master/`와 `~/.claude/agents/workflow-master.md`. 단일 내부 문서/리포트 같은 명백한 `simple-doc` 작업은 직접 lightweight prompt로 처리할 수 있다.
-- **복잡한 작업** (다역할 필요): workflow-master가 Planner, Developer, Marketer, Operator 관점으로 분해·중재한 뒤, 실제 로컬 실행을 진행한다.
+- **Claude Code 작업 규칙**: 지니가 `local-code`, multi-file/shared behavior, 단일 내부 문서, 리포트, `simple-doc`을 모두 workflow-master 흐름 안에서 처리한다. 별도의 직접 lightweight prompt 예외는 없다.
+- **모든 작업**: 지니가 Planner → Developer → Marketer → Operator를 순서대로 실행하고, 마지막에 Red 검증을 요청한다. 해당 없음인 역할도 근거를 기록한다.
 - **마케팅 학습 루프**: `marketing-*`, `target_agent: marketer`, activation, onboarding, retention, monetization, positioning, AI value/proxy 관련 intent는 Marketer가 `MARKETING_LEARNINGS.md`를 1순위로 읽고, 이전 마케팅 산출물을 근거로 학습하게 한다. 위임 프롬프트에 `MARKETING_LEARNINGS.md`, `INTENTS.md` Archive 요약, `artifacts/marketing-*`, `reports/marketing-*/*.html`, 관련 Virtue `apps/web/docs/`를 참고해 계승/수정/충돌 지점을 명시하라고 넣는다. Naver Shopping 등 다른 source agent가 만든 target-agent 요청도 같은 루프로 처리하되, source agent 산출물은 요청 근거로만 쓰고 Marketer output을 네이버 수요 증거로 오인하지 않는다.
 - **마케팅 언어 규칙**: `marketing-*` 또는 `target_agent: marketer` 산출물은 기본적으로 한국어로 작성한다. Infinity Inbox 제목, intent 본문, artifact 본문, report 본문, archive summary, SAM internal inbox note, Waiting 이유, 다음 액션까지 모두 한국어 우선으로 쓴다. 파일 경로, URL, 코드, CLI 명령, 환경변수, JSON 필드명, 고유 서비스명/제품명만 필요할 때 원문을 유지한다. 영어 초안이나 영어 제목을 먼저 만들고 번역하는 흐름이 아니라, 처음부터 한국어 정본을 만든다.
 
@@ -134,7 +143,7 @@ Claude Code 위임 프롬프트에는 최소한 아래를 포함한다.
 Infinity Intent: {intent-id} {title}
 Mode: execute_local | verify_local
 Invocation: Prefer the existing pt/purplemux Claude pane via `tmux -L purple`; capture first, clear stale input, send this bounded prompt once, then capture the result. Fall back to a fresh bounded Claude Code call only if no usable pt pane exists.
-Workflow: For nontrivial local-code or multi-file/shared behavior, use workflow-master first. Find it under `~/.claude/skills/workflow-master/` and `~/.claude/agents/workflow-master.md` before falling back to repo-local `.agent/workflows/workflow-master.md` or `WORKFLOW-MASTER.md`. For a clearly tiny simple-doc task, direct execution is acceptable.
+Workflow: Always run through Genie at `/home/ubuntu/.openclaw/workspace-genie/GENIE_WORKFLOW.md`. Inside Genie, execute Planner → Developer → Marketer → Operator for every task, including clearly tiny simple-doc tasks. Use Red validation before Archive.
 Goal: {goal}
 Context: {relevant files, urls, prior reports}
 Prepared findings: {cloud research/prepare summary}
@@ -146,7 +155,7 @@ Verification: {tests/build/lint/screenshot/direct inspection}
 Report back to: reports/{intent-id}/{timestamp}.html (필수 HTML, 결론 2축 양식, ARTIFACT_RULES.md 참조)
 HTML report contract:
 - Create the final run report as HTML, not Markdown.
-- This applies to every meaningful completion, including `simple-doc` and direct lightweight prompts.
+- This applies to every completion, including `simple-doc`, no-op checks, and tasks that would otherwise be direct lightweight prompts.
 - A new `.md` report may be kept as a legacy/raw log, but it never satisfies the completion gate by itself.
 - Use reports/_TEMPLATE.html and fill axis 1, axis 2, core content, details, and execution metadata.
 - Before writing the HTML, outline the report in a MECE structure. Findings, options, risks, evidence, and next actions should not repeat each other, and the main decision axes should not be missing.
@@ -208,6 +217,12 @@ Report는 실행 로그다. 2축은 그 로그의 결론을 한눈에 보게 하
 3. `Report`: 실행 과정 로그만 `reports/{id}/{timestamp}.html`에 둔다.
 4. `Detail`이라는 별도 최종 문서는 만들지 않는다. archive path와 detail path가 같아지는 중복 구조를 생성하지 않는다.
 5. `INTENTS.md` 완료 코멘트에는 archive path와 한 줄 결과를 함께 남겨 대시보드가 `Intent 원장` 카드로 요약할 수 있게 한다.
+
+Archive gate:
+
+- Archive 전제는 `red_status: pass`와 Red report 경로다.
+- Red가 `수정 필요`, `보류`, 타임아웃, 미응답이면 Archive하지 않고 `Waiting`에 남긴다.
+- `red_status`가 없거나 Red report가 없는 완료 선언은 무효다.
 
 ### 10. Telegram 알림
 
