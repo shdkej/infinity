@@ -4,21 +4,15 @@
 
 ## Inbox
 
-<!-- build-16 completed and archived 2026-08-07T13:15Z; no executable Inbox item remains. -->
+<!-- build-16 is not complete; it remains Waiting until an approved public URL/registry/infra target exists. -->
 
 ## Active
 
-<!-- build-16 | target_agent: genie | source_agent: main | status: waiting | reopened_at: 2026-08-07T13:44Z | priority: high | permission: workspace-local-only | projects: infinity,static-sites | task_type: redesign-and-verification | topics: instagram-maker,layout,visual-hierarchy,responsive,red-team
-재개 사유: 사용자가 build-16의 조기 완료 처리를 부정했으며, 이전 실행은 Infinity 정본과 원격 반영 게이트를 충분히 따르지 않았다.
-원본: 기존 build-15 입력 /home/ubuntu/.openclaw/workspace/media/inbound/openclaw-staged-76421795-7722-4543-a709-0e52eff09de2/instagram-maker.tar---5060dc00-db57-41b1-8b94-d6c42d82db53.gz.
-목표: 기존 build-16 산출물을 완료 근거로 재사용하지 말고 원본과 사용자 의도를 다시 대조하여 Instagram Maker를 전면 재검토·재실행한다. Planner·Developer·Marketer·Operator·Red 전체 기록, 실제 화면 검증, HTML report, Infinity push 및 parent pointer push 확인 전에는 완료나 Archive를 선언하지 않는다.
-완료 기준: 사용자가 지적한 배치 문제를 해결한 결과, 모바일·데스크톱 검증, Red red_status: pass, HTML report, Infinity remote commit/push 검증, Knowledge Lab parent pointer remote commit/push 검증(해당 시), clean worktree. 공개 배포가 원래 목표에 포함되면 build-15의 대기 원인과 공개 대상 준비를 먼저 해결하고, 준비되지 않으면 Waiting으로 남긴다.
-다음 첫 액션: Knowledge Lab parent submodule pointer를 commit/push하고 원격 main을 확인한다. -->
-<!-- dispatcher-check 2026-08-07T13:48Z: 동일 intent build-16이 이미 status: active로 진행 중이므로 중복 실행하지 않음. next_retry_condition: 기존 build-16 실행이 완료·Waiting·실패 중 하나로 명시 전환되고, 해당 전환 및 Red/remote 검증 기록이 갱신된 다음 유효 사이클에서 재확인. -->
+<!-- build-16은 산출물 재실행을 마쳤지만 공개 대상 부재로 Waiting에 둔다. 상세 원장: intents/waiting/build-16.md. -->
 
 ## Waiting
 
-<!-- build-16 waiting 2026-08-07T14:05Z: Red pass 및 Infinity push 확인. parent pointer commit/push 검증 전에는 완료/Archive 금지. -->
+<!-- build-16 waiting 2026-08-07T14:05Z: Red pass 및 Infinity/parent 원격 push 확인. 공개 URL·registry·인프라가 준비되면 공개 배포와 라이브 검증을 재개한다. 원장: intents/waiting/build-16.md. -->
 <!-- 사용자 결정·외부 조건 대기만 기록한다. 현재 build-15는 사용자가 완료 처리했으므로 Waiting에서 제거했다. -->
 ## Archive
 
