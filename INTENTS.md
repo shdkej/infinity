@@ -5,6 +5,7 @@
 ## Inbox
 
 <!-- build-16 is not complete; it remains Waiting until an approved public URL/registry/infra target exists. -->
+<!-- build-17 inbox 2026-08-07T14:03Z: Instagram Maker CSS가 적용되지 않아 화면이 깨지고, 모바일에서 preview가 우측으로 밀려 수평 스크롤해야 보이는 문제를 수정한다. CSS 로딩/번들 경로와 모바일 단일 화면 레이아웃을 원인부터 확인하고, 실제 모바일·데스크톱 렌더 검증까지 수행한다. 산출물·상태·report를 Infinity에 커밋하고 push한 뒤에만 등록 완료로 본다. 원장: intents/inbox/build-17.md. -->
 
 ## Active
 
