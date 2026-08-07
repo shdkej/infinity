@@ -38,6 +38,6 @@ scripts/notify.sh   ← 승인/장애 등 명시적 알림용 Telegram 발송기
 
 ## 연동
 
-- 원격 routine(claude.ai)이 이 레포를 clone → `workflows/heartbeat.md` 프로토콜대로 실행 → 필요한 경우 커밋·push.
+- 원격 routine(claude.ai)이 이 레포를 clone → `workflows/heartbeat.md` 프로토콜대로 실행 → 의미 있는 변경을 커밋·push한다. 산출물·상태·Report·Archive는 Infinity 원격 push 확인 전 완료로 보지 않으며, Knowledge Lab submodule 사용 시 parent pointer push까지 필수다.
 - GitHub Actions push 알림은 쓰지 않는다. 아침 리캡은 OpenClaw cron이 `scripts/morning_recap_message.py`를 실행해 전달한다.
 - [knowledge-lab](https://github.com/shdkej/knowledge-lab)에 submodule로 포함되어 통합 지식 허브에서 함께 조회된다.

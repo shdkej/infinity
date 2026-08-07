@@ -1,6 +1,6 @@
 # build-16 — Instagram Maker 전면 재설계
 
-- status: completed
+- status: reopened
 - target_agent: genie
 - priority: high
 - permission: workspace-local-only
@@ -8,6 +8,8 @@
 - task_type: redesign-and-verification
 - topics: instagram-maker,layout,visual-hierarchy,responsive,red-team
 - completed_at: 2026-08-07T13:15Z
+- reopened_at: 2026-08-07T13:44Z
+- reopen_reason: 사용자가 이전 완료 처리를 부정함. 기존 산출물·Red pass는 기준선으로만 보존하고 원본 대조 및 원격 반영 게이트를 포함한 재실행이 필요함.
 
 ## Planner
 

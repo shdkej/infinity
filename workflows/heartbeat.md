@@ -224,6 +224,17 @@ Archive gate:
 - Red가 `수정 필요`, `보류`, 타임아웃, 미응답이면 Archive하지 않고 `Waiting`에 남긴다.
 - `red_status`가 없거나 Red report가 없는 완료 선언은 무효다.
 
+### 원격 반영 게이트 (필수)
+
+Infinity에서 산출물·상태·Report·Archive를 만든 것만으로는 등록 또는 완료로 보지 않는다.
+
+1. 의미 있는 변경을 Infinity 저장소에 커밋하고 matching `origin`에 push한다.
+2. Knowledge Lab이 Infinity를 submodule로 참조하는 작업이면 상위 저장소의 submodule pointer도 갱신·커밋·push한다.
+3. 두 저장소의 `git status --short --branch`가 clean인지 확인하고, 원격 `main`이 방금 만든 커밋을 가리키는지 확인한다.
+4. 위 원격 확인이 끝나기 전에는 `status: completed`, `archived` 전환, 완료 통보를 하지 않는다. push 실패·상위 pointer 미반영·검증 불명확은 `Waiting`에 남기고 재개 조건을 기록한다.
+
+완료 Report에는 `infinity_commit`, `infinity_push_verified`, `parent_pointer_commit`(해당 시), `parent_push_verified`를 기록한다. 사용자가 “등록 완료”라고 부르는 시점은 이 원격 반영 게이트까지 통과한 시점이다.
+
 ### 10. Telegram 알림
 
 `scripts/notify.sh`를 사용하여 알림 발송.
