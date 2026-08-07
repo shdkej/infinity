@@ -15,6 +15,6 @@
   <div class="axis ax2"><b>수정과 검증</b><p>CSS의 반응형 분기를 추가해 800px 이하에서 workspace를 단일 열로 전환하고 preview를 viewport 폭에 맞췄다. Chromium 실제 렌더에서 모바일 390×844, 데스크톱 1440×1000을 확인했다.</p></div>
   <details open><summary>Red 결과</summary><ul><li><code>red_status: pass</code></li><li><code>node --check app.js</code> 통과</li><li>styles.css 및 A2Z/Nanum/Chosun 폰트 HTTP 200</li><li>모바일 가로 밀림 없음, 데스크톱 2열 유지</li></ul></details>
   <details open><summary>렌더 증거</summary><p><img src="build-17-mobile.png" alt="390x844 mobile render"><img src="build-17-desktop.png" alt="1440x1000 desktop render"></p></details>
-  <details><summary>원격 게이트</summary><p>Infinity commit/push와 Knowledge Lab parent pointer push는 이 report 작성 후 확인해 기록한다.</p></details>
+  <details open><summary>원격 게이트</summary><p>static-sites <code>abbe3f5058fd6ba33d0d31ecc86629c1130b96af</code> (origin/master verified)<br>Infinity <code>370da91d27158bfdb91012b8e35d4599dfc8d837</code> (origin/main verified)<br>Knowledge Lab parent pointer는 이 Infinity commit을 가리키도록 별도 push했다.</p></details>
 </body>
 </html>

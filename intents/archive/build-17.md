@@ -48,6 +48,7 @@
 ## 완료 근거
 
 - static-sites commit/push: `abbe3f5058fd6ba33d0d31ecc86629c1130b96af` (`origin/master` verified)
+- Infinity commit/push: `370da91d27158bfdb91012b8e35d4599dfc8d837` (`origin/main` verified)
 - CSS 수정: `body min-width:980px` 제거, 800px 이하 단일 열 반응형 분기, viewport-contained preview
 - CSS/font HTTP 200 및 Chromium 실제 렌더: `reports/build-17/build-17-mobile.png`, `reports/build-17/build-17-desktop.png`
 - Red: `artifacts/build-17/red.md`, `red_status: pass`
