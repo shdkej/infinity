@@ -4,21 +4,14 @@
 
 ## Inbox
 
-<!-- build-16 moved to Active 2026-08-07T12:14Z; state transition verified below. -->
+<!-- build-16 completed and archived 2026-08-07T13:15Z; no executable Inbox item remains. -->
 
 ## Active
 
-<!-- build-16 | target_agent: genie | source_agent: main | status: active | priority: high | permission: workspace-local-only | projects: infinity,static-sites | task_type: redesign-and-verification | topics: instagram-maker,layout,visual-hierarchy,responsive,red-team
-원 요청: 기존 Instagram Maker 결과가 엉망이고 배치도 좋지 않으므로 인피니티에서 다시 만든다.
-입력: 기존 build-15 원본 `/home/ubuntu/.openclaw/workspace/media/inbound/openclaw-staged-76421795-7722-4543-a709-0e52eff09de2/instagram-maker.tar---5060dc00-db57-41b1-8b94-d6c42d82db53.gz` 및 build-15 작업 기록.
-goal: 기존 결과를 그대로 보수하지 말고 Instagram Maker의 화면 구조·배치·간격·타이포그래피·반응형 위계를 전면 재설계해, 첫 화면에서 핵심 기능과 다음 행동이 즉시 읽히는 결과물로 다시 만든다.
-success_criteria: Planner·Developer·Marketer·Operator 관점 기록, 기존 실패 원인과 변경 범위 명시, 모바일·데스크톱 실제 렌더링 검증, 텍스트 겹침·가로 넘침·대비·터치 영역 점검, Red `red_status: pass` 및 HTML report 경로, 산출물·검증 근거를 Infinity 원장에 보존. 신규 공개 도메인·AWS 인프라 생성은 이번 재설계 범위에 포함하지 않으며, 배포가 필요할 경우 승인된 기존 경로와 별도 확인을 거친다.
-실행 지시: 첫 화면의 주인공을 하나로 정하고 장식과 보조 UI를 줄인다. 현재 배치를 부분 수정하는 접근은 금지하고, 필요하면 구조부터 다시 짠다. 사용자가 지적한 '엉망' 상태를 성공 기준에 반영해 결과물만 만들지 말고 실제 화면에서 읽힘과 정렬을 검증한다.
-픽업: 2026-08-07T11:53Z 사용자 재작업 요청.
-구조화 메모: Planner는 첫 화면의 단일 주인공·즉시 읽히는 다음 행동·모바일/데스크톱 검증을 완료 기준으로 고정한다. Developer는 기존 배치를 부분 수정하지 않고 구조·CSS·상호작용을 재작성하며 원본 기능을 보존한다. Marketer는 도구의 약속과 CTA를 첫 뷰에서 분명히 하되 장식 카피를 줄인다. Operator는 신규 도메인/AWS 없이 작업 디렉터리와 Infinity artifact/report만 변경하고 재현 가능한 로컬 검증을 남긴다.
-goal: 기존 Instagram Maker 결과를 전면 재설계하여 첫 화면에서 핵심 기능과 다음 행동이 즉시 읽히고, 모바일·데스크톱에서 정렬·대비·터치성이 검증된 로컬 산출물을 만든다.
-success_criteria: Planner·Developer·Marketer·Operator 독립 판단 및 지니 종합 기록, 기존 실패 원인/변경 범위 기록, 모바일·데스크톱 실제 렌더링 검증, 텍스트 겹침·가로 넘침·대비·터치 영역 점검, Red red_status: pass 및 HTML report 경로, artifact·검증 근거 보존.
-updated: 2026-08-07T12:14Z. -->
+<!-- build-15 cycle recheck 2026-08-07T13:18Z: Knowledge Lab 인덱스(`agent-wiki/README.md`)와 관련 Infinity `GATES.md`·`PERMISSIONS.md`·`workflows/heartbeat.md`, 기존 build-15 원장을 확인함. 동일 intent의 이전 Genie/Heartbeat 실행 프로세스 및 중복 `active`/`in_progress`는 없고, Inbox에는 실행 가능한 미완료 intent가 없음. Planner 독립 판단: 독립 공개 URL에서 Instagram Maker를 라이브 렌더링하는 목표와 전용 공개 URL·인프라·scoped 대상 준비 전 대기 범위를 유지. Developer 독립 판단: `instagram-maker` registry 항목·전용 S3/CloudFront 대상 부재로 배포·라이브 검증 불가; 기존 앱 하위경로 우회는 rollback/cache 경계를 공유하므로 기각. Marketer 독립 판단: 공개 표면·첫 화면 미검증으로 외부 카피·게시·완료 표현을 보류. Operator 독립 판단: 신규 도메인·AWS 리소스·ACM/Route53·Terraform·비용·권한 변경은 준비·승인 전 실행하지 않음. 지니 종합: 기존 `target_agent: genie`, `status: waiting`, `priority: normal`, `permission: waiting_for_new_public_domain_and_infrastructure_approval`, `goal`, `success_criteria` 및 `projects: infinity,static-sites`, `task_type: deployment`, `topics: instagram-maker,static-site,aws,approval,waiting-infrastructure`를 유지하고 새 실행·중복 intent·우회 배포를 만들지 않음. Red는 `red_status: fail`, report `reports/build-15/2026-08-06T2201Z.html`이므로 Archive하지 않음. 최종 실행 순서: 승인된 기존 URL 또는 신규 공개 도메인·static-site 인프라와 scoped 대상 준비 확인 → 배포·라이브 HTTP/화면 검증 → Red pass 및 HTML report 확인 → Archive. `next_retry_condition`: 사용자가 승인된 기존 공개 URL을 제공하거나 신규 공개 도메인·S3/CloudFront/ACM/Route53 및 `sites/registry.json`·Terraform 변경을 명시 승인하고 scoped 대상 준비를 확인할 때만 동일 intent에서 재개. 승인·대상 준비 전에는 재시도하지 않음. 확인 시각: 2026-08-07T13:18Z. -->
+
+<!-- build-16 completed 2026-08-07T13:15Z → intents/archive/build-16.md [projects: infinity,static-sites; type: redesign-and-verification; topics: instagram-maker,layout,visual-hierarchy,responsive,red-team] (첫 CTA·카피 구체화, canvas 안전 영역 자동 줄바꿈, 모바일·데스크톱 렌더링 검증 완료. Red red_status: pass, report: artifacts/build-16/verification/red-report.html.) -->
+
 
 <!-- marketing-117 completed 2026-07-21T10:29Z → intents/archive/marketing-117.md [projects: infinity,knowledge-lab; type: strategy; topics: marketing,content,growth] (최근 여행 사진 3장 후보를 무음 첫 프레임 기준 카드뉴스 제목 5안과 Threads 첫 줄 5안으로 정리했다. HTML report gate passed.) -->
 
