@@ -7,7 +7,7 @@
 - projects: [infinity, static-sites]
 - task_type: maintenance
 - topics: [instagram-maker, layout, responsive]
-- result_summary: 모바일 편집 우선·데스크톱 sticky 패널로 배치를 보정하고 Red pass를 받았으나 parent pointer 원격 반영 전이라 Waiting
+- result_summary: 모바일 편집 우선·데스크톱 sticky 패널로 배치를 보정하고 Red pass 및 두 저장소 원격 반영을 확인했으나 공개 배포 대상 부재로 Waiting
 - artifacts:
   - path: artifacts/build-16/planner-rerun.md
     role: research
@@ -24,11 +24,11 @@
     role: final
 - commits:
   - repo: infinity
-    sha: df9b1d19c6670d9ad565dac7c672919046828212
-    note: artifact와 역할 기록 push 확인
+    sha: 46cdff64de202c9f37c307252f7d048445588325
+    note: artifact·역할·report·INTENTS push 확인
   - repo: knowledge-lab
-    sha: pending
-    note: parent submodule pointer 대기
+    sha: c1836694244033e1f81a54bbf110bb115a1d0662
+    note: parent submodule pointer push 확인
 - urls: []
 - next_actions:
   - Knowledge Lab parent submodule pointer를 commit/push하고 origin/main을 확인한다.
