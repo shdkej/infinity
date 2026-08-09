@@ -56,7 +56,7 @@ Do not rely on the backlink as the execution trigger. The target-agent intent mu
 
 ## Internal Inboxes
 
-SAM internal inbox files such as `/home/ubuntu/.openclaw/workspace/system/data/agent-inbox/marketing.jsonl` are supplementary.
+SAM internal inbox files such as `/home/ubuntu/workspace/knowledge-lab/source/openclaw-system/data/agent-inbox/marketing.jsonl` are supplementary.
 
 They are useful for heartbeat, review, and lightweight status triage, but they do not replace Infinity Inbox intents for target-agent work.
 
