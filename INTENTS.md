@@ -4,7 +4,6 @@
 
 ## Inbox
 
-<!-- ops-23 requested 2026-08-09T21:54Z [projects: knowledge-lab,openclaw,infinity; type: audit; topics: ingest,indexing,daily-tracking,source-migration,cron-references] (KL ingest 점검 및 평가. `/home/ubuntu/workspace/knowledge-lab/source/openclaw-system/` 이동 이후 source/docs/data/reports/scripts/evaluators 참조가 모두 새 경로 기준인지, daily-tracking이 ingest/index 대상처럼 agent-wiki diary/log/index에 연결되는지, gitignored runtime/cache/secret/media 경계 때문에 누락되는 가치 자료가 없는지, cron payload와 Infinity/Genie 협업 문서가 새 구조를 정확히 아는지 평가하고 누락/보완안을 report로 남긴다. Red 검증 필수.) -->
 
 ## Active
 
@@ -13,6 +12,8 @@
 <!-- 사용자 결정·외부 조건 대기만 기록한다. 현재 build-15는 사용자가 완료 처리했으므로 Waiting에서 제거했다. -->
 
 ## Archive
+
+<!-- ops-23 completed 2026-08-09T21:58Z → artifacts/ops-23/audit-20260809.md; reports/ops-23/20260809T2158Z.html [projects: knowledge-lab,openclaw,infinity; type: audit; topics: ingest,indexing,daily-tracking,source-migration,cron-references] (source 이동·daily-tracking 색인·runtime 경계·cron/협업 참조 감사. symlink 호환성은 유지되나 meaningful daily-tracking pointer 누락, migrated cron 22개 중 legacy path 10개, ignored asset provenance 재현성 위험과 dispatcher snapshot 관측성 공백을 후속 조치로 기록. Planner·Developer·Marketer·Operator 판단과 Red red_status: pass 포함.) -->
 
 <!-- research-25 completed 2026-08-09T20:48Z → artifacts/research-25/quiet-minimal-brand-research.md; reports/research-25/2026-08-09T2048Z.html [projects: personal-brand,design-system,infinity; type: research; topics: brand-research,minimal,introvert,slow-living,quiet-aesthetic] (국내외 생활용품·뷰티·출판·라이프스타일 7개 사례를 공식 자료와 Knowledge Lab 기준으로 비교하고, Sam Samuel 적용 원칙 10개와 quiet-start 프로토타입 다음 액션을 정리. Planner·Developer·Marketer·Operator 독립 판단 기록, Red pass.) -->
 
