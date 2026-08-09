@@ -4,52 +4,17 @@
 
 ## Inbox
 
-### [marketing-121] 한국 인스타그램 훅킹 문구 100개 수집
-- requested: 2026-08-09T20:15Z
-- source: Telegram DM
-- requester: SeongHo Noh
-- target_agent: genie
-- status: inbox
-- priority: medium
-- permission: L0
-- projects: personal-brand,instagram,content,infinity
-- task_type: research
-- topics: instagram,hooks,korean-copy,content-growth
-- context: 한국 인스타그램에서 저장·공유·조회 유도에 쓰이는 훅킹 문구 100개를 수집해달라는 요청. 단순 카피 생성이 아니라 실제 한국어 훅 패턴 수집/분류가 목적이다.
-- goal: 한국어 인스타그램 훅킹 문구 100개를 수집하고 패턴별로 정리해 후속 콘텐츠 제작에 재사용 가능하게 만든다.
-- success_criteria:
-  - 한국어 인스타그램/릴스/Threads 등 현재 쓰이는 문구를 우선 근거로 삼고, 출처 또는 관찰 맥락을 가능한 범위에서 남긴다.
-  - 100개 문구를 저장/공유 유도, 문제 제기, 리스트형, 전환/반전, 체크리스트, 도구/팁, 감정 공감 등 패턴으로 분류한다.
-  - Sam Samuel 톤에 맞게 그대로 쓸 문구와 변형해야 할 문구를 구분한다.
-  - Red 검증 `red_status: pass`와 report 경로를 남긴다.
-- next_retry_condition: next dispatcher cycle
-
-### [research-25] 미니멀·내향·조용·천천히 감성 브랜드 리서치
-- requested: 2026-08-09T20:15Z
-- source: Telegram DM
-- requester: SeongHo Noh
-- target_agent: genie
-- status: inbox
-- priority: medium
-- permission: L0
-- projects: personal-brand,design-system,infinity
-- task_type: research
-- topics: brand-research,minimal,introvert,slow-living,quiet-aesthetic
-- context: `미니멀`, `내향`, `조용`, `천천히` 느낌의 감성 브랜드를 조사해 Sam Samuel의 Spatial Type/개인 브랜드 방향에 참고하려는 요청.
-- goal: 조용하고 내향적인 미니멀 감성 브랜드 사례를 수집·분석하고, Sam Samuel 디자인/브랜드에 적용 가능한 원칙으로 압축한다.
-- success_criteria:
-  - 국내외 브랜드/서비스/출판/스튜디오/라이프스타일 사례를 균형 있게 조사한다.
-  - 각 사례의 톤, 색, 타이포그래피, 사진/이미지 사용, 카피 리듬, 느린 경험 설계를 비교한다.
-  - Sam Samuel에 바로 적용할 수 있는 디자인/카피/운영 원칙 5~10개로 정리한다.
-  - Red 검증 `red_status: pass`와 report 경로를 남긴다.
-- next_retry_condition: next dispatcher cycle
-
 ## Active
 
 ## Waiting
 
 <!-- 사용자 결정·외부 조건 대기만 기록한다. 현재 build-15는 사용자가 완료 처리했으므로 Waiting에서 제거했다. -->
+
 ## Archive
+
+<!-- research-25 completed 2026-08-09T20:48Z → artifacts/research-25/quiet-minimal-brand-research.md; reports/research-25/2026-08-09T2048Z.html [projects: personal-brand,design-system,infinity; type: research; topics: brand-research,minimal,introvert,slow-living,quiet-aesthetic] (국내외 생활용품·뷰티·출판·라이프스타일 7개 사례를 공식 자료와 Knowledge Lab 기준으로 비교하고, Sam Samuel 적용 원칙 10개와 quiet-start 프로토타입 다음 액션을 정리. Planner·Developer·Marketer·Operator 독립 판단 기록, Red pass.) -->
+
+<!-- marketing-121 completed 2026-08-09T20:28Z → artifacts/marketing-121/instagram-hooks-100.md; reports/marketing-121/2026-08-09T2028Z.html [projects: personal-brand,instagram,content,infinity; type: research; topics: instagram,hooks,korean-copy,content-growth] (한국어 훅 100개를 10개 패턴으로 정리. 공개 한국어 자료 기반 골격과 Sam 변형을 분리하고, Red second pass PASS 및 정적 검증을 반영.) -->
 
 <!-- build-17 completed 2026-08-09T20:26Z → reports/build-17/2026-08-09T2017Z.html [projects: status,design-system,space,infinity; type: implementation; topics: spatial-type,dashboard,frontend,deploy,visual-verification] (Spatial Type 텍스트 우선 표면으로 개편. 대상 commit 41f02b1 push, GitHub Actions run 31334185017 성공, https://status.aws.shdkej.com/ HTTP 200 및 라이브 CSS/데이터 계약 확인. Red pass.) -->
 
