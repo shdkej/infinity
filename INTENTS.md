@@ -4,6 +4,66 @@
 
 ## Inbox
 
+### [build-17] Status dashboard를 Spatial Type 디자인 시스템에 맞게 개편 후 배포
+- requested: 2026-08-09T20:15Z
+- source: Telegram DM
+- requester: SeongHo Noh
+- target_agent: genie
+- status: inbox
+- priority: high
+- permission: L1
+- projects: status,design-system,space,infinity
+- task_type: implementation
+- topics: spatial-type,dashboard,frontend,deploy,visual-verification
+- context: 사용자가 새로 정립한 `Spatial Type / 공간형 타이포그래피 인터페이스` 기준에 맞춰 Status dashboard를 수정하고 배포까지 완료하라고 요청했다. 최근 Travel Ledger 개편 방향(`텍스트 우선`, `필요할 때 객체 호출`, 카드/패널 중심 탈피)을 참조한다.
+- goal: Status dashboard를 새 디자인 시스템에 맞게 개편하고, 로컬/라이브 검증과 배포 확인까지 닫는다.
+- success_criteria:
+  - 디자인 정본(`DESIGN.md`, `DESIGN_SYSTEM.md`, `BRAND.md`)과 Status 기존 구조를 확인한다.
+  - 카드/패널 중심 구조를 Spatial Type 흐름으로 줄이고, 사용자가 5초 안에 현재 상태·목표·다음 행동을 읽을 수 있게 한다.
+  - 모바일/데스크톱 렌더링, 텍스트 겹침, 접근성, 배포/라이브 URL 반영을 검증한다.
+  - Red 검증 `red_status: pass`와 report 경로를 남긴다.
+- next_retry_condition: next dispatcher cycle
+
+### [marketing-121] 한국 인스타그램 훅킹 문구 100개 수집
+- requested: 2026-08-09T20:15Z
+- source: Telegram DM
+- requester: SeongHo Noh
+- target_agent: genie
+- status: inbox
+- priority: medium
+- permission: L0
+- projects: personal-brand,instagram,content,infinity
+- task_type: research
+- topics: instagram,hooks,korean-copy,content-growth
+- context: 한국 인스타그램에서 저장·공유·조회 유도에 쓰이는 훅킹 문구 100개를 수집해달라는 요청. 단순 카피 생성이 아니라 실제 한국어 훅 패턴 수집/분류가 목적이다.
+- goal: 한국어 인스타그램 훅킹 문구 100개를 수집하고 패턴별로 정리해 후속 콘텐츠 제작에 재사용 가능하게 만든다.
+- success_criteria:
+  - 한국어 인스타그램/릴스/Threads 등 현재 쓰이는 문구를 우선 근거로 삼고, 출처 또는 관찰 맥락을 가능한 범위에서 남긴다.
+  - 100개 문구를 저장/공유 유도, 문제 제기, 리스트형, 전환/반전, 체크리스트, 도구/팁, 감정 공감 등 패턴으로 분류한다.
+  - Sam Samuel 톤에 맞게 그대로 쓸 문구와 변형해야 할 문구를 구분한다.
+  - Red 검증 `red_status: pass`와 report 경로를 남긴다.
+- next_retry_condition: next dispatcher cycle
+
+### [research-25] 미니멀·내향·조용·천천히 감성 브랜드 리서치
+- requested: 2026-08-09T20:15Z
+- source: Telegram DM
+- requester: SeongHo Noh
+- target_agent: genie
+- status: inbox
+- priority: medium
+- permission: L0
+- projects: personal-brand,design-system,infinity
+- task_type: research
+- topics: brand-research,minimal,introvert,slow-living,quiet-aesthetic
+- context: `미니멀`, `내향`, `조용`, `천천히` 느낌의 감성 브랜드를 조사해 Sam Samuel의 Spatial Type/개인 브랜드 방향에 참고하려는 요청.
+- goal: 조용하고 내향적인 미니멀 감성 브랜드 사례를 수집·분석하고, Sam Samuel 디자인/브랜드에 적용 가능한 원칙으로 압축한다.
+- success_criteria:
+  - 국내외 브랜드/서비스/출판/스튜디오/라이프스타일 사례를 균형 있게 조사한다.
+  - 각 사례의 톤, 색, 타이포그래피, 사진/이미지 사용, 카피 리듬, 느린 경험 설계를 비교한다.
+  - Sam Samuel에 바로 적용할 수 있는 디자인/카피/운영 원칙 5~10개로 정리한다.
+  - Red 검증 `red_status: pass`와 report 경로를 남긴다.
+- next_retry_condition: next dispatcher cycle
+
 ## Active
 
 ## Waiting
