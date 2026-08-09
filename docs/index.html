@@ -969,6 +969,8 @@
       if (lower.includes("agent-wiki") || lower.includes("agent wiki")) projects.push("agent-wiki");
       if (lower.includes("knowledge lab") || lower.includes("knowledge-lab")) projects.push("knowledge-lab");
       if (lower.includes("openclaw")) projects.push("openclaw");
+      if (lower.includes("/home/ubuntu/workspace/space") || lower.includes("infra-aws-static-sites") || lower.includes("travel.aws.shdkej.com") || lower.includes("static site")) projects.push("space");
+      if (lower.includes("monitoring_personal") || lower.includes("/home/ubuntu/workspace/monitoring_personal") || lower.includes("posthog exporter") || lower.includes("prometheus") || lower.includes("loki") || lower.includes("promtail") || lower.includes("yace")) projects.push("monitoring_personal");
       if (lower.includes("github actions") || lower.includes("kubernetes") || lower.includes("배포")) projects.push("infrastructure");
 
       if (prefix === "research") task_type = "research";

@@ -101,6 +101,11 @@ PERMISSIONS.md의 권한 레벨에 따라:
 Intent의 `context` 필드(파일 경로, 서비스명 등)에서 프로젝트를 추출한다.
 - 경로 기반: 최상위 디렉토리 또는 리포지토리 루트 (예: `kop-web`, `security-automation`)
 - 명시적 태그: Intent에 `project: xxx` 필드가 있으면 그것을 사용
+- 고정 프로젝트 매핑:
+  - `infinity`: `/home/ubuntu/workspace/knowledge-lab/infinity`, `INTENTS.md`, Infinity kanban/dashboard/report/archive.
+  - `space`: `/home/ubuntu/workspace/space`, `infra-aws-static-sites`, `infra-cloudflare-images`, `infra-dns`, `infra-oracle`, `minikube`, 정적 사이트 배포와 개인 인프라.
+  - `monitoring_personal`: `/home/ubuntu/workspace/monitoring_personal`, Prometheus, Loki, Promtail, YACE, PostHog exporter, Docker Compose/K8s 개인 모니터링 스택.
+- `monitoring`이라는 느슨한 태그가 개인 모니터링 repo, TICK/Prometheus/Loki/PostHog exporter, `/home/ubuntu/workspace/monitoring_personal` 중 하나를 가리키면 `monitoring_personal`로 정규화한다.
 - 프로젝트 판별 불가 시: 각각 독립 프로젝트로 간주
 
 #### 스케줄링 규칙
