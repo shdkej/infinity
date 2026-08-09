@@ -4,26 +4,6 @@
 
 ## Inbox
 
-### [build-17] Status dashboard를 Spatial Type 디자인 시스템에 맞게 개편 후 배포
-- requested: 2026-08-09T20:15Z
-- source: Telegram DM
-- requester: SeongHo Noh
-- target_agent: genie
-- status: inbox
-- priority: high
-- permission: L1
-- projects: status,design-system,space,infinity
-- task_type: implementation
-- topics: spatial-type,dashboard,frontend,deploy,visual-verification
-- context: 사용자가 새로 정립한 `Spatial Type / 공간형 타이포그래피 인터페이스` 기준에 맞춰 Status dashboard를 수정하고 배포까지 완료하라고 요청했다. 최근 Travel Ledger 개편 방향(`텍스트 우선`, `필요할 때 객체 호출`, 카드/패널 중심 탈피)을 참조한다.
-- goal: Status dashboard를 새 디자인 시스템에 맞게 개편하고, 로컬/라이브 검증과 배포 확인까지 닫는다.
-- success_criteria:
-  - 디자인 정본(`DESIGN.md`, `DESIGN_SYSTEM.md`, `BRAND.md`)과 Status 기존 구조를 확인한다.
-  - 카드/패널 중심 구조를 Spatial Type 흐름으로 줄이고, 사용자가 5초 안에 현재 상태·목표·다음 행동을 읽을 수 있게 한다.
-  - 모바일/데스크톱 렌더링, 텍스트 겹침, 접근성, 배포/라이브 URL 반영을 검증한다.
-  - Red 검증 `red_status: pass`와 report 경로를 남긴다.
-- next_retry_condition: next dispatcher cycle
-
 ### [marketing-121] 한국 인스타그램 훅킹 문구 100개 수집
 - requested: 2026-08-09T20:15Z
 - source: Telegram DM
@@ -70,6 +50,8 @@
 
 <!-- 사용자 결정·외부 조건 대기만 기록한다. 현재 build-15는 사용자가 완료 처리했으므로 Waiting에서 제거했다. -->
 ## Archive
+
+<!-- build-17 completed 2026-08-09T20:26Z → reports/build-17/2026-08-09T2017Z.html [projects: status,design-system,space,infinity; type: implementation; topics: spatial-type,dashboard,frontend,deploy,visual-verification] (Spatial Type 텍스트 우선 표면으로 개편. 대상 commit 41f02b1 push, GitHub Actions run 31334185017 성공, https://status.aws.shdkej.com/ HTTP 200 및 라이브 CSS/데이터 계약 확인. Red pass.) -->
 
 <!-- build-16 completed 2026-08-07T21:34Z → intents/archive/build-16.md [projects: infinity,static-sites; type: redesign-and-verification; topics: instagram-maker,layout,responsive,red-team] (공개 대시보드 `https://shdkej.github.io/infinity/` 200 및 raw 산출물 URL 200 확인. Red pass·Infinity/parent 원격 push 근거와 함께 Waiting에서 Archive로 정리.) -->
 

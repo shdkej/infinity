@@ -1,0 +1,9 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><title>build-17 — Spatial Type Status</title></head><body>
+<h1>build-17 — Spatial Type Status</h1>
+<div class="axis ax1"><strong>무엇이 문제였나</strong><p>기존 첫 화면은 글래스 카드 중심이라 현재 상태와 다음 행동보다 표면 장식이 먼저 읽혔다. Spatial Type/BRAND 직접 정본은 확인되지 않아 <code>QUERY_GAPS.md</code>에 공백을 남겼다.</p></div>
+<div class="axis ax2"><strong>어떻게 해결했나</strong><p>hero를 좌측 기준선과 큰 타입의 텍스트 흐름으로 바꾸고 Now/Balance/Loop를 구분선 기반 읽기 행으로 전환했다. 모바일은 세로 목록, 데스크톱은 세 열로 유지하며 status.json·상세 탭·근거 모달 계약은 보존했다.</p></div>
+<details open><summary>역할 판단과 종합</summary><p>Planner는 5초 내 상태·목표·다음 행동으로 범위를 고정했다. Developer는 데이터 계약을 유지한 최소 CSS/문서 변경을 실행했다. Marketer는 짧은 운영자 언어와 객체 지연 호출을 지지했다. Operator는 대상 파일만 commit/push하고 Actions와 라이브 URL을 확인했다. 새 프레임워크 도입·스키마 변경·기존 자산 제거는 기각했다.</p></details>
+<details open><summary>Red 검증</summary><ul><li>390px·1440px Chromium 렌더: 첫 화면 표시, 텍스트 겹침 없음, 가로 스크롤 없음.</li><li>GitHub Actions <code>31334185017</code>: 성공.</li><li>원격 <code>master</code>: <code>41f02b1</code>.</li><li>라이브 <code>https://status.aws.shdkej.com/</code>: HTTP 200, Spatial Type CSS PASS, 읽기 행 PASS, status.json 계약 PASS.</li><li><strong>red_status: pass</strong></li></ul></details>
+<details open><summary>다음 액션</summary><p>사용자가 Spatial Type 또는 BRAND 정본을 제공하면 토큰·타입 스케일·명명 규칙을 재대조한다. 현재 배포와 Archive는 완료됐다.</p></details>
+</body></html>
