@@ -4,6 +4,8 @@
 
 ## Inbox
 
+<!-- ops-23 requested 2026-08-09T21:54Z [projects: knowledge-lab,openclaw,infinity; type: audit; topics: ingest,indexing,daily-tracking,source-migration,cron-references] (KL ingest 점검 및 평가. `/home/ubuntu/workspace/knowledge-lab/source/openclaw-system/` 이동 이후 source/docs/data/reports/scripts/evaluators 참조가 모두 새 경로 기준인지, daily-tracking이 ingest/index 대상처럼 agent-wiki diary/log/index에 연결되는지, gitignored runtime/cache/secret/media 경계 때문에 누락되는 가치 자료가 없는지, cron payload와 Infinity/Genie 협업 문서가 새 구조를 정확히 아는지 평가하고 누락/보완안을 report로 남긴다. Red 검증 필수.) -->
+
 ## Active
 
 ## Waiting
