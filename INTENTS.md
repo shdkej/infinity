@@ -4,10 +4,23 @@
 
 ## Inbox
 
-<!-- ops-24 retry requested 2026-08-10T15:39Z [projects: knowledge-lab,openclaw,infinity; task_type: maintenance; topics: [automation,workflow,wiki]; target_agent: genie; priority: high; permission: L2; goal: ops-23 후속 범위의 daily-tracking pointer backfill, 실제 활성 cron payload 경로 재검증·canonical 정리, tracked card-news provenance 재현성 gate 보강; success_criteria: 6개 daily-tracking 날짜 연결, 활성 payload legacy path 판정·canonical 변경 기록, clean checkout provenance 검증 통과, HTML Red report red_status: pass 및 원격 push 확인; next_action: stale duplicate guard를 해제했다. 관련 source/wiki와 runtime cron payload를 대조한 뒤 최소 변경을 적용하고 검증한다.) -->
-
 ## Active
 
+### ops-24
+
+- status: active
+- target_agent: genie
+- priority: high
+- permission: L2
+- projects: [knowledge-lab, openclaw, infinity]
+- task_type: maintenance
+- topics: [automation, workflow, wiki]
+- goal: ops-23 후속 범위의 daily-tracking pointer backfill, 실제 활성 cron payload 경로 재검증·canonical 정리, tracked card-news provenance 재현성 gate 보강
+- success_criteria: 6개 daily-tracking 날짜 연결, 활성 payload legacy path 판정·canonical 변경 기록, clean checkout provenance 검증 통과, HTML Red report red_status: pass 및 원격 push 확인
+- next_action: stale duplicate guard 해제 후 관련 source/wiki와 runtime cron payload를 대조하고 최소 변경을 적용·검증한다.
+- next_retry_condition: 살아 있는 세션/프로세스, 최근 90분 안의 progress report, lock owner/started_at, terminal report가 없으면 duplicate skip하지 말고 다음 dispatcher cycle에서 실행한다. duplicate-gate no-op report만 있으면 stale_guard_released로 간주한다.
+- last_checked: 2026-08-10T15:46Z
+- started_at: 2026-08-10T15:38Z
 
 ## Waiting
 
