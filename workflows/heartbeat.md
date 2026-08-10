@@ -48,6 +48,8 @@ INTENTS.md의 `## Active` 섹션에서 실행 가능한 Intent를 필터링한�
 - `blocked` → legacy alias. 새 항목은 `waiting`을 사용
 - `archived` → 아카이브 처리 후 건너뜀
 
+중복 실행 방지는 `Active` 레인 존재만으로 판단하지 않는다. duplicate gate를 적용하려면 살아 있는 실행 증거가 있어야 한다: 실행 중인 세션/프로세스 id, 최근 90분 안의 진행 report, 명시적 lock owner/started_at, 또는 곧 Archive될 terminal report 중 하나다. 같은 intent가 Active에 남아 있는데 진행 report 없이 duplicate-gate report만 반복되면 stale guard로 간주하고, 중복 no-op을 계속 만들지 말고 한 번 `Inbox`로 되돌리거나 실제 재개를 시도한 뒤 `stale_guard_released`를 기록한다.
+
 ### 3. 우선순위 정렬
 
 1. `blocked` 중 승인된 항목 (즉시 실행)
