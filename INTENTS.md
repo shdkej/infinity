@@ -6,27 +6,13 @@
 
 ## Active
 
-### ops-24
+## Archive
 
-- status: active
-- target_agent: genie
-- priority: high
-- permission: L2
-- projects: [knowledge-lab, openclaw, infinity]
-- task_type: maintenance
-- topics: [automation, workflow, wiki]
-- goal: ops-23 후속 범위의 daily-tracking pointer backfill, 실제 활성 cron payload 경로 재검증·canonical 정리, tracked card-news provenance 재현성 gate 보강
-- success_criteria: 6개 daily-tracking 날짜 연결, 활성 payload legacy path 판정·canonical 변경 기록, clean checkout provenance 검증 통과, HTML Red report red_status: pass 및 원격 push 확인
-- next_action: stale duplicate guard 해제 후 관련 source/wiki와 runtime cron payload를 대조하고 최소 변경을 적용·검증한다.
-- next_retry_condition: 살아 있는 세션/프로세스, 최근 90분 안의 progress report, lock owner/started_at, terminal report가 없으면 duplicate skip하지 말고 다음 dispatcher cycle에서 실행한다. duplicate-gate no-op report만 있으면 stale_guard_released로 간주한다.
-- last_checked: 2026-08-10T15:46Z
-- started_at: 2026-08-10T15:38Z
+<!-- ops-24 completed 2026-08-10T15:48Z → artifacts/ops-24/ops-24-execution-20260810.md; reports/ops-24/20260810T1548Z.html [projects: knowledge-lab,openclaw,infinity; type: maintenance; topics: automation,workflow,wiki] (6개 daily-tracking pointer와 runtime canonical cron payload를 재검증하고 card-news provenance 전용 검사 명령을 추가. detached clean checkout provenance PASS, Red red_status: pass: reports/ops-24/20260810T1548Z-red.html.) -->
 
 ## Waiting
 
 <!-- 사용자 결정·외부 조건 대기만 기록한다. 현재 build-15는 사용자가 완료 처리했으므로 Waiting에서 제거했다. -->
-
-## Archive
 
 <!-- ops-25 completed 2026-08-10T04:53Z → artifacts/ops-25/follow-up-capture-rule.md; reports/ops-25/20260810T0449Z.html [projects: infinity,openclaw,workflow; type: operating-rule; topics: follow-up-routing,intent-capture,automation,reporting] (완료·감사 report의 실행 가능한 후속 조치를 근거·완료 기준·중복 방지·승인 경계와 함께 별도 Inbox intent로 보존하는 계약을 INFINITY_OPERATING_RULES와 heartbeat workflow에 반영. follow_up_intent_ids/report 미생성 사유와 lane 재검증을 필수화. Red red_status: pass, Red report: reports/ops-25/20260810T0453Z-red.html.) -->
 <!-- ops-23 completed 2026-08-09T21:58Z → artifacts/ops-23/audit-20260809.md; reports/ops-23/20260809T2158Z.html [projects: knowledge-lab,openclaw,infinity; type: audit; topics: ingest,indexing,daily-tracking,source-migration,cron-references] (source 이동·daily-tracking 색인·runtime 경계·cron/협업 참조 감사. symlink 호환성은 유지되나 meaningful daily-tracking pointer 누락, migrated cron 22개 중 legacy path 10개, ignored asset provenance 재현성 위험과 dispatcher snapshot 관측성 공백을 후속 조치로 기록. Planner·Developer·Marketer·Operator 판단과 Red red_status: pass 포함.) -->

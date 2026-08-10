@@ -1,0 +1,13 @@
+<!doctype html>
+<html lang="ko">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>ops-24 실행 보고</title><style>body{font-family:system-ui,sans-serif;max-width:760px;margin:24px auto;padding:0 16px;line-height:1.6}axis{display:block;margin:.5rem 0;padding:.6rem;background:#f3f3f3}summary{cursor:pointer}</style></head>
+<body>
+<h1>ops-24 실행 보고 <small>PASS</small></h1>
+<axis id="ax1"><b>대상/문제</b> ops-23 후속의 daily-tracking 색인, 활성 cron 경로, card-news provenance 재현성.</axis>
+<axis id="ax2"><b>결과/해법</b> 6개 pointer와 canonical active payload를 재검증하고, provenance 전용 검사 명령 및 clean-checkout PASS를 남겼다.</axis>
+<details open><summary>핵심 내용</summary>
+<ul><li>6개 diary 페이지가 같은 날짜의 raw daily-tracking source를 가리킨다.</li><li>runtime cron 조회에서 weekly autopush의 현재 argv는 Knowledge Lab canonical script다. legacy 경로는 historical diagnostic에만 남아 있다.</li><li><code>build_card_news_library.py --check-stage</code>와 새 <code>--check-provenance</code>가 PASS했다.</li><li>detached clean worktree에서 published local config와 ignored/runtime source asset의 provenance 검증이 PASS했다.</li></ul>
+</details>
+<details><summary>역할·결정·제약</summary><p>Planner·Developer·Marketer·Operator의 독립 판단은 <code>artifacts/ops-24/ops-24-execution-20260810.md</code>에 기록했다. historical diagnostic 문자열은 실행 경로가 아니므로 rewrite하지 않았다. 사용자 발송·배포·시크릿·파괴적 작업은 없었다.</p></details>
+<details><summary>실행 메타 / 다음 액션</summary><p>변경: <code>source/openclaw-system/scripts/build_card_news_library.py</code>, <code>source/openclaw-system/README.md</code>. 다음 audit부터 runtime <code>cron list --json</code>/<code>cron get</code>를 정본으로 사용한다.</p></details>
+</body></html>
