@@ -4,6 +4,10 @@
 
 ## Inbox
 
+<!-- ops-24 requested 2026-08-10T02:55Z [projects: knowledge-lab,openclaw,infinity; type: maintenance; topics: ingest,indexing,daily-tracking,cron-references,asset-provenance] (ops-23 후속 처리. 의미 있는 daily-tracking 과거 항목 2026-06-06, 2026-07-02, 2026-07-17, 2026-07-20, 2026-07-29, 2026-08-05의 agent-wiki diary/log/index pointer를 backfill하고, ops-23에서 확인한 legacy cron path 10건을 실제 활성 payload 기준으로 재검증·canonical path로 정리하며, tracked card-news template/library가 ignored source assets/run output을 참조할 때 clean checkout 재현성이 깨지지 않도록 provenance gate 또는 source_reference 규칙을 보강한다. Red 검증과 원격 push 확인 필수.) -->
+
+<!-- ops-25 requested 2026-08-10T02:55Z [projects: infinity,openclaw,workflow; type: operating-rule; topics: follow-up-routing,intent-capture,automation,reporting] (SAM/Genie/Red가 완료 보고·감사 report에서 사용자가 다시 지시하지 않아도 SAM이 처리 가능한 후속 조치를 발견하면 자동으로 Infinity Inbox에 후속 intent를 등록하는 운영 규칙을 설계·반영한다. 조건: 사용자 승인/외부 공개/파괴적 작업/자격증명/권한 변경이 필요하면 자동 등록만 하고 실행은 대기, 단순 정리·검증·문서/인덱스 보강·로컬 repo hygiene는 자동 등록 가능. report에는 생성된 follow_up_intent_ids와 생성하지 않은 이유를 남기도록 한다. Red 검증 필수.) -->
+
 
 ## Active
 
