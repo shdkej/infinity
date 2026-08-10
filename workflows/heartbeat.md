@@ -30,6 +30,8 @@ INTENTS.md의 `## Inbox` 섹션을 먼저 확인한다. 자유 형식 텍스트�
 6. Inbox에서 Active로 이동한 항목만 제거
 7. Telegram 알림은 실제 실행, blocker, 완료처럼 사용자에게 의미 있는 변화가 있을 때만 보낸다.
 
+완료/감사 report를 읽은 뒤에는 `follow_up_intent_ids`와 `follow_up_not_created_reasons`를 확인한다. 기존 목표를 닫기 위해 필요한 후속 조치가 있고 근거 신호·기대 산출물·완료 기준을 채울 수 있으면 `INFINITY_OPERATING_RULES.md`의 Completion-report follow-up capture 계약에 따라 Inbox에 별도 intent를 등록한다. 기존 Inbox/Active/Waiting 항목과 동일 목적이면 새 intent를 만들지 않고 기존 id를 report에 연결한다. 등록 후에는 INTENTS.md를 다시 읽어 원래 Inbox 항목이 제거되고 새 intent가 올바른 lane에 있는지 검증한다.
+
 `marketing-*` 또는 `target_agent: marketer` 요청은 두 번짜리 Marketing growth review cron을 기다리지 않는다. Heartbeat/Infinity router가 실행 가능한 marketing intent로 취급하고, 필요한 경우 Marketer 학습 루프로 바로 넘긴다.
 
 사용자가 명시 승인한 `Active` 상태의 `marketing-*` 구현 intent는 routine triage가 아니다. Telegram 알림은 조용히 유지할 수 있지만, 라우터는 이를 `NO_REPLY`로 무시하지 않고 한 번의 bounded 실행 단위로 처리해야 한다. 이때 가능한 결과는 (a) 승인 범위 안의 작은 구현/검증/리포트, (b) 정확한 blocker를 `Waiting`에 남김, (c) 로컬 실행 프롬프트/준비 리포트 작성 중 하나다.

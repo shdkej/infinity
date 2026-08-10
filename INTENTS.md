@@ -4,12 +4,12 @@
 
 ## Inbox
 
-<!-- ops-24 requested 2026-08-10T02:55Z [projects: knowledge-lab,openclaw,infinity; type: maintenance; topics: ingest,indexing,daily-tracking,cron-references,asset-provenance] (ops-23 후속 처리. 의미 있는 daily-tracking 과거 항목 2026-06-06, 2026-07-02, 2026-07-17, 2026-07-20, 2026-07-29, 2026-08-05의 agent-wiki diary/log/index pointer를 backfill하고, ops-23에서 확인한 legacy cron path 10건을 실제 활성 payload 기준으로 재검증·canonical path로 정리하며, tracked card-news template/library가 ignored source assets/run output을 참조할 때 clean checkout 재현성이 깨지지 않도록 provenance gate 또는 source_reference 규칙을 보강한다. Red 검증과 원격 push 확인 필수.) -->
-
-<!-- ops-25 requested 2026-08-10T02:55Z [projects: infinity,openclaw,workflow; type: operating-rule; topics: follow-up-routing,intent-capture,automation,reporting] (SAM/Genie/Red가 완료 보고·감사 report에서 사용자가 다시 지시하지 않아도 SAM이 처리 가능한 후속 조치를 발견하면 자동으로 Infinity Inbox에 후속 intent를 등록하는 운영 규칙을 설계·반영한다. 조건: 사용자 승인/외부 공개/파괴적 작업/자격증명/권한 변경이 필요하면 자동 등록만 하고 실행은 대기, 단순 정리·검증·문서/인덱스 보강·로컬 repo hygiene는 자동 등록 가능. report에는 생성된 follow_up_intent_ids와 생성하지 않은 이유를 남기도록 한다. Red 검증 필수.) -->
 
 
 ## Active
+
+<!-- ops-24 activated 2026-08-10T02:58Z [projects: knowledge-lab,openclaw,infinity; task_type: maintenance; topics: [automation,workflow,wiki]; target_agent: genie; priority: high; permission: L2; goal: ops-23 후속 범위의 daily-tracking pointer backfill, 실제 활성 cron payload 경로 재검증·canonical 정리, tracked card-news provenance 재현성 gate 보강; success_criteria: 6개 daily-tracking 날짜 연결, 활성 payload legacy path 판정·canonical 변경 기록, clean checkout provenance 검증 통과, HTML Red report red_status: pass 및 원격 push 확인; next_action: 관련 source/wiki와 runtime cron payload를 대조한 뒤 최소 변경을 적용하고 검증한다.) -->
+<!-- ops-24 status: active; target_agent: genie; priority: high; permission: L2; tags: projects=knowledge-lab,openclaw,infinity task_type=maintenance topics=automation,workflow,wiki; next_retry_condition: dispatcher cron is already running, so do not start a duplicate execution; retry after the current run exits; last_checked: 2026-08-10T04:38Z -->
 
 ## Waiting
 
@@ -17,6 +17,7 @@
 
 ## Archive
 
+<!-- ops-25 completed 2026-08-10T04:53Z → artifacts/ops-25/follow-up-capture-rule.md; reports/ops-25/20260810T0449Z.html [projects: infinity,openclaw,workflow; type: operating-rule; topics: follow-up-routing,intent-capture,automation,reporting] (완료·감사 report의 실행 가능한 후속 조치를 근거·완료 기준·중복 방지·승인 경계와 함께 별도 Inbox intent로 보존하는 계약을 INFINITY_OPERATING_RULES와 heartbeat workflow에 반영. follow_up_intent_ids/report 미생성 사유와 lane 재검증을 필수화. Red red_status: pass, Red report: reports/ops-25/20260810T0453Z-red.html.) -->
 <!-- ops-23 completed 2026-08-09T21:58Z → artifacts/ops-23/audit-20260809.md; reports/ops-23/20260809T2158Z.html [projects: knowledge-lab,openclaw,infinity; type: audit; topics: ingest,indexing,daily-tracking,source-migration,cron-references] (source 이동·daily-tracking 색인·runtime 경계·cron/협업 참조 감사. symlink 호환성은 유지되나 meaningful daily-tracking pointer 누락, migrated cron 22개 중 legacy path 10개, ignored asset provenance 재현성 위험과 dispatcher snapshot 관측성 공백을 후속 조치로 기록. Planner·Developer·Marketer·Operator 판단과 Red red_status: pass 포함.) -->
 
 <!-- research-25 completed 2026-08-09T20:48Z → artifacts/research-25/quiet-minimal-brand-research.md; reports/research-25/2026-08-09T2048Z.html [projects: personal-brand,design-system,infinity; type: research; topics: brand-research,minimal,introvert,slow-living,quiet-aesthetic] (국내외 생활용품·뷰티·출판·라이프스타일 7개 사례를 공식 자료와 Knowledge Lab 기준으로 비교하고, Sam Samuel 적용 원칙 10개와 quiet-start 프로토타입 다음 액션을 정리. Planner·Developer·Marketer·Operator 독립 판단 기록, Red pass.) -->
