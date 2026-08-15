@@ -397,6 +397,7 @@ Intent가 완료 기준을 충족하거나 사용자가 완료 처리하면:
 4. `INTENTS.md`의 `## Inbox`, `## Active`, 또는 `## Waiting`에서 해당 블록/코멘트를 제거하고 `## Archive`에 완료 코멘트(`<!-- {id} completed YYYY-MM-DDTHH:MM → intents/archive/{id}.md (한 줄 결과) -->`)를 남긴다.
    - 완료된 `completed/resolved/archived` 코멘트는 `## Archive`에만 있어야 한다. Inbox/Active/Waiting에 완료 코멘트가 남아 있으면 다음 리캡과 대시보드가 이미 끝난 작업을 다음 작업으로 오인한다.
    - Archive 완료 코멘트는 완료 시각 내림차순으로 둔다. 완료 처리 후 `python3 scripts/check_intents_consistency.py INTENTS.md`를 실행해 open lane의 완료 코멘트 잔존과 Archive 역순 깨짐을 검증한다.
+   - Archive 전환은 항상 의미 있는 원장 변경이다. Infinity 저장소 commit/push, 원격 `main` 확인, 필요한 경우 Knowledge Lab parent submodule pointer commit/push가 끝나기 전에는 Archive 완료로 보고하지 않는다.
 5. 대시보드 등 외부 소비자가 `detail:` 경로를 참조한다면 archive 경로가 유효한지 확인한다.
 6. 완료 직후 같은 내용을 `Detail` 문서로 다시 만들지 않는다. 최종 문서는 `Intent 원장`, 원문 산출물은 `Artifact`, 실행 로그는 `Report`로 분리한다.
 7. 프로젝트성 작업은 Archive 전에 원래 사용자 목표가 끝났는지 판정한다. 끝나지 않았으면 후속 intent를 `Inbox`/`Active`/`Waiting` 중 하나로 만들고 archive 요약에 `next: {id}`를 남긴다.

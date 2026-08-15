@@ -151,6 +151,7 @@ Infinity 문서는 아래 3개 역할로 통일한다. 새 문서를 만들 때 
    - `intents/active/{id}.md` → `intents/archive/{id}.md`로 이동
    - 위 표준 포맷으로 재작성하면서 artifacts / reports / commits / urls 링크
    - `INTENTS.md`의 Active 블록 제거, 완료 코멘트 추가 (`<!-- {id} completed YYYY-MM-DDTHH:MM → intents/archive/{id}.md [projects: virtue; type: strategy; topics: activation,analytics] (한 줄 결과) -->`)
+   - Archive 전환 변경을 Infinity 저장소에 commit/push하고, 대시보드가 읽는 원격 `main`에서 해당 Archive 코멘트가 보이는지 확인한다. Knowledge Lab submodule을 통해 노출되는 경우 parent pointer도 commit/push한다.
 4. 대시보드 등 외부 도구가 detail 링크를 기대하면 archive 경로가 유효한지 확인한다.
 5. 완료 직후 같은 내용을 `detail` 파일로 다시 만들지 않는다. 추가 원문이 필요하면 `artifacts/{id}/...`에 별도 역할을 부여한다.
 
