@@ -13,7 +13,7 @@
 
 ## Archive
 
-<!-- research-26 completed 2026-08-14T22:15Z → artifacts/research-26/digital-organizer-market-research.md; reports/research-26/20260814T2215Z.html; Red pass: artifacts/research-26/red-report.md [projects: digital-organizer,personal-product,infinity; type: market-research; topics: digital-organizer,productivity,personal-knowledge-management,app-aggregation,visual-organization,monetization] -->
+<!-- research-26 completed 2026-08-14T22:15Z → artifacts/research-26/digital-organizer-market-research.md; reports/research-26/20260814T2215Z.html; Red pass: artifacts/research-26/red-report.md [projects: digital-organizer,personal-product,infinity; type: market-research; topics: digital-organizer,productivity,personal-knowledge-management,app-aggregation,visual-organization,monetization] (디지털 오거나이저 시장성은 중간. 연동 없는 시각적 디지털 서랍 MVP로 좁혀 2주 검증을 권장.) -->
 
 <!-- ops-24 completed 2026-08-10T15:48Z → artifacts/ops-24/ops-24-execution-20260810.md; reports/ops-24/20260810T1548Z.html [projects: knowledge-lab,openclaw,infinity; type: maintenance; topics: automation,workflow,wiki] (6개 daily-tracking pointer와 runtime canonical cron payload를 재검증하고 card-news provenance 전용 검사 명령을 추가. detached clean checkout provenance PASS, Red red_status: pass: reports/ops-24/20260810T1548Z-red.html.) -->
 
