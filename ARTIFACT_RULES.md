@@ -126,6 +126,17 @@ Infinity 문서는 아래 3개 역할로 통일한다. 새 문서를 만들 때 
 
 기존 archive 문서(`build-01.md`, `research-06.md` 등)는 형식이 일관되지 않지만 이 패스에서는 마이그레이션하지 않는다. **신규 archive부터** 이 포맷을 따른다.
 
+### Execution Mode 기록
+
+신규 Archive intent는 실행 방식이 검증 가능해야 한다.
+
+- `execution_mode: single_genie_roles` — 지니가 네 역할 관점을 직접 기록한 경량 실행.
+- `execution_mode: multi_subagent_roles` — Planner, Developer, Marketer, Operator가 실제 별도 서브에이전트로 실행된 중요 작업.
+- `execution_mode: multi_subagent_roles_blocked` — 중요 작업이지만 역할 서브에이전트 실행이 불가능해 Waiting에 남긴 상태.
+- `execution_mode: single_genie_roles_fallback_user_approved` — 중요 작업이지만 사용자가 단일 처리 fallback을 명시 승인한 상태.
+
+`multi_subagent_roles` 완료 원장에는 `role_subagents`에 planner/developer/marketer/operator session id를 남긴다. 해당 값이 없으면 Archive 완료로 보지 않는다.
+
 ### 프로젝트 연속성 게이트
 
 아래 중 하나라도 참이면 archive 전환 전에 후속 상태를 명시해야 한다.

@@ -171,8 +171,18 @@
         <span class="chip">{{TIMESTAMP}}</span>
         <span class="chip">{{TRIGGER}}</span>
         <span class="chip">{{STATUS_BEFORE}} → {{STATUS_AFTER}}</span>
+        <span class="chip">execution_mode: {{EXECUTION_MODE}}</span>
       </div>
-      <ul><li>산출물 <code>{{ARTIFACT_PATH}}</code></li></ul>
+      <ul>
+        <li>산출물 <code>{{ARTIFACT_PATH}}</code></li>
+        <li>역할 서브에이전트 <code>{{ROLE_SUBAGENTS}}</code></li>
+        <li>Planner <code>{{PLANNER_SESSION}}</code> · Developer <code>{{DEVELOPER_SESSION}}</code></li>
+        <li>Marketer <code>{{MARKETER_SESSION}}</code> · Operator <code>{{OPERATOR_SESSION}}</code></li>
+        <li>역할 결과 요약 <code>{{ROLE_OUTPUTS_SUMMARY}}</code></li>
+        <li>지니 종합 <code>{{GENIE_SYNTHESIS}}</code></li>
+        <li>Red 검증 <code>{{RED_STATUS}}</code> · <code>{{RED_REPORT}}</code></li>
+        <li>원격 반영 <code>{{REMOTE_VERIFICATION}}</code></li>
+      </ul>
     </div>
   </details>
   </div>
