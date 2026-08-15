@@ -4,15 +4,16 @@
 
 ## Inbox
 
-- [research-26](intents/inbox/research-26.md) — 디지털 오거나이저 시장성 조사. 사용자의 `디지털 모든 것을 한 곳에 리스트업하고, 가능한 서비스는 안에서 보고, 아니면 링크로 연결하며, 서랍처럼 시각적으로 분류해 보여주는 앱` 아이디어가 돈이 될지 경쟁/시장/MVP/수익화를 조사한다.
-
 ## Active
+
 
 ## Waiting
 
 <!-- 사용자 결정·외부 조건 대기만 기록한다. 현재 build-15는 사용자가 완료 처리했으므로 Waiting에서 제거했다. -->
 
 ## Archive
+
+<!-- research-26 completed 2026-08-14T22:15Z → artifacts/research-26/digital-organizer-market-research.md; reports/research-26/20260814T2215Z.html; Red pass: artifacts/research-26/red-report.md [projects: digital-organizer,personal-product,infinity; type: market-research; topics: digital-organizer,productivity,personal-knowledge-management,app-aggregation,visual-organization,monetization] -->
 
 <!-- ops-24 completed 2026-08-10T15:48Z → artifacts/ops-24/ops-24-execution-20260810.md; reports/ops-24/20260810T1548Z.html [projects: knowledge-lab,openclaw,infinity; type: maintenance; topics: automation,workflow,wiki] (6개 daily-tracking pointer와 runtime canonical cron payload를 재검증하고 card-news provenance 전용 검사 명령을 추가. detached clean checkout provenance PASS, Red red_status: pass: reports/ops-24/20260810T1548Z-red.html.) -->
 
