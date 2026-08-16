@@ -4,16 +4,18 @@
 
 ## Inbox
 
-<!-- marketing-122 inbox 2026-08-16T12:44Z — target_agent: genie; priority: high; permission: public-research-and-internal-guide-only; execution_mode: multi_subagent_roles; projects: [personal-brand,threads,affiliate,commerce]; type: monetization-guide; topics: toss-sharelink,threads,affiliate-marketing,hot-deals,compliance] 사용자 요청: Toss Sharelink로 돈 버는 방법을 Threads 노하우에서 찾아 내일부터 실행 가능한 가이드로 만들기. -->
 
 ## Active
 
 
+
 ## Waiting
 
-<!-- 사용자 결정·외부 조건 대기만 기록한다. 현재 build-15는 사용자가 완료 처리했으므로 Waiting에서 제거했다. -->
+<!-- 사용자 결정·외부 조건 대기만 기록한다. -->
 
 ## Archive
+
+<!-- marketing-122 completed 2026-08-16T16:25Z → artifacts/marketing-122/sharelink-threads-guide.md; evidence: artifacts/marketing-122/evidence-20260816T1625Z.md; report: reports/marketing-122/20260816T1625Z.html; Red pass: reports/marketing-122-red-20260816-pass.md [projects: personal-brand,threads,affiliate,commerce; type: monetization-guide; topics: toss-sharelink,threads,affiliate-marketing,hot-deals,compliance] (공식 Sharelink 조건과 공개 Threads 사례 6개를 보강해 내부 실행 가이드 완료. 공개 발행·로그인·가입·계정 연결·광고·DM·댓글은 실행하지 않았고, 실제 게시 전 사용자 승인과 계정 화면 self-check 필요.) -->
 
 <!-- research-27 completed 2026-08-16T03:25Z → artifacts/research-27/digital-travel-scrapbook-market-research.md; reports/dispatcher-20260816T0325Z-research-27.md; Red pass: artifacts/research-27/red-report-rerun.md [projects: world-travel,digital-scrapbook,personal-product,infinity; type: market-research; topics: travel-scrapbook,memory-keeping,ai-travel-journal,creator-tools,consumer-app,monetization] -->
 
