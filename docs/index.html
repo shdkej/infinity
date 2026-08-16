@@ -481,6 +481,8 @@
     const SOURCES = {
       intents: "https://api.github.com/repos/shdkej/infinity/contents/INTENTS.md?ref=main",
       gates:   "https://api.github.com/repos/shdkej/infinity/contents/GATES.md?ref=main",
+      rawIntents: "https://raw.githubusercontent.com/shdkej/infinity/main/INTENTS.md",
+      rawGates: "https://raw.githubusercontent.com/shdkej/infinity/main/GATES.md",
       rawBase: "https://raw.githubusercontent.com/shdkej/infinity/main/",
       apiBase: "https://api.github.com/repos/shdkej/infinity/contents/",
     };
@@ -519,6 +521,19 @@
       if (!path) return null;
       try { return await fetchText(SOURCES.rawBase + path.replace(/^\/+/, "")); }
       catch (e) { return null; }
+    }
+
+    async function fetchTextWithFallback(primaryUrl, fallbackUrl) {
+      try {
+        return await fetchText(primaryUrl);
+      } catch (primaryError) {
+        if (!fallbackUrl) throw primaryError;
+        try {
+          return await fetchText(fallbackUrl);
+        } catch (fallbackError) {
+          throw new Error(primaryError.message + "; raw fallback failed: " + fallbackError.message);
+        }
+      }
     }
 
     function normalizePath(path) {
@@ -1434,9 +1449,9 @@
       clearErrors();
       statusEl.textContent = "로딩 중...";
       let intentsText = "", gatesText = "";
-      try { intentsText = await fetchText(SOURCES.intents); }
+      try { intentsText = await fetchTextWithFallback(SOURCES.intents, SOURCES.rawIntents); }
       catch (e) { showError("INTENTS.md 로드 실패: " + e.message); }
-      try { gatesText = await fetchText(SOURCES.gates); }
+      try { gatesText = await fetchTextWithFallback(SOURCES.gates, SOURCES.rawGates); }
       catch (e) { showError("GATES.md 로드 실패: " + e.message); }
 
       const intentSections = splitSections(intentsText);
