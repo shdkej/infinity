@@ -247,6 +247,14 @@ Infinity에서 산출물·상태·Report·Archive를 만든 것만으로는 등�
 3. 두 저장소의 `git status --short --branch`가 clean인지 확인하고, 원격 `main`이 방금 만든 커밋을 가리키는지 확인한다.
 4. 위 원격 확인이 끝나기 전에는 `status: completed`, `archived` 전환, 완료 통보를 하지 않는다. push 실패·상위 pointer 미반영·검증 불명확은 `Waiting`에 남기고 재개 조건을 기록한다.
 
+Archive 완료 보고 직전에는 반드시 아래 명령을 실행하고, 출력 한 줄을 완료 report와 사용자 보고에 남긴다.
+
+```bash
+python3 scripts/verify_archive_remote.py {intent-id}
+```
+
+이 명령이 실패하면 `Archive 완료`, `완료했습니다`, `대시보드에 반영` 같은 표현을 쓰지 않는다. 로컬 파일 생성, 로컬 commit, submodule pointer 변경 중 하나라도 원격에서 확인되지 않으면 아직 완료가 아니다.
+
 완료 Report에는 `infinity_commit`, `infinity_push_verified`, `parent_pointer_commit`(해당 시), `parent_push_verified`를 기록한다. 사용자가 “등록 완료”라고 부르는 시점은 이 원격 반영 게이트까지 통과한 시점이다.
 
 ### 10. Telegram 알림
