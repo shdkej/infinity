@@ -1176,7 +1176,7 @@
       const nowMs = Date.now();
       const weekDone = sorted.filter(it => {
         const t = parseDateMs(pickCompleted(it));
-        return !isNaN(t) && t >= nowMs - 7 * 86400000;
+        return !isNaN(t) && t <= nowMs && t >= nowMs - 7 * 86400000;
       }).length;
       const set = (id, value) => {
         const el = document.getElementById(id);
@@ -1672,7 +1672,7 @@
       const nowMs = Date.now();
       const weekDone = doneItems.filter(it => {
         const t = parseDateMs(pickCompleted(it));
-        return !isNaN(t) && t >= nowMs - 7 * 86400000;
+        return !isNaN(t) && t <= nowMs && t >= nowMs - 7 * 86400000;
       }).length;
       let stale = null;
       for (const it of [...inboxItems, ...activeItems, ...waitingItems]) {
