@@ -14,7 +14,7 @@ INTENTS = ROOT / "INTENTS.md"
 ARCHIVE_DIR = ROOT / "intents" / "archive"
 NO_ACTION_RE = re.compile(r"^(없음|완료|no continuation|none|n/a|-)$", re.I)
 PUBLIC_ACTION_RE = re.compile(
-    r"(게시|발행|업로드|공유|링크\s*공유|광고|댓글|DM|디엠|메일|송신|전송|계정|가입|결제|비용|권한|시크릿|credential)",
+    r"(게시|포스팅|발행|업로드|공유|링크\s*공유|광고|댓글|답글|DM|디엠|메일|송신|전송|발송|계정|가입|로그인|결제|비용|권한|시크릿|credential)",
     re.I,
 )
 
