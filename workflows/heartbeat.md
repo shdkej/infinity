@@ -405,6 +405,22 @@ Intent가 완료 기준을 충족하거나 사용자가 완료 처리하면:
 
 1. `intents/active/{id}.md` → `intents/archive/{id}.md`로 이동하고, archive 문서를 **canonical final index** 포맷으로 재작성한다.
    - 최소 필드: `id`, `status: archived`, `completed_at`, `result_summary`, `artifacts`, `reports`, `commits`, `urls`, `next_actions`
+   - 사용자-facing `Archive Card` 블록을 반드시 남긴다:
+     ```
+     ## Archive Card
+
+     [프로젝트]
+     {사람이 알아볼 프로젝트명}
+
+     [상태]
+     {실행 준비 완료 | 검증 완료 | 운영 반영 완료 | 보류 해소 완료 ...}
+
+     [결과 기준]
+     {결과를 판단할 기준}
+
+     [다음 행동]
+     {후속 실행 1개 또는 없음}
+     ```
 2. 결과로서 가치 있는 산출물은 `artifacts/{id}/...`에 보관하고 archive intent에서 참조한다. **active intent 본문에 결과를 누적하지 않는다.**
 3. 실행 로그는 `reports/{id}/{timestamp}.html`에 남기되, **로그이지 결론이 아니다.** 동일 결론을 reports에서 찾아 헤매게 하지 않는다.
 4. `INTENTS.md`의 `## Inbox`, `## Active`, 또는 `## Waiting`에서 해당 블록/코멘트를 제거하고 `## Archive`에 완료 코멘트(`<!-- {id} completed YYYY-MM-DDTHH:MM → intents/archive/{id}.md (한 줄 결과) -->`)를 남긴다.
@@ -414,6 +430,7 @@ Intent가 완료 기준을 충족하거나 사용자가 완료 처리하면:
 5. 대시보드 등 외부 소비자가 `detail:` 경로를 참조한다면 archive 경로가 유효한지 확인한다.
 6. 완료 직후 같은 내용을 `Detail` 문서로 다시 만들지 않는다. 최종 문서는 `Intent 원장`, 원문 산출물은 `Artifact`, 실행 로그는 `Report`로 분리한다.
 7. 프로젝트성 작업은 Archive 전에 원래 사용자 목표가 끝났는지 판정한다. 끝나지 않았으면 후속 intent를 `Inbox`/`Active`/`Waiting` 중 하나로 만들고 archive 요약에 `next: {id}`를 남긴다.
+8. Archive Card의 `[다음 행동]`이 실제 실행을 뜻하면 `python3 scripts/archive_next_action_intake.py --apply`로 후속 intent를 생성하거나, 동일 목적의 열린 intent id를 archive의 `next_action_intent`에 연결한다. 공개 발행·외부 계정·광고·비용·자격증명·권한 변경은 후속 intent를 만들 수는 있지만 실행 전 사용자 승인이 필요하다.
 
 ```
 INTENTS.md                ← 활성 Intent만 (가볍게)

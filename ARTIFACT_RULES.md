@@ -124,6 +124,38 @@ Infinity 문서는 아래 3개 역할로 통일한다. 새 문서를 만들 때 
   - 후속 작업 / 권장 다음 Intent
 ```
 
+### Archive Card 표준 템플릿
+
+사람이 대시보드 Archive 카드만 보고도 "무엇이 끝났고, 어떤 상태이며, 어떤 기준으로 다음에 이어지는지" 알 수 있도록 신규 archive intent는 아래 블록을 포함한다. 이 블록은 `result_summary`보다 더 사용자-facing인 요약 카드이며, 대시보드와 후속 intent 자동 승격이 우선 참조한다.
+
+```md
+## Archive Card
+
+[프로젝트]
+토스 쉐어링크 Threads 테스트
+
+[상태]
+실행 준비 완료
+
+[결과 기준]
+7일간 게시물 21개 테스트
+
+[다음 행동]
+내일 첫 상품 3개 게시
+```
+
+자동화 호환을 위해 같은 내용을 아래 key 필드로도 남길 수 있다. 둘 다 있으면 `[프로젝트]` 형식의 사람이 읽는 블록을 우선한다.
+
+```md
+- archive_project: 토스 쉐어링크 Threads 테스트
+- archive_state: 실행 준비 완료
+- result_criteria: 7일간 게시물 21개 테스트
+- next_action: 내일 첫 상품 3개 게시
+- next_action_intent: marketing-123
+```
+
+`next_action`이 비어 있지 않고 `없음`, `완료`, `no continuation`이 아니면 Heartbeat는 같은 목적의 열린 intent가 있는지 확인한 뒤 후속 intent를 만든다. 공개 게시, 광고, DM/댓글, 계정 연결, 비용, 권한, 자격증명, 파괴적 변경이 포함된 다음 행동은 `Inbox` 또는 `Waiting`에 등록하되 실제 외부 실행은 사용자 승인 전까지 하지 않는다.
+
 기존 archive 문서(`build-01.md`, `research-06.md` 등)는 형식이 일관되지 않지만 이 패스에서는 마이그레이션하지 않는다. **신규 archive부터** 이 포맷을 따른다.
 
 ### Execution Mode 기록

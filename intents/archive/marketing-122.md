@@ -11,6 +11,25 @@
 - red_status: pass
 - red_report: reports/marketing-122-red-20260816-pass.md
 - result: 공식 Sharelink 조건과 공개 Threads 사례 6개를 보강해 내부 실행 가이드 완료. 공개 발행, 로그인, 가입, 계정 연결, 광고, DM, 댓글은 실행하지 않았고, 실제 게시 전에는 사용자 승인과 계정 화면 self-check가 필요하다.
+- archive_project: 토스 쉐어링크 Threads 테스트
+- archive_state: 실행 준비 완료
+- result_criteria: 7일간 게시물 21개 테스트
+- next_action: 내일 첫 상품 3개 게시
+- next_action_intent: marketing-123
+
+## Archive Card
+
+[프로젝트]
+토스 쉐어링크 Threads 테스트
+
+[상태]
+실행 준비 완료
+
+[결과 기준]
+7일간 게시물 21개 테스트
+
+[다음 행동]
+내일 첫 상품 3개 게시
 
 ## Boundary
 

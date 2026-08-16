@@ -4,18 +4,42 @@
 
 ## Inbox
 
-
 ## Active
-
-
+<!-- 실행 중인 intent 없음. -->
 
 ## Waiting
+### [marketing-123] 토스 쉐어링크 Threads 테스트 후속 실행
+- status: waiting
+- target_agent: genie
+- priority: high
+- permission: approval-required-before-public-action
+- requested: 2026-08-16T19:19Z
+- execution_mode: multi_subagent_roles
+- projects: personal-brand,threads,affiliate,commerce,infinity
+- task_type: monetization-experiment-preparation
+- topics: toss-sharelink,threads,affiliate-marketing,approval-gate,content-preparation
+- source_archive: intents/archive/marketing-122.md
+- archive_state: 실행 준비 완료
+- goal: Archive의 다음 행동을 실제 실행 가능한 무발행 준비물로 구조화한다.
+- success_criteria: 첫 상품 3개 후보·초안·self-check·승인 경계를 준비하고 Red pass를 확보한다.
+- boundary: 공개 게시·외부 계정 작업은 사용자 승인 전까지 실행하지 않는다.
+- red_status: pass
+- red_scope: preparation-package-only
+- red_report: reports/marketing-123/20260816T1928Z-red.html
+- next_action: 실제 상품 3개·사용/비교 근거·회원 화면 self-check를 입력하고 3개 게시물과 21개 게시물 단위를 확정한 뒤 사용자 승인을 요청한다.
+- next_retry_condition: product evidence, account self-check, publication-unit decision, and explicit user approval are available; until then no public action.
+- blocker: actual product/evidence data, Sharelink member-screen checks, publication-unit decision, and explicit user approval are missing.
 
 <!-- 사용자 결정·외부 조건 대기만 기록한다. -->
 
 ## Archive
 
-<!-- marketing-122 completed 2026-08-16T16:25Z → artifacts/marketing-122/sharelink-threads-guide.md; evidence: artifacts/marketing-122/evidence-20260816T1625Z.md; report: reports/marketing-122/20260816T1625Z.html; Red pass: reports/marketing-122-red-20260816-pass.md [projects: personal-brand,threads,affiliate,commerce; type: monetization-guide; topics: toss-sharelink,threads,affiliate-marketing,hot-deals,compliance] (공식 Sharelink 조건과 공개 Threads 사례 6개를 보강해 내부 실행 가이드 완료. 공개 발행·로그인·가입·계정 연결·광고·DM·댓글은 실행하지 않았고, 실제 게시 전 사용자 승인과 계정 화면 self-check 필요.) -->
+<!-- marketing-122 completed 2026-08-16T16:25Z → intents/archive/marketing-122.md; artifact: artifacts/marketing-122/sharelink-threads-guide.md; evidence: artifacts/marketing-122/evidence-20260816T1625Z.md; report: reports/marketing-122/20260816T1625Z.html; Red pass: reports/marketing-122-red-20260816-pass.md [projects: personal-brand,threads,affiliate,commerce; type: monetization-guide; topics: toss-sharelink,threads,affiliate-marketing,hot-deals,compliance]
+[프로젝트] 토스 쉐어링크 Threads 테스트
+[상태] 실행 준비 완료
+[결과 기준] 7일간 게시물 21개 테스트
+[다음 행동] 내일 첫 상품 3개 게시
+(공식 Sharelink 조건과 공개 Threads 사례 6개를 보강해 내부 실행 가이드 완료. 공개 발행·로그인·가입·계정 연결·광고·DM·댓글은 실행하지 않았고, 실제 게시 전 사용자 승인과 계정 화면 self-check 필요.) -->
 
 <!-- research-27 completed 2026-08-16T03:25Z → artifacts/research-27/digital-travel-scrapbook-market-research.md; reports/dispatcher-20260816T0325Z-research-27.md; Red pass: artifacts/research-27/red-report-rerun.md [projects: world-travel,digital-scrapbook,personal-product,infinity; type: market-research; topics: travel-scrapbook,memory-keeping,ai-travel-journal,creator-tools,consumer-app,monetization] -->
 
