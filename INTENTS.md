@@ -9,11 +9,11 @@
 
 ## Waiting
 
-- [research-27] 디지털 여행 스크랩북 시장 조사 — target_agent: genie; priority: high; permission: internal-research-only; execution_mode: multi_subagent_roles_blocked; projects: [world-travel, digital-scrapbook, personal-product, infinity]; type: market-research; topics: [travel-scrapbook, memory-keeping, ai-travel-journal, creator-tools, consumer-app, monetization] (role subagent session id/status 확인 실패로 다음 dispatcher 사이클에서 재시도)
-
 <!-- 사용자 결정·외부 조건 대기만 기록한다. 현재 build-15는 사용자가 완료 처리했으므로 Waiting에서 제거했다. -->
 
 ## Archive
+
+<!-- research-27 completed 2026-08-16T03:25Z → artifacts/research-27/digital-travel-scrapbook-market-research.md; reports/dispatcher-20260816T0325Z-research-27.md; Red pass: artifacts/research-27/red-report-rerun.md [projects: world-travel,digital-scrapbook,personal-product,infinity; type: market-research; topics: travel-scrapbook,memory-keeping,ai-travel-journal,creator-tools,consumer-app,monetization] -->
 
 <!-- research-26 completed 2026-08-14T22:15Z → artifacts/research-26/digital-organizer-market-research.md; reports/research-26/20260814T2215Z.html; Red pass: artifacts/research-26/red-report.md [projects: digital-organizer,personal-product,infinity; type: market-research; topics: digital-organizer,productivity,personal-knowledge-management,app-aggregation,visual-organization,monetization] (디지털 오거나이저 시장성은 중간. 연동 없는 시각적 디지털 서랍 MVP로 좁혀 2주 검증을 권장.) -->
 
