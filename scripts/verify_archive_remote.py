@@ -6,10 +6,22 @@ from __future__ import annotations
 import argparse
 import base64
 import json
+import re
 import subprocess
 import sys
 import urllib.request
 from pathlib import Path
+
+ARCHIVE_STATUS_RE = re.compile(r"^\s*-\s*status:\s*(archived|complete|completed)\s*$", re.I | re.M)
+DASHBOARD_ARCHIVE_COMMENT_RE = re.compile(
+    r"<!--\s*"
+    r"([a-z][a-z0-9]*(?:-[a-z0-9]+)*-\d+)\b"
+    r"[\s\S]*?"
+    r"\b(completed|resolved|done|archived|closed|canceled|cancelled|rejected|approved|failed)\b"
+    r"[\s\S]*?"
+    r"(?:→|->)\s*([^\s)]+\.md)"
+    r"[\s\S]*?-->"
+)
 
 
 def run(args: list[str], cwd: Path) -> str:
@@ -23,9 +35,19 @@ def run(args: list[str], cwd: Path) -> str:
 
 def github_api_text(path: str) -> str:
     url = f"https://api.github.com/repos/shdkej/infinity/contents/{path}?ref=main"
+    return github_api_text_from(url)
+
+
+def github_api_text_from(url: str) -> str:
     with urllib.request.urlopen(url, timeout=20) as response:
         data = json.loads(response.read().decode("utf-8"))
     return base64.b64decode(data["content"]).decode("utf-8")
+
+
+def http_text(url: str) -> str:
+    request = urllib.request.Request(url, headers={"User-Agent": "openclaw-infinity-archive-verifier/1.0"})
+    with urllib.request.urlopen(request, timeout=20) as response:
+        return response.read().decode("utf-8")
 
 
 def split_sections(text: str) -> dict[str, str]:
@@ -83,6 +105,11 @@ def main() -> int:
             errors.append(f"Remote INTENTS.md Archive does not contain {intent_id}")
         if intent_id in open_lanes:
             errors.append(f"Remote INTENTS.md still contains {intent_id} in an open lane")
+        dashboard_matches = [
+            match for match in DASHBOARD_ARCHIVE_COMMENT_RE.finditer(archive) if match.group(1) == intent_id
+        ]
+        if not dashboard_matches:
+            errors.append(f"Remote Archive comment for {intent_id} does not match dashboard parser format")
     except Exception as exc:
         errors.append(f"Remote INTENTS.md check failed: {exc}")
 
@@ -90,10 +117,23 @@ def main() -> int:
         archive_text = github_api_text(f"intents/archive/{intent_id}.md")
         if f"id: {intent_id}" not in archive_text:
             errors.append(f"Remote archive file has no id field for {intent_id}")
-        if "status: archived" not in archive_text:
-            errors.append(f"Remote archive file is not status: archived for {intent_id}")
+        if not ARCHIVE_STATUS_RE.search(archive_text):
+            errors.append(f"Remote archive file is not an accepted archive status for {intent_id}")
     except Exception as exc:
         errors.append(f"Remote archive file check failed: {exc}")
+
+    try:
+        dashboard_html = http_text("https://shdkej.github.io/infinity/")
+        required_dashboard_markers = [
+            "https://api.github.com/repos/shdkej/infinity/contents/INTENTS.md?ref=main",
+            "parseArchiveComments",
+            'source: "INTENTS.md archive"',
+        ]
+        for marker in required_dashboard_markers:
+            if marker not in dashboard_html:
+                errors.append(f"Dashboard page missing expected marker: {marker}")
+    except Exception as exc:
+        errors.append(f"Dashboard page check failed: {exc}")
 
     if parent.exists() and (parent / ".git").exists():
         try:
@@ -104,6 +144,12 @@ def main() -> int:
                 errors.append(
                     f"Knowledge Lab pointer is not pushed: local {parent_head[:7]} != origin/main {parent_remote[:7]}"
                 )
+            parent_pointer = run(["git", "ls-tree", "origin/main", "infinity"], parent).split()[2]
+            if parent_pointer != remote_head:
+                errors.append(
+                    "Knowledge Lab origin/main points to old Infinity submodule: "
+                    f"parent {parent_pointer[:7]} != infinity origin/main {remote_head[:7]}"
+                )
         except Exception as exc:
             errors.append(str(exc))
 
@@ -112,7 +158,7 @@ def main() -> int:
             print(error, file=sys.stderr)
         return 1
 
-    print(f"Archive remote verification OK: {intent_id}")
+    print(f"PASS Archive remote verification OK: {intent_id}")
     return 0
 
 
