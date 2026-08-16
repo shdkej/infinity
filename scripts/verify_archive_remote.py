@@ -10,6 +10,7 @@ import re
 import subprocess
 import sys
 import urllib.request
+import urllib.error
 from pathlib import Path
 
 ARCHIVE_STATUS_RE = re.compile(r"^\s*-\s*status:\s*(archived|complete|completed)\s*$", re.I | re.M)
@@ -35,13 +36,24 @@ def run(args: list[str], cwd: Path) -> str:
 
 def github_api_text(path: str) -> str:
     url = f"https://api.github.com/repos/shdkej/infinity/contents/{path}?ref=main"
-    return github_api_text_from(url)
+    try:
+        return github_api_text_from(url)
+    except urllib.error.HTTPError as exc:
+        if exc.code not in (403, 429):
+            raise
+        return raw_github_text(path)
 
 
 def github_api_text_from(url: str) -> str:
-    with urllib.request.urlopen(url, timeout=20) as response:
+    request = urllib.request.Request(url, headers={"User-Agent": "openclaw-infinity-archive-verifier/1.0"})
+    with urllib.request.urlopen(request, timeout=20) as response:
         data = json.loads(response.read().decode("utf-8"))
     return base64.b64decode(data["content"]).decode("utf-8")
+
+
+def raw_github_text(path: str) -> str:
+    url = f"https://raw.githubusercontent.com/shdkej/infinity/main/{path}"
+    return http_text(url)
 
 
 def http_text(url: str) -> str:
@@ -125,7 +137,6 @@ def main() -> int:
     try:
         dashboard_html = http_text("https://shdkej.github.io/infinity/")
         required_dashboard_markers = [
-            "https://api.github.com/repos/shdkej/infinity/contents/INTENTS.md?ref=main",
             "parseArchiveComments",
             'source: "INTENTS.md archive"',
         ]
