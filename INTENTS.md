@@ -4,6 +4,8 @@
 
 ## Inbox
 
+<!-- marketing-122 inbox 2026-08-16T12:44Z — target_agent: genie; priority: high; permission: public-research-and-internal-guide-only; execution_mode: multi_subagent_roles; projects: [personal-brand,threads,affiliate,commerce]; type: monetization-guide; topics: toss-sharelink,threads,affiliate-marketing,hot-deals,compliance] 사용자 요청: Toss Sharelink로 돈 버는 방법을 Threads 노하우에서 찾아 내일부터 실행 가능한 가이드로 만들기. -->
+
 ## Active
 
 
