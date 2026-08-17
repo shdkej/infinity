@@ -3,40 +3,47 @@ status: READY_FOR_USER_ACCOUNT_SELF_CHECK
 public_action: NO_ACTION
 approval_status: READY_TO_REQUEST_AFTER_MEMBER_SCREEN_CHECK
 red_status: PASS_PREPUBLICATION_PACKAGE
-experiment_unit: "first 3 posts selected; 7 days x 3 posts = 21 post test"
+experiment_unit: "first 3 posts selected from actual travel purchases; 7 days x 3 posts = 21 post test"
 evidence_file: artifacts/marketing-123/product-evidence-20260817T0830Z.md
 candidates:
   - id: C01
-    product: "Travel compression pouch set"
-    category: "packing / compression"
-    evidence_type: public_sales_page_and_search_comparison
+    product: "여행용 파우치와 칫솔"
+    category: "packing / daily-access pouch"
+    evidence_type: travel_dashboard_notion_synced_expense
     evidence:
-      - "Travelgear compression pouch category shows 2-piece set and size variants"
-      - "Coupang search shows multiple 4-9 piece compression pouch alternatives"
+      - "2026-05-30 여행용 파우치, 칫솔 등 (무인양품), 28,400원"
+      - "sources: notion:3a107aba-cae7-818a-a0c1-fc490fa88cf5, telegram:433493318/message/10729"
     status: READY_FOR_MEMBER_SCREEN_CHECK
   - id: C02
-    product: "Grounded 65W GaN 3-port charger"
-    category: "charging / cable reduction"
-    evidence_type: public_search_comparison
+    product: "여행용 멀티플러그와 종이세제"
+    category: "charging / laundry basics"
+    evidence_type: travel_dashboard_notion_synced_expense
     evidence:
-      - "Coupang search shows several 65W-67W grounded GaN 3-port charger candidates"
+      - "2026-05-19 여행용 멀티플러그, 종이세제 (쿠팡), 39,200원"
+      - "sources: notion:3a107aba-cae7-815f-bb59-dac644a867e2, telegram:433493318/message/10729"
     status: READY_FOR_MEMBER_SCREEN_CHECK
   - id: C03
-    product: "Portable travel clothesline"
-    category: "lodging / laundry"
-    evidence_type: public_search_comparison
+    product: "손톱깎이, 수건, 빨랫줄"
+    category: "lodging / small living basics"
+    evidence_type: travel_dashboard_notion_synced_expense
     evidence:
-      - "Coupang search shows portable 10m clothesline and clothesline+clip candidates"
+      - "2026-05-10 Travel prep · 손톱깎이/수건/빨랫줄, 70,200원"
+      - "sources: notion:3a107aba-cae7-8128-be24-d86b5f2fa9ff, telegram:433493318/message/10729"
     status: READY_FOR_MEMBER_SCREEN_CHECK
+excluded_candidates:
+  - product: "여행용 압축파우치"
+    reason: "actual purchase evidence not found in travel dashboard / Notion-synced expenses"
+  - product: "접지형 65W GaN 3포트 충전기"
+    reason: "actual purchase evidence not found in travel dashboard / Notion-synced expenses"
 required_before_publication:
   - logged-in Sharelink eligibility/link issuance self-check
-  - official Sharelink URL issued for each final product
+  - official Sharelink URL issued for each exact or similar final product
   - final price/stock/shipping confirmation at publication time
   - explicit user approval for public publishing
 completed_without_public_action:
-  - first 3 product candidates selected
-  - public evidence recorded
+  - actual purchase based first 3 product groups selected
+  - travel dashboard / Notion-synced evidence recorded
   - 3 draft posts prepared
   - 21-post publication unit decided
   - compliance disclosure kept before link placeholder
-red_report: reports/marketing-123/20260817T0830Z-red.md
+red_report: reports/marketing-123/20260817T1145Z-red.md
