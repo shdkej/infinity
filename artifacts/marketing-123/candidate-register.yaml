@@ -1,0 +1,42 @@
+intent_id: marketing-123
+status: READY_FOR_USER_ACCOUNT_SELF_CHECK
+public_action: NO_ACTION
+approval_status: READY_TO_REQUEST_AFTER_MEMBER_SCREEN_CHECK
+red_status: PASS_PREPUBLICATION_PACKAGE
+experiment_unit: "first 3 posts selected; 7 days x 3 posts = 21 post test"
+evidence_file: artifacts/marketing-123/product-evidence-20260817T0830Z.md
+candidates:
+  - id: C01
+    product: "Travel compression pouch set"
+    category: "packing / compression"
+    evidence_type: public_sales_page_and_search_comparison
+    evidence:
+      - "Travelgear compression pouch category shows 2-piece set and size variants"
+      - "Coupang search shows multiple 4-9 piece compression pouch alternatives"
+    status: READY_FOR_MEMBER_SCREEN_CHECK
+  - id: C02
+    product: "Grounded 65W GaN 3-port charger"
+    category: "charging / cable reduction"
+    evidence_type: public_search_comparison
+    evidence:
+      - "Coupang search shows several 65W-67W grounded GaN 3-port charger candidates"
+    status: READY_FOR_MEMBER_SCREEN_CHECK
+  - id: C03
+    product: "Portable travel clothesline"
+    category: "lodging / laundry"
+    evidence_type: public_search_comparison
+    evidence:
+      - "Coupang search shows portable 10m clothesline and clothesline+clip candidates"
+    status: READY_FOR_MEMBER_SCREEN_CHECK
+required_before_publication:
+  - logged-in Sharelink eligibility/link issuance self-check
+  - official Sharelink URL issued for each final product
+  - final price/stock/shipping confirmation at publication time
+  - explicit user approval for public publishing
+completed_without_public_action:
+  - first 3 product candidates selected
+  - public evidence recorded
+  - 3 draft posts prepared
+  - 21-post publication unit decided
+  - compliance disclosure kept before link placeholder
+red_report: reports/marketing-123/20260817T0830Z-red.md

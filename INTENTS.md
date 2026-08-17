@@ -24,11 +24,16 @@
 - success_criteria: 첫 상품 3개 후보·초안·self-check·승인 경계를 준비하고 Red pass를 확보한다.
 - boundary: 공개 게시·외부 계정 작업은 사용자 승인 전까지 실행하지 않는다.
 - red_status: pass
-- red_scope: preparation-package-only
-- red_report: reports/marketing-123/20260816T1928Z-red.html
-- next_action: 실제 상품 3개·사용/비교 근거·회원 화면 self-check를 입력하고 3개 게시물과 21개 게시물 단위를 확정한 뒤 사용자 승인을 요청한다.
-- next_retry_condition: product evidence, account self-check, publication-unit decision, and explicit user approval are available; until then no public action.
-- blocker: actual product/evidence data, Sharelink member-screen checks, publication-unit decision, and explicit user approval are missing.
+- red_scope: first-3-candidate-package-only
+- previous_red_report: reports/marketing-123/20260816T1928Z-red.html
+- red_report: reports/marketing-123/20260817T0830Z-red.md
+- progress: 2026-08-17T08:30Z 첫 상품 3개 후보·비교 근거·게시 초안·7일 21개 운영 단위 준비 완료. 공개 행동 없음.
+- artifact: artifacts/marketing-123/candidate-posts.md
+- evidence: artifacts/marketing-123/product-evidence-20260817T0830Z.md
+- approval_request: artifacts/marketing-123/approval-request.md
+- next_action: 토스쇼핑 Sharelink 회원 화면에서 후보 3개 공식 링크 발급 가능 여부와 가격·옵션·재고·배송 조건을 확인한 뒤, 사용자에게 공개 게시 승인을 요청한다.
+- next_retry_condition: account self-check and explicit user approval are available; until then no public action.
+- blocker: Sharelink member-screen checks and explicit user approval are missing.
 
 <!-- 사용자 결정·외부 조건 대기만 기록한다. -->
 
