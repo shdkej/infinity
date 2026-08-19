@@ -27,13 +27,15 @@
 - red_scope: actual-purchase-based-first-3-package-only
 - previous_red_report: reports/marketing-123/20260816T1928Z-red.html
 - red_report: reports/marketing-123/20260817T1145Z-red.md
-- progress: 2026-08-17T11:45Z 여행 대시보드/Notion 지출 기반 실제 구매물 3개로 후보·게시 초안·7일 21개 운영 단위 보정 완료. 압축파우치/GaN 충전기는 실제 구매 근거를 찾지 못해 제외. 공개 행동 없음.
+- progress: 2026-08-17T11:45Z 여행 대시보드/Notion 지출 기반 실제 구매물 3개로 후보·게시 초안·7일 21개 운영 단위 보정 완료. 압축파우치/GaN 충전기는 실제 구매 근거를 찾지 못해 제외. 2026-08-19T07:19Z dashboard `resolve_waiting` 요청은 처리됐고, SAM이 Sharelink 확인을 시도했으나 Toss Business/토스쇼핑 파트너스 로그인 화면에서 멈췄다. 공개 행동 없음.
 - artifact: artifacts/marketing-123/candidate-posts.md
 - evidence: artifacts/marketing-123/product-evidence-20260817T0830Z.md
 - approval_request: artifacts/marketing-123/approval-request.md
 - next_action: 토스쇼핑 Sharelink 회원 화면에서 실제 구매물 기반 후보 3개 또는 유사 상품의 공식 링크 발급 가능 여부와 가격·옵션·재고·배송 조건을 확인한 뒤, 사용자에게 공개 게시 승인을 요청한다.
-- next_retry_condition: account self-check and explicit user approval are available; until then no public action.
-- blocker: Sharelink member-screen checks and explicit user approval are missing.
+- last_action_request: 2026-08-19T07:19Z dashboard `resolve_waiting` accepted and processed from S3 action queue.
+- agent_action_state: waiting_for_toss_login
+- next_retry_condition: Toss Business/Sharelink 로그인 세션이 QR 또는 이메일 로그인으로 준비되면 회원 화면 self-check를 진행한다. self-check 통과 후에만 공개 게시 승인을 요청한다.
+- blocker: Toss Business/Sharelink 로그인 세션이 없어 회원 화면에 접근하지 못했다. QR 또는 이메일 로그인이 필요하며, self-check 전에는 공식 링크 발급·공개 게시·링크 공유를 하지 않는다.
 
 <!-- 사용자 결정·외부 조건 대기만 기록한다. -->
 

@@ -2,6 +2,16 @@
 
 확인 시각: 2026-08-17T11:45Z. 공개 게시, 로그인, 공식 링크 발급, 댓글, DM, 광고 집행 없음.
 
+## 2026-08-19 dashboard retry
+
+- Dashboard action: `resolve_waiting`
+- Request id: `59c08d5b-a7a6-42e8-9e86-b8d9dc58bc26`
+- Queue result: S3 `action_requests/processed/2026/08/19/20260819T071410Z-marketing-123-resolve_waiting-59c08d5b-a7a6-42e8-9e86-b8d9dc58bc26.json`
+- SAM action: Sharelink/Toss Shopping member-screen check attempted.
+- Current stop point: Toss Business/토스쇼핑 파트너스 로그인 화면. QR login or email/password login is required before member-screen product/link checks.
+- Safety boundary: no public post, official link share, account setting change, purchase, payment, comment, DM, or ad action was performed.
+- Next executable step: after the user completes Toss login in the browser session, check whether the 3 actual-purchase candidates or close substitutes can issue official Sharelink URLs, then request explicit public-post approval.
+
 | 항목 | C01 파우치/칫솔 | C02 멀티플러그/종이세제 | C03 손톱깎이/수건/빨랫줄 |
 |---|---|---|---|
 | 실제 구매/준비 근거 | PASS | PASS | PASS |
