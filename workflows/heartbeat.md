@@ -16,6 +16,17 @@
 
 매 Heartbeat마다 아래 순서를 따른다.
 
+### 0. Dashboard action queue 처리
+
+Inbox/Active를 보기 전에 먼저 Infinity 대시보드 버튼 큐를 확인한다. 대시보드 버튼은 사용자가 Waiting에 걸린 외부 조건을 바꾼 명시 신호이므로, 일반 Waiting 반복 금지보다 우선한다.
+
+1. `/home/ubuntu/workspace/knowledge-lab/infinity`에서 `python3 scripts/process_action_requests.py --apply --limit 10 --json`을 실행한다.
+2. 처리 결과가 비어 있으면 기존 Heartbeat 흐름으로 넘어간다.
+3. `resolve_waiting` 요청이 accepted이면 해당 intent를 Waiting 반복 금지 대상에서 제외하고, `next_action`과 `blocker`를 다시 읽어 가능한 가역 작업을 즉시 시도한다.
+4. 요청을 처리하면 사용자에게 `접수됨 → 처리 시작 → 남은 blocker`가 구분되는 짧은 Telegram 알림을 남긴다.
+5. action queue 처리만으로 완료를 선언하지 않는다. 큐 처리는 사용자 트리거 수신이며, 실제 intent 실행·검증·Archive는 지니 계약을 따른다.
+6. rejected 요청은 rejection reason을 기록하고 같은 실패를 반복하지 않도록 dedupe marker를 해제한다.
+
 ### 1. Inbox 처리
 
 INTENTS.md의 `## Inbox` 섹션을 먼저 확인한다. 자유 형식 텍스트가 있으면:
