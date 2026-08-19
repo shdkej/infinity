@@ -2,6 +2,7 @@
 config/telegram.env
 *.env
 .env
+.sharelink-cache/
 
 # omc/tooling
 .omc/

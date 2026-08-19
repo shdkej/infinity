@@ -2,6 +2,19 @@
 
 확인 시각: 2026-08-17T11:45Z. 공개 게시, 로그인, 공식 링크 발급, 댓글, DM, 광고 집행 없음.
 
+## 2026-08-19 Sharelink Open API self-check
+
+- Official guide used: `https://sharelink-docs.toss.im/guide/open-api`
+- Credential storage: local `.env`, gitignored, file mode `600`.
+- Token issuance: PASS.
+- Health check: PASS.
+- Product/category lookup: PASS.
+- Link issuance: PASS for 3 unpublished test candidates.
+- Private link cache: `.sharelink-cache/marketing-123-links-20260819T1201Z.json`.
+- Public artifact: `artifacts/marketing-123/sharelink-api-execution-20260819T1215Z.md`.
+- Safety boundary: official links were issued for preparation, but not posted, shared, sent by DM, advertised, or inserted into a public channel.
+- Current stop point: explicit user approval is required before public Threads posting or public affiliate link sharing.
+
 ## 2026-08-19 dashboard retry
 
 - Dashboard action: `resolve_waiting`
@@ -23,12 +36,12 @@
 | 금지 표현 없음 | PASS | PASS | PASS |
 | 상황·선택 선언형 첫 줄 | PASS | PASS | PASS |
 | 후보별 각도 차이 | PASS | PASS | PASS |
-| Sharelink 회원 화면 self-check | PENDING_USER_ACCOUNT | PENDING_USER_ACCOUNT | PENDING_USER_ACCOUNT |
-| 공식 Sharelink URL | PENDING_USER_ACCOUNT | PENDING_USER_ACCOUNT | PENDING_USER_ACCOUNT |
-| 사용자 발행 승인 | READY_TO_REQUEST_AFTER_SELF_CHECK | READY_TO_REQUEST_AFTER_SELF_CHECK | READY_TO_REQUEST_AFTER_SELF_CHECK |
+| Sharelink 회원 화면/API self-check | PASS_OPEN_API | PASS_OPEN_API | PASS_OPEN_API |
+| 공식 Sharelink URL | ISSUED_PRIVATE_CACHE | ISSUED_PRIVATE_CACHE | ISSUED_PRIVATE_CACHE |
+| 사용자 발행 승인 | PENDING_EXPLICIT_APPROVAL | PENDING_EXPLICIT_APPROVAL | PENDING_EXPLICIT_APPROVAL |
 | Red pass | PASS_PREPUBLICATION_PACKAGE | PASS_PREPUBLICATION_PACKAGE | PASS_PREPUBLICATION_PACKAGE |
 
-판정: SAM이 해소 가능한 `실제 구매 근거 기반 후보·게시 초안·7일 운영 단위`는 완료했고, 기존 일반 후보 중 실제 구매 근거가 없던 항목은 제외했다. 초안은 실제 사용 후기처럼 단정하지 않고 구매/준비 기준으로 낮췄다. 남은 대기는 로그인 회원 화면에서 확인해야 하는 `Sharelink 발급 가능 여부`와 공개 발행 승인이다.
+판정: SAM이 해소 가능한 `실제 구매 근거 기반 후보·게시 초안·7일 운영 단위`와 Sharelink Open API 기반 `상품 조회·공식 링크 발급 가능 여부` 확인은 완료했다. 기존 일반 후보 중 실제 구매 근거가 없던 항목은 제외했고, 초안은 실제 사용 후기처럼 단정하지 않고 구매/준비 기준으로 낮췄다. 남은 대기는 공개 발행 승인이다.
 
 회원 화면 self-check에서 볼 것:
 
