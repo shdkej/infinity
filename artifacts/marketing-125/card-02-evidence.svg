@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1350" viewBox="0 0 1080 1350">
+  <rect width="1080" height="1350" fill="#fff"/>
+  <g fill="#111" font-family="Noto Sans CJK KR, Pretendard, sans-serif">
+    <text x="96" y="172" font-size="62" font-weight="700"><tspan x="96" dy="0">써본 것과</tspan><tspan x="96" dy="80">안 쓴 것을 남깁니다</tspan></text>
+  </g>
+  <g fill="none" stroke="#111" stroke-width="44" stroke-linecap="butt">
+    <path d="M 584.740257 377.521135 A 286 286 0 0 1 807.004002 762.493234"/><path d="M 762.263745 839.985632 A 286 286 0 0 1 317.736255 839.985632"/><path d="M 272.995998 762.493234 A 286 286 0 0 1 495.259743 377.521135"/>
+  </g>
+  <g fill="#111"><polygon points="807.004002,762.493234 867.565815,710.760586 796.613702,683.524622"/><polygon points="317.736255,839.985632 332.257136,918.300024 391.320229,870.471674"/><polygon points="495.259743,377.521135 420.177049,350.939390 432.066069,426.003704"/></g>
+  <g fill="#111" font-family="Noto Sans CJK KR, Pretendard, sans-serif">
+    <text x="96" y="1110" font-size="34" font-weight="400"><tspan x="96" dy="0">좋았다는 말보다</tspan><tspan x="96" dy="52">다시 고를 근거를 모읍니다.</tspan></text>
+  </g>
+</svg>

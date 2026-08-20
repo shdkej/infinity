@@ -1,0 +1,27 @@
+{
+  "renderer": "Pillow supersampled 3x + matching SVG source",
+  "canvas": [
+    1080,
+    1350
+  ],
+  "geometry": {
+    "center": [
+      540,
+      660
+    ],
+    "radius": 286,
+    "sector_spacing_degrees": 120,
+    "visible_arc_degrees_each": 102,
+    "gap_degrees_each": 18,
+    "stroke_width": 44,
+    "arrow_tip_rule": "arc endpoint; tangent-derived; generated mathematically"
+  },
+  "assets": [
+    "card-01-experiment.png",
+    "card-02-evidence.png",
+    "card-03-next.png"
+  ],
+  "public_posted": false,
+  "profile_changed": false,
+  "external_uploaded": false
+}
