@@ -27,13 +27,13 @@
 - red_scope: actual-purchase-based-first-3-package-only
 - previous_red_report: reports/marketing-123/20260816T1928Z-red.html
 - red_report: reports/marketing-123/20260817T1145Z-red.md
-- progress: 2026-08-17T11:45Z 여행 대시보드/Notion 지출 기반 실제 구매물 3개로 후보·게시 초안·7일 21개 운영 단위 보정 완료. 압축파우치/GaN 충전기는 실제 구매 근거를 찾지 못해 제외. 2026-08-19T07:19Z dashboard `resolve_waiting` 요청은 처리됐고, SAM이 Sharelink 확인을 시도했으나 Toss Business/토스쇼핑 파트너스 로그인 화면에서 멈췄다. 2026-08-19T12:15Z 사용자가 제공한 Open API 자격으로 token/health/product lookup/link issuance self-check 통과. 3개 후보 공식 링크는 비공개 로컬 캐시에만 저장했다. 공개 행동 없음.
+- progress: 2026-08-17T11:45Z 여행 대시보드/Notion 지출 기반 실제 구매물 3개로 후보·게시 초안·7일 21개 운영 단위 보정 완료. 압축파우치/GaN 충전기는 실제 구매 근거를 찾지 못해 제외. 2026-08-19T07:19Z dashboard `resolve_waiting` 요청은 처리됐고, SAM이 Sharelink 확인을 시도했으나 Toss Business/토스쇼핑 파트너스 로그인 화면에서 멈췄다. 2026-08-19T12:15Z 사용자가 제공한 Open API 자격으로 token/health/product lookup/link issuance self-check 통과. 3개 후보 공식 링크는 비공개 로컬 캐시에만 저장했다. 2026-08-20T06:20Z dashboard `resolve_waiting` 요청도 accepted 처리됐고, 현재 blocker가 공개 게시·공개 링크 공유 승인 대기임을 재확인했다. 공개 행동 없음.
 - artifact: artifacts/marketing-123/candidate-posts.md
 - evidence: artifacts/marketing-123/product-evidence-20260817T0830Z.md
 - api_execution: artifacts/marketing-123/sharelink-api-execution-20260819T1215Z.md
 - approval_request: artifacts/marketing-123/approval-request.md
 - next_action: Open API로 발급 완료된 비공개 Sharelink 3개를 최종 게시 초안에 삽입할 수 있다. 공개 Threads 게시 또는 공개 링크 공유 전 사용자에게 명시 승인을 요청한다.
-- last_action_request: 2026-08-19T07:19Z dashboard `resolve_waiting` accepted and processed from S3 action queue.
+- last_action_request: 2026-08-20T06:20Z dashboard `resolve_waiting` accepted and processed from S3 action queue.
 - agent_action_state: waiting_for_public_post_approval
 - next_retry_condition: 사용자가 공개 Threads 게시 또는 공개 링크 공유를 명시 승인하면, 비공개 링크 캐시에서 3개 URL을 꺼내 최종 초안에 삽입하고 게시 직전 가격·품절·옵션을 재확인한다.
 - blocker: Sharelink Open API self-check와 공식 링크 발급은 완료됐다. 남은 blocker는 공개 게시·공개 링크 공유에 대한 사용자 명시 승인이다.

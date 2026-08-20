@@ -1,0 +1,10 @@
+{
+  "request_id": "827fef7b-90ad-443b-b671-6cd70e4b9804",
+  "created_at": "2026-08-20T06:19:50.757152+00:00",
+  "intent_id": "marketing-123",
+  "action": "resolve_waiting",
+  "source": "dashboard",
+  "title": "토스 쉐어링크 Threads 테스트 후속 실행",
+  "page": "https://infinity.aws.shdkej.com/",
+  "note": ""
+}
