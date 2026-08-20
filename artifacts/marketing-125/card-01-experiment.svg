@@ -1,13 +1,18 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1350" viewBox="0 0 1080 1350">
-  <rect width="1080" height="1350" fill="#fff"/>
-  <g fill="#111" font-family="Noto Sans CJK KR, Pretendard, sans-serif">
-    <text x="96" y="172" font-size="62" font-weight="700"><tspan x="96" dy="0">여행·AI·제품을</tspan><tspan x="96" dy="80">작게 실험합니다</tspan></text>
+  <title>01 / EXPERIMENT — closed-loop experiment</title>
+  <desc>Exact circle center (540,650), radius 260; three equal 120 degree clockwise arcs and tangent-derived arrowheads.</desc>
+  <rect width="1080" height="1350" fill="#ffffff"/>
+  <g fill="#111111" font-family="Noto Sans CJK KR, Pretendard, sans-serif">
+    <text x="96" y="126" font-family="ui-monospace, monospace" font-size="18px" font-weight="600" letter-spacing="3px">01 / EXPERIMENT</text>
+    <text x="96" y="210" font-size="47px" font-weight="700"><tspan x="96" dy="0">적게 들고 오래 떠나는 선택을</tspan><tspan x="96" dy="66">실제 여행에서 시험합니다.</tspan></text>
+    <line x1="96" y1="310" x2="984" y2="310" stroke="#111111" stroke-width="2"/>
   </g>
-  <g fill="none" stroke="#111" stroke-width="44" stroke-linecap="butt">
-    <path d="M 584.740257 377.521135 A 286 286 0 0 1 807.004002 762.493234"/><path d="M 762.263745 839.985632 A 286 286 0 0 1 317.736255 839.985632"/><path d="M 272.995998 762.493234 A 286 286 0 0 1 495.259743 377.521135"/>
+  <g fill="none" stroke="#111111" stroke-width="32" stroke-linecap="butt" stroke-linejoin="round"><path d="M 800.000000 650.000000 A 260 260 0 0 1 410.000000 875.166605" /><path d="M 410.000000 875.166605 A 260 260 0 0 1 410.000000 424.833395" /><path d="M 410.000000 424.833395 A 260 260 0 0 1 800.000000 650.000000" /></g>
+  <g fill="#111111"><polygon points="410.000000,875.166605 428.444864,911.219164 450.444864,873.114046" /><polygon points="410.000000,424.833395 369.555136,422.780836 391.555136,460.885954" /><polygon points="800.000000,650.000000 822.000000,616.000000 778.000000,616.000000" /></g>
+  <g fill="#111111" font-family="Noto Sans CJK KR, Pretendard, sans-serif">
+    <text x="96" y="1010" font-size="18px" font-weight="600" letter-spacing="2px">CLOSED LOOP / EXPERIMENT</text>
+    <text x="96" y="1092" font-size="25px" font-weight="400"><tspan x="96" dy="0">짐과 도구를 줄였을 때</tspan><tspan x="96" dy="38">생활이 정말 편해지는지 봅니다.</tspan></text>
   </g>
-  <g fill="#111"><polygon points="807.004002,762.493234 867.565815,710.760586 796.613702,683.524622"/><polygon points="317.736255,839.985632 332.257136,918.300024 391.320229,870.471674"/><polygon points="495.259743,377.521135 420.177049,350.939390 432.066069,426.003704"/></g>
-  <g fill="#111" font-family="Noto Sans CJK KR, Pretendard, sans-serif">
-    <text x="96" y="1110" font-size="34" font-weight="400"><tspan x="96" dy="0">아이디어를 크게 믿기 전에</tspan><tspan x="96" dy="52">생활 속에서 먼저 써봅니다.</tspan></text>
-  </g>
+  <line x1="96" y1="1212" x2="984" y2="1212" stroke="#111111" stroke-width="2"/>
+  <text x="984" y="1250" text-anchor="end" fill="#111111" font-family="ui-monospace, monospace" font-size="16px">SAM SAMUEL</text>
 </svg>

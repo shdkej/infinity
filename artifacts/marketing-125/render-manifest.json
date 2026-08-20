@@ -1,5 +1,5 @@
 {
-  "renderer": "Pillow supersampled 3x + matching SVG source",
+  "renderer": "Chromium headless SVG screenshot",
   "canvas": [
     1080,
     1350
@@ -7,19 +7,48 @@
   "geometry": {
     "center": [
       540,
-      660
+      650
     ],
-    "radius": 286,
-    "sector_spacing_degrees": 120,
-    "visible_arc_degrees_each": 102,
-    "gap_degrees_each": 18,
-    "stroke_width": 44,
-    "arrow_tip_rule": "arc endpoint; tangent-derived; generated mathematically"
+    "radius": 260,
+    "segments": [
+      120,
+      120,
+      120
+    ],
+    "stroke_width": 32,
+    "arrow_tip_rule": "arc endpoint; tangent-derived"
   },
   "assets": [
-    "card-01-experiment.png",
-    "card-02-evidence.png",
-    "card-03-next.png"
+    {
+      "svg": "card-01-experiment.svg",
+      "png": "card-01-experiment.png",
+      "png_size": [
+        1080,
+        1350
+      ],
+      "sha256_svg": "470c08f6a1e211587f1bddb65e16e79e72677e23eba88e2c07fdd2d87ba26eba",
+      "sha256_png": "098def5882e3f04f83605f2a1e5f9afc09e9b8b13d059872ecdce26760b1e30b"
+    },
+    {
+      "svg": "card-02-evidence.svg",
+      "png": "card-02-evidence.png",
+      "png_size": [
+        1080,
+        1350
+      ],
+      "sha256_svg": "ed607327f9470d2df716f7eabea015421376de64e4d816311524fc1ecb33d0e3",
+      "sha256_png": "c82c5afe889d3aa8c6c6b1d5f2119daf157701fec2999fd4a73e3c77c27b1ab4"
+    },
+    {
+      "svg": "card-03-next.svg",
+      "png": "card-03-next.png",
+      "png_size": [
+        1080,
+        1350
+      ],
+      "sha256_svg": "023ae95c2fee1312c51a552e8119ed4fac3615d9d8d909b3920552a52be7b460",
+      "sha256_png": "8ef1eb19630a1639bdd9ff220b08e9e561260bbc828ce4a0c82e918a0bda35a3"
+    }
   ],
   "public_posted": false,
   "profile_changed": false,
