@@ -356,6 +356,22 @@ Inbox ──→ Active ──→ in_progress ──→ archived
 - `external`: 외부 조건 (배포 대기, 서드파티 응답).
 - `agent`: 다른 에이전트/크론 사이클 대기.
 
+### Waiting 표시 필드 (2026-08-20 필수)
+
+`waiting`은 "멈춤"만 보여주면 안 된다. 사용자가 승인하거나 확인해야 하는 대상이 있으면 카드에서 바로 읽히게 구조화 필드를 남긴다.
+
+```markdown
+- pending_threads: C01 여행용 파우치와 칫솔 / C02 여행용 멀티플러그와 종이세제
+- pending_posts: ...
+- pending_links: ...
+- pending_decision: ...
+```
+
+- 공개 게시·제휴 링크·메시지·상품 후보·초안처럼 사용자 승인을 기다리는 산출물이 있으면 `blocker`와 `next_action`만 쓰지 말고 `pending_*` 필드를 함께 둔다.
+- 카드에는 안전한 제목/라벨/후보명만 노출한다.
+- 상세 모달이나 artifact에는 실제 초안 본문과 근거를 노출하되, 비공개 short URL, credential, token, member-only 값은 공개 원장에 쓰지 않는다.
+- 사용자가 "무엇이 대기 중인지 모르겠다"고 느끼면 운영 실패다. Waiting 갱신 후 대시보드에서 카드 요약과 상세가 실제로 읽히는지 확인한다.
+
 ### notified 마커 (2026-07-16부터 필수)
 
 완료는 통보까지가 완료다. Archive 주석에 사용자 통보 시각을 남긴다:
