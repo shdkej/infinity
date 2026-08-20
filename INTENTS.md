@@ -3,27 +3,25 @@
 > Heartbeat Agent가 주기적으로 읽고 실행하는 의도 목록.
 
 ## Inbox
-### [marketing-124] 인스타 소개글·닫힌 루프 3장 이미지
-- status: archive
+### [marketing-125] 인스타 소개글·닫힌 루프 3장 이미지 재작업
+- status: inbox
 - target_agent: genie
 - priority: high
 - permission: approval-required-before-public-post
-- requested: 2026-08-20T13:50Z
-- execution_mode: single_genie_roles
+- requested: 2026-08-20T20:07Z
+- execution_mode: multi_subagent_roles
 - projects: personal-brand,instagram,infinity
-- task_type: design
-- topics: content,marketing,personal-brand
-- goal: 인스타그램 프로필/소개용으로 "닫힌 루프를 빠르게 반복하는 실험" 방법론과 사용자를 소개하는 3장 이미지 및 소개글을 제작한다.
-- user_request: 흰 배경에 검정색 동그란 원이 3등분되어 화살표로 순환하는 닫힌 루프 그래픽. 불필요한 글자는 줄이고, 빠르게 닫힌 루프를 반복하는 실험을 하겠다는 방법 안내와 나를 소개하는 3장 이미지.
-- artifact_brief: artifacts/marketing-124/brief.md
-- success_criteria: 3장 카드 구성, 인스타 소개글, 각 장의 핵심 문구, 시각 디자인 지시, 이미지 생성/렌더링 산출물, Red pass를 제공한다.
-- boundary: 공개 게시·프로필 변경·외부 업로드는 사용자 승인 전까지 하지 않는다. 사용자가 요청한 "흰 배경 + 검정 3분할 순환 원" 컨셉을 중심에 두고 과한 장식과 불필요한 텍스트를 제거한다.
-- next_action: 사용자가 PNG와 소개글 후보를 확인한다. 공개 게시·프로필 변경·외부 업로드는 별도 명시 승인 전까지 실행하지 않는다.
-- completed: 2026-08-20T14:05Z
-- artifact: artifacts/marketing-124/
-- report: reports/marketing-124/20260820T1405Z.html
-- red_status: pass
-- red_report: artifacts/marketing-124/red-report.md
+- task_type: design-revision
+- topics: content,marketing,personal-brand,closed-loop,visual-quality
+- source_intent: marketing-124
+- source_quality_review: artifacts/marketing-124/quality-review-20260820.md
+- goal: marketing-124의 실패를 반영해 인스타그램 소개용 3장 이미지를 다시 만든다. 흰 배경, 검정 원형 3분할 순환 화살표, 닫힌 루프를 빠르게 반복하는 실험 방법, 사용자 소개를 더 정확하고 설득력 있게 표현한다.
+- user_request: "제대로 원형도 아니고 화살표도 엉망이고 내용도 너무 아쉬운데, 계속 실험하면서 개선하고 앞으로 작업에 반영한채로 다음에는 더 나은 작업이 되게 하고 싶다."
+- success_criteria: 정확한 원형 중심/반지름, 120도 균등 3분할, 접선 방향 화살표, 1080×1350 PNG/SVG 3장, 인스타 소개글 후보, 이전 실패 반영 노트, Red의 렌더 이미지 직접 시각 검토 PASS.
+- visual_quality_gate: true_circle + equal_120_degree_segments + tangent_aligned_arrowheads + no_text_collision + rendered_png_visual_review
+- copy_quality_gate: 각 카드가 "무엇을 실험하는가 / 어떤 증거를 남기는가 / 다음 반복에서 무엇을 고치는가" 중 하나를 구체적으로 말해야 한다.
+- boundary: 공개 게시·프로필 변경·외부 업로드는 사용자 승인 전까지 하지 않는다. 이전 marketing-124 산출물은 최종본으로 쓰지 않는다.
+- next_action: 지니가 marketing-124 품질 리뷰를 읽고, 새 카드 3장과 소개글을 재제작한 뒤 Red가 실제 렌더를 보고 검증한다.
 
 ## Active
 <!-- 실행 중인 intent 없음. -->
@@ -64,7 +62,7 @@
 
 ## Archive
 
-<!-- marketing-124 completed 2026-08-20T14:05Z → artifacts/marketing-124/; reports/marketing-124/20260820T1405Z.html; Red pass: artifacts/marketing-124/red-report.md [projects: personal-brand,instagram,infinity; type: instagram-intro-image-set; topics: content,marketing,closed-loop-experiment] (소개글 후보와 흰 배경·검정 3분할 순환 원 3장 SVG/PNG 준비. 공개 게시·프로필 변경·외부 업로드 없음.) -->
+<!-- marketing-124 completed 2026-08-20T14:05Z; quality rejected 2026-08-20T20:07Z → artifacts/marketing-124/; quality review: artifacts/marketing-124/quality-review-20260820.md; superseded by marketing-125 [projects: personal-brand,instagram,infinity; type: instagram-intro-image-set; topics: content,marketing,closed-loop-experiment] (초기 소개글 후보와 흰 배경·검정 순환 원 3장 SVG/PNG는 보존하지만 최종 사용 금지. 원형성·3분할·화살표 접선·카피 품질 검증 실패. 공개 게시·프로필 변경·외부 업로드 없음.) -->
 
 <!-- marketing-122 completed 2026-08-16T16:25Z → intents/archive/marketing-122.md; artifact: artifacts/marketing-122/sharelink-threads-guide.md; evidence: artifacts/marketing-122/evidence-20260816T1625Z.md; report: reports/marketing-122/20260816T1625Z.html; Red pass: reports/marketing-122-red-20260816-pass.md [projects: personal-brand,threads,affiliate,commerce; type: monetization-guide; topics: toss-sharelink,threads,affiliate-marketing,hot-deals,compliance]
 [프로젝트] 토스 쉐어링크 Threads 테스트

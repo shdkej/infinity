@@ -158,6 +158,7 @@ Heartbeat
 - **역할 서브에이전트 실행 절차**: 지니는 `spawn_agent`가 바로 없으면 `tool_search`로 `spawn_agent`/`subagent` 도구를 로드한다. `multi_subagent_roles`에서는 `role-{intent-id}-planner`, `role-{intent-id}-developer`, `role-{intent-id}-marketer`, `role-{intent-id}-operator` label로 네 역할을 병렬 spawn한다. 각 역할은 파일을 직접 수정하지 않고 `role`, `judgment`, `concerns`, `proposal`, `handoff`, `evidence_paths`를 반환한다. 지니는 `subagents list` 또는 `sessions_list search role-{intent-id}`로 `sessionKey`/`sessionId`/status를 확인한 뒤 report에 기록한다.
 - **Fallback 금지**: `multi_subagent_roles` 대상에서 역할 서브에이전트를 시작하거나 session id를 확인하지 못하면 조용히 단일 처리로 낮추지 않는다. `execution_mode: multi_subagent_roles_blocked`, `fallback_reason`, `next_retry_condition`을 남기고 Waiting으로 둔다. 사용자 명시 승인 때만 `single_genie_roles_fallback_user_approved`를 허용한다.
 - **모든 작업**: 마지막에는 Red 검증을 요청한다. Archive 전제는 Red의 별도 검증과 `red_status: pass`다.
+- **시각 산출물 게이트**: Instagram 이미지, 카드, 다이어그램, 로고성 그래픽처럼 사용자가 보는 PNG/SVG/JPG 산출물은 Red가 실제 렌더 이미지를 보고 검증해야 한다. 파일 존재, 키워드 포함, SVG 문법 통과만으로는 pass가 아니다. 사용자가 원형·화살표·3분할·참조 스타일을 요구했으면 원형성, 균등 분할, 접선 방향 화살표, 시각적 중심, 텍스트 충돌, 3초 내 메시지 이해를 각각 판정한다. 하나라도 실패하면 Archive하지 않고 수정 intent를 만들거나 Waiting에 둔다.
 - **마케팅 학습 루프**: `marketing-*`, `target_agent: marketer`, activation, onboarding, retention, monetization, positioning, AI value/proxy 관련 intent는 Marketer가 `MARKETING_LEARNINGS.md`를 1순위로 읽고, 이전 마케팅 산출물을 근거로 학습하게 한다. 위임 프롬프트에 `MARKETING_LEARNINGS.md`, `INTENTS.md` Archive 요약, `artifacts/marketing-*`, `reports/marketing-*/*.html`, 관련 Virtue `apps/web/docs/`를 참고해 계승/수정/충돌 지점을 명시하라고 넣는다. Naver Shopping 등 다른 source agent가 만든 target-agent 요청도 같은 루프로 처리하되, source agent 산출물은 요청 근거로만 쓰고 Marketer output을 네이버 수요 증거로 오인하지 않는다.
 - **마케팅 언어 규칙**: `marketing-*` 또는 `target_agent: marketer` 산출물은 기본적으로 한국어로 작성한다. Infinity Inbox 제목, intent 본문, artifact 본문, report 본문, archive summary, SAM internal inbox note, Waiting 이유, 다음 액션까지 모두 한국어 우선으로 쓴다. 파일 경로, URL, 코드, CLI 명령, 환경변수, JSON 필드명, 고유 서비스명/제품명만 필요할 때 원문을 유지한다. 영어 초안이나 영어 제목을 먼저 만들고 번역하는 흐름이 아니라, 처음부터 한국어 정본을 만든다.
 
@@ -246,6 +247,7 @@ Report는 실행 로그다. 2축은 그 로그의 결론을 한눈에 보게 하
 Archive gate:
 
 - Archive 전제는 `red_status: pass`와 Red report 경로다.
+- 시각 산출물은 Red report에 렌더 이미지 직접 검수 결과가 있어야 한다. 기하학적 요구(원형, 3분할, 화살표 방향, 정렬), 레이아웃 충돌, 텍스트 위계, 메시지 선명도가 빠지면 pass가 아니다.
 - Red가 `수정 필요`, `보류`, 타임아웃, 미응답이면 Archive하지 않고 `Waiting`에 남긴다.
 - `red_status`가 없거나 Red report가 없는 완료 선언은 무효다.
 
