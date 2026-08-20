@@ -3,6 +3,22 @@
 > Heartbeat Agent가 주기적으로 읽고 실행하는 의도 목록.
 
 ## Inbox
+### [marketing-124] 인스타 소개글·닫힌 루프 3장 이미지
+- status: inbox
+- target_agent: genie
+- priority: high
+- permission: approval-required-before-public-post
+- requested: 2026-08-20T13:50Z
+- execution_mode: single_genie_roles
+- projects: personal-brand,instagram,infinity
+- task_type: design
+- topics: content,marketing,personal-brand
+- goal: 인스타그램 프로필/소개용으로 "닫힌 루프를 빠르게 반복하는 실험" 방법론과 사용자를 소개하는 3장 이미지 및 소개글을 제작한다.
+- user_request: 흰 배경에 검정색 동그란 원이 3등분되어 화살표로 순환하는 닫힌 루프 그래픽. 불필요한 글자는 줄이고, 빠르게 닫힌 루프를 반복하는 실험을 하겠다는 방법 안내와 나를 소개하는 3장 이미지.
+- artifact_brief: artifacts/marketing-124/brief.md
+- success_criteria: 3장 카드 구성, 인스타 소개글, 각 장의 핵심 문구, 시각 디자인 지시, 이미지 생성/렌더링 산출물, Red pass를 제공한다.
+- boundary: 공개 게시·프로필 변경·외부 업로드는 사용자 승인 전까지 하지 않는다. 사용자가 요청한 "흰 배경 + 검정 3분할 순환 원" 컨셉을 중심에 두고 과한 장식과 불필요한 텍스트를 제거한다.
+- next_action: 지니가 3장 카드 기획·문구·시각 산출물을 만들고 Red 검증 후 결과를 사용자에게 전달한다.
 
 ## Active
 <!-- 실행 중인 intent 없음. -->
