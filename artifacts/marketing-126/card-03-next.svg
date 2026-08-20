@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1350" viewBox="0 0 1080 1350">
+  <title>03 / NEXT — closed loop intro</title>
+  <desc>White card with one black circular loop split into three equal steps: hypothesis, action, evidence.</desc>
+  <rect width="1080" height="1350" fill="#ffffff"/>
+  <g fill="#111111" font-family="Pretendard, Noto Sans CJK KR, Apple SD Gothic Neo, sans-serif">
+    <text x="94" y="125" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="18px" font-weight="700" letter-spacing="3px">03 / NEXT</text>
+    <text x="94" y="212" font-size="55px" font-weight="800"><tspan x="94" dy="0">기록에서 골라</tspan><tspan x="94" dy="70">다음 선택을 고칩니다</tspan></text>
+  </g>
+  <g fill="none" stroke="#111111" stroke-width="34" stroke-linecap="butt" stroke-linejoin="round">
+    <path d="M 540.000 417.000 A 258 258 0 0 1 790.336 737.416" opacity="0.88" /><path d="M 763.435 804.000 A 258 258 0 0 1 360.778 860.590" opacity="0.88" /><path d="M 316.565 804.000 A 258 258 0 0 1 468.886 426.994" opacity="1" />
+  </g>
+  <g fill="#111111"><polygon points="790.336,737.416 825.725,702.953 775.269,690.373" /><polygon points="360.778,860.590 372.929,908.468 409.052,871.062" /><polygon points="468.886,426.994 421.346,413.578 435.679,463.564" /></g>
+  <g fill="#111111" font-family="Pretendard, Noto Sans CJK KR, Apple SD Gothic Neo, sans-serif">
+    
+    <text x="820.5" y="455.8" text-anchor="middle" opacity="0.72">
+      <tspan x="820.5" font-size="26px" font-weight="650">가설</tspan>
+      <tspan x="820.5" dy="28" font-size="17px" font-weight="400"><tspan x="820.5" dy="34">무엇을 바꾸면</tspan><tspan x="820.5" dy="24">생활이 나아질까</tspan></tspan>
+    </text>
+    <text x="589.5" y="1027.5" text-anchor="middle" opacity="0.72">
+      <tspan x="589.5" font-size="26px" font-weight="650">실행</tspan>
+      <tspan x="589.5" dy="28" font-size="17px" font-weight="400"><tspan x="589.5" dy="34">작게 만들고</tspan><tspan x="589.5" dy="24">바로 써본다</tspan></tspan>
+    </text>
+    <text x="209.9" y="541.6" text-anchor="middle" opacity="1">
+      <tspan x="209.9" font-size="26px" font-weight="800">증거</tspan>
+      <tspan x="209.9" dy="28" font-size="17px" font-weight="400"><tspan x="209.9" dy="34">쓴 것과</tspan><tspan x="209.9" dy="24">막힌 점</tspan></tspan>
+    </text>
+  </g>
+  <g fill="#111111" font-family="Pretendard, Noto Sans CJK KR, Apple SD Gothic Neo, sans-serif">
+    <text x="94" y="1100" font-size="30px" font-weight="450"><tspan x="94" dy="0">한 번의 결론보다</tspan><tspan x="94" dy="44">다음 반복에서 달라진 것을 봅니다.</tspan></text>
+  </g>
+  <text x="986" y="1244" text-anchor="end" fill="#111111" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="15px" font-weight="700" letter-spacing="2px">CLOSED LOOP</text>
+</svg>

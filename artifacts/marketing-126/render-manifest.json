@@ -1,0 +1,41 @@
+{
+  "canvas": [
+    1080,
+    1350
+  ],
+  "geometry": {
+    "center": [
+      540,
+      675
+    ],
+    "radius": 258,
+    "segments": [
+      {
+        "start": -90,
+        "span": 104,
+        "gap": 16
+      },
+      {
+        "start": 30,
+        "span": 104,
+        "gap": 16
+      },
+      {
+        "start": 150,
+        "span": 104,
+        "gap": 16
+      }
+    ],
+    "equal_step_interval_degrees": 120,
+    "stroke_width": 34,
+    "arrow_tip_rule": "arc endpoint; tangent-derived"
+  },
+  "public_posted": false,
+  "profile_changed": false,
+  "external_uploaded": false,
+  "assets": [
+    "card-01-why.png",
+    "card-02-loop.png",
+    "card-03-next.png"
+  ]
+}

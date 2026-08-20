@@ -3,8 +3,14 @@
 > Heartbeat Agent가 주기적으로 읽고 실행하는 의도 목록.
 
 ## Inbox
+<!-- research-28 moved to Active by dispatcher 2026-08-20T21:18Z -->
+
+## Active
+<!-- 실행 중인 intent 없음. -->
+
+## Waiting
 ### [research-28] Andrej Karpathy autoresearch를 Infinity에 접목하는 운영·실험 구조 설계
-- status: inbox
+- status: waiting
 - target_agent: genie
 - priority: high
 - permission: L0-research-and-strategy
@@ -18,11 +24,14 @@
 - success_criteria: autoresearch 원리와 Infinity 현재 구조의 대응표, 적용하지 말아야 할 범위, 최소 MVP 운영 루프, 필요한 Intent/Report/Artifact 필드, 성공·중단·롤백 기준, 1~2주 검증 실험안을 포함한 한국어 전략 리포트와 Red 검증.
 - boundary: 코드·cron·권한·자격증명·외부 공개 변경은 제안만 하고 실행하지 않는다. 기존 Infinity 운영 규칙과 사용자 소유권을 우선한다.
 - next_action: 지니가 Andrej Karpathy autoresearch 원문·저장소와 Infinity 정본을 함께 확인한 뒤 Planner·Developer·Marketer·Operator 관점으로 접목안을 만들고 Red가 네 문장 검증을 수행한다.
+- role_sessions: planner=01a0210b-48b4-77a0-8f67-d32ed7a0cb16; developer=01a0210b-7044-7bf1-9e72-a90b6049ae32; marketer=01a0210b-9845-7181-aa49-50f05010302c; operator=01a0210b-bfd2-7e61-b4cf-32fb5cce964d; red=01a02110-df6f-7613-8432-45078ca16e69
+- artifact: artifacts/research-28/autoresearch-infinity-strategy.md
+- report: reports/research-28/20260820T2118Z.html
+- red_status: fail
+- red_report: artifacts/research-28/red-report.md
+- blocker: Red가 HTML 게이트 결함을 발견함
+- next_retry_condition: 다음 유효 dispatcher 사이클에서 수정된 HTML을 새 Red agent가 재검증하고 pass 후에만 Archive
 
-## Active
-<!-- 실행 중인 intent 없음. -->
-
-## Waiting
 ### [marketing-123] 토스 쉐어링크 Threads 테스트 후속 실행
 - status: waiting
 - target_agent: genie
@@ -57,6 +66,24 @@
 <!-- 사용자 결정·외부 조건 대기만 기록한다. -->
 
 ## Archive
+### [marketing-126] 인스타 닫힌 루프 3장 이미지 최종 후보
+- status: archived
+- target_agent: SAM
+- priority: high
+- permission: approval-required-before-public-post
+- execution_mode: direct-revision-with-rendered-visual-gate
+- projects: personal-brand,instagram,infinity
+- task_type: design-revision
+- topics: content,marketing,personal-brand,closed-loop,visual-quality
+- goal: marketing-124/125 품질 한계를 반영해 완료품질 후보까지 재작업
+- success_criteria: 1080×1350 PNG/SVG 3장, true circle/equal 120° step anchors/tangent arrows/no crop/no collision, 구체적 소개글 후보, 실제 PNG 직접 검수 PASS
+- archived_at: 2026-08-20T21:15Z
+- artifact: artifacts/marketing-126/
+- report: reports/marketing-126/20260820T2115Z.md
+- red_status: pass
+- red_report: artifacts/marketing-126/red-report.md
+- next_action: 사용자 확인 후에만 Instagram 프로필/게시 실행 검토. 공개 게시·프로필 변경·외부 업로드는 아직 실행하지 않음.
+
 ### [marketing-125] 인스타 소개글·닫힌 루프 3장 이미지 재작업
 - status: archived
 - target_agent: genie
@@ -75,9 +102,11 @@
 - red_report: artifacts/marketing-125/red-report.md
 - next_action: 사용자 승인 시에만 Instagram 프로필/게시 실행 검토. 공개 게시·프로필 변경·외부 업로드는 아직 실행하지 않음.
 
-<!-- marketing-124 completed 2026-08-20T14:05Z; quality rejected 2026-08-20T20:07Z → artifacts/marketing-124/; quality review: artifacts/marketing-124/quality-review-20260820.md; superseded by marketing-125 [projects: personal-brand,instagram,infinity; type: instagram-intro-image-set; topics: content,marketing,closed-loop-experiment] (초기 소개글 후보와 흰 배경·검정 순환 원 3장 SVG/PNG는 보존하지만 최종 사용 금지. 원형성·3분할·화살표 접선·카피 품질 검증 실패. 공개 게시·프로필 변경·외부 업로드 없음.) -->
+<!-- marketing-126 completed 2026-08-20T21:15Z → intents/archive/marketing-126.md; artifact: artifacts/marketing-126/; report: reports/marketing-126/20260820T2115Z.md; Red pass: artifacts/marketing-126/red-report.md [projects: personal-brand,instagram,infinity; type: instagram-intro-image-set; topics: closed-loop-experiment,visual-quality] (marketing-125를 직접 렌더 검수한 뒤 루프가 메시지를 충분히 설명하지 못한다고 판단해 한 번 더 재작업. 3분할 닫힌 루프와 가설/실행/증거 라벨, 실제 행동 중심 카피로 개선. 공개 게시·프로필 변경·외부 업로드 없음.) -->
 
 <!-- marketing-125 completed 2026-08-20T20:35Z → intents/archive/marketing-125.md; artifact: artifacts/marketing-125/; report: reports/marketing-125/20260820T2035Z.html; Red pass: artifacts/marketing-125/red-report.md [projects: personal-brand,instagram,infinity; type: instagram-intro-image-set; topics: content,marketing,closed-loop-experiment] (marketing-124 실패를 반영한 신규 파라미터 기반 SVG/PNG 3장과 소개글 후보. 실제 PNG 직접 시각 검수 통과. 공개 게시·프로필 변경·외부 업로드 없음.) -->
+
+<!-- marketing-124 completed 2026-08-20T14:05Z; quality rejected 2026-08-20T20:07Z → artifacts/marketing-124/; quality review: artifacts/marketing-124/quality-review-20260820.md; superseded by marketing-125 [projects: personal-brand,instagram,infinity; type: instagram-intro-image-set; topics: content,marketing,closed-loop-experiment] (초기 소개글 후보와 흰 배경·검정 순환 원 3장 SVG/PNG는 보존하지만 최종 사용 금지. 원형성·3분할·화살표 접선·카피 품질 검증 실패. 공개 게시·프로필 변경·외부 업로드 없음.) -->
 
 <!-- marketing-122 completed 2026-08-16T16:25Z → intents/archive/marketing-122.md; artifact: artifacts/marketing-122/sharelink-threads-guide.md; evidence: artifacts/marketing-122/evidence-20260816T1625Z.md; report: reports/marketing-122/20260816T1625Z.html; Red pass: reports/marketing-122-red-20260816-pass.md [projects: personal-brand,threads,affiliate,commerce; type: monetization-guide; topics: toss-sharelink,threads,affiliate-marketing,hot-deals,compliance]
 [프로젝트] 토스 쉐어링크 Threads 테스트
