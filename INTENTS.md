@@ -28,6 +28,7 @@
 - previous_red_report: reports/marketing-123/20260816T1928Z-red.html
 - red_report: reports/marketing-123/20260817T1145Z-red.md
 - progress: 2026-08-17T11:45Z 여행 대시보드/Notion 지출 기반 실제 구매물 3개로 후보·게시 초안·7일 21개 운영 단위 보정 완료. 압축파우치/GaN 충전기는 실제 구매 근거를 찾지 못해 제외. 2026-08-19T07:19Z dashboard `resolve_waiting` 요청은 처리됐고, SAM이 Sharelink 확인을 시도했으나 Toss Business/토스쇼핑 파트너스 로그인 화면에서 멈췄다. 2026-08-19T12:15Z 사용자가 제공한 Open API 자격으로 token/health/product lookup/link issuance self-check 통과. 3개 후보 공식 링크는 비공개 로컬 캐시에만 저장했다. 2026-08-20T06:20Z dashboard `resolve_waiting` 요청도 accepted 처리됐고, 현재 blocker가 공개 게시·공개 링크 공유 승인 대기임을 재확인했다. 공개 행동 없음.
+- pending_threads: C01 여행용 파우치와 칫솔 / C02 여행용 멀티플러그와 종이세제 / C03 손톱깎이, 수건, 빨랫줄
 - artifact: artifacts/marketing-123/candidate-posts.md
 - evidence: artifacts/marketing-123/product-evidence-20260817T0830Z.md
 - api_execution: artifacts/marketing-123/sharelink-api-execution-20260819T1215Z.md
