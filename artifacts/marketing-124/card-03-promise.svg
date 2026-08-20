@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1350" viewBox="0 0 1080 1350">
+<rect width="1080" height="1350" fill="#fff"/>
+<g fill="#111" font-family="Pretendard, Arial, sans-serif" text-anchor="middle">
+<text x="540" y="185" font-size="58" font-weight="700">한 번의 답보다,</text>
+<text x="540" y="260" font-size="58" font-weight="700">다음 실험</text>
+</g>
+<g fill="none" stroke="#111" stroke-width="42" stroke-linecap="round">
+<path d="M540 410 A220 220 0 0 1 731 520"/>
+<path d="M731 520 A220 220 0 0 1 540 850"/>
+<path d="M540 850 A220 220 0 0 1 349 520"/>
+</g>
+<g fill="#111">
+<path d="M715 463 l73 19 -49 55z"/>
+<path d="M748 786 l-45 62 -30 -65z"/>
+<path d="M365 580 l-73 -19 49 -55z"/>
+</g>
+<g fill="#111" font-family="Pretendard, Arial, sans-serif" text-anchor="middle">
+<text x="540" y="1070" font-size="42" font-weight="500">과정과 배운 것을 남깁니다.</text>
+</g>
+</svg>

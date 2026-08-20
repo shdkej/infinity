@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1350" viewBox="0 0 1080 1350">
+<rect width="1080" height="1350" fill="#fff"/>
+<g fill="#111" font-family="Pretendard, Arial, sans-serif" text-anchor="middle">
+<text x="540" y="190" font-size="48" font-weight="700">여행 · AI · 제품 · 운영 시스템</text>
+<text x="540" y="1160" font-size="42" font-weight="500">만들면서, 계속 고칩니다.</text>
+</g>
+<g fill="none" stroke="#111" stroke-width="42" stroke-linecap="round">
+<path d="M540 365 A225 225 0 0 1 735 477"/>
+<path d="M735 477 A225 225 0 0 1 540 815"/>
+<path d="M540 815 A225 225 0 0 1 345 477"/>
+</g>
+<g fill="#111">
+<path d="M720 420 l70 18 -48 52z"/>
+<path d="M750 750 l-43 57 -29 -61z"/>
+<path d="M360 540 l-70 -18 48 -52z"/>
+</g>
+<circle cx="540" cy="590" r="8" fill="#111"/>
+</svg>

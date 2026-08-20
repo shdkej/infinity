@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1350" viewBox="0 0 1080 1350">
+<rect width="1080" height="1350" fill="#fff"/>
+<g fill="#111" font-family="Pretendard, Arial, sans-serif" text-anchor="middle">
+<text x="540" y="170" font-size="58" font-weight="700">가설 → 실험 → 증거</text>
+<text x="540" y="1190" font-size="40" font-weight="500">작게 만들고, 빠르게 다시 돕니다.</text>
+<text x="540" y="520" font-size="34" font-weight="700">가설</text>
+<text x="770" y="780" font-size="34" font-weight="700">실험</text>
+<text x="310" y="780" font-size="34" font-weight="700">증거</text>
+</g>
+<g fill="none" stroke="#111" stroke-width="42" stroke-linecap="round">
+<path d="M540 330 A245 245 0 0 1 752 452"/>
+<path d="M752 452 A245 245 0 0 1 540 860"/>
+<path d="M540 860 A245 245 0 0 1 328 452"/>
+</g>
+<g fill="#111">
+<path d="M735 395 l78 20 -53 59z"/>
+<path d="M770 800 l-48 65 -30 -69z"/>
+<path d="M345 520 l-78 -20 53 -59z"/>
+</g>
+</svg>

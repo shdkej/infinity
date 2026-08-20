@@ -4,7 +4,7 @@
 
 ## Inbox
 ### [marketing-124] 인스타 소개글·닫힌 루프 3장 이미지
-- status: inbox
+- status: archive
 - target_agent: genie
 - priority: high
 - permission: approval-required-before-public-post
@@ -18,7 +18,12 @@
 - artifact_brief: artifacts/marketing-124/brief.md
 - success_criteria: 3장 카드 구성, 인스타 소개글, 각 장의 핵심 문구, 시각 디자인 지시, 이미지 생성/렌더링 산출물, Red pass를 제공한다.
 - boundary: 공개 게시·프로필 변경·외부 업로드는 사용자 승인 전까지 하지 않는다. 사용자가 요청한 "흰 배경 + 검정 3분할 순환 원" 컨셉을 중심에 두고 과한 장식과 불필요한 텍스트를 제거한다.
-- next_action: 지니가 3장 카드 기획·문구·시각 산출물을 만들고 Red 검증 후 결과를 사용자에게 전달한다.
+- next_action: 사용자가 PNG와 소개글 후보를 확인한다. 공개 게시·프로필 변경·외부 업로드는 별도 명시 승인 전까지 실행하지 않는다.
+- completed: 2026-08-20T14:05Z
+- artifact: artifacts/marketing-124/
+- report: reports/marketing-124/20260820T1405Z.html
+- red_status: pass
+- red_report: artifacts/marketing-124/red-report.md
 
 ## Active
 <!-- 실행 중인 intent 없음. -->
@@ -58,6 +63,8 @@
 <!-- 사용자 결정·외부 조건 대기만 기록한다. -->
 
 ## Archive
+
+<!-- marketing-124 completed 2026-08-20T14:05Z → artifacts/marketing-124/; reports/marketing-124/20260820T1405Z.html; Red pass: artifacts/marketing-124/red-report.md [projects: personal-brand,instagram,infinity; type: instagram-intro-image-set; topics: content,marketing,closed-loop-experiment] (소개글 후보와 흰 배경·검정 3분할 순환 원 3장 SVG/PNG 준비. 공개 게시·프로필 변경·외부 업로드 없음.) -->
 
 <!-- marketing-122 completed 2026-08-16T16:25Z → intents/archive/marketing-122.md; artifact: artifacts/marketing-122/sharelink-threads-guide.md; evidence: artifacts/marketing-122/evidence-20260816T1625Z.md; report: reports/marketing-122/20260816T1625Z.html; Red pass: reports/marketing-122-red-20260816-pass.md [projects: personal-brand,threads,affiliate,commerce; type: monetization-guide; topics: toss-sharelink,threads,affiliate-marketing,hot-deals,compliance]
 [프로젝트] 토스 쉐어링크 Threads 테스트

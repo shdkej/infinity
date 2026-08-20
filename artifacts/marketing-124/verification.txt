@@ -1,0 +1,7 @@
+marketing-124 local verification
+
+Rendered: card-01-identity.png card-02-method.png card-03-promise.png
+Canvas: 1080x1350 each
+Source: SVG only, no external fonts/assets/network
+Checks: SVG well-formed; PNG files present; dimensions 1080x1350; public actions 0
+Red status: pass
