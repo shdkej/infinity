@@ -2190,9 +2190,11 @@
       clearErrors();
       statusEl.textContent = "로딩 중...";
       let intentsText = "", gatesText = "";
-      try { intentsText = await fetchTextWithFallback(SOURCES.intents, SOURCES.rawIntents); }
+      // 공개 raw 파일을 우선 사용해 GitHub API 지연·rate limit 때문에
+      // 정본 대시보드 전체가 "로딩 중"에 멈추지 않도록 한다.
+      try { intentsText = await fetchTextWithFallback(SOURCES.rawIntents, SOURCES.intents); }
       catch (e) { showError("INTENTS.md 로드 실패: " + e.message); }
-      try { gatesText = await fetchTextWithFallback(SOURCES.gates, SOURCES.rawGates); }
+      try { gatesText = await fetchTextWithFallback(SOURCES.rawGates, SOURCES.gates); }
       catch (e) { showError("GATES.md 로드 실패: " + e.message); }
 
       const intentSections = splitSections(intentsText);
