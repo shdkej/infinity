@@ -3,6 +3,8 @@
 - status: `PASS`
 - red_status: `pass`
 - scope: 백서·첫 실행 세트 내부 준비물만
+- latest_red_session: `role-marketing-128-red-final`
+- latest_red_completed_at: `2026-08-21T22:38Z`
 
 ## 네 문장 검증
 
@@ -19,6 +21,7 @@ C01·C03 훅의 사용 경험 암시 문장을 기록 기반 표현으로 수정
 - [x] 가격·옵션·재고·고지 재확인 게이트
 - [x] 공개 게시·공개 Sharelink·계정 조작 승인 경계
 - [x] 사용 경험 암시 문장 수정본 Red 재검증 — native Red session `01a02657-f710-74c2-93e0-122bc614b387`
+- [x] 최신 Red 세션 PASS 확인 — `role-marketing-128-red-final` (`2026-08-21T22:38Z`)
 
 ## 다음 액션
 

@@ -94,7 +94,7 @@
 <!-- 사용자 결정·외부 조건 대기만 기록한다. -->
 
 ## Archive
-<!-- marketing-128 completed 2026-08-21T22:18Z → intents/archive/marketing-128.md; reports/marketing-128/20260821T2218Z.html [internal preparation complete, Red pass; public action remains approval-gated] -->
+<!-- marketing-128 completed 2026-08-21T22:38Z → intents/archive/marketing-128.md; reports/marketing-128/20260821T2218Z.html; latest Red role-marketing-128-red-final PASS 2026-08-21T22:38Z [internal preparation complete, Red pass; public action remains approval-gated] -->
 <!-- ops-26 completed 2026-08-21T20:12Z → intents/archive/ops-26.md (모든 비단순 산출물 Intent에 지표 질문 계약과 전용 검사를 적용) -->
 <!-- research-28 archived 2026-08-20T22:19Z → intents/archive/research-28.md (Andrej Karpathy autoresearch를 Infinity에 접목하는 운영·실험 구조 설계) -->
 ### [research-28] Andrej Karpathy autoresearch를 Infinity에 접목하는 운영·실험 구조 설계

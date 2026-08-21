@@ -2,7 +2,7 @@
 
 - id: marketing-128
 - status: archived
-- archived_at: 2026-08-21T22:18Z
+- archived_at: 2026-08-21T22:38Z
 - target_agent: genie
 - priority: high
 - permission: L0-research-and-strategy; approval-required-before-public-action
@@ -15,7 +15,7 @@
 - verification: reports/marketing-128/verification.md
 - red_status: pass
 - red_report: reports/marketing-128/verification.md
-- role_sessions: planner=01a02657-44da-7581-8462-8c9e94908fd2; developer=01a02657-6c62-71d2-b107-20b9f81441e4; marketer=01a02657-945b-7732-8853-f7105994063a; operator=01a02657-bbfc-78e3-98a2-bc2ea86c2b4d; red=01a02657-f710-74c2-93e0-122bc614b387
+- role_sessions: planner=01a02657-44da-7581-8462-8c9e94908fd2; developer=01a02657-6c62-71d2-b107-20b9f81441e4; marketer=01a02657-945b-7732-8853-f7105994063a; operator=01a02657-bbfc-78e3-98a2-bc2ea86c2b4d; red=01a02657-f710-74c2-93e0-122bc614b387; latest_red=role-marketing-128-red-final (PASS, 2026-08-21T22:38Z)
 - result: 구매·준비 사실과 사용 경험을 분리한 백서, 후보·훅 초안, 72시간 측정표와 링크 동일성·승인 게이트를 내부 준비물로 확정했다. 공개 게시·공개 링크·로그인·비용 집행은 실행하지 않았다.
 - next_action: 사용자가 공개 Threads 게시 또는 공개 Sharelink 공유를 명시 승인하면 게시 직전 상품·옵션·가격·재고를 재확인한다.
 
