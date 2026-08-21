@@ -9,6 +9,8 @@
 - task_type: maintenance
 - topics: [workflow, analytics, automation]
 - result_summary: 모든 비단순 산출물 Intent에 대표 지표 질문·신호·판정 규칙을 연결하고 대시보드 상세 표시와 전용 검사를 추가했다.
+- red_status: pass after remote-gate repair and final review
+- red_report: artifacts/ops-26/red-report.md
 - metric_question: 지표 질문 계약이 산출물 Intent의 다음 결정에 실제로 연결되는가?
 - metric_result: pass
 - metric_next_decision: continue
@@ -21,8 +23,13 @@
     role: final
 - commits:
   - repo: infinity
-    sha: fb2dffd
+    sha: 04eab96
     note: 지표 질문 계약·검사·대시보드 반영
+- verification:
+  - infinity_commit: 04eab96
+  - infinity_push_verified: true
+  - parent_pointer_commit: not_applicable (Knowledge Lab tracks Infinity as a separate repository)
+  - parent_push_verified: true
 - urls: []
 - next_actions:
   - 다음 산출물 Intent부터 metric contract 검사와 완료 report 필드를 적용한다.
