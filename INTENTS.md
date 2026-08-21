@@ -3,7 +3,7 @@
 > Heartbeat Agent가 주기적으로 읽고 실행하는 의도 목록.
 
 ## Inbox
-<!-- research-28 moved to Active by dispatcher 2026-08-20T21:18Z -->
+<!-- 비어 있음. 새 작업만 기록한다. -->
 
 ## Active
 <!-- 실행 중인 intent 없음. -->
