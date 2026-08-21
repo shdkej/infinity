@@ -43,6 +43,7 @@
 <!-- 사용자 결정·외부 조건 대기만 기록한다. -->
 
 ## Archive
+<!-- research-28 archived 2026-08-20T22:19Z → intents/archive/research-28.md (Andrej Karpathy autoresearch를 Infinity에 접목하는 운영·실험 구조 설계) -->
 ### [research-28] Andrej Karpathy autoresearch를 Infinity에 접목하는 운영·실험 구조 설계
 - status: archived
 - target_agent: genie
