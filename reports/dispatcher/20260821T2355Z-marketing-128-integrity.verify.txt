@@ -1,0 +1,9 @@
+red_status: pass
+report: reports/dispatcher/20260821T2355Z-marketing-128-integrity.md
+checks:
+  - Knowledge Lab README checked
+  - marketing-128 canonical Archive record exists
+  - marketing-128 absent from Inbox and Active
+  - marketing-128 Red report remains PASS
+  - INTENTS.md consistency check passed
+  - no public action or notification

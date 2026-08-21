@@ -3,36 +3,6 @@
 > Heartbeat Agent가 주기적으로 읽고 실행하는 의도 목록.
 
 ## Inbox
-<!--
-### [marketing-128] 토스 쉐어링크 백서 기반 일일 실험 운영
-- status: waiting
-- target_agent: genie
-- priority: high
-- permission: L0-research-and-strategy; approval-required-before-public-action
-- requested: 2026-08-21T21:49Z
-- execution_mode: multi_subagent_roles
-- projects: personal-brand,threads,affiliate,commerce,infinity
-- task_type: operating-playbook-and-experiment
-- topics: toss-sharelink,threads,affiliate-marketing,whitepaper,hook,item-selection,daily-learning
-- source_agent: SAM
-- source_intent: slack-thread-1787347574.484419
-- request_type: create-and-run-operating-whitepaper
-- question: 실제 사용물품에 맞는 후보를 충분히 선출하고, 후킹 가능한 Threads 글을 반복 개선하는 일일 운영 백서를 만들면 72시간 내 유효 반응을 안정적으로 높일 수 있는가?
-- context: 기존 marketing-123 결과가 사용자의 실제 사용물품과 맞지 않는 후보 부족, 약한 후킹, 장기 전략 부재를 드러냈다. 사용자는 백서를 기준으로 매일 실행하고, 매일의 리서치와 결과로 백서를 업데이트하는 실험을 요청했다. 사용자가 선택한 1차 성공 기준은 게시 후 72시간 내 유효 반응이며, 유효 반응은 저장 또는 구체적 답글이다. 링크 클릭과 수익은 보조 지표로 기록한다.
-- evidence: Slack thread 1787347574.484419; selected metric message 1787347636.522539; existing artifacts/marketing-123/candidate-posts.md and product-evidence-20260817T0830Z.md
-- desired_output: 한 장짜리 운영 백서와 첫 실행 세트. 실제 구매·사용 근거 기반 아이템 후보 선출 규칙, 후보 평가표, 후킹·본문 작성 규칙, 게시 전 검수, 72시간 측정표, 매일 리서치·학습·백서 업데이트 루프를 포함한다.
-- output_contract: artifacts/marketing-128/whitepaper.md, artifacts/marketing-128/first-experiment-set.md, reports/marketing-128/verification.md, Red four-sentence validation. 기존 marketing-123 후보를 그대로 재사용하지 말고 실제 사용 근거를 다시 확인한다.
-- metric_question: 새 후보 선출·후킹 규칙·일일 백서 업데이트가 72시간 내 저장 또는 구체적 답글을 만들어내는가?
-- metric_signal: 후보별 실제 사용 근거, 게시 전 훅 판정, 72시간 저장·구체적 답글, 클릭·수익 보조 기록, 백서 변경 로그
-- metric_decision_rule: 72시간 유효 반응이 발생하고 후보·훅 근거가 재현되면 continue, 반응은 있으나 후보/훅 근거가 약하면 change, 실제 사용 근거 또는 유효 반응이 없으면 hold
-- approval_boundary: 공개 Threads 게시, 공개 Sharelink 공유, 계정 로그인·가입·권한 변경·비용 발생은 사용자 명시 승인 전 실행하지 않는다. 백서·후보·초안·내부 리서치는 승인 없이 진행한다.
-- user_visible: true
-- next_action: Genie가 Planner → Developer → Marketer → Operator → Red 순서로 백서와 첫 실행 세트를 만들고, 공개 발행 없이 내부 준비물을 먼저 보고한다.
-- blocker: 없음. 내부 준비 완료; 공개 행동은 승인 대기.
-- red_status: pass
-- red_report: reports/marketing-128/verification.md
-- artifact: artifacts/marketing-128/whitepaper.md; artifacts/marketing-128/first-experiment-set.md
--->
 
 ## Active
 <!-- 실행 중인 intent 없음. marketing-127은 2026-08-21T19:44Z stale_guard_released 후 intents/waiting으로 정합화. -->
@@ -94,7 +64,7 @@
 <!-- 사용자 결정·외부 조건 대기만 기록한다. -->
 
 ## Archive
-<!-- marketing-128 completed 2026-08-21T22:38Z → intents/archive/marketing-128.md; reports/marketing-128/20260821T2218Z.html; latest Red role-marketing-128-red-final PASS 2026-08-21T22:38Z [internal preparation complete, Red pass; public action remains approval-gated] -->
+<!-- marketing-128 completed 2026-08-21T23:32Z → intents/archive/marketing-128.md; reports/marketing-128/20260821T2218Z.html; latest Red role-marketing-128-red-final PASS 2026-08-21T23:47Z [internal preparation complete, Red pass; public action remains approval-gated] -->
 <!-- ops-26 completed 2026-08-21T20:12Z → intents/archive/ops-26.md (모든 비단순 산출물 Intent에 지표 질문 계약과 전용 검사를 적용) -->
 <!-- research-28 archived 2026-08-20T22:19Z → intents/archive/research-28.md (Andrej Karpathy autoresearch를 Infinity에 접목하는 운영·실험 구조 설계) -->
 ### [research-28] Andrej Karpathy autoresearch를 Infinity에 접목하는 운영·실험 구조 설계
