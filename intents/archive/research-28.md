@@ -1,0 +1,25 @@
+# research-28 — Andrej Karpathy autoresearch를 Infinity에 접목하는 운영·실험 구조 설계
+
+- id: research-28
+- status: archived
+- target_agent: genie
+- priority: high
+- permission: L0-research-and-strategy
+- requested: 2026-08-20T20:10Z
+- execution_mode: multi_subagent_roles
+- projects: [infinity, openclaw, ai-research]
+- task_type: strategy
+- topics: [autoresearch, karpathy, experiment-loop, agent-orchestration, measurement]
+- goal: Andrej Karpathy의 autoresearch 핵심 원리(자동 실험 반복, 고정 평가 지표, 변경 범위, 기록·선정 루프)를 Infinity의 Intent·Heartbeat·Genie·Red 구조에 접목해, 과설계 없이 실제로 돌릴 수 있는 최소 운영 모델을 설계한다.
+- user_request: "안드레 카파시의 autoresearch를 infinity에 어떻게 접목하면 좋을까"
+- success_criteria: autoresearch 원리와 Infinity 현재 구조의 대응표, 적용하지 말아야 할 범위, 최소 MVP 운영 루프, 필요한 Intent/Report/Artifact 필드, 성공·중단·롤백 기준, 1~2주 검증 실험안을 포함한 한국어 전략 리포트와 Red 검증.
+- boundary: 코드·cron·권한·자격증명·외부 공개 변경은 제안만 하고 실행하지 않는다. 기존 Infinity 운영 규칙과 사용자 소유권을 우선한다.
+- next_action: 지니가 Andrej Karpathy autoresearch 원문·저장소와 Infinity 정본을 함께 확인한 뒤 Planner·Developer·Marketer·Operator 관점으로 접목안을 만들고 Red가 네 문장 검증을 수행한다.
+- role_sessions: planner=01a0210b-48b4-77a0-8f67-d32ed7a0cb16; developer=01a0210b-7044-7bf1-9e72-a90b6049ae32; marketer=01a0210b-9845-7181-aa49-50f05010302c; operator=01a0210b-bfd2-7e61-b4cf-32fb5cce964d; red=01a02110-df6f-7613-8432-45078ca16e69
+- artifact: artifacts/research-28/autoresearch-infinity-strategy.md
+- report: reports/research-28/20260820T2118Z.html
+- red_status: pass
+- red_report: artifacts/research-28/red-report.md
+- archived_at: 2026-08-20T22:19Z
+- blocker: 없음 (HTML 게이트 재검증 통과)
+- next_retry_condition: 없음 — 후속 구현은 별도 승인된 Intent로 생성
