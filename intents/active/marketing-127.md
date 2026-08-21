@@ -1,0 +1,21 @@
+# [marketing-127] @archivenoh 공개 게시물 기반 Instagram 운영 전략
+
+- id: marketing-127
+- status: waiting
+- target_agent: genie
+- priority: high
+- permission: L0-research-and-strategy; no-public-action
+- requested: 2026-08-21T00:00Z
+- execution_mode: multi_subagent_roles_blocked
+- projects: [personal-brand, infinity, knowledge-lab]
+- task_type: strategy
+- topics: [content, marketing, review]
+- goal: @archivenoh의 실제 공개 게시물을 근거로 현재 톤·반복 패턴·강점과 자기검열을 줄이는 1~2주 Instagram 운영 방식을 제안한다.
+- success_criteria: 공개 게시물 3개 이상과 캡션/게시일을 실제 확인하고, 근거별 분석·운영 규칙·1~2주안을 산출하며 Planner→Developer→Marketer→Operator→Red 검증을 남긴다.
+- boundary: 공개 게시·프로필 변경·로그인·외부 발송은 실행하지 않는다.
+- blocker: Instagram 공식 프로필 `https://www.instagram.com/archivenoh/` fetch가 `Cache miss`로 실패했고, OpenClaw 브라우저는 지정 Chromium 실행 파일 부재로 시작되지 않았다. 실제 게시물을 읽지 못했으므로 계정 톤·반복 패턴·강점을 추정할 수 없다.
+- artifact: artifacts/marketing-127/instagram-operation-strategy.md
+- report: reports/marketing-127/20260821T0000Z.html
+- red_report: artifacts/marketing-127/red-report.md
+- red_status: pass (blocker 기록의 정확성만 검증; 계정 분석 완료 판정 아님)
+- next_action: 사용자가 공개 프로필 URL/게시물 캡처 또는 브라우저 접근 가능한 세션을 제공하면 실제 게시물 3개 이상을 재확인하고 Waiting을 재개한다.
