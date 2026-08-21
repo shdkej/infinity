@@ -21,7 +21,7 @@
     role: final
 - commits:
   - repo: infinity
-    sha: b5e64f6
+    sha: 0e0a59b
     note: 지표 질문 계약·검사·대시보드 반영
 - urls: []
 - next_actions:
