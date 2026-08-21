@@ -28,8 +28,8 @@
 - approval_boundary: 공개 Threads 게시, 공개 Sharelink 공유, 계정 로그인·가입·권한 변경·비용 발생은 사용자 명시 승인 전 실행하지 않는다. 백서·후보·초안·내부 리서치는 승인 없이 진행한다.
 - user_visible: true
 - next_action: Genie가 Planner → Developer → Marketer → Operator → Red 순서로 백서와 첫 실행 세트를 만들고, 공개 발행 없이 내부 준비물을 먼저 보고한다.
-- blocker: 초기 Red가 구매·준비 기록과 실제 사용 경험의 혼동 가능성 및 실제 구매 묶음과 다른 제휴 상품 링크 위험을 지적함. 수정본은 반영했으며 Red 재검증 전 대기.
-- red_status: fail_pending_copy_revision
+- blocker: 없음. 내부 준비 완료; 공개 행동은 승인 대기.
+- red_status: pass
 - red_report: reports/marketing-128/verification.md
 - artifact: artifacts/marketing-128/whitepaper.md; artifacts/marketing-128/first-experiment-set.md
 -->
