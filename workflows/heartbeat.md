@@ -36,10 +36,11 @@ INTENTS.md의 `## Inbox` 섹션을 먼저 확인한다. 자유 형식 텍스트�
 1. 내용을 분석하여 구조화된 Intent로 변환
 2. 적절한 ID 부여 (카테고리-번호, 예: monitor-02, dev-01)
 3. priority, permission, goal, success_criteria를 추론하여 채움
-4. `## Active`가 3개 미만이면 `status: active`로 추가
-5. `## Active`가 이미 3개면 Inbox에 남기고 간단한 구조화 메모만 추가
-6. Inbox에서 Active로 이동한 항목만 제거
-7. Telegram 알림은 실제 실행, blocker, 완료처럼 사용자에게 의미 있는 변화가 있을 때만 보낸다.
+4. 단순 조회·상태 확인이 아니면 `metric_question`, `metric_signal`, `metric_decision_rule`을 함께 채움. `metric_question`은 "무엇이 바뀌면 다음 결정을 바꿀 것인가?"에 대한 한 문장으로 제한한다.
+5. `## Active`가 3개 미만이면 `status: active`로 추가
+6. `## Active`가 이미 3개면 Inbox에 남기고 간단한 구조화 메모만 추가
+7. Inbox에서 Active로 이동한 항목만 제거
+8. Telegram 알림은 실제 실행, blocker, 완료처럼 사용자에게 의미 있는 변화가 있을 때만 보낸다.
 
 완료/감사 report를 읽은 뒤에는 `follow_up_intent_ids`와 `follow_up_not_created_reasons`를 확인한다. 기존 목표를 닫기 위해 필요한 후속 조치가 있고 근거 신호·기대 산출물·완료 기준을 채울 수 있으면 `INFINITY_OPERATING_RULES.md`의 Completion-report follow-up capture 계약에 따라 Inbox에 별도 intent를 등록한다. 기존 Inbox/Active/Waiting 항목과 동일 목적이면 새 intent를 만들지 않고 기존 id를 report에 연결한다. 등록 후에는 INTENTS.md를 다시 읽어 원래 Inbox 항목이 제거되고 새 intent가 올바른 lane에 있는지 검증한다.
 
@@ -345,6 +346,8 @@ Inbox ──→ Active ──→ in_progress ──→ archived
 - `in_progress → waiting`: 사용자 결정, 외부 조건, 안전 확인 대기가 필요할 때
 - `waiting → Active`: 승인 수신 또는 조건 충족 시
 - `in_progress → archived`: success_criteria 충족 또는 사용자가 완료 처리할 때
+
+산출물 Intent의 완료 report에는 `metric_result`와 `metric_next_decision`을 반드시 남긴다. 신호가 아직 없거나 측정 대상이 아니면 `null` 또는 `hold`와 사유를 기록한다.
 
 ### waiting_on 필드 (2026-07-15 필수)
 

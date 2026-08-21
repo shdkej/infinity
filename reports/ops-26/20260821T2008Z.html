@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="ko">
+<head><meta charset="utf-8"><title>ops-26 실행 보고</title><style>body{font-family:system-ui,sans-serif;max-width:760px;margin:40px auto;padding:0 18px;line-height:1.6;color:#17202a} .axis{padding:14px 16px;margin:12px 0;border-left:4px solid #2d8a68;background:#f3faf7} h1{font-size:1.5rem} code{background:#f1f3f5;padding:2px 4px}</style></head>
+<body>
+<h1>ops-26 산출물 Intent 지표 질문 적용</h1>
+<div class="axis ax1"><strong>축1 · 무엇을 점검했나</strong><br>모든 비단순 산출물 Intent가 다음 결정을 바꾸는 대표 지표 질문을 intake부터 완료 보고까지 유지하는지 점검했다.</div>
+<div class="axis ax2"><strong>축2 · 이상 여부·조치</strong><br><strong>PASS(로컬)</strong> — 정본 규칙, Heartbeat intake/완료 계약, 대시보드 핵심 필드가 <code>metric_question</code>, <code>metric_signal</code>, <code>metric_decision_rule</code>을 공유하도록 반영했다.</div>
+<h2>변경</h2>
+<ul><li>예외는 단순 조회·상태 확인으로 한정했다.</li><li>완료 report와 Archive에 <code>metric_result</code>, <code>metric_next_decision</code>을 남기도록 했다.</li><li>신호가 없으면 실패가 아니라 <code>null</code> 또는 <code>hold</code>로 기록하도록 했다.</li><li>대시보드 카드에 지표 질문을 표시하도록 했다.</li></ul>
+<h2>검증</h2>
+<ul><li><code>python3 scripts/check_intents_consistency.py INTENTS.md</code> → PASS</li><li>정본 간 필드명 검색 → PASS</li><li><code>git diff --check</code> → PASS</li></ul>
+<h2>판정</h2>
+<p><code>metric_result: pass</code><br><code>metric_next_decision: continue</code> — 다음 산출물 Intent부터 세 필드를 intake에 넣고, 완료 시 결과·다음 결정을 기록한다.</p>
+<details><summary>변경 파일</summary><ul><li><code>source/openclaw-system/docs/INFINITY_OPERATING_RULES.md</code></li><li><code>infinity/workflows/heartbeat.md</code></li><li><code>infinity/docs/index.html</code></li><li><code>infinity/artifacts/ops-26/metric-contract.md</code></li></ul></details>
+</body></html>
