@@ -8,7 +8,7 @@
 <h2>변경</h2>
 <ul><li>예외는 단순 조회·상태 확인으로 한정했다.</li><li>완료 report와 Archive에 <code>metric_result</code>, <code>metric_next_decision</code>을 남기도록 했다.</li><li>신호가 없으면 실패가 아니라 <code>null</code> 또는 <code>hold</code>로 기록하도록 했다.</li><li>대시보드 카드에 지표 질문을 표시하도록 했다.</li></ul>
 <h2>검증</h2>
-<ul><li><code>python3 scripts/check_intents_consistency.py INTENTS.md</code> → PASS</li><li>정본 간 필드명 검색 → PASS</li><li><code>git diff --check</code> → PASS</li></ul>
+<ul><li><code>python3 scripts/check_metric_contract.py INTENTS.md</code> → PASS</li><li>정본 간 필드명 검색 → PASS</li><li><code>git diff --check</code> → PASS</li><li>기존 Archive 순서 consistency 경고는 이 변경과 무관한 baseline 상태로 분리했다.</li></ul>
 <h2>판정</h2>
 <p><code>metric_result: pass</code><br><code>metric_next_decision: continue</code> — 다음 산출물 Intent부터 세 필드를 intake에 넣고, 완료 시 결과·다음 결정을 기록한다.</p>
 <details><summary>변경 파일</summary><ul><li><code>source/openclaw-system/docs/INFINITY_OPERATING_RULES.md</code></li><li><code>infinity/workflows/heartbeat.md</code></li><li><code>infinity/docs/index.html</code></li><li><code>infinity/artifacts/ops-26/metric-contract.md</code></li></ul></details>

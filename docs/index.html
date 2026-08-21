@@ -1231,6 +1231,11 @@
         { label: "출처", value: item.source || sourceLabel || "" },
         { label: "목표", value: metaValue(item, ["goal"]) },
         { label: "완료 기준", value: metaValue(item, ["success_criteria", "expected_artifact"]) },
+        { label: "지표 질문", value: metaValue(item, ["metric_question"]), key: true },
+        { label: "지표 신호", value: metaValue(item, ["metric_signal"]) },
+        { label: "판정 규칙", value: metaValue(item, ["metric_decision_rule"]) },
+        { label: "지표 결과", value: metaValue(item, ["metric_result"]) },
+        { label: "다음 결정", value: metaValue(item, ["metric_next_decision"]) },
         { label: "진행", value: metaValue(item, ["progress"]) },
         { label: "최근 갱신", value: pickUpdated(item) },
       ].filter(row => row.value);
@@ -1239,6 +1244,11 @@
     function buildWaitingRows(item) {
       return [
         { label: "기대하는 결과", value: metaValue(item, ["success_criteria", "expected_artifact", "goal"]), key: true },
+        { label: "지표 질문", value: metaValue(item, ["metric_question"]), key: true },
+        { label: "지표 신호", value: metaValue(item, ["metric_signal"]) },
+        { label: "판정 규칙", value: metaValue(item, ["metric_decision_rule"]) },
+        { label: "지표 결과", value: metaValue(item, ["metric_result"]) },
+        { label: "다음 결정", value: metaValue(item, ["metric_next_decision"]) },
         { label: "작성 대기중인 Threads", value: metaValue(item, ["pending_threads", "threads_drafts"]), key: true },
         { label: "다음 행동", value: metaValue(item, ["next_action", "next"]), key: true },
         { label: "지금 막힌 이유", value: metaValue(item, ["blocker"]) },
