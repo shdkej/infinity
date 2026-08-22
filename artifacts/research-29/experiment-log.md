@@ -4,7 +4,7 @@
 - fixed_evaluator: `archive-quality-fixture-v1`
 - fixture: Knowledge Lab `source/infinity/archive/{ops-26,research-28,marketing-128}.md` as inspected 2026-08-22
 - fixed_metric_question: Archive된 결과에서 측정 가능한 완료 근거와 후속 Intent 연결, Knowledge Lab 승격 판단을 더 일관되게 판정할 수 있는가?
-- dimensions: `metric_question+metric_result`, `follow_up_intent_ids` 또는 명시적 미생성 사유, `knowledge_status+decision+targets`, Red 네 문장 검증
+- dimensions: `metric_question+metric_result+metric_next_decision`, `follow_up_intent_ids` 또는 명시적 미생성 사유, `knowledge_status+decision+targets`, Red 네 문장 검증
 - baseline: `1/3` complete (`ops-26`); `research-28` and `marketing-128` are partial. No historical files were rewritten.
 - change_scope: one operating-rule/prompt axis per experiment; static evaluation only; no external execution.
 - budget: 3 experiments maximum; 0 paid calls; 0 public actions; 0 permission/credential changes.

@@ -1,7 +1,7 @@
 # research-29 — Infinity Archive 후속 품질 반복 개선 실험
 
 - id: research-29
-- status: waiting
+- status: archived
 - archived_at: 2026-08-22T19:00Z
 - target_agent: genie
 - permission: L0-research-and-strategy
@@ -16,10 +16,10 @@
 - role_sessions: planner=01a02ac1-3740-7fb3-b591-e39e1565d532; developer=01a02ac1-3796-71b0-894f-a990212b98e7; marketer=01a02ac1-37f7-7712-ad74-aec3d4343017; operator=01a02ac1-38c2-73d0-842b-8aa71c4332af; red=local-final-synthesis
 - artifact: artifacts/research-29/experiment-log.md
 - report: reports/research-29/20260822T1900Z.html
-- red_status: blocked
+- red_status: pass
 - red_report: artifacts/research-29/red-report.md
-- blocker: Red subagent environment could not start a shell process; independent verification unavailable.
-- next_retry_condition: retry Red from a filesystem-capable environment, then rerun promotion and remote gates.
+- blocker: 없음
+- next_retry_condition: E2는 실제 신규 follow-up Intent fixture가 확보될 때만 재시도한다. E3는 재사용성 rubric 승인 전 재시도하지 않는다.
 - boundary: 자동 merge/release, 외부 공개, 권한·자격증명·비용 작업 없음. 기존 Archive 소급 수정 없음.
 - rollback_ref: research-29-archive-quality-v1-baseline
 - knowledge_status: promoted
@@ -27,9 +27,9 @@
 - knowledge_targets: [agent-wiki/content/docs/concepts/bounded-experiment-loop.mdx]
 - knowledge_reflection: 고정 Archive 평가면에 metric/follow-up/knowledge/Red를 묶고, 근거가 없는 축은 blocked/discard로 남기는 재사용 규칙으로 정제했다.
 - knowledge_commit: f79a91b
-- infinity_commit: bddd96e
+- infinity_commit: 762e2cf
 - infinity_push_verified: true
-- infinity_verification_commit: 0e3ee1c
+- infinity_verification_commit: 762e2cf
 - infinity_verification_push_verified: true
-- parent_pointer_commit: 0b3e31a
+- parent_pointer_commit: 823ee33
 - parent_push_verified: true
