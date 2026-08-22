@@ -73,7 +73,7 @@
 
 `date / post_id / observed_fact / hook_variant / valid_response / secondary_signal / failed_assumption / one_change / evidence_source`만 남긴다. 다음 날에는 가장 큰 불확실성 하나만 바꾼다. 백서는 측정표와 함께 버전업하고, 변경 이유를 한 줄로 기록한다.
 
-운영 방식: 게시 결과는 `artifacts/marketing-128/metrics.jsonl`에 한 줄씩 기록하고, 매일 23:10 KST `marketing-128-learning-loop` 크론이 새 기록을 읽어 `observed_fact`, `valid_response`, `failed_assumption`, `one_change`를 백서 학습 로그에 반영한다. 사용자는 매일 백서를 직접 편집하지 않는다. 다만 외부 게시·계정 접근·공개 링크 공유는 자동화하지 않고 사용자 승인을 유지한다.
+운영 방식: 게시 결과는 `artifacts/marketing-128/metrics.jsonl`에 한 줄씩 기록한다. 작업마다 전용 크론을 만들지 않고, 기존 Infinity 공용 디스패처가 등록된 `metrics.jsonl` 파일의 새 기록을 주기적으로 읽어 `observed_fact`, `valid_response`, `failed_assumption`, `one_change`를 해당 백서 학습 로그에 반영한다. 새 작업은 작업 ID·결과 파일·대상 백서만 공용 루프에 등록하며, 작업 종료 시 별도 크론을 삭제하는 절차도 없다. 사용자는 매일 백서를 직접 편집하지 않는다. 다만 외부 게시·계정 접근·공개 링크 공유는 자동화하지 않고 사용자 승인을 유지한다.
 
 계승한 기준: marketing-123의 실제 구매 근거 우선, 공개 승인 경계, 고지 선행, 작은 표본의 과대해석 금지. 이번에 새로 둔 기준: 후보 4항목 점수표, 훅 2변형, 72시간 시점별 기록, 하루 한 변경. 승격 후보: 실제 게시 데이터가 3회 이상 쌓인 뒤 훅 각도별 재현성 규칙을 별도 학습 원장에 검토한다.
 
