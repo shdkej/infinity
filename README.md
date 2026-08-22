@@ -14,7 +14,7 @@ ARTIFACT_RULES.md   ← 산출물 경로 규칙
 workflows/heartbeat.md ← Heartbeat 동작 프로토콜 (routine이 매 실행 시 읽음)
 EVALUATION_INDEX.md / EVALUATION_NOTES.md ← evaluator 학습
 intents/active/       ← 실행 중인 Intent 원장
-                     완료 archive 원장은 Knowledge Lab의 archive/infinity/로 이동
+                     유효 archive 원장만 Knowledge Lab의 source/infinity/archive/로 이동
 artifacts/{id}/     ← 결과 산출물
 reports/{id}/       ← 실행 로그
 scripts/notify.sh   ← 승인/장애 등 명시적 알림용 Telegram 발송기
@@ -41,4 +41,4 @@ scripts/notify.sh   ← 승인/장애 등 명시적 알림용 Telegram 발송기
 
 - 원격 routine(claude.ai)이 이 레포를 clone → `workflows/heartbeat.md` 프로토콜대로 실행 → 의미 있는 변경을 커밋·push한다. 산출물·상태·Report·Archive는 Infinity 원격 push 확인 전 완료로 보지 않으며, Knowledge Lab submodule 사용 시 parent pointer push까지 필수다.
 - GitHub Actions push 알림은 쓰지 않는다. 아침 리캡은 OpenClaw cron이 `scripts/morning_recap_message.py`를 실행해 전달한다.
-- 완료 archive 원장은 [Knowledge Lab](https://github.com/shdkej/knowledge-lab)의 `archive/infinity/`로 이동한다. Infinity 레포에는 완료 archive를 보관하지 않는다.
+- 유효 판정된 archive 원장만 [Knowledge Lab](https://github.com/shdkej/knowledge-lab)의 `source/infinity/archive/`로 이동한다. 유효하지 않은 결과는 KL에 복사하지 않는다.

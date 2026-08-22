@@ -852,7 +852,7 @@
 
     async function fetchArchiveIntent(id) {
       if (!id) return null;
-      const path = "archive/infinity/" + id + ".md";
+      const path = "source/infinity/archive/" + id + ".md";
       let text = null;
       try { text = await fetchText(SOURCES.knowledgeLabRawBase + path); }
       catch (e) { text = null; }
@@ -2523,8 +2523,8 @@
       let changed = false;
       for (const item of targets) {
         if (run !== archiveHydrationRun) return changed;
-        const path = normalizePath(item.meta.detail || ("archive/infinity/" + item.id + ".md"));
-        if (!path || !path.startsWith("archive/infinity/")) continue;
+        const path = normalizePath(item.meta.detail || ("source/infinity/archive/" + item.id + ".md"));
+        if (!path || !path.startsWith("source/infinity/archive/")) continue;
         if (archiveTemplateCache.has(path)) {
           const cached = archiveTemplateCache.get(path);
           if (hasArchiveTemplate(cached)) {

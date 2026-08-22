@@ -20,7 +20,7 @@ class KnowledgePromotionGateTest(unittest.TestCase):
             ingest = root / "ingest" / "INDEX.md"
             ingest.parent.mkdir(parents=True)
             ingest.write_text(
-                """### 2026-08-22 — shdkej/infinity:intents/archive/x.md → archive/infinity/x.md\n- id: x\n- repository: https://github.com/shdkej/infinity\n- source: archive/infinity/x.md\n- status: integrated\n- target: none\n""",
+                """### 2026-08-22 — shdkej/infinity:intents/archive/x.md → source/infinity/archive/x.md\n- id: x\n- repository: https://github.com/shdkej/infinity\n- source: source/infinity/archive/x.md\n- status: integrated\n- target: none\n""",
                 encoding="utf-8",
             )
             (archive / "x.md").write_text(

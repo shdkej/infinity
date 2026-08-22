@@ -136,7 +136,7 @@ def main() -> int:
         errors.append(f"Remote INTENTS.md check failed: {exc}")
 
     try:
-        archive_text = knowledge_lab_api_text(f"archive/infinity/{intent_id}.md")
+        archive_text = knowledge_lab_api_text(f"source/infinity/archive/{intent_id}.md")
         if f"id: {intent_id}" not in archive_text:
             errors.append(f"Remote archive file has no id field for {intent_id}")
         if not ARCHIVE_STATUS_RE.search(archive_text):
