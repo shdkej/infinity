@@ -1,7 +1,7 @@
 # research-29 — Infinity Archive 후속 품질 반복 개선 실험
 
 - id: research-29
-- status: archived
+- status: waiting
 - archived_at: 2026-08-22T19:00Z
 - target_agent: genie
 - permission: L0-research-and-strategy
@@ -16,8 +16,10 @@
 - role_sessions: planner=01a02ac1-3740-7fb3-b591-e39e1565d532; developer=01a02ac1-3796-71b0-894f-a990212b98e7; marketer=01a02ac1-37f7-7712-ad74-aec3d4343017; operator=01a02ac1-38c2-73d0-842b-8aa71c4332af; red=local-final-synthesis
 - artifact: artifacts/research-29/experiment-log.md
 - report: reports/research-29/20260822T1900Z.html
-- red_status: pass
-- red_report: artifacts/research-29/red-report.md (dispatcher revalidation PASS: 01a02ada-9eaa-71f0-a501-c63cee96c6de)
+- red_status: blocked
+- red_report: artifacts/research-29/red-report.md
+- blocker: Red subagent environment could not start a shell process; independent verification unavailable.
+- next_retry_condition: retry Red from a filesystem-capable environment, then rerun promotion and remote gates.
 - boundary: 자동 merge/release, 외부 공개, 권한·자격증명·비용 작업 없음. 기존 Archive 소급 수정 없음.
 - rollback_ref: research-29-archive-quality-v1-baseline
 - knowledge_status: promoted

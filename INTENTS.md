@@ -44,7 +44,14 @@
 <!-- 사용자 결정·외부 조건 대기만 기록한다. -->
 
 ## Archive
-<!-- research-29 completed 2026-08-22T19:00Z → artifacts/research-29/experiment-log.md; reports/research-29/20260822T1900Z.html; Red PASS artifacts/research-29/red-report.md [bounded 3회: keep/discard/blocked; E1 prompt block keep, E2 follow-up prompt blocked, E3 promotion score discard] -->
+### [research-29] Infinity Archive 후속 품질 반복 개선 실험 — waiting
+- status: waiting
+- blocker: Red subagent environment could not start a shell process; four-sentence verification and independent remote checks unavailable.
+- artifact: artifacts/research-29/experiment-log.md
+- report: reports/research-29/20260822T1900Z.html
+- red_status: blocked
+- next_retry_condition: filesystem-capable Red environment에서 검증 재실행 후에만 Archive/승격 완료 처리
+<!-- research-29 attempted 2026-08-22T19:00Z → bounded results retained; E1 keep, E2 blocked, E3 discard; Archive completion withheld pending Red. -->
 <!-- marketing-127 completed 2026-08-22T08:00Z → https://github.com/shdkej/knowledge-lab/blob/main/archive/infinity/marketing-127.md; reports/marketing-127/20260821T0000Z.html; Red PASS [공개 게시물 3건 확인, 내부 운영안 완료, 공개 행동 없음] -->
 <!-- marketing-128 completed 2026-08-21T23:32Z → https://github.com/shdkej/knowledge-lab/blob/main/archive/infinity/marketing-128.md; reports/marketing-128/20260821T2218Z.html; latest Red role-marketing-128-red-final PASS 2026-08-21T23:47Z [internal preparation complete, Red pass; public action remains approval-gated] -->
 <!-- ops-26 completed 2026-08-21T20:12Z → https://github.com/shdkej/knowledge-lab/blob/main/archive/infinity/ops-26.md (모든 비단순 산출물 Intent에 지표 질문 계약과 전용 검사를 적용) -->
