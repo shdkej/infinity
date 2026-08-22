@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import argparse
 import re
+import subprocess
 import sys
 from pathlib import Path
 
@@ -34,6 +35,7 @@ def check(intent_id: str) -> list[str]:
     status = field(text, "knowledge_status")
     decision = field(text, "knowledge_decision")
     reflection = field(text, "knowledge_reflection")
+    commit = field(text, "knowledge_commit")
     target_paths = targets(field(text, "knowledge_targets"))
     errors: list[str] = []
     if status not in {"raw", "promoted", "superseded"}:
@@ -48,14 +50,27 @@ def check(intent_id: str) -> list[str]:
         errors.append("retain_in_infinity requires knowledge_status: raw")
     if decision == "supersede" and status != "superseded":
         errors.append("supersede requires knowledge_status: superseded")
-    if status == "promoted" and not target_paths:
-        errors.append("promoted archive must list at least one knowledge_targets path")
+    if status in {"promoted", "superseded"} and not target_paths:
+        errors.append(f"{status} archive must list at least one knowledge_targets path")
+    if status in {"promoted", "superseded"} and not commit:
+        errors.append(f"{status} archive must list the Knowledge Lab commit in knowledge_commit")
     for target in target_paths:
         target_path = (KNOWLEDGE_LAB / target).resolve()
         if KNOWLEDGE_LAB not in target_path.parents and target_path != KNOWLEDGE_LAB:
             errors.append(f"knowledge target escapes Knowledge Lab: {target}")
+        elif not target.startswith("agent-wiki/content/docs/"):
+            errors.append(f"knowledge target must be an agent-wiki content page: {target}")
         elif not target_path.exists():
             errors.append(f"knowledge target does not exist: {target}")
+    if commit:
+        wiki_repo = KNOWLEDGE_LAB / "agent-wiki"
+        result = subprocess.run(
+            ["git", "-C", str(wiki_repo), "cat-file", "-e", f"{commit}^{{commit}}"],
+            capture_output=True,
+            text=True,
+        )
+        if result.returncode != 0:
+            errors.append(f"knowledge_commit is not present in agent-wiki: {commit}")
     return errors
 
 

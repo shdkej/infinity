@@ -437,7 +437,7 @@ Intent가 완료 기준을 충족하거나 사용자가 완료 처리하면:
 
 1. `intents/active/{id}.md` → `intents/archive/{id}.md`로 이동하고, archive 문서를 **canonical final index** 포맷으로 재작성한다.
    - 최소 필드: `id`, `status: archived`, `completed_at`, `result_summary`, `artifacts`, `reports`, `commits`, `urls`, `next_actions`
-   - 지식 판정 필드: `knowledge_status`, `knowledge_decision`, `knowledge_targets`, `knowledge_reflection`
+   - 지식 판정 필드: `knowledge_status`, `knowledge_decision`, `knowledge_targets`, `knowledge_reflection`, `knowledge_commit`
    - 사용자-facing `Archive Card` 블록을 반드시 남긴다:
      ```
      ## Archive Card
@@ -465,9 +465,9 @@ Intent가 완료 기준을 충족하거나 사용자가 완료 처리하면:
 7. 프로젝트성 작업은 Archive 전에 원래 사용자 목표가 끝났는지 판정한다. 끝나지 않았으면 후속 intent를 `Inbox`/`Active`/`Waiting` 중 하나로 만들고 archive 요약에 `next: {id}`를 남긴다.
 8. Archive Card의 `[다음 행동]`이 실제 실행을 뜻하면 `python3 scripts/archive_next_action_intake.py --apply`로 후속 intent를 생성하거나, 동일 목적의 열린 intent id를 archive의 `next_action_intent`에 연결한다. 공개 발행·외부 계정·광고·비용·자격증명·권한 변경은 후속 intent를 만들 수는 있지만 실행 전 사용자 승인이 필요하다.
 9. Archive 직전에 `python3 scripts/check_knowledge_promotion.py {intent-id}`를 실행한다. 모든 완료 Intent는 다음 중 하나로 닫는다.
-   - `knowledge_status: promoted` + `knowledge_decision: promote`: 반복 가능한 원칙·발견·판단 기준·실패 교훈을 agent-wiki의 실제 페이지에 반영하고 `knowledge_targets`에 경로를 기록한다.
+   - `knowledge_status: promoted` + `knowledge_decision: promote`: 반복 가능한 원칙·발견·판단 기준·실패 교훈을 `agent-wiki/content/docs/`의 실제 페이지에 반영하고 `knowledge_targets`와 해당 agent-wiki 커밋을 `knowledge_commit`에 기록한다.
    - `knowledge_status: raw` + `knowledge_decision: retain_in_infinity`: 장기 지식으로 승격하지 않을 근거를 `knowledge_reflection`에 남긴다. 실행 로그/단일 작업 세부는 Infinity 원장에만 둔다.
-   - `knowledge_status: superseded` + `knowledge_decision: supersede`: 기존 지식으로 대체된 경우 새 대상과 이유를 기록한다.
+   - `knowledge_status: superseded` + `knowledge_decision: supersede`: 기존 지식으로 대체된 경우 새 `agent-wiki/content/docs/` 대상·커밋과 이유를 기록한다.
    - `candidate`는 보류 상태로 Archive할 수 없다. 승격 대상으로 판정했으면 같은 완료 흐름에서 실제 Knowledge Lab 반영까지 끝내야 한다.
    - 검증 스크립트가 실패하면 Archive 전이를 완료로 보고하지 않고, `Waiting`에 반영 대상과 재개 조건을 남긴다.
 
