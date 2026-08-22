@@ -4,8 +4,10 @@
 
 ## Inbox
 
+## Active
+
 ### [research-29] Infinity Archive 후속 품질 반복 개선 실험
-- status: inbox
+- status: active
 - target_agent: genie
 - priority: high
 - permission: L0-research-and-strategy
@@ -24,7 +26,6 @@
 - boundary: 한 번에 하나의 운영 규칙 또는 프롬프트만 변경한다. 자동 merge·release·외부 공개·권한·자격증명·비용 발생 작업은 하지 않으며, 변경은 rollback reference를 남긴다.
 - next_action: 지니가 Knowledge Lab과 Infinity 정본을 먼저 확인한 뒤 기준선 측정 → 최대 3회 bounded 반복 → 결과 합성 → Red 검증을 수행한다.
 
-## Active
 ## Waiting
 ### [marketing-123] 토스 쉐어링크 Threads 테스트 후속 실행
 - status: waiting
@@ -63,6 +64,7 @@
 <!-- 사용자 결정·외부 조건 대기만 기록한다. -->
 
 ## Archive
+<!-- research-29 completed 2026-08-22T19:00Z → artifacts/research-29/experiment-log.md; reports/research-29/20260822T1900Z.html; Red PASS artifacts/research-29/red-report.md [bounded 3회: keep/discard/blocked; E1 prompt block keep, E2 follow-up prompt blocked, E3 promotion score discard] -->
 <!-- marketing-127 completed 2026-08-22T08:00Z → https://github.com/shdkej/knowledge-lab/blob/main/archive/infinity/marketing-127.md; reports/marketing-127/20260821T0000Z.html; Red PASS [공개 게시물 3건 확인, 내부 운영안 완료, 공개 행동 없음] -->
 <!-- marketing-128 completed 2026-08-21T23:32Z → https://github.com/shdkej/knowledge-lab/blob/main/archive/infinity/marketing-128.md; reports/marketing-128/20260821T2218Z.html; latest Red role-marketing-128-red-final PASS 2026-08-21T23:47Z [internal preparation complete, Red pass; public action remains approval-gated] -->
 <!-- ops-26 completed 2026-08-21T20:12Z → https://github.com/shdkej/knowledge-lab/blob/main/archive/infinity/ops-26.md (모든 비단순 산출물 Intent에 지표 질문 계약과 전용 검사를 적용) -->

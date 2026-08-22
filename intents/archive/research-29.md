@@ -1,0 +1,30 @@
+# research-29 — Infinity Archive 후속 품질 반복 개선 실험
+
+- id: research-29
+- status: archived
+- archived_at: 2026-08-22T19:00Z
+- target_agent: genie
+- permission: L0-research-and-strategy
+- execution_mode: multi_subagent_roles
+- projects: [infinity, openclaw, knowledge-lab, ai-research]
+- task_type: autoresearch-experiment
+- metric_question: Archive된 결과에서 측정 가능한 완료 근거와 후속 Intent 연결, Knowledge Lab 승격 판단을 더 일관되게 판정할 수 있는가?
+- metric_result: baseline 1/3 complete; E1 candidate dry-run 3/3 complete; E2 blocked; E3 discarded
+- metric_next_decision: continue
+- follow_up_intent_ids: []
+- follow_up_not_created_reason: E1 적용은 다음 산출물 Intent부터 자연스럽게 소비되며, 별도 실행 Intent 생성은 현재 범위를 넓히므로 만들지 않음
+- role_sessions: planner=01a02ac1-3740-7fb3-b591-e39e1565d532; developer=01a02ac1-3796-71b0-894f-a990212b98e7; marketer=01a02ac1-37f7-7712-ad74-aec3d4343017; operator=01a02ac1-38c2-73d0-842b-8aa71c4332af; red=local-final-synthesis
+- artifact: artifacts/research-29/experiment-log.md
+- report: reports/research-29/20260822T1900Z.html
+- red_status: pass
+- red_report: artifacts/research-29/red-report.md
+- boundary: 자동 merge/release, 외부 공개, 권한·자격증명·비용 작업 없음. 기존 Archive 소급 수정 없음.
+- rollback_ref: research-29-archive-quality-v1-baseline
+- knowledge_status: promoted
+- knowledge_decision: promote
+- knowledge_targets: [agent-wiki/content/docs/concepts/bounded-experiment-loop.mdx]
+- knowledge_reflection: 고정 Archive 평가면에 metric/follow-up/knowledge/Red를 묶고, 근거가 없는 축은 blocked/discard로 남기는 재사용 규칙으로 정제했다.
+- knowledge_commit: f79a91b
+- infinity_commit: pending
+- infinity_push_verified: pending
+- parent_push_verified: pending
