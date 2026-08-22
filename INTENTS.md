@@ -5,32 +5,6 @@
 ## Inbox
 
 ## Active
-<!-- marketing-127 공개 근거 확보 후 2026-08-22T07:00Z Active 재개. -->
-
-### [marketing-127] @archivenoh 공개 게시물 기반 Instagram 운영 전략
-- status: active
-- target_agent: genie
-- priority: high
-- permission: L0-research-and-strategy; no-public-action
-- requested: 2026-08-21T00:00Z
-- resumed: 2026-08-22T07:00Z
-- execution_mode: multi_subagent_roles
-- projects: personal-brand,infinity,knowledge-lab
-- task_type: strategy
-- topics: content,marketing,review
-- goal: @archivenoh의 실제 공개 게시물을 근거로 현재 톤·반복 패턴·강점과 자기검열을 줄이는 1~2주 Instagram 운영 방식을 제안한다.
-- success_criteria: 공개 게시물 3개 이상과 캡션/게시일을 실제 확인하고, 근거별 분석·운영 규칙·1~2주안을 산출하며 Planner→Developer→Marketer→Operator→Red 검증을 남긴다.
-- boundary: 공개 게시·프로필 변경·로그인·외부 발송은 실행하지 않는다.
-- evidence: artifacts/marketing-127/public-post-evidence-20260822.md
-- metric_question: 공개 게시물 근거를 확보하면 1~2주 운영 전략의 다음 실험을 결정할 수 있는가?
-- metric_signal: 공개 게시물 3개의 URL/HTML 메타데이터와 게시일·캡션 확인 여부
-- metric_decision_rule: 근거 3개 이상이면 continue, 일부만 확인되면 change, 근거 접근이 없으면 hold
-- red_status: pending
-- red_report: artifacts/marketing-127/red-report.md
-- stale_guard_released: 2026-08-21T19:44Z
-- blocker: 없음 — curl로 Instagram 공개 HTML 메타데이터 확인 완료
-- next_action: Genie가 Planner → Developer → Marketer → Operator를 별도 역할로 실행하고 Red 검증 후 Archive
-
 ## Waiting
 ### [marketing-123] 토스 쉐어링크 Threads 테스트 후속 실행
 - status: waiting
@@ -69,6 +43,7 @@
 <!-- 사용자 결정·외부 조건 대기만 기록한다. -->
 
 ## Archive
+<!-- marketing-127 completed 2026-08-22T08:00Z → intents/archive/marketing-127.md; reports/marketing-127/20260821T0000Z.html; Red PASS [공개 게시물 3건 확인, 내부 운영안 완료, 공개 행동 없음] -->
 <!-- marketing-128 completed 2026-08-21T23:32Z → intents/archive/marketing-128.md; reports/marketing-128/20260821T2218Z.html; latest Red role-marketing-128-red-final PASS 2026-08-21T23:47Z [internal preparation complete, Red pass; public action remains approval-gated] -->
 <!-- ops-26 completed 2026-08-21T20:12Z → intents/archive/ops-26.md (모든 비단순 산출물 Intent에 지표 질문 계약과 전용 검사를 적용) -->
 <!-- research-28 archived 2026-08-20T22:19Z → intents/archive/research-28.md (Andrej Karpathy autoresearch를 Infinity에 접목하는 운영·실험 구조 설계) -->

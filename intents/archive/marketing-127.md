@@ -1,0 +1,24 @@
+# [marketing-127] @archivenoh 공개 게시물 기반 Instagram 운영 전략
+
+- status: archived
+- target_agent: genie
+- priority: high
+- permission: L0-research-and-strategy; no-public-action
+- requested: 2026-08-21T00:00Z
+- resumed: 2026-08-22T07:00Z
+- completed: 2026-08-22T08:00Z
+- execution_mode: multi_subagent_roles
+- projects: personal-brand,infinity,knowledge-lab
+- task_type: strategy
+- topics: content,marketing,review
+- goal: 공개 게시물 근거로 계정 운영의 사실·가설 경계를 정하고 1~2주 내부 운영안을 만든다.
+- success_criteria: 공개 게시물 3개 이상과 캡션/게시일 확인, 근거별 분석·운영 규칙·1~2주안, Planner→Developer→Marketer→Operator→Red 검증.
+- evidence: artifacts/marketing-127/public-post-evidence-20260822.md
+- artifact: artifacts/marketing-127/instagram-operation-strategy.md
+- report: reports/marketing-127/20260821T0000Z.html
+- red_status: pass
+- red_report: artifacts/marketing-127/red-report.md
+- role_sessions: planner=d8250b29-62ce-411b-a50c-113575304cd2; developer=a1e8dd92-b8c5-425a-ab2a-4636dc23692e; marketer=bb955bbc-1136-4332-a8c6-ab98b3caf138; operator=a39874ff-c55c-4ee2-afd3-5d244094aedf; red=5c217f0c-5b47-4970-a954-deb715990f6f
+- synthesis: 3개 게시물의 게시일·캡션 유무·관찰형 캡션만 사실로 사용하고, 이미지·성과·타깃·최적 빈도는 추정하지 않는다. 한 캡션의 선택 잔여를 가설로 두고 주 2~3회 내부 기록 실험을 proposal-only로 준비한다.
+- boundary: 공개 게시·프로필 변경·로그인·DM·외부 발송은 실행하지 않음.
+- next_action: 후속 공개 게시물 3~5건이 쌓인 뒤 반복 어휘와 캡션/무캡션 작성 지속 가능성을 재대조한다. 공개 실행은 사용자 명시 승인 후에만 검토한다.
