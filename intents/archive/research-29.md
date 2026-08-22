@@ -27,7 +27,7 @@
 - knowledge_commit: f79a91b
 - infinity_commit: bddd96e
 - infinity_push_verified: true
-- parent_pointer_commit: 1bcdf5b
+- parent_pointer_commit: 0b3e31a
 - parent_push_verified: true
 - infinity_commit: pending
 - infinity_push_verified: pending
