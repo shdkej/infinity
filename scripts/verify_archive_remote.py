@@ -56,6 +56,11 @@ def raw_github_text(path: str) -> str:
     return http_text(url)
 
 
+def git_remote_text(repo: Path, path: str) -> str:
+    """Read a path from the fetched remote main when GitHub HTTP is unauthenticated."""
+    return run(["git", "show", f"origin/main:{path}"], repo)
+
+
 def knowledge_lab_api_text(path: str) -> str:
     url = f"https://api.github.com/repos/shdkej/knowledge-lab/contents/{path}?ref=main"
     try:
@@ -142,7 +147,15 @@ def main() -> int:
         if not ARCHIVE_STATUS_RE.search(archive_text):
             errors.append(f"Remote archive file is not an accepted archive status for {intent_id}")
     except Exception as exc:
-        errors.append(f"Remote Knowledge Lab archive file check failed: {exc}")
+        try:
+            run(["git", "fetch", "origin", "main"], parent)
+            archive_text = git_remote_text(parent, f"source/infinity/archive/{intent_id}.md")
+            if f"id: {intent_id}" not in archive_text:
+                errors.append(f"Remote archive file has no id field for {intent_id}")
+            if not ARCHIVE_STATUS_RE.search(archive_text):
+                errors.append(f"Remote archive file is not an accepted archive status for {intent_id}")
+        except Exception as git_exc:
+            errors.append(f"Remote Knowledge Lab archive file check failed: {exc}; Git fallback failed: {git_exc}")
 
     try:
         dashboard_html = http_text("https://shdkej.github.io/infinity/")
