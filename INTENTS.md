@@ -4,6 +4,26 @@
 
 ## Inbox
 
+### [research-29] Infinity Archive 후속 품질 반복 개선 실험
+- status: inbox
+- target_agent: genie
+- priority: high
+- permission: L0-research-and-strategy
+- requested: 2026-08-22T18:34Z
+- execution_mode: multi_subagent_roles
+- projects: infinity,openclaw,knowledge-lab,ai-research
+- task_type: autoresearch-experiment
+- topics: autoresearch,experiment-loop,archive-quality,measurement,follow-up-routing,knowledge-promotion
+- source: sam-slack-thread-1787423188.074659
+- user_request: "Infinity 작업이 Archive된 뒤, 측정 가능성·후속 실행 연결·Knowledge Lab 승격 후보 품질을 개선하는 반복 실험"
+- goal: research-28에서 정리한 bounded autoresearch 모델을 실제 Infinity Archive 후속 품질에 적용해, 운영 규칙 또는 프롬프트의 좁은 변경을 고정 평가면으로 비교한다.
+- success_criteria: 고정 기준선과 대표 지표 질문을 정의하고, 최대 3회의 좁은 변경 실험을 keep/discard/crash/timeout/blocked로 기록하며, 최종 변경안·롤백 기준·다음 실험 여부와 Red 검증을 남긴다.
+- metric_question: Archive된 결과에서 측정 가능한 완료 근거와 후속 Intent 연결, Knowledge Lab 승격 판단을 더 일관되게 판정할 수 있는가?
+- metric_signal: 최근 Archive/Report 표본의 metric_question·metric_result·follow_up_intent_ids·knowledge_status/decision/targets 충족률과 Red 판정
+- metric_decision_rule: 기준선 대비 개선되고 충돌·누락이 없으면 continue/keep, 개선이 없거나 회귀하면 change/discard, 실행 근거가 부족하면 hold/blocked
+- boundary: 한 번에 하나의 운영 규칙 또는 프롬프트만 변경한다. 자동 merge·release·외부 공개·권한·자격증명·비용 발생 작업은 하지 않으며, 변경은 rollback reference를 남긴다.
+- next_action: 지니가 Knowledge Lab과 Infinity 정본을 먼저 확인한 뒤 기준선 측정 → 최대 3회 bounded 반복 → 결과 합성 → Red 검증을 수행한다.
+
 ## Active
 ## Waiting
 ### [marketing-123] 토스 쉐어링크 Threads 테스트 후속 실행
