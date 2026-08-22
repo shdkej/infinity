@@ -19,6 +19,11 @@
 - result: 구매·준비 사실과 사용 경험을 분리하는 원칙은 유지하되, 구매 묶음명을 한 게시물로 복사하지 않고 개별 상품 후보로 나눠 계속 진행한다. 개별 상품·옵션·Sharelink 동일성이 덜 확인된 부분은 `purchase_only` 주장 상한으로 제한한다. 공개 게시·공개 링크·로그인·비용 집행은 실행하지 않았다.
 - learning_update_2026-08-22: 한 번에 구매한 기록의 묶음명을 한 게시물로 복사한 것이 오류였다. 앞으로는 기록을 개별 상품 후보로 분해해 계속 진행하고, 서로 다른 상품은 관련 구매 기록에 함께 있어도 별도 게시물로 운영한다. 상품 동일성이 덜 확인된 부분은 `purchase_only` 주장 상한으로 제한한다. 결과는 `metrics.jsonl`에 쌓고 매일 23:10 KST 학습 루프가 백서에 반영한다.
 - next_action: 개별 후보별 훅·본문을 만들고, 결과를 `metrics.jsonl`에 기록한다. 매일 학습 루프가 백서를 업데이트하며, 공개 Threads 게시·공개 Sharelink 공유는 별도 사용자 승인이 필요하다.
+- knowledge_status: promoted
+- knowledge_decision: promote
+- knowledge_targets: [agent-wiki/content/docs/concepts/evidence-bounded-content-experiment.mdx]
+- knowledge_reflection: 구매 묶음명과 검색 결과를 게시물·사용 후기로 과장하지 않고, 개별 상품 후보·근거·주장 상한을 분리하는 실패 교훈을 재사용 규칙으로 정제했다. 새 상품 식별과 Red 재검증 전에는 내부 준비로만 제한한다.
+- knowledge_commit: ee69f6e
 
 ## Boundary
 

@@ -23,3 +23,8 @@
 - archived_at: 2026-08-20T22:19Z
 - blocker: 없음 (HTML 게이트 재검증 통과)
 - next_retry_condition: 없음 — 후속 구현은 별도 승인된 Intent로 생성
+- knowledge_status: promoted
+- knowledge_decision: promote
+- knowledge_targets: [agent-wiki/content/docs/concepts/bounded-experiment-loop.mdx]
+- knowledge_reflection: 무제한 자율 실행이 아닌 고정 평가면·좁은 변경면·bounded 반복·rollback을 Infinity 전반에 재사용할 수 있는 운영 원칙으로 정제했다.
+- knowledge_commit: ee69f6e

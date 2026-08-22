@@ -22,3 +22,7 @@
 - synthesis: 3개 게시물의 게시일·캡션 유무·관찰형 캡션만 사실로 사용하고, 이미지·성과·타깃·최적 빈도는 추정하지 않는다. 한 캡션의 선택 잔여를 가설로 두고 주 2~3회 내부 기록 실험을 proposal-only로 준비한다.
 - boundary: 공개 게시·프로필 변경·로그인·DM·외부 발송은 실행하지 않음.
 - next_action: 후속 공개 게시물 3~5건이 쌓인 뒤 반복 어휘와 캡션/무캡션 작성 지속 가능성을 재대조한다. 공개 실행은 사용자 명시 승인 후에만 검토한다.
+- knowledge_status: raw
+- knowledge_decision: retain_in_infinity
+- knowledge_targets: []
+- knowledge_reflection: 특정 공개 계정의 관찰 자료와 1~2주 내부 운영안이며, 반복 원칙으로 일반화하기 전 추가 게시물 검증이 필요하므로 원장에만 보존한다.

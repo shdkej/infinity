@@ -19,4 +19,7 @@
 - 공개 게시: 실행하지 않음
 - 프로필 변경: 실행하지 않음
 - 외부 업로드: 실행하지 않음
-
+- knowledge_status: raw
+- knowledge_decision: retain_in_infinity
+- knowledge_targets: []
+- knowledge_reflection: 특정 Instagram 최종 후보와 공개 승인 대기 이력으로, 반복 가능한 규칙보다 자산·검수 결과를 Infinity에 보존한다.

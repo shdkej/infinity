@@ -27,3 +27,7 @@
 - 프로필 변경: 실행하지 않음
 - 외부 업로드: 실행하지 않음
 - marketing-124 자산: 최종본으로 재사용하지 않음
+- knowledge_status: raw
+- knowledge_decision: retain_in_infinity
+- knowledge_targets: []
+- knowledge_reflection: 단일 디자인 재작업 산출물과 사용자 승인 대기 상태로, 일반 원칙 승격보다 최종 자산·공개 경계의 실행 원장 보존이 적절하다.
