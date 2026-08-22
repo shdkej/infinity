@@ -17,7 +17,7 @@
 - artifact: artifacts/research-29/experiment-log.md
 - report: reports/research-29/20260822T1900Z.html
 - red_status: pass
-- red_report: artifacts/research-29/red-report.md
+- red_report: artifacts/research-29/red-report.md (dispatcher revalidation PASS: 01a02ada-9eaa-71f0-a501-c63cee96c6de)
 - boundary: 자동 merge/release, 외부 공개, 권한·자격증명·비용 작업 없음. 기존 Archive 소급 수정 없음.
 - rollback_ref: research-29-archive-quality-v1-baseline
 - knowledge_status: promoted

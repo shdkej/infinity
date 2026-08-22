@@ -9,3 +9,10 @@
 - 요청과 맞나?: **예.** 최대 3회, 각 상태 기록, Knowledge Lab 승격 후보 품질, 외부/권한/비용 금지를 모두 지켰다.
 - correction: 없음
 - red_evidence: `artifacts/research-29/experiment-log.md`, `reports/research-29/20260822T1900Z.html`, `source/infinity/archive/{ops-26,research-28,marketing-128}.md`
+
+## Dispatcher revalidation — 2026-08-22
+
+- verifier_session: `01a02ada-9eaa-71f0-a501-c63cee96c6de`
+- result: PASS
+- correction: Archive/Waiting 충돌, pending 중복 필드, Operator 원격 검증 문구를 정리했다. `infinity_verification_commit=0e3ee1c`는 메타 기록 직전 독립 확인 커밋이며, 이후 기록 커밋은 자기 자신을 검증 SHA로 참조하지 않는다.
+- scope_check: Archive-only placement, metric/follow-up/Knowledge/Red field agreement, bounded static-fixture claim, Knowledge Lab SHA `f79a91b` consistent.
