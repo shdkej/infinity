@@ -23,7 +23,7 @@
 - knowledge_decision: promote
 - knowledge_targets: [agent-wiki/content/docs/concepts/evidence-bounded-content-experiment.mdx]
 - knowledge_reflection: 구매 묶음명과 검색 결과를 게시물·사용 후기로 과장하지 않고, 개별 상품 후보·근거·주장 상한을 분리하는 실패 교훈을 재사용 규칙으로 정제했다. 새 상품 식별과 Red 재검증 전에는 내부 준비로만 제한한다.
-- knowledge_commit: ee69f6e
+- knowledge_commit: 5e4027e
 
 ## Boundary
 

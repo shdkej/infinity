@@ -52,4 +52,4 @@ Infinity 산출물 Intent 지표 계약
 - knowledge_decision: promote
 - knowledge_targets: [agent-wiki/content/docs/concepts/metric-question-contract.mdx]
 - knowledge_reflection: 비단순 산출물의 완료를 다음 결정과 연결하는 재사용 가능한 최소 계약으로 정제했다. 단순 조회는 제외하고 신호가 없을 때 hold/null을 허용한다.
-- knowledge_commit: ee69f6e
+- knowledge_commit: 5e4027e
