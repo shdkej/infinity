@@ -7,7 +7,7 @@
 ## 1. 매일의 운영 루프
 
 1. **근거 재확인**: 오늘 다룰 물건이 실제 구매 또는 실제 사용 장면에 연결되는지 원본 기록과 대조한다. 상품 검색 결과만 있는 후보는 탈락시키며, 구매 기록만 있으면 사용 후기가 아닌 구매·준비 사실만 쓴다.
-2. **후보 선출**: 생활 장면이 한 문장으로 설명되고, 불편이 구체적이며, 대체 선택 기준을 말할 수 있는 후보를 고른다.
+2. **후보 선출**: 구매 기록을 그대로 게시 단위로 복사하지 않는다. 한 번에 구매한 묶음도 게시 후보는 반드시 개별 상품 단위로 쪼갠다. 서로 다른 문제를 해결하는 상품은 같은 구매 기록에 있어도 별도 후보·별도 게시물로 분리한다. 개별 상품명·링크·장면을 확인하지 못하면 `grouped_pending_identity`로 보류한다.
 3. **훅 작성**: 같은 후보에 서로 다른 각도 2개를 만든다. 개인 사건·숫자·관찰·선택 중 하나만 쓴다.
 4. **본문 작성**: 실제 장면 → 선택/사용 이유 → 아직 모르는 점 또는 조건 → 독자가 답할 수 있는 구체 질문 순서로 5~9줄을 만든다.
 5. **게시 전 검수**: 근거, 과장, 고지, 링크, 가격/재고, 사용자 승인 상태를 확인한다. 승인 전에는 초안으로만 보관한다.
@@ -25,15 +25,17 @@
 | 선택 이유 | 가격/인기 반복 | 일부 기준 있음 | 다른 선택을 하지 않은 이유까지 말할 수 있음 |
 | 반응 질문성 | 예/아니오 | 경험 공유 가능 | 독자가 자기 사례·반대 의견을 구체적으로 답할 수 있음 |
 
-현재 1차 후보는 marketing-123의 원본 기록을 다시 대조한 다음 아래 3개 그룹만 사용한다. `압축파우치`, `65W GaN 충전기`처럼 직접 근거가 없는 이름은 재사용하지 않는다.
+현재 1차 후보는 marketing-123의 원본 기록을 다시 대조하되, 구매 기록의 묶음명은 게시 후보로 직접 사용하지 않는다. 묶음은 개별 후보를 찾기 위한 근거로만 사용하며, `압축파우치`, `65W GaN 충전기`처럼 직접 근거가 없는 이름은 재사용하지 않는다.
 
-후보 등록부 필드: `candidate_id`, `experience_claim`, `exact_purchase_record`, `source_path`, `source_locator`, `source_checked_at`, `source_snapshot_hash`, `product_identity`, `identity_confidence`, `usage_evidence`, `affiliate_product_id`, `affiliate_match`, `claim_ceiling`, `hook_variant`, `draft_version`, `prepublish_checks`, `metrics`, `decision`. C01~C03은 현재 `identity_confidence=grouped`, `usage_evidence=purchase_only`, `claim_ceiling=구매·준비 사실만`으로 시작한다.
+후보 등록부 필드: `candidate_id`, `experience_claim`, `exact_purchase_record`, `source_path`, `source_locator`, `source_checked_at`, `source_snapshot_hash`, `product_identity`, `identity_confidence`, `usage_evidence`, `affiliate_product_id`, `affiliate_match`, `claim_ceiling`, `hook_variant`, `draft_version`, `prepublish_checks`, `metrics`, `decision`. C01-A~C03-A는 현재 `identity_confidence=grouped_pending_identity`, `usage_evidence=purchase_only`, `claim_ceiling=구매·준비 사실만`으로 시작한다.
 
 | 후보 | 근거 | 콘텐츠 장면 | 보류 조건 |
 |---|---|---|---|
-| 여행용 파우치와 칫솔 | 2026-05-30 무인양품 구매 기록, `product-evidence-20260817T0830Z.md` C01 | 세면도구를 매일 꺼내고 다시 넣는 장면 | 정확한 개별 상품·현재 판매 여부 미확인 |
-| 여행용 멀티플러그와 종이세제 | 2026-05-19 쿠팡 구매 기록, 같은 문서 C02 | 숙소 이동 중 충전·빨래를 이어가는 장면 | 전압/호환·개별 상품명 미확인 |
-| 손톱깎이·수건·빨랫줄 | 2026-05-10 Travel prep 기록, 같은 문서 C03 | 젖은 물건을 둘 곳을 만드는 장면 | 묶음 구매라 개별 상품·사용 시점 미확인 |
+| C01-개별-미확정 | C01 구매 기록 | 개별 상품명·장면 미확정 | 개별 상품명·옵션·사용 근거 확인 전 보류 |
+| C02-개별-미확정 | C02 구매 기록 | 개별 상품명·장면 미확정 | 개별 상품명·옵션·사용 근거 확인 전 보류 |
+| C03-개별-미확정 | C03 Travel prep 기록 | 개별 상품명·장면 미확정 | 개별 상품명·옵션·사용 근거 확인 전 보류 |
+
+**개별 게시 단위 규칙:** `여행용 파우치와 칫솔`, `멀티플러그와 종이세제`, `손톱깎이·수건·빨랫줄`은 구매 기록의 원문 보존용 표현이지 게시 후보명이 아니다. 한 기록에 같이 적혀 있다는 이유만으로 한 글에 묶지 않는다. 실제 상품명·옵션·사용 근거를 확인한 뒤에만 각 상품을 별도 후보 ID로 만든다. 그 전에는 상품명을 추정하거나 훅을 쓰지 않는다. 관련성이 확인된 경우에도 먼저 상품별 후보를 만들고, 같은 문제·같은 장면을 실제로 공유할 때만 묶음 게시를 별도 실험으로 승인한다.
 
 검색으로 찾은 Toss Shopping 상품은 **사용 근거가 아니라 후보 링크 탐색 자료**다. 공개 초안에 넣기 전에 회원 화면에서 정확한 상품·옵션·가격·재고·배송을 다시 확인한다.
 
