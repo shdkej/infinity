@@ -25,6 +25,10 @@
 - knowledge_targets: [agent-wiki/content/docs/concepts/bounded-experiment-loop.mdx]
 - knowledge_reflection: 고정 Archive 평가면에 metric/follow-up/knowledge/Red를 묶고, 근거가 없는 축은 blocked/discard로 남기는 재사용 규칙으로 정제했다.
 - knowledge_commit: f79a91b
+- infinity_commit: bddd96e
+- infinity_push_verified: true
+- parent_pointer_commit: 1bcdf5b
+- parent_push_verified: true
 - infinity_commit: pending
 - infinity_push_verified: pending
 - parent_push_verified: pending
