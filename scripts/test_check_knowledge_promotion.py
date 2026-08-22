@@ -17,11 +17,17 @@ class KnowledgePromotionGateTest(unittest.TestCase):
             target = root / "agent-wiki" / "content" / "docs" / "concepts" / "rule.mdx"
             target.parent.mkdir(parents=True)
             target.write_text("# Rule\n", encoding="utf-8")
+            ingest = root / "ingest" / "INDEX.md"
+            ingest.parent.mkdir(parents=True)
+            ingest.write_text(
+                """### 2026-08-22 — infinity/intents/archive/x.md\n- id: x\n- source: infinity/intents/archive/x.md\n- status: integrated\n- target: [agent-wiki/content/docs/concepts/rule.mdx]\n""",
+                encoding="utf-8",
+            )
             (archive / "x.md").write_text(
                 """- knowledge_status: promoted\n- knowledge_decision: promote\n- knowledge_targets: agent-wiki/content/docs/concepts/rule.mdx\n- knowledge_reflection: reusable rule\n- knowledge_commit: abc123\n""",
                 encoding="utf-8",
             )
-            with patch.object(gate, "ARCHIVE", archive), patch.object(gate, "KNOWLEDGE_LAB", root):
+            with patch.object(gate, "ARCHIVE", archive), patch.object(gate, "KNOWLEDGE_LAB", root), patch.object(gate, "INGEST_INDEX", ingest):
                 # The commit lookup is isolated below; field/path validation is the contract under test.
                 with patch("subprocess.run") as run:
                     run.return_value.returncode = 0

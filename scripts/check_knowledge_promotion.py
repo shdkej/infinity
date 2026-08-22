@@ -13,6 +13,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 KNOWLEDGE_LAB = ROOT.parent
 ARCHIVE = ROOT / "intents" / "archive"
+INGEST_INDEX = KNOWLEDGE_LAB / "ingest" / "INDEX.md"
 
 
 def field(text: str, name: str) -> str | None:
@@ -27,6 +28,25 @@ def targets(value: str | None) -> list[str]:
     return [part.strip().strip("'\"") for part in value.split(",") if part.strip()]
 
 
+def ingest_entry(intent_id: str) -> tuple[str | None, str | None, list[str]]:
+    """Read the root Knowledge Lab ingest entry for one Infinity archive."""
+    if not INGEST_INDEX.exists():
+        return None, None, []
+    text = INGEST_INDEX.read_text(encoding="utf-8")
+    match = re.search(
+        rf"(?ms)^### [^\n]*(?:{re.escape(intent_id)}|intents/archive/{re.escape(intent_id)}\.md)[^\n]*\n"
+        rf"(?:(?!^### ).)*",
+        text,
+    )
+    if not match:
+        return None, None, []
+    block = match.group(0)
+    status = field(block, "status")
+    source = field(block, "source")
+    target = field(block, "target")
+    return status, source, [] if not target or target == "none" else targets(target)
+
+
 def check(intent_id: str) -> list[str]:
     path = ARCHIVE / f"{intent_id}.md"
     if not path.exists():
@@ -37,6 +57,7 @@ def check(intent_id: str) -> list[str]:
     reflection = field(text, "knowledge_reflection")
     commit = field(text, "knowledge_commit")
     target_paths = targets(field(text, "knowledge_targets"))
+    ingest_status, ingest_source, ingest_targets = ingest_entry(intent_id)
     errors: list[str] = []
     if status not in {"raw", "promoted", "superseded"}:
         errors.append("knowledge_status must be raw, promoted, or superseded (candidate cannot be archived)")
@@ -54,6 +75,17 @@ def check(intent_id: str) -> list[str]:
         errors.append(f"{status} archive must list at least one knowledge_targets path")
     if status in {"promoted", "superseded"} and not commit:
         errors.append(f"{status} archive must list the Knowledge Lab commit in knowledge_commit")
+    if status in {"promoted", "superseded"}:
+        expected_source = f"infinity/intents/archive/{intent_id}.md"
+        if ingest_status is None:
+            errors.append(f"{intent_id} is missing from root ingest index: {INGEST_INDEX}")
+        elif ingest_status != "integrated":
+            errors.append(f"{intent_id} ingest status must be integrated, got: {ingest_status}")
+        if ingest_source != expected_source:
+            errors.append(f"{intent_id} ingest source must be {expected_source}, got: {ingest_source}")
+        for target in target_paths:
+            if target not in ingest_targets:
+                errors.append(f"{intent_id} ingest entry must list knowledge target: {target}")
     for target in target_paths:
         target_path = (KNOWLEDGE_LAB / target).resolve()
         if KNOWLEDGE_LAB not in target_path.parents and target_path != KNOWLEDGE_LAB:
