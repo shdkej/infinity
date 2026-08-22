@@ -70,7 +70,7 @@ def check(intent_id: str) -> list[str]:
     if decision == "supersede" and status != "superseded":
         errors.append("supersede requires knowledge_status: superseded")
     if status in {"promoted", "superseded"}:
-        expected_source = f"infinity/intents/archive/{intent_id}.md"
+        expected_source = f"intents/archive/{intent_id}.md"
         if ingest_status is None:
             errors.append(f"{intent_id} is missing from root ingest index: {INGEST_INDEX}")
         elif ingest_status != "integrated":
