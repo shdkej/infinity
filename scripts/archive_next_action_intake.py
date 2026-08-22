@@ -11,7 +11,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 INTENTS = ROOT / "INTENTS.md"
-ARCHIVE_DIR = ROOT / "intents" / "archive"
+ARCHIVE_DIR = ROOT.parent / "archive" / "infinity"
 NO_ACTION_RE = re.compile(r"^(없음|완료|no continuation|none|n/a|-)$", re.I)
 PUBLIC_ACTION_RE = re.compile(
     r"(게시|포스팅|발행|업로드|공유|링크\s*공유|광고|댓글|답글|DM|디엠|메일|송신|전송|발송|계정|가입|로그인|결제|비용|권한|시크릿|credential)",
@@ -75,7 +75,7 @@ def has_similar_open_intent(open_text: str, source_id: str, next_action: str) ->
     for match in re.finditer(r"^### \[([^\]]+)\].*?(?=^### \[|\Z)", open_text, re.M | re.S):
         entries.append((match.group(1), match.group(0)))
     for entry_id, block in entries:
-        if re.search(rf"source_archive:\s*intents/archive/{re.escape(source_id)}\.md", block):
+        if re.search(rf"source_archive:\s*archive/infinity/{re.escape(source_id)}\.md", block):
             return entry_id
     action_words = [w for w in re.split(r"\s+", next_action) if len(w) >= 2][:4]
     if action_words:
@@ -112,7 +112,7 @@ def build_inbox_entry(new_id: str, source_id: str, card: dict[str, str]) -> str:
 - status: inbox
 - target_agent: genie
 - requested: {now}
-- source_archive: intents/archive/{source_id}.md
+- source_archive: archive/infinity/{source_id}.md
 - archive_project: {project}
 - archive_state: {card["state"] or "후속 실행 필요"}
 - result_criteria: {card["result_criteria"] or "후속 실행 결과를 확인한다"}

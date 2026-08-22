@@ -793,6 +793,7 @@
       rawIntents: "https://raw.githubusercontent.com/shdkej/infinity/main/INTENTS.md",
       rawGates: "https://raw.githubusercontent.com/shdkej/infinity/main/GATES.md",
       rawBase: "https://raw.githubusercontent.com/shdkej/infinity/main/",
+      knowledgeLabRawBase: "https://raw.githubusercontent.com/shdkej/knowledge-lab/main/",
       apiBase: "https://api.github.com/repos/shdkej/infinity/contents/",
       actionEndpoint: "https://k23v4cvkqtxkuj5ceech43m5mq0aedhq.lambda-url.ap-northeast-2.on.aws/",
     };
@@ -851,8 +852,10 @@
 
     async function fetchArchiveIntent(id) {
       if (!id) return null;
-      const path = "intents/archive/" + id + ".md";
-      const text = await fetchMaybeText(path);
+      const path = "archive/infinity/" + id + ".md";
+      let text = null;
+      try { text = await fetchText(SOURCES.knowledgeLabRawBase + path); }
+      catch (e) { text = null; }
       return text ? { path, text } : null;
     }
 
@@ -2520,8 +2523,8 @@
       let changed = false;
       for (const item of targets) {
         if (run !== archiveHydrationRun) return changed;
-        const path = normalizePath(item.meta.detail || ("intents/archive/" + item.id + ".md"));
-        if (!path || !path.startsWith("intents/archive/")) continue;
+        const path = normalizePath(item.meta.detail || ("archive/infinity/" + item.id + ".md"));
+        if (!path || !path.startsWith("archive/infinity/")) continue;
         if (archiveTemplateCache.has(path)) {
           const cached = archiveTemplateCache.get(path);
           if (hasArchiveTemplate(cached)) {
@@ -2532,7 +2535,7 @@
           continue;
         }
         try {
-          const text = await fetchText(SOURCES.rawBase + path);
+          const text = await fetchText(SOURCES.knowledgeLabRawBase + path);
           if (run !== archiveHydrationRun) return changed;
           const template = extractArchiveTemplate(text);
           archiveTemplateCache.set(path, template);

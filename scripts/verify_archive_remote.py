@@ -56,6 +56,16 @@ def raw_github_text(path: str) -> str:
     return http_text(url)
 
 
+def knowledge_lab_api_text(path: str) -> str:
+    url = f"https://api.github.com/repos/shdkej/knowledge-lab/contents/{path}?ref=main"
+    try:
+        return github_api_text_from(url)
+    except urllib.error.HTTPError as exc:
+        if exc.code not in (403, 429):
+            raise
+        return http_text(f"https://raw.githubusercontent.com/shdkej/knowledge-lab/main/{path}")
+
+
 def http_text(url: str) -> str:
     request = urllib.request.Request(url, headers={"User-Agent": "openclaw-infinity-archive-verifier/1.0"})
     with urllib.request.urlopen(request, timeout=20) as response:
@@ -126,13 +136,13 @@ def main() -> int:
         errors.append(f"Remote INTENTS.md check failed: {exc}")
 
     try:
-        archive_text = github_api_text(f"intents/archive/{intent_id}.md")
+        archive_text = knowledge_lab_api_text(f"archive/infinity/{intent_id}.md")
         if f"id: {intent_id}" not in archive_text:
             errors.append(f"Remote archive file has no id field for {intent_id}")
         if not ARCHIVE_STATUS_RE.search(archive_text):
             errors.append(f"Remote archive file is not an accepted archive status for {intent_id}")
     except Exception as exc:
-        errors.append(f"Remote archive file check failed: {exc}")
+        errors.append(f"Remote Knowledge Lab archive file check failed: {exc}")
 
     try:
         dashboard_html = http_text("https://shdkej.github.io/infinity/")

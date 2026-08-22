@@ -8,7 +8,7 @@
 | 경로 | 역할 | 수명 |
 |------|------|------|
 | `intents/active/{id}.md` | 활성 Intent의 **현재 상태와 다음 액션만** | 진행 중 |
-| `intents/archive/{id}.md` | 완료된 Intent의 **canonical final index** (결과 요약 + 산출물·리포트·커밋·URL 링크) | 영구 |
+| `../archive/infinity/{id}.md` (Knowledge Lab) | 완료된 Intent의 **canonical final index** (결과 요약 + 산출물·리포트·커밋·URL 링크) | 영구 |
 | `artifacts/{id}/...` | **결과로서 가치 있는 산출물** (research 결과, 설계 초안, 구현 산출물, 데이터) | 영구 |
 | `reports/{id}/{timestamp}.html` | 단일 실행 로그 (heartbeat run 결과, 진행 보고) | 누적 |
 | `reports/heartbeat/` | **전역** heartbeat 요약만 (intent 결과 보고서가 아님) | 누적 |
@@ -78,7 +78,7 @@ Infinity 문서는 아래 3개 역할로 통일한다. 새 문서를 만들 때 
 
 | 역할 | 경로 | 책임 | 대시보드 표시 |
 |------|------|------|---------------|
-| Intent 원장 | `intents/archive/{id}.md` | Intent의 최종 상태, 결과 요약, 성공 기준 충족 여부, 링크 인덱스 | `Intent 원장` |
+| Intent 원장 | `knowledge-lab/archive/infinity/{id}.md` | Intent의 최종 상태, 결과 요약, 성공 기준 충족 여부, 링크 인덱스 | `Intent 원장` |
 | Artifact | `artifacts/{id}/...` | 재사용 가능한 산출물 원문. 조사 결과, 설계안, 실행 프롬프트, 데이터, 화면/HTML 등 | `Artifact` |
 | Report | `reports/{id}/{timestamp}.html` | 특정 실행 1회의 HTML 로그. 무엇을 했고 무엇을 검증했는지 기록 | `Report` |
 

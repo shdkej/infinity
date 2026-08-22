@@ -220,7 +220,7 @@ HTML report contract:
    - 조사형(`research`, `wiki`, `doc`)은 `핵심 내용 · 리서치 본문`을 비우지 않는다. 핵심 발견 3~7개, 근거/소스, 추천안 또는 옵션 비교, 다음 판단을 HTML 안에 직접 쓴다.
    - 핵심 발견 3~7개는 같은 의미를 다른 말로 반복하지 않는다. 각각은 서로 다른 판단 축이나 근거를 담당해야 한다.
    - 모바일 390px 기준으로 읽히게 쓴다. 긴 표를 그대로 붙이지 말고 카드/목록으로 요약하며, 좌우 스크롤을 요구하지 않는다.
-5. 같은 2축을 완료 시 `intents/archive/{id}.md` 의 `result_summary`(축2)에도 반영한다.
+5. 같은 2축을 완료 시 Knowledge Lab의 `archive/infinity/{id}.md` 의 `result_summary`(축2)에도 반영한다.
 6. 완료 전에 HTML 파일 검증을 수행한다: `test -s reports/{id}/{timestamp}.html` 후 `<html`, `<body`, `axis ax1`, `axis ax2`, `<details` 존재를 확인한다. 브라우저 검증이 가능하면 390px viewport에서 `document.documentElement.scrollWidth <= window.innerWidth`도 확인한다.
 7. Claude Code/workflow-master가 HTML report를 남기지 않고 종료했으면, Heartbeat가 관측한 변경·검증·커밋 결과로 `reports/_TEMPLATE.html` 기반 report를 직접 작성한 뒤에만 archive한다.
 8. 마케팅 관련 report의 `<details>`에는 `계승한 기준`, `이번에 새로 배운 것`, `다음 Marketer에게 넘길 규칙`을 포함한다. durable learning candidate가 있으면 `MARKETING_LEARNINGS.md`에 승격하거나, 애매하면 report 안에만 보류한다.
@@ -235,11 +235,11 @@ HTML report contract:
 ▸ 실행 메타 / 다음 액션              (details, 접힘)
 ```
 
-Report는 실행 로그다. 2축은 그 로그의 결론을 한눈에 보게 하는 장치이고, 사용자가 나중에 볼 최종 문서는 `intents/archive/{intent-id}.md`의 `Intent 원장`이다.
+Report는 실행 로그다. 2축은 그 로그의 결론을 한눈에 보게 하는 장치이고, 사용자가 나중에 볼 최종 문서는 Knowledge Lab의 `archive/infinity/{intent-id}.md`의 `Intent 원장`이다.
 
 완료 처리 시 문서 역할은 반드시 아래처럼 통일한다.
 
-1. `Intent 원장`: `intents/archive/{id}.md` 하나만 canonical final index로 만든다.
+1. `Intent 원장`: Knowledge Lab의 `archive/infinity/{id}.md` 하나만 canonical final index로 만든다.
 2. `Artifact`: 재사용할 원문/초안/분석/프롬프트/데이터는 `artifacts/{id}/...`에 둔다.
 3. `Report`: 실행 과정 로그만 `reports/{id}/{timestamp}.html`에 둔다.
 4. `Detail`이라는 별도 최종 문서는 만들지 않는다. archive path와 detail path가 같아지는 중복 구조를 생성하지 않는다.
@@ -435,7 +435,7 @@ Inbox ──→ Active ──→ in_progress ──→ archived
 
 Intent가 완료 기준을 충족하거나 사용자가 완료 처리하면:
 
-1. `intents/active/{id}.md` → `intents/archive/{id}.md`로 이동하고, archive 문서를 **canonical final index** 포맷으로 재작성한다.
+1. `intents/active/{id}.md`를 완료 처리한 뒤 Knowledge Lab의 `archive/infinity/{id}.md`에 **canonical final index** 포맷으로 저장한다. Infinity 레포에는 archive 원장을 남기지 않는다.
    - 최소 필드: `id`, `status: archived`, `completed_at`, `result_summary`, `artifacts`, `reports`, `commits`, `urls`, `next_actions`
    - 지식 판정 필드: `knowledge_status`, `knowledge_decision`, `knowledge_targets`, `knowledge_reflection`, `knowledge_commit`
    - 사용자-facing `Archive Card` 블록을 반드시 남긴다:
@@ -456,7 +456,7 @@ Intent가 완료 기준을 충족하거나 사용자가 완료 처리하면:
      ```
 2. 결과로서 가치 있는 산출물은 `artifacts/{id}/...`에 보관하고 archive intent에서 참조한다. **active intent 본문에 결과를 누적하지 않는다.**
 3. 실행 로그는 `reports/{id}/{timestamp}.html`에 남기되, **로그이지 결론이 아니다.** 동일 결론을 reports에서 찾아 헤매게 하지 않는다.
-4. `INTENTS.md`의 `## Inbox`, `## Active`, 또는 `## Waiting`에서 해당 블록/코멘트를 제거하고 `## Archive`에 완료 코멘트(`<!-- {id} completed YYYY-MM-DDTHH:MM → intents/archive/{id}.md (한 줄 결과) -->`)를 남긴다.
+4. `INTENTS.md`의 `## Inbox`, `## Active`, 또는 `## Waiting`에서 해당 블록/코멘트를 제거하고 `## Archive`에 완료 코멘트(`<!-- {id} completed YYYY-MM-DDTHH:MM → https://github.com/shdkej/knowledge-lab/blob/main/archive/infinity/{id}.md (한 줄 결과) -->`)를 남긴다.
    - 완료된 `completed/resolved/archived` 코멘트는 `## Archive`에만 있어야 한다. Inbox/Active/Waiting에 완료 코멘트가 남아 있으면 다음 리캡과 대시보드가 이미 끝난 작업을 다음 작업으로 오인한다.
    - Archive 완료 코멘트는 완료 시각 내림차순으로 둔다. 완료 처리 후 `python3 scripts/check_intents_consistency.py INTENTS.md`를 실행해 open lane의 완료 코멘트 잔존과 Archive 역순 깨짐을 검증한다.
    - Archive 전환은 항상 의미 있는 원장 변경이다. Infinity 저장소 commit/push, 원격 `main` 확인, 필요한 경우 Knowledge Lab parent submodule pointer commit/push가 끝나기 전에는 Archive 완료로 보고하지 않는다.
@@ -465,7 +465,7 @@ Intent가 완료 기준을 충족하거나 사용자가 완료 처리하면:
 7. 프로젝트성 작업은 Archive 전에 원래 사용자 목표가 끝났는지 판정한다. 끝나지 않았으면 후속 intent를 `Inbox`/`Active`/`Waiting` 중 하나로 만들고 archive 요약에 `next: {id}`를 남긴다.
 8. Archive Card의 `[다음 행동]`이 실제 실행을 뜻하면 `python3 scripts/archive_next_action_intake.py --apply`로 후속 intent를 생성하거나, 동일 목적의 열린 intent id를 archive의 `next_action_intent`에 연결한다. 공개 발행·외부 계정·광고·비용·자격증명·권한 변경은 후속 intent를 만들 수는 있지만 실행 전 사용자 승인이 필요하다.
 9. Archive 직전에 `python3 scripts/check_knowledge_promotion.py {intent-id}`를 실행한다. 모든 완료 Intent는 다음 중 하나로 닫는다.
-   - `knowledge_status: promoted` + `knowledge_decision: promote`: `/home/ubuntu/workspace/knowledge-lab/ingest/INDEX.md`에 `infinity/intents/archive/{id}.md`를 등록하고 `status: selected`에서 `integrated`로 닫는다. ingest는 입력 등록·판정만 소유하며, 별도 지식 소비자(agent-wiki 포함)의 파일·커밋은 이 흐름에서 수정하지 않는다.
+   - `knowledge_status: promoted` + `knowledge_decision: promote`: 완료 원장을 `/home/ubuntu/workspace/knowledge-lab/archive/infinity/{id}.md`에 저장하고 `/home/ubuntu/workspace/knowledge-lab/ingest/INDEX.md`에 `source: archive/infinity/{id}.md`로 등록해 `status: selected`에서 `integrated`로 닫는다. ingest는 입력 등록·판정만 소유하며, 별도 지식 소비자의 파일·커밋은 이 흐름에서 수정하지 않는다.
    - `knowledge_status: raw` + `knowledge_decision: retain_in_infinity`: 장기 지식으로 승격하지 않을 근거를 `knowledge_reflection`에 남긴다. 실행 로그/단일 작업 세부는 Infinity 원장에만 둔다.
    - `knowledge_status: superseded` + `knowledge_decision: supersede`: 기존 지식으로 대체된 경우에도 ingest index에 archive를 등록하고 `status: integrated`와 대체 이유만 기록한다.
    - `candidate`는 보류 상태로 Archive할 수 없다. 승격 대상으로 판정했으면 같은 완료 흐름에서 실제 Knowledge Lab 반영까지 끝내야 한다.
@@ -474,7 +474,7 @@ Intent가 완료 기준을 충족하거나 사용자가 완료 처리하면:
 ```
 INTENTS.md                ← 활성 Intent만 (가볍게)
 intents/active/  ← 진행 중 상태/다음 액션만
-intents/archive/ ← 완료된 Intent의 canonical index
+Knowledge Lab archive/infinity/ ← 완료된 Intent의 canonical index
 artifacts/{id}/  ← 결과 산출물 (research/design/impl/data)
 reports/{id}/    ← 실행 로그 (heartbeat run 보고)
 reports/heartbeat/ ← 전역 heartbeat 요약
