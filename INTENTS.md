@@ -5,7 +5,31 @@
 ## Inbox
 
 ## Active
-<!-- 실행 중인 intent 없음. marketing-127은 2026-08-21T19:44Z stale_guard_released 후 intents/waiting으로 정합화. -->
+<!-- marketing-127 공개 근거 확보 후 2026-08-22T07:00Z Active 재개. -->
+
+### [marketing-127] @archivenoh 공개 게시물 기반 Instagram 운영 전략
+- status: active
+- target_agent: genie
+- priority: high
+- permission: L0-research-and-strategy; no-public-action
+- requested: 2026-08-21T00:00Z
+- resumed: 2026-08-22T07:00Z
+- execution_mode: multi_subagent_roles
+- projects: personal-brand,infinity,knowledge-lab
+- task_type: strategy
+- topics: content,marketing,review
+- goal: @archivenoh의 실제 공개 게시물을 근거로 현재 톤·반복 패턴·강점과 자기검열을 줄이는 1~2주 Instagram 운영 방식을 제안한다.
+- success_criteria: 공개 게시물 3개 이상과 캡션/게시일을 실제 확인하고, 근거별 분석·운영 규칙·1~2주안을 산출하며 Planner→Developer→Marketer→Operator→Red 검증을 남긴다.
+- boundary: 공개 게시·프로필 변경·로그인·외부 발송은 실행하지 않는다.
+- evidence: artifacts/marketing-127/public-post-evidence-20260822.md
+- metric_question: 공개 게시물 근거를 확보하면 1~2주 운영 전략의 다음 실험을 결정할 수 있는가?
+- metric_signal: 공개 게시물 3개의 URL/HTML 메타데이터와 게시일·캡션 확인 여부
+- metric_decision_rule: 근거 3개 이상이면 continue, 일부만 확인되면 change, 근거 접근이 없으면 hold
+- red_status: pending
+- red_report: artifacts/marketing-127/red-report.md
+- stale_guard_released: 2026-08-21T19:44Z
+- blocker: 없음 — curl로 Instagram 공개 HTML 메타데이터 확인 완료
+- next_action: Genie가 Planner → Developer → Marketer → Operator를 별도 역할로 실행하고 Red 검증 후 Archive
 
 ## Waiting
 ### [marketing-123] 토스 쉐어링크 Threads 테스트 후속 실행
@@ -41,25 +65,6 @@
 - agent_action_state: waiting_for_public_post_approval
 - next_retry_condition: 사용자가 공개 Threads 게시 또는 공개 링크 공유를 명시 승인하면, 비공개 링크 캐시에서 3개 URL을 꺼내 최종 초안에 삽입하고 게시 직전 가격·품절·옵션을 재확인한다.
 - blocker: Sharelink Open API self-check와 공식 링크 발급은 완료됐다. 남은 blocker는 공개 게시·공개 링크 공유에 대한 사용자 명시 승인이다.
-
-### [marketing-127] @archivenoh 공개 게시물 기반 Instagram 운영 전략
-- status: waiting
-- target_agent: genie
-- priority: high
-- permission: L0-research-and-strategy; no-public-action
-- requested: 2026-08-21T00:00Z
-- execution_mode: multi_subagent_roles_blocked
-- projects: personal-brand,infinity,knowledge-lab
-- task_type: strategy
-- topics: content,marketing,review
-- blocker: Instagram 공식 프로필 fetch가 Cache miss이고 브라우저 실행 파일도 없어 실제 게시물 3개 이상을 확인하지 못함
-- metric_question: 공개 게시물 근거를 확보하면 1~2주 운영 전략의 다음 실험을 결정할 수 있는가?
-- metric_signal: 공개 게시물 3개 이상의 URL/캡처와 게시일·캡션 확인 여부
-- metric_decision_rule: 근거 3개 이상이면 continue, 일부만 확인되면 change, 근거 접근이 없으면 hold
-- red_status: pass
-- red_report: artifacts/marketing-127/red-report.md
-- stale_guard_released: 2026-08-21T19:44Z
-- next_retry_condition: 사용자가 공개 프로필/게시물 캡처 또는 브라우저 접근 가능한 세션을 제공하면 재개
 
 <!-- 사용자 결정·외부 조건 대기만 기록한다. -->
 
