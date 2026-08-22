@@ -1003,7 +1003,7 @@
       html = html.replace(/\[([^\]]+)\]\(([^)\s]+)(?:\s+[\"']([^\"']*)[\"'])?\)/g, (_, label, url, title) => {
         const extra = title ? " title=\"" + escapeHtml(title) + "\"" : "";
         const token = "@@INLINEELEMENT" + elementTokens.length + "@@";
-        elementTokens.push("<a href=\"" + safeMarkdownUrl(url) + "\" target=\"_blank\" rel=\"noopener noreferrer\"" + extra + ">" + label + "</a>");
+        elementTokens.push("<a href=\"" + safeMarkdownUrl(url) + "\" target=\"_blank\" rel=\"noopener noreferrer\"" + extra + ">" + escapeHtml(label) + "</a>");
         return token;
       });
       html = html.replace(/(^|\s)(https?:\/\/[^\s<]+)/g, (_, prefix, url) => prefix + "<a href=\"" + safeMarkdownUrl(url) + "\" target=\"_blank\" rel=\"noopener noreferrer\">" + url + "</a>");
