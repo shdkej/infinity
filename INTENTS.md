@@ -65,6 +65,8 @@
 <!-- 사용자 결정·외부 조건 대기만 기록한다. -->
 
 ## Archive
+
+<!-- design-04 completed 2026-08-23T15:45Z → artifacts/design-04/; reports/design-04/20260823T1545Z.html; red_status: pass (미니멀리즘 카드뉴스용 검은색 건축물 벽/석재 질감 배경 1장 생성·렌더 검증. 공개 게시·외부 발송 없음.) -->
 ### [research-30] 개인 맞춤 공공정보 서비스 시장·MVP·수익화 검증
 - status: archived
 - target_agent: genie
