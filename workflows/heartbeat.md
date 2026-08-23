@@ -176,6 +176,8 @@ Context: {relevant files, urls, prior reports}
 Prepared findings: {cloud research/prepare summary}
 Marketing learning context: For marketing/activation/retention/monetization/positioning/AI-value work, make Marketer read `MARKETING_LEARNINGS.md` first, then prior `INTENTS.md` marketing Archive summaries, `artifacts/marketing-*`, `reports/marketing-*/*.html`, and relevant Virtue `apps/web/docs/` before proposing new claims. Require explicit inherited assumptions, changed assumptions, conflicts, and 1-3 durable learning candidates for `MARKETING_LEARNINGS.md`.
 Language: For marketing/activation/retention/monetization/positioning/AI-value work, write the canonical output in Korean from the start. Use Korean for Infinity intent titles/body, artifacts, HTML report prose, archive summaries, Waiting/blocker notes, and SAM internal inbox summaries. Keep only file paths, URLs, code/JSON field names, CLI commands, and proper nouns in the original language when useful.
+
+General Intent title rule: 모든 Intent 제목은 사용자가 제목만 읽어도 태스크 종류와 결과를 알 수 있는 한국어 문장으로 작성한다. `research-30`, `strategy`, `build dashboard`, `fix issue` 같은 ID·영어 태그·모호한 내부 코드명을 제목으로 쓰지 않는다. 권장 형식은 `[대상] [행동/산출물]`이며, 예를 들면 `개인 맞춤 공공정보 서비스 시장·MVP·수익화 검증`, `Infinity Archive 카드 노출 오류 수정`, `대시보드 제목 한글 태스크명 규칙 적용`처럼 쓴다. ID·task_type·execution_mode는 메타데이터로만 남긴다. Inbox 등록 시 이 규칙을 만족하지 못하면 제목을 한국어로 정규화한 뒤 등록한다.
 Allowed: L0/L1 actions only unless user approval exists
 Forbidden: L2/L3 actions without explicit approval
 Verification: {tests/build/lint/screenshot/direct inspection}

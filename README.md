@@ -26,6 +26,7 @@ scripts/notify.sh   ← 승인/장애 등 명시적 알림용 Telegram 발송기
 
 - `projects`: 관련 프로젝트. 1~3개, 복수 허용. 예: `virtue`, `infinity`, `agent-wiki`.
 - `task_type`: 태스크 성격. 정확히 1개. 예: `research`, `strategy`, `implementation`, `maintenance`.
+- `title`: 제목만 읽어도 대상·행동·산출물을 알 수 있는 한국어 태스크명. ID와 영어 내부 태그는 제목에 쓰지 않고 메타데이터로 분리한다.
 - `topics`: 보조 주제. 0~3개. 예: `activation`, `analytics`, `workflow`.
 
 정식 vocabulary와 archive 코멘트 표기는 `ARTIFACT_RULES.md`를 따른다.
