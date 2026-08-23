@@ -4,25 +4,6 @@
 
 ## Inbox
 
-### [research-31] 미니멀·정리·균형·순환 기반 시장 카테고리 후보 발굴
-- status: inbox
-- target_agent: genie
-- priority: high
-- permission: L0-research-and-strategy
-- requested: 2026-08-23T17:02Z
-- execution_mode: multi_subagent_roles
-- projects: personal-brand,market-discovery,business-strategy,ai-service
-- task_type: market-category-discovery
-- topics: minimalism,organization,balance,circulation,systems,community,public-information,personal-knowledge,life-admin,ai-service,creator-business
-- goal: 사용자의 미니멀·정리·균형·순환 취향과 개발·이커머스·메시징·AX 경험을 기반으로 장기적으로 지향할 시장 카테고리 후보군을 넓게 발굴하고 우선순위를 좁힌다.
-- user_request: "다시 처음으로 돌아가서 내 시장을 어떤 카테고리로 지향하면 될지 후보군을 내줘"
-- success_criteria: 서로 다른 시장 카테고리 7~10개를 제시하고, 각 카테고리의 고객·반복 문제·지불 주체·온라인 사업 방식·사용자 강점 적합도·초기 검증 난이도를 비교한다. 상위 3개와 제외할 카테고리, 다음 검증 질문을 명확히 한다.
-- metric_question: 후보 카테고리 중 사용자가 지속적으로 관찰·해결하고 고객이 반복 지불할 문제가 동시에 있는 영역은 무엇인가?
-- metric_signal: 카테고리별 반복 문제·지불 주체·접근 가능한 첫 고객·4주 안에 확인 가능한 행동 증거·사용자 경험 적합도
-- metric_decision_rule: 상위 3개가 명확한 반복 문제와 첫 고객 접근 경로를 가지면 continue, 취향 적합도만 높고 지불 주체가 약하면 change, 검증 가능한 고객·행동 증거가 없으면 hold
-- boundary: 특정 카테고리로 최종 확정하거나 코드·공개 콘텐츠·광고·결제를 실행하지 않는다. 후보 발굴과 우선순위 제안까지만 수행한다.
-- next_action: Planner → Developer → Marketer → Operator가 Knowledge Lab과 research-30 결과를 참고해 후보군·검증 구조·수익화 경로·운영 가능성을 작성하고 Genie가 합성한 뒤 Red 검증을 수행한다.
-
 ## Active
 
 ## Inbox
@@ -65,6 +46,27 @@
 <!-- 사용자 결정·외부 조건 대기만 기록한다. -->
 
 ## Archive
+
+<!-- research-31 completed 2026-08-23T17:30Z → artifacts/research-31/; reports/research-31/20260823T1730Z.html; red_status: pass. -->
+### [research-31] 미니멀·정리·균형·순환 기반 시장 카테고리 후보 발굴
+- status: archived
+- target_agent: genie
+- priority: high
+- permission: L0-research-and-strategy
+- requested: 2026-08-23T17:02Z
+- execution_mode: multi_subagent_roles
+- artifact: artifacts/research-31/market-category-candidates.md
+- report: reports/research-31/20260823T1730Z.html
+- red_status: pass
+- red_report: artifacts/research-31/red-report.md
+- role_sessions: planner=role-research-31-planner; developer=role-research-31-developer; marketer=role-research-31-marketer; operator=role-research-31-operator; red=role-research-31-red
+- knowledge_status: used
+- knowledge_decision: retain-as-operating-principle
+- knowledge_targets: agent-wiki README, Integration/Business, Integration/Creator, bounded-experiment-loop, research-30 artifact/archive
+- knowledge_reflection: 취향은 고객 세그먼트가 아니라 경험·언어로 사용하고, 반복 문제·지불 주체·관찰 가능한 행동을 먼저 고정한다.
+- knowledge_commit: no-promotion-needed
+- archived_at: 2026-08-23T17:30Z
+- next_action: 별도 승인 Intent에서 상위 3개 후보의 비공개 4주 검증 설계를 비교한다. 특정 카테고리 확정·코드·공개·광고·결제·개인정보 변경은 실행하지 않았다.
 
 <!-- design-04 completed 2026-08-23T16:05Z → artifacts/design-04/; reports/design-04/20260823T1605Z-v2.html; red_status: pass (왼쪽 선 요소 제거·차콜/흑연 톤 완화 수정본 생성 및 렌더 검증. 공개 게시·외부 발송 없음.) -->
 ### [research-30] 개인 맞춤 공공정보 서비스 시장·MVP·수익화 검증
