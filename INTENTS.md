@@ -4,6 +4,25 @@
 
 ## Inbox
 
+### [research-30] 개인 맞춤 공공정보 서비스 시장·MVP·수익화 검증
+- status: inbox
+- target_agent: genie
+- priority: high
+- permission: L0-research-and-strategy
+- requested: 2026-08-23T13:25Z
+- execution_mode: multi_subagent_roles
+- projects: personal-brand,public-information,ai-service,mvp,monetization
+- task_type: market-research-mvp-strategy
+- topics: minimalism,organization,balance,circulation,policy-information,personalization,notification-design,content-loop
+- goal: 미니멀·정리·균형·순환을 좋아하는 사람들을 위한 온라인 중심 개인 맞춤 공공정보 서비스의 첫 시장, 반복되는 고객 문제, 한 달 MVP, 유효성 검증 루프, 현실적인 수익화 경로를 좁힌다.
+- user_request: "내 시장을 찾고 싶어. 뭘로 돈을 벌면 좋을지. 미니멀, 정리, 균형, 순환을 좋아하는 사람들과 같이 가꿔나가는 시스템 및 서비스를 만들고 싶다. 온라인 위주로 활동하고 싶다. 정책·교통법규·생활에 도움되는 정보를 AI로 개인화해 귀찮지 않게 전달하고, 광고·콘텐츠·서비스로 확장하고 싶다. 개발·ERP·이커머스·메시징·AX 경험이 있다."
+- success_criteria: 첫 고객 세그먼트 1개와 핵심 job 1개를 선택하고, 경쟁 대체재 대비 차별화 가설, 4주 MVP 범위/제외 범위, 10~20명 검증 실험, 대표 지표 1개, 수익화 우선순위와 중단 기준을 한국어 전략 리포트로 제시한다.
+- metric_question: 사용자가 받은 공공정보를 실제 행동으로 옮기고 다음에도 다시 받기를 원하는가?
+- metric_signal: 첫 20명 중 주 1회 이상 재방문·저장·알림 설정·행동 확인 중 하나를 남긴 비율과 5명 이상의 유료 의향 인터뷰
+- metric_decision_rule: 반복 사용과 유료 의향이 함께 확인되면 continue, 정보 소비만 있고 행동/재방문이 약하면 핵심 job·전달 방식을 change, 출처 신뢰·개인화·알림 피로 중 해결 불가 문제가 크면 hold
+- boundary: 코드 구현·공개 광고 집행·유료 결제·개인정보/자격증명 변경은 제안만 하고 실행하지 않는다. 정책·법규 정보는 공식 출처 확인과 면책/최신성 경계를 포함한다.
+- next_action: Planner → Developer → Marketer → Operator가 Knowledge Lab과 기존 Infinity 학습을 확인하고 시장 가설, MVP 설계, 검증 실험, 수익화 판단을 각각 작성한 뒤 Genie가 합성하고 Red가 네 문장 검증을 수행한다.
+
 ## Active
 
 ## Waiting
