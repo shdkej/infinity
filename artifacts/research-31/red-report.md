@@ -6,4 +6,5 @@
 - 요청과 맞나? **PASS** — 9개 후보, 고객·반복 문제·지불 주체·온라인 방식·강점 적합도·초기 난이도, 상위 3개·제외군·다음 질문을 포함했다. 코드·공개·광고·결제·개인정보 변경은 실행하지 않았다.
 
 검토 범위: `artifacts/research-31/market-category-candidates.md`, 역할별 Planner/Developer/Marketer/Operator 결과, research-30 및 Knowledge Lab 참조.
+최종 파일 재검증: `PASS` — 9개 후보와 공통 비교축, 상위 3개, 제외군, 4주 행동증거·지불 주체·승인 경계가 아티팩트와 원장에 실제 반영되었고 `check_intents_consistency.py`, `check_metric_contract.py`가 통과했다.
 검증 상태: `pass`
