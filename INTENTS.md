@@ -56,8 +56,6 @@
 
 ## Active
 
-## Inbox
-
 ## Waiting
 ### [marketing-123] 토스 쉐어링크 Threads 테스트 후속 실행
 - status: waiting

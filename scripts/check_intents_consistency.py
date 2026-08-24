@@ -51,8 +51,16 @@ def date_key(value: str) -> tuple[int, int, int, int, int, int]:
 
 def main() -> int:
     path = Path(sys.argv[1]) if len(sys.argv) > 1 else Path("INTENTS.md")
-    sections = split_sections(path.read_text())
+    text = path.read_text()
+    sections = split_sections(text)
     errors: list[str] = []
+
+    headers = re.findall(r"^##\s+(.+?)\s*$", text, re.M)
+    seen_headers: set[str] = set()
+    for header in headers:
+        if header in seen_headers:
+            errors.append(f"Duplicate lane section: ## {header}")
+        seen_headers.add(header)
 
     for lane in ("Inbox", "Active", "Waiting"):
         for comment in COMMENT_RE.finditer(sections.get(lane, "")):
