@@ -72,6 +72,7 @@
 
 ## Archive
 
+<!-- research-33 completed 2026-08-24T22:25Z → intents/archive/research-33.md -->
 ### [research-33] 미니멀 고객의 실행 문제 기반 시장 카테고리 재검토
 - status: archived
 - target_agent: genie
