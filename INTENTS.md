@@ -4,6 +4,29 @@
 
 ## Inbox
 
+### [research-33] 미니멀 고객의 실행 문제 기반 시장 카테고리 재검토
+- status: inbox
+- target_agent: genie
+- priority: high
+- permission: L0-research-and-strategy
+- requested: 2026-08-24T20:22Z
+- execution_mode: multi_subagent_roles
+- projects: personal-brand,minimalism,travel,consumer-decision,mvp,monetization,infinity
+- task_type: market-category-reassessment
+- topics: minimal-lifestyle,minimal-travel,carry-on-travel,intentional-consumption,purchase-decision,travel-operations,small-business-operations,first-10-users
+- source_intents: research-30,research-31
+- goal: 기존 소상공인 대상 운영 서비스 제안과 미니멀 고객군 후보를 같은 기준으로 재검토하고, 미니멀함이라는 취향이 아니라 미니멀한 선택 때문에 반복적으로 발생하는 비용·시간·불편을 해결하려는 좁은 고객군과 첫 검증 카테고리 하나를 추천한다.
+- user_request: "소상공인 운영 서비스 대신 미니멀한 생활·여행·소비 방식을 실제로 실행하는 좁은 고객군부터 접근하고 싶다. 미니멀 장기여행·기내수하물 여행, 의도적 소비·구매 의사결정 도구, 신혼·장기여행자의 준비·이동 운영을 비교하고 첫 검증 카테고리를 추천해달라."
+- success_criteria: 미니멀 고객 페르소나의 가장 비싼 반복 문제, 문제 유형(취향·콘텐츠/구매 의사결정/여행·이동 운영/생활 관리), 현재 유료 대안·경쟁 서비스, 작은 콘텐츠와 간단한 앱으로 첫 10명에 접근하는 경로를 근거와 함께 비교한다. 미니멀 라이프보다 구체적인 시장 카테고리명 3개를 제안하고 접근성·지불의사·차별화 가능성을 비교한다. 소상공인 운영 서비스도 동일 평가축에 포함하고, 최종 추천 1개와 4주 비공개 검증 가설·지표·제외 범위를 제시한다.
+- metric_question: 네 후보 중 첫 10명의 실제 행동과 지불 의향을 가장 빠르게 관찰할 수 있는 카테고리를 근거로 고를 수 있는가?
+- metric_signal: 후보별 반복 문제의 빈도·비용, 기존 유료 대안, 첫 고객 접근 경로, 인터뷰/대기등록/사전신청 행동, 유료 의향, 4주 내 관찰 가능한 전환 신호
+- metric_decision_rule: 한 카테고리가 반복 문제·접근 경로·관찰 가능한 행동·지불 의향의 네 축에서 모두 근거를 확보하면 continue, 취향/콘텐츠 소비에만 머물면 change, 핵심 원자료가 부족하면 hold
+- boundary: 공개 게시·광고·결제·외부 발송·개인정보 수집·코드 구현은 실행하지 않는다. 시장 근거가 없는 수치와 고객 지불 의향은 추정하지 않고 불확실성으로 표시한다. 실제 고객 모집이나 유료 실험은 별도 승인된 후속 범위로 둔다.
+- required_sequence: 기존 research-30·research-31 산출물 확인 → Planner 재정의·평가축 → Developer 4주 MVP/데이터·채널·운영 최소안 → Marketer 대안·접근 메시지·지불의사 → Operator 검증 지표·실패 경계 → Genie synthesis → Red 검증
+- next_action: research-30의 공공정보 서비스 제안과 research-31의 시장 후보를 출발점으로 네 후보 및 소상공인 운영 서비스를 동일 평가표로 재검토하고, 최종 추천과 첫 10명 검증안을 작성한다.
+- source_archive: intents/archive/research-30.md; intents/archive/research-31.md
+- red_status: pending
+
 ### [research-32] Starter Story 솔로프리너 사례 1개 깊은 복원
 - status: waiting
 - target_agent: genie
