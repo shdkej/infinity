@@ -4,26 +4,6 @@
 
 ## Inbox
 
-### [research-34] 검증된 상위 시장 카테고리와 수익화 경로 탐색
-- status: inbox
-- target_agent: genie
-- priority: high
-- permission: L0-research-and-strategy
-- requested: 2026-08-24T22:08Z
-- execution_mode: multi_subagent_roles
-- projects: personal-brand,market-research,monetization,mvp,infinity
-- task_type: established-market-category-mapping
-- topics: market-categories,monetization-models,niche-targeting,education,marketing,productivity,travel,consumer-services,creator-business
-- goal: 사용자가 노릴 니치 타깃을 고르기 전에, 이미 존재하고 검증된 상위 시장 카테고리와 각 카테고리에서 실제로 쓰이는 수익화 방법을 구조화해 비교한다. 니치 타깃은 시장 카테고리와 분리해 표현한다.
-- user_request: "어떤 시장의 어떤 수익화 방법이 있는지, 이미 있는 시장의 카테고리가 어떤 것인지 확인하고 싶다. 니치한 타깃을 노리되 시장은 이미 검증된 시장이어야 한다."
-- success_criteria: 최소 8개 이상의 명확한 상위 시장 카테고리(예: 마케팅, 교육/코칭, 생산성/SaaS, 여행 서비스, 커머스/추천, 커리어/취업, 금융/절약, 건강/웰니스 등)를 제시하고, 각 시장별 대표 고객·반복 문제·검증된 수익화 방식·가격 구조·주요 경쟁 대안·니치 타깃 예시·첫 10명 접근 경로를 근거 링크와 함께 비교한다. 마지막에는 사용자의 자산과 관심사를 고려한 유력 시장 3개를 추천하되, 추천 근거와 아직 모르는 사실을 분리한다.
-- metric_question: 시장 카테고리와 수익화 방식의 지도가 완성되어, 사용자가 니치 타깃을 어느 상위 시장에 얹을지 선택할 수 있는가?
-- metric_signal: 카테고리별 1차/신뢰 가능한 시장 근거 수, 실제 사업자·가격·수익화 사례 수, 수익화 방식의 반복 확인 여부, 사용자의 선택을 바꾸는 미확인 전제 수
-- metric_decision_rule: 8개 이상 카테고리와 카테고리별 2개 이상 검증된 수익화 방식이 근거로 채워지면 continue, 카테고리명은 있으나 가격·구매자·경쟁 대안이 흐리면 change, 시장 검증을 확인할 자료가 부족하면 hold
-- boundary: 공개 게시·외부 발송·광고·결제·유료 데이터 구매·개인정보 수집·코드 구현은 실행하지 않는다. 시장 규모나 지불 의향을 근거 없이 추정하지 않으며, 취향/라이프스타일을 독립 시장으로 과장하지 않는다.
-- required_sequence: 사용자 정정 반영 → Planner 시장 분류·평가기준 → Developer 근거 수집 계약 → Marketer 카테고리/포지셔닝/수익화 비교 → Operator 재현성·근거 품질 점검 → Genie synthesis → Red 검증
-- next_action: research-33의 문제 중심 결론을 반복하지 말고, established market → monetization model → niche target의 3단 구조로 시장 지도를 다시 작성한다.
-
 ### [research-32] Starter Story 솔로프리너 사례 1개 깊은 복원
 - status: waiting
 - target_agent: genie
@@ -91,6 +71,26 @@
 <!-- 사용자 결정·외부 조건 대기만 기록한다. -->
 
 ## Archive
+
+<!-- research-34 completed 2026-08-24T23:40Z → intents/archive/research-34.md -->
+### [research-34] 검증된 상위 시장 카테고리와 수익화 경로 탐색
+- status: archived
+- target_agent: genie
+- priority: high
+- permission: L0-research-and-strategy
+- execution_mode: multi_subagent_roles
+- artifact: artifacts/research-34/established-market-monetization-map.md
+- report: reports/research-34/20260824T2300Z.html
+- red_status: pass
+- red_report: artifacts/research-34/red-report.md
+- role_sessions: planner=01a035e4-f508-77f2-85c8-25dac7d415bb; developer=01a035e5-157e-7c03-bcc7-54179bf14591; marketer=01a035e5-3db3-7780-b0b5-0a04204eefc0; operator=01a035e5-65d6-7171-b21f-97f505e8c47e; red=01a035f6-52cd-7d92-b141-f85894c6b333
+- knowledge_status: used
+- knowledge_decision: retain-as-operating-principle
+- knowledge_targets: agent-wiki README; Integration/Business; Integration/Creator; bounded-experiment-loop; Idea/Travel; currentness-safe-travel-context; research-33
+- knowledge_reflection: research-33의 문제 중심 결론과 분리해 established market → monetization model → niche target의 세 층으로 시장 지도를 만들고, 시장 존재와 니치 WTP를 구분했다.
+- knowledge_commit: no-promotion-needed
+- archived_at: 2026-08-24T23:40Z
+- next_action: 유력 3개 중 하나를 선택해 별도 승인된 5명+5명 비공개 증거 감사를 연다. 공개·광고·결제·유료 데이터·개인정보 수집·코드 구현은 실행하지 않는다.
 
 <!-- research-33 completed 2026-08-24T22:25Z → intents/archive/research-33.md -->
 ### [research-33] 미니멀 고객의 실행 문제 기반 시장 카테고리 재검토
