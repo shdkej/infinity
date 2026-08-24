@@ -16,13 +16,15 @@
 - topics: youtube-summary,description-ingestion,sns-parsing,x-api,launch-timeline,content-analysis,skill-design
 - goal: Starter Story에 소개된 솔로프리너 사례 1개의 문제 인식부터 제작·최초 공개·초기 홍보·반응·반복 개선까지를 영상·디스크립션·SNS·공식 웹 원문으로 교차검증해 깊은 실행 타임라인으로 복원한다.
 - user_request: "사례 1개 깊게 복원"
+- source_url: https://youtu.be/Q4k8JNYKJT0
+- source_context: 사용자가 지정한 Starter Story 사례 영상. 영상 본문·디스크립션·연결된 공식/SNS 원문을 우선 근거로 사용한다.
 - success_criteria: 영상 요약·디스크립션·원문 SNS 타임라인·공식 외부 근거를 수집하고, 각 단계에 원문 링크·게시일·인용·근거 강도·해석을 붙인 사례 리포트와 재사용 가능한 수집/분석 스킬 설계, 결과 업로드용 페이지 요구사항을 만든다. 확인되지 않은 시기는 추정하지 않는다. Planner PRD와 Red 검증을 포함한다.
 - metric_question: 사례 1개의 최초 실행부터 최근까지를 근거 링크와 함께 재현할 수 있는가?
 - metric_signal: 영상/디스크립션 확보 여부, 플랫폼별 원문 수·최초 확인일, 단계별 근거 링크와 근거 강도, 미확인 구간 수
 - metric_decision_rule: 핵심 단계 4개 이상이 1차 원문으로 재현되면 continue, SNS 한 플랫폼만 가능하면 change, 핵심 원자료가 막히면 hold
 - boundary: 공개 게시·외부 발송·유료 API 구매·자격증명 변경·계정 로그인은 실행하지 않는다. 접근 불가 자료는 추정하지 않고 blocker로 기록한다. 웹페이지 구현은 PRD와 데이터 계약 이후 별도 승인된 후속 범위로 둔다.
 - required_sequence: grill-me 확인값 반영 → Planner PRD → Developer 수집/분석 스킬 설계 → Marketer 벤치마킹 사용성 → Operator 수집 실패·재현성 설계 → Genie synthesis → Red 검증
-- next_action: Genie가 Knowledge Lab과 Starter Story 원자료를 확인하고 Planner PRD를 먼저 작성한다. 사례 선정이 사용자 입력으로 필요한 경우 1개 사례/영상 URL을 Waiting으로 요청한다.
+- next_action: Genie가 Knowledge Lab과 지정 영상 원자료를 확인하고 Planner PRD를 먼저 작성한다. 이후 영상 요약·디스크립션·SNS/공식 웹 원문 수집 가능성을 검증한다.
 
 ## Active
 
