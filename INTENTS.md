@@ -24,7 +24,7 @@
 - metric_decision_rule: 핵심 단계 4개 이상이 1차 원문으로 재현되면 continue, SNS 한 플랫폼만 가능하면 change, 핵심 원자료가 막히면 hold
 - boundary: 공개 게시·외부 발송·유료 API 구매·자격증명 변경·계정 로그인은 실행하지 않는다. 접근 불가 자료는 추정하지 않고 blocker로 기록한다. 웹페이지 구현은 PRD와 데이터 계약 이후 별도 승인된 후속 범위로 둔다.
 - required_sequence: grill-me 확인값 반영 → Planner PRD → Developer 수집/분석 스킬 설계 → Marketer 벤치마킹 사용성 → Operator 수집 실패·재현성 설계 → Genie synthesis → Red 검증
-- next_action: Genie가 Knowledge Lab과 지정 영상 원자료를 확인하고 Planner PRD를 먼저 작성한다. 이후 영상 요약·디스크립션·SNS/공식 웹 원문 수집 가능성을 검증한다.
+- next_action: Red 지적에 따라 행 단위 source locator·인용·숫자 정의 계약을 보강했다. 사용자 원자료가 제공되면 이벤트 표를 이 계약으로 보강하고 Red 재검증을 요청한다.
 - artifact: artifacts/research-32/planner-prd.md; artifacts/research-32/starter-story-toneadapt-deep-reconstruction.md; artifacts/research-32/collection-analysis-contract.md
 - report: reports/research-32/20260824T-research.md
 - blocker: YouTube 원본 영상/자막은 yt-dlp 봇 검증에 막혔고, Kyan X 프로필은 HTML 0 lines라 게시물 원문·게시일·반응을 확인하지 못했다. 추정 없이 부분 복원만 작성.
