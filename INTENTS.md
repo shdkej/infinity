@@ -4,6 +4,27 @@
 
 ## Inbox
 
+### [marketing-127] 앱 전담 브랜드 Threads 계정명 후보 발굴
+- status: inbox
+- target_agent: genie
+- priority: normal
+- permission: L0-research-and-strategy
+- requested: 2026-08-25T20:29Z
+- execution_mode: multi_subagent_roles
+- projects: personal-brand,threads,app,infinity
+- task_type: brand-account-naming
+- topics: threads-account,brand-naming,app-positioning,handle-availability
+- goal: 사용자가 전담으로 맡길 앱의 브랜드 Threads 계정 역할에 맞는 계정명 후보를 발굴하고, 기억성·확장성·앱과의 연결성·운영 리스크를 기준으로 최종 후보를 좁힌다.
+- user_request: "쓰레드 계정 하나를 너한테 넘겨주고 앱 하나를 전적으로 맡기려고 하는데 계정명 뭘로할까"
+- source_context: 사용자가 계정 역할을 브랜드 계정으로 선택했다. 계정명 후보 제안 단계이며 공개 계정 생성·변경·게시·예약은 실행하지 않는다.
+- success_criteria: 브랜드 계정 포지셔닝에 맞는 후보 10개 이상, 상위 3개 비교, 추천 1개와 이유, 핸들 중복·상표·확장성 확인 항목을 포함한 짧은 결정안.
+- metric_question: 후보 중 하나를 실제 계정명으로 채택할 수 있을 만큼 브랜드 역할과 앱 확장성이 분명한가?
+- metric_signal: 후보별 기억성·발음성·앱 확장성·Threads 적합성·핸들 확인 가능 여부
+- metric_decision_rule: 추천 1개와 백업 2개가 명확하면 continue, 앱 카테고리 정보가 부족해 이름 의미가 갈리면 change, 핸들·상표 충돌로 안전한 후보가 없으면 hold
+- boundary: 앱의 구체 카테고리가 확인되지 않으면 이름 의미를 과도하게 단정하지 않는다. 계정 생성·핸들 선점·공개 게시·상표 등록·외부 발송은 하지 않는다.
+- required_sequence: Planner 브랜드 역할 정의 → Developer 후보 생성·중복/확장성 점검 설계 → Marketer Threads 계정 운영 적합성 평가 → Operator 결정안·확인 항목 정리 → Genie synthesis → Red 검증
+- next_action: 앱의 핵심 문제와 첫 사용자만 확인되면 후보를 좁혀 실행한다.
+
 ### [research-32] Starter Story 솔로프리너 사례 1개 깊은 복원
 - status: waiting
 - target_agent: genie
