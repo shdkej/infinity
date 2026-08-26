@@ -6,7 +6,7 @@
 
 <!-- research-35 completed 2026-08-26 → intents/archive/research-35.md; artifacts/research-35/; reports/research-35/20260826T-research.md; red_status: pass. -->
 ### [research-35] 한국 사업자의 앱·웹 디지털 결제수단 조사
-- status: archived
+- status: waiting
 - target_agent: genie
 - priority: high
 - permission: L0-research-and-strategy
@@ -36,6 +36,8 @@
 - knowledge_reflection: 결제 선택은 사업자 국가·스토어 storefront·상품 성격·정산/세무 책임을 먼저 고정하고, 해외 SIM 같은 표면 위치 신호와 법적·금융 자격을 분리한다.
 - knowledge_commit: no-promotion-needed
 - archived_at: 2026-08-26
+- blocker: 로컬 커밋 86d165d9dfd75a8ad12fbe69587149bb02ed4316 생성 완료. origin/main은 13fcf83c7f77a374d2ee8e1db49236d8f2b2b536에 머물러 있으며 git push가 인증/네트워크 응답 없이 정지해 원격 확인을 완료하지 못했다.
+- next_retry_condition: 네트워크/원격 Git 인증이 복구되면 86d165d를 origin/main에 push하고 원격 SHA를 확인한 뒤 Archive 상태를 재개한다.
 
 ### [research-32] Starter Story 솔로프리너 사례 1개 깊은 복원
 - status: waiting
