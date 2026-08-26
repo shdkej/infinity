@@ -4,12 +4,14 @@
 
 ## Inbox
 
+<!-- research-35 completed 2026-08-26 → intents/archive/research-35.md; artifacts/research-35/; reports/research-35/20260826T-research.md; red_status: pass. -->
 ### [research-35] 한국 사업자의 앱·웹 디지털 결제수단 조사
-- status: inbox
+- status: archived
 - target_agent: genie
 - priority: high
 - permission: L0-research-and-strategy
 - requested: 2026-08-26T08:45Z
+- started_at: 2026-08-26T08:46Z
 - execution_mode: multi_subagent_roles
 - projects: app,monetization,payments,infinity
 - task_type: payment-provider-research
@@ -24,6 +26,16 @@
 - boundary: 계정 생성·사업자 심사 신청·결제수단 연결·계약·결제·권한 변경·공개 발송은 실행하지 않는다. 공식 원문을 확인할 수 없는 내용은 추정하지 않는다.
 - required_sequence: grill-me 확인값 반영 → Planner 결제 경로 PRD → Developer 공식 문서 수집/비교 → Marketer 사용자·가격 경험 관점 → Operator 계정·심사·운영 리스크 → Genie synthesis → Red 검증
 - next_action: Genie가 Knowledge Lab과 Apple·사업자 공식 문서를 우선 조사하고, 앱 결제와 웹 결제를 분리한 비교 리포트를 작성한다.
+- artifact: artifacts/research-35/planner-prd.md; artifacts/research-35/payment-comparison.md; artifacts/research-35/red-report.md
+- report: reports/research-35/20260826T-research.md
+- red_status: pass
+- red_report: artifacts/research-35/red-report.md
+- knowledge_status: used
+- knowledge_decision: no-promotion-needed
+- knowledge_targets: agent-wiki README; Integration/Business 관련 원칙
+- knowledge_reflection: 결제 선택은 사업자 국가·스토어 storefront·상품 성격·정산/세무 책임을 먼저 고정하고, 해외 SIM 같은 표면 위치 신호와 법적·금융 자격을 분리한다.
+- knowledge_commit: no-promotion-needed
+- archived_at: 2026-08-26
 
 ### [research-32] Starter Story 솔로프리너 사례 1개 깊은 복원
 - status: waiting
