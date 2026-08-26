@@ -1,0 +1,25 @@
+{
+  "checked_at": "2026-08-19T12:06:31Z",
+  "docs_used": [
+    "https://sharelink-docs.toss.im/guide/open-api",
+    "https://sharelink-docs.toss.im/guide/open-api/auth.md",
+    "https://sharelink-docs.toss.im/guide/open-api/readme.md",
+    "https://sharelink-docs.toss.im/guide/open-api/convention.md"
+  ],
+  "steps": [
+    {
+      "name": "token",
+      "http_status": 200,
+      "result": "success",
+      "scope": "sharelink:write sharelink:read",
+      "token_type": "Bearer",
+      "expires_in": 3599
+    },
+    {
+      "name": "health",
+      "http_status": 200,
+      "resultType": "SUCCESS",
+      "status": "ok"
+    }
+  ]
+}

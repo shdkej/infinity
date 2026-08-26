@@ -23,3 +23,9 @@
 공식 사례 페이지와 제품 웹으로 핵심 4단계 이상을 복원했지만 영상 직접 파일/자막과 SNS 원문·게시일·반응이 없어 완전한 “처음부터 최근까지” 복원은 차단이다. `red_status: pending`, `knowledge_status: used`, `knowledge_decision: retain_in_infinity` (단일 사례의 중간 분석이며 반복 원칙 승격은 Red 후 판단), `follow_up_intent_ids: []`.
 
 재개 조건: YouTube 자막/영상 export와 Kyan X 게시물 URL 또는 export 제공 → Developer가 이벤트 레코드 보강 → Red 검증 → 필요 시 Infinity commit/push 및 결과 페이지 업로드.
+
+## 2026-08-25 heartbeat 재점검
+
+- 기존 artifact/report와 `INTENTS.md`를 재대조했다. 부분 복원 내용, `waiting-partial`, `red_status: pending`은 일관된다.
+- 로컬 작업공간에서 research-32 관련 신규 YouTube 자막/영상 export 또는 Kyan X 원문 URL/export 파일을 찾지 못했다.
+- 그러므로 중복 수집·추정·로그인·공개 행동·유료 API 호출은 실행하지 않았다. 재개 가능한 추가 수집/검증 작업은 없으며, 기존 재개 조건과 blocker를 유지한다.
