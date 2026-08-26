@@ -4,6 +4,27 @@
 
 ## Inbox
 
+### [research-35] 한국 사업자의 앱·웹 디지털 결제수단 조사
+- status: inbox
+- target_agent: genie
+- priority: high
+- permission: L0-research-and-strategy
+- requested: 2026-08-26T08:45Z
+- execution_mode: multi_subagent_roles
+- projects: app,monetization,payments,infinity
+- task_type: payment-provider-research
+- topics: apple-iap,app-store,web-payments,stripe,superwall,korean-business,foreign-sim
+- goal: 한국 사업자가 디지털 구독·1회 구매를 앱과 웹에서 판매할 때 사용할 수 있는 결제 경로를 비교하고, 해외 유심이 사업자·결제 가능성에 미치는 실제 영향을 확인한다.
+- user_request: "한국에서 결제서비스 붙이는 방법 찾아줘. 1. 앱스토어에서 붙이는 방법 2. 토스페이 말고 다른 외국 서비스 가능한지. Stripe는 안되는걸로 알고 있는데 Superwall이나 다른 서비스 있는지 3. 지금 해외인데 해외유심을 이용하면 가능한 방법 있는지"
+- source_context: grill-me 확정값 — 디지털 콘텐츠·기능; 앱 + 웹; 한국 사업자; 구독 + 1회 구매; 한국 고객 중심.
+- success_criteria: Apple 공식 규정에 따른 앱 결제 경로, 한국 사업자가 사용할 수 있는 웹 결제사업자와 제한, Superwall 등 결제·페이월 도구의 역할 구분, 해외 유심의 영향 여부를 1차 자료 링크와 함께 비교하고 추천 아키텍처·주의할 세무/정책 확인 항목을 제시한다.
+- metric_question: 한국 사업자·한국 고객 중심의 앱+웹 디지털 판매에 대해 구현 가능한 결제 조합을 하나로 선택할 수 있는가?
+- metric_signal: Apple·결제사업자·Superwall 공식 문서의 지원 국가/정책/수수료·기능 확인 여부와 해외 유심이 바꾸는 조건의 유무
+- metric_decision_rule: 공식 근거로 앱·웹 조합과 제한이 확정되면 continue, 사업자 심사·계정 조건이 미확정이면 hold, 핵심 정책이 충돌하면 change
+- boundary: 계정 생성·사업자 심사 신청·결제수단 연결·계약·결제·권한 변경·공개 발송은 실행하지 않는다. 공식 원문을 확인할 수 없는 내용은 추정하지 않는다.
+- required_sequence: grill-me 확인값 반영 → Planner 결제 경로 PRD → Developer 공식 문서 수집/비교 → Marketer 사용자·가격 경험 관점 → Operator 계정·심사·운영 리스크 → Genie synthesis → Red 검증
+- next_action: Genie가 Knowledge Lab과 Apple·사업자 공식 문서를 우선 조사하고, 앱 결제와 웹 결제를 분리한 비교 리포트를 작성한다.
+
 ### [research-32] Starter Story 솔로프리너 사례 1개 깊은 복원
 - status: waiting
 - target_agent: genie
