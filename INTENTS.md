@@ -78,8 +78,9 @@
 - boundary: 로그인·쿠키·유료 API·자격증명 변경·공개 게시·봇 제한 우회를 하지 않는다. 공개 재생 수가 없는 Instagram 게시물은 제외한다.
 - artifact: artifacts/research-36/korean-travel-title-evidence-audit.md
 - report: reports/research-36/20260827T0000Z.html
-- blocker: 익명 공개 접근에서 YouTube 개별 메타데이터가 봇 확인에 막혔고, Instagram Reels는 게시일·공개 재생 수·원문 제목을 한 행에서 안정적으로 재현하지 못했다. 검증 완료 행은 YouTube 0, Instagram 0이다.
-- next_action: 사용자가 공개 URL과 해당 화면의 게시일·공개 재생 수 증거를 제공하거나 인증 없는 공식 공개 수집 경로가 확인되면 같은 행 계약으로 재개한다.
+- artifact_followup: artifacts/research-36/platform-access-github-options.md
+- blocker: Instagram Reels는 게시일·공개 재생 수·원문 제목을 한 행에서 안정적으로 재현하지 못했다. YouTube는 익명 웹 접근 대신 공식 YouTube Data API로 재개 가능함을 확인했다.
+- next_action: YouTube는 공식 Data API `search.list -> videos.list` 기반으로 먼저 100건 행 수집을 재개한다. Instagram은 무로그인 공개 permalink 소량 검증만 유지하고, Instaloader 로그인 세션·Apify/외부 API·브라우저 세션 수집은 별도 승인 후 진행한다.
 - red_status: waiting
 - red_report: artifacts/research-36/red-report.md
 - role_sessions: planner=/root/planner_research36; developer=/root/developer_research36; marketer=/root/marketer_research36; operator=/root/operator_research36; red=/root/red_research36
