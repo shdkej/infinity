@@ -59,6 +59,36 @@
 - execution_note: dispatcher accepted and delegated role sequence; no public account action.
 
 ## Waiting
+
+### [research-36] 한국 YouTube·Instagram 여행·미니멀·기록·신혼 제목 100건 근거 수집
+- status: waiting
+- target_agent: genie
+- priority: high
+- permission: L0-research-and-strategy
+- requested: 2026-08-27T00:00Z
+- execution_mode: multi_subagent_roles
+- projects: research-bank,infinity,knowledge-lab
+- task_type: research
+- topics: content,analytics,marketing
+- goal: 2021-08-27 이후 공개 조회/재생 수가 실제 확인되는 한국 YouTube와 Instagram Reels의 여행·미니멀·기록·신혼부부 제목 100건 이상을 행 단위 근거와 함께 수집·분류한다.
+- success_criteria: 각 포함 행에 원문 제목·채널/계정·게시일·공개 조회/재생 수·확인시각·canonical 링크·주제·후킹 패턴·포함 근거가 있고, 100건 미달이면 실제 검증 수·플랫폼별 결손·막힌 이유를 기록한다.
+- metric_question: 완전한 행 단위 근거가 있는 패턴 표본이 원본 제목 실험의 다음 결정을 바꾸는가?
+- metric_signal: 완전 행 수, 플랫폼·후킹 패턴 분포, 필수 필드 충족률, 차단 사유.
+- metric_decision_rule: 100건 이상이며 모든 필수 필드가 있으면 continue, 근거는 완전하나 플랫폼 편향/부분 표본이면 change, 공개 수치를 검증할 수 없으면 hold.
+- boundary: 로그인·쿠키·유료 API·자격증명 변경·공개 게시·봇 제한 우회를 하지 않는다. 공개 재생 수가 없는 Instagram 게시물은 제외한다.
+- artifact: artifacts/research-36/korean-travel-title-evidence-audit.md
+- report: reports/research-36/20260827T0000Z.html
+- blocker: 익명 공개 접근에서 YouTube 개별 메타데이터가 봇 확인에 막혔고, Instagram Reels는 게시일·공개 재생 수·원문 제목을 한 행에서 안정적으로 재현하지 못했다. 검증 완료 행은 YouTube 0, Instagram 0이다.
+- next_action: 사용자가 공개 URL과 해당 화면의 게시일·공개 재생 수 증거를 제공하거나 인증 없는 공식 공개 수집 경로가 확인되면 같은 행 계약으로 재개한다.
+- red_status: waiting
+- red_report: artifacts/research-36/red-report.md
+- role_sessions: planner=/root/planner_research36; developer=/root/developer_research36; marketer=/root/marketer_research36; operator=/root/operator_research36; red=/root/red_research36
+- knowledge_status: used
+- knowledge_decision: retain-as-operating-principle
+- knowledge_targets: agent-wiki README; concepts/metric-question-contract.mdx; concepts/evidence-bounded-content-experiment.mdx; concepts/currentness-safe-travel-context.mdx; TASTE.md; Threads.md; Content_Strategy.md; BRAND.md
+- knowledge_reflection: 공개 수치가 보이는 검색 결과를 행 단위 증거로 과장하지 않고, 제목 품질은 조회 수가 아니라 구체 선택·제약·검증 가능성으로 판단한다.
+- knowledge_commit: no-promotion-needed
+
 ### [marketing-123] 토스 쉐어링크 Threads 테스트 후속 실행
 - status: waiting
 - target_agent: genie
