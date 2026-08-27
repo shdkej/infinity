@@ -1,9 +1,19 @@
 # Red 검증 — research-36
 
-검증 결과, artifact와 report는 검증 완료 행이 0건임을 일관되게 명시하고 있어 표본 수·플랫폼별 수집 결과·날짜/제목/채널 필드는 검증할 행 자체가 없습니다.
+후속 검증 결과, YouTube 공식 Data API 수집 파일은 요구한 행 단위 필드를 충족합니다.
 
-행별 URL이 전혀 생성되지 않았으므로 요구된 3개 무로그인 라이브 샘플 검증도 수행 불가하며, 이를 성공한 표본 검증으로 대체해서는 안 됩니다.
+- 대상 파일: `artifacts/research-36/youtube-title-evidence-20260827.csv`
+- 검증 행 수: 120
+- 필수 필드 누락: 0
+- 2021-08-27 이전 게시일: 0
+- 미래 게시일: 0
+- 잘못된 canonical URL: 0
+- 조회수 숫자 결손: 0
+- 고유 URL 수: 120
+- 고유 채널 수: 109
 
-YouTube 익명 봇 확인과 Instagram 비로그인 Reels의 제목·게시일·공개 재생 수 동시 비재현이라는 제약은 artifact의 포함 계약 및 금지된 로그인·자격증명·우회 수단과 논리적으로 맞습니다.
+YouTube 표본은 `search.list -> videos.list(part=snippet,statistics)` 공식 API 응답으로 제목·채널·게시일·공개 조회수를 동시에 확보했으므로, research-36의 YouTube 범위는 PASS로 본다.
 
-따라서 요청한 100건 수집은 완료가 아니며, 재개 조건을 명시한 Waiting 상태는 적절하지만 Red 상태는 PASS가 아니라 WAITING입니다.
+다만 Instagram Reels는 여전히 0건이며, 로그인 세션·브라우저 세션·유료 API·자격증명 변경 없이 대량 수집을 성공했다고 말하면 안 됩니다.
+
+따라서 전체 research-36 상태는 **YouTube PASS / Instagram WAITING**입니다. 다음 액션은 YouTube 120행 표본으로 제목 패턴 분석을 진행하고, Instagram은 별도 승인 전까지 보조 트랙으로 유지하는 것입니다.

@@ -4,6 +4,14 @@
 
 ## Inbox
 
+<!-- 실행 대기 항목 없음. -->
+
+## Active
+
+<!-- 실행 중인 항목 없음. -->
+
+## Waiting
+
 ### [research-32] Starter Story 솔로프리너 사례 1개 깊은 복원
 - status: waiting
 - target_agent: genie
@@ -31,8 +39,6 @@
 - red_status: pending
 - next_retry_condition: 사용자가 YouTube 자막/영상 export와 Kyan X 게시물 URL 또는 export를 제공하면 이벤트 타임라인을 보강하고 Red 검증을 재개한다.
 
-## Active
-
 ### [marketing-127] 앱 전담 브랜드 Threads 계정명 후보 발굴
 - status: waiting
 - target_agent: genie
@@ -58,8 +64,6 @@
 - started_at: 2026-08-25T20:30Z
 - execution_note: dispatcher accepted and delegated role sequence; no public account action.
 
-## Waiting
-
 ### [research-36] 한국 YouTube·Instagram 여행·미니멀·기록·신혼 제목 100건 근거 수집
 - status: waiting
 - target_agent: genie
@@ -79,9 +83,13 @@
 - artifact: artifacts/research-36/korean-travel-title-evidence-audit.md
 - report: reports/research-36/20260827T0000Z.html
 - artifact_followup: artifacts/research-36/platform-access-github-options.md
-- blocker: Instagram Reels는 게시일·공개 재생 수·원문 제목을 한 행에서 안정적으로 재현하지 못했다. YouTube는 익명 웹 접근 대신 공식 YouTube Data API로 재개 가능함을 확인했다.
-- next_action: YouTube는 공식 Data API `search.list -> videos.list` 기반으로 먼저 100건 행 수집을 재개한다. Instagram은 무로그인 공개 permalink 소량 검증만 유지하고, Instaloader 로그인 세션·Apify/외부 API·브라우저 세션 수집은 별도 승인 후 진행한다.
-- red_status: waiting
+- artifact_youtube: artifacts/research-36/youtube-title-evidence-20260827.md
+- data_youtube: artifacts/research-36/youtube-title-evidence-20260827.csv
+- artifact_patterns: artifacts/research-36/youtube-title-patterns-20260827.md
+- result: YouTube 공식 Data API `search.list -> videos.list` 기반으로 2021-08-27 이후 한국어 여행·미니멀·기록·신혼/부부 관련 제목 120행을 확보했다. 모든 행은 제목·채널·게시일·공개 조회수·확인시각·canonical URL·주제·후킹 패턴을 가진다.
+- blocker: Instagram Reels는 게시일·공개 재생 수·원문 제목을 한 행에서 안정적으로 재현하지 못했다.
+- next_action: YouTube 패턴 분석을 바탕으로 사용자 콘텐츠 제목 실험을 `숫자 조건 / 현실 반전 / 선택 비교 / 기록 방식` 후보군으로 만든다. Instagram은 무로그인 공개 permalink 소량 검증만 유지하고, Instaloader 로그인 세션·Apify/외부 API·브라우저 세션 수집은 별도 승인 후 진행한다.
+- red_status: youtube-pass-instagram-waiting
 - red_report: artifacts/research-36/red-report.md
 - role_sessions: planner=/root/planner_research36; developer=/root/developer_research36; marketer=/root/marketer_research36; operator=/root/operator_research36; red=/root/red_research36
 - knowledge_status: used
