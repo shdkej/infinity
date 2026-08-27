@@ -87,9 +87,10 @@
 - data_youtube: artifacts/research-36/youtube-title-evidence-20260827.csv
 - artifact_patterns: artifacts/research-36/youtube-title-patterns-20260827.md
 - artifact_threads_check: artifacts/research-36/threads-query-check-20260827.md
+- artifact_instagram_smoke: artifacts/research-36/instagram-mobile-canvas-smoke-20260827.md
 - result: YouTube 공식 Data API `search.list -> videos.list` 기반으로 2021-08-27 이후 한국어 여행·미니멀·기록·신혼/부부 관련 제목 120행을 확보했다. 모든 행은 제목·채널·게시일·공개 조회수·확인시각·canonical URL·주제·후킹 패턴을 가진다.
-- blocker: Instagram Reels는 게시일·공개 재생 수·원문 제목을 한 행에서 안정적으로 재현하지 못했다. Threads는 공식 조회 경로가 있으나 현재 로컬에 Meta/Threads API 토큰이 없어 실제 API smoke test 전이다.
-- next_action: YouTube 패턴 분석을 바탕으로 사용자 콘텐츠 제목 실험을 `숫자 조건 / 현실 반전 / 선택 비교 / 기록 방식` 후보군으로 만든다. Threads는 사용자 승인 후 공식 API 토큰/권한 기반 5키워드 smoke test를 별도 진행한다. Instagram은 무로그인 공개 permalink 소량 검증만 유지하고, Instaloader 로그인 세션·Apify/외부 API·브라우저 세션 수집은 별도 승인 후 진행한다.
+- blocker: Instagram Reels는 모바일 canvas에서 공개 popular/tag page의 URL·계정·공개 수치·캡션 일부 12행이 잡혔지만, 게시일을 한 행에서 아직 확보하지 못했다. Threads는 공식 조회 경로가 있으나 현재 로컬에 Meta/Threads API 토큰이 없어 실제 API smoke test 전이다.
+- next_action: YouTube 패턴 분석을 바탕으로 사용자 콘텐츠 제목 실험을 `숫자 조건 / 현실 반전 / 선택 비교 / 기록 방식` 후보군으로 만든다. Instagram은 모바일 canvas 공개 조회를 `partial smoke pass`로 두고, 릴스 permalink 개별 페이지에서 게시일 추출 가능 여부를 확인한다. Threads는 사용자 승인 후 공식 API 토큰/권한 기반 5키워드 smoke test를 별도 진행한다. Instaloader 로그인 세션·Apify/외부 API·브라우저 세션 대량 수집은 별도 승인 후 진행한다.
 - red_status: youtube-pass-instagram-waiting
 - red_report: artifacts/research-36/red-report.md
 - role_sessions: planner=/root/planner_research36; developer=/root/developer_research36; marketer=/root/marketer_research36; operator=/root/operator_research36; red=/root/red_research36
