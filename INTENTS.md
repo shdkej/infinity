@@ -138,6 +138,20 @@
 
 ## Archive
 
+<!-- design-05 completed 2026-08-27T00:15Z → intents/archive/design-05.md; artifacts/design-05/; reports/design-05/20260827T0015Z.html; red_status: pass. -->
+### [design-05] 이집트 여행 브이로그용 세로 영수증 B-roll 오버레이
+- status: archived
+- target_agent: genie
+- execution_mode: multi_subagent_roles
+- artifact: artifacts/design-05/egypt-giza-field-receipt-overlay.png; artifacts/design-05/egypt-giza-field-receipt-overlay-preview-1920x1080.png
+- report: reports/design-05/20260827T0015Z.html
+- red_status: pass
+- red_report: artifacts/design-05/red-report.md
+- role_sessions: planner=/root/planner_egypt_receipt; developer=/root/developer_egypt_receipt; marketer=/root/marketer_egypt_receipt; operator=/root/operator_egypt_receipt; red=/root/red_egypt_receipt
+- knowledge_status: used; knowledge_decision: retain-as-operating-principle; knowledge_commit: no-promotion-needed
+- metric_result: RGBA 720×1800, 모서리 alpha 0·중심 alpha 240, 1920×1080 좌상단 프리뷰 가독성, Red PASS
+- next_action: 편집 타임라인에 x=80,y=76,w=330 내외로 삽입
+
 <!-- research-35 completed 2026-08-26 → intents/archive/research-35.md; artifacts/research-35/; reports/research-35/20260826T-research.md; red_status: pass. -->
 ### [research-35] 한국 사업자의 앱·웹 디지털 결제수단 조사
 - status: archived
