@@ -1,0 +1,43 @@
+{
+  "retrieved_at_utc": "2026-08-28T21:06:41Z",
+  "channels": [
+    {
+      "channel": "플팽부부",
+      "channel_id": "UCsEfn-G__mrwWwhw2cZKu6Q",
+      "pages": 2,
+      "videos_seen": 100,
+      "max_view_seen": 249482,
+      "min_view_seen": 20575,
+      "stop_reason": "page_max_below_100000"
+    },
+    {
+      "channel": "시칠리안 SICILIAN",
+      "channel_id": "UCchu6XLsbV9PISj5b7XArQA",
+      "pages": 3,
+      "videos_seen": 134,
+      "max_view_seen": 491952,
+      "min_view_seen": 68586,
+      "stop_reason": "page_max_below_100000"
+    },
+    {
+      "channel": "하루다씀 HARUDASSEUM",
+      "channel_id": "UC7wGJnpnPk50yMm6Kv6lMsQ",
+      "pages": 1,
+      "videos_seen": 50,
+      "max_view_seen": 38739,
+      "min_view_seen": 1087,
+      "stop_reason": "page_max_below_100000"
+    },
+    {
+      "channel": "한달살러 신디와쏭 Shindywassong",
+      "channel_id": "UC1E2DOD7f4E-bfKGUr1r2jQ",
+      "pages": 2,
+      "videos_seen": 89,
+      "max_view_seen": 1433320,
+      "min_view_seen": 6175,
+      "stop_reason": "no_next_page"
+    }
+  ],
+  "qualifying_rows": 107,
+  "excluded_rows": 266
+}

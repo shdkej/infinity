@@ -21,8 +21,14 @@
 - boundary: 로그인·쿠키·유료 API·자격증명 변경·봇 제한 우회·공개 게시·외부 발송은 하지 않는다. 원문에 없는 반응 수치나 영상 내용을 추정하지 않는다.
 - required_sequence: Knowledge Lab 확인 → Planner → Developer → Marketer → Operator → Genie synthesis → Red 검증 → HTML report → commit/push → remote verification
 - correction: 단일 플팽부부 채널 조사로 잘못 Archive된 이전 실행은 원요청을 충족하지 못하므로 superseded로 남긴다. 이 Active intent가 research-37의 유효 실행 기록이다.
+- api_recheck_at: 2026-08-28T21:06:41Z
+- api_source: YouTube Data API `search.list(order=viewCount, channelId) -> videos.list(part=snippet,statistics)`
+- api_artifact: artifacts/research-37/four-channel-api-comparison.md
+- api_data: artifacts/research-37/four-channel-api-evidence.csv
+- api_collection_summary: artifacts/research-37/four-channel-api-collection-summary.json
 - red_status: waiting
-- red_report: artifacts/research-37/red-report-corrected.md
-- report: reports/research-37/20260828T1934Z-four-channel-red-waiting.html
-- blocker: 공식 RSS 최신 15개 창에서 플팽부부·하루다씀의 10만+ 완전 행을 확보하지 못했다. 인증 없는 개별 과거 영상 메타데이터는 bot confirmation으로 검증 불가했다.
-- next_action: 인증 없는 공식 원문으로 플팽부부·하루다씀의 날짜·공개 조회 수·canonical URL이 함께 보이는 10만+ 행을 각각 확보한 뒤 재개한다.
+- red_report: artifacts/research-37/red-report-api.md
+- report: reports/research-37/20260828T2108Z-youtube-api-waiting.html
+- result_update: 공식 YouTube API로 재수집해 플팽부부 4개, 시칠리안 85개, 신디와쏭 18개의 10만+ 완전 행을 확보했다. 하루다씀은 API `order=viewCount` 기준 상위 50개 중 최고 조회수가 38,739회라 10만+ 행이 없었다.
+- blocker: RSS 최신 15개 한계는 해소됐지만, 하루다씀 HARUDASSEUM 채널에서 공식 YouTube API 기준 10만+ 공개 영상이 확인되지 않아 4개 채널 모두 최소 1개라는 성공 기준을 충족하지 못했다.
+- next_action: 하루다씀을 `10만+ 없음`으로 결론 내리고 3채널 비교로 전환할지, 아니면 하루다씀 대신 10만+ 영상이 있는 대체 여행 채널을 지정할지 결정한다.
