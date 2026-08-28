@@ -8,7 +8,24 @@
 
 ## Active
 
-<!-- 실행 중인 항목 없음. -->
+### [research-37] 여행 YouTube 4개 채널 10만 조회 이상 영상 제목 비교 조사
+- status: active
+- target_agent: genie
+- priority: high
+- permission: L0-research-and-strategy
+- scope_corrected_at: 2026-08-28T19:20Z
+- execution_mode: multi_subagent_roles
+- projects: research-bank,infinity,knowledge-lab,world-travel
+- task_type: youtube-title-evidence-comparison
+- channel_scope: 플팽부부, 시칠리안, 하루다씀, 신디와쏭
+- goal: 4개 YouTube 채널의 공개 영상 중 조회수 10만 이상인 영상을 채널별로 수집하고, 제목을 비교 분석 가능한 근거 목록으로 정리한다.
+- success_criteria: 각 행에 원문 제목·채널명·게시일·공개 조회수·canonical URL·확인시각을 기록하고 채널별 수집 수·결손 사유·교차 제목 패턴을 제시한다. 4개 채널 모두를 포함해야 한다.
+- metric_question: 4개 채널에서 공개 조회수 10만 이상 영상 제목의 채널별 목록이 비교 가능한 근거 표본이 되는가?
+- metric_signal: 채널별 확인 영상 수, 행 필수 필드 충족률, 채널별 결손/제외 사유, 공통·차별 제목 패턴 수
+- metric_decision_rule: 4개 채널 모두에서 최소 1개 이상 공개 근거 행을 확보하고 필수 필드가 충족되면 continue, 일부 채널만 확보되면 change, 채널 식별 또는 공개 조회수를 검증할 수 없으면 hold
+- boundary: 로그인·쿠키·유료 API·자격증명 변경·봇 제한 우회·공개 게시·외부 발송은 하지 않는다.
+- previous_invalid_run: intents/archive/research-37.md (single-channel; superseded)
+- next_action: Genie가 4개 역할을 병렬 실행하고 4개 채널의 10만 조회 이상 공개 원문 근거를 수집한다.
 
 ## Waiting
 
@@ -138,7 +155,7 @@
 
 ## Archive
 
-<!-- research-37 completed 2026-08-28T1912Z → intents/archive/research-37.md; artifacts/research-37/; reports/research-37/20260828T1908Z.html; red_status: pass. -->
+<!-- research-37 single-channel execution superseded 2026-08-28T1920Z → intents/archive/research-37.md. Valid re-execution is Active. -->
 
 <!-- design-05 completed 2026-08-27T00:15Z → intents/archive/design-05.md; artifacts/design-05/; reports/design-05/20260827T0015Z.html; red_status: pass. -->
 ### [design-05] 이집트 여행 브이로그용 세로 영수증 B-roll 오버레이

@@ -1,7 +1,9 @@
-# research-37 — 플팽부부 YouTube 채널 근거 기반 조사
+# research-37 — 잘못된 단일 채널 실행 (superseded)
 
 - id: research-37
-- status: archived
+- status: superseded
+- superseded_at: 2026-08-28T19:20:00Z
+- superseded_reason: 원 요청은 플팽부부·시칠리안·하루다씀·신디와쏭 4개 채널의 10만 조회 이상 인기 영상 제목 비교였으나, 이 실행은 플팽부부 단일 채널만 다뤘다. 유효한 재실행은 intents/active/research-37.md에서 진행한다.
 - completed_at: 2026-08-28T19:12Z
 - projects: [research-bank, infinity, knowledge-lab, world-travel]
 - task_type: channel-research
