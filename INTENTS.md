@@ -138,6 +138,8 @@
 
 ## Archive
 
+<!-- research-37 completed 2026-08-28T1912Z → intents/archive/research-37.md; artifacts/research-37/; reports/research-37/20260828T1908Z.html; red_status: pass. -->
+
 <!-- design-05 completed 2026-08-27T00:15Z → intents/archive/design-05.md; artifacts/design-05/; reports/design-05/20260827T0015Z.html; red_status: pass. -->
 ### [design-05] 이집트 여행 브이로그용 세로 영수증 B-roll 오버레이
 - status: archived
