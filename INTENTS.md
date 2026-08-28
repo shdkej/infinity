@@ -9,11 +9,12 @@
 ## Active
 
 ### [research-37] 여행 YouTube 4개 채널 10만 조회 이상 영상 제목 비교 조사
-- status: active
+- status: waiting
 - target_agent: genie
 - priority: high
 - permission: L0-research-and-strategy
 - scope_corrected_at: 2026-08-28T19:20Z
+- started_at: 2026-08-28T19:25Z
 - execution_mode: multi_subagent_roles
 - projects: research-bank,infinity,knowledge-lab,world-travel
 - task_type: youtube-title-evidence-comparison
@@ -25,7 +26,11 @@
 - metric_decision_rule: 4개 채널 모두에서 최소 1개 이상 공개 근거 행을 확보하고 필수 필드가 충족되면 continue, 일부 채널만 확보되면 change, 채널 식별 또는 공개 조회수를 검증할 수 없으면 hold
 - boundary: 로그인·쿠키·유료 API·자격증명 변경·봇 제한 우회·공개 게시·외부 발송은 하지 않는다.
 - previous_invalid_run: intents/archive/research-37.md (single-channel; superseded)
-- next_action: Genie가 4개 역할을 병렬 실행하고 4개 채널의 10만 조회 이상 공개 원문 근거를 수집한다.
+- red_status: waiting
+- red_report: artifacts/research-37/red-report-corrected.md
+- report: reports/research-37/20260828T1934Z-four-channel-red-waiting.html
+- blocker: 공식 RSS 최신 15개 창에서 플팽부부·하루다씀의 10만+ 완전 행을 확보하지 못했다. RSS는 과거 영상 부재를 뜻하지 않으며, 인증 없는 개별 과거 영상 메타데이터는 bot confirmation으로 검증 불가했다.
+- next_action: 인증 없는 공식 원문으로 플팽부부·하루다씀의 날짜·공개 조회 수·canonical URL이 함께 보이는 10만+ 행을 각각 확보한 뒤 재개한다.
 
 ## Waiting
 

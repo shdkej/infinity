@@ -1,6 +1,6 @@
 # research-37 여행 YouTube 4개 채널 10만 조회 이상 영상 제목 비교 조사
 
-- status: active
+- status: waiting
 - target_agent: genie
 - priority: high
 - permission: L0-research-and-strategy
@@ -21,4 +21,8 @@
 - boundary: 로그인·쿠키·유료 API·자격증명 변경·봇 제한 우회·공개 게시·외부 발송은 하지 않는다. 원문에 없는 반응 수치나 영상 내용을 추정하지 않는다.
 - required_sequence: Knowledge Lab 확인 → Planner → Developer → Marketer → Operator → Genie synthesis → Red 검증 → HTML report → commit/push → remote verification
 - correction: 단일 플팽부부 채널 조사로 잘못 Archive된 이전 실행은 원요청을 충족하지 못하므로 superseded로 남긴다. 이 Active intent가 research-37의 유효 실행 기록이다.
-- next_action: Genie가 4개 역할을 병렬 실행하고 4개 채널의 10만 조회 이상 공개 원문 근거를 수집한다.
+- red_status: waiting
+- red_report: artifacts/research-37/red-report-corrected.md
+- report: reports/research-37/20260828T1934Z-four-channel-red-waiting.html
+- blocker: 공식 RSS 최신 15개 창에서 플팽부부·하루다씀의 10만+ 완전 행을 확보하지 못했다. 인증 없는 개별 과거 영상 메타데이터는 bot confirmation으로 검증 불가했다.
+- next_action: 인증 없는 공식 원문으로 플팽부부·하루다씀의 날짜·공개 조회 수·canonical URL이 함께 보이는 10만+ 행을 각각 확보한 뒤 재개한다.
