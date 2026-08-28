@@ -4,7 +4,23 @@
 
 ## Inbox
 
-<!-- 실행 대기 항목 없음. -->
+### [research-37] 플팽부부 YouTube 채널 근거 기반 조사
+- status: inbox
+- target_agent: genie
+- priority: high
+- permission: L0-research-and-strategy
+- requested: 2026-08-28T18:41Z
+- execution_mode: multi_subagent_roles
+- projects: research-bank,infinity,knowledge-lab,world-travel
+- task_type: channel-research
+- topics: youtube,travel-couple,channel-analysis,content-strategy
+- goal: Slack 스레드에서 공유된 플팽부부 YouTube 채널의 공개 정보와 확인 가능한 영상 원문을 바탕으로, 여행·한달살기·주거 콘텐츠 구조와 재사용 가능한 인사이트를 근거와 함께 조사한다.
+- source_url: https://youtube.com/@flyingpenguin992
+- metric_question: 근거가 있는 채널 분석이 세계여행 YouTube의 첫 콘텐츠 포맷 또는 제목 실험 중 하나를 바꿀 만큼 구체적인가?
+- metric_signal: 확인된 영상 수, 원문 필드 충족률, 반복 포맷 수, 적용/비적용 판단 근거
+- metric_decision_rule: 5개 이상 영상의 원문 근거와 실행 가능한 포맷 또는 제목 실험 1개가 확인되면 continue, 채널 메타데이터만 확인되면 change, 공개 원문을 검증할 수 없으면 hold
+- boundary: 로그인·쿠키·유료 API·자격증명 변경·봇 제한 우회·공개 게시·외부 발송은 하지 않는다. 원문에 없는 반응 수치나 영상 내용을 추정하지 않는다.
+- next_action: Genie가 4개 역할을 병렬 실행하고 공개 채널/영상 원문 근거를 수집한다.
 
 ## Active
 
