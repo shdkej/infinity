@@ -164,6 +164,10 @@
 
 ## Archive
 
+<!-- marketing-129 completed 2026-08-29T02:10Z → https://github.com/shdkej/knowledge-lab/blob/main/archive/infinity/marketing-129.md; reports/marketing-129/20260829T0000Z.html; Red role-marketing129-red PASS (actual PNG and rendered report) -->
+
+<!-- marketing-129 completed 2026-08-29T01:28Z → source/infinity/archive/marketing-129.md [projects: infinity,world-travel; type: design; topics: content] (내부 검토용 1080×1350 여행 기록 첫 장 v2와 실제 렌더 Red PASS) -->
+
 <!-- research-37 single-channel execution superseded 2026-08-28T1920Z → intents/archive/research-37.md. Valid re-execution is Active. -->
 
 <!-- design-05 completed 2026-08-27T00:15Z → intents/archive/design-05.md; artifacts/design-05/; reports/design-05/20260827T0015Z.html; red_status: pass. -->
