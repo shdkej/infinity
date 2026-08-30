@@ -1,0 +1,54 @@
+{
+  "intents": {
+    "marketing-129": {
+      "last_phase": "completed",
+      "last_fingerprint": "reports/marketing-129/20260829T0128Z.html|archived|내부 검토용 1080×1350 여행 기록 첫 장 v2를 제작했고, 실제 렌더 및 Red 검증을 통과했다. Instagram 외부 게시·예약·API 호출은 수행하지 않았다.|내부 검토 후 실제 게시 여부와 캡션·해시태그 범위는 별도 승인으로 결정한다.",
+      "last_notified_at": "2026-08-29T02:42:00Z"
+    },
+    "research-37": {
+      "last_phase": "completed",
+      "last_fingerprint": "reports/research-37/20260830T0912Z-closed.md|archived|공식 YouTube API 재수집으로 플팽부부 4개·시칠리안 85개·신디와쏭 18개의 10만+ 완전 행을 확보했고, 하루다씀은 상위 50개 최고 조회수 38,739회로 10만+ 없음 결론을 채택했다.|실제 여행 장면이 생기면 장소명 + 선택 압력 1개 + 기대와 다른 결론 구조로 제목 2안을 만든다.",
+      "last_notified_at": "2026-08-30T09:12:00Z"
+    },
+    "design-05": {
+      "last_phase": "completed",
+      "last_fingerprint": "artifacts/design-05/egypt-giza-field-receipt-overlay-v2.png|archived|v1의 HTML 카드 느낌을 제거한 찢긴 종이 질감의 영상용 투명 PNG v2와 1920×1080 합성 프리뷰를 만들었고 Red 시각 검증을 통과했다.|실제 영상 컷 위에서 330–430px 폭으로 한 번 더 확인한 뒤 편집 타임라인에 삽입한다.",
+      "last_notified_at": "2026-08-27T22:49:00Z"
+    },
+    "research-36": {
+      "last_phase": "blocked",
+      "last_fingerprint": "reports/research-36/20260827T0000Z.html|waiting|YouTube 공식 Data API로 필수 필드가 완비된 한국어 제목 120행을 확보했으며 Instagram Reels는 공개 페이지에서 URL·계정·공개 수치·캡션 일부 12행을 확인했지만 게시일을 확보하지 못해 대기 상태다.|YouTube 표본으로 제목 실험 후보를 만들고, Instagram은 개별 permalink에서 게시일 추출 가능 여부를 소량 검증한다. Threads API 토큰 기반 smoke test 및 로그인·외부 API·대량 수집은 별도 승인 전까지 보류한다.",
+      "last_notified_at": "2026-08-27T13:10:00Z"
+    },
+    "research-35": {
+      "last_phase": "completed",
+      "last_fingerprint": "reports/research-35/20260826T-research.md|archived|red_status: pass. 앱/웹 결제 경로 비교와 해외 SIM 비영향을 공식 근거로 정리했으며 계정 생성·계약·결제·공개 발송은 하지 않았다.|별도 승인 후 한국 PG 1곳과 Paddle의 실제 온보딩·요율·세무·개인정보 계약 문서를 비교한다. 계정 생성·계약·결제·공개는 보류.",
+      "last_notified_at": "2026-08-26T09:26:00Z"
+    },
+    "marketing-127": {
+      "last_phase": "blocked",
+      "last_fingerprint": "reports/marketing-127/20260825T2036Z-hold.md|waiting|앱의 핵심 문제와 첫 사용자가 확인되지 않아 이름의 의미를 과도하게 단정할 수 있다.|사용자가 앱의 핵심 문제, 첫 사용자, 선호 언어·톤을 확인하면 추천 1개와 백업 2개로 후보를 좁힌다. 핸들·상표 조회와 계정 생성·변경은 별도 승인 전까지 하지 않는다.",
+      "last_notified_at": "2026-08-26T00:32:00Z"
+    },
+    "research-32": {
+      "last_phase": "blocked",
+      "last_fingerprint": "reports/research-32/20260824T-research.md|waiting|YouTube 원본 영상/자막은 yt-dlp 봇 검증에 막혔고, Kyan X 프로필은 HTML 0 lines라 게시물 원문·게시일·반응을 확인하지 못했다. 추정 없이 부분 복원만 작성.|Red 지적에 따라 행 단위 source locator·인용·숫자 정의 계약을 보강했다. 사용자 원자료가 제공되면 이벤트 표를 이 계약으로 보강하고 Red 재검증을 요청한다.",
+      "last_notified_at": "2026-08-26T00:32:00Z"
+    },
+    "marketing-123": {
+      "last_phase": "approval",
+      "last_fingerprint": "artifacts/marketing-123/candidate-posts.md|waiting|Sharelink Open API self-check와 공식 링크 발급은 완료됐다. 남은 blocker는 공개 게시·공개 링크 공유에 대한 사용자 명시 승인이다.|Open API로 발급 완료된 비공개 Sharelink 3개를 최종 게시 초안에 삽입할 수 있다. 공개 Threads 게시 또는 공개 링크 공유 전 사용자에게 명시 승인을 요청한다.",
+      "last_notified_at": "2026-08-26T00:32:00Z"
+    },
+    "research-33": {
+      "last_phase": "completed",
+      "last_fingerprint": "reports/research-33/20260824T2200Z.html|archived|Red PASS. 미니멀 고객의 실행 문제를 기내수하물 중심 장기여행 준비·이동 운영 카테고리로 좁혔고 실제 시장성·가격·지불의사는 미검증으로 유지.|별도 승인 Intent에서 7~30일 여행자 10명 비공개 검증 권한을 확인한다. 공개·광고·결제·개인정보 수집·코드 구현은 하지 않는다.",
+      "last_notified_at": "2026-08-25T10:42:00Z"
+    },
+    "research-34": {
+      "last_phase": "completed",
+      "last_fingerprint": "reports/research-34/20260824T2300Z.html|archived|Red PASS. 9개 상위 시장의 공개 사업자·가격·수수료 구조를 확인하고 크리에이터 교육·멤버십, 좁은 생산성·워크플로, 여행 예약·커머스 추천 순으로 우선순위를 정리했으며 니치 WTP·첫 10명 전환은 미검증.|유력 3개 중 하나를 선택해 별도 승인된 5명+5명 비공개 증거 감사를 연다. 공개·광고·결제·유료 데이터·개인정보 수집·코드 구현은 실행하지 않는다.",
+      "last_notified_at": "2026-08-25T10:42:00Z"
+    }
+  }
+}
