@@ -108,6 +108,7 @@ def main() -> int:
     parent = Path(args.parent).resolve()
     intent_id = args.intent_id
     errors: list[str] = []
+    archive_detail_path: str | None = None
 
     try:
         run(["python3", "scripts/check_intents_consistency.py", "INTENTS.md"], repo)
@@ -137,25 +138,38 @@ def main() -> int:
         ]
         if not dashboard_matches:
             errors.append(f"Remote Archive comment for {intent_id} does not match dashboard parser format")
+        else:
+            archive_detail_path = dashboard_matches[0].group(3)
     except Exception as exc:
         errors.append(f"Remote INTENTS.md check failed: {exc}")
 
-    try:
-        archive_text = knowledge_lab_api_text(f"source/infinity/archive/{intent_id}.md")
-        if f"id: {intent_id}" not in archive_text:
-            errors.append(f"Remote archive file has no id field for {intent_id}")
-        if not ARCHIVE_STATUS_RE.search(archive_text):
-            errors.append(f"Remote archive file is not an accepted archive status for {intent_id}")
-    except Exception as exc:
+    archive_paths = [archive_detail_path] if archive_detail_path else [f"source/infinity/archive/{intent_id}.md"]
+    for archive_path in archive_paths:
+        if not archive_path:
+            continue
         try:
-            run(["git", "fetch", "origin", "main"], parent)
-            archive_text = git_remote_text(parent, f"source/infinity/archive/{intent_id}.md")
+            if archive_path.startswith("source/infinity/archive/"):
+                archive_text = knowledge_lab_api_text(archive_path)
+            else:
+                archive_text = github_api_text(archive_path)
             if f"id: {intent_id}" not in archive_text:
-                errors.append(f"Remote archive file has no id field for {intent_id}")
+                errors.append(f"Remote archive file {archive_path} has no id field for {intent_id}")
             if not ARCHIVE_STATUS_RE.search(archive_text):
-                errors.append(f"Remote archive file is not an accepted archive status for {intent_id}")
-        except Exception as git_exc:
-            errors.append(f"Remote Knowledge Lab archive file check failed: {exc}; Git fallback failed: {git_exc}")
+                errors.append(f"Remote archive file {archive_path} is not an accepted archive status for {intent_id}")
+        except Exception as exc:
+            try:
+                if archive_path.startswith("source/infinity/archive/"):
+                    run(["git", "fetch", "origin", "main"], parent)
+                    archive_text = git_remote_text(parent, archive_path)
+                else:
+                    run(["git", "fetch", "origin", "main"], repo)
+                    archive_text = git_remote_text(repo, archive_path)
+                if f"id: {intent_id}" not in archive_text:
+                    errors.append(f"Remote archive file {archive_path} has no id field for {intent_id}")
+                if not ARCHIVE_STATUS_RE.search(archive_text):
+                    errors.append(f"Remote archive file {archive_path} is not an accepted archive status for {intent_id}")
+            except Exception as git_exc:
+                errors.append(f"Remote archive file check failed for {archive_path}: {exc}; Git fallback failed: {git_exc}")
 
     try:
         dashboard_html = http_text("https://shdkej.github.io/infinity/")
