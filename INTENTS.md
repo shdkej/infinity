@@ -4,7 +4,6 @@
 
 ## Inbox
 
-<!-- daily-thoughts-cards-20260901 completed 2026-09-01T21:18Z → source/infinity/archive/daily-thoughts-cards-20260901.md [projects: infinity,agent-wiki; type: strategy; topics: workflow,review] (10개 실행 카드와 예약 과부하 첫 행동) -->
 
 ## Active
 
@@ -78,6 +77,8 @@
 <!-- 사용자 결정·외부 조건 대기만 기록한다. -->
 
 ## Archive
+
+<!-- daily-thoughts-cards-20260901 completed 2026-09-01T21:18Z → source/infinity/archive/daily-thoughts-cards-20260901.md [projects: infinity,agent-wiki; type: strategy; topics: workflow,review] (10개 실행 카드와 예약 과부하 첫 행동) -->
 
 ### [wiki-ia-01] Agent Wiki 만다라트 8축 탐색 허브 구현
 - status: archived
