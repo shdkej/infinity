@@ -80,21 +80,22 @@
 ### [research-38] Agent Wiki 목차의 에이전트 검색 효율 감사
 - status: archived
 - execution_mode: multi_subagent_roles
-- artifact: artifacts/research-38/agent-wiki-retrieval-ia-audit.md
-- report: reports/research-38/20260901T-final-pass.html
+- artifact: artifacts/research-38/mandalart-core-traversal-correction.md
+- report: reports/research-38/20260901T-correction-pass.html
 - red_status: pass
-- red_report: artifacts/research-38/red-report.md
-- role_sessions: planner=/root/role_research_38_planner; developer=/root/role_research_38_developer; marketer=/root/role_research_38_marketer; operator=/root/role_research_38_operator; red=/root/role_research_38_red
+- red_report: artifacts/research-38/red-correction-report.md
+- role_sessions: planner=/root/role_research_38c_planner; developer=/root/role_research_38c_developer; marketer=/root/role_research_38c_marketer; operator=/root/role_research_38c_operator; red=/root/role_research_38c_red
+- supersedes: artifacts/research-38/agent-wiki-retrieval-ia-audit.md; reports/research-38/20260901T-final-pass.html (124 MDX·상위 컬렉션 기반 결론은 8×8 판정에 사용하지 않음)
 - metric_question: 대표 에이전트 질의가 목차·메타데이터·링크만으로 관련 문서까지 일관되게 도달하는가?
-- metric_result: 4개 대표 경로 중 1개만 명확히 2단계 이내; 3개는 링크 단절 또는 우회.
-- metric_next_decision: change — 별도 승인 후 additive 2층 IA와 검증 게이트를 구현한다.
+- metric_result: 8축 source=62·mapped=62·누락 0; index→map=1, map→축=0/8, 중앙 node traversal=0/62, 직접 route=62/62.
+- metric_next_decision: change — 별도 승인 후 map에 8축/62노드 additive 링크와 fixture를 구현한다.
 - knowledge_status: used
 - knowledge_decision: retain-as-operating-principle
 - knowledge_targets: agent-wiki README; index.mdx; mapped/source-category-map.mdx; DOCUMENT_SEARCH_PIPELINE.md
-- knowledge_reflection: 8×8은 원본 경계 지도이고, 에이전트 탐색의 첫 진입은 목적 언어·실제 링크·재현 가능한 retrieval fixture로 보완해야 한다.
+- knowledge_reflection: 8×8은 64개를 가정하는 inventory가 아니라 현재 62개 원본 대응 노드의 분류 틀이다. 원본 수와 mapped 변환 누락을 분리해 판단한다.
 - knowledge_commit: no-promotion-needed
-- archived_at: 2026-09-01T19:00Z
-- next_action: 별도 승인 Intent에서 Agent Wiki additive IA와 link/retrieval 검증을 구현한다.
+- archived_at: 2026-09-01T20:00Z (correction)
+- next_action: 별도 승인 Intent에서 map→8축→62노드 additive 링크와 `1/8/62` traversal fixture를 구현한다.
 
 <!-- marketing-123 archived 2026-08-31T21:02Z by dashboard archive_request 04ce866e-dd45-4977-a840-12d8a442d565 → intents/archive/marketing-123.md; public Threads post/link share not approved or performed. -->
 
