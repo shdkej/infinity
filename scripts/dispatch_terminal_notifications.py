@@ -19,6 +19,7 @@ import hashlib
 import json
 import subprocess
 import sys
+import tempfile
 from pathlib import Path
 
 
@@ -184,7 +185,9 @@ def main() -> int:
         remote_sha = "fixture:" + hashlib.sha256(text.encode()).hexdigest()
     else:
         text, remote_sha = remote_text(args.repo)
-    lock_path = args.lock or args.state.with_suffix(args.state.suffix + ".lock")
+    # Keep the process lock outside the Git worktree; the receipt JSON is the
+    # durable artifact, while a lock is only a live-process coordination aid.
+    lock_path = args.lock or (Path(tempfile.gettempdir()) / ("infinity-terminal-notifier-" + hashlib.sha256(str(args.state.resolve()).encode()).hexdigest() + ".lock"))
     lock_path.parent.mkdir(parents=True, exist_ok=True)
     with lock_path.open("w") as lock:
       fcntl.flock(lock, fcntl.LOCK_EX)
