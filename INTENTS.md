@@ -77,6 +77,26 @@
 
 ## Archive
 
+### [wiki-ia-01] Agent Wiki 만다라트 8축 탐색 허브 구현
+- status: archived
+- execution_mode: multi_subagent_roles
+- artifact: artifacts/wiki-ia-01/implementation-summary.md
+- report: reports/wiki-ia-01/20260901T-final.html
+- red_status: pass
+- red_report: artifacts/wiki-ia-01/red-report.md
+- role_sessions: planner=/root/role_wiki_ia_01_planner; developer=/root/role_wiki_ia_01_developer; marketer=/root/role_wiki_ia_01_marketer; operator=/root/role_wiki_ia_01_operator; red=/root/role_wiki_ia_01_red
+- agent_wiki_commits: fa536e711b19ecf0cc9eca276fcd3a4e0052b5b3; a357a1d324894416564c048adf52a5bdcb046779
+- metric_question: 중앙 index에서 현재 모든 core mapped node까지 링크 그래프로 재현 가능하게 도달하는가?
+- metric_result: source=62, mapped=62; index→map=1, map→axis=8, axis→node=62; validator·lint·types·Pages build·live routes·Red pass.
+- metric_next_decision: continue — 새 source/mapped 노드 쌍은 generator·manifest·validator로 같은 계약을 유지한다.
+- knowledge_status: used
+- knowledge_decision: retain-as-operating-principle
+- knowledge_targets: agent-wiki index.mdx; mapped/source-category-map.mdx; content/docs/data/mandalart-core-inventory.json
+- knowledge_reflection: 8×8은 고정 64가 아니라 source/mapped inventory로 검증하는 탐색 계약이다.
+- knowledge_commit: agent-wiki@a357a1d
+- archived_at: 2026-09-01T21:10Z
+- next_action: 신규 core node 추가 시 source/mapped 쌍을 만든 뒤 generator와 validator를 통과시킨다.
+
 ### [research-38] Agent Wiki 목차의 에이전트 검색 효율 감사
 - status: archived
 - execution_mode: multi_subagent_roles
