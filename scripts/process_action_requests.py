@@ -23,6 +23,7 @@ PROCESSED_PREFIX = "action_requests/processed/"
 REJECTED_PREFIX = "action_requests/rejected/"
 ALLOWED_ACTIONS = {"resolve_waiting", "archive_request", "refresh_dashboard", "knowledge_research"}
 INTENT_ID_RE = re.compile(r"^[a-z][a-z0-9]*(?:-[a-z0-9]+)*-\d+$")
+KNOWLEDGE_LOOP_ID_RE = re.compile(r"^kl-loop-[a-z0-9]+(?:-[a-z0-9]+)+$")
 
 
 def utc_now() -> str:
@@ -89,11 +90,11 @@ def clean_record(raw: dict[str, Any]) -> dict[str, str]:
 def validate_record(record: dict[str, str], intents_text: str) -> str:
     if not record["request_id"]:
         return "missing_request_id"
-    if not INTENT_ID_RE.match(record["intent_id"]):
+    is_knowledge_loop = record["action"] == "knowledge_research"
+    if not (KNOWLEDGE_LOOP_ID_RE.match(record["intent_id"]) if is_knowledge_loop else INTENT_ID_RE.match(record["intent_id"])):
         return "invalid_intent_id"
     if record["action"] not in ALLOWED_ACTIONS:
         return "unsupported_action"
-    is_knowledge_loop = record["action"] == "knowledge_research" and record["intent_id"].startswith("kl-loop-")
     if record["action"] != "refresh_dashboard" and not is_knowledge_loop and not has_open_intent(record["intent_id"], intents_text):
         return "intent_not_open"
     return ""
