@@ -4,30 +4,7 @@
 
 ## Inbox
 
-### [daily-thoughts-cards-20260901] 2026-09-01 잡념 메모 실행 카드 구조화
-- status: inbox
-- target_agent: genie
-- priority: medium
-- permission: L0-research-and-strategy
-- requested: 2026-09-01T21:14Z
-- execution_mode: single_genie_roles
-- projects: infinity,agent-wiki
-- task_type: planning-and-organization
-- goal: 10개 잡념 항목을 목적·핵심 질문·첫 액션·승인 경계·완료 증거를 가진 실행 카드로 구조화하고 오늘 바로 시작할 1개를 제안한다.
-- success_criteria: 에이전트 대화방, 개인 원칙, 예약 과부하, 영상 소스, 운영 모델, 이집트/Home exchange, 위키 피드백 루프, 정돈된 하루, 셋로그/앨범/스마일, 큐레이션 확장을 각각 독립 카드로 만들고 즉시 착수 후보를 근거와 함께 고른다.
-- metric_question: 각 잡념이 실행 가능한 다음 행동과 검증 가능한 완료 증거를 갖는가?
-- metric_signal: 카드 수, 필수 필드 충족률, 승인 경계 명시, 오늘 시작할 1개.
-- metric_decision_rule: 모든 항목이 필수 필드를 가지면 continue, 경계나 증거가 없는 항목은 change, 원문 맥락이 부족하면 hold.
-- boundary: 화면 카드 디자인·공개 발행·외부 호출은 하지 않는다.
-- context_pack: intents/context/daily-thoughts-cards-20260901.json
-- context_documents_checked: prompt-archive/LLM.md; knowledge-lab/README.md; knowledge-lab/schema/agent-rules.md; source/openclaw-system/docs/DOCUMENT_SEARCH_PIPELINE.md; source/openclaw-system/docs/USER_CONTEXT.md; source/openclaw-system/docs/SERVICE_REGISTRY.md; source/openclaw-system/docs/INFINITY_OPERATING_RULES.md; infinity/INTENTS.md; agent-wiki/README.md
-- context_searches: agent-wiki/content/docs/의 개인 시스템·운영·여행·피드백 루프 관련 entry; source/openclaw-system/docs/의 Infinity·운영 경계.
-- next_action: 10개 원문 항목을 실행 카드로 구조화하고 오늘 바로 시작할 1개를 제안한다.
-- knowledge_status: pending
-- knowledge_decision: pending
-- knowledge_targets: pending
-- knowledge_reflection: pending
-- knowledge_commit: pending
+<!-- daily-thoughts-cards-20260901 completed 2026-09-01T21:18Z → source/infinity/archive/daily-thoughts-cards-20260901.md [projects: infinity,agent-wiki; type: strategy; topics: workflow,review] (10개 실행 카드와 예약 과부하 첫 행동) -->
 
 ## Active
 
