@@ -41,6 +41,38 @@ def has_open_intent(intent_id: str, text: str) -> bool:
     return False
 
 
+def linked_loop_intent(loop_id: str, text: str) -> str:
+    match = re.search(rf"^### \[([^\]]+)\][\s\S]*?^\s*- origin_loop_id: {re.escape(loop_id)}\s*$", text, re.M)
+    return match.group(1) if match else ""
+
+
+def next_research_id(text: str) -> str:
+    ids = [int(value) for value in re.findall(r"^### \[research-(\d+)\]", text, re.M)]
+    return f"research-{max(ids, default=0) + 1}"
+
+
+def create_knowledge_research_intent(record: dict[str, str], text: str) -> tuple[str, str]:
+    existing = linked_loop_intent(record["intent_id"], text)
+    if existing:
+        return existing, text
+    intent_id = next_research_id(text)
+    title = record["title"] or "Agent Wiki 재검색"
+    block = (
+        f"### [{intent_id}] {title}\n"
+        "- status: inbox\n- target_agent: genie\n- priority: normal\n"
+        "- permission: L0-research-and-strategy\n- execution_mode: multi_subagent_roles\n"
+        "- projects: agent-wiki,infinity,knowledge-lab\n- task_type: research\n"
+        f"- origin_loop_id: {record['intent_id']}\n"
+        f"- source_url: {record['page']}\n"
+        f"- goal: {record['note'] or title}\n"
+        "- next_action: 구조화된 loop event에 결과 페이지·결정·commit을 연결해 루프를 닫는다.\n\n"
+    )
+    marker = "## Inbox\n"
+    if marker not in text:
+        raise ValueError("missing_inbox_section")
+    return intent_id, text.replace(marker, marker + "\n" + block, 1)
+
+
 def clean_record(raw: dict[str, Any]) -> dict[str, str]:
     return {
         "request_id": str(raw.get("request_id") or "").strip(),
@@ -138,6 +170,12 @@ def process(bucket: str, apply: bool, limit: int) -> list[dict[str, str]]:
             move_s3_object(s3, bucket, key, REJECTED_PREFIX, error)
             delete_dedupe_marker(s3, bucket, record)
             continue
+        if record["action"] == "knowledge_research":
+            linked_id, updated = create_knowledge_research_intent(record, intents_text)
+            if updated != intents_text:
+                INTENTS.write_text(updated, encoding="utf-8")
+                intents_text = updated
+            result["linked_intent_id"] = linked_id
         append_action_log(record, key)
         local_path = write_local_request(record)
         move_s3_object(s3, bucket, key, PROCESSED_PREFIX)
