@@ -61,7 +61,7 @@ def validate_record(record: dict[str, str], intents_text: str) -> str:
         return "invalid_intent_id"
     if record["action"] not in ALLOWED_ACTIONS:
         return "unsupported_action"
-    is_knowledge_loop = record["action"] == "knowledge_research" and record["intent_id"] == "knowledge-loop-1"
+    is_knowledge_loop = record["action"] == "knowledge_research" and record["intent_id"].startswith("kl-loop-")
     if record["action"] != "refresh_dashboard" and not is_knowledge_loop and not has_open_intent(record["intent_id"], intents_text):
         return "intent_not_open"
     return ""
