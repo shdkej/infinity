@@ -78,6 +78,30 @@
 
 ## Archive
 
+### [infinity-dispatcher-notify] Infinity 완료·대기 상태 원 대화 1회 통보 경로 구현
+- status: archived
+- execution_mode: multi_subagent_roles
+- context_pack: intents/context/infinity-dispatcher-notify.json
+- artifact: artifacts/infinity-dispatcher-notify/notification-contract.md
+- report: reports/infinity-dispatcher-notify/20260901T-final.html
+- red_status: pass
+- red_report: artifacts/infinity-dispatcher-notify/red-report.md
+- role_sessions: planner=/root/role_infinity_dispatcher_notify_planner; developer=/root/role_infinity_dispatcher_notify_developer; marketer=/root/role_infinity_dispatcher_notify_marketer; operator=/root/role_infinity_dispatcher_notify_operator; red=/root/role_infinity_dispatcher_notify_red
+- metric_question: 원격 원장 terminal 상태가 원 요청 대화에 중복 없이 도달하는가?
+- metric_result: 6 controlled tests pass; archive=1/replay=0/waiting=1/no-op=0; cron command manual reconcile sent=0·missing-origin=2·uncertain=0; Red pass.
+- metric_next_decision: continue — 새 intent intake에 immutable notification origin과 remote_verified 근거를 기록한다.
+- remote_verified: pass
+- notification_channel: telegram
+- notification_target: 433493318
+- notification_origin: agent:main:telegram:direct:433493318
+- knowledge_status: used
+- knowledge_decision: retain_in_infinity
+- knowledge_targets: infinity/README.md; infinity/workflows/heartbeat.md; GENIE_WORKFLOW.md
+- knowledge_reflection: terminal 통보는 assistant turn이 아니라 원격 원장 조정과 destination-aware receipt로 닫아야 한다.
+- knowledge_commit: no-promotion-needed
+- archived_at: 2026-09-01T22:10Z
+- next_action: 첫 새 terminal intent의 receipt 상태와 07:00 recap 보완 관계를 관찰한다.
+
 <!-- daily-thoughts-cards-20260901 completed 2026-09-01T21:18Z → source/infinity/archive/daily-thoughts-cards-20260901.md [projects: infinity,agent-wiki; type: strategy; topics: workflow,review] (10개 실행 카드와 예약 과부하 첫 행동) -->
 
 ### [wiki-ia-01] Agent Wiki 만다라트 8축 탐색 허브 구현

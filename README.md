@@ -17,7 +17,8 @@ intents/active/       ← 실행 중인 Intent 원장
                      유효 archive 원장만 Knowledge Lab의 source/infinity/archive/로 이동
 artifacts/{id}/     ← 결과 산출물
 reports/{id}/       ← 실행 로그
-scripts/notify.sh   ← 승인/장애 등 명시적 알림용 Telegram 발송기
+scripts/notify.sh   ← 레거시 Telegram 단일 발송기(새 terminal notifier는 사용하지 않음)
+scripts/dispatch_terminal_notifications.py ← 원격 `origin/main` terminal 상태를 원 대화에 1회 조정·발송
 ```
 
 ## 태그 축
@@ -43,7 +44,9 @@ scripts/notify.sh   ← 승인/장애 등 명시적 알림용 Telegram 발송기
 
 - **No-op이면 커밋하지 않는다.** 변화 없는 Heartbeat는 push하지 않아 git history와 dashboard가 조용히 유지된다.
 - **아침 7시 리캡**은 GitHub scheduled workflow가 아니라 OpenClaw 로컬 cron(KST 07:00)이 소유한다. 리캡은 커밋 로그를 그대로 보내지 않고, Archive 완료·다음 Inbox/Active·대기 항목을 카드형으로 요약한다.
-- 리캡의 시간대별 섹션은 `[로컬]` OpenClaw 라우터 실행과 `[클라우드]` 커밋/Archive/원격 기록을 한 타임라인에 합쳐 보여준다. 별도 라우터 요약 알림은 기본적으로 보내지 않는다.
+- 리캡의 시간대별 섹션은 `[로컬]` OpenClaw 라우터 실행과 `[클라우드]` 커밋/Archive/원격 기록을 한 타임라인에 합쳐 보여준다. 07:00 리캡은 terminal 통보를 대체하지 않는다.
+- terminal notifier는 `origin/main`의 `INTENTS.md`만 조정한다. `notification_channel`, `notification_target`, 선택적 Telegram `notification_thread` 또는 Slack `notification_reply_to`가 intake에 보존된 intent만 원 대화에 보낸다. Archive는 `remote_verified: pass` 뒤에만, Waiting은 실제 `blocker` 또는 사용자 승인 조건이 있을 때만 후보가 된다. 읽기/no-op/반복 실행은 발송하지 않는다.
+- `data/dispatcher-terminal-notifications.json`의 receipt key는 intent·terminal state·destination이다. 송신 전 durable claim을 남기며 `sent`, `failed_before_acceptance`, `delivery_unknown`을 기록한다. 불확실 수신은 자동 재송하지 않고 cron 실패 알림으로 표면화한다. 구형 `dispatcher-notification-state.json`은 destination이 없어 read-only 감사 대상으로만 유지한다.
 - **Cloud prepares, Local executes**: 조사/계획/초안은 클라우드, 파일 수정/실행/검증은 로컬 Claude Code에 위임한다.
 
 ## 연동

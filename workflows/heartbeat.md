@@ -463,6 +463,7 @@ Intent가 완료 기준을 충족하거나 사용자가 완료 처리하면:
    - Archive 완료 코멘트는 완료 시각 내림차순으로 둔다. 완료 처리 후 `python3 scripts/check_intents_consistency.py INTENTS.md`를 실행해 open lane의 완료 코멘트 잔존과 Archive 역순 깨짐을 검증한다.
    - Archive 전환은 항상 의미 있는 원장 변경이다. Infinity 저장소 commit/push, 원격 `main` 확인, 필요한 경우 Knowledge Lab parent submodule pointer commit/push가 끝나기 전에는 Archive 완료로 보고하지 않는다.
 5. 대시보드 등 외부 소비자가 `detail:` 경로를 참조한다면 archive 경로가 유효한지 확인한다.
+6. 원 요청 대화를 잃지 않도록 intake 시 `notification_channel`, `notification_target`, 그리고 필요한 경우 Telegram `notification_thread` 또는 Slack `notification_reply_to`를 불변 메타데이터로 기록한다. 원격 Archive 검증이 끝난 뒤에는 `remote_verified: pass`와 commit/report 근거를 남긴다. 10분 terminal notifier가 원격 `origin/main`을 조정해 이 기록을 정확히 한 번 통보한다. origin이 없는 과거 intent는 추정 발송하지 않는다.
 6. 완료 직후 같은 내용을 `Detail` 문서로 다시 만들지 않는다. 최종 문서는 `Intent 원장`, 원문 산출물은 `Artifact`, 실행 로그는 `Report`로 분리한다.
 7. 프로젝트성 작업은 Archive 전에 원래 사용자 목표가 끝났는지 판정한다. 끝나지 않았으면 후속 intent를 `Inbox`/`Active`/`Waiting` 중 하나로 만들고 archive 요약에 `next: {id}`를 남긴다.
 8. Archive Card의 `[다음 행동]`이 실제 실행을 뜻하면 `python3 scripts/archive_next_action_intake.py --apply`로 후속 intent를 생성하거나, 동일 목적의 열린 intent id를 archive의 `next_action_intent`에 연결한다. 공개 발행·외부 계정·광고·비용·자격증명·권한 변경은 후속 intent를 만들 수는 있지만 실행 전 사용자 승인이 필요하다.
