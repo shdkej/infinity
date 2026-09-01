@@ -16,7 +16,7 @@ from pathlib import Path
 ARCHIVE_STATUS_RE = re.compile(r"^\s*-\s*status:\s*(archived|complete|completed)\s*$", re.I | re.M)
 DASHBOARD_ARCHIVE_COMMENT_RE = re.compile(
     r"<!--\s*"
-    r"([a-z][a-z0-9]*(?:-[a-z0-9]+)*-\d+)\b"
+    r"([a-z][a-z0-9]*(?:-[a-z0-9]+)*)\b"
     r"[\s\S]*?"
     r"\b(completed|resolved|done|archived|closed|canceled|cancelled|rejected|approved|failed)\b"
     r"[\s\S]*?"

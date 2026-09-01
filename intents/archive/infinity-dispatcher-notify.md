@@ -12,7 +12,7 @@
 - red_status: pass
 - red_report: artifacts/infinity-dispatcher-notify/red-report.md
 - next_actions: 새 terminal intent가 원격 검증된 뒤 receipt 한 건과 07:00 recap을 함께 점검한다.
-- knowledge_status: used
+- knowledge_status: raw
 - knowledge_decision: retain_in_infinity
 - knowledge_targets: infinity/README.md; infinity/workflows/heartbeat.md; GENIE_WORKFLOW.md
 - knowledge_reflection: 원 대화 통보는 origin/main 조정과 destination receipt를 함께 보존해야 재시작에도 누락되지 않는다.

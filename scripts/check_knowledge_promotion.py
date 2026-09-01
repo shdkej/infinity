@@ -12,6 +12,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 KNOWLEDGE_LAB = ROOT.parent
 ARCHIVE = KNOWLEDGE_LAB / "source" / "infinity" / "archive"
+INFINITY_ARCHIVE = ROOT / "intents" / "archive"
 INGEST_INDEX = KNOWLEDGE_LAB / "ingest" / "INDEX.md"
 
 
@@ -47,7 +48,10 @@ def ingest_entry(intent_id: str) -> tuple[str | None, str | None, list[str]]:
 
 
 def check(intent_id: str) -> list[str]:
-    path = ARCHIVE / f"{intent_id}.md"
+    # Retained execution records deliberately live only in the Infinity repo;
+    # promoted/superseded records additionally have the Knowledge Lab source.
+    infinity_path = INFINITY_ARCHIVE / f"{intent_id}.md"
+    path = infinity_path if infinity_path.exists() else ARCHIVE / f"{intent_id}.md"
     if not path.exists():
         return [f"archive not found: {path}"]
     text = path.read_text(encoding="utf-8")

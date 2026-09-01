@@ -78,6 +78,8 @@
 
 ## Archive
 
+<!-- infinity-dispatcher-notify archived 2026-09-01T22:10Z → intents/archive/infinity-dispatcher-notify.md [projects: infinity,openclaw; type: implementation; topics: dispatcher,notification,reliability] -->
+
 ### [infinity-dispatcher-notify] Infinity 완료·대기 상태 원 대화 1회 통보 경로 구현
 - status: archived
 - execution_mode: multi_subagent_roles
@@ -94,7 +96,7 @@
 - notification_channel: telegram
 - notification_target: 433493318
 - notification_origin: agent:main:telegram:direct:433493318
-- knowledge_status: used
+- knowledge_status: raw
 - knowledge_decision: retain_in_infinity
 - knowledge_targets: infinity/README.md; infinity/workflows/heartbeat.md; GENIE_WORKFLOW.md
 - knowledge_reflection: terminal 통보는 assistant turn이 아니라 원격 원장 조정과 destination-aware receipt로 닫아야 한다.
