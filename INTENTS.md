@@ -4,34 +4,6 @@
 
 ## Inbox
 
-### [research-38] Agent Wiki 목차의 에이전트 검색 효율 감사
-- status: inbox
-- target_agent: genie
-- priority: high
-- permission: L0-research-and-strategy
-- requested: 2026-09-01T18:36:32Z
-- execution_mode: multi_subagent_roles
-- projects: agent-wiki,infinity,knowledge-lab
-- task_type: information-architecture-audit
-- topics: agent-search,navigation,toc,retrieval,knowledge-management
-- goal: Agent Wiki의 현재 8개 상위 목차와 각 상세 목차 구조가 에이전트의 문서 탐색·검색·재호출에 충분한지 실제 파일 구조와 검색 시나리오로 검토하고, 탐색 실패를 줄이는 최소 개편안을 제시한다.
-- user_request: "내 에이전트위키의 목차가 에이전트 검색에 효과적으로 될지 검토를 인피니티에 추가해줘. 8개의 목차에 8개의 상세목차는 너무 적어서 잘 못찾아갈거같아서"
-- success_criteria: 현재 navigation tree·문서 수·계층 깊이·용어 일관성·실제 질문별 진입 경로를 감사한다. 에이전트 검색 관점의 실패 사례와 유지할 요소를 분리하고, 8×8 구조를 유지/보완/대체할 근거 있는 IA안, 최소 변경 순서, 검증 가능한 retrieval 시나리오를 포함한 리포트와 Red 검증을 만든다.
-- metric_question: 대표 에이전트 질의가 목차·메타데이터·링크만으로 관련 문서까지 일관되게 도달하는가?
-- metric_signal: 대표 질의별 첫 진입점·도달 문서·실패/우회 횟수, 누락된 카테고리/용어 수, Red의 재현 가능한 탐색 판정.
-- metric_decision_rule: 대표 질의 대부분이 2단계 이내에 관련 컴파일 문서로 도달하면 continue, 구조적 우회·누락이 반복되면 change, 현재 탐색 근거를 재현할 수 없으면 hold.
-- boundary: 현 단계는 감사·권고안까지만이다. Agent Wiki 파일·사이드바·배포 변경, 공개 변경, 권한·자격증명·비용 발생 작업은 별도 승인 없이는 수행하지 않는다.
-- context_pack: intents/context/research-38.json
-- context_documents_checked: prompt-archive/LLM.md; knowledge-lab/README.md; knowledge-lab/schema/agent-rules.md; source/openclaw-system/docs/DOCUMENT_SEARCH_PIPELINE.md; source/openclaw-system/docs/USER_CONTEXT.md; source/openclaw-system/docs/SERVICE_REGISTRY.md; source/openclaw-system/docs/INFINITY_OPERATING_RULES.md; infinity/INTENTS.md; agent-wiki/README.md
-- context_searches: agent-wiki/content/docs/meta.json의 최상위 navigation; content/docs 하위 133개 문서의 디렉터리 분포; mapped와 sources의 카테고리 불일치; README의 27개 메시지 묶음; 내부 /docs 링크 무결성 점검.
-- next_action: Genie가 동일 Context Pack을 재확인한 뒤 Planner → Developer → Marketer → Operator 역할 감사와 Red 검증을 수행한다.
-- knowledge_status: pending
-- knowledge_decision: pending
-- knowledge_targets: pending
-- knowledge_reflection: pending
-- knowledge_commit: pending
-
-
 ## Active
 
 <!-- 실행 중인 Intent 없음. -->
@@ -104,6 +76,25 @@
 <!-- 사용자 결정·외부 조건 대기만 기록한다. -->
 
 ## Archive
+
+### [research-38] Agent Wiki 목차의 에이전트 검색 효율 감사
+- status: archived
+- execution_mode: multi_subagent_roles
+- artifact: artifacts/research-38/agent-wiki-retrieval-ia-audit.md
+- report: reports/research-38/20260901T-final-pass.html
+- red_status: pass
+- red_report: artifacts/research-38/red-report.md
+- role_sessions: planner=/root/role_research_38_planner; developer=/root/role_research_38_developer; marketer=/root/role_research_38_marketer; operator=/root/role_research_38_operator; red=/root/role_research_38_red
+- metric_question: 대표 에이전트 질의가 목차·메타데이터·링크만으로 관련 문서까지 일관되게 도달하는가?
+- metric_result: 4개 대표 경로 중 1개만 명확히 2단계 이내; 3개는 링크 단절 또는 우회.
+- metric_next_decision: change — 별도 승인 후 additive 2층 IA와 검증 게이트를 구현한다.
+- knowledge_status: used
+- knowledge_decision: retain-as-operating-principle
+- knowledge_targets: agent-wiki README; index.mdx; mapped/source-category-map.mdx; DOCUMENT_SEARCH_PIPELINE.md
+- knowledge_reflection: 8×8은 원본 경계 지도이고, 에이전트 탐색의 첫 진입은 목적 언어·실제 링크·재현 가능한 retrieval fixture로 보완해야 한다.
+- knowledge_commit: no-promotion-needed
+- archived_at: 2026-09-01T19:00Z
+- next_action: 별도 승인 Intent에서 Agent Wiki additive IA와 link/retrieval 검증을 구현한다.
 
 <!-- marketing-123 archived 2026-08-31T21:02Z by dashboard archive_request 04ce866e-dd45-4977-a840-12d8a442d565 → intents/archive/marketing-123.md; public Threads post/link share not approved or performed. -->
 
