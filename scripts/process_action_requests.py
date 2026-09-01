@@ -21,7 +21,7 @@ DEFAULT_BUCKET = os.environ.get("INFINITY_ACTION_QUEUE_BUCKET", "infinity-action
 INBOX_PREFIX = "action_requests/inbox/"
 PROCESSED_PREFIX = "action_requests/processed/"
 REJECTED_PREFIX = "action_requests/rejected/"
-ALLOWED_ACTIONS = {"resolve_waiting", "archive_request", "refresh_dashboard"}
+ALLOWED_ACTIONS = {"resolve_waiting", "archive_request", "refresh_dashboard", "knowledge_research"}
 INTENT_ID_RE = re.compile(r"^[a-z][a-z0-9]*(?:-[a-z0-9]+)*-\d+$")
 
 
@@ -61,7 +61,8 @@ def validate_record(record: dict[str, str], intents_text: str) -> str:
         return "invalid_intent_id"
     if record["action"] not in ALLOWED_ACTIONS:
         return "unsupported_action"
-    if record["action"] != "refresh_dashboard" and not has_open_intent(record["intent_id"], intents_text):
+    is_knowledge_loop = record["action"] == "knowledge_research" and record["intent_id"] == "knowledge-loop-1"
+    if record["action"] != "refresh_dashboard" and not is_knowledge_loop and not has_open_intent(record["intent_id"], intents_text):
         return "intent_not_open"
     return ""
 
