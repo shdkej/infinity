@@ -6,7 +6,7 @@
 - result_summary: 원격 `origin/main` 조정형 terminal notifier, destination-aware receipt, 10분 command cron, controlled regression suite를 구현했다.
 - artifacts: artifacts/infinity-dispatcher-notify/notification-contract.md
 - reports: reports/infinity-dispatcher-notify/20260901T-final.html
-- commits: infinity@5ad002053d6f00da7571e1101a630b9058c5d703; docs@ee522e269592b81dd242e5f0bfec477a0aa81287; verification@89b94c9910080d7a7503014b48633fb3579d0575; genie@fc03061ec4f1572e684c52656a04ffc3445d5409
+- commits: infinity@5ad002053d6f00da7571e1101a630b9058c5d703; docs@ee522e269592b81dd242e5f0bfec477a0aa81287; verification@89b94c9910080d7a7503014b48633fb3579d0575; lock@8bc8a3a0af1f1f88fdb7e07fc08cd9e3383a8b50; genie@fc03061ec4f1572e684c52656a04ffc3445d5409
 - urls: OpenClaw cron `033a86c8-758b-4639-897e-c67b79785e91`
 - remote_verified: pass (commit SHA is recorded after push)
 - red_status: pass
