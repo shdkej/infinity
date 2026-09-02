@@ -6,6 +6,7 @@ ROOT="/home/ubuntu/workspace/knowledge-lab/infinity"
 OPENCLAW_BIN="/home/ubuntu/.npm-global/bin/openclaw"
 STATE_DIR="${INFINITY_DISPATCHER_STATE_DIR:-/home/ubuntu/.openclaw/state/infinity-dispatcher-runs}"
 LOCK_FILE="${INFINITY_DISPATCHER_LOCK_FILE:-/tmp/infinity-dispatcher.lock}"
+AGENT_TIMEOUT_SECONDS="${INFINITY_DISPATCHER_AGENT_TIMEOUT_SECONDS:-480}"
 mkdir -p "$STATE_DIR"
 exec 9>"$LOCK_FILE"
 flock -n 9 || exit 0
@@ -47,7 +48,7 @@ Before substantive work, append a dispatcher_handoff event to traces/<intent-id>
 Return JSON containing intent IDs, session evidence, state changes, commit, and remote proof.'''
 open(sys.argv[2], "w", encoding="utf-8").write(message)
 PY
-  "$OPENCLAW_BIN" agent --agent genie --session-key agent:genie:infinity-dispatcher --message-file "$PROMPT_FILE" --thinking low --timeout 480 --json >"$STATE_DIR/$(basename "$RUN_FILE" .json)-genie.json" 2>&1
+  timeout --foreground "${AGENT_TIMEOUT_SECONDS}s" "$OPENCLAW_BIN" agent --agent genie --session-key agent:genie:infinity-dispatcher --message-file "$PROMPT_FILE" --thinking low --timeout "$AGENT_TIMEOUT_SECONDS" --json >"$STATE_DIR/$(basename "$RUN_FILE" .json)-genie.json" 2>&1
   HANDOFF_EXIT=$?
 else
   HANDOFF_EXIT=0
