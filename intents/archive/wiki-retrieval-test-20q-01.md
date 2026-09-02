@@ -1,5 +1,6 @@
 # wiki-retrieval-test-20q-01 — Agent Wiki 20문항 회수성 검증
 
+- id: wiki-retrieval-test-20q-01
 - status: archived
 - archived_at: 2026-09-02T08:10:00Z
 - execution_mode: multi_subagent_roles
