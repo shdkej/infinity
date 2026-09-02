@@ -4,11 +4,31 @@
 
 ## Active
 
-<!-- safety-map-mvp-20260903 completed 2026-09-02T19:42Z → intents/archive/safety-map-mvp-20260903.md; reports/safety-map-mvp-20260903/20260902T1942Z-production.html; red_status: pass; live=https://safety-map.aws.shdkej.com/ -->
-
 ## Inbox
 
-<!-- 실행 대기 Intent 없음. -->
+### [safety-map-correction-20260903] 여행 치안 지도 품질·지도·마감·알림 교정
+- status: inbox
+- target_agent: genie
+- priority: critical
+- permission: L1-local-implementation-and-staging
+- requested: 2026-09-02T19:55:04Z
+- deadline: 2026-09-03T05:00:00Z
+- execution_mode: multi_subagent_roles
+- projects: world-travel,infinity,space,video-automation
+- task_type: implementation
+- topics: mapbox,design-system,deadline,notification
+- parent_intent: safety-map-mvp-20260903
+- goal: 조기 Archive된 Safety Map을 마감까지 재개해 Mapbox 기반 실제 지도·거리/위치 맥락·디자인 정본 반영·완료 알림을 갖춘 사용 가능한 MVP로 바로잡고, 같은 실패가 재발하지 않도록 Infinity 실행 계약을 수정한다.
+- success_criteria: (1) Mapbox 지도에서 로마의 도로·장소·거리 맥락과 위험 신호 레이어를 실제로 탐색, (2) BRAND.md·DESIGN.md·DESIGN_SYSTEM.md 읽기 증거와 Spatial Type/Warm Tool 디자인 반영, (3) Mapbox·Remotion의 사용자 소유 도구 레지스트리와 사용 기준 반영, (4) 기능 완료 후 deadline 전까지 quality iteration을 유지하는 대형 태스크 lifecycle, (5) Archive notification metadata가 보존되어 Slack 원 스레드에 정확히 한 번 도달, (6) 라이브 모바일/데스크톱·Red·원격 검증.
+- boundary: Mapbox 설정은 기존 사용자 소유 설정만 안전하게 재사용하며 토큰을 출력·문서화·노출하지 않는다. 실시간 안전 데이터를 날조하지 않으며 근거 부족 구간은 no-data로 보인다. 공개 광고 집행·결제·권한/시크릿 변경은 제외한다.
+- required_context: /home/ubuntu/workspace/prompt-archive/BRAND.md; /home/ubuntu/workspace/prompt-archive/DESIGN.md; /home/ubuntu/workspace/prompt-archive/DESIGN_SYSTEM.md; /home/ubuntu/workspace/video-automation/remotion-map/; Mapbox existing configuration discovery.
+- lifecycle_rule: 절대 마감 대형 태스크는 기능 완주만으로 Archive하지 않는다. deadline 전에는 quality_iteration_active로 유지하며 디자인·실제 렌더·접근성·사용성·운영 검증을 반복한다. Archive와 terminal completion notification은 deadline 도달 또는 사용자 명시 조기 종료 후에만 허용한다. 기능 완주가 먼저면 원 스레드에 quality iteration 진행 상태를 한 번 알린다.
+- notification_channel: slack
+- notification_target: channel:C0BR41W31MM
+- notification_reply_to: 1788364835.849239
+- notification_origin: slack:channel:C0BR41W31MM:thread:1788364835.849239
+- context_pack: intents/context/safety-map-correction-20260903.json
+- next_action: Genie가 원본 실패를 재현·수정하고, Mapbox 및 디자인 정본을 반영한 라이브 재검증과 notification delivery test를 실행한다.
 
 ## Waiting
 
@@ -78,6 +98,8 @@
 <!-- 사용자 결정·외부 조건 대기만 기록한다. -->
 
 ## Archive
+
+<!-- safety-map-mvp-20260903 completed 2026-09-02T19:42Z → intents/archive/safety-map-mvp-20260903.md; reports/safety-map-mvp-20260903/20260902T1942Z-production.html; red_status: pass; live=https://safety-map.aws.shdkej.com/ -->
 
 <!-- infinity-trace-contract-01 archived 2026-09-02T13:28Z → intents/archive/infinity-trace-contract-01.md [projects: infinity,space,knowledge-lab; type: implementation; topics: trace-contract,dashboard,dispatcher] -->
 <!-- wiki-retrieval-test-20q-02 archived 2026-09-02T09:28Z → intents/archive/wiki-retrieval-test-20q-02.md [projects: agent-wiki,knowledge-lab,infinity; type: retrieval-evaluation; topics: retrieval,information-architecture] -->

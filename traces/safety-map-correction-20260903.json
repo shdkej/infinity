@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "intent_id": "safety-map-correction-20260903",
+  "status": "inbox",
+  "trace_completeness": "complete",
+  "request": {
+    "raw": {
+      "status": "recorded",
+      "value": "완료된 Safety Map의 조기 종료, 디자인 미반영, 지도 부재, 알림 누락을 교정하고 마감까지 품질을 높인다."
+    },
+    "normalized_query": {
+      "status": "recorded",
+      "value": "Safety Map Mapbox 디자인 정본 deadline lifecycle terminal Slack notification correction"
+    }
+  },
+  "events": [
+    {
+      "type": "intake",
+      "at": "2026-09-02T19:56:16Z",
+      "context_pack": "intents/context/safety-map-correction-20260903.json",
+      "evidence_paths": [
+        "intents/context/safety-map-correction-20260903.json",
+        "INTENTS.md"
+      ]
+    }
+  ],
+  "artifacts": [],
+  "verifications": [],
+  "next_decision": {
+    "status": "in_progress",
+    "value": "Genie 역할별 corrective implementation과 Mapbox·design·notification contract 검증 시작"
+  }
+}

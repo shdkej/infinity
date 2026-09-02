@@ -1,0 +1,30 @@
+{
+  "context_pack_version": 1,
+  "status": "ready",
+  "route": "infinity",
+  "request": "Safety Map MVP의 조기 Archive·디자인 정본 미반영·지도 부재·terminal Slack 알림 누락을 교정한다. 기존 라이브 Safety Map을 마감 2026-09-03T05:00Z까지 재개해 Mapbox 기반 실제 인터랙티브 지도와 거리/위치 맥락을 구현하고, DESIGN.md·DESIGN_SYSTEM.md·BRAND.md를 설계 근거로 반영하고, Remotion/Mapbox 도구 레지스트리와 사용 지침을 추가한다. 대형 태스크는 기능 완료 시 마감까지 quality iteration을 지속하며, terminal notification metadata가 Archive에도 보존되어 원 스레드로 정확히 한 번 발송되도록 코드·테스트·운영 규칙을 고친다. 최종 라이브 렌더와 Red 검증을 포함한다.",
+  "built_at": "2026-09-02T19:55:52.610143+00:00",
+  "required_documents": [
+    "/home/ubuntu/workspace/prompt-archive/LLM.md",
+    "README.md",
+    "schema/agent-rules.md",
+    "source/openclaw-system/docs/DOCUMENT_SEARCH_PIPELINE.md",
+    "source/openclaw-system/docs/USER_CONTEXT.md",
+    "source/openclaw-system/docs/SERVICE_REGISTRY.md",
+    "source/openclaw-system/docs/INFINITY_OPERATING_RULES.md",
+    "infinity/INTENTS.md",
+    "agent-wiki/README.md"
+  ],
+  "search_scopes": [
+    "agent-wiki/content/docs/",
+    "source/openclaw-system/docs/",
+    "source/openclaw-system/data/daily-reviews/",
+    "source/openclaw-system/data/daily-tracking/",
+    "source/openclaw-system/data/photo-insights/"
+  ],
+  "rules": [
+    "Read every required document before creating or executing an intent.",
+    "Search the declared scopes for task-specific evidence; do not treat a search hit as a confirmed fact without its source.",
+    "Record the resulting context pack path in the intent and re-check it before handoff."
+  ]
+}
