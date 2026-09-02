@@ -30,7 +30,7 @@
 - approval: protected Mapbox public-token deployment route approved by user; value not read or recorded.
 - blocker: managed browser profile is locked in this runtime, so interactive desktop/mobile screenshot evidence remains pending; protected runtime-config parity, HTTPS assets, and Mapbox style response are verified without exposing the token.
 - next_retry_condition: before the absolute deadline, resolve browser-render evidence and obtain focused Red PASS; do not Archive or issue terminal completion notification early.
-- report: reports/safety-map-correction-20260903/20260902T2030Z-quality-iteration.html
+- report: reports/safety-map-correction-20260903/20260902T2032Z-focused-red.html
 
 ## Inbox
 

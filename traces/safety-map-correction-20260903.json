@@ -65,7 +65,31 @@
     }
   ],
   "artifacts": [],
-  "verifications": [],
+  "verifications": [
+    {
+      "type": "protected_mapbox_delivery",
+      "at": "2026-09-02T20:30:00Z",
+      "status": "pass",
+      "evidence": "Gateway-generated runtime config matched the live artifact and loaded without recording its token; app/app.js HTTPS and Mapbox style request with the deployed-domain Referer returned 200."
+    },
+    {
+      "type": "quality_iteration_notification",
+      "at": "2026-09-02T20:28:23Z",
+      "status": "sent_once_nonterminal",
+      "destination": "slack:channel:C0BR41W31MM:thread:1788364835.849239",
+      "message_id": "1788380903.558269",
+      "note": "Progress receipt only; terminal notifier and Archive remain prohibited before the deadline."
+    },
+    {
+      "type": "focused_red",
+      "at": "2026-09-02T20:32:00Z",
+      "status": "fail",
+      "blockers": [
+        "No actual 390px and desktop interactive Mapbox render/search/accessibility evidence: managed browser profile is locked and standalone Chromium cannot persist screenshots in this runtime.",
+        "Mapbox dashboard URL-restriction policy for the public client token has not been independently evidenced."
+      ]
+    }
+  ],
   "next_decision": {
     "status": "quality_iteration_active",
     "value": "마감 전까지 실제 브라우저 렌더·접근성·사용성 및 focused Red를 반복한다. terminal Archive/notification은 금지한다."
