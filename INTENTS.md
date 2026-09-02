@@ -4,8 +4,37 @@
 
 ## Inbox
 
+<!-- 실행 대기 Intent 없음. -->
+
+## Active
+
+### [wiki-retrieval-test-20q-02] 업데이트된 Agent Wiki 20문항 회수성 재검증
+- status: active
+- target_agent: genie
+- priority: high
+- permission: L0-local-research-and-documentation
+- requested: 2026-09-02T09:17:53Z
+- execution_mode: multi_subagent_roles
+- projects: agent-wiki,knowledge-lab,infinity
+- task_type: retrieval-evaluation
+- goal: 업데이트된 Agent Wiki `content/docs/`만으로 기존 20문항을 동일 기준으로 재검증하고, 이전 `wiki-retrieval-test-20q-01` 결과(Found 6/20, Partial 6/20, Not found 8/20)와 변화·원인을 비교 기록한다.
+- user_request: "위키 업데이트했는데 다시 한번 해보자"
+- requested_query: 업데이트된 Agent Wiki의 20문항 검색 회수성 재검증과 이전 결과 비교
+- success_criteria: Q1~Q20 각각에 Found/Partial/Not found, 짧은 위키 기반 답, locator 또는 부재 검색 감사 흔적을 남긴다. 이전 결과와의 상태 변화·관련 위키 변경 경로를 비교하고, 위키 외 raw source·외부 웹·일반 지식은 근거로 쓰지 않는다.
+- metric_question: 이번 위키 업데이트가 고유명사·수치·정형 목록을 포함한 기존 20개 대표 질의의 회수성을 실제로 높였는가?
+- metric_signal: Found/Partial/Not found 건수와 Q별 상태 변화, 변경 문서와 회수 변화의 연결 근거.
+- metric_decision_rule: Found 또는 Partial이 증가하면 해당 update의 검색 표면 기여를 유지·확장하고, 변화가 없으면 누락 질문의 Retrieval Card 보강을 별도 후속으로 남긴다.
+- boundary: `agent-wiki/content/docs/`만 검색·근거로 사용한다. raw source, 외부 웹, 위키 본문 변경, 공개 배포, 권한·자격증명 변경은 하지 않는다.
+- context_pack: intents/context/wiki-retrieval-test-20q-02.json
+- context_documents_checked: LLM.md; knowledge-lab/README.md; schema/agent-rules.md; DOCUMENT_SEARCH_PIPELINE.md; USER_CONTEXT.md; SERVICE_REGISTRY.md; INFINITY_OPERATING_RULES.md; infinity/INTENTS.md; agent-wiki/README.md
+- context_searches: agent-wiki/content/docs 전체; wiki-retrieval-test-20q-01 retrieval matrix; Agent Wiki commit diff (7e2e3d3..HEAD)
+- notification_channel: slack
+- notification_target: channel:C0BR41W31MM
+- notification_reply_to: 1788287792.440609
+- next_action: Genie가 이전과 동일한 위키 전용 검색 범위·판정 기준으로 20문항을 재실행하고, 역할별 검토와 Red 검증 후 Archive 보고를 작성한다.
+
 ### [infinity-trace-contract-01] Infinity 요청·산출물·검증 로그 자동 기록 계약 구현
-- status: inbox
+- status: active
 - target_agent: genie
 - priority: high
 - permission: L0-local-implementation
@@ -28,10 +57,6 @@
 - notification_target: channel:C0BR41W31MM
 - notification_reply_to: 1788334989.223899
 - next_action: Genie가 intake·execution·Archive trace 데이터 계약, 백필 기준, 대시보드 렌더링과 배포 검증을 구현하고 Red 검증을 받는다.
-
-## Active
-
-<!-- 실행 중인 Intent 없음. -->
 
 ## Waiting
 
