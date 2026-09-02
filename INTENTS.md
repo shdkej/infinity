@@ -2,7 +2,7 @@
 
 > Heartbeat Agent가 주기적으로 읽고 실행하는 의도 목록.
 
-## Inbox
+## Active
 
 ### [safety-map-mvp-20260903] 여행 치안 지도 MVP 구현·수요 검증·배포
 - status: inbox
@@ -34,9 +34,9 @@
 - notification_origin: slack:channel:C0BR41W31MM:thread:1788364835.849239
 - next_action: Genie가 역할별 실행 세션을 시작하고, 절대 마감에 맞춰 PRD·구현·검증·원격 반영을 진행한다.
 
-## Active
+## Inbox
 
-<!-- 실행 중 Intent 없음. -->
+<!-- 실행 대기 Intent 없음. -->
 
 ## Waiting
 

@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "intent_id": "safety-map-mvp-20260903",
-  "status": "inbox",
+  "status": "active",
   "trace_completeness": "complete",
   "request": {
     "raw": {
@@ -22,6 +22,15 @@
         "intents/context/safety-map-mvp-20260903.json",
         "INTENTS.md"
       ]
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-75749c20c6b1414f90ab4cd2a2c0779c",
+      "canonical_sha": "510c8543fe0e6b2edf3a04ae649c321a0af350ec",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-02T16:33:34Z",
+      "status": "accepted"
     }
   ],
   "artifacts": [],
