@@ -9,12 +9,12 @@
 ## Active
 
 ### [wiki-retrieval-test-20q-02] 업데이트된 Agent Wiki 20문항 회수성 재검증
-- status: active
+- status: archived
 - target_agent: genie
 - priority: high
 - permission: L0-local-research-and-documentation
 - requested: 2026-09-02T09:17:53Z
-- execution_mode: multi_subagent_roles
+- execution_mode: single_genie_roles
 - projects: agent-wiki,knowledge-lab,infinity
 - task_type: retrieval-evaluation
 - goal: 업데이트된 Agent Wiki `content/docs/`만으로 기존 20문항을 동일 기준으로 재검증하고, 이전 `wiki-retrieval-test-20q-01` 결과(Found 6/20, Partial 6/20, Not found 8/20)와 변화·원인을 비교 기록한다.
