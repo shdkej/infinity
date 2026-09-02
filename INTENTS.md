@@ -4,6 +4,30 @@
 
 ## Inbox
 
+### [wiki-retrieval-test-20q-01] Agent Wiki 20문항 회수성 검증
+- status: inbox
+- target_agent: genie
+- priority: high
+- permission: L0-local-research-and-documentation
+- requested: 2026-09-02T08:03:11Z
+- execution_mode: multi_subagent_roles
+- projects: agent-wiki,knowledge-lab,infinity
+- task_type: retrieval-evaluation
+- goal: Agent Wiki 컴파일 문서만 사용해 사용자가 제시한 AI·기술, 아키텍처·MSA, 미니멀리즘·라이프스타일, 보안·비즈니스·생각 정리의 Q1~Q20에 답하고, 실제 회수 성능과 정보구조의 병목을 재현 가능하게 평가한다.
+- user_request: "인피니티의 에이전트 위키 노트 검색 기능 검증을 위해 Q1~Q20에 내 위키에서만 찾아 답하고 기록을 남겨줘. 8개 목차와 상세 목차만으로는 잘 못 찾을 수 있다는 우려를 검증한다."
+- success_criteria: 각 문항마다 답변, exact wiki path, 제목/앵커 또는 line locator, 사용 검색어, 첫 도달 경로(중앙 목차→8축→노드 또는 검색), 판정(found/partial/not-found), 근거 인용을 기록한다. 외부 웹·raw source·추론 보강을 사용하지 않는다. 20문항 회수율, 첫 경로 회수율, 검색 실패 원인, 개선 우선순위를 분리해 보고한다. 답변이 없으면 미확인으로 명시한다.
+- metric_question: 8축 만다라트 목차와 컴파일 위키만으로 사용자의 실제 20개 지식 질의에 정확한 근거를 가진 답까지 도달하는가?
+- metric_signal: 20문항별 found/partial/not-found, central traversal과 direct search의 성공률, 근거 locator 충족률, 오답/환각 0건, 실패 유형별 건수.
+- metric_decision_rule: 20개 모두 정확한 근거 locator와 함께 found면 유지; partial/not-found 또는 중앙 경로 우회가 반복되면 8축/노드 링크·메타데이터·검색 alias를 우선 보강; 위키 밖 근거가 필요한 문항은 지식 공백으로 분리한다.
+- boundary: Agent Wiki의 `content/docs/`만 근거로 사용한다. 외부 검색·raw source·위키 본문 수정·공개 게시·배포·권한 변경은 하지 않는다. 검색 로그 및 Infinity/Agent Wiki 운영 로그 기록과 필요한 Git push는 허용한다.
+- context_pack: intents/context/wiki-retrieval-test-20q-01.json
+- context_documents_checked: LLM.md; knowledge-lab/README.md; schema/agent-rules.md; DOCUMENT_SEARCH_PIPELINE.md; USER_CONTEXT.md; SERVICE_REGISTRY.md; INFINITY_OPERATING_RULES.md; infinity/INTENTS.md; agent-wiki/README.md
+- context_searches: agent-wiki/content/docs/ (Q1~Q20 키워드·문서명·frontmatter 검색 예정; raw source 제외)
+- notification_channel: slack
+- notification_target: channel:C0BR41W31MM
+- notification_reply_to: 1788287792.440609
+- next_action: Genie가 Q1~Q20 retrieval matrix를 작성하고, Planner·Developer·Marketer·Operator·Red 검증 후 기록과 원격 검증을 완료한다.
+
 
 ## Active
 
