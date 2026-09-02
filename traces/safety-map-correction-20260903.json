@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "intent_id": "safety-map-correction-20260903",
-  "status": "inbox",
+  "status": "active",
   "trace_completeness": "complete",
   "request": {
     "raw": {
@@ -22,6 +22,15 @@
         "intents/context/safety-map-correction-20260903.json",
         "INTENTS.md"
       ]
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-6daf6e7777264f57b6dca2f188642edb",
+      "canonical_sha": "067d45d1bd987460ca6c1f3cbc1a173258348b3b",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-02T19:56:37Z",
+      "status": "accepted"
     }
   ],
   "artifacts": [],

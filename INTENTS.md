@@ -4,10 +4,8 @@
 
 ## Active
 
-## Inbox
-
 ### [safety-map-correction-20260903] 여행 치안 지도 품질·지도·마감·알림 교정
-- status: inbox
+- status: active
 - target_agent: genie
 - priority: critical
 - permission: L1-local-implementation-and-staging
@@ -29,6 +27,8 @@
 - notification_origin: slack:channel:C0BR41W31MM:thread:1788364835.849239
 - context_pack: intents/context/safety-map-correction-20260903.json
 - next_action: Genie가 원본 실패를 재현·수정하고, Mapbox 및 디자인 정본을 반영한 라이브 재검증과 notification delivery test를 실행한다.
+
+## Inbox
 
 ## Waiting
 
