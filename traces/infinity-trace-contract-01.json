@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "intent_id": "infinity-trace-contract-01",
+  "status": "active",
+  "trace_completeness": "complete",
+  "request": {
+    "raw": {"status": "recorded", "value": "인피니티는 내가 직접 쿼리하는게 아니라 인피니티에서 알아서 쿼리 등록해줘야하고 산출물도 있고 하니까 로그도 남아야할 거 같아"},
+    "normalized_query": {"status": "recorded", "value": "Infinity 요청·산출물·검증 로그 자동 기록 및 대시보드 표시 계약 구현"}
+  },
+  "events": [
+    {"type": "intake", "at": "2026-09-02T08:11:20Z", "context_pack": "intents/context/infinity-trace-contract-01.json", "evidence_paths": ["INTENTS.md"]},
+    {"type": "execution", "at": "2026-09-02T09:00:00Z", "context_pack": "intents/context/infinity-trace-contract-01.json", "evidence_paths": ["schema/intent-trace-contract.md", "scripts/validate_intent_trace.py"], "searches": ["Infinity INTENTS/archive/context", "Space dashboard trace renderer", "Agent Wiki knowledge loop model"], "note": "Planner, Developer, Marketer, Operator role findings recorded before implementation."},
+    {"type": "dispatcher_handoff", "run_id": "dispatch-ebd9ae97025f4ffdbf512edd748e96b3", "canonical_sha": "82ecbd7b1fb0fe74548ef43d69d5afac6d926b95", "agent": "genie", "session_key": "agent:genie:infinity-dispatcher", "timestamp": "2026-09-02T09:34:28Z", "status": "accepted"}
+  ],
+  "artifacts": [
+    {"label": "trace contract", "path": "schema/intent-trace-contract.md"},
+    {"label": "trace validator", "path": "scripts/validate_intent_trace.py"}
+  ],
+  "verifications": [
+    {"label": "validator fixtures", "path": "scripts/test_validate_intent_trace.py", "status": "pending"}
+  ],
+  "next_decision": {"status": "in_progress", "value": "Complete the Space renderer, deployment verification, and Red review before archive."}
+}
