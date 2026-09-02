@@ -4,7 +4,35 @@
 
 ## Inbox
 
-<!-- 실행 대기 Intent 없음. -->
+### [safety-map-mvp-20260903] 여행 치안 지도 MVP 구현·수요 검증·배포
+- status: inbox
+- target_agent: genie
+- priority: critical
+- permission: L1-local-implementation-and-staging
+- requested: 2026-09-02T16:31:29Z
+- deadline: 2026-09-03T05:00:00Z
+- execution_mode: multi_subagent_roles
+- projects: world-travel,infinity,space
+- task_type: implementation
+- topics: travel-safety,map,mvp
+- user_request: "이집트 현지 2026-09-03 08:00까지 깔끔하게 마감된 실제 사용 가능한 여행 치안 지도 MVP를 완성한다."
+- goal: 일반 자유여행자가 로마를 시작으로 여행 예정 10개 도시의 도로/블록 단위 위험 신호를 주간·야간별로 확인하고, 출처·기준일·신뢰도·데이터 없음 상태를 이해하며 검수형 직접 제보를 남길 수 있는 광고 분리형 웹 MVP를 구현·배포·검증한다.
+- success_criteria: 로마 P0의 실제 지도 흐름과 도로/블록 신호, 주간/야간 전환, 근거 상세, 결측 상태, 10개 도시 지원 상태, 검수 대기 직접제보, 광고 분리 UI, 수요·사업성 근거, 모바일/데스크톱 렌더 검증, Red pass, 커밋·push·라이브 확인을 모두 남긴다.
+- scope: 로마·팔레르모·카타니아·나폴리·이스탄불·카이로·바르셀로나·파리·런던·뉴욕. 공식/공공 데이터 우선, 검증 가능한 보조·커뮤니티 데이터는 기간·복수 근거·지오코딩 신뢰도를 충족한 집계 신호만 표시한다.
+- boundary: 공개 게시·광고 집행·결제·유료 데이터 구매·계정 생성·권한/시크릿 변경은 하지 않는다. 안전을 보장하거나 안전한 도로를 단정하지 않는다. 직접 제보는 개인정보·정확한 피해자 위치를 노출하지 않고 자동 필터와 운영 검수 전에는 지도에 반영하지 않는다.
+- product_rules: 색상은 안전 등급이 아닌 최근 위험 신호 강도이며, 빨강=높은/최근 신호·주황=주의 신호·회색=근거 부족이다. 광고는 안전 신호·정렬·출처·신뢰도와 완전히 분리한다.
+- metric_question: 자유여행자가 한 도시의 야간/주간 이동 위험 신호를 근거와 한계까지 이해하고 다음 조사 행동을 결정할 수 있는가?
+- metric_signal: 핵심 흐름 완주, 로마 레이어 근거 필드 충족, 10개 도시 상태 공개, 제보 검수 경계, 모바일/데스크톱 렌더·라이브 검증, 수요/경쟁/운영비/광고 적합성 근거.
+- metric_decision_rule: 모든 핵심 흐름과 검증 게이트가 통과하면 continue; 데이터 근거가 부족한 도로는 회색 결측으로 유지하고 지원 상태를 change; 개인정보·명예훼손·출처 추적 불가 문제는 해당 신호를 hold한다.
+- required_sequence: Context Pack 재확인 → Planner PRD·수요/사업성 검증 → Developer 구현 → Marketer 가치·광고 분리 검토 → Operator 배포·운영 검토 → Genie synthesis → Red 실제 렌더 검증 → 원격 검증.
+- context_pack: intents/context/safety-map-mvp-20260903.json
+- context_documents_checked: /home/ubuntu/workspace/prompt-archive/LLM.md; knowledge-lab/README.md; schema/agent-rules.md; source/openclaw-system/docs/DOCUMENT_SEARCH_PIPELINE.md; source/openclaw-system/docs/USER_CONTEXT.md; source/openclaw-system/docs/SERVICE_REGISTRY.md; source/openclaw-system/docs/INFINITY_OPERATING_RULES.md; infinity/INTENTS.md; agent-wiki/README.md
+- context_searches: agent-wiki/content/docs/ travel safety MVP; source/openclaw-system/docs/ Infinity rules and world-travel context; user-provided travel guide reference unavailable at intake path and must be rechecked without guessing.
+- notification_channel: slack
+- notification_target: channel:C0BR41W31MM
+- notification_reply_to: 1788364835.849239
+- notification_origin: slack:channel:C0BR41W31MM:thread:1788364835.849239
+- next_action: Genie가 역할별 실행 세션을 시작하고, 절대 마감에 맞춰 PRD·구현·검증·원격 반영을 진행한다.
 
 ## Active
 

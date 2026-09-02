@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "intent_id": "safety-map-mvp-20260903",
+  "status": "inbox",
+  "trace_completeness": "complete",
+  "request": {
+    "raw": {
+      "status": "recorded",
+      "value": "이집트 현지 2026-09-03 08:00까지 깔끔하게 마감된 실제 사용 가능한 여행 치안 지도 MVP를 완성한다."
+    },
+    "normalized_query": {
+      "status": "recorded",
+      "value": "여행 치안 지도 MVP 구현 수요 검증 배포"
+    }
+  },
+  "events": [
+    {
+      "type": "intake",
+      "at": "2026-09-02T16:33:24Z",
+      "context_pack": "intents/context/safety-map-mvp-20260903.json",
+      "evidence_paths": [
+        "intents/context/safety-map-mvp-20260903.json",
+        "INTENTS.md"
+      ]
+    }
+  ],
+  "artifacts": [],
+  "verifications": [],
+  "next_decision": {
+    "status": "in_progress",
+    "value": "Genie multi_subagent_roles 실행과 로마 P0 데이터·PRD·배포 경로 착수"
+  }
+}
