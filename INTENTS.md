@@ -30,7 +30,7 @@
 - next_action: Genie가 intake·execution·Archive trace 데이터 계약, 백필 기준, 대시보드 렌더링과 배포 검증을 구현하고 Red 검증을 받는다.
 
 ### [wiki-retrieval-test-20q-01] Agent Wiki 20문항 회수성 검증
-- status: inbox
+- status: archived
 - target_agent: genie
 - priority: high
 - permission: L0-local-research-and-documentation
@@ -51,7 +51,20 @@
 - notification_channel: slack
 - notification_target: channel:C0BR41W31MM
 - notification_reply_to: 1788287792.440609
-- next_action: Genie가 Q1~Q20 retrieval matrix를 작성하고, Planner·Developer·Marketer·Operator·Red 검증 후 기록과 원격 검증을 완료한다.
+- artifact: artifacts/wiki-retrieval-test-20q-01/retrieval-matrix.md
+- report: reports/wiki-retrieval-test-20q-01/20260902T0810Z-final.md
+- red_status: pass
+- red_report: artifacts/wiki-retrieval-test-20q-01/red-report.md
+- role_sessions: ai=/root/wiki_ai; architecture=/root/wiki_architecture; lifestyle=/root/wiki_lifestyle; operator=/root; red=/root/red_wiki_retrieval
+- metric_result: Found 6/20 (30%); Partial 6/20 (30%); Not found 8/20 (40%)
+- metric_next_decision: change — alias·FAQ·evidence locator를 Retrieval Card로 보강한다.
+- knowledge_status: used
+- knowledge_decision: promote
+- knowledge_targets: agent-wiki/content/docs/log.mdx
+- knowledge_reflection: 8×8 분류보다 고유명사·수치·정형 목록을 받는 query surface가 회수성을 좌우한다.
+- knowledge_commit: agent-wiki@7e2e3d3
+- archived_at: 2026-09-02T08:10:00Z
+- next_action: Retrieval Card 보강은 별도 승인 Intent로 분리한다.
 
 
 ## Active
