@@ -20,5 +20,5 @@
     {"label": "validator fixtures", "path": "scripts/test_validate_intent_trace.py", "status": "pass (12 fixtures)"},
     {"label": "Red remediation review", "path": "reports/infinity-trace-contract-01/20260902T-red-remediation.html", "status": "pass; lifecycle remains active"}
   ],
-  "next_decision": {"status": "in_progress", "value": "Keep Active: obtain approved static-site deployment and live dashboard verification before any Archive decision."}
+  "next_decision": {"status": "in_progress", "value": "Keep Active: Infinity b6a4321 and Space 43ac53b are pushed; obtain approved static-site deployment and live dashboard verification before any Archive decision."}
 }
