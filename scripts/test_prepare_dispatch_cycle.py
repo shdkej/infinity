@@ -29,6 +29,7 @@ class PlanTests(unittest.TestCase):
         plan = prepare.build_plan(text, "fixture", Path(tempfile.mkdtemp()))
         self.assertEqual(plan["invalid_state"][0]["intent_id"], "bad-1")
         self.assertNotIn("bad-1", [item["intent_id"] for item in plan["handoff_candidates"]])
+        self.assertTrue(plan["dispatch_required"])
 
     def test_timestamp_handoff_is_live_evidence(self):
         repo = Path(tempfile.mkdtemp())
