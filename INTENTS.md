@@ -5,7 +5,7 @@
 ## Active
 
 ### [safety-map-mvp-20260903] 여행 치안 지도 MVP 구현·수요 검증·배포
-- status: inbox
+- status: active
 - target_agent: genie
 - priority: critical
 - permission: L1-local-implementation-and-staging
@@ -33,6 +33,8 @@
 - notification_reply_to: 1788364835.849239
 - notification_origin: slack:channel:C0BR41W31MM:thread:1788364835.849239
 - next_action: Genie가 역할별 실행 세션을 시작하고, 절대 마감에 맞춰 PRD·구현·검증·원격 반영을 진행한다.
+- execution_learning_contract: EXECUTION_LEARNING_CONTRACT.md
+- execution_learning_started_at: 2026-09-02T16:44:00Z
 
 ## Inbox
 

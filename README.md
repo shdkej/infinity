@@ -13,6 +13,7 @@ PERMISSIONS.md      ← 권한 레벨(L0~L3) 정의
 ARTIFACT_RULES.md   ← 산출물 경로 규칙
 workflows/heartbeat.md ← Heartbeat 동작 프로토콜 (routine이 매 실행 시 읽음)
 EVALUATION_INDEX.md / EVALUATION_NOTES.md ← evaluator 학습
+EXECUTION_LEARNING_CONTRACT.md ← 대형 MVP 시간·병목·Red 학습 정본
 intents/active/       ← 실행 중인 Intent 원장
                      유효 archive 원장만 Knowledge Lab의 source/infinity/archive/로 이동
 artifacts/{id}/     ← 결과 산출물
@@ -49,6 +50,7 @@ scripts/dispatch_terminal_notifications.py ← 원격 `origin/main` terminal 상
 - `data/dispatcher-terminal-notifications.json`의 receipt key는 intent·terminal state·destination이다. 송신 전 durable claim을 남기며 `sent`, `failed_before_acceptance`, `delivery_unknown`을 기록한다. 불확실 수신은 자동 재송하지 않고 cron 실패 알림으로 표면화한다. 구형 `dispatcher-notification-state.json`은 destination이 없어 read-only 감사 대상으로만 유지한다.
 - **Dispatcher 실행 계약**: 기존 host crontab의 10분 항목 하나만 `scripts/run_dispatcher_cycle.sh`를 호출한다. 이 스크립트는 `origin/main:INTENTS.md`의 단일 SHA를 intent 블록 단위로 파싱하고, 대시보드 action 결과와 실제 실행 계획을 분리한다. `Inbox → Active` 또는 stale Active 재개 후보는 Genie를 직접 `agent:genie:infinity-dispatcher` 세션으로 호출한다. 실행 증거는 `traces/{intent-id}.json`의 `dispatcher_handoff`와 repo 밖 `/home/ubuntu/.openclaw/state/infinity-dispatcher-runs/` cycle record에 남긴다. `actions=[]`는 버튼 큐가 비었다는 뜻일 뿐 작업 no-op가 아니다.
 - **Trace 계약**: 새 intent는 `scripts/record_intent_trace.py intake`로 `traces/{intent-id}.json`에 원문 요청·정규화 쿼리와 정확히 하나의 intake event를 기록한다. 실행마다 `execution`으로 실제 Context Pack·검색·근거 경로를 남기고, 정상 원격 Archive 검증 뒤에만 `archive`로 final report·Red pass·원격 검증을 남긴다. 계약은 `schema/intent-trace-contract.md`가 정본이며 `python3 scripts/validate_intent_trace.py --all`을 원장 검사와 함께 실행한다. 레거시 backfill은 확인되지 않은 원문을 만들지 않고 `missing` 사유와 `partial` 상태를 남긴다.
+- **실행 학습 계약**: 대형 MVP는 [`EXECUTION_LEARNING_CONTRACT.md`](EXECUTION_LEARNING_CONTRACT.md)의 역할별 UTC timing ledger, 예상 대비 실제·병목 측정, focused Red 프로토콜을 적용한다. 시간제한은 품질 게이트를 생략하는 근거가 될 수 없다.
 - **Cloud prepares, Local executes**: 조사/계획/초안은 클라우드, 파일 수정/실행/검증은 로컬 Claude Code에 위임한다.
 
 ## 연동
