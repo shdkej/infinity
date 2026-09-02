@@ -14,7 +14,8 @@
     {"type": "dispatcher_handoff", "run_id": "dispatch-ba1048098c334218a24425bec653dbb2", "canonical_sha": "4cb375d2e49b5fe88c83a03dfb008cfcbc3a2b2b", "agent": "genie", "session_key": "agent:genie:infinity-dispatcher", "timestamp": "2026-09-02T10:10:01Z", "status": "accepted"},
     {"type": "dispatcher_handoff", "run_id": "dispatch-d99c7438ccf3420dafc4138ab9120c9d", "canonical_sha": "65018870ac6035eeb5419378cb6a06c7564e8943", "agent": "genie", "session_key": "agent:genie:infinity-dispatcher", "timestamp": "2026-09-02T10:40:50Z", "status": "accepted"},
     {"type": "dispatcher_handoff", "run_id": "dispatch-f4100199d4904af983a0030b5886ac4a", "canonical_sha": "d22adff348078100445567e446b62bb10bfd8037", "agent": "genie", "session_key": "agent:genie:infinity-dispatcher", "timestamp": "2026-09-02T11:10:40Z", "status": "accepted"},
-    {"type": "dispatcher_handoff", "run_id": "dispatch-66d414092b864be68a5314ab6569a5d6", "canonical_sha": "db7191fb4424476c268e6e7d9b056a867d0acc05", "agent": "genie", "session_key": "agent:genie:infinity-dispatcher", "timestamp": "2026-09-02T11:40:21Z", "status": "accepted"}
+    {"type": "dispatcher_handoff", "run_id": "dispatch-66d414092b864be68a5314ab6569a5d6", "canonical_sha": "db7191fb4424476c268e6e7d9b056a867d0acc05", "agent": "genie", "session_key": "agent:genie:infinity-dispatcher", "timestamp": "2026-09-02T11:40:21Z", "status": "accepted"},
+    {"type": "dispatcher_handoff", "run_id": "dispatch-e02c4608872e4bae88beef36721ed2d2", "canonical_sha": "b69c5972a1646e60c51ba88eff9e4e18dd789733", "agent": "genie", "session_key": "agent:genie:infinity-dispatcher", "timestamp": "2026-09-02T12:40:26Z", "status": "accepted"}
   ],
   "artifacts": [
     {"label": "trace contract", "path": "schema/intent-trace-contract.md"},
