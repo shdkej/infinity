@@ -69,9 +69,9 @@ PY
 import json, sys
 before, after = (json.load(open(path)) for path in sys.argv[1:])
 requested = {item["intent_id"] for item in before["handoff_candidates"]}
+if before["dispatch_required"] and after["canonical_sha"] == before["canonical_sha"]:
+    raise SystemExit("canonical revision unchanged after required dispatcher work")
 if requested:
-    if after["canonical_sha"] == before["canonical_sha"]:
-        raise SystemExit("canonical revision unchanged after Genie handoff")
     still_stale = requested & {item["intent_id"] for item in after["resume_candidates"]}
     if still_stale:
         raise SystemExit("still missing execution evidence: " + ",".join(sorted(still_stale)))
@@ -104,4 +104,8 @@ Path(sys.argv[1]).write_text(json.dumps({
   "handoff_verify_exit": int(sys.argv[10]),
 }, ensure_ascii=False, indent=2) + "\n")
 PY
-exit "$HANDOFF_EXIT"
+FINAL_EXIT="$HANDOFF_EXIT"
+if [[ "$TERMINAL_EXIT" -ne 0 || "$DASHBOARD_EXIT" -ne 0 || "$HANDOFF_VERIFY_EXIT" -ne 0 ]]; then
+  FINAL_EXIT=1
+fi
+exit "$FINAL_EXIT"
