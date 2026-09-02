@@ -44,7 +44,7 @@ def fresh_trace(intent_id: str, repo: Path, reference: dt.datetime) -> dict[str,
         if event.get("type") not in {"dispatcher_handoff", "execution"}:
             continue
         try:
-            at = dt.datetime.fromisoformat(str(event.get("at", "")).replace("Z", "+00:00"))
+            at = dt.datetime.fromisoformat(str(event.get("at") or event.get("timestamp") or "").replace("Z", "+00:00"))
         except ValueError:
             continue
         status = str(event.get("status", "")).lower()

@@ -30,5 +30,12 @@ class PlanTests(unittest.TestCase):
         self.assertEqual(plan["invalid_state"][0]["intent_id"], "bad-1")
         self.assertNotIn("bad-1", [item["intent_id"] for item in plan["handoff_candidates"]])
 
+    def test_timestamp_handoff_is_live_evidence(self):
+        repo = Path(tempfile.mkdtemp())
+        (repo / "traces").mkdir()
+        (repo / "traces" / "work-1.json").write_text('{"events":[{"type":"dispatcher_handoff","timestamp":"2026-09-02T09:41:00Z","status":"accepted"}]}')
+        reference = prepare.dt.datetime(2026, 9, 2, 9, 42, tzinfo=prepare.dt.timezone.utc)
+        self.assertIsNotNone(prepare.fresh_trace("work-1", repo, reference))
+
 if __name__ == "__main__":
     unittest.main()
