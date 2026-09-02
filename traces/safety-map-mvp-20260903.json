@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "intent_id": "safety-map-mvp-20260903",
-  "status": "active",
+  "status": "archived",
   "trace_completeness": "complete",
   "request": {
     "raw": {
@@ -135,6 +135,21 @@
       "session_key": "agent:genie:infinity-dispatcher",
       "timestamp": "2026-09-02T19:30:04Z",
       "status": "accepted"
+    },
+    {
+      "type": "archive",
+      "at": "2026-09-02T19:42:17Z",
+      "report_path": "reports/safety-map-mvp-20260903/20260902T1942Z-production.html",
+      "verification": {
+        "red_status": "pass",
+        "red_report_path": "artifacts/safety-map-mvp-20260903/red-production-20260902.md",
+        "remote_verified": "pass",
+        "remote_proof_path": "artifacts/safety-map-mvp-20260903/production-remote-proof.md"
+      },
+      "approval": "User explicitly approved a separate app/domain production deployment and live verification; Travel Ops reuse was excluded.",
+      "url": "https://safety-map.aws.shdkej.com/",
+      "space_commit": "1a9da8c89b6c956e68286d9ae0a5f5ebf41d7698",
+      "scope_limit": "Fixture-only travel context; no real-time safety data accuracy or demand-validation claim."
     }
   ],
   "artifacts": [
@@ -145,6 +160,14 @@
     {
       "label": "focused Red local recheck",
       "path": "artifacts/safety-map-mvp-20260903/red-focused-local-20260902.md"
+    },
+    {
+      "label": "focused Red production recheck",
+      "path": "artifacts/safety-map-mvp-20260903/red-production-20260902.md"
+    },
+    {
+      "label": "production remote proof",
+      "path": "artifacts/safety-map-mvp-20260903/production-remote-proof.md"
     }
   ],
   "verifications": [
@@ -157,10 +180,15 @@
       "label": "Focused Red local recheck",
       "path": "artifacts/safety-map-mvp-20260903/red-focused-local-20260902.md",
       "status": "pass for local remediation; lifecycle remains active"
+    },
+    {
+      "label": "Focused Red production recheck",
+      "path": "artifacts/safety-map-mvp-20260903/red-production-20260902.md",
+      "status": "pass; live core flow, render, privacy/data boundary, and isolated deployment"
     }
   ],
   "next_decision": {
-    "status": "waiting",
-    "value": "Local MVP remediation and focused Red are complete. Await explicit approval for separate app/domain deployment and then live verification; do not reuse privacy-sensitive Travel Ops deployment."
+    "status": "closed",
+    "value": "Production release is complete. Any real-time safety data or demand/user-study work requires a new approved intent with data, privacy, and moderation contracts."
   }
 }

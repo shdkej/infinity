@@ -3,7 +3,7 @@
 - tracker_started_at: `2026-09-02T16:44:00Z`
 - contract: [`../../EXECUTION_LEARNING_CONTRACT.md`](../../EXECUTION_LEARNING_CONTRACT.md)
 - intent_start_evidence: `traces/safety-map-mvp-20260903.json` intake (`2026-09-02T16:33:24Z`)
-- lifecycle: **Active**. Initial Red found material safety, provenance, privacy, truthfulness, market-evidence, and live-verification blockers; this ledger is not completion evidence.
+- lifecycle: **Archived** after approved separate-domain production deployment, live verification, and final Red PASS.
 
 ## Forecast
 
@@ -34,9 +34,10 @@ Earlier role work happened before timing instrumentation and is intentionally no
 
 Timing coverage is **partial (1/3 exact role records)**. The developer supplied explicit boundaries. Planner and Operator did not emit stage telemetry; their handoff arrival is not used as a substitute for start/end or duration.
 
-## Current decision and bottleneck
+## Completion and bottleneck
 
-- **actual vs forecast:** unavailable until tracked stages close; no variance or percentage is inferred.
-- **resolved bottleneck:** `Red remediation` — fixture geography and executable PII checks were corrected and focused Red passed for the local artifact.
-- **current blocker:** approved deployment and live verification evidence are absent. This is an approval boundary, not a quality-gate pass.
-- **next adjustment:** apply EL-01/EL-02 only after three comparable completed intents; preserve focused Red after targeted remediation and actual render proof. No deployment or public action is implied.
+- **observed lifecycle elapsed:** 6h 58m 53s from intake `2026-09-02T16:33:24Z` to final live proof `2026-09-02T19:42:17Z`; this is not treated as active-agent time because role telemetry is partial.
+- **forecast comparison:** the planned 370-minute critical path is not directly comparable to the 419-minute wall-clock lifecycle; uninstrumented early role work, approval waiting, CloudFront provisioning, and Red remediation make a variance percentage misleading.
+- **resolved bottleneck:** `Red remediation` — a broken public method/source link and target-only apply evidence were corrected with published `/sources.html` plus an un-targeted no-change Terraform plan.
+- **final Red protocol:** core live URL + source link HTTP 200, 1440px/390px render evidence, fixture/no-live and PII boundaries, asset parity, isolated bucket/CloudFront/domain, and full post-apply plan all passed.
+- **next adjustment:** retain the focused Red gate and require public disclosure links plus a full post-apply no-change Terraform plan for comparable static production deployments.

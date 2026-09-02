@@ -1,0 +1,22 @@
+# 여행 치안 지도 MVP 구현·수요 검증·배포
+
+- id: safety-map-mvp-20260903
+- status: archived
+- completed_at: 2026-09-02T19:42Z
+- result_summary: fixture-only Safety Map을 별도 `safety-map.aws.shdkej.com` 정적 도메인으로 배포했다. 라이브 렌더·개인정보 경계·인프라 분리·Red 최종 검증을 통과했으며, 실제 범죄/안전 신호나 수요 검증은 주장하지 않는다.
+- url: https://safety-map.aws.shdkej.com/
+- artifacts: artifacts/safety-map-mvp-20260903/execution-learning.md; artifacts/safety-map-mvp-20260903/red-focused-local-20260902.md; artifacts/safety-map-mvp-20260903/red-production-20260902.md
+- report: reports/safety-map-mvp-20260903/20260902T1942Z-production.html
+- commits: space@2e35b192fdbe9f17b96a45b5720fb64f5a6f708d; space@1a9da8c89b6c956e68286d9ae0a5f5ebf41d7698
+- remote_verified: pass (Space HEAD equals origin/master after release push; live HTTPS 200 and release asset hashes match)
+- red_status: pass
+- red_report: artifacts/safety-map-mvp-20260903/red-production-20260902.md
+- role_sessions: planner=/root/role_safety_planner; developer=/root; marketer=/root/role_safety_marketer; operator=/root/role_safety_operator; red=/root/red_safety_live
+- approval: user explicitly approved only a separate app/domain production deployment and live verification; Travel Ops reuse excluded.
+- verification: S3 public access block=true; AES256; CloudFront OAC=E1PMYI8608YUT9; TLSv1.2_2021; `/` and `/sources.html` HTTPS 200; desktop=1440px/mobile=390px; un-targeted Terraform plan exit=0/no changes.
+- knowledge_status: used
+- knowledge_decision: retain-as-operating-principle
+- knowledge_targets: agent-wiki README; currentness-safe-travel-context.mdx; EXECUTION_LEARNING_CONTRACT.md
+- knowledge_reflection: travel-safety products without current, granular official evidence must default to visible no-data, isolated fixtures, and explicit non-guarantee language; deployment evidence must include a full post-apply no-change plan.
+- knowledge_commit: no-promotion-needed
+- next_action: any real-time data or demand/user-study work requires a separately approved intent with source, privacy, and moderation contracts.
