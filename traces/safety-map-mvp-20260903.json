@@ -108,6 +108,15 @@
         "Safety Map local Chromium responsive render"
       ],
       "note": "Focused Red passed local remediation only. Deployment and live verification remain approval-gated; status stays active."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-cdf6c1ba44534fceb4738d6b6216a7d2",
+      "canonical_sha": "e96a4649c0213bcb363ca9c65d41e57e21859656",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-02T18:30:04Z",
+      "status": "accepted"
     }
   ],
   "artifacts": [
