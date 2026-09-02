@@ -32,13 +32,12 @@ def parse_entries(text: str, lane: str) -> list[dict[str, Any]]:
 def expected_status(lane: str) -> set[str]:
     return {"Inbox": {"", "inbox"}, "Active": {"active"}, "Waiting": {"waiting", "blocked"}, "Archive": {"archived", "completed", "complete", "done"}}[lane]
 
-def fresh_trace(intent_id: str, repo: Path, reference: dt.datetime) -> dict[str, str] | None:
+def fresh_trace(intent_id: str, repo: Path, reference: dt.datetime, sha: str) -> dict[str, str] | None:
     path = repo / "traces" / f"{intent_id}.json"
-    if not path.exists():
-        return None
     try:
-        events = json.loads(path.read_text(encoding="utf-8")).get("events", [])
-    except json.JSONDecodeError:
+        raw = path.read_text(encoding="utf-8") if sha == "fixture" else subprocess.check_output(["git", "show", f"origin/main:traces/{intent_id}.json"], cwd=repo, text=True)
+        events = json.loads(raw).get("events", [])
+    except (json.JSONDecodeError, subprocess.CalledProcessError, FileNotFoundError):
         return None
     for event in reversed(events):
         if event.get("type") not in {"dispatcher_handoff", "execution"}:
@@ -75,13 +74,28 @@ def build_plan(text: str, sha: str, repo: Path) -> dict[str, Any]:
     reference = dt.datetime.now(dt.timezone.utc)
     live, resume = [], []
     for entry in active:
-        item = {"intent_id": entry["id"], "title": entry["title"], "evidence": fresh_trace(entry["id"], repo, reference)}
+        item = {"intent_id": entry["id"], "title": entry["title"], "evidence": fresh_trace(entry["id"], repo, reference, sha)}
         (live if item["evidence"] else resume).append(item)
     slots = max(0, MAX_ACTIVE - len(active))
     promote = [{"intent_id": e["id"], "title": e["title"], "target_agent": "genie", "reason": "available_active_slot"} for e in sorted(inbox, key=priority)[:slots] if e["fields"].get("target_agent", "genie") == "genie"]
     invalid_ids = {e["intent_id"] for e in invalid}
     handoff = [e for e in promote + resume if e["intent_id"] not in invalid_ids]
-    return {"schema_version": 1, "run_id": "dispatch-" + uuid.uuid4().hex, "at": reference.replace(microsecond=0).isoformat().replace("+00:00", "Z"), "canonical_sha": sha, "counts": {"inbox": len(inbox), "active": len(active), "waiting": sum(e["lane"] == "Waiting" for e in entries), "archive": sum(e["lane"] == "Archive" for e in entries)}, "invalid_state": invalid, "live_active": live, "resume_candidates": resume, "promote_candidates": promote, "handoff_candidates": handoff, "no_work": not handoff and not invalid}
+    followups = []
+    for entry in entries:
+        if entry["lane"] != "Archive":
+            continue
+        report = entry["fields"].get("report", "")
+        if not report:
+            continue
+        try:
+            report_text = (repo / report).read_text(encoding="utf-8") if sha == "fixture" else subprocess.check_output(["git", "show", f"origin/main:{report}"], cwd=repo, text=True)
+        except (OSError, subprocess.CalledProcessError):
+            continue
+        ids = re.search(r"(?mi)^\s*(?:- )?follow_up_intent_ids:\s*(.+?)\s*$", report_text)
+        reasons = re.search(r"(?mi)^\s*(?:- )?follow_up_not_created_reasons:\s*(.+?)\s*$", report_text)
+        if ids or reasons:
+            followups.append({"intent_id": entry["id"], "report": report, "follow_up_intent_ids": ids.group(1) if ids else "", "follow_up_not_created_reasons": reasons.group(1) if reasons else ""})
+    return {"schema_version": 1, "run_id": "dispatch-" + uuid.uuid4().hex, "at": reference.replace(microsecond=0).isoformat().replace("+00:00", "Z"), "canonical_sha": sha, "counts": {"inbox": len(inbox), "active": len(active), "waiting": sum(e["lane"] == "Waiting" for e in entries), "archive": sum(e["lane"] == "Archive" for e in entries)}, "invalid_state": invalid, "live_active": live, "resume_candidates": resume, "promote_candidates": promote, "handoff_candidates": handoff, "follow_up_candidates": followups, "no_work": not handoff and not invalid and not followups}
 
 def main() -> int:
     parser = argparse.ArgumentParser()

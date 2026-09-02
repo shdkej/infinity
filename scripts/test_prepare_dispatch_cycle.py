@@ -35,7 +35,20 @@ class PlanTests(unittest.TestCase):
         (repo / "traces").mkdir()
         (repo / "traces" / "work-1.json").write_text('{"events":[{"type":"dispatcher_handoff","timestamp":"2026-09-02T09:41:00Z","status":"accepted"}]}')
         reference = prepare.dt.datetime(2026, 9, 2, 9, 42, tzinfo=prepare.dt.timezone.utc)
-        self.assertIsNotNone(prepare.fresh_trace("work-1", repo, reference))
+        self.assertIsNotNone(prepare.fresh_trace("work-1", repo, reference, "fixture"))
+
+    def test_archive_followup_fields_are_exposed(self):
+        repo = Path(tempfile.mkdtemp())
+        (repo / "reports").mkdir()
+        (repo / "reports" / "done.md").write_text(
+            "follow_up_intent_ids: next-1\nfollow_up_not_created_reasons: approval: publish\n"
+        )
+        text = "## Inbox\n\n## Active\n\n## Waiting\n\n## Archive\n" + block(
+            "done-1", "archived", "- report: reports/done.md\n"
+        )
+        plan = prepare.build_plan(text, "fixture", repo)
+        self.assertEqual(plan["follow_up_candidates"][0]["follow_up_intent_ids"], "next-1")
+        self.assertEqual(plan["follow_up_candidates"][0]["follow_up_not_created_reasons"], "approval: publish")
 
 if __name__ == "__main__":
     unittest.main()
