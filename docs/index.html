@@ -852,11 +852,22 @@
 
     async function fetchArchiveIntent(id) {
       if (!id) return null;
-      const path = "source/infinity/archive/" + id + ".md";
+      const legacyPath = "source/infinity/archive/" + id + ".md";
+      const canonicalPath = "intents/archive/" + id + ".md";
       let text = null;
-      try { text = await fetchText(SOURCES.knowledgeLabRawBase + path); }
-      catch (e) { text = null; }
+      let path = canonicalPath;
+      try { text = await fetchText(SOURCES.rawBase + canonicalPath); }
+      catch (e) {
+        path = legacyPath;
+        try { text = await fetchText(SOURCES.knowledgeLabRawBase + legacyPath); }
+        catch (legacyError) { text = null; }
+      }
       return text ? { path, text } : null;
+    }
+
+    function archiveTaskTitle(text) {
+      const heading = String(text || "").match(/^#\s+(?:[^—\n]+\s+—\s+)?(.+?)\s*$/m);
+      return heading ? heading[1].trim() : "";
     }
 
     function detectKind(name) {
@@ -2528,10 +2539,11 @@
       let changed = false;
       for (const item of targets) {
         if (run !== archiveHydrationRun) return changed;
-        const path = normalizePath(item.meta.detail || ("source/infinity/archive/" + item.id + ".md"));
-        if (!path || !path.startsWith("source/infinity/archive/")) continue;
+        const path = normalizePath(item.meta.detail || ("intents/archive/" + item.id + ".md"));
+        if (!path || !(path.startsWith("intents/archive/") || path.startsWith("source/infinity/archive/"))) continue;
         if (archiveTemplateCache.has(path)) {
           const cached = archiveTemplateCache.get(path);
+          if (cached.title) item.title = cached.title;
           if (hasArchiveTemplate(cached)) {
             Object.assign(item.meta, cached);
             changed = true;
@@ -2540,10 +2552,19 @@
           continue;
         }
         try {
-          const text = await fetchText(SOURCES.knowledgeLabRawBase + path);
+          const text = await fetchText(
+            path.startsWith("intents/archive/")
+              ? SOURCES.rawBase + path
+              : SOURCES.knowledgeLabRawBase + path
+          );
           if (run !== archiveHydrationRun) return changed;
           const template = extractArchiveTemplate(text);
-          archiveTemplateCache.set(path, template);
+          const title = archiveTaskTitle(text);
+          archiveTemplateCache.set(path, { ...template, title });
+          if (title) {
+            item.title = title;
+            changed = true;
+          }
           if (hasArchiveTemplate(template)) {
             Object.assign(item.meta, template);
             changed = true;
