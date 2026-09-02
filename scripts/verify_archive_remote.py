@@ -152,6 +152,13 @@ def main() -> int:
                 archive_text = knowledge_lab_api_text(archive_path)
             else:
                 archive_text = github_api_text(archive_path)
+            if f"id: {intent_id}" not in archive_text or not ARCHIVE_STATUS_RE.search(archive_text):
+                archive_text = (
+                    http_text(f"https://raw.githubusercontent.com/shdkej/knowledge-lab/main/{archive_path}")
+                    if archive_path.startswith("source/infinity/archive/")
+                    else raw_github_text(archive_path)
+                )
+
             if f"id: {intent_id}" not in archive_text:
                 errors.append(f"Remote archive file {archive_path} has no id field for {intent_id}")
             if not ARCHIVE_STATUS_RE.search(archive_text):
