@@ -5,6 +5,7 @@ from __future__ import annotations
 import importlib.util
 import json
 import tempfile
+from argparse import Namespace
 from pathlib import Path
 
 MODULE_PATH = Path(__file__).with_name("validate_intent_trace.py")
@@ -73,4 +74,18 @@ run_case("dispatcher-handoff-rejects-naive-time", naive_handoff, False)
 invalid_sha_handoff = record()
 invalid_sha_handoff["events"].append({"type": "dispatcher_handoff", "timestamp": "2026-09-02T00:00:45Z", "run_id": "dispatch-fixture", "canonical_sha": "abc123", "agent": "genie", "session_key": "agent:genie:test", "status": "accepted"})
 run_case("dispatcher-handoff-rejects-invalid-sha", invalid_sha_handoff, False)
-print("TRACE VALIDATOR FIXTURES PASSED (12)")
+with tempfile.TemporaryDirectory() as directory:
+    previous_traces = writer.TRACES
+    writer.TRACES = Path(directory)
+    try:
+        target = writer.trace_path("fixture")
+        target.write_text(json.dumps(record()), encoding="utf-8")
+        writer.dispatcher_handoff(Namespace(intent_id="fixture", run_id="dispatch-fixture", canonical_sha="a" * 40, agent="genie", session_key="agent:genie:test", at="2026-09-02T00:00:45Z"))
+        writer.dispatcher_handoff(Namespace(intent_id="fixture", run_id="dispatch-fixture", canonical_sha="a" * 40, agent="genie", session_key="agent:genie:test", at="2026-09-02T00:00:45Z"))
+        stored = json.loads(target.read_text(encoding="utf-8"))
+        handoffs = [event for event in stored["events"] if event["type"] == "dispatcher_handoff"]
+        assert len(handoffs) == 1
+        run_case("dispatcher-writer-produces-auditable-handoff", stored, True)
+    finally:
+        writer.TRACES = previous_traces
+print("TRACE VALIDATOR FIXTURES PASSED (13)")

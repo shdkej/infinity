@@ -75,6 +75,25 @@ def execution(args: argparse.Namespace) -> None:
     write_atomic(path, data)
 
 
+def dispatcher_handoff(args: argparse.Namespace) -> None:
+    """Record dispatcher custody before the delegated executor starts work."""
+    path = trace_path(args.intent_id)
+    data = load(path)
+    event = {
+        "type": "dispatcher_handoff",
+        "run_id": args.run_id,
+        "canonical_sha": args.canonical_sha,
+        "agent": args.agent,
+        "session_key": args.session_key,
+        "timestamp": timestamp(args.at),
+        "status": "accepted",
+    }
+    if any(existing == event for existing in data.get("events", []) if isinstance(existing, dict)):
+        return
+    data.setdefault("events", []).append(event)
+    write_atomic(path, data)
+
+
 def archive(args: argparse.Namespace) -> None:
     path = trace_path(args.intent_id)
     data = load(path)
@@ -107,6 +126,10 @@ def parser() -> argparse.ArgumentParser:
     p.add_argument("--search", action="append", required=True); p.add_argument("--note", default="")
     p.add_argument("--status", choices=("active", "waiting"), default="active")
     p.add_argument("--decision-status", default="in_progress"); p.add_argument("--next-decision", required=True); p.set_defaults(func=execution)
+    p = commands.add_parser("dispatcher-handoff", parents=[common])
+    p.add_argument("--run-id", required=True); p.add_argument("--canonical-sha", required=True)
+    p.add_argument("--agent", default="genie"); p.add_argument("--session-key", default="agent:genie:infinity-dispatcher")
+    p.set_defaults(func=dispatcher_handoff)
     p = commands.add_parser("archive", parents=[common])
     p.add_argument("--report-path", required=True); p.add_argument("--evidence", action="append", default=[])
     p.add_argument("--artifact", action="append", default=[], metavar="LABEL=PATH")

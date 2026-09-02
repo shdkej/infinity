@@ -42,6 +42,29 @@ plan = json.load(open(sys.argv[1]))
 raise SystemExit(0 if plan["dispatch_required"] else 1)
 PY
 then
+  # Custody must be durable before Genie is invoked.  This is intentionally a
+  # dispatcher-owned write, not an instruction that a delegated session may
+  # forget to perform.
+  while IFS= read -r INTENT_ID; do
+    [[ -z "$INTENT_ID" ]] && continue
+    python3 "$ROOT/scripts/record_intent_trace.py" dispatcher-handoff \
+      --intent-id "$INTENT_ID" \
+      --run-id "$(python3 - "$PLAN_FILE" <<'PY'
+import json, sys
+print(json.load(open(sys.argv[1]))["run_id"])
+PY
+)" \
+      --canonical-sha "$(python3 - "$PLAN_FILE" <<'PY'
+import json, sys
+print(json.load(open(sys.argv[1]))["canonical_sha"])
+PY
+)"
+  done < <(python3 - "$PLAN_FILE" <<'PY'
+import json, sys
+for item in json.load(open(sys.argv[1]))["handoff_candidates"]:
+    print(item["intent_id"])
+PY
+)
   python3 - "$PLAN_FILE" "$PROMPT_FILE" <<'PY'
 import json, sys
 plan = json.load(open(sys.argv[1]))
