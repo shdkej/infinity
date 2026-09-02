@@ -4,8 +4,8 @@ set -u -o pipefail
 
 ROOT="/home/ubuntu/workspace/knowledge-lab/infinity"
 OPENCLAW_BIN="/home/ubuntu/.npm-global/bin/openclaw"
-STATE_DIR="/home/ubuntu/.openclaw/state/infinity-dispatcher-runs"
-LOCK_FILE="/tmp/infinity-dispatcher.lock"
+STATE_DIR="${INFINITY_DISPATCHER_STATE_DIR:-/home/ubuntu/.openclaw/state/infinity-dispatcher-runs}"
+LOCK_FILE="${INFINITY_DISPATCHER_LOCK_FILE:-/tmp/infinity-dispatcher.lock}"
 mkdir -p "$STATE_DIR"
 exec 9>"$LOCK_FILE"
 flock -n 9 || exit 0
