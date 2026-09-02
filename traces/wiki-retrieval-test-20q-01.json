@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "intent_id": "wiki-retrieval-test-20q-01",
+  "status": "archived",
+  "trace_completeness": "partial",
+  "request": {
+    "raw": {"status": "recorded", "value": "Agent Wiki만 사용하여 20개 질의(Q1~Q20)에 답하고 각 답변의 정확한 문서 경로·앵커·검색어·검색 실패를 기록하여 8축 만다라트 탐색 구조의 실제 검색/회수 성능을 검증한다. 외부 웹·raw source는 사용하지 않는다."},
+    "normalized_query": {"status": "recorded", "value": "Agent Wiki 20문항 회수성 측정과 8축 탐색·검색 병목 기록"}
+  },
+  "events": [
+    {"type": "intake", "at": "2026-09-02T08:04:00Z", "context_pack": "intents/context/wiki-retrieval-test-20q-01.json", "evidence_paths": ["intents/context/wiki-retrieval-test-20q-01.json"], "note": "Request text is preserved by the Context Pack; the original transport message is not retained separately."},
+    {"type": "execution", "at": "2026-09-02T08:06:00Z", "context_pack": "intents/context/wiki-retrieval-test-20q-01.json", "evidence_paths": ["artifacts/wiki-retrieval-test-20q-01/retrieval-matrix.md"], "searches": ["agent-wiki/content/docs Q1~Q20 keyword retrieval", "index → source-category-map → axis → node traversal"], "note": "Backfilled from retained retrieval matrix; individual live session timestamps are not retained."},
+    {"type": "archive", "at": "2026-09-02T08:10:00Z", "report_path": "reports/wiki-retrieval-test-20q-01/20260902T0810Z-final.md", "evidence_paths": ["reports/wiki-retrieval-test-20q-01/20260902T0810Z-final.md", "artifacts/wiki-retrieval-test-20q-01/red-report.md"], "verification": {"red_status": "pass", "remote_verified": "pass"}},
+    {"type": "backfill", "at": "2026-09-02T10:00:00Z", "evidence_paths": ["intents/archive/wiki-retrieval-test-20q-01.md", "artifacts/wiki-retrieval-test-20q-01/retrieval-matrix.md", "reports/wiki-retrieval-test-20q-01/20260902T0810Z-final.md", "artifacts/wiki-retrieval-test-20q-01/red-report.md"], "note": "Trace was backfilled from the retained Context Pack, archive detail, matrix, final report, and Red report; remote SHA is not recoverable from those retained files."}
+  ],
+  "artifacts": [
+    {"label": "20-question retrieval matrix", "path": "artifacts/wiki-retrieval-test-20q-01/retrieval-matrix.md"},
+    {"label": "final report", "path": "reports/wiki-retrieval-test-20q-01/20260902T0810Z-final.md"},
+    {"label": "Red report", "path": "artifacts/wiki-retrieval-test-20q-01/red-report.md"}
+  ],
+  "verifications": [
+    {"label": "Red", "path": "artifacts/wiki-retrieval-test-20q-01/red-report.md", "status": "pass"},
+    {"label": "retrieval metric", "path": "reports/wiki-retrieval-test-20q-01/20260902T0810Z-final.md", "status": "Found 6/20; Partial 6/20; Not found 8/20"}
+  ],
+  "next_decision": {"status": "change", "value": "Alias·FAQ·evidence locator를 Retrieval Card로 보강하는 후속 Intent를 검토한다."}
+}

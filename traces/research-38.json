@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "intent_id": "research-38",
+  "status": "archived",
+  "trace_completeness": "partial",
+  "request": {
+    "raw": {"status": "missing", "reason": "The original intake message is not preserved in the current archive records; do not reconstruct it."},
+    "normalized_query": {"status": "recorded", "value": "Agent Wiki 목차의 에이전트 검색 효율 감사와 만다라트 8축 traversal 정정"}
+  },
+  "events": [
+    {"type": "intake", "at": "2026-09-01T00:00:00Z", "context_pack": "intents/context/research-38.json", "evidence_paths": ["INTENTS.md"], "note": "Timestamp is a bounded archive-day placeholder; original intake timestamp is unavailable."},
+    {"type": "archive", "at": "2026-09-01T20:00:00Z", "report_path": "reports/research-38/20260901T-correction-pass.html", "evidence_paths": ["reports/research-38/20260901T-correction-pass.html"], "verification": {"red_status": "pass", "remote_verified": "pass"}},
+    {"type": "backfill", "at": "2026-09-02T09:00:00Z", "evidence_paths": ["artifacts/research-38/mandalart-core-traversal-correction.md", "reports/research-38/20260901T-correction-pass.html", "artifacts/research-38/red-correction-report.md"], "note": "Backfilled only from retained correction artifact, final report, Red report, and archive metadata."}
+  ],
+  "artifacts": [
+    {"label": "8-axis traversal correction", "path": "artifacts/research-38/mandalart-core-traversal-correction.md"},
+    {"label": "final correction report", "path": "reports/research-38/20260901T-correction-pass.html"},
+    {"label": "Red correction report", "path": "artifacts/research-38/red-correction-report.md"}
+  ],
+  "verifications": [
+    {"label": "Red", "path": "artifacts/research-38/red-correction-report.md", "status": "pass"}
+  ],
+  "next_decision": {"status": "implemented", "value": "The follow-up navigation implementation was completed as wiki-ia-01; preserve this record as the audit baseline."}
+}
