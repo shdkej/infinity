@@ -93,12 +93,47 @@
       "session_key": "agent:genie:infinity-dispatcher",
       "timestamp": "2026-09-02T17:50:03Z",
       "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-02T18:01:52Z",
+      "context_pack": "intents/context/safety-map-mvp-20260903.json",
+      "evidence_paths": [
+        "artifacts/safety-map-mvp-20260903/red-focused-local-20260902.md",
+        "artifacts/safety-map-mvp-20260903/execution-learning.md"
+      ],
+      "searches": [
+        "Safety Map focused Red current local artifact",
+        "Safety Map executable PII fixture cases",
+        "Safety Map local Chromium responsive render"
+      ],
+      "note": "Focused Red passed local remediation only. Deployment and live verification remain approval-gated; status stays active."
     }
   ],
-  "artifacts": [],
-  "verifications": [],
+  "artifacts": [
+    {
+      "label": "execution-learning ledger",
+      "path": "artifacts/safety-map-mvp-20260903/execution-learning.md"
+    },
+    {
+      "label": "focused Red local recheck",
+      "path": "artifacts/safety-map-mvp-20260903/red-focused-local-20260902.md"
+    }
+  ],
+  "verifications": [
+    {
+      "label": "Safety Map smoke suite",
+      "path": "artifacts/safety-map-mvp-20260903/red-focused-local-20260902.md",
+      "status": "pass; executable fixture and PII cases"
+    },
+    {
+      "label": "Focused Red local recheck",
+      "path": "artifacts/safety-map-mvp-20260903/red-focused-local-20260902.md",
+      "status": "pass for local remediation; lifecycle remains active"
+    }
+  ],
   "next_decision": {
-    "status": "in_progress",
-    "value": "Genie multi_subagent_roles 실행과 로마 P0 데이터·PRD·배포 경로 착수"
+    "status": "waiting",
+    "value": "Local MVP remediation and focused Red are complete. Await explicit approval for separate app/domain deployment and then live verification; do not reuse privacy-sensitive Travel Ops deployment."
   }
 }
