@@ -1,5 +1,6 @@
 # wiki-retrieval-test-20q-02 — Agent Wiki 20문항 회수성 재검증
 
+
 - status: archived
 - execution_mode: single_genie_roles
 - source_context_pack: `intents/context/wiki-retrieval-test-20q-02.json`
