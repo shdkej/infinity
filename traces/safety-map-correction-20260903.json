@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "intent_id": "safety-map-correction-20260903",
-  "status": "waiting",
+  "status": "active",
   "trace_completeness": "complete",
   "request": {
     "raw": {
@@ -47,12 +47,27 @@
       ],
       "result": "blocked",
       "blocker": "No browser-safe Mapbox configuration exists within the L1 no-secret-change/no-token-exposure boundary."
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-02T20:30:00Z",
+      "result": "quality_iteration_active",
+      "evidence_paths": [
+        "../space/infra-aws-static-sites/sites/safety-map/README.md",
+        "../space/infra-aws-static-sites/sites/safety-map/test-smoke.js",
+        "reports/safety-map-correction-20260903/20260902T2030Z-quality-iteration.html"
+      ],
+      "notes": [
+        "Protected gateway injection generated an untracked runtime config; no token value was read or committed.",
+        "Live runtime config matched generated config, HTTPS assets returned 200, and Mapbox style request returned 200 with the approved domain Referer.",
+        "Slack quality-iteration status sent once to the immutable origin thread; this is not a terminal notification."
+      ]
     }
   ],
   "artifacts": [],
   "verifications": [],
   "next_decision": {
-    "status": "waiting",
-    "value": "사용자가 URL-restricted 공개 Mapbox 토큰의 브라우저 노출 또는 토큰 비노출 프록시의 인프라·비용·권한을 명시 승인할 때 재개한다."
+    "status": "quality_iteration_active",
+    "value": "마감 전까지 실제 브라우저 렌더·접근성·사용성 및 focused Red를 반복한다. terminal Archive/notification은 금지한다."
   }
 }
