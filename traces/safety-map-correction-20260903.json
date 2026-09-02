@@ -51,28 +51,43 @@
     {
       "type": "execution",
       "at": "2026-09-02T20:30:00Z",
+      "context_pack": "intents/context/safety-map-correction-20260903.json",
       "result": "quality_iteration_active",
       "evidence_paths": [
-        "../space/infra-aws-static-sites/sites/safety-map/README.md",
-        "../space/infra-aws-static-sites/sites/safety-map/test-smoke.js",
         "reports/safety-map-correction-20260903/20260902T2030Z-quality-iteration.html"
+      ],
+      "searches": [
+        "protected runtime configuration parity check",
+        "live HTTPS asset and Mapbox style-response verification",
+        "Slack nonterminal notification receipt verification"
       ],
       "notes": [
         "Protected gateway injection generated an untracked runtime config; no token value was read or committed.",
         "Live runtime config matched generated config, HTTPS assets returned 200, and Mapbox style request returned 200 with the approved domain Referer.",
         "Slack quality-iteration status sent once to the immutable origin thread; this is not a terminal notification."
       ]
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-8785c0f2392744e196b6a96efa8e35c6",
+      "canonical_sha": "484a5d88a8d6e5045c0e77d7852275a4d14732ce",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-02T21:00:04Z",
+      "status": "accepted"
     }
   ],
   "artifacts": [],
   "verifications": [
     {
+      "label": "protected Mapbox delivery",
       "type": "protected_mapbox_delivery",
       "at": "2026-09-02T20:30:00Z",
       "status": "pass",
       "evidence": "Gateway-generated runtime config matched the live artifact and loaded without recording its token; app/app.js HTTPS and Mapbox style request with the deployed-domain Referer returned 200."
     },
     {
+      "label": "quality iteration notification",
       "type": "quality_iteration_notification",
       "at": "2026-09-02T20:28:23Z",
       "status": "sent_once_nonterminal",
@@ -81,6 +96,7 @@
       "note": "Progress receipt only; terminal notifier and Archive remain prohibited before the deadline."
     },
     {
+      "label": "focused Red before interactive render recovery",
       "type": "focused_red",
       "at": "2026-09-02T20:32:00Z",
       "status": "fail",
@@ -88,10 +104,24 @@
         "No actual 390px and desktop interactive Mapbox render/search/accessibility evidence: managed browser profile is locked and standalone Chromium cannot persist screenshots in this runtime.",
         "Mapbox dashboard URL-restriction policy for the public client token has not been independently evidenced."
       ]
+    },
+    {
+      "label": "live interactive Mapbox render",
+      "type": "live_interactive_render",
+      "at": "2026-09-02T21:02:00Z",
+      "status": "pass",
+      "evidence": "Isolated Chromium DevTools checks confirmed a live Mapbox canvas and controls, accessible map/search labels, no horizontal overflow, conservative no-safety-data disclosure, and a successful Trevi Fountain search response on desktop and mobile layouts. The protected client token was not read, emitted, or recorded."
+    },
+    {
+      "label": "focused Red recheck after live interaction evidence",
+      "type": "focused_red_recheck",
+      "at": "2026-09-02T21:03:00Z",
+      "status": "fail",
+      "blocker": "Independent provider-side evidence of the public Mapbox token URL restriction for https://safety-map.aws.shdkej.com is still absent. Runtime code and a successful Referer request show intended delivery behavior, not the provider policy."
     }
   ],
   "next_decision": {
     "status": "quality_iteration_active",
-    "value": "마감 전까지 실제 브라우저 렌더·접근성·사용성 및 focused Red를 반복한다. terminal Archive/notification은 금지한다."
+    "value": "Interactive desktop/mobile render, search, and accessibility evidence is complete. Obtain non-secret provider-side proof of the Mapbox public-token URL restriction for the deployed origin, then repeat focused Red; terminal Archive/notification remains prohibited before the deadline."
   }
 }
