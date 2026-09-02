@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "intent_id": "safety-map-correction-20260903",
-  "status": "active",
+  "status": "waiting",
   "trace_completeness": "complete",
   "request": {
     "raw": {
@@ -31,12 +31,28 @@
       "session_key": "agent:genie:infinity-dispatcher",
       "timestamp": "2026-09-02T19:56:37Z",
       "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-02T20:00:00Z",
+      "context_pack": "intents/context/safety-map-correction-20260903.json",
+      "evidence_paths": [
+        "INTENTS.md",
+        "reports/safety-map-correction-20260903/20260902T1956Z-waiting.md"
+      ],
+      "searches": [
+        "Mapbox existing configuration discovery in space and remotion-map",
+        "Mapbox secret-store metadata discovery",
+        "terminal notification receipt and Slack reply metadata contract"
+      ],
+      "result": "blocked",
+      "blocker": "No browser-safe Mapbox configuration exists within the L1 no-secret-change/no-token-exposure boundary."
     }
   ],
   "artifacts": [],
   "verifications": [],
   "next_decision": {
-    "status": "in_progress",
-    "value": "Genie 역할별 corrective implementation과 Mapbox·design·notification contract 검증 시작"
+    "status": "waiting",
+    "value": "사용자가 URL-restricted 공개 Mapbox 토큰의 브라우저 노출 또는 토큰 비노출 프록시의 인프라·비용·권한을 명시 승인할 때 재개한다."
   }
 }

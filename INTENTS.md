@@ -4,8 +4,12 @@
 
 ## Active
 
+## Inbox
+
+## Waiting
+
 ### [safety-map-correction-20260903] 여행 치안 지도 품질·지도·마감·알림 교정
-- status: active
+- status: waiting
 - target_agent: genie
 - priority: critical
 - permission: L1-local-implementation-and-staging
@@ -26,11 +30,9 @@
 - notification_reply_to: 1788364835.849239
 - notification_origin: slack:channel:C0BR41W31MM:thread:1788364835.849239
 - context_pack: intents/context/safety-map-correction-20260903.json
-- next_action: Genie가 원본 실패를 재현·수정하고, Mapbox 및 디자인 정본을 반영한 라이브 재검증과 notification delivery test를 실행한다.
-
-## Inbox
-
-## Waiting
+- blocker: 기존 Mapbox 설정은 Remotion 서버/로컬 정적 이미지용 비밀 토큰뿐이며, 브라우저용 공개 토큰 또는 토큰 비노출 프록시가 없다. 현재 L1과 토큰 비노출·시크릿 변경 금지 계약에서는 실제 도로·장소·거리 탐색 Mapbox 지도를 안전하게 구현할 수 없다. 비밀을 소스·dist·Terraform·문서·로그에 넣지 않는다.
+- next_retry_condition: 사용자가 (a) 이 도메인 전용 URL-restricted 공개 Mapbox 토큰의 브라우저 노출을 명시 승인하거나, (b) 토큰 비노출 서버 프록시의 인프라·비용·권한 승인을 제공하면 재개한다. 어느 경우에도 실시간 안전 신호 데이터는 별도 검증 근거 없이는 no-data로 유지한다.
+- report: reports/safety-map-correction-20260903/20260902T1956Z-waiting.md
 
 ### [research-32] Starter Story 솔로프리너 사례 1개 깊은 복원
 - status: waiting
