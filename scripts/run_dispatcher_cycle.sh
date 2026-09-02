@@ -36,7 +36,8 @@ HANDOFF_STATE="not_needed"
 
 if python3 - "$PLAN_FILE" <<'PY'
 import json, sys
-raise SystemExit(0 if json.load(open(sys.argv[1]))["handoff_candidates"] else 1)
+plan = json.load(open(sys.argv[1]))
+raise SystemExit(0 if plan["dispatch_required"] else 1)
 PY
 then
   python3 - "$PLAN_FILE" "$PROMPT_FILE" <<'PY'

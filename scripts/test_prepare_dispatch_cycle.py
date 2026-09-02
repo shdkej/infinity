@@ -49,6 +49,7 @@ class PlanTests(unittest.TestCase):
         plan = prepare.build_plan(text, "fixture", repo)
         self.assertEqual(plan["follow_up_candidates"][0]["follow_up_intent_ids"], "next-1")
         self.assertEqual(plan["follow_up_candidates"][0]["follow_up_not_created_reasons"], "approval: publish")
+        self.assertTrue(plan["dispatch_required"])
 
 if __name__ == "__main__":
     unittest.main()

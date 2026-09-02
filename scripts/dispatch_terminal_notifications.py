@@ -203,7 +203,7 @@ def main() -> int:
           if not dest:
               skipped += 1
               continue
-          identity = "|".join((str(entry["id"]), terminal, dest["channel"], dest["target"], dest.get("thread", "")))
+          identity = "|".join((str(entry["id"]), terminal, dest["channel"], dest["target"], dest.get("thread", ""), dest.get("reply_to", "")))
           key = hashlib.sha256(identity.encode()).hexdigest()
           existing = deliveries.get(key)
           if existing:
