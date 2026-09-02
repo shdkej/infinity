@@ -8,30 +8,7 @@
 
 ## Active
 
-### [infinity-trace-contract-01] Infinity 요청·산출물·검증 로그 자동 기록 계약 구현
-- status: active
-- target_agent: genie
-- priority: high
-- permission: L0-local-implementation
-- requested: 2026-09-02T08:11:20Z
-- execution_mode: multi_subagent_roles
-- projects: infinity,space,knowledge-lab
-- task_type: implementation
-- goal: Infinity가 사용자 요청을 받으면 요청 원문·정규화된 작업 쿼리·실제 검색/조회 경로·산출물·검증 결과·다음 결정을 자동 기록하고 대시보드 태스크 상세에 표시한다.
-- user_request: "인피니티는 내가 직접 쿼리하는게 아니라 인피니티에서 알아서 쿼리 등록해줘야하고 산출물도 있고 하니까 로그도 남아야할 거 같아"
-- requested_query: Infinity 요청·산출물·검증 로그 자동 기록 및 대시보드 표시 계약 구현
-- success_criteria: 새 Intent intake가 원문 요청과 정규화된 작업 쿼리를 저장하고, 실행·Archive 시 실제 Context Pack/검색 근거·artifact/report·검증 결과·다음 결정을 구조화 로그로 남긴다. 대시보드는 해당 데이터를 카드 상세에 표시하며, `research-38`은 확인 가능한 범위에서 backfill한다. 자동화 테스트, 정적 사이트 배포, 라이브 표시 확인까지 완료한다.
-- metric_question: 각 Infinity Intent가 사용자 요청부터 산출물·검증·다음 결정까지 대시보드에서 근거 경로와 함께 재현되는가?
-- metric_signal: 신규 fixture의 요청 쿼리·로그 필드 충족률, Archive 카드의 artifact/report/검증/결정 표시율, `research-38` backfill 표시, 자동 테스트·라이브 확인 결과.
-- metric_decision_rule: 새 fixture와 `research-38`에서 필수 필드가 모두 표시되고 자동 테스트·라이브 확인이 통과하면 continue; 기존 원장 정보가 부족한 항목은 명시적으로 missing으로 표시하고 intake 계약을 보완한다.
-- boundary: Infinity와 Space 정적 사이트만 수정·배포한다. 외부 공개 발송, 권한·자격증명 변경, 비용 발생, 데이터 삭제는 하지 않는다.
-- context_pack: intents/context/infinity-trace-contract-01.json
-- context_documents_checked: LLM.md; knowledge-lab/README.md; schema/agent-rules.md; DOCUMENT_SEARCH_PIPELINE.md; USER_CONTEXT.md; SERVICE_REGISTRY.md; INFINITY_OPERATING_RULES.md; infinity/INTENTS.md; agent-wiki/README.md
-- context_searches: Infinity INTENTS/archive/context·dashboard trace renderer·Agent Wiki knowledge loop model
-- notification_channel: slack
-- notification_target: channel:C0BR41W31MM
-- notification_reply_to: 1788334989.223899
-- next_action: Genie가 intake·execution·Archive trace 데이터 계약, 백필 기준, 대시보드 렌더링과 배포 검증을 구현하고 Red 검증을 받는다.
+<!-- 실행 중 Intent 없음. -->
 
 ## Waiting
 
@@ -102,6 +79,7 @@
 
 ## Archive
 
+<!-- infinity-trace-contract-01 archived 2026-09-02T13:28Z → intents/archive/infinity-trace-contract-01.md [projects: infinity,space,knowledge-lab; type: implementation; topics: trace-contract,dashboard,dispatcher] -->
 <!-- wiki-retrieval-test-20q-02 archived 2026-09-02T09:28Z → intents/archive/wiki-retrieval-test-20q-02.md [projects: agent-wiki,knowledge-lab,infinity; type: retrieval-evaluation; topics: retrieval,information-architecture] -->
 
 

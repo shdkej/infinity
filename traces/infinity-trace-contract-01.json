@@ -1,31 +1,183 @@
 {
   "schema_version": 1,
   "intent_id": "infinity-trace-contract-01",
-  "status": "active",
+  "status": "archived",
   "trace_completeness": "complete",
   "request": {
-    "raw": {"status": "recorded", "value": "인피니티는 내가 직접 쿼리하는게 아니라 인피니티에서 알아서 쿼리 등록해줘야하고 산출물도 있고 하니까 로그도 남아야할 거 같아"},
-    "normalized_query": {"status": "recorded", "value": "Infinity 요청·산출물·검증 로그 자동 기록 및 대시보드 표시 계약 구현"}
+    "raw": {
+      "status": "recorded",
+      "value": "인피니티는 내가 직접 쿼리하는게 아니라 인피니티에서 알아서 쿼리 등록해줘야하고 산출물도 있고 하니까 로그도 남아야할 거 같아"
+    },
+    "normalized_query": {
+      "status": "recorded",
+      "value": "Infinity 요청·산출물·검증 로그 자동 기록 및 대시보드 표시 계약 구현"
+    }
   },
   "events": [
-    {"type": "intake", "at": "2026-09-02T08:11:20Z", "context_pack": "intents/context/infinity-trace-contract-01.json", "evidence_paths": ["INTENTS.md"]},
-    {"type": "execution", "at": "2026-09-02T09:00:00Z", "context_pack": "intents/context/infinity-trace-contract-01.json", "evidence_paths": ["schema/intent-trace-contract.md", "scripts/validate_intent_trace.py"], "searches": ["Infinity INTENTS/archive/context", "Space dashboard trace renderer", "Agent Wiki knowledge loop model"], "note": "Planner, Developer, Marketer, Operator role findings recorded before implementation."},
-    {"type": "dispatcher_handoff", "run_id": "dispatch-ebd9ae97025f4ffdbf512edd748e96b3", "canonical_sha": "82ecbd7b1fb0fe74548ef43d69d5afac6d926b95", "agent": "genie", "session_key": "agent:genie:infinity-dispatcher", "timestamp": "2026-09-02T09:34:28Z", "status": "accepted"},
-    {"type": "dispatcher_handoff", "run_id": "dispatch-ba1048098c334218a24425bec653dbb2", "canonical_sha": "4cb375d2e49b5fe88c83a03dfb008cfcbc3a2b2b", "agent": "genie", "session_key": "agent:genie:infinity-dispatcher", "timestamp": "2026-09-02T10:10:01Z", "status": "accepted"},
-    {"type": "dispatcher_handoff", "run_id": "dispatch-d99c7438ccf3420dafc4138ab9120c9d", "canonical_sha": "65018870ac6035eeb5419378cb6a06c7564e8943", "agent": "genie", "session_key": "agent:genie:infinity-dispatcher", "timestamp": "2026-09-02T10:40:50Z", "status": "accepted"},
-    {"type": "dispatcher_handoff", "run_id": "dispatch-f4100199d4904af983a0030b5886ac4a", "canonical_sha": "d22adff348078100445567e446b62bb10bfd8037", "agent": "genie", "session_key": "agent:genie:infinity-dispatcher", "timestamp": "2026-09-02T11:10:40Z", "status": "accepted"},
-    {"type": "dispatcher_handoff", "run_id": "dispatch-66d414092b864be68a5314ab6569a5d6", "canonical_sha": "db7191fb4424476c268e6e7d9b056a867d0acc05", "agent": "genie", "session_key": "agent:genie:infinity-dispatcher", "timestamp": "2026-09-02T11:40:21Z", "status": "accepted"},
-    {"type": "dispatcher_handoff", "run_id": "dispatch-e02c4608872e4bae88beef36721ed2d2", "canonical_sha": "b69c5972a1646e60c51ba88eff9e4e18dd789733", "agent": "genie", "session_key": "agent:genie:infinity-dispatcher", "timestamp": "2026-09-02T12:40:26Z", "status": "accepted"},
-    {"type": "dispatcher_handoff", "run_id": "dispatch-db13e8745d6a466e8edca021ccf68faf", "canonical_sha": "5eaacc8f72db514ea41f880d4ebf914412351492", "agent": "genie", "session_key": "agent:genie:infinity-dispatcher", "timestamp": "2026-09-02T13:10:23Z", "status": "accepted"},
-    {"type": "execution", "at": "2026-09-02T13:19:37Z", "context_pack": "intents/context/infinity-trace-contract-01.json", "evidence_paths": ["reports/infinity-trace-contract-01/20260902T1319Z-approved-deploy.html", "traces/infinity-trace-contract-01.json"], "searches": ["approved static-site deployment", "live CloudFront response", "trace renderer bundle"], "note": "GitHub Actions run https://github.com/shdkej/space/actions/runs/33634868593 and https://infinity.aws.shdkej.com/ passed deployment/HTTP verification; interactive browser verification is blocked by gateway timeout, so lifecycle remains active pending independent Red revalidation."}
+    {
+      "type": "intake",
+      "at": "2026-09-02T08:11:20Z",
+      "context_pack": "intents/context/infinity-trace-contract-01.json",
+      "evidence_paths": [
+        "INTENTS.md"
+      ]
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-02T09:00:00Z",
+      "context_pack": "intents/context/infinity-trace-contract-01.json",
+      "evidence_paths": [
+        "schema/intent-trace-contract.md",
+        "scripts/validate_intent_trace.py"
+      ],
+      "searches": [
+        "Infinity INTENTS/archive/context",
+        "Space dashboard trace renderer",
+        "Agent Wiki knowledge loop model"
+      ],
+      "note": "Planner, Developer, Marketer, Operator role findings recorded before implementation."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-ebd9ae97025f4ffdbf512edd748e96b3",
+      "canonical_sha": "82ecbd7b1fb0fe74548ef43d69d5afac6d926b95",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-02T09:34:28Z",
+      "status": "accepted"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-ba1048098c334218a24425bec653dbb2",
+      "canonical_sha": "4cb375d2e49b5fe88c83a03dfb008cfcbc3a2b2b",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-02T10:10:01Z",
+      "status": "accepted"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-d99c7438ccf3420dafc4138ab9120c9d",
+      "canonical_sha": "65018870ac6035eeb5419378cb6a06c7564e8943",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-02T10:40:50Z",
+      "status": "accepted"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-f4100199d4904af983a0030b5886ac4a",
+      "canonical_sha": "d22adff348078100445567e446b62bb10bfd8037",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-02T11:10:40Z",
+      "status": "accepted"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-66d414092b864be68a5314ab6569a5d6",
+      "canonical_sha": "db7191fb4424476c268e6e7d9b056a867d0acc05",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-02T11:40:21Z",
+      "status": "accepted"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-e02c4608872e4bae88beef36721ed2d2",
+      "canonical_sha": "b69c5972a1646e60c51ba88eff9e4e18dd789733",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-02T12:40:26Z",
+      "status": "accepted"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-db13e8745d6a466e8edca021ccf68faf",
+      "canonical_sha": "5eaacc8f72db514ea41f880d4ebf914412351492",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-02T13:10:23Z",
+      "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-02T13:19:37Z",
+      "context_pack": "intents/context/infinity-trace-contract-01.json",
+      "evidence_paths": [
+        "reports/infinity-trace-contract-01/20260902T1319Z-approved-deploy.html",
+        "traces/infinity-trace-contract-01.json"
+      ],
+      "searches": [
+        "approved static-site deployment",
+        "live CloudFront response",
+        "trace renderer bundle"
+      ],
+      "note": "GitHub Actions run https://github.com/shdkej/space/actions/runs/33634868593 and https://infinity.aws.shdkej.com/ passed deployment/HTTP verification; interactive browser verification is blocked by gateway timeout, so lifecycle remains active pending independent Red revalidation."
+    },
+    {
+      "type": "archive",
+      "at": "2026-09-02T13:28:00Z",
+      "report_path": "reports/infinity-trace-contract-01/20260902T1328Z-final.html",
+      "evidence_paths": [
+        "reports/infinity-trace-contract-01/20260902T1328Z-final.html",
+        "reports/infinity-trace-contract-01/20260902T1328Z-final.html",
+        "reports/infinity-trace-contract-01/20260902T1328Z-final.html"
+      ],
+      "verification": {
+        "red_status": "pass",
+        "red_report_path": "reports/infinity-trace-contract-01/20260902T1328Z-final.html",
+        "remote_verified": "pass",
+        "remote_proof_path": "reports/infinity-trace-contract-01/20260902T1328Z-final.html"
+      }
+    }
   ],
   "artifacts": [
-    {"label": "trace contract", "path": "schema/intent-trace-contract.md"},
-    {"label": "trace validator", "path": "scripts/validate_intent_trace.py"}
+    {
+      "label": "trace contract",
+      "path": "schema/intent-trace-contract.md"
+    },
+    {
+      "label": "trace validator",
+      "path": "scripts/validate_intent_trace.py"
+    },
+    {
+      "label": "trace contract",
+      "path": "schema/intent-trace-contract.md"
+    },
+    {
+      "label": "trace writer",
+      "path": "scripts/record_intent_trace.py"
+    },
+    {
+      "label": "dashboard renderer",
+      "path": "reports/infinity-trace-contract-01/20260902T1328Z-final.html"
+    }
   ],
   "verifications": [
-    {"label": "validator fixtures", "path": "scripts/test_validate_intent_trace.py", "status": "pass (12 fixtures)"},
-    {"label": "Red remediation review", "path": "reports/infinity-trace-contract-01/20260902T-red-remediation.html", "status": "pass; lifecycle remains active"}
+    {
+      "label": "validator fixtures",
+      "path": "scripts/test_validate_intent_trace.py",
+      "status": "pass (12 fixtures)"
+    },
+    {
+      "label": "Red remediation review",
+      "path": "reports/infinity-trace-contract-01/20260902T-red-remediation.html",
+      "status": "pass; lifecycle remains active"
+    },
+    {
+      "label": "Red verification evidence",
+      "path": "reports/infinity-trace-contract-01/20260902T1328Z-final.html",
+      "status": "pass"
+    },
+    {
+      "label": "Remote verification evidence",
+      "path": "reports/infinity-trace-contract-01/20260902T1328Z-final.html",
+      "status": "pass"
+    }
   ],
-  "next_decision": {"status": "in_progress", "value": "Keep Active: Infinity b6a4321 and Space 43ac53b are pushed; obtain approved static-site deployment and live dashboard verification before any Archive decision."}
+  "next_decision": {
+    "status": "implemented",
+    "value": "implemented — new dispatcher runs record custody automatically; legacy backfills remain explicitly partial."
+  }
 }
