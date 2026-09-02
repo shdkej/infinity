@@ -75,6 +75,15 @@
         "status": "fail"
       },
       "note": "Execution-learning instrumentation added. Initial Red P0 findings keep the intent active; no archive, deployment, or live claim is recorded."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-a573156fa1c24d7d8c81be8a42a7eff0",
+      "canonical_sha": "f8dc30ef412b36f606572c5f990f77b4a260169c",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-02T17:20:03Z",
+      "status": "accepted"
     }
   ],
   "artifacts": [],
