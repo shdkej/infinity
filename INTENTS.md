@@ -4,37 +4,31 @@
 
 ## Active
 
-### [safety-map-correction-20260903] 여행 치안 지도 품질·지도·마감·알림 교정
-- status: active
-- target_agent: genie
-- priority: critical
-- permission: L1-local-implementation-and-staging
-- requested: 2026-09-02T19:55:04Z
-- deadline: 2026-09-03T05:00:00Z
-- execution_mode: multi_subagent_roles
-- projects: world-travel,infinity,space,video-automation
-- task_type: implementation
-- topics: mapbox,design-system,deadline,notification
-- parent_intent: safety-map-mvp-20260903
-- goal: 조기 Archive된 Safety Map을 마감까지 재개해 Mapbox 기반 실제 지도·거리/위치 맥락·디자인 정본 반영·완료 알림을 갖춘 사용 가능한 MVP로 바로잡고, 같은 실패가 재발하지 않도록 Infinity 실행 계약을 수정한다.
-- success_criteria: (1) Mapbox 지도에서 로마의 도로·장소·거리 맥락과 위험 신호 레이어를 실제로 탐색, (2) BRAND.md·DESIGN.md·DESIGN_SYSTEM.md 읽기 증거와 Spatial Type/Warm Tool 디자인 반영, (3) Mapbox·Remotion의 사용자 소유 도구 레지스트리와 사용 기준 반영, (4) 기능 완료 후 deadline 전까지 quality iteration을 유지하는 대형 태스크 lifecycle, (5) Archive notification metadata가 보존되어 Slack 원 스레드에 정확히 한 번 도달, (6) 라이브 모바일/데스크톱·Red·원격 검증.
-- boundary: Mapbox 설정은 기존 사용자 소유 설정만 안전하게 재사용하며 토큰을 출력·문서화·노출하지 않는다. 실시간 안전 데이터를 날조하지 않으며 근거 부족 구간은 no-data로 보인다. 공개 광고 집행·결제·권한/시크릿 변경은 제외한다.
-- required_context: /home/ubuntu/workspace/prompt-archive/BRAND.md; /home/ubuntu/workspace/prompt-archive/DESIGN.md; /home/ubuntu/workspace/prompt-archive/DESIGN_SYSTEM.md; /home/ubuntu/workspace/video-automation/remotion-map/; Mapbox existing configuration discovery.
-- lifecycle_rule: 절대 마감 대형 태스크는 기능 완주만으로 Archive하지 않는다. deadline 전에는 quality_iteration_active로 유지하며 디자인·실제 렌더·접근성·사용성·운영 검증을 반복한다. Archive와 terminal completion notification은 deadline 도달 또는 사용자 명시 조기 종료 후에만 허용한다. 기능 완주가 먼저면 원 스레드에 quality iteration 진행 상태를 한 번 알린다.
-- notification_channel: slack
-- notification_target: channel:C0BR41W31MM
-- notification_reply_to: 1788364835.849239
-- notification_origin: slack:channel:C0BR41W31MM:thread:1788364835.849239
-- context_pack: intents/context/safety-map-correction-20260903.json
-- lifecycle_status: quality_iteration_active
-- approval: protected Mapbox public-token deployment route approved by user; value not read or recorded.
-- blocker: managed browser profile is locked in this runtime, so interactive desktop/mobile screenshot evidence remains pending; protected runtime-config parity, HTTPS assets, and Mapbox style response are verified without exposing the token.
-- next_retry_condition: before the absolute deadline, resolve browser-render evidence and obtain focused Red PASS; do not Archive or issue terminal completion notification early.
-- report: reports/safety-map-correction-20260903/20260902T2032Z-focused-red.html
+<!-- 실행 중 Intent 없음. -->
 
 ## Inbox
 
 ## Waiting
+
+### [safety-map-correction-20260903] 여행 치안 지도 품질·지도·마감·알림 교정
+- status: waiting
+- target_agent: genie
+- priority: critical
+- deadline: 2026-09-03T05:00:00Z (missed)
+- execution_mode: multi_subagent_roles
+- projects: world-travel,infinity,space,video-automation
+- task_type: implementation
+- parent_intent: safety-map-mvp-20260903
+- lifecycle_status: experiment_terminated
+- terminated_at: 2026-09-03T08:40:40Z
+- termination_reason: 사용자 지시로 1차 실험을 실패 종료한다. 절대 마감 후에도 실질 산출물 없이 dispatcher handoff가 반복됐고, 실제 브라우저 렌더·focused Red PASS·지도 중심 UX·디자인 정본 반영의 완료 증거가 없다.
+- context_pack: intents/context/safety-map-correction-20260903.json
+- notification_channel: slack
+- notification_target: channel:C0BR41W31MM
+- notification_reply_to: 1788364835.849239
+- blocker: managed browser profile lock과 dispatcher의 stale progress 오판 때문에 실제 렌더 검증이 수행되지 않았다.
+- next_retry_condition: 원인 분석의 수정안(마감 hard-stop·milestone evidence·디자인 gate·terminal notification contract)을 구현하고, 새 시간 예산과 재개 승인을 받은 뒤에만 새 intent로 재시작한다.
+- report: reports/safety-map-correction-20260903/20260902T2032Z-focused-red.html
 
 ### [research-32] Starter Story 솔로프리너 사례 1개 깊은 복원
 - status: waiting

@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "intent_id": "safety-map-correction-20260903",
-  "status": "active",
+  "status": "waiting",
   "trace_completeness": "complete",
   "request": {
     "raw": {
@@ -291,6 +291,18 @@
       "session_key": "agent:genie:infinity-dispatcher",
       "timestamp": "2026-09-03T08:40:04Z",
       "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-03T08:42:11Z",
+      "context_pack": "intents/context/safety-map-correction-20260903.json",
+      "evidence_paths": [
+        "reports/safety-map-correction-20260903/20260903T0840Z-experiment-failure.md"
+      ],
+      "searches": [
+        "deadline and dispatcher trace audit"
+      ],
+      "note": "User terminated first experiment after deadline miss and stale dispatcher handoffs."
     }
   ],
   "artifacts": [],
@@ -337,7 +349,7 @@
     }
   ],
   "next_decision": {
-    "status": "quality_iteration_active",
-    "value": "Interactive desktop/mobile render, search, and accessibility evidence is complete. Obtain non-secret provider-side proof of the Mapbox public-token URL restriction for the deployed origin, then repeat focused Red; terminal Archive/notification remains prohibited before the deadline."
+    "status": "failed",
+    "value": "user-terminated experiment; reopen only through a new approved intent with the corrective gates"
   }
 }
