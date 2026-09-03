@@ -21,6 +21,14 @@
 - 각 stage transition은 새 artifact, test result, 실제 렌더 capture, source commit, 또는 명시적 external blocker 중 하나를 `stage_evidence_at`·경로와 함께 남겨야 한다.
 - 이전 실질 증거 뒤 한 번의 dispatcher cycle 동안 새 증거가 없으면 `stale_progress`를 기록한다. 두 번 연속이면 Intent를 Waiting으로 옮기고, 같은 handoff를 다시 만들지 않는다.
 
+### 자율 복구·Waiting 통보
+
+- 대형 태스크의 브라우저·GPU·렌더러·빌드 도구·로컬 세션 장애는 곧바로 사용자 대기 사유가 아니다. 승인·권한·비용·외부 인간의 결정이 필요하지 않은 한, deadline 안에서 `rework`로 유지하며 원인 확인과 대체 경로를 자율적으로 조사·실행한다.
+- 차단 원인은 추정하지 않는다. 예를 들어 “GPU 부족”은 WebGL capability, 프로필 lock, 브라우저 시작, token/config 존재, 네트워크 tile 요청 중 어떤 단계가 실패했는지 관측한 뒤에만 기록한다.
+- 최소 복구 탐색 순서는 **현재 경로 복구 → 깨끗한 격리 프로필/소프트웨어 렌더 → 사용 가능한 다른 관리 브라우저·노드·원격 렌더 → 제품 코드의 재현 가능한 대체 검증**이다. 각 단계는 성공 증거 또는 실패 로그를 남긴다. 안전·비용·권한 경계를 넘는 대안은 사용자 승인 전에는 시도하지 않는다.
+- `Waiting`은 위 경로가 안전하게 소진됐거나, 사용자·외부 승인 없이는 다음 검증을 진행할 수 없을 때만 쓴다. 자원 제약 하나만으로는 Waiting 전환 근거가 되지 않는다.
+- Waiting 전환은 상태 변경과 같은 cycle에 원 요청 스레드로 반드시 통보한다. 통보에는 원인, 이미 시도한 대안, 다음 자율 시도 또는 사용자에게 필요한 단 하나의 입력, 재시도 시각을 포함하고 delivery receipt 또는 `delivery_unknown`을 Intent에 남긴다. 무통지 Waiting은 운영 실패다.
+
 ### 시각·지도 제품
 
 - 사용자-facing 디자인은 구현 전 `BRAND.md → DESIGN.md → DESIGN_SYSTEM.md`를 읽고, Intent에 `design_context_checked`와 화면 요소별 반영 mapping을 남긴다.

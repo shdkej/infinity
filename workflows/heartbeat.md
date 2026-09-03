@@ -76,6 +76,8 @@ INTENTS.md의 `## Active` 섹션에서 실행 가능한 Intent를 필터링한�
 
 - `EXECUTION_LEARNING_CONTRACT.md` 적용 Intent는 handoff나 세션 자체가 아니라 새 artifact/test/render/commit/blocker를 `stage_evidence_at`으로 남긴 경우에만 진전으로 인정한다.
 - 이전 실질 증거 이후 두 dispatcher cycle이 연속으로 비어 있으면 `stale_progress`로 Waiting 전환하고, 자동 handoff를 중단한다.
+- 브라우저·GPU·렌더러·빌드·로컬 세션 차단은 곧바로 Waiting으로 옮기지 않는다. 원인 단계(프로필 lock, WebGL, runtime config, network tile, 상호작용)를 관측하고, 현재 경로 복구 → 격리 프로필/소프트웨어 렌더 → 다른 관리 브라우저·노드·원격 렌더 → 재현 가능한 코드 검증 순으로 자율 대안을 시도한다. 각 시도는 evidence 또는 실패 로그를 남긴다.
+- 위 대안이 안전하게 소진됐거나 사용자·외부 승인 없이는 다음 단계가 불가능할 때만 Waiting을 사용한다. Waiting 전환 cycle에는 원 요청 대화로 원인·시도한 대안·다음 자율 시도/필요 입력·재시도 시각을 보내고 receipt 또는 `delivery_unknown`을 기록한다. 이 통보가 없으면 상태 전환은 불완전하다.
 - deadline이 지난 Active Intent는 다음 cycle에서 `deadline_missed` failure report와 재개 승인 조건을 남겨 Waiting으로 이동한다. Archive나 성공 알림으로 대체하지 않는다.
 - 기능 완주가 deadline보다 빠르면 `quality_iteration_active`로 유지한다. 시각 산출물은 `BRAND.md → DESIGN.md → DESIGN_SYSTEM.md` 확인·390px/desktop 실제 capture·Red 직접 판정 전에는 완료가 아니다. 지도는 실제 canvas의 장소/도로·zoom/pan·거리/위치·레이어 상호작용이 모두 검증돼야 한다.
 - Archive terminal notifier는 Intake의 channel/target/reply metadata가 원격 Archive 입력에도 존재하고, 해당 원 대화의 delivery receipt 또는 `delivery_unknown`을 기록한 경우에만 실행한다.
