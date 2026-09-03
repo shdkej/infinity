@@ -49,7 +49,7 @@
       "blocker": "Superseded: the dispatcher read an obsolete deadline while the canonical intent had already been updated to 2026-09-04T06:00:00Z. This event is retained as invalidated evidence, not an active blocker."
     },
     {
-      "type": "deadline_reconciled",
+      "type": "backfill",
       "at": "2026-09-03T11:26:43Z",
       "canonical_deadline": "2026-09-04T06:00:00Z",
       "deadline_local": "2026-09-04 08:00 Europe/Rome (CEST)",
@@ -60,6 +60,24 @@
         "reports/safety-map-experiment-02-20260904/20260903T1126Z-deadline-reconciled.html"
       ],
       "result": "active"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-1703002178f642faa7efef4211565c64",
+      "canonical_sha": "7cbbc19fc0793a8a6e44a4186325720e8c56eb33",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-03T11:30:03Z",
+      "status": "accepted"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-4ddc19375aee4be9b2616c0ac94c1ecb",
+      "canonical_sha": "fd5bf0db0d8b3ee05ba473bb51660a7ce7c046f3",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-03T11:40:03Z",
+      "status": "accepted"
     }
   ],
   "artifacts": [],
