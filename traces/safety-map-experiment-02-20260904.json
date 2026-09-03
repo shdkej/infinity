@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "intent_id": "safety-map-experiment-02-20260904",
-  "status": "inbox",
+  "status": "active",
   "trace_completeness": "complete",
   "request": {
     "raw": {
@@ -22,6 +22,15 @@
         "intents/context/safety-map-experiment-02-20260904.json",
         "EXECUTION_LEARNING_CONTRACT.md"
       ]
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-ff90f7905e3849b980ad386ada5a01e8",
+      "canonical_sha": "30cd54c90ff2c595f6a966957dbdfc6f452b9fee",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-03T11:04:43Z",
+      "status": "accepted"
     }
   ],
   "artifacts": [],

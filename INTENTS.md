@@ -4,12 +4,8 @@
 
 ## Active
 
-<!-- 실행 중 Intent 없음. -->
-
-## Inbox
-
 ### [safety-map-experiment-02-20260904] 여행 치안 지도 2차 실험: 실제 지도·디자인·마감·알림 검증
-- status: inbox
+- status: active
 - target_agent: genie
 - priority: critical
 - permission: L1-local-implementation-and-staging
@@ -31,6 +27,10 @@
 - notification_origin: slack:channel:C0BR41W31MM:thread:1788364835.849239
 - context_pack: intents/context/safety-map-experiment-02-20260904.json
 - next_action: Genie가 역할별 실행을 시작하고, 첫 milestone에서 Mapbox runtime·design mapping·browser render 경로의 실제 evidence를 남긴다.
+
+## Inbox
+
+<!-- 실행 대기 Intent 없음. -->
 
 ## Waiting
 
