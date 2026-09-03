@@ -78,12 +78,29 @@
       "session_key": "agent:genie:infinity-dispatcher",
       "timestamp": "2026-09-03T11:40:03Z",
       "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-03T11:45:15Z",
+      "context_pack": "intents/context/safety-map-experiment-02-20260904.json",
+      "evidence_paths": [
+        "artifacts/safety-map-experiment-02-20260904/evidence/20260903T114515Z-render-observation.txt",
+        "artifacts/safety-map-experiment-02-20260904/evidence/20260903T114515Z-desktop-canvas-initial.png",
+        "artifacts/safety-map-experiment-02-20260904/evidence/20260903T114515Z-mobile-390-canvas-initial.png"
+      ],
+      "searches": [
+        "isolated Chromium desktop Mapbox canvas render",
+        "isolated Chromium 390px Mapbox canvas render",
+        "managed browser availability check"
+      ],
+      "result": "m4_partial_render_evidence",
+      "blocker": "Mapbox load completion and tile rendering were not observed in the isolated renderer, while the managed browser timed out before interaction. Search, pan/zoom, and map style switching still require real browser evidence."
     }
   ],
   "artifacts": [],
   "verifications": [],
   "next_decision": {
     "status": "execute",
-    "value": "Execute the PRD M2 implementation under the canonical 2026-09-04T06:00:00Z deadline. Preserve protected Mapbox boundaries and require focused Red before any Archive."
+    "value": "Resolve the M4 browser-render blocker, then collect real desktop and 390px interaction evidence for search, pan/zoom, and actual style switching before focused Red."
   }
 }

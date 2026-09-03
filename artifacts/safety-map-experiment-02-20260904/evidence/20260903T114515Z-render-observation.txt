@@ -1,0 +1,32 @@
+M4 render observation — partial / not a pass
+
+Intent: safety-map-experiment-02-20260904
+Observed at: 2026-09-03T11:45:15Z
+Source commit: Space 6128e28c7974a5e0d8afffc01b0b43620f7e29f4
+Target: https://safety-map.aws.shdkej.com/
+
+Evidence files
+- 20260903T114515Z-desktop-canvas-initial.png
+  SHA-256: a62c59cdf4af07f9ee8f5c0432ed2c9f7a000fff1de72722560e14a9c6b5c76a
+- 20260903T114515Z-mobile-390-canvas-initial.png
+  SHA-256: 9cfb354aa7e72baaee3953906c125b2b511d213740f02a4332f220461b30e243
+
+Method
+- Isolated Chromium loaded the HTTPS live app at 1440x1200 and 390x1400.
+- Each DOM contained Mapbox canvas elements and map navigation controls.
+- The mobile image is 390px wide and is preserved as captured; no token value,
+  runtime-config body, request URL, or credential was recorded in this artifact.
+
+Result
+- Partial evidence only. The captures show the canvas container and controls,
+  but the Mapbox `load` completion message and visible tiles did not appear in
+  this isolated renderer.
+- Managed OpenClaw browser startup timed out, so it could not provide the
+  interaction path for search, pan/zoom, or day/night style switching.
+- UX-01 through UX-04 are therefore not passed. This is an explicit M4 quality
+  blocker, not a successful render or a substitute for focused Red.
+
+Next verification
+- Restore a browser session capable of Mapbox GL rendering, then capture
+  desktop and 390px before/after evidence for search selection, pan/zoom, and
+  actual style switching. Run focused Red only after those captures exist.
