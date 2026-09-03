@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "intent_id": "safety-map-experiment-02-20260904",
-  "status": "active",
+  "status": "waiting",
   "trace_completeness": "complete",
   "request": {
     "raw": {
@@ -104,6 +104,21 @@
       "session_key": "agent:genie:infinity-dispatcher",
       "timestamp": "2026-09-03T12:20:03Z",
       "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-03T12:21:00Z",
+      "context_pack": "intents/context/safety-map-experiment-02-20260904.json",
+      "evidence_paths": [
+        "reports/safety-map-experiment-02-20260904/20260903T1221Z-m4-browser-blocker.md",
+        "artifacts/safety-map-experiment-02-20260904/evidence/20260903T114515Z-render-observation.txt"
+      ],
+      "searches": [
+        "managed browser bounded retry",
+        "Mapbox M4 render evidence review"
+      ],
+      "result": "waiting_for_browser_renderer",
+      "blocker": "The managed browser timed out before tab creation. With only partial isolated-render evidence, the M4 search, pan/zoom, and style-switch acceptance criteria are not satisfied."
     }
   ],
   "artifacts": [],

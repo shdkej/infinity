@@ -4,13 +4,20 @@
 
 ## Active
 
+## Inbox
+
+<!-- 실행 대기 Intent 없음. -->
+
+## Waiting
+
 ### [safety-map-experiment-02-20260904] 여행 치안 지도 2차 실험: 실제 지도·디자인·마감·알림 검증
-- status: active
+- status: waiting
 - target_agent: genie
 - priority: critical
 - permission: L1-local-implementation-and-staging
 - requested: 2026-09-03T11:03:34Z
 - resumed_at: 2026-09-03T11:26:43Z
+- waiting_at: 2026-09-03T12:21:00Z
 - deadline: 2026-09-04T06:00:00Z
 - deadline_local: 2026-09-04 08:00 Europe/Rome (CEST)
 - execution_mode: multi_subagent_roles
@@ -30,13 +37,9 @@
 - artifact: artifacts/safety-map-experiment-02-20260904/planner-prd.md
 - prior_invalid_report: reports/safety-map-experiment-02-20260904/20260903T1105Z-deadline-missed.md
 - resume_report: reports/safety-map-experiment-02-20260904/20260903T1126Z-deadline-reconciled.html
-- next_action: PRD M2를 시작하되, 새 artifact/test/capture/commit 또는 명시 blocker 없는 handoff는 진전으로 기록하지 않는다.
-
-## Inbox
-
-<!-- 실행 대기 Intent 없음. -->
-
-## Waiting
+- report: reports/safety-map-experiment-02-20260904/20260903T1221Z-m4-browser-blocker.md
+- blocker: OpenClaw-managed browser timed out before a tab was created; isolated Chromium showed canvas controls but not completed Mapbox load/tiles. Therefore M4 cannot evidence search, pan/zoom, or actual style switching.
+- next_retry_condition: Restore a Mapbox GL-capable browser renderer and capture immutable desktop/390px interaction evidence before the existing 2026-09-04T06:00:00Z deadline.
 
 ### [safety-map-correction-20260903] 여행 치안 지도 품질·지도·마감·알림 교정
 - status: waiting
