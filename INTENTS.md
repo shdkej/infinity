@@ -37,7 +37,7 @@
 - red_lifecycle_status: pass-preterminal
 - red_lifecycle_report: artifacts/safety-map-experiment-02-20260904/red-lifecycle-preterminal.md
 - report: reports/safety-map-experiment-02-20260904/20260903T1221Z-m4-browser-blocker.md
-- next_action: deadline 전 dedicated Terraform no-changes proof와 full lifecycle Red를 보강한다. Archive와 terminal Slack은 deadline 또는 명시 조기 종료 후 receipt gate를 통과할 때만 가능하다.
+- next_action: deadline 전 현재 배포 상태를 보존하며 quality iteration을 유지한다. Archive와 terminal Slack은 deadline 또는 명시 조기 종료 후 immutable original-thread receipt gate를 통과할 때만 가능하다.
 
 ## Inbox
 

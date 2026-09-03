@@ -258,6 +258,15 @@
       ],
       "result": "focused_red_preterminal_lifecycle_pass",
       "blocker": "Terminal delivery and Archive remain prohibited before the hard deadline or explicit early termination."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-ab05b6c318224734938d3b1e65c1786f",
+      "canonical_sha": "4b22b28feef89cb1d55f39a0f8213004524918b5",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-03T15:50:03Z",
+      "status": "accepted"
     }
   ],
   "artifacts": [],
