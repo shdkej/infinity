@@ -99,6 +99,8 @@
 
 각 stage transition은 새 artifact, test result, 실제 capture, source commit 또는 정확한 external blocker 중 하나를 `stage_evidence_at`과 함께 기록한다. handoff만으로는 진전이 아니다.
 
+M4 evidence는 덮어쓰지 않는다. 파일명은 `YYYYMMDDTHHMMSSZ-{viewport}-{interaction}.{png|json|txt}`로 만들고, 실행 report에는 각 파일의 SHA-256과 해당 source commit을 기록한다. 예: `20260904T041500Z-mobile-390-layer-toggle.png`.
+
 ## 7. 마감과 quality iteration
 
 - hard deadline은 `2026-09-04T06:00:00Z`이다. 이전 `20260903T1105Z-deadline-missed.md`의 과거 마감 기록은 재개 전 상태의 기록이며, 현재 canonical Intent가 우선한다.
@@ -135,6 +137,16 @@ P0, timeout, 미응답은 pass가 아니라 Waiting blocker다. remediation은 �
 | Operator | Space worktree가 dirty하므로 명시 safety-map 파일만 stage; token/Travel Ops 재사용 금지 | deploy 전 Terraform no-change, live capture, remote proof, Slack receipt를 확인 |
 
 **다음 행동:** 이 PRD의 필수 항목을 Active Intent와 execution ledger에 연결한 뒤에만 구현을 재개한다. 새 deadline 또는 재개 권한이 사라지거나 만료되면 즉시 Waiting으로 전이한다.
+
+### Implementation readiness hold
+
+현재 canonical Intent는 Waiting이며, blocker 본문에 이전에 만료된 마감이 남아 있다. Developer 구현을 시작하기 전에 다음을 모두 충족해야 한다.
+
+1. `INTENTS.md`와 execution ledger의 blocker/next retry condition을 현재 canonical deadline `2026-09-04T06:00:00Z` 및 사용자의 명시 재개 승인과 일치시킨다.
+2. 전용 `safety-map` 배포 경로와 protected runtime config가 유지되는 것을 읽기 전용으로 확인한다.
+3. M4 capture의 timestamp·hash·source commit 기록 경로를 먼저 만든다.
+
+이 세 항목 중 하나라도 누락되면 구현·배포·terminal notification을 시작하지 않고 정확한 blocker를 유지한다.
 
 ## Sources applied
 
