@@ -267,12 +267,21 @@
       "session_key": "agent:genie:infinity-dispatcher",
       "timestamp": "2026-09-03T15:50:03Z",
       "status": "accepted"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-dcdbf3919b6c4b64ac71aab8c7aeb9f3",
+      "canonical_sha": "0c3eb8ca251fa08ca0d4b113640c6cc1c705964d",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-03T16:20:03Z",
+      "status": "accepted"
     }
   ],
   "artifacts": [],
   "verifications": [],
   "next_decision": {
     "status": "execute",
-    "value": "Keep the intent Active for quality iteration. Before terminal closure, collect a dedicated Terraform no-changes plan, run full lifecycle Red, and satisfy the immutable original-thread receipt gate at the deadline or after explicit early termination."
+    "value": "Keep the intent Active for quality iteration. The dedicated safety-map Terraform no-changes proof and full pre-terminal lifecycle Red are complete. At the deadline or after explicit early termination, satisfy the immutable original-thread receipt gate before Archive."
   }
 }
