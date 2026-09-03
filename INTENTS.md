@@ -4,8 +4,16 @@
 
 ## Active
 
+<!-- 실행 중 Intent 없음. -->
+
+## Inbox
+
+<!-- 실행 대기 Intent 없음. -->
+
+## Waiting
+
 ### [safety-map-experiment-02-20260904] 여행 치안 지도 2차 실험: 실제 지도·디자인·마감·알림 검증
-- status: active
+- status: waiting
 - target_agent: genie
 - priority: critical
 - permission: L1-local-implementation-and-staging
@@ -28,22 +36,15 @@
 - notification_origin: slack:channel:C0BR41W31MM:thread:1788364835.849239
 - context_pack: intents/context/safety-map-experiment-02-20260904.json
 - artifact: artifacts/safety-map-experiment-02-20260904/planner-prd.md
-- recovery_evidence: fresh isolated Chromium profile + software WebGL에서 Mapbox canvas, configured runtime token, WebGL context, map load message를 직접 확인했다. managed profile lock은 quarantine으로 격리했다.
-- artifact_m4: artifacts/safety-map-experiment-02-20260904/evidence/20260903T135502Z-m4-recovery-index.md
 - artifact_m4_rome: artifacts/safety-map-experiment-02-20260904/evidence/20260903T140452Z-m4-rome-recovery-index.md
+- artifact_m6_preterminal: artifacts/safety-map-experiment-02-20260904/evidence/20260903T1441Z-m6-remote-preterminal-proof.md
 - red_status: m4-focused-pass
 - red_report: artifacts/safety-map-experiment-02-20260904/red-m4-rome-recheck.md
-- artifact_m6_preterminal: artifacts/safety-map-experiment-02-20260904/evidence/20260903T1441Z-m6-remote-preterminal-proof.md
 - red_lifecycle_status: pass-preterminal
 - red_lifecycle_report: artifacts/safety-map-experiment-02-20260904/red-lifecycle-preterminal.md
-- report: reports/safety-map-experiment-02-20260904/20260903T1221Z-m4-browser-blocker.md
-- next_action: deadline 전 현재 배포 상태를 보존하며 quality iteration을 유지한다. Archive와 terminal Slack은 deadline 또는 명시 조기 종료 후 immutable original-thread receipt gate를 통과할 때만 가능하다.
-
-## Inbox
-
-<!-- 실행 대기 Intent 없음. -->
-
-## Waiting
+- report: reports/safety-map-experiment-02-20260904/20260903T1650Z-stale-progress.md
+- blocker: PRD stale-progress rule triggered after two consecutive dispatcher cycles without a new artifact, test result, capture, source commit, or external blocker. M4/M6/Red pre-terminal evidence is preserved; this is not an implementation failure.
+- next_retry_condition: 새 실질 quality evidence가 생기거나 hard deadline(2026-09-04T06:00:00Z)에 도달하거나 명시 조기 종료가 있으면 terminal receipt·Archive workflow를 재개한다.
 
 ### [safety-map-correction-20260903] 여행 치안 지도 품질·지도·마감·알림 교정
 - status: waiting

@@ -276,6 +276,28 @@
       "session_key": "agent:genie:infinity-dispatcher",
       "timestamp": "2026-09-03T16:20:03Z",
       "status": "accepted"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-bbcbd0f3c3db41e191ea5b42584c0ac6",
+      "canonical_sha": "fbf2711670efc057277dad4cc63015e0e420ea3a",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-03T16:50:03Z",
+      "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-03T16:50:04Z",
+      "context_pack": "intents/context/safety-map-experiment-02-20260904.json",
+      "evidence_paths": [
+        "reports/safety-map-experiment-02-20260904/20260903T1650Z-stale-progress.md"
+      ],
+      "searches": [
+        "stale-progress rule check after completed M4 and M6 gates"
+      ],
+      "result": "waiting_for_material_evidence_or_terminal_time",
+      "blocker": "Two consecutive dispatcher cycles produced no substantive evidence. Contract requires Active → Waiting rather than repeated handoff-only progress."
     }
   ],
   "artifacts": [],
