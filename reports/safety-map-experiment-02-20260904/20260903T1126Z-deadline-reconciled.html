@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="ko">
+<head><meta charset="utf-8"><title>Safety Map experiment 02 — deadline reconciliation</title></head>
+<body>
+  <h1>Safety Map experiment 02 — deadline reconciliation</h1>
+  <p><strong>맥락/문제:</strong> dispatcher가 이미 교체된 Intent의 이전 hard deadline을 읽어 잘못된 차단 알림을 보냈다.</p>
+  <p><strong>결과/해법:</strong> 유효 마감을 2026-09-04T06:00:00Z (2026-09-04 08:00 Europe/Rome, CEST)로 재확인하고 Intent와 trace를 Active 상태로 복구했다.</p>
+  <h2>판정</h2>
+  <ul>
+    <li>2026-09-03T11:05:00Z의 deadline_missed 판정은 무효화한다. 해당 이벤트는 감사 목적상 trace에만 남긴다.</li>
+    <li>현재 실행은 2026-09-04T06:00:00Z 전까지 품질 반복 상태를 유지하며, 명시 종료 또는 hard deadline 전에는 Archive하지 않는다.</li>
+    <li>다음 단계는 PRD M2 구현이다. 새 산출물·테스트·실제 렌더·커밋 또는 명시 blocker가 없는 handoff는 진전이 아니다.</li>
+  </ul>
+  <h2>원인</h2>
+  <p>마감 변경이 Intent 원장에는 반영됐지만, 실행 trace의 이전 deadline_missed 상태와 Waiting 블록이 동일 트랜잭션으로 정정되지 않았다.</p>
+</body>
+</html>

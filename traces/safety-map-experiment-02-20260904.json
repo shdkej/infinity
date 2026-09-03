@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "intent_id": "safety-map-experiment-02-20260904",
-  "status": "waiting",
+  "status": "active",
   "trace_completeness": "complete",
   "request": {
     "raw": {
@@ -46,13 +46,26 @@
         "design and lifecycle contract review"
       ],
       "result": "deadline_missed",
-      "blocker": "The declared hard deadline 2026-09-03T06:00:00Z predates the 2026-09-03T11:03:34Z intake. No implementation, deployment, or repeated handoff is authorized until the user approves a new deadline and restart."
+      "blocker": "Superseded: the dispatcher read an obsolete deadline while the canonical intent had already been updated to 2026-09-04T06:00:00Z. This event is retained as invalidated evidence, not an active blocker."
+    },
+    {
+      "type": "deadline_reconciled",
+      "at": "2026-09-03T11:26:43Z",
+      "canonical_deadline": "2026-09-04T06:00:00Z",
+      "deadline_local": "2026-09-04 08:00 Europe/Rome (CEST)",
+      "authority": "User explicitly confirmed the new deadline and requested correction in the Slack origin thread.",
+      "evidence_paths": [
+        "INTENTS.md",
+        "intents/context/safety-map-experiment-02-20260904.json",
+        "reports/safety-map-experiment-02-20260904/20260903T1126Z-deadline-reconciled.html"
+      ],
+      "result": "active"
     }
   ],
   "artifacts": [],
   "verifications": [],
   "next_decision": {
-    "status": "waiting_for_user",
-    "value": "Deadline missed before intake. Await an explicit new hard deadline and restart approval; preserve the protected Mapbox boundary and run the focused Red gate before any Archive."
+    "status": "execute",
+    "value": "Execute the PRD M2 implementation under the canonical 2026-09-04T06:00:00Z deadline. Preserve protected Mapbox boundaries and require focused Red before any Archive."
   }
 }

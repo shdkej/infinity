@@ -4,20 +4,13 @@
 
 ## Active
 
-<!-- 실행 중 Intent 없음. -->
-
-## Inbox
-
-<!-- 실행 대기 Intent 없음. -->
-
-## Waiting
-
 ### [safety-map-experiment-02-20260904] 여행 치안 지도 2차 실험: 실제 지도·디자인·마감·알림 검증
-- status: waiting
+- status: active
 - target_agent: genie
 - priority: critical
 - permission: L1-local-implementation-and-staging
 - requested: 2026-09-03T11:03:34Z
+- resumed_at: 2026-09-03T11:26:43Z
 - deadline: 2026-09-04T06:00:00Z
 - deadline_local: 2026-09-04 08:00 Europe/Rome (CEST)
 - execution_mode: multi_subagent_roles
@@ -34,9 +27,16 @@
 - notification_reply_to: 1788364835.849239
 - notification_origin: slack:channel:C0BR41W31MM:thread:1788364835.849239
 - context_pack: intents/context/safety-map-experiment-02-20260904.json
-- blocker: 선언된 hard deadline(2026-09-03T06:00:00Z)이 intake(2026-09-03T11:03:34Z)보다 앞서 이미 만료됐다. 새 마감/재개 승인 없이는 구현·배포·반복 handoff를 진행하지 않는다.
-- next_retry_condition: 사용자가 2026-09-03T11:03:34Z 이후의 새 hard deadline과 재개를 명시 승인하면, 기존 보호 Mapbox 경로·전용 safety-map 배포·focused Red 게이트로 재시작한다.
-- report: reports/safety-map-experiment-02-20260904/20260903T1105Z-deadline-missed.md
+- artifact: artifacts/safety-map-experiment-02-20260904/planner-prd.md
+- prior_invalid_report: reports/safety-map-experiment-02-20260904/20260903T1105Z-deadline-missed.md
+- resume_report: reports/safety-map-experiment-02-20260904/20260903T1126Z-deadline-reconciled.html
+- next_action: PRD M2를 시작하되, 새 artifact/test/capture/commit 또는 명시 blocker 없는 handoff는 진전으로 기록하지 않는다.
+
+## Inbox
+
+<!-- 실행 대기 Intent 없음. -->
+
+## Waiting
 
 ### [safety-map-correction-20260903] 여행 치안 지도 품질·지도·마감·알림 교정
 - status: waiting
