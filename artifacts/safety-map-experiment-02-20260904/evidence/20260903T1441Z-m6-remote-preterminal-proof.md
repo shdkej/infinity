@@ -17,7 +17,17 @@
 
 ## Terraform plan status
 
-`terraform plan -detailed-exitcode` did **not** reach a no-change result because the isolated validation worktree has no values for required root variables `app_feedback_sender_email`, `app_feedback_recipient_email`, and `infinity_action_token_sha256`. No values were requested, read, printed, or substituted. This is not a deploy failure claim and does not satisfy the required post-deploy no-changes proof.
+The isolated worktree plan did **not** reach a no-change result because it had neither the existing root-variable file nor the locally maintained Terraform state. No values were requested, read, printed, or substituted there.
+
+The state-preserving infrastructure worktree was then checked read-only with the existing unprinted variable file and a safety-map-only target:
+
+```text
+terraform plan -input=false -no-color -detailed-exitcode -target='module.app_static_sites["safety-map"]'
+exit_code=0
+No changes. Your infrastructure matches the configuration.
+```
+
+Terraform emitted its normal resource-targeting warning. This is a dedicated safety-map no-change proof; it is not a claim that unrelated, dirty workspace changes have been planned or applied.
 
 ## Terminal status
 

@@ -213,6 +213,51 @@
       ],
       "result": "m6_preterminal_proof_collected",
       "blocker": "Archive and terminal delivery are not authorized before the hard deadline. A dedicated Terraform no-changes plan remains unproven because the isolated worktree lacks required root-variable injection; no protected values were read, logged, or substituted."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-692f568dc1934397b172c99661f5b0cf",
+      "canonical_sha": "560c258603424c4b9a6f190efbe2ccbfcc07b0ad",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-03T15:10:03Z",
+      "status": "accepted"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-ddddf01cb12e469eab20435c83ccb878",
+      "canonical_sha": "560c258603424c4b9a6f190efbe2ccbfcc07b0ad",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-03T15:20:03Z",
+      "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-03T15:22:00Z",
+      "context_pack": "intents/context/safety-map-experiment-02-20260904.json",
+      "evidence_paths": [
+        "artifacts/safety-map-experiment-02-20260904/evidence/20260903T1441Z-m6-remote-preterminal-proof.md"
+      ],
+      "searches": [
+        "state-preserving targeted Terraform no-changes plan for safety-map"
+      ],
+      "result": "m6_safety_map_targeted_terraform_no_changes",
+      "blocker": "Archive and terminal delivery remain prohibited before the hard deadline. The targeted plan verifies only safety-map because unrelated Space worktree changes are out of this intent's scope."
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-03T15:23:00Z",
+      "context_pack": "intents/context/safety-map-experiment-02-20260904.json",
+      "evidence_paths": [
+        "artifacts/safety-map-experiment-02-20260904/red-lifecycle-preterminal.md",
+        "artifacts/safety-map-experiment-02-20260904/evidence/20260903T1441Z-m6-remote-preterminal-proof.md"
+      ],
+      "searches": [
+        "focused Red lifecycle deployment claims recheck"
+      ],
+      "result": "focused_red_preterminal_lifecycle_pass",
+      "blocker": "Terminal delivery and Archive remain prohibited before the hard deadline or explicit early termination."
     }
   ],
   "artifacts": [],
