@@ -9,6 +9,28 @@
 - 모든 시각은 UTC `Z` 형식이다. 관측되지 않은 과거 시각은 git 시간이나 세션 도착 시각으로 추정하지 않고 `missing`과 이유를 기록한다.
 - `active`, `waiting`, `rework`은 서로 중복하지 않는다. `active + waiting <= elapsed`여야 하며, `rework`은 active 안에서 별도 표기한다.
 - Red의 timebox는 품질 게이트 면제가 아니다. 미해결 P0, timeout, 미응답은 pass가 아니라 정확한 blocker를 가진 Waiting이다.
+- **실험 종료:** 이 계약을 적용한 대형 태스크가 절대 마감을 넘기면 Active를 유지하거나 handoff만 반복하지 않는다. 다음 dispatcher cycle에서 `deadline_missed`·마지막 실질 증거·실패 리포트·새 승인 필요 여부를 기록하고 Waiting으로 이동한다.
+- **완료의 의미:** 기능이 먼저 동작해도 `quality_iteration_active`일 뿐 Archive가 아니다. deadline 도달 또는 사용자의 명시 조기 종료 전에는 디자인·실제 렌더·접근성·운영 품질을 개선한다.
+
+## 실질 진전·마감·알림 게이트
+
+### 실질 진전
+
+- dispatcher handoff, 세션 존재, 빈 report는 진전 증거가 아니다.
+- 각 stage transition은 새 artifact, test result, 실제 렌더 capture, source commit, 또는 명시적 external blocker 중 하나를 `stage_evidence_at`·경로와 함께 남겨야 한다.
+- 이전 실질 증거 뒤 한 번의 dispatcher cycle 동안 새 증거가 없으면 `stale_progress`를 기록한다. 두 번 연속이면 Intent를 Waiting으로 옮기고, 같은 handoff를 다시 만들지 않는다.
+
+### 시각·지도 제품
+
+- 사용자-facing 디자인은 구현 전 `BRAND.md → DESIGN.md → DESIGN_SYSTEM.md`를 읽고, Intent에 `design_context_checked`와 화면 요소별 반영 mapping을 남긴다.
+- 완료 전 390px와 desktop의 실제 렌더 capture를 Red가 직접 읽는다. HTTP 200, CSS 파일 존재, 정적 이미지, style API 응답은 렌더 증거를 대체하지 않는다.
+- 지도 제품은 실제 canvas에서 장소/도로 맥락, zoom·pan, 거리 또는 위치 판독, 레이어 상태 전환을 검증해야 한다. fixture는 데이터 한계를 설명할 수 있지만 지도 UX 완료 근거가 될 수 없다.
+
+### terminal 알림
+
+- `notification_channel`, `notification_target`, `notification_reply_to`는 Intake부터 Archive notifier 입력까지 immutable하게 보존한다. Archive 요약/코멘트만으로 대체하지 않는다.
+- Archive는 remote verification뿐 아니라 원 대화 destination의 delivery receipt 또는 명시적인 `delivery_unknown` 기록이 있을 때만 terminal로 닫는다.
+- 기능 완주가 deadline보다 빠르면 terminal completion 대신 quality-iteration 상태를 원 스레드에 한 번 알린다.
 
 ## intent별 ledger
 

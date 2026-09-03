@@ -16,6 +16,16 @@
 
 매 Heartbeat마다 아래 순서를 따른다.
 
+### -1. 현재 사용자 callback continuation
+
+이번 wake에 Slack `interactionType: block_action` 또는 지원 채널의 버튼 callback이 함께 들어오면, 이를 일반 heartbeat의 과거 맥락이 아니라 현재 사용자 결정으로 처리한다.
+
+1. `provider/workspace + channel_id + message_ts/messageId + thread_ts + user_id + value + intent/run/question id` 복합 키로 outbound 버튼 기록과 inbound를 대조한다.
+2. 일치하면 원래 스레드의 질문과 직전 선택지를 다시 읽고, callback 수신 → 상태 복원 → 다음 질문/가역 작업/승인 경계까지 같은 응답 흐름에서 이어간다.
+3. `Active` intent가 없다는 이유로 callback을 폐기하지 않는다. grill-me 선택은 아직 Intent가 생성되기 전에도 유효한 결정 이벤트다.
+4. 일치하지 않거나 만료·중복·잘못된 스레드이면 후속 작업을 실행하지 않고 해당 상태를 기록한다. 필요한 경우 원래 질문을 만료 처리한 뒤 번호 fallback을 보낸다.
+5. callback continuation이 끝난 뒤에만 대시보드 action queue와 일반 Inbox/Active/Waiting 흐름으로 넘어간다.
+
 ### 0. Dashboard action queue 처리
 
 Inbox/Active를 보기 전에 먼저 Infinity 대시보드 버튼 큐를 확인한다. 대시보드 버튼은 사용자가 Waiting에 걸린 외부 조건을 바꾼 명시 신호이므로, 일반 Waiting 반복 금지보다 우선한다.
@@ -61,6 +71,14 @@ INTENTS.md의 `## Active` 섹션에서 실행 가능한 Intent를 필터링한�
 - `archived` → 아카이브 처리 후 건너뜀
 
 중복 실행 방지는 `Active` 레인 존재만으로 판단하지 않는다. duplicate gate를 적용하려면 살아 있는 실행 증거가 있어야 한다: 실행 중인 세션/프로세스 id, 최근 90분 안의 진행 report, 명시적 lock owner/started_at, 또는 곧 Archive될 terminal report 중 하나다. 같은 intent가 Active에 남아 있는데 진행 report 없이 duplicate-gate report만 반복되면 stale guard로 간주하고, 중복 no-op을 계속 만들지 말고 한 번 `Inbox`로 되돌리거나 실제 재개를 시도한 뒤 `stale_guard_released`를 기록한다.
+
+### 절대 마감 대형 태스크의 hard-stop
+
+- `EXECUTION_LEARNING_CONTRACT.md` 적용 Intent는 handoff나 세션 자체가 아니라 새 artifact/test/render/commit/blocker를 `stage_evidence_at`으로 남긴 경우에만 진전으로 인정한다.
+- 이전 실질 증거 이후 두 dispatcher cycle이 연속으로 비어 있으면 `stale_progress`로 Waiting 전환하고, 자동 handoff를 중단한다.
+- deadline이 지난 Active Intent는 다음 cycle에서 `deadline_missed` failure report와 재개 승인 조건을 남겨 Waiting으로 이동한다. Archive나 성공 알림으로 대체하지 않는다.
+- 기능 완주가 deadline보다 빠르면 `quality_iteration_active`로 유지한다. 시각 산출물은 `BRAND.md → DESIGN.md → DESIGN_SYSTEM.md` 확인·390px/desktop 실제 capture·Red 직접 판정 전에는 완료가 아니다. 지도는 실제 canvas의 장소/도로·zoom/pan·거리/위치·레이어 상호작용이 모두 검증돼야 한다.
+- Archive terminal notifier는 Intake의 channel/target/reply metadata가 원격 Archive 입력에도 존재하고, 해당 원 대화의 delivery receipt 또는 `delivery_unknown`을 기록한 경우에만 실행한다.
 
 ### 3. 우선순위 정렬
 
