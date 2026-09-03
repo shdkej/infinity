@@ -27,6 +27,7 @@ PY
 fi
 
 TERMINAL_EXIT=0
+POST_TERMINAL_EXIT=0
 DASHBOARD_EXIT=0
 TERMINAL_RESULT="$(python3 "$ROOT/scripts/dispatch_terminal_notifications.py" --repo "$ROOT" --state "$ROOT/data/dispatcher-terminal-notifications.json" --deliver --openclaw-bin "$OPENCLAW_BIN" 2>&1)" || TERMINAL_EXIT=$?
 DASHBOARD_RESULT="$(python3 "$ROOT/scripts/process_action_requests.py" --apply --limit 10 --json 2>&1)" || DASHBOARD_EXIT=$?
@@ -110,25 +111,33 @@ else
   HANDOFF_STATE="not_needed"
 fi
 
-python3 - "$RUN_FILE" "$PLAN_FILE" "$POST_PLAN_FILE" "$TERMINAL_RESULT" "$DASHBOARD_RESULT" "$HANDOFF_EXIT" "$HANDOFF_STATE" "$TERMINAL_EXIT" "$DASHBOARD_EXIT" "$HANDOFF_VERIFY_EXIT" <<'PY'
+# Genie may move an intent to Waiting or Archive during this cycle.  Reconciling
+# only before the handoff silently delays that state transition until a later
+# cron run; send its origin-thread notification now and persist the receipt.
+POST_TERMINAL_RESULT="$(python3 "$ROOT/scripts/dispatch_terminal_notifications.py" --repo "$ROOT" --state "$ROOT/data/dispatcher-terminal-notifications.json" --deliver --openclaw-bin "$OPENCLAW_BIN" 2>&1)" || POST_TERMINAL_EXIT=$?
+[[ "$POST_TERMINAL_EXIT" -ne 0 ]] && POST_TERMINAL_RESULT="terminal_post_handoff_error(exit=${POST_TERMINAL_EXIT}):${POST_TERMINAL_RESULT}"
+
+python3 - "$RUN_FILE" "$PLAN_FILE" "$POST_PLAN_FILE" "$TERMINAL_RESULT" "$POST_TERMINAL_RESULT" "$DASHBOARD_RESULT" "$HANDOFF_EXIT" "$HANDOFF_STATE" "$TERMINAL_EXIT" "$POST_TERMINAL_EXIT" "$DASHBOARD_EXIT" "$HANDOFF_VERIFY_EXIT" <<'PY'
 import json, sys
 from pathlib import Path
 post_plan = json.loads(Path(sys.argv[3]).read_text()) if Path(sys.argv[3]).stat().st_size else None
 Path(sys.argv[1]).write_text(json.dumps({
-  "outcome": "attention" if int(sys.argv[8]) or int(sys.argv[9]) or int(sys.argv[6]) or int(sys.argv[10]) else "handoff_verified" if sys.argv[7] == "verified" else "no_dispatch_needed",
+  "outcome": "attention" if int(sys.argv[10]) or int(sys.argv[11]) or int(sys.argv[7]) or int(sys.argv[12]) else "handoff_verified" if sys.argv[8] == "verified" else "no_dispatch_needed",
   "plan": json.loads(Path(sys.argv[2]).read_text()),
   "post_handoff_plan": post_plan,
   "terminal": sys.argv[4],
-  "dashboard_actions": sys.argv[5],
-  "genie_exit": int(sys.argv[6]),
-  "genie_handoff_state": sys.argv[7],
-  "terminal_exit": int(sys.argv[8]),
-  "dashboard_exit": int(sys.argv[9]),
-  "handoff_verify_exit": int(sys.argv[10]),
+  "post_handoff_terminal": sys.argv[5],
+  "dashboard_actions": sys.argv[6],
+  "genie_exit": int(sys.argv[7]),
+  "genie_handoff_state": sys.argv[8],
+  "terminal_exit": int(sys.argv[9]),
+  "post_handoff_terminal_exit": int(sys.argv[10]),
+  "dashboard_exit": int(sys.argv[11]),
+  "handoff_verify_exit": int(sys.argv[12]),
 }, ensure_ascii=False, indent=2) + "\n")
 PY
 FINAL_EXIT="$HANDOFF_EXIT"
-if [[ "$TERMINAL_EXIT" -ne 0 || "$DASHBOARD_EXIT" -ne 0 || "$HANDOFF_VERIFY_EXIT" -ne 0 ]]; then
+if [[ "$TERMINAL_EXIT" -ne 0 || "$POST_TERMINAL_EXIT" -ne 0 || "$DASHBOARD_EXIT" -ne 0 || "$HANDOFF_VERIFY_EXIT" -ne 0 ]]; then
   FINAL_EXIT=1
 fi
 exit "$FINAL_EXIT"
