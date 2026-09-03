@@ -95,6 +95,15 @@
       ],
       "result": "m4_partial_render_evidence",
       "blocker": "Mapbox load completion and tile rendering were not observed in the isolated renderer, while the managed browser timed out before interaction. Search, pan/zoom, and map style switching still require real browser evidence."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-7875df8345394aa2a06e26e922a189b0",
+      "canonical_sha": "1e5489f83d554e526a988442fc37a1d12c15b84c",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-03T12:20:03Z",
+      "status": "accepted"
     }
   ],
   "artifacts": [],
