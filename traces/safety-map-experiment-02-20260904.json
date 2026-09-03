@@ -188,12 +188,37 @@
       ],
       "result": "focused_red_m4_rome_pass",
       "blocker": null
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-886c7b13d5b349109be9cdbf78c77dd0",
+      "canonical_sha": "df43226d3c5515e64a481462e32d3c5c037db4c0",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-03T14:40:03Z",
+      "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-03T14:42:00Z",
+      "context_pack": "intents/context/safety-map-experiment-02-20260904.json",
+      "evidence_paths": [
+        "artifacts/safety-map-experiment-02-20260904/evidence/20260903T1441Z-m6-remote-preterminal-proof.md",
+        "artifacts/safety-map-experiment-02-20260904/red-lifecycle-preterminal.md"
+      ],
+      "searches": [
+        "deployed asset hash parity against dedicated Space source",
+        "detached-worktree Terraform init, validate, and no-changes plan attempt",
+        "focused Red lifecycle and terminal preflight"
+      ],
+      "result": "m6_preterminal_proof_collected",
+      "blocker": "Archive and terminal delivery are not authorized before the hard deadline. A dedicated Terraform no-changes plan remains unproven because the isolated worktree lacks required root-variable injection; no protected values were read, logged, or substituted."
     }
   ],
   "artifacts": [],
   "verifications": [],
   "next_decision": {
     "status": "execute",
-    "value": "Resolve the M4 browser-render blocker, then collect real desktop and 390px interaction evidence for search, pan/zoom, and actual style switching before focused Red."
+    "value": "Keep the intent Active for quality iteration. Before terminal closure, collect a dedicated Terraform no-changes plan, run full lifecycle Red, and satisfy the immutable original-thread receipt gate at the deadline or after explicit early termination."
   }
 }
