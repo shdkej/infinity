@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "intent_id": "safety-map-experiment-02-20260904",
+  "status": "inbox",
+  "trace_completeness": "complete",
+  "request": {
+    "raw": {
+      "status": "recorded",
+      "value": "후속작업을 2차 실험으로 하고, 마감은 별도 지정이 없으면 이탈리아 현지 오전 8시를 기본으로 한다."
+    },
+    "normalized_query": {
+      "status": "recorded",
+      "value": "Safety Map experiment 2 Mapbox design deadline notification verification"
+    }
+  },
+  "events": [
+    {
+      "type": "intake",
+      "at": "2026-09-03T11:04:36Z",
+      "context_pack": "intents/context/safety-map-experiment-02-20260904.json",
+      "evidence_paths": [
+        "intents/context/safety-map-experiment-02-20260904.json",
+        "EXECUTION_LEARNING_CONTRACT.md"
+      ]
+    }
+  ],
+  "artifacts": [],
+  "verifications": [],
+  "next_decision": {
+    "status": "in_progress",
+    "value": "Start role-based execution; record concrete milestone evidence before each dispatcher resumption."
+  }
+}

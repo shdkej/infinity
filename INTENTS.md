@@ -8,6 +8,30 @@
 
 ## Inbox
 
+### [safety-map-experiment-02-20260904] 여행 치안 지도 2차 실험: 실제 지도·디자인·마감·알림 검증
+- status: inbox
+- target_agent: genie
+- priority: critical
+- permission: L1-local-implementation-and-staging
+- requested: 2026-09-03T11:03:34Z
+- deadline: 2026-09-04T06:00:00Z
+- deadline_local: 2026-09-04 08:00 Europe/Rome (CEST)
+- execution_mode: multi_subagent_roles
+- projects: world-travel,infinity,space,video-automation
+- task_type: implementation
+- topics: mapbox,design-system,deadline,notification
+- parent_experiment: safety-map-correction-20260903
+- goal: 1차 실패 원인을 실제 제품·운영 계약으로 교정한다. 로마를 중심으로 실제 Mapbox canvas에서 장소·도로·거리·레이어를 탐색하는 지도 UX를 구현하고, 디자인 정본·마감 quality iteration·Slack terminal delivery까지 검증한다.
+- success_criteria: Mapbox canvas의 zoom/pan·도로/장소·거리/위치·주야간 레이어 상호작용, BRAND→DESIGN→DESIGN_SYSTEM 근거와 UI mapping, 390px/desktop 실제 capture, focused Red pass, deadline 전 quality iteration, immutable Slack notification metadata와 delivery receipt, live remote proof.
+- boundary: 기존 보호된 Mapbox 설정 참조만 사용하며 토큰 값은 절대 출력·커밋·로그에 남기지 않는다. fixture를 실제 위험 데이터로 주장하지 않으며, 근거 부족 구간은 no-data로 명확히 표시한다. 공개 광고 집행·결제·권한/시크릿 변경은 제외한다.
+- execution_contract: EXECUTION_LEARNING_CONTRACT.md (실질 evidence 2-cycle stale stop·deadline hard-stop·design/map/notification gates 적용)
+- notification_channel: slack
+- notification_target: channel:C0BR41W31MM
+- notification_reply_to: 1788364835.849239
+- notification_origin: slack:channel:C0BR41W31MM:thread:1788364835.849239
+- context_pack: intents/context/safety-map-experiment-02-20260904.json
+- next_action: Genie가 역할별 실행을 시작하고, 첫 milestone에서 Mapbox runtime·design mapping·browser render 경로의 실제 evidence를 남긴다.
+
 ## Waiting
 
 ### [safety-map-correction-20260903] 여행 치안 지도 품질·지도·마감·알림 교정
