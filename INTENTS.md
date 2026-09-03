@@ -4,20 +4,13 @@
 
 ## Active
 
-## Inbox
-
-<!-- 실행 대기 Intent 없음. -->
-
-## Waiting
-
 ### [safety-map-experiment-02-20260904] 여행 치안 지도 2차 실험: 실제 지도·디자인·마감·알림 검증
-- status: waiting
+- status: active
 - target_agent: genie
 - priority: critical
 - permission: L1-local-implementation-and-staging
 - requested: 2026-09-03T11:03:34Z
-- resumed_at: 2026-09-03T11:26:43Z
-- waiting_at: 2026-09-03T12:21:00Z
+- resumed_at: 2026-09-03T13:48:00Z
 - deadline: 2026-09-04T06:00:00Z
 - deadline_local: 2026-09-04 08:00 Europe/Rome (CEST)
 - execution_mode: multi_subagent_roles
@@ -28,18 +21,22 @@
 - goal: 1차 실패 원인을 실제 제품·운영 계약으로 교정한다. 로마를 중심으로 실제 Mapbox canvas에서 장소·도로·거리·레이어를 탐색하는 지도 UX를 구현하고, 디자인 정본·마감 quality iteration·Slack terminal delivery까지 검증한다.
 - success_criteria: Mapbox canvas의 zoom/pan·도로/장소·거리/위치·주야간 레이어 상호작용, BRAND→DESIGN→DESIGN_SYSTEM 근거와 UI mapping, 390px/desktop 실제 capture, focused Red pass, deadline 전 quality iteration, immutable Slack notification metadata와 delivery receipt, live remote proof.
 - boundary: 기존 보호된 Mapbox 설정 참조만 사용하며 토큰 값은 절대 출력·커밋·로그에 남기지 않는다. fixture를 실제 위험 데이터로 주장하지 않으며, 근거 부족 구간은 no-data로 명확히 표시한다. 공개 광고 집행·결제·권한/시크릿 변경은 제외한다.
-- execution_contract: EXECUTION_LEARNING_CONTRACT.md (실질 evidence 2-cycle stale stop·deadline hard-stop·design/map/notification gates 적용)
+- execution_contract: EXECUTION_LEARNING_CONTRACT.md (자율 복구·Waiting 즉시 통보·deadline hard-stop·design/map/notification gates 적용)
 - notification_channel: slack
 - notification_target: channel:C0BR41W31MM
 - notification_reply_to: 1788364835.849239
 - notification_origin: slack:channel:C0BR41W31MM:thread:1788364835.849239
 - context_pack: intents/context/safety-map-experiment-02-20260904.json
 - artifact: artifacts/safety-map-experiment-02-20260904/planner-prd.md
-- prior_invalid_report: reports/safety-map-experiment-02-20260904/20260903T1105Z-deadline-missed.md
-- resume_report: reports/safety-map-experiment-02-20260904/20260903T1126Z-deadline-reconciled.html
+- recovery_evidence: fresh isolated Chromium profile + software WebGL에서 Mapbox canvas, configured runtime token, WebGL context, map load message를 직접 확인했다. managed profile lock은 quarantine으로 격리했다.
 - report: reports/safety-map-experiment-02-20260904/20260903T1221Z-m4-browser-blocker.md
-- blocker: OpenClaw-managed browser timed out before a tab was created; isolated Chromium showed canvas controls but not completed Mapbox load/tiles. Therefore M4 cannot evidence search, pan/zoom, or actual style switching.
-- next_retry_condition: Restore a Mapbox GL-capable browser renderer and capture immutable desktop/390px interaction evidence before the existing 2026-09-04T06:00:00Z deadline.
+- next_action: 격리 renderer/CDP로 desktop·390px의 search, pan/zoom, 주야간 style 전환을 실제 capture하고 focused Red를 재개한다.
+
+## Inbox
+
+<!-- 실행 대기 Intent 없음. -->
+
+## Waiting
 
 ### [safety-map-correction-20260903] 여행 치안 지도 품질·지도·마감·알림 교정
 - status: waiting

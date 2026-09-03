@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "intent_id": "safety-map-experiment-02-20260904",
-  "status": "waiting",
+  "status": "active",
   "trace_completeness": "complete",
   "request": {
     "raw": {
@@ -118,7 +118,21 @@
         "Mapbox M4 render evidence review"
       ],
       "result": "waiting_for_browser_renderer",
-      "blocker": "The managed browser timed out before tab creation. With only partial isolated-render evidence, the M4 search, pan/zoom, and style-switch acceptance criteria are not satisfied."
+      "blocker": "Superseded by autonomous renderer recovery: the managed browser profile was blocked by a stale SingletonLock, and a fresh isolated Chromium profile subsequently confirmed configured runtime access, WebGL context, Mapbox canvas, and map load state. Full interaction capture remains required."
+    },
+    {
+      "type": "autonomous_recovery",
+      "at": "2026-09-03T13:48:00Z",
+      "cause_observed": "Managed OpenClaw browser profile could not start because stale SingletonLock/Cookie/Socket links prevented profile creation; a separate probe also showed that hardware GPU was unavailable, so software WebGL was required.",
+      "alternative_executed": "A fresh isolated Chromium profile with ANGLE/SwiftShader was started and verified by CDP against the live Safety Map.",
+      "evidence": {
+        "mapbox_loaded": true,
+        "runtime_token_configured": true,
+        "webgl_context": true,
+        "canvas_count": 1,
+        "map_load_message": true
+      },
+      "result": "resume_active"
     }
   ],
   "artifacts": [],
