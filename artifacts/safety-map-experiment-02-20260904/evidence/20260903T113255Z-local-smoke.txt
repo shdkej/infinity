@@ -1,0 +1,27 @@
+Safety Map Experiment 02 — M2 local implementation evidence
+
+stage_evidence_at: 2026-09-03T11:32:55Z
+stage: M2 Developer
+source_commit: space@6128e28c7974a5e0d8afffc01b0b43620f7e29f4
+source_remote: origin/master == 6128e28c7974a5e0d8afffc01b0b43620f7e29f4
+
+Change:
+- Added an accessible `#map-style-toggle` that calls Mapbox GL `map.setStyle`.
+- Day style: `mapbox://styles/mapbox/streets-v12`.
+- Night style: `mapbox://styles/mapbox/navigation-night-v1`.
+- The live status message explicitly says the style transition changes map presentation only and adds no safety signal.
+- Source and deployable `dist/` copies were changed together.
+
+Local verification:
+1. `node test-smoke.js` — PASS.
+2. `cmp index.html dist/index.html` — PASS.
+3. `cmp app.js dist/app.js` — PASS.
+4. `cmp styles.css dist/styles.css` — PASS.
+5. `git diff --check -- infra-aws-static-sites/sites/safety-map` — PASS before commit.
+
+Boundary retained:
+- No Mapbox token value was read, emitted, or committed.
+- Mapbox remains geography/road/place context only; unsupported safety claims remain `no-data`.
+- No production deployment, terminal Slack notification, or Archive action occurred.
+
+Next M4 evidence must use timestamped real desktop and 390px interaction captures, SHA-256 hashes, and the matching source commit. This local smoke record is not canvas-render proof.
