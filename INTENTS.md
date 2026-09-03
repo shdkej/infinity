@@ -36,6 +36,8 @@
 - notification_origin: slack:channel:C0BR41W31MM:thread:1788364835.849239
 - context_pack: intents/context/safety-map-experiment-02-20260904.json
 - artifact: artifacts/safety-map-experiment-02-20260904/planner-prd.md
+- task_plan: artifacts/safety-map-experiment-02-20260904/task-plan.json
+- trace: traces/safety-map-experiment-02-20260904.json
 - artifact_m4_rome: artifacts/safety-map-experiment-02-20260904/evidence/20260903T140452Z-m4-rome-recovery-index.md
 - artifact_m6_preterminal: artifacts/safety-map-experiment-02-20260904/evidence/20260903T1441Z-m6-remote-preterminal-proof.md
 - red_status: m4-focused-pass

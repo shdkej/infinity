@@ -1,0 +1,52 @@
+{
+  "intent_id": "safety-map-experiment-02-20260904",
+  "plan_version": 1,
+  "created_at": "2026-09-03T18:32:00Z",
+  "source_prd": "artifacts/safety-map-experiment-02-20260904/planner-prd.md",
+  "tasks": [
+    {
+      "id": "T1",
+      "title": "PRD와 Mapbox·디자인·종료 수용 기준 고정",
+      "status": "done",
+      "evidence": "artifacts/safety-map-experiment-02-20260904/planner-prd.md"
+    },
+    {
+      "id": "T2",
+      "title": "실제 Mapbox canvas·장소/도로·주야간 레이어 구현 경로 검증",
+      "status": "done",
+      "evidence": "artifacts/safety-map-experiment-02-20260904/evidence/20260903T140452Z-m4-rome-recovery-index.md"
+    },
+    {
+      "id": "T3",
+      "title": "desktop·390px에서 검색·zoom/pan·레이어 실제 렌더 증거 확보",
+      "status": "active",
+      "evidence": "artifacts/safety-map-experiment-02-20260904/evidence/"
+    },
+    {
+      "id": "T4",
+      "title": "focused Red의 실제 화면·provenance 재검토",
+      "status": "pending",
+      "evidence": "artifacts/safety-map-experiment-02-20260904/red-focused-final.md"
+    },
+    {
+      "id": "T5",
+      "title": "배포·원격 동작·Slack terminal receipt 검증",
+      "status": "pending",
+      "evidence": "reports/safety-map-experiment-02-20260904/"
+    },
+    {
+      "id": "T6",
+      "title": "마감 전 디자인·접근성·품질 반복",
+      "status": "pending",
+      "evidence": "artifacts/safety-map-experiment-02-20260904/evidence/"
+    }
+  ],
+  "deviations": [
+    {
+      "at": "2026-09-03T13:45:32Z",
+      "reason": "관리 브라우저 프로필 stale lock과 WebGL 제약으로 기본 렌더 경로가 막혔다.",
+      "impact": "T3의 증거 수집 경로를 clean isolated profile과 software WebGL 검증으로 전환했다.",
+      "task_ids": ["T3"]
+    }
+  ]
+}

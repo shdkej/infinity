@@ -72,6 +72,16 @@ Archive intent는 대시보드에서 프로젝트별/성격별로 묶어 볼 수
 4. **`drafts/`는 폐기.** 과거 drafts 산출물은 모두 `artifacts/{id}/`로 이동했다. 모든 신규 detail 링크는 `artifacts/{id}/` 또는 `intents/archive/{id}.md`만 가리킨다.
 5. **Archive는 프로젝트 종료와 다를 수 있다.** 프로젝트성 작업은 한 intent가 설계·조사·MVP 같은 한 단계를 끝내고 Archive로 가더라도, 원래 사용자 목표가 남아 있으면 반드시 다음 intent를 `Inbox`/`Active`/`Waiting` 중 하나로 연결한다. Archive 요약에는 `next` 또는 후속 intent id를 남긴다.
 
+## 대형 작업 태스크 계획
+
+PRD가 필요한 대형 작업은 PRD가 승인·고정된 직후, 구현 전에 `artifacts/{intent-id}/task-plan.json`을 만든다. 이 파일은 실행 원장이 아니라 **계획 기준선**이며, 대시보드 카드가 다음을 읽는 유일한 구조화 입력이다.
+
+- `tasks`: 작고 검증 가능한 태스크의 `id`, `title`, `status`, `evidence`를 둔다. `status`는 `pending | active | done | skipped`만 쓴다.
+- `deviations`: 원래 계획에 없던 작업·순서 변경·대체 경로를 `{at, reason, impact, task_ids}`로 append-only 기록한다. 카드에서는 `— 계획 변경 N건`으로 분리 표시한다.
+- `INTENTS.md`에는 `task_plan`과 `trace` 경로를 함께 남긴다. `trace`의 `dispatcher_handoff` 수는 카드의 **실행 회차**이며, 진전 수가 아니다.
+- 각 cycle은 태스크 상태 또는 deviation을 바꿀 때에만 계획 파일을 갱신한다. handoff만으로 `done`을 올릴 수 없다.
+- 완료 전에는 `done/total`, 현재 `active` 태스크, deviation 근거가 acceptance evidence와 일치해야 한다. 새 태스크가 필요하면 기존 태스크를 숨기거나 덮어쓰지 말고 deviation을 남긴다.
+
 ## 문서 역할 표준
 
 Infinity 문서는 아래 3개 역할로 통일한다. 새 문서를 만들 때 이 역할을 벗어나는 `detail`, `draft`, `summary copy` 문서를 따로 만들지 않는다.
