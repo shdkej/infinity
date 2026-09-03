@@ -29,8 +29,10 @@
 - context_pack: intents/context/safety-map-experiment-02-20260904.json
 - artifact: artifacts/safety-map-experiment-02-20260904/planner-prd.md
 - recovery_evidence: fresh isolated Chromium profile + software WebGL에서 Mapbox canvas, configured runtime token, WebGL context, map load message를 직접 확인했다. managed profile lock은 quarantine으로 격리했다.
+- artifact_m4: artifacts/safety-map-experiment-02-20260904/evidence/20260903T135502Z-m4-recovery-index.md
+- artifact_m4_rome: artifacts/safety-map-experiment-02-20260904/evidence/20260903T140452Z-m4-rome-recovery-index.md
 - report: reports/safety-map-experiment-02-20260904/20260903T1221Z-m4-browser-blocker.md
-- next_action: 격리 renderer/CDP로 desktop·390px의 search, pan/zoom, 주야간 style 전환을 실제 capture하고 focused Red를 재개한다.
+- next_action: Rome-bounded M4 실제 canvas 상호작용 증거를 focused Red로 독립 재검토한다.
 
 ## Inbox
 

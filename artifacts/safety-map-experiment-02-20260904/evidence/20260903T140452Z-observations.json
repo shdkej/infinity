@@ -1,0 +1,160 @@
+{
+  "at": "2026-09-03T14:04:52.744Z",
+  "renderer": "existing isolated Snap Chromium/CDP with software WebGL",
+  "desktop": {
+    "initial": {
+      "stage": "initial",
+      "canvasCount": 1,
+      "webgl": true,
+      "output": "장소와 도로 맥락을 열었어요. 이 정보는 안전 판단이나 경로 추천이 아닙니다. 안전 신호: 현재 검증된 데이터 없음.",
+      "noOverflow": true,
+      "searchLabel": "장소 또는 도로 찾기",
+      "styleLabel": "야간 지도 보기",
+      "stylePressed": "false",
+      "map": {
+        "ready": true,
+        "center": [
+          12.4964,
+          41.9028
+        ],
+        "zoom": 12,
+        "styleMode": "day"
+      }
+    },
+    "searched": {
+      "stage": "search",
+      "canvasCount": 1,
+      "webgl": true,
+      "output": "장소 맥락을 열었어요. 이 정보는 안전 판단이나 경로 추천이 아닙니다. 안전 신호: 현재 검증된 데이터 없음.",
+      "noOverflow": true,
+      "searchLabel": "장소 또는 도로 찾기",
+      "styleLabel": "야간 지도 보기",
+      "stylePressed": "false",
+      "map": {
+        "ready": true,
+        "center": [
+          12.48253,
+          41.89676
+        ],
+        "zoom": 15,
+        "styleMode": "day"
+      }
+    },
+    "moved": {
+      "stage": "pan-zoom",
+      "canvasCount": 1,
+      "webgl": true,
+      "output": "장소 맥락을 열었어요. 이 정보는 안전 판단이나 경로 추천이 아닙니다. 안전 신호: 현재 검증된 데이터 없음.",
+      "noOverflow": true,
+      "searchLabel": "장소 또는 도로 찾기",
+      "styleLabel": "야간 지도 보기",
+      "stylePressed": "false",
+      "map": {
+        "ready": true,
+        "center": [
+          12.48253,
+          41.89676
+        ],
+        "zoom": 15.46,
+        "styleMode": "day"
+      }
+    },
+    "styled": {
+      "stage": "night-style",
+      "canvasCount": 1,
+      "webgl": true,
+      "output": "야간 지도 레이어를 열었어요. 이 전환은 지도 표현만 바꾸며 안전 신호는 추가하지 않습니다.",
+      "noOverflow": true,
+      "searchLabel": "장소 또는 도로 찾기",
+      "styleLabel": "주간 지도 보기",
+      "stylePressed": "true",
+      "map": {
+        "ready": true,
+        "center": [
+          12.48253,
+          41.89676
+        ],
+        "zoom": 15.46,
+        "styleMode": "night"
+      }
+    }
+  },
+  "mobile": {
+    "initial": {
+      "stage": "initial",
+      "canvasCount": 1,
+      "webgl": true,
+      "output": "야간 지도 레이어를 열었어요. 이 전환은 지도 표현만 바꾸며 안전 신호는 추가하지 않습니다.",
+      "noOverflow": true,
+      "searchLabel": "장소 또는 도로 찾기",
+      "styleLabel": "주간 지도 보기",
+      "stylePressed": "true",
+      "map": {
+        "ready": true,
+        "center": [
+          12.48253,
+          41.89676
+        ],
+        "zoom": 15.46,
+        "styleMode": "night"
+      }
+    },
+    "searched": {
+      "stage": "search",
+      "canvasCount": 1,
+      "webgl": true,
+      "output": "장소 맥락을 열었어요. 이 정보는 안전 판단이나 경로 추천이 아닙니다. 안전 신호: 현재 검증된 데이터 없음.",
+      "noOverflow": true,
+      "searchLabel": "장소 또는 도로 찾기",
+      "styleLabel": "주간 지도 보기",
+      "stylePressed": "true",
+      "map": {
+        "ready": true,
+        "center": [
+          12.48253,
+          41.89676
+        ],
+        "zoom": 15,
+        "styleMode": "night"
+      }
+    },
+    "moved": {
+      "stage": "pan-zoom",
+      "canvasCount": 1,
+      "webgl": true,
+      "output": "장소 맥락을 열었어요. 이 정보는 안전 판단이나 경로 추천이 아닙니다. 안전 신호: 현재 검증된 데이터 없음.",
+      "noOverflow": true,
+      "searchLabel": "장소 또는 도로 찾기",
+      "styleLabel": "주간 지도 보기",
+      "stylePressed": "true",
+      "map": {
+        "ready": true,
+        "center": [
+          12.48253,
+          41.89676
+        ],
+        "zoom": 15.46,
+        "styleMode": "night"
+      }
+    },
+    "styled": {
+      "stage": "night-style",
+      "canvasCount": 1,
+      "webgl": true,
+      "output": "주간 지도 레이어를 열었어요. 이 전환은 지도 표현만 바꾸며 안전 신호는 추가하지 않습니다.",
+      "noOverflow": true,
+      "searchLabel": "장소 또는 도로 찾기",
+      "styleLabel": "야간 지도 보기",
+      "stylePressed": "false",
+      "map": {
+        "ready": true,
+        "center": [
+          12.48253,
+          41.89676
+        ],
+        "zoom": 15.46,
+        "styleMode": "day"
+      }
+    }
+  }
+}

@@ -121,18 +121,59 @@
       "blocker": "Superseded by autonomous renderer recovery: the managed browser profile was blocked by a stale SingletonLock, and a fresh isolated Chromium profile subsequently confirmed configured runtime access, WebGL context, Mapbox canvas, and map load state. Full interaction capture remains required."
     },
     {
-      "type": "autonomous_recovery",
+      "type": "execution",
       "at": "2026-09-03T13:48:00Z",
-      "cause_observed": "Managed OpenClaw browser profile could not start because stale SingletonLock/Cookie/Socket links prevented profile creation; a separate probe also showed that hardware GPU was unavailable, so software WebGL was required.",
-      "alternative_executed": "A fresh isolated Chromium profile with ANGLE/SwiftShader was started and verified by CDP against the live Safety Map.",
-      "evidence": {
-        "mapbox_loaded": true,
-        "runtime_token_configured": true,
-        "webgl_context": true,
-        "canvas_count": 1,
-        "map_load_message": true
-      },
-      "result": "resume_active"
+      "context_pack": "intents/context/safety-map-experiment-02-20260904.json",
+      "evidence_paths": [
+        "reports/safety-map-experiment-02-20260904/20260903T1221Z-m4-browser-blocker.md"
+      ],
+      "searches": [
+        "stale SingletonLock incident diagnosis",
+        "fresh isolated Chromium ANGLE SwiftShader CDP recovery"
+      ],
+      "result": "resume_active",
+      "blocker": "The managed-profile timeout remains incident evidence. A fresh isolated Chromium recovery confirmed Mapbox canvas, configured runtime access, WebGL context, and map-load state without reading or recording the token."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-9f760fc2e64e4b84830912fc46d418bb",
+      "canonical_sha": "7fb7db25dd8bd6575320ac718ceffc585313d59f",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-03T13:53:17Z",
+      "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-03T13:55:02Z",
+      "context_pack": "intents/context/safety-map-experiment-02-20260904.json",
+      "evidence_paths": [
+        "artifacts/safety-map-experiment-02-20260904/evidence/20260903T135502Z-m4-recovery-index.md",
+        "artifacts/safety-map-experiment-02-20260904/evidence/20260903T135502Z-observations.json",
+        "artifacts/safety-map-experiment-02-20260904/evidence/20260903T135502Z-sha256.json"
+      ],
+      "searches": [
+        "isolated Snap Chromium CDP recovery with software WebGL",
+        "live desktop and 390px Mapbox search/pan-zoom/style interactions"
+      ],
+      "result": "m4_interaction_evidence_collected",
+      "blocker": null
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-03T14:04:52Z",
+      "context_pack": "intents/context/safety-map-experiment-02-20260904.json",
+      "evidence_paths": [
+        "artifacts/safety-map-experiment-02-20260904/evidence/20260903T140452Z-m4-rome-recovery-index.md",
+        "artifacts/safety-map-experiment-02-20260904/evidence/20260903T140452Z-observations.json",
+        "artifacts/safety-map-experiment-02-20260904/evidence/20260903T140452Z-sha256.json"
+      ],
+      "searches": [
+        "Rome-bounded Mapbox place search recovery",
+        "live desktop and 390px Rome Mapbox interactions"
+      ],
+      "result": "m4_rome_interaction_evidence_collected",
+      "blocker": null
     }
   ],
   "artifacts": [],
