@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "intent_id": "safety-map-experiment-02-20260904",
-  "status": "active",
+  "status": "waiting",
   "trace_completeness": "complete",
   "request": {
     "raw": {
@@ -31,12 +31,28 @@
       "session_key": "agent:genie:infinity-dispatcher",
       "timestamp": "2026-09-03T11:04:43Z",
       "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-03T11:05:00Z",
+      "context_pack": "intents/context/safety-map-experiment-02-20260904.json",
+      "evidence_paths": [
+        "reports/safety-map-experiment-02-20260904/20260903T1105Z-deadline-missed.md",
+        "INTENTS.md"
+      ],
+      "searches": [
+        "deadline versus intake timestamp validation",
+        "existing dedicated safety-map deployment path review",
+        "design and lifecycle contract review"
+      ],
+      "result": "deadline_missed",
+      "blocker": "The declared hard deadline 2026-09-03T06:00:00Z predates the 2026-09-03T11:03:34Z intake. No implementation, deployment, or repeated handoff is authorized until the user approves a new deadline and restart."
     }
   ],
   "artifacts": [],
   "verifications": [],
   "next_decision": {
-    "status": "in_progress",
-    "value": "Start role-based execution; record concrete milestone evidence before each dispatcher resumption."
+    "status": "waiting_for_user",
+    "value": "Deadline missed before intake. Await an explicit new hard deadline and restart approval; preserve the protected Mapbox boundary and run the focused Red gate before any Archive."
   }
 }

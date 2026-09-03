@@ -4,8 +4,16 @@
 
 ## Active
 
+<!-- 실행 중 Intent 없음. -->
+
+## Inbox
+
+<!-- 실행 대기 Intent 없음. -->
+
+## Waiting
+
 ### [safety-map-experiment-02-20260904] 여행 치안 지도 2차 실험: 실제 지도·디자인·마감·알림 검증
-- status: active
+- status: waiting
 - target_agent: genie
 - priority: critical
 - permission: L1-local-implementation-and-staging
@@ -26,13 +34,9 @@
 - notification_reply_to: 1788364835.849239
 - notification_origin: slack:channel:C0BR41W31MM:thread:1788364835.849239
 - context_pack: intents/context/safety-map-experiment-02-20260904.json
-- next_action: Genie가 역할별 실행을 시작하고, 첫 milestone에서 Mapbox runtime·design mapping·browser render 경로의 실제 evidence를 남긴다.
-
-## Inbox
-
-<!-- 실행 대기 Intent 없음. -->
-
-## Waiting
+- blocker: 선언된 hard deadline(2026-09-03T06:00:00Z)이 intake(2026-09-03T11:03:34Z)보다 앞서 이미 만료됐다. 새 마감/재개 승인 없이는 구현·배포·반복 handoff를 진행하지 않는다.
+- next_retry_condition: 사용자가 2026-09-03T11:03:34Z 이후의 새 hard deadline과 재개를 명시 승인하면, 기존 보호 Mapbox 경로·전용 safety-map 배포·focused Red 게이트로 재시작한다.
+- report: reports/safety-map-experiment-02-20260904/20260903T1105Z-deadline-missed.md
 
 ### [safety-map-correction-20260903] 여행 치안 지도 품질·지도·마감·알림 교정
 - status: waiting
