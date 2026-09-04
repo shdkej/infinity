@@ -2,10 +2,6 @@
 
 > Heartbeat Agent가 주기적으로 읽고 실행하는 의도 목록.
 
-## Active
-
-<!-- 실행 대기 Intent 없음. -->
-
 ## Inbox
 
 <!-- 실행 대기 Intent 없음. -->
@@ -41,7 +37,7 @@
 - red_t3_report: reports/safety-map-experiment-02-20260904/20260904T1418Z-focused-red-t3.md
 - prior_blocker_report: reports/safety-map-experiment-02-20260904/20260904T0851Z-t3-compositor-capture-blocker.md
 - terminal_gate_report: reports/safety-map-experiment-02-20260904/20260904T2201Z-terminal-receipt-time-gate.md
-- active_task: T6.4 390px 접근성·상호작용 재점검 및 개선
+- next_pending_task: T6.4 390px 접근성·상호작용 재점검 및 개선
 - blocker: terminal Slack·Archive는 T6.4 완료 및 canonical deadline 이후 또는 명시 조기 종료 권한 전까지 금지된다.
 - next_action: T6.4를 활성화해 390px에서 두 주야간 control·키보드 focus·overflow·no-data 경계를 실제 라이브 증거로 기록한다.
 
