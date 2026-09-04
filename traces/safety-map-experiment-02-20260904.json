@@ -731,6 +731,15 @@
       "searches": ["390px managed-browser keyboard focus, overflow, and synchronized mode controls"],
       "result": "t6_4_complete_mobile_accessibility_and_control_sync",
       "blocker": null
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-1ff23c9bcbd14690a2e82573b8da31e2",
+      "canonical_sha": "24acfa6bc02da4818fe0f337ac227fe325fc8674",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-04T23:20:33Z",
+      "status": "accepted"
     }
   ],
   "artifacts": [],

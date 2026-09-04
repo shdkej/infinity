@@ -129,8 +129,9 @@
     {
       "id": "T5.3",
       "title": "Slack 종료 알림 delivery receipt 확인",
-      "status": "pending",
+      "status": "active",
       "depends_on": ["T6.4"],
+      "started_at": "2026-09-04T23:20:33Z",
       "estimated_minutes": 10,
       "max_minutes": 20,
       "evidence": "reports/safety-map-experiment-02-20260904/20260904T2201Z-terminal-receipt-time-gate.md",

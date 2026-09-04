@@ -37,9 +37,9 @@
 - red_t3_report: reports/safety-map-experiment-02-20260904/20260904T1418Z-focused-red-t3.md
 - prior_blocker_report: reports/safety-map-experiment-02-20260904/20260904T0851Z-t3-compositor-capture-blocker.md
 - terminal_gate_report: reports/safety-map-experiment-02-20260904/20260904T2201Z-terminal-receipt-time-gate.md
-- next_pending_task: T5.3 Slack 종료 알림 delivery receipt 확인 (T6.4 완료 및 canonical deadline 이후)
+- active_task: T5.3 Slack 종료 알림 delivery receipt 확인
 - blocker: terminal Slack·Archive는 T6.4 완료 및 canonical deadline 이후 또는 명시 조기 종료 권한 전까지 금지된다.
-- next_action: canonical deadline 또는 명시 조기 종료 권한 뒤 T5.3 terminal receipt gate를 실행한다. 그 전에는 terminal Slack 및 Archive를 금지한다.
+- next_action: canonical deadline·조기 종료 권한을 평가한 뒤, 충족할 때만 immutable original-thread terminal receipt gate를 실행한다.
 
 ## Waiting
 

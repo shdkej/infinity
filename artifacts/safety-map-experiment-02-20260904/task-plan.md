@@ -41,7 +41,7 @@
 ○ T5  배포·종료 검증                                                  T4 완료 뒤
 │  ● T5.1  정식 AWS 경로 배포 확인                                   완료
 │  ● T5.2  라이브 지도 핵심 흐름 재확인                              완료
-│  ○ T5.3  Slack 종료 알림 delivery receipt 확인                    T6.4·terminal gate 대기
+│  ◐ T5.3  Slack 종료 알림 delivery receipt 확인                    진행 중 · terminal gate 평가
 │
 ○ T6  마감 전 품질 반복                                               T5.2 완료 뒤
    ● T6.1  디자인 품질 반복                                          완료
@@ -58,4 +58,4 @@
 │     T6.3→T6.4 품질 반복을 재개하고, T5.3은 T6.4 완료 및 canonical deadline 이후에만 활성화.
 ```
 
-**지금 다음 행동:** canonical deadline 이후에만 T5.3 terminal receipt gate를 재평가한다. 그 전 terminal Slack 및 Archive는 금지다.
+**지금 다음 행동:** T5.3의 canonical deadline·조기 종료 권한을 평가한다. 조건 미충족 시 외부 발송 없이 blocker를 기록한다.
