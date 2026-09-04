@@ -643,6 +643,6 @@
   "verifications": [],
   "next_decision": {
     "status": "execute",
-    "value": "Keep the intent Active for quality iteration. The dedicated safety-map Terraform no-changes proof and full pre-terminal lifecycle Red are complete. At the deadline or after explicit early termination, satisfy the immutable original-thread receipt gate before Archive."
+    "value": "T5.3 depends on T6.2. Execute T6.1 and T6.2 before the terminal receipt gate; terminal Slack remains prohibited before deadline or explicit early termination."
   }
 }

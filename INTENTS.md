@@ -32,7 +32,7 @@
 - red_t3_status: pass
 - red_t3_report: reports/safety-map-experiment-02-20260904/20260904T1418Z-focused-red-t3.md
 - prior_blocker_report: reports/safety-map-experiment-02-20260904/20260904T0851Z-t3-compositor-capture-blocker.md
-- next_action: T3 focused Red PASS를 바탕으로 final lifecycle 및 immutable terminal-receipt gate를 점검한다. Archive·terminal Slack은 이 gate 통과 전 금지한다.
+- next_action: T6.1·T6.2 완료 뒤 T5.3 terminal receipt를 확인한다. Archive·terminal Slack은 이 gate 통과 전 금지한다.
 
 ## Inbox
 
