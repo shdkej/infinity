@@ -4,8 +4,16 @@
 
 ## Active
 
+<!-- 실행 대기 Intent 없음. -->
+
+## Inbox
+
+<!-- 실행 대기 Intent 없음. -->
+
+## Waiting
+
 ### [safety-map-experiment-02-20260904] 여행 치안 지도 2차 실험: 실제 지도·디자인·마감·알림 검증
-- status: active
+- status: waiting_for_terminal_time
 - target_agent: genie
 - priority: critical
 - permission: L1-local-implementation-and-staging
@@ -32,13 +40,9 @@
 - red_t3_status: pass
 - red_t3_report: reports/safety-map-experiment-02-20260904/20260904T1418Z-focused-red-t3.md
 - prior_blocker_report: reports/safety-map-experiment-02-20260904/20260904T0851Z-t3-compositor-capture-blocker.md
-- next_action: T6.1·T6.2 완료 뒤 T5.3 terminal receipt를 확인한다. Archive·terminal Slack은 이 gate 통과 전 금지한다.
-
-## Inbox
-
-<!-- 실행 대기 Intent 없음. -->
-
-## Waiting
+- terminal_gate_report: reports/safety-map-experiment-02-20260904/20260904T2201Z-terminal-receipt-time-gate.md
+- blocker: terminal 상태나 canonical 마감이 아직 도래하지 않아 원 Slack thread에 종료 알림을 보낼 수 없다.
+- next_retry_condition: 2026-09-05T06:00:00Z 도래 또는 사용자 명시 조기 종료 권한. 같은 terminal cycle에 learning report·원 thread 단일 reply·receipt/delivery_unknown·lane cleanup·Archive를 수행한다.
 
 ### [safety-map-correction-20260903] 여행 치안 지도 품질·지도·마감·알림 교정
 - status: experiment_failed
