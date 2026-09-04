@@ -78,7 +78,7 @@ PRD가 필요한 대형 작업은 PRD가 승인·고정된 직후, 구현 전에
 
 동시에 사람이 읽는 `artifacts/{intent-id}/task-plan.md`도 만든다. 이 문서는 PRD 링크, 태스크별 상태·완료 증거·다음 행동, 그리고 append-only `— 계획 변경` 기록을 담는다. `INTENTS.md`의 `task_plan_doc`으로 연결하며, JSON 상태나 deviation이 바뀌면 같은 커밋에서 함께 갱신한다.
 
-- `tasks`: 작고 검증 가능한 태스크의 `id`, `title`, `status`, `evidence`를 둔다. `status`는 `pending | active | done | skipped`만 쓴다.
+- `tasks`: 작고 검증 가능한 태스크의 `id`, `title`, `status`, `evidence`를 둔다. 상위 단계는 그대로 하나의 태스크로 쓰지 않고 **3~7개의 독립 완료 단위**로 먼저 나눈다. 각 단위는 하나의 화면 변화, 데이터 계약, 검토, 배포 검증처럼 증거 하나로 닫혀야 한다. `status`는 `pending | active | done | skipped`만 쓴다.
 - `deviations`: 원래 계획에 없던 작업·순서 변경·대체 경로를 `{at, reason, impact, task_ids}`로 append-only 기록한다. 카드에서는 `— 계획 변경 N건`으로 분리 표시한다.
 - `INTENTS.md`에는 `task_plan`과 `trace` 경로를 함께 남긴다. `trace`의 `dispatcher_handoff` 수는 카드의 **실행 회차**이며, 진전 수가 아니다.
 - 각 cycle은 태스크 상태 또는 deviation을 바꿀 때에만 계획 파일을 갱신한다. handoff만으로 `done`을 올릴 수 없다.

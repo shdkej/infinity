@@ -1,38 +1,62 @@
 # Safety Map 2차 실험 — 실행 타임라인
 
-`PRD: planner-prd.md` · `마감: 2026-09-05 08:00 Europe/Rome (06:00 UTC)` · `실행: 4회차`
+`마감: 2026-09-05 08:00 Europe/Rome (06:00 UTC)` · `실행: 4회차` · `태스크: 12/23 완료`
 
 ```text
-● T1  PRD와 Mapbox·디자인·종료 수용 기준 고정                         완료
-│     └ planner-prd.md
+● T1.1  핵심 사용자 흐름과 P0 경계 고정                              완료
 │
-● T2  실제 Mapbox canvas·장소/도로·주야간 레이어 구현 경로 검증        완료
-│     └ evidence/20260903T140452Z-m4-rome-recovery-index.md
+● T1.2  도로·블록 신호와 데이터 없음 규칙 고정                        완료
+│
+● T1.3  Mapbox 공개 토큰·런타임 경계 고정                             완료
+│
+● T1.4  BRAND·DESIGN·DESIGN_SYSTEM 화면 기준 매핑                    완료
+│
+● T1.5  마감·Red·Slack 종료 수용 기준 고정                            완료
+│
+● T2.1  Mapbox 런타임 설정 주입 경로 검증                             완료
+│
+● T2.2  로마 지도 canvas 초기 로드 검증                               완료
+│
+● T2.3  장소 검색과 도로 위치 이동 검증                              완료
+│
+● T2.4  주간·야간 스타일 전환 검증                                   완료
+│
+● T2.5  위험 신호·출처·기준일 레이어 검증                            완료
+│
+● T2.6  데이터 없음 상태와 안내문 검증                               완료
+│
+● T2.7  확대·이동 가능한 지도 제어 검증                              완료
 │
 ├─ — 2026-09-03 13:45 UTC · T3
 │     관리 브라우저 lock/WebGL 제약 → 격리 Chromium·software WebGL 경로로 전환
 │
-◐ T3  desktop·390px 검색·zoom/pan·레이어 실제 렌더 증거              진행 중
-│     └ 현재 기준: 화면 변화가 독립적으로 보이는 capture
+◐ T3.1  desktop 초기 지도 화면 capture 확보                          진행 중
+│
+○ T3.2  desktop 검색·확대·주야간 변화 capture 확보                   대기
+│
+○ T3.3  390px 초기 지도 화면 capture 확보                            대기
+│
+○ T3.4  390px 검색·이동·주야간 변화 capture 확보                     대기
 │
 ├─ — 2026-09-04 07:43 UTC · T3–T6
-│     이전 마감 실패 뒤 새 Italy 08:00 마감으로 재개. T3부터 다시 검증
+│     이전 마감 실패 뒤 새 Italy 08:00 마감으로 재개. 실제 렌더부터 다시 검증
 │
-├─ — 2026-09-04 07:46 UTC · T3
-│     canvas/WebGL과 control state는 확인됐지만 capture hash가 동일함 → 부분 증거 보존
+├─ — 2026-09-04 14:30 UTC · T1–T2
+│     상위 태스크를 독립 완료 단위로 재분해: T1 5개 · T2 7개
 │
-├─ — 2026-09-04 08:22 UTC · T3
-│     CDP window-surface capture도 동일 hash → compositor-visible capture 경로 추가
+○ T4.1  Red가 실제 지도 상호작용을 시각 검토                         T3 완료 뒤
 │
-├─ — 2026-09-04 13:59 UTC · T3
-│     사용자 지시로 Waiting 종료 → 관리 브라우저 프로필 복구와 OpenClaw capture 재시도
+○ T4.2  Red가 출처·안전 표현·데이터 한계를 검토                      T3 완료 뒤
 │
-○ T4  focused Red의 실제 화면·provenance 재검토                      T3 통과 뒤
-│     └ red-focused-final.md
+○ T5.1  정식 AWS 경로 배포 확인                                      T4 완료 뒤
 │
-○ T5  배포·원격 동작·Slack terminal receipt 검증                     T4 통과 뒤
+○ T5.2  라이브 지도 핵심 흐름 재확인                                T5.1 완료 뒤
 │
-○ T6  마감 전 디자인·접근성·품질 반복                                T5 전후
+○ T5.3  Slack 종료 알림 delivery receipt 확인                       T5.2 완료 뒤
+│
+○ T6.1  마감 전 디자인 품질 반복                                    T5.1 전후
+│
+○ T6.2  마감 전 모바일 접근성 반복                                  T5.1 전후
 ```
 
-**지금 다음 행동:** 관리 브라우저 프로필 시작 오류를 복구한 뒤, desktop·390px에서 실제 화면 변화가 보이는 capture를 확보한다.
+**지금 다음 행동:** T3.1의 desktop 초기 지도 화면을 독립적으로 증명할 capture를 확보한다.

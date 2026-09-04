@@ -1,73 +1,181 @@
 {
   "intent_id": "safety-map-experiment-02-20260904",
-  "plan_version": 2,
+  "plan_version": 3,
   "created_at": "2026-09-03T18:32:00Z",
   "resumed_at": "2026-09-04T07:43:24Z",
   "deadline": "2026-09-05T06:00:00Z",
   "source_prd": "artifacts/safety-map-experiment-02-20260904/planner-prd.md",
   "tasks": [
     {
-      "id": "T1",
-      "title": "PRD와 Mapbox·디자인·종료 수용 기준 고정",
+      "id": "T1.1",
+      "title": "핵심 사용자 흐름과 P0 경계 고정",
       "status": "done",
       "evidence": "artifacts/safety-map-experiment-02-20260904/planner-prd.md"
     },
     {
-      "id": "T2",
-      "title": "실제 Mapbox canvas·장소/도로·주야간 레이어 구현 경로 검증",
+      "id": "T1.2",
+      "title": "도로·블록 신호와 데이터 없음 규칙 고정",
+      "status": "done",
+      "evidence": "artifacts/safety-map-experiment-02-20260904/planner-prd.md"
+    },
+    {
+      "id": "T1.3",
+      "title": "Mapbox 공개 토큰·런타임 경계 고정",
+      "status": "done",
+      "evidence": "artifacts/safety-map-experiment-02-20260904/planner-prd.md"
+    },
+    {
+      "id": "T1.4",
+      "title": "BRAND·DESIGN·DESIGN_SYSTEM 화면 기준 매핑",
+      "status": "done",
+      "evidence": "artifacts/safety-map-experiment-02-20260904/planner-prd.md"
+    },
+    {
+      "id": "T1.5",
+      "title": "마감·Red·Slack 종료 수용 기준 고정",
+      "status": "done",
+      "evidence": "artifacts/safety-map-experiment-02-20260904/planner-prd.md"
+    },
+    {
+      "id": "T2.1",
+      "title": "Mapbox 런타임 설정 주입 경로 검증",
       "status": "done",
       "evidence": "artifacts/safety-map-experiment-02-20260904/evidence/20260903T140452Z-m4-rome-recovery-index.md"
     },
     {
-      "id": "T3",
-      "title": "desktop·390px에서 검색·zoom/pan·레이어 실제 렌더 증거 확보",
+      "id": "T2.2",
+      "title": "로마 지도 canvas 초기 로드 검증",
+      "status": "done",
+      "evidence": "artifacts/safety-map-experiment-02-20260904/evidence/20260903T140452Z-m4-rome-recovery-index.md"
+    },
+    {
+      "id": "T2.3",
+      "title": "장소 검색과 도로 위치 이동 검증",
+      "status": "done",
+      "evidence": "artifacts/safety-map-experiment-02-20260904/evidence/20260903T140452Z-m4-rome-recovery-index.md"
+    },
+    {
+      "id": "T2.4",
+      "title": "주간·야간 스타일 전환 검증",
+      "status": "done",
+      "evidence": "artifacts/safety-map-experiment-02-20260904/evidence/20260903T140452Z-m4-rome-recovery-index.md"
+    },
+    {
+      "id": "T2.5",
+      "title": "위험 신호·출처·기준일 레이어 검증",
+      "status": "done",
+      "evidence": "artifacts/safety-map-experiment-02-20260904/evidence/20260903T140452Z-m4-rome-recovery-index.md"
+    },
+    {
+      "id": "T2.6",
+      "title": "데이터 없음 상태와 안내문 검증",
+      "status": "done",
+      "evidence": "artifacts/safety-map-experiment-02-20260904/evidence/20260903T140452Z-m4-rome-recovery-index.md"
+    },
+    {
+      "id": "T2.7",
+      "title": "확대·이동 가능한 지도 제어 검증",
+      "status": "done",
+      "evidence": "artifacts/safety-map-experiment-02-20260904/evidence/20260903T140452Z-m4-rome-recovery-index.md"
+    },
+    {
+      "id": "T3.1",
+      "title": "desktop 초기 지도 화면 capture 확보",
       "status": "active",
       "evidence": "artifacts/safety-map-experiment-02-20260904/evidence/20260904T0745Z-t3-recheck-index.md",
       "blocker": "DOM/WebGL interaction states were observed, but same-hash CDP screenshots do not independently prove visible state deltas; obtain renderer/capture evidence with visible deltas before T3 done."
     },
     {
-      "id": "T4",
-      "title": "focused Red의 실제 화면·provenance 재검토",
+      "id": "T3.2",
+      "title": "desktop 검색·확대·주야간 변화 capture 확보",
+      "status": "pending",
+      "evidence": "artifacts/safety-map-experiment-02-20260904/evidence/"
+    },
+    {
+      "id": "T3.3",
+      "title": "390px 초기 지도 화면 capture 확보",
+      "status": "pending",
+      "evidence": "artifacts/safety-map-experiment-02-20260904/evidence/"
+    },
+    {
+      "id": "T3.4",
+      "title": "390px 검색·이동·주야간 변화 capture 확보",
+      "status": "pending",
+      "evidence": "artifacts/safety-map-experiment-02-20260904/evidence/"
+    },
+    {
+      "id": "T4.1",
+      "title": "Red가 실제 지도 상호작용을 시각 검토",
       "status": "pending",
       "evidence": "artifacts/safety-map-experiment-02-20260904/red-focused-final.md"
     },
     {
-      "id": "T5",
-      "title": "배포·원격 동작·Slack terminal receipt 검증",
+      "id": "T4.2",
+      "title": "Red가 출처·안전 표현·데이터 한계를 검토",
+      "status": "pending",
+      "evidence": "artifacts/safety-map-experiment-02-20260904/red-focused-final.md"
+    },
+    {
+      "id": "T5.1",
+      "title": "정식 AWS 경로 배포 확인",
       "status": "pending",
       "evidence": "reports/safety-map-experiment-02-20260904/"
     },
     {
-      "id": "T6",
-      "title": "마감 전 디자인·접근성·품질 반복",
+      "id": "T5.2",
+      "title": "라이브 지도 핵심 흐름 재확인",
+      "status": "pending",
+      "evidence": "reports/safety-map-experiment-02-20260904/"
+    },
+    {
+      "id": "T5.3",
+      "title": "Slack 종료 알림 delivery receipt 확인",
+      "status": "pending",
+      "evidence": "reports/safety-map-experiment-02-20260904/"
+    },
+    {
+      "id": "T6.1",
+      "title": "마감 전 디자인 품질 반복",
+      "status": "pending",
+      "evidence": "artifacts/safety-map-experiment-02-20260904/evidence/"
+    },
+    {
+      "id": "T6.2",
+      "title": "마감 전 모바일 접근성 반복",
       "status": "pending",
       "evidence": "artifacts/safety-map-experiment-02-20260904/evidence/"
     }
   ],
   "deviations": [
     {
+      "at": "2026-09-04T14:30:00Z",
+      "reason": "상위 태스크가 진행 상황을 충분히 설명하지 못했다.",
+      "impact": "T1은 5개, T2는 7개의 독립 완료 단위로 재분해하고 이후 단계도 화면·검토·배포 단위로 세분화했다.",
+      "task_ids": ["T1.1", "T1.2", "T1.3", "T1.4", "T1.5", "T2.1", "T2.2", "T2.3", "T2.4", "T2.5", "T2.6", "T2.7"]
+    },
+    {
       "at": "2026-09-03T13:45:32Z",
       "reason": "관리 브라우저 프로필 stale lock과 WebGL 제약으로 기본 렌더 경로가 막혔다.",
       "impact": "T3의 증거 수집 경로를 clean isolated profile과 software WebGL 검증으로 전환했다.",
-      "task_ids": ["T3"]
+      "task_ids": ["T3.1", "T3.2", "T3.3", "T3.4"]
     },
     {
       "at": "2026-09-04T07:43:24Z",
       "reason": "이전 hard deadline 실패 뒤 사용자가 새 Italy 08:00 마감과 재개 권한을 부여했다.",
       "impact": "기존 실패 증거는 보존하고 T3부터 실제 렌더·Red·terminal receipt 게이트를 새 실행 구간에서 재검증한다.",
-      "task_ids": ["T3", "T4", "T5", "T6"]
+      "task_ids": ["T3.1", "T3.2", "T3.3", "T3.4", "T4.1", "T4.2", "T5.1", "T5.2", "T5.3", "T6.1", "T6.2"]
     },
     {
       "at": "2026-09-04T07:46:13Z",
       "reason": "Fresh isolated CDP renderer recorded real canvas/WebGL and control state transitions, but viewport capture hashes were identical across interactions.",
       "impact": "Retain the raw evidence as partial T3 proof and do not advance T3 or request final Red until a capture method produces independently visible state deltas.",
-      "task_ids": ["T3"]
+      "task_ids": ["T3.1", "T3.2", "T3.3", "T3.4"]
     },
     {
       "at": "2026-09-04T08:22:00Z",
       "reason": "The `fromSurface=false` Chrome DevTools screenshot variant produced the same per-viewport interaction hashes as the original path.",
       "impact": "T3 remains active; try a renderer that can capture compositor-visible GPU output before advancing to Red.",
-      "task_ids": ["T3"]
+      "task_ids": ["T3.1", "T3.2", "T3.3", "T3.4"]
     }
   ]
 }
