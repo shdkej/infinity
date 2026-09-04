@@ -23,6 +23,7 @@
 - notification_origin: slack:channel:C0BR41W31MM:thread:1788364835.849239
 - context_pack: intents/context/safety-map-experiment-02-20260904.json
 - task_plan: artifacts/safety-map-experiment-02-20260904/task-plan.json
+- task_plan_doc: artifacts/safety-map-experiment-02-20260904/task-plan.md
 - trace: traces/safety-map-experiment-02-20260904.json
 - artifact: artifacts/safety-map-experiment-02-20260904/planner-prd.md
 - artifact_t3_partial: artifacts/safety-map-experiment-02-20260904/evidence/20260904T0745Z-t3-recheck-index.md

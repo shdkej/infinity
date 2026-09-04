@@ -76,6 +76,8 @@ Archive intent는 대시보드에서 프로젝트별/성격별로 묶어 볼 수
 
 PRD가 필요한 대형 작업은 PRD가 승인·고정된 직후, 구현 전에 `artifacts/{intent-id}/task-plan.json`을 만든다. 이 파일은 실행 원장이 아니라 **계획 기준선**이며, 대시보드 카드가 다음을 읽는 유일한 구조화 입력이다.
 
+동시에 사람이 읽는 `artifacts/{intent-id}/task-plan.md`도 만든다. 이 문서는 PRD 링크, 태스크별 상태·완료 증거·다음 행동, 그리고 append-only `— 계획 변경` 기록을 담는다. `INTENTS.md`의 `task_plan_doc`으로 연결하며, JSON 상태나 deviation이 바뀌면 같은 커밋에서 함께 갱신한다.
+
 - `tasks`: 작고 검증 가능한 태스크의 `id`, `title`, `status`, `evidence`를 둔다. `status`는 `pending | active | done | skipped`만 쓴다.
 - `deviations`: 원래 계획에 없던 작업·순서 변경·대체 경로를 `{at, reason, impact, task_ids}`로 append-only 기록한다. 카드에서는 `— 계획 변경 N건`으로 분리 표시한다.
 - `INTENTS.md`에는 `task_plan`과 `trace` 경로를 함께 남긴다. `trace`의 `dispatcher_handoff` 수는 카드의 **실행 회차**이며, 진전 수가 아니다.
