@@ -41,9 +41,9 @@
 - red_t3_report: reports/safety-map-experiment-02-20260904/20260904T1418Z-focused-red-t3.md
 - prior_blocker_report: reports/safety-map-experiment-02-20260904/20260904T0851Z-t3-compositor-capture-blocker.md
 - terminal_gate_report: reports/safety-map-experiment-02-20260904/20260904T2201Z-terminal-receipt-time-gate.md
-- active_task: T6.3 실제 라이브 지도 UX·디자인 품질 재점검 및 개선
-- blocker: terminal Slack·Archive는 T6.4 완료 및 canonical deadline 이후 또는 명시 조기 종료 권한 전까지 금지된다. Operator 역할 세션은 런타임 동시 실행 한도 때문에 spawn이 거부돼 운영 검토 재시도가 필요하다.
-- next_action: T6.3의 실제 개선 또는 명시 blocker evidence를 기록한 뒤 T6.4를 활성화한다.
+- active_task: T6.4 390px 접근성·상호작용 재점검 및 개선
+- blocker: terminal Slack·Archive는 T6.4 완료 및 canonical deadline 이후 또는 명시 조기 종료 권한 전까지 금지된다.
+- next_action: T6.4를 활성화해 390px에서 두 주야간 control·키보드 focus·overflow·no-data 경계를 실제 라이브 증거로 기록한다.
 
 ## Waiting
 

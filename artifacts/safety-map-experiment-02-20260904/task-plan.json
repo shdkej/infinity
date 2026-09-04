@@ -160,12 +160,14 @@
     {
       "id": "T6.3",
       "title": "실제 라이브 지도 UX·디자인 품질 재점검 및 개선",
-      "status": "active",
+      "status": "done",
       "depends_on": ["T6.2"],
       "started_at": "2026-09-04T22:15:00Z",
+      "completed_at": "2026-09-04T22:23:00Z",
       "estimated_minutes": 30,
       "max_minutes": 45,
-      "evidence_criteria": "1440px 실제 라이브에서 지도 중심 위계, 검색·pan/zoom·주야간 상태, no-data·출처 경계, 오류 0을 재점검하고 실제 개선 또는 명시 blocker와 전후/상태별 서로 다른 SHA-256 캡처를 남긴다."
+      "evidence_criteria": "1440px 실제 라이브에서 지도 중심 위계, 검색·pan/zoom·주야간 상태, no-data·출처 경계, 오류 0을 재점검하고 실제 개선 또는 명시 blocker와 전후/상태별 서로 다른 SHA-256 캡처를 남긴다.",
+      "evidence": "artifacts/safety-map-experiment-02-20260904/evidence/20260904T2223Z-t6-3-live-mode-sync.md"
     },
     {
       "id": "T6.4",
