@@ -148,12 +148,13 @@
     {
       "id": "T6.2",
       "title": "마감 전 모바일 접근성 반복",
-      "status": "active",
+      "status": "done",
       "depends_on": ["T6.1"],
       "started_at": "2026-09-04T21:51:39Z",
+      "completed_at": "2026-09-04T21:53:02Z",
       "estimated_minutes": 30,
       "max_minutes": 45,
-      "evidence": "artifacts/safety-map-experiment-02-20260904/evidence/"
+      "evidence": "artifacts/safety-map-experiment-02-20260904/evidence/20260904T2152Z-t6-mobile-accessibility.md"
     }
   ],
   "deviations": [
