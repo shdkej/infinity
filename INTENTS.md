@@ -4,21 +4,13 @@
 
 ## Active
 
-<!-- 실행 중 Intent 없음. -->
-
-## Inbox
-
-<!-- 실행 대기 Intent 없음. -->
-
-## Waiting
-
 ### [safety-map-experiment-02-20260904] 여행 치안 지도 2차 실험: 실제 지도·디자인·마감·알림 검증
-- status: waiting
+- status: active
 - target_agent: genie
 - priority: critical
 - permission: L1-local-implementation-and-staging
 - requested: 2026-09-03T11:03:34Z
-- resumed_at: 2026-09-03T13:48:00Z
+- resumed_at: 2026-09-04T05:53:19Z
 - deadline: 2026-09-04T06:00:00Z
 - deadline_local: 2026-09-04 08:00 Europe/Rome (CEST)
 - execution_mode: multi_subagent_roles
@@ -37,19 +29,21 @@
 - context_pack: intents/context/safety-map-experiment-02-20260904.json
 - artifact: artifacts/safety-map-experiment-02-20260904/planner-prd.md
 - task_plan: artifacts/safety-map-experiment-02-20260904/task-plan.json
-- trace: traces/safety-map-experiment-02-20260904.json
 - artifact_m4_rome: artifacts/safety-map-experiment-02-20260904/evidence/20260903T140452Z-m4-rome-recovery-index.md
 - artifact_m6_preterminal: artifacts/safety-map-experiment-02-20260904/evidence/20260903T1441Z-m6-remote-preterminal-proof.md
+- artifact_final_live_health: artifacts/safety-map-experiment-02-20260904/evidence/20260904T0554Z-final-live-health.md
 - red_status: m4-focused-pass
 - red_report: artifacts/safety-map-experiment-02-20260904/red-m4-rome-recheck.md
 - red_lifecycle_status: pass-preterminal
 - red_lifecycle_report: artifacts/safety-map-experiment-02-20260904/red-lifecycle-preterminal.md
 - report: reports/safety-map-experiment-02-20260904/20260903T1650Z-stale-progress.md
-- waiting_on: agent
-- retry_policy: autonomous
-- next_retry_at: 2026-09-04T05:52:00Z
-- blocker: stale-progress checkpoint. 새 evidence 없이 handoff를 반복하지 않되, deadline 전에는 Mapbox 렌더·대체 검증 경로를 자율 재조사·실행해야 한다.
-- next_retry_condition: dispatcher가 `next_retry_at` 이후 deadline 전 자동 재개해 새 실질 quality evidence 또는 정확한 최종 blocker를 남긴다.
+- next_action: hard deadline 또는 명시 조기 종료 후 immutable original-thread terminal receipt gate를 수행한다. Archive는 그 receipt와 원격 검증 이후에만 가능하다.
+
+## Inbox
+
+<!-- 실행 대기 Intent 없음. -->
+
+## Waiting
 
 ### [safety-map-correction-20260903] 여행 치안 지도 품질·지도·마감·알림 교정
 - status: waiting

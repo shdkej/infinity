@@ -298,6 +298,41 @@
       ],
       "result": "waiting_for_material_evidence_or_terminal_time",
       "blocker": "Two consecutive dispatcher cycles produced no substantive evidence. Contract requires Active → Waiting rather than repeated handoff-only progress."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-04bfd982d0744d6986e468b1267d8f34",
+      "canonical_sha": "10b45819fb8a4056dafd1fdb6d2d64a4cb875a60",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-04T05:53:19Z",
+      "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-04T05:53:20Z",
+      "context_pack": "intents/context/safety-map-experiment-02-20260904.json",
+      "evidence_paths": [
+        "reports/safety-map-experiment-02-20260904/20260903T1650Z-stale-progress.md"
+      ],
+      "searches": [
+        "autonomous retry after stale-progress hold"
+      ],
+      "result": "resume_active_for_deadline_final_check",
+      "blocker": null
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-04T05:54:00Z",
+      "context_pack": "intents/context/safety-map-experiment-02-20260904.json",
+      "evidence_paths": [
+        "artifacts/safety-map-experiment-02-20260904/evidence/20260904T0554Z-final-live-health.md"
+      ],
+      "searches": [
+        "live HTTPS and committed dist SHA-256 parity recheck"
+      ],
+      "result": "final_predeadline_live_health_pass",
+      "blocker": null
     }
   ],
   "artifacts": [],
