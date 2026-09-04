@@ -31,6 +31,23 @@ class PlanTests(unittest.TestCase):
         self.assertNotIn("bad-1", [item["intent_id"] for item in plan["handoff_candidates"]])
         self.assertTrue(plan["dispatch_required"])
 
+    def test_deadline_active_card_requires_observability_fields(self):
+        text = "## Inbox\n\n## Active\n" + block("work-1", "active", "- deadline: 2026-09-05T06:00:00Z\n") + "\n## Waiting\n\n## Archive\n"
+        plan = prepare.build_plan(text, "fixture", Path(tempfile.mkdtemp()))
+        invalid = [item for item in plan["invalid_state"] if item["intent_id"] == "work-1"]
+        self.assertEqual(invalid[0]["reason"], "missing_card_contract")
+        self.assertIn("task_plan", invalid[0]["missing_fields"])
+
+    def test_deadline_active_card_with_observability_fields_is_valid(self):
+        extra = "".join([
+            "- deadline: 2026-09-05T06:00:00Z\n", "- deadline_local: 2026-09-05 08:00 Europe/Rome (CEST)\n",
+            "- task_plan: artifacts/work-1/task-plan.json\n", "- trace: traces/work-1.json\n",
+            "- notification_channel: slack\n", "- notification_target: channel:C0\n", "- notification_reply_to: 1.2\n",
+        ])
+        text = "## Inbox\n\n## Active\n" + block("work-1", "active", extra) + "\n## Waiting\n\n## Archive\n"
+        plan = prepare.build_plan(text, "fixture", Path(tempfile.mkdtemp()))
+        self.assertFalse(plan["invalid_state"])
+
     def test_timestamp_handoff_is_live_evidence(self):
         repo = Path(tempfile.mkdtemp())
         (repo / "traces").mkdir()

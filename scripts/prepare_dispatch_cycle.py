@@ -78,13 +78,31 @@ def due_autonomous_retry(entry: dict[str, Any], reference: dt.datetime) -> bool:
     except ValueError:
         return True
 
+def card_contract_errors(entry: dict[str, Any]) -> list[str]:
+    """Keep deadline-bound Active cards observable through every state transition."""
+    if entry["lane"] != "Active" or not entry["fields"].get("deadline"):
+        return []
+    fields = entry["fields"]
+    required = (
+        "deadline_local", "task_plan", "trace", "notification_channel",
+        "notification_target", "notification_reply_to",
+    )
+    return [field for field in required if not fields.get(field)]
+
 def build_plan(text: str, sha: str, repo: Path) -> dict[str, Any]:
     sections = split_sections(text)
     missing = [lane for lane in LANES if lane not in sections]
     if missing:
         raise ValueError("missing_lanes:" + ",".join(missing))
     entries = [entry for lane in LANES for entry in parse_entries(sections[lane], lane)]
-    invalid = [{"intent_id": e["id"], "lane": e["lane"], "status": e["fields"].get("status", "")} for e in entries if e["fields"].get("status", "").lower() not in expected_status(e["lane"])]
+    invalid = []
+    for entry in entries:
+        status = entry["fields"].get("status", "")
+        if status.lower() not in expected_status(entry["lane"]):
+            invalid.append({"intent_id": entry["id"], "lane": entry["lane"], "status": status, "reason": "lane_status_mismatch"})
+        missing = card_contract_errors(entry)
+        if missing:
+            invalid.append({"intent_id": entry["id"], "lane": entry["lane"], "status": status, "reason": "missing_card_contract", "missing_fields": missing})
     inbox = [e for e in entries if e["lane"] == "Inbox"]
     active = [e for e in entries if e["lane"] == "Active"]
     waiting = [e for e in entries if e["lane"] == "Waiting"]

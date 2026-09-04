@@ -15,6 +15,26 @@
 
 ## 실질 진전·마감·알림 게이트
 
+### 대형 Intent 카드 불변 양식
+
+절대 마감이 있는 Active Intent는 상태를 옮기거나 재개할 때마다 아래 필드를 **그대로 보존**한다. 이 양식은 메인 카드의 실행 회차·태스크 수·계획 변경 표시와 terminal notifier의 공통 입력이다.
+
+```yaml
+status: active
+deadline: 2026-01-01T08:00:00Z
+deadline_local: 2026-01-01 09:00 Europe/Rome (CET)
+task_plan: artifacts/{intent-id}/task-plan.json
+trace: traces/{intent-id}.json
+notification_channel: slack
+notification_target: channel:{channel-id}
+notification_reply_to: {original-thread-ts}
+```
+
+- `task-plan.json`은 PRD에서 쪼갠 태스크의 `id`, `title`, `status`, `evidence`와 `deviations`를 가진다. 카드에는 `완료/전체`, 현재 태스크, 계획 변경 수를 표시한다.
+- `trace`는 `dispatcher_handoff` 수로 실행 회차를 계산한다. handoff는 진전이 아니며 회차 표시는 측정값일 뿐 완료 근거가 아니다.
+- 재개는 `deadline`, `deadline_local`, `resumed_at`, `restart_authority`, `execution_attempt`만 갱신할 수 있다. `task_plan`, `trace`, notification 세 필드는 새로 만들거나 비우지 않는다.
+- dispatcher는 이 여섯 관측 필드가 빠진 deadline-bound Active Intent를 `missing_card_contract` invalid state로 내보내며, 실행·완료·대기를 진행시키지 않는다.
+
 ### 실질 진전
 
 - dispatcher handoff, 세션 존재, 빈 report는 진전 증거가 아니다.
