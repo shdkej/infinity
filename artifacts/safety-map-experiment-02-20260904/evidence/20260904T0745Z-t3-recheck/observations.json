@@ -1,0 +1,60 @@
+{
+  "generatedAt": "2026-09-04T07:46:13.358Z",
+  "renderer": {
+    "isolatedProfile": true,
+    "softwareWebGL": true,
+    "port": 19304
+  },
+  "desktop": {
+    "initial": {
+      "viewport": "desktop-1440",
+      "canvasCount": 1,
+      "webgl": true,
+      "mapOutput": "장소와 도로 맥락을 열었어요. 이 정보는 안전 판단이나 경로 추천이 아닙니다. 안전 신호: 현재 검증된 데이터 없음.",
+      "noOverflow": true,
+      "searchName": "장소 또는 도로 찾기",
+      "styleName": "야간 지도 보기",
+      "stylePressed": "false"
+    },
+    "searched": {
+      "mapOutput": "장소 맥락을 열었어요. 이 정보는 안전 판단이나 경로 추천이 아닙니다. 안전 신호: 현재 검증된 데이터 없음.",
+      "canvasCount": 1
+    },
+    "panned": {
+      "canvasCount": 1,
+      "mapOutput": "장소 맥락을 열었어요. 이 정보는 안전 판단이나 경로 추천이 아닙니다. 안전 신호: 현재 검증된 데이터 없음."
+    },
+    "styled": {
+      "stylePressed": "true",
+      "styleName": "주간 지도 보기",
+      "mapOutput": "야간 지도 레이어를 열었어요. 이 전환은 지도 표현만 바꾸며 안전 신호는 추가하지 않습니다.",
+      "canvasCount": 1
+    }
+  },
+  "mobile": {
+    "initial": {
+      "viewport": "mobile-390",
+      "canvasCount": 1,
+      "webgl": true,
+      "mapOutput": "장소와 도로 맥락을 열었어요. 이 정보는 안전 판단이나 경로 추천이 아닙니다. 안전 신호: 현재 검증된 데이터 없음.",
+      "noOverflow": true,
+      "searchName": "장소 또는 도로 찾기",
+      "styleName": "야간 지도 보기",
+      "stylePressed": "false"
+    },
+    "searched": {
+      "mapOutput": "장소 맥락을 열었어요. 이 정보는 안전 판단이나 경로 추천이 아닙니다. 안전 신호: 현재 검증된 데이터 없음.",
+      "canvasCount": 1
+    },
+    "panned": {
+      "canvasCount": 1,
+      "mapOutput": "장소 맥락을 열었어요. 이 정보는 안전 판단이나 경로 추천이 아닙니다. 안전 신호: 현재 검증된 데이터 없음."
+    },
+    "styled": {
+      "stylePressed": "true",
+      "styleName": "주간 지도 보기",
+      "mapOutput": "야간 지도 레이어를 열었어요. 이 전환은 지도 표현만 바꾸며 안전 신호는 추가하지 않습니다.",
+      "canvasCount": 1
+    }
+  }
+}

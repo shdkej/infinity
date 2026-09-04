@@ -26,12 +26,13 @@
 - artifact_m4_rome: artifacts/safety-map-experiment-02-20260904/evidence/20260903T140452Z-m4-rome-recovery-index.md
 - artifact_m6_preterminal: artifacts/safety-map-experiment-02-20260904/evidence/20260903T1441Z-m6-remote-preterminal-proof.md
 - artifact_final_live_health: artifacts/safety-map-experiment-02-20260904/evidence/20260904T0554Z-final-live-health.md
+- artifact_t3_partial: artifacts/safety-map-experiment-02-20260904/evidence/20260904T0745Z-t3-recheck-index.md
 - prior_deadline_failure_report: reports/safety-map-experiment-02-20260904/20260904T0620Z-deadline-missed.md
 - red_status: m4-focused-pass
 - red_report: artifacts/safety-map-experiment-02-20260904/red-m4-rome-recheck.md
 - red_lifecycle_status: pass-preterminal
 - red_lifecycle_report: artifacts/safety-map-experiment-02-20260904/red-lifecycle-preterminal.md
-- next_action: T3 실제 desktop·390px 렌더 증거를 재검증하고 T4 Red·T5 terminal receipt를 새 마감 내 완료한다.
+- next_action: visible state delta를 보이는 renderer/capture로 T3를 보강한다. 동일 해시 CDP capture는 T3 완료·T4 Red·T5 terminal receipt의 대체 증거가 아니다.
 
 ## Inbox
 

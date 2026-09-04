@@ -355,6 +355,30 @@
       ],
       "result": "deadline_missed_waiting",
       "blocker": "Hard deadline passed without an immutable original-thread terminal delivery receipt. Contract prohibits Active retention, Archive, and completion claims."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-0bbd097e25634e268ff09df6bdbbb320",
+      "canonical_sha": "c870fa2fecbca9d5e93dbb61fcd078b25c2dd6c1",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-04T07:44:14Z",
+      "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-04T07:46:13Z",
+      "context_pack": "intents/context/safety-map-experiment-02-20260904.json",
+      "evidence_paths": [
+        "artifacts/safety-map-experiment-02-20260904/evidence/20260904T0745Z-t3-recheck-index.md",
+        "artifacts/safety-map-experiment-02-20260904/evidence/20260904T0745Z-t3-recheck/observations.json",
+        "artifacts/safety-map-experiment-02-20260904/evidence/20260904T0745Z-t3-recheck/sha256.json"
+      ],
+      "searches": [
+        "fresh isolated Snap Chromium software WebGL T3 recheck"
+      ],
+      "result": "t3_partial_renderer_evidence",
+      "blocker": "Canvas/WebGL and interaction state transitions were observed, but same-hash CDP screenshots do not independently prove visible state deltas. T3 remains active."
     }
   ],
   "artifacts": [],
