@@ -4,22 +4,16 @@
 
 ## Active
 
-<!-- 실행 중 Intent 없음. -->
-
-## Inbox
-
-<!-- 실행 대기 Intent 없음. -->
-
-## Waiting
-
 ### [safety-map-experiment-02-20260904] 여행 치안 지도 2차 실험: 실제 지도·디자인·마감·알림 검증
-- status: waiting
+- status: active
 - target_agent: genie
 - priority: critical
 - permission: L1-local-implementation-and-staging
 - deadline: 2026-09-05T06:00:00Z
 - deadline_local: 2026-09-05 08:00 Europe/Rome (CEST)
+- resumed_at: 2026-09-04T13:59:00Z
 - restart_authority: 사용자 승인, Slack thread 1788364835.849239
+- execution_attempt: 4
 - execution_mode: multi_subagent_roles
 - projects: world-travel,infinity,space,video-automation
 - task_type: implementation
@@ -29,12 +23,18 @@
 - notification_origin: slack:channel:C0BR41W31MM:thread:1788364835.849239
 - context_pack: intents/context/safety-map-experiment-02-20260904.json
 - task_plan: artifacts/safety-map-experiment-02-20260904/task-plan.json
+- trace: traces/safety-map-experiment-02-20260904.json
 - artifact: artifacts/safety-map-experiment-02-20260904/planner-prd.md
 - artifact_t3_partial: artifacts/safety-map-experiment-02-20260904/evidence/20260904T0745Z-t3-recheck-index.md
 - artifact_t3_window_retry: artifacts/safety-map-experiment-02-20260904/evidence/20260904T0822Z-t3-window-capture-index.md
-- report: reports/safety-map-experiment-02-20260904/20260904T0851Z-t3-compositor-capture-blocker.md
-- blocker: compositor-visible T3 capture requires an operator-approved Computer Control node or approved alternative renderer. Local CDP surface/window capture and local alternate browsers cannot produce independent visible state deltas.
-- next_retry_condition: operator connects and approves a computer-capable node with screen capture/control, or approves a compositor-visible renderer.
+- prior_blocker_report: reports/safety-map-experiment-02-20260904/20260904T0851Z-t3-compositor-capture-blocker.md
+- next_action: 관리 브라우저 프로필 시작 오류를 복구하고, 현재 설치된 OpenClaw browser capture 경로 또는 재현 가능한 격리 렌더로 T3 visible-state 증거를 확보한다.
+
+## Inbox
+
+<!-- 실행 대기 Intent 없음. -->
+
+## Waiting
 
 ### [safety-map-correction-20260903] 여행 치안 지도 품질·지도·마감·알림 교정
 - status: experiment_failed
