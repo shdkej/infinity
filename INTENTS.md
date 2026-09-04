@@ -4,20 +4,16 @@
 
 ## Active
 
-<!-- 실행 중 Intent 없음. -->
-
-## Inbox
-
-<!-- 실행 대기 Intent 없음. -->
-
-## Waiting
-
 ### [safety-map-experiment-02-20260904] 여행 치안 지도 2차 실험: 실제 지도·디자인·마감·알림 검증
-- status: deadline_missed
+- status: active
 - target_agent: genie
 - priority: critical
 - permission: L1-local-implementation-and-staging
-- deadline: 2026-09-04T06:00:00Z (missed)
+- deadline: 2026-09-05T06:00:00Z
+- deadline_local: 2026-09-05 08:00 Europe/Rome (CEST)
+- resumed_at: 2026-09-04T07:43:24Z
+- restart_authority: 사용자 승인, Slack thread 1788364835.849239
+- execution_attempt: 3
 - execution_mode: multi_subagent_roles
 - projects: world-travel,infinity,space,video-automation
 - task_type: implementation
@@ -30,13 +26,18 @@
 - artifact_m4_rome: artifacts/safety-map-experiment-02-20260904/evidence/20260903T140452Z-m4-rome-recovery-index.md
 - artifact_m6_preterminal: artifacts/safety-map-experiment-02-20260904/evidence/20260903T1441Z-m6-remote-preterminal-proof.md
 - artifact_final_live_health: artifacts/safety-map-experiment-02-20260904/evidence/20260904T0554Z-final-live-health.md
+- prior_deadline_failure_report: reports/safety-map-experiment-02-20260904/20260904T0620Z-deadline-missed.md
 - red_status: m4-focused-pass
 - red_report: artifacts/safety-map-experiment-02-20260904/red-m4-rome-recheck.md
 - red_lifecycle_status: pass-preterminal
 - red_lifecycle_report: artifacts/safety-map-experiment-02-20260904/red-lifecycle-preterminal.md
-- report: reports/safety-map-experiment-02-20260904/20260904T0620Z-deadline-missed.md
-- blocker: hard deadline가 지났고 immutable original-thread terminal delivery receipt가 없습니다. 계약상 Active·Archive·completion claim을 유지할 수 없습니다.
-- next_retry_condition: 명시 새 deadline과 재개 권한이 있으면 live state 재검증·terminal receipt workflow·최종 Red를 재개한다.
+- next_action: T3 실제 desktop·390px 렌더 증거를 재검증하고 T4 Red·T5 terminal receipt를 새 마감 내 완료한다.
+
+## Inbox
+
+<!-- 실행 대기 Intent 없음. -->
+
+## Waiting
 
 ### [safety-map-correction-20260903] 여행 치안 지도 품질·지도·마감·알림 교정
 - status: experiment_failed

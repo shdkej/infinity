@@ -1,7 +1,9 @@
 {
   "intent_id": "safety-map-experiment-02-20260904",
-  "plan_version": 1,
+  "plan_version": 2,
   "created_at": "2026-09-03T18:32:00Z",
+  "resumed_at": "2026-09-04T07:43:24Z",
+  "deadline": "2026-09-05T06:00:00Z",
   "source_prd": "artifacts/safety-map-experiment-02-20260904/planner-prd.md",
   "tasks": [
     {
@@ -47,6 +49,12 @@
       "reason": "관리 브라우저 프로필 stale lock과 WebGL 제약으로 기본 렌더 경로가 막혔다.",
       "impact": "T3의 증거 수집 경로를 clean isolated profile과 software WebGL 검증으로 전환했다.",
       "task_ids": ["T3"]
+    },
+    {
+      "at": "2026-09-04T07:43:24Z",
+      "reason": "이전 hard deadline 실패 뒤 사용자가 새 Italy 08:00 마감과 재개 권한을 부여했다.",
+      "impact": "기존 실패 증거는 보존하고 T3부터 실제 렌더·Red·terminal receipt 게이트를 새 실행 구간에서 재검증한다.",
+      "task_ids": ["T3", "T4", "T5", "T6"]
     }
   ]
 }
