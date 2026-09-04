@@ -502,6 +502,15 @@
       "result": "final_preterminal_lifecycle_red_pass",
       "status": "pass",
       "next_action": "Remain Active for quality iteration until the canonical deadline or explicit early termination. Then perform the immutable terminal-receipt and Archive workflow."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-fe1d495f7f52403b89b612ed1a66b1ce",
+      "canonical_sha": "d22541de87a64d24f2d0b4bf37e611a35a77b91a",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-04T15:20:03Z",
+      "status": "accepted"
     }
   ],
   "artifacts": [],
