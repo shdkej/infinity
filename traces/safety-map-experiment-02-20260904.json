@@ -333,6 +333,28 @@
       ],
       "result": "final_predeadline_live_health_pass",
       "blocker": null
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-4a4712e51dbc41d5ba6d06ea0462209c",
+      "canonical_sha": "530c6a956d528d6d89a8c0a29e32d560d800173f",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-04T06:20:03Z",
+      "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-04T06:20:04Z",
+      "context_pack": "intents/context/safety-map-experiment-02-20260904.json",
+      "evidence_paths": [
+        "reports/safety-map-experiment-02-20260904/20260904T0620Z-deadline-missed.md"
+      ],
+      "searches": [
+        "deadline hard-stop and terminal-receipt gate check"
+      ],
+      "result": "deadline_missed_waiting",
+      "blocker": "Hard deadline passed without an immutable original-thread terminal delivery receipt. Contract prohibits Active retention, Archive, and completion claims."
     }
   ],
   "artifacts": [],

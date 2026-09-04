@@ -4,31 +4,29 @@
 
 ## Active
 
+<!-- 실행 중 Intent 없음. -->
+
+## Inbox
+
+<!-- 실행 대기 Intent 없음. -->
+
+## Waiting
+
 ### [safety-map-experiment-02-20260904] 여행 치안 지도 2차 실험: 실제 지도·디자인·마감·알림 검증
-- status: active
+- status: waiting
 - target_agent: genie
 - priority: critical
 - permission: L1-local-implementation-and-staging
-- requested: 2026-09-03T11:03:34Z
-- resumed_at: 2026-09-04T05:53:19Z
-- deadline: 2026-09-04T06:00:00Z
-- deadline_local: 2026-09-04 08:00 Europe/Rome (CEST)
+- deadline: 2026-09-04T06:00:00Z (missed)
 - execution_mode: multi_subagent_roles
 - projects: world-travel,infinity,space,video-automation
 - task_type: implementation
-- topics: mapbox,design-system,deadline,notification
-- parent_experiment: safety-map-correction-20260903
-- goal: 1차 실패 원인을 실제 제품·운영 계약으로 교정한다. 로마를 중심으로 실제 Mapbox canvas에서 장소·도로·거리·레이어를 탐색하는 지도 UX를 구현하고, 디자인 정본·마감 quality iteration·Slack terminal delivery까지 검증한다.
-- success_criteria: Mapbox canvas의 zoom/pan·도로/장소·거리/위치·주야간 레이어 상호작용, BRAND→DESIGN→DESIGN_SYSTEM 근거와 UI mapping, 390px/desktop 실제 capture, focused Red pass, deadline 전 quality iteration, immutable Slack notification metadata와 delivery receipt, live remote proof.
-- boundary: 기존 보호된 Mapbox 설정 참조만 사용하며 토큰 값은 절대 출력·커밋·로그에 남기지 않는다. fixture를 실제 위험 데이터로 주장하지 않으며, 근거 부족 구간은 no-data로 명확히 표시한다. 공개 광고 집행·결제·권한/시크릿 변경은 제외한다.
-- execution_contract: EXECUTION_LEARNING_CONTRACT.md (자율 복구·Waiting 즉시 통보·deadline hard-stop·design/map/notification gates 적용)
 - notification_channel: slack
 - notification_target: channel:C0BR41W31MM
 - notification_reply_to: 1788364835.849239
 - notification_origin: slack:channel:C0BR41W31MM:thread:1788364835.849239
 - context_pack: intents/context/safety-map-experiment-02-20260904.json
 - artifact: artifacts/safety-map-experiment-02-20260904/planner-prd.md
-- task_plan: artifacts/safety-map-experiment-02-20260904/task-plan.json
 - artifact_m4_rome: artifacts/safety-map-experiment-02-20260904/evidence/20260903T140452Z-m4-rome-recovery-index.md
 - artifact_m6_preterminal: artifacts/safety-map-experiment-02-20260904/evidence/20260903T1441Z-m6-remote-preterminal-proof.md
 - artifact_final_live_health: artifacts/safety-map-experiment-02-20260904/evidence/20260904T0554Z-final-live-health.md
@@ -36,14 +34,9 @@
 - red_report: artifacts/safety-map-experiment-02-20260904/red-m4-rome-recheck.md
 - red_lifecycle_status: pass-preterminal
 - red_lifecycle_report: artifacts/safety-map-experiment-02-20260904/red-lifecycle-preterminal.md
-- report: reports/safety-map-experiment-02-20260904/20260903T1650Z-stale-progress.md
-- next_action: hard deadline 또는 명시 조기 종료 후 immutable original-thread terminal receipt gate를 수행한다. Archive는 그 receipt와 원격 검증 이후에만 가능하다.
-
-## Inbox
-
-<!-- 실행 대기 Intent 없음. -->
-
-## Waiting
+- report: reports/safety-map-experiment-02-20260904/20260904T0620Z-deadline-missed.md
+- blocker: hard deadline가 지났고 immutable original-thread terminal delivery receipt가 없습니다. 계약상 Active·Archive·completion claim을 유지할 수 없습니다.
+- next_retry_condition: 명시 새 deadline과 재개 권한이 있으면 live state 재검증·terminal receipt workflow·최종 Red를 재개한다.
 
 ### [safety-map-correction-20260903] 여행 치안 지도 품질·지도·마감·알림 교정
 - status: waiting
