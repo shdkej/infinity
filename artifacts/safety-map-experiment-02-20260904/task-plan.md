@@ -1,6 +1,6 @@
 # Safety Map 2차 실험 — 실행 타임라인
 
-`마감: 2026-09-05 08:00 Europe/Rome (06:00 UTC)` · `실행: 4회차` · `태스크: 12/23 완료`
+`마감: 2026-09-05 08:00 Europe/Rome (06:00 UTC)` · `실행: 4회차` · `태스크: 18/23 완료`
 
 ```text
 ● T1  PRD·제품 계약                                                   완료
@@ -22,11 +22,11 @@
 ├─ — 2026-09-03 13:45 UTC · T3
 │     관리 브라우저 lock/WebGL 제약 → 격리 Chromium·software WebGL 경로로 전환
 │
-◐ T3  실제 화면 렌더 검증                                             진행 중
-│  ◐ T3.1  desktop 초기 지도 화면 capture 확보                       진행 중
-│  ○ T3.2  desktop 검색·확대·주야간 변화 capture 확보                대기
-│  ○ T3.3  390px 초기 지도 화면 capture 확보                         대기
-│  ○ T3.4  390px 검색·이동·주야간 변화 capture 확보                  대기
+● T3  실제 화면 렌더 검증                                             완료
+│  ● T3.1  desktop 초기 지도 화면 capture 확보                       완료
+│  ● T3.2  desktop 검색·확대·주야간 변화 capture 확보                완료
+│  ● T3.3  390px 초기 지도 화면 capture 확보                         완료
+│  ● T3.4  390px 검색·이동·주야간 변화 capture 확보                  완료
 │
 ├─ — 2026-09-04 07:43 UTC · T3–T6
 │     이전 마감 실패 뒤 새 Italy 08:00 마감으로 재개. 실제 렌더부터 다시 검증
@@ -34,9 +34,9 @@
 ├─ — 2026-09-04 14:30 UTC · T1–T2
 │     상위 태스크를 독립 완료 단위로 재분해: T1 5개 · T2 7개
 │
-○ T4  Red 검토                                                        T3 완료 뒤
-│  ○ T4.1  실제 지도 상호작용을 시각 검토                            대기
-│  ○ T4.2  출처·안전 표현·데이터 한계를 검토                         대기
+● T4  Red 검토                                                        완료
+│  ● T4.1  실제 지도 상호작용을 시각 검토                            완료
+│  ● T4.2  출처·안전 표현·데이터 한계를 검토                         완료
 │
 ○ T5  배포·종료 검증                                                  T4 완료 뒤
 │  ○ T5.1  정식 AWS 경로 배포 확인                                   대기
@@ -48,4 +48,4 @@
    ○ T6.2  모바일 접근성 반복                                        대기
 ```
 
-**지금 다음 행동:** T3.1의 desktop 초기 지도 화면을 독립적으로 증명할 capture를 확보한다.
+**지금 다음 행동:** canonical 마감 또는 명시 조기 종료 시점에 final lifecycle Red, immutable original-thread terminal receipt, lane cleanup·Archive·원격 검증을 순서대로 수행한다. 그 전에는 quality iteration만 허용한다.
