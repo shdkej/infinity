@@ -138,12 +138,12 @@
     {
       "id": "T6.1",
       "title": "마감 전 디자인 품질 반복",
-      "status": "active",
+      "status": "done",
       "depends_on": ["T5.2"],
       "started_at": "2026-09-04T21:40:03Z",
       "estimated_minutes": 30,
       "max_minutes": 45,
-      "evidence": "artifacts/safety-map-experiment-02-20260904/evidence/"
+      "evidence": "artifacts/safety-map-experiment-02-20260904/evidence/20260904T2142Z-t6-design-review.md"
     },
     {
       "id": "T6.2",
