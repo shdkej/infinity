@@ -117,7 +117,7 @@
     {
       "id": "T5.1",
       "title": "정식 AWS 경로 배포 확인",
-      "status": "pending",
+      "status": "active",
       "evidence": "reports/safety-map-experiment-02-20260904/"
     },
     {
