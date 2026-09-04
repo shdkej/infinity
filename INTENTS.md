@@ -28,8 +28,11 @@
 - artifact: artifacts/safety-map-experiment-02-20260904/planner-prd.md
 - artifact_t3_partial: artifacts/safety-map-experiment-02-20260904/evidence/20260904T0745Z-t3-recheck-index.md
 - artifact_t3_window_retry: artifacts/safety-map-experiment-02-20260904/evidence/20260904T0822Z-t3-window-capture-index.md
+- artifact_t3_visible: artifacts/safety-map-experiment-02-20260904/evidence/20260904T1410Z-managed-browser-t3-index.md
+- red_t3_status: pass
+- red_t3_report: reports/safety-map-experiment-02-20260904/20260904T1418Z-focused-red-t3.md
 - prior_blocker_report: reports/safety-map-experiment-02-20260904/20260904T0851Z-t3-compositor-capture-blocker.md
-- next_action: 관리 브라우저 프로필 시작 오류를 복구하고, 현재 설치된 OpenClaw browser capture 경로 또는 재현 가능한 격리 렌더로 T3 visible-state 증거를 확보한다.
+- next_action: T3 focused Red PASS를 바탕으로 final lifecycle 및 immutable terminal-receipt gate를 점검한다. Archive·terminal Slack은 이 gate 통과 전 금지한다.
 
 ## Inbox
 

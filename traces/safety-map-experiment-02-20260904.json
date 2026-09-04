@@ -426,6 +426,55 @@
       ],
       "result": "waiting_for_compositor_visible_capture_authority",
       "blocker": "No connected computer-capable node is available, and local alternative renderers are unavailable. Enabling screen capture/control requires operator approval."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-a51498497c224c5bb5f1c861f3290dca",
+      "canonical_sha": "51f6ac4c16eabd07cac50c7108ff99d5dcc6cfc2",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-04T14:00:31Z",
+      "status": "accepted"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-6a05b371c6504de7a50734abd85acb1b",
+      "canonical_sha": "65e1392db6a5dfaa883752a7d941337e5c97099f",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-04T14:10:03Z",
+      "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-04T14:16:00Z",
+      "context_pack": "intents/context/safety-map-experiment-02-20260904.json",
+      "evidence_paths": [
+        "artifacts/safety-map-experiment-02-20260904/evidence/20260904T1410Z-managed-browser-t3-index.md",
+        "artifacts/safety-map-experiment-02-20260904/evidence/20260904T1410Z-managed-browser-t3/sha256.txt"
+      ],
+      "searches": [
+        "managed OpenClaw browser profile repair",
+        "1440px and 390px visible Mapbox interaction capture"
+      ],
+      "result": "t3_visible_state_evidence_recovered",
+      "blocker": null
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-04T14:18:00Z",
+      "reviewer_session": "/root/red_t3_capture",
+      "scope": "T3 managed-browser visible-state capture",
+      "context_pack": "intents/context/safety-map-experiment-02-20260904.json",
+      "evidence_paths": [
+        "reports/safety-map-experiment-02-20260904/20260904T1418Z-focused-red-t3.md"
+      ],
+      "searches": [
+        "focused Red review of managed-browser T3 evidence"
+      ],
+      "result": "t3_focused_red_pass",
+      "status": "pass",
+      "next_action": "Run final lifecycle and terminal-receipt gates; do not Archive or send terminal notification yet."
     }
   ],
   "artifacts": [],
