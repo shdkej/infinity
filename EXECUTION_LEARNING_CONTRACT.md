@@ -9,7 +9,7 @@
 - 모든 시각은 UTC `Z` 형식이다. 관측되지 않은 과거 시각은 git 시간이나 세션 도착 시각으로 추정하지 않고 `missing`과 이유를 기록한다.
 - `active`, `waiting`, `rework`은 서로 중복하지 않는다. `active + waiting <= elapsed`여야 하며, `rework`은 active 안에서 별도 표기한다.
 - Red의 timebox는 품질 게이트 면제가 아니다. 미해결 P0, timeout, 미응답은 pass가 아니라 정확한 blocker를 가진 Waiting이다.
-- **실험 종료:** 이 계약을 적용한 대형 태스크가 절대 마감을 넘기면 Active를 유지하거나 handoff만 반복하지 않는다. 다음 dispatcher cycle에서 `deadline_missed`·마지막 실질 증거·실패 리포트·새 승인 필요 여부를 기록하고 Waiting으로 이동한다.
+- **실험 종료:** 이 계약을 적용한 대형 태스크가 절대 마감을 넘기면 Active를 유지하거나 handoff만 반복하지 않는다. 다음 dispatcher cycle에서 `status: deadline_missed`·마지막 실질 증거·실패 리포트·새 승인 필요 여부를 기록하고 Waiting 레인에 둔다. 이는 재개 보류 레인일 뿐 성공 상태가 아니며, 원 요청 스레드에 별도 terminal 알림을 남긴다.
 - **완료의 의미:** 기능이 먼저 동작해도 `quality_iteration_active`일 뿐 Archive가 아니다. deadline 도달 또는 사용자의 명시 조기 종료 전에는 디자인·실제 렌더·접근성·운영 품질을 개선한다.
 - **기본 마감:** 사용자가 절대 마감을 생략하면 다음 이탈리아 현지 08:00을 기본 deadline으로 사용한다. Intent에는 `deadline_local: Europe/Rome`과 UTC 환산값을 함께 기록하며, 사용자가 별도 시간대·시각을 말하면 그 값이 우선한다.
 

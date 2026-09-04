@@ -30,7 +30,7 @@ def parse_entries(text: str, lane: str) -> list[dict[str, Any]]:
     return entries
 
 def expected_status(lane: str) -> set[str]:
-    return {"Inbox": {"", "inbox"}, "Active": {"active"}, "Waiting": {"waiting", "blocked"}, "Archive": {"archived", "completed", "complete", "done"}}[lane]
+    return {"Inbox": {"", "inbox"}, "Active": {"active"}, "Waiting": {"waiting", "blocked", "deadline_missed", "experiment_failed"}, "Archive": {"archived", "completed", "complete", "done"}}[lane]
 
 def fresh_trace(intent_id: str, repo: Path, reference: dt.datetime, sha: str) -> dict[str, str] | None:
     path = repo / "traces" / f"{intent_id}.json"

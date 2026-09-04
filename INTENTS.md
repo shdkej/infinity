@@ -13,7 +13,7 @@
 ## Waiting
 
 ### [safety-map-experiment-02-20260904] 여행 치안 지도 2차 실험: 실제 지도·디자인·마감·알림 검증
-- status: waiting
+- status: deadline_missed
 - target_agent: genie
 - priority: critical
 - permission: L1-local-implementation-and-staging
@@ -39,7 +39,7 @@
 - next_retry_condition: 명시 새 deadline과 재개 권한이 있으면 live state 재검증·terminal receipt workflow·최종 Red를 재개한다.
 
 ### [safety-map-correction-20260903] 여행 치안 지도 품질·지도·마감·알림 교정
-- status: waiting
+- status: experiment_failed
 - target_agent: genie
 - priority: critical
 - deadline: 2026-09-03T05:00:00Z (missed)

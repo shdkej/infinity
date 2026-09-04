@@ -69,6 +69,10 @@ def phase(entry: dict[str, object]) -> str | None:
         if fields.get("remote_verified", "").lower() in {"pass", "true", "verified"}:
             return "completed"
         return None
+    if status == "deadline_missed":
+        return "deadline_missed"
+    if status == "experiment_failed":
+        return "experiment_failed"
     if entry["lane"] == "waiting" or status in {"waiting", "blocked"}:
         if fields.get("approval") or fields.get("waiting_on", "").lower() == "user":
             return "approval"
@@ -105,7 +109,11 @@ def message(entry: dict[str, object], state: str) -> str:
         detail = fields.get("result") or fields.get("metric_result") or "원격 검증을 통과했습니다."
         proof = " · ".join(filter(None, (fields.get("remote_commit"), fields.get("report"), "remote verified")))
         return f"Infinity 완료 · {entry['id']} {entry['title']}\n{detail}\n검증: {proof}"
-    label = "승인/결정 필요" if state == "approval" else "진행 차단"
+    label = {
+        "approval": "승인/결정 필요",
+        "deadline_missed": "마감 실패",
+        "experiment_failed": "실험 실패 종료",
+    }.get(state, "진행 차단")
     detail = fields.get("blocker") or fields.get("waiting_reason") or "구체 사유가 원장에 없습니다."
     action = fields.get("next_action") or fields.get("next_retry_condition") or "원장을 확인해 주세요."
     return f"Infinity {label} · {entry['id']} {entry['title']}\n사유: {detail}\n다음: {action}"
@@ -203,7 +211,9 @@ def main() -> int:
           if not dest:
               skipped += 1
               continue
-          identity = "|".join((str(entry["id"]), terminal, dest["channel"], dest["target"], dest.get("thread", ""), dest.get("reply_to", "")))
+          # 같은 intent라도 blocker/report가 달라진 terminal 전이는 새 사실이다.
+          # destination+phase만으로 dedupe하면 과거 Waiting 통보가 deadline 실패 통보를 삼킨다.
+          identity = "|".join((str(entry["id"]), terminal, dest["channel"], dest["target"], dest.get("thread", ""), dest.get("reply_to", ""), fingerprint(entry, terminal)))
           key = hashlib.sha256(identity.encode()).hexdigest()
           existing = deliveries.get(key)
           if existing:
