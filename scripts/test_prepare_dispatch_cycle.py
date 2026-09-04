@@ -61,6 +61,30 @@ class PlanTests(unittest.TestCase):
         self.assertEqual(plan["plan_activation_candidates"][0]["task_state"]["task_id"], "T1")
         self.assertEqual(plan["handoff_candidates"][0]["intent_id"], "work-1")
 
+    def test_dependencies_gate_pending_task_activation(self):
+        repo = Path(tempfile.mkdtemp())
+        (repo / "artifacts" / "work-1").mkdir(parents=True)
+        tasks = {"tasks": [
+            {"id": "T1", "title": "선행", "status": "pending"},
+            {"id": "T2", "title": "후행", "status": "pending", "depends_on": ["T1"]},
+        ]}
+        (repo / "artifacts" / "work-1" / "task-plan.json").write_text(json.dumps(tasks))
+        text = "## Inbox\n\n## Active\n" + block("work-1", "active", "- task_plan: artifacts/work-1/task-plan.json\n") + "\n## Waiting\n\n## Archive\n"
+        plan = prepare.build_plan(text, "fixture", repo)
+        self.assertEqual(plan["plan_activation_candidates"][0]["task_state"]["task_id"], "T1")
+
+    def test_timebox_expiry_requires_reassessment(self):
+        repo = Path(tempfile.mkdtemp())
+        (repo / "artifacts" / "work-1").mkdir(parents=True)
+        tasks = {"tasks": [{
+            "id": "T1", "title": "시간 제한 작업", "status": "active",
+            "started_at": "2020-01-01T00:00:00Z", "max_minutes": 10,
+        }]}
+        (repo / "artifacts" / "work-1" / "task-plan.json").write_text(json.dumps(tasks))
+        text = "## Inbox\n\n## Active\n" + block("work-1", "active", "- task_plan: artifacts/work-1/task-plan.json\n") + "\n## Waiting\n\n## Archive\n"
+        plan = prepare.build_plan(text, "fixture", repo)
+        self.assertEqual(plan["timebox_reassessment_candidates"][0]["task_state"]["task_id"], "T1")
+
     def test_timestamp_handoff_is_live_evidence(self):
         repo = Path(tempfile.mkdtemp())
         (repo / "traces").mkdir()

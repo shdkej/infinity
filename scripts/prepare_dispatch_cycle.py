@@ -69,12 +69,28 @@ def task_plan_state(entry: dict[str, Any], repo: Path, sha: str) -> dict[str, An
         tasks = json.loads(raw).get("tasks", [])
     except (OSError, json.JSONDecodeError, subprocess.CalledProcessError):
         return {"state": "unreadable_plan", "path": path}
+    done_states = {"done", "completed", "skipped"}
+    by_id = {str(task.get("id")): task for task in tasks}
     active = next((task for task in tasks if str(task.get("status", "")).lower() == "active"), None)
     if active:
+        try:
+            started = dt.datetime.fromisoformat(str(active.get("started_at", "")).replace("Z", "+00:00"))
+            maximum = int(active.get("max_minutes", 0))
+            if maximum > 0 and dt.datetime.now(dt.timezone.utc) >= started + dt.timedelta(minutes=maximum):
+                return {"state": "timebox_expired", "task_id": active.get("id"), "task_title": active.get("title"), "max_minutes": maximum}
+        except (TypeError, ValueError):
+            pass
         return {"state": "active", "task_id": active.get("id"), "task_title": active.get("title")}
-    pending = next((task for task in tasks if str(task.get("status", "")).lower() == "pending"), None)
+    def dependencies_done(task: dict[str, Any]) -> bool:
+        dependencies = task.get("depends_on", [])
+        if isinstance(dependencies, str):
+            dependencies = [dependencies]
+        return all(str(by_id.get(str(dependency), {}).get("status", "")).lower() in done_states for dependency in dependencies)
+    pending = next((task for task in tasks if str(task.get("status", "")).lower() == "pending" and dependencies_done(task)), None)
     if pending:
         return {"state": "activate_pending", "task_id": pending.get("id"), "task_title": pending.get("title")}
+    if any(str(task.get("status", "")).lower() == "pending" for task in tasks):
+        return {"state": "blocked_dependencies"}
     return {"state": "complete_or_invalid"}
 
 def canonical(repo: Path, intents: Path | None) -> tuple[str, str]:
@@ -133,7 +149,7 @@ def build_plan(text: str, sha: str, repo: Path) -> dict[str, Any]:
     active = [e for e in entries if e["lane"] == "Active"]
     waiting = [e for e in entries if e["lane"] == "Waiting"]
     reference = dt.datetime.now(dt.timezone.utc)
-    live, resume, plan_activation = [], [], []
+    live, resume, plan_activation, timebox_reassessment, dependency_blocked = [], [], [], [], []
     for entry in active:
         task_state = task_plan_state(entry, repo, sha)
         item = {"intent_id": entry["id"], "title": entry["title"], "evidence": fresh_trace(entry["id"], repo, reference, sha), "task_state": task_state}
@@ -141,6 +157,10 @@ def build_plan(text: str, sha: str, repo: Path) -> dict[str, Any]:
             plan_activation.append(item)
         elif task_state["state"] == "active":
             (live if item["evidence"] else resume).append(item)
+        elif task_state["state"] == "timebox_expired":
+            timebox_reassessment.append(item)
+        elif task_state["state"] == "blocked_dependencies":
+            dependency_blocked.append(item)
         else:
             invalid.append({"intent_id": entry["id"], "lane": entry["lane"], "status": entry["fields"].get("status", ""), "reason": "task_plan_has_no_active_or_pending_task", "task_state": task_state})
     slots = max(0, MAX_ACTIVE - len(active))
@@ -148,7 +168,7 @@ def build_plan(text: str, sha: str, repo: Path) -> dict[str, Any]:
     remaining_slots = max(0, slots - len(waiting_retry))
     promote = [{"intent_id": e["id"], "title": e["title"], "target_agent": "genie", "reason": "available_active_slot"} for e in sorted(inbox, key=priority)[:remaining_slots] if e["fields"].get("target_agent", "genie") == "genie"]
     invalid_ids = {e["intent_id"] for e in invalid}
-    handoff = [e for e in waiting_retry + promote + plan_activation + resume if e["intent_id"] not in invalid_ids]
+    handoff = [e for e in waiting_retry + promote + plan_activation + timebox_reassessment + resume if e["intent_id"] not in invalid_ids]
     followups = []
     for entry in entries:
         if entry["lane"] != "Archive":
@@ -165,7 +185,7 @@ def build_plan(text: str, sha: str, repo: Path) -> dict[str, Any]:
         if ids or reasons:
             followups.append({"intent_id": entry["id"], "report": report, "follow_up_intent_ids": ids.group(1) if ids else "", "follow_up_not_created_reasons": reasons.group(1) if reasons else ""})
     dispatch_required = bool(handoff or followups or invalid)
-    return {"schema_version": 1, "run_id": "dispatch-" + uuid.uuid4().hex, "at": reference.replace(microsecond=0).isoformat().replace("+00:00", "Z"), "canonical_sha": sha, "counts": {"inbox": len(inbox), "active": len(active), "waiting": len(waiting), "archive": sum(e["lane"] == "Archive" for e in entries)}, "invalid_state": invalid, "live_active": live, "resume_candidates": resume, "plan_activation_candidates": plan_activation, "waiting_retry_candidates": waiting_retry, "promote_candidates": promote, "handoff_candidates": handoff, "follow_up_candidates": followups, "dispatch_required": dispatch_required, "no_work": not dispatch_required and not invalid}
+    return {"schema_version": 1, "run_id": "dispatch-" + uuid.uuid4().hex, "at": reference.replace(microsecond=0).isoformat().replace("+00:00", "Z"), "canonical_sha": sha, "counts": {"inbox": len(inbox), "active": len(active), "waiting": len(waiting), "archive": sum(e["lane"] == "Archive" for e in entries)}, "invalid_state": invalid, "live_active": live, "resume_candidates": resume, "plan_activation_candidates": plan_activation, "timebox_reassessment_candidates": timebox_reassessment, "dependency_blocked": dependency_blocked, "waiting_retry_candidates": waiting_retry, "promote_candidates": promote, "handoff_candidates": handoff, "follow_up_candidates": followups, "dispatch_required": dispatch_required, "no_work": not dispatch_required and not invalid}
 
 def main() -> int:
     parser = argparse.ArgumentParser()
