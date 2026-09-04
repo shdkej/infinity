@@ -41,7 +41,7 @@
 ○ T5  배포·종료 검증                                                  T4 완료 뒤
 │  ● T5.1  정식 AWS 경로 배포 확인                                   완료
 │  ● T5.2  라이브 지도 핵심 흐름 재확인                              완료
-│  ○ T5.3  Slack 종료 알림 delivery receipt 확인                    대기
+│  ● T5.3  Slack 종료 알림 delivery receipt 확인                    진행
 │
 ○ T6  마감 전 품질 반복                                               T5.1 전후
    ○ T6.1  디자인 품질 반복                                          대기
