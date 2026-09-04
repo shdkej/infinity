@@ -1,6 +1,6 @@
 {
   "intent_id": "safety-map-experiment-02-20260904",
-  "plan_version": 3,
+  "plan_version": 4,
   "created_at": "2026-09-03T18:32:00Z",
   "resumed_at": "2026-09-04T07:43:24Z",
   "deadline": "2026-09-05T06:00:00Z",
@@ -81,39 +81,38 @@
     {
       "id": "T3.1",
       "title": "desktop 초기 지도 화면 capture 확보",
-      "status": "active",
-      "evidence": "artifacts/safety-map-experiment-02-20260904/evidence/20260904T0745Z-t3-recheck-index.md",
-      "blocker": "DOM/WebGL interaction states were observed, but same-hash CDP screenshots do not independently prove visible state deltas; obtain renderer/capture evidence with visible deltas before T3 done."
+      "status": "done",
+      "evidence": "artifacts/safety-map-experiment-02-20260904/evidence/20260904T1410Z-managed-browser-t3-index.md"
     },
     {
       "id": "T3.2",
       "title": "desktop 검색·확대·주야간 변화 capture 확보",
-      "status": "pending",
-      "evidence": "artifacts/safety-map-experiment-02-20260904/evidence/"
+      "status": "done",
+      "evidence": "artifacts/safety-map-experiment-02-20260904/evidence/20260904T1410Z-managed-browser-t3-index.md"
     },
     {
       "id": "T3.3",
       "title": "390px 초기 지도 화면 capture 확보",
-      "status": "pending",
-      "evidence": "artifacts/safety-map-experiment-02-20260904/evidence/"
+      "status": "done",
+      "evidence": "artifacts/safety-map-experiment-02-20260904/evidence/20260904T1410Z-managed-browser-t3-index.md"
     },
     {
       "id": "T3.4",
       "title": "390px 검색·이동·주야간 변화 capture 확보",
-      "status": "pending",
-      "evidence": "artifacts/safety-map-experiment-02-20260904/evidence/"
+      "status": "done",
+      "evidence": "artifacts/safety-map-experiment-02-20260904/evidence/20260904T1410Z-managed-browser-t3-index.md"
     },
     {
       "id": "T4.1",
       "title": "Red가 실제 지도 상호작용을 시각 검토",
-      "status": "pending",
-      "evidence": "artifacts/safety-map-experiment-02-20260904/red-focused-final.md"
+      "status": "done",
+      "evidence": "reports/safety-map-experiment-02-20260904/20260904T1418Z-focused-red-t3.md"
     },
     {
       "id": "T4.2",
       "title": "Red가 출처·안전 표현·데이터 한계를 검토",
-      "status": "pending",
-      "evidence": "artifacts/safety-map-experiment-02-20260904/red-focused-final.md"
+      "status": "done",
+      "evidence": "reports/safety-map-experiment-02-20260904/20260904T1451Z-focused-red-preterminal.md"
     },
     {
       "id": "T5.1",
@@ -176,6 +175,12 @@
       "reason": "The `fromSurface=false` Chrome DevTools screenshot variant produced the same per-viewport interaction hashes as the original path.",
       "impact": "T3 remains active; try a renderer that can capture compositor-visible GPU output before advancing to Red.",
       "task_ids": ["T3.1", "T3.2", "T3.3", "T3.4"]
+    },
+    {
+      "at": "2026-09-04T14:51:00Z",
+      "reason": "관리 브라우저 기반 캡처가 desktop·390px의 상호작용별 가시 변화 증거를 확보했고, Red가 T3와 종료 전 lifecycle을 각각 통과시켰다.",
+      "impact": "T3과 T4를 완료로 정합화하고, 마감 전에는 T5 라이브·종료 검증 및 T6 품질 반복만 진행한다.",
+      "task_ids": ["T3.1", "T3.2", "T3.3", "T3.4", "T4.1", "T4.2"]
     }
   ]
 }
