@@ -62,7 +62,7 @@ INTENTS.md의 `## Inbox` 섹션을 먼저 확인한다. 자유 형식 텍스트�
 
 ### 2. 의도 읽기
 
-INTENTS.md의 `## Active` 섹션에서 실행 가능한 Intent를 필터링한다. `## Waiting`은 사용자 결정이나 외부 조건이 바뀔 때까지 반복 실행하지 않는다.
+INTENTS.md의 `## Active` 섹션에서 실행 가능한 Intent를 필터링한다. `Waiting` 중 `waiting_on: agent`와 `retry_policy: autonomous`가 있고 `next_retry_at`이 지난 항목은 deadline 전 자동 재개 대상으로 취급한다. 사용자 결정·외부 조건 대기만 반복 실행하지 않는다.
 
 - `active` → 계획 수립 또는 실행 대상
 - `in_progress` → 진행 중, 다음 마일스톤 실행

@@ -28,6 +28,7 @@
 - 최소 복구 탐색 순서는 **현재 경로 복구 → 깨끗한 격리 프로필/소프트웨어 렌더 → 사용 가능한 다른 관리 브라우저·노드·원격 렌더 → 제품 코드의 재현 가능한 대체 검증**이다. 각 단계는 성공 증거 또는 실패 로그를 남긴다. 안전·비용·권한 경계를 넘는 대안은 사용자 승인 전에는 시도하지 않는다.
 - `Waiting`은 위 경로가 안전하게 소진됐거나, 사용자·외부 승인 없이는 다음 검증을 진행할 수 없을 때만 쓴다. 자원 제약 하나만으로는 Waiting 전환 근거가 되지 않는다.
 - Waiting 전환은 상태 변경과 같은 cycle에 원 요청 스레드로 반드시 통보한다. 통보에는 원인, 이미 시도한 대안, 다음 자율 시도 또는 사용자에게 필요한 단 하나의 입력, 재시도 시각을 포함하고 delivery receipt 또는 `delivery_unknown`을 Intent에 남긴다. 무통지 Waiting은 운영 실패다.
+- `waiting_on: agent`이고 `retry_policy: autonomous`인 Waiting은 포기가 아니다. Intent에 `next_retry_at`을 UTC로 남기고, dispatcher는 그 시각 이후·deadline 이전에 Active로 되돌려 새 대안 조사/실행을 한다. `waiting_on: user | external`만 조건 변화 전 반복 실행에서 제외한다.
 
 ### 시각·지도 제품
 

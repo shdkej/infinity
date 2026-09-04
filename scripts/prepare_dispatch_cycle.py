@@ -62,6 +62,22 @@ def priority(entry: dict[str, Any]) -> tuple[int, str, str]:
     rank = {"critical": 0, "high": 1, "normal": 2, "low": 3}.get(entry["fields"].get("priority", "normal").lower(), 2)
     return rank, entry["fields"].get("requested", ""), entry["id"]
 
+def due_autonomous_retry(entry: dict[str, Any], reference: dt.datetime) -> bool:
+    fields = entry["fields"]
+    if fields.get("waiting_on", "").lower() != "agent" or fields.get("retry_policy", "").lower() != "autonomous":
+        return False
+    try:
+        retry_at = dt.datetime.fromisoformat(fields.get("next_retry_at", "").replace("Z", "+00:00"))
+    except ValueError:
+        return False
+    if retry_at > reference:
+        return False
+    deadline = fields.get("deadline", "").split()[0]
+    try:
+        return reference < dt.datetime.fromisoformat(deadline.replace("Z", "+00:00"))
+    except ValueError:
+        return True
+
 def build_plan(text: str, sha: str, repo: Path) -> dict[str, Any]:
     sections = split_sections(text)
     missing = [lane for lane in LANES if lane not in sections]
@@ -71,15 +87,18 @@ def build_plan(text: str, sha: str, repo: Path) -> dict[str, Any]:
     invalid = [{"intent_id": e["id"], "lane": e["lane"], "status": e["fields"].get("status", "")} for e in entries if e["fields"].get("status", "").lower() not in expected_status(e["lane"])]
     inbox = [e for e in entries if e["lane"] == "Inbox"]
     active = [e for e in entries if e["lane"] == "Active"]
+    waiting = [e for e in entries if e["lane"] == "Waiting"]
     reference = dt.datetime.now(dt.timezone.utc)
     live, resume = [], []
     for entry in active:
         item = {"intent_id": entry["id"], "title": entry["title"], "evidence": fresh_trace(entry["id"], repo, reference, sha)}
         (live if item["evidence"] else resume).append(item)
     slots = max(0, MAX_ACTIVE - len(active))
-    promote = [{"intent_id": e["id"], "title": e["title"], "target_agent": "genie", "reason": "available_active_slot"} for e in sorted(inbox, key=priority)[:slots] if e["fields"].get("target_agent", "genie") == "genie"]
+    waiting_retry = [{"intent_id": e["id"], "title": e["title"], "target_agent": "genie", "reason": "autonomous_retry_due"} for e in sorted(waiting, key=priority) if due_autonomous_retry(e, reference)][:slots]
+    remaining_slots = max(0, slots - len(waiting_retry))
+    promote = [{"intent_id": e["id"], "title": e["title"], "target_agent": "genie", "reason": "available_active_slot"} for e in sorted(inbox, key=priority)[:remaining_slots] if e["fields"].get("target_agent", "genie") == "genie"]
     invalid_ids = {e["intent_id"] for e in invalid}
-    handoff = [e for e in promote + resume if e["intent_id"] not in invalid_ids]
+    handoff = [e for e in waiting_retry + promote + resume if e["intent_id"] not in invalid_ids]
     followups = []
     for entry in entries:
         if entry["lane"] != "Archive":
@@ -96,7 +115,7 @@ def build_plan(text: str, sha: str, repo: Path) -> dict[str, Any]:
         if ids or reasons:
             followups.append({"intent_id": entry["id"], "report": report, "follow_up_intent_ids": ids.group(1) if ids else "", "follow_up_not_created_reasons": reasons.group(1) if reasons else ""})
     dispatch_required = bool(handoff or followups or invalid)
-    return {"schema_version": 1, "run_id": "dispatch-" + uuid.uuid4().hex, "at": reference.replace(microsecond=0).isoformat().replace("+00:00", "Z"), "canonical_sha": sha, "counts": {"inbox": len(inbox), "active": len(active), "waiting": sum(e["lane"] == "Waiting" for e in entries), "archive": sum(e["lane"] == "Archive" for e in entries)}, "invalid_state": invalid, "live_active": live, "resume_candidates": resume, "promote_candidates": promote, "handoff_candidates": handoff, "follow_up_candidates": followups, "dispatch_required": dispatch_required, "no_work": not dispatch_required and not invalid}
+    return {"schema_version": 1, "run_id": "dispatch-" + uuid.uuid4().hex, "at": reference.replace(microsecond=0).isoformat().replace("+00:00", "Z"), "canonical_sha": sha, "counts": {"inbox": len(inbox), "active": len(active), "waiting": len(waiting), "archive": sum(e["lane"] == "Archive" for e in entries)}, "invalid_state": invalid, "live_active": live, "resume_candidates": resume, "waiting_retry_candidates": waiting_retry, "promote_candidates": promote, "handoff_candidates": handoff, "follow_up_candidates": followups, "dispatch_required": dispatch_required, "no_work": not dispatch_required and not invalid}
 
 def main() -> int:
     parser = argparse.ArgumentParser()

@@ -45,8 +45,11 @@
 - red_lifecycle_status: pass-preterminal
 - red_lifecycle_report: artifacts/safety-map-experiment-02-20260904/red-lifecycle-preterminal.md
 - report: reports/safety-map-experiment-02-20260904/20260903T1650Z-stale-progress.md
-- blocker: PRD stale-progress rule triggered after two consecutive dispatcher cycles without a new artifact, test result, capture, source commit, or external blocker. M4/M6/Red pre-terminal evidence is preserved; this is not an implementation failure.
-- next_retry_condition: 새 실질 quality evidence가 생기거나 hard deadline(2026-09-04T06:00:00Z)에 도달하거나 명시 조기 종료가 있으면 terminal receipt·Archive workflow를 재개한다.
+- waiting_on: agent
+- retry_policy: autonomous
+- next_retry_at: 2026-09-04T05:52:00Z
+- blocker: stale-progress checkpoint. 새 evidence 없이 handoff를 반복하지 않되, deadline 전에는 Mapbox 렌더·대체 검증 경로를 자율 재조사·실행해야 한다.
+- next_retry_condition: dispatcher가 `next_retry_at` 이후 deadline 전 자동 재개해 새 실질 quality evidence 또는 정확한 최종 blocker를 남긴다.
 
 ### [safety-map-correction-20260903] 여행 치안 지도 품질·지도·마감·알림 교정
 - status: waiting
