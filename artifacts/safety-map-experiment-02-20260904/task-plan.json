@@ -62,6 +62,12 @@
       "reason": "Fresh isolated CDP renderer recorded real canvas/WebGL and control state transitions, but viewport capture hashes were identical across interactions.",
       "impact": "Retain the raw evidence as partial T3 proof and do not advance T3 or request final Red until a capture method produces independently visible state deltas.",
       "task_ids": ["T3"]
+    },
+    {
+      "at": "2026-09-04T08:22:00Z",
+      "reason": "The `fromSurface=false` Chrome DevTools screenshot variant produced the same per-viewport interaction hashes as the original path.",
+      "impact": "T3 remains active; try a renderer that can capture compositor-visible GPU output before advancing to Red.",
+      "task_ids": ["T3"]
     }
   ]
 }

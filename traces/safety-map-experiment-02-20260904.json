@@ -379,6 +379,30 @@
       ],
       "result": "t3_partial_renderer_evidence",
       "blocker": "Canvas/WebGL and interaction state transitions were observed, but same-hash CDP screenshots do not independently prove visible state deltas. T3 remains active."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-437f52ee5e6f4cd7a8dda02e8590ac35",
+      "canonical_sha": "2e1c1da975484037af043a508581def4b99b28f4",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-04T08:20:03Z",
+      "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-04T08:22:00Z",
+      "context_pack": "intents/context/safety-map-experiment-02-20260904.json",
+      "evidence_paths": [
+        "artifacts/safety-map-experiment-02-20260904/evidence/20260904T0822Z-t3-window-capture-index.md",
+        "artifacts/safety-map-experiment-02-20260904/evidence/20260904T0822Z-t3-window-capture/observations.json",
+        "artifacts/safety-map-experiment-02-20260904/evidence/20260904T0822Z-t3-window-capture/sha256.json"
+      ],
+      "searches": [
+        "CDP window-surface screenshot capture retry"
+      ],
+      "result": "t3_visible_delta_capture_not_recovered",
+      "blocker": "The Chrome window-surface capture path produced identical per-viewport interaction hashes; use a compositor-visible renderer capture before completing T3."
     }
   ],
   "artifacts": [],
