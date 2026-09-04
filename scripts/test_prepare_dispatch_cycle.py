@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import importlib.util
+import json
 import tempfile
 import unittest
 from pathlib import Path
@@ -45,8 +46,20 @@ class PlanTests(unittest.TestCase):
             "- notification_channel: slack\n", "- notification_target: channel:C0\n", "- notification_reply_to: 1.2\n",
         ])
         text = "## Inbox\n\n## Active\n" + block("work-1", "active", extra) + "\n## Waiting\n\n## Archive\n"
-        plan = prepare.build_plan(text, "fixture", Path(tempfile.mkdtemp()))
+        repo = Path(tempfile.mkdtemp())
+        (repo / "artifacts" / "work-1").mkdir(parents=True)
+        (repo / "artifacts" / "work-1" / "task-plan.json").write_text(json.dumps({"tasks": [{"id": "T1", "status": "active"}]}))
+        plan = prepare.build_plan(text, "fixture", repo)
         self.assertFalse(plan["invalid_state"])
+
+    def test_pending_task_is_explicitly_activated_before_handoff(self):
+        repo = Path(tempfile.mkdtemp())
+        (repo / "artifacts" / "work-1").mkdir(parents=True)
+        (repo / "artifacts" / "work-1" / "task-plan.json").write_text(json.dumps({"tasks": [{"id": "T1", "title": "검증", "status": "pending"}]}))
+        text = "## Inbox\n\n## Active\n" + block("work-1", "active", "- task_plan: artifacts/work-1/task-plan.json\n") + "\n## Waiting\n\n## Archive\n"
+        plan = prepare.build_plan(text, "fixture", repo)
+        self.assertEqual(plan["plan_activation_candidates"][0]["task_state"]["task_id"], "T1")
+        self.assertEqual(plan["handoff_candidates"][0]["intent_id"], "work-1")
 
     def test_timestamp_handoff_is_live_evidence(self):
         repo = Path(tempfile.mkdtemp())
