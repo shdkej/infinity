@@ -677,6 +677,15 @@
       ],
       "result": "terminal_receipt_time_gate_waiting",
       "blocker": "The terminal deadline has not arrived and no explicit early termination exists. Sending a terminal Slack message now would violate the terminal notification contract."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-6770976932b9481b8b0bf87d02669ccd",
+      "canonical_sha": "8377e9458ff0f5d8574e868d4e4d1e8a4dc0c820",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-04T22:10:22Z",
+      "status": "accepted"
     }
   ],
   "artifacts": [],
