@@ -179,7 +179,7 @@ def main() -> int:
                 errors.append(f"Remote archive file check failed for {archive_path}: {exc}; Git fallback failed: {git_exc}")
 
     try:
-        dashboard_html = http_text("https://shdkej.github.io/infinity/")
+        dashboard_html = http_text("https://infinity.aws.shdkej.com/")
         required_dashboard_markers = [
             "parseArchiveComments",
             'source: "INTENTS.md archive"',

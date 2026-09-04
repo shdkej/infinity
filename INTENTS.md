@@ -427,7 +427,7 @@
 
 <!-- build-17 completed 2026-08-09T20:26Z → reports/build-17/2026-08-09T2017Z.html [projects: status,design-system,space,infinity; type: implementation; topics: spatial-type,dashboard,frontend,deploy,visual-verification] (Spatial Type 텍스트 우선 표면으로 개편. 대상 commit 41f02b1 push, GitHub Actions run 31334185017 성공, https://status.aws.shdkej.com/ HTTP 200 및 라이브 CSS/데이터 계약 확인. Red pass.) -->
 
-<!-- build-16 completed 2026-08-07T21:34Z → https://github.com/shdkej/knowledge-lab/blob/main/archive/infinity/build-16.md [projects: infinity,static-sites; type: redesign-and-verification; topics: instagram-maker,layout,responsive,red-team] (공개 대시보드 `https://shdkej.github.io/infinity/` 200 및 raw 산출물 URL 200 확인. Red pass·Infinity/parent 원격 push 근거와 함께 Waiting에서 Archive로 정리.) -->
+<!-- build-16 completed 2026-08-07T21:34Z → https://github.com/shdkej/knowledge-lab/blob/main/archive/infinity/build-16.md [projects: infinity,static-sites; type: redesign-and-verification; topics: instagram-maker,layout,responsive,red-team] (현재 정식 대시보드는 `https://infinity.aws.shdkej.com/`이며, 과거 GitHub Pages 배포는 폐기됨.) -->
 
 <!-- build-15 archived 2026-08-07T13:44Z user-completed: 공개 배포 미실행 상태를 명시적으로 보존하고 Waiting에서 제거. 원장: https://github.com/shdkej/knowledge-lab/blob/main/archive/infinity/build-15.md. -->
 
