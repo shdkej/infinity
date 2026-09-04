@@ -8,8 +8,12 @@
 
 ## Active
 
+<!-- 실행 중 Intent 없음. -->
+
+## Waiting
+
 ### [safety-map-experiment-02-20260904] 여행 치안 지도 2차 실험: 실제 지도·디자인·마감·알림 검증
-- status: active
+- status: waiting
 - target_agent: genie
 - priority: critical
 - permission: L1-local-implementation-and-staging
@@ -29,19 +33,9 @@
 - task_plan: artifacts/safety-map-experiment-02-20260904/task-plan.json
 - task_plan_doc: artifacts/safety-map-experiment-02-20260904/task-plan.md
 - trace: traces/safety-map-experiment-02-20260904.json
-- artifact: artifacts/safety-map-experiment-02-20260904/planner-prd.md
-- artifact_t3_partial: artifacts/safety-map-experiment-02-20260904/evidence/20260904T0745Z-t3-recheck-index.md
-- artifact_t3_window_retry: artifacts/safety-map-experiment-02-20260904/evidence/20260904T0822Z-t3-window-capture-index.md
-- artifact_t3_visible: artifacts/safety-map-experiment-02-20260904/evidence/20260904T1410Z-managed-browser-t3-index.md
-- red_t3_status: pass
-- red_t3_report: reports/safety-map-experiment-02-20260904/20260904T1418Z-focused-red-t3.md
-- prior_blocker_report: reports/safety-map-experiment-02-20260904/20260904T0851Z-t3-compositor-capture-blocker.md
-- terminal_gate_report: reports/safety-map-experiment-02-20260904/20260904T2201Z-terminal-receipt-time-gate.md
-- active_task: T5.3 Slack 종료 알림 delivery receipt 확인
-- blocker: terminal Slack·Archive는 T6.4 완료 및 canonical deadline 이후 또는 명시 조기 종료 권한 전까지 금지된다.
-- next_action: canonical deadline·조기 종료 권한을 평가한 뒤, 충족할 때만 immutable original-thread terminal receipt gate를 실행한다.
-
-## Waiting
+- terminal_gate_report: reports/safety-map-experiment-02-20260904/20260904T2320Z-terminal-receipt-blocker.md
+- blocker: canonical deadline 전이고 명시 조기 종료 권한이 없다. terminal Slack·Archive는 금지된다.
+- next_retry_condition: canonical deadline 도래 또는 명시 조기 종료 권한.
 
 ### [safety-map-correction-20260903] 여행 치안 지도 품질·지도·마감·알림 교정
 - status: experiment_failed
