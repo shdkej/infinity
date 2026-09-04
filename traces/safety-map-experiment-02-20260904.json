@@ -475,6 +475,15 @@
       "result": "t3_focused_red_pass",
       "status": "pass",
       "next_action": "Run final lifecycle and terminal-receipt gates; do not Archive or send terminal notification yet."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-ce3d84a159d4451d9e7dbb61cd26cef7",
+      "canonical_sha": "331d00686532791d8d471f4009a6ebc0792edf26",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-04T14:50:02Z",
+      "status": "accepted"
     }
   ],
   "artifacts": [],
