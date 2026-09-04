@@ -172,12 +172,14 @@
     {
       "id": "T6.4",
       "title": "390px 접근성·상호작용 재점검 및 개선",
-      "status": "active",
+      "status": "done",
       "depends_on": ["T6.3"],
       "started_at": "2026-09-04T23:10:15Z",
+      "completed_at": "2026-09-04T23:11:30Z",
       "estimated_minutes": 30,
       "max_minutes": 45,
-      "evidence_criteria": "390x844 실제 라이브에서 overflow, 검색→찾기→지도 제어 키보드 흐름, focus visible, 접근성 이름, day/night와 no-data 고지를 재점검하고 실제 개선 또는 명시 blocker와 서로 다른 SHA-256 캡처를 남긴다."
+      "evidence_criteria": "390x844 실제 라이브에서 overflow, 검색→찾기→지도 제어 키보드 흐름, focus visible, 접근성 이름, day/night와 no-data 고지를 재점검하고 실제 개선 또는 명시 blocker와 서로 다른 SHA-256 캡처를 남긴다.",
+      "evidence": "artifacts/safety-map-experiment-02-20260904/evidence/20260904T2311Z-t6-mobile-control-sync.md"
     }
   ],
   "deviations": [

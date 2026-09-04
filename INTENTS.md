@@ -37,9 +37,9 @@
 - red_t3_report: reports/safety-map-experiment-02-20260904/20260904T1418Z-focused-red-t3.md
 - prior_blocker_report: reports/safety-map-experiment-02-20260904/20260904T0851Z-t3-compositor-capture-blocker.md
 - terminal_gate_report: reports/safety-map-experiment-02-20260904/20260904T2201Z-terminal-receipt-time-gate.md
-- active_task: T6.4 390px 접근성·상호작용 재점검 및 개선
+- next_pending_task: T5.3 Slack 종료 알림 delivery receipt 확인 (T6.4 완료 및 canonical deadline 이후)
 - blocker: terminal Slack·Archive는 T6.4 완료 및 canonical deadline 이후 또는 명시 조기 종료 권한 전까지 금지된다.
-- next_action: T6.4를 활성화해 390px에서 두 주야간 control·키보드 focus·overflow·no-data 경계를 실제 라이브 증거로 기록한다.
+- next_action: canonical deadline 또는 명시 조기 종료 권한 뒤 T5.3 terminal receipt gate를 실행한다. 그 전에는 terminal Slack 및 Archive를 금지한다.
 
 ## Waiting
 
