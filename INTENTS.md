@@ -4,16 +4,22 @@
 
 ## Active
 
+<!-- 실행 중 Intent 없음. -->
+
+## Inbox
+
+<!-- 실행 대기 Intent 없음. -->
+
+## Waiting
+
 ### [safety-map-experiment-02-20260904] 여행 치안 지도 2차 실험: 실제 지도·디자인·마감·알림 검증
-- status: active
+- status: waiting
 - target_agent: genie
 - priority: critical
 - permission: L1-local-implementation-and-staging
 - deadline: 2026-09-05T06:00:00Z
 - deadline_local: 2026-09-05 08:00 Europe/Rome (CEST)
-- resumed_at: 2026-09-04T07:43:24Z
 - restart_authority: 사용자 승인, Slack thread 1788364835.849239
-- execution_attempt: 3
 - execution_mode: multi_subagent_roles
 - projects: world-travel,infinity,space,video-automation
 - task_type: implementation
@@ -23,24 +29,12 @@
 - notification_origin: slack:channel:C0BR41W31MM:thread:1788364835.849239
 - context_pack: intents/context/safety-map-experiment-02-20260904.json
 - task_plan: artifacts/safety-map-experiment-02-20260904/task-plan.json
-- trace: traces/safety-map-experiment-02-20260904.json
 - artifact: artifacts/safety-map-experiment-02-20260904/planner-prd.md
-- artifact_m4_rome: artifacts/safety-map-experiment-02-20260904/evidence/20260903T140452Z-m4-rome-recovery-index.md
-- artifact_m6_preterminal: artifacts/safety-map-experiment-02-20260904/evidence/20260903T1441Z-m6-remote-preterminal-proof.md
-- artifact_final_live_health: artifacts/safety-map-experiment-02-20260904/evidence/20260904T0554Z-final-live-health.md
 - artifact_t3_partial: artifacts/safety-map-experiment-02-20260904/evidence/20260904T0745Z-t3-recheck-index.md
-- prior_deadline_failure_report: reports/safety-map-experiment-02-20260904/20260904T0620Z-deadline-missed.md
-- red_status: m4-focused-pass
-- red_report: artifacts/safety-map-experiment-02-20260904/red-m4-rome-recheck.md
-- red_lifecycle_status: pass-preterminal
-- red_lifecycle_report: artifacts/safety-map-experiment-02-20260904/red-lifecycle-preterminal.md
-- next_action: visible state delta를 보이는 renderer/capture로 T3를 보강한다. 동일 해시 CDP capture는 T3 완료·T4 Red·T5 terminal receipt의 대체 증거가 아니다.
-
-## Inbox
-
-<!-- 실행 대기 Intent 없음. -->
-
-## Waiting
+- artifact_t3_window_retry: artifacts/safety-map-experiment-02-20260904/evidence/20260904T0822Z-t3-window-capture-index.md
+- report: reports/safety-map-experiment-02-20260904/20260904T0851Z-t3-compositor-capture-blocker.md
+- blocker: compositor-visible T3 capture requires an operator-approved Computer Control node or approved alternative renderer. Local CDP surface/window capture and local alternate browsers cannot produce independent visible state deltas.
+- next_retry_condition: operator connects and approves a computer-capable node with screen capture/control, or approves a compositor-visible renderer.
 
 ### [safety-map-correction-20260903] 여행 치안 지도 품질·지도·마감·알림 교정
 - status: experiment_failed

@@ -403,6 +403,29 @@
       ],
       "result": "t3_visible_delta_capture_not_recovered",
       "blocker": "The Chrome window-surface capture path produced identical per-viewport interaction hashes; use a compositor-visible renderer capture before completing T3."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-a1b28fd6af00495d87a678033600f36f",
+      "canonical_sha": "e0468bab101205ebf42de8665c994486e795a287",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-04T08:50:03Z",
+      "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-04T08:51:00Z",
+      "context_pack": "intents/context/safety-map-experiment-02-20260904.json",
+      "evidence_paths": [
+        "reports/safety-map-experiment-02-20260904/20260904T0851Z-t3-compositor-capture-blocker.md"
+      ],
+      "searches": [
+        "Computer Control node availability",
+        "local Firefox Playwright Puppeteer availability"
+      ],
+      "result": "waiting_for_compositor_visible_capture_authority",
+      "blocker": "No connected computer-capable node is available, and local alternative renderers are unavailable. Enabling screen capture/control requires operator approval."
     }
   ],
   "artifacts": [],
