@@ -117,8 +117,8 @@
     {
       "id": "T5.1",
       "title": "정식 AWS 경로 배포 확인",
-      "status": "active",
-      "evidence": "reports/safety-map-experiment-02-20260904/"
+      "status": "done",
+      "evidence": "reports/safety-map-experiment-02-20260904/20260904T2114Z-aws-route-confirmation.md"
     },
     {
       "id": "T5.2",
