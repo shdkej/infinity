@@ -713,6 +713,15 @@
       "searches": ["managed-browser live mode-control synchronization"],
       "result": "t6_3_complete_live_mode_controls_synchronized",
       "blocker": null
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-aeb0ffdc7f9443dc821a9d9b8e874178",
+      "canonical_sha": "44fddd400d063e1bfb82c28854a9822492f54723",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-04T23:10:15Z",
+      "status": "accepted"
     }
   ],
   "artifacts": [],
