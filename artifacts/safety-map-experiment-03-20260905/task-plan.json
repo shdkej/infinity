@@ -53,6 +53,114 @@
       "completion_evidence": "New experiment-03 path only; legacy safety-map path exclusion check; README with token and deploy boundaries.",
       "completed_at": "2026-09-05T10:22:00Z",
       "evidence": "reports/safety-map-experiment-03-20260905/20260905T1022Z-t3-1-isolated-path.md"
+    },
+    {
+      "id": "T3.2",
+      "title": "Build full-bleed canvas and Typography Rail",
+      "status": "pending",
+      "depends_on": ["T3.1"],
+      "estimated_minutes": 35,
+      "max_minutes": 50,
+      "completion_evidence": "The new app renders a dominant canvas and readable purpose, action, and no-data Typography Rail."
+    },
+    {
+      "id": "T3.3",
+      "title": "Add search, zoom/pan and layer controls",
+      "status": "pending",
+      "depends_on": ["T3.2"],
+      "estimated_minutes": 30,
+      "max_minutes": 45,
+      "completion_evidence": "Real canvas interactions work without safety claims."
+    },
+    {
+      "id": "T3.4",
+      "title": "Add no-data and accessibility states",
+      "status": "pending",
+      "depends_on": ["T3.3"],
+      "estimated_minutes": 25,
+      "max_minutes": 40,
+      "completion_evidence": "Keyboard, reduced-motion and no-data checks pass."
+    },
+    {
+      "id": "T3.5",
+      "title": "Run local smoke and provenance checks",
+      "status": "pending",
+      "depends_on": ["T3.4"],
+      "estimated_minutes": 20,
+      "max_minutes": 30,
+      "completion_evidence": "Reproducible smoke and token-provenance output."
+    },
+    {
+      "id": "T4.1",
+      "title": "Capture desktop states",
+      "status": "pending",
+      "depends_on": ["T3.5"],
+      "estimated_minutes": 25,
+      "max_minutes": 40,
+      "completion_evidence": "Immutable desktop browser evidence."
+    },
+    {
+      "id": "T4.2",
+      "title": "Capture 390px states",
+      "status": "pending",
+      "depends_on": ["T3.5"],
+      "estimated_minutes": 25,
+      "max_minutes": 40,
+      "completion_evidence": "Mobile evidence without overflow or collision."
+    },
+    {
+      "id": "T4.3",
+      "title": "Red direct visual review",
+      "status": "pending",
+      "depends_on": ["T4.1", "T4.2"],
+      "estimated_minutes": 30,
+      "max_minutes": 50,
+      "completion_evidence": "Red visual report with pass or remediation."
+    },
+    {
+      "id": "T4.4",
+      "title": "Formal deploy and live behavior retest",
+      "status": "pending",
+      "depends_on": ["T4.3"],
+      "estimated_minutes": 25,
+      "max_minutes": 40,
+      "completion_evidence": "Live URL and behavior evidence."
+    },
+    {
+      "id": "T5.1",
+      "title": "Commit explicit paths and push",
+      "status": "pending",
+      "depends_on": ["T4.4"],
+      "estimated_minutes": 15,
+      "max_minutes": 25,
+      "completion_evidence": "Remote commit proof."
+    },
+    {
+      "id": "T5.2",
+      "title": "Verify remote closure requirements",
+      "status": "pending",
+      "depends_on": ["T5.1"],
+      "estimated_minutes": 15,
+      "max_minutes": 25,
+      "completion_evidence": "Remote verifier output."
+    },
+    {
+      "id": "T5.3",
+      "title": "Send original Slack thread status or terminal receipt",
+      "status": "pending",
+      "depends_on": ["T5.2"],
+      "estimated_minutes": 5,
+      "max_minutes": 10,
+      "completion_evidence": "Immutable original-thread receipt or delivery_unknown."
+    },
+    {
+      "id": "T5.4",
+      "title": "Record knowledge decision and Archive only with Red pass",
+      "status": "pending",
+      "depends_on": ["T5.2", "T5.3"],
+      "estimated_minutes": 15,
+      "max_minutes": 25,
+      "completion_evidence": "Archive metadata with Red pass, if terminal conditions are satisfied."
     }
   ]
 }
