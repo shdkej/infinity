@@ -41,10 +41,10 @@
 - task_plan: artifacts/safety-map-experiment-03-20260905/task-plan.json
 - trace: traces/safety-map-experiment-03-20260905.json
 - role_sessions: planner=/root/role_safety03_planner; developer=/root/role_safety03_developer; marketer=/root/role_safety03_marketer; operator=/root/role_safety03_operator
-- report: reports/safety-map-experiment-03-20260905/20260905T1220Z-t3-3-live-deploy.md
-- progress: e03 전용 runtime config 생성, 별도 정적 사이트 배포, 데스크톱·390px 라이브 상호작용 증거를 수집했으며 Red 직접 검증이 진행 중이다.
-- next_retry_condition: Red 검증 결과를 반영해 보완하거나 원격 마감 관문으로 진행한다.
-- red_status: pending
+- report: reports/safety-map-experiment-03-20260905/20260905T1508Z-red-closure.md
+- progress: Mapbox 성능 측정 전송을 차단하는 코드·CSP 보완, 정식 배포 성공, 새 브라우저 문서의 telemetry 부재와 라이브 상호작용을 확인했다. 1차·2차 Red 결과와 원격 증거를 동기화했으며 targeted 재검토를 요청한다.
+- next_retry_condition: 동기화된 증거를 대상으로 Red targeted 재검토 결과를 반영한다.
+- red_status: in_progress
 
 <!-- Waiting lane continues. -->
 

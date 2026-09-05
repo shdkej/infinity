@@ -263,34 +263,48 @@
       "actual_minutes": null,
       "variance_minutes": null,
       "timing_evidence": "첫 Red 수정 필요 판정이 기록된 시각을 시작 시각으로 사용함",
+      "red_reviews": [
+        {
+          "session": "agent:red:subagent:bf0109ad-c135-49ba-a867-ac6e9932e229",
+          "status": "fail",
+          "finding": "events.mapbox.com 성능 측정 전송이 NO TRACKING 경계와 충돌"
+        },
+        {
+          "session": "agent:red:subagent:f2dea086-ace6-49b2-b714-9805fe10004c",
+          "status": "fail",
+          "finding": "telemetry 보완은 통과했으나 Infinity 원격 증거 동기화가 필요"
+        }
+      ],
       "completion_evidence": "통과 또는 보완을 담은 레드 시각 리포트."
     },
     {
       "id": "T4.4",
       "title": "정식 배포와 라이브 동작 재검사",
-      "status": "pending",
+      "status": "done",
       "depends_on": ["T4.3"],
       "estimated_minutes": 25,
       "max_minutes": 40,
-      "started_at": null,
-      "completed_at": null,
-      "actual_minutes": null,
-      "variance_minutes": null,
-      "timing_evidence": "미시작",
+      "started_at": "2026-09-05T11:12:05Z",
+      "completed_at": "2026-09-05T11:13:26Z",
+      "actual_minutes": 2,
+      "variance_minutes": -23,
+      "variance_reason": "정식 배포 workflow와 라이브 재검사가 예상보다 짧게 끝남",
+      "timing_evidence": "Space workflow 33962687035의 생성·완료 시각",
+      "evidence": "Space commit f3c3cb00a5f5fc2bd81d31daababbe4a26b63ab3; workflow 33962687035; reports/safety-map-experiment-03-20260905/20260905T1508Z-red-closure.md",
       "completion_evidence": "라이브 URL과 동작 증거."
     },
     {
       "id": "T5.1",
       "title": "명시 경로 커밋과 푸시",
-      "status": "pending",
+      "status": "in_progress",
       "depends_on": ["T4.4"],
       "estimated_minutes": 15,
       "max_minutes": 25,
-      "started_at": null,
+      "started_at": "2026-09-05T15:08:40Z",
       "completed_at": null,
       "actual_minutes": null,
       "variance_minutes": null,
-      "timing_evidence": "미시작",
+      "timing_evidence": "Red closure 증거 동기화와 원격 푸시를 시작한 시각",
       "completion_evidence": "원격 커밋 증거."
     },
     {
