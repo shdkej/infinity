@@ -133,6 +133,15 @@
         "remote_verified": "pass",
         "remote_proof_path": "reports/safety-map-experiment-03-20260905/20260905T1508Z-red-closure.md"
       }
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-7c1d65c96ab0442a87ff5c231f365669",
+      "canonical_sha": "421ab5cd045617c85711b46ea3bcb4fa75ad9951",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-05T19:20:01Z",
+      "status": "accepted"
     }
   ],
   "artifacts": [

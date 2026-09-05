@@ -358,7 +358,8 @@
     {
       "id": "T6",
       "title": "실제 근거 데이터 표시 전 조사",
-      "status": "pending",
+      "status": "active",
+      "started_at": "2026-09-05T19:20:01Z",
       "evidence": "artifacts/safety-map-experiment-03-20260905/risk-data-research-prd.md"
     },
     {
