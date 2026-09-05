@@ -142,6 +142,14 @@
       "session_key": "agent:genie:infinity-dispatcher",
       "timestamp": "2026-09-05T19:20:01Z",
       "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-05T19:21:00Z",
+      "context_pack": "intents/context/safety-map-experiment-03-20260905.json",
+      "evidence_paths": ["reports/safety-map-experiment-03-20260905/20260905T1921Z-t6-region-scope-blocker.md"],
+      "searches": ["risk-data research PRD scope and approval boundary"],
+      "result": "t6_blocked_pending_user_selected_administrative_area"
     }
   ],
   "artifacts": [

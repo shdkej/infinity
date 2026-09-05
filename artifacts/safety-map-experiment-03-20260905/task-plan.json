@@ -358,9 +358,11 @@
     {
       "id": "T6",
       "title": "실제 근거 데이터 표시 전 조사",
-      "status": "active",
+      "status": "blocked",
       "started_at": "2026-09-05T19:20:01Z",
-      "evidence": "artifacts/safety-map-experiment-03-20260905/risk-data-research-prd.md"
+      "evidence": "reports/safety-map-experiment-03-20260905/20260905T1921Z-t6-region-scope-blocker.md",
+      "blocked_at": "2026-09-05T19:21:00Z",
+      "blocker": "The PRD prohibits choosing a country or city without user approval; no single administrative area has been selected."
     },
     {
       "id": "T6.1",

@@ -8,8 +8,12 @@
 
 ## Active
 
+<!-- 실행 중 Intent 없음. -->
+
+## Waiting
+
 ### [safety-map-experiment-03-20260905] 치안지도 3차 재실험 — 전역 지도 UX 재구축
-- status: active
+- status: waiting
 - target_agent: genie
 - priority: urgent
 - execution_mode: multi_subagent_roles
@@ -37,7 +41,10 @@
 - resumed_at: 2026-09-05T15:20:00Z
 - resume_reason: 사용자가 Archive 오표시와 축약된 태스크 수를 정정하도록 지시했다. 실행 트리와 라이브 검증 근거를 Active로 복구한다.
 
-## Waiting
+- blocker: 실제 근거 데이터 조사는 단일 행정구역을 임의 선택할 수 없다. 사용자 승인 지역 범위가 없으므로 공식 출처·라이선스·관측/갱신 메타데이터 조사를 시작하지 않았다.
+- next_retry_condition: 사용자가 조사·표시할 단일 행정구역을 지정하면 T6.2부터 공식 원문과 라이선스를 조사한다.
+
+<!-- Waiting lane continues. -->
 
 <!-- 사용자 결정·외부 조건 대기만 기록한다. -->
 
