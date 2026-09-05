@@ -1,0 +1,55 @@
+{
+  "intent_id": "safety-map-experiment-03-20260905",
+  "plan_version": 1,
+  "created_at": "2026-09-05T10:10:02Z",
+  "deadline": "2026-09-06T06:00:00Z",
+  "source_prd": "artifacts/safety-map-experiment-03-20260905/planner-prd.md",
+  "tasks": [
+    {
+      "id": "T1",
+      "title": "Intake and planning",
+      "status": "done",
+      "evidence": "intents/context/safety-map-experiment-03-20260905.json"
+    },
+    {
+      "id": "T2.1",
+      "title": "Planner review",
+      "status": "done",
+      "evidence": "reports/safety-map-experiment-03-20260905/20260905T1000Z-role-convergence.md"
+    },
+    {
+      "id": "T2.2",
+      "title": "Developer review",
+      "status": "done",
+      "evidence": "reports/safety-map-experiment-03-20260905/20260905T1000Z-role-convergence.md"
+    },
+    {
+      "id": "T2.3",
+      "title": "Marketer review",
+      "status": "done",
+      "evidence": "reports/safety-map-experiment-03-20260905/20260905T1000Z-role-convergence.md"
+    },
+    {
+      "id": "T2.4",
+      "title": "Operator review",
+      "status": "done",
+      "evidence": "reports/safety-map-experiment-03-20260905/20260905T1000Z-role-convergence.md"
+    },
+    {
+      "id": "T2.5",
+      "title": "Synthesize implementation contract",
+      "status": "done",
+      "depends_on": ["T2.1", "T2.2", "T2.3", "T2.4"],
+      "evidence": "reports/safety-map-experiment-03-20260905/20260905T1000Z-role-convergence.md"
+    },
+    {
+      "id": "T3.1",
+      "title": "Create isolated experiment-03 static site path",
+      "status": "pending",
+      "depends_on": ["T2.5"],
+      "estimated_minutes": 20,
+      "max_minutes": 30,
+      "completion_evidence": "New experiment-03 path only; legacy safety-map path exclusion check; README with token and deploy boundaries."
+    }
+  ]
+}

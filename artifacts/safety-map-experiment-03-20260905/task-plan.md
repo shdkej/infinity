@@ -51,4 +51,4 @@ Hard deadline: **2026-09-06 06:00 UTC**. Leaf estimates are operational limits, 
 
 ## Current state
 
-**Waiting at T2.** Attempts to call native `spawn_agent` and OpenClaw `sessions_spawn` returned unavailable. No implementation, deployment or mutation of legacy safety-map paths may begin until role and Red delegation is available.
+**T2.5 수렴 완료, T3.1 pending.** Planner·Developer·Marketer·Operator의 실제 별도 세션 수렴 결과는 `reports/safety-map-experiment-03-20260905/20260905T1000Z-role-convergence.md`에 기록했습니다. 다음 dispatcher cycle에서 T3.1만 명시적으로 Active로 전이합니다. legacy safety-map 경로는 계속 변경 금지입니다.

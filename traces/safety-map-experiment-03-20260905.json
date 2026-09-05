@@ -47,6 +47,15 @@
         "brand and Spatial Type source review"
       ],
       "result": "inbox_promoted_to_active_after_role_convergence"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-e379e11f61a340d696254dd1009154b2",
+      "canonical_sha": "a54abc7c9e67cb43e7c9b841b96f0c0dc2d6780e",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-05T10:10:02Z",
+      "status": "accepted"
     }
   ],
   "artifacts": [

@@ -15,6 +15,7 @@
 - permission: L1-implementation-and-approved-production-deploy
 - requested: 2026-09-05T09:55:00Z
 - deadline: 2026-09-06T06:00:00Z / 2026-09-06 08:00 Europe/Rome
+- deadline_local: 2026-09-06 08:00 Europe/Rome (CEST)
 - execution_mode: multi_subagent_roles
 - projects: space,infinity,knowledge-lab,safety-map
 - task_type: product-rebuild-and-live-validation
@@ -33,6 +34,8 @@
 - notification_reply_to: 1788601770.158469
 - notification_origin: channel:C0BR41W31MM;reply_to:1788601770.158469
 - artifact: artifacts/safety-map-experiment-03-20260905/planner-prd.md; artifacts/safety-map-experiment-03-20260905/task-plan.md
+- task_plan: artifacts/safety-map-experiment-03-20260905/task-plan.json
+- trace: traces/safety-map-experiment-03-20260905.json
 - role_sessions: planner=/root/role_safety03_planner; developer=/root/role_safety03_developer; marketer=/root/role_safety03_marketer; operator=/root/role_safety03_operator
 - report: reports/safety-map-experiment-03-20260905/20260905T1000Z-role-convergence.md
 - next_action: T2.5 역할 수렴 계약을 task plan에 기록한 뒤 T3.1 독립 experiment-03 정적 사이트 경로를 생성한다. 신규 도메인·Terraform apply·Mapbox origin allowlist는 구현/배포 전 승인·보호 설정 경계로 재확인한다.
