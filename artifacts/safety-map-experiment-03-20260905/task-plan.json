@@ -45,8 +45,9 @@
     {
       "id": "T3.1",
       "title": "Create isolated experiment-03 static site path",
-      "status": "pending",
+      "status": "active",
       "depends_on": ["T2.5"],
+      "started_at": "2026-09-05T10:20:02Z",
       "estimated_minutes": 20,
       "max_minutes": 30,
       "completion_evidence": "New experiment-03 path only; legacy safety-map path exclusion check; README with token and deploy boundaries."
