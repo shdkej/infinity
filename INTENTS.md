@@ -10,10 +10,10 @@
 
 <!-- 실행 중 Intent 없음. -->
 
-## Waiting
+## Active
 
 ### [safety-map-experiment-03-20260905] 치안지도 3차 재실험 — 전역 지도 UX 재구축
-- status: waiting
+- status: active
 - target_agent: genie
 - priority: urgent
 - permission: L1-implementation-and-approved-production-deploy
@@ -41,9 +41,9 @@
 - task_plan: artifacts/safety-map-experiment-03-20260905/task-plan.json
 - trace: traces/safety-map-experiment-03-20260905.json
 - role_sessions: planner=/root/role_safety03_planner; developer=/root/role_safety03_developer; marketer=/root/role_safety03_marketer; operator=/root/role_safety03_operator
-- report: reports/safety-map-experiment-03-20260905/20260905T1000Z-role-convergence.md
-- blocker: e03 protected runtime token store가 비어 있고 독립 domain/Mapbox origin allowlist가 없어 실제 Mapbox canvas·검색을 검증할 수 없다. 준비 코드는 Space commit `17304e63cbb24b84f7204738ed4167724d1c60f4`에 있다.
-- next_retry_condition: e03 전용 protected runtime config와 domain allowlist·배포 경로가 준비되면 T3.3을 재개해 실제 canvas/search/layer evidence를 수집한다.
+- report: reports/safety-map-experiment-03-20260905/20260905T1220Z-t3-3-live-deploy.md
+- progress: e03 전용 runtime config 생성, 별도 정적 사이트 배포, 데스크톱·390px 라이브 상호작용 증거를 수집했으며 Red 직접 검증이 진행 중이다.
+- next_retry_condition: Red 검증 결과를 반영해 보완하거나 원격 마감 관문으로 진행한다.
 - red_status: pending
 
 <!-- Waiting lane continues. -->

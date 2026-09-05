@@ -14,9 +14,13 @@
 | 마케팅 | marketing | `agent:marketing:subagent:9ec42bfb-854e-4fb6-a190-672cfc13708b` | `783adcea-3f1c-48ba-b309-ce41a93d18f6` | 수락됨 |
 | 운영 | genie | `agent:genie:subagent:f7139130-c912-471c-b3c0-575872b48fb4` | `61d3f00d-b4bf-4a6f-a275-5418530d9300` | 수락됨 |
 
-## 레드 위임 계획
+## 레드 위임
 
-구현과 데스크톱·390px 브라우저 증거가 준비된 뒤, 최상위 Genie가 같은 `sessions_spawn` 경로로 레드를 직접 생성합니다. 레드 세션 식별자·상태·한국어 검증 리포트 경로를 이 문서와 최종 리포트에 기록합니다. 레드 통과 전에는 완료나 Archive를 선언하지 않습니다.
+| 역할 | 에이전트 | 세션 식별자 | 상태 |
+| --- | --- | --- | --- |
+| 레드 | red | `agent:red:subagent:bf0109ad-c135-49ba-a867-ac6e9932e229` | 수정 필요 |
+
+구현과 데스크톱·390px 브라우저 증거가 준비된 뒤, 최상위 Genie가 같은 `sessions_spawn` 경로로 레드를 직접 생성했습니다. 첫 검증은 Mapbox 성능 측정 전송이 `NO TRACKING` 경계와 충돌한다고 판정했습니다. `performanceMetricsCollection:false` 보완 배포와 재검증을 진행합니다. 레드 통과 전에는 완료나 Archive를 선언하지 않습니다.
 
 ## 알림 경계
 

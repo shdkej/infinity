@@ -69,55 +69,63 @@
     {
       "id": "T3.3",
       "title": "검색, 확대·축소·이동, 레이어 제어 추가",
-      "status": "blocked",
+      "status": "done",
       "depends_on": ["T3.2"],
       "started_at": "2026-09-05T10:40:02Z",
       "estimated_minutes": 30,
       "max_minutes": 45,
       "completion_evidence": "실제 캔버스 상호작용이 치안 주장 없이 동작함.",
-      "blocked_at": "2026-09-05T10:42:00Z",
-      "blocker": "e03 protected runtime token store is empty and the independent e03 domain/Mapbox origin allowlist has not been provisioned; actual Mapbox canvas cannot be verified."
+      "completed_at": "2026-09-05T12:20:00Z",
+      "evidence": "reports/safety-map-experiment-03-20260905/20260905T1220Z-t3-3-live-deploy.md"
     },
     {
       "id": "T3.4",
       "title": "데이터 부재와 접근성 상태 추가",
-      "status": "pending",
+      "status": "done",
       "depends_on": ["T3.3"],
       "estimated_minutes": 25,
       "max_minutes": 40,
-      "completion_evidence": "키보드, 동작 줄이기, 데이터 부재 검사를 통과함."
+      "completion_evidence": "동작 줄이기, 데이터 부재, 검색 실패 상태를 확인함.",
+      "completed_at": "2026-09-05T12:20:00Z",
+      "evidence": "reports/safety-map-experiment-03-20260905/20260905T1220Z-t3-3-live-deploy.md"
     },
     {
       "id": "T3.5",
       "title": "로컬 동작 확인과 출처 검사 실행",
-      "status": "pending",
+      "status": "done",
       "depends_on": ["T3.4"],
       "estimated_minutes": 20,
       "max_minutes": 30,
-      "completion_evidence": "재현 가능한 동작 확인과 토큰 출처 검사 출력."
+      "completion_evidence": "토큰 값 비열람·비노출, 위치 권한 대화상자 없음과 Geolocation API 미호출을 확인함.",
+      "completed_at": "2026-09-05T12:20:00Z",
+      "evidence": "reports/safety-map-experiment-03-20260905/20260905T1220Z-t3-3-live-deploy.md"
     },
     {
       "id": "T4.1",
       "title": "데스크톱 상태 캡처",
-      "status": "pending",
+      "status": "done",
       "depends_on": ["T3.5"],
       "estimated_minutes": 25,
       "max_minutes": 40,
-      "completion_evidence": "변경 불가 데스크톱 브라우저 증거."
+      "completion_evidence": "1440px 라이브 캔버스, 검색, 레이어 전환, 오류 0 확인.",
+      "completed_at": "2026-09-05T12:20:00Z",
+      "evidence": "reports/safety-map-experiment-03-20260905/20260905T1220Z-t3-3-live-deploy.md"
     },
     {
       "id": "T4.2",
       "title": "390px 상태 캡처",
-      "status": "pending",
+      "status": "done",
       "depends_on": ["T3.5"],
       "estimated_minutes": 25,
       "max_minutes": 40,
-      "completion_evidence": "넘침·충돌 없는 모바일 증거."
+      "completion_evidence": "390px 라이브 캔버스, 검색 상태, 가로 넘침 없음 확인.",
+      "completed_at": "2026-09-05T12:20:00Z",
+      "evidence": "reports/safety-map-experiment-03-20260905/20260905T1220Z-t3-3-live-deploy.md"
     },
     {
       "id": "T4.3",
       "title": "레드 직접 시각 검토",
-      "status": "pending",
+      "status": "in_progress",
       "depends_on": ["T4.1", "T4.2"],
       "estimated_minutes": 30,
       "max_minutes": 50,
