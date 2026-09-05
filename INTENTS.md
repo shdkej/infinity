@@ -23,15 +23,15 @@
 - context_pack: intents/context/safety-map-experiment-03-20260905.json
 - task_plan: artifacts/safety-map-experiment-03-20260905/task-plan.json
 - task_plan_view: artifacts/safety-map-experiment-03-20260905/task-plan.md
-- artifact: artifacts/safety-map-experiment-03-20260905/planner-prd.md; artifacts/safety-map-experiment-03-20260905/risk-data-research-prd.md; artifacts/safety-map-experiment-03-20260905/task-plan.md; artifacts/safety-map-experiment-03-20260905/red-final-report.md
+- artifact: artifacts/safety-map-experiment-03-20260905/planner-prd.md; artifacts/safety-map-experiment-03-20260905/risk-data-research-prd.md; artifacts/safety-map-experiment-03-20260905/task-plan.md; artifacts/safety-map-experiment-03-20260905/red-dashboard-recovery-report.md; artifacts/safety-map-experiment-03-20260905/red-final-report.md
 - report: reports/safety-map-experiment-03-20260905/20260905T1520Z-active-restoration.md
 - previous_report: reports/safety-map-experiment-03-20260905/20260905T1515Z-final.html
 - trace: traces/safety-map-experiment-03-20260905.json
 - role_sessions: planner=/root/role_safety03_planner; developer=/root/role_safety03_developer; marketer=/root/role_safety03_marketer; operator=/root/role_safety03_operator; red=agent:red:subagent:f2dea086-ace6-49b2-b714-9805fe10004c
 - red_status: pass
-- red_report: artifacts/safety-map-experiment-03-20260905/red-final-report.md
+- red_report: artifacts/safety-map-experiment-03-20260905/red-dashboard-recovery-report.md
 - remote_verified: pass
-- metric_result: 지도 캔버스·Milan 검색·기본/위성 레이어 전환·390px 무가로넘침·telemetry 요청 부재·targeted Red pass·Space 원격과 workflow 성공을 확인했다.
+- metric_result: 지도 캔버스·Milan 검색·기본/위성 레이어 전환·390px 무가로넘침·telemetry 요청 부재를 확인했고, 대시보드 상세의 세 섹션·29개 실행 계획·문서 링크를 라이브와 targeted Red pass로 복구했다.
 - metric_next_decision: 실제 근거 데이터 조사 T6에서 지역 범위·공식 출처·라이선스·관측/발행/갱신일·결측을 검증한다. 검증 전에는 위험 표시를 추가하지 않으며, 치안 점수·예측·경로 추천·위치 수집·실시간 사건 데이터는 범위 밖이다.
 - knowledge_status: used
 - knowledge_decision: retain-as-operating-principle
