@@ -8,8 +8,12 @@
 
 ## Active
 
+<!-- 실행 중 Intent 없음. -->
+
+## Waiting
+
 ### [safety-map-experiment-03-20260905] 치안지도 3차 재실험 — 전역 지도 UX 재구축
-- status: active
+- status: waiting
 - target_agent: genie
 - priority: urgent
 - permission: L1-implementation-and-approved-production-deploy
@@ -38,10 +42,11 @@
 - trace: traces/safety-map-experiment-03-20260905.json
 - role_sessions: planner=/root/role_safety03_planner; developer=/root/role_safety03_developer; marketer=/root/role_safety03_marketer; operator=/root/role_safety03_operator
 - report: reports/safety-map-experiment-03-20260905/20260905T1000Z-role-convergence.md
-- next_action: T2.5 역할 수렴 계약을 task plan에 기록한 뒤 T3.1 독립 experiment-03 정적 사이트 경로를 생성한다. 신규 도메인·Terraform apply·Mapbox origin allowlist는 구현/배포 전 승인·보호 설정 경계로 재확인한다.
+- blocker: e03 protected runtime token store가 비어 있고 독립 domain/Mapbox origin allowlist가 없어 실제 Mapbox canvas·검색을 검증할 수 없다. 준비 코드는 Space commit `17304e63cbb24b84f7204738ed4167724d1c60f4`에 있다.
+- next_retry_condition: e03 전용 protected runtime config와 domain allowlist·배포 경로가 준비되면 T3.3을 재개해 실제 canvas/search/layer evidence를 수집한다.
 - red_status: pending
 
-## Waiting
+<!-- Waiting lane continues. -->
 
 ### [research-32] Starter Story 솔로프리너 사례 1개 깊은 복원
 - status: waiting
