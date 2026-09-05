@@ -354,6 +354,67 @@
       "variance_minutes": null,
       "timing_evidence": "미시작",
       "completion_evidence": "종료 조건 충족 시 레드 통과를 포함한 Archive 메타데이터."
+    },
+    {
+      "id": "T6",
+      "title": "실제 근거 데이터 표시 전 조사",
+      "status": "pending",
+      "evidence": "artifacts/safety-map-experiment-03-20260905/risk-data-research-prd.md"
+    },
+    {
+      "id": "T6.1",
+      "title": "적용할 단일 행정구역 확정",
+      "status": "pending",
+      "estimated_minutes": 20,
+      "max_minutes": 30,
+      "started_at": null,
+      "completed_at": null,
+      "actual_minutes": null,
+      "variance_minutes": null,
+      "timing_evidence": "사용자 승인 범위 대기",
+      "completion_evidence": "사용자 승인된 관할 범위"
+    },
+    {
+      "id": "T6.2",
+      "title": "공식 원자료·라이선스·재배포 조건 조사",
+      "status": "pending",
+      "depends_on": ["T6.1"],
+      "estimated_minutes": 45,
+      "max_minutes": 75,
+      "started_at": null,
+      "completed_at": null,
+      "actual_minutes": null,
+      "variance_minutes": null,
+      "timing_evidence": "미시작",
+      "completion_evidence": "기관 원문 URL·라이선스 원문·파생 이용 조건"
+    },
+    {
+      "id": "T6.3",
+      "title": "관측·발행·갱신일과 공간·시간 단위·결측 검증",
+      "status": "pending",
+      "depends_on": ["T6.2"],
+      "estimated_minutes": 35,
+      "max_minutes": 60,
+      "started_at": null,
+      "completed_at": null,
+      "actual_minutes": null,
+      "variance_minutes": null,
+      "timing_evidence": "미시작",
+      "completion_evidence": "데이터 메타데이터·표본 대조 기록"
+    },
+    {
+      "id": "T6.4",
+      "title": "표현 한계·갱신 실패 상태·Red 관문",
+      "status": "pending",
+      "depends_on": ["T6.3"],
+      "estimated_minutes": 30,
+      "max_minutes": 50,
+      "started_at": null,
+      "completed_at": null,
+      "actual_minutes": null,
+      "variance_minutes": null,
+      "timing_evidence": "미시작",
+      "completion_evidence": "표현 한계 계약과 Red 검토 결과"
     }
   ]
 }
