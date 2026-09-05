@@ -10,43 +10,9 @@
 
 <!-- 실행 중 Intent 없음. -->
 
-## Active
+## Waiting
 
-### [safety-map-experiment-03-20260905] 치안지도 3차 재실험 — 전역 지도 UX 재구축
-- status: active
-- target_agent: genie
-- priority: urgent
-- permission: L1-implementation-and-approved-production-deploy
-- requested: 2026-09-05T09:55:00Z
-- deadline: 2026-09-06T06:00:00Z / 2026-09-06 08:00 Europe/Rome
-- deadline_local: 2026-09-06 08:00 Europe/Rome (CEST)
-- execution_mode: multi_subagent_roles
-- projects: space,infinity,knowledge-lab,safety-map
-- task_type: product-rebuild-and-live-validation
-- experiment_identity: experiment-03 (new identity; experiment-02 artifacts and code are not a base)
-- goal: 전체화면 전역 Mapbox 지도를 FocusField로 삼아 장소·도로·검색·zoom/pan·레이어 탐색을 제공하되, 근거 없는 치안 판단은 no-data 안전 경계로 유지하는 새 Spatial Type 경험을 구축·배포·검증한다.
-- success_criteria: 새 독립 구조와 PRD/계획, 실제 Mapbox canvas와 interaction, desktop/390px capture, Red 직접 시각 검증 pass, 보호 토큰 비노출, production deploy·live behavior·관련 repo push/remote 확인 및 Slack 원 스레드 receipt를 모두 확보한다.
-- metric_question: 사용자는 5초 안에 전역 지도에서 장소 맥락을 탐색하는 목적·다음 행동·안전 데이터 한계를 이해하고, 실제 지도에서 그 행동을 수행할 수 있는가?
-- metric_signal: desktop/390px에서 canvas 렌더, search/zoom/pan/layer 전후 증거, overflow·keyboard 검사, no-data 문구, Red visual pass, live remote proof.
-- metric_decision_rule: 필수 상호작용과 no-data 경계·Red·live proof가 모두 있으면 continue; 지도는 동작하나 위계/모바일 실패면 iterate; 역할 위임·배포·보호 설정·Slack delivery 중 하나가 불가하면 hold.
-- boundary: 기존 safety-map 파일은 사용자 변경/legacy로 보호하고 덮어쓰지 않는다. 안전 점수·안전 경로·실시간 사건·위치 수집·개인정보 전송을 만들지 않는다. MAPBOX_PUBLIC_TOKEN의 값은 어떤 소스·로그·report·커밋에도 기록하지 않는다.
-- context_pack: intents/context/safety-map-experiment-03-20260905.json
-- context_documents_checked: LLM.md; Knowledge Lab README.md; schema/agent-rules.md; DOCUMENT_SEARCH_PIPELINE.md; USER_CONTEXT.md; SERVICE_REGISTRY.md; INFINITY_OPERATING_RULES.md; INTENTS.md; agent-wiki/README.md; BRAND.md; DESIGN.md; DESIGN_SYSTEM.md
-- context_searches: rg -l -i 'safety map|safety-map|crime map|치안' agent-wiki/content/docs source/openclaw-system/docs (no task-specific compiled evidence; previous experiment archive used only as failure boundary)
-- notification_channel: slack
-- notification_target: C0BR41W31MM
-- notification_reply_to: 1788601770.158469
-- notification_origin: channel:C0BR41W31MM;reply_to:1788601770.158469
-- artifact: artifacts/safety-map-experiment-03-20260905/planner-prd.md; artifacts/safety-map-experiment-03-20260905/task-plan.md
-- task_plan: artifacts/safety-map-experiment-03-20260905/task-plan.json
-- trace: traces/safety-map-experiment-03-20260905.json
-- role_sessions: planner=/root/role_safety03_planner; developer=/root/role_safety03_developer; marketer=/root/role_safety03_marketer; operator=/root/role_safety03_operator
-- report: reports/safety-map-experiment-03-20260905/20260905T1508Z-red-closure.md
-- progress: Mapbox 성능 측정 전송을 차단하는 코드·CSP 보완, 정식 배포 성공, 새 브라우저 문서의 telemetry 부재와 라이브 상호작용을 확인했다. 1차·2차 Red 결과와 원격 증거를 동기화했으며 targeted 재검토를 요청한다.
-- next_retry_condition: 동기화된 증거를 대상으로 Red targeted 재검토 결과를 반영한다.
-- red_status: in_progress
-
-<!-- Waiting lane continues. -->
+<!-- 사용자 결정·외부 조건 대기만 기록한다. -->
 
 ### [research-32] Starter Story 솔로프리너 사례 1개 깊은 복원
 - status: waiting
@@ -115,8 +81,31 @@
 
 ## Archive
 
-<!-- safety-map-correction-20260903 archived 2026-09-05T09:30Z → intents/archive/safety-map-correction-20260903.md; result=experiment_failed; closure=사용자 명시 아카이브 요청 -->
+<!-- safety-map-experiment-03-20260905 completed 2026-09-05T15:15:43Z → intents/archive/safety-map-experiment-03-20260905.md; reports/safety-map-experiment-03-20260905/20260905T1515Z-final.html; red_status: pass; live=https://safety-map-experiment-03.aws.shdkej.com/ -->
+
+### [safety-map-experiment-03-20260905] 치안지도 3차 재실험 — 전역 지도 UX 재구축
+- status: archived
+- target_agent: genie
+- execution_mode: multi_subagent_roles
+- projects: space,infinity,knowledge-lab,safety-map
+- artifact: artifacts/safety-map-experiment-03-20260905/planner-prd.md; artifacts/safety-map-experiment-03-20260905/task-plan.md; artifacts/safety-map-experiment-03-20260905/red-final-report.md
+- report: reports/safety-map-experiment-03-20260905/20260905T1515Z-final.html
+- trace: traces/safety-map-experiment-03-20260905.json
+- role_sessions: planner=/root/role_safety03_planner; developer=/root/role_safety03_developer; marketer=/root/role_safety03_marketer; operator=/root/role_safety03_operator; red=agent:red:subagent:f2dea086-ace6-49b2-b714-9805fe10004c
+- red_status: pass
+- red_report: artifacts/safety-map-experiment-03-20260905/red-final-report.md
+- remote_verified: pass
+- metric_result: 지도 캔버스·Milan 검색·기본/위성 레이어 전환·390px 무가로넘침·telemetry 요청 부재·targeted Red pass·Space 원격 및 workflow 성공을 확인했다.
+- metric_next_decision: 현재 라이브 배포본을 유지하고, 별도 승인 없이는 치안 점수·경로 추천·위치 수집·실시간 사건 데이터를 추가하지 않는다.
+- knowledge_status: used
+- knowledge_decision: retain-as-operating-principle
+- knowledge_targets: planner-prd.md; task-plan.md; red-final-report.md
+- knowledge_reflection: 외부 지도 SDK의 기본 성능 측정도 선언한 추적 경계와 대조하고, 코드·CSP·새 문서 요청 검사까지 한 폐쇄 루프로 검증한다.
+- knowledge_commit: no-promotion-needed
+- archived_at: 2026-09-05T15:15:43Z
+
 <!-- safety-map-experiment-02-20260904 archived 2026-09-05T09:30Z → intents/archive/safety-map-experiment-02-20260904.md; result=deadline_missed; closure=사용자 명시 아카이브 요청 -->
+<!-- safety-map-correction-20260903 archived 2026-09-05T09:30Z → intents/archive/safety-map-correction-20260903.md; result=experiment_failed; closure=사용자 명시 아카이브 요청 -->
 <!-- safety-map-mvp-20260903 completed 2026-09-02T19:42Z → intents/archive/safety-map-mvp-20260903.md; reports/safety-map-mvp-20260903/20260902T1942Z-production.html; red_status: pass; live=https://safety-map.aws.shdkej.com/ -->
 
 <!-- infinity-trace-contract-01 archived 2026-09-02T13:28Z → intents/archive/infinity-trace-contract-01.md [projects: infinity,space,knowledge-lab; type: implementation; topics: trace-contract,dashboard,dispatcher] -->

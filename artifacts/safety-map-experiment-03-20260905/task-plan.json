@@ -254,15 +254,16 @@
     {
       "id": "T4.3",
       "title": "레드 직접 시각 검토",
-      "status": "in_progress",
+      "status": "done",
       "depends_on": ["T4.1", "T4.2"],
       "estimated_minutes": 30,
       "max_minutes": 50,
       "started_at": "2026-09-05T12:30:00Z",
-      "completed_at": null,
-      "actual_minutes": null,
-      "variance_minutes": null,
-      "timing_evidence": "첫 Red 수정 필요 판정이 기록된 시각을 시작 시각으로 사용함",
+      "completed_at": "2026-09-05T15:15:43Z",
+      "actual_minutes": 166,
+      "variance_minutes": 136,
+      "variance_reason": "1차 telemetry 보완과 2차 원격 증거 동기화 뒤 targeted 재검토까지 포함됨",
+      "timing_evidence": "첫 Red 수정 필요 판정 시각과 targeted 재검토 완료 시각",
       "red_reviews": [
         {
           "session": "agent:red:subagent:bf0109ad-c135-49ba-a867-ac6e9932e229",
@@ -273,9 +274,14 @@
           "session": "agent:red:subagent:f2dea086-ace6-49b2-b714-9805fe10004c",
           "status": "fail",
           "finding": "telemetry 보완은 통과했으나 Infinity 원격 증거 동기화가 필요"
+        },
+        {
+          "session": "agent:red:subagent:f2dea086-ace6-49b2-b714-9805fe10004c",
+          "status": "pass",
+          "finding": "동기화된 증거에서 telemetry 부재·라이브 상호작용·390px 가독성을 재확인"
         }
       ],
-      "completion_evidence": "통과 또는 보완을 담은 레드 시각 리포트."
+      "completion_evidence": "artifacts/safety-map-experiment-03-20260905/red-final-report.md"
     },
     {
       "id": "T4.4",

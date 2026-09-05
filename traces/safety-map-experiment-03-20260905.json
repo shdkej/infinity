@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "intent_id": "safety-map-experiment-03-20260905",
-  "status": "active",
-  "trace_completeness": "partial",
+  "status": "archived",
+  "trace_completeness": "complete",
   "request": {
     "raw": {
       "status": "recorded",
@@ -122,6 +122,17 @@
       "searches": ["protected secret-store metadata", "e03 runtime configuration boundary", "Mapbox origin allowlist prerequisite"],
       "result": "t3_3_code_prepared_runtime_blocked",
       "blocker": "Protected store is empty and the e03 origin has not been allowlisted."
+    },
+    {
+      "type": "archive",
+      "at": "2026-09-05T15:15:43Z",
+      "report_path": "reports/safety-map-experiment-03-20260905/20260905T1515Z-final.html",
+      "verification": {
+        "red_status": "pass",
+        "red_report_path": "artifacts/safety-map-experiment-03-20260905/red-final-report.md",
+        "remote_verified": "pass",
+        "remote_proof_path": "reports/safety-map-experiment-03-20260905/20260905T1508Z-red-closure.md"
+      }
     }
   ],
   "artifacts": [
@@ -132,6 +143,10 @@
     {
       "label": "role convergence report",
       "path": "reports/safety-map-experiment-03-20260905/20260905T1000Z-role-convergence.md"
+    },
+    {
+      "label": "최종 Red 재검토",
+      "path": "artifacts/safety-map-experiment-03-20260905/red-final-report.md"
     }
   ],
   "verifications": [
@@ -139,10 +154,15 @@
       "label": "four independent role sessions completed",
       "path": "reports/safety-map-experiment-03-20260905/20260905T1000Z-role-convergence.md",
       "status": "pass"
+    },
+    {
+      "label": "targeted Red 재검토",
+      "path": "artifacts/safety-map-experiment-03-20260905/red-final-report.md",
+      "status": "pass"
     }
   ],
   "next_decision": {
-    "status": "continue",
-    "value": "Record T2.5 convergence in the task plan, then activate only T3.1 for the isolated experiment-03 path."
+    "status": "complete",
+    "value": "현재 라이브 배포본을 유지하고, 별도 승인 없이는 치안 점수·경로 추천·위치 수집·실시간 사건 데이터를 추가하지 않는다."
   }
 }
