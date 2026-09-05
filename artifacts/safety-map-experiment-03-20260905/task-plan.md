@@ -51,4 +51,4 @@ Hard deadline: **2026-09-06 06:00 UTC**. Leaf estimates are operational limits, 
 
 ## Current state
 
-**T2.5 수렴 완료, T3.1 Active (2026-09-05T10:20:02Z).** Planner·Developer·Marketer·Operator의 실제 별도 세션 수렴 결과는 `reports/safety-map-experiment-03-20260905/20260905T1000Z-role-convergence.md`에 기록했습니다. 이번 leaf는 독립 경로·README·legacy 무변경 검사만 수행합니다. legacy safety-map 경로는 계속 변경 금지입니다.
+**T3.1 완료 (2026-09-05T10:22:00Z).** `sites/safety-map-experiment-03/` 독립 경로와 README를 Space 원격에 반영했고 legacy safety-map 경로는 변경하지 않았습니다. 다음 leaf는 T3.2 전체 화면 canvas와 Typography Rail 구현입니다.
