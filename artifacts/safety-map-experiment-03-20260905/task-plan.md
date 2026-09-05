@@ -51,4 +51,4 @@ Hard deadline: **2026-09-06 06:00 UTC**. Leaf estimates are operational limits, 
 
 ## Current state
 
-**T3.1 완료 (2026-09-05T10:22:00Z).** `sites/safety-map-experiment-03/` 독립 경로와 README를 Space 원격에 반영했고 legacy safety-map 경로는 변경하지 않았습니다. 다음 leaf는 T3.2 전체 화면 canvas와 Typography Rail 구현입니다.
+**T3.2 Active (2026-09-05T10:30:02Z).** 전체 화면 canvas와 Typography Rail의 첫 렌더를 e03 경로에 구현합니다. legacy safety-map은 계속 변경 금지입니다.

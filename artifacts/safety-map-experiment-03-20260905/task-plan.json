@@ -57,8 +57,9 @@
     {
       "id": "T3.2",
       "title": "Build full-bleed canvas and Typography Rail",
-      "status": "pending",
+      "status": "active",
       "depends_on": ["T3.1"],
+      "started_at": "2026-09-05T10:30:02Z",
       "estimated_minutes": 35,
       "max_minutes": 50,
       "completion_evidence": "The new app renders a dominant canvas and readable purpose, action, and no-data Typography Rail."

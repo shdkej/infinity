@@ -80,6 +80,15 @@
         "e03 README token and deploy boundary check"
       ],
       "result": "t3_1_isolated_path_complete"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-8187058f46954be1bbb370d26a90edae",
+      "canonical_sha": "b8ef395b768762dc2ab5cd68d727ea14998e2edf",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-05T10:30:02Z",
+      "status": "accepted"
     }
   ],
   "artifacts": [
