@@ -41,7 +41,7 @@
 ○ T5  배포·종료 검증                                                  T4 완료 뒤
 │  ● T5.1  정식 AWS 경로 배포 확인                                   완료
 │  ● T5.2  라이브 지도 핵심 흐름 재확인                              완료
-│  ◌ T5.3  Slack 종료 알림 delivery receipt 확인                    시간 경계 대기 · deadline/조기 종료 권한 필요
+│  ● T5.3  Slack 종료 알림 delivery receipt 확인                    완료 · deadline_missed terminal receipt
 │
 ○ T6  마감 전 품질 반복                                               T5.2 완료 뒤
    ● T6.1  디자인 품질 반복                                          완료
@@ -58,4 +58,4 @@
 │     T6.3→T6.4 품질 반복을 재개하고, T5.3은 T6.4 완료 및 canonical deadline 이후에만 활성화.
 ```
 
-**지금 다음 행동:** canonical deadline 도래 또는 명시 조기 종료 권한 뒤 T5.3을 재개한다. 그 전 terminal Slack 및 Archive는 금지다.
+**Terminal 결과:** 2026-09-05T06:00:00Z 마감 이후 T5.3의 원 Slack thread receipt를 기록했다. 품질 증거와 별개로 마감 내 receipt가 없었으므로 Intent는 `deadline_missed`이며 성공 Archive는 금지다. 학습 보고서: `reports/safety-map-experiment-02-20260904/20260905T0901Z-terminal.md`.

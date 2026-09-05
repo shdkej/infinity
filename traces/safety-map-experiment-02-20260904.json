@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "intent_id": "safety-map-experiment-02-20260904",
-  "status": "active",
+  "status": "waiting",
   "trace_completeness": "complete",
   "request": {
     "raw": {
@@ -749,12 +749,39 @@
       "searches": ["canonical terminal deadline and explicit early-termination authority"],
       "result": "t5_3_blocked_before_terminal_time",
       "blocker": "The canonical deadline has not arrived and no explicit early termination exists. Sending a terminal Slack message now would violate the terminal notification contract."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "terminal-cycle-20260905-deadline",
+      "canonical_sha": "4079ac9605779a79129e06278619a5fe8f76734e",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-05T09:01:39Z",
+      "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-05T09:01:42Z",
+      "context_pack": "intents/context/safety-map-experiment-02-20260904.json",
+      "evidence_paths": [
+        "reports/safety-map-experiment-02-20260904/20260905T0901Z-terminal.md",
+        "INTENTS.md"
+      ],
+      "searches": ["deadline terminal reconciliation", "original Slack thread delivery receipt"],
+      "result": "deadline_missed",
+      "blocker": "The canonical deadline elapsed before an immutable original-thread terminal receipt was recorded. Product-quality evidence is retained; success Archive is prohibited.",
+      "delivery_receipt": {
+        "state": "sent",
+        "channel": "C0BR41W31MM",
+        "thread": "1788364835.849239",
+        "message_id": "1788600056.028399"
+      }
     }
   ],
   "artifacts": [],
   "verifications": [],
   "next_decision": {
-    "status": "active",
-    "value": "Execute T6.3 then T6.4 with concrete quality evidence. Keep T5.3 pending until T6.4 is done and the canonical deadline has passed or explicit early termination exists. Terminal Slack and Archive remain prohibited."
+    "status": "deadline_missed",
+    "value": "Terminal learning report and original-thread receipt were recorded after the deadline. Keep the Intent Waiting as deadline_missed; do not Archive. A new deadline and explicit restart authority are required for implementation resumption."
   }
 }

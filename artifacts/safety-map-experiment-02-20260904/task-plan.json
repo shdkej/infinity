@@ -129,13 +129,20 @@
     {
       "id": "T5.3",
       "title": "Slack 종료 알림 delivery receipt 확인",
-      "status": "blocked",
+      "status": "done",
       "depends_on": ["T6.4"],
       "started_at": "2026-09-04T23:20:33Z",
       "blocked_at": "2026-09-04T23:20:45Z",
+      "completed_at": "2026-09-05T09:01:42Z",
       "estimated_minutes": 10,
       "max_minutes": 20,
-      "evidence": "reports/safety-map-experiment-02-20260904/20260904T2320Z-terminal-receipt-blocker.md",
+      "evidence": "reports/safety-map-experiment-02-20260904/20260905T0901Z-terminal.md",
+      "delivery_receipt": {
+        "state": "sent",
+        "channel": "C0BR41W31MM",
+        "thread": "1788364835.849239",
+        "message_id": "1788600056.028399"
+      },
       "activation_gate": "T6.4 완료 및 canonical deadline 이후 또는 명시 조기 종료 권한"
     },
     {

@@ -13,7 +13,7 @@
 ## Waiting
 
 ### [safety-map-experiment-02-20260904] 여행 치안 지도 2차 실험: 실제 지도·디자인·마감·알림 검증
-- status: waiting
+- status: deadline_missed
 - target_agent: genie
 - priority: critical
 - permission: L1-local-implementation-and-staging
@@ -33,9 +33,11 @@
 - task_plan: artifacts/safety-map-experiment-02-20260904/task-plan.json
 - task_plan_doc: artifacts/safety-map-experiment-02-20260904/task-plan.md
 - trace: traces/safety-map-experiment-02-20260904.json
-- terminal_gate_report: reports/safety-map-experiment-02-20260904/20260904T2320Z-terminal-receipt-blocker.md
-- blocker: canonical deadline 전이고 명시 조기 종료 권한이 없다. terminal Slack·Archive는 금지된다.
-- next_retry_condition: canonical deadline 도래 또는 명시 조기 종료 권한.
+- terminal_learning_report: reports/safety-map-experiment-02-20260904/20260905T0901Z-terminal.md
+- terminal_slack_receipt: channel:C0BR41W31MM; thread:1788364835.849239; message:1788600056.028399; delivery:sent
+- terminal_at: 2026-09-05T09:01:39Z
+- blocker: 마감(2026-09-05T06:00:00Z)까지 immutable original-thread terminal receipt가 기록되지 않았다. 제품 품질 검증은 별도로 완료됐으나 성공 Archive는 금지된다.
+- next_retry_condition: 사용자가 새 deadline과 재개 권한을 명시하면 새 실행 구간을 만든다. 그렇지 않으면 deadline_missed 상태를 유지한다.
 
 ### [safety-map-correction-20260903] 여행 치안 지도 품질·지도·마감·알림 교정
 - status: experiment_failed
