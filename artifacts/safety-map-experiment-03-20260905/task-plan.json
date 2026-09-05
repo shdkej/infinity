@@ -69,8 +69,9 @@
     {
       "id": "T3.3",
       "title": "검색, 확대·축소·이동, 레이어 제어 추가",
-      "status": "pending",
+      "status": "active",
       "depends_on": ["T3.2"],
+      "started_at": "2026-09-05T10:40:02Z",
       "estimated_minutes": 30,
       "max_minutes": 45,
       "completion_evidence": "실제 캔버스 상호작용이 치안 주장 없이 동작함."

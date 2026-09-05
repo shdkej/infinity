@@ -104,6 +104,15 @@
         "token literal and legacy-path exclusion check"
       ],
       "result": "t3_2_focus_field_complete"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-dc3075738acd4b629c9dbec91205d39d",
+      "canonical_sha": "e9e4e51a9431c5bb7ecd227f26e3c841d7416520",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-05T10:40:02Z",
+      "status": "accepted"
     }
   ],
   "artifacts": [
