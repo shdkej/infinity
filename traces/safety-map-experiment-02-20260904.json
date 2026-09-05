@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "intent_id": "safety-map-experiment-02-20260904",
-  "status": "waiting",
+  "status": "archived",
   "trace_completeness": "complete",
   "request": {
     "raw": {
@@ -776,12 +776,23 @@
         "thread": "1788364835.849239",
         "message_id": "1788600056.028399"
       }
+    },
+    {
+      "type": "archive",
+      "at": "2026-09-05T09:30:00Z",
+      "authority": "User explicitly requested complete archive for the 0903 and 0904 Safety Map experiments.",
+      "result": "archived_deadline_missed",
+      "evidence_paths": [
+        "intents/archive/safety-map-experiment-02-20260904.md",
+        "reports/safety-map-experiments/20260905-archive-report.md"
+      ],
+      "note": "Archive preserves deadline_missed and does not represent successful completion."
     }
   ],
   "artifacts": [],
   "verifications": [],
   "next_decision": {
-    "status": "deadline_missed",
-    "value": "Terminal learning report and original-thread receipt were recorded after the deadline. Keep the Intent Waiting as deadline_missed; do not Archive. A new deadline and explicit restart authority are required for implementation resumption."
+    "status": "archived_deadline_missed",
+    "value": "User closed the experiment after the terminal learning report and original-thread receipt were recorded. Preserve deadline_missed in Archive; create a new Intent for any future implementation."
   }
 }

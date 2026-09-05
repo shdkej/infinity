@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "intent_id": "safety-map-correction-20260903",
-  "status": "waiting",
+  "status": "archived",
   "trace_completeness": "complete",
   "request": {
     "raw": {
@@ -346,10 +346,21 @@
       "at": "2026-09-02T21:03:00Z",
       "status": "fail",
       "blocker": "Independent provider-side evidence of the public Mapbox token URL restriction for https://safety-map.aws.shdkej.com is still absent. Runtime code and a successful Referer request show intended delivery behavior, not the provider policy."
+    },
+    {
+      "type": "archive",
+      "at": "2026-09-05T09:30:00Z",
+      "authority": "User explicitly requested complete archive for the 0903 and 0904 Safety Map experiments.",
+      "result": "archived_experiment_failed",
+      "evidence_paths": [
+        "intents/archive/safety-map-correction-20260903.md",
+        "reports/safety-map-experiments/20260905-archive-report.md"
+      ],
+      "note": "Archive preserves experiment_failed and does not represent successful completion."
     }
   ],
   "next_decision": {
-    "status": "failed",
-    "value": "user-terminated experiment; reopen only through a new approved intent with the corrective gates"
+    "status": "archived_experiment_failed",
+    "value": "User closed the failed experiment. Preserve the result in Archive; use a new approved Intent for any future corrective work."
   }
 }

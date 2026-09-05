@@ -12,53 +12,6 @@
 
 ## Waiting
 
-### [safety-map-experiment-02-20260904] 여행 치안 지도 2차 실험: 실제 지도·디자인·마감·알림 검증
-- status: deadline_missed
-- target_agent: genie
-- priority: critical
-- permission: L1-local-implementation-and-staging
-- deadline: 2026-09-05T06:00:00Z
-- deadline_local: 2026-09-05 08:00 Europe/Rome (CEST)
-- resumed_at: 2026-09-04T13:59:00Z
-- restart_authority: 사용자 승인, Slack thread 1788364835.849239
-- execution_attempt: 4
-- execution_mode: multi_subagent_roles
-- projects: world-travel,infinity,space,video-automation
-- task_type: implementation
-- notification_channel: slack
-- notification_target: channel:C0BR41W31MM
-- notification_reply_to: 1788364835.849239
-- notification_origin: slack:channel:C0BR41W31MM:thread:1788364835.849239
-- context_pack: intents/context/safety-map-experiment-02-20260904.json
-- task_plan: artifacts/safety-map-experiment-02-20260904/task-plan.json
-- task_plan_doc: artifacts/safety-map-experiment-02-20260904/task-plan.md
-- trace: traces/safety-map-experiment-02-20260904.json
-- terminal_learning_report: reports/safety-map-experiment-02-20260904/20260905T0901Z-terminal.md
-- terminal_slack_receipt: channel:C0BR41W31MM; thread:1788364835.849239; message:1788600056.028399; delivery:sent
-- terminal_at: 2026-09-05T09:01:39Z
-- blocker: 마감(2026-09-05T06:00:00Z)까지 immutable original-thread terminal receipt가 기록되지 않았다. 제품 품질 검증은 별도로 완료됐으나 성공 Archive는 금지된다.
-- next_retry_condition: 사용자가 새 deadline과 재개 권한을 명시하면 새 실행 구간을 만든다. 그렇지 않으면 deadline_missed 상태를 유지한다.
-
-### [safety-map-correction-20260903] 여행 치안 지도 품질·지도·마감·알림 교정
-- status: experiment_failed
-- target_agent: genie
-- priority: critical
-- deadline: 2026-09-03T05:00:00Z (missed)
-- execution_mode: multi_subagent_roles
-- projects: world-travel,infinity,space,video-automation
-- task_type: implementation
-- parent_intent: safety-map-mvp-20260903
-- lifecycle_status: experiment_terminated
-- terminated_at: 2026-09-03T08:40:40Z
-- termination_reason: 사용자 지시로 1차 실험을 실패 종료한다. 절대 마감 후에도 실질 산출물 없이 dispatcher handoff가 반복됐고, 실제 브라우저 렌더·focused Red PASS·지도 중심 UX·디자인 정본 반영의 완료 증거가 없다.
-- context_pack: intents/context/safety-map-correction-20260903.json
-- notification_channel: slack
-- notification_target: channel:C0BR41W31MM
-- notification_reply_to: 1788364835.849239
-- blocker: managed browser profile lock과 dispatcher의 stale progress 오판 때문에 실제 렌더 검증이 수행되지 않았다.
-- next_retry_condition: 원인 분석의 수정안(마감 hard-stop·milestone evidence·디자인 gate·terminal notification contract)을 구현하고, 새 시간 예산과 재개 승인을 받은 뒤에만 새 intent로 재시작한다.
-- report: reports/safety-map-correction-20260903/20260902T2032Z-focused-red.html
-
 ### [research-32] Starter Story 솔로프리너 사례 1개 깊은 복원
 - status: waiting
 - target_agent: genie
@@ -126,6 +79,8 @@
 
 ## Archive
 
+<!-- safety-map-correction-20260903 archived 2026-09-05T09:30Z → intents/archive/safety-map-correction-20260903.md; result=experiment_failed; closure=사용자 명시 아카이브 요청 -->
+<!-- safety-map-experiment-02-20260904 archived 2026-09-05T09:30Z → intents/archive/safety-map-experiment-02-20260904.md; result=deadline_missed; closure=사용자 명시 아카이브 요청 -->
 <!-- safety-map-mvp-20260903 completed 2026-09-02T19:42Z → intents/archive/safety-map-mvp-20260903.md; reports/safety-map-mvp-20260903/20260902T1942Z-production.html; red_status: pass; live=https://safety-map.aws.shdkej.com/ -->
 
 <!-- infinity-trace-contract-01 archived 2026-09-02T13:28Z → intents/archive/infinity-trace-contract-01.md [projects: infinity,space,knowledge-lab; type: implementation; topics: trace-contract,dashboard,dispatcher] -->
