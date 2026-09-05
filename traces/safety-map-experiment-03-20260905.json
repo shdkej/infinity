@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "intent_id": "safety-map-experiment-03-20260905",
+  "status": "active",
+  "trace_completeness": "in_progress",
+  "events": [
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-d3df8811b6c341cea06223afa0ebf2db",
+      "canonical_sha": "d883c00102c652f2c07e6096547d7eed0d14e356",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-05T10:00:02Z",
+      "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-05T10:00:02Z",
+      "context_pack": "intents/context/safety-map-experiment-03-20260905.json",
+      "evidence_paths": [
+        "reports/safety-map-experiment-03-20260905/20260905T1000Z-role-convergence.md",
+        "artifacts/safety-map-experiment-03-20260905/planner-prd.md",
+        "artifacts/safety-map-experiment-03-20260905/task-plan.md"
+      ],
+      "result": "inbox_promoted_to_active_after_role_convergence"
+    }
+  ]
+}

@@ -4,8 +4,12 @@
 
 ## Inbox
 
+<!-- 실행 대기 Intent 없음. -->
+
+## Active
+
 ### [safety-map-experiment-03-20260905] 치안지도 3차 재실험 — 전역 지도 UX 재구축
-- status: waiting
+- status: active
 - target_agent: genie
 - priority: urgent
 - permission: L1-implementation-and-approved-production-deploy
@@ -29,15 +33,10 @@
 - notification_reply_to: 1788601770.158469
 - notification_origin: channel:C0BR41W31MM;reply_to:1788601770.158469
 - artifact: artifacts/safety-map-experiment-03-20260905/planner-prd.md; artifacts/safety-map-experiment-03-20260905/task-plan.md
-- blocker: Required multi-role delegation is unavailable in this runtime: native spawn_agent and permitted OpenClaw sessions_spawn are not exposed (TypeError recorded 2026-09-05T09:56Z). Slack send capability is also not exposed, so the required intake receipt cannot yet be delivered.
-- next_retry_condition: A runtime exposing four role-session spawn capability, a Red session, and Slack thread-send capability resumes this exact new intent before 2026-09-06T06:00:00Z; then create a separate experiment-03 site path without touching legacy files.
+- role_sessions: planner=/root/role_safety03_planner; developer=/root/role_safety03_developer; marketer=/root/role_safety03_marketer; operator=/root/role_safety03_operator
+- report: reports/safety-map-experiment-03-20260905/20260905T1000Z-role-convergence.md
+- next_action: T2.5 역할 수렴 계약을 task plan에 기록한 뒤 T3.1 독립 experiment-03 정적 사이트 경로를 생성한다. 신규 도메인·Terraform apply·Mapbox origin allowlist는 구현/배포 전 승인·보호 설정 경계로 재확인한다.
 - red_status: pending
-
-<!-- 실행 대기 Intent 없음. -->
-
-## Active
-
-<!-- 실행 중 Intent 없음. -->
 
 ## Waiting
 
