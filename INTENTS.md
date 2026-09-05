@@ -4,6 +4,35 @@
 
 ## Inbox
 
+### [safety-map-experiment-03-20260905] 치안지도 3차 재실험 — 전역 지도 UX 재구축
+- status: waiting
+- target_agent: genie
+- priority: urgent
+- permission: L1-implementation-and-approved-production-deploy
+- requested: 2026-09-05T09:55:00Z
+- deadline: 2026-09-06T06:00:00Z / 2026-09-06 08:00 Europe/Rome
+- execution_mode: multi_subagent_roles
+- projects: space,infinity,knowledge-lab,safety-map
+- task_type: product-rebuild-and-live-validation
+- experiment_identity: experiment-03 (new identity; experiment-02 artifacts and code are not a base)
+- goal: 전체화면 전역 Mapbox 지도를 FocusField로 삼아 장소·도로·검색·zoom/pan·레이어 탐색을 제공하되, 근거 없는 치안 판단은 no-data 안전 경계로 유지하는 새 Spatial Type 경험을 구축·배포·검증한다.
+- success_criteria: 새 독립 구조와 PRD/계획, 실제 Mapbox canvas와 interaction, desktop/390px capture, Red 직접 시각 검증 pass, 보호 토큰 비노출, production deploy·live behavior·관련 repo push/remote 확인 및 Slack 원 스레드 receipt를 모두 확보한다.
+- metric_question: 사용자는 5초 안에 전역 지도에서 장소 맥락을 탐색하는 목적·다음 행동·안전 데이터 한계를 이해하고, 실제 지도에서 그 행동을 수행할 수 있는가?
+- metric_signal: desktop/390px에서 canvas 렌더, search/zoom/pan/layer 전후 증거, overflow·keyboard 검사, no-data 문구, Red visual pass, live remote proof.
+- metric_decision_rule: 필수 상호작용과 no-data 경계·Red·live proof가 모두 있으면 continue; 지도는 동작하나 위계/모바일 실패면 iterate; 역할 위임·배포·보호 설정·Slack delivery 중 하나가 불가하면 hold.
+- boundary: 기존 safety-map 파일은 사용자 변경/legacy로 보호하고 덮어쓰지 않는다. 안전 점수·안전 경로·실시간 사건·위치 수집·개인정보 전송을 만들지 않는다. MAPBOX_PUBLIC_TOKEN의 값은 어떤 소스·로그·report·커밋에도 기록하지 않는다.
+- context_pack: intents/context/safety-map-experiment-03-20260905.json
+- context_documents_checked: LLM.md; Knowledge Lab README.md; schema/agent-rules.md; DOCUMENT_SEARCH_PIPELINE.md; USER_CONTEXT.md; SERVICE_REGISTRY.md; INFINITY_OPERATING_RULES.md; INTENTS.md; agent-wiki/README.md; BRAND.md; DESIGN.md; DESIGN_SYSTEM.md
+- context_searches: rg -l -i 'safety map|safety-map|crime map|치안' agent-wiki/content/docs source/openclaw-system/docs (no task-specific compiled evidence; previous experiment archive used only as failure boundary)
+- notification_channel: slack
+- notification_target: C0BR41W31MM
+- notification_reply_to: 1788601770.158469
+- notification_origin: channel:C0BR41W31MM;reply_to:1788601770.158469
+- artifact: artifacts/safety-map-experiment-03-20260905/planner-prd.md; artifacts/safety-map-experiment-03-20260905/task-plan.md
+- blocker: Required multi-role delegation is unavailable in this runtime: native spawn_agent and permitted OpenClaw sessions_spawn are not exposed (TypeError recorded 2026-09-05T09:56Z). Slack send capability is also not exposed, so the required intake receipt cannot yet be delivered.
+- next_retry_condition: A runtime exposing four role-session spawn capability, a Red session, and Slack thread-send capability resumes this exact new intent before 2026-09-06T06:00:00Z; then create a separate experiment-03 site path without touching legacy files.
+- red_status: pending
+
 <!-- 실행 대기 Intent 없음. -->
 
 ## Active
