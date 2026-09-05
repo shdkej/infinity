@@ -1,54 +1,55 @@
-# Safety Map Experiment 03 — Task Plan
+# 치안 지도 실험 03 — 작업 계획
 
-Hard deadline: **2026-09-06 06:00 UTC**. Leaf estimates are operational limits, not promises: exceeding `max` requires split/replan or a documented external blocker.
+엄격한 마감: **2026-09-06 06:00 UTC**. 세부 작업의 예상·최대 시간은 약속이 아닌 운영 한도이며, `max`를 넘으면 분할·재계획 또는 외부 차단 근거를 기록합니다.
 
-## T1 — Intake and planning
+## T1 — 접수와 기획
 
-| Leaf | expected / max | depends | completion |
+| 세부 작업 | 예상 / 최대 | 의존성 | 완료 조건 |
 |---|---:|---|---|
-| T1.1 Create Context Pack and rerun declared search | 10m / 15m | — | Pack and search evidence recorded |
-| T1.2 Record new experiment-03 Intent and Slack origin | 10m / 15m | T1.1 | Immutable origin and deadline in registry |
-| T1.3 Write PRD and acceptance boundaries | 20m / 30m | T1.1 | This PRD reviewed by Planner |
-| T1.4 Plan new path and legacy protection | 15m / 25m | T1.2 | Exact create/never-touch paths listed |
+| T1.1 컨텍스트 묶음 생성과 선언된 검색 재실행 | 10분 / 15분 | — | 묶음과 검색 증거 기록 |
+| T1.2 새 experiment-03 Intent와 Slack 출처 기록 | 10분 / 15분 | T1.1 | 원장에 불변 출처와 마감 기록 |
+| T1.3 기획 요구사항과 수용 경계 작성 | 20분 / 30분 | T1.1 | 기획 역할이 요구사항 검토 |
+| T1.4 신규 경로와 기존 경로 보호 계획 | 15분 / 25분 | T1.2 | 생성·절대 수정 금지 경로 명시 |
 
-## T2 — Independent role convergence
+## T2 — 독립 역할 종합
 
-| Leaf | expected / max | depends | completion |
+| 세부 작업 | 예상 / 최대 | 의존성 | 완료 조건 |
 |---|---:|---|---|
-| T2.1 Spawn Planner review | 10m / 15m | T1 | session id and judgment |
-| T2.2 Spawn Developer review | 10m / 15m | T1 | session id and implementation handoff |
-| T2.3 Spawn Marketer review | 10m / 15m | T1 | session id and copy/hierarchy judgment |
-| T2.4 Spawn Operator review | 10m / 15m | T1 | session id and deploy/security judgment |
-| T2.5 Synthesize conflicts into implementation contract | 15m / 25m | T2.1–T2.4 | adopted/rejected decisions documented |
+| T2.1 기획 검토 세션 생성 | 10분 / 15분 | T1 | 세션 식별자와 판단 |
+| T2.2 개발 검토 세션 생성 | 10분 / 15분 | T1 | 세션 식별자와 구현 인계 |
+| T2.3 마케팅 검토 세션 생성 | 10분 / 15분 | T1 | 세션 식별자와 카피·위계 판단 |
+| T2.4 운영 검토 세션 생성 | 10분 / 15분 | T1 | 세션 식별자와 배포·보안 판단 |
+| T2.5 충돌을 구현 계약으로 종합 | 15분 / 25분 | T2.1–T2.4 | 채택·기각 결정을 기록 |
+| T2.6 레드 계획 관문 보완 | 10분 / 20분 | T2.5 | 도구 중립 캔버스, 기존 경로 차이, 개인정보·네트워크 증거 계약 추가 |
 
-## T3 — Build and local verification
+## T3 — 구축과 로컬 검증
 
-| Leaf | expected / max | depends | completion |
+| 세부 작업 | 예상 / 최대 | 의존성 | 완료 조건 |
 |---|---:|---|---|
-| T3.1 Create isolated experiment-03 static site path | 20m / 30m | T2.5 | no legacy file modified |
-| T3.2 Build full-bleed canvas and Typography Rail | 35m / 50m | T3.1 | map is dominant scene |
-| T3.3 Add search/place/road, zoom/pan and layer controls | 30m / 45m | T3.2 | real canvas interactions work |
-| T3.4 Add no-data, failure, keyboard and reduced-motion states | 25m / 40m | T3.3 | boundary/accessibility tests pass |
-| T3.5 Run local smoke and token/provenance checks | 20m / 30m | T3.4 | reproducible test output |
+| T3.1 격리된 experiment-03 정적 사이트 경로 생성 | 20분 / 30분 | T2.5 | 기존 파일 변경 없음 |
+| T3.2 전체 화면 캔버스와 상단 서체 영역 구축 | 35분 / 50분 | T3.1 | 지도가 주 장면 |
+| T3.3 장소·도로 검색, 확대·축소·이동, 레이어 제어 추가 | 30분 / 45분 | T3.2 | 실제 캔버스 상호작용 동작 |
+| T3.4 데이터 부재, 실패, 키보드, 동작 줄이기 상태 추가 | 25분 / 40분 | T3.3 | 경계·접근성 검사 통과 |
+| T3.5 로컬 동작 확인 및 토큰·출처 검사 | 20분 / 30분 | T3.4 | 재현 가능한 검사 출력 |
 
-## T4 — Visual and live quality gates
+## T4 — 시각과 라이브 품질 관문
 
-| Leaf | expected / max | depends | completion |
+| 세부 작업 | 예상 / 최대 | 의존성 | 완료 조건 |
 |---|---:|---|---|
-| T4.1 Capture desktop initial/search/pan/layer states | 25m / 40m | T3.5 | immutable browser evidence |
-| T4.2 Capture 390px initial/search/pan/layer states | 25m / 40m | T3.5 | no overflow/collision evidence |
-| T4.3 Red direct visual review and remediation | 30m / 50m | T4.1,T4.2 | Red pass report |
-| T4.4 Formal deploy and live behavior retest | 25m / 40m | T4.3 | live URL/check proof |
+| T4.1 데스크톱 초기·검색·이동·레이어 상태 캡처 | 25분 / 40분 | T3.5 | 변경 불가 브라우저 증거 |
+| T4.2 390px 초기·검색·이동·레이어 상태 캡처 | 25분 / 40분 | T3.5 | 넘침·충돌 없음 증거 |
+| T4.3 레드 직접 시각 검토와 보완 | 30분 / 50분 | T4.1,T4.2 | 레드 통과 리포트 |
+| T4.4 정식 배포와 라이브 동작 재검사 | 25분 / 40분 | T4.3 | 라이브 URL·검사 증거 |
 
-## T5 — Remote closure
+## T5 — 원격 마감
 
-| Leaf | expected / max | depends | completion |
+| 세부 작업 | 예상 / 최대 | 의존성 | 완료 조건 |
 |---|---:|---|---|
-| T5.1 Commit only explicit relevant paths and push | 15m / 25m | T4.4 | commit SHA + origin confirmation |
-| T5.2 Verify remote archive/report requirements | 15m / 25m | T5.1 | remote verifier pass |
-| T5.3 Send original Slack thread status/terminal receipt | 5m / 10m | T5.2 | immutable receipt |
-| T5.4 Record knowledge decision and Archive only with Red pass | 15m / 25m | T5.2,T5.3 | archive metadata complete |
+| T5.1 명시된 관련 경로만 커밋하고 push | 15분 / 25분 | T4.4 | 커밋 SHA와 origin 확인 |
+| T5.2 원격 Archive·리포트 요건 검사 | 15분 / 25분 | T5.1 | 원격 검증기 통과 |
+| T5.3 원 요청 Slack 스레드에 상태·종료 영수증 발송 | 5분 / 10분 | T5.2 | 변경 불가 영수증 |
+| T5.4 지식 판정 기록 및 레드 통과 뒤에만 Archive | 15분 / 25분 | T5.2,T5.3 | Archive 메타데이터 완성 |
 
-## Current state
+## 현재 상태
 
-**T3.2 완료 (2026-09-05T10:32:00Z).** e03 경로에 full-bleed FocusField와 Typography Rail의 첫 렌더를 추가했습니다. 실제 Mapbox/검색/zoom/pan/layer 동작은 다음 T3.3에서 구현합니다.
+**T3.2 완료 (2026-09-05T10:32:00Z).** `e03` 경로에 전체 화면 주 시야와 상단 서체 영역의 첫 렌더를 추가했습니다. 실제 Mapbox 지도, 검색, 확대·축소, 이동, 레이어 동작은 다음 T3.3에서 구현합니다. `sites/safety-map/**`는 계속 절대 수정 금지 경로입니다.

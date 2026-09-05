@@ -1,58 +1,59 @@
-# Safety Map Experiment 03 — Planner PRD
+# 치안 지도 실험 03 — 기획 요구사항
 
 - intent: `safety-map-experiment-03-20260905`
-- identity: **experiment-03**; new build, not an experiment-02 extension
-- deadline: `2026-09-06T06:00:00Z` / `08:00 Europe/Rome`
-- context pack: `intents/context/safety-map-experiment-03-20260905.json`
+- 정체성: **experiment-03**; experiment-02의 확장이 아닌 신규 구축
+- 마감: `2026-09-06T06:00:00Z` / `08:00 Europe/Rome`
+- 컨텍스트 묶음: `intents/context/safety-map-experiment-03-20260905.json`
 
-## Goal
+## 목표
 
-Build a new full-viewport global map experience. The live Mapbox canvas is the **FocusField**, not a decorative preview. A Typography Rail supplies the purpose, an action prompt, and a clear no-data safety boundary.
+새 전체 화면 전역 지도 경험을 구축합니다. 실제로 상호작용하는 지도 캔버스가 장식용 미리보기가 아닌 주 시야이며, Mapbox GL은 구현 후보일 뿐 제품 요건이 아닙니다. 상단 서체 영역은 목적, 행동 유도, 명확한 데이터 부재 안전 경계를 제공합니다.
 
-## Experience contract
+## 경험 계약
 
-1. On entry, users see a global map, the sentence “어디를 지나갈지, 먼저 지도에서 살펴보세요.”, and one place/road search action.
-2. Search focuses a public place or road; user can zoom and pan naturally.
-3. A restrained layer control changes the base-map expression, never a safety claim.
-4. Place context is revealed only after selection; it must include the statement that there is no verified street/block/incident safety signal.
-5. The product does not collect location, submit reports, rank safety, recommend routes, or claim real-time coverage.
+1. 첫 화면에서 사용자는 전역 지도, “어디를 지나갈지, 먼저 지도에서 살펴보세요.”라는 문장, 장소·도로 검색 행동 하나를 봅니다.
+2. 검색은 공개 장소 또는 도로를 지도 중심으로 가져오며, 사용자는 자연스럽게 확대·축소와 이동을 할 수 있습니다.
+3. 절제된 레이어 제어는 지도 바탕 표현만 바꾸며, 치안 판단을 만들지 않습니다.
+4. 장소 맥락은 선택한 뒤에만 열리며, 검증된 거리·블록·사건 치안 신호가 없다는 문장을 포함해야 합니다.
+5. 제품은 위치를 수집하지 않고, 제보를 받지 않으며, 치안을 등급화하지 않고, 경로를 권하지 않으며, 실시간 범위를 주장하지 않습니다.
 
-## Acceptance criteria
+## 수용 기준
 
-| ID | Requirement | Evidence |
+| 식별자 | 요구사항 | 증거 |
 |---|---|---|
-| UX-01 | Full-bleed Mapbox GL canvas is visibly the main scene on desktop and 390px. | Actual browser captures |
-| UX-02 | Search, place/road focus, zoom, pan and layer interaction work in a real canvas. | Interaction captures and browser checks |
-| UX-03 | Top text rail retains purpose, next action and no-data boundary without covering the map. | Desktop/390px review |
-| UX-04 | No safety rating, prediction, safe-route claim, live incident claim or personal-location capture appears. | Copy/provenance inspection |
-| UX-05 | Keyboard focus, labels, reduced-motion and mobile overflow pass. | Browser/accessibility evidence |
-| OPS-01 | Public token is runtime-injected only; no value appears in tracked content/logs/reports. | Diff/provenance check |
-| OPS-02 | New experiment-03 structure leaves dirty legacy `sites/safety-map` paths unmodified. | Git path-level diff |
-| REL-01 | Formal deploy, live behavior, relevant push/remote checks and Slack thread receipt complete before deadline. | Remote/liveness/receipt proof |
+| UX-01 | 실제 상호작용 지도 캔버스가 데스크톱과 390px에서 명확한 주 장면이다. | 실제 브라우저 캡처 |
+| UX-02 | 검색, 장소·도로 중심 이동, 확대·축소, 이동, 레이어 상호작용이 실제 캔버스에서 동작한다. | 상호작용 캡처와 브라우저 검사 |
+| UX-03 | 상단 서체 영역이 지도를 가리지 않으면서 목적, 다음 행동, 데이터 부재 경계를 유지한다. | 데스크톱·390px 검토 |
+| UX-04 | 치안 등급·예측·안전 경로·실시간 사건 주장·개인 위치 수집이 없다. | 카피·출처 검사 |
+| UX-05 | 키보드 초점, 레이블, 동작 줄이기, 모바일 넘침 검사를 통과한다. | 브라우저·접근성 증거 |
+| OPS-01 | 공개 토큰은 실행 시에만 주입되고 추적 파일·로그·리포트에 값이 없다. | 차이·출처 검사 |
+| OPS-02 | 새 experiment-03 구조가 변경된 기존 `sites/safety-map` 경로를 수정하지 않는다. | Git 경로별 차이 |
+| OPS-03 | 브라우저 위치 정보·권한 요청, 치안 데이터 제출, 승인되지 않은 요청 데이터 전송이 없다. | DevTools 네트워크·소스 검사 |
+| REL-01 | 정식 배포, 라이브 동작, 관련 push·원격 검사, Slack 스레드 영수증을 마감 전 완료한다. | 원격·가용성·영수증 증거 |
 
-## New-structure and legacy-protection decision
+## 신규 구조와 기존 경로 보호 결정
 
-The current `sites/safety-map/index.html`, `app.js`, `styles.css`, `dist/*`, and smoke test are already modified user/legacy paths. They are **read-only comparison material**. Developer must first inspect registry/deploy configuration, then create a sibling experiment-03 site directory and its independently named build/runtime/evidence surfaces. Only shared deployment wiring that is proven necessary may change, and it must be staged by explicit path after confirming no unrelated diff.
+현재 `sites/safety-map/index.html`, `app.js`, `styles.css`, `dist/*`, smoke test는 이미 변경된 사용자 기존 경로입니다. 이들은 **읽기 전용 비교 자료**입니다. 절대 수정 금지 경로는 `sites/safety-map/**`입니다. 개발 역할은 빌드 전 경로별 차이를 보존하고, `sites/safety-map-experiment-03/**`와 명시적으로 필요한 최소 공용 배포 연결만 생성한 뒤 빌드 후 경로별 차이를 다시 남깁니다. 공용 연결은 관련 없는 차이가 없음을 확인한 다음에만 명시 경로로 스테이징합니다.
 
-## Design system mapping
+## 디자인 시스템 대응
 
-- **Canvas:** white + subtle-sky ambient depth; map supplies geographic depth, not cards.
-- **Typography Rail:** Pretendard, one hero statement, small location/date coordinates.
-- **FocusField:** map takes the viewport; no dashboard grid or permanent card stack.
-- **Context Object:** selected place information appears on demand and can dismiss.
-- **Action Prompt:** sentence-led search/layer controls with tactile, accessible controls only where needed.
-- **No-data:** present, readable, non-alarmist; it names the missing evidence and preserves exploration.
+- **캔버스:** 흰색과 은은한 하늘빛 깊이를 쓰고, 지도는 카드가 아닌 지리적 깊이를 제공합니다.
+- **상단 서체 영역:** Pretendard, 영웅 문장 하나, 작은 장소·날짜 좌표를 둡니다.
+- **주 시야:** 지도는 화면을 차지하며, 대시보드 격자나 영구 카드 묶음을 두지 않습니다.
+- **맥락 정보:** 선택한 장소 정보는 요청 시 나타나고 닫을 수 있습니다.
+- **행동 유도:** 문장 중심의 검색·레이어 제어와 필요한 곳의 촉각적·접근 가능한 조작만 둡니다.
+- **데이터 부재:** 읽기 쉽고 과장하지 않으며, 없는 근거를 명시하면서 탐색을 유지합니다.
 
-## Role handoffs
+## 역할 인계
 
-| Role | Required independent contribution |
+| 역할 | 필요한 독립 기여 |
 |---|---|
-| Planner | Validate scope, criteria, task dependencies and cut unnecessary screens. |
-| Developer | Implement independent experiment-03 surface, tests, and reversible build/deploy path. |
-| Marketer | Audit first five seconds, Korean microcopy, warmth and claim boundaries. No public copy send. |
-| Operator | Verify token/config boundary, path isolation, formal deploy, remote state and deadline receipts. |
-| Red | Directly inspect desktop/390 captures and live interaction for hierarchy, collision, claims and safety boundaries. |
+| 기획 | 범위, 기준, 작업 의존성, 불필요한 화면 제거를 검증합니다. |
+| 개발 | 독립 experiment-03 화면, 테스트, 되돌릴 수 있는 빌드·배포 경로를 구현합니다. |
+| 마케팅 | 첫 5초, 한국어 마이크로카피, 온기, 주장 경계를 점검합니다. 공개 카피 발송은 하지 않습니다. |
+| 운영 | 토큰·설정 경계, 경로 격리, 정식 배포, 원격 상태, 마감 영수증을 검증합니다. |
+| 레드 | 데스크톱·390px 캡처와 라이브 상호작용의 위계, 충돌, 주장, 안전 경계를 직접 점검합니다. |
 
-## Known blocker
+## 현재 실행 상태
 
-This PRD is created before implementation because this runtime exposes neither role-session spawn nor Slack thread-send. Per Infinity contract, implementation must not silently downgrade to a single-agent build; resume only after all role and Red sessions can be launched.
+이전 위임 불가 대기 판정은 사용자의 직접 재개 지시로 무효입니다. 최상위 Genie가 직접 역할 세션을 수락했으며, 세션 식별자와 상태는 `delegation-status-20260905T1000Z.md`에 기록합니다. 역할 결과를 종합한 뒤에만 T3 구현을 시작하며, 단일 에이전트 처리로 낮추지 않습니다.
