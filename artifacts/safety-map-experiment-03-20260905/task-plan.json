@@ -7,163 +7,163 @@
   "tasks": [
     {
       "id": "T1",
-      "title": "Intake and planning",
+      "title": "접수와 기획",
       "status": "done",
       "evidence": "intents/context/safety-map-experiment-03-20260905.json"
     },
     {
       "id": "T2.1",
-      "title": "Planner review",
+      "title": "기획 검토",
       "status": "done",
       "evidence": "reports/safety-map-experiment-03-20260905/20260905T1000Z-role-convergence.md"
     },
     {
       "id": "T2.2",
-      "title": "Developer review",
+      "title": "개발 검토",
       "status": "done",
       "evidence": "reports/safety-map-experiment-03-20260905/20260905T1000Z-role-convergence.md"
     },
     {
       "id": "T2.3",
-      "title": "Marketer review",
+      "title": "마케팅 검토",
       "status": "done",
       "evidence": "reports/safety-map-experiment-03-20260905/20260905T1000Z-role-convergence.md"
     },
     {
       "id": "T2.4",
-      "title": "Operator review",
+      "title": "운영 검토",
       "status": "done",
       "evidence": "reports/safety-map-experiment-03-20260905/20260905T1000Z-role-convergence.md"
     },
     {
       "id": "T2.5",
-      "title": "Synthesize implementation contract",
+      "title": "구현 계약 종합",
       "status": "done",
       "depends_on": ["T2.1", "T2.2", "T2.3", "T2.4"],
       "evidence": "reports/safety-map-experiment-03-20260905/20260905T1000Z-role-convergence.md"
     },
     {
       "id": "T3.1",
-      "title": "Create isolated experiment-03 static site path",
+      "title": "격리된 experiment-03 정적 사이트 경로 생성",
       "status": "done",
       "depends_on": ["T2.5"],
       "started_at": "2026-09-05T10:20:02Z",
       "estimated_minutes": 20,
       "max_minutes": 30,
-      "completion_evidence": "New experiment-03 path only; legacy safety-map path exclusion check; README with token and deploy boundaries.",
+      "completion_evidence": "새 experiment-03 경로만 생성; 기존 safety-map 경로 제외 검사; 토큰·배포 경계를 담은 README.",
       "completed_at": "2026-09-05T10:22:00Z",
       "evidence": "reports/safety-map-experiment-03-20260905/20260905T1022Z-t3-1-isolated-path.md"
     },
     {
       "id": "T3.2",
-      "title": "Build full-bleed canvas and Typography Rail",
+      "title": "전체 화면 캔버스와 상단 서체 영역 구축",
       "status": "done",
       "depends_on": ["T3.1"],
       "started_at": "2026-09-05T10:30:02Z",
       "estimated_minutes": 35,
       "max_minutes": 50,
-      "completion_evidence": "The new app renders a dominant canvas and readable purpose, action, and no-data Typography Rail.",
+      "completion_evidence": "새 앱이 주 캔버스와 읽기 쉬운 목적·행동·데이터 부재 상단 서체 영역을 렌더함.",
       "completed_at": "2026-09-05T10:32:00Z",
       "evidence": "reports/safety-map-experiment-03-20260905/20260905T1032Z-t3-2-focus-field.md"
     },
     {
       "id": "T3.3",
-      "title": "Add search, zoom/pan and layer controls",
+      "title": "검색, 확대·축소·이동, 레이어 제어 추가",
       "status": "pending",
       "depends_on": ["T3.2"],
       "estimated_minutes": 30,
       "max_minutes": 45,
-      "completion_evidence": "Real canvas interactions work without safety claims."
+      "completion_evidence": "실제 캔버스 상호작용이 치안 주장 없이 동작함."
     },
     {
       "id": "T3.4",
-      "title": "Add no-data and accessibility states",
+      "title": "데이터 부재와 접근성 상태 추가",
       "status": "pending",
       "depends_on": ["T3.3"],
       "estimated_minutes": 25,
       "max_minutes": 40,
-      "completion_evidence": "Keyboard, reduced-motion and no-data checks pass."
+      "completion_evidence": "키보드, 동작 줄이기, 데이터 부재 검사를 통과함."
     },
     {
       "id": "T3.5",
-      "title": "Run local smoke and provenance checks",
+      "title": "로컬 동작 확인과 출처 검사 실행",
       "status": "pending",
       "depends_on": ["T3.4"],
       "estimated_minutes": 20,
       "max_minutes": 30,
-      "completion_evidence": "Reproducible smoke and token-provenance output."
+      "completion_evidence": "재현 가능한 동작 확인과 토큰 출처 검사 출력."
     },
     {
       "id": "T4.1",
-      "title": "Capture desktop states",
+      "title": "데스크톱 상태 캡처",
       "status": "pending",
       "depends_on": ["T3.5"],
       "estimated_minutes": 25,
       "max_minutes": 40,
-      "completion_evidence": "Immutable desktop browser evidence."
+      "completion_evidence": "변경 불가 데스크톱 브라우저 증거."
     },
     {
       "id": "T4.2",
-      "title": "Capture 390px states",
+      "title": "390px 상태 캡처",
       "status": "pending",
       "depends_on": ["T3.5"],
       "estimated_minutes": 25,
       "max_minutes": 40,
-      "completion_evidence": "Mobile evidence without overflow or collision."
+      "completion_evidence": "넘침·충돌 없는 모바일 증거."
     },
     {
       "id": "T4.3",
-      "title": "Red direct visual review",
+      "title": "레드 직접 시각 검토",
       "status": "pending",
       "depends_on": ["T4.1", "T4.2"],
       "estimated_minutes": 30,
       "max_minutes": 50,
-      "completion_evidence": "Red visual report with pass or remediation."
+      "completion_evidence": "통과 또는 보완을 담은 레드 시각 리포트."
     },
     {
       "id": "T4.4",
-      "title": "Formal deploy and live behavior retest",
+      "title": "정식 배포와 라이브 동작 재검사",
       "status": "pending",
       "depends_on": ["T4.3"],
       "estimated_minutes": 25,
       "max_minutes": 40,
-      "completion_evidence": "Live URL and behavior evidence."
+      "completion_evidence": "라이브 URL과 동작 증거."
     },
     {
       "id": "T5.1",
-      "title": "Commit explicit paths and push",
+      "title": "명시 경로 커밋과 푸시",
       "status": "pending",
       "depends_on": ["T4.4"],
       "estimated_minutes": 15,
       "max_minutes": 25,
-      "completion_evidence": "Remote commit proof."
+      "completion_evidence": "원격 커밋 증거."
     },
     {
       "id": "T5.2",
-      "title": "Verify remote closure requirements",
+      "title": "원격 마감 요건 검사",
       "status": "pending",
       "depends_on": ["T5.1"],
       "estimated_minutes": 15,
       "max_minutes": 25,
-      "completion_evidence": "Remote verifier output."
+      "completion_evidence": "원격 검증기 출력."
     },
     {
       "id": "T5.3",
-      "title": "Send original Slack thread status or terminal receipt",
+      "title": "원 요청 Slack 스레드 상태 또는 종료 영수증 발송",
       "status": "pending",
       "depends_on": ["T5.2"],
       "estimated_minutes": 5,
       "max_minutes": 10,
-      "completion_evidence": "Immutable original-thread receipt or delivery_unknown."
+      "completion_evidence": "변경 불가 원 요청 스레드 영수증 또는 `delivery_unknown`."
     },
     {
       "id": "T5.4",
-      "title": "Record knowledge decision and Archive only with Red pass",
+      "title": "지식 판정 기록 및 레드 통과 뒤 Archive",
       "status": "pending",
       "depends_on": ["T5.2", "T5.3"],
       "estimated_minutes": 15,
       "max_minutes": 25,
-      "completion_evidence": "Archive metadata with Red pass, if terminal conditions are satisfied."
+      "completion_evidence": "종료 조건 충족 시 레드 통과를 포함한 Archive 메타데이터."
     }
   ]
 }
