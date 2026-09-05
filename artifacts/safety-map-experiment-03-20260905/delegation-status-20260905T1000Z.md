@@ -19,8 +19,9 @@
 | 역할 | 에이전트 | 세션 식별자 | 상태 |
 | --- | --- | --- | --- |
 | 레드 | red | `agent:red:subagent:bf0109ad-c135-49ba-a867-ac6e9932e229` | 수정 필요 |
+| 레드 재검증 | red | `agent:red:subagent:f2dea086-ace6-49b2-b714-9805fe10004c` | 진행 중 |
 
-구현과 데스크톱·390px 브라우저 증거가 준비된 뒤, 최상위 Genie가 같은 `sessions_spawn` 경로로 레드를 직접 생성했습니다. 첫 검증은 Mapbox 성능 측정 전송이 `NO TRACKING` 경계와 충돌한다고 판정했습니다. `performanceMetricsCollection:false` 보완 배포와 재검증을 진행합니다. 레드 통과 전에는 완료나 Archive를 선언하지 않습니다.
+구현과 데스크톱·390px 브라우저 증거가 준비된 뒤, 최상위 Genie가 같은 `sessions_spawn` 경로로 레드를 직접 생성했습니다. 첫 검증은 Mapbox 성능 측정 전송이 `NO TRACKING` 경계와 충돌한다고 판정했습니다. `performanceMetricsCollection:false`와 `events.mapbox.com` 차단 정책을 배포했으며, 새 브라우저 문서의 정규화된 resource host 검사에서 해당 호스트가 없음을 확인했습니다. Red 재검증이 진행 중입니다. Red 통과 전에는 완료나 Archive를 선언하지 않습니다.
 
 ## 알림 경계
 

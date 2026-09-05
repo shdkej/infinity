@@ -16,6 +16,6 @@
 
 ## 보완과 재개 조건
 
-- 지도 생성 옵션에 `performanceMetricsCollection:false`를 적용해 성능 측정 전송을 차단했습니다.
-- 보완 커밋 배포 성공과 브라우저 네트워크 재검사 뒤 별도 Red 재검증을 요청합니다.
+- 지도 생성 옵션에 `performanceMetricsCollection:false`와 `events.mapbox.com`을 제외한 연결 정책을 적용했습니다.
+- Space 보완 커밋 `f3c3cb00a5f5fc2bd81d31daababbe4a26b63ab3` 배포 실행 `33962687035`가 성공했고, 새 브라우저 문서의 정규화된 resource host 검사에서 해당 호스트가 없었습니다. 별도 Red 재검증을 요청했습니다.
 - runtime 설정 값은 계속 어떤 보고서·추적 파일에도 기록하지 않습니다.
