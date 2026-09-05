@@ -8,7 +8,33 @@
 
 ## Active
 
-<!-- 실행 중 Intent 없음. -->
+### [safety-map-experiment-03-20260905] 치안지도 3차 재실험 — 전역 지도 UX 재구축
+- status: active
+- target_agent: genie
+- priority: urgent
+- execution_mode: multi_subagent_roles
+- projects: space,infinity,knowledge-lab,safety-map
+- task_type: product-rebuild-and-live-validation
+- goal: 독립 experiment-03 전역 지도 UX의 운영 상태와 전체 실행 트리를 유지·검증한다. 위험구역 데이터는 근거 데이터인지 데모 레이어인지 사용자가 선택하기 전에는 만들거나 주장하지 않는다.
+- task_plan: artifacts/safety-map-experiment-03-20260905/task-plan.json
+- task_plan_view: artifacts/safety-map-experiment-03-20260905/task-plan.md
+- artifact: artifacts/safety-map-experiment-03-20260905/planner-prd.md; artifacts/safety-map-experiment-03-20260905/task-plan.md; artifacts/safety-map-experiment-03-20260905/red-final-report.md
+- report: reports/safety-map-experiment-03-20260905/20260905T1520Z-active-restoration.md
+- previous_report: reports/safety-map-experiment-03-20260905/20260905T1515Z-final.html
+- trace: traces/safety-map-experiment-03-20260905.json
+- role_sessions: planner=/root/role_safety03_planner; developer=/root/role_safety03_developer; marketer=/root/role_safety03_marketer; operator=/root/role_safety03_operator; red=agent:red:subagent:f2dea086-ace6-49b2-b714-9805fe10004c
+- red_status: pass
+- red_report: artifacts/safety-map-experiment-03-20260905/red-final-report.md
+- remote_verified: pass
+- metric_result: 지도 캔버스·Milan 검색·기본/위성 레이어 전환·390px 무가로넘침·telemetry 요청 부재·targeted Red pass·Space 원격과 workflow 성공을 확인했다.
+- metric_next_decision: 현재 라이브 배포본을 유지하고, 사용자 선택 전에는 위험구역 데이터·치안 점수·경로 추천·위치 수집·실시간 사건 데이터를 추가하지 않는다.
+- knowledge_status: used
+- knowledge_decision: retain-as-operating-principle
+- knowledge_targets: planner-prd.md; task-plan.md; red-final-report.md
+- knowledge_reflection: 외부 지도 SDK의 기본 성능 측정도 선언한 추적 경계와 대조하고, 코드·CSP·새 문서 요청 검사까지 한 폐쇄 루프로 검증한다.
+- knowledge_commit: no-promotion-needed
+- resumed_at: 2026-09-05T15:20:00Z
+- resume_reason: 사용자가 Archive 오표시와 축약된 태스크 수를 정정하도록 지시했다. 실행 트리와 라이브 검증 근거를 Active로 복구한다.
 
 ## Waiting
 
@@ -80,29 +106,6 @@
 <!-- 사용자 결정·외부 조건 대기만 기록한다. -->
 
 ## Archive
-
-<!-- safety-map-experiment-03-20260905 completed 2026-09-05T15:15:43Z → intents/archive/safety-map-experiment-03-20260905.md; reports/safety-map-experiment-03-20260905/20260905T1515Z-final.html; red_status: pass; live=https://safety-map-experiment-03.aws.shdkej.com/ -->
-
-### [safety-map-experiment-03-20260905] 치안지도 3차 재실험 — 전역 지도 UX 재구축
-- status: archived
-- target_agent: genie
-- execution_mode: multi_subagent_roles
-- projects: space,infinity,knowledge-lab,safety-map
-- artifact: artifacts/safety-map-experiment-03-20260905/planner-prd.md; artifacts/safety-map-experiment-03-20260905/task-plan.md; artifacts/safety-map-experiment-03-20260905/red-final-report.md
-- report: reports/safety-map-experiment-03-20260905/20260905T1515Z-final.html
-- trace: traces/safety-map-experiment-03-20260905.json
-- role_sessions: planner=/root/role_safety03_planner; developer=/root/role_safety03_developer; marketer=/root/role_safety03_marketer; operator=/root/role_safety03_operator; red=agent:red:subagent:f2dea086-ace6-49b2-b714-9805fe10004c
-- red_status: pass
-- red_report: artifacts/safety-map-experiment-03-20260905/red-final-report.md
-- remote_verified: pass
-- metric_result: 지도 캔버스·Milan 검색·기본/위성 레이어 전환·390px 무가로넘침·telemetry 요청 부재·targeted Red pass·Space 원격 및 workflow 성공을 확인했다.
-- metric_next_decision: 현재 라이브 배포본을 유지하고, 별도 승인 없이는 치안 점수·경로 추천·위치 수집·실시간 사건 데이터를 추가하지 않는다.
-- knowledge_status: used
-- knowledge_decision: retain-as-operating-principle
-- knowledge_targets: planner-prd.md; task-plan.md; red-final-report.md
-- knowledge_reflection: 외부 지도 SDK의 기본 성능 측정도 선언한 추적 경계와 대조하고, 코드·CSP·새 문서 요청 검사까지 한 폐쇄 루프로 검증한다.
-- knowledge_commit: no-promotion-needed
-- archived_at: 2026-09-05T15:15:43Z
 
 <!-- safety-map-experiment-02-20260904 archived 2026-09-05T09:30Z → intents/archive/safety-map-experiment-02-20260904.md; result=deadline_missed; closure=사용자 명시 아카이브 요청 -->
 <!-- safety-map-correction-20260903 archived 2026-09-05T09:30Z → intents/archive/safety-map-correction-20260903.md; result=experiment_failed; closure=사용자 명시 아카이브 요청 -->
