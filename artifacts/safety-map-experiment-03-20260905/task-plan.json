@@ -57,12 +57,14 @@
     {
       "id": "T3.2",
       "title": "Build full-bleed canvas and Typography Rail",
-      "status": "active",
+      "status": "done",
       "depends_on": ["T3.1"],
       "started_at": "2026-09-05T10:30:02Z",
       "estimated_minutes": 35,
       "max_minutes": 50,
-      "completion_evidence": "The new app renders a dominant canvas and readable purpose, action, and no-data Typography Rail."
+      "completion_evidence": "The new app renders a dominant canvas and readable purpose, action, and no-data Typography Rail.",
+      "completed_at": "2026-09-05T10:32:00Z",
+      "evidence": "reports/safety-map-experiment-03-20260905/20260905T1032Z-t3-2-focus-field.md"
     },
     {
       "id": "T3.3",

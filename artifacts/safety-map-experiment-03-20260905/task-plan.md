@@ -51,4 +51,4 @@ Hard deadline: **2026-09-06 06:00 UTC**. Leaf estimates are operational limits, 
 
 ## Current state
 
-**T3.2 Active (2026-09-05T10:30:02Z).** 전체 화면 canvas와 Typography Rail의 첫 렌더를 e03 경로에 구현합니다. legacy safety-map은 계속 변경 금지입니다.
+**T3.2 완료 (2026-09-05T10:32:00Z).** e03 경로에 full-bleed FocusField와 Typography Rail의 첫 렌더를 추가했습니다. 실제 Mapbox/검색/zoom/pan/layer 동작은 다음 T3.3에서 구현합니다.
