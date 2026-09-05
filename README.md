@@ -55,6 +55,6 @@ scripts/dispatch_terminal_notifications.py ← 원격 `origin/main` terminal 상
 
 ## 연동
 
-- 원격 routine(claude.ai)이 이 레포를 clone → `workflows/heartbeat.md` 프로토콜대로 실행 → 의미 있는 변경을 커밋·push한다. 산출물·상태·Report·Archive는 Infinity 원격 push 확인 전 완료로 보지 않으며, Knowledge Lab submodule 사용 시 parent pointer push까지 필수다.
+- 원격 routine(claude.ai)이 이 레포를 clone → `workflows/heartbeat.md` 프로토콜대로 실행 → 의미 있는 변경을 커밋·push한다. 산출물·상태·Report·Archive는 Infinity 원격 push 확인 전 완료로 보지 않는다. **Infinity는 독립 저장소이며 Knowledge Lab 부모 저장소의 submodule pointer를 갱신하거나 push하지 않는다.**
 - GitHub Actions push 알림은 쓰지 않는다. 아침 리캡은 OpenClaw cron이 `scripts/morning_recap_message.py`를 실행해 전달한다.
 - 유효 판정된 archive 원장만 [Knowledge Lab](https://github.com/shdkej/knowledge-lab)의 `source/infinity/archive/`로 이동한다. 유효하지 않은 결과는 KL에 복사하지 않는다.
