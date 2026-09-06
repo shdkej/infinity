@@ -1150,6 +1150,15 @@
       "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/t16-deploy.md", "artifacts/safety-map-experiment-04-20260906/t16-red.md", "artifacts/safety-map-experiment-04-20260906/task-plan.json", "artifacts/safety-map-experiment-04-20260906/task-plan.md"],
       "searches": ["T16.2 independent Red review of deployment, rollback, and network-observation wording"],
       "note": "독립 Red가 T16.1을 PASS로 판정했다. 배포 SHA·성공 run·live HTTP 200과 새 배포/rollback 미실행을 명확히 분리했고, Mapbox geocoding 관찰은 전체 네트워크 감사가 아님을 명시했다. no-score·no-route·no-tracking 경계를 유지한다."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-524440ebb2064996badcccf497ed50e7",
+      "canonical_sha": "32902a25f9969b65ec3a8e4b9165169a359a915a",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-06T19:20:38Z",
+      "status": "accepted"
     }
   ],
   "artifacts": [],

@@ -543,7 +543,8 @@
     {
       "id": "T16.3",
       "title": "C16 마감확인",
-      "status": "pending",
+      "status": "active",
+      "started_at": "2026-09-06T19:20:38Z",
       "depends_on": [
         "T16.2"
       ],
