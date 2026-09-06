@@ -826,6 +826,24 @@
       "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/t11-copy.md", "artifacts/safety-map-experiment-04-20260906/t11-red.md", "artifacts/safety-map-experiment-04-20260906/t11-close.md"],
       "searches": ["T11.3 C11 주의 신호·신뢰도·출처 no-render 마감확인"],
       "note": "C11을 30분 제한 내에 종료했다. 현재는 근거 없음/no-render만 허용하고, 출처·신뢰도 카피는 별도 게이트 통과 뒤에만 조건부로 사용할 수 있다. 실제 신호·점수·핀·렌더링과 원문·PII 보존은 수행하지 않았다."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-cc71270f1e8948f29a87199a9693852f",
+      "canonical_sha": "24a9c6631b1677cd921104f13e8c29ed9639a75c",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-06T14:50:01Z",
+      "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-06T14:50:01Z",
+      "status": "active",
+      "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
+      "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/task-plan.json", "artifacts/safety-map-experiment-04-20260906/task-plan.md", "artifacts/safety-map-experiment-04-20260906/t11-close.md"],
+      "searches": ["T12.1 provenance JSON·감사 로그 최소 데이터 계약"],
+      "note": "T12.1을 명시적 active leaf로 시작했다. 출처 유형·접근/검토/적격성·결정 시각·no-render 상태만 감사 가능하게 남기며, 원문·작성자·정확 위치·PII·텔레메트리는 보존하지 않는다."
     }
   ],
   "artifacts": [],
