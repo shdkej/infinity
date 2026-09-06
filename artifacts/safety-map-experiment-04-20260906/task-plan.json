@@ -471,7 +471,8 @@
     {
       "id": "T14.3",
       "title": "C14 마감확인",
-      "status": "pending",
+      "status": "active",
+      "started_at": "2026-09-06T18:20:02Z",
       "depends_on": [
         "T14.2"
       ],
