@@ -24,6 +24,18 @@
       "status": "accepted"
     },
     {
+      "type": "execution",
+      "at": "2026-09-06T18:34:00Z",
+      "status": "done",
+      "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
+      "evidence_paths": [
+        "artifacts/safety-map-experiment-04-20260906/t15-telemetry.md",
+        "artifacts/safety-map-experiment-04-20260906/t12-provenance.json"
+      ],
+      "searches": ["T15.1 telemetry privacy boundary and existing provenance prohibition"],
+      "note": "Four role reviews converged on a documentation-only, default-off telemetry contract. No SDK, cookie, local storage, collection, network transmission, deployment, data-signal authority, or safety/risk inference was added."
+    },
+    {
       "type": "dispatcher_handoff",
       "run_id": "dispatch-bab5941d8dee4fa5b32f869c5cad7220",
       "canonical_sha": "2f4f1a318eb34ddced0ac252c6dc1de895adca51",
