@@ -970,6 +970,24 @@
       "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/t15-telemetry.md", "artifacts/safety-map-experiment-04-20260906/t14-mobile.md"],
       "searches": ["T15.1 dependency T14.3 status 확인"],
       "note": "T15.1은 T14.3 미완료와 e04 전용 화면·배포 경로·검증 URL 부재로 활성화하지 않았다. T15.1에 T14.3 의존성을 구조화해 기록했고, telemetry 수집·구현·검증을 수행하지 않았다."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-113984b4ec6b44da827ab20199c41e52",
+      "canonical_sha": "04ff320ad42845cf40f72e6e9092c1da2c889c79",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-06T15:50:02Z",
+      "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-06T15:50:02Z",
+      "status": "blocked",
+      "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
+      "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/t16-deploy.md", "artifacts/safety-map-experiment-04-20260906/t15-telemetry.md", "artifacts/safety-map-experiment-04-20260906/t14-mobile.md", "artifacts/safety-map-experiment-04-20260906/t13-desktop.md"],
+      "searches": ["T16.1 dependency T15.3 status 확인"],
+      "note": "T16.1은 T15.3 미완료 및 e04 전용 정적 사이트·배포 경로·검증 URL 부재로 활성화하지 않았다. T16.1에 T15.3 의존성을 구조화해 기록했고, 기존 safety-map 재사용·배포·rollback·원격 URL 검증을 수행하지 않았다."
     }
   ],
   "artifacts": [],
