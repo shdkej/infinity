@@ -495,7 +495,8 @@
     {
       "id": "T15.2",
       "title": "Red: telemetry privacy",
-      "status": "pending",
+      "status": "active",
+      "started_at": "2026-09-06T18:40:01Z",
       "depends_on": [
         "T15.1"
       ],
