@@ -358,6 +358,15 @@
       "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/task-plan.json", "artifacts/safety-map-experiment-04-20260906/task-plan.md", "artifacts/safety-map-experiment-04-20260906/t4-contract.json", "artifacts/safety-map-experiment-04-20260906/t5-filter.md"],
       "searches": ["T6.1 사람 검토 rubric: no-render·PII·복수성·최근성·지역 단위 검토 기준"],
       "note": "T6.1을 명시적 active leaf로 시작했다. rubric은 사람 검토의 reject/hold 기준만 정의하며 후보 접근·본문 보존·집계·렌더링을 허용하지 않는다."
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-06T11:52:00Z",
+      "status": "done",
+      "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
+      "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/t6-rubric.md"],
+      "searches": ["T6.1 사람 검토 rubric: 접근·provenance·PII·위험 표현·지역 단위·최근성/독립성 경계"],
+      "note": "T6.1을 30분 제한 내에 종료했다. 출력은 reject 또는 hold_no_render뿐이며, T7·T10·독립 Red 전에는 후보 집계·핀/신호 렌더링·안전 주장을 허용하지 않는다."
     }
   ],
   "artifacts": [],
