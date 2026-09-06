@@ -520,6 +520,15 @@
       "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/task-plan.json", "artifacts/safety-map-experiment-04-20260906/task-plan.md", "artifacts/safety-map-experiment-04-20260906/t4-contract.json"],
       "searches": ["Roma Capitale 공식 open-data 후보와 최소 provenance 확인"],
       "note": "T8.1을 명시적 active leaf로 시작했다. 공식 자료 후보의 URL·공개 메타데이터·발행/갱신 정보·지역 단위만 검토하며, 이를 현재 위험 신호·치안 판단·지도 핀으로 표시하지 않는다."
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-06T12:53:00Z",
+      "status": "done",
+      "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
+      "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/t8-official.md", "artifacts/safety-map-experiment-04-20260906/t4-contract.json", "artifacts/safety-map-experiment-04-20260906/t6-rubric.md"],
+      "searches": ["Roma Capitale 공식 Open Data 포털", "Roma Capitale Annuario statistico 2024 Sicurezza urbana", "Roma 2021 교통사고 CKAN metadata"],
+      "note": "T8.1을 30분 제한 내에 종료했다. 공식 provenance 후보를 URL·공개 메타데이터·공간 단위만 기준으로 분리했으며, O-01은 필수 세부 메타데이터 미확인으로 hold_no_render, O-02는 오래된 교통사고·정밀 위치 필드로 reject, O-03은 provenance 참조만 허용했다. 데이터 레코드·정확 위치·PII를 수집·보존하지 않았고 신호·핀·안전 주장을 만들지 않았다."
     }
   ],
   "artifacts": [],
