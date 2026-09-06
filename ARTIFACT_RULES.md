@@ -76,7 +76,13 @@ Archive intent는 대시보드에서 프로젝트별/성격별로 묶어 볼 수
 
 PRD가 필요한 대형 작업은 PRD가 승인·고정된 직후, 구현 전에 `artifacts/{intent-id}/task-plan.json`을 만든다. 이 파일은 실행 원장이 아니라 **계획 기준선**이며, 대시보드 카드가 다음을 읽는 유일한 구조화 입력이다.
 
+### 양식 발견 preflight
+
+계획을 작성·재계획하기 전에는 `ARTIFACT_RULES.md`의 이 섹션과 가장 가까운 기존 `task-plan.md` 예시를 실제로 읽는다. Intent에는 `task_plan_template: ARTIFACT_RULES.md#대형-작업-태스크-계획`을 기록한다. 이 preflight 없이 임의 JSON 구조, 표, 문서 형식을 새로 만들면 계획은 무효이며 실행으로 진행하지 않는다.
+
 동시에 사람이 읽는 `artifacts/{intent-id}/task-plan.md`도 만든다. 이 문서는 PRD 링크, 태스크별 상태·완료 증거·다음 행동, 그리고 append-only `— 계획 변경` 기록을 담는다. `INTENTS.md`의 `task_plan_doc`으로 연결하며, JSON 상태나 deviation이 바뀌면 같은 커밋에서 함께 갱신한다.
+
+사람이 읽는 계획은 아래 텍스트 타임라인을 사용한다. 부모 `T1`은 기능 단위 미니 사이클이고, 그 아래 `T1.1…`에 계획·구현/조사·Red·마감 확인을 들여쓴다. `● / ◐ / ○` 상태, 중간 `— 계획 변경`, 마지막 `**지금 다음 행동:**`을 생략하지 않는다.
 
 - `tasks`: 작고 검증 가능한 태스크의 `id`, `title`, `status`, `evidence`를 둔다. 상위 단계는 그대로 하나의 태스크로 쓰지 않고 **3~7개의 독립 완료 단위**로 먼저 나눈다. 각 단위는 하나의 화면 변화, 데이터 계약, 검토, 배포 검증처럼 증거 하나로 닫혀야 한다. 사람이 읽는 타임라인에는 반드시 부모 `T3` 뒤에 들여쓴 `T3.1`, `T3.2` 형식으로 계층을 보인다. `status`는 `pending | active | done | skipped`만 쓴다.
 - `deviations`: 원래 계획에 없던 작업·순서 변경·대체 경로를 `{at, reason, impact, task_ids}`로 append-only 기록한다. 카드에서는 `— 계획 변경 N건`으로 분리 표시한다.

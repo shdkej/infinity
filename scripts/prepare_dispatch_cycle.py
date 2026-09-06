@@ -142,7 +142,7 @@ def card_contract_errors(entry: dict[str, Any]) -> list[str]:
     fields = entry["fields"]
     required = (
         "deadline_local", "task_plan", "trace", "notification_channel",
-        "notification_target", "notification_reply_to",
+        "notification_target", "notification_reply_to", "task_plan_doc", "task_plan_template",
     )
     return [field for field in required if not fields.get(field)]
 

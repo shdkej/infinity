@@ -42,7 +42,7 @@ class PlanTests(unittest.TestCase):
     def test_deadline_active_card_with_observability_fields_is_valid(self):
         extra = "".join([
             "- deadline: 2026-09-05T06:00:00Z\n", "- deadline_local: 2026-09-05 08:00 Europe/Rome (CEST)\n",
-            "- task_plan: artifacts/work-1/task-plan.json\n", "- trace: traces/work-1.json\n",
+            "- task_plan: artifacts/work-1/task-plan.json\n", "- task_plan_doc: artifacts/work-1/task-plan.md\n", "- task_plan_template: ARTIFACT_RULES.md#대형-작업-태스크-계획\n", "- trace: traces/work-1.json\n",
             "- notification_channel: slack\n", "- notification_target: channel:C0\n", "- notification_reply_to: 1.2\n",
         ])
         text = "## Inbox\n\n## Active\n" + block("work-1", "active", extra) + "\n## Waiting\n\n## Archive\n"
