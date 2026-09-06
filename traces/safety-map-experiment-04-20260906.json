@@ -68,6 +68,13 @@
       "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/t2-candidate-discovery.md"],
       "searches": ["site:reddit.com Rome areas avoid tourist safety recent experience", "site:blog.naver.com 로마 여행 위험 지역 후기", "site:dcinside.com 로마 여행 위험 지역 후기", "site:theqoo.net 로마 여행 위험 지역 후기"],
       "note": "T2.1 후보 탐색 완료. Reddit 공개 후보 3건을 메타데이터만으로 보류하고, robots 차단·무관·공간 단위 부족 표면을 제외했다. 모든 후보는 no-render다."
+    },
+    {
+      "type": "red_verification",
+      "at": "2026-09-06T09:50:00Z",
+      "status": "pass",
+      "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/t2-red.md", "artifacts/safety-map-experiment-04-20260906/t2-close.md"],
+      "note": "독립 Red가 후보 메타데이터만 보존, 개인정보 비저장, 단일 게시물 no-render, 안전 주장 금지, T1 독립성을 PASS로 판정했다. T3 전에는 입수·표시 결정을 내리지 않는다."
     }
   ],
   "artifacts": [],
