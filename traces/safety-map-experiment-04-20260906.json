@@ -1132,6 +1132,15 @@
       "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/t16-deploy.md", "artifacts/safety-map-experiment-04-20260906/t15-close.md", "artifacts/safety-map-experiment-04-20260906/task-plan.json", "artifacts/safety-map-experiment-04-20260906/task-plan.md"],
       "searches": ["Space origin/main deployment SHA", "GitHub Actions deployment run", "live HTTP status and no-tracking boundary", "rollback baseline"],
       "note": "T16.1은 Space 정본 8ecae7c의 성공 배포와 live HTTP 200을 확인했다. 새 배포·rollback은 수행하지 않았고, no-score·no-route·no-tracking 경계를 유지했다. 사용자 제출 Mapbox 장소 검색 외 telemetry SDK·쿠키·localStorage·원격 telemetry 전송은 추가하지 않았다."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-beb8215c056b46a4b972d550a354924d",
+      "canonical_sha": "cc2cfdae6fa51853c40ee9dfbc1dc6af7d26ed6e",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-06T19:10:02Z",
+      "status": "accepted"
     }
   ],
   "artifacts": [],
