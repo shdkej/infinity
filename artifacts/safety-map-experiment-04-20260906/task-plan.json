@@ -567,7 +567,8 @@
     {
       "id": "T17.2",
       "title": "Red: 최종 근거·표현",
-      "status": "pending",
+      "status": "active",
+      "started_at": "2026-09-06T19:40:22Z",
       "depends_on": [
         "T17.1"
       ],
