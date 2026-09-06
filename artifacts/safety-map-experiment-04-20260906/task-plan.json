@@ -507,7 +507,8 @@
     {
       "id": "T15.3",
       "title": "C15 마감확인",
-      "status": "pending",
+      "status": "active",
+      "started_at": "2026-09-06T18:50:02Z",
       "depends_on": [
         "T15.2"
       ],
