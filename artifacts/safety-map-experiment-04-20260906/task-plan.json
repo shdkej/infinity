@@ -564,11 +564,12 @@
       "max_minutes": 30,
       "evidence": "artifacts/safety-map-experiment-04-20260906/t17-live.md"
     },
-    {
-      "id": "T17.2",
-      "title": "Red: 최종 근거·표현",
-      "status": "active",
-      "started_at": "2026-09-06T19:40:22Z",
+  {
+    "id": "T17.2",
+    "title": "Red: 최종 근거·표현",
+    "status": "done",
+    "started_at": "2026-09-06T19:40:22Z",
+    "completed_at": "2026-09-06T19:41:41Z",
       "depends_on": [
         "T17.1"
       ],
