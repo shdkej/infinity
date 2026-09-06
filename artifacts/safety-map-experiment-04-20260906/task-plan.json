@@ -459,8 +459,9 @@
     {
       "id": "T14.2",
       "title": "Red: 모바일 접근성",
-      "status": "active",
+      "status": "done",
       "started_at": "2026-09-06T18:10:02Z",
+      "completed_at": "2026-09-06T18:12:00Z",
       "depends_on": [
         "T14.1"
       ],
