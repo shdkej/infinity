@@ -74,6 +74,10 @@ INTENTS.md의 `## Active` 섹션에서 실행 가능한 Intent를 필터링한�
 
 ### 절대 마감 대형 태스크의 hard-stop
 
+- **기능 단위 미니 사이클이 기본 단위다.** T1=기획, T2=구현, T3=Red, T4=마감처럼 전체 프로세스를 순차 태스크로 쪼개지 않는다. 하나의 사용자 기능·상태·결정마다 `계획 → 구현/조사 → Red 검증 → 마감 확인`을 완료한 뒤 다음 기능 사이클로 이동한다.
+- 각 leaf는 최대 30분이다. task-plan에는 `cycle_id`, `cycle_goal`, `max_minutes`(≤30), `validation`, `closure_check`, `evidence`를 반드시 기록한다. 30분을 넘길 조짐이면 진행률을 부풀리지 말고 기능을 더 작은 leaf로 나누고 계획 변경을 기록한다.
+- Red는 각 leaf 직후 해당 변화의 사용성·안전 경계·회귀를 판정한다. 전체 Intent의 최종 Red는 leaf별 Red를 대체하지 않으며, leaf `closure_check`는 다음 leaf 진입 조건일 뿐 Archive가 아니다.
+- 기능 완료 후 새 데이터 범위·새 지역·새 외부 의존성이 생기면 기존 Intent 상태를 되돌리지 않는다. 기존 Intent를 정상 마감하고 확장 범위는 새 Intent로 등록한다.
 - `EXECUTION_LEARNING_CONTRACT.md` 적용 Intent는 handoff나 세션 자체가 아니라 새 artifact/test/render/commit/blocker를 `stage_evidence_at`으로 남긴 경우에만 진전으로 인정한다.
 - 이전 실질 증거 이후 두 dispatcher cycle이 연속으로 비어 있으면 `stale_progress`로 Waiting 전환하고, 자동 handoff를 중단한다.
 - 브라우저·GPU·렌더러·빌드·로컬 세션 차단은 곧바로 Waiting으로 옮기지 않는다. 원인 단계(프로필 lock, WebGL, runtime config, network tile, 상호작용)를 관측하고, 현재 경로 복구 → 격리 프로필/소프트웨어 렌더 → 다른 관리 브라우저·노드·원격 렌더 → 재현 가능한 코드 검증 순으로 자율 대안을 시도한다. 각 시도는 evidence 또는 실패 로그를 남긴다.

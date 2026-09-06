@@ -57,7 +57,7 @@ def raw_github_text(path: str) -> str:
 
 
 def git_remote_text(repo: Path, path: str) -> str:
-    """Read a path from the fetched remote main when GitHub HTTP is unauthenticated."""
+    """Read an authoritative path from the fetched remote main Git blob."""
     return run(["git", "show", f"origin/main:{path}"], repo)
 
 
@@ -125,7 +125,10 @@ def main() -> int:
         errors.append(str(exc))
 
     try:
-        intents_text = github_api_text("INTENTS.md")
+        # GitHub contents/raw endpoints can serve a stale body immediately
+        # after push. `origin/main` is the canonical remote commit checked
+        # above, so use its blob rather than a cached HTTP response.
+        intents_text = git_remote_text(repo, "INTENTS.md")
         sections = split_sections(intents_text)
         archive = sections.get("Archive", "")
         open_lanes = "\n".join(sections.get(name, "") for name in ("Inbox", "Active", "Waiting"))
@@ -148,16 +151,11 @@ def main() -> int:
         if not archive_path:
             continue
         try:
-            if archive_path.startswith("source/infinity/archive/"):
-                archive_text = knowledge_lab_api_text(archive_path)
-            else:
-                archive_text = github_api_text(archive_path)
-            if f"id: {intent_id}" not in archive_text or not ARCHIVE_STATUS_RE.search(archive_text):
-                archive_text = (
-                    http_text(f"https://raw.githubusercontent.com/shdkej/knowledge-lab/main/{archive_path}")
-                    if archive_path.startswith("source/infinity/archive/")
-                    else raw_github_text(archive_path)
-                )
+            archive_text = (
+                git_remote_text(parent, archive_path)
+                if archive_path.startswith("source/infinity/archive/")
+                else git_remote_text(repo, archive_path)
+            )
 
             if f"id: {intent_id}" not in archive_text:
                 errors.append(f"Remote archive file {archive_path} has no id field for {intent_id}")

@@ -85,6 +85,15 @@ class PlanTests(unittest.TestCase):
         plan = prepare.build_plan(text, "fixture", repo)
         self.assertEqual(plan["timebox_reassessment_candidates"][0]["task_state"]["task_id"], "T1")
 
+    def test_cycle_contract_rejects_unbounded_leaf(self):
+        repo = Path(tempfile.mkdtemp())
+        (repo / "artifacts" / "work-1").mkdir(parents=True)
+        tasks = {"cycle_contract_version": 1, "tasks": [{"id": "T1", "title": "기능", "status": "pending", "max_minutes": 45}]}
+        (repo / "artifacts" / "work-1" / "task-plan.json").write_text(json.dumps(tasks))
+        text = "## Inbox\n\n## Active\n" + block("work-1", "active", "- task_plan: artifacts/work-1/task-plan.json\n") + "\n## Waiting\n\n## Archive\n"
+        plan = prepare.build_plan(text, "fixture", repo)
+        self.assertEqual(plan["invalid_state"][0]["reason"], "cycle_contract_violation")
+
     def test_timestamp_handoff_is_live_evidence(self):
         repo = Path(tempfile.mkdtemp())
         (repo / "traces").mkdir()

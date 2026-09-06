@@ -66,9 +66,24 @@ def task_plan_state(entry: dict[str, Any], repo: Path, sha: str) -> dict[str, An
         raw = (repo / path).read_text(encoding="utf-8") if sha == "fixture" else subprocess.check_output(
             ["git", "show", f"origin/main:{path}"], cwd=repo, text=True
         )
-        tasks = json.loads(raw).get("tasks", [])
+        plan = json.loads(raw)
+        tasks = plan.get("tasks", [])
     except (OSError, json.JSONDecodeError, subprocess.CalledProcessError):
         return {"state": "unreadable_plan", "path": path}
+    if plan.get("cycle_contract_version") == 1:
+        violations = []
+        for task in tasks:
+            if str(task.get("status", "")).lower() in {"done", "completed", "skipped"}:
+                continue
+            missing = [field for field in ("cycle_id", "cycle_goal", "validation", "closure_check", "evidence") if not task.get(field)]
+            try:
+                timebox_valid = 0 < int(task.get("max_minutes", 0)) <= 30
+            except (TypeError, ValueError):
+                timebox_valid = False
+            if missing or not timebox_valid:
+                violations.append({"task_id": task.get("id"), "missing": missing, "invalid_timebox": not timebox_valid})
+        if violations:
+            return {"state": "cycle_contract_violation", "violations": violations}
     done_states = {"done", "completed", "skipped"}
     by_id = {str(task.get("id")): task for task in tasks}
     active = next((task for task in tasks if str(task.get("status", "")).lower() == "active"), None)
@@ -161,6 +176,8 @@ def build_plan(text: str, sha: str, repo: Path) -> dict[str, Any]:
             timebox_reassessment.append(item)
         elif task_state["state"] == "blocked_dependencies":
             dependency_blocked.append(item)
+        elif task_state["state"] == "cycle_contract_violation":
+            invalid.append({"intent_id": entry["id"], "lane": entry["lane"], "status": entry["fields"].get("status", ""), "reason": "cycle_contract_violation", "task_state": task_state})
         else:
             invalid.append({"intent_id": entry["id"], "lane": entry["lane"], "status": entry["fields"].get("status", ""), "reason": "task_plan_has_no_active_or_pending_task", "task_state": task_state})
     slots = max(0, MAX_ACTIVE - len(active))
