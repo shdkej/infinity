@@ -1006,6 +1006,24 @@
       "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/t17-live.md", "artifacts/safety-map-experiment-04-20260906/t16-deploy.md", "artifacts/safety-map-experiment-04-20260906/t15-telemetry.md"],
       "searches": ["T17.1 dependency T16.3 status 확인"],
       "note": "T17.1은 T16.3 미완료 및 e04 전용 정적 사이트·배포 경로·검증 URL 부재로 활성화하지 않았다. T17.1에 T16.3 의존성을 구조화해 기록했고, 원격 라이브 URL·상태 코드·UI·접근성 검증 또는 기존 safety-map 재사용을 수행하지 않았다."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-928c65f1eecf4b8fb4a17339f4fd967a",
+      "canonical_sha": "c82cff4f6965fc44fac998d8cc7dc0d7cde14766",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-06T18:00:02Z",
+      "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-06T18:06:00Z",
+      "status": "done",
+      "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
+      "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/t14-mobile.md", "artifacts/safety-map-experiment-04-20260906/task-plan.json", "artifacts/safety-map-experiment-04-20260906/task-plan.md"],
+      "searches": ["T14.1 remote 390x844 viewport, Tab focus sequence, Enter search flow, no-render boundary"],
+      "note": "T14.1을 원격 3차 배포본에서 완료했다. 390×844 문서 overflow는 없었고 Tab으로 검색 입력과 제출 버튼에 도달했으며 Enter 검색 흐름이 동작했다. 로마 근거 없음, 적격 입력 0, NO SCORE·NO ROUTE·NO TRACKING 경계가 유지됐고 주의 신호·점수·경로·추적·개인 위치 수집은 생성하지 않았다."
     }
   ],
   "artifacts": [],
