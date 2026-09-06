@@ -682,6 +682,15 @@
       "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/task-plan.json", "artifacts/safety-map-experiment-04-20260906/task-plan.md", "artifacts/safety-map-experiment-04-20260906/t9-contract.json", "artifacts/safety-map-experiment-04-20260906/t9-red.md"],
       "searches": ["T10.1 집계·상충·근거 없음 규칙"],
       "note": "T10.1을 명시적 active leaf로 시작했다. 현 후보를 집계하거나 표시하지 않고, 출처 유형별 적격성 유지, 상충 처리, 근거 없음의 no-render 규칙만 정의한다."
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-06T13:52:00Z",
+      "status": "done",
+      "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
+      "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/t10-aggregate.md", "artifacts/safety-map-experiment-04-20260906/t9-contract.json", "artifacts/safety-map-experiment-04-20260906/t9-red.md"],
+      "searches": ["T10.1 집계·상충·근거 없음 규칙"],
+      "note": "T10.1을 30분 제한 내에 종료했다. 집계 진입에는 출처별 접근·사람 검토·최근성·지역 단위·독립성 충족을 요구하고, 상충·결측·단일 게시물은 hold_no_render로 처리한다. 현 적격 입력은 0개이므로 결과는 근거 없음/no-render다."
     }
   ],
   "artifacts": [],
