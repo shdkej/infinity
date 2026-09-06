@@ -205,6 +205,24 @@
       "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/t4-contract.json"],
       "searches": ["T4.1 source_url·published_at·collected_at·area_unit provenance 최소 계약"],
       "note": "T4.1을 30분 제한 내에 종료했다. provenance 최소 필드와 금지 필드, 사람 검토·복수성·Red 전 no-render 기본값을 JSON 계약으로 고정했다."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-dbf0911ee52e436b927b7282c66dd493",
+      "canonical_sha": "cd4eb8c335010dd4a6c0a418e559d7dc0c963f41",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-06T10:50:02Z",
+      "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-06T10:50:03Z",
+      "status": "active",
+      "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
+      "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/t4-contract.json", "artifacts/safety-map-experiment-04-20260906/task-plan.json", "artifacts/safety-map-experiment-04-20260906/task-plan.md"],
+      "searches": ["T4.2 provenance 최소 필드·금지 필드·no-render 독립 Red 검증"],
+      "note": "T4.2를 독립 Red leaf로 활성화했다. 검증은 계약의 데이터 최소화·표시 적격성·no-render 기본값에 한정한다."
     }
   ],
   "artifacts": [],
