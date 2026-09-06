@@ -1,0 +1,42 @@
+{
+  "intent_id": "safety-map-experiment-04-20260906",
+  "cycle_contract_version": 1,
+  "created_at": "2026-09-06T09:04:45Z",
+  "tasks": [
+    {
+      "id": "T1",
+      "cycle_id": "C1",
+      "cycle_goal": "로마에서 공개·재사용 가능한 공식 안전/범죄 데이터 후보 하나를 근거와 함께 판정한다.",
+      "title": "로마 공식 데이터 출처·라이선스 발견",
+      "status": "pending",
+      "max_minutes": 30,
+      "validation": "Red가 기관 원문 URL, 관할 범위, 라이선스, 관측·발행·갱신일의 존재와 위험 점수/추정을 추가하지 않았는지 판정한다.",
+      "closure_check": "후보 하나를 채택·기각·차단 중 하나로 닫고, 다음 사이클 입력과 근거 경로를 기록한다.",
+      "evidence": "artifacts/safety-map-experiment-04-20260906/c1-source-decision.md"
+    },
+    {
+      "id": "T2",
+      "cycle_id": "C2",
+      "cycle_goal": "채택 후보의 공간·시간 단위와 결측을 지도 표현에 사용할 수 있는지 판정한다.",
+      "title": "로마 데이터 메타데이터·표현 한계 검증",
+      "status": "pending",
+      "depends_on": ["T1"],
+      "max_minutes": 30,
+      "validation": "Red가 데이터의 관측·발행·갱신일, 집계 단위, 결측과 표현 가능한 주장 상한을 검토한다.",
+      "closure_check": "표시 가능한 최소 문구·금지 문구·다음 구현 단위를 기록한다.",
+      "evidence": "artifacts/safety-map-experiment-04-20260906/c2-data-contract.md"
+    },
+    {
+      "id": "T3",
+      "cycle_id": "C3",
+      "cycle_goal": "검증된 범위만 사용자에게 읽히는 지도 상태로 표현한다.",
+      "title": "로마 데이터 경계 UI 최소 구현",
+      "status": "pending",
+      "depends_on": ["T2"],
+      "max_minutes": 30,
+      "validation": "Red가 실제 렌더에서 출처·갱신일·한계 문구, 모바일 가독성, 과장된 안전 판단 부재를 판정한다.",
+      "closure_check": "desktop·390px 증거와 롤백 가능한 변경 경로를 남긴다.",
+      "evidence": "artifacts/safety-map-experiment-04-20260906/c3-render-review.md"
+    }
+  ]
+}

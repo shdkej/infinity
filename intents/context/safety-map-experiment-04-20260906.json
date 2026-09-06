@@ -1,0 +1,30 @@
+{
+  "context_pack_version": 1,
+  "status": "ready",
+  "route": "infinity",
+  "request": "치안지도 4차 실험: 로마 범위의 공식 근거 데이터 도입 가능성을 검증하고, 3차 전역 지도 UX 위에서 기능 단위 미니 사이클로 구현·검증한다.",
+  "built_at": "2026-09-06T09:04:45.020784+00:00",
+  "required_documents": [
+    "/home/ubuntu/workspace/prompt-archive/LLM.md",
+    "README.md",
+    "schema/agent-rules.md",
+    "source/openclaw-system/docs/DOCUMENT_SEARCH_PIPELINE.md",
+    "source/openclaw-system/docs/USER_CONTEXT.md",
+    "source/openclaw-system/docs/SERVICE_REGISTRY.md",
+    "source/openclaw-system/docs/INFINITY_OPERATING_RULES.md",
+    "infinity/INTENTS.md",
+    "agent-wiki/README.md"
+  ],
+  "search_scopes": [
+    "agent-wiki/content/docs/",
+    "source/openclaw-system/docs/",
+    "source/openclaw-system/data/daily-reviews/",
+    "source/openclaw-system/data/daily-tracking/",
+    "source/openclaw-system/data/photo-insights/"
+  ],
+  "rules": [
+    "Read every required document before creating or executing an intent.",
+    "Search the declared scopes for task-specific evidence; do not treat a search hit as a confirmed fact without its source.",
+    "Record the resulting context pack path in the intent and re-check it before handoff."
+  ]
+}

@@ -4,7 +4,30 @@
 
 ## Inbox
 
-<!-- 실행 대기 Intent 없음. -->
+### [safety-map-experiment-04-20260906] 로마 공식 데이터 기반 치안 지도 검증
+- status: inbox
+- target_agent: genie
+- priority: high
+- permission: L0-research-and-strategy
+- requested: 2026-09-06T09:04:45Z
+- execution_mode: multi_subagent_roles
+- projects: space,infinity,knowledge-lab,safety-map
+- task_type: evidence-bounded-product-iteration
+- predecessor: safety-map-experiment-03-20260905
+- goal: 로마 범위의 공식 공개 데이터가 치안 지도에 안전하게 도입 가능한지 검증하고, 가능할 때만 3차의 지도 UX 위에 출처·갱신일·표현 한계를 분명히 한 최소 기능을 만든다.
+- success_criteria: 각 기능 leaf가 30분 안에 계획→구현/조사→Red 검증→마감 확인을 닫고, 공식 원문·라이선스·관측/발행/갱신일·공간/시간 단위·결측을 검증한다. 검증 전에는 위험 점수·예측·안전 경로·실시간 사건·위치 수집을 만들지 않는다.
+- metric_question: 로마를 방문·거주하는 사용자가 5초 안에 이 데이터가 무엇을 말하고 무엇을 말하지 않는지 이해한 뒤, 출처와 갱신 상태를 확인할 수 있는가?
+- metric_signal: 원문·라이선스·갱신 메타데이터 완비, leaf별 Red 판정, desktop/390px 실제 렌더, 과장 주장·권한 요청·추적 요청 부재.
+- metric_decision_rule: T1의 공식 근거와 재사용 조건이 확인되면 T2로 진행한다. 확인되지 않으면 T1에서 보류·차단 보고로 닫고 데이터를 표시하지 않는다.
+- boundary: 로마 외 지역을 임의로 추가하지 않는다. 기존 3차 배포본을 덮어쓰지 않는다. 안전 등급·예측·안전 경로·실시간 사건·개인 위치 수집·개인정보 전송을 만들지 않는다. 토큰·자격증명은 어떤 산출물·로그·커밋에도 기록하지 않는다.
+- context_pack: intents/context/safety-map-experiment-04-20260906.json
+- context_documents_checked: LLM.md; Knowledge Lab README.md; schema/agent-rules.md; DOCUMENT_SEARCH_PIPELINE.md; USER_CONTEXT.md; SERVICE_REGISTRY.md; INFINITY_OPERATING_RULES.md; INTENTS.md; agent-wiki/README.md
+- context_searches: rg -l -i 'rome|roma|safety map|치안 지도|crime' agent-wiki/content/docs source/openclaw-system/docs daily-reviews daily-tracking photo-insights (no Rome task-specific compiled evidence; external official source research begins in T1)
+- task_plan: artifacts/safety-map-experiment-04-20260906/task-plan.json
+- notification_channel: slack
+- notification_target: C0BR41W31MM
+- notification_reply_to: 1788681442.847249
+- notification_origin: channel:C0BR41W31MM;reply_to:1788681442.847249
 
 ## Active
 
