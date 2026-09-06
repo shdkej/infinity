@@ -15,49 +15,6 @@
   },
   "events": [
     {
-      "type": "dispatcher_handoff",
-      "run_id": "dispatch-fb2d5068ed71404da2fcc684f184664d",
-      "canonical_sha": "fa657fb4599be4d06c855f88f33eb47b60be0146",
-      "agent": "genie",
-      "session_key": "agent:genie:infinity-dispatcher",
-      "timestamp": "2026-09-06T18:30:02Z",
-      "status": "accepted"
-    },
-    {
-      "type": "execution",
-      "at": "2026-09-06T18:34:00Z",
-      "status": "done",
-      "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
-      "evidence_paths": [
-        "artifacts/safety-map-experiment-04-20260906/t15-telemetry.md",
-        "artifacts/safety-map-experiment-04-20260906/t12-provenance.json"
-      ],
-      "searches": ["T15.1 telemetry privacy boundary and existing provenance prohibition"],
-      "note": "Four role reviews converged on a documentation-only, default-off telemetry contract. No SDK, cookie, local storage, collection, network transmission, deployment, data-signal authority, or safety/risk inference was added."
-    },
-    {
-      "type": "dispatcher_handoff",
-      "run_id": "dispatch-bab5941d8dee4fa5b32f869c5cad7220",
-      "canonical_sha": "2f4f1a318eb34ddced0ac252c6dc1de895adca51",
-      "agent": "genie",
-      "session_key": "agent:genie:infinity-dispatcher",
-      "timestamp": "2026-09-06T18:20:02Z",
-      "status": "accepted"
-    },
-    {
-      "type": "execution",
-      "at": "2026-09-06T18:22:00Z",
-      "status": "done",
-      "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
-      "evidence_paths": [
-        "artifacts/safety-map-experiment-04-20260906/t14-mobile.md",
-        "artifacts/safety-map-experiment-04-20260906/t14-red.md",
-        "artifacts/safety-map-experiment-04-20260906/t14-close.md"
-      ],
-      "searches": ["T14.3 closure: 390x844, Tab/Enter, no-render boundary"],
-      "note": "C14 closed from T14.1 remote evidence and T14.2 independent Red PASS. The adopted/extended e03 remote target was used only for mobile/keyboard verification; no separate e04 deployment, data signal, score, route, tracking, safety/risk claim, or aggregation was added."
-    },
-    {
       "type": "intake",
       "at": "2026-09-06T09:04:45Z",
       "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
@@ -1085,6 +1042,42 @@
       "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/t14-mobile.md", "artifacts/safety-map-experiment-04-20260906/t14-red.md", "artifacts/safety-map-experiment-04-20260906/task-plan.json", "artifacts/safety-map-experiment-04-20260906/task-plan.md"],
       "searches": ["T14.2 independent Red review of 390x844 viewport, keyboard sequence, and no-render boundary"],
       "note": "독립 Red가 T14.1에 PASS를 판정했다. 390×844 overflow 없음, Tab 입력·제출 도달, Enter 검색 흐름을 확인했으며 근거 없음·적격 입력 0·NO SCORE·NO ROUTE·NO TRACKING은 표시 권한 또는 안전·위험 주장으로 확장되지 않았다."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-bab5941d8dee4fa5b32f869c5cad7220",
+      "canonical_sha": "2f4f1a318eb34ddced0ac252c6dc1de895adca51",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-06T18:20:02Z",
+      "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-06T18:22:00Z",
+      "status": "done",
+      "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
+      "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/t14-mobile.md", "artifacts/safety-map-experiment-04-20260906/t14-red.md", "artifacts/safety-map-experiment-04-20260906/t14-close.md"],
+      "searches": ["T14.3 closure: 390x844, Tab/Enter, no-render boundary"],
+      "note": "C14 closed from T14.1 remote evidence and T14.2 independent Red PASS. The adopted/extended e03 remote target was used only for mobile/keyboard verification; no separate e04 deployment, data signal, score, route, tracking, safety/risk claim, or aggregation was added."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-fb2d5068ed71404da2fcc684f184664d",
+      "canonical_sha": "fa657fb4599be4d06c855f88f33eb47b60be0146",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-06T18:30:02Z",
+      "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-06T18:34:00Z",
+      "status": "done",
+      "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
+      "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/t15-telemetry.md", "artifacts/safety-map-experiment-04-20260906/t12-provenance.json"],
+      "searches": ["T15.1 telemetry privacy boundary and existing provenance prohibition"],
+      "note": "Four role reviews converged on a documentation-only, default-off telemetry contract. No SDK, cookie, local storage, collection, network transmission, deployment, data-signal authority, or safety/risk inference was added."
     },
     {
       "type": "dispatcher_handoff",
