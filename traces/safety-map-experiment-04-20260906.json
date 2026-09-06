@@ -259,6 +259,24 @@
       "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/t4-close.md"],
       "searches": ["T4.1 provenance 계약 및 T4.2 Red PASS C4 마감확인"],
       "note": "C4를 30분 제한 내에 종료했다. provenance 계약은 no-render 경계만 확정하며, 후보 수집·집계·핀/신호 렌더링·안전 주장을 허용하지 않는다. T5.1의 명시적 활성화 전에는 후속 작업을 시작하지 않는다."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-4c798b0bad984568934c7ff4bbf82949",
+      "canonical_sha": "ba8592568a082a5c9faccb8c1a307c62a890168f",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-06T11:10:01Z",
+      "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-06T11:10:03Z",
+      "status": "active",
+      "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
+      "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/task-plan.json", "artifacts/safety-map-experiment-04-20260906/task-plan.md", "artifacts/safety-map-experiment-04-20260906/t4-contract.json"],
+      "searches": ["T5.1 PII·위험 표현·중복 자동필터 계약"],
+      "note": "T5.1을 명시적 active leaf로 시작했다. 필터는 후보 원문을 수집·보존하지 않으며, 자동 차단 규칙과 no-render 경계만 정의한다."
     }
   ],
   "artifacts": [],
