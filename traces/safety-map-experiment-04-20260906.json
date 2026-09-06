@@ -718,6 +718,24 @@
       "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/t10-aggregate.md", "artifacts/safety-map-experiment-04-20260906/t10-red.md"],
       "searches": ["독립 Red: T10.1 집계·상충·근거 없음 no-render 금지선 검증"],
       "note": "독립 Red PASS: 집계 진입 조건과 상충·결측의 hold_no_render 처리가 적절하며, 근거 없음은 안전·위험 판단이 아니다. 규칙은 렌더·점수·핀·집계 권한을 만들지 않는다."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-90052d36f0ee4cc7bd0c20d47b640885",
+      "canonical_sha": "3a3bb54c480c4f983d979b9268ce25499e521e9d",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-06T14:10:02Z",
+      "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-06T14:10:02Z",
+      "status": "active",
+      "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
+      "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/task-plan.json", "artifacts/safety-map-experiment-04-20260906/task-plan.md", "artifacts/safety-map-experiment-04-20260906/t10-aggregate.md", "artifacts/safety-map-experiment-04-20260906/t10-red.md"],
+      "searches": ["T10.3 C10 집계·상충·근거 없음 no-render 마감확인"],
+      "note": "T10.3을 명시적 active leaf로 시작했다. T10.1 규칙과 T10.2 Red PASS만 마감확인하며, 후보 집계·수치화·표시·핀·신호 렌더링은 수행하지 않는다."
     }
   ],
   "artifacts": [],
