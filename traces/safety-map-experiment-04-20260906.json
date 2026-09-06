@@ -529,6 +529,24 @@
       "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/t8-official.md", "artifacts/safety-map-experiment-04-20260906/t4-contract.json", "artifacts/safety-map-experiment-04-20260906/t6-rubric.md"],
       "searches": ["Roma Capitale 공식 Open Data 포털", "Roma Capitale Annuario statistico 2024 Sicurezza urbana", "Roma 2021 교통사고 CKAN metadata"],
       "note": "T8.1을 30분 제한 내에 종료했다. 공식 provenance 후보를 URL·공개 메타데이터·공간 단위만 기준으로 분리했으며, O-01은 필수 세부 메타데이터 미확인으로 hold_no_render, O-02는 오래된 교통사고·정밀 위치 필드로 reject, O-03은 provenance 참조만 허용했다. 데이터 레코드·정확 위치·PII를 수집·보존하지 않았고 신호·핀·안전 주장을 만들지 않았다."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-62960382dedf4b7db5030f9c9c160731",
+      "canonical_sha": "ad0c51041374a4a0b3662b66290f82e3c9d39acb",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-06T13:00:02Z",
+      "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-06T13:00:02Z",
+      "status": "active",
+      "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
+      "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/task-plan.json", "artifacts/safety-map-experiment-04-20260906/task-plan.md", "artifacts/safety-map-experiment-04-20260906/t8-official.md", "artifacts/safety-map-experiment-04-20260906/t7-red.md"],
+      "searches": ["독립 Red: T8.1 공식 provenance와 커뮤니티 후보의 표현·렌더링 분리 검증"],
+      "note": "T8.2를 명시적 active Red leaf로 시작했다. 공식 provenance 후보와 커뮤니티 후보 모두 no-render 경계를 유지하는지 검토하며, 이를 현재 안전·위험 신호나 지도 표시로 해석하지 않는다."
     }
   ],
   "artifacts": [],
