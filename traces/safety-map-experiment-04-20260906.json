@@ -1094,6 +1094,15 @@
       "session_key": "agent:genie:infinity-dispatcher",
       "timestamp": "2026-09-06T18:40:01Z",
       "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-06T18:41:50Z",
+      "status": "done",
+      "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
+      "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/t15-telemetry.md", "artifacts/safety-map-experiment-04-20260906/t15-red.md", "artifacts/safety-map-experiment-04-20260906/task-plan.json", "artifacts/safety-map-experiment-04-20260906/task-plan.md"],
+      "searches": ["T15.2 independent Red review of telemetry privacy boundary"],
+      "note": "독립 Red가 T15.1 문서 전용·default-off telemetry 계약을 PASS로 판정했다. SDK·쿠키·localStorage·전송·배포·원본 이벤트 보존은 허용되지 않으며, 식별자·위치·검색 원문·출처 원문을 금지한다. telemetry는 근거 적격성, 렌더·핀·집계·점수·경로 또는 안전·위험 주장을 만들지 않는다."
     }
   ],
   "artifacts": [],
