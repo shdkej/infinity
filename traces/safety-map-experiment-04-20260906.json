@@ -340,6 +340,24 @@
       "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/t5-close.md"],
       "searches": ["T5.1 자동필터 및 T5.2 Red PASS C5 마감확인"],
       "note": "C5를 30분 제한 내에 종료했다. 자동필터 계약은 no-render 경계만 확정하며, 후보 수집·집계·핀/신호 렌더링·안전 주장을 허용하지 않는다. T6.1의 명시적 활성화 전에는 후속 작업을 시작하지 않는다."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-45b674efd46e45f2bd9a17eed3782f1f",
+      "canonical_sha": "5d61c39bb944e2be0a9ed584ff26828e77bcf653",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-06T11:50:02Z",
+      "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-06T11:50:03Z",
+      "status": "active",
+      "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
+      "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/task-plan.json", "artifacts/safety-map-experiment-04-20260906/task-plan.md", "artifacts/safety-map-experiment-04-20260906/t4-contract.json", "artifacts/safety-map-experiment-04-20260906/t5-filter.md"],
+      "searches": ["T6.1 사람 검토 rubric: no-render·PII·복수성·최근성·지역 단위 검토 기준"],
+      "note": "T6.1을 명시적 active leaf로 시작했다. rubric은 사람 검토의 reject/hold 기준만 정의하며 후보 접근·본문 보존·집계·렌더링을 허용하지 않는다."
     }
   ],
   "artifacts": [],
