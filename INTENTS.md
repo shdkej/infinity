@@ -4,8 +4,16 @@
 
 ## Inbox
 
+<!-- 실행 대기 Intent 없음. -->
+
+## Active
+
+<!-- 실행 중 Intent 없음. -->
+
+## Waiting
+
 ### [safety-map-experiment-04-20260906] 로마 공식 데이터 기반 치안 지도 검증
-- status: inbox
+- status: waiting
 - target_agent: genie
 - priority: high
 - permission: L0-research-and-strategy
@@ -26,18 +34,17 @@
 - context_documents_checked: LLM.md; Knowledge Lab README.md; schema/agent-rules.md; DOCUMENT_SEARCH_PIPELINE.md; USER_CONTEXT.md; SERVICE_REGISTRY.md; INFINITY_OPERATING_RULES.md; INTENTS.md; agent-wiki/README.md
 - context_searches: rg -l -i 'rome|roma|safety map|치안 지도|crime' agent-wiki/content/docs source/openclaw-system/docs daily-reviews daily-tracking photo-insights (no Rome task-specific compiled evidence; external official source research begins in T1)
 - task_plan: artifacts/safety-map-experiment-04-20260906/task-plan.json
+- task_plan_doc: artifacts/safety-map-experiment-04-20260906/task-plan.md
 - notification_channel: slack
 - notification_target: C0BR41W31MM
 - notification_reply_to: 1788681442.847249
 - notification_origin: channel:C0BR41W31MM;reply_to:1788681442.847249
-
-## Active
-
-<!-- 실행 중 Intent 없음. -->
-
-## Waiting
-
-<!-- 사용자 결정·외부 조건 대기만 기록한다. -->
+- trace: traces/safety-map-experiment-04-20260906.json
+- role_sessions: planner=/root/role_e04_planner; developer=/root/role_e04_developer; marketer=/root/role_e04_marketer; operator=/root/role_e04_operator
+- role_status: all completed; synthesis=artifacts/safety-map-experiment-04-20260906/role-synthesis-20260906T0923Z.md
+- blocker: T1의 공식 후보는 2022년 1–8월 Roma Capitale 도로교통사고 집계로, 현재 범죄·공공안전 상태 또는 장소별 치안 판단을 표시하는 근거가 될 수 없다. 독립 Red 재검증도 아직 없다.
+- next_retry_condition: Roma Capitale 또는 관할 국가기관의 로마 시 범위 공식 공개 범죄/공공안전 원문이 라이선스·관측 단위·결측·발행/갱신일·현재성 기준을 함께 제공할 때 T1을 새로 연다.
+- next_action: 검증된 공식 원문이 확보될 때까지 no-render를 유지한다.
 
 ### [research-32] Starter Story 솔로프리너 사례 1개 깊은 복원
 - status: waiting

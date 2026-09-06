@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "intent_id": "safety-map-experiment-04-20260906",
+  "status": "waiting",
+  "trace_completeness": "complete",
+  "request": {
+    "raw": {
+      "status": "recorded",
+      "value": "로마 공식 데이터 기반 치안 지도 검증"
+    },
+    "normalized_query": {
+      "status": "recorded",
+      "value": "로마 공식 공개 데이터의 재사용 가능성·메타데이터·표시 경계 검증"
+    }
+  },
+  "events": [
+    {
+      "type": "intake",
+      "at": "2026-09-06T09:04:45Z",
+      "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
+      "evidence_paths": [
+        "INTENTS.md"
+      ]
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-1bfb29c8405f4862a5ea562b70b3f52e",
+      "canonical_sha": "7bf1c2d42aa9213db05d7d75d94e18227d289d00",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-06T09:23:39Z",
+      "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-06T09:24:00Z",
+      "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
+      "evidence_paths": [
+        "artifacts/safety-map-experiment-04-20260906/role-synthesis-20260906T0923Z.md",
+        "artifacts/safety-map-experiment-04-20260906/c1-source-decision.md",
+        "reports/safety-map-experiment-04-20260906/20260906T0924Z-t1-hold.html"
+      ],
+      "searches": [
+        "Roma Capitale CKAN sicurezza urbana d108 metadata",
+        "Roma Capitale open data license terms"
+      ],
+      "note": "Four role reviews reconverged on no-render; candidate d108 is stale traffic-accident data, not current safety evidence."
+    }
+  ],
+  "artifacts": [],
+  "verifications": [],
+  "next_decision": {
+    "status": "hold",
+    "value": "Wait for a current official Rome public-safety source with reuse and metadata proof, then reopen T1."
+  }
+}
