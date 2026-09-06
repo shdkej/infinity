@@ -24,6 +24,19 @@
       "status": "accepted"
     },
     {
+      "type": "execution",
+      "at": "2026-09-06T18:22:00Z",
+      "status": "done",
+      "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
+      "evidence_paths": [
+        "artifacts/safety-map-experiment-04-20260906/t14-mobile.md",
+        "artifacts/safety-map-experiment-04-20260906/t14-red.md",
+        "artifacts/safety-map-experiment-04-20260906/t14-close.md"
+      ],
+      "searches": ["T14.3 closure: 390x844, Tab/Enter, no-render boundary"],
+      "note": "C14 closed from T14.1 remote evidence and T14.2 independent Red PASS. The adopted/extended e03 remote target was used only for mobile/keyboard verification; no separate e04 deployment, data signal, score, route, tracking, safety/risk claim, or aggregation was added."
+    },
+    {
       "type": "intake",
       "at": "2026-09-06T09:04:45Z",
       "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
