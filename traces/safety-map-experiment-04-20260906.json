@@ -556,6 +556,24 @@
       "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/t8-official.md", "artifacts/safety-map-experiment-04-20260906/t8-red.md", "artifacts/safety-map-experiment-04-20260906/t3-access.md", "artifacts/safety-map-experiment-04-20260906/t7-red.md"],
       "searches": ["독립 Red: T8.1 공식 provenance와 커뮤니티 후보의 표현·렌더링 분리 검증"],
       "note": "독립 Red PASS: O-01은 hold_no_render, O-02는 reject, O-03은 provenance 참조만 허용한다. 커뮤니티 후보도 hold_no_render를 유지하며, 공식성이나 검색 후보를 안전·위험 신호, 집계·핀·렌더링, 안전 보장·범죄 확정으로 해석하지 않았다."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-61453a3a4a2b467086feaede985a36ef",
+      "canonical_sha": "abc01d16c5e1f8f579450e7444ce34315224d8d9",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-06T13:10:01Z",
+      "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-06T13:10:01Z",
+      "status": "active",
+      "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
+      "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/task-plan.json", "artifacts/safety-map-experiment-04-20260906/task-plan.md", "artifacts/safety-map-experiment-04-20260906/t8-official.md", "artifacts/safety-map-experiment-04-20260906/t8-red.md"],
+      "searches": ["T8.3 C8 공식·커뮤니티 후보 no-render 마감확인"],
+      "note": "T8.3을 명시적 active leaf로 시작했다. T8.1 공식 provenance 판정과 T8.2 Red PASS만 마감확인하며, 후보 데이터·원문·PII의 추가 수집, 집계, 핀·신호 렌더링은 수행하지 않는다."
     }
   ],
   "artifacts": [],
