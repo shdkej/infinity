@@ -493,6 +493,15 @@
       "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/task-plan.json", "artifacts/safety-map-experiment-04-20260906/task-plan.md", "artifacts/safety-map-experiment-04-20260906/t7-decision.md", "artifacts/safety-map-experiment-04-20260906/t7-red.md"],
       "searches": ["T7.3 C7 후보 적격성 hold_no_render 마감확인"],
       "note": "T7.3을 명시적 active leaf로 시작했다. T7.1 판정과 T7.2 Red PASS의 hold_no_render 경계만 마감확인하며, 새 원문 접근·후보 수집·집계·핀/신호 렌더링은 수행하지 않는다."
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-06T12:41:30Z",
+      "status": "done",
+      "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
+      "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/t7-decision.md", "artifacts/safety-map-experiment-04-20260906/t7-red.md", "artifacts/safety-map-experiment-04-20260906/t7-close.md"],
+      "searches": ["T7.3 C7 후보 적격성 hold_no_render 마감확인"],
+      "note": "C7를 30분 제한 내에 종료했다. C-01~C-03은 최근성·공간 단위·독립성·사람 검토·접근 조건이 충족되지 않아 hold_no_render를 유지한다. 원문·PII·정확 위치 보존, 집계, 핀/신호 렌더링, 점수·예측·안전 보장·범죄 확정 표현은 수행하지 않았다."
     }
   ],
   "artifacts": [],
