@@ -468,7 +468,7 @@
       "note": "T7.2를 명시적 active Red leaf로 시작했다. T7.1의 기존 최소 메타데이터 판정만 검토하며 새 원문 접근·후보 수집·집계·핀/신호 렌더링은 수행하지 않는다."
     },
     {
-      "type": "red_verification",
+      "type": "execution",
       "at": "2026-09-06T12:33:00Z",
       "status": "pass",
       "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
@@ -549,7 +549,7 @@
       "note": "T8.2를 명시적 active Red leaf로 시작했다. 공식 provenance 후보와 커뮤니티 후보 모두 no-render 경계를 유지하는지 검토하며, 이를 현재 안전·위험 신호나 지도 표시로 해석하지 않는다."
     },
     {
-      "type": "red_verification",
+      "type": "execution",
       "at": "2026-09-06T13:02:30Z",
       "status": "pass",
       "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
