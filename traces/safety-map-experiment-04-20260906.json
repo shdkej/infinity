@@ -1704,6 +1704,23 @@
       "session_key": "agent:genie:infinity-dispatcher",
       "timestamp": "2026-09-06T19:51:15Z",
       "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-06T19:53:00Z",
+      "status": "done",
+      "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
+      "evidence_paths": [
+        "artifacts/safety-map-experiment-04-20260906/t17-live.md",
+        "artifacts/safety-map-experiment-04-20260906/t17-red.md",
+        "artifacts/safety-map-experiment-04-20260906/t17-close.md",
+        "artifacts/safety-map-experiment-04-20260906/task-plan.json",
+        "artifacts/safety-map-experiment-04-20260906/task-plan.md"
+      ],
+      "searches": [
+        "C17 closure of scoped live UI observation and final Red boundary"
+      ],
+      "note": "C17은 T17.1 라이브 UI 관찰과 T17.2 독립 Red PASS를 근거로 종료했다. URL 로드·검색 제어 접근성·오류 0·근거 없음 표현만 확인했으며, 후보 적격성·신호·핀·점수·경로·안전 또는 위험 주장, telemetry 구현, 전체 네트워크 감사, 신규 배포·rollback 실행으로 확장하지 않는다. no-render를 유지한다."
     }
   ],
   "artifacts": [],
