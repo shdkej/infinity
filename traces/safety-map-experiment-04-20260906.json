@@ -610,6 +610,24 @@
       "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/t9-contract.json", "artifacts/safety-map-experiment-04-20260906/t4-contract.json", "artifacts/safety-map-experiment-04-20260906/t8-red.md"],
       "searches": ["T9.1 공식·커뮤니티 공통 데이터 계약"],
       "note": "T9.1을 30분 제한 내에 종료했다. 공통 최소 provenance와 source_class를 정의하고 source-specific 필드·접근 상태·검토 상태·적격성은 출처 유형별로 분리했다. 계약은 hold_no_render 또는 reject만 허용하며 표시 권한을 만들지 않는다."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-53c5eec479764112945dfa3717e62db8",
+      "canonical_sha": "e973e117a45e779052936b408a5684f946e96b65",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-06T13:30:02Z",
+      "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-06T13:30:02Z",
+      "status": "active",
+      "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
+      "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/task-plan.json", "artifacts/safety-map-experiment-04-20260906/task-plan.md", "artifacts/safety-map-experiment-04-20260906/t9-contract.json"],
+      "searches": ["독립 Red: T9.1 공통 데이터 계약의 provenance 분리·no-render 경계 검증"],
+      "note": "T9.2를 명시적 active Red leaf로 시작했다. 공통 필드가 출처 유형 간 적격성 전이를 만들지 않고, 계약이 표시·집계·핀 권한을 생성하지 않는지 검증한다."
     }
   ],
   "artifacts": [],
