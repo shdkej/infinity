@@ -531,8 +531,9 @@
     {
       "id": "T16.2",
       "title": "Red: 배포·rollback",
-      "status": "active",
+      "status": "done",
       "started_at": "2026-09-06T19:10:02Z",
+      "completed_at": "2026-09-06T19:11:53Z",
       "depends_on": [
         "T16.1"
       ],
