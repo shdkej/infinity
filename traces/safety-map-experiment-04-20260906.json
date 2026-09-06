@@ -583,6 +583,24 @@
       "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/t8-official.md", "artifacts/safety-map-experiment-04-20260906/t8-red.md", "artifacts/safety-map-experiment-04-20260906/t8-close.md"],
       "searches": ["T8.3 C8 공식·커뮤니티 후보 no-render 마감확인"],
       "note": "C8을 30분 제한 내에 종료했다. O-01은 hold_no_render, O-02는 reject, O-03은 provenance 참조만 허용한다. 커뮤니티 후보도 hold_no_render를 유지한다. 원문·작성자·정확 위치·PII 보존, 집계, 핀·신호 렌더링, 위험 점수·범죄 확정·안전 보장 표현은 수행하지 않았다."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-a802c89ff3ab4663a44667290cdbb124",
+      "canonical_sha": "f68deb82dee44fe7eb5337b526b67d6c7487263d",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-06T13:20:02Z",
+      "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-06T13:20:02Z",
+      "status": "active",
+      "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
+      "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/task-plan.json", "artifacts/safety-map-experiment-04-20260906/task-plan.md", "artifacts/safety-map-experiment-04-20260906/t4-contract.json", "artifacts/safety-map-experiment-04-20260906/t8-red.md"],
+      "searches": ["T9.1 공식·커뮤니티 공통 데이터 계약"],
+      "note": "T9.1을 명시적 active leaf로 시작했다. 공식·커뮤니티 provenance를 같은 최소 필드와 no-render 기본값으로 정렬하되, 출처 유형·접근 상태·적격성은 분리한다. 원문·PII·정확 위치 수집, 집계, 핀·신호 렌더링은 수행하지 않는다."
     }
   ],
   "artifacts": [],
