@@ -151,6 +151,24 @@
       "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/t3-red.md"],
       "searches": ["T3.1 Reddit robots·HTTP 403·no-render 독립 Red 검토"],
       "note": "독립 Red PASS: robots Disallow:/와 HTTP 403은 자동 접근 중단의 운영 근거이며, 약관 공개를 자동 수집 허가로 해석하지 않았다. 후보는 계속 no-render다."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-55b24daa34c448ec9511de05001af3b9",
+      "canonical_sha": "2a3cca3e18ad4d67277086db1adaa9cfd24c7ebb",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-06T10:31:20Z",
+      "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-06T10:31:21Z",
+      "status": "active",
+      "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
+      "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/task-plan.json", "artifacts/safety-map-experiment-04-20260906/task-plan.md", "artifacts/safety-map-experiment-04-20260906/t3-access.md", "artifacts/safety-map-experiment-04-20260906/t3-red.md"],
+      "searches": ["T3.3 C3 no-render 마감확인"],
+      "note": "T3.3을 명시적 active leaf로 시작했다. T3.1/T3.2의 자동 접근 차단 및 no-render 결론만 마감확인 범위에 포함한다."
     }
   ],
   "artifacts": [],
