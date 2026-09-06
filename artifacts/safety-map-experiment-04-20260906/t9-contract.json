@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "purpose": "공식 자료와 공개 커뮤니티 후보의 최소 provenance 정렬 계약 — 안전 판단·위험 신호·지도 렌더링 계약이 아님",
+  "default_render_state": "no-render",
+  "shared_required": [
+    "source_url",
+    "source_class",
+    "published_at_or_unknown",
+    "collected_at",
+    "area_unit_or_unknown",
+    "access_decision",
+    "review_state",
+    "eligibility_state"
+  ],
+  "source_class": ["official", "community"],
+  "source_specific": {
+    "official": ["publisher_or_portal", "dataset_or_document_title", "update_at_or_unknown", "license_or_terms_reference"],
+    "community": ["platform", "terms_reference_or_unknown", "human_review_required", "independence_group_or_unknown"]
+  },
+  "eligibility_state": ["hold_no_render", "reject"],
+  "prohibited": [
+    "source_body",
+    "comments",
+    "author_or_handle",
+    "profile_or_image",
+    "exact_address_or_coordinates",
+    "single_post_pin",
+    "risk_score_or_prediction",
+    "crime_fact_assertion",
+    "safety_guarantee",
+    "device_or_location_telemetry"
+  ],
+  "separation_rule": "source_class, access_decision, review_state, and eligibility_state must not be inferred across source types; official provenance does not validate a community candidate, and community experience does not validate an official dataset.",
+  "render_rule": "This contract grants no rendering permission. Any later display requires separate aggregation, expression, provenance, and independent Red gates."
+}
