@@ -8,10 +8,6 @@
 
 ## Active
 
-<!-- 실행 중 Intent 없음. -->
-
-## Waiting
-
 ### [safety-map-experiment-04-20260906] 로마 위험 회피 보조 근거 검증
 - status: active
 - target_agent: genie
@@ -46,6 +42,8 @@
 - blocker: 표시 가능한 지역 집계 근거는 아직 없다. T2에서 공개 커뮤니티/블로그 후보를 탐색하되, 원문·날짜·공간 단위·사람 검토·복수 최근 경험 기준을 충족하지 못하면 no-render를 유지한다.
 - next_retry_condition: 없음 — T2.1 공개 후보 탐색을 즉시 실행한다.
 - next_action: T2.1에서 공개 접근·이용약관 내 Reddit, DCInside, Naver Blog/Cafe, 더쿠, 인스티즈 등 후보를 URL·게시일·수집일·공간 단위 메타데이터만으로 판정한다.
+
+## Waiting
 
 ### [research-32] Starter Story 솔로프리너 사례 1개 깊은 복원
 - status: waiting
