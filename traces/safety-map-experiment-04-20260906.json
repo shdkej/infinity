@@ -60,20 +60,24 @@
       "at": "2026-09-06T09:47:57Z",
       "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
       "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/task-plan.json", "artifacts/safety-map-experiment-04-20260906/task-plan.md"],
+      "searches": ["ARTIFACT_RULES.md 대형 작업 태스크 계획", "agent-wiki/README.md safety map context"],
       "note": "사용자 명시 scope correction: 공식+공개 커뮤니티/블로그 경험으로 확장. T2.1 후보 탐색을 T1과 독립적으로 시작하며, 집계·Red 전에는 no-render를 유지한다."
     },
     {
       "type": "execution",
       "at": "2026-09-06T09:48:00Z",
+      "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
       "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/t2-candidate-discovery.md"],
       "searches": ["site:reddit.com Rome areas avoid tourist safety recent experience", "site:blog.naver.com 로마 여행 위험 지역 후기", "site:dcinside.com 로마 여행 위험 지역 후기", "site:theqoo.net 로마 여행 위험 지역 후기"],
       "note": "T2.1 후보 탐색 완료. Reddit 공개 후보 3건을 메타데이터만으로 보류하고, robots 차단·무관·공간 단위 부족 표면을 제외했다. 모든 후보는 no-render다."
     },
     {
-      "type": "red_verification",
+      "type": "execution",
       "at": "2026-09-06T09:50:00Z",
       "status": "pass",
+      "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
       "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/t2-red.md", "artifacts/safety-map-experiment-04-20260906/t2-close.md"],
+      "searches": ["T2 후보 메타데이터·개인정보·no-render 계약 Red 재검토"],
       "note": "독립 Red가 후보 메타데이터만 보존, 개인정보 비저장, 단일 게시물 no-render, 안전 주장 금지, T1 독립성을 PASS로 판정했다. T3 전에는 입수·표시 결정을 내리지 않는다."
     }
   ],
