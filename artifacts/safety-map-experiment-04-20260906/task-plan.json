@@ -483,7 +483,8 @@
     {
       "id": "T15.1",
       "title": "개인식별·위치 없는 telemetry",
-      "status": "pending",
+      "status": "active",
+      "started_at": "2026-09-06T18:30:02Z",
       "depends_on": [
         "T13.1"
       ],
