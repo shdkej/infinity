@@ -1,7 +1,7 @@
 # 치안 지도 3차 실험 아카이브
 
-- id: `safety-map-experiment-03-20260905`
-- status: `archived`
+- id: safety-map-experiment-03-20260905
+- status: archived
 - terminal_result: `archived_user_closed`
 - archived_at: `2026-09-06T08:00:00Z`
 - archive_authority: 사용자 명시 요청 — “마감시키고 결과보고서 작성해줘”
