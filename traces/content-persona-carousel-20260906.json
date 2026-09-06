@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "intent_id": "content-persona-carousel-20260906",
+  "status": "active",
+  "trace_completeness": "complete",
+  "request": {
+    "raw": {"status": "recorded", "value": "Role & Persona Definition 템플릿을 채운 첫 Instagram 캐러셀 1건을 비공개 초안으로 만든다."},
+    "normalized_query": {"status": "recorded", "value": "선택을 줄여 실제로 작동하는 구조를 만드는 관찰자 페르소나의 6장 Instagram 캐러셀 초안"}
+  },
+  "events": [
+    {
+      "type": "intake",
+      "at": "2026-09-06T21:57:35Z",
+      "context_pack": "intents/context/content-persona-carousel-20260906.json",
+      "evidence_paths": ["INTENTS.md", "intents/context/content-persona-carousel-20260906.json"]
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-248a64516350481998e6e731b1af87f0",
+      "canonical_sha": "87ea546c5edfaf88f0a19cf275900a6fd39f076b",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-06T22:10:02Z",
+      "status": "accepted"
+    }
+  ],
+  "artifacts": [],
+  "verifications": [],
+  "next_decision": {"status": "execute", "value": "Read the declared content evidence and produce a private six-slide draft with independent Red review."}
+}

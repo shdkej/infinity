@@ -4,8 +4,12 @@
 
 ## Inbox
 
+<!-- 실행 대기 Intent 없음. -->
+
+## Active
+
 ### [content-persona-carousel-20260906] 서브 페르소나 템플릿 첫 캐러셀
-- status: inbox
+- status: active
 - target_agent: genie
 - priority: high
 - permission: L0-content-draft-no-publication
@@ -34,12 +38,6 @@
 - notification_reply_to: 1788731761.869669
 - notification_origin: channel:C0BR41W31MM;reply_to:1788731761.869669
 - next_action: Genie가 템플릿의 문체·구조 제약으로 캐러셀 초안을 만들고 Red가 텍스트·시각 큐를 검증한다.
-
-<!-- 실행 대기 Intent 없음. -->
-
-## Active
-
-<!-- 실행 중 Intent 없음. -->
 
 ## Waiting
 
