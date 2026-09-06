@@ -519,8 +519,9 @@
     {
       "id": "T16.1",
       "title": "3차 배포본 갱신·rollback",
-      "status": "active",
+      "status": "done",
       "started_at": "2026-09-06T19:00:02Z",
+      "completed_at": "2026-09-06T19:01:21Z",
       "depends_on": [
         "T13.3"
       ],

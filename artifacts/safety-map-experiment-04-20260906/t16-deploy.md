@@ -1,8 +1,14 @@
-# T16.1 isolated e04 배포 설정 — 의존성 차단 기록
+# T16.1 3차 배포본 갱신·rollback
 
-- 판정 시각: 2026-09-06T15:50:02Z
-- 결과: **blocked**
+## 검증한 배포 상태
 
-T16.1은 T15.3 완료 후에만 시작할 수 있다. 그러나 T15.1은 T14.3 미완료로 차단됐고, 그 선행 원인은 e04 전용 정적 사이트·배포 경로·검증 URL의 부재다. 따라서 격리 배포 설정을 독립적으로 시작하면 의존성 계약을 위반한다.
+- Space 정본: `8ecae7ce2396337250839840f2ec9c1d7c98d0e7` (`feat(safety-map): add Rome evidence-empty state`).
+- 배포 run: GitHub Actions **Deploy static site to AWS** `34050034361`, 성공, 같은 SHA.
+- live URL: `https://safety-map-experiment-03.aws.shdkej.com/` — HTTP 200.
+- 라이브 HTML은 `NO SCORE · NO ROUTE · NO TRACKING`을 표시한다.
 
-이번 cycle에서는 기존 `safety-map` 경로를 재사용하거나, 배포·rollback·외부 URL 검증을 성공으로 표시하지 않았다. e04 전용 사이트와 배포 대상이 만들어지고 T13~T15가 완료된 뒤에만 재개한다.
+## 경계와 rollback
+
+이번 cycle은 새 배포나 rollback을 실행하지 않았다. 라이브 앱의 유일한 확인된 네트워크 호출은 사용자가 명시적으로 제출한 장소 검색을 위한 Mapbox geocoding 요청이며, telemetry SDK·쿠키·localStorage·원격 telemetry 전송은 추가하지 않았다.
+
+Rollback이 필요할 때는 Space의 현재 배포 SHA를 기준으로 변경 원인을 먼저 격리하고, 보호된 runtime config를 보존한 상태에서 승인된 이전 배포 SHA로 되돌린 뒤 HTTP 200, `근거 없음`, `NO SCORE · NO ROUTE · NO TRACKING`, 390px/키보드 흐름을 재검증한다. 이 cycle에는 실패 징후가 없으므로 rollback은 수행하지 않는다.
