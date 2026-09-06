@@ -93,7 +93,12 @@
 - trace: traces/safety-map-experiment-03-20260905.json
 - red_status: pass
 - red_report: artifacts/safety-map-experiment-03-20260905/red-dashboard-recovery-report.md
-- remote_verified: pending
+- remote_verified: pass
+- remote_commit: 9dd72e2e2a94e4cee77abdb5819dc6b33f36edf3
+- notification_channel: slack
+- notification_target: C0BR41W31MM
+- notification_reply_to: 1788681442.847249
+- notification_origin: channel:C0BR41W31MM;reply_to:1788681442.847249
 - metric_result: 전역 지도 캔버스·Milan 검색·레이어 전환·390px 무가로넘침·telemetry 부재·Red 통과를 확인했다. 실제 치안 데이터는 도입하지 않았다.
 - metric_next_decision: 현 배포본은 유지한다. 실제 데이터 조사는 사용자 지정 행정구역과 공식 근거·라이선스 검증이 있는 별도 Intent에서만 판단한다.
 - knowledge_status: used
