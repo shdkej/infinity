@@ -628,6 +628,15 @@
       "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/task-plan.json", "artifacts/safety-map-experiment-04-20260906/task-plan.md", "artifacts/safety-map-experiment-04-20260906/t9-contract.json"],
       "searches": ["독립 Red: T9.1 공통 데이터 계약의 provenance 분리·no-render 경계 검증"],
       "note": "T9.2를 명시적 active Red leaf로 시작했다. 공통 필드가 출처 유형 간 적격성 전이를 만들지 않고, 계약이 표시·집계·핀 권한을 생성하지 않는지 검증한다."
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-06T13:32:00Z",
+      "status": "done",
+      "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
+      "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/t9-contract.json", "artifacts/safety-map-experiment-04-20260906/t9-red.md", "artifacts/safety-map-experiment-04-20260906/t4-contract.json"],
+      "searches": ["독립 Red: T9.1 공통 데이터 계약의 provenance 분리·no-render 경계 검증"],
+      "note": "독립 Red PASS: official/community source_class와 접근·검토·적격성 상태가 분리되어 있으며 출처 간 전이가 없다. 계약은 no-render 기본값을 유지하고 렌더·집계·핀 권한을 만들지 않는다."
     }
   ],
   "artifacts": [],
