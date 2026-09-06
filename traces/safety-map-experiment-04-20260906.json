@@ -421,6 +421,24 @@
       "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/t6-rubric.md", "artifacts/safety-map-experiment-04-20260906/t6-red.md", "artifacts/safety-map-experiment-04-20260906/t6-close.md"],
       "searches": ["T6.3 C6 no-render 사람 검토 기준 마감확인"],
       "note": "C6를 30분 제한 내에 종료했다. T6.1 rubric과 T6.2 Red PASS는 reject/hold_no_render 경계만 확인하며, 후보 원문·PII·정확 위치 보존, 집계, 핀/신호 렌더링, 안전 보장·범죄 확정 표현을 허용하지 않는다. 다음 후보 적격성 판정도 no-render로 시작한다."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-21df0e453f9a4cae9f6db0df690e25b1",
+      "canonical_sha": "ce364cf1a5a08ea71b09228c2ddf15be22e51d48",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-06T12:20:01Z",
+      "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-06T12:20:02Z",
+      "status": "active",
+      "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
+      "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/task-plan.json", "artifacts/safety-map-experiment-04-20260906/task-plan.md", "artifacts/safety-map-experiment-04-20260906/t2-candidate-discovery.md", "artifacts/safety-map-experiment-04-20260906/t6-rubric.md"],
+      "searches": ["T7.1 후보 최소 메타데이터의 최근성·공간 단위·독립성 no-render 적격성 판정"],
+      "note": "T7.1을 명시적 active leaf로 시작했다. 새 원문 접근이나 후보 수집 없이 최소 metadata의 판정 가능성만 검토하며, 단일 후보·접근 차단·독립성 미확인 상태에서는 no-render를 유지한다."
     }
   ],
   "artifacts": [],
