@@ -25,7 +25,7 @@
 - metric_question: 로마를 방문·거주하는 사용자가 5초 안에 이 데이터가 무엇을 말하고 무엇을 말하지 않는지 이해한 뒤, 출처와 갱신 상태를 확인할 수 있는가?
 - metric_signal: 원문·라이선스·갱신 메타데이터 완비, leaf별 Red 판정, desktop/390px 실제 렌더, 과장 주장·권한 요청·추적 요청 부재.
 - metric_decision_rule: T2 공개 후보 탐색은 T1 공식 자료 채택과 독립적으로 시작한다. 자동필터·사람 검토·최근 복수 경험의 지역 단위 집계·Red 검증이 모두 통과하기 전에는 데이터를 표시하지 않는다.
-- boundary: 로마 외 지역을 임의로 추가하지 않는다. 기존 3차 배포본을 덮어쓰지 않는다. 안전 등급·예측·안전 경로·실시간 사건·개인 위치 수집·개인정보 전송을 만들지 않는다. 공개 접근·이용약관 내 자료만 사용하고, 개인 식별정보·작성자 식별자·단일 게시물 핀·범죄 사실 확정·안전 보장을 만들지 않는다. 화면은 지역 단위의 ‘사용자 경험 기반 주의 신호’와 출처/날짜/신뢰도/‘근거 없음’만 표시한다. 토큰·자격증명은 어떤 산출물·로그·커밋에도 기록하지 않는다.
+- boundary: 로마 외 지역을 임의로 추가하지 않는다. 4차는 3차 배포본을 직접 확장하되, 검증되지 않은 데이터·기능을 덮어쓰거나 안전 경계를 낮추지 않는다. 안전 등급·예측·안전 경로·실시간 사건·개인 위치 수집·개인정보 전송을 만들지 않는다. 공개 접근·이용약관 내 자료만 사용하고, 개인 식별정보·작성자 식별자·단일 게시물 핀·범죄 사실 확정·안전 보장을 만들지 않는다. 화면은 지역 단위의 ‘사용자 경험 기반 주의 신호’와 출처/날짜/신뢰도/‘근거 없음’만 표시한다. 토큰·자격증명은 어떤 산출물·로그·커밋에도 기록하지 않는다.
 - context_pack: intents/context/safety-map-experiment-04-20260906.json
 - context_documents_checked: LLM.md; Knowledge Lab README.md; schema/agent-rules.md; DOCUMENT_SEARCH_PIPELINE.md; USER_CONTEXT.md; SERVICE_REGISTRY.md; INFINITY_OPERATING_RULES.md; INTENTS.md; agent-wiki/README.md
 - context_searches: rg -l -i 'rome|roma|safety map|치안 지도|crime' agent-wiki/content/docs source/openclaw-system/docs daily-reviews daily-tracking photo-insights (no Rome task-specific compiled evidence; external official source research begins in T1)
@@ -39,9 +39,9 @@
 - trace: traces/safety-map-experiment-04-20260906.json
 - role_sessions: planner=/root/role_e04_planner; developer=/root/role_e04_developer; marketer=/root/role_e04_marketer; operator=/root/role_e04_operator
 - role_status: all completed; synthesis=artifacts/safety-map-experiment-04-20260906/role-synthesis-20260906T0923Z.md
-- blocker: 표시 가능한 지역 집계 근거는 아직 없다. T2에서 공개 커뮤니티/블로그 후보를 탐색하되, 원문·날짜·공간 단위·사람 검토·복수 최근 경험 기준을 충족하지 못하면 no-render를 유지한다.
-- next_retry_condition: 없음 — T2.1 공개 후보 탐색을 즉시 실행한다.
-- next_action: T2.1에서 공개 접근·이용약관 내 Reddit, DCInside, Naver Blog/Cafe, 더쿠, 인스티즈 등 후보를 URL·게시일·수집일·공간 단위 메타데이터만으로 판정한다.
+- blocker: 표시 가능한 지역 집계 근거는 아직 없으므로 no-render를 유지한다. 이는 구현 차단이 아니다. T13은 3차 배포본에 로마 근거 없음 상태를 구현·Red 검증까지 마쳤다.
+- next_retry_condition: 없음 — T14.1의 390px·키보드 접근성 검증을 즉시 실행한다.
+- next_action: T14.1에서 3차 배포본의 로마 근거 없음 상태를 390px·키보드 흐름 기준으로 독립 검증한다.
 
 ## Waiting
 

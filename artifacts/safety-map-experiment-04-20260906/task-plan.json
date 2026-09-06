@@ -4,24 +4,566 @@
   "deadline": "2026-09-07T06:00:00Z",
   "deadline_local": "2026-09-07 08:00 Europe/Rome (CEST)",
   "execution_rule": "T2~T17의 각 부모는 30분 이내 Tn.1 조사/구현, Tn.2 독립 Red, Tn.3 마감확인으로 닫는다. 증거 없이 done 금지이며, 마지막 12시간은 재검증·배포·복구 버퍼로 남긴다.",
-  "guardrails": {"source_scope":"공식 자료 또는 공개 접근·이용약관 내 커뮤니티/블로그 경험", "provenance":["source_url","published_at_or_unknown","collected_at","area_unit"], "pipeline":["자동필터","사람 검토","최근 복수 독립 경험의 지역 단위 집계"], "never_render":["개인식별 또는 정확한 주소","단일 게시물","게시일·공간 단위·사람 검토 누락","최근성/복수성 미달","범죄 사실 확정·안전 보장"], "render_label":"사용자 경험 기반 주의 신호", "fallback":"근거 없음"},
-  "deviations": [{"at":"2026-09-06T09:47:57Z","reason":"사용자 명시로 ‘official only’ 범위를 공식+공개 커뮤니티/블로그 경험으로 확장한다.","impact":"T1 공식 후보 채택은 T2의 선행조건이 아니며, 데이터 표시는 집계·Red 통과 전까지 금지한다.","task_ids":["T1","T2","T3","T4","T5","T6","T7","T8","T9","T10","T11","T12","T13","T14","T15","T16","T17"]}],
+  "guardrails": {
+    "source_scope": "공식 자료 또는 공개 접근·이용약관 내 커뮤니티/블로그 경험",
+    "provenance": [
+      "source_url",
+      "published_at_or_unknown",
+      "collected_at",
+      "area_unit"
+    ],
+    "pipeline": [
+      "자동필터",
+      "사람 검토",
+      "최근 복수 독립 경험의 지역 단위 집계"
+    ],
+    "never_render": [
+      "개인식별 또는 정확한 주소",
+      "단일 게시물",
+      "게시일·공간 단위·사람 검토 누락",
+      "최근성/복수성 미달",
+      "범죄 사실 확정·안전 보장"
+    ],
+    "render_label": "사용자 경험 기반 주의 신호",
+    "fallback": "근거 없음"
+  },
+  "deviations": [
+    {
+      "at": "2026-09-06T09:47:57Z",
+      "reason": "사용자 명시로 ‘official only’ 범위를 공식+공개 커뮤니티/블로그 경험으로 확장한다.",
+      "impact": "T1 공식 후보 채택은 T2의 선행조건이 아니며, 데이터 표시는 집계·Red 통과 전까지 금지한다.",
+      "task_ids": [
+        "T1",
+        "T2",
+        "T3",
+        "T4",
+        "T5",
+        "T6",
+        "T7",
+        "T8",
+        "T9",
+        "T10",
+        "T11",
+        "T12",
+        "T13",
+        "T14",
+        "T15",
+        "T16",
+        "T17"
+      ]
+    }
+  ],
   "tasks": [
-    {"id":"T2.1","title":"공개 커뮤니티·블로그 후보 탐색·입수성 판정","status":"done","max_minutes":30,"evidence":"artifacts/safety-map-experiment-04-20260906/t2-candidate-discovery.md"}, {"id":"T2.2","title":"Red: 후보 범위·표시 금지 재검토","status":"done","depends_on":["T2.1"],"max_minutes":30,"evidence":"artifacts/safety-map-experiment-04-20260906/t2-red.md"}, {"id":"T2.3","title":"C2 마감확인","status":"done","depends_on":["T2.2"],"max_minutes":30,"evidence":"artifacts/safety-map-experiment-04-20260906/t2-close.md"},
-    {"id":"T3.1","title":"공개접근·ToS·robots 판정","status":"done","started_at":"2026-09-06T10:10:43Z","completed_at":"2026-09-06T10:12:00Z","max_minutes":30,"evidence":"artifacts/safety-map-experiment-04-20260906/t3-access.md"}, {"id":"T3.2","title":"Red: 입수성 판정","status":"done","started_at":"2026-09-06T10:20:19Z","completed_at":"2026-09-06T10:21:30Z","depends_on":["T3.1"],"max_minutes":30,"evidence":"artifacts/safety-map-experiment-04-20260906/t3-red.md"}, {"id":"T3.3","title":"C3 마감확인","status":"done","started_at":"2026-09-06T10:31:20Z","completed_at":"2026-09-06T10:32:30Z","depends_on":["T3.2"],"max_minutes":30,"evidence":"artifacts/safety-map-experiment-04-20260906/t3-close.md"},
-    {"id":"T4.1","title":"출처·날짜·공간 단위 메타데이터 계약","status":"done","started_at":"2026-09-06T10:40:01Z","completed_at":"2026-09-06T10:42:00Z","max_minutes":30,"evidence":"artifacts/safety-map-experiment-04-20260906/t4-contract.json"}, {"id":"T4.2","title":"Red: 메타데이터 계약","status":"done","started_at":"2026-09-06T10:50:02Z","completed_at":"2026-09-06T10:51:30Z","depends_on":["T4.1"],"max_minutes":30,"evidence":"artifacts/safety-map-experiment-04-20260906/t4-red.md"}, {"id":"T4.3","title":"C4 마감확인","status":"done","started_at":"2026-09-06T11:00:03Z","completed_at":"2026-09-06T11:02:00Z","depends_on":["T4.2"],"max_minutes":30,"evidence":"artifacts/safety-map-experiment-04-20260906/t4-close.md"},
-    {"id":"T5.1","title":"PII·위험 표현·중복 자동필터","status":"done","started_at":"2026-09-06T11:10:03Z","completed_at":"2026-09-06T11:12:00Z","max_minutes":30,"evidence":"artifacts/safety-map-experiment-04-20260906/t5-filter.md"}, {"id":"T5.2","title":"Red: 자동필터 경계","status":"done","started_at":"2026-09-06T11:20:03Z","completed_at":"2026-09-06T11:21:30Z","depends_on":["T5.1"],"max_minutes":30,"evidence":"artifacts/safety-map-experiment-04-20260906/t5-red.md"}, {"id":"T5.3","title":"C5 마감확인","status":"done","started_at":"2026-09-06T11:30:03Z","completed_at":"2026-09-06T11:32:00Z","depends_on":["T5.2"],"max_minutes":30,"evidence":"artifacts/safety-map-experiment-04-20260906/t5-close.md"},
-    {"id":"T6.1","title":"사람 검토 rubric","status":"done","started_at":"2026-09-06T11:50:03Z","completed_at":"2026-09-06T11:52:00Z","max_minutes":30,"evidence":"artifacts/safety-map-experiment-04-20260906/t6-rubric.md"}, {"id":"T6.2","title":"Red: 사람 검토 기준","status":"done","started_at":"2026-09-06T12:00:03Z","completed_at":"2026-09-06T12:02:00Z","depends_on":["T6.1"],"max_minutes":30,"evidence":"artifacts/safety-map-experiment-04-20260906/t6-red.md"}, {"id":"T6.3","title":"C6 마감확인","status":"done","started_at":"2026-09-06T12:10:02Z","completed_at":"2026-09-06T12:11:26Z","depends_on":["T6.2"],"max_minutes":30,"evidence":"artifacts/safety-map-experiment-04-20260906/t6-close.md"},
-    {"id":"T7.1","title":"최근성·공간단위·독립성 판정","status":"done","started_at":"2026-09-06T12:20:02Z","completed_at":"2026-09-06T12:22:10Z","max_minutes":30,"evidence":"artifacts/safety-map-experiment-04-20260906/t7-decision.md"}, {"id":"T7.2","title":"Red: 후보 적격성","status":"done","started_at":"2026-09-06T12:30:02Z","completed_at":"2026-09-06T12:33:00Z","depends_on":["T7.1"],"max_minutes":30,"evidence":"artifacts/safety-map-experiment-04-20260906/t7-red.md"}, {"id":"T7.3","title":"C7 마감확인","status":"done","started_at":"2026-09-06T12:40:02Z","completed_at":"2026-09-06T12:41:30Z","depends_on":["T7.2"],"max_minutes":30,"evidence":"artifacts/safety-map-experiment-04-20260906/t7-close.md"},
-    {"id":"T8.1","title":"공식 자료 병행 후보·메타데이터","status":"done","started_at":"2026-09-06T12:50:02Z","completed_at":"2026-09-06T12:53:00Z","max_minutes":30,"evidence":"artifacts/safety-map-experiment-04-20260906/t8-official.md"}, {"id":"T8.2","title":"Red: 병행 근거 구분","status":"done","started_at":"2026-09-06T13:00:02Z","completed_at":"2026-09-06T13:02:30Z","depends_on":["T8.1"],"max_minutes":30,"evidence":"artifacts/safety-map-experiment-04-20260906/t8-red.md"}, {"id":"T8.3","title":"C8 마감확인","status":"done","started_at":"2026-09-06T13:10:01Z","completed_at":"2026-09-06T13:12:00Z","depends_on":["T8.2"],"max_minutes":30,"evidence":"artifacts/safety-map-experiment-04-20260906/t8-close.md"},
-    {"id":"T9.1","title":"공식·커뮤니티 공통 데이터 계약","status":"done","started_at":"2026-09-06T13:20:02Z","completed_at":"2026-09-06T13:22:30Z","max_minutes":30,"evidence":"artifacts/safety-map-experiment-04-20260906/t9-contract.json"}, {"id":"T9.2","title":"Red: 공통 계약","status":"done","started_at":"2026-09-06T13:30:02Z","completed_at":"2026-09-06T13:32:00Z","depends_on":["T9.1"],"max_minutes":30,"evidence":"artifacts/safety-map-experiment-04-20260906/t9-red.md"}, {"id":"T9.3","title":"C9 마감확인","status":"done","started_at":"2026-09-06T13:40:02Z","completed_at":"2026-09-06T13:42:00Z","depends_on":["T9.2"],"max_minutes":30,"evidence":"artifacts/safety-map-experiment-04-20260906/t9-close.md"},
-    {"id":"T10.1","title":"집계·상충·근거없음 규칙","status":"done","started_at":"2026-09-06T13:50:02Z","completed_at":"2026-09-06T13:52:00Z","max_minutes":30,"evidence":"artifacts/safety-map-experiment-04-20260906/t10-aggregate.md"}, {"id":"T10.2","title":"Red: 집계 금지선","status":"done","started_at":"2026-09-06T14:00:02Z","completed_at":"2026-09-06T14:02:00Z","depends_on":["T10.1"],"max_minutes":30,"evidence":"artifacts/safety-map-experiment-04-20260906/t10-red.md"}, {"id":"T10.3","title":"C10 마감확인","status":"done","started_at":"2026-09-06T14:10:02Z","completed_at":"2026-09-06T14:12:00Z","depends_on":["T10.2"],"max_minutes":30,"evidence":"artifacts/safety-map-experiment-04-20260906/t10-close.md"},
-    {"id":"T11.1","title":"주의 신호·신뢰도·출처 표현","status":"done","started_at":"2026-09-06T14:20:02Z","completed_at":"2026-09-06T14:22:00Z","max_minutes":30,"evidence":"artifacts/safety-map-experiment-04-20260906/t11-copy.md"}, {"id":"T11.2","title":"Red: 안전 주장·카피","status":"done","started_at":"2026-09-06T14:30:02Z","completed_at":"2026-09-06T14:32:00Z","depends_on":["T11.1"],"max_minutes":30,"evidence":"artifacts/safety-map-experiment-04-20260906/t11-red.md"}, {"id":"T11.3","title":"C11 마감확인","status":"done","started_at":"2026-09-06T14:40:01Z","completed_at":"2026-09-06T14:42:00Z","depends_on":["T11.2"],"max_minutes":30,"evidence":"artifacts/safety-map-experiment-04-20260906/t11-close.md"},
-    {"id":"T12.1","title":"provenance JSON·감사로그","status":"done","started_at":"2026-09-06T14:50:01Z","completed_at":"2026-09-06T14:52:00Z","max_minutes":30,"evidence":"artifacts/safety-map-experiment-04-20260906/t12-provenance.json"}, {"id":"T12.2","title":"Red: provenance","status":"done","started_at":"2026-09-06T15:00:02Z","completed_at":"2026-09-06T15:02:00Z","depends_on":["T12.1"],"max_minutes":30,"evidence":"artifacts/safety-map-experiment-04-20260906/t12-red.md"}, {"id":"T12.3","title":"C12 마감확인","status":"done","started_at":"2026-09-06T15:10:02Z","completed_at":"2026-09-06T15:12:00Z","depends_on":["T12.2"],"max_minutes":30,"evidence":"artifacts/safety-map-experiment-04-20260906/t12-close.md"},
-    {"id":"T13.1","title":"desktop 표현 검증","status":"blocked","started_at":"2026-09-06T15:20:01Z","blocked_at":"2026-09-06T15:22:00Z","blocker":"e04 전용 정적 사이트·배포 경로·검증 URL이 없다. 기존 safety-map 경로는 이전 실험이라 재사용할 수 없다.","max_minutes":30,"evidence":"artifacts/safety-map-experiment-04-20260906/t13-desktop.md"}, {"id":"T13.2","title":"Red: desktop","status":"pending","depends_on":["T13.1"],"max_minutes":30,"evidence":"artifacts/safety-map-experiment-04-20260906/t13-red.md"}, {"id":"T13.3","title":"C13 마감확인","status":"pending","depends_on":["T13.2"],"max_minutes":30,"evidence":"artifacts/safety-map-experiment-04-20260906/t13-close.md"},
-    {"id":"T14.1","title":"390px·키보드 접근성","status":"blocked","blocked_at":"2026-09-06T15:30:02Z","depends_on":["T13.3"],"blocker":"T13.3 미완료: e04 전용 정적 사이트·배포 경로·검증 URL이 없다. 기존 safety-map은 이전 실험 경로다.","max_minutes":30,"evidence":"artifacts/safety-map-experiment-04-20260906/t14-mobile.md"}, {"id":"T14.2","title":"Red: 모바일 접근성","status":"pending","depends_on":["T14.1"],"max_minutes":30,"evidence":"artifacts/safety-map-experiment-04-20260906/t14-red.md"}, {"id":"T14.3","title":"C14 마감확인","status":"pending","depends_on":["T14.2"],"max_minutes":30,"evidence":"artifacts/safety-map-experiment-04-20260906/t14-close.md"},
-    {"id":"T15.1","title":"개인식별·위치 없는 telemetry","status":"blocked","blocked_at":"2026-09-06T15:40:02Z","depends_on":["T14.3"],"blocker":"T14.3 미완료: e04 전용 정적 사이트·배포 경로·검증 URL이 없다.","max_minutes":30,"evidence":"artifacts/safety-map-experiment-04-20260906/t15-telemetry.md"}, {"id":"T15.2","title":"Red: telemetry privacy","status":"pending","depends_on":["T15.1"],"max_minutes":30,"evidence":"artifacts/safety-map-experiment-04-20260906/t15-red.md"}, {"id":"T15.3","title":"C15 마감확인","status":"pending","depends_on":["T15.2"],"max_minutes":30,"evidence":"artifacts/safety-map-experiment-04-20260906/t15-close.md"},
-    {"id":"T16.1","title":"isolated e04 배포 설정","status":"blocked","blocked_at":"2026-09-06T15:50:02Z","depends_on":["T15.3"],"blocker":"T15.3 미완료: e04 전용 정적 사이트·배포 경로·검증 URL이 없다. T13.1~T15.1이 차단되어 배포 설정을 독립적으로 시작할 수 없다.","max_minutes":30,"evidence":"artifacts/safety-map-experiment-04-20260906/t16-deploy.md"}, {"id":"T16.2","title":"Red: 배포·rollback","status":"pending","depends_on":["T16.1"],"max_minutes":30,"evidence":"artifacts/safety-map-experiment-04-20260906/t16-red.md"}, {"id":"T16.3","title":"C16 마감확인","status":"pending","depends_on":["T16.2"],"max_minutes":30,"evidence":"artifacts/safety-map-experiment-04-20260906/t16-close.md"},
-    {"id":"T17.1","title":"원격 라이브 검증","status":"blocked","blocked_at":"2026-09-06T16:00:02Z","depends_on":["T16.3"],"blocker":"T16.3 미완료: isolated e04 배포 설정이 T15.3 미완료와 e04 전용 정적 사이트·배포 경로·검증 URL 부재로 차단됐다. 원격 라이브 검증을 시작할 수 없다.","max_minutes":30,"evidence":"artifacts/safety-map-experiment-04-20260906/t17-live.md"}, {"id":"T17.2","title":"Red: 최종 근거·표현","status":"pending","depends_on":["T17.1"],"max_minutes":30,"evidence":"artifacts/safety-map-experiment-04-20260906/t17-red.md"}, {"id":"T17.3","title":"C17 마감확인","status":"pending","depends_on":["T17.2"],"max_minutes":30,"evidence":"artifacts/safety-map-experiment-04-20260906/t17-close.md"}
+    {
+      "id": "T2.1",
+      "title": "공개 커뮤니티·블로그 후보 탐색·입수성 판정",
+      "status": "done",
+      "max_minutes": 30,
+      "evidence": "artifacts/safety-map-experiment-04-20260906/t2-candidate-discovery.md"
+    },
+    {
+      "id": "T2.2",
+      "title": "Red: 후보 범위·표시 금지 재검토",
+      "status": "done",
+      "depends_on": [
+        "T2.1"
+      ],
+      "max_minutes": 30,
+      "evidence": "artifacts/safety-map-experiment-04-20260906/t2-red.md"
+    },
+    {
+      "id": "T2.3",
+      "title": "C2 마감확인",
+      "status": "done",
+      "depends_on": [
+        "T2.2"
+      ],
+      "max_minutes": 30,
+      "evidence": "artifacts/safety-map-experiment-04-20260906/t2-close.md"
+    },
+    {
+      "id": "T3.1",
+      "title": "공개접근·ToS·robots 판정",
+      "status": "done",
+      "started_at": "2026-09-06T10:10:43Z",
+      "completed_at": "2026-09-06T10:12:00Z",
+      "max_minutes": 30,
+      "evidence": "artifacts/safety-map-experiment-04-20260906/t3-access.md"
+    },
+    {
+      "id": "T3.2",
+      "title": "Red: 입수성 판정",
+      "status": "done",
+      "started_at": "2026-09-06T10:20:19Z",
+      "completed_at": "2026-09-06T10:21:30Z",
+      "depends_on": [
+        "T3.1"
+      ],
+      "max_minutes": 30,
+      "evidence": "artifacts/safety-map-experiment-04-20260906/t3-red.md"
+    },
+    {
+      "id": "T3.3",
+      "title": "C3 마감확인",
+      "status": "done",
+      "started_at": "2026-09-06T10:31:20Z",
+      "completed_at": "2026-09-06T10:32:30Z",
+      "depends_on": [
+        "T3.2"
+      ],
+      "max_minutes": 30,
+      "evidence": "artifacts/safety-map-experiment-04-20260906/t3-close.md"
+    },
+    {
+      "id": "T4.1",
+      "title": "출처·날짜·공간 단위 메타데이터 계약",
+      "status": "done",
+      "started_at": "2026-09-06T10:40:01Z",
+      "completed_at": "2026-09-06T10:42:00Z",
+      "max_minutes": 30,
+      "evidence": "artifacts/safety-map-experiment-04-20260906/t4-contract.json"
+    },
+    {
+      "id": "T4.2",
+      "title": "Red: 메타데이터 계약",
+      "status": "done",
+      "started_at": "2026-09-06T10:50:02Z",
+      "completed_at": "2026-09-06T10:51:30Z",
+      "depends_on": [
+        "T4.1"
+      ],
+      "max_minutes": 30,
+      "evidence": "artifacts/safety-map-experiment-04-20260906/t4-red.md"
+    },
+    {
+      "id": "T4.3",
+      "title": "C4 마감확인",
+      "status": "done",
+      "started_at": "2026-09-06T11:00:03Z",
+      "completed_at": "2026-09-06T11:02:00Z",
+      "depends_on": [
+        "T4.2"
+      ],
+      "max_minutes": 30,
+      "evidence": "artifacts/safety-map-experiment-04-20260906/t4-close.md"
+    },
+    {
+      "id": "T5.1",
+      "title": "PII·위험 표현·중복 자동필터",
+      "status": "done",
+      "started_at": "2026-09-06T11:10:03Z",
+      "completed_at": "2026-09-06T11:12:00Z",
+      "max_minutes": 30,
+      "evidence": "artifacts/safety-map-experiment-04-20260906/t5-filter.md"
+    },
+    {
+      "id": "T5.2",
+      "title": "Red: 자동필터 경계",
+      "status": "done",
+      "started_at": "2026-09-06T11:20:03Z",
+      "completed_at": "2026-09-06T11:21:30Z",
+      "depends_on": [
+        "T5.1"
+      ],
+      "max_minutes": 30,
+      "evidence": "artifacts/safety-map-experiment-04-20260906/t5-red.md"
+    },
+    {
+      "id": "T5.3",
+      "title": "C5 마감확인",
+      "status": "done",
+      "started_at": "2026-09-06T11:30:03Z",
+      "completed_at": "2026-09-06T11:32:00Z",
+      "depends_on": [
+        "T5.2"
+      ],
+      "max_minutes": 30,
+      "evidence": "artifacts/safety-map-experiment-04-20260906/t5-close.md"
+    },
+    {
+      "id": "T6.1",
+      "title": "사람 검토 rubric",
+      "status": "done",
+      "started_at": "2026-09-06T11:50:03Z",
+      "completed_at": "2026-09-06T11:52:00Z",
+      "max_minutes": 30,
+      "evidence": "artifacts/safety-map-experiment-04-20260906/t6-rubric.md"
+    },
+    {
+      "id": "T6.2",
+      "title": "Red: 사람 검토 기준",
+      "status": "done",
+      "started_at": "2026-09-06T12:00:03Z",
+      "completed_at": "2026-09-06T12:02:00Z",
+      "depends_on": [
+        "T6.1"
+      ],
+      "max_minutes": 30,
+      "evidence": "artifacts/safety-map-experiment-04-20260906/t6-red.md"
+    },
+    {
+      "id": "T6.3",
+      "title": "C6 마감확인",
+      "status": "done",
+      "started_at": "2026-09-06T12:10:02Z",
+      "completed_at": "2026-09-06T12:11:26Z",
+      "depends_on": [
+        "T6.2"
+      ],
+      "max_minutes": 30,
+      "evidence": "artifacts/safety-map-experiment-04-20260906/t6-close.md"
+    },
+    {
+      "id": "T7.1",
+      "title": "최근성·공간단위·독립성 판정",
+      "status": "done",
+      "started_at": "2026-09-06T12:20:02Z",
+      "completed_at": "2026-09-06T12:22:10Z",
+      "max_minutes": 30,
+      "evidence": "artifacts/safety-map-experiment-04-20260906/t7-decision.md"
+    },
+    {
+      "id": "T7.2",
+      "title": "Red: 후보 적격성",
+      "status": "done",
+      "started_at": "2026-09-06T12:30:02Z",
+      "completed_at": "2026-09-06T12:33:00Z",
+      "depends_on": [
+        "T7.1"
+      ],
+      "max_minutes": 30,
+      "evidence": "artifacts/safety-map-experiment-04-20260906/t7-red.md"
+    },
+    {
+      "id": "T7.3",
+      "title": "C7 마감확인",
+      "status": "done",
+      "started_at": "2026-09-06T12:40:02Z",
+      "completed_at": "2026-09-06T12:41:30Z",
+      "depends_on": [
+        "T7.2"
+      ],
+      "max_minutes": 30,
+      "evidence": "artifacts/safety-map-experiment-04-20260906/t7-close.md"
+    },
+    {
+      "id": "T8.1",
+      "title": "공식 자료 병행 후보·메타데이터",
+      "status": "done",
+      "started_at": "2026-09-06T12:50:02Z",
+      "completed_at": "2026-09-06T12:53:00Z",
+      "max_minutes": 30,
+      "evidence": "artifacts/safety-map-experiment-04-20260906/t8-official.md"
+    },
+    {
+      "id": "T8.2",
+      "title": "Red: 병행 근거 구분",
+      "status": "done",
+      "started_at": "2026-09-06T13:00:02Z",
+      "completed_at": "2026-09-06T13:02:30Z",
+      "depends_on": [
+        "T8.1"
+      ],
+      "max_minutes": 30,
+      "evidence": "artifacts/safety-map-experiment-04-20260906/t8-red.md"
+    },
+    {
+      "id": "T8.3",
+      "title": "C8 마감확인",
+      "status": "done",
+      "started_at": "2026-09-06T13:10:01Z",
+      "completed_at": "2026-09-06T13:12:00Z",
+      "depends_on": [
+        "T8.2"
+      ],
+      "max_minutes": 30,
+      "evidence": "artifacts/safety-map-experiment-04-20260906/t8-close.md"
+    },
+    {
+      "id": "T9.1",
+      "title": "공식·커뮤니티 공통 데이터 계약",
+      "status": "done",
+      "started_at": "2026-09-06T13:20:02Z",
+      "completed_at": "2026-09-06T13:22:30Z",
+      "max_minutes": 30,
+      "evidence": "artifacts/safety-map-experiment-04-20260906/t9-contract.json"
+    },
+    {
+      "id": "T9.2",
+      "title": "Red: 공통 계약",
+      "status": "done",
+      "started_at": "2026-09-06T13:30:02Z",
+      "completed_at": "2026-09-06T13:32:00Z",
+      "depends_on": [
+        "T9.1"
+      ],
+      "max_minutes": 30,
+      "evidence": "artifacts/safety-map-experiment-04-20260906/t9-red.md"
+    },
+    {
+      "id": "T9.3",
+      "title": "C9 마감확인",
+      "status": "done",
+      "started_at": "2026-09-06T13:40:02Z",
+      "completed_at": "2026-09-06T13:42:00Z",
+      "depends_on": [
+        "T9.2"
+      ],
+      "max_minutes": 30,
+      "evidence": "artifacts/safety-map-experiment-04-20260906/t9-close.md"
+    },
+    {
+      "id": "T10.1",
+      "title": "집계·상충·근거없음 규칙",
+      "status": "done",
+      "started_at": "2026-09-06T13:50:02Z",
+      "completed_at": "2026-09-06T13:52:00Z",
+      "max_minutes": 30,
+      "evidence": "artifacts/safety-map-experiment-04-20260906/t10-aggregate.md"
+    },
+    {
+      "id": "T10.2",
+      "title": "Red: 집계 금지선",
+      "status": "done",
+      "started_at": "2026-09-06T14:00:02Z",
+      "completed_at": "2026-09-06T14:02:00Z",
+      "depends_on": [
+        "T10.1"
+      ],
+      "max_minutes": 30,
+      "evidence": "artifacts/safety-map-experiment-04-20260906/t10-red.md"
+    },
+    {
+      "id": "T10.3",
+      "title": "C10 마감확인",
+      "status": "done",
+      "started_at": "2026-09-06T14:10:02Z",
+      "completed_at": "2026-09-06T14:12:00Z",
+      "depends_on": [
+        "T10.2"
+      ],
+      "max_minutes": 30,
+      "evidence": "artifacts/safety-map-experiment-04-20260906/t10-close.md"
+    },
+    {
+      "id": "T11.1",
+      "title": "주의 신호·신뢰도·출처 표현",
+      "status": "done",
+      "started_at": "2026-09-06T14:20:02Z",
+      "completed_at": "2026-09-06T14:22:00Z",
+      "max_minutes": 30,
+      "evidence": "artifacts/safety-map-experiment-04-20260906/t11-copy.md"
+    },
+    {
+      "id": "T11.2",
+      "title": "Red: 안전 주장·카피",
+      "status": "done",
+      "started_at": "2026-09-06T14:30:02Z",
+      "completed_at": "2026-09-06T14:32:00Z",
+      "depends_on": [
+        "T11.1"
+      ],
+      "max_minutes": 30,
+      "evidence": "artifacts/safety-map-experiment-04-20260906/t11-red.md"
+    },
+    {
+      "id": "T11.3",
+      "title": "C11 마감확인",
+      "status": "done",
+      "started_at": "2026-09-06T14:40:01Z",
+      "completed_at": "2026-09-06T14:42:00Z",
+      "depends_on": [
+        "T11.2"
+      ],
+      "max_minutes": 30,
+      "evidence": "artifacts/safety-map-experiment-04-20260906/t11-close.md"
+    },
+    {
+      "id": "T12.1",
+      "title": "provenance JSON·감사로그",
+      "status": "done",
+      "started_at": "2026-09-06T14:50:01Z",
+      "completed_at": "2026-09-06T14:52:00Z",
+      "max_minutes": 30,
+      "evidence": "artifacts/safety-map-experiment-04-20260906/t12-provenance.json"
+    },
+    {
+      "id": "T12.2",
+      "title": "Red: provenance",
+      "status": "done",
+      "started_at": "2026-09-06T15:00:02Z",
+      "completed_at": "2026-09-06T15:02:00Z",
+      "depends_on": [
+        "T12.1"
+      ],
+      "max_minutes": 30,
+      "evidence": "artifacts/safety-map-experiment-04-20260906/t12-red.md"
+    },
+    {
+      "id": "T12.3",
+      "title": "C12 마감확인",
+      "status": "done",
+      "started_at": "2026-09-06T15:10:02Z",
+      "completed_at": "2026-09-06T15:12:00Z",
+      "depends_on": [
+        "T12.2"
+      ],
+      "max_minutes": 30,
+      "evidence": "artifacts/safety-map-experiment-04-20260906/t12-close.md"
+    },
+    {
+      "id": "T13.1",
+      "title": "3차 배포본에 로마 no-render 상태 구현",
+      "status": "done",
+      "started_at": "2026-09-06T17:43:59Z",
+      "completed_at": "2026-09-06T17:55:00Z",
+      "max_minutes": 30,
+      "evidence": "artifacts/safety-map-experiment-04-20260906/t13-implementation.md"
+    },
+    {
+      "id": "T13.2",
+      "title": "Red: desktop·390px 표현",
+      "status": "done",
+      "started_at": "2026-09-06T17:45:00Z",
+      "completed_at": "2026-09-06T17:55:00Z",
+      "depends_on": [
+        "T13.1"
+      ],
+      "max_minutes": 30,
+      "evidence": "artifacts/safety-map-experiment-04-20260906/t13-implementation.md"
+    },
+    {
+      "id": "T13.3",
+      "title": "C13 마감확인",
+      "status": "done",
+      "started_at": "2026-09-06T17:55:00Z",
+      "completed_at": "2026-09-06T17:55:00Z",
+      "depends_on": [
+        "T13.2"
+      ],
+      "max_minutes": 30,
+      "evidence": "artifacts/safety-map-experiment-04-20260906/t13-implementation.md"
+    },
+    {
+      "id": "T14.1",
+      "title": "390px·키보드 접근성",
+      "status": "active",
+      "started_at": "2026-09-06T17:55:00Z",
+      "depends_on": [
+        "T13.1"
+      ],
+      "max_minutes": 30,
+      "evidence": "artifacts/safety-map-experiment-04-20260906/t14-mobile.md"
+    },
+    {
+      "id": "T14.2",
+      "title": "Red: 모바일 접근성",
+      "status": "pending",
+      "depends_on": [
+        "T14.1"
+      ],
+      "max_minutes": 30,
+      "evidence": "artifacts/safety-map-experiment-04-20260906/t14-red.md"
+    },
+    {
+      "id": "T14.3",
+      "title": "C14 마감확인",
+      "status": "pending",
+      "depends_on": [
+        "T14.2"
+      ],
+      "max_minutes": 30,
+      "evidence": "artifacts/safety-map-experiment-04-20260906/t14-close.md"
+    },
+    {
+      "id": "T15.1",
+      "title": "개인식별·위치 없는 telemetry",
+      "status": "pending",
+      "depends_on": [
+        "T13.1"
+      ],
+      "max_minutes": 30,
+      "evidence": "artifacts/safety-map-experiment-04-20260906/t15-telemetry.md"
+    },
+    {
+      "id": "T15.2",
+      "title": "Red: telemetry privacy",
+      "status": "pending",
+      "depends_on": [
+        "T15.1"
+      ],
+      "max_minutes": 30,
+      "evidence": "artifacts/safety-map-experiment-04-20260906/t15-red.md"
+    },
+    {
+      "id": "T15.3",
+      "title": "C15 마감확인",
+      "status": "pending",
+      "depends_on": [
+        "T15.2"
+      ],
+      "max_minutes": 30,
+      "evidence": "artifacts/safety-map-experiment-04-20260906/t15-close.md"
+    },
+    {
+      "id": "T16.1",
+      "title": "3차 배포본 갱신·rollback",
+      "status": "pending",
+      "depends_on": [
+        "T13.3"
+      ],
+      "max_minutes": 30,
+      "evidence": "artifacts/safety-map-experiment-04-20260906/t16-deploy.md"
+    },
+    {
+      "id": "T16.2",
+      "title": "Red: 배포·rollback",
+      "status": "pending",
+      "depends_on": [
+        "T16.1"
+      ],
+      "max_minutes": 30,
+      "evidence": "artifacts/safety-map-experiment-04-20260906/t16-red.md"
+    },
+    {
+      "id": "T16.3",
+      "title": "C16 마감확인",
+      "status": "pending",
+      "depends_on": [
+        "T16.2"
+      ],
+      "max_minutes": 30,
+      "evidence": "artifacts/safety-map-experiment-04-20260906/t16-close.md"
+    },
+    {
+      "id": "T17.1",
+      "title": "원격 라이브 검증",
+      "status": "pending",
+      "depends_on": [
+        "T16.3"
+      ],
+      "max_minutes": 30,
+      "evidence": "artifacts/safety-map-experiment-04-20260906/t17-live.md"
+    },
+    {
+      "id": "T17.2",
+      "title": "Red: 최종 근거·표현",
+      "status": "pending",
+      "depends_on": [
+        "T17.1"
+      ],
+      "max_minutes": 30,
+      "evidence": "artifacts/safety-map-experiment-04-20260906/t17-red.md"
+    },
+    {
+      "id": "T17.3",
+      "title": "C17 마감확인",
+      "status": "pending",
+      "depends_on": [
+        "T17.2"
+      ],
+      "max_minutes": 30,
+      "evidence": "artifacts/safety-map-experiment-04-20260906/t17-close.md"
+    }
   ]
 }
