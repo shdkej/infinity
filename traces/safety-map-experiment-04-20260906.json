@@ -232,6 +232,24 @@
       "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/t4-red.md"],
       "searches": ["T4.1 provenance 최소 필드·금지 필드·no-render 독립 Red 검토"],
       "note": "독립 Red PASS: 필수 provenance와 금지 필드, 사람 검토·복수성·지역 단위 집계·독립 Red 전 no-render 조건, 안전 주장 금지를 확인했다. 실제 후보 표시 허가는 포함하지 않는다."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-809e9c38d68c46f0b57665a05a34b207",
+      "canonical_sha": "58d14ad46c45c11995e728179d25a9ffa3af7e36",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-06T11:00:02Z",
+      "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-06T11:00:03Z",
+      "status": "active",
+      "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
+      "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/task-plan.json", "artifacts/safety-map-experiment-04-20260906/task-plan.md", "artifacts/safety-map-experiment-04-20260906/t4-contract.json", "artifacts/safety-map-experiment-04-20260906/t4-red.md"],
+      "searches": ["T4.3 C4 provenance 계약 및 no-render 마감확인"],
+      "note": "T4.3을 명시적 active leaf로 시작했다. T4.1 계약과 T4.2 Red PASS의 no-render·데이터 최소화 결론만 마감확인 범위에 포함한다."
     }
   ],
   "artifacts": [],
