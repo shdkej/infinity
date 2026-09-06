@@ -4,6 +4,37 @@
 
 ## Inbox
 
+### [content-persona-carousel-20260906] 서브 페르소나 템플릿 첫 캐러셀
+- status: inbox
+- target_agent: genie
+- priority: high
+- permission: L0-content-draft-no-publication
+- requested: 2026-09-06T21:57:35Z
+- projects: personal-ops,infinity
+- task_type: design
+- topics: content,marketing
+- goal: 사용자가 업데이트한 Role & Persona 템플릿을 채워, 사용자 관점의 첫 Instagram 캐러셀 1건을 만든다.
+- success_criteria: 서브 페르소나·독자·논리 각도·6장 구성·카드별 문구·시각 큐가 템플릿과 문체 제약을 지키며, 실제 Slack 템플릿 업데이트를 근거로 한 검수 가능한 초안으로 남는다.
+- boundary: 공개 게시·계정 변경·외부 업로드를 하지 않는다. Slack 템플릿 외의 경험·수치·반응을 사실처럼 만들지 않는다.
+- source_input: 2026-09-06 Slack #sam 스레드의 Role & Persona Definition 템플릿 업데이트. 실제 증거: 템플릿 본문.
+- proposed_persona: 선택을 줄여 실제로 작동하는 구조를 만드는 관찰자
+- proposed_audience: 좋은 소재는 있지만 자신의 관점과 구조가 없어 콘텐츠가 평평해지는 개인 창작자
+- proposed_topic: 콘텐츠는 말투가 아니라 판단 기준에서 시작된다
+- logical_angle: 구조 해체형
+- format_constraints: Instagram 캐러셀 6장, 슬라이드당 핵심 문장 1개
+- publication_scope: 비공개 초안
+- context_pack: intents/context/content-persona-carousel-20260906.json
+- context_documents_checked: LLM.md; Knowledge Lab README.md; schema/agent-rules.md; DOCUMENT_SEARCH_PIPELINE.md; USER_CONTEXT.md; SERVICE_REGISTRY.md; INFINITY_OPERATING_RULES.md; infinity/ARTIFACT_RULES.md; infinity/EXECUTION_LEARNING_CONTRACT.md; INTENTS.md; agent-wiki/README.md; insights/title-selection-pressure.mdx; INSTAGRAM_CAROUSEL_PROMPT_SYSTEM.md
+- context_searches: rg -n -i 'persona|콘텐츠|인스타그램|캐러셀|기준|선택' agent-wiki/content/docs source/openclaw-system/docs source/openclaw-system/data/daily-reviews source/openclaw-system/data/daily-tracking source/openclaw-system/data/photo-insights (compiled user-decision evidence found; no raw daily evidence used)
+- metric_question: 첫 장만으로 콘텐츠를 잘 쓰는 문제가 말투가 아닌 판단 구조의 문제임을 이해하는가?
+- metric_signal: Hook·Context·3개 이하 Core Point·CTA·Visual Cue가 모두 템플릿 제약과 실제 입력 근거에 맞는지의 Red 판정
+- metric_decision_rule: Red가 문체·구조·근거·가독성을 통과시키면 Archive 검토, 하나라도 부족하면 해당 카드만 보정
+- notification_channel: slack
+- notification_target: C0BR41W31MM
+- notification_reply_to: 1788731761.869669
+- notification_origin: channel:C0BR41W31MM;reply_to:1788731761.869669
+- next_action: Genie가 템플릿의 문체·구조 제약으로 캐러셀 초안을 만들고 Red가 텍스트·시각 큐를 검증한다.
+
 <!-- 실행 대기 Intent 없음. -->
 
 ## Active
