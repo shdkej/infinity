@@ -79,6 +79,24 @@
       "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/t2-red.md", "artifacts/safety-map-experiment-04-20260906/t2-close.md"],
       "searches": ["T2 후보 메타데이터·개인정보·no-render 계약 Red 재검토"],
       "note": "독립 Red가 후보 메타데이터만 보존, 개인정보 비저장, 단일 게시물 no-render, 안전 주장 금지, T1 독립성을 PASS로 판정했다. T3 전에는 입수·표시 결정을 내리지 않는다."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-6da1eb0629df49719e505bd785d73aa3",
+      "canonical_sha": "7dd1b2ee16f4498540d343d4f4a71315c8fa475e",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-06T10:00:53Z",
+      "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-06T10:00:54Z",
+      "status": "waiting",
+      "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
+      "evidence_paths": ["INTENTS.md"],
+      "searches": ["INTENTS.md safety-map-experiment-04-20260906 Waiting lane/status contract"],
+      "note": "Dispatcher invalid_state repair: Waiting lane의 잘못된 active 상태를 waiting으로 정정했다. 다음 공개 후보 검증 leaf가 dispatcher에서 명시적으로 활성화될 때까지 no-render와 기존 근거 부족 경계를 유지한다."
     }
   ],
   "artifacts": [],

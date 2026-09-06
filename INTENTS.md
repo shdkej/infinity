@@ -13,7 +13,7 @@
 ## Waiting
 
 ### [safety-map-experiment-04-20260906] 로마 위험 회피 보조 근거 검증
-- status: active
+- status: waiting
 - target_agent: genie
 - priority: high
 - permission: L0-research-and-strategy
