@@ -146,6 +146,29 @@ def card_contract_errors(entry: dict[str, Any]) -> list[str]:
     )
     return [field for field in required if not fields.get(field)]
 
+def human_plan_format_errors(entry: dict[str, Any], repo: Path, sha: str) -> list[str]:
+    """Enforce the canonical human task-timeline contract for deadline work."""
+    if sha == "fixture" or entry["lane"] != "Active" or not entry["fields"].get("deadline"):
+        return []
+    path = entry["fields"].get("task_plan_doc", "")
+    try:
+        text = subprocess.check_output(["git", "show", f"origin/main:{path}"], cwd=repo, text=True)
+    except subprocess.CalledProcessError:
+        return ["unreadable_task_plan_doc"]
+    required = {
+        "timeline_title": r"(?m)^# .+ — 실행 타임라인$",
+        "summary": r"(?m)^`마감: .+` · `실행: .+` · `태스크: .+`$",
+        "tree": r"(?m)^[●◐○] T\d+",
+        "leaf": r"(?m)^│  [●◐○] T\d+\.\d+",
+        "estimate": r"예상/최대",
+        "evidence": r"증거:",
+        "timing": r"시작/완료/실제:",
+        "deviation": r"— 계획 변경",
+        "boundary": r"└─ — 보호 경계",
+        "next_action": r"\*\*지금 다음 행동:\*\*",
+    }
+    return [name for name, pattern in required.items() if not re.search(pattern, text)]
+
 def build_plan(text: str, sha: str, repo: Path) -> dict[str, Any]:
     sections = split_sections(text)
     missing = [lane for lane in LANES if lane not in sections]
@@ -160,6 +183,9 @@ def build_plan(text: str, sha: str, repo: Path) -> dict[str, Any]:
         missing = card_contract_errors(entry)
         if missing:
             invalid.append({"intent_id": entry["id"], "lane": entry["lane"], "status": status, "reason": "missing_card_contract", "missing_fields": missing})
+        format_errors = human_plan_format_errors(entry, repo, sha)
+        if format_errors:
+            invalid.append({"intent_id": entry["id"], "lane": entry["lane"], "status": status, "reason": "task_plan_format_violation", "missing_fields": format_errors})
     inbox = [e for e in entries if e["lane"] == "Inbox"]
     active = [e for e in entries if e["lane"] == "Active"]
     waiting = [e for e in entries if e["lane"] == "Waiting"]
