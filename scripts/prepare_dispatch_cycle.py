@@ -163,7 +163,7 @@ def human_plan_format_errors(entry: dict[str, Any], repo: Path, sha: str) -> lis
         "estimate": r"예상/최대",
         "evidence": r"증거:",
         "timing": r"시작/완료/실제:",
-        "deviation": r"— 계획 변경",
+        "deviation": r"(?m)^├─ — .+",
         "boundary": r"└─ — 보호 경계",
         "next_action": r"\*\*지금 다음 행동:\*\*",
     }
