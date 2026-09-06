@@ -10,6 +10,8 @@
 - priority: high
 - permission: L0-research-and-strategy
 - requested: 2026-09-06T09:04:45Z
+- deadline: 2026-09-07T06:00:00Z
+- deadline_local: 2026-09-07 08:00 Europe/Rome (CEST)
 - execution_mode: multi_subagent_roles
 - projects: space,infinity,knowledge-lab,safety-map
 - task_type: evidence-bounded-product-iteration
