@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-06T14:52:00Z",
+  "purpose": "e04 후보 처리의 최소 provenance 및 감사 상태 기록",
+  "storage_boundary": {
+    "retain": ["source_class", "access_decision", "review_state", "eligibility_state", "decision_at", "area_unit_or_unknown", "published_at_or_unknown", "collected_at", "render_state", "reason_code"],
+    "prohibit": ["source_body", "comments", "author_identifier", "image", "exact_address", "coordinates", "telemetry", "single_post_pin"]
+  },
+  "records": [
+    {
+      "record_id": "community-candidates",
+      "source_class": "community",
+      "access_decision": "automated_access_denied",
+      "review_state": "not_reviewed",
+      "eligibility_state": "hold_no_render",
+      "area_unit_or_unknown": "unknown",
+      "published_at_or_unknown": "unknown",
+      "collected_at": "2026-09-06T09:47:00Z",
+      "render_state": "no-render",
+      "reason_code": "access_and_independence_unverified",
+      "decision_at": "2026-09-06T14:52:00Z"
+    },
+    {
+      "record_id": "official-candidate-o01",
+      "source_class": "official",
+      "access_decision": "provenance_only",
+      "review_state": "metadata_incomplete",
+      "eligibility_state": "hold_no_render",
+      "area_unit_or_unknown": "unknown",
+      "published_at_or_unknown": "unknown",
+      "collected_at": "2026-09-06T12:53:00Z",
+      "render_state": "no-render",
+      "reason_code": "field_and_spatial_metadata_unverified",
+      "decision_at": "2026-09-06T14:52:00Z"
+    },
+    {
+      "record_id": "official-candidate-o02",
+      "source_class": "official",
+      "access_decision": "provenance_only",
+      "review_state": "rejected",
+      "eligibility_state": "reject",
+      "area_unit_or_unknown": "unknown",
+      "published_at_or_unknown": "2021",
+      "collected_at": "2026-09-06T12:53:00Z",
+      "render_state": "no-render",
+      "reason_code": "outdated_and_precise_location_risk",
+      "decision_at": "2026-09-06T14:52:00Z"
+    }
+  ],
+  "invariants": [
+    "No source record grants rendering, aggregation, pinning, scoring, prediction, or safety-claim authority.",
+    "source_class, access_decision, review_state, and eligibility_state do not transfer across records or source classes.",
+    "Current eligible input count is zero; the only current user-facing state is evidence unavailable/no-render."
+  ]
+}
