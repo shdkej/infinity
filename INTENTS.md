@@ -12,8 +12,8 @@
 
 ## Waiting
 
-### [safety-map-experiment-04-20260906] 로마 공식 데이터 기반 치안 지도 검증
-- status: waiting
+### [safety-map-experiment-04-20260906] 로마 위험 회피 보조 근거 검증
+- status: active
 - target_agent: genie
 - priority: high
 - permission: L0-research-and-strategy
@@ -25,11 +25,11 @@
 - task_type: evidence-bounded-product-iteration
 - predecessor: safety-map-experiment-03-20260905
 - goal: 로마 범위의 공식 공개 데이터가 치안 지도에 안전하게 도입 가능한지 검증하고, 가능할 때만 3차의 지도 UX 위에 출처·갱신일·표현 한계를 분명히 한 최소 기능을 만든다.
-- success_criteria: 각 기능 leaf가 30분 안에 계획→구현/조사→Red 검증→마감 확인을 닫고, 공식 원문·라이선스·관측/발행/갱신일·공간/시간 단위·결측을 검증한다. 검증 전에는 위험 점수·예측·안전 경로·실시간 사건·위치 수집을 만들지 않는다.
+- success_criteria: 각 미니 사이클이 30분 안에 Tn.1 조사/구현→Tn.2 Red→Tn.3 마감확인을 닫고, 공식 자료 또는 공개 접근·이용약관 내 커뮤니티/블로그 경험의 URL·게시일·수집일·공간 단위·결측을 검증한다. 검증 전에는 위험 점수·예측·안전 경로·실시간 사건·위치 수집을 만들지 않는다.
 - metric_question: 로마를 방문·거주하는 사용자가 5초 안에 이 데이터가 무엇을 말하고 무엇을 말하지 않는지 이해한 뒤, 출처와 갱신 상태를 확인할 수 있는가?
 - metric_signal: 원문·라이선스·갱신 메타데이터 완비, leaf별 Red 판정, desktop/390px 실제 렌더, 과장 주장·권한 요청·추적 요청 부재.
-- metric_decision_rule: T1의 공식 근거와 재사용 조건이 확인되면 T2로 진행한다. 확인되지 않으면 T1에서 보류·차단 보고로 닫고 데이터를 표시하지 않는다.
-- boundary: 로마 외 지역을 임의로 추가하지 않는다. 기존 3차 배포본을 덮어쓰지 않는다. 안전 등급·예측·안전 경로·실시간 사건·개인 위치 수집·개인정보 전송을 만들지 않는다. 토큰·자격증명은 어떤 산출물·로그·커밋에도 기록하지 않는다.
+- metric_decision_rule: T2 공개 후보 탐색은 T1 공식 자료 채택과 독립적으로 시작한다. 자동필터·사람 검토·최근 복수 경험의 지역 단위 집계·Red 검증이 모두 통과하기 전에는 데이터를 표시하지 않는다.
+- boundary: 로마 외 지역을 임의로 추가하지 않는다. 기존 3차 배포본을 덮어쓰지 않는다. 안전 등급·예측·안전 경로·실시간 사건·개인 위치 수집·개인정보 전송을 만들지 않는다. 공개 접근·이용약관 내 자료만 사용하고, 개인 식별정보·작성자 식별자·단일 게시물 핀·범죄 사실 확정·안전 보장을 만들지 않는다. 화면은 지역 단위의 ‘사용자 경험 기반 주의 신호’와 출처/날짜/신뢰도/‘근거 없음’만 표시한다. 토큰·자격증명은 어떤 산출물·로그·커밋에도 기록하지 않는다.
 - context_pack: intents/context/safety-map-experiment-04-20260906.json
 - context_documents_checked: LLM.md; Knowledge Lab README.md; schema/agent-rules.md; DOCUMENT_SEARCH_PIPELINE.md; USER_CONTEXT.md; SERVICE_REGISTRY.md; INFINITY_OPERATING_RULES.md; INTENTS.md; agent-wiki/README.md
 - context_searches: rg -l -i 'rome|roma|safety map|치안 지도|crime' agent-wiki/content/docs source/openclaw-system/docs daily-reviews daily-tracking photo-insights (no Rome task-specific compiled evidence; external official source research begins in T1)
@@ -43,9 +43,9 @@
 - trace: traces/safety-map-experiment-04-20260906.json
 - role_sessions: planner=/root/role_e04_planner; developer=/root/role_e04_developer; marketer=/root/role_e04_marketer; operator=/root/role_e04_operator
 - role_status: all completed; synthesis=artifacts/safety-map-experiment-04-20260906/role-synthesis-20260906T0923Z.md
-- blocker: T1의 공식 후보는 2022년 1–8월 Roma Capitale 도로교통사고 집계로, 현재 범죄·공공안전 상태 또는 장소별 치안 판단을 표시하는 근거가 될 수 없다. 독립 Red 재검증도 아직 없다.
-- next_retry_condition: Roma Capitale 또는 관할 국가기관의 로마 시 범위 공식 공개 범죄/공공안전 원문이 라이선스·관측 단위·결측·발행/갱신일·현재성 기준을 함께 제공할 때 T1을 새로 연다.
-- next_action: 검증된 공식 원문이 확보될 때까지 no-render를 유지한다.
+- blocker: 표시 가능한 지역 집계 근거는 아직 없다. T2에서 공개 커뮤니티/블로그 후보를 탐색하되, 원문·날짜·공간 단위·사람 검토·복수 최근 경험 기준을 충족하지 못하면 no-render를 유지한다.
+- next_retry_condition: 없음 — T2.1 공개 후보 탐색을 즉시 실행한다.
+- next_action: T2.1에서 공개 접근·이용약관 내 Reddit, DCInside, Naver Blog/Cafe, 더쿠, 인스티즈 등 후보를 URL·게시일·수집일·공간 단위 메타데이터만으로 판정한다.
 
 ### [research-32] Starter Story 솔로프리너 사례 1개 깊은 복원
 - status: waiting

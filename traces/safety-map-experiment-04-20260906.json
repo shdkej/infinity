@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "intent_id": "safety-map-experiment-04-20260906",
-  "status": "waiting",
+  "status": "active",
   "trace_completeness": "complete",
   "request": {
     "raw": {
@@ -45,12 +45,28 @@
         "Roma Capitale open data license terms"
       ],
       "note": "Four role reviews reconverged on no-render; candidate d108 is stale traffic-accident data, not current safety evidence."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "scope-correction-20260906T0947Z",
+      "canonical_sha": "c351f779d450fd2ca1edc74c8f6174cd200f15af",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-06T09:47:57Z",
+      "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-06T09:47:57Z",
+      "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
+      "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/task-plan.json", "artifacts/safety-map-experiment-04-20260906/task-plan.md"],
+      "note": "사용자 명시 scope correction: 공식+공개 커뮤니티/블로그 경험으로 확장. T2.1 후보 탐색을 T1과 독립적으로 시작하며, 집계·Red 전에는 no-render를 유지한다."
     }
   ],
   "artifacts": [],
   "verifications": [],
   "next_decision": {
-    "status": "hold",
-    "value": "Wait for a current official Rome public-safety source with reuse and metadata proof, then reopen T1."
+    "status": "execute",
+    "value": "T2.1 공개 커뮤니티/블로그 후보 탐색·입수성 판정 후 T2.2 독립 Red 검증으로 진행한다."
   }
 }

@@ -1,30 +1,15 @@
 {
-  "context_pack_version": 1,
+  "context_pack_version": 2,
   "status": "ready",
   "route": "infinity",
-  "request": "치안지도 4차 실험: 로마 범위의 공식 근거 데이터 도입 가능성을 검증하고, 3차 전역 지도 UX 위에서 기능 단위 미니 사이클로 구현·검증한다.",
-  "built_at": "2026-09-06T09:04:45.020784+00:00",
-  "required_documents": [
-    "/home/ubuntu/workspace/prompt-archive/LLM.md",
-    "README.md",
-    "schema/agent-rules.md",
-    "source/openclaw-system/docs/DOCUMENT_SEARCH_PIPELINE.md",
-    "source/openclaw-system/docs/USER_CONTEXT.md",
-    "source/openclaw-system/docs/SERVICE_REGISTRY.md",
-    "source/openclaw-system/docs/INFINITY_OPERATING_RULES.md",
-    "infinity/INTENTS.md",
-    "agent-wiki/README.md"
-  ],
-  "search_scopes": [
-    "agent-wiki/content/docs/",
-    "source/openclaw-system/docs/",
-    "source/openclaw-system/data/daily-reviews/",
-    "source/openclaw-system/data/daily-tracking/",
-    "source/openclaw-system/data/photo-insights/"
-  ],
+  "request": "치안지도 4차 실험: 로마의 공식 자료와 공개 접근·이용약관 내 커뮤니티/블로그 경험을 위험 회피 보조 근거로 판정한다. 안전 보장·범죄 사실 확정이 아니라 최근 복수 경험의 지역 단위 주의 신호만 검토한다.",
+  "built_at": "2026-09-06T09:47:57Z",
+  "required_documents": ["/home/ubuntu/workspace/prompt-archive/LLM.md", "README.md", "schema/agent-rules.md", "source/openclaw-system/docs/DOCUMENT_SEARCH_PIPELINE.md", "source/openclaw-system/docs/USER_CONTEXT.md", "source/openclaw-system/docs/SERVICE_REGISTRY.md", "source/openclaw-system/docs/INFINITY_OPERATING_RULES.md", "infinity/INTENTS.md", "agent-wiki/README.md"],
+  "search_scopes": ["agent-wiki/content/docs/", "source/openclaw-system/docs/", "source/openclaw-system/data/daily-reviews/", "source/openclaw-system/data/daily-tracking/", "source/openclaw-system/data/photo-insights/"],
   "rules": [
-    "Read every required document before creating or executing an intent.",
-    "Search the declared scopes for task-specific evidence; do not treat a search hit as a confirmed fact without its source.",
-    "Record the resulting context pack path in the intent and re-check it before handoff."
+    "공개 접근 가능하고 이용약관·robots·요청 빈도 제한을 지키는 자료만 후보로 수집한다.",
+    "원문 URL·플랫폼·게시일(없으면 unknown)·수집일·대략적 공간 단위를 보존하되 작성자·핸들·프로필·정확한 주소·본문·이미지는 보존하지 않는다.",
+    "자동 필터→사람 검토→최근 복수 독립 경험의 지역 단위 집계 순서를 지키며, 단일 게시물은 렌더하지 않는다.",
+    "표시는 ‘사용자 경험 기반 주의 신호’, 출처/날짜/근거 범위/신뢰도/한계/‘근거 없음’만 허용한다. 안전 보장·범죄 사실 확정·개인 핀·위치수집을 금지한다."
   ]
 }
