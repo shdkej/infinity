@@ -507,8 +507,9 @@
     {
       "id": "T15.3",
       "title": "C15 마감확인",
-      "status": "active",
+      "status": "done",
       "started_at": "2026-09-06T18:50:02Z",
+      "completed_at": "2026-09-06T18:50:53Z",
       "depends_on": [
         "T15.2"
       ],
