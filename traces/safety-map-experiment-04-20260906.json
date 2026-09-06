@@ -124,6 +124,24 @@
       "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/t3-access.md"],
       "searches": ["Reddit robots.txt", "Reddit User Agreement", "T2.1 Reddit candidate HTTP access status"],
       "note": "T3.1 완료: robots가 User-agent *에 Disallow: /를 선언하고 후보 원문 3건이 HTTP 403이므로 자동 입수·본문 보존·집계·표시를 금지한다. 후보는 no-render이며 T3.2 Red 검토를 대기한다."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-92026a22cd7e4270950db23f17004d65",
+      "canonical_sha": "a0448e812bee3d8068992f9bde77f74e90df466b",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-06T10:20:19Z",
+      "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-06T10:20:20Z",
+      "status": "active",
+      "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
+      "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/task-plan.json", "artifacts/safety-map-experiment-04-20260906/task-plan.md", "artifacts/safety-map-experiment-04-20260906/t3-access.md"],
+      "searches": ["T3.1 robots·HTTP 접근 판정 독립 Red 검토"],
+      "note": "T3.2를 독립 Red 검증 leaf로 활성화했다. T3.1의 자동 접근 금지/no-render 결론만 검토 범위에 포함한다."
     }
   ],
   "artifacts": [],
