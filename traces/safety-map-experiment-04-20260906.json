@@ -952,6 +952,24 @@
       "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/t14-mobile.md", "artifacts/safety-map-experiment-04-20260906/t13-desktop.md"],
       "searches": ["T14.1 dependency T13.3 status 확인"],
       "note": "T14.1은 T13.3 미완료와 e04 전용 화면·배포 경로·검증 URL 부재로 활성화하지 않았다. T14.1에 T13.3 의존성을 구조화해 기록했고, 390px·키보드 검증을 통과로 표시하거나 기존 safety-map을 재사용하지 않았다."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-4c5f2cba0103400a8419178bc5a44a67",
+      "canonical_sha": "cfcaab0c3e3615e3ad0397b5b38c7e93e2f649ed",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-06T15:40:02Z",
+      "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-06T15:40:02Z",
+      "status": "blocked",
+      "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
+      "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/t15-telemetry.md", "artifacts/safety-map-experiment-04-20260906/t14-mobile.md"],
+      "searches": ["T15.1 dependency T14.3 status 확인"],
+      "note": "T15.1은 T14.3 미완료와 e04 전용 화면·배포 경로·검증 URL 부재로 활성화하지 않았다. T15.1에 T14.3 의존성을 구조화해 기록했고, telemetry 수집·구현·검증을 수행하지 않았다."
     }
   ],
   "artifacts": [],
