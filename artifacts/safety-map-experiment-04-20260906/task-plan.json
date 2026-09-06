@@ -555,7 +555,8 @@
     {
       "id": "T17.1",
       "title": "원격 라이브 검증",
-      "status": "pending",
+      "status": "active",
+      "started_at": "2026-09-06T19:30:26Z",
       "depends_on": [
         "T16.3"
       ],

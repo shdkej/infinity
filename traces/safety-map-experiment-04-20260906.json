@@ -1168,6 +1168,15 @@
       "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/t16-deploy.md", "artifacts/safety-map-experiment-04-20260906/t16-red.md", "artifacts/safety-map-experiment-04-20260906/t16-close.md", "artifacts/safety-map-experiment-04-20260906/task-plan.json", "artifacts/safety-map-experiment-04-20260906/task-plan.md"],
       "searches": ["T16.3 closure of observed deployment, live status, and rollback boundary"],
       "note": "C16을 30분 제한 내에 종료했다. Space SHA·성공 Actions run·live HTTP 200은 관찰된 배포 증거이며, 새 배포/rollback은 실행하지 않았다. Mapbox 관찰은 전체 네트워크 감사가 아니고 no-score·no-route·no-tracking·no-render 경계를 유지한다."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-3a937341a2b4447d8f615498e2ddefba",
+      "canonical_sha": "81046dec57f63ac2c1b7e3c8cea42c961cef53fe",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-06T19:30:26Z",
+      "status": "accepted"
     }
   ],
   "artifacts": [],
