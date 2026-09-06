@@ -8,8 +8,12 @@
 
 ## Active
 
+<!-- 실행 중 Intent 없음. -->
+
+## Waiting
+
 ### [content-persona-carousel-20260906] 서브 페르소나 템플릿 첫 캐러셀
-- status: active
+- status: waiting
 - target_agent: genie
 - priority: high
 - permission: L0-content-draft-no-publication
@@ -37,9 +41,10 @@
 - notification_target: C0BR41W31MM
 - notification_reply_to: 1788731761.869669
 - notification_origin: channel:C0BR41W31MM;reply_to:1788731761.869669
-- next_action: Genie가 템플릿의 문체·구조 제약으로 캐러셀 초안을 만들고 Red가 텍스트·시각 큐를 검증한다.
-
-## Waiting
+- blocker: 유일한 사실 근거로 지정된 2026-09-06 Slack Role & Persona Definition 템플릿 본문이 Context Pack·허용된 로컬 검색 결과에 없다. 실제 장면·바뀐 기준·증거·목표를 확인하지 못한 상태에서 템플릿을 채운 최종 캐러셀을 만들면 사실성을 과장한다.
+- next_retry_condition: 권한 있는 읽기 표면에서 Slack 템플릿 본문을 확인해 장면·바뀐 기준·증거·목표를 고정할 수 있을 때.
+- next_action: 사실 입력을 확인한 뒤 6장 비공개 초안과 Red 검증을 재개한다.
+- state_repair_artifact: artifacts/content-persona-carousel-20260906/held-draft.md
 
 ### [safety-map-experiment-04-20260906] 로마 위험 회피 보조 근거 검증
 - status: waiting
