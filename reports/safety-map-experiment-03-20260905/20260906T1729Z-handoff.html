@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="ko"><head><meta charset="utf-8"><title>Safety Map experiment-03 handoff</title>
+<style>:root{--bg:#f4f2ea;--panel:#fbfaf5;--ink:#2c2a25;--soft:#706c62;--line:#e3dfd2;--a1:#a9745a;--a2:#5f7a5e}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.65 system-ui,sans-serif}.sheet{max-width:720px;margin:auto;padding:32px 18px}.axis{border-left:3px solid var(--a1);padding-left:16px;margin:24px 0}.axis.ax2{border-color:var(--a2)}h1{line-height:1.3}details{border:1px solid var(--line);border-radius:8px;background:var(--panel);margin:12px 0;padding:12px}summary{font-weight:700;cursor:pointer}code{word-break:break-word}li{margin:7px 0}.meta{color:var(--soft);font-size:13px}</style>
+</head><body><main class="sheet">
+<p class="meta">Infinity · implementation handoff · 2026-09-06T17:29Z</p>
+<h1>Safety Map experiment-03: 로컬 구현 재개 전 핸드오프</h1>
+<section class="axis ax1"><b>01 · 무엇이 문제였나</b><br>Active 원장은 T3 로컬 격리 구현을 다음 행동으로 지정하지만, 이 cycle에서 확인한 Infinity 경로에는 <code>intents/active/safety-map-experiment-03-20260905.md</code>가 없고 context pack은 대상 코드 저장소·파일을 지정하지 않습니다.</section>
+<section class="axis ax2"><b>02 · 어떻게 해결하나</b><br>코드를 추측해 변경하지 않고, 다음 담당자는 대상 저장소를 식별한 뒤 새 실험 전용 경로만 확인·구현·검증합니다. Intent는 Active로 유지합니다.</section>
+<details open><summary>정확한 다음 범위와 검증 게이트</summary><ul>
+<li><b>대상 저장소:</b> Knowledge Lab 작업공간에서 experiment-03 배포 프로젝트를 먼저 식별한다. 현재 context pack은 Infinity와 문서 탐색 범위만 제공하며 코드 repo를 확정하지 않는다.</li>
+<li><b>검사할 파일/경로:</b> 식별된 repo의 <code>sites/safety-map-experiment-03/**</code>, 해당 배포 wiring, 그리고 <code>artifacts/safety-map-experiment-03-20260905/task-plan.{md,json}</code>를 대조한다.</li>
+<li><b>금지:</b> <code>sites/safety-map/**</code> legacy 변경, production deploy, Slack 발송, 토큰/시크릿 기록, geolocation 또는 permission prompt, 안전 점수·안전 경로·실시간 사건 기능.</li>
+<li><b>승인 경계:</b> 로컬 L1 구현·검증은 가능하나 production deploy와 원 Slack thread receipt는 기존 blocker대로 명시 승인이 필요하다.</li>
+<li><b>검증:</b> 새 경로만의 scoped diff, desktop·390px capture, search/zoom/pan/layer 작동 전후, no-data 경계, Red 시각 검토, 민감값 비노출을 확인한다.</li>
+</ul></details>
+<details><summary>근거와 상태</summary><p>INTENTS.md의 Active 항목은 모든 역할 완료, <code>final-red-pending</code>, 그리고 production deployment/Slack receipt blocker를 기록한다. 이 handoff는 해당 blocker를 해소하거나 완료를 주장하지 않는다. 보고서 경로: <code>reports/safety-map-experiment-03-20260905/20260906T1729Z-handoff.html</code>.</p></details>
+</main></body></html>
