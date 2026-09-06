@@ -34,7 +34,6 @@
 - context_documents_checked: LLM.md; Knowledge Lab README.md; schema/agent-rules.md; DOCUMENT_SEARCH_PIPELINE.md; USER_CONTEXT.md; SERVICE_REGISTRY.md; INFINITY_OPERATING_RULES.md; INTENTS.md; agent-wiki/README.md
 - context_searches: rg -l -i 'rome|roma|safety map|치안 지도|crime' agent-wiki/content/docs source/openclaw-system/docs daily-reviews daily-tracking photo-insights (no Rome task-specific compiled evidence; external official source research begins in T1)
 - task_plan: artifacts/safety-map-experiment-04-20260906/task-plan.json
-- task_plan_doc: artifacts/safety-map-experiment-04-20260906/task-plan.md
 - notification_channel: slack
 - notification_target: C0BR41W31MM
 - notification_reply_to: 1788681442.847249
