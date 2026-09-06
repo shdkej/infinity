@@ -59,16 +59,29 @@
       "type": "execution",
       "at": "2026-09-06T09:47:57Z",
       "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
-      "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/task-plan.json", "artifacts/safety-map-experiment-04-20260906/task-plan.md"],
-      "searches": ["ARTIFACT_RULES.md 대형 작업 태스크 계획", "agent-wiki/README.md safety map context"],
+      "evidence_paths": [
+        "artifacts/safety-map-experiment-04-20260906/task-plan.json",
+        "artifacts/safety-map-experiment-04-20260906/task-plan.md"
+      ],
+      "searches": [
+        "ARTIFACT_RULES.md 대형 작업 태스크 계획",
+        "agent-wiki/README.md safety map context"
+      ],
       "note": "사용자 명시 scope correction: 공식+공개 커뮤니티/블로그 경험으로 확장. T2.1 후보 탐색을 T1과 독립적으로 시작하며, 집계·Red 전에는 no-render를 유지한다."
     },
     {
       "type": "execution",
       "at": "2026-09-06T09:48:00Z",
       "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
-      "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/t2-candidate-discovery.md"],
-      "searches": ["site:reddit.com Rome areas avoid tourist safety recent experience", "site:blog.naver.com 로마 여행 위험 지역 후기", "site:dcinside.com 로마 여행 위험 지역 후기", "site:theqoo.net 로마 여행 위험 지역 후기"],
+      "evidence_paths": [
+        "artifacts/safety-map-experiment-04-20260906/t2-candidate-discovery.md"
+      ],
+      "searches": [
+        "site:reddit.com Rome areas avoid tourist safety recent experience",
+        "site:blog.naver.com 로마 여행 위험 지역 후기",
+        "site:dcinside.com 로마 여행 위험 지역 후기",
+        "site:theqoo.net 로마 여행 위험 지역 후기"
+      ],
       "note": "T2.1 후보 탐색 완료. Reddit 공개 후보 3건을 메타데이터만으로 보류하고, robots 차단·무관·공간 단위 부족 표면을 제외했다. 모든 후보는 no-render다."
     },
     {
@@ -76,8 +89,13 @@
       "at": "2026-09-06T09:50:00Z",
       "status": "pass",
       "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
-      "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/t2-red.md", "artifacts/safety-map-experiment-04-20260906/t2-close.md"],
-      "searches": ["T2 후보 메타데이터·개인정보·no-render 계약 Red 재검토"],
+      "evidence_paths": [
+        "artifacts/safety-map-experiment-04-20260906/t2-red.md",
+        "artifacts/safety-map-experiment-04-20260906/t2-close.md"
+      ],
+      "searches": [
+        "T2 후보 메타데이터·개인정보·no-render 계약 Red 재검토"
+      ],
       "note": "독립 Red가 후보 메타데이터만 보존, 개인정보 비저장, 단일 게시물 no-render, 안전 주장 금지, T1 독립성을 PASS로 판정했다. T3 전에는 입수·표시 결정을 내리지 않는다."
     },
     {
@@ -94,8 +112,12 @@
       "at": "2026-09-06T10:00:54Z",
       "status": "waiting",
       "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
-      "evidence_paths": ["INTENTS.md"],
-      "searches": ["INTENTS.md safety-map-experiment-04-20260906 Waiting lane/status contract"],
+      "evidence_paths": [
+        "INTENTS.md"
+      ],
+      "searches": [
+        "INTENTS.md safety-map-experiment-04-20260906 Waiting lane/status contract"
+      ],
       "note": "Dispatcher invalid_state repair: Waiting lane의 잘못된 active 상태를 waiting으로 정정했다. 다음 공개 후보 검증 leaf가 dispatcher에서 명시적으로 활성화될 때까지 no-render와 기존 근거 부족 경계를 유지한다."
     },
     {
@@ -112,8 +134,13 @@
       "at": "2026-09-06T10:10:44Z",
       "status": "active",
       "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
-      "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/task-plan.json", "artifacts/safety-map-experiment-04-20260906/task-plan.md"],
-      "searches": ["T3.1 공개접근·ToS·robots 판정 대상 후보와 공개 이용 조건"],
+      "evidence_paths": [
+        "artifacts/safety-map-experiment-04-20260906/task-plan.json",
+        "artifacts/safety-map-experiment-04-20260906/task-plan.md"
+      ],
+      "searches": [
+        "T3.1 공개접근·ToS·robots 판정 대상 후보와 공개 이용 조건"
+      ],
       "note": "T3.1을 명시적 active leaf로 시작했다. T3.2 독립 Red와 T3.3 마감확인 전까지 후보는 no-render다."
     },
     {
@@ -121,8 +148,14 @@
       "at": "2026-09-06T10:12:00Z",
       "status": "done",
       "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
-      "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/t3-access.md"],
-      "searches": ["Reddit robots.txt", "Reddit User Agreement", "T2.1 Reddit candidate HTTP access status"],
+      "evidence_paths": [
+        "artifacts/safety-map-experiment-04-20260906/t3-access.md"
+      ],
+      "searches": [
+        "Reddit robots.txt",
+        "Reddit User Agreement",
+        "T2.1 Reddit candidate HTTP access status"
+      ],
       "note": "T3.1 완료: robots가 User-agent *에 Disallow: /를 선언하고 후보 원문 3건이 HTTP 403이므로 자동 입수·본문 보존·집계·표시를 금지한다. 후보는 no-render이며 T3.2 Red 검토를 대기한다."
     },
     {
@@ -139,8 +172,14 @@
       "at": "2026-09-06T10:20:20Z",
       "status": "active",
       "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
-      "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/task-plan.json", "artifacts/safety-map-experiment-04-20260906/task-plan.md", "artifacts/safety-map-experiment-04-20260906/t3-access.md"],
-      "searches": ["T3.1 robots·HTTP 접근 판정 독립 Red 검토"],
+      "evidence_paths": [
+        "artifacts/safety-map-experiment-04-20260906/task-plan.json",
+        "artifacts/safety-map-experiment-04-20260906/task-plan.md",
+        "artifacts/safety-map-experiment-04-20260906/t3-access.md"
+      ],
+      "searches": [
+        "T3.1 robots·HTTP 접근 판정 독립 Red 검토"
+      ],
       "note": "T3.2를 독립 Red 검증 leaf로 활성화했다. T3.1의 자동 접근 금지/no-render 결론만 검토 범위에 포함한다."
     },
     {
@@ -148,8 +187,12 @@
       "at": "2026-09-06T10:21:30Z",
       "status": "pass",
       "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
-      "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/t3-red.md"],
-      "searches": ["T3.1 Reddit robots·HTTP 403·no-render 독립 Red 검토"],
+      "evidence_paths": [
+        "artifacts/safety-map-experiment-04-20260906/t3-red.md"
+      ],
+      "searches": [
+        "T3.1 Reddit robots·HTTP 403·no-render 독립 Red 검토"
+      ],
       "note": "독립 Red PASS: robots Disallow:/와 HTTP 403은 자동 접근 중단의 운영 근거이며, 약관 공개를 자동 수집 허가로 해석하지 않았다. 후보는 계속 no-render다."
     },
     {
@@ -166,8 +209,15 @@
       "at": "2026-09-06T10:31:21Z",
       "status": "active",
       "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
-      "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/task-plan.json", "artifacts/safety-map-experiment-04-20260906/task-plan.md", "artifacts/safety-map-experiment-04-20260906/t3-access.md", "artifacts/safety-map-experiment-04-20260906/t3-red.md"],
-      "searches": ["T3.3 C3 no-render 마감확인"],
+      "evidence_paths": [
+        "artifacts/safety-map-experiment-04-20260906/task-plan.json",
+        "artifacts/safety-map-experiment-04-20260906/task-plan.md",
+        "artifacts/safety-map-experiment-04-20260906/t3-access.md",
+        "artifacts/safety-map-experiment-04-20260906/t3-red.md"
+      ],
+      "searches": [
+        "T3.3 C3 no-render 마감확인"
+      ],
       "note": "T3.3을 명시적 active leaf로 시작했다. T3.1/T3.2의 자동 접근 차단 및 no-render 결론만 마감확인 범위에 포함한다."
     },
     {
@@ -175,8 +225,12 @@
       "at": "2026-09-06T10:32:30Z",
       "status": "done",
       "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
-      "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/t3-close.md"],
-      "searches": ["T3.1 robots·HTTP 403 및 T3.2 Red no-render 결론 C3 마감확인"],
+      "evidence_paths": [
+        "artifacts/safety-map-experiment-04-20260906/t3-close.md"
+      ],
+      "searches": [
+        "T3.1 robots·HTTP 403 및 T3.2 Red no-render 결론 C3 마감확인"
+      ],
       "note": "C3를 30분 제한 내에 종료했다. 자동 접근·본문 보존·집계·핀/신호 렌더링 금지와 no-render를 유지하며, T4.1이 명시적으로 활성화되기 전에는 후속 데이터 계약 작업을 시작하지 않는다."
     },
     {
@@ -193,8 +247,13 @@
       "at": "2026-09-06T10:40:02Z",
       "status": "active",
       "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
-      "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/task-plan.json", "artifacts/safety-map-experiment-04-20260906/task-plan.md"],
-      "searches": ["T4.1 provenance 메타데이터 최소 계약 및 no-render 경계"],
+      "evidence_paths": [
+        "artifacts/safety-map-experiment-04-20260906/task-plan.json",
+        "artifacts/safety-map-experiment-04-20260906/task-plan.md"
+      ],
+      "searches": [
+        "T4.1 provenance 메타데이터 최소 계약 및 no-render 경계"
+      ],
       "note": "T4.1을 명시적 active leaf로 시작했다. 계약은 후보/원문 본문을 저장하지 않으며, 허용되지 않은 입수 후보는 표현·집계하지 않는다."
     },
     {
@@ -202,8 +261,12 @@
       "at": "2026-09-06T10:42:00Z",
       "status": "done",
       "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
-      "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/t4-contract.json"],
-      "searches": ["T4.1 source_url·published_at·collected_at·area_unit provenance 최소 계약"],
+      "evidence_paths": [
+        "artifacts/safety-map-experiment-04-20260906/t4-contract.json"
+      ],
+      "searches": [
+        "T4.1 source_url·published_at·collected_at·area_unit provenance 최소 계약"
+      ],
       "note": "T4.1을 30분 제한 내에 종료했다. provenance 최소 필드와 금지 필드, 사람 검토·복수성·Red 전 no-render 기본값을 JSON 계약으로 고정했다."
     },
     {
@@ -220,8 +283,14 @@
       "at": "2026-09-06T10:50:03Z",
       "status": "active",
       "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
-      "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/t4-contract.json", "artifacts/safety-map-experiment-04-20260906/task-plan.json", "artifacts/safety-map-experiment-04-20260906/task-plan.md"],
-      "searches": ["T4.2 provenance 최소 필드·금지 필드·no-render 독립 Red 검증"],
+      "evidence_paths": [
+        "artifacts/safety-map-experiment-04-20260906/t4-contract.json",
+        "artifacts/safety-map-experiment-04-20260906/task-plan.json",
+        "artifacts/safety-map-experiment-04-20260906/task-plan.md"
+      ],
+      "searches": [
+        "T4.2 provenance 최소 필드·금지 필드·no-render 독립 Red 검증"
+      ],
       "note": "T4.2를 독립 Red leaf로 활성화했다. 검증은 계약의 데이터 최소화·표시 적격성·no-render 기본값에 한정한다."
     },
     {
@@ -229,8 +298,12 @@
       "at": "2026-09-06T10:51:30Z",
       "status": "pass",
       "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
-      "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/t4-red.md"],
-      "searches": ["T4.1 provenance 최소 필드·금지 필드·no-render 독립 Red 검토"],
+      "evidence_paths": [
+        "artifacts/safety-map-experiment-04-20260906/t4-red.md"
+      ],
+      "searches": [
+        "T4.1 provenance 최소 필드·금지 필드·no-render 독립 Red 검토"
+      ],
       "note": "독립 Red PASS: 필수 provenance와 금지 필드, 사람 검토·복수성·지역 단위 집계·독립 Red 전 no-render 조건, 안전 주장 금지를 확인했다. 실제 후보 표시 허가는 포함하지 않는다."
     },
     {
@@ -247,8 +320,15 @@
       "at": "2026-09-06T11:00:03Z",
       "status": "active",
       "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
-      "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/task-plan.json", "artifacts/safety-map-experiment-04-20260906/task-plan.md", "artifacts/safety-map-experiment-04-20260906/t4-contract.json", "artifacts/safety-map-experiment-04-20260906/t4-red.md"],
-      "searches": ["T4.3 C4 provenance 계약 및 no-render 마감확인"],
+      "evidence_paths": [
+        "artifacts/safety-map-experiment-04-20260906/task-plan.json",
+        "artifacts/safety-map-experiment-04-20260906/task-plan.md",
+        "artifacts/safety-map-experiment-04-20260906/t4-contract.json",
+        "artifacts/safety-map-experiment-04-20260906/t4-red.md"
+      ],
+      "searches": [
+        "T4.3 C4 provenance 계약 및 no-render 마감확인"
+      ],
       "note": "T4.3을 명시적 active leaf로 시작했다. T4.1 계약과 T4.2 Red PASS의 no-render·데이터 최소화 결론만 마감확인 범위에 포함한다."
     },
     {
@@ -256,8 +336,12 @@
       "at": "2026-09-06T11:02:00Z",
       "status": "done",
       "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
-      "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/t4-close.md"],
-      "searches": ["T4.1 provenance 계약 및 T4.2 Red PASS C4 마감확인"],
+      "evidence_paths": [
+        "artifacts/safety-map-experiment-04-20260906/t4-close.md"
+      ],
+      "searches": [
+        "T4.1 provenance 계약 및 T4.2 Red PASS C4 마감확인"
+      ],
       "note": "C4를 30분 제한 내에 종료했다. provenance 계약은 no-render 경계만 확정하며, 후보 수집·집계·핀/신호 렌더링·안전 주장을 허용하지 않는다. T5.1의 명시적 활성화 전에는 후속 작업을 시작하지 않는다."
     },
     {
@@ -274,8 +358,14 @@
       "at": "2026-09-06T11:10:03Z",
       "status": "active",
       "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
-      "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/task-plan.json", "artifacts/safety-map-experiment-04-20260906/task-plan.md", "artifacts/safety-map-experiment-04-20260906/t4-contract.json"],
-      "searches": ["T5.1 PII·위험 표현·중복 자동필터 계약"],
+      "evidence_paths": [
+        "artifacts/safety-map-experiment-04-20260906/task-plan.json",
+        "artifacts/safety-map-experiment-04-20260906/task-plan.md",
+        "artifacts/safety-map-experiment-04-20260906/t4-contract.json"
+      ],
+      "searches": [
+        "T5.1 PII·위험 표현·중복 자동필터 계약"
+      ],
       "note": "T5.1을 명시적 active leaf로 시작했다. 필터는 후보 원문을 수집·보존하지 않으며, 자동 차단 규칙과 no-render 경계만 정의한다."
     },
     {
@@ -283,8 +373,12 @@
       "at": "2026-09-06T11:12:00Z",
       "status": "done",
       "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
-      "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/t5-filter.md"],
-      "searches": ["T5.1 PII·위험 표현·중복 자동필터 및 no-render 출력 경계"],
+      "evidence_paths": [
+        "artifacts/safety-map-experiment-04-20260906/t5-filter.md"
+      ],
+      "searches": [
+        "T5.1 PII·위험 표현·중복 자동필터 및 no-render 출력 경계"
+      ],
       "note": "T5.1을 30분 제한 내에 종료했다. PII·위험 표현·메타데이터 누락은 reject, 중복 및 그 외 후보는 사람 검토 보류이며 approve_for_render 출력은 정의하지 않았다."
     },
     {
@@ -301,8 +395,14 @@
       "at": "2026-09-06T11:20:03Z",
       "status": "active",
       "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
-      "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/task-plan.json", "artifacts/safety-map-experiment-04-20260906/task-plan.md", "artifacts/safety-map-experiment-04-20260906/t5-filter.md"],
-      "searches": ["T5.2 독립 Red: PII·위험 표현·중복 자동필터 no-render 경계"],
+      "evidence_paths": [
+        "artifacts/safety-map-experiment-04-20260906/task-plan.json",
+        "artifacts/safety-map-experiment-04-20260906/task-plan.md",
+        "artifacts/safety-map-experiment-04-20260906/t5-filter.md"
+      ],
+      "searches": [
+        "T5.2 독립 Red: PII·위험 표현·중복 자동필터 no-render 경계"
+      ],
       "note": "T5.2를 독립 Red leaf로 활성화했다. 검토 범위는 T5.1의 reject·hold_for_human_review 출력과 approve_for_render 부재에 한정한다."
     },
     {
@@ -310,8 +410,12 @@
       "at": "2026-09-06T11:21:30Z",
       "status": "pass",
       "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
-      "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/t5-red.md"],
-      "searches": ["T5.1 PII·위험 표현·중복 자동필터 독립 Red 검토"],
+      "evidence_paths": [
+        "artifacts/safety-map-experiment-04-20260906/t5-red.md"
+      ],
+      "searches": [
+        "T5.1 PII·위험 표현·중복 자동필터 독립 Red 검토"
+      ],
       "note": "독립 Red PASS: 최소 provenance, PII·위험 표현 reject, 중복/그 외 사람 검토 보류, approve_for_render 부재를 확인했다. 실제 구현 전 URL 정규화·PII 탐지 규칙은 테스트 케이스로 명세화해야 하며, no-render는 계속 유지된다."
     },
     {
@@ -328,8 +432,15 @@
       "at": "2026-09-06T11:30:03Z",
       "status": "active",
       "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
-      "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/task-plan.json", "artifacts/safety-map-experiment-04-20260906/task-plan.md", "artifacts/safety-map-experiment-04-20260906/t5-filter.md", "artifacts/safety-map-experiment-04-20260906/t5-red.md"],
-      "searches": ["T5.3 C5 자동필터 Red PASS 및 no-render 마감확인"],
+      "evidence_paths": [
+        "artifacts/safety-map-experiment-04-20260906/task-plan.json",
+        "artifacts/safety-map-experiment-04-20260906/task-plan.md",
+        "artifacts/safety-map-experiment-04-20260906/t5-filter.md",
+        "artifacts/safety-map-experiment-04-20260906/t5-red.md"
+      ],
+      "searches": [
+        "T5.3 C5 자동필터 Red PASS 및 no-render 마감확인"
+      ],
       "note": "T5.3을 명시적 active leaf로 시작했다. T5.1 필터와 T5.2 Red PASS의 no-render 경계만 마감확인 범위에 포함한다."
     },
     {
@@ -337,8 +448,12 @@
       "at": "2026-09-06T11:32:00Z",
       "status": "done",
       "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
-      "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/t5-close.md"],
-      "searches": ["T5.1 자동필터 및 T5.2 Red PASS C5 마감확인"],
+      "evidence_paths": [
+        "artifacts/safety-map-experiment-04-20260906/t5-close.md"
+      ],
+      "searches": [
+        "T5.1 자동필터 및 T5.2 Red PASS C5 마감확인"
+      ],
       "note": "C5를 30분 제한 내에 종료했다. 자동필터 계약은 no-render 경계만 확정하며, 후보 수집·집계·핀/신호 렌더링·안전 주장을 허용하지 않는다. T6.1의 명시적 활성화 전에는 후속 작업을 시작하지 않는다."
     },
     {
@@ -355,8 +470,15 @@
       "at": "2026-09-06T11:50:03Z",
       "status": "active",
       "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
-      "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/task-plan.json", "artifacts/safety-map-experiment-04-20260906/task-plan.md", "artifacts/safety-map-experiment-04-20260906/t4-contract.json", "artifacts/safety-map-experiment-04-20260906/t5-filter.md"],
-      "searches": ["T6.1 사람 검토 rubric: no-render·PII·복수성·최근성·지역 단위 검토 기준"],
+      "evidence_paths": [
+        "artifacts/safety-map-experiment-04-20260906/task-plan.json",
+        "artifacts/safety-map-experiment-04-20260906/task-plan.md",
+        "artifacts/safety-map-experiment-04-20260906/t4-contract.json",
+        "artifacts/safety-map-experiment-04-20260906/t5-filter.md"
+      ],
+      "searches": [
+        "T6.1 사람 검토 rubric: no-render·PII·복수성·최근성·지역 단위 검토 기준"
+      ],
       "note": "T6.1을 명시적 active leaf로 시작했다. rubric은 사람 검토의 reject/hold 기준만 정의하며 후보 접근·본문 보존·집계·렌더링을 허용하지 않는다."
     },
     {
@@ -364,8 +486,12 @@
       "at": "2026-09-06T11:52:00Z",
       "status": "done",
       "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
-      "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/t6-rubric.md"],
-      "searches": ["T6.1 사람 검토 rubric: 접근·provenance·PII·위험 표현·지역 단위·최근성/독립성 경계"],
+      "evidence_paths": [
+        "artifacts/safety-map-experiment-04-20260906/t6-rubric.md"
+      ],
+      "searches": [
+        "T6.1 사람 검토 rubric: 접근·provenance·PII·위험 표현·지역 단위·최근성/독립성 경계"
+      ],
       "note": "T6.1을 30분 제한 내에 종료했다. 출력은 reject 또는 hold_no_render뿐이며, T7·T10·독립 Red 전에는 후보 집계·핀/신호 렌더링·안전 주장을 허용하지 않는다."
     },
     {
@@ -382,8 +508,14 @@
       "at": "2026-09-06T12:00:03Z",
       "status": "active",
       "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
-      "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/task-plan.json", "artifacts/safety-map-experiment-04-20260906/task-plan.md", "artifacts/safety-map-experiment-04-20260906/t6-rubric.md"],
-      "searches": ["T6.2 독립 Red: 사람 검토 rubric의 no-render·PII·위험 표현·집계 진입 경계"],
+      "evidence_paths": [
+        "artifacts/safety-map-experiment-04-20260906/task-plan.json",
+        "artifacts/safety-map-experiment-04-20260906/task-plan.md",
+        "artifacts/safety-map-experiment-04-20260906/t6-rubric.md"
+      ],
+      "searches": [
+        "T6.2 독립 Red: 사람 검토 rubric의 no-render·PII·위험 표현·집계 진입 경계"
+      ],
       "note": "T6.2를 독립 Red leaf로 활성화했다. 검토 범위는 T6.1 rubric이 reject/hold_no_render만 출력하고 표시·집계·안전 주장을 허용하지 않는지에 한정한다."
     },
     {
@@ -391,8 +523,12 @@
       "at": "2026-09-06T12:02:00Z",
       "status": "pass",
       "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
-      "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/t6-red.md"],
-      "searches": ["T6.1 사람 검토 rubric 독립 Red 검토"],
+      "evidence_paths": [
+        "artifacts/safety-map-experiment-04-20260906/t6-red.md"
+      ],
+      "searches": [
+        "T6.1 사람 검토 rubric 독립 Red 검토"
+      ],
       "note": "독립 Red PASS: 접근·이용 조건 미확인 hold_no_render, 최소 provenance·PII 배제, 위험 표현 reject, 승인 경로 부재와 no-render 지속을 확인했다."
     },
     {
@@ -409,8 +545,15 @@
       "at": "2026-09-06T12:10:02Z",
       "status": "active",
       "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
-      "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/task-plan.json", "artifacts/safety-map-experiment-04-20260906/task-plan.md", "artifacts/safety-map-experiment-04-20260906/t6-rubric.md", "artifacts/safety-map-experiment-04-20260906/t6-red.md"],
-      "searches": ["T6.3 C6 사람 검토 기준 Red PASS no-render 마감확인"],
+      "evidence_paths": [
+        "artifacts/safety-map-experiment-04-20260906/task-plan.json",
+        "artifacts/safety-map-experiment-04-20260906/task-plan.md",
+        "artifacts/safety-map-experiment-04-20260906/t6-rubric.md",
+        "artifacts/safety-map-experiment-04-20260906/t6-red.md"
+      ],
+      "searches": [
+        "T6.3 C6 사람 검토 기준 Red PASS no-render 마감확인"
+      ],
       "note": "T6.3을 명시적 active leaf로 시작했다. C6는 T6.1 rubric과 T6.2 Red PASS의 no-render 경계만 마감확인하며, 후보 접근·원문 보존·집계·핀/신호 렌더링을 허용하지 않는다."
     },
     {
@@ -418,8 +561,14 @@
       "at": "2026-09-06T12:11:26Z",
       "status": "done",
       "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
-      "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/t6-rubric.md", "artifacts/safety-map-experiment-04-20260906/t6-red.md", "artifacts/safety-map-experiment-04-20260906/t6-close.md"],
-      "searches": ["T6.3 C6 no-render 사람 검토 기준 마감확인"],
+      "evidence_paths": [
+        "artifacts/safety-map-experiment-04-20260906/t6-rubric.md",
+        "artifacts/safety-map-experiment-04-20260906/t6-red.md",
+        "artifacts/safety-map-experiment-04-20260906/t6-close.md"
+      ],
+      "searches": [
+        "T6.3 C6 no-render 사람 검토 기준 마감확인"
+      ],
       "note": "C6를 30분 제한 내에 종료했다. T6.1 rubric과 T6.2 Red PASS는 reject/hold_no_render 경계만 확인하며, 후보 원문·PII·정확 위치 보존, 집계, 핀/신호 렌더링, 안전 보장·범죄 확정 표현을 허용하지 않는다. 다음 후보 적격성 판정도 no-render로 시작한다."
     },
     {
@@ -436,8 +585,15 @@
       "at": "2026-09-06T12:20:02Z",
       "status": "active",
       "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
-      "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/task-plan.json", "artifacts/safety-map-experiment-04-20260906/task-plan.md", "artifacts/safety-map-experiment-04-20260906/t2-candidate-discovery.md", "artifacts/safety-map-experiment-04-20260906/t6-rubric.md"],
-      "searches": ["T7.1 후보 최소 메타데이터의 최근성·공간 단위·독립성 no-render 적격성 판정"],
+      "evidence_paths": [
+        "artifacts/safety-map-experiment-04-20260906/task-plan.json",
+        "artifacts/safety-map-experiment-04-20260906/task-plan.md",
+        "artifacts/safety-map-experiment-04-20260906/t2-candidate-discovery.md",
+        "artifacts/safety-map-experiment-04-20260906/t6-rubric.md"
+      ],
+      "searches": [
+        "T7.1 후보 최소 메타데이터의 최근성·공간 단위·독립성 no-render 적격성 판정"
+      ],
       "note": "T7.1을 명시적 active leaf로 시작했다. 새 원문 접근이나 후보 수집 없이 최소 metadata의 판정 가능성만 검토하며, 단일 후보·접근 차단·독립성 미확인 상태에서는 no-render를 유지한다."
     },
     {
@@ -445,8 +601,16 @@
       "at": "2026-09-06T12:22:10Z",
       "status": "done",
       "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
-      "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/t2-candidate-discovery.md", "artifacts/safety-map-experiment-04-20260906/t3-access.md", "artifacts/safety-map-experiment-04-20260906/t4-contract.json", "artifacts/safety-map-experiment-04-20260906/t6-rubric.md", "artifacts/safety-map-experiment-04-20260906/t7-decision.md"],
-      "searches": ["T7.1 기존 후보 최소 메타데이터의 최근성·공간 단위·독립성 판정"],
+      "evidence_paths": [
+        "artifacts/safety-map-experiment-04-20260906/t2-candidate-discovery.md",
+        "artifacts/safety-map-experiment-04-20260906/t3-access.md",
+        "artifacts/safety-map-experiment-04-20260906/t4-contract.json",
+        "artifacts/safety-map-experiment-04-20260906/t6-rubric.md",
+        "artifacts/safety-map-experiment-04-20260906/t7-decision.md"
+      ],
+      "searches": [
+        "T7.1 기존 후보 최소 메타데이터의 최근성·공간 단위·독립성 판정"
+      ],
       "note": "T7.1을 30분 제한 내에 종료했다. 새 원문 접근 없이 C-01~C-03의 최소 메타데이터만 판정했으며, 자동 접근 차단·사람 검토 미완료·최근 복수 독립성 미확인으로 모두 hold_no_render다. 원문·PII·정확 위치를 보존하지 않았고 집계·핀·신호 렌더링·안전 주장을 허용하지 않는다."
     },
     {
@@ -463,8 +627,14 @@
       "at": "2026-09-06T12:30:02Z",
       "status": "active",
       "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
-      "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/task-plan.json", "artifacts/safety-map-experiment-04-20260906/task-plan.md", "artifacts/safety-map-experiment-04-20260906/t7-decision.md"],
-      "searches": ["T7.2 독립 Red: 후보 적격성 및 hold_no_render 경계 검증"],
+      "evidence_paths": [
+        "artifacts/safety-map-experiment-04-20260906/task-plan.json",
+        "artifacts/safety-map-experiment-04-20260906/task-plan.md",
+        "artifacts/safety-map-experiment-04-20260906/t7-decision.md"
+      ],
+      "searches": [
+        "T7.2 독립 Red: 후보 적격성 및 hold_no_render 경계 검증"
+      ],
       "note": "T7.2를 명시적 active Red leaf로 시작했다. T7.1의 기존 최소 메타데이터 판정만 검토하며 새 원문 접근·후보 수집·집계·핀/신호 렌더링은 수행하지 않는다."
     },
     {
@@ -472,8 +642,15 @@
       "at": "2026-09-06T12:33:00Z",
       "status": "pass",
       "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
-      "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/t7-decision.md", "artifacts/safety-map-experiment-04-20260906/t7-red.md", "artifacts/safety-map-experiment-04-20260906/t3-access.md", "artifacts/safety-map-experiment-04-20260906/t6-rubric.md"],
-      "searches": ["독립 Red: T7.1 후보 적격성 및 hold_no_render 경계 검증"],
+      "evidence_paths": [
+        "artifacts/safety-map-experiment-04-20260906/t7-decision.md",
+        "artifacts/safety-map-experiment-04-20260906/t7-red.md",
+        "artifacts/safety-map-experiment-04-20260906/t3-access.md",
+        "artifacts/safety-map-experiment-04-20260906/t6-rubric.md"
+      ],
+      "searches": [
+        "독립 Red: T7.1 후보 적격성 및 hold_no_render 경계 검증"
+      ],
       "note": "독립 Red PASS: C-01~C-03은 자동 접근 차단, 사람 검토·최근 복수 독립성·지역 정규화 미확인으로 모두 hold_no_render다. 핀·점수·예측·안전 보장·범죄 확정 표현과 원문·PII·정확 위치 보존이 없음을 확인했다."
     },
     {
@@ -490,8 +667,15 @@
       "at": "2026-09-06T12:40:02Z",
       "status": "active",
       "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
-      "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/task-plan.json", "artifacts/safety-map-experiment-04-20260906/task-plan.md", "artifacts/safety-map-experiment-04-20260906/t7-decision.md", "artifacts/safety-map-experiment-04-20260906/t7-red.md"],
-      "searches": ["T7.3 C7 후보 적격성 hold_no_render 마감확인"],
+      "evidence_paths": [
+        "artifacts/safety-map-experiment-04-20260906/task-plan.json",
+        "artifacts/safety-map-experiment-04-20260906/task-plan.md",
+        "artifacts/safety-map-experiment-04-20260906/t7-decision.md",
+        "artifacts/safety-map-experiment-04-20260906/t7-red.md"
+      ],
+      "searches": [
+        "T7.3 C7 후보 적격성 hold_no_render 마감확인"
+      ],
       "note": "T7.3을 명시적 active leaf로 시작했다. T7.1 판정과 T7.2 Red PASS의 hold_no_render 경계만 마감확인하며, 새 원문 접근·후보 수집·집계·핀/신호 렌더링은 수행하지 않는다."
     },
     {
@@ -499,8 +683,14 @@
       "at": "2026-09-06T12:41:30Z",
       "status": "done",
       "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
-      "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/t7-decision.md", "artifacts/safety-map-experiment-04-20260906/t7-red.md", "artifacts/safety-map-experiment-04-20260906/t7-close.md"],
-      "searches": ["T7.3 C7 후보 적격성 hold_no_render 마감확인"],
+      "evidence_paths": [
+        "artifacts/safety-map-experiment-04-20260906/t7-decision.md",
+        "artifacts/safety-map-experiment-04-20260906/t7-red.md",
+        "artifacts/safety-map-experiment-04-20260906/t7-close.md"
+      ],
+      "searches": [
+        "T7.3 C7 후보 적격성 hold_no_render 마감확인"
+      ],
       "note": "C7를 30분 제한 내에 종료했다. C-01~C-03은 최근성·공간 단위·독립성·사람 검토·접근 조건이 충족되지 않아 hold_no_render를 유지한다. 원문·PII·정확 위치 보존, 집계, 핀/신호 렌더링, 점수·예측·안전 보장·범죄 확정 표현은 수행하지 않았다."
     },
     {
@@ -517,8 +707,14 @@
       "at": "2026-09-06T12:50:02Z",
       "status": "active",
       "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
-      "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/task-plan.json", "artifacts/safety-map-experiment-04-20260906/task-plan.md", "artifacts/safety-map-experiment-04-20260906/t4-contract.json"],
-      "searches": ["Roma Capitale 공식 open-data 후보와 최소 provenance 확인"],
+      "evidence_paths": [
+        "artifacts/safety-map-experiment-04-20260906/task-plan.json",
+        "artifacts/safety-map-experiment-04-20260906/task-plan.md",
+        "artifacts/safety-map-experiment-04-20260906/t4-contract.json"
+      ],
+      "searches": [
+        "Roma Capitale 공식 open-data 후보와 최소 provenance 확인"
+      ],
       "note": "T8.1을 명시적 active leaf로 시작했다. 공식 자료 후보의 URL·공개 메타데이터·발행/갱신 정보·지역 단위만 검토하며, 이를 현재 위험 신호·치안 판단·지도 핀으로 표시하지 않는다."
     },
     {
@@ -526,8 +722,16 @@
       "at": "2026-09-06T12:53:00Z",
       "status": "done",
       "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
-      "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/t8-official.md", "artifacts/safety-map-experiment-04-20260906/t4-contract.json", "artifacts/safety-map-experiment-04-20260906/t6-rubric.md"],
-      "searches": ["Roma Capitale 공식 Open Data 포털", "Roma Capitale Annuario statistico 2024 Sicurezza urbana", "Roma 2021 교통사고 CKAN metadata"],
+      "evidence_paths": [
+        "artifacts/safety-map-experiment-04-20260906/t8-official.md",
+        "artifacts/safety-map-experiment-04-20260906/t4-contract.json",
+        "artifacts/safety-map-experiment-04-20260906/t6-rubric.md"
+      ],
+      "searches": [
+        "Roma Capitale 공식 Open Data 포털",
+        "Roma Capitale Annuario statistico 2024 Sicurezza urbana",
+        "Roma 2021 교통사고 CKAN metadata"
+      ],
       "note": "T8.1을 30분 제한 내에 종료했다. 공식 provenance 후보를 URL·공개 메타데이터·공간 단위만 기준으로 분리했으며, O-01은 필수 세부 메타데이터 미확인으로 hold_no_render, O-02는 오래된 교통사고·정밀 위치 필드로 reject, O-03은 provenance 참조만 허용했다. 데이터 레코드·정확 위치·PII를 수집·보존하지 않았고 신호·핀·안전 주장을 만들지 않았다."
     },
     {
@@ -544,8 +748,15 @@
       "at": "2026-09-06T13:00:02Z",
       "status": "active",
       "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
-      "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/task-plan.json", "artifacts/safety-map-experiment-04-20260906/task-plan.md", "artifacts/safety-map-experiment-04-20260906/t8-official.md", "artifacts/safety-map-experiment-04-20260906/t7-red.md"],
-      "searches": ["독립 Red: T8.1 공식 provenance와 커뮤니티 후보의 표현·렌더링 분리 검증"],
+      "evidence_paths": [
+        "artifacts/safety-map-experiment-04-20260906/task-plan.json",
+        "artifacts/safety-map-experiment-04-20260906/task-plan.md",
+        "artifacts/safety-map-experiment-04-20260906/t8-official.md",
+        "artifacts/safety-map-experiment-04-20260906/t7-red.md"
+      ],
+      "searches": [
+        "독립 Red: T8.1 공식 provenance와 커뮤니티 후보의 표현·렌더링 분리 검증"
+      ],
       "note": "T8.2를 명시적 active Red leaf로 시작했다. 공식 provenance 후보와 커뮤니티 후보 모두 no-render 경계를 유지하는지 검토하며, 이를 현재 안전·위험 신호나 지도 표시로 해석하지 않는다."
     },
     {
@@ -553,8 +764,15 @@
       "at": "2026-09-06T13:02:30Z",
       "status": "pass",
       "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
-      "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/t8-official.md", "artifacts/safety-map-experiment-04-20260906/t8-red.md", "artifacts/safety-map-experiment-04-20260906/t3-access.md", "artifacts/safety-map-experiment-04-20260906/t7-red.md"],
-      "searches": ["독립 Red: T8.1 공식 provenance와 커뮤니티 후보의 표현·렌더링 분리 검증"],
+      "evidence_paths": [
+        "artifacts/safety-map-experiment-04-20260906/t8-official.md",
+        "artifacts/safety-map-experiment-04-20260906/t8-red.md",
+        "artifacts/safety-map-experiment-04-20260906/t3-access.md",
+        "artifacts/safety-map-experiment-04-20260906/t7-red.md"
+      ],
+      "searches": [
+        "독립 Red: T8.1 공식 provenance와 커뮤니티 후보의 표현·렌더링 분리 검증"
+      ],
       "note": "독립 Red PASS: O-01은 hold_no_render, O-02는 reject, O-03은 provenance 참조만 허용한다. 커뮤니티 후보도 hold_no_render를 유지하며, 공식성이나 검색 후보를 안전·위험 신호, 집계·핀·렌더링, 안전 보장·범죄 확정으로 해석하지 않았다."
     },
     {
@@ -571,8 +789,15 @@
       "at": "2026-09-06T13:10:01Z",
       "status": "active",
       "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
-      "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/task-plan.json", "artifacts/safety-map-experiment-04-20260906/task-plan.md", "artifacts/safety-map-experiment-04-20260906/t8-official.md", "artifacts/safety-map-experiment-04-20260906/t8-red.md"],
-      "searches": ["T8.3 C8 공식·커뮤니티 후보 no-render 마감확인"],
+      "evidence_paths": [
+        "artifacts/safety-map-experiment-04-20260906/task-plan.json",
+        "artifacts/safety-map-experiment-04-20260906/task-plan.md",
+        "artifacts/safety-map-experiment-04-20260906/t8-official.md",
+        "artifacts/safety-map-experiment-04-20260906/t8-red.md"
+      ],
+      "searches": [
+        "T8.3 C8 공식·커뮤니티 후보 no-render 마감확인"
+      ],
       "note": "T8.3을 명시적 active leaf로 시작했다. T8.1 공식 provenance 판정과 T8.2 Red PASS만 마감확인하며, 후보 데이터·원문·PII의 추가 수집, 집계, 핀·신호 렌더링은 수행하지 않는다."
     },
     {
@@ -580,8 +805,14 @@
       "at": "2026-09-06T13:12:00Z",
       "status": "done",
       "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
-      "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/t8-official.md", "artifacts/safety-map-experiment-04-20260906/t8-red.md", "artifacts/safety-map-experiment-04-20260906/t8-close.md"],
-      "searches": ["T8.3 C8 공식·커뮤니티 후보 no-render 마감확인"],
+      "evidence_paths": [
+        "artifacts/safety-map-experiment-04-20260906/t8-official.md",
+        "artifacts/safety-map-experiment-04-20260906/t8-red.md",
+        "artifacts/safety-map-experiment-04-20260906/t8-close.md"
+      ],
+      "searches": [
+        "T8.3 C8 공식·커뮤니티 후보 no-render 마감확인"
+      ],
       "note": "C8을 30분 제한 내에 종료했다. O-01은 hold_no_render, O-02는 reject, O-03은 provenance 참조만 허용한다. 커뮤니티 후보도 hold_no_render를 유지한다. 원문·작성자·정확 위치·PII 보존, 집계, 핀·신호 렌더링, 위험 점수·범죄 확정·안전 보장 표현은 수행하지 않았다."
     },
     {
@@ -598,8 +829,15 @@
       "at": "2026-09-06T13:20:02Z",
       "status": "active",
       "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
-      "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/task-plan.json", "artifacts/safety-map-experiment-04-20260906/task-plan.md", "artifacts/safety-map-experiment-04-20260906/t4-contract.json", "artifacts/safety-map-experiment-04-20260906/t8-red.md"],
-      "searches": ["T9.1 공식·커뮤니티 공통 데이터 계약"],
+      "evidence_paths": [
+        "artifacts/safety-map-experiment-04-20260906/task-plan.json",
+        "artifacts/safety-map-experiment-04-20260906/task-plan.md",
+        "artifacts/safety-map-experiment-04-20260906/t4-contract.json",
+        "artifacts/safety-map-experiment-04-20260906/t8-red.md"
+      ],
+      "searches": [
+        "T9.1 공식·커뮤니티 공통 데이터 계약"
+      ],
       "note": "T9.1을 명시적 active leaf로 시작했다. 공식·커뮤니티 provenance를 같은 최소 필드와 no-render 기본값으로 정렬하되, 출처 유형·접근 상태·적격성은 분리한다. 원문·PII·정확 위치 수집, 집계, 핀·신호 렌더링은 수행하지 않는다."
     },
     {
@@ -607,8 +845,14 @@
       "at": "2026-09-06T13:22:30Z",
       "status": "done",
       "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
-      "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/t9-contract.json", "artifacts/safety-map-experiment-04-20260906/t4-contract.json", "artifacts/safety-map-experiment-04-20260906/t8-red.md"],
-      "searches": ["T9.1 공식·커뮤니티 공통 데이터 계약"],
+      "evidence_paths": [
+        "artifacts/safety-map-experiment-04-20260906/t9-contract.json",
+        "artifacts/safety-map-experiment-04-20260906/t4-contract.json",
+        "artifacts/safety-map-experiment-04-20260906/t8-red.md"
+      ],
+      "searches": [
+        "T9.1 공식·커뮤니티 공통 데이터 계약"
+      ],
       "note": "T9.1을 30분 제한 내에 종료했다. 공통 최소 provenance와 source_class를 정의하고 source-specific 필드·접근 상태·검토 상태·적격성은 출처 유형별로 분리했다. 계약은 hold_no_render 또는 reject만 허용하며 표시 권한을 만들지 않는다."
     },
     {
@@ -625,8 +869,14 @@
       "at": "2026-09-06T13:30:02Z",
       "status": "active",
       "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
-      "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/task-plan.json", "artifacts/safety-map-experiment-04-20260906/task-plan.md", "artifacts/safety-map-experiment-04-20260906/t9-contract.json"],
-      "searches": ["독립 Red: T9.1 공통 데이터 계약의 provenance 분리·no-render 경계 검증"],
+      "evidence_paths": [
+        "artifacts/safety-map-experiment-04-20260906/task-plan.json",
+        "artifacts/safety-map-experiment-04-20260906/task-plan.md",
+        "artifacts/safety-map-experiment-04-20260906/t9-contract.json"
+      ],
+      "searches": [
+        "독립 Red: T9.1 공통 데이터 계약의 provenance 분리·no-render 경계 검증"
+      ],
       "note": "T9.2를 명시적 active Red leaf로 시작했다. 공통 필드가 출처 유형 간 적격성 전이를 만들지 않고, 계약이 표시·집계·핀 권한을 생성하지 않는지 검증한다."
     },
     {
@@ -634,8 +884,14 @@
       "at": "2026-09-06T13:32:00Z",
       "status": "done",
       "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
-      "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/t9-contract.json", "artifacts/safety-map-experiment-04-20260906/t9-red.md", "artifacts/safety-map-experiment-04-20260906/t4-contract.json"],
-      "searches": ["독립 Red: T9.1 공통 데이터 계약의 provenance 분리·no-render 경계 검증"],
+      "evidence_paths": [
+        "artifacts/safety-map-experiment-04-20260906/t9-contract.json",
+        "artifacts/safety-map-experiment-04-20260906/t9-red.md",
+        "artifacts/safety-map-experiment-04-20260906/t4-contract.json"
+      ],
+      "searches": [
+        "독립 Red: T9.1 공통 데이터 계약의 provenance 분리·no-render 경계 검증"
+      ],
       "note": "독립 Red PASS: official/community source_class와 접근·검토·적격성 상태가 분리되어 있으며 출처 간 전이가 없다. 계약은 no-render 기본값을 유지하고 렌더·집계·핀 권한을 만들지 않는다."
     },
     {
@@ -652,8 +908,15 @@
       "at": "2026-09-06T13:40:02Z",
       "status": "active",
       "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
-      "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/task-plan.json", "artifacts/safety-map-experiment-04-20260906/task-plan.md", "artifacts/safety-map-experiment-04-20260906/t9-contract.json", "artifacts/safety-map-experiment-04-20260906/t9-red.md"],
-      "searches": ["T9.3 C9 공통 데이터 계약 no-render 마감확인"],
+      "evidence_paths": [
+        "artifacts/safety-map-experiment-04-20260906/task-plan.json",
+        "artifacts/safety-map-experiment-04-20260906/task-plan.md",
+        "artifacts/safety-map-experiment-04-20260906/t9-contract.json",
+        "artifacts/safety-map-experiment-04-20260906/t9-red.md"
+      ],
+      "searches": [
+        "T9.3 C9 공통 데이터 계약 no-render 마감확인"
+      ],
       "note": "T9.3을 명시적 active leaf로 시작했다. T9.1 계약과 T9.2 Red PASS만 마감확인하며, 후보·원문·PII의 추가 수집, 집계, 핀·신호 렌더링은 수행하지 않는다."
     },
     {
@@ -661,8 +924,14 @@
       "at": "2026-09-06T13:42:00Z",
       "status": "done",
       "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
-      "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/t9-contract.json", "artifacts/safety-map-experiment-04-20260906/t9-red.md", "artifacts/safety-map-experiment-04-20260906/t9-close.md"],
-      "searches": ["T9.3 C9 공통 데이터 계약 no-render 마감확인"],
+      "evidence_paths": [
+        "artifacts/safety-map-experiment-04-20260906/t9-contract.json",
+        "artifacts/safety-map-experiment-04-20260906/t9-red.md",
+        "artifacts/safety-map-experiment-04-20260906/t9-close.md"
+      ],
+      "searches": [
+        "T9.3 C9 공통 데이터 계약 no-render 마감확인"
+      ],
       "note": "C9을 30분 제한 내에 종료했다. official/community는 출처 간 접근·검토·적격성 전이가 없고, 계약은 no-render 기본값을 유지하며 렌더·집계·핀 권한을 만들지 않는다. 원문·PII·정확 위치 수집, 후보 집계, 지도 신호 렌더링은 수행하지 않았다."
     },
     {
@@ -679,8 +948,15 @@
       "at": "2026-09-06T13:50:02Z",
       "status": "active",
       "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
-      "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/task-plan.json", "artifacts/safety-map-experiment-04-20260906/task-plan.md", "artifacts/safety-map-experiment-04-20260906/t9-contract.json", "artifacts/safety-map-experiment-04-20260906/t9-red.md"],
-      "searches": ["T10.1 집계·상충·근거 없음 규칙"],
+      "evidence_paths": [
+        "artifacts/safety-map-experiment-04-20260906/task-plan.json",
+        "artifacts/safety-map-experiment-04-20260906/task-plan.md",
+        "artifacts/safety-map-experiment-04-20260906/t9-contract.json",
+        "artifacts/safety-map-experiment-04-20260906/t9-red.md"
+      ],
+      "searches": [
+        "T10.1 집계·상충·근거 없음 규칙"
+      ],
       "note": "T10.1을 명시적 active leaf로 시작했다. 현 후보를 집계하거나 표시하지 않고, 출처 유형별 적격성 유지, 상충 처리, 근거 없음의 no-render 규칙만 정의한다."
     },
     {
@@ -688,8 +964,14 @@
       "at": "2026-09-06T13:52:00Z",
       "status": "done",
       "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
-      "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/t10-aggregate.md", "artifacts/safety-map-experiment-04-20260906/t9-contract.json", "artifacts/safety-map-experiment-04-20260906/t9-red.md"],
-      "searches": ["T10.1 집계·상충·근거 없음 규칙"],
+      "evidence_paths": [
+        "artifacts/safety-map-experiment-04-20260906/t10-aggregate.md",
+        "artifacts/safety-map-experiment-04-20260906/t9-contract.json",
+        "artifacts/safety-map-experiment-04-20260906/t9-red.md"
+      ],
+      "searches": [
+        "T10.1 집계·상충·근거 없음 규칙"
+      ],
       "note": "T10.1을 30분 제한 내에 종료했다. 집계 진입에는 출처별 접근·사람 검토·최근성·지역 단위·독립성 충족을 요구하고, 상충·결측·단일 게시물은 hold_no_render로 처리한다. 현 적격 입력은 0개이므로 결과는 근거 없음/no-render다."
     },
     {
@@ -706,8 +988,14 @@
       "at": "2026-09-06T14:00:02Z",
       "status": "active",
       "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
-      "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/task-plan.json", "artifacts/safety-map-experiment-04-20260906/task-plan.md", "artifacts/safety-map-experiment-04-20260906/t10-aggregate.md"],
-      "searches": ["독립 Red: T10.1 집계·상충·근거 없음 no-render 금지선 검증"],
+      "evidence_paths": [
+        "artifacts/safety-map-experiment-04-20260906/task-plan.json",
+        "artifacts/safety-map-experiment-04-20260906/task-plan.md",
+        "artifacts/safety-map-experiment-04-20260906/t10-aggregate.md"
+      ],
+      "searches": [
+        "독립 Red: T10.1 집계·상충·근거 없음 no-render 금지선 검증"
+      ],
       "note": "T10.2를 명시적 active Red leaf로 시작했다. 집계 진입 조건, 상충·결측의 hold_no_render 처리, 근거 없음 표현이 렌더·점수·핀 권한을 만들지 않는지 검증한다."
     },
     {
@@ -715,8 +1003,13 @@
       "at": "2026-09-06T14:02:00Z",
       "status": "done",
       "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
-      "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/t10-aggregate.md", "artifacts/safety-map-experiment-04-20260906/t10-red.md"],
-      "searches": ["독립 Red: T10.1 집계·상충·근거 없음 no-render 금지선 검증"],
+      "evidence_paths": [
+        "artifacts/safety-map-experiment-04-20260906/t10-aggregate.md",
+        "artifacts/safety-map-experiment-04-20260906/t10-red.md"
+      ],
+      "searches": [
+        "독립 Red: T10.1 집계·상충·근거 없음 no-render 금지선 검증"
+      ],
       "note": "독립 Red PASS: 집계 진입 조건과 상충·결측의 hold_no_render 처리가 적절하며, 근거 없음은 안전·위험 판단이 아니다. 규칙은 렌더·점수·핀·집계 권한을 만들지 않는다."
     },
     {
@@ -733,8 +1026,15 @@
       "at": "2026-09-06T14:10:02Z",
       "status": "active",
       "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
-      "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/task-plan.json", "artifacts/safety-map-experiment-04-20260906/task-plan.md", "artifacts/safety-map-experiment-04-20260906/t10-aggregate.md", "artifacts/safety-map-experiment-04-20260906/t10-red.md"],
-      "searches": ["T10.3 C10 집계·상충·근거 없음 no-render 마감확인"],
+      "evidence_paths": [
+        "artifacts/safety-map-experiment-04-20260906/task-plan.json",
+        "artifacts/safety-map-experiment-04-20260906/task-plan.md",
+        "artifacts/safety-map-experiment-04-20260906/t10-aggregate.md",
+        "artifacts/safety-map-experiment-04-20260906/t10-red.md"
+      ],
+      "searches": [
+        "T10.3 C10 집계·상충·근거 없음 no-render 마감확인"
+      ],
       "note": "T10.3을 명시적 active leaf로 시작했다. T10.1 규칙과 T10.2 Red PASS만 마감확인하며, 후보 집계·수치화·표시·핀·신호 렌더링은 수행하지 않는다."
     },
     {
@@ -742,8 +1042,14 @@
       "at": "2026-09-06T14:12:00Z",
       "status": "done",
       "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
-      "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/t10-aggregate.md", "artifacts/safety-map-experiment-04-20260906/t10-red.md", "artifacts/safety-map-experiment-04-20260906/t10-close.md"],
-      "searches": ["T10.3 C10 집계·상충·근거 없음 no-render 마감확인"],
+      "evidence_paths": [
+        "artifacts/safety-map-experiment-04-20260906/t10-aggregate.md",
+        "artifacts/safety-map-experiment-04-20260906/t10-red.md",
+        "artifacts/safety-map-experiment-04-20260906/t10-close.md"
+      ],
+      "searches": [
+        "T10.3 C10 집계·상충·근거 없음 no-render 마감확인"
+      ],
       "note": "C10을 30분 제한 내에 종료했다. 현 적격 입력은 0개여서 근거 없음/no-render를 유지한다. 집계·수치화·점수·핀·신호 렌더링, 원문·PII·정확 위치 보존은 수행하지 않았다."
     },
     {
@@ -760,8 +1066,14 @@
       "at": "2026-09-06T14:20:02Z",
       "status": "active",
       "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
-      "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/task-plan.json", "artifacts/safety-map-experiment-04-20260906/task-plan.md", "artifacts/safety-map-experiment-04-20260906/t10-close.md"],
-      "searches": ["T11.1 주의 신호·신뢰도·출처 표현 no-render 카피 규칙"],
+      "evidence_paths": [
+        "artifacts/safety-map-experiment-04-20260906/task-plan.json",
+        "artifacts/safety-map-experiment-04-20260906/task-plan.md",
+        "artifacts/safety-map-experiment-04-20260906/t10-close.md"
+      ],
+      "searches": [
+        "T11.1 주의 신호·신뢰도·출처 표현 no-render 카피 규칙"
+      ],
       "note": "T11.1을 명시적 active leaf로 시작했다. 현 적격 입력 0개를 전제로 근거 없음·출처·신뢰도 표현의 경계만 정의하며, 실제 위험 신호·점수·핀·안전 보장 표현은 만들지 않는다."
     },
     {
@@ -769,8 +1081,13 @@
       "at": "2026-09-06T14:22:00Z",
       "status": "done",
       "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
-      "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/t11-copy.md", "artifacts/safety-map-experiment-04-20260906/t10-close.md"],
-      "searches": ["T11.1 주의 신호·신뢰도·출처 표현 no-render 카피 규칙"],
+      "evidence_paths": [
+        "artifacts/safety-map-experiment-04-20260906/t11-copy.md",
+        "artifacts/safety-map-experiment-04-20260906/t10-close.md"
+      ],
+      "searches": [
+        "T11.1 주의 신호·신뢰도·출처 표현 no-render 카피 규칙"
+      ],
       "note": "T11.1을 30분 제한 내에 종료했다. 현 상태에서는 근거 없음만 허용하고, 조건부 신호 카피는 별도 게이트 통과 후에만 사용할 수 있게 분리했다. 안전·위험 확정, 점수·예측·보장, 단일 게시물·정확 위치·PII 표현은 금지한다."
     },
     {
@@ -787,8 +1104,14 @@
       "at": "2026-09-06T14:30:02Z",
       "status": "active",
       "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
-      "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/task-plan.json", "artifacts/safety-map-experiment-04-20260906/task-plan.md", "artifacts/safety-map-experiment-04-20260906/t11-copy.md"],
-      "searches": ["독립 Red: T11.1 안전 주장·신호 표시 금지 카피 검증"],
+      "evidence_paths": [
+        "artifacts/safety-map-experiment-04-20260906/task-plan.json",
+        "artifacts/safety-map-experiment-04-20260906/task-plan.md",
+        "artifacts/safety-map-experiment-04-20260906/t11-copy.md"
+      ],
+      "searches": [
+        "독립 Red: T11.1 안전 주장·신호 표시 금지 카피 검증"
+      ],
       "note": "T11.2를 명시적 active Red leaf로 시작했다. 근거 없음 기본 카피와 조건부 출처·신뢰도 문구가 안전·위험 확정, 점수·예측·보장 또는 신호 렌더링 권한으로 변질되지 않는지 검증한다."
     },
     {
@@ -796,8 +1119,13 @@
       "at": "2026-09-06T14:32:00Z",
       "status": "done",
       "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
-      "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/t11-copy.md", "artifacts/safety-map-experiment-04-20260906/t11-red.md"],
-      "searches": ["독립 Red: T11.1 안전 주장·신호 표시 금지 카피 검증"],
+      "evidence_paths": [
+        "artifacts/safety-map-experiment-04-20260906/t11-copy.md",
+        "artifacts/safety-map-experiment-04-20260906/t11-red.md"
+      ],
+      "searches": [
+        "독립 Red: T11.1 안전 주장·신호 표시 금지 카피 검증"
+      ],
       "note": "독립 Red PASS: 근거 없음 기본 카피는 안전·위험 판단이 아니며, 조건부 신호 카피는 별도 게이트 뒤에만 허용된다. provenance 문구는 렌더·집계·핀 권한을 만들지 않는다."
     },
     {
@@ -814,8 +1142,15 @@
       "at": "2026-09-06T14:40:01Z",
       "status": "active",
       "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
-      "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/task-plan.json", "artifacts/safety-map-experiment-04-20260906/task-plan.md", "artifacts/safety-map-experiment-04-20260906/t11-copy.md", "artifacts/safety-map-experiment-04-20260906/t11-red.md"],
-      "searches": ["T11.3 C11 주의 신호·신뢰도·출처 no-render 마감확인"],
+      "evidence_paths": [
+        "artifacts/safety-map-experiment-04-20260906/task-plan.json",
+        "artifacts/safety-map-experiment-04-20260906/task-plan.md",
+        "artifacts/safety-map-experiment-04-20260906/t11-copy.md",
+        "artifacts/safety-map-experiment-04-20260906/t11-red.md"
+      ],
+      "searches": [
+        "T11.3 C11 주의 신호·신뢰도·출처 no-render 마감확인"
+      ],
       "note": "T11.3을 명시적 active leaf로 시작했다. T11.1 카피 경계와 T11.2 Red PASS만 마감확인하며, 실제 신호·점수·핀·안전 보장 표현 또는 지도 렌더링은 수행하지 않는다."
     },
     {
@@ -823,8 +1158,14 @@
       "at": "2026-09-06T14:42:00Z",
       "status": "done",
       "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
-      "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/t11-copy.md", "artifacts/safety-map-experiment-04-20260906/t11-red.md", "artifacts/safety-map-experiment-04-20260906/t11-close.md"],
-      "searches": ["T11.3 C11 주의 신호·신뢰도·출처 no-render 마감확인"],
+      "evidence_paths": [
+        "artifacts/safety-map-experiment-04-20260906/t11-copy.md",
+        "artifacts/safety-map-experiment-04-20260906/t11-red.md",
+        "artifacts/safety-map-experiment-04-20260906/t11-close.md"
+      ],
+      "searches": [
+        "T11.3 C11 주의 신호·신뢰도·출처 no-render 마감확인"
+      ],
       "note": "C11을 30분 제한 내에 종료했다. 현재는 근거 없음/no-render만 허용하고, 출처·신뢰도 카피는 별도 게이트 통과 뒤에만 조건부로 사용할 수 있다. 실제 신호·점수·핀·렌더링과 원문·PII 보존은 수행하지 않았다."
     },
     {
@@ -841,8 +1182,14 @@
       "at": "2026-09-06T14:50:01Z",
       "status": "active",
       "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
-      "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/task-plan.json", "artifacts/safety-map-experiment-04-20260906/task-plan.md", "artifacts/safety-map-experiment-04-20260906/t11-close.md"],
-      "searches": ["T12.1 provenance JSON·감사 로그 최소 데이터 계약"],
+      "evidence_paths": [
+        "artifacts/safety-map-experiment-04-20260906/task-plan.json",
+        "artifacts/safety-map-experiment-04-20260906/task-plan.md",
+        "artifacts/safety-map-experiment-04-20260906/t11-close.md"
+      ],
+      "searches": [
+        "T12.1 provenance JSON·감사 로그 최소 데이터 계약"
+      ],
       "note": "T12.1을 명시적 active leaf로 시작했다. 출처 유형·접근/검토/적격성·결정 시각·no-render 상태만 감사 가능하게 남기며, 원문·작성자·정확 위치·PII·텔레메트리는 보존하지 않는다."
     },
     {
@@ -850,8 +1197,13 @@
       "at": "2026-09-06T14:52:00Z",
       "status": "done",
       "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
-      "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/t12-provenance.json", "artifacts/safety-map-experiment-04-20260906/t11-close.md"],
-      "searches": ["T12.1 provenance JSON·감사 로그 최소 데이터 계약"],
+      "evidence_paths": [
+        "artifacts/safety-map-experiment-04-20260906/t12-provenance.json",
+        "artifacts/safety-map-experiment-04-20260906/t11-close.md"
+      ],
+      "searches": [
+        "T12.1 provenance JSON·감사 로그 최소 데이터 계약"
+      ],
       "note": "T12.1을 30분 제한 내에 종료했다. 최소 provenance에는 출처 분류·접근/검토/적격성·결정·차단 사유만 기록하고 원문·작성자·정확 위치·PII·텔레메트리는 저장하지 않았다. 모든 레코드는 no-render이며 적격 입력은 0개다."
     },
     {
@@ -868,8 +1220,14 @@
       "at": "2026-09-06T15:00:02Z",
       "status": "active",
       "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
-      "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/task-plan.json", "artifacts/safety-map-experiment-04-20260906/task-plan.md", "artifacts/safety-map-experiment-04-20260906/t12-provenance.json"],
-      "searches": ["독립 Red: T12.1 provenance 최소화·no-render 감사 경계 검증"],
+      "evidence_paths": [
+        "artifacts/safety-map-experiment-04-20260906/task-plan.json",
+        "artifacts/safety-map-experiment-04-20260906/task-plan.md",
+        "artifacts/safety-map-experiment-04-20260906/t12-provenance.json"
+      ],
+      "searches": [
+        "독립 Red: T12.1 provenance 최소화·no-render 감사 경계 검증"
+      ],
       "note": "T12.2를 명시적 active Red leaf로 시작했다. provenance JSON이 금지 필드를 저장하지 않고, 레코드·출처 간 상태 전이 또는 렌더·집계·핀 권한을 만들지 않는지 검증한다."
     },
     {
@@ -877,8 +1235,13 @@
       "at": "2026-09-06T15:02:00Z",
       "status": "done",
       "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
-      "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/t12-provenance.json", "artifacts/safety-map-experiment-04-20260906/t12-red.md"],
-      "searches": ["독립 Red: T12.1 provenance 최소화·no-render 감사 경계 검증"],
+      "evidence_paths": [
+        "artifacts/safety-map-experiment-04-20260906/t12-provenance.json",
+        "artifacts/safety-map-experiment-04-20260906/t12-red.md"
+      ],
+      "searches": [
+        "독립 Red: T12.1 provenance 최소화·no-render 감사 경계 검증"
+      ],
       "note": "독립 Red PASS: provenance는 최소 필드와 차단 사유만 보존하고 금지 필드를 저장하지 않는다. 모든 레코드는 no-render이며 출처 간 상태 전이와 렌더·집계·핀 권한이 없다."
     },
     {
@@ -895,8 +1258,15 @@
       "at": "2026-09-06T15:10:02Z",
       "status": "active",
       "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
-      "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/task-plan.json", "artifacts/safety-map-experiment-04-20260906/task-plan.md", "artifacts/safety-map-experiment-04-20260906/t12-provenance.json", "artifacts/safety-map-experiment-04-20260906/t12-red.md"],
-      "searches": ["T12.3 C12 provenance 최소화·no-render 마감확인"],
+      "evidence_paths": [
+        "artifacts/safety-map-experiment-04-20260906/task-plan.json",
+        "artifacts/safety-map-experiment-04-20260906/task-plan.md",
+        "artifacts/safety-map-experiment-04-20260906/t12-provenance.json",
+        "artifacts/safety-map-experiment-04-20260906/t12-red.md"
+      ],
+      "searches": [
+        "T12.3 C12 provenance 최소화·no-render 마감확인"
+      ],
       "note": "T12.3을 명시적 active leaf로 시작했다. T12.1 최소 provenance와 T12.2 Red PASS만 마감확인하며, 원문·PII·정확 위치 보존, 렌더·집계·핀·신호 생성을 수행하지 않는다."
     },
     {
@@ -904,8 +1274,14 @@
       "at": "2026-09-06T15:12:00Z",
       "status": "done",
       "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
-      "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/t12-provenance.json", "artifacts/safety-map-experiment-04-20260906/t12-red.md", "artifacts/safety-map-experiment-04-20260906/t12-close.md"],
-      "searches": ["T12.3 C12 provenance 최소화·no-render 마감확인"],
+      "evidence_paths": [
+        "artifacts/safety-map-experiment-04-20260906/t12-provenance.json",
+        "artifacts/safety-map-experiment-04-20260906/t12-red.md",
+        "artifacts/safety-map-experiment-04-20260906/t12-close.md"
+      ],
+      "searches": [
+        "T12.3 C12 provenance 최소화·no-render 마감확인"
+      ],
       "note": "C12를 30분 제한 내에 종료했다. 모든 감사 레코드는 최소 provenance와 no-render를 유지하고, 원문·PII·정확 위치 보존 및 렌더·집계·핀·신호 생성을 수행하지 않았다."
     },
     {
@@ -922,8 +1298,14 @@
       "at": "2026-09-06T15:20:01Z",
       "status": "active",
       "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
-      "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/task-plan.json", "artifacts/safety-map-experiment-04-20260906/task-plan.md", "artifacts/safety-map-experiment-04-20260906/t12-close.md"],
-      "searches": ["T13.1 e04 전용 desktop 표현·배포 경로 확인"],
+      "evidence_paths": [
+        "artifacts/safety-map-experiment-04-20260906/task-plan.json",
+        "artifacts/safety-map-experiment-04-20260906/task-plan.md",
+        "artifacts/safety-map-experiment-04-20260906/t12-close.md"
+      ],
+      "searches": [
+        "T13.1 e04 전용 desktop 표현·배포 경로 확인"
+      ],
       "note": "T13.1을 명시적 active leaf로 시작했다. e04 전용 desktop 화면이 있으면 근거 없음/no-render 경계만 검증하고, 화면·배포 경로가 없으면 정확한 blocker를 기록한다."
     },
     {
@@ -931,8 +1313,14 @@
       "at": "2026-09-06T15:22:00Z",
       "status": "blocked",
       "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
-      "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/t13-desktop.md", "artifacts/safety-map-experiment-04-20260906/t12-close.md"],
-      "searches": ["T13.1 e04 전용 desktop 표현·배포 경로 확인", "rg --files Space 정적 사이트 경로"],
+      "evidence_paths": [
+        "artifacts/safety-map-experiment-04-20260906/t13-desktop.md",
+        "artifacts/safety-map-experiment-04-20260906/t12-close.md"
+      ],
+      "searches": [
+        "T13.1 e04 전용 desktop 표현·배포 경로 확인",
+        "rg --files Space 정적 사이트 경로"
+      ],
       "note": "T13.1은 e04 전용 정적 사이트·배포 경로·검증 URL 부재로 차단됐다. 기존 safety-map은 이전 실험 경로라 재사용하지 않는다. live desktop 검증을 통과로 표시하지 않았고, 데이터·신호·핀 렌더링을 수행하지 않았다."
     },
     {
@@ -949,8 +1337,13 @@
       "at": "2026-09-06T15:30:02Z",
       "status": "blocked",
       "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
-      "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/t14-mobile.md", "artifacts/safety-map-experiment-04-20260906/t13-desktop.md"],
-      "searches": ["T14.1 dependency T13.3 status 확인"],
+      "evidence_paths": [
+        "artifacts/safety-map-experiment-04-20260906/t14-mobile.md",
+        "artifacts/safety-map-experiment-04-20260906/t13-desktop.md"
+      ],
+      "searches": [
+        "T14.1 dependency T13.3 status 확인"
+      ],
       "note": "T14.1은 T13.3 미완료와 e04 전용 화면·배포 경로·검증 URL 부재로 활성화하지 않았다. T14.1에 T13.3 의존성을 구조화해 기록했고, 390px·키보드 검증을 통과로 표시하거나 기존 safety-map을 재사용하지 않았다."
     },
     {
@@ -967,8 +1360,13 @@
       "at": "2026-09-06T15:40:02Z",
       "status": "blocked",
       "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
-      "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/t15-telemetry.md", "artifacts/safety-map-experiment-04-20260906/t14-mobile.md"],
-      "searches": ["T15.1 dependency T14.3 status 확인"],
+      "evidence_paths": [
+        "artifacts/safety-map-experiment-04-20260906/t15-telemetry.md",
+        "artifacts/safety-map-experiment-04-20260906/t14-mobile.md"
+      ],
+      "searches": [
+        "T15.1 dependency T14.3 status 확인"
+      ],
       "note": "T15.1은 T14.3 미완료와 e04 전용 화면·배포 경로·검증 URL 부재로 활성화하지 않았다. T15.1에 T14.3 의존성을 구조화해 기록했고, telemetry 수집·구현·검증을 수행하지 않았다."
     },
     {
@@ -985,8 +1383,15 @@
       "at": "2026-09-06T15:50:02Z",
       "status": "blocked",
       "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
-      "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/t16-deploy.md", "artifacts/safety-map-experiment-04-20260906/t15-telemetry.md", "artifacts/safety-map-experiment-04-20260906/t14-mobile.md", "artifacts/safety-map-experiment-04-20260906/t13-desktop.md"],
-      "searches": ["T16.1 dependency T15.3 status 확인"],
+      "evidence_paths": [
+        "artifacts/safety-map-experiment-04-20260906/t16-deploy.md",
+        "artifacts/safety-map-experiment-04-20260906/t15-telemetry.md",
+        "artifacts/safety-map-experiment-04-20260906/t14-mobile.md",
+        "artifacts/safety-map-experiment-04-20260906/t13-desktop.md"
+      ],
+      "searches": [
+        "T16.1 dependency T15.3 status 확인"
+      ],
       "note": "T16.1은 T15.3 미완료 및 e04 전용 정적 사이트·배포 경로·검증 URL 부재로 활성화하지 않았다. T16.1에 T15.3 의존성을 구조화해 기록했고, 기존 safety-map 재사용·배포·rollback·원격 URL 검증을 수행하지 않았다."
     },
     {
@@ -1003,8 +1408,14 @@
       "at": "2026-09-06T16:00:02Z",
       "status": "blocked",
       "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
-      "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/t17-live.md", "artifacts/safety-map-experiment-04-20260906/t16-deploy.md", "artifacts/safety-map-experiment-04-20260906/t15-telemetry.md"],
-      "searches": ["T17.1 dependency T16.3 status 확인"],
+      "evidence_paths": [
+        "artifacts/safety-map-experiment-04-20260906/t17-live.md",
+        "artifacts/safety-map-experiment-04-20260906/t16-deploy.md",
+        "artifacts/safety-map-experiment-04-20260906/t15-telemetry.md"
+      ],
+      "searches": [
+        "T17.1 dependency T16.3 status 확인"
+      ],
       "note": "T17.1은 T16.3 미완료 및 e04 전용 정적 사이트·배포 경로·검증 URL 부재로 활성화하지 않았다. T17.1에 T16.3 의존성을 구조화해 기록했고, 원격 라이브 URL·상태 코드·UI·접근성 검증 또는 기존 safety-map 재사용을 수행하지 않았다."
     },
     {
@@ -1021,8 +1432,14 @@
       "at": "2026-09-06T18:06:00Z",
       "status": "done",
       "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
-      "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/t14-mobile.md", "artifacts/safety-map-experiment-04-20260906/task-plan.json", "artifacts/safety-map-experiment-04-20260906/task-plan.md"],
-      "searches": ["T14.1 remote 390x844 viewport, Tab focus sequence, Enter search flow, no-render boundary"],
+      "evidence_paths": [
+        "artifacts/safety-map-experiment-04-20260906/t14-mobile.md",
+        "artifacts/safety-map-experiment-04-20260906/task-plan.json",
+        "artifacts/safety-map-experiment-04-20260906/task-plan.md"
+      ],
+      "searches": [
+        "T14.1 remote 390x844 viewport, Tab focus sequence, Enter search flow, no-render boundary"
+      ],
       "note": "T14.1을 원격 3차 배포본에서 완료했다. 390×844 문서 overflow는 없었고 Tab으로 검색 입력과 제출 버튼에 도달했으며 Enter 검색 흐름이 동작했다. 로마 근거 없음, 적격 입력 0, NO SCORE·NO ROUTE·NO TRACKING 경계가 유지됐고 주의 신호·점수·경로·추적·개인 위치 수집은 생성하지 않았다."
     },
     {
@@ -1039,8 +1456,15 @@
       "at": "2026-09-06T18:12:00Z",
       "status": "done",
       "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
-      "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/t14-mobile.md", "artifacts/safety-map-experiment-04-20260906/t14-red.md", "artifacts/safety-map-experiment-04-20260906/task-plan.json", "artifacts/safety-map-experiment-04-20260906/task-plan.md"],
-      "searches": ["T14.2 independent Red review of 390x844 viewport, keyboard sequence, and no-render boundary"],
+      "evidence_paths": [
+        "artifacts/safety-map-experiment-04-20260906/t14-mobile.md",
+        "artifacts/safety-map-experiment-04-20260906/t14-red.md",
+        "artifacts/safety-map-experiment-04-20260906/task-plan.json",
+        "artifacts/safety-map-experiment-04-20260906/task-plan.md"
+      ],
+      "searches": [
+        "T14.2 independent Red review of 390x844 viewport, keyboard sequence, and no-render boundary"
+      ],
       "note": "독립 Red가 T14.1에 PASS를 판정했다. 390×844 overflow 없음, Tab 입력·제출 도달, Enter 검색 흐름을 확인했으며 근거 없음·적격 입력 0·NO SCORE·NO ROUTE·NO TRACKING은 표시 권한 또는 안전·위험 주장으로 확장되지 않았다."
     },
     {
@@ -1057,8 +1481,14 @@
       "at": "2026-09-06T18:22:00Z",
       "status": "done",
       "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
-      "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/t14-mobile.md", "artifacts/safety-map-experiment-04-20260906/t14-red.md", "artifacts/safety-map-experiment-04-20260906/t14-close.md"],
-      "searches": ["T14.3 closure: 390x844, Tab/Enter, no-render boundary"],
+      "evidence_paths": [
+        "artifacts/safety-map-experiment-04-20260906/t14-mobile.md",
+        "artifacts/safety-map-experiment-04-20260906/t14-red.md",
+        "artifacts/safety-map-experiment-04-20260906/t14-close.md"
+      ],
+      "searches": [
+        "T14.3 closure: 390x844, Tab/Enter, no-render boundary"
+      ],
       "note": "C14 closed from T14.1 remote evidence and T14.2 independent Red PASS. The adopted/extended e03 remote target was used only for mobile/keyboard verification; no separate e04 deployment, data signal, score, route, tracking, safety/risk claim, or aggregation was added."
     },
     {
@@ -1075,8 +1505,13 @@
       "at": "2026-09-06T18:34:00Z",
       "status": "done",
       "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
-      "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/t15-telemetry.md", "artifacts/safety-map-experiment-04-20260906/t12-provenance.json"],
-      "searches": ["T15.1 telemetry privacy boundary and existing provenance prohibition"],
+      "evidence_paths": [
+        "artifacts/safety-map-experiment-04-20260906/t15-telemetry.md",
+        "artifacts/safety-map-experiment-04-20260906/t12-provenance.json"
+      ],
+      "searches": [
+        "T15.1 telemetry privacy boundary and existing provenance prohibition"
+      ],
       "note": "Four role reviews converged on a documentation-only, default-off telemetry contract. No SDK, cookie, local storage, collection, network transmission, deployment, data-signal authority, or safety/risk inference was added."
     },
     {
@@ -1093,8 +1528,15 @@
       "at": "2026-09-06T18:41:50Z",
       "status": "done",
       "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
-      "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/t15-telemetry.md", "artifacts/safety-map-experiment-04-20260906/t15-red.md", "artifacts/safety-map-experiment-04-20260906/task-plan.json", "artifacts/safety-map-experiment-04-20260906/task-plan.md"],
-      "searches": ["T15.2 independent Red review of telemetry privacy boundary"],
+      "evidence_paths": [
+        "artifacts/safety-map-experiment-04-20260906/t15-telemetry.md",
+        "artifacts/safety-map-experiment-04-20260906/t15-red.md",
+        "artifacts/safety-map-experiment-04-20260906/task-plan.json",
+        "artifacts/safety-map-experiment-04-20260906/task-plan.md"
+      ],
+      "searches": [
+        "T15.2 independent Red review of telemetry privacy boundary"
+      ],
       "note": "독립 Red가 T15.1 문서 전용·default-off telemetry 계약을 PASS로 판정했다. SDK·쿠키·localStorage·전송·배포·원본 이벤트 보존은 허용되지 않으며, 식별자·위치·검색 원문·출처 원문을 금지한다. telemetry는 근거 적격성, 렌더·핀·집계·점수·경로 또는 안전·위험 주장을 만들지 않는다."
     },
     {
@@ -1111,8 +1553,16 @@
       "at": "2026-09-06T18:50:53Z",
       "status": "done",
       "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
-      "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/t15-telemetry.md", "artifacts/safety-map-experiment-04-20260906/t15-red.md", "artifacts/safety-map-experiment-04-20260906/t15-close.md", "artifacts/safety-map-experiment-04-20260906/task-plan.json", "artifacts/safety-map-experiment-04-20260906/task-plan.md"],
-      "searches": ["T15.3 closure of default-off telemetry privacy boundary"],
+      "evidence_paths": [
+        "artifacts/safety-map-experiment-04-20260906/t15-telemetry.md",
+        "artifacts/safety-map-experiment-04-20260906/t15-red.md",
+        "artifacts/safety-map-experiment-04-20260906/t15-close.md",
+        "artifacts/safety-map-experiment-04-20260906/task-plan.json",
+        "artifacts/safety-map-experiment-04-20260906/task-plan.md"
+      ],
+      "searches": [
+        "T15.3 closure of default-off telemetry privacy boundary"
+      ],
       "note": "C15를 30분 제한 내에 종료했다. T15.1 문서 전용/default-off 계약과 T15.2 Red PASS를 확인했으며 telemetry 수집·SDK·쿠키·저장·전송·배포는 수행하지 않았다. 식별자·위치·원문은 보존하지 않고, telemetry는 근거 적격성·렌더·핀·집계·점수·경로 또는 안전·위험 주장을 만들지 않는다."
     },
     {
@@ -1129,8 +1579,18 @@
       "at": "2026-09-06T19:01:21Z",
       "status": "done",
       "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
-      "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/t16-deploy.md", "artifacts/safety-map-experiment-04-20260906/t15-close.md", "artifacts/safety-map-experiment-04-20260906/task-plan.json", "artifacts/safety-map-experiment-04-20260906/task-plan.md"],
-      "searches": ["Space origin/main deployment SHA", "GitHub Actions deployment run", "live HTTP status and no-tracking boundary", "rollback baseline"],
+      "evidence_paths": [
+        "artifacts/safety-map-experiment-04-20260906/t16-deploy.md",
+        "artifacts/safety-map-experiment-04-20260906/t15-close.md",
+        "artifacts/safety-map-experiment-04-20260906/task-plan.json",
+        "artifacts/safety-map-experiment-04-20260906/task-plan.md"
+      ],
+      "searches": [
+        "Space origin/main deployment SHA",
+        "GitHub Actions deployment run",
+        "live HTTP status and no-tracking boundary",
+        "rollback baseline"
+      ],
       "note": "T16.1은 Space 정본 8ecae7c의 성공 배포와 live HTTP 200을 확인했다. 새 배포·rollback은 수행하지 않았고, no-score·no-route·no-tracking 경계를 유지했다. 사용자 제출 Mapbox 장소 검색 외 telemetry SDK·쿠키·localStorage·원격 telemetry 전송은 추가하지 않았다."
     },
     {
@@ -1147,8 +1607,15 @@
       "at": "2026-09-06T19:11:53Z",
       "status": "done",
       "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
-      "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/t16-deploy.md", "artifacts/safety-map-experiment-04-20260906/t16-red.md", "artifacts/safety-map-experiment-04-20260906/task-plan.json", "artifacts/safety-map-experiment-04-20260906/task-plan.md"],
-      "searches": ["T16.2 independent Red review of deployment, rollback, and network-observation wording"],
+      "evidence_paths": [
+        "artifacts/safety-map-experiment-04-20260906/t16-deploy.md",
+        "artifacts/safety-map-experiment-04-20260906/t16-red.md",
+        "artifacts/safety-map-experiment-04-20260906/task-plan.json",
+        "artifacts/safety-map-experiment-04-20260906/task-plan.md"
+      ],
+      "searches": [
+        "T16.2 independent Red review of deployment, rollback, and network-observation wording"
+      ],
       "note": "독립 Red가 T16.1을 PASS로 판정했다. 배포 SHA·성공 run·live HTTP 200과 새 배포/rollback 미실행을 명확히 분리했고, Mapbox geocoding 관찰은 전체 네트워크 감사가 아님을 명시했다. no-score·no-route·no-tracking 경계를 유지한다."
     },
     {
@@ -1165,8 +1632,16 @@
       "at": "2026-09-06T19:21:36Z",
       "status": "done",
       "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
-      "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/t16-deploy.md", "artifacts/safety-map-experiment-04-20260906/t16-red.md", "artifacts/safety-map-experiment-04-20260906/t16-close.md", "artifacts/safety-map-experiment-04-20260906/task-plan.json", "artifacts/safety-map-experiment-04-20260906/task-plan.md"],
-      "searches": ["T16.3 closure of observed deployment, live status, and rollback boundary"],
+      "evidence_paths": [
+        "artifacts/safety-map-experiment-04-20260906/t16-deploy.md",
+        "artifacts/safety-map-experiment-04-20260906/t16-red.md",
+        "artifacts/safety-map-experiment-04-20260906/t16-close.md",
+        "artifacts/safety-map-experiment-04-20260906/task-plan.json",
+        "artifacts/safety-map-experiment-04-20260906/task-plan.md"
+      ],
+      "searches": [
+        "T16.3 closure of observed deployment, live status, and rollback boundary"
+      ],
       "note": "C16을 30분 제한 내에 종료했다. Space SHA·성공 Actions run·live HTTP 200은 관찰된 배포 증거이며, 새 배포/rollback은 실행하지 않았다. Mapbox 관찰은 전체 네트워크 감사가 아니고 no-score·no-route·no-tracking·no-render 경계를 유지한다."
     },
     {
@@ -1183,8 +1658,17 @@
       "at": "2026-09-06T19:31:19Z",
       "status": "done",
       "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
-      "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/t17-live.md", "artifacts/safety-map-experiment-04-20260906/t16-close.md", "artifacts/safety-map-experiment-04-20260906/task-plan.json", "artifacts/safety-map-experiment-04-20260906/task-plan.md"],
-      "searches": ["live URL browser state", "accessibility tree", "browser errors"],
+      "evidence_paths": [
+        "artifacts/safety-map-experiment-04-20260906/t17-live.md",
+        "artifacts/safety-map-experiment-04-20260906/t16-close.md",
+        "artifacts/safety-map-experiment-04-20260906/task-plan.json",
+        "artifacts/safety-map-experiment-04-20260906/task-plan.md"
+      ],
+      "searches": [
+        "live URL browser state",
+        "accessibility tree",
+        "browser errors"
+      ],
       "note": "T17.1은 live URL의 정상 로드·검색 제어 접근성 트리·브라우저 오류 0건과 no-render 문구를 확인했다. 이 검증은 현재 URL의 라이브 표현에 한정하며 근거 적격성, 신호 렌더, 안전·위험 주장 또는 전체 네트워크 감사를 뜻하지 않는다."
     },
     {
@@ -1201,9 +1685,25 @@
       "at": "2026-09-06T19:41:41Z",
       "status": "done",
       "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
-      "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/t17-live.md", "artifacts/safety-map-experiment-04-20260906/t17-red.md", "artifacts/safety-map-experiment-04-20260906/task-plan.json", "artifacts/safety-map-experiment-04-20260906/task-plan.md"],
-      "searches": ["T17.2 independent Red review of final live observation and expression boundaries"],
+      "evidence_paths": [
+        "artifacts/safety-map-experiment-04-20260906/t17-live.md",
+        "artifacts/safety-map-experiment-04-20260906/t17-red.md",
+        "artifacts/safety-map-experiment-04-20260906/task-plan.json",
+        "artifacts/safety-map-experiment-04-20260906/task-plan.md"
+      ],
+      "searches": [
+        "T17.2 independent Red review of final live observation and expression boundaries"
+      ],
       "note": "독립 Red가 T17.2를 PASS로 판정했다. 라이브 UI 관찰은 URL 로드·검색 제어 접근성 트리·브라우저 오류 0건에 한정하며, 후보 적격성·신호 렌더·점수·경로·핀·안전 또는 위험 주장으로 확장하지 않는다. telemetry 수집과 전체 네트워크 감사·신규 배포·rollback 실행도 주장하지 않는다."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-b914ba6c15984d0db56802910b3a01d2",
+      "canonical_sha": "54454763665f50970e5a20f2784507de4bea19fa",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-06T19:51:15Z",
+      "status": "accepted"
     }
   ],
   "artifacts": [],
