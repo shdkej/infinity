@@ -8,8 +8,12 @@
 
 ## Active
 
+<!-- 실행 중 Intent 없음. -->
+
+## Waiting
+
 ### [safety-map-experiment-04-20260906] 로마 위험 회피 보조 근거 검증
-- status: active
+- status: waiting
 - target_agent: genie
 - priority: high
 - permission: L0-research-and-strategy
@@ -39,11 +43,10 @@
 - trace: traces/safety-map-experiment-04-20260906.json
 - role_sessions: planner=/root/role_e04_planner; developer=/root/role_e04_developer; marketer=/root/role_e04_marketer; operator=/root/role_e04_operator
 - role_status: all completed; synthesis=artifacts/safety-map-experiment-04-20260906/role-synthesis-20260906T0923Z.md
-- blocker: 표시 가능한 지역 집계 근거는 아직 없으므로 no-render를 유지한다. 이는 구현 차단이 아니다. T13은 3차 배포본에 로마 근거 없음 상태를 구현·Red 검증까지 마쳤다.
-- next_retry_condition: 없음 — T14.1의 390px·키보드 접근성 검증을 즉시 실행한다.
-- next_action: T14.1에서 3차 배포본의 로마 근거 없음 상태를 390px·키보드 흐름 기준으로 독립 검증한다.
-
-## Waiting
+- blocker: task plan의 모든 leaf는 완료됐지만, Archive 필수 최종 HTML report와 knowledge_status·knowledge_decision·knowledge_targets·knowledge_reflection·knowledge_commit 지식 판정이 없다. 따라서 Archive 완료를 선언할 수 없다. 현재 no-render는 표시 가능한 지역 집계 근거가 없다는 상태이며 구현 차단이 아니다.
+- next_retry_condition: 최종 HTML report와 Archive 지식 판정을 만든 뒤 Red PASS 근거와 함께 Archive 원장으로 전이할 수 있을 때.
+- next_action: final report·지식 판정·Archive 원장 전이 요건을 별도 leaf로 검증한다.
+- state_repair_artifact: artifacts/safety-map-experiment-04-20260906/state-repair-20260906T2000Z.md
 
 ### [research-32] Starter Story 솔로프리너 사례 1개 깊은 복원
 - status: waiting

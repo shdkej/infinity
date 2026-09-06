@@ -1721,6 +1721,30 @@
         "C17 closure of scoped live UI observation and final Red boundary"
       ],
       "note": "C17은 T17.1 라이브 UI 관찰과 T17.2 독립 Red PASS를 근거로 종료했다. URL 로드·검색 제어 접근성·오류 0·근거 없음 표현만 확인했으며, 후보 적격성·신호·핀·점수·경로·안전 또는 위험 주장, telemetry 구현, 전체 네트워크 감사, 신규 배포·rollback 실행으로 확장하지 않는다. no-render를 유지한다."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-d4743b58c38c40309bd81fac330c9704",
+      "canonical_sha": "9ef63463d3e6aae8ffa7da18df0870cc4e4c20bd",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-06T20:00:02Z",
+      "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-06T20:01:00Z",
+      "status": "blocked",
+      "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
+      "evidence_paths": [
+        "artifacts/safety-map-experiment-04-20260906/task-plan.json",
+        "artifacts/safety-map-experiment-04-20260906/t17-close.md",
+        "artifacts/safety-map-experiment-04-20260906/state-repair-20260906T2000Z.md"
+      ],
+      "searches": [
+        "completed task plan versus Active lane and Archive contract"
+      ],
+      "note": "모든 leaf가 완료되어 Active는 계약상 유효하지 않다. 최종 HTML report와 Archive 지식 판정이 없어 Archive 조건도 충족하지 않으므로 intent를 Waiting으로 옮겼다. no-render 경계는 유지한다."
     }
   ],
   "artifacts": [],
