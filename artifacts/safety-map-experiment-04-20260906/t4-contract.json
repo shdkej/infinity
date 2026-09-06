@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "purpose": "로마 위험 회피 보조를 위한 후보 provenance 계약 — 신호 렌더링 또는 안전 판단 계약이 아님",
+  "default_render_state": "no-render",
+  "record": {
+    "required": [
+      "source_url",
+      "platform",
+      "published_at_or_unknown",
+      "collected_at",
+      "area_unit",
+      "access_decision",
+      "review_state"
+    ],
+    "optional": ["license_or_terms_reference", "freshness_window", "independence_group"]
+  },
+  "prohibited": [
+    "source_body",
+    "comments",
+    "author_or_handle",
+    "profile_or_image",
+    "exact_address_or_coordinates",
+    "single_post_pin",
+    "crime_fact_assertion",
+    "safety_guarantee",
+    "device_or_location_telemetry"
+  ],
+  "access_decision": ["candidate_metadata_only", "allowed_for_review", "blocked"],
+  "review_state": ["unreviewed", "human_reviewed", "rejected"],
+  "render_eligibility": {
+    "all_required": [
+      "access_decision=allowed_for_review",
+      "review_state=human_reviewed",
+      "recent_multiple_independent_experiences",
+      "area_level_aggregation",
+      "independent_red_pass"
+    ],
+    "otherwise": "no-render: 근거 없음"
+  },
+  "display_boundary": "표시가 허용된 경우에도 '사용자 경험 기반 주의 신호'와 출처·날짜·신뢰도·한계를 함께 보이며, 안전 보장 또는 범죄 사실 확정으로 표현하지 않는다."
+}

@@ -196,6 +196,15 @@
       "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/task-plan.json", "artifacts/safety-map-experiment-04-20260906/task-plan.md"],
       "searches": ["T4.1 provenance 메타데이터 최소 계약 및 no-render 경계"],
       "note": "T4.1을 명시적 active leaf로 시작했다. 계약은 후보/원문 본문을 저장하지 않으며, 허용되지 않은 입수 후보는 표현·집계하지 않는다."
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-06T10:42:00Z",
+      "status": "done",
+      "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
+      "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/t4-contract.json"],
+      "searches": ["T4.1 source_url·published_at·collected_at·area_unit provenance 최소 계약"],
+      "note": "T4.1을 30분 제한 내에 종료했다. provenance 최소 필드와 금지 필드, 사람 검토·복수성·Red 전 no-render 기본값을 JSON 계약으로 고정했다."
     }
   ],
   "artifacts": [],
