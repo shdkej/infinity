@@ -286,6 +286,24 @@
       "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/t5-filter.md"],
       "searches": ["T5.1 PII·위험 표현·중복 자동필터 및 no-render 출력 경계"],
       "note": "T5.1을 30분 제한 내에 종료했다. PII·위험 표현·메타데이터 누락은 reject, 중복 및 그 외 후보는 사람 검토 보류이며 approve_for_render 출력은 정의하지 않았다."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-5a0cdbef8fe847b9ae399edff0849f73",
+      "canonical_sha": "a37c23118fe080bce8900e18bc2c7430817321ca",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-06T11:20:01Z",
+      "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-06T11:20:03Z",
+      "status": "active",
+      "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
+      "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/task-plan.json", "artifacts/safety-map-experiment-04-20260906/task-plan.md", "artifacts/safety-map-experiment-04-20260906/t5-filter.md"],
+      "searches": ["T5.2 독립 Red: PII·위험 표현·중복 자동필터 no-render 경계"],
+      "note": "T5.2를 독립 Red leaf로 활성화했다. 검토 범위는 T5.1의 reject·hold_for_human_review 출력과 approve_for_render 부재에 한정한다."
     }
   ],
   "artifacts": [],
