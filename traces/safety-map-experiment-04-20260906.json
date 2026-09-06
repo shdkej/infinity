@@ -880,6 +880,24 @@
       "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/t12-provenance.json", "artifacts/safety-map-experiment-04-20260906/t12-red.md"],
       "searches": ["독립 Red: T12.1 provenance 최소화·no-render 감사 경계 검증"],
       "note": "독립 Red PASS: provenance는 최소 필드와 차단 사유만 보존하고 금지 필드를 저장하지 않는다. 모든 레코드는 no-render이며 출처 간 상태 전이와 렌더·집계·핀 권한이 없다."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-73a6e7f30674422d9febc548fc81d724",
+      "canonical_sha": "6e2aa568eebf60e2a12641155f02748cd8da0a42",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-06T15:10:02Z",
+      "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-06T15:10:02Z",
+      "status": "active",
+      "context_pack": "intents/context/safety-map-experiment-04-20260906.json",
+      "evidence_paths": ["artifacts/safety-map-experiment-04-20260906/task-plan.json", "artifacts/safety-map-experiment-04-20260906/task-plan.md", "artifacts/safety-map-experiment-04-20260906/t12-provenance.json", "artifacts/safety-map-experiment-04-20260906/t12-red.md"],
+      "searches": ["T12.3 C12 provenance 최소화·no-render 마감확인"],
+      "note": "T12.3을 명시적 active leaf로 시작했다. T12.1 최소 provenance와 T12.2 Red PASS만 마감확인하며, 원문·PII·정확 위치 보존, 렌더·집계·핀·신호 생성을 수행하지 않는다."
     }
   ],
   "artifacts": [],
