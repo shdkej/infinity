@@ -94,12 +94,24 @@
         "live Roma Termini map click and evidence drawer 390px verification"
       ],
       "note": "초기 Red P0를 재작업했다. 데스크톱·390px에서 Mapbox canvas와 Termini 중심 클릭 후 drawer 열림을 실제 렌더로 재검증해 PASS했다."
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-07T14:18:00Z",
+      "context_pack": "intents/context/safety-map-experiment-05-20260907.json",
+      "evidence_paths": [
+        "artifacts/safety-map-experiment-05-20260907/t3-flow.md",
+        "artifacts/safety-map-experiment-05-20260907/t3-red.md",
+        "artifacts/safety-map-experiment-05-20260907/t3-close.md"
+      ],
+      "searches": ["live Termini search zoom drawer verification desktop 390px"],
+      "note": "T3에서 Termini 검색 제출 시 지도 이동과 근거 drawer 자동 열림을 구현·Red PASS·마감확인까지 닫았다."
     }
   ],
   "artifacts": [],
   "verifications": [],
   "next_decision": {
     "status": "in_progress",
-    "value": "T3에서 검색→Termini 영역→근거 drawer 흐름을 검증한다"
+    "value": "T4에서 390px·키보드로 drawer와 출처 링크 접근성을 검증한다"
   }
 }
