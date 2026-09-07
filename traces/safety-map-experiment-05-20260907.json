@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "intent_id": "safety-map-experiment-05-20260907",
-  "status": "waiting",
+  "status": "archived",
   "trace_completeness": "complete",
   "request": {
     "raw": {
@@ -104,7 +104,9 @@
         "artifacts/safety-map-experiment-05-20260907/t3-red.md",
         "artifacts/safety-map-experiment-05-20260907/t3-close.md"
       ],
-      "searches": ["live Termini search zoom drawer verification desktop 390px"],
+      "searches": [
+        "live Termini search zoom drawer verification desktop 390px"
+      ],
       "note": "T3에서 Termini 검색 제출 시 지도 이동과 근거 drawer 자동 열림을 구현·Red PASS·마감확인까지 닫았다."
     },
     {
@@ -116,7 +118,9 @@
         "artifacts/safety-map-experiment-05-20260907/t4-red.md",
         "artifacts/safety-map-experiment-05-20260907/t4-close.md"
       ],
-      "searches": ["390px keyboard drawer source-link accessibility verification"],
+      "searches": [
+        "390px keyboard drawer source-link accessibility verification"
+      ],
       "note": "T4에서 390px 지도 클릭→drawer, 닫기 버튼 초점, Tab으로 첫 공개 경험 출처 링크 도달을 Red PASS로 마감했다."
     },
     {
@@ -197,6 +201,23 @@
         "Archive prerequisite check: final HTML report and knowledge-decision fields"
       ],
       "note": "모든 execution leaf 완료 후 Active lane 불일치를 확인했다. 최종 HTML report와 지식 판정이 없어 Waiting으로 전이하며 Archive 또는 완료를 주장하지 않는다."
+    },
+    {
+      "type": "archive",
+      "at": "2026-09-07T15:35:00Z",
+      "report_path": "reports/safety-map-experiment-05-20260907/20260907T1535Z-terminal.html",
+      "evidence_paths": [
+        "artifacts/safety-map-experiment-05-20260907/t5-close.md",
+        "reports/safety-map-experiment-05-20260907/20260907T1535Z-terminal.html",
+        "artifacts/safety-map-experiment-05-20260907/t5-red.md",
+        "artifacts/safety-map-experiment-05-20260907/t5-live.md"
+      ],
+      "verification": {
+        "red_status": "pass",
+        "red_report_path": "artifacts/safety-map-experiment-05-20260907/t5-red.md",
+        "remote_verified": "pass",
+        "remote_proof_path": "artifacts/safety-map-experiment-05-20260907/t5-live.md"
+      }
     }
   ],
   "artifacts": [
@@ -215,6 +236,14 @@
     {
       "label": "실행 leaf 완료 후 lane 상태 복구",
       "path": "artifacts/safety-map-experiment-05-20260907/state-repair-20260907T1510Z.md"
+    },
+    {
+      "label": "task-plan",
+      "path": "artifacts/safety-map-experiment-05-20260907/task-plan.md"
+    },
+    {
+      "label": "knowledge",
+      "path": "artifacts/safety-map-experiment-05-20260907/knowledge-decision.md"
     }
   ],
   "verifications": [
@@ -225,10 +254,20 @@
       "status": "pass",
       "scope": "final user utility and evidence-expression boundary",
       "path": "artifacts/safety-map-experiment-05-20260907/t5-red.md"
+    },
+    {
+      "label": "Red verification evidence",
+      "path": "artifacts/safety-map-experiment-05-20260907/t5-red.md",
+      "status": "pass"
+    },
+    {
+      "label": "Remote verification evidence",
+      "path": "artifacts/safety-map-experiment-05-20260907/t5-live.md",
+      "status": "pass"
     }
   ],
   "next_decision": {
-    "status": "waiting",
-    "value": "최종 HTML report와 지식 판정 필드를 만든 뒤 Red PASS·원격 상태를 재확인하여 Archive를 검토한다"
+    "status": "implemented",
+    "value": "다음 계획에 최소 탐색 예산과 롤링 백로그를 포함한다"
   }
 }

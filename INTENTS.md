@@ -12,6 +12,8 @@
 
 ## Waiting
 
+<!-- archived card retained below; canonical archive entry is in the Archive lane -->
+<!--
 ### [safety-map-experiment-05-20260907] 로마 위험 회피 지도 5차 — 첫 근거 신호 구현
 - status: waiting
 - target_agent: genie
@@ -50,8 +52,11 @@
 - notification_origin: channel:C0BR41W31MM;reply_to:1788681442.847249
 - blocker: 최종 HTML report와 knowledge_status·knowledge_decision·knowledge_targets·knowledge_reflection·knowledge_commit 지식 판정이 없어 Archive 계약을 충족하지 못한다.
 - next_action: 최종 HTML report와 지식 판정 생성 후 Red PASS·원격 상태를 재확인하여 Archive를 검토한다.
+-->
 
 ## Archive
+
+<!-- safety-map-experiment-05-20260907 archived 2026-09-07T15:35Z → intents/archive/safety-map-experiment-05-20260907.md [projects: space,infinity,knowledge-lab; type: implementation] (Termini 근거·날짜·한계 사용자 흐름 완료; 조기 종료 개선 기록) -->
 
 <!-- research-36 archived 2026-09-07T10:24Z → intents/archive/research-36.md [projects: research-bank,infinity,knowledge-lab; type: research; topics: content,analytics,marketing] (사용자 요청으로 waiting 종료; 검증된 YouTube 120행과 부분 플랫폼 조사 보존) -->
 <!-- research-32 archived 2026-09-07T10:24Z → intents/archive/research-32.md [projects: starter-story,solopreneur,ai-research; type: research; topics: case-study,content-analysis] (사용자 요청으로 waiting 종료; 부분 산출물 보존) -->

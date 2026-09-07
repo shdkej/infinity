@@ -1,0 +1,21 @@
+# safety-map-experiment-05-20260907 로마 위험 회피 지도 5차 — 첫 근거 신호 구현
+
+- id: safety-map-experiment-05-20260907
+- status: archived
+- completed_at: 2026-09-07T15:35Z
+- projects: [space, infinity, knowledge-lab]
+- task_type: implementation
+- result_summary: Roma Termini 넓은 환승 허브에서 근거·날짜·한계를 클릭·검색으로 여는 첫 사용자 관측 변화를 구현하고 desktop·390px·키보드 흐름을 Red PASS로 닫았다.
+- metric_result: 근거 묶음 1개, 반투명 지도 영역 1개, 출처/날짜/한계 drawer, desktop·390px 실제 렌더를 확인했다.
+- metric_next_decision: 조기 종료 원인을 다음 계획의 최소 탐색 예산·롤링 백로그·조기 종료 게이트로 반영한다.
+- red_status: pass
+- red_report: artifacts/safety-map-experiment-05-20260907/t5-red.md
+- report: reports/safety-map-experiment-05-20260907/20260907T1535Z-terminal.html
+- remote_verified: pass
+- remote_commit: d865ef5
+- knowledge_status: raw
+- knowledge_decision: retain_in_infinity
+- knowledge_targets: [infinity/ARTIFACT_RULES.md, infinity/EXECUTION_LEARNING_CONTRACT.md]
+- knowledge_reflection: 마감은 종료 상한이고, 목표시간까지 탐색할 의도가 있다면 최소 탐색 예산과 롤링 백로그를 계획에 명시해야 한다. 첫 UI 변화가 나온 뒤에도 후보 비교·기각 근거가 남아 있으면 조기 Archive하지 않는다.
+- knowledge_commit: no-promotion-needed
+- next_actions: [다음 실험에서 최소 탐색 예산과 2~3개 독립 후보 cycle을 먼저 배정]
