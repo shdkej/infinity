@@ -14,8 +14,8 @@
 - priority: urgent
 - permission: L1-implementation-and-approved-production-deploy
 - requested: 2026-09-07T13:30:50Z
-- deadline: 2026-09-07T23:00:00Z / 2026-09-08 08:00 Asia/Seoul
-- deadline_local: 2026-09-08 08:00 Asia/Seoul (KST)
+- deadline: 2026-09-08T06:00:00Z / 2026-09-08 08:00 Europe/Rome
+- deadline_local: 2026-09-08 08:00 Europe/Rome (CEST)
 - execution_mode: single_genie_roles
 - projects: space,infinity,knowledge-lab
 - task_type: implementation
@@ -38,7 +38,7 @@
 - notification_target: C0BR41W31MM
 - notification_reply_to: 1788681442.847249
 - notification_origin: channel:C0BR41W31MM;reply_to:1788681442.847249
-- next_action: T1.1에서 Termini 교통 허브 후보의 익명화된 근거 묶음을 만들고 적격성 판정까지 닫는다.
+- next_action: T5.1에서 라이브 근거·시간 원장을 정리하고 최종 Red 판정을 준비한다.
 
 ## Waiting
 

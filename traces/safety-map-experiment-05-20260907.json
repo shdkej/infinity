@@ -77,7 +77,7 @@
         "artifacts/safety-map-experiment-05-20260907/task-plan.md"
       ],
       "searches": [
-        "T2.2 timebox reassessment against task-plan max_minutes and 2026-09-07T23:00:00Z deadline"
+        "T2.2 timebox reassessment against task-plan max_minutes and revised Europe/Rome deadline"
       ],
       "note": "T2.2 timebox 재평가: 잔여 마감 529분. 기존 열린 Red 검토를 계속하지 않고, 기존 라이브 관찰·배포 SHA·drawer 주장에 한정한 10분 집중 Red 대안으로 전환했다."
     },
@@ -108,19 +108,22 @@
       "note": "T3에서 Termini 검색 제출 시 지도 이동과 근거 drawer 자동 열림을 구현·Red PASS·마감확인까지 닫았다."
     },
     {
-      "type": "dispatcher_handoff",
-      "timestamp": "2026-09-07T14:30:02Z",
-      "run_id": "dispatch-e8a6cdd676904a57bcf1055e2983fe03",
-      "canonical_sha": "16dda3ec36477913a32fcb06b27c300973a8e7a3",
-      "agent": "genie",
-      "session_key": "agent:genie:infinity-dispatcher",
-      "status": "accepted"
+      "type": "execution",
+      "at": "2026-09-07T14:22:00Z",
+      "context_pack": "intents/context/safety-map-experiment-05-20260907.json",
+      "evidence_paths": [
+        "artifacts/safety-map-experiment-05-20260907/t4-mobile.md",
+        "artifacts/safety-map-experiment-05-20260907/t4-red.md",
+        "artifacts/safety-map-experiment-05-20260907/t4-close.md"
+      ],
+      "searches": ["390px keyboard drawer source-link accessibility verification"],
+      "note": "T4에서 390px 지도 클릭→drawer, 닫기 버튼 초점, Tab으로 첫 공개 경험 출처 링크 도달을 Red PASS로 마감했다."
     }
   ],
   "artifacts": [],
   "verifications": [],
   "next_decision": {
     "status": "in_progress",
-    "value": "T4에서 390px·키보드로 drawer와 출처 링크 접근성을 검증한다"
+    "value": "이탈리아 로마 현지 08:00 마감 기준으로 T5 최종 라이브·시간 원장·Red 판정을 닫는다"
   }
 }
