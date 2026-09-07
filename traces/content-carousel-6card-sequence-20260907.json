@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "intent_id": "content-carousel-6card-sequence-20260907",
+  "status": "active",
+  "trace_completeness": "complete",
+  "request": {
+    "raw": {
+      "status": "recorded",
+      "value": "단일 카드를 6장짜리 캐러셀로 확장. 복잡한 카드 → 정리된 카드 → 여백이 많은 카드."
+    },
+    "normalized_query": {
+      "status": "recorded",
+      "value": "확정된 4:5 기록형 단일 카드 디자인을 비공개 6장 캐러셀 시퀀스와 실제 렌더 시안으로 확장한다."
+    }
+  },
+  "events": [
+    {
+      "type": "intake",
+      "at": "2026-09-07T16:03:19Z",
+      "context_pack": "intents/context/content-carousel-6card-sequence-20260907.json",
+      "evidence_paths": ["INTENTS.md"]
+    },
+    {
+      "type": "dispatcher_handoff",
+      "timestamp": "2026-09-07T16:11:38Z",
+      "run_id": "dispatch-ffe0598bf0e048f18b6d5bd6df3c4fb5",
+      "canonical_sha": "7e425b879a4eb6872dc8658827e83fb848050a0f",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "status": "accepted",
+      "note": "Inbox intent를 Active로 전이하고, 기존 고정 디자인과 사실 입력의 충분성을 확인해 비공개 6장 시안을 제작·검증한다."
+    }
+  ],
+  "artifacts": [],
+  "verifications": [],
+  "next_decision": {
+    "status": "in_progress",
+    "value": "기존 단일 카드의 고정 디자인을 확인하고 실제 장면·증거 입력이 부족하면 보류하거나, 디자인 검증 전용 시안을 만들 수 있는지를 판정한다."
+  }
+}
