@@ -4,6 +4,33 @@
 
 ## Inbox
 
+### [content-carousel-6card-sequence-20260907] Instagram 캐러셀 6장 시퀀스 확장
+- status: inbox
+- target_agent: genie
+- priority: high
+- permission: L0-content-draft-no-publication
+- requested: 2026-09-07T16:03:19Z
+- projects: infinity,knowledge-lab
+- task_type: design
+- topics: content,marketing
+- goal: 확정된 4:5 기록형 단일 카드 디자인을 6장 캐러셀로 확장하고, 복잡한 카드에서 정리된 카드, 여백이 많은 카드로 이동하는 시퀀스를 실제 렌더 시안으로 검증한다.
+- success_criteria: 6장 모두 1080×1350 단일 세로 카드이며, 1~2장의 정보 밀도에서 3~4장의 정리, 5~6장의 여백으로 명확한 리듬이 보인다. 제목/본문 위계·텍스트 그림자·저채도 기록 톤·검은 서사 카드의 고정값을 유지하고, Red가 실제 렌더에서 가독성·정렬·과밀/충돌·시퀀스 인지를 통과시킨다.
+- boundary: 공개 게시·계정 변경·외부 업로드를 하지 않는다. 확인되지 않은 경험·수치·타인 정보는 만들지 않는다.
+- source_input: 2026-09-07 Slack #sam 스레드 요청: "단일 카드를 6장짜리 캐러셀로 확장", "복잡한 카드 - 정리된 카드 - 여백이 많은 카드".
+- design_contract: `source/openclaw-system/docs/INSTAGRAM_CAROUSEL_PROMPT_SYSTEM.md`의 fixed_design 우선. 6장 리듬은 복잡한 관찰(1~2) → 구조화/정리(3~4) → 핵심 판단과 질문을 위한 여백(5~6)으로 한다.
+- publication_scope: 비공개 시안
+- context_pack: intents/context/content-carousel-6card-sequence-20260907.json
+- context_documents_checked: LLM.md; Knowledge Lab README.md; schema/agent-rules.md; DOCUMENT_SEARCH_PIPELINE.md; USER_CONTEXT.md; SERVICE_REGISTRY.md; INFINITY_OPERATING_RULES.md; infinity/ARTIFACT_RULES.md; infinity/EXECUTION_LEARNING_CONTRACT.md; INTENTS.md; agent-wiki/README.md; insights/title-selection-pressure.mdx; INSTAGRAM_CAROUSEL_PROMPT_SYSTEM.md
+- context_searches: rg -n -i 'instagram|캐러셀|carousel|복잡|여백|sequence|시퀀스' agent-wiki/content/docs source/openclaw-system/docs source/openclaw-system/data/daily-reviews source/openclaw-system/data/daily-tracking source/openclaw-system/data/photo-insights (compiled design/content evidence used; raw daily evidence not used)
+- metric_question: 여섯 장을 넘길 때 독자가 정보량의 감소와 핵심 판단으로의 수렴을 자연스럽게 인지하는가?
+- metric_signal: Red의 렌더 기반 판정 — 카드별 복잡도 변화, 텍스트 위계/가독성, 4:5 비율, 텍스트 충돌·안전 여백, 6장 전체 리듬.
+- metric_decision_rule: Red가 시퀀스와 시각 고정값을 모두 통과시키면 Archive 검토, 하나라도 불명확하면 해당 카드만 보정한다.
+- notification_channel: slack
+- notification_target: C0BR41W31MM
+- notification_reply_to: 1788713843.380059
+- notification_origin: channel:C0BR41W31MM;reply_to:1788713843.380059
+- next_action: Genie가 6장 시퀀스 시안과 디자인 프롬프트 확장안을 제작하고 Red가 실제 렌더를 검증한다.
+
 <!-- 실행 대기 Intent 없음. -->
 
 ## Active
