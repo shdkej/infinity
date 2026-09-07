@@ -46,41 +46,7 @@
 - next_action: 사실 입력을 확인한 뒤 6장 비공개 초안과 Red 검증을 재개한다.
 - state_repair_artifact: artifacts/content-persona-carousel-20260906/held-draft.md
 
-### [safety-map-experiment-04-20260906] 로마 위험 회피 보조 근거 검증
-- status: waiting
-- target_agent: genie
-- priority: high
-- permission: L0-research-and-strategy
-- requested: 2026-09-06T09:04:45Z
-- deadline: 2026-09-07T06:00:00Z
-- deadline_local: 2026-09-07 08:00 Europe/Rome (CEST)
-- execution_mode: multi_subagent_roles
-- projects: space,infinity,knowledge-lab,safety-map
-- task_type: evidence-bounded-product-iteration
-- predecessor: safety-map-experiment-03-20260905
-- goal: 로마 범위의 공식 공개 데이터가 치안 지도에 안전하게 도입 가능한지 검증하고, 가능할 때만 3차의 지도 UX 위에 출처·갱신일·표현 한계를 분명히 한 최소 기능을 만든다.
-- success_criteria: 각 미니 사이클이 30분 안에 Tn.1 조사/구현→Tn.2 Red→Tn.3 마감확인을 닫고, 공식 자료 또는 공개 접근·이용약관 내 커뮤니티/블로그 경험의 URL·게시일·수집일·공간 단위·결측을 검증한다. 검증 전에는 위험 점수·예측·안전 경로·실시간 사건·위치 수집을 만들지 않는다.
-- metric_question: 로마를 방문·거주하는 사용자가 5초 안에 이 데이터가 무엇을 말하고 무엇을 말하지 않는지 이해한 뒤, 출처와 갱신 상태를 확인할 수 있는가?
-- metric_signal: 원문·라이선스·갱신 메타데이터 완비, leaf별 Red 판정, desktop/390px 실제 렌더, 과장 주장·권한 요청·추적 요청 부재.
-- metric_decision_rule: T2 공개 후보 탐색은 T1 공식 자료 채택과 독립적으로 시작한다. 자동필터·사람 검토·최근 복수 경험의 지역 단위 집계·Red 검증이 모두 통과하기 전에는 데이터를 표시하지 않는다.
-- boundary: 로마 외 지역을 임의로 추가하지 않는다. 4차는 3차 배포본을 직접 확장하되, 검증되지 않은 데이터·기능을 덮어쓰거나 안전 경계를 낮추지 않는다. 안전 등급·예측·안전 경로·실시간 사건·개인 위치 수집·개인정보 전송을 만들지 않는다. 공개 접근·이용약관 내 자료만 사용하고, 개인 식별정보·작성자 식별자·단일 게시물 핀·범죄 사실 확정·안전 보장을 만들지 않는다. 화면은 지역 단위의 ‘사용자 경험 기반 주의 신호’와 출처/날짜/신뢰도/‘근거 없음’만 표시한다. 토큰·자격증명은 어떤 산출물·로그·커밋에도 기록하지 않는다.
-- context_pack: intents/context/safety-map-experiment-04-20260906.json
-- context_documents_checked: LLM.md; Knowledge Lab README.md; schema/agent-rules.md; DOCUMENT_SEARCH_PIPELINE.md; USER_CONTEXT.md; SERVICE_REGISTRY.md; INFINITY_OPERATING_RULES.md; INTENTS.md; agent-wiki/README.md
-- context_searches: rg -l -i 'rome|roma|safety map|치안 지도|crime' agent-wiki/content/docs source/openclaw-system/docs daily-reviews daily-tracking photo-insights (no Rome task-specific compiled evidence; external official source research begins in T1)
-- task_plan: artifacts/safety-map-experiment-04-20260906/task-plan.json
-- task_plan_doc: artifacts/safety-map-experiment-04-20260906/task-plan.md
-- task_plan_template: ARTIFACT_RULES.md#대형-작업-태스크-계획
-- notification_channel: slack
-- notification_target: C0BR41W31MM
-- notification_reply_to: 1788681442.847249
-- notification_origin: channel:C0BR41W31MM;reply_to:1788681442.847249
-- trace: traces/safety-map-experiment-04-20260906.json
-- role_sessions: planner=/root/role_e04_planner; developer=/root/role_e04_developer; marketer=/root/role_e04_marketer; operator=/root/role_e04_operator
-- role_status: all completed; synthesis=artifacts/safety-map-experiment-04-20260906/role-synthesis-20260906T0923Z.md
-- blocker: task plan의 모든 leaf는 완료됐지만, Archive 필수 최종 HTML report와 knowledge_status·knowledge_decision·knowledge_targets·knowledge_reflection·knowledge_commit 지식 판정이 없다. 따라서 Archive 완료를 선언할 수 없다. 현재 no-render는 표시 가능한 지역 집계 근거가 없다는 상태이며 구현 차단이 아니다.
-- next_retry_condition: 최종 HTML report와 Archive 지식 판정을 만든 뒤 Red PASS 근거와 함께 Archive 원장으로 전이할 수 있을 때.
-- next_action: final report·지식 판정·Archive 원장 전이 요건을 별도 leaf로 검증한다.
-- state_repair_artifact: artifacts/safety-map-experiment-04-20260906/state-repair-20260906T2000Z.md
+<!-- safety-map-experiment-04-20260906 archived 2026-09-07T06:08Z → intents/archive/safety-map-experiment-04-20260906.md [projects: space,infinity,knowledge-lab,safety-map; type: implementation] (지도 UX·no-data 경계 검증, 실제 검증 구역은 미확보) -->
 
 ### [research-32] Starter Story 솔로프리너 사례 1개 깊은 복원
 - status: waiting
