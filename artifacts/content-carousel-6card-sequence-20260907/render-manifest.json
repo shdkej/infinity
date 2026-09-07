@@ -1,0 +1,138 @@
+{
+  "intent": "content-carousel-6card-sequence-20260907",
+  "canvas": {
+    "width": 1080,
+    "height": 1350,
+    "ratio": "4:5"
+  },
+  "fixed_design": {
+    "safe_margin_px": {
+      "horizontal": 84,
+      "bottom": 110
+    },
+    "text_shadow": "black 35%, 2px blur",
+    "private_layout_only": true,
+    "public_posted": false,
+    "external_uploaded": false,
+    "profile_changed": false
+  },
+  "source_provenance": "approved internal low-saturation travel-record visual base from marketing-129; no location, date, person, handle, CTA, price, or publishing claim; used as a layout fixture only",
+  "cards": [
+    {
+      "number": 1,
+      "svg": "card-01.svg",
+      "png": "card-01.png",
+      "preview": "preview-01.png",
+      "rhythm": "dense",
+      "kind": "photo",
+      "copy_anchor": "lower-left",
+      "title": "여섯 장의 / 기록",
+      "safe_margin_checked": true,
+      "sha256_svg": "928d158ef4d87a0668b116863bcc84ab195a8349f0a5911ef93f513b2fe6a411",
+      "sha256_png": "5590405c3f63cd16329adb7b513fdaca1099d1f35d659a0e7257c86775dc993b",
+      "sha256_preview": "2cc7f1f73273bf66a0bfac3cbff7964f53ff46abc847a5f1d22cf00f56baa17a",
+      "dimensions": [
+        1080,
+        1350
+      ],
+      "mode": "RGB"
+    },
+    {
+      "number": 2,
+      "svg": "card-02.svg",
+      "png": "card-02.png",
+      "preview": "preview-02.png",
+      "rhythm": "dense",
+      "kind": "photo",
+      "copy_anchor": "lower-left",
+      "title": "처음의 / 메모",
+      "safe_margin_checked": true,
+      "sha256_svg": "c096c12327af6c211d07a6d24ef5b9d031b873b0edfd415d667f3daf1fefa3fa",
+      "sha256_png": "635eba52e2a1e7b709492bf9bbb1421029aab761957c96f7d29af432670bc94f",
+      "sha256_preview": "52684b97db1d3a2a889b7b677df933991df74ece334074f9780cae228343bc8f",
+      "dimensions": [
+        1080,
+        1350
+      ],
+      "mode": "RGB"
+    },
+    {
+      "number": 3,
+      "svg": "card-03.svg",
+      "png": "card-03.png",
+      "preview": "preview-03.png",
+      "rhythm": "organized",
+      "kind": "photo",
+      "copy_anchor": "lower-left",
+      "title": "한 장, / 한 문장",
+      "safe_margin_checked": true,
+      "sha256_svg": "1a6c72f878a5ad67fd95b2d7ee8aa4ec44aa2c11ef160fcc8b19099f53f9b361",
+      "sha256_png": "e532d235f4ffe34690da20deea1df2cb13c632315360b6e6c295bd0a208c926c",
+      "sha256_preview": "0e4125e8cef7eef23bbfb5eb785f2eed7677d1b9f577af155af9376a445c2df4",
+      "dimensions": [
+        1080,
+        1350
+      ],
+      "mode": "RGB"
+    },
+    {
+      "number": 4,
+      "svg": "card-04.svg",
+      "png": "card-04.png",
+      "preview": "preview-04.png",
+      "rhythm": "organized",
+      "kind": "narrative",
+      "copy_anchor": "center",
+      "title": "여기서는 / 한 문장만.",
+      "safe_margin_checked": true,
+      "sha256_svg": "e435b8bd782b09d12aa463679cc009d2e1f418215059cf65c0a27cde8413cf1d",
+      "sha256_png": "9007a9256d7a6f62ebb1097c147d11419ee2d9513bbdf0c53ae559ac1b796467",
+      "sha256_preview": "0ae0e02f03670d5fa8f2fbcedac40ebf19096ac02883f704a8fe0571c05fe01b",
+      "dimensions": [
+        1080,
+        1350
+      ],
+      "mode": "RGB"
+    },
+    {
+      "number": 5,
+      "svg": "card-05.svg",
+      "png": "card-05.png",
+      "preview": "preview-05.png",
+      "rhythm": "spacious",
+      "kind": "photo",
+      "copy_anchor": "lower-left",
+      "title": "남는 자리",
+      "safe_margin_checked": true,
+      "sha256_svg": "9acba8b2d5e50f1f5548db8b13152dc6cbc0ad39515fd28538922fe7ee7dd128",
+      "sha256_png": "11f92727c88e17bc0d4217df19f1fae135ad21134d4ff76202eeff4ce9f1ac14",
+      "sha256_preview": "15a91b8a002c1946c2055663c77e45bda3bafcae28a3eaffde2e2050e9f24a6e",
+      "dimensions": [
+        1080,
+        1350
+      ],
+      "mode": "RGB"
+    },
+    {
+      "number": 6,
+      "svg": "card-06.svg",
+      "png": "card-06.png",
+      "preview": "preview-06.png",
+      "rhythm": "spacious",
+      "kind": "photo",
+      "copy_anchor": "lower-left",
+      "title": "마지막 / 질문",
+      "safe_margin_checked": true,
+      "sha256_svg": "ba36d8e4e32315b5dc75395c9c4d90d5bec7deb48130da228d3f6c7c82273e48",
+      "sha256_png": "68e7b7336035074615841eb5d9efa7664126470020d3774c9ff49a6fc675eaa6",
+      "sha256_preview": "b9798548d7b7d4b4b97d860cc0c9671f90e3fe538176b77660073b84fa9fa4a4",
+      "dimensions": [
+        1080,
+        1350
+      ],
+      "mode": "RGB"
+    }
+  ],
+  "renderer": "Chromium headless local",
+  "renderer_path": "/snap/bin/chromium"
+}
