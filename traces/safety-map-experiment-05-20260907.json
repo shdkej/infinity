@@ -44,12 +44,26 @@
       "session_key": "agent:genie:infinity-dispatcher",
       "status": "accepted",
       "note": "Active 카드의 deadline_local 계약을 복구한 뒤 T1.1 실행을 재개한다."
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-07T13:54:48Z",
+      "context_pack": "intents/context/safety-map-experiment-05-20260907.json",
+      "evidence_paths": [
+        "artifacts/safety-map-experiment-05-20260907/t1-red.md",
+        "artifacts/safety-map-experiment-05-20260907/t1-close.md",
+        "artifacts/safety-map-experiment-05-20260907/t2-implementation.md"
+      ],
+      "searches": [
+        "live map Roma Termini evidence drawer verification"
+      ],
+      "note": "T1 근거·Red·마감 cycle을 닫고, T2에서 기존 e03 배포본에 반투명 영역과 출처 drawer를 구현·라이브 확인했다."
     }
   ],
   "artifacts": [],
   "verifications": [],
   "next_decision": {
     "status": "in_progress",
-    "value": "T1 Red 검증 후 기존 e03 지도에 행동 중심 주의 신호를 구현"
+    "value": "T2 Red 실제 렌더 판정 후 검색 및 모바일 cycle을 닫는다"
   }
 }
