@@ -12,74 +12,14 @@
 
 ## Waiting
 
-<!-- content-persona-carousel-20260906 archived 2026-09-07T07:16Z → intents/archive/content-persona-carousel-20260906.md [projects: personal-ops,infinity; type: design; topics: content,marketing] (사용자 요청으로 Waiting 캐러셀 초안을 종료·보관함.) -->
-
-### [research-32] Starter Story 솔로프리너 사례 1개 깊은 복원
-- status: waiting
-- target_agent: genie
-- priority: high
-- permission: L0-research-and-strategy
-- requested: 2026-08-24T18:10Z
-- execution_mode: multi_subagent_roles
-- projects: starter-story,solopreneur,sns-benchmark,ai-research,infinity
-- task_type: evidence-based-case-reconstruction
-- topics: youtube-summary,description-ingestion,sns-parsing,x-api,launch-timeline,content-analysis,skill-design
-- goal: Starter Story에 소개된 솔로프리너 사례 1개의 문제 인식부터 제작·최초 공개·초기 홍보·반응·반복 개선까지를 영상·디스크립션·SNS·공식 웹 원문으로 교차검증해 깊은 실행 타임라인으로 복원한다.
-- user_request: "사례 1개 깊게 복원"
-- source_url: https://youtu.be/Q4k8JNYKJT0
-- source_context: 사용자가 지정한 Starter Story 사례 영상. 영상 본문·디스크립션·연결된 공식/SNS 원문을 우선 근거로 사용한다.
-- success_criteria: 영상 요약·디스크립션·원문 SNS 타임라인·공식 외부 근거를 수집하고, 각 단계에 원문 링크·게시일·인용·근거 강도·해석을 붙인 사례 리포트와 재사용 가능한 수집/분석 스킬 설계, 결과 업로드용 페이지 요구사항을 만든다. 확인되지 않은 시기는 추정하지 않는다. Planner PRD와 Red 검증을 포함한다.
-- metric_question: 사례 1개의 최초 실행부터 최근까지를 근거 링크와 함께 재현할 수 있는가?
-- metric_signal: 영상/디스크립션 확보 여부, 플랫폼별 원문 수·최초 확인일, 단계별 근거 링크와 근거 강도, 미확인 구간 수
-- metric_decision_rule: 핵심 단계 4개 이상이 1차 원문으로 재현되면 continue, SNS 한 플랫폼만 가능하면 change, 핵심 원자료가 막히면 hold
-- boundary: 공개 게시·외부 발송·유료 API 구매·자격증명 변경·계정 로그인은 실행하지 않는다. 접근 불가 자료는 추정하지 않고 blocker로 기록한다. 웹페이지 구현은 PRD와 데이터 계약 이후 별도 승인된 후속 범위로 둔다.
-- required_sequence: grill-me 확인값 반영 → Planner PRD → Developer 수집/분석 스킬 설계 → Marketer 벤치마킹 사용성 → Operator 수집 실패·재현성 설계 → Genie synthesis → Red 검증
-- next_action: Red 지적에 따라 행 단위 source locator·인용·숫자 정의 계약을 보강했다. 사용자 원자료가 제공되면 이벤트 표를 이 계약으로 보강하고 Red 재검증을 요청한다.
-- artifact: artifacts/research-32/planner-prd.md; artifacts/research-32/starter-story-toneadapt-deep-reconstruction.md; artifacts/research-32/collection-analysis-contract.md
-- report: reports/research-32/20260824T-research.md
-- blocker: YouTube 원본 영상/자막은 yt-dlp 봇 검증에 막혔고, Kyan X 프로필은 HTML 0 lines라 게시물 원문·게시일·반응을 확인하지 못했다. 추정 없이 부분 복원만 작성.
-- red_status: pending
-- next_retry_condition: 사용자가 YouTube 자막/영상 export와 Kyan X 게시물 URL 또는 export를 제공하면 이벤트 타임라인을 보강하고 Red 검증을 재개한다.
-
-### [research-36] 한국 YouTube·Instagram 여행·미니멀·기록·신혼 제목 100건 근거 수집
-- status: waiting
-- target_agent: genie
-- priority: high
-- permission: L0-research-and-strategy
-- requested: 2026-08-27T00:00Z
-- execution_mode: multi_subagent_roles
-- projects: research-bank,infinity,knowledge-lab
-- task_type: research
-- topics: content,analytics,marketing
-- goal: 2021-08-27 이후 공개 조회/재생 수가 실제 확인되는 한국 YouTube와 Instagram Reels의 여행·미니멀·기록·신혼부부 제목 100건 이상을 행 단위 근거와 함께 수집·분류한다.
-- success_criteria: 각 포함 행에 원문 제목·채널/계정·게시일·공개 조회/재생 수·확인시각·canonical 링크·주제·후킹 패턴·포함 근거가 있고, 100건 미달이면 실제 검증 수·플랫폼별 결손·막힌 이유를 기록한다.
-- metric_question: 완전한 행 단위 근거가 있는 패턴 표본이 원본 제목 실험의 다음 결정을 바꾸는가?
-- metric_signal: 완전 행 수, 플랫폼·후킹 패턴 분포, 필수 필드 충족률, 차단 사유.
-- metric_decision_rule: 100건 이상이며 모든 필수 필드가 있으면 continue, 근거는 완전하나 플랫폼 편향/부분 표본이면 change, 공개 수치를 검증할 수 없으면 hold.
-- boundary: 로그인·쿠키·유료 API·자격증명 변경·공개 게시·봇 제한 우회를 하지 않는다. 공개 재생 수가 없는 Instagram 게시물은 제외한다.
-- artifact: artifacts/research-36/korean-travel-title-evidence-audit.md
-- report: reports/research-36/20260827T0000Z.html
-- artifact_followup: artifacts/research-36/platform-access-github-options.md
-- artifact_youtube: artifacts/research-36/youtube-title-evidence-20260827.md
-- data_youtube: artifacts/research-36/youtube-title-evidence-20260827.csv
-- artifact_patterns: artifacts/research-36/youtube-title-patterns-20260827.md
-- artifact_threads_check: artifacts/research-36/threads-query-check-20260827.md
-- artifact_instagram_smoke: artifacts/research-36/instagram-mobile-canvas-smoke-20260827.md
-- result: YouTube 공식 Data API `search.list -> videos.list` 기반으로 2021-08-27 이후 한국어 여행·미니멀·기록·신혼/부부 관련 제목 120행을 확보했다. 모든 행은 제목·채널·게시일·공개 조회수·확인시각·canonical URL·주제·후킹 패턴을 가진다.
-- blocker: Instagram Reels는 모바일 canvas에서 공개 popular/tag page의 URL·계정·공개 수치·캡션 일부 12행이 잡혔지만, 게시일을 한 행에서 아직 확보하지 못했다. Threads는 공식 조회 경로가 있으나 현재 로컬에 Meta/Threads API 토큰이 없어 실제 API smoke test 전이다.
-- next_action: YouTube 패턴 분석을 바탕으로 사용자 콘텐츠 제목 실험을 `숫자 조건 / 현실 반전 / 선택 비교 / 기록 방식` 후보군으로 만든다. Instagram은 모바일 canvas 공개 조회를 `partial smoke pass`로 두고, 릴스 permalink 개별 페이지에서 게시일 추출 가능 여부를 확인한다. Threads는 사용자 승인 후 공식 API 토큰/권한 기반 5키워드 smoke test를 별도 진행한다. Instaloader 로그인 세션·Apify/외부 API·브라우저 세션 대량 수집은 별도 승인 후 진행한다.
-- red_status: youtube-pass-instagram-waiting
-- red_report: artifacts/research-36/red-report.md
-- role_sessions: planner=/root/planner_research36; developer=/root/developer_research36; marketer=/root/marketer_research36; operator=/root/operator_research36; red=/root/red_research36
-- knowledge_status: used
-- knowledge_decision: retain-as-operating-principle
-- knowledge_targets: agent-wiki README; concepts/metric-question-contract.mdx; concepts/evidence-bounded-content-experiment.mdx; concepts/currentness-safe-travel-context.mdx; TASTE.md; Threads.md; Content_Strategy.md; BRAND.md
-- knowledge_reflection: 공개 수치가 보이는 검색 결과를 행 단위 증거로 과장하지 않고, 제목 품질은 조회 수가 아니라 구체 선택·제약·검증 가능성으로 판단한다.
-- knowledge_commit: no-promotion-needed
-
-<!-- 사용자 결정·외부 조건 대기만 기록한다. -->
+<!-- 실행 대기 Intent 없음. -->
 
 ## Archive
+
+<!-- research-36 archived 2026-09-07T10:24Z → intents/archive/research-36.md [projects: research-bank,infinity,knowledge-lab; type: research; topics: content,analytics,marketing] (사용자 요청으로 waiting 종료; 검증된 YouTube 120행과 부분 플랫폼 조사 보존) -->
+<!-- research-32 archived 2026-09-07T10:24Z → intents/archive/research-32.md [projects: starter-story,solopreneur,ai-research; type: research; topics: case-study,content-analysis] (사용자 요청으로 waiting 종료; 부분 산출물 보존) -->
+<!-- content-persona-carousel-20260906 archived 2026-09-07T07:16Z → intents/archive/content-persona-carousel-20260906.md [projects: personal-ops,infinity; type: design; topics: content,marketing] (사용자 요청으로 Waiting 캐러셀 초안을 종료·보관함.) -->
+
 
 <!-- safety-map-experiment-04-20260906 archived 2026-09-07T0608Z → intents/archive/safety-map-experiment-04-20260906.md [projects: space,infinity,knowledge-lab,safety-map; type: implementation] (지도 UX·no-data 경계 검증, 실제 검증 구역은 미확보) -->
 
