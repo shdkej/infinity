@@ -152,9 +152,18 @@
     }
   ],
   "artifacts": [
-    "artifacts/safety-map-experiment-05-20260907/t5-live.md"
+    "artifacts/safety-map-experiment-05-20260907/t5-live.md",
+    "artifacts/safety-map-experiment-05-20260907/t5-red.md"
   ],
-  "verifications": [],
+  "verifications": [
+    {
+      "type": "red",
+      "at": "2026-09-07T14:51:00Z",
+      "status": "pass",
+      "scope": "final user utility and evidence-expression boundary",
+      "evidence_path": "artifacts/safety-map-experiment-05-20260907/t5-red.md"
+    }
+  ],
   "next_decision": {
     "status": "in_progress",
     "value": "이탈리아 로마 현지 08:00 마감 기준으로 T5 최종 라이브·시간 원장·Red 판정을 닫는다"
