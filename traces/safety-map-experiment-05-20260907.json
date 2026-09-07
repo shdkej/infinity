@@ -106,6 +106,15 @@
       ],
       "searches": ["live Termini search zoom drawer verification desktop 390px"],
       "note": "T3에서 Termini 검색 제출 시 지도 이동과 근거 drawer 자동 열림을 구현·Red PASS·마감확인까지 닫았다."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "timestamp": "2026-09-07T14:30:02Z",
+      "run_id": "dispatch-e8a6cdd676904a57bcf1055e2983fe03",
+      "canonical_sha": "16dda3ec36477913a32fcb06b27c300973a8e7a3",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "status": "accepted"
     }
   ],
   "artifacts": [],
