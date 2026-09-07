@@ -1,13 +1,15 @@
 #!/usr/bin/env bash
 # The only Infinity dispatcher schedule is the host's existing 10-minute cron.
 set -u -o pipefail
+umask 077
 
 ROOT="/home/ubuntu/workspace/knowledge-lab/infinity"
 OPENCLAW_BIN="/home/ubuntu/.npm-global/bin/openclaw"
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 STATE_DIR="${INFINITY_DISPATCHER_STATE_DIR:-/home/ubuntu/.openclaw/state/infinity-dispatcher-runs}"
 LOCK_FILE="${INFINITY_DISPATCHER_LOCK_FILE:-/tmp/infinity-dispatcher.lock}"
 AGENT_TIMEOUT_SECONDS="${INFINITY_DISPATCHER_AGENT_TIMEOUT_SECONDS:-480}"
-mkdir -p "$STATE_DIR"
+mkdir -p "$STATE_DIR" 2>/dev/null || { printf '%s\n' 'Infinity 점검을 시작하지 못했습니다. 원격 상태를 다시 확인한 뒤 재개하겠습니다.'; exit 0; }
 exec 9>"$LOCK_FILE"
 flock -n 9 || exit 0
 
@@ -17,19 +19,36 @@ POST_PLAN_FILE="$(mktemp)"
 PROMPT_FILE="$(mktemp)"
 trap 'rm -f "$PLAN_FILE" "$POST_PLAN_FILE" "$PROMPT_FILE"' EXIT
 
-if ! python3 "$ROOT/scripts/prepare_dispatch_cycle.py" --repo "$ROOT" --json >"$PLAN_FILE"; then
-  python3 - "$RUN_FILE" "$PLAN_FILE" <<'PY'
+bootstrap_failure() {
+  local detail="$1"; local detail_file safe
+  detail_file="$(mktemp)"; printf '%s' "$detail" >"$detail_file"
+  safe="$(python3 "$SCRIPT_DIR/safe_failure_alert.py" --stage canonical_fetch_failed --detail-file "$detail_file")"
+  rm -f "$detail_file"
+  python3 - "$RUN_FILE" "$safe" <<'PY'
 import json, sys
 from pathlib import Path
-Path(sys.argv[1]).write_text(json.dumps({"outcome": "canonical_fetch_failed", "detail": json.loads(Path(sys.argv[2]).read_text())}, ensure_ascii=False, indent=2) + "\n")
+Path(sys.argv[1]).write_text(json.dumps({"outcome":"canonical_fetch_failed","user_failure":json.loads(sys.argv[2])}, ensure_ascii=False, indent=2)+"\n")
 PY
-  exit 1
-fi
+  printf '%s\n' 'Infinity 점검을 시작하지 못했습니다. 원격 상태를 다시 확인한 뒤 재개하겠습니다.'
+  exit 0
+}
+
+# All planning/terminal checks use a clean origin/main view.  The primary
+# checkout may legitimately contain a diverged local branch or runtime files.
+VERIFY_ROOT="$(mktemp -d /tmp/infinity-dispatcher-verify-XXXXXX)"
+FETCH_DETAIL="$(git -C "$ROOT" fetch origin main 2>&1)" || bootstrap_failure "$FETCH_DETAIL"
+WORKTREE_DETAIL="$(git -C "$ROOT" worktree add --detach "$VERIFY_ROOT" origin/main 2>&1)" || bootstrap_failure "$WORKTREE_DETAIL"
+trap 'git -C "$ROOT" worktree remove --force "$VERIFY_ROOT" >/dev/null 2>&1 || true; rm -f "$PLAN_FILE" "$POST_PLAN_FILE" "$PROMPT_FILE"' EXIT
+VERIFY_STATUS="$(git -C "$VERIFY_ROOT" status --porcelain 2>&1)" || bootstrap_failure "$VERIFY_STATUS"
+[[ -z "$VERIFY_STATUS" ]] || bootstrap_failure "detached worktree was not clean"
+
+PREPARE_SCRIPT="${INFINITY_DISPATCH_PREPARE_SCRIPT:-$VERIFY_ROOT/scripts/prepare_dispatch_cycle.py}"
+PREPARE_DETAIL="$(python3 "$PREPARE_SCRIPT" --repo "$VERIFY_ROOT" --json >"$PLAN_FILE" 2>&1)" || bootstrap_failure "$PREPARE_DETAIL"
 
 TERMINAL_EXIT=0
 POST_TERMINAL_EXIT=0
 DASHBOARD_EXIT=0
-TERMINAL_RESULT="$(python3 "$ROOT/scripts/dispatch_terminal_notifications.py" --repo "$ROOT" --state "$ROOT/data/dispatcher-terminal-notifications.json" --deliver --openclaw-bin "$OPENCLAW_BIN" 2>&1)" || TERMINAL_EXIT=$?
+TERMINAL_RESULT="$(python3 "$VERIFY_ROOT/scripts/dispatch_terminal_notifications.py" --repo "$VERIFY_ROOT" --state "$ROOT/data/dispatcher-terminal-notifications.json" --deliver --openclaw-bin "$OPENCLAW_BIN" 2>&1)" || TERMINAL_EXIT=$?
 DASHBOARD_RESULT="$(python3 "$ROOT/scripts/process_action_requests.py" --apply --limit 10 --json 2>&1)" || DASHBOARD_EXIT=$?
 [[ "$TERMINAL_EXIT" -ne 0 ]] && TERMINAL_RESULT="terminal_error(exit=${TERMINAL_EXIT}):${TERMINAL_RESULT}"
 [[ "$DASHBOARD_EXIT" -ne 0 ]] && DASHBOARD_RESULT="dashboard_error(exit=${DASHBOARD_EXIT}):${DASHBOARD_RESULT}"
@@ -114,7 +133,7 @@ fi
 # Genie may move an intent to Waiting or Archive during this cycle.  Reconciling
 # only before the handoff silently delays that state transition until a later
 # cron run; send its origin-thread notification now and persist the receipt.
-POST_TERMINAL_RESULT="$(python3 "$ROOT/scripts/dispatch_terminal_notifications.py" --repo "$ROOT" --state "$ROOT/data/dispatcher-terminal-notifications.json" --deliver --openclaw-bin "$OPENCLAW_BIN" 2>&1)" || POST_TERMINAL_EXIT=$?
+POST_TERMINAL_RESULT="$(python3 "$VERIFY_ROOT/scripts/dispatch_terminal_notifications.py" --repo "$VERIFY_ROOT" --state "$ROOT/data/dispatcher-terminal-notifications.json" --deliver --openclaw-bin "$OPENCLAW_BIN" 2>&1)" || POST_TERMINAL_EXIT=$?
 [[ "$POST_TERMINAL_EXIT" -ne 0 ]] && POST_TERMINAL_RESULT="terminal_post_handoff_error(exit=${POST_TERMINAL_EXIT}):${POST_TERMINAL_RESULT}"
 
 python3 - "$RUN_FILE" "$PLAN_FILE" "$POST_PLAN_FILE" "$TERMINAL_RESULT" "$POST_TERMINAL_RESULT" "$DASHBOARD_RESULT" "$HANDOFF_EXIT" "$HANDOFF_STATE" "$TERMINAL_EXIT" "$POST_TERMINAL_EXIT" "$DASHBOARD_EXIT" "$HANDOFF_VERIFY_EXIT" <<'PY'
@@ -138,6 +157,24 @@ Path(sys.argv[1]).write_text(json.dumps({
 PY
 FINAL_EXIT="$HANDOFF_EXIT"
 if [[ "$TERMINAL_EXIT" -ne 0 || "$POST_TERMINAL_EXIT" -ne 0 || "$DASHBOARD_EXIT" -ne 0 || "$HANDOFF_VERIFY_EXIT" -ne 0 ]]; then
-  FINAL_EXIT=1
+  # Generic cron/OpenClaw failure handling can expose a shell's stderr as
+  # "Bash failed" in a user thread.  Keep diagnostics in the protected cycle
+  # record and emit only a Korean allowlisted status for a future alert adapter.
+  DETAIL_FILE="$(mktemp)"
+  printf '%s\n%s\n%s\n' "$TERMINAL_RESULT" "$POST_TERMINAL_RESULT" "$DASHBOARD_RESULT" >"$DETAIL_FILE"
+  if [[ "$TERMINAL_EXIT" -ne 0 || "$POST_TERMINAL_EXIT" -ne 0 ]]; then FAILURE_STAGE="terminal"
+  elif [[ "$DASHBOARD_EXIT" -ne 0 ]]; then FAILURE_STAGE="dashboard"
+  else FAILURE_STAGE="verification"; fi
+  SAFE_FAILURE="$(python3 "$VERIFY_ROOT/scripts/safe_failure_alert.py" --stage "$FAILURE_STAGE" --detail-file "$DETAIL_FILE")"
+  rm -f "$DETAIL_FILE"
+  python3 - "$RUN_FILE" "$SAFE_FAILURE" <<'PY'
+import json, sys
+from pathlib import Path
+path = Path(sys.argv[1]); data = json.loads(path.read_text())
+data["user_failure"] = json.loads(sys.argv[2])
+path.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n")
+PY
+  # A controlled safe failure record replaces a generic raw shell failure.
+  FINAL_EXIT=0
 fi
 exit "$FINAL_EXIT"
