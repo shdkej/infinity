@@ -15,6 +15,7 @@
 - permission: L1-implementation-and-approved-production-deploy
 - requested: 2026-09-07T13:30:50Z
 - deadline: 2026-09-07T23:00:00Z / 2026-09-08 08:00 Asia/Seoul
+- deadline_local: 2026-09-08 08:00 Asia/Seoul (KST)
 - execution_mode: single_genie_roles
 - projects: space,infinity,knowledge-lab
 - task_type: implementation

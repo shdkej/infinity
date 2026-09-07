@@ -34,6 +34,16 @@
         "Questura Roma Termini pickpocket 2026"
       ],
       "note": "공개 경험 2건과 공식 맥락 1건을 넓은 교통 허브 단위로 익명화해 제한적 표시 적격성을 판정했다."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "at": "2026-09-07T13:51:35Z",
+      "run_id": "dispatch-89ece28d2a2842efbeef14ff6a1725c3",
+      "canonical_sha": "be23cd219bc66959a3d0f12a93167533459d4cf5",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "status": "accepted",
+      "note": "Active 카드의 deadline_local 계약을 복구한 뒤 T1.1 실행을 재개한다."
     }
   ],
   "artifacts": [],
