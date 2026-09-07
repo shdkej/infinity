@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="ko">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Safety Map experiment-03 handoff</title>
+<style>:root{--bg:#f4f2ea;--panel:#fbfaf5;--ink:#2c2a25;--soft:#716d62;--line:#e3dfd2;--a1:#a9745a;--a2:#5f7a5e}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.65 system-ui,sans-serif}.sheet{max-width:720px;margin:auto;padding:32px 18px}.axis{border-left:3px solid var(--a1);padding-left:16px;margin:24px 0}.axis.ax2{border-color:var(--a2)}.label{font:600 11px ui-monospace,monospace;letter-spacing:.1em;color:var(--soft);text-transform:uppercase}.text{font-size:18px}details{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:0 16px;margin:12px 0}summary{padding:14px 0;font-weight:700}code{background:#eee9dd;padding:2px 5px;border-radius:3px;overflow-wrap:anywhere}li{margin:7px 0}.note{color:var(--soft)}</style>
+</head>
+<body><main class="sheet">
+<p class="note">INFINITY · SAFETY-MAP-EXPERIMENT-03 · HANDOFF · 2026-09-07T12:28Z</p>
+<h1>로컬 구현 재개를 위한 범위 고정 handoff</h1>
+<section class="axis ax1"><div class="label">01 · 무엇이 문제였나</div><div class="text">Active intent는 T3 로컬 격리 구현을 요구하지만, canonical Knowledge Lab에서 허용된 대상 경로 <code>sites/safety-map-experiment-03/</code>를 확인할 수 없어 이번 cycle에서 안전한 코드 변경 범위를 확정할 수 없었습니다.</div></section>
+<section class="axis ax2"><div class="label">02 · 어떻게 진행하나</div><div class="text">생산 배포·Slack receipt는 보류하고, 다음 실행자는 새 실험 경로만 생성 또는 확인한 뒤 지도 캔버스의 최소 상호작용 한 slice를 로컬 검증으로 닫습니다.</div></section>
+<details open><summary>다음 정확한 범위와 검증 게이트</summary><ul>
+<li>대상 repo: <code>/home/ubuntu/workspace/knowledge-lab</code>; 먼저 <code>sites/safety-map-experiment-03/</code>의 소유·존재·기존 작업을 한정 확인합니다.</li>
+<li>허용 파일: <code>sites/safety-map-experiment-03/**</code> 및 그 경로 배포에 필수이고 명시적으로 정당화된 공유 wiring만. <code>sites/safety-map/**</code>는 절대 수정하지 않습니다.</li>
+<li>첫 slice: 전체 화면 지도 캔버스의 로컬 렌더와 search/zoom/pan/layer 중 하나의 실제 상호작용을 구현하고, desktop 및 390px capture와 관련 빌드 검증을 남깁니다.</li>
+<li>검증: pre/post scoped diff, geolocation/permission prompt 없음, 승인되지 않은 request-data transfer 없음, 토큰이 소스·로그·report·commit에 없음.</li>
+</ul></details>
+<details open><summary>승인 경계와 현재 blocker</summary><p>로컬 격리 구현까지만 허용됩니다. production deploy, live remote verification, 원 Slack thread receipt는 명시 승인과 해당 전송 런타임이 확보될 때까지 수행하지 않습니다. 이번 확인에서는 허용된 새 실험 디렉터리를 발견하지 못했으므로, 기존 safety-map 또는 공유 파일을 추정하여 변경하지 않았습니다.</p></details>
+<details><summary>기록</summary><p>상태는 Active 유지. 이 handoff는 코드·배포 변경 없이 다음 안전한 구현 slice의 대상, 금지 범위, 승인 경계, 검증 기준을 고정합니다.</p></details>
+</main></body></html>
