@@ -149,6 +149,16 @@
       "agent": "genie",
       "session_key": "agent:genie:infinity-dispatcher",
       "status": "accepted"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "timestamp": "2026-09-07T15:01:22Z",
+      "run_id": "dispatch-e7dce6b9a8c3463fbd54cb4555c87b26",
+      "canonical_sha": "50730eb2faf0e8412d9a58247c7c0f5e89be94b1",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "status": "accepted",
+      "note": "T5.3을 활성화해 T1–T5의 검증된 제한적 행동 보조 범위를 마감 준비한다."
     }
   ],
   "artifacts": [

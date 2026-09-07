@@ -20,7 +20,7 @@
     {"id":"T4.3","title":"C4 마감확인","status":"done","started_at":"2026-09-07T14:22:00Z","completed_at":"2026-09-07T14:22:00Z","depends_on":["T4.2"],"max_minutes":5,"evidence":"artifacts/safety-map-experiment-05-20260907/t4-close.md"},
     {"id":"T5.1","title":"배포·라이브 근거·시간 원장","status":"done","started_at":"2026-09-07T14:40:00Z","completed_at":"2026-09-07T14:42:44Z","depends_on":["T3.3","T4.3"],"max_minutes":20,"evidence":"artifacts/safety-map-experiment-05-20260907/t5-live.md"},
     {"id":"T5.2","title":"Red: 최종 사용자 효용·근거","status":"done","started_at":"2026-09-07T14:50:00Z","completed_at":"2026-09-07T14:51:00Z","depends_on":["T5.1"],"max_minutes":10,"evidence":"artifacts/safety-map-experiment-05-20260907/t5-red.md"},
-    {"id":"T5.3","title":"C5 마감확인·종료 준비","status":"pending","depends_on":["T5.2"],"max_minutes":5,"evidence":"artifacts/safety-map-experiment-05-20260907/t5-close.md"}
+    {"id":"T5.3","title":"C5 마감확인·종료 준비","status":"active","started_at":"2026-09-07T15:01:22Z","depends_on":["T5.2"],"max_minutes":5,"evidence":"artifacts/safety-map-experiment-05-20260907/t5-close.md"}
   ],
   "deviations": [
     {
