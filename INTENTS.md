@@ -46,8 +46,6 @@
 - next_action: 사실 입력을 확인한 뒤 6장 비공개 초안과 Red 검증을 재개한다.
 - state_repair_artifact: artifacts/content-persona-carousel-20260906/held-draft.md
 
-<!-- safety-map-experiment-04-20260906 archived 2026-09-07T06:08Z → intents/archive/safety-map-experiment-04-20260906.md [projects: space,infinity,knowledge-lab,safety-map; type: implementation] (지도 UX·no-data 경계 검증, 실제 검증 구역은 미확보) -->
-
 ### [research-32] Starter Story 솔로프리너 사례 1개 깊은 복원
 - status: waiting
 - target_agent: genie
@@ -114,6 +112,8 @@
 <!-- 사용자 결정·외부 조건 대기만 기록한다. -->
 
 ## Archive
+
+<!-- safety-map-experiment-04-20260906 archived 2026-09-07T0608Z → intents/archive/safety-map-experiment-04-20260906.md [projects: space,infinity,knowledge-lab,safety-map; type: implementation] (지도 UX·no-data 경계 검증, 실제 검증 구역은 미확보) -->
 
 <!-- safety-map-experiment-03-20260905 archived 2026-09-06T08:00:00Z → intents/archive/safety-map-experiment-03-20260905.md; result=archived_user_closed; report=reports/safety-map-experiment-03-20260905/20260906T0800Z-terminal.md; red_status=pass; live=https://safety-map-experiment-03.aws.shdkej.com/ -->
 
