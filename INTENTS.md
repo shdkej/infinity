@@ -33,9 +33,40 @@
 - notification_target: C0BR41W31MM
 - notification_reply_to: 1788731761.869669
 - notification_origin: channel:C0BR41W31MM;reply_to:1788731761.869669
+- next_action: Genie가 템플릿의 문체·구조 제약으로 캐러셀 초안을 만들고 Red가 텍스트·시각 큐를 검증한다.
+
+### [content-carousel-prompt-system-20260906] Instagram 캐러셀 일관성 프롬프트 시스템
+- status: active
+- target_agent: genie
+- priority: high
+- permission: L0-content-system-design-no-publication
+- requested: 2026-09-06T16:57:24Z
+- projects: content,instagram,infinity,knowledge-lab
+- task_type: content-system-design
+- goal: 사용자가 최소 입력 카드만 채우면, 훅·어투·5장 구조·증거·CTA가 일관된 Instagram 캐러셀 초안으로 변환되는 프롬프트 시스템을 만든다.
+- success_criteria: 필수 5칸/선택 4칸 입력 카드, 재사용 프롬프트, 카드 구조 예외, 발행 전 검수 기준이 하나의 문서에 있고 실제 게시나 외부 업로드는 하지 않는다.
+- boundary: 공개 게시·계정 변경·외부 업로드·근거 없는 성과/사실 생성은 하지 않는다.
+- context_documents_checked: LLM.md; Knowledge Lab README.md; schema/agent-rules.md; DOCUMENT_SEARCH_PIPELINE.md; USER_CONTEXT.md; SERVICE_REGISTRY.md; agent-wiki/README.md; insights/title-selection-pressure.mdx; insights/original-proof-distribution-loop.mdx; INFINITY_OPERATING_RULES.md
+- artifact: source/openclaw-system/docs/INSTAGRAM_CAROUSEL_PROMPT_SYSTEM.md
+- notification_channel: slack
+- notification_target: C0BR41W31MM
+- notification_reply_to: 1788713843.380059
+- follow_on_notification_origin: channel:C0BR41W31MM;reply_to:1788731761.869669
+- follow_on_notification_metadata_note: 2026-09-06 후속 실행의 원 Slack thread를 보존했다. intake notification metadata는 변경하지 않았다.
+- artifact_follow_on: artifacts/content-carousel-prompt-system-20260906/first-carousel-draft-20260906.md
+- report_follow_on: reports/content-carousel-prompt-system-20260906/20260906T220026Z-first-carousel-held-draft.html
+- role_sessions_follow_on: planner=/root/role_content_carousel_planner; developer=/root/role_content_carousel_developer; marketer=/root/role_content_carousel_marketer; operator=/root/role_content_carousel_operator; red=/root/red_content_carousel_recheck
+- red_status_follow_on: pass_internal_held_draft_not_public_approval
+- red_report_follow_on: reports/content-carousel-prompt-system-20260906/20260906T220026Z-red-recheck.html
+- next_action: 비식별 원본 증거 1개와 release-safety 확인을 받으면 실제 5장 문구·캡션을 작성하고 Red 재검증한다. 그 전에는 internal hold를 유지한다.
+
+
+<!-- 실행 대기 Intent 없음. -->
+
+## Active
 
 ### [safety-map-experiment-03-20260905] 치안지도 3차 재실험 — 전역 지도 UX 재구축
-- status: waiting
+- status: active
 - target_agent: genie
 - priority: urgent
 - permission: L1-implementation-and-approved-production-deploy
@@ -45,8 +76,8 @@
 - projects: space,infinity,knowledge-lab,safety-map
 - task_type: product-rebuild-and-live-validation
 - experiment_identity: experiment-03 (new identity; experiment-02 artifacts and code are not a base)
-- goal: 전체화면 전역 Mapbox 지도를 FocusField로 삼아 장소·도로·검색·zoom/pan·레이어 탐색을 제공하되, 근거 없는 치안 판단은 no-data 안전 경계로 유지하는 새 Spatial Type 경험을 구축·배포·검증한다.
-- success_criteria: 새 독립 구조와 PRD/계획, 실제 Mapbox canvas와 interaction, desktop/390px capture, Red 직접 시각 검증 pass, 보호 토큰 비노출, production deploy·live behavior·관련 repo push/remote 확인 및 Slack 원 스레드 receipt를 모두 확보한다.
+- goal: 전체화면의 실제 인터랙티브 전역 지도 캔버스를 FocusField로 삼아 장소·도로·검색·zoom/pan·레이어 탐색을 제공하되, 근거 없는 치안 판단은 no-data 안전 경계로 유지하는 새 Spatial Type 경험을 구축·배포·검증한다. Mapbox는 구현 선택지이며 고정 요건이 아니다.
+- success_criteria: 새 독립 구조와 PRD/계획, 실제 인터랙티브 지도 캔버스와 interaction, desktop/390px capture, Red 직접 시각 검증 pass, 보호 토큰 비노출, production deploy·live behavior·관련 repo push/remote 확인 및 Slack 원 스레드 receipt를 모두 확보한다.
 - metric_question: 사용자는 5초 안에 전역 지도에서 장소 맥락을 탐색하는 목적·다음 행동·안전 데이터 한계를 이해하고, 실제 지도에서 그 행동을 수행할 수 있는가?
 - metric_signal: desktop/390px에서 canvas 렌더, search/zoom/pan/layer 전후 증거, overflow·keyboard 검사, no-data 문구, Red visual pass, live remote proof.
 - metric_decision_rule: 필수 상호작용과 no-data 경계·Red·live proof가 모두 있으면 continue; 지도는 동작하나 위계/모바일 실패면 iterate; 역할 위임·배포·보호 설정·Slack delivery 중 하나가 불가하면 hold.
@@ -59,87 +90,25 @@
 - notification_reply_to: 1788601770.158469
 - notification_origin: channel:C0BR41W31MM;reply_to:1788601770.158469
 - artifact: artifacts/safety-map-experiment-03-20260905/planner-prd.md; artifacts/safety-map-experiment-03-20260905/task-plan.md
-- blocker: Required multi-role delegation is unavailable in this runtime: native spawn_agent and permitted OpenClaw sessions_spawn are not exposed (TypeError recorded 2026-09-05T09:56Z). Slack send capability is also not exposed, so the required intake receipt cannot yet be delivered.
-- next_retry_condition: A runtime exposing four role-session spawn capability, a Red session, and Slack thread-send capability resumes this exact new intent before 2026-09-06T06:00:00Z; then create a separate experiment-03 site path without touching legacy files.
-- red_status: pending
+- role_sessions: planner=agent:genie:dashboard:fbf70428-0536-4a50-b5f1-71eac579cd0a; developer=agent:genie:dashboard:b6ea925e-1071-4a35-932c-d8b550fbf7c4; marketer=agent:marketing:dashboard:ee58a156-1282-4a0c-845d-a6baa372322a; operator=agent:genie:dashboard:f78dd085-928b-47a1-9a45-85fdae1feee6; red=agent:red:dashboard:7bd17001-144e-4eef-a378-6ea610555960
+- role_status: all completed; synthesis=artifacts/safety-map-experiment-03-20260905/role-synthesis-20260905T1015Z.md
+- implementation_gate: create only sites/safety-map-experiment-03/** and explicitly justified shared deployment wiring; never touch sites/safety-map/**. Capture pre/post path diffs; verify no geolocation/permission prompt/unapproved request-data transfer.
+- blocker: Original Slack-thread receipt tool is not exposed. Production deployment requires explicit approval under the operating rules.
+- next_retry_condition: Continue T3 local isolated implementation now. Before terminal closure, obtain explicit production-deploy approval and a runtime exposing original Slack thread-send; then complete live/remote verification and receipt.
+- red_status: plan-gate-remediated; final-red-pending
 
-<!-- 실행 대기 Intent 없음. -->
-
-## Active
-
-<!-- 실행 중 Intent 없음. -->
 
 ## Waiting
 
-### [research-32] Starter Story 솔로프리너 사례 1개 깊은 복원
-- status: waiting
-- target_agent: genie
-- priority: high
-- permission: L0-research-and-strategy
-- requested: 2026-08-24T18:10Z
-- execution_mode: multi_subagent_roles
-- projects: starter-story,solopreneur,sns-benchmark,ai-research,infinity
-- task_type: evidence-based-case-reconstruction
-- topics: youtube-summary,description-ingestion,sns-parsing,x-api,launch-timeline,content-analysis,skill-design
-- goal: Starter Story에 소개된 솔로프리너 사례 1개의 문제 인식부터 제작·최초 공개·초기 홍보·반응·반복 개선까지를 영상·디스크립션·SNS·공식 웹 원문으로 교차검증해 깊은 실행 타임라인으로 복원한다.
-- user_request: "사례 1개 깊게 복원"
-- source_url: https://youtu.be/Q4k8JNYKJT0
-- source_context: 사용자가 지정한 Starter Story 사례 영상. 영상 본문·디스크립션·연결된 공식/SNS 원문을 우선 근거로 사용한다.
-- success_criteria: 영상 요약·디스크립션·원문 SNS 타임라인·공식 외부 근거를 수집하고, 각 단계에 원문 링크·게시일·인용·근거 강도·해석을 붙인 사례 리포트와 재사용 가능한 수집/분석 스킬 설계, 결과 업로드용 페이지 요구사항을 만든다. 확인되지 않은 시기는 추정하지 않는다. Planner PRD와 Red 검증을 포함한다.
-- metric_question: 사례 1개의 최초 실행부터 최근까지를 근거 링크와 함께 재현할 수 있는가?
-- metric_signal: 영상/디스크립션 확보 여부, 플랫폼별 원문 수·최초 확인일, 단계별 근거 링크와 근거 강도, 미확인 구간 수
-- metric_decision_rule: 핵심 단계 4개 이상이 1차 원문으로 재현되면 continue, SNS 한 플랫폼만 가능하면 change, 핵심 원자료가 막히면 hold
-- boundary: 공개 게시·외부 발송·유료 API 구매·자격증명 변경·계정 로그인은 실행하지 않는다. 접근 불가 자료는 추정하지 않고 blocker로 기록한다. 웹페이지 구현은 PRD와 데이터 계약 이후 별도 승인된 후속 범위로 둔다.
-- required_sequence: grill-me 확인값 반영 → Planner PRD → Developer 수집/분석 스킬 설계 → Marketer 벤치마킹 사용성 → Operator 수집 실패·재현성 설계 → Genie synthesis → Red 검증
-- next_action: Red 지적에 따라 행 단위 source locator·인용·숫자 정의 계약을 보강했다. 사용자 원자료가 제공되면 이벤트 표를 이 계약으로 보강하고 Red 재검증을 요청한다.
-- artifact: artifacts/research-32/planner-prd.md; artifacts/research-32/starter-story-toneadapt-deep-reconstruction.md; artifacts/research-32/collection-analysis-contract.md
-- report: reports/research-32/20260824T-research.md
-- blocker: YouTube 원본 영상/자막은 yt-dlp 봇 검증에 막혔고, Kyan X 프로필은 HTML 0 lines라 게시물 원문·게시일·반응을 확인하지 못했다. 추정 없이 부분 복원만 작성.
-- red_status: pending
-- next_retry_condition: 사용자가 YouTube 자막/영상 export와 Kyan X 게시물 URL 또는 export를 제공하면 이벤트 타임라인을 보강하고 Red 검증을 재개한다.
-
-### [research-36] 한국 YouTube·Instagram 여행·미니멀·기록·신혼 제목 100건 근거 수집
-- status: waiting
-- target_agent: genie
-- priority: high
-- permission: L0-research-and-strategy
-- requested: 2026-08-27T00:00Z
-- execution_mode: multi_subagent_roles
-- projects: research-bank,infinity,knowledge-lab
-- task_type: research
-- topics: content,analytics,marketing
-- goal: 2021-08-27 이후 공개 조회/재생 수가 실제 확인되는 한국 YouTube와 Instagram Reels의 여행·미니멀·기록·신혼부부 제목 100건 이상을 행 단위 근거와 함께 수집·분류한다.
-- success_criteria: 각 포함 행에 원문 제목·채널/계정·게시일·공개 조회/재생 수·확인시각·canonical 링크·주제·후킹 패턴·포함 근거가 있고, 100건 미달이면 실제 검증 수·플랫폼별 결손·막힌 이유를 기록한다.
-- metric_question: 완전한 행 단위 근거가 있는 패턴 표본이 원본 제목 실험의 다음 결정을 바꾸는가?
-- metric_signal: 완전 행 수, 플랫폼·후킹 패턴 분포, 필수 필드 충족률, 차단 사유.
-- metric_decision_rule: 100건 이상이며 모든 필수 필드가 있으면 continue, 근거는 완전하나 플랫폼 편향/부분 표본이면 change, 공개 수치를 검증할 수 없으면 hold.
-- boundary: 로그인·쿠키·유료 API·자격증명 변경·공개 게시·봇 제한 우회를 하지 않는다. 공개 재생 수가 없는 Instagram 게시물은 제외한다.
-- artifact: artifacts/research-36/korean-travel-title-evidence-audit.md
-- report: reports/research-36/20260827T0000Z.html
-- artifact_followup: artifacts/research-36/platform-access-github-options.md
-- artifact_youtube: artifacts/research-36/youtube-title-evidence-20260827.md
-- data_youtube: artifacts/research-36/youtube-title-evidence-20260827.csv
-- artifact_patterns: artifacts/research-36/youtube-title-patterns-20260827.md
-- artifact_threads_check: artifacts/research-36/threads-query-check-20260827.md
-- artifact_instagram_smoke: artifacts/research-36/instagram-mobile-canvas-smoke-20260827.md
-- result: YouTube 공식 Data API `search.list -> videos.list` 기반으로 2021-08-27 이후 한국어 여행·미니멀·기록·신혼/부부 관련 제목 120행을 확보했다. 모든 행은 제목·채널·게시일·공개 조회수·확인시각·canonical URL·주제·후킹 패턴을 가진다.
-- blocker: Instagram Reels는 모바일 canvas에서 공개 popular/tag page의 URL·계정·공개 수치·캡션 일부 12행이 잡혔지만, 게시일을 한 행에서 아직 확보하지 못했다. Threads는 공식 조회 경로가 있으나 현재 로컬에 Meta/Threads API 토큰이 없어 실제 API smoke test 전이다.
-- next_action: YouTube 패턴 분석을 바탕으로 사용자 콘텐츠 제목 실험을 `숫자 조건 / 현실 반전 / 선택 비교 / 기록 방식` 후보군으로 만든다. Instagram은 모바일 canvas 공개 조회를 `partial smoke pass`로 두고, 릴스 permalink 개별 페이지에서 게시일 추출 가능 여부를 확인한다. Threads는 사용자 승인 후 공식 API 토큰/권한 기반 5키워드 smoke test를 별도 진행한다. Instaloader 로그인 세션·Apify/외부 API·브라우저 세션 대량 수집은 별도 승인 후 진행한다.
-- red_status: youtube-pass-instagram-waiting
-- red_report: artifacts/research-36/red-report.md
-- role_sessions: planner=/root/planner_research36; developer=/root/developer_research36; marketer=/root/marketer_research36; operator=/root/operator_research36; red=/root/red_research36
-- knowledge_status: used
-- knowledge_decision: retain-as-operating-principle
-- knowledge_targets: agent-wiki README; concepts/metric-question-contract.mdx; concepts/evidence-bounded-content-experiment.mdx; concepts/currentness-safe-travel-context.mdx; TASTE.md; Threads.md; Content_Strategy.md; BRAND.md
-- knowledge_reflection: 공개 수치가 보이는 검색 결과를 행 단위 증거로 과장하지 않고, 제목 품질은 조회 수가 아니라 구체 선택·제약·검증 가능성으로 판단한다.
-- knowledge_commit: no-promotion-needed
-
-<!-- 사용자 결정·외부 조건 대기만 기록한다. -->
+<!-- 실행 대기 Intent 없음. -->
 
 ## Archive
 
-<!-- safety-map-correction-20260903 archived 2026-09-05T09:30Z → intents/archive/safety-map-correction-20260903.md; result=experiment_failed; closure=사용자 명시 아카이브 요청 -->
+<!-- research-36 archived 2026-09-07T10:24Z → intents/archive/research-36.md [projects: research-bank,infinity,knowledge-lab; type: research; topics: content,analytics,marketing] (사용자 요청으로 waiting 종료; 검증된 YouTube 120행과 부분 플랫폼 조사 보존) -->
+<!-- research-32 archived 2026-09-07T10:24Z → intents/archive/research-32.md [projects: starter-story,solopreneur,ai-research; type: research; topics: case-study,content-analysis] (사용자 요청으로 waiting 종료; 부분 산출물 보존) -->
+
 <!-- safety-map-experiment-02-20260904 archived 2026-09-05T09:30Z → intents/archive/safety-map-experiment-02-20260904.md; result=deadline_missed; closure=사용자 명시 아카이브 요청 -->
+<!-- safety-map-correction-20260903 archived 2026-09-05T09:30Z → intents/archive/safety-map-correction-20260903.md; result=experiment_failed; closure=사용자 명시 아카이브 요청 -->
 <!-- safety-map-mvp-20260903 completed 2026-09-02T19:42Z → intents/archive/safety-map-mvp-20260903.md; reports/safety-map-mvp-20260903/20260902T1942Z-production.html; red_status: pass; live=https://safety-map.aws.shdkej.com/ -->
 
 <!-- infinity-trace-contract-01 archived 2026-09-02T13:28Z → intents/archive/infinity-trace-contract-01.md [projects: infinity,space,knowledge-lab; type: implementation; topics: trace-contract,dashboard,dispatcher] -->
