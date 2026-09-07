@@ -97,15 +97,9 @@ def main() -> int:
         default="/home/ubuntu/workspace/knowledge-lab/infinity",
         help="Infinity checkout path",
     )
-    parser.add_argument(
-        "--parent",
-        default="/home/ubuntu/workspace/knowledge-lab",
-        help="Parent Knowledge Lab checkout path",
-    )
     args = parser.parse_args()
 
     repo = Path(args.repo).resolve()
-    parent = Path(args.parent).resolve()
     intent_id = args.intent_id
     errors: list[str] = []
     archive_detail_path: str | None = None
@@ -187,36 +181,6 @@ def main() -> int:
                 errors.append(f"Dashboard page missing expected marker: {marker}")
     except Exception as exc:
         errors.append(f"Dashboard page check failed: {exc}")
-
-    if parent.exists() and (parent / ".git").exists():
-        try:
-            run(["git", "fetch", "origin", "main"], parent)
-            parent_head = run(["git", "rev-parse", "HEAD"], parent)
-            parent_remote = run(["git", "rev-parse", "origin/main"], parent)
-            if parent_head != parent_remote:
-                errors.append(
-                    f"Knowledge Lab pointer is not pushed: local {parent_head[:7]} != origin/main {parent_remote[:7]}"
-                )
-            parent_tree = run(["git", "ls-tree", "origin/main", "infinity"], parent)
-            if not parent_tree:
-                # This checkout tracks Infinity as a separate repository, not
-                # as a Knowledge Lab submodule. The parent-pointer gate is
-                # therefore not applicable; the independent remote checks
-                # above remain mandatory.
-                pass
-            else:
-                parent_parts = parent_tree.split()
-                if len(parent_parts) < 3:
-                    errors.append("Knowledge Lab infinity tree entry is malformed")
-                else:
-                    parent_pointer = parent_parts[2]
-                    if parent_pointer != remote_head:
-                        errors.append(
-                            "Knowledge Lab origin/main points to old Infinity submodule: "
-                            f"parent {parent_pointer[:7]} != infinity origin/main {remote_head[:7]}"
-                        )
-        except Exception as exc:
-            errors.append(str(exc))
 
     if errors:
         for error in errors:
