@@ -25,6 +25,8 @@
 - publication_scope: 비공개 시안
 - context_pack: intents/context/content-carousel-6card-sequence-20260907.json
 - trace: traces/content-carousel-6card-sequence-20260907.json
+- task_plan: artifacts/content-carousel-6card-sequence-20260907/task-plan.json
+- task_plan_doc: artifacts/content-carousel-6card-sequence-20260907/task-plan.md
 - context_documents_checked: LLM.md; Knowledge Lab README.md; schema/agent-rules.md; DOCUMENT_SEARCH_PIPELINE.md; USER_CONTEXT.md; SERVICE_REGISTRY.md; INFINITY_OPERATING_RULES.md; infinity/ARTIFACT_RULES.md; infinity/EXECUTION_LEARNING_CONTRACT.md; INTENTS.md; agent-wiki/README.md; insights/title-selection-pressure.mdx; INSTAGRAM_CAROUSEL_PROMPT_SYSTEM.md
 - context_searches: rg -n -i 'instagram|캐러셀|carousel|복잡|여백|sequence|시퀀스' agent-wiki/content/docs source/openclaw-system/docs source/openclaw-system/data/daily-reviews source/openclaw-system/data/daily-tracking source/openclaw-system/data/photo-insights (compiled design/content evidence used; raw daily evidence not used)
 - metric_question: 여섯 장을 넘길 때 독자가 정보량의 감소와 핵심 판단으로의 수렴을 자연스럽게 인지하는가?

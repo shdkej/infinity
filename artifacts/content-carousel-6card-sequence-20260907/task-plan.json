@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "intent_id": "content-carousel-6card-sequence-20260907",
+  "tasks": [
+    {"id":"T1.1","title":"비공개 6장 리듬 렌더","status":"active","started_at":"2026-09-07T16:14:00Z","depends_on":[],"max_minutes":20,"evidence":"artifacts/content-carousel-6card-sequence-20260907/sequence-spec.md"},
+    {"id":"T1.2","title":"Red: 렌더 가독성·리듬","status":"pending","depends_on":["T1.1"],"max_minutes":10,"evidence":"artifacts/content-carousel-6card-sequence-20260907/red-render.md"},
+    {"id":"T1.3","title":"C1 비공개 시안 마감","status":"pending","depends_on":["T1.2"],"max_minutes":5,"evidence":"artifacts/content-carousel-6card-sequence-20260907/close.md"}
+  ],
+  "deviations": [
+    {"at":"2026-09-07T16:14:00Z","reason":"단일 카드의 시각 기준은 확인됐지만 새 개인 장면·증거는 제공되지 않았다.","impact":"사실 콘텐츠가 아니라 private design-only sequence로 제한하고, 모든 보조 문구는 디자인 주석 또는 확인 필요 표기로 둔다.","task_ids":["T1.1"]}
+  ]
+}
