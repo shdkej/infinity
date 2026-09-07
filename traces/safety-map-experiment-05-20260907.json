@@ -80,6 +80,18 @@
         "T2.2 timebox reassessment against task-plan max_minutes and 2026-09-07T23:00:00Z deadline"
       ],
       "note": "T2.2 timebox 재평가: 잔여 마감 529분. 기존 열린 Red 검토를 계속하지 않고, 기존 라이브 관찰·배포 SHA·drawer 주장에 한정한 10분 집중 Red 대안으로 전환했다."
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-07T14:13:00Z",
+      "context_pack": "intents/context/safety-map-experiment-05-20260907.json",
+      "evidence_paths": [
+        "artifacts/safety-map-experiment-05-20260907/t2-red.md"
+      ],
+      "searches": [
+        "focused Red inspection of termini-caution hit-area, drawer boundary, and T2 deployment evidence"
+      ],
+      "note": "T2.2 verified-alternative Red PASS: 넓은 hit-area·행동 drawer·no-score/no-route/no-tracking 경계를 확인했다. 출처 진위·실시간성·모바일 접근성은 이 판정 범위 밖이다."
     }
   ],
   "artifacts": [],
