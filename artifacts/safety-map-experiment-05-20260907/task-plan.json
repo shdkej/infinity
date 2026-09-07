@@ -22,5 +22,15 @@
     {"id":"T5.2","title":"Red: 최종 사용자 효용·근거","status":"pending","depends_on":["T5.1"],"max_minutes":10,"evidence":"artifacts/safety-map-experiment-05-20260907/t5-red.md"},
     {"id":"T5.3","title":"C5 마감확인·종료 준비","status":"pending","depends_on":["T5.2"],"max_minutes":5,"evidence":"artifacts/safety-map-experiment-05-20260907/t5-close.md"}
   ],
-  "deviations": []
+  "deviations": [
+    {
+      "at": "2026-09-07T14:10:54Z",
+      "type": "timebox_reassessment",
+      "task_id": "T2.2",
+      "choice": "switch_to_verified_alternative",
+      "remaining_deadline_min": 529,
+      "rationale": "기존 Red 작업이 10분 상한을 넘겼고 새 검증 증거가 없으므로, 열린 검토를 계속하지 않는다.",
+      "alternative": "기존 라이브 관찰·배포 SHA·drawer 주장 범위만 읽는 새 집중 Red 검토를 10분 한도로 실행하며, 결과물은 artifacts/safety-map-experiment-05-20260907/t2-red.md 하나로 제한한다."
+    }
+  ]
 }
