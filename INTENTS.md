@@ -132,6 +132,7 @@
 
 ## Archive
 
+<!-- slack-callback-next-action-20260907 archived 2026-09-07T20:50Z → intents/archive/slack-callback-next-action-20260907.md [projects: infinity,openclaw; type: implementation; topics: automation,workflow,security] (Slack callback의 registry·검증·멱등 dispatch·동일 thread receipt 및 Red PASS) -->
 <!-- research-36 archived 2026-09-07T10:24Z → intents/archive/research-36.md [projects: research-bank,infinity,knowledge-lab; type: research; topics: content,analytics,marketing] (사용자 요청으로 waiting 종료; 검증된 YouTube 120행과 부분 플랫폼 조사 보존) -->
 <!-- research-32 archived 2026-09-07T10:24Z → intents/archive/research-32.md [projects: starter-story,solopreneur,ai-research; type: research; topics: case-study,content-analysis] (사용자 요청으로 waiting 종료; 부분 산출물 보존) -->
 

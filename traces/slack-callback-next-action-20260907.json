@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "intent_id": "slack-callback-next-action-20260907",
-  "status": "active",
+  "status": "archived",
   "trace_completeness": "complete",
   "request": {
     "raw": {
@@ -34,12 +34,48 @@
         "workflows/heartbeat callback continuation"
       ],
       "note": "Planner·Developer·Marketer·Operator 역할 검토를 수렴했다."
+    },
+    {
+      "type": "archive",
+      "at": "2026-09-07T21:04:42Z",
+      "report_path": "reports/slack-callback-next-action-20260907/20260907T2050Z-implementation.html",
+      "evidence_paths": [
+        "reports/slack-callback-next-action-20260907/20260907T2050Z-implementation.html",
+        "artifacts/slack-callback-next-action-20260907/red-report.md",
+        "artifacts/slack-callback-next-action-20260907/remote-proof-initial.txt"
+      ],
+      "verification": {
+        "red_status": "pass",
+        "red_report_path": "artifacts/slack-callback-next-action-20260907/red-report.md",
+        "remote_verified": "pass",
+        "remote_proof_path": "artifacts/slack-callback-next-action-20260907/remote-proof-initial.txt"
+      }
     }
   ],
-  "artifacts": [],
-  "verifications": [],
+  "artifacts": [
+    {
+      "label": "implementation",
+      "path": "artifacts/slack-callback-next-action-20260907/implementation-contract.md"
+    },
+    {
+      "label": "Red",
+      "path": "artifacts/slack-callback-next-action-20260907/red-report.md"
+    }
+  ],
+  "verifications": [
+    {
+      "label": "Red verification evidence",
+      "path": "artifacts/slack-callback-next-action-20260907/red-report.md",
+      "status": "pass"
+    },
+    {
+      "label": "Remote verification evidence",
+      "path": "artifacts/slack-callback-next-action-20260907/remote-proof-initial.txt",
+      "status": "pass"
+    }
+  ],
   "next_decision": {
-    "status": "in_progress",
-    "value": "Red가 구현과 3회 연속 검증을 검토한다"
+    "status": "implemented",
+    "value": "실제 ingress와 승인된 Slack transport 연결을 관측한다."
   }
 }
