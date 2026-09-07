@@ -12,47 +12,7 @@
 
 ## Waiting
 
-<!-- archived card retained below; canonical archive entry is in the Archive lane -->
-<!--
-### [safety-map-experiment-05-20260907] 로마 위험 회피 지도 5차 — 첫 근거 신호 구현
-- status: waiting
-- target_agent: genie
-- priority: urgent
-- permission: L1-implementation-and-approved-production-deploy
-- requested: 2026-09-07T13:30:50Z
-- deadline: 2026-09-08T06:00:00Z / 2026-09-08 08:00 Europe/Rome
-- deadline_local: 2026-09-08 08:00 Europe/Rome (CEST)
-- execution_mode: single_genie_roles
-- projects: space,infinity,knowledge-lab
-- task_type: implementation
-- topics: product,workflow
-- goal: 4차의 빈 지도에서 벗어나, 로마의 넓은 교통 허브 구역 하나에 대해 출처·날짜·한계가 열리는 ‘주의 신호’를 기존 3차 배포본에서 실제로 탐색할 수 있게 한다.
-- success_criteria: (1) 서로 독립된 공개 경험 2건과 공식 공공안전 맥락 1건을 넓은 ‘Roma Termini 교통 허브’ 단위로 기록하고, (2) 반투명 영역을 클릭하면 행동 중심 주의·출처·날짜·한계가 열리며, (3) 검색·zoom/pan·영역 hit-area가 desktop·390px에서 통과한다. 단, 조건 하나라도 미달하면 실제 신호를 렌더하지 않고 재현 가능한 기각 근거를 남긴다.
-- metric_question: 사용자가 로마 지도에서 한 구역을 누르면 ‘무엇을 조심하고, 근거가 얼마나 제한적인지’를 5초 안에 이해할 수 있는가?
-- metric_signal: 근거 묶음 1개, 지도 레이어 1개, 출처/날짜/한계 drawer, 실제 desktop·390px 렌더 및 Red 판정.
-- metric_decision_rule: 실제 지도 행동 변화와 적격 근거 묶음이 함께 있으면 계속한다. 어느 하나가 없으면 해당 cycle은 done이 아니라 rework 또는 기각 근거로 닫는다.
-- boundary: 안전 보장·범죄율/위험 점수·정확한 주소·개인 식별·단일 게시물 판정·자동 수집/추적·새 국가 옵션의 임의 생성은 금지한다. 3차 배포본을 직접 수정하되, 기존 탐색 기능은 회귀시키지 않는다.
-- context_pack: intents/context/safety-map-experiment-05-20260907.json
-- context_documents_checked: LLM.md; Knowledge Lab README.md; schema/agent-rules.md; DOCUMENT_SEARCH_PIPELINE.md; USER_CONTEXT.md; SERVICE_REGISTRY.md; INFINITY_OPERATING_RULES.md; infinity/ARTIFACT_RULES.md; infinity/EXECUTION_LEARNING_CONTRACT.md; INTENTS.md; agent-wiki/README.md; BRAND.md; DESIGN.md; DESIGN_SYSTEM.md
-- context_searches: agent-wiki 중앙 목차·4차 Archive·2025~2026 공개 Rome Termini 경험/공식 안전 공지 검색
-- task_plan_template: ARTIFACT_RULES.md#대형-작업-태스크-계획
-- task_plan: artifacts/safety-map-experiment-05-20260907/task-plan.json
-- task_plan_doc: artifacts/safety-map-experiment-05-20260907/task-plan.md
-- trace: traces/safety-map-experiment-05-20260907.json
-- report: reports/safety-map-experiment-05-20260907/20260907T1524Z-progress.html
-- knowledge_status: raw
-- knowledge_decision: retain_in_infinity
-- knowledge_targets: [infinity/ARTIFACT_RULES.md, infinity/EXECUTION_LEARNING_CONTRACT.md]
-- knowledge_reflection: 첫 사용자 관측 변화가 생긴 뒤에만 cycle을 완료로 셌다.
-- knowledge_commit: no-promotion-needed
-- design_context_checked: BRAND.md → DESIGN.md → DESIGN_SYSTEM.md; 지도는 FocusField, 근거는 필요할 때만 열리는 ContextObject, 다음 행동은 짧은 문장으로 제공
-- notification_channel: slack
-- notification_target: C0BR41W31MM
-- notification_reply_to: 1788681442.847249
-- notification_origin: channel:C0BR41W31MM;reply_to:1788681442.847249
-- blocker: 최종 HTML report와 knowledge_status·knowledge_decision·knowledge_targets·knowledge_reflection·knowledge_commit 지식 판정이 없어 Archive 계약을 충족하지 못한다.
-- next_action: 최종 HTML report와 지식 판정 생성 후 Red PASS·원격 상태를 재확인하여 Archive를 검토한다.
--->
+<!-- 실행 대기 Intent 없음. -->
 
 ## Archive
 
