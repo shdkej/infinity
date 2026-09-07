@@ -159,19 +159,44 @@
       "session_key": "agent:genie:infinity-dispatcher",
       "status": "accepted",
       "note": "T5.3을 활성화해 T1–T5의 검증된 제한적 행동 보조 범위를 마감 준비한다."
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-07T15:04:00Z",
+      "context_pack": "intents/context/safety-map-experiment-05-20260907.json",
+      "evidence_paths": [
+        "artifacts/safety-map-experiment-05-20260907/t5-live.md",
+        "artifacts/safety-map-experiment-05-20260907/t5-red.md",
+        "artifacts/safety-map-experiment-05-20260907/t5-close.md"
+      ],
+      "searches": [
+        "C5 closure against T1–T5 evidence and no-score/no-route/no-tracking boundary"
+      ],
+      "note": "T5.3에서 T1–T5 leaf와 T5.2 Red PASS를 수렴했다. 제한적 행동 보조 UI 범위만 마감했으며, Archive는 최종 HTML report와 지식 판정이 필요한 별도 gate로 남긴다."
     }
   ],
   "artifacts": [
-    "artifacts/safety-map-experiment-05-20260907/t5-live.md",
-    "artifacts/safety-map-experiment-05-20260907/t5-red.md"
+    {
+      "label": "T5.1 배포·라이브 근거·시간 원장",
+      "path": "artifacts/safety-map-experiment-05-20260907/t5-live.md"
+    },
+    {
+      "label": "T5.2 최종 사용자 효용·근거 Red",
+      "path": "artifacts/safety-map-experiment-05-20260907/t5-red.md"
+    },
+    {
+      "label": "T5.3 C5 마감확인·종료 준비",
+      "path": "artifacts/safety-map-experiment-05-20260907/t5-close.md"
+    }
   ],
   "verifications": [
     {
+      "label": "T5.2 최종 사용자 효용·근거 Red PASS",
       "type": "red",
       "at": "2026-09-07T14:51:00Z",
       "status": "pass",
       "scope": "final user utility and evidence-expression boundary",
-      "evidence_path": "artifacts/safety-map-experiment-05-20260907/t5-red.md"
+      "path": "artifacts/safety-map-experiment-05-20260907/t5-red.md"
     }
   ],
   "next_decision": {
