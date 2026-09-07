@@ -37,7 +37,7 @@
     },
     {
       "type": "dispatcher_handoff",
-      "at": "2026-09-07T13:51:35Z",
+      "timestamp": "2026-09-07T13:51:35Z",
       "run_id": "dispatch-89ece28d2a2842efbeef14ff6a1725c3",
       "canonical_sha": "be23cd219bc66959a3d0f12a93167533459d4cf5",
       "agent": "genie",
