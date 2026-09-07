@@ -1,0 +1,11 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><title>Safety Map Experiment 03 — Local implementation handoff</title>
+<style>body{font:16px/1.6 system-ui,sans-serif;background:#f4f2ea;color:#2c2a25;margin:0}.sheet{max-width:720px;margin:auto;padding:32px 20px}.axis{border-left:3px solid #a9745a;padding-left:16px;margin:24px 0}.ax2{border-color:#5f7a5e}details{background:#fbfaf5;border:1px solid #e3dfd2;border-radius:8px;padding:12px;margin:12px 0}code{overflow-wrap:anywhere}</style>
+</head><body><main class="sheet">
+<p>Infinity · safety-map-experiment-03-20260905 · Active handoff · 2026-09-07T06:58Z</p>
+<h1>치안지도 3차 재실험: 로컬 구현 범위 확인 핸드오프</h1>
+<section class="axis ax1"><b>무엇이 문제였나</b><br>Active 원장에는 T3 로컬 격리 구현을 계속하라고 되어 있으나, canonical 활성 상세 경로 <code>intents/active/safety-map-experiment-03-20260905.md</code>가 이 저장소에 없습니다. 이 사이클에서는 target repo·정확한 파일·현재 계획 상태를 안전하게 확인할 수 없습니다.</section>
+<section class="axis ax2"><b>어떻게 해결하나</b><br>현재 Active 상태를 유지합니다. 다음 실행자는 canonical intent 또는 task plan에서 허용된 <code>sites/safety-map-experiment-03/**</code>만 확인한 뒤, 기존 <code>sites/safety-map/**</code>를 건드리지 않는 T3.1의 한 구현 단위(지도 캔버스 또는 검색/zoom/pan/layer 중 하나)를 수행하고 로컬 검증을 기록해야 합니다.</section>
+<details open><summary>다음 정확 범위와 검증 게이트</summary><ul><li>먼저 <code>artifacts/safety-map-experiment-03-20260905/task-plan.json</code> 및 <code>task-plan.md</code>에서 활성 T3 하위 태스크와 target repo를 확인한다.</li><li>허용 파일: <code>sites/safety-map-experiment-03/**</code> 및 명시적으로 정당화한 공유 배포 wiring만. <code>sites/safety-map/**</code>는 금지한다.</li><li>검증: pre/post scoped path diff, geolocation/permission prompt 없음, 승인되지 않은 request-data transfer 없음, 해당 interaction의 local behavior 확인.</li><li>배포·Slack 원 스레드 receipt는 이 구현 슬라이스의 범위를 벗어난다. production deploy는 명시 승인 전 금지하며 MAPBOX_PUBLIC_TOKEN 값은 어떤 파일·로그·report에도 쓰지 않는다.</li></ul></details>
+<details><summary>차단 사유와 다음 입력</summary><p>이번 사이클의 최소 검사에서 Active 상세 파일이 없어 정확한 T3 시작점 및 대상 저장소를 확정할 수 없었습니다. 다음 실행에는 canonical active intent 또는 task-plan의 활성 태스크와 연결된 repository path가 필요합니다. 이는 Waiting 전환 사유가 아니라 안전한 로컬 범위 확정 전의 Active handoff입니다.</p></details>
+</main></body></html>
