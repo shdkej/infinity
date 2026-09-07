@@ -118,6 +118,16 @@
       ],
       "searches": ["390px keyboard drawer source-link accessibility verification"],
       "note": "T4에서 390px 지도 클릭→drawer, 닫기 버튼 초점, Tab으로 첫 공개 경험 출처 링크 도달을 Red PASS로 마감했다."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "timestamp": "2026-09-07T14:40:00Z",
+      "run_id": "dispatch-0dd7984b5f0044d98c97bceb6d259ad3",
+      "canonical_sha": "0aceb40098cb63014483ebce46dd867b5f1bb5a0",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "status": "accepted",
+      "note": "T5.1을 활성화해 배포·라이브 근거·시간 원장을 검증한다."
     }
   ],
   "artifacts": [],
