@@ -37,6 +37,12 @@
 - task_plan: artifacts/safety-map-experiment-05-20260907/task-plan.json
 - task_plan_doc: artifacts/safety-map-experiment-05-20260907/task-plan.md
 - trace: traces/safety-map-experiment-05-20260907.json
+- report: reports/safety-map-experiment-05-20260907/20260907T1524Z-progress.html
+- knowledge_status: raw
+- knowledge_decision: retain_in_infinity
+- knowledge_targets: [infinity/ARTIFACT_RULES.md, infinity/EXECUTION_LEARNING_CONTRACT.md]
+- knowledge_reflection: 첫 사용자 관측 변화가 생긴 뒤에만 cycle을 완료로 셌다.
+- knowledge_commit: no-promotion-needed
 - design_context_checked: BRAND.md → DESIGN.md → DESIGN_SYSTEM.md; 지도는 FocusField, 근거는 필요할 때만 열리는 ContextObject, 다음 행동은 짧은 문장으로 제공
 - notification_channel: slack
 - notification_target: C0BR41W31MM
