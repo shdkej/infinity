@@ -31,7 +31,9 @@
 - knowledge_targets: workflows/heartbeat.md; scripts/process_slack_callbacks.py; source/openclaw-system/docs/GRILL_ME_AND_CALLBACK_RUNBOOK.md
 - knowledge_reflection: callback은 value가 아니라 immutable outbound binding과 state transition으로 닫고, 불확실 receipt는 자동 재전송하지 않는다.
 - knowledge_commit: no-promotion-needed
-- remote_verified: pending-final-archive-push
+- remote_verified: pass
+- remote_commit: 692346ff36f56e4c201a0985119836805b5f95cd
+- remote_proof: artifacts/slack-callback-next-action-20260907/remote-proof-final.txt
 - next_actions:
   - 실제 ingress event 한 건을 registry·signature 검증 표식과 함께 관측하고 mock outbox adapter를 승인된 Slack transport로 연결한다.
 
