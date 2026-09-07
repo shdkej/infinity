@@ -280,9 +280,8 @@ Archive gate:
 Infinity에서 산출물·상태·Report·Archive를 만든 것만으로는 등록 또는 완료로 보지 않는다.
 
 1. 의미 있는 변경을 Infinity 저장소에 커밋하고 matching `origin`에 push한다.
-2. Knowledge Lab이 Infinity를 submodule로 참조하는 작업이면 상위 저장소의 submodule pointer도 갱신·커밋·push한다.
-3. 두 저장소의 `git status --short --branch`가 clean인지 확인하고, 원격 `main`이 방금 만든 커밋을 가리키는지 확인한다.
-4. 위 원격 확인이 끝나기 전에는 `status: completed`, `archived` 전환, 완료 통보를 하지 않는다. push 실패·상위 pointer 미반영·검증 불명확은 `Waiting`에 남기고 재개 조건을 기록한다.
+2. Infinity 저장소의 `git status --short --branch`가 clean인지 확인하고, 원격 `main`이 방금 만든 커밋을 가리키는지 확인한다.
+3. 위 원격 확인이 끝나기 전에는 `status: completed`, `archived` 전환, 완료 통보를 하지 않는다. push 실패·검증 불명확은 `Waiting`에 남기고 재개 조건을 기록한다.
 
 Archive 완료 보고 직전에는 반드시 아래 명령을 실행하고, 출력 한 줄을 완료 report와 사용자 보고에 남긴다.
 
@@ -290,9 +289,9 @@ Archive 완료 보고 직전에는 반드시 아래 명령을 실행하고, 출�
 python3 scripts/verify_archive_remote.py {intent-id}
 ```
 
-이 명령이 실패하면 `Archive 완료`, `완료했습니다`, `대시보드에 반영` 같은 표현을 쓰지 않는다. 로컬 파일 생성, 로컬 commit, submodule pointer 변경 중 하나라도 원격에서 확인되지 않으면 아직 완료가 아니다.
+이 명령이 실패하면 `Archive 완료`, `완료했습니다`, `대시보드에 반영` 같은 표현을 쓰지 않는다. 로컬 파일 생성 또는 로컬 commit이 Infinity 원격에서 확인되지 않으면 아직 완료가 아니다.
 
-완료 Report에는 `infinity_commit`, `infinity_push_verified`, `parent_pointer_commit`(해당 시), `parent_push_verified`를 기록한다. 사용자가 “등록 완료”라고 부르는 시점은 이 원격 반영 게이트까지 통과한 시점이다.
+완료 Report에는 `infinity_commit`, `infinity_push_verified`를 기록한다. Knowledge Lab 승격이 있으면 그 저장소의 별도 커밋·원격 검증 근거를 기록하되, Infinity의 부모 포인터 검증으로 취급하지 않는다. 사용자가 “등록 완료”라고 부르는 시점은 이 원격 반영 게이트까지 통과한 시점이다.
 
 ### 10. Telegram 알림
 
@@ -482,7 +481,7 @@ Intent가 완료 기준을 충족하거나 사용자가 완료 처리하면:
 4. `INTENTS.md`의 `## Inbox`, `## Active`, 또는 `## Waiting`에서 해당 블록/코멘트를 제거하고, 승격된 경우에만 `## Archive`에 KL source 링크를 남긴다.
    - 완료된 `completed/resolved/archived` 코멘트는 `## Archive`에만 있어야 한다. Inbox/Active/Waiting에 완료 코멘트가 남아 있으면 다음 리캡과 대시보드가 이미 끝난 작업을 다음 작업으로 오인한다.
    - Archive 완료 코멘트는 완료 시각 내림차순으로 둔다. 완료 처리 후 `python3 scripts/check_intents_consistency.py INTENTS.md`를 실행해 open lane의 완료 코멘트 잔존과 Archive 역순 깨짐을 검증한다.
-   - Archive 전환은 항상 의미 있는 원장 변경이다. Infinity 저장소 commit/push, 원격 `main` 확인, 필요한 경우 Knowledge Lab parent submodule pointer commit/push가 끝나기 전에는 Archive 완료로 보고하지 않는다.
+   - Archive 전환은 항상 의미 있는 원장 변경이다. Infinity 저장소 commit/push와 원격 `main` 확인이 끝나기 전에는 Archive 완료로 보고하지 않는다. Knowledge Lab 승격이 있으면 그 변경은 해당 저장소에서 별도로 commit/push·검증한다.
 5. 대시보드 등 외부 소비자가 `detail:` 경로를 참조한다면 archive 경로가 유효한지 확인한다.
 6. 원 요청 대화를 잃지 않도록 intake 시 `notification_channel`, `notification_target`, 그리고 필요한 경우 Telegram `notification_thread` 또는 Slack `notification_reply_to`를 불변 메타데이터로 기록한다. 원격 Archive 검증이 끝난 뒤에는 `remote_verified: pass`와 commit/report 근거를 남긴다. 기존 로컬 Infinity dispatcher가 원격 `origin/main`을 조정해 이 기록을 정확히 한 번 통보한다. origin이 없는 과거 intent는 추정 발송하지 않는다.
 6. 완료 직후 같은 내용을 `Detail` 문서로 다시 만들지 않는다. 최종 문서는 `Intent 원장`, 원문 산출물은 `Artifact`, 실행 로그는 `Report`로 분리한다.
