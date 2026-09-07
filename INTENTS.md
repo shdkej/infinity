@@ -122,6 +122,7 @@
 - implementation_gate: create only sites/safety-map-experiment-03/** and explicitly justified shared deployment wiring; never touch sites/safety-map/**. Capture pre/post path diffs; verify no geolocation/permission prompt/unapproved request-data transfer.
 - blocker: Original Slack-thread receipt tool is not exposed. Production deployment requires explicit approval under the operating rules.
 - next_retry_condition: Continue T3 local isolated implementation now. Before terminal closure, obtain explicit production-deploy approval and a runtime exposing original Slack thread-send; then complete live/remote verification and receipt.
+- latest_handoff: reports/safety-map-experiment-03-20260905/20260907T1928Z-handoff.html (T3는 `sites/safety-map-experiment-03/**`만 검사·구현; production deploy와 Slack receipt은 별도 승인/도구 경계로 유지)
 - red_status: plan-gate-remediated; final-red-pending
 
 
