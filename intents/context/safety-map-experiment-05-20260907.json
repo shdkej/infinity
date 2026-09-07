@@ -1,0 +1,10 @@
+{
+  "context_pack_version": 3,
+  "status": "ready",
+  "route": "infinity",
+  "request": "4차 실험의 학습을 바탕으로, 로마의 한 넓은 교통 허브 구역에 대해 공개 경험과 공식 맥락을 출처·날짜·한계와 함께 지도에서 탐색 가능한 주의 신호로 구현한다.",
+  "built_at": "2026-09-07T13:30:50Z",
+  "required_documents": ["/home/ubuntu/workspace/prompt-archive/LLM.md", "README.md", "schema/agent-rules.md", "source/openclaw-system/docs/DOCUMENT_SEARCH_PIPELINE.md", "source/openclaw-system/docs/USER_CONTEXT.md", "source/openclaw-system/docs/SERVICE_REGISTRY.md", "source/openclaw-system/docs/INFINITY_OPERATING_RULES.md", "infinity/ARTIFACT_RULES.md", "infinity/EXECUTION_LEARNING_CONTRACT.md", "infinity/INTENTS.md", "agent-wiki/README.md", "BRAND.md", "DESIGN.md", "DESIGN_SYSTEM.md"],
+  "search_scopes": ["agent-wiki/content/docs/", "source/openclaw-system/docs/", "infinity/intents/archive/", "public web: official Rome public-safety pages and public community experience pages"],
+  "rules": ["출처 URL·플랫폼·게시일·수집일·넓은 공간 단위를 남기되 작성자·핸들·원문 본문·정확한 주소는 보존하거나 렌더하지 않는다.", "서로 독립된 공개 경험 2건과 공공안전 맥락 1건을 묶어도 ‘안전/위험’ 사실을 단정하지 않고, 여행자의 행동 중심 주의로만 표현한다.", "지도에는 넓은 허브 구역만 반투명하게 표시한다. 클릭 시 출처·날짜·한계와 행동 팁을 열고, 지역 밖의 일반화·국가 옵션 확대는 하지 않는다.", "각 parent cycle은 사용자 관측 변화 또는 재사용 가능한 기각 근거를 남긴다. 작업·Red·마감 확인은 같은 cycle 안에서 닫는다."]
+}
