@@ -128,9 +128,23 @@
       "session_key": "agent:genie:infinity-dispatcher",
       "status": "accepted",
       "note": "T5.1을 활성화해 배포·라이브 근거·시간 원장을 검증한다."
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-07T14:42:44Z",
+      "context_pack": "intents/context/safety-map-experiment-05-20260907.json",
+      "evidence_paths": [
+        "artifacts/safety-map-experiment-05-20260907/t5-live.md"
+      ],
+      "searches": [
+        "Space SHA to GitHub Actions deployment to live HTTP 200 time-ledger verification"
+      ],
+      "note": "T5.1에서 Space caad68dd 배포 SHA, Actions 34133686917 success, live HTTP 200과 제한된 UI 경계를 UTC·CEST 시간 원장으로 고정했다. 새 배포·rollback·telemetry 수집은 실행하지 않았다."
     }
   ],
-  "artifacts": [],
+  "artifacts": [
+    "artifacts/safety-map-experiment-05-20260907/t5-live.md"
+  ],
   "verifications": [],
   "next_decision": {
     "status": "in_progress",
