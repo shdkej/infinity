@@ -4,8 +4,6 @@
 
 ## Inbox
 
-<!-- content-carousel-6card-sequence-20260907 completed 2026-09-07T16:30Z → intents/archive/content-carousel-6card-sequence-20260907.md [projects: infinity,knowledge-lab; type: design; topics: content,marketing] (6장 4:5 PNG와 Red 실제 렌더 PASS) -->
-
 <!-- 실행 대기 Intent 없음. -->
 
 ## Active
@@ -19,6 +17,8 @@
 ## Archive
 
 <!-- slack-callback-next-action-20260907 archived 2026-09-07T20:50Z → intents/archive/slack-callback-next-action-20260907.md [projects: infinity,openclaw; type: implementation; topics: automation,workflow,security] (Slack callback의 registry·검증·멱등 dispatch·동일 thread receipt 및 Red PASS) -->
+
+<!-- content-carousel-6card-sequence-20260907 completed 2026-09-07T16:30Z → intents/archive/content-carousel-6card-sequence-20260907.md [projects: infinity,knowledge-lab; type: design; topics: content,marketing] (6장 4:5 PNG와 Red 실제 렌더 PASS) -->
 
 <!-- safety-map-experiment-05-20260907 archived 2026-09-07T15:35Z → intents/archive/safety-map-experiment-05-20260907.md [projects: space,infinity,knowledge-lab; type: implementation] (Termini 근거·날짜·한계 사용자 흐름 완료; 조기 종료 개선 기록) -->
 
