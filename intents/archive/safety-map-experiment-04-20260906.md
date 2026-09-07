@@ -13,6 +13,7 @@
 - metric_next_decision: hold
 - red_status: pass (T17 라이브 표현 범위)
 - red_report: artifacts/safety-map-experiment-04-20260906/t17-red.md
+- report: reports/safety-map-experiment-04-20260906/20260907T0608Z-terminal.html
 - artifacts:
   - path: artifacts/safety-map-experiment-04-20260906/task-plan.md
     role: implementation
