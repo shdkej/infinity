@@ -10,29 +10,15 @@
 
 ## Active
 
-### [slack-callback-next-action-20260907] Slack 버튼 선택을 원 Intent 다음 행동으로 연결
-- status: active
-- target_agent: genie
-- priority: high
-- permission: L1-local-implementation; L2 git-push-agent-approved
-- execution_mode: multi_subagent_roles
-- projects: infinity,openclaw
-- task_type: implementation
-- topics: automation,workflow,security
-- context_pack: intents/context/slack-callback-next-action-20260907.json
-- goal: 검증된 Slack 버튼 선택을 원 질문·원 thread·Intent 다음 action에 영속적으로 바인딩하고 안전한 action만 멱등 처리·같은 thread 보고한다.
-- success_criteria: outbound registry·inbound 복합 검증·first-wins dispatch·동일 thread mock receipt와 3회 연속 자동 검증이 통과하고, 공개·권한·비용 action은 자동 실행하지 않는다.
-- notification_channel: slack
-- notification_target: C0BR41W31MM
-- notification_reply_to: 1788813179.680199
-- notification_origin: channel:C0BR41W31MM;reply_to:1788813179.680199
-- next_action: callback worker·회귀 테스트·운영 계약을 구현하고 Red 검증 후 원격 반영한다.
+<!-- 실행 대기 Intent 없음. -->
 
 ## Waiting
 
 <!-- 실행 대기 Intent 없음. -->
 
 ## Archive
+
+<!-- slack-callback-next-action-20260907 archived 2026-09-07T20:50Z → intents/archive/slack-callback-next-action-20260907.md [projects: infinity,openclaw; type: implementation; topics: automation,workflow,security] (Slack callback의 registry·검증·멱등 dispatch·동일 thread receipt 및 Red PASS) -->
 
 <!-- safety-map-experiment-05-20260907 archived 2026-09-07T15:35Z → intents/archive/safety-map-experiment-05-20260907.md [projects: space,infinity,knowledge-lab; type: implementation] (Termini 근거·날짜·한계 사용자 흐름 완료; 조기 종료 개선 기록) -->
 
