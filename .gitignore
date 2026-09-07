@@ -15,3 +15,8 @@ MEMORY.md
 DREAMS.md
 **/MEMORY.md
 **/DREAMS.md
+
+# Durable local Slack callback registry, receipt state, and mock delivery sink.
+data/slack-outbound-buttons.jsonl
+data/slack-callback-state.json
+data/slack-callback-outbox.jsonl
