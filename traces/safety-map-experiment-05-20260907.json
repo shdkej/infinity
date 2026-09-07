@@ -83,21 +83,23 @@
     },
     {
       "type": "execution",
-      "at": "2026-09-07T14:13:00Z",
+      "at": "2026-09-07T14:10:20Z",
       "context_pack": "intents/context/safety-map-experiment-05-20260907.json",
       "evidence_paths": [
-        "artifacts/safety-map-experiment-05-20260907/t2-red.md"
+        "artifacts/safety-map-experiment-05-20260907/t2-implementation.md",
+        "artifacts/safety-map-experiment-05-20260907/t2-red.md",
+        "artifacts/safety-map-experiment-05-20260907/t2-close.md"
       ],
       "searches": [
-        "focused Red inspection of termini-caution hit-area, drawer boundary, and T2 deployment evidence"
+        "live Roma Termini map click and evidence drawer 390px verification"
       ],
-      "note": "T2.2 verified-alternative Red PASS: 넓은 hit-area·행동 drawer·no-score/no-route/no-tracking 경계를 확인했다. 출처 진위·실시간성·모바일 접근성은 이 판정 범위 밖이다."
+      "note": "초기 Red P0를 재작업했다. 데스크톱·390px에서 Mapbox canvas와 Termini 중심 클릭 후 drawer 열림을 실제 렌더로 재검증해 PASS했다."
     }
   ],
   "artifacts": [],
   "verifications": [],
   "next_decision": {
     "status": "in_progress",
-    "value": "T2 Red 실제 렌더 판정 후 검색 및 모바일 cycle을 닫는다"
+    "value": "T3에서 검색→Termini 영역→근거 drawer 흐름을 검증한다"
   }
 }
