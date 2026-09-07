@@ -8,8 +8,12 @@
 
 ## Active
 
+<!-- 실행 대기 Intent 없음. -->
+
+## Waiting
+
 ### [safety-map-experiment-05-20260907] 로마 위험 회피 지도 5차 — 첫 근거 신호 구현
-- status: active
+- status: waiting
 - target_agent: genie
 - priority: urgent
 - permission: L1-implementation-and-approved-production-deploy
@@ -38,11 +42,8 @@
 - notification_target: C0BR41W31MM
 - notification_reply_to: 1788681442.847249
 - notification_origin: channel:C0BR41W31MM;reply_to:1788681442.847249
-- next_action: T5.1에서 라이브 근거·시간 원장을 정리하고 최종 Red 판정을 준비한다.
-
-## Waiting
-
-<!-- 실행 대기 Intent 없음. -->
+- blocker: 최종 HTML report와 knowledge_status·knowledge_decision·knowledge_targets·knowledge_reflection·knowledge_commit 지식 판정이 없어 Archive 계약을 충족하지 못한다.
+- next_action: 최종 HTML report와 지식 판정 생성 후 Red PASS·원격 상태를 재확인하여 Archive를 검토한다.
 
 ## Archive
 

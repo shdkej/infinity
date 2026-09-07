@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "intent_id": "safety-map-experiment-05-20260907",
-  "status": "active",
+  "status": "waiting",
   "trace_completeness": "complete",
   "request": {
     "raw": {
@@ -173,6 +173,30 @@
         "C5 closure against T1–T5 evidence and no-score/no-route/no-tracking boundary"
       ],
       "note": "T5.3에서 T1–T5 leaf와 T5.2 Red PASS를 수렴했다. 제한적 행동 보조 UI 범위만 마감했으며, Archive는 최종 HTML report와 지식 판정이 필요한 별도 gate로 남긴다."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "timestamp": "2026-09-07T15:10:55Z",
+      "run_id": "dispatch-0424270a5b5f420d8b2a26315ff907da",
+      "canonical_sha": "6fba729fe91deb4b0bd5fd22950d8fe5deb3a6bf",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "status": "accepted",
+      "note": "완료된 task plan과 Active lane 불일치를 Archive gate 기준으로 복구한다."
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-07T15:11:30Z",
+      "context_pack": "intents/context/safety-map-experiment-05-20260907.json",
+      "evidence_paths": [
+        "artifacts/safety-map-experiment-05-20260907/task-plan.json",
+        "artifacts/safety-map-experiment-05-20260907/t5-close.md",
+        "artifacts/safety-map-experiment-05-20260907/state-repair-20260907T1510Z.md"
+      ],
+      "searches": [
+        "Archive prerequisite check: final HTML report and knowledge-decision fields"
+      ],
+      "note": "모든 execution leaf 완료 후 Active lane 불일치를 확인했다. 최종 HTML report와 지식 판정이 없어 Waiting으로 전이하며 Archive 또는 완료를 주장하지 않는다."
     }
   ],
   "artifacts": [
@@ -187,6 +211,10 @@
     {
       "label": "T5.3 C5 마감확인·종료 준비",
       "path": "artifacts/safety-map-experiment-05-20260907/t5-close.md"
+    },
+    {
+      "label": "실행 leaf 완료 후 lane 상태 복구",
+      "path": "artifacts/safety-map-experiment-05-20260907/state-repair-20260907T1510Z.md"
     }
   ],
   "verifications": [
@@ -200,7 +228,7 @@
     }
   ],
   "next_decision": {
-    "status": "in_progress",
-    "value": "이탈리아 로마 현지 08:00 마감 기준으로 T5 최종 라이브·시간 원장·Red 판정을 닫는다"
+    "status": "waiting",
+    "value": "최종 HTML report와 지식 판정 필드를 만든 뒤 Red PASS·원격 상태를 재확인하여 Archive를 검토한다"
   }
 }
