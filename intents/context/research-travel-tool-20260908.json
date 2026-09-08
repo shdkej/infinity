@@ -24,6 +24,38 @@
     "source/openclaw-system/data/daily-tracking/",
     "source/openclaw-system/data/photo-insights/"
   ],
+  "agent_wiki_compiled_evidence": [
+    {
+      "path": "agent-wiki/content/docs/mapped/Idea/Travel.mdx",
+      "read_status": "full",
+      "contribution": "여행을 체크리스트가 아니라 여행 전 최소 시나리오 보존·여행 후 감각 회수·다음 선택 기준 갱신의 왕복으로 규정한다. 후보는 이 흐름을 줄이는 작은 접점이어야 한다.",
+      "constraint": "stable-developing mapped 해석 문서다. 현재 사실·가격·행동 증거는 raw source 또는 공개 근거로 별도 검증한다."
+    },
+    {
+      "path": "agent-wiki/content/docs/mapped/blog/Life_Tracking.mdx",
+      "read_status": "full",
+      "contribution": "기록 도구는 많은 입력·대시보드가 아니라 적은 인터페이스, 맥락 복원, 다음 행동으로 이어지는 피드백을 우선해야 한다는 제품 경계를 제공한다.",
+      "constraint": "mapped 해석 문서이며 개인 기록 중 공개 경계가 필요한 정보가 있으므로, 일반화 가능한 판단만 제품 가설에 사용한다."
+    },
+    {
+      "path": "agent-wiki/content/docs/insights/bounded-experiment-loop.mdx",
+      "read_status": "full",
+      "contribution": "7일 검증은 하나의 지표·변경 축, 사전 고정 evaluator, keep/discard/blocked 기록과 stop 기준을 가져야 한다는 실행 규칙을 제공한다.",
+      "constraint": "운영 원칙이지 시장 수요나 결제 의사의 근거는 아니다."
+    },
+    {
+      "path": "agent-wiki/content/docs/insights/currentness-safe-travel-context.mdx",
+      "read_status": "full",
+      "contribution": "여행 관련 결과물은 현재성·위치 안전성을 분리하며, 공개용 산출물에서는 실시간 위치·숙소·이동을 제거해야 한다는 경계를 제공한다.",
+      "constraint": "본 Intent는 내부 L0 리서치이지만, 이후 공개 검증 설계에도 이 위치 안전 경계를 유지한다."
+    },
+    {
+      "path": "agent-wiki/content/docs/insights/updatable-taste-timeline.mdx",
+      "read_status": "full",
+      "contribution": "취향 도구는 일회성 예쁨보다 시간이 지나도 일관된 선택 기준을 보여 주는 신뢰 표면을 우선해야 한다는 포지셔닝 경계를 제공한다.",
+      "constraint": "제품의 반복 사용 가능성에 대한 내부 판단일 뿐, 유료 전환이나 시장 규모의 증거는 아니다."
+    }
+  ],
   "rules": [
     "Read every required document before creating or executing an intent.",
     "Search the declared scopes for task-specific evidence; do not treat a search hit as a confirmed fact without its source.",

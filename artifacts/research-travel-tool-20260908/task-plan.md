@@ -2,6 +2,12 @@
 
 `마감: 2026-09-09 08:00 Europe/Rome (06:00 UTC)` · `실행 방식: multi_subagent_roles` · `상태: Waiting`
 
+## Agent Wiki evidence visibility gate (2026-09-08)
+
+- `agent-wiki/content/docs/index.mdx`를 전문 확인했다. Agent Wiki는 raw source/ingest 원장이 아닌 검증·정제된 읽기 레이어이므로, 현재 사실·가격·결제 행동은 공개 근거나 raw source ingest 상태로 별도 확인한다.
+- 전문 확인한 compiled 페이지: `mapped/Idea/Travel.mdx`(여행 전 시나리오 보존·여행 후 감각 회수), `mapped/blog/Life_Tracking.mdx`(적은 입력점·맥락 복원·다음 행동), `insights/bounded-experiment-loop.mdx`(7일 실험의 단일 평가면과 stop 기준), `insights/currentness-safe-travel-context.mdx`(여행 위치·현재성 안전), `insights/updatable-taste-timeline.mdx`(지속 가능한 취향 신뢰 표면).
+- 최종 artifact 필수 섹션: `내부 근거와 적용 제약` — 각 경로, 제품 판단 기여, mapped/insight의 해석 한계, raw 직접 사용 여부·ingest 상태를 명시한다.
+
 ## 현재 blocker
 
 2026-09-08T08:03:30Z에 native `spawn_agent`와 OpenClaw `sessions_spawn`을 실제 호출했으나 이 런타임에는 API가 노출되지 않아 모두 `TypeError: ... is not a function`으로 끝났습니다. 중요 작업의 역할 위임은 단일 처리로 낮출 수 없으므로, 역할 서브에이전트와 Red를 spawn 가능한 런타임이 재개 조건입니다.

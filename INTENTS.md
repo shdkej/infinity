@@ -22,8 +22,8 @@
 - task_plan_template: ARTIFACT_RULES.md#대형-작업-태스크-계획
 - task_plan: artifacts/research-travel-tool-20260908/task-plan.json
 - task_plan_doc: artifacts/research-travel-tool-20260908/task-plan.md
-- context_documents_checked: LLM.md; Knowledge Lab README.md; schema/agent-rules.md; DOCUMENT_SEARCH_PIPELINE.md; USER_CONTEXT.md; SERVICE_REGISTRY.md; INFINITY_OPERATING_RULES.md; infinity/ARTIFACT_RULES.md; infinity/EXECUTION_LEARNING_CONTRACT.md; INTENTS.md; agent-wiki/README.md; WORLD_TRAVEL_PROJECT.md; agent-wiki/content/docs/mapped/Idea/Travel.mdx; agent-wiki/content/docs/diary/2026-08-05.mdx
-- context_searches: rg -n -i 'italy|italia|travel|trip|여행|기록|사진|photo|taste|취향|소비|tool|app|앱' agent-wiki/content/docs source/openclaw-system/docs source/openclaw-system/data/daily-reviews source/openclaw-system/data/daily-tracking source/openclaw-system/data/photo-insights; agent-reach search procedure read
+- context_documents_checked: LLM.md; Knowledge Lab README.md; schema/agent-rules.md; DOCUMENT_SEARCH_PIPELINE.md; USER_CONTEXT.md; SERVICE_REGISTRY.md; INFINITY_OPERATING_RULES.md; infinity/ARTIFACT_RULES.md; infinity/EXECUTION_LEARNING_CONTRACT.md; INTENTS.md; agent-wiki/README.md; agent-wiki/content/docs/index.mdx (compiled reading-layer map·raw/current fact boundary 확인); WORLD_TRAVEL_PROJECT.md; agent-wiki/content/docs/mapped/Idea/Travel.mdx (full; 여행 전 최소 시나리오 보존→여행 후 감각 회수→검증 전 후보 보류라는 제품 적합성 경계); agent-wiki/content/docs/mapped/blog/Life_Tracking.mdx (full; 적은 입력점·맥락 복원·다음 행동 피드백이 기록 도구의 가치/제약); agent-wiki/content/docs/insights/bounded-experiment-loop.mdx (full; 7일 검증의 단일 지표·변경 축·stop/keep/discard 경계); agent-wiki/content/docs/insights/currentness-safe-travel-context.mdx (full; 위치·현재성 안전 경계); agent-wiki/content/docs/insights/updatable-taste-timeline.mdx (full; 누적 신뢰 표면과 지속 가능한 취향 기록 판단)
+- context_searches: rg -n -i 'italy|italia|travel|trip|여행|기록|사진|photo|taste|취향|소비|tool|app|앱' agent-wiki/content/docs source/openclaw-system/docs source/openclaw-system/data/daily-reviews source/openclaw-system/data/daily-tracking source/openclaw-system/data/photo-insights (declared scopes 재실행; 검색 hit은 원문/compiled 전문 확인 전 사실로 취급하지 않음); compiled-page full-read: agent-wiki/content/docs/index.mdx, mapped/Idea/Travel.mdx, mapped/blog/Life_Tracking.mdx, insights/bounded-experiment-loop.mdx, insights/currentness-safe-travel-context.mdx, insights/updatable-taste-timeline.mdx; agent-reach search procedure read
 - metric_question: 7일 안에 실제 반복 지불 행동으로 이어질 가능성이 없는 후보를 명확히 탈락시킬 수 있는가?
 - metric_signal: 독립 역할 조사 4건+Red pass, 유료 대안의 공개 가격/고객 행동 근거, 사전 정의한 7일 stop/continue 기준.
 - metric_decision_rule: 역할 위임과 Red가 모두 가능하고 유료 행동 근거가 한 후보에 수렴할 때만 Archive 검토; 위임 불가·Red 미응답·근거 부족은 Waiting.
@@ -33,6 +33,7 @@
 - notification_origin: channel:C0BR41W31MM;reply_to:1788854196.760349
 - blocker: 2026-09-08T08:03Z에 native spawn_agent와 OpenClaw sessions_spawn을 실제 호출했으나 이 런타임에 모두 노출되지 않아 `TypeError: ... is not a function`. multi_subagent_roles를 단일 처리로 낮추는 사용자 승인이 없다.
 - remote_blocker: commit 67e8acc의 push는 origin/main(080e18e)이 local보다 앞서 non-fast-forward로 거절됐다. rebase는 unrelated safety-map files의 add/add·content conflict로 중단했고 `git rebase --abort`로 사용자 변경을 보존했다.
+- evidence_visibility_update: 2026-09-08T08:20Z에 Agent Wiki index 및 compiled 근거 5개를 전문 재확인했다. 상세 경로·기여·제약은 context_pack의 agent_wiki_compiled_evidence를 정본으로 하며, 최종 artifact에는 이들 경로·제약을 별도 섹션으로 표기해야 한다. raw source는 이번 판단에 직접 사용하지 않았으므로 raw ingest 상태는 해당 없음이다.
 - next_retry_condition: Planner·Developer·Marketer·Operator 및 Red를 spawn할 수 있는 런타임에서 동일 Context Pack으로 각 30분 이하 leaf를 실행한다. 그 전에는 terminal artifact/report·Archive를 만들지 않는다.
 
 ### [content-carousel-6card-sequence-20260907] Instagram 캐러셀 6장 시퀀스 확장
