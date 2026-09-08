@@ -8,7 +8,33 @@
 
 ## Active
 
-<!-- 실행 중 Intent 없음. -->
+### [infinity-dispatcher-observability-20260908] Infinity dispatcher 정지 감지 Grafana 가시화
+- status: active
+- target_agent: genie
+- execution_mode: multi_subagent_roles
+- permission: L0-local-implementation-only
+- projects: infinity, monitoring_personal
+- task_type: implementation
+- topics: dispatcher, observability, prometheus, grafana
+- deadline: 2026-09-08T23:00:00Z
+- deadline_local: 2026-09-09 08:00 Asia/Seoul (KST)
+- context_pack: intents/context/infinity-dispatcher-observability-20260908.json
+- context_documents_checked: LLM.md; README.md; schema/agent-rules.md; DOCUMENT_SEARCH_PIPELINE.md; USER_CONTEXT.md; SERVICE_REGISTRY.md; INFINITY_OPERATING_RULES.md; ARTIFACT_RULES.md; EXECUTION_LEARNING_CONTRACT.md; INTENTS.md; agent-wiki/README.md
+- context_searches: agent-wiki monitoring; INFINITY_OPERATING_RULES dispatcher contract; canonical origin/main vs local checkout; dispatcher run records and trace
+- task_plan: artifacts/infinity-dispatcher-observability-20260908/task-plan.json
+- task_plan_doc: artifacts/infinity-dispatcher-observability-20260908/task-plan.md
+- task_plan_template: ARTIFACT_RULES.md#대형-작업-태스크-계획
+- trace: traces/infinity-dispatcher-observability-20260908.json
+- notification_channel: slack
+- notification_target: channel:C0BR41W31MM
+- notification_reply_to: 1788875713.706419
+- notification_origin: channel:C0BR41W31MM;reply_to:1788875713.706419
+- goal: canonical dispatcher 상태·Active intent 신선도·정지 상태를 Prometheus scrape 지표와 Grafana dashboard로 확인 가능하게 만든다.
+- metric_question: dispatcher가 실행을 멈추거나 Active intent가 신선도 기준을 넘길 때, 원인을 원격 정본·최근 실행 기록·지표에서 구분 가능한가?
+- metric_signal: scrape 성공, dispatcher 최근 실행 시각, canonical/local revision 불일치, Active intent 신선도·정지 상태의 조합
+- metric_decision_rule: scrape 실패·dispatcher 무실행·stale Active 중 하나면 dashboard에서 원인 분류와 다음 점검 위치를 제공한다. 자동 알림·상태 변경·배포는 수행하지 않는다.
+- active_task: T1.1 canonical/local/dispatcher 원인 증거 고정
+- next_decision: T1.1 증거를 바탕으로 최소 exporter 계약을 고정한 뒤에만 monitoring 파일을 수정한다.
 
 ## Waiting
 

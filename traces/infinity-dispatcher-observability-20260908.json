@@ -1,0 +1,1 @@
+{"intent_id":"infinity-dispatcher-observability-20260908","events":[{"type":"intake","at":"2026-09-08T14:03:00Z","status":"accepted","summary":"Context Pack 생성 후 canonical origin/main·local checkout·dispatcher run 기록을 조사하는 30분 이하 leaf를 시작했다."}],"next_decision":{"status":"active","value":"T1.1 원인 증거를 고정한다."}}
