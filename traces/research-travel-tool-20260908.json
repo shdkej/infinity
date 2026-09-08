@@ -45,6 +45,15 @@
       "session_key": "agent:genie:infinity-dispatcher",
       "timestamp": "2026-09-08T09:02:28Z",
       "status": "accepted"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-13e6cbacfa8d4849916ae09495239c45",
+      "canonical_sha": "d0a1c608f72b420438fc368328e2f2f57c090dd6",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-08T09:10:04Z",
+      "status": "accepted"
     }
   ]
 }

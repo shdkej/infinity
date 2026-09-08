@@ -40,7 +40,7 @@
 - resumed_at: 2026-09-08T08:19:38Z
 - restart_authority: dispatcher-9bbc58c3e7dc4159bb6fdc953ac68e77
 - execution_attempt: 3
-- next_action: T2.2 Red가 상위 후보·인접 가격의 해석 한계·7일 Stop 우선 규칙을 독립 검증한다.
+- next_action: T2.2 active — Red가 상위 후보·인접 가격의 해석 한계·7일 Stop 우선 규칙을 독립 검증한다.
 
 <!-- 실행 대기 Intent 없음. -->
 
