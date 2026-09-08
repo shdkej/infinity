@@ -190,7 +190,7 @@ def build_plan(text: str, sha: str, repo: Path) -> dict[str, Any]:
     active = [e for e in entries if e["lane"] == "Active"]
     waiting = [e for e in entries if e["lane"] == "Waiting"]
     reference = dt.datetime.now(dt.timezone.utc)
-    live, resume, plan_activation, timebox_reassessment, dependency_blocked = [], [], [], [], []
+    live, resume, plan_activation, timebox_reassessment, dependency_blocked, terminalization = [], [], [], [], [], []
     for entry in active:
         task_state = task_plan_state(entry, repo, sha)
         item = {"intent_id": entry["id"], "title": entry["title"], "evidence": fresh_trace(entry["id"], repo, reference, sha), "task_state": task_state}
@@ -202,6 +202,11 @@ def build_plan(text: str, sha: str, repo: Path) -> dict[str, Any]:
             timebox_reassessment.append(item)
         elif task_state["state"] == "blocked_dependencies":
             dependency_blocked.append(item)
+        elif task_state["state"] == "complete_or_invalid":
+            # A fully completed task plan is a terminal transition, not an
+            # invalid Active intent. Hand it back once so the executor can
+            # perform the contract-gated Archive/Waiting decision.
+            terminalization.append(item)
         elif task_state["state"] == "cycle_contract_violation":
             invalid.append({"intent_id": entry["id"], "lane": entry["lane"], "status": entry["fields"].get("status", ""), "reason": "cycle_contract_violation", "task_state": task_state})
         else:
@@ -211,7 +216,7 @@ def build_plan(text: str, sha: str, repo: Path) -> dict[str, Any]:
     remaining_slots = max(0, slots - len(waiting_retry))
     promote = [{"intent_id": e["id"], "title": e["title"], "target_agent": "genie", "reason": "available_active_slot"} for e in sorted(inbox, key=priority)[:remaining_slots] if e["fields"].get("target_agent", "genie") == "genie"]
     invalid_ids = {e["intent_id"] for e in invalid}
-    handoff = [e for e in waiting_retry + promote + plan_activation + timebox_reassessment + resume if e["intent_id"] not in invalid_ids]
+    handoff = [e for e in waiting_retry + promote + plan_activation + timebox_reassessment + terminalization + resume if e["intent_id"] not in invalid_ids]
     followups = []
     for entry in entries:
         if entry["lane"] != "Archive":
@@ -228,7 +233,7 @@ def build_plan(text: str, sha: str, repo: Path) -> dict[str, Any]:
         if ids or reasons:
             followups.append({"intent_id": entry["id"], "report": report, "follow_up_intent_ids": ids.group(1) if ids else "", "follow_up_not_created_reasons": reasons.group(1) if reasons else ""})
     dispatch_required = bool(handoff or followups or invalid)
-    return {"schema_version": 1, "run_id": "dispatch-" + uuid.uuid4().hex, "at": reference.replace(microsecond=0).isoformat().replace("+00:00", "Z"), "canonical_sha": sha, "counts": {"inbox": len(inbox), "active": len(active), "waiting": len(waiting), "archive": sum(e["lane"] == "Archive" for e in entries)}, "invalid_state": invalid, "live_active": live, "resume_candidates": resume, "plan_activation_candidates": plan_activation, "timebox_reassessment_candidates": timebox_reassessment, "dependency_blocked": dependency_blocked, "waiting_retry_candidates": waiting_retry, "promote_candidates": promote, "handoff_candidates": handoff, "follow_up_candidates": followups, "dispatch_required": dispatch_required, "no_work": not dispatch_required and not invalid}
+    return {"schema_version": 1, "run_id": "dispatch-" + uuid.uuid4().hex, "at": reference.replace(microsecond=0).isoformat().replace("+00:00", "Z"), "canonical_sha": sha, "counts": {"inbox": len(inbox), "active": len(active), "waiting": len(waiting), "archive": sum(e["lane"] == "Archive" for e in entries)}, "invalid_state": invalid, "live_active": live, "resume_candidates": resume, "plan_activation_candidates": plan_activation, "timebox_reassessment_candidates": timebox_reassessment, "terminalization_candidates": terminalization, "dependency_blocked": dependency_blocked, "waiting_retry_candidates": waiting_retry, "promote_candidates": promote, "handoff_candidates": handoff, "follow_up_candidates": followups, "dispatch_required": dispatch_required, "no_work": not dispatch_required and not invalid}
 
 def main() -> int:
     parser = argparse.ArgumentParser()
