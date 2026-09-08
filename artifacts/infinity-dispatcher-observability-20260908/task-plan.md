@@ -19,6 +19,10 @@
 │ ○ T2.3 remote 확인 · 예상/최대 20/30분 · 의존 T2.2
 │       증거: `HTML report와 각 origin branch 증거`
 │
+├─ — 2026-09-08T14:20:03Z · 계약 복구
+│     Active lane의 `status: waiting`을 `active`로 복구하고, 모든 실행 task에 leaf·deviation 필드를 명시했다.
+│     범위·의존성·보호 경계는 변경하지 않았다.
+│
 └─ — 보호 경계
       프로덕션 배포·알림 발송(접수/완료 보고 제외)·권한·시크릿 변경, 기존 Infinity dirty/untracked 파일의 수정·stage를 금지한다.
 ```
