@@ -6,8 +6,10 @@
 
 ## Active
 
+## Waiting
+
 ### [content-catania-day-carousel-20260908] 카타니아 하루의 비용·휴식 기준 6장 캐러셀
-- status: active
+- status: waiting
 - target_agent: genie
 - execution_mode: multi_subagent_roles
 - permission: L0-private-render-only
@@ -31,10 +33,12 @@
 - task_plan_doc: artifacts/content-catania-day-carousel-20260908/task-plan.md
 - task_plan_template: ARTIFACT_RULES.md#대형-작업-태스크-계획
 - trace: traces/content-catania-day-carousel-20260908.json
-- active_task: T1.1 — 원본 사진·사실 경계·카드 시퀀스 고정
+- active_task: none — T1.2는 실제 사진 자산 접근 대기
 - started_at: 2026-09-08T22:14:28Z
-
-## Waiting
+- waiting_on: user
+- waiting_reason: 제공되었다고 기록된 IMG_9028, IMG_9035, IMG_9049, IMG_9067, IMG_9069, IMG_9075 원본 이미지 파일이 현재 어떤 로컬 경로·첨부에도 접근 가능하지 않다. 대체/생성 이미지로 실제 사진 기반 렌더를 만들지 않는다.
+- next_decision: 여섯 원본 사진을 다시 첨부하거나 접근 가능한 경로로 제공하면 T1.2를 재개한다. 공개 게시·업로드는 계속 수행하지 않는다.
+- waiting_notification: delivery_unknown — this dispatcher execution has no callable original-thread messaging surface.
 
 ### [infinity-dispatcher-observability-20260908] Infinity dispatcher 정지 감지 Grafana 가시화
 - status: waiting

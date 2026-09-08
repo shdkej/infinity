@@ -7,10 +7,11 @@
       "id": "T1.1",
       "title": "원본 사진·사실 경계·카드 시퀀스 고정",
       "leaf": true,
-      "status": "active",
+      "status": "done",
       "depends_on": [],
       "started_at": "2026-09-08T22:14:28Z",
-      "evidence": null
+      "ended_at": "2026-09-08T22:18:00Z",
+      "evidence": "artifacts/content-catania-day-carousel-20260908/fact-and-asset-audit.md"
     },
     {
       "id": "T1.2",
