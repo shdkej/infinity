@@ -163,6 +163,13 @@
       "session_key": "agent:genie:infinity-dispatcher",
       "timestamp": "2026-09-08T12:00:04Z",
       "status": "accepted"
+    },
+    {
+      "type": "task_completed",
+      "task_id": "T3.3",
+      "timestamp": "2026-09-08T12:00:04Z",
+      "status": "done",
+      "summary": "Closed consent, minimum-collection, deletion, and L0 boundaries. No participant recruitment, contact, data collection, payment, deployment, or external sending occurred; this remains an internal preregistration, not behavioral or WTP evidence."
     }
   ],
   "next_decision": {
