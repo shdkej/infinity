@@ -115,6 +115,13 @@
       "session_key": "agent:genie:infinity-dispatcher",
       "timestamp": "2026-09-08T10:00:05Z",
       "status": "accepted"
+    },
+    {
+      "type": "closure",
+      "task_id": "T3.3",
+      "timestamp": "2026-09-08T10:02:00Z",
+      "status": "done",
+      "summary": "C3 assembled committed artifact, HTML, Red, remote, and knowledge-decision evidence for a later Archive finalization; no lane move or external action was performed."
     }
   ]
 }

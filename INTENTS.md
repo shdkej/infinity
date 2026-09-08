@@ -40,7 +40,18 @@
 - resumed_at: 2026-09-08T08:19:38Z
 - restart_authority: dispatcher-9bbc58c3e7dc4159bb6fdc953ac68e77
 - execution_attempt: 3
-- next_action: T2.3이 7일 Stop/Continue 계약과 Red 한계를 마감 확인한다.
+- artifact: artifacts/research-travel-tool-20260908/research.md; artifacts/research-travel-tool-20260908/t1-role-evidence.md; artifacts/research-travel-tool-20260908/t2-synthesis.md; artifacts/research-travel-tool-20260908/t2-close.md; artifacts/research-travel-tool-20260908/t3-close.md
+- report: reports/research-travel-tool-20260908/20260908T0930Z.html
+- red_status: pass
+- red_report: artifacts/research-travel-tool-20260908/red-final.md
+- remote_verified: pass
+- remote_commit: 358dc577ac3b771b35db6aedf2ce1a8c8900a4b4
+- knowledge_status: used
+- knowledge_decision: retain-as-operating-principle
+- knowledge_targets: artifacts/research-travel-tool-20260908/research.md; artifacts/research-travel-tool-20260908/execution-learning.md; reports/research-travel-tool-20260908/20260908T0930Z.html
+- knowledge_reflection: 인접 서비스의 가격은 시장·범주 신호로 제한하고, 개별 microtool의 직접 WTP·반복 사용·가격 수용성은 동의된 관찰 전까지 미입증으로 유지한다. 7일 실험은 Stop 조건을 우선하는 반증 계약으로 설계한다.
+- knowledge_commit: no-promotion-needed
+- next_action: 별도 finalization cycle에서 Archive 원장·lane 이동·원격 확인을 수행한다.
 
 <!-- 실행 대기 Intent 없음. -->
 
