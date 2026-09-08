@@ -12,7 +12,10 @@
 - goal: 반복 유료 행동을 지닌 여행·기록·취향 microtool의 반증 가능한 상위 가설을 결정한다.
 - result: 여행 회수 카드를 상위 가설로 선택했다. 인접 제품 가격은 범주 신호로만 사용하며 직접 WTP·반복 사용·가격 수용성은 미입증이다.
 - artifact: artifacts/research-travel-tool-20260908/research.md; artifacts/research-travel-tool-20260908/t1-role-evidence.md; artifacts/research-travel-tool-20260908/t2-synthesis.md; artifacts/research-travel-tool-20260908/t2-close.md; artifacts/research-travel-tool-20260908/t3-close.md
-- report: reports/research-travel-tool-20260908/20260908T0930Z.html
+- task_plan: artifacts/research-travel-tool-20260908/task-plan.json
+- task_plan_doc: artifacts/research-travel-tool-20260908/task-plan.md
+- task_plan_template: ARTIFACT_RULES.md#대형-작업-태스크-계획
+- report: reports/research-travel-tool-20260908/20260908T0930Z.html; reports/research-travel-tool-20260908/20260908T-final.html
 - red_status: pass
 - red_report: artifacts/research-travel-tool-20260908/red-final.md
 - remote_verified: pass
