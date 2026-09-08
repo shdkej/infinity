@@ -11,6 +11,8 @@
     ,{"type":"red_verdict","task_id":"T1.2","timestamp":"2026-09-08T14:30:03Z","status":"pass","summary":"Root cause is confined to post-handoff notifier observation. Read-only scope and four next-check classifications are accurate; cron-wide failure, alert success, Grafana effect, automation, deployment, and credentials changes are not claimed."}
     ,{"type":"dispatcher_handoff","run_id":"dispatch-d3aa9a724ea842d083225bad7502ec75","canonical_sha":"95c509116db213f5ae10e1e5a169649c342cd6ae","agent":"genie","session_key":"agent:genie:infinity-dispatcher","timestamp":"2026-09-08T14:40:02Z","status":"accepted"}
     ,{"type":"task_completed","task_id":"T1.3","timestamp":"2026-09-08T14:40:02Z","status":"done","summary":"Read-only metric contract fixes scrape, source validity, recent run, revision mismatch, and active freshness semantics, fail-safe unknown handling, and four independent next-check categories. No Grafana, cron, deployment, notifier, credential, or alert change was made."}
+    ,{"type":"dispatcher_handoff","run_id":"dispatch-949544c025bb4e52b778e0a987aa392c","canonical_sha":"1ba4e0652c45a40fb5fd0b1f256e47b98ebe28a8","agent":"genie","session_key":"agent:genie:infinity-dispatcher","timestamp":"2026-09-08T14:50:03Z","status":"accepted"}
+    ,{"type":"task_started","task_id":"T2.1","timestamp":"2026-09-08T14:50:03Z","status":"active","summary":"Implement only the named read-only exporter, local fixtures, Prometheus scrape job, and Grafana dashboard JSON; no deployment or notification action."}
   ],
   "next_decision": {
     "status": "ready_for_activation",

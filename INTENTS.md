@@ -33,8 +33,8 @@
 - metric_question: dispatcher가 실행을 멈추거나 Active intent가 신선도 기준을 넘길 때, 원인을 원격 정본·최근 실행 기록·지표에서 구분 가능한가?
 - metric_signal: scrape 성공, dispatcher 최근 실행 시각, canonical/local revision 불일치, Active intent 신선도·정지 상태의 조합
 - metric_decision_rule: scrape 실패·dispatcher 무실행·stale Active 중 하나면 dashboard에서 원인 분류와 다음 점검 위치를 제공한다. 자동 알림·상태 변경·배포는 수행하지 않는다.
-- active_task: none — T1.3 완료; T2.1 activation 대기
-- next_decision: T2.1에서 metric contract의 read-only exporter·scrape fixture·dashboard artifact를 구현한다.
+- active_task: T2.1 — exporter·scrape·dashboard 구현
+- next_decision: read-only exporter, synthetic fixtures, Prometheus scrape job, and Grafana dashboard JSON을 구현·로컬 검증한다.
 
 ## Waiting
 
