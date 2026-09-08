@@ -1,0 +1,26 @@
+{
+  "intent_id": "research-travel-tool-depth-20260908",
+  "plan_version": 1,
+  "created_at": "2026-09-08T10:49:00Z",
+  "deadline": "2026-09-08T23:00:00Z",
+  "execution_mode": "multi_subagent_roles",
+  "tasks": [
+    {"id":"T1.1","title":"기존 결론의 증거 공백 목록화","status":"pending","estimated_minutes":25,"max_minutes":30,"evidence":"artifacts/research-travel-tool-depth-20260908/evidence-gaps.md"},
+    {"id":"T1.2","title":"Red: 증거 공백·과장 표현 검증","status":"pending","depends_on":["T1.1"],"estimated_minutes":15,"max_minutes":30,"evidence":"artifacts/research-travel-tool-depth-20260908/t1-red.md"},
+    {"id":"T1.3","title":"C1: 다음 반증 질문 고정","status":"pending","depends_on":["T1.2"],"estimated_minutes":10,"max_minutes":30,"evidence":"artifacts/research-travel-tool-depth-20260908/t1-close.md"},
+    {"id":"T2.1","title":"상위 가설의 대체 설명 조사","status":"pending","depends_on":["T1.3"],"estimated_minutes":25,"max_minutes":30,"evidence":"artifacts/research-travel-tool-depth-20260908/alternative-explanations.md"},
+    {"id":"T2.2","title":"Red: 대체 설명 반증성 검토","status":"pending","depends_on":["T2.1"],"estimated_minutes":15,"max_minutes":30,"evidence":"artifacts/research-travel-tool-depth-20260908/t2-red.md"},
+    {"id":"T2.3","title":"C2: 가설 우선순위 재판정","status":"pending","depends_on":["T2.2"],"estimated_minutes":10,"max_minutes":30,"evidence":"artifacts/research-travel-tool-depth-20260908/t2-close.md"},
+    {"id":"T3.1","title":"7일 검증의 측정 설계 심화","status":"pending","depends_on":["T2.3"],"estimated_minutes":25,"max_minutes":30,"evidence":"artifacts/research-travel-tool-depth-20260908/validation-design.md"},
+    {"id":"T3.2","title":"Red: 측정·Stop 조건 검증","status":"pending","depends_on":["T3.1"],"estimated_minutes":15,"max_minutes":30,"evidence":"artifacts/research-travel-tool-depth-20260908/t3-red.md"},
+    {"id":"T3.3","title":"C3: 동의·L0 경계 마감","status":"pending","depends_on":["T3.2"],"estimated_minutes":10,"max_minutes":30,"evidence":"artifacts/research-travel-tool-depth-20260908/t3-close.md"},
+    {"id":"T4.1","title":"로컬 프로토타입 판단 기준 설계","status":"pending","depends_on":["T3.3"],"estimated_minutes":25,"max_minutes":30,"evidence":"artifacts/research-travel-tool-depth-20260908/prototype-decision.md"},
+    {"id":"T4.2","title":"Red: 범위·재사용성 검증","status":"pending","depends_on":["T4.1"],"estimated_minutes":15,"max_minutes":30,"evidence":"artifacts/research-travel-tool-depth-20260908/t4-red.md"},
+    {"id":"T4.3","title":"C4: 다음 실험 기준 마감","status":"pending","depends_on":["T4.2"],"estimated_minutes":10,"max_minutes":30,"evidence":"artifacts/research-travel-tool-depth-20260908/t4-close.md"},
+    {"id":"T5.1","title":"조기 완료 재계획 회귀 테스트","status":"pending","depends_on":["T4.3"],"estimated_minutes":25,"max_minutes":30,"evidence":"artifacts/research-travel-tool-depth-20260908/dispatcher-regression.md"},
+    {"id":"T5.2","title":"Red: 마감 전 Archive 방지 검증","status":"pending","depends_on":["T5.1"],"estimated_minutes":15,"max_minutes":30,"evidence":"artifacts/research-travel-tool-depth-20260908/t5-red.md"},
+    {"id":"T5.3","title":"C5: 남은 시간 예산 재계산","status":"pending","depends_on":["T5.2"],"estimated_minutes":10,"max_minutes":30,"evidence":"artifacts/research-travel-tool-depth-20260908/t5-close.md"},
+    {"id":"T6.1","title":"마감 전 최종 증거·HTML 보고·원격 검증","status":"pending","depends_on":["T5.3"],"estimated_minutes":30,"max_minutes":30,"evidence":"reports/research-travel-tool-depth-20260908/{timestamp}-terminal.html"}
+  ],
+  "deviations": []
+}

@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "intent_id": "research-travel-tool-depth-20260908",
+  "status": "inbox",
+  "trace_completeness": "complete",
+  "request": {
+    "raw": {
+      "status": "recorded",
+      "value": "오케이 작업 확인 완료. 후속 작업해주고, 내일 8시까지 길게 태스크를 하게 하면서 리서치의 깊이를 만들고 싶었는데 벌써 끝났다. 완료 요청 시간 전에 끝나면 다시 태스크 고려해서 분석하고 고도화되게 해달라."
+    },
+    "normalized_query": {
+      "status": "recorded",
+      "value": "여행·기록·취향 마이크로도구 가설을 2026-09-09 08:00 KST까지 심화하고, 조기 완료 시 quality iteration leaf를 재계획하도록 dispatcher를 보완한다."
+    }
+  },
+  "events": [
+    {
+      "type": "intake",
+      "at": "2026-09-08T10:51:02Z",
+      "context_pack": "intents/context/research-travel-tool-depth-20260908.json",
+      "evidence_paths": [
+        "artifacts/research-travel-tool-20260908/research.md",
+        "artifacts/research-travel-tool-20260908/task-plan.md"
+      ]
+    }
+  ],
+  "artifacts": [],
+  "verifications": [],
+  "next_decision": {
+    "status": "in_progress",
+    "value": "deadline 전까지 독립적인 30분 이하 리서치·검증 leaf를 실행하고, 조기 기능 완료 시에는 Archive 대신 evidence-backed quality iteration을 재계획한다."
+  }
+}

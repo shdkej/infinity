@@ -4,7 +4,31 @@
 
 ## Inbox
 
-<!-- 실행 대기 Intent 없음. -->
+### [research-travel-tool-depth-20260908] 여행·기록·취향 도구 심화 리서치와 조기완료 재계획
+- status: inbox
+- target_agent: genie
+- execution_mode: multi_subagent_roles
+- permission: L0-research-and-strategy-only
+- projects: infinity, knowledge-lab, agent-wiki, research-bank
+- task_type: research
+- topics: product, analytics, workflow
+- deadline: 2026-09-08T23:00:00Z
+- deadline_local: 2026-09-09 08:00 Asia/Seoul (KST)
+- context_pack: intents/context/research-travel-tool-depth-20260908.json
+- context_documents_checked: LLM.md; README.md; schema/agent-rules.md; DOCUMENT_SEARCH_PIPELINE.md; USER_CONTEXT.md; SERVICE_REGISTRY.md; INFINITY_OPERATING_RULES.md; ARTIFACT_RULES.md; EXECUTION_LEARNING_CONTRACT.md; INTENTS.md; agent-wiki/README.md
+- context_searches: existing research-travel-tool archive/report/task plan; agent-wiki travel and bounded experiment evidence
+- task_plan: artifacts/research-travel-tool-depth-20260908/task-plan.json
+- task_plan_doc: artifacts/research-travel-tool-depth-20260908/task-plan.md
+- task_plan_template: ARTIFACT_RULES.md#대형-작업-태스크-계획
+- trace: traces/research-travel-tool-depth-20260908.json
+- notification_channel: slack
+- notification_target: channel:C0BR41W31MM
+- notification_reply_to: 1788855382.064019
+- goal: 마감 전 완료되더라도 Archive하지 않고, 남은 시간 예산 안에서 근거 공백·대체 설명·측정 설계·재계획 회귀를 독립 30분 이하 leaf로 심화한다.
+- metric_question: 2026-09-09 08:00 KST 전까지 연구 결론의 직접 증거 공백과 다음 7일 검증의 Stop/Continue 기준을 더 명확하게 만들 수 있는가?
+- metric_signal: 독립 근거·대체 설명·사전 고정 지표·Red 검증·원격 증거를 가진 완료 leaf 수
+- metric_decision_rule: 직접 WTP·반복 사용 증거가 없으면 유료 가설을 보류하고, Stop 조건 충족 시 로컬 프로토타입 또는 외부 검증을 권하지 않는다.
+- next_decision: 첫 30분 leaf의 증거 공백을 확정한 뒤에만 다음 심화 leaf를 활성화한다.
 
 ## Active
 
