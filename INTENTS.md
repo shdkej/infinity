@@ -4,6 +4,36 @@
 
 ## Inbox
 
+### [research-travel-tool-20260908] 반복 유료 행동이 있는 여행·기록·취향 마이크로도구 탐색
+- status: waiting
+- target_agent: genie
+- priority: urgent
+- permission: L0-research-and-strategy-only
+- requested: 2026-09-08T08:03:30Z
+- deadline: 2026-09-09T06:00:00Z / 2026-09-09 08:00 Europe/Rome
+- execution_mode: multi_subagent_roles_blocked
+- projects: infinity,knowledge-lab,agent-wiki,research-bank
+- task_type: research
+- topics: product,content,analytics
+- goal: 반복적으로 지불되는 작은 여행·기록·취향 기능을 탐색·반증·우선순위화하고, 검증 가능한 유료 행동 근거가 있는 상위 1개와 7일 검증 계획을 만든다.
+- success_criteria: Planner·Developer·Marketer·Operator 실제 독립 조사와 Red pass를 거친 한국어 artifact·HTML report에 상위 1개, 대안·반증·제외 후보, 검증 가능한 유료 행동 근거, 7일 계획이 담긴다.
+- boundary: L0 research/strategy only. 공개 발송·결제·권한·배포·시크릿 변경을 하지 않는다.
+- context_pack: intents/context/research-travel-tool-20260908.json
+- task_plan_template: ARTIFACT_RULES.md#대형-작업-태스크-계획
+- task_plan: artifacts/research-travel-tool-20260908/task-plan.json
+- task_plan_doc: artifacts/research-travel-tool-20260908/task-plan.md
+- context_documents_checked: LLM.md; Knowledge Lab README.md; schema/agent-rules.md; DOCUMENT_SEARCH_PIPELINE.md; USER_CONTEXT.md; SERVICE_REGISTRY.md; INFINITY_OPERATING_RULES.md; infinity/ARTIFACT_RULES.md; infinity/EXECUTION_LEARNING_CONTRACT.md; INTENTS.md; agent-wiki/README.md; WORLD_TRAVEL_PROJECT.md; agent-wiki/content/docs/mapped/Idea/Travel.mdx; agent-wiki/content/docs/diary/2026-08-05.mdx
+- context_searches: rg -n -i 'italy|italia|travel|trip|여행|기록|사진|photo|taste|취향|소비|tool|app|앱' agent-wiki/content/docs source/openclaw-system/docs source/openclaw-system/data/daily-reviews source/openclaw-system/data/daily-tracking source/openclaw-system/data/photo-insights; agent-reach search procedure read
+- metric_question: 7일 안에 실제 반복 지불 행동으로 이어질 가능성이 없는 후보를 명확히 탈락시킬 수 있는가?
+- metric_signal: 독립 역할 조사 4건+Red pass, 유료 대안의 공개 가격/고객 행동 근거, 사전 정의한 7일 stop/continue 기준.
+- metric_decision_rule: 역할 위임과 Red가 모두 가능하고 유료 행동 근거가 한 후보에 수렴할 때만 Archive 검토; 위임 불가·Red 미응답·근거 부족은 Waiting.
+- notification_channel: slack
+- notification_target: C0BR41W31MM
+- notification_reply_to: 1788854196.760349
+- notification_origin: channel:C0BR41W31MM;reply_to:1788854196.760349
+- blocker: 2026-09-08T08:03Z에 native spawn_agent와 OpenClaw sessions_spawn을 실제 호출했으나 이 런타임에 모두 노출되지 않아 `TypeError: ... is not a function`. multi_subagent_roles를 단일 처리로 낮추는 사용자 승인이 없다.
+- next_retry_condition: Planner·Developer·Marketer·Operator 및 Red를 spawn할 수 있는 런타임에서 동일 Context Pack으로 각 30분 이하 leaf를 실행한다. 그 전에는 terminal artifact/report·Archive를 만들지 않는다.
+
 ### [content-carousel-6card-sequence-20260907] Instagram 캐러셀 6장 시퀀스 확장
 - status: inbox
 - target_agent: genie
