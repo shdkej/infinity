@@ -5,7 +5,7 @@
   "deadline": "2026-09-08T23:00:00Z",
   "execution_mode": "multi_subagent_roles",
   "tasks": [
-    {"id":"T1.1","title":"기존 결론의 증거 공백 목록화","status":"pending","estimated_minutes":25,"max_minutes":30,"evidence":"artifacts/research-travel-tool-depth-20260908/evidence-gaps.md"},
+    {"id":"T1.1","title":"기존 결론의 증거 공백 목록화","status":"active","started_at":"2026-09-08T10:58:43Z","estimated_minutes":25,"max_minutes":30,"evidence":"artifacts/research-travel-tool-depth-20260908/evidence-gaps.md"},
     {"id":"T1.2","title":"Red: 증거 공백·과장 표현 검증","status":"pending","depends_on":["T1.1"],"estimated_minutes":15,"max_minutes":30,"evidence":"artifacts/research-travel-tool-depth-20260908/t1-red.md"},
     {"id":"T1.3","title":"C1: 다음 반증 질문 고정","status":"pending","depends_on":["T1.2"],"estimated_minutes":10,"max_minutes":30,"evidence":"artifacts/research-travel-tool-depth-20260908/t1-close.md"},
     {"id":"T2.1","title":"상위 가설의 대체 설명 조사","status":"pending","depends_on":["T1.3"],"estimated_minutes":25,"max_minutes":30,"evidence":"artifacts/research-travel-tool-depth-20260908/alternative-explanations.md"},

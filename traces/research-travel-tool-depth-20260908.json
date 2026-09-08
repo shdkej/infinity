@@ -22,6 +22,15 @@
         "artifacts/research-travel-tool-20260908/research.md",
         "artifacts/research-travel-tool-20260908/task-plan.md"
       ]
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-51c106c408f6473e88dde0df02d296a7",
+      "canonical_sha": "7caf70ed1dab830dc343343dc68a4c09e0678c25",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-08T10:58:43Z",
+      "status": "accepted"
     }
   ],
   "artifacts": [],
