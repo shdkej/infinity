@@ -13,9 +13,10 @@
     ,{"type":"task_completed","task_id":"T1.3","timestamp":"2026-09-08T14:40:02Z","status":"done","summary":"Read-only metric contract fixes scrape, source validity, recent run, revision mismatch, and active freshness semantics, fail-safe unknown handling, and four independent next-check categories. No Grafana, cron, deployment, notifier, credential, or alert change was made."}
     ,{"type":"dispatcher_handoff","run_id":"dispatch-949544c025bb4e52b778e0a987aa392c","canonical_sha":"1ba4e0652c45a40fb5fd0b1f256e47b98ebe28a8","agent":"genie","session_key":"agent:genie:infinity-dispatcher","timestamp":"2026-09-08T14:50:03Z","status":"accepted"}
     ,{"type":"task_started","task_id":"T2.1","timestamp":"2026-09-08T14:50:03Z","status":"active","summary":"Implement only the named read-only exporter, local fixtures, Prometheus scrape job, and Grafana dashboard JSON; no deployment or notification action."}
+    ,{"type":"task_completed","task_id":"T2.1","timestamp":"2026-09-08T14:50:03Z","status":"done","summary":"Local synthetic fixture test, Python compile, Grafana JSON parse, and Compose/Prometheus YAML parse pass. Docker CLI is unavailable, so compose config and container start were not run; no deployment occurred."}
   ],
   "next_decision": {
-    "status": "ready_for_activation",
-    "value": "Activate T2.1 only after the metric contract; implement the named read-only exporter, scrape fixture, and dashboard artifact."
+    "status": "ready_for_red",
+    "value": "Activate T2.2 Red to verify metric semantics, dashboard copy, source-invalid behavior, and the no-deployment boundary."
   }
 }
