@@ -293,10 +293,25 @@
       "timestamp": "2026-09-08T12:56:15Z",
       "commit": "4cf96ef8e7da1585ccc6b5065708659edbc2b823",
       "head_equals_origin_main": true
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-fc01823d4ba34691ada5973b2541fac1",
+      "canonical_sha": "2792e298cbf5e41496682748d0bf18fc73830592",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-08T13:00:02Z",
+      "status": "accepted"
+    },
+    {
+      "type": "terminalization_review",
+      "timestamp": "2026-09-08T13:00:02Z",
+      "status": "blocked",
+      "summary": "Archive contract is incomplete: knowledge_status, knowledge_decision, knowledge_targets, knowledge_reflection, and knowledge_commit are not recorded in the final report or Archive ledger. The intent moves to Waiting; no Archive transition is performed."
     }
   ],
   "next_decision": {
-    "status": "in_progress",
-    "value": "T6.1 deliverables are committed and then their actual remote equality is recorded before separate terminalization review."
+    "status": "waiting",
+    "value": "Record and close the five required knowledge-decision fields, including any required promotion and remote proof, before a new terminalization review."
   }
 }
