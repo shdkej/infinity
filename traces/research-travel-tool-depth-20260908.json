@@ -256,10 +256,17 @@
       "session_key": "agent:genie:infinity-dispatcher",
       "timestamp": "2026-09-08T12:50:20Z",
       "status": "accepted"
+    },
+    {
+      "type": "task_completed",
+      "task_id": "T5.3",
+      "timestamp": "2026-09-08T12:50:59Z",
+      "status": "done",
+      "summary": "At 2026-09-08T12:50:52Z, 609 minutes remained to the 23:00Z deadline. T6.1 has a 30-minute maximum, leaving a 579-minute reserve. The next action is T6.1 only; Archive remains a separate terminalization decision."
     }
   ],
   "next_decision": {
     "status": "in_progress",
-    "value": "T5.3에서 deadline까지 남은 시간과 T6.1의 명시 증거 범위를 재계산한다."
+    "value": "T6.1에서 final evidence, HTML report, and remote verification을 수렴한다. Archive 전이는 별도 terminalization cycle이다."
   }
 }
