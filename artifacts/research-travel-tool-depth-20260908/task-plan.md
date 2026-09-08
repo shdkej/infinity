@@ -47,7 +47,8 @@
 │  ● T5.1  dispatcher 회귀 테스트 · 완료 · 예상/최대 25/30분 · 의존 T4.3
 │           증거: `dispatcher-regression.md`; `test_pending_replan_leaves_prevent_early_terminalization` PASS
 │           시작/완료/실제: 2026-09-08T12:30:48Z / 2026-09-08T12:33:30Z / 3분
-│  ○ T5.2  Red 검증 · 예상/최대 15/30분 · 의존 T5.1
+│  ◐ T5.2  Red 검증 · 진행 · 예상/최대 15/30분 · 의존 T5.1
+│           시작: 2026-09-08T12:41:05Z · 증거 목표: `t5-red.md`의 독립 판정
 │  ○ T5.3  C5 남은 시간 예산 재계산 · 예상/최대 10/30분 · 의존 T5.2
 ● T6  마감 전 증거·HTML 보고·원격 검증                                  대기
 │  ○ T6.1  terminal evidence · 예상/최대 30/30분 · 의존 T5.3

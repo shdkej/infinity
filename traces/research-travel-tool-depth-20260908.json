@@ -234,6 +234,15 @@
       "timestamp": "2026-09-08T12:33:30Z",
       "status": "done",
       "summary": "A deterministic temporary fixture kept T5.2/T5.3/T6.1 pending, returned T5.2 as the only activation candidate, and returned no terminalization candidate. The regression documents dispatcher behavior only; it does not complete the research or authorize Archive."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-a81460d64431414f91eef03fc3d0c9bc",
+      "canonical_sha": "221765625bbae47bf561c90c2087b727c3590918",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-08T12:41:05Z",
+      "status": "accepted"
     }
   ],
   "next_decision": {
