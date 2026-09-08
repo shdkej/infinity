@@ -95,6 +95,31 @@ class PlanTests(unittest.TestCase):
         self.assertEqual(plan["terminalization_candidates"][0]["intent_id"], "work-1")
         self.assertEqual(plan["handoff_candidates"][0]["intent_id"], "work-1")
 
+    def test_pending_replan_leaves_prevent_early_terminalization(self):
+        """A deadline intent stays active while its explicit replan leaves remain."""
+        repo = Path(tempfile.mkdtemp())
+        (repo / "artifacts" / "work-1").mkdir(parents=True)
+        tasks = {"tasks": [
+            {"id": "T1.1", "title": "prior work", "status": "done"},
+            {"id": "T4.3", "title": "prior closure", "status": "done"},
+            {"id": "T5.1", "title": "regression", "status": "done", "depends_on": ["T4.3"]},
+            {"id": "T5.2", "title": "Red", "status": "pending", "depends_on": ["T5.1"]},
+            {"id": "T5.3", "title": "budget", "status": "pending", "depends_on": ["T5.2"]},
+            {"id": "T6.1", "title": "terminal evidence", "status": "pending", "depends_on": ["T5.3"]},
+        ]}
+        (repo / "artifacts" / "work-1" / "task-plan.json").write_text(json.dumps(tasks))
+        extra = "".join([
+            "- deadline: 2099-01-01T00:00:00Z\n", "- deadline_local: 2099-01-01 09:00 Asia/Seoul (KST)\n",
+            "- task_plan: artifacts/work-1/task-plan.json\n", "- task_plan_doc: artifacts/work-1/task-plan.md\n",
+            "- task_plan_template: ARTIFACT_RULES.md#대형-작업-태스크-계획\n", "- trace: traces/work-1.json\n",
+            "- notification_channel: slack\n", "- notification_target: channel:C0\n", "- notification_reply_to: 1.2\n",
+        ])
+        text = "## Inbox\n\n## Active\n" + block("work-1", "active", extra) + "\n## Waiting\n\n## Archive\n"
+        plan = prepare.build_plan(text, "fixture", repo)
+        self.assertFalse(plan["terminalization_candidates"])
+        self.assertEqual(plan["plan_activation_candidates"][0]["task_state"]["task_id"], "T5.2")
+        self.assertEqual(plan["handoff_candidates"][0]["intent_id"], "work-1")
+
     def test_cycle_contract_rejects_unbounded_leaf(self):
         repo = Path(tempfile.mkdtemp())
         (repo / "artifacts" / "work-1").mkdir(parents=True)
