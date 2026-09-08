@@ -8,6 +8,7 @@
     {"type":"task_completed","task_id":"T1.1","timestamp":"2026-09-08T14:24:14Z","status":"done","summary":"Root cause is limited to post-handoff notifier observation: the reused pre-handoff detached VERIFY_ROOT cannot see a newly pushed Waiting transition. Cron-wide failure, alert delivery success, and Grafana effect remain unproven."}
     ,{"type":"dispatcher_handoff","run_id":"dispatch-d16abfc2ace1405b876900ecfbe0c06e","canonical_sha":"8399c989575e421522b2d3491ad00f7024d4ebb4","agent":"genie","session_key":"agent:genie:infinity-dispatcher","timestamp":"2026-09-08T14:30:03Z","status":"accepted"}
     ,{"type":"task_started","task_id":"T1.2","timestamp":"2026-09-08T14:30:03Z","status":"active","summary":"Red validates root-cause wording and read-only observability scope."}
+    ,{"type":"red_verdict","task_id":"T1.2","timestamp":"2026-09-08T14:30:03Z","status":"pass","summary":"Root cause is confined to post-handoff notifier observation. Read-only scope and four next-check classifications are accurate; cron-wide failure, alert success, Grafana effect, automation, deployment, and credentials changes are not claimed."}
   ],
   "next_decision": {
     "status": "ready_for_red",
