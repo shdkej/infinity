@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "intent_id": "content-catania-day-carousel-20260908",
+  "deadline": null,
+  "tasks": [
+    {
+      "id": "T1.1",
+      "title": "원본 사진·사실 경계·카드 시퀀스 고정",
+      "leaf": true,
+      "status": "active",
+      "depends_on": [],
+      "started_at": "2026-09-08T22:14:28Z",
+      "evidence": null
+    },
+    {
+      "id": "T1.2",
+      "title": "6장 4:5 private render 생성",
+      "leaf": true,
+      "status": "pending",
+      "depends_on": ["T1.1"],
+      "evidence": null
+    },
+    {
+      "id": "T1.3",
+      "title": "Red 실제 렌더·사실성 검증",
+      "leaf": true,
+      "status": "pending",
+      "depends_on": ["T1.2"],
+      "evidence": null
+    },
+    {
+      "id": "T1.4",
+      "title": "HTML report·원격 검증·Archive 준비",
+      "leaf": true,
+      "status": "pending",
+      "depends_on": ["T1.3"],
+      "evidence": null
+    }
+  ],
+  "deviations": []
+}

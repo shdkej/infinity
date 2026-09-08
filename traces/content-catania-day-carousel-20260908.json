@@ -1,0 +1,14 @@
+{
+  "intent_id": "content-catania-day-carousel-20260908",
+  "events": [
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-8e882c9eaad94f5cb9f204150902aecd",
+      "canonical_sha": "27d04bd97e2e2d243cd01ce93056e22373b1f742",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-08T22:14:28Z",
+      "status": "accepted"
+    }
+  ]
+}

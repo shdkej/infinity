@@ -4,8 +4,10 @@
 
 ## Inbox
 
+## Active
+
 ### [content-catania-day-carousel-20260908] 카타니아 하루의 비용·휴식 기준 6장 캐러셀
-- status: inbox
+- status: active
 - target_agent: genie
 - execution_mode: multi_subagent_roles
 - permission: L0-private-render-only
@@ -25,8 +27,12 @@
 - metric_question: 여섯 장을 넘긴 뒤 ‘여행에서 돈을 쓰는 순간보다, 비용과 휴식의 기준을 먼저 잡는다’는 한 판단이 실제 사진과 함께 남는가?
 - metric_signal: Red가 실제 4:5 렌더 순서에서 사실성, 카드 간 리듬, 사진-카피 균형, 첫 장 주목도, 최종 카드의 여백, 텍스트 안전 여백과 공개 안전을 모두 통과로 판정한다.
 - metric_decision_rule: 사실 밖의 비용 판단이 생기거나, 한 장이라도 독립 포스터처럼 반복되거나, 순서 전체에서 판단이 남지 않으면 문구·사진 배치·밀도를 다시 편집한다. Red PASS 전에는 완료로 보고하지 않는다.
-
-## Active
+- task_plan: artifacts/content-catania-day-carousel-20260908/task-plan.json
+- task_plan_doc: artifacts/content-catania-day-carousel-20260908/task-plan.md
+- task_plan_template: ARTIFACT_RULES.md#대형-작업-태스크-계획
+- trace: traces/content-catania-day-carousel-20260908.json
+- active_task: T1.1 — 원본 사진·사실 경계·카드 시퀀스 고정
+- started_at: 2026-09-08T22:14:28Z
 
 ## Waiting
 
