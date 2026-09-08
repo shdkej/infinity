@@ -34,8 +34,8 @@
 - metric_signal: scrape 성공, dispatcher 최근 실행 시각, canonical/local revision 불일치, Active intent 신선도·정지 상태의 조합
 - metric_decision_rule: scrape 실패·dispatcher 무실행·stale Active 중 하나면 dashboard에서 원인 분류와 다음 점검 위치를 제공한다. 자동 알림·상태 변경·배포는 수행하지 않는다.
 - active_task: none — Planner·Marketer 역할 session 결과 회수 대기
-- active_task: T1.1 — 원인 증거 고정
-- next_decision: Planner·Marketer role session을 재실행·회수하고, Developer·Operator 증거와 함께 T1.1을 닫는다. T1.2 Red 및 metric contract 전에는 구현을 시작하지 않는다.
+- active_task: none — T1.1 완료; T1.2 Red activation 대기
+- next_decision: T1.2 Red가 원인 과장과 L0 경계를 검증한 뒤 T1.3 metric contract를 활성화한다. 구현은 T1.3 완료 전 시작하지 않는다.
 
 ## Waiting
 

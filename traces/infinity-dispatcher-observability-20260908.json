@@ -3,10 +3,12 @@
   "events": [
     {"type":"intake","at":"2026-09-08T14:03:00Z","status":"accepted","summary":"Context Pack 생성 후 canonical origin/main·local checkout·dispatcher run 기록을 조사하는 30분 이하 leaf를 시작했다."},
     {"type":"role_session","at":"2026-09-08T14:10:00Z","status":"waiting","summary":"Planner·Marketer role session이 Gateway timeout으로 회수되지 않아 구현을 보류했다."},
-    {"type":"dispatcher_handoff","run_id":"dispatch-6340bd554af74d6ba9b0976f27ee18b9","canonical_sha":"4a0c87c68bb85a0ea2c5da0d30927b247eeb5b88","agent":"genie","session_key":"agent:genie:infinity-dispatcher","timestamp":"2026-09-08T14:20:03Z","status":"accepted"}
+    {"type":"dispatcher_handoff","run_id":"dispatch-6340bd554af74d6ba9b0976f27ee18b9","canonical_sha":"4a0c87c68bb85a0ea2c5da0d30927b247eeb5b88","agent":"genie","session_key":"agent:genie:infinity-dispatcher","timestamp":"2026-09-08T14:20:03Z","status":"accepted"},
+    {"type":"role_session","at":"2026-09-08T14:24:14Z","status":"completed","summary":"Planner and Marketer retry reviews were recovered; their scope findings were consolidated with the existing Developer and Operator evidence."},
+    {"type":"task_completed","task_id":"T1.1","timestamp":"2026-09-08T14:24:14Z","status":"done","summary":"Root cause is limited to post-handoff notifier observation: the reused pre-handoff detached VERIFY_ROOT cannot see a newly pushed Waiting transition. Cron-wide failure, alert delivery success, and Grafana effect remain unproven."}
   ],
   "next_decision": {
-    "status": "in_progress",
-    "value": "Re-run the missing Planner and Marketer role reviews, then consolidate T1.1 root-cause evidence before Red review."
+    "status": "ready_for_red",
+    "value": "Activate T1.2 Red to verify root-cause wording and the L0 read-only observability boundary."
   }
 }
