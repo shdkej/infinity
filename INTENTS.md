@@ -4,6 +4,28 @@
 
 ## Inbox
 
+### [content-catania-day-carousel-20260908] 카타니아 하루의 비용·휴식 기준 6장 캐러셀
+- status: inbox
+- target_agent: genie
+- execution_mode: multi_subagent_roles
+- permission: L0-private-render-only
+- projects: infinity
+- task_type: design
+- topics: content, marketing, instagram, travel
+- context_pack: intents/context/content-catania-day-carousel-20260908.json
+- context_documents_checked: LLM.md; README.md; schema/agent-rules.md; DOCUMENT_SEARCH_PIPELINE.md; USER_CONTEXT.md; SERVICE_REGISTRY.md; INFINITY_OPERATING_RULES.md; ARTIFACT_RULES.md; EXECUTION_LEARNING_CONTRACT.md; INTENTS.md; agent-wiki/README.md; INSTAGRAM_CAROUSEL_PROMPT_SYSTEM.md
+- context_searches: agent-wiki/content/docs; source/openclaw-system/docs/INSTAGRAM_CAROUSEL_PROMPT_SYSTEM.md; source/openclaw-system/docs/WORLD_TRAVEL_PROJECT.md; user-provided day record and six original photos (IMG_9028, IMG_9035, IMG_9049, IMG_9067, IMG_9069, IMG_9075)
+- notification_channel: slack
+- notification_target: channel:C0BR41W31MM
+- notification_reply_to: 1788905194.302559
+- notification_origin: channel:C0BR41W31MM;reply_to:1788905194.302559
+- goal: 카타니아에서 보낸 하루의 실제 사진 6장과 기록을 근거로, 비용을 내는 순간과 잘 쉬는 순간의 기준이 남는 1080×1350 6장 인스타그램 캐러셀을 비공개 렌더로 만든다.
+- constraints: 제공 사진을 카드별 실제 시각 입력으로 사용; 실제 기록 밖의 가격·식당명·타인 감정·장소 평가는 만들지 않음; 카드 시퀀스는 복잡함(1–2) → 정리됨(3–4) → 여백(5–6)으로 편집; 저채도 생활 사진과 최소 흰색 오버레이를 유지; 과도한 화이트톤·원형 테이블·광고식 보정·공개 게시·외부 업로드 금지; 인물 식별성·정확한 시간/위치 공개 여부는 렌더 전 안전 검토.
+- evidence: IMG_9028.jpg(분수); IMG_9035.jpg(시장 생해산물); IMG_9049.jpg(벨리니 공원); IMG_9067.jpg(음료/종이봉투); IMG_9069.jpg(서점); IMG_9075.jpg(저녁 식사). 사용자 기록: 시장 생해산물과 자판기 음료는 덤탱이로 느낌, 점심 디저트 서비스는 아쉬움, 벨리니 공원에서 휴식, 버스 티켓 확인·구매는 절약, 저녁 3코스는 만족.
+- metric_question: 여섯 장을 넘긴 뒤 ‘여행에서 돈을 쓰는 순간보다, 비용과 휴식의 기준을 먼저 잡는다’는 한 판단이 실제 사진과 함께 남는가?
+- metric_signal: Red가 실제 4:5 렌더 순서에서 사실성, 카드 간 리듬, 사진-카피 균형, 첫 장 주목도, 최종 카드의 여백, 텍스트 안전 여백과 공개 안전을 모두 통과로 판정한다.
+- metric_decision_rule: 사실 밖의 비용 판단이 생기거나, 한 장이라도 독립 포스터처럼 반복되거나, 순서 전체에서 판단이 남지 않으면 문구·사진 배치·밀도를 다시 편집한다. Red PASS 전에는 완료로 보고하지 않는다.
+
 ## Active
 
 ## Waiting
