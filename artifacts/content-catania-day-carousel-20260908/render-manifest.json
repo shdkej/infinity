@@ -1,0 +1,139 @@
+{
+  "intent_id": "content-catania-day-carousel-20260908",
+  "canvas": [
+    1080,
+    1350
+  ],
+  "private_boundary": {
+    "public_posted": false,
+    "external_uploaded": false,
+    "profile_changed": false,
+    "publication_scope": "private-only"
+  },
+  "source_inputs": [
+    {
+      "card": 1,
+      "filename": "input-06208009-f173-4988-880f-82c0ce06c940.jpg",
+      "sha256": "ebbe3a9fe74e93a309e3cdf6f65973e71430808b780069a478c6258d0d1ec4b3",
+      "provenance": "user-provided local production input; private-only",
+      "privacy_treatment": "right phone-holder region removed"
+    },
+    {
+      "card": 2,
+      "filename": "input-d439726d-c0c8-4c45-988f-c0d2b71aa984.jpg",
+      "sha256": "507d6ba1a3970af9a68080210466b5d80db742dc0f851402174598945cec1dba",
+      "provenance": "user-provided local production input; private-only",
+      "privacy_treatment": "none"
+    },
+    {
+      "card": 3,
+      "filename": "input-1f0916b8-54cd-4f2a-9621-e0b97dd4032f.jpg",
+      "sha256": "35bcfd2d49a26a8d9d8b0d2fcf4e2ab3046524b05cc92ac3c852d9c685d15435",
+      "provenance": "user-provided local production input; private-only",
+      "privacy_treatment": "lower pedestrian region blurred"
+    },
+    {
+      "card": 4,
+      "filename": "input-32728ae3-1a81-4268-8b93-4b30b6d40187.jpg",
+      "sha256": "051a06f9123b6464d1daae814963910b16a39bf2d2059f57f0b15305b269f618",
+      "provenance": "user-provided local production input; private-only",
+      "privacy_treatment": "lower arm/hand region blurred"
+    },
+    {
+      "card": 5,
+      "filename": "input-5dd2e069-a3d3-4622-977a-20949216ddd3.jpg",
+      "sha256": "05839013e4dbfac7879e76b6d2c29858d11cec1ef08df9f06a5194cec4df7156",
+      "provenance": "user-provided local production input; private-only",
+      "privacy_treatment": "upper reflection/person region blurred"
+    },
+    {
+      "card": 6,
+      "filename": "input-e0fae03b-d284-4ab1-9aa0-891cb168a692.jpg",
+      "sha256": "10b9821517accb35f11b045c3cbe7d4763397941033ec9406951d7548d4617e8",
+      "provenance": "user-provided local production input; private-only",
+      "privacy_treatment": "none"
+    }
+  ],
+  "cards": [
+    {
+      "card": 1,
+      "png": "card-01.png",
+      "preview": "preview-01.png",
+      "sha256": "eca40062206f250162510ee5fa78c6244042fc79a574357029a78270542af9b9",
+      "rhythm": "dense",
+      "copy": [
+        "카타니아에서\n보낸 하루",
+        "돈 쓴 장면과\n쉬었던 순간들"
+      ],
+      "source": "input-06208009-f173-4988-880f-82c0ce06c940.jpg",
+      "round_table_checked": true
+    },
+    {
+      "card": 2,
+      "png": "card-02.png",
+      "preview": "preview-02.png",
+      "sha256": "880aa32ef6cfcf0cf106cc2a2b51dc235ff11e2ef49a4cf5e5649f0011d57f7c",
+      "rhythm": "dense",
+      "copy": [
+        "시장 생해산물은\n비싸게 느껴졌다",
+        "가격보다 먼저\n확인할 기준을 생각했다"
+      ],
+      "source": "input-d439726d-c0c8-4c45-988f-c0d2b71aa984.jpg",
+      "round_table_checked": true
+    },
+    {
+      "card": 3,
+      "png": "card-03.png",
+      "preview": "preview-03.png",
+      "sha256": "1f5ffae00105f77663af724f3060c0afd00d348f712cb496c446382e1165f1ad",
+      "rhythm": "ordered",
+      "copy": [
+        "벨리니 공원에서는\n잘 쉬었다",
+        "하루에 이런\n한 장면은 남겨두기"
+      ],
+      "source": "input-1f0916b8-54cd-4f2a-9621-e0b97dd4032f.jpg",
+      "round_table_checked": true
+    },
+    {
+      "card": 4,
+      "png": "card-04.png",
+      "preview": "preview-04.png",
+      "sha256": "9ff9c1ef5862e5aec4835e17e3f789eab4a93b811213c52f9700fd69ccf73752",
+      "rhythm": "ordered",
+      "copy": [
+        "음료도 비싸게 느꼈다",
+        "버스 티켓은\n확인하고 사서 아꼈다"
+      ],
+      "source": "input-32728ae3-1a81-4268-8b93-4b30b6d40187.jpg",
+      "round_table_checked": true
+    },
+    {
+      "card": 5,
+      "png": "card-05.png",
+      "preview": "preview-05.png",
+      "sha256": "7e53472ec530c6fa66b79de998e221c4210dca87faeaff03bf5b2c8131b85806",
+      "rhythm": "spacious",
+      "copy": [
+        "버스 티켓은\n확인하고 사서 아꼈다",
+        ""
+      ],
+      "source": "input-5dd2e069-a3d3-4622-977a-20949216ddd3.jpg",
+      "round_table_checked": true
+    },
+    {
+      "card": 6,
+      "png": "card-06.png",
+      "preview": "preview-06.png",
+      "sha256": "859a682b2e955f6503a9f197869d3beeda0e9e86f303e7211b0be0127f2024f3",
+      "rhythm": "spacious",
+      "copy": [
+        "저녁 3코스는\n만족스러웠다",
+        ""
+      ],
+      "source": "input-e0fae03b-d284-4ab1-9aa0-891cb168a692.jpg",
+      "round_table_checked": true
+    }
+  ],
+  "claims": "Limited to user record: raw seafood and vending drink felt expensive; Bellini park rest; bus-ticket checking/purchase saved money; dinner three-course satisfaction. No amounts, vendor names, safety, or third-party claims.",
+  "privacy": "Private-only. Faces/signage/precise timestamps are not cleared for public release."
+}

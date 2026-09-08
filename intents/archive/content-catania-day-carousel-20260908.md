@@ -1,0 +1,28 @@
+# [content-catania-day-carousel-20260908] 카타니아 하루의 비용·휴식 기준 6장 캐러셀
+
+- id: content-catania-day-carousel-20260908
+- status: archived
+- projects: [infinity]
+- task_type: design
+- topics: [content, marketing, travel]
+- execution_mode: multi_subagent_roles
+- role_subagents: planner=/root/role_catania_planner; developer=/root/role_catania_developer; marketer=/root/role_catania_marketer; operator=/root/role_catania_operator; red=/root/role_catania_red
+- context_pack: intents/context/content-catania-day-carousel-20260908.json
+- artifact: artifacts/content-catania-day-carousel-20260908/
+- report: reports/content-catania-day-carousel-20260908/20260908T2230Z.html
+- red_status: pass
+- red_report: artifacts/content-catania-day-carousel-20260908/red-report.md
+- notification_channel: slack
+- notification_target: C0BR41W31MM
+- notification_reply_to: 1788905194.302559
+- notification_origin: channel:C0BR41W31MM;reply_to:1788905194.302559
+- metric_result: Red가 실제 6장 PNG sequence에서 사실성·리듬·가독성·개인정보 보정·원형 테이블 부재를 PASS로 판정.
+- metric_next_decision: 공개용 전환은 별도 공개 안전·동의 검토 Intent에서만 판단.
+- public_posted: false
+- external_uploaded: false
+- profile_changed: false
+- knowledge_status: used
+- knowledge_decision: no_promotion
+- knowledge_targets: [INSTAGRAM_CAROUSEL_PROMPT_SYSTEM.md, single-scene-single-criterion-carousel-contract.mdx]
+- knowledge_reflection: 여행 사진 기반 캐러셀은 사실 문구와 사진의 관계를 분리 기록하고, 인물/반사 영역은 private render에도 먼저 비식별 처리한다.
+- knowledge_commit: no-promotion-needed
