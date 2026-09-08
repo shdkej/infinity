@@ -1,5 +1,6 @@
 # 반복 유료 행동이 있는 여행·기록·취향 마이크로도구 탐색
 
+- id: research-travel-tool-20260908
 - status: archived
 - archived_at: 2026-09-08T10:10:05Z
 - target_agent: genie
