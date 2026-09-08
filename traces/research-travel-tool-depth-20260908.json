@@ -111,12 +111,19 @@
       "timestamp": "2026-09-08T11:24:45Z",
       "status": "done",
       "summary": "Independent Red PASS: the same-task alternative comparison is falsifiable and Stop/Discard overrides non-diagnostic positives. The comparison remains unexecuted; independent utility, repeat use, direct WTP, and actual user behavior remain unproven."
+    },
+    {
+      "type": "task_completed",
+      "task_id": "T2.3",
+      "timestamp": "2026-09-08T11:31:03Z",
+      "status": "done",
+      "summary": "Four role judgments converged on retaining the recovery-card concept only as a low-priority, unproven hypothesis. Same-task comparison and a single card schema are prerequisites; Stop/Discard overrides positive but non-diagnostic signals."
     }
   ],
   "artifacts": [],
   "verifications": [],
   "next_decision": {
     "status": "in_progress",
-    "value": "deadline 전까지 독립적인 30분 이하 리서치·검증 leaf를 실행하고, 조기 기능 완료 시에는 Archive 대신 evidence-backed quality iteration을 재계획한다."
+    "value": "T3.1에서 단일 카드 스키마와 동일 과업 비교의 측정·동의·삭제 계약을 설계한다. 별도 승인 전 외부 실행은 하지 않는다."
   }
 }
