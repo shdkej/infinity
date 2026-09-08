@@ -15,6 +15,15 @@
   },
   "events": [
     {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-3ecc57095cab4520808b00529572f161",
+      "canonical_sha": "cbbb3864147c6e38289b9ff70efb1bf59e6736b4",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-08T11:42:57Z",
+      "status": "accepted"
+    },
+    {
       "type": "intake",
       "at": "2026-09-08T10:51:02Z",
       "context_pack": "intents/context/research-travel-tool-depth-20260908.json",
