@@ -26,6 +26,7 @@
 - context_pack: intents/context/research-travel-tool-20260908.json
 - task_plan: artifacts/research-travel-tool-20260908/task-plan.json
 - task_plan_doc: artifacts/research-travel-tool-20260908/task-plan.md
+- task_plan_template: ARTIFACT_RULES.md#대형-작업-태스크-계획
 - trace: traces/research-travel-tool-20260908.json
 - context_documents_checked: LLM.md; Knowledge Lab README.md; schema/agent-rules.md; DOCUMENT_SEARCH_PIPELINE.md; USER_CONTEXT.md; SERVICE_REGISTRY.md; INFINITY_OPERATING_RULES.md; infinity/ARTIFACT_RULES.md; infinity/EXECUTION_LEARNING_CONTRACT.md; INTENTS.md; agent-wiki/README.md; agent-wiki/content/docs/index.mdx; WORLD_TRAVEL_PROJECT.md; mapped/Idea/Travel.mdx; mapped/blog/Life_Tracking.mdx; bounded-experiment-loop.mdx; currentness-safe-travel-context.mdx; updatable-taste-timeline.mdx
 - context_searches: declared Infinity scopes 재실행; compiled page full-read; agent-reach search procedure read

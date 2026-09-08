@@ -8,5 +8,13 @@
     "session_key": "agent:genie:infinity-dispatcher",
     "at": "2026-09-08T08:19:38Z",
     "status": "accepted"
+  }, {
+    "type": "dispatcher_handoff",
+    "run_id": "dispatch-f0f1718df21f493794ccedb57502d411",
+    "canonical_sha": "765849e8065b870fb00e757e1e22a07be94cb626",
+    "agent": "genie",
+    "session_key": "agent:genie:infinity-dispatcher",
+    "at": "2026-09-08T08:31:11Z",
+    "status": "accepted"
   }]
 }
