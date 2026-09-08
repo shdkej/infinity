@@ -279,6 +279,20 @@
       "timestamp": "2026-09-08T12:55:35Z",
       "status": "pass",
       "summary": "Independent Red verified that the final report preserves no-build/hold, makes no behavior/reuse/direct-WTP/price/release claim, cites completed evidence accurately, and explicitly defers Archive."
+    },
+    {
+      "type": "task_completed",
+      "task_id": "T6.1",
+      "timestamp": "2026-09-08T12:56:15Z",
+      "status": "done",
+      "summary": "Final terminal summary, HTML report, and independent Red PASS were committed in 4cf96ef8e7da1585ccc6b5065708659edbc2b823. Immediately after its push, HEAD equaled origin/main at that SHA. Archive remains a separate terminalization decision."
+    },
+    {
+      "type": "remote_proof",
+      "task_id": "T6.1",
+      "timestamp": "2026-09-08T12:56:15Z",
+      "commit": "4cf96ef8e7da1585ccc6b5065708659edbc2b823",
+      "head_equals_origin_main": true
     }
   ],
   "next_decision": {
