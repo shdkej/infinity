@@ -272,10 +272,17 @@
       "session_key": "agent:genie:infinity-dispatcher",
       "timestamp": "2026-09-08T12:53:13Z",
       "status": "accepted"
+    },
+    {
+      "type": "red_review",
+      "task_id": "T6.1",
+      "timestamp": "2026-09-08T12:55:35Z",
+      "status": "pass",
+      "summary": "Independent Red verified that the final report preserves no-build/hold, makes no behavior/reuse/direct-WTP/price/release claim, cites completed evidence accurately, and explicitly defers Archive."
     }
   ],
   "next_decision": {
     "status": "in_progress",
-    "value": "T6.1에서 final evidence, HTML report, and remote verification을 수렴한다. Archive 전이는 별도 terminalization cycle이다."
+    "value": "T6.1 deliverables are committed and then their actual remote equality is recorded before separate terminalization review."
   }
 }
