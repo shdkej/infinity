@@ -2,6 +2,7 @@
 
 `마감: 2026-09-09 08:00 Europe/Rome / 06:00 UTC` · `실행: 9회차` · `태스크: 9개 중 9개 완료 · 0개 미완료`
 
+```text
 ● T1  근거가 있는 후보·유료 행동 조사                                  완료
 │  ● T1.1  Context Pack·필수 근거·선언 검색 재검증                      완료 · 예상/최대 20/30분 · 의존 없음
 │           증거: `intents/context/research-travel-tool-20260908.json`; `INTENTS.md` context_searches
@@ -68,5 +69,6 @@
 │
 └─ — 보호 경계
       L0 research/strategy only. 공개 발송·모집·결제·권한·배포·시크릿 변경을 하지 않는다. 정확 위치·원본 사진·예약/여권/계정 정보는 수집하지 않으며, 인접 서비스 가격은 직접 WTP 증거로 과장하지 않는다.
+```
 
 **지금 다음 행동:** `별도 finalization cycle에서 Archive 원장과 lane 이동을 검증한다.`

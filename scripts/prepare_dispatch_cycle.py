@@ -158,6 +158,7 @@ def human_plan_format_errors(entry: dict[str, Any], repo: Path, sha: str) -> lis
     required = {
         "timeline_title": r"(?m)^# .+ — 실행 타임라인$",
         "summary": r"(?m)^`마감: .+` · `실행: .+` · `태스크: .+`$",
+        "tree_fence": r"(?ms)^```text\n[●◐○] T\d+.*?^```$",
         "tree": r"(?m)^[●◐○] T\d+",
         "leaf": r"(?m)^│  [●◐○] T\d+\.\d+",
         "estimate": r"예상/최대",
