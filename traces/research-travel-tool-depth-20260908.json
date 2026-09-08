@@ -151,10 +151,7 @@
       "status": "done",
       "summary": "Independent Red PASS: the synthetic fixture-only lifecycle and no-build/hold gates are adequate. This document review is not fixture execution, behavioral/reuse/WTP evidence, prototype approval, or release approval."
     }
-  ],
-  "artifacts": [],
-  "verifications": [],
-  "events": [
+  ,
     {
       "type": "dispatcher_handoff",
       "run_id": "dispatch-f93d2e8ab2a6480485abe4438a8f1229",
@@ -243,10 +240,17 @@
       "session_key": "agent:genie:infinity-dispatcher",
       "timestamp": "2026-09-08T12:41:05Z",
       "status": "accepted"
+    },
+    {
+      "type": "task_completed",
+      "task_id": "T5.2",
+      "timestamp": "2026-09-08T12:43:34Z",
+      "status": "done",
+      "summary": "Independent Red PASS after narrowing the unit-test scope, asserting a unique T5.2 activation candidate, and repairing the trace to one events array with a current decision. The regression proves dispatcher plan classification only; it is not product, behavioral, WTP, or release evidence."
     }
   ],
   "next_decision": {
     "status": "in_progress",
-    "value": "T3.2에서 T3.1의 측정 계약이 실제/가상 분리, Stop/Discard 우선, 최소수집·삭제 경계를 과장 없이 지키는지 Red 검증한다."
+    "value": "T5.3에서 deadline까지 남은 시간과 T6.1의 명시 증거 범위를 재계산한다."
   }
 }

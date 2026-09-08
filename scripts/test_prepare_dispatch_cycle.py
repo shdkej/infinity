@@ -117,7 +117,12 @@ class PlanTests(unittest.TestCase):
         text = "## Inbox\n\n## Active\n" + block("work-1", "active", extra) + "\n## Waiting\n\n## Archive\n"
         plan = prepare.build_plan(text, "fixture", repo)
         self.assertFalse(plan["terminalization_candidates"])
-        self.assertEqual(plan["plan_activation_candidates"][0]["task_state"]["task_id"], "T5.2")
+        self.assertEqual(len(plan["plan_activation_candidates"]), 1)
+        self.assertEqual(
+            [(item["intent_id"], item["task_state"]["task_id"])
+            for item in plan["plan_activation_candidates"]],
+            [("work-1", "T5.2")],
+        )
         self.assertEqual(plan["handoff_candidates"][0]["intent_id"], "work-1")
 
     def test_cycle_contract_rejects_unbounded_leaf(self):

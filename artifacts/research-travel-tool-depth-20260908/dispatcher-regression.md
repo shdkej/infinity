@@ -15,8 +15,8 @@
 ## 기대 결과
 
 1. `terminalization_candidates=[]`
-2. `plan_activation_candidates`는 `T5.2`를 가리킨다.
-3. handoff는 Active intent를 유지하며 Archive writer·terminal notifier를 호출하지 않는다.
+2. `plan_activation_candidates`는 단 하나이며, Active intent의 `T5.2`를 가리킨다.
+3. 반환 plan에는 `terminalization_candidates`가 없고 `handoff_candidates`는 Active intent를 유지한다. 이 단위 테스트는 Archive writer·terminal notifier 호출 여부를 검증하지 않는다.
 4. 실제 T5/T6 계획이 끝나기 전에는 리서치·제품·사용자 효용·WTP·출시 완료를 주장하지 않는다.
 
 ## 범위와 한계
