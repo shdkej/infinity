@@ -9,7 +9,7 @@
 ## Active
 
 ### [infinity-dispatcher-observability-20260908] Infinity dispatcher 정지 감지 Grafana 가시화
-- status: active
+- status: waiting
 - target_agent: genie
 - execution_mode: multi_subagent_roles
 - permission: L0-local-implementation-only
@@ -33,8 +33,11 @@
 - metric_question: dispatcher가 실행을 멈추거나 Active intent가 신선도 기준을 넘길 때, 원인을 원격 정본·최근 실행 기록·지표에서 구분 가능한가?
 - metric_signal: scrape 성공, dispatcher 최근 실행 시각, canonical/local revision 불일치, Active intent 신선도·정지 상태의 조합
 - metric_decision_rule: scrape 실패·dispatcher 무실행·stale Active 중 하나면 dashboard에서 원인 분류와 다음 점검 위치를 제공한다. 자동 알림·상태 변경·배포는 수행하지 않는다.
-- active_task: T1.1 canonical/local/dispatcher 원인 증거 고정
-- next_decision: T1.1 증거를 바탕으로 최소 exporter 계약을 고정한 뒤에만 monitoring 파일을 수정한다.
+- active_task: none — Planner·Marketer 역할 session 결과 회수 대기
+- waiting_reason: Planner와 Marketer 격리 role session이 Gateway timeout으로 종료되어 multi_subagent_roles 계약을 충족하지 못했다. Developer·Operator 검토와 원인 증거는 확보했으나 구현을 단일 처리로 낮추지 않는다.
+- next_retry_at: 2026-09-08T14:15:00Z
+- retry_policy: autonomous
+- next_decision: role session transcript를 회수하거나 새 role session이 완료된 뒤 T1.1 Red와 metric contract를 닫고 구현을 재개한다.
 
 ## Waiting
 
