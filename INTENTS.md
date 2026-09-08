@@ -40,7 +40,7 @@
 - resumed_at: 2026-09-08T08:19:38Z
 - restart_authority: dispatcher-9bbc58c3e7dc4159bb6fdc953ac68e77
 - execution_attempt: 3
-- next_action: T1.3 active — 역할별 session evidence·공개 가격/결제 행동 URL·반증을 수렴 확인한 뒤 T2.1 단일 후보 결정 입력으로 고정한다.
+- next_action: T2.1 역할 증거를 통합해 상위 후보 1개, 대안·제외, 반증 가능한 7일 계획을 결정한다.
 
 <!-- 실행 대기 Intent 없음. -->
 
