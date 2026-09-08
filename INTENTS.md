@@ -33,7 +33,7 @@
 - metric_signal: 독립 근거·대체 설명·사전 고정 지표·Red 검증·원격 증거를 가진 완료 leaf 수
 - metric_decision_rule: 직접 WTP·반복 사용 증거가 없으면 유료 가설을 보류하고, Stop 조건 충족 시 로컬 프로토타입 또는 외부 검증을 권하지 않는다.
 - active_task: T5.1 조기 완료 재계획 회귀 테스트
-- next_decision: 완료 전 조기 terminalization을 막는 dispatcher 계획 계약을 검증한다.
+- next_decision: 미완료 leaf가 있는 경우 terminalization·Archive 후보가 생성되지 않는지 회귀 검증한다.
 
 <!-- 실행 대기 Intent 없음. -->
 

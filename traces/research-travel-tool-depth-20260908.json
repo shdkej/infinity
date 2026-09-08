@@ -218,6 +218,15 @@
       "timestamp": "2026-09-08T12:22:24Z",
       "status": "done",
       "summary": "Four roles closed the next-experiment gate: only a separately approved synthetic, de-identified, local fixture lifecycle review may follow; fixture PASS is not behavioral, reuse, WTP, or release evidence, and no-build/hold remains binding."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-c4528674a0934df5a5120811dae0b066",
+      "canonical_sha": "f908fbd596ef44d58acea90adfa0e9b15c8da9eb",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-08T12:30:48Z",
+      "status": "accepted"
     }
   ],
   "next_decision": {
