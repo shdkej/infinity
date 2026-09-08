@@ -32,6 +32,7 @@
 - notification_reply_to: 1788854196.760349
 - notification_origin: channel:C0BR41W31MM;reply_to:1788854196.760349
 - blocker: 2026-09-08T08:03Z에 native spawn_agent와 OpenClaw sessions_spawn을 실제 호출했으나 이 런타임에 모두 노출되지 않아 `TypeError: ... is not a function`. multi_subagent_roles를 단일 처리로 낮추는 사용자 승인이 없다.
+- remote_blocker: commit 67e8acc의 push는 origin/main(080e18e)이 local보다 앞서 non-fast-forward로 거절됐다. rebase는 unrelated safety-map files의 add/add·content conflict로 중단했고 `git rebase --abort`로 사용자 변경을 보존했다.
 - next_retry_condition: Planner·Developer·Marketer·Operator 및 Red를 spawn할 수 있는 런타임에서 동일 Context Pack으로 각 30분 이하 leaf를 실행한다. 그 전에는 terminal artifact/report·Archive를 만들지 않는다.
 
 ### [content-carousel-6card-sequence-20260907] Instagram 캐러셀 6장 시퀀스 확장
