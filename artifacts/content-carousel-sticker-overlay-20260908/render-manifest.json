@@ -1,0 +1,61 @@
+{
+  "intent_id": "content-carousel-sticker-overlay-20260908",
+  "renderer": "Pillow direct composition",
+  "canvas": {
+    "width": 1080,
+    "height": 1350,
+    "ratio": "4:5",
+    "mode": "RGB"
+  },
+  "deliverables": [
+    "card-01.png",
+    "preview-25pct.png"
+  ],
+  "private_boundary": {
+    "public_posted": false,
+    "external_uploaded": false,
+    "profile_changed": false,
+    "publication_scope": "private-only"
+  },
+  "style_references": [
+    "/home/ubuntu/.openclaw/workspace/media/inbound/openclaw-staged-bbc08afa-a239-4c9b-a7e4-2c3711786445/input-3dda4330-d17d-401e-911a-b51a34e97fed.jpg",
+    "/home/ubuntu/.openclaw/workspace/media/inbound/openclaw-staged-bbc08afa-a239-4c9b-a7e4-2c3711786445/input-339676f8-a3df-435b-9314-20462ce4f242.jpg"
+  ],
+  "background_provenance": {
+    "path": "/home/ubuntu/workspace/knowledge-lab/source/openclaw-system/data/card-news/source-assets/morning-routine-2026-07-05/clean-01-scrapbook.jpg",
+    "source_sha256": "d28e73eab0fd872780a1853eb46f45943f467215f0be9cac9ed52d2377e7cbc7",
+    "use": "private layout fixture only; publication rights and scene claims not evaluated"
+  },
+  "overlays": {
+    "hook": {
+      "bbox": [
+        72,
+        96,
+        860,
+        482
+      ],
+      "style": "lime fill / near-black outline / marker-like line offsets"
+    },
+    "memo": {
+      "bbox": [
+        126,
+        586,
+        948,
+        805
+      ],
+      "style": "single fluorescent-lime square-corner memo / near-black copy"
+    }
+  },
+  "protected_photo_region": [
+    40,
+    850,
+    1040,
+    1240
+  ],
+  "round_table": false,
+  "content_claims": "layout-only; no travel, location, safety, performance, or personal-experience claim",
+  "sha256": {
+    "card-01.png": "8249eed94dd2915a48f5093444a18d07d278ef1ef5d3f47f9b7e36967df9d358",
+    "preview-25pct.png": "6f07db86b5f2829e0228d3844ff6b91e130f0ad5a4ca8fb74faaf54d450c9256"
+  }
+}
