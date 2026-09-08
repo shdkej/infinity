@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<!--
+  Infinity 보고 양식 — "Quiet Note" 디자인 시스템 (모바일 우선 · 결론 2축 + 핵심 내용)
+  ────────────────────────────────────────────────────────────
+  제약: 대시보드 iframe(sandbox=allow-same-origin)에서 렌더 → JS·외부 리소스 금지, 인라인 CSS만.
+  접기는 <details>(JS 불필요). {{...}} 자리표시자를 치환해 reports/{id}/{timestamp}.html 로 저장.
+  리서치형 report는 HTML만 열어도 핵심 발견·근거·비교·다음 판단이 읽혀야 한다.
+  작성 전 MECE 구조를 먼저 잡고, 핵심 발견/옵션/리스크/다음 액션이 서로 겹치지 않게 채운다.
+
+  ▷ 카테고리별 색: :root 의 --a1/--a1-deep 두 줄만 교체한다. (축2는 항상 sage 고정)
+     · 조사형 (research/wiki/doc)            : --a1:#5a6f8a; --a1-deep:#3f536e;  (slate-blue)  라벨 "무엇을 조사했나 / 핵심 결과"
+     · 개선형 (marketing/product/dev/build/pages): --a1:#a9745a; --a1-deep:#8a5c45;  (clay)        라벨 "무엇이 문제였나 / 어떻게 해결하나"
+     · 감시형 (monitor/maintenance/router)   : --a1:#b08545; --a1-deep:#8a6633;  (muted gold)  라벨 "무엇을 점검했나 / 이상 여부·조치"
+-->
+<title>여행 회수 카드 리서치 보고</title>
+<style>
+  :root{
+    --bg:#f4f2ea; --panel:#fbfaf5; --ink:#2c2a25; --soft:#807c70; --faint:#a8a496; --line:#e3dfd2;
+    --a2:#5f7a5e; --a2-deep:#3f5740;            /* 축2(결과/해법/조치) = sage, 고정 */
+    --a1:#5a6f8a; --a1-deep:#3f536e;            /* 축1 = 카테고리색 (기본: 조사형 slate-blue) */
+    --sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0; width:100%; max-width:100%; overflow-x:hidden;}
+  body{background:var(--bg); color:var(--ink); font-family:var(--sans);
+    font-size:14px; line-height:1.68; -webkit-font-smoothing:antialiased;}
+  .sheet{width:min(100%,720px); max-width:720px; margin:0 auto; padding:32px 18px 40px;}
+  .reveal{opacity:0; animation:fade .7s ease forwards;}
+  @keyframes fade{from{opacity:0; transform:translateY(9px);} to{opacity:1; transform:none;}}
+
+  .eyebrow{display:flex; align-items:center; gap:10px; font-family:var(--mono);
+    font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--soft); flex-wrap:wrap;}
+  .eyebrow .id{color:var(--a2-deep); font-weight:600;}
+  .eyebrow .dot{width:5px; height:5px; border-radius:50%; background:var(--a2);}
+  .eyebrow .status{color:var(--a2-deep);}
+  h1{font-size:clamp(24px,7vw,29px); line-height:1.3; font-weight:700; letter-spacing:0; margin:20px 0 0; overflow-wrap:anywhere;}
+  .dek{font-size:15.5px; color:var(--soft); margin:13px 0 0; max-width:52ch;}
+  .hr{height:1px; background:var(--line); margin:30px 0;}
+
+  .axis{padding:0 0 4px 18px; position:relative; margin-bottom:26px;}
+  .axis::before{content:""; position:absolute; left:0; top:6px; bottom:6px; width:2px; border-radius:2px;}
+  .axis.ax1::before{background:var(--a1);} .axis.ax2::before{background:var(--a2);}
+  .axis.ax1{--ul:var(--a1);} .axis.ax2{--ul:var(--a2);}
+  .axis .label{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase;
+    margin-bottom:9px; display:flex; align-items:center; gap:8px;}
+  .axis.ax1 .label{color:var(--a1-deep);} .axis.ax2 .label{color:var(--a2-deep);}
+  .axis .label .n{font-weight:600; opacity:.6;}
+  .axis .text{font-size:clamp(16px,4.4vw,18px); line-height:1.62; color:#37352e; overflow-wrap:anywhere;}
+  .axis .text b{font-weight:700; color:var(--ink); border-bottom:2px solid var(--ul);}
+  ol.find{list-style:none; counter-reset:f; margin:16px 0 0; padding:0;}
+  ol.find li{position:relative; padding:8px 0 8px 26px; font-size:15px; color:#37352e; border-top:1px solid var(--line);}
+  ol.find li:first-child{border-top:none;}
+  ol.find li::before{counter-increment:f; content:counter(f); position:absolute; left:0; top:9px;
+    font-family:var(--mono); font-size:12px; font-weight:600; color:var(--a1-deep);}
+
+  details{border:1px solid var(--line); border-radius:8px; background:var(--panel); margin-bottom:10px; overflow:hidden;}
+  summary{cursor:pointer; list-style:none; padding:14px 16px; display:flex; align-items:center; gap:11px;
+    font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft);}
+  summary::-webkit-details-marker{display:none;}
+  summary .chev{width:8px; height:8px; border-right:2px solid var(--a2-deep); border-bottom:2px solid var(--a2-deep);
+    transform:rotate(-45deg); transition:.25s; flex:none; margin-left:2px;}
+  details[open] summary .chev{transform:rotate(45deg);}
+  summary:hover{color:var(--ink);}
+  .body{padding:2px 16px 18px; min-width:0;}
+  .section{margin:4px 0 18px;}
+  .section-title{font-family:var(--mono); font-size:10.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--a1-deep); margin:0 0 8px;}
+  .callout{border-left:2px solid var(--a2); background:#f2efe5; padding:11px 13px; color:#4a473f; margin:12px 0 16px;}
+  .content-grid{display:grid; grid-template-columns:1fr; gap:10px; margin:10px 0;}
+  .mini-card{border:1px solid var(--line); background:#f8f6ef; border-radius:8px; padding:12px 13px; min-width:0;}
+  .mini-card b{display:block; color:var(--ink); margin-bottom:5px;}
+  .mini-card p{margin:0;}
+  table{border-collapse:collapse; width:100%; max-width:100%; table-layout:fixed; font-size:13px; margin:4px 0 12px;}
+  th,td{border-bottom:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top; overflow-wrap:anywhere; word-break:break-word;}
+  th{font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft); font-weight:600;}
+  td:first-child{color:var(--a2-deep); font-weight:600; white-space:normal;}
+  .body p{color:var(--soft); overflow-wrap:anywhere;}
+  .body ul{margin:6px 0; padding-left:18px;} .body li{margin:5px 0;}
+  code{font-family:var(--mono); font-size:12px; background:#edeae0; padding:1px 6px; border-radius:3px; color:var(--a2-deep); overflow-wrap:anywhere; word-break:break-word;}
+  pre{white-space:pre-wrap; overflow-wrap:anywhere; word-break:break-word; max-width:100%;}
+  a{color:var(--a2-deep); text-underline-offset:3px; overflow-wrap:anywhere; word-break:break-word;}
+  .chips{display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px;}
+  .chip{font-family:var(--mono); font-size:10.5px; letter-spacing:.05em; color:var(--soft); border:1px solid var(--line); border-radius:999px; padding:3px 10px;}
+  .foot{margin-top:30px; padding-top:15px; border-top:1px solid var(--line);
+    display:flex; flex-wrap:wrap; gap:6px 14px; justify-content:space-between; font-family:var(--mono); font-size:10px;
+    letter-spacing:.13em; text-transform:uppercase; color:var(--faint);}
+
+  @media (min-width:720px){
+    .sheet{padding:48px 34px 46px;}
+    .eyebrow{letter-spacing:.18em;}
+    .eyebrow .status{margin-left:auto;}
+    .axis{padding-left:22px; margin-bottom:30px;}
+    .content-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
+  }
+  @media (max-width:640px){
+    table,thead,tbody,tr,th,td{display:block; width:100%;}
+    thead{display:none;}
+    tr{border:1px solid var(--line); border-radius:8px; padding:9px 10px; margin:0 0 10px; background:#f8f6ef;}
+    td{border-bottom:0; padding:5px 0;}
+    td:first-child{font-family:var(--mono); font-size:11px; letter-spacing:.05em;}
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="eyebrow reveal">
+    <span class="dot"></span>
+    <span class="id">research-travel-tool-20260908</span>
+    <span>Research Note</span>
+    <span class="status">INTERNAL · L0</span>
+  </div>
+  <h1 class="reveal" style="animation-delay:.05s">다음 선택을 복원하는 여행 회수 카드</h1>
+  <p class="dek reveal" style="animation-delay:.09s">반복 결제의 직접 증거가 아니라, 가장 작은 반증 가능한 여행·기록·취향 가설을 고른 내부 리서치입니다.</p>
+
+  <div class="hr reveal" style="animation-delay:.12s"></div>
+
+  <div class="axis ax1 reveal" style="animation-delay:.16s">
+    <div class="label"><span class="n">01</span> 핵심 결과</div>
+    <div class="text"><b>여행 회수 카드</b>를 우선 가설로 선택했습니다. 한 장면을 다음 유사 상황에서 다시 쓸 선택 기준 하나로만 복원합니다.</div>
+  </div>
+
+  <div class="axis ax2 reveal" style="animation-delay:.22s">
+    <div class="label"><span class="n">02</span> 다음 판단</div>
+    <div class="text">직접 WTP·반복 사용·가격 수용성은 <b>미입증</b>입니다. 별도 승인 전에는 7일 실험·모집·결제·배포를 실행하지 않습니다.</div>
+    <!-- 선택: 핵심 항목 나열
+    <ol class="find"><li>...</li></ol> -->
+  </div>
+
+  <div class="reveal" style="animation-delay:.27s">
+  <details open>
+    <summary><span class="chev"></span> 핵심 내용 · 리서치 본문</summary>
+    <div class="body">
+      <div class="section">
+        <div class="section-title">핵심 발견</div>
+        <ol class="find">
+          <li>Day One·TripIt·Polarsteps·TravelJournal의 공개 가격은 인접 범주의 반복 결제 신호일 뿐, 후보의 직접 WTP 증거가 아니다.</li>
+          <li>장소 목록·일정·실시간 알림·자동 여행기는 기존 경쟁과 데이터·권한 책임이 커 L0 범위에서 제외한다.</li>
+          <li>7일 판정은 Stop 조건 하나라도 성립하면 Continue보다 우선하며, 상충 응답은 Stop/Discard로 기록한다.</li>
+        </ol>
+      </div>
+
+      <div class="callout"><b>권고:</b> 출시 판단 대신 재열람과 선택 기준 재사용을 반증한다. 별도 동의·권한 승인 전에는 어떤 참여자 모집이나 외부 실행도 하지 않는다.</div>
+
+      <div class="content-grid">
+        <div class="mini-card">
+          <b>근거 · 소스</b>
+          <p>네 역할의 독립 조사, 공개 가격 페이지, T2.2 Red PASS, C2 계약 마감 기록.</p>
+        </div>
+        <div class="mini-card">
+          <b>다음 판단</b>
+          <p>후속 승인 intent가 있을 때만 동의·모집 경계와 로컬 프로토타입을 새로 검토한다.</p>
+        </div>
+      </div>
+    </div>
+  </details>
+
+  <details open>
+    <summary><span class="chev"></span> 범위·한계·7일 계약</summary>
+    <div class="body">
+      <div class="section"><div class="section-title">최소 경계</div><p>입력은 장면/문장 하나, 유지·피함 판단 하나, 다음번 기준 한 줄이다. 계정, 정확 위치·EXIF, 원본 사진, 예약 정보, 동행인 정보, 검색·이동 이력, 지도·추천·AI 요약, 외부 API·결제·배포는 제외한다.</p></div>
+      <div class="section"><div class="section-title">승인 후 검증</div><table><thead><tr><th>구간</th><th>확인</th></tr></thead><tbody><tr><td>Day 1–2</td><td>3필드 카드의 완결·입력 시간·추가 설명 필요 여부</td></tr><tr><td>Day 3–5</td><td>재열람과 기준 재사용 응답</td></tr><tr><td>Day 6–7</td><td>기존 노트·사진 대체 가능성과 반복 사용 의도</td></tr></tbody></table></div>
+      <div class="callout">Continue여도 출시·결제 실험 권한은 생기지 않는다. 기록이 일기/사진 보관으로만 해석되거나 재열람 사례가 없으면 Stop/Discard다.</div>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="chev"></span> 실행 메타 · 산출물</summary>
+    <div class="body">
+      <div class="chips">
+        <span class="chip">2026-09-08T09:30:04Z</span>
+        <span class="chip">dispatch-0f9444a8173c46618252dfc4a514a7ce</span>
+        <span class="chip">active → T3.1 done</span>
+        <span class="chip">execution_mode: multi_subagent_roles</span>
+      </div>
+      <ul>
+        <li>산출물 <code>artifacts/research-travel-tool-20260908/research.md</code></li>
+        <li>역할 서브에이전트 <code>planner, developer, marketer, operator, red</code></li>
+        <li>Planner <code>01a0801c-da88-7ed1-a330-1e0336ec0c72</code> · Developer <code>01a0801c-f184-74e2-b6ce-46575f00df73</code></li>
+        <li>Marketer <code>01a0801d-0bb5-7783-944f-950b8260d478</code> · Operator <code>01a0801d-c55e-71d2-b9ea-4d681c47675b</code></li>
+        <li>역할 결과 요약 <code>t1-role-evidence.md</code></li>
+        <li>지니 종합 <code>t2-synthesis.md; t2-close.md</code></li>
+        <li>Red 검증 <code>pass</code> · <code>t2-red.md</code></li>
+        <li>원격 반영 <code>T3.1 closing commit must equal origin/main</code></li>
+      </ul>
+    </div>
+  </details>
+  </div>
+
+  <div class="foot reveal" style="animation-delay:.3s">
+    <span>Agent-First Heartbeat</span>
+    <span>Infinity · Intent Note</span>
+  </div>
+</div>
+</body>
+</html>

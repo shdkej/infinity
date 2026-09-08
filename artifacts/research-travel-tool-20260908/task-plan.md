@@ -25,9 +25,9 @@
 │           시작/완료/실제: 2026-09-08T09:22:29Z / 2026-09-08T09:23:21Z / 1분
 │
 ○ T3  내부 리서치 산출물·원격 검증                                     대기
-│  ◐ T3.1  한국어 artifact·HTML report·terminal learning record       진행 · 예상/최대 20/30분 · 의존 T2.3
+│  ● T3.1  한국어 artifact·HTML report·terminal learning record       완료 · 예상/최대 20/30분 · 의존 T2.3
 │           증거: `research.md`; `reports/research-travel-tool-20260908/{timestamp}.html`
-│           시작/완료/실제: 2026-09-08T09:30:04Z / 미시작 / 진행 중
+│           시작/완료/실제: 2026-09-08T09:30:04Z / 2026-09-08T09:32:21Z / 3분
 │  ○ T3.2  Red: 최종 요청 일치·근거 표현                               대기 · 예상/최대 10/30분 · 의존 T3.1
 │           증거: `red-final.md` · Red PASS/FAIL
 │           시작/완료/실제: 미시작 / 미시작 / 미기록
@@ -57,8 +57,10 @@
 │     dispatcher의 T3.1 후보는 T2.3을 건너뛴다. T3.1의 HTML report·terminal learning record는 만들지 않고, T2.3 C2 마감확인 완료 뒤에만 재개한다.
 ├─ — 2026-09-08T09:23:21Z · C2 계약 마감
 │     T2.2 Red PASS를 수렴해 Stop 우선·직접 WTP 미입증·승인 전 모집/결제/배포 금지 경계를 `t2-close.md`로 고정했다.
+├─ — 2026-09-08T09:32:21Z · T3.1 내부 산출물 완료
+│     역할 증거·T2 Red·C2 계약만 사용해 한국어 `research.md`, HTML report, 실행 학습 기록을 작성했다. 7일 실험·모집·결제·배포·외부 발송은 하지 않았다.
 │
 └─ — 보호 경계
       L0 research/strategy only. 공개 발송·모집·결제·권한·배포·시크릿 변경을 하지 않는다. 정확 위치·원본 사진·예약/여권/계정 정보는 수집하지 않으며, 인접 서비스 가격은 직접 WTP 증거로 과장하지 않는다.
 
-**지금 다음 행동:** `T3.1이 내부 artifact·HTML report·terminal learning record·원격 검증을 수행한다.`
+**지금 다음 행동:** `T3.2가 최종 요청 일치·근거 표현을 Red 검증한다.`
