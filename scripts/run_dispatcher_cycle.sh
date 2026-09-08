@@ -155,6 +155,19 @@ Path(sys.argv[1]).write_text(json.dumps({
   "handoff_verify_exit": int(sys.argv[12]),
 }, ensure_ascii=False, indent=2) + "\n")
 PY
+SNAPSHOT_PUBLISH_EXIT=0
+python3 "$ROOT/scripts/publish_dispatcher_snapshot.py" "$RUN_FILE" >/dev/null 2>&1 || SNAPSHOT_PUBLISH_EXIT=$?
+if [[ "$SNAPSHOT_PUBLISH_EXIT" -ne 0 ]]; then
+  # The protected run record remains the source of truth; the next cycle retries
+  # the small metrics mirror without exposing raw diagnostics to cron output.
+  python3 - "$RUN_FILE" <<'PY'
+import json, sys
+from pathlib import Path
+path = Path(sys.argv[1]); data = json.loads(path.read_text())
+data["snapshot_publish_exit"] = 1
+path.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n")
+PY
+fi
 FINAL_EXIT="$HANDOFF_EXIT"
 if [[ "$TERMINAL_EXIT" -ne 0 || "$POST_TERMINAL_EXIT" -ne 0 || "$DASHBOARD_EXIT" -ne 0 || "$HANDOFF_VERIFY_EXIT" -ne 0 ]]; then
   # Generic cron/OpenClaw failure handling can expose a shell's stderr as
