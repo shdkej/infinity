@@ -170,6 +170,15 @@
       "timestamp": "2026-09-08T12:00:04Z",
       "status": "done",
       "summary": "Closed consent, minimum-collection, deletion, and L0 boundaries. No participant recruitment, contact, data collection, payment, deployment, or external sending occurred; this remains an internal preregistration, not behavioral or WTP evidence."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-0fb8ca7be6e047fbae0bcab7876bb06d",
+      "canonical_sha": "00ab358456379685bf0e45c9ee93735f6fa4e9d6",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-08T12:02:58Z",
+      "status": "accepted"
     }
   ],
   "next_decision": {
