@@ -202,6 +202,15 @@
       "timestamp": "2026-09-08T12:02:58Z",
       "status": "done",
       "summary": "Four roles fixed a synthetic-fixture-only decision contract with lifecycle assertions, no-build/hold gates, and no external execution. Fixture readiness is not behavioral, reuse, WTP, or release evidence."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-1d1d04197db64a6ab70725866a0d449f",
+      "canonical_sha": "35f52dead967861133129285379429ef61a230d2",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-08T12:21:23Z",
+      "status": "accepted"
     }
   ],
   "next_decision": {
