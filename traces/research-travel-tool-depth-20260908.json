@@ -138,6 +138,17 @@
   ],
   "artifacts": [],
   "verifications": [],
+  "events": [
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-f93d2e8ab2a6480485abe4438a8f1229",
+      "canonical_sha": "89b84c2bb96e113c77bda076712af9c2d3a4ca04",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-08T11:50:03Z",
+      "status": "accepted"
+    }
+  ],
   "next_decision": {
     "status": "in_progress",
     "value": "T3.2에서 T3.1의 측정 계약이 실제/가상 분리, Stop/Discard 우선, 최소수집·삭제 경계를 과장 없이 지키는지 Red 검증한다."
