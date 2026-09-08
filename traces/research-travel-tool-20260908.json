@@ -1,20 +1,32 @@
 {
   "intent_id": "research-travel-tool-20260908",
-  "events": [{
-    "type": "dispatcher_handoff",
-    "run_id": "dispatch-9bbc58c3e7dc4159bb6fdc953ac68e77",
-    "canonical_sha": "3abbb21a38e2d806b1954b087a8d3dd9d3872951",
-    "agent": "genie",
-    "session_key": "agent:genie:infinity-dispatcher",
-    "at": "2026-09-08T08:19:38Z",
-    "status": "accepted"
-  }, {
-    "type": "dispatcher_handoff",
-    "run_id": "dispatch-f0f1718df21f493794ccedb57502d411",
-    "canonical_sha": "765849e8065b870fb00e757e1e22a07be94cb626",
-    "agent": "genie",
-    "session_key": "agent:genie:infinity-dispatcher",
-    "at": "2026-09-08T08:31:11Z",
-    "status": "accepted"
-  }]
+  "events": [
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-9bbc58c3e7dc4159bb6fdc953ac68e77",
+      "canonical_sha": "3abbb21a38e2d806b1954b087a8d3dd9d3872951",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "at": "2026-09-08T08:19:38Z",
+      "status": "accepted"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-f0f1718df21f493794ccedb57502d411",
+      "canonical_sha": "765849e8065b870fb00e757e1e22a07be94cb626",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "at": "2026-09-08T08:31:11Z",
+      "status": "accepted"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-aa2cac76636944038615ade634fb6221",
+      "canonical_sha": "c41be01b16dccd6c97b597b0f5db4dc06cb0162c",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-08T08:50:04Z",
+      "status": "accepted"
+    }
+  ]
 }
