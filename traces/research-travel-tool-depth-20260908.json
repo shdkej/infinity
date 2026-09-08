@@ -38,6 +38,15 @@
       "timestamp": "2026-09-08T11:03:00Z",
       "status": "done",
       "summary": "Four role perspectives consolidated precise evidence gaps and falsifiable questions; no new market, WTP, or behavior claim was made."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-ae47e6e63d8a4b7d9de2e7a630efe872",
+      "canonical_sha": "73373a042753d89215be9cd9f4574b559037db39",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-08T11:05:19Z",
+      "status": "accepted"
     }
   ],
   "artifacts": [],
