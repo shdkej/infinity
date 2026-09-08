@@ -4,7 +4,25 @@
 
 ## Inbox
 
-<!-- 실행 대기 Intent 없음. -->
+### [content-carousel-sticker-overlay-20260908] 손글씨 훅·형광 메모형 캐러셀 1장 시안
+- status: inbox
+- target_agent: genie
+- execution_mode: multi_subagent_roles
+- permission: L0-private-render-only
+- projects: infinity
+- task_type: design
+- topics: content, marketing, instagram
+- context_pack: intents/context/content-carousel-sticker-overlay-20260908.json
+- context_documents_checked: LLM.md; README.md; schema/agent-rules.md; DOCUMENT_SEARCH_PIPELINE.md; USER_CONTEXT.md; SERVICE_REGISTRY.md; INFINITY_OPERATING_RULES.md; ARTIFACT_RULES.md; EXECUTION_LEARNING_CONTRACT.md; INTENTS.md; agent-wiki/README.md
+- context_searches: user-provided reference images IMG_9081.jpg and IMG_9080.jpg; existing Instagram carousel archive and fixed-design contract
+- notification_channel: slack
+- notification_target: channel:C0BR41W31MM
+- notification_reply_to: 1788713843.380059
+- goal: 실사진 위에 굵은 손글씨형 훅과 형광 연두 메모 블록을 겹친 4:5 비공개 캐러셀 1장 시안을 만든다.
+- constraints: 사용자 제공 이미지는 스타일 참조로만 사용; 둥근 테이블 금지; 공개 게시·업로드 금지; 기존 저채도 기록 사진 톤을 유지한다.
+- metric_question: 참조 스타일의 제목 주목도와 메모형 본문 가독성이 3초 안에 함께 읽히는가?
+- metric_signal: Red가 렌더에서 훅 위계, 메모 블록 대비, 사진-카피 충돌, 둥근 테이블 부재를 모두 통과로 판정한다.
+- metric_decision_rule: 텍스트가 사진 주제를 가리거나 메모 블록이 훅보다 강하면 재생성하며, Red PASS 전에는 결과를 완료로 보고하지 않는다.
 
 ## Active
 

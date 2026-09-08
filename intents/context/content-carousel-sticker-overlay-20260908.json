@@ -1,0 +1,32 @@
+{
+  "context_pack_version": 1,
+  "status": "ready",
+  "route": "infinity",
+  "request": "사용자가 제공한 2장의 Instagram 스토리 캡처를 참조해, 실사진 위에 굵은 손글씨형 훅과 형광 연두 메모 블록을 겹치는 기록형 Instagram 캐러셀 1장 시안을 만든다. 기존의 어두운 저채도 기록 사진 톤을 유지하되, 둥근 테이블은 사용하지 않는다. 공개 게시·업로드는 하지 않고, 실제 4:5 렌더 결과만 제공한다.",
+  "built_at": "2026-09-08T20:53:45.909843+00:00",
+  "required_documents": [
+    "/home/ubuntu/workspace/prompt-archive/LLM.md",
+    "README.md",
+    "schema/agent-rules.md",
+    "source/openclaw-system/docs/DOCUMENT_SEARCH_PIPELINE.md",
+    "source/openclaw-system/docs/USER_CONTEXT.md",
+    "source/openclaw-system/docs/SERVICE_REGISTRY.md",
+    "source/openclaw-system/docs/INFINITY_OPERATING_RULES.md",
+    "infinity/ARTIFACT_RULES.md",
+    "infinity/EXECUTION_LEARNING_CONTRACT.md",
+    "infinity/INTENTS.md",
+    "agent-wiki/README.md"
+  ],
+  "search_scopes": [
+    "agent-wiki/content/docs/",
+    "source/openclaw-system/docs/",
+    "source/openclaw-system/data/daily-reviews/",
+    "source/openclaw-system/data/daily-tracking/",
+    "source/openclaw-system/data/photo-insights/"
+  ],
+  "rules": [
+    "Read every required document before creating or executing an intent.",
+    "Search the declared scopes for task-specific evidence; do not treat a search hit as a confirmed fact without its source.",
+    "Record the resulting context pack path in the intent and re-check it before handoff."
+  ]
+}
