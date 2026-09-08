@@ -154,6 +154,15 @@
       "timestamp": "2026-09-08T11:50:03Z",
       "status": "done",
       "summary": "Independent Red PASS: actual-only evidence, canonical 3-field card, chronological manual retrieval, same-task comparison, explicit criterion citation, Stop/Discard priority, minimum collection and deletion boundaries all hold. This is a preregistered internal contract, not behavioral, WTP, or repeat-use evidence."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-5d6d88a9d5cf4cf39a3a3206d5682566",
+      "canonical_sha": "385f5346097be93cf7a3dd774a58917edbcb0e15",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-08T12:00:04Z",
+      "status": "accepted"
     }
   ],
   "next_decision": {
