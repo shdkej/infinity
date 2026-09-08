@@ -22,8 +22,8 @@
 - task_plan_template: ARTIFACT_RULES.md#대형-작업-태스크-계획
 - task_plan: artifacts/research-travel-tool-20260908/task-plan.json
 - task_plan_doc: artifacts/research-travel-tool-20260908/task-plan.md
-- context_documents_checked: LLM.md; Knowledge Lab README.md; schema/agent-rules.md; DOCUMENT_SEARCH_PIPELINE.md; USER_CONTEXT.md; SERVICE_REGISTRY.md; INFINITY_OPERATING_RULES.md; infinity/ARTIFACT_RULES.md; infinity/EXECUTION_LEARNING_CONTRACT.md; INTENTS.md; agent-wiki/README.md; WORLD_TRAVEL_PROJECT.md; agent-wiki/content/docs/mapped/Idea/Travel.mdx; agent-wiki/content/docs/diary/2026-08-05.mdx
-- context_searches: rg -n -i 'italy|italia|travel|trip|여행|기록|사진|photo|taste|취향|소비|tool|app|앱' agent-wiki/content/docs source/openclaw-system/docs source/openclaw-system/data/daily-reviews source/openclaw-system/data/daily-tracking source/openclaw-system/data/photo-insights
+- context_documents_checked: LLM.md; Knowledge Lab README.md; schema/agent-rules.md; DOCUMENT_SEARCH_PIPELINE.md; USER_CONTEXT.md; SERVICE_REGISTRY.md; INFINITY_OPERATING_RULES.md; infinity/ARTIFACT_RULES.md; infinity/EXECUTION_LEARNING_CONTRACT.md; INTENTS.md; agent-wiki/README.md; agent-wiki/content/docs/index.mdx (compiled reading-layer map·raw/current fact boundary 확인); WORLD_TRAVEL_PROJECT.md; agent-wiki/content/docs/mapped/Idea/Travel.mdx (full; 여행 전 최소 시나리오 보존→여행 후 감각 회수→검증 전 후보 보류라는 제품 적합성 경계); agent-wiki/content/docs/mapped/blog/Life_Tracking.mdx (full; 적은 입력점·맥락 복원·다음 행동 피드백이 기록 도구의 가치/제약); agent-wiki/content/docs/insights/bounded-experiment-loop.mdx (full; 7일 검증의 단일 지표·변경 축·stop/keep/discard 경계); agent-wiki/content/docs/insights/currentness-safe-travel-context.mdx (full; 위치·현재성 안전 경계); agent-wiki/content/docs/insights/updatable-taste-timeline.mdx (full; 누적 신뢰 표면과 지속 가능한 취향 기록 판단)
+- context_searches: rg -n -i 'italy|italia|travel|trip|여행|기록|사진|photo|taste|취향|소비|tool|app|앱' agent-wiki/content/docs source/openclaw-system/docs source/openclaw-system/data/daily-reviews source/openclaw-system/data/daily-tracking source/openclaw-system/data/photo-insights (declared scopes 재실행; 검색 hit은 원문/compiled 전문 확인 전 사실로 취급하지 않음); compiled-page full-read: agent-wiki/content/docs/index.mdx, mapped/Idea/Travel.mdx, mapped/blog/Life_Tracking.mdx, insights/bounded-experiment-loop.mdx, insights/currentness-safe-travel-context.mdx, insights/updatable-taste-timeline.mdx; agent-reach search procedure read
 - metric_question: 7일 안에 실제 반복 지불 행동으로 이어질 가능성이 없는 후보를 명확히 탈락시킬 수 있는가?
 - metric_signal: 독립 역할 조사 4건+Red pass, 유료 대안의 공개 가격/고객 행동 근거, 사전 정의한 7일 stop/continue 기준.
 - metric_decision_rule: 역할 위임과 Red가 모두 가능하고 유료 행동 근거가 한 후보에 수렴할 때만 Archive 검토; 위임 불가·Red 미응답·근거 부족은 Waiting.
@@ -31,7 +31,9 @@
 - notification_target: C0BR41W31MM
 - notification_reply_to: 1788854196.760349
 - notification_origin: channel:C0BR41W31MM;reply_to:1788854196.760349
-- next_action: 원격 등록 확인 후 Planner·Developer·Marketer·Operator·Red를 독립적으로 실행한다.
+- intake_remote_verification: origin/main에서 context pack·Intent·task plan의 intake commit 반영을 확인한 뒤 역할 조사를 요청한다.
+- role_handoff: 이 세션의 spawn API 부재는 전역 blocker가 아니다. main 세션이 session evidence 및 아래 역할별 하위 태스크로 Planner·Developer·Marketer·Operator·Red 실행을 조정한다.
+- next_action: main에게 동일 Context Pack과 역할별 최대 30분 조사 leaf(유료 행동 근거·반증·7일 stop/continue)를 전달하고, session evidence를 회수한다. terminal artifact/report·Archive는 만들지 않는다.
 
 <!-- 실행 대기 Intent 없음. -->
 

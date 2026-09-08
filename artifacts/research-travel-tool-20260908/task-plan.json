@@ -11,5 +11,5 @@
     {"id":"T2.2","title":"Red 독립 검증 및 수정 반영","status":"pending","estimated_minutes":30,"max_minutes":30,"evidence":"Red report pass"},
     {"id":"T3.1","title":"artifact·HTML report·terminal learning record·원격 검증","status":"pending","estimated_minutes":30,"max_minutes":30,"evidence":"repo별 SHA와 origin/main 확인"}
   ],
-  "deviations": [{"at":"2026-09-08T08:03:30Z","reason":"native spawn_agent 및 OpenClaw sessions_spawn이 노출되지 않았다.","impact":"T1.2~T3.1을 시작하지 않고 Waiting으로 유지한다. 사용자 명시 승인 없이는 single_genie_roles fallback을 사용하지 않는다.","task_ids":["T1.2","T2.1","T2.2","T3.1"]}]
+  "deviations": [{"at":"2026-09-08T08:03:30Z","reason":"이 세션에서 native spawn_agent 및 OpenClaw sessions_spawn이 노출되지 않았다.","impact":"전역 blocker로 처리하지 않는다. Intake 원장 원격 반영 뒤 main 세션에 역할별 최대 30분 조사 leaf와 session evidence 회수를 handoff한다. terminal artifact/report·Archive는 역할 결과와 Red pass 전까지 만들지 않는다.","task_ids":["T1.2","T2.1","T2.2","T3.1"]}]
 }
