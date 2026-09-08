@@ -19,8 +19,9 @@
 │  ● T2.2 Red 검증 · leaf: true · 완료 · 예상/최대 20/30분 · 의존 T2.1
 │       증거: `t2-red.md` · Red PASS
 │       시작/완료/실제: 2026-09-08T15:00:03Z / 2026-09-08T15:00:03Z / 1분
-│  ○ T2.3 remote 확인 · leaf: true · 미완료 · 예상/최대 20/30분 · 의존 T2.2
+│  ◐ T2.3 remote 확인 · leaf: true · 진행 · 예상/최대 20/30분 · 의존 T2.2
 │       증거: `HTML report와 각 origin branch 증거`
+│       시작: 2026-09-08T15:10:52Z
 │
 ├─ — 2026-09-08T14:20:03Z · 계약 복구
 │     Active lane의 `status: waiting`을 `active`로 복구하고, 모든 실행 task에 leaf·deviation 필드를 명시했다.

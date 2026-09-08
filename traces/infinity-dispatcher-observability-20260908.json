@@ -17,9 +17,11 @@
     ,{"type":"dispatcher_handoff","run_id":"dispatch-8b3c2bba0e0f486cb11af0421017a972","canonical_sha":"749e80fd8eec39a5a2a59ccb4166740d1d9a4b08","agent":"genie","session_key":"agent:genie:infinity-dispatcher","timestamp":"2026-09-08T15:00:03Z","status":"accepted"}
     ,{"type":"task_started","task_id":"T2.2","timestamp":"2026-09-08T15:00:03Z","status":"active","summary":"Red validates source-invalid behavior, metric semantics, dashboard claims, and Docker CLI verification limitation."}
     ,{"type":"red_verdict","task_id":"T2.2","timestamp":"2026-09-08T15:00:03Z","status":"pass","summary":"After installing Git in the Alpine exporter runtime and expanding fixtures, all dashboard queries are emitted, source-invalid fails safe, and read-only/no-deployment claims remain bounded."}
+    ,{"type":"dispatcher_handoff","run_id":"dispatch-f47bd700254a4f3cb327a2d7980d684e","canonical_sha":"c8fccfdb7ab6475b1c597bdcefd233cb46d4fb8e","agent":"genie","session_key":"agent:genie:infinity-dispatcher","timestamp":"2026-09-08T15:10:52Z","status":"accepted"}
+    ,{"type":"task_started","task_id":"T2.3","timestamp":"2026-09-08T15:10:52Z","status":"active","summary":"Run fixture and static configuration checks, commit/push only explicit monitoring files, and record both repository remote evidence; no deployment."}
   ],
   "next_decision": {
-    "status": "ready_for_red",
-    "value": "Activate T2.2 Red to verify metric semantics, dashboard copy, source-invalid behavior, and the no-deployment boundary."
+    "status": "active",
+    "value": "T2.3 is closing explicit tests, commits, pushes, and remote evidence for Infinity and monitoring_personal; deployment remains out of scope."
   }
 }
