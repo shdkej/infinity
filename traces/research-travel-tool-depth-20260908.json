@@ -134,6 +134,15 @@
       "timestamp": "2026-09-08T11:46:21Z",
       "status": "done",
       "summary": "Four roles fixed a 3-field card, one actual-choice comparison pair per participant, chronological manual retrieval, same-task substitute comparison, and Stop/Discard-first rules. No participant data, recruitment, payment, deployment, or external sending occurred."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-beef117a30a24b838a87a4e1d738f17d",
+      "canonical_sha": "e6a412646cff31a45fabdd34573cf6d7972a2a17",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-08T12:10:02Z",
+      "status": "accepted"
     }
   ],
   "artifacts": [],
