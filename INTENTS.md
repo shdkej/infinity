@@ -32,8 +32,8 @@
 - metric_question: 2026-09-09 08:00 KST 전까지 연구 결론의 직접 증거 공백과 다음 7일 검증의 Stop/Continue 기준을 더 명확하게 만들 수 있는가?
 - metric_signal: 독립 근거·대체 설명·사전 고정 지표·Red 검증·원격 증거를 가진 완료 leaf 수
 - metric_decision_rule: 직접 WTP·반복 사용 증거가 없으면 유료 가설을 보류하고, Stop 조건 충족 시 로컬 프로토타입 또는 외부 검증을 권하지 않는다.
-- active_task: T3.1 7일 검증의 측정 설계 심화
-- next_decision: 단일 카드 스키마·동일 과업 비교·재열람 귀속·동의·삭제의 사전 고정 측정 계약을 만든다. 외부 실행은 별도 승인 전 금지한다.
+- active_task: T3.2 Red: 측정·Stop 조건 검증
+- next_decision: T3.1의 3필드·동일 과업 비교·actual 분리·최소수집·삭제 계약이 가설 검증을 과장하지 않는지 Red 판정을 받는다.
 
 <!-- 실행 대기 Intent 없음. -->
 

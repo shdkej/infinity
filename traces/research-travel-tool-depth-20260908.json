@@ -127,12 +127,19 @@
       "timestamp": "2026-09-08T11:31:03Z",
       "status": "done",
       "summary": "Four role judgments converged on retaining the recovery-card concept only as a low-priority, unproven hypothesis. Same-task comparison and a single card schema are prerequisites; Stop/Discard overrides positive but non-diagnostic signals."
+    },
+    {
+      "type": "task_completed",
+      "task_id": "T3.1",
+      "timestamp": "2026-09-08T11:46:21Z",
+      "status": "done",
+      "summary": "Four roles fixed a 3-field card, one actual-choice comparison pair per participant, chronological manual retrieval, same-task substitute comparison, and Stop/Discard-first rules. No participant data, recruitment, payment, deployment, or external sending occurred."
     }
   ],
   "artifacts": [],
   "verifications": [],
   "next_decision": {
     "status": "in_progress",
-    "value": "T3.1에서 단일 카드 스키마와 동일 과업 비교의 측정·동의·삭제 계약을 설계한다. 별도 승인 전 외부 실행은 하지 않는다."
+    "value": "T3.2에서 T3.1의 측정 계약이 실제/가상 분리, Stop/Discard 우선, 최소수집·삭제 경계를 과장 없이 지키는지 Red 검증한다."
   }
 }
