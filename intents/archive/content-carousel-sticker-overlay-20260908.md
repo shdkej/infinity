@@ -23,6 +23,7 @@
 - notification_target: C0BR41W31MM
 - notification_reply_to: 1788713843.380059
 - notification_origin: channel:C0BR41W31MM;reply_to:1788713843.380059
+- notification_receipt: slack:1788901332.349759 (thread 1788713843.380059)
 - metric_result: Red가 실제 PNG와 25% preview에서 훅 첫 읽힘·메모 대비·텍스트-사진 충돌 없음·둥근 테이블 부재를 모두 PASS로 판정함.
 - metric_next_decision: 사용자가 실제 장면·공개 범위·카피 근거를 별도 제공하기 전까지 비공개 레이아웃 시안으로만 유지한다.
 - public_posted: false
