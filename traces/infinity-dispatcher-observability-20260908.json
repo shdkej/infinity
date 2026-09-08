@@ -19,9 +19,10 @@
     ,{"type":"red_verdict","task_id":"T2.2","timestamp":"2026-09-08T15:00:03Z","status":"pass","summary":"After installing Git in the Alpine exporter runtime and expanding fixtures, all dashboard queries are emitted, source-invalid fails safe, and read-only/no-deployment claims remain bounded."}
     ,{"type":"dispatcher_handoff","run_id":"dispatch-f47bd700254a4f3cb327a2d7980d684e","canonical_sha":"c8fccfdb7ab6475b1c597bdcefd233cb46d4fb8e","agent":"genie","session_key":"agent:genie:infinity-dispatcher","timestamp":"2026-09-08T15:10:52Z","status":"accepted"}
     ,{"type":"task_started","task_id":"T2.3","timestamp":"2026-09-08T15:10:52Z","status":"active","summary":"Run fixture and static configuration checks, commit/push only explicit monitoring files, and record both repository remote evidence; no deployment."}
+    ,{"type":"task_completed","task_id":"T2.3","timestamp":"2026-09-08T15:10:52Z","status":"done","summary":"Exporter fixtures (3), Python compile, Grafana JSON, and YAML parse passed. Explicit monitoring_personal files were committed/pushed as 584b011af3da7a0f8cbc0cedc2a815fc06afc171 with HEAD==origin/master. Docker CLI was unavailable, so compose config and container start were not run; no deployment occurred."}
   ],
   "next_decision": {
-    "status": "active",
-    "value": "T2.3 is closing explicit tests, commits, pushes, and remote evidence for Infinity and monitoring_personal; deployment remains out of scope."
+    "status": "ready_for_terminalization",
+    "value": "All planned leaves are done. A separate terminalization cycle must verify the Archive contract; no deployment occurred."
   }
 }

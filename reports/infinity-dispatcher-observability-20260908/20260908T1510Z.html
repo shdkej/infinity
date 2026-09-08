@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><title>Dispatcher 상태 — T2 마감</title></head>
+<body><main>
+<h1>Dispatcher 상태: T2 검증 마감</h1>
+<p>이 보고서는 read-only 관측 구성의 정적·fixture 검증 기록입니다. dispatcher 전체 중단, 알림 전달, 자동 복구, 사용자 영향 또는 Grafana 효과를 증명하지 않습니다.</p>
+<h2>검증 결과</h2><ul>
+<li>Exporter fixture: 정상, 실행 기록 부재, revision mismatch, malformed trace를 포함한 3개 테스트 통과.</li>
+<li>Python 문법, Grafana JSON, Compose·Prometheus YAML parse 통과.</li>
+<li>Docker CLI가 없어 <code>docker compose config</code> 및 컨테이너 기동은 실행하지 않았습니다.</li>
+</ul>
+<h2>관측 범위</h2><p>수집 실패, 최근 실행 기록 부재, 정본 revision 불일치, Active intent 갱신 지연을 서로 독립적으로 표시합니다. exporter는 로컬 파일과 Git ref만 읽으며 cron, notifier, 권한, 시크릿, 알림, 배포를 변경하지 않습니다.</p>
+<h2>원격 증거</h2><ul>
+<li>monitoring_personal: <code>584b011af3da7a0f8cbc0cedc2a815fc06afc171</code>, <code>HEAD == origin/master: true</code></li>
+<li>Infinity T2.3 closing commit의 원격 증거는 이 report·task plan·trace를 commit/push한 뒤 기록합니다.</li>
+</ul>
+</main></body></html>

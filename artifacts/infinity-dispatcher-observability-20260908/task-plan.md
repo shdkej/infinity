@@ -1,6 +1,6 @@
 # Infinity dispatcher 정지 감지 Grafana 가시화 — 실행 타임라인
 
-`마감: 2026-09-09 08:00 Asia/Seoul / 2026-09-08T23:00:00Z` · `실행: 3회차` · `태스크: 6개 중 5개 완료 · 1개 미완료`
+`마감: 2026-09-09 08:00 Asia/Seoul / 2026-09-08T23:00:00Z` · `실행: 3회차` · `태스크: 6개 중 6개 완료 · 0개 미완료`
 
 ```text
 ◐ T1 원인 확정과 최소 지표 계약 진행 · leaf: false
@@ -19,9 +19,9 @@
 │  ● T2.2 Red 검증 · leaf: true · 완료 · 예상/최대 20/30분 · 의존 T2.1
 │       증거: `t2-red.md` · Red PASS
 │       시작/완료/실제: 2026-09-08T15:00:03Z / 2026-09-08T15:00:03Z / 1분
-│  ◐ T2.3 remote 확인 · leaf: true · 진행 · 예상/최대 20/30분 · 의존 T2.2
-│       증거: `HTML report와 각 origin branch 증거`
-│       시작: 2026-09-08T15:10:52Z
+│  ● T2.3 remote 확인 · leaf: true · 완료 · 예상/최대 20/30분 · 의존 T2.2
+│       증거: `reports/infinity-dispatcher-observability-20260908/20260908T1510Z.html`, `monitoring_personal@584b011`
+│       시작/완료/실제: 2026-09-08T15:10:52Z / 2026-09-08T15:10:52Z / 1분
 │
 ├─ — 2026-09-08T14:20:03Z · 계약 복구
 │     Active lane의 `status: waiting`을 `active`로 복구하고, 모든 실행 task에 leaf·deviation 필드를 명시했다.
@@ -41,4 +41,4 @@
       프로덕션 배포·알림 발송(접수/완료 보고 제외)·권한·시크릿 변경, 기존 Infinity dirty/untracked 파일의 수정·stage를 금지한다.
 ```
 
-**지금 다음 행동:** `T2.3에서 명시 monitoring_personal 파일을 commit/push하고 양 저장소 원격 증거를 확인한다.`
+**지금 다음 행동:** `별도 terminalization cycle에서 Archive 계약을 검증한다.`
