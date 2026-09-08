@@ -1,0 +1,25 @@
+# 반복 유료 행동이 있는 여행·기록·취향 마이크로도구 탐색
+
+- status: archived
+- archived_at: 2026-09-08T10:10:05Z
+- target_agent: genie
+- permission: L0-research-and-strategy-only
+- execution_mode: multi_subagent_roles
+- projects: infinity, knowledge-lab, agent-wiki, research-bank
+- task_type: research
+- topics: product, content, analytics
+- goal: 반복 유료 행동을 지닌 여행·기록·취향 microtool의 반증 가능한 상위 가설을 결정한다.
+- result: 여행 회수 카드를 상위 가설로 선택했다. 인접 제품 가격은 범주 신호로만 사용하며 직접 WTP·반복 사용·가격 수용성은 미입증이다.
+- artifact: artifacts/research-travel-tool-20260908/research.md; artifacts/research-travel-tool-20260908/t1-role-evidence.md; artifacts/research-travel-tool-20260908/t2-synthesis.md; artifacts/research-travel-tool-20260908/t2-close.md; artifacts/research-travel-tool-20260908/t3-close.md
+- report: reports/research-travel-tool-20260908/20260908T0930Z.html
+- red_status: pass
+- red_report: artifacts/research-travel-tool-20260908/red-final.md
+- remote_verified: pass
+- remote_commit_before_archive: 0f0914478740102ad2496e96116a773dfbdd1f3e
+- knowledge_status: used
+- knowledge_decision: retain-as-operating-principle
+- knowledge_targets: artifacts/research-travel-tool-20260908/research.md; artifacts/research-travel-tool-20260908/execution-learning.md; reports/research-travel-tool-20260908/20260908T0930Z.html
+- knowledge_reflection: 인접 가격을 직접 WTP로 승격하지 않고, Stop 조건이 Continue보다 우선하는 사전 고정 반증 계약을 유지한다.
+- knowledge_commit: no-promotion-needed
+- boundary_observed: 모집·외부 발송·결제·권한·배포·시크릿 변경을 하지 않았다. 정확 위치·EXIF·원본 사진·예약 정보·동행인 정보·검색/이동 이력·외부 API를 수집하지 않았다.
+- next_action: 별도 승인 intent가 있을 때만 참여자 동의·모집 경계와 로컬 프로토타입을 검토한다.

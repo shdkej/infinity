@@ -122,6 +122,21 @@
       "timestamp": "2026-09-08T10:02:00Z",
       "status": "done",
       "summary": "C3 assembled committed artifact, HTML, Red, remote, and knowledge-decision evidence for a later Archive finalization; no lane move or external action was performed."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-8261623ed3cd4bc6a6b32e5096beb7a8",
+      "canonical_sha": "0f0914478740102ad2496e96116a773dfbdd1f3e",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-08T10:10:05Z",
+      "status": "accepted"
+    },
+    {
+      "type": "terminalization",
+      "timestamp": "2026-09-08T10:10:05Z",
+      "status": "archived",
+      "summary": "Archive contract passed: all task leaves done, required HTML report present, Red PASS, remote proof and knowledge decision recorded. Canonical Active block moved to Archive; no external execution performed."
     }
   ]
 }

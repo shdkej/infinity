@@ -8,50 +8,7 @@
 
 ## Active
 
-### [research-travel-tool-20260908] 반복 유료 행동이 있는 여행·기록·취향 마이크로도구 탐색
-- status: active
-- target_agent: genie
-- priority: urgent
-- permission: L0-research-and-strategy-only
-- requested: 2026-09-08T08:03:30Z
-- deadline: 2026-09-09T06:00:00Z / 2026-09-09 08:00 Europe/Rome
-- deadline_local: 2026-09-09 08:00 Europe/Rome (CEST)
-- execution_mode: multi_subagent_roles
-- projects: infinity,knowledge-lab,agent-wiki,research-bank
-- task_type: research
-- topics: product,content,analytics
-- goal: 반복적으로 지불되는 작은 여행·기록·취향 기능을 탐색·반증·우선순위화하고, 검증 가능한 유료 행동 근거가 있는 상위 1개와 7일 검증 계획을 만든다.
-- success_criteria: Planner·Developer·Marketer·Operator 실제 독립 조사와 Red pass를 거친 한국어 artifact·HTML report에 상위 1개, 대안·반증·제외 후보, 검증 가능한 유료 행동 근거, 7일 계획이 담긴다.
-- boundary: L0 research/strategy only. 공개 발송·결제·권한·배포·시크릿 변경을 하지 않는다.
-- context_pack: intents/context/research-travel-tool-20260908.json
-- task_plan: artifacts/research-travel-tool-20260908/task-plan.json
-- task_plan_doc: artifacts/research-travel-tool-20260908/task-plan.md
-- task_plan_template: ARTIFACT_RULES.md#대형-작업-태스크-계획
-- trace: traces/research-travel-tool-20260908.json
-- context_documents_checked: LLM.md; Knowledge Lab README.md; schema/agent-rules.md; DOCUMENT_SEARCH_PIPELINE.md; USER_CONTEXT.md; SERVICE_REGISTRY.md; INFINITY_OPERATING_RULES.md; infinity/ARTIFACT_RULES.md; infinity/EXECUTION_LEARNING_CONTRACT.md; INTENTS.md; agent-wiki/README.md; agent-wiki/content/docs/index.mdx; WORLD_TRAVEL_PROJECT.md; mapped/Idea/Travel.mdx; mapped/blog/Life_Tracking.mdx; bounded-experiment-loop.mdx; currentness-safe-travel-context.mdx; updatable-taste-timeline.mdx
-- context_searches: declared Infinity scopes 재실행; compiled page full-read; agent-reach search procedure read
-- metric_question: 7일 안에 실제 반복 지불 행동으로 이어질 가능성이 없는 후보를 명확히 탈락시킬 수 있는가?
-- metric_signal: 독립 역할 조사 4건+Red pass, 유료 대안의 공개 가격/고객 행동 근거, 사전 정의한 7일 stop/continue 기준.
-- metric_decision_rule: 역할 위임과 Red가 모두 가능하고 유료 행동 근거가 한 후보에 수렴할 때만 Archive 검토; 위임 불가·Red 미응답·근거 부족은 Waiting.
-- notification_channel: slack
-- notification_target: C0BR41W31MM
-- notification_reply_to: 1788854196.760349
-- notification_origin: channel:C0BR41W31MM;reply_to:1788854196.760349
-- resumed_at: 2026-09-08T08:19:38Z
-- restart_authority: dispatcher-9bbc58c3e7dc4159bb6fdc953ac68e77
-- execution_attempt: 3
-- artifact: artifacts/research-travel-tool-20260908/research.md; artifacts/research-travel-tool-20260908/t1-role-evidence.md; artifacts/research-travel-tool-20260908/t2-synthesis.md; artifacts/research-travel-tool-20260908/t2-close.md; artifacts/research-travel-tool-20260908/t3-close.md
-- report: reports/research-travel-tool-20260908/20260908T0930Z.html
-- red_status: pass
-- red_report: artifacts/research-travel-tool-20260908/red-final.md
-- remote_verified: pass
-- remote_commit: 358dc577ac3b771b35db6aedf2ce1a8c8900a4b4
-- knowledge_status: used
-- knowledge_decision: retain-as-operating-principle
-- knowledge_targets: artifacts/research-travel-tool-20260908/research.md; artifacts/research-travel-tool-20260908/execution-learning.md; reports/research-travel-tool-20260908/20260908T0930Z.html
-- knowledge_reflection: 인접 서비스의 가격은 시장·범주 신호로 제한하고, 개별 microtool의 직접 WTP·반복 사용·가격 수용성은 동의된 관찰 전까지 미입증으로 유지한다. 7일 실험은 Stop 조건을 우선하는 반증 계약으로 설계한다.
-- knowledge_commit: no-promotion-needed
-- next_action: 별도 finalization cycle에서 Archive 원장·lane 이동·원격 확인을 수행한다.
+<!-- 실행 중 Intent 없음. -->
 
 <!-- 실행 대기 Intent 없음. -->
 
@@ -60,6 +17,8 @@
 <!-- 실행 대기 Intent 없음. -->
 
 ## Archive
+
+<!-- research-travel-tool-20260908 archived 2026-09-08T10:10Z → intents/archive/research-travel-tool-20260908.md [projects: infinity,knowledge-lab,agent-wiki,research-bank; type: research; topics: product,content,analytics] (여행 회수 카드 가설·대안/제외·7일 Stop 우선 반증 계약·Red PASS; 직접 WTP는 미입증) -->
 
 <!-- slack-callback-next-action-20260907 archived 2026-09-07T20:50Z → intents/archive/slack-callback-next-action-20260907.md [projects: infinity,openclaw; type: implementation; topics: automation,workflow,security] (Slack callback의 registry·검증·멱등 dispatch·동일 thread receipt 및 Red PASS) -->
 
