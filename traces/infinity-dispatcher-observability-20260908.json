@@ -6,6 +6,8 @@
     {"type":"dispatcher_handoff","run_id":"dispatch-6340bd554af74d6ba9b0976f27ee18b9","canonical_sha":"4a0c87c68bb85a0ea2c5da0d30927b247eeb5b88","agent":"genie","session_key":"agent:genie:infinity-dispatcher","timestamp":"2026-09-08T14:20:03Z","status":"accepted"},
     {"type":"role_session","at":"2026-09-08T14:24:14Z","status":"completed","summary":"Planner and Marketer retry reviews were recovered; their scope findings were consolidated with the existing Developer and Operator evidence."},
     {"type":"task_completed","task_id":"T1.1","timestamp":"2026-09-08T14:24:14Z","status":"done","summary":"Root cause is limited to post-handoff notifier observation: the reused pre-handoff detached VERIFY_ROOT cannot see a newly pushed Waiting transition. Cron-wide failure, alert delivery success, and Grafana effect remain unproven."}
+    ,{"type":"dispatcher_handoff","run_id":"dispatch-d16abfc2ace1405b876900ecfbe0c06e","canonical_sha":"8399c989575e421522b2d3491ad00f7024d4ebb4","agent":"genie","session_key":"agent:genie:infinity-dispatcher","timestamp":"2026-09-08T14:30:03Z","status":"accepted"}
+    ,{"type":"task_started","task_id":"T1.2","timestamp":"2026-09-08T14:30:03Z","status":"active","summary":"Red validates root-cause wording and read-only observability scope."}
   ],
   "next_decision": {
     "status": "ready_for_red",
