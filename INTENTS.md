@@ -4,13 +4,18 @@
 
 ## Inbox
 
+<!-- 실행 대기 Intent 없음. -->
+
+## Active
+
 ### [research-travel-tool-20260908] 반복 유료 행동이 있는 여행·기록·취향 마이크로도구 탐색
-- status: inbox
+- status: active
 - target_agent: genie
 - priority: urgent
 - permission: L0-research-and-strategy-only
 - requested: 2026-09-08T08:03:30Z
 - deadline: 2026-09-09T06:00:00Z / 2026-09-09 08:00 Europe/Rome
+- deadline_local: 2026-09-09 08:00 Europe/Rome (CEST)
 - execution_mode: multi_subagent_roles
 - projects: infinity,knowledge-lab,agent-wiki,research-bank
 - task_type: research
@@ -19,11 +24,11 @@
 - success_criteria: Planner·Developer·Marketer·Operator 실제 독립 조사와 Red pass를 거친 한국어 artifact·HTML report에 상위 1개, 대안·반증·제외 후보, 검증 가능한 유료 행동 근거, 7일 계획이 담긴다.
 - boundary: L0 research/strategy only. 공개 발송·결제·권한·배포·시크릿 변경을 하지 않는다.
 - context_pack: intents/context/research-travel-tool-20260908.json
-- task_plan_template: ARTIFACT_RULES.md#대형-작업-태스크-계획
 - task_plan: artifacts/research-travel-tool-20260908/task-plan.json
 - task_plan_doc: artifacts/research-travel-tool-20260908/task-plan.md
-- context_documents_checked: LLM.md; Knowledge Lab README.md; schema/agent-rules.md; DOCUMENT_SEARCH_PIPELINE.md; USER_CONTEXT.md; SERVICE_REGISTRY.md; INFINITY_OPERATING_RULES.md; infinity/ARTIFACT_RULES.md; infinity/EXECUTION_LEARNING_CONTRACT.md; INTENTS.md; agent-wiki/README.md; agent-wiki/content/docs/index.mdx (compiled reading-layer map·raw/current fact boundary 확인); WORLD_TRAVEL_PROJECT.md; agent-wiki/content/docs/mapped/Idea/Travel.mdx (full; 여행 전 최소 시나리오 보존→여행 후 감각 회수→검증 전 후보 보류라는 제품 적합성 경계); agent-wiki/content/docs/mapped/blog/Life_Tracking.mdx (full; 적은 입력점·맥락 복원·다음 행동 피드백이 기록 도구의 가치/제약); agent-wiki/content/docs/insights/bounded-experiment-loop.mdx (full; 7일 검증의 단일 지표·변경 축·stop/keep/discard 경계); agent-wiki/content/docs/insights/currentness-safe-travel-context.mdx (full; 위치·현재성 안전 경계); agent-wiki/content/docs/insights/updatable-taste-timeline.mdx (full; 누적 신뢰 표면과 지속 가능한 취향 기록 판단)
-- context_searches: rg -n -i 'italy|italia|travel|trip|여행|기록|사진|photo|taste|취향|소비|tool|app|앱' agent-wiki/content/docs source/openclaw-system/docs source/openclaw-system/data/daily-reviews source/openclaw-system/data/daily-tracking source/openclaw-system/data/photo-insights (declared scopes 재실행; 검색 hit은 원문/compiled 전문 확인 전 사실로 취급하지 않음); compiled-page full-read: agent-wiki/content/docs/index.mdx, mapped/Idea/Travel.mdx, mapped/blog/Life_Tracking.mdx, insights/bounded-experiment-loop.mdx, insights/currentness-safe-travel-context.mdx, insights/updatable-taste-timeline.mdx; agent-reach search procedure read
+- trace: traces/research-travel-tool-20260908.json
+- context_documents_checked: LLM.md; Knowledge Lab README.md; schema/agent-rules.md; DOCUMENT_SEARCH_PIPELINE.md; USER_CONTEXT.md; SERVICE_REGISTRY.md; INFINITY_OPERATING_RULES.md; infinity/ARTIFACT_RULES.md; infinity/EXECUTION_LEARNING_CONTRACT.md; INTENTS.md; agent-wiki/README.md; agent-wiki/content/docs/index.mdx; WORLD_TRAVEL_PROJECT.md; mapped/Idea/Travel.mdx; mapped/blog/Life_Tracking.mdx; bounded-experiment-loop.mdx; currentness-safe-travel-context.mdx; updatable-taste-timeline.mdx
+- context_searches: declared Infinity scopes 재실행; compiled page full-read; agent-reach search procedure read
 - metric_question: 7일 안에 실제 반복 지불 행동으로 이어질 가능성이 없는 후보를 명확히 탈락시킬 수 있는가?
 - metric_signal: 독립 역할 조사 4건+Red pass, 유료 대안의 공개 가격/고객 행동 근거, 사전 정의한 7일 stop/continue 기준.
 - metric_decision_rule: 역할 위임과 Red가 모두 가능하고 유료 행동 근거가 한 후보에 수렴할 때만 Archive 검토; 위임 불가·Red 미응답·근거 부족은 Waiting.
@@ -31,13 +36,10 @@
 - notification_target: C0BR41W31MM
 - notification_reply_to: 1788854196.760349
 - notification_origin: channel:C0BR41W31MM;reply_to:1788854196.760349
-- intake_remote_verification: origin/main에서 context pack·Intent·task plan의 intake commit 반영을 확인한 뒤 역할 조사를 요청한다.
-- role_handoff: 이 세션의 spawn API 부재는 전역 blocker가 아니다. main 세션이 session evidence 및 아래 역할별 하위 태스크로 Planner·Developer·Marketer·Operator·Red 실행을 조정한다.
-- next_action: main에게 동일 Context Pack과 역할별 최대 30분 조사 leaf(유료 행동 근거·반증·7일 stop/continue)를 전달하고, session evidence를 회수한다. terminal artifact/report·Archive는 만들지 않는다.
-
-<!-- 실행 대기 Intent 없음. -->
-
-## Active
+- resumed_at: 2026-09-08T08:19:38Z
+- restart_authority: dispatcher-9bbc58c3e7dc4159bb6fdc953ac68e77
+- execution_attempt: 3
+- next_action: T1.2 역할별 최대 30분 독립 조사(유료 행동 근거·반증·7일 stop/continue)를 실행하고 session evidence를 회수한다.
 
 <!-- 실행 대기 Intent 없음. -->
 
