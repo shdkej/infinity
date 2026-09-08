@@ -33,6 +33,15 @@
       "status": "accepted"
     },
     {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-1fa678a98dca4ac786e69b7d6c3d1480",
+      "canonical_sha": "95a85aecfdfc155a9862744925e1bab0e86826f7",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-08T11:31:03Z",
+      "status": "accepted"
+    },
+    {
       "type": "task_completed",
       "task_id": "T1.1",
       "timestamp": "2026-09-08T11:03:00Z",
