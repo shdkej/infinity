@@ -263,6 +263,15 @@
       "timestamp": "2026-09-08T12:50:59Z",
       "status": "done",
       "summary": "At 2026-09-08T12:50:52Z, 609 minutes remained to the 23:00Z deadline. T6.1 has a 30-minute maximum, leaving a 579-minute reserve. The next action is T6.1 only; Archive remains a separate terminalization decision."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-328b77d2c7594e50b4e13b14b15a2689",
+      "canonical_sha": "fc40243624860695fa77688aa85d768a48f084ae",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-08T12:53:13Z",
+      "status": "accepted"
     }
   ],
   "next_decision": {
