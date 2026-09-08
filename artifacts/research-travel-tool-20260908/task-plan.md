@@ -25,9 +25,9 @@
 │           시작/완료/실제: 2026-09-08T09:22:29Z / 2026-09-08T09:23:21Z / 1분
 │
 ○ T3  내부 리서치 산출물·원격 검증                                     대기
-│  ○ T3.1  한국어 artifact·HTML report·terminal learning record       대기 · 예상/최대 20/30분 · 의존 T2.3
+│  ◐ T3.1  한국어 artifact·HTML report·terminal learning record       진행 · 예상/최대 20/30분 · 의존 T2.3
 │           증거: `research.md`; `reports/research-travel-tool-20260908/{timestamp}.html`
-│           시작/완료/실제: 미시작 / 미시작 / 미기록
+│           시작/완료/실제: 2026-09-08T09:30:04Z / 미시작 / 진행 중
 │  ○ T3.2  Red: 최종 요청 일치·근거 표현                               대기 · 예상/최대 10/30분 · 의존 T3.1
 │           증거: `red-final.md` · Red PASS/FAIL
 │           시작/완료/실제: 미시작 / 미시작 / 미기록
