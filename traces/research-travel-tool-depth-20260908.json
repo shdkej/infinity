@@ -147,6 +147,13 @@
       "session_key": "agent:genie:infinity-dispatcher",
       "timestamp": "2026-09-08T11:50:03Z",
       "status": "accepted"
+    },
+    {
+      "type": "task_completed",
+      "task_id": "T3.2",
+      "timestamp": "2026-09-08T11:50:03Z",
+      "status": "done",
+      "summary": "Independent Red PASS: actual-only evidence, canonical 3-field card, chronological manual retrieval, same-task comparison, explicit criterion citation, Stop/Discard priority, minimum collection and deletion boundaries all hold. This is a preregistered internal contract, not behavioral, WTP, or repeat-use evidence."
     }
   ],
   "next_decision": {
