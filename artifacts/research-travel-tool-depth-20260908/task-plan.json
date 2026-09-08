@@ -6,7 +6,7 @@
   "execution_mode": "multi_subagent_roles",
   "tasks": [
     {"id":"T1.1","title":"기존 결론의 증거 공백 목록화","status":"done","started_at":"2026-09-08T10:58:43Z","completed_at":"2026-09-08T11:03:00Z","actual_minutes":4,"estimated_minutes":25,"max_minutes":30,"evidence":"artifacts/research-travel-tool-depth-20260908/evidence-gaps.md; Planner role_depth_planner; Developer role_depth_developer; Marketer role_depth_marketer; Operator genie"},
-    {"id":"T1.2","title":"Red: 증거 공백·과장 표현 검증","status":"active","depends_on":["T1.1"],"started_at":"2026-09-08T11:05:19Z","estimated_minutes":15,"max_minutes":30,"evidence":"artifacts/research-travel-tool-depth-20260908/t1-red.md"},
+    {"id":"T1.2","title":"Red: 증거 공백·과장 표현 검증","status":"done","depends_on":["T1.1"],"started_at":"2026-09-08T11:05:19Z","completed_at":"2026-09-08T11:07:12Z","actual_minutes":2,"estimated_minutes":15,"max_minutes":30,"evidence":"artifacts/research-travel-tool-depth-20260908/t1-red.md; Red PASS after required decision-impact clarification"},
     {"id":"T1.3","title":"C1: 다음 반증 질문 고정","status":"pending","depends_on":["T1.2"],"estimated_minutes":10,"max_minutes":30,"evidence":"artifacts/research-travel-tool-depth-20260908/t1-close.md"},
     {"id":"T2.1","title":"상위 가설의 대체 설명 조사","status":"pending","depends_on":["T1.3"],"estimated_minutes":25,"max_minutes":30,"evidence":"artifacts/research-travel-tool-depth-20260908/alternative-explanations.md"},
     {"id":"T2.2","title":"Red: 대체 설명 반증성 검토","status":"pending","depends_on":["T2.1"],"estimated_minutes":15,"max_minutes":30,"evidence":"artifacts/research-travel-tool-depth-20260908/t2-red.md"},
@@ -23,6 +23,7 @@
     {"id":"T6.1","title":"마감 전 최종 증거·HTML 보고·원격 검증","status":"pending","depends_on":["T5.3"],"estimated_minutes":30,"max_minutes":30,"evidence":"reports/research-travel-tool-depth-20260908/{timestamp}-terminal.html"}
   ],
   "deviations": [
-    {"at":"2026-09-08T11:05:19Z","reason":"T1.1 완료 후에도 사람이 읽는 집계가 0/16으로 남고 append-only 계획 변경 분기가 없어서 dispatcher 형식 계약이 깨졌다.","impact":"완료 집계와 현재 leaf를 정정하고 T1.2 Red 검증을 활성화했다. 조사 범위·의존성·보호 경계는 바꾸지 않았다.","task_ids":["T1.1","T1.2"]}
+    {"at":"2026-09-08T11:05:19Z","reason":"T1.1 완료 후에도 사람이 읽는 집계가 0/16으로 남고 append-only 계획 변경 분기가 없어서 dispatcher 형식 계약이 깨졌다.","impact":"완료 집계와 현재 leaf를 정정하고 T1.2 Red 검증을 활성화했다. 조사 범위·의존성·보호 경계는 바꾸지 않았다.","task_ids":["T1.1","T1.2"]},
+    {"at":"2026-09-08T11:07:12Z","reason":"초기 Red가 실패 신호의 판정 영향을 명확히 요구했다.","impact":"공백 표에 Continue 제외·보류·Stop/Discard 규칙을 추가했고 재검증 PASS를 받았다. 시장 주장이나 외부 실행 범위는 추가하지 않았다.","task_ids":["T1.2"]}
   ]
 }
