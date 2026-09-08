@@ -10,9 +10,10 @@
     ,{"type":"task_started","task_id":"T1.2","timestamp":"2026-09-08T14:30:03Z","status":"active","summary":"Red validates root-cause wording and read-only observability scope."}
     ,{"type":"red_verdict","task_id":"T1.2","timestamp":"2026-09-08T14:30:03Z","status":"pass","summary":"Root cause is confined to post-handoff notifier observation. Read-only scope and four next-check classifications are accurate; cron-wide failure, alert success, Grafana effect, automation, deployment, and credentials changes are not claimed."}
     ,{"type":"dispatcher_handoff","run_id":"dispatch-d3aa9a724ea842d083225bad7502ec75","canonical_sha":"95c509116db213f5ae10e1e5a169649c342cd6ae","agent":"genie","session_key":"agent:genie:infinity-dispatcher","timestamp":"2026-09-08T14:40:02Z","status":"accepted"}
+    ,{"type":"task_completed","task_id":"T1.3","timestamp":"2026-09-08T14:40:02Z","status":"done","summary":"Read-only metric contract fixes scrape, source validity, recent run, revision mismatch, and active freshness semantics, fail-safe unknown handling, and four independent next-check categories. No Grafana, cron, deployment, notifier, credential, or alert change was made."}
   ],
   "next_decision": {
-    "status": "ready_for_red",
-    "value": "Activate T1.2 Red to verify root-cause wording and the L0 read-only observability boundary."
+    "status": "ready_for_activation",
+    "value": "Activate T2.1 only after the metric contract; implement the named read-only exporter, scrape fixture, and dashboard artifact."
   }
 }
