@@ -8,8 +8,10 @@
 
 ## Active
 
+## Waiting
+
 ### [infinity-dispatcher-observability-20260908] Infinity dispatcher 정지 감지 Grafana 가시화
-- status: active
+- status: waiting
 - target_agent: genie
 - execution_mode: multi_subagent_roles
 - permission: L0-local-implementation-only
@@ -33,10 +35,10 @@
 - metric_question: dispatcher가 실행을 멈추거나 Active intent가 신선도 기준을 넘길 때, 원인을 원격 정본·최근 실행 기록·지표에서 구분 가능한가?
 - metric_signal: scrape 성공, dispatcher 최근 실행 시각, canonical/local revision 불일치, Active intent 신선도·정지 상태의 조합
 - metric_decision_rule: scrape 실패·dispatcher 무실행·stale Active 중 하나면 dashboard에서 원인 분류와 다음 점검 위치를 제공한다. 자동 알림·상태 변경·배포는 수행하지 않는다.
-- active_task: none — T2.2 Red PASS; T2.3 activation 대기
-- next_decision: T2.3에서 명시 monitoring_personal 파일을 commit/push하고 양 저장소 원격 증거를 확인한다.
+- active_task: none — 모든 leaf 완료; Archive 계약 지식 판정 보완 대기
+- waiting_reason: final report 또는 Archive ledger에 knowledge_status, knowledge_decision, knowledge_targets, knowledge_reflection, knowledge_commit가 없다.
+- next_decision: 지식 판정 5개 필드를 확정하고, promote이면 Agent Wiki 갱신·commit·원격 증거까지 닫은 뒤 별도 terminalization cycle에서 Archive 계약을 재검토한다.
 
-## Waiting
 
 ### [research-travel-tool-depth-20260908] 여행·기록·취향 도구 심화 리서치와 조기완료 재계획
 - status: waiting

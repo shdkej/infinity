@@ -20,9 +20,11 @@
     ,{"type":"dispatcher_handoff","run_id":"dispatch-f47bd700254a4f3cb327a2d7980d684e","canonical_sha":"c8fccfdb7ab6475b1c597bdcefd233cb46d4fb8e","agent":"genie","session_key":"agent:genie:infinity-dispatcher","timestamp":"2026-09-08T15:10:52Z","status":"accepted"}
     ,{"type":"task_started","task_id":"T2.3","timestamp":"2026-09-08T15:10:52Z","status":"active","summary":"Run fixture and static configuration checks, commit/push only explicit monitoring files, and record both repository remote evidence; no deployment."}
     ,{"type":"task_completed","task_id":"T2.3","timestamp":"2026-09-08T15:10:52Z","status":"done","summary":"Exporter fixtures (3), Python compile, Grafana JSON, and YAML parse passed. Explicit monitoring_personal files were committed/pushed as 584b011af3da7a0f8cbc0cedc2a815fc06afc171 with HEAD==origin/master. Docker CLI was unavailable, so compose config and container start were not run; no deployment occurred."}
+    ,{"type":"dispatcher_handoff","run_id":"dispatch-aaab4e29451940f58638f8404bcbf2e4","canonical_sha":"7fb30be58a3cbaf670b51c85f09742e25bdb0671","agent":"genie","session_key":"agent:genie:infinity-dispatcher","timestamp":"2026-09-08T15:20:03Z","status":"accepted"}
+    ,{"type":"terminalization_blocked","timestamp":"2026-09-08T15:20:03Z","status":"waiting","summary":"Archive contract is missing knowledge_status, knowledge_decision, knowledge_targets, knowledge_reflection, and knowledge_commit in a final report or Archive ledger. No Archive move was made."}
   ],
   "next_decision": {
-    "status": "ready_for_terminalization",
-    "value": "All planned leaves are done. A separate terminalization cycle must verify the Archive contract; no deployment occurred."
+    "status": "waiting",
+    "value": "Complete the five required knowledge-decision fields, including Agent Wiki remote proof if promotion is selected, before a new terminalization cycle."
   }
 }
