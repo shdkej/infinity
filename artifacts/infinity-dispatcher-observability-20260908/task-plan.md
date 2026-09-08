@@ -1,6 +1,6 @@
 # Infinity dispatcher 정지 감지 Grafana 가시화 — 실행 타임라인
 
-`마감: 2026-09-09 08:00 Asia/Seoul / 2026-09-08T23:00:00Z` · `실행: 3회차` · `태스크: 6개 중 4개 완료 · 2개 미완료`
+`마감: 2026-09-09 08:00 Asia/Seoul / 2026-09-08T23:00:00Z` · `실행: 3회차` · `태스크: 6개 중 5개 완료 · 1개 미완료`
 
 ```text
 ◐ T1 원인 확정과 최소 지표 계약 진행 · leaf: false
@@ -16,8 +16,9 @@
 │  ● T2.1 구현 · leaf: true · 완료 · 예상/최대 30/30분 · 의존 T1.3
 │       증거: `t2-implementation.md` · `monitoring_personal/dispatcher-exporter`, `prometheus.yml`, dashboard JSON
 │       시작/완료/실제: 2026-09-08T14:50:03Z / 2026-09-08T14:50:03Z / 1분
-│  ◐ T2.2 Red 검증 · leaf: true · 진행 · 예상/최대 20/30분 · 의존 T2.1
-│       증거: `t2-red.md` · Red 대기
+│  ● T2.2 Red 검증 · leaf: true · 완료 · 예상/최대 20/30분 · 의존 T2.1
+│       증거: `t2-red.md` · Red PASS
+│       시작/완료/실제: 2026-09-08T15:00:03Z / 2026-09-08T15:00:03Z / 1분
 │  ○ T2.3 remote 확인 · leaf: true · 미완료 · 예상/최대 20/30분 · 의존 T2.2
 │       증거: `HTML report와 각 origin branch 증거`
 │
@@ -32,9 +33,11 @@
 │     Docker CLI가 없어 compose config는 실행하지 못했다. Python fixture·문법·JSON/YAML parse로 검증했고, 실제 기동·배포는 하지 않았다.
 ├─ — 2026-09-08T15:00:03Z · T2.2 활성화
 │     T2.1 완료 증거 뒤 Red가 source-invalid 처리·metric 의미·dashboard 표현·Docker CLI 미검증 경계를 검토한다.
+├─ — 2026-09-08T15:00:03Z · Red 필수 수정 반영
+│     Alpine runtime에 Git을 추가하고, 정상·무실행·SHA mismatch·malformed trace fixture를 보강한 뒤 Red PASS를 받았다.
 │
 └─ — 보호 경계
       프로덕션 배포·알림 발송(접수/완료 보고 제외)·권한·시크릿 변경, 기존 Infinity dirty/untracked 파일의 수정·stage를 금지한다.
 ```
 
-**지금 다음 행동:** `T2.2에서 metrics·dashboard 표현과 보호 경계를 Red 검증한다.`
+**지금 다음 행동:** `T2.3에서 명시 monitoring_personal 파일을 commit/push하고 양 저장소 원격 증거를 확인한다.`

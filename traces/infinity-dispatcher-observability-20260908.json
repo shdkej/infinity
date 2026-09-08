@@ -16,6 +16,7 @@
     ,{"type":"task_completed","task_id":"T2.1","timestamp":"2026-09-08T14:50:03Z","status":"done","summary":"Local synthetic fixture test, Python compile, Grafana JSON parse, and Compose/Prometheus YAML parse pass. Docker CLI is unavailable, so compose config and container start were not run; no deployment occurred."}
     ,{"type":"dispatcher_handoff","run_id":"dispatch-8b3c2bba0e0f486cb11af0421017a972","canonical_sha":"749e80fd8eec39a5a2a59ccb4166740d1d9a4b08","agent":"genie","session_key":"agent:genie:infinity-dispatcher","timestamp":"2026-09-08T15:00:03Z","status":"accepted"}
     ,{"type":"task_started","task_id":"T2.2","timestamp":"2026-09-08T15:00:03Z","status":"active","summary":"Red validates source-invalid behavior, metric semantics, dashboard claims, and Docker CLI verification limitation."}
+    ,{"type":"red_verdict","task_id":"T2.2","timestamp":"2026-09-08T15:00:03Z","status":"pass","summary":"After installing Git in the Alpine exporter runtime and expanding fixtures, all dashboard queries are emitted, source-invalid fails safe, and read-only/no-deployment claims remain bounded."}
   ],
   "next_decision": {
     "status": "ready_for_red",

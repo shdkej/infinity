@@ -33,8 +33,8 @@
 - metric_question: dispatcher가 실행을 멈추거나 Active intent가 신선도 기준을 넘길 때, 원인을 원격 정본·최근 실행 기록·지표에서 구분 가능한가?
 - metric_signal: scrape 성공, dispatcher 최근 실행 시각, canonical/local revision 불일치, Active intent 신선도·정지 상태의 조합
 - metric_decision_rule: scrape 실패·dispatcher 무실행·stale Active 중 하나면 dashboard에서 원인 분류와 다음 점검 위치를 제공한다. 자동 알림·상태 변경·배포는 수행하지 않는다.
-- active_task: T2.2 — Red: metrics·dashboard 검증
-- next_decision: Red 판정 후 필요한 수정만 반영한다.
+- active_task: none — T2.2 Red PASS; T2.3 activation 대기
+- next_decision: T2.3에서 명시 monitoring_personal 파일을 commit/push하고 양 저장소 원격 증거를 확인한다.
 
 ## Waiting
 
