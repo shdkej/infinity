@@ -70,6 +70,15 @@
       "timestamp": "2026-09-08T11:12:00Z",
       "status": "done",
       "summary": "Fixed five priority falsification questions and their Continue-exclusion, hold, and Stop/Discard consequences; no user behavior or WTP claim was added."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-ec06b7d27ba24b10bbfb9b2565f81157",
+      "canonical_sha": "a459477b44447ace9381bc3cada404e7b95e5656",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-08T11:12:57Z",
+      "status": "accepted"
     }
   ],
   "artifacts": [],
