@@ -106,6 +106,15 @@
       "timestamp": "2026-09-08T09:42:00Z",
       "status": "pass",
       "summary": "Final request alignment and evidence-expression pass after actual T3.1 remote-verification metadata was recorded."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-3b89f5d4e57f4312afa278d42879ab4b",
+      "canonical_sha": "358dc577ac3b771b35db6aedf2ce1a8c8900a4b4",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-08T10:00:05Z",
+      "status": "accepted"
     }
   ]
 }
