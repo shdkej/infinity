@@ -1,7 +1,0 @@
-<!doctype html><html lang="ko"><body><main>
-<h1>Slack 버튼 선택을 원 Intent 다음 행동으로 연결</h1>
-<section class="axis ax1"><h2>축 1 · 문제</h2><p>Slack callback은 수신 규칙만 있었고, 원 질문·사용자·thread·Intent 다음 action을 durable하게 닫지 못했습니다.</p></section>
-<section class="axis ax2"><h2>축 2 · 결과</h2><p>outbound registry와 inbound 복합 검증, atomic first-wins dispatch, 동일 thread receipt를 구현하고 3회 연속 검증했습니다.</p></section>
-<details open><summary>구현과 검증</summary><ul><li><code>scripts/process_slack_callbacks.py</code>: registry 등록, signature_verified·복합 키 검증, safe allowlist, approval boundary, durable state 전이.</li><li><code>scripts/test_process_slack_callbacks.py</code>: 3회 연속 callback, replay, wrong-thread, protected action, dispatch/outbox crash recovery.</li><li>Red PASS: claimed → dispatched → receipt_written → reported 각 단계 atomic 저장; 불확실 상태는 Waiting으로 전환하며 자동 재실행하지 않습니다.</li></ul></details>
-<details><summary>실행 메타</summary><p>Context Pack: intents/context/slack-callback-next-action-20260907.json<br>원 Slack thread: C0BR41W31MM / 1788813179.680199<br>Archive 원격 반영 확인: 692346ff36f56e4c201a0985119836805b5f95cd. runtime registry/state/outbox는 Git 제외입니다.</p></details>
-</main></body></html>

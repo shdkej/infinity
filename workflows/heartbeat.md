@@ -26,14 +26,6 @@
 4. 일치하지 않거나 만료·중복·잘못된 스레드이면 후속 작업을 실행하지 않고 해당 상태를 기록한다. 필요한 경우 원래 질문을 만료 처리한 뒤 번호 fallback을 보낸다.
 5. callback continuation이 끝난 뒤에만 대시보드 action queue와 일반 Inbox/Active/Waiting 흐름으로 넘어간다.
 
-#### Slack callback 실행 계약
-
-- outbound 버튼은 전송 성공 뒤 `scripts/process_slack_callbacks.py --register {record.json}`로 먼저 등록한다. 레코드는 원 질문, `provider/workspace/channel/message/thread/user/value/intent/run/question`, 만료 시각, 고정된 `next_action`을 포함하며 전송 뒤에는 변경하지 않는다.
-- 수신된 `block_action/button`은 ingress가 Slack 서명·replay window를 확인한 표식(`signature_verified: true`)을 넣은 JSON 파일로만 `scripts/process_slack_callbacks.py --event {event.json}`에 전달한다. 이 처리기는 registry와 복합 키를 대조하고 flock claim으로 first-wins를 보장한다.
-- 처리기는 안전한 내부·가역 action allowlist만 dispatch한다. 공개 게시·외부 발송·비용·권한·시크릿·프로덕션/파괴 행동은 `approval_required`로 남기며 callback만으로 실행하지 않는다.
-- 결과 receipt는 registry의 immutable `channel_id + thread_ts`를 사용해 같은 Slack thread에 한 번만 전달한다. delivery_unknown 또는 dispatch_uncertain은 자동 재전송하지 않고 Intent Waiting 및 재개 조건으로 남긴다.
-- runtime registry/state/outbox는 `data/slack-*.json*`로 Git에 커밋하지 않는다. 코드·테스트·Intent/report만 commit한다.
-
 ### 0. Dashboard action queue 처리
 
 Inbox/Active를 보기 전에 먼저 Infinity 대시보드 버튼 큐를 확인한다. 대시보드 버튼은 사용자가 Waiting에 걸린 외부 조건을 바꾼 명시 신호이므로, 일반 Waiting 반복 금지보다 우선한다.

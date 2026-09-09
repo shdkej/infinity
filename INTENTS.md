@@ -46,7 +46,6 @@
 
 <!-- research-travel-tool-20260908 archived 2026-09-08T10:10Z → intents/archive/research-travel-tool-20260908.md [projects: infinity,knowledge-lab,agent-wiki,research-bank; type: research; topics: product,content,analytics] (여행 회수 카드 가설·대안/제외·7일 Stop 우선 반증 계약·Red PASS; 직접 WTP는 미입증) -->
 
-<!-- slack-callback-next-action-20260907 archived 2026-09-07T20:50Z → intents/archive/slack-callback-next-action-20260907.md [projects: infinity,openclaw; type: implementation; topics: automation,workflow,security] (Slack callback의 registry·검증·멱등 dispatch·동일 thread receipt 및 Red PASS) -->
 
 <!-- content-carousel-6card-sequence-20260907 completed 2026-09-07T16:30Z → intents/archive/content-carousel-6card-sequence-20260907.md [projects: infinity,knowledge-lab; type: design; topics: content,marketing] (6장 4:5 PNG와 Red 실제 렌더 PASS) -->
 

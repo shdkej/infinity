@@ -20,30 +20,22 @@ PROMPT_FILE="$(mktemp)"
 trap 'rm -f "$PLAN_FILE" "$POST_PLAN_FILE" "$PROMPT_FILE"' EXIT
 
 bootstrap_failure() {
-  local detail="$1"; local detail_file safe
-  detail_file="$(mktemp)"; printf '%s' "$detail" >"$detail_file"
-  safe="$(python3 "$SCRIPT_DIR/safe_failure_alert.py" --stage canonical_fetch_failed --detail-file "$detail_file")"
-  rm -f "$detail_file"
-  python3 - "$RUN_FILE" "$safe" <<'PY'
+  python3 - "$RUN_FILE" <<'PY'
 import json, sys
 from pathlib import Path
-Path(sys.argv[1]).write_text(json.dumps({"outcome":"canonical_fetch_failed","user_failure":json.loads(sys.argv[2])}, ensure_ascii=False, indent=2)+"\n")
+Path(sys.argv[1]).write_text(json.dumps({"outcome":"canonical_fetch_failed","user_failure":{"stage":"canonical_fetch_failed","message":"Infinity 점검을 시작하지 못했습니다. 원격 상태를 다시 확인한 뒤 재개하겠습니다."}}, ensure_ascii=False, indent=2)+"\n")
 PY
   printf '%s\n' 'Infinity 점검을 시작하지 못했습니다. 원격 상태를 다시 확인한 뒤 재개하겠습니다.'
   exit 0
 }
 
-# All planning/terminal checks use a clean origin/main view.  The primary
-# checkout may legitimately contain a diverged local branch or runtime files.
+# Planning and terminal checks must not depend on a dirty primary checkout.
 VERIFY_ROOT="$(mktemp -d /tmp/infinity-dispatcher-verify-XXXXXX)"
-FETCH_DETAIL="$(git -C "$ROOT" fetch origin main 2>&1)" || bootstrap_failure "$FETCH_DETAIL"
-WORKTREE_DETAIL="$(git -C "$ROOT" worktree add --detach "$VERIFY_ROOT" origin/main 2>&1)" || bootstrap_failure "$WORKTREE_DETAIL"
+git -C "$ROOT" fetch origin main >/dev/null 2>&1 || bootstrap_failure
+git -C "$ROOT" worktree add --detach "$VERIFY_ROOT" origin/main >/dev/null 2>&1 || bootstrap_failure
 trap 'git -C "$ROOT" worktree remove --force "$VERIFY_ROOT" >/dev/null 2>&1 || true; rm -f "$PLAN_FILE" "$POST_PLAN_FILE" "$PROMPT_FILE"' EXIT
-VERIFY_STATUS="$(git -C "$VERIFY_ROOT" status --porcelain 2>&1)" || bootstrap_failure "$VERIFY_STATUS"
-[[ -z "$VERIFY_STATUS" ]] || bootstrap_failure "detached worktree was not clean"
-
-PREPARE_SCRIPT="${INFINITY_DISPATCH_PREPARE_SCRIPT:-$VERIFY_ROOT/scripts/prepare_dispatch_cycle.py}"
-PREPARE_DETAIL="$(python3 "$PREPARE_SCRIPT" --repo "$VERIFY_ROOT" --json >"$PLAN_FILE" 2>&1)" || bootstrap_failure "$PREPARE_DETAIL"
+test -z "$(git -C "$VERIFY_ROOT" status --porcelain)" || bootstrap_failure
+python3 "$VERIFY_ROOT/scripts/prepare_dispatch_cycle.py" --repo "$VERIFY_ROOT" --json >"$PLAN_FILE" || bootstrap_failure
 
 TERMINAL_EXIT=0
 POST_TERMINAL_EXIT=0
@@ -170,24 +162,13 @@ PY
 fi
 FINAL_EXIT="$HANDOFF_EXIT"
 if [[ "$TERMINAL_EXIT" -ne 0 || "$POST_TERMINAL_EXIT" -ne 0 || "$DASHBOARD_EXIT" -ne 0 || "$HANDOFF_VERIFY_EXIT" -ne 0 ]]; then
-  # Generic cron/OpenClaw failure handling can expose a shell's stderr as
-  # "Bash failed" in a user thread.  Keep diagnostics in the protected cycle
-  # record and emit only a Korean allowlisted status for a future alert adapter.
-  DETAIL_FILE="$(mktemp)"
-  printf '%s\n%s\n%s\n' "$TERMINAL_RESULT" "$POST_TERMINAL_RESULT" "$DASHBOARD_RESULT" >"$DETAIL_FILE"
-  if [[ "$TERMINAL_EXIT" -ne 0 || "$POST_TERMINAL_EXIT" -ne 0 ]]; then FAILURE_STAGE="terminal"
-  elif [[ "$DASHBOARD_EXIT" -ne 0 ]]; then FAILURE_STAGE="dashboard"
-  else FAILURE_STAGE="verification"; fi
-  SAFE_FAILURE="$(python3 "$VERIFY_ROOT/scripts/safe_failure_alert.py" --stage "$FAILURE_STAGE" --detail-file "$DETAIL_FILE")"
-  rm -f "$DETAIL_FILE"
-  python3 - "$RUN_FILE" "$SAFE_FAILURE" <<'PY'
+  python3 - "$RUN_FILE" <<'PY'
 import json, sys
 from pathlib import Path
 path = Path(sys.argv[1]); data = json.loads(path.read_text())
-data["user_failure"] = json.loads(sys.argv[2])
+data["user_failure"] = {"stage":"dispatcher","message":"Infinity 작업 일부를 확인하지 못했습니다. 원격 상태를 다시 확인한 뒤 재개하겠습니다."}
 path.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n")
 PY
-  # A controlled safe failure record replaces a generic raw shell failure.
   FINAL_EXIT=0
 fi
 exit "$FINAL_EXIT"
