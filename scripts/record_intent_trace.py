@@ -104,8 +104,15 @@ def archive(args: argparse.Namespace) -> None:
         if not (ROOT / evidence_path).is_file():
             raise SystemExit(f"{label} path must name an existing file: {evidence_path}")
     data["events"].append({"type": "archive", "at": timestamp(args.at), "report_path": args.report_path, "evidence_paths": args.evidence + [args.report_path, args.red_report_path, args.remote_proof_path], "verification": {"red_status": "pass", "red_report_path": args.red_report_path, "remote_verified": "pass", "remote_proof_path": args.remote_proof_path}})
-    data["artifacts"].extend({"label": label, "path": path} for label, path in (item.split("=", 1) for item in args.artifact))
-    data["verifications"].extend(({"label": "Red verification evidence", "path": args.red_report_path, "status": "pass"}, {"label": "Remote verification evidence", "path": args.remote_proof_path, "status": "pass"}))
+    # Older traces predate the top-level artifact/verification arrays.  Keep
+    # terminalization backward-compatible instead of failing after the remote
+    # archive transition has already been proven.
+    data.setdefault("artifacts", []).extend(
+        {"label": label, "path": path} for label, path in (item.split("=", 1) for item in args.artifact)
+    )
+    data.setdefault("verifications", []).extend(
+        ({"label": "Red verification evidence", "path": args.red_report_path, "status": "pass"}, {"label": "Remote verification evidence", "path": args.remote_proof_path, "status": "pass"})
+    )
     data["next_decision"] = {"status": args.decision_status, "value": args.next_decision}
     write_atomic(path, data)
 

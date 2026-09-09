@@ -17,11 +17,11 @@
 - report: reports/infinity-dispatcher-observability-20260908/20260908T1510Z.html; reports/infinity-dispatcher-observability-20260908/20260909T1200Z-terminal.md
 - red_status: pass
 - red_report: artifacts/infinity-dispatcher-observability-20260908/t2-red.md
-- remote_verified: pending_closing_push
+- remote_verified: pass
 - metric_result: scrape·최근 dispatcher run·revision mismatch·Active freshness를 분리하는 구현 및 fixture 검증을 기록했다. compose 기동은 Docker CLI 부재로 미검증이며 배포·알림·권한·시크릿 변경은 하지 않았다.
 - metric_next_decision: 운영 환경의 Docker CLI가 이용 가능해질 때에만 별도 검증 Intent로 compose 기동과 `/metrics` scrape를 확인한다.
 - knowledge_status: raw
 - knowledge_decision: retain_in_infinity
 - knowledge_targets: artifacts/infinity-dispatcher-observability-20260908/root-cause.md; artifacts/infinity-dispatcher-observability-20260908/metric-contract.md; reports/infinity-dispatcher-observability-20260908/20260909T1200Z-terminal.md
 - knowledge_reflection: dispatcher handoff 뒤 notifier가 stale checkout을 읽어 terminal transition을 놓친 사건과, 작은 leaf의 실측 시간을 다음 예측에 반영하는 규칙은 Infinity 운영 기록으로만 보존한다.
-- knowledge_commit: closing commit pending
+- knowledge_commit: f89f82d678822b0c96cdeaf87d97398a88f97aad

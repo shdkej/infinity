@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "intent_id": "research-travel-tool-depth-20260908",
-  "status": "inbox",
+  "status": "archived",
   "trace_completeness": "complete",
   "request": {
     "raw": {
@@ -150,8 +150,7 @@
       "timestamp": "2026-09-08T12:10:02Z",
       "status": "done",
       "summary": "Independent Red PASS: the synthetic fixture-only lifecycle and no-build/hold gates are adequate. This document review is not fixture execution, behavioral/reuse/WTP evidence, prototype approval, or release approval."
-    }
-  ,
+    },
     {
       "type": "dispatcher_handoff",
       "run_id": "dispatch-f93d2e8ab2a6480485abe4438a8f1229",
@@ -308,10 +307,45 @@
       "timestamp": "2026-09-08T13:00:02Z",
       "status": "blocked",
       "summary": "Archive contract is incomplete: knowledge_status, knowledge_decision, knowledge_targets, knowledge_reflection, and knowledge_commit are not recorded in the final report or Archive ledger. The intent moves to Waiting; no Archive transition is performed."
+    },
+    {
+      "type": "archive",
+      "at": "2026-09-09T12:00:00Z",
+      "report_path": "reports/research-travel-tool-depth-20260908/20260909T1200Z-terminal.md",
+      "evidence_paths": [
+        "artifacts/research-travel-tool-depth-20260908/terminal-summary.md",
+        "reports/research-travel-tool-depth-20260908/20260909T1200Z-terminal.md",
+        "artifacts/research-travel-tool-depth-20260908/t6-red.md",
+        "reports/research-travel-tool-depth-20260908/20260909T1200Z-remote-proof.md"
+      ],
+      "verification": {
+        "red_status": "pass",
+        "red_report_path": "artifacts/research-travel-tool-depth-20260908/t6-red.md",
+        "remote_verified": "pass",
+        "remote_proof_path": "reports/research-travel-tool-depth-20260908/20260909T1200Z-remote-proof.md"
+      }
     }
   ],
   "next_decision": {
-    "status": "waiting",
-    "value": "Record and close the five required knowledge-decision fields, including any required promotion and remote proof, before a new terminalization review."
-  }
+    "status": "archived_user_requested",
+    "value": "직접 WTP 검증은 별도 사용자 승인 Intent에서만 재개한다."
+  },
+  "artifacts": [
+    {
+      "label": "terminal report",
+      "path": "reports/research-travel-tool-depth-20260908/20260909T1200Z-terminal.md"
+    }
+  ],
+  "verifications": [
+    {
+      "label": "Red verification evidence",
+      "path": "artifacts/research-travel-tool-depth-20260908/t6-red.md",
+      "status": "pass"
+    },
+    {
+      "label": "Remote verification evidence",
+      "path": "reports/research-travel-tool-depth-20260908/20260909T1200Z-remote-proof.md",
+      "status": "pass"
+    }
+  ]
 }

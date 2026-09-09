@@ -17,11 +17,11 @@
 - report: reports/research-travel-tool-depth-20260908/20260908T1253Z-terminal.html; reports/research-travel-tool-depth-20260908/20260909T1200Z-terminal.md
 - red_status: pass
 - red_report: artifacts/research-travel-tool-depth-20260908/t6-red.md
-- remote_verified: pending_closing_push
+- remote_verified: pass
 - metric_result: 독립 근거 공백·대체 설명·사전 고정 Stop 조건을 명확히 했고, 조기 Archive를 막는 dispatcher 회귀 테스트 13개를 통과했다. 실제 사용자 행동·직접 WTP는 확보하지 않았다.
 - metric_next_decision: 별도 승인 Intent 없이 사용자 모집·외부 발송·실제 데이터 수집·결제·배포를 진행하지 않는다.
 - knowledge_status: raw
 - knowledge_decision: retain_in_infinity
 - knowledge_targets: artifacts/research-travel-tool-depth-20260908/task-plan.json; artifacts/research-travel-tool-depth-20260908/terminal-summary.md; reports/research-travel-tool-depth-20260908/20260909T1200Z-terminal.md
 - knowledge_reflection: 예정시간을 채우기 위해 handoff만 반복하면 처리량이 떨어진다. 완료 leaf의 실측 시간을 계획시점에 사용하고, 남는 시간에는 명시된 독립 품질 cycle만 실행해야 한다.
-- knowledge_commit: closing commit pending
+- knowledge_commit: f89f82d678822b0c96cdeaf87d97398a88f97aad
