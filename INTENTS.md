@@ -4,8 +4,10 @@
 
 ## Inbox
 
+## Active
+
 ### [research-snu-kaist-thinking-20260909] 서울대와 KAIST 출신의 사고 차이 리서치
-- status: inbox
+- status: active
 - target_agent: genie
 - execution_mode: multi_subagent_roles
 - permission: L0-research-only
@@ -26,8 +28,8 @@
 - metric_question: 사용자가 “그래서 학교가 만든 차이와 내가 만들 수 있는 차이는 무엇인가”를 한 번에 구분할 수 있는가?
 - metric_signal: 공식 제도 비교, 선발/교육 효과 구분, 불확실성, 개인 적용을 각각 분리한 최종 보고서와 Red 검증.
 - metric_decision_rule: 직접 비교 근거가 없으면 학교별 사고방식 차이는 결론 내리지 않고, 제도 차이와 확인 불가 영역을 분리해 보고한다.
-
-## Active
+- trace: traces/research-snu-kaist-thinking-20260909.json
+- active_task: T1.1 선발 효과와 교육 효과를 분리할 비교 틀 수집
 
 ## Waiting
 
