@@ -29,7 +29,7 @@
 - metric_signal: 공식 제도 비교, 선발/교육 효과 구분, 불확실성, 개인 적용을 각각 분리한 최종 보고서와 Red 검증.
 - metric_decision_rule: 직접 비교 근거가 없으면 학교별 사고방식 차이는 결론 내리지 않고, 제도 차이와 확인 불가 영역을 분리해 보고한다.
 - trace: traces/research-snu-kaist-thinking-20260909.json
-- active_task: T2.3 C2: 차이를 만들 가능성이 큰 조건 판정
+- active_task: T3.1 개인 독서·학습의 실천적 의미 정리
 - stage_evidence_at: 2026-09-09T23:45:00Z
 - stage_evidence: artifacts/research-snu-kaist-thinking-20260909/comparison-frame.md
 
