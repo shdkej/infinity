@@ -1,17 +1,32 @@
 {
+  "schema_version": 1,
   "intent_id": "infinity-dispatcher-observability-20260908",
+  "status": "archived",
+  "trace_completeness": "partial",
+  "request": {
+    "raw": {
+      "status": "missing",
+      "reason": "legacy trace predates the capture contract; original intake value was not recoverable."
+    },
+    "normalized_query": {
+      "status": "missing",
+      "reason": "legacy trace predates the capture contract; original intake value was not recoverable."
+    }
+  },
   "events": [
     {
       "type": "intake",
       "at": "2026-09-08T14:03:00Z",
-      "status": "accepted",
-      "summary": "Context Pack 생성 후 canonical origin/main·local checkout·dispatcher run 기록을 조사하는 30분 이하 leaf를 시작했다."
+      "context_pack": "intents/context/infinity-dispatcher-observability-20260908.json",
+      "evidence_paths": [
+        "INTENTS.md"
+      ]
     },
     {
-      "type": "role_session",
+      "type": "backfill",
       "at": "2026-09-08T14:10:00Z",
-      "status": "waiting",
-      "summary": "Planner·Marketer role session이 Gateway timeout으로 회수되지 않아 구현을 보류했다."
+      "note": "Planner·Marketer role session이 Gateway timeout으로 회수되지 않아 구현을 보류했다.",
+      "source_type": "role_session"
     },
     {
       "type": "dispatcher_handoff",
@@ -23,17 +38,16 @@
       "status": "accepted"
     },
     {
-      "type": "role_session",
+      "type": "backfill",
       "at": "2026-09-08T14:24:14Z",
-      "status": "completed",
-      "summary": "Planner and Marketer retry reviews were recovered; their scope findings were consolidated with the existing Developer and Operator evidence."
+      "note": "Planner and Marketer retry reviews were recovered; their scope findings were consolidated with the existing Developer and Operator evidence.",
+      "source_type": "role_session"
     },
     {
-      "type": "task_completed",
-      "task_id": "T1.1",
-      "timestamp": "2026-09-08T14:24:14Z",
-      "status": "done",
-      "summary": "Root cause is limited to post-handoff notifier observation: the reused pre-handoff detached VERIFY_ROOT cannot see a newly pushed Waiting transition. Cron-wide failure, alert delivery success, and Grafana effect remain unproven."
+      "type": "backfill",
+      "at": "2026-09-08T14:24:14Z",
+      "note": "Root cause is limited to post-handoff notifier observation: the reused pre-handoff detached VERIFY_ROOT cannot see a newly pushed Waiting transition. Cron-wide failure, alert delivery success, and Grafana effect remain unproven.",
+      "source_type": "task_completed"
     },
     {
       "type": "dispatcher_handoff",
@@ -45,18 +59,16 @@
       "status": "accepted"
     },
     {
-      "type": "task_started",
-      "task_id": "T1.2",
-      "timestamp": "2026-09-08T14:30:03Z",
-      "status": "active",
-      "summary": "Red validates root-cause wording and read-only observability scope."
+      "type": "backfill",
+      "at": "2026-09-08T14:30:03Z",
+      "note": "Red validates root-cause wording and read-only observability scope.",
+      "source_type": "task_started"
     },
     {
-      "type": "red_verdict",
-      "task_id": "T1.2",
-      "timestamp": "2026-09-08T14:30:03Z",
-      "status": "pass",
-      "summary": "Root cause is confined to post-handoff notifier observation. Read-only scope and four next-check classifications are accurate; cron-wide failure, alert success, Grafana effect, automation, deployment, and credentials changes are not claimed."
+      "type": "backfill",
+      "at": "2026-09-08T14:30:03Z",
+      "note": "Root cause is confined to post-handoff notifier observation. Read-only scope and four next-check classifications are accurate; cron-wide failure, alert success, Grafana effect, automation, deployment, and credentials changes are not claimed.",
+      "source_type": "red_verdict"
     },
     {
       "type": "dispatcher_handoff",
@@ -68,11 +80,10 @@
       "status": "accepted"
     },
     {
-      "type": "task_completed",
-      "task_id": "T1.3",
-      "timestamp": "2026-09-08T14:40:02Z",
-      "status": "done",
-      "summary": "Read-only metric contract fixes scrape, source validity, recent run, revision mismatch, and active freshness semantics, fail-safe unknown handling, and four independent next-check categories. No Grafana, cron, deployment, notifier, credential, or alert change was made."
+      "type": "backfill",
+      "at": "2026-09-08T14:40:02Z",
+      "note": "Read-only metric contract fixes scrape, source validity, recent run, revision mismatch, and active freshness semantics, fail-safe unknown handling, and four independent next-check categories. No Grafana, cron, deployment, notifier, credential, or alert change was made.",
+      "source_type": "task_completed"
     },
     {
       "type": "dispatcher_handoff",
@@ -84,18 +95,16 @@
       "status": "accepted"
     },
     {
-      "type": "task_started",
-      "task_id": "T2.1",
-      "timestamp": "2026-09-08T14:50:03Z",
-      "status": "active",
-      "summary": "Implement only the named read-only exporter, local fixtures, Prometheus scrape job, and Grafana dashboard JSON; no deployment or notification action."
+      "type": "backfill",
+      "at": "2026-09-08T14:50:03Z",
+      "note": "Implement only the named read-only exporter, local fixtures, Prometheus scrape job, and Grafana dashboard JSON; no deployment or notification action.",
+      "source_type": "task_started"
     },
     {
-      "type": "task_completed",
-      "task_id": "T2.1",
-      "timestamp": "2026-09-08T14:50:03Z",
-      "status": "done",
-      "summary": "Local synthetic fixture test, Python compile, Grafana JSON parse, and Compose/Prometheus YAML parse pass. Docker CLI is unavailable, so compose config and container start were not run; no deployment occurred."
+      "type": "backfill",
+      "at": "2026-09-08T14:50:03Z",
+      "note": "Local synthetic fixture test, Python compile, Grafana JSON parse, and Compose/Prometheus YAML parse pass. Docker CLI is unavailable, so compose config and container start were not run; no deployment occurred.",
+      "source_type": "task_completed"
     },
     {
       "type": "dispatcher_handoff",
@@ -107,18 +116,16 @@
       "status": "accepted"
     },
     {
-      "type": "task_started",
-      "task_id": "T2.2",
-      "timestamp": "2026-09-08T15:00:03Z",
-      "status": "active",
-      "summary": "Red validates source-invalid behavior, metric semantics, dashboard claims, and Docker CLI verification limitation."
+      "type": "backfill",
+      "at": "2026-09-08T15:00:03Z",
+      "note": "Red validates source-invalid behavior, metric semantics, dashboard claims, and Docker CLI verification limitation.",
+      "source_type": "task_started"
     },
     {
-      "type": "red_verdict",
-      "task_id": "T2.2",
-      "timestamp": "2026-09-08T15:00:03Z",
-      "status": "pass",
-      "summary": "After installing Git in the Alpine exporter runtime and expanding fixtures, all dashboard queries are emitted, source-invalid fails safe, and read-only/no-deployment claims remain bounded."
+      "type": "backfill",
+      "at": "2026-09-08T15:00:03Z",
+      "note": "After installing Git in the Alpine exporter runtime and expanding fixtures, all dashboard queries are emitted, source-invalid fails safe, and read-only/no-deployment claims remain bounded.",
+      "source_type": "red_verdict"
     },
     {
       "type": "dispatcher_handoff",
@@ -130,18 +137,16 @@
       "status": "accepted"
     },
     {
-      "type": "task_started",
-      "task_id": "T2.3",
-      "timestamp": "2026-09-08T15:10:52Z",
-      "status": "active",
-      "summary": "Run fixture and static configuration checks, commit/push only explicit monitoring files, and record both repository remote evidence; no deployment."
+      "type": "backfill",
+      "at": "2026-09-08T15:10:52Z",
+      "note": "Run fixture and static configuration checks, commit/push only explicit monitoring files, and record both repository remote evidence; no deployment.",
+      "source_type": "task_started"
     },
     {
-      "type": "task_completed",
-      "task_id": "T2.3",
-      "timestamp": "2026-09-08T15:10:52Z",
-      "status": "done",
-      "summary": "Exporter fixtures (3), Python compile, Grafana JSON, and YAML parse passed. Explicit monitoring_personal files were committed/pushed as 584b011af3da7a0f8cbc0cedc2a815fc06afc171 with HEAD==origin/master. Docker CLI was unavailable, so compose config and container start were not run; no deployment occurred."
+      "type": "backfill",
+      "at": "2026-09-08T15:10:52Z",
+      "note": "Exporter fixtures (3), Python compile, Grafana JSON, and YAML parse passed. Explicit monitoring_personal files were committed/pushed as 584b011af3da7a0f8cbc0cedc2a815fc06afc171 with HEAD==origin/master. Docker CLI was unavailable, so compose config and container start were not run; no deployment occurred.",
+      "source_type": "task_completed"
     },
     {
       "type": "dispatcher_handoff",
@@ -153,10 +158,10 @@
       "status": "accepted"
     },
     {
-      "type": "terminalization_blocked",
-      "timestamp": "2026-09-08T15:20:03Z",
-      "status": "waiting",
-      "summary": "Archive contract is missing knowledge_status, knowledge_decision, knowledge_targets, knowledge_reflection, and knowledge_commit in a final report or Archive ledger. No Archive move was made."
+      "type": "backfill",
+      "at": "2026-09-08T15:20:03Z",
+      "note": "Archive contract is missing knowledge_status, knowledge_decision, knowledge_targets, knowledge_reflection, and knowledge_commit in a final report or Archive ledger. No Archive move was made.",
+      "source_type": "terminalization_blocked"
     },
     {
       "type": "archive",
@@ -176,11 +181,6 @@
       }
     }
   ],
-  "next_decision": {
-    "status": "archived_user_requested",
-    "value": "Docker 가능 환경에서만 별도 L0 검증 Intent로 실제 scrape을 확인한다."
-  },
-  "status": "archived",
   "artifacts": [
     {
       "label": "terminal report",
@@ -198,5 +198,9 @@
       "path": "reports/infinity-dispatcher-observability-20260908/20260909T1200Z-remote-proof.md",
       "status": "pass"
     }
-  ]
+  ],
+  "next_decision": {
+    "status": "archived_user_requested",
+    "value": "Docker 가능 환경에서만 별도 L0 검증 Intent로 실제 scrape을 확인한다."
+  }
 }

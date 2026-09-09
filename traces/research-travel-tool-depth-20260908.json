@@ -2,7 +2,7 @@
   "schema_version": 1,
   "intent_id": "research-travel-tool-depth-20260908",
   "status": "archived",
-  "trace_completeness": "complete",
+  "trace_completeness": "partial",
   "request": {
     "raw": {
       "status": "recorded",
@@ -15,21 +15,11 @@
   },
   "events": [
     {
-      "type": "dispatcher_handoff",
-      "run_id": "dispatch-3ecc57095cab4520808b00529572f161",
-      "canonical_sha": "cbbb3864147c6e38289b9ff70efb1bf59e6736b4",
-      "agent": "genie",
-      "session_key": "agent:genie:infinity-dispatcher",
-      "timestamp": "2026-09-08T11:42:57Z",
-      "status": "accepted"
-    },
-    {
       "type": "intake",
       "at": "2026-09-08T10:51:02Z",
       "context_pack": "intents/context/research-travel-tool-depth-20260908.json",
       "evidence_paths": [
-        "artifacts/research-travel-tool-20260908/research.md",
-        "artifacts/research-travel-tool-20260908/task-plan.md"
+        "INTENTS.md"
       ]
     },
     {
@@ -42,20 +32,10 @@
       "status": "accepted"
     },
     {
-      "type": "dispatcher_handoff",
-      "run_id": "dispatch-1fa678a98dca4ac786e69b7d6c3d1480",
-      "canonical_sha": "95a85aecfdfc155a9862744925e1bab0e86826f7",
-      "agent": "genie",
-      "session_key": "agent:genie:infinity-dispatcher",
-      "timestamp": "2026-09-08T11:31:03Z",
-      "status": "accepted"
-    },
-    {
-      "type": "task_completed",
-      "task_id": "T1.1",
-      "timestamp": "2026-09-08T11:03:00Z",
-      "status": "done",
-      "summary": "Four role perspectives consolidated precise evidence gaps and falsifiable questions; no new market, WTP, or behavior claim was made."
+      "type": "backfill",
+      "at": "2026-09-08T11:03:00Z",
+      "note": "Four role perspectives consolidated precise evidence gaps and falsifiable questions; no new market, WTP, or behavior claim was made.",
+      "source_type": "task_completed"
     },
     {
       "type": "dispatcher_handoff",
@@ -67,11 +47,10 @@
       "status": "accepted"
     },
     {
-      "type": "task_completed",
-      "task_id": "T1.2",
-      "timestamp": "2026-09-08T11:07:12Z",
-      "status": "done",
-      "summary": "Independent Red PASS after decision-impact clarification; evidence gaps remain non-evidence for marketability, direct WTP, repeat use, or user behavior."
+      "type": "backfill",
+      "at": "2026-09-08T11:07:12Z",
+      "note": "Independent Red PASS after decision-impact clarification; evidence gaps remain non-evidence for marketability, direct WTP, repeat use, or user behavior.",
+      "source_type": "task_completed"
     },
     {
       "type": "dispatcher_handoff",
@@ -83,11 +62,10 @@
       "status": "accepted"
     },
     {
-      "type": "task_completed",
-      "task_id": "T1.3",
-      "timestamp": "2026-09-08T11:12:00Z",
-      "status": "done",
-      "summary": "Fixed five priority falsification questions and their Continue-exclusion, hold, and Stop/Discard consequences; no user behavior or WTP claim was added."
+      "type": "backfill",
+      "at": "2026-09-08T11:12:00Z",
+      "note": "Fixed five priority falsification questions and their Continue-exclusion, hold, and Stop/Discard consequences; no user behavior or WTP claim was added.",
+      "source_type": "task_completed"
     },
     {
       "type": "dispatcher_handoff",
@@ -99,11 +77,10 @@
       "status": "accepted"
     },
     {
-      "type": "task_completed",
-      "task_id": "T2.1",
-      "timestamp": "2026-09-08T11:18:00Z",
-      "status": "done",
-      "summary": "Compared documented retrieval and place-list alternatives; no same-task user evidence exists, so the recovery-card hypothesis remains held and Stop/Discard rules remain binding."
+      "type": "backfill",
+      "at": "2026-09-08T11:18:00Z",
+      "note": "Compared documented retrieval and place-list alternatives; no same-task user evidence exists, so the recovery-card hypothesis remains held and Stop/Discard rules remain binding.",
+      "source_type": "task_completed"
     },
     {
       "type": "dispatcher_handoff",
@@ -115,41 +92,40 @@
       "status": "accepted"
     },
     {
-      "type": "task_completed",
-      "task_id": "T2.2",
-      "timestamp": "2026-09-08T11:24:45Z",
-      "status": "done",
-      "summary": "Independent Red PASS: the same-task alternative comparison is falsifiable and Stop/Discard overrides non-diagnostic positives. The comparison remains unexecuted; independent utility, repeat use, direct WTP, and actual user behavior remain unproven."
-    },
-    {
-      "type": "task_completed",
-      "task_id": "T2.3",
-      "timestamp": "2026-09-08T11:31:03Z",
-      "status": "done",
-      "summary": "Four role judgments converged on retaining the recovery-card concept only as a low-priority, unproven hypothesis. Same-task comparison and a single card schema are prerequisites; Stop/Discard overrides positive but non-diagnostic signals."
-    },
-    {
-      "type": "task_completed",
-      "task_id": "T3.1",
-      "timestamp": "2026-09-08T11:46:21Z",
-      "status": "done",
-      "summary": "Four roles fixed a 3-field card, one actual-choice comparison pair per participant, chronological manual retrieval, same-task substitute comparison, and Stop/Discard-first rules. No participant data, recruitment, payment, deployment, or external sending occurred."
+      "type": "backfill",
+      "at": "2026-09-08T11:24:45Z",
+      "note": "Independent Red PASS: the same-task alternative comparison is falsifiable and Stop/Discard overrides non-diagnostic positives. The comparison remains unexecuted; independent utility, repeat use, direct WTP, and actual user behavior remain unproven.",
+      "source_type": "task_completed"
     },
     {
       "type": "dispatcher_handoff",
-      "run_id": "dispatch-beef117a30a24b838a87a4e1d738f17d",
-      "canonical_sha": "e6a412646cff31a45fabdd34573cf6d7972a2a17",
+      "run_id": "dispatch-1fa678a98dca4ac786e69b7d6c3d1480",
+      "canonical_sha": "95a85aecfdfc155a9862744925e1bab0e86826f7",
       "agent": "genie",
       "session_key": "agent:genie:infinity-dispatcher",
-      "timestamp": "2026-09-08T12:10:02Z",
+      "timestamp": "2026-09-08T11:31:03Z",
       "status": "accepted"
     },
     {
-      "type": "task_completed",
-      "task_id": "T4.2",
-      "timestamp": "2026-09-08T12:10:02Z",
-      "status": "done",
-      "summary": "Independent Red PASS: the synthetic fixture-only lifecycle and no-build/hold gates are adequate. This document review is not fixture execution, behavioral/reuse/WTP evidence, prototype approval, or release approval."
+      "type": "backfill",
+      "at": "2026-09-08T11:31:03Z",
+      "note": "Four role judgments converged on retaining the recovery-card concept only as a low-priority, unproven hypothesis. Same-task comparison and a single card schema are prerequisites; Stop/Discard overrides positive but non-diagnostic signals.",
+      "source_type": "task_completed"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-3ecc57095cab4520808b00529572f161",
+      "canonical_sha": "cbbb3864147c6e38289b9ff70efb1bf59e6736b4",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-08T11:42:57Z",
+      "status": "accepted"
+    },
+    {
+      "type": "backfill",
+      "at": "2026-09-08T11:46:21Z",
+      "note": "Four roles fixed a 3-field card, one actual-choice comparison pair per participant, chronological manual retrieval, same-task substitute comparison, and Stop/Discard-first rules. No participant data, recruitment, payment, deployment, or external sending occurred.",
+      "source_type": "task_completed"
     },
     {
       "type": "dispatcher_handoff",
@@ -161,11 +137,10 @@
       "status": "accepted"
     },
     {
-      "type": "task_completed",
-      "task_id": "T3.2",
-      "timestamp": "2026-09-08T11:50:03Z",
-      "status": "done",
-      "summary": "Independent Red PASS: actual-only evidence, canonical 3-field card, chronological manual retrieval, same-task comparison, explicit criterion citation, Stop/Discard priority, minimum collection and deletion boundaries all hold. This is a preregistered internal contract, not behavioral, WTP, or repeat-use evidence."
+      "type": "backfill",
+      "at": "2026-09-08T11:50:03Z",
+      "note": "Independent Red PASS: actual-only evidence, canonical 3-field card, chronological manual retrieval, same-task comparison, explicit criterion citation, Stop/Discard priority, minimum collection and deletion boundaries all hold. This is a preregistered internal contract, not behavioral, WTP, or repeat-use evidence.",
+      "source_type": "task_completed"
     },
     {
       "type": "dispatcher_handoff",
@@ -177,11 +152,10 @@
       "status": "accepted"
     },
     {
-      "type": "task_completed",
-      "task_id": "T3.3",
-      "timestamp": "2026-09-08T12:00:04Z",
-      "status": "done",
-      "summary": "Closed consent, minimum-collection, deletion, and L0 boundaries. No participant recruitment, contact, data collection, payment, deployment, or external sending occurred; this remains an internal preregistration, not behavioral or WTP evidence."
+      "type": "backfill",
+      "at": "2026-09-08T12:00:04Z",
+      "note": "Closed consent, minimum-collection, deletion, and L0 boundaries. No participant recruitment, contact, data collection, payment, deployment, or external sending occurred; this remains an internal preregistration, not behavioral or WTP evidence.",
+      "source_type": "task_completed"
     },
     {
       "type": "dispatcher_handoff",
@@ -193,11 +167,25 @@
       "status": "accepted"
     },
     {
-      "type": "task_completed",
-      "task_id": "T4.1",
-      "timestamp": "2026-09-08T12:02:58Z",
-      "status": "done",
-      "summary": "Four roles fixed a synthetic-fixture-only decision contract with lifecycle assertions, no-build/hold gates, and no external execution. Fixture readiness is not behavioral, reuse, WTP, or release evidence."
+      "type": "backfill",
+      "at": "2026-09-08T12:02:58Z",
+      "note": "Four roles fixed a synthetic-fixture-only decision contract with lifecycle assertions, no-build/hold gates, and no external execution. Fixture readiness is not behavioral, reuse, WTP, or release evidence.",
+      "source_type": "task_completed"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-beef117a30a24b838a87a4e1d738f17d",
+      "canonical_sha": "e6a412646cff31a45fabdd34573cf6d7972a2a17",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-08T12:10:02Z",
+      "status": "accepted"
+    },
+    {
+      "type": "backfill",
+      "at": "2026-09-08T12:10:02Z",
+      "note": "Independent Red PASS: the synthetic fixture-only lifecycle and no-build/hold gates are adequate. This document review is not fixture execution, behavioral/reuse/WTP evidence, prototype approval, or release approval.",
+      "source_type": "task_completed"
     },
     {
       "type": "dispatcher_handoff",
@@ -209,11 +197,10 @@
       "status": "accepted"
     },
     {
-      "type": "task_completed",
-      "task_id": "T4.3",
-      "timestamp": "2026-09-08T12:22:24Z",
-      "status": "done",
-      "summary": "Four roles closed the next-experiment gate: only a separately approved synthetic, de-identified, local fixture lifecycle review may follow; fixture PASS is not behavioral, reuse, WTP, or release evidence, and no-build/hold remains binding."
+      "type": "backfill",
+      "at": "2026-09-08T12:22:24Z",
+      "note": "Four roles closed the next-experiment gate: only a separately approved synthetic, de-identified, local fixture lifecycle review may follow; fixture PASS is not behavioral, reuse, WTP, or release evidence, and no-build/hold remains binding.",
+      "source_type": "task_completed"
     },
     {
       "type": "dispatcher_handoff",
@@ -225,11 +212,10 @@
       "status": "accepted"
     },
     {
-      "type": "task_completed",
-      "task_id": "T5.1",
-      "timestamp": "2026-09-08T12:33:30Z",
-      "status": "done",
-      "summary": "A deterministic temporary fixture kept T5.2/T5.3/T6.1 pending, returned T5.2 as the only activation candidate, and returned no terminalization candidate. The regression documents dispatcher behavior only; it does not complete the research or authorize Archive."
+      "type": "backfill",
+      "at": "2026-09-08T12:33:30Z",
+      "note": "A deterministic temporary fixture kept T5.2/T5.3/T6.1 pending, returned T5.2 as the only activation candidate, and returned no terminalization candidate. The regression documents dispatcher behavior only; it does not complete the research or authorize Archive.",
+      "source_type": "task_completed"
     },
     {
       "type": "dispatcher_handoff",
@@ -241,11 +227,10 @@
       "status": "accepted"
     },
     {
-      "type": "task_completed",
-      "task_id": "T5.2",
-      "timestamp": "2026-09-08T12:43:34Z",
-      "status": "done",
-      "summary": "Independent Red PASS after narrowing the unit-test scope, asserting a unique T5.2 activation candidate, and repairing the trace to one events array with a current decision. The regression proves dispatcher plan classification only; it is not product, behavioral, WTP, or release evidence."
+      "type": "backfill",
+      "at": "2026-09-08T12:43:34Z",
+      "note": "Independent Red PASS after narrowing the unit-test scope, asserting a unique T5.2 activation candidate, and repairing the trace to one events array with a current decision. The regression proves dispatcher plan classification only; it is not product, behavioral, WTP, or release evidence.",
+      "source_type": "task_completed"
     },
     {
       "type": "dispatcher_handoff",
@@ -257,11 +242,10 @@
       "status": "accepted"
     },
     {
-      "type": "task_completed",
-      "task_id": "T5.3",
-      "timestamp": "2026-09-08T12:50:59Z",
-      "status": "done",
-      "summary": "At 2026-09-08T12:50:52Z, 609 minutes remained to the 23:00Z deadline. T6.1 has a 30-minute maximum, leaving a 579-minute reserve. The next action is T6.1 only; Archive remains a separate terminalization decision."
+      "type": "backfill",
+      "at": "2026-09-08T12:50:59Z",
+      "note": "At 2026-09-08T12:50:52Z, 609 minutes remained to the 23:00Z deadline. T6.1 has a 30-minute maximum, leaving a 579-minute reserve. The next action is T6.1 only; Archive remains a separate terminalization decision.",
+      "source_type": "task_completed"
     },
     {
       "type": "dispatcher_handoff",
@@ -273,25 +257,22 @@
       "status": "accepted"
     },
     {
-      "type": "red_review",
-      "task_id": "T6.1",
-      "timestamp": "2026-09-08T12:55:35Z",
-      "status": "pass",
-      "summary": "Independent Red verified that the final report preserves no-build/hold, makes no behavior/reuse/direct-WTP/price/release claim, cites completed evidence accurately, and explicitly defers Archive."
+      "type": "backfill",
+      "at": "2026-09-08T12:55:35Z",
+      "note": "Independent Red verified that the final report preserves no-build/hold, makes no behavior/reuse/direct-WTP/price/release claim, cites completed evidence accurately, and explicitly defers Archive.",
+      "source_type": "red_review"
     },
     {
-      "type": "task_completed",
-      "task_id": "T6.1",
-      "timestamp": "2026-09-08T12:56:15Z",
-      "status": "done",
-      "summary": "Final terminal summary, HTML report, and independent Red PASS were committed in 4cf96ef8e7da1585ccc6b5065708659edbc2b823. Immediately after its push, HEAD equaled origin/main at that SHA. Archive remains a separate terminalization decision."
+      "type": "backfill",
+      "at": "2026-09-08T12:56:15Z",
+      "note": "Final terminal summary, HTML report, and independent Red PASS were committed in 4cf96ef8e7da1585ccc6b5065708659edbc2b823. Immediately after its push, HEAD equaled origin/main at that SHA. Archive remains a separate terminalization decision.",
+      "source_type": "task_completed"
     },
     {
-      "type": "remote_proof",
-      "task_id": "T6.1",
-      "timestamp": "2026-09-08T12:56:15Z",
-      "commit": "4cf96ef8e7da1585ccc6b5065708659edbc2b823",
-      "head_equals_origin_main": true
+      "type": "backfill",
+      "at": "2026-09-08T12:56:15Z",
+      "note": "remote_proof",
+      "source_type": "remote_proof"
     },
     {
       "type": "dispatcher_handoff",
@@ -303,10 +284,10 @@
       "status": "accepted"
     },
     {
-      "type": "terminalization_review",
-      "timestamp": "2026-09-08T13:00:02Z",
-      "status": "blocked",
-      "summary": "Archive contract is incomplete: knowledge_status, knowledge_decision, knowledge_targets, knowledge_reflection, and knowledge_commit are not recorded in the final report or Archive ledger. The intent moves to Waiting; no Archive transition is performed."
+      "type": "backfill",
+      "at": "2026-09-08T13:00:02Z",
+      "note": "Archive contract is incomplete: knowledge_status, knowledge_decision, knowledge_targets, knowledge_reflection, and knowledge_commit are not recorded in the final report or Archive ledger. The intent moves to Waiting; no Archive transition is performed.",
+      "source_type": "terminalization_review"
     },
     {
       "type": "archive",
@@ -326,10 +307,6 @@
       }
     }
   ],
-  "next_decision": {
-    "status": "archived_user_requested",
-    "value": "직접 WTP 검증은 별도 사용자 승인 Intent에서만 재개한다."
-  },
   "artifacts": [
     {
       "label": "terminal report",
@@ -347,5 +324,9 @@
       "path": "reports/research-travel-tool-depth-20260908/20260909T1200Z-remote-proof.md",
       "status": "pass"
     }
-  ]
+  ],
+  "next_decision": {
+    "status": "archived_user_requested",
+    "value": "직접 WTP 검증은 별도 사용자 승인 Intent에서만 재개한다."
+  }
 }
