@@ -1,0 +1,27 @@
+# Infinity dispatcher 정지 감지 Grafana 가시화
+
+- id: infinity-dispatcher-observability-20260908
+- status: archived
+- archived_at: 2026-09-09T12:00:00Z
+- closure: user_requested_archive
+- target_agent: genie
+- permission: L0-local-implementation-only
+- execution_mode: multi_subagent_roles
+- projects: infinity, monitoring_personal
+- task_type: implementation
+- topics: dispatcher, observability, prometheus, grafana
+- goal: canonical dispatcher 상태·Active intent 신선도·정지 상태를 Prometheus scrape 지표와 Grafana dashboard로 확인 가능하게 만든다.
+- result: read-only exporter·Prometheus scrape·Grafana dashboard 구현과 Red PASS는 기록돼 있다. 사용자 요청으로 대기 원인을 종료하고 Archive한다.
+- artifact: artifacts/infinity-dispatcher-observability-20260908/root-cause.md; artifacts/infinity-dispatcher-observability-20260908/metric-contract.md; artifacts/infinity-dispatcher-observability-20260908/t2-implementation.md; artifacts/infinity-dispatcher-observability-20260908/t2-red.md
+- task_plan: artifacts/infinity-dispatcher-observability-20260908/task-plan.json
+- report: reports/infinity-dispatcher-observability-20260908/20260908T1510Z.html; reports/infinity-dispatcher-observability-20260908/20260909T1200Z-terminal.md
+- red_status: pass
+- red_report: artifacts/infinity-dispatcher-observability-20260908/t2-red.md
+- remote_verified: pending_closing_push
+- metric_result: scrape·최근 dispatcher run·revision mismatch·Active freshness를 분리하는 구현 및 fixture 검증을 기록했다. compose 기동은 Docker CLI 부재로 미검증이며 배포·알림·권한·시크릿 변경은 하지 않았다.
+- metric_next_decision: 운영 환경의 Docker CLI가 이용 가능해질 때에만 별도 검증 Intent로 compose 기동과 `/metrics` scrape를 확인한다.
+- knowledge_status: raw
+- knowledge_decision: retain_in_infinity
+- knowledge_targets: artifacts/infinity-dispatcher-observability-20260908/root-cause.md; artifacts/infinity-dispatcher-observability-20260908/metric-contract.md; reports/infinity-dispatcher-observability-20260908/20260909T1200Z-terminal.md
+- knowledge_reflection: dispatcher handoff 뒤 notifier가 stale checkout을 읽어 terminal transition을 놓친 사건과, 작은 leaf의 실측 시간을 다음 예측에 반영하는 규칙은 Infinity 운영 기록으로만 보존한다.
+- knowledge_commit: closing commit pending

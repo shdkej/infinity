@@ -1,0 +1,27 @@
+# 여행·기록·취향 도구 심화 리서치와 조기완료 재계획
+
+- id: research-travel-tool-depth-20260908
+- status: archived
+- archived_at: 2026-09-09T12:00:00Z
+- closure: user_requested_archive
+- target_agent: genie
+- permission: L0-research-and-strategy-only
+- execution_mode: multi_subagent_roles
+- projects: infinity, knowledge-lab, agent-wiki, research-bank
+- task_type: research
+- topics: product, analytics, workflow
+- goal: 남은 시간 예산 안에서 근거 공백·대체 설명·측정 설계·재계획 회귀를 독립 30분 이하 leaf로 심화한다.
+- result: 16개 leaf와 각 Red 검증이 완료됐다. 결론은 no-build/hold이며 직접 WTP·반복 사용·가격 수용성은 미입증으로 유지한다.
+- artifact: artifacts/research-travel-tool-depth-20260908/evidence-gaps.md; artifacts/research-travel-tool-depth-20260908/alternative-explanations.md; artifacts/research-travel-tool-depth-20260908/validation-design.md; artifacts/research-travel-tool-depth-20260908/dispatcher-regression.md; artifacts/research-travel-tool-depth-20260908/terminal-summary.md
+- task_plan: artifacts/research-travel-tool-depth-20260908/task-plan.json
+- report: reports/research-travel-tool-depth-20260908/20260908T1253Z-terminal.html; reports/research-travel-tool-depth-20260908/20260909T1200Z-terminal.md
+- red_status: pass
+- red_report: artifacts/research-travel-tool-depth-20260908/t6-red.md
+- remote_verified: pending_closing_push
+- metric_result: 독립 근거 공백·대체 설명·사전 고정 Stop 조건을 명확히 했고, 조기 Archive를 막는 dispatcher 회귀 테스트 13개를 통과했다. 실제 사용자 행동·직접 WTP는 확보하지 않았다.
+- metric_next_decision: 별도 승인 Intent 없이 사용자 모집·외부 발송·실제 데이터 수집·결제·배포를 진행하지 않는다.
+- knowledge_status: raw
+- knowledge_decision: retain_in_infinity
+- knowledge_targets: artifacts/research-travel-tool-depth-20260908/task-plan.json; artifacts/research-travel-tool-depth-20260908/terminal-summary.md; reports/research-travel-tool-depth-20260908/20260909T1200Z-terminal.md
+- knowledge_reflection: 예정시간을 채우기 위해 handoff만 반복하면 처리량이 떨어진다. 완료 leaf의 실측 시간을 계획시점에 사용하고, 남는 시간에는 명시된 독립 품질 cycle만 실행해야 한다.
+- knowledge_commit: closing commit pending
