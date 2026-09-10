@@ -8,29 +8,9 @@
 
 ## Waiting
 
-### [research-snu-kaist-thinking-20260909] 서울대와 KAIST 출신의 사고 차이 리서치
-- status: waiting
-- target_agent: genie
-- execution_mode: multi_subagent_roles
-- permission: L0-research-only
-- projects: research-bank, infinity
-- task_type: research
-- topics: education, learning, career
-- context_pack: intents/context/research-snu-kaist-thinking-20260909.json
-- task_plan: artifacts/research-snu-kaist-thinking-20260909/task-plan.json
-- task_plan_doc: artifacts/research-snu-kaist-thinking-20260909/task-plan.md
-- artifact: artifacts/research-snu-kaist-thinking-20260909/
-- report: reports/research-snu-kaist-thinking-20260909/20260910T0040Z.html
-- red_status: pass
-- red_report: artifacts/research-snu-kaist-thinking-20260909/t3-red.md
-- notification_channel: slack
-- notification_target: channel:C0BR41W31MM
-- notification_reply_to: 1788996257.654699
-- waiting_reason: 모든 9개 leaf와 T1·T2·T3 Red PASS, 최종 보고서는 완료됐으나 Archive 계약의 knowledge_status·knowledge_decision·knowledge_targets·knowledge_reflection·knowledge_commit 및 archive 커밋의 원격 증빙이 아직 기록되지 않았다.
-- resume_condition: 지식 판정을 기록하고, archive 원장 전환 커밋을 push한 뒤 fetch에서 HEAD == origin/main을 증명한다.
-- next_action: 지식 판정 및 Archive 계약 검증
-
 ## Archive
+
+<!-- research-snu-kaist-thinking-20260909 archived 2026-09-10T06:14Z → intents/archive/research-snu-kaist-thinking-20260909.md [projects: research-bank,infinity; type: research; topics: education,learning,career] (9개 작업과 Red 검증 완료; 내부 archive 기록 누락은 사용자 대기가 아닌 자동 마감으로 처리) -->
 
 <!-- research-travel-tool-depth-20260908 archived 2026-09-09T12:00Z → intents/archive/research-travel-tool-depth-20260908.md [projects: infinity,knowledge-lab,agent-wiki,research-bank; type: research; topics: product,analytics,workflow] (사용자 요청으로 종료·보관; 모든 leaf 및 Red PASS, no-build/hold 결론 유지) -->
 <!-- infinity-dispatcher-observability-20260908 archived 2026-09-09T12:00Z → intents/archive/infinity-dispatcher-observability-20260908.md [projects: infinity,monitoring_personal; type: implementation; topics: dispatcher,observability,prometheus] (사용자 요청으로 종료·보관; 지연 원인과 시간 예측 규칙 기록) -->

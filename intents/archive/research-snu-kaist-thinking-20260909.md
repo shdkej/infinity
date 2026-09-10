@@ -1,0 +1,30 @@
+# 서울대와 KAIST 출신의 사고 차이 리서치
+
+- id: research-snu-kaist-thinking-20260909
+- status: archived
+- archived_at: 2026-09-10T06:14:00Z
+- closure: completed_research_and_internal_closeout
+- target_agent: genie
+- permission: L0-research-only
+- execution_mode: multi_subagent_roles
+- projects: research-bank, infinity
+- task_type: research
+- topics: education, learning, career
+- result: 공개 제도 자료만으로 두 학교 출신의 고유한 사고 차이는 확인할 수 없다는 결론을 냈다. 입학 전 선발·재학 중 경험·졸업 후 경로를 분리해야 하며, 개인에게는 대학 복제가 아닌 4주 학습 조건 실험을 제안했다.
+- context_pack: intents/context/research-snu-kaist-thinking-20260909.json
+- task_plan: artifacts/research-snu-kaist-thinking-20260909/task-plan.json
+- task_plan_doc: artifacts/research-snu-kaist-thinking-20260909/task-plan.md
+- artifact: artifacts/research-snu-kaist-thinking-20260909/
+- report: reports/research-snu-kaist-thinking-20260909/20260910T0040Z.html
+- red_status: pass
+- red_report: artifacts/research-snu-kaist-thinking-20260909/t3-red.md
+- notification_channel: slack
+- notification_target: channel:C0BR41W31MM
+- notification_reply_to: 1788996257.654699
+- metric_result: 9개 작업과 각 Red 검증이 모두 완료됐으며, 대학 간 우열이나 고정된 집단 특성을 주장하지 않는 결론을 유지했다.
+- metric_next_decision: 비교가 필요하면 같은 입학연도·전공·경력 단계의 자료를 갖춘 별도 조사로 진행한다.
+- knowledge_status: raw
+- knowledge_decision: retain_in_infinity
+- knowledge_targets: artifacts/research-snu-kaist-thinking-20260909/knowledge-flow.md; reports/research-snu-kaist-thinking-20260909/20260910T0040Z.html
+- knowledge_reflection: 학교별 제도 차이는 확인했지만 개인의 사고 차이를 학교 효과로 일반화할 근거가 부족하므로, 재사용 가능한 운영 규칙으로 승격하지 않고 조사 원문으로 보존한다.
+- knowledge_commit: pending_archive_commit

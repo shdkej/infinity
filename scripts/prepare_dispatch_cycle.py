@@ -135,6 +135,17 @@ def due_autonomous_retry(entry: dict[str, Any], reference: dt.datetime) -> bool:
     except ValueError:
         return True
 
+def waiting_closeout_reason(entry: dict[str, Any], repo: Path, sha: str) -> str | None:
+    """Identify completed work held only by an internal archive record."""
+    fields = entry["fields"]
+    if fields.get("waiting_on", "").lower() in {"user", "external"}:
+        return None
+    if fields.get("waiting_on", "").lower() == "agent" and fields.get("retry_policy", "").lower() == "autonomous":
+        return None
+    if task_plan_state(entry, repo, sha).get("state") == "complete_or_invalid":
+        return "completed_plan_has_only_internal_closeout_work"
+    return None
+
 def card_contract_errors(entry: dict[str, Any]) -> list[str]:
     """Keep deadline-bound Active cards observable through every state transition."""
     if entry["lane"] != "Active" or not entry["fields"].get("deadline"):
@@ -191,7 +202,7 @@ def build_plan(text: str, sha: str, repo: Path) -> dict[str, Any]:
     active = [e for e in entries if e["lane"] == "Active"]
     waiting = [e for e in entries if e["lane"] == "Waiting"]
     reference = dt.datetime.now(dt.timezone.utc)
-    live, resume, plan_activation, timebox_reassessment, dependency_blocked, terminalization = [], [], [], [], [], []
+    live, resume, plan_activation, timebox_reassessment, dependency_blocked, terminalization, waiting_closeout = [], [], [], [], [], [], []
     for entry in active:
         task_state = task_plan_state(entry, repo, sha)
         item = {"intent_id": entry["id"], "title": entry["title"], "evidence": fresh_trace(entry["id"], repo, reference, sha), "task_state": task_state}
@@ -212,12 +223,16 @@ def build_plan(text: str, sha: str, repo: Path) -> dict[str, Any]:
             invalid.append({"intent_id": entry["id"], "lane": entry["lane"], "status": entry["fields"].get("status", ""), "reason": "cycle_contract_violation", "task_state": task_state})
         else:
             invalid.append({"intent_id": entry["id"], "lane": entry["lane"], "status": entry["fields"].get("status", ""), "reason": "task_plan_has_no_active_or_pending_task", "task_state": task_state})
+    for entry in waiting:
+        reason = waiting_closeout_reason(entry, repo, sha)
+        if reason:
+            waiting_closeout.append({"intent_id": entry["id"], "title": entry["title"], "target_agent": "genie", "reason": reason})
     slots = max(0, MAX_ACTIVE - len(active))
     waiting_retry = [{"intent_id": e["id"], "title": e["title"], "target_agent": "genie", "reason": "autonomous_retry_due"} for e in sorted(waiting, key=priority) if due_autonomous_retry(e, reference)][:slots]
     remaining_slots = max(0, slots - len(waiting_retry))
     promote = [{"intent_id": e["id"], "title": e["title"], "target_agent": "genie", "reason": "available_active_slot"} for e in sorted(inbox, key=priority)[:remaining_slots] if e["fields"].get("target_agent", "genie") == "genie"]
     invalid_ids = {e["intent_id"] for e in invalid}
-    handoff = [e for e in waiting_retry + promote + plan_activation + timebox_reassessment + terminalization + resume if e["intent_id"] not in invalid_ids]
+    handoff = [e for e in waiting_closeout + waiting_retry + promote + plan_activation + timebox_reassessment + terminalization + resume if e["intent_id"] not in invalid_ids or e in waiting_closeout]
     followups = []
     for entry in entries:
         if entry["lane"] != "Archive":
@@ -234,7 +249,7 @@ def build_plan(text: str, sha: str, repo: Path) -> dict[str, Any]:
         if ids or reasons:
             followups.append({"intent_id": entry["id"], "report": report, "follow_up_intent_ids": ids.group(1) if ids else "", "follow_up_not_created_reasons": reasons.group(1) if reasons else ""})
     dispatch_required = bool(handoff or followups or invalid)
-    return {"schema_version": 1, "run_id": "dispatch-" + uuid.uuid4().hex, "at": reference.replace(microsecond=0).isoformat().replace("+00:00", "Z"), "canonical_sha": sha, "counts": {"inbox": len(inbox), "active": len(active), "waiting": len(waiting), "archive": sum(e["lane"] == "Archive" for e in entries)}, "invalid_state": invalid, "live_active": live, "resume_candidates": resume, "plan_activation_candidates": plan_activation, "timebox_reassessment_candidates": timebox_reassessment, "terminalization_candidates": terminalization, "dependency_blocked": dependency_blocked, "waiting_retry_candidates": waiting_retry, "promote_candidates": promote, "handoff_candidates": handoff, "follow_up_candidates": followups, "dispatch_required": dispatch_required, "no_work": not dispatch_required and not invalid}
+    return {"schema_version": 1, "run_id": "dispatch-" + uuid.uuid4().hex, "at": reference.replace(microsecond=0).isoformat().replace("+00:00", "Z"), "canonical_sha": sha, "counts": {"inbox": len(inbox), "active": len(active), "waiting": len(waiting), "archive": sum(e["lane"] == "Archive" for e in entries)}, "invalid_state": invalid, "live_active": live, "resume_candidates": resume, "plan_activation_candidates": plan_activation, "timebox_reassessment_candidates": timebox_reassessment, "terminalization_candidates": terminalization, "waiting_closeout_candidates": waiting_closeout, "dependency_blocked": dependency_blocked, "waiting_retry_candidates": waiting_retry, "promote_candidates": promote, "handoff_candidates": handoff, "follow_up_candidates": followups, "dispatch_required": dispatch_required, "no_work": not dispatch_required and not invalid}
 
 def main() -> int:
     parser = argparse.ArgumentParser()
