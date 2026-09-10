@@ -20,6 +20,15 @@
       "status": "done",
       "evidence_path": "artifacts/research-richard-sapper-20260910/source-map.md",
       "summary": "공식·기관 자료의 생애·대표작·기여 범위를 수집했다."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-ef9e83abcd814599bda424758254533c",
+      "canonical_sha": "f83218ea46c7274b7783e60dfc5c3a2b9f7b2794",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-10T14:47:20Z",
+      "status": "accepted"
     }
   ],
   "known_gap": "초기 Intake에 trace 경로와 파일이 누락되어 dispatcher의 canonical fetch가 실패했다. 이 수정 커밋 이후 dispatcher handoff부터 기록한다."
