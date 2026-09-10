@@ -1,0 +1,19 @@
+{
+  "intent_id": "research-richard-sapper-20260910",
+  "plan_version": 1,
+  "created_at": "2026-09-10T14:09:00Z",
+  "deadline": "2026-09-11T06:00:00Z",
+  "execution_mode": "multi_subagent_roles",
+  "tasks": [
+    {"id":"T1.1","title":"공식·기관 자료로 생애·대표작·기여 범위 수집","status":"pending","estimated_minutes":25,"max_minutes":30,"evidence":"artifacts/research-richard-sapper-20260910/source-map.md"},
+    {"id":"T1.2","title":"Red: 저작·연도·기술 주장 교차 검증","status":"pending","depends_on":["T1.1"],"estimated_minutes":15,"max_minutes":30,"evidence":"artifacts/research-richard-sapper-20260910/t1-red.md"},
+    {"id":"T1.3","title":"C1: 확정 사례와 확인 필요 사례 마감","status":"pending","depends_on":["T1.2"],"estimated_minutes":10,"max_minutes":30,"evidence":"artifacts/research-richard-sapper-20260910/t1-close.md"},
+    {"id":"T2.1","title":"작품별 구조-사용성-형태 설계 원리 분석","status":"pending","depends_on":["T1.3"],"estimated_minutes":25,"max_minutes":30,"evidence":"artifacts/research-richard-sapper-20260910/design-principles.md"},
+    {"id":"T2.2","title":"Red: 해석과 사실의 경계 검증","status":"pending","depends_on":["T2.1"],"estimated_minutes":15,"max_minutes":30,"evidence":"artifacts/research-richard-sapper-20260910/t2-red.md"},
+    {"id":"T2.3","title":"C2: 재사용 가능한 원리 세 가지 마감","status":"pending","depends_on":["T2.2"],"estimated_minutes":10,"max_minutes":30,"evidence":"artifacts/research-richard-sapper-20260910/t2-close.md"},
+    {"id":"T3.1","title":"현대 제품·인터페이스 적용과 한계 정리","status":"pending","depends_on":["T2.3"],"estimated_minutes":25,"max_minutes":30,"evidence":"artifacts/research-richard-sapper-20260910/application-brief.md"},
+    {"id":"T3.2","title":"Red: 과장·시대착오·적용 범위 검증","status":"pending","depends_on":["T3.1"],"estimated_minutes":15,"max_minutes":30,"evidence":"artifacts/research-richard-sapper-20260910/t3-red.md"},
+    {"id":"T3.3","title":"C3: 최종 리서치 브리프·원격 보관 마감","status":"pending","depends_on":["T3.2"],"estimated_minutes":20,"max_minutes":30,"evidence":"artifacts/research-richard-sapper-20260910/richard-sapper-research.md"}
+  ],
+  "deviations": []
+}
