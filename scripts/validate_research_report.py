@@ -22,9 +22,11 @@ class LayoutParser(HTMLParser):
         super().__init__()
         self.rich_v1 = False
         self.viewport = False
-        self.classes: set[str] = set()
-        self.details = 0
-        self.summaries = 0
+        self.stack: list[tuple[str, set[str]]] = []
+        self.axis_roles: set[str] = set()
+        self.callout_in_sheet = False
+        self.details_in_sheet = 0
+        self.summaries_in_details = 0
         self._in_style = False
         self.styles: list[str] = []
 
@@ -34,17 +36,30 @@ class LayoutParser(HTMLParser):
             self.rich_v1 = True
         if tag == "meta" and values.get("name", "").lower() == "viewport":
             self.viewport = True
+        classes = set((values.get("class") or "").split())
+        inside_sheet = any("sheet" in ancestor_classes for _, ancestor_classes in self.stack)
+        inside_details = any(ancestor_tag == "details" for ancestor_tag, _ in self.stack)
         if tag == "style":
             self._in_style = True
-        if tag == "details":
-            self.details += 1
-        if tag == "summary":
-            self.summaries += 1
-        self.classes.update((values.get("class") or "").split())
+        if inside_sheet and {"axis", "ax1"}.issubset(classes):
+            self.axis_roles.add("ax1")
+        if inside_sheet and {"axis", "ax2"}.issubset(classes):
+            self.axis_roles.add("ax2")
+        if inside_sheet and "callout" in classes:
+            self.callout_in_sheet = True
+        if tag == "details" and inside_sheet:
+            self.details_in_sheet += 1
+        if tag == "summary" and inside_sheet and inside_details:
+            self.summaries_in_details += 1
+        self.stack.append((tag, classes))
 
     def handle_endtag(self, tag: str) -> None:
         if tag == "style":
             self._in_style = False
+        for index in range(len(self.stack) - 1, -1, -1):
+            if self.stack[index][0] == tag:
+                del self.stack[index:]
+                break
 
     def handle_data(self, data: str) -> None:
         if self._in_style:
@@ -81,13 +96,14 @@ def main() -> int:
         errors.append("missing rich report marker: html[data-infinity-report=rich-v1]")
     if not layout.viewport:
         errors.append("missing responsive viewport metadata")
-    for class_name in ("sheet", "axis", "ax1", "ax2", "callout"):
-        if class_name not in layout.classes:
-            errors.append(f"missing rich report layout class: {class_name}")
+    if layout.axis_roles != {"ax1", "ax2"}:
+        errors.append("rich report needs both conclusion axes inside the sheet")
+    if not layout.callout_in_sheet:
+        errors.append("rich report needs a callout inside the sheet")
     styles = "".join(layout.styles)
     if "@media (max-width:640px)" not in styles:
         errors.append("missing 390px-oriented responsive layout rule")
-    if layout.details < 2 or layout.summaries < 2:
+    if layout.details_in_sheet < 2 or layout.summaries_in_details < 2:
         errors.append("rich research report needs an open reading surface and a separate detail surface")
     if re.search(r"{{[A-Z0-9_]+}}", html):
         errors.append("rich report contains unresolved template placeholders")
