@@ -22,3 +22,12 @@
 - validation: 직접 연 후보 4건을 `photo-provenance-gate.md`에 기록했다. 초상·사용 조건이 함께 충족된 후보는 0건이다.
 - closure_check: **Waiting**. T2/T3은 입력 사진의 권리 상태가 해결되기 전에는 시작하지 않는다.
 - evidence: `artifacts/content-minimal-collector-richard-sapper-short-20260910/photo-provenance-gate.md`; `reports/content-minimal-collector-richard-sapper-short-20260910/20260910T2314Z-waiting.html`
+
+## 실행 기록 — T1.2 (2026-09-10T23:19:00Z)
+
+- cycle_id: T1.2-private-approval-sync
+- cycle_goal: 사용자의 비공개 실제 인물 사진 시안 승인과 SAM의 별도 제작을 기록하고 중복 출력을 막는다.
+- max_minutes: 30
+- decision: Genie는 PNG·390px preview·새 사진 artifact를 만들지 않는다. SAM의 시안 인계 또는 사용자 피드백을 기다린다.
+- boundary: 공개 게시·업로드는 금지이며, 공개·배포 전 사진 라이선스 확인 게이트는 유지한다. 기존 provenance Waiting 기록과 Red 범위는 역사 기록으로 보존한다.
+- validation: intent-scoped render 파일을 추가하지 않고 trace만 Active 협업 상태로 동기화한다.

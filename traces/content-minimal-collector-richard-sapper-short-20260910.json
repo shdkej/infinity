@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "intent_id": "content-minimal-collector-richard-sapper-short-20260910",
-  "status": "waiting",
+  "status": "active",
   "trace_completeness": "complete",
   "request": {
     "raw": {
@@ -34,6 +34,18 @@
       "public_posted": false,
       "external_uploaded": false,
       "generated_person": false
+    },
+    {
+      "type": "user_private_render_approval",
+      "at": "2026-09-10T23:19:00Z",
+      "result": "active_waiting_for_sam_handoff",
+      "reason_code": "sam_direct_preview_in_progress",
+      "scope": "private_render_only",
+      "rendered": false,
+      "duplicate_render": false,
+      "public_posted": false,
+      "external_uploaded": false,
+      "public_or_distribution_photo_license_gate": "required_before_any_public_or_distribution_use"
     }
   ],
   "artifacts": [
@@ -48,10 +60,17 @@
       "status": "pass",
       "report": "artifacts/content-minimal-collector-richard-sapper-short-20260910/red-report.md",
       "scope": "waiting_provenance_only"
+    },
+    {
+      "type": "red_state_sync_review",
+      "at": "2026-09-10T23:20:00Z",
+      "status": "pass",
+      "scope": "state_sync_only",
+      "assertions": ["no_duplicate_render", "public_boundary_preserved", "historical_waiting_red_not_render_pass"]
     }
   ],
   "next_decision": {
-    "status": "waiting_on_user_or_rightsholder",
-    "value": "권리 확인 실제 Richard Sapper 초상(원본 URL, 이용조건, 귀속 조건)을 받은 뒤 provenance·렌더·Red 검수를 재개한다."
+    "status": "await_sam_preview_handoff_or_feedback",
+    "value": "SAM이 별도 레퍼런스 맞춤 비공개 시안을 제작 중이다. Genie는 중복 렌더를 만들지 않고, 인계 또는 사용자 피드백이 올 때만 provenance·실제 렌더 Red 검수를 재개한다. 공개·배포 전 사진 라이선스 게이트는 유지한다."
   }
 }
