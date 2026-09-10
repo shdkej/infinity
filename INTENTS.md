@@ -30,8 +30,8 @@
 - metric_question: 낯선 사람이 저장·댓글·참여 의향으로 반응하는 한 줄 약속을 14일 안에 판별할 수 있는가?
 - metric_signal: 사전 고정된 14일 실험 카드·기록 양식·Continue/Hold 기준과 Red 검증.
 - metric_decision_rule: 반복 질문·저장·자발적 참여 신호가 없으면 커뮤니티·레벨·오프라인 확장을 보류하고 소재/독자 약속을 다시 설계한다.
-- active_task: T1.1 세 후보의 독자 문제와 반복 소재 비교
-- next_action: T1.1 완료 뒤 Red 범주·타깃 검증을 실행한다.
+- active_task: T2.1 100일 챌린지·크리에이터 커뮤니티·스트릭 사례의 작동 조건 조사
+- next_action: T2.1에서 공개 사례와 반증을 조사한 뒤 Red 일반화·게임화 검증을 실행한다.
 
 ## Waiting
 
