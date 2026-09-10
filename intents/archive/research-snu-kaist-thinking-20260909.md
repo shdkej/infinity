@@ -15,7 +15,7 @@
 - task_plan: artifacts/research-snu-kaist-thinking-20260909/task-plan.json
 - task_plan_doc: artifacts/research-snu-kaist-thinking-20260909/task-plan.md
 - artifact: artifacts/research-snu-kaist-thinking-20260909/
-- report: reports/research-snu-kaist-thinking-20260909/20260910T0040Z.html
+- report: reports/research-snu-kaist-thinking-20260909/20260910T1149Z-revised.html
 - red_status: pass
 - red_report: artifacts/research-snu-kaist-thinking-20260909/t3-red.md
 - notification_channel: slack
@@ -25,6 +25,6 @@
 - metric_next_decision: 비교가 필요하면 같은 입학연도·전공·경력 단계의 자료를 갖춘 별도 조사로 진행한다.
 - knowledge_status: raw
 - knowledge_decision: retain_in_infinity
-- knowledge_targets: artifacts/research-snu-kaist-thinking-20260909/knowledge-flow.md; reports/research-snu-kaist-thinking-20260909/20260910T0040Z.html
+- knowledge_targets: artifacts/research-snu-kaist-thinking-20260909/knowledge-flow.md; reports/research-snu-kaist-thinking-20260909/20260910T1149Z-revised.html
 - knowledge_reflection: 학교별 제도 차이는 확인했지만 개인의 사고 차이를 학교 효과로 일반화할 근거가 부족하므로, 재사용 가능한 운영 규칙으로 승격하지 않고 조사 원문으로 보존한다.
 - knowledge_commit: d680a7eef0011c46d1e783cb63917eed9e6edde4

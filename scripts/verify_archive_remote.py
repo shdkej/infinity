@@ -109,6 +109,18 @@ def main() -> int:
     except Exception as exc:
         errors.append(str(exc))
 
+    # Research reports need semantic depth, not only valid HTML/template markers.
+    try:
+        archive_local = repo / "intents" / "archive" / f"{intent_id}.md"
+        if archive_local.exists() and re.search(r"^\s*-\s*task_type:\s*research\s*$", archive_local.read_text(), re.M):
+            report_match = re.search(r"^\s*-\s*report:\s*(\S+\.html)\s*$", archive_local.read_text(), re.M)
+            if not report_match:
+                errors.append(f"Research archive {intent_id} has no final HTML report")
+            else:
+                run(["python3", "scripts/validate_research_report.py", report_match.group(1)], repo)
+    except Exception as exc:
+        errors.append(f"Research report quality check failed: {exc}")
+
     try:
         run(["git", "fetch", "origin", "main"], repo)
         local_head = run(["git", "rev-parse", "HEAD"], repo)
