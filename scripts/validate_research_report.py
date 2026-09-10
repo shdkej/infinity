@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Reject thin final HTML reports for research intents."""
+"""Reject thin or visually incomplete final HTML reports for research intents."""
 
 from __future__ import annotations
 
@@ -34,6 +34,28 @@ def main() -> int:
         errors.append("research report needs at least 3 linked sources")
     if len(text) < 1400:
         errors.append("research report body is too thin; synthesize the findings, comparison, limits, and next decision")
+
+    # Research reports are read in the Infinity dashboard, not merely parsed as
+    # HTML. Require the shared rich template's responsive, hierarchy-bearing
+    # structure so a bare collection of headings cannot pass as a final report.
+    required_markup = (
+        'data-infinity-report="rich-v1"',
+        '<meta name="viewport"',
+        '<style>',
+        'class="sheet',
+        'class="axis ax1',
+        'class="axis ax2',
+        '<summary>',
+        'class="callout"',
+        '@media (max-width:640px)',
+    )
+    for marker in required_markup:
+        if marker not in html:
+            errors.append(f"missing rich report template marker: {marker}")
+    if len(re.findall(r"<details\\b", html, flags=re.I)) < 2:
+        errors.append("rich research report needs an open reading surface and a separate detail surface")
+    if re.search(r"{{[A-Z0-9_]+}}", html):
+        errors.append("rich report contains unresolved template placeholders")
 
     if errors:
         print("FAIL", file=sys.stderr)
