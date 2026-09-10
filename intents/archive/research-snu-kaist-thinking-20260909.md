@@ -27,4 +27,4 @@
 - knowledge_decision: retain_in_infinity
 - knowledge_targets: artifacts/research-snu-kaist-thinking-20260909/knowledge-flow.md; reports/research-snu-kaist-thinking-20260909/20260910T0040Z.html
 - knowledge_reflection: 학교별 제도 차이는 확인했지만 개인의 사고 차이를 학교 효과로 일반화할 근거가 부족하므로, 재사용 가능한 운영 규칙으로 승격하지 않고 조사 원문으로 보존한다.
-- knowledge_commit: pending_archive_commit
+- knowledge_commit: d680a7eef0011c46d1e783cb63917eed9e6edde4
