@@ -6,8 +6,10 @@
 
 ## Active
 
+## Waiting
+
 ### [content-minimal-collector-richard-sapper-short-20260910] 미니멀 모으기 1/100 — 리처드 사퍼 숏츠 첫 이미지
-- status: active
+- status: waiting
 - target_agent: genie
 - execution_mode: multi_subagent_roles
 - permission: L0-private-render-only
@@ -35,14 +37,15 @@
 - red_status: pass
 - red_report: artifacts/content-minimal-collector-richard-sapper-short-20260910/red-report.md
 - resume_reason: 2026-09-10 사용자 명시 지시 — 게시하지 않는 비공개 시안은 실제 인물 사진으로 우선 제작.
-- next_action: 레퍼런스와 같은 상단 훅·중앙 인물 프레임·하단 시리즈 리듬으로 비공개 9:16 시안을 재렌더하고 사용자 피드백을 반영한다.
+- waiting_on: external
+- blocker: sam_preview_handoff_or_user_feedback_missing; Genie가 검증할 수 있는 비공개 렌더·사진 provenance 입력이 없고, SAM 별도 시안 진행 중 중복 렌더는 금지된다.
+- resume_condition: SAM 비공개 시안의 렌더 파일·사진 원본/출처·이용 조건 인계 또는 사용자 피드백/권리 확인된 실제 초상 입력을 받는다. 그 뒤 JSON+Markdown task plan에 의존성·증거·started_at를 갖춘 단일 leaf를 만든 후에만 Active로 재개한다.
+- next_action: 외부 인계 또는 사용자 피드백 수신 후, provenance를 재검증하고 한 개의 계약 적합 leaf만 활성화한다.
 - knowledge_status: used
 - knowledge_decision: retain_as_task_artifact
 - knowledge_targets: artifacts/content-minimal-collector-richard-sapper-short-20260910/photo-provenance-gate.md
 - knowledge_reflection: 인물 사진의 단순 공개 표시와 재사용 허가를 분리하는 provenance 게이트를 유지한다.
 - knowledge_commit: no-promotion-needed
-
-## Waiting
 
 ## Archive
 

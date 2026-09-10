@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "intent_id": "content-minimal-collector-richard-sapper-short-20260910",
-  "status": "active",
+  "status": "waiting",
   "trace_completeness": "complete",
   "request": {
     "raw": {
@@ -46,6 +46,25 @@
       "public_posted": false,
       "external_uploaded": false,
       "public_or_distribution_photo_license_gate": "required_before_any_public_or_distribution_use"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "at": "2026-09-10T23:32:41Z",
+      "run_id": "dispatch-a25fca6ad3d9490d9ba466963761b87e",
+      "canonical_sha": "0f0468df8213ca2a5b30fecacccf075a26405873",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "status": "accepted"
+    },
+    {
+      "type": "invalid_state_repair",
+      "at": "2026-09-10T23:32:41Z",
+      "result": "moved_to_waiting",
+      "reason_code": "task_plan_has_no_active_or_pending_task",
+      "blocker": "sam_preview_handoff_or_user_feedback_missing",
+      "rendered": false,
+      "duplicate_render": false,
+      "resume_condition": "SAM private-preview handoff with render/source/provenance data, or user feedback/right-confirmed portrait input"
     }
   ],
   "artifacts": [
@@ -70,7 +89,9 @@
     }
   ],
   "next_decision": {
-    "status": "await_sam_preview_handoff_or_feedback",
-    "value": "SAM이 별도 레퍼런스 맞춤 비공개 시안을 제작 중이다. Genie는 중복 렌더를 만들지 않고, 인계 또는 사용자 피드백이 올 때만 provenance·실제 렌더 Red 검수를 재개한다. 공개·배포 전 사진 라이선스 게이트는 유지한다."
+    "status": "waiting_external_handoff_or_feedback",
+    "value": "SAM이 별도 레퍼런스 맞춤 비공개 시안을 제작 중이다. Genie는 중복 렌더를 만들지 않고, 인계 또는 사용자 피드백이 올 때만 provenance·실제 렌더 Red 검수를 재개한다. 공개·배포 전 사진 라이선스 게이트는 유지한다.",
+    "reason_code": "sam_preview_handoff_or_user_feedback_missing",
+    "resume_condition": "SAM private-preview handoff with render/source/provenance data, or user feedback/right-confirmed portrait input"
   }
 }
