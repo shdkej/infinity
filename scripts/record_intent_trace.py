@@ -57,6 +57,7 @@ def load(path: Path) -> dict:
             "intent_id": path.stem,
             "status": "active",
             "trace_completeness": "partial",
+            "backfill_source": "dispatcher_missing_trace",
             "request": {
                 "raw": {"status": "missing", "reason": "legacy dispatcher trace omitted intake request"},
                 "normalized_query": {"status": "missing", "reason": "legacy dispatcher trace omitted normalized query"},
@@ -95,8 +96,20 @@ def load(path: Path) -> dict:
             event["at"] = event["timestamp"]
         normalized.append(event)
     if not any(event.get("type") == "intake" for event in normalized):
+        # A handoff-only record proves neither the original request nor a
+        # Context Pack.  Do not manufacture the conventional filename: it
+        # might not exist and would make the recovery record look complete.
         first_at = next((event.get("timestamp") or event.get("at") for event in normalized if event.get("timestamp") or event.get("at")), "1970-01-01T00:00:00Z")
-        normalized.insert(0, {"type": "intake", "at": first_at, "context_pack": f"intents/context/{path.stem}.json", "evidence_paths": []})
+        data["trace_completeness"] = "partial"
+        data["backfill_source"] = "dispatcher_missing_trace"
+        normalized.insert(0, {
+            "type": "intake",
+            "at": first_at,
+            "context_pack": "",
+            "context_pack_status": "missing",
+            "context_pack_reason": "legacy dispatcher trace omitted intake context pack",
+            "evidence_paths": [],
+        })
     data["events"] = normalized
     return data
 
@@ -147,6 +160,7 @@ def dispatcher_handoff(args: argparse.Namespace) -> None:
             "intent_id": args.intent_id,
             "status": "active",
             "trace_completeness": "partial",
+            "backfill_source": "dispatcher_missing_trace",
             "request": {
                 "raw": {"status": "missing", "reason": "dispatcher backfill: intake trace was absent"},
                 "normalized_query": {"status": "missing", "reason": "dispatcher backfill: intake trace was absent"},

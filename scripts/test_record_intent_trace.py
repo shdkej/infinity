@@ -31,6 +31,51 @@ class LegacyTraceTest(unittest.TestCase):
         self.assertEqual(data["events"][0]["type"], "intake")
         self.assertEqual(data["events"][1]["type"], "backfill")
 
+    def test_handoff_only_object_is_backfilled_without_invented_context_pack(self):
+        with tempfile.TemporaryDirectory() as raw:
+            previous = record.TRACES
+            try:
+                record.TRACES = Path(raw) / "traces"
+                record.TRACES.mkdir()
+                target = record.TRACES / "handoff-only.json"
+                target.write_text(json.dumps({
+                    "schema_version": 1, "intent_id": "handoff-only", "status": "active",
+                    "events": [{"type": "dispatcher_handoff", "run_id": "run-1", "canonical_sha": "a" * 40,
+                                "agent": "genie", "session_key": "agent:genie:infinity-dispatcher",
+                                "timestamp": "2026-09-10T00:00:00Z", "status": "accepted"}],
+                }))
+                args = type("Args", (), {
+                    "intent_id": "handoff-only", "run_id": "run-2", "canonical_sha": "b" * 40,
+                    "agent": "genie", "session_key": "agent:genie:infinity-dispatcher", "at": "2026-09-10T00:01:00Z",
+                })()
+                record.dispatcher_handoff(args)
+                data = json.loads(target.read_text())
+                errors = validator.validate(target)
+            finally:
+                record.TRACES = previous
+        self.assertEqual(data["trace_completeness"], "partial")
+        self.assertEqual(data["backfill_source"], "dispatcher_missing_trace")
+        self.assertEqual(data["events"][0]["context_pack_status"], "missing")
+        self.assertFalse(errors)
+
+    def test_recovery_marker_cannot_bypass_context_or_archive_gates(self):
+        with tempfile.TemporaryDirectory() as raw:
+            target = Path(raw) / "invalid-recovery.json"
+            target.write_text(json.dumps({
+                "schema_version": 1, "intent_id": "invalid-recovery", "status": "archived",
+                "trace_completeness": "partial", "backfill_source": "dispatcher_missing_trace",
+                "request": {"raw": {"status": "recorded", "value": "invented"}, "normalized_query": {"status": "missing", "reason": "missing"}},
+                "events": [
+                    {"type": "intake", "at": "2026-09-10T00:00:00Z", "context_pack": "fake.json", "context_pack_status": "missing", "context_pack_reason": "missing", "evidence_paths": []},
+                    {"type": "dispatcher_handoff", "run_id": "run-1", "canonical_sha": "a" * 40, "agent": "genie", "session_key": "agent:genie:test", "timestamp": "2026-09-10T00:01:00Z", "status": "accepted"},
+                    {"type": "archive", "at": "2026-09-10T00:02:00Z", "report_path": "missing.html", "verification": {"red_status": "pass", "remote_verified": "pass"}},
+                ], "artifacts": [], "verifications": [], "next_decision": {"status": "done", "value": "bad"},
+            }))
+            errors = validator.validate(target)
+        self.assertTrue(errors)
+        self.assertTrue(any("context_pack" in item for item in errors))
+        self.assertTrue(any("execution before archive" in item for item in errors))
+
     def test_missing_trace_is_backfilled_for_dispatcher_handoff(self):
         with tempfile.TemporaryDirectory() as raw:
             previous = record.TRACES

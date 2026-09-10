@@ -65,10 +65,13 @@ trace stage as a custody record.
 
 If a legacy card reaches the dispatcher without a trace, the handoff writer
 creates a `partial` trace first. Its single intake event records both request
-fields as `missing` and sets `context_pack_status: "missing"` with a concrete
-`context_pack_reason`; it must not invent a Context Pack path. This is a
+fields as `missing`, sets `backfill_source: "dispatcher_missing_trace"`, and
+sets `context_pack_status: "missing"` with a concrete
+`context_pack_reason`; its `context_pack` value is empty, never invented. This
+exception is valid only when a subsequent `dispatcher_handoff` exists. It is a
 recovery record only—the next execution still needs a real Context Pack and
-evidence paths.
+evidence paths, and recovery records cannot be archived before such an
+execution exists.
 
 An archive writer cannot infer a pass: callers must supply existing
 `--red-report-path` and `--remote-proof-path` files. The archive event stores

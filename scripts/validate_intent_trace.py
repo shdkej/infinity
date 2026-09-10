@@ -49,6 +49,29 @@ def non_empty_strings(value: object) -> bool:
     )
 
 
+def dispatcher_missing_trace_recovery(data: dict, event: dict, events: list[object], index: int) -> bool:
+    """Allow no Context Pack only for the narrow dispatcher recovery shape."""
+    request = data.get("request")
+    captures_missing = isinstance(request, dict) and all(
+        isinstance(request.get(key), dict) and request[key].get("status") == "missing"
+        for key in ("raw", "normalized_query")
+    )
+    has_following_handoff = any(
+        isinstance(candidate, dict) and candidate.get("type") == "dispatcher_handoff"
+        for candidate in events[index + 1:]
+    )
+    return (
+        data.get("trace_completeness") == "partial"
+        and data.get("backfill_source") == "dispatcher_missing_trace"
+        and captures_missing
+        and event.get("context_pack") == ""
+        and event.get("context_pack_status") == "missing"
+        and isinstance(event.get("context_pack_reason"), str)
+        and bool(event["context_pack_reason"].strip())
+        and has_following_handoff
+    )
+
+
 def validate(trace: Path) -> list[str]:
     errors: list[str] = []
     try:
@@ -100,13 +123,7 @@ def validate(trace: Path) -> list[str]:
             # A dispatcher can recover an old card that predates Context Pack
             # capture.  It must label that loss explicitly; otherwise a normal
             # intake still requires a verifiable context file.
-            missing_backfill = (
-                completeness == "partial"
-                and event.get("context_pack_status") == "missing"
-                and isinstance(event.get("context_pack_reason"), str)
-                and bool(event["context_pack_reason"].strip())
-            )
-            if not missing_backfill:
+            if not dispatcher_missing_trace_recovery(data, event, events, index):
                 error(errors, trace, f"events[{index}].context_pack must name an existing file")
         for path in event.get("evidence_paths", []):
             if not local_path_ok(path):
@@ -131,9 +148,9 @@ def validate(trace: Path) -> list[str]:
                 error(errors, trace, f"events[{index}].verification.red_status must be pass")
             if not isinstance(verification, dict) or verification.get("remote_verified") != "pass":
                 error(errors, trace, f"events[{index}].verification.remote_verified must be pass")
-            if completeness == "complete" and (not isinstance(verification, dict) or not local_path_ok(verification.get("red_report_path"))):
+            if not isinstance(verification, dict) or not local_path_ok(verification.get("red_report_path")):
                 error(errors, trace, f"events[{index}].verification.red_report_path must name Red evidence")
-            if completeness == "complete" and (not isinstance(verification, dict) or not local_path_ok(verification.get("remote_proof_path"))):
+            if not isinstance(verification, dict) or not local_path_ok(verification.get("remote_proof_path")):
                 error(errors, trace, f"events[{index}].verification.remote_proof_path must name remote proof")
         if event.get("type") == "dispatcher_handoff":
             required = ("run_id", "canonical_sha", "agent", "session_key")
@@ -147,6 +164,8 @@ def validate(trace: Path) -> list[str]:
         error(errors, trace, "archived trace requires exactly one archive event")
     if status != "archived" and "archive" in types:
         error(errors, trace, "non-archived trace cannot include archive event")
+    if status == "archived" and data.get("backfill_source") == "dispatcher_missing_trace" and "execution" not in types:
+        error(errors, trace, "dispatcher missing-trace recovery must record execution before archive")
     for group in ("artifacts", "verifications"):
         values = data.get(group)
         if not isinstance(values, list):
