@@ -36,7 +36,11 @@ def fresh_trace(intent_id: str, repo: Path, reference: dt.datetime, sha: str) ->
     path = repo / "traces" / f"{intent_id}.json"
     try:
         raw = path.read_text(encoding="utf-8") if sha == "fixture" else subprocess.check_output(["git", "show", f"origin/main:traces/{intent_id}.json"], cwd=repo, text=True)
-        events = json.loads(raw).get("events", [])
+        parsed = json.loads(raw)
+        # Early dispatcher traces were stored as a plain event list.  Treat
+        # them as a legacy-compatible read format so one old active Intent
+        # cannot abort planning for every current Intent.
+        events = parsed.get("events", []) if isinstance(parsed, dict) else parsed if isinstance(parsed, list) else []
     except (json.JSONDecodeError, subprocess.CalledProcessError, FileNotFoundError):
         return None
     for event in reversed(events):
