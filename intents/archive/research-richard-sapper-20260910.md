@@ -5,6 +5,7 @@
 - archived_at: 2026-09-10T16:07:00Z
 - target_agent: genie
 - execution_mode: multi_subagent_roles
+- deep_research_gate: read `/home/ubuntu/.openclaw/agents/genie/agent/codex-home/skills/deep-research/SKILL.md` on 2026-09-10 before subsequent external research; the task question remained within the original request, so no user reconfirmation was required.
 - projects: [research-bank, infinity]
 - task_type: research
 - topics: [product, content]
