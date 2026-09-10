@@ -7,11 +7,48 @@ import argparse
 import re
 import sys
 from html import unescape
+from html.parser import HTMLParser
 from pathlib import Path
 
 
 def visible_text(html: str) -> str:
     return re.sub(r"\s+", " ", unescape(re.sub(r"<[^>]+>", " ", html))).strip()
+
+
+class LayoutParser(HTMLParser):
+    """Capture rendered-structure signals without trusting literal strings."""
+
+    def __init__(self) -> None:
+        super().__init__()
+        self.rich_v1 = False
+        self.viewport = False
+        self.classes: set[str] = set()
+        self.details = 0
+        self.summaries = 0
+        self._in_style = False
+        self.styles: list[str] = []
+
+    def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        values = dict(attrs)
+        if tag == "html" and values.get("data-infinity-report") == "rich-v1":
+            self.rich_v1 = True
+        if tag == "meta" and values.get("name", "").lower() == "viewport":
+            self.viewport = True
+        if tag == "style":
+            self._in_style = True
+        if tag == "details":
+            self.details += 1
+        if tag == "summary":
+            self.summaries += 1
+        self.classes.update((values.get("class") or "").split())
+
+    def handle_endtag(self, tag: str) -> None:
+        if tag == "style":
+            self._in_style = False
+
+    def handle_data(self, data: str) -> None:
+        if self._in_style:
+            self.styles.append(data)
 
 
 def main() -> int:
@@ -38,21 +75,19 @@ def main() -> int:
     # Research reports are read in the Infinity dashboard, not merely parsed as
     # HTML. Require the shared rich template's responsive, hierarchy-bearing
     # structure so a bare collection of headings cannot pass as a final report.
-    required_markup = (
-        'data-infinity-report="rich-v1"',
-        '<meta name="viewport"',
-        '<style>',
-        'class="sheet',
-        'class="axis ax1',
-        'class="axis ax2',
-        '<summary>',
-        'class="callout"',
-        '@media (max-width:640px)',
-    )
-    for marker in required_markup:
-        if marker not in html:
-            errors.append(f"missing rich report template marker: {marker}")
-    if len(re.findall(r"<details\b", html, flags=re.I)) < 2:
+    layout = LayoutParser()
+    layout.feed(html)
+    if not layout.rich_v1:
+        errors.append("missing rich report marker: html[data-infinity-report=rich-v1]")
+    if not layout.viewport:
+        errors.append("missing responsive viewport metadata")
+    for class_name in ("sheet", "axis", "ax1", "ax2", "callout"):
+        if class_name not in layout.classes:
+            errors.append(f"missing rich report layout class: {class_name}")
+    styles = "".join(layout.styles)
+    if "@media (max-width:640px)" not in styles:
+        errors.append("missing 390px-oriented responsive layout rule")
+    if layout.details < 2 or layout.summaries < 2:
         errors.append("rich research report needs an open reading surface and a separate detail surface")
     if re.search(r"{{[A-Z0-9_]+}}", html):
         errors.append("rich report contains unresolved template placeholders")
