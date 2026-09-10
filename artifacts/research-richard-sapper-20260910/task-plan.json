@@ -12,7 +12,7 @@
     {"id":"T2.2","title":"Red: 해석과 사실의 경계 검증","status":"done","started_at":"2026-09-10T15:26:13Z","completed_at":"2026-09-10T15:26:56Z","actual_minutes":1,"depends_on":["T2.1"],"estimated_minutes":15,"max_minutes":30,"evidence":"artifacts/research-richard-sapper-20260910/t2-red.md","red_status":"pass"},
     {"id":"T2.3","title":"C2: 재사용 가능한 원리 세 가지 마감","status":"done","started_at":"2026-09-10T15:30:33Z","completed_at":"2026-09-10T15:31:23Z","actual_minutes":1,"depends_on":["T2.2"],"estimated_minutes":10,"max_minutes":30,"evidence":"artifacts/research-richard-sapper-20260910/t2-close.md"},
     {"id":"T3.1","title":"현대 제품·인터페이스 적용과 한계 정리","status":"done","started_at":"2026-09-10T15:36:21Z","completed_at":"2026-09-10T15:36:52Z","actual_minutes":1,"depends_on":["T2.3"],"estimated_minutes":25,"max_minutes":30,"evidence":"artifacts/research-richard-sapper-20260910/application-brief.md"},
-    {"id":"T3.2","title":"Red: 과장·시대착오·적용 범위 검증","status":"active","started_at":"2026-09-10T15:40:32Z","depends_on":["T3.1"],"estimated_minutes":15,"max_minutes":30,"evidence":"artifacts/research-richard-sapper-20260910/t3-red.md"},
+    {"id":"T3.2","title":"Red: 과장·시대착오·적용 범위 검증","status":"done","started_at":"2026-09-10T15:40:32Z","completed_at":"2026-09-10T15:41:01Z","actual_minutes":1,"depends_on":["T3.1"],"estimated_minutes":15,"max_minutes":30,"evidence":"artifacts/research-richard-sapper-20260910/t3-red.md","red_status":"pass"},
     {"id":"T3.3","title":"C3: 최종 리서치 브리프·원격 보관 마감","status":"pending","depends_on":["T3.2"],"estimated_minutes":20,"max_minutes":30,"evidence":"artifacts/research-richard-sapper-20260910/richard-sapper-research.md"}
   ],
   "deviations": []
