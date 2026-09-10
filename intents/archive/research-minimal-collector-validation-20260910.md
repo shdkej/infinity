@@ -1,7 +1,7 @@
 # 미니멀 수집 1/100 — 유입·커뮤니티·제품 가설 검증
 
 - id: research-minimal-collector-validation-20260910
-- status: archive
+- status: archived
 - target_agent: genie
 - execution_mode: multi_subagent_roles
 - permission: L0-research-and-strategy-only

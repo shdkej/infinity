@@ -13,6 +13,8 @@
 - artifacts: artifacts/research-richard-sapper-20260910/richard-sapper-research.md; artifacts/research-richard-sapper-20260910/source-map.md
 - red_status: pass
 - red_report: artifacts/research-richard-sapper-20260910/t3-red.md
+- remote_verified: pass
+- remote_commit: f45eb2b770b1e562b0acdadf96c6be25a335d116
 - knowledge_status: closed
 - knowledge_decision: retain_as_task_artifact
 - knowledge_targets: [source-map.md, richard-sapper-research.md, 20260910T1607Z-final.html]
