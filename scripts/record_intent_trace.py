@@ -134,7 +134,35 @@ def execution(args: argparse.Namespace) -> None:
 def dispatcher_handoff(args: argparse.Namespace) -> None:
     """Record dispatcher custody before the delegated executor starts work."""
     path = trace_path(args.intent_id)
-    data = load(path)
+    # An older or manually-created Inbox card can legitimately predate its
+    # trace.  Dispatcher custody must remain durable in that case: failing
+    # here aborts the whole cycle before the executor can repair the card.
+    # Create an explicitly partial backfill rather than pretending the intake
+    # request was captured.
+    if path.exists():
+        data = load(path)
+    else:
+        data = {
+            "schema_version": 1,
+            "intent_id": args.intent_id,
+            "status": "active",
+            "trace_completeness": "partial",
+            "request": {
+                "raw": {"status": "missing", "reason": "dispatcher backfill: intake trace was absent"},
+                "normalized_query": {"status": "missing", "reason": "dispatcher backfill: intake trace was absent"},
+            },
+            "events": [{
+                "type": "intake",
+                "at": timestamp(args.at),
+                "context_pack": "",
+                "context_pack_status": "missing",
+                "context_pack_reason": "dispatcher backfill: intake context pack was absent",
+                "evidence_paths": [],
+            }],
+            "artifacts": [],
+            "verifications": [],
+            "next_decision": {"status": "in_progress", "value": "dispatcher created partial trace before executor handoff"},
+        }
     event = {
         "type": "dispatcher_handoff",
         "run_id": args.run_id,

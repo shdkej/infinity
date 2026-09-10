@@ -97,7 +97,17 @@ def validate(trace: Path) -> list[str]:
         if at:
             prior = at
         if event["type"] == "intake" and not local_path_ok(event.get("context_pack")):
-            error(errors, trace, f"events[{index}].context_pack must name an existing file")
+            # A dispatcher can recover an old card that predates Context Pack
+            # capture.  It must label that loss explicitly; otherwise a normal
+            # intake still requires a verifiable context file.
+            missing_backfill = (
+                completeness == "partial"
+                and event.get("context_pack_status") == "missing"
+                and isinstance(event.get("context_pack_reason"), str)
+                and bool(event["context_pack_reason"].strip())
+            )
+            if not missing_backfill:
+                error(errors, trace, f"events[{index}].context_pack must name an existing file")
         for path in event.get("evidence_paths", []):
             if not local_path_ok(path):
                 error(errors, trace, f"events[{index}] missing evidence path: {path}")

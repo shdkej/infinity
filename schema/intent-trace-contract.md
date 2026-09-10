@@ -63,6 +63,13 @@ the dispatcher `run_id`, `canonical_sha`, `agent`, `session_key`, UTC
 lifecycle. The dashboard renders this event in the separate **운영 인계**
 trace stage as a custody record.
 
+If a legacy card reaches the dispatcher without a trace, the handoff writer
+creates a `partial` trace first. Its single intake event records both request
+fields as `missing` and sets `context_pack_status: "missing"` with a concrete
+`context_pack_reason`; it must not invent a Context Pack path. This is a
+recovery record only—the next execution still needs a real Context Pack and
+evidence paths.
+
 An archive writer cannot infer a pass: callers must supply existing
 `--red-report-path` and `--remote-proof-path` files. The archive event stores
 both paths alongside its `pass` values, and the validator rejects a terminal
