@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "intent_id": "research-richard-sapper-20260910",
-  "status": "active",
+  "status": "archived",
   "trace_completeness": "partial",
   "events": [
     {
@@ -14,7 +14,7 @@
       ]
     },
     {
-      "type": "task_completed",
+      "type": "backfill",
       "task_id": "T1.1",
       "at": "2026-09-10T14:16:00Z",
       "status": "done",
@@ -103,7 +103,7 @@
       "status": "accepted"
     },
     {
-      "type": "terminalization_blocked",
+      "type": "backfill",
       "at": "2026-09-10T15:50:33Z",
       "reason": "canonical Intent file absent from inbox, active, waiting, and archive; no source block can be moved to Archive",
       "evidence_path": "artifacts/research-richard-sapper-20260910/terminalization-blocker.md"
@@ -118,12 +118,69 @@
       "status": "accepted"
     },
     {
-      "type": "terminalization_recheck",
+      "type": "backfill",
       "at": "2026-09-10T15:56:15Z",
       "status": "blocked",
       "reason": "canonical Intent file remains absent from inbox, active, waiting, and archive",
       "evidence_path": "artifacts/research-richard-sapper-20260910/terminalization-blocker.md"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "repair-20260910",
+      "canonical_sha": "2ee76bc7a925c3147dc24255240391198ee19384",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-10T20:12:00Z",
+      "status": "accepted"
+    },
+    {
+      "type": "archive",
+      "at": "2026-09-10T20:14:00Z",
+      "report_path": "reports/research-richard-sapper-20260910/20260910T1607Z-final.html",
+      "evidence_paths": [
+        "reports/research-richard-sapper-20260910/20260910T1607Z-final.html",
+        "artifacts/research-richard-sapper-20260910/t3-red.md",
+        "reports/research-richard-sapper-20260910/20260910T2012Z-remote-proof.md"
+      ],
+      "verification": {
+        "red_status": "pass",
+        "red_report_path": "artifacts/research-richard-sapper-20260910/t3-red.md",
+        "remote_verified": "pass",
+        "remote_proof_path": "reports/research-richard-sapper-20260910/20260910T2012Z-remote-proof.md"
+      }
     }
   ],
-  "known_gap": "초기 Intake에 trace 경로와 파일이 누락되어 dispatcher의 canonical fetch가 실패했다. 이 수정 커밋 이후 dispatcher handoff부터 기록한다."
+  "known_gap": "초기 Intake에 trace 경로와 파일이 누락되어 dispatcher의 canonical fetch가 실패했다. 이 수정 커밋 이후 dispatcher handoff부터 기록한다.",
+  "request": {
+    "raw": {
+      "status": "missing",
+      "reason": "legacy trace omitted intake request"
+    },
+    "normalized_query": {
+      "status": "missing",
+      "reason": "legacy trace omitted normalized query"
+    }
+  },
+  "artifacts": [
+    {
+      "label": "최종 리서치",
+      "path": "artifacts/research-richard-sapper-20260910/richard-sapper-research.md"
+    }
+  ],
+  "verifications": [
+    {
+      "label": "Red verification evidence",
+      "path": "artifacts/research-richard-sapper-20260910/t3-red.md",
+      "status": "pass"
+    },
+    {
+      "label": "Remote verification evidence",
+      "path": "reports/research-richard-sapper-20260910/20260910T2012Z-remote-proof.md",
+      "status": "pass"
+    }
+  ],
+  "next_decision": {
+    "status": "implemented",
+    "value": "완료: 후속 제품 적용은 별도 검증 Intent에서만 판단"
+  }
 }

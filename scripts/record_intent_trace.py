@@ -91,7 +91,12 @@ def load(path: Path) -> dict:
         # be a fresh execution evidence record.
         if event.get("type") not in {"intake", "execution", "archive", "backfill", "dispatcher_handoff"}:
             event["type"] = "backfill"
+        if event.get("type") == "backfill" and "at" not in event and event.get("timestamp"):
+            event["at"] = event["timestamp"]
         normalized.append(event)
+    if not any(event.get("type") == "intake" for event in normalized):
+        first_at = next((event.get("timestamp") or event.get("at") for event in normalized if event.get("timestamp") or event.get("at")), "1970-01-01T00:00:00Z")
+        normalized.insert(0, {"type": "intake", "at": first_at, "context_pack": f"intents/context/{path.stem}.json", "evidence_paths": []})
     data["events"] = normalized
     return data
 
