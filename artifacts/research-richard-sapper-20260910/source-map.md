@@ -9,7 +9,7 @@
 
 | ID | 원자적 주장 | 직접 출처 | 출처 등급·접근 상태 | 기여/연도 경계 | 신뢰도 |
 | --- | --- | --- | --- | --- | --- |
-| SAP-001 | Richard Sapper는 1932년 뮌헨 출생이며 1958–1977년 Marco Zanuso와 협업했다. | [Design Museum Germany — Richard Sapper](https://www.design-museum.de/en/about-design/biographies-of-designers/richard-sapper.html) | 기관 전기 · HTTP 200 확인 | 이 문장은 협업 기간만 뒷받침하며, 해당 기간의 모든 결과물을 샤퍼 단독 저작으로 만들지 않습니다. | 높음 |
+| SAP-001 | Richard Sapper는 1932년 뮌헨 출생이다. Vitra Design Museum의 연표는 그가 Marco Zanuso와 1958–1977년 작업했다고 표기한다. | [Vitra Design Museum — Richard Sapper](https://www.design-museum.de/en/about-design/biographies-of-designers/richard-sapper.html) | 기관 전기 · HTTP 200 확인 | MoMA 기관 자료는 협업을 1959–1978로 다르게 표기한다. 따라서 협업 기간은 단일 확정 연도로 사용하지 않으며, 이 기간의 결과물을 샤퍼 단독 저작으로 만들지 않는다. | 높음(출생) / 상충(기간) |
 | SAP-002 | MoMA의 Tizio Table Lamp 기록은 Richard Sapper를 저자로, 작품 연도를 1971로 표기한다. | [MoMA — Tizio Table Lamp](https://www.moma.org/collection/works/2599) | 박물관 소장 기록 · 브라우저 원문 확인 | MoMA 원문은 1972년을 **첫 생산** 시점으로 설명합니다. 따라서 본 원장은 `1971 (소장기록) / 1972 (첫 생산)`으로 보존하며 단일 ‘설계 연도’로 환원하지 않습니다. | 높음 |
 | SAP-003 | MoMA는 Tizio가 균형추로 네 방향 이동하고, 베이스의 변압기에서 팔을 통해 전류를 공급받는다고 설명한다. | [MoMA — Tizio Table Lamp](https://www.moma.org/collection/works/2599) | 박물관의 작품 설명 · 브라우저 원문 확인 | ‘혁명적’·시장 성공 같은 평가 문구는 이 기술 주장에 포함하지 않습니다. | 높음 |
 | SAP-004 | MoMA의 TS 502 라디오 기록은 Marco Zanuso와 Richard Sapper를 공동 저자로, 1963년작·제조사 Brionvega로 표기한다. | [MoMA — Radio (model TS 502)](https://www.moma.org/collection/works/4034) | 박물관 소장 기록 · 브라우저 원문 확인 | 반드시 `Zanuso와 Sapper의 공동 설계`로 표기합니다. Sapper 단독 작품으로 쓰지 않습니다. | 높음 |
@@ -19,7 +19,7 @@
 
 | 항목 | 관측 | 처리 |
 | --- | --- | --- |
-| Tizio 연도 | Design Museum Germany 전기에는 `Tizia 1970` 표기가 있으나, MoMA는 `Tizio Table Lamp. 1971` 및 1972년 첫 생산을 기록합니다. | 본문의 확정 서술에는 MoMA의 `1971/1972` 구분만 쓰고, 다른 기관의 연도는 T1.2에서 원문·카탈로그 기준으로 재확인합니다. |
+| Tizio 연도 | Vitra Design Museum 연표는 제품명을 `Tizia`, 연도를 1970으로 표기하지만 MoMA는 `Tizio Table Lamp. 1971`, Artemide는 1972년 생산 개시를 기록한다. | Vitra의 `Tizia/1970` 표기는 MoMA·Artemide 기록과 상충하며 확인 불가로 남긴다. 본문의 확정 서술은 MoMA의 `1971 (소장기록) / 1972 (첫 생산)` 구분만 사용한다. |
 | ADI 평생공로상 페이지 | ADI URL은 HTTP 200이었지만 이번 자동 브라우저 수집에서는 본문을 안정적으로 읽지 못했습니다. | 발견 단서로만 남기고, 이 leaf의 확정 근거에는 사용하지 않습니다. |
 | 현대 제품/인터페이스 적용 | 지금 수집한 출처는 오늘날 UI에 대한 직접 계보·효과를 증명하지 않습니다. | T3에서 `해석/적용 가설`로 분리하기 전까지 주장하지 않습니다. |
 
