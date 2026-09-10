@@ -6,8 +6,10 @@
 
 ## Active
 
+## Waiting
+
 ### [research-snu-kaist-thinking-20260909] 서울대와 KAIST 출신의 사고 차이 리서치
-- status: active
+- status: waiting
 - target_agent: genie
 - execution_mode: multi_subagent_roles
 - permission: L0-research-only
@@ -15,27 +17,18 @@
 - task_type: research
 - topics: education, learning, career
 - context_pack: intents/context/research-snu-kaist-thinking-20260909.json
-- context_documents_checked: LLM.md; README.md; schema/agent-rules.md; DOCUMENT_SEARCH_PIPELINE.md; USER_CONTEXT.md; SERVICE_REGISTRY.md; INFINITY_OPERATING_RULES.md; ARTIFACT_RULES.md; EXECUTION_LEARNING_CONTRACT.md; INTENTS.md; agent-wiki/README.md
-- context_searches: 공식 서울대학교·KAIST 학사/교육과정/졸업요건; 고등교육의 선발 효과와 대학 효과 연구; 개인 독서·학습 효과 관련 1차 연구
 - task_plan: artifacts/research-snu-kaist-thinking-20260909/task-plan.json
 - task_plan_doc: artifacts/research-snu-kaist-thinking-20260909/task-plan.md
-- task_plan_template: ARTIFACT_RULES.md#대형-작업-태스크-계획
+- artifact: artifacts/research-snu-kaist-thinking-20260909/
+- report: reports/research-snu-kaist-thinking-20260909/20260910T0040Z.html
+- red_status: pass
+- red_report: artifacts/research-snu-kaist-thinking-20260909/t3-red.md
 - notification_channel: slack
 - notification_target: channel:C0BR41W31MM
 - notification_reply_to: 1788996257.654699
-- goal: 서울대와 KAIST 출신의 사고 차이가 실제로 있는지 단정하지 않고, 선발 효과·교육 과정·졸업 뒤 환경을 분리해 비교한다. 마지막에는 독서와 개인 학습으로 스스로 만들 수 있는 사고 조건을 현실적으로 정리한다.
-- constraints: 개인·집단의 본질화 금지; 공식 출처와 연구를 우선; 학벌·성격의 인과를 추정하지 않음; 입시·진로 처방과 공개 행동은 제외.
-- metric_question: 사용자가 “그래서 학교가 만든 차이와 내가 만들 수 있는 차이는 무엇인가”를 한 번에 구분할 수 있는가?
-- metric_signal: 공식 제도 비교, 선발/교육 효과 구분, 불확실성, 개인 적용을 각각 분리한 최종 보고서와 Red 검증.
-- metric_decision_rule: 직접 비교 근거가 없으면 학교별 사고방식 차이는 결론 내리지 않고, 제도 차이와 확인 불가 영역을 분리해 보고한다.
-- trace: traces/research-snu-kaist-thinking-20260909.json
-- active_task: T3.3 C3: 읽을 수 있는 최종 리서치 보고서 마감
-- stage_evidence_at: 2026-09-09T23:45:00Z
-- stage_evidence: artifacts/research-snu-kaist-thinking-20260909/comparison-frame.md
-
-## Waiting
-
-<!-- 실행 대기 Intent 없음. -->
+- waiting_reason: 모든 9개 leaf와 T1·T2·T3 Red PASS, 최종 보고서는 완료됐으나 Archive 계약의 knowledge_status·knowledge_decision·knowledge_targets·knowledge_reflection·knowledge_commit 및 archive 커밋의 원격 증빙이 아직 기록되지 않았다.
+- resume_condition: 지식 판정을 기록하고, archive 원장 전환 커밋을 push한 뒤 fetch에서 HEAD == origin/main을 증명한다.
+- next_action: 지식 판정 및 Archive 계약 검증
 
 ## Archive
 
