@@ -115,5 +115,20 @@
     "session_key": "agent:genie:infinity-dispatcher",
     "timestamp": "2026-09-10T15:46:20Z",
     "status": "accepted"
+  },
+  {
+    "event": "dispatcher_handoff",
+    "run_id": "dispatch-0ed444d92cbb45ea9063e9da3dfa747c",
+    "canonical_sha": "5f6263ed436d24c2b53e82aebd978cbfdba48bf8",
+    "agent": "genie",
+    "session_key": "agent:genie:infinity-dispatcher",
+    "timestamp": "2026-09-10T15:50:33Z",
+    "status": "accepted"
+  },
+  {
+    "event": "terminalization_reverified",
+    "timestamp": "2026-09-10T15:50:33Z",
+    "status": "already_archived",
+    "evidence_path": "artifacts/research-minimal-collector-validation-20260910/archive-contract.md"
   }
 ]
