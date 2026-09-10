@@ -107,6 +107,22 @@
       "at": "2026-09-10T15:50:33Z",
       "reason": "canonical Intent file absent from inbox, active, waiting, and archive; no source block can be moved to Archive",
       "evidence_path": "artifacts/research-richard-sapper-20260910/terminalization-blocker.md"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-65eed96cf71a421a9e1b5ad406628bfd",
+      "canonical_sha": "b43bb755aac327b35346e612cb49870edb831881",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-10T15:56:15Z",
+      "status": "accepted"
+    },
+    {
+      "type": "terminalization_recheck",
+      "at": "2026-09-10T15:56:15Z",
+      "status": "blocked",
+      "reason": "canonical Intent file remains absent from inbox, active, waiting, and archive",
+      "evidence_path": "artifacts/research-richard-sapper-20260910/terminalization-blocker.md"
     }
   ],
   "known_gap": "초기 Intake에 trace 경로와 파일이 누락되어 dispatcher의 canonical fetch가 실패했다. 이 수정 커밋 이후 dispatcher handoff부터 기록한다."

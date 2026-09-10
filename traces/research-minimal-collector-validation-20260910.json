@@ -130,5 +130,20 @@
     "timestamp": "2026-09-10T15:50:33Z",
     "status": "already_archived",
     "evidence_path": "artifacts/research-minimal-collector-validation-20260910/archive-contract.md"
+  },
+  {
+    "event": "dispatcher_handoff",
+    "run_id": "dispatch-65eed96cf71a421a9e1b5ad406628bfd",
+    "canonical_sha": "b43bb755aac327b35346e612cb49870edb831881",
+    "agent": "genie",
+    "session_key": "agent:genie:infinity-dispatcher",
+    "timestamp": "2026-09-10T15:56:15Z",
+    "status": "accepted"
+  },
+  {
+    "event": "terminalization_recheck",
+    "timestamp": "2026-09-10T15:56:15Z",
+    "status": "already_archived",
+    "evidence_path": "artifacts/research-minimal-collector-validation-20260910/archive-contract.md"
   }
 ]
