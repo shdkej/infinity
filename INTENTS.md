@@ -6,8 +6,10 @@
 
 <!-- 실행 대기 Intent 없음. -->
 
+## Active
+
 ### [research-richard-sapper-20260910] 리차드 샤퍼 디자인 원리 심층 리서치
-- status: inbox
+- status: active
 - target_agent: genie
 - execution_mode: multi_subagent_roles
 - permission: L0-research-only
@@ -30,9 +32,12 @@
 - metric_question: 독자가 샤퍼의 방식에서 재사용 가능한 설계 판단 세 가지와 그 근거 사례를 한 번에 연결할 수 있는가?
 - metric_signal: 출처별 주장-작품-원리 매핑, 반례/한계, Red 검증을 포함한 리서치 브리프.
 - metric_decision_rule: 작품의 저작·연도·기술 원리가 2개 이상의 신뢰 출처로 닫히지 않으면 확정 사례로 쓰지 않고 ‘확인 필요’로 남긴다.
-- next_action: T1.1 공식·기관 자료의 작품/연도/기여 범위를 수집한다.
-
-## Active
+- active_task: T1.2 Red: 저작·연도·기술 주장 교차 검증
+- stage_evidence_at: 2026-09-10T14:16:00Z
+- stage_evidence: artifacts/research-richard-sapper-20260910/source-map.md
+- role_sessions: planner=/root/role_sapper_planner; developer=/root/role_sapper_developer; marketer=/root/role_sapper_marketer; operator=/root/role_sapper_operator; red=/root/role_sapper_red
+- report: reports/research-richard-sapper-20260910/20260910T1416Z-t1-1.html
+- next_action: T1.2 Red: 저작·연도·기술 주장 교차 검증
 
 ### [research-minimal-collector-validation-20260910] 미니멀 수집 1/100 — 유입·커뮤니티·제품 가설 검증
 - status: active
