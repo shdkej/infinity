@@ -13,6 +13,8 @@ CLOSED_RE = re.compile(
     re.I,
 )
 COMMENT_RE = re.compile(r"<!--\s*([\s\S]+?)\s*-->")
+CARD_RE = re.compile(r"^###\s+\[([^\]]+)\][^\n]*(.*?)(?=^###\s+\[|\Z)", re.M | re.S)
+FIELD_RE = re.compile(r"^\s*-\s+([^:\n]+):\s*(.*?)\s*$", re.M)
 ID_RE = re.compile(r"([a-z][a-z0-9]*(?:-[a-z0-9]+)*-\d+)\b")
 DATE_RE = re.compile(
     r"(\d{4}-\d{2}-\d{2}(?:[T\s](?:\d{2}:\d{2}(?::\d{2})?|\d{4}(?:\d{2})?)Z?)?)"
@@ -68,6 +70,16 @@ def main() -> int:
             id_match = ID_RE.match(body)
             if id_match and CLOSED_RE.search(body):
                 errors.append(f"{lane}: closed comment must move to Archive: {id_match.group(1)}")
+
+        # The dispatcher has no access to the original chat context.  An open
+        # card without this pair could reach a terminal state silently, so make
+        # the omission a pre-push error.  Legacy Archive records stay readable.
+        for card in CARD_RE.finditer(sections.get(lane, "")):
+            intent_id = card.group(1)
+            fields = {key.strip(): value.strip() for key, value in FIELD_RE.findall(card.group(2))}
+            missing = [key for key in ("notification_channel", "notification_target") if not fields.get(key)]
+            if missing:
+                errors.append(f"{lane}: {intent_id} missing terminal notification field(s): {', '.join(missing)}")
 
     archive_items: list[tuple[tuple[int, int, int, int, int, int], str]] = []
     for comment in COMMENT_RE.finditer(sections.get("Archive", "")):
