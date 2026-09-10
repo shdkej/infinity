@@ -52,7 +52,7 @@ def main() -> int:
     for marker in required_markup:
         if marker not in html:
             errors.append(f"missing rich report template marker: {marker}")
-    if len(re.findall(r"<details\\b", html, flags=re.I)) < 2:
+    if len(re.findall(r"<details\b", html, flags=re.I)) < 2:
         errors.append("rich research report needs an open reading surface and a separate detail surface")
     if re.search(r"{{[A-Z0-9_]+}}", html):
         errors.append("rich report contains unresolved template placeholders")
