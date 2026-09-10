@@ -23,5 +23,9 @@
 - metric_signal: 공개 전 설계 단계에서는 14일 실험 카드, 기록 양식, 사전 고정된 Continue/Hold 기준과 Red 검증. 실제 반응이 쌓인 뒤에는 도달보다 저장·의미 있는 댓글·자발적 참여 의향을 분리해 판정.
 - metric_decision_rule: 14일 안에 반복 질문·저장·자발적 참여 신호가 한 번도 없으면 커뮤니티·레벨·오프라인 확장은 보류하고, 소재 또는 독자 약속부터 재설계한다.
 - next_action: 별도 승인 Intent가 있을 때만 콘텐츠 관찰 계약을 실행한다. 커뮤니티·제품은 Hold.
+- report: reports/research-minimal-collector-validation-20260910/20260910T1526Z.html
+- red_status: pass
+- red_report: artifacts/research-minimal-collector-validation-20260910/t3-red.md
+- remote_verified: pass
 - archive_contract: artifacts/research-minimal-collector-validation-20260910/archive-contract.md
 - archive_remote_proof: a10a28bc1ecc087c2fec9832a03656aed72f6196 (HEAD == origin/main at final-report push)
