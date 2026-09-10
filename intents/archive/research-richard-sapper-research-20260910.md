@@ -1,0 +1,22 @@
+# 리처드 사퍼 신규 심층 리서치
+
+- id: research-richard-sapper-research-20260910
+- status: archived
+- archived_at: 2026-09-10T21:48:00Z
+- execution_mode: multi_subagent_roles
+- deep_research_gate: read `/home/ubuntu/.openclaw/agents/genie/agent/codex-home/skills/deep-research/SKILL.md` before external search; sharpened question did not materially change the original request.
+- projects: [research-bank, infinity]
+- task_type: research
+- topics: [product, design, interface]
+- result_summary: 새로 직접 연 Met·IBM·Alessi·ADI 원문을 근거로, 구조/제어·조건 통합·기여 기록의 조건부 설계 판단 세 가지와 701C 반례를 정리했다.
+- artifacts: artifacts/research-richard-sapper-research-20260910/source-map.md; artifacts/research-richard-sapper-research-20260910/design-analysis.md; artifacts/research-richard-sapper-research-20260910/final-brief.md
+- reports: reports/research-richard-sapper-research-20260910/20260910T2148Z-final.html
+- red_status: pass
+- red_report: artifacts/research-richard-sapper-research-20260910/red-report.md
+- role_sessions: planner=/root/role_sapper_new_planner; developer=/root/role_sapper_new_developer; marketer=/root/role_sapper_new_marketer; operator=/root/role_sapper_new_operator; red=/root/role_sapper_new_red
+- knowledge_status: closed
+- knowledge_decision: retain_as_task_artifact
+- knowledge_targets: [source-map.md, design-analysis.md, final-brief.md]
+- knowledge_reflection: 역사적 제품 사례의 가치는 양식 모방이 아니라 저작·기여·실패 조건을 보존한 채 현재 가설을 세우는 데 있다.
+- knowledge_commit: no-promotion-needed
+- next_actions: []
