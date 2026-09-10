@@ -4,7 +4,28 @@
 
 ## Inbox
 
-<!-- 실행 대기 Intent 없음. -->
+### [research-richard-sapper-research-20260910] 리처드 사퍼 신규 심층 리서치
+- status: inbox
+- target_agent: genie
+- execution_mode: multi_subagent_roles
+- permission: L0-research-only
+- projects: research-bank, infinity
+- task_type: research
+- topics: product, design, interface
+- context_pack: intents/context/research-richard-sapper-research-20260910.json
+- context_documents_checked: LLM.md; README.md; schema/agent-rules.md; DOCUMENT_SEARCH_PIPELINE.md; USER_CONTEXT.md; SERVICE_REGISTRY.md; INFINITY_OPERATING_RULES.md; ARTIFACT_RULES.md; EXECUTION_LEARNING_CONTRACT.md; INTENTS.md; agent-wiki/README.md
+- context_searches: agent-wiki에서 Richard Sapper·산업디자인·ThinkPad·Tizio 검색 (직접 근거 없음); 신규 1차·기관 출처만 수집
+- task_plan: artifacts/research-richard-sapper-research-20260910/task-plan.json
+- task_plan_doc: artifacts/research-richard-sapper-research-20260910/task-plan.md
+- task_plan_template: ARTIFACT_RULES.md#대형-작업-태스크-계획
+- notification_channel: slack
+- notification_target: channel:C0BR41W31MM
+- notification_reply_to: 1789072321.275899
+- goal: 리처드 사퍼의 생애·대표작·설계 원리를 새로 수집한 1차/기관 출처로 검증하고, 오늘날 제품·인터페이스에 재사용할 설계 판단을 정리한다.
+- constraints: 이전 Sapper Intent의 산출물·출처를 근거로 재사용하지 않음; 공동 작업의 기여를 단독 성취로 축소하지 않음; 공개 게시·구매·외부 연락·권한 변경 없음
+- metric_question: 독자가 새 근거로 검증된 사퍼의 설계 판단 세 가지와 각 적용 한계를 연결할 수 있는가?
+- metric_signal: 출처별 주장-작품-원리 매핑, 반례/한계, 독립 Red 검증을 포함한 리서치 브리프
+- metric_decision_rule: 원문 출처와 Red가 재사용 가능한 판단 세 가지를 지지할 때만 Archive; 아니면 불확실성·재조사 조건을 명시하고 Waiting
 
 ## Active
 
