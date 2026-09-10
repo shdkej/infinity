@@ -4,6 +4,30 @@
 
 ## Inbox
 
+### [research-minimal-collector-validation-20260910] 미니멀 수집 1/100 — 유입·커뮤니티·제품 가설 검증
+- status: inbox
+- target_agent: genie
+- execution_mode: multi_subagent_roles
+- permission: L0-research-and-strategy-only
+- projects: personal-ops, infinity, research-bank
+- task_type: research
+- topics: content, community, product
+- context_pack: intents/context/research-minimal-collector-validation-20260910.json
+- context_documents_checked: LLM.md; README.md; schema/agent-rules.md; DOCUMENT_SEARCH_PIPELINE.md; USER_CONTEXT.md; SERVICE_REGISTRY.md; INFINITY_OPERATING_RULES.md; ARTIFACT_RULES.md; EXECUTION_LEARNING_CONTRACT.md; INTENTS.md; agent-wiki/README.md
+- context_searches: agent-wiki 콘텐츠·검증 루프·온보딩 문서; The 100 Day Project; Ship 30 for 30; Duolingo streak 사례
+- task_plan: artifacts/research-minimal-collector-validation-20260910/task-plan.json
+- task_plan_doc: artifacts/research-minimal-collector-validation-20260910/task-plan.md
+- task_plan_template: ARTIFACT_RULES.md#대형-작업-태스크-계획
+- notification_channel: slack
+- notification_target: channel:C0BR41W31MM
+- notification_reply_to: 1789039915.807299
+- goal: 미니멀 수집 1/100을 첫 유입 시리즈 후보로 검증하고, 이후 커뮤니티·AI 솔루션 확장의 자격 조건을 14일 실험으로 설계한다.
+- constraints: 공개 게시·DM·광고·커뮤니티 개설·개인정보 수집·해외 발송은 사용자 승인 전 금지; 반응 데이터 없이 시장 적합을 선언하지 않음.
+- metric_question: 낯선 사람이 저장·댓글·참여 의향으로 반응하는 한 줄 약속을 14일 안에 판별할 수 있는가?
+- metric_signal: 사전 고정된 14일 실험 카드·기록 양식·Continue/Hold 기준과 Red 검증.
+- metric_decision_rule: 반복 질문·저장·자발적 참여 신호가 없으면 커뮤니티·레벨·오프라인 확장을 보류하고 소재/독자 약속을 다시 설계한다.
+- next_action: 사용자 승인 후 T1.1부터 실행.
+
 ## Active
 
 ## Waiting

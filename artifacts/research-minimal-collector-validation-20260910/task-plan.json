@@ -1,0 +1,18 @@
+{
+  "intent_id": "research-minimal-collector-validation-20260910",
+  "plan_version": 1,
+  "created_at": "2026-09-10T11:32:56Z",
+  "execution_mode": "multi_subagent_roles",
+  "tasks": [
+    {"id":"T1.1","title":"세 후보의 독자 문제와 반복 소재 비교","status":"pending","estimated_minutes":25,"max_minutes":30,"evidence":"artifacts/research-minimal-collector-validation-20260910/audience-and-series-choice.md"},
+    {"id":"T1.2","title":"Red: 범주 혼합과 타깃 불명확성 검증","status":"pending","depends_on":["T1.1"],"estimated_minutes":15,"max_minutes":30,"evidence":"artifacts/research-minimal-collector-validation-20260910/t1-red.md"},
+    {"id":"T1.3","title":"첫 14일의 한 줄 약속과 제외 범위 고정","status":"pending","depends_on":["T1.2"],"estimated_minutes":10,"max_minutes":30,"evidence":"artifacts/research-minimal-collector-validation-20260910/series-contract.md"},
+    {"id":"T2.1","title":"사례와 반증 조사","status":"pending","depends_on":["T1.3"],"estimated_minutes":25,"max_minutes":30,"evidence":"artifacts/research-minimal-collector-validation-20260910/case-and-countercase.md"},
+    {"id":"T2.2","title":"Red: 사례 일반화와 게임화 부작용 검증","status":"pending","depends_on":["T2.1"],"estimated_minutes":15,"max_minutes":30,"evidence":"artifacts/research-minimal-collector-validation-20260910/t2-red.md"},
+    {"id":"T2.3","title":"콘텐츠·커뮤니티·제품 퍼널 경계 확정","status":"pending","depends_on":["T2.2"],"estimated_minutes":10,"max_minutes":30,"evidence":"artifacts/research-minimal-collector-validation-20260910/funnel-boundary.md"},
+    {"id":"T3.1","title":"14일 최소 검증 프로토콜 설계","status":"pending","depends_on":["T2.3"],"estimated_minutes":25,"max_minutes":30,"evidence":"artifacts/research-minimal-collector-validation-20260910/14-day-validation-protocol.md"},
+    {"id":"T3.2","title":"Red: 지표와 공개 경계 검증","status":"pending","depends_on":["T3.1"],"estimated_minutes":15,"max_minutes":30,"evidence":"artifacts/research-minimal-collector-validation-20260910/t3-red.md"},
+    {"id":"T3.3","title":"최종 판단 보고서 작성","status":"pending","depends_on":["T3.2"],"estimated_minutes":10,"max_minutes":30,"evidence":"reports/research-minimal-collector-validation-20260910/{timestamp}.html"}
+  ],
+  "deviations": []
+}
