@@ -65,6 +65,15 @@
       "session_key": "agent:genie:infinity-dispatcher",
       "timestamp": "2026-09-10T15:30:33Z",
       "status": "accepted"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-4725752f901e4e96b5ba4ffaea4b4dc0",
+      "canonical_sha": "4335cb866c90f9086824bf9197bcf9947815487c",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-10T15:36:21Z",
+      "status": "accepted"
     }
   ],
   "known_gap": "초기 Intake에 trace 경로와 파일이 누락되어 dispatcher의 canonical fetch가 실패했다. 이 수정 커밋 이후 dispatcher handoff부터 기록한다."
