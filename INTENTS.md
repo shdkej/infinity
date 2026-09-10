@@ -24,6 +24,7 @@
 - task_plan: artifacts/research-richard-sapper-20260910/task-plan.json
 - task_plan_doc: artifacts/research-richard-sapper-20260910/task-plan.md
 - task_plan_template: ARTIFACT_RULES.md#대형-작업-태스크-계획
+- trace: traces/research-richard-sapper-20260910.json
 - notification_channel: slack
 - notification_target: channel:C0BR41W31MM
 - notification_reply_to: 1789049142.322549
