@@ -1,0 +1,11 @@
+[
+  {
+    "event": "dispatcher_handoff",
+    "run_id": "dispatch-f8a96e20125742088796a3799277a7e0",
+    "canonical_sha": "7aa8f4124601d3fbe43adb4e59931f37487c9d84",
+    "agent": "genie",
+    "session_key": "agent:genie:infinity-dispatcher",
+    "timestamp": "2026-09-10T11:35:47Z",
+    "status": "accepted"
+  }
+]

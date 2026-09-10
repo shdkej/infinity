@@ -4,8 +4,12 @@
 
 ## Inbox
 
+<!-- 실행 대기 Intent 없음. -->
+
+## Active
+
 ### [research-minimal-collector-validation-20260910] 미니멀 수집 1/100 — 유입·커뮤니티·제품 가설 검증
-- status: inbox
+- status: active
 - target_agent: genie
 - execution_mode: multi_subagent_roles
 - permission: L0-research-and-strategy-only
@@ -26,9 +30,8 @@
 - metric_question: 낯선 사람이 저장·댓글·참여 의향으로 반응하는 한 줄 약속을 14일 안에 판별할 수 있는가?
 - metric_signal: 사전 고정된 14일 실험 카드·기록 양식·Continue/Hold 기준과 Red 검증.
 - metric_decision_rule: 반복 질문·저장·자발적 참여 신호가 없으면 커뮤니티·레벨·오프라인 확장을 보류하고 소재/독자 약속을 다시 설계한다.
-- next_action: 사용자 승인 후 T1.1부터 실행.
-
-## Active
+- active_task: T1.1 세 후보의 독자 문제와 반복 소재 비교
+- next_action: T1.1 완료 뒤 Red 범주·타깃 검증을 실행한다.
 
 ## Waiting
 
