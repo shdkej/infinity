@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "intent_id": "research-richard-sapper-research-20260910",
+  "status": "active",
+  "events": [
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-53d55a7d4e1c4cac99a9a17f0c8187e9",
+      "canonical_sha": "a7751efe11d6f0ce1b6cf6e3b2a21f060725c6cc",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-10T21:50:52Z",
+      "status": "accepted"
+    }
+  ]
+}

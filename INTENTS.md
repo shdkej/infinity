@@ -4,8 +4,10 @@
 
 ## Inbox
 
+## Active
+
 ### [research-richard-sapper-research-20260910] 리처드 사퍼 신규 심층 리서치
-- status: inbox
+- status: active
 - target_agent: genie
 - execution_mode: multi_subagent_roles
 - permission: L0-research-only
@@ -26,8 +28,6 @@
 - metric_question: 독자가 새 근거로 검증된 사퍼의 설계 판단 세 가지와 각 적용 한계를 연결할 수 있는가?
 - metric_signal: 출처별 주장-작품-원리 매핑, 반례/한계, 독립 Red 검증을 포함한 리서치 브리프
 - metric_decision_rule: 원문 출처와 Red가 재사용 가능한 판단 세 가지를 지지할 때만 Archive; 아니면 불확실성·재조사 조건을 명시하고 Waiting
-
-## Active
 
 ## Waiting
 
