@@ -6,10 +6,8 @@
 
 ## Active
 
-## Waiting
-
 ### [content-minimal-collector-richard-sapper-short-20260910] 미니멀 모으기 1/100 — 리처드 사퍼 숏츠 첫 이미지
-- status: waiting
+- status: active
 - target_agent: genie
 - execution_mode: multi_subagent_roles
 - permission: L0-private-render-only
@@ -26,24 +24,25 @@
 - notification_target: channel:C0BR41W31MM
 - notification_reply_to: 1789072321.275899
 - goal: 리처드 사퍼 심층 리서치의 검증된 사실만 사용해, 제공 레퍼런스의 상·하단 검정 타이포 밴드와 중앙 인물 사진 리듬을 참조한 9:16 숏츠 첫 이미지 1장을 비공개로 렌더한다. 상단은 “이분도 미니멀리스트” 결의 훅으로, 하단은 “미니멀 모으기 1/100”으로 닫는다.
-- constraints: 공개 게시·업로드·계정 조작 금지; 제공 레퍼런스는 레이아웃·위계 참고만 하고 계정명·UI·워터마크·원문 카피는 복제하지 않음; 인물 사진은 출처 URL·저작권/사용 조건을 artifact에 기록할 수 있는 실제 사진만 사용; 조건을 확인하지 못하면 인물 이미지를 생성·대체하지 않고 Waiting으로 전환; 사퍼의 공동 작업·현대 UI 직접 영향은 단정하지 않음.
+- constraints: 공개 게시·업로드·계정 조작 금지; 제공 레퍼런스는 레이아웃·위계 참고만 하고 계정명·UI·워터마크·원문 카피는 복제하지 않음; 사용자는 실제 인물 사진을 이용한 비공개 시안을 명시 승인함; 공개·배포본에서는 사진의 출처·저작권/사용 조건을 별도 확인; 사퍼의 공동 작업·현대 UI 직접 영향은 단정하지 않음.
 - evidence_inputs: /home/ubuntu/.openclaw/workspace/media/inbound/openclaw-staged-0f312800-fae5-49ce-9d64-a081fc378c17/input-8036ced0-10b4-43eb-82ac-80820899954e.jpg; intents/archive/research-richard-sapper-research-20260910.md; artifacts/research-richard-sapper-research-20260910/source-map.md; artifacts/research-richard-sapper-research-20260910/design-analysis.md; artifacts/research-richard-sapper-research-20260910/final-brief.md
 - metric_question: 첫 3초에 “리처드 사퍼라는 인물·미니멀리스트 훅·미니멀 모으기 1/100”이 읽히고, 실제 사진의 출처와 연구 사실 경계가 보존되는가?
 - metric_signal: 1080×1920 PNG 1장, 원본 사진 출처·사용 조건 원장, 390px 폭 프리뷰, Red 실제 렌더 검수.
-- metric_decision_rule: 실제 인물 사진의 출처/사용 조건이 기록되지 않거나, 훅·시리즈 표기가 3초 안에 읽히지 않거나, 연구의 근거 범위를 넘는 주장이 있으면 결과를 제출하지 않고 재작업 또는 Waiting으로 전환한다.
+- metric_decision_rule: 비공개 시안에서는 사용자 명시 승인과 출처 기록을 남기고, 훅·시리즈 표기가 3초 안에 읽히며 연구의 근거 범위를 넘는 주장이 없을 때만 제출한다. 공개·배포본은 사진의 재사용 조건 확인 전 진행하지 않는다.
 - artifact: artifacts/content-minimal-collector-richard-sapper-short-20260910/task-plan.md; artifacts/content-minimal-collector-richard-sapper-short-20260910/photo-provenance-gate.md
 - report: reports/content-minimal-collector-richard-sapper-short-20260910/20260910T2314Z-waiting.html
 - role_sessions: planner=/root/role_sapper_short_planner; developer=/root/role_sapper_short_developer; marketer=/root/role_sapper_short_marketer; operator=/root/role_sapper_short_operator; red=/root/red_sapper_short
 - red_status: pass
 - red_report: artifacts/content-minimal-collector-richard-sapper-short-20260910/red-report.md
-- blocker: 실제 Richard Sapper 초상 후보는 확인했지만, 재사용 가능한 저작권/이용조건(권리자·라이선스 또는 명시 허가)을 원문에서 확인하지 못했다. 인물 대체 생성은 제약상 금지된다.
-- waiting_on: 사용자 또는 권리자
-- next_action: 사용자 제공의 권리 확인 사진, 또는 원문 URL·저작권/이용조건·귀속 조건이 명시된 실제 Richard Sapper 사진을 받으면 T1 provenance를 재개한다.
+- resume_reason: 2026-09-10 사용자 명시 지시 — 게시하지 않는 비공개 시안은 실제 인물 사진으로 우선 제작.
+- next_action: 레퍼런스와 같은 상단 훅·중앙 인물 프레임·하단 시리즈 리듬으로 비공개 9:16 시안을 재렌더하고 사용자 피드백을 반영한다.
 - knowledge_status: used
 - knowledge_decision: retain_as_task_artifact
 - knowledge_targets: artifacts/content-minimal-collector-richard-sapper-short-20260910/photo-provenance-gate.md
 - knowledge_reflection: 인물 사진의 단순 공개 표시와 재사용 허가를 분리하는 provenance 게이트를 유지한다.
 - knowledge_commit: no-promotion-needed
+
+## Waiting
 
 ## Archive
 
