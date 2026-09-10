@@ -4,8 +4,12 @@
 
 ## Inbox
 
+## Active
+
+## Waiting
+
 ### [content-minimal-collector-richard-sapper-short-20260910] 미니멀 모으기 1/100 — 리처드 사퍼 숏츠 첫 이미지
-- status: inbox
+- status: waiting
 - target_agent: genie
 - execution_mode: multi_subagent_roles
 - permission: L0-private-render-only
@@ -27,11 +31,19 @@
 - metric_question: 첫 3초에 “리처드 사퍼라는 인물·미니멀리스트 훅·미니멀 모으기 1/100”이 읽히고, 실제 사진의 출처와 연구 사실 경계가 보존되는가?
 - metric_signal: 1080×1920 PNG 1장, 원본 사진 출처·사용 조건 원장, 390px 폭 프리뷰, Red 실제 렌더 검수.
 - metric_decision_rule: 실제 인물 사진의 출처/사용 조건이 기록되지 않거나, 훅·시리즈 표기가 3초 안에 읽히지 않거나, 연구의 근거 범위를 넘는 주장이 있으면 결과를 제출하지 않고 재작업 또는 Waiting으로 전환한다.
-- next_action: T1.1 리서치 사실을 단일 훅으로 압축하고, 사용 조건을 확인 가능한 Richard Sapper 실제 사진 후보를 조사한다.
-
-## Active
-
-## Waiting
+- artifact: artifacts/content-minimal-collector-richard-sapper-short-20260910/task-plan.md; artifacts/content-minimal-collector-richard-sapper-short-20260910/photo-provenance-gate.md
+- report: reports/content-minimal-collector-richard-sapper-short-20260910/20260910T2314Z-waiting.html
+- role_sessions: planner=/root/role_sapper_short_planner; developer=/root/role_sapper_short_developer; marketer=/root/role_sapper_short_marketer; operator=/root/role_sapper_short_operator; red=/root/red_sapper_short
+- red_status: pass
+- red_report: artifacts/content-minimal-collector-richard-sapper-short-20260910/red-report.md
+- blocker: 실제 Richard Sapper 초상 후보는 확인했지만, 재사용 가능한 저작권/이용조건(권리자·라이선스 또는 명시 허가)을 원문에서 확인하지 못했다. 인물 대체 생성은 제약상 금지된다.
+- waiting_on: 사용자 또는 권리자
+- next_action: 사용자 제공의 권리 확인 사진, 또는 원문 URL·저작권/이용조건·귀속 조건이 명시된 실제 Richard Sapper 사진을 받으면 T1 provenance를 재개한다.
+- knowledge_status: used
+- knowledge_decision: retain_as_task_artifact
+- knowledge_targets: artifacts/content-minimal-collector-richard-sapper-short-20260910/photo-provenance-gate.md
+- knowledge_reflection: 인물 사진의 단순 공개 표시와 재사용 허가를 분리하는 provenance 게이트를 유지한다.
+- knowledge_commit: no-promotion-needed
 
 ## Archive
 

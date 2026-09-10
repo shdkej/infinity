@@ -13,3 +13,12 @@
 ## 완료 기준
 
 원본 PNG, 사진 출처/사용 조건 원장, 390px 프리뷰, 재현 정보와 Red PASS가 모두 있을 때만 비공개 결과로 보고한다. 이는 게시 허가가 아니다.
+
+## 실행 기록 — T1.1 (2026-09-10T23:14:18Z)
+
+- cycle_id: T1.1-photo-provenance
+- cycle_goal: 실제 Richard Sapper 초상의 재사용 조건을 원문에서 재현 가능한지 확인한다.
+- max_minutes: 30
+- validation: 직접 연 후보 4건을 `photo-provenance-gate.md`에 기록했다. 초상·사용 조건이 함께 충족된 후보는 0건이다.
+- closure_check: **Waiting**. T2/T3은 입력 사진의 권리 상태가 해결되기 전에는 시작하지 않는다.
+- evidence: `artifacts/content-minimal-collector-richard-sapper-short-20260910/photo-provenance-gate.md`; `reports/content-minimal-collector-richard-sapper-short-20260910/20260910T2314Z-waiting.html`

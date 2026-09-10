@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "intent_id": "content-minimal-collector-richard-sapper-short-20260910",
-  "status": "inbox",
+  "status": "waiting",
   "trace_completeness": "complete",
   "request": {
     "raw": {
@@ -23,12 +23,35 @@
         "intents/archive/research-richard-sapper-research-20260910.md",
         "artifacts/research-richard-sapper-research-20260910/source-map.md"
       ]
+    },
+    {
+      "type": "photo_provenance_gate",
+      "at": "2026-09-10T23:14:18Z",
+      "result": "waiting",
+      "reason_code": "portrait_reuse_terms_unverified",
+      "evidence": "artifacts/content-minimal-collector-richard-sapper-short-20260910/photo-provenance-gate.md",
+      "rendered": false,
+      "public_posted": false,
+      "external_uploaded": false,
+      "generated_person": false
     }
   ],
-  "artifacts": [],
-  "verifications": [],
+  "artifacts": [
+    "artifacts/content-minimal-collector-richard-sapper-short-20260910/photo-provenance-gate.md",
+    "artifacts/content-minimal-collector-richard-sapper-short-20260910/red-report.md",
+    "reports/content-minimal-collector-richard-sapper-short-20260910/20260910T2314Z-waiting.html"
+  ],
+  "verifications": [
+    {
+      "type": "red_waiting_provenance_review",
+      "at": "2026-09-10T23:16:00Z",
+      "status": "pass",
+      "report": "artifacts/content-minimal-collector-richard-sapper-short-20260910/red-report.md",
+      "scope": "waiting_provenance_only"
+    }
+  ],
   "next_decision": {
-    "status": "in_progress",
-    "value": "리서치 출처의 사실 범위와 인물 사진의 사용 조건을 확인한 뒤, 9:16 첫 이미지의 카피·초상·가독성을 실제 렌더로 검수한다."
+    "status": "waiting_on_user_or_rightsholder",
+    "value": "권리 확인 실제 Richard Sapper 초상(원본 URL, 이용조건, 귀속 조건)을 받은 뒤 provenance·렌더·Red 검수를 재개한다."
   }
 }
