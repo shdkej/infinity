@@ -138,9 +138,7 @@ def due_autonomous_retry(entry: dict[str, Any], reference: dt.datetime) -> bool:
 def waiting_closeout_reason(entry: dict[str, Any], repo: Path, sha: str) -> str | None:
     """Identify completed work held only by an internal archive record."""
     fields = entry["fields"]
-    if fields.get("waiting_on", "").lower() in {"user", "external"}:
-        return None
-    if fields.get("waiting_on", "").lower() == "agent" and fields.get("retry_policy", "").lower() == "autonomous":
+    if fields.get("waiting_on", "").lower() != "internal":
         return None
     if task_plan_state(entry, repo, sha).get("state") == "complete_or_invalid":
         return "completed_plan_has_only_internal_closeout_work"

@@ -95,6 +95,32 @@ class PlanTests(unittest.TestCase):
         self.assertEqual(plan["terminalization_candidates"][0]["intent_id"], "work-1")
         self.assertEqual(plan["handoff_candidates"][0]["intent_id"], "work-1")
 
+    def waiting_plan(self, waiting_on: str):
+        repo = Path(tempfile.mkdtemp())
+        (repo / "artifacts" / "work-1").mkdir(parents=True)
+        (repo / "artifacts" / "work-1" / "task-plan.json").write_text(json.dumps({"tasks": [{"id": "T1", "title": "마감", "status": "done"}]}))
+        extra = "- task_plan: artifacts/work-1/task-plan.json\n"
+        if waiting_on:
+            extra += f"- waiting_on: {waiting_on}\n"
+        text = "## Inbox\n\n## Active\n\n## Waiting\n" + block("work-1", "waiting", extra) + "\n## Archive\n"
+        return prepare.build_plan(text, "fixture", repo)
+
+    def test_internal_completed_waiting_plan_is_closeout_candidate(self):
+        plan = self.waiting_plan("internal")
+        self.assertEqual(plan["waiting_closeout_candidates"][0]["intent_id"], "work-1")
+        self.assertEqual(plan["handoff_candidates"][0]["intent_id"], "work-1")
+
+    def test_user_or_external_completed_waiting_plan_is_not_auto_closed(self):
+        for waiting_on in ("user", "external"):
+            plan = self.waiting_plan(waiting_on)
+            self.assertFalse(plan["waiting_closeout_candidates"])
+            self.assertFalse(plan["handoff_candidates"])
+
+    def test_missing_waiting_owner_is_not_auto_closed(self):
+        plan = self.waiting_plan("")
+        self.assertFalse(plan["waiting_closeout_candidates"])
+        self.assertFalse(plan["handoff_candidates"])
+
     def test_pending_replan_leaves_prevent_early_terminalization(self):
         """A deadline intent stays active while its explicit replan leaves remain."""
         repo = Path(tempfile.mkdtemp())

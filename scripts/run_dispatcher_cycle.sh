@@ -90,6 +90,8 @@ Do not create schedules. Do not use dashboard_actions as work status. Fetch Infi
 Before substantive work, append a dispatcher_handoff event to traces/<intent-id>.json with run_id, canonical_sha, agent=genie, session_key=agent:genie:infinity-dispatcher, timestamp, and status=accepted. Commit and push only explicit Infinity files, fetch, and prove HEAD == origin/main. Preserve approval boundaries. If starting is unsafe, record a precise Waiting or stale_guard_released reason; never claim completion.
 
 Return JSON containing intent IDs, session evidence, state changes, commit, and remote proof.'''
+if plan.get("waiting_closeout_candidates"):
+    message += """\n\nFor every waiting_closeout_candidate: this is explicitly `waiting_on: internal`, with completed work and no user/external approval boundary. Complete its archive receipt, move it to Archive, and notify its original thread. Do not ask the user to approve an internal record."""
 open(sys.argv[2], "w", encoding="utf-8").write(message)
 PY
   timeout --foreground "${AGENT_TIMEOUT_SECONDS}s" "$OPENCLAW_BIN" agent --agent genie --session-key agent:genie:infinity-dispatcher --message-file "$PROMPT_FILE" --thinking low --timeout "$AGENT_TIMEOUT_SECONDS" --json >"$STATE_DIR/$(basename "$RUN_FILE" .json)-genie.json" 2>&1
