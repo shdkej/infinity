@@ -131,6 +131,13 @@ for item in before.get("expansion_candidates", []):
         raise SystemExit(f"expansion was not persisted for {item['intent_id']}: added={len(added)}")
     if not ready:
         raise SystemExit(f"expansion did not leave executable leaf work for {item['intent_id']}")
+    doc = subprocess.check_output(["git", "show", f"origin/main:{expansion['task_plan_doc']}"], cwd=sys.argv[3], text=True)
+    for leaf_id in added:
+        match = re.search(rf"(?ms)^[●◐○].*?\b{re.escape(leaf_id)}\b.*?(?=^[●◐○].*?\bT\d+\.\d+\b|\Z)", doc)
+        if not match or not all(token in match.group(0) for token in ("예상/최대", "의존", "증거:")):
+            raise SystemExit(f"expansion leaf is missing a complete task-plan.md entry for {item['intent_id']}:{leaf_id}")
+    if "— 계획 변경" not in doc or not all(leaf_id in doc for leaf_id in added):
+        raise SystemExit(f"expansion is missing an append-only task-plan.md change record for {item['intent_id']}")
 PY
     then
       HANDOFF_VERIFY_EXIT=1

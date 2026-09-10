@@ -56,7 +56,7 @@ class PlanTests(unittest.TestCase):
         repo = Path(tempfile.mkdtemp())
         (repo / "artifacts" / "work-1").mkdir(parents=True)
         (repo / "artifacts" / "work-1" / "task-plan.json").write_text(json.dumps({"tasks": [{"id": "T1", "title": "검증", "status": "pending"}]}))
-        text = "## Inbox\n\n## Active\n" + block("work-1", "active", "- task_plan: artifacts/work-1/task-plan.json\n") + "\n## Waiting\n\n## Archive\n"
+        text = "## Inbox\n\n## Active\n" + block("work-1", "active", "- task_plan: artifacts/work-1/task-plan.json\n- task_plan_doc: artifacts/work-1/task-plan.md\n") + "\n## Waiting\n\n## Archive\n"
         plan = prepare.build_plan(text, "fixture", repo)
         self.assertEqual(plan["plan_activation_candidates"][0]["task_state"]["task_id"], "T1")
         self.assertEqual(plan["handoff_candidates"][0]["intent_id"], "work-1")
@@ -168,12 +168,13 @@ class PlanTests(unittest.TestCase):
             "min_ready_tasks": 3, "expansion_brief": "다음 근거 공백을 검증 가능한 leaf로 분해",
         }}
         (repo / "artifacts" / "work-1" / "task-plan.json").write_text(json.dumps(tasks))
-        text = "## Inbox\n\n## Active\n" + block("work-1", "active", "- task_plan: artifacts/work-1/task-plan.json\n") + "\n## Waiting\n\n## Archive\n"
+        text = "## Inbox\n\n## Active\n" + block("work-1", "active", "- task_plan: artifacts/work-1/task-plan.json\n- task_plan_doc: artifacts/work-1/task-plan.md\n") + "\n## Waiting\n\n## Archive\n"
         plan = prepare.build_plan(text, "fixture", repo)
         candidate = plan["expansion_candidates"][0]
         self.assertEqual(candidate["expansion"]["batch_size"], 6)
         self.assertEqual(candidate["expansion"]["target_total_tasks"], 60)
         self.assertEqual(candidate["expansion"]["current_leaf_ids"], ["T1.1"])
+        self.assertEqual(candidate["expansion"]["task_plan_doc"], "artifacts/work-1/task-plan.md")
         self.assertEqual([item["intent_id"] for item in plan["handoff_candidates"]], ["work-1"])
 
     def test_expansion_never_exceeds_its_target(self):

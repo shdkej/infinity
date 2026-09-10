@@ -145,7 +145,10 @@ def task_plan_expansion(entry: dict[str, Any], repo: Path, sha: str) -> dict[str
     total = len(leaf_tasks)
     ready = sum(str(task.get("status", "")).lower() in {"pending", "active"} for task in leaf_tasks)
     if total < target and ready < minimum:
-        return {"state": "replenish", "task_plan": path, "target_total_tasks": target, "batch_size": min(batch, target - total), "current_total_tasks": total, "current_leaf_ids": sorted(str(task.get("id")) for task in leaf_tasks), "ready_tasks": ready, "expansion_brief": brief}
+        task_plan_doc = entry["fields"].get("task_plan_doc", "")
+        if not task_plan_doc:
+            return {"state": "invalid_expansion_policy"}
+        return {"state": "replenish", "task_plan": path, "task_plan_doc": task_plan_doc, "target_total_tasks": target, "batch_size": min(batch, target - total), "current_total_tasks": total, "current_leaf_ids": sorted(str(task.get("id")) for task in leaf_tasks), "ready_tasks": ready, "expansion_brief": brief}
     return None
 
 def canonical(repo: Path, intents: Path | None) -> tuple[str, str]:
