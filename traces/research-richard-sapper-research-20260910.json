@@ -1,8 +1,39 @@
 {
   "schema_version": 1,
   "intent_id": "research-richard-sapper-research-20260910",
-  "status": "active",
+  "status": "archived",
+  "trace_completeness": "partial",
+  "request": {
+    "raw": {"status": "recorded", "value": "리차드 사퍼 조사는 새로 다시 조사요청하는거야"},
+    "normalized_query": {"status": "recorded", "value": "리처드 사퍼를 기존 산출물을 근거로 재사용하지 않고, 신규 1차·기관 출처로 다시 심층 조사한다."}
+  },
   "events": [
+    {
+      "type": "intake",
+      "at": "2026-09-10T21:43:27Z",
+      "context_pack": "intents/context/research-richard-sapper-research-20260910.json",
+      "evidence_paths": ["INTENTS.md", "intents/context/research-richard-sapper-research-20260910.json"]
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-10T21:44:00Z",
+      "context_pack": "intents/context/research-richard-sapper-research-20260910.json",
+      "evidence_paths": ["artifacts/research-richard-sapper-research-20260910/source-map.md", "artifacts/research-richard-sapper-research-20260910/design-analysis.md"],
+      "searches": ["리처드 사퍼 생애·대표작·공동 기여 기관 원문", "리처드 사퍼 현대 제품·인터페이스 적용 한계"],
+      "note": "누락된 intake Context Map trace를 기존 Context Pack·산출물·최종 보고서로 사후 복원했다. 최초 실행 시점의 독립 trace 기록은 없었다."
+    },
+    {
+      "type": "archive",
+      "at": "2026-09-10T21:48:00Z",
+      "report_path": "reports/research-richard-sapper-research-20260910/20260910T2148Z-final.html",
+      "evidence_paths": ["artifacts/research-richard-sapper-research-20260910/red-report.md"],
+      "verification": {
+        "red_status": "pass",
+        "red_report_path": "artifacts/research-richard-sapper-research-20260910/red-report.md",
+        "remote_verified": "pass",
+        "remote_proof_path": "artifacts/research-richard-sapper-research-20260910/remote-proof-20260910T2243Z.md"
+      }
+    },
     {
       "type": "dispatcher_handoff",
       "run_id": "dispatch-53d55a7d4e1c4cac99a9a17f0c8187e9",
@@ -12,5 +43,20 @@
       "timestamp": "2026-09-10T21:50:52Z",
       "status": "accepted"
     }
-  ]
+    ,{
+      "type": "backfill",
+      "at": "2026-09-10T22:43:54Z",
+      "note": "2026-09-10 재검증에서 trace가 dispatcher_handoff만 가진 채 archived intent와 불일치한 것을 확인했다. 원문 요청·Context Pack·산출물·최종 보고서를 근거로 lifecycle을 복원했으며, 최초 intake 시점에 trace writer를 실행하지 않은 이력은 partial로 보존한다.",
+      "evidence_paths": ["intents/archive/research-richard-sapper-research-20260910.md", "intents/context/research-richard-sapper-research-20260910.json", "reports/research-richard-sapper-research-20260910/20260910T2148Z-final.html"]
+    }
+  ],
+  "artifacts": [
+    {"label": "source map", "path": "artifacts/research-richard-sapper-research-20260910/source-map.md"},
+    {"label": "design analysis", "path": "artifacts/research-richard-sapper-research-20260910/design-analysis.md"},
+    {"label": "final brief", "path": "artifacts/research-richard-sapper-research-20260910/final-brief.md"}
+  ],
+  "verifications": [
+    {"label": "Red review", "path": "artifacts/research-richard-sapper-research-20260910/red-report.md", "status": "pass"}
+  ],
+  "next_decision": {"status": "archived", "value": "기존 Context Map trace 누락은 partial backfill로 보존하고, 이후 intake는 trace writer와 validator를 선행한다."}
 }
