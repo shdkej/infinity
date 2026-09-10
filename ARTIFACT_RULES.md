@@ -120,6 +120,7 @@ PRD가 필요한 대형 작업은 PRD가 승인·고정된 직후, 구현 전에
 이 문서는 임의의 “유사한 트리”가 아니라 고정된 표시 계약이다. dispatcher는 deadline Active Intent의 `task-plan.md`가 위 필수 필드 또는 트리 fenced code block을 빠뜨리면 실행하지 않고 `task_plan_format_violation`으로 되돌린다. 새 양식을 제안하려면 기존 양식을 바꾸기 전에 이 섹션·검증기·예시를 같은 커밋에서 먼저 갱신해야 한다.
 
 - `tasks`: 작고 검증 가능한 태스크의 `id`, `title`, `status`, `evidence`를 둔다. 상위 단계는 그대로 하나의 태스크로 쓰지 않고 **3~7개의 독립 완료 단위**로 먼저 나눈다. 각 단위는 하나의 화면 변화, 데이터 계약, 검토, 배포 검증처럼 증거 하나로 닫혀야 한다. 사람이 읽는 타임라인에는 반드시 부모 `T3` 뒤에 들여쓴 `T3.1`, `T3.2` 형식으로 계층을 보인다. `status`는 `pending | active | done | skipped`만 쓴다.
+- **장기 자동 확장:** 50~60개 leaf가 적합한 작업만 `expansion_policy`를 명시적으로 넣는다. `enabled: true`, `target_total_tasks: 50..60`, `batch_size: 1..10`, `min_ready_tasks: 1..10`, 그리고 새 leaf의 범위·증거 기준·금지선을 적은 `expansion_brief`가 모두 필수다. dispatcher는 pending+active leaf가 `min_ready_tasks`보다 적고 총량이 목표 미만일 때만 한 batch를 Genie에게 제안하게 한다. 완료 leaf를 바꾸거나 삭제하지 않으며, 새 leaf·의존성·근거와 `— 계획 변경` 사유를 JSON/Markdown에 함께 append한다. 이 정책이 없으면 완료 계획은 기존처럼 terminalization으로 간다.
 - `deviations`: 원래 계획에 없던 작업·순서 변경·대체 경로를 `{at, reason, impact, task_ids}`로 append-only 기록한다. 카드에서는 `— 계획 변경 N건`으로 분리 표시한다.
 - `INTENTS.md`에는 `task_plan`과 `trace` 경로를 함께 남긴다. `trace`의 `dispatcher_handoff` 수는 카드의 **실행 회차**이며, 진전 수가 아니다.
 - 각 cycle은 태스크 상태 또는 deviation을 바꿀 때에만 계획 파일을 갱신한다. handoff만으로 `done`을 올릴 수 없다.

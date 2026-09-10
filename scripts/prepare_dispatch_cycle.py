@@ -15,6 +15,8 @@ ROOT = Path(__file__).resolve().parents[1]
 LANES = ("Inbox", "Active", "Waiting", "Archive")
 MAX_ACTIVE = 3
 FRESH_MINUTES = 25
+EXPANSION_TARGET_MIN = 50
+EXPANSION_TARGET_MAX = 60
 
 def split_sections(text: str) -> dict[str, str]:
     matches = list(re.finditer(r"^## (Inbox|Active|Waiting|Archive)\s*$", text, re.M))
@@ -112,6 +114,40 @@ def task_plan_state(entry: dict[str, Any], repo: Path, sha: str) -> dict[str, An
         return {"state": "blocked_dependencies"}
     return {"state": "complete_or_invalid"}
 
+def task_plan_expansion(entry: dict[str, Any], repo: Path, sha: str) -> dict[str, Any] | None:
+    """Return a bounded replenishment request for an opted-in long-running plan."""
+    path = entry["fields"].get("task_plan", "")
+    if not path:
+        return None
+    try:
+        raw = (repo / path).read_text(encoding="utf-8") if sha == "fixture" else subprocess.check_output(
+            ["git", "show", f"origin/main:{path}"], cwd=repo, text=True
+        )
+        plan = json.loads(raw)
+    except (OSError, json.JSONDecodeError, subprocess.CalledProcessError):
+        return None
+    policy = plan.get("expansion_policy")
+    if not isinstance(policy, dict) or not policy.get("enabled"):
+        return None
+    try:
+        target = int(policy.get("target_total_tasks"))
+        batch = int(policy.get("batch_size"))
+        minimum = int(policy.get("min_ready_tasks"))
+    except (TypeError, ValueError):
+        return {"state": "invalid_expansion_policy"}
+    if not (EXPANSION_TARGET_MIN <= target <= EXPANSION_TARGET_MAX) or not (1 <= batch <= 10) or not (1 <= minimum <= 10):
+        return {"state": "invalid_expansion_policy"}
+    brief = str(policy.get("expansion_brief", "")).strip()
+    if not brief:
+        return {"state": "invalid_expansion_policy"}
+    tasks = plan.get("tasks", [])
+    leaf_tasks = [task for task in tasks if re.fullmatch(r"T\d+\.\d+", str(task.get("id", "")))]
+    total = len(leaf_tasks)
+    ready = sum(str(task.get("status", "")).lower() in {"pending", "active"} for task in leaf_tasks)
+    if total < target and ready < minimum:
+        return {"state": "replenish", "task_plan": path, "target_total_tasks": target, "batch_size": min(batch, target - total), "current_total_tasks": total, "current_leaf_ids": sorted(str(task.get("id")) for task in leaf_tasks), "ready_tasks": ready, "expansion_brief": brief}
+    return None
+
 def canonical(repo: Path, intents: Path | None) -> tuple[str, str]:
     if intents:
         return intents.read_text(encoding="utf-8"), "fixture"
@@ -204,10 +240,15 @@ def build_plan(text: str, sha: str, repo: Path) -> dict[str, Any]:
     active = [e for e in entries if e["lane"] == "Active"]
     waiting = [e for e in entries if e["lane"] == "Waiting"]
     reference = dt.datetime.now(dt.timezone.utc)
-    live, resume, plan_activation, timebox_reassessment, dependency_blocked, terminalization, waiting_closeout = [], [], [], [], [], [], []
+    live, resume, plan_activation, timebox_reassessment, dependency_blocked, terminalization, waiting_closeout, expansion = [], [], [], [], [], [], [], []
     for entry in active:
         task_state = task_plan_state(entry, repo, sha)
         item = {"intent_id": entry["id"], "title": entry["title"], "evidence": fresh_trace(entry["id"], repo, reference, sha), "task_state": task_state}
+        expansion_state = task_plan_expansion(entry, repo, sha)
+        if expansion_state and expansion_state["state"] == "invalid_expansion_policy":
+            invalid.append({"intent_id": entry["id"], "lane": entry["lane"], "status": entry["fields"].get("status", ""), "reason": "invalid_expansion_policy"})
+        elif expansion_state and expansion_state["state"] == "replenish":
+            expansion.append({**item, "expansion": expansion_state})
         if task_state["state"] == "activate_pending":
             plan_activation.append(item)
         elif task_state["state"] == "active":
@@ -234,7 +275,14 @@ def build_plan(text: str, sha: str, repo: Path) -> dict[str, Any]:
     remaining_slots = max(0, slots - len(waiting_retry))
     promote = [{"intent_id": e["id"], "title": e["title"], "target_agent": "genie", "reason": "available_active_slot"} for e in sorted(inbox, key=priority)[:remaining_slots] if e["fields"].get("target_agent", "genie") == "genie"]
     invalid_ids = {e["intent_id"] for e in invalid}
-    handoff = [e for e in waiting_closeout + waiting_retry + promote + plan_activation + timebox_reassessment + terminalization + resume if e["intent_id"] not in invalid_ids or e in waiting_closeout]
+    raw_handoff = waiting_closeout + waiting_retry + promote + expansion + plan_activation + timebox_reassessment + terminalization + resume
+    handoff = []
+    seen_handoffs: set[str] = set()
+    for item in raw_handoff:
+        if item["intent_id"] in seen_handoffs or (item["intent_id"] in invalid_ids and item not in waiting_closeout):
+            continue
+        seen_handoffs.add(item["intent_id"])
+        handoff.append(item)
     followups = []
     for entry in entries:
         if entry["lane"] != "Archive":
@@ -251,7 +299,7 @@ def build_plan(text: str, sha: str, repo: Path) -> dict[str, Any]:
         if ids or reasons:
             followups.append({"intent_id": entry["id"], "report": report, "follow_up_intent_ids": ids.group(1) if ids else "", "follow_up_not_created_reasons": reasons.group(1) if reasons else ""})
     dispatch_required = bool(handoff or followups or invalid)
-    return {"schema_version": 1, "run_id": "dispatch-" + uuid.uuid4().hex, "at": reference.replace(microsecond=0).isoformat().replace("+00:00", "Z"), "canonical_sha": sha, "counts": {"inbox": len(inbox), "active": len(active), "waiting": len(waiting), "archive": sum(e["lane"] == "Archive" for e in entries)}, "invalid_state": invalid, "live_active": live, "resume_candidates": resume, "plan_activation_candidates": plan_activation, "timebox_reassessment_candidates": timebox_reassessment, "terminalization_candidates": terminalization, "waiting_closeout_candidates": waiting_closeout, "dependency_blocked": dependency_blocked, "waiting_retry_candidates": waiting_retry, "promote_candidates": promote, "handoff_candidates": handoff, "follow_up_candidates": followups, "dispatch_required": dispatch_required, "no_work": not dispatch_required and not invalid}
+    return {"schema_version": 1, "run_id": "dispatch-" + uuid.uuid4().hex, "at": reference.replace(microsecond=0).isoformat().replace("+00:00", "Z"), "canonical_sha": sha, "counts": {"inbox": len(inbox), "active": len(active), "waiting": len(waiting), "archive": sum(e["lane"] == "Archive" for e in entries)}, "invalid_state": invalid, "live_active": live, "resume_candidates": resume, "expansion_candidates": expansion, "plan_activation_candidates": plan_activation, "timebox_reassessment_candidates": timebox_reassessment, "terminalization_candidates": terminalization, "waiting_closeout_candidates": waiting_closeout, "dependency_blocked": dependency_blocked, "waiting_retry_candidates": waiting_retry, "promote_candidates": promote, "handoff_candidates": handoff, "follow_up_candidates": followups, "dispatch_required": dispatch_required, "no_work": not dispatch_required and not invalid}
 
 def main() -> int:
     parser = argparse.ArgumentParser()

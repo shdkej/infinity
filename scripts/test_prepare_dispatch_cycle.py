@@ -160,6 +160,47 @@ class PlanTests(unittest.TestCase):
         plan = prepare.build_plan(text, "fixture", repo)
         self.assertEqual(plan["invalid_state"][0]["reason"], "cycle_contract_violation")
 
+    def test_opted_in_long_run_plan_replenishes_a_bounded_batch(self):
+        repo = Path(tempfile.mkdtemp())
+        (repo / "artifacts" / "work-1").mkdir(parents=True)
+        tasks = {"tasks": [{"id": "T1.1", "title": "완료", "status": "done"}], "expansion_policy": {
+            "enabled": True, "target_total_tasks": 60, "batch_size": 6,
+            "min_ready_tasks": 3, "expansion_brief": "다음 근거 공백을 검증 가능한 leaf로 분해",
+        }}
+        (repo / "artifacts" / "work-1" / "task-plan.json").write_text(json.dumps(tasks))
+        text = "## Inbox\n\n## Active\n" + block("work-1", "active", "- task_plan: artifacts/work-1/task-plan.json\n") + "\n## Waiting\n\n## Archive\n"
+        plan = prepare.build_plan(text, "fixture", repo)
+        candidate = plan["expansion_candidates"][0]
+        self.assertEqual(candidate["expansion"]["batch_size"], 6)
+        self.assertEqual(candidate["expansion"]["target_total_tasks"], 60)
+        self.assertEqual(candidate["expansion"]["current_leaf_ids"], ["T1.1"])
+        self.assertEqual([item["intent_id"] for item in plan["handoff_candidates"]], ["work-1"])
+
+    def test_expansion_never_exceeds_its_target(self):
+        repo = Path(tempfile.mkdtemp())
+        (repo / "artifacts" / "work-1").mkdir(parents=True)
+        tasks = {"tasks": [{"id": f"T{n}.1", "title": "완료", "status": "done"} for n in range(60)], "expansion_policy": {
+            "enabled": True, "target_total_tasks": 60, "batch_size": 6,
+            "min_ready_tasks": 3, "expansion_brief": "후속 근거 검증",
+        }}
+        (repo / "artifacts" / "work-1" / "task-plan.json").write_text(json.dumps(tasks))
+        text = "## Inbox\n\n## Active\n" + block("work-1", "active", "- task_plan: artifacts/work-1/task-plan.json\n") + "\n## Waiting\n\n## Archive\n"
+        plan = prepare.build_plan(text, "fixture", repo)
+        self.assertFalse(plan["expansion_candidates"])
+
+    def test_invalid_expansion_policy_blocks_dispatch(self):
+        repo = Path(tempfile.mkdtemp())
+        (repo / "artifacts" / "work-1").mkdir(parents=True)
+        tasks = {"tasks": [{"id": "T1.1", "title": "완료", "status": "done"}], "expansion_policy": {
+            "enabled": True, "target_total_tasks": 61, "batch_size": 6,
+            "min_ready_tasks": 3, "expansion_brief": "후속 근거 검증",
+        }}
+        (repo / "artifacts" / "work-1" / "task-plan.json").write_text(json.dumps(tasks))
+        text = "## Inbox\n\n## Active\n" + block("work-1", "active", "- task_plan: artifacts/work-1/task-plan.json\n") + "\n## Waiting\n\n## Archive\n"
+        plan = prepare.build_plan(text, "fixture", repo)
+        self.assertEqual(plan["invalid_state"][0]["reason"], "invalid_expansion_policy")
+        self.assertNotIn("work-1", [item["intent_id"] for item in plan["handoff_candidates"]])
+
     def test_timestamp_handoff_is_live_evidence(self):
         repo = Path(tempfile.mkdtemp())
         (repo / "traces").mkdir()

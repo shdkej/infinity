@@ -93,6 +93,8 @@ Before substantive work, append a dispatcher_handoff event to traces/<intent-id>
 Return JSON containing intent IDs, session evidence, state changes, commit, and remote proof.'''
 if plan.get("waiting_closeout_candidates"):
     message += """\n\nFor every waiting_closeout_candidate: this is explicitly `waiting_on: internal`, with completed work and no user/external approval boundary. Complete its archive receipt, move it to Archive, and notify its original thread. Do not ask the user to approve an internal record."""
+if plan.get("expansion_candidates"):
+    message += """\n\nFor every expansion_candidate: before terminalization, append at most its stated batch_size of concrete, evidence-bearing leaf tasks from expansion_brief to both task-plan.json and task-plan.md. Preserve completed tasks and dependencies, append a dashed plan-change record with the count and reason, and never exceed target_total_tasks (always 50–60). Do not expand without that explicit policy, and never use it to bypass an approval, safety, or quality gate."""
 open(sys.argv[2], "w", encoding="utf-8").write(message)
 PY
   timeout --foreground "${AGENT_TIMEOUT_SECONDS}s" "$OPENCLAW_BIN" agent --agent genie --session-key agent:genie:infinity-dispatcher --message-file "$PROMPT_FILE" --thinking low --timeout "$AGENT_TIMEOUT_SECONDS" --json >"$STATE_DIR/$(basename "$RUN_FILE" .json)-genie.json" 2>&1
@@ -103,9 +105,9 @@ PY
     if ! python3 "$ROOT/scripts/prepare_dispatch_cycle.py" --repo "$ROOT" --json >"$POST_PLAN_FILE"; then
       HANDOFF_VERIFY_EXIT=1
       HANDOFF_STATE="post_handoff_fetch_failed"
-    elif ! python3 - "$PLAN_FILE" "$POST_PLAN_FILE" <<'PY'
-import json, sys
-before, after = (json.load(open(path)) for path in sys.argv[1:])
+    elif ! python3 - "$PLAN_FILE" "$POST_PLAN_FILE" "$ROOT" <<'PY'
+import json, re, subprocess, sys
+before, after = (json.load(open(path)) for path in sys.argv[1:3])
 requested = {item["intent_id"] for item in before["handoff_candidates"]}
 if before["dispatch_required"] and after["canonical_sha"] == before["canonical_sha"]:
     raise SystemExit("canonical revision unchanged after required dispatcher work")
@@ -113,6 +115,22 @@ if requested:
     still_stale = requested & {item["intent_id"] for item in after["resume_candidates"]}
     if still_stale:
         raise SystemExit("still missing execution evidence: " + ",".join(sorted(still_stale)))
+for item in before.get("expansion_candidates", []):
+    expansion = item["expansion"]
+    raw = subprocess.check_output(["git", "show", f"origin/main:{expansion['task_plan']}"], cwd=sys.argv[3], text=True)
+    tasks = json.loads(raw).get("tasks", [])
+    leaves = [task for task in tasks if re.fullmatch(r"T\d+\.\d+", str(task.get("id", "")))]
+    ready = [task for task in leaves if str(task.get("status", "")).lower() in {"pending", "active"}]
+    before_ids = set(expansion["current_leaf_ids"])
+    after_ids = {str(task.get("id")) for task in leaves}
+    removed = before_ids - after_ids
+    added = after_ids - before_ids
+    if removed:
+        raise SystemExit(f"expansion rewrote completed leaf history for {item['intent_id']}: removed={sorted(removed)}")
+    if not (1 <= len(added) <= expansion["batch_size"]):
+        raise SystemExit(f"expansion was not persisted for {item['intent_id']}: added={len(added)}")
+    if not ready:
+        raise SystemExit(f"expansion did not leave executable leaf work for {item['intent_id']}")
 PY
     then
       HANDOFF_VERIFY_EXIT=1
