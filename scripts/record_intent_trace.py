@@ -40,8 +40,59 @@ def load(path: Path) -> dict:
         data = json.loads(path.read_text(encoding="utf-8"))
     except FileNotFoundError:
         raise SystemExit(f"trace does not exist: {path.relative_to(ROOT)}")
+    if isinstance(data, list):
+        # Early dispatcher versions wrote a bare handoff list.  Leaving that
+        # shape in place turns an agent-owned archive receipt into a false
+        # Waiting state because the trace tool cannot append an archive event.
+        events = []
+        for item in data:
+            if not isinstance(item, dict):
+                continue
+            event = dict(item)
+            if "event" in event:
+                event["type"] = event.pop("event")
+            events.append(event)
+        data = {
+            "schema_version": 1,
+            "intent_id": path.stem,
+            "status": "active",
+            "trace_completeness": "partial",
+            "request": {
+                "raw": {"status": "missing", "reason": "legacy dispatcher trace omitted intake request"},
+                "normalized_query": {"status": "missing", "reason": "legacy dispatcher trace omitted normalized query"},
+            },
+            "events": events,
+            "artifacts": [],
+            "verifications": [],
+            "next_decision": {"status": "in_progress", "value": "legacy trace normalized for agent-owned closeout"},
+        }
     if not isinstance(data, dict):
-        raise SystemExit("trace root must be an object")
+        raise SystemExit("trace root must be an object or legacy event list")
+    data.setdefault("schema_version", 1)
+    data.setdefault("intent_id", path.stem)
+    data.setdefault("status", "active")
+    data.setdefault("trace_completeness", "partial")
+    data.setdefault("request", {
+        "raw": {"status": "missing", "reason": "legacy trace omitted intake request"},
+        "normalized_query": {"status": "missing", "reason": "legacy trace omitted normalized query"},
+    })
+    data.setdefault("artifacts", [])
+    data.setdefault("verifications", [])
+    data.setdefault("next_decision", {"status": "in_progress", "value": "legacy trace normalized for agent-owned closeout"})
+    normalized = []
+    for event in data.get("events", []):
+        if not isinstance(event, dict):
+            continue
+        event = dict(event)
+        if "event" in event:
+            event["type"] = event.pop("event")
+        # Task-level events predate the durable trace schema.  A backfill is
+        # intentionally lossless enough for chronology but never pretends to
+        # be a fresh execution evidence record.
+        if event.get("type") not in {"intake", "execution", "archive", "backfill", "dispatcher_handoff"}:
+            event["type"] = "backfill"
+        normalized.append(event)
+    data["events"] = normalized
     return data
 
 

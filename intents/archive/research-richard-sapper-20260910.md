@@ -1,0 +1,21 @@
+# 리차드 샤퍼 디자인 원리 심층 리서치
+
+- id: research-richard-sapper-20260910
+- status: archived
+- archived_at: 2026-09-10T16:07:00Z
+- target_agent: genie
+- execution_mode: multi_subagent_roles
+- projects: [research-bank, infinity]
+- task_type: research
+- topics: [product, content]
+- result_summary: Tizio·TS 502·ThinkPad 700C의 저작·연도·기여 범위를 기관 자료로 분리하고, 현대 제품에 재사용할 세 가지 검토 질문을 근거와 한계까지 포함해 정리했다.
+- report: reports/research-richard-sapper-20260910/20260910T1607Z-final.html
+- artifacts: artifacts/research-richard-sapper-20260910/richard-sapper-research.md; artifacts/research-richard-sapper-20260910/source-map.md
+- red_status: pass
+- red_report: artifacts/research-richard-sapper-20260910/t3-red.md
+- knowledge_status: closed
+- knowledge_decision: retain_as_task_artifact
+- knowledge_targets: [source-map.md, richard-sapper-research.md, 20260910T1607Z-final.html]
+- knowledge_reflection: 역사적 사례는 형태 모방이 아니라 기여·연도·효과 주장의 증거 경계를 훈련하는 자료로 사용한다.
+- knowledge_commit: pending-remote-verification
+- next_actions: []

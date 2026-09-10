@@ -8,66 +8,12 @@
 
 ## Active
 
-### [research-richard-sapper-20260910] 리차드 샤퍼 디자인 원리 심층 리서치
-- status: active
-- target_agent: genie
-- execution_mode: multi_subagent_roles
-- permission: L0-research-only
-- projects: research-bank, infinity
-- task_type: research
-- topics: product, content
-- deadline: 2026-09-11T06:00:00Z
-- deadline_local: 2026-09-11 08:00 Europe/Rome (CEST)
-- context_pack: intents/context/research-richard-sapper-20260910.json
-- context_documents_checked: LLM.md; README.md; schema/agent-rules.md; DOCUMENT_SEARCH_PIPELINE.md; USER_CONTEXT.md; SERVICE_REGISTRY.md; INFINITY_OPERATING_RULES.md; ARTIFACT_RULES.md; EXECUTION_LEARNING_CONTRACT.md; INTENTS.md; agent-wiki/README.md
-- context_searches: agent-wiki에서 Richard Sapper·산업디자인·ThinkPad·Tizio 검색 (직접 근거 없음); Richard Sapper Design·ADI Design Museum·MoMA·Lenovo 공식/기관 자료
-- task_plan: artifacts/research-richard-sapper-20260910/task-plan.json
-- task_plan_doc: artifacts/research-richard-sapper-20260910/task-plan.md
-- task_plan_template: ARTIFACT_RULES.md#대형-작업-태스크-계획
-- trace: traces/research-richard-sapper-20260910.json
-- notification_channel: slack
-- notification_target: channel:C0BR41W31MM
-- notification_reply_to: 1789049142.322549
-- goal: 리차드 샤퍼의 생애·대표작·기술과 형태의 결합 원리를 1차/기관 출처로 검증하고, 오늘날 제품·인터페이스 설계에 옮길 수 있는 판단으로 정리한다.
-- constraints: 공개 게시·구매·외부 연락·권한 변경 없음; 샤퍼 개인의 발명/기여 범위를 공동 작업과 구분; 현재 제품에 대한 영향은 직접 근거와 해석을 분리.
-- metric_question: 독자가 샤퍼의 방식에서 재사용 가능한 설계 판단 세 가지와 그 근거 사례를 한 번에 연결할 수 있는가?
-- metric_signal: 출처별 주장-작품-원리 매핑, 반례/한계, Red 검증을 포함한 리서치 브리프.
-- metric_decision_rule: 작품의 저작·연도·기술 원리가 2개 이상의 신뢰 출처로 닫히지 않으면 확정 사례로 쓰지 않고 ‘확인 필요’로 남긴다.
-- active_task: T1.2 Red: 저작·연도·기술 주장 교차 검증
-- stage_evidence_at: 2026-09-10T14:16:00Z
-- stage_evidence: artifacts/research-richard-sapper-20260910/source-map.md
-- role_sessions: planner=/root/role_sapper_planner; developer=/root/role_sapper_developer; marketer=/root/role_sapper_marketer; operator=/root/role_sapper_operator; red=/root/role_sapper_red
-- report: reports/research-richard-sapper-20260910/20260910T1416Z-t1-1.html
-- next_action: T1.2 Red: 저작·연도·기술 주장 교차 검증
-
-### [research-minimal-collector-validation-20260910] 미니멀 수집 1/100 — 유입·커뮤니티·제품 가설 검증
-- status: active
-- target_agent: genie
-- execution_mode: multi_subagent_roles
-- permission: L0-research-and-strategy-only
-- projects: personal-ops, infinity, research-bank
-- task_type: research
-- topics: content, community, product
-- context_pack: intents/context/research-minimal-collector-validation-20260910.json
-- context_documents_checked: LLM.md; README.md; schema/agent-rules.md; DOCUMENT_SEARCH_PIPELINE.md; USER_CONTEXT.md; SERVICE_REGISTRY.md; INFINITY_OPERATING_RULES.md; ARTIFACT_RULES.md; EXECUTION_LEARNING_CONTRACT.md; INTENTS.md; agent-wiki/README.md
-- context_searches: agent-wiki 콘텐츠·검증 루프·온보딩 문서; The 100 Day Project; Ship 30 for 30; Duolingo streak 사례
-- task_plan: artifacts/research-minimal-collector-validation-20260910/task-plan.json
-- task_plan_doc: artifacts/research-minimal-collector-validation-20260910/task-plan.md
-- task_plan_template: ARTIFACT_RULES.md#대형-작업-태스크-계획
-- notification_channel: slack
-- notification_target: channel:C0BR41W31MM
-- notification_reply_to: 1789039915.807299
-- goal: 미니멀 수집 1/100을 첫 유입 시리즈 후보로 검증하고, 이후 커뮤니티·AI 솔루션 확장의 자격 조건을 14일 실험으로 설계한다.
-- constraints: 공개 게시·DM·광고·커뮤니티 개설·개인정보 수집·해외 발송은 사용자 승인 전 금지; 반응 데이터 없이 시장 적합을 선언하지 않음.
-- metric_question: 낯선 사람이 저장·댓글·참여 의향으로 반응하는 한 줄 약속을 14일 안에 판별할 수 있는가?
-- metric_signal: 사전 고정된 14일 실험 카드·기록 양식·Continue/Hold 기준과 Red 검증.
-- metric_decision_rule: 반복 질문·저장·자발적 참여 신호가 없으면 커뮤니티·레벨·오프라인 확장을 보류하고 소재/독자 약속을 다시 설계한다.
-- active_task: T2.1b Ship 30의 커뮤니티·게시 압력 조건 원문 추출
-- next_action: Ship 30 원문에서 콘텐츠 반복과 커뮤니티 운영의 별도 조건을 확인한다.
-
 ## Waiting
 
 ## Archive
+
+<!-- research-richard-sapper-20260910 archived 2026-09-10T16:07Z → intents/archive/research-richard-sapper-20260910.md [projects: research-bank,infinity; type: research; topics: product,content] (기관 자료로 저작·연도·기여 범위를 분리하고 현대 제품 검토 질문 3개를 정리; Red PASS) -->
+<!-- research-minimal-collector-validation-20260910 archived 2026-09-10T15:31Z → intents/archive/research-minimal-collector-validation-20260910.md [projects: personal-ops,infinity,research-bank; type: research; topics: content,community,product] (14일 검증 설계 완료; 실제 데이터 없음으로 콘텐츠 외 커뮤니티·제품은 Hold) -->
 
 <!-- research-snu-kaist-thinking-20260909 archived 2026-09-10T06:14Z → intents/archive/research-snu-kaist-thinking-20260909.md [projects: research-bank,infinity; type: research; topics: education,learning,career] (9개 작업과 Red 검증 완료; 내부 archive 기록 누락은 사용자 대기가 아닌 자동 마감으로 처리) -->
 
