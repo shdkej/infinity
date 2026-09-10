@@ -10,9 +10,11 @@
 - topics: [product, design, interface]
 - result_summary: 새로 직접 연 Met·IBM·Alessi·ADI 원문을 근거로, 구조/제어·조건 통합·기여 기록의 조건부 설계 판단 세 가지와 701C 반례를 정리했다.
 - artifacts: artifacts/research-richard-sapper-research-20260910/source-map.md; artifacts/research-richard-sapper-research-20260910/design-analysis.md; artifacts/research-richard-sapper-research-20260910/final-brief.md
+- report: reports/research-richard-sapper-research-20260910/20260910T2148Z-final.html
 - reports: reports/research-richard-sapper-research-20260910/20260910T2148Z-final.html
 - red_status: pass
 - red_report: artifacts/research-richard-sapper-research-20260910/red-report.md
+- remote_commit: c4e6caf7f21ae2b16d6a5b893913f16ddc304413
 - role_sessions: planner=/root/role_sapper_new_planner; developer=/root/role_sapper_new_developer; marketer=/root/role_sapper_new_marketer; operator=/root/role_sapper_new_operator; red=/root/role_sapper_new_red
 - knowledge_status: closed
 - knowledge_decision: retain_as_task_artifact
