@@ -15,6 +15,15 @@
   },
   "events": [
     {
+      "type": "dispatcher_handoff",
+      "at": "2026-09-11T15:10:31Z",
+      "run_id": "dispatch-4e3b48acf10b414ea6169be09e4c23a5",
+      "canonical_sha": "a5a6f5c9ebe42706be22470ab4a95b2152189b78",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "status": "accepted"
+    },
+    {
       "type": "intake",
       "at": "2026-09-11T13:45:00Z",
       "context_pack": "intents/context/research-minimal-curation-shorts-method-20260911.json",
