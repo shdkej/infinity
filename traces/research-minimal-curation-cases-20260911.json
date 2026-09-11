@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "intent_id": "research-minimal-curation-cases-20260911",
+  "status": "inbox",
+  "trace_completeness": "complete",
+  "request": {
+    "raw": {
+      "status": "recorded",
+      "value": "리서치 방향이 달랐다. 실제 사례들을 리스팅하고 각 사례를 분석해, 미니멀 관련 사람·공간·물건 큐레이션 숏츠에 적용할 수 있게 다시 조사한다."
+    },
+    "normalized_query": {
+      "status": "recorded",
+      "value": "미니멀 큐레이션 실제 사례 6~8개 목록 및 선정 방식·소개 구성·영상/카피 문법·장점/한계·숏츠 적용점 분석"
+    }
+  },
+  "events": [
+    {
+      "type": "intake",
+      "at": "2026-09-11T23:38:43Z",
+      "context_pack": "intents/context/research-minimal-curation-cases-20260911.json",
+      "evidence_paths": [
+        "INTENTS.md",
+        "artifacts/research-minimal-curation-cases-20260911/task-plan.json",
+        "artifacts/research-minimal-curation-cases-20260911/task-plan.md"
+      ]
+    }
+  ],
+  "artifacts": [],
+  "verifications": [],
+  "next_decision": {
+    "status": "in_progress",
+    "value": "공식 원문에서 사례 후보를 수집하고 비교 분석을 시작한다."
+  }
+}
