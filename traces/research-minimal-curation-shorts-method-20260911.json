@@ -44,6 +44,15 @@
     },
     {
       "type": "dispatcher_handoff",
+      "at": "2026-09-11T15:00:58Z",
+      "run_id": "dispatch-3a48906da78e4a35bdafde25a85ac9d2",
+      "canonical_sha": "ea6f9977e0dc91a76015f96c9cd1e6f6fc10d7dc",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "status": "accepted"
+    },
+    {
+      "type": "dispatcher_handoff",
       "at": "2026-09-11T14:50:49Z",
       "run_id": "dispatch-28dd9fe1f7764f7983d7aec1be8bb71b",
       "canonical_sha": "2664d417ceaa75cb7df44443f254454d630a6eb2",
