@@ -25,6 +25,15 @@
       ]
     },
     {
+      "type": "leaf_evidence",
+      "at": "2026-09-11T14:43:00Z",
+      "task_id": "T2.3",
+      "status": "done",
+      "evidence": "artifacts/research-minimal-curation-shorts-method-20260911/t2-close.md",
+      "summary": "사례의 형식이 아닌 발견·검증·비교·관계 표시·수정의 운영 원리와 사람·공간·물건별 안전 게이트를 고정했다.",
+      "next_condition": "T3.1에서 실제 후보별 T1 게이트를 다시 적용한 30–60초 대본·출처·안전 템플릿을 설계한다."
+    },
+    {
       "type": "dispatcher_handoff",
       "at": "2026-09-11T14:41:14Z",
       "run_id": "dispatch-a619ad11f4ae4503ace5c7b7fca3592b",
