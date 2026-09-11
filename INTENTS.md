@@ -4,6 +4,30 @@
 
 ## Inbox
 
+### [research-korean-minimal-curation-guide-20260911] 국내 사례 기반 미니멀 큐레이션·리뷰 가이드
+- status: inbox
+- target_agent: genie
+- execution_mode: multi_subagent_roles
+- permission: L0-research-and-strategy-only
+- projects: infinity, research-bank, personal-ops
+- task_type: research
+- topics: content, curation, minimalism, korea, shorts
+- context_pack: intents/context/research-korean-minimal-curation-guide-20260911.json
+- context_documents_checked: LLM.md; README.md; schema/agent-rules.md; DOCUMENT_SEARCH_PIPELINE.md; USER_CONTEXT.md; SERVICE_REGISTRY.md; INFINITY_OPERATING_RULES.md; ARTIFACT_RULES.md; EXECUTION_LEARNING_CONTRACT.md; INTENTS.md; agent-wiki/README.md
+- context_searches: 국내 디자인·공간·물건·인물 큐레이션 매체와 채널의 공식 소개/원문; 국내 콘텐츠 표시·저작권 안내; 기존 해외 사례는 비교 참고로만 사용하고 최종 사례에서는 제외
+- task_plan: artifacts/research-korean-minimal-curation-guide-20260911/task-plan.json
+- task_plan_doc: artifacts/research-korean-minimal-curation-guide-20260911/task-plan.md
+- task_plan_template: ARTIFACT_RULES.md#대형-작업-태스크-계획
+- notification_channel: slack
+- notification_target: channel:C0BR41W31MM
+- notification_reply_to: 1789171001.257979
+- goal: 국내 사례만 근거로 미니멀 사람·공간·물건 큐레이션 숏츠의 선정 기준, 리뷰 구조, 30~60초 템플릿, 출처·저작권·협찬 표시 안전 기준, 첫 6편 적용 예시를 한국어 가이드로 만든다.
+- constraints: 공개 게시·브랜드 접촉·구매·제휴·광고 집행 없음; 확인되지 않은 성과 수치·영향력 주장 금지; 협찬·무료 제공·제휴·개인 관계는 명확한 표시 없이 추천하지 않음; 제3자 이미지·영상은 허가 없이 재게시하지 않음.
+- metric_question: 국내 사례에서 얻은 기준으로 새 사람·공간·물건 소재를 받았을 때, 같은 방식으로 정직하고 구별되는 30~60초 큐레이션 숏츠를 만들 수 있는가?
+- metric_signal: 국내 사례 지도, 선정/제외 카드, 리뷰·편집·안전 가이드, 소재별 템플릿, 첫 6편 후보와 Red 검증.
+- metric_decision_rule: 국내 사례의 1차 근거가 불충분하거나 선정 기준이 소재별로 재현되지 않으면 가이드를 완료로 처리하지 않고 근거 또는 기준을 보완한다.
+- next_action: T1.1 국내 사례의 사실·출처·형식 조사.
+
 ## Active
 
 ## Waiting

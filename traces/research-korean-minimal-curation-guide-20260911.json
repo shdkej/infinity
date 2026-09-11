@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "intent_id": "research-korean-minimal-curation-guide-20260911",
+  "status": "inbox",
+  "trace_completeness": "complete",
+  "request": {
+    "raw": {
+      "status": "recorded",
+      "value": "리뷰, 큐레이션 가이드를 만들어줘. 국내 사례로"
+    },
+    "normalized_query": {
+      "status": "recorded",
+      "value": "국내 사례 기반 미니멀 사람·공간·물건 큐레이션 숏츠 리뷰 가이드"
+    }
+  },
+  "events": [
+    {
+      "type": "intake",
+      "at": "2026-09-11T23:57:00Z",
+      "context_pack": "intents/context/research-korean-minimal-curation-guide-20260911.json",
+      "evidence_paths": [
+        "INTENTS.md",
+        "artifacts/research-korean-minimal-curation-guide-20260911/task-plan.json",
+        "artifacts/research-korean-minimal-curation-guide-20260911/task-plan.md"
+      ]
+    }
+  ],
+  "artifacts": [],
+  "verifications": [],
+  "next_decision": {
+    "status": "in_progress",
+    "value": "T1.1에서 국내 사례의 사실·출처·형식을 조사한 뒤, 선정 기준과 가이드의 재현성을 Red가 검증한다."
+  }
+}
