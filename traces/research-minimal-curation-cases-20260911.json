@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "intent_id": "research-minimal-curation-cases-20260911",
-  "status": "active",
+  "status": "archived",
   "trace_completeness": "complete",
   "request": {
     "raw": {
@@ -49,12 +49,44 @@
         "Design Milk Skim Milk Friday Five official"
       ],
       "note": "공식 소개·카테고리 페이지를 열어 확인하고, 사례별 관찰과 숏츠 적용 제안을 분리했다."
+    },
+    {
+      "type": "archive",
+      "at": "2026-09-11T23:45:04Z",
+      "report_path": "reports/research-minimal-curation-cases-20260911/20260911T2350Z-final.html",
+      "evidence_paths": [
+        "reports/research-minimal-curation-cases-20260911/20260911T2350Z-final.html",
+        "artifacts/research-minimal-curation-cases-20260911/red-report.md",
+        "artifacts/research-minimal-curation-cases-20260911/remote-verification.md"
+      ],
+      "verification": {
+        "red_status": "pass",
+        "red_report_path": "artifacts/research-minimal-curation-cases-20260911/red-report.md",
+        "remote_verified": "pass",
+        "remote_proof_path": "artifacts/research-minimal-curation-cases-20260911/remote-verification.md"
+      }
     }
   ],
-  "artifacts": [],
-  "verifications": [],
+  "artifacts": [
+    {
+      "label": "case analysis",
+      "path": "artifacts/research-minimal-curation-cases-20260911/case-analysis.md"
+    }
+  ],
+  "verifications": [
+    {
+      "label": "Red verification evidence",
+      "path": "artifacts/research-minimal-curation-cases-20260911/red-report.md",
+      "status": "pass"
+    },
+    {
+      "label": "Remote verification evidence",
+      "path": "artifacts/research-minimal-curation-cases-20260911/remote-verification.md",
+      "status": "pass"
+    }
+  ],
   "next_decision": {
-    "status": "in_progress",
-    "value": "사례 분석 문서를 Red 검토 후 최종 보고서로 정리한다."
+    "status": "implemented",
+    "value": "사람·공간·물건 각 2개 실제 후보를 고른 뒤 숏츠 대본으로 옮긴다."
   }
 }

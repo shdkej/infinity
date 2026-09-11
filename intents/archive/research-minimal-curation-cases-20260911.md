@@ -12,7 +12,8 @@
 - report: reports/research-minimal-curation-cases-20260911/20260911T2350Z-final.html
 - red_status: pass
 - red_report: artifacts/research-minimal-curation-cases-20260911/red-report.md
-- remote_verified: pending
+- remote_verified: pass
+- remote_commit: 48e7f3e344b11541ba3e79a742a36da69799be15
 - next_actions: [사람·공간·물건 각 2개 실제 후보를 골라 같은 구조로 대본화]
 
 ## Archive Card
