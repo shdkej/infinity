@@ -52,6 +52,16 @@
       "status": "accepted"
     },
     {
+      "type": "red_verification",
+      "at": "2026-09-11T15:03:32Z",
+      "task_id": "T3.2",
+      "initial_status": "fail",
+      "status": "pass",
+      "evidence": "artifacts/research-minimal-curation-shorts-method-20260911/t3-red.md",
+      "summary": "30초 적용 조건, 활성 상태 표기, 타임라인 집계의 세 가독성 오류를 최소 보완한 뒤 독립 Red PASS를 받았다.",
+      "next_condition": "T3.3에서 최종 브리프와 내부 첫 3편 실험 설계를 마감한다."
+    },
+    {
       "type": "dispatcher_handoff",
       "at": "2026-09-11T14:50:49Z",
       "run_id": "dispatch-28dd9fe1f7764f7983d7aec1be8bb71b",
