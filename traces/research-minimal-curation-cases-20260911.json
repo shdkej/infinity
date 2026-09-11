@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "intent_id": "research-minimal-curation-cases-20260911",
-  "status": "inbox",
+  "status": "active",
   "trace_completeness": "complete",
   "request": {
     "raw": {
@@ -32,12 +32,29 @@
         "artifacts/research-minimal-curation-cases-20260911/task-plan.json",
         "artifacts/research-minimal-curation-cases-20260911/task-plan.md"
       ]
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-11T23:40:40Z",
+      "context_pack": "intents/context/research-minimal-curation-cases-20260911.json",
+      "evidence_paths": [
+        "artifacts/research-minimal-curation-cases-20260911/case-analysis.md"
+      ],
+      "searches": [
+        "minimal design curation Leibal official",
+        "compact design video Never Too Small official",
+        "design publication profiles video The Local Project official",
+        "everyday interiors Apartamento official",
+        "independent designers Sight Unseen official",
+        "Design Milk Skim Milk Friday Five official"
+      ],
+      "note": "공식 소개·카테고리 페이지를 열어 확인하고, 사례별 관찰과 숏츠 적용 제안을 분리했다."
     }
   ],
   "artifacts": [],
   "verifications": [],
   "next_decision": {
     "status": "in_progress",
-    "value": "공식 원문에서 사례 후보를 수집하고 비교 분석을 시작한다."
+    "value": "사례 분석 문서를 Red 검토 후 최종 보고서로 정리한다."
   }
 }

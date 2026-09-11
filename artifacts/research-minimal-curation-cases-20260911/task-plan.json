@@ -4,9 +4,9 @@
   "created_at": "2026-09-11T23:40:00Z",
   "execution_mode": "single_genie_roles",
   "tasks": [
-    {"id":"T1","title":"사례 후보 수집과 공식 원문 확인","status":"pending","estimated_minutes":25,"max_minutes":35,"evidence":"artifacts/research-minimal-curation-cases-20260911/case-analysis.md","closure_check":"사람·공간·물건을 다루는 사례 6~8개의 공식 소개·대표 형식을 확인한다."},
-    {"id":"T2","title":"사례별 큐레이션 방식 분석","status":"pending","depends_on":["T1"],"estimated_minutes":30,"max_minutes":40,"evidence":"artifacts/research-minimal-curation-cases-20260911/case-analysis.md","closure_check":"각 사례에 선정 방식·구성·장점/한계·숏츠 적용점이 채워진다."},
-    {"id":"T3","title":"분석 결과 검토와 최종 리서치 정리","status":"pending","depends_on":["T2"],"estimated_minutes":15,"max_minutes":25,"evidence":"reports/research-minimal-curation-cases-20260911/final.html","closure_check":"요청과 무관한 추상 프레임 없이 사례 중심 결론과 첫 적용 순서가 정리된다."}
+    {"id":"T1","title":"사례 후보 수집과 공식 원문 확인","status":"done","started_at":"2026-09-11T23:41:00Z","completed_at":"2026-09-11T23:45:00Z","estimated_minutes":25,"max_minutes":35,"evidence":"artifacts/research-minimal-curation-cases-20260911/case-analysis.md","closure_check":"사람·공간·물건을 다루는 사례 6~8개의 공식 소개·대표 형식을 확인한다."},
+    {"id":"T2","title":"사례별 큐레이션 방식 분석","status":"done","depends_on":["T1"],"started_at":"2026-09-11T23:45:00Z","completed_at":"2026-09-11T23:49:00Z","estimated_minutes":30,"max_minutes":40,"evidence":"artifacts/research-minimal-curation-cases-20260911/case-analysis.md","closure_check":"각 사례에 선정 방식·구성·장점/한계·숏츠 적용점이 채워진다."},
+    {"id":"T3","title":"분석 결과 검토와 최종 리서치 정리","status":"done","depends_on":["T2"],"started_at":"2026-09-11T23:49:00Z","completed_at":"2026-09-11T23:52:00Z","estimated_minutes":15,"max_minutes":25,"evidence":"reports/research-minimal-curation-cases-20260911/20260911T2350Z-final.html","closure_check":"요청과 무관한 추상 프레임 없이 사례 중심 결론과 첫 적용 순서가 정리된다."}
   ],
   "deviations": []
 }
