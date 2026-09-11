@@ -1,0 +1,22 @@
+# 미니멀 사람·공간·물건 큐레이션 숏츠 방법론 리서치
+
+- id: research-minimal-curation-shorts-method-20260911
+- status: archived
+- archived_at: 2026-09-11T15:20:48Z
+- execution_mode: multi_subagent_roles
+- projects: [infinity, research-bank, personal-ops]
+- task_type: research
+- topics: [content, curation, minimalism, shorts]
+- result_summary: 사람·공간·물건을 미감이 아닌 선택 압력·근거·대가·시청자 조건·권리/관계/안전 게이트로 판정하는 30–60초 내부 플레이북을 완성했다. 첫 3편은 공개물이 아닌 hold 상태의 내부 실험 카드로만 설계했다.
+- artifacts: artifacts/research-minimal-curation-shorts-method-20260911/selection-framework.md; artifacts/research-minimal-curation-shorts-method-20260911/case-map.md; artifacts/research-minimal-curation-shorts-method-20260911/shorts-playbook.md; artifacts/research-minimal-curation-shorts-method-20260911/minimal-curation-research.md
+- report: reports/research-minimal-curation-shorts-method-20260911/20260911T1520Z-final.html
+- red_status: pass
+- red_report: artifacts/research-minimal-curation-shorts-method-20260911/t3-red.md
+- remote_verified: pass
+- role_sessions: planner=/root/role-curation-planner; developer=/root/role-curation-developer; marketer=/root/role-curation-marketer; operator=/root/role-curation-operator; red=/root/red_t32_curation
+- knowledge_status: used
+- knowledge_decision: retain-as-operating-principle
+- knowledge_targets: [selection-framework.md, case-map.md, shorts-playbook.md, minimal-curation-research.md]
+- knowledge_reflection: 미감/커머스 중심 큐레이션을 배제하고, 선택 압력·근거·관계·권리·안전을 분리된 공개 게이트로 유지한다.
+- knowledge_commit: no-promotion-needed
+- next_actions: [사용자가 제공하거나 직접 확인 가능한 후보 하나에만 내부 카드를 채워 hold 게이트를 재판정]

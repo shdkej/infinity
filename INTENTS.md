@@ -6,33 +6,11 @@
 
 ## Active
 
-### [research-minimal-curation-shorts-method-20260911] 미니멀 사람·공간·물건 큐레이션 숏츠 방법론 리서치
-- status: active
-- target_agent: genie
-- execution_mode: multi_subagent_roles
-- permission: L0-research-and-strategy-only
-- projects: infinity, research-bank, personal-ops
-- task_type: research
-- topics: content, curation, minimalism, shorts
-- context_pack: intents/context/research-minimal-curation-shorts-method-20260911.json
-- context_documents_checked: LLM.md; README.md; schema/agent-rules.md; DOCUMENT_SEARCH_PIPELINE.md; USER_CONTEXT.md; SERVICE_REGISTRY.md; INFINITY_OPERATING_RULES.md; ARTIFACT_RULES.md; EXECUTION_LEARNING_CONTRACT.md; INTENTS.md; agent-wiki/README.md
-- context_searches: Agent Wiki 및 KL에서 curation·minimal·shorts·review 검색; Digital Curation Centre의 선택·평가 가이드; YouTube의 Shorts·저작권 도움말; FTC의 endorsement·disclosure 공식 가이드; social-media curation 연구
-- task_plan: artifacts/research-minimal-curation-shorts-method-20260911/task-plan.json
-- task_plan_doc: artifacts/research-minimal-curation-shorts-method-20260911/task-plan.md
-- task_plan_template: ARTIFACT_RULES.md#대형-작업-태스크-계획
-- notification_channel: slack
-- notification_target: channel:C0BR41W31MM
-- notification_reply_to: 1789134244.240209
-- goal: 미니멀과 관련된 사람·공간·물건을 소개하는 큐레이션 숏츠를 위해, 반복 가능한 선정 기준·리뷰 프레임·사례 기반 운영 방식·30~60초 영상 템플릿을 조사한다.
-- constraints: 공개 게시·브랜드 접촉·구매·제휴·광고 집행 없음; 협찬·무료 제공·제휴·개인 관계는 명확한 표시 없이 추천하지 않음; 제3자 이미지·영상은 허가 없이 재게시하지 않음; 주거·소규모 공간의 민감한 위치 정보는 보호함.
-- metric_question: 사용자가 사람·공간·물건 중 어떤 소재를 받더라도 같은 기준으로 고르고, 30~60초의 정직한 큐레이션 숏츠로 만들 수 있는가?
-- metric_signal: 선정 카드, 출처 등급, 사례별 채택/제외 원리, 3종 소재별 스크립트 템플릿, 저작권·표시·개인정보 체크리스트, Red 검증을 포함한 리서치 브리프.
-- metric_decision_rule: 선정 기준이 소재별로 재현되지 않거나 출처·협찬·저작권 경계가 불명확하면 첫 숏츠 제작을 시작하지 않고 플레이북을 보완한다.
-- next_action: T2.3 사례 기반 운영 원리 마감.
-
 ## Waiting
 
 ## Archive
+
+<!-- research-minimal-curation-shorts-method-20260911 archived 2026-09-11T15:20Z → intents/archive/research-minimal-curation-shorts-method-20260911.md; report=reports/research-minimal-curation-shorts-method-20260911/20260911T1520Z-final.html; red_status=pass; internal-only hold experiments; no public post/contact/third-party assets. -->
 
 <!-- research-richard-sapper-research-20260910 archived 2026-09-10T21:48Z → intents/archive/research-richard-sapper-research-20260910.md [projects: research-bank,infinity; type: research; topics: product,design,interface] (새 원문만 열람·Deep Research gate 기록·Red PASS; 현대 적용은 조건부 가설) -->
 

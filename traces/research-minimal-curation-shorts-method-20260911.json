@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "intent_id": "research-minimal-curation-shorts-method-20260911",
-  "status": "active",
+  "status": "archived",
   "trace_completeness": "complete",
   "request": {
     "raw": {
@@ -14,6 +14,26 @@
     }
   },
   "events": [
+    {
+      "type": "dispatcher_handoff",
+      "at": "2026-09-11T15:20:48Z",
+      "run_id": "dispatch-bff56e98c78a4c399a82b34f9a4f12a2",
+      "canonical_sha": "22eb1780c6d932d46b3377e9435ac39a888f133a",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "status": "accepted"
+    },
+    {
+      "type": "archive_contract",
+      "at": "2026-09-11T15:20:48Z",
+      "status": "pass",
+      "report": "reports/research-minimal-curation-shorts-method-20260911/20260911T1520Z-final.html",
+      "red_status": "pass",
+      "red_report": "artifacts/research-minimal-curation-shorts-method-20260911/t3-red.md",
+      "knowledge_decision": "retain-as-operating-principle",
+      "domain_gates": "No public posting, external contact, purchase/affiliate action, or third-party asset use was performed; all three experiments remain hold.",
+      "remote_verification": "Recorded after commit/push/fetch by dispatcher."
+    },
     {
       "type": "dispatcher_handoff",
       "at": "2026-09-11T15:10:31Z",
