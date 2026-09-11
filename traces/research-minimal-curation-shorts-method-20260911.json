@@ -92,6 +92,15 @@
       "status": "done",
       "evidence": "artifacts/research-minimal-curation-shorts-method-20260911/case-map.md",
       "summary": "Atlas Obscura·Wirecutter·29CM의 공개 운영 표면을 비교해 검증·비교·관계 표시를 채택하고, 커머스 전환·위치 공개·미감 모방을 비적용으로 분리했다."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "at": "2026-09-11T14:30:26Z",
+      "run_id": "dispatch-051efa4ab8a14724b8c06f90bd23dcb3",
+      "canonical_sha": "a3a2242c6a8bd67963b0799466575208358a8508",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "status": "accepted"
     }
   ],
   "artifacts": [
