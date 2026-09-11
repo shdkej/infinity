@@ -15,6 +15,15 @@
   },
   "events": [
     {
+      "type": "dispatcher_handoff",
+      "at": "2026-09-11T23:40:02Z",
+      "run_id": "dispatch-3e011609983c48abab980dc11e93be72",
+      "canonical_sha": "1ed63114b160a8ac81f1c28d7d7f32589300ae55",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "status": "accepted"
+    },
+    {
       "type": "intake",
       "at": "2026-09-11T23:38:43Z",
       "context_pack": "intents/context/research-minimal-curation-cases-20260911.json",

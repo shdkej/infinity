@@ -4,8 +4,10 @@
 
 ## Inbox
 
+## Active
+
 ### [research-minimal-curation-cases-20260911] 미니멀 큐레이션 사례 리스트·분석 재조사
-- status: inbox
+- status: active
 - target_agent: genie
 - execution_mode: single_genie_roles
 - projects: infinity,research-bank
@@ -20,9 +22,7 @@
 - notification_origin: channel:C0BR41W31MM;reply_to:1789134244.240209
 - success_criteria: 실제 사례를 사람·공간·물건 관점으로 목록화하고, 각 사례의 선정 방식·소개 구성·영상/카피 문법·장점/한계·숏츠 적용점을 근거 링크와 함께 제시한다.
 - excluded_scope: 추상 운영 프레임, 공개 게시·연락·구매, 새 콘텐츠 제작
-- next_action: 사례 6~8개를 공식 원문 기준으로 수집하고 사례별 분석을 작성한다.
-
-## Active
+- next_action: T1을 활성화한 뒤 사례 6~8개를 공식 원문 기준으로 수집하고 사례별 분석을 작성한다.
 
 ## Waiting
 
