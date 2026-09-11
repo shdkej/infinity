@@ -101,6 +101,15 @@
       "agent": "genie",
       "session_key": "agent:genie:infinity-dispatcher",
       "status": "accepted"
+    },
+    {
+      "type": "red_verification",
+      "at": "2026-09-11T14:31:37Z",
+      "task_id": "T2.2",
+      "status": "pass",
+      "evidence": "artifacts/research-minimal-curation-shorts-method-20260911/t2-red.md",
+      "summary": "공식 사실과 운영 추론을 분리하고, 공개 공간의 안전·동선 경계와 29CM 정규 URL을 보완했다.",
+      "next_condition": "T2.3에서 사례 기반 운영 원리만 마감한다."
     }
   ],
   "artifacts": [
@@ -109,6 +118,6 @@
   "verifications": [],
   "next_decision": {
     "status": "in_progress",
-    "value": "T2.2에서 사례의 과장·표면 모방 위험을 Red 검증한다."
+    "value": "T2.3에서 사례 기반 운영 원리를 마감한다."
   }
 }
