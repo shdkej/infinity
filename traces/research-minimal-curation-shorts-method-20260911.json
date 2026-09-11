@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "intent_id": "research-minimal-curation-shorts-method-20260911",
+  "status": "inbox",
+  "trace_completeness": "complete",
+  "request": {
+    "raw": {
+      "status": "recorded",
+      "value": "앞으로 미니멀에 관련된 사람,공간,물건을 소개하는 큐레이션 숏츠를 만들건데 그 전에 리뷰나 큐레이션을 하는 방법이나 가이드나 사례나 백서를 인피니티로 조사해줘"
+    },
+    "normalized_query": {
+      "status": "recorded",
+      "value": "미니멀 사람·공간·물건 큐레이션 숏츠를 위한 선정 기준, 리뷰 프레임, 사례, 가이드와 안전 기준 조사"
+    }
+  },
+  "events": [
+    {
+      "type": "intake",
+      "at": "2026-09-11T13:45:00Z",
+      "context_pack": "intents/context/research-minimal-curation-shorts-method-20260911.json",
+      "evidence_paths": [
+        "INTENTS.md",
+        "artifacts/research-minimal-curation-shorts-method-20260911/task-plan.json",
+        "artifacts/research-minimal-curation-shorts-method-20260911/task-plan.md"
+      ]
+    }
+  ],
+  "artifacts": [],
+  "verifications": [],
+  "next_decision": {
+    "status": "in_progress",
+    "value": "T1.1에서 선정 기준과 출처 등급을 조사한 뒤 Red 검증으로 재현 가능성을 확인한다."
+  }
+}
