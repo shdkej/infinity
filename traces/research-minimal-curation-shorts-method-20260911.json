@@ -34,6 +34,15 @@
       "next_condition": "T3.1에서 실제 후보별 T1 게이트를 다시 적용한 30–60초 대본·출처·안전 템플릿을 설계한다."
     },
     {
+      "type": "leaf_evidence",
+      "at": "2026-09-11T14:53:00Z",
+      "task_id": "T3.1",
+      "status": "done",
+      "evidence": "artifacts/research-minimal-curation-shorts-method-20260911/shorts-playbook.md",
+      "summary": "한 장면·한 선택 압력 구조와 사실/해석·관계·권리·안전의 hold/exclude 체크리스트를 사람·공간·물건 공통 템플릿으로 고정했다.",
+      "next_condition": "T3.2에서 템플릿의 가독성·권리·관계·공개 안전 경계를 Red 검증한다."
+    },
+    {
       "type": "dispatcher_handoff",
       "at": "2026-09-11T14:50:49Z",
       "run_id": "dispatch-28dd9fe1f7764f7983d7aec1be8bb71b",
