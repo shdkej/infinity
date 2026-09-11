@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "intent_id": "research-minimal-curation-shorts-method-20260911",
-  "status": "inbox",
+  "status": "active",
   "trace_completeness": "complete",
   "request": {
     "raw": {
@@ -23,6 +23,15 @@
         "artifacts/research-minimal-curation-shorts-method-20260911/task-plan.json",
         "artifacts/research-minimal-curation-shorts-method-20260911/task-plan.md"
       ]
+    },
+    {
+      "type": "dispatcher_handoff",
+      "at": "2026-09-11T13:50:46Z",
+      "run_id": "dispatch-6b37fc2ccf2242f4bcb8a4d90ba2e7b1",
+      "canonical_sha": "52cb62fe0e151e39c633f6d41d27fc64dbe5161e",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "status": "accepted"
     }
   ],
   "artifacts": [],

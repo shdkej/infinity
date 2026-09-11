@@ -4,8 +4,10 @@
 
 ## Inbox
 
+## Active
+
 ### [research-minimal-curation-shorts-method-20260911] 미니멀 사람·공간·물건 큐레이션 숏츠 방법론 리서치
-- status: inbox
+- status: active
 - target_agent: genie
 - execution_mode: multi_subagent_roles
 - permission: L0-research-and-strategy-only
@@ -27,8 +29,6 @@
 - metric_signal: 선정 카드, 출처 등급, 사례별 채택/제외 원리, 3종 소재별 스크립트 템플릿, 저작권·표시·개인정보 체크리스트, Red 검증을 포함한 리서치 브리프.
 - metric_decision_rule: 선정 기준이 소재별로 재현되지 않거나 출처·협찬·저작권 경계가 불명확하면 첫 숏츠 제작을 시작하지 않고 플레이북을 보완한다.
 - next_action: T1.1 선정 기준과 출처 등급 조사.
-
-## Active
 
 ## Waiting
 
