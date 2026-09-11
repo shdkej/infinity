@@ -24,6 +24,15 @@
       "status": "accepted"
     },
     {
+      "type": "leaf_evidence",
+      "at": "2026-09-11T15:12:00Z",
+      "task_id": "T3.3",
+      "status": "done",
+      "evidence": "artifacts/research-minimal-curation-shorts-method-20260911/minimal-curation-research.md",
+      "summary": "선택 압력 기반 최종 방법론과 사람·공간·물건 각 1개의 내부 hold 실험 카드를 고정했으며, 공개·외부 실행은 승인 경계로 분리했다.",
+      "next_condition": "다음 dispatcher에서 Archive 계약(최종 보고서, Red PASS, 원격 증빙, Knowledge 판정)을 검증한다."
+    },
+    {
       "type": "intake",
       "at": "2026-09-11T13:45:00Z",
       "context_pack": "intents/context/research-minimal-curation-shorts-method-20260911.json",
