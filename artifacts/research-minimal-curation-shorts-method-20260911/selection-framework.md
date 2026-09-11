@@ -33,7 +33,8 @@ facts: [{claim_id, statement, source_ids}]
 inference: 사실과 분리한 조건부 해석
 source_records: [{source_id, url, publisher, class, published_or_unknown, accessed_at, locator, rights_or_use_note}]
 relationship: none | disclosed | unknown
-asset_use: link_or_describe_only | permission_verified
+asset_origin: self_created | licensed | third_party_not_used
+on_screen_use_allowed: true | false
 privacy: clear | redact_required | blocked
 decision: adopt | hold | exclude
 decision_rationale: 게이트 또는 기준을 이름으로 기록
@@ -55,15 +56,28 @@ reviewed_at: UTC
 2. **근거성:** 핵심 사실이 A, 또는 상호 독립 B 두 건으로 확인됩니다. C만 있으면 `hold`입니다.
 3. **전이 가능성:** 시청자가 따라 볼 수 있는 작고 조건부인 판단 1개가 남습니다. 보편적 정답·구매 권유는 아닙니다.
 4. **숏츠 원자성:** 한 편에는 사람/공간/물건 하나, 선택 하나, 확인 가능한 근거 하나만 둡니다.
-5. **안전·표시:** 관계 상태가 `none` 또는 `disclosed`이고, 자산권·개인정보·위치 경계가 충족됩니다.
+5. **안전·표시:** 관계 상태가 `none` 또는 `disclosed`이고, 자산권·개인정보·위치 경계가 충족됩니다. `unknown`은 확인 전 `hold`이며, 공개·추천·재게시 상태로 넘어가면 `exclude`입니다.
 
 ### 즉시 제외 게이트
 
-- 핵심 사실이 검증 불가하거나 출처·이해관계가 `unknown`
+- 핵심 사실이 검증 불가함
+- 관계 상태가 `unknown`인 채로 공개·추천·재게시하려 함
 - 제3자 이미지·영상의 권리 상태가 불명확한 재게시
 - 사적 주거·소규모 공간의 정확 위치·동선·식별 가능한 사람 노출
 - 브랜드·가격·미적 인상만 있고 실제 사용 조건·대안·한계가 없음
 - ‘미니멀’이 단지 무채색·비싼 브랜드·소품 수로 설명됨
+
+### 사람 소재 추가 보호
+
+사람 후보에는 아래 필드도 필수입니다. 일반인은 동의 없는 식별 가능 소개를 `blocked`로 두며, 공개 인물도 공적 기록 밖의 행동·관계·의도를 추론하지 않습니다.
+
+```yaml
+person_status: public | private
+consent_or_public_record: consent_verified | public_record_verified | unavailable
+identity_inference_prohibited: true
+```
+
+화면 자산은 기본적으로 `third_party_not_used`입니다. 자체 촬영은 `self_created`, 명시 라이선스 확인본만 `licensed`로 기록하며, `on_screen_use_allowed: true`가 없으면 영상 화면에 쓰지 않습니다.
 
 ## 소재별 판정 예시
 
@@ -81,6 +95,8 @@ reviewed_at: UTC
 - 썸네일은 장면 이름이 아니라 선택을 짧게 보이며, 본문 훅을 반복하지 않습니다.
 - 관계 표시가 필요하면 설명란 링크에 숨기지 않고 영상 안에서 읽을 수 있게 둡니다. S3의 명확·눈에 띄는 표시 원칙을 적용한 것입니다.
 - 다른 사람의 장면을 편집한 목록으로 끝내지 않습니다. S2가 요구하는 실질적 해설/변형과 별개로, 저작권·허가도 따로 확인합니다.
+- **30초판:** 선택 압력·관찰·적용 조건만 말합니다. 관계 표시는 필요 시 화면에 고정하되, 출처는 화면의 짧은 표기 또는 설명란 링크로 보완합니다.
+- **45–60초판:** 30초판의 세 요소에 남긴/제외 이유와 출처·관계 표시를 더합니다. 이보다 많은 정보를 넣지 않습니다.
 
 ## 다음 결정
 

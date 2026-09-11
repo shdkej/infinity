@@ -49,6 +49,15 @@
       "agent": "genie",
       "session_key": "agent:genie:infinity-dispatcher",
       "status": "accepted"
+    },
+    {
+      "type": "red_verification",
+      "at": "2026-09-11T14:03:30Z",
+      "task_id": "T1.2",
+      "initial_status": "fail",
+      "evidence": "artifacts/research-minimal-curation-shorts-method-20260911/t1-red.md",
+      "summary": "관계 상태, 사람 식별·동의, 화면 자산, 30초 시간 예산의 네 위험을 최소 보완으로 반영했다.",
+      "next_condition": "T1.3에서 보완 프레임의 공통 적용 결론을 마감한다."
     }
   ],
   "artifacts": [
