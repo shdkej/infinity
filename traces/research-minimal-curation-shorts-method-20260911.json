@@ -40,6 +40,15 @@
       "status": "done",
       "evidence": "artifacts/research-minimal-curation-shorts-method-20260911/selection-framework.md",
       "summary": "DCC의 문서화된 반복 선정 원칙, YouTube 재사용 콘텐츠 경계, FTC 관계 표시 지침을 선정 카드·출처 등급·배제 게이트로 변환했다."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "at": "2026-09-11T14:00:52Z",
+      "run_id": "dispatch-c4354fb8a740470f96dc78455ffdde50",
+      "canonical_sha": "397f5b926af02578e50cf83762a9239c49e6d0e3",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "status": "accepted"
     }
   ],
   "artifacts": [
