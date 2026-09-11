@@ -10,7 +10,27 @@
 
 ## Archive
 
-<!-- research-minimal-curation-cases-20260911 archived 2026-09-11T23:52Z → intents/archive/research-minimal-curation-cases-20260911.md; report=reports/research-minimal-curation-cases-20260911/20260911T2350Z-final.html; red_status=pass; 사례 7개를 사실·적용 제안·적용 시 유의로 분리. -->
+### [research-minimal-curation-cases-20260911] 미니멀 큐레이션 사례 리스트·분석 재조사
+- status: archived
+- execution_mode: single_genie_roles
+- projects: infinity,research-bank
+- task_type: research
+- topics: content,curation,minimalism
+- detail: intents/archive/research-minimal-curation-cases-20260911.md
+- artifact: artifacts/research-minimal-curation-cases-20260911/case-analysis.md
+- report: reports/research-minimal-curation-cases-20260911/20260911T2350Z-final.html
+- trace: traces/research-minimal-curation-cases-20260911.json
+- red_status: pass
+- red_report: artifacts/research-minimal-curation-cases-20260911/red-report.md
+- remote_verified: pass
+- remote_commit: a16250ce14d3163f16d48e9566c2badf84a70f32
+- notification_channel: slack
+- notification_target: channel:C0BR41W31MM
+- notification_reply_to: 1789134244.240209
+- notification_origin: channel:C0BR41W31MM;reply_to:1789134244.240209
+- metric_result: 실제 사례 7개를 사실·숏츠 적용 제안·적용 시 유의로 나눠 정리했다.
+- metric_next_decision: 사람·공간·물건 각 2개 실제 후보를 고른 뒤 숏츠 대본으로 옮긴다.
+- completed_at: 2026-09-11T23:52:00Z
 
 <!-- research-minimal-curation-shorts-method-20260911 archived 2026-09-11T15:20Z → intents/archive/research-minimal-curation-shorts-method-20260911.md; report=reports/research-minimal-curation-shorts-method-20260911/20260911T1520Z-final.html; red_status=pass; internal-only hold experiments; no public post/contact/third-party assets. -->
 
