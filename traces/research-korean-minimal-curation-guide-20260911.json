@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "intent_id": "research-korean-minimal-curation-guide-20260911",
-  "status": "active",
+  "status": "archived",
   "trace_completeness": "complete",
   "request": {
     "raw": {
@@ -42,6 +42,20 @@
       "task_id": "T3.2",
       "status": "pass",
       "evidence": "Final HTML report passed validate_research_report.py and records all five Knowledge closure fields."
+    },
+    {
+      "type": "red_final",
+      "at": "2026-09-12T10:42:00Z",
+      "task_id": "T3.3",
+      "status": "pass",
+      "report": "artifacts/research-korean-minimal-curation-guide-20260911/final-red.md",
+      "checks": ["six abstract non-candidate cards", "forced hold with reason/reopen condition", "HTML report validator", "Knowledge closure", "no external action"]
+    },
+    {
+      "type": "archive_contract",
+      "at": "2026-09-12T10:42:00Z",
+      "status": "pass",
+      "checks": ["13/13 plan leaves done", "final Red PASS", "HTML report validator PASS", "knowledge closure retained in Infinity", "no external action"]
     },
     {
       "type": "dispatcher_handoff",

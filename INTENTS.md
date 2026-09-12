@@ -6,62 +6,11 @@
 
 ## Active
 
-### [research-korean-minimal-curation-guide-20260911] 국내 사례 기반 미니멀 큐레이션·리뷰 가이드
-- status: active
-- target_agent: genie
-- execution_mode: multi_subagent_roles
-- permission: L0-research-and-strategy-only
-- projects: infinity, research-bank, personal-ops
-- task_type: research
-- topics: content, curation, minimalism, korea, shorts
-- context_pack: intents/context/research-korean-minimal-curation-guide-20260911.json
-- task_plan: artifacts/research-korean-minimal-curation-guide-20260911/task-plan.json
-- task_plan_doc: artifacts/research-korean-minimal-curation-guide-20260911/task-plan.md
-- notification_channel: slack
-- notification_target: channel:C0BR41W31MM
-- notification_reply_to: 1789171001.257979
-- goal: 국내 사례 근거를 제한적으로 보존한 내부 미니멀 큐레이션 가이드와, 실제 추천이 아닌 추상 소재 카드 6편의 강제 hold-state 예시를 한국어로 완성한다.
-- constraints: 실제 인물·장소·브랜드·상품 추천 금지; 공개 게시·브랜드 접촉·구매·제휴·광고 집행 없음; 제3자 자산 재게시 없음.
-- next_action: T3.1에서 사람·공간·물건 각 2개의 비식별 추상 소재 카드가 `hold`로 귀결되는지 기록한 뒤 HTML report·Knowledge closure·최종 Red를 완료한다.
-- report: reports/research-korean-minimal-curation-guide-20260911/20260912T1035Z-final.html
-- knowledge_status: raw
-- knowledge_decision: retain_in_infinity
-- knowledge_targets: artifacts/research-korean-minimal-curation-guide-20260911/abstract-card-examples.md; artifacts/research-korean-minimal-curation-guide-20260911/korean-minimal-curation-guide.md; reports/research-korean-minimal-curation-guide-20260911/20260912T1035Z-final.html
-- knowledge_reflection: 출처 접근성 또는 관계·권리·자산 상태가 미확인일 때 추상 예시도 hold로 강제해야 하며, 상태 기계 검증은 실제 소재 적합성의 증거가 아니다.
-- knowledge_commit: no-promotion-needed
-
 ## Waiting
 
-<!-- research-korean-minimal-curation-guide-20260911 resumed 2026-09-12T10:32Z with explicit user approval: first six examples are six synthetic abstract non-candidate cards; no external action authorized. -->
-
-<!--
-### [research-korean-minimal-curation-guide-20260911] 국내 사례 기반 미니멀 큐레이션·리뷰 가이드
-- status: waiting
-- target_agent: genie
-- execution_mode: multi_subagent_roles
-- permission: L0-research-and-strategy-only
-- projects: infinity, research-bank, personal-ops
-- task_type: research
-- topics: content, curation, minimalism, korea, shorts
-- context_pack: intents/context/research-korean-minimal-curation-guide-20260911.json
-- context_documents_checked: LLM.md; README.md; schema/agent-rules.md; DOCUMENT_SEARCH_PIPELINE.md; USER_CONTEXT.md; SERVICE_REGISTRY.md; INFINITY_OPERATING_RULES.md; ARTIFACT_RULES.md; EXECUTION_LEARNING_CONTRACT.md; INTENTS.md; agent-wiki/README.md
-- context_searches: 국내 디자인·공간·물건·인물 큐레이션 매체와 채널의 공식 소개/원문; 국내 콘텐츠 표시·저작권 안내; 기존 해외 사례는 비교 참고로만 사용하고 최종 사례에서는 제외
-- task_plan: artifacts/research-korean-minimal-curation-guide-20260911/task-plan.json
-- task_plan_doc: artifacts/research-korean-minimal-curation-guide-20260911/task-plan.md
-- task_plan_template: ARTIFACT_RULES.md#대형-작업-태스크-계획
-- notification_channel: slack
-- notification_target: channel:C0BR41W31MM
-- notification_reply_to: 1789171001.257979
-- goal: 국내 사례만 근거로 미니멀 사람·공간·물건 큐레이션 숏츠의 선정 기준, 리뷰 구조, 30~60초 템플릿, 출처·저작권·협찬 표시 안전 기준, 첫 6편 적용 예시를 한국어 가이드로 만든다.
-- constraints: 공개 게시·브랜드 접촉·구매·제휴·광고 집행 없음; 확인되지 않은 성과 수치·영향력 주장 금지; 협찬·무료 제공·제휴·개인 관계는 명확한 표시 없이 추천하지 않음; 제3자 이미지·영상은 허가 없이 재게시하지 않음.
-- metric_question: 국내 사례에서 얻은 기준으로 새 사람·공간·물건 소재를 받았을 때, 같은 방식으로 정직하고 구별되는 30~60초 큐레이션 숏츠를 만들 수 있는가?
-- metric_signal: 국내 사례 지도, 선정/제외 카드, 리뷰·편집·안전 가이드, 소재별 템플릿, 첫 6편 후보와 Red 검증.
-- metric_decision_rule: 국내 사례의 1차 근거가 불충분하거나 선정 기준이 소재별로 재현되지 않으면 가이드를 완료로 처리하지 않고 근거 또는 기준을 보완한다.
-- next_action: Intent 목표의 ‘첫 6편 적용 예시’를 내부 빈 카드 hold-state 검증으로 정식 범위 정정하거나, 안전한 비후보 추상 예시 범위를 확정한다. 이후 최종 HTML report와 knowledge_status·knowledge_decision·knowledge_targets·knowledge_reflection·knowledge_commit을 기록하고 Archive 계약을 재검증한다.
-- blocker: Archive 계약 미충족 — (1) 최종 HTML report 없음, (2) 필수 Knowledge closure 5개 필드 없음, (3) 원래 목표의 ‘첫 6편 적용 예시’와 내부 빈 카드 1개 산출물 사이 범위 정정 필요. 공개 게시·실제 후보 선정·촬영·외부 연락·제3자 자산 사용은 여전히 승인 전 금지.
--->
-
 ## Archive
+
+<!-- research-korean-minimal-curation-guide-20260911 archived 2026-09-12T10:42Z → intents/archive/research-korean-minimal-curation-guide-20260911.md; report=reports/research-korean-minimal-curation-guide-20260911/20260912T1035Z-final.html; red_status=pass; six internal-only abstract hold-state cards; no public post/contact/purchase/third-party assets. -->
 
 ### [research-minimal-curation-cases-20260911] 미니멀 큐레이션 사례 리스트·분석 재조사
 - status: archived
