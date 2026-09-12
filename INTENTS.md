@@ -5,7 +5,7 @@
 ## Inbox
 
 ### [research-dieter-rams-20260912] 디터 람스 디자인 원칙·적용 조건 리서치
-- status: inbox
+- status: completed
 - target_agent: genie
 - execution_mode: multi_subagent_roles
 - permission: L0-research-and-strategy-only
@@ -33,7 +33,12 @@
 - metric_question: 리서치 이후 새 화면이나 카드 시안을 볼 때 “람스답게 보이는가”가 아니라 사용자 마찰과 정보 밀도를 기준으로 채택/보류를 판정할 수 있는가?
 - metric_signal: 원문/기관 출처 3개 이상, 실질 발견과 반례, 디자인 대상별 체크리스트, Red가 확인한 사용자 질문 직접 답변성
 - metric_decision_rule: 원칙의 출처·제품 맥락·적용 한계가 분리되지 않거나 현재 디자인에 적용할 구체 기준이 없으면 Archive하지 않고 근거/판단 프레임을 보완한다.
-- next_action: T1.1에서 공식·기관 자료로 디터 람스의 경력·제품 기여·10가지 원칙의 출처를 고정한다.
+- artifact: artifacts/research-dieter-rams-20260912/final/dieter-rams-design-brief.md
+- red_status: pass
+- red_report: artifacts/research-dieter-rams-20260912/work/red/t1-source-boundary.md
+- metric_result: 원문·기관 출처 3개와 W3C/FTC 디지털 안전선을 분리해 앱·카드·공간형 UI별 채택/보류/제외 기준 및 6문항 점검표를 만들었다.
+- metric_next_decision: 다음 화면 시안에 6문항을 적용하고 과업 성공률·대비·키보드 경로를 확인한다.
+- completed_at: 2026-09-12T19:20:00Z
 
 ## Active
 
