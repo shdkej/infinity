@@ -6,6 +6,8 @@
 
 ## Active
 
+### [research-github-skills-20260912] GitHub 리서치 스킬 후보 조사
+- status: active
 - target_agent: genie
 - execution_mode: multi_subagent_roles
 - projects: infinity,research-bank,openclaw
@@ -13,6 +15,9 @@
 - topics: ai-agents,workflow,automation
 - detail: intents/active/research-github-skills-20260912.md
 - context_pack: intents/context/research-github-skills-20260912.json
+- task_plan: artifacts/research-github-skills-20260912/work/task-plan.json
+- task_plan_doc: artifacts/research-github-skills-20260912/work/task-plan.md
+- task_plan_template: ARTIFACT_RULES.md#대형-작업-태스크-계획
 - trace: traces/research-github-skills-20260912.json
 - notification_channel: slack
 - notification_target: channel:C0BR41W31MM
@@ -22,27 +27,6 @@
 - metric_next_decision: 후보를 3개 이하로 좁히고, 각 후보의 실제 적용 시나리오와 비추천 사유를 결정한다.
 
 ## Waiting
-
-### [research-github-skills-20260912] GitHub 리서치 스킬 후보 조사
-- status: waiting
-- target_agent: genie
-- execution_mode: multi_subagent_roles
-- projects: infinity,research-bank,openclaw
-- task_type: research
-- topics: ai-agents,workflow,automation
-- detail: intents/waiting/research-github-skills-20260912.md
-- context_pack: intents/context/research-github-skills-20260912.json
-- trace: traces/research-github-skills-20260912.json
-- notification_channel: slack
-- notification_target: channel:C0BR41W31MM
-- notification_reply_to: 1789247197.159489
-- notification_origin: channel:C0BR41W31MM;reply_to:1789247197.159489
-- metric_question: 추천 후보가 기존 deep-research·Infinity 계약보다 실제로 더하는 검증 가능한 기능이 있는가?
-- metric_next_decision: ARTIFACT_RULES 양식의 task-plan.json·task-plan.md를 생성해 검증 가능한 첫 leaf와 evidence path를 기록한다.
-- waiting_on: agent
-- retry_policy: autonomous
-- blocker: 필수 task_plan이 없어서 active leaf·의존성·증거 경로를 판정할 수 없다.
-- next_action: task-plan 생성 후 dispatcher가 검증 가능한 leaf를 다시 활성화한다.
 
 ## Archive
 
