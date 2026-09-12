@@ -81,6 +81,13 @@
   ],
   "artifacts": [
     {
+      "task_id": "T1.3",
+      "path": "artifacts/research-korean-minimal-curation-guide-20260911/t1-close.md",
+      "at": "2026-09-12T00:53:02Z",
+      "status": "complete",
+      "evidence": "Four role reviews converged: retain only UNHIDE/HPIX conditional card mechanics; preserve hold and commercial, rights, safety, and approval boundaries."
+    },
+    {
       "task_id": "T1.2R",
       "path": "artifacts/research-korean-minimal-curation-guide-20260911/t1-red-rerun.md",
       "at": "2026-09-12T00:41:32Z",
@@ -110,6 +117,16 @@
     }
   ],
   "verifications": [
+    {
+      "task_id": "T1.3",
+      "at": "2026-09-12T00:53:02Z",
+      "result": "pass",
+      "checks": [
+        "only two usable format-reference surfaces informed operating principles",
+        "four hold cards were not used to derive a rule",
+        "commercial, rights, safety, and approval boundaries are explicit"
+      ]
+    },
     {
       "task_id": "T1.2R",
       "at": "2026-09-12T00:41:32Z",
@@ -145,7 +162,7 @@
     }
   ],
   "next_decision": {
-    "status": "in_progress",
-    "value": "T1.2R passed; T1.3 may close operating principles using only the two limited format-reference surfaces."
+    "status": "pending",
+    "value": "T1.3 closed; T2.1 may turn only the approved internal card mechanics into a guide and 30–60 second template."
   }
 }
