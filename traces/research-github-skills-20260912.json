@@ -98,9 +98,21 @@
       "type": "execution",
       "at": "2026-09-12T23:26:54Z",
       "context_pack": "intents/context/research-github-skills-20260912.json",
-      "evidence_paths": ["artifacts/research-github-skills-20260912/work/github-candidate-evidence.md"],
-      "searches": ["GitHub REST repo metadata", "GitHub REST default-branch ref", "GitHub recursive tree and commit-pinned README/SKILL.md/LICENSE blobs"],
-      "wiki_pages": ["agent-wiki/content/docs/mapped/Integration/Marketing.mdx", "agent-wiki/content/docs/mapped/Meta/AGENTS.mdx", "agent-wiki/content/docs/mapped/Fundamental/Math.mdx", "agent-wiki/content/docs/mapped/Integration/Business.mdx", "agent-wiki/content/docs/mapped/deep-knowledge/monitoring.mdx"],
+      "evidence_paths": [
+        "artifacts/research-github-skills-20260912/work/github-candidate-evidence.md"
+      ],
+      "searches": [
+        "GitHub REST repo metadata",
+        "GitHub REST default-branch ref",
+        "GitHub recursive tree and commit-pinned README/SKILL.md/LICENSE blobs"
+      ],
+      "wiki_pages": [
+        "agent-wiki/content/docs/mapped/Integration/Marketing.mdx",
+        "agent-wiki/content/docs/mapped/Meta/AGENTS.mdx",
+        "agent-wiki/content/docs/mapped/Fundamental/Math.mdx",
+        "agent-wiki/content/docs/mapped/Integration/Business.mdx",
+        "agent-wiki/content/docs/mapped/deep-knowledge/monitoring.mdx"
+      ],
       "note": "T1.2A completed: six candidate records now show immutable README, actual SKILL.md, LICENSE-or-absence, and observed default-branch HEAD equality. No clone, install, execution, connection, or secret entry occurred."
     },
     {
@@ -112,6 +124,34 @@
       "session_key": "agent:genie:infinity-dispatcher",
       "status": "accepted",
       "note": "Activated T1.2B after T1.2A completed; independent Red rerun is now in scope."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-30dc75b248f74350a2dc7cde4b297d82",
+      "canonical_sha": "18ff1d79e59dd92ff3e86ce0236b24d1a8e04720",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-12T23:53:43Z",
+      "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-12T23:53:43Z",
+      "context_pack": "intents/context/research-github-skills-20260912.json",
+      "evidence_paths": [
+        "artifacts/research-github-skills-20260912/work/red/candidate-review-rerun.md"
+      ],
+      "searches": [
+        "independent Red rerun received as immutable evidence review; no new repository search"
+      ],
+      "wiki_pages": [
+        "agent-wiki/content/docs/mapped/Integration/Marketing.mdx",
+        "agent-wiki/content/docs/mapped/Meta/AGENTS.mdx",
+        "agent-wiki/content/docs/mapped/Fundamental/Math.mdx",
+        "agent-wiki/content/docs/mapped/Integration/Business.mdx",
+        "agent-wiki/content/docs/mapped/deep-knowledge/monitoring.mdx"
+      ],
+      "note": "T1.2B timebox expired; chose verified alternative: recorded already-delivered independent Red PASS. No additional search, clone, install, execution, connection, or secret entry occurred."
     }
   ],
   "artifacts": [
@@ -120,11 +160,17 @@
       "path": "artifacts/research-github-skills-20260912/work/github-candidate-evidence.md",
       "kind": "candidate_evidence",
       "at": "2026-09-12T22:50:00Z"
+    },
+    {
+      "label": "Independent Red rerun",
+      "path": "artifacts/research-github-skills-20260912/work/red/candidate-review-rerun.md",
+      "kind": "red_review",
+      "at": "2026-09-12T23:53:43Z"
     }
   ],
   "verifications": [],
   "next_decision": {
     "status": "active",
-    "value": "T1.1 directly opened six repositories and their research SKILL.md files; T1.2 Red review is next."
+    "value": "T1.3 is eligible: write the final comparison brief and an installation-free pilot proposal; do not execute it."
   }
 }
