@@ -13,6 +13,54 @@
 | [Kang-chen/Agent-skills](https://github.com/Kang-chen/Agent-skills) | `45c9293` (2026-08-17) | [`literature-review/SKILL.md`](https://github.com/Kang-chen/Agent-skills/blob/45c9293ecc1b4f8bd262c83bfecdfa962a50a908/literature-review/SKILL.md), [`research/searching-literature/SKILL.md`](https://github.com/Kang-chen/Agent-skills/blob/45c9293ecc1b4f8bd262c83bfecdfa962a50a908/research/searching-literature/SKILL.md), [`research/traversing-citations/SKILL.md`](https://github.com/Kang-chen/Agent-skills/blob/45c9293ecc1b4f8bd262c83bfecdfa962a50a908/research/traversing-citations/SKILL.md) | skill frontmatter에는 MIT지만 repo LICENSE는 GitHub metadata상 없음 | 다중 학술 DB·DOI 중복 제거·screening rubric·citation traversal은 문헌 체계적 검토에 한해 비중복. 하지만 필수 AI 도식 생성·`Read Write Edit Bash`·여러 보조 스킬/외부 API를 전제 | **hold — 좁은 문헌 파일럿 후보** |
 | [krzysztofdudek/ResearcherSkill](https://github.com/krzysztofdudek/ResearcherSkill) | `87acc90` (2026-09-12) | [`skills/researcher/SKILL.md`](https://github.com/krzysztofdudek/ResearcherSkill/blob/87acc9097dd111fc8647e02326266e884aaa0979/skills/researcher/SKILL.md) | repo MIT | 반복 실험·branch·`.lab/` 운영은 공개정보 리서치보다 코드 최적화 실험용이며, 무기한 iteration·repo write를 요구 | **reject — 작업 범위·운영 비용 불일치** |
 
+## T1.2A 재현 레코드 — 같은 commit에서 직접 다시 연 표면
+
+**관찰 시각·방법:** 2026-09-12T23:26:54Z에 GitHub REST API로 각 저장소의 `default_branch`와 `git/ref/heads/{default_branch}`를 조회한 뒤, 같은 SHA의 recursive tree 및 blob URL을 직접 열었다. 아래 여섯 SHA는 그 시각의 default-branch HEAD와 **일치**한다. 이는 과거의 branch 상태를 추정하는 기록이 아니라, 이 재검증 시점의 동치 기록이다. `없음`은 해당 SHA의 recursive tree에서 파일을 찾지 못했다는 사실이며, 검색 결과로 추론하지 않았다.
+
+### 1. PracticalSwan/agent-skills — `4c6cabc08893e64993f888fd652efcef006409a6`
+- **HEAD 사실:** default branch `main`; REST `git/ref/heads/main` = 위 SHA (23:26:54Z).
+- **README:** [`README.md`](https://github.com/PracticalSwan/agent-skills/blob/4c6cabc08893e64993f888fd652efcef006409a6/README.md) — locator: `# Agent Skills`; maintained skills를 먼저 import/sync하라는 `Current Inventory` 설명.
+- **실제 SKILL.md:** [`research/SKILL.md`](https://github.com/PracticalSwan/agent-skills/blob/4c6cabc08893e64993f888fd652efcef006409a6/research/SKILL.md) — locator: frontmatter `name: research`, `license: "MIT"`; background agent를 지시.
+- **LICENSE:** [`LICENSE.txt`](https://github.com/PracticalSwan/agent-skills/blob/4c6cabc08893e64993f888fd652efcef006409a6/LICENSE.txt) — locator: `MIT License`; GitHub metadata도 `MIT`.
+- **실행 표면:** 같은 SKILL locator의 `Spin up a **background agent**`; 기존 Infinity 역할/trace 계약과 충돌 가능이라는 해석은 별도 판정이다.
+
+### 2. pbi-agent/skills — `3f38f81e4b16f5de1612ab18e9d78d76f826986c`
+- **HEAD 사실:** default branch `main`; REST `git/ref/heads/main` = 위 SHA (23:26:54Z).
+- **README:** [`README.md`](https://github.com/pbi-agent/skills/blob/3f38f81e4b16f5de1612ab18e9d78d76f826986c/README.md) — locator: `# pbi-agent Skills Repository`, `Current Skill Catalog`.
+- **실제 SKILL.md:** [`skills/research-lab/SKILL.md`](https://github.com/pbi-agent/skills/blob/3f38f81e4b16f5de1612ab18e9d78d76f826986c/skills/research-lab/SKILL.md) — locator: `# Research Lab`, `Phase Flow`.
+- **LICENSE:** **없음** — 같은 SHA recursive tree에 `LICENSE`, `LICENSE.md`, `LICENSE.txt`, `COPYING`이 없고 GitHub repository metadata의 license 값도 null.
+- **실행 표면:** SKILL locator `Keep research artifacts under research/<slug>/`; 별도 state/artifact 경로를 요구한다는 사실. Infinity와의 상태 계약 충돌은 해석이며 **hold/reject** 근거다.
+
+### 3. drader/researcher_agent — `d9937f6e5f223efca7ac239d464bf4d455a415c1`
+- **HEAD 사실:** default branch `main`; REST `git/ref/heads/main` = 위 SHA (23:26:54Z).
+- **README:** [`README.md`](https://github.com/drader/researcher_agent/blob/d9937f6e5f223efca7ac239d464bf4d455a415c1/README.md) — locator: `What this is`, `Checkpoint discipline`.
+- **실제 SKILL.md:** [`skills/research/SKILL.md`](https://github.com/drader/researcher_agent/blob/d9937f6e5f223efca7ac239d464bf4d455a415c1/skills/research/SKILL.md) — locator: frontmatter `name: research`, `Read this document end-to-end before acting.`
+- **LICENSE:** [`LICENSE`](https://github.com/drader/researcher_agent/blob/d9937f6e5f223efca7ac239d464bf4d455a415c1/LICENSE) — locator: `Creative Commons Attribution-NonCommercial 4.0 International`; README badge도 동일 라이선스를 표기.
+- **실행 표면:** README locator `human approval is required at key decision points`; autonomous dispatcher와 맞지 않는다는 것은 이 사실에 근거한 해석이다.
+
+### 4. CODE-SAURABH/OpenSkills — `71d3c6d75f504b3693a93e3dada42207b1a6d221`
+- **HEAD 사실:** default branch `main`; REST `git/ref/heads/main` = 위 SHA (23:26:54Z).
+- **README:** [`README.md`](https://github.com/CODE-SAURABH/OpenSkills/blob/71d3c6d75f504b3693a93e3dada42207b1a6d221/README.md) — locator: `Stage 2 — Primary Source Collection`.
+- **실제 SKILL.md:** [`research-agent/SKILL.md`](https://github.com/CODE-SAURABH/OpenSkills/blob/71d3c6d75f504b3693a93e3dada42207b1a6d221/research-agent/SKILL.md) — locator: 첫 구분자 `/---`; YAML `---`가 아님.
+- **LICENSE:** [`LICENSE`](https://github.com/CODE-SAURABH/OpenSkills/blob/71d3c6d75f504b3693a93e3dada42207b1a6d221/LICENSE) — locator: `MIT License`; GitHub metadata도 `MIT`.
+- **실행 표면:** README locator `Stage 3 — Secondary Validation`의 community sentiment 탐색; 현재 `deep-research`와의 중복 판정은 해석이다.
+
+### 5. Kang-chen/Agent-skills — `45c9293ecc1b4f8bd262c83bfecdfa962a50a908`
+- **HEAD 사실:** default branch `main`; REST `git/ref/heads/main` = 위 SHA (23:26:54Z).
+- **README:** [`README.md`](https://github.com/Kang-chen/Agent-skills/blob/45c9293ecc1b4f8bd262c83bfecdfa962a50a908/README.md) — locator: `快速开始`, `python3 -m skill-manager.scripts.cli sync`.
+- **실제 SKILL.md:** [`literature-review/SKILL.md`](https://github.com/Kang-chen/Agent-skills/blob/45c9293ecc1b4f8bd262c83bfecdfa962a50a908/literature-review/SKILL.md) — locator: `allowed-tools: Read Write Edit Bash`, `MANDATORY: Every literature review MUST include`.
+- **LICENSE:** **없음** — 같은 SHA recursive tree에 top-level `LICENSE`, `LICENSE.md`, `LICENSE.txt`, `COPYING`이 없고 GitHub repository metadata의 license 값도 null. skill frontmatter의 `MIT license`는 repo-level 라이선스의 대체 증거가 아니다.
+- **실행 표면:** README locator의 `sync`와 SKILL locator의 mandatory diagram 생성·script 명령. 따라서 현재 상태는 **조건부 재검토 가능성(hold)** 이며, 설치 후보가 아니다.
+
+### 6. krzysztofdudek/ResearcherSkill — `87acc9097dd111fc8647e02326266e884aaa0979`
+- **HEAD 사실:** default branch `main`; REST `git/ref/heads/main` = 위 SHA (23:26:54Z).
+- **README:** [`README.md`](https://github.com/krzysztofdudek/ResearcherSkill/blob/87acc9097dd111fc8647e02326266e884aaa0979/README.md) — locator: `Install`, `Codex CLI plugin`.
+- **실제 SKILL.md:** [`skills/researcher/SKILL.md`](https://github.com/krzysztofdudek/ResearcherSkill/blob/87acc9097dd111fc8647e02326266e884aaa0979/skills/researcher/SKILL.md) — locator: `Non-negotiable rules`, `.lab/ is Sacred`.
+- **LICENSE:** [`LICENSE`](https://github.com/krzysztofdudek/ResearcherSkill/blob/87acc9097dd111fc8647e02326266e884aaa0979/LICENSE) — locator: `MIT License`; GitHub metadata도 `MIT`.
+- **실행 표면:** SKILL locator `Commit before running`, `.lab/` 및 branch 요구. 공개자료 일회성 조사와의 범위 불일치는 해석이다.
+
+**재현성 결론:** 여섯 후보 모두 README·실제 SKILL.md·LICENSE(또는 명시적 부재)·동시점 default-branch HEAD 동치가 immutable blob permalink로 남았다. 다만 이 근거는 설치 적합성 증명이나 성능 비교가 아니다.
+
 ## 직접 관찰한 근거와 한계
 
 1. **PracticalSwan**은 “고신뢰 1차 출처”와 검증 프로토콜을 명시하지만, 현재 `deep-research`도 직접 열람·출처 등급·한계 보고를 이미 강제한다. 보완 능력이 확인되지 않아 설치 이유가 없다.

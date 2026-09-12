@@ -83,6 +83,25 @@
       "timestamp": "2026-09-12T22:52:43Z",
       "status": "accepted",
       "note": "Autonomous retry resumed: T1.1 is done and T1.2 Red review is active."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "timestamp": "2026-09-12T23:23:51Z",
+      "run_id": "dispatch-335b2502b57e4178a2a3b01a50389f30",
+      "canonical_sha": "b6e755d25e710952bb9a3c9ebb8fceb59704e0c3",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "status": "accepted",
+      "note": "T1.2 timebox reassessment accepted; split into immutable evidence repair then independent Red rerun."
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-12T23:26:54Z",
+      "context_pack": "intents/context/research-github-skills-20260912.json",
+      "evidence_paths": ["artifacts/research-github-skills-20260912/work/github-candidate-evidence.md"],
+      "searches": ["GitHub REST repo metadata", "GitHub REST default-branch ref", "GitHub recursive tree and commit-pinned README/SKILL.md/LICENSE blobs"],
+      "wiki_pages": ["agent-wiki/content/docs/mapped/Integration/Marketing.mdx", "agent-wiki/content/docs/mapped/Meta/AGENTS.mdx", "agent-wiki/content/docs/mapped/Fundamental/Math.mdx", "agent-wiki/content/docs/mapped/Integration/Business.mdx", "agent-wiki/content/docs/mapped/deep-knowledge/monitoring.mdx"],
+      "note": "T1.2A completed: six candidate records now show immutable README, actual SKILL.md, LICENSE-or-absence, and observed default-branch HEAD equality. No clone, install, execution, connection, or secret entry occurred."
     }
   ],
   "artifacts": [
