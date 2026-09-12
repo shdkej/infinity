@@ -2,7 +2,7 @@
   "intent_id": "research-dieter-rams-biography-minimalism-20260912",
   "tasks": [
     {"id":"T1.1","title":"생애·경력·제품 맥락의 1차/기관 근거 조사","status":"done","evidence":"work/source-map.md","started_at":"2026-09-12T21:10:02Z","completed_at":"2026-09-12T21:13:43Z"},
-    {"id":"T1.2","title":"미니멀리즘 철학과 10원칙의 역사적 위치 분석","status":"active","evidence":"work/analysis-notes.md","started_at":"2026-09-12T21:20:04Z"},
+    {"id":"T1.2","title":"미니멀리즘 철학과 10원칙의 역사적 위치 분석","status":"done","evidence":"work/analysis-notes.md","started_at":"2026-09-12T21:20:04Z","completed_at":"2026-09-12T21:24:30Z"},
     {"id":"T1.3","title":"비판·한계·유산을 포함한 레포트 후보 작성","status":"pending","evidence":"work/candidate/dieter-rams-report.md"},
     {"id":"T1.4","title":"Red 검증과 최종 리포트·원격 검증","status":"pending","evidence":"work/red/final-review.md"}
   ],

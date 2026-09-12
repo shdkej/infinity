@@ -77,10 +77,16 @@
       "evidence_target": "artifacts/research-dieter-rams-biography-minimalism-20260912/work/analysis-notes.md"
     }
   ],
-  "artifacts": [],
+  "artifacts": [
+    {
+      "path": "artifacts/research-dieter-rams-biography-minimalism-20260912/work/analysis-notes.md",
+      "kind": "analysis_notes",
+      "at": "2026-09-12T21:24:30Z"
+    }
+  ],
   "verifications": [],
   "next_decision": {
     "status": "ready_for_next_leaf",
-    "value": "T1.2 will analyze the historical position of the ten principles and product language, using opened primary and institutional sources."
+    "value": "T1.3 will draft the report candidate, preserving the 1975–85 formation window, the 2002 revisability caveat, team credit, and source-interest limits."
   }
 }
