@@ -117,6 +117,13 @@
   ],
   "artifacts": [
     {
+      "task_id": "T2.2R",
+      "path": "artifacts/research-korean-minimal-curation-guide-20260911/t2-red-rerun.md",
+      "at": "2026-09-12T01:32:00Z",
+      "status": "complete",
+      "evidence": "Independent Red PASS: hold lifecycle fields, relationship disclosure semantics, unknown-asset hold, disclosure slots, and internal-only approval boundary are consistent."
+    },
+    {
       "task_id": "T2.1R",
       "path": "artifacts/research-korean-minimal-curation-guide-20260911/korean-minimal-curation-guide.md",
       "at": "2026-09-12T01:23:00Z",
@@ -252,6 +259,6 @@
   ],
   "next_decision": {
     "status": "pending",
-    "value": "T2.1 closed; T2.2 may independently test the guide for reproducibility, readability, and safety boundaries."
+    "value": "T2.2R passed; T2.3 may verify only an internal empty-card hold-state experiment before Archive-contract verification."
   }
 }
