@@ -21,34 +21,6 @@
 - metric_question: 추천 후보가 기존 deep-research·Infinity 계약보다 실제로 더하는 검증 가능한 기능이 있는가?
 - metric_next_decision: 후보를 3개 이하로 좁히고, 각 후보의 실제 적용 시나리오와 비추천 사유를 결정한다.
 
-### [research-dieter-rams-biography-minimalism-20260912] 디터 람스 인물·미니멀리즘 심층 조사
-- status: active
-- target_agent: genie
-- execution_mode: multi_subagent_roles
-- permission: L0-research-and-strategy-only
-- projects: infinity, research-bank
-- task_type: research
-- topics: design, history, minimalism
-- context_pack: intents/context/research-dieter-rams-biography-minimalism-20260912.json
-- context_documents_checked: LLM.md; Knowledge Lab README; agent-rules.md; DOCUMENT_SEARCH_PIPELINE.md; USER_CONTEXT.md; SERVICE_REGISTRY.md; INFINITY_OPERATING_RULES.md; ARTIFACT_RULES.md; EXECUTION_LEARNING_CONTRACT.md; INTENTS.md; agent-wiki/README.md
-- context_searches: 디터 람스 생애·교육·Braun/Vitsoe 경력; 전후 독일 디자인과 미니멀리즘; 10가지 좋은 디자인 원칙의 원문·비판·유산
-- task_plan: artifacts/research-dieter-rams-biography-minimalism-20260912/work/task-plan.json
-- task_plan_doc: artifacts/research-dieter-rams-biography-minimalism-20260912/work/task-plan.md
-- task_plan_template: ARTIFACT_RULES.md#대형-작업-태스크-계획
-- trace: traces/research-dieter-rams-biography-minimalism-20260912.json
-- decision_question: 디터 람스는 어떤 경력과 역사적 조건 속에서 미니멀리즘을 형성했고, 그 사상은 무엇을 주장하며 어떤 한계를 갖는가?
-- decision_owner: Kimi
-- decision_deadline: 별도 지정 없음
-- in_scope: 람스의 생애·교육·경력·제품·사상·10원칙·비판·후대 영향
-- out_of_scope: 사용자 개인 정보·현재 프로젝트 적용·구매 추천·공개 게시·브랜드 연락
-- comparison_axes: 역사적 맥락, 제품 증거, 미니멀리즘의 정의, 비판과 유산
-- success_evidence: 열린 1차/기관 자료와 비판 자료를 바탕으로 한 대학생 레포트 형식의 최종본
-- metric_question: 독자가 람스의 미니멀리즘을 스타일이 아니라 역사·제품·사상·한계의 맥락으로 설명할 수 있는가?
-- metric_signal: 생애/작품/사상/비판을 구분한 본문, 근거 3개 이상, 반대·한계 포함
-- metric_decision_rule: 인물사와 디자인 철학의 연결 또는 비판적 한계가 빠지면 최종화하지 않는다.
-- activated_at: 2026-09-12T21:03:45Z
-- next_action: T1.1 생애·교육·Braun/Vitsoe 경력의 기관 근거 조사
-
 ## Waiting
 
 ### [research-github-skills-20260912] GitHub 리서치 스킬 후보 조사
@@ -73,6 +45,35 @@
 - next_action: task-plan 생성 후 dispatcher가 검증 가능한 leaf를 다시 활성화한다.
 
 ## Archive
+
+### [research-dieter-rams-biography-minimalism-20260912] 디터 람스 인물·미니멀리즘 심층 조사
+- status: archived
+- target_agent: genie
+- execution_mode: multi_subagent_roles
+- permission: L0-research-and-strategy-only
+- projects: infinity, research-bank
+- task_type: research
+- topics: design, history, minimalism
+- detail: intents/archive/research-dieter-rams-biography-minimalism-20260912.md
+- context_pack: intents/context/research-dieter-rams-biography-minimalism-20260912.json
+- task_plan: artifacts/research-dieter-rams-biography-minimalism-20260912/work/task-plan.json
+- task_plan_doc: artifacts/research-dieter-rams-biography-minimalism-20260912/work/task-plan.md
+- trace: traces/research-dieter-rams-biography-minimalism-20260912.json
+- artifact: artifacts/research-dieter-rams-biography-minimalism-20260912/work/candidate/dieter-rams-report.md
+- report: reports/research-dieter-rams-biography-minimalism-20260912/20260912T2140Z-final.html
+- red_status: pass
+- red_report: artifacts/research-dieter-rams-biography-minimalism-20260912/work/red/final-review.md
+- remote_verified: pending-final-push
+- remote_commit: pending-final-push
+- metric_result: 생애·제품·사상·비판을 구분한 본문과 3개 이상 기관 근거를 통해, 람스의 미니멀리즘을 스타일이 아닌 역사·협업·한계의 맥락으로 설명할 수 있게 했다.
+- metric_next_decision: 후속 적용 연구가 필요하면 특정 제품 추천이 아니라 대상별 사용 장면·수리 가능성·자원 비용·협업 귀속을 별도 근거로 검증한다.
+- knowledge_status: used
+- knowledge_decision: retain_in_infinity
+- knowledge_targets: artifacts/research-dieter-rams-biography-minimalism-20260912/work/source-map.md; artifacts/research-dieter-rams-biography-minimalism-20260912/work/analysis-notes.md; artifacts/research-dieter-rams-biography-minimalism-20260912/work/candidate/dieter-rams-report.md; reports/research-dieter-rams-biography-minimalism-20260912/20260912T2140Z-final.html
+- knowledge_reflection: 디자인 인물 조사는 직책·퇴직 시점, 공동설계·팀 맥락, 관계 조직 자료의 한계를 분리해 기록해야 하며, 원칙을 오늘의 제품 성과나 환경 효과로 자동 전이하지 않는다.
+- knowledge_commit: no-promotion-needed
+- archived_at: 2026-09-12T21:50:03Z
+
 
 <!-- research-dieter-rams-20260912 archived 2026-09-12T19:20Z → artifacts/research-dieter-rams-20260912/final/dieter-rams-design-brief.md [projects: infinity,research-bank,personal-ops; type: research; topics: product,design,interface,minimalism] (원문·기관 근거와 디지털 안전선을 분리한 앱·카드·공간형 UI 적용 기준 및 6문항 점검표; Red PASS.) -->
 

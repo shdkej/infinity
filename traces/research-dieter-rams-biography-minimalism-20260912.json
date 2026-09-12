@@ -119,6 +119,15 @@
         "agent-wiki/content/docs/mapped/Meta/About_Development.mdx"
       ],
       "note": "T1.4 completed: independent Red PASS, HTML final report generated, no external actions or image reuse."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-4a1536c3ca2f43c4a805746e505967a6",
+      "canonical_sha": "14043a71840d4d9e6173d4b822856cd6e9e8f475",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-12T21:50:03Z",
+      "status": "accepted"
     }
   ],
   "artifacts": [
@@ -137,7 +146,7 @@
   ],
   "verifications": [],
   "next_decision": {
-    "status": "ready_for_archive_contract",
-    "value": "Verify Archive contract and move the canonical registry block only if report, Red result, remote proof, and Knowledge closure pass."
+    "status": "ready_for_remote_archive_proof",
+    "value": "Local archive closure passed; record remote proof after the archive transition is pushed."
   }
 }
