@@ -90,6 +90,13 @@
   ],
   "artifacts": [
     {
+      "task_id": "T2.1",
+      "path": "artifacts/research-korean-minimal-curation-guide-20260911/korean-minimal-curation-guide.md",
+      "at": "2026-09-12T01:02:07Z",
+      "status": "complete",
+      "evidence": "Four role reviews converged on an internal-only card schema, forced hold evaluator, 30/45/60-second templates, and explicit approval boundaries."
+    },
+    {
       "task_id": "T1.3",
       "path": "artifacts/research-korean-minimal-curation-guide-20260911/t1-close.md",
       "at": "2026-09-12T00:53:02Z",
@@ -126,6 +133,16 @@
     }
   ],
   "verifications": [
+    {
+      "task_id": "T2.1",
+      "at": "2026-09-12T01:02:07Z",
+      "result": "pass",
+      "checks": [
+        "all template lengths retain viewer condition and disclosure slots",
+        "held sources cannot produce a template rule or draftable card",
+        "commercial, rights, safety, and approval limits are explicit"
+      ]
+    },
     {
       "task_id": "T1.3",
       "at": "2026-09-12T00:53:02Z",
@@ -172,6 +189,6 @@
   ],
   "next_decision": {
     "status": "pending",
-    "value": "T1.3 closed; T2.1 may turn only the approved internal card mechanics into a guide and 30–60 second template."
+    "value": "T2.1 closed; T2.2 may independently test the guide for reproducibility, readability, and safety boundaries."
   }
 }
