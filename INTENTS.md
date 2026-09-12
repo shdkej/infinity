@@ -4,8 +4,10 @@
 
 ## Inbox
 
+## Active
+
 ### [research-dieter-rams-biography-minimalism-20260912] 디터 람스 인물·미니멀리즘 심층 조사
-- status: inbox
+- status: active
 - target_agent: genie
 - execution_mode: multi_subagent_roles
 - permission: L0-research-and-strategy-only
@@ -29,8 +31,8 @@
 - metric_question: 독자가 람스의 미니멀리즘을 스타일이 아니라 역사·제품·사상·한계의 맥락으로 설명할 수 있는가?
 - metric_signal: 생애/작품/사상/비판을 구분한 본문, 근거 3개 이상, 반대·한계 포함
 - metric_decision_rule: 인물사와 디자인 철학의 연결 또는 비판적 한계가 빠지면 최종화하지 않는다.
-
-## Active
+- activated_at: 2026-09-12T21:03:45Z
+- next_action: T1.1 생애·교육·Braun/Vitsoe 경력의 기관 근거 조사
 
 ## Waiting
 
