@@ -99,6 +99,13 @@
   ],
   "artifacts": [
     {
+      "task_id": "T2.2",
+      "path": "artifacts/research-korean-minimal-curation-guide-20260911/t2-red.md",
+      "at": "2026-09-12T01:13:00Z",
+      "status": "complete",
+      "evidence": "Independent Red FAIL: hold lifecycle fields are absent from the card schema and relationship/asset pass semantics are ambiguous; remediation and rerun are required."
+    },
+    {
       "task_id": "T2.1",
       "path": "artifacts/research-korean-minimal-curation-guide-20260911/korean-minimal-curation-guide.md",
       "at": "2026-09-12T01:02:07Z",
@@ -142,6 +149,17 @@
     }
   ],
   "verifications": [
+    {
+      "task_id": "T2.2",
+      "at": "2026-09-12T01:13:00Z",
+      "result": "fail",
+      "checks": [
+        "hold cards excluded from examples",
+        "30/45/60-second disclosure and viewer-condition slots retained",
+        "approval boundaries retained",
+        "hold lifecycle and relationship/asset pass semantics require remediation"
+      ]
+    },
     {
       "task_id": "T2.1",
       "at": "2026-09-12T01:02:07Z",
