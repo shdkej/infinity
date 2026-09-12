@@ -111,17 +111,25 @@
       "searches": [
         "Rams Foundation; Braun; Vitsœ; MoMA; Museum Angewandte Kunst; Vitra Design Museum"
       ],
-      "wiki_pages": [],
+      "wiki_pages": [
+        "agent-wiki/content/docs/mapped/Integration/Marketing.mdx",
+        "agent-wiki/content/docs/mapped/Idea/Information.mdx",
+        "agent-wiki/content/docs/mapped/Communication/Open_Source.mdx",
+        "agent-wiki/content/docs/insights/original-proof-distribution-loop.mdx",
+        "agent-wiki/content/docs/mapped/Meta/About_Development.mdx"
+      ],
       "note": "T1.4 completed: independent Red PASS, HTML final report generated, no external actions or image reuse."
     }
   ],
   "artifacts": [
     {
+      "label": "Historical analysis notes",
       "path": "artifacts/research-dieter-rams-biography-minimalism-20260912/work/analysis-notes.md",
       "kind": "analysis_notes",
       "at": "2026-09-12T21:24:30Z"
     },
     {
+      "label": "Report candidate",
       "path": "artifacts/research-dieter-rams-biography-minimalism-20260912/work/candidate/dieter-rams-report.md",
       "kind": "report_candidate",
       "at": "2026-09-12T21:36:00Z"
