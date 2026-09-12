@@ -126,6 +126,13 @@
   ],
   "artifacts": [
     {
+      "task_id": "T2.3",
+      "path": "artifacts/research-korean-minimal-curation-guide-20260911/final-brief.md",
+      "at": "2026-09-12T01:42:05Z",
+      "status": "complete",
+      "evidence": "Four role reviews converged on one synthetic empty card: unknown relationship/asset and absent evidence reproduce hold; no real candidate, script, asset, or external action was created."
+    },
+    {
       "task_id": "T2.2R",
       "path": "artifacts/research-korean-minimal-curation-guide-20260911/t2-red-rerun.md",
       "at": "2026-09-12T01:32:00Z",
