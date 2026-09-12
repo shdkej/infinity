@@ -249,7 +249,7 @@ def build_plan(text: str, sha: str, repo: Path) -> dict[str, Any]:
     active = [e for e in entries if e["lane"] == "Active"]
     waiting = [e for e in entries if e["lane"] == "Waiting"]
     reference = dt.datetime.now(dt.timezone.utc)
-    live, resume, plan_activation, timebox_reassessment, dependency_blocked, terminalization, waiting_closeout, expansion = [], [], [], [], [], [], [], []
+    live, resume, plan_activation, missing_plan_repair, timebox_reassessment, dependency_blocked, terminalization, waiting_closeout, expansion = [], [], [], [], [], [], [], [], []
     for entry in active:
         task_state = task_plan_state(entry, repo, sha)
         item = {"intent_id": entry["id"], "title": entry["title"], "evidence": fresh_trace(entry["id"], repo, reference, sha), "task_state": task_state}
@@ -260,6 +260,10 @@ def build_plan(text: str, sha: str, repo: Path) -> dict[str, Any]:
             expansion.append({**item, "expansion": expansion_state})
         if task_state["state"] == "activate_pending":
             plan_activation.append(item)
+        elif task_state["state"] == "missing_plan":
+            # A missing plan is an agent-owned setup defect. Dispatch it to
+            # repair rather than treating the card as a user-facing blocker.
+            missing_plan_repair.append(item)
         elif task_state["state"] == "active":
             (live if item["evidence"] else resume).append(item)
         elif task_state["state"] == "timebox_expired":
@@ -284,7 +288,7 @@ def build_plan(text: str, sha: str, repo: Path) -> dict[str, Any]:
     remaining_slots = max(0, slots - len(waiting_retry))
     promote = [{"intent_id": e["id"], "title": e["title"], "target_agent": "genie", "reason": "available_active_slot"} for e in sorted(inbox, key=priority)[:remaining_slots] if e["fields"].get("target_agent", "genie") == "genie"]
     invalid_ids = {e["intent_id"] for e in invalid}
-    raw_handoff = waiting_closeout + waiting_retry + promote + expansion + plan_activation + timebox_reassessment + terminalization + resume
+    raw_handoff = waiting_closeout + waiting_retry + promote + expansion + missing_plan_repair + plan_activation + timebox_reassessment + terminalization + resume
     handoff = []
     seen_handoffs: set[str] = set()
     for item in raw_handoff:
@@ -308,7 +312,7 @@ def build_plan(text: str, sha: str, repo: Path) -> dict[str, Any]:
         if ids or reasons:
             followups.append({"intent_id": entry["id"], "report": report, "follow_up_intent_ids": ids.group(1) if ids else "", "follow_up_not_created_reasons": reasons.group(1) if reasons else ""})
     dispatch_required = bool(handoff or followups or invalid)
-    return {"schema_version": 1, "run_id": "dispatch-" + uuid.uuid4().hex, "at": reference.replace(microsecond=0).isoformat().replace("+00:00", "Z"), "canonical_sha": sha, "counts": {"inbox": len(inbox), "active": len(active), "waiting": len(waiting), "archive": sum(e["lane"] == "Archive" for e in entries)}, "invalid_state": invalid, "live_active": live, "resume_candidates": resume, "expansion_candidates": expansion, "plan_activation_candidates": plan_activation, "timebox_reassessment_candidates": timebox_reassessment, "terminalization_candidates": terminalization, "waiting_closeout_candidates": waiting_closeout, "dependency_blocked": dependency_blocked, "waiting_retry_candidates": waiting_retry, "promote_candidates": promote, "handoff_candidates": handoff, "follow_up_candidates": followups, "dispatch_required": dispatch_required, "no_work": not dispatch_required and not invalid}
+    return {"schema_version": 1, "run_id": "dispatch-" + uuid.uuid4().hex, "at": reference.replace(microsecond=0).isoformat().replace("+00:00", "Z"), "canonical_sha": sha, "counts": {"inbox": len(inbox), "active": len(active), "waiting": len(waiting), "archive": sum(e["lane"] == "Archive" for e in entries)}, "invalid_state": invalid, "live_active": live, "resume_candidates": resume, "expansion_candidates": expansion, "missing_plan_repair_candidates": missing_plan_repair, "plan_activation_candidates": plan_activation, "timebox_reassessment_candidates": timebox_reassessment, "terminalization_candidates": terminalization, "waiting_closeout_candidates": waiting_closeout, "dependency_blocked": dependency_blocked, "waiting_retry_candidates": waiting_retry, "promote_candidates": promote, "handoff_candidates": handoff, "follow_up_candidates": followups, "dispatch_required": dispatch_required, "no_work": not dispatch_required and not invalid}
 
 def main() -> int:
     parser = argparse.ArgumentParser()
