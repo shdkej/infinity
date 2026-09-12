@@ -48,10 +48,12 @@
       "note": "Autonomous retry: created the missing task plan and activated T1.1."
     }
   ],
-  "artifacts": [],
+  "artifacts": [
+    "artifacts/research-github-skills-20260912/work/github-candidate-evidence.md"
+  ],
   "verifications": [],
   "next_decision": {
     "status": "active",
-    "value": "T1.1 is collecting direct GitHub repository and SKILL.md evidence."
+    "value": "T1.1 directly opened six repositories and their research SKILL.md files; T1.2 Red review is next."
   }
 }
