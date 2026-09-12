@@ -108,6 +108,13 @@
   ],
   "artifacts": [
     {
+      "task_id": "T2.1R",
+      "path": "artifacts/research-korean-minimal-curation-guide-20260911/korean-minimal-curation-guide.md",
+      "at": "2026-09-12T01:23:00Z",
+      "status": "complete",
+      "evidence": "Four role reviews converged on hold lifecycle fields, explicit relationship-disclosure semantics, unknown-asset hold, and scope correction from real candidates to empty-card hold-state testing."
+    },
+    {
       "task_id": "T2.2",
       "path": "artifacts/research-korean-minimal-curation-guide-20260911/t2-red.md",
       "at": "2026-09-12T01:13:00Z",
@@ -158,6 +165,17 @@
     }
   ],
   "verifications": [
+    {
+      "task_id": "T2.1R",
+      "at": "2026-09-12T01:23:00Z",
+      "result": "pass",
+      "checks": [
+        "hold_reason and reopen_condition are in the schema and required for hold",
+        "unknown relationship or asset status forces hold",
+        "schema, evaluator, and checklist share the same pass semantics",
+        "draftable remains internal-only and external approval boundaries remain explicit"
+      ]
+    },
     {
       "task_id": "T2.2",
       "at": "2026-09-12T01:13:00Z",

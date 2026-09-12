@@ -15,6 +15,8 @@ scene: "어떤 장면에서 쓰이거나 문제가 생기는가"
 constraint: "시간·공간·동선·관리 중 무엇이 불편한가"
 decision: draftable | hold | exclude
 decision_reason: "이 조건이면 채택 / 이 조건이면 보류"
+hold_reason: "hold인 정확한 차단 사실; draftable/exclude는 null"
+reopen_condition: "내부 재검토를 재개할 관찰 가능한 증거·동의·허가; draftable/exclude는 null"
 viewer_condition: "시청자가 적용하려면 확인할 작은 조건 하나"
 evidence:
   - claim_id: KR-...-F1
@@ -24,7 +26,8 @@ evidence:
     access_status: open | restricted | dead
     locator: "제목·본문 절·캡션"
     tag: fact | inference
-relationship_status: confirmed | none_declared | unknown
+relationship_status: none_confirmed | disclosed | unknown
+relationship_disclosure: "관계 없음 확인 | [관계 유형] 고지 위치 | 확인 불가"
 rights_status: pass | unknown | fail
 privacy_status: pass | unknown | fail
 public_access_status: pass | unknown | not_applicable
@@ -45,9 +48,10 @@ reviewed_at: "ISO-8601"
 ## 2. 판정기
 
 1. 모든 `evidence`에 열린 원문, locator, 사실/추론 태그가 있는지 확인합니다.
-2. 권리·관계·프라이버시와 해당 축의 추가 게이트가 모두 `pass`인지 확인합니다.
-3. 모두 통과하면 `draftable`입니다. 하나라도 `unknown`, `restricted`, `dead`, `fail`이면 `hold`입니다. 명백히 범위 밖이거나 위험하면 `exclude`입니다.
-4. `draftable`은 **내부 대본 초안 가능** 상태일 뿐, 촬영·자산 사용·외부 연락·공개 게시의 승인 상태가 아닙니다.
+2. 관계는 `none_confirmed` 또는 `disclosed`(고지 위치가 `relationship_disclosure`에 기록됨)만 내부 검토 통과입니다. `relationship_status=unknown`, `asset_status=unknown`, 권리·프라이버시의 `unknown` 또는 `fail`, 원문의 `restricted`·`dead`는 모두 `hold`입니다.
+3. `hold`면 `hold_reason`과 `reopen_condition`을 모두 비워두지 않고 기록합니다. `draftable`·`exclude`면 두 필드는 `null`이며, `exclude` 사유는 `decision_reason`에 기록합니다.
+4. 열린 원문·locator·사실/추론 태그, 관계·권리·프라이버시·자산 상태, 해당 축의 추가 게이트가 모두 통과하면 `draftable`입니다. 명백히 범위 밖이거나 위험하면 `exclude`입니다.
+5. `draftable`은 **내부 대본 초안 가능** 상태일 뿐, 촬영·자산 사용·외부 연락·공개 게시의 승인 상태가 아닙니다. `licensed`도 사용허락의 구체 범위를 `reuse_limit`에 기록해야 하며, 외부 사용 승인을 뜻하지 않습니다.
 
 ## 3. 대본 공통 구조
 
@@ -101,12 +105,12 @@ P1(B tv 404), P2(KOCCA 본문 locator 미확인), S2/O2(29CM 403)는 `hold`이�
 | 점검 | 결과 | 실패 시 |
 |---|---|---|
 | 원문·locator·사실/추론 태그가 모두 있는가 | `pass / hold / exclude` | `hold` |
-| 관계·권리·프라이버시 상태가 확인됐는가 | `pass / hold / exclude` | `hold` |
+| 관계(`none_confirmed` 또는 `disclosed`+고지)·권리·프라이버시·자산 상태가 모두 통과했는가 | `pass / hold / exclude` | `hold_reason`과 `reopen_condition` 기록 |
 | 축별 게이트(동의·공개 접근/안전·공식 기능 기준일)를 통과했는가 | `pass / hold / exclude` | `hold` |
 | 30/45/60초판 모두 적용 조건과 고지 슬롯이 있는가 | `pass / hold` | 대본 수정 |
-| 가격·혜택·CTA·순위·제3자 자산·정확 위치가 빠졌는가 | `pass / hold` | 대본 수정 또는 `hold` |
+| 가격·혜택·CTA·순위·제3자 자산·정확 위치가 빠졌는가 | `pass / hold` | 대본 수정 또는 `hold_reason`과 `reopen_condition` 기록 |
 
-`hold_reason`과 `reopen_condition`을 카드에 남깁니다. 출처를 적었다는 이유만으로 진행하지 않습니다.
+`hold` 카드에는 `hold_reason`과 `reopen_condition`을 모두 남깁니다. 출처를 적었다는 이유만으로 진행하지 않습니다.
 
 ## 6. 승인 경계
 
