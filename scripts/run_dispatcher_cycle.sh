@@ -18,7 +18,8 @@ RUN_FILE="$STATE_DIR/$(date -u +%Y%m%dT%H%M%SZ)-$$.json"
 PLAN_FILE="$(mktemp)"
 POST_PLAN_FILE="$(mktemp)"
 PROMPT_FILE="$(mktemp)"
-trap 'rm -f "$PLAN_FILE" "$POST_PLAN_FILE" "$PROMPT_FILE"' EXIT
+PROMPT_STAGE_FILE="${PROMPT_FILE}.stage"
+trap 'rm -f "$PLAN_FILE" "$POST_PLAN_FILE" "$PROMPT_FILE" "$PROMPT_STAGE_FILE"' EXIT
 
 bootstrap_failure() {
   python3 - "$RUN_FILE" <<'PY'
@@ -34,7 +35,7 @@ PY
 VERIFY_ROOT="$(mktemp -d /tmp/infinity-dispatcher-verify-XXXXXX)"
 git -C "$ROOT" fetch origin main >/dev/null 2>&1 || bootstrap_failure
 git -C "$ROOT" worktree add --detach "$VERIFY_ROOT" origin/main >/dev/null 2>&1 || bootstrap_failure
-trap 'git -C "$ROOT" worktree remove --force "$VERIFY_ROOT" >/dev/null 2>&1 || true; rm -f "$PLAN_FILE" "$POST_PLAN_FILE" "$PROMPT_FILE"' EXIT
+trap 'git -C "$ROOT" worktree remove --force "$VERIFY_ROOT" >/dev/null 2>&1 || true; rm -f "$PLAN_FILE" "$POST_PLAN_FILE" "$PROMPT_FILE" "$PROMPT_STAGE_FILE"' EXIT
 test -z "$(git -C "$VERIFY_ROOT" status --porcelain)" || bootstrap_failure
 python3 "$VERIFY_ROOT/scripts/prepare_dispatch_cycle.py" --repo "$VERIFY_ROOT" --json >"$PLAN_FILE" || bootstrap_failure
 
@@ -78,7 +79,8 @@ for item in json.load(open(sys.argv[1]))["handoff_candidates"]:
     print(item["intent_id"])
 PY
 )
-  python3 - "$PLAN_FILE" "$PROMPT_FILE" <<'PY'
+  # Write the handoff atomically and never call the CLI with an empty message.
+  if ! python3 - "$PLAN_FILE" "$PROMPT_STAGE_FILE" <<'PY'
 import json, sys
 plan = json.load(open(sys.argv[1]))
 message = f'''You are the direct Genie executor for the single existing Infinity dispatcher.
@@ -97,11 +99,23 @@ if plan.get("expansion_candidates"):
     message += """\n\nFor every expansion_candidate: before terminalization, append at most its stated batch_size of concrete, evidence-bearing leaf tasks from expansion_brief to both task-plan.json and task-plan.md. Preserve completed tasks and dependencies, append a dashed plan-change record with the count and reason, and never exceed target_total_tasks (always 50–60). Do not expand without that explicit policy, and never use it to bypass an approval, safety, or quality gate."""
 open(sys.argv[2], "w", encoding="utf-8").write(message)
 PY
-  timeout --foreground "${AGENT_TIMEOUT_SECONDS}s" "$OPENCLAW_BIN" agent --agent genie --session-key agent:genie:infinity-dispatcher --message-file "$PROMPT_FILE" --thinking low --timeout "$AGENT_TIMEOUT_SECONDS" --json >"$STATE_DIR/$(basename "$RUN_FILE" .json)-genie.json" 2>&1
-  HANDOFF_EXIT=$?
-  HANDOFF_STATE="returned"
-  [[ "$HANDOFF_EXIT" -eq 124 ]] && HANDOFF_STATE="timeout"
-  if [[ "$HANDOFF_EXIT" -eq 0 ]]; then
+  then
+    HANDOFF_EXIT=0
+    HANDOFF_STATE="prompt_generation_failed"
+    HANDOFF_VERIFY_EXIT=1
+  elif [[ ! -s "$PROMPT_STAGE_FILE" ]]; then
+    HANDOFF_EXIT=0
+    HANDOFF_STATE="prompt_generation_empty"
+    HANDOFF_VERIFY_EXIT=1
+  else
+    mv "$PROMPT_STAGE_FILE" "$PROMPT_FILE"
+    timeout --foreground "${AGENT_TIMEOUT_SECONDS}s" "$OPENCLAW_BIN" agent --agent genie --session-key agent:genie:infinity-dispatcher --message-file "$PROMPT_FILE" --thinking low --timeout "$AGENT_TIMEOUT_SECONDS" --json >"$STATE_DIR/$(basename "$RUN_FILE" .json)-genie.json" 2>&1
+    HANDOFF_EXIT=$?
+    HANDOFF_STATE="returned"
+    [[ "$HANDOFF_EXIT" -eq 124 ]] && HANDOFF_STATE="timeout"
+  fi
+  rm -f "$PROMPT_STAGE_FILE"
+  if [[ "$HANDOFF_STATE" != prompt_generation_* && "$HANDOFF_EXIT" -eq 0 ]]; then
     if ! python3 "$ROOT/scripts/prepare_dispatch_cycle.py" --repo "$ROOT" --json >"$POST_PLAN_FILE"; then
       HANDOFF_VERIFY_EXIT=1
       HANDOFF_STATE="post_handoff_fetch_failed"
@@ -189,7 +203,7 @@ path.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n")
 PY
 fi
 FINAL_EXIT="$HANDOFF_EXIT"
-if [[ "$TERMINAL_EXIT" -ne 0 || "$POST_TERMINAL_EXIT" -ne 0 || "$DASHBOARD_EXIT" -ne 0 || "$HANDOFF_VERIFY_EXIT" -ne 0 ]]; then
+if [[ "$TERMINAL_EXIT" -ne 0 || "$POST_TERMINAL_EXIT" -ne 0 || "$DASHBOARD_EXIT" -ne 0 || "$HANDOFF_VERIFY_EXIT" -ne 0 || "$HANDOFF_EXIT" -ne 0 ]]; then
   python3 - "$RUN_FILE" <<'PY'
 import json, sys
 from pathlib import Path
