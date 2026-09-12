@@ -166,8 +166,14 @@ def due_autonomous_retry(entry: dict[str, Any], reference: dt.datetime) -> bool:
     fields = entry["fields"]
     if fields.get("waiting_on", "").lower() != "agent" or fields.get("retry_policy", "").lower() != "autonomous":
         return False
+    # `waiting_on: agent` means that the dispatcher owns the next move.  A
+    # retry timestamp can postpone that move, but its absence must not turn an
+    # agent-owned blocker into a permanent queue orphan.
+    raw_retry_at = fields.get("next_retry_at", "").strip()
+    if not raw_retry_at:
+        return True
     try:
-        retry_at = dt.datetime.fromisoformat(fields.get("next_retry_at", "").replace("Z", "+00:00"))
+        retry_at = dt.datetime.fromisoformat(raw_retry_at.replace("Z", "+00:00"))
     except ValueError:
         return False
     if retry_at > reference:
