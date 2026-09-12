@@ -29,9 +29,9 @@
 
 ## Active
 
-- active_task: T1.1
+- active_task: T1.2
 - retry_policy: autonomous
-- next_action: 공개 저장소의 README와 실제 `SKILL.md`를 열어 후보 5개 이상의 근거·중복·운영 경계를 기록합니다.
+- next_action: 후보 근거표의 직접 열람·중복·설치 안전 경계를 독립 Red로 검증합니다.
 
 ## 현재 상태
 
