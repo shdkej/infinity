@@ -102,6 +102,16 @@
       "searches": ["GitHub REST repo metadata", "GitHub REST default-branch ref", "GitHub recursive tree and commit-pinned README/SKILL.md/LICENSE blobs"],
       "wiki_pages": ["agent-wiki/content/docs/mapped/Integration/Marketing.mdx", "agent-wiki/content/docs/mapped/Meta/AGENTS.mdx", "agent-wiki/content/docs/mapped/Fundamental/Math.mdx", "agent-wiki/content/docs/mapped/Integration/Business.mdx", "agent-wiki/content/docs/mapped/deep-knowledge/monitoring.mdx"],
       "note": "T1.2A completed: six candidate records now show immutable README, actual SKILL.md, LICENSE-or-absence, and observed default-branch HEAD equality. No clone, install, execution, connection, or secret entry occurred."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "timestamp": "2026-09-12T23:33:13Z",
+      "run_id": "dispatch-9a4dabbfe73e4f88802599f7e6df86d5",
+      "canonical_sha": "6d219edb0651337ff8b25e7fad88374b9ff5daa0",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "status": "accepted",
+      "note": "Activated T1.2B after T1.2A completed; independent Red rerun is now in scope."
     }
   ],
   "artifacts": [
