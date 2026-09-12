@@ -60,6 +60,21 @@
         "agent-wiki/content/docs/mapped/Meta/About_Development.mdx"
       ],
       "note": "T1.1 completed with Rams Foundation, Braun, Vitsœ, Museum Angewandte Kunst and MoMA records. Role reviews preserved the team-credit, source-interest and rights boundaries."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-450941ab2fc342a8871f445cb0521ca2",
+      "canonical_sha": "0c549d55bbbecb872f5e8a78822132f09c426e32",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-12T21:20:04Z",
+      "status": "accepted"
+    },
+    {
+      "type": "task_activation",
+      "task_id": "T1.2",
+      "at": "2026-09-12T21:20:04Z",
+      "evidence_target": "artifacts/research-dieter-rams-biography-minimalism-20260912/work/analysis-notes.md"
     }
   ],
   "artifacts": [],
