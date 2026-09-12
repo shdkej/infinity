@@ -1,7 +1,7 @@
 # [research-github-skills-20260912] GitHub 리서치 스킬 후보 조사
 
 - id: research-github-skills-20260912
-- status: active
+- status: waiting
 - target_agent: genie
 - execution_mode: multi_subagent_roles
 - projects: [infinity, research-bank, openclaw]
@@ -23,6 +23,13 @@
 - metric_question: 추천 후보가 기존 deep-research·Infinity 계약보다 실제로 더하는 검증 가능한 기능이 있는가?
 - metric_signal: 후보별 중복/보완 기능, 설치 요구사항, 첫 적용 시나리오가 final brief에 근거 링크와 함께 남는다.
 - metric_decision_rule: 근거 추적 또는 결과 품질을 구체적으로 보완하고 설치 비용·안전 경계가 수용 가능할 때만 추천한다.
+
+## Waiting
+
+- waiting_on: agent
+- retry_policy: autonomous
+- blocker: 필수 `task-plan.json`·`task-plan.md`가 없어 active leaf·의존성·증거 경로를 판정할 수 없습니다.
+- next_action: ARTIFACT_RULES 양식의 계획 파일을 생성한 뒤 dispatcher가 검증 가능한 leaf를 활성화합니다.
 - task_plan_template: ARTIFACT_RULES.md#대형-작업-태스크-계획
 
 ## 현재 상태

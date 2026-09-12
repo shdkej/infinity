@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "intent_id": "research-github-skills-20260912",
-  "status": "inbox",
+  "status": "waiting",
   "trace_completeness": "complete",
   "request": {
     "raw": {
@@ -23,12 +23,25 @@
         "/home/ubuntu/workspace/knowledge-lab/source/openclaw-system/docs/INFINITY_OPERATING_RULES.md",
         "/home/ubuntu/.openclaw/agents/main/agent/codex-home/skills/.system/skill-installer/SKILL.md"
       ]
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-12T21:10:02Z",
+      "context_pack": "intents/context/research-github-skills-20260912.json",
+      "evidence_paths": [
+        "intents/waiting/research-github-skills-20260912.md"
+      ],
+      "searches": [
+        "task-plan presence check"
+      ],
+      "wiki_pages": [],
+      "note": "Invalid Active state repaired: required task plan is absent; moved to Waiting with an agent-owned autonomous plan-generation condition."
     }
   ],
   "artifacts": [],
   "verifications": [],
   "next_decision": {
-    "status": "in_progress",
-    "value": "설치 후보를 3개 이하로 좁히고, 각 후보의 실제 적용 시나리오와 비추천 사유를 결정한다."
+    "status": "blocked",
+    "value": "Create task-plan.json and task-plan.md, then permit dispatcher leaf activation."
   }
 }
