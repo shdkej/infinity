@@ -43,10 +43,25 @@
       ]
     }
   ],
-  "artifacts": [],
-  "verifications": [],
+  "artifacts": [
+    {
+      "task_id": "T1.1",
+      "path": "artifacts/research-korean-minimal-curation-guide-20260911/korean-case-map.md",
+      "at": "2026-09-12T00:14:06Z",
+      "status": "complete",
+      "evidence": "Domestic official-source case map with two people, two spaces, and two object cases plus exclusion boundaries."
+    }
+  ],
+  "verifications": [
+    {
+      "task_id": "T1.1",
+      "at": "2026-09-12T00:14:06Z",
+      "result": "pass",
+      "checks": ["official-source URLs recorded", "2 people + 2 spaces + 2 objects", "commercial and safety limits stated"]
+    }
+  ],
   "next_decision": {
     "status": "in_progress",
-    "value": "T1.1에서 국내 사례의 사실·출처·형식을 조사한 뒤, 선정 기준과 가이드의 재현성을 Red가 검증한다."
+    "value": "T1.2에서 국내 사례의 사실성·대표성·표면 모방 위험을 Red가 독립 검증한다."
   }
 }
