@@ -16,6 +16,15 @@
   "events": [
     {
       "type": "dispatcher_handoff",
+      "at": "2026-09-12T00:31:49Z",
+      "run_id": "dispatch-5ef1f6bb69dc43dfbe224d37383e617c",
+      "canonical_sha": "bccccc66582358e2c020f1e14e7045f93573715f",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "status": "accepted"
+    },
+    {
+      "type": "dispatcher_handoff",
       "at": "2026-09-12T00:21:11Z",
       "run_id": "dispatch-6c2ebaf3735f45b0ab6bba43769adfdf",
       "canonical_sha": "a843b70a91329611d67ccae37e2d0fa666101146",
@@ -54,6 +63,13 @@
   ],
   "artifacts": [
     {
+      "task_id": "T1.1R",
+      "path": "artifacts/research-korean-minimal-curation-guide-20260911/korean-case-map.md",
+      "at": "2026-09-12T00:35:02Z",
+      "status": "complete",
+      "evidence": "Paired fact/inference claim records for six cards; 404/403 and unlocatable PDF content are hold; UNHIDE and HPIX remain limited format references."
+    },
+    {
       "task_id": "T1.1",
       "path": "artifacts/research-korean-minimal-curation-guide-20260911/korean-case-map.md",
       "at": "2026-09-12T00:14:06Z",
@@ -70,6 +86,17 @@
   ],
   "verifications": [
     {
+      "task_id": "T1.1R",
+      "at": "2026-09-12T00:35:02Z",
+      "result": "pass",
+      "checks": [
+        "six cards have paired fact/inference claim records",
+        "fresh unauthenticated GET status recorded for every source",
+        "404/403 and unlocatable PDF content are hold",
+        "commercial, rights, privacy, and location limits are preserved"
+      ]
+    },
+    {
       "task_id": "T1.1",
       "at": "2026-09-12T00:14:06Z",
       "result": "pass",
@@ -84,6 +111,6 @@
   ],
   "next_decision": {
     "status": "in_progress",
-    "value": "T1.1R repairs source records and access limits; T1.2R must pass before T1.3 can close operating principles."
+    "value": "T1.1R completed source-record and access-limit remediation; T1.2R must pass before T1.3 can close operating principles."
   }
 }
