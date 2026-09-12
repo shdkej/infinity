@@ -71,7 +71,7 @@
       "status": "accepted"
     },
     {
-      "type": "task_activation",
+      "type": "backfill",
       "task_id": "T1.2",
       "at": "2026-09-12T21:20:04Z",
       "evidence_target": "artifacts/research-dieter-rams-biography-minimalism-20260912/work/analysis-notes.md"
@@ -86,10 +86,19 @@
       "status": "accepted"
     },
     {
-      "type": "task_activation",
+      "type": "backfill",
       "task_id": "T1.3",
       "at": "2026-09-12T21:30:04Z",
       "evidence_target": "artifacts/research-dieter-rams-biography-minimalism-20260912/work/candidate/dieter-rams-report.md"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-4a409cbc8a22413f9e664dd3c7fdcda0",
+      "canonical_sha": "9616f18b37dc40a3d6165e898f87390fc51cf943",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-12T21:41:04Z",
+      "status": "accepted"
     }
   ],
   "artifacts": [
