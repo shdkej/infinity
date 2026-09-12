@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import json
 import re
 import sys
 from pathlib import Path
@@ -14,6 +15,7 @@ KNOWLEDGE_LAB = ROOT.parent
 ARCHIVE = KNOWLEDGE_LAB / "source" / "infinity" / "archive"
 INFINITY_ARCHIVE = ROOT / "intents" / "archive"
 INGEST_INDEX = KNOWLEDGE_LAB / "ingest" / "INDEX.md"
+WIKI_LOG = KNOWLEDGE_LAB / "agent-wiki" / "content" / "docs" / "log.mdx"
 
 
 def field(text: str, name: str) -> str | None:
@@ -47,6 +49,33 @@ def ingest_entry(intent_id: str) -> tuple[str | None, str | None, list[str]]:
     return status, source, [] if not target or target == "none" else targets(target)
 
 
+def context_log_errors(intent_id: str, text: str) -> list[str]:
+    """v2 packs require an append-only query receipt, even without promotion."""
+    context_path = field(text, "context_pack") or field(text, "source_context_pack")
+    if not context_path or not (ROOT / context_path).is_file():
+        return []  # legacy archive detail; normal trace validation still applies.
+    try:
+        pack = json.loads((ROOT / context_path).read_text(encoding="utf-8"))
+    except json.JSONDecodeError:
+        return ["context_pack is invalid JSON"]
+    if not pack.get("selected_context_required"):
+        return []
+    receipt = field(text, "knowledge_log")
+    expected = f"agent-wiki/content/docs/log.mdx#{intent_id}"
+    if receipt != expected:
+        return [f"Context Pack v2 requires knowledge_log: {expected}"]
+    if not WIKI_LOG.is_file():
+        return [f"Knowledge Lab query log is missing: {WIKI_LOG}"]
+    heading = re.search(rf"(?m)^## [^\n]*\[{re.escape(intent_id)}\][^\n]*$", WIKI_LOG.read_text(encoding="utf-8"))
+    if not heading:
+        return [f"Knowledge Lab query log has no heading tagged [{intent_id}]"]
+    end = re.search(r"(?m)^## ", WIKI_LOG.read_text(encoding="utf-8")[heading.end():])
+    entry = WIKI_LOG.read_text(encoding="utf-8")[heading.start(): heading.end() + (end.start() if end else len(WIKI_LOG.read_text(encoding="utf-8")[heading.end():]))]
+    pages = [item.get("path") for item in pack.get("selected_context", []) if isinstance(item, dict)]
+    missing = [page for page in pages if isinstance(page, str) and page not in entry]
+    return [f"Knowledge Lab query log entry omits selected_context path(s): {', '.join(missing)}"] if missing else []
+
+
 def check(intent_id: str) -> list[str]:
     # Retained execution records deliberately live only in the Infinity repo;
     # promoted/superseded records additionally have the Knowledge Lab source.
@@ -61,6 +90,7 @@ def check(intent_id: str) -> list[str]:
     commit = field(text, "knowledge_commit")
     ingest_status, ingest_source, ingest_targets = ingest_entry(intent_id)
     errors: list[str] = []
+    errors.extend(context_log_errors(intent_id, text))
     if status not in {"raw", "promoted", "superseded"}:
         errors.append("knowledge_status must be raw, promoted, or superseded (candidate cannot be archived)")
     if decision not in {"promote", "retain_in_infinity", "supersede"}:

@@ -49,6 +49,21 @@ def non_empty_strings(value: object) -> bool:
     )
 
 
+def selected_wiki_pages(context_pack: str) -> list[str] | None:
+    """Return v2's must-read Wiki pages; v1 is a historical contract."""
+    try:
+        payload = json.loads((ROOT / context_pack).read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return None
+    if not isinstance(payload, dict) or not payload.get("selected_context_required"):
+        return []
+    selected = payload.get("selected_context")
+    if not isinstance(selected, list) or not selected:
+        return None
+    pages = [item.get("path") for item in selected if isinstance(item, dict) and isinstance(item.get("path"), str)]
+    return pages or None
+
+
 def dispatcher_missing_trace_recovery(data: dict, event: dict, events: list[object], index: int) -> bool:
     """Allow no Context Pack only for the narrow dispatcher recovery shape."""
     request = data.get("request")
@@ -140,6 +155,13 @@ def validate(trace: Path) -> list[str]:
                 error(errors, trace, f"events[{index}].evidence_paths must be a non-empty list")
             if not non_empty_strings(event.get("searches")):
                 error(errors, trace, f"events[{index}].searches must be a non-empty list")
+            selected = selected_wiki_pages(event.get("context_pack", ""))
+            if selected is None:
+                error(errors, trace, f"events[{index}].context_pack v2 requires non-empty selected_context")
+            elif selected:
+                wiki_pages = event.get("wiki_pages")
+                if not isinstance(wiki_pages, list) or not all(page in wiki_pages for page in selected):
+                    error(errors, trace, f"events[{index}].wiki_pages must include every Context Pack selected_context path")
         if event.get("type") == "archive":
             if not local_path_ok(event.get("report_path")):
                 error(errors, trace, f"events[{index}].report_path must name an existing final report")

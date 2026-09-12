@@ -18,7 +18,7 @@ or the final HTML report.
   },
   "events": [
     {"type": "intake", "at": "2026-09-02T00:00:00Z", "context_pack": "intents/context/example.json"},
-    {"type": "execution", "at": "2026-09-02T00:01:00Z", "context_pack": "intents/context/example.json", "evidence_paths": ["reports/example/run.html"], "searches": ["declared knowledge search"]},
+    {"type": "execution", "at": "2026-09-02T00:01:00Z", "context_pack": "intents/context/example.json", "evidence_paths": ["reports/example/run.html"], "searches": ["declared knowledge search"], "wiki_pages": ["agent-wiki/content/docs/insights/example.mdx"]},
     {"type": "archive", "at": "2026-09-02T00:02:00Z", "report_path": "reports/example/final.html", "verification": {"red_status": "pass", "remote_verified": "pass"}}
   ],
   "artifacts": [],
@@ -30,7 +30,10 @@ or the final HTML report.
 `status` is one of `inbox`, `active`, `waiting`, or `archived`. Every trace has
 **exactly one** intake event and recorded raw/normalized request values for new
 intakes. Every execution event has a Context Pack, one or more actual search
-terms, and one or more evidence paths. An archive event has the final
+terms, and one or more evidence paths. Context Pack v2+ execution records also
+list every `selected_context` path under `wiki_pages`; this rejects treating a
+directory declaration or README as proof that task-specific Wiki pages were
+read. An archive event has the final
 `report_path`, Red pass, and remote verification pass; an archived trace has
 exactly one archive event. Active traces must not pretend they are archived.
 
@@ -45,7 +48,8 @@ python3 scripts/record_intent_trace.py intake --intent-id example-01 \
   --next-decision 'Start Planner review'
 python3 scripts/record_intent_trace.py execution --intent-id example-01 \
   --context-pack intents/context/example-01.json --evidence reports/example/run.html \
-  --search 'declared knowledge query' --next-decision 'Request Red review'
+  --search 'declared knowledge query' --wiki-page agent-wiki/content/docs/insights/example.mdx \
+  --next-decision 'Request Red review'
 python3 scripts/record_intent_trace.py archive --intent-id example-01 \
   --report-path reports/example/final.html --artifact 'final report=reports/example/final.html' \
   --next-decision 'Monitor the implemented result'

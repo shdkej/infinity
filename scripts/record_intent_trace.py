@@ -139,7 +139,7 @@ def execution(args: argparse.Namespace) -> None:
     path = trace_path(args.intent_id)
     data = load(path)
     data["status"] = args.status
-    data["events"].append({"type": "execution", "at": timestamp(args.at), "context_pack": args.context_pack, "evidence_paths": args.evidence, "searches": args.search, "note": args.note})
+    data["events"].append({"type": "execution", "at": timestamp(args.at), "context_pack": args.context_pack, "evidence_paths": args.evidence, "searches": args.search, "wiki_pages": args.wiki_page, "note": args.note})
     data["next_decision"] = {"status": args.decision_status, "value": args.next_decision}
     write_atomic(path, data)
 
@@ -228,7 +228,7 @@ def parser() -> argparse.ArgumentParser:
     p.add_argument("--next-decision", required=True); p.set_defaults(func=intake)
     p = commands.add_parser("execution", parents=[common])
     p.add_argument("--context-pack", required=True); p.add_argument("--evidence", action="append", required=True)
-    p.add_argument("--search", action="append", required=True); p.add_argument("--note", default="")
+    p.add_argument("--search", action="append", required=True); p.add_argument("--wiki-page", action="append", default=[]); p.add_argument("--note", default="")
     p.add_argument("--status", choices=("active", "waiting"), default="active")
     p.add_argument("--decision-status", default="in_progress"); p.add_argument("--next-decision", required=True); p.set_defaults(func=execution)
     p = commands.add_parser("dispatcher-handoff", parents=[common])
