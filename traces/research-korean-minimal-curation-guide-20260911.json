@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "intent_id": "research-korean-minimal-curation-guide-20260911",
-  "status": "waiting",
+  "status": "active",
   "trace_completeness": "complete",
   "request": {
     "raw": {
@@ -14,6 +14,21 @@
     }
   },
   "events": [
+    {
+      "type": "dispatcher_handoff",
+      "at": "2026-09-12T10:32:23Z",
+      "run_id": "resume-approved-1789171001.257979",
+      "canonical_sha": "3a9cf17ae86e2e1c06f2141fe41f5f21286c5944",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "status": "accepted"
+    },
+    {
+      "type": "scope_correction",
+      "at": "2026-09-12T10:32:23Z",
+      "status": "active",
+      "value": "User approved six synthetic abstract non-candidate cards: two person, two space, and two object cards. Every card remains internal-only hold; no recommendation, script, filming, posting, contact, purchase, or third-party asset use."
+    },
     {
       "type": "dispatcher_handoff",
       "at": "2026-09-12T01:50:03Z",

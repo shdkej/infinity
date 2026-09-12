@@ -6,8 +6,29 @@
 
 ## Active
 
+### [research-korean-minimal-curation-guide-20260911] 국내 사례 기반 미니멀 큐레이션·리뷰 가이드
+- status: active
+- target_agent: genie
+- execution_mode: multi_subagent_roles
+- permission: L0-research-and-strategy-only
+- projects: infinity, research-bank, personal-ops
+- task_type: research
+- topics: content, curation, minimalism, korea, shorts
+- context_pack: intents/context/research-korean-minimal-curation-guide-20260911.json
+- task_plan: artifacts/research-korean-minimal-curation-guide-20260911/task-plan.json
+- task_plan_doc: artifacts/research-korean-minimal-curation-guide-20260911/task-plan.md
+- notification_channel: slack
+- notification_target: channel:C0BR41W31MM
+- notification_reply_to: 1789171001.257979
+- goal: 국내 사례 근거를 제한적으로 보존한 내부 미니멀 큐레이션 가이드와, 실제 추천이 아닌 추상 소재 카드 6편의 강제 hold-state 예시를 한국어로 완성한다.
+- constraints: 실제 인물·장소·브랜드·상품 추천 금지; 공개 게시·브랜드 접촉·구매·제휴·광고 집행 없음; 제3자 자산 재게시 없음.
+- next_action: T3.1에서 사람·공간·물건 각 2개의 비식별 추상 소재 카드가 `hold`로 귀결되는지 기록한 뒤 HTML report·Knowledge closure·최종 Red를 완료한다.
+
 ## Waiting
 
+<!-- research-korean-minimal-curation-guide-20260911 resumed 2026-09-12T10:32Z with explicit user approval: first six examples are six synthetic abstract non-candidate cards; no external action authorized. -->
+
+<!--
 ### [research-korean-minimal-curation-guide-20260911] 국내 사례 기반 미니멀 큐레이션·리뷰 가이드
 - status: waiting
 - target_agent: genie
@@ -32,6 +53,7 @@
 - metric_decision_rule: 국내 사례의 1차 근거가 불충분하거나 선정 기준이 소재별로 재현되지 않으면 가이드를 완료로 처리하지 않고 근거 또는 기준을 보완한다.
 - next_action: Intent 목표의 ‘첫 6편 적용 예시’를 내부 빈 카드 hold-state 검증으로 정식 범위 정정하거나, 안전한 비후보 추상 예시 범위를 확정한다. 이후 최종 HTML report와 knowledge_status·knowledge_decision·knowledge_targets·knowledge_reflection·knowledge_commit을 기록하고 Archive 계약을 재검증한다.
 - blocker: Archive 계약 미충족 — (1) 최종 HTML report 없음, (2) 필수 Knowledge closure 5개 필드 없음, (3) 원래 목표의 ‘첫 6편 적용 예시’와 내부 빈 카드 1개 산출물 사이 범위 정정 필요. 공개 게시·실제 후보 선정·촬영·외부 연락·제3자 자산 사용은 여전히 승인 전 금지.
+-->
 
 ## Archive
 
