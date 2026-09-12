@@ -34,22 +34,54 @@
       "searches": [
         "task-plan presence check"
       ],
-      "wiki_pages": [],
+      "wiki_pages": [
+        "agent-wiki/content/docs/mapped/Integration/Marketing.mdx",
+        "agent-wiki/content/docs/mapped/Meta/AGENTS.mdx",
+        "agent-wiki/content/docs/mapped/Fundamental/Math.mdx",
+        "agent-wiki/content/docs/mapped/Integration/Business.mdx",
+        "agent-wiki/content/docs/mapped/deep-knowledge/monitoring.mdx"
+      ],
       "note": "Invalid Active state repaired: required task plan is absent; moved to Waiting with an agent-owned autonomous plan-generation condition."
     },
     {
       "type": "dispatcher_handoff",
-      "at": "2026-09-12T22:42:43Z",
+      "timestamp": "2026-09-12T22:42:43Z",
       "run_id": "dispatch-7661047174d44ca79d907951c67403bb",
       "canonical_sha": "c4bc3ae480d19e55338b7060d6d05591efc49d5e",
       "agent": "genie",
       "session_key": "agent:genie:infinity-dispatcher",
       "status": "accepted",
       "note": "Autonomous retry: created the missing task plan and activated T1.1."
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-12T22:50:00Z",
+      "context_pack": "intents/context/research-github-skills-20260912.json",
+      "evidence_paths": [
+        "artifacts/research-github-skills-20260912/work/github-candidate-evidence.md"
+      ],
+      "searches": [
+        "GitHub repository search: research agent skills",
+        "GitHub repository search: deep research agent",
+        "Direct GitHub API opening of README, SKILL.md, LICENSE, repository tree, and HEAD metadata"
+      ],
+      "wiki_pages": [
+        "agent-wiki/content/docs/mapped/Integration/Marketing.mdx",
+        "agent-wiki/content/docs/mapped/Meta/AGENTS.mdx",
+        "agent-wiki/content/docs/mapped/Fundamental/Math.mdx",
+        "agent-wiki/content/docs/mapped/Integration/Business.mdx",
+        "agent-wiki/content/docs/mapped/deep-knowledge/monitoring.mdx"
+      ],
+      "note": "T1.1 completed by directly opening six public repositories, their README and research SKILL.md files, repository metadata and license surfaces. No installation or external execution occurred."
     }
   ],
   "artifacts": [
-    "artifacts/research-github-skills-20260912/work/github-candidate-evidence.md"
+    {
+      "label": "GitHub candidate evidence",
+      "path": "artifacts/research-github-skills-20260912/work/github-candidate-evidence.md",
+      "kind": "candidate_evidence",
+      "at": "2026-09-12T22:50:00Z"
+    }
   ],
   "verifications": [],
   "next_decision": {
