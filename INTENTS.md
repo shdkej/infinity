@@ -4,6 +4,32 @@
 
 ## Inbox
 
+### [research-dieter-rams-biography-minimalism-20260912] 디터 람스 인물·미니멀리즘 심층 조사
+- status: inbox
+- target_agent: genie
+- execution_mode: multi_subagent_roles
+- permission: L0-research-and-strategy-only
+- projects: infinity, research-bank
+- task_type: research
+- topics: design, history, minimalism
+- context_pack: intents/context/research-dieter-rams-biography-minimalism-20260912.json
+- context_documents_checked: LLM.md; Knowledge Lab README; agent-rules.md; DOCUMENT_SEARCH_PIPELINE.md; USER_CONTEXT.md; SERVICE_REGISTRY.md; INFINITY_OPERATING_RULES.md; ARTIFACT_RULES.md; EXECUTION_LEARNING_CONTRACT.md; INTENTS.md; agent-wiki/README.md
+- context_searches: 디터 람스 생애·교육·Braun/Vitsoe 경력; 전후 독일 디자인과 미니멀리즘; 10가지 좋은 디자인 원칙의 원문·비판·유산
+- task_plan: artifacts/research-dieter-rams-biography-minimalism-20260912/work/task-plan.json
+- task_plan_doc: artifacts/research-dieter-rams-biography-minimalism-20260912/work/task-plan.md
+- task_plan_template: ARTIFACT_RULES.md#대형-작업-태스크-계획
+- trace: traces/research-dieter-rams-biography-minimalism-20260912.json
+- decision_question: 디터 람스는 어떤 경력과 역사적 조건 속에서 미니멀리즘을 형성했고, 그 사상은 무엇을 주장하며 어떤 한계를 갖는가?
+- decision_owner: Kimi
+- decision_deadline: 별도 지정 없음
+- in_scope: 람스의 생애·교육·경력·제품·사상·10원칙·비판·후대 영향
+- out_of_scope: 사용자 개인 정보·현재 프로젝트 적용·구매 추천·공개 게시·브랜드 연락
+- comparison_axes: 역사적 맥락, 제품 증거, 미니멀리즘의 정의, 비판과 유산
+- success_evidence: 열린 1차/기관 자료와 비판 자료를 바탕으로 한 대학생 레포트 형식의 최종본
+- metric_question: 독자가 람스의 미니멀리즘을 스타일이 아니라 역사·제품·사상·한계의 맥락으로 설명할 수 있는가?
+- metric_signal: 생애/작품/사상/비판을 구분한 본문, 근거 3개 이상, 반대·한계 포함
+- metric_decision_rule: 인물사와 디자인 철학의 연결 또는 비판적 한계가 빠지면 최종화하지 않는다.
+
 ## Active
 
 ## Waiting

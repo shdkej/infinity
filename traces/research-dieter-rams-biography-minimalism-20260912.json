@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "intent_id": "research-dieter-rams-biography-minimalism-20260912",
+  "status": "inbox",
+  "trace_completeness": "complete",
+  "request": {
+    "raw": {
+      "status": "recorded",
+      "value": "디터람스 조사를 내 정보관련이 아니라 그냥 디터람스라는 사람에 대한 심층 조사를 미니멀을 주제로 대학생 레포트 수준으로 해줘"
+    },
+    "normalized_query": {
+      "status": "recorded",
+      "value": "디터 람스라는 인물의 생애·교육·Braun/Vitsoe 경력·미니멀리즘 철학·비판과 유산을 중심으로 한 대학생 수준 심층 레포트"
+    }
+  },
+  "events": [
+    {
+      "type": "intake",
+      "at": "2026-09-12T20:00:01Z",
+      "context_pack": "intents/context/research-dieter-rams-biography-minimalism-20260912.json",
+      "evidence_paths": [
+        "INTENTS.md"
+      ]
+    }
+  ],
+  "artifacts": [],
+  "verifications": [],
+  "next_decision": {
+    "status": "in_progress",
+    "value": "공식·기관·학술/전시 자료를 열람해 람스의 생애와 미니멀리즘의 역사적 의미를 개인 작업 적용과 분리하여 조사한다."
+  }
+}
