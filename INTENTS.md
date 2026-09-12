@@ -23,6 +23,12 @@
 - goal: 국내 사례 근거를 제한적으로 보존한 내부 미니멀 큐레이션 가이드와, 실제 추천이 아닌 추상 소재 카드 6편의 강제 hold-state 예시를 한국어로 완성한다.
 - constraints: 실제 인물·장소·브랜드·상품 추천 금지; 공개 게시·브랜드 접촉·구매·제휴·광고 집행 없음; 제3자 자산 재게시 없음.
 - next_action: T3.1에서 사람·공간·물건 각 2개의 비식별 추상 소재 카드가 `hold`로 귀결되는지 기록한 뒤 HTML report·Knowledge closure·최종 Red를 완료한다.
+- report: reports/research-korean-minimal-curation-guide-20260911/20260912T1035Z-final.html
+- knowledge_status: raw
+- knowledge_decision: retain_in_infinity
+- knowledge_targets: artifacts/research-korean-minimal-curation-guide-20260911/abstract-card-examples.md; artifacts/research-korean-minimal-curation-guide-20260911/korean-minimal-curation-guide.md; reports/research-korean-minimal-curation-guide-20260911/20260912T1035Z-final.html
+- knowledge_reflection: 출처 접근성 또는 관계·권리·자산 상태가 미확인일 때 추상 예시도 hold로 강제해야 하며, 상태 기계 검증은 실제 소재 적합성의 증거가 아니다.
+- knowledge_commit: no-promotion-needed
 
 ## Waiting
 

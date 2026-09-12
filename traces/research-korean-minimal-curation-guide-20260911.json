@@ -37,6 +37,13 @@
       "evidence": "Six abstract non-candidate cards, two per person/space/object axis, each forced to internal-only hold."
     },
     {
+      "type": "task_completed",
+      "at": "2026-09-12T10:38:00Z",
+      "task_id": "T3.2",
+      "status": "pass",
+      "evidence": "Final HTML report passed validate_research_report.py and records all five Knowledge closure fields."
+    },
+    {
       "type": "dispatcher_handoff",
       "at": "2026-09-12T01:50:03Z",
       "run_id": "dispatch-d86d2780fad04ba48506b50c2599f654",
