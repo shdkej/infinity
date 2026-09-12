@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "intent_id": "research-dieter-rams-biography-minimalism-20260912",
-  "status": "active",
+  "status": "archived",
   "trace_completeness": "complete",
   "request": {
     "raw": {
@@ -128,6 +128,21 @@
       "session_key": "agent:genie:infinity-dispatcher",
       "timestamp": "2026-09-12T21:50:03Z",
       "status": "accepted"
+    },
+    {
+      "type": "archive",
+      "at": "2026-09-12T21:50:03Z",
+      "report_path": "reports/research-dieter-rams-biography-minimalism-20260912/20260912T2140Z-final.html",
+      "evidence_paths": [
+        "intents/archive/research-dieter-rams-biography-minimalism-20260912.md",
+        "artifacts/research-dieter-rams-biography-minimalism-20260912/work/remote-proof.md"
+      ],
+      "verification": {
+        "red_status": "pass",
+        "red_report_path": "artifacts/research-dieter-rams-biography-minimalism-20260912/work/red/final-review.md",
+        "remote_verified": "pass",
+        "remote_proof_path": "artifacts/research-dieter-rams-biography-minimalism-20260912/work/remote-proof.md"
+      }
     }
   ],
   "artifacts": [
@@ -144,9 +159,15 @@
       "at": "2026-09-12T21:36:00Z"
     }
   ],
-  "verifications": [],
+  "verifications": [
+    {
+      "label": "Archive contract",
+      "path": "artifacts/research-dieter-rams-biography-minimalism-20260912/work/remote-proof.md",
+      "result": "pass"
+    }
+  ],
   "next_decision": {
-    "status": "ready_for_remote_archive_proof",
-    "value": "Local archive closure passed; record remote proof after the archive transition is pushed."
+    "status": "archived",
+    "value": "Archive contract and remote proof passed."
   }
 }

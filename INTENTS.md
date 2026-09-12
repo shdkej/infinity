@@ -63,8 +63,8 @@
 - report: reports/research-dieter-rams-biography-minimalism-20260912/20260912T2140Z-final.html
 - red_status: pass
 - red_report: artifacts/research-dieter-rams-biography-minimalism-20260912/work/red/final-review.md
-- remote_verified: pending-final-push
-- remote_commit: pending-final-push
+- remote_verified: pass
+- remote_commit: de6ae951c119cdbc690ca395c7c3201f9503995c
 - metric_result: 생애·제품·사상·비판을 구분한 본문과 3개 이상 기관 근거를 통해, 람스의 미니멀리즘을 스타일이 아닌 역사·협업·한계의 맥락으로 설명할 수 있게 했다.
 - metric_next_decision: 후속 적용 연구가 필요하면 특정 제품 추천이 아니라 대상별 사용 장면·수리 가능성·자원 비용·협업 귀속을 별도 근거로 검증한다.
 - knowledge_status: used

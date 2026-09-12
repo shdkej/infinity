@@ -12,8 +12,8 @@
 - report: reports/research-dieter-rams-biography-minimalism-20260912/20260912T2140Z-final.html
 - red_status: pass
 - red_report: artifacts/research-dieter-rams-biography-minimalism-20260912/work/red/final-review.md
-- remote_verified: pending-final-push
-- remote_commit: pending-final-push
+- remote_verified: pass
+- remote_commit: de6ae951c119cdbc690ca395c7c3201f9503995c
 - knowledge_status: used
 - knowledge_decision: retain_in_infinity
 - knowledge_targets: artifacts/research-dieter-rams-biography-minimalism-20260912/work/source-map.md; artifacts/research-dieter-rams-biography-minimalism-20260912/work/analysis-notes.md; artifacts/research-dieter-rams-biography-minimalism-20260912/work/candidate/dieter-rams-report.md; reports/research-dieter-rams-biography-minimalism-20260912/20260912T2140Z-final.html
