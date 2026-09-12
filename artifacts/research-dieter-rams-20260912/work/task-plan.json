@@ -1,0 +1,74 @@
+{
+  "intent_id": "research-dieter-rams-20260912",
+  "plan_version": 1,
+  "created_at": "2026-09-12T15:07:40Z",
+  "execution_mode": "multi_subagent_roles",
+  "tasks": [
+    {
+      "id": "T1.1",
+      "title": "공식·기관 자료로 경력·제품·10가지 원칙 출처 확인",
+      "status": "pending",
+      "estimated_minutes": 25,
+      "max_minutes": 30,
+      "evidence": "artifacts/research-dieter-rams-20260912/work/source-map.md",
+      "validation": "경력, 제품 기여, 10가지 원칙의 원문/출처를 후대 요약과 분리한다.",
+      "closure_check": "Braun·Vitsoe·전시/박물관 등 직접 또는 기관 근거로 핵심 사실의 출처 지도를 만든다."
+    },
+    {
+      "id": "T1.2",
+      "title": "원칙별 실제 제품 증거와 디지털 전환 해석 분리",
+      "status": "pending",
+      "depends_on": ["T1.1"],
+      "estimated_minutes": 25,
+      "max_minutes": 30,
+      "evidence": "artifacts/research-dieter-rams-20260912/work/principle-to-product-map.md",
+      "validation": "원칙의 문구, 제품에서 관찰되는 증거, 현대 UI에 대한 해석을 서로 다른 층으로 표시한다.",
+      "closure_check": "최소 세 제품에서 원칙을 뒷받침하는 구체적 관찰과 적용 불확실성을 기록한다."
+    },
+    {
+      "id": "T1.3",
+      "title": "C1: 원문성·기여·해석 경계 Red 검증",
+      "status": "pending",
+      "depends_on": ["T1.2"],
+      "estimated_minutes": 15,
+      "max_minutes": 30,
+      "evidence": "artifacts/research-dieter-rams-20260912/work/red/t1-source-boundary.md",
+      "validation": "람스의 직접 주장, 공동 작업/기업 맥락, 후대 해석이 혼동되지 않는지 검토한다.",
+      "closure_check": "Red의 수정 요구를 반영하고 T2가 쓸 수 있는 출처·해석 경계를 닫는다."
+    },
+    {
+      "id": "T2.1",
+      "title": "10가지 원칙의 지지·반대·실패 조건 조사",
+      "status": "pending",
+      "depends_on": ["T1.3"],
+      "estimated_minutes": 25,
+      "max_minutes": 30,
+      "evidence": "artifacts/research-dieter-rams-20260912/work/counterexamples-and-limits.md",
+      "validation": "단순함이 정보 은닉, 접근성 저하, 브랜드 모방으로 변질되는 조건을 포함한다.",
+      "closure_check": "핵심 가설마다 지지 근거와 반대/예외 근거를 기록하고 결론 변화 조건을 만든다."
+    },
+    {
+      "id": "T2.2",
+      "title": "앱·카드·공간형 UI별 채택/보류/제외 체크리스트 작성",
+      "status": "pending",
+      "depends_on": ["T2.1"],
+      "estimated_minutes": 25,
+      "max_minutes": 30,
+      "evidence": "artifacts/research-dieter-rams-20260912/work/candidate/dieter-rams-application-guide.md",
+      "validation": "디자인 어휘 모방이 아니라 사용자 행동·정보 밀도·접근성을 기준으로 판정한다.",
+      "closure_check": "세 대상별로 다음 시안에 바로 적용할 질문과 보류/제외 조건을 제시한다."
+    },
+    {
+      "id": "T2.3",
+      "title": "C2: 최종 브리프·Red·리포트·원격 검증",
+      "status": "pending",
+      "depends_on": ["T2.2"],
+      "estimated_minutes": 30,
+      "max_minutes": 30,
+      "evidence": "artifacts/research-dieter-rams-20260912/final/dieter-rams-design-brief.md",
+      "validation": "원 질문에 직접 답하고, 원문 근거·반례·현재 적용 판단·다음 행동이 사용자 언어로 읽히는지 확인한다.",
+      "closure_check": "Red PASS, 최종 HTML 리포트, 지식 판정, 원격 검증을 모두 기록한다."
+    }
+  ],
+  "deviations": []
+}

@@ -4,6 +4,37 @@
 
 ## Inbox
 
+### [research-dieter-rams-20260912] 디터 람스 디자인 원칙·적용 조건 리서치
+- status: inbox
+- target_agent: genie
+- execution_mode: multi_subagent_roles
+- permission: L0-research-and-strategy-only
+- projects: infinity, research-bank, personal-ops
+- task_type: research
+- topics: product, design, interface, minimalism
+- context_pack: intents/context/research-dieter-rams-20260912.json
+- context_documents_checked: LLM.md; README.md; schema/agent-rules.md; DOCUMENT_SEARCH_PIPELINE.md; USER_CONTEXT.md; SERVICE_REGISTRY.md; INFINITY_OPERATING_RULES.md; ARTIFACT_RULES.md; EXECUTION_LEARNING_CONTRACT.md; INTENTS.md; agent-wiki/README.md; mapped/Integration/Marketing.mdx; mapped/Meta/Collection.mdx; mapped/Human/Balance.mdx; mapped/Human/Standard.mdx; mapped/Integration/Business.mdx
+- context_searches: 디터 람스·Braun·Vitsoe의 공식 전기와 제품 아카이브; 디자인 박물관·전시 기관의 1차/기관 자료; 10가지 원칙의 원문·후대 해석·비판; 현재 앱·카드·공간형 UI 적용과 실패 조건
+- task_plan: artifacts/research-dieter-rams-20260912/work/task-plan.json
+- task_plan_doc: artifacts/research-dieter-rams-20260912/work/task-plan.md
+- task_plan_template: ARTIFACT_RULES.md#대형-작업-태스크-계획
+- trace: traces/research-dieter-rams-20260912.json
+- notification_channel: slack
+- notification_target: channel:C0BR41W31MM
+- notification_reply_to: 1789225598.319949
+- notification_origin: channel:C0BR41W31MM;reply_to:1789225598.319949
+- decision_question: 디터 람스의 원칙 중 마스터님의 앱·카드·공간형 디자인에 지금 채택할 것은 무엇이며, 어떤 원칙은 적용하지 않거나 조건부로 적용해야 하는가?
+- decision_owner: Kimi
+- decision_deadline: 별도 지정 없음
+- in_scope: 디터 람스의 경력·Braun/Vitsoe 제품 맥락·10가지 원칙의 출처와 실질 의미·후대 해석 및 비판·앱/카드/공간형 UI 적용 기준
+- out_of_scope: 특정 제품의 구매 추천, Braun/Vitsoe와의 연락·상업 협업, 디자인 원칙을 그대로 복제한 구현·공개 게시
+- comparison_axes: 원칙의 원문성, 실제 제품에서의 증거, 사용성/정보 밀도에 주는 효과, 디지털 UI 전환 시 왜곡 위험, 현재 작업과의 적합성
+- success_evidence: 공식/기관 1차 근거 중심의 경력·제품·원칙 지도, 지지/반대 근거를 함께 담은 적용 판단, 앱·카드·공간형 UI별 채택/보류/제외 기준, 바로 쓸 수 있는 점검표
+- metric_question: 리서치 이후 새 화면이나 카드 시안을 볼 때 “람스답게 보이는가”가 아니라 사용자 마찰과 정보 밀도를 기준으로 채택/보류를 판정할 수 있는가?
+- metric_signal: 원문/기관 출처 3개 이상, 실질 발견과 반례, 디자인 대상별 체크리스트, Red가 확인한 사용자 질문 직접 답변성
+- metric_decision_rule: 원칙의 출처·제품 맥락·적용 한계가 분리되지 않거나 현재 디자인에 적용할 구체 기준이 없으면 Archive하지 않고 근거/판단 프레임을 보완한다.
+- next_action: T1.1에서 공식·기관 자료로 디터 람스의 경력·제품 기여·10가지 원칙의 출처를 고정한다.
+
 ## Active
 
 ## Waiting
