@@ -99,6 +99,20 @@
       "session_key": "agent:genie:infinity-dispatcher",
       "timestamp": "2026-09-12T21:41:04Z",
       "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-12T21:42:23Z",
+      "context_pack": "intents/context/research-dieter-rams-biography-minimalism-20260912.json",
+      "evidence_paths": [
+        "artifacts/research-dieter-rams-biography-minimalism-20260912/work/red/final-review.md",
+        "reports/research-dieter-rams-biography-minimalism-20260912/20260912T2140Z-final.html"
+      ],
+      "searches": [
+        "Rams Foundation; Braun; Vitsœ; MoMA; Museum Angewandte Kunst; Vitra Design Museum"
+      ],
+      "wiki_pages": [],
+      "note": "T1.4 completed: independent Red PASS, HTML final report generated, no external actions or image reuse."
     }
   ],
   "artifacts": [
@@ -115,7 +129,7 @@
   ],
   "verifications": [],
   "next_decision": {
-    "status": "ready_for_next_leaf",
-    "value": "T1.4 will request independent Red review of the report candidate's facts, inference labels, rights boundary, and historical limitations."
+    "status": "ready_for_archive_contract",
+    "value": "Verify Archive contract and move the canonical registry block only if report, Red result, remote proof, and Knowledge closure pass."
   }
 }
