@@ -97,11 +97,16 @@
       "path": "artifacts/research-dieter-rams-biography-minimalism-20260912/work/analysis-notes.md",
       "kind": "analysis_notes",
       "at": "2026-09-12T21:24:30Z"
+    },
+    {
+      "path": "artifacts/research-dieter-rams-biography-minimalism-20260912/work/candidate/dieter-rams-report.md",
+      "kind": "report_candidate",
+      "at": "2026-09-12T21:36:00Z"
     }
   ],
   "verifications": [],
   "next_decision": {
     "status": "ready_for_next_leaf",
-    "value": "T1.3 will draft the report candidate, preserving the 1975–85 formation window, the 2002 revisability caveat, team credit, and source-interest limits."
+    "value": "T1.4 will request independent Red review of the report candidate's facts, inference labels, rights boundary, and historical limitations."
   }
 }
