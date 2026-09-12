@@ -9,7 +9,8 @@
 |------|------|------|
 | `intents/active/{id}.md` | 활성 Intent의 **현재 상태와 다음 액션만** | 진행 중 |
 | `../source/infinity/archive/{id}.md` (Knowledge Lab) | 유효 판정된 Intent의 **canonical final index** (결과 요약 + 산출물·리포트·커밋·URL 링크) | 선별 보관 |
-| `artifacts/{id}/...` | **결과로서 가치 있는 산출물** (research 결과, 설계 초안, 구현 산출물, 데이터) | 영구 |
+| `artifacts/{id}/work/...` | 태스크 계획, `T1.*` 조사 노트, 근거 수집, 초안, 역할별 검토, Red 판정 등 **중간 산출물** | 추적·재검토용 |
+| `artifacts/{id}/final/...` | 사용자의 원 질문에 답하는 **최종 재사용 산출물**. 리서치 브리프, 확정 설계안, 구현물, 데이터 | 영구·우선 노출 |
 | `reports/{id}/{timestamp}.html` | 단일 실행 로그 (heartbeat run 결과, 진행 보고) | 누적 |
 | `reports/heartbeat/` | **전역** heartbeat 요약만 (intent 결과 보고서가 아님) | 누적 |
 
@@ -66,21 +67,28 @@ Archive intent는 대시보드에서 프로젝트별/성격별로 묶어 볼 수
 
 ## 핵심 원칙
 
-1. **Reports는 실행 로그이고 결과물이 아니다.** 동일한 결론을 두 번 찾기 위해 사람이 reports 디렉터리를 뒤져야 하면 운영 실패다. 결과는 archive intent에 요약하고, 산출물은 `artifacts/{id}/`로 옮긴다.
-2. **Active intent는 짧게 유지한다.** 분석/결과를 본문에 누적하지 말고, 산출물은 `artifacts/{id}/`에 만들고 active intent에서는 참조만 한다.
-3. **완료 시 archive intent가 canonical index가 된다.** 사용자가 "그래서 뭐 했더라"를 찾을 때 한 파일만 봐도 산출물 / 리포트 / 커밋 / URL 까지 한 번에 도달해야 한다.
-4. **`drafts/`는 폐기.** 과거 drafts 산출물은 모두 `artifacts/{id}/`로 이동했다. 모든 신규 detail 링크는 `artifacts/{id}/` 또는 `intents/archive/{id}.md`만 가리킨다.
-5. **Archive는 프로젝트 종료와 다를 수 있다.** 프로젝트성 작업은 한 intent가 설계·조사·MVP 같은 한 단계를 끝내고 Archive로 가더라도, 원래 사용자 목표가 남아 있으면 반드시 다음 intent를 `Inbox`/`Active`/`Waiting` 중 하나로 연결한다. Archive 요약에는 `next` 또는 후속 intent id를 남긴다.
+1. **Reports는 실행 로그이고 결과물이 아니다.** 동일한 결론을 두 번 찾기 위해 사람이 reports 디렉터리를 뒤져야 하면 운영 실패다. 결과는 archive intent에 요약하고, 산출물은 `artifacts/{id}/final/`에 둔다.
+2. **중간 산출물과 최종 산출물을 섞지 않는다.** `T1.*`, source notes, 비교 작업지, 역할별 초안, Red 검토/재검토, task plan은 모두 `artifacts/{id}/work/`에 둔다. 사용자가 열어야 하는 답·권고·재사용 원문은 `artifacts/{id}/final/`에만 둔다. `work/` 문서는 최종 결과를 대체하거나 Archive의 대표 링크가 될 수 없다.
+3. **Active intent는 짧게 유지한다.** 분석/결과를 본문에 누적하지 말고, 산출물은 `artifacts/{id}/work/` 또는 `artifacts/{id}/final/`에 만들고 active intent에서는 참조만 한다.
+4. **완료 시 archive intent가 canonical index가 된다.** 사용자가 "그래서 뭐 했더라"를 찾을 때 한 파일만 봐도 최종 산출물 / 최종 리포트 / 커밋 / URL 까지 한 번에 도달해야 한다.
+5. **`drafts/`는 폐기.** 과거 drafts 산출물은 모두 `artifacts/{id}/`로 이동했다. 모든 신규 detail 링크는 `artifacts/{id}/work/`, `artifacts/{id}/final/` 또는 `intents/archive/{id}.md`만 가리킨다.
+6. **Archive는 프로젝트 종료와 다를 수 있다.** 프로젝트성 작업은 한 intent가 설계·조사·MVP 같은 한 단계를 끝내고 Archive로 가더라도, 원래 사용자 목표가 남아 있으면 반드시 다음 intent를 `Inbox`/`Active`/`Waiting` 중 하나로 연결한다. Archive 요약에는 `next` 또는 후속 intent id를 남긴다.
+
+### 리서치 최종본 품질 계약
+
+리서치의 `final/`에는 원 질문에 대한 결론을 먼저 두고, 그 결론을 바꾸는 조건·핵심 발견·선택지 비교·버린 대안·다음 결정 하나를 분리한다. 각 핵심 발견은 `주장 → 직접 근거 → 해석 → 한계/반증`을 한 덩어리로 남긴다. 출처 수를 채우는 목적의 중복 자료, 조사 과정의 나열, 역할명·태스크 ID는 최종 본문에 넣지 않는다.
+
+작업 중 생기는 `T1`/`T1.1` 메모와 Red 문서는 증거 추적에는 필요하지만 **최종 답이 아니다**. Red 문서는 `work/red/`에 두고 판정·차단 사유·재검토 범위를 기록한다. 최종본은 Red PASS 뒤에만 `final/`에 둘 수 있으며, 최종 리포트는 `final/`을 읽어 독자가 판단할 수 있게 요약한다.
 
 ## 대형 작업 태스크 계획
 
-PRD가 필요한 대형 작업은 PRD가 승인·고정된 직후, 구현 전에 `artifacts/{intent-id}/task-plan.json`을 만든다. 이 파일은 실행 원장이 아니라 **계획 기준선**이며, 대시보드 카드가 다음을 읽는 유일한 구조화 입력이다.
+PRD가 필요한 대형 작업은 PRD가 승인·고정된 직후, 구현 전에 `artifacts/{intent-id}/work/task-plan.json`을 만든다. 이 파일은 실행 원장이 아니라 **계획 기준선**이며, 대시보드 카드가 다음을 읽는 유일한 구조화 입력이다.
 
 ### 양식 발견 preflight
 
 계획을 작성·재계획하기 전에는 `ARTIFACT_RULES.md`의 이 섹션과 가장 가까운 기존 `task-plan.md` 예시를 실제로 읽는다. Intent에는 `task_plan_template: ARTIFACT_RULES.md#대형-작업-태스크-계획`을 기록한다. 이 preflight 없이 임의 JSON 구조, 표, 문서 형식을 새로 만들면 계획은 무효이며 실행으로 진행하지 않는다.
 
-동시에 사람이 읽는 `artifacts/{intent-id}/task-plan.md`도 만든다. 이 문서는 PRD 링크, 태스크별 상태·완료 증거·다음 행동, 그리고 append-only `— 계획 변경` 기록을 담는다. `INTENTS.md`의 `task_plan_doc`으로 연결하며, JSON 상태나 deviation이 바뀌면 같은 커밋에서 함께 갱신한다. **트리 본문(`● Tn`부터 `└─ — 보호 경계`까지)은 반드시 ` ```text ` fenced code block 안에 둔다.** 대시보드 Markdown renderer가 공백과 `│` 연결선을 일반 문단으로 접지 않게 하는 표시 계약이다.
+동시에 사람이 읽는 `artifacts/{intent-id}/work/task-plan.md`도 만든다. 이 문서는 PRD 링크, 태스크별 상태·완료 증거·다음 행동, 그리고 append-only `— 계획 변경` 기록을 담는다. `INTENTS.md`의 `task_plan_doc`으로 연결하며, JSON 상태나 deviation이 바뀌면 같은 커밋에서 함께 갱신한다. **트리 본문(`● Tn`부터 `└─ — 보호 경계`까지)은 반드시 ` ```text ` fenced code block 안에 둔다.** 대시보드 Markdown renderer가 공백과 `│` 연결선을 일반 문단으로 접지 않게 하는 표시 계약이다.
 
 사람이 읽는 계획은 **`치안 지도 3차 실험 — 실행 타임라인`의 구조를 정본**으로 사용한다. 부모 `T1`은 기능 단위 미니 사이클이고, 그 아래 `T1.1…`에 계획·구현/조사·Red·마감 확인을 들여쓴다. 제목은 `# {작업명} — 실행 타임라인`, 첫 줄은 반드시 ``마감 · 실행 · 태스크: 완료/미완료 집계``, 각 leaf는 `상태 · 예상/최대 · 의존`, `증거:`, `시작/완료/실제:`를 차례로 둔다. 연결선·`● / ◐ / ○` 상태, 중간 `├─ — {시각} · {변경 대상}`의 append-only 계획 변경 기록, 마지막 `└─ — 보호 경계`와 `**지금 다음 행동:**`을 생략하지 않는다.
 
@@ -133,16 +141,18 @@ Infinity 문서는 아래 3개 역할로 통일한다. 새 문서를 만들 때 
 | 역할 | 경로 | 책임 | 대시보드 표시 |
 |------|------|------|---------------|
 | Intent 원장 | `knowledge-lab/source/infinity/archive/{id}.md` | 유효 판정된 Intent의 최종 상태, 결과 요약, 성공 기준 충족 여부, 링크 인덱스 | `Intent 원장` |
-| Artifact | `artifacts/{id}/...` | 재사용 가능한 산출물 원문. 조사 결과, 설계안, 실행 프롬프트, 데이터, 화면/HTML 등 | `Artifact` |
+| Work Artifact | `artifacts/{id}/work/...` | 태스크 계획, T1 조사, 근거 수집, 초안, 역할별·Red 검토. 추적용이며 최종 링크가 아님 | `중간 산출물` |
+| Final Artifact | `artifacts/{id}/final/...` | 원 질문에 직접 답하는 재사용 가능한 최종본. 조사 브리프, 확정 설계안, 구현물, 데이터 | `최종 산출물` |
 | Report | `reports/{id}/{timestamp}.html` | 특정 실행 1회의 HTML 로그. 무엇을 했고 무엇을 검증했는지 기록 | `Report` |
 
 ### 중복 금지
 
 - `Intent 원장`과 `Detail`이 같은 파일을 가리키게 만들지 않는다.
 - 완료된 Intent의 `detail` 링크가 필요하면 `intents/archive/{id}.md` 하나만 canonical detail로 쓴다.
-- active 상태에서 임시 상세가 필요하면 `intents/active/{id}.md` 또는 `artifacts/{id}/...` 중 하나를 선택한다. 같은 내용을 둘 다 만들지 않는다.
+- active 상태에서 임시 상세가 필요하면 `intents/active/{id}.md` 또는 `artifacts/{id}/work/...` 중 하나를 선택한다. 같은 내용을 둘 다 만들지 않는다.
 - 대시보드/자동화는 같은 path가 `archive`와 `detail` 양쪽에서 발견되면 하나의 `Intent 원장`으로 합쳐야 한다.
 - 사람이 읽는 최종 요약은 Report에만 남기지 말고 반드시 Intent 원장의 `result_summary`, `artifacts`, `reports`, `commits`, `urls`, `next_actions`에 반영한다.
+- Archive의 `artifacts` 첫 항목은 반드시 `artifacts/{id}/final/...`이어야 하며, `work/`는 필요할 때만 `supporting_work`로 별도 나열한다. Archive 카드·대시보드의 기본 링크는 `final/`과 최종 HTML Report만 사용한다.
 - 신규 Report는 Markdown으로 만들지 않는다. 과거 `.md` report는 legacy로만 읽고, 새 실행 로그는 반드시 HTML이다.
 - 프로젝트성 작업에서 `next_actions`가 "구현", "배포", "검증", "승인 후 실행"처럼 실제 후속 단계를 가리키면, 같은 turn 또는 같은 heartbeat에서 후속 intent를 만든다. 사용자가 다시 요청해야만 이어지는 상태로 두지 않는다.
 
@@ -161,9 +171,12 @@ Infinity 문서는 아래 3개 역할로 통일한다. 새 문서를 만들 때 
 - topics: [activation, analytics]
 - result_summary: 한 줄 결과
 - artifacts:
-  - path: artifacts/{id}/foo.md
+  - path: artifacts/{id}/final/foo.md
     role: design | research | implementation | data
     note: 짧은 설명
+  - path: artifacts/{id}/work/red/final-review.md
+    role: supporting_work
+    note: Red 판정 근거 (선택)
 - reports:
   - path: reports/{id}/{timestamp}.html
     role: final | run | heartbeat
@@ -242,7 +255,7 @@ Infinity 문서는 아래 3개 역할로 통일한다. 새 문서를 만들 때 
 ## Heartbeat가 지켜야 할 흐름
 
 1. 실행 결과를 `reports/{id}/{timestamp}.html`로 남긴다 — 이것은 **로그**다. (양식은 아래 "Report 양식" 참고)
-2. 의미 있는 산출물이 생기면 `artifacts/{id}/...`로 만든다. active intent 본문에 두지 않는다.
+2. 중간 산출물은 `artifacts/{id}/work/`, 검증된 최종 산출물은 `artifacts/{id}/final/`로 만든다. active intent 본문에 두지 않는다.
 3. Intent가 완료되면:
    - 원래 프로젝트 목표가 끝났는지 먼저 판정하고, 끝나지 않았으면 후속 intent id 또는 Waiting blocker를 만든다.
    - `intents/active/{id}.md` → `intents/archive/{id}.md`로 이동
@@ -250,7 +263,7 @@ Infinity 문서는 아래 3개 역할로 통일한다. 새 문서를 만들 때 
    - `INTENTS.md`의 Active 블록 제거, 완료 코멘트 추가 (`<!-- {id} completed YYYY-MM-DDTHH:MM → intents/archive/{id}.md [projects: virtue; type: strategy; topics: activation,analytics] (한 줄 결과) -->`)
    - Archive 전환 변경을 Infinity 저장소에 commit/push하고, 대시보드가 읽는 원격 `main`에서 해당 Archive 코멘트가 보이는지 확인한다. Knowledge Lab 승격이 있으면 해당 Knowledge Lab 변경은 별도 저장소 변경으로 commit/push·검증한다. Infinity의 부모 submodule pointer는 없다.
 4. 대시보드 등 외부 도구가 detail 링크를 기대하면 archive 경로가 유효한지 확인한다.
-5. 완료 직후 같은 내용을 `detail` 파일로 다시 만들지 않는다. 추가 원문이 필요하면 `artifacts/{id}/...`에 별도 역할을 부여한다.
+5. 완료 직후 같은 내용을 `detail` 파일로 다시 만들지 않는다. 추가 원문이 필요하면 `artifacts/{id}/work/` 또는 `artifacts/{id}/final/`에 별도 역할을 부여한다.
 
 ## Report 양식 (HTML, 결론 2축)
 

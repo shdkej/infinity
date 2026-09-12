@@ -1,0 +1,183 @@
+{
+  "deliveries": {
+    "1019754cf14b23aaa9f5c1c77640b28fd78ebe16805483de90d2061b25c23015": {
+      "attempt_started_at": "2026-09-07T15:30:02Z",
+      "claimed_at": "2026-09-07T15:30:02Z",
+      "destination": "safety-map-experiment-05-20260907|blocked|slack|C0BR41W31MM||1788681442.847249|safety-map-experiment-05-20260907|blocked|reports/safety-map-experiment-05-20260907/20260907T1524Z-progress.html||최종 HTML report와 knowledge_status·knowledge_decision·knowledge_targets·knowledge_reflection·knowledge_commit 지식 판정이 없어 Archive 계약을 충족하지 못한다.|최종 HTML report와 지식 판정 생성 후 Red PASS·원격 상태를 재확인하여 Archive를 검토한다.|",
+      "fingerprint": "safety-map-experiment-05-20260907|blocked|reports/safety-map-experiment-05-20260907/20260907T1524Z-progress.html||최종 HTML report와 knowledge_status·knowledge_decision·knowledge_targets·knowledge_reflection·knowledge_commit 지식 판정이 없어 Archive 계약을 충족하지 못한다.|최종 HTML report와 지식 판정 생성 후 Red PASS·원격 상태를 재확인하여 Archive를 검토한다.|",
+      "intent_id": "safety-map-experiment-05-20260907",
+      "remote_sha": "d865ef56499af16124ce1341bf8dbbffad4e30b4",
+      "sent_at": "2026-09-07T15:30:13Z",
+      "state": "sent",
+      "terminal_state": "blocked"
+    },
+    "136c15fdf4d9cdaf5561f1a9ead99ebb2b424a4770b73bbb93601bc72ae1066f": {
+      "attempt_started_at": "2026-09-08T22:18:16Z",
+      "claimed_at": "2026-09-08T22:18:16Z",
+      "destination": "content-catania-day-carousel-20260908|approval|slack|channel:C0BR41W31MM||1788905194.302559|content-catania-day-carousel-20260908|approval|||||",
+      "fingerprint": "content-catania-day-carousel-20260908|approval|||||",
+      "intent_id": "content-catania-day-carousel-20260908",
+      "remote_sha": "09cf7b6e8fdb1f2e81c4d198ce69f57dcc5b4d5a",
+      "sent_at": "2026-09-08T22:18:45Z",
+      "state": "sent",
+      "terminal_state": "approval"
+    },
+    "14959c89fccd8ac676e35c05bb334ba075dee4f39d1b8267901dcd78fe4bd9f4": {
+      "attempt_started_at": "2026-09-05T10:00:02Z",
+      "claimed_at": "2026-09-05T10:00:02Z",
+      "destination": "safety-map-experiment-03-20260905|blocked|slack|C0BR41W31MM||1788601770.158469|safety-map-experiment-03-20260905|blocked|||Required multi-role delegation is unavailable in this runtime: native spawn_agent and permitted OpenClaw sessions_spawn are not exposed (TypeError recorded 2026-09-05T09:56Z). Slack send capability is also not exposed, so the required intake receipt cannot yet be delivered.||",
+      "fingerprint": "safety-map-experiment-03-20260905|blocked|||Required multi-role delegation is unavailable in this runtime: native spawn_agent and permitted OpenClaw sessions_spawn are not exposed (TypeError recorded 2026-09-05T09:56Z). Slack send capability is also not exposed, so the required intake receipt cannot yet be delivered.||",
+      "intent_id": "safety-map-experiment-03-20260905",
+      "remote_sha": "d883c00102c652f2c07e6096547d7eed0d14e356",
+      "sent_at": "2026-09-05T10:00:13Z",
+      "state": "sent",
+      "terminal_state": "blocked"
+    },
+    "194075558b8c3c287a502aa8f3532ee0b3d933f17ed72d52639cb72d93fb9f49": {
+      "attempt_started_at": "2026-09-05T10:45:36Z",
+      "claimed_at": "2026-09-05T10:45:36Z",
+      "destination": "safety-map-experiment-03-20260905|blocked|slack|C0BR41W31MM||1788601770.158469|safety-map-experiment-03-20260905|blocked|reports/safety-map-experiment-03-20260905/20260905T1000Z-role-convergence.md||e03 protected runtime token store가 비어 있고 독립 domain/Mapbox origin allowlist가 없어 실제 Mapbox canvas·검색을 검증할 수 없다. 준비 코드는 Space commit `17304e63cbb24b84f7204738ed4167724d1c60f4`에 있다.||",
+      "fingerprint": "safety-map-experiment-03-20260905|blocked|reports/safety-map-experiment-03-20260905/20260905T1000Z-role-convergence.md||e03 protected runtime token store가 비어 있고 독립 domain/Mapbox origin allowlist가 없어 실제 Mapbox canvas·검색을 검증할 수 없다. 준비 코드는 Space commit `17304e63cbb24b84f7204738ed4167724d1c60f4`에 있다.||",
+      "intent_id": "safety-map-experiment-03-20260905",
+      "remote_sha": "a4a7ff00d4acab1df2c38eaff102f1a45a5e4d74",
+      "sent_at": "2026-09-05T10:46:23Z",
+      "state": "sent",
+      "terminal_state": "blocked"
+    },
+    "197e2811e92e45402887fdaee1256c66780f61c3f81a545643a38e8abe93a74a": {
+      "attempt_started_at": "2026-09-12T00:00:04Z",
+      "claimed_at": "2026-09-12T00:00:04Z",
+      "destination": "research-minimal-curation-cases-20260911|completed|slack|channel:C0BR41W31MM||1789134244.240209|research-minimal-curation-cases-20260911|completed|reports/research-minimal-curation-cases-20260911/20260911T2350Z-final.html||||a16250ce14d3163f16d48e9566c2badf84a70f32",
+      "fingerprint": "research-minimal-curation-cases-20260911|completed|reports/research-minimal-curation-cases-20260911/20260911T2350Z-final.html||||a16250ce14d3163f16d48e9566c2badf84a70f32",
+      "intent_id": "research-minimal-curation-cases-20260911",
+      "remote_sha": "5d84a30addf236a672ccc71798e3943944b5031a",
+      "sent_at": "2026-09-12T00:00:34Z",
+      "state": "sent",
+      "terminal_state": "completed"
+    },
+    "209dec656a46ae7f4cbff2776fcccf635910acac9cdb7ded99a1074520fa7ece": {
+      "attempt_started_at": "2026-09-06T09:02:38Z",
+      "claimed_at": "2026-09-06T09:02:38Z",
+      "destination": "safety-map-experiment-03-20260905|completed|slack|C0BR41W31MM||1788681442.847249|safety-map-experiment-03-20260905|completed|reports/safety-map-experiment-03-20260905/20260906T0800Z-terminal.md||||9dd72e2e2a94e4cee77abdb5819dc6b33f36edf3",
+      "fingerprint": "safety-map-experiment-03-20260905|completed|reports/safety-map-experiment-03-20260905/20260906T0800Z-terminal.md||||9dd72e2e2a94e4cee77abdb5819dc6b33f36edf3",
+      "intent_id": "safety-map-experiment-03-20260905",
+      "remote_sha": "f654302dbfd7df4ea41e5c54ef035da75d5963f6",
+      "sent_at": "2026-09-06T09:02:47Z",
+      "state": "sent",
+      "terminal_state": "completed"
+    },
+    "249d30f47a732c25f94fb62af6c7447d2669bb91adc8ae54fcf22000eb423ffb": {
+      "attempt_started_at": "2026-09-06T20:02:12Z",
+      "claimed_at": "2026-09-06T20:02:12Z",
+      "destination": "safety-map-experiment-04-20260906|blocked|slack|C0BR41W31MM||1788681442.847249|safety-map-experiment-04-20260906|blocked|||task plan의 모든 leaf는 완료됐지만, Archive 필수 최종 HTML report와 knowledge_status·knowledge_decision·knowledge_targets·knowledge_reflection·knowledge_commit 지식 판정이 없다. 따라서 Archive 완료를 선언할 수 없다. 현재 no-render는 표시 가능한 지역 집계 근거가 없다는 상태이며 구현 차단이 아니다.|final report·지식 판정·Archive 원장 전이 요건을 별도 leaf로 검증한다.|",
+      "fingerprint": "safety-map-experiment-04-20260906|blocked|||task plan의 모든 leaf는 완료됐지만, Archive 필수 최종 HTML report와 knowledge_status·knowledge_decision·knowledge_targets·knowledge_reflection·knowledge_commit 지식 판정이 없다. 따라서 Archive 완료를 선언할 수 없다. 현재 no-render는 표시 가능한 지역 집계 근거가 없다는 상태이며 구현 차단이 아니다.|final report·지식 판정·Archive 원장 전이 요건을 별도 leaf로 검증한다.|",
+      "intent_id": "safety-map-experiment-04-20260906",
+      "remote_sha": "5ec8e22e05dd571de5ca3ed16191def7a2ec76ad",
+      "sent_at": "2026-09-06T20:02:40Z",
+      "state": "sent",
+      "terminal_state": "blocked"
+    },
+    "352a4588b642ccbb52025be5ab19166aad78b5a357e5a59a6ad680b25cc9696f": {
+      "attempt_started_at": "2026-09-12T01:52:23Z",
+      "claimed_at": "2026-09-12T01:52:23Z",
+      "destination": "research-korean-minimal-curation-guide-20260911|blocked|slack|channel:C0BR41W31MM||1789171001.257979|research-korean-minimal-curation-guide-20260911|blocked|||Archive 계약 미충족 — (1) 최종 HTML report 없음, (2) 필수 Knowledge closure 5개 필드 없음, (3) 원래 목표의 ‘첫 6편 적용 예시’와 내부 빈 카드 1개 산출물 사이 범위 정정 필요. 공개 게시·실제 후보 선정·촬영·외부 연락·제3자 자산 사용은 여전히 승인 전 금지.|Intent 목표의 ‘첫 6편 적용 예시’를 내부 빈 카드 hold-state 검증으로 정식 범위 정정하거나, 안전한 비후보 추상 예시 범위를 확정한다. 이후 최종 HTML report와 knowledge_status·knowledge_decision·knowledge_targets·knowledge_reflection·knowledge_commit을 기록하고 Archive 계약을 재검증한다.|",
+      "fingerprint": "research-korean-minimal-curation-guide-20260911|blocked|||Archive 계약 미충족 — (1) 최종 HTML report 없음, (2) 필수 Knowledge closure 5개 필드 없음, (3) 원래 목표의 ‘첫 6편 적용 예시’와 내부 빈 카드 1개 산출물 사이 범위 정정 필요. 공개 게시·실제 후보 선정·촬영·외부 연락·제3자 자산 사용은 여전히 승인 전 금지.|Intent 목표의 ‘첫 6편 적용 예시’를 내부 빈 카드 hold-state 검증으로 정식 범위 정정하거나, 안전한 비후보 추상 예시 범위를 확정한다. 이후 최종 HTML report와 knowledge_status·knowledge_decision·knowledge_targets·knowledge_reflection·knowledge_commit을 기록하고 Archive 계약을 재검증한다.|",
+      "intent_id": "research-korean-minimal-curation-guide-20260911",
+      "remote_sha": "3a9cf17ae86e2e1c06f2141fe41f5f21286c5944",
+      "sent_at": "2026-09-12T01:52:36Z",
+      "state": "sent",
+      "terminal_state": "blocked"
+    },
+    "382b2959045c501450b3e124932b66cbfb1bd9ee4318a1301e7e40b891408d9d": {
+      "attempt_started_at": "2026-09-06T09:53:04Z",
+      "claimed_at": "2026-09-06T09:53:04Z",
+      "destination": "safety-map-experiment-04-20260906|blocked|slack|C0BR41W31MM||1788681442.847249|safety-map-experiment-04-20260906|blocked|||표시 가능한 지역 집계 근거는 아직 없다. T2에서 공개 커뮤니티/블로그 후보를 탐색하되, 원문·날짜·공간 단위·사람 검토·복수 최근 경험 기준을 충족하지 못하면 no-render를 유지한다.|T2.1에서 공개 접근·이용약관 내 Reddit, DCInside, Naver Blog/Cafe, 더쿠, 인스티즈 등 후보를 URL·게시일·수집일·공간 단위 메타데이터만으로 판정한다.|",
+      "fingerprint": "safety-map-experiment-04-20260906|blocked|||표시 가능한 지역 집계 근거는 아직 없다. T2에서 공개 커뮤니티/블로그 후보를 탐색하되, 원문·날짜·공간 단위·사람 검토·복수 최근 경험 기준을 충족하지 못하면 no-render를 유지한다.|T2.1에서 공개 접근·이용약관 내 Reddit, DCInside, Naver Blog/Cafe, 더쿠, 인스티즈 등 후보를 URL·게시일·수집일·공간 단위 메타데이터만으로 판정한다.|",
+      "intent_id": "safety-map-experiment-04-20260906",
+      "remote_sha": "ee735c6e073d9a90b38969510ed4e6a0c1ca1c91",
+      "sent_at": "2026-09-06T09:53:13Z",
+      "state": "sent",
+      "terminal_state": "blocked"
+    },
+    "42fb68cd2afe70b17ee716ad3c08620e89f754d4b34a3f306d55a2596267ab8b": {
+      "attempt_started_at": "2026-09-07T15:12:48Z",
+      "claimed_at": "2026-09-07T15:12:48Z",
+      "destination": "safety-map-experiment-05-20260907|blocked|slack|C0BR41W31MM||1788681442.847249|safety-map-experiment-05-20260907|blocked|||최종 HTML report와 knowledge_status·knowledge_decision·knowledge_targets·knowledge_reflection·knowledge_commit 지식 판정이 없어 Archive 계약을 충족하지 못한다.|최종 HTML report와 지식 판정 생성 후 Red PASS·원격 상태를 재확인하여 Archive를 검토한다.|",
+      "fingerprint": "safety-map-experiment-05-20260907|blocked|||최종 HTML report와 knowledge_status·knowledge_decision·knowledge_targets·knowledge_reflection·knowledge_commit 지식 판정이 없어 Archive 계약을 충족하지 못한다.|최종 HTML report와 지식 판정 생성 후 Red PASS·원격 상태를 재확인하여 Archive를 검토한다.|",
+      "intent_id": "safety-map-experiment-05-20260907",
+      "remote_sha": "32f63c6a5cd35ef6c4dd81b9556943bc054b2319",
+      "sent_at": "2026-09-07T15:13:12Z",
+      "state": "sent",
+      "terminal_state": "blocked"
+    },
+    "7b9624514723698dd36dcd0e809dd7a3f74697984ab49da0259900c71594a74e": {
+      "attempt_started_at": "2026-09-10T23:33:49Z",
+      "claimed_at": "2026-09-10T23:33:49Z",
+      "destination": "content-minimal-collector-richard-sapper-short-20260910|blocked|slack|channel:C0BR41W31MM||1789072321.275899|content-minimal-collector-richard-sapper-short-20260910|blocked|reports/content-minimal-collector-richard-sapper-short-20260910/20260910T2314Z-waiting.html||sam_preview_handoff_or_user_feedback_missing; Genie가 검증할 수 있는 비공개 렌더·사진 provenance 입력이 없고, SAM 별도 시안 진행 중 중복 렌더는 금지된다.|외부 인계 또는 사용자 피드백 수신 후, provenance를 재검증하고 한 개의 계약 적합 leaf만 활성화한다.|",
+      "fingerprint": "content-minimal-collector-richard-sapper-short-20260910|blocked|reports/content-minimal-collector-richard-sapper-short-20260910/20260910T2314Z-waiting.html||sam_preview_handoff_or_user_feedback_missing; Genie가 검증할 수 있는 비공개 렌더·사진 provenance 입력이 없고, SAM 별도 시안 진행 중 중복 렌더는 금지된다.|외부 인계 또는 사용자 피드백 수신 후, provenance를 재검증하고 한 개의 계약 적합 leaf만 활성화한다.|",
+      "intent_id": "content-minimal-collector-richard-sapper-short-20260910",
+      "remote_sha": "576d3c16830a883588c85b55f7d6f421fd9d3dd5",
+      "sent_at": "2026-09-10T23:34:01Z",
+      "state": "sent",
+      "terminal_state": "blocked"
+    },
+    "9440a6907a0fe84fab603322ee0fd2de7aff3c0d7d04c79be9add234c7d7fa67": {
+      "attempt_started_at": "2026-09-06T22:13:39Z",
+      "claimed_at": "2026-09-06T22:13:39Z",
+      "destination": "content-persona-carousel-20260906|blocked|slack|C0BR41W31MM||1788731761.869669|content-persona-carousel-20260906|blocked|||유일한 사실 근거로 지정된 2026-09-06 Slack Role & Persona Definition 템플릿 본문이 Context Pack·허용된 로컬 검색 결과에 없다. 실제 장면·바뀐 기준·증거·목표를 확인하지 못한 상태에서 템플릿을 채운 최종 캐러셀을 만들면 사실성을 과장한다.|사실 입력을 확인한 뒤 6장 비공개 초안과 Red 검증을 재개한다.|",
+      "fingerprint": "content-persona-carousel-20260906|blocked|||유일한 사실 근거로 지정된 2026-09-06 Slack Role & Persona Definition 템플릿 본문이 Context Pack·허용된 로컬 검색 결과에 없다. 실제 장면·바뀐 기준·증거·목표를 확인하지 못한 상태에서 템플릿을 채운 최종 캐러셀을 만들면 사실성을 과장한다.|사실 입력을 확인한 뒤 6장 비공개 초안과 Red 검증을 재개한다.|",
+      "intent_id": "content-persona-carousel-20260906",
+      "remote_sha": "2452d41f045b8f5368f8cd7b4818d0130f20ce4b",
+      "sent_at": "2026-09-06T22:13:51Z",
+      "state": "sent",
+      "terminal_state": "blocked"
+    },
+    "a673ee55e159568daee483bcd60fdc4d2fa9e3b9a1121092ef37acf1aa6f1e5e": {
+      "attempt_started_at": "2026-09-05T09:50:02Z",
+      "claimed_at": "2026-09-05T09:50:02Z",
+      "destination": "infinity-dispatcher-notify|completed|telegram|433493318|||infinity-dispatcher-notify|completed|reports/infinity-dispatcher-notify/20260901T-final.html|||첫 새 terminal intent의 receipt 상태와 07:00 recap 보완 관계를 관찰한다.|",
+      "fingerprint": "infinity-dispatcher-notify|completed|reports/infinity-dispatcher-notify/20260901T-final.html|||첫 새 terminal intent의 receipt 상태와 07:00 recap 보완 관계를 관찰한다.|",
+      "intent_id": "infinity-dispatcher-notify",
+      "remote_sha": "ba40d2796a949f68b0ef89cdc7ece523223b1fcf",
+      "sent_at": "2026-09-05T09:50:14Z",
+      "state": "sent",
+      "terminal_state": "completed"
+    },
+    "a8972bcd28971311aee580fe0af38d711165a1184779cb6c4977b441214709e8": {
+      "attempt_started_at": "2026-09-10T23:20:03Z",
+      "claimed_at": "2026-09-10T23:20:03Z",
+      "destination": "content-minimal-collector-richard-sapper-short-20260910|blocked|slack|channel:C0BR41W31MM||1789072321.275899|content-minimal-collector-richard-sapper-short-20260910|blocked|reports/content-minimal-collector-richard-sapper-short-20260910/20260910T2314Z-waiting.html||실제 Richard Sapper 초상 후보는 확인했지만, 재사용 가능한 저작권/이용조건(권리자·라이선스 또는 명시 허가)을 원문에서 확인하지 못했다. 인물 대체 생성은 제약상 금지된다.|사용자 제공의 권리 확인 사진, 또는 원문 URL·저작권/이용조건·귀속 조건이 명시된 실제 Richard Sapper 사진을 받으면 T1 provenance를 재개한다.|",
+      "fingerprint": "content-minimal-collector-richard-sapper-short-20260910|blocked|reports/content-minimal-collector-richard-sapper-short-20260910/20260910T2314Z-waiting.html||실제 Richard Sapper 초상 후보는 확인했지만, 재사용 가능한 저작권/이용조건(권리자·라이선스 또는 명시 허가)을 원문에서 확인하지 못했다. 인물 대체 생성은 제약상 금지된다.|사용자 제공의 권리 확인 사진, 또는 원문 URL·저작권/이용조건·귀속 조건이 명시된 실제 Richard Sapper 사진을 받으면 T1 provenance를 재개한다.|",
+      "intent_id": "content-minimal-collector-richard-sapper-short-20260910",
+      "remote_sha": "d7827d6de4447d4f88852cef850f61b8c4c41f33",
+      "sent_at": "2026-09-10T23:20:25Z",
+      "state": "sent",
+      "terminal_state": "blocked"
+    },
+    "ee270fc8bd008d1e284c972ae1dfb0884d560643f65299dff9ad138abc01611e": {
+      "attempt_started_at": "2026-09-06T09:26:10Z",
+      "claimed_at": "2026-09-06T09:26:10Z",
+      "destination": "safety-map-experiment-04-20260906|blocked|slack|C0BR41W31MM||1788681442.847249|safety-map-experiment-04-20260906|blocked|||T1의 공식 후보는 2022년 1–8월 Roma Capitale 도로교통사고 집계로, 현재 범죄·공공안전 상태 또는 장소별 치안 판단을 표시하는 근거가 될 수 없다. 독립 Red 재검증도 아직 없다.|검증된 공식 원문이 확보될 때까지 no-render를 유지한다.|",
+      "fingerprint": "safety-map-experiment-04-20260906|blocked|||T1의 공식 후보는 2022년 1–8월 Roma Capitale 도로교통사고 집계로, 현재 범죄·공공안전 상태 또는 장소별 치안 판단을 표시하는 근거가 될 수 없다. 독립 Red 재검증도 아직 없다.|검증된 공식 원문이 확보될 때까지 no-render를 유지한다.|",
+      "intent_id": "safety-map-experiment-04-20260906",
+      "remote_sha": "c6f18d6ac7d7f8819d8d7faa0e18aca49876b92b",
+      "sent_at": "2026-09-06T09:26:20Z",
+      "state": "sent",
+      "terminal_state": "blocked"
+    }
+  },
+  "legacy_state_observed": true,
+  "legacy_unaddressable_intents": [
+    "design-05",
+    "marketing-123",
+    "marketing-127",
+    "marketing-129",
+    "research-32",
+    "research-33",
+    "research-34",
+    "research-35",
+    "research-36",
+    "research-37"
+  ],
+  "version": 2
+}
