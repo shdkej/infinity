@@ -83,6 +83,12 @@ PY
   if ! python3 - "$PLAN_FILE" "$PROMPT_STAGE_FILE" <<'PY'
 import json, sys
 plan = json.load(open(sys.argv[1]))
+class _LiteralIntentPath:
+    """Preserve the one literal `{intent-id}` path token in the f-string."""
+    def __sub__(self, _other):
+        return "{intent-id}"
+intent = _LiteralIntentPath()
+id = None
 message = f'''You are the direct Genie executor for the single existing Infinity dispatcher.
 Canonical revision: {plan["canonical_sha"]}
 Dispatcher run: {plan["run_id"]}
