@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "intent_id": "research-korean-minimal-curation-guide-20260911",
-  "status": "inbox",
+  "status": "active",
   "trace_completeness": "complete",
   "request": {
     "raw": {
@@ -14,6 +14,15 @@
     }
   },
   "events": [
+    {
+      "type": "dispatcher_handoff",
+      "at": "2026-09-12T00:01:14Z",
+      "run_id": "dispatch-95913b7f9dc0447aa8cbb537ec0e0162",
+      "canonical_sha": "5d84a30addf236a672ccc71798e3943944b5031a",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "status": "accepted"
+    },
     {
       "type": "intake",
       "at": "2026-09-11T23:57:00Z",

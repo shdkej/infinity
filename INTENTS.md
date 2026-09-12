@@ -4,8 +4,10 @@
 
 ## Inbox
 
+## Active
+
 ### [research-korean-minimal-curation-guide-20260911] 국내 사례 기반 미니멀 큐레이션·리뷰 가이드
-- status: inbox
+- status: active
 - target_agent: genie
 - execution_mode: multi_subagent_roles
 - permission: L0-research-and-strategy-only
@@ -26,9 +28,7 @@
 - metric_question: 국내 사례에서 얻은 기준으로 새 사람·공간·물건 소재를 받았을 때, 같은 방식으로 정직하고 구별되는 30~60초 큐레이션 숏츠를 만들 수 있는가?
 - metric_signal: 국내 사례 지도, 선정/제외 카드, 리뷰·편집·안전 가이드, 소재별 템플릿, 첫 6편 후보와 Red 검증.
 - metric_decision_rule: 국내 사례의 1차 근거가 불충분하거나 선정 기준이 소재별로 재현되지 않으면 가이드를 완료로 처리하지 않고 근거 또는 기준을 보완한다.
-- next_action: T1.1 국내 사례의 사실·출처·형식 조사.
-
-## Active
+- next_action: T1.1을 활성화한 뒤 국내 사례의 사실·출처·형식을 조사한다.
 
 ## Waiting
 
