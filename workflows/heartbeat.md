@@ -268,10 +268,11 @@ Report는 실행 로그다. 2축은 그 로그의 결론을 한눈에 보게 하
 완료 처리 시 문서 역할은 반드시 아래처럼 통일한다.
 
 1. `Intent 원장`: 유효 판정된 경우에만 Knowledge Lab의 `source/infinity/archive/{id}.md` 하나를 canonical final index로 만든다.
-2. `Artifact`: 재사용할 원문/초안/분석/프롬프트/데이터는 `artifacts/{id}/...`에 둔다.
-3. `Report`: 실행 과정 로그만 `reports/{id}/{timestamp}.html`에 둔다.
-4. `Detail`이라는 별도 최종 문서는 만들지 않는다. archive path와 detail path가 같아지는 중복 구조를 생성하지 않는다.
-5. `INTENTS.md` 완료 코멘트에는 archive path와 한 줄 결과를 함께 남겨 대시보드가 `Intent 원장` 카드로 요약할 수 있게 한다.
+2. `Work Artifact`: `T1.*`, 근거 수집, 초안, 역할별 메모, Red 검토는 `artifacts/{id}/work/`에 둔다. 최종 후보는 `work/candidate/`, Red 판정은 `work/red/`에 둔다.
+3. `Final Artifact`: Red PASS 뒤의 재사용 최종본만 `artifacts/{id}/final/`에 둔다. Archive 대표 링크는 이 경로만 가리킨다.
+4. `Report`: 실행 과정 로그는 `reports/{id}/{timestamp}.html`에 두되, final HTML은 `final/`을 읽어 사용자가 바로 판단할 수 있게 요약한다.
+5. `Detail`이라는 별도 최종 문서는 만들지 않는다. archive path와 detail path가 같아지는 중복 구조를 생성하지 않는다.
+6. `INTENTS.md` 완료 코멘트에는 archive path와 한 줄 결과를 함께 남겨 대시보드가 `Intent 원장` 카드로 요약할 수 있게 한다.
 
 Archive gate:
 
@@ -481,7 +482,7 @@ Intent가 완료 기준을 충족하거나 사용자가 완료 처리하면:
      [다음 행동]
      {후속 실행 1개 또는 없음}
      ```
-2. 결과로서 가치 있는 산출물은 `artifacts/{id}/...`에 보관하고 archive intent에서 참조한다. **active intent 본문에 결과를 누적하지 않는다.**
+2. `T1`·근거·초안·Red 문서는 `artifacts/{id}/work/`, Red PASS 뒤의 최종본은 `artifacts/{id}/final/`에 보관한다. archive intent의 대표 artifact는 반드시 `final/`이고, `work/`는 필요한 경우만 검토 근거로 연결한다. **active intent 본문에 결과를 누적하지 않는다.**
 3. 실행 로그는 `reports/{id}/{timestamp}.html`에 남기되, **로그이지 결론이 아니다.** 동일 결론을 reports에서 찾아 헤매게 하지 않는다.
 4. `INTENTS.md`의 `## Inbox`, `## Active`, 또는 `## Waiting`에서 해당 블록/코멘트를 제거하고, 승격된 경우에만 `## Archive`에 KL source 링크를 남긴다.
    - 완료된 `completed/resolved/archived` 코멘트는 `## Archive`에만 있어야 한다. Inbox/Active/Waiting에 완료 코멘트가 남아 있으면 다음 리캡과 대시보드가 이미 끝난 작업을 다음 작업으로 오인한다.
@@ -503,7 +504,8 @@ Intent가 완료 기준을 충족하거나 사용자가 완료 처리하면:
 INTENTS.md                ← 활성 Intent만 (가볍게)
 intents/active/  ← 진행 중 상태/다음 액션만
 Knowledge Lab source/infinity/archive/ ← KL에 선별 보관된 Intent 원본
-artifacts/{id}/  ← 결과 산출물 (research/design/impl/data)
+artifacts/{id}/work/  ← T1·근거·초안·Red 검토 등 중간 산출물
+artifacts/{id}/final/ ← 사용자 질문에 답하는 최종 산출물
 reports/{id}/    ← 실행 로그 (heartbeat run 보고)
 reports/heartbeat/ ← 전역 heartbeat 요약
 ```
