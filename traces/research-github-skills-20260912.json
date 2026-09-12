@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "intent_id": "research-github-skills-20260912",
-  "status": "waiting",
+  "status": "active",
   "trace_completeness": "complete",
   "request": {
     "raw": {
@@ -36,12 +36,22 @@
       ],
       "wiki_pages": [],
       "note": "Invalid Active state repaired: required task plan is absent; moved to Waiting with an agent-owned autonomous plan-generation condition."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "at": "2026-09-12T22:42:43Z",
+      "run_id": "dispatch-7661047174d44ca79d907951c67403bb",
+      "canonical_sha": "c4bc3ae480d19e55338b7060d6d05591efc49d5e",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "status": "accepted",
+      "note": "Autonomous retry: created the missing task plan and activated T1.1."
     }
   ],
   "artifacts": [],
   "verifications": [],
   "next_decision": {
-    "status": "blocked",
-    "value": "Create task-plan.json and task-plan.md, then permit dispatcher leaf activation."
+    "status": "active",
+    "value": "T1.1 is collecting direct GitHub repository and SKILL.md evidence."
   }
 }

@@ -1,0 +1,14 @@
+{
+  "intent_id": "research-github-skills-20260912",
+  "plan_version": 1,
+  "created_at": "2026-09-12T22:42:43Z",
+  "execution_mode": "multi_subagent_roles",
+  "tasks": [
+    {"id":"T1.1","title":"공개 저장소·실제 SKILL 파일·운영 메타데이터 조사","status":"active","max_minutes":30,"depends_on":[],"validation":"후보 5개 이상에서 README와 실제 SKILL.md를 직접 열고, 라이선스·최근 갱신·의존성·외부 효과를 기록한다.","closure_check":"현재 deep-research·agent-reach와의 중복/보완을 후보별로 판정한다.","evidence":"work/github-candidate-evidence.md","started_at":"2026-09-12T22:42:43Z"},
+    {"id":"T1.2","title":"Red: 후보 근거·중복·안전 경계 검증","status":"pending","max_minutes":30,"depends_on":["T1.1"],"validation":"독립 Red가 직접 열람 증거, 설치 비권고/조건부 경계, 과장 여부를 판정한다.","closure_check":"FAIL이면 구체 보완 leaf를 deviation으로 추가한다.","evidence":"work/red/candidate-review.md"},
+    {"id":"T1.3","title":"최종 비교 브리프·첫 격리 파일럿 설계","status":"pending","max_minutes":30,"depends_on":["T1.2"],"validation":"최대 3개 조건부 추천과 최소 5개 비도입/보류 근거, 설치 없는 첫 적용 실험 1개를 final에 정리한다.","closure_check":"최종 HTML 보고서·지식 판정·원격 Archive 증빙을 준비한다.","evidence":"final/github-research-skills-brief.md"}
+  ],
+  "deviations": [
+    {"at":"2026-09-12T22:42:43Z","reason":"기존 Waiting의 유일한 자율 차단인 task-plan 부재를 dispatcher 계약에 따라 복구했다.","impact":"T1.1을 이번 cycle에 활성화해 근거를 수집한다.","task_ids":["T1.1","T1.2","T1.3"]}
+  ]
+}

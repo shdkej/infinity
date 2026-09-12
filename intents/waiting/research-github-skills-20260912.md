@@ -1,7 +1,7 @@
 # [research-github-skills-20260912] GitHub 리서치 스킬 후보 조사
 
 - id: research-github-skills-20260912
-- status: waiting
+- status: active
 - target_agent: genie
 - execution_mode: multi_subagent_roles
 - projects: [infinity, research-bank, openclaw]
@@ -9,6 +9,9 @@
 - topics: [ai-agents, workflow, automation]
 - context_pack: intents/context/research-github-skills-20260912.json
 - trace: traces/research-github-skills-20260912.json
+- task_plan: artifacts/research-github-skills-20260912/work/task-plan.json
+- task_plan_doc: artifacts/research-github-skills-20260912/work/task-plan.md
+- task_plan_template: ARTIFACT_RULES.md#대형-작업-태스크-계획
 - notification_channel: slack
 - notification_target: channel:C0BR41W31MM
 - notification_reply_to: 1789247197.159489
@@ -24,13 +27,11 @@
 - metric_signal: 후보별 중복/보완 기능, 설치 요구사항, 첫 적용 시나리오가 final brief에 근거 링크와 함께 남는다.
 - metric_decision_rule: 근거 추적 또는 결과 품질을 구체적으로 보완하고 설치 비용·안전 경계가 수용 가능할 때만 추천한다.
 
-## Waiting
+## Active
 
-- waiting_on: agent
+- active_task: T1.1
 - retry_policy: autonomous
-- blocker: 필수 `task-plan.json`·`task-plan.md`가 없어 active leaf·의존성·증거 경로를 판정할 수 없습니다.
-- next_action: ARTIFACT_RULES 양식의 계획 파일을 생성한 뒤 dispatcher가 검증 가능한 leaf를 활성화합니다.
-- task_plan_template: ARTIFACT_RULES.md#대형-작업-태스크-계획
+- next_action: 공개 저장소의 README와 실제 `SKILL.md`를 열어 후보 5개 이상의 근거·중복·운영 경계를 기록합니다.
 
 ## 현재 상태
 
