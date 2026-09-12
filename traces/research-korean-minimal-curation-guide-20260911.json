@@ -16,6 +16,15 @@
   "events": [
     {
       "type": "dispatcher_handoff",
+      "at": "2026-09-12T01:20:02Z",
+      "run_id": "dispatch-27249e5601f748519fd6b9f455995968",
+      "canonical_sha": "0a4a105ab520aeea903c9d66282318c08c27a4f8",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "status": "accepted"
+    },
+    {
+      "type": "dispatcher_handoff",
       "at": "2026-09-12T01:10:03Z",
       "run_id": "dispatch-16cf0770c94a4f50971838932172424b",
       "canonical_sha": "0ba47ebce0892997306c04c18c9a0fdee5f8965c",
