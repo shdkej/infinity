@@ -8,7 +8,7 @@
 - task_type: research
 - topics: [design, history, minimalism]
 - result_summary: 생애·교육·Braun/Vitsœ 경력, 공동설계 맥락, 10원칙의 형성·수정, 비판과 유산을 기관·소장기관 자료로 분리해 대학생 수준 레포트로 정리했다.
-- artifact: artifacts/research-dieter-rams-biography-minimalism-20260912/work/candidate/dieter-rams-report.md
+- final_artifact: artifacts/research-dieter-rams-biography-minimalism-20260912/final/dieter-rams-report.md
 - report: reports/research-dieter-rams-biography-minimalism-20260912/20260912T2140Z-final.html
 - red_status: pass
 - red_report: artifacts/research-dieter-rams-biography-minimalism-20260912/work/red/final-review.md
@@ -16,7 +16,7 @@
 - remote_commit: de6ae951c119cdbc690ca395c7c3201f9503995c
 - knowledge_status: used
 - knowledge_decision: retain_in_infinity
-- knowledge_targets: artifacts/research-dieter-rams-biography-minimalism-20260912/work/source-map.md; artifacts/research-dieter-rams-biography-minimalism-20260912/work/analysis-notes.md; artifacts/research-dieter-rams-biography-minimalism-20260912/work/candidate/dieter-rams-report.md; reports/research-dieter-rams-biography-minimalism-20260912/20260912T2140Z-final.html
+- knowledge_targets: artifacts/research-dieter-rams-biography-minimalism-20260912/final/dieter-rams-report.md; artifacts/research-dieter-rams-biography-minimalism-20260912/work/source-map.md; artifacts/research-dieter-rams-biography-minimalism-20260912/work/analysis-notes.md; reports/research-dieter-rams-biography-minimalism-20260912/20260912T2140Z-final.html
 - knowledge_reflection: 디자인 인물 조사는 직책·퇴직 시점, 공동설계·팀 맥락, 관계 조직 자료의 한계를 분리해 기록해야 하며, 원칙을 오늘의 제품 성과나 환경 효과로 자동 전이하지 않는다.
 - knowledge_commit: no-promotion-needed
 
