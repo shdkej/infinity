@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "intent_id": "research-review-curation-method-korea-20260913",
-  "status": "inbox",
+  "status": "active",
   "trace_completeness": "complete",
   "request": {
     "raw": {
@@ -21,6 +21,15 @@
       "evidence_paths": [
         "intents/context/research-review-curation-method-korea-20260913.json"
       ]
+    },
+    {
+      "type": "dispatcher_handoff",
+      "at": "2026-09-13T13:32:49Z",
+      "run_id": "dispatch-95e5fc262a4a4b40b2d2194cbc181291",
+      "canonical_sha": "358d719158a1628c80b1c48844d4ead33671915f",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "status": "accepted"
     }
   ],
   "artifacts": [],

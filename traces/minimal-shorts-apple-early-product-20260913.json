@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "intent_id": "minimal-shorts-apple-early-product-20260913",
-  "status": "inbox",
+  "status": "active",
   "trace_completeness": "complete",
   "request": {
     "raw": {
@@ -27,6 +27,15 @@
       "at": "2026-09-13T13:02:49Z",
       "run_id": "dispatch-41d56ff92d384150bf3511d26044e25b",
       "canonical_sha": "01c378f785d5b19d1508a0227b8e80a784837e3e",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "status": "accepted"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "at": "2026-09-13T13:32:49Z",
+      "run_id": "dispatch-95e5fc262a4a4b40b2d2194cbc181291",
+      "canonical_sha": "358d719158a1628c80b1c48844d4ead33671915f",
       "agent": "genie",
       "session_key": "agent:genie:infinity-dispatcher",
       "status": "accepted"

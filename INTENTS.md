@@ -4,8 +4,10 @@
 
 ## Inbox
 
+## Active
+
 ### [research-review-curation-method-korea-20260913] 국내 리뷰·큐레이션 실전 가이드 조사
-- status: inbox
+- status: active
 - research_mode: exploratory_research
 - target_agent: genie
 - execution_mode: single_genie_roles
@@ -28,8 +30,6 @@
 - metric_signal: 최종 가이드가 선정 이유·사실/해석 구분·비교 기준·출처/광고 경계·형식별 템플릿을 모두 제공한다.
 - metric_decision_rule: 다섯 항목 중 하나라도 빠지거나 국내 근거가 부족하면 브리프를 보강한다.
 - next_action: 국내의 사람·공간·물건 사례를 각각 조사하고, 선정·검증·편집·표기 단계를 하나의 가이드로 합친다.
-
-## Active
 
 ### [minimal-shorts-apple-early-product-20260913] 애플 초기 제품으로 만드는 미니멀 모으기 첫 숏츠
 - status: active
