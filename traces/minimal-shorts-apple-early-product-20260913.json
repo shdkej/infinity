@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "intent_id": "minimal-shorts-apple-early-product-20260913",
-  "status": "active",
+  "status": "archived",
   "trace_completeness": "complete",
   "request": {
     "raw": {
@@ -76,6 +76,15 @@
       "agent": "genie",
       "session_key": "agent:genie:infinity-dispatcher",
       "status": "accepted"
+    },
+    {
+      "type": "archive",
+      "at": "2026-09-13T15:02:49Z",
+      "status": "archived",
+      "report": "reports/minimal-shorts-apple-early-product-20260913/20260913T1502Z-final.html",
+      "red_status": "not_required",
+      "knowledge_decision": "retain_in_infinity",
+      "note": "Exploratory research closeout: source map and internal draft complete; no publication, filming, or third-party asset use."
     }
   ],
   "artifacts": [

@@ -6,8 +6,12 @@
 
 ## Active
 
+## Waiting
+
+## Archive
+
 ### [research-review-curation-method-korea-20260913] 국내 리뷰·큐레이션 실전 가이드 조사
-- status: active
+- status: archived
 - research_mode: exploratory_research
 - target_agent: genie
 - execution_mode: single_genie_roles
@@ -15,24 +19,26 @@
 - projects: infinity,research-bank
 - task_type: research
 - topics: content,curation,review,minimalism
-- notification_channel: slack
-- notification_target: channel:C0BR41W31MM
-- notification_reply_to: 1789305747.274629
+- detail: intents/archive/research-review-curation-method-korea-20260913.md
 - context_pack: intents/context/research-review-curation-method-korea-20260913.json
 - trace: traces/research-review-curation-method-korea-20260913.json
-- decision_question: 국내 사례를 바탕으로 사람·공간·물건을 소개하는 미니멀 콘텐츠의 리뷰·큐레이션 방법을 반복 가능한 기준으로 정리할 수 있는가?
-- decision_owner: user
-- in_scope: 국내 리뷰·큐레이션 사례, 후보 선정 기준, 사실·경험·해석 분리, 비교·편집 구조, 신뢰·표기·광고성 경계, 숏츠·카드뉴스 적용 템플릿
-- out_of_scope: 특정 채널의 공개 게시, 협찬·제휴 계약, 유료 데이터 구매, 개인 계정 분석, 해외 사례를 중심 근거로 한 일반론
-- comparison_axes: 후보 선정 근거, 리뷰의 관찰 밀도, 큐레이션의 편집 기준, 출처·광고 표기, 시청자 다음 행동
-- success_evidence: 국내 사례와 원문 근거를 바탕으로 한 한국어 실전 가이드, 사람·공간·물건별 적용 예시, 숏츠·카드뉴스용 체크리스트와 템플릿
-- metric_question: 이 가이드를 따르면 같은 소재라도 단순 소개가 아니라 사용자가 판단할 수 있는 리뷰·큐레이션으로 바뀌는가?
-- metric_signal: 최종 가이드가 선정 이유·사실/해석 구분·비교 기준·출처/광고 경계·형식별 템플릿을 모두 제공한다.
-- metric_decision_rule: 다섯 항목 중 하나라도 빠지거나 국내 근거가 부족하면 브리프를 보강한다.
-- next_action: 국내의 사람·공간·물건 사례를 각각 조사하고, 선정·검증·편집·표기 단계를 하나의 가이드로 합친다.
+- artifact: artifacts/research-review-curation-method-korea-20260913/final/korean-review-curation-practical-guide.md
+- report: reports/research-review-curation-method-korea-20260913/20260913T1502Z-final.html
+- red_status: not_required
+- red_report: not_required (exploratory_research)
+- result_summary: 국내 운영 표면을 형식 근거로만 제한해, 선정·사실/경험/해석 분리·최소 비교·관계 고지·형식별 템플릿을 갖춘 실전 가이드를 만들었다.
+- metric_result: 최종 가이드는 선정 이유·사실/해석 구분·비교 기준·출처/관계 경계·30–45초 및 5카드 템플릿을 모두 제공한다.
+- metric_next_decision: none; 실제 게시·협찬·제휴는 별도 승인 후 새 intent에서 검토한다.
+- knowledge_status: used
+- knowledge_decision: retain_in_infinity
+- knowledge_targets: artifacts/research-review-curation-method-korea-20260913/final/korean-review-curation-practical-guide.md; reports/research-review-curation-method-korea-20260913/20260913T1502Z-final.html
+- knowledge_reflection: 상업 표면은 형식 참고로 제한하고, 관계·자산 미확인은 hold로 처리하는 규칙을 Infinity에 보존한다.
+- knowledge_commit: no-promotion-needed
+- remote_verified: pending_archive_transition
+- archived_at: 2026-09-13T15:02:49Z
 
 ### [minimal-shorts-apple-early-product-20260913] 애플 초기 제품으로 만드는 미니멀 모으기 첫 숏츠
-- status: active
+- status: archived
 - research_mode: exploratory_research
 - target_agent: genie
 - execution_mode: single_genie_roles
@@ -40,24 +46,24 @@
 - projects: research-bank
 - task_type: research
 - topics: content,design
-- notification_channel: slack
-- notification_target: channel:C0BR41W31MM
-- notification_reply_to: 1789247197.159489
+- detail: intents/archive/minimal-shorts-apple-early-product-20260913.md
 - context_pack: intents/context/minimal-shorts-apple-early-product-20260913.json
 - trace: traces/minimal-shorts-apple-early-product-20260913.json
-- decision_question: 애플 초기 제품 가운데 첫 편에 적합한 한 대상을 골라, 미니멀 특징·형성 과정·인사이트를 30~45초 세로 숏츠 초안으로 만들 수 있는가?
-- decision_owner: user
-- in_scope: 애플 초기 제품 중 한 대상을 선정하는 공개 자료 조사, 미니멀 특징 3개, 형성 과정, 30~45초 숏츠 대본·컷 구성·출처 메모
-- out_of_scope: 실제 영상 게시, 유료 소스 구매, 계정 접근, 저작권 있는 영상·음원 다운로드 또는 사용
-- success_evidence: 대상 선정 근거와 출처 링크가 있는 30~45초 숏츠 대본 및 컷별 연출 지시
-- metric_question: 한 편을 본 뒤 시청자가 미니멀을 장식이 아니라 선택의 결과로 설명할 수 있는가?
-- metric_signal: 최종 대본에 관찰된 특징·그 선택의 제약/과정·한 문장 인사이트가 각각 분명히 존재한다.
-- metric_decision_rule: 세 요소 중 하나라도 비어 있으면 대상 또는 대본을 다시 좁힌다.
-- next_action: 공개 1차 자료를 바탕으로 Apple II, Macintosh 128K, 초기 iPod 중 첫 편 대상을 고르고 숏츠 초안을 만든다.
-
-## Waiting
-
-## Archive
+- artifact: artifacts/minimal-shorts-apple-early-product-20260913/final/apple-ii-first-shorts-draft.md
+- supporting_work: artifacts/minimal-shorts-apple-early-product-20260913/work/apple-ii-source-map.md
+- report: reports/minimal-shorts-apple-early-product-20260913/20260913T1502Z-final.html
+- red_status: not_required
+- red_report: not_required (exploratory_research)
+- result_summary: Apple II를 첫 편으로 골라, 미니멀을 “바로 쓸 수 있는 시작과 확장 경로”로 설명하는 40초 내부 숏츠 초안을 만들었다.
+- metric_result: 최종 대본에는 관찰된 특징·선택의 제약/과정·한 문장 인사이트가 각각 들어 있다.
+- metric_next_decision: none; 공개 제작·촬영·제3자 자산 사용은 별도 승인 후 새 intent에서 검토한다.
+- knowledge_status: used
+- knowledge_decision: retain_in_infinity
+- knowledge_targets: artifacts/minimal-shorts-apple-early-product-20260913/work/apple-ii-source-map.md; artifacts/minimal-shorts-apple-early-product-20260913/final/apple-ii-first-shorts-draft.md; reports/minimal-shorts-apple-early-product-20260913/20260913T1502Z-final.html
+- knowledge_reflection: 제품의 미니멀함은 이미지 미학이 아니라 시작점·제약·확장 경로의 선택을 함께 기록할 때 설명 가능하다.
+- knowledge_commit: no-promotion-needed
+- remote_verified: pending_archive_transition
+- archived_at: 2026-09-13T15:02:49Z
 
 ### [research-github-skills-20260912] GitHub 리서치 스킬 후보 조사
 - status: archived

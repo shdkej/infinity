@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "intent_id": "research-review-curation-method-korea-20260913",
-  "status": "active",
+  "status": "archived",
   "trace_completeness": "complete",
   "request": {
     "raw": {
@@ -66,6 +66,15 @@
       "agent": "genie",
       "session_key": "agent:genie:infinity-dispatcher",
       "status": "accepted"
+    },
+    {
+      "type": "archive",
+      "at": "2026-09-13T15:02:49Z",
+      "status": "archived",
+      "report": "reports/research-review-curation-method-korea-20260913/20260913T1502Z-final.html",
+      "red_status": "not_required",
+      "knowledge_decision": "retain_in_infinity",
+      "note": "Exploratory research closeout: practical guide complete; no publication, sponsorship, affiliate action, or third-party asset use."
     }
   ],
   "artifacts": [
