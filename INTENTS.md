@@ -34,7 +34,8 @@
 - knowledge_targets: artifacts/research-review-curation-method-korea-20260913/final/korean-review-curation-practical-guide.md; reports/research-review-curation-method-korea-20260913/20260913T1502Z-final.html
 - knowledge_reflection: 상업 표면은 형식 참고로 제한하고, 관계·자산 미확인은 hold로 처리하는 규칙을 Infinity에 보존한다.
 - knowledge_commit: no-promotion-needed
-- remote_verified: pending_archive_transition
+- remote_verified: pass
+- remote_commit: e5c6a100d5a22da3c1140f81dce28210d1acab2e
 - archived_at: 2026-09-13T15:02:49Z
 
 ### [minimal-shorts-apple-early-product-20260913] 애플 초기 제품으로 만드는 미니멀 모으기 첫 숏츠
@@ -62,7 +63,8 @@
 - knowledge_targets: artifacts/minimal-shorts-apple-early-product-20260913/work/apple-ii-source-map.md; artifacts/minimal-shorts-apple-early-product-20260913/final/apple-ii-first-shorts-draft.md; reports/minimal-shorts-apple-early-product-20260913/20260913T1502Z-final.html
 - knowledge_reflection: 제품의 미니멀함은 이미지 미학이 아니라 시작점·제약·확장 경로의 선택을 함께 기록할 때 설명 가능하다.
 - knowledge_commit: no-promotion-needed
-- remote_verified: pending_archive_transition
+- remote_verified: pass
+- remote_commit: e5c6a100d5a22da3c1140f81dce28210d1acab2e
 - archived_at: 2026-09-13T15:02:49Z
 
 ### [research-github-skills-20260912] GitHub 리서치 스킬 후보 조사

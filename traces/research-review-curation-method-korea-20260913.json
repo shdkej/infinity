@@ -86,6 +86,13 @@
       "at": "2026-09-13T14:02:49Z",
       "result": "passed_with_limits",
       "scope": "국내 운영 표면 3건을 형식 근거로만 사용; 상업·관계 표면은 독립 추천에서 제외"
+    },
+    {
+      "type": "archive_remote_proof",
+      "at": "2026-09-13T15:02:49Z",
+      "result": "passed",
+      "commit": "e5c6a100d5a22da3c1140f81dce28210d1acab2e",
+      "scope": "archive transition pushed and fetched from origin/main"
     }
   ],
   "next_decision": {

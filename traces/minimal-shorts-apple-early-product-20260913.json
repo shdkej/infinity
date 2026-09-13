@@ -97,6 +97,13 @@
       "at": "2026-09-13T13:32:49Z",
       "result": "passed",
       "scope": "Apple II, Macintosh 128K, and early iPod comparison; official and museum sources only"
+    },
+    {
+      "type": "archive_remote_proof",
+      "at": "2026-09-13T15:02:49Z",
+      "result": "passed",
+      "commit": "e5c6a100d5a22da3c1140f81dce28210d1acab2e",
+      "scope": "archive transition pushed and fetched from origin/main"
     }
   ],
   "next_decision": {

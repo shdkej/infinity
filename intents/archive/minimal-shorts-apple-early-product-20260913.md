@@ -22,6 +22,8 @@
     role: final
 - red_status: not_required
 - red_report: not_required (exploratory_research)
+- remote_verified: pass
+- remote_commit: e5c6a100d5a22da3c1140f81dce28210d1acab2e
 - next_actions: none; 공개·촬영·제3자 자산 사용은 사용자의 별도 승인 뒤 새 intent에서만 검토
 
 ## Archive Card
