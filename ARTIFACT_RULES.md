@@ -78,7 +78,9 @@ Archive intent는 대시보드에서 프로젝트별/성격별로 묶어 볼 수
 
 리서치의 `final/`에는 원 질문에 대한 결론을 먼저 두고, 그 결론을 바꾸는 조건·핵심 발견·선택지 비교·버린 대안·다음 결정 하나를 분리한다. 각 핵심 발견은 `주장 → 직접 근거 → 해석 → 한계/반증`을 한 덩어리로 남긴다. 출처 수를 채우는 목적의 중복 자료, 조사 과정의 나열, 역할명·태스크 ID는 최종 본문에 넣지 않는다.
 
-작업 중 생기는 `T1`/`T1.1` 메모와 Red 문서는 증거 추적에는 필요하지만 **최종 답이 아니다**. 최종 후보는 먼저 `work/candidate/`에 만들고, Red는 그 후보와 최종 HTML Report를 함께 검토한다. Red 문서는 `work/red/`에 판정·차단 사유·재검토 범위를 기록한다. PASS 뒤에만 검토한 동일 원문을 `final/`로 이동(또는 내용 동일성이 검증된 복사)하며, 최종 리포트는 `final/`을 읽어 독자가 판단할 수 있게 요약한다.
+작업 중 생기는 `T1`/`T1.1` 메모와 Red 문서는 증거 추적에는 필요하지만 **최종 답이 아니다**. 모든 리서치는 원 질문에 답하는 **전체 Markdown 원문**을 `artifacts/{id}/final/{slug}-report.md`에 반드시 보존한다. 최종 후보는 먼저 `work/candidate/`에 만들고, Red는 그 후보와 최종 HTML Report를 함께 검토한다. Red 문서는 `work/red/`에 판정·차단 사유·재검토 범위를 기록한다. PASS 뒤에만 검토한 동일 원문을 `final/`로 이동(또는 내용 동일성이 검증된 복사)하며, 최종 HTML 리포트는 이 MD 원문을 축약·표시하는 읽기 표면일 뿐 원문을 대체하지 않는다.
+
+**리서치 보존 게이트:** 2026-09-13 이후 Archive하는 리서치는 `final_artifact: artifacts/{id}/final/{slug}-report.md`를 명시하고, 그 파일이 비어 있지 않으며 원격 `main`의 **동일 Archive 원장**도 같은 경로를 가리켜야 한다. `work/candidate/*.md`, `work/` 문서, HTML report만으로는 리서치 완료·Archive를 인정하지 않는다. 이 규칙은 `exploratory_research`와 `decision_research` 모두에 적용한다. 이전 Archive는 경로 체계가 달라 자동 실패시키지 않으며, 수정·재검증 시 이 형식으로 이관한다.
 
 ## 대형 작업 태스크 계획
 
@@ -303,10 +305,10 @@ Report는 여전히 실행 로그지만, 특히 조사형(`research`, `wiki`, `d
 - 핵심 발견과 옵션 비교는 MECE하게 쓴다. 같은 발견을 표현만 바꿔 반복하지 말고, 비용/속도/품질/리스크/실행 난이도처럼 서로 다른 판단 축으로 나눈다.
 - `decision_research` Report에는 반드시 `근거 · 소스`, `다음 판단`, 필요 시 `옵션 비교` 또는 `추천안`이 들어간다. 탐색형 브리프에는 짧은 출처 목록과 불확실성만 남긴다.
 - **의사결정 리서치 최종 게이트:** `decision_research`만 Archive 전에 `python3 scripts/validate_research_report.py reports/{id}/{timestamp}.html`을 실행한다. 탐색형 리서치에는 적용하지 않는다.
-- **리치 리포트 기본값:** `decision_research` final HTML은 `reports/_TEMPLATE.html`의 `rich-v1` 구조를 사용한다. 탐색형 리서치는 Markdown 브리프를 사용한다.
+- **리치 리포트 기본값:** `decision_research` final HTML은 `reports/_TEMPLATE.html`의 `rich-v1` 구조를 사용하며 `final/`의 전체 MD 원문을 요약한다. 탐색형 리서치는 `final/`에 전체 Markdown 브리프를 사용한다.
 - Red는 `decision_research` 최종 Report를 artifact와 별개로 직접 읽고, `요청에 답하는 결론`, `발견의 구체성`, `근거와 해석의 구분`, `사용자가 취할 다음 판단` 네 항목을 PASS/FAIL로 남긴다. 탐색형 리서치에는 Red를 호출하지 않는다.
 - 긴 표는 모바일에서 좌우 스크롤을 요구하지 않게 2열 이하로 줄이거나, 항목형 카드/목록으로 바꾼다. URL, 코드, 파일 경로, 긴 단어는 줄바꿈되게 작성한다.
-- `decision_research` 및 산출물 위임 작업도 같은 규칙을 따른다. 위임받은 에이전트가 코드·문서 변경은 끝냈지만 HTML report를 남기지 않았다면, Heartbeat는 직접 `reports/_TEMPLATE.html`로 관측 결과를 보강해 HTML report를 만든 뒤 완료한다. 탐색형 리서치는 Markdown 브리프로 완료한다.
+- `decision_research` 및 산출물 위임 작업도 같은 규칙을 따른다. 위임받은 에이전트가 코드·문서 변경은 끝냈지만 HTML report를 남기지 않았다면, Heartbeat는 직접 `reports/_TEMPLATE.html`로 관측 결과를 보강해 HTML report를 만든 뒤 완료한다. 모든 리서치는 먼저 `final/`에 전체 Markdown 원문을 보존하며, 탐색형 리서치는 그 Markdown 브리프로, 의사결정 리서치는 그 원문과 HTML 요약으로 완료한다.
 - `decision_research` 및 산출물 작업은 Markdown report만으로 신규 완료를 인정하지 않는다. 탐색형 리서치의 Markdown 브리프는 최종 산출물로 인정한다.
 - **제약**: 대시보드는 이 파일을 `iframe sandbox="allow-same-origin"` 으로 렌더하므로 **JS·외부 리소스는 동작하지 않는다.** 스타일은 인라인 `<style>` 로만, 접기는 `<details>`(JS 불필요)로 한다.
 - 모바일 기준은 390px 폭이다. 브라우저 검증이 가능하면 `document.documentElement.scrollWidth <= window.innerWidth`를 확인하고, 어렵다면 템플릿 CSS의 `overflow-x:hidden`, 긴 텍스트 wrapping, 모바일 테이블 stacking 규칙을 깨지 않았는지 눈으로 확인한다.

@@ -18,7 +18,7 @@ VISUAL_DELIVERY_CONTRACT.md ← 참조 이미지 기반 사용자용 카드의 �
 intents/active/       ← 실행 중인 Intent 원장
                      유효 archive 원장만 Knowledge Lab의 source/infinity/archive/로 이동
 artifacts/{id}/work/  ← T1·근거·초안·Red 검토 등 중간 산출물
-artifacts/{id}/final/ ← 사용자 질문에 답하는 최종 재사용 산출물
+artifacts/{id}/final/ ← 사용자 질문에 답하는 최종 재사용 산출물(리서치는 전체 Markdown 원문 필수)
 reports/{id}/         ← 실행 로그와 읽을 수 있는 최종 HTML 리포트
 scripts/notify.sh   ← 레거시 Telegram 단일 발송기(새 terminal notifier는 사용하지 않음)
 scripts/dispatch_terminal_notifications.py ← 원격 `origin/main` terminal 상태를 원 대화에 1회 조정·발송
@@ -35,7 +35,7 @@ scripts/dispatch_terminal_notifications.py ← 원격 `origin/main` terminal 상
 
 정식 vocabulary와 archive 코멘트 표기는 `ARTIFACT_RULES.md`를 따른다.
 
-`T1`, 역할별 메모, Red 검토는 작업을 검증하는 **중간 산출물**이며 Archive 대표 결과가 아니다. 사용자가 먼저 열어야 하는 결과는 `artifacts/{id}/final/`과 그 결과를 요약한 최종 HTML Report다. Archive 카드의 기본 링크도 이 두 경로만 사용한다.
+`T1`, 역할별 메모, Red 검토는 작업을 검증하는 **중간 산출물**이며 Archive 대표 결과가 아니다. 모든 리서치는 `artifacts/{id}/final/{slug}-report.md`에 전체 원문을 보존하며, HTML Report는 이를 요약해 표시할 뿐 대체하지 않는다. Archive 카드의 기본 링크도 이 최종 MD와 HTML Report만 사용한다.
 
 ## 정본과 대시보드 정합성
 
