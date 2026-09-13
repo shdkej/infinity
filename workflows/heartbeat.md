@@ -179,11 +179,12 @@ Heartbeat
 - **Local 작업** (코드 수정, 테스트, 빌드, 브라우저/터미널 조작): 지니가 Developer·Operator 단계에서 Claude Code에 위임
 - **Claude Code 호출 경로(임시 기본값)**: 당분간 Infinity의 local Claude 위임은 새 `claude -p` 프로세스보다 기존 pt/purplemux Claude Code tmux pane을 우선 사용한다. OpenClaw workspace의 `skills/pt-claude-tmux/SKILL.md` 절차를 따른다: `tmux -L purple`로 Claude pane을 찾고, capture로 현재 상태를 확인한 뒤, `C-c`와 `/clear`로 stale prompt를 정리하고, 하나의 짧고 경계가 분명한 prompt를 보낸 다음 결과를 capture한다. 사용 가능한 pt Claude pane이 없거나 busy/unsafe 상태이면 한 번만 bounded `claude --dangerously-skip-permissions -p` 호출로 fallback할 수 있다.
 - **Claude Code 작업 규칙**: 지니가 `local-code`, multi-file/shared behavior, 단일 내부 문서, 리포트, `simple-doc`을 모두 workflow-master 흐름 안에서 처리한다. 별도의 직접 lightweight prompt 예외는 없다.
-- **실행 모드**: 지니는 먼저 `execution_mode`를 정한다. 단순 조회·no-op·작은 문서 정리·상태 확인은 `single_genie_roles`로 처리한다. 제품/시장조사, MVP 설계, 구현, 배포/대시보드 변경, 수익화·마케팅 판단, 장기 프로젝트 방향, 사용자가 "돈 될까", "만들까", "검증"을 묻는 작업은 `multi_subagent_roles`로 처리한다.
+- **리서치 분류 우선**: 사례 설명·시장 지형·트렌드·카테고리/도구 지도·"어떤 것이 있나"는 기본 `exploratory_research`다. 출처 확인과 설명형 브리프만 남기며 Deep Research·역할 분리·Red·task-plan·rich HTML을 강제하지 않고, 이 내부 게이트 때문에 Waiting으로 보내지 않는다. 투자·도입·구매·벤더선정·출시/배포·가격/수익성·법률/컴플라이언스 또는 명시적 "검증"만 `decision_research`다.
+- **실행 모드**: `exploratory_research`는 `single_genie_roles`로 즉시 처리한다. `decision_research`, MVP 설계, 구현, 배포/대시보드 변경, 수익화·마케팅 판단, 장기 프로젝트 방향은 `multi_subagent_roles`로 처리한다.
 - **역할 분리**: `single_genie_roles`에서는 지니가 Planner → Developer → Marketer → Operator 관점을 직접 기록한다. `multi_subagent_roles`에서는 Planner, Developer, Marketer, Operator를 실제 서브에이전트로 병렬 실행하고, 각 session id와 `판단/우려/제안/인계` 요약을 report와 archive 원장에 남긴다.
 - **역할 서브에이전트 실행 절차**: 지니는 `spawn_agent`가 바로 없으면 `tool_search`로 `spawn_agent`/`subagent` 도구를 로드한다. `multi_subagent_roles`에서는 `role-{intent-id}-planner`, `role-{intent-id}-developer`, `role-{intent-id}-marketer`, `role-{intent-id}-operator` label로 네 역할을 병렬 spawn한다. 각 역할은 파일을 직접 수정하지 않고 `role`, `judgment`, `concerns`, `proposal`, `handoff`, `evidence_paths`를 반환한다. 지니는 `subagents list` 또는 `sessions_list search role-{intent-id}`로 `sessionKey`/`sessionId`/status를 확인한 뒤 report에 기록한다.
 - **Fallback 금지**: `multi_subagent_roles` 대상에서 역할 서브에이전트를 시작하거나 session id를 확인하지 못하면 조용히 단일 처리로 낮추지 않는다. `execution_mode: multi_subagent_roles_blocked`, `fallback_reason`, `next_retry_condition`을 남기고 Waiting으로 둔다. 사용자 명시 승인 때만 `single_genie_roles_fallback_user_approved`를 허용한다.
-- **모든 작업**: 마지막에는 Red 검증을 요청한다. Archive 전제는 Red의 별도 검증과 `red_status: pass`다.
+- **검증 경계**: `decision_research`와 산출물 작업만 마지막에 Red 검증을 요청한다. 탐색형 리서치는 `red_status: not_required`로 닫고, 요청 답변·출처 링크·불확실성만 확인한다.
 - **시각 산출물 게이트**: Instagram 이미지, 카드, 다이어그램, 로고성 그래픽처럼 사용자가 보는 PNG/SVG/JPG 산출물은 Red가 실제 렌더 이미지를 보고 검증해야 한다. 파일 존재, 키워드 포함, SVG 문법 통과만으로는 pass가 아니다. 사용자가 원형·화살표·3분할·참조 스타일을 요구했으면 원형성, 균등 분할, 접선 방향 화살표, 시각적 중심, 텍스트 충돌, 3초 내 메시지 이해를 각각 판정한다. 하나라도 실패하면 Archive하지 않고 수정 intent를 만들거나 Waiting에 둔다.
 - **마케팅 학습 루프**: `marketing-*`, `target_agent: marketer`, activation, onboarding, retention, monetization, positioning, AI value/proxy 관련 intent는 Marketer가 `MARKETING_LEARNINGS.md`를 1순위로 읽고, 이전 마케팅 산출물을 근거로 학습하게 한다. 위임 프롬프트에 `MARKETING_LEARNINGS.md`, `INTENTS.md` Archive 요약, `artifacts/marketing-*`, `reports/marketing-*/*.html`, 관련 Virtue `apps/web/docs/`를 참고해 계승/수정/충돌 지점을 명시하라고 넣는다. Naver Shopping 등 다른 source agent가 만든 target-agent 요청도 같은 루프로 처리하되, source agent 산출물은 요청 근거로만 쓰고 Marketer output을 네이버 수요 증거로 오인하지 않는다.
 - **마케팅 언어 규칙**: `marketing-*` 또는 `target_agent: marketer` 산출물은 기본적으로 한국어로 작성한다. Infinity Inbox 제목, intent 본문, artifact 본문, report 본문, archive summary, SAM internal inbox note, Waiting 이유, 다음 액션까지 모두 한국어 우선으로 쓴다. 파일 경로, URL, 코드, CLI 명령, 환경변수, JSON 필드명, 고유 서비스명/제품명만 필요할 때 원문을 유지한다. 영어 초안이나 영어 제목을 먼저 만들고 번역하는 흐름이 아니라, 처음부터 한국어 정본을 만든다.
@@ -195,8 +196,8 @@ Claude Code 위임 프롬프트에는 최소한 아래를 포함한다.
 Infinity Intent: {intent-id} {title}
 Mode: execute_local | verify_local
 Invocation: Prefer the existing pt/purplemux Claude pane via `tmux -L purple`; capture first, clear stale input, send this bounded prompt once, then capture the result. Fall back to a fresh bounded Claude Code call only if no usable pt pane exists.
-Workflow: Always run through Genie at `/home/ubuntu/.openclaw/workspace-genie/GENIE_WORKFLOW.md`. Inside Genie, execute Planner → Developer → Marketer → Operator for every task, including clearly tiny simple-doc tasks. Use Red validation before Archive.
-Execution mode: Choose before execution. Use `single_genie_roles` only for tiny/no-op/routine state tasks. Use `multi_subagent_roles` for product/market research, MVP design, implementation, deployment/dashboard changes, monetization/marketing judgment, long-horizon direction, or prompts like "돈 될까", "만들까", "검증". In `multi_subagent_roles`, load `spawn_agent` via `tool_search` if needed, spawn labels `role-{intent-id}-planner|developer|marketer|operator`, record sessionKey/sessionId/status, then synthesize. If role subagents cannot run or session ids cannot be verified, leave Waiting instead of silently downgrading.
+Workflow: Always run through Genie at `/home/ubuntu/.openclaw/workspace-genie/GENIE_WORKFLOW.md`. Run Planner → Developer → Marketer → Operator and Red before Archive for `decision_research` and deliverable work; exploratory research follows the research-mode exception below.
+Research mode: Default `exploratory_research` for cases, market landscapes, trends, category/tool maps, and "what is out there?" requests. It uses `single_genie_roles`, source confirmation, and a readable brief only: no Deep Research, role subagents, Red, task-plan, rich HTML, or Waiting due to those internal gates. Use `decision_research` only for an explicit investment/adoption/purchase/vendor/launch/deploy/pricing-revenue/legal decision or explicit validation request; then use `multi_subagent_roles` and its normal gates. In `multi_subagent_roles`, load `spawn_agent` via `tool_search` if needed, spawn labels `role-{intent-id}-planner|developer|marketer|operator`, record sessionKey/sessionId/status, then synthesize. If role subagents cannot run or session ids cannot be verified, leave Waiting instead of silently downgrading.
 Goal: {goal}
 Context: {relevant files, urls, prior reports}
 Prepared findings: {cloud research/prepare summary}
@@ -207,8 +208,9 @@ General Intent title rule: 모든 Intent 제목은 사용자가 제목만 읽어
 Allowed: L0/L1 actions only unless user approval exists
 Forbidden: L2/L3 actions without explicit approval
 Verification: {tests/build/lint/screenshot/direct inspection}
-Report back to: reports/{intent-id}/{timestamp}.html (필수 HTML, 결론 2축 양식, ARTIFACT_RULES.md 참조)
+Report back to: `decision_research`는 reports/{intent-id}/{timestamp}.html; `exploratory_research`는 artifacts/{intent-id}/final/ Markdown 브리프.
 HTML report contract:
+- This contract applies to `decision_research` and non-research deliverables only. `exploratory_research` is explicitly excluded.
 - Create the final run report as HTML, not Markdown.
 - This applies to every completion, including `simple-doc`, no-op checks, and tasks that would otherwise be direct lightweight prompts.
 - A new `.md` report may be kept as a legacy/raw log, but it never satisfies the completion gate by itself.
@@ -234,6 +236,8 @@ HTML report contract:
 3. 사용자에게 직접 수행 또는 명시 승인 필요 사항을 안내
 
 ### 9. 결과 기록 (결론 2축 HTML)
+
+`exploratory_research` 예외: 결과는 `artifacts/{intent-id}/final/`의 Markdown 브리프와 채널 답변으로 기록한다. 질문 답변, 짧은 출처 목록, 확인하지 못한 점만 요구하며 이 절의 HTML·rich-v1·validator·Red 규칙을 적용하지 않는다.
 
 보고는 `reports/{intent-id}/{timestamp}.html` 로 기록한다. **양식·카테고리별 축 라벨·작성 규칙은 `ARTIFACT_RULES.md`의 "Report 양식 (HTML, 결론 2축)"이 단일 출처다.**
 
@@ -269,17 +273,17 @@ Report는 실행 로그다. 2축은 그 로그의 결론을 한눈에 보게 하
 
 1. `Intent 원장`: 유효 판정된 경우에만 Knowledge Lab의 `source/infinity/archive/{id}.md` 하나를 canonical final index로 만든다.
 2. `Work Artifact`: `T1.*`, 근거 수집, 초안, 역할별 메모, Red 검토는 `artifacts/{id}/work/`에 둔다. 최종 후보는 `work/candidate/`, Red 판정은 `work/red/`에 둔다.
-3. `Final Artifact`: Red PASS 뒤의 재사용 최종본만 `artifacts/{id}/final/`에 둔다. Archive 대표 링크는 이 경로만 가리킨다.
+3. `Final Artifact`: `decision_research`와 산출물 작업은 Red PASS 뒤의 재사용 최종본만 `artifacts/{id}/final/`에 둔다. 탐색형 리서치는 출처 확인 브리프를 같은 경로에 둔다.
 4. `Report`: 실행 과정 로그는 `reports/{id}/{timestamp}.html`에 두되, final HTML은 `final/`을 읽어 사용자가 바로 판단할 수 있게 요약한다.
 5. `Detail`이라는 별도 최종 문서는 만들지 않는다. archive path와 detail path가 같아지는 중복 구조를 생성하지 않는다.
 6. `INTENTS.md` 완료 코멘트에는 archive path와 한 줄 결과를 함께 남겨 대시보드가 `Intent 원장` 카드로 요약할 수 있게 한다.
 
 Archive gate:
 
-- Archive 전제는 `red_status: pass`와 Red report 경로다.
+- `decision_research`와 산출물 작업의 Archive 전제는 `red_status: pass`와 Red report 경로다. 탐색형 리서치는 `red_status: not_required`다.
 - 시각 산출물은 Red report에 렌더 이미지 직접 검수 결과가 있어야 한다. 기하학적 요구(원형, 3분할, 화살표 방향, 정렬), 레이아웃 충돌, 텍스트 위계, 메시지 선명도가 빠지면 pass가 아니다.
-- Red가 `수정 필요`, `보류`, 타임아웃, 미응답이면 Archive하지 않고 `Waiting`에 남긴다.
-- `red_status`가 없거나 Red report가 없는 완료 선언은 무효다.
+- `decision_research`와 산출물 작업에서 Red가 `수정 필요`, `보류`, 타임아웃, 미응답이면 Archive하지 않고 `Waiting`에 남긴다.
+- `decision_research`와 산출물 작업에서만 `red_status`가 없거나 Red report가 없는 완료 선언은 무효다.
 
 ### 원격 반영 게이트 (필수)
 
