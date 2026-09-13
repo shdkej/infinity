@@ -67,6 +67,15 @@
         "artifacts/minimal-shorts-apple-early-product-20260913/final/apple-ii-first-shorts-draft.md"
       ],
       "note": "Source links, observed features, constraints, 40-second script, and no-third-party-asset boundary were rechecked."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "at": "2026-09-13T15:02:49Z",
+      "run_id": "dispatch-b22adf2848234a94a4f238fdcbcfd632",
+      "canonical_sha": "c222050b3c0de5d3cfb799df77429c9bf20f922e",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "status": "accepted"
     }
   ],
   "artifacts": [
