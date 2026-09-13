@@ -12,6 +12,7 @@
 
 ### [research-github-skills-20260912] GitHub 리서치 스킬 후보 조사
 - status: archived
+- research_mode: exploratory_research
 - target_agent: genie
 - execution_mode: multi_subagent_roles
 - role_subagents: planner=01a09813-2bd8-7430-a8d8-7896cabb0516; developer=01a09813-3b57-7421-b00a-b362d0913eba; marketer=01a09813-46c5-7750-9670-9435b96b551a; operator=01a09814-9c49-7ed1-88ab-c00b260e42ba
@@ -23,14 +24,14 @@
 - task_plan: artifacts/research-github-skills-20260912/work/task-plan.json
 - task_plan_doc: artifacts/research-github-skills-20260912/work/task-plan.md
 - trace: traces/research-github-skills-20260912.json
-- artifact: artifacts/research-github-skills-20260912/final/github-research-skills-brief.md
+- artifact: artifacts/research-github-skills-20260912/final/github-skills-exploratory-rebrief-20260913.md
 - supporting_work: artifacts/research-github-skills-20260912/work/red/final-review.md
 - report: reports/research-github-skills-20260912/20260913T0012Z-final.html
-- red_status: pass
+- red_status: not_required
 - red_report: artifacts/research-github-skills-20260912/work/red/final-review.md
-- result_summary: 공개 후보 6개를 commit 고정 근거로 비교한 결과 기본 도입은 0개이며, Kang-chen 문헌검토 부분 기능은 라이선스·의존성·egress 검증과 별도 승인 전 hold로 남겼다.
-- metric_result: 기존 deep-research·agent-reach·Infinity 계약에 비해 기본 도입을 정당화할 검증 가능한 추가 가치가 확인되지 않았다.
-- metric_next_decision: 실제 파일럿은 approval-gated Waiting intent에서 라이선스·의존성·egress·격리 조건을 먼저 증빙한다.
+- result_summary: 탐색형 재조사에서 즉시 설치할 후보 대신 웹 수집 경로 선택·정성 테마 분석·영상 관찰·최소 범위 유지의 네 가지 활용 방식을 제시했다.
+- metric_result: 평소 조사에는 `web-data-acquisition`식 분기와 긴 설명 브리프가 가장 직접적인 개선이며, 도입 판정 스킬은 요청 시에만 쓴다.
+- metric_next_decision: 다음 일반 시장조사에서 수집 경로 선택 방식을 적용해 브리프 품질을 확인한다.
 - knowledge_status: raw
 - knowledge_decision: retain_in_infinity
 - knowledge_targets: artifacts/research-github-skills-20260912/work/github-candidate-evidence.md; artifacts/research-github-skills-20260912/final/github-research-skills-brief.md; reports/research-github-skills-20260912/20260913T0012Z-final.html
