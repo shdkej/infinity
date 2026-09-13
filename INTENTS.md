@@ -4,6 +4,30 @@
 
 ## Inbox
 
+### [minimal-shorts-apple-early-product-20260913] 애플 초기 제품으로 만드는 미니멀 모으기 첫 숏츠
+- status: inbox
+- research_mode: exploratory_research
+- target_agent: genie
+- execution_mode: single_genie_roles
+- permission: L0-research-and-draft-only
+- projects: research-bank
+- task_type: research
+- topics: content,design
+- notification_channel: slack
+- notification_target: channel:C0BR41W31MM
+- notification_reply_to: 1789247197.159489
+- context_pack: intents/context/minimal-shorts-apple-early-product-20260913.json
+- trace: traces/minimal-shorts-apple-early-product-20260913.json
+- decision_question: 애플 초기 제품 가운데 첫 편에 적합한 한 대상을 골라, 미니멀 특징·형성 과정·인사이트를 30~45초 세로 숏츠 초안으로 만들 수 있는가?
+- decision_owner: user
+- in_scope: 애플 초기 제품 중 한 대상을 선정하는 공개 자료 조사, 미니멀 특징 3개, 형성 과정, 30~45초 숏츠 대본·컷 구성·출처 메모
+- out_of_scope: 실제 영상 게시, 유료 소스 구매, 계정 접근, 저작권 있는 영상·음원 다운로드 또는 사용
+- success_evidence: 대상 선정 근거와 출처 링크가 있는 30~45초 숏츠 대본 및 컷별 연출 지시
+- metric_question: 한 편을 본 뒤 시청자가 미니멀을 장식이 아니라 선택의 결과로 설명할 수 있는가?
+- metric_signal: 최종 대본에 관찰된 특징·그 선택의 제약/과정·한 문장 인사이트가 각각 분명히 존재한다.
+- metric_decision_rule: 세 요소 중 하나라도 비어 있으면 대상 또는 대본을 다시 좁힌다.
+- next_action: 공개 1차 자료를 바탕으로 Apple II, Macintosh 128K, 초기 iPod 중 첫 편 대상을 고르고 숏츠 초안을 만든다.
+
 ## Active
 
 ## Waiting
