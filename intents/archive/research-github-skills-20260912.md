@@ -20,6 +20,10 @@
 - reports:
   - path: reports/research-github-skills-20260912/20260913T0012Z-final.html
     role: final
+- commits:
+  - repo: infinity
+    sha: dcfad1fe47944f9bd8711d4c135434bf2a706dd0
+    note: Archive transition
 - next_actions:
   - intents/waiting/pilot-github-research-skill-kang-chen-approval.md
 

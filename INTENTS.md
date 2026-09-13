@@ -36,8 +36,9 @@
 - knowledge_targets: artifacts/research-github-skills-20260912/work/github-candidate-evidence.md; artifacts/research-github-skills-20260912/final/github-research-skills-brief.md; reports/research-github-skills-20260912/20260913T0012Z-final.html
 - knowledge_reflection: 공개 스킬 후보는 README 설명만으로 도입하지 않고 같은 commit의 실제 SKILL.md·LICENSE/부재·default-branch HEAD를 고정해, 기존 도구와의 중복 및 실행 경계를 먼저 판정한다.
 - knowledge_commit: no-promotion-needed
-- remote_verified: pending_post_push
-- remote_commit: pending_post_push
+- commits: dcfad1fe47944f9bd8711d4c135434bf2a706dd0 (archive transition)
+- remote_verified: pass
+- remote_commit: dcfad1fe47944f9bd8711d4c135434bf2a706dd0
 - next_action: intents/waiting/pilot-github-research-skill-kang-chen-approval.md
 - archived_at: 2026-09-13T00:12:43Z
 
