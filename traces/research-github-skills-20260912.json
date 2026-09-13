@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "intent_id": "research-github-skills-20260912",
-  "status": "active",
+  "status": "archived",
   "trace_completeness": "complete",
   "request": {
     "raw": {
@@ -29,7 +29,7 @@
       "at": "2026-09-12T21:10:02Z",
       "context_pack": "intents/context/research-github-skills-20260912.json",
       "evidence_paths": [
-        "intents/waiting/research-github-skills-20260912.md"
+        "intents/archive/research-github-skills-20260912.md"
       ],
       "searches": [
         "task-plan presence check"
@@ -180,6 +180,22 @@
         "agent-wiki/content/docs/mapped/deep-knowledge/monitoring.mdx"
       ],
       "note": "T1.3 completed: documented default adoption 0, Kang-chen hold, and an approval-gated installation-free pilot protocol. No clone, installation, execution, connection, secret entry, or external side effect occurred."
+    },
+    {
+      "type": "archive",
+      "at": "2026-09-13T00:12:43Z",
+      "report_path": "reports/research-github-skills-20260912/20260913T0012Z-final.html",
+      "evidence_paths": [
+        "reports/research-github-skills-20260912/20260913T0012Z-final.html",
+        "artifacts/research-github-skills-20260912/work/red/final-review.md",
+        "artifacts/research-github-skills-20260912/work/archive-remote-proof.md"
+      ],
+      "verification": {
+        "red_status": "pass",
+        "red_report_path": "artifacts/research-github-skills-20260912/work/red/final-review.md",
+        "remote_verified": "pass",
+        "remote_proof_path": "artifacts/research-github-skills-20260912/work/archive-remote-proof.md"
+      }
     }
   ],
   "artifacts": [
@@ -194,11 +210,26 @@
       "path": "artifacts/research-github-skills-20260912/work/red/candidate-review-rerun.md",
       "kind": "red_review",
       "at": "2026-09-12T23:53:43Z"
+    },
+    {
+      "label": "final-brief",
+      "path": "artifacts/research-github-skills-20260912/final/github-research-skills-brief.md"
     }
   ],
-  "verifications": [],
+  "verifications": [
+    {
+      "label": "Red verification evidence",
+      "path": "artifacts/research-github-skills-20260912/work/red/final-review.md",
+      "status": "pass"
+    },
+    {
+      "label": "Remote verification evidence",
+      "path": "artifacts/research-github-skills-20260912/work/archive-remote-proof.md",
+      "status": "pass"
+    }
+  ],
   "next_decision": {
-    "status": "active",
-    "value": "All leaves are complete. Verify the Archive contract: final HTML report, Red PASS, Knowledge closure, and remote proof."
+    "status": "archived",
+    "value": "Actual pilot remains approval-gated in intents/waiting/pilot-github-research-skill-kang-chen-approval.md"
   }
 }

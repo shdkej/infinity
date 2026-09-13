@@ -6,29 +6,54 @@
 
 ## Active
 
-### [research-github-skills-20260912] GitHub 리서치 스킬 후보 조사
-- status: active
-- target_agent: genie
-- execution_mode: multi_subagent_roles
-- projects: infinity,research-bank,openclaw
-- task_type: research
-- topics: ai-agents,workflow,automation
-- detail: intents/active/research-github-skills-20260912.md
-- context_pack: intents/context/research-github-skills-20260912.json
-- task_plan: artifacts/research-github-skills-20260912/work/task-plan.json
-- task_plan_doc: artifacts/research-github-skills-20260912/work/task-plan.md
-- task_plan_template: ARTIFACT_RULES.md#대형-작업-태스크-계획
-- trace: traces/research-github-skills-20260912.json
-- notification_channel: slack
-- notification_target: channel:C0BR41W31MM
-- notification_reply_to: 1789247197.159489
-- notification_origin: channel:C0BR41W31MM;reply_to:1789247197.159489
-- metric_question: 추천 후보가 기존 deep-research·Infinity 계약보다 실제로 더하는 검증 가능한 기능이 있는가?
-- metric_next_decision: 후보를 3개 이하로 좁히고, 각 후보의 실제 적용 시나리오와 비추천 사유를 결정한다.
-
 ## Waiting
 
 ## Archive
+
+### [research-github-skills-20260912] GitHub 리서치 스킬 후보 조사
+- status: archived
+- target_agent: genie
+- execution_mode: multi_subagent_roles
+- role_subagents: planner=01a09813-2bd8-7430-a8d8-7896cabb0516; developer=01a09813-3b57-7421-b00a-b362d0913eba; marketer=01a09813-46c5-7750-9670-9435b96b551a; operator=01a09814-9c49-7ed1-88ab-c00b260e42ba
+- projects: infinity,research-bank,openclaw
+- task_type: research
+- topics: ai-agents,workflow,automation
+- detail: intents/archive/research-github-skills-20260912.md
+- context_pack: intents/context/research-github-skills-20260912.json
+- task_plan: artifacts/research-github-skills-20260912/work/task-plan.json
+- task_plan_doc: artifacts/research-github-skills-20260912/work/task-plan.md
+- trace: traces/research-github-skills-20260912.json
+- artifact: artifacts/research-github-skills-20260912/final/github-research-skills-brief.md
+- supporting_work: artifacts/research-github-skills-20260912/work/red/final-review.md
+- report: reports/research-github-skills-20260912/20260913T0012Z-final.html
+- red_status: pass
+- red_report: artifacts/research-github-skills-20260912/work/red/final-review.md
+- result_summary: 공개 후보 6개를 commit 고정 근거로 비교한 결과 기본 도입은 0개이며, Kang-chen 문헌검토 부분 기능은 라이선스·의존성·egress 검증과 별도 승인 전 hold로 남겼다.
+- metric_result: 기존 deep-research·agent-reach·Infinity 계약에 비해 기본 도입을 정당화할 검증 가능한 추가 가치가 확인되지 않았다.
+- metric_next_decision: 실제 파일럿은 approval-gated Waiting intent에서 라이선스·의존성·egress·격리 조건을 먼저 증빙한다.
+- knowledge_status: raw
+- knowledge_decision: retain_in_infinity
+- knowledge_targets: artifacts/research-github-skills-20260912/work/github-candidate-evidence.md; artifacts/research-github-skills-20260912/final/github-research-skills-brief.md; reports/research-github-skills-20260912/20260913T0012Z-final.html
+- knowledge_reflection: 공개 스킬 후보는 README 설명만으로 도입하지 않고 같은 commit의 실제 SKILL.md·LICENSE/부재·default-branch HEAD를 고정해, 기존 도구와의 중복 및 실행 경계를 먼저 판정한다.
+- knowledge_commit: no-promotion-needed
+- remote_verified: pending_post_push
+- remote_commit: pending_post_push
+- next_action: intents/waiting/pilot-github-research-skill-kang-chen-approval.md
+- archived_at: 2026-09-13T00:12:43Z
+
+## Archive Card
+
+[프로젝트]
+GitHub 리서치 스킬 후보 조사
+
+[상태]
+기본 도입 없음 · 조건부 파일럿 승인 대기
+
+[결과 기준]
+6개 공개 후보의 commit 고정 근거와 독립 Red PASS로 기본 도입 0개를 결정
+
+[다음 행동]
+Kang-chen 부분 기능 파일럿은 별도 승인 대기 intent에서만 검토
 
 ### [research-dieter-rams-biography-minimalism-20260912] 디터 람스 인물·미니멀리즘 심층 조사
 - status: archived
