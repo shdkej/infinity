@@ -82,6 +82,25 @@ Archive intent는 대시보드에서 프로젝트별/성격별로 묶어 볼 수
 
 **리서치 보존 게이트:** 2026-09-13 이후 Archive하는 리서치는 `final_artifact: artifacts/{id}/final/{slug}-report.md`를 명시하고, 그 파일이 비어 있지 않으며 원격 `main`의 **동일 Archive 원장**도 같은 경로를 가리켜야 한다. `work/candidate/*.md`, `work/` 문서, HTML report만으로는 리서치 완료·Archive를 인정하지 않는다. 이 규칙은 `exploratory_research`와 `decision_research` 모두에 적용한다. 이전 Archive는 경로 체계가 달라 자동 실패시키지 않으며, 수정·재검증 시 이 형식으로 이관한다.
 
+### 완료 전달 체크리스트 (Intent · Dashboard · Skill)
+
+Archive 전에는 다음 여섯 항목을 한 번에 확인한다. 이는 파일 존재 여부만 보는 검사가 아니라, 사용자가 대시보드에서 결과를 다시 찾고 이해할 수 있는지 확인하는 전달 계약이다.
+
+| 항목 | 필수 범위 | 원장 기록 | 대시보드 기대 표시 |
+|---|---|---|---|
+| 요약 HTML | `decision_research`, 구현·디자인·운영 산출물 | `reports/{id}/{timestamp}.html` | Report 링크와 iframe 미리보기 |
+| 전체 Markdown | 모든 리서치 | `final_artifact: artifacts/{id}/final/{slug}-report.md` | Final Artifact 링크·본문 |
+| zg 검색 매핑 | Context Pack v3+ Intent | `context_pack`, `context_documents_checked`, `context_searches`, trace `wiki_pages` | `조회한 경로 · Context Map`의 zg 쿼리·방식·선택 경로 |
+| 리포트 길이 | 모든 사용자-facing 최종본 | `report_length`(문자 수), `report_length_judgment`(`too_short|fit|too_long`) | 원장/Report 메타에서 확인 가능해야 함 |
+| 리포트 흐름 품질 | 모든 리서치, HTML이 있는 산출물 | `report_flow_check` | 결론 → 근거/비교 → 한계 → 다음 행동 순서가 보이고 내부 로그가 본문을 대체하지 않음 |
+| 활용 스킬 | 해당 작업에서 스킬을 실제 사용했거나 특정 스킬이 요구된 경우 | `skills_used: [{name, purpose, evidence_path}]` | 상세의 `사용한 스킬`에서 이름·용도·근거가 보임 |
+
+- **HTML 범위는 의도적으로 다르다.** 탐색형 리서치는 전체 Markdown 브리프가 최종 표면이며, 얕은 HTML을 추가해 같은 내용을 중복하지 않는다. 의사결정 리서치와 사용자-facing 산출물은 HTML 요약을 함께 제공한다.
+- **길이는 분량 목표가 아니다.** `report_length`는 과도하게 짧거나 긴 결과를 발견하는 관측값이다. `report_length_judgment`는 원 질문에 답하는 데 필요한 발견·근거·한계·다음 행동이 독해 가능한 밀도로 들어 있는지를 기준으로 작성자가 판정하고, Red가 필요한 작업에서는 재검토한다. 글자 수만 채우기 위한 반복은 실패다.
+- **흐름 검사는 MECE로 한다.** 결론, 근거/비교, 한계/반증, 다음 행동이 서로 섞이거나 빠지지 않아야 한다. 이 규칙은 `Report 양식`의 구조·Red 검토와 함께 적용한다.
+- **스킬은 자동으로 추측해 적지 않는다.** 실제로 읽고 사용한 스킬만 남긴다. 단순 도구 호출은 스킬 사용이 아니다. 작업에 적용 가능한 스킬이 없으면 `skills_used: []`와 사유를 기록한다.
+- Dashboard 구현은 위 필드를 숨기거나 축약하지 않는다. 현재 `Context Map`, Artifact, Report는 표시하지만 `report_length`, `report_flow_check`, `skills_used` 전용 행은 구현 대상이다. 이 체크리스트를 만족한다고 주장하려면 해당 행을 실제 화면에서 확인해야 한다.
+
 ## 대형 작업 태스크 계획
 
 PRD가 필요한 대형 작업은 PRD가 승인·고정된 직후, 구현 전에 `artifacts/{intent-id}/work/task-plan.json`을 만든다. 이 파일은 실행 원장이 아니라 **계획 기준선**이며, 대시보드 카드가 다음을 읽는 유일한 구조화 입력이다.
