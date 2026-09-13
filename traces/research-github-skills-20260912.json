@@ -161,6 +161,25 @@
       "session_key": "agent:genie:infinity-dispatcher",
       "timestamp": "2026-09-13T00:03:27Z",
       "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-13T00:04:37Z",
+      "context_pack": "intents/context/research-github-skills-20260912.json",
+      "evidence_paths": [
+        "artifacts/research-github-skills-20260912/final/github-research-skills-brief.md"
+      ],
+      "searches": [
+        "no new repository search; synthesized commit-pinned candidate evidence and independent Red PASS"
+      ],
+      "wiki_pages": [
+        "agent-wiki/content/docs/mapped/Integration/Marketing.mdx",
+        "agent-wiki/content/docs/mapped/Meta/AGENTS.mdx",
+        "agent-wiki/content/docs/mapped/Fundamental/Math.mdx",
+        "agent-wiki/content/docs/mapped/Integration/Business.mdx",
+        "agent-wiki/content/docs/mapped/deep-knowledge/monitoring.mdx"
+      ],
+      "note": "T1.3 completed: documented default adoption 0, Kang-chen hold, and an approval-gated installation-free pilot protocol. No clone, installation, execution, connection, secret entry, or external side effect occurred."
     }
   ],
   "artifacts": [
@@ -180,6 +199,6 @@
   "verifications": [],
   "next_decision": {
     "status": "active",
-    "value": "T1.3 is eligible: write the final comparison brief and an installation-free pilot proposal; do not execute it."
+    "value": "All leaves are complete. Verify the Archive contract: final HTML report, Red PASS, Knowledge closure, and remote proof."
   }
 }
