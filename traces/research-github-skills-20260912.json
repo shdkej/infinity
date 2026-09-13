@@ -152,6 +152,15 @@
         "agent-wiki/content/docs/mapped/deep-knowledge/monitoring.mdx"
       ],
       "note": "T1.2B timebox expired; chose verified alternative: recorded already-delivered independent Red PASS. No additional search, clone, install, execution, connection, or secret entry occurred."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-56fa0b4c8e4946c7b9673190951e1e42",
+      "canonical_sha": "21af3555a63cbe7bd6d94dfc5775f93581c12ed8",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-13T00:03:27Z",
+      "status": "accepted"
     }
   ],
   "artifacts": [
