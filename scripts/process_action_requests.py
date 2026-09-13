@@ -61,7 +61,7 @@ def create_knowledge_research_intent(record: dict[str, str], text: str) -> tuple
     block = (
         f"### [{intent_id}] {title}\n"
         "- status: inbox\n- target_agent: genie\n- priority: normal\n"
-        "- permission: L0-research-and-strategy\n- execution_mode: multi_subagent_roles\n"
+        "- permission: L0-research-and-strategy\n- research_mode: exploratory_research\n- execution_mode: single_genie_roles\n"
         "- projects: agent-wiki,infinity,knowledge-lab\n- task_type: research\n"
         f"- origin_loop_id: {record['intent_id']}\n"
         f"- source_url: {record['page']}\n"

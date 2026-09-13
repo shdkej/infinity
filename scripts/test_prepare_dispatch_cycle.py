@@ -39,6 +39,15 @@ class PlanTests(unittest.TestCase):
         self.assertEqual(invalid[0]["reason"], "missing_card_contract")
         self.assertIn("task_plan", invalid[0]["missing_fields"])
 
+    def test_exploratory_research_skips_deadline_plan_contract_and_dispatches(self):
+        text = "## Inbox\n\n## Active\n" + block(
+            "research-1", "active",
+            "- deadline: 2026-09-05T06:00:00Z\n- research_mode: exploratory_research\n",
+        ) + "\n## Waiting\n\n## Archive\n"
+        plan = prepare.build_plan(text, "fixture", Path(tempfile.mkdtemp()))
+        self.assertFalse(plan["invalid_state"])
+        self.assertEqual(plan["handoff_candidates"][0]["intent_id"], "research-1")
+
     def test_deadline_active_card_with_observability_fields_is_valid(self):
         extra = "".join([
             "- deadline: 2026-09-05T06:00:00Z\n", "- deadline_local: 2026-09-05 08:00 Europe/Rome (CEST)\n",

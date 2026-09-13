@@ -198,19 +198,29 @@ def archive(args: argparse.Namespace) -> None:
     if any(event.get("type") == "archive" for event in data.get("events", []) if isinstance(event, dict)):
         raise SystemExit("archive event already exists")
     data["status"] = "archived"
-    for evidence_path, label in ((args.red_report_path, "Red evidence"), (args.remote_proof_path, "remote proof")):
+    evidence = [(args.remote_proof_path, "remote proof")]
+    if args.research_mode != "exploratory_research":
+        evidence.insert(0, (args.red_report_path, "Red evidence"))
+    for evidence_path, label in evidence:
         if not (ROOT / evidence_path).is_file():
             raise SystemExit(f"{label} path must name an existing file: {evidence_path}")
-    data["events"].append({"type": "archive", "at": timestamp(args.at), "report_path": args.report_path, "evidence_paths": args.evidence + [args.report_path, args.red_report_path, args.remote_proof_path], "verification": {"red_status": "pass", "red_report_path": args.red_report_path, "remote_verified": "pass", "remote_proof_path": args.remote_proof_path}})
+    verification = {"red_status": "not_required" if args.research_mode == "exploratory_research" else "pass", "remote_verified": "pass", "remote_proof_path": args.remote_proof_path}
+    if args.research_mode != "exploratory_research":
+        verification["red_report_path"] = args.red_report_path
+    evidence_paths = args.evidence + [args.report_path, args.remote_proof_path]
+    if args.research_mode != "exploratory_research":
+        evidence_paths.append(args.red_report_path)
+    data["events"].append({"type": "archive", "at": timestamp(args.at), "report_path": args.report_path, "evidence_paths": evidence_paths, "research_mode": args.research_mode, "verification": verification})
     # Older traces predate the top-level artifact/verification arrays.  Keep
     # terminalization backward-compatible instead of failing after the remote
     # archive transition has already been proven.
     data.setdefault("artifacts", []).extend(
         {"label": label, "path": path} for label, path in (item.split("=", 1) for item in args.artifact)
     )
-    data.setdefault("verifications", []).extend(
-        ({"label": "Red verification evidence", "path": args.red_report_path, "status": "pass"}, {"label": "Remote verification evidence", "path": args.remote_proof_path, "status": "pass"})
-    )
+    verifications = [{"label": "Remote verification evidence", "path": args.remote_proof_path, "status": "pass"}]
+    if args.research_mode != "exploratory_research":
+        verifications.insert(0, {"label": "Red verification evidence", "path": args.red_report_path, "status": "pass"})
+    data.setdefault("verifications", []).extend(verifications)
     data["next_decision"] = {"status": args.decision_status, "value": args.next_decision}
     write_atomic(path, data)
 
@@ -238,7 +248,8 @@ def parser() -> argparse.ArgumentParser:
     p = commands.add_parser("archive", parents=[common])
     p.add_argument("--report-path", required=True); p.add_argument("--evidence", action="append", default=[])
     p.add_argument("--artifact", action="append", default=[], metavar="LABEL=PATH")
-    p.add_argument("--red-report-path", required=True); p.add_argument("--remote-proof-path", required=True)
+    p.add_argument("--red-report-path", default=""); p.add_argument("--remote-proof-path", required=True)
+    p.add_argument("--research-mode", choices=("exploratory_research", "decision_research"), default="exploratory_research")
     p.add_argument("--decision-status", default="implemented"); p.add_argument("--next-decision", required=True); p.set_defaults(func=archive)
     return top
 

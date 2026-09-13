@@ -112,8 +112,10 @@ def main() -> int:
     # Research reports need semantic depth, not only valid HTML/template markers.
     try:
         archive_local = repo / "intents" / "archive" / f"{intent_id}.md"
-        if archive_local.exists() and re.search(r"^\s*-\s*task_type:\s*research\s*$", archive_local.read_text(), re.M):
-            report_match = re.search(r"^\s*-\s*report:\s*(\S+\.html)\s*$", archive_local.read_text(), re.M)
+        archive_text = archive_local.read_text() if archive_local.exists() else ""
+        is_decision_research = not re.search(r"^\s*-\s*research_mode:\s*exploratory_research\s*$", archive_text, re.M)
+        if archive_text and is_decision_research and re.search(r"^\s*-\s*task_type:\s*research\s*$", archive_text, re.M):
+            report_match = re.search(r"^\s*-\s*report:\s*(\S+\.html)\s*$", archive_text, re.M)
             if not report_match:
                 errors.append(f"Research archive {intent_id} has no final HTML report")
             else:

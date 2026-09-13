@@ -65,6 +65,8 @@ def task_plan_state(entry: dict[str, Any], repo: Path, sha: str) -> dict[str, An
     malformed), otherwise a dispatcher can repeatedly hand it off without
     doing work.
     """
+    if entry["fields"].get("research_mode", "").strip().lower() == "exploratory_research":
+        return {"state": "exploratory"}
     path = entry["fields"].get("task_plan", "")
     if not path:
         return {"state": "missing_plan"}
@@ -195,7 +197,8 @@ def waiting_closeout_reason(entry: dict[str, Any], repo: Path, sha: str) -> str 
 
 def card_contract_errors(entry: dict[str, Any]) -> list[str]:
     """Keep deadline-bound Active cards observable through every state transition."""
-    if entry["lane"] != "Active" or not entry["fields"].get("deadline"):
+    if (entry["lane"] != "Active" or not entry["fields"].get("deadline")
+            or entry["fields"].get("research_mode", "").strip().lower() == "exploratory_research"):
         return []
     fields = entry["fields"]
     required = (
@@ -206,7 +209,8 @@ def card_contract_errors(entry: dict[str, Any]) -> list[str]:
 
 def human_plan_format_errors(entry: dict[str, Any], repo: Path, sha: str) -> list[str]:
     """Enforce the canonical human task-timeline contract for deadline work."""
-    if sha == "fixture" or entry["lane"] != "Active" or not entry["fields"].get("deadline"):
+    if (sha == "fixture" or entry["lane"] != "Active" or not entry["fields"].get("deadline")
+            or entry["fields"].get("research_mode", "").strip().lower() == "exploratory_research"):
         return []
     path = entry["fields"].get("task_plan_doc", "")
     try:
@@ -264,7 +268,7 @@ def build_plan(text: str, sha: str, repo: Path) -> dict[str, Any]:
             # A missing plan is an agent-owned setup defect. Dispatch it to
             # repair rather than treating the card as a user-facing blocker.
             missing_plan_repair.append(item)
-        elif task_state["state"] == "active":
+        elif task_state["state"] in {"active", "exploratory"}:
             (live if item["evidence"] else resume).append(item)
         elif task_state["state"] == "timebox_expired":
             timebox_reassessment.append(item)

@@ -166,11 +166,13 @@ def validate(trace: Path) -> list[str]:
             if not local_path_ok(event.get("report_path")):
                 error(errors, trace, f"events[{index}].report_path must name an existing final report")
             verification = event.get("verification")
-            if not isinstance(verification, dict) or verification.get("red_status") != "pass":
-                error(errors, trace, f"events[{index}].verification.red_status must be pass")
+            exploratory = event.get("research_mode") == "exploratory_research"
+            expected_red_status = "not_required" if exploratory else "pass"
+            if not isinstance(verification, dict) or verification.get("red_status") != expected_red_status:
+                error(errors, trace, f"events[{index}].verification.red_status must be {expected_red_status}")
             if not isinstance(verification, dict) or verification.get("remote_verified") != "pass":
                 error(errors, trace, f"events[{index}].verification.remote_verified must be pass")
-            if not isinstance(verification, dict) or not local_path_ok(verification.get("red_report_path")):
+            if not exploratory and (not isinstance(verification, dict) or not local_path_ok(verification.get("red_report_path"))):
                 error(errors, trace, f"events[{index}].verification.red_report_path must name Red evidence")
             if not isinstance(verification, dict) or not local_path_ok(verification.get("remote_proof_path")):
                 error(errors, trace, f"events[{index}].verification.remote_proof_path must name remote proof")

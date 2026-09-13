@@ -229,7 +229,9 @@ Infinity 문서는 아래 4개 역할로 통일한다. 새 문서를 만들 때 
 
 신규 Archive intent는 실행 방식이 검증 가능해야 한다.
 
-- `execution_mode: single_genie_roles` — 지니가 네 역할 관점을 직접 기록한 경량 실행.
+- `execution_mode: single_genie_roles` — 지니가 네 역할 관점을 직접 기록하는 경량 실행. 단, `research_mode: exploratory_research`에서는 출처 확인과 설명형 브리프만 남기는 명시 예외다.
+- `research_mode: exploratory_research` — 사례·시장 지형·트렌드를 설명하는 기본 리서치. 출처 확인과 브리프만 요구하며 Red·역할 세션·리치 HTML은 요구하지 않는다.
+- `research_mode: decision_research` — 투자·도입·구매·출시·가격/수익성·법률 또는 명시적 검증을 위한 의사결정 리서치. Deep Research와 역할·Red 게이트를 적용한다.
 - `execution_mode: multi_subagent_roles` — Planner, Developer, Marketer, Operator가 실제 별도 서브에이전트로 실행된 중요 작업.
 - `execution_mode: multi_subagent_roles_blocked` — 중요 작업이지만 역할 서브에이전트 실행이 불가능해 Waiting에 남긴 상태.
 - `execution_mode: single_genie_roles_fallback_user_approved` — 중요 작업이지만 사용자가 단일 처리 fallback을 명시 승인한 상태.
@@ -294,18 +296,18 @@ Report는 여전히 실행 로그지만, 특히 조사형(`research`, `wiki`, `d
 
 ### 작성 규칙
 
-- 위치: `reports/{id}/{timestamp}.html`
+- 위치: `decision_research`는 `reports/{id}/{timestamp}.html`; `exploratory_research`는 `artifacts/{id}/final/`의 Markdown 브리프.
 - 템플릿: `reports/_TEMPLATE.html` 을 복사해 `{{...}}` 자리표시자를 치환한다. (`_`로 시작하는 파일은 대시보드가 무시한다)
-- 완료 게이트: `reports/{id}/{timestamp}.html` 파일이 실제로 존재하고 비어 있지 않으며, `<html`, `<body`, `axis ax1`, `axis ax2`, `<details`를 포함해야 한다. 이 검증 없이 완료 처리하지 않는다.
-- 연구형 Report는 `핵심 내용 · 리서치 본문` 영역을 반드시 채운다. 최소 3개, 가능하면 5~7개의 핵심 발견을 쓰고, 각 발견은 사용자가 다음 결정을 할 수 있을 만큼 구체적이어야 한다.
+- 완료 게이트: `decision_research`의 `reports/{id}/{timestamp}.html`은 실제로 존재하고 비어 있지 않으며, `<html`, `<body`, `axis ax1`, `axis ax2`, `<details`를 포함해야 한다. `exploratory_research`는 질문에 답하는 브리프와 출처 링크가 있으면 된다.
+- `decision_research` Report는 `핵심 내용 · 리서치 본문` 영역을 반드시 채운다. 최소 3개, 가능하면 5~7개의 핵심 발견을 쓰고, 각 발견은 사용자가 다음 결정을 할 수 있을 만큼 구체적이어야 한다.
 - 핵심 발견과 옵션 비교는 MECE하게 쓴다. 같은 발견을 표현만 바꿔 반복하지 말고, 비용/속도/품질/리스크/실행 난이도처럼 서로 다른 판단 축으로 나눈다.
-- 연구형 Report에는 반드시 `근거 · 소스`, `다음 판단`, 필요 시 `옵션 비교` 또는 `추천안`이 들어간다. "자세한 내용은 artifact 참고"만으로 끝내지 않는다.
-- **연구형 최종 게이트:** Archive 전에 `python3 scripts/validate_research_report.py reports/{id}/{timestamp}.html`을 실행한다. 이 검사는 구조 표식만 통과한 얇은 요약을 막기 위해, 3개 이상의 실질 발견·3개 이상의 연결된 출처·핵심 본문·근거·다음 판단·최소 본문 밀도를 요구한다. 실패하면 Red PASS나 원격 push가 있어도 Archive할 수 없다.
-- **리치 리포트 기본값:** 연구형 final HTML은 `reports/_TEMPLATE.html`의 `rich-v1` 구조를 사용한다. 반응형 viewport·인라인 CSS·`sheet`·결론 2축·접이식 본문/상세·callout·모바일 규칙이 모두 있어야 한다. 단순 `<h1>/<h2>/<p>` 나열은 내용이 충분해도 final report가 아니다. Red는 실제 렌더에서 첫 화면의 제목·두 결론축·핵심 발견 진입점이 보이는지, 390px에서 가로 넘침이 없는지 확인한다.
-- Red는 연구형 최종 Report를 artifact와 별개로 직접 읽고, `요청에 답하는 결론`, `발견의 구체성`, `근거와 해석의 구분`, `사용자가 취할 다음 판단` 네 항목을 PASS/FAIL로 남긴다. 인과 과장만 제거하고 본문 품질을 보지 않는 검토는 통과가 아니다.
+- `decision_research` Report에는 반드시 `근거 · 소스`, `다음 판단`, 필요 시 `옵션 비교` 또는 `추천안`이 들어간다. 탐색형 브리프에는 짧은 출처 목록과 불확실성만 남긴다.
+- **의사결정 리서치 최종 게이트:** `decision_research`만 Archive 전에 `python3 scripts/validate_research_report.py reports/{id}/{timestamp}.html`을 실행한다. 탐색형 리서치에는 적용하지 않는다.
+- **리치 리포트 기본값:** `decision_research` final HTML은 `reports/_TEMPLATE.html`의 `rich-v1` 구조를 사용한다. 탐색형 리서치는 Markdown 브리프를 사용한다.
+- Red는 `decision_research` 최종 Report를 artifact와 별개로 직접 읽고, `요청에 답하는 결론`, `발견의 구체성`, `근거와 해석의 구분`, `사용자가 취할 다음 판단` 네 항목을 PASS/FAIL로 남긴다. 탐색형 리서치에는 Red를 호출하지 않는다.
 - 긴 표는 모바일에서 좌우 스크롤을 요구하지 않게 2열 이하로 줄이거나, 항목형 카드/목록으로 바꾼다. URL, 코드, 파일 경로, 긴 단어는 줄바꿈되게 작성한다.
-- Claude/workflow-master 위임 작업도 같은 규칙을 따른다. 위임받은 에이전트가 코드·문서 변경은 끝냈지만 HTML report를 남기지 않았다면, Heartbeat는 직접 `reports/_TEMPLATE.html`로 관측 결과를 보강해 HTML report를 만든 뒤 완료한다.
-- Markdown report만 존재하는 경우 신규 완료로 인정하지 않는다. 같은 실행에서 `.md`가 함께 생겼다면 `.html`을 final report로 archive에 연결하고 `.md`는 보조 로그로만 둔다.
+- `decision_research` 및 산출물 위임 작업도 같은 규칙을 따른다. 위임받은 에이전트가 코드·문서 변경은 끝냈지만 HTML report를 남기지 않았다면, Heartbeat는 직접 `reports/_TEMPLATE.html`로 관측 결과를 보강해 HTML report를 만든 뒤 완료한다. 탐색형 리서치는 Markdown 브리프로 완료한다.
+- `decision_research` 및 산출물 작업은 Markdown report만으로 신규 완료를 인정하지 않는다. 탐색형 리서치의 Markdown 브리프는 최종 산출물로 인정한다.
 - **제약**: 대시보드는 이 파일을 `iframe sandbox="allow-same-origin"` 으로 렌더하므로 **JS·외부 리소스는 동작하지 않는다.** 스타일은 인라인 `<style>` 로만, 접기는 `<details>`(JS 불필요)로 한다.
 - 모바일 기준은 390px 폭이다. 브라우저 검증이 가능하면 `document.documentElement.scrollWidth <= window.innerWidth`를 확인하고, 어렵다면 템플릿 CSS의 `overflow-x:hidden`, 긴 텍스트 wrapping, 모바일 테이블 stacking 규칙을 깨지 않았는지 눈으로 확인한다.
 - 디자인은 **"Quiet Note"** 시스템을 따른다 — 따뜻한 본(bone) 배경(`--bg #f4f2ea`) + 저채도 단일 악센트. `_TEMPLATE.html`의 CSS는 그대로 두고 `:root`의 **`--a1`/`--a1-deep` 두 줄만 카테고리색으로 교체**한다 (축2는 항상 sage 고정):

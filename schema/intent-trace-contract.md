@@ -52,13 +52,16 @@ python3 scripts/record_intent_trace.py execution --intent-id example-01 \
   --next-decision 'Request Red review'
 python3 scripts/record_intent_trace.py archive --intent-id example-01 \
   --report-path reports/example/final.html --artifact 'final report=reports/example/final.html' \
-  --next-decision 'Monitor the implemented result'
+  --research-mode decision_research --red-report-path artifacts/example/red.md \
+  --remote-proof-path artifacts/example/remote-proof.md --next-decision 'Monitor the implemented result'
 python3 scripts/validate_intent_trace.py --all
 ```
 
 The writer does not move an `INTENTS.md` lane or assert a remote commit; it
 records the proof supplied by the workflow. Record the archive event only after
 the normal Archive remote-verification gate has passed.
+
+For default `exploratory_research`, pass `--research-mode exploratory_research`; its archive requires a Markdown brief and remote proof, records `red_status: not_required`, and does not take a Red report path.
 
 Dispatcher acceptance is recorded as a `dispatcher_handoff` event. It contains
 the dispatcher `run_id`, `canonical_sha`, `agent`, `session_key`, UTC
