@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "intent_id": "research-review-curation-method-korea-20260913",
+  "status": "inbox",
+  "trace_completeness": "complete",
+  "request": {
+    "raw": {
+      "status": "recorded",
+      "value": "리뷰, 큐레이션 하는 방법에 대해 리서치해줘"
+    },
+    "normalized_query": {
+      "status": "recorded",
+      "value": "국내 사례 중심의 사람·공간·물건 미니멀 콘텐츠 리뷰·큐레이션 방법: 선정 기준, 검증, 구성, 오류, 숏츠·카드뉴스 템플릿"
+    }
+  },
+  "events": [
+    {
+      "type": "intake",
+      "at": "2026-09-13T13:24:17Z",
+      "context_pack": "intents/context/research-review-curation-method-korea-20260913.json",
+      "evidence_paths": [
+        "intents/context/research-review-curation-method-korea-20260913.json"
+      ]
+    }
+  ],
+  "artifacts": [],
+  "verifications": [],
+  "next_decision": {
+    "status": "in_progress",
+    "value": "국내 사례를 근거로 선정·검증·편집·발행 전 점검을 분리한 실전 가이드를 작성한다."
+  }
+}

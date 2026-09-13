@@ -4,6 +4,31 @@
 
 ## Inbox
 
+### [research-review-curation-method-korea-20260913] 국내 리뷰·큐레이션 실전 가이드 조사
+- status: inbox
+- research_mode: exploratory_research
+- target_agent: genie
+- execution_mode: single_genie_roles
+- permission: L0-research-and-draft-only
+- projects: infinity,research-bank
+- task_type: research
+- topics: content,curation,review,minimalism
+- notification_channel: slack
+- notification_target: channel:C0BR41W31MM
+- notification_reply_to: 1789305747.274629
+- context_pack: intents/context/research-review-curation-method-korea-20260913.json
+- trace: traces/research-review-curation-method-korea-20260913.json
+- decision_question: 국내 사례를 바탕으로 사람·공간·물건을 소개하는 미니멀 콘텐츠의 리뷰·큐레이션 방법을 반복 가능한 기준으로 정리할 수 있는가?
+- decision_owner: user
+- in_scope: 국내 리뷰·큐레이션 사례, 후보 선정 기준, 사실·경험·해석 분리, 비교·편집 구조, 신뢰·표기·광고성 경계, 숏츠·카드뉴스 적용 템플릿
+- out_of_scope: 특정 채널의 공개 게시, 협찬·제휴 계약, 유료 데이터 구매, 개인 계정 분석, 해외 사례를 중심 근거로 한 일반론
+- comparison_axes: 후보 선정 근거, 리뷰의 관찰 밀도, 큐레이션의 편집 기준, 출처·광고 표기, 시청자 다음 행동
+- success_evidence: 국내 사례와 원문 근거를 바탕으로 한 한국어 실전 가이드, 사람·공간·물건별 적용 예시, 숏츠·카드뉴스용 체크리스트와 템플릿
+- metric_question: 이 가이드를 따르면 같은 소재라도 단순 소개가 아니라 사용자가 판단할 수 있는 리뷰·큐레이션으로 바뀌는가?
+- metric_signal: 최종 가이드가 선정 이유·사실/해석 구분·비교 기준·출처/광고 경계·형식별 템플릿을 모두 제공한다.
+- metric_decision_rule: 다섯 항목 중 하나라도 빠지거나 국내 근거가 부족하면 브리프를 보강한다.
+- next_action: 국내의 사람·공간·물건 사례를 각각 조사하고, 선정·검증·편집·표기 단계를 하나의 가이드로 합친다.
+
 ## Active
 
 ### [minimal-shorts-apple-early-product-20260913] 애플 초기 제품으로 만드는 미니멀 모으기 첫 숏츠
