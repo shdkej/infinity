@@ -39,6 +39,24 @@
       "agent": "genie",
       "session_key": "agent:genie:infinity-dispatcher",
       "status": "accepted"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "at": "2026-09-13T14:32:49Z",
+      "run_id": "dispatch-d92e394110f041b5bef08d7dc963ff2f",
+      "canonical_sha": "647b6fa2474eda92a2c409900e37db46a0af88e4",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-13T14:32:49Z",
+      "status": "complete",
+      "evidence_paths": [
+        "artifacts/research-review-curation-method-korea-20260913/final/korean-review-curation-practical-guide.md"
+      ],
+      "note": "Guide has selection, fact/experience/inference separation, comparison, disclosure, and format templates; commercial surfaces remain format-only evidence."
     }
   ],
   "artifacts": [
@@ -53,7 +71,7 @@
     }
   ],
   "next_decision": {
-    "status": "in_progress",
-    "value": "실전 가이드 초안을 검토한다. 특정 채널 게시·협찬·제휴·자산 사용은 별도 승인 전 진행하지 않는다."
+    "status": "complete",
+    "value": "탐색형 리서치 산출물이 완료됐다. Archive 계약 검증 전까지 특정 채널 게시·협찬·제휴·자산 사용은 진행하지 않는다."
   }
 }
