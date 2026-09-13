@@ -21,6 +21,15 @@
       "evidence_paths": [
         "intents/context/minimal-shorts-apple-early-product-20260913.json"
       ]
+    },
+    {
+      "type": "dispatcher_handoff",
+      "at": "2026-09-13T13:02:49Z",
+      "run_id": "dispatch-41d56ff92d384150bf3511d26044e25b",
+      "canonical_sha": "01c378f785d5b19d1508a0227b8e80a784837e3e",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "status": "accepted"
     }
   ],
   "artifacts": [],

@@ -4,8 +4,10 @@
 
 ## Inbox
 
+## Active
+
 ### [minimal-shorts-apple-early-product-20260913] 애플 초기 제품으로 만드는 미니멀 모으기 첫 숏츠
-- status: inbox
+- status: active
 - research_mode: exploratory_research
 - target_agent: genie
 - execution_mode: single_genie_roles
@@ -27,8 +29,6 @@
 - metric_signal: 최종 대본에 관찰된 특징·그 선택의 제약/과정·한 문장 인사이트가 각각 분명히 존재한다.
 - metric_decision_rule: 세 요소 중 하나라도 비어 있으면 대상 또는 대본을 다시 좁힌다.
 - next_action: 공개 1차 자료를 바탕으로 Apple II, Macintosh 128K, 초기 iPod 중 첫 편 대상을 고르고 숏츠 초안을 만든다.
-
-## Active
 
 ## Waiting
 
