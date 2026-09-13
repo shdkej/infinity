@@ -208,7 +208,7 @@ General Intent title rule: 모든 Intent 제목은 사용자가 제목만 읽어
 Allowed: L0/L1 actions only unless user approval exists
 Forbidden: L2/L3 actions without explicit approval
 Verification: {tests/build/lint/screenshot/direct inspection}
-Report back to: `decision_research`는 reports/{intent-id}/{timestamp}.html; `exploratory_research`는 artifacts/{intent-id}/final/ Markdown 브리프.
+Report back to: 모든 리서치는 `artifacts/{intent-id}/final/{slug}-report.md`에 전체 Markdown 원문을 남긴다. `decision_research`는 그 원문을 요약한 reports/{intent-id}/{timestamp}.html도 함께 남기고, `exploratory_research`는 final Markdown 브리프를 대표 결과로 삼는다.
 HTML report contract:
 - This contract applies to `decision_research` and non-research deliverables only. `exploratory_research` is explicitly excluded.
 - Create the final run report as HTML, not Markdown.
@@ -237,7 +237,7 @@ HTML report contract:
 
 ### 9. 결과 기록 (결론 2축 HTML)
 
-`exploratory_research` 예외: 결과는 `artifacts/{intent-id}/final/`의 Markdown 브리프와 채널 답변으로 기록한다. 질문 답변, 짧은 출처 목록, 확인하지 못한 점만 요구하며 이 절의 HTML·rich-v1·validator·Red 규칙을 적용하지 않는다.
+`exploratory_research` 예외: 결과는 `artifacts/{intent-id}/final/{slug}-report.md`의 전체 Markdown 브리프와 채널 답변으로 기록한다. 질문 답변, 짧은 출처 목록, 확인하지 못한 점만 요구하며 이 절의 HTML·rich-v1·validator·Red 규칙을 적용하지 않는다.
 
 보고는 `reports/{intent-id}/{timestamp}.html` 로 기록한다. **양식·카테고리별 축 라벨·작성 규칙은 `ARTIFACT_RULES.md`의 "Report 양식 (HTML, 결론 2축)"이 단일 출처다.**
 
@@ -273,8 +273,8 @@ Report는 실행 로그다. 2축은 그 로그의 결론을 한눈에 보게 하
 
 1. `Intent 원장`: 유효 판정된 경우에만 Knowledge Lab의 `source/infinity/archive/{id}.md` 하나를 canonical final index로 만든다.
 2. `Work Artifact`: `T1.*`, 근거 수집, 초안, 역할별 메모, Red 검토는 `artifacts/{id}/work/`에 둔다. 최종 후보는 `work/candidate/`, Red 판정은 `work/red/`에 둔다.
-3. `Final Artifact`: `decision_research`와 산출물 작업은 Red PASS 뒤의 재사용 최종본만 `artifacts/{id}/final/`에 둔다. 탐색형 리서치는 출처 확인 브리프를 같은 경로에 둔다.
-4. `Report`: 실행 과정 로그는 `reports/{id}/{timestamp}.html`에 두되, final HTML은 `final/`을 읽어 사용자가 바로 판단할 수 있게 요약한다.
+3. `Final Artifact`: 모든 리서치는 원 질문에 답하는 전체 Markdown 원문을 `artifacts/{id}/final/{slug}-report.md`에 둔다. `decision_research`와 산출물 작업은 Red PASS 뒤의 재사용 최종본만 이 경로에 두고, 탐색형 리서치는 출처 확인 브리프를 같은 경로에 둔다. `work/candidate/`는 최종본이 아니다.
+4. `Report`: 실행 과정 로그는 `reports/{id}/{timestamp}.html`에 두되, decision research의 final HTML은 `final/{slug}-report.md`를 읽어 사용자가 바로 판단할 수 있게 요약한다. HTML만 남겨 Archive하지 않는다.
 5. `Detail`이라는 별도 최종 문서는 만들지 않는다. archive path와 detail path가 같아지는 중복 구조를 생성하지 않는다.
 6. `INTENTS.md` 완료 코멘트에는 archive path와 한 줄 결과를 함께 남겨 대시보드가 `Intent 원장` 카드로 요약할 수 있게 한다.
 

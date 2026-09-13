@@ -23,6 +23,7 @@ DASHBOARD_ARCHIVE_COMMENT_RE = re.compile(
     r"(?:→|->)\s*([^\s)]+\.md)"
     r"[\s\S]*?-->"
 )
+FULL_MARKDOWN_EFFECTIVE_DATE = "2026-09-13"
 
 
 def run(args: list[str], cwd: Path) -> str:
@@ -89,6 +90,21 @@ def split_sections(text: str) -> dict[str, str]:
     return {name: "\n".join(lines) for name, lines in sections.items()}
 
 
+def final_research_artifact_path(archive_text: str, intent_id: str) -> str | None:
+    """Return the required full Markdown report path from an archive record."""
+    pattern = re.compile(
+        rf"^\s*-\s*final_artifact:\s*(artifacts/{re.escape(intent_id)}/final/[^/\s]+-report\.md)\s*$",
+        re.M,
+    )
+    match = pattern.search(archive_text)
+    return match.group(1) if match else None
+
+
+def requires_full_markdown_report(archive_text: str) -> bool:
+    completed = re.search(r"^\s*-\s*completed_at:\s*(\d{4}-\d{2}-\d{2})", archive_text, re.M)
+    return bool(completed and completed.group(1) >= FULL_MARKDOWN_EFFECTIVE_DATE)
+
+
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("intent_id")
@@ -103,6 +119,8 @@ def main() -> int:
     intent_id = args.intent_id
     errors: list[str] = []
     archive_detail_path: str | None = None
+    final_artifact_path: str | None = None
+    parent = repo.parent
 
     try:
         run(["python3", "scripts/check_intents_consistency.py", "INTENTS.md"], repo)
@@ -114,7 +132,16 @@ def main() -> int:
         archive_local = repo / "intents" / "archive" / f"{intent_id}.md"
         archive_text = archive_local.read_text() if archive_local.exists() else ""
         is_decision_research = not re.search(r"^\s*-\s*research_mode:\s*exploratory_research\s*$", archive_text, re.M)
-        if archive_text and is_decision_research and re.search(r"^\s*-\s*task_type:\s*research\s*$", archive_text, re.M):
+        is_research = bool(archive_text and re.search(r"^\s*-\s*task_type:\s*research\s*$", archive_text, re.M))
+        if is_research and requires_full_markdown_report(archive_text):
+            final_artifact_path = final_research_artifact_path(archive_text, intent_id)
+            if not final_artifact_path:
+                errors.append(
+                    f"Research archive {intent_id} has no final_artifact Markdown report under artifacts/{{id}}/final/"
+                )
+            elif not (repo / final_artifact_path).is_file() or not (repo / final_artifact_path).read_text().strip():
+                errors.append(f"Research archive {intent_id} final Markdown report is missing or empty: {final_artifact_path}")
+        if is_research and is_decision_research:
             report_match = re.search(r"^\s*-\s*report:\s*(\S+\.html)\s*$", archive_text, re.M)
             if not report_match:
                 errors.append(f"Research archive {intent_id} has no final HTML report")
@@ -131,6 +158,13 @@ def main() -> int:
             errors.append(f"Infinity HEAD is not pushed: local {local_head[:7]} != origin/main {remote_head[:7]}")
     except Exception as exc:
         errors.append(str(exc))
+
+    if final_artifact_path:
+        try:
+            if not git_remote_text(repo, final_artifact_path).strip():
+                errors.append(f"Remote final Markdown report is empty: {final_artifact_path}")
+        except Exception as exc:
+            errors.append(f"Remote final Markdown report check failed for {final_artifact_path}: {exc}")
 
     try:
         # GitHub contents/raw endpoints can serve a stale body immediately
@@ -169,6 +203,17 @@ def main() -> int:
                 errors.append(f"Remote archive file {archive_path} has no id field for {intent_id}")
             if not ARCHIVE_STATUS_RE.search(archive_text):
                 errors.append(f"Remote archive file {archive_path} is not an accepted archive status for {intent_id}")
+            remote_is_research = bool(re.search(r"^\s*-\s*task_type:\s*research\s*$", archive_text, re.M))
+            if remote_is_research and requires_full_markdown_report(archive_text):
+                remote_final_path = final_research_artifact_path(archive_text, intent_id)
+                if not remote_final_path:
+                    errors.append(f"Remote research archive {archive_path} has no matching final Markdown report")
+                else:
+                    try:
+                        if not git_remote_text(repo, remote_final_path).strip():
+                            errors.append(f"Remote final Markdown report is empty: {remote_final_path}")
+                    except Exception as artifact_exc:
+                        errors.append(f"Remote final Markdown report check failed for {remote_final_path}: {artifact_exc}")
         except Exception as exc:
             try:
                 if archive_path.startswith("source/infinity/archive/"):
