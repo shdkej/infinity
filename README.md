@@ -20,6 +20,8 @@ intents/active/       ← 실행 중인 Intent 원장
 artifacts/{id}/work/  ← T1·근거·초안·Red 검토 등 중간 산출물
 artifacts/{id}/final/ ← 사용자 질문에 답하는 최종 재사용 산출물(리서치는 전체 Markdown 원문 필수)
 reports/{id}/         ← 실행 로그와 읽을 수 있는 최종 HTML 리포트
+data/knowledge-loop.json ← Infinity 대시보드의 지식 루프 운영 지표
+data/promotion-index.json ← Infinity 대시보드의 Knowledge Lab 승격 상태 인덱스
 scripts/notify.sh   ← 레거시 Telegram 단일 발송기(새 terminal notifier는 사용하지 않음)
 scripts/dispatch_terminal_notifications.py ← 원격 `origin/main` terminal 상태를 원 대화에 1회 조정·발송
 ```
