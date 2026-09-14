@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-14T19:04:05.224Z",
+  "generated_at": "2026-09-14T19:45:04.637Z",
   "entries": [
     {
       "source": "source/openclaw-system/docs/DOCUMENT_SEARCH_PIPELINE.md",
@@ -8,7 +8,9 @@
       "reason": "모든 에이전트의 문서 검색·인계 절차 정본으로 선별 보관",
       "reviewed_at": "",
       "modified_at": "2026-09-14T17:34:19Z",
-      "promotion_targets": [],
+      "promotion_targets": [
+        "/docs/concepts/context-pack-search-contract"
+      ],
       "promotion_target_note": ""
     },
     {
