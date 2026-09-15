@@ -19,6 +19,10 @@
 - detail: intents/inbox/research-ontology-kl-fit-20260915.md
 - context_pack: intents/context/research-ontology-kl-fit-20260915.json
 - trace: traces/research-ontology-kl-fit-20260915.json
+- task_plan: artifacts/research-ontology-kl-fit-20260915/work/task-plan.json
+- task_plan_doc: artifacts/research-ontology-kl-fit-20260915/work/task-plan.md
+- task_plan_template: ARTIFACT_RULES.md#대형-작업-태스크-계획
+- tasks: 2/3 complete; active=T1.3
 - notification_channel: slack
 - notification_target: channel:C0BR41W31MM
 - notification_reply_to: 1789447742.405799
