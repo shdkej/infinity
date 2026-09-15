@@ -1,30 +1,86 @@
 {
-  "generated_at": "2026-09-15T04:39:33.855Z",
+  "generated_at": "2026-09-15T21:16:40.834Z",
   "summary": {
-    "total": 901,
-    "wiki_reflected": 201,
-    "not_reflected": 700,
+    "total": 904,
+    "wiki_reflected": 200,
+    "not_reflected": 704,
     "by_status": {
-      "reviewed": 87,
-      "queued": 712,
+      "queued": 714,
       "integrated": 10,
+      "reviewed": 88,
       "rejected": 90,
       "selected": 2
     },
     "by_layer": {
+      "openclaw-system": 596,
       "infinity": 52,
-      "openclaw-system": 593,
       "shdkej-content": 76,
       "external-links": 179,
       "root": 1
     },
     "by_promotion_state": {
-      "not_applicable": 698,
-      "reflected": 201,
+      "not_applicable": 702,
+      "reflected": 200,
       "pending_promotion": 2
     }
   },
   "entries": [
+    {
+      "source": "source/openclaw-system/data/promotion-feedback.jsonl",
+      "status": "queued",
+      "source_layer": "openclaw-system",
+      "reason": "자동 수집됨; 내용 판정 대기",
+      "reviewed_at": "",
+      "modified_at": "2026-09-15T19:31:37Z",
+      "promotion_targets": [],
+      "reflection_basis": [],
+      "promotion_state": "not_applicable",
+      "promotion_reason": "자동 수집됨; 내용 판정 대기",
+      "promotion_target_note": "",
+      "wiki_reflected": false
+    },
+    {
+      "source": "source/openclaw-system/docs/DOCUMENT_SEARCH_PIPELINE.md",
+      "status": "integrated",
+      "source_layer": "openclaw-system",
+      "reason": "모든 에이전트의 문서 검색·인계 절차 정본으로 선별 보관",
+      "reviewed_at": "",
+      "modified_at": "2026-09-15T05:42:28Z",
+      "promotion_targets": [],
+      "reflection_basis": [],
+      "promotion_state": "not_applicable",
+      "promotion_reason": "모든 에이전트의 문서 검색·인계 절차 정본으로 선별 보관",
+      "promotion_target_note": "",
+      "wiki_reflected": false
+    },
+    {
+      "source": "source/openclaw-system/data/ai-news/2026-09-15-ai-news.md",
+      "status": "queued",
+      "source_layer": "openclaw-system",
+      "reason": "자동 수집됨; 내용 판정 대기",
+      "reviewed_at": "",
+      "modified_at": "2026-09-15T03:07:07Z",
+      "promotion_targets": [],
+      "reflection_basis": [],
+      "promotion_state": "not_applicable",
+      "promotion_reason": "자동 수집됨; 내용 판정 대기",
+      "promotion_target_note": "",
+      "wiki_reflected": false
+    },
+    {
+      "source": "source/openclaw-system/docs/VERSION_TRACKER_OPERATING.md",
+      "status": "reviewed",
+      "source_layer": "openclaw-system",
+      "reason": "버전 트래커 운영 원칙은 Agent Wiki 승격을 보류하고 Knowledge Lab 원문으로 유지함",
+      "reviewed_at": "",
+      "modified_at": "2026-09-14T22:16:07Z",
+      "promotion_targets": [],
+      "reflection_basis": [],
+      "promotion_state": "not_applicable",
+      "promotion_reason": "버전 트래커 운영 원칙은 Agent Wiki 승격을 보류하고 Knowledge Lab 원문으로 유지함",
+      "promotion_target_note": "",
+      "wiki_reflected": false
+    },
     {
       "source": "source/infinity/archive/upstream/infinity-dispatcher-observability-20260908.md",
       "status": "reviewed",
@@ -218,20 +274,6 @@
       "reflection_basis": [],
       "promotion_state": "not_applicable",
       "promotion_reason": "자동 수집됨; 내용 판정 대기",
-      "promotion_target_note": "",
-      "wiki_reflected": false
-    },
-    {
-      "source": "source/openclaw-system/docs/DOCUMENT_SEARCH_PIPELINE.md",
-      "status": "integrated",
-      "source_layer": "openclaw-system",
-      "reason": "모든 에이전트의 문서 검색·인계 절차 정본으로 선별 보관",
-      "reviewed_at": "",
-      "modified_at": "2026-09-14T17:34:19Z",
-      "promotion_targets": [],
-      "reflection_basis": [],
-      "promotion_state": "not_applicable",
-      "promotion_reason": "모든 에이전트의 문서 검색·인계 절차 정본으로 선별 보관",
       "promotion_target_note": "",
       "wiki_reflected": false
     },
@@ -2367,7 +2409,7 @@
       "source_layer": "openclaw-system",
       "reason": "최근 자료이나 목적·중복·승격 필요성을 별도 확인",
       "reviewed_at": "2026-09-01T10:01:07Z",
-      "modified_at": "2026-09-10T20:39:34Z",
+      "modified_at": "2026-09-15T05:43:11Z",
       "promotion_targets": [],
       "reflection_basis": [],
       "promotion_state": "not_applicable",
@@ -2983,7 +3025,7 @@
       "source_layer": "openclaw-system",
       "reason": "최근 자료이나 목적·중복·승격 필요성을 별도 확인",
       "reviewed_at": "2026-09-01T10:01:07Z",
-      "modified_at": "2026-08-09T21:19:23Z",
+      "modified_at": "2026-09-15T05:43:11Z",
       "promotion_targets": [],
       "reflection_basis": [],
       "promotion_state": "not_applicable",
@@ -4794,7 +4836,7 @@
       "source_layer": "openclaw-system",
       "reason": "최근 자료이나 목적·중복·승격 필요성을 별도 확인",
       "reviewed_at": "2026-09-01T09:58:12Z",
-      "modified_at": "2026-09-14T07:00:51Z",
+      "modified_at": "2026-09-15T07:01:11Z",
       "promotion_targets": [],
       "reflection_basis": [],
       "promotion_state": "not_applicable",
@@ -4874,7 +4916,7 @@
       "source_layer": "openclaw-system",
       "reason": "최근 활성 정본 또는 재사용 가능한 원자료; raw 검색 허용",
       "reviewed_at": "2026-09-01T09:58:12Z",
-      "modified_at": "2026-09-13T22:21:29Z",
+      "modified_at": "2026-09-15T05:42:28Z",
       "promotion_targets": [
         "/docs/outputs/Meta/AGENTS",
         "/docs/outputs/deep-knowledge/monitoring"
@@ -4893,7 +4935,7 @@
       "source_layer": "openclaw-system",
       "reason": "최근 활성 정본 또는 재사용 가능한 원자료; raw 검색 허용",
       "reviewed_at": "2026-09-01T09:58:12Z",
-      "modified_at": "2026-09-10T20:41:21Z",
+      "modified_at": "2026-09-15T05:43:11Z",
       "promotion_targets": [
         "/docs/outputs/Idea/Travel",
         "/docs/outputs/Integration/Work"
@@ -12130,16 +12172,12 @@
       "reason": "자동 수집됨; 내용 판정 대기",
       "reviewed_at": "",
       "modified_at": "2026-05-17T13:02:19Z",
-      "promotion_targets": [
-        "/docs/outputs/README"
-      ],
-      "reflection_basis": [
-        "wiki_source_link"
-      ],
-      "promotion_state": "reflected",
-      "promotion_reason": "Agent Wiki outputs 출처 링크 또는 ingest target이 명시됨",
+      "promotion_targets": [],
+      "reflection_basis": [],
+      "promotion_state": "not_applicable",
+      "promotion_reason": "자동 수집됨; 내용 판정 대기",
       "promotion_target_note": "",
-      "wiki_reflected": true
+      "wiki_reflected": false
     },
     {
       "source": "source/external-links/README.md",
