@@ -305,10 +305,15 @@ def build_plan(text: str, sha: str, repo: Path) -> dict[str, Any]:
         if entry["lane"] != "Archive":
             continue
         report = entry["fields"].get("report", "")
-        if not report:
+        # Some intentionally lightweight exploratory research records use a
+        # descriptive sentinel instead of a report file.  Only repository-local
+        # report paths are eligible for follow-up parsing; passing a sentinel to
+        # ``git show`` emits a misleading fatal diagnostic on every cron cycle.
+        report_path = Path(report)
+        if not report or report_path.is_absolute() or ".." in report_path.parts or not report_path.suffix:
             continue
         try:
-            report_text = (repo / report).read_text(encoding="utf-8") if sha == "fixture" else subprocess.check_output(["git", "show", f"origin/main:{report}"], cwd=repo, text=True)
+            report_text = (repo / report_path).read_text(encoding="utf-8") if sha == "fixture" else subprocess.check_output(["git", "show", f"origin/main:{report_path.as_posix()}"], cwd=repo, text=True)
         except (OSError, subprocess.CalledProcessError):
             continue
         ids = re.search(r"(?mi)^\s*(?:- )?follow_up_intent_ids:\s*(.+?)\s*$", report_text)

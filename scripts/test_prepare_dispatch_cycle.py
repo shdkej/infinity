@@ -232,5 +232,13 @@ class PlanTests(unittest.TestCase):
         self.assertEqual(plan["follow_up_candidates"][0]["follow_up_not_created_reasons"], "approval: publish")
         self.assertTrue(plan["dispatch_required"])
 
+    def test_archive_report_sentinel_is_not_treated_as_a_repository_path(self):
+        text = "## Inbox\n\n## Active\n\n## Waiting\n\n## Archive\n" + block(
+            "exploratory-1", "archived", "- report: not_required (exploratory_research)\n"
+        )
+        plan = prepare.build_plan(text, "fixture", Path(tempfile.mkdtemp()))
+        self.assertFalse(plan["follow_up_candidates"])
+        self.assertFalse(plan["dispatch_required"])
+
 if __name__ == "__main__":
     unittest.main()
