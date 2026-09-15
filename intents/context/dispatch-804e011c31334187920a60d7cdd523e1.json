@@ -1,0 +1,106 @@
+{
+  "context_pack_version": 3,
+  "status": "ready",
+  "route": "infinity",
+  "request": "Knowledge Lab 승격 피드백루프 구현 및 여행·큐레이션·AI 자산 복리사업 구조의 timebox 재계획",
+  "built_at": "2026-09-15T19:55:59.002552+00:00",
+  "required_documents": [
+    "/home/ubuntu/workspace/prompt-archive/LLM.md",
+    "README.md",
+    "schema/agent-rules.md",
+    "source/openclaw-system/docs/DOCUMENT_SEARCH_PIPELINE.md",
+    "source/openclaw-system/docs/USER_CONTEXT.md",
+    "source/openclaw-system/docs/SERVICE_REGISTRY.md",
+    "source/openclaw-system/docs/INFINITY_OPERATING_RULES.md",
+    "infinity/ARTIFACT_RULES.md",
+    "infinity/EXECUTION_LEARNING_CONTRACT.md",
+    "infinity/INTENTS.md",
+    "agent-wiki/README.md"
+  ],
+  "search_scopes": [
+    "agent-wiki/content/docs/",
+    "source/openclaw-system/docs/",
+    "source/openclaw-system/data/daily-reviews/",
+    "source/openclaw-system/data/daily-tracking/",
+    "source/openclaw-system/data/photo-insights/"
+  ],
+  "selected_context": [
+    {
+      "path": "agent-wiki/content/docs/outputs/Idea/Article.mdx",
+      "reason": "zg hybrid discovery + rg match",
+      "verification": "matched",
+      "match": {
+        "term": "자산",
+        "line": 24,
+        "excerpt": "즉 이 노드는 `기사 몇 개 요약`보다, **웹 입력을 나중에 다시 쓸 수 있는 생각 자산으로 바꾸는 첫 분류면**으로 읽는 편이 맞다."
+      }
+    },
+    {
+      "path": "agent-wiki/content/docs/outputs/Meta/AGENTS.mdx",
+      "reason": "zg hybrid discovery + rg match",
+      "verification": "matched",
+      "match": {
+        "term": "Knowledge",
+        "line": 252,
+        "excerpt": "- [Deep Knowledge/Product](/docs/mapped/deep-knowledge/product): 브랜드, 사용자 가치, 문제 정의, 제품 방향 문서의 선행 조건과 맞닿아 있다."
+      }
+    },
+    {
+      "path": "agent-wiki/content/docs/outputs/Integration/Marketing.mdx",
+      "reason": "zg hybrid discovery + rg match",
+      "verification": "matched",
+      "match": {
+        "term": "Knowledge",
+        "line": 124,
+        "excerpt": "`source/external-links/marketing/2026-05-27-hada-google-ai-search-optimization-guide.md`는 Google의 생성형 검색 가이드를 AEO/GEO 전술 목록이 아니라 공개 표면 품질 관리 기준으로 좁혀 준다. Marketing에서는 이를 새 검색 채널 확장으로 보지 않고, `응답 표면`과 `에이전트 유통` 행의 기술적 하한선으로 둔다. 직접 경험이 담긴 비범용 콘텐츠, 크롤링 가능한 HTML, 스니펫 자격, 접근성 이름, 상태와 액션"
+      }
+    },
+    {
+      "path": "agent-wiki/content/docs/outputs/Integration/Business.mdx",
+      "reason": "zg hybrid discovery + rg match",
+      "verification": "matched",
+      "match": {
+        "term": "자산",
+        "line": 248,
+        "excerpt": "| 외부 경험 유입 | 외국인 채용, 해외시장, 릴리즈 엔지니어 | 다른 시장·회사·역할의 경험이 배치, 릴리즈, 온보딩 절차로 번역될 때 조직 자산이 된다. |"
+      }
+    },
+    {
+      "path": "agent-wiki/content/docs/outputs/deep-knowledge/devops.mdx",
+      "reason": "zg hybrid discovery + rg match",
+      "verification": "matched",
+      "match": {
+        "term": "Knowledge",
+        "line": 7,
+        "excerpt": "- 원본: `source/shdkej-content/Deep Knowledge/Devops.md`"
+      }
+    }
+  ],
+  "selected_operational_logs": [
+    {
+      "path": "logs/agent-wiki-query.md",
+      "reason": "bounded operational-log preflight; not part of the Agent Wiki index",
+      "verification": "matched",
+      "matches": [
+        "21:- 검색어: `agent wiki log`, `context pack`, `knowledge_log`, `zg`.",
+        "27:- 정본: 검색·근거 계약은 Knowledge Lab `source/openclaw-system/docs/DOCUMENT_SEARCH_PIPELINE.md`가 소유합니다. Agent Wiki에는 현재성 원칙만 남깁니다.",
+        "43:- 읽은 문서: [[index|중앙 목차]], [[concepts/insights/knowledge-lab-operating-thesis|Knowledge Lab 운영 논제]], [[outputs/maintenance/source-mapping|소스 매핑]]."
+      ]
+    }
+  ],
+  "preflight": {
+    "tool": "zg",
+    "query": "Knowledge Lab 승격 피드백루프 구현 및 여행·큐레이션·AI 자산 복리사업 구조의 timebox 재계획",
+    "discovery": "hybrid+fts RRF",
+    "verification": "managed rg",
+    "result_count": 5
+  },
+  "selected_context_required": true,
+  "rules": [
+    "Read every required document before creating or executing an intent.",
+    "Read every selected_context Agent Wiki page and record those exact paths in the execution trace.",
+    "Read only the matched sections of selected_operational_logs; they are operational evidence, not compiled knowledge.",
+    "Search the declared scopes for task-specific evidence; do not treat a search hit as a confirmed fact without its source.",
+    "Record the resulting context pack path in the intent and re-check it before handoff."
+  ]
+}
