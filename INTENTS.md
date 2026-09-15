@@ -5,18 +5,6 @@
 ## Inbox
 
 ## Active
-
-- target_agent: genie
-- execution_mode: single_genie_roles
-- permission: L0-local-implementation
-- projects: infinity,knowledge-lab,agent-wiki
-- task_type: implementation
-- topics: knowledge-loop,automation,observability
-- context_pack: intents/context/kl-feedback-loop-20260915.json
-- trace: traces/kl-feedback-loop-20260915.json
-- task_plan: artifacts/kl-feedback-loop-20260915/work/task-plan.json
-- task_plan_doc: artifacts/kl-feedback-loop-20260915/work/task-plan.md
-- task_plan_template: ARTIFACT_RULES.md#대형-작업-태스크-계획
 ### [strategy-compound-business-20260915] 여행·큐레이션·AI 자산의 복리사업 구조 발굴
 - status: active
 - research_mode: decision_research
@@ -31,7 +19,11 @@
 - task_plan: artifacts/strategy-compound-business-20260915/work/task-plan.json
 - task_plan_doc: artifacts/strategy-compound-business-20260915/work/task-plan.md
 - task_plan_template: ARTIFACT_RULES.md#대형-작업-태스크-계획
-- tasks: 3/6 complete; active=T1.3; plan changes=2
+- tasks: 4/8 complete; active=T1.3b; plan changes=3
+- final_artifact: artifacts/strategy-compound-business-20260915/final/compound-business-strategy.md
+- report: reports/strategy-compound-business-20260915/20260915T2106-final.html
+- red_status: fail (Archive preconditions incomplete)
+- red_report: artifacts/strategy-compound-business-20260915/work/red-final-report.md
 - notification_channel: slack
 - notification_target: channel:C0BR41W31MM
 - notification_reply_to: 1789459195.128119
@@ -41,7 +33,7 @@
 - metric_question: 30일 안에 ‘한 번 한 일이 다음 수익의 제작비·판매비·검증비를 낮추는’ 자산 루프 하나를 관측 가능한 실험으로 만들 수 있는가?
 - metric_signal: 후보별 재사용 단위, 수익 경로, 누적 우위, 첫 실험의 입력·출력·Continue/Hold 기준이 하나의 최종 브리프에 명시됨.
 - metric_decision_rule: 기존 여행 콘텐츠 한 편 또는 관찰 카드 하나가 최소 두 개의 재사용 산출물(콘텐츠·구조화 데이터·제품 가설·유료 표면 중 2개)로 전환되지 않으면, 새 제품 개발·채널 확장을 보류하고 자산 스키마부터 수정한다.
-- next_action: 외부 사례·시장 구조와 사용자 자산을 교차 검토해 우선순위 브리프를 작성한다.
+- next_action: T1.3b에서 Archive 필수 지식 영수증·원격 가시성 근거를 검증하고 Red 재검토 조건을 닫는다.
 
 
 ## Waiting
