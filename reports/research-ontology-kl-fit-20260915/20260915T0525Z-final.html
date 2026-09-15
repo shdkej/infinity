@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko" data-infinity-report="rich-v1">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>온톨로지: Knowledge Lab 적용 판단</title>
+<style>
+:root{--bg:#f4f2ea;--panel:#fbfaf5;--ink:#2c2a25;--soft:#706d63;--line:#ded9ca;--a1:#5a6f8a;--a2:#5f7a5e;font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo",sans-serif}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);line-height:1.7}.sheet{max-width:720px;margin:auto;padding:38px 20px}.eyebrow{font:11px ui-monospace,monospace;letter-spacing:.1em;color:var(--soft)}h1{font-size:29px;line-height:1.3}.dek{font-size:16px;color:var(--soft)}.axis{border-left:3px solid;padding:2px 0 2px 18px;margin:28px 0}.ax1{border-color:var(--a1)}.ax2{border-color:var(--a2)}.label{font:11px ui-monospace,monospace;letter-spacing:.1em;color:var(--soft)}.text{font-size:18px}details{background:var(--panel);border:1px solid var(--line);border-radius:8px;margin:12px 0;padding:0 16px}summary{padding:13px 0;font-weight:700}.body{padding:0 0 18px}.callout{border-left:3px solid var(--a2);padding:12px;background:#f2efe5}li{margin:10px 0}table{width:100%;border-collapse:collapse}th,td{border-bottom:1px solid var(--line);padding:9px;text-align:left;vertical-align:top}a{color:#3f5740;overflow-wrap:anywhere}@media (max-width:640px){.sheet{padding:27px 16px}h1{font-size:25px}table,tbody,tr,th,td{display:block}th{display:none}tr{margin:10px 0;border:1px solid var(--line);padding:7px;border-radius:6px}}
+</style>
+</head>
+<body><main class="sheet">
+<div class="eyebrow">research-ontology-kl-fit-20260915 · DECISION RESEARCH · RED PASS WITH CONDITIONS</div>
+<h1>온톨로지는 지금 도입하지 말고, ‘연결 지도’만 검증하십시오</h1>
+<p class="dek">Knowledge Lab의 정본 경계를 지키면서 관계 탐색의 실제 효용을 측정하는 최소 실험을 권고합니다.</p>
+<section class="axis ax1"><div class="label">01 · 무엇을 조사했나</div><div class="text">OWL/RDF·SKOS·출처 모델과 KL의 <b>source → ingest → 공개 컴파일 → 검색</b> 흐름을 대조했습니다.</div></section>
+<section class="axis ax2"><div class="label">02 · 핵심 결과</div><div class="text"><b>full ontology/graph DB는 보류</b>하고, 공개 Wiki 문서의 명시 근거만 담는 read-only 관계 레지스트리 v0를 20 assertions·2주로 제한합니다.</div></section>
+<details open><summary>핵심 내용 · 리서치 본문</summary><div class="body">
+<h2>핵심 발견</h2><ol>
+<li><b>현재의 병목은 추론 부족으로 확인되지 않았습니다.</b> KL은 원본 보존, ingest 상태 판정, 공개 컴파일을 분리해 운영합니다. 이 경계 위에 전 레이어 entity·relation 정본을 추가하면 관계 정보와 ingest 판단의 이중 정본이 생깁니다. 따라서 먼저 용어 충돌·교차 문서 탐색 실패가 실제로 반복되는지 측정해야 합니다.</li>
+<li><b>표준의 역할도 다릅니다.</b> OWL은 클래스·개체·속성·공리 기반의 형식적 관계와 추론을 지원하지만, SKOS는 taxonomy·thesaurus·controlled vocabulary 같은 반정형 개념 체계에 맞습니다. 현재 질문에는 자동 추론보다 명시된 문서 연결의 재발견이 더 가까운 문제입니다.</li>
+<li><b>파일럿은 파생 읽기 모델이어야 합니다.</b> 공개 컴파일 문서의 안정 ID, 관계 방향, evidence anchor, source revision, 검토 상태만 기록하고 원문·ingest·검색 랭킹을 바꾸지 않습니다. 자동 추론 결과를 사실처럼 저장하거나 원문으로 write-back하는 기능은 범위 밖입니다.</li>
+</ol>
+<div class="callout"><b>권고:</b> 6개 이하의 방향 고정 predicate로 시작해, stable anchor·검토 일치율·실제 질의 효용이 기준을 통과할 때만 확대하십시오.</div>
+<h2>근거 · 소스</h2><p>OWL의 표현력, SKOS의 경량 vocabulary 용도, PROV의 출처 표현을 1차 표준으로 확인하고 KL의 문서·ingest·컴파일 경계와 대조했습니다.</p>
+<ul><li><a href="https://www.w3.org/TR/owl2-primer/">W3C OWL 2 Primer</a></li><li><a href="https://www.w3.org/TR/skos-primer/">W3C SKOS Primer</a></li><li><a href="https://www.w3.org/TR/prov-overview/">W3C PROV overview</a></li></ul>
+<h2>다음 판단</h2><p>최근 검색 실패 또는 중복 판단 5건을 ‘용어 충돌 / 경로·인덱스 문제 / 문서 품질 문제’로 분류한 뒤, 문제 비중이 충분할 때만 20개 assertion 파일럿을 시작하십시오. 파일럿 구현은 별도 intent로 다룹니다.</p>
+</div></details>
+<details open><summary>옵션 비교 · 한계 · 중단 조건</summary><div class="body"><table><tr><th>선택지</th><th>판정</th></tr><tr><td>현행 유지</td><td>무위험 기준선이나 관계 기반 탐색의 효용은 검증하지 못합니다.</td></tr><tr><td>관계 레지스트리 v0</td><td>권고안입니다. 모든 assertion에 stable anchor, source revision, reviewer, deprecated 상태를 둡니다.</td></tr><tr><td>full ontology / graph</td><td>관계·추론 표현력은 높지만, 현재 요구가 확인되기 전에는 정본 drift와 검수 비용이 큽니다.</td></tr></table><p><b>성공 조건:</b> anchor 유효율 95% 이상, 표본 독립 검토 일치율 90% 이상, 실제 질의 3개 중 2개 이상에서 탐색 단축 또는 누락 근거 발견입니다. 원문 변경, anchor 소실, private/raw 노출, 재현 불가, 외부 SaaS·권한 필요, 소유자 부재 중 하나라도 발생하면 확대하지 않고 종료·회고합니다.</p><p><b>한계:</b> 이 판단은 관계 레지스트리가 검색 품질을 개선한다는 실증이 아니라, 이를 저위험으로 검증하는 방법을 제안합니다.</p></div></details>
+<details><summary>실행 메타 · 산출물</summary><div class="body"><ul><li>최종 원문: <code>artifacts/research-ontology-kl-fit-20260915/final/ontology-kl-fit-report.md</code></li><li>Red: PASS (보완 반영), <code>artifacts/research-ontology-kl-fit-20260915/work/red-report.md</code></li><li>역할 검토: Planner·Developer·Marketer·Operator 별도 세션 완료</li><li>상태: Active → Archive 검증 진행 중</li></ul></div></details>
+</main></body></html>

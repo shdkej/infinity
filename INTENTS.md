@@ -7,8 +7,10 @@
 
 ## Active
 
+## Waiting
+
 ### [research-ontology-kl-fit-20260915] 온톨로지: Knowledge Lab 적용 가능성 검토
-- status: active
+- status: blocked
 - research_mode: decision_research
 - target_agent: genie
 - execution_mode: multi_subagent_roles
@@ -22,7 +24,7 @@
 - task_plan: artifacts/research-ontology-kl-fit-20260915/work/task-plan.json
 - task_plan_doc: artifacts/research-ontology-kl-fit-20260915/work/task-plan.md
 - task_plan_template: ARTIFACT_RULES.md#대형-작업-태스크-계획
-- tasks: 2/3 complete; active=T1.3
+- tasks: 2/3 complete; blocked=T1.3
 - notification_channel: slack
 - notification_target: channel:C0BR41W31MM
 - notification_reply_to: 1789447742.405799
@@ -33,9 +35,10 @@
 - out_of_scope: 즉시 구현·데이터 전체 마이그레이션·외부 SaaS 구매·비공개 KL 원문 외부 전송
 - comparison_axes: 검색 회수성, 출처/현재성 보존, 관계 표현력, 작성 부담, 자동화 가능성, 오류 전파 위험, 유지보수 비용
 - success_evidence: 1차 기술 표준·실제 운영 사례·KL 현재 구조를 연결한 도입/보류 판단, 최소 스키마·거버넌스·파일럿 기준, 실패 조건과 다음 결정
-- next_action: 4개 역할 검토와 공개 표준·KL 현행 구조 대조 후 권고를 작성한다.
-
-## Waiting
+- waiting_on: external
+- blocker: Context Pack v3 Archive 검증에 필요한 Knowledge Lab `agent-wiki/content/docs/log.mdx#research-ontology-kl-fit-20260915` 쿼리 영수증이 존재하지 않는다. 이번 dispatcher 실행은 명시된 Infinity 파일만 commit/push할 수 있으므로, 해당 KL 영수증의 생성·원격 반영이 선행되어야 한다.
+- exit_condition: Knowledge Lab 원격 main에 해당 log.mdx 항목과 Context Pack selected_context 5개 경로가 기록되면 T1.3 Archive 원격 검증을 재개한다.
+- next_action: HTML 리포트는 검증 완료; KL 쿼리 영수증 원격 반영 후 Archive 계약을 재검증한다.
 
 ## Archive
 
