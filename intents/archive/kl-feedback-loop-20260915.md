@@ -9,6 +9,8 @@
 - topics: knowledge-loop, automation, observability
 - knowledge_status: raw
 - knowledge_decision: retain_in_infinity
+- remote_verified: pass
+- remote_commit: f4e6a92f0e2451836557c0253aac4925d2742dac
 
 ## 보존 결과
 

@@ -57,7 +57,8 @@
 - knowledge_reflection: runtime owner와 source-tree 변경 범위가 확인되기 전에는 generated data를 수동 변경하지 않는다.
 - knowledge_commit: no-promotion-needed
 - knowledge_log: logs/agent-wiki-query.md#kl-feedback-loop-20260915
-- remote_verified: pending_push
+- remote_verified: pass
+- remote_commit: f4e6a92f0e2451836557c0253aac4925d2742dac
 - notification_channel: delivery_unknown
 - notification_target: missing-at-intake
 - notification_origin: missing-at-intake; terminal delivery suppressed
