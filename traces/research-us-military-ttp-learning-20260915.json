@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "intent_id": "research-us-military-ttp-learning-20260915",
-  "status": "inbox",
+  "status": "active",
   "trace_completeness": "complete",
   "request": {
     "raw": {
@@ -19,12 +19,40 @@
       "at": "2026-09-15T04:21:18Z",
       "context_pack": "intents/context/research-us-military-ttp-learning-20260915.json",
       "evidence_paths": []
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-e4b4726be1c043469c3e37bf60961cda",
+      "canonical_sha": "5f7fdd6b6109024af6ce9219441949c52261d891",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-15T04:35:06Z",
+      "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-15T04:35:06Z",
+      "context_pack": "intents/context/research-us-military-ttp-learning-20260915.json",
+      "evidence_paths": [
+        "artifacts/research-us-military-ttp-learning-20260915/final/us-army-ttp-learning-loop-report.md"
+      ],
+      "searches": [
+        "Army official AAR/ALLP/JLLP primary-source search"
+      ],
+      "wiki_pages": [
+        "agent-wiki/content/docs/outputs/Fundamental/Math.mdx",
+        "agent-wiki/content/docs/outputs/Integration/Marketing.mdx",
+        "agent-wiki/content/docs/outputs/Meta/Collection.mdx",
+        "agent-wiki/content/docs/outputs/Integration/Business.mdx",
+        "agent-wiki/content/docs/outputs/deep-knowledge/ai.mdx"
+      ],
+      "note": "exploratory research: public institutional sources opened; military tactics and non-public material excluded"
     }
   ],
   "artifacts": [],
   "verifications": [],
   "next_decision": {
-    "status": "in_progress",
-    "value": "공개 1차 자료로 확인된 TTP 학습 루프를 Infinity에 적용할 최소 구조와 적용 제외 경계를 결정한다."
+    "status": "completed",
+    "value": "다음 안전한 내부 intent에서 5필드 Observation 템플릿의 재사용 효과를 확인한다."
   }
 }
