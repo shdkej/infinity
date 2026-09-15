@@ -64,6 +64,23 @@ def selected_wiki_pages(context_pack: str) -> list[str] | None:
     return pages or None
 
 
+def selected_operational_logs(context_pack: str) -> list[str] | None:
+    """Return matched KL log scopes required by the current Context Pack."""
+    try:
+        payload = json.loads((ROOT / context_pack).read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return None
+    selected = payload.get("selected_operational_logs")
+    if selected is None:
+        return []  # Context Pack versions before operational-log selection.
+    if not isinstance(selected, list):
+        return None
+    return [
+        item.get("path") for item in selected
+        if isinstance(item, dict) and item.get("verification") == "matched" and isinstance(item.get("path"), str)
+    ]
+
+
 def dispatcher_missing_trace_recovery(data: dict, event: dict, events: list[object], index: int) -> bool:
     """Allow no Context Pack only for the narrow dispatcher recovery shape."""
     request = data.get("request")
@@ -162,6 +179,13 @@ def validate(trace: Path) -> list[str]:
                 wiki_pages = event.get("wiki_pages")
                 if not isinstance(wiki_pages, list) or not all(page in wiki_pages for page in selected):
                     error(errors, trace, f"events[{index}].wiki_pages must include every Context Pack selected_context path")
+            operational_logs = selected_operational_logs(event.get("context_pack", ""))
+            if operational_logs is None:
+                error(errors, trace, f"events[{index}].context_pack selected_operational_logs is invalid")
+            elif operational_logs:
+                used_logs = event.get("operational_log_sections")
+                if not isinstance(used_logs, list) or not all(path in used_logs for path in operational_logs):
+                    error(errors, trace, f"events[{index}].operational_log_sections must include every matched Context Pack log path")
         if event.get("type") == "archive":
             if not local_path_ok(event.get("report_path")):
                 error(errors, trace, f"events[{index}].report_path must name an existing final report")

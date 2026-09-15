@@ -74,7 +74,19 @@ def context_log_errors(intent_id: str, text: str) -> list[str]:
     entry = log_text[heading.start(): heading.end() + (end.start() if end else len(log_text[heading.end():]))]
     pages = [item.get("path") for item in pack.get("selected_context", []) if isinstance(item, dict)]
     missing = [page for page in pages if isinstance(page, str) and page not in entry]
-    return [f"Knowledge Lab query log entry omits selected_context path(s): {', '.join(missing)}"] if missing else []
+    errors = [f"Knowledge Lab query log entry omits selected_context path(s): {', '.join(missing)}"] if missing else []
+    log_paths = [
+        item.get("path")
+        for item in pack.get("selected_operational_logs", [])
+        if isinstance(item, dict) and item.get("verification") == "matched"
+    ]
+    missing_logs = [path for path in log_paths if isinstance(path, str) and path not in entry]
+    if missing_logs:
+        errors.append(
+            "Knowledge Lab query log entry omits selected_operational_logs path(s): "
+            + ", ".join(missing_logs)
+        )
+    return errors
 
 
 def check(intent_id: str) -> list[str]:
