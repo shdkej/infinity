@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "intent_id": "research-us-military-ttp-learning-20260915",
-  "status": "active",
+  "status": "archived",
   "trace_completeness": "complete",
   "request": {
     "raw": {
@@ -47,10 +47,37 @@
         "agent-wiki/content/docs/outputs/deep-knowledge/ai.mdx"
       ],
       "note": "exploratory research: public institutional sources opened; military tactics and non-public material excluded"
+    },
+    {
+      "type": "archive",
+      "at": "2026-09-15T04:35:06Z",
+      "report_path": "artifacts/research-us-military-ttp-learning-20260915/final/us-army-ttp-learning-loop-report.md",
+      "evidence_paths": [
+        "artifacts/research-us-military-ttp-learning-20260915/final/us-army-ttp-learning-loop-report.md",
+        "artifacts/research-us-military-ttp-learning-20260915/final/us-army-ttp-learning-loop-report.md",
+        "artifacts/research-us-military-ttp-learning-20260915/work/remote-proof.md"
+      ],
+      "research_mode": "exploratory_research",
+      "verification": {
+        "red_status": "not_required",
+        "remote_verified": "pass",
+        "remote_proof_path": "artifacts/research-us-military-ttp-learning-20260915/work/remote-proof.md"
+      }
     }
   ],
-  "artifacts": [],
-  "verifications": [],
+  "artifacts": [
+    {
+      "label": "final",
+      "path": "artifacts/research-us-military-ttp-learning-20260915/final/us-army-ttp-learning-loop-report.md"
+    }
+  ],
+  "verifications": [
+    {
+      "label": "Remote verification evidence",
+      "path": "artifacts/research-us-military-ttp-learning-20260915/work/remote-proof.md",
+      "status": "pass"
+    }
+  ],
   "next_decision": {
     "status": "completed",
     "value": "다음 안전한 내부 intent에서 5필드 Observation 템플릿의 재사용 효과를 확인한다."
