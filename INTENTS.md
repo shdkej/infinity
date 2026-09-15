@@ -38,34 +38,31 @@
 
 ## Waiting
 
+## Archive
+
+<!-- kl-feedback-loop-20260915 archived 2026-09-15T22:26:52Z → intents/archive/kl-feedback-loop-20260915.md [projects: infinity,knowledge-lab,agent-wiki; type: implementation; topics: knowledge-loop,automation,observability] (사용자 선택으로 Waiting 종료·미완료 구현 범위 보존) -->
+
 ### [kl-feedback-loop-20260915] Knowledge Lab 승격 피드백루프 구현
-- status: waiting
-- waiting_on: user
-- blocker: daily promotion runtime owner/payload가 read-only discovery에서 확인되지 않았고, receipt generator 변경은 현재 Infinity-only commit scope 밖이다.
-- exit_condition: runtime owner/payload를 확인하고 Knowledge Lab source-tree 변경·검증·원격 반영 범위를 허용한다.
-- target_agent: genie
-- execution_mode: single_genie_roles
-- permission: L0-local-implementation
-- projects: infinity,knowledge-lab,agent-wiki
-- task_type: implementation
-- topics: knowledge-loop,automation,observability
+- status: archived
+- detail: intents/archive/kl-feedback-loop-20260915.md
 - context_pack: intents/context/kl-feedback-loop-20260915.json
 - trace: traces/kl-feedback-loop-20260915.json
-- task_plan: artifacts/kl-feedback-loop-20260915/work/task-plan.json
-- task_plan_doc: artifacts/kl-feedback-loop-20260915/work/task-plan.md
-- task_plan_template: ARTIFACT_RULES.md#대형-작업-태스크-계획
-- tasks: 1/4 complete; active=none; plan changes=1
+- artifact: artifacts/kl-feedback-loop-20260915/work/loop-boundary-map.md
+- task_plan: artifacts/kl-feedback-loop-20260915/work/task-plan.md
+- report: not_created (사용자 요청으로 구현 전 종료)
+- red_status: not_applicable_user_closed
+- knowledge_status: raw
+- knowledge_decision: retain_in_infinity
+- knowledge_targets: artifacts/kl-feedback-loop-20260915/work/loop-boundary-map.md; artifacts/kl-feedback-loop-20260915/work/task-plan.md
+- knowledge_reflection: runtime owner와 source-tree 변경 범위가 확인되기 전에는 generated data를 수동 변경하지 않는다.
+- knowledge_commit: no-promotion-needed
+- knowledge_log: logs/agent-wiki-query.md#kl-feedback-loop-20260915
+- remote_verified: pending_push
 - notification_channel: delivery_unknown
 - notification_target: missing-at-intake
-- notification_origin: missing-at-intake; terminal delivery must remain suppressed
-- goal: Agent Wiki 승격 항목이 후속 Intent에서 실제 사용되고 효과가 있었는지 기록·재평가하여, 다음 승격 판단에 반영한다.
-- constraints: 기존 데일리 KL promotion 크론만 확장하며 새 스케줄러는 만들지 않음; 공개·권한·시크릿 변경 없음; 현재 무관한 worktree 변경은 건드리지 않음.
-- metric_question: 승격 1건마다 재사용·효과·재평가 상태를 원격 원장으로 추적할 수 있는가?
-- metric_signal: promotion receipt, 후속 Intent 사용 기록, 7~30일 재평가 결과가 기계 판독 가능한 원장과 데일리 크론 실행에 연결됨.
-- metric_decision_rule: 재사용 또는 효과 근거가 없는 승격은 유지 확정이 아니라 보류로 남기고, 중복이 확인된 경우에만 병합·폐기 후보로 기록한다.
-- next_action: runtime promotion payload/owner를 확인하고 Knowledge Lab source 변경 범위를 확정한다.
-
-## Archive
+- notification_origin: missing-at-intake; terminal delivery suppressed
+- closure: 사용자 선택으로 Waiting 종료·보관
+- archived_at: 2026-09-15T22:26:52Z
 
 <!-- research-ontology-kl-fit-20260915 archived 2026-09-15T05:38Z → intents/archive/research-ontology-kl-fit-20260915.md [projects: knowledge-lab,agent-wiki,infinity; type: research; topics: wiki,automation,ai-agents] (정식 온톨로지는 보류하고 공개 컴파일 문서용 관계 레지스트리 v0의 파일럿 기준을 확정) -->
 
