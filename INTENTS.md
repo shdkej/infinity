@@ -4,8 +4,10 @@
 
 ## Inbox
 
+## Active
+
 ### [strategy-compound-business-20260915] 여행·큐레이션·AI 자산의 복리사업 구조 발굴
-- status: inbox
+- status: active
 - research_mode: decision_research
 - target_agent: genie
 - execution_mode: multi_subagent_roles
@@ -15,6 +17,10 @@
 - topics: product,content,automation
 - context_pack: intents/context/strategy-compound-business-20260915.json
 - trace: traces/strategy-compound-business-20260915.json
+- task_plan: artifacts/strategy-compound-business-20260915/work/task-plan.json
+- task_plan_doc: artifacts/strategy-compound-business-20260915/work/task-plan.md
+- task_plan_template: ARTIFACT_RULES.md#대형-작업-태스크-계획
+- tasks: 0/3 complete; active=T1.1
 - notification_channel: slack
 - notification_target: channel:C0BR41W31MM
 - notification_reply_to: 1789459195.128119
@@ -26,8 +32,6 @@
 - metric_decision_rule: 기존 여행 콘텐츠 한 편 또는 관찰 카드 하나가 최소 두 개의 재사용 산출물(콘텐츠·구조화 데이터·제품 가설·유료 표면 중 2개)로 전환되지 않으면, 새 제품 개발·채널 확장을 보류하고 자산 스키마부터 수정한다.
 - next_action: 외부 사례·시장 구조와 사용자 자산을 교차 검토해 우선순위 브리프를 작성한다.
 
-
-## Active
 
 ## Waiting
 

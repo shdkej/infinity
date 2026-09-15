@@ -21,6 +21,15 @@
       "evidence_paths": [
         "INTENTS.md"
       ]
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-e20acba625f04a45b9db567c932c6149",
+      "canonical_sha": "b5876aa1c0eb3b3f6a9f35dfb5c227504a18afac",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-15T08:05:59Z",
+      "status": "accepted"
     }
   ],
   "artifacts": [],
