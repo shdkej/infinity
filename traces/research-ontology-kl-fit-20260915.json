@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "intent_id": "research-ontology-kl-fit-20260915",
-  "status": "active",
+  "status": "archived",
   "trace_completeness": "complete",
   "request": {
     "raw": {
@@ -56,24 +56,58 @@
       "session_key": "agent:genie:infinity-dispatcher",
       "timestamp": "2026-09-15T05:26:26Z",
       "status": "accepted"
+    },
+    {
+      "type": "archive",
+      "at": "2026-09-15T05:42:00Z",
+      "report_path": "reports/research-ontology-kl-fit-20260915/20260915T0525Z-final.html",
+      "evidence_paths": [
+        "artifacts/research-ontology-kl-fit-20260915/final/ontology-kl-fit-report.md",
+        "reports/research-ontology-kl-fit-20260915/20260915T0525Z-final.html",
+        "artifacts/research-ontology-kl-fit-20260915/work/archive-remote-proof.md",
+        "artifacts/research-ontology-kl-fit-20260915/work/red-report.md"
+      ],
+      "research_mode": "decision_research",
+      "verification": {
+        "red_status": "pass",
+        "remote_verified": "pass",
+        "remote_proof_path": "artifacts/research-ontology-kl-fit-20260915/work/archive-remote-proof.md",
+        "red_report_path": "artifacts/research-ontology-kl-fit-20260915/work/red-report.md"
+      }
     }
   ],
   "artifacts": [
     {
+      "label": "Final HTML summary",
       "path": "reports/research-ontology-kl-fit-20260915/20260915T0525Z-final.html",
       "role": "final_html_summary",
       "status": "validated"
+    },
+    {
+      "label": "Final Markdown report",
+      "path": "artifacts/research-ontology-kl-fit-20260915/final/ontology-kl-fit-report.md"
     }
   ],
   "verifications": [
     {
+      "label": "Research report validation",
       "type": "research_report",
       "status": "pass",
       "command": "python3 scripts/validate_research_report.py reports/research-ontology-kl-fit-20260915/20260915T0525Z-final.html"
+    },
+    {
+      "label": "Red verification evidence",
+      "path": "artifacts/research-ontology-kl-fit-20260915/work/red-report.md",
+      "status": "pass"
+    },
+    {
+      "label": "Remote verification evidence",
+      "path": "artifacts/research-ontology-kl-fit-20260915/work/archive-remote-proof.md",
+      "status": "pass"
     }
   ],
   "next_decision": {
-    "status": "blocked",
-    "value": "HTML 요약은 검증 완료. Context Pack v3 쿼리 영수증이 Knowledge Lab agent-wiki/content/docs/log.mdx에 원격 반영된 뒤 Archive 원격 검증을 재개한다."
+    "status": "archived",
+    "value": "정식 온톨로지 도입은 보류한다. 구현 승인이 있을 때만 관계 레지스트리 v0 파일럿을 별도 Intent로 시작한다."
   }
 }
