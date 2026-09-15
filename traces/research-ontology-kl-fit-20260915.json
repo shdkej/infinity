@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "intent_id": "research-ontology-kl-fit-20260915",
-  "status": "inbox",
+  "status": "active",
   "trace_completeness": "complete",
   "request": {
     "raw": {
@@ -28,12 +28,31 @@
       "session_key": "agent:genie:infinity-dispatcher",
       "timestamp": "2026-09-15T04:55:06Z",
       "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-15T04:55:06Z",
+      "context_pack": "intents/context/research-ontology-kl-fit-20260915.json",
+      "evidence_paths": [
+        "artifacts/research-ontology-kl-fit-20260915/final/ontology-kl-fit-report.md"
+      ],
+      "searches": [
+        "W3C OWL/SKOS/PROV and local KL boundary research"
+      ],
+      "wiki_pages": [
+        "agent-wiki/content/docs/outputs/Communication/Document.mdx",
+        "agent-wiki/content/docs/outputs/Meta/Collection.mdx",
+        "agent-wiki/content/docs/outputs/Integration/Marketing.mdx",
+        "agent-wiki/content/docs/outputs/Communication/Logical_Thinking.mdx",
+        "agent-wiki/content/docs/outputs/Integration/Business.mdx"
+      ],
+      "note": "Planner/Developer/Marketer/Operator and Red review completed; archive leaf remains active"
     }
   ],
   "artifacts": [],
   "verifications": [],
   "next_decision": {
     "status": "in_progress",
-    "value": "KL에 정식 온톨로지, 가벼운 관계 레지스트리, 또는 현행 유지 중 무엇을 채택할지와 최소 파일럿 조건을 결정한다."
+    "value": "T1.3 HTML 요약 및 Archive 원격 검증을 완료한다."
   }
 }
