@@ -4,8 +4,11 @@
 
 ## Inbox
 
+
+## Active
+
 ### [research-ontology-kl-fit-20260915] 온톨로지: Knowledge Lab 적용 가능성 검토
-- status: inbox
+- status: active
 - research_mode: decision_research
 - target_agent: genie
 - execution_mode: multi_subagent_roles
@@ -26,10 +29,7 @@
 - out_of_scope: 즉시 구현·데이터 전체 마이그레이션·외부 SaaS 구매·비공개 KL 원문 외부 전송
 - comparison_axes: 검색 회수성, 출처/현재성 보존, 관계 표현력, 작성 부담, 자동화 가능성, 오류 전파 위험, 유지보수 비용
 - success_evidence: 1차 기술 표준·실제 운영 사례·KL 현재 구조를 연결한 도입/보류 판단, 최소 스키마·거버넌스·파일럿 기준, 실패 조건과 다음 결정
-- next_action: Genie가 공개 표준·실제 사례·KL 구조를 대조해 full ontology, lightweight relation registry, 현행 유지의 세 선택지를 비교하고 최종 권고를 작성한다.
-
-
-## Active
+- next_action: 4개 역할 검토와 공개 표준·KL 현행 구조 대조 후 권고를 작성한다.
 
 ## Waiting
 

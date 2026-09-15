@@ -19,6 +19,15 @@
       "at": "2026-09-15T04:51:13Z",
       "context_pack": "intents/context/research-ontology-kl-fit-20260915.json",
       "evidence_paths": []
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-082b2c32aba44c659d86a471d7a72234",
+      "canonical_sha": "5a3d210715d9201fe8c8d34cde8e3791157d0b0e",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-15T04:55:06Z",
+      "status": "accepted"
     }
   ],
   "artifacts": [],
