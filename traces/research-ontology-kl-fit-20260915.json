@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "intent_id": "research-ontology-kl-fit-20260915",
+  "status": "inbox",
+  "trace_completeness": "complete",
+  "request": {
+    "raw": {
+      "status": "recorded",
+      "value": "인피니티로 온톨로지에 대해 조사해주고 KL에 접목 가능할지 검토해줘"
+    },
+    "normalized_query": {
+      "status": "recorded",
+      "value": "온톨로지의 실제 구성 요소와 운영 비용을 조사하고 Knowledge Lab의 원본·ingest·Agent Wiki 컴파일·promotion index·검색 경로에 적용 가능한지 검토한다. 최소 도입안, 기대 효과, 실패 조건과 도입하지 않을 경우를 비교한다."
+    }
+  },
+  "events": [
+    {
+      "type": "intake",
+      "at": "2026-09-15T04:51:13Z",
+      "context_pack": "intents/context/research-ontology-kl-fit-20260915.json",
+      "evidence_paths": []
+    }
+  ],
+  "artifacts": [],
+  "verifications": [],
+  "next_decision": {
+    "status": "in_progress",
+    "value": "KL에 정식 온톨로지, 가벼운 관계 레지스트리, 또는 현행 유지 중 무엇을 채택할지와 최소 파일럿 조건을 결정한다."
+  }
+}
