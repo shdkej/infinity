@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "intent_id": "research-us-military-ttp-learning-20260915",
+  "status": "inbox",
+  "trace_completeness": "complete",
+  "request": {
+    "raw": {
+      "status": "recorded",
+      "value": "미군의 TTP(학습이 조직자산으로 변환)가 실제로 돌아가는 매커니즘을 인피니티로 조사해줘"
+    },
+    "normalized_query": {
+      "status": "recorded",
+      "value": "미군 TTP가 개인·현장 학습을 조직 자산으로 변환하는 실제 메커니즘: AAR·lessons learned·교리·훈련·개정·전파의 공개 근거 기반 흐름과 Infinity 적용 경계"
+    }
+  },
+  "events": [
+    {
+      "type": "intake",
+      "at": "2026-09-15T04:21:18Z",
+      "context_pack": "intents/context/research-us-military-ttp-learning-20260915.json",
+      "evidence_paths": []
+    }
+  ],
+  "artifacts": [],
+  "verifications": [],
+  "next_decision": {
+    "status": "in_progress",
+    "value": "공개 1차 자료로 확인된 TTP 학습 루프를 Infinity에 적용할 최소 구조와 적용 제외 경계를 결정한다."
+  }
+}

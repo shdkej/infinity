@@ -4,6 +4,30 @@
 
 ## Inbox
 
+### [research-us-military-ttp-learning-20260915] 미군 TTP: 현장 학습이 조직 자산으로 변환되는 실제 메커니즘
+- status: inbox
+- research_mode: exploratory_research
+- target_agent: genie
+- execution_mode: single_genie_roles
+- permission: L0-research-and-draft-only
+- projects: infinity,research-bank
+- task_type: research
+- topics: workflow,automation
+- detail: intents/inbox/research-us-military-ttp-learning-20260915.md
+- context_pack: intents/context/research-us-military-ttp-learning-20260915.json
+- trace: traces/research-us-military-ttp-learning-20260915.json
+- notification_channel: slack
+- notification_target: channel:C0BR41W31MM
+- notification_reply_to: 1789445926.950759
+- decision_question: 미군 TTP 학습 전파·검증·교리화의 실제 흐름은 무엇이며, Infinity와 개인 운영에 안전하게 전용할 최소 구조는 무엇인가?
+- decision_owner: 마스터
+- decision_deadline: none
+- in_scope: 공개 1차 자료 기준 AAR, lessons learned, CALL, doctrine·ATP·TC·FM, 훈련 피드백, 개정·전파 주기, 실제 사례, 민간 전용 한계
+- out_of_scope: 비공개 전술 내용, 군사 작전 지원, 전술 전수, 비공개 정보 추정
+- comparison_axes: 현장 포착, 검증, 표준화, 전파, 훈련 반영, 갱신 루프
+- success_evidence: 기관 1차 자료와 공개 사례를 연결한 메커니즘 맵, 단계별 책임·산출물·피드백 경로, 적용/비적용 경계
+- next_action: Genie가 공개 1차 자료를 수집해 현장 학습→검증→교리·훈련 반영→재개정 흐름을 분리한 최종 Markdown 리포트를 작성한다.
+
 ## Active
 
 ## Waiting
