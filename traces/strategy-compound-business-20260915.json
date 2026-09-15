@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "intent_id": "strategy-compound-business-20260915",
+  "status": "inbox",
+  "trace_completeness": "complete",
+  "request": {
+    "raw": {
+      "status": "recorded",
+      "value": "내가 현재 하고 있는 일과 사업을 기준으로, 이미지의 복리사업 개념을 적용할 방법을 찾아줘. 단순히 지금 사업을 개선하는 데 그치지 말고, 기술·경험·콘텐츠·고객·데이터·작업물에서 새로 파생될 사업을 발굴해줘. 한 번 한 일이 다음 수익을 쉽게 만드는 구조 중심으로, 축적물→수익화→반복 우위→당장 할 일 순서로 설명해줘."
+    },
+    "normalized_query": {
+      "status": "recorded",
+      "value": "여행 기록·영상 자동화·큐레이션 취향·AI 제품 역량을 재사용 가능한 데이터·콘텐츠·도구·라이선스로 전환하는 복리사업 후보와 첫 검증을 설계한다."
+    }
+  },
+  "events": [
+    {
+      "type": "intake",
+      "at": "2026-09-15T08:03:13Z",
+      "context_pack": "intents/context/strategy-compound-business-20260915.json",
+      "evidence_paths": [
+        "INTENTS.md"
+      ]
+    }
+  ],
+  "artifacts": [],
+  "verifications": [],
+  "next_decision": {
+    "status": "in_progress",
+    "value": "후보별 축적 자산과 수익 구조를 비교하여 30일 첫 실험 하나를 추천한다."
+  }
+}
