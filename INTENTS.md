@@ -4,6 +4,24 @@
 
 ## Inbox
 
+### [kl-feedback-loop-20260915] Knowledge Lab 승격 피드백루프 구현
+- status: inbox
+- target_agent: genie
+- execution_mode: single_genie_roles
+- permission: L0-local-implementation
+- projects: infinity,knowledge-lab,agent-wiki
+- task_type: implementation
+- topics: knowledge-loop,automation,observability
+- context_pack: intents/context/kl-feedback-loop-20260915.json
+- trace: traces/kl-feedback-loop-20260915.json
+- task_plan: artifacts/kl-feedback-loop-20260915/work/task-plan.md
+- goal: Agent Wiki 승격 항목이 후속 Intent에서 실제 사용되고 효과가 있었는지 기록·재평가하여, 다음 승격 판단에 반영한다.
+- constraints: 기존 데일리 KL promotion 크론만 확장하며 새 스케줄러는 만들지 않음; 공개·권한·시크릿 변경 없음; 현재 무관한 worktree 변경은 건드리지 않음.
+- metric_question: 승격 1건마다 재사용·효과·재평가 상태를 원격 원장으로 추적할 수 있는가?
+- metric_signal: promotion receipt, 후속 Intent 사용 기록, 7~30일 재평가 결과가 기계 판독 가능한 원장과 데일리 크론 실행에 연결됨.
+- metric_decision_rule: 재사용 또는 효과 근거가 없는 승격은 유지 확정이 아니라 보류로 남기고, 중복이 확인된 경우에만 병합·폐기 후보로 기록한다.
+- next_action: 기존 Knowledge Loop 읽기 모델과 데일리 promotion 크론을 최소 확장하고 테스트한다.
+
 ## Active
 
 ### [strategy-compound-business-20260915] 여행·큐레이션·AI 자산의 복리사업 구조 발굴

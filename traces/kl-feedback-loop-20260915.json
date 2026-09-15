@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "intent_id": "kl-feedback-loop-20260915",
+  "status": "inbox",
+  "trace_completeness": "complete",
+  "request": {
+    "raw": {
+      "status": "recorded",
+      "value": "응 추가해보자"
+    },
+    "normalized_query": {
+      "status": "recorded",
+      "value": "Knowledge Lab 승격 피드백루프를 추가한다"
+    }
+  },
+  "events": [
+    {
+      "type": "intake",
+      "at": "2026-09-15T09:26:30Z",
+      "context_pack": "intents/context/kl-feedback-loop-20260915.json",
+      "evidence_paths": [
+        "README.md",
+        "EXECUTION_LEARNING_CONTRACT.md"
+      ]
+    }
+  ],
+  "artifacts": [],
+  "verifications": [],
+  "next_decision": {
+    "status": "in_progress",
+    "value": "기존 데일리 KL promotion 크론과 결정적 원장을 확장한다"
+  }
+}
