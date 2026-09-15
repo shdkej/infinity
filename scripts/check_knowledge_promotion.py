@@ -15,7 +15,7 @@ KNOWLEDGE_LAB = ROOT.parent
 ARCHIVE = KNOWLEDGE_LAB / "source" / "infinity" / "archive"
 INFINITY_ARCHIVE = ROOT / "intents" / "archive"
 INGEST_INDEX = KNOWLEDGE_LAB / "ingest" / "INDEX.md"
-WIKI_LOG = KNOWLEDGE_LAB / "agent-wiki" / "content" / "docs" / "log.mdx"
+KNOWLEDGE_LOG = KNOWLEDGE_LAB / "logs" / "agent-wiki-query.md"
 
 
 def field(text: str, name: str) -> str | None:
@@ -61,19 +61,32 @@ def context_log_errors(intent_id: str, text: str) -> list[str]:
     if not pack.get("selected_context_required"):
         return []
     receipt = field(text, "knowledge_log")
-    expected = f"agent-wiki/content/docs/log.mdx#{intent_id}"
+    expected = f"logs/agent-wiki-query.md#{intent_id}"
     if receipt != expected:
         return [f"Context Pack v2 requires knowledge_log: {expected}"]
-    if not WIKI_LOG.is_file():
-        return [f"Knowledge Lab query log is missing: {WIKI_LOG}"]
-    heading = re.search(rf"(?m)^## [^\n]*\[{re.escape(intent_id)}\][^\n]*$", WIKI_LOG.read_text(encoding="utf-8"))
+    if not KNOWLEDGE_LOG.is_file():
+        return [f"Knowledge Lab query log is missing: {KNOWLEDGE_LOG}"]
+    log_text = KNOWLEDGE_LOG.read_text(encoding="utf-8")
+    heading = re.search(rf"(?m)^## [^\n]*\[{re.escape(intent_id)}\][^\n]*$", log_text)
     if not heading:
         return [f"Knowledge Lab query log has no heading tagged [{intent_id}]"]
-    end = re.search(r"(?m)^## ", WIKI_LOG.read_text(encoding="utf-8")[heading.end():])
-    entry = WIKI_LOG.read_text(encoding="utf-8")[heading.start(): heading.end() + (end.start() if end else len(WIKI_LOG.read_text(encoding="utf-8")[heading.end():]))]
+    end = re.search(r"(?m)^## ", log_text[heading.end():])
+    entry = log_text[heading.start(): heading.end() + (end.start() if end else len(log_text[heading.end():]))]
     pages = [item.get("path") for item in pack.get("selected_context", []) if isinstance(item, dict)]
     missing = [page for page in pages if isinstance(page, str) and page not in entry]
-    return [f"Knowledge Lab query log entry omits selected_context path(s): {', '.join(missing)}"] if missing else []
+    errors = [f"Knowledge Lab query log entry omits selected_context path(s): {', '.join(missing)}"] if missing else []
+    log_paths = [
+        item.get("path")
+        for item in pack.get("selected_operational_logs", [])
+        if isinstance(item, dict) and item.get("verification") == "matched"
+    ]
+    missing_logs = [path for path in log_paths if isinstance(path, str) and path not in entry]
+    if missing_logs:
+        errors.append(
+            "Knowledge Lab query log entry omits selected_operational_logs path(s): "
+            + ", ".join(missing_logs)
+        )
+    return errors
 
 
 def check(intent_id: str) -> list[str]:

@@ -33,7 +33,10 @@ intakes. Every execution event has a Context Pack, one or more actual search
 terms, and one or more evidence paths. Context Pack v2+ execution records also
 list every `selected_context` path under `wiki_pages`; this rejects treating a
 directory declaration or README as proof that task-specific Wiki pages were
-read. An archive event has the final
+read. When a current Context Pack has matched `selected_operational_logs`, the
+execution event must list every used log path under `operational_log_sections`.
+This keeps KL operational history outside the Wiki index while making its use
+auditable. An archive event has the final
 `report_path`, Red pass, and remote verification pass; an archived trace has
 exactly one archive event. Active traces must not pretend they are archived.
 
@@ -49,6 +52,7 @@ python3 scripts/record_intent_trace.py intake --intent-id example-01 \
 python3 scripts/record_intent_trace.py execution --intent-id example-01 \
   --context-pack intents/context/example-01.json --evidence reports/example/run.html \
   --search 'declared knowledge query' --wiki-page agent-wiki/content/docs/insights/example.mdx \
+  --operational-log logs/agent-wiki-query.md \
   --next-decision 'Request Red review'
 python3 scripts/record_intent_trace.py archive --intent-id example-01 \
   --report-path reports/example/final.html --artifact 'final report=reports/example/final.html' \
