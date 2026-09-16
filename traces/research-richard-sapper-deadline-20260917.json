@@ -773,12 +773,34 @@
       "session_key": "agent:genie:infinity-dispatcher",
       "timestamp": "2026-09-16T23:35:37Z",
       "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-16T23:38:47Z",
+      "context_pack": "intents/context/research-richard-sapper-deadline-20260917.json",
+      "evidence_paths": [
+        "artifacts/research-richard-sapper-deadline-20260917/work/701c-patent-collection-boundaries.md"
+      ],
+      "searches": [
+        "IBM ThinkPad 701C Butterfly; US5659307A movable keyboard sections; D372472 fractionated keyboard inventors"
+      ],
+      "wiki_pages": [
+        "agent-wiki/content/docs/outputs/Communication/Open_Source.mdx",
+        "agent-wiki/content/docs/outputs/Idea/Movie.mdx",
+        "agent-wiki/content/docs/outputs/Portfolio.mdx",
+        "agent-wiki/content/docs/outputs/Integration/Marketing.mdx",
+        "agent-wiki/content/docs/outputs/Fundamental/Math.mdx"
+      ],
+      "operational_log_sections": [
+        "logs/agent-wiki-query.md"
+      ],
+      "note": "T6.4 completed: separated 701C collection attribution, IBM product history, functional-patent inventors, and design-patent inventors."
     }
   ],
   "artifacts": [],
   "verifications": [],
   "next_decision": {
     "status": "exploratory",
-    "value": "Activate T6.4: separate ThinkPad 701C collection/exhibition records from patent authorship evidence."
+    "value": "Activate T6.5: separate Alessi award records from contracts and production evidence."
   }
 }
