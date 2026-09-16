@@ -38,10 +38,14 @@
         "Richard Sapper works collaborators companies technology era influence criticism connected designers"
       ],
       "wiki_pages": [
-        "agent-wiki/content/docs/outputs/Meta/MinimalCollection.mdx"
+        "agent-wiki/content/docs/outputs/Communication/Open_Source.mdx",
+        "agent-wiki/content/docs/outputs/Idea/Movie.mdx",
+        "agent-wiki/content/docs/outputs/Portfolio.mdx",
+        "agent-wiki/content/docs/outputs/Integration/Marketing.mdx",
+        "agent-wiki/content/docs/outputs/Fundamental/Math.mdx"
       ],
       "operational_log_sections": [
-        "logs/agent-wiki-query.md#2026-09-13-19:30-utc-infinity-final-research-boundary-promotion"
+        "logs/agent-wiki-query.md"
       ],
       "note": "사용자 범위 정정: 교차검증은 바닥선으로 유지하되, 결과의 중심을 꼬리질문 기반 다방면 확장 조사로 전환했다."
     }
