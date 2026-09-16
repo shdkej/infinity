@@ -85,9 +85,14 @@
     {
       "id": "T5.3", "title": "Brionvega 라디오의 소장 표본과 현대 유통 서사를 분리해 점검한다", "status": "done", "started_at": "2026-09-16T21:20:35Z", "completed_at": "2026-09-16T21:24:00Z", "actual_minutes": 3, "depends_on": ["T3.3"], "evidence": "artifacts/research-richard-sapper-deadline-20260917/work/brionvega-record-market-variants.md", "max_minutes": 20, "cycle_id": "T5", "cycle_goal": "공동 설계 라디오의 기관 소장 기록과 현대 브랜드/판매 서사를 같은 시장 증거로 취급하지 않는다.", "validation": "소장 사실이 판매량·현행 유통을 증명하지 않음을 지키는가.", "closure_check": "수치 자료와 버전 계보의 공백을 남긴다."},
     {
-      "id": "T5.4", "title": "701C Butterfly Keyboard의 기계 메커니즘과 팀 기여를 재검증한다", "status": "pending", "depends_on": ["T4.2"], "evidence": "artifacts/research-richard-sapper-deadline-20260917/work/701c-mechanism-team-ledger.md", "max_minutes": 20, "cycle_id": "T5", "cycle_goal": "사퍼의 제품 언어, Karidis의 메커니즘, IBM 공학의 기술 기여를 다시 분리한다.", "validation": "특허·소장·언론 기록을 단일 저자 증명으로 사용하지 않는가.", "closure_check": "직접 설계 도면 또는 특허 저자 확인의 공백을 남긴다."},
+      "id": "T5.4", "title": "701C Butterfly Keyboard의 기계 메커니즘과 팀 기여를 재검증한다", "status": "active", "started_at": "2026-09-16T21:25:35Z", "depends_on": ["T4.2"], "evidence": "artifacts/research-richard-sapper-deadline-20260917/work/701c-mechanism-team-ledger.md", "max_minutes": 20, "cycle_id": "T5", "cycle_goal": "사퍼의 제품 언어, Karidis의 메커니즘, IBM 공학의 기술 기여를 다시 분리한다.", "validation": "특허·소장·언론 기록을 단일 저자 증명으로 사용하지 않는가.", "closure_check": "직접 설계 도면 또는 특허 저자 확인의 공백을 남긴다."},
     {
-      "id": "T5.5", "title": "Alessi 협업 모델의 제도 기록과 제조사 서사를 대조한다", "status": "pending", "depends_on": ["T4.3"], "evidence": "artifacts/research-richard-sapper-deadline-20260917/work/alessi-collaboration-institutions.md", "max_minutes": 20, "cycle_id": "T5", "cycle_goal": "외부 디자이너·제조사·수상/박물관 제도의 역할을 제품 홍보 문구와 구분한다.", "validation": "기업의 협업 서사를 독립 제도적 사실로 과장하지 않는가.", "closure_check": "계약·생산 조건 비공개의 한계를 남긴다."}
+      "id": "T5.5", "title": "Alessi 협업 모델의 제도 기록과 제조사 서사를 대조한다", "status": "pending", "depends_on": ["T4.3"], "evidence": "artifacts/research-richard-sapper-deadline-20260917/work/alessi-collaboration-institutions.md", "max_minutes": 20, "cycle_id": "T5", "cycle_goal": "외부 디자이너·제조사·수상/박물관 제도의 역할을 제품 홍보 문구와 구분한다.", "validation": "기업의 협업 서사를 독립 제도적 사실로 과장하지 않는가.", "closure_check": "계약·생산 조건 비공개의 한계를 남긴다."},
+    {"id":"T6.1","title":"Tizio 원형의 기관 날짜 차이를 설계·생산·소장 층위로 점검한다","status":"pending","depends_on":["T5.2"],"evidence":"artifacts/research-richard-sapper-deadline-20260917/work/tizio-date-layers.md","max_minutes":20,"cycle_id":"T6","cycle_goal":"기관 메타데이터의 날짜 차이를 출처별로 보존한다.","validation":"1971/1972를 하나의 확정 연도로 덮지 않는가.","closure_check":"제조 발매 문서 부재를 남긴다."},
+    {"id":"T6.2","title":"TS 502의 힌지 인터랙션을 소장품 기록과 분리해 점검한다","status":"pending","depends_on":["T5.3"],"evidence":"artifacts/research-richard-sapper-deadline-20260917/work/ts502-interaction-mechanism.md","max_minutes":20,"cycle_id":"T6","cycle_goal":"라디오의 열림/닫힘 인터랙션을 물성·사용 추정과 구분한다.","validation":"힌지 설명을 안전성·내구성 주장으로 확장하지 않는가.","closure_check":"시험·서비스 기록 공백을 남긴다."},
+    {"id":"T6.3","title":"9090의 현행 부품·세척 기록을 판매 정보와 분리한다","status":"pending","depends_on":["T4.3"],"evidence":"artifacts/research-richard-sapper-deadline-20260917/work/9090-service-record-boundaries.md","max_minutes":20,"cycle_id":"T6","cycle_goal":"현행 판매/부품 정보가 빈티지 서비스성을 뜻하지 않음을 검증한다.","validation":"부품 목록을 수리 보증으로 읽지 않는가.","closure_check":"지역·재고·호환 공백을 남긴다."},
+    {"id":"T6.4","title":"ThinkPad 701C의 소장·전시 기록과 특허 저자 근거를 분리한다","status":"pending","depends_on":["T5.4"],"evidence":"artifacts/research-richard-sapper-deadline-20260917/work/701c-patent-collection-boundaries.md","max_minutes":20,"cycle_id":"T6","cycle_goal":"기관 귀속과 법적 발명자 기록의 범위를 구분한다.","validation":"MoMA 기록을 특허 저자 증명으로 쓰지 않는가.","closure_check":"직접 특허 확인의 한계를 남긴다."},
+    {"id":"T6.5","title":"Alessi 외부 협업의 수상 기록과 계약·생산 공백을 재점검한다","status":"pending","depends_on":["T5.5"],"evidence":"artifacts/research-richard-sapper-deadline-20260917/work/alessi-award-contract-boundaries.md","max_minutes":20,"cycle_id":"T6","cycle_goal":"제도적 인정과 기업 계약/생산 정보를 분리한다.","validation":"수상에서 사업 성과를 추론하지 않는가.","closure_check":"비공개 계약·생산 자료를 명시한다."}
   ],
   "expansion_policy": {"enabled": true, "target_total_tasks": 50, "batch_size": 5, "min_ready_tasks": 4, "expansion_brief": "마감 전에는 완료 leaf의 발견에서만 다음 1~5개 evidence-bearing 탐색 leaf를 만든다. 제품·협업자·기업·시대·기술·동시대 인물·전시·비평·후속 영향 중 하나의 명확한 질문으로 좁히고, 직접 근거·추정·열린 질문을 증거에 남긴다. delivery_not_before는 Waiting 사유가 아니며, 최종 전달 leaf는 모든 탐색 leaf 뒤에 둔다."},
   "deviations": [
@@ -151,6 +156,12 @@
       "task_id": "T5.3",
       "change": "TS 502의 기관 소장 표본과 2016년 현대화 서술을 분리해 완료했다.",
       "reason": "MoMA·Cooper Hewitt는 공동 설계/제조/물성을, MoMA의 2016 해설은 당시의 생산·전자 업그레이드 서술을 제공한다. 현재 유통·판매량·수리성 근거는 없다."
+    },
+    {
+      "at":"2026-09-16T21:25:35Z",
+      "task_id":"T5.3",
+      "change":"확장 정책에 따라 evidence-bearing leaf 5개(T6.1–T6.5)를 추가하고 T5.4를 활성화했다.",
+      "reason":"Tizio·TS 502·9090·701C·Alessi에서 기관 기록과 기술/서비스/계약 경계를 더 분리할 질문이 생겼다. 총 태스크는 18개에서 23개로 target_total_tasks 50 이하다."
     }
   ]
 }
