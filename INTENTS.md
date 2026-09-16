@@ -7,9 +7,6 @@
 
 ## Active
 
-
-## Waiting
-
 ### [research-richard-sapper-deadline-20260917] 리처드 사퍼 마감형 종합 리서치
 - status: active
 - research_mode: exploratory_research
@@ -30,6 +27,8 @@
 - notification_reply_to: 1789547954.349019
 - notification_origin: channel:C0BR41W31MM;reply_to:1789547954.349019
 - next_action: T2.1 제품군·제조·유통 연결을 확장하고, ready leaf가 4개 미만이면 다음 탐색 leaf를 자동 보충한다. 마감 시각 전에는 최종 전달만 보류한다.
+
+## Waiting
 
 ## Archive
 

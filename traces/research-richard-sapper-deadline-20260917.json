@@ -228,12 +228,43 @@
         "logs/agent-wiki-query.md"
       ],
       "note": "이전 실행이 오래된 dispatcher 지시문으로 Active를 Waiting으로 덮어썼다. 상태를 Active로 복구하고 deferred delivery가 Waiting이 아님을 dispatcher에 명시했다."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-8ff0074626474928bd3806be33d1309d",
+      "canonical_sha": "027b7871c491b4a2bb5f6e22e5e6dc5e7bdec85d",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-16T16:29:49Z",
+      "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-16T16:31:29Z",
+      "context_pack": "intents/context/research-richard-sapper-deadline-20260917.json",
+      "evidence_paths": [
+        "artifacts/research-richard-sapper-deadline-20260917/work/product-ecosystem-branches.md"
+      ],
+      "searches": [
+        "MoMA 9090 collection; ADI 9090 award record; Museo Omero 9090; Artemide company history and Tizio; Alessi Richard Sapper product collection"
+      ],
+      "wiki_pages": [
+        "agent-wiki/content/docs/outputs/Communication/Open_Source.mdx",
+        "agent-wiki/content/docs/outputs/Idea/Movie.mdx",
+        "agent-wiki/content/docs/outputs/Portfolio.mdx",
+        "agent-wiki/content/docs/outputs/Integration/Marketing.mdx",
+        "agent-wiki/content/docs/outputs/Fundamental/Math.mdx"
+      ],
+      "operational_log_sections": [
+        "logs/agent-wiki-query.md"
+      ],
+      "note": "T2.1 completed: mapped 9090 and Tizio through materials, production, institutional recognition, and market/distribution conditions; preserved source interests and date-layer ambiguity."
     }
   ],
   "artifacts": [],
   "verifications": [],
   "next_decision": {
-    "status": "in_progress",
-    "value": "T2.1을 실행하고 발견에서 다음 evidence leaf를 보충한다."
+    "status": "exploratory",
+    "value": "Activate T2.2 and map Sapper's contemporaries and design-movement intersections with direct influence kept separate from inferred similarity."
   }
 }
