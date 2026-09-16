@@ -24,6 +24,7 @@
 - context_searches: zg hybrid+fts Context Pack query; rg Richard Sapper/사퍼 in declared scopes
 - task_plan: artifacts/research-richard-sapper-deadline-20260917/work/task-plan.json
 - task_plan_doc: artifacts/research-richard-sapper-deadline-20260917/work/task-plan.md
+- artifact: artifacts/research-richard-sapper-deadline-20260917/work/research-expansion-map.md; artifacts/research-richard-sapper-deadline-20260917/work/connection-ledger.md; artifacts/research-richard-sapper-deadline-20260917/work/contemporary-network.md; artifacts/research-richard-sapper-deadline-20260917/work/product-ecosystem-branches.md; artifacts/research-richard-sapper-deadline-20260917/work/critical-reading.md
 - task_plan_template: ARTIFACT_RULES.md#대형-작업-태스크-계획
 - trace: traces/research-richard-sapper-deadline-20260917.json
 - notification_channel: slack
