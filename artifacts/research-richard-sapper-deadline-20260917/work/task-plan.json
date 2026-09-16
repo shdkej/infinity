@@ -58,7 +58,7 @@
       "cycle_goal": "2026-09-17 08:00 KST에만 최종 전달한다.",
       "validation": "결론·근거·한계·출처·다음 읽기 순서가 명확한가.",
       "closure_check": "마감 시각 전 Archive/최종 알림을 하지 않고, 원 스레드 delivery receipt를 확인한다."
-    }
+    },
     {
       "id": "T2.1", "title": "사퍼의 제품군에서 재료·생산·유통의 연결을 확장한다", "status": "active", "started_at": "2026-09-16T14:06:00Z", "depends_on": ["T1.3"], "evidence": "artifacts/research-richard-sapper-deadline-20260917/work/product-ecosystem-branches.md", "max_minutes": 30, "cycle_id": "T2", "cycle_goal": "제품을 고립된 아이콘이 아닌 제조·사용·시장 조건의 연결망으로 확장한다.", "validation": "각 제품 가지가 새 인물·기업·기술·사용 맥락으로 이어지는가.", "closure_check": "다음 탐색 가지와 직접 근거·추정·열린 질문의 구분을 남긴다."},
     {
