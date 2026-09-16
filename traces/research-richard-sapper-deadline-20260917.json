@@ -733,6 +733,15 @@
         "logs/agent-wiki-query.md"
       ],
       "note": "T6.2 completed: confirmed TS 502 hinge interaction and preserved reliability, safety, and service-evidence gaps."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-f28437a51abd4ba482d8c133893a065f",
+      "canonical_sha": "05d2843ed35ebc0390cf6ab8cd4bde90712eb920",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-16T23:30:25Z",
+      "status": "accepted"
     }
   ],
   "artifacts": [],
