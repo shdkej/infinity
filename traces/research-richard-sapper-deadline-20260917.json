@@ -516,6 +516,15 @@
         "logs/agent-wiki-query.md"
       ],
       "note": "T4.3 completed: separated Alessi partnership self-history from Museo Omero and ADI records of Sapper/Alessi attribution and 1979 Compasso d Oro; preserved missing contract, cost and production-volume evidence."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-65cc5944c40a4ef1a4aa34f11bd0faa4",
+      "canonical_sha": "efbf781607fae62a8042bca69b2fee42d2c23d62",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-16T20:20:24Z",
+      "status": "accepted"
     }
   ],
   "artifacts": [],
