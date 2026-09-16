@@ -1,7 +1,7 @@
 # 리처드 사퍼 마감형 종합 리서치
 
 - id: research-richard-sapper-deadline-20260917
-- status: waiting
+- status: active
 - research_mode: exploratory_research
 - execution_mode: multi_subagent_roles
 - permission: L0-research-and-draft-only
@@ -32,4 +32,4 @@
 - notification_origin: channel:C0BR41W31MM;reply_to:1789547954.349019
 - waiting_reason: delivery_not_before 2026-09-16T23:00:00Z; T1.1–T1.3 evidence leaves are complete, while T1.4 final draft, Slack delivery, and Archive are contractually prohibited before this timestamp.
 - resume_condition: 2026-09-16T23:00:00Z or later; activate T1.4 and perform final synthesis plus recorded-thread delivery.
-- next_action: 마감 시각 이후에만 T1.4를 활성화해 한국어 최종 브리프·원 스레드 delivery receipt·exploratory Archive closeout을 수행한다.
+- next_action: T2.1 제품군·제조·유통 연결을 확장하고, ready leaf가 4개 미만이면 다음 탐색 leaf를 자동 보충한다. 마감 시각 전에는 최종 전달만 보류한다.

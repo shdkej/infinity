@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "intent_id": "research-richard-sapper-deadline-20260917",
-  "status": "waiting",
+  "status": "active",
   "trace_completeness": "complete",
   "request": {
     "raw": {
@@ -172,12 +172,35 @@
         "logs/agent-wiki-query.md"
       ],
       "note": "T1.4 is not safe to activate before delivery_not_before 2026-09-16T23:00:00Z; final draft, Slack delivery, and Archive remain prohibited."
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-16T14:06:40Z",
+      "context_pack": "intents/context/research-richard-sapper-deadline-20260917.json",
+      "evidence_paths": [
+        "artifacts/research-richard-sapper-deadline-20260917/work/task-plan.json",
+        "artifacts/research-richard-sapper-deadline-20260917/work/task-plan.md"
+      ],
+      "searches": [
+        "Richard Sapper product ecosystem materials manufacturing distribution contemporaries interaction legacy"
+      ],
+      "wiki_pages": [
+        "agent-wiki/content/docs/outputs/Communication/Open_Source.mdx",
+        "agent-wiki/content/docs/outputs/Idea/Movie.mdx",
+        "agent-wiki/content/docs/outputs/Portfolio.mdx",
+        "agent-wiki/content/docs/outputs/Integration/Marketing.mdx",
+        "agent-wiki/content/docs/outputs/Fundamental/Math.mdx"
+      ],
+      "operational_log_sections": [
+        "logs/agent-wiki-query.md"
+      ],
+      "note": "사용자 지시로 delivery_not_before 대기를 Active 탐색 확장으로 전환했다. T2 leaf와 보충 정책을 추가했다."
     }
   ],
   "artifacts": [],
   "verifications": [],
   "next_decision": {
-    "status": "exploratory",
-    "value": "At or after 2026-09-16T23:00:00Z, activate T1.4, synthesize the Korean final brief, deliver to the recorded Slack thread, then perform exploratory Archive closeout."
+    "status": "in_progress",
+    "value": "T2.1 제품군·제조·유통 연결을 확장하고 ready leaf 부족 시 다음 탐색 leaf를 추가한다."
   }
 }
