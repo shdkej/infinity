@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "intent_id": "research-richard-sapper-deadline-20260917",
-  "status": "active",
+  "status": "waiting",
   "trace_completeness": "complete",
   "request": {
     "raw": {
@@ -141,12 +141,43 @@
         "logs/agent-wiki-query.md"
       ],
       "note": "T1.3 completed: separated institutional recognition, organizational inheritance, and a second-hand record of critical counterargument; source gap retained."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-b02e95a243234244b642d7219523a8ee",
+      "canonical_sha": "bf6c5d7b5ea32fdd7c2652954aff8910c76b2eb5",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-16T12:06:01Z",
+      "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-16T12:06:01Z",
+      "context_pack": "intents/context/research-richard-sapper-deadline-20260917.json",
+      "evidence_paths": [
+        "artifacts/research-richard-sapper-deadline-20260917/work/task-plan.md"
+      ],
+      "searches": [
+        "No new search: all research leaves T1.1–T1.3 are complete; final delivery is gated by delivery_not_before."
+      ],
+      "wiki_pages": [
+        "agent-wiki/content/docs/outputs/Communication/Open_Source.mdx",
+        "agent-wiki/content/docs/outputs/Idea/Movie.mdx",
+        "agent-wiki/content/docs/outputs/Portfolio.mdx",
+        "agent-wiki/content/docs/outputs/Integration/Marketing.mdx",
+        "agent-wiki/content/docs/outputs/Fundamental/Math.mdx"
+      ],
+      "operational_log_sections": [
+        "logs/agent-wiki-query.md"
+      ],
+      "note": "T1.4 is not safe to activate before delivery_not_before 2026-09-16T23:00:00Z; final draft, Slack delivery, and Archive remain prohibited."
     }
   ],
   "artifacts": [],
   "verifications": [],
   "next_decision": {
     "status": "exploratory",
-    "value": "Hold T1.4 until 2026-09-16T23:00:00Z; then synthesize and deliver final brief to the recorded Slack thread."
+    "value": "At or after 2026-09-16T23:00:00Z, activate T1.4, synthesize the Korean final brief, deliver to the recorded Slack thread, then perform exploratory Archive closeout."
   }
 }
