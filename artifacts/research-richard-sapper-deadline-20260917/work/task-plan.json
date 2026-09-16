@@ -35,8 +35,10 @@
     {
       "id": "T1.3",
       "title": "영향·비평·반례에서 후속 인물·운동·제품으로 탐색을 확장한다",
-      "status": "active",
+      "status": "done",
       "started_at": "2026-09-16T11:36:33Z",
+      "completed_at": "2026-09-16T11:37:37Z",
+      "actual_minutes": 1,
       "depends_on": ["T1.2"],
       "evidence": "artifacts/research-richard-sapper-deadline-20260917/work/critical-reading.md",
       "max_minutes": 30,
@@ -58,5 +60,12 @@
       "closure_check": "마감 시각 전 Archive/최종 알림을 하지 않고, 원 스레드 delivery receipt를 확인한다."
     }
   ],
-  "deviations": []
+  "deviations": [
+    {
+      "at": "2026-09-16T11:37:37Z",
+      "task_id": "T1.3",
+      "change": "독립 비평 원문은 요청 시간 내 직접 열람하지 못해, 2차 매체가 요약한 비평의 존재로만 보존했다.",
+      "reason": "원 출처 fetch timeout; 최종 브리프에서 단정적 비판으로 전환하지 않는다."
+    }
+  ]
 }
