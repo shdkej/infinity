@@ -4,39 +4,39 @@
   "tasks": [
     {
       "id": "T1.1",
-      "title": "기존 리서치의 주장·출처·누락 범위를 감사한다",
+      "title": "기존 리서치를 씨앗으로 삼아 확장 질문과 연결 지도를 만든다",
       "status": "active",
       "started_at": "2026-09-16T09:18:00Z",
       "depends_on": [],
-      "evidence": "artifacts/research-richard-sapper-deadline-20260917/work/prior-brief-audit.md",
+      "evidence": "artifacts/research-richard-sapper-deadline-20260917/work/research-expansion-map.md",
       "max_minutes": 30,
       "cycle_id": "T1",
-      "cycle_goal": "기존 결과를 재사용하되 검증되지 않은 주장과 빈칸을 분리한다.",
-      "validation": "각 핵심 주장에 원문 출처 또는 재검증 필요 표기가 있는가.",
-      "closure_check": "보강 검색 질문과 반증 조건이 source ledger에 기록된다."
+      "cycle_goal": "기존 결과를 출발점으로 작품·협업자·기업·시대·영향의 꼬리질문을 만든다.",
+      "validation": "각 확장 축이 구체적 인물·제품·기관·시대 질문으로 연결되는가.",
+      "closure_check": "다음 검색어·연결 이유·사실 검증 필요 여부가 지도에 기록된다."
     },
     {
       "id": "T1.2",
-      "title": "기관·기업·수상기관 원문으로 핵심 사실을 교차검증한다",
+      "title": "작품에서 협업자·기업·기술·시대로 이어지는 연결을 확장한다",
       "status": "pending",
       "depends_on": ["T1.1"],
-      "evidence": "artifacts/research-richard-sapper-deadline-20260917/work/primary-source-ledger.md",
+      "evidence": "artifacts/research-richard-sapper-deadline-20260917/work/connection-ledger.md",
       "max_minutes": 30,
       "cycle_id": "T1",
-      "cycle_goal": "생애·작품·공동 저작·수상 기록의 사실 경계를 다시 세운다.",
-      "validation": "핵심 사실마다 직접 연 출처와 출처 성격이 기록되는가.",
-      "closure_check": "불일치·확인 불가 항목을 별도 목록으로 남긴다."
+      "cycle_goal": "대표작을 제품 단독이 아닌 제작·사용·기술·조직의 연결망으로 읽는다.",
+      "validation": "각 연결은 직접 근거·합리적 추정·열린 질문으로 구분되는가.",
+      "closure_check": "연결망의 다음 탐색 가지가 최소 세 갈래로 남는다."
     },
     {
       "id": "T1.3",
-      "title": "비평·반례와 현대적 해석의 한계를 보강한다",
+      "title": "영향·비평·반례에서 후속 인물·운동·제품으로 탐색을 확장한다",
       "status": "pending",
       "depends_on": ["T1.2"],
       "evidence": "artifacts/research-richard-sapper-deadline-20260917/work/critical-reading.md",
       "max_minutes": 30,
       "cycle_id": "T1",
-      "cycle_goal": "아이콘화·단독 저작 오해·실패작 배제를 피하는 해석을 만든다.",
-      "validation": "지지 근거와 반례가 같은 주장 단위에서 비교되는가.",
+      "cycle_goal": "사퍼를 영웅화하지 않고 영향의 실제 경로와 반례를 함께 발견한다.",
+      "validation": "비평·반례가 단순 부록이 아니라 다음 탐색 방향을 바꾸는가.",
       "closure_check": "현대 적용은 사실이 아닌 조건부 해석으로 표시된다."
     },
     {

@@ -2,20 +2,20 @@
 
 - id: research-richard-sapper-deadline-20260917
 - status: active
-- research_mode: decision_research
+- research_mode: exploratory_research
 - execution_mode: multi_subagent_roles
 - permission: L0-research-and-draft-only
 - requested: 2026-09-16T09:11:29Z
 - deadline: 2026-09-16T23:00:00Z
 - deadline_local: 2026-09-17 08:00 Asia/Seoul (KST)
 - delivery_not_before: 2026-09-16T23:00:00Z
-- decision_question: 리처드 사퍼의 생애·주요 작품·설계 방식·공동 저작·실패와 논쟁을 어떤 원문 근거로 구분해 이해할 수 있는가?
+- decision_question: 리처드 사퍼를 출발점으로 작품·협업자·기업·시대·기술·영향·비평을 꼬리에 꼬리를 물며 확장해, 연결 관계가 보이는 종합 지도를 만든다.
 - decision_owner: Kimi
 - decision_deadline: 2026-09-16T23:00:00Z
-- in_scope: 생애, 제품·인터랙션·산업디자인 작품, 설계 방식, 협업·저작 경계, 수상·영향, 비평·반례, 한국어 종합 브리프
+- in_scope: 생애, 제품·인터랙션·산업디자인 작품, 설계 방식, 협업자·기업·제조 맥락, 시대·기술 맥락, 동시대·후속 디자이너, 수상·전시·저작, 영향·비평·반례, 연결 관계가 보이는 한국어 종합 브리프
 - out_of_scope: 공개 게시, 상품 구매·수집 추천, 미확인 사적 일화, 저작권 원문 장문 전재
-- comparison_axes: 원문성, 연도·저작 정확도, 협업 기여 경계, 설계 의도와 실제 사용성, 지속성·반례
-- success_evidence: 각 핵심 주장에 직접 연 출처를 연결하고, 충돌·한계·미확인 항목을 분리한 한국어 최종 브리프가 마감 시각에 원 스레드로 전달된다.
+- comparison_axes: 확장 가치, 연결의 직접성, 원문성, 연도·저작 정확도, 협업 기여 경계, 설계 의도와 실제 사용성, 지속성·반례
+- success_evidence: 단순 인물 소개가 아니라 발견 경로와 연결 관계를 따라 읽을 수 있는 종합 지도를 만들고, 핵심 사실은 직접 연 출처로 지지하며 추정·연상은 별도 표시한 한국어 최종 브리프가 마감 시각에 원 스레드로 전달된다.
 - projects: research-bank, infinity
 - task_type: research
 - topics: industrial-design, product, design-history
@@ -30,4 +30,4 @@
 - notification_target: channel:C0BR41W31MM
 - notification_reply_to: 1789547954.349019
 - notification_origin: channel:C0BR41W31MM;reply_to:1789547954.349019
-- next_action: 기존 브리프를 감사하고 1차 원문 보강을 시작한다. 마감 이전에는 최종 통보·Archive를 하지 않는다.
+- next_action: 기존 브리프를 씨앗 지도로 삼아 작품·협업자·기업·시대·영향의 연결 큐를 확장한다. 마감 이전에는 최종 통보·Archive를 하지 않는다.

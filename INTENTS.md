@@ -9,7 +9,7 @@
 
 ### [research-richard-sapper-deadline-20260917] 리처드 사퍼 마감형 종합 리서치
 - status: active
-- research_mode: decision_research
+- research_mode: exploratory_research
 - execution_mode: multi_subagent_roles
 - permission: L0-research-and-draft-only
 - requested: 2026-09-16T09:11:29Z
@@ -26,7 +26,7 @@
 - notification_target: channel:C0BR41W31MM
 - notification_reply_to: 1789547954.349019
 - notification_origin: channel:C0BR41W31MM;reply_to:1789547954.349019
-- next_action: 기존 브리프 감사와 1차 원문 보강을 시작한다. 마감 이전에는 최종 통보·Archive를 하지 않는다.
+- next_action: 기존 브리프를 씨앗 지도로 삼아 작품·협업자·기업·시대·영향의 연결 큐를 확장한다. 마감 이전에는 최종 통보·Archive를 하지 않는다.
 
 ## Waiting
 
