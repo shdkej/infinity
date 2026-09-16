@@ -11,7 +11,7 @@
 ## Waiting
 
 ### [research-richard-sapper-deadline-20260917] 리처드 사퍼 마감형 종합 리서치
-- status: active
+- status: waiting
 - research_mode: exploratory_research
 - execution_mode: multi_subagent_roles
 - permission: L0-research-and-draft-only

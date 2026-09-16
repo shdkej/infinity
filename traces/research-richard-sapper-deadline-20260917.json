@@ -195,6 +195,15 @@
         "logs/agent-wiki-query.md"
       ],
       "note": "사용자 지시로 delivery_not_before 대기를 Active 탐색 확장으로 전환했다. T2 leaf와 보충 정책을 추가했다."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-9355c88eafe5420ab57d4bc40864ed63",
+      "canonical_sha": "228bfed77ad6f4848f7d8b448de8e69fa72de6d2",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-16T14:07:44Z",
+      "status": "accepted"
     }
   ],
   "artifacts": [],
