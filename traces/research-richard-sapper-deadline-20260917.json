@@ -88,12 +88,34 @@
       "session_key": "agent:genie:infinity-dispatcher",
       "timestamp": "2026-09-16T11:05:49Z",
       "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-16T11:08:44Z",
+      "context_pack": "intents/context/research-richard-sapper-deadline-20260917.json",
+      "evidence_paths": [
+        "artifacts/research-richard-sapper-deadline-20260917/work/connection-ledger.md"
+      ],
+      "searches": [
+        "MoMA TS 502; MoMA Richard Sapper exhibition archive; ADI 1964 K1340 jury rationale; Metropolitan Museum Tizio; IBM ThinkPad history"
+      ],
+      "wiki_pages": [
+        "agent-wiki/content/docs/outputs/Communication/Open_Source.mdx",
+        "agent-wiki/content/docs/outputs/Idea/Movie.mdx",
+        "agent-wiki/content/docs/outputs/Portfolio.mdx",
+        "agent-wiki/content/docs/outputs/Integration/Marketing.mdx",
+        "agent-wiki/content/docs/outputs/Fundamental/Math.mdx"
+      ],
+      "operational_log_sections": [
+        "logs/agent-wiki-query.md"
+      ],
+      "note": "T1.2 completed: connection ledger separates direct evidence, limited interpretations, and open questions."
     }
   ],
   "artifacts": [],
   "verifications": [],
   "next_decision": {
-    "status": "in_progress",
-    "value": "T1.2에서 공동 저작·기업·기술·조직 연결을 직접 근거와 추정으로 분리해 확장한다."
+    "status": "exploratory",
+    "value": "Execute T1.3: independently audit impacts, criticism, and counterexamples."
   }
 }
