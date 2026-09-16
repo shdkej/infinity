@@ -48,12 +48,43 @@
         "logs/agent-wiki-query.md"
       ],
       "note": "사용자 범위 정정: 교차검증은 바닥선으로 유지하되, 결과의 중심을 꼬리질문 기반 다방면 확장 조사로 전환했다."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-d81725066fd84b5596b039f234251b14",
+      "canonical_sha": "a1a264ad7d5ab6f1555722e2b033451197b4cbfb",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-16T10:35:45Z",
+      "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-16T10:36:16Z",
+      "context_pack": "intents/context/research-richard-sapper-deadline-20260917.json",
+      "evidence_paths": [
+        "artifacts/research-richard-sapper-deadline-20260917/work/research-expansion-map.md"
+      ],
+      "searches": [
+        "MoMA Richard Sapper Tizio; IBM ThinkPad; Richard Sapper Design biography"
+      ],
+      "wiki_pages": [
+        "agent-wiki/content/docs/outputs/Communication/Open_Source.mdx",
+        "agent-wiki/content/docs/outputs/Idea/Movie.mdx",
+        "agent-wiki/content/docs/outputs/Portfolio.mdx",
+        "agent-wiki/content/docs/outputs/Integration/Marketing.mdx",
+        "agent-wiki/content/docs/outputs/Fundamental/Math.mdx"
+      ],
+      "operational_log_sections": [
+        "logs/agent-wiki-query.md"
+      ],
+      "note": "기존 리서치의 핵심 주장과 직접 출처를 다시 대조하고, ThinkPad 저작 경계의 상충을 조건부로 기록했다."
     }
   ],
   "artifacts": [],
   "verifications": [],
   "next_decision": {
     "status": "in_progress",
-    "value": "작품·협업자·기업·시대·영향의 연결 지도를 만들고, 각 가지를 직접 근거·추정·열린 질문으로 구분해 계속 확장한다."
+    "value": "T1.2에서 공동 저작·기업·기술·조직 연결을 직접 근거와 추정으로 분리해 확장한다."
   }
 }

@@ -5,8 +5,10 @@
     {
       "id": "T1.1",
       "title": "기존 리서치를 씨앗으로 삼아 확장 질문과 연결 지도를 만든다",
-      "status": "active",
+      "status": "done",
       "started_at": "2026-09-16T09:18:00Z",
+      "completed_at": "2026-09-16T10:36:16Z",
+      "actual_minutes": 30,
       "depends_on": [],
       "evidence": "artifacts/research-richard-sapper-deadline-20260917/work/research-expansion-map.md",
       "max_minutes": 30,
