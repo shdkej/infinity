@@ -268,12 +268,34 @@
       "session_key": "agent:genie:infinity-dispatcher",
       "timestamp": "2026-09-16T16:35:40Z",
       "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-16T16:37:52Z",
+      "context_pack": "intents/context/research-richard-sapper-deadline-20260917.json",
+      "evidence_paths": [
+        "artifacts/research-richard-sapper-deadline-20260917/work/contemporary-network.md"
+      ],
+      "searches": [
+        "MoMA Richard Sapper artist record; ADI Marco Zanuso Career Award; Fondazione Vico Magistretti biography; Design Museum Enzo Mari exhibition"
+      ],
+      "wiki_pages": [
+        "agent-wiki/content/docs/outputs/Communication/Open_Source.mdx",
+        "agent-wiki/content/docs/outputs/Idea/Movie.mdx",
+        "agent-wiki/content/docs/outputs/Portfolio.mdx",
+        "agent-wiki/content/docs/outputs/Integration/Marketing.mdx",
+        "agent-wiki/content/docs/outputs/Fundamental/Math.mdx"
+      ],
+      "operational_log_sections": [
+        "logs/agent-wiki-query.md"
+      ],
+      "note": "T2.2 completed: classified Zanuso as direct collaborator; Magistretti as shared production/institutional context; Mari as critical comparison only, with no unsupported direct-influence claim."
     }
   ],
   "artifacts": [],
   "verifications": [],
   "next_decision": {
     "status": "exploratory",
-    "value": "Activate T2.2 and map Sapper's contemporaries and design-movement intersections with direct influence kept separate from inferred similarity."
+    "value": "Activate T2.3 and examine interaction/computing legacy while separating direct contribution from inferred resemblance."
   }
 }
