@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "intent_id": "research-richard-sapper-comprehensive-20260916",
-  "status": "inbox",
+  "status": "active",
   "trace_completeness": "complete",
   "request": {
     "raw": {
@@ -21,12 +21,28 @@
       "evidence_paths": [
         "INTENTS.md"
       ]
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-16T08:44:27Z",
+      "context_pack": "intents/context/research-richard-sapper-comprehensive-20260916.json",
+      "evidence_paths": [
+        "artifacts/research-richard-sapper-comprehensive-20260916/final/richard-sapper-comprehensive-brief.md",
+        "artifacts/research-richard-sapper-comprehensive-20260916/work/source-ledger.md"
+      ],
+      "searches": [
+        "Richard Sapper official archive biography collaborators products",
+        "Richard Sapper museum company archive Tizio ThinkPad 9090 criticism limitations"
+      ],
+      "wiki_pages": [],
+      "operational_log_sections": [],
+      "note": "Deep Research skill read before external search; no-wiki-match 후보는 증거로 사용하지 않음. 기존 2026-09-10 결과는 협업·연도 충돌 경계 확인용 맥락으로만 사용하고 이번 사실 서술은 새로 직접 연 원문에 연결함."
     }
   ],
   "artifacts": [],
   "verifications": [],
   "next_decision": {
     "status": "in_progress",
-    "value": "기관·저작권자·기업 아카이브를 우선으로 기존 리서치를 통합·최신화한다."
+    "value": "원격에 초안·출처 원장을 반영한 뒤 Archive receipt를 기록한다."
   }
 }
