@@ -79,6 +79,15 @@
         "logs/agent-wiki-query.md"
       ],
       "note": "기존 리서치의 핵심 주장과 직접 출처를 다시 대조하고, ThinkPad 저작 경계의 상충을 조건부로 기록했다."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-c1de571c22f643f5b1f56ffdf63306dc",
+      "canonical_sha": "47d42ce0202f6ecfb4633ba858bf8665d6a8f376",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-16T11:05:49Z",
+      "status": "accepted"
     }
   ],
   "artifacts": [],

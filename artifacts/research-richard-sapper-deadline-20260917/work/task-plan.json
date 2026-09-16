@@ -20,7 +20,8 @@
     {
       "id": "T1.2",
       "title": "작품에서 협업자·기업·기술·시대로 이어지는 연결을 확장한다",
-      "status": "pending",
+      "status": "active",
+      "started_at": "2026-09-16T11:06:00Z",
       "depends_on": ["T1.1"],
       "evidence": "artifacts/research-richard-sapper-deadline-20260917/work/connection-ledger.md",
       "max_minutes": 30,
