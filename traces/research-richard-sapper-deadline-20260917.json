@@ -764,6 +764,15 @@
         "logs/agent-wiki-query.md"
       ],
       "note": "T6.3 completed: separated current Alessi 9090 part listings and legacy care guidance from vintage compatibility, stock, and service guarantees."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-81664fb3928049488d32b7d44ef2071b",
+      "canonical_sha": "aca40c80b659ace96a15c9a01800ccf6df100e1a",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-16T23:35:37Z",
+      "status": "accepted"
     }
   ],
   "artifacts": [],
