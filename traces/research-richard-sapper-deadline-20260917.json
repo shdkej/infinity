@@ -432,12 +432,34 @@
       "session_key": "agent:genie:infinity-dispatcher",
       "timestamp": "2026-09-16T19:10:27Z",
       "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-16T19:14:59Z",
+      "context_pack": "intents/context/research-richard-sapper-deadline-20260917.json",
+      "evidence_paths": [
+        "artifacts/research-richard-sapper-deadline-20260917/work/9091-kettle-conditions.md"
+      ],
+      "searches": [
+        "Museo Omero Bollitore 9091; Alessi 9091 kettle; Brooklyn Museum 9091 FM record"
+      ],
+      "wiki_pages": [
+        "agent-wiki/content/docs/outputs/Communication/Open_Source.mdx",
+        "agent-wiki/content/docs/outputs/Idea/Movie.mdx",
+        "agent-wiki/content/docs/outputs/Portfolio.mdx",
+        "agent-wiki/content/docs/outputs/Integration/Marketing.mdx",
+        "agent-wiki/content/docs/outputs/Fundamental/Math.mdx"
+      ],
+      "operational_log_sections": [
+        "logs/agent-wiki-query.md"
+      ],
+      "note": "T4.1 completed: separated the 9091 melodic signal, trigger/whistle, current induction product and spare-parts listing from 9090; preserved date/material/sample conflicts and lacked direct thermal testing."
     }
   ],
   "artifacts": [],
   "verifications": [],
   "next_decision": {
     "status": "exploratory",
-    "value": "Activate T4.1 to examine 9091 warning, heat, and material conditions separately from 9090."
+    "value": "Activate T4.2 to examine ThinkPad 701C mechanical authorship and MoMA collection context."
   }
 }

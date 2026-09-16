@@ -73,7 +73,7 @@
     {
       "id": "T3.3", "title": "Brionvega 공동 저작과 소비전자 유통 맥락을 확장한다", "status": "done", "started_at": "2026-09-16T18:40:35Z", "completed_at": "2026-09-16T18:44:00Z", "actual_minutes": 3, "depends_on": ["T2.1"], "evidence": "artifacts/research-richard-sapper-deadline-20260917/work/brionvega-collaboration-market.md", "max_minutes": 25, "cycle_id": "T3", "cycle_goal": "공동 저작을 제품·기업·시장 맥락에 놓는다.", "validation": "Zanuso·Sapper·Brionvega의 역할 경계와 유통 주장을 구분하는가.", "closure_check": "제조·판매 자료의 공백을 명시한다."},
     {
-      "id": "T4.1", "title": "9091의 경고음·열·재료 조건을 9090과 구분해 점검한다", "status": "active", "started_at": "2026-09-16T19:10:35Z", "depends_on": ["T3.1"], "evidence": "artifacts/research-richard-sapper-deadline-20260917/work/9091-kettle-conditions.md", "max_minutes": 20, "cycle_id": "T4", "cycle_goal": "사퍼의 주방 제품군에서 사용 신호와 열 조건을 별도 제품 근거로 읽는다.", "validation": "9090의 유지성 결론을 9091에 자동 이식하지 않는가.", "closure_check": "직접 제품 기록·추정·열린 서비스 질문을 남긴다."},
+      "id": "T4.1", "title": "9091의 경고음·열·재료 조건을 9090과 구분해 점검한다", "status": "done", "started_at": "2026-09-16T19:10:35Z", "completed_at": "2026-09-16T19:14:00Z", "actual_minutes": 3, "depends_on": ["T3.1"], "evidence": "artifacts/research-richard-sapper-deadline-20260917/work/9091-kettle-conditions.md", "max_minutes": 20, "cycle_id": "T4", "cycle_goal": "사퍼의 주방 제품군에서 사용 신호와 열 조건을 별도 제품 근거로 읽는다.", "validation": "9090의 유지성 결론을 9091에 자동 이식하지 않는가.", "closure_check": "직접 제품 기록·추정·열린 서비스 질문을 남긴다."},
     {
       "id": "T4.2", "title": "ThinkPad 701C의 기계 저작과 MoMA 소장 맥락을 별도 검증한다", "status": "pending", "depends_on": ["T2.3"], "evidence": "artifacts/research-richard-sapper-deadline-20260917/work/thinkpad-701c-authorship.md", "max_minutes": 20, "cycle_id": "T4", "cycle_goal": "후속 인터랙션 사례의 기계 저작자를 사퍼의 미학 기여와 분리한다.", "validation": "Karidis·Sapper·IBM 팀의 역할을 문서별로 배분하는가.", "closure_check": "박물관 소장이 저작권·기술 우월성을 자동 증명하지 않음을 명시한다."},
     {
@@ -99,6 +99,12 @@
       "task_id": "T3.1",
       "change": "확장 정책에 따라 evidence-bearing leaf 3개(T4.1–T4.3)를 추가하고 T3.2를 활성화했다.",
       "reason": "9090의 사용·소모품·지속 생산 조사에서 주방 신호/열, ThinkPad 기계 저작, Alessi 협업 구조의 독립 질문이 생겼다. 총 태스크는 10개에서 13개로 target_total_tasks 50 이하다."
+    },
+    {
+      "at": "2026-09-16T19:14:00Z",
+      "task_id": "T4.1",
+      "change": "9091의 경고음·개폐·현행 유도 가열/부품 표기를 9090과 분리해 완료했다.",
+      "reason": "Museo Omero·Alessi·Brooklyn Museum을 대조해 직접 기록, 연도/재료/치수 불일치, 열 시험 및 빈티지 호환성의 공백을 보존했다."
     }
   ]
 }
