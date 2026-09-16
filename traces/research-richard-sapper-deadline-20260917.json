@@ -339,12 +339,34 @@
       "session_key": "agent:genie:infinity-dispatcher",
       "timestamp": "2026-09-16T18:05:41Z",
       "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-16T18:07:34Z",
+      "context_pack": "intents/context/research-richard-sapper-deadline-20260917.json",
+      "evidence_paths": [
+        "artifacts/research-richard-sapper-deadline-20260917/work/9090-use-maintenance.md"
+      ],
+      "searches": [
+        "Museo Omero 9090; Alessi 9090 gasket spare part; 9090 user manual care and replacement parts"
+      ],
+      "wiki_pages": [
+        "agent-wiki/content/docs/outputs/Communication/Open_Source.mdx",
+        "agent-wiki/content/docs/outputs/Idea/Movie.mdx",
+        "agent-wiki/content/docs/outputs/Portfolio.mdx",
+        "agent-wiki/content/docs/outputs/Integration/Marketing.mdx",
+        "agent-wiki/content/docs/outputs/Fundamental/Math.mdx"
+      ],
+      "operational_log_sections": [
+        "logs/agent-wiki-query.md"
+      ],
+      "note": "T3.1 completed: distinguished 9090’s lever closure, care instructions, current gasket sale, and ongoing production from unverified universal repairability, price history, or durability claims."
     }
   ],
   "artifacts": [],
   "verifications": [],
   "next_decision": {
     "status": "exploratory",
-    "value": "Activate T3.1 to examine 9090 use, maintenance, and reissue conditions using independent or primary evidence."
+    "value": "Activate T3.2 to examine Tizio lighting technology, energy use, and operational conditions."
   }
 }

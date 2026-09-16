@@ -24,11 +24,11 @@
 - context_searches: zg hybrid+fts Context Pack query; rg Richard Sapper/사퍼 in declared scopes
 - task_plan: artifacts/research-richard-sapper-deadline-20260917/work/task-plan.json
 - task_plan_doc: artifacts/research-richard-sapper-deadline-20260917/work/task-plan.md
-- artifact: artifacts/research-richard-sapper-deadline-20260917/work/research-expansion-map.md; artifacts/research-richard-sapper-deadline-20260917/work/connection-ledger.md; artifacts/research-richard-sapper-deadline-20260917/work/contemporary-network.md; artifacts/research-richard-sapper-deadline-20260917/work/product-ecosystem-branches.md; artifacts/research-richard-sapper-deadline-20260917/work/critical-reading.md; artifacts/research-richard-sapper-deadline-20260917/work/interaction-legacy-branches.md
+- artifact: artifacts/research-richard-sapper-deadline-20260917/work/research-expansion-map.md; artifacts/research-richard-sapper-deadline-20260917/work/connection-ledger.md; artifacts/research-richard-sapper-deadline-20260917/work/contemporary-network.md; artifacts/research-richard-sapper-deadline-20260917/work/product-ecosystem-branches.md; artifacts/research-richard-sapper-deadline-20260917/work/critical-reading.md; artifacts/research-richard-sapper-deadline-20260917/work/interaction-legacy-branches.md; artifacts/research-richard-sapper-deadline-20260917/work/9090-use-maintenance.md
 - task_plan_template: ARTIFACT_RULES.md#대형-작업-태스크-계획
 - trace: traces/research-richard-sapper-deadline-20260917.json
 - notification_channel: slack
 - notification_target: channel:C0BR41W31MM
 - notification_reply_to: 1789547954.349019
 - notification_origin: channel:C0BR41W31MM;reply_to:1789547954.349019
-- next_action: T3.1에서 9090의 사용·유지·재발매 조건을 독립 자료로 점검한다. 마감 시각 전에는 최종 전달만 보류한다.
+- next_action: T3.2에서 Tizio의 광원·에너지·조작성 조건을 시대별로 점검한다. 마감 시각 전에는 최종 전달만 보류한다.
