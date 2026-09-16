@@ -423,6 +423,15 @@
         "logs/agent-wiki-query.md"
       ],
       "note": "T3.3 completed: confirmed Zanuso/Sapper co-design and Brionvega manufacturing while retaining gaps on sales, distribution, and individual contribution; excluded timed-out company narrative from core evidence."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-280828868abe42c684074048c59872ba",
+      "canonical_sha": "b2db5bf2da808a00c6ade2896a4de8189e84089d",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-16T19:10:27Z",
+      "status": "accepted"
     }
   ],
   "artifacts": [],
