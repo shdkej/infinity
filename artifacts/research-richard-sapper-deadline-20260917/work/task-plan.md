@@ -53,8 +53,9 @@
 │  ● T5.4 701C Butterfly Keyboard의 기계 메커니즘과 팀 기여를 재검증한다               완료 · 예상/최대 20/20분 · 의존 T4.2
 │           증거: `artifacts/research-richard-sapper-deadline-20260917/work/701c-mechanism-team-ledger.md`
 │           시작/완료/실제: 2026-09-16T21:25:35Z / 2026-09-16T21:30:00Z / 4분
-│  ○ T5.5 Alessi 협업 모델의 제도 기록과 제조사 서사를 대조한다                        미완료 · 예상/최대 20/20분 · 의존 T4.3
+│  ◐ T5.5 Alessi 협업 모델의 제도 기록과 제조사 서사를 대조한다                        진행 중 · 예상/최대 20/20분 · 의존 T4.3
 │           증거: `artifacts/research-richard-sapper-deadline-20260917/work/alessi-collaboration-institutions.md`
+│           시작: 2026-09-16T21:55:54Z
 │  ○ T6.1 Tizio 원형의 기관 날짜 차이를 설계·생산·소장 층위로 점검한다                  미완료 · 예상/최대 20/20분 · 의존 T5.2
 │  ○ T6.2 TS 502의 힌지 인터랙션을 소장품 기록과 분리해 점검한다                        미완료 · 예상/최대 20/20분 · 의존 T5.3
 │  ○ T6.3 9090의 현행 부품·세척 기록을 판매 정보와 분리한다                            미완료 · 예상/최대 20/20분 · 의존 T4.3
