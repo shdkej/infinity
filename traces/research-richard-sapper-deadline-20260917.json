@@ -290,6 +290,15 @@
         "logs/agent-wiki-query.md"
       ],
       "note": "T2.2 completed: classified Zanuso as direct collaborator; Magistretti as shared production/institutional context; Mari as critical comparison only, with no unsupported direct-influence claim."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-b07aa7cdf544436c80dd1459ac0d9e3f",
+      "canonical_sha": "ed36f0e81763be9e51379163169b0d6a32ca3b99",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-16T17:05:41Z",
+      "status": "accepted"
     }
   ],
   "artifacts": [],
