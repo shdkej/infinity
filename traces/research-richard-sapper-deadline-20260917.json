@@ -525,12 +525,34 @@
       "session_key": "agent:genie:infinity-dispatcher",
       "timestamp": "2026-09-16T20:20:24Z",
       "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-16T20:22:21Z",
+      "context_pack": "intents/context/research-richard-sapper-deadline-20260917.json",
+      "evidence_paths": [
+        "artifacts/research-richard-sapper-deadline-20260917/work/9091-record-variants.md"
+      ],
+      "searches": [
+        "Museo Omero Bollitore 9091; Alessi UK 9091 kettle; Brooklyn Museum Kettle 9091"
+      ],
+      "wiki_pages": [
+        "agent-wiki/content/docs/outputs/Communication/Open_Source.mdx",
+        "agent-wiki/content/docs/outputs/Idea/Movie.mdx",
+        "agent-wiki/content/docs/outputs/Portfolio.mdx",
+        "agent-wiki/content/docs/outputs/Integration/Marketing.mdx",
+        "agent-wiki/content/docs/outputs/Fundamental/Math.mdx"
+      ],
+      "operational_log_sections": [
+        "logs/agent-wiki-query.md"
+      ],
+      "note": "T5.1 completed: retained conflicting 9091 date, material and dimension records by museum, current manufacturer and collection sample rather than constructing a unified specification."
     }
   ],
   "artifacts": [],
   "verifications": [],
   "next_decision": {
     "status": "exploratory",
-    "value": "Activate T5.1 to investigate 9091 record variants across museum and manufacturer sources."
+    "value": "Activate T5.2 to distinguish the original Tizio technology from current LED reissue specifications."
   }
 }
