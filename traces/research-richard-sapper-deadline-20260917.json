@@ -702,6 +702,15 @@
         "logs/agent-wiki-query.md"
       ],
       "note": "T6.1 completed: preserved MoMA/Centre Pompidou 1971 creation metadata separately from MoMA first-production text, Artemide timeline, and Met 1972 collection date; no first-release document verified."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-f41d99780baa4ca095ab87c7b4329941",
+      "canonical_sha": "4ec5b3250e5b4af74a44b34637162efa38f5bbfa",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-16T22:55:42Z",
+      "status": "accepted"
     }
   ],
   "artifacts": [],
