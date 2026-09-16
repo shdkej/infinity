@@ -361,6 +361,15 @@
         "logs/agent-wiki-query.md"
       ],
       "note": "T3.1 completed: distinguished 9090’s lever closure, care instructions, current gasket sale, and ongoing production from unverified universal repairability, price history, or durability claims."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-8ecf0b56fdc149179ad82d189ba87cc9",
+      "canonical_sha": "43da5f538944391350203fe76f41ca3fde6d92d9",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-16T18:10:33Z",
+      "status": "accepted"
     }
   ],
   "artifacts": [],

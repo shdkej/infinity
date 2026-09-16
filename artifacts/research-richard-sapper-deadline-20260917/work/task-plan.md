@@ -1,6 +1,6 @@
 # 리처드 사퍼 마감형 종합 리서치 — 실행 타임라인
 
-`마감: 2026-09-17 08:00 Asia/Seoul (KST) / 2026-09-16 23:00 UTC` · `실행: 7회차` · `태스크: 10개 중 7개 완료 · 3개 미완료`
+`마감: 2026-09-17 08:00 Asia/Seoul (KST) / 2026-09-16 23:00 UTC` · `실행: 8회차` · `태스크: 13개 중 7개 완료 · 6개 미완료`
 
 ```text
 ◐ T1  리처드 사퍼에서 작품·사람·기업·시대·영향으로 탐색 가지를 계속 넓힌다       진행
@@ -26,10 +26,17 @@
 │  ● T3.1 9090의 사용·유지·재발매 조건을 독립 자료로 점검한다                       완료 · 예상/최대 25/25분 · 의존 T2.1
 │           증거: `artifacts/research-richard-sapper-deadline-20260917/work/9090-use-maintenance.md`
 │           시작/완료/실제: 2026-09-16T18:05:45Z / 2026-09-16T18:09:00Z / 3분
-│  ○ T3.2 Tizio의 광원·에너지·조작성 조건을 시대별로 점검한다                         미완료 · 예상/최대 25/25분 · 의존 T2.1
+│  ◐ T3.2 Tizio의 광원·에너지·조작성 조건을 시대별로 점검한다                         진행 · 예상/최대 25/25분 · 의존 T2.1
 │           증거: `artifacts/research-richard-sapper-deadline-20260917/work/tizio-technology-conditions.md`
+│           시작/완료/실제: 2026-09-16T18:10:35Z / 미완료 / 진행 중
 │  ○ T3.3 Brionvega 공동 저작과 소비전자 유통 맥락을 확장한다                         미완료 · 예상/최대 25/25분 · 의존 T2.1
 │           증거: `artifacts/research-richard-sapper-deadline-20260917/work/brionvega-collaboration-market.md`
+│  ○ T4.1 9091의 경고음·열·재료 조건을 9090과 구분해 점검한다                         미완료 · 예상/최대 20/20분 · 의존 T3.1
+│           증거: `artifacts/research-richard-sapper-deadline-20260917/work/9091-kettle-conditions.md`
+│  ○ T4.2 ThinkPad 701C의 기계 저작과 MoMA 소장 맥락을 별도 검증한다                  미완료 · 예상/최대 20/20분 · 의존 T2.3
+│           증거: `artifacts/research-richard-sapper-deadline-20260917/work/thinkpad-701c-authorship.md`
+│  ○ T4.3 Alessi의 외부 디자이너 협업 구조를 9090의 기업 맥락으로 점검한다             미완료 · 예상/최대 20/20분 · 의존 T3.1
+│           증거: `artifacts/research-richard-sapper-deadline-20260917/work/alessi-collaboration-model.md`
 │  ○ T1.4  마감 시각에 한국어 최종 브리프를 확정하고 원 스레드에 보고한다          미완료 · 예상/최대 30/30분 · 의존 T2.3
 │           증거: `artifacts/research-richard-sapper-deadline-20260917/final/richard-sapper-deadline-brief.md`
 │           시작/완료/실제: 2026-09-16T23:00:00Z 이후 / 미완료 / 미완료
@@ -61,6 +68,8 @@
 │     T2.1 의존성이 완료되어, 9090의 실제 사용·세척·부품·재발매 조건을 판매 서사와 분리하는 leaf를 시작한다.
 ├─ — 2026-09-16T18:09:00Z · T3.1 사용·유지 조건 완료
 │     박물관·설명서·공식 부품 페이지를 대조해 레버 잠금, 세척·소모품, 지속 생산을 분리해 기록했다. 부품 한 항목으로 전체 수리 가능성을 일반화하지 않는다.
+├─ — 2026-09-16T18:10:35Z · 확장 및 T3.2 활성화
+│     확장 정책에 따라 T4.1–T4.3 세 leaf를 추가했다(총 10→13, target 50 이하). T2.1 의존성이 완료된 T3.2를 활성화한다.
 └─ — 보호 경계
       공개 게시·외부 연락·결제·개인정보 수집·저작권 있는 원문 장문 전재는 하지 않는다.
 ```
