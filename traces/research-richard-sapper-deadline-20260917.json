@@ -680,12 +680,34 @@
       "session_key": "agent:genie:infinity-dispatcher",
       "timestamp": "2026-09-16T22:25:41Z",
       "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-16T22:28:03Z",
+      "context_pack": "intents/context/research-richard-sapper-deadline-20260917.json",
+      "evidence_paths": [
+        "artifacts/research-richard-sapper-deadline-20260917/work/tizio-date-layers.md"
+      ],
+      "searches": [
+        "MoMA Tizio 1971 first produced 1972; Centre Pompidou Tizio creation date; Artemide history Tizio 1972; Met Tizio 1972"
+      ],
+      "wiki_pages": [
+        "agent-wiki/content/docs/outputs/Communication/Open_Source.mdx",
+        "agent-wiki/content/docs/outputs/Idea/Movie.mdx",
+        "agent-wiki/content/docs/outputs/Portfolio.mdx",
+        "agent-wiki/content/docs/outputs/Integration/Marketing.mdx",
+        "agent-wiki/content/docs/outputs/Fundamental/Math.mdx"
+      ],
+      "operational_log_sections": [
+        "logs/agent-wiki-query.md"
+      ],
+      "note": "T6.1 completed: preserved MoMA/Centre Pompidou 1971 creation metadata separately from MoMA first-production text, Artemide timeline, and Met 1972 collection date; no first-release document verified."
     }
   ],
   "artifacts": [],
   "verifications": [],
   "next_decision": {
     "status": "exploratory",
-    "value": "Activate T6.1 to compare institutional Tizio date layers without collapsing design, production, and collection dates."
+    "value": "Activate T6.2 to separate TS 502 hinge interaction evidence from unverified safety and service claims."
   }
 }
