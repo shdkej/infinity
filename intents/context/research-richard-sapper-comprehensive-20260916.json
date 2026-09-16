@@ -1,0 +1,49 @@
+{
+  "context_pack_version": 3,
+  "status": "ready",
+  "route": "infinity",
+  "request": "리차드 사퍼님에 대한 모든 것을 내일 8시까지 리서치해줘",
+  "normalized_research_query": "Richard Sapper의 생애, 스튜디오, 대표 제품, 디자인 원칙, 협업·저작 기여, 영향과 비평을 2026-09-17 08:00 KST까지 종합 조사한다.",
+  "built_at": "2026-09-16T08:40:48.440730+00:00",
+  "required_documents": [
+    "/home/ubuntu/workspace/prompt-archive/LLM.md",
+    "README.md",
+    "schema/agent-rules.md",
+    "source/openclaw-system/docs/DOCUMENT_SEARCH_PIPELINE.md",
+    "source/openclaw-system/docs/USER_CONTEXT.md",
+    "source/openclaw-system/docs/SERVICE_REGISTRY.md",
+    "source/openclaw-system/docs/INFINITY_OPERATING_RULES.md",
+    "infinity/ARTIFACT_RULES.md",
+    "infinity/EXECUTION_LEARNING_CONTRACT.md",
+    "infinity/INTENTS.md",
+    "agent-wiki/content/docs/index.mdx"
+  ],
+  "search_scopes": [
+    "agent-wiki/content/docs/",
+    "source/openclaw-system/docs/",
+    "source/openclaw-system/data/daily-reviews/",
+    "source/openclaw-system/data/daily-tracking/",
+    "source/openclaw-system/data/photo-insights/"
+  ],
+  "selected_context": [],
+  "rejected_discovery_candidates": {
+    "reason": "The zg hybrid query returned generic design documents without the entity name Richard Sapper/리차드 사퍼 in their retrieved windows. They are navigation false positives and are not task evidence.",
+    "candidate_count": 5
+  },
+  "selected_operational_logs": [],
+  "preflight": {
+    "tool": "zg",
+    "query": "Richard Sapper biography products design principles legacy",
+    "discovery": "hybrid+fts RRF",
+    "verification": "entity-anchor rejection after indexed-section locator",
+    "result_count": 0,
+    "status": "no-wiki-match"
+  },
+  "selected_context_required": false,
+  "rules": [
+    "Read every required document before creating or executing an intent.",
+    "No compiled Agent Wiki section was used as task evidence because the entity-anchor check rejected all generic design hits.",
+    "Search first-party and museum/archive sources for task-specific evidence; do not treat a search hit as a confirmed fact without its source.",
+    "Record the resulting context pack path in the intent and re-check it before handoff."
+  ]
+}

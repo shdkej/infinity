@@ -4,6 +4,27 @@
 
 ## Inbox
 
+### [research-richard-sapper-comprehensive-20260916] 리차드 사퍼 종합 리서치
+- status: inbox
+- research_mode: exploratory_research
+- target_agent: genie
+- execution_mode: single_genie_roles
+- permission: L0-research-and-draft-only
+- projects: research-bank,infinity
+- task_type: research
+- topics: industrial-design,product,design-history
+- deadline: 2026-09-16T23:00:00Z
+- deadline_local: 2026-09-17 08:00 Asia/Seoul (KST)
+- context_pack: intents/context/research-richard-sapper-comprehensive-20260916.json
+- trace: traces/research-richard-sapper-comprehensive-20260916.json
+- prior_research: intents/archive/research-richard-sapper-20260910.md; intents/archive/research-richard-sapper-research-20260910.md
+- notification_channel: slack
+- notification_target: channel:C0BR41W31MM
+- notification_reply_to: 1789547954.349019
+- notification_origin: channel:C0BR41W31MM;reply_to:1789547954.349019
+- success_evidence: 생애·스튜디오·대표작·원칙·영향·논쟁/기여 범위를 1차·기관 출처 중심으로 구분한 한국어 종합 브리프와 직접 링크
+- next_decision: 기존 사퍼 리서치 두 건을 출발점으로 삼되, 중복을 제거하고 범위를 종합·최신화한다.
+
 ## Active
 ## Waiting
 

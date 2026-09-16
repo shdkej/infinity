@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "intent_id": "research-richard-sapper-comprehensive-20260916",
+  "status": "inbox",
+  "trace_completeness": "complete",
+  "request": {
+    "raw": {
+      "status": "recorded",
+      "value": "리차드 사퍼님에 대한 모든 것을 내일 8시까지 리서치해줘"
+    },
+    "normalized_query": {
+      "status": "recorded",
+      "value": "Richard Sapper의 생애, 스튜디오, 대표 제품, 디자인 원칙, 협업·저작 기여, 영향과 비평을 2026-09-17 08:00 KST까지 종합 조사한다."
+    }
+  },
+  "events": [
+    {
+      "type": "intake",
+      "at": "2026-09-16T08:42:39Z",
+      "context_pack": "intents/context/research-richard-sapper-comprehensive-20260916.json",
+      "evidence_paths": [
+        "INTENTS.md"
+      ]
+    }
+  ],
+  "artifacts": [],
+  "verifications": [],
+  "next_decision": {
+    "status": "in_progress",
+    "value": "기관·저작권자·기업 아카이브를 우선으로 기존 리서치를 통합·최신화한다."
+  }
+}
