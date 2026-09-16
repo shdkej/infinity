@@ -77,7 +77,7 @@
     {
       "id": "T4.2", "title": "ThinkPad 701C의 기계 저작과 MoMA 소장 맥락을 별도 검증한다", "status": "done", "started_at": "2026-09-16T19:20:35Z", "completed_at": "2026-09-16T19:24:00Z", "actual_minutes": 3, "depends_on": ["T2.3"], "evidence": "artifacts/research-richard-sapper-deadline-20260917/work/thinkpad-701c-authorship.md", "max_minutes": 20, "cycle_id": "T4", "cycle_goal": "후속 인터랙션 사례의 기계 저작자를 사퍼의 미학 기여와 분리한다.", "validation": "Karidis·Sapper·IBM 팀의 역할을 문서별로 배분하는가.", "closure_check": "박물관 소장이 저작권·기술 우월성을 자동 증명하지 않음을 명시한다."},
     {
-      "id": "T4.3", "title": "Alessi의 외부 디자이너 협업 구조를 9090의 기업 맥락으로 점검한다", "status": "active", "started_at": "2026-09-16T19:50:35Z", "depends_on": ["T3.1"], "evidence": "artifacts/research-richard-sapper-deadline-20260917/work/alessi-collaboration-model.md", "max_minutes": 20, "cycle_id": "T4", "cycle_goal": "제품 성공을 디자이너 개인이 아니라 기업의 협업·생산 구조와 함께 읽는다.", "validation": "제조사 자기서사와 독립 제도 기록을 구분하는가.", "closure_check": "공동 기여를 정량화할 수 없는 지점을 남긴다."},
+      "id": "T4.3", "title": "Alessi의 외부 디자이너 협업 구조를 9090의 기업 맥락으로 점검한다", "status": "done", "started_at": "2026-09-16T19:50:35Z", "completed_at": "2026-09-16T19:54:00Z", "actual_minutes": 3, "depends_on": ["T3.1"], "evidence": "artifacts/research-richard-sapper-deadline-20260917/work/alessi-collaboration-model.md", "max_minutes": 20, "cycle_id": "T4", "cycle_goal": "제품 성공을 디자이너 개인이 아니라 기업의 협업·생산 구조와 함께 읽는다.", "validation": "제조사 자기서사와 독립 제도 기록을 구분하는가.", "closure_check": "공동 기여를 정량화할 수 없는 지점을 남긴다."},
     {
       "id": "T5.1", "title": "9091의 연도·재료·치수 차이를 소장품/제조사 층위로 재검증한다", "status": "pending", "depends_on": ["T4.1"], "evidence": "artifacts/research-richard-sapper-deadline-20260917/work/9091-record-variants.md", "max_minutes": 20, "cycle_id": "T5", "cycle_goal": "9091의 충돌하는 제품 기록을 하나의 확정 서사가 아니라 표본·시기·기관 메타데이터 문제로 읽는다.", "validation": "1983/1984와 90/10·18/10 재료 표기를 서로 덮어쓰지 않는가.", "closure_check": "제조 도면 부재와 확인 가능한 표본 경계를 남긴다."},
     {
@@ -127,6 +127,12 @@
       "task_id": "T4.2",
       "change": "701C의 기계 메커니즘·미학 자문·MoMA 공동 귀속을 분리해 완료했다.",
       "reason": "IBM은 Karidis의 두 삼각형 키보드와 사퍼의 ThinkPad 미학 자문을, MoMA는 Lucente·Karidis·Tennant·Sapper·IBM의 공동 귀속을 기록한다. 특허·신뢰성·세부 공학은 T5.4로 남긴다."
+    },
+    {
+      "at": "2026-09-16T19:54:00Z",
+      "task_id": "T4.3",
+      "change": "Alessi의 협업 서사와 9090의 기관/제도 기록을 분리해 완료했다.",
+      "reason": "Alessi는 장기 협업 전략을 설명하고, Museo Omero·ADI는 9090의 사퍼/Alessi 귀속과 1979 Compasso d’Oro를 확인한다. 계약·원가·생산량은 공개 근거가 없다."
     }
   ]
 }

@@ -494,12 +494,34 @@
       "session_key": "agent:genie:infinity-dispatcher",
       "timestamp": "2026-09-16T19:50:27Z",
       "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-16T19:52:33Z",
+      "context_pack": "intents/context/research-richard-sapper-deadline-20260917.json",
+      "evidence_paths": [
+        "artifacts/research-richard-sapper-deadline-20260917/work/alessi-collaboration-model.md"
+      ],
+      "searches": [
+        "Alessi history independent designers Richard Sapper; Museo Omero 9090; ADI Compasso d Oro 9090 Richard Sapper"
+      ],
+      "wiki_pages": [
+        "agent-wiki/content/docs/outputs/Communication/Open_Source.mdx",
+        "agent-wiki/content/docs/outputs/Idea/Movie.mdx",
+        "agent-wiki/content/docs/outputs/Portfolio.mdx",
+        "agent-wiki/content/docs/outputs/Integration/Marketing.mdx",
+        "agent-wiki/content/docs/outputs/Fundamental/Math.mdx"
+      ],
+      "operational_log_sections": [
+        "logs/agent-wiki-query.md"
+      ],
+      "note": "T4.3 completed: separated Alessi partnership self-history from Museo Omero and ADI records of Sapper/Alessi attribution and 1979 Compasso d Oro; preserved missing contract, cost and production-volume evidence."
     }
   ],
   "artifacts": [],
   "verifications": [],
   "next_decision": {
     "status": "exploratory",
-    "value": "Activate T4.3 to examine Alessi external-designer collaboration structure and 9090 corporate context."
+    "value": "Activate T5.1 to investigate 9091 record variants across museum and manufacturer sources."
   }
 }
