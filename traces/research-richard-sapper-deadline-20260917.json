@@ -463,12 +463,34 @@
       "session_key": "agent:genie:infinity-dispatcher",
       "timestamp": "2026-09-16T19:20:29Z",
       "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-16T19:23:32Z",
+      "context_pack": "intents/context/research-richard-sapper-deadline-20260917.json",
+      "evidence_paths": [
+        "artifacts/research-richard-sapper-deadline-20260917/work/thinkpad-701c-authorship.md"
+      ],
+      "searches": [
+        "IBM ThinkPad 701C butterfly keyboard John Karidis; MoMA ThinkPad 701 Portable Computer 1995"
+      ],
+      "wiki_pages": [
+        "agent-wiki/content/docs/outputs/Communication/Open_Source.mdx",
+        "agent-wiki/content/docs/outputs/Idea/Movie.mdx",
+        "agent-wiki/content/docs/outputs/Portfolio.mdx",
+        "agent-wiki/content/docs/outputs/Integration/Marketing.mdx",
+        "agent-wiki/content/docs/outputs/Fundamental/Math.mdx"
+      ],
+      "operational_log_sections": [
+        "logs/agent-wiki-query.md"
+      ],
+      "note": "T4.2 completed: separated Karidis mechanical keyboard account, Sapper ThinkPad aesthetics consulting, and MoMA multi-party attribution; reserved patent, reliability and detailed engineering questions for T5.4."
     }
   ],
   "artifacts": [],
   "verifications": [],
   "next_decision": {
     "status": "exploratory",
-    "value": "Activate T4.2 to examine ThinkPad 701C mechanical authorship and MoMA collection context."
+    "value": "Activate T4.3 to examine Alessi external-designer collaboration structure and 9090 corporate context."
   }
 }
