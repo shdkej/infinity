@@ -547,6 +547,15 @@
         "logs/agent-wiki-query.md"
       ],
       "note": "T5.1 completed: retained conflicting 9091 date, material and dimension records by museum, current manufacturer and collection sample rather than constructing a unified specification."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-1d86379cdb0e491b93bc234514ee3e84",
+      "canonical_sha": "cc4efcb8e24da6b04cf97e01386116a07631901b",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-16T20:50:32Z",
+      "status": "accepted"
     }
   ],
   "artifacts": [],
