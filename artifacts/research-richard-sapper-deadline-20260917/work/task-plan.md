@@ -1,6 +1,6 @@
 # 리처드 사퍼 마감형 종합 리서치 — 실행 타임라인
 
-`마감: 2026-09-17 08:00 Asia/Seoul (KST) / 2026-09-16 23:00 UTC` · `실행: 4회차` · `태스크: 7개 중 4개 완료 · 3개 미완료`
+`마감: 2026-09-17 08:00 Asia/Seoul (KST) / 2026-09-16 23:00 UTC` · `실행: 5회차` · `태스크: 10개 중 4개 완료 · 1개 진행 · 5개 미완료`
 
 ```text
 ◐ T1  리처드 사퍼에서 작품·사람·기업·시대·영향으로 탐색 가지를 계속 넓힌다       진행
@@ -17,12 +17,18 @@
 │  ● T2.1 사퍼의 제품군에서 재료·생산·유통의 연결을 확장한다                         완료 · 예상/최대 30/30분 · 의존 T1.3
 │           증거: `artifacts/research-richard-sapper-deadline-20260917/work/product-ecosystem-branches.md`
 │           시작/완료/실제: 2026-09-16T14:06:00Z / 2026-09-16T16:30:33Z / 30분
-│  ○ T2.2 사퍼와 동시대 디자이너·디자인 운동의 관계를 확장한다                       미완료 · 예상/최대 30/30분 · 의존 T2.1
+│  ◐ T2.2 사퍼와 동시대 디자이너·디자인 운동의 관계를 확장한다                       진행 · 예상/최대 30/30분 · 의존 T2.1
 │           증거: `artifacts/research-richard-sapper-deadline-20260917/work/contemporary-network.md`
-│           시작/완료/실제: 미시작 / 미완료 / 미완료
+│           시작/완료/실제: 2026-09-16T16:35:40Z / 미완료 / 진행 중
 │  ○ T2.3 사퍼 이후의 인터랙션·컴퓨팅 디자인 계보를 확장한다                         미완료 · 예상/최대 30/30분 · 의존 T2.2
 │           증거: `artifacts/research-richard-sapper-deadline-20260917/work/interaction-legacy-branches.md`
 │           시작/완료/실제: 미시작 / 미완료 / 미완료
+│  ○ T3.1 9090의 사용·유지·재발매 조건을 독립 자료로 점검한다                       미완료 · 예상/최대 25/25분 · 의존 T2.1
+│           증거: `artifacts/research-richard-sapper-deadline-20260917/work/9090-use-maintenance.md`
+│  ○ T3.2 Tizio의 광원·에너지·조작성 조건을 시대별로 점검한다                         미완료 · 예상/최대 25/25분 · 의존 T2.1
+│           증거: `artifacts/research-richard-sapper-deadline-20260917/work/tizio-technology-conditions.md`
+│  ○ T3.3 Brionvega 공동 저작과 소비전자 유통 맥락을 확장한다                         미완료 · 예상/최대 25/25분 · 의존 T2.1
+│           증거: `artifacts/research-richard-sapper-deadline-20260917/work/brionvega-collaboration-market.md`
 │  ○ T1.4  마감 시각에 한국어 최종 브리프를 확정하고 원 스레드에 보고한다          미완료 · 예상/최대 30/30분 · 의존 T2.3
 │           증거: `artifacts/research-richard-sapper-deadline-20260917/final/richard-sapper-deadline-brief.md`
 │           시작/완료/실제: 2026-09-16T23:00:00Z 이후 / 미완료 / 미완료
@@ -42,6 +48,8 @@
 │     `delivery_not_before`는 최종 전달 금지일 뿐 연구 중단 사유가 아니다. T2.1–T2.3을 추가·활성화하고, ready leaf가 4개 미만이면 1~5개씩 다음 탐색 leaf를 보충한다.
 ├─ — 2026-09-16T16:30:33Z · T2.1 제품 생태계 가지 완료
 │     9090과 Tizio를 재료·열/잠금·제조·제도·유통의 연결로 기록했다. 제조사·수상기관의 이해관계와 1978/1979 연도 층위를 보존하고 T2.2로 넘긴다.
+├─ — 2026-09-16T16:35:40Z · 확장 및 T2.2 활성화
+│     확장 정책에 따라 T3.1–T3.3 세 leaf를 추가했다(총 7→10, target 50 이하). T2.1 의존성이 완료된 T2.2를 먼저 활성화한다.
 └─ — 보호 경계
       공개 게시·외부 연락·결제·개인정보 수집·저작권 있는 원문 장문 전재는 하지 않는다.
 ```

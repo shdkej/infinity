@@ -259,6 +259,15 @@
         "logs/agent-wiki-query.md"
       ],
       "note": "T2.1 completed: mapped 9090 and Tizio through materials, production, institutional recognition, and market/distribution conditions; preserved source interests and date-layer ambiguity."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-b37dc50550fa411fbb7591d0f509a410",
+      "canonical_sha": "dbbaa46e41317311199d8ccd9dadbd45ec776ba7",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-16T16:35:40Z",
+      "status": "accepted"
     }
   ],
   "artifacts": [],
