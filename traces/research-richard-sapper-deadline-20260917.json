@@ -401,12 +401,34 @@
       "session_key": "agent:genie:infinity-dispatcher",
       "timestamp": "2026-09-16T18:40:28Z",
       "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-16T18:42:32Z",
+      "context_pack": "intents/context/research-richard-sapper-deadline-20260917.json",
+      "evidence_paths": [
+        "artifacts/research-richard-sapper-deadline-20260917/work/brionvega-collaboration-market.md"
+      ],
+      "searches": [
+        "ADI Doney record; MoMA Brionvega TS 502 and Doney collections; Cooper Hewitt Algol record; Brionvega heritage attempt timed out"
+      ],
+      "wiki_pages": [
+        "agent-wiki/content/docs/outputs/Communication/Open_Source.mdx",
+        "agent-wiki/content/docs/outputs/Idea/Movie.mdx",
+        "agent-wiki/content/docs/outputs/Portfolio.mdx",
+        "agent-wiki/content/docs/outputs/Integration/Marketing.mdx",
+        "agent-wiki/content/docs/outputs/Fundamental/Math.mdx"
+      ],
+      "operational_log_sections": [
+        "logs/agent-wiki-query.md"
+      ],
+      "note": "T3.3 completed: confirmed Zanuso/Sapper co-design and Brionvega manufacturing while retaining gaps on sales, distribution, and individual contribution; excluded timed-out company narrative from core evidence."
     }
   ],
   "artifacts": [],
   "verifications": [],
   "next_decision": {
     "status": "exploratory",
-    "value": "Activate T3.3 to examine Brionvega collaboration and consumer-electronics market context."
+    "value": "Activate T4.1 to examine 9091 warning, heat, and material conditions separately from 9090."
   }
 }
