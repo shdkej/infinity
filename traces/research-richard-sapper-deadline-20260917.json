@@ -299,12 +299,43 @@
       "session_key": "agent:genie:infinity-dispatcher",
       "timestamp": "2026-09-16T17:05:41Z",
       "status": "accepted"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-1aab4f659092456491b289c0f588b4db",
+      "canonical_sha": "394d899038033db1d735e55f732c05951648cbe8",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-16T17:35:42Z",
+      "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-16T17:37:09Z",
+      "context_pack": "intents/context/research-richard-sapper-deadline-20260917.json",
+      "evidence_paths": [
+        "artifacts/research-richard-sapper-deadline-20260917/work/interaction-legacy-branches.md"
+      ],
+      "searches": [
+        "IBM ThinkPad history; Lenovo 25th anniversary ThinkPad; Lenovo foundational engineering"
+      ],
+      "wiki_pages": [
+        "agent-wiki/content/docs/outputs/Communication/Open_Source.mdx",
+        "agent-wiki/content/docs/outputs/Idea/Movie.mdx",
+        "agent-wiki/content/docs/outputs/Portfolio.mdx",
+        "agent-wiki/content/docs/outputs/Integration/Marketing.mdx",
+        "agent-wiki/content/docs/outputs/Fundamental/Math.mdx"
+      ],
+      "operational_log_sections": [
+        "logs/agent-wiki-query.md"
+      ],
+      "note": "T2.3 completed: separated Sapper’s ThinkPad aesthetic and TrackPoint color decisions from Ted Selker’s input-device contribution and Yamato team engineering; treated later ThinkPad continuity as organizational rather than sole-author lineage."
     }
   ],
   "artifacts": [],
   "verifications": [],
   "next_decision": {
     "status": "exploratory",
-    "value": "Activate T2.3 and examine interaction/computing legacy while separating direct contribution from inferred resemblance."
+    "value": "Activate T3.1 to examine 9090 use, maintenance, and reissue conditions using independent or primary evidence."
   }
 }
