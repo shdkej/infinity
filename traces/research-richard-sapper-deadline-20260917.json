@@ -454,6 +454,15 @@
         "logs/agent-wiki-query.md"
       ],
       "note": "T4.1 completed: separated the 9091 melodic signal, trigger/whistle, current induction product and spare-parts listing from 9090; preserved date/material/sample conflicts and lacked direct thermal testing."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-de45a66acc95410a9b9c0af9332ed43c",
+      "canonical_sha": "1444eee1f3b4c3d17c517bc26d9f0d3d2bf5cd48",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-16T19:20:29Z",
+      "status": "accepted"
     }
   ],
   "artifacts": [],

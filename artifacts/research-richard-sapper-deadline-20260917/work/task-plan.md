@@ -1,6 +1,6 @@
 # 리처드 사퍼 마감형 종합 리서치 — 실행 타임라인
 
-`마감: 2026-09-17 08:00 Asia/Seoul (KST) / 2026-09-16 23:00 UTC` · `실행: 10회차` · `태스크: 13개 중 10개 완료 · 3개 미완료`
+`마감: 2026-09-17 08:00 Asia/Seoul (KST) / 2026-09-16 23:00 UTC` · `실행: 11회차` · `태스크: 18개 중 10개 완료 · 8개 미완료`
 
 ```text
 ◐ T1  리처드 사퍼에서 작품·사람·기업·시대·영향으로 탐색 가지를 계속 넓힌다       진행
@@ -35,10 +35,21 @@
 │  ● T4.1 9091의 경고음·열·재료 조건을 9090과 구분해 점검한다                         완료 · 예상/최대 20/20분 · 의존 T3.1
 │           증거: `artifacts/research-richard-sapper-deadline-20260917/work/9091-kettle-conditions.md`
 │           시작/완료/실제: 2026-09-16T19:10:35Z / 2026-09-16T19:14:00Z / 3분
-│  ○ T4.2 ThinkPad 701C의 기계 저작과 MoMA 소장 맥락을 별도 검증한다                  미완료 · 예상/최대 20/20분 · 의존 T2.3
+│  ◐ T4.2 ThinkPad 701C의 기계 저작과 MoMA 소장 맥락을 별도 검증한다                  진행 · 예상/최대 20/20분 · 의존 T2.3
 │           증거: `artifacts/research-richard-sapper-deadline-20260917/work/thinkpad-701c-authorship.md`
+│           시작/완료/실제: 2026-09-16T19:20:35Z / 미완료 / 진행 중
 │  ○ T4.3 Alessi의 외부 디자이너 협업 구조를 9090의 기업 맥락으로 점검한다             미완료 · 예상/최대 20/20분 · 의존 T3.1
 │           증거: `artifacts/research-richard-sapper-deadline-20260917/work/alessi-collaboration-model.md`
+│  ○ T5.1 9091의 연도·재료·치수 차이를 소장품/제조사 층위로 재검증한다                  미완료 · 예상/최대 20/20분 · 의존 T4.1
+│           증거: `artifacts/research-richard-sapper-deadline-20260917/work/9091-record-variants.md`
+│  ○ T5.2 Tizio의 현행 LED 재발매와 원형의 기술 계보를 별도 검증한다                    미완료 · 예상/최대 20/20분 · 의존 T3.2
+│           증거: `artifacts/research-richard-sapper-deadline-20260917/work/tizio-reissue-lineage.md`
+│  ○ T5.3 Brionvega 라디오의 소장 표본과 현대 유통 서사를 분리해 점검한다               미완료 · 예상/최대 20/20분 · 의존 T3.3
+│           증거: `artifacts/research-richard-sapper-deadline-20260917/work/brionvega-record-market-variants.md`
+│  ○ T5.4 701C Butterfly Keyboard의 기계 메커니즘과 팀 기여를 재검증한다               미완료 · 예상/최대 20/20분 · 의존 T4.2
+│           증거: `artifacts/research-richard-sapper-deadline-20260917/work/701c-mechanism-team-ledger.md`
+│  ○ T5.5 Alessi 협업 모델의 제도 기록과 제조사 서사를 대조한다                        미완료 · 예상/최대 20/20분 · 의존 T4.3
+│           증거: `artifacts/research-richard-sapper-deadline-20260917/work/alessi-collaboration-institutions.md`
 │  ○ T1.4  마감 시각에 한국어 최종 브리프를 확정하고 원 스레드에 보고한다          미완료 · 예상/최대 30/30분 · 의존 T2.3
 │           증거: `artifacts/research-richard-sapper-deadline-20260917/final/richard-sapper-deadline-brief.md`
 │           시작/완료/실제: 2026-09-16T23:00:00Z 이후 / 미완료 / 미완료
@@ -82,6 +93,8 @@
 │     T3.1 의존성이 완료되어, 9091의 소리·열·재료를 9090의 잠금·소모품 결론과 분리하는 leaf를 시작한다.
 ├─ — 2026-09-16T19:14:00Z · T4.1 9091 조건 완료
 │     Museo Omero·Alessi·Brooklyn Museum을 대조해 경고음·개폐·현행 유도 가열/부품 표기를 분리했다. 연도·재료·치수 차이와 열 시험·빈티지 호환성의 공백은 해소하지 않았다.
+├─ — 2026-09-16T19:20:35Z · 확장 및 T4.2 활성화
+│     확장 정책에 따라 T5.1–T5.5 다섯 leaf를 추가했다(총 13→18, target 50 이하). T2.3 의존성이 완료된 T4.2를 먼저 활성화한다.
 └─ — 보호 경계
       공개 게시·외부 연락·결제·개인정보 수집·저작권 있는 원문 장문 전재는 하지 않는다.
 ```
