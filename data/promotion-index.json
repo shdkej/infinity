@@ -1,30 +1,44 @@
 {
-  "generated_at": "2026-09-16T00:00:08.486Z",
+  "generated_at": "2026-09-16T06:00:08.748Z",
   "summary": {
-    "total": 910,
+    "total": 911,
     "wiki_reflected": 200,
-    "not_reflected": 710,
+    "not_reflected": 711,
     "by_status": {
+      "queued": 719,
       "reviewed": 90,
-      "queued": 718,
       "integrated": 10,
       "rejected": 90,
       "selected": 2
     },
     "by_layer": {
-      "infinity": 55,
+      "infinity": 56,
       "openclaw-system": 599,
       "shdkej-content": 76,
       "external-links": 179,
       "root": 1
     },
     "by_promotion_state": {
-      "not_applicable": 708,
+      "not_applicable": 709,
       "reflected": 200,
       "pending_promotion": 2
     }
   },
   "entries": [
+    {
+      "source": "source/infinity/archive/upstream/strategy-compound-business-20260915.md",
+      "status": "queued",
+      "source_layer": "infinity",
+      "reason": "자동 수집됨; 내용 판정 대기",
+      "reviewed_at": "",
+      "modified_at": "2026-09-16T06:00:03Z",
+      "promotion_targets": [],
+      "reflection_basis": [],
+      "promotion_state": "not_applicable",
+      "promotion_reason": "자동 수집됨; 내용 판정 대기",
+      "promotion_target_note": "",
+      "wiki_reflected": false
+    },
     {
       "source": "source/infinity/archive/upstream/research-ontology-kl-fit-20260915.md",
       "status": "reviewed",
