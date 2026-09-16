@@ -24,6 +24,7 @@
 - context_searches: zg hybrid+fts Context Pack query; rg Richard Sapper/사퍼 in declared scopes
 - task_plan: artifacts/research-richard-sapper-deadline-20260917/work/task-plan.json
 - task_plan_doc: artifacts/research-richard-sapper-deadline-20260917/work/task-plan.md
+- artifact: artifacts/research-richard-sapper-deadline-20260917/work/9090-service-record-boundaries.md
 - artifact: artifacts/research-richard-sapper-deadline-20260917/work/ts502-interaction-mechanism.md
 - artifact: artifacts/research-richard-sapper-deadline-20260917/work/research-expansion-map.md; artifacts/research-richard-sapper-deadline-20260917/work/connection-ledger.md; artifacts/research-richard-sapper-deadline-20260917/work/contemporary-network.md; artifacts/research-richard-sapper-deadline-20260917/work/product-ecosystem-branches.md; artifacts/research-richard-sapper-deadline-20260917/work/critical-reading.md; artifacts/research-richard-sapper-deadline-20260917/work/interaction-legacy-branches.md; artifacts/research-richard-sapper-deadline-20260917/work/9090-use-maintenance.md; artifacts/research-richard-sapper-deadline-20260917/work/tizio-technology-conditions.md; artifacts/research-richard-sapper-deadline-20260917/work/brionvega-collaboration-market.md; artifacts/research-richard-sapper-deadline-20260917/work/9091-kettle-conditions.md; artifacts/research-richard-sapper-deadline-20260917/work/thinkpad-701c-authorship.md; artifacts/research-richard-sapper-deadline-20260917/work/alessi-collaboration-model.md; artifacts/research-richard-sapper-deadline-20260917/work/9091-record-variants.md; artifacts/research-richard-sapper-deadline-20260917/work/tizio-reissue-lineage.md; artifacts/research-richard-sapper-deadline-20260917/work/brionvega-record-market-variants.md; artifacts/research-richard-sapper-deadline-20260917/work/701c-mechanism-team-ledger.md; artifacts/research-richard-sapper-deadline-20260917/work/alessi-collaboration-institutions.md; artifacts/research-richard-sapper-deadline-20260917/work/tizio-date-layers.md
 - task_plan_template: ARTIFACT_RULES.md#대형-작업-태스크-계획
@@ -32,4 +33,4 @@
 - notification_target: channel:C0BR41W31MM
 - notification_reply_to: 1789547954.349019
 - notification_origin: channel:C0BR41W31MM;reply_to:1789547954.349019
-- next_action: T6.3에서 9090의 현행 부품·세척 기록을 판매 정보와 분리한다.
+- next_action: T6.4에서 ThinkPad 701C의 소장·전시 기록과 특허 저자 근거를 분리한다.

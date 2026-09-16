@@ -742,12 +742,34 @@
       "session_key": "agent:genie:infinity-dispatcher",
       "timestamp": "2026-09-16T23:30:25Z",
       "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-16T23:32:10Z",
+      "context_pack": "intents/context/research-richard-sapper-deadline-20260917.json",
+      "evidence_paths": [
+        "artifacts/research-richard-sapper-deadline-20260917/work/9090-service-record-boundaries.md"
+      ],
+      "searches": [
+        "Alessi 9090 spare parts gasket microfilter; Alessi 9090 instruction manual cleaning and worn-part guidance"
+      ],
+      "wiki_pages": [
+        "agent-wiki/content/docs/outputs/Communication/Open_Source.mdx",
+        "agent-wiki/content/docs/outputs/Idea/Movie.mdx",
+        "agent-wiki/content/docs/outputs/Portfolio.mdx",
+        "agent-wiki/content/docs/outputs/Integration/Marketing.mdx",
+        "agent-wiki/content/docs/outputs/Fundamental/Math.mdx"
+      ],
+      "operational_log_sections": [
+        "logs/agent-wiki-query.md"
+      ],
+      "note": "T6.3 completed: separated current Alessi 9090 part listings and legacy care guidance from vintage compatibility, stock, and service guarantees."
     }
   ],
   "artifacts": [],
   "verifications": [],
   "next_decision": {
     "status": "exploratory",
-    "value": "Activate T6.3: separate current 9090 parts and cleaning records from sales claims."
+    "value": "Activate T6.4: separate ThinkPad 701C collection/exhibition records from patent authorship evidence."
   }
 }
