@@ -29,8 +29,9 @@
 │  ● T3.2 Tizio의 광원·에너지·조작성 조건을 시대별로 점검한다                         완료 · 예상/최대 25/25분 · 의존 T2.1
 │           증거: `artifacts/research-richard-sapper-deadline-20260917/work/tizio-technology-conditions.md`
 │           시작/완료/실제: 2026-09-16T18:10:35Z / 2026-09-16T18:14:00Z / 3분
-│  ○ T3.3 Brionvega 공동 저작과 소비전자 유통 맥락을 확장한다                         미완료 · 예상/최대 25/25분 · 의존 T2.1
+│  ◐ T3.3 Brionvega 공동 저작과 소비전자 유통 맥락을 확장한다                         진행 · 예상/최대 25/25분 · 의존 T2.1
 │           증거: `artifacts/research-richard-sapper-deadline-20260917/work/brionvega-collaboration-market.md`
+│           시작/완료/실제: 2026-09-16T18:40:35Z / 미완료 / 진행 중
 │  ○ T4.1 9091의 경고음·열·재료 조건을 9090과 구분해 점검한다                         미완료 · 예상/최대 20/20분 · 의존 T3.1
 │           증거: `artifacts/research-richard-sapper-deadline-20260917/work/9091-kettle-conditions.md`
 │  ○ T4.2 ThinkPad 701C의 기계 저작과 MoMA 소장 맥락을 별도 검증한다                  미완료 · 예상/최대 20/20분 · 의존 T2.3
@@ -72,6 +73,8 @@
 │     확장 정책에 따라 T4.1–T4.3 세 leaf를 추가했다(총 10→13, target 50 이하). T2.1 의존성이 완료된 T3.2를 활성화한다.
 ├─ — 2026-09-16T18:14:00Z · T3.2 기술 조건 완료
 │     Met·MoMA·Artemide 자료로 원형의 할로겐/평형/전력 전달과 현행 LED 사양을 분리했다. 현행 LED의 수치를 빈티지 모델에 소급하지 않는다.
+├─ — 2026-09-16T18:40:35Z · T3.3 활성화
+│     T2.1 의존성이 완료되어, Brionvega의 공동 저작과 소비전자 유통을 제품 저작·기업 역할·시장 주장으로 분리하는 leaf를 시작한다.
 └─ — 보호 경계
       공개 게시·외부 연락·결제·개인정보 수집·저작권 있는 원문 장문 전재는 하지 않는다.
 ```

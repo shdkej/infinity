@@ -71,7 +71,7 @@
     {
       "id": "T3.2", "title": "Tizio의 광원·에너지·조작성 조건을 시대별로 점검한다", "status": "done", "started_at": "2026-09-16T18:10:35Z", "completed_at": "2026-09-16T18:14:00Z", "actual_minutes": 3, "depends_on": ["T2.1"], "evidence": "artifacts/research-richard-sapper-deadline-20260917/work/tizio-technology-conditions.md", "max_minutes": 25, "cycle_id": "T3", "cycle_goal": "조명 기술의 상징성과 실제 제약을 분리한다.", "validation": "할로겐·전력·조작성의 직접 근거와 현대 기준 해석을 구분하는가.", "closure_check": "에너지·서비스성의 미확정 항목을 남긴다."},
     {
-      "id": "T3.3", "title": "Brionvega 공동 저작과 소비전자 유통 맥락을 확장한다", "status": "pending", "depends_on": ["T2.1"], "evidence": "artifacts/research-richard-sapper-deadline-20260917/work/brionvega-collaboration-market.md", "max_minutes": 25, "cycle_id": "T3", "cycle_goal": "공동 저작을 제품·기업·시장 맥락에 놓는다.", "validation": "Zanuso·Sapper·Brionvega의 역할 경계와 유통 주장을 구분하는가.", "closure_check": "제조·판매 자료의 공백을 명시한다."},
+      "id": "T3.3", "title": "Brionvega 공동 저작과 소비전자 유통 맥락을 확장한다", "status": "active", "started_at": "2026-09-16T18:40:35Z", "depends_on": ["T2.1"], "evidence": "artifacts/research-richard-sapper-deadline-20260917/work/brionvega-collaboration-market.md", "max_minutes": 25, "cycle_id": "T3", "cycle_goal": "공동 저작을 제품·기업·시장 맥락에 놓는다.", "validation": "Zanuso·Sapper·Brionvega의 역할 경계와 유통 주장을 구분하는가.", "closure_check": "제조·판매 자료의 공백을 명시한다."},
     {
       "id": "T4.1", "title": "9091의 경고음·열·재료 조건을 9090과 구분해 점검한다", "status": "pending", "depends_on": ["T3.1"], "evidence": "artifacts/research-richard-sapper-deadline-20260917/work/9091-kettle-conditions.md", "max_minutes": 20, "cycle_id": "T4", "cycle_goal": "사퍼의 주방 제품군에서 사용 신호와 열 조건을 별도 제품 근거로 읽는다.", "validation": "9090의 유지성 결론을 9091에 자동 이식하지 않는가.", "closure_check": "직접 제품 기록·추정·열린 서비스 질문을 남긴다."},
     {
