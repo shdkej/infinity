@@ -1,0 +1,34 @@
+# 리처드 사퍼 종합 리서치
+
+- id: research-richard-sapper-comprehensive-20260916
+- status: archived
+- archived_at: 2026-09-16T08:44:27Z
+- research_mode: exploratory_research
+- execution_mode: single_genie_roles
+- permission: L0-research-and-draft-only
+- deep_research_gate: `/home/ubuntu/.openclaw/agents/genie/agent/codex-home/skills/deep-research/SKILL.md`를 외부 검색 전에 읽고 적용했다. 질문 구체화는 원 요청의 범위를 실질적으로 바꾸지 않았다.
+- context_pack: intents/context/research-richard-sapper-comprehensive-20260916.json
+- context_limit: `no-wiki-match`; Richard Sapper entity anchor가 없는 일반 디자인 문서 후보 5건은 근거로 사용하지 않았다.
+- prior_research_integration: 2026-09-10 두 리서치의 연도 충돌·공동 저작 경계를 재확인했으나, 최종 핵심 사실은 이번에 새로 직접 연 공식/박물관/기업 원문에만 연결했다.
+- projects: [research-bank, infinity]
+- task_type: research
+- topics: [industrial-design, product, design-history]
+- result_summary: 사퍼를 미니멀리즘 또는 ThinkPad 단독 저자로 축소하지 않고, 기술 제약을 작동 구조로 통합한 설계 방식, 공동 저작·조직 기여의 경계, Tizio/9090/ThinkPad의 지속성과 701C 반례를 종합했다.
+- final_artifact: artifacts/research-richard-sapper-comprehensive-20260916/final/richard-sapper-comprehensive-brief.md
+- supporting_work: artifacts/research-richard-sapper-comprehensive-20260916/work/source-ledger.md
+- report: reports/research-richard-sapper-comprehensive-20260916/20260916T0844Z-final.html
+- trace: traces/research-richard-sapper-comprehensive-20260916.json
+- red_status: not_required
+- red_report: not_required (exploratory_research)
+- knowledge_status: raw
+- knowledge_decision: retain_in_infinity
+- knowledge_targets: [artifacts/research-richard-sapper-comprehensive-20260916/final/richard-sapper-comprehensive-brief.md, artifacts/research-richard-sapper-comprehensive-20260916/work/source-ledger.md]
+- knowledge_reflection: 역사적 디자이너 종합 리서치는 작품 아이콘화보다 문제·구조·공동 기여·실패 조건을 함께 기록할 때 재사용 가능하다.
+- knowledge_commit: no-promotion-needed
+- notification_channel: slack
+- notification_target: channel:C0BR41W31MM
+- notification_reply_to: 1789547954.349019
+- notification_origin: channel:C0BR41W31MM;reply_to:1789547954.349019
+- remote_verified: pass
+- remote_commit: e32cd2cc5a31aecfbfa274f1bf2f1aef0bad4d26
+- next_actions: []

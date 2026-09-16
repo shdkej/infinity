@@ -6,27 +6,32 @@
 
 
 ## Active
-### [research-richard-sapper-comprehensive-20260916] 리처드 사퍼 종합 리서치
-- status: active
-- research_mode: exploratory_research
-- target_agent: genie
-- execution_mode: single_genie_roles
-- permission: L0-research-and-draft-only
-- projects: research-bank,infinity
-- task_type: research
-- topics: industrial-design,product,design-history
-- deadline: 2026-09-16T23:00:00Z
-- context_pack: intents/context/research-richard-sapper-comprehensive-20260916.json
-- trace: traces/research-richard-sapper-comprehensive-20260916.json
-- notification_channel: slack
-- notification_target: channel:C0BR41W31MM
-- notification_reply_to: 1789547954.349019
-- notification_origin: channel:C0BR41W31MM;reply_to:1789547954.349019
-- next_action: 원격 반영 및 Archive receipt 기록
 
 ## Waiting
 
 ## Archive
+
+### [research-richard-sapper-comprehensive-20260916] 리처드 사퍼 종합 리서치
+- status: archived
+- detail: intents/archive/research-richard-sapper-comprehensive-20260916.md
+- context_pack: intents/context/research-richard-sapper-comprehensive-20260916.json
+- trace: traces/research-richard-sapper-comprehensive-20260916.json
+- final_artifact: artifacts/research-richard-sapper-comprehensive-20260916/final/richard-sapper-comprehensive-brief.md
+- report: reports/research-richard-sapper-comprehensive-20260916/20260916T0844Z-final.html
+- red_status: not_required
+- knowledge_status: raw
+- knowledge_decision: retain_in_infinity
+- knowledge_targets: artifacts/research-richard-sapper-comprehensive-20260916/final/richard-sapper-comprehensive-brief.md; artifacts/research-richard-sapper-comprehensive-20260916/work/source-ledger.md
+- knowledge_reflection: 역사적 제품 사례는 아이콘화보다 문제·구조·공동 기여·실패 조건을 보존해야 재사용 가능하다.
+- knowledge_commit: no-promotion-needed
+- notification_channel: slack
+- notification_target: channel:C0BR41W31MM
+- notification_reply_to: 1789547954.349019
+- notification_origin: channel:C0BR41W31MM;reply_to:1789547954.349019
+- remote_verified: pass
+- remote_commit: e32cd2cc5a31aecfbfa274f1bf2f1aef0bad4d26
+- archived_at: 2026-09-16T08:44:27Z
+
 
 <!-- strategy-compound-business-20260915 completed 2026-09-16T00:45:38Z → intents/archive/strategy-compound-business-20260915.md [projects: research-bank,personal-ops; type: strategy; topics: product,content,automation] (비공개 scene-card 30일 실험 설계와 Continue/Hold 기준 확정) -->
 

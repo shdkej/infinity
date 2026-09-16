@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "intent_id": "research-richard-sapper-comprehensive-20260916",
-  "status": "active",
+  "status": "archived",
   "trace_completeness": "complete",
   "request": {
     "raw": {
@@ -37,12 +37,43 @@
       "wiki_pages": [],
       "operational_log_sections": [],
       "note": "Deep Research skill read before external search; no-wiki-match 후보는 증거로 사용하지 않음. 기존 2026-09-10 결과는 협업·연도 충돌 경계 확인용 맥락으로만 사용하고 이번 사실 서술은 새로 직접 연 원문에 연결함."
+    },
+    {
+      "type": "archive",
+      "at": "2026-09-16T08:44:27Z",
+      "report_path": "reports/research-richard-sapper-comprehensive-20260916/20260916T0844Z-final.html",
+      "evidence_paths": [
+        "artifacts/research-richard-sapper-comprehensive-20260916/final/richard-sapper-comprehensive-brief.md",
+        "reports/research-richard-sapper-comprehensive-20260916/20260916T0844Z-final.html",
+        "artifacts/research-richard-sapper-comprehensive-20260916/work/remote-proof.md"
+      ],
+      "research_mode": "exploratory_research",
+      "verification": {
+        "red_status": "not_required",
+        "remote_verified": "pass",
+        "remote_proof_path": "artifacts/research-richard-sapper-comprehensive-20260916/work/remote-proof.md"
+      }
     }
   ],
-  "artifacts": [],
-  "verifications": [],
+  "artifacts": [
+    {
+      "label": "final brief",
+      "path": "artifacts/research-richard-sapper-comprehensive-20260916/final/richard-sapper-comprehensive-brief.md"
+    },
+    {
+      "label": "source ledger",
+      "path": "artifacts/research-richard-sapper-comprehensive-20260916/work/source-ledger.md"
+    }
+  ],
+  "verifications": [
+    {
+      "label": "Remote verification evidence",
+      "path": "artifacts/research-richard-sapper-comprehensive-20260916/work/remote-proof.md",
+      "status": "pass"
+    }
+  ],
   "next_decision": {
-    "status": "in_progress",
-    "value": "원격에 초안·출처 원장을 반영한 뒤 Archive receipt를 기록한다."
+    "status": "archived",
+    "value": "완료: 새 종합 브리프를 재사용하고, 비평/스튜디오 운영의 빈칸은 별도 1차 아카이브 조사로만 확장한다."
   }
 }
