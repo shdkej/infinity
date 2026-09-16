@@ -110,6 +110,15 @@
         "logs/agent-wiki-query.md"
       ],
       "note": "T1.2 completed: connection ledger separates direct evidence, limited interpretations, and open questions."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-429de75c8b7347e7b13ba619939c62e1",
+      "canonical_sha": "0be3c7e3aaa564f68754c9bff79021a5bacdb667",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-16T11:36:01Z",
+      "status": "accepted"
     }
   ],
   "artifacts": [],
