@@ -649,12 +649,34 @@
       "session_key": "agent:genie:infinity-dispatcher",
       "timestamp": "2026-09-16T21:55:54Z",
       "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-16T21:58:43Z",
+      "context_pack": "intents/context/research-richard-sapper-deadline-20260917.json",
+      "evidence_paths": [
+        "artifacts/research-richard-sapper-deadline-20260917/work/alessi-collaboration-institutions.md"
+      ],
+      "searches": [
+        "Alessi History external designers Richard Sapper; ADI Design Museum 9090 Compasso d Oro; MoMA 9090 manufacturer"
+      ],
+      "wiki_pages": [
+        "agent-wiki/content/docs/outputs/Communication/Open_Source.mdx",
+        "agent-wiki/content/docs/outputs/Idea/Movie.mdx",
+        "agent-wiki/content/docs/outputs/Portfolio.mdx",
+        "agent-wiki/content/docs/outputs/Integration/Marketing.mdx",
+        "agent-wiki/content/docs/outputs/Fundamental/Math.mdx"
+      ],
+      "operational_log_sections": [
+        "logs/agent-wiki-query.md"
+      ],
+      "note": "T5.5 completed: separated Alessi collaboration narrative from ADI award record and MoMA collection metadata; retained contract, cost, production and sales gaps."
     }
   ],
   "artifacts": [],
   "verifications": [],
   "next_decision": {
     "status": "exploratory",
-    "value": "Activate T5.5 to contrast Alessi institutional records with manufacturer collaboration narrative."
+    "value": "Activate T6.1 to compare institutional Tizio date layers without collapsing design, production, and collection dates."
   }
 }
