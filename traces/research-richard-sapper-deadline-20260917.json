@@ -618,12 +618,34 @@
       "session_key": "agent:genie:infinity-dispatcher",
       "timestamp": "2026-09-16T21:25:36Z",
       "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-16T21:28:02Z",
+      "context_pack": "intents/context/research-richard-sapper-deadline-20260917.json",
+      "evidence_paths": [
+        "artifacts/research-richard-sapper-deadline-20260917/work/701c-mechanism-team-ledger.md"
+      ],
+      "searches": [
+        "IBM ThinkPad 701C John Karidis; MoMA ThinkPad 701 Portable Computer authorship"
+      ],
+      "wiki_pages": [
+        "agent-wiki/content/docs/outputs/Communication/Open_Source.mdx",
+        "agent-wiki/content/docs/outputs/Idea/Movie.mdx",
+        "agent-wiki/content/docs/outputs/Portfolio.mdx",
+        "agent-wiki/content/docs/outputs/Integration/Marketing.mdx",
+        "agent-wiki/content/docs/outputs/Fundamental/Math.mdx"
+      ],
+      "operational_log_sections": [
+        "logs/agent-wiki-query.md"
+      ],
+      "note": "T5.4 completed: retained separate IBM accounts for Karidis mechanism and Sapper product language alongside MoMA multi-party attribution; no direct patent, drawings, or internal role matrix were verified."
     }
   ],
   "artifacts": [],
   "verifications": [],
   "next_decision": {
     "status": "exploratory",
-    "value": "Activate T5.4 to examine 701C Butterfly Keyboard mechanism and team contribution boundaries."
+    "value": "Activate T5.5 to contrast Alessi institutional records with manufacturer collaboration narrative."
   }
 }
