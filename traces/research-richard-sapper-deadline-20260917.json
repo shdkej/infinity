@@ -204,12 +204,36 @@
       "session_key": "agent:genie:infinity-dispatcher",
       "timestamp": "2026-09-16T14:07:44Z",
       "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-16T16:29:01Z",
+      "context_pack": "intents/context/research-richard-sapper-deadline-20260917.json",
+      "evidence_paths": [
+        "INTENTS.md",
+        "intents/research-richard-sapper-deadline-20260917.md",
+        "artifacts/research-richard-sapper-deadline-20260917/work/task-plan.json"
+      ],
+      "searches": [
+        "active exploration continuation after deferred delivery"
+      ],
+      "wiki_pages": [
+        "agent-wiki/content/docs/outputs/Communication/Open_Source.mdx",
+        "agent-wiki/content/docs/outputs/Idea/Movie.mdx",
+        "agent-wiki/content/docs/outputs/Portfolio.mdx",
+        "agent-wiki/content/docs/outputs/Integration/Marketing.mdx",
+        "agent-wiki/content/docs/outputs/Fundamental/Math.mdx"
+      ],
+      "operational_log_sections": [
+        "logs/agent-wiki-query.md"
+      ],
+      "note": "이전 실행이 오래된 dispatcher 지시문으로 Active를 Waiting으로 덮어썼다. 상태를 Active로 복구하고 deferred delivery가 Waiting이 아님을 dispatcher에 명시했다."
     }
   ],
   "artifacts": [],
   "verifications": [],
   "next_decision": {
     "status": "in_progress",
-    "value": "T2.1 제품군·제조·유통 연결을 확장하고 ready leaf 부족 시 다음 탐색 leaf를 추가한다."
+    "value": "T2.1을 실행하고 발견에서 다음 evidence leaf를 보충한다."
   }
 }
