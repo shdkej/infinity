@@ -7,6 +7,27 @@
 
 ## Active
 
+### [research-richard-sapper-deadline-20260917] 리처드 사퍼 마감형 종합 리서치
+- status: active
+- research_mode: decision_research
+- execution_mode: multi_subagent_roles
+- permission: L0-research-and-draft-only
+- requested: 2026-09-16T09:11:29Z
+- deadline: 2026-09-16T23:00:00Z
+- deadline_local: 2026-09-17 08:00 Asia/Seoul (KST)
+- delivery_not_before: 2026-09-16T23:00:00Z
+- detail: intents/research-richard-sapper-deadline-20260917.md
+- context_pack: intents/context/research-richard-sapper-deadline-20260917.json
+- trace: traces/research-richard-sapper-deadline-20260917.json
+- task_plan: artifacts/research-richard-sapper-deadline-20260917/work/task-plan.json
+- task_plan_doc: artifacts/research-richard-sapper-deadline-20260917/work/task-plan.md
+- task_plan_template: ARTIFACT_RULES.md#대형-작업-태스크-계획
+- notification_channel: slack
+- notification_target: channel:C0BR41W31MM
+- notification_reply_to: 1789547954.349019
+- notification_origin: channel:C0BR41W31MM;reply_to:1789547954.349019
+- next_action: 기존 브리프 감사와 1차 원문 보강을 시작한다. 마감 이전에는 최종 통보·Archive를 하지 않는다.
+
 ## Waiting
 
 ## Archive

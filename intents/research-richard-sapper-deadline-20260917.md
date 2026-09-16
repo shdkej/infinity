@@ -1,0 +1,33 @@
+# 리처드 사퍼 마감형 종합 리서치
+
+- id: research-richard-sapper-deadline-20260917
+- status: active
+- research_mode: decision_research
+- execution_mode: multi_subagent_roles
+- permission: L0-research-and-draft-only
+- requested: 2026-09-16T09:11:29Z
+- deadline: 2026-09-16T23:00:00Z
+- deadline_local: 2026-09-17 08:00 Asia/Seoul (KST)
+- delivery_not_before: 2026-09-16T23:00:00Z
+- decision_question: 리처드 사퍼의 생애·주요 작품·설계 방식·공동 저작·실패와 논쟁을 어떤 원문 근거로 구분해 이해할 수 있는가?
+- decision_owner: Kimi
+- decision_deadline: 2026-09-16T23:00:00Z
+- in_scope: 생애, 제품·인터랙션·산업디자인 작품, 설계 방식, 협업·저작 경계, 수상·영향, 비평·반례, 한국어 종합 브리프
+- out_of_scope: 공개 게시, 상품 구매·수집 추천, 미확인 사적 일화, 저작권 원문 장문 전재
+- comparison_axes: 원문성, 연도·저작 정확도, 협업 기여 경계, 설계 의도와 실제 사용성, 지속성·반례
+- success_evidence: 각 핵심 주장에 직접 연 출처를 연결하고, 충돌·한계·미확인 항목을 분리한 한국어 최종 브리프가 마감 시각에 원 스레드로 전달된다.
+- projects: research-bank, infinity
+- task_type: research
+- topics: industrial-design, product, design-history
+- context_pack: intents/context/research-richard-sapper-deadline-20260917.json
+- context_documents_checked: LLM.md; knowledge-lab/README.md; schema/agent-rules.md; DOCUMENT_SEARCH_PIPELINE.md; USER_CONTEXT.md; SERVICE_REGISTRY.md; INFINITY_OPERATING_RULES.md; ARTIFACT_RULES.md; INTENTS.md; agent-wiki/content/docs/index.mdx; selected Context Pack sections; logs/agent-wiki-query.md matched section
+- context_searches: zg hybrid+fts Context Pack query; rg Richard Sapper/사퍼 in declared scopes
+- task_plan: artifacts/research-richard-sapper-deadline-20260917/work/task-plan.json
+- task_plan_doc: artifacts/research-richard-sapper-deadline-20260917/work/task-plan.md
+- task_plan_template: ARTIFACT_RULES.md#대형-작업-태스크-계획
+- trace: traces/research-richard-sapper-deadline-20260917.json
+- notification_channel: slack
+- notification_target: channel:C0BR41W31MM
+- notification_reply_to: 1789547954.349019
+- notification_origin: channel:C0BR41W31MM;reply_to:1789547954.349019
+- next_action: 기존 브리프를 감사하고 1차 원문 보강을 시작한다. 마감 이전에는 최종 통보·Archive를 하지 않는다.
