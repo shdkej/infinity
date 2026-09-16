@@ -671,6 +671,15 @@
         "logs/agent-wiki-query.md"
       ],
       "note": "T5.5 completed: separated Alessi collaboration narrative from ADI award record and MoMA collection metadata; retained contract, cost, production and sales gaps."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-d936ad2955b44469b935ab53ab957cc2",
+      "canonical_sha": "79cf15bc7fab5613b1d73cfa03576f9ab5091fef",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-16T22:25:41Z",
+      "status": "accepted"
     }
   ],
   "artifacts": [],
