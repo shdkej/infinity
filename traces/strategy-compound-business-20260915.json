@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "intent_id": "strategy-compound-business-20260915",
-  "status": "inbox",
+  "status": "archived",
   "trace_completeness": "complete",
   "request": {
     "raw": {
@@ -75,12 +75,84 @@
       "session_key": "agent:genie:infinity-dispatcher",
       "timestamp": "2026-09-15T21:08:08Z",
       "status": "accepted"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-bbd4b8935ea247c6b54dbad37237ad64",
+      "canonical_sha": "d86f76f36212fe07f2276ddcfc89d284c1bd8be6",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-16T00:36:33Z",
+      "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-16T00:36:33Z",
+      "context_pack": "intents/context/strategy-compound-business-20260915.json",
+      "evidence_paths": [
+        "artifacts/strategy-compound-business-20260915/work/archive-contract-inventory.md",
+        "artifacts/strategy-compound-business-20260915/work/red/archive-recheck.md"
+      ],
+      "searches": [
+        "agent-wiki/content/docs/:index-first"
+      ],
+      "wiki_pages": [
+        "agent-wiki/content/docs/index.mdx",
+        "agent-wiki/content/docs/outputs/Idea/Travel.mdx",
+        "agent-wiki/content/docs/outputs/Communication/Blogging.mdx",
+        "source/openclaw-system/docs/WORLD_TRAVEL_PROJECT.md"
+      ],
+      "operational_log_sections": [],
+      "note": "Archive-contract evidence inventory completed; Red FAIL preserved; role and knowledge evidence normalization is active."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-2a0d6e14f00c40c28fb07e8a0e7854e5",
+      "canonical_sha": "d86f76f36212fe07f2276ddcfc89d284c1bd8be6",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-16T00:45:38Z",
+      "status": "accepted"
+    },
+    {
+      "type": "archive",
+      "at": "2026-09-16T00:45:38Z",
+      "report_path": "reports/strategy-compound-business-20260915/20260915T2106-final.html",
+      "evidence_paths": [
+        "artifacts/strategy-compound-business-20260915/work/archive-evidence-manifest.md",
+        "reports/strategy-compound-business-20260915/20260915T2106-final.html",
+        "artifacts/strategy-compound-business-20260915/work/remote-proof.md",
+        "artifacts/strategy-compound-business-20260915/work/red/archive-pass.md"
+      ],
+      "research_mode": "decision_research",
+      "verification": {
+        "red_status": "pass",
+        "remote_verified": "pass",
+        "remote_proof_path": "artifacts/strategy-compound-business-20260915/work/remote-proof.md",
+        "red_report_path": "artifacts/strategy-compound-business-20260915/work/red/archive-pass.md"
+      }
     }
   ],
-  "artifacts": [],
-  "verifications": [],
+  "artifacts": [
+    {
+      "label": "final",
+      "path": "artifacts/strategy-compound-business-20260915/final/compound-business-strategy-report.md"
+    }
+  ],
+  "verifications": [
+    {
+      "label": "Red verification evidence",
+      "path": "artifacts/strategy-compound-business-20260915/work/red/archive-pass.md",
+      "status": "pass"
+    },
+    {
+      "label": "Remote verification evidence",
+      "path": "artifacts/strategy-compound-business-20260915/work/remote-proof.md",
+      "status": "pass"
+    }
+  ],
   "next_decision": {
-    "status": "in_progress",
-    "value": "후보별 축적 자산과 수익 구조를 비교하여 30일 첫 실험 하나를 추천한다."
+    "status": "archived",
+    "value": "no continuation; 30일 private-card 실험은 별도 intent에서만 기록한다."
   }
 }

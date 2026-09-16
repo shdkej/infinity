@@ -5,40 +5,11 @@
 ## Inbox
 
 ## Active
-### [strategy-compound-business-20260915] 여행·큐레이션·AI 자산의 복리사업 구조 발굴
-- status: active
-- research_mode: decision_research
-- target_agent: genie
-- execution_mode: multi_subagent_roles
-- permission: L0-research-and-strategy-only
-- projects: research-bank,personal-ops
-- task_type: strategy
-- topics: product,content,automation
-- context_pack: intents/context/strategy-compound-business-20260915.json
-- trace: traces/strategy-compound-business-20260915.json
-- task_plan: artifacts/strategy-compound-business-20260915/work/task-plan.json
-- task_plan_doc: artifacts/strategy-compound-business-20260915/work/task-plan.md
-- task_plan_template: ARTIFACT_RULES.md#대형-작업-태스크-계획
-- tasks: 4/8 complete; active=T1.3b; plan changes=3
-- final_artifact: artifacts/strategy-compound-business-20260915/final/compound-business-strategy.md
-- report: reports/strategy-compound-business-20260915/20260915T2106-final.html
-- red_status: fail (Archive preconditions incomplete)
-- red_report: artifacts/strategy-compound-business-20260915/work/red-final-report.md
-- notification_channel: slack
-- notification_target: channel:C0BR41W31MM
-- notification_reply_to: 1789459195.128119
-- notification_origin: channel:C0BR41W31MM;reply_to:1789459195.128119
-- goal: 현재 기술·경험·콘텐츠·고객·데이터·작업물을 자산 유형별로 분해하고, 각 후보를 축적물 → 수익화 → 반복 우위 → 즉시 실험 순서로 평가해 신규 복리사업 3~5개와 한 개의 우선 실험을 제안한다.
-- constraints: 교육·코칭을 주 수익모델로 제안하지 않음; 여행 콘텐츠와 앱 오디언스 우선순위를 보존함; 공개 게시·DM·광고·결제·개인정보 수집은 승인 전 금지; 시장 적합은 실제 신호 전 선언하지 않음.
-- metric_question: 30일 안에 ‘한 번 한 일이 다음 수익의 제작비·판매비·검증비를 낮추는’ 자산 루프 하나를 관측 가능한 실험으로 만들 수 있는가?
-- metric_signal: 후보별 재사용 단위, 수익 경로, 누적 우위, 첫 실험의 입력·출력·Continue/Hold 기준이 하나의 최종 브리프에 명시됨.
-- metric_decision_rule: 기존 여행 콘텐츠 한 편 또는 관찰 카드 하나가 최소 두 개의 재사용 산출물(콘텐츠·구조화 데이터·제품 가설·유료 표면 중 2개)로 전환되지 않으면, 새 제품 개발·채널 확장을 보류하고 자산 스키마부터 수정한다.
-- next_action: T1.3b에서 Archive 필수 지식 영수증·원격 가시성 근거를 검증하고 Red 재검토 조건을 닫는다.
-
-
 ## Waiting
 
 ## Archive
+
+<!-- strategy-compound-business-20260915 completed 2026-09-16T00:45:38Z → intents/archive/strategy-compound-business-20260915.md [projects: research-bank,personal-ops; type: strategy; topics: product,content,automation] (비공개 scene-card 30일 실험 설계와 Continue/Hold 기준 확정) -->
 
 <!-- kl-feedback-loop-20260915 archived 2026-09-15T22:26:52Z → intents/archive/kl-feedback-loop-20260915.md [projects: infinity,knowledge-lab,agent-wiki; type: implementation; topics: knowledge-loop,automation,observability] (사용자 선택으로 Waiting 종료·미완료 구현 범위 보존) -->
 
