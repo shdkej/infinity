@@ -330,6 +330,15 @@
         "logs/agent-wiki-query.md"
       ],
       "note": "T2.3 completed: separated Sapper’s ThinkPad aesthetic and TrackPoint color decisions from Ted Selker’s input-device contribution and Yamato team engineering; treated later ThinkPad continuity as organizational rather than sole-author lineage."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-2ea46329b3384b928cffc9148d7187b1",
+      "canonical_sha": "4d7e033641d3bf2c2446b674bdc24d584c47e8a2",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-16T18:05:41Z",
+      "status": "accepted"
     }
   ],
   "artifacts": [],
