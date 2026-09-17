@@ -835,12 +835,34 @@
       "session_key": "agent:genie:infinity-dispatcher",
       "timestamp": "2026-09-17T00:35:46Z",
       "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-17T00:38:04Z",
+      "context_pack": "intents/context/research-richard-sapper-deadline-20260917.json",
+      "evidence_paths": [
+        "artifacts/research-richard-sapper-deadline-20260917/work/701c-patent-claims.md"
+      ],
+      "searches": [
+        "US5659307A biased movable keyboard sections claims; USD372472S fractionated keyboard design claim"
+      ],
+      "wiki_pages": [
+        "agent-wiki/content/docs/outputs/Communication/Open_Source.mdx",
+        "agent-wiki/content/docs/outputs/Idea/Movie.mdx",
+        "agent-wiki/content/docs/outputs/Portfolio.mdx",
+        "agent-wiki/content/docs/outputs/Integration/Marketing.mdx",
+        "agent-wiki/content/docs/outputs/Fundamental/Math.mdx"
+      ],
+      "operational_log_sections": [
+        "logs/agent-wiki-query.md"
+      ],
+      "note": "T7.1 completed: directly separated US5659307A functional inventors and claims from USD372472S ornamental-design inventors and claim, retaining contribution and contract boundaries."
     }
   ],
   "artifacts": [],
   "verifications": [],
   "next_decision": {
     "status": "exploratory",
-    "value": "Activate T7.1: review direct 701C patent claims while separating inventors, assignee, and product contributions."
+    "value": "Activate T7.2: seek service evidence for TS 502 generation-specific hinge and part differences without generalizing from a collection sample."
   }
 }
