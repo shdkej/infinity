@@ -857,6 +857,15 @@
         "logs/agent-wiki-query.md"
       ],
       "note": "T7.1 completed: directly separated US5659307A functional inventors and claims from USD372472S ornamental-design inventors and claim, retaining contribution and contract boundaries."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-12f97650299c4a2dabc92285de37f853",
+      "canonical_sha": "e272a2b13bfc0ec48b639bb4554703960a7d75eb",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-17T01:05:37Z",
+      "status": "accepted"
     }
   ],
   "artifacts": [],
