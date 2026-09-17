@@ -795,6 +795,15 @@
         "logs/agent-wiki-query.md"
       ],
       "note": "T6.4 completed: separated 701C collection attribution, IBM product history, functional-patent inventors, and design-patent inventors."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-b9887f48a60446e58b3d1e20b8c358cb",
+      "canonical_sha": "72b9eb89d62a876cfb5b70fb63da30b669fa254b",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-17T00:05:44Z",
+      "status": "accepted"
     }
   ],
   "artifacts": [],
