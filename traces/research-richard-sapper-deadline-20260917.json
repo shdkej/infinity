@@ -1012,6 +1012,15 @@
         "logs/agent-wiki-query.md"
       ],
       "note": "T8.1 completed: crosswalked MoMA, Met, and Centre Pompidou creation, production, exhibition, gift, and acquisition metadata without inferring one launch date or current availability."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-f3642da3debf467c8b7a0f211adf55b9",
+      "canonical_sha": "d38aa422c2c27e2616af56066a9d0b45d5b49268",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-17T03:10:23Z",
+      "status": "accepted"
     }
   ],
   "artifacts": [],
