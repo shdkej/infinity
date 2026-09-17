@@ -1,30 +1,142 @@
 {
-  "generated_at": "2026-09-16T18:00:09.738Z",
+  "generated_at": "2026-09-17T00:00:08.183Z",
   "summary": {
-    "total": 912,
-    "wiki_reflected": 200,
-    "not_reflected": 712,
+    "total": 916,
+    "wiki_reflected": 198,
+    "not_reflected": 718,
     "by_status": {
-      "reviewed": 91,
-      "queued": 719,
+      "queued": 722,
+      "reviewed": 92,
       "integrated": 10,
       "rejected": 90,
       "selected": 2
     },
     "by_layer": {
+      "openclaw-system": 602,
+      "external-links": 180,
       "infinity": 57,
-      "openclaw-system": 599,
       "shdkej-content": 76,
-      "external-links": 179,
       "root": 1
     },
     "by_promotion_state": {
-      "not_applicable": 710,
-      "reflected": 200,
+      "not_applicable": 716,
+      "reflected": 198,
       "pending_promotion": 2
     }
   },
   "entries": [
+    {
+      "source": "source/openclaw-system/data/daily-reviews/2026-09-15-review.md",
+      "status": "queued",
+      "source_layer": "openclaw-system",
+      "reason": "자동 수집됨; 내용 판정 대기",
+      "reviewed_at": "",
+      "modified_at": "2026-09-16T23:31:31Z",
+      "promotion_targets": [],
+      "reflection_basis": [],
+      "promotion_state": "not_applicable",
+      "promotion_reason": "자동 수집됨; 내용 판정 대기",
+      "promotion_target_note": "",
+      "wiki_reflected": false
+    },
+    {
+      "source": "source/external-links/ai-agents/2026-09-16-anthropic-effective-harnesses-long-running-agents.md",
+      "status": "reviewed",
+      "source_layer": "external-links",
+      "reason": "여러 세션을 넘는 에이전트의 재진입·완료 계약·사용자 흐름 검증을 설명하는 1차 엔지니어링 자료로 요약·재사용 가능",
+      "reviewed_at": "2026-09-16T23:31:00Z",
+      "modified_at": "2026-09-16T23:31:30Z",
+      "promotion_targets": [],
+      "reflection_basis": [],
+      "promotion_state": "not_applicable",
+      "promotion_reason": "여러 세션을 넘는 에이전트의 재진입·완료 계약·사용자 흐름 검증을 설명하는 1차 엔지니어링 자료로 요약·재사용 가능",
+      "promotion_target_note": "",
+      "wiki_reflected": false
+    },
+    {
+      "source": "source/openclaw-system/reports/daily-archive/2026-09-15-pompeii/validation.txt",
+      "status": "queued",
+      "source_layer": "openclaw-system",
+      "reason": "자동 수집됨; 내용 판정 대기",
+      "reviewed_at": "",
+      "modified_at": "2026-09-16T23:04:49Z",
+      "promotion_targets": [],
+      "reflection_basis": [],
+      "promotion_state": "not_applicable",
+      "promotion_reason": "자동 수집됨; 내용 판정 대기",
+      "promotion_target_note": "",
+      "wiki_reflected": false
+    },
+    {
+      "source": "source/openclaw-system/reports/daily-archive/2026-09-15-pompeii/daily-archive.html",
+      "status": "queued",
+      "source_layer": "openclaw-system",
+      "reason": "자동 수집됨; 내용 판정 대기",
+      "reviewed_at": "",
+      "modified_at": "2026-09-16T23:04:19Z",
+      "promotion_targets": [],
+      "reflection_basis": [],
+      "promotion_state": "not_applicable",
+      "promotion_reason": "자동 수집됨; 내용 판정 대기",
+      "promotion_target_note": "",
+      "wiki_reflected": false
+    },
+    {
+      "source": "source/openclaw-system/data/daily-reviews/2026-09-16-review.md",
+      "status": "queued",
+      "source_layer": "openclaw-system",
+      "reason": "자동 수집됨; 내용 판정 대기",
+      "reviewed_at": "",
+      "modified_at": "2026-09-16T22:47:15Z",
+      "promotion_targets": [],
+      "reflection_basis": [],
+      "promotion_state": "not_applicable",
+      "promotion_reason": "자동 수집됨; 내용 판정 대기",
+      "promotion_target_note": "",
+      "wiki_reflected": false
+    },
+    {
+      "source": "source/openclaw-system/reports/daily-archive/2026-09-16-attention-and-scene/validation.txt",
+      "status": "queued",
+      "source_layer": "openclaw-system",
+      "reason": "자동 수집됨; 내용 판정 대기",
+      "reviewed_at": "",
+      "modified_at": "2026-09-16T22:47:15Z",
+      "promotion_targets": [],
+      "reflection_basis": [],
+      "promotion_state": "not_applicable",
+      "promotion_reason": "자동 수집됨; 내용 판정 대기",
+      "promotion_target_note": "",
+      "wiki_reflected": false
+    },
+    {
+      "source": "source/openclaw-system/reports/daily-archive/2026-09-16-attention-and-scene/daily-archive.html",
+      "status": "queued",
+      "source_layer": "openclaw-system",
+      "reason": "자동 수집됨; 내용 판정 대기",
+      "reviewed_at": "",
+      "modified_at": "2026-09-16T22:46:45Z",
+      "promotion_targets": [],
+      "reflection_basis": [],
+      "promotion_state": "not_applicable",
+      "promotion_reason": "자동 수집됨; 내용 판정 대기",
+      "promotion_target_note": "",
+      "wiki_reflected": false
+    },
+    {
+      "source": "source/openclaw-system/data/promotion-feedback.jsonl",
+      "status": "queued",
+      "source_layer": "openclaw-system",
+      "reason": "자동 수집됨; 내용 판정 대기",
+      "reviewed_at": "",
+      "modified_at": "2026-09-16T20:38:01Z",
+      "promotion_targets": [],
+      "reflection_basis": [],
+      "promotion_state": "not_applicable",
+      "promotion_reason": "자동 수집됨; 내용 판정 대기",
+      "promotion_target_note": "",
+      "wiki_reflected": false
+    },
     {
       "source": "source/infinity/archive/upstream/research-richard-sapper-comprehensive-20260916.md",
       "status": "reviewed",
@@ -106,48 +218,6 @@
       "reflection_basis": [],
       "promotion_state": "not_applicable",
       "promotion_reason": "모든 에이전트의 문서 검색·인계 절차 정본으로 선별 보관",
-      "promotion_target_note": "",
-      "wiki_reflected": false
-    },
-    {
-      "source": "source/openclaw-system/data/daily-reviews/2026-09-15-review.md",
-      "status": "queued",
-      "source_layer": "openclaw-system",
-      "reason": "자동 수집됨; 내용 판정 대기",
-      "reviewed_at": "",
-      "modified_at": "2026-09-15T21:41:45Z",
-      "promotion_targets": [],
-      "reflection_basis": [],
-      "promotion_state": "not_applicable",
-      "promotion_reason": "자동 수집됨; 내용 판정 대기",
-      "promotion_target_note": "",
-      "wiki_reflected": false
-    },
-    {
-      "source": "source/openclaw-system/reports/daily-archive/2026-09-15-pompeii/daily-archive.html",
-      "status": "queued",
-      "source_layer": "openclaw-system",
-      "reason": "자동 수집됨; 내용 판정 대기",
-      "reviewed_at": "",
-      "modified_at": "2026-09-15T21:39:53Z",
-      "promotion_targets": [],
-      "reflection_basis": [],
-      "promotion_state": "not_applicable",
-      "promotion_reason": "자동 수집됨; 내용 판정 대기",
-      "promotion_target_note": "",
-      "wiki_reflected": false
-    },
-    {
-      "source": "source/openclaw-system/data/promotion-feedback.jsonl",
-      "status": "queued",
-      "source_layer": "openclaw-system",
-      "reason": "자동 수집됨; 내용 판정 대기",
-      "reviewed_at": "",
-      "modified_at": "2026-09-15T20:44:18Z",
-      "promotion_targets": [],
-      "reflection_basis": [],
-      "promotion_state": "not_applicable",
-      "promotion_reason": "자동 수집됨; 내용 판정 대기",
       "promotion_target_note": "",
       "wiki_reflected": false
     },
@@ -4331,7 +4401,6 @@
       "reviewed_at": "2026-09-01T09:58:12Z",
       "modified_at": "2026-08-29T22:50:45Z",
       "promotion_targets": [
-        "/docs/outputs/Integration/Work",
         "/docs/outputs/blog/Note_Management"
       ],
       "reflection_basis": [
@@ -4943,20 +5012,6 @@
       "wiki_reflected": false
     },
     {
-      "source": "source/openclaw-system/data/version_trackers.yaml",
-      "status": "queued",
-      "source_layer": "openclaw-system",
-      "reason": "최근 자료이나 목적·중복·승격 필요성을 별도 확인",
-      "reviewed_at": "2026-09-01T09:58:12Z",
-      "modified_at": "2026-09-16T07:00:51Z",
-      "promotion_targets": [],
-      "reflection_basis": [],
-      "promotion_state": "not_applicable",
-      "promotion_reason": "최근 자료이나 목적·중복·승격 필요성을 별도 확인",
-      "promotion_target_note": "",
-      "wiki_reflected": false
-    },
-    {
       "source": "source/openclaw-system/data/weekly_review.md",
       "status": "reviewed",
       "source_layer": "openclaw-system",
@@ -4991,16 +5046,12 @@
       "reason": "최근 활성 정본 또는 재사용 가능한 원자료; raw 검색 허용",
       "reviewed_at": "2026-09-01T09:58:12Z",
       "modified_at": "2026-08-25T11:27:04Z",
-      "promotion_targets": [
-        "/docs/outputs/Integration/Work"
-      ],
-      "reflection_basis": [
-        "wiki_source_link"
-      ],
-      "promotion_state": "reflected",
-      "promotion_reason": "Agent Wiki outputs 출처 링크 또는 ingest target이 명시됨",
+      "promotion_targets": [],
+      "reflection_basis": [],
+      "promotion_state": "not_applicable",
+      "promotion_reason": "최근 활성 정본 또는 재사용 가능한 원자료; raw 검색 허용",
       "promotion_target_note": "",
-      "wiki_reflected": true
+      "wiki_reflected": false
     },
     {
       "source": "source/openclaw-system/docs/INFINITY_ARCHIVE_KNOWLEDGE_2026-08.md",
@@ -5028,7 +5079,7 @@
       "source_layer": "openclaw-system",
       "reason": "최근 활성 정본 또는 재사용 가능한 원자료; raw 검색 허용",
       "reviewed_at": "2026-09-01T09:58:12Z",
-      "modified_at": "2026-09-16T18:00:03Z",
+      "modified_at": "2026-09-16T20:19:33Z",
       "promotion_targets": [
         "/docs/outputs/Meta/AGENTS",
         "/docs/outputs/deep-knowledge/monitoring"
@@ -5047,10 +5098,9 @@
       "source_layer": "openclaw-system",
       "reason": "최근 활성 정본 또는 재사용 가능한 원자료; raw 검색 허용",
       "reviewed_at": "2026-09-01T09:58:12Z",
-      "modified_at": "2026-09-15T05:43:11Z",
+      "modified_at": "2026-09-16T22:24:18Z",
       "promotion_targets": [
-        "/docs/outputs/Idea/Travel",
-        "/docs/outputs/Integration/Work"
+        "/docs/outputs/Idea/Travel"
       ],
       "reflection_basis": [
         "wiki_source_link"
@@ -5229,16 +5279,12 @@
       "reason": "실행 로그·파생 렌더·반복 기록; 원본/정본에서 추적",
       "reviewed_at": "2026-09-01T09:58:12Z",
       "modified_at": "2026-08-25T19:57:42Z",
-      "promotion_targets": [
-        "/docs/outputs/Integration/Work"
-      ],
-      "reflection_basis": [
-        "wiki_source_link"
-      ],
-      "promotion_state": "reflected",
-      "promotion_reason": "Agent Wiki outputs 출처 링크 또는 ingest target이 명시됨",
+      "promotion_targets": [],
+      "reflection_basis": [],
+      "promotion_state": "not_applicable",
+      "promotion_reason": "실행 로그·파생 렌더·반복 기록; 원본/정본에서 추적",
       "promotion_target_note": "",
-      "wiki_reflected": true
+      "wiki_reflected": false
     },
     {
       "source": "source/openclaw-system/reports/daily-archive/2026-08-29-archive-worktable/index.html",
