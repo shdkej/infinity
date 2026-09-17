@@ -1021,12 +1021,34 @@
       "session_key": "agent:genie:infinity-dispatcher",
       "timestamp": "2026-09-17T03:10:23Z",
       "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-17T03:11:48Z",
+      "context_pack": "intents/context/research-richard-sapper-deadline-20260917.json",
+      "evidence_paths": [
+        "artifacts/research-richard-sapper-deadline-20260917/work/9091-parts-regional-boundaries.md"
+      ],
+      "searches": [
+        "Alessi 9091 spare parts US regional availability; Alessi 9091 spare parts Romania"
+      ],
+      "wiki_pages": [
+        "agent-wiki/content/docs/outputs/Communication/Open_Source.mdx",
+        "agent-wiki/content/docs/outputs/Idea/Movie.mdx",
+        "agent-wiki/content/docs/outputs/Portfolio.mdx",
+        "agent-wiki/content/docs/outputs/Integration/Marketing.mdx",
+        "agent-wiki/content/docs/outputs/Fundamental/Math.mdx"
+      ],
+      "operational_log_sections": [
+        "logs/agent-wiki-query.md"
+      ],
+      "note": "T8.2 completed: current Alessi US and Romania spare-parts pages establish local catalogue items only, not global inventory, vintage compatibility, or repair guarantees."
     }
   ],
   "artifacts": [],
   "verifications": [],
   "next_decision": {
     "status": "exploratory",
-    "value": "Activate T8.2: examine whether current 9091 parts pages support regional inventory, vintage compatibility, or repair claims."
+    "value": "Activate T8.3: separate 701C patent assignee, assignment, family, inventor, and product authorship roles."
   }
 }

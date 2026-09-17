@@ -21,6 +21,7 @@
 - trace: traces/research-richard-sapper-deadline-20260917.json
 - task_plan: artifacts/research-richard-sapper-deadline-20260917/work/task-plan.json
 - task_plan_doc: artifacts/research-richard-sapper-deadline-20260917/work/task-plan.md
+- artifact: artifacts/research-richard-sapper-deadline-20260917/work/9091-parts-regional-boundaries.md
 - artifact: artifacts/research-richard-sapper-deadline-20260917/work/tizio-collection-metadata-crosswalk.md
 - artifact: artifacts/research-richard-sapper-deadline-20260917/work/sapper-criticism-source-boundaries.md
 - artifact: artifacts/research-richard-sapper-deadline-20260917/work/tizio-exhibition-reissue-boundaries.md
@@ -37,7 +38,7 @@
 - notification_target: channel:C0BR41W31MM
 - notification_reply_to: 1789547954.349019
 - notification_origin: channel:C0BR41W31MM;reply_to:1789547954.349019
-- next_action: T8.2에서 9091 현행 부품 페이지의 지역·재고·빈티지 호환 한계를 확인한다.
+- next_action: T8.3에서 701C 특허의 양도·가족 관계를 제품 저작 범위와 분리한다.
 
 ## Waiting
 
