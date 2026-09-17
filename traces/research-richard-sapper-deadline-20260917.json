@@ -1074,6 +1074,15 @@
         "logs/agent-wiki-query.md"
       ],
       "note": "T8.3 completed: separated US5659307A inventor, original assignee, assignment, priority, and family fields from product-wide authorship, contracts, and team contribution."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-d6f10abaf12f450bbe531508ea8357d7",
+      "canonical_sha": "c8c6c04647752b20a1f3d1eb9c45969e63ddcbb4",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-17T03:45:36Z",
+      "status": "accepted"
     }
   ],
   "artifacts": [],
