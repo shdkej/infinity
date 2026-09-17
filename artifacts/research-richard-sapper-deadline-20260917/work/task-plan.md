@@ -80,8 +80,20 @@
 │  ● T7.3 9091의 경고음 특허·수상 기록을 현행 제품 주장과 분리한다                     완료 · 예상/최대 20/20분 · 의존 T5.1
 │           증거: `artifacts/research-richard-sapper-deadline-20260917/work/9091-signal-award-boundaries.md`
 │           시작/완료/실제: 2026-09-17T01:35:54Z / 2026-09-17T01:40:00Z / 4분
-│  ○ T7.4 Tizio의 전시·소장 이력을 현행 재발매 성능과 분리한다                         미완료 · 예상/최대 20/20분 · 의존 T6.1
+│  ◐ T7.4 Tizio의 전시·소장 이력을 현행 재발매 성능과 분리한다                         진행 중 · 예상/최대 20/20분 · 의존 T6.1
+│           증거: `artifacts/research-richard-sapper-deadline-20260917/work/tizio-exhibition-reissue-boundaries.md`
+│           시작/완료/실제: 2026-09-17T01:40:54Z / 진행 중 / 미완료
 │  ○ T7.5 사퍼의 비평·영향 주장을 원문과 2차 요약으로 다시 분리한다                    미완료 · 예상/최대 20/20분 · 의존 T1.3
+│  ○ T8.1 Tizio 기관 소장 메타데이터를 제작·전시·소장 날짜로 대조한다                  미완료 · 예상/최대 20/20분 · 의존 T7.4
+│           증거: `artifacts/research-richard-sapper-deadline-20260917/work/tizio-collection-metadata-crosswalk.md`
+│  ○ T8.2 9091 현행 부품 페이지의 지역·재고·빈티지 호환 한계를 확인한다              미완료 · 예상/최대 20/20분 · 의존 T7.3
+│           증거: `artifacts/research-richard-sapper-deadline-20260917/work/9091-parts-regional-boundaries.md`
+│  ○ T8.3 701C 특허의 양도·가족 관계를 제품 저작 범위와 분리한다                      미완료 · 예상/최대 20/20분 · 의존 T7.1
+│           증거: `artifacts/research-richard-sapper-deadline-20260917/work/701c-patent-assignment-family.md`
+│  ○ T8.4 TS 502 회로도와 기계 서비스 문서의 증거 기능을 분리한다                    미완료 · 예상/최대 20/20분 · 의존 T7.2
+│           증거: `artifacts/research-richard-sapper-deadline-20260917/work/ts502-schematic-mechanical-gap.md`
+│  ○ T8.5 사퍼 비평의 원문 접근성을 전시 카탈로그·2차 해설과 분리한다                 미완료 · 예상/최대 20/20분 · 의존 T7.5
+│           증거: `artifacts/research-richard-sapper-deadline-20260917/work/sapper-criticism-primary-source-gap.md`
 │  ○ T1.4  마감 시각에 한국어 최종 브리프를 확정하고 원 스레드에 보고한다          미완료 · 예상/최대 30/30분 · 의존 T2.3
 │           증거: `artifacts/research-richard-sapper-deadline-20260917/final/richard-sapper-deadline-brief.md`
 │           시작/완료/실제: 2026-09-16T23:00:00Z 이후 / 미완료 / 미완료
@@ -179,8 +191,10 @@
 │     T5.1 의존성이 완료되어, 9091의 경고음 특허·수상 기록과 현행 제품 주장을 분리해 점검한다.
 ├─ — 2026-09-17T01:40:00Z · T7.3 9091 신호/수상 경계 완료
 │     Alessi의 현행 휘슬·부품 기록과 ADI의 9091(1983)·9090 수상(1979) 기록을 분리했다. 9091 특허·독립 시험은 직접 확인하지 못했다.
+├─ — 2026-09-17T01:40:54Z · 확장 및 T7.4 활성화
+│     확장 정책에 따라 T8.1–T8.5 다섯 leaf를 추가했다(총 28→33, target 50 이하). T6.1 의존성이 완료된 T7.4를 활성화한다.
 └─ — 보호 경계
       공개 게시·외부 연락·결제·개인정보 수집·저작권 있는 원문 장문 전재는 하지 않는다.
 ```
 
-**지금 다음 행동:** `T7.1 — 701C의 직접 특허 문서에서 발명자·청구 범위를 확인합니다.`
+**지금 다음 행동:** `T7.4 — Tizio의 전시·소장 이력과 현행 재발매 성능의 증거 경계를 점검합니다.`

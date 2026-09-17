@@ -919,6 +919,15 @@
         "logs/agent-wiki-query.md"
       ],
       "note": "T7.3 completed: separated Alessi current 9091 whistle/product/parts claims from ADI evidence that names 9091 as 1983 and names 9090—not 9091—as the 1979 Compasso d’Oro product; no direct 9091 patent or independent test located."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-9ab3470d9bf6464db9c1b063ec78facb",
+      "canonical_sha": "215afddf8dd8efee18c8ddd5018297bd1dd57cd8",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-17T01:40:26Z",
+      "status": "accepted"
     }
   ],
   "artifacts": [],
