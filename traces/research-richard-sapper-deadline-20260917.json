@@ -1136,6 +1136,15 @@
         "logs/agent-wiki-query.md"
       ],
       "note": "T8.5 completed: documented accessible Fast Company primary criticism and exact access limits for Domus 403 and MoMA catalog file-size failure; kept inaccessible materials out of substantive claims."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-6e16e3303d3e47bcac0a5bb6e9faa79f",
+      "canonical_sha": "aa247021938da3c4a2105dc159220c2c3a3fd73a",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-17T04:45:38Z",
+      "status": "accepted"
     }
   ],
   "artifacts": [],
