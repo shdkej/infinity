@@ -21,6 +21,7 @@
 - trace: traces/research-richard-sapper-deadline-20260917.json
 - task_plan: artifacts/research-richard-sapper-deadline-20260917/work/task-plan.json
 - task_plan_doc: artifacts/research-richard-sapper-deadline-20260917/work/task-plan.md
+- artifact: artifacts/research-richard-sapper-deadline-20260917/work/tizio-exhibition-reissue-boundaries.md
 - artifact: artifacts/research-richard-sapper-deadline-20260917/work/9091-signal-award-boundaries.md
 - artifact: artifacts/research-richard-sapper-deadline-20260917/work/ts502-variant-service-boundaries.md
 - artifact: artifacts/research-richard-sapper-deadline-20260917/work/701c-patent-claims.md
@@ -34,7 +35,7 @@
 - notification_target: channel:C0BR41W31MM
 - notification_reply_to: 1789547954.349019
 - notification_origin: channel:C0BR41W31MM;reply_to:1789547954.349019
-- next_action: T7.4에서 Tizio의 전시·소장 이력을 현행 재발매 성능과 분리한다.
+- next_action: T7.5에서 사퍼의 비평·영향 주장을 원문과 2차 요약으로 다시 분리한다.
 
 ## Waiting
 
