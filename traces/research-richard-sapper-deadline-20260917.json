@@ -990,12 +990,34 @@
       "session_key": "agent:genie:infinity-dispatcher",
       "timestamp": "2026-09-17T02:40:27Z",
       "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-17T02:41:52Z",
+      "context_pack": "intents/context/research-richard-sapper-deadline-20260917.json",
+      "evidence_paths": [
+        "artifacts/research-richard-sapper-deadline-20260917/work/tizio-collection-metadata-crosswalk.md"
+      ],
+      "searches": [
+        "Tizio MoMA collection metadata; Tizio Met collection acquisition; Tizio Centre Pompidou acquisition"
+      ],
+      "wiki_pages": [
+        "agent-wiki/content/docs/outputs/Communication/Open_Source.mdx",
+        "agent-wiki/content/docs/outputs/Idea/Movie.mdx",
+        "agent-wiki/content/docs/outputs/Portfolio.mdx",
+        "agent-wiki/content/docs/outputs/Integration/Marketing.mdx",
+        "agent-wiki/content/docs/outputs/Fundamental/Math.mdx"
+      ],
+      "operational_log_sections": [
+        "logs/agent-wiki-query.md"
+      ],
+      "note": "T8.1 completed: crosswalked MoMA, Met, and Centre Pompidou creation, production, exhibition, gift, and acquisition metadata without inferring one launch date or current availability."
     }
   ],
   "artifacts": [],
   "verifications": [],
   "next_decision": {
     "status": "exploratory",
-    "value": "Activate T8.1: crosswalk Tizio institutional collection metadata by creation, exhibition, acquisition, and current product layers."
+    "value": "Activate T8.2: examine whether current 9091 parts pages support regional inventory, vintage compatibility, or repair claims."
   }
 }

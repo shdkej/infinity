@@ -24,6 +24,7 @@
 - context_searches: zg hybrid+fts Context Pack query; rg Richard Sapper/사퍼 in declared scopes
 - task_plan: artifacts/research-richard-sapper-deadline-20260917/work/task-plan.json
 - task_plan_doc: artifacts/research-richard-sapper-deadline-20260917/work/task-plan.md
+- artifact: artifacts/research-richard-sapper-deadline-20260917/work/tizio-collection-metadata-crosswalk.md
 - artifact: artifacts/research-richard-sapper-deadline-20260917/work/sapper-criticism-source-boundaries.md
 - artifact: artifacts/research-richard-sapper-deadline-20260917/work/tizio-exhibition-reissue-boundaries.md
 - artifact: artifacts/research-richard-sapper-deadline-20260917/work/9091-signal-award-boundaries.md
@@ -40,4 +41,4 @@
 - notification_target: channel:C0BR41W31MM
 - notification_reply_to: 1789547954.349019
 - notification_origin: channel:C0BR41W31MM;reply_to:1789547954.349019
-- next_action: T8.1에서 Tizio 기관 소장 메타데이터를 제작·전시·소장 날짜로 대조한다.
+- next_action: T8.2에서 9091 현행 부품 페이지의 지역·재고·빈티지 호환 한계를 확인한다.
