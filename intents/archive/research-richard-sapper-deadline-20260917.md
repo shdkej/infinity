@@ -1,7 +1,7 @@
 # 리처드 사퍼 마감형 종합 리서치
 
 - id: research-richard-sapper-deadline-20260917
-- status: active
+- status: archived
 - research_mode: exploratory_research
 - execution_mode: multi_subagent_roles
 - permission: L0-research-and-draft-only
@@ -48,4 +48,7 @@
 - notification_target: channel:C0BR41W31MM
 - notification_reply_to: 1789547954.349019
 - notification_origin: channel:C0BR41W31MM;reply_to:1789547954.349019
-- next_action: 사용자 요청에 따라 마감본을 전달했다. 남은 네 개의 세부 검증 가지는 후속 리서치로만 재개한다.
+- result_summary: 작품·협업자·기업·기술·수용을 연결한 한국어 최종 브리프와 HTML 요약을 완료했다. 미완료 세부 검증 가지는 과장 없이 후속 조사로 보존했다.
+- remote_verified: pass
+- remote_commit: 76be2b9a3e8065f9be7db379a1545aae0202d33b
+- archived_at: 2026-09-17T07:18:00Z
