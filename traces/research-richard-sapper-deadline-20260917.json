@@ -826,6 +826,15 @@
         "logs/agent-wiki-query.md"
       ],
       "note": "T6.5 completed: separated ADI award metadata and Alessi current brand/sales narrative from contracts, production, and financial evidence."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-82e2a91c63564db284e20494054aa2e6",
+      "canonical_sha": "414f6009a1fb845c472c9aaa5e3a6dacf929a8fe",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-17T00:35:46Z",
+      "status": "accepted"
     }
   ],
   "artifacts": [],
