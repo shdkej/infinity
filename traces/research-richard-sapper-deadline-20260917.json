@@ -1083,12 +1083,34 @@
       "session_key": "agent:genie:infinity-dispatcher",
       "timestamp": "2026-09-17T03:45:36Z",
       "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-17T03:47:34Z",
+      "context_pack": "intents/context/research-richard-sapper-deadline-20260917.json",
+      "evidence_paths": [
+        "artifacts/research-richard-sapper-deadline-20260917/work/ts502-schematic-mechanical-gap.md"
+      ],
+      "searches": [
+        "Brionvega TS502 V2G schematic index; Museo Scienza TS502 2 serie hinge cable; Brionvega radiocubo assembly"
+      ],
+      "wiki_pages": [
+        "agent-wiki/content/docs/outputs/Communication/Open_Source.mdx",
+        "agent-wiki/content/docs/outputs/Idea/Movie.mdx",
+        "agent-wiki/content/docs/outputs/Portfolio.mdx",
+        "agent-wiki/content/docs/outputs/Integration/Marketing.mdx",
+        "agent-wiki/content/docs/outputs/Fundamental/Math.mdx"
+      ],
+      "operational_log_sections": [
+        "logs/agent-wiki-query.md"
+      ],
+      "note": "T8.4 completed: separated TS502 V2G schematic-index evidence from the 2° serie specimen’s hinge/cable metadata; retained missing original PDF, mechanical manual, and generation mapping."
     }
   ],
   "artifacts": [],
   "verifications": [],
   "next_decision": {
     "status": "exploratory",
-    "value": "Activate T8.4: distinguish TS 502 electronic schematic evidence from mechanical service documentation."
+    "value": "Activate T8.5: separate accessible primary criticism from exhibition catalogs and secondary summaries."
   }
 }
