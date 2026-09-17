@@ -1043,6 +1043,15 @@
         "logs/agent-wiki-query.md"
       ],
       "note": "T8.2 completed: current Alessi US and Romania spare-parts pages establish local catalogue items only, not global inventory, vintage compatibility, or repair guarantees."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-6bf90d4751c5490fad297de967d432ac",
+      "canonical_sha": "0f0dc0ce1a7415739b37a29ca2a28e227cdc205d",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-17T03:40:21Z",
+      "status": "accepted"
     }
   ],
   "artifacts": [],
