@@ -950,6 +950,15 @@
         "logs/agent-wiki-query.md"
       ],
       "note": "T7.4 completed: separated institutional Tizio collection/exhibition metadata from current Artemide LED product specifications, retaining availability and original-to-reissue performance gaps."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-567fedd267c9424c98857ee99f769ac6",
+      "canonical_sha": "2dc6eba74735af13f86e82d51eac254d6c319fe2",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-17T02:10:27Z",
+      "status": "accepted"
     }
   ],
   "artifacts": [],
