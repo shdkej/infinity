@@ -24,6 +24,7 @@
 - context_searches: zg hybrid+fts Context Pack query; rg Richard Sapper/사퍼 in declared scopes
 - task_plan: artifacts/research-richard-sapper-deadline-20260917/work/task-plan.json
 - task_plan_doc: artifacts/research-richard-sapper-deadline-20260917/work/task-plan.md
+- artifact: artifacts/research-richard-sapper-deadline-20260917/work/alessi-award-contract-boundaries.md
 - artifact: artifacts/research-richard-sapper-deadline-20260917/work/701c-patent-collection-boundaries.md
 - artifact: artifacts/research-richard-sapper-deadline-20260917/work/9090-service-record-boundaries.md
 - artifact: artifacts/research-richard-sapper-deadline-20260917/work/ts502-interaction-mechanism.md
@@ -34,4 +35,4 @@
 - notification_target: channel:C0BR41W31MM
 - notification_reply_to: 1789547954.349019
 - notification_origin: channel:C0BR41W31MM;reply_to:1789547954.349019
-- next_action: T6.5에서 Alessi 외부 협업의 수상 기록과 계약·생산 공백을 재점검한다.
+- next_action: T7.1에서 701C의 직접 특허 문서와 청구 범위를 확인한다.

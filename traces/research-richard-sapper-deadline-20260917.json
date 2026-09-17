@@ -804,12 +804,34 @@
       "session_key": "agent:genie:infinity-dispatcher",
       "timestamp": "2026-09-17T00:05:44Z",
       "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-17T00:07:52Z",
+      "context_pack": "intents/context/research-richard-sapper-deadline-20260917.json",
+      "evidence_paths": [
+        "artifacts/research-richard-sapper-deadline-20260917/work/alessi-award-contract-boundaries.md"
+      ],
+      "searches": [
+        "ADI 9090 Compasso d Oro 1979; Alessi Richard Sapper 9090 current collection"
+      ],
+      "wiki_pages": [
+        "agent-wiki/content/docs/outputs/Communication/Open_Source.mdx",
+        "agent-wiki/content/docs/outputs/Idea/Movie.mdx",
+        "agent-wiki/content/docs/outputs/Portfolio.mdx",
+        "agent-wiki/content/docs/outputs/Integration/Marketing.mdx",
+        "agent-wiki/content/docs/outputs/Fundamental/Math.mdx"
+      ],
+      "operational_log_sections": [
+        "logs/agent-wiki-query.md"
+      ],
+      "note": "T6.5 completed: separated ADI award metadata and Alessi current brand/sales narrative from contracts, production, and financial evidence."
     }
   ],
   "artifacts": [],
   "verifications": [],
   "next_decision": {
     "status": "exploratory",
-    "value": "Activate T6.5: separate Alessi award records from contracts and production evidence."
+    "value": "Activate T7.1: review direct 701C patent claims while separating inventors, assignee, and product contributions."
   }
 }
