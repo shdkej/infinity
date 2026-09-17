@@ -959,12 +959,34 @@
       "session_key": "agent:genie:infinity-dispatcher",
       "timestamp": "2026-09-17T02:10:27Z",
       "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-17T02:12:05Z",
+      "context_pack": "intents/context/research-richard-sapper-deadline-20260917.json",
+      "evidence_paths": [
+        "artifacts/research-richard-sapper-deadline-20260917/work/sapper-criticism-source-boundaries.md"
+      ],
+      "searches": [
+        "Richard Sapper criticism; Mark Wilson ThinkPad overrated; Domus Black Box Syndrome Sapper"
+      ],
+      "wiki_pages": [
+        "agent-wiki/content/docs/outputs/Communication/Open_Source.mdx",
+        "agent-wiki/content/docs/outputs/Idea/Movie.mdx",
+        "agent-wiki/content/docs/outputs/Portfolio.mdx",
+        "agent-wiki/content/docs/outputs/Integration/Marketing.mdx",
+        "agent-wiki/content/docs/outputs/Fundamental/Math.mdx"
+      ],
+      "operational_log_sections": [
+        "logs/agent-wiki-query.md"
+      ],
+      "note": "T7.5 completed: directly read Fast Company 2015 criticism and Domus 2013 interview essay; kept product, author, and evidence-layer limits plus gaps in scholarly and longitudinal evidence."
     }
   ],
   "artifacts": [],
   "verifications": [],
   "next_decision": {
     "status": "exploratory",
-    "value": "Activate T7.5: separate primary criticism of Sapper from secondary summaries and preserve inaccessible-source limits."
+    "value": "Activate T8.1: crosswalk Tizio institutional collection metadata by creation, exhibition, acquisition, and current product layers."
   }
 }
