@@ -21,6 +21,7 @@
 - trace: traces/research-richard-sapper-deadline-20260917.json
 - task_plan: artifacts/research-richard-sapper-deadline-20260917/work/task-plan.json
 - task_plan_doc: artifacts/research-richard-sapper-deadline-20260917/work/task-plan.md
+- final_artifact: artifacts/research-richard-sapper-deadline-20260917/final/richard-sapper-deadline-brief.md
 - artifact: artifacts/research-richard-sapper-deadline-20260917/work/tizio-original-lighting-source-crosscheck.md
 - artifact: artifacts/research-richard-sapper-deadline-20260917/work/sapper-criticism-primary-source-gap.md
 - artifact: artifacts/research-richard-sapper-deadline-20260917/work/ts502-schematic-mechanical-gap.md
@@ -42,7 +43,7 @@
 - notification_target: channel:C0BR41W31MM
 - notification_reply_to: 1789547954.349019
 - notification_origin: channel:C0BR41W31MM;reply_to:1789547954.349019
-- next_action: T9.2에서 9091 부품 코드 변화를 지역 카탈로그와 제조 시점으로 분리한다.
+- next_action: 사용자 요청에 따라 마감본을 전달했다. 남은 네 개의 세부 검증 가지는 후속 리서치로만 재개한다.
 
 ## Waiting
 
