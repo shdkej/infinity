@@ -21,6 +21,7 @@
 - trace: traces/research-richard-sapper-deadline-20260917.json
 - task_plan: artifacts/research-richard-sapper-deadline-20260917/work/task-plan.json
 - task_plan_doc: artifacts/research-richard-sapper-deadline-20260917/work/task-plan.md
+- artifact: artifacts/research-richard-sapper-deadline-20260917/work/sapper-criticism-primary-source-gap.md
 - artifact: artifacts/research-richard-sapper-deadline-20260917/work/ts502-schematic-mechanical-gap.md
 - artifact: artifacts/research-richard-sapper-deadline-20260917/work/701c-patent-assignment-family.md
 - artifact: artifacts/research-richard-sapper-deadline-20260917/work/9091-parts-regional-boundaries.md
@@ -40,7 +41,7 @@
 - notification_target: channel:C0BR41W31MM
 - notification_reply_to: 1789547954.349019
 - notification_origin: channel:C0BR41W31MM;reply_to:1789547954.349019
-- next_action: T8.5에서 사퍼 비평의 원문 접근성을 전시 카탈로그·2차 해설과 분리한다.
+- next_action: T9.1에서 Tizio 원형의 광원·변압기 기록을 박물관·제조사 기술 문서로 교차 검증한다.
 
 ## Waiting
 

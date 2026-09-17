@@ -1114,12 +1114,34 @@
       "session_key": "agent:genie:infinity-dispatcher",
       "timestamp": "2026-09-17T04:15:41Z",
       "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-17T04:17:07Z",
+      "context_pack": "intents/context/research-richard-sapper-deadline-20260917.json",
+      "evidence_paths": [
+        "artifacts/research-richard-sapper-deadline-20260917/work/sapper-criticism-primary-source-gap.md"
+      ],
+      "searches": [
+        "Fast Company ThinkPad overrated original; Domus Black Box Syndrome Sapper; MoMA Workspheres catalog Sapper"
+      ],
+      "wiki_pages": [
+        "agent-wiki/content/docs/outputs/Communication/Open_Source.mdx",
+        "agent-wiki/content/docs/outputs/Idea/Movie.mdx",
+        "agent-wiki/content/docs/outputs/Portfolio.mdx",
+        "agent-wiki/content/docs/outputs/Integration/Marketing.mdx",
+        "agent-wiki/content/docs/outputs/Fundamental/Math.mdx"
+      ],
+      "operational_log_sections": [
+        "logs/agent-wiki-query.md"
+      ],
+      "note": "T8.5 completed: documented accessible Fast Company primary criticism and exact access limits for Domus 403 and MoMA catalog file-size failure; kept inaccessible materials out of substantive claims."
     }
   ],
   "artifacts": [],
   "verifications": [],
   "next_decision": {
     "status": "exploratory",
-    "value": "Activate T8.5: separate accessible primary criticism from exhibition catalogs and secondary summaries."
+    "value": "Activate T9.1: crosscheck original Tizio lighting and transformer descriptions across institution and manufacturer technical records."
   }
 }
