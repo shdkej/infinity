@@ -1052,12 +1052,34 @@
       "session_key": "agent:genie:infinity-dispatcher",
       "timestamp": "2026-09-17T03:40:21Z",
       "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-17T03:41:47Z",
+      "context_pack": "intents/context/research-richard-sapper-deadline-20260917.json",
+      "evidence_paths": [
+        "artifacts/research-richard-sapper-deadline-20260917/work/701c-patent-assignment-family.md"
+      ],
+      "searches": [
+        "US5659307A assignment IBM Lenovo; USD372472S fractionated keyboard"
+      ],
+      "wiki_pages": [
+        "agent-wiki/content/docs/outputs/Communication/Open_Source.mdx",
+        "agent-wiki/content/docs/outputs/Idea/Movie.mdx",
+        "agent-wiki/content/docs/outputs/Portfolio.mdx",
+        "agent-wiki/content/docs/outputs/Integration/Marketing.mdx",
+        "agent-wiki/content/docs/outputs/Fundamental/Math.mdx"
+      ],
+      "operational_log_sections": [
+        "logs/agent-wiki-query.md"
+      ],
+      "note": "T8.3 completed: separated US5659307A inventor, original assignee, assignment, priority, and family fields from product-wide authorship, contracts, and team contribution."
     }
   ],
   "artifacts": [],
   "verifications": [],
   "next_decision": {
     "status": "exploratory",
-    "value": "Activate T8.3: separate 701C patent assignee, assignment, family, inventor, and product authorship roles."
+    "value": "Activate T8.4: distinguish TS 502 electronic schematic evidence from mechanical service documentation."
   }
 }
