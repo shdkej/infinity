@@ -897,12 +897,34 @@
       "session_key": "agent:genie:infinity-dispatcher",
       "timestamp": "2026-09-17T01:35:40Z",
       "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-17T01:38:05Z",
+      "context_pack": "intents/context/research-richard-sapper-deadline-20260917.json",
+      "evidence_paths": [
+        "artifacts/research-richard-sapper-deadline-20260917/work/9091-signal-award-boundaries.md"
+      ],
+      "searches": [
+        "Richard Sapper 9091 kettle whistle patent; ADI 9091 Sapper; Alessi 9091 whistle spare parts"
+      ],
+      "wiki_pages": [
+        "agent-wiki/content/docs/outputs/Communication/Open_Source.mdx",
+        "agent-wiki/content/docs/outputs/Idea/Movie.mdx",
+        "agent-wiki/content/docs/outputs/Portfolio.mdx",
+        "agent-wiki/content/docs/outputs/Integration/Marketing.mdx",
+        "agent-wiki/content/docs/outputs/Fundamental/Math.mdx"
+      ],
+      "operational_log_sections": [
+        "logs/agent-wiki-query.md"
+      ],
+      "note": "T7.3 completed: separated Alessi current 9091 whistle/product/parts claims from ADI evidence that names 9091 as 1983 and names 9090—not 9091—as the 1979 Compasso d’Oro product; no direct 9091 patent or independent test located."
     }
   ],
   "artifacts": [],
   "verifications": [],
   "next_decision": {
     "status": "exploratory",
-    "value": "Activate T7.3: separate 9091 signal patent and award records from current-product claims."
+    "value": "Activate T7.4: separate Tizio collection/exhibition history from current reissue performance."
   }
 }
