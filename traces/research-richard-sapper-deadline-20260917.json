@@ -1145,12 +1145,34 @@
       "session_key": "agent:genie:infinity-dispatcher",
       "timestamp": "2026-09-17T04:45:38Z",
       "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-17T04:46:57Z",
+      "context_pack": "intents/context/research-richard-sapper-deadline-20260917.json",
+      "evidence_paths": [
+        "artifacts/research-richard-sapper-deadline-20260917/work/tizio-original-lighting-source-crosscheck.md"
+      ],
+      "searches": [
+        "Tizio MoMA halogen transformer; Met Tizio halogen counterweight; Artemide A009210 LED technical specification"
+      ],
+      "wiki_pages": [
+        "agent-wiki/content/docs/outputs/Communication/Open_Source.mdx",
+        "agent-wiki/content/docs/outputs/Idea/Movie.mdx",
+        "agent-wiki/content/docs/outputs/Portfolio.mdx",
+        "agent-wiki/content/docs/outputs/Integration/Marketing.mdx",
+        "agent-wiki/content/docs/outputs/Fundamental/Math.mdx"
+      ],
+      "operational_log_sections": [
+        "logs/agent-wiki-query.md"
+      ],
+      "note": "T9.1 completed: crosschecked institutional original Tizio halogen/power-delivery records against current Artemide LED A009210 specifications without treating them as comparable performance tests."
     }
   ],
   "artifacts": [],
   "verifications": [],
   "next_decision": {
     "status": "exploratory",
-    "value": "Activate T9.1: crosscheck original Tizio lighting and transformer descriptions across institution and manufacturer technical records."
+    "value": "Activate T9.2: separate 9091 parts-code changes by regional catalog and manufacturing-time evidence."
   }
 }

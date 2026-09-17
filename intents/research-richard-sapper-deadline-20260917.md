@@ -24,6 +24,7 @@
 - context_searches: zg hybrid+fts Context Pack query; rg Richard Sapper/사퍼 in declared scopes
 - task_plan: artifacts/research-richard-sapper-deadline-20260917/work/task-plan.json
 - task_plan_doc: artifacts/research-richard-sapper-deadline-20260917/work/task-plan.md
+- artifact: artifacts/research-richard-sapper-deadline-20260917/work/tizio-original-lighting-source-crosscheck.md
 - artifact: artifacts/research-richard-sapper-deadline-20260917/work/sapper-criticism-primary-source-gap.md
 - artifact: artifacts/research-richard-sapper-deadline-20260917/work/ts502-schematic-mechanical-gap.md
 - artifact: artifacts/research-richard-sapper-deadline-20260917/work/701c-patent-assignment-family.md
@@ -45,4 +46,4 @@
 - notification_target: channel:C0BR41W31MM
 - notification_reply_to: 1789547954.349019
 - notification_origin: channel:C0BR41W31MM;reply_to:1789547954.349019
-- next_action: T9.1에서 Tizio 원형의 광원·변압기 기록을 박물관·제조사 기술 문서로 교차 검증한다.
+- next_action: T9.2에서 9091 부품 코드 변화를 지역 카탈로그와 제조 시점으로 분리한다.
