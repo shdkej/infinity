@@ -1105,6 +1105,15 @@
         "logs/agent-wiki-query.md"
       ],
       "note": "T8.4 completed: separated TS502 V2G schematic-index evidence from the 2° serie specimen’s hinge/cable metadata; retained missing original PDF, mechanical manual, and generation mapping."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-bd5ede74fe4c4b6794f094202fc8476b",
+      "canonical_sha": "96ac2d7ef5b4194bb5f2a7bf0871d6aed4ca6df9",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-17T04:15:41Z",
+      "status": "accepted"
     }
   ],
   "artifacts": [],
