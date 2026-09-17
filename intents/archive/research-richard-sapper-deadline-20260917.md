@@ -52,3 +52,11 @@
 - remote_verified: pass
 - remote_commit: 76be2b9a3e8065f9be7db379a1545aae0202d33b
 - archived_at: 2026-09-17T07:18:00Z
+- completed_at: 2026-09-17T07:18:00Z
+
+## Archive Card
+
+[프로젝트] 리처드 사퍼 마감형 종합 리서치
+[상태] 최종 브리프·HTML 리포트 완료 및 보관
+[결과 기준] 작품·협업·기업·기술·비평을 연결한 한국어 브리프와 읽기용 HTML을 원 스레드에 전달
+[다음 행동] 없음 — 남겨 둔 세부 검증 가지는 별도 요청 시 후속 조사

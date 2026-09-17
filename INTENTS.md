@@ -11,6 +11,8 @@
 
 ## Archive
 
+<!-- research-richard-sapper-deadline-20260917 archived 2026-09-17T07:18:00Z → intents/archive/research-richard-sapper-deadline-20260917.md; report=reports/research-richard-sapper-deadline-20260917/20260917T0715Z-final.html; remote_verified=pass -->
+
 ### [research-richard-sapper-deadline-20260917] 리처드 사퍼 마감형 종합 리서치
 - status: archived
 - research_mode: exploratory_research
@@ -20,13 +22,14 @@
 - deadline: 2026-09-16T23:00:00Z
 - deadline_local: 2026-09-17 08:00 Asia/Seoul (KST)
 - delivery_not_before: 2026-09-16T23:00:00Z
-- detail: intents/research-richard-sapper-deadline-20260917.md
+- detail: intents/archive/research-richard-sapper-deadline-20260917.md
 - context_pack: intents/context/research-richard-sapper-deadline-20260917.json
 - trace: traces/research-richard-sapper-deadline-20260917.json
 - task_plan: artifacts/research-richard-sapper-deadline-20260917/work/task-plan.json
 - task_plan_doc: artifacts/research-richard-sapper-deadline-20260917/work/task-plan.md
 - final_artifact: artifacts/research-richard-sapper-deadline-20260917/final/richard-sapper-deadline-brief.md
 - report: reports/research-richard-sapper-deadline-20260917/20260917T0715Z-final.html
+- artifact: artifacts/research-richard-sapper-deadline-20260917/final/richard-sapper-deadline-brief.md
 - artifact: artifacts/research-richard-sapper-deadline-20260917/work/tizio-original-lighting-source-crosscheck.md
 - artifact: artifacts/research-richard-sapper-deadline-20260917/work/sapper-criticism-primary-source-gap.md
 - artifact: artifacts/research-richard-sapper-deadline-20260917/work/ts502-schematic-mechanical-gap.md
