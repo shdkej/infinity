@@ -25,6 +25,7 @@
 - task_plan: artifacts/research-richard-sapper-deadline-20260917/work/task-plan.json
 - task_plan_doc: artifacts/research-richard-sapper-deadline-20260917/work/task-plan.md
 - final_artifact: artifacts/research-richard-sapper-deadline-20260917/final/richard-sapper-deadline-brief.md
+- report: reports/research-richard-sapper-deadline-20260917/20260917T0715Z-final.html
 - artifact: artifacts/research-richard-sapper-deadline-20260917/work/tizio-original-lighting-source-crosscheck.md
 - artifact: artifacts/research-richard-sapper-deadline-20260917/work/sapper-criticism-primary-source-gap.md
 - artifact: artifacts/research-richard-sapper-deadline-20260917/work/ts502-schematic-mechanical-gap.md
