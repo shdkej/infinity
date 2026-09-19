@@ -528,6 +528,7 @@ Kang-chen 부분 기능 파일럿은 별도 승인 대기 intent에서만 검토
 <!-- design-05 completed 2026-08-27T00:15Z → intents/archive/design-05.md; artifacts/design-05/; reports/design-05/20260827T0015Z.html; red_status: pass. -->
 ### [design-05] 이집트 여행 브이로그용 세로 영수증 B-roll 오버레이
 - status: archived
+- completed_at: 2026-08-27T00:15:00Z
 - target_agent: genie
 - execution_mode: multi_subagent_roles
 - artifact: artifacts/design-05/egypt-giza-field-receipt-overlay.png; artifacts/design-05/egypt-giza-field-receipt-overlay-preview-1920x1080.png
@@ -542,6 +543,7 @@ Kang-chen 부분 기능 파일럿은 별도 승인 대기 intent에서만 검토
 <!-- research-35 completed 2026-08-26 → intents/archive/research-35.md; artifacts/research-35/; reports/research-35/20260826T-research.md; red_status: pass. -->
 ### [research-35] 한국 사업자의 앱·웹 디지털 결제수단 조사
 - status: archived
+- completed_at: 2026-08-26T00:00:00Z
 - target_agent: genie
 - execution_mode: multi_subagent_roles
 - artifact: artifacts/research-35/payment-comparison.md; report: reports/research-35/20260826T-research.md

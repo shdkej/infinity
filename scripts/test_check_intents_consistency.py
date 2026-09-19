@@ -54,6 +54,17 @@ class NotificationContractTests(unittest.TestCase):
         self.assertNotEqual(result.returncode, 0)
         self.assertIn("missing completed_at/archived_at", result.stderr)
 
+    def test_archive_without_summary_comment_still_requires_completion_date(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "INTENTS.md"
+            path.write_text(archive_registry(
+                "",
+                "### [content-example-20260920] 댓글 없는 날짜 누락\n- status: archived\n",
+            ))
+            result = subprocess.run(["python3", str(ROOT / "scripts/check_intents_consistency.py"), str(path)], text=True, capture_output=True, check=False)
+        self.assertNotEqual(result.returncode, 0)
+        self.assertIn("missing completed_at/archived_at", result.stderr)
+
     def test_recent_archive_with_completion_date_passes(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
             path = Path(directory) / "INTENTS.md"

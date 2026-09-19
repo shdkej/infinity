@@ -19,7 +19,6 @@ ID_RE = re.compile(r"([a-z][a-z0-9]*(?:-[a-z0-9]+)*-\d+)\b")
 DATE_RE = re.compile(
     r"(\d{4}-\d{2}-\d{2}(?:[T\s](?:\d{2}:\d{2}(?::\d{2})?|\d{4}(?:\d{2})?)Z?)?)"
 )
-ARCHIVE_DATE_CONTRACT_START = (2026, 9, 19, 0, 0, 0)
 
 
 def split_sections(text: str) -> dict[str, str]:
@@ -83,7 +82,6 @@ def main() -> int:
                 errors.append(f"{lane}: {intent_id} missing terminal notification field(s): {', '.join(missing)}")
 
     archive_items: list[tuple[tuple[int, int, int, int, int, int], str]] = []
-    archive_comment_dates: dict[str, tuple[int, int, int, int, int, int]] = {}
     for comment in COMMENT_RE.finditer(sections.get("Archive", "")):
         body = comment.group(1).strip()
         id_match = ID_RE.match(body)
@@ -93,13 +91,11 @@ def main() -> int:
         completed = date_key(date_match.group(1) if date_match else "")
         intent_id = id_match.group(1)
         archive_items.append((completed, intent_id))
-        archive_comment_dates[intent_id] = completed
 
     for card in CARD_RE.finditer(sections.get("Archive", "")):
         intent_id = card.group(1)
         fields = {key.strip(): value.strip() for key, value in FIELD_RE.findall(card.group(2))}
-        comment_date = archive_comment_dates.get(intent_id, (0, 0, 0, 0, 0, 0))
-        if comment_date >= ARCHIVE_DATE_CONTRACT_START and not (fields.get("completed_at") or fields.get("archived_at")):
+        if not (fields.get("completed_at") or fields.get("archived_at")):
             errors.append(f"Archive: {intent_id} missing completed_at/archived_at for dashboard ordering")
 
     for prev, cur in zip(archive_items, archive_items[1:]):
