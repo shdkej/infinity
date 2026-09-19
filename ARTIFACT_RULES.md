@@ -187,7 +187,7 @@ Infinity 문서는 아래 4개 역할로 통일한다. 새 문서를 만들 때 
 
 - id: {intent-id}
 - status: archived
-- completed_at: YYYY-MM-DDTHH:MM
+- completed_at: YYYY-MM-DDTHH:MM:SSZ
 - projects: [virtue]
 - task_type: strategy
 - topics: [activation, analytics]
