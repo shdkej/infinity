@@ -10,6 +10,8 @@
 
 ## Archive
 
+<!-- content-amalfi-ravello-day-reel-20260918 archived 2026-09-19T10:34:00Z → intents/archive/content-amalfi-ravello-day-reel-20260918.md; report=reports/content-amalfi-ravello-day-reel-20260918/20260919T1032Z-final.html; red_status=pass; private-only render. -->
+
 ### [content-amalfi-ravello-day-reel-20260918] 아말피·라벨로 하루 브이로그 릴스
 - status: archived
 - target_agent: genie
