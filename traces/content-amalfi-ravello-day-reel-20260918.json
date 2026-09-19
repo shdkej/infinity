@@ -22,6 +22,15 @@
         "intents/waiting/content-amalfi-ravello-day-reel-20260918.md",
         "INTENTS.md"
       ]
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-8604db7670a74d6c92d998f8be852ba8",
+      "canonical_sha": "23d6782a8a6d748cb7811848c4446edf5fc84199",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-19T09:52:11Z",
+      "status": "accepted"
     }
   ],
   "artifacts": [],

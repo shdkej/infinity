@@ -4,8 +4,10 @@
 
 ## Inbox
 
+## Active
+
 ### [content-amalfi-ravello-day-reel-20260918] 아말피·라벨로 하루 브이로그 릴스
-- status: inbox
+- status: active
 - target_agent: genie
 - execution_mode: single_genie_roles
 - permission: L0-private-draft-only
@@ -13,18 +15,19 @@
 - task_type: content
 - topics: travel,reels,amalfi,ravello,visual-observation
 - requested: 2026-09-19T09:45:17Z
-- detail: intents/waiting/content-amalfi-ravello-day-reel-20260918.md
+- detail: intents/active/content-amalfi-ravello-day-reel-20260918.md
 - context_pack: intents/context/content-amalfi-ravello-day-reel-20260918.json
 - trace: traces/content-amalfi-ravello-day-reel-20260918.json
+- task_plan: artifacts/content-amalfi-ravello-day-reel-20260918/work/task-plan.json
+- task_plan_doc: artifacts/content-amalfi-ravello-day-reel-20260918/work/task-plan.md
+- task_plan_template: ARTIFACT_RULES.md#대형-작업-태스크-계획
+- artifact: artifacts/content-amalfi-ravello-day-reel-20260918/work/reel-draft.md
 - source_record: /home/ubuntu/workspace/knowledge-lab/source/openclaw-system/data/daily-tracking/2026-09-18.md
 - notification_channel: slack
 - notification_target: channel:C0BR41W31MM
 - notification_reply_to: 1789798156.880749
 - notification_origin: channel:C0BR41W31MM;reply_to:1789798156.880749
-- next_action: Genie가 비공개 릴스 초안과 렌더를 제작한다.
-
-
-## Active
+- next_action: T1.1 원본 6장 검증·컷/카피 초안과 비공개 렌더를 제작한다.
 
 ## Waiting
 
