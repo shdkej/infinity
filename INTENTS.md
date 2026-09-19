@@ -23,12 +23,14 @@
 - task_plan_template: ARTIFACT_RULES.md#대형-작업-태스크-계획
 - artifact: artifacts/content-amalfi-ravello-day-reel-20260918/work/render-evidence.md
 - artifact: artifacts/content-amalfi-ravello-day-reel-20260918/work/red/final-review.md
+- artifact: artifacts/content-amalfi-ravello-day-reel-20260918/final/amalfi-ravello-reel-package.md
+- report: reports/content-amalfi-ravello-day-reel-20260918/20260919T1032Z-final.html
 - source_record: /home/ubuntu/workspace/knowledge-lab/source/openclaw-system/data/daily-tracking/2026-09-18.md
 - notification_channel: slack
 - notification_target: channel:C0BR41W31MM
 - notification_reply_to: 1789798156.880749
 - notification_origin: channel:C0BR41W31MM;reply_to:1789798156.880749
-- next_action: T1.3 비공개 납품 패키지와 HTML 실행 보고를 만들고 원격 main 동일성을 확인한다.
+- next_action: Archive 계약의 원격 검증과 원장 전환을 수행한다.
 
 ## Waiting
 
