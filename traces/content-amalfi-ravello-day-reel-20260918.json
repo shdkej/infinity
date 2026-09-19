@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "intent_id": "content-amalfi-ravello-day-reel-20260918",
+  "status": "inbox",
+  "trace_completeness": "complete",
+  "request": {
+    "raw": {
+      "status": "recorded",
+      "value": "이미지 등록한거로 릴스 만들어줄 수 있어? / 3. 아말피·라벨로 하루 브이로그형"
+    },
+    "normalized_query": {
+      "status": "recorded",
+      "value": "2026-09-18 아말피·라벨로 사용자 원본 사진 6장으로 비공개 하루 브이로그형 릴스 초안과 세로 렌더를 제작한다. 공개 게시와 제3자 음악은 제외한다."
+    }
+  },
+  "events": [
+    {
+      "type": "intake",
+      "at": "2026-09-19T09:47:03Z",
+      "context_pack": "intents/context/content-amalfi-ravello-day-reel-20260918.json",
+      "evidence_paths": [
+        "intents/waiting/content-amalfi-ravello-day-reel-20260918.md",
+        "INTENTS.md"
+      ]
+    }
+  ],
+  "artifacts": [],
+  "verifications": [],
+  "next_decision": {
+    "status": "in_progress",
+    "value": "Genie가 Context Pack을 재확인하고 비공개 9:16 릴스 초안을 제작한다."
+  }
+}
