@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "intent_id": "content-amalfi-ravello-day-reel-20260918",
-  "status": "active",
+  "status": "archived",
   "trace_completeness": "complete",
   "request": {
     "raw": {
@@ -19,7 +19,7 @@
       "at": "2026-09-19T09:47:03Z",
       "context_pack": "intents/context/content-amalfi-ravello-day-reel-20260918.json",
       "evidence_paths": [
-        "intents/active/content-amalfi-ravello-day-reel-20260918.md",
+        "intents/archive/content-amalfi-ravello-day-reel-20260918.md",
         "INTENTS.md"
       ]
     },
@@ -56,6 +56,17 @@
       "session_key": "agent:genie:infinity-dispatcher",
       "timestamp": "2026-09-19T10:27:06Z",
       "status": "accepted"
+    },
+    {
+      "type": "archive",
+      "at": "2026-09-19T10:34:00Z",
+      "report_path": "reports/content-amalfi-ravello-day-reel-20260918/20260919T1032Z-final.html",
+      "verification": {
+        "red_status": "pass",
+        "red_report_path": "artifacts/content-amalfi-ravello-day-reel-20260918/work/red/final-review.md",
+        "remote_verified": "pass",
+        "remote_proof_path": "artifacts/content-amalfi-ravello-day-reel-20260918/work/remote-proof.md"
+      }
     }
   ],
   "artifacts": [],

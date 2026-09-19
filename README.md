@@ -44,7 +44,8 @@ scripts/dispatch_terminal_notifications.py ← 원격 `origin/main` terminal 상
 - `INTENTS.md`가 큐 상태의 단일 정본이다. 대시보드는 GitHub `main`의 raw `INTENTS.md`를 읽고, 로컬 파일이나 별도 큐를 상태 원천으로 사용하지 않는다.
 - `INTENTS.md`에는 `## Inbox`, `## Active`, `## Waiting`, `## Archive`를 각각 정확히 한 번만 둔다. 중복 섹션은 검사에서 실패하며 대시보드에 숨겨진 항목을 만들 수 있다.
 - 열린 intent는 반드시 해당 lane 아래 `### [id] 제목` 블록으로 둔다. `status` 값과 lane이 다르면 정합성 오류로 보고 수정한다.
-- 원장 변경 후에는 `python3 scripts/check_intents_consistency.py INTENTS.md`를 실행하고, Infinity 원격 push 후 raw GitHub와 라이브 대시보드에서 같은 id·lane이 보이는지 확인한다.
+- 신규 Archive 블록은 요약 주석의 완료 시각과 같은 `completed_at: YYYY-MM-DDTHH:MM:SSZ`를 반드시 기록한다. 대시보드는 이 필드로 최근 완료 순서와 월 그룹을 정하므로, 주석에만 날짜를 쓰면 카드가 `날짜 미상` 접힌 그룹으로 밀린다.
+- 원장 변경 후에는 `python3 scripts/check_intents_consistency.py INTENTS.md`를 실행하고, Infinity 원격 push 후 raw GitHub와 라이브 대시보드에서 같은 id·lane·완료 날짜가 보이는지 확인한다.
 - 대시보드 배포본은 `/home/ubuntu/workspace/space/infra-aws-static-sites/sites/infinity/dist/`에 두며, 정적 파일 push와 Space 라이브 확인까지 완료해야 한다.
 
 ## 운영 원칙

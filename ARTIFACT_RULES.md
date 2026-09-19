@@ -284,7 +284,7 @@ Infinity 문서는 아래 4개 역할로 통일한다. 새 문서를 만들 때 
    - 원래 프로젝트 목표가 끝났는지 먼저 판정하고, 끝나지 않았으면 후속 intent id 또는 Waiting blocker를 만든다.
    - `intents/active/{id}.md` → `intents/archive/{id}.md`로 이동
    - 위 표준 포맷으로 재작성하면서 artifacts / reports / commits / urls 링크
-   - `INTENTS.md`의 Active 블록 제거, 완료 코멘트 추가 (`<!-- {id} completed YYYY-MM-DDTHH:MM → intents/archive/{id}.md [projects: virtue; type: strategy; topics: activation,analytics] (한 줄 결과) -->`)
+   - `INTENTS.md`의 Active 블록 제거, 같은 UTC 시각을 `completed_at: YYYY-MM-DDTHH:MM:SSZ`로 정식 Archive 블록에 기록하고 완료 코멘트에도 추가한다 (`<!-- {id} completed YYYY-MM-DDTHH:MM → intents/archive/{id}.md [projects: virtue; type: strategy; topics: activation,analytics] (한 줄 결과) -->`). 주석만으로 완료 시각을 남기지 않는다. 대시보드는 정식 블록의 날짜로 최근 완료 순서와 월 그룹을 정한다.
    - Archive 전환 변경을 Infinity 저장소에 commit/push하고, 대시보드가 읽는 원격 `main`에서 해당 Archive 코멘트가 보이는지 확인한다. Knowledge Lab 승격이 있으면 해당 Knowledge Lab 변경은 별도 저장소 변경으로 commit/push·검증한다. Infinity의 부모 submodule pointer는 없다.
 4. 대시보드 등 외부 도구가 detail 링크를 기대하면 archive 경로가 유효한지 확인한다.
 5. 완료 직후 같은 내용을 `detail` 파일로 다시 만들지 않는다. 추가 원문이 필요하면 `artifacts/{id}/work/` 또는 `artifacts/{id}/final/`에 별도 역할을 부여한다.

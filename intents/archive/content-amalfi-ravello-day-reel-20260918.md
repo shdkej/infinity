@@ -2,6 +2,7 @@
 
 - id: content-amalfi-ravello-day-reel-20260918
 - status: archived
+- completed_at: 2026-09-19T10:34:00Z
 - target_agent: genie
 - execution_mode: single_genie_roles
 - permission: L0-private-draft-only
