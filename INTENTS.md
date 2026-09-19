@@ -28,7 +28,8 @@
 - report: reports/content-amalfi-ravello-day-reel-20260918/20260919T1032Z-final.html
 - red_status: pass
 - red_report: artifacts/content-amalfi-ravello-day-reel-20260918/work/red/final-review.md
-- remote_verified: pending
+- remote_verified: pass
+- remote_commit: 9fdbb4d0a3cf89a0b72b2c5aa34e48b3e1893f66
 - notification_channel: slack
 - notification_target: channel:C0BR41W31MM
 - notification_reply_to: 1789798156.880749

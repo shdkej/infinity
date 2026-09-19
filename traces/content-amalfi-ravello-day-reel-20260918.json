@@ -61,7 +61,7 @@
   "artifacts": [],
   "verifications": [],
   "next_decision": {
-    "status": "in_progress",
-    "value": "Deliver the private MP4 draft to the user; public posting remains excluded."
+    "status": "archived",
+    "value": "Private MP4 draft is archived after Red PASS and remote verification; a public release needs a new approval-and-rights-review intent."
   }
 }

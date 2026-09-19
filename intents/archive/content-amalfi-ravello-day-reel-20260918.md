@@ -23,7 +23,8 @@
 - exclusion: Instagram 게시·업로드, 제3자 음원·자산 사용, 광고 집행.
 - red_status: pass
 - red_report: artifacts/content-amalfi-ravello-day-reel-20260918/work/red/final-review.md
-- remote_verified: pending
+- remote_verified: pass
+- remote_commit: 9fdbb4d0a3cf89a0b72b2c5aa34e48b3e1893f66
 - result_summary: 사용자 원본 6장으로 28초 무음 9:16 릴스 비공개 초안과 캡션·실제 렌더 검수를 완료했다.
 - knowledge_status: used
 - knowledge_decision: no_promotion
