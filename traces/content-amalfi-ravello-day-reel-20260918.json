@@ -47,6 +47,15 @@
       "wiki_pages": [],
       "operational_log_sections": [],
       "note": "SAM directly produced and visually checked the private reel render after the user explicitly requested direct production."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-6441528cba594a0dbfa76af3232562a9",
+      "canonical_sha": "982082025a9fbba774a6b8cf8a412f1231e80491",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-19T10:27:06Z",
+      "status": "accepted"
     }
   ],
   "artifacts": [],

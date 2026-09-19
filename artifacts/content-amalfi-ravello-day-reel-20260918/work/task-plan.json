@@ -3,8 +3,8 @@
   "intent_id": "content-amalfi-ravello-day-reel-20260918",
   "title": "아말피·라벨로 하루 브이로그 릴스",
   "tasks": [
-    {"id":"T1.1","title":"원본 6장 검증·컷/카피 초안과 무음 9:16 렌더","status":"active","depends_on":[],"cycle_id":"T1","cycle_goal":"관찰 중심 비공개 릴스 초안을 실제 렌더로 고정","max_minutes":30,"evidence":"work/reel-draft.md; references/; final/amalfi-ravello-observation-reel.mp4","validation":"원본 6장만 사용, 20–35초 9:16, 자막·사진 순서와 저작권 경계가 초안과 일치","closure_check":"ffprobe와 프레임 검수로 실제 렌더·6장 사용을 확인"},
-    {"id":"T1.2","title":"실제 렌더 Red 검수","status":"pending","depends_on":["T1.1"],"cycle_id":"T1","cycle_goal":"시퀀스·원본 충실도·카피 안전성 검증","max_minutes":20,"evidence":"work/red/final-review.md","validation":"첫 장면·리듬·마지막 착지·내부 문구 누출·출처/음원 경계를 실제 MP4에서 판정","closure_check":"Red PASS 또는 구체적 보완 사항"},
+    {"id":"T1.1","title":"원본 6장 검증·컷/카피 초안과 무음 9:16 렌더","status":"done","depends_on":[],"cycle_id":"T1","cycle_goal":"관찰 중심 비공개 릴스 초안을 실제 렌더로 고정","max_minutes":30,"evidence":"work/render-evidence.md; work/evidence/sequence-strip-7.png; final/amalfi-ravello-day-reel.mp4","validation":"원본 6장만 사용, 20–35초 9:16, 자막·사진 순서와 저작권 경계가 초안과 일치","closure_check":"ffprobe 1080×1920·28초·무음, 7-frame strip에서 6 장면과 엔딩 확인","started_at":"2026-09-19T10:00:07Z","completed_at":"2026-09-19T10:28:00Z"},
+    {"id":"T1.2","title":"실제 렌더 Red 검수","status":"active","depends_on":["T1.1"],"cycle_id":"T1","cycle_goal":"시퀀스·원본 충실도·카피 안전성 검증","max_minutes":20,"evidence":"work/red/final-review.md","validation":"첫 장면·리듬·마지막 착지·내부 문구 누출·출처/음원 경계를 실제 MP4에서 판정","closure_check":"Red PASS 또는 구체적 보완 사항","started_at":"2026-09-19T10:28:00Z"},
     {"id":"T1.3","title":"비공개 납품 패키지와 원격 검증","status":"pending","depends_on":["T1.2"],"cycle_id":"T1","cycle_goal":"재사용 가능한 초안과 검증 기록 보존","max_minutes":20,"evidence":"final/amalfi-ravello-reel-package.md; reports/content-amalfi-ravello-day-reel-20260918/20260919T-final.html","validation":"최종본·HTML·원장 링크·remote main 동일성","closure_check":"commit/push 후 HEAD==origin/main"}
   ],
   "deviations": []

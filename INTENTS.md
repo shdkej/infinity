@@ -21,13 +21,13 @@
 - task_plan: artifacts/content-amalfi-ravello-day-reel-20260918/work/task-plan.json
 - task_plan_doc: artifacts/content-amalfi-ravello-day-reel-20260918/work/task-plan.md
 - task_plan_template: ARTIFACT_RULES.md#대형-작업-태스크-계획
-- artifact: artifacts/content-amalfi-ravello-day-reel-20260918/work/reel-draft.md
+- artifact: artifacts/content-amalfi-ravello-day-reel-20260918/work/render-evidence.md
 - source_record: /home/ubuntu/workspace/knowledge-lab/source/openclaw-system/data/daily-tracking/2026-09-18.md
 - notification_channel: slack
 - notification_target: channel:C0BR41W31MM
 - notification_reply_to: 1789798156.880749
 - notification_origin: channel:C0BR41W31MM;reply_to:1789798156.880749
-- next_action: T1.1 원본 6장 검증·컷/카피 초안과 비공개 렌더를 제작한다.
+- next_action: T1.2 실제 MP4의 순서·카피·원본 경계·엔딩을 Red 기준으로 재검수한다.
 
 ## Waiting
 

@@ -14,9 +14,9 @@
 - task_plan: artifacts/content-amalfi-ravello-day-reel-20260918/work/task-plan.json
 - task_plan_doc: artifacts/content-amalfi-ravello-day-reel-20260918/work/task-plan.md
 - task_plan_template: ARTIFACT_RULES.md#대형-작업-태스크-계획
-- artifact: artifacts/content-amalfi-ravello-day-reel-20260918/work/reel-draft.md
+- artifact: artifacts/content-amalfi-ravello-day-reel-20260918/work/render-evidence.md
 - source_record: /home/ubuntu/workspace/knowledge-lab/source/openclaw-system/data/daily-tracking/2026-09-18.md
 - request: 사용자 원본 사진 6장으로 아말피·라벨로 하루 브이로그형 세로 릴스 비공개 초안을 제작한다.
 - success_evidence: 9:16 렌더 파일, 20–35초 컷 구성·자막 초안, 사진 6장 사용 여부, 실제 렌더 검수.
 - exclusion: Instagram 게시·업로드, 제3자 음원·자산 사용, 광고 집행.
-- next_action: T1.1 원본 6장 검증·컷/카피 초안과 비공개 렌더를 제작한다.
+- next_action: T1.2 실제 MP4의 순서·카피·원본 경계·엔딩을 Red 기준으로 재검수한다.
