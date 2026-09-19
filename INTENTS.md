@@ -6,35 +6,38 @@
 
 ## Active
 
+## Waiting
+
+## Archive
+
 ### [content-amalfi-ravello-day-reel-20260918] 아말피·라벨로 하루 브이로그 릴스
-- status: active
+- status: archived
 - target_agent: genie
 - execution_mode: single_genie_roles
 - permission: L0-private-draft-only
 - projects: infinity,world-travel
 - task_type: content
 - topics: travel,reels,amalfi,ravello,visual-observation
-- requested: 2026-09-19T09:45:17Z
-- detail: intents/active/content-amalfi-ravello-day-reel-20260918.md
+- detail: intents/archive/content-amalfi-ravello-day-reel-20260918.md
 - context_pack: intents/context/content-amalfi-ravello-day-reel-20260918.json
 - trace: traces/content-amalfi-ravello-day-reel-20260918.json
-- task_plan: artifacts/content-amalfi-ravello-day-reel-20260918/work/task-plan.json
-- task_plan_doc: artifacts/content-amalfi-ravello-day-reel-20260918/work/task-plan.md
-- task_plan_template: ARTIFACT_RULES.md#대형-작업-태스크-계획
-- artifact: artifacts/content-amalfi-ravello-day-reel-20260918/work/render-evidence.md
-- artifact: artifacts/content-amalfi-ravello-day-reel-20260918/work/red/final-review.md
+- final_artifact: artifacts/content-amalfi-ravello-day-reel-20260918/final/amalfi-ravello-reel-package.md
 - artifact: artifacts/content-amalfi-ravello-day-reel-20260918/final/amalfi-ravello-reel-package.md
 - report: reports/content-amalfi-ravello-day-reel-20260918/20260919T1032Z-final.html
-- source_record: /home/ubuntu/workspace/knowledge-lab/source/openclaw-system/data/daily-tracking/2026-09-18.md
+- red_status: pass
+- red_report: artifacts/content-amalfi-ravello-day-reel-20260918/work/red/final-review.md
+- remote_verified: pending
 - notification_channel: slack
 - notification_target: channel:C0BR41W31MM
 - notification_reply_to: 1789798156.880749
 - notification_origin: channel:C0BR41W31MM;reply_to:1789798156.880749
-- next_action: Archive 계약의 원격 검증과 원장 전환을 수행한다.
-
-## Waiting
-
-## Archive
+- result_summary: 사용자 원본 6장으로 28초 무음 9:16 릴스 비공개 초안과 캡션·실제 렌더 검수를 완료했다.
+- knowledge_status: used
+- knowledge_decision: no_promotion
+- knowledge_targets: [TASTE.md, DOCUMENT_SEARCH_PIPELINE.md, INFINITY_OPERATING_RULES.md]
+- knowledge_reflection: 여행 릴스는 장소를 나열하기보다 검증된 관찰 하나를 중심 장면으로 남기고, 공개 전에는 인물·전시 작품 권리 판단을 별도 분리한다.
+- knowledge_commit: no-promotion-needed
+- next_action: 공개 게시가 필요해지면 별도 승인·권리 검토 Intent를 만든다.
 
 <!-- research-richard-sapper-deadline-20260917 archived 2026-09-17T07:18:00Z → intents/archive/research-richard-sapper-deadline-20260917.md; report=reports/research-richard-sapper-deadline-20260917/20260917T0715Z-final.html; remote_verified=pass -->
 
