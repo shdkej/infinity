@@ -1,30 +1,44 @@
 {
-  "generated_at": "2026-09-24T00:00:07.459Z",
+  "generated_at": "2026-09-24T06:00:07.912Z",
   "summary": {
-    "total": 919,
+    "total": 920,
     "wiki_reflected": 197,
-    "not_reflected": 722,
+    "not_reflected": 723,
     "by_status": {
-      "queued": 737,
+      "queued": 738,
       "reviewed": 97,
       "integrated": 10,
       "rejected": 73,
       "selected": 2
     },
     "by_layer": {
-      "openclaw-system": 603,
+      "openclaw-system": 604,
       "infinity": 59,
       "external-links": 180,
       "shdkej-content": 76,
       "root": 1
     },
     "by_promotion_state": {
-      "not_applicable": 720,
+      "not_applicable": 721,
       "reflected": 197,
       "pending_promotion": 2
     }
   },
   "entries": [
+    {
+      "source": "source/openclaw-system/data/ai-news/2026-09-24-ai-news.md",
+      "status": "queued",
+      "source_layer": "openclaw-system",
+      "reason": "자동 수집됨; 내용 판정 대기",
+      "reviewed_at": "",
+      "modified_at": "2026-09-24T03:01:19Z",
+      "promotion_targets": [],
+      "reflection_basis": [],
+      "promotion_state": "not_applicable",
+      "promotion_reason": "자동 수집됨; 내용 판정 대기",
+      "promotion_target_note": "",
+      "wiki_reflected": false
+    },
     {
       "source": "source/openclaw-system/reports/daily-archive/2026-09-23-rome-checkable-state/daily-archive.html",
       "status": "queued",
