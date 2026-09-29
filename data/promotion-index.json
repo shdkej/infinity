@@ -1,30 +1,288 @@
 {
-  "generated_at": "2026-09-29T00:00:10.325Z",
+  "generated_at": "2026-09-29T01:27:35.190Z",
   "summary": {
-    "total": 924,
-    "wiki_reflected": 197,
-    "not_reflected": 727,
+    "total": 922,
+    "wiki_reflected": 196,
+    "not_reflected": 726,
     "by_status": {
-      "queued": 742,
+      "queued": 740,
       "reviewed": 97,
       "integrated": 10,
       "rejected": 73,
       "selected": 2
     },
     "by_layer": {
+      "shdkej-content": 74,
       "openclaw-system": 608,
       "infinity": 59,
       "external-links": 180,
-      "shdkej-content": 76,
       "root": 1
     },
     "by_promotion_state": {
-      "not_applicable": 725,
-      "reflected": 197,
+      "reflected": 196,
+      "not_applicable": 724,
       "pending_promotion": 2
     }
   },
   "entries": [
+    {
+      "source": "source/shdkej-content/2026-09.md",
+      "status": "queued",
+      "source_layer": "shdkej-content",
+      "reason": "자동 수집됨; 내용 판정 대기",
+      "reviewed_at": "",
+      "modified_at": "2026-09-29T01:27:11Z",
+      "promotion_targets": [
+        "/docs/outputs/Idea/Travel",
+        "/docs/outputs/Meta/BRANDING",
+        "/docs/outputs/deep-knowledge/ai"
+      ],
+      "reflection_basis": [
+        "wiki_source_link"
+      ],
+      "promotion_state": "reflected",
+      "promotion_reason": "Agent Wiki outputs 출처 링크 또는 ingest target이 명시됨",
+      "promotion_target_note": "",
+      "wiki_reflected": true
+    },
+    {
+      "source": "source/shdkej-content/Deep Knowledge/AI.md",
+      "status": "queued",
+      "source_layer": "shdkej-content",
+      "reason": "자동 수집됨; 내용 판정 대기",
+      "reviewed_at": "",
+      "modified_at": "2026-09-29T01:27:11Z",
+      "promotion_targets": [
+        "/docs/outputs/Idea/Travel",
+        "/docs/outputs/Meta/BRANDING",
+        "/docs/outputs/deep-knowledge/ai"
+      ],
+      "reflection_basis": [
+        "wiki_source_link"
+      ],
+      "promotion_state": "reflected",
+      "promotion_reason": "Agent Wiki outputs 출처 링크 또는 ingest target이 명시됨",
+      "promotion_target_note": "",
+      "wiki_reflected": true
+    },
+    {
+      "source": "source/shdkej-content/Deep Knowledge/Product.md",
+      "status": "queued",
+      "source_layer": "shdkej-content",
+      "reason": "자동 수집됨; 내용 판정 대기",
+      "reviewed_at": "",
+      "modified_at": "2026-09-29T01:27:11Z",
+      "promotion_targets": [
+        "/docs/outputs/deep-knowledge/product"
+      ],
+      "reflection_basis": [
+        "wiki_source_link"
+      ],
+      "promotion_state": "reflected",
+      "promotion_reason": "Agent Wiki outputs 출처 링크 또는 ingest target이 명시됨",
+      "promotion_target_note": "",
+      "wiki_reflected": true
+    },
+    {
+      "source": "source/shdkej-content/Health/Curiosity.md",
+      "status": "queued",
+      "source_layer": "shdkej-content",
+      "reason": "자동 수집됨; 내용 판정 대기",
+      "reviewed_at": "",
+      "modified_at": "2026-09-29T01:27:11Z",
+      "promotion_targets": [
+        "/docs/outputs/Health/Curiosity"
+      ],
+      "reflection_basis": [
+        "wiki_source_link"
+      ],
+      "promotion_state": "reflected",
+      "promotion_reason": "Agent Wiki outputs 출처 링크 또는 ingest target이 명시됨",
+      "promotion_target_note": "",
+      "wiki_reflected": true
+    },
+    {
+      "source": "source/shdkej-content/Health/Decision.md",
+      "status": "queued",
+      "source_layer": "shdkej-content",
+      "reason": "자동 수집됨; 내용 판정 대기",
+      "reviewed_at": "",
+      "modified_at": "2026-09-29T01:27:11Z",
+      "promotion_targets": [
+        "/docs/outputs/Health/Decision"
+      ],
+      "reflection_basis": [
+        "wiki_source_link"
+      ],
+      "promotion_state": "reflected",
+      "promotion_reason": "Agent Wiki outputs 출처 링크 또는 ingest target이 명시됨",
+      "promotion_target_note": "",
+      "wiki_reflected": true
+    },
+    {
+      "source": "source/shdkej-content/Health/Food.md",
+      "status": "queued",
+      "source_layer": "shdkej-content",
+      "reason": "자동 수집됨; 내용 판정 대기",
+      "reviewed_at": "",
+      "modified_at": "2026-09-29T01:27:11Z",
+      "promotion_targets": [
+        "/docs/outputs/Health/Food"
+      ],
+      "reflection_basis": [
+        "wiki_source_link"
+      ],
+      "promotion_state": "reflected",
+      "promotion_reason": "Agent Wiki outputs 출처 링크 또는 ingest target이 명시됨",
+      "promotion_target_note": "",
+      "wiki_reflected": true
+    },
+    {
+      "source": "source/shdkej-content/Health/Routine.md",
+      "status": "queued",
+      "source_layer": "shdkej-content",
+      "reason": "자동 수집됨; 내용 판정 대기",
+      "reviewed_at": "",
+      "modified_at": "2026-09-29T01:27:11Z",
+      "promotion_targets": [
+        "/docs/outputs/Health/Routine"
+      ],
+      "reflection_basis": [
+        "wiki_source_link"
+      ],
+      "promotion_state": "reflected",
+      "promotion_reason": "Agent Wiki outputs 출처 링크 또는 ingest target이 명시됨",
+      "promotion_target_note": "",
+      "wiki_reflected": true
+    },
+    {
+      "source": "source/shdkej-content/Human/Principle.md",
+      "status": "queued",
+      "source_layer": "shdkej-content",
+      "reason": "자동 수집됨; 내용 판정 대기",
+      "reviewed_at": "",
+      "modified_at": "2026-09-29T01:27:11Z",
+      "promotion_targets": [
+        "/docs/outputs/Human/Principle"
+      ],
+      "reflection_basis": [
+        "wiki_source_link"
+      ],
+      "promotion_state": "reflected",
+      "promotion_reason": "Agent Wiki outputs 출처 링크 또는 ingest target이 명시됨",
+      "promotion_target_note": "",
+      "wiki_reflected": true
+    },
+    {
+      "source": "source/shdkej-content/Idea/Journal.md",
+      "status": "queued",
+      "source_layer": "shdkej-content",
+      "reason": "자동 수집됨; 내용 판정 대기",
+      "reviewed_at": "",
+      "modified_at": "2026-09-29T01:27:11Z",
+      "promotion_targets": [
+        "/docs/outputs/Idea/Journal"
+      ],
+      "reflection_basis": [
+        "wiki_source_link"
+      ],
+      "promotion_state": "reflected",
+      "promotion_reason": "Agent Wiki outputs 출처 링크 또는 ingest target이 명시됨",
+      "promotion_target_note": "",
+      "wiki_reflected": true
+    },
+    {
+      "source": "source/shdkej-content/Idea/Reading.md",
+      "status": "queued",
+      "source_layer": "shdkej-content",
+      "reason": "자동 수집됨; 내용 판정 대기",
+      "reviewed_at": "",
+      "modified_at": "2026-09-29T01:27:11Z",
+      "promotion_targets": [
+        "/docs/outputs/Idea/Reading"
+      ],
+      "reflection_basis": [
+        "wiki_source_link"
+      ],
+      "promotion_state": "reflected",
+      "promotion_reason": "Agent Wiki outputs 출처 링크 또는 ingest target이 명시됨",
+      "promotion_target_note": "",
+      "wiki_reflected": true
+    },
+    {
+      "source": "source/shdkej-content/Idea/Travel.md",
+      "status": "queued",
+      "source_layer": "shdkej-content",
+      "reason": "자동 수집됨; 내용 판정 대기",
+      "reviewed_at": "",
+      "modified_at": "2026-09-29T01:27:11Z",
+      "promotion_targets": [
+        "/docs/outputs/Idea/Travel",
+        "/docs/outputs/Meta/BRANDING",
+        "/docs/outputs/deep-knowledge/ai"
+      ],
+      "reflection_basis": [
+        "wiki_source_link"
+      ],
+      "promotion_state": "reflected",
+      "promotion_reason": "Agent Wiki outputs 출처 링크 또는 ingest target이 명시됨",
+      "promotion_target_note": "",
+      "wiki_reflected": true
+    },
+    {
+      "source": "source/shdkej-content/Integration/Business.md",
+      "status": "queued",
+      "source_layer": "shdkej-content",
+      "reason": "자동 수집됨; 내용 판정 대기",
+      "reviewed_at": "",
+      "modified_at": "2026-09-29T01:27:11Z",
+      "promotion_targets": [
+        "/docs/outputs/Integration/Business"
+      ],
+      "reflection_basis": [
+        "wiki_source_link"
+      ],
+      "promotion_state": "reflected",
+      "promotion_reason": "Agent Wiki outputs 출처 링크 또는 ingest target이 명시됨",
+      "promotion_target_note": "",
+      "wiki_reflected": true
+    },
+    {
+      "source": "source/shdkej-content/Meta/AGENTS.md",
+      "status": "queued",
+      "source_layer": "shdkej-content",
+      "reason": "자동 수집됨; 내용 판정 대기",
+      "reviewed_at": "",
+      "modified_at": "2026-09-29T01:27:11Z",
+      "promotion_targets": [
+        "/docs/outputs/Meta/AGENTS"
+      ],
+      "reflection_basis": [
+        "wiki_source_link"
+      ],
+      "promotion_state": "reflected",
+      "promotion_reason": "Agent Wiki outputs 출처 링크 또는 ingest target이 명시됨",
+      "promotion_target_note": "",
+      "wiki_reflected": true
+    },
+    {
+      "source": "source/shdkej-content/Meta/Collection.md",
+      "status": "queued",
+      "source_layer": "shdkej-content",
+      "reason": "자동 수집됨; 내용 판정 대기",
+      "reviewed_at": "",
+      "modified_at": "2026-09-29T01:27:11Z",
+      "promotion_targets": [
+        "/docs/outputs/Meta/Collection"
+      ],
+      "reflection_basis": [
+        "wiki_source_link"
+      ],
+      "promotion_state": "reflected",
+      "promotion_reason": "Agent Wiki outputs 출처 링크 또는 ingest target이 명시됨",
+      "promotion_target_note": "",
+      "wiki_reflected": true
+    },
     {
       "source": "source/openclaw-system/data/promotion-feedback.jsonl",
       "status": "queued",
@@ -290,6 +548,98 @@
       "promotion_reason": "여행 관찰의 마감 검증 추가; 단일 일지라 공개 재사용 판단은 보류하고 raw 검색만 허용",
       "promotion_target_note": "",
       "wiki_reflected": false
+    },
+    {
+      "source": "source/shdkej-content/Communication/Blogging.md",
+      "status": "queued",
+      "source_layer": "shdkej-content",
+      "reason": "자동 수집됨; 내용 판정 대기",
+      "reviewed_at": "",
+      "modified_at": "2026-09-21T13:29:06Z",
+      "promotion_targets": [
+        "/docs/outputs/Communication/Blogging"
+      ],
+      "reflection_basis": [
+        "wiki_source_link"
+      ],
+      "promotion_state": "reflected",
+      "promotion_reason": "Agent Wiki outputs 출처 링크 또는 ingest target이 명시됨",
+      "promotion_target_note": "",
+      "wiki_reflected": true
+    },
+    {
+      "source": "source/shdkej-content/Fundamental/Architecture.md",
+      "status": "queued",
+      "source_layer": "shdkej-content",
+      "reason": "자동 수집됨; 내용 판정 대기",
+      "reviewed_at": "",
+      "modified_at": "2026-09-21T13:29:06Z",
+      "promotion_targets": [
+        "/docs/outputs/Fundamental/Architecture"
+      ],
+      "reflection_basis": [
+        "wiki_source_link"
+      ],
+      "promotion_state": "reflected",
+      "promotion_reason": "Agent Wiki outputs 출처 링크 또는 ingest target이 명시됨",
+      "promotion_target_note": "",
+      "wiki_reflected": true
+    },
+    {
+      "source": "source/shdkej-content/Health/Physical.md",
+      "status": "queued",
+      "source_layer": "shdkej-content",
+      "reason": "자동 수집됨; 내용 판정 대기",
+      "reviewed_at": "",
+      "modified_at": "2026-09-21T13:29:06Z",
+      "promotion_targets": [
+        "/docs/outputs/Health/Physical"
+      ],
+      "reflection_basis": [
+        "wiki_source_link"
+      ],
+      "promotion_state": "reflected",
+      "promotion_reason": "Agent Wiki outputs 출처 링크 또는 ingest target이 명시됨",
+      "promotion_target_note": "",
+      "wiki_reflected": true
+    },
+    {
+      "source": "source/shdkej-content/Human/Love.md",
+      "status": "queued",
+      "source_layer": "shdkej-content",
+      "reason": "자동 수집됨; 내용 판정 대기",
+      "reviewed_at": "",
+      "modified_at": "2026-09-21T13:29:06Z",
+      "promotion_targets": [
+        "/docs/outputs/Human/Love"
+      ],
+      "reflection_basis": [
+        "wiki_source_link"
+      ],
+      "promotion_state": "reflected",
+      "promotion_reason": "Agent Wiki outputs 출처 링크 또는 ingest target이 명시됨",
+      "promotion_target_note": "",
+      "wiki_reflected": true
+    },
+    {
+      "source": "source/shdkej-content/Meta/BRANDING.md",
+      "status": "queued",
+      "source_layer": "shdkej-content",
+      "reason": "자동 수집됨; 내용 판정 대기",
+      "reviewed_at": "",
+      "modified_at": "2026-09-21T13:29:06Z",
+      "promotion_targets": [
+        "/docs/outputs/Idea/Travel",
+        "/docs/outputs/Meta/BRANDING",
+        "/docs/outputs/deep-knowledge/ai"
+      ],
+      "reflection_basis": [
+        "wiki_source_link"
+      ],
+      "promotion_state": "reflected",
+      "promotion_reason": "Agent Wiki outputs 출처 링크 또는 ingest target이 명시됨",
+      "promotion_target_note": "",
+      "wiki_reflected": true
     },
     {
       "source": "source/openclaw-system/data/ai-news/2026-09-21-ai-news.md",
@@ -1134,24 +1484,6 @@
       "promotion_reason": "자동 수집됨; 내용 판정 대기",
       "promotion_target_note": "",
       "wiki_reflected": false
-    },
-    {
-      "source": "source/shdkej-content/Meta/MinimalCollection.md",
-      "status": "queued",
-      "source_layer": "shdkej-content",
-      "reason": "자동 수집됨; 내용 판정 대기",
-      "reviewed_at": "",
-      "modified_at": "2026-09-14T16:47:31Z",
-      "promotion_targets": [
-        "/docs/outputs/Meta/MinimalCollection"
-      ],
-      "reflection_basis": [
-        "wiki_source_link"
-      ],
-      "promotion_state": "reflected",
-      "promotion_reason": "Agent Wiki outputs 출처 링크 또는 ingest target이 명시됨",
-      "promotion_target_note": "",
-      "wiki_reflected": true
     },
     {
       "source": "source/openclaw-system/data/ai-news/2026-09-14-ai-news.md",
@@ -2142,44 +2474,6 @@
       "wiki_reflected": false
     },
     {
-      "source": "source/shdkej-content/2026-09.md",
-      "status": "queued",
-      "source_layer": "shdkej-content",
-      "reason": "자동 수집됨; 내용 판정 대기",
-      "reviewed_at": "",
-      "modified_at": "2026-09-02T09:09:05Z",
-      "promotion_targets": [
-        "/docs/outputs/Idea/Travel",
-        "/docs/outputs/Meta/BRANDING",
-        "/docs/outputs/deep-knowledge/ai"
-      ],
-      "reflection_basis": [
-        "wiki_source_link"
-      ],
-      "promotion_state": "reflected",
-      "promotion_reason": "Agent Wiki outputs 출처 링크 또는 ingest target이 명시됨",
-      "promotion_target_note": "",
-      "wiki_reflected": true
-    },
-    {
-      "source": "source/shdkej-content/Communication/Blogging.md",
-      "status": "queued",
-      "source_layer": "shdkej-content",
-      "reason": "자동 수집됨; 내용 판정 대기",
-      "reviewed_at": "",
-      "modified_at": "2026-09-02T09:09:05Z",
-      "promotion_targets": [
-        "/docs/outputs/Communication/Blogging"
-      ],
-      "reflection_basis": [
-        "wiki_source_link"
-      ],
-      "promotion_state": "reflected",
-      "promotion_reason": "Agent Wiki outputs 출처 링크 또는 ingest target이 명시됨",
-      "promotion_target_note": "",
-      "wiki_reflected": true
-    },
-    {
       "source": "source/shdkej-content/Communication/Feedback.md",
       "status": "queued",
       "source_layer": "shdkej-content",
@@ -2224,26 +2518,6 @@
       "modified_at": "2026-09-02T09:09:05Z",
       "promotion_targets": [
         "/docs/outputs/Communication/Teamwork"
-      ],
-      "reflection_basis": [
-        "wiki_source_link"
-      ],
-      "promotion_state": "reflected",
-      "promotion_reason": "Agent Wiki outputs 출처 링크 또는 ingest target이 명시됨",
-      "promotion_target_note": "",
-      "wiki_reflected": true
-    },
-    {
-      "source": "source/shdkej-content/Deep Knowledge/AI.md",
-      "status": "queued",
-      "source_layer": "shdkej-content",
-      "reason": "자동 수집됨; 내용 판정 대기",
-      "reviewed_at": "",
-      "modified_at": "2026-09-02T09:09:05Z",
-      "promotion_targets": [
-        "/docs/outputs/Idea/Travel",
-        "/docs/outputs/Meta/BRANDING",
-        "/docs/outputs/deep-knowledge/ai"
       ],
       "reflection_basis": [
         "wiki_source_link"
@@ -2308,42 +2582,6 @@
       "wiki_reflected": true
     },
     {
-      "source": "source/shdkej-content/Deep Knowledge/Product.md",
-      "status": "queued",
-      "source_layer": "shdkej-content",
-      "reason": "자동 수집됨; 내용 판정 대기",
-      "reviewed_at": "",
-      "modified_at": "2026-09-02T09:09:05Z",
-      "promotion_targets": [
-        "/docs/outputs/deep-knowledge/product"
-      ],
-      "reflection_basis": [
-        "wiki_source_link"
-      ],
-      "promotion_state": "reflected",
-      "promotion_reason": "Agent Wiki outputs 출처 링크 또는 ingest target이 명시됨",
-      "promotion_target_note": "",
-      "wiki_reflected": true
-    },
-    {
-      "source": "source/shdkej-content/Fundamental/Architecture.md",
-      "status": "queued",
-      "source_layer": "shdkej-content",
-      "reason": "자동 수집됨; 내용 판정 대기",
-      "reviewed_at": "",
-      "modified_at": "2026-09-02T09:09:05Z",
-      "promotion_targets": [
-        "/docs/outputs/Fundamental/Architecture"
-      ],
-      "reflection_basis": [
-        "wiki_source_link"
-      ],
-      "promotion_state": "reflected",
-      "promotion_reason": "Agent Wiki outputs 출처 링크 또는 ingest target이 명시됨",
-      "promotion_target_note": "",
-      "wiki_reflected": true
-    },
-    {
       "source": "source/shdkej-content/Fundamental/Coding.md",
       "status": "queued",
       "source_layer": "shdkej-content",
@@ -2398,42 +2636,6 @@
       "wiki_reflected": true
     },
     {
-      "source": "source/shdkej-content/Health/Curiosity.md",
-      "status": "queued",
-      "source_layer": "shdkej-content",
-      "reason": "자동 수집됨; 내용 판정 대기",
-      "reviewed_at": "",
-      "modified_at": "2026-09-02T09:09:05Z",
-      "promotion_targets": [
-        "/docs/outputs/Health/Curiosity"
-      ],
-      "reflection_basis": [
-        "wiki_source_link"
-      ],
-      "promotion_state": "reflected",
-      "promotion_reason": "Agent Wiki outputs 출처 링크 또는 ingest target이 명시됨",
-      "promotion_target_note": "",
-      "wiki_reflected": true
-    },
-    {
-      "source": "source/shdkej-content/Health/Decision.md",
-      "status": "queued",
-      "source_layer": "shdkej-content",
-      "reason": "자동 수집됨; 내용 판정 대기",
-      "reviewed_at": "",
-      "modified_at": "2026-09-02T09:09:05Z",
-      "promotion_targets": [
-        "/docs/outputs/Health/Decision"
-      ],
-      "reflection_basis": [
-        "wiki_source_link"
-      ],
-      "promotion_state": "reflected",
-      "promotion_reason": "Agent Wiki outputs 출처 링크 또는 ingest target이 명시됨",
-      "promotion_target_note": "",
-      "wiki_reflected": true
-    },
-    {
       "source": "source/shdkej-content/Health/Investment.md",
       "status": "queued",
       "source_layer": "shdkej-content",
@@ -2452,60 +2654,6 @@
       "wiki_reflected": true
     },
     {
-      "source": "source/shdkej-content/Health/Physical.md",
-      "status": "queued",
-      "source_layer": "shdkej-content",
-      "reason": "자동 수집됨; 내용 판정 대기",
-      "reviewed_at": "",
-      "modified_at": "2026-09-02T09:09:05Z",
-      "promotion_targets": [
-        "/docs/outputs/Health/Physical"
-      ],
-      "reflection_basis": [
-        "wiki_source_link"
-      ],
-      "promotion_state": "reflected",
-      "promotion_reason": "Agent Wiki outputs 출처 링크 또는 ingest target이 명시됨",
-      "promotion_target_note": "",
-      "wiki_reflected": true
-    },
-    {
-      "source": "source/shdkej-content/Health/Routine.md",
-      "status": "queued",
-      "source_layer": "shdkej-content",
-      "reason": "자동 수집됨; 내용 판정 대기",
-      "reviewed_at": "",
-      "modified_at": "2026-09-02T09:09:05Z",
-      "promotion_targets": [
-        "/docs/outputs/Health/Routine"
-      ],
-      "reflection_basis": [
-        "wiki_source_link"
-      ],
-      "promotion_state": "reflected",
-      "promotion_reason": "Agent Wiki outputs 출처 링크 또는 ingest target이 명시됨",
-      "promotion_target_note": "",
-      "wiki_reflected": true
-    },
-    {
-      "source": "source/shdkej-content/Human/Principle.md",
-      "status": "queued",
-      "source_layer": "shdkej-content",
-      "reason": "자동 수집됨; 내용 판정 대기",
-      "reviewed_at": "",
-      "modified_at": "2026-09-02T09:09:05Z",
-      "promotion_targets": [
-        "/docs/outputs/Human/Principle"
-      ],
-      "reflection_basis": [
-        "wiki_source_link"
-      ],
-      "promotion_state": "reflected",
-      "promotion_reason": "Agent Wiki outputs 출처 링크 또는 ingest target이 명시됨",
-      "promotion_target_note": "",
-      "wiki_reflected": true
-    },
-    {
       "source": "source/shdkej-content/Idea/Information.md",
       "status": "queued",
       "source_layer": "shdkej-content",
@@ -2514,44 +2662,6 @@
       "modified_at": "2026-09-02T09:09:05Z",
       "promotion_targets": [
         "/docs/outputs/Idea/Information"
-      ],
-      "reflection_basis": [
-        "wiki_source_link"
-      ],
-      "promotion_state": "reflected",
-      "promotion_reason": "Agent Wiki outputs 출처 링크 또는 ingest target이 명시됨",
-      "promotion_target_note": "",
-      "wiki_reflected": true
-    },
-    {
-      "source": "source/shdkej-content/Idea/Journal.md",
-      "status": "queued",
-      "source_layer": "shdkej-content",
-      "reason": "자동 수집됨; 내용 판정 대기",
-      "reviewed_at": "",
-      "modified_at": "2026-09-02T09:09:05Z",
-      "promotion_targets": [
-        "/docs/outputs/Idea/Journal"
-      ],
-      "reflection_basis": [
-        "wiki_source_link"
-      ],
-      "promotion_state": "reflected",
-      "promotion_reason": "Agent Wiki outputs 출처 링크 또는 ingest target이 명시됨",
-      "promotion_target_note": "",
-      "wiki_reflected": true
-    },
-    {
-      "source": "source/shdkej-content/Idea/Travel.md",
-      "status": "queued",
-      "source_layer": "shdkej-content",
-      "reason": "자동 수집됨; 내용 판정 대기",
-      "reviewed_at": "",
-      "modified_at": "2026-09-02T09:09:05Z",
-      "promotion_targets": [
-        "/docs/outputs/Idea/Travel",
-        "/docs/outputs/Meta/BRANDING",
-        "/docs/outputs/deep-knowledge/ai"
       ],
       "reflection_basis": [
         "wiki_source_link"
@@ -2616,24 +2726,6 @@
       "wiki_reflected": true
     },
     {
-      "source": "source/shdkej-content/Meta/AGENTS.md",
-      "status": "queued",
-      "source_layer": "shdkej-content",
-      "reason": "자동 수집됨; 내용 판정 대기",
-      "reviewed_at": "",
-      "modified_at": "2026-09-02T09:09:05Z",
-      "promotion_targets": [
-        "/docs/outputs/Meta/AGENTS"
-      ],
-      "reflection_basis": [
-        "wiki_source_link"
-      ],
-      "promotion_state": "reflected",
-      "promotion_reason": "Agent Wiki outputs 출처 링크 또는 ingest target이 명시됨",
-      "promotion_target_note": "",
-      "wiki_reflected": true
-    },
-    {
       "source": "source/shdkej-content/Meta/About_Development.md",
       "status": "queued",
       "source_layer": "shdkej-content",
@@ -2642,44 +2734,6 @@
       "modified_at": "2026-09-02T09:09:05Z",
       "promotion_targets": [
         "/docs/outputs/Meta/About_Development"
-      ],
-      "reflection_basis": [
-        "wiki_source_link"
-      ],
-      "promotion_state": "reflected",
-      "promotion_reason": "Agent Wiki outputs 출처 링크 또는 ingest target이 명시됨",
-      "promotion_target_note": "",
-      "wiki_reflected": true
-    },
-    {
-      "source": "source/shdkej-content/Meta/BRANDING.md",
-      "status": "queued",
-      "source_layer": "shdkej-content",
-      "reason": "자동 수집됨; 내용 판정 대기",
-      "reviewed_at": "",
-      "modified_at": "2026-09-02T09:09:05Z",
-      "promotion_targets": [
-        "/docs/outputs/Idea/Travel",
-        "/docs/outputs/Meta/BRANDING",
-        "/docs/outputs/deep-knowledge/ai"
-      ],
-      "reflection_basis": [
-        "wiki_source_link"
-      ],
-      "promotion_state": "reflected",
-      "promotion_reason": "Agent Wiki outputs 출처 링크 또는 ingest target이 명시됨",
-      "promotion_target_note": "",
-      "wiki_reflected": true
-    },
-    {
-      "source": "source/shdkej-content/Meta/Collection.md",
-      "status": "queued",
-      "source_layer": "shdkej-content",
-      "reason": "자동 수집됨; 내용 판정 대기",
-      "reviewed_at": "",
-      "modified_at": "2026-09-02T09:09:05Z",
-      "promotion_targets": [
-        "/docs/outputs/Meta/Collection"
       ],
       "reflection_basis": [
         "wiki_source_link"
@@ -10866,24 +10920,6 @@
       "wiki_reflected": true
     },
     {
-      "source": "source/shdkej-content/Health/Food.md",
-      "status": "queued",
-      "source_layer": "shdkej-content",
-      "reason": "자동 수집됨; 내용 판정 대기",
-      "reviewed_at": "",
-      "modified_at": "2026-06-11T04:19:37Z",
-      "promotion_targets": [
-        "/docs/outputs/Health/Food"
-      ],
-      "reflection_basis": [
-        "wiki_source_link"
-      ],
-      "promotion_state": "reflected",
-      "promotion_reason": "Agent Wiki outputs 출처 링크 또는 ingest target이 명시됨",
-      "promotion_target_note": "",
-      "wiki_reflected": true
-    },
-    {
       "source": "source/shdkej-content/Health/Music.md",
       "status": "queued",
       "source_layer": "shdkej-content",
@@ -10946,24 +10982,6 @@
       "modified_at": "2026-06-11T04:19:37Z",
       "promotion_targets": [
         "/docs/outputs/Human/Future"
-      ],
-      "reflection_basis": [
-        "wiki_source_link"
-      ],
-      "promotion_state": "reflected",
-      "promotion_reason": "Agent Wiki outputs 출처 링크 또는 ingest target이 명시됨",
-      "promotion_target_note": "",
-      "wiki_reflected": true
-    },
-    {
-      "source": "source/shdkej-content/Human/Love.md",
-      "status": "queued",
-      "source_layer": "shdkej-content",
-      "reason": "자동 수집됨; 내용 판정 대기",
-      "reviewed_at": "",
-      "modified_at": "2026-06-11T04:19:37Z",
-      "promotion_targets": [
-        "/docs/outputs/Human/Love"
       ],
       "reflection_basis": [
         "wiki_source_link"
@@ -11072,42 +11090,6 @@
       "modified_at": "2026-06-11T04:19:37Z",
       "promotion_targets": [
         "/docs/outputs/Idea/Movie"
-      ],
-      "reflection_basis": [
-        "wiki_source_link"
-      ],
-      "promotion_state": "reflected",
-      "promotion_reason": "Agent Wiki outputs 출처 링크 또는 ingest target이 명시됨",
-      "promotion_target_note": "",
-      "wiki_reflected": true
-    },
-    {
-      "source": "source/shdkej-content/Idea/Reading.md",
-      "status": "queued",
-      "source_layer": "shdkej-content",
-      "reason": "자동 수집됨; 내용 판정 대기",
-      "reviewed_at": "",
-      "modified_at": "2026-06-11T04:19:37Z",
-      "promotion_targets": [
-        "/docs/outputs/Idea/Reading"
-      ],
-      "reflection_basis": [
-        "wiki_source_link"
-      ],
-      "promotion_state": "reflected",
-      "promotion_reason": "Agent Wiki outputs 출처 링크 또는 ingest target이 명시됨",
-      "promotion_target_note": "",
-      "wiki_reflected": true
-    },
-    {
-      "source": "source/shdkej-content/Integration/Business.md",
-      "status": "queued",
-      "source_layer": "shdkej-content",
-      "reason": "자동 수집됨; 내용 판정 대기",
-      "reviewed_at": "",
-      "modified_at": "2026-06-11T04:19:37Z",
-      "promotion_targets": [
-        "/docs/outputs/Integration/Business"
       ],
       "reflection_basis": [
         "wiki_source_link"
@@ -12424,20 +12406,6 @@
       "reason": "자동 수집됨; 내용 판정 대기",
       "reviewed_at": "",
       "modified_at": "2026-05-17T13:04:07Z",
-      "promotion_targets": [],
-      "reflection_basis": [],
-      "promotion_state": "not_applicable",
-      "promotion_reason": "자동 수집됨; 내용 판정 대기",
-      "promotion_target_note": "",
-      "wiki_reflected": false
-    },
-    {
-      "source": "source/shdkej-content/README.md",
-      "status": "queued",
-      "source_layer": "shdkej-content",
-      "reason": "자동 수집됨; 내용 판정 대기",
-      "reviewed_at": "",
-      "modified_at": "2026-05-17T13:02:19Z",
       "promotion_targets": [],
       "reflection_basis": [],
       "promotion_state": "not_applicable",
