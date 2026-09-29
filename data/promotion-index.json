@@ -1,30 +1,58 @@
 {
-  "generated_at": "2026-09-29T01:27:35.190Z",
+  "generated_at": "2026-09-29T06:00:07.822Z",
   "summary": {
-    "total": 922,
+    "total": 923,
     "wiki_reflected": 196,
-    "not_reflected": 726,
+    "not_reflected": 727,
     "by_status": {
-      "queued": 740,
+      "queued": 741,
       "reviewed": 97,
       "integrated": 10,
       "rejected": 73,
       "selected": 2
     },
     "by_layer": {
+      "openclaw-system": 609,
       "shdkej-content": 74,
-      "openclaw-system": 608,
       "infinity": 59,
       "external-links": 180,
       "root": 1
     },
     "by_promotion_state": {
+      "not_applicable": 725,
       "reflected": 196,
-      "not_applicable": 724,
       "pending_promotion": 2
     }
   },
   "entries": [
+    {
+      "source": "source/openclaw-system/data/ai-news/2026-09-29-ai-news.md",
+      "status": "queued",
+      "source_layer": "openclaw-system",
+      "reason": "자동 수집됨; 내용 판정 대기",
+      "reviewed_at": "",
+      "modified_at": "2026-09-29T03:01:36Z",
+      "promotion_targets": [],
+      "reflection_basis": [],
+      "promotion_state": "not_applicable",
+      "promotion_reason": "자동 수집됨; 내용 판정 대기",
+      "promotion_target_note": "",
+      "wiki_reflected": false
+    },
+    {
+      "source": "source/openclaw-system/data/promotion-feedback.jsonl",
+      "status": "queued",
+      "source_layer": "openclaw-system",
+      "reason": "자동 수집됨; 내용 판정 대기",
+      "reviewed_at": "",
+      "modified_at": "2026-09-29T01:34:01Z",
+      "promotion_targets": [],
+      "reflection_basis": [],
+      "promotion_state": "not_applicable",
+      "promotion_reason": "자동 수집됨; 내용 판정 대기",
+      "promotion_target_note": "",
+      "wiki_reflected": false
+    },
     {
       "source": "source/shdkej-content/2026-09.md",
       "status": "queued",
@@ -282,20 +310,6 @@
       "promotion_reason": "Agent Wiki outputs 출처 링크 또는 ingest target이 명시됨",
       "promotion_target_note": "",
       "wiki_reflected": true
-    },
-    {
-      "source": "source/openclaw-system/data/promotion-feedback.jsonl",
-      "status": "queued",
-      "source_layer": "openclaw-system",
-      "reason": "자동 수집됨; 내용 판정 대기",
-      "reviewed_at": "",
-      "modified_at": "2026-09-28T19:30:14Z",
-      "promotion_targets": [],
-      "reflection_basis": [],
-      "promotion_state": "not_applicable",
-      "promotion_reason": "자동 수집됨; 내용 판정 대기",
-      "promotion_target_note": "",
-      "wiki_reflected": false
     },
     {
       "source": "source/openclaw-system/data/ai-news/2026-09-28-ai-news.md",
