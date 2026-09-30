@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-29T12:00:09.973Z",
+  "generated_at": "2026-09-30T00:00:10.112Z",
   "summary": {
     "total": 923,
     "wiki_reflected": 196,
@@ -31,7 +31,7 @@
       "source_layer": "openclaw-system",
       "reason": "자동 수집됨; 내용 판정 대기",
       "reviewed_at": "",
-      "modified_at": "2026-09-29T07:38:22Z",
+      "modified_at": "2026-09-29T19:34:48Z",
       "promotion_targets": [],
       "reflection_basis": [],
       "promotion_state": "not_applicable",
