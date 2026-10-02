@@ -1,30 +1,58 @@
 {
-  "generated_at": "2026-10-01T18:00:09.102Z",
+  "generated_at": "2026-10-02T00:00:08.583Z",
   "summary": {
-    "total": 926,
+    "total": 927,
     "wiki_reflected": 196,
-    "not_reflected": 730,
+    "not_reflected": 731,
     "by_status": {
-      "queued": 744,
+      "queued": 745,
       "reviewed": 97,
       "integrated": 10,
       "rejected": 73,
       "selected": 2
     },
     "by_layer": {
+      "external-links": 181,
       "openclaw-system": 612,
       "shdkej-content": 74,
       "infinity": 59,
-      "external-links": 180,
       "root": 1
     },
     "by_promotion_state": {
-      "not_applicable": 728,
+      "not_applicable": 729,
       "reflected": 196,
       "pending_promotion": 2
     }
   },
   "entries": [
+    {
+      "source": "source/external-links/marketing/2026-10-01-eopla-customers-do-not-buy-on-price.md",
+      "status": "queued",
+      "source_layer": "external-links",
+      "reason": "자동 수집됨; 내용 판정 대기",
+      "reviewed_at": "",
+      "modified_at": "2026-10-01T20:19:31Z",
+      "promotion_targets": [],
+      "reflection_basis": [],
+      "promotion_state": "not_applicable",
+      "promotion_reason": "자동 수집됨; 내용 판정 대기",
+      "promotion_target_note": "",
+      "wiki_reflected": false
+    },
+    {
+      "source": "source/openclaw-system/data/promotion-feedback.jsonl",
+      "status": "queued",
+      "source_layer": "openclaw-system",
+      "reason": "자동 수집됨; 내용 판정 대기",
+      "reviewed_at": "",
+      "modified_at": "2026-10-01T19:30:14Z",
+      "promotion_targets": [],
+      "reflection_basis": [],
+      "promotion_state": "not_applicable",
+      "promotion_reason": "자동 수집됨; 내용 판정 대기",
+      "promotion_target_note": "",
+      "wiki_reflected": false
+    },
     {
       "source": "source/openclaw-system/data/ai-news/2026-10-01-ai-news.md",
       "status": "queued",
@@ -46,20 +74,6 @@
       "reason": "자동 수집됨; 내용 판정 대기",
       "reviewed_at": "",
       "modified_at": "2026-10-01T00:15:38Z",
-      "promotion_targets": [],
-      "reflection_basis": [],
-      "promotion_state": "not_applicable",
-      "promotion_reason": "자동 수집됨; 내용 판정 대기",
-      "promotion_target_note": "",
-      "wiki_reflected": false
-    },
-    {
-      "source": "source/openclaw-system/data/promotion-feedback.jsonl",
-      "status": "queued",
-      "source_layer": "openclaw-system",
-      "reason": "자동 수집됨; 내용 판정 대기",
-      "reviewed_at": "",
-      "modified_at": "2026-09-30T19:30:25Z",
       "promotion_targets": [],
       "reflection_basis": [],
       "promotion_state": "not_applicable",
