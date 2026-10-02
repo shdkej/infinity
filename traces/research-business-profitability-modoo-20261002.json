@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "intent_id": "research-business-profitability-modoo-20261002",
+  "status": "inbox",
+  "trace_completeness": "complete",
+  "request": {
+    "raw": {
+      "status": "recorded",
+      "value": "인피니티에 사업성 및 수익성 있는 제품으로 만드는 노하우에 대한 조사 추가해줘"
+    },
+    "normalized_query": {
+      "status": "recorded",
+      "value": "모두의창업 2차 1기 통과 이후 아이디어를 사업성 및 수익성 있는 제품으로 만드는 노하우: 고객 문제 검증, 지불의사, 가격·수익모델, 초기 판매·실험, 실패 사례와 실행 체크리스트"
+    }
+  },
+  "events": [
+    {
+      "type": "intake",
+      "at": "2026-10-02T09:14:19Z",
+      "context_pack": "intents/context/research-business-profitability-modoo-20261002.json",
+      "evidence_paths": [
+        "intents/context/research-business-profitability-modoo-20261002.json"
+      ]
+    }
+  ],
+  "artifacts": [],
+  "verifications": [],
+  "next_decision": {
+    "status": "in_progress",
+    "value": "탐색형 리서치로 사업성·수익성 검증의 주요 갈래와 사례를 넓게 조사하고, 특정 제품이나 사업모델을 확정하지 않음"
+  }
+}
