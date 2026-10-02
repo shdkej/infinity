@@ -19,11 +19,11 @@
 - metric_decision_rule: 유료 행동 증거가 없으면 관심 신호를 수요로 해석하지 않고 고객 문제·행동 가설을 다시 좁힌다.
 - metric_result: 국내 창업지원·시장검증 경계를 추가 확인했고, 후속 검증은 단일 유료 행동 측정으로 좁혔다.
 - metric_next_decision: 고객군 하나·문제 하나·유료 행동 하나를 고정한 소규모 검증 Intent를 별도로 만든다.
-- knowledge_status: used
-- knowledge_decision: no_promotion
-- knowledge_targets: agent-wiki/content/docs/index.mdx; agent-wiki/content/docs/outputs/Integration/Business.mdx; agent-wiki/content/docs/outputs/Integration/Marketing.mdx
+- knowledge_status: promoted
+- knowledge_decision: promote
+- knowledge_targets: source/infinity/archive/research-business-profitability-modoo-20261002.md; agent-wiki/content/docs/outputs/Integration/Business.mdx
 - knowledge_reflection: 사업 후보는 관심 신호가 아니라 문제 반복성·지불 행동·전달 비용·반복 사용을 함께 통과해야 하며, 가격은 가치 단위와 신뢰 언어로 검증한다.
-- knowledge_commit: no-promotion-needed
+- knowledge_commit: pending-knowledge-lab-commit
 - notification_channel: slack
 - notification_target: channel:C0BR41W31MM
 - notification_reply_to: 1790929958.500209
