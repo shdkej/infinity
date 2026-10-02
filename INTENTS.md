@@ -4,6 +4,23 @@
 
 ## Inbox
 
+### [learning-candidate-proposer-automation-trigger-timeout-20261002] 반복된 proposer 자동화 trigger 평가 timeout 처리 개선
+- status: proposed
+- proposed_by: sam-proposer
+- source_signal: OpenClaw structured automation runs for `3dd12f39-88e0-48ab-95df-f510907797c5` 기록에서 2026-09-21~2026-09-28 사이 `cron trigger evaluation failed (timeout)`가 최소 10회 독립 실행으로 반복됨
+- rationale: 동일한 trigger 평가 timeout이 반복되어 변경 감지 루프가 신호를 안정적으로 판정하지 못하고, 실제 Observe 실행 전 단계에서 재시도 비용과 누락 위험을 만든다.
+- expected_artifact: trigger 평가 스크립트의 bounded read/timeout 예산과 실패 시 명시적 상태 보존을 포함한 승인된 자동화 수정 및 검증 기록
+- risk_level: medium
+- permission_level: approval_required
+- success_criteria: 승인된 변경 후 동일 자동화의 trigger 평가가 10회 연속 timeout 없이 완료되고, 실패 시에도 빈 상태로 오인되지 않으며, 정상 변경·무변경 판정이 각각 1회 이상 검증된다.
+- next_action: 기존 automation trigger 설정과 평가 경로를 점검하고, timeout 원인에 맞는 최소 수정안을 승인 요청 후 구현·검증한다.
+- approval_required: true
+- learning_candidate: true
+- target_canonical_rule: `/home/ubuntu/workspace/knowledge-lab/source/openclaw-system/docs/SIGNAL_TO_INTENT_PROPOSER.md`의 trigger 평가 timeout·실패 상태 보존 규칙
+- expected_effect: trigger 평가가 제한 시간 내 안정적으로 끝나고 timeout이 변경 없음으로 흡수되지 않는다.
+- verification: structured automation runs에서 연속 10회 성공과 변경/무변경 판정 증거를 확인한 뒤 운영 교훈 원장에 결과를 연결한다.
+
+
 ## Active
 
 ## Waiting
