@@ -43,6 +43,24 @@
       "session_key": "agent:genie:infinity-dispatcher-v2",
       "timestamp": "2026-10-02T21:15:00Z",
       "status": "accepted"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-5b7a19bc20914dbbac1f50a3d2e66ca3",
+      "canonical_sha": "82d8f3728ccd5856de21d448a56d22fc2a050173",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher-v2",
+      "timestamp": "2026-10-02T21:45:00Z",
+      "status": "accepted"
+    },
+    {
+      "type": "timebox_reassessment",
+      "at": "2026-10-02T21:45:00Z",
+      "task_id": "T1.1",
+      "choice": "split_into_smaller_leaf_tasks",
+      "reason": "T1.1 max_minutes 20 초과; broad 점검을 runtime 경로 인벤토리와 계약 비교로 분할",
+      "impact": "T1.1a/T1.1b 최대 15분씩, 후속 T1.2 20분; 남은 직접 점검 예산 50분",
+      "task_ids": ["T1.1", "T1.1a", "T1.1b", "T1.2"]
     }
   ],
   "status": "active",
@@ -60,14 +78,15 @@
   "artifacts": [
     "artifacts/learning-candidate-proposer-automation-trigger-timeout-20261002/work/task-plan.json",
     "artifacts/learning-candidate-proposer-automation-trigger-timeout-20261002/work/task-plan.md",
-    "artifacts/learning-candidate-proposer-automation-trigger-timeout-20261002/work/trigger-path-inspection.md"
+    "artifacts/learning-candidate-proposer-automation-trigger-timeout-20261002/work/trigger-path-inspection.md",
+    "artifacts/learning-candidate-proposer-automation-trigger-timeout-20261002/work/runtime-path-inventory.md"
   ],
   "verifications": [
     {
       "type": "task_plan",
       "status": "active",
-      "active_task": "T1.1",
-      "evidence": "artifacts/learning-candidate-proposer-automation-trigger-timeout-20261002/work/trigger-path-inspection.md"
+      "active_task": "T1.1a",
+      "evidence": "artifacts/learning-candidate-proposer-automation-trigger-timeout-20261002/work/runtime-path-inventory.md"
     }
   ],
   "next_decision": {
