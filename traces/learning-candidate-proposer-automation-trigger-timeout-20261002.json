@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "intent_id": "learning-candidate-proposer-automation-trigger-timeout-20261002",
+  "events": [
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-6ed79d87e8a2479d8ab2b261613dc0e4",
+      "canonical_sha": "a1f91d0e1fc0766e3b329990f23f1eed2d461a7f",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher-v2",
+      "timestamp": "2026-10-02T11:30:00Z",
+      "status": "accepted"
+    },
+    {
+      "type": "state_change",
+      "at": "2026-10-02T11:30:00Z",
+      "from": "proposed",
+      "to": "waiting",
+      "reason": "approval_required: 사용자 승인 전 자동화 설정·스크립트 변경 불가"
+    }
+  ]
+}

@@ -1,0 +1,165 @@
+{
+  "schema_version": 1,
+  "intent_id": "research-business-profitability-modoo-20261002",
+  "status": "active",
+  "trace_completeness": "partial",
+  "backfill_source": "dispatcher_missing_trace",
+  "request": {
+    "raw": {
+      "status": "missing",
+      "reason": "dispatcher backfill: intake trace was absent"
+    },
+    "normalized_query": {
+      "status": "missing",
+      "reason": "dispatcher backfill: intake trace was absent"
+    }
+  },
+  "events": [
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-6ed79d87e8a2479d8ab2b261613dc0e4",
+      "canonical_sha": "a1f91d0e1fc0766e3b329990f23f1eed2d461a7f",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher-v2",
+      "timestamp": "2026-10-02T11:30:00Z",
+      "status": "accepted"
+    },
+    {
+      "type": "intake",
+      "at": "2026-10-02T09:20:04Z",
+      "context_pack": "",
+      "context_pack_status": "missing",
+      "context_pack_reason": "dispatcher backfill: intake context pack was absent",
+      "evidence_paths": []
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-901890ae6cdd40d4a5a9ebe8e976e818",
+      "canonical_sha": "8ac8a4df1076976d95c9c3b6fbe7d28dac968eff",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-10-02T09:20:04Z",
+      "status": "accepted"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-aa5ad1109f6544bfb826ff9c3b7281ab",
+      "canonical_sha": "8ac8a4df1076976d95c9c3b6fbe7d28dac968eff",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-10-02T09:30:04Z",
+      "status": "accepted"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-bde24bcafff94e03a4b55b31bb5f3bb7",
+      "canonical_sha": "8ac8a4df1076976d95c9c3b6fbe7d28dac968eff",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-10-02T09:40:04Z",
+      "status": "accepted"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-481b7ee8fba14351ba87944ae42e890c",
+      "canonical_sha": "8ac8a4df1076976d95c9c3b6fbe7d28dac968eff",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-10-02T09:50:04Z",
+      "status": "accepted"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-3e161ddd984946cabb2510f183542371",
+      "canonical_sha": "8ac8a4df1076976d95c9c3b6fbe7d28dac968eff",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-10-02T10:00:05Z",
+      "status": "accepted"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-c4250c904f654cf3801b87008a41a5e6",
+      "canonical_sha": "8ac8a4df1076976d95c9c3b6fbe7d28dac968eff",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-10-02T10:10:04Z",
+      "status": "accepted"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-db61bfa1a3b043108301b6c1417a2082",
+      "canonical_sha": "8ac8a4df1076976d95c9c3b6fbe7d28dac968eff",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-10-02T10:20:04Z",
+      "status": "accepted"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-6591419163124151bea3649586535421",
+      "canonical_sha": "8ac8a4df1076976d95c9c3b6fbe7d28dac968eff",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-10-02T10:30:04Z",
+      "status": "accepted"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-612318f3d7ad4fbe8ac7fe7da3d94c97",
+      "canonical_sha": "8ac8a4df1076976d95c9c3b6fbe7d28dac968eff",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-10-02T10:40:03Z",
+      "status": "accepted"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-2fc57c715f3a448ea522136eeb09aeee",
+      "canonical_sha": "8ac8a4df1076976d95c9c3b6fbe7d28dac968eff",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-10-02T10:50:04Z",
+      "status": "accepted"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-c9314d2dc1dd444ca95020f6237d1179",
+      "canonical_sha": "8ac8a4df1076976d95c9c3b6fbe7d28dac968eff",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-10-02T11:00:06Z",
+      "status": "accepted"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-cac9f79c0ed34066ad7397de965a30fd",
+      "canonical_sha": "8ac8a4df1076976d95c9c3b6fbe7d28dac968eff",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-10-02T11:10:04Z",
+      "status": "accepted"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-de77dc3e596d4383b09a2ac90d883dbc",
+      "canonical_sha": "8ac8a4df1076976d95c9c3b6fbe7d28dac968eff",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-10-02T11:20:04Z",
+      "status": "accepted"
+    }
+  ],
+  "artifacts": [
+    "artifacts/research-business-profitability-modoo-20261002/final/modoo-business-profitability-report.md",
+    "reports/research-business-profitability-modoo-20261002/20261002T1140Z-final.html"
+  ],
+  "verifications": [
+    {"type":"source_review","sources":["https://www.cbinsights.com/research/report/startup-failure-reasons-top/?community_post=true","https://steveblank.com/2009/11/30/customer-development-is-not-a-focus-group/","https://stripe.com/resources/more/pricing-a-product","https://stripe.com/resources/more/value-driven-pricing"],"status":"complete"},
+    {"type":"red","status":"not_required","reason":"exploratory_research"}
+  ],
+  "next_decision": {
+    "status": "in_progress",
+    "value": "dispatcher created partial trace before executor handoff"
+  }
+}

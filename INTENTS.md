@@ -4,11 +4,398 @@
 
 ## Inbox
 
+### [research-business-profitability-modoo-20261002] 모두의창업 통과 후 사업성·수익성 제품화 노하우 탐색
+- status: active
+- target_agent: genie
+- research_mode: exploratory_research
+- execution_mode: single_genie_roles
+- permission: L0-research-and-draft-only
+- projects: research-bank,personal-ops
+- task_type: research
+- topics: product,finance,marketing
+- context_pack: intents/context/research-business-profitability-modoo-20261002.json
+- trace: traces/research-business-profitability-modoo-20261002.json
+- final_artifact: artifacts/research-business-profitability-modoo-20261002/final/modoo-business-profitability-report.md
+- artifact: artifacts/research-business-profitability-modoo-20261002/final/modoo-business-profitability-report.md
+- report: reports/research-business-profitability-modoo-20261002/20261002T1140Z-final.html
+- red_status: not_required
+- remote_verified: pending
+- knowledge_status: used
+- knowledge_decision: no_promotion
+- knowledge_targets: [agent-wiki/content/docs/index.mdx, agent-wiki/content/docs/outputs/Integration/Business.mdx, agent-wiki/content/docs/outputs/Integration/Marketing.mdx]
+- knowledge_reflection: 사업 후보는 관심 신호가 아니라 문제 반복성·지불 행동·전달 비용·반복 사용을 함께 통과해야 하며, 가격은 가치 단위와 신뢰 언어로 검증한다.
+- knowledge_commit: no-promotion-needed
+- detail: intents/active/research-business-profitability-modoo-20261002.md
+- requested: 2026-10-02T09:12:30Z
+- scope: 고객 문제 검증, 지불의사, 가격·수익모델, 초기 판매·실험, 실패 사례, 실행 체크리스트를 넓게 탐색
+- out_of_scope: 특정 제품·사업모델·가격을 확정하거나 공개 발송·판매 실행
+- success_criteria: 한국어 탐색 지도와 대표 사례·출처·불확실성·열린 질문을 최종 Markdown으로 보존
+- next_action: 인피니티가 Context Pack을 재확인하고 탐색형 리서치를 시작
+- notification_channel: slack
+- notification_target: channel:C0BR41W31MM
+- notification_reply_to: 1790929958.500209
+- notification_origin: channel:C0BR41W31MM;reply_to:1790929958.500209
+
 ## Active
 
 ## Waiting
 
+### [learning-candidate-proposer-automation-trigger-timeout-20261002] 반복된 proposer 자동화 trigger 평가 timeout 처리 개선
+- status: waiting
+- proposed_by: sam-proposer
+- permission_level: approval_required
+- approval_required: true
+- waiting_reason: 사용자 승인 필요 — 자동화 trigger 평가 경로 변경·검증은 approval_required 경계에 해당하며 승인 전에는 설정·스크립트·운영 실행을 변경하지 않는다.
+- next_action: 승인 후 기존 automation trigger 설정과 평가 경로를 점검하고, timeout 원인에 맞는 최소 수정안을 승인 요청 후 구현·검증한다.
+- trace: traces/learning-candidate-proposer-automation-trigger-timeout-20261002.json
+
 ## Archive
+
+<!-- content-amalfi-ravello-day-reel-20260918 archived 2026-09-19T10:34:00Z → intents/archive/content-amalfi-ravello-day-reel-20260918.md; report=reports/content-amalfi-ravello-day-reel-20260918/20260919T1032Z-final.html; red_status=pass; private-only render. -->
+
+### [content-amalfi-ravello-day-reel-20260918] 아말피·라벨로 하루 브이로그 릴스
+- status: archived
+- completed_at: 2026-09-19T10:34:00Z
+- target_agent: genie
+- execution_mode: single_genie_roles
+- permission: L0-private-draft-only
+- projects: infinity,world-travel
+- task_type: content
+- topics: travel,reels,amalfi,ravello,visual-observation
+- detail: intents/archive/content-amalfi-ravello-day-reel-20260918.md
+- context_pack: intents/context/content-amalfi-ravello-day-reel-20260918.json
+- trace: traces/content-amalfi-ravello-day-reel-20260918.json
+- final_artifact: artifacts/content-amalfi-ravello-day-reel-20260918/final/amalfi-ravello-reel-package.md
+- artifact: artifacts/content-amalfi-ravello-day-reel-20260918/final/amalfi-ravello-reel-package.md
+- report: reports/content-amalfi-ravello-day-reel-20260918/20260919T1032Z-final.html
+- red_status: pass
+- red_report: artifacts/content-amalfi-ravello-day-reel-20260918/work/red/final-review.md
+- remote_verified: pass
+- remote_commit: 9fdbb4d0a3cf89a0b72b2c5aa34e48b3e1893f66
+- notification_channel: slack
+- notification_target: channel:C0BR41W31MM
+- notification_reply_to: 1789798156.880749
+- notification_origin: channel:C0BR41W31MM;reply_to:1789798156.880749
+- result_summary: 사용자 원본 6장으로 28초 무음 9:16 릴스 비공개 초안과 캡션·실제 렌더 검수를 완료했다.
+- knowledge_status: used
+- knowledge_decision: no_promotion
+- knowledge_targets: [TASTE.md, DOCUMENT_SEARCH_PIPELINE.md, INFINITY_OPERATING_RULES.md]
+- knowledge_reflection: 여행 릴스는 장소를 나열하기보다 검증된 관찰 하나를 중심 장면으로 남기고, 공개 전에는 인물·전시 작품 권리 판단을 별도 분리한다.
+- knowledge_commit: no-promotion-needed
+- next_action: 공개 게시가 필요해지면 별도 승인·권리 검토 Intent를 만든다.
+
+<!-- research-richard-sapper-deadline-20260917 archived 2026-09-17T07:18:00Z → intents/archive/research-richard-sapper-deadline-20260917.md; report=reports/research-richard-sapper-deadline-20260917/20260917T0715Z-final.html; remote_verified=pass -->
+
+### [research-richard-sapper-deadline-20260917] 리처드 사퍼 마감형 종합 리서치
+- status: archived
+- research_mode: exploratory_research
+- execution_mode: multi_subagent_roles
+- permission: L0-research-and-draft-only
+- requested: 2026-09-16T09:11:29Z
+- deadline: 2026-09-16T23:00:00Z
+- deadline_local: 2026-09-17 08:00 Asia/Seoul (KST)
+- delivery_not_before: 2026-09-16T23:00:00Z
+- detail: intents/archive/research-richard-sapper-deadline-20260917.md
+- context_pack: intents/context/research-richard-sapper-deadline-20260917.json
+- trace: traces/research-richard-sapper-deadline-20260917.json
+- task_plan: artifacts/research-richard-sapper-deadline-20260917/work/task-plan.json
+- task_plan_doc: artifacts/research-richard-sapper-deadline-20260917/work/task-plan.md
+- final_artifact: artifacts/research-richard-sapper-deadline-20260917/final/richard-sapper-deadline-brief.md
+- report: reports/research-richard-sapper-deadline-20260917/20260917T0715Z-final.html
+- artifact: artifacts/research-richard-sapper-deadline-20260917/final/richard-sapper-deadline-brief.md
+- artifact: artifacts/research-richard-sapper-deadline-20260917/work/tizio-original-lighting-source-crosscheck.md
+- artifact: artifacts/research-richard-sapper-deadline-20260917/work/sapper-criticism-primary-source-gap.md
+- artifact: artifacts/research-richard-sapper-deadline-20260917/work/ts502-schematic-mechanical-gap.md
+- artifact: artifacts/research-richard-sapper-deadline-20260917/work/701c-patent-assignment-family.md
+- artifact: artifacts/research-richard-sapper-deadline-20260917/work/9091-parts-regional-boundaries.md
+- artifact: artifacts/research-richard-sapper-deadline-20260917/work/tizio-collection-metadata-crosswalk.md
+- artifact: artifacts/research-richard-sapper-deadline-20260917/work/sapper-criticism-source-boundaries.md
+- artifact: artifacts/research-richard-sapper-deadline-20260917/work/tizio-exhibition-reissue-boundaries.md
+- artifact: artifacts/research-richard-sapper-deadline-20260917/work/9091-signal-award-boundaries.md
+- artifact: artifacts/research-richard-sapper-deadline-20260917/work/ts502-variant-service-boundaries.md
+- artifact: artifacts/research-richard-sapper-deadline-20260917/work/701c-patent-claims.md
+- artifact: artifacts/research-richard-sapper-deadline-20260917/work/alessi-award-contract-boundaries.md
+- artifact: artifacts/research-richard-sapper-deadline-20260917/work/701c-patent-collection-boundaries.md
+- artifact: artifacts/research-richard-sapper-deadline-20260917/work/9090-service-record-boundaries.md
+- artifact: artifacts/research-richard-sapper-deadline-20260917/work/ts502-interaction-mechanism.md
+- artifact: artifacts/research-richard-sapper-deadline-20260917/work/research-expansion-map.md; artifacts/research-richard-sapper-deadline-20260917/work/connection-ledger.md; artifacts/research-richard-sapper-deadline-20260917/work/contemporary-network.md; artifacts/research-richard-sapper-deadline-20260917/work/product-ecosystem-branches.md; artifacts/research-richard-sapper-deadline-20260917/work/critical-reading.md; artifacts/research-richard-sapper-deadline-20260917/work/interaction-legacy-branches.md; artifacts/research-richard-sapper-deadline-20260917/work/9090-use-maintenance.md; artifacts/research-richard-sapper-deadline-20260917/work/tizio-technology-conditions.md; artifacts/research-richard-sapper-deadline-20260917/work/brionvega-collaboration-market.md; artifacts/research-richard-sapper-deadline-20260917/work/9091-kettle-conditions.md; artifacts/research-richard-sapper-deadline-20260917/work/thinkpad-701c-authorship.md; artifacts/research-richard-sapper-deadline-20260917/work/alessi-collaboration-model.md; artifacts/research-richard-sapper-deadline-20260917/work/9091-record-variants.md; artifacts/research-richard-sapper-deadline-20260917/work/tizio-reissue-lineage.md; artifacts/research-richard-sapper-deadline-20260917/work/brionvega-record-market-variants.md; artifacts/research-richard-sapper-deadline-20260917/work/701c-mechanism-team-ledger.md; artifacts/research-richard-sapper-deadline-20260917/work/alessi-collaboration-institutions.md; artifacts/research-richard-sapper-deadline-20260917/work/tizio-date-layers.md
+- task_plan_template: ARTIFACT_RULES.md#대형-작업-태스크-계획
+- notification_channel: slack
+- notification_target: channel:C0BR41W31MM
+- notification_reply_to: 1789547954.349019
+- notification_origin: channel:C0BR41W31MM;reply_to:1789547954.349019
+- result_summary: 작품·협업자·기업·기술·수용을 연결한 한국어 최종 브리프와 HTML 요약을 완료했다. 미완료 세부 검증 가지는 과장 없이 후속 조사로 보존했다.
+- remote_verified: pass
+- remote_commit: 76be2b9a3e8065f9be7db379a1545aae0202d33b
+- archived_at: 2026-09-17T07:18:00Z
+
+
+### [research-richard-sapper-comprehensive-20260916] 리처드 사퍼 종합 리서치
+- status: archived
+- detail: intents/archive/research-richard-sapper-comprehensive-20260916.md
+- context_pack: intents/context/research-richard-sapper-comprehensive-20260916.json
+- trace: traces/research-richard-sapper-comprehensive-20260916.json
+- final_artifact: artifacts/research-richard-sapper-comprehensive-20260916/final/richard-sapper-comprehensive-brief.md
+- report: reports/research-richard-sapper-comprehensive-20260916/20260916T0844Z-final.html
+- red_status: not_required
+- knowledge_status: raw
+- knowledge_decision: retain_in_infinity
+- knowledge_targets: artifacts/research-richard-sapper-comprehensive-20260916/final/richard-sapper-comprehensive-brief.md; artifacts/research-richard-sapper-comprehensive-20260916/work/source-ledger.md
+- knowledge_reflection: 역사적 제품 사례는 아이콘화보다 문제·구조·공동 기여·실패 조건을 보존해야 재사용 가능하다.
+- knowledge_commit: no-promotion-needed
+- notification_channel: slack
+- notification_target: channel:C0BR41W31MM
+- notification_reply_to: 1789547954.349019
+- notification_origin: channel:C0BR41W31MM;reply_to:1789547954.349019
+- remote_verified: pass
+- remote_commit: e32cd2cc5a31aecfbfa274f1bf2f1aef0bad4d26
+- archived_at: 2026-09-16T08:44:27Z
+
+
+<!-- strategy-compound-business-20260915 completed 2026-09-16T00:45:38Z → intents/archive/strategy-compound-business-20260915.md [projects: research-bank,personal-ops; type: strategy; topics: product,content,automation] (비공개 scene-card 30일 실험 설계와 Continue/Hold 기준 확정) -->
+
+<!-- kl-feedback-loop-20260915 archived 2026-09-15T22:26:52Z → intents/archive/kl-feedback-loop-20260915.md [projects: infinity,knowledge-lab,agent-wiki; type: implementation; topics: knowledge-loop,automation,observability] (사용자 선택으로 Waiting 종료·미완료 구현 범위 보존) -->
+
+### [kl-feedback-loop-20260915] Knowledge Lab 승격 피드백루프 구현
+- status: archived
+- detail: intents/archive/kl-feedback-loop-20260915.md
+- context_pack: intents/context/kl-feedback-loop-20260915.json
+- trace: traces/kl-feedback-loop-20260915.json
+- artifact: artifacts/kl-feedback-loop-20260915/work/loop-boundary-map.md
+- task_plan: artifacts/kl-feedback-loop-20260915/work/task-plan.md
+- report: not_created (사용자 요청으로 구현 전 종료)
+- red_status: not_applicable_user_closed
+- knowledge_status: raw
+- knowledge_decision: retain_in_infinity
+- knowledge_targets: artifacts/kl-feedback-loop-20260915/work/loop-boundary-map.md; artifacts/kl-feedback-loop-20260915/work/task-plan.md
+- knowledge_reflection: runtime owner와 source-tree 변경 범위가 확인되기 전에는 generated data를 수동 변경하지 않는다.
+- knowledge_commit: no-promotion-needed
+- knowledge_log: logs/agent-wiki-query.md#kl-feedback-loop-20260915
+- remote_verified: pass
+- remote_commit: f4e6a92f0e2451836557c0253aac4925d2742dac
+- notification_channel: delivery_unknown
+- notification_target: missing-at-intake
+- notification_origin: missing-at-intake; terminal delivery suppressed
+- closure: 사용자 선택으로 Waiting 종료·보관
+- archived_at: 2026-09-15T22:26:52Z
+
+<!-- research-ontology-kl-fit-20260915 archived 2026-09-15T05:38Z → intents/archive/research-ontology-kl-fit-20260915.md [projects: knowledge-lab,agent-wiki,infinity; type: research; topics: wiki,automation,ai-agents] (정식 온톨로지는 보류하고 공개 컴파일 문서용 관계 레지스트리 v0의 파일럿 기준을 확정) -->
+
+### [research-ontology-kl-fit-20260915] 온톨로지: Knowledge Lab 적용 가능성 검토
+- status: archived
+- research_mode: decision_research
+- target_agent: genie
+- execution_mode: multi_subagent_roles
+- permission: L0-research-and-strategy-only
+- projects: knowledge-lab,agent-wiki,infinity
+- task_type: research
+- topics: wiki,automation,ai-agents
+- detail: intents/archive/research-ontology-kl-fit-20260915.md
+- context_pack: intents/context/research-ontology-kl-fit-20260915.json
+- trace: traces/research-ontology-kl-fit-20260915.json
+- final_artifact: artifacts/research-ontology-kl-fit-20260915/final/ontology-kl-fit-report.md
+- report: reports/research-ontology-kl-fit-20260915/20260915T0525Z-final.html
+- red_status: pass
+- red_report: artifacts/research-ontology-kl-fit-20260915/work/red-report.md
+- knowledge_status: raw
+- knowledge_decision: retain_in_infinity
+- knowledge_targets: artifacts/research-ontology-kl-fit-20260915/final/ontology-kl-fit-report.md; reports/research-ontology-kl-fit-20260915/20260915T0525Z-final.html
+- knowledge_reflection: 관계 레지스트리의 효과를 입증한 것이 아니라 KL 경계를 보존한 최소 검증 계약이다.
+- knowledge_commit: no-promotion-needed
+- knowledge_log: logs/agent-wiki-query.md#research-ontology-kl-fit-20260915
+- notification_channel: slack
+- notification_target: channel:C0BR41W31MM
+- notification_reply_to: 1789447742.405799
+- notification_origin: channel:C0BR41W31MM;reply_to:1789447742.405799
+- remote_verified: pass
+- remote_commit: 003724ac5877417796f5ccfe718bf6a274bdf9c9
+- archived_at: 2026-09-15T05:38:00Z
+
+<!-- research-us-military-ttp-learning-20260915 archived 2026-09-15T04:35Z → intents/archive/research-us-military-ttp-learning-20260915.md [projects: infinity,research-bank; type: research; topics: workflow,automation] (AAR과 ALLP를 분리해 observation→검증→변경→재사용 확인의 최소 루프를 정리) -->
+
+### [research-us-military-ttp-learning-20260915] 미군 TTP: 현장 학습이 조직 자산으로 변환되는 실제 메커니즘
+- status: archived
+- research_mode: exploratory_research
+- target_agent: genie
+- execution_mode: single_genie_roles
+- projects: infinity,research-bank
+- task_type: research
+- topics: workflow,automation
+- detail: intents/archive/research-us-military-ttp-learning-20260915.md
+- artifact: artifacts/research-us-military-ttp-learning-20260915/final/us-army-ttp-learning-loop-report.md
+- supporting_work: artifacts/research-us-military-ttp-learning-20260915/work/remote-proof.md
+- report: not_required (exploratory_research)
+- trace: traces/research-us-military-ttp-learning-20260915.json
+- red_status: not_required
+- red_report: not_required (exploratory_research)
+- knowledge_status: raw
+- knowledge_decision: retain_in_infinity
+- knowledge_targets: artifacts/research-us-military-ttp-learning-20260915/final/us-army-ttp-learning-loop-report.md
+- knowledge_reflection: 군사 제도 전체가 아니라 증거 기반 관찰을 실제 변경과 재검증으로 닫는 최소 루프만 보존한다.
+- knowledge_commit: no-promotion-needed
+- knowledge_log: agent-wiki/content/docs/log.mdx#research-us-military-ttp-learning-20260915
+- notification_channel: slack
+- notification_target: channel:C0BR41W31MM
+- notification_reply_to: 1789445926.950759
+- notification_origin: channel:C0BR41W31MM;reply_to:1789445926.950759
+- remote_verified: pass
+- remote_commit: fc650ec3afb22509595f61808fe44ee5dd51fbb1
+- archived_at: 2026-09-15T04:35:06Z
+
+### [research-review-curation-method-korea-20260913] 국내 리뷰·큐레이션 실전 가이드 조사
+- status: archived
+- research_mode: exploratory_research
+- target_agent: genie
+- execution_mode: single_genie_roles
+- permission: L0-research-and-draft-only
+- projects: infinity,research-bank
+- task_type: research
+- topics: content,curation,review,minimalism
+- detail: intents/archive/research-review-curation-method-korea-20260913.md
+- context_pack: intents/context/research-review-curation-method-korea-20260913.json
+- trace: traces/research-review-curation-method-korea-20260913.json
+- artifact: artifacts/research-review-curation-method-korea-20260913/final/korean-review-curation-practical-guide.md
+- report: reports/research-review-curation-method-korea-20260913/20260913T1502Z-final.html
+- red_status: not_required
+- red_report: not_required (exploratory_research)
+- result_summary: 국내 운영 표면을 형식 근거로만 제한해, 선정·사실/경험/해석 분리·최소 비교·관계 고지·형식별 템플릿을 갖춘 실전 가이드를 만들었다.
+- metric_result: 최종 가이드는 선정 이유·사실/해석 구분·비교 기준·출처/관계 경계·30–45초 및 5카드 템플릿을 모두 제공한다.
+- metric_next_decision: none; 실제 게시·협찬·제휴는 별도 승인 후 새 intent에서 검토한다.
+- knowledge_status: used
+- knowledge_decision: retain_in_infinity
+- knowledge_targets: artifacts/research-review-curation-method-korea-20260913/final/korean-review-curation-practical-guide.md; reports/research-review-curation-method-korea-20260913/20260913T1502Z-final.html
+- knowledge_reflection: 상업 표면은 형식 참고로 제한하고, 관계·자산 미확인은 hold로 처리하는 규칙을 Infinity에 보존한다.
+- knowledge_commit: no-promotion-needed
+- remote_verified: pass
+- remote_commit: e5c6a100d5a22da3c1140f81dce28210d1acab2e
+- archived_at: 2026-09-13T15:02:49Z
+
+### [minimal-shorts-apple-early-product-20260913] 애플 초기 제품으로 만드는 미니멀 모으기 첫 숏츠
+- status: archived
+- research_mode: exploratory_research
+- target_agent: genie
+- execution_mode: single_genie_roles
+- permission: L0-research-and-draft-only
+- projects: research-bank
+- task_type: research
+- topics: content,design
+- detail: intents/archive/minimal-shorts-apple-early-product-20260913.md
+- context_pack: intents/context/minimal-shorts-apple-early-product-20260913.json
+- trace: traces/minimal-shorts-apple-early-product-20260913.json
+- artifact: artifacts/minimal-shorts-apple-early-product-20260913/final/apple-ii-first-shorts-draft.md
+- supporting_work: artifacts/minimal-shorts-apple-early-product-20260913/work/apple-ii-source-map.md
+- report: reports/minimal-shorts-apple-early-product-20260913/20260913T1502Z-final.html
+- red_status: not_required
+- red_report: not_required (exploratory_research)
+- result_summary: Apple II를 첫 편으로 골라, 미니멀을 “바로 쓸 수 있는 시작과 확장 경로”로 설명하는 40초 내부 숏츠 초안을 만들었다.
+- metric_result: 최종 대본에는 관찰된 특징·선택의 제약/과정·한 문장 인사이트가 각각 들어 있다.
+- metric_next_decision: none; 공개 제작·촬영·제3자 자산 사용은 별도 승인 후 새 intent에서 검토한다.
+- knowledge_status: used
+- knowledge_decision: retain_in_infinity
+- knowledge_targets: artifacts/minimal-shorts-apple-early-product-20260913/work/apple-ii-source-map.md; artifacts/minimal-shorts-apple-early-product-20260913/final/apple-ii-first-shorts-draft.md; reports/minimal-shorts-apple-early-product-20260913/20260913T1502Z-final.html
+- knowledge_reflection: 제품의 미니멀함은 이미지 미학이 아니라 시작점·제약·확장 경로의 선택을 함께 기록할 때 설명 가능하다.
+- knowledge_commit: no-promotion-needed
+- remote_verified: pass
+- remote_commit: e5c6a100d5a22da3c1140f81dce28210d1acab2e
+- archived_at: 2026-09-13T15:02:49Z
+
+### [research-github-skills-20260912] GitHub 리서치 스킬 후보 조사
+- status: archived
+- research_mode: exploratory_research
+- target_agent: genie
+- execution_mode: multi_subagent_roles
+- role_subagents: planner=01a09813-2bd8-7430-a8d8-7896cabb0516; developer=01a09813-3b57-7421-b00a-b362d0913eba; marketer=01a09813-46c5-7750-9670-9435b96b551a; operator=01a09814-9c49-7ed1-88ab-c00b260e42ba
+- projects: infinity,research-bank,openclaw
+- task_type: research
+- topics: ai-agents,workflow,automation
+- detail: intents/archive/research-github-skills-20260912.md
+- context_pack: intents/context/research-github-skills-20260912.json
+- task_plan: artifacts/research-github-skills-20260912/work/task-plan.json
+- task_plan_doc: artifacts/research-github-skills-20260912/work/task-plan.md
+- trace: traces/research-github-skills-20260912.json
+- artifact: artifacts/research-github-skills-20260912/final/github-skills-exploratory-rebrief-20260913.md
+- supporting_work: artifacts/research-github-skills-20260912/work/red/final-review.md
+- report: reports/research-github-skills-20260912/20260913T0012Z-final.html
+- red_status: not_required
+- red_report: artifacts/research-github-skills-20260912/work/red/final-review.md
+- result_summary: 탐색형 재조사에서 즉시 설치할 후보 대신 웹 수집 경로 선택·정성 테마 분석·영상 관찰·최소 범위 유지의 네 가지 활용 방식을 제시했다.
+- metric_result: 평소 조사에는 `web-data-acquisition`식 분기와 긴 설명 브리프가 가장 직접적인 개선이며, 도입 판정 스킬은 요청 시에만 쓴다.
+- metric_next_decision: 다음 일반 시장조사에서 수집 경로 선택 방식을 적용해 브리프 품질을 확인한다.
+- knowledge_status: raw
+- knowledge_decision: retain_in_infinity
+- knowledge_targets: artifacts/research-github-skills-20260912/work/github-candidate-evidence.md; artifacts/research-github-skills-20260912/final/github-research-skills-brief.md; reports/research-github-skills-20260912/20260913T0012Z-final.html
+- knowledge_reflection: 공개 스킬 후보는 README 설명만으로 도입하지 않고 같은 commit의 실제 SKILL.md·LICENSE/부재·default-branch HEAD를 고정해, 기존 도구와의 중복 및 실행 경계를 먼저 판정한다.
+- knowledge_commit: no-promotion-needed
+- commits: dcfad1fe47944f9bd8711d4c135434bf2a706dd0 (archive transition)
+- remote_verified: pass
+- remote_commit: dcfad1fe47944f9bd8711d4c135434bf2a706dd0
+- next_action: intents/waiting/pilot-github-research-skill-kang-chen-approval.md
+- archived_at: 2026-09-13T00:12:43Z
+
+## Archive Card
+
+[프로젝트]
+GitHub 리서치 스킬 후보 조사
+
+[상태]
+기본 도입 없음 · 조건부 파일럿 승인 대기
+
+[결과 기준]
+6개 공개 후보의 commit 고정 근거와 독립 Red PASS로 기본 도입 0개를 결정
+
+[다음 행동]
+Kang-chen 부분 기능 파일럿은 별도 승인 대기 intent에서만 검토
+
+### [research-dieter-rams-biography-minimalism-20260912] 디터 람스 인물·미니멀리즘 심층 조사
+- status: archived
+- target_agent: genie
+- execution_mode: multi_subagent_roles
+- permission: L0-research-and-strategy-only
+- projects: infinity, research-bank
+- task_type: research
+- topics: design, history, minimalism
+- detail: intents/archive/research-dieter-rams-biography-minimalism-20260912.md
+- context_pack: intents/context/research-dieter-rams-biography-minimalism-20260912.json
+- task_plan: artifacts/research-dieter-rams-biography-minimalism-20260912/work/task-plan.json
+- task_plan_doc: artifacts/research-dieter-rams-biography-minimalism-20260912/work/task-plan.md
+- trace: traces/research-dieter-rams-biography-minimalism-20260912.json
+- artifact: artifacts/research-dieter-rams-biography-minimalism-20260912/work/candidate/dieter-rams-report.md
+- report: reports/research-dieter-rams-biography-minimalism-20260912/20260912T2140Z-final.html
+- red_status: pass
+- red_report: artifacts/research-dieter-rams-biography-minimalism-20260912/work/red/final-review.md
+- remote_verified: pass
+- remote_commit: de6ae951c119cdbc690ca395c7c3201f9503995c
+- metric_result: 생애·제품·사상·비판을 구분한 본문과 3개 이상 기관 근거를 통해, 람스의 미니멀리즘을 스타일이 아닌 역사·협업·한계의 맥락으로 설명할 수 있게 했다.
+- metric_next_decision: 후속 적용 연구가 필요하면 특정 제품 추천이 아니라 대상별 사용 장면·수리 가능성·자원 비용·협업 귀속을 별도 근거로 검증한다.
+- knowledge_status: used
+- knowledge_decision: retain_in_infinity
+- knowledge_targets: artifacts/research-dieter-rams-biography-minimalism-20260912/work/source-map.md; artifacts/research-dieter-rams-biography-minimalism-20260912/work/analysis-notes.md; artifacts/research-dieter-rams-biography-minimalism-20260912/work/candidate/dieter-rams-report.md; reports/research-dieter-rams-biography-minimalism-20260912/20260912T2140Z-final.html
+- knowledge_reflection: 디자인 인물 조사는 직책·퇴직 시점, 공동설계·팀 맥락, 관계 조직 자료의 한계를 분리해 기록해야 하며, 원칙을 오늘의 제품 성과나 환경 효과로 자동 전이하지 않는다.
+- knowledge_commit: no-promotion-needed
+- archived_at: 2026-09-12T21:50:03Z
+
+
+<!-- research-dieter-rams-20260912 archived 2026-09-12T19:20Z → artifacts/research-dieter-rams-20260912/final/dieter-rams-design-brief.md [projects: infinity,research-bank,personal-ops; type: research; topics: product,design,interface,minimalism] (원문·기관 근거와 디지털 안전선을 분리한 앱·카드·공간형 UI 적용 기준 및 6문항 점검표; Red PASS.) -->
+
+### [research-dieter-rams-20260912] 디터 람스 디자인 원칙·적용 조건 리서치
+- status: archived
+- target_agent: genie
+- execution_mode: multi_subagent_roles
+- permission: L0-research-and-strategy-only
+- projects: infinity, research-bank, personal-ops
+- task_type: research
+- topics: product, design, interface, minimalism
+- context_pack: intents/context/research-dieter-rams-20260912.json
+- task_plan: artifacts/research-dieter-rams-20260912/work/task-plan.json
+- trace: traces/research-dieter-rams-20260912.json
+- artifact: artifacts/research-dieter-rams-20260912/final/dieter-rams-design-brief.md
+- red_status: pass
+- red_report: artifacts/research-dieter-rams-20260912/work/red/t1-source-boundary.md
+- remote_verified: pass
+- remote_commit: 454b87a50150be8ff63c4a8b0c38a5599760f8d5
+- metric_result: 원문·기관 출처 3개와 W3C/FTC 디지털 안전선을 분리해 앱·카드·공간형 UI별 채택/보류/제외 기준 및 6문항 점검표를 만들었다.
+- metric_next_decision: 다음 화면 시안에 6문항을 적용하고 과업 성공률·대비·키보드 경로를 확인한다.
+- archived_at: 2026-09-12T19:20:00Z
 
 <!-- research-korean-minimal-curation-guide-20260911 archived 2026-09-12T10:42Z → intents/archive/research-korean-minimal-curation-guide-20260911.md; report=reports/research-korean-minimal-curation-guide-20260911/20260912T1035Z-final.html; red_status=pass; six internal-only abstract hold-state cards; no public post/contact/purchase/third-party assets. -->
 
@@ -182,6 +569,7 @@
 <!-- design-05 completed 2026-08-27T00:15Z → intents/archive/design-05.md; artifacts/design-05/; reports/design-05/20260827T0015Z.html; red_status: pass. -->
 ### [design-05] 이집트 여행 브이로그용 세로 영수증 B-roll 오버레이
 - status: archived
+- completed_at: 2026-08-27T00:15:00Z
 - target_agent: genie
 - execution_mode: multi_subagent_roles
 - artifact: artifacts/design-05/egypt-giza-field-receipt-overlay.png; artifacts/design-05/egypt-giza-field-receipt-overlay-preview-1920x1080.png
@@ -196,6 +584,7 @@
 <!-- research-35 completed 2026-08-26 → intents/archive/research-35.md; artifacts/research-35/; reports/research-35/20260826T-research.md; red_status: pass. -->
 ### [research-35] 한국 사업자의 앱·웹 디지털 결제수단 조사
 - status: archived
+- completed_at: 2026-08-26T00:00:00Z
 - target_agent: genie
 - execution_mode: multi_subagent_roles
 - artifact: artifacts/research-35/payment-comparison.md; report: reports/research-35/20260826T-research.md
