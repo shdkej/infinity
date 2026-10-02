@@ -8,7 +8,7 @@
 ## Waiting
 
 ### [proposer-evaluator-rate-limit-resilience-20261002] evaluator rate-limit 반복 실패 완화 조사·수정안
-- status: active
+- status: waiting
 - proposed_by: sam-proposer
 - source_signal: /home/ubuntu/workspace/knowledge-lab/infinity/EVALUATION_NOTES.md — evaluator 최근 실행 15회 연속 rate_limit 실패; OpenClaw automation runs — 동일 evaluator job의 반복 FallbackSummaryError rate_limit 기록
 - rationale: 반복 독립 실패로 evaluator가 새 평가를 거의 남기지 못하므로, rate-limit 시 평가 루프가 멈추지 않는 저비용 fallback 또는 진단 경로의 설계·검증이 필요합니다.
