@@ -17,6 +17,28 @@
   "events": [
     {
       "type": "dispatcher_handoff",
+      "run_id": "dispatch-f64ee2964c7a4966a0c4af3112fc6cc4",
+      "canonical_sha": "a9992079c44ad2f570ed7e89ecaa20bc951fff00",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher-v2",
+      "timestamp": "2026-10-02T12:00:00Z",
+      "status": "accepted"
+    },
+    {
+      "type": "exploratory_leaf",
+      "id": "T2.1",
+      "status": "done",
+      "evidence": "창업진흥원 초기창업패키지 및 K-Startup 창업에듀 공식 페이지 확인",
+      "at": "2026-10-02T12:05:00Z"
+    },
+    {
+      "type": "exploratory_leaf",
+      "id": "T2.2",
+      "status": "pending",
+      "evidence": "고객군 하나·문제 하나·유료 행동 하나의 측정표 설계"
+    },
+    {
+      "type": "dispatcher_handoff",
       "run_id": "dispatch-6ed79d87e8a2479d8ab2b261613dc0e4",
       "canonical_sha": "a1f91d0e1fc0766e3b329990f23f1eed2d461a7f",
       "agent": "genie",

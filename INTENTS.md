@@ -33,6 +33,7 @@
 - out_of_scope: 특정 제품·사업모델·가격을 확정하거나 공개 발송·판매 실행
 - success_criteria: 한국어 탐색 지도와 대표 사례·출처·불확실성·열린 질문을 최종 Markdown으로 보존
 - next_action: 유료 행동 하나를 고정한 소규모 검증으로 후속 Intent를 만든다
+- next_exploratory_leaves: T2.1 국내 창업지원·고객검증 경계 정리; T2.2 유료 행동 측정표 설계
 - notification_channel: slack
 - notification_target: channel:C0BR41W31MM
 - notification_reply_to: 1790929958.500209

@@ -46,6 +46,14 @@ Knowledge Lab의 Business/Marketing 노트도 초기 사용자를 대규모 유�
 
 이는 “수동으로 많이 도와라”는 일반론이 아닙니다. 수동 지원이 고객의 실제 가치 경험을 관찰하는 장치가 되는 동안만 유효하고, 지원 시간이 제품의 전달원가로 남는다면 자동화·범위 축소·가격 조정이 필요합니다.
 
+### 5. 정부 창업지원은 시장검증의 대체물이 아니라 검증 실행을 돕는 기반이다
+
+창업진흥원은 초기창업패키지의 목적을 초기기업의 시장진입과 성장을 돕는 것으로 설명하고, 지원 내용에 사업화 자금과 시장진입·초기 투자유치·실증검증 프로그램을 포함합니다. [창업진흥원 초기창업패키지](https://www.kised.or.kr/menu.es?mid=a10205020000)
+
+K-Startup의 창업에듀에도 사업타당성 분석, 아이디어 실현 가능성 검증, 비즈니스 모델 수요 탐색, 수익모형 설계 과정이 별도 학습 항목으로 안내됩니다. [K-Startup 창업에듀](https://www.k-startup.go.kr/edu/home/package/PTYPE_003/PTYPE_00301/PKG_0000002003/detail)
+
+해석: 프로그램 통과·지원금·멘토링은 자원과 실행 기회를 늘리지만, 고객의 지불·반복 사용을 대신 증명하지는 않습니다. 지원비는 고객 인터뷰, 유료 파일럿, 실증 측정처럼 다음 판단을 바꾸는 증거에 묶어야 하며, 지원금 집행 결과와 사업 자체의 수익성을 분리해 기록해야 합니다.
+
 ## 실패 사례에서 읽을 경계
 
 - 시장 필요가 약한 상태에서 기능을 확장하면 검증 비용이 커진다.
@@ -93,4 +101,6 @@ Knowledge Lab의 Business/Marketing 노트도 초기 사용자를 대규모 유�
 - [Steve Blank, Customer Development is Not a Focus Group](https://steveblank.com/2009/11/30/customer-development-is-not-a-focus-group/) — customer development와 실제 행동 검증
 - [Stripe, Pricing a product](https://stripe.com/resources/more/pricing-a-product) — 원가·가치·경쟁·목표를 함께 보는 가격 설계
 - [Stripe, Value-driven pricing](https://stripe.com/resources/more/value-driven-pricing) — 고객 가치·지불의사·행동 기반 가격 조정
+- [창업진흥원, 초기창업패키지](https://www.kised.or.kr/menu.es?mid=a10205020000) — 시장진입·실증검증을 포함한 초기 창업 지원 범위
+- [K-Startup, 창업에듀](https://www.k-startup.go.kr/edu/home/package/PTYPE_003/PTYPE_00301/PKG_0000002003/detail) — 타당성·수요 탐색·수익모형 학습 항목
 - Knowledge Lab: `agent-wiki/content/docs/outputs/Integration/Business.mdx`, `agent-wiki/content/docs/outputs/Integration/Marketing.mdx` — 초기 고객 학습·수익 후보 승격·가격 신뢰 경계
