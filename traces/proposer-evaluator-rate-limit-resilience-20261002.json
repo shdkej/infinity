@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "intent_id": "proposer-evaluator-rate-limit-resilience-20261002",
+  "status": "active",
+  "trace_completeness": "partial",
+  "backfill_source": "dispatcher_missing_trace",
+  "request": {
+    "raw": {
+      "status": "missing",
+      "reason": "dispatcher backfill: intake trace was absent"
+    },
+    "normalized_query": {
+      "status": "missing",
+      "reason": "dispatcher backfill: intake trace was absent"
+    }
+  },
+  "events": [
+    {
+      "type": "intake",
+      "at": "2026-10-02T23:40:04Z",
+      "context_pack": "",
+      "context_pack_status": "missing",
+      "context_pack_reason": "dispatcher backfill: intake context pack was absent",
+      "evidence_paths": []
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-9aaddbb7f6d848a69f157d2d79173167",
+      "canonical_sha": "9c1f3101563c127fb0d78c2ec64a17fc2e066800",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher-v2",
+      "timestamp": "2026-10-02T23:40:04Z",
+      "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-10-02T23:43:00Z",
+      "agent": "genie",
+      "task_id": "T1.1",
+      "status": "done",
+      "evidence_paths": [
+        "artifacts/proposer-evaluator-rate-limit-resilience-20261002/work/runner-inventory.md",
+        "artifacts/proposer-evaluator-rate-limit-resilience-20261002/work/minimal-fix-proposal.md"
+      ],
+      "result": "approval_boundary: runtime owner/path and execution approval are missing"
+    }
+  ],
+  "artifacts": [],
+  "verifications": [],
+  "next_decision": {
+    "status": "in_progress",
+    "value": "dispatcher created partial trace before executor handoff"
+  }
+}
