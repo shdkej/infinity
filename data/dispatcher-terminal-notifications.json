@@ -154,6 +154,48 @@
       "state": "sent",
       "terminal_state": "blocked"
     },
+    "bb36732068a26239e04775d3f5085150f763f1cd3143e7691f9ecf6506eac3d9": {
+      "attempt_started_at": "2026-10-02T11:38:37Z",
+      "claimed_at": "2026-10-02T11:38:37Z",
+      "destination": "research-richard-sapper-comprehensive-20260916|completed|slack|channel:C0BR41W31MM||1789547954.349019|research-richard-sapper-comprehensive-20260916|completed|reports/research-richard-sapper-comprehensive-20260916/20260916T0844Z-final.html||||e32cd2cc5a31aecfbfa274f1bf2f1aef0bad4d26",
+      "fingerprint": "research-richard-sapper-comprehensive-20260916|completed|reports/research-richard-sapper-comprehensive-20260916/20260916T0844Z-final.html||||e32cd2cc5a31aecfbfa274f1bf2f1aef0bad4d26",
+      "intent_id": "research-richard-sapper-comprehensive-20260916",
+      "remote_sha": "a9992079c44ad2f570ed7e89ecaa20bc951fff00",
+      "state": "claimed",
+      "terminal_state": "completed"
+    },
+    "d65277aacd1b3e9b4efd1b3271a996b87f164d8401b03111161e8ebddaaa260a": {
+      "attempt_started_at": "2026-10-02T11:48:44Z",
+      "claimed_at": "2026-10-02T11:48:44Z",
+      "destination": "research-us-military-ttp-learning-20260915|completed|slack|channel:C0BR41W31MM||1789445926.950759|research-us-military-ttp-learning-20260915|completed|not_required (exploratory_research)||||fc650ec3afb22509595f61808fe44ee5dd51fbb1",
+      "fingerprint": "research-us-military-ttp-learning-20260915|completed|not_required (exploratory_research)||||fc650ec3afb22509595f61808fe44ee5dd51fbb1",
+      "intent_id": "research-us-military-ttp-learning-20260915",
+      "remote_sha": "a9992079c44ad2f570ed7e89ecaa20bc951fff00",
+      "sent_at": "2026-10-02T11:53:43Z",
+      "state": "sent",
+      "terminal_state": "completed"
+    },
+    "e262f5246e99539436d491fc043c3a443fb5eb864f2be9f4d0e508825629c291": {
+      "attempt_started_at": "2026-10-02T11:29:58Z",
+      "claimed_at": "2026-10-02T11:29:58Z",
+      "destination": "content-amalfi-ravello-day-reel-20260918|completed|slack|channel:C0BR41W31MM||1789798156.880749|content-amalfi-ravello-day-reel-20260918|completed|reports/content-amalfi-ravello-day-reel-20260918/20260919T1032Z-final.html|||공개 게시가 필요해지면 별도 승인·권리 검토 Intent를 만든다.|9fdbb4d0a3cf89a0b72b2c5aa34e48b3e1893f66",
+      "fingerprint": "content-amalfi-ravello-day-reel-20260918|completed|reports/content-amalfi-ravello-day-reel-20260918/20260919T1032Z-final.html|||공개 게시가 필요해지면 별도 승인·권리 검토 Intent를 만든다.|9fdbb4d0a3cf89a0b72b2c5aa34e48b3e1893f66",
+      "intent_id": "content-amalfi-ravello-day-reel-20260918",
+      "remote_sha": "a9992079c44ad2f570ed7e89ecaa20bc951fff00",
+      "state": "claimed",
+      "terminal_state": "completed"
+    },
+    "e6699d5e97972ab53546a949a03145a0ed119b862231fdb7f5406c7ab4a5c2fa": {
+      "attempt_started_at": "2026-10-02T11:33:18Z",
+      "claimed_at": "2026-10-02T11:33:18Z",
+      "destination": "research-richard-sapper-deadline-20260917|completed|slack|channel:C0BR41W31MM||1789547954.349019|research-richard-sapper-deadline-20260917|completed|reports/research-richard-sapper-deadline-20260917/20260917T0715Z-final.html||||76be2b9a3e8065f9be7db379a1545aae0202d33b",
+      "fingerprint": "research-richard-sapper-deadline-20260917|completed|reports/research-richard-sapper-deadline-20260917/20260917T0715Z-final.html||||76be2b9a3e8065f9be7db379a1545aae0202d33b",
+      "intent_id": "research-richard-sapper-deadline-20260917",
+      "remote_sha": "a9992079c44ad2f570ed7e89ecaa20bc951fff00",
+      "sent_at": "2026-10-02T11:38:37Z",
+      "state": "sent",
+      "terminal_state": "completed"
+    },
     "ee270fc8bd008d1e284c972ae1dfb0884d560643f65299dff9ad138abc01611e": {
       "attempt_started_at": "2026-09-06T09:26:10Z",
       "claimed_at": "2026-09-06T09:26:10Z",
@@ -164,6 +206,17 @@
       "sent_at": "2026-09-06T09:26:20Z",
       "state": "sent",
       "terminal_state": "blocked"
+    },
+    "ef89e1ae2c377c2a5c7ee0c8e40e1bfaa525af39b5569c43491f18d6357ff7d1": {
+      "attempt_started_at": "2026-10-02T11:44:24Z",
+      "claimed_at": "2026-10-02T11:44:24Z",
+      "destination": "research-ontology-kl-fit-20260915|completed|slack|channel:C0BR41W31MM||1789447742.405799|research-ontology-kl-fit-20260915|completed|reports/research-ontology-kl-fit-20260915/20260915T0525Z-final.html||||003724ac5877417796f5ccfe718bf6a274bdf9c9",
+      "fingerprint": "research-ontology-kl-fit-20260915|completed|reports/research-ontology-kl-fit-20260915/20260915T0525Z-final.html||||003724ac5877417796f5ccfe718bf6a274bdf9c9",
+      "intent_id": "research-ontology-kl-fit-20260915",
+      "remote_sha": "a9992079c44ad2f570ed7e89ecaa20bc951fff00",
+      "sent_at": "2026-10-02T11:48:44Z",
+      "state": "sent",
+      "terminal_state": "completed"
     }
   },
   "legacy_state_observed": true,

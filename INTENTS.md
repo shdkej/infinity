@@ -6,39 +6,6 @@
 
 ## Active
 
-### [research-business-profitability-modoo-20261002] 모두의창업 통과 후 사업성·수익성 제품화 노하우 탐색
-- status: active
-- target_agent: genie
-- research_mode: exploratory_research
-- execution_mode: single_genie_roles
-- permission: L0-research-and-draft-only
-- projects: research-bank,personal-ops
-- task_type: research
-- topics: product,finance,marketing
-- context_pack: intents/context/research-business-profitability-modoo-20261002.json
-- trace: traces/research-business-profitability-modoo-20261002.json
-- final_artifact: artifacts/research-business-profitability-modoo-20261002/final/modoo-business-profitability-report.md
-- artifact: artifacts/research-business-profitability-modoo-20261002/final/modoo-business-profitability-report.md
-- report: reports/research-business-profitability-modoo-20261002/20261002T1140Z-final.html
-- red_status: not_required
-- remote_verified: pass
-- knowledge_status: used
-- knowledge_decision: no_promotion
-- knowledge_targets: [agent-wiki/content/docs/index.mdx, agent-wiki/content/docs/outputs/Integration/Business.mdx, agent-wiki/content/docs/outputs/Integration/Marketing.mdx]
-- knowledge_reflection: 사업 후보는 관심 신호가 아니라 문제 반복성·지불 행동·전달 비용·반복 사용을 함께 통과해야 하며, 가격은 가치 단위와 신뢰 언어로 검증한다.
-- knowledge_commit: no-promotion-needed
-- detail: intents/active/research-business-profitability-modoo-20261002.md
-- requested: 2026-10-02T09:12:30Z
-- scope: 고객 문제 검증, 지불의사, 가격·수익모델, 초기 판매·실험, 실패 사례, 실행 체크리스트를 넓게 탐색
-- out_of_scope: 특정 제품·사업모델·가격을 확정하거나 공개 발송·판매 실행
-- success_criteria: 한국어 탐색 지도와 대표 사례·출처·불확실성·열린 질문을 최종 Markdown으로 보존
-- next_action: 유료 행동 하나를 고정한 소규모 검증으로 후속 Intent를 만든다
-- next_exploratory_leaves: T2.1 국내 창업지원·고객검증 경계 정리; T2.2 유료 행동 측정표 설계
-- notification_channel: slack
-- notification_target: channel:C0BR41W31MM
-- notification_reply_to: 1790929958.500209
-- notification_origin: channel:C0BR41W31MM;reply_to:1790929958.500209
-
 ## Waiting
 
 ### [learning-candidate-proposer-automation-trigger-timeout-20261002] 반복된 proposer 자동화 trigger 평가 timeout 처리 개선
@@ -69,6 +36,23 @@
 - notification_origin: channel:C0BR41W31MM;reply_to:1790939865.744739
 
 ## Archive
+
+### [research-business-profitability-modoo-20261002] 모두의창업 통과 후 사업성·수익성 제품화 노하우 탐색
+- status: archived
+- completed_at: 2026-10-02T12:20:00Z
+- target_agent: genie
+- research_mode: exploratory_research
+- context_pack: intents/context/research-business-profitability-modoo-20261002.json
+- trace: traces/research-business-profitability-modoo-20261002.json
+- final_artifact: artifacts/research-business-profitability-modoo-20261002/final/modoo-business-profitability-report.md
+- report: reports/research-business-profitability-modoo-20261002/20261002T1140Z-final.html
+- detail: intents/archive/research-business-profitability-modoo-20261002.md
+- red_status: not_required
+- remote_verified: pass
+- notification_channel: slack
+- notification_target: channel:C0BR41W31MM
+- notification_reply_to: 1790929958.500209
+- notification_origin: channel:C0BR41W31MM;reply_to:1790929958.500209
 
 <!-- content-amalfi-ravello-day-reel-20260918 archived 2026-09-19T10:34:00Z → intents/archive/content-amalfi-ravello-day-reel-20260918.md; report=reports/content-amalfi-ravello-day-reel-20260918/20260919T1032Z-final.html; red_status=pass; private-only render. -->
 
