@@ -54,6 +54,8 @@
 - notification_reply_to: 1790929958.500209
 - notification_origin: channel:C0BR41W31MM;reply_to:1790929958.500209
 
+<!-- research-business-profitability-modoo-20261002 archived 2026-10-02T12:20Z → intents/archive/research-business-profitability-modoo-20261002.md [projects: research-bank,personal-ops; type: research; topics: product,finance,marketing] (고객 문제·지불 행동·가격·초기 판매·단위경제 탐색 완료) -->
+
 <!-- content-amalfi-ravello-day-reel-20260918 archived 2026-09-19T10:34:00Z → intents/archive/content-amalfi-ravello-day-reel-20260918.md; report=reports/content-amalfi-ravello-day-reel-20260918/20260919T1032Z-final.html; red_status=pass; private-only render. -->
 
 ### [content-amalfi-ravello-day-reel-20260918] 아말피·라벨로 하루 브이로그 릴스
