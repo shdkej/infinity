@@ -49,6 +49,24 @@
 - waiting_reason: 사용자 승인 필요 — 자동화 trigger 평가 경로 변경·검증은 approval_required 경계에 해당하며 승인 전에는 설정·스크립트·운영 실행을 변경하지 않는다.
 - next_action: 승인 후 기존 automation trigger 설정과 평가 경로를 점검하고, timeout 원인에 맞는 최소 수정안을 승인 요청 후 구현·검증한다.
 - trace: traces/learning-candidate-proposer-automation-trigger-timeout-20261002.json
+- notification_channel: slack
+- notification_target: channel:C0BR41W31MM
+- notification_reply_to: 1790939865.744739
+- notification_origin: channel:C0BR41W31MM;reply_to:1790939865.744739
+
+### [pilot-github-research-skill-kang-chen-approval] Kang-chen 문헌검토 부분 기능 격리 파일럿 승인 대기
+- status: waiting
+- target_agent: genie
+- task_type: approval-gated-research
+- depends_on: research-github-skills-20260912
+- blocker: 사용자 명시 승인, repo/subfile 라이선스 확인, 실제 의존성·egress·데이터 전송 경로 확인, no-secret·deny-egress 격리 환경 확인이 모두 필요하다.
+- allowed_after_approval: 단일 공개 학술 질문의 읽기 전용 fixture에서 DOI dedupe·screening·citation traversal 부분 기능만 비교한다.
+- forbidden_before_approval: clone, install, sync, script execution, account connection, secret entry, paid API, workspace/skill-registry modification.
+- detail: intents/waiting/pilot-github-research-skill-kang-chen-approval.md
+- notification_channel: slack
+- notification_target: channel:C0BR41W31MM
+- notification_reply_to: 1790939865.744739
+- notification_origin: channel:C0BR41W31MM;reply_to:1790939865.744739
 
 ## Archive
 
