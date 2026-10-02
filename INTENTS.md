@@ -6,6 +6,22 @@
 
 ## Active
 
+### [pilot-github-research-skill-kang-chen-approval] Kang-chen 문헌검토 부분 기능 격리 파일럿 승인 대기
+- status: active
+- target_agent: genie
+- task_type: approval-gated-research
+- depends_on: research-github-skills-20260912
+- approval: user-approved via Infinity dashboard (2026-10-02T22:22:51.050232+00:00)
+- approval_request_id: acff9567-12cc-4754-adcc-9bcda62244be
+- allowed_after_approval: 단일 공개 학술 질문의 읽기 전용 fixture에서 DOI dedupe·screening·citation traversal 부분 기능만 비교한다.
+- forbidden_before_approval: clone, install, sync, script execution, account connection, secret entry, paid API, workspace/skill-registry modification.
+- next_action: repo/subfile 라이선스·의존성·egress·데이터 전송 경로를 확인하고, no-secret·deny-egress 격리 조건에서 읽기 전용 fixture 비교를 시작한다.
+- detail: intents/waiting/pilot-github-research-skill-kang-chen-approval.md
+- notification_channel: slack
+- notification_target: channel:C0BR41W31MM
+- notification_reply_to: 1790939865.744739
+- notification_origin: channel:C0BR41W31MM;reply_to:1790939865.744739
+
 ### [learning-candidate-proposer-automation-trigger-timeout-20261002] 반복된 proposer 자동화 trigger 평가 timeout 처리 개선
 - status: active
 - proposed_by: sam-proposer
@@ -28,20 +44,6 @@
 - notification_origin: channel:C0BR41W31MM;reply_to:1790939865.744739
 
 ## Waiting
-
-### [pilot-github-research-skill-kang-chen-approval] Kang-chen 문헌검토 부분 기능 격리 파일럿 승인 대기
-- status: waiting
-- target_agent: genie
-- task_type: approval-gated-research
-- depends_on: research-github-skills-20260912
-- blocker: 사용자 명시 승인, repo/subfile 라이선스 확인, 실제 의존성·egress·데이터 전송 경로 확인, no-secret·deny-egress 격리 환경 확인이 모두 필요하다.
-- allowed_after_approval: 단일 공개 학술 질문의 읽기 전용 fixture에서 DOI dedupe·screening·citation traversal 부분 기능만 비교한다.
-- forbidden_before_approval: clone, install, sync, script execution, account connection, secret entry, paid API, workspace/skill-registry modification.
-- detail: intents/waiting/pilot-github-research-skill-kang-chen-approval.md
-- notification_channel: slack
-- notification_target: channel:C0BR41W31MM
-- notification_reply_to: 1790939865.744739
-- notification_origin: channel:C0BR41W31MM;reply_to:1790939865.744739
 
 ## Archive
 
