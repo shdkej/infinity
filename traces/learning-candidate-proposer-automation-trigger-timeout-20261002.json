@@ -3,6 +3,14 @@
   "intent_id": "learning-candidate-proposer-automation-trigger-timeout-20261002",
   "events": [
     {
+      "type": "intake",
+      "at": "2026-10-02T11:30:00Z",
+      "context_pack": "",
+      "context_pack_status": "missing",
+      "context_pack_reason": "legacy dispatcher trace omitted intake context pack",
+      "evidence_paths": []
+    },
+    {
       "type": "dispatcher_handoff",
       "run_id": "dispatch-6ed79d87e8a2479d8ab2b261613dc0e4",
       "canonical_sha": "a1f91d0e1fc0766e3b329990f23f1eed2d461a7f",
@@ -12,11 +20,59 @@
       "status": "accepted"
     },
     {
-      "type": "state_change",
+      "type": "backfill",
       "at": "2026-10-02T11:30:00Z",
       "from": "proposed",
       "to": "waiting",
       "reason": "approval_required: 사용자 승인 전 자동화 설정·스크립트 변경 불가"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-d422f74ca9dc4455b4420f98323bcd7a",
+      "canonical_sha": "0533b1bf2186e861fdb841f9c16bb12b95e03e89",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-10-02T21:10:04Z",
+      "status": "accepted"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-d422f74ca9dc4455b4420f98323bcd7a",
+      "canonical_sha": "0533b1bf2186e861fdb841f9c16bb12b95e03e89",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher-v2",
+      "timestamp": "2026-10-02T21:15:00Z",
+      "status": "accepted"
     }
-  ]
+  ],
+  "status": "active",
+  "trace_completeness": "partial",
+  "request": {
+    "raw": {
+      "status": "missing",
+      "reason": "legacy trace omitted intake request"
+    },
+    "normalized_query": {
+      "status": "missing",
+      "reason": "legacy trace omitted normalized query"
+    }
+  },
+  "artifacts": [
+    "artifacts/learning-candidate-proposer-automation-trigger-timeout-20261002/work/task-plan.json",
+    "artifacts/learning-candidate-proposer-automation-trigger-timeout-20261002/work/task-plan.md",
+    "artifacts/learning-candidate-proposer-automation-trigger-timeout-20261002/work/trigger-path-inspection.md"
+  ],
+  "verifications": [
+    {
+      "type": "task_plan",
+      "status": "active",
+      "active_task": "T1.1",
+      "evidence": "artifacts/learning-candidate-proposer-automation-trigger-timeout-20261002/work/trigger-path-inspection.md"
+    }
+  ],
+  "next_decision": {
+    "status": "in_progress",
+    "value": "legacy trace normalized for agent-owned closeout"
+  },
+  "backfill_source": "dispatcher_missing_trace"
 }

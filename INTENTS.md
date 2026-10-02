@@ -14,6 +14,10 @@
 - approval: user-approved via Infinity dashboard (2026-10-02T15:14:26Z)
 - approval_request_id: cc2df31c-eb72-42b8-b8d4-ae2a821e6bcc
 - next_action: 기존 automation trigger 설정과 평가 경로를 점검하고, timeout 원인에 맞는 최소 수정안을 작성·검증한다.
+- task_plan: artifacts/learning-candidate-proposer-automation-trigger-timeout-20261002/work/task-plan.json
+- task_plan_doc: artifacts/learning-candidate-proposer-automation-trigger-timeout-20261002/work/task-plan.md
+- task_plan_template: ARTIFACT_RULES.md#대형-작업-태스크-계획
+- artifact: artifacts/learning-candidate-proposer-automation-trigger-timeout-20261002/work/trigger-path-inspection.md
 - trace: traces/learning-candidate-proposer-automation-trigger-timeout-20261002.json
 - notification_channel: slack
 - notification_target: channel:C0BR41W31MM
