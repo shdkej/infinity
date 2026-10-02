@@ -6,16 +6,20 @@
 
 ## Active
 
+## Waiting
+
 ### [pilot-github-research-skill-kang-chen-approval] Kang-chen 문헌검토 부분 기능 격리 파일럿 승인 대기
-- status: active
+- status: waiting
 - target_agent: genie
 - task_type: approval-gated-research
 - depends_on: research-github-skills-20260912
 - approval: user-approved via Infinity dashboard (2026-10-02T22:22:51.050232+00:00)
 - approval_request_id: acff9567-12cc-4754-adcc-9bcda62244be
-- allowed_after_approval: 단일 공개 학술 질문의 읽기 전용 fixture에서 DOI dedupe·screening·citation traversal 부분 기능만 비교한다.
-- forbidden_before_approval: clone, install, sync, script execution, account connection, secret entry, paid API, workspace/skill-registry modification.
-- next_action: repo/subfile 라이선스·의존성·egress·데이터 전송 경로를 확인하고, no-secret·deny-egress 격리 조건에서 읽기 전용 fixture 비교를 시작한다.
+- waiting_reason: repo/subfile LICENSE와 실제 의존성·egress·데이터 전송 경로가 확정되지 않아 read-only fixture 실행을 시작할 수 없음
+- task_plan: artifacts/pilot-github-research-skill-kang-chen-approval/work/task-plan.json
+- task_plan_doc: artifacts/pilot-github-research-skill-kang-chen-approval/work/task-plan.md
+- task_plan_template: ARTIFACT_RULES.md#대형-작업-태스크-계획
+- artifact: artifacts/pilot-github-research-skill-kang-chen-approval/work/audit-evidence.md
 - detail: intents/waiting/pilot-github-research-skill-kang-chen-approval.md
 - notification_channel: slack
 - notification_target: channel:C0BR41W31MM
@@ -23,27 +27,13 @@
 - notification_origin: channel:C0BR41W31MM;reply_to:1790939865.744739
 
 ### [learning-candidate-proposer-automation-trigger-timeout-20261002] 반복된 proposer 자동화 trigger 평가 timeout 처리 개선
-- status: active
-- proposed_by: sam-proposer
-- permission_level: approval_required
-- approval_required: true
+- status: waiting
 - approval: user-approved via Infinity dashboard (2026-10-02T15:14:26Z)
-- approval_request_id: cc2df31c-eb72-42b8-b8d4-ae2a821e6bcc
-- next_action: 기존 automation trigger 설정과 평가 경로를 점검하고, timeout 원인에 맞는 최소 수정안을 작성·검증한다.
-- next_action: T1.2 최소 수정안의 runner artifact 적용 가능 여부 확인
-- plan_change: T1.1a timebox 초과 후 정본 계약 기반 대체 경로로 전환; T1.2까지 남은 직접 점검 예산 35분
-- artifact: artifacts/learning-candidate-proposer-automation-trigger-timeout-20261002/work/minimal-fix-proposal.md
+- waiting_reason: 외부 blocker — 실제 proposer runner·automation payload가 Infinity 실행 저장소에 없어 승인된 최소 수정안을 적용하거나 10회 runtime 검증을 실행할 수 없음
+- next_action: runner artifact 또는 소유 runtime 저장소·검증 접근점이 제공되면 T1.3을 재개
 - task_plan: artifacts/learning-candidate-proposer-automation-trigger-timeout-20261002/work/task-plan.json
 - task_plan_doc: artifacts/learning-candidate-proposer-automation-trigger-timeout-20261002/work/task-plan.md
-- task_plan_template: ARTIFACT_RULES.md#대형-작업-태스크-계획
-- artifact: artifacts/learning-candidate-proposer-automation-trigger-timeout-20261002/work/trigger-path-inspection.md
 - trace: traces/learning-candidate-proposer-automation-trigger-timeout-20261002.json
-- notification_channel: slack
-- notification_target: channel:C0BR41W31MM
-- notification_reply_to: 1790939865.744739
-- notification_origin: channel:C0BR41W31MM;reply_to:1790939865.744739
-
-## Waiting
 
 ## Archive
 

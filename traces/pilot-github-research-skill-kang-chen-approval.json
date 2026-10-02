@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "intent_id": "pilot-github-research-skill-kang-chen-approval",
+  "status": "waiting",
+  "trace_completeness": "partial",
+  "backfill_source": "dispatcher_missing_trace",
+  "request": {
+    "raw": {
+      "status": "missing",
+      "reason": "dispatcher backfill: intake trace was absent"
+    },
+    "normalized_query": {
+      "status": "missing",
+      "reason": "dispatcher backfill: intake trace was absent"
+    }
+  },
+  "events": [
+    {
+      "type": "intake",
+      "at": "2026-10-02T22:40:35Z",
+      "context_pack": "",
+      "context_pack_status": "missing",
+      "context_pack_reason": "dispatcher backfill: intake context pack was absent",
+      "evidence_paths": []
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-5bbd57ef15dc4cd4aba3ba2d1417f7b7",
+      "canonical_sha": "73cd62f5ea50797aeca8172dc624c156d25ce676",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-10-02T22:40:35Z",
+      "status": "accepted"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-5bbd57ef15dc4cd4aba3ba2d1417f7b7",
+      "canonical_sha": "73cd62f5ea50797aeca8172dc624c156d25ce676",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher-v2",
+      "timestamp": "2026-10-02T22:45:00Z",
+      "status": "accepted"
+    }
+  ],
+  "artifacts": [
+    "artifacts/pilot-github-research-skill-kang-chen-approval/work/task-plan.json",
+    "artifacts/pilot-github-research-skill-kang-chen-approval/work/task-plan.md",
+    "artifacts/pilot-github-research-skill-kang-chen-approval/work/audit-evidence.md"
+  ],
+  "verifications": [
+    {"type":"start_condition_audit","status":"blocked","reason":"repo LICENSE 및 실제 egress·의존성 경로 미확정"}
+  ],
+  "next_decision": {
+    "status": "in_progress",
+    "value": "approval granted but mandatory license/egress/dependency evidence is missing; fixture execution held"
+  }
+}

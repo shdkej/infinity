@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "tasks": [
+    {"id":"T1.1","title":"repo·subfile license·의존성·egress 경계 감사","status":"done","started_at":"2026-10-02T22:45:00Z","completed_at":"2026-10-02T22:50:00Z","depends_on":[],"evidence":"artifacts/pilot-github-research-skill-kang-chen-approval/work/audit-evidence.md","max_minutes":20},
+    {"id":"T1.2","title":"단일 공개 질문 read-only fixture에서 부분 기능 비교","status":"pending","depends_on":["T1.1"],"evidence":"artifacts/pilot-github-research-skill-kang-chen-approval/work/fixture-comparison.md","max_minutes":30},
+    {"id":"T1.3","title":"격리 cleanup·중단 조건·원격 확인","status":"pending","depends_on":["T1.2"],"evidence":"artifacts/pilot-github-research-skill-kang-chen-approval/work/cleanup-proof.md","max_minutes":20}
+  ],
+  "deviations": [
+    {"at":"2026-10-02T22:50:00Z","reason":"repo LICENSE와 실제 egress·의존성 경로를 공개 페이지에서 확인하지 못함","impact":"fixture 실행을 시작하지 않고 approval-gated external artifact blocker로 Waiting 전환","task_ids":["T1.1","T1.2","T1.3"]}
+  ]
+}

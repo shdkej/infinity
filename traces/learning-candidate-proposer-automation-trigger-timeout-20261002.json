@@ -115,9 +115,27 @@
       "session_key": "agent:genie:infinity-dispatcher-v2",
       "timestamp": "2026-10-02T22:15:00Z",
       "status": "accepted"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-5bbd57ef15dc4cd4aba3ba2d1417f7b7",
+      "canonical_sha": "73cd62f5ea50797aeca8172dc624c156d25ce676",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-10-02T22:40:35Z",
+      "status": "accepted"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-5bbd57ef15dc4cd4aba3ba2d1417f7b7",
+      "canonical_sha": "73cd62f5ea50797aeca8172dc624c156d25ce676",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher-v2",
+      "timestamp": "2026-10-02T22:45:00Z",
+      "status": "accepted"
     }
   ],
-  "status": "active",
+  "status": "waiting",
   "trace_completeness": "partial",
   "request": {
     "raw": {
@@ -134,20 +152,18 @@
     "artifacts/learning-candidate-proposer-automation-trigger-timeout-20261002/work/task-plan.md",
     "artifacts/learning-candidate-proposer-automation-trigger-timeout-20261002/work/trigger-path-inspection.md",
     "artifacts/learning-candidate-proposer-automation-trigger-timeout-20261002/work/runtime-path-inventory.md",
-    "artifacts/learning-candidate-proposer-automation-trigger-timeout-20261002/work/contract-gap-review.md"
-    ,"artifacts/learning-candidate-proposer-automation-trigger-timeout-20261002/work/minimal-fix-proposal.md"
+    "artifacts/learning-candidate-proposer-automation-trigger-timeout-20261002/work/contract-gap-review.md",
+    "artifacts/learning-candidate-proposer-automation-trigger-timeout-20261002/work/minimal-fix-proposal.md"
   ],
   "verifications": [
     {
       "type": "task_plan",
       "status": "active",
-      "active_task": "T1.2",
+      "active_task": null,
+      "completed_task": "T1.2",
       "evidence": "artifacts/learning-candidate-proposer-automation-trigger-timeout-20261002/work/minimal-fix-proposal.md"
     }
   ],
-  "next_decision": {
-    "status": "in_progress",
-    "value": "legacy trace normalized for agent-owned closeout"
-  },
+  "next_decision": {"status":"blocked","value":"external runner artifact or owner runtime access required for T1.3"},
   "backfill_source": "dispatcher_missing_trace"
 }
