@@ -22,7 +22,7 @@ INBOX_PREFIX = "action_requests/inbox/"
 PROCESSED_PREFIX = "action_requests/processed/"
 REJECTED_PREFIX = "action_requests/rejected/"
 ALLOWED_ACTIONS = {"resolve_waiting", "archive_request", "refresh_dashboard", "knowledge_research"}
-INTENT_ID_RE = re.compile(r"^[a-z][a-z0-9]*(?:-[a-z0-9]+)*-\d+$")
+INTENT_ID_RE = re.compile(r"^[a-z][a-z0-9]*(?:-[a-z0-9]+)+$")
 KNOWLEDGE_LOOP_ID_RE = re.compile(r"^kl-loop-[a-z0-9]+(?:-[a-z0-9]+)+$")
 
 
