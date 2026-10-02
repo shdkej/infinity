@@ -4,6 +4,8 @@
 
 ## Inbox
 
+## Active
+
 ### [research-business-profitability-modoo-20261002] 모두의창업 통과 후 사업성·수익성 제품화 노하우 탐색
 - status: active
 - target_agent: genie
@@ -19,7 +21,7 @@
 - artifact: artifacts/research-business-profitability-modoo-20261002/final/modoo-business-profitability-report.md
 - report: reports/research-business-profitability-modoo-20261002/20261002T1140Z-final.html
 - red_status: not_required
-- remote_verified: pending
+- remote_verified: pass
 - knowledge_status: used
 - knowledge_decision: no_promotion
 - knowledge_targets: [agent-wiki/content/docs/index.mdx, agent-wiki/content/docs/outputs/Integration/Business.mdx, agent-wiki/content/docs/outputs/Integration/Marketing.mdx]
@@ -30,13 +32,11 @@
 - scope: 고객 문제 검증, 지불의사, 가격·수익모델, 초기 판매·실험, 실패 사례, 실행 체크리스트를 넓게 탐색
 - out_of_scope: 특정 제품·사업모델·가격을 확정하거나 공개 발송·판매 실행
 - success_criteria: 한국어 탐색 지도와 대표 사례·출처·불확실성·열린 질문을 최종 Markdown으로 보존
-- next_action: 인피니티가 Context Pack을 재확인하고 탐색형 리서치를 시작
+- next_action: 유료 행동 하나를 고정한 소규모 검증으로 후속 Intent를 만든다
 - notification_channel: slack
 - notification_target: channel:C0BR41W31MM
 - notification_reply_to: 1790929958.500209
 - notification_origin: channel:C0BR41W31MM;reply_to:1790929958.500209
-
-## Active
 
 ## Waiting
 
