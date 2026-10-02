@@ -13,8 +13,9 @@
     {
       "id": "T1.1a",
       "title": "proposer UUID·runtime 구현 경로 인벤토리",
-      "status": "active",
+      "status": "done",
       "started_at": "2026-10-02T21:45:00Z",
+      "completed_at": "2026-10-02T22:05:00Z",
       "depends_on": [],
       "evidence": "artifacts/learning-candidate-proposer-automation-trigger-timeout-20261002/work/runtime-path-inventory.md",
       "max_minutes": 15
@@ -22,7 +23,8 @@
     {
       "id": "T1.1b",
       "title": "runtime 경로와 timeout·checkpoint 계약 대조",
-      "status": "pending",
+      "status": "done",
+      "started_at": "2026-10-02T22:05:00Z",
       "depends_on": ["T1.1a"],
       "evidence": "artifacts/learning-candidate-proposer-automation-trigger-timeout-20261002/work/contract-gap-review.md",
       "max_minutes": 15
@@ -30,7 +32,8 @@
     {
       "id": "T1.2",
       "title": "bounded read·timeout·실패 상태 보존 최소 수정안 작성",
-      "status": "pending",
+      "status": "active",
+      "started_at": "2026-10-02T22:15:00Z",
       "depends_on": ["T1.1b"],
       "evidence": "artifacts/learning-candidate-proposer-automation-trigger-timeout-20261002/work/minimal-fix-proposal.md",
       "max_minutes": 20
@@ -52,5 +55,8 @@
       "max_minutes": 20
     }
   ],
-  "deviations": [{"at":"2026-10-02T21:45:00Z","reason":"T1.1이 20분 timebox를 초과함","impact":"T1.1을 T1.1a/T1.1b로 분할; T1.2까지 남은 직접 점검 예산 50분","task_ids":["T1.1","T1.1a","T1.1b","T1.2"]}]
+  "deviations": [
+    {"at":"2026-10-02T21:45:00Z","reason":"T1.1이 20분 timebox를 초과함","impact":"T1.1을 T1.1a/T1.1b로 분할; T1.2까지 남은 직접 점검 예산 50분","task_ids":["T1.1","T1.1a","T1.1b","T1.2"]},
+    {"at":"2026-10-02T22:05:00Z","reason":"T1.1a에서 실제 runtime 구현 경로가 부재함","impact":"동일 인벤토리 재시도를 중단하고 정본 계약 기반 T1.1b 대조로 전환; T1.2까지 남은 직접 점검 예산 35분","task_ids":["T1.1a","T1.1b","T1.2"]}
+  ]
 }

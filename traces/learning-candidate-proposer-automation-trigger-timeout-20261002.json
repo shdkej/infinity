@@ -12,6 +12,28 @@
     },
     {
       "type": "dispatcher_handoff",
+      "run_id": "dispatch-9a4278a9db484870bed565adeed2c218",
+      "canonical_sha": "c4c41f88e4e993f142ec870e4e17849979c04871",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher-v2",
+      "timestamp": "2026-10-02T22:05:00Z",
+      "status": "accepted"
+    },
+    {
+      "type": "backfill",
+      "at": "2026-10-02T22:05:00Z",
+      "task_id": "T1.1a",
+      "choice": "switch_to_verified_alternative",
+      "reason": "runtime 구현 경로가 부재하므로 동일 인벤토리 재시도 대신 정본 계약 기반 대조로 전환",
+      "impact": "T1.1a 증거를 완료 처리하고 T1.1b를 활성화; T1.2까지 남은 직접 점검 예산 35분",
+      "task_ids": [
+        "T1.1a",
+        "T1.1b",
+        "T1.2"
+      ]
+    },
+    {
+      "type": "dispatcher_handoff",
       "run_id": "dispatch-6ed79d87e8a2479d8ab2b261613dc0e4",
       "canonical_sha": "a1f91d0e1fc0766e3b329990f23f1eed2d461a7f",
       "agent": "genie",
@@ -54,13 +76,45 @@
       "status": "accepted"
     },
     {
-      "type": "timebox_reassessment",
+      "type": "backfill",
       "at": "2026-10-02T21:45:00Z",
       "task_id": "T1.1",
       "choice": "split_into_smaller_leaf_tasks",
       "reason": "T1.1 max_minutes 20 초과; broad 점검을 runtime 경로 인벤토리와 계약 비교로 분할",
       "impact": "T1.1a/T1.1b 최대 15분씩, 후속 T1.2 20분; 남은 직접 점검 예산 50분",
-      "task_ids": ["T1.1", "T1.1a", "T1.1b", "T1.2"]
+      "task_ids": [
+        "T1.1",
+        "T1.1a",
+        "T1.1b",
+        "T1.2"
+      ]
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-9a4278a9db484870bed565adeed2c218",
+      "canonical_sha": "c4c41f88e4e993f142ec870e4e17849979c04871",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-10-02T22:00:06Z",
+      "status": "accepted"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-bb8570fb4a684dd89b833a0cb90ed505",
+      "canonical_sha": "c4c41f88e4e993f142ec870e4e17849979c04871",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-10-02T22:10:06Z",
+      "status": "accepted"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-c65d68c9d1f444169c488c3047ca173a",
+      "canonical_sha": "c4c41f88e4e993f142ec870e4e17849979c04871",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher-v2",
+      "timestamp": "2026-10-02T22:15:00Z",
+      "status": "accepted"
     }
   ],
   "status": "active",
@@ -79,14 +133,16 @@
     "artifacts/learning-candidate-proposer-automation-trigger-timeout-20261002/work/task-plan.json",
     "artifacts/learning-candidate-proposer-automation-trigger-timeout-20261002/work/task-plan.md",
     "artifacts/learning-candidate-proposer-automation-trigger-timeout-20261002/work/trigger-path-inspection.md",
-    "artifacts/learning-candidate-proposer-automation-trigger-timeout-20261002/work/runtime-path-inventory.md"
+    "artifacts/learning-candidate-proposer-automation-trigger-timeout-20261002/work/runtime-path-inventory.md",
+    "artifacts/learning-candidate-proposer-automation-trigger-timeout-20261002/work/contract-gap-review.md"
+    ,"artifacts/learning-candidate-proposer-automation-trigger-timeout-20261002/work/minimal-fix-proposal.md"
   ],
   "verifications": [
     {
       "type": "task_plan",
       "status": "active",
-      "active_task": "T1.1a",
-      "evidence": "artifacts/learning-candidate-proposer-automation-trigger-timeout-20261002/work/runtime-path-inventory.md"
+      "active_task": "T1.2",
+      "evidence": "artifacts/learning-candidate-proposer-automation-trigger-timeout-20261002/work/minimal-fix-proposal.md"
     }
   ],
   "next_decision": {

@@ -14,9 +14,9 @@
 - approval: user-approved via Infinity dashboard (2026-10-02T15:14:26Z)
 - approval_request_id: cc2df31c-eb72-42b8-b8d4-ae2a821e6bcc
 - next_action: 기존 automation trigger 설정과 평가 경로를 점검하고, timeout 원인에 맞는 최소 수정안을 작성·검증한다.
-- next_action: T1.1a proposer UUID·runtime 구현 경로 인벤토리
-- plan_change: T1.1 timebox 초과로 T1.1a/T1.1b 분할; 후속 T1.2까지 남은 직접 점검 예산 50분
-- artifact: artifacts/learning-candidate-proposer-automation-trigger-timeout-20261002/work/runtime-path-inventory.md
+- next_action: T1.2 최소 수정안의 runner artifact 적용 가능 여부 확인
+- plan_change: T1.1a timebox 초과 후 정본 계약 기반 대체 경로로 전환; T1.2까지 남은 직접 점검 예산 35분
+- artifact: artifacts/learning-candidate-proposer-automation-trigger-timeout-20261002/work/minimal-fix-proposal.md
 - task_plan: artifacts/learning-candidate-proposer-automation-trigger-timeout-20261002/work/task-plan.json
 - task_plan_doc: artifacts/learning-candidate-proposer-automation-trigger-timeout-20261002/work/task-plan.md
 - task_plan_template: ARTIFACT_RULES.md#대형-작업-태스크-계획
