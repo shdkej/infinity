@@ -1,30 +1,44 @@
 {
-  "generated_at": "2026-10-02T06:00:08.217Z",
+  "generated_at": "2026-10-02T18:00:08.857Z",
   "summary": {
-    "total": 928,
+    "total": 929,
     "wiki_reflected": 196,
-    "not_reflected": 732,
+    "not_reflected": 733,
     "by_status": {
-      "queued": 746,
+      "queued": 747,
       "reviewed": 97,
       "integrated": 10,
       "rejected": 73,
       "selected": 2
     },
     "by_layer": {
+      "infinity": 60,
       "openclaw-system": 613,
       "external-links": 181,
       "shdkej-content": 74,
-      "infinity": 59,
       "root": 1
     },
     "by_promotion_state": {
-      "not_applicable": 730,
+      "not_applicable": 731,
       "reflected": 196,
       "pending_promotion": 2
     }
   },
   "entries": [
+    {
+      "source": "source/infinity/archive/upstream/research-business-profitability-modoo-20261002.md",
+      "status": "queued",
+      "source_layer": "infinity",
+      "reason": "자동 수집됨; 내용 판정 대기",
+      "reviewed_at": "",
+      "modified_at": "2026-10-02T18:00:05Z",
+      "promotion_targets": [],
+      "reflection_basis": [],
+      "promotion_state": "not_applicable",
+      "promotion_reason": "자동 수집됨; 내용 판정 대기",
+      "promotion_target_note": "",
+      "wiki_reflected": false
+    },
     {
       "source": "source/openclaw-system/data/ai-news/2026-10-02-ai-news.md",
       "status": "queued",
