@@ -70,6 +70,7 @@ Archive intent는 대시보드에서 프로젝트별/성격별로 묶어 볼 수
 1. **Reports는 실행 로그이고 결과물이 아니다.** 동일한 결론을 두 번 찾기 위해 사람이 reports 디렉터리를 뒤져야 하면 운영 실패다. 결과는 archive intent에 요약하고, 산출물은 `artifacts/{id}/final/`에 둔다.
 2. **중간 산출물과 최종 산출물을 섞지 않는다.** `T1.*`, source notes, 비교 작업지, 역할별 초안, Red 검토/재검토, task plan은 모두 `artifacts/{id}/work/`에 둔다. 사용자가 열어야 하는 답·권고·재사용 원문은 `artifacts/{id}/final/`에만 둔다. `work/` 문서는 최종 결과를 대체하거나 Archive의 대표 링크가 될 수 없다.
 3. **Active intent는 짧게 유지한다.** 분석/결과를 본문에 누적하지 말고, 산출물은 `artifacts/{id}/work/` 또는 `artifacts/{id}/final/`에 만들고 active intent에서는 참조만 한다.
+   - **상세 표시 계약:** Active Intent가 `work/`에 읽을 수 있는 중간 산출물을 만들면, `INTENTS.md` 카드와 해당 detail intent의 `artifact:`에 현재 사용자에게 의미 있는 Markdown 경로를 함께 열거한다. 대시보드가 GitHub 디렉터리 API 제한을 만나도 raw 경로로 중간 결과를 표시할 수 있어야 한다. 새 evidence leaf가 문서를 추가·대체하면 같은 커밋에서 이 목록도 갱신한다. 계획 JSON, 이미지 원본, 해시·원시 캡처만은 이 목록의 기본 대상이 아니다.
 4. **완료 시 archive intent가 canonical index가 된다.** 사용자가 "그래서 뭐 했더라"를 찾을 때 한 파일만 봐도 최종 산출물 / 최종 리포트 / 커밋 / URL 까지 한 번에 도달해야 한다.
 5. **`drafts/`는 폐기.** 과거 drafts 산출물은 모두 `artifacts/{id}/`로 이동했다. 모든 신규 detail 링크는 `artifacts/{id}/work/`, `artifacts/{id}/final/` 또는 `intents/archive/{id}.md`만 가리킨다.
 6. **Archive는 프로젝트 종료와 다를 수 있다.** 프로젝트성 작업은 한 intent가 설계·조사·MVP 같은 한 단계를 끝내고 Archive로 가더라도, 원래 사용자 목표가 남아 있으면 반드시 다음 intent를 `Inbox`/`Active`/`Waiting` 중 하나로 연결한다. Archive 요약에는 `next` 또는 후속 intent id를 남긴다.
@@ -186,7 +187,7 @@ Infinity 문서는 아래 4개 역할로 통일한다. 새 문서를 만들 때 
 
 - id: {intent-id}
 - status: archived
-- completed_at: YYYY-MM-DDTHH:MM
+- completed_at: YYYY-MM-DDTHH:MM:SSZ
 - projects: [virtue]
 - task_type: strategy
 - topics: [activation, analytics]
@@ -283,7 +284,7 @@ Infinity 문서는 아래 4개 역할로 통일한다. 새 문서를 만들 때 
    - 원래 프로젝트 목표가 끝났는지 먼저 판정하고, 끝나지 않았으면 후속 intent id 또는 Waiting blocker를 만든다.
    - `intents/active/{id}.md` → `intents/archive/{id}.md`로 이동
    - 위 표준 포맷으로 재작성하면서 artifacts / reports / commits / urls 링크
-   - `INTENTS.md`의 Active 블록 제거, 완료 코멘트 추가 (`<!-- {id} completed YYYY-MM-DDTHH:MM → intents/archive/{id}.md [projects: virtue; type: strategy; topics: activation,analytics] (한 줄 결과) -->`)
+   - `INTENTS.md`의 Active 블록 제거, 같은 UTC 시각을 `completed_at: YYYY-MM-DDTHH:MM:SSZ`로 정식 Archive 블록에 기록하고 완료 코멘트에도 추가한다 (`<!-- {id} completed YYYY-MM-DDTHH:MM → intents/archive/{id}.md [projects: virtue; type: strategy; topics: activation,analytics] (한 줄 결과) -->`). 주석만으로 완료 시각을 남기지 않는다. 대시보드는 정식 블록의 날짜로 최근 완료 순서와 월 그룹을 정한다.
    - Archive 전환 변경을 Infinity 저장소에 commit/push하고, 대시보드가 읽는 원격 `main`에서 해당 Archive 코멘트가 보이는지 확인한다. Knowledge Lab 승격이 있으면 해당 Knowledge Lab 변경은 별도 저장소 변경으로 commit/push·검증한다. Infinity의 부모 submodule pointer는 없다.
 4. 대시보드 등 외부 도구가 detail 링크를 기대하면 archive 경로가 유효한지 확인한다.
 5. 완료 직후 같은 내용을 `detail` 파일로 다시 만들지 않는다. 추가 원문이 필요하면 `artifacts/{id}/work/` 또는 `artifacts/{id}/final/`에 별도 역할을 부여한다.

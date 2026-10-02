@@ -15,7 +15,7 @@ KNOWLEDGE_LAB = ROOT.parent
 ARCHIVE = KNOWLEDGE_LAB / "source" / "infinity" / "archive"
 INFINITY_ARCHIVE = ROOT / "intents" / "archive"
 INGEST_INDEX = KNOWLEDGE_LAB / "ingest" / "INDEX.md"
-KNOWLEDGE_LOG = KNOWLEDGE_LAB / "logs" / "agent-wiki-query.md"
+QUERY_LOG = KNOWLEDGE_LAB / "logs" / "agent-wiki-query.md"
 
 
 def field(text: str, name: str) -> str | None:
@@ -64,9 +64,9 @@ def context_log_errors(intent_id: str, text: str) -> list[str]:
     expected = f"logs/agent-wiki-query.md#{intent_id}"
     if receipt != expected:
         return [f"Context Pack v2 requires knowledge_log: {expected}"]
-    if not KNOWLEDGE_LOG.is_file():
-        return [f"Knowledge Lab query log is missing: {KNOWLEDGE_LOG}"]
-    log_text = KNOWLEDGE_LOG.read_text(encoding="utf-8")
+    if not QUERY_LOG.is_file():
+        return [f"Knowledge Lab query log is missing: {QUERY_LOG}"]
+    log_text = QUERY_LOG.read_text(encoding="utf-8")
     heading = re.search(rf"(?m)^## [^\n]*\[{re.escape(intent_id)}\][^\n]*$", log_text)
     if not heading:
         return [f"Knowledge Lab query log has no heading tagged [{intent_id}]"]

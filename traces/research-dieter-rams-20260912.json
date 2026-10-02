@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "intent_id": "research-dieter-rams-20260912",
+  "status": "inbox",
+  "trace_completeness": "complete",
+  "request": {
+    "raw": {
+      "status": "recorded",
+      "value": "디터 람스에 대해 인피니티로 조사해줘"
+    },
+    "normalized_query": {
+      "status": "recorded",
+      "value": "디터 람스의 디자인 원칙·Braun/Vitsoe 제품 맥락·비판과 실패 조건을 조사하고, 앱·카드·공간형 UI에 적용할 채택/보류/제외 기준으로 정리"
+    }
+  },
+  "events": [
+    {
+      "type": "intake",
+      "at": "2026-09-12T15:09:10Z",
+      "context_pack": "intents/context/research-dieter-rams-20260912.json",
+      "evidence_paths": [
+        "INTENTS.md",
+        "artifacts/research-dieter-rams-20260912/work/task-plan.json",
+        "artifacts/research-dieter-rams-20260912/work/task-plan.md"
+      ]
+    }
+  ],
+  "artifacts": [],
+  "verifications": [],
+  "next_decision": {
+    "status": "in_progress",
+    "value": "공식·기관 자료로 디터 람스의 경력·제품 기여·10가지 원칙 출처를 고정한 뒤, 적용/반증 리서치를 진행한다."
+  }
+}

@@ -1,0 +1,1178 @@
+{
+  "schema_version": 1,
+  "intent_id": "research-richard-sapper-deadline-20260917",
+  "status": "active",
+  "trace_completeness": "complete",
+  "request": {
+    "raw": {
+      "status": "recorded",
+      "value": "엥 왜 벌써 끝났지 내일 8시까지 돌리는건 태스크를 만들어서라도 그때까지 계속 작업해야하는건데"
+    },
+    "normalized_query": {
+      "status": "recorded",
+      "value": "리차드 사퍼 종합 리서치 마감형 재검증: 생애·주요 작품·설계 방식·공동 저작·반례를 2026-09-17 08:00 KST까지 교차검증하고 원 스레드에 보고한다."
+    }
+  },
+  "events": [
+    {
+      "type": "intake",
+      "at": "2026-09-16T09:15:21Z",
+      "context_pack": "intents/context/research-richard-sapper-deadline-20260917.json",
+      "evidence_paths": [
+        "INTENTS.md",
+        "intents/research-richard-sapper-deadline-20260917.md",
+        "artifacts/research-richard-sapper-deadline-20260917/work/task-plan.json",
+        "artifacts/research-richard-sapper-deadline-20260917/work/task-plan.md"
+      ]
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-16T09:36:24Z",
+      "context_pack": "intents/context/research-richard-sapper-deadline-20260917.json",
+      "evidence_paths": [
+        "intents/research-richard-sapper-deadline-20260917.md",
+        "artifacts/research-richard-sapper-deadline-20260917/work/task-plan.json",
+        "artifacts/research-richard-sapper-deadline-20260917/work/task-plan.md"
+      ],
+      "searches": [
+        "Richard Sapper works collaborators companies technology era influence criticism connected designers"
+      ],
+      "wiki_pages": [
+        "agent-wiki/content/docs/outputs/Communication/Open_Source.mdx",
+        "agent-wiki/content/docs/outputs/Idea/Movie.mdx",
+        "agent-wiki/content/docs/outputs/Portfolio.mdx",
+        "agent-wiki/content/docs/outputs/Integration/Marketing.mdx",
+        "agent-wiki/content/docs/outputs/Fundamental/Math.mdx"
+      ],
+      "operational_log_sections": [
+        "logs/agent-wiki-query.md"
+      ],
+      "note": "사용자 범위 정정: 교차검증은 바닥선으로 유지하되, 결과의 중심을 꼬리질문 기반 다방면 확장 조사로 전환했다."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-d81725066fd84b5596b039f234251b14",
+      "canonical_sha": "a1a264ad7d5ab6f1555722e2b033451197b4cbfb",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-16T10:35:45Z",
+      "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-16T10:36:16Z",
+      "context_pack": "intents/context/research-richard-sapper-deadline-20260917.json",
+      "evidence_paths": [
+        "artifacts/research-richard-sapper-deadline-20260917/work/research-expansion-map.md"
+      ],
+      "searches": [
+        "MoMA Richard Sapper Tizio; IBM ThinkPad; Richard Sapper Design biography"
+      ],
+      "wiki_pages": [
+        "agent-wiki/content/docs/outputs/Communication/Open_Source.mdx",
+        "agent-wiki/content/docs/outputs/Idea/Movie.mdx",
+        "agent-wiki/content/docs/outputs/Portfolio.mdx",
+        "agent-wiki/content/docs/outputs/Integration/Marketing.mdx",
+        "agent-wiki/content/docs/outputs/Fundamental/Math.mdx"
+      ],
+      "operational_log_sections": [
+        "logs/agent-wiki-query.md"
+      ],
+      "note": "기존 리서치의 핵심 주장과 직접 출처를 다시 대조하고, ThinkPad 저작 경계의 상충을 조건부로 기록했다."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-c1de571c22f643f5b1f56ffdf63306dc",
+      "canonical_sha": "47d42ce0202f6ecfb4633ba858bf8665d6a8f376",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-16T11:05:49Z",
+      "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-16T11:08:44Z",
+      "context_pack": "intents/context/research-richard-sapper-deadline-20260917.json",
+      "evidence_paths": [
+        "artifacts/research-richard-sapper-deadline-20260917/work/connection-ledger.md"
+      ],
+      "searches": [
+        "MoMA TS 502; MoMA Richard Sapper exhibition archive; ADI 1964 K1340 jury rationale; Metropolitan Museum Tizio; IBM ThinkPad history"
+      ],
+      "wiki_pages": [
+        "agent-wiki/content/docs/outputs/Communication/Open_Source.mdx",
+        "agent-wiki/content/docs/outputs/Idea/Movie.mdx",
+        "agent-wiki/content/docs/outputs/Portfolio.mdx",
+        "agent-wiki/content/docs/outputs/Integration/Marketing.mdx",
+        "agent-wiki/content/docs/outputs/Fundamental/Math.mdx"
+      ],
+      "operational_log_sections": [
+        "logs/agent-wiki-query.md"
+      ],
+      "note": "T1.2 completed: connection ledger separates direct evidence, limited interpretations, and open questions."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-429de75c8b7347e7b13ba619939c62e1",
+      "canonical_sha": "0be3c7e3aaa564f68754c9bff79021a5bacdb667",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-16T11:36:01Z",
+      "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-16T11:38:31Z",
+      "context_pack": "intents/context/research-richard-sapper-deadline-20260917.json",
+      "evidence_paths": [
+        "artifacts/research-richard-sapper-deadline-20260917/work/critical-reading.md"
+      ],
+      "searches": [
+        "ADI Richard Sapper career record; ITmedia ThinkPad design interview; Fast Company ThinkPad design icon criticism; TechRadar ThinkPad at 25"
+      ],
+      "wiki_pages": [
+        "agent-wiki/content/docs/outputs/Communication/Open_Source.mdx",
+        "agent-wiki/content/docs/outputs/Idea/Movie.mdx",
+        "agent-wiki/content/docs/outputs/Portfolio.mdx",
+        "agent-wiki/content/docs/outputs/Integration/Marketing.mdx",
+        "agent-wiki/content/docs/outputs/Fundamental/Math.mdx"
+      ],
+      "operational_log_sections": [
+        "logs/agent-wiki-query.md"
+      ],
+      "note": "T1.3 completed: separated institutional recognition, organizational inheritance, and a second-hand record of critical counterargument; source gap retained."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-b02e95a243234244b642d7219523a8ee",
+      "canonical_sha": "bf6c5d7b5ea32fdd7c2652954aff8910c76b2eb5",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-16T12:06:01Z",
+      "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-16T12:06:01Z",
+      "context_pack": "intents/context/research-richard-sapper-deadline-20260917.json",
+      "evidence_paths": [
+        "artifacts/research-richard-sapper-deadline-20260917/work/task-plan.md"
+      ],
+      "searches": [
+        "No new search: all research leaves T1.1–T1.3 are complete; final delivery is gated by delivery_not_before."
+      ],
+      "wiki_pages": [
+        "agent-wiki/content/docs/outputs/Communication/Open_Source.mdx",
+        "agent-wiki/content/docs/outputs/Idea/Movie.mdx",
+        "agent-wiki/content/docs/outputs/Portfolio.mdx",
+        "agent-wiki/content/docs/outputs/Integration/Marketing.mdx",
+        "agent-wiki/content/docs/outputs/Fundamental/Math.mdx"
+      ],
+      "operational_log_sections": [
+        "logs/agent-wiki-query.md"
+      ],
+      "note": "T1.4 is not safe to activate before delivery_not_before 2026-09-16T23:00:00Z; final draft, Slack delivery, and Archive remain prohibited."
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-16T14:06:40Z",
+      "context_pack": "intents/context/research-richard-sapper-deadline-20260917.json",
+      "evidence_paths": [
+        "artifacts/research-richard-sapper-deadline-20260917/work/task-plan.json",
+        "artifacts/research-richard-sapper-deadline-20260917/work/task-plan.md"
+      ],
+      "searches": [
+        "Richard Sapper product ecosystem materials manufacturing distribution contemporaries interaction legacy"
+      ],
+      "wiki_pages": [
+        "agent-wiki/content/docs/outputs/Communication/Open_Source.mdx",
+        "agent-wiki/content/docs/outputs/Idea/Movie.mdx",
+        "agent-wiki/content/docs/outputs/Portfolio.mdx",
+        "agent-wiki/content/docs/outputs/Integration/Marketing.mdx",
+        "agent-wiki/content/docs/outputs/Fundamental/Math.mdx"
+      ],
+      "operational_log_sections": [
+        "logs/agent-wiki-query.md"
+      ],
+      "note": "사용자 지시로 delivery_not_before 대기를 Active 탐색 확장으로 전환했다. T2 leaf와 보충 정책을 추가했다."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-9355c88eafe5420ab57d4bc40864ed63",
+      "canonical_sha": "228bfed77ad6f4848f7d8b448de8e69fa72de6d2",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-16T14:07:44Z",
+      "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-16T16:29:01Z",
+      "context_pack": "intents/context/research-richard-sapper-deadline-20260917.json",
+      "evidence_paths": [
+        "INTENTS.md",
+        "intents/research-richard-sapper-deadline-20260917.md",
+        "artifacts/research-richard-sapper-deadline-20260917/work/task-plan.json"
+      ],
+      "searches": [
+        "active exploration continuation after deferred delivery"
+      ],
+      "wiki_pages": [
+        "agent-wiki/content/docs/outputs/Communication/Open_Source.mdx",
+        "agent-wiki/content/docs/outputs/Idea/Movie.mdx",
+        "agent-wiki/content/docs/outputs/Portfolio.mdx",
+        "agent-wiki/content/docs/outputs/Integration/Marketing.mdx",
+        "agent-wiki/content/docs/outputs/Fundamental/Math.mdx"
+      ],
+      "operational_log_sections": [
+        "logs/agent-wiki-query.md"
+      ],
+      "note": "이전 실행이 오래된 dispatcher 지시문으로 Active를 Waiting으로 덮어썼다. 상태를 Active로 복구하고 deferred delivery가 Waiting이 아님을 dispatcher에 명시했다."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-8ff0074626474928bd3806be33d1309d",
+      "canonical_sha": "027b7871c491b4a2bb5f6e22e5e6dc5e7bdec85d",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-16T16:29:49Z",
+      "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-16T16:31:29Z",
+      "context_pack": "intents/context/research-richard-sapper-deadline-20260917.json",
+      "evidence_paths": [
+        "artifacts/research-richard-sapper-deadline-20260917/work/product-ecosystem-branches.md"
+      ],
+      "searches": [
+        "MoMA 9090 collection; ADI 9090 award record; Museo Omero 9090; Artemide company history and Tizio; Alessi Richard Sapper product collection"
+      ],
+      "wiki_pages": [
+        "agent-wiki/content/docs/outputs/Communication/Open_Source.mdx",
+        "agent-wiki/content/docs/outputs/Idea/Movie.mdx",
+        "agent-wiki/content/docs/outputs/Portfolio.mdx",
+        "agent-wiki/content/docs/outputs/Integration/Marketing.mdx",
+        "agent-wiki/content/docs/outputs/Fundamental/Math.mdx"
+      ],
+      "operational_log_sections": [
+        "logs/agent-wiki-query.md"
+      ],
+      "note": "T2.1 completed: mapped 9090 and Tizio through materials, production, institutional recognition, and market/distribution conditions; preserved source interests and date-layer ambiguity."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-b37dc50550fa411fbb7591d0f509a410",
+      "canonical_sha": "dbbaa46e41317311199d8ccd9dadbd45ec776ba7",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-16T16:35:40Z",
+      "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-16T16:37:52Z",
+      "context_pack": "intents/context/research-richard-sapper-deadline-20260917.json",
+      "evidence_paths": [
+        "artifacts/research-richard-sapper-deadline-20260917/work/contemporary-network.md"
+      ],
+      "searches": [
+        "MoMA Richard Sapper artist record; ADI Marco Zanuso Career Award; Fondazione Vico Magistretti biography; Design Museum Enzo Mari exhibition"
+      ],
+      "wiki_pages": [
+        "agent-wiki/content/docs/outputs/Communication/Open_Source.mdx",
+        "agent-wiki/content/docs/outputs/Idea/Movie.mdx",
+        "agent-wiki/content/docs/outputs/Portfolio.mdx",
+        "agent-wiki/content/docs/outputs/Integration/Marketing.mdx",
+        "agent-wiki/content/docs/outputs/Fundamental/Math.mdx"
+      ],
+      "operational_log_sections": [
+        "logs/agent-wiki-query.md"
+      ],
+      "note": "T2.2 completed: classified Zanuso as direct collaborator; Magistretti as shared production/institutional context; Mari as critical comparison only, with no unsupported direct-influence claim."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-b07aa7cdf544436c80dd1459ac0d9e3f",
+      "canonical_sha": "ed36f0e81763be9e51379163169b0d6a32ca3b99",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-16T17:05:41Z",
+      "status": "accepted"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-1aab4f659092456491b289c0f588b4db",
+      "canonical_sha": "394d899038033db1d735e55f732c05951648cbe8",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-16T17:35:42Z",
+      "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-16T17:37:09Z",
+      "context_pack": "intents/context/research-richard-sapper-deadline-20260917.json",
+      "evidence_paths": [
+        "artifacts/research-richard-sapper-deadline-20260917/work/interaction-legacy-branches.md"
+      ],
+      "searches": [
+        "IBM ThinkPad history; Lenovo 25th anniversary ThinkPad; Lenovo foundational engineering"
+      ],
+      "wiki_pages": [
+        "agent-wiki/content/docs/outputs/Communication/Open_Source.mdx",
+        "agent-wiki/content/docs/outputs/Idea/Movie.mdx",
+        "agent-wiki/content/docs/outputs/Portfolio.mdx",
+        "agent-wiki/content/docs/outputs/Integration/Marketing.mdx",
+        "agent-wiki/content/docs/outputs/Fundamental/Math.mdx"
+      ],
+      "operational_log_sections": [
+        "logs/agent-wiki-query.md"
+      ],
+      "note": "T2.3 completed: separated Sapper’s ThinkPad aesthetic and TrackPoint color decisions from Ted Selker’s input-device contribution and Yamato team engineering; treated later ThinkPad continuity as organizational rather than sole-author lineage."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-2ea46329b3384b928cffc9148d7187b1",
+      "canonical_sha": "4d7e033641d3bf2c2446b674bdc24d584c47e8a2",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-16T18:05:41Z",
+      "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-16T18:07:34Z",
+      "context_pack": "intents/context/research-richard-sapper-deadline-20260917.json",
+      "evidence_paths": [
+        "artifacts/research-richard-sapper-deadline-20260917/work/9090-use-maintenance.md"
+      ],
+      "searches": [
+        "Museo Omero 9090; Alessi 9090 gasket spare part; 9090 user manual care and replacement parts"
+      ],
+      "wiki_pages": [
+        "agent-wiki/content/docs/outputs/Communication/Open_Source.mdx",
+        "agent-wiki/content/docs/outputs/Idea/Movie.mdx",
+        "agent-wiki/content/docs/outputs/Portfolio.mdx",
+        "agent-wiki/content/docs/outputs/Integration/Marketing.mdx",
+        "agent-wiki/content/docs/outputs/Fundamental/Math.mdx"
+      ],
+      "operational_log_sections": [
+        "logs/agent-wiki-query.md"
+      ],
+      "note": "T3.1 completed: distinguished 9090’s lever closure, care instructions, current gasket sale, and ongoing production from unverified universal repairability, price history, or durability claims."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-8ecf0b56fdc149179ad82d189ba87cc9",
+      "canonical_sha": "43da5f538944391350203fe76f41ca3fde6d92d9",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-16T18:10:33Z",
+      "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-16T18:13:01Z",
+      "context_pack": "intents/context/research-richard-sapper-deadline-20260917.json",
+      "evidence_paths": [
+        "artifacts/research-richard-sapper-deadline-20260917/work/tizio-technology-conditions.md"
+      ],
+      "searches": [
+        "Met Tizio collection; MoMA Tizio collection; Artemide Tizio product family and Tizio Micro instructions"
+      ],
+      "wiki_pages": [
+        "agent-wiki/content/docs/outputs/Communication/Open_Source.mdx",
+        "agent-wiki/content/docs/outputs/Idea/Movie.mdx",
+        "agent-wiki/content/docs/outputs/Portfolio.mdx",
+        "agent-wiki/content/docs/outputs/Integration/Marketing.mdx",
+        "agent-wiki/content/docs/outputs/Fundamental/Math.mdx"
+      ],
+      "operational_log_sections": [
+        "logs/agent-wiki-query.md"
+      ],
+      "note": "T3.2 completed: separated historical halogen, counterweight, and current-conducting-arm system from current LED product specifications and model-specific service instructions."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-4ab708f4955049119b4319196a7cd12a",
+      "canonical_sha": "ef29be222def7554119c5ea4636ea5cc4fd8675e",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-16T18:40:28Z",
+      "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-16T18:42:32Z",
+      "context_pack": "intents/context/research-richard-sapper-deadline-20260917.json",
+      "evidence_paths": [
+        "artifacts/research-richard-sapper-deadline-20260917/work/brionvega-collaboration-market.md"
+      ],
+      "searches": [
+        "ADI Doney record; MoMA Brionvega TS 502 and Doney collections; Cooper Hewitt Algol record; Brionvega heritage attempt timed out"
+      ],
+      "wiki_pages": [
+        "agent-wiki/content/docs/outputs/Communication/Open_Source.mdx",
+        "agent-wiki/content/docs/outputs/Idea/Movie.mdx",
+        "agent-wiki/content/docs/outputs/Portfolio.mdx",
+        "agent-wiki/content/docs/outputs/Integration/Marketing.mdx",
+        "agent-wiki/content/docs/outputs/Fundamental/Math.mdx"
+      ],
+      "operational_log_sections": [
+        "logs/agent-wiki-query.md"
+      ],
+      "note": "T3.3 completed: confirmed Zanuso/Sapper co-design and Brionvega manufacturing while retaining gaps on sales, distribution, and individual contribution; excluded timed-out company narrative from core evidence."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-280828868abe42c684074048c59872ba",
+      "canonical_sha": "b2db5bf2da808a00c6ade2896a4de8189e84089d",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-16T19:10:27Z",
+      "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-16T19:14:59Z",
+      "context_pack": "intents/context/research-richard-sapper-deadline-20260917.json",
+      "evidence_paths": [
+        "artifacts/research-richard-sapper-deadline-20260917/work/9091-kettle-conditions.md"
+      ],
+      "searches": [
+        "Museo Omero Bollitore 9091; Alessi 9091 kettle; Brooklyn Museum 9091 FM record"
+      ],
+      "wiki_pages": [
+        "agent-wiki/content/docs/outputs/Communication/Open_Source.mdx",
+        "agent-wiki/content/docs/outputs/Idea/Movie.mdx",
+        "agent-wiki/content/docs/outputs/Portfolio.mdx",
+        "agent-wiki/content/docs/outputs/Integration/Marketing.mdx",
+        "agent-wiki/content/docs/outputs/Fundamental/Math.mdx"
+      ],
+      "operational_log_sections": [
+        "logs/agent-wiki-query.md"
+      ],
+      "note": "T4.1 completed: separated the 9091 melodic signal, trigger/whistle, current induction product and spare-parts listing from 9090; preserved date/material/sample conflicts and lacked direct thermal testing."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-de45a66acc95410a9b9c0af9332ed43c",
+      "canonical_sha": "1444eee1f3b4c3d17c517bc26d9f0d3d2bf5cd48",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-16T19:20:29Z",
+      "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-16T19:23:32Z",
+      "context_pack": "intents/context/research-richard-sapper-deadline-20260917.json",
+      "evidence_paths": [
+        "artifacts/research-richard-sapper-deadline-20260917/work/thinkpad-701c-authorship.md"
+      ],
+      "searches": [
+        "IBM ThinkPad 701C butterfly keyboard John Karidis; MoMA ThinkPad 701 Portable Computer 1995"
+      ],
+      "wiki_pages": [
+        "agent-wiki/content/docs/outputs/Communication/Open_Source.mdx",
+        "agent-wiki/content/docs/outputs/Idea/Movie.mdx",
+        "agent-wiki/content/docs/outputs/Portfolio.mdx",
+        "agent-wiki/content/docs/outputs/Integration/Marketing.mdx",
+        "agent-wiki/content/docs/outputs/Fundamental/Math.mdx"
+      ],
+      "operational_log_sections": [
+        "logs/agent-wiki-query.md"
+      ],
+      "note": "T4.2 completed: separated Karidis mechanical keyboard account, Sapper ThinkPad aesthetics consulting, and MoMA multi-party attribution; reserved patent, reliability and detailed engineering questions for T5.4."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-0874fdc32fcc4bde937e445308f18d42",
+      "canonical_sha": "a8688581bdcfbd68eae72b671f57752a9173f13e",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-16T19:50:27Z",
+      "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-16T19:52:33Z",
+      "context_pack": "intents/context/research-richard-sapper-deadline-20260917.json",
+      "evidence_paths": [
+        "artifacts/research-richard-sapper-deadline-20260917/work/alessi-collaboration-model.md"
+      ],
+      "searches": [
+        "Alessi history independent designers Richard Sapper; Museo Omero 9090; ADI Compasso d Oro 9090 Richard Sapper"
+      ],
+      "wiki_pages": [
+        "agent-wiki/content/docs/outputs/Communication/Open_Source.mdx",
+        "agent-wiki/content/docs/outputs/Idea/Movie.mdx",
+        "agent-wiki/content/docs/outputs/Portfolio.mdx",
+        "agent-wiki/content/docs/outputs/Integration/Marketing.mdx",
+        "agent-wiki/content/docs/outputs/Fundamental/Math.mdx"
+      ],
+      "operational_log_sections": [
+        "logs/agent-wiki-query.md"
+      ],
+      "note": "T4.3 completed: separated Alessi partnership self-history from Museo Omero and ADI records of Sapper/Alessi attribution and 1979 Compasso d Oro; preserved missing contract, cost and production-volume evidence."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-65cc5944c40a4ef1a4aa34f11bd0faa4",
+      "canonical_sha": "efbf781607fae62a8042bca69b2fee42d2c23d62",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-16T20:20:24Z",
+      "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-16T20:22:21Z",
+      "context_pack": "intents/context/research-richard-sapper-deadline-20260917.json",
+      "evidence_paths": [
+        "artifacts/research-richard-sapper-deadline-20260917/work/9091-record-variants.md"
+      ],
+      "searches": [
+        "Museo Omero Bollitore 9091; Alessi UK 9091 kettle; Brooklyn Museum Kettle 9091"
+      ],
+      "wiki_pages": [
+        "agent-wiki/content/docs/outputs/Communication/Open_Source.mdx",
+        "agent-wiki/content/docs/outputs/Idea/Movie.mdx",
+        "agent-wiki/content/docs/outputs/Portfolio.mdx",
+        "agent-wiki/content/docs/outputs/Integration/Marketing.mdx",
+        "agent-wiki/content/docs/outputs/Fundamental/Math.mdx"
+      ],
+      "operational_log_sections": [
+        "logs/agent-wiki-query.md"
+      ],
+      "note": "T5.1 completed: retained conflicting 9091 date, material and dimension records by museum, current manufacturer and collection sample rather than constructing a unified specification."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-1d86379cdb0e491b93bc234514ee3e84",
+      "canonical_sha": "cc4efcb8e24da6b04cf97e01386116a07631901b",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-16T20:50:32Z",
+      "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-16T20:52:36Z",
+      "context_pack": "intents/context/research-richard-sapper-deadline-20260917.json",
+      "evidence_paths": [
+        "artifacts/research-richard-sapper-deadline-20260917/work/tizio-reissue-lineage.md"
+      ],
+      "searches": [
+        "MoMA Tizio table lamp halogen; Met Tizio 1972; Artemide Tizio LED A009210 specifications"
+      ],
+      "wiki_pages": [
+        "agent-wiki/content/docs/outputs/Communication/Open_Source.mdx",
+        "agent-wiki/content/docs/outputs/Idea/Movie.mdx",
+        "agent-wiki/content/docs/outputs/Portfolio.mdx",
+        "agent-wiki/content/docs/outputs/Integration/Marketing.mdx",
+        "agent-wiki/content/docs/outputs/Fundamental/Math.mdx"
+      ],
+      "operational_log_sections": [
+        "logs/agent-wiki-query.md"
+      ],
+      "note": "T5.2 completed: distinguished the original halogen, counterweighted arm and power-conducting structure from current Artemide A009210 LED specifications; did not backport LED values to the original."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-fd4a9d96bd0a401faa92c1036a784406",
+      "canonical_sha": "2f712834c20194be4a5fa8c840018ca0bf9b2171",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-16T21:20:24Z",
+      "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-16T21:22:31Z",
+      "context_pack": "intents/context/research-richard-sapper-deadline-20260917.json",
+      "evidence_paths": [
+        "artifacts/research-richard-sapper-deadline-20260917/work/brionvega-record-market-variants.md"
+      ],
+      "searches": [
+        "MoMA TS 502 Brionvega; Cooper Hewitt TS 502; MoMA Radio On 2016"
+      ],
+      "wiki_pages": [
+        "agent-wiki/content/docs/outputs/Communication/Open_Source.mdx",
+        "agent-wiki/content/docs/outputs/Idea/Movie.mdx",
+        "agent-wiki/content/docs/outputs/Portfolio.mdx",
+        "agent-wiki/content/docs/outputs/Integration/Marketing.mdx",
+        "agent-wiki/content/docs/outputs/Fundamental/Math.mdx"
+      ],
+      "operational_log_sections": [
+        "logs/agent-wiki-query.md"
+      ],
+      "note": "T5.3 completed: separated institutionally documented TS 502 collection samples from MoMA 2016 production/upgraded-electronics narrative; retained the absence of current distribution, sales and repair evidence."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-87e220e45861426c89c452f412239687",
+      "canonical_sha": "7ce5d1701df0ae8a482ee78269c163c59772ba53",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-16T21:25:36Z",
+      "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-16T21:28:02Z",
+      "context_pack": "intents/context/research-richard-sapper-deadline-20260917.json",
+      "evidence_paths": [
+        "artifacts/research-richard-sapper-deadline-20260917/work/701c-mechanism-team-ledger.md"
+      ],
+      "searches": [
+        "IBM ThinkPad 701C John Karidis; MoMA ThinkPad 701 Portable Computer authorship"
+      ],
+      "wiki_pages": [
+        "agent-wiki/content/docs/outputs/Communication/Open_Source.mdx",
+        "agent-wiki/content/docs/outputs/Idea/Movie.mdx",
+        "agent-wiki/content/docs/outputs/Portfolio.mdx",
+        "agent-wiki/content/docs/outputs/Integration/Marketing.mdx",
+        "agent-wiki/content/docs/outputs/Fundamental/Math.mdx"
+      ],
+      "operational_log_sections": [
+        "logs/agent-wiki-query.md"
+      ],
+      "note": "T5.4 completed: retained separate IBM accounts for Karidis mechanism and Sapper product language alongside MoMA multi-party attribution; no direct patent, drawings, or internal role matrix were verified."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-f166e21940844840ba7fcdb7f5515318",
+      "canonical_sha": "985764ed468285a20408fc1751020d8e1a955b44",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-16T21:55:54Z",
+      "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-16T21:58:43Z",
+      "context_pack": "intents/context/research-richard-sapper-deadline-20260917.json",
+      "evidence_paths": [
+        "artifacts/research-richard-sapper-deadline-20260917/work/alessi-collaboration-institutions.md"
+      ],
+      "searches": [
+        "Alessi History external designers Richard Sapper; ADI Design Museum 9090 Compasso d Oro; MoMA 9090 manufacturer"
+      ],
+      "wiki_pages": [
+        "agent-wiki/content/docs/outputs/Communication/Open_Source.mdx",
+        "agent-wiki/content/docs/outputs/Idea/Movie.mdx",
+        "agent-wiki/content/docs/outputs/Portfolio.mdx",
+        "agent-wiki/content/docs/outputs/Integration/Marketing.mdx",
+        "agent-wiki/content/docs/outputs/Fundamental/Math.mdx"
+      ],
+      "operational_log_sections": [
+        "logs/agent-wiki-query.md"
+      ],
+      "note": "T5.5 completed: separated Alessi collaboration narrative from ADI award record and MoMA collection metadata; retained contract, cost, production and sales gaps."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-d936ad2955b44469b935ab53ab957cc2",
+      "canonical_sha": "79cf15bc7fab5613b1d73cfa03576f9ab5091fef",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-16T22:25:41Z",
+      "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-16T22:28:03Z",
+      "context_pack": "intents/context/research-richard-sapper-deadline-20260917.json",
+      "evidence_paths": [
+        "artifacts/research-richard-sapper-deadline-20260917/work/tizio-date-layers.md"
+      ],
+      "searches": [
+        "MoMA Tizio 1971 first produced 1972; Centre Pompidou Tizio creation date; Artemide history Tizio 1972; Met Tizio 1972"
+      ],
+      "wiki_pages": [
+        "agent-wiki/content/docs/outputs/Communication/Open_Source.mdx",
+        "agent-wiki/content/docs/outputs/Idea/Movie.mdx",
+        "agent-wiki/content/docs/outputs/Portfolio.mdx",
+        "agent-wiki/content/docs/outputs/Integration/Marketing.mdx",
+        "agent-wiki/content/docs/outputs/Fundamental/Math.mdx"
+      ],
+      "operational_log_sections": [
+        "logs/agent-wiki-query.md"
+      ],
+      "note": "T6.1 completed: preserved MoMA/Centre Pompidou 1971 creation metadata separately from MoMA first-production text, Artemide timeline, and Met 1972 collection date; no first-release document verified."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-f41d99780baa4ca095ab87c7b4329941",
+      "canonical_sha": "4ec5b3250e5b4af74a44b34637162efa38f5bbfa",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-16T22:55:42Z",
+      "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-16T23:00:29Z",
+      "context_pack": "intents/context/research-richard-sapper-deadline-20260917.json",
+      "evidence_paths": [
+        "artifacts/research-richard-sapper-deadline-20260917/work/ts502-interaction-mechanism.md"
+      ],
+      "searches": [
+        "Museo Omero TS502 hinge and magnets; Museum Angewandte Kunst TS502 interaction; Cooper Hewitt TS502 object record; MoMA TS502 collection record"
+      ],
+      "wiki_pages": [
+        "agent-wiki/content/docs/outputs/Communication/Open_Source.mdx",
+        "agent-wiki/content/docs/outputs/Idea/Movie.mdx",
+        "agent-wiki/content/docs/outputs/Portfolio.mdx",
+        "agent-wiki/content/docs/outputs/Integration/Marketing.mdx",
+        "agent-wiki/content/docs/outputs/Fundamental/Math.mdx"
+      ],
+      "operational_log_sections": [
+        "logs/agent-wiki-query.md"
+      ],
+      "note": "T6.2 completed: confirmed TS 502 hinge interaction and preserved reliability, safety, and service-evidence gaps."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-f28437a51abd4ba482d8c133893a065f",
+      "canonical_sha": "05d2843ed35ebc0390cf6ab8cd4bde90712eb920",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-16T23:30:25Z",
+      "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-16T23:32:10Z",
+      "context_pack": "intents/context/research-richard-sapper-deadline-20260917.json",
+      "evidence_paths": [
+        "artifacts/research-richard-sapper-deadline-20260917/work/9090-service-record-boundaries.md"
+      ],
+      "searches": [
+        "Alessi 9090 spare parts gasket microfilter; Alessi 9090 instruction manual cleaning and worn-part guidance"
+      ],
+      "wiki_pages": [
+        "agent-wiki/content/docs/outputs/Communication/Open_Source.mdx",
+        "agent-wiki/content/docs/outputs/Idea/Movie.mdx",
+        "agent-wiki/content/docs/outputs/Portfolio.mdx",
+        "agent-wiki/content/docs/outputs/Integration/Marketing.mdx",
+        "agent-wiki/content/docs/outputs/Fundamental/Math.mdx"
+      ],
+      "operational_log_sections": [
+        "logs/agent-wiki-query.md"
+      ],
+      "note": "T6.3 completed: separated current Alessi 9090 part listings and legacy care guidance from vintage compatibility, stock, and service guarantees."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-81664fb3928049488d32b7d44ef2071b",
+      "canonical_sha": "aca40c80b659ace96a15c9a01800ccf6df100e1a",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-16T23:35:37Z",
+      "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-16T23:38:47Z",
+      "context_pack": "intents/context/research-richard-sapper-deadline-20260917.json",
+      "evidence_paths": [
+        "artifacts/research-richard-sapper-deadline-20260917/work/701c-patent-collection-boundaries.md"
+      ],
+      "searches": [
+        "IBM ThinkPad 701C Butterfly; US5659307A movable keyboard sections; D372472 fractionated keyboard inventors"
+      ],
+      "wiki_pages": [
+        "agent-wiki/content/docs/outputs/Communication/Open_Source.mdx",
+        "agent-wiki/content/docs/outputs/Idea/Movie.mdx",
+        "agent-wiki/content/docs/outputs/Portfolio.mdx",
+        "agent-wiki/content/docs/outputs/Integration/Marketing.mdx",
+        "agent-wiki/content/docs/outputs/Fundamental/Math.mdx"
+      ],
+      "operational_log_sections": [
+        "logs/agent-wiki-query.md"
+      ],
+      "note": "T6.4 completed: separated 701C collection attribution, IBM product history, functional-patent inventors, and design-patent inventors."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-b9887f48a60446e58b3d1e20b8c358cb",
+      "canonical_sha": "72b9eb89d62a876cfb5b70fb63da30b669fa254b",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-17T00:05:44Z",
+      "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-17T00:07:52Z",
+      "context_pack": "intents/context/research-richard-sapper-deadline-20260917.json",
+      "evidence_paths": [
+        "artifacts/research-richard-sapper-deadline-20260917/work/alessi-award-contract-boundaries.md"
+      ],
+      "searches": [
+        "ADI 9090 Compasso d Oro 1979; Alessi Richard Sapper 9090 current collection"
+      ],
+      "wiki_pages": [
+        "agent-wiki/content/docs/outputs/Communication/Open_Source.mdx",
+        "agent-wiki/content/docs/outputs/Idea/Movie.mdx",
+        "agent-wiki/content/docs/outputs/Portfolio.mdx",
+        "agent-wiki/content/docs/outputs/Integration/Marketing.mdx",
+        "agent-wiki/content/docs/outputs/Fundamental/Math.mdx"
+      ],
+      "operational_log_sections": [
+        "logs/agent-wiki-query.md"
+      ],
+      "note": "T6.5 completed: separated ADI award metadata and Alessi current brand/sales narrative from contracts, production, and financial evidence."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-82e2a91c63564db284e20494054aa2e6",
+      "canonical_sha": "414f6009a1fb845c472c9aaa5e3a6dacf929a8fe",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-17T00:35:46Z",
+      "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-17T00:38:04Z",
+      "context_pack": "intents/context/research-richard-sapper-deadline-20260917.json",
+      "evidence_paths": [
+        "artifacts/research-richard-sapper-deadline-20260917/work/701c-patent-claims.md"
+      ],
+      "searches": [
+        "US5659307A biased movable keyboard sections claims; USD372472S fractionated keyboard design claim"
+      ],
+      "wiki_pages": [
+        "agent-wiki/content/docs/outputs/Communication/Open_Source.mdx",
+        "agent-wiki/content/docs/outputs/Idea/Movie.mdx",
+        "agent-wiki/content/docs/outputs/Portfolio.mdx",
+        "agent-wiki/content/docs/outputs/Integration/Marketing.mdx",
+        "agent-wiki/content/docs/outputs/Fundamental/Math.mdx"
+      ],
+      "operational_log_sections": [
+        "logs/agent-wiki-query.md"
+      ],
+      "note": "T7.1 completed: directly separated US5659307A functional inventors and claims from USD372472S ornamental-design inventors and claim, retaining contribution and contract boundaries."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-12f97650299c4a2dabc92285de37f853",
+      "canonical_sha": "e272a2b13bfc0ec48b639bb4554703960a7d75eb",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-17T01:05:37Z",
+      "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-17T01:08:53Z",
+      "context_pack": "intents/context/research-richard-sapper-deadline-20260917.json",
+      "evidence_paths": [
+        "artifacts/research-richard-sapper-deadline-20260917/work/ts502-variant-service-boundaries.md"
+      ],
+      "searches": [
+        "Brionvega TS502 service manual hinge spare parts; Brionvega TS502 V2G schematic; TS502 2 serie museum collection"
+      ],
+      "wiki_pages": [
+        "agent-wiki/content/docs/outputs/Communication/Open_Source.mdx",
+        "agent-wiki/content/docs/outputs/Idea/Movie.mdx",
+        "agent-wiki/content/docs/outputs/Portfolio.mdx",
+        "agent-wiki/content/docs/outputs/Integration/Marketing.mdx",
+        "agent-wiki/content/docs/outputs/Fundamental/Math.mdx"
+      ],
+      "operational_log_sections": [
+        "logs/agent-wiki-query.md"
+      ],
+      "note": "T7.2 completed: preserved the TS502 second-series hinge/cable sample record; technical archive indexes a TS502 V2G schematic but the source PDF did not fetch, so generation-specific mechanics, parts, and service compatibility remain unverified."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-da466eeb6cb441808540ea9ae618b511",
+      "canonical_sha": "f4057618b01284acac8f1cb746da2381f83f288a",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-17T01:35:40Z",
+      "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-17T01:38:05Z",
+      "context_pack": "intents/context/research-richard-sapper-deadline-20260917.json",
+      "evidence_paths": [
+        "artifacts/research-richard-sapper-deadline-20260917/work/9091-signal-award-boundaries.md"
+      ],
+      "searches": [
+        "Richard Sapper 9091 kettle whistle patent; ADI 9091 Sapper; Alessi 9091 whistle spare parts"
+      ],
+      "wiki_pages": [
+        "agent-wiki/content/docs/outputs/Communication/Open_Source.mdx",
+        "agent-wiki/content/docs/outputs/Idea/Movie.mdx",
+        "agent-wiki/content/docs/outputs/Portfolio.mdx",
+        "agent-wiki/content/docs/outputs/Integration/Marketing.mdx",
+        "agent-wiki/content/docs/outputs/Fundamental/Math.mdx"
+      ],
+      "operational_log_sections": [
+        "logs/agent-wiki-query.md"
+      ],
+      "note": "T7.3 completed: separated Alessi current 9091 whistle/product/parts claims from ADI evidence that names 9091 as 1983 and names 9090—not 9091—as the 1979 Compasso d’Oro product; no direct 9091 patent or independent test located."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-9ab3470d9bf6464db9c1b063ec78facb",
+      "canonical_sha": "215afddf8dd8efee18c8ddd5018297bd1dd57cd8",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-17T01:40:26Z",
+      "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-17T01:44:15Z",
+      "context_pack": "intents/context/research-richard-sapper-deadline-20260917.json",
+      "evidence_paths": [
+        "artifacts/research-richard-sapper-deadline-20260917/work/tizio-exhibition-reissue-boundaries.md"
+      ],
+      "searches": [
+        "Tizio MoMA collection; Tizio Centre Pompidou collection; Artemide Tizio LED A009210 specification"
+      ],
+      "wiki_pages": [
+        "agent-wiki/content/docs/outputs/Communication/Open_Source.mdx",
+        "agent-wiki/content/docs/outputs/Idea/Movie.mdx",
+        "agent-wiki/content/docs/outputs/Portfolio.mdx",
+        "agent-wiki/content/docs/outputs/Integration/Marketing.mdx",
+        "agent-wiki/content/docs/outputs/Fundamental/Math.mdx"
+      ],
+      "operational_log_sections": [
+        "logs/agent-wiki-query.md"
+      ],
+      "note": "T7.4 completed: separated institutional Tizio collection/exhibition metadata from current Artemide LED product specifications, retaining availability and original-to-reissue performance gaps."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-567fedd267c9424c98857ee99f769ac6",
+      "canonical_sha": "2dc6eba74735af13f86e82d51eac254d6c319fe2",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-17T02:10:27Z",
+      "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-17T02:12:05Z",
+      "context_pack": "intents/context/research-richard-sapper-deadline-20260917.json",
+      "evidence_paths": [
+        "artifacts/research-richard-sapper-deadline-20260917/work/sapper-criticism-source-boundaries.md"
+      ],
+      "searches": [
+        "Richard Sapper criticism; Mark Wilson ThinkPad overrated; Domus Black Box Syndrome Sapper"
+      ],
+      "wiki_pages": [
+        "agent-wiki/content/docs/outputs/Communication/Open_Source.mdx",
+        "agent-wiki/content/docs/outputs/Idea/Movie.mdx",
+        "agent-wiki/content/docs/outputs/Portfolio.mdx",
+        "agent-wiki/content/docs/outputs/Integration/Marketing.mdx",
+        "agent-wiki/content/docs/outputs/Fundamental/Math.mdx"
+      ],
+      "operational_log_sections": [
+        "logs/agent-wiki-query.md"
+      ],
+      "note": "T7.5 completed: directly read Fast Company 2015 criticism and Domus 2013 interview essay; kept product, author, and evidence-layer limits plus gaps in scholarly and longitudinal evidence."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-db53ae021eed498aa499a7bf14d21217",
+      "canonical_sha": "aaba63042b1c1664bf255317ece6c1673f437d59",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-17T02:40:27Z",
+      "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-17T02:41:52Z",
+      "context_pack": "intents/context/research-richard-sapper-deadline-20260917.json",
+      "evidence_paths": [
+        "artifacts/research-richard-sapper-deadline-20260917/work/tizio-collection-metadata-crosswalk.md"
+      ],
+      "searches": [
+        "Tizio MoMA collection metadata; Tizio Met collection acquisition; Tizio Centre Pompidou acquisition"
+      ],
+      "wiki_pages": [
+        "agent-wiki/content/docs/outputs/Communication/Open_Source.mdx",
+        "agent-wiki/content/docs/outputs/Idea/Movie.mdx",
+        "agent-wiki/content/docs/outputs/Portfolio.mdx",
+        "agent-wiki/content/docs/outputs/Integration/Marketing.mdx",
+        "agent-wiki/content/docs/outputs/Fundamental/Math.mdx"
+      ],
+      "operational_log_sections": [
+        "logs/agent-wiki-query.md"
+      ],
+      "note": "T8.1 completed: crosswalked MoMA, Met, and Centre Pompidou creation, production, exhibition, gift, and acquisition metadata without inferring one launch date or current availability."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-f3642da3debf467c8b7a0f211adf55b9",
+      "canonical_sha": "d38aa422c2c27e2616af56066a9d0b45d5b49268",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-17T03:10:23Z",
+      "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-17T03:11:48Z",
+      "context_pack": "intents/context/research-richard-sapper-deadline-20260917.json",
+      "evidence_paths": [
+        "artifacts/research-richard-sapper-deadline-20260917/work/9091-parts-regional-boundaries.md"
+      ],
+      "searches": [
+        "Alessi 9091 spare parts US regional availability; Alessi 9091 spare parts Romania"
+      ],
+      "wiki_pages": [
+        "agent-wiki/content/docs/outputs/Communication/Open_Source.mdx",
+        "agent-wiki/content/docs/outputs/Idea/Movie.mdx",
+        "agent-wiki/content/docs/outputs/Portfolio.mdx",
+        "agent-wiki/content/docs/outputs/Integration/Marketing.mdx",
+        "agent-wiki/content/docs/outputs/Fundamental/Math.mdx"
+      ],
+      "operational_log_sections": [
+        "logs/agent-wiki-query.md"
+      ],
+      "note": "T8.2 completed: current Alessi US and Romania spare-parts pages establish local catalogue items only, not global inventory, vintage compatibility, or repair guarantees."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-6bf90d4751c5490fad297de967d432ac",
+      "canonical_sha": "0f0dc0ce1a7415739b37a29ca2a28e227cdc205d",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-17T03:40:21Z",
+      "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-17T03:41:47Z",
+      "context_pack": "intents/context/research-richard-sapper-deadline-20260917.json",
+      "evidence_paths": [
+        "artifacts/research-richard-sapper-deadline-20260917/work/701c-patent-assignment-family.md"
+      ],
+      "searches": [
+        "US5659307A assignment IBM Lenovo; USD372472S fractionated keyboard"
+      ],
+      "wiki_pages": [
+        "agent-wiki/content/docs/outputs/Communication/Open_Source.mdx",
+        "agent-wiki/content/docs/outputs/Idea/Movie.mdx",
+        "agent-wiki/content/docs/outputs/Portfolio.mdx",
+        "agent-wiki/content/docs/outputs/Integration/Marketing.mdx",
+        "agent-wiki/content/docs/outputs/Fundamental/Math.mdx"
+      ],
+      "operational_log_sections": [
+        "logs/agent-wiki-query.md"
+      ],
+      "note": "T8.3 completed: separated US5659307A inventor, original assignee, assignment, priority, and family fields from product-wide authorship, contracts, and team contribution."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-d6f10abaf12f450bbe531508ea8357d7",
+      "canonical_sha": "c8c6c04647752b20a1f3d1eb9c45969e63ddcbb4",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-17T03:45:36Z",
+      "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-17T03:47:34Z",
+      "context_pack": "intents/context/research-richard-sapper-deadline-20260917.json",
+      "evidence_paths": [
+        "artifacts/research-richard-sapper-deadline-20260917/work/ts502-schematic-mechanical-gap.md"
+      ],
+      "searches": [
+        "Brionvega TS502 V2G schematic index; Museo Scienza TS502 2 serie hinge cable; Brionvega radiocubo assembly"
+      ],
+      "wiki_pages": [
+        "agent-wiki/content/docs/outputs/Communication/Open_Source.mdx",
+        "agent-wiki/content/docs/outputs/Idea/Movie.mdx",
+        "agent-wiki/content/docs/outputs/Portfolio.mdx",
+        "agent-wiki/content/docs/outputs/Integration/Marketing.mdx",
+        "agent-wiki/content/docs/outputs/Fundamental/Math.mdx"
+      ],
+      "operational_log_sections": [
+        "logs/agent-wiki-query.md"
+      ],
+      "note": "T8.4 completed: separated TS502 V2G schematic-index evidence from the 2° serie specimen’s hinge/cable metadata; retained missing original PDF, mechanical manual, and generation mapping."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-bd5ede74fe4c4b6794f094202fc8476b",
+      "canonical_sha": "96ac2d7ef5b4194bb5f2a7bf0871d6aed4ca6df9",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-17T04:15:41Z",
+      "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-17T04:17:07Z",
+      "context_pack": "intents/context/research-richard-sapper-deadline-20260917.json",
+      "evidence_paths": [
+        "artifacts/research-richard-sapper-deadline-20260917/work/sapper-criticism-primary-source-gap.md"
+      ],
+      "searches": [
+        "Fast Company ThinkPad overrated original; Domus Black Box Syndrome Sapper; MoMA Workspheres catalog Sapper"
+      ],
+      "wiki_pages": [
+        "agent-wiki/content/docs/outputs/Communication/Open_Source.mdx",
+        "agent-wiki/content/docs/outputs/Idea/Movie.mdx",
+        "agent-wiki/content/docs/outputs/Portfolio.mdx",
+        "agent-wiki/content/docs/outputs/Integration/Marketing.mdx",
+        "agent-wiki/content/docs/outputs/Fundamental/Math.mdx"
+      ],
+      "operational_log_sections": [
+        "logs/agent-wiki-query.md"
+      ],
+      "note": "T8.5 completed: documented accessible Fast Company primary criticism and exact access limits for Domus 403 and MoMA catalog file-size failure; kept inaccessible materials out of substantive claims."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-6e16e3303d3e47bcac0a5bb6e9faa79f",
+      "canonical_sha": "aa247021938da3c4a2105dc159220c2c3a3fd73a",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-17T04:45:38Z",
+      "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-17T04:46:57Z",
+      "context_pack": "intents/context/research-richard-sapper-deadline-20260917.json",
+      "evidence_paths": [
+        "artifacts/research-richard-sapper-deadline-20260917/work/tizio-original-lighting-source-crosscheck.md"
+      ],
+      "searches": [
+        "Tizio MoMA halogen transformer; Met Tizio halogen counterweight; Artemide A009210 LED technical specification"
+      ],
+      "wiki_pages": [
+        "agent-wiki/content/docs/outputs/Communication/Open_Source.mdx",
+        "agent-wiki/content/docs/outputs/Idea/Movie.mdx",
+        "agent-wiki/content/docs/outputs/Portfolio.mdx",
+        "agent-wiki/content/docs/outputs/Integration/Marketing.mdx",
+        "agent-wiki/content/docs/outputs/Fundamental/Math.mdx"
+      ],
+      "operational_log_sections": [
+        "logs/agent-wiki-query.md"
+      ],
+      "note": "T9.1 completed: crosschecked institutional original Tizio halogen/power-delivery records against current Artemide LED A009210 specifications without treating them as comparable performance tests."
+    }
+  ],
+  "artifacts": [],
+  "verifications": [],
+  "next_decision": {
+    "status": "exploratory",
+    "value": "Activate T9.2: separate 9091 parts-code changes by regional catalog and manufacturing-time evidence."
+  }
+}

@@ -53,6 +53,16 @@ class TerminalNotificationTest(unittest.TestCase):
             self.assertEqual(result, {"sent": 0, "skipped_missing_destination": 1, "delivery_uncertain": 0})
             self.assertFalse(outbox.exists())
 
+    def test_explicit_unknown_origin_is_silent_and_retires_old_receipt(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory); intents = root / "INTENTS.md"; state = root / "state.json"; outbox = root / "outbox.jsonl"
+            intents.write_text(registry(archived=True).replace("notification_channel: mock", "notification_channel: delivery_unknown").replace("notification_target: original-thread", "notification_target: missing-at-intake"))
+            state.write_text(json.dumps({"version": 2, "deliveries": {"old": {"intent_id": "fixture-1", "state": "failed_before_acceptance"}}}))
+            result = self.run_dispatch(intents, state, outbox)
+            self.assertEqual(result, {"sent": 0, "skipped_missing_destination": 1, "delivery_uncertain": 0})
+            self.assertEqual(json.loads(state.read_text())["deliveries"]["old"]["state"], "superseded")
+            self.assertFalse(outbox.exists())
+
     def test_unverified_archive_is_noop(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory); intents = root / "INTENTS.md"; state = root / "state.json"; outbox = root / "outbox.jsonl"

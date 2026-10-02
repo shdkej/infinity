@@ -9,6 +9,29 @@ import check_knowledge_promotion as gate
 
 
 class KnowledgePromotionGateTest(unittest.TestCase):
+    def test_context_receipt_uses_knowledge_lab_log(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            infinity = root / "infinity"
+            (infinity / "intents" / "context").mkdir(parents=True)
+            (infinity / "intents" / "archive").mkdir(parents=True)
+            (infinity / "intents" / "context" / "x.json").write_text(
+                '{"selected_context_required": true, "selected_context": [{"path": "agent-wiki/content/docs/outputs/x.mdx"}]}',
+                encoding="utf-8",
+            )
+            (infinity / "intents" / "archive" / "x.md").write_text(
+                "- context_pack: intents/context/x.json\n- knowledge_log: logs/agent-wiki-query.md#x\n",
+                encoding="utf-8",
+            )
+            query_log = root / "logs" / "agent-wiki-query.md"
+            query_log.parent.mkdir(parents=True)
+            query_log.write_text(
+                "## [x] receipt\n- 읽은 문서: agent-wiki/content/docs/outputs/x.mdx\n",
+                encoding="utf-8",
+            )
+            with patch.object(gate, "ROOT", infinity), patch.object(gate, "QUERY_LOG", query_log):
+                self.assertEqual(gate.context_log_errors("x", (infinity / "intents" / "archive" / "x.md").read_text()), [])
+
     def test_promoted_requires_real_wiki_target_and_commit(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)

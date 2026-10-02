@@ -1,638 +1,34 @@
 {
   "schema_version": 1,
   "intent_id": "strategy-compound-business-20260915",
-  "status": "active",
-  "trace_completeness": "partial",
-  "backfill_source": "dispatcher_missing_trace",
+  "status": "archived",
+  "trace_completeness": "complete",
   "request": {
     "raw": {
-      "status": "missing",
-      "reason": "dispatcher backfill: intake trace was absent"
+      "status": "recorded",
+      "value": "내가 현재 하고 있는 일과 사업을 기준으로, 이미지의 복리사업 개념을 적용할 방법을 찾아줘. 단순히 지금 사업을 개선하는 데 그치지 말고, 기술·경험·콘텐츠·고객·데이터·작업물에서 새로 파생될 사업을 발굴해줘. 한 번 한 일이 다음 수익을 쉽게 만드는 구조 중심으로, 축적물→수익화→반복 우위→당장 할 일 순서로 설명해줘."
     },
     "normalized_query": {
-      "status": "missing",
-      "reason": "dispatcher backfill: intake trace was absent"
+      "status": "recorded",
+      "value": "여행 기록·영상 자동화·큐레이션 취향·AI 제품 역량을 재사용 가능한 데이터·콘텐츠·도구·라이선스로 전환하는 복리사업 후보와 첫 검증을 설계한다."
     }
   },
   "events": [
     {
       "type": "intake",
-      "at": "2026-09-15T08:40:04Z",
-      "context_pack": "",
-      "context_pack_status": "missing",
-      "context_pack_reason": "dispatcher backfill: intake context pack was absent",
-      "evidence_paths": []
+      "at": "2026-09-15T08:03:13Z",
+      "context_pack": "intents/context/strategy-compound-business-20260915.json",
+      "evidence_paths": [
+        "INTENTS.md"
+      ]
     },
     {
       "type": "dispatcher_handoff",
-      "run_id": "dispatch-e6eed669d42b432e9eb141a29d700843",
-      "canonical_sha": "4f57f6dfac7e2898165802018eddec34ac248d7b",
+      "run_id": "dispatch-e20acba625f04a45b9db567c932c6149",
+      "canonical_sha": "b5876aa1c0eb3b3f6a9f35dfb5c227504a18afac",
       "agent": "genie",
       "session_key": "agent:genie:infinity-dispatcher",
-      "timestamp": "2026-09-15T08:40:04Z",
-      "status": "accepted"
-    },
-    {
-      "type": "dispatcher_handoff",
-      "run_id": "dispatch-b06a605cecc34b97a7d2dd16f0db361e",
-      "canonical_sha": "4f57f6dfac7e2898165802018eddec34ac248d7b",
-      "agent": "genie",
-      "session_key": "agent:genie:infinity-dispatcher",
-      "timestamp": "2026-09-15T08:50:04Z",
-      "status": "accepted"
-    },
-    {
-      "type": "dispatcher_handoff",
-      "run_id": "dispatch-b379e2ea7a1b4b30be976c7d1410ab5e",
-      "canonical_sha": "4f57f6dfac7e2898165802018eddec34ac248d7b",
-      "agent": "genie",
-      "session_key": "agent:genie:infinity-dispatcher",
-      "timestamp": "2026-09-15T09:00:05Z",
-      "status": "accepted"
-    },
-    {
-      "type": "dispatcher_handoff",
-      "run_id": "dispatch-a1a86ce55882410eb787c98f79a73581",
-      "canonical_sha": "4f57f6dfac7e2898165802018eddec34ac248d7b",
-      "agent": "genie",
-      "session_key": "agent:genie:infinity-dispatcher",
-      "timestamp": "2026-09-15T09:10:04Z",
-      "status": "accepted"
-    },
-    {
-      "type": "dispatcher_handoff",
-      "run_id": "dispatch-1d06542b787f46b3aa18ab43c2b1b801",
-      "canonical_sha": "4f57f6dfac7e2898165802018eddec34ac248d7b",
-      "agent": "genie",
-      "session_key": "agent:genie:infinity-dispatcher",
-      "timestamp": "2026-09-15T09:20:04Z",
-      "status": "accepted"
-    },
-    {
-      "type": "dispatcher_handoff",
-      "run_id": "dispatch-07addacd9da040d3b7f73649cc858557",
-      "canonical_sha": "39e92d1e393d63e4fd870ba19eb6f7c9bb4649ec",
-      "agent": "genie",
-      "session_key": "agent:genie:infinity-dispatcher",
-      "timestamp": "2026-09-15T09:30:04Z",
-      "status": "accepted"
-    },
-    {
-      "type": "dispatcher_handoff",
-      "run_id": "dispatch-404bc8597faa4fd280e76251ea4b814d",
-      "canonical_sha": "39e92d1e393d63e4fd870ba19eb6f7c9bb4649ec",
-      "agent": "genie",
-      "session_key": "agent:genie:infinity-dispatcher",
-      "timestamp": "2026-09-15T09:40:05Z",
-      "status": "accepted"
-    },
-    {
-      "type": "dispatcher_handoff",
-      "run_id": "dispatch-dbd964cac1e44fac9a0be2fe5caafbf2",
-      "canonical_sha": "39e92d1e393d63e4fd870ba19eb6f7c9bb4649ec",
-      "agent": "genie",
-      "session_key": "agent:genie:infinity-dispatcher",
-      "timestamp": "2026-09-15T09:50:04Z",
-      "status": "accepted"
-    },
-    {
-      "type": "dispatcher_handoff",
-      "run_id": "dispatch-fde633bbd97844c080fdd25943bb2bc8",
-      "canonical_sha": "39e92d1e393d63e4fd870ba19eb6f7c9bb4649ec",
-      "agent": "genie",
-      "session_key": "agent:genie:infinity-dispatcher",
-      "timestamp": "2026-09-15T10:00:04Z",
-      "status": "accepted"
-    },
-    {
-      "type": "dispatcher_handoff",
-      "run_id": "dispatch-82dd22ff469249afb6ae9d5e4d3e75d0",
-      "canonical_sha": "39e92d1e393d63e4fd870ba19eb6f7c9bb4649ec",
-      "agent": "genie",
-      "session_key": "agent:genie:infinity-dispatcher",
-      "timestamp": "2026-09-15T10:10:04Z",
-      "status": "accepted"
-    },
-    {
-      "type": "dispatcher_handoff",
-      "run_id": "dispatch-43103158340149e588c064814ffc3b60",
-      "canonical_sha": "39e92d1e393d63e4fd870ba19eb6f7c9bb4649ec",
-      "agent": "genie",
-      "session_key": "agent:genie:infinity-dispatcher",
-      "timestamp": "2026-09-15T10:20:05Z",
-      "status": "accepted"
-    },
-    {
-      "type": "dispatcher_handoff",
-      "run_id": "dispatch-453bd9bec52a482da91c9ca70f5852c5",
-      "canonical_sha": "39e92d1e393d63e4fd870ba19eb6f7c9bb4649ec",
-      "agent": "genie",
-      "session_key": "agent:genie:infinity-dispatcher",
-      "timestamp": "2026-09-15T10:30:05Z",
-      "status": "accepted"
-    },
-    {
-      "type": "dispatcher_handoff",
-      "run_id": "dispatch-b2fb1584fa424d8989d16a3897159ca3",
-      "canonical_sha": "39e92d1e393d63e4fd870ba19eb6f7c9bb4649ec",
-      "agent": "genie",
-      "session_key": "agent:genie:infinity-dispatcher",
-      "timestamp": "2026-09-15T10:40:04Z",
-      "status": "accepted"
-    },
-    {
-      "type": "dispatcher_handoff",
-      "run_id": "dispatch-e70414bd29f74390abfd6f808cf4f3b7",
-      "canonical_sha": "39e92d1e393d63e4fd870ba19eb6f7c9bb4649ec",
-      "agent": "genie",
-      "session_key": "agent:genie:infinity-dispatcher",
-      "timestamp": "2026-09-15T10:50:04Z",
-      "status": "accepted"
-    },
-    {
-      "type": "dispatcher_handoff",
-      "run_id": "dispatch-97bfd75b9c0e4fc1b75cec2621d4200b",
-      "canonical_sha": "39e92d1e393d63e4fd870ba19eb6f7c9bb4649ec",
-      "agent": "genie",
-      "session_key": "agent:genie:infinity-dispatcher",
-      "timestamp": "2026-09-15T11:00:05Z",
-      "status": "accepted"
-    },
-    {
-      "type": "dispatcher_handoff",
-      "run_id": "dispatch-fb05d6eb645a4d16854f0dc64f535aa6",
-      "canonical_sha": "39e92d1e393d63e4fd870ba19eb6f7c9bb4649ec",
-      "agent": "genie",
-      "session_key": "agent:genie:infinity-dispatcher",
-      "timestamp": "2026-09-15T11:10:04Z",
-      "status": "accepted"
-    },
-    {
-      "type": "dispatcher_handoff",
-      "run_id": "dispatch-1c1a2effbb604f4ba359477def10b84e",
-      "canonical_sha": "39e92d1e393d63e4fd870ba19eb6f7c9bb4649ec",
-      "agent": "genie",
-      "session_key": "agent:genie:infinity-dispatcher",
-      "timestamp": "2026-09-15T11:20:04Z",
-      "status": "accepted"
-    },
-    {
-      "type": "dispatcher_handoff",
-      "run_id": "dispatch-f519b7084cf1427aaf6011f49ee4a3be",
-      "canonical_sha": "39e92d1e393d63e4fd870ba19eb6f7c9bb4649ec",
-      "agent": "genie",
-      "session_key": "agent:genie:infinity-dispatcher",
-      "timestamp": "2026-09-15T11:30:04Z",
-      "status": "accepted"
-    },
-    {
-      "type": "dispatcher_handoff",
-      "run_id": "dispatch-f2081eb4c44540d9a8035e68fd20b61a",
-      "canonical_sha": "39e92d1e393d63e4fd870ba19eb6f7c9bb4649ec",
-      "agent": "genie",
-      "session_key": "agent:genie:infinity-dispatcher",
-      "timestamp": "2026-09-15T11:40:04Z",
-      "status": "accepted"
-    },
-    {
-      "type": "dispatcher_handoff",
-      "run_id": "dispatch-388c26a0741f4c0388d126deed032e0c",
-      "canonical_sha": "39e92d1e393d63e4fd870ba19eb6f7c9bb4649ec",
-      "agent": "genie",
-      "session_key": "agent:genie:infinity-dispatcher",
-      "timestamp": "2026-09-15T11:50:04Z",
-      "status": "accepted"
-    },
-    {
-      "type": "dispatcher_handoff",
-      "run_id": "dispatch-586eb77f5f35489587d49c4546bf0e94",
-      "canonical_sha": "39e92d1e393d63e4fd870ba19eb6f7c9bb4649ec",
-      "agent": "genie",
-      "session_key": "agent:genie:infinity-dispatcher",
-      "timestamp": "2026-09-15T12:00:05Z",
-      "status": "accepted"
-    },
-    {
-      "type": "dispatcher_handoff",
-      "run_id": "dispatch-fd56be0b702e4645a6486867eea26c7d",
-      "canonical_sha": "39e92d1e393d63e4fd870ba19eb6f7c9bb4649ec",
-      "agent": "genie",
-      "session_key": "agent:genie:infinity-dispatcher",
-      "timestamp": "2026-09-15T12:10:04Z",
-      "status": "accepted"
-    },
-    {
-      "type": "dispatcher_handoff",
-      "run_id": "dispatch-439a5cfbf1a3478fac89a2e618817f9c",
-      "canonical_sha": "39e92d1e393d63e4fd870ba19eb6f7c9bb4649ec",
-      "agent": "genie",
-      "session_key": "agent:genie:infinity-dispatcher",
-      "timestamp": "2026-09-15T12:20:04Z",
-      "status": "accepted"
-    },
-    {
-      "type": "dispatcher_handoff",
-      "run_id": "dispatch-41e9a76fdc354a16a89f64b18afcdab4",
-      "canonical_sha": "39e92d1e393d63e4fd870ba19eb6f7c9bb4649ec",
-      "agent": "genie",
-      "session_key": "agent:genie:infinity-dispatcher",
-      "timestamp": "2026-09-15T12:30:04Z",
-      "status": "accepted"
-    },
-    {
-      "type": "dispatcher_handoff",
-      "run_id": "dispatch-4ccf4aee09b54086ae54d74035fe13d8",
-      "canonical_sha": "39e92d1e393d63e4fd870ba19eb6f7c9bb4649ec",
-      "agent": "genie",
-      "session_key": "agent:genie:infinity-dispatcher",
-      "timestamp": "2026-09-15T12:40:04Z",
-      "status": "accepted"
-    },
-    {
-      "type": "dispatcher_handoff",
-      "run_id": "dispatch-31c3d7276cab41e1aa6343ea4c43187a",
-      "canonical_sha": "39e92d1e393d63e4fd870ba19eb6f7c9bb4649ec",
-      "agent": "genie",
-      "session_key": "agent:genie:infinity-dispatcher",
-      "timestamp": "2026-09-15T12:50:04Z",
-      "status": "accepted"
-    },
-    {
-      "type": "dispatcher_handoff",
-      "run_id": "dispatch-5b2b9b077d3948a1b42f2943aacdab15",
-      "canonical_sha": "39e92d1e393d63e4fd870ba19eb6f7c9bb4649ec",
-      "agent": "genie",
-      "session_key": "agent:genie:infinity-dispatcher",
-      "timestamp": "2026-09-15T13:00:05Z",
-      "status": "accepted"
-    },
-    {
-      "type": "dispatcher_handoff",
-      "run_id": "dispatch-4b8fe1f8962848dfb3d19c5903ee6ede",
-      "canonical_sha": "39e92d1e393d63e4fd870ba19eb6f7c9bb4649ec",
-      "agent": "genie",
-      "session_key": "agent:genie:infinity-dispatcher",
-      "timestamp": "2026-09-15T13:10:04Z",
-      "status": "accepted"
-    },
-    {
-      "type": "dispatcher_handoff",
-      "run_id": "dispatch-7f42e95b81244b16aa18070c5bdd89d6",
-      "canonical_sha": "39e92d1e393d63e4fd870ba19eb6f7c9bb4649ec",
-      "agent": "genie",
-      "session_key": "agent:genie:infinity-dispatcher",
-      "timestamp": "2026-09-15T13:20:04Z",
-      "status": "accepted"
-    },
-    {
-      "type": "dispatcher_handoff",
-      "run_id": "dispatch-fa40d6418c914cda8b224641f2df850d",
-      "canonical_sha": "39e92d1e393d63e4fd870ba19eb6f7c9bb4649ec",
-      "agent": "genie",
-      "session_key": "agent:genie:infinity-dispatcher",
-      "timestamp": "2026-09-15T13:30:05Z",
-      "status": "accepted"
-    },
-    {
-      "type": "dispatcher_handoff",
-      "run_id": "dispatch-47e17ec46556425cbf54de37dcfc09cd",
-      "canonical_sha": "39e92d1e393d63e4fd870ba19eb6f7c9bb4649ec",
-      "agent": "genie",
-      "session_key": "agent:genie:infinity-dispatcher",
-      "timestamp": "2026-09-15T13:40:04Z",
-      "status": "accepted"
-    },
-    {
-      "type": "dispatcher_handoff",
-      "run_id": "dispatch-25e8c55b255c466eafe1ae631cd24b61",
-      "canonical_sha": "39e92d1e393d63e4fd870ba19eb6f7c9bb4649ec",
-      "agent": "genie",
-      "session_key": "agent:genie:infinity-dispatcher",
-      "timestamp": "2026-09-15T13:50:04Z",
-      "status": "accepted"
-    },
-    {
-      "type": "dispatcher_handoff",
-      "run_id": "dispatch-e953371aad784f27bf17112485ab6768",
-      "canonical_sha": "39e92d1e393d63e4fd870ba19eb6f7c9bb4649ec",
-      "agent": "genie",
-      "session_key": "agent:genie:infinity-dispatcher",
-      "timestamp": "2026-09-15T14:00:05Z",
-      "status": "accepted"
-    },
-    {
-      "type": "dispatcher_handoff",
-      "run_id": "dispatch-398d7dbb8c04485398c955ab4b493fa4",
-      "canonical_sha": "39e92d1e393d63e4fd870ba19eb6f7c9bb4649ec",
-      "agent": "genie",
-      "session_key": "agent:genie:infinity-dispatcher",
-      "timestamp": "2026-09-15T14:10:04Z",
-      "status": "accepted"
-    },
-    {
-      "type": "dispatcher_handoff",
-      "run_id": "dispatch-5dac6bd8293542d3bcf801cf0312966d",
-      "canonical_sha": "39e92d1e393d63e4fd870ba19eb6f7c9bb4649ec",
-      "agent": "genie",
-      "session_key": "agent:genie:infinity-dispatcher",
-      "timestamp": "2026-09-15T14:20:04Z",
-      "status": "accepted"
-    },
-    {
-      "type": "dispatcher_handoff",
-      "run_id": "dispatch-5a3a407457e74bab97e7b825111db8e4",
-      "canonical_sha": "39e92d1e393d63e4fd870ba19eb6f7c9bb4649ec",
-      "agent": "genie",
-      "session_key": "agent:genie:infinity-dispatcher",
-      "timestamp": "2026-09-15T14:30:05Z",
-      "status": "accepted"
-    },
-    {
-      "type": "dispatcher_handoff",
-      "run_id": "dispatch-2df3fb5d7e014a228aa4f445b13eb5ec",
-      "canonical_sha": "39e92d1e393d63e4fd870ba19eb6f7c9bb4649ec",
-      "agent": "genie",
-      "session_key": "agent:genie:infinity-dispatcher",
-      "timestamp": "2026-09-15T14:40:05Z",
-      "status": "accepted"
-    },
-    {
-      "type": "dispatcher_handoff",
-      "run_id": "dispatch-e5bb2217b47a40d6b7e3d83889c1ab69",
-      "canonical_sha": "39e92d1e393d63e4fd870ba19eb6f7c9bb4649ec",
-      "agent": "genie",
-      "session_key": "agent:genie:infinity-dispatcher",
-      "timestamp": "2026-09-15T14:50:04Z",
-      "status": "accepted"
-    },
-    {
-      "type": "dispatcher_handoff",
-      "run_id": "dispatch-1b557c7193cd4124bd27eb3bbba323ca",
-      "canonical_sha": "39e92d1e393d63e4fd870ba19eb6f7c9bb4649ec",
-      "agent": "genie",
-      "session_key": "agent:genie:infinity-dispatcher",
-      "timestamp": "2026-09-15T15:00:04Z",
-      "status": "accepted"
-    },
-    {
-      "type": "dispatcher_handoff",
-      "run_id": "dispatch-a4cb8cc0c13c405a812b1f4a4eaa82ca",
-      "canonical_sha": "39e92d1e393d63e4fd870ba19eb6f7c9bb4649ec",
-      "agent": "genie",
-      "session_key": "agent:genie:infinity-dispatcher",
-      "timestamp": "2026-09-15T15:10:04Z",
-      "status": "accepted"
-    },
-    {
-      "type": "dispatcher_handoff",
-      "run_id": "dispatch-d621640b57a747adbcc17c80fe586572",
-      "canonical_sha": "39e92d1e393d63e4fd870ba19eb6f7c9bb4649ec",
-      "agent": "genie",
-      "session_key": "agent:genie:infinity-dispatcher",
-      "timestamp": "2026-09-15T15:20:04Z",
-      "status": "accepted"
-    },
-    {
-      "type": "dispatcher_handoff",
-      "run_id": "dispatch-a24d66d5a29d4fb9adf5e65dce0adaef",
-      "canonical_sha": "39e92d1e393d63e4fd870ba19eb6f7c9bb4649ec",
-      "agent": "genie",
-      "session_key": "agent:genie:infinity-dispatcher",
-      "timestamp": "2026-09-15T15:30:04Z",
-      "status": "accepted"
-    },
-    {
-      "type": "dispatcher_handoff",
-      "run_id": "dispatch-941657fcd5a14d78920de5705a45d472",
-      "canonical_sha": "39e92d1e393d63e4fd870ba19eb6f7c9bb4649ec",
-      "agent": "genie",
-      "session_key": "agent:genie:infinity-dispatcher",
-      "timestamp": "2026-09-15T15:40:04Z",
-      "status": "accepted"
-    },
-    {
-      "type": "dispatcher_handoff",
-      "run_id": "dispatch-642d344416594c74b104c91dabde1c81",
-      "canonical_sha": "39e92d1e393d63e4fd870ba19eb6f7c9bb4649ec",
-      "agent": "genie",
-      "session_key": "agent:genie:infinity-dispatcher",
-      "timestamp": "2026-09-15T15:50:04Z",
-      "status": "accepted"
-    },
-    {
-      "type": "dispatcher_handoff",
-      "run_id": "dispatch-71aa3ef2e688403db376b014c8ee6e75",
-      "canonical_sha": "39e92d1e393d63e4fd870ba19eb6f7c9bb4649ec",
-      "agent": "genie",
-      "session_key": "agent:genie:infinity-dispatcher",
-      "timestamp": "2026-09-15T16:00:04Z",
-      "status": "accepted"
-    },
-    {
-      "type": "dispatcher_handoff",
-      "run_id": "dispatch-31d75a717808466ab93f10fc317fd9ee",
-      "canonical_sha": "39e92d1e393d63e4fd870ba19eb6f7c9bb4649ec",
-      "agent": "genie",
-      "session_key": "agent:genie:infinity-dispatcher",
-      "timestamp": "2026-09-15T16:10:04Z",
-      "status": "accepted"
-    },
-    {
-      "type": "dispatcher_handoff",
-      "run_id": "dispatch-3c15783aec114326aacd0acd81b69c68",
-      "canonical_sha": "39e92d1e393d63e4fd870ba19eb6f7c9bb4649ec",
-      "agent": "genie",
-      "session_key": "agent:genie:infinity-dispatcher",
-      "timestamp": "2026-09-15T16:20:04Z",
-      "status": "accepted"
-    },
-    {
-      "type": "dispatcher_handoff",
-      "run_id": "dispatch-b4d9944f1dc74d338f1dcad04d6276df",
-      "canonical_sha": "39e92d1e393d63e4fd870ba19eb6f7c9bb4649ec",
-      "agent": "genie",
-      "session_key": "agent:genie:infinity-dispatcher",
-      "timestamp": "2026-09-15T16:30:05Z",
-      "status": "accepted"
-    },
-    {
-      "type": "dispatcher_handoff",
-      "run_id": "dispatch-9552f39e2923461da4d7e1afe58692b1",
-      "canonical_sha": "39e92d1e393d63e4fd870ba19eb6f7c9bb4649ec",
-      "agent": "genie",
-      "session_key": "agent:genie:infinity-dispatcher",
-      "timestamp": "2026-09-15T16:40:04Z",
-      "status": "accepted"
-    },
-    {
-      "type": "dispatcher_handoff",
-      "run_id": "dispatch-4584982f507544d6bc643e6372783ba1",
-      "canonical_sha": "39e92d1e393d63e4fd870ba19eb6f7c9bb4649ec",
-      "agent": "genie",
-      "session_key": "agent:genie:infinity-dispatcher",
-      "timestamp": "2026-09-15T16:50:04Z",
-      "status": "accepted"
-    },
-    {
-      "type": "dispatcher_handoff",
-      "run_id": "dispatch-77fa0e468d054aedbaee573b5ebd3091",
-      "canonical_sha": "39e92d1e393d63e4fd870ba19eb6f7c9bb4649ec",
-      "agent": "genie",
-      "session_key": "agent:genie:infinity-dispatcher",
-      "timestamp": "2026-09-15T17:00:04Z",
-      "status": "accepted"
-    },
-    {
-      "type": "dispatcher_handoff",
-      "run_id": "dispatch-a85de8d271ff4946a4128f8cddfd10a6",
-      "canonical_sha": "39e92d1e393d63e4fd870ba19eb6f7c9bb4649ec",
-      "agent": "genie",
-      "session_key": "agent:genie:infinity-dispatcher",
-      "timestamp": "2026-09-15T17:10:04Z",
-      "status": "accepted"
-    },
-    {
-      "type": "dispatcher_handoff",
-      "run_id": "dispatch-aed067e62f404bb899c4df1a19962bdc",
-      "canonical_sha": "39e92d1e393d63e4fd870ba19eb6f7c9bb4649ec",
-      "agent": "genie",
-      "session_key": "agent:genie:infinity-dispatcher",
-      "timestamp": "2026-09-15T17:20:04Z",
-      "status": "accepted"
-    },
-    {
-      "type": "dispatcher_handoff",
-      "run_id": "dispatch-470a0d48871d47af972644f0598b754c",
-      "canonical_sha": "39e92d1e393d63e4fd870ba19eb6f7c9bb4649ec",
-      "agent": "genie",
-      "session_key": "agent:genie:infinity-dispatcher",
-      "timestamp": "2026-09-15T17:30:04Z",
-      "status": "accepted"
-    },
-    {
-      "type": "dispatcher_handoff",
-      "run_id": "dispatch-19877a42ce4a4b1cab6ebf637f754534",
-      "canonical_sha": "39e92d1e393d63e4fd870ba19eb6f7c9bb4649ec",
-      "agent": "genie",
-      "session_key": "agent:genie:infinity-dispatcher",
-      "timestamp": "2026-09-15T17:40:04Z",
-      "status": "accepted"
-    },
-    {
-      "type": "dispatcher_handoff",
-      "run_id": "dispatch-c07dfa48e69f4ca9b6fa4656d5c9becc",
-      "canonical_sha": "39e92d1e393d63e4fd870ba19eb6f7c9bb4649ec",
-      "agent": "genie",
-      "session_key": "agent:genie:infinity-dispatcher",
-      "timestamp": "2026-09-15T17:50:04Z",
-      "status": "accepted"
-    },
-    {
-      "type": "dispatcher_handoff",
-      "run_id": "dispatch-6c16e5acb01b440583cfbdea370ead43",
-      "canonical_sha": "39e92d1e393d63e4fd870ba19eb6f7c9bb4649ec",
-      "agent": "genie",
-      "session_key": "agent:genie:infinity-dispatcher",
-      "timestamp": "2026-09-15T18:00:04Z",
-      "status": "accepted"
-    },
-    {
-      "type": "dispatcher_handoff",
-      "run_id": "dispatch-f57450c790e54082a66c25f23fb5bb90",
-      "canonical_sha": "39e92d1e393d63e4fd870ba19eb6f7c9bb4649ec",
-      "agent": "genie",
-      "session_key": "agent:genie:infinity-dispatcher",
-      "timestamp": "2026-09-15T18:10:04Z",
-      "status": "accepted"
-    },
-    {
-      "type": "dispatcher_handoff",
-      "run_id": "dispatch-8bf5281480314113a515fa2ae3e70bd8",
-      "canonical_sha": "39e92d1e393d63e4fd870ba19eb6f7c9bb4649ec",
-      "agent": "genie",
-      "session_key": "agent:genie:infinity-dispatcher",
-      "timestamp": "2026-09-15T18:20:04Z",
-      "status": "accepted"
-    },
-    {
-      "type": "dispatcher_handoff",
-      "run_id": "dispatch-43abd8bf348d4bfbb861b54180f6d1f7",
-      "canonical_sha": "39e92d1e393d63e4fd870ba19eb6f7c9bb4649ec",
-      "agent": "genie",
-      "session_key": "agent:genie:infinity-dispatcher",
-      "timestamp": "2026-09-15T18:30:05Z",
-      "status": "accepted"
-    },
-    {
-      "type": "dispatcher_handoff",
-      "run_id": "dispatch-478e56503fd74f22996335102bb6dbc2",
-      "canonical_sha": "39e92d1e393d63e4fd870ba19eb6f7c9bb4649ec",
-      "agent": "genie",
-      "session_key": "agent:genie:infinity-dispatcher",
-      "timestamp": "2026-09-15T18:40:04Z",
-      "status": "accepted"
-    },
-    {
-      "type": "dispatcher_handoff",
-      "run_id": "dispatch-9713ba9d97004725b1b4b09020e8626e",
-      "canonical_sha": "39e92d1e393d63e4fd870ba19eb6f7c9bb4649ec",
-      "agent": "genie",
-      "session_key": "agent:genie:infinity-dispatcher",
-      "timestamp": "2026-09-15T18:50:04Z",
-      "status": "accepted"
-    },
-    {
-      "type": "dispatcher_handoff",
-      "run_id": "dispatch-df195780e4fc47eda7b4b87f5efc94ba",
-      "canonical_sha": "39e92d1e393d63e4fd870ba19eb6f7c9bb4649ec",
-      "agent": "genie",
-      "session_key": "agent:genie:infinity-dispatcher",
-      "timestamp": "2026-09-15T19:00:04Z",
-      "status": "accepted"
-    },
-    {
-      "type": "dispatcher_handoff",
-      "run_id": "dispatch-90943f7c332a4f248333159c31bd189b",
-      "canonical_sha": "39e92d1e393d63e4fd870ba19eb6f7c9bb4649ec",
-      "agent": "genie",
-      "session_key": "agent:genie:infinity-dispatcher",
-      "timestamp": "2026-09-15T19:10:04Z",
-      "status": "accepted"
-    },
-    {
-      "type": "dispatcher_handoff",
-      "run_id": "dispatch-1e234b57bae24dc8bfcc58d7a04e9f46",
-      "canonical_sha": "39e92d1e393d63e4fd870ba19eb6f7c9bb4649ec",
-      "agent": "genie",
-      "session_key": "agent:genie:infinity-dispatcher",
-      "timestamp": "2026-09-15T19:20:04Z",
-      "status": "accepted"
-    },
-    {
-      "type": "dispatcher_handoff",
-      "run_id": "dispatch-88bd8d33449f4d0d88fd0e171f0c1411",
-      "canonical_sha": "39e92d1e393d63e4fd870ba19eb6f7c9bb4649ec",
-      "agent": "genie",
-      "session_key": "agent:genie:infinity-dispatcher",
-      "timestamp": "2026-09-15T19:30:04Z",
-      "status": "accepted"
-    },
-    {
-      "type": "dispatcher_handoff",
-      "run_id": "dispatch-f335806050ce4a95966e728ad818c857",
-      "canonical_sha": "39e92d1e393d63e4fd870ba19eb6f7c9bb4649ec",
-      "agent": "genie",
-      "session_key": "agent:genie:infinity-dispatcher",
-      "timestamp": "2026-09-15T19:40:04Z",
-      "status": "accepted"
-    },
-    {
-      "type": "dispatcher_handoff",
-      "run_id": "dispatch-ae017746be854ba9b813d10e554ad942",
-      "canonical_sha": "39e92d1e393d63e4fd870ba19eb6f7c9bb4649ec",
-      "agent": "genie",
-      "session_key": "agent:genie:infinity-dispatcher",
-      "timestamp": "2026-09-15T19:50:04Z",
+      "timestamp": "2026-09-15T08:05:59Z",
       "status": "accepted"
     },
     {
@@ -643,12 +39,120 @@
       "session_key": "agent:genie:infinity-dispatcher",
       "timestamp": "2026-09-15T19:55:09Z",
       "status": "accepted"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-2319f2173b644d6ca2ca6e2c5ca4f485",
+      "canonical_sha": "8038bbcbaa1690d3a0197c48100c8e282ae76287",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-15T20:02:25Z",
+      "status": "accepted"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-7d307986fd32401da37c416088f3dd33",
+      "canonical_sha": "eef528f067b4b01543151b3dfdc8d92c450854e5",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-15T20:31:37Z",
+      "status": "accepted"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-01f63ee73f6642ec9f907d3b32db8d1a",
+      "canonical_sha": "eef528f067b4b01543151b3dfdc8d92c450854e5",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-15T20:40:28Z",
+      "status": "accepted"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-914c21c3f76543e5912a2f9e7b922893",
+      "canonical_sha": "0db6cd7057f42be7c56063767af24d8914815537",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-15T21:08:08Z",
+      "status": "accepted"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-bbd4b8935ea247c6b54dbad37237ad64",
+      "canonical_sha": "d86f76f36212fe07f2276ddcfc89d284c1bd8be6",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-16T00:36:33Z",
+      "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-16T00:36:33Z",
+      "context_pack": "intents/context/strategy-compound-business-20260915.json",
+      "evidence_paths": [
+        "artifacts/strategy-compound-business-20260915/work/archive-contract-inventory.md",
+        "artifacts/strategy-compound-business-20260915/work/red/archive-recheck.md"
+      ],
+      "searches": [
+        "agent-wiki/content/docs/:index-first"
+      ],
+      "wiki_pages": [
+        "agent-wiki/content/docs/index.mdx",
+        "agent-wiki/content/docs/outputs/Idea/Travel.mdx",
+        "agent-wiki/content/docs/outputs/Communication/Blogging.mdx",
+        "source/openclaw-system/docs/WORLD_TRAVEL_PROJECT.md"
+      ],
+      "operational_log_sections": [],
+      "note": "Archive-contract evidence inventory completed; Red FAIL preserved; role and knowledge evidence normalization is active."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-2a0d6e14f00c40c28fb07e8a0e7854e5",
+      "canonical_sha": "d86f76f36212fe07f2276ddcfc89d284c1bd8be6",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-16T00:45:38Z",
+      "status": "accepted"
+    },
+    {
+      "type": "archive",
+      "at": "2026-09-16T00:45:38Z",
+      "report_path": "reports/strategy-compound-business-20260915/20260915T2106-final.html",
+      "evidence_paths": [
+        "artifacts/strategy-compound-business-20260915/work/archive-evidence-manifest.md",
+        "reports/strategy-compound-business-20260915/20260915T2106-final.html",
+        "artifacts/strategy-compound-business-20260915/work/remote-proof.md",
+        "artifacts/strategy-compound-business-20260915/work/red/archive-pass.md"
+      ],
+      "research_mode": "decision_research",
+      "verification": {
+        "red_status": "pass",
+        "remote_verified": "pass",
+        "remote_proof_path": "artifacts/strategy-compound-business-20260915/work/remote-proof.md",
+        "red_report_path": "artifacts/strategy-compound-business-20260915/work/red/archive-pass.md"
+      }
     }
   ],
-  "artifacts": [],
-  "verifications": [],
+  "artifacts": [
+    {
+      "label": "final",
+      "path": "artifacts/strategy-compound-business-20260915/final/compound-business-strategy-report.md"
+    }
+  ],
+  "verifications": [
+    {
+      "label": "Red verification evidence",
+      "path": "artifacts/strategy-compound-business-20260915/work/red/archive-pass.md",
+      "status": "pass"
+    },
+    {
+      "label": "Remote verification evidence",
+      "path": "artifacts/strategy-compound-business-20260915/work/remote-proof.md",
+      "status": "pass"
+    }
+  ],
   "next_decision": {
-    "status": "in_progress",
-    "value": "dispatcher created partial trace before executor handoff"
+    "status": "archived",
+    "value": "no continuation; 30일 private-card 실험은 별도 intent에서만 기록한다."
   }
 }

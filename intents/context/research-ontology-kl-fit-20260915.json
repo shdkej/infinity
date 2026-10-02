@@ -1,0 +1,73 @@
+{
+  "context_pack_version": 3,
+  "status": "ready",
+  "route": "infinity",
+  "request": "온톨로지의 실제 구성 요소와 운영 비용을 조사하고 Knowledge Lab의 원본·ingest·Agent Wiki 컴파일·promotion index·검색 경로에 적용 가능한지 검토한다. 최소 도입안, 기대 효과, 실패 조건과 도입하지 않을 경우를 비교한다.",
+  "built_at": "2026-09-15T04:50:22.738790+00:00",
+  "required_documents": [
+    "/home/ubuntu/workspace/prompt-archive/LLM.md",
+    "README.md",
+    "schema/agent-rules.md",
+    "source/openclaw-system/docs/DOCUMENT_SEARCH_PIPELINE.md",
+    "source/openclaw-system/docs/USER_CONTEXT.md",
+    "source/openclaw-system/docs/SERVICE_REGISTRY.md",
+    "source/openclaw-system/docs/INFINITY_OPERATING_RULES.md",
+    "infinity/ARTIFACT_RULES.md",
+    "infinity/EXECUTION_LEARNING_CONTRACT.md",
+    "infinity/INTENTS.md",
+    "agent-wiki/README.md"
+  ],
+  "search_scopes": [
+    "agent-wiki/content/docs/",
+    "source/openclaw-system/docs/",
+    "source/openclaw-system/data/daily-reviews/",
+    "source/openclaw-system/data/daily-tracking/",
+    "source/openclaw-system/data/photo-insights/"
+  ],
+  "selected_context": [
+    {
+      "path": "agent-wiki/content/docs/outputs/Communication/Document.mdx",
+      "reason": "zg hybrid discovery + rg verification",
+      "verified_term": "온톨로지의",
+      "verification": "passed"
+    },
+    {
+      "path": "agent-wiki/content/docs/outputs/Meta/Collection.mdx",
+      "reason": "zg hybrid discovery + rg verification",
+      "verified_term": "온톨로지의",
+      "verification": "passed"
+    },
+    {
+      "path": "agent-wiki/content/docs/outputs/Integration/Marketing.mdx",
+      "reason": "zg hybrid discovery + rg verification",
+      "verified_term": "온톨로지의",
+      "verification": "passed"
+    },
+    {
+      "path": "agent-wiki/content/docs/outputs/Communication/Logical_Thinking.mdx",
+      "reason": "zg hybrid discovery + rg verification",
+      "verified_term": "온톨로지의",
+      "verification": "passed"
+    },
+    {
+      "path": "agent-wiki/content/docs/outputs/Integration/Business.mdx",
+      "reason": "zg hybrid discovery + rg verification",
+      "verified_term": "온톨로지의",
+      "verification": "passed"
+    }
+  ],
+  "preflight": {
+    "tool": "zg",
+    "query": "온톨로지의 실제 구성 요소와 운영 비용을 조사하고 Knowledge Lab의 원본·ingest·Agent Wiki 컴파일·promotion index·검색 경로에 적용 가능한지 검토한다. 최소 도입안, 기대 효과, 실패 조건과 도입하지 않을 경우를 비교한다.",
+    "discovery": "hybrid+fts RRF",
+    "verification": "managed rg",
+    "result_count": 5
+  },
+  "selected_context_required": true,
+  "rules": [
+    "Read every required document before creating or executing an intent.",
+    "Read every selected_context Agent Wiki page and record those exact paths in the execution trace.",
+    "Search the declared scopes for task-specific evidence; do not treat a search hit as a confirmed fact without its source.",
+    "Record the resulting context pack path in the intent and re-check it before handoff."
+  ]
+}

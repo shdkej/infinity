@@ -85,6 +85,12 @@ def destination(fields: dict[str, str]) -> dict[str, str] | None:
     channel, target = fields.get("notification_channel", ""), fields.get("notification_target", "")
     if not channel or not target:
         return None
+    # ``delivery_unknown`` and ``missing-at-intake`` are explicit closure
+    # markers, not transport destinations.  Treating them as a delivery route
+    # creates a permanent retry receipt for an intent that was deliberately
+    # archived without an addressable origin thread.
+    if channel.lower() == "delivery_unknown" or target.lower() == "missing-at-intake":
+        return None
     value = {"channel": channel, "target": target}
     # The OpenClaw transport has different thread primitives.  A Telegram forum
     # topic is a ``thread-id``; Slack conversation replies use ``reply-to``.
@@ -202,6 +208,7 @@ def main() -> int:
       ledger = load(args.state, args.legacy_state)
       deliveries: dict[str, dict[str, str]] = ledger["deliveries"]  # type: ignore[assignment]
       sent = skipped = 0
+      current_receipts: set[str] = set()
       for entry in entries(text):
           terminal = phase(entry)
           if not terminal:
@@ -215,6 +222,7 @@ def main() -> int:
           # destination+phase만으로 dedupe하면 과거 Waiting 통보가 deadline 실패 통보를 삼킨다.
           identity = "|".join((str(entry["id"]), terminal, dest["channel"], dest["target"], dest.get("thread", ""), dest.get("reply_to", ""), fingerprint(entry, terminal)))
           key = hashlib.sha256(identity.encode()).hexdigest()
+          current_receipts.add(key)
           existing = deliveries.get(key)
           if existing:
               # A claim without an attempt marker means the prior process died
@@ -246,6 +254,15 @@ def main() -> int:
           receipt[("sent_at" if outcome == "sent" else "updated_at")] = now()
           save(args.state, ledger)
           sent += outcome == "sent"
+      # An older terminal state can be replaced by Archive or lose its
+      # addressable origin during explicit user closeout.  Retain that receipt
+      # for audit, but do not let a no-longer-current ambiguous delivery keep
+      # every subsequent dispatcher cycle in an error state.
+      for key, receipt in deliveries.items():
+          if key not in current_receipts and receipt.get("state") in {"claimed", "failed_before_acceptance", "delivery_unknown"}:
+              receipt["state"] = "superseded"
+              receipt["superseded_at"] = now()
+      save(args.state, ledger)
       fcntl.flock(lock, fcntl.LOCK_UN)
     unknown = sum(1 for receipt in deliveries.values() if receipt.get("state") in {"claimed", "failed_before_acceptance", "delivery_unknown"})
     print(json.dumps({"sent": sent, "skipped_missing_destination": skipped, "delivery_uncertain": unknown}, ensure_ascii=False))

@@ -1,0 +1,235 @@
+{
+  "schema_version": 1,
+  "intent_id": "research-github-skills-20260912",
+  "status": "archived",
+  "trace_completeness": "complete",
+  "request": {
+    "raw": {
+      "status": "recorded",
+      "value": "리서치 스킬 인피니티로 조사해줘 깃헙에 스킬로 어떤 것들 있고 나한테 쓸만한거 뭐일지"
+    },
+    "normalized_query": {
+      "status": "recorded",
+      "value": "GitHub 공개 리서치 스킬 후보를 현재 OpenClaw·Infinity·Knowledge Lab 환경에서 설치 가능성, 중복, 운영 안전성, 실제 활용 가치 기준으로 비교해 우선순위를 추천한다."
+    }
+  },
+  "events": [
+    {
+      "type": "intake",
+      "at": "2026-09-12T21:08:40Z",
+      "context_pack": "intents/context/research-github-skills-20260912.json",
+      "evidence_paths": [
+        "/home/ubuntu/workspace/knowledge-lab/agent-wiki/README.md",
+        "/home/ubuntu/workspace/knowledge-lab/source/openclaw-system/docs/INFINITY_OPERATING_RULES.md",
+        "/home/ubuntu/.openclaw/agents/main/agent/codex-home/skills/.system/skill-installer/SKILL.md"
+      ]
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-12T21:10:02Z",
+      "context_pack": "intents/context/research-github-skills-20260912.json",
+      "evidence_paths": [
+        "intents/archive/research-github-skills-20260912.md"
+      ],
+      "searches": [
+        "task-plan presence check"
+      ],
+      "wiki_pages": [
+        "agent-wiki/content/docs/mapped/Integration/Marketing.mdx",
+        "agent-wiki/content/docs/mapped/Meta/AGENTS.mdx",
+        "agent-wiki/content/docs/mapped/Fundamental/Math.mdx",
+        "agent-wiki/content/docs/mapped/Integration/Business.mdx",
+        "agent-wiki/content/docs/mapped/deep-knowledge/monitoring.mdx"
+      ],
+      "note": "Invalid Active state repaired: required task plan is absent; moved to Waiting with an agent-owned autonomous plan-generation condition."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "timestamp": "2026-09-12T22:42:43Z",
+      "run_id": "dispatch-7661047174d44ca79d907951c67403bb",
+      "canonical_sha": "c4bc3ae480d19e55338b7060d6d05591efc49d5e",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "status": "accepted",
+      "note": "Autonomous retry: created the missing task plan and activated T1.1."
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-12T22:50:00Z",
+      "context_pack": "intents/context/research-github-skills-20260912.json",
+      "evidence_paths": [
+        "artifacts/research-github-skills-20260912/work/github-candidate-evidence.md"
+      ],
+      "searches": [
+        "GitHub repository search: research agent skills",
+        "GitHub repository search: deep research agent",
+        "Direct GitHub API opening of README, SKILL.md, LICENSE, repository tree, and HEAD metadata"
+      ],
+      "wiki_pages": [
+        "agent-wiki/content/docs/mapped/Integration/Marketing.mdx",
+        "agent-wiki/content/docs/mapped/Meta/AGENTS.mdx",
+        "agent-wiki/content/docs/mapped/Fundamental/Math.mdx",
+        "agent-wiki/content/docs/mapped/Integration/Business.mdx",
+        "agent-wiki/content/docs/mapped/deep-knowledge/monitoring.mdx"
+      ],
+      "note": "T1.1 completed by directly opening six public repositories, their README and research SKILL.md files, repository metadata and license surfaces. No installation or external execution occurred."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-b5b989ed40df437eabd4271b02dc3e0e",
+      "canonical_sha": "3702aac48184075330286c65fe788fe2b91404f5",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-12T22:52:43Z",
+      "status": "accepted",
+      "note": "Autonomous retry resumed: T1.1 is done and T1.2 Red review is active."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "timestamp": "2026-09-12T23:23:51Z",
+      "run_id": "dispatch-335b2502b57e4178a2a3b01a50389f30",
+      "canonical_sha": "b6e755d25e710952bb9a3c9ebb8fceb59704e0c3",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "status": "accepted",
+      "note": "T1.2 timebox reassessment accepted; split into immutable evidence repair then independent Red rerun."
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-12T23:26:54Z",
+      "context_pack": "intents/context/research-github-skills-20260912.json",
+      "evidence_paths": [
+        "artifacts/research-github-skills-20260912/work/github-candidate-evidence.md"
+      ],
+      "searches": [
+        "GitHub REST repo metadata",
+        "GitHub REST default-branch ref",
+        "GitHub recursive tree and commit-pinned README/SKILL.md/LICENSE blobs"
+      ],
+      "wiki_pages": [
+        "agent-wiki/content/docs/mapped/Integration/Marketing.mdx",
+        "agent-wiki/content/docs/mapped/Meta/AGENTS.mdx",
+        "agent-wiki/content/docs/mapped/Fundamental/Math.mdx",
+        "agent-wiki/content/docs/mapped/Integration/Business.mdx",
+        "agent-wiki/content/docs/mapped/deep-knowledge/monitoring.mdx"
+      ],
+      "note": "T1.2A completed: six candidate records now show immutable README, actual SKILL.md, LICENSE-or-absence, and observed default-branch HEAD equality. No clone, install, execution, connection, or secret entry occurred."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "timestamp": "2026-09-12T23:33:13Z",
+      "run_id": "dispatch-9a4dabbfe73e4f88802599f7e6df86d5",
+      "canonical_sha": "6d219edb0651337ff8b25e7fad88374b9ff5daa0",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "status": "accepted",
+      "note": "Activated T1.2B after T1.2A completed; independent Red rerun is now in scope."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-30dc75b248f74350a2dc7cde4b297d82",
+      "canonical_sha": "18ff1d79e59dd92ff3e86ce0236b24d1a8e04720",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-12T23:53:43Z",
+      "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-12T23:53:43Z",
+      "context_pack": "intents/context/research-github-skills-20260912.json",
+      "evidence_paths": [
+        "artifacts/research-github-skills-20260912/work/red/candidate-review-rerun.md"
+      ],
+      "searches": [
+        "independent Red rerun received as immutable evidence review; no new repository search"
+      ],
+      "wiki_pages": [
+        "agent-wiki/content/docs/mapped/Integration/Marketing.mdx",
+        "agent-wiki/content/docs/mapped/Meta/AGENTS.mdx",
+        "agent-wiki/content/docs/mapped/Fundamental/Math.mdx",
+        "agent-wiki/content/docs/mapped/Integration/Business.mdx",
+        "agent-wiki/content/docs/mapped/deep-knowledge/monitoring.mdx"
+      ],
+      "note": "T1.2B timebox expired; chose verified alternative: recorded already-delivered independent Red PASS. No additional search, clone, install, execution, connection, or secret entry occurred."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-56fa0b4c8e4946c7b9673190951e1e42",
+      "canonical_sha": "21af3555a63cbe7bd6d94dfc5775f93581c12ed8",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-09-13T00:03:27Z",
+      "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-09-13T00:04:37Z",
+      "context_pack": "intents/context/research-github-skills-20260912.json",
+      "evidence_paths": [
+        "artifacts/research-github-skills-20260912/final/github-research-skills-brief.md"
+      ],
+      "searches": [
+        "no new repository search; synthesized commit-pinned candidate evidence and independent Red PASS"
+      ],
+      "wiki_pages": [
+        "agent-wiki/content/docs/mapped/Integration/Marketing.mdx",
+        "agent-wiki/content/docs/mapped/Meta/AGENTS.mdx",
+        "agent-wiki/content/docs/mapped/Fundamental/Math.mdx",
+        "agent-wiki/content/docs/mapped/Integration/Business.mdx",
+        "agent-wiki/content/docs/mapped/deep-knowledge/monitoring.mdx"
+      ],
+      "note": "T1.3 completed: documented default adoption 0, Kang-chen hold, and an approval-gated installation-free pilot protocol. No clone, installation, execution, connection, secret entry, or external side effect occurred."
+    },
+    {
+      "type": "archive",
+      "at": "2026-09-13T00:12:43Z",
+      "report_path": "reports/research-github-skills-20260912/20260913T0012Z-final.html",
+      "evidence_paths": [
+        "reports/research-github-skills-20260912/20260913T0012Z-final.html",
+        "artifacts/research-github-skills-20260912/work/red/final-review.md",
+        "artifacts/research-github-skills-20260912/work/archive-remote-proof.md"
+      ],
+      "verification": {
+        "red_status": "pass",
+        "red_report_path": "artifacts/research-github-skills-20260912/work/red/final-review.md",
+        "remote_verified": "pass",
+        "remote_proof_path": "artifacts/research-github-skills-20260912/work/archive-remote-proof.md"
+      }
+    }
+  ],
+  "artifacts": [
+    {
+      "label": "GitHub candidate evidence",
+      "path": "artifacts/research-github-skills-20260912/work/github-candidate-evidence.md",
+      "kind": "candidate_evidence",
+      "at": "2026-09-12T22:50:00Z"
+    },
+    {
+      "label": "Independent Red rerun",
+      "path": "artifacts/research-github-skills-20260912/work/red/candidate-review-rerun.md",
+      "kind": "red_review",
+      "at": "2026-09-12T23:53:43Z"
+    },
+    {
+      "label": "final-brief",
+      "path": "artifacts/research-github-skills-20260912/final/github-research-skills-brief.md"
+    }
+  ],
+  "verifications": [
+    {
+      "label": "Red verification evidence",
+      "path": "artifacts/research-github-skills-20260912/work/red/final-review.md",
+      "status": "pass"
+    },
+    {
+      "label": "Remote verification evidence",
+      "path": "artifacts/research-github-skills-20260912/work/archive-remote-proof.md",
+      "status": "pass"
+    }
+  ],
+  "next_decision": {
+    "status": "archived",
+    "value": "Actual pilot remains approval-gated in intents/waiting/pilot-github-research-skill-kang-chen-approval.md"
+  }
+}

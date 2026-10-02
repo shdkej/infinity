@@ -93,7 +93,7 @@ def split_sections(text: str) -> dict[str, str]:
 def final_research_artifact_path(archive_text: str, intent_id: str) -> str | None:
     """Return the required full Markdown report path from an archive record."""
     pattern = re.compile(
-        rf"^\s*-\s*final_artifact:\s*(artifacts/{re.escape(intent_id)}/final/[^/\s]+-report\.md)\s*$",
+        rf"^\s*-\s*final_artifact:\s*(artifacts/{re.escape(intent_id)}/final/[^/\s]+-(?:report|brief)\.md)\s*$",
         re.M,
     )
     match = pattern.search(archive_text)

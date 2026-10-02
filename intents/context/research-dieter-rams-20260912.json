@@ -1,0 +1,71 @@
+{
+  "context_pack_version": 3,
+  "status": "ready",
+  "route": "infinity",
+  "request": "디터 람스를 조사해줘. 그의 디자인 원칙이 무엇인지, 실제 제품과 경력에서 어떻게 나타났는지, 원칙이 비판받거나 적용에 실패하는 조건은 무엇인지, 그리고 나의 앱·카드·공간형 디자인에 바로 적용할 판단 기준은 무엇인지 조사한다.",
+  "built_at": "2026-09-12T15:07:40.481773+00:00",
+  "required_documents": [
+    "/home/ubuntu/workspace/prompt-archive/LLM.md",
+    "README.md",
+    "schema/agent-rules.md",
+    "source/openclaw-system/docs/DOCUMENT_SEARCH_PIPELINE.md",
+    "source/openclaw-system/docs/USER_CONTEXT.md",
+    "source/openclaw-system/docs/SERVICE_REGISTRY.md",
+    "source/openclaw-system/docs/INFINITY_OPERATING_RULES.md",
+    "infinity/ARTIFACT_RULES.md",
+    "infinity/EXECUTION_LEARNING_CONTRACT.md",
+    "infinity/INTENTS.md",
+    "agent-wiki/README.md"
+  ],
+  "search_scopes": [
+    "agent-wiki/content/docs/",
+    "source/openclaw-system/docs/",
+    "source/openclaw-system/data/daily-reviews/",
+    "source/openclaw-system/data/daily-tracking/",
+    "source/openclaw-system/data/photo-insights/"
+  ],
+  "selected_context": [
+    {
+      "path": "agent-wiki/content/docs/mapped/Integration/Marketing.mdx",
+      "reason": "zg hybrid discovery + rg verification",
+      "verified_term": "디터",
+      "verification": "passed"
+    },
+    {
+      "path": "agent-wiki/content/docs/mapped/Meta/Collection.mdx",
+      "reason": "zg hybrid discovery + rg verification",
+      "verified_term": "디터",
+      "verification": "passed"
+    },
+    {
+      "path": "agent-wiki/content/docs/mapped/Human/Balance.mdx",
+      "reason": "zg hybrid discovery + rg verification",
+      "verified_term": "디터",
+      "verification": "passed"
+    },
+    {
+      "path": "agent-wiki/content/docs/mapped/Human/Standard.mdx",
+      "reason": "zg hybrid discovery + rg verification",
+      "verified_term": "디터",
+      "verification": "passed"
+    },
+    {
+      "path": "agent-wiki/content/docs/mapped/Integration/Business.mdx",
+      "reason": "zg hybrid discovery + rg verification",
+      "verified_term": "디터",
+      "verification": "passed"
+    }
+  ],
+  "preflight": {
+    "tool": "zg",
+    "discovery": "hybrid+fts RRF",
+    "verification": "managed rg"
+  },
+  "selected_context_required": true,
+  "rules": [
+    "Read every required document before creating or executing an intent.",
+    "Read every selected_context Agent Wiki page and record those exact paths in the execution trace.",
+    "Search the declared scopes for task-specific evidence; do not treat a search hit as a confirmed fact without its source.",
+    "Record the resulting context pack path in the intent and re-check it before handoff."
+  ]
+}

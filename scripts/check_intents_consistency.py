@@ -88,7 +88,15 @@ def main() -> int:
         if not id_match:
             continue
         date_match = DATE_RE.search(body)
-        archive_items.append((date_key(date_match.group(1) if date_match else ""), id_match.group(1)))
+        completed = date_key(date_match.group(1) if date_match else "")
+        intent_id = id_match.group(1)
+        archive_items.append((completed, intent_id))
+
+    for card in CARD_RE.finditer(sections.get("Archive", "")):
+        intent_id = card.group(1)
+        fields = {key.strip(): value.strip() for key, value in FIELD_RE.findall(card.group(2))}
+        if not (fields.get("completed_at") or fields.get("archived_at")):
+            errors.append(f"Archive: {intent_id} missing completed_at/archived_at for dashboard ordering")
 
     for prev, cur in zip(archive_items, archive_items[1:]):
         if (prev[0], prev[1]) < (cur[0], cur[1]):

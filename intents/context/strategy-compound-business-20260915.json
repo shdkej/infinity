@@ -1,0 +1,49 @@
+{
+  "context_pack_version": 3,
+  "status": "ready",
+  "route": "infinity",
+  "request": "현재 여행 기록·영상 자동화·큐레이션 취향·AI/백엔드 역량을 바탕으로, 한 번 한 일이 다음 수익을 쉽게 만드는 복리사업을 발굴한다. 단순 사업 개선을 넘어서 기존 기술·경험·콘텐츠·고객·데이터·작업물에서 파생할 신규 제품·수익 구조를 우선순위와 첫 실험까지 제안한다.",
+  "built_at": "2026-09-15T08:05:00Z",
+  "required_documents": [
+    "/home/ubuntu/workspace/prompt-archive/LLM.md",
+    "README.md",
+    "schema/agent-rules.md",
+    "source/openclaw-system/docs/DOCUMENT_SEARCH_PIPELINE.md",
+    "source/openclaw-system/docs/USER_CONTEXT.md",
+    "source/openclaw-system/docs/SERVICE_REGISTRY.md",
+    "source/openclaw-system/docs/INFINITY_OPERATING_RULES.md",
+    "infinity/ARTIFACT_RULES.md",
+    "infinity/EXECUTION_LEARNING_CONTRACT.md",
+    "infinity/INTENTS.md",
+    "agent-wiki/README.md"
+  ],
+  "search_scopes": [
+    "agent-wiki/content/docs/",
+    "source/openclaw-system/docs/",
+    "source/infinity/archive/"
+  ],
+  "selected_context_required": true,
+  "selected_context": [
+    {
+      "path": "agent-wiki/content/docs/outputs/Idea/Travel.mdx",
+      "reason": "여행을 관찰·기록·재사용 가능한 규칙으로 바꾸는 기존 자산의 성격을 확인한다.",
+      "verification": "zg query --rg -F 여행 content/docs"
+    },
+    {
+      "path": "agent-wiki/content/docs/outputs/Communication/Blogging.mdx",
+      "reason": "여행 장면을 선택 압력과 재사용 가능한 콘텐츠 자산으로 전환하는 기준을 확인한다.",
+      "verification": "zg query --rg -F 여행 content/docs"
+    },
+    {
+      "path": "source/openclaw-system/docs/WORLD_TRAVEL_PROJECT.md",
+      "reason": "현재 비즈니스 트랙, 동결 범위, 콘텐츠·앱 수익화 순서를 확인한다.",
+      "verification": "task-specific direct read"
+    }
+  ],
+  "selected_operational_logs": [],
+  "rules": [
+    "교육·코칭 판매보다 제품·도구·데이터·라이선스 구조를 우선한다.",
+    "시장 적합과 수익 가능성은 실제 반응·거래 전에는 확정하지 않는다.",
+    "공개 게시, 결제, 개인정보 수집, 광고·제휴는 별도 승인 전 실행하지 않는다."
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "context_pack_version": 1,
+  "status": "ready",
+  "route": "infinity",
+  "request": "사용자가 제공하고 원본 저장소에 등록한 2026-09-18 아말피·라벨로 사진 6장과 여행 메모를 바탕으로, 비공개 세로형 하루 브이로그 릴스 초안을 제작한다. 빌라 루폴로의 겹친 문과 숫자 3 작품에서 발견한 관찰을 중심 장면으로 쓰되, 공개 게시·업로드·음원 라이선스 구매는 하지 않는다.",
+  "built_at": "2026-09-19T09:45:17Z",
+  "required_documents": [
+    "/home/ubuntu/workspace/prompt-archive/LLM.md",
+    "/home/ubuntu/workspace/knowledge-lab/README.md",
+    "/home/ubuntu/workspace/knowledge-lab/schema/agent-rules.md",
+    "/home/ubuntu/workspace/knowledge-lab/source/openclaw-system/docs/DOCUMENT_SEARCH_PIPELINE.md",
+    "/home/ubuntu/workspace/knowledge-lab/source/openclaw-system/docs/USER_CONTEXT.md",
+    "/home/ubuntu/workspace/knowledge-lab/source/openclaw-system/docs/SERVICE_REGISTRY.md",
+    "/home/ubuntu/workspace/knowledge-lab/source/openclaw-system/docs/INFINITY_OPERATING_RULES.md",
+    "ARTIFACT_RULES.md",
+    "EXECUTION_LEARNING_CONTRACT.md",
+    "INTENTS.md",
+    "/home/ubuntu/workspace/knowledge-lab/agent-wiki/content/docs/index.mdx"
+  ],
+  "search_scopes": [
+    "/home/ubuntu/workspace/knowledge-lab/agent-wiki/content/docs/",
+    "/home/ubuntu/workspace/knowledge-lab/source/openclaw-system/data/daily-tracking/"
+  ],
+  "evidence": [
+    "/home/ubuntu/workspace/knowledge-lab/source/openclaw-system/data/daily-tracking/2026-09-18.md"
+  ],
+  "rules": [
+    "Render a private draft only; do not publish or upload to Instagram.",
+    "Use only the six verified user-original photos listed in the daily tracking record.",
+    "Use no third-party music or licensed media without separate approval."
+  ]
+}
