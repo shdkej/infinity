@@ -77,6 +77,17 @@ class TerminalNotificationTest(unittest.TestCase):
             self.assertEqual(self.run_dispatch(intents, state, outbox)["sent"], 1)
             self.assertEqual(json.loads(outbox.read_text())["destination"]["reply_to"], "1788296972.847769")
 
+    def test_waiting_approval_required_is_not_hidden_and_has_buttons(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory); intents = root / "INTENTS.md"; state = root / "state.json"; outbox = root / "outbox.jsonl"
+            intents.write_text(registry(waiting=True).replace("- waiting_on: user\n", "- approval_required: true\n- permission_level: approval_required\n"))
+            self.assertEqual(self.run_dispatch(intents, state, outbox)["sent"], 1)
+            payload = json.loads(outbox.read_text())
+            self.assertIn("Infinity 승인/결정 필요", payload["message"])
+            values = [button["action"]["value"] for button in payload["presentation"]["buttons"]]
+            self.assertIn("infinity:approve:fixture-2", values)
+            self.assertIn("infinity:reject:fixture-2", values)
+
     def test_concurrent_replay_emits_one_message(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory); intents = root / "INTENTS.md"; state = root / "state.json"; outbox = root / "outbox.jsonl"

@@ -74,7 +74,10 @@ def phase(entry: dict[str, object]) -> str | None:
     if status == "experiment_failed":
         return "experiment_failed"
     if entry["lane"] == "waiting" or status in {"waiting", "blocked"}:
-        if fields.get("approval") or fields.get("waiting_on", "").lower() == "user":
+        approval_required = fields.get("approval_required", "").lower() in {"true", "yes", "required"}
+        approval_permission = fields.get("permission_level", "").lower() == "approval_required"
+        approval_reason = "approval" in fields.get("waiting_reason", "").lower()
+        if fields.get("approval") or fields.get("waiting_on", "").lower() == "user" or approval_required or approval_permission or approval_reason:
             return "approval"
         if fields.get("blocker") or fields.get("next_retry_condition"):
             return "blocked"
@@ -153,14 +156,36 @@ def save(path: Path, data: dict[str, object]) -> None:
     tmp.replace(path)
 
 
-def send(dest: dict[str, str], body: str, args: argparse.Namespace) -> str:
+def presentation(entry: dict[str, object], state: str) -> dict[str, object] | None:
+    if state != "approval":
+        return None
+    intent_id = str(entry["id"])
+    return {
+        "buttons": [{
+            "label": "승인",
+            "action": {"type": "callback", "value": f"infinity:approve:{intent_id}"},
+            "style": "primary",
+        }, {
+            "label": "보류/거절",
+            "action": {"type": "callback", "value": f"infinity:reject:{intent_id}"},
+            "style": "secondary",
+        }]
+    }
+
+
+def send(dest: dict[str, str], body: str, args: argparse.Namespace, card: dict[str, object] | None = None) -> str:
     if args.mock_outbox:
         with Path(args.mock_outbox).open("a") as outbox:
-            outbox.write(json.dumps({"destination": dest, "message": body}, ensure_ascii=False) + "\n")
+            payload: dict[str, object] = {"destination": dest, "message": body}
+            if card:
+                payload["presentation"] = card
+            outbox.write(json.dumps(payload, ensure_ascii=False) + "\n")
         return "sent"
     if not args.deliver:
         raise RuntimeError("delivery requires --deliver (or use --mock-outbox)")
     command = [args.openclaw_bin, "message", "send", "--json", "--channel", dest["channel"], "--target", dest["target"], "--message", body]
+    if card:
+        command.extend(["--presentation", json.dumps(card, ensure_ascii=False, separators=(",", ":"))])
     if dest.get("thread"):
         command.extend(["--thread-id", dest["thread"]])
     if dest.get("reply_to"):
@@ -249,7 +274,7 @@ def main() -> int:
           # to retry after an interrupted process because no transport result was
           # recorded.  ``delivery_unknown`` is intentionally never replayed: CLI
           # acceptance is ambiguous and automatic replay could duplicate a notice.
-          outcome = send(dest, message(entry, terminal), args)
+          outcome = send(dest, message(entry, terminal), args, presentation(entry, terminal))
           receipt["state"] = outcome
           receipt[("sent_at" if outcome == "sent" else "updated_at")] = now()
           save(args.state, ledger)
