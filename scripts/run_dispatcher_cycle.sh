@@ -10,6 +10,7 @@ STATE_DIR="${INFINITY_DISPATCHER_STATE_DIR:-/home/ubuntu/.openclaw/state/infinit
 TERMINAL_STATE_FILE="${INFINITY_TERMINAL_STATE_FILE:-$ROOT/data/dispatcher-terminal-notifications.json}"
 LOCK_FILE="${INFINITY_DISPATCHER_LOCK_FILE:-/tmp/infinity-dispatcher.lock}"
 AGENT_TIMEOUT_SECONDS="${INFINITY_DISPATCHER_AGENT_TIMEOUT_SECONDS:-480}"
+DISPATCHER_SESSION_KEY="${INFINITY_DISPATCHER_SESSION_KEY:-agent:genie:infinity-dispatcher-v2}"
 mkdir -p "$STATE_DIR" 2>/dev/null || { printf '%s\n' 'Infinity 점검을 시작하지 못했습니다. 원격 상태를 다시 확인한 뒤 재개하겠습니다.'; exit 0; }
 exec 9>"$LOCK_FILE"
 flock -n 9 || exit 0
@@ -98,7 +99,7 @@ Do not create schedules. Do not use dashboard_actions as work status. Your sole 
 
 For every missing_plan_repair_candidate, create the required contract-compliant task-plan, add its card references, activate the first evidence-bearing leaf, and execute it in this cycle; a missing plan is never a user blocker. Whenever an Active Intent creates or replaces a human-readable Markdown work artifact, update both its canonical INTENTS.md card and its detail intent (when present) with the current `artifact:` paths in the same commit, so the dashboard can display them even when GitHub directory listing is rate-limited. At an explicit deadline, or when the user explicitly asks to finish/archive after that deadline, stop expansion and run one atomic terminal bundle before replying: final Markdown, any user- or Intent-required HTML report, Archive card/detail transition, remote archive verification, dashboard Archive-card check, then original-thread notice. A partial prose summary is not terminal work and never substitutes for the bundle. `delivery_not_before`, deferred final delivery, a completed current leaf, and internal closeout are never Waiting conditions: keep the Intent Active, add 1–5 evidence-bearing exploratory leaves from the latest findings, activate the next eligible leaf, and continue.
 
-Before substantive work, append a dispatcher_handoff event to traces/<intent-id>.json with run_id, canonical_sha, agent=genie, session_key=agent:genie:infinity-dispatcher, timestamp, and status=accepted. Commit and push only explicit Infinity files, fetch, and prove HEAD == origin/main. Preserve approval boundaries. If starting is unsafe, record a precise Waiting or stale_guard_released reason; never claim completion.
+Before substantive work, append a dispatcher_handoff event to traces/<intent-id>.json with run_id, canonical_sha, agent=genie, session_key=agent:genie:infinity-dispatcher-v2, timestamp, and status=accepted. Commit and push only explicit Infinity files, fetch, and prove HEAD == origin/main. Preserve approval boundaries. If starting is unsafe, record a precise Waiting or stale_guard_released reason; never claim completion.
 
 Return JSON containing intent IDs, session evidence, state changes, commit, and remote proof.'''
 if plan.get("waiting_closeout_candidates"):
@@ -117,7 +118,7 @@ PY
     HANDOFF_VERIFY_EXIT=1
   else
     mv "$PROMPT_STAGE_FILE" "$PROMPT_FILE"
-    timeout --foreground "${AGENT_TIMEOUT_SECONDS}s" "$OPENCLAW_BIN" agent --agent genie --session-key agent:genie:infinity-dispatcher --message-file "$PROMPT_FILE" --thinking low --timeout "$AGENT_TIMEOUT_SECONDS" --json >"$STATE_DIR/$(basename "$RUN_FILE" .json)-genie.json" 2>&1
+    timeout --foreground "${AGENT_TIMEOUT_SECONDS}s" "$OPENCLAW_BIN" agent --agent genie --session-key "$DISPATCHER_SESSION_KEY" --message-file "$PROMPT_FILE" --thinking low --timeout "$AGENT_TIMEOUT_SECONDS" --json >"$STATE_DIR/$(basename "$RUN_FILE" .json)-genie.json" 2>&1
     HANDOFF_EXIT=$?
     HANDOFF_STATE="returned"
     [[ "$HANDOFF_EXIT" -eq 124 ]] && HANDOFF_STATE="timeout"
