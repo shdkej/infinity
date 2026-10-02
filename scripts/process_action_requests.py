@@ -115,6 +115,34 @@ def append_action_log(record: dict[str, str], object_key: str) -> None:
         f.write(line + "\n")
 
 
+def resolve_waiting_intent(record: dict[str, str], text: str) -> tuple[str, bool]:
+    """Promote one Waiting intent after a dashboard resolve request."""
+    intent_id = record["intent_id"]
+    pattern = re.compile(
+        rf"(^### \[{re.escape(intent_id)}\][\s\S]*?)(?=^### |\Z)", re.M
+    )
+    match = pattern.search(section(text, "Waiting"))
+    if not match:
+        return text, False
+    block = match.group(1)
+    if not re.search(r"^- status:\s*waiting\s*$", block, re.M):
+        return text, False
+    stamp = record["created_at"] or utc_now()
+    block = re.sub(r"^- status:\s*waiting\s*$", "- status: active", block, count=1, flags=re.M)
+    block = re.sub(r"^- waiting_reason:.*\n", "", block, flags=re.M)
+    block = re.sub(r"^- blocker:.*\n", "", block, flags=re.M)
+    block = re.sub(r"^- waiting_on:.*\n", "", block, flags=re.M)
+    block = re.sub(r"^- next_action:.*\n", "- next_action: 승인된 작업의 실행 경로를 점검하고 다음 가역적 작업을 수행한다.\n", block, count=1, flags=re.M)
+    approval = f"- approval: user-approved via Infinity dashboard ({stamp})\n- approval_request_id: {record['request_id']}\n"
+    block = re.sub(r"(?=^- next_action:)", approval, block, count=1, flags=re.M)
+    waiting_body = section(text, "Waiting")
+    updated_waiting = waiting_body[:match.start()] + waiting_body[match.end():]
+    text = re.sub(r"(^## Waiting\n)[\s\S]*?(?=^## |\Z)", r"\1" + updated_waiting, text, count=1, flags=re.M)
+    active_marker = "## Active\n"
+    text = text.replace(active_marker, active_marker + "\n" + block, 1)
+    return text, True
+
+
 def write_local_request(record: dict[str, str]) -> Path:
     target_dir = ACTION_LOG_DIR / "requests"
     target_dir.mkdir(parents=True, exist_ok=True)
@@ -177,6 +205,14 @@ def process(bucket: str, apply: bool, limit: int) -> list[dict[str, str]]:
                 INTENTS.write_text(updated, encoding="utf-8")
                 intents_text = updated
             result["linked_intent_id"] = linked_id
+        elif record["action"] == "resolve_waiting":
+            updated, changed = resolve_waiting_intent(record, intents_text)
+            if changed:
+                INTENTS.write_text(updated, encoding="utf-8")
+                intents_text = updated
+                result["intent_transition"] = "waiting_to_active"
+            else:
+                result["intent_transition"] = "already_active_or_missing"
         append_action_log(record, key)
         local_path = write_local_request(record)
         move_s3_object(s3, bucket, key, PROCESSED_PREFIX)
