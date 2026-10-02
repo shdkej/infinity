@@ -6,20 +6,21 @@
 
 ## Active
 
-## Waiting
-
 ### [learning-candidate-proposer-automation-trigger-timeout-20261002] 반복된 proposer 자동화 trigger 평가 timeout 처리 개선
-- status: waiting
+- status: active
 - proposed_by: sam-proposer
 - permission_level: approval_required
 - approval_required: true
-- waiting_reason: 사용자 승인 필요 — 자동화 trigger 평가 경로 변경·검증은 approval_required 경계에 해당하며 승인 전에는 설정·스크립트·운영 실행을 변경하지 않는다.
-- next_action: 승인 후 기존 automation trigger 설정과 평가 경로를 점검하고, timeout 원인에 맞는 최소 수정안을 승인 요청 후 구현·검증한다.
+- approval: user-approved via Infinity dashboard (2026-10-02T15:14:26Z)
+- approval_request_id: cc2df31c-eb72-42b8-b8d4-ae2a821e6bcc
+- next_action: 기존 automation trigger 설정과 평가 경로를 점검하고, timeout 원인에 맞는 최소 수정안을 작성·검증한다.
 - trace: traces/learning-candidate-proposer-automation-trigger-timeout-20261002.json
 - notification_channel: slack
 - notification_target: channel:C0BR41W31MM
 - notification_reply_to: 1790939865.744739
 - notification_origin: channel:C0BR41W31MM;reply_to:1790939865.744739
+
+## Waiting
 
 ### [pilot-github-research-skill-kang-chen-approval] Kang-chen 문헌검토 부분 기능 격리 파일럿 승인 대기
 - status: waiting
