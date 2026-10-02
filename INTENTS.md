@@ -4,6 +4,19 @@
 
 ## Inbox
 
+### [proposer-evaluator-rate-limit-resilience-20261002] evaluator rate-limit 반복 실패 완화 조사·수정안
+- status: inbox
+- proposed_by: sam-proposer
+- source_signal: /home/ubuntu/workspace/knowledge-lab/infinity/EVALUATION_NOTES.md — evaluator 최근 실행 15회 연속 rate_limit 실패; OpenClaw automation runs — 동일 evaluator job의 반복 FallbackSummaryError rate_limit 기록
+- rationale: 반복 독립 실패로 evaluator가 새 평가를 거의 남기지 못하므로, rate-limit 시 평가 루프가 멈추지 않는 저비용 fallback 또는 진단 경로의 설계·검증이 필요합니다.
+- expected_artifact: evaluator automation의 rate-limit fallback/진단 동작 설계안, 적용 위치, 회귀 검증 결과
+- risk_level: medium
+- permission_level: approval_required
+- success_criteria: rate-limit 발생 시 본 평가가 무한 재시도·침묵 실패로 끝나지 않고 구조화된 진단 또는 허용된 fallback 결과를 남기며, 정상 모델 경로와 failureAlert 계약이 회귀하지 않음을 검증합니다.
+- next_action: 사용자가 승인하면 evaluator runner와 automation payload 소유 위치를 확인하고 최소 변경안과 검증 계획을 작성합니다.
+- approval_required: true
+
+
 ## Active
 
 ## Waiting
