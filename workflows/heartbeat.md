@@ -498,6 +498,8 @@ Intent가 완료 기준을 충족하거나 사용자가 완료 처리하면:
 7. 프로젝트성 작업은 Archive 전에 원래 사용자 목표가 끝났는지 판정한다. 끝나지 않았으면 후속 intent를 `Inbox`/`Active`/`Waiting` 중 하나로 만들고 archive 요약에 `next: {id}`를 남긴다.
 8. Archive Card의 `[다음 행동]`이 실제 실행을 뜻하면 `python3 scripts/archive_next_action_intake.py --apply`로 후속 intent를 생성하거나, 동일 목적의 열린 intent id를 archive의 `next_action_intent`에 연결한다. 공개 발행·외부 계정·광고·비용·자격증명·권한 변경은 후속 intent를 만들 수는 있지만 실행 전 사용자 승인이 필요하다.
 9. Archive 직전에 `python3 scripts/check_knowledge_promotion.py {intent-id}`를 실행한다. 모든 완료 Intent는 다음 중 하나로 닫는다.
+   - 승격 판정은 ‘보편적 일반 원칙인가’만으로 제한하지 않는다. **마스터님의 장기 의사결정·사업·생활 지식으로 다시 참고할 가치가 있는가**를 독립 기준으로 본다. 탐색형 리서치라도 사용자의 실제 선택 기준·문제 구조·검증 프레임을 보존하면 `promote` 대상으로 삼을 수 있다.
+   - 단순 실행 로그·일회성 후보·사용자 판단에 재진입할 이유가 없는 자료는 승격하지 않는다. 승격 여부가 애매하면 사용자 지식으로서의 재사용 장면과 다음 판단을 먼저 기록하고 결정한다.
    - `knowledge_status: promoted` + `knowledge_decision: promote`: 완료 원장을 `/home/ubuntu/workspace/knowledge-lab/source/infinity/archive/{id}.md`에 저장하고 `/home/ubuntu/workspace/knowledge-lab/ingest/INDEX.md`에 `source: source/infinity/archive/{id}.md`로 등록해 `status: selected`에서 `integrated`로 닫는다. ingest는 입력 등록·판정만 소유하며, 별도 지식 소비자의 파일·커밋은 이 흐름에서 수정하지 않는다.
    - `knowledge_status: raw` + `knowledge_decision: retain_in_infinity`: 장기 지식으로 승격하지 않을 근거를 `knowledge_reflection`에 남긴다. 실행 로그/단일 작업 세부는 Infinity 원장에만 둔다.
    - `knowledge_status: superseded` + `knowledge_decision: supersede`: 기존 지식으로 대체된 경우에도 ingest index에 archive를 등록하고 `status: integrated`와 대체 이유만 기록한다.
