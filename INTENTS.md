@@ -5,7 +5,7 @@
 ## Inbox
 
 ### [research-nothing-early-stage-20261003] 낫씽(Nothing) 초창기 과정과 롤모델 가능성 탐색
-- status: inbox
+- status: active
 - target_agent: genie
 - research_mode: exploratory_research
 - execution_mode: single_genie_roles
@@ -24,6 +24,7 @@
 - notification_reply_to: 1791056051.421989
 - notification_origin: channel:C0BR41W31MM;reply_to:1791056051.421989
 - next_action: Context Pack 재확인 후 공개 자료 기반의 확장형 초창기 리서치 실행
+- artifact: artifacts/research-nothing-early-stage-20261003/final/early-stage-brief.md
 
 ## Waiting
 

@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "intent_id": "research-nothing-early-stage-20261003",
-  "status": "inbox",
+  "status": "active",
   "trace_completeness": "complete",
   "request": {
     "raw": {
@@ -21,6 +21,22 @@
       "evidence_paths": [
         "intents/context/research-nothing-early-stage-20261003.json"
       ]
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-4c0d3bfb5ad54781b37dddad752460ed",
+      "canonical_sha": "8d5fbf558467bd10a81eb9a51f3d1a329b9f8b1f",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher-v2",
+      "timestamp": "2026-10-03T20:00:04Z",
+      "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-10-03T20:08:00Z",
+      "agent": "genie",
+      "status": "done",
+      "evidence_paths": ["artifacts/research-nothing-early-stage-20261003/final/early-stage-brief.md"]
     }
   ],
   "artifacts": [],
