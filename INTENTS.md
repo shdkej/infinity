@@ -359,7 +359,7 @@
 - commits: dcfad1fe47944f9bd8711d4c135434bf2a706dd0 (archive transition)
 - remote_verified: pass
 - remote_commit: dcfad1fe47944f9bd8711d4c135434bf2a706dd0
-- next_action: intents/waiting/pilot-github-research-skill-kang-chen-approval.md
+- next_action: closed via intents/archive/pilot-github-research-skill-kang-chen-approval.md; 재개 시 새 Intent 생성
 - archived_at: 2026-09-13T00:12:43Z
 
 ## Archive Card
