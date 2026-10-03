@@ -2,7 +2,7 @@
   "schema_version": 1,
   "tasks": [
     {"id":"T1.1","title":"repo·subfile license·의존성·egress 경계 감사","status":"done","started_at":"2026-10-02T22:45:00Z","completed_at":"2026-10-02T22:50:00Z","depends_on":[],"evidence":"artifacts/pilot-github-research-skill-kang-chen-approval/work/audit-evidence.md","max_minutes":20},
-    {"id":"T1.2","title":"단일 공개 질문 read-only fixture에서 부분 기능 비교","status":"active","started_at":"2026-10-03T15:10:20Z","depends_on":["T1.1"],"evidence":"artifacts/pilot-github-research-skill-kang-chen-approval/work/fixture-comparison.md","max_minutes":30},
+    {"id":"T1.2","title":"단일 공개 질문 read-only fixture에서 부분 기능 비교","status":"waiting","started_at":"2026-10-03T15:10:20Z","depends_on":["T1.1"],"evidence":"artifacts/pilot-github-research-skill-kang-chen-approval/work/fixture-comparison.md","max_minutes":30,"waiting_reason":"external artifact blocker: LICENSE·의존성·egress 증빙 부재","result":"blocked: fixture 실행 보류"},
     {"id":"T1.3","title":"격리 cleanup·중단 조건·원격 확인","status":"pending","depends_on":["T1.2"],"evidence":"artifacts/pilot-github-research-skill-kang-chen-approval/work/cleanup-proof.md","max_minutes":20}
   ],
   "deviations": [

@@ -20,6 +20,23 @@
       "status": "accepted"
     },
     {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-6d08aa28e2d7406786c1cbdb77212cb2",
+      "canonical_sha": "28368999f81b74fdaa79a1e3c87e1f2308c9a7a2",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher-v2",
+      "timestamp": "2026-10-03T15:10:04Z",
+      "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "task_id": "T1.3",
+      "at": "2026-10-03T15:12:00Z",
+      "status": "blocked",
+      "evidence_paths": ["artifacts/learning-candidate-proposer-automation-trigger-timeout-20261002/work/verification.md"],
+      "result": "external runner artifact absent; no change applied"
+    },
+    {
       "type": "backfill",
       "at": "2026-10-02T22:05:00Z",
       "task_id": "T1.1a",
@@ -139,9 +156,17 @@
       "run_id": "dispatch-6d08aa28e2d7406786c1cbdb77212cb2",
       "canonical_sha": "28368999f81b74fdaa79a1e3c87e1f2308c9a7a2",
       "agent": "genie",
-      "session_key": "agent:genie:infinity-dispatcher",
+      "session_key": "agent:genie:infinity-dispatcher-v2",
       "timestamp": "2026-10-03T15:10:04Z",
       "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "task_id": "T1.3",
+      "at": "2026-10-03T15:12:00Z",
+      "status": "blocked",
+      "evidence_paths": ["artifacts/learning-candidate-proposer-automation-trigger-timeout-20261002/work/verification.md"],
+      "result": "external runner artifact absent; no change applied"
     }
   ],
   "status": "waiting",

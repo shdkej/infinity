@@ -6,7 +6,7 @@
 ## Active
 
 ### [learning-candidate-proposer-automation-trigger-timeout-20261002] 반복된 proposer 자동화 trigger 평가 timeout 처리 개선
-- status: active
+- status: waiting
 - approval: user-approved via Infinity dashboard (2026-10-02T15:14:26Z)
 - approval: user-approved via Infinity dashboard (2026-10-03T13:55:07.940546+00:00)
 - approval_request_id: 7e60f917-0862-4214-b809-b9c1ce1f9285
@@ -14,9 +14,10 @@
 - task_plan: artifacts/learning-candidate-proposer-automation-trigger-timeout-20261002/work/task-plan.json
 - task_plan_doc: artifacts/learning-candidate-proposer-automation-trigger-timeout-20261002/work/task-plan.md
 - trace: traces/learning-candidate-proposer-automation-trigger-timeout-20261002.json
+- waiting_reason: external artifact blocker — proposer runner·automation payload가 없어 T1.3 적용·검증을 수행할 수 없음
 
 ### [pilot-github-research-skill-kang-chen-approval] Kang-chen 문헌검토 부분 기능 격리 파일럿 승인 대기
-- status: active
+- status: waiting
 - target_agent: genie
 - task_type: approval-gated-research
 - depends_on: research-github-skills-20260912
@@ -32,6 +33,7 @@
 - notification_target: channel:C0BR41W31MM
 - notification_reply_to: 1790939865.744739
 - notification_origin: channel:C0BR41W31MM;reply_to:1790939865.744739
+- waiting_reason: external artifact blocker — LICENSE·의존성·egress 증빙이 없어 read-only fixture 실행을 안전하게 시작할 수 없음
 
 
 ## Waiting
