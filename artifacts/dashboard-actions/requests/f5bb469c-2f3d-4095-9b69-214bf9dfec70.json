@@ -1,0 +1,10 @@
+{
+  "request_id": "f5bb469c-2f3d-4095-9b69-214bf9dfec70",
+  "created_at": "2026-10-03T13:55:33.456368+00:00",
+  "intent_id": "pilot-github-research-skill-kang-chen-approval",
+  "action": "archive_request",
+  "source": "dashboard",
+  "title": "Kang-chen 문헌검토 부분 기능 격리 파일럿 승인 대기",
+  "page": "https://infinity.aws.shdkej.com/",
+  "note": ""
+}

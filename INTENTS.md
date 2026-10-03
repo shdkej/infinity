@@ -5,6 +5,17 @@
 ## Inbox
 ## Active
 
+### [learning-candidate-proposer-automation-trigger-timeout-20261002] 반복된 proposer 자동화 trigger 평가 timeout 처리 개선
+- status: active
+- approval: user-approved via Infinity dashboard (2026-10-02T15:14:26Z)
+- approval: user-approved via Infinity dashboard (2026-10-03T13:55:07.940546+00:00)
+- approval_request_id: 7e60f917-0862-4214-b809-b9c1ce1f9285
+- next_action: 승인된 작업의 실행 경로를 점검하고 다음 가역적 작업을 수행한다.
+- task_plan: artifacts/learning-candidate-proposer-automation-trigger-timeout-20261002/work/task-plan.json
+- task_plan_doc: artifacts/learning-candidate-proposer-automation-trigger-timeout-20261002/work/task-plan.md
+- trace: traces/learning-candidate-proposer-automation-trigger-timeout-20261002.json
+
+
 ## Waiting
 
 ### [proposer-evaluator-rate-limit-resilience-20261002] evaluator rate-limit 반복 실패 완화 조사·수정안
@@ -43,15 +54,6 @@
 - notification_target: channel:C0BR41W31MM
 - notification_reply_to: 1790939865.744739
 - notification_origin: channel:C0BR41W31MM;reply_to:1790939865.744739
-
-### [learning-candidate-proposer-automation-trigger-timeout-20261002] 반복된 proposer 자동화 trigger 평가 timeout 처리 개선
-- status: waiting
-- approval: user-approved via Infinity dashboard (2026-10-02T15:14:26Z)
-- waiting_reason: 외부 blocker — 실제 proposer runner·automation payload가 Infinity 실행 저장소에 없어 승인된 최소 수정안을 적용하거나 10회 runtime 검증을 실행할 수 없음
-- next_action: runner artifact 또는 소유 runtime 저장소·검증 접근점이 제공되면 T1.3을 재개
-- task_plan: artifacts/learning-candidate-proposer-automation-trigger-timeout-20261002/work/task-plan.json
-- task_plan_doc: artifacts/learning-candidate-proposer-automation-trigger-timeout-20261002/work/task-plan.md
-- trace: traces/learning-candidate-proposer-automation-trigger-timeout-20261002.json
 
 ## Archive
 

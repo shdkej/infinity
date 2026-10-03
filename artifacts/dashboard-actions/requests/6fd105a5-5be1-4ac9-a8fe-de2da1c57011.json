@@ -1,0 +1,10 @@
+{
+  "request_id": "6fd105a5-5be1-4ac9-a8fe-de2da1c57011",
+  "created_at": "2026-10-03T13:55:44.406813+00:00",
+  "intent_id": "proposer-evaluator-rate-limit-resilience-20261002",
+  "action": "archive_request",
+  "source": "dashboard",
+  "title": "evaluator rate-limit 반복 실패 완화 조사·수정안",
+  "page": "https://infinity.aws.shdkej.com/",
+  "note": ""
+}

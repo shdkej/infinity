@@ -1,0 +1,10 @@
+{
+  "request_id": "7e60f917-0862-4214-b809-b9c1ce1f9285",
+  "created_at": "2026-10-03T13:55:07.940546+00:00",
+  "intent_id": "learning-candidate-proposer-automation-trigger-timeout-20261002",
+  "action": "resolve_waiting",
+  "source": "dashboard",
+  "title": "반복된 proposer 자동화 trigger 평가 timeout 처리 개선",
+  "page": "https://infinity.aws.shdkej.com/",
+  "note": ""
+}
