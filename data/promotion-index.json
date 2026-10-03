@@ -1,25 +1,25 @@
 {
-  "generated_at": "2026-10-02T18:00:08.857Z",
+  "generated_at": "2026-10-03T00:00:07.866Z",
   "summary": {
-    "total": 929,
+    "total": 930,
     "wiki_reflected": 196,
-    "not_reflected": 733,
+    "not_reflected": 734,
     "by_status": {
-      "queued": 747,
+      "queued": 748,
       "reviewed": 97,
       "integrated": 10,
       "rejected": 73,
       "selected": 2
     },
     "by_layer": {
-      "infinity": 60,
+      "infinity": 61,
       "openclaw-system": 613,
       "external-links": 181,
       "shdkej-content": 74,
       "root": 1
     },
     "by_promotion_state": {
-      "not_applicable": 731,
+      "not_applicable": 732,
       "reflected": 196,
       "pending_promotion": 2
     }
@@ -31,7 +31,35 @@
       "source_layer": "infinity",
       "reason": "자동 수집됨; 내용 판정 대기",
       "reviewed_at": "",
-      "modified_at": "2026-10-02T18:00:05Z",
+      "modified_at": "2026-10-03T00:00:03Z",
+      "promotion_targets": [],
+      "reflection_basis": [],
+      "promotion_state": "not_applicable",
+      "promotion_reason": "자동 수집됨; 내용 판정 대기",
+      "promotion_target_note": "",
+      "wiki_reflected": false
+    },
+    {
+      "source": "source/infinity/archive/research-business-profitability-modoo-20261002.md",
+      "status": "queued",
+      "source_layer": "infinity",
+      "reason": "자동 수집됨; 내용 판정 대기",
+      "reviewed_at": "",
+      "modified_at": "2026-10-02T21:19:57Z",
+      "promotion_targets": [],
+      "reflection_basis": [],
+      "promotion_state": "not_applicable",
+      "promotion_reason": "자동 수집됨; 내용 판정 대기",
+      "promotion_target_note": "Integration/Business",
+      "wiki_reflected": false
+    },
+    {
+      "source": "source/openclaw-system/data/promotion-feedback.jsonl",
+      "status": "queued",
+      "source_layer": "openclaw-system",
+      "reason": "자동 수집됨; 내용 판정 대기",
+      "reviewed_at": "",
+      "modified_at": "2026-10-02T19:30:21Z",
       "promotion_targets": [],
       "reflection_basis": [],
       "promotion_state": "not_applicable",
@@ -60,20 +88,6 @@
       "reason": "자동 수집됨; 내용 판정 대기",
       "reviewed_at": "",
       "modified_at": "2026-10-01T20:19:31Z",
-      "promotion_targets": [],
-      "reflection_basis": [],
-      "promotion_state": "not_applicable",
-      "promotion_reason": "자동 수집됨; 내용 판정 대기",
-      "promotion_target_note": "",
-      "wiki_reflected": false
-    },
-    {
-      "source": "source/openclaw-system/data/promotion-feedback.jsonl",
-      "status": "queued",
-      "source_layer": "openclaw-system",
-      "reason": "자동 수집됨; 내용 판정 대기",
-      "reviewed_at": "",
-      "modified_at": "2026-10-01T19:30:14Z",
       "promotion_targets": [],
       "reflection_basis": [],
       "promotion_state": "not_applicable",
