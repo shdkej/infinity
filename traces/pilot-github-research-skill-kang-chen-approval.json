@@ -28,7 +28,7 @@
       "run_id": "dispatch-5bbd57ef15dc4cd4aba3ba2d1417f7b7",
       "canonical_sha": "73cd62f5ea50797aeca8172dc624c156d25ce676",
       "agent": "genie",
-      "session_key": "agent:genie:infinity-dispatcher",
+      "session_key": "agent:genie:infinity-dispatcher-v2",
       "timestamp": "2026-10-02T22:40:35Z",
       "status": "accepted"
     },
@@ -40,6 +40,15 @@
       "session_key": "agent:genie:infinity-dispatcher-v2",
       "timestamp": "2026-10-02T22:45:00Z",
       "status": "accepted"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-6d08aa28e2d7406786c1cbdb77212cb2",
+      "canonical_sha": "28368999f81b74fdaa79a1e3c87e1f2308c9a7a2",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-10-03T15:10:04Z",
+      "status": "accepted"
     }
   ],
   "artifacts": [
@@ -48,7 +57,11 @@
     "artifacts/pilot-github-research-skill-kang-chen-approval/work/audit-evidence.md"
   ],
   "verifications": [
-    {"type":"start_condition_audit","status":"blocked","reason":"repo LICENSE 및 실제 egress·의존성 경로 미확정"}
+    {
+      "type": "start_condition_audit",
+      "status": "blocked",
+      "reason": "repo LICENSE 및 실제 egress·의존성 경로 미확정"
+    }
   ],
   "next_decision": {
     "status": "in_progress",

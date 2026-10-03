@@ -15,9 +15,9 @@
 │  ● T1.2  bounded read·timeout·실패 상태 보존 최소 수정안 작성             완료 · 예상/최대 15/20분 · 의존 T1.1b
 │           증거: `artifacts/learning-candidate-proposer-automation-trigger-timeout-20261002/work/minimal-fix-proposal.md`
 │           시작/완료/실제: 2026-10-02T22:15:00Z / 2026-10-02T22:45:00Z / 30분 · runner artifact 부재
-│  ○ T1.3  승인된 수정 적용 및 변경/무변경 판정 검증                        미완료 · 예상/최대 20/30분 · 의존 T1.2
+│  ◐ T1.3  승인된 수정 적용 및 변경/무변경 판정 검증                        진행 · 예상/최대 20/30분 · 의존 T1.2
 │           증거: `artifacts/learning-candidate-proposer-automation-trigger-timeout-20261002/work/verification.md`
-│           시작/완료/실제: — / — / —
+│           시작/완료/실제: 2026-10-03T15:10:20Z / — / —
 │  ○ T1.4  10회 연속 성공과 실패 상태 보존 증거 정리                        미완료 · 예상/최대 15/20분 · 의존 T1.3
 │           증거: `artifacts/learning-candidate-proposer-automation-trigger-timeout-20261002/work/ten-run-evidence.md`
 │           시작/완료/실제: — / — / —

@@ -42,7 +42,8 @@
     {
       "id": "T1.3",
       "title": "승인된 수정 적용 및 변경/무변경 판정 검증",
-      "status": "pending",
+      "status": "active",
+      "started_at": "2026-10-03T15:10:20Z",
       "depends_on": ["T1.2"],
       "evidence": "artifacts/learning-candidate-proposer-automation-trigger-timeout-20261002/work/verification.md",
       "max_minutes": 30
@@ -50,7 +51,8 @@
     {
       "id": "T1.4",
       "title": "10회 연속 성공과 실패 상태 보존 증거 정리",
-      "status": "pending",
+      "status": "active",
+      "started_at": "2026-10-03T15:10:20Z",
       "depends_on": ["T1.3"],
       "evidence": "artifacts/learning-candidate-proposer-automation-trigger-timeout-20261002/work/ten-run-evidence.md",
       "max_minutes": 20

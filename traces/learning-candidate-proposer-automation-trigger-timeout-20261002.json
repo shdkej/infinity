@@ -53,7 +53,7 @@
       "run_id": "dispatch-d422f74ca9dc4455b4420f98323bcd7a",
       "canonical_sha": "0533b1bf2186e861fdb841f9c16bb12b95e03e89",
       "agent": "genie",
-      "session_key": "agent:genie:infinity-dispatcher",
+      "session_key": "agent:genie:infinity-dispatcher-v2",
       "timestamp": "2026-10-02T21:10:04Z",
       "status": "accepted"
     },
@@ -94,7 +94,7 @@
       "run_id": "dispatch-9a4278a9db484870bed565adeed2c218",
       "canonical_sha": "c4c41f88e4e993f142ec870e4e17849979c04871",
       "agent": "genie",
-      "session_key": "agent:genie:infinity-dispatcher",
+      "session_key": "agent:genie:infinity-dispatcher-v2",
       "timestamp": "2026-10-02T22:00:06Z",
       "status": "accepted"
     },
@@ -133,6 +133,15 @@
       "session_key": "agent:genie:infinity-dispatcher-v2",
       "timestamp": "2026-10-02T22:45:00Z",
       "status": "accepted"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-6d08aa28e2d7406786c1cbdb77212cb2",
+      "canonical_sha": "28368999f81b74fdaa79a1e3c87e1f2308c9a7a2",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-10-03T15:10:04Z",
+      "status": "accepted"
     }
   ],
   "status": "waiting",
@@ -164,6 +173,9 @@
       "evidence": "artifacts/learning-candidate-proposer-automation-trigger-timeout-20261002/work/minimal-fix-proposal.md"
     }
   ],
-  "next_decision": {"status":"blocked","value":"external runner artifact or owner runtime access required for T1.3"},
+  "next_decision": {
+    "status": "blocked",
+    "value": "external runner artifact or owner runtime access required for T1.3"
+  },
   "backfill_source": "dispatcher_missing_trace"
 }
