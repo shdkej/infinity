@@ -15,6 +15,24 @@
 - task_plan_doc: artifacts/learning-candidate-proposer-automation-trigger-timeout-20261002/work/task-plan.md
 - trace: traces/learning-candidate-proposer-automation-trigger-timeout-20261002.json
 
+### [pilot-github-research-skill-kang-chen-approval] Kang-chen 문헌검토 부분 기능 격리 파일럿 승인 대기
+- status: active
+- target_agent: genie
+- task_type: approval-gated-research
+- depends_on: research-github-skills-20260912
+- approval: user-approved via Infinity dashboard (2026-10-02T22:22:51.050232+00:00)
+- approval_request_id: acff9567-12cc-4754-adcc-9bcda62244be
+- next_action: 승인된 read-only fixture 실행 경로와 LICENSE·의존성·egress·데이터 전송 경로를 점검한다.
+- task_plan: artifacts/pilot-github-research-skill-kang-chen-approval/work/task-plan.json
+- task_plan_doc: artifacts/pilot-github-research-skill-kang-chen-approval/work/task-plan.md
+- task_plan_template: ARTIFACT_RULES.md#대형-작업-태스크-계획
+- artifact: artifacts/pilot-github-research-skill-kang-chen-approval/work/audit-evidence.md
+- detail: intents/waiting/pilot-github-research-skill-kang-chen-approval.md
+- notification_channel: slack
+- notification_target: channel:C0BR41W31MM
+- notification_reply_to: 1790939865.744739
+- notification_origin: channel:C0BR41W31MM;reply_to:1790939865.744739
+
 
 ## Waiting
 
@@ -36,24 +54,6 @@
 - artifact: artifacts/proposer-evaluator-rate-limit-resilience-20261002/work/runner-inventory.md; artifacts/proposer-evaluator-rate-limit-resilience-20261002/work/minimal-fix-proposal.md
 - waiting_reason: approval boundary — evaluator runner·automation payload에 대한 실제 변경 및 외부 runtime 검증은 사용자 승인 후에만 실행
 - next_action: 사용자가 evaluator runner 소유 위치와 최소 변경 실행을 승인하면 T1.2를 재개
-
-### [pilot-github-research-skill-kang-chen-approval] Kang-chen 문헌검토 부분 기능 격리 파일럿 승인 대기
-- status: waiting
-- target_agent: genie
-- task_type: approval-gated-research
-- depends_on: research-github-skills-20260912
-- approval: user-approved via Infinity dashboard (2026-10-02T22:22:51.050232+00:00)
-- approval_request_id: acff9567-12cc-4754-adcc-9bcda62244be
-- waiting_reason: repo/subfile LICENSE와 실제 의존성·egress·데이터 전송 경로가 확정되지 않아 read-only fixture 실행을 시작할 수 없음
-- task_plan: artifacts/pilot-github-research-skill-kang-chen-approval/work/task-plan.json
-- task_plan_doc: artifacts/pilot-github-research-skill-kang-chen-approval/work/task-plan.md
-- task_plan_template: ARTIFACT_RULES.md#대형-작업-태스크-계획
-- artifact: artifacts/pilot-github-research-skill-kang-chen-approval/work/audit-evidence.md
-- detail: intents/waiting/pilot-github-research-skill-kang-chen-approval.md
-- notification_channel: slack
-- notification_target: channel:C0BR41W31MM
-- notification_reply_to: 1790939865.744739
-- notification_origin: channel:C0BR41W31MM;reply_to:1790939865.744739
 
 ## Archive
 
