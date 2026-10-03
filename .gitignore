@@ -15,3 +15,7 @@ MEMORY.md
 DREAMS.md
 **/MEMORY.md
 **/DREAMS.md
+
+# Local dispatcher/runtime artifacts
+data/dispatcher-terminal-notifications.json
+scripts/__pycache__/

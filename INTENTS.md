@@ -3,6 +3,28 @@
 > Heartbeat Agent가 주기적으로 읽고 실행하는 의도 목록.
 
 ## Inbox
+
+### [research-nothing-early-stage-20261003] 낫씽(Nothing) 초창기 과정과 롤모델 가능성 탐색
+- status: inbox
+- target_agent: genie
+- research_mode: exploratory_research
+- execution_mode: single_genie_roles
+- permission: L0-research-and-draft-only
+- requested: 2026-10-03T19:37:13Z
+- source_request: https://wegrowth.kr/blog/54
+- scope: 낫씽의 창업 배경, 초기 팀·제품·자금·브랜드 형성, 초기 의사결정과 시행착오, 현재 공개된 근거의 한계
+- out_of_scope: 투자·구매·채용·공개 행동에 대한 직접 권고 및 비공개 계정 자료 추정
+- expected_artifact: 초창기 중심 한국어 탐색 브리프와 출처 목록
+- success_criteria: 초창기 타임라인·핵심 의사결정·검증된 근거·불확실성·롤모델로 전환 가능한 원칙과 열린 질문을 구분해 제시
+- context_pack: intents/context/research-nothing-early-stage-20261003.json
+- task_plan_template: not_required (exploratory_research)
+- trace: traces/research-nothing-early-stage-20261003.json
+- notification_channel: slack
+- notification_target: channel:C0BR41W31MM
+- notification_reply_to: 1791056051.421989
+- notification_origin: channel:C0BR41W31MM;reply_to:1791056051.421989
+- next_action: Context Pack 재확인 후 공개 자료 기반의 확장형 초창기 리서치 실행
+
 ## Waiting
 
 ### [learning-candidate-proposer-automation-trigger-timeout-20261002] 반복된 proposer 자동화 trigger 평가 timeout 처리 개선

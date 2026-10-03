@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "intent_id": "research-nothing-early-stage-20261003",
+  "status": "inbox",
+  "trace_completeness": "complete",
+  "request": {
+    "raw": {
+      "status": "recorded",
+      "value": "https://wegrowth.kr/blog/54 낫씽이라는 회사에 대해 조사해줘. 특히 궁금한 부분은 초창기 과정이야. 내가 롤모델로 삼을만한 부분 있을지 초창기를 중심으로 상세한 조사 부탁해."
+    },
+    "normalized_query": {
+      "status": "recorded",
+      "value": "낫씽(Nothing)의 초창기 창업·팀·제품·자금·브랜드 형성 과정과 롤모델로 전환 가능한 원칙을 탐색한다."
+    }
+  },
+  "events": [
+    {
+      "type": "intake",
+      "at": "2026-10-03T19:37:33Z",
+      "context_pack": "intents/context/research-nothing-early-stage-20261003.json",
+      "evidence_paths": [
+        "intents/context/research-nothing-early-stage-20261003.json"
+      ]
+    }
+  ],
+  "artifacts": [],
+  "verifications": [],
+  "next_decision": {
+    "status": "in_progress",
+    "value": "Genie가 Context Pack을 재확인하고 공개 자료 기반 초창기 탐색을 시작한다."
+  }
+}
