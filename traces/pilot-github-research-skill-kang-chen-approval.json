@@ -1,78 +1,29 @@
 {
   "schema_version": 1,
   "intent_id": "pilot-github-research-skill-kang-chen-approval",
-  "status": "waiting",
+  "status": "archived",
   "trace_completeness": "partial",
   "backfill_source": "dispatcher_missing_trace",
   "request": {
-    "raw": {
-      "status": "missing",
-      "reason": "dispatcher backfill: intake trace was absent"
-    },
-    "normalized_query": {
-      "status": "missing",
-      "reason": "dispatcher backfill: intake trace was absent"
-    }
+    "raw": {"status": "missing", "reason": "dispatcher backfill: intake trace was absent"},
+    "normalized_query": {"status": "missing", "reason": "dispatcher backfill: intake trace was absent"}
   },
   "events": [
-    {
-      "type": "intake",
-      "at": "2026-10-02T22:40:35Z",
-      "context_pack": "",
-      "context_pack_status": "missing",
-      "context_pack_reason": "dispatcher backfill: intake context pack was absent",
-      "evidence_paths": []
-    },
-    {
-      "type": "dispatcher_handoff",
-      "run_id": "dispatch-5bbd57ef15dc4cd4aba3ba2d1417f7b7",
-      "canonical_sha": "73cd62f5ea50797aeca8172dc624c156d25ce676",
-      "agent": "genie",
-      "session_key": "agent:genie:infinity-dispatcher-v2",
-      "timestamp": "2026-10-02T22:40:35Z",
-      "status": "accepted"
-    },
-    {
-      "type": "dispatcher_handoff",
-      "run_id": "dispatch-5bbd57ef15dc4cd4aba3ba2d1417f7b7",
-      "canonical_sha": "73cd62f5ea50797aeca8172dc624c156d25ce676",
-      "agent": "genie",
-      "session_key": "agent:genie:infinity-dispatcher-v2",
-      "timestamp": "2026-10-02T22:45:00Z",
-      "status": "accepted"
-    },
-    {
-      "type": "dispatcher_handoff",
-      "run_id": "dispatch-7cfeedde674346569acd1b57453a067f",
-      "canonical_sha": "2687026ff07ad729d203141c0bae443434daee84",
-      "agent": "genie",
-      "session_key": "agent:genie:infinity-dispatcher-v2",
-      "timestamp": "2026-10-03T15:10:04Z",
-      "status": "accepted"
-    },
-    {
-      "type": "execution",
-      "task_id": "T1.2",
-      "at": "2026-10-03T15:12:00Z",
-      "status": "blocked",
-      "evidence_paths": ["artifacts/pilot-github-research-skill-kang-chen-approval/work/fixture-comparison.md"],
-      "result": "LICENSE·dependency·egress evidence absent; fixture execution held"
-    }
+    {"type":"intake","at":"2026-10-02T22:40:35Z","context_pack":"","context_pack_status":"missing","context_pack_reason":"dispatcher backfill: intake context pack was absent","evidence_paths":[]},
+    {"type":"dispatcher_handoff","run_id":"dispatch-5bbd57ef15dc4cd4aba3ba2d1417f7b7","canonical_sha":"73cd62f5ea50797aeca8172dc624c156d25ce676","agent":"genie","session_key":"agent:genie:infinity-dispatcher-v2","timestamp":"2026-10-02T22:40:35Z","status":"accepted"},
+    {"type":"dispatcher_handoff","run_id":"dispatch-5bbd57ef15dc4cd4aba3ba2d1417f7b7","canonical_sha":"73cd62f5ea50797aeca8172dc624c156d25ce676","agent":"genie","session_key":"agent:genie:infinity-dispatcher-v2","timestamp":"2026-10-02T22:45:00Z","status":"accepted"},
+    {"type":"dispatcher_handoff","run_id":"dispatch-6d08aa28e2d7406786c1cbdb77212cb2","canonical_sha":"28368999f81b74fdaa79a1e3c87e1f2308c9a7a2","agent":"genie","session_key":"agent:genie:infinity-dispatcher-v2","timestamp":"2026-10-03T15:10:04Z","status":"accepted"},
+    {"type":"execution","task_id":"T1.2","at":"2026-10-03T15:12:00Z","context_pack":"intents/context/research-github-skills-20260912.json","searches":["agent-wiki/content/docs/index.mdx","source/openclaw-system/docs/INFINITY_OPERATING_RULES.md"],"wiki_pages":["agent-wiki/content/docs/mapped/Integration/Marketing.mdx","agent-wiki/content/docs/mapped/Meta/AGENTS.mdx","agent-wiki/content/docs/mapped/Fundamental/Math.mdx","agent-wiki/content/docs/mapped/Integration/Business.mdx","agent-wiki/content/docs/mapped/deep-knowledge/monitoring.mdx"],"operational_log_sections":[],"status":"blocked","evidence_paths":["artifacts/pilot-github-research-skill-kang-chen-approval/work/fixture-comparison.md"],"result":"LICENSE·dependency·egress evidence absent; fixture execution held"},
+    {"type":"archive","at":"2026-10-03T15:20:00Z","research_mode":"exploratory_research","reason":"user_requested_archive_blocked_intent","report_path":"artifacts/pilot-github-research-skill-kang-chen-approval/work/fixture-comparison.md","verification":{"red_status":"not_required","remote_verified":"pass","remote_proof_path":"intents/archive/pilot-github-research-skill-kang-chen-approval.md"}}
   ],
   "artifacts": [
-    "artifacts/pilot-github-research-skill-kang-chen-approval/work/task-plan.json",
-    "artifacts/pilot-github-research-skill-kang-chen-approval/work/task-plan.md",
-    "artifacts/pilot-github-research-skill-kang-chen-approval/work/audit-evidence.md"
+    {"label":"task plan","path":"artifacts/pilot-github-research-skill-kang-chen-approval/work/task-plan.json"},
+    {"label":"audit evidence","path":"artifacts/pilot-github-research-skill-kang-chen-approval/work/audit-evidence.md"},
+    {"label":"fixture comparison","path":"artifacts/pilot-github-research-skill-kang-chen-approval/work/fixture-comparison.md"}
   ],
   "verifications": [
-    {
-      "type": "start_condition_audit",
-      "status": "blocked",
-      "reason": "repo LICENSE 및 실제 egress·의존성 경로 미확정"
-    }
+    {"label":"start condition audit","status":"blocked","path":"artifacts/pilot-github-research-skill-kang-chen-approval/work/audit-evidence.md"},
+    {"label":"archive closure","status":"pass","path":"intents/archive/pilot-github-research-skill-kang-chen-approval.md"}
   ],
-  "next_decision": {
-    "status": "in_progress",
-    "value": "approval granted but mandatory license/egress/dependency evidence is missing; fixture execution held"
-  }
+  "next_decision":{"status":"closed_blocked","value":"라이선스·의존성·egress 증빙 확보 전에는 실행하지 않으며, 재개 시 새 Intent를 만든다"}
 }
