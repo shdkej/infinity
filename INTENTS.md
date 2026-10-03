@@ -3,7 +3,7 @@
 > Heartbeat Agent가 주기적으로 읽고 실행하는 의도 목록.
 
 ## Inbox
-## Active
+## Waiting
 
 ### [learning-candidate-proposer-automation-trigger-timeout-20261002] 반복된 proposer 자동화 trigger 평가 timeout 처리 개선
 - status: waiting
@@ -16,25 +16,7 @@
 - trace: traces/learning-candidate-proposer-automation-trigger-timeout-20261002.json
 - waiting_reason: external artifact blocker — proposer runner·automation payload가 없어 T1.3 적용·검증을 수행할 수 없음
 
-### [pilot-github-research-skill-kang-chen-approval] Kang-chen 문헌검토 부분 기능 격리 파일럿 승인 대기
-- status: waiting
-- target_agent: genie
-- task_type: approval-gated-research
-- depends_on: research-github-skills-20260912
-- approval: user-approved via Infinity dashboard (2026-10-02T22:22:51.050232+00:00)
-- approval_request_id: acff9567-12cc-4754-adcc-9bcda62244be
-- next_action: 승인된 read-only fixture 실행 경로와 LICENSE·의존성·egress·데이터 전송 경로를 점검한다.
-- task_plan: artifacts/pilot-github-research-skill-kang-chen-approval/work/task-plan.json
-- task_plan_doc: artifacts/pilot-github-research-skill-kang-chen-approval/work/task-plan.md
-- task_plan_template: ARTIFACT_RULES.md#대형-작업-태스크-계획
-- artifact: artifacts/pilot-github-research-skill-kang-chen-approval/work/audit-evidence.md
-- detail: intents/waiting/pilot-github-research-skill-kang-chen-approval.md
-- notification_channel: slack
-- notification_target: channel:C0BR41W31MM
-- notification_reply_to: 1790939865.744739
-- notification_origin: channel:C0BR41W31MM;reply_to:1790939865.744739
-- waiting_reason: external artifact blocker — LICENSE·의존성·egress 증빙이 없어 read-only fixture 실행을 안전하게 시작할 수 없음
-
+## Active
 
 ## Waiting
 
@@ -58,6 +40,27 @@
 - next_action: 사용자가 evaluator runner 소유 위치와 최소 변경 실행을 승인하면 T1.2를 재개
 
 ## Archive
+
+### [pilot-github-research-skill-kang-chen-approval] Kang-chen 문헌검토 부분 기능 격리 파일럿 차단 종료
+- status: archived
+- archived_at: 2026-10-03T15:20:00Z
+- close_reason: blocked_external_artifact
+- target_agent: genie
+- task_type: approval-gated-research
+- depends_on: research-github-skills-20260912
+- approval: user-approved via Infinity dashboard (2026-10-02T22:22:51.050232+00:00)
+- approval_request_id: acff9567-12cc-4754-adcc-9bcda62244be
+- task_plan: artifacts/pilot-github-research-skill-kang-chen-approval/work/task-plan.json
+- task_plan_doc: artifacts/pilot-github-research-skill-kang-chen-approval/work/task-plan.md
+- trace: traces/pilot-github-research-skill-kang-chen-approval.json
+- artifact: artifacts/pilot-github-research-skill-kang-chen-approval/work/audit-evidence.md; artifacts/pilot-github-research-skill-kang-chen-approval/work/fixture-comparison.md
+- detail: intents/archive/pilot-github-research-skill-kang-chen-approval.md
+- notification_channel: slack
+- notification_target: channel:C0BR41W31MM
+- notification_reply_to: 1790939865.744739
+- notification_origin: channel:C0BR41W31MM;reply_to:1790939865.744739
+- next_action: 라이선스·의존성·egress 증빙이 확보될 때 새 Intent로 재개
+- remote_verified: pending
 
 ### [research-business-profitability-modoo-20261002] 모두의창업 통과 후 사업성·수익성 제품화 노하우 탐색
 - status: archived
