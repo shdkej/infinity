@@ -2,7 +2,7 @@
 
 > Heartbeat Agent가 주기적으로 읽고 실행하는 의도 목록.
 
-## Inbox
+## Active
 
 ### [research-nothing-early-stage-20261003] 낫씽(Nothing) 초창기 과정과 롤모델 가능성 탐색
 - status: active

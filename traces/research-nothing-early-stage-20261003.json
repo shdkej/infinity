@@ -37,6 +37,15 @@
       "agent": "genie",
       "status": "done",
       "evidence_paths": ["artifacts/research-nothing-early-stage-20261003/final/early-stage-brief.md"]
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-9236cf4b4c314805800fb561b17b7f73",
+      "canonical_sha": "2fce0c0bf47e9e07e7cd587fdf26b9dab4f6d152",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher-v2",
+      "timestamp": "2026-10-03T20:03:40Z",
+      "status": "accepted"
     }
   ],
   "artifacts": [],
