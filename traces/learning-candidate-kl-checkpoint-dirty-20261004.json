@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "intent_id": "learning-candidate-kl-checkpoint-dirty-20261004",
+  "status": "active",
+  "trace_completeness": "partial",
+  "backfill_source": "dispatcher_missing_trace",
+  "request": {
+    "raw": {
+      "status": "missing",
+      "reason": "dispatcher backfill: intake trace was absent"
+    },
+    "normalized_query": {
+      "status": "missing",
+      "reason": "dispatcher backfill: intake trace was absent"
+    }
+  },
+  "events": [
+    {
+      "type": "intake",
+      "at": "2026-10-04T23:40:03Z",
+      "context_pack": "",
+      "context_pack_status": "missing",
+      "context_pack_reason": "dispatcher backfill: intake context pack was absent",
+      "evidence_paths": []
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-00dcea605e724baea3ed2f515b04f2a9",
+      "canonical_sha": "4ed52ffe57aeddf46409280d9f135182e76b7e52",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-10-04T23:40:03Z",
+      "status": "accepted"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-00dcea605e724baea3ed2f515b04f2a9",
+      "canonical_sha": "4ed52ffe57aeddf46409280d9f135182e76b7e52",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher-v2",
+      "timestamp": "2026-10-04T23:40:03Z",
+      "status": "accepted"
+    }
+  ],
+  "artifacts": [
+    "intents/context/learning-candidate-kl-checkpoint-dirty-20261004.json",
+    "artifacts/learning-candidate-kl-checkpoint-dirty-20261004/work/execution-report.md"
+  ],
+  "verifications": [],
+  "next_decision": {
+    "status": "waiting",
+    "value": "external artifact blocker: proposer automation job/payload unavailable in current authenticated scope"
+  }
+}
