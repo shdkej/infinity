@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "intent_id": "research-nothing-early-stage-deep-20261004",
-  "status": "inbox",
+  "status": "archived",
   "trace_completeness": "complete",
   "request": {
     "raw": {
