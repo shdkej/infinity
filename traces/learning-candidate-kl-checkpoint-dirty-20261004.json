@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "intent_id": "learning-candidate-kl-checkpoint-dirty-20261004",
+  "status": "waiting",
+  "trace_completeness": "partial",
+  "backfill_source": "dispatcher_missing_trace",
+  "request": {
+    "raw": {
+      "status": "missing",
+      "reason": "dispatcher backfill: intake trace was absent"
+    },
+    "normalized_query": {
+      "status": "missing",
+      "reason": "dispatcher backfill: intake trace was absent"
+    }
+  },
+  "events": [
+    {
+      "type": "intake",
+      "at": "2026-10-04T23:40:03Z",
+      "context_pack": "intents/context/learning-candidate-kl-checkpoint-dirty-20261004.json",
+      "context_pack_status": "verified",
+      "context_pack_reason": "infinity route pack generated and rechecked",
+      "evidence_paths": ["intents/context/learning-candidate-kl-checkpoint-dirty-20261004.json"]
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-00dcea605e724baea3ed2f515b04f2a9",
+      "canonical_sha": "4ed52ffe57aeddf46409280d9f135182e76b7e52",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher-v2",
+      "timestamp": "2026-10-04T23:40:03Z",
+      "status": "accepted"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-00dcea605e724baea3ed2f515b04f2a9",
+      "canonical_sha": "4ed52ffe57aeddf46409280d9f135182e76b7e52",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher-v2",
+      "timestamp": "2026-10-04T23:40:03Z",
+      "status": "accepted"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-865b5abdb9734b4d9da529009c13c76b",
+      "canonical_sha": "7528157b036f63c8f69f44eb4613f33f89066862",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher-v2",
+      "timestamp": "2026-10-04T23:43:57Z",
+      "status": "accepted"
+    }
+  ],
+  "artifacts": [
+    "intents/context/learning-candidate-kl-checkpoint-dirty-20261004.json",
+    "artifacts/learning-candidate-kl-checkpoint-dirty-20261004/work/planner.md",
+    "artifacts/learning-candidate-kl-checkpoint-dirty-20261004/work/developer.md",
+    "artifacts/learning-candidate-kl-checkpoint-dirty-20261004/work/marketer.md",
+    "artifacts/learning-candidate-kl-checkpoint-dirty-20261004/work/operator.md",
+    "artifacts/learning-candidate-kl-checkpoint-dirty-20261004/work/execution-report.md",
+    "artifacts/learning-candidate-kl-checkpoint-dirty-20261004/work/red.md"
+  ],
+  "verifications": [{
+    "type": "red",
+    "status": "fail",
+    "report": "artifacts/learning-candidate-kl-checkpoint-dirty-20261004/work/red.md",
+    "reason": "remote SHA evidence and trace consistency were inconsistent before correction"
+  }, {
+    "type": "remote_read_only",
+    "status": "verified",
+    "head": "7cab7042c78832e71170e7e006067067502cf91c",
+    "origin_main": "7528157b036f63c8f69f44eb4613f33f89066862",
+    "ls_remote": "7528157b036f63c8f69f44eb4613f33f89066862",
+    "push_performed": false
+  }],
+  "next_decision": {
+    "status": "waiting",
+    "value": "external artifact blocker: proposer automation job/payload unavailable in current authenticated scope"
+  }
+}
