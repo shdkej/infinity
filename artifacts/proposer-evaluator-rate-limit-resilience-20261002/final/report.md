@@ -8,3 +8,4 @@
 - 수동 검증: `status=ok`, `completionStatus=succeeded`, 52.455초, 외부 발송 없음
 - 한계: 이번 실행에서는 rate-limit이 재현되지 않아 fallback 실제 발동은 다음 실행 관찰 대상으로 남겼습니다.
 - Red: PASS — `work/red/final-review.md`
+- 지식 판정: `knowledge_status=queued`, `knowledge_decision=defer`, `knowledge_targets=agent-wiki 승격 대상 없음`, `knowledge_reflection=운영 payload 실행 결과는 기존 정본 규칙에 이미 포함`, `knowledge_commit=not_applicable`.
