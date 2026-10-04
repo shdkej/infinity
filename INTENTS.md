@@ -14,6 +14,8 @@
 - task_plan_doc: artifacts/learning-candidate-proposer-automation-trigger-timeout-20261002/work/task-plan.md
 - trace: traces/learning-candidate-proposer-automation-trigger-timeout-20261002.json
 - waiting_reason: external artifact blocker — proposer runner·automation payload가 없어 T1.3 적용·검증을 수행할 수 없음
+- notification_channel: slack
+- notification_target: channel:C0BR41W31MM
 
 ## Active
 
