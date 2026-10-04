@@ -379,6 +379,10 @@ Inbox ──→ Active ──→ in_progress ──→ archived
 - `waiting → Active`: 승인 수신 또는 조건 충족 시
 - `in_progress → archived`: success_criteria 충족 또는 사용자가 완료 처리할 때
 
+### 실행 완료 신호와 Registry 종료의 동기화
+
+Genie 실행 기록이 `done`이고 `artifacts/{intent-id}/final/`에 해당 Intent의 최종 산출물이 존재하면, 다음 Heartbeat에서 이를 단순 진행 신호로 소비하지 않는다. 반드시 같은 사이클에 (1) 최종 산출물 경로를 trace의 `artifacts`에 기록하고, (2) 필요한 검증 결과를 `verifications`에 기록하며, (3) `next_decision.status`를 `archived` 또는 실제 차단 사유가 있는 `waiting`으로 닫고, (4) canonical Intent를 열린 lane에서 제거한 뒤 Archive 원장과 대시보드 Archive comment를 남긴다. 탐색형 리서치는 HTML·Red를 새로 요구하지 않지만 최종 Markdown 브리프와 출처·불확실성 기록을 필수로 확인한다. `done` 증거가 있는데 Active에 남겨두는 것은 유효한 대기 상태가 아니라 종료 누락으로 판정하며, 완료 묶음을 같은 사이클에 재개한다.
+
 산출물 Intent의 완료 report에는 `metric_result`와 `metric_next_decision`을 반드시 남긴다. 신호가 아직 없거나 측정 대상이 아니면 `null` 또는 `hold`와 사유를 기록한다.
 
 ### waiting_on 필드 (2026-07-15 필수)
