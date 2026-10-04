@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "intent_id": "research-nothing-early-stage-deep-20261004",
+  "status": "inbox",
+  "trace_completeness": "complete",
+  "request": {"raw": {"status": "recorded", "value": "기존 Nothing 초창기 조사 결과가 부실하므로 더 상세하게 조사한다."}, "normalized_query": {"status": "recorded", "value": "Nothing 초창기의 팀·자금·제품·제조·커뮤니티·실패와 롤모델 적용 조건을 다각도로 심층 조사한다."}},
+  "events": [{"type": "intake", "at": "2026-10-04T18:35:00Z", "context_pack": "intents/context/research-nothing-early-stage-deep-20261004.json", "evidence_paths": ["INTENTS.md", "intents/archive/research-nothing-early-stage-20261003.md"]}],
+  "artifacts": [],
+  "verifications": [],
+  "next_decision": {"status": "inbox", "value": "Context Pack 확인 후 심층 조사 실행"}
+}

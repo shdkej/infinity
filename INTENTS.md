@@ -2,6 +2,28 @@
 
 > Heartbeat Agent가 주기적으로 읽고 실행하는 의도 목록.
 
+## Inbox
+
+### [research-nothing-early-stage-deep-20261004] 낫씽(Nothing) 초창기 심층 조사와 근거·실패·롤모델 검증
+- status: inbox
+- target_agent: genie
+- research_mode: exploratory_research
+- execution_mode: single_genie_roles
+- permission: L0-research-and-draft-only
+- requested: 2026-10-04T18:35:00Z
+- source_request: https://wegrowth.kr/blog/54
+- scope: 기존 브리프를 바탕으로 창업 배경·팀 구성·초기 자금·투자자·Teenage Engineering 협업·Ear (1) 제품개발과 제조 난제·커뮤니티 펀딩·출시·초기 고객 반응·Phone (1) 진입까지를 연표와 인과관계로 재조사한다. 창업자 주장, Nothing 공식 자료, 투자자·언론의 독립 보도, 제품 리뷰·출시 자료를 출처별로 분리하고 서로 충돌하는 수치와 주장을 대조한다.
+- out_of_scope: 비공개 재무·마진·내부 회의·확인되지 않은 실패담의 추정, 투자·구매·채용 권고, 공개 행동
+- expected_artifact: 기존 브리프보다 상세한 한국어 심층 리서치 Markdown, 주장별 출처·신뢰도·불확실성 표, 실패·반례·재현 불가능한 조건, 사용자의 롤모델 적용 가능/불가능 원칙
+- success_criteria: 최소 10개 이상의 직접 확인한 출처, 2020~2022 연표, 제품·자금·커뮤니티·브랜드·제조의 인과 구분, 반대 근거 또는 부재 확인, 개인 창업자에게 옮길 수 없는 조건을 별도 제시
+- context_pack: intents/context/research-nothing-early-stage-deep-20261004.json
+- trace: traces/research-nothing-early-stage-deep-20261004.json
+- notification_channel: slack
+- notification_target: channel:C0BR41W31MM
+- notification_reply_to: 1791137302.578719
+- notification_origin: channel:C0BR41W31MM;reply_to:1791137302.578719
+- next_action: Context Pack 확인 후 기존 브리프의 빈칸을 기준으로 다각도 심층 조사 실행
+
 ## Waiting
 
 ### [learning-candidate-proposer-automation-trigger-timeout-20261002] 반복된 proposer 자동화 trigger 평가 timeout 처리 개선
