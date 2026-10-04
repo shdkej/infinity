@@ -17,8 +17,6 @@
 
 ## Active
 
-## Waiting
-
 ### [proposer-evaluator-rate-limit-resilience-20261002] evaluator rate-limit 반복 실패 완화 조사·수정안
 - status: waiting
 - proposed_by: sam-proposer
@@ -37,6 +35,8 @@
 - artifact: artifacts/proposer-evaluator-rate-limit-resilience-20261002/work/runner-inventory.md; artifacts/proposer-evaluator-rate-limit-resilience-20261002/work/minimal-fix-proposal.md
 - waiting_reason: approval boundary — evaluator runner·automation payload에 대한 실제 변경 및 외부 runtime 검증은 사용자 승인 후에만 실행
 - next_action: 사용자가 evaluator runner 소유 위치와 최소 변경 실행을 승인하면 T1.2를 재개
+- notification_channel: slack
+- notification_target: channel:C0BR41W31MM
 
 ## Archive
 
