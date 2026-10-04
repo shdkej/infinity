@@ -5,7 +5,7 @@
 ## Inbox
 
 ### [research-nothing-early-stage-deep-20261004] 낫씽(Nothing) 초창기 심층 조사와 근거·실패·롤모델 검증
-- status: inbox
+- status: active
 - target_agent: genie
 - research_mode: exploratory_research
 - execution_mode: single_genie_roles
@@ -39,8 +39,6 @@
 - notification_channel: slack
 - notification_target: channel:C0BR41W31MM
 
-## Active
-
 ### [proposer-evaluator-rate-limit-resilience-20261002] evaluator rate-limit 반복 실패 완화 조사·수정안
 - status: waiting
 - proposed_by: sam-proposer
@@ -61,6 +59,8 @@
 - next_action: 사용자가 evaluator runner 소유 위치와 최소 변경 실행을 승인하면 T1.2를 재개
 - notification_channel: slack
 - notification_target: channel:C0BR41W31MM
+
+## Active
 
 ## Archive
 

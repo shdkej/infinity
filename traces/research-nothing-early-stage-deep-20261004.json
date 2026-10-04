@@ -3,9 +3,49 @@
   "intent_id": "research-nothing-early-stage-deep-20261004",
   "status": "inbox",
   "trace_completeness": "complete",
-  "request": {"raw": {"status": "recorded", "value": "기존 Nothing 초창기 조사 결과가 부실하므로 더 상세하게 조사한다."}, "normalized_query": {"status": "recorded", "value": "Nothing 초창기의 팀·자금·제품·제조·커뮤니티·실패와 롤모델 적용 조건을 다각도로 심층 조사한다."}},
-  "events": [{"type": "intake", "at": "2026-10-04T18:35:00Z", "context_pack": "intents/context/research-nothing-early-stage-deep-20261004.json", "evidence_paths": ["INTENTS.md", "intents/archive/research-nothing-early-stage-20261003.md"]}],
+  "request": {
+    "raw": {
+      "status": "recorded",
+      "value": "기존 Nothing 초창기 조사 결과가 부실하므로 더 상세하게 조사한다."
+    },
+    "normalized_query": {
+      "status": "recorded",
+      "value": "Nothing 초창기의 팀·자금·제품·제조·커뮤니티·실패와 롤모델 적용 조건을 다각도로 심층 조사한다."
+    }
+  },
+  "events": [
+    {
+      "type": "intake",
+      "at": "2026-10-04T18:35:00Z",
+      "context_pack": "intents/context/research-nothing-early-stage-deep-20261004.json",
+      "evidence_paths": [
+        "INTENTS.md",
+        "intents/archive/research-nothing-early-stage-20261003.md"
+      ]
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-af56e3342c0341778c6882c6576003ca",
+      "canonical_sha": "94630d5c4e7d5a6f986f5ce1b644591210cbdc58",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-10-04T18:40:57Z",
+      "status": "accepted"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-af56e3342c0341778c6882c6576003ca",
+      "canonical_sha": "94630d5c4e7d5a6f986f5ce1b644591210cbdc58",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher-v2",
+      "timestamp": "2026-10-04T18:45:00Z",
+      "status": "accepted"
+    }
+  ],
   "artifacts": [],
   "verifications": [],
-  "next_decision": {"status": "inbox", "value": "Context Pack 확인 후 심층 조사 실행"}
+  "next_decision": {
+    "status": "inbox",
+    "value": "Context Pack 확인 후 심층 조사 실행"
+  }
 }
