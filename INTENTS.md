@@ -44,6 +44,19 @@
 
 <!-- research-nothing-early-stage-20261003 completed 2026-10-04T18:20Z → intents/archive/research-nothing-early-stage-20261003.md (탐색형 브리프·출처·불확실성·롤모델 원칙을 보존하고, 후속 실행은 별도 Intent로 분리.) -->
 
+### [research-nothing-early-stage-20261003] 낫씽(Nothing) 초창기 과정과 롤모델 가능성 탐색
+- status: archived
+- completed_at: 2026-10-04T18:20:00Z
+- research_mode: exploratory_research
+- context_pack: intents/context/research-nothing-early-stage-20261003.json
+- trace: traces/research-nothing-early-stage-20261003.json
+- detail: intents/archive/research-nothing-early-stage-20261003.md
+- final_artifact: artifacts/research-nothing-early-stage-20261003/final/early-stage-brief.md
+- report: reports/research-nothing-early-stage-20261003/20261004T1820Z-final.html
+- artifact: artifacts/research-nothing-early-stage-20261003/final/early-stage-brief.md
+- red_status: not_required
+- remote_verified: pass
+
 ### [pilot-github-research-skill-kang-chen-approval] Kang-chen 문헌검토 부분 기능 격리 파일럿 차단 종료
 - status: archived
 - archived_at: 2026-10-03T15:20:00Z
