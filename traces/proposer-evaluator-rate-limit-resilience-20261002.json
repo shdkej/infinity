@@ -54,8 +54,15 @@
       "status": "accepted"
     }
   ],
-  "artifacts": [],
-  "verifications": [],
+  "artifacts": [
+    "artifacts/proposer-evaluator-rate-limit-resilience-20261002/work/runtime-verification.md",
+    "artifacts/proposer-evaluator-rate-limit-resilience-20261002/work/red/final-review.md",
+    "artifacts/proposer-evaluator-rate-limit-resilience-20261002/final/report.md"
+  ],
+  "verifications": [
+    {"type":"runtime","at":"2026-10-04T19:14:12Z","job_id":"f1027114-6430-433a-b4cb-6aa0dfc53157","run_id":"manual:f1027114-6430-433a-b4cb-6aa0dfc53157:1791139640012:1","status":"pass","result":"status=ok; completionStatus=succeeded; deliveryStatus=not-requested; fallback_not_invoked"},
+    {"type":"red","at":"2026-10-04T19:18:00Z","status":"pass","evidence":"artifacts/proposer-evaluator-rate-limit-resilience-20261002/work/red/final-review.md"}
+  ],
   "next_decision": {
     "status": "in_progress",
     "value": "dispatcher created partial trace before executor handoff"

@@ -19,30 +19,22 @@
 - notification_channel: slack
 - notification_target: channel:C0BR41W31MM
 
-### [proposer-evaluator-rate-limit-resilience-20261002] evaluator rate-limit 반복 실패 완화 조사·수정안
-- status: waiting
-- proposed_by: sam-proposer
-- source_signal: /home/ubuntu/workspace/knowledge-lab/infinity/EVALUATION_NOTES.md — evaluator 최근 실행 15회 연속 rate_limit 실패; OpenClaw automation runs — 동일 evaluator job의 반복 FallbackSummaryError rate_limit 기록
-- rationale: 반복 독립 실패로 evaluator가 새 평가를 거의 남기지 못하므로, rate-limit 시 평가 루프가 멈추지 않는 저비용 fallback 또는 진단 경로의 설계·검증이 필요합니다.
-- expected_artifact: evaluator automation의 rate-limit fallback/진단 동작 설계안, 적용 위치, 회귀 검증 결과
-- risk_level: medium
-- permission_level: approval_required
-- success_criteria: rate-limit 발생 시 본 평가가 무한 재시도·침묵 실패로 끝나지 않고 구조화된 진단 또는 허용된 fallback 결과를 남기며, 정상 모델 경로와 failureAlert 계약이 회귀하지 않음을 검증합니다.
-- next_action: 사용자가 승인하면 evaluator runner와 automation payload 소유 위치를 확인하고 최소 변경안과 검증 계획을 작성합니다.
-- approval_required: true
-- task_plan: artifacts/proposer-evaluator-rate-limit-resilience-20261002/work/task-plan.json
-- task_plan_doc: artifacts/proposer-evaluator-rate-limit-resilience-20261002/work/task-plan.md
-- task_plan_template: ARTIFACT_RULES.md#대형-작업-태스크-계획
-- trace: traces/proposer-evaluator-rate-limit-resilience-20261002.json
-- artifact: artifacts/proposer-evaluator-rate-limit-resilience-20261002/work/runner-inventory.md; artifacts/proposer-evaluator-rate-limit-resilience-20261002/work/minimal-fix-proposal.md
-- waiting_reason: approval boundary — evaluator runner·automation payload에 대한 실제 변경 및 외부 runtime 검증은 사용자 승인 후에만 실행
-- next_action: 사용자가 evaluator runner 소유 위치와 최소 변경 실행을 승인하면 T1.2를 재개
-- notification_channel: slack
-- notification_target: channel:C0BR41W31MM
-
 ## Active
 
 ## Archive
+### [proposer-evaluator-rate-limit-resilience-20261002] evaluator rate-limit 반복 실패 완화 조사·수정안
+- status: archived
+- proposed_by: sam-proposer
+- source_signal: /home/ubuntu/workspace/knowledge-lab/infinity/EVALUATION_NOTES.md — evaluator 최근 실행 15회 연속 rate_limit 실패; OpenClaw automation runs — 동일 evaluator job의 반복 FallbackSummaryError rate_limit 기록
+- actual_result: 비활성 evaluator job의 payload를 canonical evaluator 문서 경로로 교정하고, bounded read·rate_limit_exhausted 구조화 종료·fallback 모델(openai/gpt-5.4-mini)을 추가했습니다. 수동 실행은 status=ok, delivery.mode:none, 52.455초로 성공했고 RECORDED 평가를 남겼습니다.
+- artifact: artifacts/proposer-evaluator-rate-limit-resilience-20261002/work/runtime-verification.md; artifacts/proposer-evaluator-rate-limit-resilience-20261002/work/red/final-review.md; artifacts/proposer-evaluator-rate-limit-resilience-20261002/final/report.md
+- red_status: pass
+- knowledge_status: queued
+- knowledge_decision: defer
+- next_action: 다음 scheduled run에서 rate-limit fallback 실제 발동 여부와 consecutiveErrors=0을 관찰합니다.
+- trace: traces/proposer-evaluator-rate-limit-resilience-20261002.json
+- notification_channel: slack
+- notification_target: channel:C0BR41W31MM
 
 ### [research-nothing-early-stage-deep-20261004] 낫씽(Nothing) 초창기 심층 조사와 근거·실패·롤모델 검증
 - status: archived
