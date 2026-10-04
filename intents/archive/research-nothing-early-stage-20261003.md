@@ -6,7 +6,7 @@
 - result_summary: Nothing의 초창기를 기존 하드웨어 시장에 시각 언어·커뮤니티·단계적 제품 진입을 결합한 사례로 정리했다. Ear (1)을 통해 신뢰·자본·공급망을 확보한 순서와 공개 자료의 한계를 보존했다.
 - artifacts: artifacts/research-nothing-early-stage-20261003/final/early-stage-brief.md
 - reports: none (exploratory_research는 최종 Markdown 브리프가 대표 결과)
-- commits: pending
+- commits: infinity@f5479160
 - urls: https://github.com/shdkej/infinity
 - next_actions: 커뮤니티 유지율·마진·반복 구매율 등 비공개 영역은 추정하지 말고, 필요하면 별도 1차 자료 검증 Intent로 분리한다.
 - knowledge_status: queued
