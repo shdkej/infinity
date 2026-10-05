@@ -34,7 +34,10 @@ PY
 
 # Planning and terminal checks must not depend on a dirty primary checkout.
 VERIFY_ROOT="$(mktemp -d /tmp/infinity-dispatcher-verify-XXXXXX)"
-git -C "$ROOT" fetch origin main >/dev/null 2>&1 || bootstrap_failure
+git -C "$ROOT" fetch --prune origin main >/dev/null 2>&1 || bootstrap_failure
+FETCHED_MAIN_SHA="$(git -C "$ROOT" rev-parse FETCH_HEAD 2>/dev/null)" || bootstrap_failure
+ORIGIN_MAIN_SHA="$(git -C "$ROOT" rev-parse refs/remotes/origin/main 2>/dev/null)" || bootstrap_failure
+[[ "$FETCHED_MAIN_SHA" == "$ORIGIN_MAIN_SHA" ]] || bootstrap_failure
 git -C "$ROOT" worktree add --detach "$VERIFY_ROOT" origin/main >/dev/null 2>&1 || bootstrap_failure
 trap 'git -C "$ROOT" worktree remove --force "$VERIFY_ROOT" >/dev/null 2>&1 || true; rm -f "$PLAN_FILE" "$POST_PLAN_FILE" "$PROMPT_FILE" "$PROMPT_STAGE_FILE"' EXIT
 test -z "$(git -C "$VERIFY_ROOT" status --porcelain)" || bootstrap_failure
