@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "intent_id": "learning-candidate-kl-checkpoint-dirty-20261004",
-  "status": "active",
+  "status": "waiting",
   "trace_completeness": "partial",
   "backfill_source": "dispatcher_missing_trace",
   "request": {
@@ -40,6 +40,23 @@
       "session_key": "agent:genie:infinity-dispatcher-v2",
       "timestamp": "2026-10-04T23:40:03Z",
       "status": "accepted"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-c00bf8421f444244bcefa44fcd9b9876",
+      "canonical_sha": "b6d23d06e9c3895cc3db4de18a6b3e95d9bf1269",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher-v2",
+      "timestamp": "2026-10-05T17:45:08Z",
+      "status": "accepted"
+    },
+    {
+      "type": "dispatcher_state_repair",
+      "run_id": "dispatch-c00bf8421f444244bcefa44fcd9b9876",
+      "canonical_sha": "b6d23d06e9c3895cc3db4de18a6b3e95d9bf1269",
+      "timestamp": "2026-10-05T17:45:08Z",
+      "status": "waiting",
+      "reason": "plan invalid_state lane=Inbox conflicts with canonical registry; canonical block is already Waiting. Promotion not performed. External proposer automation canonical job/payload and approval-boundary artifact remain unavailable."
     }
   ],
   "artifacts": [
