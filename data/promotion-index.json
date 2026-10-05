@@ -1,30 +1,150 @@
 {
-  "generated_at": "2026-10-04T18:00:07.189Z",
+  "generated_at": "2026-10-05T06:00:07.494Z",
   "summary": {
-    "total": 938,
-    "wiki_reflected": 196,
-    "not_reflected": 742,
+    "total": 942,
+    "wiki_reflected": 198,
+    "not_reflected": 744,
     "by_status": {
-      "queued": 756,
+      "queued": 758,
+      "selected": 4,
       "reviewed": 97,
       "integrated": 10,
-      "rejected": 73,
-      "selected": 2
+      "rejected": 73
     },
     "by_layer": {
-      "openclaw-system": 620,
-      "infinity": 62,
+      "openclaw-system": 621,
+      "infinity": 65,
       "external-links": 181,
       "shdkej-content": 74,
       "root": 1
     },
     "by_promotion_state": {
-      "not_applicable": 740,
-      "reflected": 196,
+      "not_applicable": 742,
+      "reflected": 198,
       "pending_promotion": 2
     }
   },
   "entries": [
+    {
+      "source": "source/openclaw-system/data/ai-news/2026-10-05-ai-news.md",
+      "status": "queued",
+      "source_layer": "openclaw-system",
+      "reason": "자동 수집됨; 내용 판정 대기",
+      "reviewed_at": "",
+      "modified_at": "2026-10-05T03:01:38Z",
+      "promotion_targets": [],
+      "reflection_basis": [],
+      "promotion_state": "not_applicable",
+      "promotion_reason": "자동 수집됨; 내용 판정 대기",
+      "promotion_target_note": "",
+      "wiki_reflected": false
+    },
+    {
+      "source": "source/infinity/archive/upstream/proposer-evaluator-rate-limit-resilience-20261002.md",
+      "status": "queued",
+      "source_layer": "infinity",
+      "reason": "자동 수집됨; 내용 판정 대기",
+      "reviewed_at": "",
+      "modified_at": "2026-10-05T00:00:03Z",
+      "promotion_targets": [],
+      "reflection_basis": [],
+      "promotion_state": "not_applicable",
+      "promotion_reason": "자동 수집됨; 내용 판정 대기",
+      "promotion_target_note": "",
+      "wiki_reflected": false
+    },
+    {
+      "source": "source/infinity/archive/upstream/research-nothing-early-stage-20261003.md",
+      "status": "queued",
+      "source_layer": "infinity",
+      "reason": "자동 수집됨; 내용 판정 대기",
+      "reviewed_at": "",
+      "modified_at": "2026-10-05T00:00:03Z",
+      "promotion_targets": [],
+      "reflection_basis": [],
+      "promotion_state": "not_applicable",
+      "promotion_reason": "자동 수집됨; 내용 판정 대기",
+      "promotion_target_note": "",
+      "wiki_reflected": false
+    },
+    {
+      "source": "source/infinity/archive/upstream/research-nothing-early-stage-deep-20261004.md",
+      "status": "queued",
+      "source_layer": "infinity",
+      "reason": "자동 수집됨; 내용 판정 대기",
+      "reviewed_at": "",
+      "modified_at": "2026-10-05T00:00:03Z",
+      "promotion_targets": [],
+      "reflection_basis": [],
+      "promotion_state": "not_applicable",
+      "promotion_reason": "자동 수집됨; 내용 판정 대기",
+      "promotion_target_note": "",
+      "wiki_reflected": false
+    },
+    {
+      "source": "source/openclaw-system/data/proposer/proposed.jsonl",
+      "status": "queued",
+      "source_layer": "openclaw-system",
+      "reason": "자동 수집됨; 내용 판정 대기",
+      "reviewed_at": "",
+      "modified_at": "2026-10-04T23:37:30Z",
+      "promotion_targets": [],
+      "reflection_basis": [],
+      "promotion_state": "not_applicable",
+      "promotion_reason": "자동 수집됨; 내용 판정 대기",
+      "promotion_target_note": "",
+      "wiki_reflected": false
+    },
+    {
+      "source": "source/openclaw-system/data/promotion-feedback.jsonl",
+      "status": "queued",
+      "source_layer": "openclaw-system",
+      "reason": "자동 수집됨; 내용 판정 대기",
+      "reviewed_at": "",
+      "modified_at": "2026-10-04T19:30:10Z",
+      "promotion_targets": [],
+      "reflection_basis": [],
+      "promotion_state": "not_applicable",
+      "promotion_reason": "자동 수집됨; 내용 판정 대기",
+      "promotion_target_note": "",
+      "wiki_reflected": false
+    },
+    {
+      "source": "source/openclaw-system/data/daily-reviews/2026-10-02-review.md",
+      "status": "selected",
+      "source_layer": "openclaw-system",
+      "reason": "정책콕 제품 방향 가설의 출처로 Agent Wiki 조건부 승격",
+      "reviewed_at": "2026-10-04T19:00:00Z",
+      "modified_at": "2026-10-03T15:11:46Z",
+      "promotion_targets": [
+        "/docs/outputs/Idea/Information"
+      ],
+      "reflection_basis": [
+        "wiki_source_link"
+      ],
+      "promotion_state": "reflected",
+      "promotion_reason": "Agent Wiki outputs 출처 링크 또는 ingest target이 명시됨",
+      "promotion_target_note": "",
+      "wiki_reflected": true
+    },
+    {
+      "source": "source/openclaw-system/data/daily-reviews/2026-10-02-threads-candidate.md",
+      "status": "selected",
+      "source_layer": "openclaw-system",
+      "reason": "정책콕 제품 방향 가설의 출처로 Agent Wiki 조건부 승격",
+      "reviewed_at": "2026-10-04T19:00:00Z",
+      "modified_at": "2026-10-03T15:11:46Z",
+      "promotion_targets": [
+        "/docs/outputs/Idea/Information"
+      ],
+      "reflection_basis": [
+        "wiki_source_link"
+      ],
+      "promotion_state": "reflected",
+      "promotion_reason": "Agent Wiki outputs 출처 링크 또는 ingest target이 명시됨",
+      "promotion_target_note": "",
+      "wiki_reflected": true
+    },
     {
       "source": "source/openclaw-system/data/ai-news/2026-10-04-ai-news.md",
       "status": "queued",
@@ -68,20 +188,6 @@
       "wiki_reflected": false
     },
     {
-      "source": "source/openclaw-system/data/promotion-feedback.jsonl",
-      "status": "queued",
-      "source_layer": "openclaw-system",
-      "reason": "자동 수집됨; 내용 판정 대기",
-      "reviewed_at": "",
-      "modified_at": "2026-10-03T19:30:11Z",
-      "promotion_targets": [],
-      "reflection_basis": [],
-      "promotion_state": "not_applicable",
-      "promotion_reason": "자동 수집됨; 내용 판정 대기",
-      "promotion_target_note": "",
-      "wiki_reflected": false
-    },
-    {
       "source": "source/infinity/archive/upstream/pilot-github-research-skill-kang-chen-approval.md",
       "status": "queued",
       "source_layer": "infinity",
@@ -102,34 +208,6 @@
       "reason": "자동 수집됨; 내용 판정 대기",
       "reviewed_at": "",
       "modified_at": "2026-10-03T15:13:03Z",
-      "promotion_targets": [],
-      "reflection_basis": [],
-      "promotion_state": "not_applicable",
-      "promotion_reason": "자동 수집됨; 내용 판정 대기",
-      "promotion_target_note": "",
-      "wiki_reflected": false
-    },
-    {
-      "source": "source/openclaw-system/data/daily-reviews/2026-10-02-review.md",
-      "status": "queued",
-      "source_layer": "openclaw-system",
-      "reason": "자동 수집됨; 내용 판정 대기",
-      "reviewed_at": "",
-      "modified_at": "2026-10-03T15:11:46Z",
-      "promotion_targets": [],
-      "reflection_basis": [],
-      "promotion_state": "not_applicable",
-      "promotion_reason": "자동 수집됨; 내용 판정 대기",
-      "promotion_target_note": "",
-      "wiki_reflected": false
-    },
-    {
-      "source": "source/openclaw-system/data/daily-reviews/2026-10-02-threads-candidate.md",
-      "status": "queued",
-      "source_layer": "openclaw-system",
-      "reason": "자동 수집됨; 내용 판정 대기",
-      "reviewed_at": "",
-      "modified_at": "2026-10-03T15:11:46Z",
       "promotion_targets": [],
       "reflection_basis": [],
       "promotion_state": "not_applicable",
@@ -4147,7 +4225,7 @@
       "source_layer": "openclaw-system",
       "reason": "최근 활성 정본 또는 재사용 가능한 원자료; raw 검색 허용",
       "reviewed_at": "2026-09-01T10:01:07Z",
-      "modified_at": "2026-09-10T20:41:21Z",
+      "modified_at": "2026-10-04T18:48:09Z",
       "promotion_targets": [],
       "reflection_basis": [],
       "promotion_state": "not_applicable",
@@ -6281,20 +6359,6 @@
       "reason": "자동 수집됨; 내용 판정 대기",
       "reviewed_at": "",
       "modified_at": "2026-07-22T22:01:26Z",
-      "promotion_targets": [],
-      "reflection_basis": [],
-      "promotion_state": "not_applicable",
-      "promotion_reason": "자동 수집됨; 내용 판정 대기",
-      "promotion_target_note": "",
-      "wiki_reflected": false
-    },
-    {
-      "source": "source/openclaw-system/data/proposer/proposed.jsonl",
-      "status": "queued",
-      "source_layer": "openclaw-system",
-      "reason": "자동 수집됨; 내용 판정 대기",
-      "reviewed_at": "",
-      "modified_at": "2026-07-22T21:31:28Z",
       "promotion_targets": [],
       "reflection_basis": [],
       "promotion_state": "not_applicable",
