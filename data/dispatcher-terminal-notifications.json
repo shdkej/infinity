@@ -110,6 +110,28 @@
       "state": "sent",
       "terminal_state": "blocked"
     },
+    "491e4d6f2690f82932020e0f1e7b1bb0fbf9cd8c87c6fdde1542ac097940e529": {
+      "attempt_started_at": "2026-10-04T18:40:03Z",
+      "claimed_at": "2026-10-04T18:40:03Z",
+      "destination": "learning-candidate-proposer-automation-trigger-timeout-20261002|approval|slack|channel:C0BR41W31MM|||learning-candidate-proposer-automation-trigger-timeout-20261002|approval||||승인된 작업의 실행 경로를 점검하고 다음 가역적 작업을 수행한다.|",
+      "fingerprint": "learning-candidate-proposer-automation-trigger-timeout-20261002|approval||||승인된 작업의 실행 경로를 점검하고 다음 가역적 작업을 수행한다.|",
+      "intent_id": "learning-candidate-proposer-automation-trigger-timeout-20261002",
+      "remote_sha": "94630d5c4e7d5a6f986f5ce1b644591210cbdc58",
+      "sent_at": "2026-10-04T18:40:35Z",
+      "state": "sent",
+      "terminal_state": "approval"
+    },
+    "64bab1e27491f6717125414754e737dcaa923416fac3dae6e30f5e4458af9108": {
+      "attempt_started_at": "2026-10-04T23:43:15Z",
+      "claimed_at": "2026-10-04T23:43:15Z",
+      "destination": "learning-candidate-kl-checkpoint-dirty-20261004|approval|slack|channel:C0BR41W31MM|||learning-candidate-kl-checkpoint-dirty-20261004|approval||||승인 후 proposer의 Knowledge Lab checkpoint write/commit 경로를 targeted-path 방식으로 점검·수정하고 2회 scheduled run으로 실제 검증|",
+      "fingerprint": "learning-candidate-kl-checkpoint-dirty-20261004|approval||||승인 후 proposer의 Knowledge Lab checkpoint write/commit 경로를 targeted-path 방식으로 점검·수정하고 2회 scheduled run으로 실제 검증|",
+      "intent_id": "learning-candidate-kl-checkpoint-dirty-20261004",
+      "remote_sha": "7528157b036f63c8f69f44eb4613f33f89066862",
+      "sent_at": "2026-10-04T23:43:47Z",
+      "state": "sent",
+      "terminal_state": "approval"
+    },
     "7b9624514723698dd36dcd0e809dd7a3f74697984ab49da0259900c71594a74e": {
       "attempt_started_at": "2026-09-10T23:33:49Z",
       "claimed_at": "2026-09-10T23:33:49Z",
@@ -120,6 +142,17 @@
       "sent_at": "2026-09-10T23:34:01Z",
       "state": "sent",
       "terminal_state": "blocked"
+    },
+    "8d743ea19157dbd9967b5b86b7d6f6ab763909da7d9f14408b9480248e9c2fa2": {
+      "attempt_started_at": "2026-10-05T17:50:04Z",
+      "claimed_at": "2026-10-05T17:50:04Z",
+      "destination": "learning-candidate-kl-checkpoint-dirty-20261004|approval|slack|channel:C0BR41W31MM|||learning-candidate-kl-checkpoint-dirty-20261004|approval||||proposer canonical job/payload와 checkpoint 대상 경로가 인증 범위에 노출되고 승인된 뒤 targeted-path 실행·2회 scheduled run으로 실제 검증|",
+      "fingerprint": "learning-candidate-kl-checkpoint-dirty-20261004|approval||||proposer canonical job/payload와 checkpoint 대상 경로가 인증 범위에 노출되고 승인된 뒤 targeted-path 실행·2회 scheduled run으로 실제 검증|",
+      "intent_id": "learning-candidate-kl-checkpoint-dirty-20261004",
+      "remote_sha": "0ee2e555e04507ad32d645172457b4f1d2c741ee",
+      "sent_at": "2026-10-05T17:50:40Z",
+      "state": "sent",
+      "terminal_state": "approval"
     },
     "9440a6907a0fe84fab603322ee0fd2de7aff3c0d7d04c79be9add234c7d7fa67": {
       "attempt_started_at": "2026-09-06T22:13:39Z",
@@ -154,6 +187,39 @@
       "state": "sent",
       "terminal_state": "blocked"
     },
+    "af04e3979fcbda3872a0981a6631549b423c56a821c246f5400365a94809bdc8": {
+      "attempt_started_at": "2026-10-03T15:12:34Z",
+      "claimed_at": "2026-10-03T15:12:34Z",
+      "destination": "pilot-github-research-skill-kang-chen-approval|approval|slack|channel:C0BR41W31MM||1790939865.744739|pilot-github-research-skill-kang-chen-approval|approval||||승인된 read-only fixture 실행 경로와 LICENSE·의존성·egress·데이터 전송 경로를 점검한다.|",
+      "fingerprint": "pilot-github-research-skill-kang-chen-approval|approval||||승인된 read-only fixture 실행 경로와 LICENSE·의존성·egress·데이터 전송 경로를 점검한다.|",
+      "intent_id": "pilot-github-research-skill-kang-chen-approval",
+      "remote_sha": "2687026ff07ad729d203141c0bae443434daee84",
+      "sent_at": "2026-10-03T15:13:07Z",
+      "state": "sent",
+      "terminal_state": "approval"
+    },
+    "b7491cbeea65860f8c5af914b550c856eb02a4e66c2a2e22ba3b3b8e5ff2f12b": {
+      "attempt_started_at": "2026-10-02T22:40:04Z",
+      "claimed_at": "2026-10-02T22:40:04Z",
+      "destination": "research-business-profitability-modoo-20261002|completed|slack|channel:C0BR41W31MM||1790929958.500209|research-business-profitability-modoo-20261002|completed|reports/research-business-profitability-modoo-20261002/20261002T1140Z-final.html||||",
+      "fingerprint": "research-business-profitability-modoo-20261002|completed|reports/research-business-profitability-modoo-20261002/20261002T1140Z-final.html||||",
+      "intent_id": "research-business-profitability-modoo-20261002",
+      "remote_sha": "73cd62f5ea50797aeca8172dc624c156d25ce676",
+      "sent_at": "2026-10-02T22:40:34Z",
+      "state": "sent",
+      "terminal_state": "completed"
+    },
+    "ba950cf15b3749b027264c5d586c03095e7890ebf241bd0c733d47556cba7035": {
+      "attempt_started_at": "2026-10-02T22:45:27Z",
+      "claimed_at": "2026-10-02T22:45:27Z",
+      "destination": "pilot-github-research-skill-kang-chen-approval|approval|slack|channel:C0BR41W31MM||1790939865.744739|pilot-github-research-skill-kang-chen-approval|approval|||||",
+      "fingerprint": "pilot-github-research-skill-kang-chen-approval|approval|||||",
+      "intent_id": "pilot-github-research-skill-kang-chen-approval",
+      "remote_sha": "eb3ebf372e1b056958228a9029835b91e4f20491",
+      "sent_at": "2026-10-02T22:46:01Z",
+      "state": "sent",
+      "terminal_state": "approval"
+    },
     "bb36732068a26239e04775d3f5085150f763f1cd3143e7691f9ecf6506eac3d9": {
       "attempt_started_at": "2026-10-02T11:38:37Z",
       "claimed_at": "2026-10-02T11:38:37Z",
@@ -163,6 +229,17 @@
       "remote_sha": "a9992079c44ad2f570ed7e89ecaa20bc951fff00",
       "state": "claimed",
       "terminal_state": "completed"
+    },
+    "bdcfe8ff460c469c5c2a22fa59e96375b410cf4153efcb920f5c5cdd51a9b3cf": {
+      "attempt_started_at": "2026-10-04T18:40:35Z",
+      "claimed_at": "2026-10-04T18:40:35Z",
+      "destination": "proposer-evaluator-rate-limit-resilience-20261002|approval|slack|channel:C0BR41W31MM|||proposer-evaluator-rate-limit-resilience-20261002|approval||||사용자가 evaluator runner 소유 위치와 최소 변경 실행을 승인하면 T1.2를 재개|",
+      "fingerprint": "proposer-evaluator-rate-limit-resilience-20261002|approval||||사용자가 evaluator runner 소유 위치와 최소 변경 실행을 승인하면 T1.2를 재개|",
+      "intent_id": "proposer-evaluator-rate-limit-resilience-20261002",
+      "remote_sha": "94630d5c4e7d5a6f986f5ce1b644591210cbdc58",
+      "sent_at": "2026-10-04T18:40:57Z",
+      "state": "sent",
+      "terminal_state": "approval"
     },
     "d65277aacd1b3e9b4efd1b3271a996b87f164d8401b03111161e8ebddaaa260a": {
       "attempt_started_at": "2026-10-02T11:48:44Z",
