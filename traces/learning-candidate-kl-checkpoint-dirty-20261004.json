@@ -57,6 +57,23 @@
       "timestamp": "2026-10-05T17:45:08Z",
       "status": "waiting",
       "reason": "plan invalid_state lane=Inbox conflicts with canonical registry; canonical block is already Waiting. Promotion not performed. External proposer automation canonical job/payload and approval-boundary artifact remain unavailable."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-d1fc98a1776e4b76bee5b1b0dd482a52",
+      "canonical_sha": "0ee2e555e04507ad32d645172457b4f1d2c741ee",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher-v2",
+      "timestamp": "2026-10-05T17:50:03Z",
+      "status": "accepted"
+    },
+    {
+      "type": "dispatcher_state_repair",
+      "run_id": "dispatch-d1fc98a1776e4b76bee5b1b0dd482a52",
+      "canonical_sha": "0ee2e555e04507ad32d645172457b4f1d2c741ee",
+      "timestamp": "2026-10-05T17:50:03Z",
+      "status": "waiting",
+      "reason": "Removed duplicate Inbox registry block; canonical contract-correct lane is Waiting. Promotion not performed. External proposer automation canonical job/payload and approval-boundary artifact remain unavailable."
     }
   ],
   "artifacts": [
