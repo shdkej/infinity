@@ -142,6 +142,15 @@
     },
     {
       "type": "dispatcher_handoff",
+      "run_id": "dispatch-f5a8112cd5ed4d0bbb82f908399497b5",
+      "canonical_sha": "682888b7141e56267462f199073235f43b22d473",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher-v2",
+      "timestamp": "2026-10-05T01:03:57Z",
+      "status": "accepted"
+    },
+    {
+      "type": "dispatcher_handoff",
       "run_id": "dispatch-9b291d1c1cfe4ec6a502d1601811d62a",
       "canonical_sha": "682888b7141e56267462f199073235f43b22d473",
       "agent": "genie",
