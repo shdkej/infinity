@@ -143,6 +143,41 @@ def resolve_waiting_intent(record: dict[str, str], text: str) -> tuple[str, bool
     return text, True
 
 
+def archive_intent(record: dict[str, str], text: str) -> tuple[str, bool]:
+    """Archive one open intent after an explicit dashboard archive request."""
+    intent_id = record["intent_id"]
+    for lane in ("Inbox", "Active", "Waiting"):
+        lane_body = section(text, lane)
+        pattern = re.compile(rf"(^### \[{re.escape(intent_id)}\][\s\S]*?)(?=^### |\Z)", re.M)
+        match = pattern.search(lane_body)
+        if not match:
+            continue
+        block = match.group(1)
+        stamp = record["created_at"] or utc_now()
+        block = re.sub(r"^- status:\s*\w+\s*$", "- status: archived", block, count=1, flags=re.M)
+        block = re.sub(r"^- (waiting_reason|waiting_on|blocker|retry_condition):.*\n", "", block, flags=re.M)
+        fields = (
+            f"- archived_at: {stamp}\n"
+            f"- archive_reason: 사용자의 Infinity 대시보드 `archive_request` (request {record['request_id']})\n"
+            "- closure_note: 사용자가 대시보드에서 아카이브를 요청해 추가 실행 없이 종료했다.\n"
+        )
+        insert_at = re.search(r"^- (target_agent|priority|permission|requested):", block, re.M)
+        if insert_at:
+            block = block[:insert_at.start()] + fields + block[insert_at.start():]
+        else:
+            block = fields + block
+        updated_lane = lane_body[:match.start()] + lane_body[match.end():]
+        text = re.sub(rf"(^## {re.escape(lane)}\n)[\s\S]*?(?=^## |\Z)", r"\1" + updated_lane, text, count=1, flags=re.M)
+        archive_marker = "## Archive\n"
+        text = text.replace(archive_marker, archive_marker + block + "\n", 1)
+        detail = ROOT / "intents" / "archive" / f"{intent_id}.md"
+        if not detail.exists():
+            detail.parent.mkdir(parents=True, exist_ok=True)
+            detail.write_text("# " + block.lstrip("# ").replace("\n", "\n", 1), encoding="utf-8")
+        return text, True
+    return text, False
+
+
 def write_local_request(record: dict[str, str]) -> Path:
     target_dir = ACTION_LOG_DIR / "requests"
     target_dir.mkdir(parents=True, exist_ok=True)
@@ -213,6 +248,14 @@ def process(bucket: str, apply: bool, limit: int) -> list[dict[str, str]]:
                 result["intent_transition"] = "waiting_to_active"
             else:
                 result["intent_transition"] = "already_active_or_missing"
+        elif record["action"] == "archive_request":
+            updated, changed = archive_intent(record, intents_text)
+            if changed:
+                INTENTS.write_text(updated, encoding="utf-8")
+                intents_text = updated
+                result["intent_transition"] = "open_to_archive"
+            else:
+                result["intent_transition"] = "already_archived_or_missing"
         append_action_log(record, key)
         local_path = write_local_request(record)
         move_s3_object(s3, bucket, key, PROCESSED_PREFIX)

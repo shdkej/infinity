@@ -54,10 +54,13 @@ DASHBOARD_RESULT="$(python3 "$ROOT/scripts/process_action_requests.py" --apply -
 # Dashboard actions may change the canonical INTENTS registry. Persist those
 # changes from the clean dispatcher worktree; consuming S3 alone is not a
 # completed resolve_waiting transition.
-if [[ "$DASHBOARD_EXIT" -eq 0 ]] && ! git -C "$ROOT" diff --quiet -- INTENTS.md artifacts/dashboard-actions; then
-  git -C "$ROOT" add INTENTS.md artifacts/dashboard-actions
+if [[ "$DASHBOARD_EXIT" -eq 0 ]] && ! git -C "$ROOT" diff --quiet -- INTENTS.md artifacts/dashboard-actions intents/archive; then
+  git -C "$ROOT" add INTENTS.md artifacts/dashboard-actions intents/archive
   git -C "$ROOT" commit -m "chore(infinity): persist dashboard action transition" >/dev/null
   git -C "$ROOT" push origin HEAD:main >/dev/null
+  # Rebuild the plan from the action transition so a button click can be
+  # dispatched in this cycle instead of waiting for the next cron tick.
+  python3 "$VERIFY_ROOT/scripts/prepare_dispatch_cycle.py" --repo "$ROOT" --json >"$PLAN_FILE" || bootstrap_failure
 fi
 HANDOFF_EXIT=0
 HANDOFF_STATE="not_needed"
