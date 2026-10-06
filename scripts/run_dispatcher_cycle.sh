@@ -32,6 +32,10 @@ PY
   exit 0
 }
 
+# The dispatcher owns the repository sync boundary: pull before planning, and
+# never treat a local commit as complete until the remote ref proves it.
+git -C "$ROOT" pull --ff-only origin main >/dev/null 2>&1 || bootstrap_failure
+
 # Planning and terminal checks must not depend on a dirty primary checkout.
 VERIFY_ROOT="$(mktemp -d /tmp/infinity-dispatcher-verify-XXXXXX)"
 git -C "$ROOT" fetch --prune origin main >/dev/null 2>&1 || bootstrap_failure
@@ -57,7 +61,10 @@ DASHBOARD_RESULT="$(python3 "$ROOT/scripts/process_action_requests.py" --apply -
 if [[ "$DASHBOARD_EXIT" -eq 0 ]] && ! git -C "$ROOT" diff --quiet -- INTENTS.md artifacts/dashboard-actions intents/archive; then
   git -C "$ROOT" add INTENTS.md artifacts/dashboard-actions intents/archive
   git -C "$ROOT" commit -m "chore(infinity): persist dashboard action transition" >/dev/null
-  git -C "$ROOT" push origin HEAD:main >/dev/null
+  git -C "$ROOT" push origin HEAD:main >/dev/null 2>&1 || bootstrap_failure
+  PUSHED_SHA="$(git -C "$ROOT" rev-parse HEAD 2>/dev/null)" || bootstrap_failure
+  REMOTE_SHA="$(git -C "$ROOT" ls-remote origin refs/heads/main | awk '{print $1}')" || bootstrap_failure
+  [[ -n "$REMOTE_SHA" && "$PUSHED_SHA" == "$REMOTE_SHA" ]] || bootstrap_failure
   # Rebuild the plan from the action transition so a button click can be
   # dispatched in this cycle instead of waiting for the next cron tick.
   python3 "$VERIFY_ROOT/scripts/prepare_dispatch_cycle.py" --repo "$ROOT" --json >"$PLAN_FILE" || bootstrap_failure
