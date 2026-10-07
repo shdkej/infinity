@@ -128,22 +128,11 @@ def message(entry: dict[str, object], state: str) -> str:
     return f"Infinity {label} · {entry['id']} {entry['title']}\n사유: {detail}\n다음: {action}"
 
 
-def load(path: Path, legacy_path: Path | None = None) -> dict[str, object]:
+def load(path: Path) -> dict[str, object]:
     if path.exists():
         data = json.loads(path.read_text())
     else:
-        # The earlier dispatcher state keyed only an intent to a phase/fingerprint
-        # and has no destination identity.  It therefore cannot be promoted to an
-        # exact-once receipt safely.  Preserve an auditable migration marker rather
-        # than guessing a recipient or silently rewriting the legacy file.
-        legacy_ids: list[str] = []
-        if legacy_path and legacy_path.exists():
-            try:
-                legacy = json.loads(legacy_path.read_text())
-                legacy_ids = sorted((legacy.get("intents") or legacy.get("notifications") or {}).keys())
-            except (json.JSONDecodeError, AttributeError):
-                legacy_ids = []
-        data = {"version": 2, "deliveries": {}, "legacy_state_observed": bool(legacy_path and legacy_path.exists()), "legacy_unaddressable_intents": legacy_ids}
+        data = {"version": 2, "deliveries": {}}
     data.setdefault("version", 2)
     data.setdefault("deliveries", {})
     return data
@@ -213,7 +202,6 @@ def main() -> int:
     parser.add_argument("--repo", type=Path, default=ROOT)
     parser.add_argument("--intents", type=Path, help="fixture/local snapshot; production omits this and reads origin/main")
     parser.add_argument("--state", type=Path, default=ROOT / "data/dispatcher-terminal-notifications.json")
-    parser.add_argument("--legacy-state", type=Path, default=ROOT / "data/dispatcher-notification-state.json", help="read-only legacy advisory state; it lacks destination identity and is never used to send")
     parser.add_argument("--lock", type=Path, help="exclusive reconciliation lock (defaults beside state)")
     parser.add_argument("--mock-outbox", help="safe JSONL delivery sink")
     parser.add_argument("--deliver", action="store_true", help="enable host OpenClaw CLI delivery")
@@ -230,7 +218,7 @@ def main() -> int:
     lock_path.parent.mkdir(parents=True, exist_ok=True)
     with lock_path.open("w") as lock:
       fcntl.flock(lock, fcntl.LOCK_EX)
-      ledger = load(args.state, args.legacy_state)
+      ledger = load(args.state)
       deliveries: dict[str, dict[str, str]] = ledger["deliveries"]  # type: ignore[assignment]
       sent = skipped = 0
       current_receipts: set[str] = set()

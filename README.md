@@ -22,7 +22,6 @@ artifacts/{id}/final/ ← 사용자 질문에 답하는 최종 재사용 산출�
 reports/{id}/         ← 실행 로그와 읽을 수 있는 최종 HTML 리포트
 data/knowledge-loop.json ← Infinity 대시보드의 지식 루프 운영 지표
 data/promotion-index.json ← Infinity 대시보드의 Knowledge Lab 승격 상태 인덱스
-scripts/notify.sh   ← 레거시 Telegram 단일 발송기(새 terminal notifier는 사용하지 않음)
 scripts/dispatch_terminal_notifications.py ← 원격 `origin/main` terminal 상태를 원 대화에 1회 조정·발송
 ```
 
@@ -76,7 +75,7 @@ Infinity 운영 문서는 여러 저장소에 걸쳐 있지만, 역할별 정본
 - **아침 7시 리캡**은 GitHub scheduled workflow가 아니라 OpenClaw 로컬 cron(KST 07:00)이 소유한다. 리캡은 커밋 로그를 그대로 보내지 않고, Archive 완료·다음 Inbox/Active·대기 항목을 카드형으로 요약한다.
 - 리캡의 시간대별 섹션은 `[로컬]` OpenClaw 라우터 실행과 `[클라우드]` 커밋/Archive/원격 기록을 한 타임라인에 합쳐 보여준다. 07:00 리캡은 terminal 통보를 대체하지 않는다.
 - terminal notifier는 `origin/main`의 `INTENTS.md`만 조정한다. **모든 새 open Intent는 intake에서 `notification_channel`, `notification_target`을 함께 기록해야 하며, `python3 scripts/check_intents_consistency.py INTENTS.md`가 누락을 커밋 전 오류로 막는다.** 선택적 Telegram `notification_thread` 또는 Slack `notification_reply_to`도 원 대화에 보존한다. Archive는 `remote_verified: pass` 뒤에만, Waiting은 실제 `blocker` 또는 사용자 승인 조건이 있을 때만 후보가 된다. 읽기/no-op/반복 실행은 발송하지 않는다.
-- `data/dispatcher-terminal-notifications.json`의 receipt key는 intent·terminal state·destination이다. 송신 전 durable claim을 남기며 `sent`, `failed_before_acceptance`, `delivery_unknown`을 기록한다. 불확실 수신은 자동 재송하지 않고 cron 실패 알림으로 표면화한다. 구형 `dispatcher-notification-state.json`은 destination이 없어 read-only 감사 대상으로만 유지한다.
+- `data/dispatcher-terminal-notifications.json`의 receipt key는 intent·terminal state·destination이다. 송신 전 durable claim을 남기며 `sent`, `failed_before_acceptance`, `delivery_unknown`을 기록한다. 불확실 수신은 자동 재송하지 않고 cron 실패 알림으로 표면화한다.
 - Waiting intent는 `waiting_on: user`, `approval`, `approval_required: true`, `permission_level: approval_required`, 또는 승인 사유가 있는 `waiting_reason`을 사용자 승인 대기로 인식한다. 승인 대기 알림은 Slack/지원 채널 presentation의 `infinity:approve:<intent-id>`·`infinity:reject:<intent-id>` callback 버튼을 함께 보낸다.
 - 대시보드의 `resolve_waiting` 액션은 크론 처리 시 요청 큐만 소비하지 않고 해당 Intent를 `Waiting → Active`로 전환하며, `archive_request`는 명시적으로 요청된 open Intent를 `Archive`로 이동하고 archive detail을 만든다. 두 액션 모두 승인·요청 ID와 상태 전이를 `INTENTS.md`에 기록하고, 디스패처는 전이 직후 계획을 다시 계산해 같은 크론 주기에 후속 실행한다.
 - **Dispatcher 실행 계약**: 기존 host crontab의 10분 항목 하나만 `scripts/run_dispatcher_cycle.sh`를 호출한다. 이 스크립트는 매 실행 시작 시 `git pull --ff-only origin main`으로 작업 저장소를 먼저 동기화하고, 이어 `git fetch --prune origin main` 및 `FETCH_HEAD`·`origin/main` SHA 일치를 검증한 뒤 최신 원격 커밋으로 검증용 worktree를 만들어 `origin/main:INTENTS.md`를 intent 블록 단위로 파싱한다. 동기화 또는 SHA 검증에 실패하면 작업을 시작하지 않는다. 대시보드 action 결과를 커밋할 때는 `git push` 성공뿐 아니라 `git ls-remote`의 `origin/main` SHA 일치까지 확인하며, 원격 반영이 확인되지 않으면 완료로 진행하지 않는다. 대시보드 action 결과와 실제 실행 계획을 분리하며, `Inbox → Active` 또는 stale Active 재개 후보는 Genie를 직접 `agent:genie:infinity-dispatcher` 세션으로 호출한다. 실행 증거는 `traces/{intent-id}.json`의 `dispatcher_handoff`와 repo 밖 `/home/ubuntu/.openclaw/state/infinity-dispatcher-runs/` cycle record에 남긴다. `actions=[]`는 버튼 큐가 비었다는 뜻일 뿐 작업 no-op가 아니다.

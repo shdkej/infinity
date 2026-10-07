@@ -305,7 +305,7 @@ python3 scripts/verify_archive_remote.py {intent-id}
 
 ### 10. Telegram 알림
 
-`scripts/notify.sh`를 사용하여 알림 발송.
+`scripts/dispatch_terminal_notifications.py`를 사용하여 terminal 알림을 발송한다. 구형 `scripts/notify.sh`는 사용하지 않는다.
 
 마케팅/세스고딘 작업은 하트비트·대시보드·일일 회고에서 확인할 수 있게 기록만 남기고, Telegram 실시간 알림은 기본적으로 보내지 않는다. 후보 발굴, Inbox 등록, 학습 노트 저장, 완료 report, Archive 전환, routine Waiting 업데이트 모두 조용히 처리한다. 사용자가 현재 대화에서 명시적으로 요청한 승인 질문이나 비마케팅 시스템 장애가 아니라면 `NO_REPLY`로 닫는다.
 
