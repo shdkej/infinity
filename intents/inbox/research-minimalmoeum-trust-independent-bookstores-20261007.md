@@ -1,0 +1,11 @@
+### [research-minimalmoeum-trust-independent-bookstores-20261007] 독립서점 사례 기반 미니멀모음 신뢰·큐레이션 구조 조사
+- status: inbox
+- research_mode: exploratory_research
+- target_agent: genie
+- execution_mode: multi_subagent_roles
+- permission_level: approval_required
+- context_pack: intents/context/research-minimalmoeum-trust-independent-bookstores-20261007.json
+- next_action: 독립서점 및 인접 큐레이션 사례를 조사하고 미니멀모음의 신뢰 정보·콘텐츠 반복 구조·유료 전환 경로를 비교 정리
+- success_criteria: 사례별 신뢰 형성 장치와 한계를 출처와 함께 구분하고, 미니멀모음 적용 원칙·공개 정보 경계·후속 검증 질문을 제시
+- notification_channel: slack
+- notification_target: channel:C0BR41W31MM

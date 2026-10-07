@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "intent_id": "research-minimalmoeum-trust-independent-bookstores-20261007",
+  "status": "inbox",
+  "trace_completeness": "complete",
+  "request": {
+    "raw": {
+      "status": "recorded",
+      "value": "내 미니멀모음이 독립서점처럼 개인의 취향 공간에 초대하는 느낌이다. 독립서점 사례를 토대로 어떻게 배울지 조사해줘. 내 취향을 사려는 사람이 생기려면 나에 대한 정보와 신뢰가 필요할 것 같은데 앞으로 어떤 식으로 해나갈지까지 조사해줘."
+    },
+    "normalized_query": {
+      "status": "recorded",
+      "value": "독립서점 사례 기반 미니멀모음 신뢰·큐레이션 구조 조사"
+    }
+  },
+  "events": [
+    {
+      "type": "intake",
+      "at": "2026-10-07T20:52:03Z",
+      "context_pack": "intents/context/research-minimalmoeum-trust-independent-bookstores-20261007.json",
+      "evidence_paths": [
+        "INTENTS.md",
+        "../agent-wiki/content/docs/outputs/Meta/MinimalCollection.mdx",
+        "../agent-wiki/content/docs/outputs/Integration/Marketing.mdx"
+      ]
+    }
+  ],
+  "artifacts": [],
+  "verifications": [],
+  "next_decision": {
+    "status": "in_progress",
+    "value": "genie가 사례·근거·적용 원칙·한계를 조사한 뒤 미니멀모음의 다음 검증 방향을 제안"
+  }
+}

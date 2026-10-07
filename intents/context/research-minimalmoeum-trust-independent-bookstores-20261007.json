@@ -1,0 +1,37 @@
+{
+  "context_pack_version": 1,
+  "status": "ready",
+  "route": "infinity",
+  "request": "독립서점의 큐레이션·공간·관계 사례를 바탕으로 미니멀모음이 개인의 취향을 신뢰받는 공간으로 성장하기 위해 공개해야 할 정보, 반복 콘텐츠, 신뢰 형성 장치, 유료 큐레이션 전환 경로를 넓게 조사한다.",
+  "built_at": "2026-10-07T20:52:00Z",
+  "required_documents": [
+    "/home/ubuntu/workspace/prompt-archive/LLM.md",
+    "README.md",
+    "schema/agent-rules.md",
+    "source/openclaw-system/docs/DOCUMENT_SEARCH_PIPELINE.md",
+    "source/openclaw-system/docs/USER_CONTEXT.md",
+    "source/openclaw-system/docs/SERVICE_REGISTRY.md",
+    "source/openclaw-system/docs/INFINITY_OPERATING_RULES.md",
+    "infinity/ARTIFACT_RULES.md",
+    "infinity/EXECUTION_LEARNING_CONTRACT.md",
+    "infinity/INTENTS.md",
+    "agent-wiki/README.md"
+  ],
+  "search_scopes": [
+    "agent-wiki/content/docs/",
+    "source/openclaw-system/docs/",
+    "source/openclaw-system/data/daily-reviews/",
+    "source/openclaw-system/data/daily-tracking/",
+    "source/openclaw-system/data/photo-insights/"
+  ],
+  "selected_context": [
+    {"path": "agent-wiki/content/docs/outputs/Meta/MinimalCollection.mdx", "reason": "미니멀 컬렉션과 취향 기록에 대한 기존 판단"},
+    {"path": "agent-wiki/content/docs/outputs/Integration/Marketing.mdx", "reason": "개인 취향과 공개 콘텐츠의 관계를 확인"}
+  ],
+  "rules": [
+    "Read every required document and selected context page before execution.",
+    "Use current primary or authoritative sources for case facts; separate observed case evidence from application hypotheses.",
+    "Report a broad exploration map first, including adjacent models, limits, and signals; do not prematurely narrow to one experiment.",
+    "Record the context pack path and research evidence in the intent trace."
+  ]
+}
