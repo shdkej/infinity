@@ -1,30 +1,44 @@
 {
-  "generated_at": "2026-10-06T12:00:07.929Z",
+  "generated_at": "2026-10-07T06:00:08.114Z",
   "summary": {
-    "total": 944,
+    "total": 945,
     "wiki_reflected": 198,
-    "not_reflected": 746,
+    "not_reflected": 747,
     "by_status": {
-      "queued": 760,
+      "queued": 761,
       "selected": 4,
       "reviewed": 97,
       "integrated": 10,
       "rejected": 73
     },
     "by_layer": {
+      "openclaw-system": 623,
       "infinity": 66,
-      "openclaw-system": 622,
       "external-links": 181,
       "shdkej-content": 74,
       "root": 1
     },
     "by_promotion_state": {
-      "not_applicable": 744,
+      "not_applicable": 745,
       "reflected": 198,
       "pending_promotion": 2
     }
   },
   "entries": [
+    {
+      "source": "source/openclaw-system/data/ai-news/2026-10-07-ai-news.md",
+      "status": "queued",
+      "source_layer": "openclaw-system",
+      "reason": "자동 수집됨; 내용 판정 대기",
+      "reviewed_at": "",
+      "modified_at": "2026-10-07T03:01:03Z",
+      "promotion_targets": [],
+      "reflection_basis": [],
+      "promotion_state": "not_applicable",
+      "promotion_reason": "자동 수집됨; 내용 판정 대기",
+      "promotion_target_note": "",
+      "wiki_reflected": false
+    },
     {
       "source": "source/infinity/archive/upstream/learning-candidate-proposer-automation-trigger-timeout-20261002.md",
       "status": "queued",
