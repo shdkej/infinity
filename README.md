@@ -26,6 +26,28 @@ scripts/notify.sh   ← 레거시 Telegram 단일 발송기(새 terminal notifie
 scripts/dispatch_terminal_notifications.py ← 원격 `origin/main` terminal 상태를 원 대화에 1회 조정·발송
 ```
 
+## 문서 지도와 정본 우선순위
+
+Infinity 운영 문서는 여러 저장소에 걸쳐 있지만, 역할별 정본은 아래처럼 하나씩만 둔다. 같은 주제를 다른 문서에서 발견하면 이 순서로 판정하고, 보조 문서는 절차를 재정의하지 않고 링크만 제공한다.
+
+1. **큐·상태·대시보드 카드:** 이 저장소의 `INTENTS.md` — `Inbox → Active → Waiting → Archive`를 유일한 상태 원장으로 사용한다.
+2. **승인·권한:** 이 저장소의 `GATES.md`, `PERMISSIONS.md` — 승인 대기와 L0~L3 경계를 정의한다.
+3. **산출물·Archive:** 이 저장소의 `ARTIFACT_RULES.md` — `artifacts/`, `reports/`, `intents/archive/`의 역할과 완료 형식을 정의한다.
+4. **Heartbeat 실행:** 이 저장소의 `workflows/heartbeat.md` — dispatcher가 원장을 읽고 실행·종료하는 순서를 정의한다.
+5. **Trace:** 이 저장소의 `schema/intent-trace-contract.md` — intake/execution/archive trace 구조를 정의한다.
+6. **운영 상위 계약:** Knowledge Lab의 `source/openclaw-system/docs/INFINITY_OPERATING_RULES.md` — 저장소 간 경계, 원격 검증, 중복 Intent 금지, 예외를 정의한다.
+7. **역할 위임:** `AGENT_COLLABORATION.md`, `/home/ubuntu/workspace-genie/GENIE_WORKFLOW.md`, Prompt Archive의 역할별 workflow — 실행 역할과 협업 형식만 정의한다.
+8. **대시보드 UI·배포:** Space의 `infra-aws-static-sites/sites/infinity/README.md`와 `dist/index.html` — 표시·배포 구현만 소유하며 Intent 상태를 정의하지 않는다.
+
+`/home/ubuntu/workspace/prompt-archive/INFINITY.md`는 초기 설계·역사적 참고 문서다. 현재 상태값, 접수 형식, 대시보드 표시 규칙은 이 README와 위 정본 문서를 우선한다. 새 규칙은 초기 설계 문서에만 추가하지 않는다.
+
+### 접수·상태 전이의 최소 불변식
+
+- 접수 전 `origin/main:INTENTS.md`의 네 lane에서 같은 목적의 Intent를 검색한다. 기존 열린 Intent는 재사용하고, Archive에 있으면 결과를 안내한다.
+- 새 Intent는 `INTENTS.md`의 해당 lane 바로 아래 `### [intent-id] 제목` 블록 하나로 등록한다. 개별 `intents/{lane}/` 파일은 보조 기록이며 상태 원장을 대체하지 않는다.
+- 한 Intent는 한 시점에 한 lane에만 존재한다. 이동은 이전 lane 블록 제거와 새 lane 블록 추가를 같은 커밋에서 처리한다.
+- Archive 후 새 범위가 생길 때만 후속 Intent를 만들고, Archive 카드에 `next_action_intent` 또는 후속 ID를 연결한다. 같은 목적의 재접수로 Inbox와 Archive를 중복시키지 않는다.
+
 ## 태그 축
 
 완료 archive에는 대시보드 필터링을 위해 세 축을 기록한다.
