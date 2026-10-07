@@ -4,8 +4,7 @@
 
 ## Inbox
 
-### [research-minimalmoeum-trust-independent-bookstores-20261007] 독립서점 사례 기반 미니멀모음 신뢰·큐레이션 구조 조사
-- status: inbox
+## Active
 - research_mode: exploratory_research
 - target_agent: genie
 - execution_mode: multi_subagent_roles
@@ -44,9 +43,26 @@
 - notification_target: channel:C0BR41W31MM
 
 
-## Active
-
 ## Archive
+### [research-minimalmoeum-trust-independent-bookstores-20261007] 독립서점 사례 기반 미니멀모음 신뢰·큐레이션 구조 조사
+- status: archived
+- completed_at: 2026-10-07T21:20:00Z
+- research_mode: exploratory_research
+- context_pack: intents/context/research-minimalmoeum-trust-independent-bookstores-20261007.json
+- trace: traces/research-minimalmoeum-trust-independent-bookstores-20261007.json
+- detail: intents/archive/research-minimalmoeum-trust-independent-bookstores-20261007.md
+- final_artifact: artifacts/research-minimalmoeum-trust-independent-bookstores-20261007/final/independent-bookstore-trust-report.md
+- artifact: artifacts/research-minimalmoeum-trust-independent-bookstores-20261007/final/independent-bookstore-trust-report.md
+- red_status: not_required
+- knowledge_status: queued
+- knowledge_decision: defer
+- knowledge_targets: agent-wiki/content/docs/outputs/Meta/MinimalCollection.mdx; agent-wiki/content/docs/outputs/Integration/Marketing.mdx
+- knowledge_reflection: 기존 Knowledge Lab 판단과 대조했으나 신규 승격은 보류
+- knowledge_commit: not_applicable
+- report_flow_check: pass
+- report_length_judgment: fit
+- next_action: 공개 카드 10개를 동일 템플릿으로 축적하고 5~10명에게 기준 회상·유료 가치 인식을 수동 검증
+
 - archived_at: 2026-10-06T06:18:07.218162+00:00
 - archive_reason: 사용자의 Infinity 대시보드 `archive_request` (request e6fc0d6d-c2b2-453d-9d2c-612e96ceb212)
 - closure_note: 사용자가 대시보드에서 아카이브를 요청해 추가 실행 없이 종료했다.

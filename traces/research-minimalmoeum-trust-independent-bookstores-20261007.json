@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "intent_id": "research-minimalmoeum-trust-independent-bookstores-20261007",
-  "status": "inbox",
+  "status": "archived",
   "trace_completeness": "complete",
   "request": {
     "raw": {
@@ -23,12 +23,30 @@
         "../agent-wiki/content/docs/outputs/Meta/MinimalCollection.mdx",
         "../agent-wiki/content/docs/outputs/Integration/Marketing.mdx"
       ]
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-f157aa3a280d4b7296ed29e5f52984ad",
+      "canonical_sha": "098257232737e8610f5cfca5e3f79a40c896ed3e",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-10-07T21:10:04Z",
+      "status": "accepted"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-f157aa3a280d4b7296ed29e5f52984ad",
+      "canonical_sha": "098257232737e8610f5cfca5e3f79a40c896ed3e",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher-v2",
+      "timestamp": "2026-10-07T21:10:04Z",
+      "status": "accepted"
     }
   ],
-  "artifacts": [],
-  "verifications": [],
+  "artifacts": ["artifacts/research-minimalmoeum-trust-independent-bookstores-20261007/final/independent-bookstore-trust-report.md"],
+  "verifications": [{"type":"remote_archive_ready","status":"pending_until_push","artifact":"artifacts/research-minimalmoeum-trust-independent-bookstores-20261007/final/independent-bookstore-trust-report.md"}],
   "next_decision": {
-    "status": "in_progress",
+    "status": "complete",
     "value": "genie가 사례·근거·적용 원칙·한계를 조사한 뒤 미니멀모음의 다음 검증 방향을 제안"
   }
 }
