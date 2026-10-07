@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "intent_id": "research-minimalmoeum-trust-independent-bookstores-20261007-rerun",
+  "status": "inbox",
+  "trace_completeness": "complete",
+  "request": {
+    "raw": {
+      "status": "recorded",
+      "value": "이전 조사 접수의 대시보드 표시 형식이 잘못되어 재접수한다. 독립서점 사례 기반 미니멀모음의 신뢰·큐레이션 구조를 조사한다."
+    },
+    "normalized_query": {
+      "status": "recorded",
+      "value": "독립서점 사례 기반 미니멀모음 신뢰·큐레이션 구조 재조사"
+    }
+  },
+  "events": [
+    {
+      "type": "intake",
+      "at": "2026-10-07T21:11:44Z",
+      "context_pack": "intents/context/research-minimalmoeum-trust-independent-bookstores-20261007.json",
+      "evidence_paths": [
+        "INTENTS.md",
+        "../agent-wiki/content/docs/outputs/Meta/MinimalCollection.mdx",
+        "../agent-wiki/content/docs/outputs/Integration/Marketing.mdx"
+      ]
+    }
+  ],
+  "artifacts": [],
+  "verifications": [],
+  "next_decision": {
+    "status": "in_progress",
+    "value": "genie가 사례·근거·적용 원칙·한계를 조사한 뒤 결과를 제안"
+  }
+}
