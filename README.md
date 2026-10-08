@@ -23,6 +23,7 @@ reports/{id}/         ← 실행 로그와 읽을 수 있는 최종 HTML 리포�
 data/knowledge-loop.json ← Infinity 대시보드의 지식 루프 운영 지표
 data/promotion-index.json ← Infinity 대시보드의 Knowledge Lab 승격 상태 인덱스
 scripts/dispatch_terminal_notifications.py ← 원격 `origin/main` terminal 상태를 원 대화에 1회 조정·발송
+docs/dispatcher-implementation.md ← 디스패처 내부 구현·환경변수·검증 명령
 ```
 
 ## 문서 지도와 정본 우선순위
@@ -37,6 +38,7 @@ Infinity 운영 문서는 여러 저장소에 걸쳐 있지만, 역할별 정본
 6. **운영 상위 계약:** Knowledge Lab의 `source/openclaw-system/docs/INFINITY_OPERATING_RULES.md` — 저장소 간 경계, 원격 검증, 중복 Intent 금지, 예외를 정의한다.
 7. **역할 위임:** `AGENT_COLLABORATION.md`, `/home/ubuntu/workspace-genie/GENIE_WORKFLOW.md`, Prompt Archive의 역할별 workflow — 실행 역할과 협업 형식만 정의한다.
 8. **대시보드 UI·배포:** Space의 `infra-aws-static-sites/sites/infinity/README.md`와 `dist/index.html` — 표시·배포 구현만 소유하며 Intent 상태를 정의하지 않는다.
+9. **디스패처 구현:** `docs/dispatcher-implementation.md` — 실행 파일·잠금·handoff·검증의 코드 수준 설명을 둔다.
 
 `/home/ubuntu/workspace/prompt-archive/INFINITY.md`는 초기 설계·역사적 참고 문서다. 현재 상태값, 접수 형식, 대시보드 표시 규칙은 이 README와 위 정본 문서를 우선한다. 새 규칙은 초기 설계 문서에만 추가하지 않는다.
 
@@ -60,6 +62,16 @@ Infinity 운영 문서는 여러 저장소에 걸쳐 있지만, 역할별 정본
 
 `T1`, 역할별 메모, Red 검토는 작업을 검증하는 **중간 산출물**이며 Archive 대표 결과가 아니다. 모든 리서치는 `artifacts/{id}/final/{slug}-report.md`에 전체 원문을 보존하며, HTML Report는 이를 요약해 표시할 뿐 대체하지 않는다. Archive 카드의 기본 링크도 이 최종 MD와 HTML Report만 사용한다.
 
+## 대형 작업 안내
+
+대형 작업은 [`EXECUTION_LEARNING_CONTRACT.md`](EXECUTION_LEARNING_CONTRACT.md)를 먼저 읽고, 역할별 시간 기록·병목 측정·Red 검증·마감 후 상태 전이 절차를 적용한다. 이 README는 운영자가 따라갈 큰 순서만 설명하고, 시간·증거·재평가의 세부 계약은 해당 문서를 정본으로 삼는다.
+
+1. 목표·완료 기준·마감·승인 경계를 정한다.
+2. 검증 가능한 leaf task와 의존성을 task-plan에 등록한다.
+3. 첫 번째 실행 가능한 task만 Active로 만들고 증거를 남긴다.
+4. 결과·병목·예상 대비 실제 시간을 기록하고 다음 task를 재평가한다.
+5. 모든 완료 조건을 확인한 뒤 최종 산출물·Red 결과·원격 검증을 묶어 Archive한다.
+
 ## 정본과 대시보드 정합성
 
 - `INTENTS.md`가 큐 상태의 단일 정본이다. 대시보드는 GitHub `main`의 raw `INTENTS.md`를 읽고, 로컬 파일이나 별도 큐를 상태 원천으로 사용하지 않는다.
@@ -72,21 +84,13 @@ Infinity 운영 문서는 여러 저장소에 걸쳐 있지만, 역할별 정본
 ## 운영 원칙
 
 - **No-op이면 커밋하지 않는다.** 변화 없는 Heartbeat는 push하지 않아 git history와 dashboard가 조용히 유지된다.
-- **아침 7시 리캡**은 GitHub scheduled workflow가 아니라 OpenClaw 로컬 cron(KST 07:00)이 소유한다. 리캡은 커밋 로그를 그대로 보내지 않고, Archive 완료·다음 Inbox/Active·대기 항목을 카드형으로 요약한다.
-- 리캡의 시간대별 섹션은 `[로컬]` OpenClaw 라우터 실행과 `[클라우드]` 커밋/Archive/원격 기록을 한 타임라인에 합쳐 보여준다. 07:00 리캡은 terminal 통보를 대체하지 않는다.
 - terminal notifier는 `origin/main`의 `INTENTS.md`만 조정한다. **모든 새 open Intent는 intake에서 `notification_channel`, `notification_target`을 함께 기록해야 하며, `python3 scripts/check_intents_consistency.py INTENTS.md`가 누락을 커밋 전 오류로 막는다.** 선택적 Telegram `notification_thread` 또는 Slack `notification_reply_to`도 원 대화에 보존한다. Archive는 `remote_verified: pass` 뒤에만, Waiting은 실제 `blocker` 또는 사용자 승인 조건이 있을 때만 후보가 된다. 읽기/no-op/반복 실행은 발송하지 않는다.
 - `data/dispatcher-terminal-notifications.json`의 receipt key는 intent·terminal state·destination이다. 송신 전 durable claim을 남기며 `sent`, `failed_before_acceptance`, `delivery_unknown`을 기록한다. 불확실 수신은 자동 재송하지 않고 cron 실패 알림으로 표면화한다.
 - Waiting intent는 `waiting_on: user`, `approval`, `approval_required: true`, `permission_level: approval_required`, 또는 승인 사유가 있는 `waiting_reason`을 사용자 승인 대기로 인식한다. 승인 대기 알림은 Slack/지원 채널 presentation의 `infinity:approve:<intent-id>`·`infinity:reject:<intent-id>` callback 버튼을 함께 보낸다.
 - 대시보드의 `resolve_waiting` 액션은 크론 처리 시 요청 큐만 소비하지 않고 해당 Intent를 `Waiting → Active`로 전환하며, `archive_request`는 명시적으로 요청된 open Intent를 `Archive`로 이동하고 archive detail을 만든다. 두 액션 모두 승인·요청 ID와 상태 전이를 `INTENTS.md`에 기록하고, 디스패처는 전이 직후 계획을 다시 계산해 같은 크론 주기에 후속 실행한다.
-- **Dispatcher 실행 계약**: 기존 host crontab의 10분 항목 하나만 `scripts/run_dispatcher_cycle.sh`를 호출한다. 이 스크립트는 매 실행 시작 시 `git pull --ff-only origin main`으로 작업 저장소를 먼저 동기화하고, 이어 `git fetch --prune origin main` 및 `FETCH_HEAD`·`origin/main` SHA 일치를 검증한 뒤 최신 원격 커밋으로 검증용 worktree를 만들어 `origin/main:INTENTS.md`를 intent 블록 단위로 파싱한다. 동기화 또는 SHA 검증에 실패하면 작업을 시작하지 않는다. 대시보드 action 결과를 커밋할 때는 `git push` 성공뿐 아니라 `git ls-remote`의 `origin/main` SHA 일치까지 확인하며, 원격 반영이 확인되지 않으면 완료로 진행하지 않는다. 대시보드 action 결과와 실제 실행 계획을 분리하며, `Inbox → Active` 또는 stale Active 재개 후보는 Genie를 직접 `agent:genie:infinity-dispatcher` 세션으로 호출한다. 실행 증거는 `traces/{intent-id}.json`의 `dispatcher_handoff`와 repo 밖 `/home/ubuntu/.openclaw/state/infinity-dispatcher-runs/` cycle record에 남긴다. `actions=[]`는 버튼 큐가 비었다는 뜻일 뿐 작업 no-op가 아니다.
-- **50~60 leaf 장기 실행:** 일반 계획은 완료 시 terminalization한다. 반면 `task-plan.json`에 검증 가능한 `expansion_policy`가 있으면 dispatcher가 ready leaf가 바닥났을 때만 Genie에 다음 batch 생성을 전달한다. 총량은 50~60개로 고정되고, batch·범위·증거 기준은 계획에 미리 적혀 있어야 한다. 완료 leaf를 되돌리거나 무한히 증식시키지 않으며, 모든 확장은 JSON/사람용 타임라인의 append-only 계획 변경으로 남긴다.
+- **Dispatcher 실행 절차**: 10분 주기의 단일 디스패처가 최신 `origin/main`을 확인하고, 실행 가능한 Intent를 계획한 뒤, 필요한 작업만 Genie에 순차 인계한다. 동기화·원격 검증에 실패하면 실행하지 않으며, 대시보드 액션은 상태 전이 후 같은 주기에 계획을 다시 계산한다. 실행 결과는 Intent trace와 cycle record로 남기고, `actions=[]`는 버튼 큐가 비었다는 뜻일 뿐 작업 no-op가 아니다. 코드 수준의 실행 경로·잠금·환경변수·검증 명령은 [`docs/dispatcher-implementation.md`](docs/dispatcher-implementation.md)를 따른다.
+- **50~60 leaf 장기 실행:** 대형 작업의 상세 계약은 [`EXECUTION_LEARNING_CONTRACT.md`](EXECUTION_LEARNING_CONTRACT.md)를 따른다. 일반 계획은 완료 시 terminalization한다. `task-plan.json`에 검증 가능한 `expansion_policy`가 있을 때만 ready leaf가 바닥나면 다음 batch를 전달한다. 총량은 50~60개로 고정되고, batch·범위·증거 기준은 계획에 미리 적혀 있어야 한다. 완료 leaf를 되돌리거나 무한히 증식시키지 않으며, 모든 확장은 JSON/사람용 타임라인의 append-only 계획 변경으로 남긴다.
 - **Trace 계약**: 새 intent는 `scripts/record_intent_trace.py intake`로 `traces/{intent-id}.json`에 원문 요청·정규화 쿼리와 정확히 하나의 intake event를 기록한다. 실행마다 `execution`으로 실제 Context Pack·검색·근거 경로를 남긴다. 기본 `exploratory_research` Archive는 브리프·원격 검증과 `red_status: not_required`를, `decision_research`와 산출물 작업은 final report·Red pass·원격 검증을 기록한다. 계약은 `schema/intent-trace-contract.md`가 정본이며 `python3 scripts/validate_intent_trace.py --all`을 원장 검사와 함께 실행한다. trace가 없는 레거시 카드를 dispatcher가 인계할 때는 실행을 중단하지 않고 `backfill_source: dispatcher_missing_trace`·두 request field의 `missing` 사유·빈 Context Pack·`partial` 상태로 backfill한 뒤 handoff를 기록한다. 이 복구 예외는 후속 실제 execution 없이는 Archive로 끝낼 수 없다.
 - **실행 학습 계약**: 대형 MVP는 [`EXECUTION_LEARNING_CONTRACT.md`](EXECUTION_LEARNING_CONTRACT.md)의 역할별 UTC timing ledger, 예상 대비 실제·병목 측정, focused Red 프로토콜을 적용한다. 시간제한은 품질 게이트를 생략하는 근거가 될 수 없다.
 - **참조 기반 비주얼 납품**: 이미지 참조가 있는 사용자용 카드/캐러셀은 [`VISUAL_DELIVERY_CONTRACT.md`](VISUAL_DELIVERY_CONTRACT.md)를 따른다. 실제 참조 입력·카드별 아트디렉션·후보/참조 나란히 검수·Red 시각 충실도 PASS가 필요하며, `LAYOUT ONLY` 같은 내부 scaffold는 사용자 결과가 될 수 없다. `python3 scripts/validate_visual_delivery.py --manifest artifacts/{intent-id}/render-manifest.json --require-user-preview`로 검증한다.
 - **Cloud prepares, Local executes**: 조사/계획/초안은 클라우드, 파일 수정/실행/검증은 로컬 Claude Code에 위임한다.
-
-## 연동
-
-- 원격 routine(claude.ai)이 이 레포를 clone → `workflows/heartbeat.md` 프로토콜대로 실행 → 의미 있는 변경을 커밋·push한다. 산출물·상태·Report·Archive는 Infinity 원격 push 확인 전 완료로 보지 않는다. **Infinity는 독립 저장소이며 Knowledge Lab 부모 저장소의 submodule pointer를 갱신하거나 push하지 않는다.**
-- GitHub Actions push 알림은 쓰지 않는다. 아침 리캡은 OpenClaw cron이 `scripts/morning_recap_message.py`를 실행해 전달한다.
-- 유효 판정된 archive 원장만 [Knowledge Lab](https://github.com/shdkej/knowledge-lab)의 `source/infinity/archive/`로 이동한다. 유효하지 않은 결과는 KL에 복사하지 않는다.
