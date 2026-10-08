@@ -3,18 +3,6 @@
 > Heartbeat Agent가 주기적으로 읽고 실행하는 의도 목록.
 
 ## Inbox
-### [research-alvaro-siza-deep-20261008] 알바로 시자(Álvaro Siza) 심층 대작업 조사
-  - status: inbox
-  - research_mode: exploratory_research
-  - target_agent: genie
-  - execution_mode: multi_subagent_roles
-  - permission_level: approval_required
-  - deadline: 2026-10-09T06:00:00Z (2026-10-09 08:00 Italy, CEST)
-  - context_pack: intents/context/research-alvaro-siza-deep-20261008.json
-  - next_action: 생애·대표작·설계 원칙·비판적 관점·동시대 맥락과 사용자 관심사 연결을 넓고 깊게 조사하고 근거·한계·반례를 축적
-  - success_criteria: 마감 전 충분한 분량의 탐색 지도·직접 확인 출처·비판적 관점·사용자 적용 가능성·불확실성을 포함한 보고서 완성; 단일 결론으로 조기 수렴하지 않음
-  - notification_channel: slack
-  - notification_target: channel:C0BR41W31MM
 
 ## Active
 - research_mode: exploratory_research
@@ -55,6 +43,28 @@
 
 
 ## Archive
+### [research-alvaro-siza-deep-20261008] 알바로 시자(Álvaro Siza) 심층 대작업 조사
+- status: archived
+- completed_at: 2026-10-08T11:52:00Z
+- research_mode: exploratory_research
+- deadline: 2026-10-09T06:00:00Z (2026-10-09 08:00 Italy, CEST)
+- context_pack: intents/context/research-alvaro-siza-deep-20261008.json
+- task_plan: artifacts/research-alvaro-siza-deep-20261008/work/task-plan.json
+- task_plan_doc: artifacts/research-alvaro-siza-deep-20261008/work/task-plan.md
+- task_plan_template: ARTIFACT_RULES.md#대형-작업-태스크-계획
+- trace: traces/research-alvaro-siza-deep-20261008.json
+- final_artifact: artifacts/research-alvaro-siza-deep-20261008/final/alvaro-siza-deep-research.md
+- artifact: artifacts/research-alvaro-siza-deep-20261008/final/alvaro-siza-deep-research.md
+- red_status: not_required
+- knowledge_status: queued
+- knowledge_decision: defer
+- knowledge_targets: agent-wiki/content/docs/outputs/ — 시자 전용 페이지 부재
+- knowledge_reflection: 작품·비판·사용자 연결을 산출물에 보존했으나 신규 승격은 보류
+- knowledge_commit: not_applicable
+- report_flow_check: pass — 결론/확신도 → 생애·작품 → 원칙 → 비판 → 사용자 연결 → 열린 질문
+- report_length_judgment: fit
+- next_action: 추가 확장은 새 1차 근거가 생길 때만 별도 cycle로 수행
+
 ### [research-minimalmoeum-trust-synthesis-20261008] 미니멀모음 신뢰 자산과 취향 큐레이션 전환 구조 재조사
 - status: archived
 - completed_at: 2026-10-08T06:25:00Z

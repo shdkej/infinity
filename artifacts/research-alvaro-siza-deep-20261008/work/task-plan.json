@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "tasks": [
+    {"id":"T1.1","title":"생애·대표작·설계 원칙·비판적 출처 수집","status":"done","started_at":"2026-10-08T11:25:00Z","completed_at":"2026-10-08T11:38:00Z","depends_on":[],"evidence":"artifacts/research-alvaro-siza-deep-20261008/work/evidence-map.md","max_minutes":30},
+    {"id":"T1.2","title":"사용자 관심사와 동시대 맥락의 연결 지도 작성","status":"done","started_at":"2026-10-08T11:38:00Z","completed_at":"2026-10-08T11:44:00Z","depends_on":["T1.1"],"evidence":"artifacts/research-alvaro-siza-deep-20261008/work/application-map.md","max_minutes":30},
+    {"id":"T1.3","title":"최종 탐색 브리프와 Archive 계약 확인","status":"done","started_at":"2026-10-08T11:44:00Z","completed_at":"2026-10-08T11:52:00Z","depends_on":["T1.2"],"evidence":"artifacts/research-alvaro-siza-deep-20261008/final/alvaro-siza-deep-research.md","max_minutes":30}
+  ],
+  "deviations": []
+}
