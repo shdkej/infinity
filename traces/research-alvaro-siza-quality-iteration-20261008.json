@@ -90,11 +90,29 @@
     },
     {
       "type": "dispatcher_handoff",
+      "run_id": "dispatch-68ada60d4b5043618b7a4d0cd963d636",
+      "canonical_sha": "90f1a55b6dec308e6f04ddfed0ffd86f2a1d896a",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher-v2",
+      "timestamp": "2026-10-08T19:30:04Z",
+      "status": "accepted"
+    },
+    {
+      "type": "dispatcher_handoff",
       "run_id": "dispatch-facf6b758ccb442cb1eaf0ffd202cccb",
       "canonical_sha": "ef3e4b468fc539d94962614843ef59d8933a49d1",
       "agent": "genie",
       "session_key": "agent:genie:infinity-dispatcher",
       "timestamp": "2026-10-08T19:00:06Z",
+      "status": "accepted"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-68ada60d4b5043618b7a4d0cd963d636",
+      "canonical_sha": "90f1a55b6dec308e6f04ddfed0ffd86f2a1d896a",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-10-08T19:30:05Z",
       "status": "accepted"
     }
   ],
