@@ -10,7 +10,7 @@
     },
     "normalized_query": {
       "status": "recorded",
-      "value": "알바로 시자 조사 품질 반복 작업: 2026-10-09 08:00 이탈리아 현지시간까지 교차검증·반례·대표작·사용자 연결 보강"
+      "value": "알바로 시자 다방면 조사 확장: 2026-10-09 08:00 이탈리아 현지시간까지 생애·교육·협업·건축·사회주택·가구/드로잉·재료/시공·국제 프로젝트·수용사·영향·비판·사용자 연결 조사"
     }
   },
   "events": [
@@ -24,33 +24,6 @@
         "../source/openclaw-system/docs/INFINITY_OPERATING_RULES.md",
         "INTENTS.md"
       ]
-    },
-    {
-      "type": "dispatcher_handoff",
-      "run_id": "dispatch-846584b728e14000bcf48abff6902c78",
-      "canonical_sha": "46a0f073b9ea68a295913c17b7069251081b0fdf",
-      "agent": "genie",
-      "session_key": "agent:genie:infinity-dispatcher-v2",
-      "timestamp": "2026-10-08T18:30:05Z",
-      "status": "accepted"
-    },
-    {
-      "type": "dispatcher_handoff",
-      "run_id": "dispatch-facf6b758ccb442cb1eaf0ffd202cccb",
-      "canonical_sha": "ef3e4b468fc539d94962614843ef59d8933a49d1",
-      "agent": "genie",
-      "session_key": "agent:genie:infinity-dispatcher-v2",
-      "timestamp": "2026-10-08T19:00:04Z",
-      "status": "accepted"
-    },
-    {
-      "type": "dispatcher_handoff",
-      "run_id": "dispatch-846584b728e14000bcf48abff6902c78",
-      "canonical_sha": "46a0f073b9ea68a295913c17b7069251081b0fdf",
-      "agent": "genie",
-      "session_key": "agent:genie:infinity-dispatcher-v2",
-      "timestamp": "2026-10-08T18:30:05Z",
-      "status": "accepted"
     },
     {
       "type": "dispatcher_handoff",
@@ -75,6 +48,15 @@
       "run_id": "dispatch-a2f560040b514eb1b43263bb85f2c5d2",
       "canonical_sha": "7a2de1e56e0b45a7262bb8ec4331ff417b98cf8a",
       "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher-v2",
+      "timestamp": "2026-10-08T18:00:07Z",
+      "status": "accepted"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-a2f560040b514eb1b43263bb85f2c5d2",
+      "canonical_sha": "7a2de1e56e0b45a7262bb8ec4331ff417b98cf8a",
+      "agent": "genie",
       "session_key": "agent:genie:infinity-dispatcher",
       "timestamp": "2026-10-08T18:00:07Z",
       "status": "accepted"
@@ -84,8 +66,26 @@
       "run_id": "dispatch-846584b728e14000bcf48abff6902c78",
       "canonical_sha": "46a0f073b9ea68a295913c17b7069251081b0fdf",
       "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher-v2",
+      "timestamp": "2026-10-08T18:30:05Z",
+      "status": "accepted"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-846584b728e14000bcf48abff6902c78",
+      "canonical_sha": "46a0f073b9ea68a295913c17b7069251081b0fdf",
+      "agent": "genie",
       "session_key": "agent:genie:infinity-dispatcher",
       "timestamp": "2026-10-08T18:30:07Z",
+      "status": "accepted"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-facf6b758ccb442cb1eaf0ffd202cccb",
+      "canonical_sha": "ef3e4b468fc539d94962614843ef59d8933a49d1",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher-v2",
+      "timestamp": "2026-10-08T19:00:04Z",
       "status": "accepted"
     },
     {
