@@ -3,7 +3,7 @@
 > Heartbeat Agent가 주기적으로 읽고 실행하는 의도 목록.
 
 ## Inbox
-- [research-alvaro-siza-deep-20261008] 알바로 시자(Álvaro Siza) 심층 대작업 조사
+### [research-alvaro-siza-deep-20261008] 알바로 시자(Álvaro Siza) 심층 대작업 조사
   - status: inbox
   - research_mode: exploratory_research
   - target_agent: genie
