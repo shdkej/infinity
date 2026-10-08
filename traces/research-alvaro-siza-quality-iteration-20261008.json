@@ -24,6 +24,15 @@
         "../source/openclaw-system/docs/INFINITY_OPERATING_RULES.md",
         "INTENTS.md"
       ]
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-ee721e2d6eb04729ad83804d2bcdf846",
+      "canonical_sha": "15be1d6e350c71565c604024f9a2673e00dd67e8",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher-v2",
+      "timestamp": "2026-10-08T17:34:31Z",
+      "status": "accepted"
     }
   ],
   "artifacts": [],
