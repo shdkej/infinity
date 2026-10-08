@@ -3,6 +3,18 @@
 > Heartbeat Agent가 주기적으로 읽고 실행하는 의도 목록.
 
 ## Inbox
+- [research-alvaro-siza-deep-20261008] 알바로 시자(Álvaro Siza) 심층 대작업 조사
+  - status: inbox
+  - research_mode: exploratory_research
+  - target_agent: genie
+  - execution_mode: multi_subagent_roles
+  - permission_level: approval_required
+  - deadline: 2026-10-08T23:00:00Z (2026-10-09 08:00 KST)
+  - context_pack: intents/context/research-alvaro-siza-deep-20261008.json
+  - next_action: 생애·대표작·설계 원칙·비판적 관점·동시대 맥락과 사용자 관심사 연결을 넓고 깊게 조사하고 근거·한계·반례를 축적
+  - success_criteria: 마감 전 충분한 분량의 탐색 지도·직접 확인 출처·비판적 관점·사용자 적용 가능성·불확실성을 포함한 보고서 완성; 단일 결론으로 조기 수렴하지 않음
+  - notification_channel: slack
+  - notification_target: channel:C0BR41W31MM
 
 ## Active
 - research_mode: exploratory_research
