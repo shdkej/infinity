@@ -44,12 +44,13 @@ Infinity 운영 문서는 여러 저장소에 걸쳐 있지만, 역할별 정본
 
 ### 접수·상태 전이의 최소 불변식
 
-- 접수 작업을 시작하기 전에 `git fetch origin main`과 `git pull --ff-only origin main`을 실행하고 `HEAD == origin/main`을 확인한다. checkout이 dirty이거나 fast-forward할 수 없으면 관련 없는 변경을 stash·폐기·rebase하지 않고, 깨끗한 `origin/main` worktree를 사용하거나 정확한 차단 사유를 보고한다.
+- 접수 작업을 시작하기 전에 `git fetch origin main`과 `git pull --ff-only origin main`을 실행하고 `HEAD == origin/main`을 확인한다. checkout이 dirty이거나 fast-forward할 수 없으면 관련 없는 변경을 stash·폐기·rebase하지 않고, 최신 `origin/main`에서 clean temporary worktree를 만들거나 정확한 차단 사유를 보고한다. stale/diverged checkout에서 등록하지 않는다.
 - 접수 전 `origin/main:INTENTS.md`의 네 lane에서 같은 목적의 Intent를 검색한다. 기존 열린 Intent는 재사용하고, Archive에 있으면 결과를 안내한다.
 - 비단순 Intent는 Context Pack을 만들고, `scripts/record_intent_trace.py intake`와 `scripts/validate_intent_trace.py`로 Context Map trace를 생성·검증한 뒤 등록한다. 등록 후에는 `scripts/prepare_dispatch_cycle.py --json`에서 새 Intent가 파싱되고 실행 후보로 잡히는지 확인한다.
 - 새 Intent는 `INTENTS.md`의 해당 lane 바로 아래 `### [intent-id] 제목` 블록 하나로 등록한다. 개별 `intents/{lane}/` 파일은 보조 기록이며 상태 원장을 대체하지 않는다.
 - 등록 전에는 intent ID가 canonical `INTENTS.md`의 열린 lane에 정확히 한 번만 존재하는지와 parser/정합성 검사를 확인한다. Context Pack, trace, 원장 블록, 필요한 task-plan만 scoped stage하고, 관련 없는 dirty 파일은 포함하지 않는다.
-- 등록은 커밋·push만으로 완료되지 않는다. `/home/ubuntu/workspace/knowledge-lab/source/openclaw-system/scripts/verify_git_publish.sh`를 대상 저장소·브랜치·모든 scoped 경로와 함께 실행해 원격 반영과 SHA 일치를 확인한다. 검증이 0으로 끝나기 전에는 Intent ID를 접수·Active·Waiting·dispatch ready로 보고하지 않으며, 성공한 local/remote SHA를 intake 기록에 보존한다.
+- scoped diff를 확인한 뒤 Context Pack·trace·canonical 원장 블록·필요한 task-plan만 명시적으로 stage하고, Infinity 저장소(또는 clean temporary worktree)에서 scoped commit을 만든 뒤 `origin/main`으로 push한다. commit/push 실패 시 접수로 보고하지 않고 실패 경계를 기록한다.
+- 등록은 커밋·push만으로 완료되지 않는다. `/home/ubuntu/workspace/knowledge-lab/source/openclaw-system/scripts/verify_git_publish.sh`를 대상 저장소·브랜치·모든 scoped 경로와 함께 실행해 원격 반영과 SHA 일치를 확인한다. 검증이 0으로 끝나기 전에는 Intent ID를 접수·Active·Waiting·dispatch ready로 보고하지 않으며, 성공한 local/remote SHA를 intake 기록에 보존한다. fetch·trace·parser·commit·push·SHA 검증 중 하나라도 실패하면 해당 실패 경계를 정확히 보고하고 등록을 중단한다.
 - 한 Intent는 한 시점에 한 lane에만 존재한다. 이동은 이전 lane 블록 제거와 새 lane 블록 추가를 같은 커밋에서 처리한다.
 - Archive 후 새 범위가 생길 때만 후속 Intent를 만들고, Archive 카드에 `next_action_intent` 또는 후속 ID를 연결한다. 같은 목적의 재접수로 Inbox와 Archive를 중복시키지 않는다.
 
