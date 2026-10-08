@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "intent_id": "research-minimalmoeum-trust-synthesis-20261008",
-  "status": "inbox",
+  "status": "archived",
   "trace_completeness": "complete",
   "request": {
     "raw": {
@@ -24,12 +24,30 @@
         "../agent-wiki/content/docs/outputs/Integration/Marketing.mdx",
         "artifacts/research-minimalmoeum-trust-independent-bookstores-20261007/final/independent-bookstore-trust-report.md"
       ]
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-e2ab16517c854f6b9cab9af132d123ae",
+      "canonical_sha": "5b2fba79175710c4ae946988fc0cf1aabad17df5",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-10-08T06:10:04Z",
+      "status": "accepted"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-e2ab16517c854f6b9cab9af132d123ae",
+      "canonical_sha": "5b2fba79175710c4ae946988fc0cf1aabad17df5",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher-v2",
+      "timestamp": "2026-10-08T06:10:04Z",
+      "status": "accepted"
     }
   ],
-  "artifacts": [],
-  "verifications": [],
+  "artifacts": ["artifacts/research-minimalmoeum-trust-synthesis-20261008/final/trust-synthesis-report.md"],
+  "verifications": [{"type":"remote_archive_ready","status":"pending_until_push","artifact":"artifacts/research-minimalmoeum-trust-synthesis-20261008/final/trust-synthesis-report.md"}],
   "next_decision": {
-    "status": "in_progress",
+    "status": "complete",
     "value": "기존 결과와 다른 근거·해석·다음 판단 신호를 사용자 맞춤형으로 정리"
   }
 }

@@ -3,8 +3,8 @@
 > Heartbeat Agent가 주기적으로 읽고 실행하는 의도 목록.
 
 ## Inbox
-### [research-minimalmoeum-trust-synthesis-20261008] 미니멀모음 신뢰 자산과 취향 큐레이션 전환 구조 재조사
-- status: inbox
+
+## Active
 - research_mode: exploratory_research
 - target_agent: genie
 - execution_mode: multi_subagent_roles
@@ -14,8 +14,6 @@
 - success_criteria: 사용자 맥락을 서두에 반영하고, 국내 사례를 중심으로 충분한 분량의 섹션별 탐색 지도·근거·한계·적용 가능성을 제시하되 단일 결론으로 성급히 수렴하지 않음
 - notification_channel: slack
 - notification_target: channel:C0BR41W31MM
-
-## Active
 
 ## Waiting
 
@@ -45,6 +43,25 @@
 
 
 ## Archive
+### [research-minimalmoeum-trust-synthesis-20261008] 미니멀모음 신뢰 자산과 취향 큐레이션 전환 구조 재조사
+- status: archived
+- completed_at: 2026-10-08T06:25:00Z
+- research_mode: exploratory_research
+- context_pack: intents/context/research-minimalmoeum-trust-synthesis-20261008.json
+- trace: traces/research-minimalmoeum-trust-synthesis-20261008.json
+- detail: intents/archive/research-minimalmoeum-trust-synthesis-20261008.md
+- final_artifact: artifacts/research-minimalmoeum-trust-synthesis-20261008/final/trust-synthesis-report.md
+- artifact: artifacts/research-minimalmoeum-trust-synthesis-20261008/final/trust-synthesis-report.md
+- red_status: not_required
+- knowledge_status: queued
+- knowledge_decision: defer
+- knowledge_targets: agent-wiki/content/docs/outputs/Meta/MinimalCollection.mdx; agent-wiki/content/docs/outputs/Integration/Marketing.mdx
+- knowledge_reflection: 국내 사례·인접 모델·반례를 기존 판단과 대조했으나 신규 승격은 보류
+- knowledge_commit: not_applicable
+- report_flow_check: pass
+- report_length_judgment: fit
+- next_action: 최인아책방의 공식·현장 자료를 직접 표본 확인하고, 미니멀모음 공개 기록 10개에서 독자의 기준 회상·유료 가치 언어를 관찰
+
 ### [research-minimalmoeum-trust-independent-bookstores-20261007] 독립서점 사례 기반 미니멀모음 신뢰·큐레이션 구조 조사
 - status: archived
 - completed_at: 2026-10-07T21:20:00Z
