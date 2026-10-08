@@ -1,30 +1,58 @@
 {
-  "generated_at": "2026-10-08T06:00:08.139Z",
+  "generated_at": "2026-10-08T12:00:11.267Z",
   "summary": {
-    "total": 947,
+    "total": 949,
     "wiki_reflected": 198,
-    "not_reflected": 749,
+    "not_reflected": 751,
     "by_status": {
-      "queued": 763,
+      "queued": 765,
       "selected": 4,
       "reviewed": 97,
       "integrated": 10,
       "rejected": 73
     },
     "by_layer": {
+      "infinity": 69,
       "openclaw-system": 624,
-      "infinity": 67,
       "external-links": 181,
       "shdkej-content": 74,
       "root": 1
     },
     "by_promotion_state": {
-      "not_applicable": 747,
+      "not_applicable": 749,
       "reflected": 198,
       "pending_promotion": 2
     }
   },
   "entries": [
+    {
+      "source": "source/infinity/archive/upstream/research-alvaro-siza-deep-20261008.md",
+      "status": "queued",
+      "source_layer": "infinity",
+      "reason": "자동 수집됨; 내용 판정 대기",
+      "reviewed_at": "",
+      "modified_at": "2026-10-08T12:00:05Z",
+      "promotion_targets": [],
+      "reflection_basis": [],
+      "promotion_state": "not_applicable",
+      "promotion_reason": "자동 수집됨; 내용 판정 대기",
+      "promotion_target_note": "",
+      "wiki_reflected": false
+    },
+    {
+      "source": "source/infinity/archive/upstream/research-minimalmoeum-trust-synthesis-20261008.md",
+      "status": "queued",
+      "source_layer": "infinity",
+      "reason": "자동 수집됨; 내용 판정 대기",
+      "reviewed_at": "",
+      "modified_at": "2026-10-08T12:00:05Z",
+      "promotion_targets": [],
+      "reflection_basis": [],
+      "promotion_state": "not_applicable",
+      "promotion_reason": "자동 수집됨; 내용 판정 대기",
+      "promotion_target_note": "",
+      "wiki_reflected": false
+    },
     {
       "source": "source/openclaw-system/data/ai-news/2026-10-08-ai-news.md",
       "status": "queued",
@@ -5789,7 +5817,7 @@
       "source_layer": "openclaw-system",
       "reason": "최근 활성 정본 또는 재사용 가능한 원자료; raw 검색 허용",
       "reviewed_at": "2026-09-01T09:58:12Z",
-      "modified_at": "2026-10-07T21:14:34Z",
+      "modified_at": "2026-10-08T06:06:45Z",
       "promotion_targets": [
         "/docs/outputs/Meta/AGENTS",
         "/docs/outputs/deep-knowledge/monitoring"
@@ -5808,7 +5836,7 @@
       "source_layer": "openclaw-system",
       "reason": "최근 활성 정본 또는 재사용 가능한 원자료; raw 검색 허용",
       "reviewed_at": "2026-09-01T09:58:12Z",
-      "modified_at": "2026-10-03T15:17:41Z",
+      "modified_at": "2026-10-08T06:00:36Z",
       "promotion_targets": [
         "/docs/outputs/Idea/Travel"
       ],
