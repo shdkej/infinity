@@ -3,6 +3,17 @@
 > Heartbeat Agent가 주기적으로 읽고 실행하는 의도 목록.
 
 ## Inbox
+### [research-minimalmoeum-trust-synthesis-20261008] 미니멀모음 신뢰 자산과 취향 큐레이션 전환 구조 재조사
+- status: inbox
+- research_mode: exploratory_research
+- target_agent: genie
+- execution_mode: multi_subagent_roles
+- permission_level: approval_required
+- context_pack: intents/context/research-minimalmoeum-trust-synthesis-20261008.json
+- next_action: 기존 독립서점 사례를 반복하지 않고 미니멀모음에 필요한 신뢰 자산과 다음 판단 신호를 사용자 맥락에 맞춰 재조사
+- success_criteria: 핵심 발견 1~3개와 사용자 맞춤 해석을 먼저 제시하고, 새 근거·한계·다음 판단 신호를 남김
+- notification_channel: slack
+- notification_target: channel:C0BR41W31MM
 
 ## Active
 

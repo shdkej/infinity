@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "intent_id": "research-minimalmoeum-trust-synthesis-20261008",
+  "status": "inbox",
+  "trace_completeness": "complete",
+  "request": {
+    "raw": {
+      "status": "recorded",
+      "value": "기존 독립서점 사례 조사 결과를 바탕으로, 미니멀모음 운영자에게 필요한 신뢰 자산·공개 정보·반복 콘텐츠·유료 전환 신호를 사용자 맥락에 맞춰 재조사해줘."
+    },
+    "normalized_query": {
+      "status": "recorded",
+      "value": "미니멀모음 신뢰 자산과 취향 큐레이션 전환 구조 재조사"
+    }
+  },
+  "events": [
+    {
+      "type": "intake",
+      "at": "2026-10-08T06:03:50Z",
+      "context_pack": "intents/context/research-minimalmoeum-trust-synthesis-20261008.json",
+      "evidence_paths": [
+        "INTENTS.md",
+        "../agent-wiki/content/docs/outputs/Meta/MinimalCollection.mdx",
+        "../agent-wiki/content/docs/outputs/Integration/Marketing.mdx",
+        "artifacts/research-minimalmoeum-trust-independent-bookstores-20261007/final/independent-bookstore-trust-report.md"
+      ]
+    }
+  ],
+  "artifacts": [],
+  "verifications": [],
+  "next_decision": {
+    "status": "in_progress",
+    "value": "기존 결과와 다른 근거·해석·다음 판단 신호를 사용자 맞춤형으로 정리"
+  }
+}
