@@ -27,6 +27,24 @@
     },
     {
       "type": "dispatcher_handoff",
+      "run_id": "dispatch-846584b728e14000bcf48abff6902c78",
+      "canonical_sha": "46a0f073b9ea68a295913c17b7069251081b0fdf",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher-v2",
+      "timestamp": "2026-10-08T18:30:05Z",
+      "status": "accepted"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-846584b728e14000bcf48abff6902c78",
+      "canonical_sha": "46a0f073b9ea68a295913c17b7069251081b0fdf",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher-v2",
+      "timestamp": "2026-10-08T18:30:05Z",
+      "status": "accepted"
+    },
+    {
+      "type": "dispatcher_handoff",
       "run_id": "dispatch-ee721e2d6eb04729ad83804d2bcdf846",
       "canonical_sha": "15be1d6e350c71565c604024f9a2673e00dd67e8",
       "agent": "genie",
@@ -50,6 +68,15 @@
       "agent": "genie",
       "session_key": "agent:genie:infinity-dispatcher",
       "timestamp": "2026-10-08T18:00:07Z",
+      "status": "accepted"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-846584b728e14000bcf48abff6902c78",
+      "canonical_sha": "46a0f073b9ea68a295913c17b7069251081b0fdf",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-10-08T18:30:07Z",
       "status": "accepted"
     }
   ],
