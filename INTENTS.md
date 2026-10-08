@@ -5,6 +5,18 @@
 ## Inbox
 
 ## Active
+### [research-alvaro-siza-quality-iteration-20261008] 알바로 시자 조사 품질 반복 작업
+- status: active
+- research_mode: exploratory_research
+- target_agent: genie
+- execution_mode: multi_subagent_roles
+- permission_level: approval_required
+- deadline: 2026-10-09T06:00:00Z (2026-10-09 08:00 Italy, CEST)
+- context_pack: intents/context/research-alvaro-siza-quality-iteration-20261008.json
+- next_action: 기존 결과의 출처 교차검증·대표작 표본·비판과 반례·사용자 연결의 사실/비유 경계를 마감까지 계속 보강
+- success_criteria: 마감 전 새 근거와 품질 개선이 반영된 탐색 보고서 완성; 마감 전 Archive 금지
+- notification_channel: slack
+- notification_target: channel:C0BR41W31MM
 - research_mode: exploratory_research
 - target_agent: genie
 - execution_mode: multi_subagent_roles

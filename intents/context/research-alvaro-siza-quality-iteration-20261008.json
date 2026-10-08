@@ -1,0 +1,11 @@
+{
+  "context_pack_version": 1,
+  "status": "ready",
+  "route": "infinity",
+  "request": "기존 알바로 시자 조사 결과를 마감까지 종료하지 말고 품질 반복 작업으로 확장한다. 2026-10-09 08:00 이탈리아 현지시간(CEST)까지 출처 교차검증, 대표작 표본 보강, 비판·반례·불확실성 보강, 사용자 관심사 연결의 비유/사실 경계 검토를 계속한다.",
+  "deadline": "2026-10-09T06:00:00Z",
+  "built_at": "2026-10-08T17:35:00Z",
+  "required_documents": ["/home/ubuntu/workspace/prompt-archive/LLM.md", "README.md", "schema/agent-rules.md", "source/openclaw-system/docs/DOCUMENT_SEARCH_PIPELINE.md", "source/openclaw-system/docs/USER_CONTEXT.md", "source/openclaw-system/docs/SERVICE_REGISTRY.md", "source/openclaw-system/docs/INFINITY_OPERATING_RULES.md", "infinity/ARTIFACT_RULES.md", "infinity/EXECUTION_LEARNING_CONTRACT.md", "infinity/INTENTS.md", "agent-wiki/content/docs/index.mdx"],
+  "search_scopes": ["agent-wiki/content/docs/", "source/openclaw-system/docs/", "source/openclaw-system/data/daily-reviews/", "source/openclaw-system/data/daily-tracking/", "source/openclaw-system/data/photo-insights/"],
+  "rules": ["기존 보고서를 완료로 간주하지 않고 새 근거를 추가한다.", "마감 전 조기 종료·Archive하지 않는다.", "확인된 사실·해석·적용 가설·미확인 항목을 분리한다."]
+}
