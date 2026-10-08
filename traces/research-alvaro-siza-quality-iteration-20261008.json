@@ -99,6 +99,15 @@
     },
     {
       "type": "dispatcher_handoff",
+      "run_id": "dispatch-ce2f6d6fffe2426eac24c237a91053fb",
+      "canonical_sha": "85cb474214d7737d7d07c1cf855a55b673675675",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher-v2",
+      "timestamp": "2026-10-08T20:00:06Z",
+      "status": "accepted"
+    },
+    {
+      "type": "dispatcher_handoff",
       "run_id": "dispatch-facf6b758ccb442cb1eaf0ffd202cccb",
       "canonical_sha": "ef3e4b468fc539d94962614843ef59d8933a49d1",
       "agent": "genie",
@@ -113,6 +122,15 @@
       "agent": "genie",
       "session_key": "agent:genie:infinity-dispatcher",
       "timestamp": "2026-10-08T19:30:05Z",
+      "status": "accepted"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-ce2f6d6fffe2426eac24c237a91053fb",
+      "canonical_sha": "85cb474214d7737d7d07c1cf855a55b673675675",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-10-08T20:00:08Z",
       "status": "accepted"
     }
   ],
