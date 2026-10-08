@@ -13,7 +13,7 @@
 - permission_level: approval_required
 - deadline: 2026-10-09T06:00:00Z (2026-10-09 08:00 Italy, CEST)
 - context_pack: intents/context/research-alvaro-siza-quality-iteration-20261008.json
-- artifact: artifacts/research-alvaro-siza-quality-iteration-20261008/work/source-audit-20261008.md; artifacts/research-alvaro-siza-quality-iteration-20261008/work/quality-audit-20261008T1800.md; artifacts/research-alvaro-siza-quality-iteration-20261008/work/quality-audit-20261008T1830.md
+- artifact: artifacts/research-alvaro-siza-quality-iteration-20261008/work/source-audit-20261008.md; artifacts/research-alvaro-siza-quality-iteration-20261008/work/quality-audit-20261008T1800.md; artifacts/research-alvaro-siza-quality-iteration-20261008/work/quality-audit-20261008T1830.md; artifacts/research-alvaro-siza-quality-iteration-20261008/work/quality-audit-20261008T1900.md
 - next_action: 기존 결과의 출처 교차검증·대표작 표본·비판과 반례·사용자 연결의 사실/비유 경계를 마감까지 계속 보강
 - success_criteria: 마감 전 새 근거와 품질 개선이 반영된 탐색 보고서 완성; 마감 전 Archive 금지
 - notification_channel: slack
