@@ -10,8 +10,8 @@
 - execution_mode: multi_subagent_roles
 - permission_level: approval_required
 - context_pack: intents/context/research-minimalmoeum-trust-synthesis-20261008.json
-- next_action: 기존 독립서점 사례를 반복하지 않고 미니멀모음에 필요한 신뢰 자산과 다음 판단 신호를 사용자 맥락에 맞춰 재조사
-- success_criteria: 핵심 발견 1~3개와 사용자 맞춤 해석을 먼저 제시하고, 새 근거·한계·다음 판단 신호를 남김
+- next_action: 최인아책방을 포함한 국내 독립서점 사례와 사용자 맥락에서 출발해 인접 사례·대안 모델·반례·변화 신호를 넓고 깊게 발산 조사
+- success_criteria: 사용자 맥락을 서두에 반영하고, 국내 사례를 중심으로 충분한 분량의 섹션별 탐색 지도·근거·한계·적용 가능성을 제시하되 단일 결론으로 성급히 수렴하지 않음
 - notification_channel: slack
 - notification_target: channel:C0BR41W31MM
 

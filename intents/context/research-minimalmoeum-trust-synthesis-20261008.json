@@ -2,7 +2,7 @@
   "context_pack_version": 1,
   "status": "ready",
   "route": "infinity",
-  "request": "기존 독립서점 사례 조사 결과를 반복하지 않고, 미니멀모음 운영자에게 필요한 신뢰 자산·공개 정보·반복 콘텐츠·유료 전환 신호를 사례와 사용자 맥락에 맞춰 재조사하고, 핵심 발견과 다음 판단을 먼저 제시한다.",
+  "request": "기존 독립서점 사례 조사 결과를 반복하지 않고, 미니멀모음 운영자의 맥락과 최인아책방을 포함한 국내 독립서점 사례에서 출발해 신뢰 자산·공개 정보·반복 콘텐츠·유료 전환 신호를 넓고 깊게 발산 조사한다. 결론으로 성급히 수렴하지 않고 인접 사례·대안 모델·반례·변화 신호를 충분한 분량으로 제시한다.",
   "built_at": "2026-10-08T06:04:00Z",
   "required_documents": [
     "/home/ubuntu/workspace/prompt-archive/LLM.md",
@@ -17,7 +17,7 @@
     "infinity/INTENTS.md",
     "agent-wiki/README.md"
   ],
-  "search_scopes": ["agent-wiki/content/docs/", "source/openclaw-system/docs/", "source/openclaw-system/data/"],
+  "search_scopes": ["agent-wiki/content/docs/", "source/openclaw-system/docs/", "source/openclaw-system/data/", "source/external-links/"],
   "selected_context": [
     {"path": "../agent-wiki/content/docs/outputs/Meta/MinimalCollection.mdx", "reason": "미니멀모음의 기존 사용자 맥락"},
     {"path": "../agent-wiki/content/docs/outputs/Integration/Marketing.mdx", "reason": "신뢰에서 전환으로 이어지는 기존 판단"},
@@ -25,7 +25,9 @@
   ],
   "rules": [
     "Do not repeat the prior case list without adding new evidence or a changed interpretation.",
-    "Put 1-3 user-tailored findings, their meaning, and next judgment signals before the broad evidence map.",
-    "Separate observed evidence from application hypotheses and state uncertainty."
+    "Start from the user's stated analogy and context: Choi In-ah Books and Korean independent bookstores are required starting cases; add overseas and adjacent cases only as comparison branches.",
+    "This is divergent exploratory research. Preserve multiple branches, alternatives, counterexamples, and signals; do not force a single recommendation or experiment.",
+    "Use substantial sections with enough evidence and explanation to be useful; do not split the report into many short fragments.",
+    "Put a short user-context framing first, then the broad evidence map. Separate observed evidence from application hypotheses and state uncertainty."
   ]
 }
