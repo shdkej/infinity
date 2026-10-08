@@ -1,6 +1,6 @@
 # infinity
 
-Agent-First 자율 실행 시스템. 스케줄 routine(원격 에이전트)이 깨어나 `INTENTS.md`의 의도를 자율 처리하고, 의미 있는 변화는 원장/대시보드/정기 리캡으로 드러낸다.
+Agent-First 자율 실행 시스템. 스케줄 routine(원격 에이전트)이 깨어나 `INTENTS.md`의 의도를 자율 처리하고, 의미 있는 변화는 원장과 대시보드에 드러낸다.
 
 > 사용자는 **의도와 판단**만, 에이전트는 **실행과 보고**를 담당한다.
 
@@ -45,6 +45,7 @@ Infinity 운영 문서는 여러 저장소에 걸쳐 있지만, 역할별 정본
 ### 접수·상태 전이의 최소 불변식
 
 - 접수 전 `origin/main:INTENTS.md`의 네 lane에서 같은 목적의 Intent를 검색한다. 기존 열린 Intent는 재사용하고, Archive에 있으면 결과를 안내한다.
+- 비단순 Intent는 Context Pack을 만들고, `scripts/record_intent_trace.py intake`와 `scripts/validate_intent_trace.py`로 Context Map trace를 생성·검증한 뒤 등록한다. 등록 후에는 `scripts/prepare_dispatch_cycle.py --json`에서 새 Intent가 파싱되고 실행 후보로 잡히는지 확인한다.
 - 새 Intent는 `INTENTS.md`의 해당 lane 바로 아래 `### [intent-id] 제목` 블록 하나로 등록한다. 개별 `intents/{lane}/` 파일은 보조 기록이며 상태 원장을 대체하지 않는다.
 - 한 Intent는 한 시점에 한 lane에만 존재한다. 이동은 이전 lane 블록 제거와 새 lane 블록 추가를 같은 커밋에서 처리한다.
 - Archive 후 새 범위가 생길 때만 후속 Intent를 만들고, Archive 카드에 `next_action_intent` 또는 후속 ID를 연결한다. 같은 목적의 재접수로 Inbox와 Archive를 중복시키지 않는다.
@@ -60,7 +61,7 @@ Infinity 운영 문서는 여러 저장소에 걸쳐 있지만, 역할별 정본
 
 정식 vocabulary와 archive 코멘트 표기는 `ARTIFACT_RULES.md`를 따른다.
 
-`T1`, 역할별 메모, Red 검토는 작업을 검증하는 **중간 산출물**이며 Archive 대표 결과가 아니다. 모든 리서치는 `artifacts/{id}/final/{slug}-report.md`에 전체 원문을 보존하며, HTML Report는 이를 요약해 표시할 뿐 대체하지 않는다. Archive 카드의 기본 링크도 이 최종 MD와 HTML Report만 사용한다.
+`T1`, 역할별 메모, Red 검토는 작업을 검증하는 **중간 산출물**이며 Archive 대표 결과가 아니다. `decision_research`와 산출물 작업의 최종 원문은 `artifacts/{id}/final/{slug}-report.md`에 보존하고 HTML Report도 요구한다. `exploratory_research`는 Markdown brief와 채널 답변으로 종료할 수 있다. Archive 카드에는 해당 유형에 실제로 요구되는 최종 산출물과 리포트만 연결한다.
 
 ## 대형 작업 안내
 
