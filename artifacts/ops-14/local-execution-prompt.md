@@ -14,8 +14,8 @@ NO_REPLY 실행 시 total_tokens를 현재 4.7万~6.7万 범위에서 의미 있
 
 ## Context
 - 문제: evaluator가 NO_REPLY 정상 종료 시에도 4.7万~6.7万 tokens 소비 반복
-- 원인: NO_REPLY 결론 전에 EVALUATION_NOTES.md 전체, OPERATING_LESSONS.md 전체, 크론 로그 전체를 로드
-- 소스 신호: `system/docs/EVALUATION_NOTES.md#OpenClaw-evaluator-NO_REPLY-실행의-고토큰-반복`
+- 원인: NO_REPLY 결론 전에 README의 평가·반복 학습 섹션 전체와 크론 로그 전체를 로드
+- 소스 신호: `README.md#운영-품질-평가`, `README.md#반복-운영-학습`
 - 준비 리포트: `reports/ops-14/20260714T0000Z-prepare.html`
 
 ## Instructions
