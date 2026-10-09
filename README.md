@@ -12,7 +12,6 @@ GATES.md            ← 승인 대기/처리 완료
 PERMISSIONS.md      ← 권한 레벨(L0~L3) 정의
 ARTIFACT_RULES.md   ← 산출물 경로 규칙
 workflows/heartbeat.md ← Heartbeat 동작 프로토콜 (routine이 매 실행 시 읽음)
-EVALUATION_INDEX.md / EVALUATION_NOTES.md ← evaluator 학습
 EXECUTION_LEARNING_CONTRACT.md ← 대형 MVP 시간·병목·Red 학습 정본
 VISUAL_DELIVERY_CONTRACT.md ← 참조 이미지 기반 사용자용 카드의 생성·검수·내부 fixture 차단 계약
 intents/active/       ← 실행 중인 Intent 원장
@@ -41,6 +40,19 @@ Infinity 운영 문서는 여러 저장소에 걸쳐 있지만, 역할별 정본
 9. **디스패처 구현:** `docs/dispatcher-implementation.md` — 실행 파일·잠금·handoff·검증의 코드 수준 설명을 둔다.
 
 `/home/ubuntu/workspace/prompt-archive/INFINITY.md`는 초기 설계·역사적 참고 문서다. 현재 상태값, 접수 형식, 대시보드 표시 규칙은 이 README와 위 정본 문서를 우선한다. 새 규칙은 초기 설계 문서에만 추가하지 않는다.
+
+### 운영 품질 평가
+
+평가는 과거 사례를 쌓기 위한 기록이 아니라 다음 실행을 바꾸기 위한 점검이다. evaluator는 아래 항목만 확인하고, 실제 운영 규칙으로 승격할 내용은 이 README나 `OPERATING_LESSONS.md`에 반영한다.
+
+- **pickup·구조화:** Inbox가 오래 남지 않고, 목적·완료 기준·승인 경계가 실행 가능한 Intent로 정리됐는가.
+- **동시성·승인:** 병렬도가 안정성과 품질을 해치지 않으며, 승인·차단 상태와 다음 재개 조건이 명확한가.
+- **결과·사용자 접점:** 결과물이 정해진 경로에 있고, 사용자가 다음 판단을 할 수 있는 형태로 도달했는가. 배포는 URL 응답만으로 닫지 않고 핵심 사용자 흐름을 확인한다.
+- **상태·원장 정합성:** `INTENTS.md`가 단일 상태 원장으로 유지되고, Archive·lane·후속 Intent가 중복 없이 연결됐는가.
+- **반복 실패 처리:** 같은 차단·승인 문제를 새 근거 없이 반복 기록하지 않고, 반복되면 대안 경로·사용자 결정·프로토콜 수정 중 하나로 승격하는가.
+- **no-op 원칙:** 의미 있는 변화가 없으면 commit·push하지 않는가.
+
+평가 결과는 해당 실행의 report/artifact에 남긴다. 한 번의 관찰만으로 장기 규칙을 만들지 않으며, 반복되어 실제 프로토콜을 바꿀 때만 정본 문서를 수정한다.
 
 ### 접수·상태 전이의 최소 불변식
 

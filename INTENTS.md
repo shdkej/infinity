@@ -146,7 +146,7 @@
 ### [proposer-evaluator-rate-limit-resilience-20261002] evaluator rate-limit 반복 실패 완화 조사·수정안
 - status: archived
 - proposed_by: sam-proposer
-- source_signal: /home/ubuntu/workspace/knowledge-lab/infinity/EVALUATION_NOTES.md — evaluator 최근 실행 15회 연속 rate_limit 실패; OpenClaw automation runs — 동일 evaluator job의 반복 FallbackSummaryError rate_limit 기록
+- source_signal: artifacts/proposer-evaluator-rate-limit-resilience-20261002/final/report.md — evaluator 최근 실행 15회 연속 rate_limit 실패; OpenClaw automation runs — 동일 evaluator job의 반복 FallbackSummaryError rate_limit 기록
 - actual_result: 비활성 evaluator job의 payload를 canonical evaluator 문서 경로로 교정하고, bounded read·rate_limit_exhausted 구조화 종료·fallback 모델(openai/gpt-5.4-mini)을 추가했습니다. 수동 실행은 status=ok, delivery.mode:none, 52.455초로 성공했고 RECORDED 평가를 남겼습니다.
 - artifact: artifacts/proposer-evaluator-rate-limit-resilience-20261002/work/runtime-verification.md; artifacts/proposer-evaluator-rate-limit-resilience-20261002/work/red/final-review.md; artifacts/proposer-evaluator-rate-limit-resilience-20261002/final/report.md
 - red_status: pass

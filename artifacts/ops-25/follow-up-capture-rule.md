@@ -2,7 +2,7 @@
 
 - intent: `ops-25`
 - status: archived after implementation and Red validation
-- source evidence: `agent-wiki/content/docs/mapped/Meta/AGENTS.mdx`, `source/openclaw-system/docs/INFINITY_OPERATING_RULES.md`, `infinity/workflows/heartbeat.md`, `infinity/ARTIFACT_RULES.md`, `infinity/EVALUATION_INDEX.md`
+- source evidence: `agent-wiki/content/docs/mapped/Meta/AGENTS.mdx`, `source/openclaw-system/docs/INFINITY_OPERATING_RULES.md`, `infinity/workflows/heartbeat.md`, `infinity/ARTIFACT_RULES.md`, `infinity/README.md`의 `운영 품질 평가`
 
 ## Planner
 

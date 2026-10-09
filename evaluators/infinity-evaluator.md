@@ -4,15 +4,14 @@
 Infinity의 intent 처리 품질을 독립적으로 평가하고, 다음 pickup/구조화/실행에서 참고할 수 있는 재사용 가능한 평가를 남긴다.
 
 ## 반드시 읽을 문서
-- `/home/ubuntu/.openclaw/workspace/external-repos/prompt-archive/infinity/OPERATING_LESSONS.md`
-- `/home/ubuntu/.openclaw/workspace/external-repos/prompt-archive/infinity/EVALUATION_INDEX.md`
-- `/home/ubuntu/.openclaw/workspace/external-repos/prompt-archive/infinity/INTENTS.md`
+- `/home/ubuntu/workspace/knowledge-lab/infinity/OPERATING_LESSONS.md`
+- `/home/ubuntu/workspace/knowledge-lab/infinity/README.md`의 `운영 품질 평가` 섹션
+- `/home/ubuntu/workspace/knowledge-lab/infinity/INTENTS.md`
 
 ## 토큰 절약 읽기 규칙
-- 정기 evaluator는 `EVALUATION_NOTES.md` 전체를 읽지 않는다.
-- 기본값은 `EVALUATION_NOTES.md` 최근 80줄만 확인한다. 필요해도 최대 120줄까지만 읽는다.
-- 전체 재독해는 사용자가 명시적으로 감사/audit를 요청하거나, `EVALUATION_INDEX.md`와 최근 노트가 충돌해 판단이 불가능할 때만 한다.
-- 새 평가가 기존 패턴을 바꾸는 수준이면 `EVALUATION_INDEX.md`도 짧게 갱신한다.
+- 정기 evaluator는 README의 평가 기준과 최근 heartbeat/report 1~2개만 확인한다.
+- 과거 평가 전체를 재독해하지 않고, 현재 판단을 바꾸는 구체적 근거가 있을 때만 관련 artifact를 추가로 읽는다.
+- 반복 패턴이 실제 운영 규칙을 바꿀 수준이면 README 또는 `OPERATING_LESSONS.md`를 수정하는 별도 작업으로 승격한다.
 
 ## 추가로 볼 수 있는 대상
 - 최근 heartbeat report 1~2개
@@ -30,5 +29,6 @@ Infinity의 intent 처리 품질을 독립적으로 평가하고, 다음 pickup/
 ## 출력 원칙
 - 평가는 한국어로 짧고 재사용 가능하게 쓴다.
 - 단순 완료 보고가 아니라 다음 운영을 바꾸는 문장만 남긴다.
-- 가치가 있을 때만 `/home/ubuntu/.openclaw/workspace/external-repos/prompt-archive/infinity/EVALUATION_NOTES.md`에 append한다.
+- 평가 결과는 해당 실행의 report/artifact에 남기며, 채팅으로 발송하지 않는다.
+- 장기 규칙으로 승격할 때만 README 또는 `OPERATING_LESSONS.md`를 수정한다.
 - 사용자의 채팅으로는 아무 메시지도 보내지 않는다.
