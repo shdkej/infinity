@@ -8,7 +8,7 @@
 ### [research-alvaro-siza-quality-iteration-20261008] 알바로 시자 다방면 조사 확장
 - status: archived
 - completed_at: 2026-10-09T06:10:03Z
-- final_artifact: artifacts/research-alvaro-siza-quality-iteration-20261008/final/alvaro-siza-quality-exploration.md
+- final_artifact: artifacts/research-alvaro-siza-quality-iteration-20261008/final/alvaro-siza-comprehensive-research.md
 - report: reports/research-alvaro-siza-quality-iteration-20261008/20261009T0610Z-final.html
 - research_mode: exploratory_research
 - target_agent: genie
