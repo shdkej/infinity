@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-08T12:00:11.267Z",
+  "generated_at": "2026-10-09T00:00:09.247Z",
   "summary": {
     "total": 949,
     "wiki_reflected": 198,
@@ -5836,7 +5836,7 @@
       "source_layer": "openclaw-system",
       "reason": "최근 활성 정본 또는 재사용 가능한 원자료; raw 검색 허용",
       "reviewed_at": "2026-09-01T09:58:12Z",
-      "modified_at": "2026-10-08T06:00:36Z",
+      "modified_at": "2026-10-08T21:07:01Z",
       "promotion_targets": [
         "/docs/outputs/Idea/Travel"
       ],
