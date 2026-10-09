@@ -10,6 +10,7 @@
 - completed_at: 2026-10-09T06:10:03Z
 - final_artifact: artifacts/research-alvaro-siza-quality-iteration-20261008/final/alvaro-siza-comprehensive-research.md
 - report: reports/research-alvaro-siza-quality-iteration-20261008/20261009T0610Z-final.html
+- static_page: reports/research-alvaro-siza-quality-iteration-20261008/siza-reading-room.html
 - research_mode: exploratory_research
 - target_agent: genie
 - execution_mode: multi_subagent_roles

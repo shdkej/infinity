@@ -10,8 +10,10 @@
 - context_pack: intents/context/research-alvaro-siza-quality-iteration-20261008.json
 - final_artifact: artifacts/research-alvaro-siza-quality-iteration-20261008/final/alvaro-siza-comprehensive-research.md
 - report: reports/research-alvaro-siza-quality-iteration-20261008/20261009T0610Z-final.html
+- static_page: reports/research-alvaro-siza-quality-iteration-20261008/siza-reading-room.html
 - artifact: artifacts/research-alvaro-siza-quality-iteration-20261008/final/alvaro-siza-comprehensive-research.md
 - artifact: artifacts/research-alvaro-siza-quality-iteration-20261008/final/alvaro-siza-quality-exploration.md
+- artifact: reports/research-alvaro-siza-quality-iteration-20261008/siza-reading-room.html
 - supporting_work: artifacts/research-alvaro-siza-quality-iteration-20261008/work/
 - trace: traces/research-alvaro-siza-quality-iteration-20261008.json
 - red_status: not_required
