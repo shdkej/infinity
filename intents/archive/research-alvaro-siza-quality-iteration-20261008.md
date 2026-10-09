@@ -8,8 +8,9 @@
 - permission_level: approval_required
 - deadline: 2026-10-09T06:00:00Z
 - context_pack: intents/context/research-alvaro-siza-quality-iteration-20261008.json
-- final_artifact: artifacts/research-alvaro-siza-quality-iteration-20261008/final/alvaro-siza-quality-exploration.md
+- final_artifact: artifacts/research-alvaro-siza-quality-iteration-20261008/final/alvaro-siza-comprehensive-research.md
 - report: reports/research-alvaro-siza-quality-iteration-20261008/20261009T0610Z-final.html
+- artifact: artifacts/research-alvaro-siza-quality-iteration-20261008/final/alvaro-siza-comprehensive-research.md
 - artifact: artifacts/research-alvaro-siza-quality-iteration-20261008/final/alvaro-siza-quality-exploration.md
 - supporting_work: artifacts/research-alvaro-siza-quality-iteration-20261008/work/
 - trace: traces/research-alvaro-siza-quality-iteration-20261008.json
