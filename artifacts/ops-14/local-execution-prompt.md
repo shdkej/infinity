@@ -28,15 +28,14 @@ ls ~/.claude/skills/ 2>/dev/null
 # OpenClaw workspace에서도 확인
 find ~/openclaw -name "*evaluat*" -o -name "*EVALUATION*" 2>/dev/null | head -20
 ```
-- `system/docs/EVALUATION_NOTES.md` 의 문제 섹션에서 evaluator 실행 경로/파일명 확인
+- `README.md`의 `운영 품질 평가`·`반복 운영 학습` 섹션에서 evaluator 실행 경로/파일명 확인
 
 ### 2. 읽기 예산 제한 반영 (3가지)
 아래 규칙을 evaluator 정본 프롬프트/헬퍼에 추가한다:
 
 ```
 # 읽기 예산 (변경 금지)
-- EVALUATION_NOTES.md: tail 120줄만 읽는다 (전체 로드 금지)
-- OPERATING_LESSONS.md: 관련 섹션 헤더 키워드로 필터 후 해당 섹션만 읽는다 (전체 로드 금지)
+- README.md: `운영 품질 평가`·`반복 운영 학습` 섹션만 읽는다 (전체 로드 금지)
 - 크론 실행 로그: 최근 24시간 요약만 허용 (전체 로그 금지)
 ```
 
