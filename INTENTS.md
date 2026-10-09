@@ -4,9 +4,12 @@
 
 ## Inbox
 
-## Active
+## Archive
 ### [research-alvaro-siza-quality-iteration-20261008] 알바로 시자 다방면 조사 확장
-- status: active
+- status: archived
+- completed_at: 2026-10-09T06:10:03Z
+- final_artifact: artifacts/research-alvaro-siza-quality-iteration-20261008/final/alvaro-siza-quality-exploration.md
+- report: reports/research-alvaro-siza-quality-iteration-20261008/20261009T0610Z-final.html
 - research_mode: exploratory_research
 - target_agent: genie
 - execution_mode: multi_subagent_roles
@@ -32,6 +35,8 @@
 - success_criteria: 사용자 맥락을 서두에 반영하고, 국내 사례를 중심으로 충분한 분량의 섹션별 탐색 지도·근거·한계·적용 가능성을 제시하되 단일 결론으로 성급히 수렴하지 않음
 - notification_channel: slack
 - notification_target: channel:C0BR41W31MM
+
+## Active
 
 ## Waiting
 
