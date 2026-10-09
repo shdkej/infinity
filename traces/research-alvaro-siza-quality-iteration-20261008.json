@@ -366,6 +366,24 @@
       "session_key": "agent:genie:infinity-dispatcher-v2",
       "timestamp": "2026-10-09T02:30:04Z",
       "status": "accepted"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-6ec0063c51c540eeb0ec991bdc3c97d7",
+      "canonical_sha": "f05c2866e811dfdaea70c8c9a4183e8b2bbdb9df",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-10-09T03:00:05Z",
+      "status": "accepted"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-6ec0063c51c540eeb0ec991bdc3c97d7",
+      "canonical_sha": "f05c2866e811dfdaea70c8c9a4183e8b2bbdb9df",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher-v2",
+      "timestamp": "2026-10-09T03:00:04Z",
+      "status": "accepted"
     }
   ],
   "artifacts": [],
