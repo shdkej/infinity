@@ -258,6 +258,24 @@
       "session_key": "agent:genie:infinity-dispatcher-v2",
       "timestamp": "2026-10-08T23:30:04Z",
       "status": "accepted"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-110eaeff2ff3479a8264f712c5761748",
+      "canonical_sha": "5b2b3c95787168876d6dfc86b05d61a3ccfc570c",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-10-09T00:00:08Z",
+      "status": "accepted"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-8bbb27368d5344ccb3ac1dde3fac02f1",
+      "canonical_sha": "7943cf8a449f35984a86bca30ded87f8a9c63533",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher-v2",
+      "timestamp": "2026-10-09T00:00:31Z",
+      "status": "accepted"
     }
   ],
   "artifacts": [],
