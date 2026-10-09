@@ -9,7 +9,6 @@
 - next_action: 승인된 작업의 실행 경로를 점검하고 다음 가역적 작업을 수행한다.
 - task_plan: artifacts/learning-candidate-proposer-automation-trigger-timeout-20261002/work/task-plan.json
 - task_plan_doc: artifacts/learning-candidate-proposer-automation-trigger-timeout-20261002/work/task-plan.md
-- trace: traces/learning-candidate-proposer-automation-trigger-timeout-20261002.json
+- trace: data/traces/learning-candidate-proposer-automation-trigger-timeout-20261002.json
 - notification_channel: slack
 - notification_target: channel:C0BR41W31MM
-

@@ -9,7 +9,7 @@
 - task_type: strategy
 - topics: product,content,automation
 - context_pack: intents/context/strategy-compound-business-20260915.json
-- trace: traces/strategy-compound-business-20260915.json
+- trace: data/traces/strategy-compound-business-20260915.json
 - final_artifact: artifacts/strategy-compound-business-20260915/final/compound-business-strategy-report.md
 - report: reports/strategy-compound-business-20260915/20260915T2106-final.html
 - red_status: pass

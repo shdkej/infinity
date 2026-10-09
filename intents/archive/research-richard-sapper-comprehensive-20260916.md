@@ -17,7 +17,7 @@
 - final_artifact: artifacts/research-richard-sapper-comprehensive-20260916/final/richard-sapper-comprehensive-brief.md
 - supporting_work: artifacts/research-richard-sapper-comprehensive-20260916/work/source-ledger.md
 - report: reports/research-richard-sapper-comprehensive-20260916/20260916T0844Z-final.html
-- trace: traces/research-richard-sapper-comprehensive-20260916.json
+- trace: data/traces/research-richard-sapper-comprehensive-20260916.json
 - red_status: not_required
 - red_report: not_required (exploratory_research)
 - knowledge_status: raw

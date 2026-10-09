@@ -24,7 +24,7 @@ status: active
 deadline: 2026-01-01T08:00:00Z
 deadline_local: 2026-01-01 09:00 Europe/Rome (CET)
 task_plan: artifacts/{intent-id}/task-plan.json
-trace: traces/{intent-id}.json
+trace: data/traces/{intent-id}.json
 notification_channel: slack
 notification_target: channel:{channel-id}
 notification_reply_to: {original-thread-ts}

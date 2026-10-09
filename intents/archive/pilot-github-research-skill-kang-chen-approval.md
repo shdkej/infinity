@@ -6,7 +6,7 @@
 - archived_at: 2026-10-03T15:20:00Z
 - task_type: approval-gated-research
 - depends_on: research-github-skills-20260912
-- trace: traces/pilot-github-research-skill-kang-chen-approval.json
+- trace: data/traces/pilot-github-research-skill-kang-chen-approval.json
 - task_plan: artifacts/pilot-github-research-skill-kang-chen-approval/work/task-plan.json
 - task_plan_doc: artifacts/pilot-github-research-skill-kang-chen-approval/work/task-plan.md
 - evidence: artifacts/pilot-github-research-skill-kang-chen-approval/work/audit-evidence.md; artifacts/pilot-github-research-skill-kang-chen-approval/work/fixture-comparison.md

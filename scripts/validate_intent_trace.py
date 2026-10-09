@@ -235,7 +235,7 @@ def main() -> int:
     parser.add_argument("trace", nargs="?", type=Path)
     parser.add_argument("--all", action="store_true")
     args = parser.parse_args()
-    traces = sorted((ROOT / "traces").glob("*.json")) if args.all else [args.trace]
+    traces = sorted((ROOT / "data" / "traces").glob("*.json")) if args.all else [args.trace]
     if not args.all and args.trace is None:
         parser.error("trace or --all is required")
     errors: list[str] = []

@@ -5,7 +5,7 @@
 - archived_at: 2026-10-08T06:25:00Z
 - research_mode: exploratory_research
 - context_pack: intents/context/research-minimalmoeum-trust-synthesis-20261008.json
-- trace: traces/research-minimalmoeum-trust-synthesis-20261008.json
+- trace: data/traces/research-minimalmoeum-trust-synthesis-20261008.json
 - final_artifact: artifacts/research-minimalmoeum-trust-synthesis-20261008/final/trust-synthesis-report.md
 - red_status: not_required
 - knowledge_status: queued

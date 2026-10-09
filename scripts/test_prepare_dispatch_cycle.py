@@ -51,7 +51,7 @@ class PlanTests(unittest.TestCase):
     def test_deadline_active_card_with_observability_fields_is_valid(self):
         extra = "".join([
             "- deadline: 2026-09-05T06:00:00Z\n", "- deadline_local: 2026-09-05 08:00 Europe/Rome (CEST)\n",
-            "- task_plan: artifacts/work-1/work/task-plan.json\n", "- task_plan_doc: artifacts/work-1/work/task-plan.md\n", "- task_plan_template: ARTIFACT_RULES.md#대형-작업-태스크-계획\n", "- trace: traces/work-1.json\n",
+            "- task_plan: artifacts/work-1/work/task-plan.json\n", "- task_plan_doc: artifacts/work-1/work/task-plan.md\n", "- task_plan_template: ARTIFACT_RULES.md#대형-작업-태스크-계획\n", "- trace: data/traces/work-1.json\n",
             "- notification_channel: slack\n", "- notification_target: channel:C0\n", "- notification_reply_to: 1.2\n",
         ])
         text = "## Inbox\n\n## Active\n" + block("work-1", "active", extra) + "\n## Waiting\n\n## Archive\n"
@@ -146,7 +146,7 @@ class PlanTests(unittest.TestCase):
         extra = "".join([
             "- deadline: 2099-01-01T00:00:00Z\n", "- deadline_local: 2099-01-01 09:00 Asia/Seoul (KST)\n",
             "- task_plan: artifacts/work-1/task-plan.json\n", "- task_plan_doc: artifacts/work-1/task-plan.md\n",
-            "- task_plan_template: ARTIFACT_RULES.md#대형-작업-태스크-계획\n", "- trace: traces/work-1.json\n",
+            "- task_plan_template: ARTIFACT_RULES.md#대형-작업-태스크-계획\n", "- trace: data/traces/work-1.json\n",
             "- notification_channel: slack\n", "- notification_target: channel:C0\n", "- notification_reply_to: 1.2\n",
         ])
         text = "## Inbox\n\n## Active\n" + block("work-1", "active", extra) + "\n## Waiting\n\n## Archive\n"
@@ -213,8 +213,8 @@ class PlanTests(unittest.TestCase):
 
     def test_timestamp_handoff_is_live_evidence(self):
         repo = Path(tempfile.mkdtemp())
-        (repo / "traces").mkdir()
-        (repo / "traces" / "work-1.json").write_text('{"events":[{"type":"dispatcher_handoff","timestamp":"2026-09-02T09:41:00Z","status":"accepted"}]}')
+        (repo / "data" / "traces").mkdir(parents=True)
+        (repo / "data" / "traces" / "work-1.json").write_text('{"events":[{"type":"dispatcher_handoff","timestamp":"2026-09-02T09:41:00Z","status":"accepted"}]}')
         reference = prepare.dt.datetime(2026, 9, 2, 9, 42, tzinfo=prepare.dt.timezone.utc)
         self.assertIsNotNone(prepare.fresh_trace("work-1", repo, reference, "fixture"))
 

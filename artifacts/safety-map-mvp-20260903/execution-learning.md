@@ -2,7 +2,7 @@
 
 - tracker_started_at: `2026-09-02T16:44:00Z`
 - contract: [`../../EXECUTION_LEARNING_CONTRACT.md`](../../EXECUTION_LEARNING_CONTRACT.md)
-- intent_start_evidence: `traces/safety-map-mvp-20260903.json` intake (`2026-09-02T16:33:24Z`)
+- intent_start_evidence: `data/traces/safety-map-mvp-20260903.json` intake (`2026-09-02T16:33:24Z`)
 - lifecycle: **Archived** after approved separate-domain production deployment, live verification, and final Red PASS.
 
 ## Forecast

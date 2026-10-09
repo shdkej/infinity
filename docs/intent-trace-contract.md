@@ -1,6 +1,6 @@
 # Intent trace contract
 
-`traces/{intent-id}.json` is the durable, dashboard-readable timeline for one
+`data/traces/{intent-id}.json` is the durable, dashboard-readable timeline for one
 Infinity intent.  It supplements `INTENTS.md`; it does not replace lane state
 or the final HTML report.
 

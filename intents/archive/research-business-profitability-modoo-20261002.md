@@ -9,7 +9,7 @@
 - task_type: research
 - topics: product,finance,marketing
 - context_pack: intents/context/research-business-profitability-modoo-20261002.json
-- trace: traces/research-business-profitability-modoo-20261002.json
+- trace: data/traces/research-business-profitability-modoo-20261002.json
 - final_artifact: artifacts/research-business-profitability-modoo-20261002/final/modoo-business-profitability-report.md
 - report: reports/research-business-profitability-modoo-20261002/20261002T1140Z-final.html
 - red_status: not_required (exploratory_research)

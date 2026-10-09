@@ -5,7 +5,7 @@
 - completed_at: 2026-10-08T11:52:00Z
 - research_mode: exploratory_research
 - context_pack: intents/context/research-alvaro-siza-deep-20261008.json
-- trace: traces/research-alvaro-siza-deep-20261008.json
+- trace: data/traces/research-alvaro-siza-deep-20261008.json
 - task_plan: artifacts/research-alvaro-siza-deep-20261008/work/task-plan.json
 - task_plan_doc: artifacts/research-alvaro-siza-deep-20261008/work/task-plan.md
 - final_artifact: artifacts/research-alvaro-siza-deep-20261008/final/alvaro-siza-deep-research.md

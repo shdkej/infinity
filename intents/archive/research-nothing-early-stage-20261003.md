@@ -7,7 +7,7 @@
 - artifacts: artifacts/research-nothing-early-stage-20261003/final/early-stage-brief.md
 - final_artifact: artifacts/research-nothing-early-stage-20261003/final/early-stage-brief.md
 - reports: reports/research-nothing-early-stage-20261003/20261004T1820Z-final.html
-- trace: traces/research-nothing-early-stage-20261003.json
+- trace: data/traces/research-nothing-early-stage-20261003.json
 - commits: infinity@f5479160
 - urls: https://github.com/shdkej/infinity
 - next_actions: 커뮤니티 유지율·마진·반복 구매율 등 비공개 영역은 추정하지 말고, 필요하면 별도 1차 자료 검증 Intent로 분리한다.

@@ -21,8 +21,11 @@ artifacts/{id}/final/ ← 사용자 질문에 답하는 최종 재사용 산출�
 reports/{id}/         ← 실행 로그와 읽을 수 있는 최종 HTML 리포트
 data/knowledge-loop.json ← Infinity 대시보드의 지식 루프 운영 지표
 data/promotion-index.json ← Infinity 대시보드의 Knowledge Lab 승격 상태 인덱스
+data/traces/{id}.json ← Intent별 intake·execution·archive trace
 scripts/dispatch_terminal_notifications.py ← 원격 `origin/main` terminal 상태를 원 대화에 1회 조정·발송
 docs/dispatcher-implementation.md ← 디스패처 내부 구현·환경변수·검증 명령
+docs/intent-trace-contract.md ← Intent trace 입력·실행·Archive 계약
+docs/infinity-evaluator.md ← Infinity 품질 평가 기준과 실행 지침
 ```
 
 ## 문서 지도와 정본 우선순위
@@ -33,7 +36,7 @@ Infinity 운영 문서는 여러 저장소에 걸쳐 있지만, 역할별 정본
 2. **승인·권한:** 이 저장소의 `GATES.md`, `PERMISSIONS.md` — 승인 대기와 L0~L3 경계를 정의한다.
 3. **산출물·Archive:** 이 저장소의 `ARTIFACT_RULES.md` — `artifacts/`, `reports/`, `intents/archive/`의 역할과 완료 형식을 정의한다.
 4. **Heartbeat 실행:** 이 저장소의 `workflows/heartbeat.md` — dispatcher가 원장을 읽고 실행·종료하는 순서를 정의한다.
-5. **Trace:** 이 저장소의 `schema/intent-trace-contract.md` — intake/execution/archive trace 구조를 정의한다.
+5. **Trace:** 이 저장소의 `docs/intent-trace-contract.md` — intake/execution/archive trace 구조를 정의한다.
 6. **운영 상위 계약:** Knowledge Lab의 `source/openclaw-system/docs/INFINITY_OPERATING_RULES.md` — 저장소 간 경계, 원격 검증, 중복 Intent 금지, 예외를 정의한다.
 7. **역할 위임:** `AGENT_COLLABORATION.md`, `/home/ubuntu/workspace-genie/GENIE_WORKFLOW.md`, Prompt Archive의 역할별 workflow — 실행 역할과 협업 형식만 정의한다.
 8. **대시보드 UI·배포:** Space의 `infra-aws-static-sites/sites/infinity/README.md`와 `dist/index.html` — 표시·배포 구현만 소유하며 Intent 상태를 정의하지 않는다.
@@ -116,7 +119,7 @@ Infinity 운영 문서는 여러 저장소에 걸쳐 있지만, 역할별 정본
 - 대시보드의 `resolve_waiting` 액션은 크론 처리 시 요청 큐만 소비하지 않고 해당 Intent를 `Waiting → Active`로 전환하며, `archive_request`는 명시적으로 요청된 open Intent를 `Archive`로 이동하고 archive detail을 만든다. 두 액션 모두 승인·요청 ID와 상태 전이를 `INTENTS.md`에 기록하고, 디스패처는 전이 직후 계획을 다시 계산해 같은 크론 주기에 후속 실행한다.
 - **Dispatcher 실행 절차**: 10분 주기의 단일 디스패처가 최신 `origin/main`을 확인하고, 실행 가능한 Intent를 계획한 뒤, 필요한 작업만 Genie에 순차 인계한다. 동기화·원격 검증에 실패하면 실행하지 않으며, 대시보드 액션은 상태 전이 후 같은 주기에 계획을 다시 계산한다. 실행 결과는 Intent trace와 cycle record로 남기고, `actions=[]`는 버튼 큐가 비었다는 뜻일 뿐 작업 no-op가 아니다. 코드 수준의 실행 경로·잠금·환경변수·검증 명령은 [`docs/dispatcher-implementation.md`](docs/dispatcher-implementation.md)를 따른다.
 - **50~60 leaf 장기 실행:** 대형 작업의 상세 계약은 [`EXECUTION_LEARNING_CONTRACT.md`](EXECUTION_LEARNING_CONTRACT.md)를 따른다. 일반 계획은 완료 시 terminalization한다. `task-plan.json`에 검증 가능한 `expansion_policy`가 있을 때만 ready leaf가 바닥나면 다음 batch를 전달한다. 총량은 50~60개로 고정되고, batch·범위·증거 기준은 계획에 미리 적혀 있어야 한다. 완료 leaf를 되돌리거나 무한히 증식시키지 않으며, 모든 확장은 JSON/사람용 타임라인의 append-only 계획 변경으로 남긴다.
-- **Trace 계약**: 새 intent는 `scripts/record_intent_trace.py intake`로 `traces/{intent-id}.json`에 원문 요청·정규화 쿼리와 정확히 하나의 intake event를 기록한다. 실행마다 `execution`으로 실제 Context Pack·검색·근거 경로를 남긴다. 모든 비단순 산출물 Intent는 `metric_question`, `metric_signal`, `metric_decision_rule`을 갖고, 완료 보고에는 `metric_result`, `metric_next_decision`을 기록한다(`null`/`hold` 허용). 기본 `exploratory_research` Archive는 브리프·원격 검증과 `red_status: not_required`를, `decision_research`와 산출물 작업은 final report·Red pass·원격 검증을 기록한다. 계약은 `schema/intent-trace-contract.md`가 정본이며 `python3 scripts/validate_intent_trace.py --all`을 원장 검사와 함께 실행한다. trace가 없는 레거시 카드를 dispatcher가 인계할 때는 실행을 중단하지 않고 `backfill_source: dispatcher_missing_trace`·두 request field의 `missing` 사유·빈 Context Pack·`partial` 상태로 backfill한 뒤 handoff를 기록한다. 이 복구 예외는 후속 실제 execution 없이는 Archive로 끝낼 수 없다.
+- **Trace 계약**: 새 intent는 `scripts/record_intent_trace.py intake`로 `data/traces/{intent-id}.json`에 원문 요청·정규화 쿼리와 정확히 하나의 intake event를 기록한다. 실행마다 `execution`으로 실제 Context Pack·검색·근거 경로를 남긴다. 모든 비단순 산출물 Intent는 `metric_question`, `metric_signal`, `metric_decision_rule`을 갖고, 완료 보고에는 `metric_result`, `metric_next_decision`을 기록한다(`null`/`hold` 허용). 기본 `exploratory_research` Archive는 브리프·원격 검증과 `red_status: not_required`를, `decision_research`와 산출물 작업은 final report·Red pass·원격 검증을 기록한다. 계약은 `docs/intent-trace-contract.md`가 정본이며 `python3 scripts/validate_intent_trace.py --all`을 원장 검사와 함께 실행한다. trace가 없는 레거시 카드를 dispatcher가 인계할 때는 실행을 중단하지 않고 `backfill_source: dispatcher_missing_trace`·두 request field의 `missing` 사유·빈 Context Pack·`partial` 상태로 backfill한 뒤 handoff를 기록한다. 이 복구 예외는 후속 실제 execution 없이는 Archive로 끝낼 수 없다.
 - **실행 학습 계약**: 대형 MVP는 [`EXECUTION_LEARNING_CONTRACT.md`](EXECUTION_LEARNING_CONTRACT.md)의 역할별 UTC timing ledger, 예상 대비 실제·병목 측정, focused Red 프로토콜을 적용한다. 시간제한은 품질 게이트를 생략하는 근거가 될 수 없다.
 - **참조 기반 비주얼 납품**: 이미지 참조가 있는 사용자용 카드/캐러셀은 [`VISUAL_DELIVERY_CONTRACT.md`](VISUAL_DELIVERY_CONTRACT.md)를 따른다. 실제 참조 입력·카드별 아트디렉션·후보/참조 나란히 검수·Red 시각 충실도 PASS가 필요하며, `LAYOUT ONLY` 같은 내부 scaffold는 사용자 결과가 될 수 없다. `python3 scripts/validate_visual_delivery.py --manifest artifacts/{intent-id}/render-manifest.json --require-user-preview`로 검증한다.
 - **Cloud prepares, Local executes**: 조사/계획/초안은 클라우드, 파일 수정/실행/검증은 로컬 Claude Code에 위임한다.

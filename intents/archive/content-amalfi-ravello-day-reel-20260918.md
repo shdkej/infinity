@@ -11,7 +11,7 @@
 - topics: travel,reels,amalfi,ravello,visual-observation
 - requested: 2026-09-19T09:45:17Z
 - context_pack: intents/context/content-amalfi-ravello-day-reel-20260918.json
-- trace: traces/content-amalfi-ravello-day-reel-20260918.json
+- trace: data/traces/content-amalfi-ravello-day-reel-20260918.json
 - task_plan: artifacts/content-amalfi-ravello-day-reel-20260918/work/task-plan.json
 - task_plan_doc: artifacts/content-amalfi-ravello-day-reel-20260918/work/task-plan.md
 - task_plan_template: ARTIFACT_RULES.md#대형-작업-태스크-계획

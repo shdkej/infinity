@@ -35,9 +35,9 @@ def expected_status(lane: str) -> set[str]:
     return {"Inbox": {"", "inbox"}, "Active": {"active"}, "Waiting": {"waiting", "blocked", "deadline_missed", "experiment_failed"}, "Archive": {"archived", "completed", "complete", "done"}}[lane]
 
 def fresh_trace(intent_id: str, repo: Path, reference: dt.datetime, sha: str) -> dict[str, str] | None:
-    path = repo / "traces" / f"{intent_id}.json"
+    path = repo / "data" / "traces" / f"{intent_id}.json"
     try:
-        raw = path.read_text(encoding="utf-8") if sha == "fixture" else subprocess.check_output(["git", "show", f"origin/main:traces/{intent_id}.json"], cwd=repo, text=True)
+        raw = path.read_text(encoding="utf-8") if sha == "fixture" else subprocess.check_output(["git", "show", f"origin/main:data/traces/{intent_id}.json"], cwd=repo, text=True)
         parsed = json.loads(raw)
         # Early dispatcher traces were stored as a plain event list.  Treat
         # them as a legacy-compatible read format so one old active Intent

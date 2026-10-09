@@ -5,7 +5,7 @@
 - archived_at: 2026-10-07T21:20:00Z
 - research_mode: exploratory_research
 - context_pack: intents/context/research-minimalmoeum-trust-independent-bookstores-20261007.json
-- trace: traces/research-minimalmoeum-trust-independent-bookstores-20261007.json
+- trace: data/traces/research-minimalmoeum-trust-independent-bookstores-20261007.json
 - final_artifact: artifacts/research-minimalmoeum-trust-independent-bookstores-20261007/final/independent-bookstore-trust-report.md
 - red_status: not_required
 - knowledge_status: queued

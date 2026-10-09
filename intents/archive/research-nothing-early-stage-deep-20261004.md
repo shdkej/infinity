@@ -6,7 +6,7 @@
 - result_summary: 2020~2022 연표와 직접 확인한 출처 12개로 자금·커뮤니티·제조·제품·Phone 진입의 인과 경계, 반대 근거, 적용 불가능 조건을 보강했다. 공개되지 않은 마진·수율·전환율은 보류했다.
 - final_artifact: artifacts/research-nothing-early-stage-deep-20261004/final/deep-research.md
 - report: reports/research-nothing-early-stage-deep-20261004/20261004T1858Z-final.html
-- trace: traces/research-nothing-early-stage-deep-20261004.json
+- trace: data/traces/research-nothing-early-stage-deep-20261004.json
 - knowledge_status: queued
 - knowledge_decision: defer
 - knowledge_targets: agent-wiki/content/docs/outputs/ — Nothing 관련 재사용 판단 페이지 부재 확인

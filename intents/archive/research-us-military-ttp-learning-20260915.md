@@ -9,7 +9,7 @@
 - task_type: research
 - topics: workflow,automation
 - context_pack: intents/context/research-us-military-ttp-learning-20260915.json
-- trace: traces/research-us-military-ttp-learning-20260915.json
+- trace: data/traces/research-us-military-ttp-learning-20260915.json
 - final_artifact: artifacts/research-us-military-ttp-learning-20260915/final/us-army-ttp-learning-loop-report.md
 - supporting_work: artifacts/research-us-military-ttp-learning-20260915/work/remote-proof.md
 - report: not_required (exploratory_research; final Markdown is the user-facing surface)

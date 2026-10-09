@@ -4,7 +4,7 @@
 - status: archived
 - execution_mode: multi_subagent_roles
 - source_context_pack: `intents/context/infinity-trace-contract-01.json`
-- artifact: `schema/intent-trace-contract.md`; `scripts/record_intent_trace.py`; `scripts/validate_intent_trace.py`
+- artifact: `docs/intent-trace-contract.md`; `scripts/record_intent_trace.py`; `scripts/validate_intent_trace.py`
 - report: `reports/infinity-trace-contract-01/20260902T1328Z-final.html`
 - red_status: pass
 - red_report: `reports/infinity-trace-contract-01/20260902T1328Z-final.html`

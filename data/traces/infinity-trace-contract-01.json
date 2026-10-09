@@ -27,7 +27,7 @@
       "at": "2026-09-02T09:00:00Z",
       "context_pack": "intents/context/infinity-trace-contract-01.json",
       "evidence_paths": [
-        "schema/intent-trace-contract.md",
+        "docs/intent-trace-contract.md",
         "scripts/validate_intent_trace.py"
       ],
       "searches": [
@@ -106,7 +106,7 @@
       "context_pack": "intents/context/infinity-trace-contract-01.json",
       "evidence_paths": [
         "reports/infinity-trace-contract-01/20260902T1319Z-approved-deploy.html",
-        "traces/infinity-trace-contract-01.json"
+        "data/traces/infinity-trace-contract-01.json"
       ],
       "searches": [
         "approved static-site deployment",
@@ -135,7 +135,7 @@
   "artifacts": [
     {
       "label": "trace contract",
-      "path": "schema/intent-trace-contract.md"
+      "path": "docs/intent-trace-contract.md"
     },
     {
       "label": "trace validator",
@@ -143,7 +143,7 @@
     },
     {
       "label": "trace contract",
-      "path": "schema/intent-trace-contract.md"
+      "path": "docs/intent-trace-contract.md"
     },
     {
       "label": "trace writer",

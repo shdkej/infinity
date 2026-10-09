@@ -15,7 +15,7 @@
 - artifact: artifacts/research-alvaro-siza-quality-iteration-20261008/final/alvaro-siza-quality-exploration.md
 - artifact: reports/research-alvaro-siza-quality-iteration-20261008/siza-reading-room.html
 - supporting_work: artifacts/research-alvaro-siza-quality-iteration-20261008/work/
-- trace: traces/research-alvaro-siza-quality-iteration-20261008.json
+- trace: data/traces/research-alvaro-siza-quality-iteration-20261008.json
 - red_status: not_required
 - knowledge_status: queued
 - knowledge_decision: defer

@@ -50,7 +50,7 @@
 - target_agent: genie
 - permission_level: approval_required
 - context_pack: intents/context/learning-candidate-kl-checkpoint-dirty-20261004.json
-- trace: traces/learning-candidate-kl-checkpoint-dirty-20261004.json
+- trace: data/traces/learning-candidate-kl-checkpoint-dirty-20261004.json
 - artifact: artifacts/learning-candidate-kl-checkpoint-dirty-20261004/work/planner.md; artifacts/learning-candidate-kl-checkpoint-dirty-20261004/work/developer.md; artifacts/learning-candidate-kl-checkpoint-dirty-20261004/work/marketer.md; artifacts/learning-candidate-kl-checkpoint-dirty-20261004/work/operator.md; artifacts/learning-candidate-kl-checkpoint-dirty-20261004/work/execution-report.md; artifacts/learning-candidate-kl-checkpoint-dirty-20261004/work/red.md
 - next_action: proposer automation payload의 canonical job id와 실행 저장소를 확인할 수 있는 권한/경로가 확보되면 targeted checkpoint 실행·2회 scheduled 검증
 - proposed_by: sam-proposer
@@ -76,7 +76,7 @@
 - task_plan: artifacts/research-alvaro-siza-deep-20261008/work/task-plan.json
 - task_plan_doc: artifacts/research-alvaro-siza-deep-20261008/work/task-plan.md
 - task_plan_template: ARTIFACT_RULES.md#대형-작업-태스크-계획
-- trace: traces/research-alvaro-siza-deep-20261008.json
+- trace: data/traces/research-alvaro-siza-deep-20261008.json
 - final_artifact: artifacts/research-alvaro-siza-deep-20261008/final/alvaro-siza-deep-research.md
 - artifact: artifacts/research-alvaro-siza-deep-20261008/final/alvaro-siza-deep-research.md
 - red_status: not_required
@@ -94,7 +94,7 @@
 - completed_at: 2026-10-08T06:25:00Z
 - research_mode: exploratory_research
 - context_pack: intents/context/research-minimalmoeum-trust-synthesis-20261008.json
-- trace: traces/research-minimalmoeum-trust-synthesis-20261008.json
+- trace: data/traces/research-minimalmoeum-trust-synthesis-20261008.json
 - detail: intents/archive/research-minimalmoeum-trust-synthesis-20261008.md
 - final_artifact: artifacts/research-minimalmoeum-trust-synthesis-20261008/final/trust-synthesis-report.md
 - artifact: artifacts/research-minimalmoeum-trust-synthesis-20261008/final/trust-synthesis-report.md
@@ -113,7 +113,7 @@
 - completed_at: 2026-10-07T21:20:00Z
 - research_mode: exploratory_research
 - context_pack: intents/context/research-minimalmoeum-trust-independent-bookstores-20261007.json
-- trace: traces/research-minimalmoeum-trust-independent-bookstores-20261007.json
+- trace: data/traces/research-minimalmoeum-trust-independent-bookstores-20261007.json
 - detail: intents/archive/research-minimalmoeum-trust-independent-bookstores-20261007.md
 - final_artifact: artifacts/research-minimalmoeum-trust-independent-bookstores-20261007/final/independent-bookstore-trust-report.md
 - artifact: artifacts/research-minimalmoeum-trust-independent-bookstores-20261007/final/independent-bookstore-trust-report.md
@@ -138,7 +138,7 @@
 - next_action: 승인된 작업의 실행 경로를 점검하고 다음 가역적 작업을 수행한다.
 - task_plan: artifacts/learning-candidate-proposer-automation-trigger-timeout-20261002/work/task-plan.json
 - task_plan_doc: artifacts/learning-candidate-proposer-automation-trigger-timeout-20261002/work/task-plan.md
-- trace: traces/learning-candidate-proposer-automation-trigger-timeout-20261002.json
+- trace: data/traces/learning-candidate-proposer-automation-trigger-timeout-20261002.json
 - notification_channel: slack
 - notification_target: channel:C0BR41W31MM
 
@@ -153,7 +153,7 @@
 - knowledge_status: queued
 - knowledge_decision: defer
 - next_action: 다음 scheduled run에서 rate-limit fallback 실제 발동 여부와 consecutiveErrors=0을 관찰합니다.
-- trace: traces/proposer-evaluator-rate-limit-resilience-20261002.json
+- trace: data/traces/proposer-evaluator-rate-limit-resilience-20261002.json
 - notification_channel: slack
 - notification_target: channel:C0BR41W31MM
 
@@ -162,7 +162,7 @@
 - completed_at: 2026-10-04T18:58:00Z
 - research_mode: exploratory_research
 - context_pack: intents/context/research-nothing-early-stage-deep-20261004.json
-- trace: traces/research-nothing-early-stage-deep-20261004.json
+- trace: data/traces/research-nothing-early-stage-deep-20261004.json
 - final_artifact: artifacts/research-nothing-early-stage-deep-20261004/final/deep-research.md
 - report: reports/research-nothing-early-stage-deep-20261004/20261004T1858Z-final.html
 - artifact: artifacts/research-nothing-early-stage-deep-20261004/final/deep-research.md
@@ -180,7 +180,7 @@
 - completed_at: 2026-10-04T18:20:00Z
 - research_mode: exploratory_research
 - context_pack: intents/context/research-nothing-early-stage-20261003.json
-- trace: traces/research-nothing-early-stage-20261003.json
+- trace: data/traces/research-nothing-early-stage-20261003.json
 - detail: intents/archive/research-nothing-early-stage-20261003.md
 - final_artifact: artifacts/research-nothing-early-stage-20261003/final/early-stage-brief.md
 - report: reports/research-nothing-early-stage-20261003/20261004T1820Z-final.html
@@ -199,7 +199,7 @@
 - approval_request_id: acff9567-12cc-4754-adcc-9bcda62244be
 - task_plan: artifacts/pilot-github-research-skill-kang-chen-approval/work/task-plan.json
 - task_plan_doc: artifacts/pilot-github-research-skill-kang-chen-approval/work/task-plan.md
-- trace: traces/pilot-github-research-skill-kang-chen-approval.json
+- trace: data/traces/pilot-github-research-skill-kang-chen-approval.json
 - artifact: artifacts/pilot-github-research-skill-kang-chen-approval/work/audit-evidence.md; artifacts/pilot-github-research-skill-kang-chen-approval/work/fixture-comparison.md
 - detail: intents/archive/pilot-github-research-skill-kang-chen-approval.md
 - notification_channel: slack
@@ -215,7 +215,7 @@
 - target_agent: genie
 - research_mode: exploratory_research
 - context_pack: intents/context/research-business-profitability-modoo-20261002.json
-- trace: traces/research-business-profitability-modoo-20261002.json
+- trace: data/traces/research-business-profitability-modoo-20261002.json
 - final_artifact: artifacts/research-business-profitability-modoo-20261002/final/modoo-business-profitability-report.md
 - report: reports/research-business-profitability-modoo-20261002/20261002T1140Z-final.html
 - detail: intents/archive/research-business-profitability-modoo-20261002.md
@@ -241,7 +241,7 @@
 - topics: travel,reels,amalfi,ravello,visual-observation
 - detail: intents/archive/content-amalfi-ravello-day-reel-20260918.md
 - context_pack: intents/context/content-amalfi-ravello-day-reel-20260918.json
-- trace: traces/content-amalfi-ravello-day-reel-20260918.json
+- trace: data/traces/content-amalfi-ravello-day-reel-20260918.json
 - final_artifact: artifacts/content-amalfi-ravello-day-reel-20260918/final/amalfi-ravello-reel-package.md
 - artifact: artifacts/content-amalfi-ravello-day-reel-20260918/final/amalfi-ravello-reel-package.md
 - report: reports/content-amalfi-ravello-day-reel-20260918/20260919T1032Z-final.html
@@ -274,7 +274,7 @@
 - delivery_not_before: 2026-09-16T23:00:00Z
 - detail: intents/archive/research-richard-sapper-deadline-20260917.md
 - context_pack: intents/context/research-richard-sapper-deadline-20260917.json
-- trace: traces/research-richard-sapper-deadline-20260917.json
+- trace: data/traces/research-richard-sapper-deadline-20260917.json
 - task_plan: artifacts/research-richard-sapper-deadline-20260917/work/task-plan.json
 - task_plan_doc: artifacts/research-richard-sapper-deadline-20260917/work/task-plan.md
 - final_artifact: artifacts/research-richard-sapper-deadline-20260917/final/richard-sapper-deadline-brief.md
@@ -311,7 +311,7 @@
 - status: archived
 - detail: intents/archive/research-richard-sapper-comprehensive-20260916.md
 - context_pack: intents/context/research-richard-sapper-comprehensive-20260916.json
-- trace: traces/research-richard-sapper-comprehensive-20260916.json
+- trace: data/traces/research-richard-sapper-comprehensive-20260916.json
 - final_artifact: artifacts/research-richard-sapper-comprehensive-20260916/final/richard-sapper-comprehensive-brief.md
 - report: reports/research-richard-sapper-comprehensive-20260916/20260916T0844Z-final.html
 - red_status: not_required
@@ -337,7 +337,7 @@
 - status: archived
 - detail: intents/archive/kl-feedback-loop-20260915.md
 - context_pack: intents/context/kl-feedback-loop-20260915.json
-- trace: traces/kl-feedback-loop-20260915.json
+- trace: data/traces/kl-feedback-loop-20260915.json
 - artifact: artifacts/kl-feedback-loop-20260915/work/loop-boundary-map.md
 - task_plan: artifacts/kl-feedback-loop-20260915/work/task-plan.md
 - report: not_created (사용자 요청으로 구현 전 종료)
@@ -369,7 +369,7 @@
 - topics: wiki,automation,ai-agents
 - detail: intents/archive/research-ontology-kl-fit-20260915.md
 - context_pack: intents/context/research-ontology-kl-fit-20260915.json
-- trace: traces/research-ontology-kl-fit-20260915.json
+- trace: data/traces/research-ontology-kl-fit-20260915.json
 - final_artifact: artifacts/research-ontology-kl-fit-20260915/final/ontology-kl-fit-report.md
 - report: reports/research-ontology-kl-fit-20260915/20260915T0525Z-final.html
 - red_status: pass
@@ -402,7 +402,7 @@
 - artifact: artifacts/research-us-military-ttp-learning-20260915/final/us-army-ttp-learning-loop-report.md
 - supporting_work: artifacts/research-us-military-ttp-learning-20260915/work/remote-proof.md
 - report: not_required (exploratory_research)
-- trace: traces/research-us-military-ttp-learning-20260915.json
+- trace: data/traces/research-us-military-ttp-learning-20260915.json
 - red_status: not_required
 - red_report: not_required (exploratory_research)
 - knowledge_status: raw
@@ -430,7 +430,7 @@
 - topics: content,curation,review,minimalism
 - detail: intents/archive/research-review-curation-method-korea-20260913.md
 - context_pack: intents/context/research-review-curation-method-korea-20260913.json
-- trace: traces/research-review-curation-method-korea-20260913.json
+- trace: data/traces/research-review-curation-method-korea-20260913.json
 - artifact: artifacts/research-review-curation-method-korea-20260913/final/korean-review-curation-practical-guide.md
 - report: reports/research-review-curation-method-korea-20260913/20260913T1502Z-final.html
 - red_status: not_required
@@ -458,7 +458,7 @@
 - topics: content,design
 - detail: intents/archive/minimal-shorts-apple-early-product-20260913.md
 - context_pack: intents/context/minimal-shorts-apple-early-product-20260913.json
-- trace: traces/minimal-shorts-apple-early-product-20260913.json
+- trace: data/traces/minimal-shorts-apple-early-product-20260913.json
 - artifact: artifacts/minimal-shorts-apple-early-product-20260913/final/apple-ii-first-shorts-draft.md
 - supporting_work: artifacts/minimal-shorts-apple-early-product-20260913/work/apple-ii-source-map.md
 - report: reports/minimal-shorts-apple-early-product-20260913/20260913T1502Z-final.html
@@ -489,7 +489,7 @@
 - context_pack: intents/context/research-github-skills-20260912.json
 - task_plan: artifacts/research-github-skills-20260912/work/task-plan.json
 - task_plan_doc: artifacts/research-github-skills-20260912/work/task-plan.md
-- trace: traces/research-github-skills-20260912.json
+- trace: data/traces/research-github-skills-20260912.json
 - artifact: artifacts/research-github-skills-20260912/final/github-skills-exploratory-rebrief-20260913.md
 - supporting_work: artifacts/research-github-skills-20260912/work/red/final-review.md
 - report: reports/research-github-skills-20260912/20260913T0012Z-final.html
@@ -535,7 +535,7 @@ Kang-chen 부분 기능 파일럿은 별도 승인 대기 intent에서만 검토
 - context_pack: intents/context/research-dieter-rams-biography-minimalism-20260912.json
 - task_plan: artifacts/research-dieter-rams-biography-minimalism-20260912/work/task-plan.json
 - task_plan_doc: artifacts/research-dieter-rams-biography-minimalism-20260912/work/task-plan.md
-- trace: traces/research-dieter-rams-biography-minimalism-20260912.json
+- trace: data/traces/research-dieter-rams-biography-minimalism-20260912.json
 - artifact: artifacts/research-dieter-rams-biography-minimalism-20260912/work/candidate/dieter-rams-report.md
 - report: reports/research-dieter-rams-biography-minimalism-20260912/20260912T2140Z-final.html
 - red_status: pass
@@ -564,7 +564,7 @@ Kang-chen 부분 기능 파일럿은 별도 승인 대기 intent에서만 검토
 - topics: product, design, interface, minimalism
 - context_pack: intents/context/research-dieter-rams-20260912.json
 - task_plan: artifacts/research-dieter-rams-20260912/work/task-plan.json
-- trace: traces/research-dieter-rams-20260912.json
+- trace: data/traces/research-dieter-rams-20260912.json
 - artifact: artifacts/research-dieter-rams-20260912/final/dieter-rams-design-brief.md
 - red_status: pass
 - red_report: artifacts/research-dieter-rams-20260912/work/red/t1-source-boundary.md
@@ -585,7 +585,7 @@ Kang-chen 부분 기능 파일럿은 별도 승인 대기 intent에서만 검토
 - detail: intents/archive/research-minimal-curation-cases-20260911.md
 - artifact: artifacts/research-minimal-curation-cases-20260911/case-analysis.md
 - report: reports/research-minimal-curation-cases-20260911/20260911T2350Z-final.html
-- trace: traces/research-minimal-curation-cases-20260911.json
+- trace: data/traces/research-minimal-curation-cases-20260911.json
 - red_status: pass
 - red_report: artifacts/research-minimal-curation-cases-20260911/red-report.md
 - remote_verified: pass
@@ -637,7 +637,7 @@ Kang-chen 부분 기능 파일럿은 별도 승인 대기 intent에서만 검토
 - projects: space,infinity,knowledge-lab,safety-map
 - artifact: artifacts/safety-map-experiment-03-20260905/planner-prd.md; artifacts/safety-map-experiment-03-20260905/task-plan.md; artifacts/safety-map-experiment-03-20260905/task-plan.json; artifacts/safety-map-experiment-03-20260905/red-final-report.md; artifacts/safety-map-experiment-03-20260905/red-dashboard-recovery-report.md
 - report: reports/safety-map-experiment-03-20260905/20260906T0800Z-terminal.md
-- trace: traces/safety-map-experiment-03-20260905.json
+- trace: data/traces/safety-map-experiment-03-20260905.json
 - red_status: pass
 - red_report: artifacts/safety-map-experiment-03-20260905/red-dashboard-recovery-report.md
 - remote_verified: pass
