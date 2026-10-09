@@ -11,7 +11,7 @@ INTENTS.md          ← 활성 Intent (Inbox / Active / Waiting / Archive)
 GATES.md            ← 승인 대기/처리 완료
 PERMISSIONS.md      ← 권한 레벨(L0~L3) 정의
 ARTIFACT_RULES.md   ← 산출물 경로 규칙
-workflows/heartbeat.md ← Heartbeat 동작 프로토콜 (routine이 매 실행 시 읽음)
+heartbeat.md        ← Heartbeat 동작 프로토콜 (routine이 매 실행 시 읽음)
 EXECUTION_LEARNING_CONTRACT.md ← 대형 MVP 시간·병목·Red 학습 정본
 VISUAL_DELIVERY_CONTRACT.md ← 참조 이미지 기반 사용자용 카드의 생성·검수·내부 fixture 차단 계약
 intents/active/       ← 실행 중인 Intent 원장
@@ -35,7 +35,7 @@ Infinity 운영 문서는 여러 저장소에 걸쳐 있지만, 역할별 정본
 1. **큐·상태·대시보드 카드:** 이 저장소의 `INTENTS.md` — `Inbox → Active → Waiting → Archive`를 유일한 상태 원장으로 사용한다.
 2. **승인·권한:** 이 저장소의 `GATES.md`, `PERMISSIONS.md` — 승인 대기와 L0~L3 경계를 정의한다.
 3. **산출물·Archive:** 이 저장소의 `ARTIFACT_RULES.md` — `artifacts/`, `reports/`, `intents/archive/`의 역할과 완료 형식을 정의한다.
-4. **Heartbeat 실행:** 이 저장소의 `workflows/heartbeat.md` — dispatcher가 원장을 읽고 실행·종료하는 순서를 정의한다.
+4. **Heartbeat 실행:** 이 저장소의 `heartbeat.md` — dispatcher가 원장을 읽고 실행·종료하는 순서를 정의한다.
 5. **Trace:** 이 저장소의 `docs/intent-trace-contract.md` — intake/execution/archive trace 구조를 정의한다.
 6. **운영 상위 계약:** Knowledge Lab의 `source/openclaw-system/docs/INFINITY_OPERATING_RULES.md` — 저장소 간 경계, 원격 검증, 중복 Intent 금지, 예외를 정의한다.
 7. **역할 위임:** `AGENT_COLLABORATION.md`, `/home/ubuntu/workspace-genie/GENIE_WORKFLOW.md`, Prompt Archive의 역할별 workflow — 실행 역할과 협업 형식만 정의한다.

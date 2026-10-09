@@ -685,7 +685,7 @@ Kang-chen 부분 기능 파일럿은 별도 승인 대기 intent에서만 검토
 - notification_origin: agent:main:telegram:direct:433493318
 - knowledge_status: raw
 - knowledge_decision: retain_in_infinity
-- knowledge_targets: infinity/README.md; infinity/workflows/heartbeat.md; GENIE_WORKFLOW.md
+- knowledge_targets: infinity/README.md; infinity/heartbeat.md; GENIE_WORKFLOW.md
 - knowledge_reflection: terminal 통보는 assistant turn이 아니라 원격 원장 조정과 destination-aware receipt로 닫아야 한다.
 - knowledge_commit: no-promotion-needed
 - archived_at: 2026-09-01T22:10Z
