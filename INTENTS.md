@@ -19,7 +19,7 @@
 - task_plan_doc: artifacts/acquisition-cashcow-research-20261010/work/task-plan.md
 - task_plan_template: ARTIFACT_RULES.md#대형-작업-태스크-계획
 - trace: data/traces/acquisition-cashcow-research-20261010.json
-- artifact: artifacts/acquisition-cashcow-research-20261010/work/task-plan.md; artifacts/acquisition-cashcow-research-20261010/work/scope-and-rubric.md; artifacts/acquisition-cashcow-research-20261010/work/marketplace-inventory.md; artifacts/acquisition-cashcow-research-20261010/work/candidate-ledger.md; artifacts/acquisition-cashcow-research-20261010/work/fit-scoring.md; artifacts/acquisition-cashcow-research-20261010/work/operator-notes.md
+- artifact: artifacts/acquisition-cashcow-research-20261010/work/task-plan.md; artifacts/acquisition-cashcow-research-20261010/work/scope-and-rubric.md; artifacts/acquisition-cashcow-research-20261010/work/marketplace-inventory.md; artifacts/acquisition-cashcow-research-20261010/work/candidate-ledger.md; artifacts/acquisition-cashcow-research-20261010/work/fit-scoring.md; artifacts/acquisition-cashcow-research-20261010/work/operator-notes.md; artifacts/acquisition-cashcow-research-20261010/work/alternatives-and-risks.md
 - notification_channel: slack
 - notification_target: channel:C0BR41W31MM
 - notification_reply_to: 1791668175.719849

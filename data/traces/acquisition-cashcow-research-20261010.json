@@ -40,6 +40,15 @@
       "session_key": "agent:genie:infinity-dispatcher-v2",
       "timestamp": "2026-10-10T21:45:00Z",
       "status": "accepted"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-7dedae5d760f4629991d1823eb17f322",
+      "canonical_sha": "462c57f138703c0d95bd7eb88662831d60b0a6c4",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher-v2",
+      "timestamp": "2026-10-10T21:50:07Z",
+      "status": "accepted"
     }
   ],
   "role_subagents": {
@@ -48,7 +57,7 @@
     "marketer": {"label":"role-acquisition-cashcow-marketer","session_id":"agent:marketing:subagent:00b2b041-fffb-4dee-88b9-4b3c24c3d7e4","status":"running"},
     "operator": {"label":"role-acquisition-cashcow-operator","session_id":"agent:genie:subagent:9f04775c-1b73-4464-9f11-9d5ef23a14ea","status":"done"}
   },
-  "artifacts": [],
+  "artifacts": ["artifacts/acquisition-cashcow-research-20261010/work/alternatives-and-risks.md"],
   "verifications": [],
   "next_decision": {
     "status": "in_progress",
