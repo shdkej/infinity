@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "intent_id": "acquisition-cashcow-research-20261010",
+  "status": "inbox",
+  "trace_completeness": "complete",
+  "request": {
+    "raw": {
+      "status": "recorded",
+      "value": "내 캐시카우를 만들기 위해 소규모 서비스를 인수할지 판단하려고 한다. Hada 원문과 제공한 매물 사이트에서 후보를 리스트업하고 나에게 맞는 정도를 별점과 관련 링크로 정리해 내일 8시까지 진행해 달라."
+    },
+    "normalized_query": {
+      "status": "recorded",
+      "value": "공개 소규모 서비스 인수 후보를 가격·수익·운영부담·이전범위·사용자 적합성으로 비교하고 조건부 다음 검증 대상을 고른다."
+    }
+  },
+  "events": [
+    {
+      "type": "intake",
+      "at": "2026-10-10T21:37:32Z",
+      "context_pack": "intents/context/acquisition-cashcow-research-20261010.json",
+      "evidence_paths": [
+        "intents/context/acquisition-cashcow-research-20261010.json",
+        "artifacts/acquisition-cashcow-research-20261010/work/task-plan.json"
+      ]
+    }
+  ],
+  "artifacts": [],
+  "verifications": [],
+  "next_decision": {
+    "status": "in_progress",
+    "value": "공개 매물 후보 수집과 정규화 조사 실행"
+  }
+}

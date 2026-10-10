@@ -1,0 +1,44 @@
+{
+  "context_pack_version": 1,
+  "status": "ready",
+  "route": "infinity",
+  "request": "내일 2026-10-12 08:00 KST까지 공개 매물 사이트에서 1인 운영 가능한 소규모 서비스 인수 후보를 수집·비교한다. 후보별 가격·매출/이익·성장·운영 부담·기술/플랫폼 의존·검증 가능성을 기록하고, 사용자의 현금흐름 목표와 현재 역량에 맞는 정도를 별점과 조건으로 평가한다. 구매·판매자 접촉·계약·결제·비공개 정보 요청은 하지 않는다.",
+  "built_at": "2026-10-10T21:40:00Z",
+  "required_documents": [
+    "/home/ubuntu/workspace/prompt-archive/LLM.md",
+    "/home/ubuntu/workspace/knowledge-lab/README.md",
+    "/home/ubuntu/workspace/knowledge-lab/source/openclaw-system/docs/DOCUMENT_SEARCH_PIPELINE.md",
+    "/home/ubuntu/workspace/knowledge-lab/source/openclaw-system/docs/USER_CONTEXT.md",
+    "/home/ubuntu/workspace/knowledge-lab/source/openclaw-system/docs/SERVICE_REGISTRY.md",
+    "/home/ubuntu/workspace/knowledge-lab/source/openclaw-system/docs/INFINITY_OPERATING_RULES.md",
+    "infinity/ARTIFACT_RULES.md",
+    "infinity/EXECUTION_LEARNING_CONTRACT.md",
+    "infinity/INTENTS.md",
+    "/home/ubuntu/workspace/knowledge-lab/agent-wiki/content/docs/index.mdx"
+  ],
+  "search_scopes": [
+    "/home/ubuntu/workspace/knowledge-lab/agent-wiki/content/docs/",
+    "/home/ubuntu/workspace/knowledge-lab/source/openclaw-system/docs/",
+    "https://news.hada.io/topic?id=34636&utm_source=weekly&utm_medium=email&utm_campaign=202640",
+    "https://maily.so/unsexybusinesskr/posts/xyow6nw9r28",
+    "https://www.fello.io/products?monthlyAverageRevenueRange.start=1000000&monthlyAverageRevenueRange.endInclusive=10000000",
+    "https://listing.co/",
+    "https://sellernet.kr/products",
+    "https://flippa.com/search",
+    "https://empireflippers.com/marketplace/digital-product-businesses-for-sale/",
+    "https://quietlight.com/listings/",
+    "https://app.acquire.com/all-listing"
+  ],
+  "rules": [
+    "각 후보는 공개 원문 링크와 확인 시각을 보존하고, 추정 수치와 판매자 주장·검증된 수치를 구분한다.",
+    "사용자 적합성 별점은 가격·현금흐름·운영 시간·기술 복잡도·사용자 역량 활용 가능성의 명시적 기준으로 계산한다.",
+    "매물 접근 제한·로그인·비공개 수치는 빈칸으로 남기고 추정으로 채우지 않는다.",
+    "최종 결과는 탐색 지도와 후보 비교를 먼저 제시하고, 구매 권고는 조건부로만 제시한다.",
+    "구매·판매자 연락·계약·결제·비공개 자료 요청·외부 발송은 범위에서 제외한다."
+  ],
+  "evaluation_rubric": {
+    "fit_stars": "5점 만점: 즉시 현금흐름, 1인 운영 가능성, 사용자 강점 활용, 인수 후 개선 여지, 검증 가능성. 가격·자본 필요성은 별도 위험표시.",
+    "confidence": "높음/중간/낮음: 핵심 수치가 독립적으로 확인되는 정도로 표시",
+    "candidate_fields": ["category", "asking_price", "revenue", "profit", "traffic_or_users", "owner_hours", "transfer_scope", "dependencies", "source_url", "checked_at", "fit_stars", "risks"]
+  }
+}
