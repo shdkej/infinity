@@ -1,0 +1,10 @@
+{
+  "request_id": "cc5df58a-d1f1-4852-bcaf-dd8686988ee4",
+  "created_at": "2026-10-10T21:43:19.686006+00:00",
+  "intent_id": "learning-candidate-kl-checkpoint-dirty-20261004",
+  "action": "archive_request",
+  "source": "dashboard",
+  "title": "체크포인트 커밋 경로의 기존 dirty 변경 격리",
+  "page": "https://infinity.aws.shdkej.com/",
+  "note": ""
+}
