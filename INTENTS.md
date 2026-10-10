@@ -19,14 +19,14 @@
 - task_plan_doc: artifacts/acquisition-cashcow-research-20261010/work/task-plan.md
 - task_plan_template: ARTIFACT_RULES.md#대형-작업-태스크-계획
 - trace: data/traces/acquisition-cashcow-research-20261010.json
-- artifact: artifacts/acquisition-cashcow-research-20261010/work/task-plan.md; artifacts/acquisition-cashcow-research-20261010/work/scope-and-rubric.md; artifacts/acquisition-cashcow-research-20261010/work/marketplace-inventory.md; artifacts/acquisition-cashcow-research-20261010/work/candidate-ledger.md; artifacts/acquisition-cashcow-research-20261010/work/fit-scoring.md; artifacts/acquisition-cashcow-research-20261010/work/operator-notes.md; artifacts/acquisition-cashcow-research-20261010/work/alternatives-and-risks.md
+- artifact: artifacts/acquisition-cashcow-research-20261010/work/task-plan.md; artifacts/acquisition-cashcow-research-20261010/work/scope-and-rubric.md; artifacts/acquisition-cashcow-research-20261010/work/marketplace-inventory.md; artifacts/acquisition-cashcow-research-20261010/work/candidate-ledger.md; artifacts/acquisition-cashcow-research-20261010/work/fit-scoring.md; artifacts/acquisition-cashcow-research-20261010/work/operator-notes.md; artifacts/acquisition-cashcow-research-20261010/work/alternatives-and-risks.md; artifacts/acquisition-cashcow-research-20261010/final/acquisition-cashcow-candidate-report.md
 - notification_channel: slack
 - notification_target: channel:C0BR41W31MM
 - notification_reply_to: 1791668175.719849
 - metric_question: 공개 매물 중 사용자의 자본·운영 제약 안에서 인수 후 반복 현금흐름 가능성을 검증할 수 있는 후보가 있는가?
 - metric_signal: 직접 원문 링크가 있는 후보 수·핵심 재무 수치 확인률·1인 운영 조건 확인률·조건부 4점 이상 후보 수
 - metric_decision_rule: 핵심 수치와 이전 범위가 공개 근거로 확인되고 1인 운영 조건을 충족하는 후보만 다음 검증 대상으로 남긴다. 정보가 부족하면 보류한다.
-- next_action: 공개 매물의 기준·출처·수치 정규화 규칙을 고정한 뒤 각 사이트에서 후보를 수집
+- next_action: Red 검증 결과를 반영하고 원격 반영 증명을 남긴다
 - success_criteria: 후보별 공개 원문 링크·수익/가격/운영 부담·사용자 적합성 별점·위험·검증 공백을 포함한 의사결정형 최종 리포트
 - research_scope: Hada 원문과 사용자가 제공한 8개 매물 사이트의 공개 목록; 구매·연락·계약·결제 제외
 - projects: [research-bank, personal-ops]

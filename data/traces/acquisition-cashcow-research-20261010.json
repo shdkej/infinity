@@ -49,15 +49,51 @@
       "session_key": "agent:genie:infinity-dispatcher-v2",
       "timestamp": "2026-10-10T21:50:07Z",
       "status": "accepted"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-d15d8fb6673b4bf0ae49567185505c18",
+      "canonical_sha": "60b9538797294f187243156822fb76ae3943f03f",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-10-10T22:20:05Z",
+      "status": "accepted"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-d15d8fb6673b4bf0ae49567185505c18",
+      "canonical_sha": "60b9538797294f187243156822fb76ae3943f03f",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher-v2",
+      "timestamp": "2026-10-10T22:20:26Z",
+      "status": "accepted"
     }
   ],
   "role_subagents": {
-    "planner": {"label":"role-acquisition-cashcow-planner","session_id":"agent:genie:subagent:e6d6045c-e1ea-4283-b754-672dcf4a1670","status":"running"},
-    "developer": {"label":"role-acquisition-cashcow-developer","session_id":"agent:genie:subagent:eb3534e4-213e-44c1-9fa1-563d69c25d2a","status":"done"},
-    "marketer": {"label":"role-acquisition-cashcow-marketer","session_id":"agent:marketing:subagent:00b2b041-fffb-4dee-88b9-4b3c24c3d7e4","status":"running"},
-    "operator": {"label":"role-acquisition-cashcow-operator","session_id":"agent:genie:subagent:9f04775c-1b73-4464-9f11-9d5ef23a14ea","status":"done"}
+    "planner": {
+      "label": "role-acquisition-cashcow-planner",
+      "session_id": "agent:genie:subagent:e6d6045c-e1ea-4283-b754-672dcf4a1670",
+      "status": "running"
+    },
+    "developer": {
+      "label": "role-acquisition-cashcow-developer",
+      "session_id": "agent:genie:subagent:eb3534e4-213e-44c1-9fa1-563d69c25d2a",
+      "status": "done"
+    },
+    "marketer": {
+      "label": "role-acquisition-cashcow-marketer",
+      "session_id": "agent:marketing:subagent:00b2b041-fffb-4dee-88b9-4b3c24c3d7e4",
+      "status": "running"
+    },
+    "operator": {
+      "label": "role-acquisition-cashcow-operator",
+      "session_id": "agent:genie:subagent:9f04775c-1b73-4464-9f11-9d5ef23a14ea",
+      "status": "done"
+    }
   },
-  "artifacts": ["artifacts/acquisition-cashcow-research-20261010/work/alternatives-and-risks.md"],
+  "artifacts": [
+    "artifacts/acquisition-cashcow-research-20261010/work/alternatives-and-risks.md"
+  ],
   "verifications": [],
   "next_decision": {
     "status": "in_progress",

@@ -20,3 +20,29 @@
 이번 단계에서 독립 회계자료, 소유자 시간, 고객지원량, 코드/도메인/결제계정 이전 범위를 공개 원문으로 확인하지 못했다. 따라서 매출·이익을 사실로 확정하지 않고 `판매자/중개자 주장`으로만 사용한다. 사용자의 자본 규모도 Context Pack에 숫자로 주어지지 않아 가격 적합성은 별도 미확정이다.
 
 **T1.3 결론:** 공개 숫자만으로는 1인 운영·이전 조건까지 충족하는 4점 이상 후보를 확정할 수 없다. 다음 T2.1은 수치가 있는 후보의 조건부 별점과 보류 사유를 계산한다.
+
+## Red 보강 메타데이터
+
+- `checked_at_utc`: 모든 후보 행은 `2026-10-10T21:50Z`에 확인했다.
+- `currency`: `$` 표기는 원문 표기를 보존했으며 통화가 명시되지 않은 값은 확정 환산값으로 사용하지 않는다.
+- `period_and_definition`: 원문 목록에 기간·정의가 함께 노출되지 않은 값이 많다. `MRR`, `SDE`, `net margin`, `revenue`, `profit`은 서로 대체하지 않는다.
+- `source_character`: 모든 수치는 판매자/중개자 주장이고 독립 검증 없음이다.
+- `direct_detail_url`: 직접 상세 URL이 확인된 후보는 `https://quietlight.com/listings/3393139-2/`와 `https://quietlight.com/listings/10607099-2/`뿐이다. 나머지는 목록 URL만 확인되어 직접 상세 원문 미확인이다.
+- `unknowns`: 모든 후보에서 `owner_hours`와 `transfer_scope`가 미확인이다.
+
+목록 루트만 확인된 8개 후보의 표시 수치는 후보 발굴용 메모일 뿐 최종 재무 근거가 아니다. 직접 상세 URL을 확인할 수 없었으므로 최종 리포트의 조건부 별점·추천 산정에는 사용하지 않고 보류한다.
+
+## 후보별 source metadata 고정표
+
+| 후보 | source_url | checked_at_utc | 통화 | 기간/지표 정의 | 출처/신뢰도 | 짧은 원문 표시 |
+|---|---|---|---|---|---|---|
+| Online gift-card SaaS | https://quietlight.com/listings/3393139-2/ | 2026-10-10T21:50Z | USD 표기 추정 | 기간·revenue/profit 정의 미확인 | 판매자/중개자, 낮음 | `$2.395M`, `$763,977`, `$686,077` |
+| Education SaaS | https://quietlight.com/listings/ | 2026-10-10T21:50Z | 미확인 | 직접 상세 미확인; 기간·revenue/profit 정의 미확인 | 목록 루트, 재현 불가 | 수치 보류; 목록 표시 주장만 보존 |
+| WordPress plugins | https://quietlight.com/listings/ | 2026-10-10T21:50Z | 미확인 | 직접 상세 미확인; 기간·revenue/profit 정의 미확인 | 목록 루트, 재현 불가 | 수치 보류; `10,000 paid subscribers` 주장 |
+| Short-term rental SaaS | https://quietlight.com/listings/ | 2026-10-10T21:50Z | 미확인 | 직접 상세 미확인; `$43K MRR` 외 재무기간 미확인 | 목록 루트, 재현 불가 | 수치 보류; `under offer` 주장 |
+| 16-year SaaS | https://quietlight.com/listings/ | 2026-10-10T21:50Z | 미확인 | 직접 상세 미확인; `9% YoY` 기준기간 미확인 | 목록 루트, 재현 불가 | 수치 보류; recurring revenue 주장 |
+| Performance management SaaS | https://quietlight.com/listings/ | 2026-10-10T21:50Z | 미확인 | 직접 상세 미확인; revenue/profit 기간·정의 미확인 | 목록 루트, 재현 불가 | 수치 보류; `28 customers`, `15 countries` 주장 |
+| Recurring health app | https://quietlight.com/listings/ | 2026-10-10T21:50Z | 미확인 | 직접 상세 미확인; revenue/profit 기간·정의 미확인 | 목록 루트, 재현 불가 | 수치 보류; `passive`, `zero marketing` 주장 |
+| AI fundraising SaaS | https://quietlight.com/listings/ | 2026-10-10T21:50Z | 미확인 | 직접 상세 미확인; revenue/profit 기간·정의 미확인 | 목록 루트, 재현 불가 | 수치 보류; `accepting offers` 주장 |
+| Municipalities accounting software | https://quietlight.com/listings/ | 2026-10-10T21:50Z | 미확인 | 직접 상세 미확인; revenue/profit 기간·정의 미확인 | 목록 루트, 재현 불가 | 수치 보류; Microsoft Access·20년 고객 주장 |
+| Low-workload subscription business | https://quietlight.com/listings/10607099-2/ | 2026-10-10T21:50Z | USD 표기 추정 | `$46K SDE`의 기간·정의 미확인 | 판매자/중개자, 낮음 | `low workload`, `~$46K SDE` |
