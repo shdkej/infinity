@@ -6,7 +6,23 @@
 
 ## Active
 
+## Archive
 ### [acquisition-cashcow-research-20261010] 소규모 서비스 인수 후보와 사용자 적합성 조사
+- status: archived
+- completed_at: 2026-10-10T22:25:00Z
+- final_artifact: artifacts/acquisition-cashcow-research-20261010/final/acquisition-cashcow-candidate-report.md
+- report: reports/acquisition-cashcow-research-20261010/20261010T2225Z-final.html
+- red_status: pass
+- red_report: artifacts/acquisition-cashcow-research-20261010/work/red/final-review-pass.md
+- remote_commit: 5eb34ed31272235ad6a437e1b929e6b8f3fd439a
+- knowledge_status: used
+- knowledge_decision: retain_in_infinity
+- knowledge_targets: artifacts/acquisition-cashcow-research-20261010/final/acquisition-cashcow-candidate-report.md; artifacts/acquisition-cashcow-research-20261010/work/fit-scoring.md; artifacts/acquisition-cashcow-research-20261010/work/candidate-ledger.md; reports/acquisition-cashcow-research-20261010/20261010T2225Z-final.html
+- knowledge_reflection: seller claim과 독립 검증, owner hours·transfer scope·기간 정의를 분리 보존했다.
+- knowledge_commit: no-promotion-needed
+
+<!-- active card archived into intents/archive/acquisition-cashcow-research-20261010.md -->
+<!--
 - status: active
 - research_mode: decision_research
 - target_agent: genie
@@ -32,6 +48,7 @@
 - projects: [research-bank, personal-ops]
 - task_type: research
 - topics: [finance, product, strategy]
+-->
 
 ## Archive
 ### [learning-candidate-kl-checkpoint-dirty-20261004] 체크포인트 커밋 경로의 기존 dirty 변경 격리

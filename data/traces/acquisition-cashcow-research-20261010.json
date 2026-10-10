@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "intent_id": "acquisition-cashcow-research-20261010",
-  "status": "inbox",
+  "status": "archived",
   "trace_completeness": "complete",
   "request": {
     "raw": {
@@ -95,8 +95,8 @@
     "artifacts/acquisition-cashcow-research-20261010/work/alternatives-and-risks.md"
   ],
   "verifications": [],
-  "next_decision": {
-    "status": "in_progress",
-    "value": "공개 매물 후보 수집과 정규화 조사 실행"
-  }
+  "next_decision": {"status":"closed","value":"추가 공개 근거가 생길 때만 별도 검증 cycle"},
+  "completed_at": "2026-10-10T22:25:00Z",
+  "red_status": "pass",
+  "report": "reports/acquisition-cashcow-research-20261010/20261010T2225Z-final.html"
 }
