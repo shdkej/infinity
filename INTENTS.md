@@ -4,8 +4,10 @@
 
 ## Inbox
 
+## Active
+
 ### [acquisition-cashcow-research-20261010] 소규모 서비스 인수 후보와 사용자 적합성 조사
-- status: inbox
+- status: active
 - research_mode: decision_research
 - target_agent: genie
 - execution_mode: multi_subagent_roles
@@ -17,7 +19,7 @@
 - task_plan_doc: artifacts/acquisition-cashcow-research-20261010/work/task-plan.md
 - task_plan_template: ARTIFACT_RULES.md#대형-작업-태스크-계획
 - trace: data/traces/acquisition-cashcow-research-20261010.json
-- artifact: artifacts/acquisition-cashcow-research-20261010/work/task-plan.md
+- artifact: artifacts/acquisition-cashcow-research-20261010/work/task-plan.md; artifacts/acquisition-cashcow-research-20261010/work/scope-and-rubric.md
 - notification_channel: slack
 - notification_target: channel:C0BR41W31MM
 - notification_reply_to: 1791668175.719849
@@ -63,8 +65,6 @@
 - success_criteria: 사용자 맥락을 서두에 반영하고, 국내 사례를 중심으로 충분한 분량의 섹션별 탐색 지도·근거·한계·적용 가능성을 제시하되 단일 결론으로 성급히 수렴하지 않음
 - notification_channel: slack
 - notification_target: channel:C0BR41W31MM
-
-## Active
 
 ## Waiting
 

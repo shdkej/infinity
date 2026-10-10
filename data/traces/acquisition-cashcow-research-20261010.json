@@ -22,6 +22,24 @@
         "intents/context/acquisition-cashcow-research-20261010.json",
         "artifacts/acquisition-cashcow-research-20261010/work/task-plan.json"
       ]
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-ce221ff9d102476c9788fcb2cb0844ef",
+      "canonical_sha": "79eefa01a070ae809a83a978de4531203ee7d683",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-10-10T21:40:05Z",
+      "status": "accepted"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-ce221ff9d102476c9788fcb2cb0844ef",
+      "canonical_sha": "79eefa01a070ae809a83a978de4531203ee7d683",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher-v2",
+      "timestamp": "2026-10-10T21:45:00Z",
+      "status": "accepted"
     }
   ],
   "artifacts": [],
