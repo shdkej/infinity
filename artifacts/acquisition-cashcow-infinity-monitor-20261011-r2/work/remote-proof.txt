@@ -3,7 +3,7 @@ Infinity remote proof — acquisition-cashcow-infinity-monitor-20261011-r2
 verified_at: 2026-10-11T11:24:00Z
 repository: /home/ubuntu/workspace/knowledge-lab/infinity
 remote: origin/main
-head: 503f06498b2a5f9e624faab2e8d996cc79825e95
-origin_main: 503f06498b2a5f9e624faab2e8d996cc79825e95
+head: b1570765d75bff639db0ceefa8c2f5881a12397f
+origin_main: b1570765d75bff639db0ceefa8c2f5881a12397f
 verified: true
 scope: r2 evidence repair only; no external Notion write, schema, permission, schedule, purchase, contact, contract, payment, or public delivery

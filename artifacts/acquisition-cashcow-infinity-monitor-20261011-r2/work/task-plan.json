@@ -58,7 +58,7 @@
     {
       "id": "T3.1",
       "title": "C2 다음 페이지·Fello 상세 후보를 재순회한다",
-      "status": "done",
+      "status": "pending",
       "depends_on": [
         "T2.1"
       ],
@@ -66,13 +66,13 @@
       "max_minutes": 50,
       "validation": "C1에서 보류한 Fello 상세와 각 사이트의 다음 페이지를 재확인하고 fingerprint로 중복을 차단한다.",
       "closure_check": "가격·재무·운영 증거가 모두 확인된 신규 후보만 노션 추가 대상으로 남긴다.",
-      "started_at": "2026-10-11T11:40:00Z",
-      "completed_at": "2026-10-11T11:42:00Z"
+      "started_at": null,
+      "completed_at": null
     },
     {
       "id": "T3.2",
       "title": "C2 후보 반영·재실행 결과를 기록한다",
-      "status": "done",
+      "status": "pending",
       "depends_on": [
         "T3.1"
       ],
@@ -80,8 +80,8 @@
       "max_minutes": 25,
       "validation": "C2의 fetch·Notion 판정·오류·접근 제한을 기록하고 다음 사이클 조건을 갱신한다.",
       "closure_check": "2026-10-11T23:00:00Z 전이면 다음 사이클을 추가하고, 마감이면 최종 Red·Archive로 전환한다.",
-      "started_at": "2026-10-11T11:42:00Z",
-      "completed_at": "2026-10-11T11:43:00Z"
+      "started_at": null,
+      "completed_at": null
     }
   ],
   "deviations": [

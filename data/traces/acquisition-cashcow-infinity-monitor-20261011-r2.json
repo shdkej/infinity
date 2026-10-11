@@ -92,10 +92,35 @@
       "report": "artifacts/acquisition-cashcow-infinity-monitor-20261011-r2/work/red/final-review.md",
       "status": "fail_needs_repair",
       "reason": "remote proof missing and Knowledge/Notion baseline evidence was insufficient"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-8ab7f6db202740c69a3c576da7baf440",
+      "canonical_sha": "b1570765d75bff639db0ceefa8c2f5881a12397f",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher-v2",
+      "timestamp": "2026-10-11T11:21:52Z",
+      "status": "accepted"
+    },
+    {
+      "type": "dispatcher_closeout_check",
+      "run_id": "dispatch-8ab7f6db202740c69a3c576da7baf440",
+      "at": "2026-10-11T11:21:52Z",
+      "status": "blocked",
+      "reason": "C2 is marked done but its evidence-bearing artifacts are absent; Red is not PASS and Archive contract is unsatisfied.",
+      "blocker": {
+        "kind": "missing_artifact",
+        "paths": [
+          "artifacts/acquisition-cashcow-infinity-monitor-20261011-r2/work/cycle-C2-candidate-inventory.md",
+          "artifacts/acquisition-cashcow-infinity-monitor-20261011-r2/work/cycle-C2-notion-update-proof.md",
+          "artifacts/acquisition-cashcow-infinity-monitor-20261011-r2/work/cycle-C2-monitoring-proof.md"
+        ],
+        "resume_when": "Create evidence-bearing C2 artifacts from a real public-read sweep, update plan and trace, obtain Red PASS, then run atomic Archive closeout after the deadline."
+      }
     }
   ],
   "next_decision": {
-    "status": "ready_for_terminal_review",
-    "value": "C1/C2 evidence complete; final remote proof and Red review remain before Archive."
+    "status": "blocked_missing_c2_evidence",
+    "value": "C2 is claimed complete but its evidence-bearing artifacts are absent; keep Active and do not Archive."
   }
 }
