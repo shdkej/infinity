@@ -1,1 +1,9 @@
-placeholder: replaced after evidence repair commit is pushed
+Infinity remote proof — acquisition-cashcow-infinity-monitor-20261011-r2
+
+verified_at: 2026-10-11T11:24:00Z
+repository: /home/ubuntu/workspace/knowledge-lab/infinity
+remote: origin/main
+head: 894d79d5cd91bfe13ff977fcf675e5b48abd826d
+origin_main: 894d79d5cd91bfe13ff977fcf675e5b48abd826d
+verified: true
+scope: r2 evidence repair only; no external Notion write, schema, permission, schedule, purchase, contact, contract, payment, or public delivery
