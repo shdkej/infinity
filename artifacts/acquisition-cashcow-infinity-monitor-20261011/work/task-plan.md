@@ -1,5 +1,5 @@
 # Infinity 인수 후보 수집·노션 DB·모니터링 — 실행 타임라인
-`마감: 2026-10-12 08:00 KST (2026-10-11 23:00 UTC)` · `실행: 6회차` · `태스크: 5개 중 4개 완료 · 0개 미완료 · 1개 진행`
+`마감: 2026-10-12 08:00 KST (2026-10-11 23:00 UTC)` · `실행: 6회차` · `태스크: 5개 중 5개 완료 · 0개 미완료 · 0개 진행`
 
 ```text
 ◐ T1  페이지 순회와 노션 기록의 실행 경계를 고정한다
@@ -17,11 +17,11 @@
 │  ● T2.1  반복 모니터링 실행 경로와 중복 방지를 검증한다                        완료 · 최대 30분 · 의존 T1.3
 │           증거: `work/monitoring-verification.md; work/monitor_runner.py; data/acquisition-cashcow-infinity-monitor-20261011/runs.jsonl`
 │           시작/완료/실제: 2026-10-11T07:55Z / 2026-10-11T08:10Z / 15분
-│  ◐ T2.2  Red 검증과 Infinity 원격 반영 증명을 남긴다                           진행 · 최대 25분 · 의존 T2.1
-│           증거: `work/red/final-review.md; work/remote-proof.txt`
-│           시작/완료/실제: 2026-10-11T08:10Z / 대기 / -
+│  ● T2.2  Red 검증과 Infinity 원격 반영 증명을 남긴다                           완료 · 최대 25분 · 의존 T2.1
+│           증거: `work/red/final-review.md; work/red/final-review-r2.md; work/red/final-review-final.md; work/red/final-review-closeout-r2.md; work/remote-proof.txt`
+│           시작/완료/실제: 2026-10-11T08:10Z / 2026-10-11T08:20Z / 10분
 │
 └─ 보호 경계: 공개 매물만 조사·기록한다. 판매자 연락, 구매·계약·결제, 공개 발송, 권한·시크릿 변경은 범위 밖이다.
 ```
 
-**지금 다음 행동:** Genie가 Context Pack을 다시 확인한 뒤 페이지 순회·노션 DB·반복 실행 경로를 검증한다.
+**지금 다음 행동:** 실행 종료 및 Archive 검증

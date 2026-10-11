@@ -5,6 +5,8 @@
 ## Inbox
 
 ## Active
+<!-- archived card moved to intents/archive/acquisition-cashcow-infinity-monitor-20261011.md -->
+<!--
 ### [acquisition-cashcow-infinity-monitor-20261011] Infinity 경로에서 인수 후보 페이지 순회·노션 DB·모니터링 실행
 - status: active
 - research_mode: decision_research
@@ -32,8 +34,32 @@
 - task_type: implementation
 - topics: [finance, automation, workflow]
 - raw_request: 사용자는 이 작업이 Infinity에서 실행되어야 하며, 각 사이트의 페이지를 계속 순회해 신규 인수 후보를 찾고 노션 데이터베이스에 정리·유지하기를 요청했다.
+-->
 
 ## Active
+
+## Archive
+### [acquisition-cashcow-infinity-monitor-20261011] Infinity 경로에서 인수 후보 페이지 순회·노션 DB·모니터링 실행
+- status: archived
+- completed_at: 2026-10-11T08:20:00Z
+- final_artifact: artifacts/acquisition-cashcow-infinity-monitor-20261011/final/acquisition-cashcow-infinity-monitor-report.md
+- report: reports/acquisition-cashcow-infinity-monitor-20261011/20261011T0820Z-final.html
+- red_status: pass
+- red_report: artifacts/acquisition-cashcow-infinity-monitor-20261011/work/red/final-review-closeout-r2.md
+- remote_commit: fee2d47b41c714beda6ab6e13f47290f43131f66
+- knowledge_status: used
+- knowledge_decision: retain_in_infinity
+- knowledge_targets: artifacts/acquisition-cashcow-infinity-monitor-20261011/final/acquisition-cashcow-infinity-monitor-report.md; artifacts/acquisition-cashcow-infinity-monitor-20261011/work/monitor_runner.py; artifacts/acquisition-cashcow-infinity-monitor-20261011/work/notion-database-verification.md; reports/acquisition-cashcow-infinity-monitor-20261011/20261011T0820Z-final.html
+- knowledge_reflection: 반복 인수 모니터는 공개 source·후보 fingerprint·Notion 행·실패 로그를 분리하고, 운영 부담/독립 검증 필드 부재를 보류 상태로 남겨야 한다.
+- knowledge_commit: no-promotion-needed
+
+## Archive Card
+
+**결과:** 공개 매물 7개 source 순회, Notion DB 9필드·16행 확인, Infinity-local deadline/fingerprint/dry-run runner 검증.
+
+**검증:** 계획 5개 leaf 완료, Red PASS, HTML report·remote-proof 작성, 원격 SHA 일치.
+
+**경계:** 판매자 연락·구매·계약·결제·비공개 요청·스케줄·schema/권한 변경·외부 발송 없음.
 
 ## Archive
 ### [acquisition-cashcow-research-20261010] 소규모 서비스 인수 후보와 사용자 적합성 조사

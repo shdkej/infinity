@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "intent_id": "acquisition-cashcow-infinity-monitor-20261011",
-  "status": "active",
+  "status": "archived",
   "trace_completeness": "complete",
   "request": {
     "raw": {"status": "recorded", "value": "기존 소규모 서비스 인수 후보 조사를 Infinity에서 실행한다. 예산 3천만원 이하, 직접 운영 가능한 캐시카우 후보를 사용자가 제공한 Fello·Listing·Sellernet·Flippa·Empire Flippers·Quiet Light·Acquire 목록에서 페이지를 순회해 계속 발굴하고, 후보별 가격·매출·이익·운영 부담·사용자 적합성 별점을 노션 데이터베이스에 기록한다. Infinity에서 이 작업이 실제로 되도록 노션 DB와 반복 모니터링 실행 경로까지 검증한다. 구매·연락·계약·결제는 제외한다."},
@@ -15,5 +15,8 @@
   ],
   "artifacts": [],
   "verifications": [],
-  "next_decision": {"status": "in_progress", "value": "Genie가 Context Pack과 기존 Archive 결과를 확인하고 페이지 순회·노션 DB·반복 모니터링 검증을 실행한다."}
+  "next_decision": {"status": "closed", "value": "추가 공개 source 또는 승인된 운영 변경이 생길 때 별도 cycle"},
+  "completed_at": "2026-10-11T08:20:00Z",
+  "red_status": "pass",
+  "report": "reports/acquisition-cashcow-infinity-monitor-20261011/20261011T0820Z-final.html"
 }
