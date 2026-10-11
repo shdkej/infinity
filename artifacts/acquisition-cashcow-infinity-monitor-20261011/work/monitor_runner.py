@@ -4,7 +4,7 @@ import argparse, datetime as dt, hashlib, json, re, sys, urllib.request
 from pathlib import Path
 
 SOURCES={"fello":"https://www.fello.io/products","listing":"https://listing.co/","sellernet":"https://sellernet.kr/products","flippa":"https://flippa.com/search","empire_flippers":"https://empireflippers.com/marketplace/digital-product-businesses-for-sale/","quiet_light":"https://quietlight.com/listings/","acquire":"https://app.acquire.com/all-listing"}
-ROOT=Path(__file__).resolve().parents[3]
+ROOT=next(p for p in Path(__file__).resolve().parents if p.name == "infinity")
 STATE=ROOT/"data/acquisition-cashcow-infinity-monitor-20261011/fingerprints.json"
 LOG=ROOT/"data/acquisition-cashcow-infinity-monitor-20261011/runs.jsonl"
 
@@ -22,7 +22,10 @@ def main():
    text=body.decode("utf-8","ignore")
    links=sorted(set(re.findall(r'https?://[^\"\'<> ]+',text)))
    candidates=[x for x in links if any(k in x for k in ("/products/","/listing/","/listings/","/business/"))]
-   keys=candidates or [url]
+   keys=candidates
+   if not keys:
+    results[site]={"status":"no_candidate_links","http":status,"bytes":len(body),"sha256":hashlib.sha256(body).hexdigest(),"fingerprints":[],"duplicates":0}
+    continue
    fps=[hashlib.sha256(f"{site}|{x}".encode()).hexdigest() for x in keys]
    dup=[x in known for x in fps]
    results[site]={"status":"ok","http":status,"bytes":len(body),"sha256":hashlib.sha256(body).hexdigest(),"candidate_links":len(candidates),"fingerprints":fps,"duplicates":sum(dup)}
