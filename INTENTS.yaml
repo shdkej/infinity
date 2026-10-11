@@ -60,7 +60,7 @@ lanes:
   waiting: []
 archive:
   glob: intents/archive/*.yaml
-  retention_days: 7
+  summary_window_days: 7
   files:
   - intents/archive/2026-06.yaml
   - intents/archive/2026-07.yaml
