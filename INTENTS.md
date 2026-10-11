@@ -2,6 +2,8 @@
 
 > Heartbeat Agent가 주기적으로 읽고 실행하는 의도 목록.
 
+## Inbox
+
 ## Active
 ### [acquisition-cashcow-infinity-monitor-20261011-r2] Infinity에서 내일 8시까지 인수 후보 추가 수집·노션 갱신
 - status: active
