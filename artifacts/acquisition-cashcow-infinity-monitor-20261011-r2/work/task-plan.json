@@ -7,7 +7,7 @@
   "deadline": "2026-10-11T23:00:00Z",
   "deadline_local": "2026-10-12 08:00 Asia/Seoul (KST)",
   "tasks": [
-    {"id":"T1.1","title":"아카이브 결과와 신규 수집 기준을 고정한다","status":"todo","depends_on":[],"evidence":"work/scope-and-baseline.md","max_minutes":15,"validation":"기존 16개 행 보존·신규 후보만 추가·3천만원 이하·공개 매물만 수집 기준이 명확하다.","closure_check":"구매·연락·계약·결제·스케줄 변경은 제외된다."},
+    {"id":"T1.1","title":"아카이브 결과와 신규 수집 기준을 고정한다","status":"active","depends_on":[],"evidence":"work/scope-and-baseline.md","max_minutes":15,"started_at":"2026-10-11T11:06:55Z","validation":"기존 16개 행 보존·신규 후보만 추가·3천만원 이하·공개 매물만 수집 기준이 명확하다.","closure_check":"구매·연락·계약·결제·스케줄 변경은 제외된다."},
     {"id":"T1.2","title":"각 사이트의 다음 페이지를 순회해 신규 후보를 수집하고 노션에 반영한다","status":"todo","depends_on":["T1.1"],"evidence":"work/new-candidate-inventory.md; work/notion-update-proof.md","max_minutes":60,"validation":"페이지·직접 링크·확인 시각·가격·수익·운영 부담·적합도·검증 상태가 신규 행에 연결된다.","closure_check":"중복 fingerprint와 접근 제한이 기록된다."},
     {"id":"T2.1","title":"마감 시점 결과와 Red 검증·원격 반영을 닫는다","status":"todo","depends_on":["T1.2"],"evidence":"final/acquisition-cashcow-infinity-monitor-r2-report.md; work/red/final-review.md; work/remote-proof.txt","max_minutes":25,"validation":"신규 후보 수·노션 행·출처·남은 리스크·보호 경계가 검증된다.","closure_check":"사용자에게 현재 상태와 다음 첫 액션을 보고할 수 있다."}
   ],

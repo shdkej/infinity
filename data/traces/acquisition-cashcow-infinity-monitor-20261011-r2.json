@@ -24,6 +24,24 @@
         "artifacts/acquisition-cashcow-infinity-monitor-20261011-r2/work/task-plan.json",
         "artifacts/acquisition-cashcow-infinity-monitor-20261011-r2/work/task-plan.md"
       ]
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-3902910c0b334d62991f7beac24959a7",
+      "canonical_sha": "f97dae12948fb4b886b4d617eee7c9f045dfad48",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-10-11T11:06:18Z",
+      "status": "accepted"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-3902910c0b334d62991f7beac24959a7",
+      "canonical_sha": "f97dae12948fb4b886b4d617eee7c9f045dfad48",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher-v2",
+      "timestamp": "2026-10-11T11:06:55Z",
+      "status": "accepted"
     }
   ],
   "artifacts": [],

@@ -2,9 +2,9 @@
 
 > Heartbeat Agent가 주기적으로 읽고 실행하는 의도 목록.
 
-## Inbox
+## Active
 ### [acquisition-cashcow-infinity-monitor-20261011-r2] Infinity에서 내일 8시까지 인수 후보 추가 수집·노션 갱신
-- status: inbox
+- status: active
 - research_mode: decision_research
 - target_agent: genie
 - execution_mode: multi_subagent_roles
@@ -23,7 +23,7 @@
 - decision_owner: Kimi
 - decision_question: 마감 전 기존 목록과 중복되지 않는 공개 후보를 추가로 발견해 노션 DB에 유지할 수 있는가?
 - comparison_axes: 인수 가격·매출·이익·회수기간·운영 부담·기술 의존·검증 가능성
-- next_action: Genie가 기존 Archive 결과와 Context Pack을 확인한 뒤 각 사이트의 다음 페이지를 순회해 신규 후보를 수집한다
+- next_action: T1.1 기준 고정 후 각 사이트 다음 페이지 순회
 - success_criteria: 기존 16개 행을 보존하면서 신규 후보의 직접 링크·재무 수치·운영 부담·적합도가 노션 DB에 반영되고 중복·접근 제한·검증 공백이 기록된다
 - research_scope: Fello·Listing·Sellernet·Flippa·Empire Flippers·Quiet Light·Acquire의 공개 목록; 3천만원 이하; 기존 후보 후속 수집; 구매·연락·계약·결제 제외
 - projects: [infinity, personal-ops]
@@ -31,7 +31,7 @@
 - topics: [finance, automation, workflow]
 - raw_request: 사용자는 Infinity에서 내일 오전 8시까지 각 사이트를 계속 페이지 순회해 신규 인수 후보를 리스트업하고 노션에 갱신해 달라고 요청했다.
 
-## Active
+## Archive
 <!-- archived card moved to intents/archive/acquisition-cashcow-infinity-monitor-20261011.md -->
 <!--
 ### [acquisition-cashcow-infinity-monitor-20261011] Infinity 경로에서 인수 후보 페이지 순회·노션 DB·모니터링 실행
