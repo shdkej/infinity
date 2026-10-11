@@ -23,7 +23,7 @@
 - decision_owner: Kimi
 - decision_question: 마감 전 기존 목록과 중복되지 않는 공개 후보를 추가로 발견해 노션 DB에 유지할 수 있는가?
 - comparison_axes: 인수 가격·매출·이익·회수기간·운영 부담·기술 의존·검증 가능성
-- next_action: T1.1 기준 고정 후 각 사이트 다음 페이지 순회
+- next_action: C1 검증을 닫은 뒤 C2를 Active로 전환해 다음 페이지와 Fello 상세 후보를 재순회한다
 - success_criteria: 기존 16개 행을 보존하면서 신규 후보의 직접 링크·재무 수치·운영 부담·적합도가 노션 DB에 반영되고 중복·접근 제한·검증 공백이 기록된다
 - research_scope: Fello·Listing·Sellernet·Flippa·Empire Flippers·Quiet Light·Acquire의 공개 목록; 3천만원 이하; 기존 후보 후속 수집; 구매·연락·계약·결제 제외
 - projects: [infinity, personal-ops]
