@@ -10,7 +10,8 @@
   "events": [
     {"type": "intake", "at": "2026-10-11T07:30:00Z", "context_pack": "intents/context/acquisition-cashcow-infinity-monitor-20261011.json", "evidence_paths": ["INTENTS.md", "intents/context/acquisition-cashcow-infinity-monitor-20261011.json", "artifacts/acquisition-cashcow-infinity-monitor-20261011/work/task-plan.json", "artifacts/acquisition-cashcow-infinity-monitor-20261011/work/task-plan.md"]},
     {"type": "dispatcher_handoff", "run_id": "dispatch-e4e670e165df4269abc2d7c800f62b09", "canonical_sha": "9f815d9fc704a010988a7a548e6dbbabac646981", "agent": "genie", "session_key": "agent:genie:infinity-dispatcher", "timestamp": "2026-10-11T07:30:07Z", "status": "accepted"},
-    {"type": "dispatcher_handoff", "run_id": "dispatch-e4e670e165df4269abc2d7c800f62b09", "canonical_sha": "9f815d9fc704a010988a7a548e6dbbabac646981", "agent": "genie", "session_key": "agent:genie:infinity-dispatcher-v2", "timestamp": "2026-10-11T07:30:30Z", "status": "accepted"}
+    {"type": "dispatcher_handoff", "run_id": "dispatch-e4e670e165df4269abc2d7c800f62b09", "canonical_sha": "9f815d9fc704a010988a7a548e6dbbabac646981", "agent": "genie", "session_key": "agent:genie:infinity-dispatcher-v2", "timestamp": "2026-10-11T07:30:30Z", "status": "accepted"},
+    {"type": "dispatcher_handoff", "run_id": "dispatch-989ba106facb49029bb04de8369977e4", "canonical_sha": "8118538f7294aaf4672e958974ff271cc1e0e3d5", "agent": "genie", "session_key": "agent:genie:infinity-dispatcher-v2", "timestamp": "2026-10-11T07:40:30Z", "status": "accepted"}
   ],
   "artifacts": [],
   "verifications": [],

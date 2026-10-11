@@ -3,6 +3,8 @@
 > Heartbeat Agent가 주기적으로 읽고 실행하는 의도 목록.
 
 ## Inbox
+
+## Active
 ### [acquisition-cashcow-infinity-monitor-20261011] Infinity 경로에서 인수 후보 페이지 순회·노션 DB·모니터링 실행
 - status: active
 - research_mode: decision_research

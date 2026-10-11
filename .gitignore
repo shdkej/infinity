@@ -19,3 +19,4 @@ DREAMS.md
 # Local dispatcher/runtime artifacts
 data/dispatcher-terminal-notifications.json
 scripts/__pycache__/
+**/__pycache__/
