@@ -16,7 +16,7 @@
 - task_plan_doc: artifacts/acquisition-cashcow-infinity-monitor-20261011/work/task-plan.md
 - task_plan_template: ARTIFACT_RULES.md#대형-작업-태스크-계획
 - trace: data/traces/acquisition-cashcow-infinity-monitor-20261011.json
-- artifact: artifacts/acquisition-cashcow-infinity-monitor-20261011/work/task-plan.md; artifacts/acquisition-cashcow-infinity-monitor-20261011/final/acquisition-cashcow-infinity-monitor-report.md
+- artifact: artifacts/acquisition-cashcow-infinity-monitor-20261011/work/task-plan.md; artifacts/acquisition-cashcow-infinity-monitor-20261011/work/scope-and-boundary.md; artifacts/acquisition-cashcow-infinity-monitor-20261011/work/paginated-marketplace-inventory.md; artifacts/acquisition-cashcow-infinity-monitor-20261011/work/notion-database-verification.md; artifacts/acquisition-cashcow-infinity-monitor-20261011/work/monitoring-verification.md; artifacts/acquisition-cashcow-infinity-monitor-20261011/work/monitor_runner.py; artifacts/acquisition-cashcow-infinity-monitor-20261011/final/acquisition-cashcow-infinity-monitor-report.md
 - notification_channel: slack
 - notification_target: channel:C0BR41W31MM
 - notification_reply_to: 1791668175.719849
