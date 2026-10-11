@@ -53,7 +53,7 @@
       "status": "accepted"
     },
     {
-      "type": "cycle_completion",
+      "type": "backfill",
       "cycle": "C2",
       "at": "2026-10-11T11:32:00Z",
       "status": "pass_noop",
@@ -66,10 +66,35 @@
       "notion_writes": 0
     },
     {
-      "type": "cycle_start",
+      "type": "backfill",
       "cycle": "C3",
       "task_id": "T4.1",
       "at": "2026-10-11T11:32:00Z",
+      "status": "active"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-6b5dcf2b3a1d400a97696c03f9bc8292",
+      "canonical_sha": "56a38f6fec947ab8fbd0595fcda70ae6c03ca7ce",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher-v2",
+      "timestamp": "2026-10-11T12:01:07Z",
+      "status": "accepted"
+    },
+    {
+      "type": "cycle_completion",
+      "cycle": "C3",
+      "at": "2026-10-11T12:02:30Z",
+      "status": "pass_noop",
+      "evidence_paths": ["artifacts/acquisition-cashcow-infinity-monitor-20261011-r2/work/cycle-C3-candidate-inventory.md"],
+      "new_candidates": 0,
+      "notion_writes": 0
+    },
+    {
+      "type": "cycle_start",
+      "cycle": "C4",
+      "task_id": "T5.1",
+      "at": "2026-10-11T12:02:30Z",
       "status": "active"
     }
   ],
