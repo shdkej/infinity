@@ -95,7 +95,7 @@
     }
   ],
   "next_decision": {
-    "status": "in_progress",
-    "value": "Genie가 기존 Archive 결과를 기준으로 다음 페이지를 순회해 신규 후보 수집과 노션 갱신을 실행한다."
+    "status": "ready_for_terminal_review",
+    "value": "C1/C2 evidence complete; final remote proof and Red review remain before Archive."
   }
 }

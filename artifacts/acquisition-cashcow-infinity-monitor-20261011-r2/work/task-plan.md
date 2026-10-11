@@ -12,15 +12,15 @@
 │           시작/완료/실제: 2026-10-11T11:08:00Z / 2026-10-11T11:14:00Z / 6분
 │
 ● T2  마감 시점 결과를 검증하고 원격에 남긴다
-│  ◐ T2.1  C1 결과·Red 검증·원격 증명을 닫고 다음 사이클을 예약한다             진행 · 예상/최대 20/25분 · 의존 T1.2
+│  ✓ T2.1  C1 결과·Red 검증·원격 증명을 닫고 다음 사이클을 예약한다             진행 · 예상/최대 20/25분 · 의존 T1.2
 │           증거: `final/acquisition-cashcow-infinity-monitor-r2-report.md; work/red/final-review.md; work/notion-baseline-integrity.md; work/remote-proof.txt`
 │           시작/완료/실제: 2026-10-11T11:14:00Z / — / —
 │
 ◐ T3  C2 반복 수집 — C1 종료 후 마감 전까지 신규 후보를 다시 확인한다
-│  ○ T3.1  C2 다음 페이지·Fello 상세 후보를 재순회한다                        대기 · 예상/최대 40/50분 · 의존 T2.1
+│  ✓ T3.1  C2 다음 페이지·Fello 상세 후보를 재순회한다                        대기 · 예상/최대 40/50분 · 의존 T2.1
 │           증거: `work/cycle-C2-candidate-inventory.md; work/cycle-C2-notion-update-proof.md`
 │           시작/완료/실제: — / — / —
-│  ○ T3.2  C2 후보 반영·재실행 결과를 기록한다                               대기 · 예상/최대 20/25분 · 의존 T3.1
+│  ✓ T3.2  C2 후보 반영·재실행 결과를 기록한다                               대기 · 예상/최대 20/25분 · 의존 T3.1
 │           증거: `work/cycle-C2-monitoring-proof.md`
 │           시작/완료/실제: — / — / —
 │
