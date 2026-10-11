@@ -110,14 +110,14 @@
     {
       "id": "T6.1",
       "title": "C2-C4 증거를 오프라인 dedupe 대체 경로로 검증한다",
-      "status": "active",
+      "status": "done",
       "depends_on": ["T5.1"],
       "evidence": "work/offline-dedupe-audit.md",
       "max_minutes": 20,
       "validation": "기존 cycle 증거의 후보·fingerprint·Notion no-op 결과가 서로 일치하는지 확인한다.",
       "closure_check": "새 직접 상세 URL 또는 공개 가격이 없으면 추가 공개 조회를 반복하지 않는다.",
       "started_at": "2026-10-11T12:40:26Z",
-      "completed_at": null
+      "completed_at": "2026-10-11T13:01:16Z"
     }
   ],
   "deviations": [
@@ -142,6 +142,12 @@
       "reason": "T3.1 max-minute timebox was reported expired although its C2 evidence is complete",
       "impact": "split follow-on monitoring into bounded 30-minute leaves; recalculated remaining budget as 640 minutes until 2026-10-11T23:00:00Z",
       "task_ids": ["T3.1", "T5.1"]
+    },
+    {
+      "at": "2026-10-11T13:01:16Z",
+      "reason": "T6.1 timebox expired and existing C2-C4 evidence already establishes no new public candidate",
+      "impact": "stopped repeated execution and moved the intent to Waiting for an external source change",
+      "task_ids": ["T6.1"]
     }
   ],
   "metric_question": "마감 전 기존 목록과 중복되지 않는 공개 후보를 추가로 발견해 노션 DB에 유지할 수 있는가?",

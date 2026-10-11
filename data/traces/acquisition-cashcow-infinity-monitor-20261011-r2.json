@@ -154,6 +154,24 @@
       "status": "accepted"
     }
   ],
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-c14f71f0d20145e7bc5942d1885ab98a",
+      "canonical_sha": "84c91200d50c0e4fdfdf621f014a69d73ac92c3a",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher-v2",
+      "timestamp": "2026-10-11T13:01:16Z",
+      "status": "accepted"
+    },
+    {
+      "type": "timebox_closeout",
+      "run_id": "dispatch-c14f71f0d20145e7bc5942d1885ab98a",
+      "at": "2026-10-11T13:01:16Z",
+      "status": "waiting_external_source_change",
+      "reason": "T6.1 evidence is complete; repeated execution cannot produce new evidence without a source change.",
+      "resume_when": "New direct listing URL or public price plus financial, operating, and transfer evidence appears."
+    }
+  ],
   "artifacts": [
     "artifacts/acquisition-cashcow-infinity-monitor-20261011-r2/work/scope-and-baseline.md",
     "artifacts/acquisition-cashcow-infinity-monitor-20261011-r2/work/new-candidate-inventory.md",
@@ -239,7 +257,7 @@
     }
   ],
   "next_decision": {
-    "status": "active_verified_alternative",
-    "value": "T5.1 is complete; T6.1 offline dedupe audit is the verified alternative after repeated no-op sweeps."
+    "status": "waiting_external_source_change",
+    "value": "All evidence leaves are complete; waiting for a genuinely new public source signal."
   }
 }
