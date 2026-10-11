@@ -3,6 +3,33 @@
 > Heartbeat Agent가 주기적으로 읽고 실행하는 의도 목록.
 
 ## Inbox
+### [acquisition-cashcow-infinity-monitor-20261011] Infinity 경로에서 인수 후보 페이지 순회·노션 DB·모니터링 실행
+- status: inbox
+- research_mode: decision_research
+- target_agent: genie
+- execution_mode: multi_subagent_roles
+- permission_level: approval_required
+- deadline: 2026-10-11T23:00:00Z (2026-10-12 08:00 Asia/Seoul, KST)
+- deadline_local: 2026-10-12 08:00 Asia/Seoul (KST)
+- context_pack: intents/context/acquisition-cashcow-infinity-monitor-20261011.json
+- task_plan: artifacts/acquisition-cashcow-infinity-monitor-20261011/work/task-plan.json
+- task_plan_doc: artifacts/acquisition-cashcow-infinity-monitor-20261011/work/task-plan.md
+- task_plan_template: ARTIFACT_RULES.md#대형-작업-태스크-계획
+- trace: data/traces/acquisition-cashcow-infinity-monitor-20261011.json
+- artifact: artifacts/acquisition-cashcow-infinity-monitor-20261011/work/task-plan.md; artifacts/acquisition-cashcow-infinity-monitor-20261011/final/acquisition-cashcow-infinity-monitor-report.md
+- notification_channel: slack
+- notification_target: channel:C0BR41W31MM
+- notification_reply_to: 1791668175.719849
+- decision_owner: Kimi
+- decision_question: 3천만원 이하 공개 매물을 페이지 순회로 계속 발견하고 사용자의 운영 제약에 맞는 후보를 실제 노션 DB와 반복 실행 경로로 유지할 수 있는가?
+- comparison_axes: 인수 가격·매출·이익·회수기간·운영 부담·기술 의존·검증 가능성
+- next_action: Genie가 기존 Archive 결과와 Context Pack을 확인한 뒤 페이지 순회·노션 DB·반복 모니터링 경로를 검증한다
+- success_criteria: 신규 공개 후보의 직접 링크·재무 수치·운영 부담·사용자 적합성 별점이 노션 DB에 반영되고, 페이지 순회·중복 방지·실패 기록을 포함한 반복 실행 경로와 검증 보고서가 남는다
+- research_scope: 사용자가 제공한 Hada 원문과 Fello·Listing·Sellernet·Flippa·Empire Flippers·Quiet Light·Acquire의 공개 목록; 3천만원 이하; 구매·연락·계약·결제 제외
+- projects: [infinity, personal-ops]
+- task_type: implementation
+- topics: [finance, automation, workflow]
+- raw_request: 사용자는 이 작업이 Infinity에서 실행되어야 하며, 각 사이트의 페이지를 계속 순회해 신규 인수 후보를 찾고 노션 데이터베이스에 정리·유지하기를 요청했다.
 
 ## Active
 
