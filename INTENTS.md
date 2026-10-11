@@ -65,8 +65,6 @@
 - raw_request: 사용자는 이 작업이 Infinity에서 실행되어야 하며, 각 사이트의 페이지를 계속 순회해 신규 인수 후보를 찾고 노션 데이터베이스에 정리·유지하기를 요청했다.
 -->
 
-## Active
-
 ## Archive
 ### [acquisition-cashcow-infinity-monitor-20261011] Infinity 경로에서 인수 후보 페이지 순회·노션 DB·모니터링 실행
 - status: archived
