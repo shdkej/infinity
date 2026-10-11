@@ -58,7 +58,7 @@
     {
       "id": "T3.1",
       "title": "C2 다음 페이지·Fello 상세 후보를 재순회한다",
-      "status": "active",
+      "status": "done",
       "depends_on": [
         "T2.1"
       ],
@@ -124,6 +124,12 @@
       "reason": "C2 completed with zero qualifying candidates while the final deadline remains open",
       "impact": "appended T4.1 as the next evidence-bearing repeat leaf and kept the intent Active",
       "task_ids": ["T4.1"]
+    },
+    {
+      "at": "2026-10-11T12:20:24Z",
+      "reason": "T3.1 max-minute timebox was reported expired although its C2 evidence is complete",
+      "impact": "split follow-on monitoring into bounded 30-minute leaves; recalculated remaining budget as 640 minutes until 2026-10-11T23:00:00Z",
+      "task_ids": ["T3.1", "T5.1"]
     }
   ],
   "metric_question": "마감 전 기존 목록과 중복되지 않는 공개 후보를 추가로 발견해 노션 DB에 유지할 수 있는가?",
