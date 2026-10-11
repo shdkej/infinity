@@ -1,0 +1,121 @@
+{
+  "context_pack_version": 3,
+  "status": "ready",
+  "route": "infinity",
+  "request": "기존 소규모 서비스 인수 후보 조사를 Infinity로 실행한다. 예산 3천만원 이하, 직접 운영 가능한 캐시카우 후보를 사용자가 제공한 Fello·Listing·Sellernet·Flippa·Empire Flippers·Quiet Light·Acquire 목록에서 페이지를 순회해 계속 발굴하고, 후보별 가격·매출·이익·운영 부담·사용자 적합성 별점을 노션 데이터베이스에 기록한다. 공개 매물 조사만 포함하며 구매·연락·계약·결제는 제외한다. 노션 데이터베이스와 반복 모니터링 실행 경로까지 Infinity에서 검증한다.",
+  "built_at": "2026-10-11T07:29:16.366866+00:00",
+  "required_documents": [
+    "/home/ubuntu/workspace/prompt-archive/LLM.md",
+    "README.md",
+    "schema/agent-rules.md",
+    "source/openclaw-system/docs/DOCUMENT_SEARCH_PIPELINE.md",
+    "source/openclaw-system/docs/USER_CONTEXT.md",
+    "source/openclaw-system/docs/SERVICE_REGISTRY.md",
+    "source/openclaw-system/docs/INFINITY_OPERATING_RULES.md",
+    "infinity/ARTIFACT_RULES.md",
+    "infinity/EXECUTION_LEARNING_CONTRACT.md",
+    "infinity/INTENTS.md",
+    "agent-wiki/content/docs/index.mdx"
+  ],
+  "search_scopes": [
+    "agent-wiki/content/docs/",
+    "source/openclaw-system/docs/",
+    "source/openclaw-system/data/daily-reviews/",
+    "source/openclaw-system/data/daily-tracking/",
+    "source/openclaw-system/data/photo-insights/"
+  ],
+  "selected_context": [
+    {
+      "path": "agent-wiki/content/docs/outputs/Idea/Article.mdx",
+      "reason": "zg hybrid discovery; indexed section retained for targeted reading",
+      "verification": "indexed-section",
+      "locator": {
+        "start_line": 319,
+        "end_line": 333,
+        "heading": "후속 정리 기준",
+        "heading_level": "2",
+        "scope": "Article",
+        "excerpt": "## 후속 정리 기준 - `Idea > Article`의 만다라트 위치를 먼저 해석해, 이 페이지를 기사 요약보다 `웹 입력 포착면`으로 다시 세웠다. - 원문 발췌 구조를 보강해 북마크, 감상, 분류 실험, 보존 문제, 철학 질문이 어떤 순서로 이어지는지 더 빠르게 보이게 했다. - 기존의 `북마크 관리` 설명을 `읽은 뒤 상태 전이` 중심으로 다시 눌러 읽어, 도구 비교보다 운영 루프가 핵심이라는 점을 더 선명하게 적었다. - `inbox / read / remind / archive` 표를 추가해, 웹 입력을 저장 개수보다 재진입 조건과 다음 행동으로 관리하는 노드라는 점을 보강했다. - 후반부 역사·노동·허위의식 메모를 주제 이탈로 보지 않고, 웹 입력이 자기 판단 질문으로 번지는 확장층으로 더 분명하게 묶었다. - [[Reading|Idea/Reading]], [[../Meta/Collection|Meta/Collection]], [[../Communication/Blogging|Communication/Blogging]]과의 역할 차이를 짧게 보강해 이 노드의 경계와 연결을 함께 드러냈다. - 23시 실행에서는 `입력 매체별로 남기는 신호`를 추가해, Article이 매체별 보관함이 아니라 포맷 신호·판단 신호·보존 신호·출력 후보를 가볍게 분리하는 웹 입력 처리 노드임을 보강했다. - 07시 실행에서는 후반 역사·사회·허"
+      }
+    },
+    {
+      "path": "agent-wiki/content/docs/outputs/Idea/Information.mdx",
+      "reason": "zg hybrid discovery; indexed section retained for targeted reading",
+      "verification": "indexed-section",
+      "locator": {
+        "start_line": 251,
+        "end_line": 260,
+        "heading": "현재 유지 기준",
+        "heading_level": "2",
+        "scope": "Information",
+        "excerpt": "## 현재 유지 기준 - `Information`은 단순 정보 목록이 아니라 정보의 입력, 발견, 해석, 유통, 책임, 재호출을 함께 보는 Idea 상위 노드로 유지한다. - 원문에 흩어진 기술, 법률, 역사, 사회 메모는 삭제하거나 전문 분야별로 분산하기보다 `정보가 작동하는 조건`을 시험하는 사례군으로 보존한다. - 그래프, 자율주행, 메타포, 평론, 정량·정성 데이터 메모는 정보의 힘이 표현 형식과 프레임에서 커진다는 축으로 읽는다. - 법률·개인정보·데이터 3법·앱스토어·SEO 메모는 정보 자유와 제도/플랫폼 통제의 긴장을 보여 주는 허가면과 책임면으로 읽는다. - TV·YouTube·소셜 네트워크·개인 관심사 메모는 선호를 강화하면서도 세계를 너무 좁히지 않는 정보 식단 설계 문제로 읽는다. - 컨퍼런스 영상, 해시태그, 분류표, 대학수업, 현장 관찰 메모는 저장소가 아니라 나중에 다시 사람 앞에 나타나는 재호출 표면으로 읽는다. - 검사·증거·입증 기준·좋은 판단 메모는 정보량보다 근거 경로, 반대 가능성, 재검토 가능성을 남기는 판단 겸손의 축으로 유지한다. - 후속 심화에서는 새 해석을 계속 덧붙이기보다 `입력 신호 → 발견 표면 → 해석 도구 → 허가와 책임 → 재호출 표면` 흐름에 기존 사례를 배치해 페이지 밀도를 높인다."
+      }
+    },
+    {
+      "path": "agent-wiki/content/docs/outputs/Integration/Marketing.mdx",
+      "reason": "zg hybrid discovery; indexed section retained for targeted reading",
+      "verification": "indexed-section",
+      "locator": {
+        "start_line": 117,
+        "end_line": 259,
+        "heading": "외부/실행 산출물 연결",
+        "heading_level": "2",
+        "scope": "마케팅",
+        "excerpt": "## 외부/실행 산출물 연결 `source/external-links/marketing/2026-06-18-youtube-satur-repeat-purchase-brand.md`는 초기 브랜드 운영을 멋진 세계관 제작보다 상품력, 재구매, 기존 고객 접점, 고객 태그 같은 반복 신호로 보게 한다. Marketing에서는 이를 브랜드 콘텐츠론으로 키우지 않고 `기존 고객 증거` 행에 흡수한다. SmartStore나 작은 제품 후보에서는 광고로 신규 유입을 늘리기 전에 같은 고객이 다시 살 이유, 주변에 드러내고 싶은 언어, 문의·후기·태그가 만드는 자부심 신호를 먼저 봐야 한다.  `source/external-links/marketing/2026-05-26-aeo-agent-ready-research.md`는 AEO/GEO를 검색 순위 해킹이 아니라 AI와 에이전트가 제품을 발견하고, 읽고, 비교할 수 있는 공개 설명면 관리로 좁혀 준다. Marketing에서는 이를 트래픽 확대 과제로 바로 승격하지 않고 `응답 표면`과 `에이전트 유통` 행의 감사 기준으로 흡수한다. Virtue prelaunch에서는 robots, sitemap, llms 후보, 문서 공개 여부보다 먼저 사람이 보아도 에이전트가 보아도 같은 제품 범주, 대상 job, 첫 결과, 한계를 설명하는 내부 문장이 있어야 한다. 따라서 공개 AEO 반영은 승인 이후의 일이"
+      }
+    },
+    {
+      "path": "agent-wiki/content/docs/outputs/Integration/Business.mdx",
+      "reason": "zg hybrid discovery; indexed section retained for targeted reading",
+      "verification": "indexed-section",
+      "locator": {
+        "start_line": 232,
+        "end_line": 249,
+        "heading": "운영 판단판",
+        "heading_level": "2",
+        "scope": "비즈니스",
+        "excerpt": "## 운영 판단판  | 판단 축 | 원문 표식 | 판정 기준 | | --- | --- | --- | | 신용할 수 있는 사람 | 정직함, 일 처리, 좋은 사람, 개발자 능력 | 착함만 보지 말고 문제 정의, 실행, 주변 생산성, 변질 가능성을 함께 본다. | | 개인 문제와 구조 문제 | 신입, 퇴사자, 선임, 착취 가능성 | 불만을 성격 문제로 닫기 전에 개인 역량, 관계 마찰, 온보딩 설계, 조직 착취, 현실 교육을 나눠 본다. | | 성장 경험 | 이직 이유, 신인 선수, 스시 장인, 팀 선택 | 사람을 붙잡는 힘은 보상만이 아니라 더 큰 세계, 좋은 선임, 도약 가능한 경험 구조에서 나온다. | | 창업과 고객 적합성 | 창업 계기, startup, 애자일, 고객 창출 | 내 욕망으로 시작해도 관심, 구매 의사, 피드백, 초기 경험 품질을 통과해야 사업 후보가 된다. | | 수익 후보 승격 | 워크샵/질문카드 철회, 아이템 검증 | 좋은 학습 맥락이 곧 상품 후보는 아니며, 문제 크기·반복 구매성·유통 표면을 통과해야 다음 검증으로 간다. | | 구매 상황 포지셔닝 | 질문카드 포지셔닝, 워크숍 사용 장면 | 붐비는 물건명은 수요 다리로만 쓰고, 구매 이유는 특정 방·작업·다음 행동으로 먼저 설명한다. | | 가격·제한 신뢰 | AI pricing, credit, cap, value unit | 사용량 단위와 제한 문구가 고객"
+      }
+    },
+    {
+      "path": "agent-wiki/content/docs/outputs/blog/Note_Management.mdx",
+      "reason": "zg hybrid discovery; indexed section retained for targeted reading",
+      "verification": "indexed-section",
+      "locator": {
+        "start_line": 43,
+        "end_line": 51,
+        "heading": "원문 발췌 구조",
+        "heading_level": "2",
+        "scope": "Note_Management",
+        "excerpt": "## 원문 발췌 구조 - `노트를 왜 정리해야 하는가`: 메모가 늘어도 예전 기록의 존재 자체를 잊는 문제가 출발점으로 놓인다. - `다른 사람들의 방식`: 클립 무용론, 자동 연결, PARA, 데일리노트, 인상 깊은 기록, 묻어 둔 프로젝트 폴더처럼 `다시 만나게 하는 장치`를 사례별로 수집한다. - `다른 영역에서 참고할 수 있는 방식들`: 물리 노트, WWW, 방송국 아카이브, 도서관 큐레이션까지 끌어와 `양이 많아질수록 존재를 모르게 되는 문제`가 개인 메모만의 문제가 아님을 확인한다. - `내가 노트를 정리하고 있는 방식`: 만다라트, 월간 문서, 날짜별 기록, 카테고리 부착을 현재 운영 프레임으로 설명한다. - `개선해야 할 것`: 만다라트 안에서도 전체 파악이 어렵고, 작은 노트와 링크 중심 구조로 넘어갈지 고민하는 전환 압력이 드러난다. - `노트관리프로그램 비교`: OneNote, Notion, Roam, Obsidian, Google Keep, vimwiki 메모를 앱 추천보다 운영 요구사항 목록으로 남긴다. - `Ideal Note / 마무리`: 검색·스크랩·분류·태그·연결·가벼움·동기화·즉시 캡처·블로그 전환까지, 이상적인 기록 인터페이스의 조건을 다시 압축한다."
+      }
+    }
+  ],
+  "selected_operational_logs": [
+    {
+      "path": "logs/agent-wiki-query.md",
+      "reason": "bounded operational-log preflight; not part of the Agent Wiki index",
+      "verification": "matched",
+      "matches": [
+        "59:- 보류: `source/openclaw-system/docs/LIFE_SYSTEM_WORKFLOW_ARTIFACT.md`는 생활 운영 정본으로 가치가 있지만 기존 `Health/Routine`, `Human/Principle`과 겹치는 부분이 커서 별도 승격을 미뤘습니다.",
+        "68:- 결과: Agent Wiki `concepts/`에는 축약한 현재성 원칙만 남겼다. 검색 계약과 X API 런북은 기존 KL 정본을 사용하며, 버전 트래커 원칙은 `VERSION_TRACKER_OPERATING.md`로 이관했다. 옛 source-mapping 참조는 각 출력 문서의 원본 표식과 주제 지도로 대체했다.",
+        "75:- raw KL: 사용하지 않음. 기존 Agent Wiki 컴파일 문서와 빌드·내비게이션 스크립트만 확인했다."
+      ]
+    }
+  ],
+  "preflight": {
+    "tool": "zg",
+    "query": "기존 소규모 서비스 인수 후보 조사를 Infinity로 실행한다. 예산 3천만원 이하, 직접 운영 가능한 캐시카우 후보를 사용자가 제공한 Fello·Listing·Sellernet·Flippa·Empire Flippers·Quiet Light·Acquire 목록에서 페이지를 순회해 계속 발굴하고, 후보별 가격·매출·이익·운영 부담·사용자 적합성 별점을 노션 데이터베이스에 기록한다. 공개 매물 조사만 포함하며 구매·연락·계약·결제는 제외한다. 노션 데이터베이스와 반복 모니터링 실행 경로까지 Infinity에서 검증한다.",
+    "discovery": "hybrid+fts RRF",
+    "verification": "indexed section locator",
+    "result_count": 5
+  },
+  "selected_context_required": true,
+  "rules": [
+    "Read every required document before creating or executing an intent.",
+    "Read every selected_context locator section first (including its heading and line window); expand to adjacent sections only when needed, and record the exact paths in the execution trace.",
+    "Read only the matched sections of selected_operational_logs; they are operational evidence, not compiled knowledge.",
+    "Search the declared scopes for task-specific evidence; do not treat a search hit as a confirmed fact without its source.",
+    "Record the resulting context pack path in the intent and re-check it before handoff."
+  ]
+}

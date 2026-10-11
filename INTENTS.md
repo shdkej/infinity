@@ -4,7 +4,7 @@
 
 ## Inbox
 ### [acquisition-cashcow-infinity-monitor-20261011] Infinity 경로에서 인수 후보 페이지 순회·노션 DB·모니터링 실행
-- status: inbox
+- status: active
 - research_mode: decision_research
 - target_agent: genie
 - execution_mode: multi_subagent_roles
