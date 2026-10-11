@@ -8,11 +8,21 @@ archive:
   summary: '`marketing-87` 4분류를 유지한 체 pass-vs-hold 비교용 보조 문서 1장을 추가해, `judged but
     not saved`를 자동 실패로 읽지 않고 양쪽 세션에 반복되는 마산만 다음 수정 후보로 올리는 규칙을 고정했다. HTML report gate
     passed.'
+  title: '`marketing-87` 4분류를 유지한 체 pass-vs-hold 비교용 보조 문서 1장을 추가해, `judged but not
+    saved`를 자동 실패로 읽지 않고 양쪽 세션에 반복되는 마산만 다음 수정 후보로 올리는 규칙을 고정했다. HTML report gate
+    passed.'
+  task_name: '`marketing-87` 4분류를 유지한 체 pass-vs-hold 비교용 보조 문서 1장을 추가해, `judged but
+    not saved`를 자동 실패로 읽지 않고 양쪽 세션에 반복되는 마산만 다음 수정 후보로 올리는 규칙을 고정했다. HTML report gate
+    passed.'
 - id: marketing-93
   status: archived
   completed_at: '2026-06-29'
   detail: https://github.com/shdkej/knowledge-lab/blob/main/archive/infinity/marketing-93.md
   summary: 현재 홈･`/add`･반환 표면 언어를 J1~J4 기준으로 판독해, 지금 가장 잘 맞는 행복한 첫 사용자는 J1 기록형 중심이고
+    J2 누적형이 보조라는 기준표를 고정했다. HTML report gate passed.
+  title: 현재 홈･`/add`･반환 표면 언어를 J1~J4 기준으로 판독해, 지금 가장 잘 맞는 행복한 첫 사용자는 J1 기록형 중심이고 J2
+    누적형이 보조라는 기준표를 고정했다. HTML report gate passed.
+  task_name: 현재 홈･`/add`･반환 표면 언어를 J1~J4 기준으로 판독해, 지금 가장 잘 맞는 행복한 첫 사용자는 J1 기록형 중심이고
     J2 누적형이 보조라는 기준표를 고정했다. HTML report gate passed.
 - id: marketing-92
   status: archived
@@ -20,27 +30,43 @@ archive:
   detail: https://github.com/shdkej/knowledge-lab/blob/main/archive/infinity/marketing-92.md
   summary: 홈 최근 덕행 empty-state를 `stats.count`와 `recent.length`로 분리해 복귀 사용자의 first-visit
     카피 재노출을 막고, typecheck 통과･기존 lint warning만 확인했다.
+  title: 홈 최근 덕행 empty-state를 `stats.count`와 `recent.length`로 분리해 복귀 사용자의 first-visit
+    카피 재노출을 막고, typecheck 통과･기존 lint warning만 확인했다.
+  task_name: 홈 최근 덕행 empty-state를 `stats.count`와 `recent.length`로 분리해 복귀 사용자의 first-visit
+    카피 재노출을 막고, typecheck 통과･기존 lint warning만 확인했다.
 - id: research-24
   status: archived
   completed_at: '2026-06-29'
   detail: https://github.com/shdkej/knowledge-lab/blob/main/archive/infinity/research-24.md
   summary: capture･claim･open_loop 3필드 경계를 "있었던 것 / 내린 것 / 모르는 것"으로 고정하고 회고･Threads･카드뉴스
     산출물 연결 규칙을 1장으로 정리했다.
+  title: capture･claim･open_loop 3필드 경계를 "있었던 것 / 내린 것 / 모르는 것"으로 고정하고 회고･Threads･카드뉴스
+    산출물 연결 규칙을 1장으로 정리했다.
+  task_name: capture･claim･open_loop 3필드 경계를 "있었던 것 / 내린 것 / 모르는 것"으로 고정하고 회고･Threads･카드뉴스
+    산출물 연결 규칙을 1장으로 정리했다.
 - id: marketing-91
   status: archived
   completed_at: '2026-06-28'
   detail: https://github.com/shdkej/knowledge-lab/blob/main/archive/infinity/marketing-91.md
   summary: 기존 이벤트 조합과 홈 반환 사례를 `정상 진행 / 자연 종료 / 마산 / 상태 모순` 4개 상태 언어로 고정했다.
+  title: 기존 이벤트 조합과 홈 반환 사례를 `정상 진행 / 자연 종료 / 마산 / 상태 모순` 4개 상태 언어로 고정했다.
+  task_name: 기존 이벤트 조합과 홈 반환 사례를 `정상 진행 / 자연 종료 / 마산 / 상태 모순` 4개 상태 언어로 고정했다.
 - id: marketing-90
   status: archived
   completed_at: '2026-06-28'
   detail: https://github.com/shdkej/knowledge-lab/blob/main/archive/infinity/marketing-90.md
   summary: Virtue 첫 세션을 진입 약속, 입력 기대, 반환 일관성의 3게이트로 압쳐욕다. HTML report gate passed.
+  title: Virtue 첫 세션을 진입 약속, 입력 기대, 반환 일관성의 3게이트로 압쳐욕다. HTML report gate passed.
+  task_name: Virtue 첫 세션을 진입 약속, 입력 기대, 반환 일관성의 3게이트로 압쳐욕다. HTML report gate passed.
 - id: marketing-89
   status: archived
   completed_at: '2026-06-27'
   detail: https://github.com/shdkej/knowledge-lab/blob/main/archive/infinity/marketing-89.md
   summary: 홈 반환 상태에서 `stats.total`, `stats.count`, `recent.length`의 계약과 empty-state
+    허용/금지 조건을 1장으로 고정했다.
+  title: 홈 반환 상태에서 `stats.total`, `stats.count`, `recent.length`의 계약과 empty-state
+    허용/금지 조건을 1장으로 고정했다.
+  task_name: 홈 반환 상태에서 `stats.total`, `stats.count`, `recent.length`의 계약과 empty-state
     허용/금지 조건을 1장으로 고정했다.
 - id: marketing-88
   status: archived
@@ -48,11 +74,19 @@ archive:
   detail: https://github.com/shdkej/knowledge-lab/blob/main/archive/infinity/marketing-88.md
   summary: 라이브 홈, 로컈 홈 코드, 최근 canonical 제안서를 대조해 반환 세션 state drift를 한 장으로 정리했다. HTML
     report gate passed.
+  title: 라이브 홈, 로컈 홈 코드, 최근 canonical 제안서를 대조해 반환 세션 state drift를 한 장으로 정리했다. HTML
+    report gate passed.
+  task_name: 라이브 홈, 로컈 홈 코드, 최근 canonical 제안서를 대조해 반환 세션 state drift를 한 장으로 정리했다.
+    HTML report gate passed.
 - id: marketing-87
   status: archived
   completed_at: '2026-06-26'
   detail: https://github.com/shdkej/knowledge-lab/blob/main/archive/infinity/marketing-87.md
   summary: 기존 `/add` 이벤트와 replay 관찰 질문을 묶어 첫 10~15세션을 공통 UX 마산, J3 자연 종료, 조용한 실패,
+    다음 행동 불명확의 4분류로 읽는 1장 판독표 완성. HTML report gate passed.
+  title: 기존 `/add` 이벤트와 replay 관찰 질문을 묶어 첫 10~15세션을 공통 UX 마산, J3 자연 종료, 조용한 실패, 다음
+    행동 불명확의 4분류로 읽는 1장 판독표 완성. HTML report gate passed.
+  task_name: 기존 `/add` 이벤트와 replay 관찰 질문을 묶어 첫 10~15세션을 공통 UX 마산, J3 자연 종료, 조용한 실패,
     다음 행동 불명확의 4분류로 읽는 1장 판독표 완성. HTML report gate passed.
 - id: marketing-86
   status: archived
@@ -60,170 +94,246 @@ archive:
   detail: https://github.com/shdkej/knowledge-lab/blob/main/archive/infinity/marketing-86.md
   summary: J1/J2/J4는 홈 최근 덕행, J3는 결과 카드를 primary surface로 삼는 next action helper proposal
     완료
+  title: J1/J2/J4는 홈 최근 덕행, J3는 결과 카드를 primary surface로 삼는 next action helper proposal
+    완료
+  task_name: J1/J2/J4는 홈 최근 덕행, J3는 결과 카드를 primary surface로 삼는 next action helper
+    proposal 완료
 - id: marketing-85
   status: archived
   completed_at: '2026-06-25'
   detail: https://github.com/shdkej/knowledge-lab/blob/main/archive/infinity/marketing-85.md
   summary: 첫 10명 활성화 1장 관찰표 `다음 행동 명료성` 질문 보강 완료. HTML report gate passed.
+  title: 첫 10명 활성화 1장 관찰표 `다음 행동 명료성` 질문 보강 완료. HTML report gate passed.
+  task_name: 첫 10명 활성화 1장 관찰표 `다음 행동 명료성` 질문 보강 완료. HTML report gate passed.
 - id: marketing-84
   status: archived
   completed_at: '2026-06-25'
   detail: https://github.com/shdkej/knowledge-lab/blob/main/archive/infinity/marketing-84.md
   summary: 첫 가치 다음의 next-step bridge 감사표/제안서 완료. HTML report gate passed.
+  title: 첫 가치 다음의 next-step bridge 감사표/제안서 완료. HTML report gate passed.
+  task_name: 첫 가치 다음의 next-step bridge 감사표/제안서 완료. HTML report gate passed.
 - id: research-21
   status: archived
   completed_at: '2026-06-25'
   detail: https://github.com/shdkej/knowledge-lab/blob/main/archive/infinity/research-21.md
   summary: 6개 사례를 기록 방식･정리 방식･검증 방식･출판 변환 방식으로 비교해, Infinity용 일일 3줄･주간 3묶음･월간 1산출물
     루프를 제안했다. HTML report gate passed.
+  title: 6개 사례를 기록 방식･정리 방식･검증 방식･출판 변환 방식으로 비교해, Infinity용 일일 3줄･주간 3묶음･월간 1산출물 루프를
+    제안했다. HTML report gate passed.
+  task_name: 6개 사례를 기록 방식･정리 방식･검증 방식･출판 변환 방식으로 비교해, Infinity용 일일 3줄･주간 3묶음･월간 1산출물
+    루프를 제안했다. HTML report gate passed.
 - id: marketing-82
   status: archived
   completed_at: '2026-06-24'
   detail: https://github.com/shdkej/knowledge-lab/blob/main/archive/infinity/marketing-82.md
   summary: Virtue 홈 첫 방문 zero-state를 랜딩형으로 재구성해 첫 가치와 다음 행동을 같은 화면에서 바로 읽히게 했다.
+  title: Virtue 홈 첫 방문 zero-state를 랜딩형으로 재구성해 첫 가치와 다음 행동을 같은 화면에서 바로 읽히게 했다.
+  task_name: Virtue 홈 첫 방문 zero-state를 랜딩형으로 재구성해 첫 가치와 다음 행동을 같은 화면에서 바로 읽히게 했다.
 - id: marketing-83
   status: archived
   completed_at: '2026-06-24'
   detail: https://github.com/shdkej/knowledge-lab/blob/main/archive/infinity/marketing-83.md
   summary: 홈 반환형 empty-state gating 정렬 제안서 완료. HTML report gate passed.
+  title: 홈 반환형 empty-state gating 정렬 제안서 완료. HTML report gate passed.
+  task_name: 홈 반환형 empty-state gating 정렬 제안서 완료. HTML report gate passed.
 - id: research-23
   status: archived
   completed_at: '2026-06-24'
   detail: https://github.com/shdkej/knowledge-lab/blob/main/archive/infinity/research-23.md
   summary: 미군 TTP 학습 루프 심화 완료. HTML report gate passed.
+  title: 미군 TTP 학습 루프 심화 완료. HTML report gate passed.
+  task_name: 미군 TTP 학습 루프 심화 완료. HTML report gate passed.
 - id: marketing-81
   status: archived
   completed_at: '2026-06-24'
   detail: https://github.com/shdkej/knowledge-lab/blob/main/archive/infinity/marketing-81.md
   summary: 첫 저장/첫 판단 뒤 홈 복귀 secondary onboarding 감사표 완료. HTML report gate passed.
+  title: 첫 저장/첫 판단 뒤 홈 복귀 secondary onboarding 감사표 완료. HTML report gate passed.
+  task_name: 첫 저장/첫 판단 뒤 홈 복귀 secondary onboarding 감사표 완료. HTML report gate passed.
 - id: research-22
   status: archived
   completed_at: '2026-06-24'
   detail: https://github.com/shdkej/knowledge-lab/blob/main/archive/infinity/research-22.md
   summary: 6단계 운영표･도구 비교･현실 루프 완료. HTML report gate passed.
+  title: 6단계 운영표･도구 비교･현실 루프 완료. HTML report gate passed.
+  task_name: 6단계 운영표･도구 비교･현실 루프 완료. HTML report gate passed.
 - id: build-13
   status: archived
   completed_at: '2026-06-24'
   detail: https://github.com/shdkej/knowledge-lab/blob/main/archive/infinity/build-13.md
   summary: 로컬 shdkej/afzma read-only 검증 완료. HTML report gate passed.
+  title: 로컬 shdkej/afzma read-only 검증 완료. HTML report gate passed.
+  task_name: 로컬 shdkej/afzma read-only 검증 완료. HTML report gate passed.
 - id: marketing-80
   status: archived
   completed_at: '2026-06-23'
   detail: https://github.com/shdkej/knowledge-lab/blob/main/archive/infinity/marketing-80.md
   summary: 홈 요약 카드･`최근 덕행`･`/add` 결과･저장 후 복귀 지점을 J1-J4 기준으로 감사표로 정리. HTML report gate
     passed.
+  title: 홈 요약 카드･`최근 덕행`･`/add` 결과･저장 후 복귀 지점을 J1-J4 기준으로 감사표로 정리. HTML report gate
+    passed.
+  task_name: 홈 요약 카드･`최근 덕행`･`/add` 결과･저장 후 복귀 지점을 J1-J4 기준으로 감사표로 정리. HTML report
+    gate passed.
 - id: marketing-79
   status: archived
   completed_at: '2026-06-23'
   detail: https://github.com/shdkej/knowledge-lab/blob/main/archive/infinity/marketing-79.md
   summary: 첫 10명 활성화 1장 관찰표 초안 완성. HTML report gate passed.
+  title: 첫 10명 활성화 1장 관찰표 초안 완성. HTML report gate passed.
+  task_name: 첫 10명 활성화 1장 관찰표 초안 완성. HTML report gate passed.
 - id: marketing-78
   status: archived
   completed_at: '2026-06-22'
   detail: https://github.com/shdkej/knowledge-lab/blob/main/archive/infinity/marketing-78.md
   summary: 홈 `최근 덕행` empty state 3요소 비교 완료. HTML report gate passed.
+  title: 홈 `최근 덕행` empty state 3요소 비교 완료. HTML report gate passed.
+  task_name: 홈 `최근 덕행` empty state 3요소 비교 완료. HTML report gate passed.
 - id: marketing-77
   status: archived
   completed_at: '2026-06-22'
   detail: https://github.com/shdkej/knowledge-lab/blob/main/archive/infinity/marketing-77.md
   summary: '`/add` 기대 브리지 1줄 + 결과 카드 footer 안내 1줄 구현 완료.'
+  title: '`/add` 기대 브리지 1줄 + 결과 카드 footer 안내 1줄 구현 완료.'
+  task_name: '`/add` 기대 브리지 1줄 + 결과 카드 footer 안내 1줄 구현 완료.'
 - id: marketing-76
   status: archived
   completed_at: '2026-06-22'
   detail: https://github.com/shdkej/knowledge-lab/blob/main/archive/infinity/marketing-76.md
   summary: '`/add`･결과 카드･홈 empty state 맥락형 안내 감사표 완료. HTML report gate passed.'
+  title: '`/add`･결과 카드･홈 empty state 맥락형 안내 감사표 완료. HTML report gate passed.'
+  task_name: '`/add`･결과 카드･홈 empty state 맥락형 안내 감사표 완료. HTML report gate passed.'
 - id: marketing-75
   status: archived
   completed_at: '2026-06-22'
   detail: https://github.com/shdkej/knowledge-lab/blob/main/archive/infinity/marketing-75.md
   summary: Tier 1-4 변경 등급표와 권장 안내 표면 맵 완료. HTML report gate passed.
+  title: Tier 1-4 변경 등급표와 권장 안내 표면 맵 완료. HTML report gate passed.
+  task_name: Tier 1-4 변경 등급표와 권장 안내 표면 맵 완료. HTML report gate passed.
 - id: marketing-74
   status: archived
   completed_at: '2026-06-22'
   detail: https://github.com/shdkej/knowledge-lab/blob/main/archive/infinity/marketing-74.md
   summary: /add 입력 전 기대 형성 3안 비교 완료. HTML report gate passed.
+  title: /add 입력 전 기대 형성 3안 비교 완료. HTML report gate passed.
+  task_name: /add 입력 전 기대 형성 3안 비교 완료. HTML report gate passed.
 - id: research-20
   status: archived
   completed_at: '2026-06-21'
   detail: https://github.com/shdkej/knowledge-lab/blob/main/archive/infinity/research-20.md
   summary: 강의/교육 퍼널 제외 국내 1인 브랜드 10선 재조사 완료. HTML report gate passed.
+  title: 강의/교육 퍼널 제외 국내 1인 브랜드 10선 재조사 완료. HTML report gate passed.
+  task_name: 강의/교육 퍼널 제외 국내 1인 브랜드 10선 재조사 완료. HTML report gate passed.
 - id: research-19
   status: archived
   completed_at: '2026-06-21'
   detail: https://github.com/shdkej/knowledge-lab/blob/main/archive/infinity/research-19.md
   summary: 드로우앤드류･자청 제외 국내 1인 브랜드 10선 분석 완료. HTML report gate passed.
+  title: 드로우앤드류･자청 제외 국내 1인 브랜드 10선 분석 완료. HTML report gate passed.
+  task_name: 드로우앤드류･자청 제외 국내 1인 브랜드 10선 분석 완료. HTML report gate passed.
 - id: marketing-73
   status: archived
   completed_at: '2026-06-21'
   detail: https://github.com/shdkej/knowledge-lab/blob/main/archive/infinity/marketing-73.md
   summary: J3 AI 브리지 3안 비교 완료. HTML report gate passed.
+  title: J3 AI 브리지 3안 비교 완료. HTML report gate passed.
+  task_name: J3 AI 브리지 3안 비교 완료. HTML report gate passed.
 - id: marketing-72
   status: archived
   completed_at: '2026-06-20'
   detail: https://github.com/shdkej/knowledge-lab/blob/main/archive/infinity/marketing-72.md
   summary: HTML report gate passed.
+  title: HTML report gate passed.
+  task_name: HTML report gate passed.
 - id: research-18
   status: archived
   completed_at: '2026-06-20'
   detail: https://github.com/shdkej/knowledge-lab/blob/main/archive/infinity/research-18.md
   summary: HTML report gate passed.
+  title: HTML report gate passed.
+  task_name: HTML report gate passed.
 - id: marketing-71
   status: archived
   completed_at: '2026-06-20'
   detail: https://github.com/shdkej/knowledge-lab/blob/main/archive/infinity/marketing-71.md
   summary: HTML report gate passed.
+  title: HTML report gate passed.
+  task_name: HTML report gate passed.
 - id: research-17
   status: archived
   completed_at: '2026-06-20'
   detail: https://github.com/shdkej/knowledge-lab/blob/main/archive/infinity/research-17.md
   summary: HTML report gate passed.
+  title: HTML report gate passed.
+  task_name: HTML report gate passed.
 - id: marketing-70
   status: archived
   completed_at: '2026-06-19'
   detail: https://github.com/shdkej/knowledge-lab/blob/main/archive/infinity/marketing-70.md
   summary: HTML report gate passed.
+  title: HTML report gate passed.
+  task_name: HTML report gate passed.
 - id: marketing-69
   status: archived
   completed_at: '2026-06-19'
   detail: https://github.com/shdkej/knowledge-lab/blob/main/archive/infinity/marketing-69.md
   summary: HTML report gate passed.
+  title: HTML report gate passed.
+  task_name: HTML report gate passed.
 - id: marketing-68
   status: archived
   completed_at: '2026-06-19'
   detail: https://github.com/shdkej/knowledge-lab/blob/main/archive/infinity/marketing-68.md
   summary: HTML report gate passed.
+  title: HTML report gate passed.
+  task_name: HTML report gate passed.
 - id: marketing-67
   status: archived
   completed_at: '2026-06-18'
   detail: https://github.com/shdkej/knowledge-lab/blob/main/archive/infinity/marketing-67.md
   summary: HTML report gate 통과.
+  title: HTML report gate 통과.
+  task_name: HTML report gate 통과.
 - id: build-12
   status: archived
   completed_at: '2026-06-18'
   detail: https://github.com/shdkej/knowledge-lab/blob/main/archive/infinity/build-12.md
   summary: Option D pre-rendered+CSS parallax 구현 완료.
+  title: Option D pre-rendered+CSS parallax 구현 완료.
+  task_name: Option D pre-rendered+CSS parallax 구현 완료.
 - id: research-16
   status: archived
   completed_at: '2026-06-18'
   detail: https://github.com/shdkej/knowledge-lab/blob/main/archive/infinity/research-16.md
   summary: SAM YouTube parse 기반 CharacterStage 구현 옵션 재비교 완료.
+  title: SAM YouTube parse 기반 CharacterStage 구현 옵션 재비교 완료.
+  task_name: SAM YouTube parse 기반 CharacterStage 구현 옵션 재비교 완료.
 - id: research-15
   status: archived
   completed_at: '2026-06-18'
   detail: https://github.com/shdkej/knowledge-lab/blob/main/archive/infinity/research-15.md
+  title: research-15
+  task_name: research-15
 - id: marketing-66
   status: archived
   completed_at: '2026-06-17'
   detail: https://github.com/shdkej/knowledge-lab/blob/main/archive/infinity/marketing-66.md
+  title: marketing-66
+  task_name: marketing-66
 - id: marketing-65
   status: archived
   completed_at: '2026-06-17'
   detail: https://github.com/shdkej/knowledge-lab/blob/main/archive/infinity/marketing-65.md
+  title: marketing-65
+  task_name: marketing-65
 - id: marketing-64
   status: archived
   completed_at: '2026-06-17'
   detail: https://github.com/shdkej/knowledge-lab/blob/main/archive/infinity/marketing-64.md
+  title: marketing-64
+  task_name: marketing-64
 - id: build-11
   status: archived
   completed_at: '2026-06-16'
   detail: https://github.com/shdkej/knowledge-lab/blob/main/archive/infinity/build-11.md
+  title: build-11
+  task_name: build-11

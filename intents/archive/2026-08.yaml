@@ -5,95 +5,143 @@ archive:
   status: archived
   completed_at: '2026-08-31'
   detail: intents/archive/marketing-123.md
+  title: marketing-123 — 토스 쉐어링크 Threads 테스트 후속 실행
+  task_name: marketing-123 — 토스 쉐어링크 Threads 테스트 후속 실행
 - id: marketing-127
   status: archived
   completed_at: '2026-08-22'
   detail: https://github.com/shdkej/knowledge-lab/blob/main/archive/infinity/marketing-127.md
+  title: marketing-127
+  task_name: marketing-127
 - id: research-37
   status: archived
   completed_at: '2026-08-30'
   detail: intents/archive/research-37.md
+  title: research-37 여행 YouTube 4개 채널 제목 비교 조사
+  task_name: research-37 여행 YouTube 4개 채널 제목 비교 조사
 - id: marketing-129
   status: archived
   completed_at: '2026-08-29'
   detail: source/infinity/archive/marketing-129.md
   summary: 내부 검토용 1080×1350 여행 기록 첫 장 v2와 실제 렌더 Red PASS
+  title: 내부 검토용 1080×1350 여행 기록 첫 장 v2와 실제 렌더 Red PASS
+  task_name: 내부 검토용 1080×1350 여행 기록 첫 장 v2와 실제 렌더 Red PASS
 - id: design-05
   status: archived
   completed_at: '2026-08-27'
   detail: intents/archive/design-05.md
+  title: design-05 — 이집트 여행 브이로그용 세로 영수증 B-roll 오버레이
+  task_name: design-05 — 이집트 여행 브이로그용 세로 영수증 B-roll 오버레이
 - id: research-35
   status: archived
   completed_at: '2026-08-26'
   detail: intents/archive/research-35.md
+  title: research-35 한국 사업자 앱·웹 디지털 결제수단 조사
+  task_name: research-35 한국 사업자 앱·웹 디지털 결제수단 조사
 - id: research-34
   status: archived
   completed_at: '2026-08-24'
   detail: intents/archive/research-34.md
+  title: research-34
+  task_name: research-34
 - id: research-33
   status: archived
   completed_at: '2026-08-24'
   detail: intents/archive/research-33.md
+  title: research-33
+  task_name: research-33
 - id: research-31
   status: archived
   completed_at: '2026-08-23'
   detail: artifacts/research-31/
+  title: research-31
+  task_name: research-31
 - id: design-04
   status: archived
   completed_at: '2026-08-23'
   detail: artifacts/design-04/
   summary: 왼쪽 선 요소 제거·차콜/흑연 톤 완화 수정본 생성 및 렌더 검증. 공개 게시·외부 발송 없음.
+  title: 왼쪽 선 요소 제거·차콜/흑연 톤 완화 수정본 생성 및 렌더 검증. 공개 게시·외부 발송 없음.
+  task_name: 왼쪽 선 요소 제거·차콜/흑연 톤 완화 수정본 생성 및 렌더 검증. 공개 게시·외부 발송 없음.
 - id: research-29
   status: archived
   completed_at: '2026-08-22'
   detail: E1
+  title: research-29
+  task_name: research-29
 - id: marketing-128
   status: archived
   completed_at: '2026-08-21'
   detail: https://github.com/shdkej/knowledge-lab/blob/main/archive/infinity/marketing-128.md
+  title: marketing-128
+  task_name: marketing-128
 - id: ops-26
   status: archived
   completed_at: '2026-08-21'
   detail: https://github.com/shdkej/knowledge-lab/blob/main/archive/infinity/ops-26.md
   summary: 모든 비단순 산출물 Intent에 지표 질문 계약과 전용 검사를 적용
+  title: 모든 비단순 산출물 Intent에 지표 질문 계약과 전용 검사를 적용
+  task_name: 모든 비단순 산출물 Intent에 지표 질문 계약과 전용 검사를 적용
 - id: research-28
   status: archived
   completed_at: '2026-08-20'
   detail: https://github.com/shdkej/knowledge-lab/blob/main/archive/infinity/research-28.md
   summary: Andrej Karpathy autoresearch를 Infinity에 접목하는 운영·실험 구조 설계
+  title: Andrej Karpathy autoresearch를 Infinity에 접목하는 운영·실험 구조 설계
+  task_name: Andrej Karpathy autoresearch를 Infinity에 접목하는 운영·실험 구조 설계
 - id: marketing-126
   status: archived
   completed_at: '2026-08-20'
   detail: https://github.com/shdkej/knowledge-lab/blob/main/archive/infinity/marketing-126.md
   summary: marketing-125를 직접 렌더 검수한 뒤 루프가 메시지를 충분히 설명하지 못한다고 판단해 한 번 더 재작업. 3분할 닫힌
     루프와 가설/실행/증거 라벨, 실제 행동 중심 카피로 개선. 공개 게시·프로필 변경·외부 업로드 없음.
+  title: marketing-125를 직접 렌더 검수한 뒤 루프가 메시지를 충분히 설명하지 못한다고 판단해 한 번 더 재작업. 3분할 닫힌 루프와
+    가설/실행/증거 라벨, 실제 행동 중심 카피로 개선. 공개 게시·프로필 변경·외부 업로드 없음.
+  task_name: marketing-125를 직접 렌더 검수한 뒤 루프가 메시지를 충분히 설명하지 못한다고 판단해 한 번 더 재작업. 3분할
+    닫힌 루프와 가설/실행/증거 라벨, 실제 행동 중심 카피로 개선. 공개 게시·프로필 변경·외부 업로드 없음.
 - id: marketing-125
   status: archived
   completed_at: '2026-08-20'
   detail: https://github.com/shdkej/knowledge-lab/blob/main/archive/infinity/marketing-125.md
   summary: marketing-124 실패를 반영한 신규 파라미터 기반 SVG/PNG 3장과 소개글 후보. 실제 PNG 직접 시각 검수 통과.
     공개 게시·프로필 변경·외부 업로드 없음.
+  title: marketing-124 실패를 반영한 신규 파라미터 기반 SVG/PNG 3장과 소개글 후보. 실제 PNG 직접 시각 검수 통과.
+    공개 게시·프로필 변경·외부 업로드 없음.
+  task_name: marketing-124 실패를 반영한 신규 파라미터 기반 SVG/PNG 3장과 소개글 후보. 실제 PNG 직접 시각 검수
+    통과. 공개 게시·프로필 변경·외부 업로드 없음.
 - id: marketing-124
   status: archived
   completed_at: '2026-08-20'
   detail: artifacts/marketing-124/
   summary: 초기 소개글 후보와 흰 배경·검정 순환 원 3장 SVG/PNG는 보존하지만 최종 사용 금지. 원형성·3분할·화살표 접선·카피 품질
     검증 실패. 공개 게시·프로필 변경·외부 업로드 없음.
+  title: 초기 소개글 후보와 흰 배경·검정 순환 원 3장 SVG/PNG는 보존하지만 최종 사용 금지. 원형성·3분할·화살표 접선·카피 품질
+    검증 실패. 공개 게시·프로필 변경·외부 업로드 없음.
+  task_name: 초기 소개글 후보와 흰 배경·검정 순환 원 3장 SVG/PNG는 보존하지만 최종 사용 금지. 원형성·3분할·화살표 접선·카피
+    품질 검증 실패. 공개 게시·프로필 변경·외부 업로드 없음.
 - id: marketing-122
   status: archived
   completed_at: '2026-08-16'
   detail: https://github.com/shdkej/knowledge-lab/blob/main/archive/infinity/marketing-122.md
   summary: 공식 Sharelink 조건과 공개 Threads 사례 6개를 보강해 내부 실행 가이드 완료. 공개 발행·로그인·가입·계정 연결·광고·DM·댓글은
     실행하지 않았고, 실제 게시 전 사용자 승인과 계정 화면 self-check 필요.
+  title: 공식 Sharelink 조건과 공개 Threads 사례 6개를 보강해 내부 실행 가이드 완료. 공개 발행·로그인·가입·계정 연결·광고·DM·댓글은
+    실행하지 않았고, 실제 게시 전 사용자 승인과 계정 화면 self-check 필요.
+  task_name: 공식 Sharelink 조건과 공개 Threads 사례 6개를 보강해 내부 실행 가이드 완료. 공개 발행·로그인·가입·계정
+    연결·광고·DM·댓글은 실행하지 않았고, 실제 게시 전 사용자 승인과 계정 화면 self-check 필요.
 - id: research-27
   status: archived
   completed_at: '2026-08-16'
   detail: artifacts/research-27/digital-travel-scrapbook-market-research.md
+  title: 디지털 여행 스크랩북 시장 조사
+  task_name: 디지털 여행 스크랩북 시장 조사
 - id: research-26
   status: archived
   completed_at: '2026-08-14'
   detail: artifacts/research-26/digital-organizer-market-research.md
   summary: 디지털 오거나이저 시장성은 중간. 연동 없는 시각적 디지털 서랍 MVP로 좁혀 2주 검증을 권장.
+  title: research-26 — 디지털 오거나이저 시장성 조사
+  task_name: research-26 — 디지털 오거나이저 시장성 조사
 - id: ops-24
   status: archived
   completed_at: '2026-08-10'
@@ -101,6 +149,8 @@ archive:
   summary: '6개 daily-tracking pointer와 runtime canonical cron payload를 재검증하고 card-news
     provenance 전용 검사 명령을 추가. detached clean checkout provenance PASS, Red red_status:
     pass: reports/ops-24/20260810T1548Z-red.html.'
+  title: ops-24 실행 기록
+  task_name: ops-24 실행 기록
 - id: ops-25
   status: archived
   completed_at: '2026-08-10'
@@ -108,6 +158,8 @@ archive:
   summary: '완료·감사 report의 실행 가능한 후속 조치를 근거·완료 기준·중복 방지·승인 경계와 함께 별도 Inbox intent로
     보존하는 계약을 INFINITY_OPERATING_RULES와 heartbeat workflow에 반영. follow_up_intent_ids/report
     미생성 사유와 lane 재검증을 필수화. Red red_status: pass, Red report: reports/ops-25/20260810T0453Z-red.html.'
+  title: ops-25 후속 intent 자동 등록 계약
+  task_name: ops-25 후속 intent 자동 등록 계약
 - id: ops-23
   status: archived
   completed_at: '2026-08-09'
@@ -116,6 +168,8 @@ archive:
     meaningful daily-tracking pointer 누락, migrated cron 22개 중 legacy path 10개, ignored
     asset provenance 재현성 위험과 dispatcher snapshot 관측성 공백을 후속 조치로 기록. Planner·Developer·Marketer·Operator
     판단과 Red red_status: pass 포함.'
+  title: ops-23 KL ingest/source migration audit
+  task_name: ops-23 KL ingest/source migration audit
 - id: research-25
   status: archived
   completed_at: '2026-08-09'
@@ -123,12 +177,16 @@ archive:
   summary: 국내외 생활용품·뷰티·출판·라이프스타일 7개 사례를 공식 자료와 Knowledge Lab 기준으로 비교하고, Sam Samuel
     적용 원칙 10개와 quiet-start 프로토타입 다음 액션을 정리. Planner·Developer·Marketer·Operator 독립
     판단 기록, Red pass.
+  title: 미니멀·내향·조용·천천히 감성 브랜드 리서치
+  task_name: 미니멀·내향·조용·천천히 감성 브랜드 리서치
 - id: marketing-121
   status: archived
   completed_at: '2026-08-09'
   detail: artifacts/marketing-121/instagram-hooks-100.md
   summary: 한국어 훅 100개를 10개 패턴으로 정리. 공개 한국어 자료 기반 골격과 Sam 변형을 분리하고, Red second pass
     PASS 및 정적 검증을 반영.
+  title: 한국 인스타그램 훅킹 문구 100개
+  task_name: 한국 인스타그램 훅킹 문구 100개
 - id: build-17
   status: archived
   completed_at: '2026-08-09'
@@ -136,17 +194,31 @@ archive:
   summary: Spatial Type 텍스트 우선 표면으로 개편. 대상 commit 41f02b1 push, GitHub Actions run
     31334185017 성공, https://status.aws.shdkej.com/ HTTP 200 및 라이브 CSS/데이터 계약 확인. Red
     pass.
+  title: Spatial Type 텍스트 우선 표면으로 개편. 대상 commit 41f02b1 push, GitHub Actions run 31334185017
+    성공, https://status.aws.shdkej.com/ HTTP 200 및 라이브 CSS/데이터 계약 확인. Red pass.
+  task_name: Spatial Type 텍스트 우선 표면으로 개편. 대상 commit 41f02b1 push, GitHub Actions run
+    31334185017 성공, https://status.aws.shdkej.com/ HTTP 200 및 라이브 CSS/데이터 계약 확인. Red
+    pass.
 - id: build-16
   status: archived
   completed_at: '2026-08-07'
   detail: https://github.com/shdkej/knowledge-lab/blob/main/archive/infinity/build-16.md
   summary: 현재 정식 대시보드는 `https://infinity.aws.shdkej.com/`이며, 과거 GitHub Pages 배포는 폐기됨.
+  title: 현재 정식 대시보드는 `https://infinity.aws.shdkej.com/`이며, 과거 GitHub Pages 배포는 폐기됨.
+  task_name: 현재 정식 대시보드는 `https://infinity.aws.shdkej.com/`이며, 과거 GitHub Pages 배포는
+    폐기됨.
 - id: build-15
   status: archived
   completed_at: '2026-08-07'
+  title: build-15
+  task_name: build-15
 - id: marketing-120
   status: archived
   completed_at: '2026-08-02'
   detail: https://github.com/shdkej/knowledge-lab/blob/main/archive/infinity/marketing-120.md
   summary: 사용자 요청으로 Waiting 항목을 정리했다. 실제 Threads 원자료가 없어 분석 결론은 내리지 않았고 기존 preflight/report는
+    무효로 보존.
+  title: 사용자 요청으로 Waiting 항목을 정리했다. 실제 Threads 원자료가 없어 분석 결론은 내리지 않았고 기존 preflight/report는
+    무효로 보존.
+  task_name: 사용자 요청으로 Waiting 항목을 정리했다. 실제 Threads 원자료가 없어 분석 결론은 내리지 않았고 기존 preflight/report는
     무효로 보존.

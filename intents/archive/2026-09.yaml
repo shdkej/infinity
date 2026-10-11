@@ -5,10 +5,14 @@ archive:
   status: archived
   completed_at: '2026-09-19'
   detail: intents/archive/content-amalfi-ravello-day-reel-20260918.md
+  title: 아말피·라벨로 하루 브이로그 릴스
+  task_name: 아말피·라벨로 하루 브이로그 릴스
 - id: research-richard-sapper-deadline-20260917
   status: archived
   completed_at: '2026-09-17'
   detail: intents/archive/research-richard-sapper-deadline-20260917.md
+  title: 리처드 사퍼 마감형 종합 리서치
+  task_name: 리처드 사퍼 마감형 종합 리서치
 - id: research-richard-sapper-comprehensive-20260916
   title: 리처드 사퍼 종합 리서치
   status: archived
@@ -31,21 +35,28 @@ archive:
   remote_verified: pass
   remote_commit: e32cd2cc5a31aecfbfa274f1bf2f1aef0bad4d26
   archived_at: 2026-09-16 08:44:27+00:00
+  task_name: 리처드 사퍼 종합 리서치
 - id: kl-feedback-loop-20260915
   status: archived
   completed_at: '2026-09-15'
   detail: intents/archive/kl-feedback-loop-20260915.md
   summary: 사용자 선택으로 Waiting 종료·미완료 구현 범위 보존
+  title: Knowledge Lab 승격 피드백루프 구현
+  task_name: Knowledge Lab 승격 피드백루프 구현
 - id: research-ontology-kl-fit-20260915
   status: archived
   completed_at: '2026-09-15'
   detail: intents/archive/research-ontology-kl-fit-20260915.md
   summary: 정식 온톨로지는 보류하고 공개 컴파일 문서용 관계 레지스트리 v0의 파일럿 기준을 확정
+  title: '온톨로지: Knowledge Lab 적용 가능성 검토'
+  task_name: '온톨로지: Knowledge Lab 적용 가능성 검토'
 - id: research-us-military-ttp-learning-20260915
   status: archived
   completed_at: '2026-09-15'
   detail: intents/archive/research-us-military-ttp-learning-20260915.md
   summary: AAR과 ALLP를 분리해 observation→검증→변경→재사용 확인의 최소 루프를 정리
+  title: '미군 TTP: 현장 학습이 조직 자산으로 변환되는 실제 메커니즘'
+  task_name: '미군 TTP: 현장 학습이 조직 자산으로 변환되는 실제 메커니즘'
 - id: research-review-curation-method-korea-20260913
   title: 국내 리뷰·큐레이션 실전 가이드 조사
   status: archived
@@ -76,6 +87,7 @@ archive:
   remote_verified: pass
   remote_commit: e5c6a100d5a22da3c1140f81dce28210d1acab2e
   archived_at: 2026-09-13 15:02:49+00:00
+  task_name: 국내 리뷰·큐레이션 실전 가이드 조사
 - id: minimal-shorts-apple-early-product-20260913
   title: 애플 초기 제품으로 만드는 미니멀 모으기 첫 숏츠
   status: archived
@@ -108,6 +120,7 @@ archive:
   remote_verified: pass
   remote_commit: e5c6a100d5a22da3c1140f81dce28210d1acab2e
   archived_at: 2026-09-13 15:02:49+00:00
+  task_name: 애플 초기 제품으로 만드는 미니멀 모으기 첫 숏츠
 - id: research-github-skills-20260912
   title: GitHub 리서치 스킬 후보 조사
   status: archived
@@ -148,133 +161,190 @@ archive:
   next_action: closed via intents/archive/pilot-github-research-skill-kang-chen-approval.md;
     재개 시 새 Intent 생성
   archived_at: 2026-09-13 00:12:43+00:00
+  task_name: GitHub 리서치 스킬 후보 조사
 - id: strategy-compound-business-20260915
   status: archived
   completed_at: '2026-09-16'
   detail: intents/archive/strategy-compound-business-20260915.md
   summary: 비공개 scene-card 30일 실험 설계와 Continue/Hold 기준 확정
+  title: 여행·큐레이션·AI 자산의 복리사업 구조 발굴
+  task_name: 여행·큐레이션·AI 자산의 복리사업 구조 발굴
 - id: research-dieter-rams-20260912
   status: archived
   completed_at: '2026-09-12'
   detail: artifacts/research-dieter-rams-20260912/final/dieter-rams-design-brief.md
   summary: 원문·기관 근거와 디지털 안전선을 분리한 앱·카드·공간형 UI 적용 기준 및 6문항 점검표; Red PASS.
+  title: '디터 람스: 앱·카드·공간형 UI 적용 브리프'
+  task_name: '디터 람스: 앱·카드·공간형 UI 적용 브리프'
 - id: research-korean-minimal-curation-guide-20260911
   status: archived
   completed_at: '2026-09-12'
   detail: intents/archive/research-korean-minimal-curation-guide-20260911.md
+  title: 국내 사례 기반 미니멀 큐레이션·리뷰 가이드
+  task_name: 국내 사례 기반 미니멀 큐레이션·리뷰 가이드
 - id: research-minimal-curation-shorts-method-20260911
   status: archived
   completed_at: '2026-09-11'
   detail: intents/archive/research-minimal-curation-shorts-method-20260911.md
+  title: 미니멀 사람·공간·물건 큐레이션 숏츠 방법론 리서치
+  task_name: 미니멀 사람·공간·물건 큐레이션 숏츠 방법론 리서치
 - id: research-richard-sapper-research-20260910
   status: archived
   completed_at: '2026-09-10'
   detail: intents/archive/research-richard-sapper-research-20260910.md
   summary: 새 원문만 열람·Deep Research gate 기록·Red PASS; 현대 적용은 조건부 가설
+  title: 리처드 사퍼 신규 심층 리서치
+  task_name: 리처드 사퍼 신규 심층 리서치
 - id: research-richard-sapper-20260910
   status: archived
   completed_at: '2026-09-10'
   detail: intents/archive/research-richard-sapper-20260910.md
   summary: 기관 자료로 저작·연도·기여 범위를 분리하고 현대 제품 검토 질문 3개를 정리; Red PASS
+  title: 리차드 샤퍼 디자인 원리 심층 리서치
+  task_name: 리차드 샤퍼 디자인 원리 심층 리서치
 - id: research-minimal-collector-validation-20260910
   status: archived
   completed_at: '2026-09-10'
   detail: intents/archive/research-minimal-collector-validation-20260910.md
   summary: 14일 검증 설계 완료; 실제 데이터 없음으로 콘텐츠 외 커뮤니티·제품은 Hold
+  title: 미니멀 수집 1/100 — 유입·커뮤니티·제품 가설 검증
+  task_name: 미니멀 수집 1/100 — 유입·커뮤니티·제품 가설 검증
 - id: research-snu-kaist-thinking-20260909
   status: archived
   completed_at: '2026-09-10'
   detail: intents/archive/research-snu-kaist-thinking-20260909.md
   summary: 9개 작업과 Red 검증 완료; 내부 archive 기록 누락은 사용자 대기가 아닌 자동 마감으로 처리
+  title: 서울대와 KAIST 출신의 사고 차이 리서치
+  task_name: 서울대와 KAIST 출신의 사고 차이 리서치
 - id: research-travel-tool-depth-20260908
   status: archived
   completed_at: '2026-09-09'
   detail: intents/archive/research-travel-tool-depth-20260908.md
   summary: 사용자 요청으로 종료·보관; 모든 leaf 및 Red PASS, no-build/hold 결론 유지
+  title: 여행·기록·취향 도구 심화 리서치와 조기완료 재계획
+  task_name: 여행·기록·취향 도구 심화 리서치와 조기완료 재계획
 - id: infinity-dispatcher-observability-20260908
   status: archived
   completed_at: '2026-09-09'
   detail: intents/archive/infinity-dispatcher-observability-20260908.md
   summary: 사용자 요청으로 종료·보관; 지연 원인과 시간 예측 규칙 기록
+  title: Infinity dispatcher 정지 감지 Grafana 가시화
+  task_name: Infinity dispatcher 정지 감지 Grafana 가시화
 - id: content-catania-day-carousel-20260908
   status: archived
   completed_at: '2026-09-08'
   detail: intents/archive/content-catania-day-carousel-20260908.md
   summary: 사용자 사진 6장 비공개 렌더, Red 실제 sequence PASS
+  title: 카타니아 하루의 비용·휴식 기준 6장 캐러셀
+  task_name: 카타니아 하루의 비용·휴식 기준 6장 캐러셀
 - id: content-carousel-sticker-overlay-20260908
   status: archived
   completed_at: '2026-09-08'
   detail: intents/archive/content-carousel-sticker-overlay-20260908.md
   summary: 비공개 1080×1350 손글씨 훅·형광 메모 시안, Red 실제 렌더 PASS
+  title: 손글씨 훅·형광 메모형 캐러셀 1장 시안
+  task_name: 손글씨 훅·형광 메모형 캐러셀 1장 시안
 - id: research-travel-tool-20260908
   status: archived
   completed_at: '2026-09-08'
   detail: intents/archive/research-travel-tool-20260908.md
   summary: 여행 회수 카드 가설·대안/제외·7일 Stop 우선 반증 계약·Red PASS; 직접 WTP는 미입증
+  title: 반복 유료 행동이 있는 여행·기록·취향 마이크로도구 탐색
+  task_name: 반복 유료 행동이 있는 여행·기록·취향 마이크로도구 탐색
 - id: content-carousel-6card-sequence-20260907
   status: archived
   completed_at: '2026-09-07'
   detail: intents/archive/content-carousel-6card-sequence-20260907.md
   summary: 6장 4:5 PNG와 Red 실제 렌더 PASS
+  title: Instagram 캐러셀 6장 시퀀스 확장
+  task_name: Instagram 캐러셀 6장 시퀀스 확장
 - id: safety-map-experiment-05-20260907
   status: archived
   completed_at: '2026-09-07'
   detail: intents/archive/safety-map-experiment-05-20260907.md
   summary: Termini 근거·날짜·한계 사용자 흐름 완료; 조기 종료 개선 기록
+  title: safety-map-experiment-05-20260907 로마 위험 회피 지도 5차 — 첫 근거 신호 구현
+  task_name: safety-map-experiment-05-20260907 로마 위험 회피 지도 5차 — 첫 근거 신호 구현
 - id: research-36
   status: archived
   completed_at: '2026-09-07'
   detail: intents/archive/research-36.md
   summary: 사용자 요청으로 waiting 종료; 검증된 YouTube 120행과 부분 플랫폼 조사 보존
+  title: 한국 YouTube·Instagram 여행·미니멀·기록·신혼 제목 근거 수집
+  task_name: 한국 YouTube·Instagram 여행·미니멀·기록·신혼 제목 근거 수집
 - id: research-32
   status: archived
   completed_at: '2026-09-07'
   detail: intents/archive/research-32.md
   summary: 사용자 요청으로 waiting 종료; 부분 산출물 보존
+  title: Starter Story 솔로프리너 사례 1개 깊은 복원
+  task_name: Starter Story 솔로프리너 사례 1개 깊은 복원
 - id: content-persona-carousel-20260906
   status: archived
   completed_at: '2026-09-07'
   detail: intents/archive/content-persona-carousel-20260906.md
   summary: 사용자 요청으로 Waiting 캐러셀 초안을 종료·보관함.
+  title: 서브 페르소나 템플릿 첫 캐러셀
+  task_name: 서브 페르소나 템플릿 첫 캐러셀
 - id: safety-map-experiment-04-20260906
   status: archived
   completed_at: '2026-09-07'
   detail: intents/archive/safety-map-experiment-04-20260906.md
   summary: 지도 UX·no-data 경계 검증, 실제 검증 구역은 미확보
+  title: safety-map-experiment-04-20260906 로마 위험 회피 보조 근거 검증
+  task_name: safety-map-experiment-04-20260906 로마 위험 회피 보조 근거 검증
 - id: safety-map-experiment-03-20260905
   status: archived
   completed_at: '2026-09-06'
   detail: intents/archive/safety-map-experiment-03-20260905.md
+  title: 치안 지도 3차 실험 아카이브
+  task_name: 치안 지도 3차 실험 아카이브
 - id: safety-map-experiment-02-20260904
   status: archived
   completed_at: '2026-09-05'
   detail: intents/archive/safety-map-experiment-02-20260904.md
+  title: 여행 치안 지도 2차 실험 아카이브
+  task_name: 여행 치안 지도 2차 실험 아카이브
 - id: safety-map-correction-20260903
   status: archived
   completed_at: '2026-09-05'
   detail: intents/archive/safety-map-correction-20260903.md
+  title: 여행 치안 지도 1차 교정 실험 아카이브
+  task_name: 여행 치안 지도 1차 교정 실험 아카이브
 - id: safety-map-mvp-20260903
   status: archived
   completed_at: '2026-09-02'
   detail: intents/archive/safety-map-mvp-20260903.md
+  title: 여행 치안 지도 MVP 구현·수요 검증·배포
+  task_name: 여행 치안 지도 MVP 구현·수요 검증·배포
 - id: infinity-trace-contract-01
   status: archived
   completed_at: '2026-09-02'
   detail: intents/archive/infinity-trace-contract-01.md
+  title: infinity-trace-contract-01 — Infinity 요청·산출물·검증 로그 자동 기록 계약 구현
+  task_name: infinity-trace-contract-01 — Infinity 요청·산출물·검증 로그 자동 기록 계약 구현
 - id: wiki-retrieval-test-20q-02
   status: archived
   completed_at: '2026-09-02'
   detail: intents/archive/wiki-retrieval-test-20q-02.md
+  title: wiki-retrieval-test-20q-02 — Agent Wiki 20문항 회수성 재검증
+  task_name: wiki-retrieval-test-20q-02 — Agent Wiki 20문항 회수성 재검증
 - id: wiki-retrieval-test-20q-01
   status: archived
   completed_at: '2026-09-02'
   detail: intents/archive/wiki-retrieval-test-20q-01.md
+  title: wiki-retrieval-test-20q-01 — Agent Wiki 20문항 회수성 검증
+  task_name: wiki-retrieval-test-20q-01 — Agent Wiki 20문항 회수성 검증
 - id: infinity-dispatcher-notify
   status: archived
   completed_at: '2026-09-01'
   detail: intents/archive/infinity-dispatcher-notify.md
+  title: Infinity 완료·대기 상태 원 대화 1회 통보 경로 구현
+  task_name: Infinity 완료·대기 상태 원 대화 1회 통보 경로 구현
 - id: daily-thoughts-cards-20260901
   status: archived
   completed_at: '2026-09-01'
   detail: source/infinity/archive/daily-thoughts-cards-20260901.md
   summary: 10개 실행 카드와 예약 과부하 첫 행동
+  title: 10개 실행 카드와 예약 과부하 첫 행동
+  task_name: 10개 실행 카드와 예약 과부하 첫 행동

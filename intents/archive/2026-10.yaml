@@ -19,6 +19,7 @@ archive:
   knowledge_reflection: 반복 인수 모니터는 공개 source·후보 fingerprint·Notion 행·실패 로그를 분리하고,
     운영 부담/독립 검증 필드 부재를 보류 상태로 남겨야 한다.
   knowledge_commit: no-promotion-needed
+  task_name: Infinity 경로에서 인수 후보 페이지 순회·노션 DB·모니터링 실행
 - id: acquisition-cashcow-research-20261010
   title: 소규모 서비스 인수 후보와 사용자 적합성 조사
   status: archived
@@ -36,6 +37,7 @@ archive:
   knowledge_reflection: seller claim과 독립 검증, owner hours·transfer scope·기간 정의를 분리
     보존했다.
   knowledge_commit: no-promotion-needed
+  task_name: 소규모 서비스 인수 후보와 사용자 적합성 조사
 - id: learning-candidate-kl-checkpoint-dirty-20261004
   title: 체크포인트 커밋 경로의 기존 dirty 변경 격리
   status: archived
@@ -68,6 +70,7 @@ archive:
   approval_required: true
   notification_channel: slack
   notification_target: channel:C0BR41W31MM
+  task_name: 체크포인트 커밋 경로의 기존 dirty 변경 격리
 - id: research-alvaro-siza-quality-iteration-20261008
   title: 알바로 시자 다방면 조사 확장
   status: archived
@@ -88,6 +91,7 @@ archive:
     제시하되 단일 결론으로 성급히 수렴하지 않음
   notification_channel: slack
   notification_target: channel:C0BR41W31MM
+  task_name: 알바로 시자 다방면 조사 확장
 - id: research-alvaro-siza-deep-20261008
   title: 알바로 시자(Álvaro Siza) 심층 대작업 조사
   status: archived
@@ -110,6 +114,7 @@ archive:
   report_flow_check: pass — 결론/확신도 → 생애·작품 → 원칙 → 비판 → 사용자 연결 → 열린 질문
   report_length_judgment: fit
   next_action: 추가 확장은 새 1차 근거가 생길 때만 별도 cycle로 수행
+  task_name: 알바로 시자(Álvaro Siza) 심층 대작업 조사
 - id: research-minimalmoeum-trust-synthesis-20261008
   title: 미니멀모음 신뢰 자산과 취향 큐레이션 전환 구조 재조사
   status: archived
@@ -130,6 +135,7 @@ archive:
   report_length_judgment: fit
   next_action: 최인아책방의 공식·현장 자료를 직접 표본 확인하고, 미니멀모음 공개 기록 10개에서 독자의 기준 회상·유료 가치 언어를
     관찰
+  task_name: 미니멀모음 신뢰 자산과 취향 큐레이션 전환 구조 재조사
 - id: research-minimalmoeum-trust-independent-bookstores-20261007
   title: 독립서점 사례 기반 미니멀모음 신뢰·큐레이션 구조 조사
   status: archived
@@ -152,6 +158,7 @@ archive:
   archived_at: 2026-10-06 06:18:07.218162+00:00
   archive_reason: 사용자의 Infinity 대시보드 `archive_request` (request e6fc0d6d-c2b2-453d-9d2c-612e96ceb212)
   closure_note: 사용자가 대시보드에서 아카이브를 요청해 추가 실행 없이 종료했다.
+  task_name: 독립서점 사례 기반 미니멀모음 신뢰·큐레이션 구조 조사
 - id: research-nothing-early-stage-deep-20261004
   title: 낫씽(Nothing) 초창기 심층 조사와 근거·실패·롤모델 검증
   status: archived
@@ -169,11 +176,14 @@ archive:
   knowledge_targets: agent-wiki/content/docs/outputs/ — Nothing 관련 재사용 판단 페이지 부재 확인
   knowledge_reflection: 공개 출처 사례 판단이며 새 Agent Wiki 승격은 하지 않음
   knowledge_commit: not_applicable
+  task_name: 낫씽(Nothing) 초창기 심층 조사와 근거·실패·롤모델 검증
 - id: research-nothing-early-stage-20261003
   status: archived
   completed_at: '2026-10-04'
   detail: intents/archive/research-nothing-early-stage-20261003.md
   summary: 탐색형 브리프·출처·불확실성·롤모델 원칙을 보존하고, 후속 실행은 별도 Intent로 분리.
+  title: 낫씽(Nothing) 초창기 과정과 롤모델 가능성 탐색
+  task_name: 낫씽(Nothing) 초창기 과정과 롤모델 가능성 탐색
 - id: pilot-github-research-skill-kang-chen-approval
   title: Kang-chen 문헌검토 부분 기능 격리 파일럿 차단 종료
   status: archived
@@ -196,8 +206,11 @@ archive:
   notification_origin: channel:C0BR41W31MM;reply_to:1790939865.744739
   next_action: 라이선스·의존성·egress 증빙이 확보될 때 새 Intent로 재개
   remote_verified: pending
+  task_name: Kang-chen 문헌검토 부분 기능 격리 파일럿 차단 종료
 - id: research-business-profitability-modoo-20261002
   status: archived
   completed_at: '2026-10-02'
   detail: intents/archive/research-business-profitability-modoo-20261002.md
   summary: 고객 문제·지불 행동·가격·초기 판매·단위경제 탐색 완료
+  title: 모두의창업 통과 후 사업성·수익성 제품화 노하우 탐색
+  task_name: 모두의창업 통과 후 사업성·수익성 제품화 노하우 탐색
