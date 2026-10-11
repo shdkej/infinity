@@ -7,8 +7,7 @@ Agent-First 자율 실행 시스템. 스케줄 routine(원격 에이전트)이 �
 ## 구조
 
 ```
-INTENTS.md          ← 기존 실행 호환 원장(마이그레이션 기준)
-INTENTS.yaml        ← 대시보드용 상태 원장(Inbox / Active / Waiting)
+INTENTS.yaml        ← 유일한 상태 원장(Inbox / Active / Waiting)
 intents/archive/*.yaml ← 월별 Archive 대시보드 원장
 GATES.md            ← 승인 대기/처리 완료
 PERMISSIONS.md      ← 권한 레벨(L0~L3) 정의
@@ -34,8 +33,8 @@ docs/infinity-evaluator.md ← Infinity 품질 평가 기준과 실행 지침
 
 Infinity 운영 문서는 여러 저장소에 걸쳐 있지만, 역할별 정본은 아래처럼 하나씩만 둔다. 같은 주제를 다른 문서에서 발견하면 이 순서로 판정하고, 보조 문서는 절차를 재정의하지 않고 링크만 제공한다.
 
-1. **큐·상태·실행 호환 원장:** 이 저장소의 `INTENTS.md` — `Inbox → Active → Waiting → Archive` 전이와 기존 dispatcher 계약을 보존한다.
-2. **대시보드 읽기 원장:** `INTENTS.yaml`과 `intents/archive/YYYY-MM.yaml` — 화면이 읽는 구조화된 상태·최근 완료 카드이며, `payload.intents` 계약은 기존과 같다.
+1. **큐·상태·실행 원장:** 이 저장소의 `INTENTS.yaml` — `Inbox → Active → Waiting → Archive` 전이와 dispatcher 계약을 구조화해 보존한다.
+2. **대시보드 읽기 원장:** `INTENTS.yaml`과 `intents/archive/YYYY-MM.yaml` — 화면이 읽는 구조화된 상태·최근 완료 카드다.
 3. **승인·권한:** 이 저장소의 `GATES.md`, `PERMISSIONS.md` — 승인 대기와 L0~L3 경계를 정의한다.
 4. **산출물·Archive:** 이 저장소의 `ARTIFACT_RULES.md` — `artifacts/`, `reports/`, `intents/archive/`의 역할과 완료 형식을 정의한다.
 5. **Heartbeat 실행:** 이 저장소의 `heartbeat.md` — dispatcher가 원장을 읽고 실행·종료하는 순서를 정의한다.
@@ -72,10 +71,10 @@ Infinity 운영 문서는 여러 저장소에 걸쳐 있지만, 역할별 정본
 ### 접수·상태 전이의 최소 불변식
 
 - 접수 작업을 시작하기 전에 `git fetch origin main`과 `git pull --ff-only origin main`을 실행하고 `HEAD == origin/main`을 확인한다. checkout이 dirty이거나 fast-forward할 수 없으면 관련 없는 변경을 stash·폐기·rebase하지 않고, 최신 `origin/main`에서 clean temporary worktree를 만들거나 정확한 차단 사유를 보고한다. stale/diverged checkout에서 등록하지 않는다.
-- 접수 전 `origin/main:INTENTS.md`의 네 lane에서 같은 목적의 Intent를 검색한다. 기존 열린 Intent는 재사용하고, Archive에 있으면 결과를 안내한다.
-- 비단순 Intent는 Context Pack을 먼저 읽고, 실제로 확인한 문서 목록(`context_documents_checked`)과 검색 범위·검색어(`context_searches`)를 남긴다. 원문 요청·정규화 쿼리·Context Pack 경로·`INTENTS.md` 근거·다음 결정을 포함한 Context Map trace를 `scripts/record_intent_trace.py intake`로 생성한 뒤 `scripts/validate_intent_trace.py`로 검증한다. 필수 필드가 누락되거나 trace가 invalid이면 등록을 차단한다.
-- 새 Intent는 `INTENTS.md`의 해당 lane 바로 아래 `### [intent-id] 제목` 블록 하나로 등록한다. 개별 `intents/{lane}/` 파일은 보조 기록이며 상태 원장을 대체하지 않는다.
-- 원장 블록 작성 직후, 커밋 전에 `scripts/prepare_dispatch_cycle.py --json`을 실행해 새 Intent가 `counts`와 예상 `promote_candidates`/`handoff_candidates`에 나타나는지 확인하고, 실패하면 등록을 중단한다. 이어서 intent ID가 canonical `INTENTS.md`의 열린 lane에 정확히 한 번만 존재하는지와 parser/정합성 검사를 확인한다. Context Pack, trace, 원장 블록, 필요한 task-plan만 scoped stage하고, 관련 없는 dirty 파일은 포함하지 않는다.
+- 접수 전 `origin/main:INTENTS.yaml`의 세 열린 lane과 월별 Archive에서 같은 목적의 Intent를 검색한다. 기존 열린 Intent는 재사용하고, Archive에 있으면 결과를 안내한다.
+- 비단순 Intent는 Context Pack을 먼저 읽고, 실제로 확인한 문서 목록(`context_documents_checked`)과 검색 범위·검색어(`context_searches`)를 남긴다. 원문 요청·정규화 쿼리·Context Pack 경로·`INTENTS.yaml` 근거·다음 결정을 포함한 Context Map trace를 `scripts/record_intent_trace.py intake`로 생성한 뒤 `scripts/validate_intent_trace.py`로 검증한다. 필수 필드가 누락되거나 trace가 invalid이면 등록을 차단한다.
+- 새 Intent는 `INTENTS.yaml`의 해당 `lanes` 배열에 `id`, `title`, `task_name`, `status`를 포함한 객체 하나로 등록한다. 개별 `intents/{lane}/` 파일은 보조 기록이며 상태 원장을 대체하지 않는다.
+- 원장 객체 작성 직후, 커밋 전에 `scripts/prepare_dispatch_cycle.py --json`과 `scripts/check_intents_consistency.py INTENTS.yaml`을 실행해 새 Intent가 계획과 정합성 검사에 나타나는지 확인하고, 실패하면 등록을 중단한다. Context Pack, trace, 원장 객체, 필요한 task-plan만 scoped stage하고, 관련 없는 dirty 파일은 포함하지 않는다.
 - scoped diff를 확인한 뒤 Context Pack·trace·canonical 원장 블록·필요한 task-plan만 명시적으로 stage하고, Infinity 저장소(또는 clean temporary worktree)에서 scoped commit을 만든 뒤 `origin/main`으로 push한다. commit/push 실패 시 접수로 보고하지 않고 실패 경계를 기록한다.
 - 등록은 커밋·push만으로 완료되지 않는다. `/home/ubuntu/workspace/knowledge-lab/source/openclaw-system/scripts/verify_git_publish.sh`를 대상 저장소·브랜치·모든 scoped 경로와 함께 실행해 원격 반영과 SHA 일치를 확인한다. 검증이 0으로 끝나기 전에는 Intent ID를 접수·Active·Waiting·dispatch ready로 보고하지 않으며, 성공한 local/remote SHA를 intake 기록에 보존한다. fetch·trace·parser·commit·push·SHA 검증 중 하나라도 실패하면 해당 실패 경계를 정확히 보고하고 등록을 중단한다.
 - 한 Intent는 한 시점에 한 lane에만 존재한다. 이동은 이전 lane 블록 제거와 새 lane 블록 추가를 같은 커밋에서 처리한다.
@@ -87,7 +86,7 @@ Infinity 운영 문서는 여러 저장소에 걸쳐 있지만, 역할별 정본
 
 - `projects`: 관련 프로젝트. 1~3개, 복수 허용. 예: `virtue`, `infinity`, `agent-wiki`.
 - `task_type`: 태스크 성격. 정확히 1개. 예: `research`, `strategy`, `implementation`, `maintenance`.
-- `title`: 제목만 읽어도 대상·행동·산출물을 알 수 있는 한국어 태스크명. ID와 영어 내부 태그는 제목에 쓰지 않고 메타데이터로 분리한다.
+- `title`과 `task_name`: 제목만 읽어도 대상·행동·산출물을 알 수 있는 동일한 한국어 태스크명. Markdown `#`, `[id]`, `- key:` 메타데이터 접두사는 금지하고, ID와 영어 내부 태그는 메타데이터로 분리한다.
 - `topics`: 보조 주제. 0~3개. 예: `activation`, `analytics`, `workflow`.
 
 정식 vocabulary와 archive 코멘트 표기는 `ARTIFACT_RULES.md`를 따른다.
@@ -106,21 +105,21 @@ Infinity 운영 문서는 여러 저장소에 걸쳐 있지만, 역할별 정본
 
 ## 정본과 대시보드 정합성
 
-- 실행 전이의 호환 정본은 `INTENTS.md`이고, 대시보드는 GitHub `main`의 `INTENTS.yaml`과 `intents/archive/YYYY-MM.yaml`을 읽는다. 로컬 파일이나 별도 큐를 상태 원천으로 사용하지 않는다.
+- 실행 전이와 대시보드의 정본은 GitHub `main`의 `INTENTS.yaml`과 `intents/archive/YYYY-MM.yaml`이다. 로컬 파일이나 별도 큐를 상태 원천으로 사용하지 않는다.
 - `INTENTS.yaml`은 `Inbox/Active/Waiting`을, 월별 Archive YAML은 완료 카드와 날짜를 구조화해 보존한다. YAML Archive는 ID를 중복 노출하지 않고 KST 기준 최근 7일만 대시보드에 공급한다.
-- `INTENTS.md`에는 `## Inbox`, `## Active`, `## Waiting`, `## Archive`를 각각 정확히 한 번만 둔다. 중복 섹션은 검사에서 실패하며 대시보드에 숨겨진 항목을 만들 수 있다.
+- `INTENTS.yaml`의 `lanes.inbox`, `lanes.active`, `lanes.waiting`에는 각 Intent를 한 번만 둔다. Archive는 월별 YAML 파일로 분리하며 ID 중복은 검사에서 실패한다.
 - 열린 intent는 반드시 해당 lane 아래 `### [id] 제목` 블록으로 둔다. `status` 값과 lane이 다르면 정합성 오류로 보고 수정한다.
 - 신규 Archive 블록은 요약 주석의 완료 시각과 같은 `completed_at: YYYY-MM-DDTHH:MM:SSZ`를 반드시 기록한다. 대시보드는 이 필드로 최근 완료 순서와 월 그룹을 정하므로, 주석에만 날짜를 쓰면 카드가 `날짜 미상` 접힌 그룹으로 밀린다.
-- 원장 변경 후에는 `python3 scripts/check_intents_consistency.py INTENTS.md`를 실행하고, Infinity 원격 push 후 raw GitHub와 라이브 대시보드에서 같은 id·lane·완료 날짜가 보이는지 확인한다.
+- 원장 변경 후에는 `python3 scripts/check_intents_consistency.py INTENTS.yaml`를 실행하고, Infinity 원격 push 후 raw GitHub와 라이브 대시보드에서 같은 id·lane·완료 날짜가 보이는지 확인한다.
 - 대시보드 배포본은 `/home/ubuntu/workspace/space/infra-aws-static-sites/sites/infinity/dist/`에 두며, 정적 파일 push와 Space 라이브 확인까지 완료해야 한다.
 
 ## 운영 원칙
 
 - **No-op이면 커밋하지 않는다.** 변화 없는 Heartbeat는 push하지 않아 git history와 dashboard가 조용히 유지된다.
-- terminal notifier는 `origin/main`의 `INTENTS.md`만 조정한다. **모든 새 open Intent는 intake에서 `notification_channel`, `notification_target`을 함께 기록해야 하며, `python3 scripts/check_intents_consistency.py INTENTS.md`가 누락을 커밋 전 오류로 막는다.** 선택적 Telegram `notification_thread` 또는 Slack `notification_reply_to`도 원 대화에 보존한다. Archive는 `remote_verified: pass` 뒤에만, Waiting은 실제 `blocker` 또는 사용자 승인 조건이 있을 때만 후보가 된다. 읽기/no-op/반복 실행은 발송하지 않는다.
+- terminal notifier는 `origin/main`의 `INTENTS.yaml`만 조정한다. **모든 새 open Intent는 intake에서 `notification_channel`, `notification_target`을 함께 기록해야 하며, `python3 scripts/check_intents_consistency.py INTENTS.yaml`가 누락을 커밋 전 오류로 막는다.** 선택적 Telegram `notification_thread` 또는 Slack `notification_reply_to`도 원 대화에 보존한다. Archive는 `remote_verified: pass` 뒤에만, Waiting은 실제 `blocker` 또는 사용자 승인 조건이 있을 때만 후보가 된다. 읽기/no-op/반복 실행은 발송하지 않는다.
 - `data/dispatcher-terminal-notifications.json`의 receipt key는 intent·terminal state·destination이다. 송신 전 durable claim을 남기며 `sent`, `failed_before_acceptance`, `delivery_unknown`을 기록한다. 불확실 수신은 자동 재송하지 않고 cron 실패 알림으로 표면화한다.
 - Waiting intent는 `waiting_on: user`, `approval`, `approval_required: true`, `permission_level: approval_required`, 또는 승인 사유가 있는 `waiting_reason`을 사용자 승인 대기로 인식한다. 승인 대기 알림은 Slack/지원 채널 presentation의 `infinity:approve:<intent-id>`·`infinity:reject:<intent-id>` callback 버튼을 함께 보낸다.
-- 대시보드의 `resolve_waiting` 액션은 크론 처리 시 요청 큐만 소비하지 않고 해당 Intent를 `Waiting → Active`로 전환하며, `archive_request`는 명시적으로 요청된 open Intent를 `Archive`로 이동하고 archive detail을 만든다. 두 액션 모두 승인·요청 ID와 상태 전이를 `INTENTS.md`에 기록하고, 디스패처는 전이 직후 계획을 다시 계산해 같은 크론 주기에 후속 실행한다.
+- 대시보드의 `resolve_waiting` 액션은 크론 처리 시 요청 큐만 소비하지 않고 해당 Intent를 `Waiting → Active`로 전환하며, `archive_request`는 명시적으로 요청된 open Intent를 월별 Archive YAML로 이동하고 archive detail을 만든다. 두 액션 모두 승인·요청 ID와 상태 전이를 `INTENTS.yaml`에 기록하고, 디스패처는 전이 직후 계획을 다시 계산해 같은 크론 주기에 후속 실행한다.
 - **Dispatcher 실행 절차**: 10분 주기의 단일 디스패처가 최신 `origin/main`을 확인하고, 실행 가능한 Intent를 계획한 뒤, 필요한 작업만 Genie에 순차 인계한다. 동기화·원격 검증에 실패하면 실행하지 않으며, 대시보드 액션은 상태 전이 후 같은 주기에 계획을 다시 계산한다. 실행 결과는 Intent trace와 cycle record로 남기고, `actions=[]`는 버튼 큐가 비었다는 뜻일 뿐 작업 no-op가 아니다. 코드 수준의 실행 경로·잠금·환경변수·검증 명령은 [`docs/dispatcher-implementation.md`](docs/dispatcher-implementation.md)를 따른다.
 - **50~60 leaf 장기 실행:** 대형 작업의 상세 계약은 [`EXECUTION_LEARNING_CONTRACT.md`](EXECUTION_LEARNING_CONTRACT.md)를 따른다. 일반 계획은 완료 시 terminalization한다. `task-plan.json`에 검증 가능한 `expansion_policy`가 있을 때만 ready leaf가 바닥나면 다음 batch를 전달한다. 총량은 50~60개로 고정되고, batch·범위·증거 기준은 계획에 미리 적혀 있어야 한다. 완료 leaf를 되돌리거나 무한히 증식시키지 않으며, 모든 확장은 JSON/사람용 타임라인의 append-only 계획 변경으로 남긴다.
 - **Trace 계약**: 새 intent는 `scripts/record_intent_trace.py intake`로 `data/traces/{intent-id}.json`에 원문 요청·정규화 쿼리와 정확히 하나의 intake event를 기록한다. 실행마다 `execution`으로 실제 Context Pack·검색·근거 경로를 남긴다. 모든 비단순 산출물 Intent는 `metric_question`, `metric_signal`, `metric_decision_rule`을 갖고, 완료 보고에는 `metric_result`, `metric_next_decision`을 기록한다(`null`/`hold` 허용). 기본 `exploratory_research` Archive는 브리프·원격 검증과 `red_status: not_required`를, `decision_research`와 산출물 작업은 final report·Red pass·원격 검증을 기록한다. 계약은 `docs/intent-trace-contract.md`가 정본이며 `python3 scripts/validate_intent_trace.py --all`을 원장 검사와 함께 실행한다. trace가 없는 레거시 카드를 dispatcher가 인계할 때는 실행을 중단하지 않고 `backfill_source: dispatcher_missing_trace`·두 request field의 `missing` 사유·빈 Context Pack·`partial` 상태로 backfill한 뒤 handoff를 기록한다. 이 복구 예외는 후속 실제 execution 없이는 Archive로 끝낼 수 없다.

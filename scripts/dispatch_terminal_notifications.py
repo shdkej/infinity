@@ -194,7 +194,7 @@ def send(dest: dict[str, str], body: str, args: argparse.Namespace, card: dict[s
 def remote_text(repo: Path) -> tuple[str, str]:
     subprocess.run(["git", "fetch", "origin", "main"], cwd=repo, check=True, capture_output=True, text=True)
     sha = subprocess.check_output(["git", "rev-parse", "origin/main"], cwd=repo, text=True).strip()
-    return subprocess.check_output(["git", "show", "origin/main:INTENTS.md"], cwd=repo, text=True), sha
+    return subprocess.check_output(["git", "show", "origin/main:INTENTS.yaml"], cwd=repo, text=True), sha
 
 
 def main() -> int:

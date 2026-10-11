@@ -10,6 +10,7 @@ import subprocess
 import uuid
 from pathlib import Path
 from typing import Any
+import yaml
 
 ROOT = Path(__file__).resolve().parents[1]
 LANES = ("Inbox", "Active", "Waiting", "Archive")
@@ -19,10 +20,25 @@ EXPANSION_TARGET_MIN = 50
 EXPANSION_TARGET_MAX = 60
 
 def split_sections(text: str) -> dict[str, str]:
+    if text.lstrip().startswith(("version:", "{", "---")):
+        data = yaml.safe_load(text) or {}
+        sections = {}
+        for lane, key in (("Inbox", "inbox"), ("Active", "active"), ("Waiting", "waiting")):
+            blocks = []
+            for item in data.get("lanes", {}).get(key, []):
+                blocks.append(f"### [{item.get('id')}] {item.get('task_name') or item.get('title')}\n" + "\n".join(f"- {k}: {v}" for k, v in item.items() if k not in {"id", "title", "task_name"}))
+            sections[lane] = "\n".join(blocks)
+        sections["Archive"] = ""
+        return sections
     matches = list(re.finditer(r"^## (Inbox|Active|Waiting|Archive)\s*$", text, re.M))
     return {match.group(1): text[match.end(): matches[i + 1].start() if i + 1 < len(matches) else len(text)] for i, match in enumerate(matches)}
 
 def parse_entries(text: str, lane: str) -> list[dict[str, Any]]:
+    if text.lstrip().startswith(("version:", "{", "---")):
+        data = yaml.safe_load(text) or {}
+        key = {"Inbox": "inbox", "Active": "active", "Waiting": "waiting", "Archive": "archive"}[lane]
+        rows = data.get("lanes", {}).get(key, []) if key != "archive" else data.get("archive", [])
+        return [{"id": str(item.get("id") or ""), "title": str(item.get("task_name") or item.get("title") or ""), "lane": lane, "fields": {str(k): str(v) for k, v in item.items()}} for item in rows]
     starts = list(re.finditer(r"^### \[([^\]]+)\]\s*(.+?)\s*$", text, re.M))
     entries: list[dict[str, Any]] = []
     for i, match in enumerate(starts):
@@ -158,7 +174,7 @@ def canonical(repo: Path, intents: Path | None) -> tuple[str, str]:
         return intents.read_text(encoding="utf-8"), "fixture"
     subprocess.run(["git", "fetch", "origin", "main"], cwd=repo, check=True, capture_output=True, text=True)
     sha = subprocess.check_output(["git", "rev-parse", "origin/main"], cwd=repo, text=True).strip()
-    return subprocess.check_output(["git", "show", "origin/main:INTENTS.md"], cwd=repo, text=True), sha
+    return subprocess.check_output(["git", "show", "origin/main:INTENTS.yaml"], cwd=repo, text=True), sha
 
 def priority(entry: dict[str, Any]) -> tuple[int, str, str]:
     rank = {"critical": 0, "high": 1, "normal": 2, "low": 3}.get(entry["fields"].get("priority", "normal").lower(), 2)

@@ -13,6 +13,7 @@ archive:
   notification_channel: slack
   notification_target: channel:C0BR41W31MM
   task_name: 반복된 proposer 자동화 trigger 평가 timeout 처리 개선
+  date: undated
 - id: proposer-evaluator-rate-limit-resilience-20261002
   title: evaluator rate-limit 반복 실패 완화 조사·수정안
   status: archived
@@ -35,3 +36,4 @@ archive:
   notification_channel: slack
   notification_target: channel:C0BR41W31MM
   task_name: evaluator rate-limit 반복 실패 완화 조사·수정안
+  date: undated

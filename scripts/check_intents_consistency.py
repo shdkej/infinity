@@ -6,6 +6,7 @@ from __future__ import annotations
 import re
 import sys
 from pathlib import Path
+from intent_registry import ARCHIVE_DIR, load_registry, archive_entries
 
 
 CLOSED_RE = re.compile(
@@ -52,10 +53,39 @@ def date_key(value: str) -> tuple[int, int, int, int, int, int]:
 
 
 def main() -> int:
-    path = Path(sys.argv[1]) if len(sys.argv) > 1 else Path("INTENTS.md")
-    text = path.read_text()
-    sections = split_sections(text)
+    path = Path(sys.argv[1]) if len(sys.argv) > 1 else Path("INTENTS.yaml")
+    data = load_registry(path)
     errors: list[str] = []
+
+    seen: set[str] = set()
+    for lane in ("inbox", "active", "waiting"):
+        for item in data.get("lanes", {}).get(lane, []):
+            intent_id = str(item.get("id") or "")
+            title = str(item.get("title") or "")
+            if not intent_id or intent_id in seen: errors.append(f"{lane}: duplicate or missing id: {intent_id}")
+            seen.add(intent_id)
+            if not title or title != str(item.get("task_name") or ""):
+                errors.append(f"{lane}: {intent_id} requires matching title/task_name")
+            if title.startswith("#") or title.startswith("[") or re.match(r"^-\s*\w+\s*:", title):
+                errors.append(f"{lane}: {intent_id} has malformed title")
+            missing = [key for key in ("notification_channel", "notification_target") if not item.get(key)]
+            if missing: errors.append(f"{lane}: {intent_id} missing terminal notification field(s): {', '.join(missing)}")
+    for item in archive_entries():
+        intent_id = str(item.get("id") or "")
+        if intent_id in seen: errors.append(f"Archive: duplicate id {intent_id}")
+        seen.add(intent_id)
+        if not (item.get("completed_at") or item.get("archived_at") or item.get("date")):
+            errors.append(f"Archive: {intent_id} missing archive date field")
+        if str(item.get("title") or "") != str(item.get("task_name") or ""):
+            errors.append(f"Archive: {intent_id} requires matching title/task_name")
+
+    if errors:
+        for err in errors: print(err, file=sys.stderr)
+        return 1
+    print("INTENTS.yaml consistency OK")
+    return 0
+
+    # Legacy parser retained below for historical fixtures only.
 
     headers = re.findall(r"^##\s+(.+?)\s*$", text, re.M)
     seen_headers: set[str] = set()

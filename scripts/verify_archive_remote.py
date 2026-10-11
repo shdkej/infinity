@@ -123,7 +123,7 @@ def main() -> int:
     parent = repo.parent
 
     try:
-        run(["python3", "scripts/check_intents_consistency.py", "INTENTS.md"], repo)
+        run(["python3", "scripts/check_intents_consistency.py", "INTENTS.yaml"], repo)
     except Exception as exc:
         errors.append(str(exc))
 
@@ -170,7 +170,7 @@ def main() -> int:
         # GitHub contents/raw endpoints can serve a stale body immediately
         # after push. `origin/main` is the canonical remote commit checked
         # above, so use its blob rather than a cached HTTP response.
-        intents_text = git_remote_text(repo, "INTENTS.md")
+        intents_text = git_remote_text(repo, "INTENTS.yaml")
         sections = split_sections(intents_text)
         archive = sections.get("Archive", "")
         open_lanes = "\n".join(sections.get(name, "") for name in ("Inbox", "Active", "Waiting"))

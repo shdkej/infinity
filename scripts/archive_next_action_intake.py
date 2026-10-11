@@ -7,11 +7,12 @@ import argparse
 import datetime as dt
 import re
 from pathlib import Path
+from intent_registry import ARCHIVE_DIR as YAML_ARCHIVE_DIR, REGISTRY, all_entries, load_registry, normalize_entry, save_registry
 
 
 ROOT = Path(__file__).resolve().parents[1]
-INTENTS = ROOT / "INTENTS.md"
-ARCHIVE_DIR = ROOT.parent / "source" / "infinity" / "archive"
+INTENTS = REGISTRY
+ARCHIVE_DIR = ROOT / "intents" / "archive"
 NO_ACTION_RE = re.compile(r"^(없음|완료|no continuation|none|n/a|-)$", re.I)
 PUBLIC_ACTION_RE = re.compile(
     r"(게시|포스팅|발행|업로드|공유|링크\s*공유|광고|댓글|답글|DM|디엠|메일|송신|전송|발송|계정|가입|로그인|결제|비용|권한|시크릿|credential)",
@@ -126,16 +127,15 @@ def build_inbox_entry(new_id: str, source_id: str, card: dict[str, str]) -> str:
 
 def main() -> int:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--apply", action="store_true", help="write INTENTS.md and archive files")
+    parser.add_argument("--apply", action="store_true", help="write INTENTS.yaml and archive detail files")
     args = parser.parse_args()
 
-    intents_text = INTENTS.read_text(encoding="utf-8")
-    open_text = "\n".join(section(intents_text, name) for name in ("Inbox", "Active", "Waiting"))
-    all_text = intents_text + "\n" + "\n".join(p.read_text(encoding="utf-8") for p in ARCHIVE_DIR.glob("*.md"))
-    inbox = section(intents_text, "Inbox").strip()
-    additions: list[str] = []
-
-    for path in sorted(ARCHIVE_DIR.glob("*.md"), key=lambda p: p.stat().st_mtime, reverse=True):
+    data = load_registry(INTENTS)
+    open_entries = [item for item in all_entries(data) if item.get("status") != "archived"]
+    open_text = "\n".join(str(item) for item in open_entries)
+    all_text = "\n".join(str(item) for item in all_entries(data))
+    additions: list[dict[str, str]] = []
+    for path in sorted((ROOT / "intents" / "archive").glob("*.md"), key=lambda p: p.stat().st_mtime, reverse=True):
         source_id = path.stem
         text = path.read_text(encoding="utf-8")
         card = archive_card(text)
@@ -144,21 +144,35 @@ def main() -> int:
             continue
         if card["next_action_intent"]:
             continue
-        existing = has_similar_open_intent(open_text, source_id, next_action)
+        existing = next((str(item.get("id")) for item in open_entries if item.get("source_archive", "").endswith(f"/{source_id}.md")), "")
         if existing:
             if args.apply:
                 append_next_action_intent(path, existing)
             print(f"linked {source_id} -> {existing}")
             continue
         new_id = next_id(prefix_for(source_id), all_text + "\n" + "\n".join(additions))
-        additions.append(build_inbox_entry(new_id, source_id, card))
+        boundary = (
+            "공개 게시·외부 계정 작업은 사용자 승인 전까지 실행하지 않고, 게시 후보/카피/체크리스트 준비까지만 수행한다."
+            if PUBLIC_ACTION_RE.search(next_action)
+            else "내부 실행 가능. 외부 발송·권한·비용 변경이 필요해지면 Waiting으로 전환한다."
+        )
+        additions.append({
+            "id": new_id, "title": f"{card['project'] or source_id} 후속 실행", "task_name": f"{card['project'] or source_id} 후속 실행",
+            "status": "inbox", "target_agent": "genie", "requested": dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%MZ"),
+            "source_archive": f"intents/archive/{source_id}.md", "archive_project": card["project"] or source_id,
+            "archive_state": card["state"] or "후속 실행 필요", "result_criteria": card["result_criteria"] or "후속 실행 결과를 확인한다",
+            "next_action": next_action, "permission": "approval-required-before-public-action",
+            "goal": "Archive 다음 행동을 실제 실행 가능한 작업으로 준비한다.", "success_criteria": card["result_criteria"] or next_action,
+            "boundary": boundary,
+        })
         if args.apply:
             append_next_action_intent(path, new_id)
         print(f"created {new_id} from {source_id}: {next_action}")
 
     if args.apply and additions:
-        new_inbox = (inbox + "\n\n" if inbox else "") + "\n\n".join(additions)
-        INTENTS.write_text(replace_section(intents_text, "Inbox", new_inbox), encoding="utf-8")
+        data.setdefault("lanes", {}).setdefault("inbox", [])
+        data["lanes"]["inbox"].extend(normalize_entry(item, "inbox") for item in additions)
+        save_registry(data, INTENTS)
     return 0
 
 

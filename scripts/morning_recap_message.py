@@ -9,10 +9,12 @@ import re
 import sqlite3
 import subprocess
 from pathlib import Path
+import yaml
+from intent_registry import archive_entries, load_registry
 
 
 ROOT = Path(__file__).resolve().parents[1]
-INTENTS = ROOT / "INTENTS.md"
+INTENTS = ROOT / "INTENTS.yaml"
 GATES = ROOT / "GATES.md"
 OPENCLAW_DB = Path("/home/ubuntu/.openclaw/state/openclaw.sqlite")
 KST = dt.timezone(dt.timedelta(hours=9), name="KST")
@@ -34,6 +36,22 @@ def run_git(args: list[str]) -> str:
 def section(text: str, name: str) -> str:
     match = re.search(rf"^## {re.escape(name)}\n(?P<body>.*?)(?=^## |\Z)", text, re.M | re.S)
     return match.group("body").strip() if match else ""
+
+
+def registry_text() -> str:
+    data = load_registry(INTENTS)
+    chunks = []
+    for lane, label in (("inbox", "Inbox"), ("active", "Active"), ("waiting", "Waiting")):
+        chunks.append(f"## {label}")
+        for item in data.get("lanes", {}).get(lane, []):
+            chunks.append(f"### [{item.get('id')}] {item.get('task_name') or item.get('title')}")
+            for key, value in item.items():
+                if key not in {"id", "title", "task_name"}:
+                    chunks.append(f"- {key}: {value}")
+    chunks.append("## Archive")
+    for item in archive_entries():
+        chunks.append(f"<!-- {item.get('id')} completed {item.get('completed_at') or item.get('archived_at') or item.get('date')} ({item.get('task_name') or item.get('title')}) -->")
+    return "\n".join(chunks)
 
 
 def clean_summary(raw: str, limit: int = 120) -> str:
@@ -387,12 +405,12 @@ def main() -> None:
     commit_count = len(
         [
             line
-            for line in run_git(["log", f"--since={since}", "--format=%H", "--", "reports/", "INTENTS.md", "GATES.md"]).splitlines()
+            for line in run_git(["log", f"--since={since}", "--format=%H", "--", "reports/", "INTENTS.yaml", "GATES.md"]).splitlines()
             if line.strip()
         ]
     )
 
-    intents_text = INTENTS.read_text(encoding="utf-8")
+    intents_text = registry_text()
     gates_text = GATES.read_text(encoding="utf-8") if GATES.exists() else ""
 
     today_kst = now_kst.date()

@@ -12,10 +12,11 @@ from pathlib import Path
 from typing import Any
 
 import boto3
+from intent_registry import append_archive, all_entries, find_open, load_registry, normalize_entry, save_registry
 
 
 ROOT = Path(__file__).resolve().parents[1]
-INTENTS = ROOT / "INTENTS.md"
+INTENTS = ROOT / "INTENTS.yaml"
 ACTION_LOG_DIR = ROOT / "artifacts" / "dashboard-actions"
 DEFAULT_BUCKET = os.environ.get("INFINITY_ACTION_QUEUE_BUCKET", "infinity-action-queue-917213086376-ap-northeast-2")
 INBOX_PREFIX = "action_requests/inbox/"
@@ -35,43 +36,36 @@ def section(text: str, name: str) -> str:
     return match.group("body") if match else ""
 
 
-def has_open_intent(intent_id: str, text: str) -> bool:
-    for lane in ("Inbox", "Active", "Waiting"):
-        if re.search(rf"^### \[{re.escape(intent_id)}\]", section(text, lane), re.M):
-            return True
-    return False
+def has_open_intent(intent_id: str, data: dict[str, Any]) -> bool:
+    return find_open(data, intent_id) is not None
 
 
-def linked_loop_intent(loop_id: str, text: str) -> str:
-    match = re.search(rf"^### \[([^\]]+)\][\s\S]*?^\s*- origin_loop_id: {re.escape(loop_id)}\s*$", text, re.M)
-    return match.group(1) if match else ""
+def linked_loop_intent(loop_id: str, data: dict[str, Any]) -> str:
+    return next((str(item.get("id")) for item in all_entries(data) if item.get("origin_loop_id") == loop_id), "")
 
 
-def next_research_id(text: str) -> str:
-    ids = [int(value) for value in re.findall(r"^### \[research-(\d+)\]", text, re.M)]
+def next_research_id(data: dict[str, Any]) -> str:
+    ids = [int(str(item.get("id")).split("-")[-1]) for item in all_entries(data) if re.fullmatch(r"research-\d+", str(item.get("id")))]
     return f"research-{max(ids, default=0) + 1}"
 
 
-def create_knowledge_research_intent(record: dict[str, str], text: str) -> tuple[str, str]:
-    existing = linked_loop_intent(record["intent_id"], text)
+def create_knowledge_research_intent(record: dict[str, str], data: dict[str, Any]) -> tuple[str, dict[str, Any]]:
+    existing = linked_loop_intent(record["intent_id"], data)
     if existing:
-        return existing, text
-    intent_id = next_research_id(text)
+        return existing, data
+    intent_id = next_research_id(data)
     title = record["title"] or "Agent Wiki 재검색"
-    block = (
-        f"### [{intent_id}] {title}\n"
-        "- status: inbox\n- target_agent: genie\n- priority: normal\n"
-        "- permission: L0-research-and-strategy\n- research_mode: exploratory_research\n- execution_mode: single_genie_roles\n"
-        "- projects: agent-wiki,infinity,knowledge-lab\n- task_type: research\n"
-        f"- origin_loop_id: {record['intent_id']}\n"
-        f"- source_url: {record['page']}\n"
-        f"- goal: {record['note'] or title}\n"
-        "- next_action: 구조화된 loop event에 결과 페이지·결정·commit을 연결해 루프를 닫는다.\n\n"
-    )
-    marker = "## Inbox\n"
-    if marker not in text:
-        raise ValueError("missing_inbox_section")
-    return intent_id, text.replace(marker, marker + "\n" + block, 1)
+    item = normalize_entry({
+        "id": intent_id, "title": title, "status": "inbox", "target_agent": "genie",
+        "priority": "normal", "permission": "L0-research-and-strategy",
+        "research_mode": "exploratory_research", "execution_mode": "single_genie_roles",
+        "projects": ["agent-wiki", "infinity", "knowledge-lab"], "task_type": "research",
+        "origin_loop_id": record["intent_id"], "source_url": record["page"],
+        "goal": record["note"] or title,
+        "next_action": "구조화된 loop event에 결과 페이지·결정·commit을 연결해 루프를 닫는다.",
+    }, "inbox")
+    data.setdefault("lanes", {}).setdefault("inbox", []).append(item)
+    return intent_id, data
 
 
 def clean_record(raw: dict[str, Any]) -> dict[str, str]:
@@ -87,7 +81,7 @@ def clean_record(raw: dict[str, Any]) -> dict[str, str]:
     }
 
 
-def validate_record(record: dict[str, str], intents_text: str) -> str:
+def validate_record(record: dict[str, str], data: dict[str, Any]) -> str:
     if not record["request_id"]:
         return "missing_request_id"
     is_knowledge_loop = record["action"] == "knowledge_research"
@@ -95,7 +89,7 @@ def validate_record(record: dict[str, str], intents_text: str) -> str:
         return "invalid_intent_id"
     if record["action"] not in ALLOWED_ACTIONS:
         return "unsupported_action"
-    if record["action"] != "refresh_dashboard" and not is_knowledge_loop and not has_open_intent(record["intent_id"], intents_text):
+    if record["action"] != "refresh_dashboard" and not is_knowledge_loop and not has_open_intent(record["intent_id"], data):
         return "intent_not_open"
     return ""
 
@@ -178,6 +172,36 @@ def archive_intent(record: dict[str, str], text: str) -> tuple[str, bool]:
     return text, False
 
 
+def resolve_waiting_yaml(record: dict[str, str], data: dict[str, Any]) -> bool:
+    found = find_open(data, record["intent_id"])
+    if not found or found[0] != "waiting":
+        return False
+    lane, item = found
+    item = dict(item)
+    item["status"] = "active"
+    item.pop("waiting_reason", None); item.pop("blocker", None); item.pop("waiting_on", None)
+    item["approval"] = f"user-approved via Infinity dashboard ({record['created_at'] or utc_now()})"
+    item["approval_request_id"] = record["request_id"]
+    data["lanes"]["waiting"] = [x for x in data["lanes"]["waiting"] if x.get("id") != record["intent_id"]]
+    data["lanes"]["active"].append(normalize_entry(item, "active"))
+    return True
+
+
+def archive_yaml(record: dict[str, str], data: dict[str, Any]) -> bool:
+    found = find_open(data, record["intent_id"])
+    if not found:
+        return False
+    lane, item = found
+    item = dict(item)
+    item["status"] = "archived"
+    item["completed_at"] = record["created_at"] or utc_now()
+    item["archived_at"] = item["completed_at"]
+    item["archive_reason"] = f"Infinity dashboard archive_request ({record['request_id']})"
+    data["lanes"][lane] = [x for x in data["lanes"][lane] if x.get("id") != record["intent_id"]]
+    append_archive(item)
+    return True
+
+
 def write_local_request(record: dict[str, str]) -> Path:
     target_dir = ACTION_LOG_DIR / "requests"
     target_dir.mkdir(parents=True, exist_ok=True)
@@ -220,12 +244,12 @@ def list_request_keys(s3, bucket: str, limit: int) -> list[str]:
 
 def process(bucket: str, apply: bool, limit: int) -> list[dict[str, str]]:
     s3 = boto3.client("s3")
-    intents_text = INTENTS.read_text(encoding="utf-8")
+    data = load_registry(INTENTS)
     results: list[dict[str, str]] = []
     for key in list_request_keys(s3, bucket, limit):
         raw = json.loads(s3.get_object(Bucket=bucket, Key=key)["Body"].read().decode("utf-8"))
         record = clean_record(raw)
-        error = validate_record(record, intents_text)
+        error = validate_record(record, data)
         result = {"key": key, **record, "result": "rejected" if error else "accepted", "error": error}
         results.append(result)
         if not apply:
@@ -235,24 +259,20 @@ def process(bucket: str, apply: bool, limit: int) -> list[dict[str, str]]:
             delete_dedupe_marker(s3, bucket, record)
             continue
         if record["action"] == "knowledge_research":
-            linked_id, updated = create_knowledge_research_intent(record, intents_text)
-            if updated != intents_text:
-                INTENTS.write_text(updated, encoding="utf-8")
-                intents_text = updated
+            linked_id, data = create_knowledge_research_intent(record, data)
+            save_registry(data, INTENTS)
             result["linked_intent_id"] = linked_id
         elif record["action"] == "resolve_waiting":
-            updated, changed = resolve_waiting_intent(record, intents_text)
+            changed = resolve_waiting_yaml(record, data)
             if changed:
-                INTENTS.write_text(updated, encoding="utf-8")
-                intents_text = updated
+                save_registry(data, INTENTS)
                 result["intent_transition"] = "waiting_to_active"
             else:
                 result["intent_transition"] = "already_active_or_missing"
         elif record["action"] == "archive_request":
-            updated, changed = archive_intent(record, intents_text)
+            changed = archive_yaml(record, data)
             if changed:
-                INTENTS.write_text(updated, encoding="utf-8")
-                intents_text = updated
+                save_registry(data, INTENTS)
                 result["intent_transition"] = "open_to_archive"
             else:
                 result["intent_transition"] = "already_archived_or_missing"
