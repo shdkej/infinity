@@ -62,25 +62,37 @@
       "depends_on": [
         "T2.1"
       ],
-      "evidence": "work/new-candidate-inventory.md; work/notion-baseline-integrity.md",
+      "evidence": "work/cycle-C2-candidate-inventory.md; work/cycle-C2-notion-update-proof.md",
       "max_minutes": 50,
       "validation": "C1에서 보류한 Fello 상세와 각 사이트의 다음 페이지를 재확인하고 fingerprint로 중복을 차단한다.",
       "closure_check": "가격·재무·운영 증거가 모두 확인된 신규 후보만 노션 추가 대상으로 남긴다.",
       "started_at": "2026-10-11T11:30:03Z",
-      "completed_at": null
+      "completed_at": "2026-10-11T11:31:30Z"
     },
     {
       "id": "T3.2",
       "title": "C2 후보 반영·재실행 결과를 기록한다",
-      "status": "pending",
+      "status": "done",
       "depends_on": [
         "T3.1"
       ],
-      "evidence": "work/notion-update-proof.md; work/remote-proof.txt",
+      "evidence": "work/cycle-C2-monitoring-proof.md; work/cycle-C2-notion-update-proof.md",
       "max_minutes": 25,
       "validation": "C2의 fetch·Notion 판정·오류·접근 제한을 기록하고 다음 사이클 조건을 갱신한다.",
       "closure_check": "2026-10-11T23:00:00Z 전이면 다음 사이클을 추가하고, 마감이면 최종 Red·Archive로 전환한다.",
-      "started_at": null,
+      "started_at": "2026-10-11T11:31:30Z",
+      "completed_at": "2026-10-11T11:32:00Z"
+    },
+    {
+      "id": "T4.1",
+      "title": "C3 공개 목록 변경 여부를 재확인한다",
+      "status": "active",
+      "depends_on": ["T3.2"],
+      "evidence": "work/cycle-C3-candidate-inventory.md",
+      "max_minutes": 30,
+      "validation": "C2 이후 공개 목록의 변경·신규 직접 상세·접근 제한을 확인하고 중복을 차단한다.",
+      "closure_check": "신규 후보가 없으면 no-op 증거를 남기고, 있으면 핵심 필드가 모두 확인된 경우에만 승격한다.",
+      "started_at": "2026-10-11T11:32:00Z",
       "completed_at": null
     }
   ],
@@ -94,6 +106,12 @@
         "T3.1",
         "T3.2"
       ]
+    },
+    {
+      "at": "2026-10-11T11:32:00Z",
+      "reason": "C2 completed with zero qualifying candidates while the final deadline remains open",
+      "impact": "appended T4.1 as the next evidence-bearing repeat leaf and kept the intent Active",
+      "task_ids": ["T4.1"]
     }
   ],
   "metric_question": "마감 전 기존 목록과 중복되지 않는 공개 후보를 추가로 발견해 노션 DB에 유지할 수 있는가?",
