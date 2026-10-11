@@ -1,0 +1,216 @@
+version: 1
+period: 2026-07
+archive:
+- id: marketing-119
+  status: archived
+  completed_at: '2026-07-27'
+  detail: https://github.com/shdkej/knowledge-lab/blob/main/archive/infinity/marketing-119.md
+  summary: 프라하·빈·부다페스트 콘텐츠 타이틀을 짐/미니멀 라벨이 아니라 도시를 옮기며 달라진 여행 기준 프레임으로 좁혔다. HTML report
+    gate passed.
+- id: ops-22
+  status: archived
+  completed_at: '2026-07-23'
+  detail: https://github.com/shdkej/knowledge-lab/blob/main/archive/infinity/ops-22.md
+  summary: 카드뉴스 publish stage 분리 차단 옵션 `build_card_news_library.py --check-stage`와
+    insight-card-maker commit 전 게이트를 추가했다. 현재 Budapest split 상태가 실패로 재현됨. HTML report
+    gate passed.
+- id: ops-21
+  status: archived
+  completed_at: '2026-07-23'
+  detail: https://github.com/shdkej/knowledge-lab/blob/main/archive/infinity/ops-21.md
+  summary: Marketing SNS review live cron에 bounded SNS seed scan 조기 종료 규칙을 추가하고 내부
+    inbox 문서에 무소재 no_action 조기 종료 경계를 고정했다. HTML report gate passed.
+- id: ops-20
+  status: archived
+  completed_at: '2026-07-23'
+  detail: https://github.com/shdkej/knowledge-lab/blob/main/archive/infinity/ops-20.md
+  summary: '`media/inbound/openclaw-staged-*`를 runtime cache로 .gitignore 처리해 새/기존
+    staged 수신 폴더가 git status 검토면에 누적되지 않게 했다. HTML report gate passed.'
+- id: ops-19
+  status: archived
+  completed_at: '2026-07-21'
+  detail: https://github.com/shdkej/knowledge-lab/blob/main/archive/infinity/ops-19.md
+  summary: insight-card-maker에서 Card 1 기본 원본사진 규칙, Cards 2-5 샘 캐릭터 적용 범위, Card 1 예외
+    승인 기록 조건을 한 가지 해석으로 정리했다. HTML report gate passed.
+- id: ops-18
+  status: archived
+  completed_at: '2026-07-21'
+  detail: https://github.com/shdkej/knowledge-lab/blob/main/archive/infinity/ops-18.md
+  summary: steel background asset.json source_reference를 tracked PNG로 바꾸고 ignored
+    run 파일은 generation_log_reference로 낮췄으며, insight-card-maker 재사용 배경 규칙에 tracked
+    provenance 경계를 추가했다. HTML report gate passed.
+- id: proposer-blocker-20260720
+  status: archived
+  completed_at: '2026-07-21'
+  detail: https://github.com/shdkej/knowledge-lab/blob/main/archive/infinity/proposer-blocker-20260720.md
+  summary: 사용자 승인 후 `openclaw cron runs --id 1a881731-a2f7-4faa-965f-dfbba9bac0e1
+    --limit 5`로 실제 실행 이력 조회를 검증했고, proposer 정본 문서와 cron payload에 id 포함 호출 규칙을 반영했다.
+    HTML report gate passed.
+- id: marketing-106
+  status: archived
+  completed_at: '2026-07-17'
+  detail: https://github.com/shdkej/knowledge-lab/blob/main/archive/infinity/marketing-106.md
+  summary: 첫 10명 관찰 companion에 저장 여부･같은 job 재방문 근거･retention 예측 신호･첫 verification
+    gate 칸과 J1-J4 예시를 추가했다. HTML report gate passed.
+- id: marketing-105
+  status: archived
+  completed_at: '2026-07-16'
+  detail: https://github.com/shdkej/knowledge-lab/blob/main/archive/infinity/marketing-105.md
+  summary: 첫 10명 관찰 companion에 첫 주 재방문 이유･같은 job 유지･재방문 성격 칸과 J1-J4 예시를 추가했다. HTML
+    report gate passed.
+- id: marketing-104
+  status: archived
+  completed_at: '2026-07-16'
+  detail: https://github.com/shdkej/knowledge-lab/blob/main/archive/infinity/marketing-104.md
+  summary: 첫 10명 관찰표 companion에 첫 가치 도달 시점･결과 이해 신호･다음 행동 명료성･자연 종료 여부와 J1-J4 예시를
+    추가했다. HTML report gate passed.
+- id: ops-14
+  status: archived
+  completed_at: '2026-07-15'
+  detail: https://github.com/shdkej/knowledge-lab/blob/main/archive/infinity/ops-14.md
+  summary: evaluator NO_REPLY 실행 2건이 27,498 / 25,460 tokens로 내려가 읽기 예산 게이트 성공 기준을
+    충족했다. HTML report gate passed.
+- id: ops-12
+  status: archived
+  completed_at: '2026-07-13'
+  detail: https://github.com/shdkej/knowledge-lab/blob/main/archive/infinity/ops-12.md
+  summary: Marketing-agent-growth-review 크론 payload에 GIT SYNC FAILURE GATE를 추가해 git
+    실패를 NO_REPLY로 묵살하지 않고 Infinity Inbox blocker 또는 한국어 blocker로 남기도록 반영했다. HTML report
+    gate passed.
+- id: design-03
+  status: archived
+  completed_at: '2026-07-12'
+  detail: https://github.com/shdkej/knowledge-lab/blob/main/archive/infinity/design-03.md
+  summary: Instagram 카드뉴스용 힙하고 키치한 템플릿 10종을 리서치 중심으로 정리하고 한 장짜리 JPG 보드로 업로드했다. HTML
+    report gate passed.
+- id: ops-11
+  status: archived
+  completed_at: '2026-07-11'
+  detail: https://github.com/shdkej/knowledge-lab/blob/main/archive/infinity/ops-11.md
+  summary: quality-gates effectiveness.jsonl을 07:00 리캡/대시보드 append-only tracked 정본으로
+    확정하고 untracked 반복 노출 경계를 제거했다. HTML report gate passed.
+- id: ops-10
+  status: archived
+  completed_at: '2026-07-11'
+  detail: https://github.com/shdkej/knowledge-lab/blob/main/archive/infinity/ops-10.md
+  summary: 로컬 수정 후 다음 감시 사이클에서 Inbox blocker가 비어 있음을 확인해 proposer tool-failure diagnostics
+    repair를 완료 처리했다. HTML report gate passed.
+- id: marketing-103
+  status: archived
+  completed_at: '2026-07-11'
+  detail: https://github.com/shdkej/knowledge-lab/blob/main/archive/infinity/marketing-103.md
+  summary: 새 companion 문서에 early_behavior_sequence 칸 묶음과 J1-J4별 의도형/막힌형/자연종료 분류 기준
+    추가. 첫 10명 세션을 이벤트 완료 여부 넘어 행동 순서로 기록 가능. HTML report gate passed.
+- id: ops-09
+  status: archived
+  completed_at: '2026-07-10'
+  detail: https://github.com/shdkej/knowledge-lab/blob/main/archive/infinity/ops-09.md
+  summary: 최신 데일리 리뷰 저장본에서 Calendar Result/raw placeholder 미검출
+- id: marketing-102
+  status: archived
+  completed_at: '2026-07-10'
+  detail: https://github.com/shdkej/knowledge-lab/blob/main/archive/infinity/marketing-102.md
+  summary: 기존 관찰표와 marketing-101 후보를 대조해 J1-J4별 D7 재가치 질문, same-job 유지 기준, add_flow_started
+    금지선을 1장으로 고정했다. HTML report gate passed.
+- id: ops-08
+  status: archived
+  completed_at: '2026-07-09'
+  detail: https://github.com/shdkej/knowledge-lab/blob/main/archive/infinity/ops-08.md
+  summary: OpenClaw workspace의 daily-reviews/ 및 monthly-review-sources/를 runtime review
+    산출물로 .gitignore에 명시해 정본 변경 검토면에서 분리했다. HTML report gate passed.
+- id: ops-07
+  status: archived
+  completed_at: '2026-07-09'
+  detail: https://github.com/shdkej/knowledge-lab/blob/main/archive/infinity/ops-07.md
+  summary: MEMORY.md/DREAMS.md 런타임 원장을 .gitignore에 명시해 dreaming/memory 중간 산출물이 정본
+    변경 검토면에 섯이지 않도록 했다. HTML report gate passed.
+- id: ops-06
+  status: archived
+  completed_at: '2026-07-07'
+  detail: https://github.com/shdkej/knowledge-lab/blob/main/archive/infinity/ops-06.md
+  summary: weekly_review.md 같은 주 canonical 블록을 append가 아니라 replace/dedupe하는 계약과 로컬
+    dry-run helper를 추가했다. 2026-W27 dry-run PASS. HTML report gate passed.
+- id: marketing-101
+  status: archived
+  completed_at: '2026-07-06'
+  detail: https://github.com/shdkej/knowledge-lab/blob/main/archive/infinity/marketing-101.md
+  summary: J1-J4별 activation 후보 묶음, window, 현재 이벤트/수기 관찰 항목, 표본 부족 시 금지 해석을 registry로
+    고정했다. HTML report gate passed.
+- id: ops-05
+  status: archived
+  completed_at: '2026-07-06'
+  detail: https://github.com/shdkej/knowledge-lab/blob/main/archive/infinity/ops-05.md
+  summary: OpenClaw 카드뉴스 preview/sample/variant 및 초안 config 산출물이 새 실행 후 git status
+    검토면에 섯기지 않도록 .gitignore 경계를 보강했다. HTML report gate passed.
+- id: ops-04
+  status: archived
+  completed_at: '2026-07-05'
+  detail: https://github.com/shdkej/knowledge-lab/blob/main/archive/infinity/ops-04.md
+  summary: OpenClaw evaluator 정본이 `git status --short`, 절대경로 읽기, no-match 정상 처리 규칙을
+    이미 포함함을 확인하고 Active intent를 완료 처리했다. HTML report gate passed.
+- id: ops-03
+  status: archived
+  completed_at: '2026-07-05'
+  detail: https://github.com/shdkej/knowledge-lab/blob/main/archive/infinity/ops-03.md
+  summary: 자동 회고 저장/발송 직전 렌더 게이트를 정본 규칙에 추가하고 OpenClaw 백업에 반영
+- id: ops-02
+  status: archived
+  completed_at: '2026-07-04'
+  detail: https://github.com/shdkej/knowledge-lab/blob/main/archive/infinity/ops-02.md
+  summary: tool-curator 실행 규칙을 SKILL.md 단일 정본으로 통합하고 workflow 문서는 사건 이력으로, 크론 payload는
+    업은 인보커로 축소. 중복 규칙 순 176줄 제거. HTML report gate passed.
+- id: ops-01
+  status: archived
+  completed_at: '2026-07-04'
+  detail: https://github.com/shdkej/knowledge-lab/blob/main/archive/infinity/ops-01.md
+  summary: weekly autopush git sync를 결정적 스크립트 system/scripts/weekly_workspace_sync.sh로
+    이관하고 크론을 command payload로 교체했다. 실측 19파일 커밋 push + 하네스 run ok 검증. self-healer 프롬프트
+    패치 누적 표면 제거. HTML report gate passed.
+- id: marketing-99
+  status: archived
+  completed_at: '2026-07-03'
+  detail: https://github.com/shdkej/knowledge-lab/blob/main/archive/infinity/marketing-99.md
+  summary: 홈과 `/add` 실코드를 다시 앵커링해 단일 CTA 유지안, J1/J3 2갈래 시작선, 샘플 결과 preview 3안을 판독했고,
+    prelaunch 다음 비교 후보로 J1/J3 2갈래 시작선을 남겼다. UI 반영/카피/배치 결정은 제외.
+- id: marketing-100
+  status: archived
+  completed_at: '2026-07-03'
+  detail: https://github.com/shdkej/knowledge-lab/blob/main/archive/infinity/marketing-100.md
+  summary: 초안에서 첫 문장･버튼 문구･판정 질문･보류 조건･preview안 차이를 고정했고, 후속 보강에서 단일 CTA 대비 필요성 질문,
+    pass/hold cutline, 체택 신호를 추가했다. 구현/배포/계측은 제외했다.
+- id: marketing-95
+  status: archived
+  completed_at: '2026-07-02'
+  detail: https://github.com/shdkej/knowledge-lab/blob/main/archive/infinity/marketing-95.md
+  summary: '`virtue.aws.shdkej.com` 라이브에서 검증용 deed 1개를 넣은 returning state가 `나의 덕력
+    614덕`, `오늘 덕 쌍기`, 최근 덕행 리스트로 정상 표시됨을 확인했다. Fresh-state `612덕` 베이스라인 이슈는 이 검증 범위
+    밖으로 분리했다. HTML report gate passed.'
+- id: marketing-98
+  status: archived
+  completed_at: '2026-07-02'
+  detail: https://github.com/shdkej/knowledge-lab/blob/main/archive/infinity/marketing-98.md
+  summary: 첫 10명 관찰표에 가치 발견 신호･activation 판정 독립 2칸을 추가하고 J1~J4별 예시 1세트씩 고정했다.
+- id: marketing-97
+  status: archived
+  completed_at: '2026-07-02'
+  detail: https://github.com/shdkej/knowledge-lab/blob/main/archive/infinity/marketing-97.md
+  summary: 질문 A "오늘 기억하고 싶은 일이 있나요?"와 잡별 예시 후보 E1~E4를 J1~J4 기준으로 판독해, 전역 예시 즉시 반영이
+    이른 4가지 이유와 질문 A + E1 우선 체택 근거를 한 표로 고정했다.
+- id: design-02
+  status: archived
+  completed_at: '2026-07-01'
+  detail: https://github.com/shdkej/knowledge-lab/blob/main/archive/infinity/design-02.md
+  summary: 최근 카드뉴스 첫 페이지 2종 비교 결과 총론형보다 대상+변화가 함께 보이는 구체 변화형 훅이 우세하다는 결론과 즉시 적용할 개선안
+    3개, preview 증거 2개를 남겼다.
+- id: design-01
+  status: archived
+  completed_at: '2026-07-01'
+  detail: https://github.com/shdkej/knowledge-lab/blob/main/archive/infinity/design-01.md
+  summary: 최근 카드뉴스 표지/CTA 감사로 실패 패턴 5개와 표지 제목, 사진 안전영역, body 밀도, CTA 역할 분리, 라이브러리
+    메타 보강을 포함한 실행 규칙 7개를 고정했다.
+- id: marketing-96
+  status: archived
+  completed_at: '2026-07-01'
+  detail: https://github.com/shdkej/knowledge-lab/blob/main/archive/infinity/marketing-96.md
+  summary: 기존 `marketing-79` 관찰표에 붙여 쓰는 추천 언어 보강안을 추가해 `누구에게 나는 묵었다고 소개하겠는가`와 `지금
+    추천을 망설이게 하는 이유` 2필드, 기록 규칙, J3 예시 1세트를 고정했다. HTML report gate passed.

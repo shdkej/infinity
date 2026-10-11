@@ -1,0 +1,203 @@
+version: 1
+period: 2026-10
+archive:
+- id: acquisition-cashcow-infinity-monitor-20261011
+  title: Infinity 경로에서 인수 후보 페이지 순회·노션 DB·모니터링 실행
+  status: archived
+  completed_at: 2026-10-11 08:20:00+00:00
+  final_artifact: artifacts/acquisition-cashcow-infinity-monitor-20261011/final/acquisition-cashcow-infinity-monitor-report.md
+  report: reports/acquisition-cashcow-infinity-monitor-20261011/20261011T0820Z-final.html
+  red_status: pass
+  red_report: artifacts/acquisition-cashcow-infinity-monitor-20261011/work/red/final-review-closeout-r2.md
+  remote_commit: fee2d47b41c714beda6ab6e13f47290f43131f66
+  knowledge_status: used
+  knowledge_decision: retain_in_infinity
+  knowledge_targets: artifacts/acquisition-cashcow-infinity-monitor-20261011/final/acquisition-cashcow-infinity-monitor-report.md;
+    artifacts/acquisition-cashcow-infinity-monitor-20261011/work/monitor_runner.py;
+    artifacts/acquisition-cashcow-infinity-monitor-20261011/work/notion-database-verification.md;
+    reports/acquisition-cashcow-infinity-monitor-20261011/20261011T0820Z-final.html
+  knowledge_reflection: 반복 인수 모니터는 공개 source·후보 fingerprint·Notion 행·실패 로그를 분리하고,
+    운영 부담/독립 검증 필드 부재를 보류 상태로 남겨야 한다.
+  knowledge_commit: no-promotion-needed
+- id: acquisition-cashcow-research-20261010
+  title: 소규모 서비스 인수 후보와 사용자 적합성 조사
+  status: archived
+  completed_at: 2026-10-10 22:25:00+00:00
+  final_artifact: artifacts/acquisition-cashcow-research-20261010/final/acquisition-cashcow-candidate-report.md
+  report: reports/acquisition-cashcow-research-20261010/20261010T2225Z-final.html
+  red_status: pass
+  red_report: artifacts/acquisition-cashcow-research-20261010/work/red/final-review-pass.md
+  remote_commit: 5eb34ed31272235ad6a437e1b929e6b8f3fd439a
+  knowledge_status: used
+  knowledge_decision: retain_in_infinity
+  knowledge_targets: artifacts/acquisition-cashcow-research-20261010/final/acquisition-cashcow-candidate-report.md;
+    artifacts/acquisition-cashcow-research-20261010/work/fit-scoring.md; artifacts/acquisition-cashcow-research-20261010/work/candidate-ledger.md;
+    reports/acquisition-cashcow-research-20261010/20261010T2225Z-final.html
+  knowledge_reflection: seller claim과 독립 검증, owner hours·transfer scope·기간 정의를 분리
+    보존했다.
+  knowledge_commit: no-promotion-needed
+- id: learning-candidate-kl-checkpoint-dirty-20261004
+  title: 체크포인트 커밋 경로의 기존 dirty 변경 격리
+  status: archived
+  execution_mode: multi_subagent_roles
+  archived_at: 2026-10-10 21:43:19.686006+00:00
+  archive_reason: 사용자의 Infinity 대시보드 `archive_request` (request cc5df58a-d1f1-4852-bcaf-dd8686988ee4)
+  closure_note: 사용자가 대시보드에서 아카이브를 요청해 추가 실행 없이 종료했다.
+  target_agent: genie
+  permission_level: approval_required
+  context_pack: intents/context/learning-candidate-kl-checkpoint-dirty-20261004.json
+  trace: data/traces/learning-candidate-kl-checkpoint-dirty-20261004.json
+  artifact: artifacts/learning-candidate-kl-checkpoint-dirty-20261004/work/planner.md;
+    artifacts/learning-candidate-kl-checkpoint-dirty-20261004/work/developer.md; artifacts/learning-candidate-kl-checkpoint-dirty-20261004/work/marketer.md;
+    artifacts/learning-candidate-kl-checkpoint-dirty-20261004/work/operator.md; artifacts/learning-candidate-kl-checkpoint-dirty-20261004/work/execution-report.md;
+    artifacts/learning-candidate-kl-checkpoint-dirty-20261004/work/red.md
+  next_action: proposer canonical job/payload와 checkpoint 대상 경로가 인증 범위에 노출되고 승인된 뒤
+    targeted-path 실행·2회 scheduled run으로 실제 검증
+  proposed_by: sam-proposer
+  source_signal: OpenClaw automation runs for `3dd12f39-88e0-48ab-95df-f510907797c5`
+    — 2026-10-04 23:06 UTC 및 직전 반복 실행에서 Knowledge Lab 기존 삭제·미추적 변경 때문에 checkpoint
+    commit/push/origin verification이 실패했고 checkpoint가 전진하지 못함
+  rationale: 독립 실행에서 같은 저장소 dirty 상태가 반복되어 Observe 사이클 전체가 멈추며, 의도된 checkpoint 파일만
+    targeted commit하는 격리 경로가 정본 규칙으로 고정되어 있지 않음
+  expected_artifact: Knowledge Lab checkpoint-only commit/push 절차와 검증 결과를 반영한 운영 규칙
+    또는 proposer 실행 경로 수정안
+  risk_level: medium
+  success_criteria: 기존 사용자 변경을 건드리지 않고 checkpoint 대상만 커밋·non-force push하며, push 후
+    Knowledge Lab local HEAD와 origin/main SHA가 일치하고 다음 2회 proposer 실행에서 동일 dirty 상태가
+    있어도 checkpoint 단계가 성공함
+  approval_required: true
+  notification_channel: slack
+  notification_target: channel:C0BR41W31MM
+- id: research-alvaro-siza-quality-iteration-20261008
+  title: 알바로 시자 다방면 조사 확장
+  status: archived
+  completed_at: 2026-10-09 06:10:03+00:00
+  final_artifact: artifacts/research-alvaro-siza-quality-iteration-20261008/final/alvaro-siza-comprehensive-research.md
+  report: reports/research-alvaro-siza-quality-iteration-20261008/20261009T0610Z-final.html
+  static_page: reports/research-alvaro-siza-quality-iteration-20261008/siza-reading-room.html
+  research_mode: exploratory_research
+  target_agent: genie
+  execution_mode: multi_subagent_roles
+  permission_level: approval_required
+  deadline: 2026-10-09T06:00:00Z (2026-10-09 08:00 Italy, CEST)
+  context_pack: intents/context/research-minimalmoeum-trust-synthesis-20261008.json
+  artifact: artifacts/research-alvaro-siza-quality-iteration-20261008/work/quality-audit-20261009T0300.md
+  next_action: 최인아책방을 포함한 국내 독립서점 사례와 사용자 맥락에서 출발해 인접 사례·대안 모델·반례·변화 신호를 넓고 깊게 발산
+    조사
+  success_criteria: 사용자 맥락을 서두에 반영하고, 국내 사례를 중심으로 충분한 분량의 섹션별 탐색 지도·근거·한계·적용 가능성을
+    제시하되 단일 결론으로 성급히 수렴하지 않음
+  notification_channel: slack
+  notification_target: channel:C0BR41W31MM
+- id: research-alvaro-siza-deep-20261008
+  title: 알바로 시자(Álvaro Siza) 심층 대작업 조사
+  status: archived
+  completed_at: 2026-10-08 11:52:00+00:00
+  research_mode: exploratory_research
+  deadline: 2026-10-09T06:00:00Z (2026-10-09 08:00 Italy, CEST)
+  context_pack: intents/context/research-alvaro-siza-deep-20261008.json
+  task_plan: artifacts/research-alvaro-siza-deep-20261008/work/task-plan.json
+  task_plan_doc: artifacts/research-alvaro-siza-deep-20261008/work/task-plan.md
+  task_plan_template: ARTIFACT_RULES.md#대형-작업-태스크-계획
+  trace: data/traces/research-alvaro-siza-deep-20261008.json
+  final_artifact: artifacts/research-alvaro-siza-deep-20261008/final/alvaro-siza-deep-research.md
+  artifact: artifacts/research-alvaro-siza-deep-20261008/final/alvaro-siza-deep-research.md
+  red_status: not_required
+  knowledge_status: queued
+  knowledge_decision: defer
+  knowledge_targets: agent-wiki/content/docs/outputs/ — 시자 전용 페이지 부재
+  knowledge_reflection: 작품·비판·사용자 연결을 산출물에 보존했으나 신규 승격은 보류
+  knowledge_commit: not_applicable
+  report_flow_check: pass — 결론/확신도 → 생애·작품 → 원칙 → 비판 → 사용자 연결 → 열린 질문
+  report_length_judgment: fit
+  next_action: 추가 확장은 새 1차 근거가 생길 때만 별도 cycle로 수행
+- id: research-minimalmoeum-trust-synthesis-20261008
+  title: 미니멀모음 신뢰 자산과 취향 큐레이션 전환 구조 재조사
+  status: archived
+  completed_at: 2026-10-08 06:25:00+00:00
+  research_mode: exploratory_research
+  context_pack: intents/context/research-minimalmoeum-trust-synthesis-20261008.json
+  trace: data/traces/research-minimalmoeum-trust-synthesis-20261008.json
+  detail: intents/archive/research-minimalmoeum-trust-synthesis-20261008.md
+  final_artifact: artifacts/research-minimalmoeum-trust-synthesis-20261008/final/trust-synthesis-report.md
+  artifact: artifacts/research-minimalmoeum-trust-synthesis-20261008/final/trust-synthesis-report.md
+  red_status: not_required
+  knowledge_status: queued
+  knowledge_decision: defer
+  knowledge_targets: agent-wiki/content/docs/outputs/Meta/MinimalCollection.mdx; agent-wiki/content/docs/outputs/Integration/Marketing.mdx
+  knowledge_reflection: 국내 사례·인접 모델·반례를 기존 판단과 대조했으나 신규 승격은 보류
+  knowledge_commit: not_applicable
+  report_flow_check: pass
+  report_length_judgment: fit
+  next_action: 최인아책방의 공식·현장 자료를 직접 표본 확인하고, 미니멀모음 공개 기록 10개에서 독자의 기준 회상·유료 가치 언어를
+    관찰
+- id: research-minimalmoeum-trust-independent-bookstores-20261007
+  title: 독립서점 사례 기반 미니멀모음 신뢰·큐레이션 구조 조사
+  status: archived
+  completed_at: 2026-10-07 21:20:00+00:00
+  research_mode: exploratory_research
+  context_pack: intents/context/research-minimalmoeum-trust-independent-bookstores-20261007.json
+  trace: data/traces/research-minimalmoeum-trust-independent-bookstores-20261007.json
+  detail: intents/archive/research-minimalmoeum-trust-independent-bookstores-20261007.md
+  final_artifact: artifacts/research-minimalmoeum-trust-independent-bookstores-20261007/final/independent-bookstore-trust-report.md
+  artifact: artifacts/research-minimalmoeum-trust-independent-bookstores-20261007/final/independent-bookstore-trust-report.md
+  red_status: not_required
+  knowledge_status: queued
+  knowledge_decision: defer
+  knowledge_targets: agent-wiki/content/docs/outputs/Meta/MinimalCollection.mdx; agent-wiki/content/docs/outputs/Integration/Marketing.mdx
+  knowledge_reflection: 기존 Knowledge Lab 판단과 대조했으나 신규 승격은 보류
+  knowledge_commit: not_applicable
+  report_flow_check: pass
+  report_length_judgment: fit
+  next_action: 공개 카드 10개를 동일 템플릿으로 축적하고 5~10명에게 기준 회상·유료 가치 인식을 수동 검증
+  archived_at: 2026-10-06 06:18:07.218162+00:00
+  archive_reason: 사용자의 Infinity 대시보드 `archive_request` (request e6fc0d6d-c2b2-453d-9d2c-612e96ceb212)
+  closure_note: 사용자가 대시보드에서 아카이브를 요청해 추가 실행 없이 종료했다.
+- id: research-nothing-early-stage-deep-20261004
+  title: 낫씽(Nothing) 초창기 심층 조사와 근거·실패·롤모델 검증
+  status: archived
+  completed_at: 2026-10-04 18:58:00+00:00
+  research_mode: exploratory_research
+  context_pack: intents/context/research-nothing-early-stage-deep-20261004.json
+  trace: data/traces/research-nothing-early-stage-deep-20261004.json
+  final_artifact: artifacts/research-nothing-early-stage-deep-20261004/final/deep-research.md
+  report: reports/research-nothing-early-stage-deep-20261004/20261004T1858Z-final.html
+  artifact: artifacts/research-nothing-early-stage-deep-20261004/final/deep-research.md
+  result_summary: 2020~2022 연표와 12개 직접 확인 출처를 바탕으로 자금·커뮤니티·제조·제품·Phone 진입의 인과 경계,
+    반대 근거, 적용 불가능 조건을 보강했다. 공개되지 않은 마진·수율·전환율은 보류했다.
+  knowledge_status: queued
+  knowledge_decision: defer
+  knowledge_targets: agent-wiki/content/docs/outputs/ — Nothing 관련 재사용 판단 페이지 부재 확인
+  knowledge_reflection: 공개 출처 사례 판단이며 새 Agent Wiki 승격은 하지 않음
+  knowledge_commit: not_applicable
+- id: research-nothing-early-stage-20261003
+  status: archived
+  completed_at: '2026-10-04'
+  detail: intents/archive/research-nothing-early-stage-20261003.md
+  summary: 탐색형 브리프·출처·불확실성·롤모델 원칙을 보존하고, 후속 실행은 별도 Intent로 분리.
+- id: pilot-github-research-skill-kang-chen-approval
+  title: Kang-chen 문헌검토 부분 기능 격리 파일럿 차단 종료
+  status: archived
+  archived_at: 2026-10-03 15:20:00+00:00
+  close_reason: blocked_external_artifact
+  target_agent: genie
+  task_type: approval-gated-research
+  depends_on: research-github-skills-20260912
+  approval: user-approved via Infinity dashboard (2026-10-02T22:22:51.050232+00:00)
+  approval_request_id: acff9567-12cc-4754-adcc-9bcda62244be
+  task_plan: artifacts/pilot-github-research-skill-kang-chen-approval/work/task-plan.json
+  task_plan_doc: artifacts/pilot-github-research-skill-kang-chen-approval/work/task-plan.md
+  trace: data/traces/pilot-github-research-skill-kang-chen-approval.json
+  artifact: artifacts/pilot-github-research-skill-kang-chen-approval/work/audit-evidence.md;
+    artifacts/pilot-github-research-skill-kang-chen-approval/work/fixture-comparison.md
+  detail: intents/archive/pilot-github-research-skill-kang-chen-approval.md
+  notification_channel: slack
+  notification_target: channel:C0BR41W31MM
+  notification_reply_to: 1790939865.744739
+  notification_origin: channel:C0BR41W31MM;reply_to:1790939865.744739
+  next_action: 라이선스·의존성·egress 증빙이 확보될 때 새 Intent로 재개
+  remote_verified: pending
+- id: research-business-profitability-modoo-20261002
+  status: archived
+  completed_at: '2026-10-02'
+  detail: intents/archive/research-business-profitability-modoo-20261002.md
+  summary: 고객 문제·지불 행동·가격·초기 판매·단위경제 탐색 완료

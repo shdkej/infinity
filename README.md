@@ -1,13 +1,15 @@
 # infinity
 
-Agent-First 자율 실행 시스템. 스케줄 routine(원격 에이전트)이 깨어나 `INTENTS.md`의 의도를 자율 처리하고, 의미 있는 변화는 원장과 대시보드에 드러낸다.
+Agent-First 자율 실행 시스템. 스케줄 routine(원격 에이전트)이 실행 원장을 처리하고, 구조화된 YAML 상태와 대시보드에 의미 있는 변화를 드러낸다.
 
 > 사용자는 **의도와 판단**만, 에이전트는 **실행과 보고**를 담당한다.
 
 ## 구조
 
 ```
-INTENTS.md          ← 활성 Intent (Inbox / Active / Waiting / Archive)
+INTENTS.md          ← 기존 실행 호환 원장(마이그레이션 기준)
+INTENTS.yaml        ← 대시보드용 상태 원장(Inbox / Active / Waiting)
+intents/archive/*.yaml ← 월별 Archive 대시보드 원장
 GATES.md            ← 승인 대기/처리 완료
 PERMISSIONS.md      ← 권한 레벨(L0~L3) 정의
 ARTIFACT_RULES.md   ← 산출물 경로 규칙
@@ -32,15 +34,16 @@ docs/infinity-evaluator.md ← Infinity 품질 평가 기준과 실행 지침
 
 Infinity 운영 문서는 여러 저장소에 걸쳐 있지만, 역할별 정본은 아래처럼 하나씩만 둔다. 같은 주제를 다른 문서에서 발견하면 이 순서로 판정하고, 보조 문서는 절차를 재정의하지 않고 링크만 제공한다.
 
-1. **큐·상태·대시보드 카드:** 이 저장소의 `INTENTS.md` — `Inbox → Active → Waiting → Archive`를 유일한 상태 원장으로 사용한다.
-2. **승인·권한:** 이 저장소의 `GATES.md`, `PERMISSIONS.md` — 승인 대기와 L0~L3 경계를 정의한다.
-3. **산출물·Archive:** 이 저장소의 `ARTIFACT_RULES.md` — `artifacts/`, `reports/`, `intents/archive/`의 역할과 완료 형식을 정의한다.
-4. **Heartbeat 실행:** 이 저장소의 `heartbeat.md` — dispatcher가 원장을 읽고 실행·종료하는 순서를 정의한다.
-5. **Trace:** 이 저장소의 `docs/intent-trace-contract.md` — intake/execution/archive trace 구조를 정의한다.
-6. **운영 상위 계약:** Knowledge Lab의 `source/openclaw-system/docs/INFINITY_OPERATING_RULES.md` — 저장소 간 경계, 원격 검증, 중복 Intent 금지, 예외를 정의한다.
-7. **역할 위임:** `AGENT_COLLABORATION.md`, `/home/ubuntu/workspace-genie/GENIE_WORKFLOW.md`, Prompt Archive의 역할별 workflow — 실행 역할과 협업 형식만 정의한다.
-8. **대시보드 UI·배포:** Space의 `infra-aws-static-sites/sites/infinity/README.md`와 `dist/index.html` — 표시·배포 구현만 소유하며 Intent 상태를 정의하지 않는다.
-9. **디스패처 구현:** `docs/dispatcher-implementation.md` — 실행 파일·잠금·handoff·검증의 코드 수준 설명을 둔다.
+1. **큐·상태·실행 호환 원장:** 이 저장소의 `INTENTS.md` — `Inbox → Active → Waiting → Archive` 전이와 기존 dispatcher 계약을 보존한다.
+2. **대시보드 읽기 원장:** `INTENTS.yaml`과 `intents/archive/YYYY-MM.yaml` — 화면이 읽는 구조화된 상태·최근 완료 카드이며, `payload.intents` 계약은 기존과 같다.
+3. **승인·권한:** 이 저장소의 `GATES.md`, `PERMISSIONS.md` — 승인 대기와 L0~L3 경계를 정의한다.
+4. **산출물·Archive:** 이 저장소의 `ARTIFACT_RULES.md` — `artifacts/`, `reports/`, `intents/archive/`의 역할과 완료 형식을 정의한다.
+5. **Heartbeat 실행:** 이 저장소의 `heartbeat.md` — dispatcher가 원장을 읽고 실행·종료하는 순서를 정의한다.
+6. **Trace:** 이 저장소의 `docs/intent-trace-contract.md` — intake/execution/archive trace 구조를 정의한다.
+7. **운영 상위 계약:** Knowledge Lab의 `source/openclaw-system/docs/INFINITY_OPERATING_RULES.md` — 저장소 간 경계, 원격 검증, 중복 Intent 금지, 예외를 정의한다.
+8. **역할 위임:** `AGENT_COLLABORATION.md`, `/home/ubuntu/workspace-genie/GENIE_WORKFLOW.md`, Prompt Archive의 역할별 workflow — 실행 역할과 협업 형식만 정의한다.
+9. **대시보드 UI·배포:** Space의 `infra-aws-static-sites/sites/infinity/README.md`와 `dist/index.html` — 표시·배포 구현만 소유하며 Intent 상태를 정의하지 않는다.
+10. **디스패처 구현:** `docs/dispatcher-implementation.md` — 실행 파일·잠금·handoff·검증의 코드 수준 설명을 둔다.
 
 `/home/ubuntu/workspace/prompt-archive/INFINITY.md`는 초기 설계·역사적 참고 문서다. 현재 상태값, 접수 형식, 대시보드 표시 규칙은 이 README와 위 정본 문서를 우선한다. 새 규칙은 초기 설계 문서에만 추가하지 않는다.
 
@@ -51,7 +54,7 @@ Infinity 운영 문서는 여러 저장소에 걸쳐 있지만, 역할별 정본
 - **pickup·구조화:** Inbox가 오래 남지 않고, 목적·완료 기준·승인 경계가 실행 가능한 Intent로 정리됐는가.
 - **동시성·승인:** 병렬도가 안정성과 품질을 해치지 않으며, 승인·차단 상태와 다음 재개 조건이 명확한가.
 - **결과·사용자 접점:** 결과물이 정해진 경로에 있고, 사용자가 다음 판단을 할 수 있는 형태로 도달했는가. 배포는 URL 응답만으로 닫지 않고 핵심 사용자 흐름을 확인한다.
-- **상태·원장 정합성:** `INTENTS.md`가 단일 상태 원장으로 유지되고, Archive·lane·후속 Intent가 중복 없이 연결됐는가.
+- **상태·원장 정합성:** 실행 호환 원장과 YAML 대시보드 원장이 같은 lane·ID·완료 날짜를 가리키며, Archive·후속 Intent가 중복 없이 연결됐는가.
 - **반복 실패 처리:** 같은 차단·승인 문제를 새 근거 없이 반복 기록하지 않고, 반복되면 대안 경로·사용자 결정·프로토콜 수정 중 하나로 승격하는가.
 - **no-op 원칙:** 의미 있는 변화가 없으면 commit·push하지 않는가.
 
@@ -103,7 +106,8 @@ Infinity 운영 문서는 여러 저장소에 걸쳐 있지만, 역할별 정본
 
 ## 정본과 대시보드 정합성
 
-- `INTENTS.md`가 큐 상태의 단일 정본이다. 대시보드는 GitHub `main`의 raw `INTENTS.md`를 읽고, 로컬 파일이나 별도 큐를 상태 원천으로 사용하지 않는다.
+- 실행 전이의 호환 정본은 `INTENTS.md`이고, 대시보드는 GitHub `main`의 `INTENTS.yaml`과 `intents/archive/YYYY-MM.yaml`을 읽는다. 로컬 파일이나 별도 큐를 상태 원천으로 사용하지 않는다.
+- `INTENTS.yaml`은 `Inbox/Active/Waiting`을, 월별 Archive YAML은 완료 카드와 날짜를 구조화해 보존한다. YAML Archive는 ID를 중복 노출하지 않고 KST 기준 최근 7일만 대시보드에 공급한다.
 - `INTENTS.md`에는 `## Inbox`, `## Active`, `## Waiting`, `## Archive`를 각각 정확히 한 번만 둔다. 중복 섹션은 검사에서 실패하며 대시보드에 숨겨진 항목을 만들 수 있다.
 - 열린 intent는 반드시 해당 lane 아래 `### [id] 제목` 블록으로 둔다. `status` 값과 lane이 다르면 정합성 오류로 보고 수정한다.
 - 신규 Archive 블록은 요약 주석의 완료 시각과 같은 `completed_at: YYYY-MM-DDTHH:MM:SSZ`를 반드시 기록한다. 대시보드는 이 필드로 최근 완료 순서와 월 그룹을 정하므로, 주석에만 날짜를 쓰면 카드가 `날짜 미상` 접힌 그룹으로 밀린다.

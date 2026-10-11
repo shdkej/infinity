@@ -1,0 +1,152 @@
+version: 1
+period: 2026-08
+archive:
+- id: marketing-123
+  status: archived
+  completed_at: '2026-08-31'
+  detail: intents/archive/marketing-123.md
+- id: marketing-127
+  status: archived
+  completed_at: '2026-08-22'
+  detail: https://github.com/shdkej/knowledge-lab/blob/main/archive/infinity/marketing-127.md
+- id: research-37
+  status: archived
+  completed_at: '2026-08-30'
+  detail: intents/archive/research-37.md
+- id: marketing-129
+  status: archived
+  completed_at: '2026-08-29'
+  detail: source/infinity/archive/marketing-129.md
+  summary: 내부 검토용 1080×1350 여행 기록 첫 장 v2와 실제 렌더 Red PASS
+- id: design-05
+  status: archived
+  completed_at: '2026-08-27'
+  detail: intents/archive/design-05.md
+- id: research-35
+  status: archived
+  completed_at: '2026-08-26'
+  detail: intents/archive/research-35.md
+- id: research-34
+  status: archived
+  completed_at: '2026-08-24'
+  detail: intents/archive/research-34.md
+- id: research-33
+  status: archived
+  completed_at: '2026-08-24'
+  detail: intents/archive/research-33.md
+- id: research-31
+  status: archived
+  completed_at: '2026-08-23'
+  detail: artifacts/research-31/
+- id: design-04
+  status: archived
+  completed_at: '2026-08-23'
+  detail: artifacts/design-04/
+  summary: 왼쪽 선 요소 제거·차콜/흑연 톤 완화 수정본 생성 및 렌더 검증. 공개 게시·외부 발송 없음.
+- id: research-29
+  status: archived
+  completed_at: '2026-08-22'
+  detail: E1
+- id: marketing-128
+  status: archived
+  completed_at: '2026-08-21'
+  detail: https://github.com/shdkej/knowledge-lab/blob/main/archive/infinity/marketing-128.md
+- id: ops-26
+  status: archived
+  completed_at: '2026-08-21'
+  detail: https://github.com/shdkej/knowledge-lab/blob/main/archive/infinity/ops-26.md
+  summary: 모든 비단순 산출물 Intent에 지표 질문 계약과 전용 검사를 적용
+- id: research-28
+  status: archived
+  completed_at: '2026-08-20'
+  detail: https://github.com/shdkej/knowledge-lab/blob/main/archive/infinity/research-28.md
+  summary: Andrej Karpathy autoresearch를 Infinity에 접목하는 운영·실험 구조 설계
+- id: marketing-126
+  status: archived
+  completed_at: '2026-08-20'
+  detail: https://github.com/shdkej/knowledge-lab/blob/main/archive/infinity/marketing-126.md
+  summary: marketing-125를 직접 렌더 검수한 뒤 루프가 메시지를 충분히 설명하지 못한다고 판단해 한 번 더 재작업. 3분할 닫힌
+    루프와 가설/실행/증거 라벨, 실제 행동 중심 카피로 개선. 공개 게시·프로필 변경·외부 업로드 없음.
+- id: marketing-125
+  status: archived
+  completed_at: '2026-08-20'
+  detail: https://github.com/shdkej/knowledge-lab/blob/main/archive/infinity/marketing-125.md
+  summary: marketing-124 실패를 반영한 신규 파라미터 기반 SVG/PNG 3장과 소개글 후보. 실제 PNG 직접 시각 검수 통과.
+    공개 게시·프로필 변경·외부 업로드 없음.
+- id: marketing-124
+  status: archived
+  completed_at: '2026-08-20'
+  detail: artifacts/marketing-124/
+  summary: 초기 소개글 후보와 흰 배경·검정 순환 원 3장 SVG/PNG는 보존하지만 최종 사용 금지. 원형성·3분할·화살표 접선·카피 품질
+    검증 실패. 공개 게시·프로필 변경·외부 업로드 없음.
+- id: marketing-122
+  status: archived
+  completed_at: '2026-08-16'
+  detail: https://github.com/shdkej/knowledge-lab/blob/main/archive/infinity/marketing-122.md
+  summary: 공식 Sharelink 조건과 공개 Threads 사례 6개를 보강해 내부 실행 가이드 완료. 공개 발행·로그인·가입·계정 연결·광고·DM·댓글은
+    실행하지 않았고, 실제 게시 전 사용자 승인과 계정 화면 self-check 필요.
+- id: research-27
+  status: archived
+  completed_at: '2026-08-16'
+  detail: artifacts/research-27/digital-travel-scrapbook-market-research.md
+- id: research-26
+  status: archived
+  completed_at: '2026-08-14'
+  detail: artifacts/research-26/digital-organizer-market-research.md
+  summary: 디지털 오거나이저 시장성은 중간. 연동 없는 시각적 디지털 서랍 MVP로 좁혀 2주 검증을 권장.
+- id: ops-24
+  status: archived
+  completed_at: '2026-08-10'
+  detail: artifacts/ops-24/ops-24-execution-20260810.md
+  summary: '6개 daily-tracking pointer와 runtime canonical cron payload를 재검증하고 card-news
+    provenance 전용 검사 명령을 추가. detached clean checkout provenance PASS, Red red_status:
+    pass: reports/ops-24/20260810T1548Z-red.html.'
+- id: ops-25
+  status: archived
+  completed_at: '2026-08-10'
+  detail: artifacts/ops-25/follow-up-capture-rule.md
+  summary: '완료·감사 report의 실행 가능한 후속 조치를 근거·완료 기준·중복 방지·승인 경계와 함께 별도 Inbox intent로
+    보존하는 계약을 INFINITY_OPERATING_RULES와 heartbeat workflow에 반영. follow_up_intent_ids/report
+    미생성 사유와 lane 재검증을 필수화. Red red_status: pass, Red report: reports/ops-25/20260810T0453Z-red.html.'
+- id: ops-23
+  status: archived
+  completed_at: '2026-08-09'
+  detail: artifacts/ops-23/audit-20260809.md
+  summary: 'source 이동·daily-tracking 색인·runtime 경계·cron/협업 참조 감사. symlink 호환성은 유지되나
+    meaningful daily-tracking pointer 누락, migrated cron 22개 중 legacy path 10개, ignored
+    asset provenance 재현성 위험과 dispatcher snapshot 관측성 공백을 후속 조치로 기록. Planner·Developer·Marketer·Operator
+    판단과 Red red_status: pass 포함.'
+- id: research-25
+  status: archived
+  completed_at: '2026-08-09'
+  detail: artifacts/research-25/quiet-minimal-brand-research.md
+  summary: 국내외 생활용품·뷰티·출판·라이프스타일 7개 사례를 공식 자료와 Knowledge Lab 기준으로 비교하고, Sam Samuel
+    적용 원칙 10개와 quiet-start 프로토타입 다음 액션을 정리. Planner·Developer·Marketer·Operator 독립
+    판단 기록, Red pass.
+- id: marketing-121
+  status: archived
+  completed_at: '2026-08-09'
+  detail: artifacts/marketing-121/instagram-hooks-100.md
+  summary: 한국어 훅 100개를 10개 패턴으로 정리. 공개 한국어 자료 기반 골격과 Sam 변형을 분리하고, Red second pass
+    PASS 및 정적 검증을 반영.
+- id: build-17
+  status: archived
+  completed_at: '2026-08-09'
+  detail: reports/build-17/2026-08-09T2017Z.html
+  summary: Spatial Type 텍스트 우선 표면으로 개편. 대상 commit 41f02b1 push, GitHub Actions run
+    31334185017 성공, https://status.aws.shdkej.com/ HTTP 200 및 라이브 CSS/데이터 계약 확인. Red
+    pass.
+- id: build-16
+  status: archived
+  completed_at: '2026-08-07'
+  detail: https://github.com/shdkej/knowledge-lab/blob/main/archive/infinity/build-16.md
+  summary: 현재 정식 대시보드는 `https://infinity.aws.shdkej.com/`이며, 과거 GitHub Pages 배포는 폐기됨.
+- id: build-15
+  status: archived
+  completed_at: '2026-08-07'
+- id: marketing-120
+  status: archived
+  completed_at: '2026-08-02'
+  detail: https://github.com/shdkej/knowledge-lab/blob/main/archive/infinity/marketing-120.md
+  summary: 사용자 요청으로 Waiting 항목을 정리했다. 실제 Threads 원자료가 없어 분석 결론은 내리지 않았고 기존 preflight/report는
+    무효로 보존.

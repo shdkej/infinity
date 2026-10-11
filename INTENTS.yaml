@@ -1,0 +1,59 @@
+version: 1
+format: infinity-intents-yaml
+lanes:
+  inbox: []
+  active:
+  - id: acquisition-cashcow-infinity-monitor-20261011-r2
+    title: Infinity에서 내일 8시까지 인수 후보 추가 수집·노션 갱신
+    status: active
+    research_mode: decision_research
+    target_agent: genie
+    execution_mode: multi_subagent_roles
+    permission_level: approval_required
+    deadline: 2026-10-11T23:00:00Z (2026-10-12 08:00 Asia/Seoul, KST)
+    deadline_local: 2026-10-12 08:00 Asia/Seoul (KST)
+    context_pack: intents/context/acquisition-cashcow-infinity-monitor-20261011-r2.json
+    task_plan: artifacts/acquisition-cashcow-infinity-monitor-20261011-r2/work/task-plan.json
+    task_plan_doc: artifacts/acquisition-cashcow-infinity-monitor-20261011-r2/work/task-plan.md
+    task_plan_template: ARTIFACT_RULES.md#대형-작업-태스크-계획
+    trace: data/traces/acquisition-cashcow-infinity-monitor-20261011-r2.json
+    artifact: artifacts/acquisition-cashcow-infinity-monitor-20261011-r2/work/task-plan.md;
+      artifacts/acquisition-cashcow-infinity-monitor-20261011-r2/work/scope-and-baseline.md;
+      artifacts/acquisition-cashcow-infinity-monitor-20261011-r2/work/new-candidate-inventory.md;
+      artifacts/acquisition-cashcow-infinity-monitor-20261011-r2/work/notion-update-proof.md;
+      artifacts/acquisition-cashcow-infinity-monitor-20261011-r2/work/notion-baseline-integrity.md;
+      artifacts/acquisition-cashcow-infinity-monitor-20261011-r2/final/acquisition-cashcow-infinity-monitor-r2-report.md
+    knowledge_status: used
+    knowledge_decision: retain_in_infinity
+    knowledge_targets: agent-wiki/content/docs/Idea/Information.mdx; agent-wiki/content/docs/Integration/Business.mdx;
+      agent-wiki/content/docs/blog/Note_Management.mdx
+    knowledge_reflection: 공개 원문과 기존 Notion을 분리해 읽고 직접 링크·가격·운영 부담이 함께 검증되지 않으면 후보를
+      보류한다.
+    knowledge_commit: no-promotion-needed
+    notification_channel: slack
+    notification_target: channel:C0BR41W31MM
+    notification_reply_to: 1791668175.719849
+    decision_owner: Kimi
+    decision_question: 마감 전 기존 목록과 중복되지 않는 공개 후보를 추가로 발견해 노션 DB에 유지할 수 있는가?
+    comparison_axes: 인수 가격·매출·이익·회수기간·운영 부담·기술 의존·검증 가능성
+    next_action: C1 검증을 닫은 뒤 C2를 Active로 전환해 다음 페이지와 Fello 상세 후보를 재순회한다
+    success_criteria: 기존 16개 행을 보존하면서 신규 후보의 직접 링크·재무 수치·운영 부담·적합도가 노션 DB에 반영되고 중복·접근
+      제한·검증 공백이 기록된다
+    research_scope: Fello·Listing·Sellernet·Flippa·Empire Flippers·Quiet Light·Acquire의
+      공개 목록; 3천만원 이하; 기존 후보 후속 수집; 구매·연락·계약·결제 제외
+    projects:
+    - infinity
+    - personal-ops
+    task_type: monitoring
+    topics:
+    - finance
+    - automation
+    - workflow
+    raw_request: 사용자는 Infinity에서 내일 오전 8시까지 각 사이트를 계속 페이지 순회해 신규 인수 후보를 리스트업하고 노션에
+      갱신해 달라고 요청했다.
+  waiting: []
+archive:
+  glob: intents/archive/*.yaml
+  retention_days: 7
+generated_from: INTENTS.md
+generated_at: '2026-10-11T11:24:05+00:00'
