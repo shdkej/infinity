@@ -44,7 +44,11 @@
       "status": "accepted"
     }
   ],
-  "artifacts": [],
+  "artifacts": [
+    "artifacts/acquisition-cashcow-infinity-monitor-20261011-r2/work/scope-and-baseline.md",
+    "artifacts/acquisition-cashcow-infinity-monitor-20261011-r2/work/new-candidate-inventory.md",
+    "artifacts/acquisition-cashcow-infinity-monitor-20261011-r2/work/notion-update-proof.md"
+  ],
   "verifications": [],
   "next_decision": {
     "status": "in_progress",
