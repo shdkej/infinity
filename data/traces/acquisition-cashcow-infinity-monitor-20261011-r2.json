@@ -53,6 +53,24 @@
       "status": "accepted"
     },
     {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-3bf4f89c65cd439394fa09293d0c7d0f",
+      "canonical_sha": "ffe9949d44e1b222503ec22b973140f72d5e1840",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher-v2",
+      "timestamp": "2026-10-11T12:40:26Z",
+      "status": "accepted"
+    },
+    {
+      "type": "timebox_reassessment",
+      "run_id": "dispatch-3bf4f89c65cd439394fa09293d0c7d0f",
+      "at": "2026-10-11T12:40:26Z",
+      "choice": "switch_to_verified_alternative",
+      "status": "applied",
+      "reason": "Repeated public no-op sweeps produced no new direct listing evidence; run offline dedupe audit.",
+      "task_id": "T6.1"
+    },
+    {
       "type": "backfill",
       "cycle": "C2",
       "at": "2026-10-11T11:32:00Z",
@@ -118,13 +136,22 @@
       "status": "accepted"
     },
     {
-      "type": "timebox_reassessment",
+      "type": "backfill",
       "run_id": "dispatch-54e6bd7e51574893bded04d8a14cf988",
       "at": "2026-10-11T12:20:24Z",
       "choice": "split_into_smaller_leaf_tasks",
       "status": "applied",
       "reason": "T3.1 evidence is complete; follow-on monitoring is bounded to 30-minute leaves.",
       "remaining_budget_minutes": 640
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-3bf4f89c65cd439394fa09293d0c7d0f",
+      "canonical_sha": "ffe9949d44e1b222503ec22b973140f72d5e1840",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-10-11T12:40:04Z",
+      "status": "accepted"
     }
   ],
   "artifacts": [
@@ -212,7 +239,7 @@
     }
   ],
   "next_decision": {
-    "status": "active_bounded_follow_on",
-    "value": "T3.1 is complete; T5.1 is the bounded active follow-on leaf after timebox reassessment."
+    "status": "active_verified_alternative",
+    "value": "T5.1 is complete; T6.1 offline dedupe audit is the verified alternative after repeated no-op sweeps."
   }
 }

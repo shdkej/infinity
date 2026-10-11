@@ -98,13 +98,25 @@
     {
       "id": "T5.1",
       "title": "C4 공개 목록 변경 여부를 재확인한다",
-      "status": "active",
+      "status": "done",
       "depends_on": ["T4.1"],
       "evidence": "work/cycle-C4-candidate-inventory.md",
       "max_minutes": 30,
       "validation": "C3 이후 공개 목록의 신규 직접 상세와 가격·운영 근거를 확인한다.",
       "closure_check": "신규 후보가 없으면 no-op 증거를 남기고, 있으면 핵심 필드가 확인된 경우에만 승격한다.",
       "started_at": "2026-10-11T12:02:30Z",
+      "completed_at": "2026-10-11T12:40:26Z"
+    },
+    {
+      "id": "T6.1",
+      "title": "C2-C4 증거를 오프라인 dedupe 대체 경로로 검증한다",
+      "status": "active",
+      "depends_on": ["T5.1"],
+      "evidence": "work/offline-dedupe-audit.md",
+      "max_minutes": 20,
+      "validation": "기존 cycle 증거의 후보·fingerprint·Notion no-op 결과가 서로 일치하는지 확인한다.",
+      "closure_check": "새 직접 상세 URL 또는 공개 가격이 없으면 추가 공개 조회를 반복하지 않는다.",
+      "started_at": "2026-10-11T12:40:26Z",
       "completed_at": null
     }
   ],
