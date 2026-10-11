@@ -58,7 +58,7 @@
     {
       "id": "T3.1",
       "title": "C2 다음 페이지·Fello 상세 후보를 재순회한다",
-      "status": "pending",
+      "status": "active",
       "depends_on": [
         "T2.1"
       ],
@@ -66,7 +66,7 @@
       "max_minutes": 50,
       "validation": "C1에서 보류한 Fello 상세와 각 사이트의 다음 페이지를 재확인하고 fingerprint로 중복을 차단한다.",
       "closure_check": "가격·재무·운영 증거가 모두 확인된 신규 후보만 노션 추가 대상으로 남긴다.",
-      "started_at": null,
+      "started_at": "2026-10-11T11:30:03Z",
       "completed_at": null
     },
     {

@@ -42,6 +42,15 @@
       "session_key": "agent:genie:infinity-dispatcher-v2",
       "timestamp": "2026-10-11T11:06:55Z",
       "status": "accepted"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-0f700e78d58c4dc1ae0a084fffb08da5",
+      "canonical_sha": "83cebcbe7262bdf83e3770ced8e7c534ea86b1af",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-10-11T11:30:05Z",
+      "status": "accepted"
     }
   ],
   "artifacts": [
@@ -117,6 +126,15 @@
         ],
         "resume_when": "Create evidence-bearing C2 artifacts from a real public-read sweep, update plan and trace, obtain Red PASS, then run atomic Archive closeout after the deadline."
       }
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-0f700e78d58c4dc1ae0a084fffb08da5",
+      "canonical_sha": "83cebcbe7262bdf83e3770ced8e7c534ea86b1af",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher-v2",
+      "timestamp": "2026-10-11T11:30:03Z",
+      "status": "accepted"
     }
   ],
   "next_decision": {
