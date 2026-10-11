@@ -21,7 +21,7 @@
 
 ## Infinity-local 보완 runner
 
-`work/monitor_runner.py`를 추가했다. `--deadline` 실행 입력, source URL fingerprint, 응답 SHA-256, source별 오류 JSONL을 제공하며 스케줄·Notion schema/권한·판매자 상호작용은 하지 않는다.
+`work/monitor_runner.py`를 추가했다. `--deadline` 실행 입력, 페이지에서 추출한 후보 상세 URL fingerprint, 응답 SHA-256, source별 오류 JSONL을 제공하며 스케줄·Notion schema/권한·판매자 상호작용은 하지 않는다. `--dry-run`에서는 fingerprint 상태 파일을 쓰지 않는다.
 
 검증 명령: `python3 work/monitor_runner.py --deadline 2026-10-11T23:00:00Z --dry-run`
 
