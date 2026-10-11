@@ -19,6 +19,11 @@
 - task_plan_template: ARTIFACT_RULES.md#대형-작업-태스크-계획
 - trace: data/traces/acquisition-cashcow-infinity-monitor-20261011-r2.json
 - artifact: artifacts/acquisition-cashcow-infinity-monitor-20261011-r2/work/task-plan.md; artifacts/acquisition-cashcow-infinity-monitor-20261011-r2/work/scope-and-baseline.md; artifacts/acquisition-cashcow-infinity-monitor-20261011-r2/work/new-candidate-inventory.md; artifacts/acquisition-cashcow-infinity-monitor-20261011-r2/work/notion-update-proof.md; artifacts/acquisition-cashcow-infinity-monitor-20261011-r2/work/notion-baseline-integrity.md; artifacts/acquisition-cashcow-infinity-monitor-20261011-r2/final/acquisition-cashcow-infinity-monitor-r2-report.md
+- knowledge_status: used
+- knowledge_decision: retain_in_infinity
+- knowledge_targets: agent-wiki/content/docs/Idea/Information.mdx; agent-wiki/content/docs/Integration/Business.mdx; agent-wiki/content/docs/blog/Note_Management.mdx
+- knowledge_reflection: 공개 원문과 기존 Notion을 분리해 읽고 직접 링크·가격·운영 부담이 함께 검증되지 않으면 후보를 보류한다.
+- knowledge_commit: no-promotion-needed
 - notification_channel: slack
 - notification_target: channel:C0BR41W31MM
 - notification_reply_to: 1791668175.719849
