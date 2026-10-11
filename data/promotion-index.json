@@ -1,30 +1,44 @@
 {
-  "generated_at": "2026-10-11T00:00:08.926Z",
+  "generated_at": "2026-10-11T06:00:07.276Z",
   "summary": {
-    "total": 957,
+    "total": 958,
     "wiki_reflected": 198,
-    "not_reflected": 759,
+    "not_reflected": 760,
     "by_status": {
+      "queued": 773,
       "reviewed": 98,
-      "queued": 772,
       "selected": 4,
       "integrated": 10,
       "rejected": 73
     },
     "by_layer": {
+      "openclaw-system": 630,
       "infinity": 72,
-      "openclaw-system": 629,
       "external-links": 181,
       "shdkej-content": 74,
       "root": 1
     },
     "by_promotion_state": {
-      "not_applicable": 757,
+      "not_applicable": 758,
       "reflected": 198,
       "pending_promotion": 2
     }
   },
   "entries": [
+    {
+      "source": "source/openclaw-system/data/ai-news/2026-10-11-ai-news.md",
+      "status": "queued",
+      "source_layer": "openclaw-system",
+      "reason": "자동 수집됨; 내용 판정 대기",
+      "reviewed_at": "",
+      "modified_at": "2026-10-11T03:01:16Z",
+      "promotion_targets": [],
+      "reflection_basis": [],
+      "promotion_state": "not_applicable",
+      "promotion_reason": "자동 수집됨; 내용 판정 대기",
+      "promotion_target_note": "",
+      "wiki_reflected": false
+    },
     {
       "source": "source/infinity/archive/upstream/acquisition-cashcow-research-20261010.md",
       "status": "reviewed",
