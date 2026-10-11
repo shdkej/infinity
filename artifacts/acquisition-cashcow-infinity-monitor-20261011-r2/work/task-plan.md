@@ -31,3 +31,12 @@
 ```
 
 **지금 다음 행동:** C1 검증을 닫은 뒤 C2를 Active로 전환해 다음 페이지와 Fello 상세 후보를 재순회한다.
+
+
+## Knowledge 판정
+
+- knowledge_status: used
+- knowledge_decision: retain_in_infinity
+- knowledge_targets: agent-wiki/content/docs/Idea/Information.mdx; agent-wiki/content/docs/Integration/Business.mdx; agent-wiki/content/docs/blog/Note_Management.mdx
+- knowledge_reflection: 공개 원문과 기존 Notion을 분리해 읽고, 직접 링크·가격·운영 부담이 함께 검증되지 않으면 후보를 보류한다. Notion은 검색/회수 표면으로 유지하되 스키마는 변경하지 않는다.
+- knowledge_commit: no-promotion-needed

@@ -13,6 +13,13 @@
 - 후보 fingerprint: `platform + direct_listing_url_or_listing_id + normalized_title`; 목록 루트/직접 링크 없는 항목은 fingerprint 미생성
 - 모니터 dry-run: `status=ok`, `new_fingerprints=0`, `errors=0`, deadline `2026-10-11T23:00:00Z`
 
+## 역할별 판단
+
+- **Planner:** 기존 16행 보존과 7개 공개 source 후속 순회를 범위로 확정했다. 직접 링크·표시 가격·운영 부담·이전 범위가 모두 없는 항목은 신규 후보로 승격하지 않았다. 근거: `scope-and-baseline.md`, `new-candidate-inventory.md`. 결론: 신규 0건은 범위 기준에 부합한다.
+- **Developer:** 후보 fingerprint를 플랫폼·직접 URL/ID·정규화 제목으로 제한하고, 목록 루트·직접 링크 없는 항목은 생성하지 않았다. Notion write 0회와 기존 행 mutation 0회를 기준선으로 고정했다. 근거: `notion-baseline-integrity.md`, `notion-update-proof.md`. 결론: 기존 데이터와 스키마를 변경하지 않았다.
+- **Marketer:** 결과를 인수 추천이 아닌 공개 정보 기반 검증 큐로 표현하고, 공개 주장·표시 가격·검증 필요 상태를 분리했다. 근거: `new-candidate-inventory.md`. 결론: 0건을 과장 없이 보고한다.
+- **Operator:** 공개 읽기와 dry-run만 수행했고 구매·연락·계약·결제·권한·스케줄·외부 발송은 하지 않았다. deadline은 `2026-10-11T23:00:00Z`로 통일했고 원격 증명은 `work/remote-proof.txt`에 기록했다. 결론: 운영 경계는 PASS이나 T2.1/C2가 남아 현재 Archive하지 않는다.
+
 ## 후보 판단
 
 - Fello 모바일 앱: 월매출 1,500만원·월이익 800만원 신호는 있으나 매입가·운영시간·이전범위 미확인 → 보류
