@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "intent_id": "acquisition-cashcow-infinity-monitor-20261011-r2",
-  "status": "inbox",
+  "status": "active",
   "trace_completeness": "complete",
   "request": {
     "raw": {
@@ -49,7 +49,26 @@
     "artifacts/acquisition-cashcow-infinity-monitor-20261011-r2/work/new-candidate-inventory.md",
     "artifacts/acquisition-cashcow-infinity-monitor-20261011-r2/work/notion-update-proof.md"
   ],
-  "verifications": [],
+  "verifications": [
+    {
+      "type": "role_review",
+      "at": "2026-10-11T11:20:00Z",
+      "roles": ["planner", "developer", "marketer", "operator"],
+      "evidence_paths": [
+        "artifacts/acquisition-cashcow-infinity-monitor-20261011-r2/work/task-plan.md",
+        "artifacts/acquisition-cashcow-infinity-monitor-20261011-r2/work/new-candidate-inventory.md",
+        "artifacts/acquisition-cashcow-infinity-monitor-20261011-r2/work/notion-baseline-integrity.md"
+      ],
+      "status": "operator_followup_required"
+    },
+    {
+      "type": "red_review",
+      "at": "2026-10-11T11:21:00Z",
+      "report": "artifacts/acquisition-cashcow-infinity-monitor-20261011-r2/work/red/final-review.md",
+      "status": "fail_needs_repair",
+      "reason": "remote proof missing and Knowledge/Notion baseline evidence was insufficient"
+    }
+  ],
   "next_decision": {
     "status": "in_progress",
     "value": "Genie가 기존 Archive 결과를 기준으로 다음 페이지를 순회해 신규 후보 수집과 노션 갱신을 실행한다."

@@ -6,4 +6,5 @@
 - 중복 처리: 기존 제목/플랫폼/출처와 직접 링크를 대조했고, 목록 루트 URL·상세 링크 없는 후보에는 fingerprint를 생성하지 않았다.
 - 스키마·권한·자동화·스케줄은 변경하지 않았다. 구매·연락·계약·결제·외부 발송도 수행하지 않았다.
 - Notion write는 신규 후보의 검증 기준을 충족하지 못해 실행하지 않았다. 따라서 외부 DB의 행 수는 16행으로 유지되어야 한다.
-- Infinity-local monitor dry-run: `status=ok`, `new_fingerprints=0`, `errors=0`; deadline `2026-10-11T23:00:00Z`를 통과했고 기존 fingerprint state에는 쓰지 않았다.
+- Infinity-local monitor dry-run: `status=ok`, `new_fingerprints=0`, `errors=0`; 실행 deadline은 `2026-10-11T23:00:00Z`로 고정했고 기존 fingerprint state에는 쓰지 않았다. 이 dry-run은 Notion API write를 호출하지 않았으며, 16행 기준선 보존 판정이지 신규 행 반영 증거가 아니다.
+- r2 write result: 신규 승격 조건을 만족한 후보가 0건이어서 Notion create/update 호출은 의도적으로 0회였다.

@@ -27,11 +27,11 @@
 
 ## Knowledge Lab 판정
 
-- `knowledge_status`: reflected
-- `knowledge_decision`: candidate
+- `knowledge_status`: used
+- `knowledge_decision`: retain_in_infinity
 - `knowledge_targets`: `agent-wiki/content/docs/Idea/Information.mdx`, `agent-wiki/content/docs/Integration/Business.mdx`, `agent-wiki/content/docs/blog/Note_Management.mdx`
 - `knowledge_reflection`: 공개 원문과 기존 Notion을 분리해 읽고, 직접 링크·가격·운영 부담이 함께 검증되지 않으면 후보를 보류한다. Notion은 검색/회수 표면으로 유지하되 스키마는 변경하지 않는다.
-- `knowledge_commit`: 기존 Knowledge Lab 페이지 변경 없음; 이번 판단은 Infinity artifact에 근거로 기록
+- `knowledge_commit`: no-promotion; 기존 Knowledge Lab 페이지 변경 없음. 이번 판단은 Infinity artifact에만 기록
 
 ## 다음 첫 액션
 
