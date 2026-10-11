@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "intent_id": "acquisition-cashcow-infinity-monitor-20261011",
-  "status": "inbox",
+  "status": "active",
   "trace_completeness": "complete",
   "request": {
     "raw": {"status": "recorded", "value": "기존 소규모 서비스 인수 후보 조사를 Infinity에서 실행한다. 예산 3천만원 이하, 직접 운영 가능한 캐시카우 후보를 사용자가 제공한 Fello·Listing·Sellernet·Flippa·Empire Flippers·Quiet Light·Acquire 목록에서 페이지를 순회해 계속 발굴하고, 후보별 가격·매출·이익·운영 부담·사용자 적합성 별점을 노션 데이터베이스에 기록한다. Infinity에서 이 작업이 실제로 되도록 노션 DB와 반복 모니터링 실행 경로까지 검증한다. 구매·연락·계약·결제는 제외한다."},
@@ -9,7 +9,8 @@
   },
   "events": [
     {"type": "intake", "at": "2026-10-11T07:30:00Z", "context_pack": "intents/context/acquisition-cashcow-infinity-monitor-20261011.json", "evidence_paths": ["INTENTS.md", "intents/context/acquisition-cashcow-infinity-monitor-20261011.json", "artifacts/acquisition-cashcow-infinity-monitor-20261011/work/task-plan.json", "artifacts/acquisition-cashcow-infinity-monitor-20261011/work/task-plan.md"]},
-    {"type": "dispatcher_handoff", "run_id": "dispatch-e4e670e165df4269abc2d7c800f62b09", "canonical_sha": "9f815d9fc704a010988a7a548e6dbbabac646981", "agent": "genie", "session_key": "agent:genie:infinity-dispatcher", "timestamp": "2026-10-11T07:30:07Z", "status": "accepted"}
+    {"type": "dispatcher_handoff", "run_id": "dispatch-e4e670e165df4269abc2d7c800f62b09", "canonical_sha": "9f815d9fc704a010988a7a548e6dbbabac646981", "agent": "genie", "session_key": "agent:genie:infinity-dispatcher", "timestamp": "2026-10-11T07:30:07Z", "status": "accepted"},
+    {"type": "dispatcher_handoff", "run_id": "dispatch-e4e670e165df4269abc2d7c800f62b09", "canonical_sha": "9f815d9fc704a010988a7a548e6dbbabac646981", "agent": "genie", "session_key": "agent:genie:infinity-dispatcher-v2", "timestamp": "2026-10-11T07:30:30Z", "status": "accepted"}
   ],
   "artifacts": [],
   "verifications": [],
