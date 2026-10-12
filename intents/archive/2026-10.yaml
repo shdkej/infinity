@@ -264,3 +264,20 @@ archive:
   report_flow_check: pass
   next_action: 신규 공개 상세가 나타날 때만 후속 조사
 
+
+- id: acquisition-cashcow-infinity-monitor-20261012-r3-live-closeout
+  parent_intent: acquisition-cashcow-infinity-monitor-20261012-r3
+  status: corrective_evidence_recorded
+  recorded_at: 2026-10-12T08:20:00Z
+  live_query: 382 rows; has_more=false
+  field_coverage: rating_numeric=20; rating_unconfirmed=362; evidence=382; fit_comment=382; judgment=382; source_url=382
+  native_sort_query: verified_descending; top_values=[5,5,5,5,4.9,4.8,4.8,4.7]
+  source_to_row_manifest: absent
+  url_duplicate_limit: 10 duplicate rows; 372 unique URLs
+  artifact: artifacts/acquisition-cashcow-infinity-monitor-20261012-r3/work/notion-live-full-list-closeout-20261012.md
+  row_ledger: artifacts/acquisition-cashcow-infinity-monitor-20261012-r3/work/notion-live-row-ledger-20261012.jsonl
+  report: reports/acquisition-cashcow-infinity-monitor-20261012-r3/20261012T-live-notion-closeout.html
+  raw_query_sha256: 413c097a965726d1e70c65940258fdf8f723bb95b2bb39714caceb2d911d85f3
+  sorted_query_sha256: 3d0009852c9b1097b61706c91653a1aaa987bafe6460a9d13e9d6f783a4115ac
+  red_status: pending_current_closeout
+  next_action: parent attributed session appends current Red four-sentence review and completes remote verification

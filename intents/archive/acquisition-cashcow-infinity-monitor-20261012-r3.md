@@ -7,16 +7,23 @@
 - completed_at: `2026-10-12T06:40:00Z`
 - final_artifact: `artifacts/acquisition-cashcow-infinity-monitor-20261012-r3/final/acquisition-cashcow-infinity-monitor-r3-report.md`
 - report: `reports/acquisition-cashcow-infinity-monitor-20261012-r3/20261012T0640Z-final.html`
+- corrective_report: `reports/acquisition-cashcow-infinity-monitor-20261012-r3/20261012T-live-notion-closeout.html`
 - trace: `data/traces/acquisition-cashcow-infinity-monitor-20261012-r3.json`
-- red_status: `pass`
-- red_report: `artifacts/acquisition-cashcow-infinity-monitor-20261012-r3/work/red/final-review.md`
-- result_summary: `실제 adapter 경로로 page 1→2→3을 확인. 신규 승격 0, 보류 lead 5, 차단 1. 후속 보정으로 보류 lead 5개를 기존 스키마의 신규 검토 상태로 Notion에 기록했으며 16행에서 21행이 됨.`
-- follow_up_notion_policy: `승격 0과 lead capture 5를 분리; 신규 lead는 검증 필요/보류 사유를 기록`
+- red_status: `pending_current_closeout`
+- red_report: `work/red/final-review.md` is stale for the earlier 21-row state; current four-sentence review must be appended by the parent attributed session.
+- result_summary: `Current live Notion query returned 382 rows with has_more=false. Native 별점:number, 별점 근거/출처, 사용자 맞춤 코멘트, 판단 상태/신뢰도 are present; numeric rating 20, explicit 미확인 362, and each evidence/comment/judgment/source URL field is filled for 382 rows.`
+- live_evidence: `artifacts/acquisition-cashcow-infinity-monitor-20261012-r3/work/notion-live-full-list-closeout-20261012.md`
+- row_ledger: `artifacts/acquisition-cashcow-infinity-monitor-20261012-r3/work/notion-live-row-ledger-20261012.jsonl`
+- query_sha256: `413c097a965726d1e70c65940258fdf8f723bb95b2bb39714caceb2d911d85f3`
+- sorted_query_sha256: `3d0009852c9b1097b61706c91653a1aaa987bafe6460a9d13e9d6f783a4115ac`
+- source_to_row_manifest: `absent; row ledger proves live row coverage but not independent raw-pagination bijection`
+- url_duplicate_limit: `372 unique URLs among 382 rows; 10 duplicate URL rows remain, mainly shared list roots`
+- follow_up_notion_policy: `Do not infer ratings; preserve 미확인 and source/date evidence. Do not claim complete URL-level deduplication.`
 - knowledge_status: `used`
 - knowledge_decision: `retain_in_infinity`
-- knowledge_targets: `artifacts/acquisition-cashcow-infinity-monitor-20261012-r3/final/acquisition-cashcow-infinity-monitor-r3-report.md; artifacts/acquisition-cashcow-infinity-monitor-20261012-r3/work/pagination-smoke.md`
-- knowledge_reflection: `공개 pagination 증거와 후보 승격 기준을 Infinity 실행 원장에 보존했다.`
+- knowledge_targets: `artifacts/acquisition-cashcow-infinity-monitor-20261012-r3/work/notion-live-full-list-closeout-20261012.md`
+- knowledge_reflection: `The corrective live query resolves the 21-row intermediate-report conflict while retaining explicit manifest and URL-duplicate limitations.`
 - knowledge_commit: `no-promotion-needed`
 - report_length_judgment: `fit`
 - report_flow_check: `pass`
-- next_action: `가격·재무·운영·이전 증거가 동시에 공개된 신규 상세가 나타날 때만 후속 Intent로 재조사`
+- next_action: `Parent attributed session obtains Red's current four-sentence review, appends it to the evidence/report, then runs completion verification and remote SHA check.`
