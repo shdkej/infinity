@@ -18,3 +18,7 @@
 - **신규 승격 0건:** 3천만원 이하 가격·재무 신호·운영 부담·이전 범위·직접 상세 링크를 공개 원문에서 동시에 확인한 중복 없는 항목이 없었다.
 - **보류 5건:** 각 source의 직접 상세 또는 가격/운영·이전 증거가 일부만 확인된 lead(Fello, Sellernet, Flippa, Empire Flippers, Quiet Light). 가격 초과 또는 핵심 운영 증거 공백은 보류 사유로 유지했다.
 - **차단 1건:** Listing — 공개 listing/search pagination endpoint 부재. Quiet Light는 403 우회 없이 요청했으며 이번 smoke에서는 200이었으나 page 2가 page 1 반복되어 pagination 실패로 기록했다.
+
+## 보류 lead 기록 보정
+
+승격 0건과 lead capture를 분리했다. Listing을 제외한 Fello, Sellernet, Flippa, Empire Flippers, Quiet Light의 대표 보류 lead 5건은 직접 상세 URL·확인된 공개 신호·미확인 필드·보류 사유를 `work/notion-held-leads-update.md`에 기록하고 기존 스키마의 `신규 검토` 상태로 Notion에 추가했다. Notion은 16행에서 21행으로 검증됐다.

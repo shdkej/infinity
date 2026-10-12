@@ -10,7 +10,8 @@
 - trace: `data/traces/acquisition-cashcow-infinity-monitor-20261012-r3.json`
 - red_status: `pass`
 - red_report: `artifacts/acquisition-cashcow-infinity-monitor-20261012-r3/work/red/final-review.md`
-- result_summary: `실제 adapter 경로로 page 1→2→3을 확인. 신규 0, 보류 5, 차단 1, Notion write 0, 기존 16행 보존.`
+- result_summary: `실제 adapter 경로로 page 1→2→3을 확인. 신규 승격 0, 보류 lead 5, 차단 1. 후속 보정으로 보류 lead 5개를 기존 스키마의 신규 검토 상태로 Notion에 기록했으며 16행에서 21행이 됨.`
+- follow_up_notion_policy: `승격 0과 lead capture 5를 분리; 신규 lead는 검증 필요/보류 사유를 기록`
 - knowledge_status: `used`
 - knowledge_decision: `retain_in_infinity`
 - knowledge_targets: `artifacts/acquisition-cashcow-infinity-monitor-20261012-r3/final/acquisition-cashcow-infinity-monitor-r3-report.md; artifacts/acquisition-cashcow-infinity-monitor-20261012-r3/work/pagination-smoke.md`
