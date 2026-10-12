@@ -1,8 +1,14 @@
 # 공개 인수 후보 재조사 r3
 
-## 결론
+## 결론 (정정: 2026-10-12 live Notion verification)
 
-실제 site-specific pagination adapter로 Fello·Sellernet·Flippa·Empire Flippers를 page 1→2→3에 해당하는 실제 endpoint까지 읽었고, Quiet Light·Listing의 공개 접근 한계도 확인했습니다. 기존 Notion 16행과 중복되지 않으면서 **직접 상세 링크·3천만원 이하 가격·핵심 재무 신호·운영 부담/이전 범위**를 모두 공개 원문에서 확인한 신규 승격 후보는 **0건**입니다. 기존 DB는 그대로 보존했습니다.
+이 보고서의 기존 `기준선 16행 → 21행`, `Notion 신규 write 5건` 서술은 이전 대표/보류 lead 단계의 잔존 기록이며, 이후 full-pagination write 결과와 충돌한다. 실제 Notion API를 다시 pagination query한 현재 상태는 **382행**이다: 기존/legacy 21행과 full-pagination 표식이 있는 신규 **361행**(Fello 69, Sellernet 59, Flippa 114, Empire Flippers 29, Quiet Light 90)이다. 이전 5건 축약은 잘못된 중간 결과였으며 완료 주장에 사용하지 않는다.
+
+신규 361행은 모두 live query에 존재하고 source URL도 361/361 채워져 있다. 다만 source URL 고유값은 351개이며 list-root URL을 공유하는 10개 중복 행이 확인되어, “URL 기준 완전 중복 제거” 주장은 철회한다. Empire Flippers listing ID는 29행/29개 고유다. 독립적인 361-item 원본 manifest가 저장소에 없어 raw-pagination과 DB 행의 일대일 완전성까지는 입증하지 않는다. 상세 증적은 [`work/notion-live-verification-20261012.md`](../work/notion-live-verification-20261012.md)다.
+
+## 결론 (이전 대표 샘플 서술)
+
+실제 site-specific pagination adapter로 Fello·Sellernet·Flippa·Empire Flippers를 page 1→2→3에 해당하는 실제 endpoint까지 읽었고, Quiet Light·Listing의 공개 접근 한계도 확인했습니다. 기존 Notion 16행과 중복되지 않으면서 **직접 상세 링크·3천만원 이하 가격·핵심 재무 신호·운영 부담/이전 범위**를 모두 공개 원문에서 확인한 신규 승격 후보는 **0건**입니다. 이 문단은 full-pagination write 전의 대표/보류 lead 판단을 설명하는 역사적 기록이며, 현재 DB 행수의 근거가 아닙니다.
 
 ## 판정 요약
 
@@ -24,11 +30,11 @@
 - Planner: r2의 16행을 기준선으로 고정하고 중복 없는 신규 승격만 허용했다.
 - Developer: adapter commit `a3465333eff3a939d3d43c7a4456e4e6aa65832b`와 실제 page fingerprint 전이를 확인했다.
 - Marketer: 공개 주장과 확정 후보를 분리해 0건을 추천처럼 포장하지 않았다.
-- Operator: 승인된 범위에서 기존 Notion 스키마를 유지한 5건 create를 실행·검증했고, schema/권한/스케줄 및 외부 연락·구매는 변경하지 않았다.
+- Operator: 이 문서가 처음 작성될 때의 대표 단계에서는 5건 create를 실행·검증했다. 이후 full-pagination write의 live 결과는 위 정정 섹션과 `work/notion-live-verification-20261012.md`가 정본이며, schema/권한/스케줄 및 외부 연락·구매는 변경하지 않았다.
 
 ## r3 후속 정책 보정 및 Notion 기록
 
-승격 후보는 0건으로 유지하되, 발견 lead를 기록하지 않은 것은 잘못된 처리였으므로 정책을 보정했습니다. 기존 스키마를 유지하고, `신규 검토` 상태와 플랫폼 설명의 `검증 필요`/`보류` 표기로 5개 lead를 추가했습니다. 기준선 16행은 불변이며, 생성 후 총 21행입니다. 각 제목·직접 URL·page·공개 신호·미확인 필드·보류 사유 및 생성된 Notion URL은 [`work/notion-held-leads-update.md`](../work/notion-held-leads-update.md)에 기록했습니다.
+승격 후보는 0건으로 유지한다. 아래 5개 lead 기록은 full-pagination write 이전의 역사적 단계다. 당시에는 기존 스키마를 유지하고 `신규 검토` 상태와 플랫폼 설명의 `검증 필요`/`보류` 표기로 5개 lead를 추가했으며, 기준선 16행에서 21행으로 보였다. 이후 현재 live DB는 382행으로 정정되었고, URL 중복 caveat 및 스키마 검증은 [`work/notion-live-verification-20261012.md`](../work/notion-live-verification-20261012.md)에 기록했다. 각 역사적 lead의 상세는 [`work/notion-held-leads-update.md`](../work/notion-held-leads-update.md)에 남아 있다.
 
 - 검증 필요: KnowYourHue, Doctor veterinarian
 - 보류: Sellernet 건강식품, Empire Flippers #97751, Quiet Light #18829636
