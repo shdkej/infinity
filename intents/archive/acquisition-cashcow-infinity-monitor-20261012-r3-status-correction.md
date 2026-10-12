@@ -1,0 +1,21 @@
+# Status-priority correction follow-up
+
+- id: `acquisition-cashcow-infinity-monitor-20261012-r3-status-correction`
+- status: `archived`
+- follow_up_intent_id: `acquisition-cashcow-infinity-monitor-20261012-r3`
+- completed_at: `2026-10-12T00:00:00Z`
+- artifact: `artifacts/acquisition-cashcow-infinity-monitor-20261012-r3/work/status-priority-correction-20261012.md`
+- live_rows: `382`
+- live_has_more: `false`
+- status_mapping: `5→1순위, 4→2순위, 3→후순위, 2→후순위, 1→제외`
+- status_distribution: `1순위 82, 2순위 159, 후순위 138, 제외 3`
+- status_filled: `382/382`
+- priority_reason_filled: `382/382`
+- original_rating: `20 verified, 362 unconfirmed`
+- recommendation_field: `deleted after status write; absent from live schema`
+- red_status: `pass`
+- knowledge_status: `used`
+- knowledge_decision: `retain_in_infinity`
+- knowledge_targets: `artifacts/acquisition-cashcow-infinity-monitor-20261012-r3/work/status-priority-correction-20261012.md`
+- knowledge_reflection: `User-facing priority belongs in the existing status option; temporary numeric recommendation fields should not survive the correction.`
+- knowledge_commit: `no-promotion-needed`
