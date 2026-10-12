@@ -1,30 +1,44 @@
 {
-  "generated_at": "2026-10-11T12:00:08.860Z",
+  "generated_at": "2026-10-12T00:00:08.439Z",
   "summary": {
-    "total": 959,
+    "total": 960,
     "wiki_reflected": 198,
-    "not_reflected": 761,
+    "not_reflected": 762,
     "by_status": {
+      "queued": 774,
       "reviewed": 99,
-      "queued": 773,
       "selected": 4,
       "integrated": 10,
       "rejected": 73
     },
     "by_layer": {
+      "openclaw-system": 631,
       "infinity": 73,
-      "openclaw-system": 630,
       "external-links": 181,
       "shdkej-content": 74,
       "root": 1
     },
     "by_promotion_state": {
-      "not_applicable": 759,
+      "not_applicable": 760,
       "reflected": 198,
       "pending_promotion": 2
     }
   },
   "entries": [
+    {
+      "source": "source/openclaw-system/data/daily-review-drafts/2026-10-11-review.md",
+      "status": "queued",
+      "source_layer": "openclaw-system",
+      "reason": "자동 수집됨; 내용 판정 대기",
+      "reviewed_at": "",
+      "modified_at": "2026-10-11T20:01:17Z",
+      "promotion_targets": [],
+      "reflection_basis": [],
+      "promotion_state": "not_applicable",
+      "promotion_reason": "자동 수집됨; 내용 판정 대기",
+      "promotion_target_note": "",
+      "wiki_reflected": false
+    },
     {
       "source": "source/infinity/archive/upstream/acquisition-cashcow-infinity-monitor-20261011.md",
       "status": "reviewed",
