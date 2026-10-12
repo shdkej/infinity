@@ -1,0 +1,15 @@
+{
+  "context_pack_version": 3,
+  "status": "ready_with_legacy_route_alias",
+  "route": "infinity",
+  "request": "기존 acquisition-cashcow-infinity-monitor-20261011-r2와 중복 없이 공개 인수 후보를 site-specific pagination adapter로 재조사한다. Fello·Sellernet·Flippa·Empire Flippers·Quiet Light·Listing의 실제 공개 pagination을 page 1→2→3으로 확인하고 기존 Notion 16행과 신규 후보를 판정한다.",
+  "built_at": "2026-10-12T06:20:00Z",
+  "required_documents": ["/home/ubuntu/workspace/prompt-archive/LLM.md", "README.md", "schema/agent-rules.md", "source/openclaw-system/docs/DOCUMENT_SEARCH_PIPELINE.md", "source/openclaw-system/docs/USER_CONTEXT.md", "source/openclaw-system/docs/SERVICE_REGISTRY.md", "source/openclaw-system/docs/INFINITY_OPERATING_RULES.md", "infinity/ARTIFACT_RULES.md", "infinity/EXECUTION_LEARNING_CONTRACT.md", "infinity/INTENTS.md", "agent-wiki/content/docs/index.mdx"],
+  "search_scopes": ["agent-wiki/content/docs/", "source/openclaw-system/docs/", "source/openclaw-system/data/daily-reviews/", "source/openclaw-system/data/daily-tracking/", "source/openclaw-system/data/photo-insights/"],
+  "selected_context": [{"path":"agent-wiki/content/docs/Idea/Information.mdx","reason":"information discovery and evidence retrieval","verification":"indexed-section"},{"path":"agent-wiki/content/docs/Integration/Business.mdx","reason":"revenue candidate and operating-fit judgment","verification":"indexed-section"},{"path":"agent-wiki/content/docs/blog/Note_Management.mdx","reason":"Notion as a retrieval surface","verification":"indexed-section"}],
+  "selected_operational_logs": [{"path":"logs/agent-wiki-query.md","reason":"bounded operational-log preflight","verification":"matched"}],
+  "preflight": {"tool":"zg","query":"공개 인수 후보 site-specific pagination 기존 16행 중복 제거 Notion","discovery":"hybrid+fts RRF","verification":"indexed section locator","result_count":3,"note":"현재 저장소는 infinity/INTENTS.yaml로 전환되어 build_context_pack.py의 legacy infinity/INTENTS.md 경로 검증은 별도 alias로 기록했다."},
+  "selected_context_required": true,
+  "rules": ["Read every required document before executing the follow-up intent.", "Use r2 as baseline; preserve existing Notion rows and deduplicate by platform + direct URL/listing ID + normalized title.", "Only promote when direct detail URL, price <= KRW 30,000,000, financial signal, and operating/transfer scope are all present in public source.", "Record request URL/method, status, response SHA, item fingerprints, next URL/token, duplicate rate, and new/held/blocked counts for every page."],
+  "adapter_commit": "a3465333eff3a939d3d43c7a4456e4e6aa65832b"
+}
