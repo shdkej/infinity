@@ -20,3 +20,15 @@
 ## Content rule
 
 Descriptions use the candidate title and existing public listing context. They state the service category/function conservatively; customer and revenue model are explicitly marked as requiring source-detail confirmation when not directly available. No unsupported operating or financial claim was added.
+
+## Readability correction — 2026-10-12
+
+The first version was too generic to identify the service from the row. It was replaced in the existing `사용자 맞춤 코멘트` property with a reader-first structure: `한줄 설명` → `주 사용자는 / 실제로는` → `돈을 버는 방식` → `인수 후 운영` → `근거와 한계`.
+
+- Live writes: **382/382** rewrites completed.
+- Live rows after rewrite: **382**.
+- `서비스 설명` marker count: **exactly 1 in 382/382 rows**; duplicate legacy blocks removed.
+- `상태`: filled **382/382**.
+- Property count: **11 in 382/382 rows**; non-comment property changes: **0**.
+- The account/customer and revenue wording remains conservative when the title/listing does not establish it.
+- Direct machine evidence: `work/notion-readable-description-closeout-20261012.json` and `work/notion-readable-description-verification-20261012.json`.

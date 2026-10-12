@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Append conservative, evidence-linked service descriptions to Notion pages.
 
-Only page body blocks are appended. Database properties/schema are never patched.
+Only the existing `사용자 맞춤 코멘트` property is rewritten. Database properties/schema are never patched.
 """
 import argparse, hashlib, json, os, re, time
 from pathlib import Path
@@ -60,17 +60,46 @@ def rich(page, name):
     prop = page.get("properties", {}).get(name, {})
     return plain(prop.get("rich_text"))
 
+def props_without_comment(page):
+    props = dict(page.get("properties", {}))
+    props.pop("사용자 맞춤 코멘트", None)
+    return props
+
 def source_url(page):
     prop = page.get("properties", {}).get("출처", {})
     return prop.get("url") or "미확인"
 
 def audience(title):
     t = title.lower()
-    if "amazon" in t or "fba" in t or "shopify" in t: return "온라인 쇼핑 고객을 대상으로 하는 것으로 보임"
-    if "saas" in t or "software" in t or "technology" in t: return "해당 업무를 수행하는 기업·팀을 대상으로 하는 것으로 보임"
-    if "app" in t or "ai" in t or "mobile" in t or "keyboard" in t: return "앱 사용자를 대상으로 하는 것으로 보임"
-    if "blog" in t or "site" in t or "media" in t: return "온라인 콘텐츠 이용자·광고주 가능성이 있으나 구체 고객은 미확인"
-    return "구체적인 고객군은 원문 상세 확인 전 미확인"
+    if any(x in t for x in ("amazon", "fba", "shopify", "apparel", "accessories", "food", "beverage", "beauty", "personal care")):
+        return "상품을 찾고 구매하는 일반 소비자"
+    if any(x in t for x in ("saas", "software", "technology", "crm", "workflow", "business")):
+        return "반복 업무를 줄이려는 기업·팀"
+    if any(x in t for x in ("app", "ai", "mobile", "keyboard", "gaming")):
+        return "해당 기능을 직접 쓰려는 앱·모바일 사용자"
+    if any(x in t for x in ("blog", "site", "media", "news", "education", "content")):
+        return "정보·콘텐츠를 찾는 방문자와 광고주/제휴사"
+    if any(x in t for x in ("home", "bed & bath", "romance", "lifestyle")):
+        return "관련 제품이나 정보를 찾는 생활 소비자"
+    return "정확한 고객군은 원문 상세 확인 필요"
+
+def category(title):
+    """Turn marketplace taxonomy into a plain-language service description."""
+    t = title.lower()
+    if "차량 출입관리" in title: return "차량의 출입을 기록하고 관리하는 시스템"
+    if "amazon" in t or "fba" in t: return "아마존 상품 판매·재고·주문을 운영하는 온라인 사업"
+    if "shopify" in t or "ecommerce" in t: return "온라인 쇼핑몰에서 상품을 판매하는 사업"
+    if "personal care" in t or "beauty" in t: return "미용·개인관리 상품이나 서비스를 판매하는 사업"
+    if "food" in t or "beverage" in t: return "식음료 상품을 판매하거나 관련 정보를 제공하는 사업"
+    if "apparel" in t or "accessories" in t or "gifts" in t: return "의류·액세서리·선물 상품을 판매하는 사업"
+    if "bed & bath" in t or "home" in t: return "집 안에서 쓰는 생활용품을 판매하는 사업"
+    if "app" in t or "mobile" in t: return "모바일에서 특정 문제를 해결하는 앱"
+    if "ai" in t: return "AI를 이용해 특정 작업을 자동화하거나 보조하는 소프트웨어"
+    if "software" in t or "saas" in t or "technology" in t: return "웹에서 반복 업무를 처리하게 돕는 소프트웨어"
+    if "gaming" in t: return "게임을 제공하거나 게임 이용자를 대상으로 하는 서비스"
+    if any(x in t for x in ("blog", "media", "news", "education", "content")): return "특정 주제의 글·정보·콘텐츠를 제공하는 웹사이트"
+    if "romance" in t or "lifestyle" in t: return "생활·관심사 관련 제품이나 정보를 제공하는 온라인 사업"
+    return "서비스의 정확한 기능은 원문 상세 확인 필요"
 
 def model(title):
     t = title.lower()
@@ -86,13 +115,13 @@ def description(row):
     fit = row.get("fit_comment") or "미확인"
     # Preserve the original evidence verbatim but cap length for a compact page block.
     fit = re.sub(r"\s+", " ", fit).strip()[:520]
+    kind = category(title)
     return (f"{MARKER}\n"
-            f"무엇을 하는지: 원문 제목상 ‘{title}’ 사업·서비스를 제공하거나 운영하는 후보로 보입니다.\n"
-            f"대상 고객: {audience(title)}.\n"
-            f"수익 방식: {model(title)}.\n"
-            f"인수 후 운영: 기존 서비스·판매·콘텐츠 운영을 이어가는 형태로 보이지만, 인수 후 필요한 운영 인력·업무·이전 범위는 미확인입니다.\n"
-            f"원문 근거: 제목 ‘{title}’; source_url {url}; 기존 적합성 근거 ‘{fit}’.\n"
-            f"미확인: 상세 기능, 실제 고객군, 확정 수익원, 운영 이전 가능 여부는 원문 상세 확인 전 미확인.")
+            f"한줄 설명: {kind}입니다.\n"
+            f"주 사용자는 {audience(title)}입니다. 실제로는 관련 상품을 사거나, 정보를 읽거나, 반복 업무를 처리할 때 이용합니다.\n"
+            f"돈을 버는 방식: {model(title)}.\n"
+            f"인수 후 운영: 먼저 상품·콘텐츠·앱이 실제로 계속 작동하는지와 고객 유입 경로를 확인해야 합니다. 운영 인력, 공급처·코드·계정 이전 범위는 원문 상세 확인 필요입니다.\n"
+            f"근거와 한계: 제목 ‘{title}’, 출처 {url}. 제목과 공개 목록만으로 분류한 설명이므로 세부 기능·고객·수익원은 원문 상세 확인이 필요합니다.")
 
 def block(text):
     return {"object":"block", "type":"paragraph", "paragraph":{"rich_text":[{"type":"text", "text":{"content":text}}]}}
@@ -107,7 +136,7 @@ def main():
     ledger = [json.loads(line) for line in Path(args.ledger).read_text().splitlines() if line.strip()]
     by_id = {r["page_id"]: r for r in ledger}
     live = pages()
-    before = {p["id"]: hashlib.sha256(json.dumps(p.get("properties",{}), sort_keys=True, ensure_ascii=False).encode()).hexdigest() for p in live}
+    before = {p["id"]: hashlib.sha256(json.dumps(props_without_comment(p), sort_keys=True, ensure_ascii=False).encode()).hexdigest() for p in live}
     if len(live) != len(ledger): raise RuntimeError(f"ledger/live mismatch: {len(ledger)} vs {len(live)}")
     writes = skips = 0
     events = []
@@ -116,23 +145,26 @@ def main():
         row = by_id.get(pid)
         if not row: raise RuntimeError(f"page absent from ledger: {pid}")
         existing = rich(page, "사용자 맞춤 코멘트")
+        # Replace the prior generic block instead of appending another one.
         if MARKER in existing:
-            skips += 1; events.append({"page_id":pid,"action":"skip_existing"}); continue
+            # Handle both the first-generation `서비스 설명:` block and the
+            # newer `서비스 설명` block, including a previous rewrite.
+            existing = re.split(r"서비스 설명(?::|\n)", existing, maxsplit=1)[0].rstrip()
         text = description(row)
         target = (existing + "\n\n" + text).strip() if existing else text
         if args.write:
             api("PATCH", f"/v1/pages/{pid}", {"properties":{"사용자 맞춤 코멘트":{"rich_text":[{"type":"text","text":{"content":target[:2000]}}]}}})
-            writes += 1; events.append({"page_id":pid,"action":"append","sha256":hashlib.sha256(text.encode()).hexdigest()})
+            writes += 1; events.append({"page_id":pid,"action":"rewrite","sha256":hashlib.sha256(text.encode()).hexdigest()})
             time.sleep(0.35)
         else:
-            events.append({"page_id":pid,"action":"would_append","sha256":hashlib.sha256(text.encode()).hexdigest()})
+            events.append({"page_id":pid,"action":"would_rewrite","sha256":hashlib.sha256(text.encode()).hexdigest()})
     after = pages()
-    after_props = {p["id"]: hashlib.sha256(json.dumps(p.get("properties",{}), sort_keys=True, ensure_ascii=False).encode()).hexdigest() for p in after}
+    after_props = {p["id"]: hashlib.sha256(json.dumps(props_without_comment(p), sort_keys=True, ensure_ascii=False).encode()).hexdigest() for p in after}
     changed = [pid for pid in before if before[pid] != after_props.get(pid)]
-    result = {"database_id":DB,"ledger_rows":len(ledger),"live_rows_before":len(live),"live_rows_after":len(after),"write_mode":args.write,"writes":writes,"skips":skips,"property_changes":changed,"events":events}
+    result = {"database_id":DB,"ledger_rows":len(ledger),"live_rows_before":len(live),"live_rows_after":len(after),"write_mode":args.write,"writes":writes,"skips":skips,"non_comment_property_changes":changed,"events":events}
     Path(args.out).write_text(json.dumps(result, ensure_ascii=False, indent=2)+"\n")
-    print(json.dumps({k:result[k] for k in ("ledger_rows","live_rows_before","live_rows_after","write_mode","writes","skips","property_changes")}, ensure_ascii=False))
-    if changed: raise SystemExit("FAIL: database properties changed")
+    print(json.dumps({k:result[k] for k in ("ledger_rows","live_rows_before","live_rows_after","write_mode","writes","skips","non_comment_property_changes")}, ensure_ascii=False))
+    if changed: raise SystemExit("FAIL: non-comment database properties changed")
     if len(after) != 382: raise SystemExit("FAIL: live row count changed")
 
 if __name__ == "__main__": main()
