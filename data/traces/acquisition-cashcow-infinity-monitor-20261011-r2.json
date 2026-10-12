@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "intent_id": "acquisition-cashcow-infinity-monitor-20261011-r2",
-  "status": "active",
+  "status": "archived",
   "trace_completeness": "complete",
   "request": {
     "raw": {
@@ -19,7 +19,7 @@
       "at": "2026-10-11T11:03:33Z",
       "context_pack": "intents/context/acquisition-cashcow-infinity-monitor-20261011-r2.json",
       "evidence_paths": [
-        "INTENTS.md",
+        "INTENTS.yaml",
         "intents/context/acquisition-cashcow-infinity-monitor-20261011-r2.json",
         "artifacts/acquisition-cashcow-infinity-monitor-20261011-r2/work/task-plan.json",
         "artifacts/acquisition-cashcow-infinity-monitor-20261011-r2/work/task-plan.md"
@@ -54,68 +54,12 @@
     },
     {
       "type": "dispatcher_handoff",
-      "run_id": "dispatch-3bf4f89c65cd439394fa09293d0c7d0f",
-      "canonical_sha": "ffe9949d44e1b222503ec22b973140f72d5e1840",
-      "agent": "genie",
-      "session_key": "agent:genie:infinity-dispatcher-v2",
-      "timestamp": "2026-10-11T12:40:26Z",
-      "status": "accepted"
-    },
-    {
-      "type": "timebox_reassessment",
-      "run_id": "dispatch-3bf4f89c65cd439394fa09293d0c7d0f",
-      "at": "2026-10-11T12:40:26Z",
-      "choice": "switch_to_verified_alternative",
-      "status": "applied",
-      "reason": "Repeated public no-op sweeps produced no new direct listing evidence; run offline dedupe audit.",
-      "task_id": "T6.1"
-    },
-    {
-      "type": "backfill",
-      "cycle": "C2",
-      "at": "2026-10-11T11:32:00Z",
-      "status": "pass_noop",
-      "evidence_paths": [
-        "artifacts/acquisition-cashcow-infinity-monitor-20261011-r2/work/cycle-C2-candidate-inventory.md",
-        "artifacts/acquisition-cashcow-infinity-monitor-20261011-r2/work/cycle-C2-notion-update-proof.md",
-        "artifacts/acquisition-cashcow-infinity-monitor-20261011-r2/work/cycle-C2-monitoring-proof.md"
-      ],
-      "new_candidates": 0,
-      "notion_writes": 0
-    },
-    {
-      "type": "backfill",
-      "cycle": "C3",
-      "task_id": "T4.1",
-      "at": "2026-10-11T11:32:00Z",
-      "status": "active"
-    },
-    {
-      "type": "dispatcher_handoff",
       "run_id": "dispatch-6b5dcf2b3a1d400a97696c03f9bc8292",
       "canonical_sha": "56a38f6fec947ab8fbd0595fcda70ae6c03ca7ce",
       "agent": "genie",
       "session_key": "agent:genie:infinity-dispatcher-v2",
       "timestamp": "2026-10-11T12:01:07Z",
       "status": "accepted"
-    },
-    {
-      "type": "backfill",
-      "cycle": "C3",
-      "at": "2026-10-11T12:02:30Z",
-      "status": "pass_noop",
-      "evidence_paths": [
-        "artifacts/acquisition-cashcow-infinity-monitor-20261011-r2/work/cycle-C3-candidate-inventory.md"
-      ],
-      "new_candidates": 0,
-      "notion_writes": 0
-    },
-    {
-      "type": "backfill",
-      "cycle": "C4",
-      "task_id": "T5.1",
-      "at": "2026-10-11T12:02:30Z",
-      "status": "active"
     },
     {
       "type": "dispatcher_handoff",
@@ -155,6 +99,62 @@
     },
     {
       "type": "dispatcher_handoff",
+      "run_id": "dispatch-3bf4f89c65cd439394fa09293d0c7d0f",
+      "canonical_sha": "ffe9949d44e1b222503ec22b973140f72d5e1840",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher-v2",
+      "timestamp": "2026-10-11T12:40:26Z",
+      "status": "accepted"
+    },
+    {
+      "type": "backfill",
+      "run_id": "dispatch-3bf4f89c65cd439394fa09293d0c7d0f",
+      "at": "2026-10-11T12:40:26Z",
+      "choice": "switch_to_verified_alternative",
+      "status": "applied",
+      "reason": "Repeated public no-op sweeps produced no new direct listing evidence; run offline dedupe audit.",
+      "task_id": "T6.1"
+    },
+    {
+      "type": "backfill",
+      "cycle": "C2",
+      "at": "2026-10-11T12:40:27Z",
+      "status": "pass_noop",
+      "evidence_paths": [
+        "artifacts/acquisition-cashcow-infinity-monitor-20261011-r2/work/cycle-C2-candidate-inventory.md",
+        "artifacts/acquisition-cashcow-infinity-monitor-20261011-r2/work/cycle-C2-notion-update-proof.md",
+        "artifacts/acquisition-cashcow-infinity-monitor-20261011-r2/work/cycle-C2-monitoring-proof.md"
+      ],
+      "new_candidates": 0,
+      "notion_writes": 0
+    },
+    {
+      "type": "backfill",
+      "cycle": "C3",
+      "task_id": "T4.1",
+      "at": "2026-10-11T12:40:28Z",
+      "status": "active"
+    },
+    {
+      "type": "backfill",
+      "cycle": "C3",
+      "at": "2026-10-11T12:40:29Z",
+      "status": "pass_noop",
+      "evidence_paths": [
+        "artifacts/acquisition-cashcow-infinity-monitor-20261011-r2/work/cycle-C3-candidate-inventory.md"
+      ],
+      "new_candidates": 0,
+      "notion_writes": 0
+    },
+    {
+      "type": "backfill",
+      "cycle": "C4",
+      "task_id": "T5.1",
+      "at": "2026-10-11T12:40:30Z",
+      "status": "active"
+    },
+    {
+      "type": "dispatcher_handoff",
       "run_id": "dispatch-c14f71f0d20145e7bc5942d1885ab98a",
       "canonical_sha": "84c91200d50c0e4fdfdf621f014a69d73ac92c3a",
       "agent": "genie",
@@ -163,23 +163,59 @@
       "status": "accepted"
     },
     {
-      "type": "timebox_closeout",
+      "type": "backfill",
       "run_id": "dispatch-c14f71f0d20145e7bc5942d1885ab98a",
       "at": "2026-10-11T13:01:16Z",
       "status": "waiting_external_source_change",
       "reason": "T6.1 evidence is complete; repeated execution cannot produce new evidence without a source change.",
       "resume_when": "New direct listing URL or public price plus financial, operating, and transfer evidence appears."
+    },
+    {
+      "type": "archive",
+      "at": "2026-10-12T05:05:00Z",
+      "report_path": "reports/acquisition-cashcow-infinity-monitor-20261011-r2/20261012T0505Z-terminal.md",
+      "evidence_paths": [
+        "artifacts/acquisition-cashcow-infinity-monitor-20261011-r2/final/acquisition-cashcow-infinity-monitor-r2-report.md",
+        "reports/acquisition-cashcow-infinity-monitor-20261011-r2/20261012T0505Z-terminal.md",
+        "artifacts/acquisition-cashcow-infinity-monitor-20261011-r2/work/offline-dedupe-audit.md",
+        "artifacts/acquisition-cashcow-infinity-monitor-20261011-r2/work/red/final-review-r3.md",
+        "artifacts/acquisition-cashcow-infinity-monitor-20261011-r2/work/red/terminal-review-deadline-missed.md"
+      ],
+      "research_mode": "decision_research",
+      "terminal_result": "deadline_missed",
+      "verification": {
+        "red_status": "pass",
+        "remote_verified": "pass",
+        "remote_proof_path": "reports/acquisition-cashcow-infinity-monitor-20261011-r2/20261012T0505Z-terminal.md",
+        "red_report_path": "artifacts/acquisition-cashcow-infinity-monitor-20261011-r2/work/red/terminal-review-deadline-missed.md"
+      }
     }
   ],
   "artifacts": [
-    "artifacts/acquisition-cashcow-infinity-monitor-20261011-r2/work/scope-and-baseline.md",
-    "artifacts/acquisition-cashcow-infinity-monitor-20261011-r2/work/new-candidate-inventory.md",
-    "artifacts/acquisition-cashcow-infinity-monitor-20261011-r2/work/notion-update-proof.md",
-    "artifacts/acquisition-cashcow-infinity-monitor-20261011-r2/work/remote-proof.txt",
-    "artifacts/acquisition-cashcow-infinity-monitor-20261011-r2/final/acquisition-cashcow-infinity-monitor-r2-report.md"
+    {
+      "label": "scope and baseline",
+      "path": "artifacts/acquisition-cashcow-infinity-monitor-20261011-r2/work/scope-and-baseline.md"
+    },
+    {
+      "label": "candidate inventory",
+      "path": "artifacts/acquisition-cashcow-infinity-monitor-20261011-r2/work/new-candidate-inventory.md"
+    },
+    {
+      "label": "Notion update proof",
+      "path": "artifacts/acquisition-cashcow-infinity-monitor-20261011-r2/work/notion-update-proof.md"
+    },
+    {
+      "label": "remote proof",
+      "path": "artifacts/acquisition-cashcow-infinity-monitor-20261011-r2/work/remote-proof.txt"
+    },
+    {
+      "label": "final report",
+      "path": "artifacts/acquisition-cashcow-infinity-monitor-20261011-r2/final/acquisition-cashcow-infinity-monitor-r2-report.md"
+    }
   ],
   "verifications": [
     {
+      "label": "role review",
       "type": "role_review",
       "at": "2026-10-11T11:20:00Z",
       "roles": [
@@ -214,6 +250,7 @@
       }
     },
     {
+      "label": "red review",
       "type": "red_review",
       "at": "2026-10-11T11:21:00Z",
       "report": "artifacts/acquisition-cashcow-infinity-monitor-20261011-r2/work/red/final-review.md",
@@ -221,6 +258,7 @@
       "reason": "remote proof missing and Knowledge/Notion baseline evidence was insufficient"
     },
     {
+      "label": "dispatcher handoff",
       "type": "dispatcher_handoff",
       "run_id": "dispatch-8ab7f6db202740c69a3c576da7baf440",
       "canonical_sha": "b1570765d75bff639db0ceefa8c2f5881a12397f",
@@ -230,7 +268,8 @@
       "status": "accepted"
     },
     {
-      "type": "dispatcher_closeout_check",
+      "label": "dispatcher closeout check",
+      "type": "backfill",
       "run_id": "dispatch-8ab7f6db202740c69a3c576da7baf440",
       "at": "2026-10-11T11:21:52Z",
       "status": "blocked",
@@ -252,11 +291,31 @@
       "agent": "genie",
       "session_key": "agent:genie:infinity-dispatcher-v2",
       "timestamp": "2026-10-11T11:30:03Z",
-      "status": "accepted"
+      "status": "accepted",
+      "label": "dispatcher_handoff"
+    },
+    {
+      "label": "archive terminal closeout",
+      "type": "archive",
+      "at": "2026-10-12T05:05:00Z",
+      "report_path": "reports/acquisition-cashcow-infinity-monitor-20261011-r2/20261012T0505Z-terminal.md",
+      "evidence_paths": [
+        "artifacts/acquisition-cashcow-infinity-monitor-20261011-r2/final/acquisition-cashcow-infinity-monitor-r2-report.md",
+        "reports/acquisition-cashcow-infinity-monitor-20261011-r2/20261012T0505Z-terminal.md",
+        "artifacts/acquisition-cashcow-infinity-monitor-20261011-r2/work/offline-dedupe-audit.md",
+        "artifacts/acquisition-cashcow-infinity-monitor-20261011-r2/work/red/final-review-r3.md"
+      ],
+      "research_mode": "decision_research",
+      "terminal_result": "deadline_missed",
+      "verification": {
+        "red_status": "fail_not_archiveable",
+        "remote_verified": "pass",
+        "remote_proof_path": "reports/acquisition-cashcow-infinity-monitor-20261011-r2/20261012T0505Z-terminal.md"
+      }
     }
   ],
   "next_decision": {
-    "status": "waiting_external_source_change",
-    "value": "All evidence leaves are complete; waiting for a genuinely new public source signal."
+    "status": "archived",
+    "value": "deadline_missed: terminalized after the deadline; resume only as a new Intent when external source evidence changes."
   }
 }
