@@ -1,37 +1,37 @@
 {
-  "generated_at": "2026-10-12T12:00:11.399Z",
+  "generated_at": "2026-10-12T18:00:08.208Z",
   "summary": {
-    "total": 967,
+    "total": 968,
     "wiki_reflected": 198,
-    "not_reflected": 769,
+    "not_reflected": 770,
     "by_status": {
-      "queued": 781,
+      "queued": 782,
       "reviewed": 99,
       "selected": 4,
       "integrated": 10,
       "rejected": 73
     },
     "by_layer": {
-      "infinity": 75,
+      "infinity": 76,
       "openclaw-system": 636,
       "external-links": 181,
       "shdkej-content": 74,
       "root": 1
     },
     "by_promotion_state": {
-      "not_applicable": 767,
+      "not_applicable": 768,
       "reflected": 198,
       "pending_promotion": 2
     }
   },
   "entries": [
     {
-      "source": "source/infinity/archive/upstream/acquisition-cashcow-infinity-monitor-20261012-r3.md",
+      "source": "source/infinity/archive/upstream/acquisition-cashcow-infinity-monitor-20261012-r3-status-correction.md",
       "status": "queued",
       "source_layer": "infinity",
       "reason": "자동 수집됨; 내용 판정 대기",
       "reviewed_at": "",
-      "modified_at": "2026-10-12T12:00:06Z",
+      "modified_at": "2026-10-12T18:00:03Z",
       "promotion_targets": [],
       "reflection_basis": [],
       "promotion_state": "not_applicable",
@@ -45,7 +45,21 @@
       "source_layer": "openclaw-system",
       "reason": "자동 수집됨; 내용 판정 대기",
       "reviewed_at": "",
-      "modified_at": "2026-10-12T08:21:38Z",
+      "modified_at": "2026-10-12T16:47:56Z",
+      "promotion_targets": [],
+      "reflection_basis": [],
+      "promotion_state": "not_applicable",
+      "promotion_reason": "자동 수집됨; 내용 판정 대기",
+      "promotion_target_note": "",
+      "wiki_reflected": false
+    },
+    {
+      "source": "source/infinity/archive/upstream/acquisition-cashcow-infinity-monitor-20261012-r3.md",
+      "status": "queued",
+      "source_layer": "infinity",
+      "reason": "자동 수집됨; 내용 판정 대기",
+      "reviewed_at": "",
+      "modified_at": "2026-10-12T12:00:06Z",
       "promotion_targets": [],
       "reflection_basis": [],
       "promotion_state": "not_applicable",
