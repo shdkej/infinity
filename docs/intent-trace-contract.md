@@ -74,6 +74,22 @@ the dispatcher `run_id`, `canonical_sha`, `agent`, `session_key`, UTC
 lifecycle. The dashboard renders this event in the separate **운영 인계**
 trace stage as a custody record.
 
+For the Flow layer, every active workflow must also record a `role_review`
+verification for each completed role boundary. Use the writer rather than
+hand-editing a trace:
+
+```bash
+python3 scripts/record_intent_trace.py role-review --intent-id example-01 \
+  --role planner --role developer --role marketer --role operator \
+  --evidence artifacts/example/role-review.md --next-role operator
+```
+
+The dashboard treats `planner`, `developer`, `marketer`, and `operator` as the
+required roles. An active intent without any role review is a Flow failure; an
+intent with incomplete role coverage is a warning. This is a compact execution
+receipt, not a raw transcript: keep the role decision and evidence path in the
+artifact, and do not copy private conversation contents into the trace.
+
 If a legacy card reaches the dispatcher without a trace, the handoff writer
 creates a `partial` trace first. Its single intake event records both request
 fields as `missing`, sets `backfill_source: "dispatcher_missing_trace"`, and

@@ -144,6 +144,22 @@ def execution(args: argparse.Namespace) -> None:
     write_atomic(path, data)
 
 
+def role_review(args: argparse.Namespace) -> None:
+    """Record Planner/Developer/Marketer/Operator role evidence for L3."""
+    path = trace_path(args.intent_id)
+    data = load(path)
+    data.setdefault("verifications", []).append({
+        "label": "workflow role review",
+        "type": "role_review",
+        "at": timestamp(args.at),
+        "roles": args.role,
+        "evidence_paths": args.evidence,
+        "status": args.status,
+        "next_role": args.next_role or None,
+    })
+    write_atomic(path, data)
+
+
 def dispatcher_handoff(args: argparse.Namespace) -> None:
     """Record dispatcher custody before the delegated executor starts work."""
     path = trace_path(args.intent_id)
@@ -241,6 +257,12 @@ def parser() -> argparse.ArgumentParser:
     p.add_argument("--search", action="append", required=True); p.add_argument("--wiki-page", action="append", default=[]); p.add_argument("--operational-log", action="append", default=[]); p.add_argument("--note", default="")
     p.add_argument("--status", choices=("active", "waiting"), default="active")
     p.add_argument("--decision-status", default="in_progress"); p.add_argument("--next-decision", required=True); p.set_defaults(func=execution)
+    p = commands.add_parser("role-review", parents=[common])
+    p.add_argument("--role", action="append", required=True, choices=("planner", "developer", "marketer", "operator"))
+    p.add_argument("--evidence", action="append", required=True)
+    p.add_argument("--status", choices=("pass", "warn", "blocked"), default="pass")
+    p.add_argument("--next-role", default="")
+    p.set_defaults(func=role_review)
     p = commands.add_parser("dispatcher-handoff", parents=[common])
     p.add_argument("--run-id", required=True); p.add_argument("--canonical-sha", required=True)
     p.add_argument("--agent", default="genie"); p.add_argument("--session-key", default="agent:genie:infinity-dispatcher")
