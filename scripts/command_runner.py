@@ -21,6 +21,9 @@ import yaml
 from intent_registry import append_archive, find_open, load_registry, normalize_entry, save_registry
 
 ROOT = Path(__file__).resolve().parents[1]
+KNOWLEDGE_LAB = ROOT.parent
+CONTEXT_PACK_BUILDER = KNOWLEDGE_LAB / "scripts" / "build_context_pack.py"
+TRACE_WRITER = ROOT / "scripts" / "record_intent_trace.py"
 REGISTRY = ROOT / "data" / "command-registry.yaml"
 RUN_LOG = ROOT / "data" / "command-runs.jsonl"
 LANES = ("inbox", "active", "waiting")
@@ -177,13 +180,66 @@ def trace_record(args: dict[str, Any]) -> dict[str, Any]:
     return {"status": "changed", "trace": str(path.relative_to(ROOT)), "event": args["event"]}
 
 
+def safe_repo_path(value: str, *, required_prefix: str) -> Path:
+    """Resolve a command path without allowing writes outside Infinity."""
+    candidate = Path(str(value))
+    if candidate.is_absolute() or ".." in candidate.parts:
+        raise ValueError("path must be relative and stay inside Infinity")
+    if not str(candidate).startswith(required_prefix):
+        raise ValueError(f"path must be under {required_prefix}")
+    return ROOT / candidate
+
+
+def context_pack_build(args: dict[str, Any]) -> dict[str, Any]:
+    intent_id = str(args["intent_id"])
+    if not SAFE_ID.fullmatch(intent_id):
+        raise ValueError("intent_id must be a safe kebab-case id")
+    output = safe_repo_path(str(args["output_path"]), required_prefix="intents/context/")
+    output.parent.mkdir(parents=True, exist_ok=True)
+    completed = subprocess.run(
+        [sys.executable, str(CONTEXT_PACK_BUILDER), "--route", str(args["route"]), "--request", str(args["request"]), "--output", str(output)],
+        cwd=KNOWLEDGE_LAB, text=True, capture_output=True,
+    )
+    if completed.returncode:
+        detail = (completed.stdout or completed.stderr).strip()
+        raise RuntimeError(f"context pack build failed: {detail}")
+    payload = json.loads(output.read_text(encoding="utf-8"))
+    preflight = payload.get("preflight", {})
+    selected_paths = [item.get("path") for item in payload.get("selected_context", []) if item.get("path")]
+    return {
+        "status": "changed", "context_pack": str(output.relative_to(ROOT)),
+        "tool": preflight.get("tool"), "query": preflight.get("query"),
+        "result_count": preflight.get("result_count", 0), "selected_paths": selected_paths,
+    }
+
+
+def trace_execution_record(args: dict[str, Any]) -> dict[str, Any]:
+    intent_id = str(args["intent_id"])
+    if not SAFE_ID.fullmatch(intent_id):
+        raise ValueError("intent_id must be a safe kebab-case id")
+    context_pack = safe_repo_path(str(args["context_pack"]), required_prefix="intents/context/")
+    if not context_pack.is_file():
+        raise ValueError(f"context pack does not exist: {args['context_pack']}")
+    command = [sys.executable, str(TRACE_WRITER), "execution", "--intent-id", intent_id,
+               "--context-pack", str(args["context_pack"]), "--next-decision", str(args["next_decision"])]
+    for value in args["evidence_paths"]: command += ["--evidence", str(value)]
+    for value in args["searches"]: command += ["--search", str(value)]
+    for value in args.get("wiki_pages", []): command += ["--wiki-page", str(value)]
+    for value in args.get("operational_log_sections", []): command += ["--operational-log", str(value)]
+    if args.get("note"): command += ["--note", str(args["note"])]
+    completed = subprocess.run(command, cwd=ROOT, text=True, capture_output=True)
+    if completed.returncode:
+        raise RuntimeError(f"trace execution record failed: {(completed.stderr or completed.stdout).strip()}")
+    return {"status": "changed", "trace": f"data/traces/{intent_id}.json", "context_pack": str(args["context_pack"]), "searches": args["searches"], "wiki_pages": args.get("wiki_pages", []), "evidence_paths": args["evidence_paths"]}
+
+
 def git_verify(_: dict[str, Any]) -> dict[str, Any]:
     local = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip()
     remote = subprocess.check_output(["git", "ls-remote", "origin", "refs/heads/main"], cwd=ROOT, text=True).split()[0]
     return {"status": "pass" if local == remote else "fail", "local_sha": local, "remote_sha": remote}
 
 
-HANDLERS = {"intent_register": intent_register, "intent_move": intent_move, "intent_archive": intent_archive, "role_fanout": role_fanout, "trace_record": trace_record, "git_verify": git_verify}
+HANDLERS = {"intent_register": intent_register, "intent_move": intent_move, "intent_archive": intent_archive, "role_fanout": role_fanout, "trace_record": trace_record, "context_pack_build": context_pack_build, "trace_execution_record": trace_execution_record, "git_verify": git_verify}
 
 
 def run(plan: dict[str, Any], apply: bool) -> dict[str, Any]:

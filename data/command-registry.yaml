@@ -31,6 +31,18 @@ commands:
     handler: trace_record
     required: [intent_id, event]
     writes: [data/traces]
+  context.pack.build:
+    permission: L1
+    idempotency: command_id
+    handler: context_pack_build
+    required: [intent_id, route, request, output_path]
+    writes: [intents/context]
+  trace.execution.record:
+    permission: L1
+    idempotency: command_id
+    handler: trace_execution_record
+    required: [intent_id, context_pack, evidence_paths, searches, next_decision]
+    writes: [data/traces]
   git.verify:
     permission: L0
     idempotency: none

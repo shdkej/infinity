@@ -33,6 +33,9 @@ python3 scripts/command_runner.py plan.json --apply
 - `intent.archive`: 열린 Intent를 월별 Archive로 이동
 - `role.fanout`: Planner·Developer·Marketer·Operator 병렬 작업 계약 기록
 - `trace.record`: 실행·판단·근거 이벤트 추가
+- `context.pack.build`: 기존 Context Pack builder를 호출해 `zg` preflight·검색어·선택 경로를 생성하고 검증
+- `trace.execution.record`: 실제 Context Pack·검색어·Wiki/운영 로그·근거 경로를 표준 execution trace에 기록
 - `git.verify`: 로컬 HEAD와 `origin/main` SHA 비교
 
 상태 원장은 계속 `INTENTS.yaml` 하나이며, 명령 실행기는 기존 dispatcher를 우회하지 않습니다. `role.fanout`은 네 역할의 공유 계약과 회수 지점을 고정하고, dispatcher/Genie가 네 역할을 실제로 병렬 인계한 뒤 synthesis·Red가 결과를 닫습니다.
+`context.pack.build`는 `zg`를 재구현하지 않고 Knowledge Lab의 정본 builder를 호출합니다. 결과에는 `query`, `result_count`, `selected_paths`가 포함되며, 후속 `trace.execution.record`는 실제 읽은 `wiki_pages`와 `evidence_paths`를 별도로 남깁니다.

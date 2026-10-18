@@ -38,6 +38,16 @@ class CommandRunnerTests(unittest.TestCase):
         result = command_runner.run(plan, False)
         self.assertEqual(result["status"], "rejected")
 
+    def test_registry_handlers_are_all_implemented(self):
+        commands = command_runner.load_commands()
+        self.assertEqual(set(commands), {"intent.register", "intent.move", "intent.archive", "role.fanout", "trace.record", "context.pack.build", "trace.execution.record", "git.verify"})
+        self.assertTrue(all(spec["handler"] in command_runner.HANDLERS for spec in commands.values()))
+
+    def test_context_pack_command_is_dry_run_safe(self):
+        result = command_runner.run(self.plan([{"command_id": "x", "name": "context.pack.build", "args": {"intent_id": "general-1", "route": "infinity", "request": "query", "output_path": "intents/context/general-1.json"}}]), False)
+        self.assertEqual(result["status"], "pass")
+        self.assertEqual(result["results"][0]["status"], "dry_run")
+
 
 if __name__ == "__main__":
     unittest.main()
