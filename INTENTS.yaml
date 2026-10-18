@@ -1,8 +1,7 @@
 version: 1
 format: infinity-intents-yaml
 lanes:
-  inbox:
-  []
+  inbox: []
   active: []
   waiting: []
 archive:

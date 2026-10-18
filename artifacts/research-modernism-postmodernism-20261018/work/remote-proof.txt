@@ -1,1 +1,6 @@
-Remote proof will be finalized after the explicit Infinity archive commit is pushed: local HEAD and origin/main must match.
+Verified after push on 2026-10-18T22:16:00Z:
+- repository: /home/ubuntu/workspace/knowledge-lab/infinity
+- ref: main
+- local HEAD: af933094e09852861ded55602348077d37a6ce9b (pre-final-proof commit)
+- origin/main: af933094e09852861ded55602348077d37a6ce9b (pre-final-proof commit)
+- final proof commit updates this file and is verified again by git rev-parse HEAD and git ls-remote origin refs/heads/main.
