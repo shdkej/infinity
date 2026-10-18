@@ -1,0 +1,121 @@
+{
+  "context_pack_version": 3,
+  "status": "ready",
+  "route": "infinity",
+  "request": "모더니즘과 포스트모더니즘의 개념, 역사적 맥락, 미학과 사회이론의 차이, 공통점과 비판을 넓게 조사해줘",
+  "built_at": "2026-10-18T21:48:42.169285+00:00",
+  "required_documents": [
+    "/home/ubuntu/workspace/prompt-archive/LLM.md",
+    "README.md",
+    "schema/agent-rules.md",
+    "source/openclaw-system/docs/DOCUMENT_SEARCH_PIPELINE.md",
+    "source/openclaw-system/docs/USER_CONTEXT.md",
+    "source/openclaw-system/docs/SERVICE_REGISTRY.md",
+    "source/openclaw-system/docs/INFINITY_OPERATING_RULES.md",
+    "infinity/ARTIFACT_RULES.md",
+    "infinity/EXECUTION_LEARNING_CONTRACT.md",
+    "infinity/INTENTS.yaml",
+    "agent-wiki/content/docs/index.mdx"
+  ],
+  "search_scopes": [
+    "agent-wiki/content/docs/",
+    "source/openclaw-system/docs/",
+    "source/openclaw-system/data/daily-reviews/",
+    "source/openclaw-system/data/daily-tracking/",
+    "source/openclaw-system/data/photo-insights/"
+  ],
+  "selected_context": [
+    {
+      "path": "agent-wiki/content/docs/outputs/Fundamental/Coding.mdx",
+      "reason": "zg hybrid discovery; indexed section retained for targeted reading",
+      "verification": "indexed-section",
+      "locator": {
+        "start_line": 75,
+        "end_line": 83,
+        "heading": "OOP는 상속 찬양보다 역할 분리 감각에 가깝다",
+        "heading_level": "3",
+        "scope": "Coding::설계 원칙 파트의 재구성",
+        "excerpt": "### OOP는 상속 찬양보다 역할 분리 감각에 가깝다 원문은 캡슐화, 폴리모피즘, 상속, 위임을 모두 언급하지만 실제 결론은 상속을 넓게 쓰기보다 **구성·위임·인터페이스** 쪽에 더 기울어 있다.  - 상속은 공통 속성을 빠르게 묶는다. - 그러나 요구가 갈라지면 상속 트리가 쉽게 경직된다. - 무엇을 고정하고 무엇을 바꿀지 아직 모호하다면 구성이 더 안전하다.  이 흐름은 [[./Architecture]]에서 반복되는 `정책과 세부사항 분리`, `교체 반경 축소`와 같은 감각과 직접 닿아 있다."
+      }
+    },
+    {
+      "path": "agent-wiki/content/docs/outputs/Communication/Logical_Thinking.mdx",
+      "reason": "zg hybrid discovery; indexed section retained for targeted reading",
+      "verification": "indexed-section",
+      "locator": {
+        "start_line": 12,
+        "end_line": 14,
+        "heading": "핵심 논지",
+        "heading_level": "2",
+        "scope": "Logical_Thinking",
+        "excerpt": "## 핵심 논지 이 노트에서 논리적 사고는 차가운 정답 찾기 기술이 아니다. 좋은 질문을 세우고, 전제와 근거를 분리하고, 반례를 검토하고, 감정과 맥락까지 고려해 더 타당한 판단으로 이동하려는 사고 운영 방식이다. 그래서 이 노트는 연역법, 귀납법, 귀류법, 변증법, 오류론, 철학 메모가 따로 노는 잡록이 아니라, **생각을 더 정확하고 더 넓게 다루기 위한 판단 훈련 노드**로 읽는 편이 맞다."
+      }
+    },
+    {
+      "path": "agent-wiki/content/docs/outputs/Fundamental/Data_Structure.mdx",
+      "reason": "zg hybrid discovery; indexed section retained for targeted reading",
+      "verification": "indexed-section",
+      "locator": {
+        "start_line": 146,
+        "end_line": 153,
+        "heading": "메모리 관점과 자료구조 관점의 겹침",
+        "heading_level": "2",
+        "scope": "Data_Structure",
+        "excerpt": "## 메모리 관점과 자료구조 관점의 겹침 원문은 [[Computer_Architecture]]를 링크하며 스택과 힙의 의미가 맥락에 따라 달라진다고 적는다. 이 대목은 아주 중요하다.  - 컴퓨터 구조 관점의 스택/힙: 프로그램 메모리 영역과 할당 방식의 이야기 - 자료구조 관점의 스택/큐/힙: 데이터 접근 규칙과 연산 특성의 이야기  같은 단어라도 층위가 다르다는 점을 분리해 이해해야 혼동이 줄어든다. 이 노트는 자료구조 학습이 결국 메모리 모델, 실행 모델과 완전히 분리되지 않는다는 사실을 보여준다."
+      }
+    },
+    {
+      "path": "agent-wiki/content/docs/outputs/Fundamental/Infra.mdx",
+      "reason": "zg hybrid discovery; indexed section retained for targeted reading",
+      "verification": "indexed-section",
+      "locator": {
+        "start_line": 132,
+        "end_line": 139,
+        "heading": "5. 기본 지식 vs 운영 실행",
+        "heading_level": "3",
+        "scope": "Infra::반복해서 드러나는 판단 축",
+        "excerpt": "### 5. 기본 지식 vs 운영 실행 원문에는 자격증 범위, 서비스 설명, 덤프 링크처럼 학습 자료에 가까운 층과, 실제 회사/개인 운영에서 겪은 EKS·RDS·DNS·캐시·OS 패치 메모가 함께 있다. 이 둘을 섞어 버리면 노트가 AWS 백과사전처럼 납작해진다. 더 자연스러운 읽기는 다음이다. - 자격증/공식 개념: 어떤 서비스와 책임 경계가 있는지 확인하는 용어 지도 - 비용/네트워크 메모: 선택이 실제 요금과 노출면으로 번역되는 방식 - hands-on/장애 메모: 개념이 운영 상태에서 어디서 깨지는지 확인한 사례  즉 이 페이지의 학습층은 실행층을 대체하는 것이 아니라, 나중에 장애를 좁힐 때 사용할 **공통 언어와 경계 지도** 역할을 한다."
+      }
+    },
+    {
+      "path": "agent-wiki/content/docs/outputs/Fundamental/Data_Structure.mdx",
+      "reason": "zg hybrid discovery; indexed section retained for targeted reading",
+      "verification": "indexed-section",
+      "locator": {
+        "start_line": 44,
+        "end_line": 52,
+        "heading": "원문 발췌 구조",
+        "heading_level": "2",
+        "scope": "Data_Structure",
+        "excerpt": "## 원문 발췌 구조 - 선택 기준 층: 접근 방식, 메모리 공간, 순서성, 중복, 변경 빈도처럼 `무엇을 빨리 하고 싶은가`를 먼저 적는다. - 기본 구조 층: 배열, 연결 리스트, 해시 테이블, 트리, 그래프, 스택/큐/힙으로 내려가며 각 구조의 대표 연산 차이를 붙든다. - 알고리즘 접속 층: BFS/DFS, 정렬, DP, 분할 정복, 다익스트라로 이동하며 구조와 풀이를 분리하지 않는다. - 탐색 가속 층: 우선순위 큐, trie, DB 인덱스, 검색 엔진 메모로 넘어가 `찾기 위해 미리 조직하는 법`을 확장한다. - 언어/시스템 층: Golang, Python, Redis 자료형과 메모리 스택/힙 구분을 덧대며 추상 개념이 실제 구현에서 어떻게 바뀌는지 확인한다.  이 배열을 보면 원문은 교과서 챕터 순서대로 정리된 문서가 아니라, **기본 구조 → 문제 풀이 → 검색 최적화 → 실제 구현 층**으로 넓어지는 학습 노드다."
+      }
+    }
+  ],
+  "selected_operational_logs": [
+    {
+      "path": "logs/agent-wiki-query.md",
+      "reason": "bounded operational-log preflight; not part of the Agent Wiki index",
+      "verification": "matched",
+      "matches": [
+        "170:- 결과: 같은 페이지에 흐름 증빙과 마감 기록을 덧붙여, 승격 판단이 어디서 왔고 어디까지 닫혔는지 다시 찾을 수 있게 보강했다. 중복되는 Archive 개념은 새 페이지로 분리하지 않았다.",
+        "227:- 갱신 범위: 첫 화면을 27개 논지의 긴 나열에서 `중앙 목차 → 개념/종합 → 원본 대응 → 원문 확인` 흐름으로 재구성했다.",
+        "82:- 읽은 문서: [[index|중앙 목차]], [[insights/structure-before-scale|확장 전에 구조를 본다]], [[insights/context-over-inventory|맥락이 목록보다 중요하다]]."
+      ]
+    }
+  ],
+  "preflight": {
+    "tool": "zg",
+    "query": "모더니즘과 포스트모더니즘의 개념, 역사적 맥락, 미학과 사회이론의 차이, 공통점과 비판을 넓게 조사해줘",
+    "discovery": "hybrid+fts RRF",
+    "verification": "indexed section locator",
+    "result_count": 5
+  },
+  "selected_context_required": true,
+  "rules": [
+    "Read every required document before creating or executing an intent.",
+    "Read every selected_context locator section first (including its heading and line window); expand to adjacent sections only when needed, and record the exact paths in the execution trace.",
+    "Read only the matched sections of selected_operational_logs; they are operational evidence, not compiled knowledge.",
+    "Search the declared scopes for task-specific evidence; do not treat a search hit as a confirmed fact without its source.",
+    "Record the resulting context pack path in the intent and re-check it before handoff."
+  ]
+}

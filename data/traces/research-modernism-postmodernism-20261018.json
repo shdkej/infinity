@@ -1,0 +1,99 @@
+{
+  "schema_version": 2,
+  "intent_id": "research-modernism-postmodernism-20261018",
+  "status": "active",
+  "trace_completeness": "complete",
+  "request": {
+    "raw": {
+      "status": "recorded",
+      "value": "모더니즘과 포스트모더니즘에 대해 조사해줘"
+    },
+    "normalized_query": {
+      "status": "recorded",
+      "value": "모더니즘과 포스트모더니즘의 개념, 역사적 맥락, 미학과 사회이론의 차이, 공통점과 비판"
+    },
+    "user_intent": {
+      "status": "recorded",
+      "value": "모더니즘과 포스트모더니즘의 관계와 차이를 넓게 이해한다"
+    },
+    "desired_outcome": {
+      "status": "recorded",
+      "value": "개념·역사·분야별 차이·공통 기반·비판·현재적 의미를 구분한 탐색 지도"
+    },
+    "out_of_scope": {
+      "status": "recorded",
+      "value": "단일 이론가의 최종 해석이나 즉시 실행안으로 성급히 수렴하지 않음"
+    },
+    "success_evidence": {
+      "status": "recorded",
+      "value": "주요 주장별 신뢰할 수 있는 출처와 불확실성·논쟁 지점이 포함된 보고서"
+    }
+  },
+  "events": [
+    {
+      "type": "intake",
+      "at": "2026-10-18T21:50:08Z",
+      "context_pack": "intents/context/research-modernism-postmodernism-20261018.json",
+      "evidence_paths": [
+        "artifacts/research-modernism-postmodernism-20261018/evidence/source-map.md"
+      ]
+    },
+    {
+      "type": "execution",
+      "at": "2026-10-18T21:50:08Z",
+      "context_pack": "intents/context/research-modernism-postmodernism-20261018.json",
+      "evidence_paths": [
+        "artifacts/research-modernism-postmodernism-20261018/evidence/source-map.md",
+        "artifacts/research-modernism-postmodernism-20261018/final/research-report.md"
+      ],
+      "searches": [
+        "site:plato.stanford.edu modernism postmodernism philosophy",
+        "site:moma.org modernism modern art overview",
+        "postmodern architecture Oxford Bibliographies",
+        "global modernisms postmodernism critique Western canon"
+      ],
+      "wiki_pages": [
+        "agent-wiki/content/docs/outputs/Fundamental/Coding.mdx",
+        "agent-wiki/content/docs/outputs/Communication/Logical_Thinking.mdx",
+        "agent-wiki/content/docs/outputs/Fundamental/Data_Structure.mdx",
+        "agent-wiki/content/docs/outputs/Fundamental/Infra.mdx"
+      ],
+      "operational_log_sections": [
+        "logs/agent-wiki-query.md"
+      ],
+      "note": "선택된 Context Pack 구간과 운영 로그 matched sections를 실제 읽고, 웹·학술 출처를 비교해 기록함"
+    },
+    {
+      "type": "execution",
+      "at": "2026-10-18T21:50:30Z",
+      "context_pack": "intents/context/research-modernism-postmodernism-20261018.json",
+      "evidence_paths": [
+        "artifacts/research-modernism-postmodernism-20261018/evidence/source-map.md",
+        "artifacts/research-modernism-postmodernism-20261018/evidence/source-reads.md",
+        "artifacts/research-modernism-postmodernism-20261018/final/research-report.md"
+      ],
+      "searches": [
+        "site:plato.stanford.edu modernism postmodernism philosophy",
+        "site:moma.org modernism modern art overview",
+        "postmodern architecture Oxford Bibliographies",
+        "global modernisms postmodernism critique Western canon"
+      ],
+      "wiki_pages": [
+        "agent-wiki/content/docs/outputs/Fundamental/Coding.mdx",
+        "agent-wiki/content/docs/outputs/Communication/Logical_Thinking.mdx",
+        "agent-wiki/content/docs/outputs/Fundamental/Data_Structure.mdx",
+        "agent-wiki/content/docs/outputs/Fundamental/Infra.mdx"
+      ],
+      "operational_log_sections": [
+        "logs/agent-wiki-query.md"
+      ],
+      "note": "7개 실제 열람 출처와 Context Pack 선택 구간을 source-reads/source-map으로 연결함"
+    }
+  ],
+  "artifacts": [],
+  "verifications": [],
+  "next_decision": {
+    "status": "in_progress",
+    "value": "Red 재검증"
+  }
+}
