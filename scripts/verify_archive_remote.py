@@ -13,6 +13,8 @@ import urllib.request
 import urllib.error
 from pathlib import Path
 
+import yaml
+
 ARCHIVE_STATUS_RE = re.compile(r"^\s*-\s*status:\s*(archived|complete|completed)\s*$", re.I | re.M)
 DASHBOARD_ARCHIVE_COMMENT_RE = re.compile(
     r"<!--\s*"
@@ -171,33 +173,27 @@ def main() -> int:
         # after push. `origin/main` is the canonical remote commit checked
         # above, so use its blob rather than a cached HTTP response.
         intents_text = git_remote_text(repo, "INTENTS.yaml")
-        sections = split_sections(intents_text)
-        archive = sections.get("Archive", "")
-        open_lanes = "\n".join(sections.get(name, "") for name in ("Inbox", "Active", "Waiting"))
-        if intent_id not in archive:
-            errors.append(f"Remote INTENTS.md Archive does not contain {intent_id}")
-        if intent_id in open_lanes:
-            errors.append(f"Remote INTENTS.md still contains {intent_id} in an open lane")
-        dashboard_matches = [
-            match for match in DASHBOARD_ARCHIVE_COMMENT_RE.finditer(archive) if match.group(1) == intent_id
-        ]
-        if not dashboard_matches:
-            errors.append(f"Remote Archive comment for {intent_id} does not match dashboard parser format")
-        else:
-            archive_detail_path = dashboard_matches[0].group(3)
+        intents = yaml.safe_load(intents_text) or {}
+        lanes = intents.get("lanes", {})
+        open_ids = {
+            item.get("id")
+            for lane in ("inbox", "active", "waiting")
+            for item in (lanes.get(lane) or [])
+            if isinstance(item, dict)
+        }
+        if intent_id in open_ids:
+            errors.append(f"Remote INTENTS.yaml still contains {intent_id} in an open lane")
+        archive_detail_path = f"intents/archive/{intent_id}.md"
+        git_remote_text(repo, archive_detail_path)
     except Exception as exc:
-        errors.append(f"Remote INTENTS.md check failed: {exc}")
+        errors.append(f"Remote INTENTS.yaml/archive check failed: {exc}")
 
-    archive_paths = [archive_detail_path] if archive_detail_path else [f"source/infinity/archive/{intent_id}.md"]
+    archive_paths = [archive_detail_path] if archive_detail_path else [f"intents/archive/{intent_id}.md"]
     for archive_path in archive_paths:
         if not archive_path:
             continue
         try:
-            archive_text = (
-                git_remote_text(parent, archive_path)
-                if archive_path.startswith("source/infinity/archive/")
-                else git_remote_text(repo, archive_path)
-            )
+            archive_text = git_remote_text(repo, archive_path)
 
             if f"id: {intent_id}" not in archive_text:
                 errors.append(f"Remote archive file {archive_path} has no id field for {intent_id}")
@@ -216,12 +212,8 @@ def main() -> int:
                         errors.append(f"Remote final Markdown report check failed for {remote_final_path}: {artifact_exc}")
         except Exception as exc:
             try:
-                if archive_path.startswith("source/infinity/archive/"):
-                    run(["git", "fetch", "origin", "main"], parent)
-                    archive_text = git_remote_text(parent, archive_path)
-                else:
-                    run(["git", "fetch", "origin", "main"], repo)
-                    archive_text = git_remote_text(repo, archive_path)
+                run(["git", "fetch", "origin", "main"], repo)
+                archive_text = git_remote_text(repo, archive_path)
                 if f"id: {intent_id}" not in archive_text:
                     errors.append(f"Remote archive file {archive_path} has no id field for {intent_id}")
                 if not ARCHIVE_STATUS_RE.search(archive_text):
@@ -231,13 +223,8 @@ def main() -> int:
 
     try:
         dashboard_html = http_text("https://infinity.aws.shdkej.com/")
-        required_dashboard_markers = [
-            "parseArchiveComments",
-            'source: "INTENTS.md archive"',
-        ]
-        for marker in required_dashboard_markers:
-            if marker not in dashboard_html:
-                errors.append(f"Dashboard page missing expected marker: {marker}")
+        if not dashboard_html.strip():
+            errors.append("Dashboard page returned an empty response")
     except Exception as exc:
         errors.append(f"Dashboard page check failed: {exc}")
 
