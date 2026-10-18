@@ -12,6 +12,11 @@ from pathlib import Path
 from typing import Any
 import yaml
 
+try:
+    from project_executor_registry import resolve_fields
+except ModuleNotFoundError:
+    from scripts.project_executor_registry import resolve_fields
+
 ROOT = Path(__file__).resolve().parents[1]
 LANES = ("Inbox", "Active", "Waiting", "Archive")
 MAX_ACTIVE = 3
@@ -180,6 +185,12 @@ def priority(entry: dict[str, Any]) -> tuple[int, str, str]:
     rank = {"critical": 0, "high": 1, "normal": 2, "low": 3}.get(entry["fields"].get("priority", "normal").lower(), 2)
     return rank, entry["fields"].get("requested", ""), entry["id"]
 
+
+def project_executor(entry: dict[str, Any]) -> dict[str, Any] | None:
+    """Resolve a domain executor while keeping Genie as Infinity owner."""
+    resolved = resolve_fields(entry["fields"])
+    return resolved.get("executor") if resolved.get("status") == "resolved" else None
+
 def due_autonomous_retry(entry: dict[str, Any], reference: dt.datetime) -> bool:
     fields = entry["fields"]
     if fields.get("waiting_on", "").lower() != "agent" or fields.get("retry_policy", "").lower() != "autonomous":
@@ -273,6 +284,10 @@ def build_plan(text: str, sha: str, repo: Path) -> dict[str, Any]:
     for entry in active:
         task_state = task_plan_state(entry, repo, sha)
         item = {"intent_id": entry["id"], "title": entry["title"], "evidence": fresh_trace(entry["id"], repo, reference, sha), "task_state": task_state}
+        executor = project_executor(entry)
+        if executor:
+            item["project_executor"] = executor
+            item["project_task_id"] = entry["fields"].get("project_task_id") or entry["id"]
         expansion_state = task_plan_expansion(entry, repo, sha)
         if expansion_state and expansion_state["state"] == "invalid_expansion_policy":
             invalid.append({"intent_id": entry["id"], "lane": entry["lane"], "status": entry["fields"].get("status", ""), "reason": "invalid_expansion_policy"})
@@ -306,7 +321,16 @@ def build_plan(text: str, sha: str, repo: Path) -> dict[str, Any]:
     slots = max(0, MAX_ACTIVE - len(active))
     waiting_retry = [{"intent_id": e["id"], "title": e["title"], "target_agent": "genie", "reason": "autonomous_retry_due"} for e in sorted(waiting, key=priority) if due_autonomous_retry(e, reference)][:slots]
     remaining_slots = max(0, slots - len(waiting_retry))
-    promote = [{"intent_id": e["id"], "title": e["title"], "target_agent": "genie", "reason": "available_active_slot"} for e in sorted(inbox, key=priority)[:remaining_slots] if e["fields"].get("target_agent", "genie") == "genie"]
+    promote = []
+    for e in sorted(inbox, key=priority)[:remaining_slots]:
+        if e["fields"].get("target_agent", "genie") != "genie":
+            continue
+        item = {"intent_id": e["id"], "title": e["title"], "target_agent": "genie", "reason": "available_active_slot"}
+        executor = project_executor(e)
+        if executor:
+            item["project_executor"] = executor
+            item["project_task_id"] = e["fields"].get("project_task_id") or e["id"]
+        promote.append(item)
     invalid_ids = {e["intent_id"] for e in invalid}
     raw_handoff = waiting_closeout + waiting_retry + promote + expansion + missing_plan_repair + plan_activation + timebox_reassessment + terminalization + resume
     handoff = []

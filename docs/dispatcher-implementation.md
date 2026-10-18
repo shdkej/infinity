@@ -9,6 +9,7 @@
 - 대시보드 액션 소비: `scripts/process_action_requests.py`
 - terminal 통보: `scripts/dispatch_terminal_notifications.py`
 - trace 기록: `scripts/record_intent_trace.py`
+- 프로젝트 실행자 해석: `scripts/project_executor_registry.py`, `data/project-executors.yaml`
 - 실행 cycle 기록: `/home/ubuntu/.openclaw/state/infinity-dispatcher-runs/`
 
 ## 한 사이클의 내부 순서
@@ -51,3 +52,11 @@ python3 scripts/validate_intent_trace.py --all
 ```
 
 `HEAD`와 `origin/main`이 다르거나 정합성·trace 검증이 실패하면 완료로 보고하지 않습니다.
+
+## 프로젝트 에이전트 접목
+
+- Infinity의 실행 소유자는 계속 `genie`입니다. `project_id`가 있는 Intent는 `project-executors.yaml`에서 도메인 실행자를 해석해 dispatcher plan의 `project_executor`로 전달합니다.
+- Genie는 `dispatch=genie_to_project_agent`인 항목을 받으면 등록된 `agent_id`로만 도메인 작업을 넘깁니다. 프로젝트 에이전트는 자기 workspace의 정체성 파일과 등록된 프로젝트 저장소 문서를 읽고, 프로젝트 저장소의 `TASKS.md`에 결과를 남깁니다.
+- 프로젝트 에이전트는 Infinity 원장을 직접 소유하지 않습니다. Genie가 결과를 회수해 Intent trace·상태·artifact 경로·커밋/원격 SHA를 Infinity에 기록합니다.
+- `project_id`가 없거나 registry에 없는 값이면 프로젝트 에이전트로 추정 라우팅하지 않고 Genie가 범위를 확인합니다.
+- 새 프로젝트를 추가할 때는 `PROJECTS.md`, 전용 workspace, 프로젝트 저장소를 만든 뒤 `data/project-executors.yaml`과 registry 테스트를 같은 변경에 갱신합니다.
