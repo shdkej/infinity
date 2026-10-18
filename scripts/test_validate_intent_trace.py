@@ -25,7 +25,7 @@ def record(status: str = "active") -> dict:
     events.append({"type": "execution", "at": "2026-09-02T00:00:30Z", "context_pack": "intents/context/infinity-trace-contract-01.json", "evidence_paths": ["README.md"], "searches": ["fixture search"]})
     if status == "archived":
         events.append({"type": "archive", "at": "2026-09-02T00:01:00Z", "report_path": "README.md", "verification": {"red_status": "pass", "red_report_path": "README.md", "remote_verified": "pass", "remote_proof_path": "README.md"}})
-    return {"schema_version": 1, "intent_id": "fixture", "status": status, "trace_completeness": "complete", "request": {"raw": {"status": "recorded", "value": "raw"}, "normalized_query": {"status": "recorded", "value": "query"}}, "events": events, "artifacts": [], "verifications": [], "next_decision": {"status": "continue", "value": "next"}}
+    return {"schema_version": 2, "intent_id": "fixture", "status": status, "trace_completeness": "complete", "request": {"raw": {"status": "recorded", "value": "raw"}, "normalized_query": {"status": "recorded", "value": "query"}, "user_intent": {"status": "recorded", "value": "purpose"}, "desired_outcome": {"status": "recorded", "value": "outcome"}, "out_of_scope": {"status": "recorded", "value": "excluded"}, "success_evidence": {"status": "recorded", "value": "evidence"}}, "events": events, "artifacts": [], "verifications": [], "next_decision": {"status": "continue", "value": "next"}}
 
 
 def run_case(name: str, data: dict, expected_ok: bool) -> None:

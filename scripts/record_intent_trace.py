@@ -61,6 +61,10 @@ def load(path: Path) -> dict:
             "request": {
                 "raw": {"status": "missing", "reason": "legacy dispatcher trace omitted intake request"},
                 "normalized_query": {"status": "missing", "reason": "legacy dispatcher trace omitted normalized query"},
+                "user_intent": {"status": "missing", "reason": "legacy dispatcher trace omitted user intent"},
+                "desired_outcome": {"status": "missing", "reason": "legacy dispatcher trace omitted desired outcome"},
+                "out_of_scope": {"status": "missing", "reason": "legacy dispatcher trace omitted out-of-scope boundary"},
+                "success_evidence": {"status": "missing", "reason": "legacy dispatcher trace omitted success evidence"},
             },
             "events": events,
             "artifacts": [],
@@ -76,6 +80,10 @@ def load(path: Path) -> dict:
     data.setdefault("request", {
         "raw": {"status": "missing", "reason": "legacy trace omitted intake request"},
         "normalized_query": {"status": "missing", "reason": "legacy trace omitted normalized query"},
+        "user_intent": {"status": "missing", "reason": "legacy trace omitted user intent"},
+        "desired_outcome": {"status": "missing", "reason": "legacy trace omitted desired outcome"},
+        "out_of_scope": {"status": "missing", "reason": "legacy trace omitted out-of-scope boundary"},
+        "success_evidence": {"status": "missing", "reason": "legacy trace omitted success evidence"},
     })
     data.setdefault("artifacts", [])
     data.setdefault("verifications", [])
@@ -119,13 +127,17 @@ def intake(args: argparse.Namespace) -> None:
     if path.exists():
         raise SystemExit(f"trace already exists: {path.relative_to(ROOT)}")
     data = {
-        "schema_version": 1,
+        "schema_version": 2,
         "intent_id": args.intent_id,
         "status": args.status,
         "trace_completeness": "complete",
         "request": {
             "raw": {"status": "recorded", "value": args.raw},
             "normalized_query": {"status": "recorded", "value": args.query},
+            "user_intent": {"status": "recorded", "value": args.user_intent},
+            "desired_outcome": {"status": "recorded", "value": args.desired_outcome},
+            "out_of_scope": {"status": "recorded", "value": args.out_of_scope},
+            "success_evidence": {"status": "recorded", "value": args.success_evidence},
         },
         "events": [{"type": "intake", "at": timestamp(args.at), "context_pack": args.context_pack, "evidence_paths": args.evidence}],
         "artifacts": [],
@@ -172,7 +184,7 @@ def dispatcher_handoff(args: argparse.Namespace) -> None:
         data = load(path)
     else:
         data = {
-            "schema_version": 1,
+            "schema_version": 2,
             "intent_id": args.intent_id,
             "status": "active",
             "trace_completeness": "partial",
@@ -180,6 +192,10 @@ def dispatcher_handoff(args: argparse.Namespace) -> None:
             "request": {
                 "raw": {"status": "missing", "reason": "dispatcher backfill: intake trace was absent"},
                 "normalized_query": {"status": "missing", "reason": "dispatcher backfill: intake trace was absent"},
+                "user_intent": {"status": "missing", "reason": "dispatcher backfill: intake trace was absent"},
+                "desired_outcome": {"status": "missing", "reason": "dispatcher backfill: intake trace was absent"},
+                "out_of_scope": {"status": "missing", "reason": "dispatcher backfill: intake trace was absent"},
+                "success_evidence": {"status": "missing", "reason": "dispatcher backfill: intake trace was absent"},
             },
             "events": [{
                 "type": "intake",
@@ -249,6 +265,10 @@ def parser() -> argparse.ArgumentParser:
     common.add_argument("--at")
     p = commands.add_parser("intake", parents=[common])
     p.add_argument("--raw", required=True); p.add_argument("--query", required=True)
+    p.add_argument("--user-intent", required=True, help="사용자가 이 작업으로 이루려는 목적")
+    p.add_argument("--desired-outcome", required=True, help="사용자가 받아야 하는 결과")
+    p.add_argument("--out-of-scope", required=True, help="이번 작업에서 하지 않을 범위")
+    p.add_argument("--success-evidence", required=True, help="성공을 판정할 직접 증거")
     p.add_argument("--context-pack", required=True); p.add_argument("--evidence", action="append", default=[])
     p.add_argument("--status", choices=("inbox", "active", "waiting"), default="inbox")
     p.add_argument("--next-decision", required=True); p.set_defaults(func=intake)

@@ -8,13 +8,17 @@ or the final HTML report.
 
 ```json
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "intent_id": "example-01",
   "status": "active",
   "trace_completeness": "complete",
   "request": {
     "raw": {"status": "recorded", "value": "user wording"},
-    "normalized_query": {"status": "recorded", "value": "work query"}
+    "normalized_query": {"status": "recorded", "value": "work query"},
+    "user_intent": {"status": "recorded", "value": "what the user is trying to achieve"},
+    "desired_outcome": {"status": "recorded", "value": "what the user should receive"},
+    "out_of_scope": {"status": "recorded", "value": "what must not be done"},
+    "success_evidence": {"status": "recorded", "value": "direct evidence that proves success"}
   },
   "events": [
     {"type": "intake", "at": "2026-09-02T00:00:00Z", "context_pack": "intents/context/example.json"},
@@ -27,9 +31,12 @@ or the final HTML report.
 }
 ```
 
-`status` is one of `inbox`, `active`, `waiting`, or `archived`. Every trace has
-**exactly one** intake event and recorded raw/normalized request values for new
-intakes. Every execution event has a Context Pack, one or more actual search
+`status` is one of `inbox`, `active`, `waiting`, or `archived`. Schema v2 is
+used for new intakes; schema v1 remains readable for historical traces. Every trace has
+**exactly one** intake event and recorded raw/normalized request values plus the
+user's intent, desired outcome, out-of-scope boundary, and success evidence for
+new intakes. These four fields are the handoff contract Red uses for the final
+"does this match the user's intent?" judgment. Every execution event has a Context Pack, one or more actual search
 terms, and one or more evidence paths. Context Pack v2+ execution records also
 list every `selected_context` path under `wiki_pages`; this rejects treating a
 directory declaration or README as proof that task-specific Wiki pages were
@@ -47,6 +54,10 @@ Use the writer rather than hand-editing a new timeline, then validate it:
 ```bash
 python3 scripts/record_intent_trace.py intake --intent-id example-01 \
   --raw 'user request' --query 'normalized task' \
+  --user-intent 'the user purpose' \
+  --desired-outcome 'the result the user should receive' \
+  --out-of-scope 'public posting and payment' \
+  --success-evidence 'final artifact and direct verification' \
   --context-pack intents/context/example-01.json --evidence INTENTS.md \
   --next-decision 'Start Planner review'
 python3 scripts/record_intent_trace.py execution --intent-id example-01 \

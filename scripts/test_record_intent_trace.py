@@ -13,6 +13,28 @@ validator = importlib.util.module_from_spec(VALIDATOR_SPEC)
 VALIDATOR_SPEC.loader.exec_module(validator)
 
 class LegacyTraceTest(unittest.TestCase):
+    def test_new_intake_records_user_intent_contract(self):
+        with tempfile.TemporaryDirectory() as raw:
+            previous = record.TRACES
+            try:
+                record.TRACES = Path(raw) / "traces"
+                args = type("Args", (), {
+                    "intent_id": "new-contract", "status": "inbox",
+                    "raw": "사용자 원문", "query": "정규화된 작업",
+                    "user_intent": "사용자의 목적", "desired_outcome": "받을 결과",
+                    "out_of_scope": "하지 않을 범위", "success_evidence": "성공 증거",
+                    "context_pack": "intents/context/infinity-trace-contract-01.json",
+                    "evidence": ["README.md"], "next_decision": "다음 단계",
+                    "at": "2026-09-10T00:00:00Z",
+                })()
+                record.intake(args)
+                data = json.loads((record.TRACES / "new-contract.json").read_text())
+            finally:
+                record.TRACES = previous
+        self.assertEqual(data["schema_version"], 2)
+        self.assertEqual(data["request"]["user_intent"]["value"], "사용자의 목적")
+        self.assertEqual(data["request"]["success_evidence"]["value"], "성공 증거")
+
     def test_bare_handoff_list_is_normalized(self):
         with tempfile.TemporaryDirectory() as raw:
             path = Path(raw) / "sample.json"

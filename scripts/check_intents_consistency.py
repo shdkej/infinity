@@ -70,6 +70,10 @@ def main() -> int:
                 errors.append(f"{lane}: {intent_id} has malformed title")
             missing = [key for key in ("notification_channel", "notification_target") if not item.get(key)]
             if missing: errors.append(f"{lane}: {intent_id} missing terminal notification field(s): {', '.join(missing)}")
+            intent_fields = ("user_intent", "desired_outcome", "out_of_scope", "success_evidence")
+            missing_intent = [key for key in intent_fields if not str(item.get(key) or "").strip()]
+            if missing_intent:
+                errors.append(f"{lane}: {intent_id} missing user-intent contract field(s): {', '.join(missing_intent)}")
     for item in archive_entries():
         intent_id = str(item.get("id") or "")
         if intent_id in seen: errors.append(f"Archive: duplicate id {intent_id}")

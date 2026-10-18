@@ -112,8 +112,9 @@ def validate(trace: Path) -> list[str]:
         return [f"{trace}: invalid JSON: {exc}"]
     if not isinstance(data, dict):
         return [f"{trace}: root must be an object"]
-    if data.get("schema_version") != 1:
-        error(errors, trace, "schema_version must be 1")
+    schema_version = data.get("schema_version")
+    if schema_version not in {1, 2}:
+        error(errors, trace, "schema_version must be 1 or 2")
     intent_id = data.get("intent_id")
     if not isinstance(intent_id, str) or trace.stem != intent_id:
         error(errors, trace, "intent_id must match filename")
@@ -127,10 +128,13 @@ def validate(trace: Path) -> list[str]:
     if not isinstance(request, dict):
         error(errors, trace, "request must be an object")
     else:
-        for key in ("raw", "normalized_query"):
+        required_request_fields = ("raw", "normalized_query")
+        if schema_version >= 2:
+            required_request_fields += ("user_intent", "desired_outcome", "out_of_scope", "success_evidence")
+        for key in required_request_fields:
             if not valid_capture(request.get(key)):
                 error(errors, trace, f"request.{key} must be recorded value or missing reason")
-        if completeness == "complete" and any(request.get(k, {}).get("status") != "recorded" for k in ("raw", "normalized_query") if isinstance(request.get(k), dict)):
+        if completeness == "complete" and any(request.get(k, {}).get("status") != "recorded" for k in required_request_fields if isinstance(request.get(k), dict)):
             error(errors, trace, "complete trace cannot have missing request fields")
     events = data.get("events")
     if not isinstance(events, list) or not events:
