@@ -1,0 +1,24 @@
+# research-modernism-postmodernism-20261018 — 모더니즘과 포스트모더니즘 탐색 지도 조사
+
+- id: research-modernism-postmodernism-20261018
+- status: archived
+- completed_at: 2026-10-18T22:15:00Z
+- research_mode: exploratory_research
+- target_agent: genie
+- projects: [research-bank, knowledge-lab]
+- task_type: research
+- topics: [modernism, postmodernism, cultural-theory]
+- result_summary: 모더니즘과 포스트모더니즘을 근대성·미학·사회이론의 층위로 분리해 역사적 이동, 분야별 차이, 공통 기반, 비판과 열린 탐색 갈래를 정리했다.
+- final_artifact: artifacts/research-modernism-postmodernism-20261018/final/research-report.md
+- source_map: artifacts/research-modernism-postmodernism-20261018/evidence/source-map.md
+- context_pack: intents/context/research-modernism-postmodernism-20261018.json
+- trace: data/traces/research-modernism-postmodernism-20261018.json
+- red_status: not_required
+- knowledge_status: used
+- knowledge_decision: retain_in_infinity
+- knowledge_targets: artifacts/research-modernism-postmodernism-20261018/final/research-report.md; artifacts/research-modernism-postmodernism-20261018/evidence/source-map.md
+- knowledge_reflection: 개념을 단일 이분법으로 납작하게 만들지 않고, 층위·지역·분야를 분리해 탐색 지도로 보존했다.
+- knowledge_commit: no-promotion-needed
+- notification_channel: slack
+- notification_target: channel:C0BR41W31MM
+- next_actions: 철학·건축·문학·한국/동아시아·플랫폼/AI 중 하나를 선택해 후속 탐색한다.

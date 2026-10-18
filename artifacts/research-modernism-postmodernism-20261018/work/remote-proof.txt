@@ -1,0 +1,1 @@
+Remote proof will be finalized after the explicit Infinity archive commit is pushed: local HEAD and origin/main must match.

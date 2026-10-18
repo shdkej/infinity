@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "intent_id": "research-modernism-postmodernism-20261018",
-  "status": "active",
+  "status": "archived",
   "trace_completeness": "complete",
   "request": {
     "raw": {
@@ -88,12 +88,79 @@
         "logs/agent-wiki-query.md"
       ],
       "note": "7개 실제 열람 출처와 Context Pack 선택 구간을 source-reads/source-map으로 연결함"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-c3427bff1c594b3488865fdd2084c226",
+      "canonical_sha": "73b0ba9b4c0bce3774afcab666fb7b282b86fff8",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-10-18T22:00:05Z",
+      "status": "accepted"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-1fde8804f29c4f20a9e34030b2dcca5a",
+      "canonical_sha": "73b0ba9b4c0bce3774afcab666fb7b282b86fff8",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-10-18T22:10:04Z",
+      "status": "accepted"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-3718ac8300ed43aba5c11858d90bf19d",
+      "canonical_sha": "dce680c15fe0087b903f5e5789e2f59517400834",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-10-18T22:10:44Z",
+      "status": "accepted"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-8352a80874674e15be7d2d5fe7fc4682",
+      "canonical_sha": "26725a84758d1bd36ce02f9a72d8f247801d9a66",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-10-18T22:11:18Z",
+      "status": "accepted"
+    },
+    {
+      "type": "archive",
+      "at": "2026-10-18T22:15:00Z",
+      "report_path": "artifacts/research-modernism-postmodernism-20261018/final/research-report.md",
+      "evidence_paths": [
+        "artifacts/research-modernism-postmodernism-20261018/evidence/source-map.md",
+        "artifacts/research-modernism-postmodernism-20261018/final/research-report.md",
+        "artifacts/research-modernism-postmodernism-20261018/work/remote-proof.txt"
+      ],
+      "research_mode": "exploratory_research",
+      "verification": {
+        "red_status": "not_required",
+        "remote_verified": "pass",
+        "remote_proof_path": "artifacts/research-modernism-postmodernism-20261018/work/remote-proof.txt"
+      }
     }
   ],
-  "artifacts": [],
-  "verifications": [],
+  "artifacts": [
+    {
+      "label": "final_artifact",
+      "path": "artifacts/research-modernism-postmodernism-20261018/final/research-report.md"
+    },
+    {
+      "label": "source_map",
+      "path": "artifacts/research-modernism-postmodernism-20261018/evidence/source-map.md"
+    }
+  ],
+  "verifications": [
+    {
+      "label": "Remote verification evidence",
+      "path": "artifacts/research-modernism-postmodernism-20261018/work/remote-proof.txt",
+      "status": "pass"
+    }
+  ],
   "next_decision": {
-    "status": "in_progress",
-    "value": "Red 재검증"
+    "status": "implemented",
+    "value": "archived exploratory brief; follow-up is optional topic selection"
   }
 }
