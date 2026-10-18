@@ -5,7 +5,7 @@ commands:
     permission: L1
     idempotency: command_id
     handler: intent_register
-    required: [intent_id, title, task_name, goal, success_evidence, notification_target]
+    required: [intent_id, title, task_name, goal, user_intent, desired_outcome, out_of_scope, success_evidence, notification_target]
     writes: [INTENTS.yaml]
   intent.move:
     permission: L1

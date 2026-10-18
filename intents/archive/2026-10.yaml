@@ -269,6 +269,7 @@ archive:
   parent_intent: acquisition-cashcow-infinity-monitor-20261012-r3
   status: corrective_evidence_recorded
   recorded_at: 2026-10-12T08:20:00Z
+  completed_at: 2026-10-12T08:20:00Z
   live_query: 382 rows; has_more=false
   field_coverage: rating_numeric=20; rating_unconfirmed=362; evidence=382; fit_comment=382; judgment=382; source_url=382
   native_sort_query: verified_descending; top_values=[5,5,5,5,4.9,4.8,4.8,4.7]

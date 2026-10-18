@@ -1,7 +1,25 @@
 version: 1
 format: infinity-intents-yaml
 lanes:
-  inbox: []
+  inbox:
+  - id: research-modernism-postmodernism-20261018
+    title: 모더니즘과 포스트모더니즘 탐색 지도 조사
+    task_name: 모더니즘과 포스트모더니즘 탐색 지도 조사
+    goal: 모더니즘과 포스트모더니즘의 개념·역사·분야별 차이·공통점·비판을 넓게 조사한다
+    user_intent: 모더니즘과 포스트모더니즘의 관계와 차이를 넓게 이해한다
+    desired_outcome: 개념·역사·분야별 차이·공통 기반·비판·현재적 의미를 구분한 탐색 지도
+    out_of_scope: 단일 이론가의 최종 해석이나 즉시 실행안으로 성급히 수렴하지 않음
+    success_evidence: 최종 보고서와 실제 열람 출처·실행 trace가 원격에 반영된다
+    status: inbox
+    target_agent: genie
+    priority: normal
+    projects: []
+    task_type: research
+    ai_judgment:
+      context_pack: intents/context/research-modernism-postmodernism-20261018.json
+      trace: data/traces/research-modernism-postmodernism-20261018.json
+    notification_channel: slack
+    notification_target: channel:C0BR41W31MM
   active: []
   waiting: []
 archive:

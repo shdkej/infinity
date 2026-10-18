@@ -105,7 +105,9 @@ def intent_register(args: dict[str, Any]) -> dict[str, Any]:
         return {"status": "noop", "reason": "already_open", "intent_id": intent_id}
     item = normalize_entry({
         "id": intent_id, "title": args["title"], "task_name": args["task_name"],
-        "goal": args["goal"], "success_evidence": args["success_evidence"],
+        "goal": args["goal"], "user_intent": args["user_intent"],
+        "desired_outcome": args["desired_outcome"], "out_of_scope": args["out_of_scope"],
+        "success_evidence": args["success_evidence"],
         "status": "inbox", "target_agent": args.get("target_agent", "genie"),
         "priority": args.get("priority", "normal"), "projects": args.get("projects", []),
         "task_type": args.get("task_type", "implementation"),
