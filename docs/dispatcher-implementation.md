@@ -17,7 +17,7 @@
 1. `git pull --ff-only origin main`으로 작업 저장소를 동기화합니다.
 2. `git fetch --prune origin main` 후 `FETCH_HEAD`와 `origin/main` SHA가 같은지 확인합니다.
 3. 최신 `origin/main`으로 검증용 detached worktree를 만듭니다.
-4. `prepare_dispatch_cycle.py`가 `INTENTS.md`를 읽어 promotion, resume, plan activation, expansion, terminalization 후보를 계산합니다.
+4. `prepare_dispatch_cycle.py`가 `INTENTS.yaml`을 읽어 promotion, resume, plan activation, expansion, terminalization 후보를 계산합니다.
 5. terminal notification과 대시보드 action queue를 처리합니다.
 6. 대시보드 action이 원장을 바꾸면 계획을 다시 계산합니다.
 7. handoff 대상마다 `dispatcher_handoff` trace를 남기고 Genie 실행 세션에 넘깁니다.
@@ -47,7 +47,7 @@ git fetch origin main
 git rev-parse HEAD
 git rev-parse origin/main
 python3 scripts/prepare_dispatch_cycle.py --repo . --json
-python3 scripts/check_intents_consistency.py INTENTS.md
+python3 scripts/check_intents_consistency.py INTENTS.yaml
 python3 scripts/validate_intent_trace.py --all
 ```
 

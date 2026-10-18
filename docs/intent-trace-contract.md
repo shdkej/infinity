@@ -1,7 +1,7 @@
 # Intent trace contract
 
 `data/traces/{intent-id}.json` is the durable, dashboard-readable timeline for one
-Infinity intent.  It supplements `INTENTS.md`; it does not replace lane state
+Infinity intent.  It supplements `INTENTS.yaml`; it does not replace lane state
 or the final HTML report.
 
 ## Required shape
@@ -58,7 +58,7 @@ python3 scripts/record_intent_trace.py intake --intent-id example-01 \
   --desired-outcome 'the result the user should receive' \
   --out-of-scope 'public posting and payment' \
   --success-evidence 'final artifact and direct verification' \
-  --context-pack intents/context/example-01.json --evidence INTENTS.md \
+  --context-pack intents/context/example-01.json --evidence INTENTS.yaml \
   --next-decision 'Start Planner review'
 python3 scripts/record_intent_trace.py execution --intent-id example-01 \
   --context-pack intents/context/example-01.json --evidence reports/example/run.html \
@@ -72,7 +72,7 @@ python3 scripts/record_intent_trace.py archive --intent-id example-01 \
 python3 scripts/validate_intent_trace.py --all
 ```
 
-The writer does not move an `INTENTS.md` lane or assert a remote commit; it
+The writer does not move an `INTENTS.yaml` lane or assert a remote commit; it
 records the proof supplied by the workflow. Record the archive event only after
 the normal Archive remote-verification gate has passed.
 
