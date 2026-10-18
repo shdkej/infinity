@@ -43,6 +43,12 @@ commands:
     handler: trace_execution_record
     required: [intent_id, context_pack, evidence_paths, searches, next_decision]
     writes: [data/traces]
+  dispatcher.cycle:
+    permission: L1
+    idempotency: command_id
+    handler: dispatcher_cycle
+    required: []
+    writes: [INTENTS.yaml, data/traces, data/dispatcher-terminal-notifications.json]
   git.verify:
     permission: L0
     idempotency: none

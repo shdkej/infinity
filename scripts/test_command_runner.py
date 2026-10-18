@@ -40,7 +40,7 @@ class CommandRunnerTests(unittest.TestCase):
 
     def test_registry_handlers_are_all_implemented(self):
         commands = command_runner.load_commands()
-        self.assertEqual(set(commands), {"intent.register", "intent.move", "intent.archive", "role.fanout", "trace.record", "context.pack.build", "trace.execution.record", "git.verify"})
+        self.assertEqual(set(commands), {"intent.register", "intent.move", "intent.archive", "role.fanout", "trace.record", "context.pack.build", "trace.execution.record", "dispatcher.cycle", "git.verify"})
         self.assertTrue(all(spec["handler"] in command_runner.HANDLERS for spec in commands.values()))
 
     def test_context_pack_command_is_dry_run_safe(self):

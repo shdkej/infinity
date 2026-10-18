@@ -235,13 +235,23 @@ def trace_execution_record(args: dict[str, Any]) -> dict[str, Any]:
     return {"status": "changed", "trace": f"data/traces/{intent_id}.json", "context_pack": str(args["context_pack"]), "searches": args["searches"], "wiki_pages": args.get("wiki_pages", []), "evidence_paths": args["evidence_paths"]}
 
 
+def dispatcher_cycle(_: dict[str, Any]) -> dict[str, Any]:
+    """Run the single canonical Infinity dispatcher through a registered command."""
+    script = ROOT / "scripts" / "run_dispatcher_cycle.sh"
+    completed = subprocess.run(["bash", str(script)], cwd=ROOT, text=True, capture_output=True)
+    output = (completed.stdout or completed.stderr).strip()
+    if completed.returncode:
+        raise RuntimeError(f"dispatcher cycle failed: {output[-2000:]}")
+    return {"status": "changed", "dispatcher": "scripts/run_dispatcher_cycle.sh", "output": output[-2000:]}
+
+
 def git_verify(_: dict[str, Any]) -> dict[str, Any]:
     local = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip()
     remote = subprocess.check_output(["git", "ls-remote", "origin", "refs/heads/main"], cwd=ROOT, text=True).split()[0]
     return {"status": "pass" if local == remote else "fail", "local_sha": local, "remote_sha": remote}
 
 
-HANDLERS = {"intent_register": intent_register, "intent_move": intent_move, "intent_archive": intent_archive, "role_fanout": role_fanout, "trace_record": trace_record, "context_pack_build": context_pack_build, "trace_execution_record": trace_execution_record, "git_verify": git_verify}
+HANDLERS = {"intent_register": intent_register, "intent_move": intent_move, "intent_archive": intent_archive, "role_fanout": role_fanout, "trace_record": trace_record, "context_pack_build": context_pack_build, "trace_execution_record": trace_execution_record, "dispatcher_cycle": dispatcher_cycle, "git_verify": git_verify}
 
 
 def run(plan: dict[str, Any], apply: bool) -> dict[str, Any]:

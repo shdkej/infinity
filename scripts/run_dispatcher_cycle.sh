@@ -58,8 +58,8 @@ DASHBOARD_RESULT="$(python3 "$ROOT/scripts/process_action_requests.py" --apply -
 # Dashboard actions may change the canonical INTENTS registry. Persist those
 # changes from the clean dispatcher worktree; consuming S3 alone is not a
 # completed resolve_waiting transition.
-if [[ "$DASHBOARD_EXIT" -eq 0 ]] && ! git -C "$ROOT" diff --quiet -- INTENTS.md artifacts/dashboard-actions intents/archive; then
-  git -C "$ROOT" add INTENTS.md artifacts/dashboard-actions intents/archive
+if [[ "$DASHBOARD_EXIT" -eq 0 ]] && ! git -C "$ROOT" diff --quiet -- INTENTS.yaml artifacts/dashboard-actions intents/archive; then
+  git -C "$ROOT" add INTENTS.yaml artifacts/dashboard-actions intents/archive
   git -C "$ROOT" commit -m "chore(infinity): persist dashboard action transition" >/dev/null
   git -C "$ROOT" push origin HEAD:main >/dev/null 2>&1 || bootstrap_failure
   PUSHED_SHA="$(git -C "$ROOT" rev-parse HEAD 2>/dev/null)" || bootstrap_failure
