@@ -44,6 +44,14 @@ Infinity 운영 문서는 여러 저장소에 걸쳐 있지만, 역할별 정본
 9. **대시보드 UI·배포:** Space의 `infra-aws-static-sites/sites/infinity/README.md`와 `dist/index.html` — 표시·배포 구현만 소유하며 Intent 상태를 정의하지 않는다.
 10. **디스패처 구현:** `docs/dispatcher-implementation.md` — 실행 파일·잠금·handoff·검증의 코드 수준 설명을 둔다.
 
+### AI 계획과 결정론적 명령
+
+Infinity는 자연어를 곧바로 파일·셸 작업으로 실행하지 않는다. AI는 `version`, `intent_id`, `judgment`, `commands`를 가진 계획 객체를 만든다. `judgment`에는 가설, 대안, 반대 의견, 미해결 질문, 근거와 사용자가 검토할 선택지를 제한 없이 담을 수 있다. 실행기는 이 내용을 보존하되 실제 변경은 `data/command-registry.yaml`에 등록된 명령만 수행한다.
+
+검증은 기본값이 dry-run이다. 적용은 `python3 scripts/command_runner.py plan.json --apply`로 명시한다. 같은 `command_id`는 다시 실행해도 no-op이며, 한 계획 안의 중복 ID·등록되지 않은 명령·권한 초과·필수 필드 누락·4역할 계약 위반은 실행 전에 거부한다. 프로젝트가 없는 일반 작업도 `intent_id`, 성공 증거, 알림 대상 등 Intent 등록 계약을 채우면 같은 경로로 처리한다.
+
+`role.fanout`은 Planner·Developer·Marketer·Operator를 하나의 공유 목표·성공 증거 계약 아래 병렬로 기록한다. 역할별 판단은 독립적으로 열어두되, 공유 계약과 `role-fanout.json`을 통해 synthesis가 네 결과를 모두 회수할 수 있게 한다. 실제 원격 에이전트 인계는 기존 dispatcher/Genie 경로가 담당하며, 이 명령은 그 병렬 계획을 대체하지 않는다.
+
 `/home/ubuntu/workspace/prompt-archive/INFINITY.md`는 초기 설계·역사적 참고 문서다. 현재 상태값, 접수 형식, 대시보드 표시 규칙은 이 README와 위 정본 문서를 우선한다. 새 규칙은 초기 설계 문서에만 추가하지 않는다.
 
 ### 운영 품질 평가

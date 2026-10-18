@@ -1,0 +1,39 @@
+version: 1
+purpose: "AI가 제안한 계획을 검증 가능한 결정론적 명령으로 제한한다."
+commands:
+  intent.register:
+    permission: L1
+    idempotency: command_id
+    handler: intent_register
+    required: [intent_id, title, task_name, goal, success_evidence, notification_target]
+    writes: [INTENTS.yaml]
+  intent.move:
+    permission: L1
+    idempotency: command_id
+    handler: intent_move
+    required: [intent_id, from_lane, to_lane]
+    writes: [INTENTS.yaml]
+  intent.archive:
+    permission: L1
+    idempotency: command_id
+    handler: intent_archive
+    required: [intent_id, reason]
+    writes: [INTENTS.yaml, intents/archive]
+  role.fanout:
+    permission: L1
+    idempotency: command_id
+    handler: role_fanout
+    required: [intent_id, shared_contract]
+    writes: [artifacts]
+  trace.record:
+    permission: L1
+    idempotency: command_id
+    handler: trace_record
+    required: [intent_id, event]
+    writes: [data/traces]
+  git.verify:
+    permission: L0
+    idempotency: none
+    handler: git_verify
+    required: []
+    writes: []
