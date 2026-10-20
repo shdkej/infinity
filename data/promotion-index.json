@@ -1,30 +1,72 @@
 {
-  "generated_at": "2026-10-19T03:00:07.603Z",
+  "generated_at": "2026-10-20T03:00:08.227Z",
   "summary": {
-    "total": 1021,
+    "total": 1023,
     "wiki_reflected": 199,
-    "not_reflected": 822,
+    "not_reflected": 824,
     "by_status": {
-      "queued": 835,
+      "queued": 837,
       "integrated": 10,
       "reviewed": 99,
       "selected": 4,
       "rejected": 73
     },
     "by_layer": {
+      "openclaw-system": 690,
       "infinity": 77,
-      "openclaw-system": 688,
       "external-links": 181,
       "shdkej-content": 74,
       "root": 1
     },
     "by_promotion_state": {
-      "not_applicable": 820,
+      "not_applicable": 822,
       "reflected": 199,
       "pending_promotion": 2
     }
   },
   "entries": [
+    {
+      "source": "source/openclaw-system/data/daily-review-drafts/2026-10-19-review.md",
+      "status": "queued",
+      "source_layer": "openclaw-system",
+      "reason": "자동 수집됨; 내용 판정 대기",
+      "reviewed_at": "",
+      "modified_at": "2026-10-19T20:01:38Z",
+      "promotion_targets": [],
+      "reflection_basis": [],
+      "promotion_state": "not_applicable",
+      "promotion_reason": "자동 수집됨; 내용 판정 대기",
+      "promotion_target_note": "",
+      "wiki_reflected": false
+    },
+    {
+      "source": "source/openclaw-system/acquire-email-summary-state.json",
+      "status": "queued",
+      "source_layer": "openclaw-system",
+      "reason": "자동 수집됨; 내용 판정 대기",
+      "reviewed_at": "",
+      "modified_at": "2026-10-19T12:07:31Z",
+      "promotion_targets": [],
+      "reflection_basis": [],
+      "promotion_state": "not_applicable",
+      "promotion_reason": "자동 수집됨; 내용 판정 대기",
+      "promotion_target_note": "",
+      "wiki_reflected": false
+    },
+    {
+      "source": "source/openclaw-system/data/ai-news/2026-10-19-ai-news.md",
+      "status": "queued",
+      "source_layer": "openclaw-system",
+      "reason": "자동 수집됨; 내용 판정 대기",
+      "reviewed_at": "",
+      "modified_at": "2026-10-19T03:01:11Z",
+      "promotion_targets": [],
+      "reflection_basis": [],
+      "promotion_state": "not_applicable",
+      "promotion_reason": "자동 수집됨; 내용 판정 대기",
+      "promotion_target_note": "",
+      "wiki_reflected": false
+    },
     {
       "source": "source/infinity/archive/upstream/research-modernism-postmodernism-20261018.md",
       "status": "queued",
@@ -232,20 +274,6 @@
       "reflection_basis": [],
       "promotion_state": "not_applicable",
       "promotion_reason": "요청 대상과 실제 저장소를 연결하는 공통 정본으로 선별 보관",
-      "promotion_target_note": "",
-      "wiki_reflected": false
-    },
-    {
-      "source": "source/openclaw-system/acquire-email-summary-state.json",
-      "status": "queued",
-      "source_layer": "openclaw-system",
-      "reason": "자동 수집됨; 내용 판정 대기",
-      "reviewed_at": "",
-      "modified_at": "2026-10-18T12:01:03Z",
-      "promotion_targets": [],
-      "reflection_basis": [],
-      "promotion_state": "not_applicable",
-      "promotion_reason": "자동 수집됨; 내용 판정 대기",
       "promotion_target_note": "",
       "wiki_reflected": false
     },
