@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "intent_id": "research-design-architecture-20261021",
-  "status": "inbox",
+  "status": "archived",
   "trace_completeness": "complete",
   "request": {
     "raw": {
@@ -37,12 +37,79 @@
       "evidence_paths": [
         "intents/context/research-design-architecture-20261021.json"
       ]
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-e2e29aa0da234cf18caec36d6754630a",
+      "canonical_sha": "61591157bda8bc823cd2e2baac7a141cca4efed1",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-10-21T14:03:12Z",
+      "status": "accepted"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-e2e29aa0da234cf18caec36d6754630a",
+      "canonical_sha": "61591157bda8bc823cd2e2baac7a141cca4efed1",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher-v2",
+      "timestamp": "2026-10-21T14:03:13Z",
+      "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-10-21T14:20:00Z",
+      "context_pack": "intents/context/research-design-architecture-20261021.json",
+      "evidence_paths": [
+        "artifacts/research-design-architecture-20261021/final/v-a-east-storehouse-report.md"
+      ],
+      "searches": [
+        "design.co.kr article 133853; V&A architectural vision; V&A East Storehouse official; DS+R project; David Bowie Centre FAQ"
+      ],
+      "wiki_pages": [
+        "agent-wiki/content/docs/outputs/Idea/History.mdx",
+        "agent-wiki/content/docs/outputs/Human/Balance.mdx",
+        "agent-wiki/content/docs/outputs/Idea/History.mdx",
+        "agent-wiki/content/docs/outputs/Fundamental/Architecture.mdx",
+        "agent-wiki/content/docs/outputs/Idea/Travel.mdx"
+      ],
+      "operational_log_sections": [
+        "logs/agent-wiki-query.md"
+      ],
+      "note": "탐색형 리서치: 원문 장소 식별 및 공식·설계사·운영 출처 교차 확인"
+    },
+    {
+      "type": "archive",
+      "at": "2026-10-21T14:24:00Z",
+      "report_path": "artifacts/research-design-architecture-20261021/final/v-a-east-storehouse-report.md",
+      "evidence_paths": [
+        "artifacts/research-design-architecture-20261021/final/v-a-east-storehouse-report.md",
+        "artifacts/research-design-architecture-20261021/final/v-a-east-storehouse-report.md",
+        "artifacts/research-design-architecture-20261021/remote-proof.txt"
+      ],
+      "research_mode": "exploratory_research",
+      "verification": {
+        "red_status": "not_required",
+        "remote_verified": "pass",
+        "remote_proof_path": "artifacts/research-design-architecture-20261021/remote-proof.txt"
+      }
     }
   ],
-  "artifacts": [],
-  "verifications": [],
+  "artifacts": [
+    {
+      "label": "final",
+      "path": "artifacts/research-design-architecture-20261021/final/v-a-east-storehouse-report.md"
+    }
+  ],
+  "verifications": [
+    {
+      "label": "Remote verification evidence",
+      "path": "artifacts/research-design-architecture-20261021/remote-proof.txt",
+      "status": "pass"
+    }
+  ],
   "next_decision": {
-    "status": "in_progress",
-    "value": "원문 장소를 확인하고 건축 과정·현재 사용 방식·관련 맥락을 넓게 조사한 뒤 한국어 리포트로 정리"
+    "status": "done",
+    "value": "기술 구조·환경 제어가 필요하면 별도 탐색 intent로 분기"
   }
 }
