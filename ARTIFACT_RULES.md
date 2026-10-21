@@ -81,7 +81,7 @@ Archive intent는 대시보드에서 프로젝트별/성격별로 묶어 볼 수
 
 `exploratory_research`의 `final/`에는 주제 범위와 탐색 지도, 주요 갈래, 대표 사례, 발견 사이의 연결, 불확실성, 열어 둔 다음 질문을 둔다. 결론·추천·선택지 비교·버린 대안·사용자의 다음 행동은 요구하지 않는다. `decision_research`의 `final/`에는 원 질문에 대한 결론을 먼저 두고, 그 결론을 바꾸는 조건·핵심 발견·선택지 비교·버린 대안·다음 결정 하나를 분리한다. 의사결정형의 각 핵심 발견은 `주장 → 직접 근거 → 해석 → 한계/반증`을 한 덩어리로 남긴다. 어느 모드든 출처 수를 채우는 목적의 중복 자료, 조사 과정의 나열, 역할명·태스크 ID는 최종 본문에 넣지 않는다.
 
-작업 중 생기는 `T1`/`T1.1` 메모와 Red 문서는 증거 추적에는 필요하지만 **최종 답이 아니다**. 모든 리서치는 원 질문에 답하는 **전체 Markdown 원문**을 `artifacts/{id}/final/{slug}-report.md`에 반드시 보존한다. `exploratory_research`는 이 Markdown 브리프와 출처 링크로 완료하며 Red·후보 단계·HTML을 요구하지 않는다. `decision_research`의 최종 후보는 먼저 `work/candidate/`에 만들고, Red는 그 후보와 최종 HTML Report를 함께 검토한다. Red 문서는 `work/red/`에 판정·차단 사유·재검토 범위를 기록한다. PASS 뒤에만 검토한 동일 원문을 `final/`로 이동(또는 내용 동일성이 검증된 복사)하며, 최종 HTML 리포트는 이 MD 원문을 축약·표시하는 읽기 표면일 뿐 원문을 대체하지 않는다. 두 모드 모두 쉬운 한국어로 쓰고, 필요한 전문어는 짧은 뜻이나 예시로 풀어 쓴다.
+작업 중 생기는 `T1`/`T1.1` 메모와 Red 문서는 증거 추적에는 필요하지만 **최종 답이 아니다**. 모든 리서치는 원 질문에 답하는 **전체 Markdown 원문**을 `artifacts/{id}/final/{slug}-report.md`에 반드시 보존하고, 동일 내용을 읽기 좋게 요약한 `reports/{id}/{timestamp}.html`을 함께 만든다. `exploratory_research`도 HTML report와 research-report validator를 생략하지 않지만, Deep Research·역할 분리·Red 검증은 요구하지 않는다. `decision_research`의 최종 후보는 먼저 `work/candidate/`에 만들고, Red는 그 후보와 최종 HTML Report를 함께 검토한다. Red 문서는 `work/red/`에 판정·차단 사유·재검토 범위를 기록한다. PASS 뒤에만 검토한 동일 원문을 `final/`로 이동(또는 내용 동일성이 검증된 복사)하며, 최종 HTML 리포트는 이 MD 원문을 축약·표시하는 읽기 표면일 뿐 원문을 대체하지 않는다. 두 모드 모두 쉬운 한국어로 쓰고, 필요한 전문어는 짧은 뜻이나 예시로 풀어 쓴다.
 
 **리서치 보존 게이트:** 2026-09-13 이후 Archive하는 리서치는 `final_artifact: artifacts/{id}/final/{slug}-report.md`를 명시하고, 그 파일이 비어 있지 않으며 원격 `main`의 **동일 Archive 원장**도 같은 경로를 가리켜야 한다. `work/candidate/*.md`, `work/` 문서, HTML report만으로는 리서치 완료·Archive를 인정하지 않는다. 이 규칙은 `exploratory_research`와 `decision_research` 모두에 적용한다. 이전 Archive는 경로 체계가 달라 자동 실패시키지 않으며, 수정·재검증 시 이 형식으로 이관한다.
 
@@ -91,14 +91,14 @@ Archive 전에는 다음 여섯 항목을 한 번에 확인한다. 이는 파일
 
 | 항목 | 필수 범위 | 원장 기록 | 대시보드 기대 표시 |
 |---|---|---|---|
-| 요약 HTML | `decision_research`, 구현·디자인·운영 산출물 | `reports/{id}/{timestamp}.html` | Report 링크와 iframe 미리보기 |
+| 요약 HTML | 모든 리서치, 구현·디자인·운영 산출물 | `reports/{id}/{timestamp}.html` | Report 링크와 iframe 미리보기 |
 | 전체 Markdown | 모든 리서치 | `final_artifact: artifacts/{id}/final/{slug}-report.md` | Final Artifact 링크·본문 |
 | zg 검색 매핑 | Context Pack v3+ Intent | `context_pack`, `context_documents_checked`, `context_searches`, trace `wiki_pages` | `조회한 경로 · Context Map`의 zg 쿼리·방식·선택 경로 |
 | 리포트 길이 | 모든 사용자-facing 최종본 | `report_length`(문자 수), `report_length_judgment`(`too_short|fit|too_long`) | 원장/Report 메타에서 확인 가능해야 함 |
 | 리포트 흐름 품질 | 모든 리서치, HTML이 있는 산출물 | `report_flow_check` | 탐색형은 주제 범위/지도 → 발견·사례 → 불확실성·열린 질문, 의사결정형은 결론 → 근거/비교 → 한계 → 다음 행동 순서가 보이고 내부 로그가 본문을 대체하지 않음 |
 | 활용 스킬 | 해당 작업에서 스킬을 실제 사용했거나 특정 스킬이 요구된 경우 | `skills_used: [{name, purpose, evidence_path}]` | 상세의 `사용한 스킬`에서 이름·용도·근거가 보임 |
 
-- **HTML 범위는 의도적으로 다르다.** 탐색형 리서치는 전체 Markdown 브리프가 최종 표면이며, 얕은 HTML을 추가해 같은 내용을 중복하지 않는다. 의사결정 리서치와 사용자-facing 산출물은 HTML 요약을 함께 제공한다.
+- **HTML 범위는 일관되게 유지한다.** 탐색형 리서치도 전체 Markdown 브리프를 원문으로 보존하면서, 핵심 축·발견·출처·불확실성·다음 탐색 가지를 담은 HTML 요약을 함께 제공한다. 의사결정 리서치와 사용자-facing 산출물은 여기에 판단 기준과 다음 결정을 추가한다.
 - **길이는 분량 목표가 아니다.** `report_length`는 과도하게 짧거나 긴 결과를 발견하는 관측값이다. `report_length_judgment`는 탐색형에서는 범위·발견·불확실성·열린 질문이, 의사결정형에서는 결론·근거·한계·다음 행동이 독해 가능한 밀도로 들어 있는지를 기준으로 작성자가 판정하고, Red가 필요한 작업에서는 재검토한다. 글자 수만 채우기 위한 반복은 실패다.
 - **흐름 검사는 모드에 맞춘다.** 탐색형은 주제의 넓은 지도를 먼저 펼치고 발견과 열린 질문으로 끝낸다. 의사결정형은 결론, 근거/비교, 한계/반증, 다음 행동이 서로 섞이거나 빠지지 않아야 한다. 이 규칙은 `Report 양식`의 구조·Red 검토와 함께 적용한다.
 - **스킬은 자동으로 추측해 적지 않는다.** 실제로 읽고 사용한 스킬만 남긴다. 단순 도구 호출은 스킬 사용이 아니다. 작업에 적용 가능한 스킬이 없으면 `skills_used: []`와 사유를 기록한다.
@@ -257,7 +257,7 @@ Infinity 문서는 아래 4개 역할로 통일한다. 새 문서를 만들 때 
 신규 Archive intent는 실행 방식이 검증 가능해야 한다.
 
 - `execution_mode: single_genie_roles` — 지니가 네 역할 관점을 직접 기록하는 경량 실행. 단, `research_mode: exploratory_research`에서는 출처 확인과 설명형 브리프만 남기는 명시 예외다.
-- `research_mode: exploratory_research` — 사례·시장 지형·트렌드를 설명하는 기본 리서치. 출처 확인과 브리프만 요구하며 Red·역할 세션·리치 HTML은 요구하지 않는다.
+- `research_mode: exploratory_research` — 사례·시장 지형·트렌드를 설명하는 기본 리서치. 출처 확인과 전체 Markdown 브리프 및 검증된 HTML report를 요구하며 Red·역할 세션은 요구하지 않는다.
 - `research_mode: decision_research` — 투자·도입·구매·출시·가격/수익성·법률 또는 명시적 검증을 위한 의사결정 리서치. Deep Research와 역할·Red 게이트를 적용한다.
 - `execution_mode: multi_subagent_roles` — Planner, Developer, Marketer, Operator가 실제 별도 서브에이전트로 실행된 중요 작업.
 - `execution_mode: multi_subagent_roles_blocked` — 중요 작업이지만 역할 서브에이전트 실행이 불가능해 Waiting에 남긴 상태.
@@ -323,17 +323,17 @@ Report는 여전히 실행 로그지만, 특히 조사형(`research`, `wiki`, `d
 
 ### 작성 규칙
 
-- 위치: `decision_research`는 `reports/{id}/{timestamp}.html`; `exploratory_research`는 `artifacts/{id}/final/`의 Markdown 브리프.
+- 위치: 모든 리서치는 `artifacts/{id}/final/{slug}-report.md`와 `reports/{id}/{timestamp}.html`을 함께 둔다.
 - 템플릿: `reports/_TEMPLATE.html` 을 복사해 `{{...}}` 자리표시자를 치환한다. (`_`로 시작하는 파일은 대시보드가 무시한다)
-- 완료 게이트: `decision_research`의 `reports/{id}/{timestamp}.html`은 실제로 존재하고 비어 있지 않으며, `<html`, `<body`, `axis ax1`, `axis ax2`, `<details`를 포함해야 한다. `exploratory_research`는 질문에 답하는 브리프와 출처 링크가 있으면 된다.
+- 완료 게이트: 모든 리서치의 `reports/{id}/{timestamp}.html`은 실제로 존재하고 비어 있지 않으며, `<html`, `<body`, `axis ax1`, `axis ax2`, `<details`를 포함하고 `python3 scripts/validate_research_report.py`를 통과해야 한다.
 - `decision_research` Report는 `핵심 내용 · 리서치 본문` 영역을 반드시 채운다. 최소 3개, 가능하면 5~7개의 핵심 발견을 쓰고, 각 발견은 사용자가 다음 결정을 할 수 있을 만큼 구체적이어야 한다.
 - 핵심 발견과 옵션 비교는 MECE하게 쓴다. 같은 발견을 표현만 바꿔 반복하지 말고, 비용/속도/품질/리스크/실행 난이도처럼 서로 다른 판단 축으로 나눈다.
 - `decision_research` Report에는 반드시 `근거 · 소스`, `다음 판단`, 필요 시 `옵션 비교` 또는 `추천안`이 들어간다. 탐색형 브리프에는 짧은 출처 목록과 불확실성만 남긴다.
-- **의사결정 리서치 최종 게이트:** `decision_research`만 Archive 전에 `python3 scripts/validate_research_report.py reports/{id}/{timestamp}.html`을 실행한다. 탐색형 리서치에는 적용하지 않는다.
-- **리치 리포트 기본값:** `decision_research` final HTML은 `reports/_TEMPLATE.html`의 `rich-v1` 구조를 사용하며 `final/`의 전체 MD 원문을 요약한다. 탐색형 리서치는 `final/`에 전체 Markdown 브리프를 사용한다.
+- **리서치 HTML 최종 게이트:** 모든 리서치가 Archive 전에 `python3 scripts/validate_research_report.py reports/{id}/{timestamp}.html`을 실행한다.
+- **리치 리포트 기본값:** 모든 리서치의 final HTML은 `reports/_TEMPLATE.html`의 `rich-v1` 구조를 사용하며 `final/`의 전체 MD 원문을 요약한다. 탐색형 리서치는 추천·결론으로 과도하게 수렴하지 않고 탐색 지도·불확실성·열린 질문을 HTML에 보존한다.
 - Red는 `decision_research` 최종 Report를 artifact와 별개로 직접 읽고, `요청에 답하는 결론`, `발견의 구체성`, `근거와 해석의 구분`, `사용자가 취할 다음 판단` 네 항목을 PASS/FAIL로 남긴다. 탐색형 리서치에는 Red를 호출하지 않는다.
 - 긴 표는 모바일에서 좌우 스크롤을 요구하지 않게 2열 이하로 줄이거나, 항목형 카드/목록으로 바꾼다. URL, 코드, 파일 경로, 긴 단어는 줄바꿈되게 작성한다.
-- `decision_research` 및 산출물 위임 작업도 같은 규칙을 따른다. 위임받은 에이전트가 코드·문서 변경은 끝냈지만 HTML report를 남기지 않았다면, Heartbeat는 직접 `reports/_TEMPLATE.html`로 관측 결과를 보강해 HTML report를 만든 뒤 완료한다. 모든 리서치는 먼저 `final/`에 전체 Markdown 원문을 보존하며, 탐색형 리서치는 그 Markdown 브리프로, 의사결정 리서치는 그 원문과 HTML 요약으로 완료한다.
+- 모든 리서치 및 산출물 위임 작업도 같은 규칙을 따른다. 위임받은 에이전트가 코드·문서 변경은 끝냈지만 HTML report를 남기지 않았다면, Heartbeat는 직접 `reports/_TEMPLATE.html`로 관측 결과를 보강해 HTML report를 만든 뒤 완료한다. 모든 리서치는 먼저 `final/`에 전체 Markdown 원문을 보존하고, 그 원문과 HTML 요약을 함께 완료물로 닫는다.
 - `decision_research` 및 산출물 작업은 Markdown report만으로 신규 완료를 인정하지 않는다. 탐색형 리서치의 Markdown 브리프는 최종 산출물로 인정한다.
 - **제약**: 대시보드는 이 파일을 `iframe sandbox="allow-same-origin"` 으로 렌더하므로 **JS·외부 리소스는 동작하지 않는다.** 스타일은 인라인 `<style>` 로만, 접기는 `<details>`(JS 불필요)로 한다.
 - 모바일 기준은 390px 폭이다. 브라우저 검증이 가능하면 `document.documentElement.scrollWidth <= window.innerWidth`를 확인하고, 어렵다면 템플릿 CSS의 `overflow-x:hidden`, 긴 텍스트 wrapping, 모바일 테이블 stacking 규칙을 깨지 않았는지 눈으로 확인한다.

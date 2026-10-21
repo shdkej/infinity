@@ -10,7 +10,8 @@
 - context_documents_checked: LLM.md; README.md; schema/agent-rules.md; DOCUMENT_SEARCH_PIPELINE.md; USER_CONTEXT.md; SERVICE_REGISTRY.md; INFINITY_OPERATING_RULES.md; ARTIFACT_RULES.md; EXECUTION_LEARNING_CONTRACT.md; INTENTS.yaml; agent-wiki/content/docs/index.mdx; selected Context Pack pages
 - context_searches: design.co.kr article 133853; V&A architectural vision; V&A East Storehouse official; DS+R project; David Bowie Centre FAQ
 - artifact: artifacts/research-design-architecture-20261021/final/v-a-east-storehouse-report.md
-- report: artifacts/research-design-architecture-20261021/final/v-a-east-storehouse-report.md
+- final_artifact: artifacts/research-design-architecture-20261021/final/v-a-east-storehouse-report.md
+- report: reports/research-design-architecture-20261021/20261021T1601Z-final.html
 - red_status: not_required
 - remote_verified: pass
 - knowledge_status: used

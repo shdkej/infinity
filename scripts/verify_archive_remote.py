@@ -122,6 +122,7 @@ def main() -> int:
     errors: list[str] = []
     archive_detail_path: str | None = None
     final_artifact_path: str | None = None
+    html_report_path: str | None = None
     parent = repo.parent
 
     try:
@@ -133,8 +134,13 @@ def main() -> int:
     try:
         archive_local = repo / "intents" / "archive" / f"{intent_id}.md"
         archive_text = archive_local.read_text() if archive_local.exists() else ""
-        is_decision_research = not re.search(r"^\s*-\s*research_mode:\s*exploratory_research\s*$", archive_text, re.M)
-        is_research = bool(archive_text and re.search(r"^\s*-\s*task_type:\s*research\s*$", archive_text, re.M))
+        is_research = bool(
+            archive_text
+            and (
+                re.search(r"^\s*-\s*task_type:\s*research\s*$", archive_text, re.M)
+                or re.search(r"^\s*-\s*research_mode:\s*(?:exploratory_research|decision_research)\s*$", archive_text, re.M)
+            )
+        )
         if is_research and requires_full_markdown_report(archive_text):
             final_artifact_path = final_research_artifact_path(archive_text, intent_id)
             if not final_artifact_path:
@@ -143,12 +149,13 @@ def main() -> int:
                 )
             elif not (repo / final_artifact_path).is_file() or not (repo / final_artifact_path).read_text().strip():
                 errors.append(f"Research archive {intent_id} final Markdown report is missing or empty: {final_artifact_path}")
-        if is_research and is_decision_research:
+        if is_research:
             report_match = re.search(r"^\s*-\s*report:\s*(\S+\.html)\s*$", archive_text, re.M)
             if not report_match:
                 errors.append(f"Research archive {intent_id} has no final HTML report")
             else:
-                run(["python3", "scripts/validate_research_report.py", report_match.group(1)], repo)
+                html_report_path = report_match.group(1)
+                run(["python3", "scripts/validate_research_report.py", html_report_path], repo)
     except Exception as exc:
         errors.append(f"Research report quality check failed: {exc}")
 
@@ -167,6 +174,13 @@ def main() -> int:
                 errors.append(f"Remote final Markdown report is empty: {final_artifact_path}")
         except Exception as exc:
             errors.append(f"Remote final Markdown report check failed for {final_artifact_path}: {exc}")
+
+    if html_report_path:
+        try:
+            if not git_remote_text(repo, html_report_path).strip():
+                errors.append(f"Remote final HTML report is empty: {html_report_path}")
+        except Exception as exc:
+            errors.append(f"Remote final HTML report check failed for {html_report_path}: {exc}")
 
     try:
         # GitHub contents/raw endpoints can serve a stale body immediately
@@ -220,8 +234,11 @@ def main() -> int:
                 errors.append(f"Remote archive file {archive_path} has no id field for {intent_id}")
             if not ARCHIVE_STATUS_RE.search(archive_text):
                 errors.append(f"Remote archive file {archive_path} is not an accepted archive status for {intent_id}")
-            remote_is_research = bool(re.search(r"^\s*-\s*task_type:\s*research\s*$", archive_text, re.M))
-            if remote_is_research and requires_full_markdown_report(archive_text):
+            remote_is_research = bool(
+                re.search(r"^\s*-\s*task_type:\s*research\s*$", archive_text, re.M)
+                or re.search(r"^\s*-\s*research_mode:\s*(?:exploratory_research|decision_research)\s*$", archive_text, re.M)
+            )
+            if remote_is_research:
                 remote_final_path = final_research_artifact_path(archive_text, intent_id)
                 if not remote_final_path:
                     errors.append(f"Remote research archive {archive_path} has no matching final Markdown report")
@@ -231,6 +248,15 @@ def main() -> int:
                             errors.append(f"Remote final Markdown report is empty: {remote_final_path}")
                     except Exception as artifact_exc:
                         errors.append(f"Remote final Markdown report check failed for {remote_final_path}: {artifact_exc}")
+                remote_report_match = re.search(r"^\s*-\s*report:\s*(\S+\.html)\s*$", archive_text, re.M)
+                if not remote_report_match:
+                    errors.append(f"Remote research archive {archive_path} has no final HTML report")
+                else:
+                    try:
+                        if not git_remote_text(repo, remote_report_match.group(1)).strip():
+                            errors.append(f"Remote final HTML report is empty: {remote_report_match.group(1)}")
+                    except Exception as report_exc:
+                        errors.append(f"Remote final HTML report check failed for {remote_report_match.group(1)}: {report_exc}")
         except Exception as exc:
             try:
                 run(["git", "fetch", "origin", "main"], repo)

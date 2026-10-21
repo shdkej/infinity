@@ -15,7 +15,7 @@ archive:
   detail: intents/archive/research-design-architecture-20261021.md
   artifact: artifacts/research-design-architecture-20261021/final/v-a-east-storehouse-report.md
   final_artifact: artifacts/research-design-architecture-20261021/final/v-a-east-storehouse-report.md
-  report: artifacts/research-design-architecture-20261021/final/v-a-east-storehouse-report.md
+  report: reports/research-design-architecture-20261021/20261021T1601Z-final.html
   trace: data/traces/research-design-architecture-20261021.json
   red_status: not_required
   remote_verified: pass
