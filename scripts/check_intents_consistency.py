@@ -83,6 +83,13 @@ def main() -> int:
         if str(item.get("title") or "") != str(item.get("task_name") or ""):
             errors.append(f"Archive: {intent_id} requires matching title/task_name")
 
+    # The dashboard reads monthly YAML ledgers for Archive cards. A detail
+    # Markdown file is supporting evidence only and cannot replace that card.
+    manifest = data.get("archive", {}).get("files", [])
+    for path in manifest:
+        if not str(path).lower().endswith((".yaml", ".yml")):
+            errors.append(f"archive manifest: {path} is not a monthly YAML ledger")
+
     if errors:
         for err in errors: print(err, file=sys.stderr)
         return 1

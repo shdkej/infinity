@@ -185,6 +185,27 @@ def main() -> int:
             errors.append(f"Remote INTENTS.yaml still contains {intent_id} in an open lane")
         archive_detail_path = f"intents/archive/{intent_id}.md"
         git_remote_text(repo, archive_detail_path)
+        remote_registry = yaml.safe_load(git_remote_text(repo, "INTENTS.yaml")) or {}
+        monthly_paths = [
+            str(path)
+            for path in remote_registry.get("archive", {}).get("files", [])
+            if str(path).lower().endswith((".yaml", ".yml"))
+        ]
+        monthly_match = False
+        for monthly_path in monthly_paths:
+            monthly = yaml.safe_load(git_remote_text(repo, monthly_path)) or {}
+            monthly_ids = {
+                str(item.get("id") or "")
+                for item in monthly.get("archive", [])
+                if isinstance(item, dict)
+            }
+            if intent_id in monthly_ids:
+                monthly_match = True
+                break
+        if not monthly_match:
+            errors.append(
+                f"Remote monthly Archive ledgers have no {intent_id}: {', '.join(monthly_paths)}"
+            )
     except Exception as exc:
         errors.append(f"Remote INTENTS.yaml/archive check failed: {exc}")
 
