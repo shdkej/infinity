@@ -1,0 +1,48 @@
+{
+  "schema_version": 2,
+  "intent_id": "research-design-architecture-20261021",
+  "status": "inbox",
+  "trace_completeness": "complete",
+  "request": {
+    "raw": {
+      "status": "recorded",
+      "value": "https://design.co.kr/article/133853/ 이 장소에 대해 인피니티로 조사해줘 어떻게 이런건물을 지었고 쓰이고 있는지"
+    },
+    "normalized_query": {
+      "status": "recorded",
+      "value": "design.co.kr article 133853 장소 건축 방식 공간의 현재 사용 방식 조사"
+    },
+    "user_intent": {
+      "status": "recorded",
+      "value": "사용자가 제공한 장소의 건물이 어떤 설계·시공·재료·구조 조건에서 만들어졌고 현재 어떤 방식으로 쓰이는지 이해한다."
+    },
+    "desired_outcome": {
+      "status": "recorded",
+      "value": "원문 장소를 식별한 뒤 건축 과정과 사용 현황을 한국어 탐색형 리서치로 정리하고, 확인된 사실·합리적 해석·열린 질문을 출처와 함께 제시한다."
+    },
+    "out_of_scope": {
+      "status": "recorded",
+      "value": "방문 예약·구매·연락·공개 게시·건물에 대한 근거 없는 평가나 추정·사용자 대신 후속 의사결정"
+    },
+    "success_evidence": {
+      "status": "recorded",
+      "value": "원문 장소 식별, 건축 방식 관련 직접 출처 2개 이상, 현재 사용 방식 관련 직접 출처 2개 이상, 출처별 근거 수준과 불확실성, 탐색 가지가 포함된 최종 Markdown 리포트"
+    }
+  },
+  "events": [
+    {
+      "type": "intake",
+      "at": "2026-10-21T13:59:50Z",
+      "context_pack": "intents/context/research-design-architecture-20261021.json",
+      "evidence_paths": [
+        "intents/context/research-design-architecture-20261021.json"
+      ]
+    }
+  ],
+  "artifacts": [],
+  "verifications": [],
+  "next_decision": {
+    "status": "in_progress",
+    "value": "원문 장소를 확인하고 건축 과정·현재 사용 방식·관련 맥락을 넓게 조사한 뒤 한국어 리포트로 정리"
+  }
+}

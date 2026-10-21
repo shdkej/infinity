@@ -1,0 +1,18 @@
+### [research-design-architecture-20261021] 디자인 기사 장소의 건축 방식과 현재 사용 방식 조사
+- status: inbox
+- research_mode: exploratory_research
+- target_agent: genie
+- execution_mode: single_genie_roles
+- permission_level: approval_required
+- context_pack: intents/context/research-design-architecture-20261021.json
+- source_url: https://design.co.kr/article/133853/
+- user_intent: 사용자가 제공한 장소의 건물이 어떤 설계·시공·재료·구조 조건에서 만들어졌고 현재 어떤 방식으로 쓰이는지 이해한다.
+- desired_outcome: 원문 장소를 식별한 뒤 건축 과정과 사용 현황을 한국어 탐색형 리서치로 정리하고, 확인된 사실·합리적 해석·열린 질문을 출처와 함께 제시한다.
+- out_of_scope: 방문 예약·구매·연락·공개 게시·건물에 대한 근거 없는 평가나 추정·사용자 대신 후속 의사결정
+- success_evidence: 원문 장소 식별, 건축 방식 관련 직접 출처 2개 이상, 현재 사용 방식 관련 직접 출처 2개 이상, 출처별 근거 수준과 불확실성, 탐색 가지가 포함된 최종 Markdown 리포트
+- context_documents_checked: LLM.md; README.md; schema/agent-rules.md; DOCUMENT_SEARCH_PIPELINE.md; USER_CONTEXT.md; SERVICE_REGISTRY.md; INFINITY_OPERATING_RULES.md; ARTIFACT_RULES.md; EXECUTION_LEARNING_CONTRACT.md; INTENTS.yaml; agent-wiki/content/docs/index.mdx; selected Context Pack pages
+- context_searches: design.co.kr article 133853 장소 건축 방식 공간의 현재 사용 방식 조사; selected Agent Wiki pages: outputs/Idea/History.mdx, outputs/Fundamental/Architecture.mdx, outputs/Idea/Travel.mdx
+- task_plan_template: ARTIFACT_RULES.md#대형-작업-태스크-계획
+- next_action: 원문 장소를 확인하고 건축 과정·현재 사용 방식·관련 맥락을 넓게 조사한 뒤 한국어 리포트로 정리
+- notification_channel: slack
+- notification_target: channel:C0BR41W31MM

@@ -1,7 +1,20 @@
 version: 1
 format: infinity-intents-yaml
 lanes:
-  inbox: []
+  inbox:
+  - id: research-design-architecture-20261021
+    title: 디자인 기사 장소의 건축 방식과 현재 사용 방식 조사
+    task_name: 디자인 기사 장소의 건축 방식과 현재 사용 방식 조사
+    status: inbox
+    research_mode: exploratory_research
+    target_agent: genie
+    execution_mode: single_genie_roles
+    permission_level: approval_required
+    context_pack: intents/context/research-design-architecture-20261021.json
+    next_action: 원문 장소를 식별하고 건축 과정·현재 사용 방식·관련 맥락을 넓게 조사한 뒤 한국어 리포트로 정리
+    success_criteria: 원문 장소 식별, 건축 방식 관련 직접 출처 2개 이상, 현재 사용 방식 관련 직접 출처 2개 이상, 출처별 근거 수준과 불확실성, 탐색 가지가 포함된 최종 Markdown 리포트
+    notification_channel: slack
+    notification_target: channel:C0BR41W31MM
   active: []
   waiting: []
 archive:
