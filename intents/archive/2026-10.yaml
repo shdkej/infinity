@@ -1,6 +1,29 @@
 version: 1
 period: 2026-10
 archive:
+- id: research-design-architecture-20261021
+  title: 디자인 기사 장소의 건축 방식과 현재 사용 방식 조사
+  task_name: 디자인 기사 장소의 건축 방식과 현재 사용 방식 조사
+  status: archived
+  completed_at: 2026-10-21T14:24:00Z
+  archived_at: 2026-10-21T14:24:00Z
+  research_mode: exploratory_research
+  target_agent: genie
+  execution_mode: single_genie_roles
+  permission: approval_required
+  context_pack: intents/context/research-design-architecture-20261021.json
+  detail: intents/archive/research-design-architecture-20261021.md
+  artifact: artifacts/research-design-architecture-20261021/final/v-a-east-storehouse-report.md
+  final_artifact: artifacts/research-design-architecture-20261021/final/v-a-east-storehouse-report.md
+  report: artifacts/research-design-architecture-20261021/final/v-a-east-storehouse-report.md
+  trace: data/traces/research-design-architecture-20261021.json
+  red_status: not_required
+  remote_verified: pass
+  knowledge_status: used
+  knowledge_decision: retain_in_infinity
+  knowledge_targets: artifacts/research-design-architecture-20261021/final/v-a-east-storehouse-report.md
+  notification_channel: slack
+  notification_target: channel:C0BR41W31MM
 - id: research-modernism-postmodernism-20261018
   title: 모더니즘과 포스트모더니즘 탐색 지도 조사
   status: archived
