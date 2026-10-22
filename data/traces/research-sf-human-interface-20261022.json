@@ -32,7 +32,7 @@
   "events": [
     {
       "type": "intake",
-      "at": "2026-10-22T06:21:41Z",
+      "at": "2026-10-22T06:21:09Z",
       "context_pack": "intents/context/research-sf-human-interface-20261022.json",
       "evidence_paths": [
         "intents/context/research-sf-human-interface-20261022.json"
