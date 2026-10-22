@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "intent_id": "research-sf-human-interface-more-20261022",
-  "status": "inbox",
+  "status": "archived",
   "trace_completeness": "complete",
   "request": {
     "raw": {
@@ -37,12 +37,81 @@
       "evidence_paths": [
         "INTENTS.yaml"
       ]
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-cbc6e8b4cbf14339b7d92eabffc6d2e8",
+      "canonical_sha": "68cf08855e6c76a8ed0b49d26c00f31cb5c82178",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-10-22T15:20:05Z",
+      "status": "accepted"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-cbc6e8b4cbf14339b7d92eabffc6d2e8",
+      "canonical_sha": "68cf08855e6c76a8ed0b49d26c00f31cb5c82178",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher-v2",
+      "timestamp": "2026-10-22T15:20:07Z",
+      "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-10-22T15:45:00Z",
+      "context_pack": "intents/context/research-sf-human-interface-more-20261022.json",
+      "evidence_paths": [
+        "artifacts/research-sf-human-interface-more-20261022/final/sf-human-interface-expansion-report.md"
+      ],
+      "searches": [
+        "Neuromancer Snow Crash Minority Report Her Star Trek 2001 Ex Machina Avatar Surrogates; SF-HCI research; game accessibility; diegetic HUD; design fiction"
+      ],
+      "wiki_pages": [
+        "agent-wiki/content/docs/outputs/blog/Note_Management.mdx",
+        "agent-wiki/content/docs/outputs/Integration/Design.mdx",
+        "agent-wiki/content/docs/outputs/Integration/Work.mdx"
+      ],
+      "operational_log_sections": [
+        "logs/agent-wiki-query.md"
+      ],
+      "note": "탐색형 리서치: SF 소설·영화·TV·게임·디자인 픽션의 인터페이스와 접근성·권한·실패 모드 비교"
+    },
+    {
+      "type": "archive",
+      "at": "2026-10-22T15:50:00Z",
+      "report_path": "reports/research-sf-human-interface-more-20261022/20261022T1520Z-final.html",
+      "evidence_paths": [
+        "artifacts/research-sf-human-interface-more-20261022/final/sf-human-interface-expansion-report.md",
+        "reports/research-sf-human-interface-more-20261022/20261022T1520Z-final.html",
+        "artifacts/research-sf-human-interface-more-20261022/remote-proof.txt"
+      ],
+      "research_mode": "exploratory_research",
+      "verification": {
+        "red_status": "not_required",
+        "remote_verified": "pass",
+        "remote_proof_path": "artifacts/research-sf-human-interface-more-20261022/remote-proof.txt"
+      }
     }
   ],
-  "artifacts": [],
-  "verifications": [],
+  "artifacts": [
+    {
+      "label": "final",
+      "path": "artifacts/research-sf-human-interface-more-20261022/final/sf-human-interface-expansion-report.md"
+    },
+    {
+      "label": "html",
+      "path": "reports/research-sf-human-interface-more-20261022/20261022T1520Z-final.html"
+    }
+  ],
+  "verifications": [
+    {
+      "label": "Remote verification evidence",
+      "path": "artifacts/research-sf-human-interface-more-20261022/remote-proof.txt",
+      "status": "pass"
+    }
+  ],
   "next_decision": {
-    "status": "in_progress",
-    "value": "지니가 다매체 사례군을 조사하고 탐색 지도를 작성한다"
+    "status": "done",
+    "value": "실제 제품 평가가 필요하면 별도 decision_research로 전환"
   }
 }

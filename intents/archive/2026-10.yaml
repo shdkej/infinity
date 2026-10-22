@@ -1,6 +1,33 @@
 version: 1
 period: 2026-10
 archive:
+- id: research-sf-human-interface-more-20261022
+  title: SF 소설·영화·다매체의 인간 친화적 인터페이스 사례 확장 조사
+  task_name: SF 소설·영화·다매체의 인간 친화적 인터페이스 사례 확장 조사
+  status: archived
+  completed_at: 2026-10-22T15:20:00Z
+  archived_at: 2026-10-22T15:20:00Z
+  research_mode: exploratory_research
+  target_agent: genie
+  execution_mode: single_genie_roles
+  permission: approval_required
+  source_intent_id: research-sf-human-interface-20261022
+  detail: intents/archive/research-sf-human-interface-more-20261022.md
+  artifact: artifacts/research-sf-human-interface-more-20261022/final/sf-human-interface-expansion-report.md
+  final_artifact: artifacts/research-sf-human-interface-more-20261022/final/sf-human-interface-expansion-report.md
+  report: reports/research-sf-human-interface-more-20261022/20261022T1520Z-final.html
+  trace: data/traces/research-sf-human-interface-more-20261022.json
+  red_status: not_required
+  remote_verified: pass
+  knowledge_status: used
+  knowledge_decision: retain_in_infinity
+  knowledge_targets: artifacts/research-sf-human-interface-more-20261022/final/sf-human-interface-expansion-report.md
+  knowledge_reflection: 매체별 인터페이스는 입력 표면보다 몸·기억·사회적 맥락·권한·실패를 함께 드러내는 설계 공간이며, 인간 친화성은 대체 경로와 통제권을 포함할 때만 유지된다.
+  knowledge_commit: no-promotion-needed
+  notification_channel: slack
+  notification_target: channel:C0BR41W31MM
+  notification_reply_to: '1792650029.793169'
+  next_action: 실제 인터페이스 평가가 필요하면 음성·AI 동반자, 신체 확장, 게임 접근성, 감시 중 하나를 별도 decision_research로 전환
 - id: research-sf-human-interface-20261022
   title: SF 영화 사례로 인간에게 편한 인터페이스 조건 조사
   task_name: SF 영화 사례로 인간에게 편한 인터페이스 조건 조사
