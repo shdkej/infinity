@@ -1,20 +1,7 @@
 version: 1
 format: infinity-intents-yaml
 lanes:
-  inbox:
-  - id: research-sf-human-interface-20261022
-    title: SF 영화 사례로 인간에게 편한 인터페이스 조건 조사
-    task_name: SF 영화 사례로 인간에게 편한 인터페이스 조건 조사
-    status: inbox
-    research_mode: exploratory_research
-    target_agent: genie
-    execution_mode: single_genie_roles
-    permission_level: approval_required
-    context_pack: intents/context/research-sf-human-interface-20261022.json
-    next_action: SF 영화의 인터페이스 사례를 입력·피드백·기억·오류 회복·사회적 맥락·신체 부담 축으로 조사하고 현실 사례와 연결해 탐색형 리포트로 정리
-    success_criteria: SF 영화 사례 5개 이상, 사례별 인터랙션 방식과 편안함의 조건·대가·현실 근거 구분, 인간 중심 평가축, 인접 실제 사례와 열린 탐색 질문이 포함된 최종 Markdown 리포트
-    notification_channel: slack
-    notification_target: channel:C0BR41W31MM
+  inbox: []
   active: []
   waiting: []
 archive:
@@ -23,6 +10,7 @@ archive:
   files:
   - intents/archive/2026-06.yaml
   - intents/archive/2026-07.yaml
+  - intents/archive/research-sf-human-interface-20261022.md
   - intents/archive/2026-08.yaml
   - intents/archive/2026-09.yaml
   - intents/archive/2026-10.yaml
