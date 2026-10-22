@@ -1,7 +1,29 @@
 version: 1
 format: infinity-intents-yaml
 lanes:
-  inbox: []
+  inbox:
+  - id: research-sf-human-interface-more-20261022
+    title: SF 소설·영화·다매체의 인간 친화적 인터페이스 사례 확장 조사
+    task_name: SF 소설·영화·다매체의 인간 친화적 인터페이스 사례 확장 조사
+    status: inbox
+    research_mode: exploratory_research
+    target_agent: genie
+    execution_mode: single_genie_roles
+    permission: approval_required
+    source_intent_id: research-sf-human-interface-20261022
+    projects: [infinity, research-bank]
+    task_type: research
+    topics: [science-fiction, interface, accessibility]
+    user_intent: 기존 SF 영화 중심 리포트를 더 다양한 매체와 사례로 넓혀 인간에게 편한 인터페이스의 양상과 반례를 탐색한다.
+    desired_outcome: 영화·소설을 포함한 다매체 사례 비교 리포트와 다음 탐색 선택지를 Infinity 산출물로 제공한다.
+    out_of_scope: 특정 인터페이스 하나를 최종 선정하거나 공개 발송·제품 구현·구매를 수행하지 않는다.
+    success_evidence: 원격 origin/main에 등록된 Inbox Intent, 유효한 Context Pack과 trace, 이후 Genie의 최종 Markdown/HTML 리포트
+    context_pack: intents/context/research-sf-human-interface-more-20261022.json
+    trace: data/traces/research-sf-human-interface-more-20261022.json
+    notification_channel: slack
+    notification_target: channel:C0BR41W31MM
+    notification_reply_to: '1792650029.793169'
+    next_action: 영화·소설·TV·게임·인접 speculative 작품을 나눠 조사하고 인터페이스 양상·편안함·접근성·신뢰·실패 모드를 비교한다.
   active: []
   waiting: []
 archive:

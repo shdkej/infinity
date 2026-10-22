@@ -1,0 +1,48 @@
+{
+  "schema_version": 2,
+  "intent_id": "research-sf-human-interface-more-20261022",
+  "status": "inbox",
+  "trace_completeness": "complete",
+  "request": {
+    "raw": {
+      "status": "recorded",
+      "value": "근데 더 다양한 사례로 SF소설이나 더 많은 영화들의 사례도 좀 찾아봐줄래? 인피니티로"
+    },
+    "normalized_query": {
+      "status": "recorded",
+      "value": "SF 소설·영화·TV·게임·인접 speculative 작품의 인간 친화적 인터페이스 사례를 확장 비교하는 탐색 지도"
+    },
+    "user_intent": {
+      "status": "recorded",
+      "value": "기존 SF 영화 중심 리포트를 더 다양한 매체와 사례로 넓혀 인간에게 편한 인터페이스의 양상과 반례를 탐색한다"
+    },
+    "desired_outcome": {
+      "status": "recorded",
+      "value": "영화·소설을 포함한 다매체 사례 비교 리포트와 다음 탐색 선택지를 Infinity 산출물로 제공한다"
+    },
+    "out_of_scope": {
+      "status": "recorded",
+      "value": "특정 인터페이스 하나를 최종 선정하거나 공개 발송·제품 구현·구매를 수행하지 않는다"
+    },
+    "success_evidence": {
+      "status": "recorded",
+      "value": "원격 origin/main에 등록된 Inbox Intent, 유효한 Context Pack과 trace, 이후 Genie의 최종 Markdown/HTML 리포트"
+    }
+  },
+  "events": [
+    {
+      "type": "intake",
+      "at": "2026-10-22T15:13:19Z",
+      "context_pack": "intents/context/research-sf-human-interface-more-20261022.json",
+      "evidence_paths": [
+        "INTENTS.yaml"
+      ]
+    }
+  ],
+  "artifacts": [],
+  "verifications": [],
+  "next_decision": {
+    "status": "in_progress",
+    "value": "지니가 다매체 사례군을 조사하고 탐색 지도를 작성한다"
+  }
+}

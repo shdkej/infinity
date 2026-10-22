@@ -1,0 +1,95 @@
+{
+  "context_pack_version": 3,
+  "status": "ready",
+  "route": "infinity",
+  "request": "SF fiction and cinema as a broad comparative map of humane interfaces: expand the prior report with more films, novels, television, games, and adjacent speculative works; compare interaction modalities, human comfort, accessibility, trust, embodiment, social context, and failure modes; preserve exploratory research without prematurely selecting one interface",
+  "built_at": "2026-10-22T15:13:11.921599+00:00",
+  "required_documents": [
+    "/home/ubuntu/workspace/prompt-archive/LLM.md",
+    "README.md",
+    "schema/agent-rules.md",
+    "source/openclaw-system/docs/DOCUMENT_SEARCH_PIPELINE.md",
+    "source/openclaw-system/docs/USER_CONTEXT.md",
+    "source/openclaw-system/docs/SERVICE_REGISTRY.md",
+    "source/openclaw-system/docs/INFINITY_OPERATING_RULES.md",
+    "infinity/ARTIFACT_RULES.md",
+    "infinity/EXECUTION_LEARNING_CONTRACT.md",
+    "infinity/INTENTS.yaml",
+    "agent-wiki/content/docs/index.mdx"
+  ],
+  "search_scopes": [
+    "agent-wiki/content/docs/",
+    "source/openclaw-system/docs/",
+    "source/openclaw-system/data/daily-reviews/",
+    "source/openclaw-system/data/daily-tracking/",
+    "source/openclaw-system/data/photo-insights/"
+  ],
+  "selected_context": [
+    {
+      "path": "agent-wiki/content/docs/outputs/blog/Note_Management.mdx",
+      "reason": "zg hybrid discovery; indexed section retained for targeted reading",
+      "verification": "indexed-section",
+      "locator": {
+        "start_line": 263,
+        "end_line": 271,
+        "heading": "Why it matters",
+        "heading_level": "2",
+        "scope": "Note_Management",
+        "excerpt": "## Why it matters This idea connects dashboard design, agent participation, and knowledge organization.  An archive becomes more useful when it is reopened as a worktable rather than left as a warehouse. The point is not to keep adding items to a static list, but to spread out the capture, reclassify what changed, and pull reusable pieces back into active work.  When the material is mixed media, the visible surface has to come first. A photo set, a 9-frame storyboard, or a batch of captures is easier to reuse when the order is fixed before generation, not after it.  That applies especially to daily captures, image sets, and other mixed media inputs: first make the material visible, then deci"
+      }
+    },
+    {
+      "path": "agent-wiki/content/docs/outputs/Integration/Design.mdx",
+      "reason": "zg hybrid discovery; indexed section retained for targeted reading",
+      "verification": "indexed-section",
+      "locator": {
+        "start_line": 1,
+        "end_line": 9,
+        "heading": "",
+        "heading_level": "",
+        "scope": "",
+        "excerpt": "--- title: \"디자인\" type: mapped-note tags: [mapped, integration, design, interface, accessibility, visual-system] source_file: \"source/shdkej-content/Integration/Design.md\" source_name: Design created: 2026-04-19 updated: 2026-06-16 status: stable-developing"
+      }
+    },
+    {
+      "path": "agent-wiki/content/docs/outputs/Integration/Work.mdx",
+      "reason": "zg hybrid discovery; indexed section retained for targeted reading",
+      "verification": "indexed-section",
+      "locator": {
+        "start_line": 213,
+        "end_line": 217,
+        "heading": "관련 source",
+        "heading_level": "2",
+        "scope": "일",
+        "excerpt": ""
+      }
+    }
+  ],
+  "selected_operational_logs": [
+    {
+      "path": "logs/agent-wiki-query.md",
+      "reason": "bounded operational-log preflight; not part of the Agent Wiki index",
+      "verification": "matched",
+      "matches": [
+        "181:- ingest: `shdkej.github.io/content`의 최신 커밋 `ccaa743`를 받아 `source/shdkej-content/`에 동기화했다. 변경 원본 30개와 새 `2026-09.md`, `Meta/BRANDING.md`를 ingest manifest에 반영했다.",
+        "182:- query: `AI`, `Travel`, `BRANDING`, `source↔mapped`, `8×8`을 기준으로 새 원본이 기존 Agent Wiki의 탐색 계약을 깨는지 확인했다.",
+        "184:- raw KL: `source/shdkej-content/Deep Knowledge/AI.md`, `Idea/Travel.md`, `Meta/BRANDING.md`, `2026-09.md`를 사용했다. 모두 이번 동기화 뒤 ingest manifest에 등록된 원본이며, 장기 판단은 이 페이지에만 압축했다."
+      ]
+    }
+  ],
+  "preflight": {
+    "tool": "zg",
+    "query": "SF fiction and cinema as a broad comparative map of humane interfaces: expand the prior report with more films, novels, television, games, and adjacent speculative works; compare interaction modalities, human comfort, accessibility, trust, embodiment, social context, and failure modes; preserve exploratory research without prematurely selecting one interface",
+    "discovery": "hybrid+fts RRF",
+    "verification": "indexed section locator",
+    "result_count": 3
+  },
+  "selected_context_required": true,
+  "rules": [
+    "Read every required document before creating or executing an intent.",
+    "Read every selected_context locator section first (including its heading and line window); expand to adjacent sections only when needed, and record the exact paths in the execution trace.",
+    "Read only the matched sections of selected_operational_logs; they are operational evidence, not compiled knowledge.",
+    "Search the declared scopes for task-specific evidence; do not treat a search hit as a confirmed fact without its source.",
+    "Record the resulting context pack path in the intent and re-check it before handoff."
+  ]
+}
