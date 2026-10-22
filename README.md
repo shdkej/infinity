@@ -120,6 +120,7 @@ Infinity는 자연어를 곧바로 파일·셸 작업으로 실행하지 않는�
 - 실행 전이와 대시보드의 정본은 GitHub `main`의 `INTENTS.yaml`과 `intents/archive/YYYY-MM.yaml`이다. 로컬 파일이나 별도 큐를 상태 원천으로 사용하지 않는다.
 - `INTENTS.yaml`은 `Inbox/Active/Waiting`을, 월별 Archive YAML은 완료 카드와 날짜를 구조화해 보존한다. 대시보드는 월별 YAML의 전체 Archive를 읽어 검색·월별 접기를 제공하며, 요약의 `최근 7일 완료 수`만 시간 범위를 적용한다.
 - `INTENTS.yaml`의 `lanes.inbox`, `lanes.active`, `lanes.waiting`에는 각 Intent를 한 번만 둔다. Archive는 월별 YAML 파일로 분리하며 ID 중복은 검사에서 실패한다.
+- **Archive manifest 형식은 엄격히 고정한다.** `INTENTS.yaml`의 `archive.files`에는 `intents/archive/YYYY-MM.yaml` 월별 원장만 등록한다. `intents/archive/{intent-id}.md` 상세 원장, `artifacts/`, `reports/` 파일을 `archive.files`에 직접 넣지 않는다. 상세 Markdown은 월별 YAML 카드가 가리키는 보조 근거로만 유지한다. 월별 YAML 카드가 없거나 manifest에 비월별 파일이 있으면 Archive·push·완료 통보를 금지하고 `scripts/check_intents_consistency.py INTENTS.yaml` 실패 상태로 남긴다.
 - 열린 intent는 반드시 해당 lane 아래 `### [id] 제목` 블록으로 둔다. `status` 값과 lane이 다르면 정합성 오류로 보고 수정한다.
 - 신규 Archive 블록은 요약 주석의 완료 시각과 같은 `completed_at: YYYY-MM-DDTHH:MM:SSZ`를 반드시 기록한다. 대시보드는 이 필드로 최근 완료 순서와 월 그룹을 정하므로, 주석에만 날짜를 쓰면 카드가 `날짜 미상` 접힌 그룹으로 밀린다.
 - 원장 변경 후에는 `python3 scripts/check_intents_consistency.py INTENTS.yaml`를 실행하고, Infinity 원격 push 후 raw GitHub와 라이브 대시보드에서 같은 id·lane·완료 날짜가 보이는지 확인한다.

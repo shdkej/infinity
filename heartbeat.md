@@ -281,6 +281,7 @@ Report는 실행 로그다. 2축은 그 로그의 결론을 한눈에 보게 하
 Archive gate:
 
 - `decision_research`와 산출물 작업의 Archive 전제는 `red_status: pass`와 Red report 경로다. 탐색형 리서치는 `red_status: not_required`다.
+- **Archive 원장 분리 게이트:** 대시보드가 읽는 Archive 정본은 `intents/archive/YYYY-MM.yaml` 월별 원장이다. `INTENTS.yaml`의 `archive.files`에는 월별 YAML만 남기고, `intents/archive/{intent-id}.md` 상세 원장·`artifacts/`·`reports/` 경로를 직접 등록하지 않는다. 상세 Markdown은 월별 YAML 카드의 `detail`/근거 링크로만 연결한다. 월별 YAML 카드가 없거나 manifest 형식이 어기면 Archive 전환·push·완료 통보를 중단하고 `python3 scripts/check_intents_consistency.py INTENTS.yaml` 실패 상태로 둔다.
 - 시각 산출물은 Red report에 렌더 이미지 직접 검수 결과가 있어야 한다. 기하학적 요구(원형, 3분할, 화살표 방향, 정렬), 레이아웃 충돌, 텍스트 위계, 메시지 선명도가 빠지면 pass가 아니다.
 - `decision_research`와 산출물 작업에서 Red가 `수정 필요`, `보류`, 타임아웃, 미응답이면 Archive하지 않고 `Waiting`에 남긴다.
 - `decision_research`와 산출물 작업에서만 `red_status`가 없거나 Red report가 없는 완료 선언은 무효다.
