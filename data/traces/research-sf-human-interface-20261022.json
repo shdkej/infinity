@@ -1,0 +1,48 @@
+{
+  "schema_version": 2,
+  "intent_id": "research-sf-human-interface-20261022",
+  "status": "inbox",
+  "trace_completeness": "complete",
+  "request": {
+    "raw": {
+      "status": "recorded",
+      "value": "SF영화에 나온 것들을 참고해서 인간에게 가장 편한 인터페이스가 무엇인지 조사해줘"
+    },
+    "normalized_query": {
+      "status": "recorded",
+      "value": "SF 영화 인터페이스 사례 인간에게 편한 인터페이스 입력 부담 피드백 기억 보조 오류 회복 신체 부담 비교"
+    },
+    "user_intent": {
+      "status": "recorded",
+      "value": "SF 영화 속 인터페이스 사례를 발판으로 인간이 실제로 편하다고 느끼는 인터페이스의 조건을 폭넓게 이해한다."
+    },
+    "desired_outcome": {
+      "status": "recorded",
+      "value": "영화 속 대표 인터페이스 사례를 비교하고, 인간에게 편한 인터페이스의 공통 조건·한계·현실 적용 가능성을 한국어 탐색형 리서치로 정리한다."
+    },
+    "out_of_scope": {
+      "status": "recorded",
+      "value": "특정 제품 구매·구현 방식의 최종 추천·영화 목록만 나열하기·사용자 대신 제품 결정을 내리기·허구의 기술을 현실의 검증된 사실처럼 단정하기"
+    },
+    "success_evidence": {
+      "status": "recorded",
+      "value": "SF 영화 사례 5개 이상, 사례별 인터랙션 방식과 편안함의 조건·대가·현실 근거 구분, 인간 중심 평가축, 인접 실제 사례와 열린 탐색 질문이 포함된 최종 Markdown 리포트"
+    }
+  },
+  "events": [
+    {
+      "type": "intake",
+      "at": "2026-10-22T06:21:09Z",
+      "context_pack": "intents/context/research-sf-human-interface-20261022.json",
+      "evidence_paths": [
+        "intents/context/research-sf-human-interface-20261022.json"
+      ]
+    }
+  ],
+  "artifacts": [],
+  "verifications": [],
+  "next_decision": {
+    "status": "in_progress",
+    "value": "SF 영화의 인터페이스 사례를 입력·피드백·기억·오류 회복·사회적 맥락·신체 부담 축으로 조사하고 현실 사례와 연결해 탐색형 리포트로 정리"
+  }
+}
