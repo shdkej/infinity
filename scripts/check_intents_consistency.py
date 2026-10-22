@@ -20,6 +20,7 @@ ID_RE = re.compile(r"([a-z][a-z0-9]*(?:-[a-z0-9]+)*-\d+)\b")
 DATE_RE = re.compile(
     r"(\d{4}-\d{2}-\d{2}(?:[T\s](?:\d{2}:\d{2}(?::\d{2})?|\d{4}(?:\d{2})?)Z?)?)"
 )
+MONTHLY_ARCHIVE_LEDGER_RE = re.compile(r"^intents/archive/\d{4}-(?:0[1-9]|1[0-2])\.ya?ml$")
 
 
 def split_sections(text: str) -> dict[str, str]:
@@ -87,7 +88,7 @@ def main() -> int:
     # Markdown file is supporting evidence only and cannot replace that card.
     manifest = data.get("archive", {}).get("files", [])
     for path in manifest:
-        if not str(path).lower().endswith((".yaml", ".yml")):
+        if not MONTHLY_ARCHIVE_LEDGER_RE.fullmatch(str(path)):
             errors.append(f"archive manifest: {path} is not a monthly YAML ledger")
 
     if errors:

@@ -67,6 +67,15 @@ class CanonicalYamlContractTests(unittest.TestCase):
         self.assertNotEqual(result.returncode, 0)
         self.assertIn("not a monthly YAML ledger", result.stderr)
 
+    def test_archive_manifest_rejects_undated_yaml(self) -> None:
+        result = self.check(registry(notification=True, manifest="intents/archive/undated.yaml"))
+        self.assertNotEqual(result.returncode, 0)
+        self.assertIn("not a monthly YAML ledger", result.stderr)
+
+    def test_archive_manifest_accepts_monthly_yaml(self) -> None:
+        result = self.check(registry(notification=True, manifest="intents/archive/2026-10.yaml"))
+        self.assertEqual(result.returncode, 0, result.stderr)
+
 
 if __name__ == "__main__":
     unittest.main()
