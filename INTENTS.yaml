@@ -1,7 +1,26 @@
 version: 1
 format: infinity-intents-yaml
 lanes:
-  inbox: []
+  inbox:
+  - id: research-sf-human-interface-20261022
+    title: SF 영화 사례로 인간에게 편한 인터페이스 조건 조사
+    task_name: SF 영화 사례로 인간에게 편한 인터페이스 조건 조사
+    status: inbox
+    research_mode: exploratory_research
+    target_agent: genie
+    execution_mode: single_genie_roles
+    permission_level: approval_required
+    context_pack: intents/context/research-sf-human-interface-20261022.json
+    user_intent: SF 영화 속 인터페이스 사례를 발판으로 인간이 실제로 편하다고 느끼는 인터페이스의 조건을 폭넓게 이해한다.
+    desired_outcome: 영화 속 대표 인터페이스 사례를 비교하고, 인간에게 편한 인터페이스의 공통 조건·한계·현실 적용 가능성을 한국어 탐색형 리서치로 정리한다.
+    out_of_scope: 특정 제품 구매·구현 방식의 최종 추천·영화 목록만 나열하기·사용자 대신 제품 결정을 내리기·허구의 기술을 현실의 검증된 사실처럼 단정하기
+    success_evidence: SF 영화 사례 5개 이상, 사례별 인터랙션 방식과 편안함의 조건·대가·현실 근거 구분, 인간 중심 평가축, 인접 실제 사례와 열린 탐색 질문이 포함된 최종 Markdown 리포트
+    context_documents_checked: LLM.md; README.md; schema/agent-rules.md; DOCUMENT_SEARCH_PIPELINE.md; USER_CONTEXT.md; SERVICE_REGISTRY.md; INFINITY_OPERATING_RULES.md; ARTIFACT_RULES.md; EXECUTION_LEARNING_CONTRACT.md; INTENTS.yaml; agent-wiki/content/docs/index.mdx; selected Context Pack pages
+    context_searches: SF 영화 인터페이스 사례 인간에게 편한 인터페이스 입력 부담 피드백 기억 보조 오류 회복 신체 부담 비교; selected Agent Wiki pages recorded in Context Pack
+    task_plan_template: ARTIFACT_RULES.md#대형-작업-태스크-계획
+    next_action: SF 영화의 인터페이스 사례를 입력·피드백·기억·오류 회복·사회적 맥락·신체 부담 축으로 조사하고 현실 사례와 연결해 탐색형 리포트로 정리
+    notification_channel: slack
+    notification_target: channel:C0BR41W31MM
   active: []
   waiting: []
 archive:
