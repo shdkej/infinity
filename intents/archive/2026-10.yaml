@@ -18,7 +18,7 @@ archive:
   report: reports/research-sf-human-interface-20261022/20261022T0648Z-final.html
   trace: data/traces/research-sf-human-interface-20261022.json
   red_status: not_required
-  remote_verified: pending
+  remote_verified: pass
   knowledge_status: used
   knowledge_decision: retain_in_infinity
   knowledge_targets: artifacts/research-sf-human-interface-20261022/final/sf-human-interface-report.md
