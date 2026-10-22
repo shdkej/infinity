@@ -10,7 +10,6 @@ archive:
   files:
   - intents/archive/2026-06.yaml
   - intents/archive/2026-07.yaml
-  - intents/archive/research-sf-human-interface-more-20261022.md
   - intents/archive/2026-08.yaml
   - intents/archive/2026-09.yaml
   - intents/archive/2026-10.yaml
