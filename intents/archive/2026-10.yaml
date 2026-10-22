@@ -1,6 +1,32 @@
 version: 1
 period: 2026-10
 archive:
+- id: research-sf-human-interface-20261022
+  title: SF 영화 사례로 인간에게 편한 인터페이스 조건 조사
+  task_name: SF 영화 사례로 인간에게 편한 인터페이스 조건 조사
+  status: archived
+  completed_at: 2026-10-22T06:48:00Z
+  archived_at: 2026-10-22T06:48:00Z
+  research_mode: exploratory_research
+  target_agent: genie
+  execution_mode: single_genie_roles
+  permission: approval_required
+  context_pack: intents/context/research-sf-human-interface-20261022.json
+  detail: intents/archive/research-sf-human-interface-20261022.md
+  artifact: artifacts/research-sf-human-interface-20261022/final/sf-human-interface-report.md
+  final_artifact: artifacts/research-sf-human-interface-20261022/final/sf-human-interface-report.md
+  report: reports/research-sf-human-interface-20261022/20261022T0648Z-final.html
+  trace: data/traces/research-sf-human-interface-20261022.json
+  red_status: not_required
+  remote_verified: pending
+  knowledge_status: used
+  knowledge_decision: retain_in_infinity
+  knowledge_targets: artifacts/research-sf-human-interface-20261022/final/sf-human-interface-report.md
+  knowledge_reflection: 영화 속 화려한 입력보다 상태 가시성·오류 회복·대체 입력·통제권을 현실의 편안함 기준으로 분리해 비교한다.
+  knowledge_commit: no-promotion-needed
+  notification_channel: slack
+  notification_target: channel:C0BR41W31MM
+  next_action: 원격 Archive 검증과 대시보드 카드 표시를 확인한다.
 - id: research-design-architecture-20261021
   title: 디자인 기사 장소의 건축 방식과 현재 사용 방식 조사
   task_name: 디자인 기사 장소의 건축 방식과 현재 사용 방식 조사

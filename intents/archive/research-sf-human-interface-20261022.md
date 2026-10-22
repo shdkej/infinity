@@ -6,11 +6,14 @@
 - target_agent: genie
 - execution_mode: single_genie_roles
 - permission: approval_required
+- completed_at: 2026-10-22T06:48:00Z
+- archived_at: 2026-10-22T06:48:00Z
 - context_pack: intents/context/research-sf-human-interface-20261022.json
 - context_documents_checked: LLM.md; README.md; schema/agent-rules.md; DOCUMENT_SEARCH_PIPELINE.md; USER_CONTEXT.md; SERVICE_REGISTRY.md; INFINITY_OPERATING_RULES.md; ARTIFACT_RULES.md; EXECUTION_LEARNING_CONTRACT.md; INTENTS.yaml; agent-wiki/content/docs/index.mdx; selected Context Pack pages
 - context_searches: SF interface Minority Report Her Iron Man Star Trek 2001 Ex Machina; NN/g usability heuristics; W3C WCAG 2.2 input modalities; Apple HIG feedback undo direct manipulation
 - artifact: artifacts/research-sf-human-interface-20261022/final/sf-human-interface-report.md
-- report: artifacts/research-sf-human-interface-20261022/final/sf-human-interface-report.md
+- final_artifact: artifacts/research-sf-human-interface-20261022/final/sf-human-interface-report.md
+- report: reports/research-sf-human-interface-20261022/20261022T0648Z-final.html
 - red_status: not_required
 - remote_verified: pass
 - knowledge_status: used
