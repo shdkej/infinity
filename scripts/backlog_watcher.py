@@ -39,6 +39,35 @@ def http_json(url: str, headers: dict[str, str] | None = None) -> Any:
         return json.loads(response.read().decode("utf-8"))
 
 
+def classify_series(values: list[float]) -> list[dict[str, str]]:
+    """Return actionable anomaly classes without emitting duplicate variants."""
+    if len(values) < 3:
+        return []
+    latest = values[-1]
+    baseline = values[-8:-1] or values[:-1]
+    median = statistics.median(baseline) if baseline else 0
+    recent = values[-5:]
+    recent_median = statistics.median(recent)
+    # A flat series is suspicious even when it is flat at zero.  The watcher
+    # runs hourly, while a PostHog insight may be hourly or daily, so use a
+    # minimum observation count instead of assuming a specific interval.
+    flat_tolerance = max(abs(recent_median) * 0.01, 0.000001)
+    stagnant = len(recent) >= 5 and max(recent) - min(recent) <= flat_tolerance
+    zero_drop = latest == 0 and max(baseline, default=0) > 0
+    spike = latest >= max(10, median * 3) and latest > median + 5
+    low = median > 0 and latest < median * 0.5 and (median - latest) >= 1
+    findings: list[dict[str, str]] = []
+    if stagnant:
+        level = "0" if latest == 0 else "거의 동일"
+        findings.append({"kind": "metric_stagnation", "direction": f"최근 {len(recent)}회 {level}로 정체"})
+    elif zero_drop or low:
+        direction = "0으로 떨어짐" if zero_drop else "평소보다 저조"
+        findings.append({"kind": "metric_low", "direction": direction})
+    if spike:
+        findings.append({"kind": "metric_spike", "direction": "평소보다 급증"})
+    return findings
+
+
 def posthog_candidates() -> list[dict[str, Any]]:
     token = os.environ.get("POSTHOG_ACCESS_TOKEN", "").strip()
     if not token:
@@ -62,18 +91,28 @@ def posthog_candidates() -> list[dict[str, Any]]:
         if not results or not isinstance(results[0], dict):
             continue
         values = results[0].get("data") or []
-        numeric = [float(value) for value in values if isinstance(value, (int, float))]
-        if len(numeric) < 3:
-            continue
-        latest = numeric[-1]
-        baseline = numeric[-8:-1] or numeric[:-1]
-        median = statistics.median(baseline) if baseline else 0
-        zero_drop = latest == 0 and max(baseline, default=0) > 0
-        spike = latest >= max(10, median * 3) and latest > median + 5
-        if zero_drop or spike:
-            direction = "0으로 떨어짐" if zero_drop else "평소보다 급증"
-            title = f"PostHog 지표 '{detail.get('name') or insight.get('name')}' {direction} 원인을 확인한다"
-            candidates.append({"source": "posthog", "kind": "metric_anomaly", "title": title, "signal": f"{insight_id}:{latest}:{median}:{direction}", "source_ref": str(insight_id)})
+        numeric = []
+        for value in values:
+            try:
+                if isinstance(value, bool):
+                    continue
+                numeric.append(float(value))
+            except (TypeError, ValueError):
+                continue
+        metric_name = str(detail.get("name") or insight.get("name") or insight_id)
+        for finding in classify_series(numeric):
+            kind = finding["kind"]
+            direction = finding["direction"]
+            problem_key = f"posthog:{insight_id}:{kind}"
+            title = f"PostHog 지표 '{metric_name}' {direction} 원인을 확인한다"
+            candidates.append({
+                "source": "posthog",
+                "kind": kind,
+                "problem_key": problem_key,
+                "title": title,
+                "signal": f"{insight_id}:{numeric[-1] if numeric else ''}:{direction}",
+                "source_ref": str(insight_id),
+            })
     return candidates
 
 
@@ -102,7 +141,8 @@ def grafana_candidates() -> list[dict[str, Any]]:
 
 
 def candidate_id(candidate: dict[str, Any]) -> str:
-    digest = hashlib.sha256(f"{candidate['source']}|{candidate['kind']}|{candidate['signal']}".encode()).hexdigest()[:12]
+    identity = candidate.get("problem_key") or f"{candidate['source']}|{candidate['kind']}|{candidate.get('source_ref', '')}"
+    digest = hashlib.sha256(str(identity).encode()).hexdigest()[:12]
     return f"watch-{candidate['source']}-{digest}"
 
 
@@ -110,12 +150,18 @@ def append_candidates(candidates: list[dict[str, Any]], apply: bool) -> list[str
     data = yaml.safe_load(REGISTRY.read_text(encoding="utf-8")) or {}
     lanes = data.setdefault("lanes", {})
     backlog = lanes.setdefault("backlog", [])
-    existing = {str(item.get("id")) for item in backlog}
+    existing_ids = {str(item.get("id")) for lane in lanes.values() if isinstance(lane, list) for item in lane}
+    existing_keys = {
+        str(item.get("problem_key") or f"{item.get('source', '')}|{item.get('signal_type', '')}|{item.get('source_ref', '')}")
+        for lane in lanes.values() if isinstance(lane, list) for item in lane
+        if item.get("source") and item.get("signal_type")
+    }
     added: list[str] = []
     now = dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
     for candidate in candidates:
         intent_id = candidate_id(candidate)
-        if intent_id in existing:
+        problem_key = str(candidate.get("problem_key") or f"{candidate['source']}|{candidate['kind']}|{candidate.get('source_ref', '')}")
+        if intent_id in existing_ids or problem_key in existing_keys:
             continue
         item = {
             "id": intent_id,
@@ -127,6 +173,7 @@ def append_candidates(candidates: list[dict[str, Any]], apply: bool) -> list[str
             "target_agent": "genie",
             "source": candidate["source"],
             "signal_type": candidate["kind"],
+            "problem_key": problem_key,
             "signal": candidate["signal"],
             "source_ref": candidate.get("source_ref", ""),
             "created_at": now,
@@ -139,7 +186,8 @@ def append_candidates(candidates: list[dict[str, Any]], apply: bool) -> list[str
             "notification_target": "channel:C0BR41W31MM",
         }
         backlog.append(item)
-        existing.add(intent_id)
+        existing_ids.add(intent_id)
+        existing_keys.add(problem_key)
         added.append(intent_id)
     if apply and added:
         REGISTRY.write_text(yaml.safe_dump(data, allow_unicode=True, sort_keys=False), encoding="utf-8")
