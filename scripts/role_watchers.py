@@ -49,15 +49,15 @@ def file_snapshot(paths: list[Path]) -> tuple[str, list[str]]:
     return sha_bytes(parts), evidence
 
 
-def git_snapshot(repo: Path) -> tuple[str, list[str]]:
+def git_snapshot(repo: Path) -> tuple[str, list[str], bool]:
     if not (repo / ".git").exists() and not (repo / ".git").is_file():
-        return "missing", []
+        return "missing", [], False
     try:
         status = subprocess.check_output(["git", "-C", str(repo), "status", "--porcelain"], text=True, stderr=subprocess.DEVNULL)
         head = subprocess.check_output(["git", "-C", str(repo), "rev-parse", "HEAD"], text=True, stderr=subprocess.DEVNULL).strip()
     except (OSError, subprocess.CalledProcessError):
-        return "unavailable", [str(repo)]
-    return sha_bytes([str(repo).encode(), head.encode(), status.encode()]), [str(repo)]
+        return "unavailable", [str(repo)], True
+    return sha_bytes([str(repo).encode(), head.encode(), status.encode()]), [str(repo)], bool(status.strip())
 
 
 def project_files() -> list[Path]:
@@ -66,38 +66,66 @@ def project_files() -> list[Path]:
     return [path for path in PROJECTS.glob("*/PROJECT.md")] + [path for path in PROJECTS.glob("*/TASKS.md")]
 
 
-def signal_for(role: str) -> tuple[str, list[str], str, str]:
-    """Return (digest, evidence_paths, kind, title)."""
+def signal_for(role: str) -> tuple[str, list[str], str, str, bool]:
+    """Return (digest, evidence_paths, kind, title, concrete_signal)."""
     if role == "planner":
-        paths = project_files() + list((Path("/home/ubuntu/workspace/knowledge-lab/source/openclaw-system/data")).glob("**/*.md"))[-80:]
-        digest, evidence = file_snapshot(paths)
-        return digest, evidence, "planning_signal", "프로젝트·시장·문서 신호의 변화를 다음 검증 태스크로 정리한다"
+        # A project file existing is not work. Only task lines that indicate a
+        # live decision, blocker, deadline, or next step are actionable.
+        signals: list[str] = []
+        evidence: list[str] = []
+        markers = ("blocked", "inbox", "ready", "active", "review", "next", "deadline", "마감", "차단", "다음")
+        for path in sorted(PROJECTS.glob("*/TASKS.md")):
+            try:
+                lines = path.read_text(encoding="utf-8", errors="replace").splitlines()
+            except OSError:
+                continue
+            matches = [line.strip() for line in lines if any(marker in line.lower() for marker in markers)]
+            if matches:
+                evidence.append(str(path))
+                signals.append(f"{path}\n" + "\n".join(matches[-30:]))
+        digest = sha_bytes(["\n\n".join(signals).encode()])
+        return digest, evidence, "planning_signal", "프로젝트의 막힘·마감·다음 행동을 검증 태스크로 정리한다", bool(signals)
 
     if role == "developer":
         repos = [Path("/home/ubuntu/workspace/knowledge-lab/infinity"), Path("/home/ubuntu/workspace/space")]
         repos.extend(path for path in PROJECTS.glob("*") if path.is_dir())
         snapshots: list[bytes] = []
         evidence: list[str] = []
+        concrete = False
         for repo in repos:
-            digest, paths = git_snapshot(repo)
+            digest, paths, repo_changed = git_snapshot(repo)
             snapshots.extend([str(repo).encode(), digest.encode()])
             evidence.extend(paths)
-        return sha_bytes(snapshots), evidence, "repository_signal", "저장소 변경·테스트·기술 부채 신호를 개선 태스크로 정리한다"
+            concrete = concrete or repo_changed
+        return sha_bytes(snapshots), evidence, "repository_signal", "저장소 변경·테스트·기술 부채 신호를 개선 태스크로 정리한다", concrete
 
     if role == "marketing":
         if MARKETING_INBOX.is_file():
             lines = MARKETING_INBOX.read_text(encoding="utf-8", errors="replace").splitlines()[-200:]
             digest = sha_bytes(["\n".join(lines).encode()])
             evidence = [str(MARKETING_INBOX)]
+            concrete = False
+            for line in lines:
+                try:
+                    item = json.loads(line)
+                except json.JSONDecodeError:
+                    continue
+                if item.get("signal") not in (None, "", "no_action") and item.get("action_candidate"):
+                    concrete = True
+                    break
         else:
             digest, evidence = "missing", [str(MARKETING_INBOX)]
-        return digest, evidence, "marketing_signal", "SNS·사용자 조사·GA/PostHog 신호의 변화를 다음 실험 태스크로 정리한다"
+            concrete = False
+        return digest, evidence, "marketing_signal", "SNS·사용자 조사·GA/PostHog 신호의 변화를 다음 실험 태스크로 정리한다", concrete
 
     if role == "design":
         paths = [Path("/home/ubuntu/workspace/prompt-archive/DESIGN.md"), Path("/home/ubuntu/workspace/prompt-archive/DESIGN_SYSTEM.md"), Path("/home/ubuntu/workspace/prompt-archive/BRAND.md")]
         paths += list((Path("/home/ubuntu/workspace/knowledge-lab/source/openclaw-system/data/photo-insights")).glob("**/*"))
         digest, evidence = file_snapshot(paths)
-        return digest, evidence, "design_signal", "화면·이미지·타이포그래피 관찰을 시각 개선 태스크로 정리한다"
+        # Design references alone are a baseline, not a task. A new/changed
+        # photo-insight or design input is the actionable signal.
+        concrete = any("photo-insights" in path for path in evidence)
+        return digest, evidence, "design_signal", "화면·이미지·타이포그래피 관찰을 시각 개선 태스크로 정리한다", concrete
 
     if role == "operator":
         try:
@@ -106,9 +134,11 @@ def signal_for(role: str) -> tuple[str, list[str], str, str]:
             state = {lane: [str(item.get("id")) for item in lanes.get(lane, [])] for lane in ("backlog", "inbox", "active", "waiting")}
             digest = sha_bytes([json.dumps(state, sort_keys=True).encode()])
             evidence = [str(REGISTRY)]
+            concrete = bool(state.get("active") or state.get("waiting"))
         except (OSError, yaml.YAMLError):
             digest, evidence = "unavailable", [str(REGISTRY)]
-        return digest, evidence, "operations_signal", "실패·대기·마감·원격 상태를 운영 태스크로 정리한다"
+            concrete = True
+        return digest, evidence, "operations_signal", "실패·대기·마감·원격 상태를 운영 태스크로 정리한다", concrete
 
     raise ValueError(f"unknown role: {role}")
 
@@ -137,13 +167,13 @@ def append_candidates(roles: list[str], apply: bool) -> dict[str, Any]:
     added: list[str] = []
     now = dt.datetime.now(dt.timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
     for role in roles:
-        digest, evidence, kind, title = signal_for(role)
+        digest, evidence, kind, title, concrete = signal_for(role)
         previous = role_state.get(role, {}).get("digest")
         changed = digest != previous
         role_state[role] = {"digest": digest, "observed_at": now, "evidence_paths": evidence}
-        candidate = {"role": role, "digest": digest, "changed": changed, "evidence_paths": evidence, "kind": kind, "title": title}
+        candidate = {"role": role, "digest": digest, "changed": changed, "concrete": concrete, "evidence_paths": evidence, "kind": kind, "title": title}
         candidates.append(candidate)
-        if not apply or not changed:
+        if not apply or not changed or not concrete:
             continue
         intent_id = candidate_id(role, digest)
         if intent_id in existing:
