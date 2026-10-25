@@ -1,0 +1,104 @@
+{
+  "schema_version": 2,
+  "intent_id": "watch-planner-5f612447d241eca5",
+  "status": "waiting",
+  "trace_completeness": "partial",
+  "backfill_source": "dispatcher_missing_trace",
+  "request": {
+    "raw": {
+      "status": "missing",
+      "reason": "dispatcher backfill: intake trace was absent"
+    },
+    "normalized_query": {
+      "status": "missing",
+      "reason": "dispatcher backfill: intake trace was absent"
+    },
+    "user_intent": {
+      "status": "missing",
+      "reason": "dispatcher backfill: intake trace was absent"
+    },
+    "desired_outcome": {
+      "status": "missing",
+      "reason": "dispatcher backfill: intake trace was absent"
+    },
+    "out_of_scope": {
+      "status": "missing",
+      "reason": "dispatcher backfill: intake trace was absent"
+    },
+    "success_evidence": {
+      "status": "missing",
+      "reason": "dispatcher backfill: intake trace was absent"
+    }
+  },
+  "events": [
+    {
+      "type": "intake",
+      "at": "2026-10-25T23:35:08Z",
+      "context_pack": "",
+      "context_pack_status": "missing",
+      "context_pack_reason": "dispatcher backfill: intake context pack was absent",
+      "evidence_paths": []
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-682654147cb44bef84e8d32622b4c4f1",
+      "canonical_sha": "83ac09337ce659c85abab06225a1103d35b2700a",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-10-25T23:35:08Z",
+      "status": "accepted"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-682654147cb44bef84e8d32622b4c4f1",
+      "canonical_sha": "83ac09337ce659c85abab06225a1103d35b2700a",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher-v2",
+      "timestamp": "2026-10-25T23:35:09Z",
+      "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-10-25T23:36:09Z",
+      "context_pack": "intents/context/watch-planner-5f612447d241eca5.json",
+      "evidence_paths": [
+        "artifacts/watch-planner-5f612447d241eca5/work/planner-evidence.md",
+        "reports/watch-planner-5f612447d241eca5/20261025T2340Z.html"
+      ],
+      "searches": [
+        "두 프로젝트 고객 문의 채널 전용 마케팅 지표 원천 대시보드 담당 검증"
+      ],
+      "wiki_pages": [
+        "agent-wiki/content/docs/outputs/Integration/Marketing.mdx",
+        "agent-wiki/content/docs/outputs/Communication/Document.mdx"
+      ],
+      "operational_log_sections": [
+        "logs/agent-wiki-query.md"
+      ],
+      "note": ""
+    }
+  ],
+  "artifacts": [],
+  "verifications": [
+    {
+      "label": "workflow role review",
+      "type": "role_review",
+      "at": "2026-10-25T23:36:09Z",
+      "roles": [
+        "planner",
+        "developer",
+        "marketer",
+        "operator"
+      ],
+      "evidence_paths": [
+        "artifacts/watch-planner-5f612447d241eca5/work/planner-evidence.md"
+      ],
+      "status": "blocked",
+      "next_role": "external-source"
+    }
+  ],
+  "next_decision": {
+    "status": "blocked",
+    "value": "두 프로젝트 담당자가 실제 문의 채널과 전용 analytics 원천·대시보드 경로를 제공하면 재개"
+  }
+}

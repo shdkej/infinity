@@ -6,7 +6,7 @@ lanes:
   - id: watch-planner-5f612447d241eca5
     title: 두 프로젝트의 고객 문의 채널과 전용 마케팅 지표 원천을 확정·연결한다
     task_name: 두 프로젝트의 고객 문의 채널과 전용 마케팅 지표 원천을 확정·연결한다
-    status: inbox
+    status: waiting
     priority: normal
     task_type: planning_verification
     target_agent: genie
@@ -24,6 +24,17 @@ lanes:
     representative_metric: 채널·대시보드 경로가 확인·문서화된 프로젝트 비율, 목표 100%
     approval_boundary: 계정 연결·권한·시크릿·유료 집행·외부 발송은 사전 승인 후 진행
     next_action: Planner가 두 프로젝트의 채널·지표 원천을 조사하고 승인 필요 항목을 분리한다.
+    waiting_on: external
+    blocker: 두 프로젝트의 고객 문의 관리 채널과 전용 마케팅 analytics 원천·대시보드가 로컬 문서와 공통 inbox에 없어 정확한 경로·접근 검증을 완료할 수 없음
+    retry_policy: autonomous
+    artifact: artifacts/watch-planner-5f612447d241eca5/work/planner-evidence.md
+    report: reports/watch-planner-5f612447d241eca5/20261025T2340Z.html
+    context_pack: intents/context/watch-planner-5f612447d241eca5.json
+    knowledge_status: retained_in_infinity
+    knowledge_decision: retain_in_infinity
+    knowledge_targets: []
+    knowledge_reflection: Knowledge Lab의 Marketing·Document 기준을 조사 범위와 문서 증거 형식에 반영했으나, 장기 일반화 가능한 새 지식은 확인하지 못함
+    knowledge_commit: pending
     notification_channel: slack
     notification_target: channel:C0BR41W31MM
   active: []
