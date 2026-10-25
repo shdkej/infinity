@@ -140,8 +140,32 @@ def grafana_candidates() -> list[dict[str, Any]]:
     return []
 
 
+def canonical_problem_key(candidate: dict[str, Any]) -> str:
+    """Return one identity for new and legacy watcher records.
+
+    Early records used ``source|signal_type|source_ref`` while the current
+    format uses ``source:source_ref:kind``.  Treat both as the same problem so
+    a format migration cannot re-open an already observed issue.
+    """
+    source = str(candidate.get("source") or "")
+    kind = str(candidate.get("kind") or candidate.get("signal_type") or "")
+    source_ref = str(candidate.get("source_ref") or "")
+    raw = str(candidate.get("problem_key") or "").strip()
+    if raw:
+        parts = raw.split("|")
+        if len(parts) == 3:
+            source, kind, source_ref = parts
+        else:
+            parts = raw.split(":")
+            if len(parts) == 3:
+                source, source_ref, kind = parts
+            else:
+                return raw
+    return f"{source}:{source_ref}:{kind}"
+
+
 def candidate_id(candidate: dict[str, Any]) -> str:
-    identity = candidate.get("problem_key") or f"{candidate['source']}|{candidate['kind']}|{candidate.get('source_ref', '')}"
+    identity = canonical_problem_key(candidate)
     digest = hashlib.sha256(str(identity).encode()).hexdigest()[:12]
     return f"watch-{candidate['source']}-{digest}"
 
@@ -152,7 +176,7 @@ def append_candidates(candidates: list[dict[str, Any]], apply: bool) -> list[str
     backlog = lanes.setdefault("backlog", [])
     existing_ids = {str(item.get("id")) for lane in lanes.values() if isinstance(lane, list) for item in lane}
     existing_keys = {
-        str(item.get("problem_key") or f"{item.get('source', '')}|{item.get('signal_type', '')}|{item.get('source_ref', '')}")
+        canonical_problem_key(item)
         for lane in lanes.values() if isinstance(lane, list) for item in lane
         if item.get("source") and item.get("signal_type")
     }
@@ -160,7 +184,7 @@ def append_candidates(candidates: list[dict[str, Any]], apply: bool) -> list[str
     now = dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
     for candidate in candidates:
         intent_id = candidate_id(candidate)
-        problem_key = str(candidate.get("problem_key") or f"{candidate['source']}|{candidate['kind']}|{candidate.get('source_ref', '')}")
+        problem_key = canonical_problem_key(candidate)
         if intent_id in existing_ids or problem_key in existing_keys:
             continue
         item = {
