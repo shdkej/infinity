@@ -1,114 +1,74 @@
 version: 1
 format: infinity-intents-yaml
 lanes:
-  backlog:
+  backlog: []
+  inbox:
   - id: watch-planner-5f612447d241eca5
-    title: 프로젝트의 막힘·마감·다음 행동을 검증 태스크로 정리한다
-    task_name: 프로젝트의 막힘·마감·다음 행동을 검증 태스크로 정리한다
-    status: backlog
+    title: 두 프로젝트의 고객 문의 채널과 전용 마케팅 지표 원천을 확정·연결한다
+    task_name: 두 프로젝트의 고객 문의 채널과 전용 마케팅 지표 원천을 확정·연결한다
+    status: inbox
     priority: normal
-    task_type: watcher_candidate
+    task_type: planning_verification
     target_agent: genie
     watcher_role: planner
     source: role-watcher:planner
-    signal_type: planning_signal
     signal: 5f612447d241eca5
     evidence_paths:
     - /home/ubuntu/workspace/projects/minimalmoeum/TASKS.md
     - /home/ubuntu/workspace/projects/policycock/TASKS.md
     created_at: '2026-10-25T23:27:28Z'
-    user_intent: planner 역할의 새 운영 신호를 사람이 판단 가능한 작업 후보로 만든다.
-    desired_outcome: Genie가 중복·가치를 검토해 묶거나 버리거나 실행 가능한 Inbox 태스크로 만든다.
-    out_of_scope: 신호만으로 자동 구현·공개 발행·결제·권한 변경을 실행하지 않는다.
-    success_evidence: 신호가 Backlog에 한 번 기록되고, triage 결과와 다음 행동이 남는다.
-    next_action: Genie가 유사 후보를 묶고 불필요한 후보를 거절한 뒤 실행 후보를 선택한다.
+    user_intent: 두 프로젝트에서 blocked 상태인 고객 문의 채널과 전용 마케팅 지표 원천을 확인한다.
+    desired_outcome: MM-001·PC-001의 정확한 채널·대시보드 경로·담당·검증 방법을 문서화해 blocked 상태를 해소한다.
+    out_of_scope: 계정 연결, 권한 부여, 시크릿 등록, 유료 집행, 외부 공개·발송
+    success_evidence: 두 프로젝트의 CHANNELS.md에 정확한 채널과 대시보드 경로가 기록되고 실제 접근 가능 여부가 확인된다.
+    representative_metric: 채널·대시보드 경로가 확인·문서화된 프로젝트 비율, 목표 100%
+    approval_boundary: 계정 연결·권한·시크릿·유료 집행·외부 발송은 사전 승인 후 진행
+    next_action: Planner가 두 프로젝트의 채널·지표 원천을 조사하고 승인 필요 항목을 분리한다.
     notification_channel: slack
     notification_target: channel:C0BR41W31MM
+  active: []
+  waiting: []
+backlog_triage:
+  cycle_id: backlog-triage-2026-10-25-role-watchers-r2
+  source_revision: e0ace9b8
+  result: promoted_one_rejected_one
+  checked_at: '2026-10-25T23:50:00Z'
+  grouping:
+    group_id: planner-channel-metric-source
+    member_ids:
+    - watch-planner-5f612447d241eca5
+    reason: minimalmoeum MM-001과 policycock PC-001이 동일한 blocked 선행과제·완료 증거·변경면을 공유하므로 하나의 Inbox 태스크로 묶음
+  decisions:
+  - id: watch-planner-5f612447d241eca5
+    watcher_role: planner
+    source: role-watcher:planner
+    signal: 5f612447d241eca5
+    evidence_verified: true
+    evidence_paths:
+    - /home/ubuntu/workspace/projects/minimalmoeum/TASKS.md
+    - /home/ubuntu/workspace/projects/policycock/TASKS.md
+    decision: promoted_to_inbox
+    preservation_reason: 두 TASKS.md에서 MM-001·PC-001이 동일 문구와 blocked 상태를 가지며 채널·대시보드 경로 기록을 공통 완료 증거로 요구함
+    delegated_role: planner
+    approval_boundary: 계정·권한·시크릿·유료·외부 발송은 승인 전 Waiting
   - id: watch-developer-b1dc06b46d0f2e73
-    title: 저장소 변경·테스트·기술 부채 신호를 개선 태스크로 정리한다
-    task_name: 저장소 변경·테스트·기술 부채 신호를 개선 태스크로 정리한다
-    status: backlog
-    priority: normal
-    task_type: watcher_candidate
-    target_agent: genie
     watcher_role: developer
     source: role-watcher:developer
-    signal_type: repository_signal
     signal: b1dc06b46d0f2e73
+    evidence_verified: true
     evidence_paths:
     - /home/ubuntu/workspace/knowledge-lab/infinity
     - /home/ubuntu/workspace/space
     - /home/ubuntu/workspace/projects/minimalmoeum
     - /home/ubuntu/workspace/projects/policycock
-    created_at: '2026-10-25T23:27:28Z'
-    user_intent: developer 역할의 새 운영 신호를 사람이 판단 가능한 작업 후보로 만든다.
-    desired_outcome: Genie가 중복·가치를 검토해 묶거나 버리거나 실행 가능한 Inbox 태스크로 만든다.
-    out_of_scope: 신호만으로 자동 구현·공개 발행·결제·권한 변경을 실행하지 않는다.
-    success_evidence: 신호가 Backlog에 한 번 기록되고, triage 결과와 다음 행동이 남는다.
-    next_action: Genie가 유사 후보를 묶고 불필요한 후보를 거절한 뒤 실행 후보를 선택한다.
-    notification_channel: slack
-    notification_target: channel:C0BR41W31MM
-  inbox: []
-  active: []
-  waiting: []
-backlog_triage:
-  cycle_id: backlog-triage-2026-10-25-role-watchers
-  source_revision: 24a8a252fd762d0afe73c5e239961a89c2a2493a
+    decision: rejected
+    rejection_reason: 저장소 경로와 dirty 상태 존재만 확인되며 특정 변경 파일·실패 테스트·기술 부채·대표 지표가 없어 실행 태스크로 수렴하지 않음
+  promotion: watch-planner-5f612447d241eca5
+  delegation: planner 판단 완료, implementation/developer delegation not required at triage
+  next_action: Inbox 승격 태스크의 Planner 범위를 조사하고 승인 경계 밖의 문서화부터 수행
+previous_triage:
   result: no_action
-  checked_at: '2026-10-25T23:40:00Z'
-  grouping:
-    group_id: role-watcher-generic-meta-candidates
-    member_ids:
-    - watch-planner-6de20a86ca85160a
-    - watch-developer-135fcb8948024071
-    - watch-marketing-74d35e089717dee0
-    - watch-design-36d19824aa4682c7
-    - watch-operator-c81a00af5ee28677
-    reason: 동일 목적·변경면·성공 조건을 가진 역할별 메타 후보라 하나로 묶음
-  decisions:
-  - id: watch-planner-6de20a86ca85160a
-    watcher_role: planner
-    source: role-watcher:planner
-    signal: 6de20a86ca85160a
-    evidence_verified: true
-    evidence_paths_count: 84
-    decision: rejected
-    rejection_reason: 문서 목록은 존재하지만 특정 프로젝트 변화·판단 질문·대표 지표·마감이 없어 Inbox 승격 근거가 아님
-  - id: watch-developer-135fcb8948024071
-    watcher_role: developer
-    source: role-watcher:developer
-    signal: 135fcb8948024071
-    evidence_verified: true
-    evidence_paths_count: 4
-    decision: rejected
-    rejection_reason: 저장소 경로 존재만 확인되고 변경 파일·실패 테스트·기술 부채·영향 지표가 제시되지 않음
-  - id: watch-marketing-74d35e089717dee0
-    watcher_role: marketing
-    source: role-watcher:marketing
-    signal: 74d35e089717dee0
-    evidence_verified: true
-    evidence_paths_count: 1
-    decision: rejected
-    rejection_reason: marketing inbox 파일은 존재하지만 특정 사용자 신호·변화량·실험 가설·대표 지표가 연결되지 않음
-  - id: watch-design-36d19824aa4682c7
-    watcher_role: design
-    source: role-watcher:design
-    signal: 36d19824aa4682c7
-    evidence_verified: true
-    evidence_paths_count: 7
-    decision: rejected
-    rejection_reason: 기준 문서와 관찰 로그는 존재하지만 특정 화면·결함·변경면·검증 지표가 없음
-  - id: watch-operator-c81a00af5ee28677
-    watcher_role: operator
-    source: role-watcher:operator
-    signal: c81a00af5ee28677
-    evidence_verified: true
-    evidence_paths_count: 1
-    decision: rejected
-    rejection_reason: snapshot은 존재하지만 실패·대기·마감·원격 상태 중 실제 사건이 특정되지 않음
-  promotion: none
-  delegation: none
-  next_action: 구체적인 문제·변경면·대표 지표·마감이 포함된 새 신호가 생길 때만 재검토
+  cycle_id: backlog-triage-2026-10-25-role-watchers
 archive:
   glob: intents/archive/*.yaml
   summary_window_days: 7
@@ -118,4 +78,4 @@ archive:
   - intents/archive/2026-08.yaml
   - intents/archive/2026-09.yaml
   - intents/archive/2026-10.yaml
-generated_at: '2026-10-25T23:40:00+00:00'
+generated_at: '2026-10-25T23:50:00+00:00'
