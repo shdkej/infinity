@@ -1,7 +1,31 @@
 version: 1
 format: infinity-intents-yaml
 lanes:
-  backlog: []
+  backlog:
+  - id: watch-developer-bb0fc82b18d4aa25
+    title: 저장소 변경·테스트·기술 부채 신호를 개선 태스크로 정리한다
+    task_name: 저장소 변경·테스트·기술 부채 신호를 개선 태스크로 정리한다
+    status: backlog
+    priority: normal
+    task_type: watcher_candidate
+    target_agent: genie
+    watcher_role: developer
+    source: role-watcher:developer
+    signal_type: repository_signal
+    signal: bb0fc82b18d4aa25
+    evidence_paths:
+    - /home/ubuntu/workspace/knowledge-lab/infinity
+    - /home/ubuntu/workspace/space
+    - /home/ubuntu/workspace/projects/minimalmoeum
+    - /home/ubuntu/workspace/projects/policycock
+    created_at: '2026-10-25T23:30:02Z'
+    user_intent: developer 역할의 새 운영 신호를 사람이 판단 가능한 작업 후보로 만든다.
+    desired_outcome: Genie가 중복·가치를 검토해 묶거나 버리거나 실행 가능한 Inbox 태스크로 만든다.
+    out_of_scope: 신호만으로 자동 구현·공개 발행·결제·권한 변경을 실행하지 않는다.
+    success_evidence: 신호가 Backlog에 한 번 기록되고, triage 결과와 다음 행동이 남는다.
+    next_action: Genie가 유사 후보를 묶고 불필요한 후보를 거절한 뒤 실행 후보를 선택한다.
+    notification_channel: slack
+    notification_target: channel:C0BR41W31MM
   inbox:
   - id: watch-planner-5f612447d241eca5
     title: 두 프로젝트의 고객 문의 채널과 전용 마케팅 지표 원천을 확정·연결한다
@@ -37,7 +61,8 @@ backlog_triage:
     group_id: planner-channel-metric-source
     member_ids:
     - watch-planner-5f612447d241eca5
-    reason: minimalmoeum MM-001과 policycock PC-001이 동일한 blocked 선행과제·완료 증거·변경면을 공유하므로 하나의 Inbox 태스크로 묶음
+    reason: minimalmoeum MM-001과 policycock PC-001이 동일한 blocked 선행과제·완료 증거·변경면을 공유하므로
+      하나의 Inbox 태스크로 묶음
   decisions:
   - id: watch-planner-5f612447d241eca5
     watcher_role: planner
@@ -48,7 +73,8 @@ backlog_triage:
     - /home/ubuntu/workspace/projects/minimalmoeum/TASKS.md
     - /home/ubuntu/workspace/projects/policycock/TASKS.md
     decision: promoted_to_inbox
-    preservation_reason: 두 TASKS.md에서 MM-001·PC-001이 동일 문구와 blocked 상태를 가지며 채널·대시보드 경로 기록을 공통 완료 증거로 요구함
+    preservation_reason: 두 TASKS.md에서 MM-001·PC-001이 동일 문구와 blocked 상태를 가지며 채널·대시보드
+      경로 기록을 공통 완료 증거로 요구함
     delegated_role: planner
     approval_boundary: 계정·권한·시크릿·유료·외부 발송은 승인 전 Waiting
   - id: watch-developer-b1dc06b46d0f2e73
@@ -62,7 +88,8 @@ backlog_triage:
     - /home/ubuntu/workspace/projects/minimalmoeum
     - /home/ubuntu/workspace/projects/policycock
     decision: rejected
-    rejection_reason: 저장소 경로와 dirty 상태 존재만 확인되며 특정 변경 파일·실패 테스트·기술 부채·대표 지표가 없어 실행 태스크로 수렴하지 않음
+    rejection_reason: 저장소 경로와 dirty 상태 존재만 확인되며 특정 변경 파일·실패 테스트·기술 부채·대표 지표가 없어 실행
+      태스크로 수렴하지 않음
   promotion: watch-planner-5f612447d241eca5
   delegation: planner 판단 완료, implementation/developer delegation not required at triage
   next_action: Inbox 승격 태스크의 Planner 범위를 조사하고 승인 경계 밖의 문서화부터 수행
