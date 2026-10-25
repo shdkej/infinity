@@ -7,7 +7,7 @@ Agent-First 자율 실행 시스템. 스케줄 routine(원격 에이전트)이 �
 ## 구조
 
 ```
-INTENTS.yaml        ← 유일한 상태 원장(Inbox / Active / Waiting)
+INTENTS.yaml        ← 유일한 상태 원장(Backlog / Inbox / Active / Waiting)
 intents/archive/*.yaml ← 월별 Archive 대시보드 원장
 GATES.md            ← 승인 대기/처리 완료
 PERMISSIONS.md      ← 권한 레벨(L0~L3) 정의
@@ -24,6 +24,8 @@ data/knowledge-loop.json ← Infinity 대시보드의 지식 루프 운영 지�
 data/promotion-index.json ← Infinity 대시보드의 Knowledge Lab 승격 상태 인덱스
 data/traces/{id}.json ← Intent별 intake·execution·archive trace
 scripts/dispatch_terminal_notifications.py ← 원격 `origin/main` terminal 상태를 원 대화에 1회 조정·발송
+scripts/backlog_watcher.py ← PostHog·Grafana read-only 신호를 중복 제거해 Backlog 후보로 기록
+scripts/run_backlog_watcher.sh ← 충돌 없는 worktree에서 와처를 실행하고 변경 시 원격 반영
 docs/dispatcher-implementation.md ← 디스패처 내부 구현·환경변수·검증 명령
 docs/intent-trace-contract.md ← Intent trace 입력·실행·Archive 계약
 docs/infinity-evaluator.md ← Infinity 품질 평가 기준과 실행 지침
@@ -33,8 +35,9 @@ docs/infinity-evaluator.md ← Infinity 품질 평가 기준과 실행 지침
 
 Infinity 운영 문서는 여러 저장소에 걸쳐 있지만, 역할별 정본은 아래처럼 하나씩만 둔다. 같은 주제를 다른 문서에서 발견하면 이 순서로 판정하고, 보조 문서는 절차를 재정의하지 않고 링크만 제공한다.
 
-1. **큐·상태·실행 원장:** 이 저장소의 `INTENTS.yaml` — `Inbox → Active → Waiting → Archive` 전이와 dispatcher 계약을 구조화해 보존한다.
-2. **대시보드 읽기 원장:** `INTENTS.yaml`과 `intents/archive/YYYY-MM.yaml` — 화면이 읽는 구조화된 상태·최근 완료 카드다.
+1. **큐·상태·실행 원장:** 이 저장소의 `INTENTS.yaml` — `Backlog → Inbox → Active → Waiting → Archive` 전이와 dispatcher 계약을 구조화해 보존한다.
+2. **관찰 후보 원장:** `INTENTS.yaml`의 `lanes.backlog` — 와처가 만든 후보를 사람이 확인하기 전까지 보관하며 자동 실행하지 않는다.
+3. **대시보드 읽기 원장:** `INTENTS.yaml`과 `intents/archive/YYYY-MM.yaml` — 화면이 읽는 구조화된 상태·최근 완료 카드다.
 3. **승인·권한:** 이 저장소의 `GATES.md`, `PERMISSIONS.md` — 승인 대기와 L0~L3 경계를 정의한다.
 4. **산출물·Archive:** 이 저장소의 `ARTIFACT_RULES.md` — `artifacts/`, `reports/`, `intents/archive/`의 역할과 완료 형식을 정의한다.
 5. **Heartbeat 실행:** 이 저장소의 `heartbeat.md` — dispatcher가 원장을 읽고 실행·종료하는 순서를 정의한다.
@@ -118,7 +121,7 @@ Infinity는 자연어를 곧바로 파일·셸 작업으로 실행하지 않는�
 ## 정본과 대시보드 정합성
 
 - 실행 전이와 대시보드의 정본은 GitHub `main`의 `INTENTS.yaml`과 `intents/archive/YYYY-MM.yaml`이다. 로컬 파일이나 별도 큐를 상태 원천으로 사용하지 않는다.
-- `INTENTS.yaml`은 `Inbox/Active/Waiting`을, 월별 Archive YAML은 완료 카드와 날짜를 구조화해 보존한다. 대시보드는 월별 YAML의 전체 Archive를 읽어 검색·월별 접기를 제공하며, 요약의 `최근 7일 완료 수`만 시간 범위를 적용한다.
+- `INTENTS.yaml`은 `Backlog/Inbox/Active/Waiting`을, 월별 Archive YAML은 완료 카드와 날짜를 구조화해 보존한다. 대시보드는 월별 YAML의 전체 Archive를 읽어 검색·월별 접기를 제공하며, 요약의 `최근 7일 완료 수`만 시간 범위를 적용한다.
 - `INTENTS.yaml`의 `lanes.inbox`, `lanes.active`, `lanes.waiting`에는 각 Intent를 한 번만 둔다. Archive는 월별 YAML 파일로 분리하며 ID 중복은 검사에서 실패한다.
 - **Archive manifest 형식은 엄격히 고정한다.** `INTENTS.yaml`의 `archive.files`에는 `intents/archive/YYYY-MM.yaml` 월별 원장만 등록한다. `intents/archive/{intent-id}.md` 상세 원장, `artifacts/`, `reports/` 파일을 `archive.files`에 직접 넣지 않는다. 상세 Markdown은 월별 YAML 카드가 가리키는 보조 근거로만 유지한다. 월별 YAML 카드가 없거나 manifest에 비월별 파일이 있으면 Archive·push·완료 통보를 금지하고 `scripts/check_intents_consistency.py INTENTS.yaml` 실패 상태로 남긴다.
 - 열린 intent는 반드시 해당 lane 아래 `### [id] 제목` 블록으로 둔다. `status` 값과 lane이 다르면 정합성 오류로 보고 수정한다.
@@ -129,6 +132,7 @@ Infinity는 자연어를 곧바로 파일·셸 작업으로 실행하지 않는�
 ## 운영 원칙
 
 - **No-op이면 커밋하지 않는다.** 변화 없는 Heartbeat는 push하지 않아 git history와 dashboard가 조용히 유지된다.
+- **Backlog 검토 경계:** PostHog·Grafana 와처는 1시간마다 읽기 전용으로 후보만 만들며, 사용자가 대시보드에서 `간단히 처리 / 중간 / 고도처리 / 장기작업` 중 하나를 고른 뒤 Inbox로 승격한다. `거절하고 삭제`는 Backlog 원장에서 해당 후보를 즉시 제거한다.
 - terminal notifier는 `origin/main`의 `INTENTS.yaml`만 조정한다. **모든 새 open Intent는 intake에서 `notification_channel`, `notification_target`을 함께 기록해야 하며, `python3 scripts/check_intents_consistency.py INTENTS.yaml`가 누락을 커밋 전 오류로 막는다.** 선택적 Telegram `notification_thread` 또는 Slack `notification_reply_to`도 원 대화에 보존한다. Archive는 `remote_verified: pass` 뒤에만, Waiting은 실제 `blocker` 또는 사용자 승인 조건이 있을 때만 후보가 된다. 읽기/no-op/반복 실행은 발송하지 않는다.
 - `data/dispatcher-terminal-notifications.json`의 receipt key는 intent·terminal state·destination이다. 송신 전 durable claim을 남기며 `sent`, `failed_before_acceptance`, `delivery_unknown`을 기록한다. 불확실 수신은 자동 재송하지 않고 cron 실패 알림으로 표면화한다.
 - Waiting intent는 `waiting_on: user`, `approval`, `approval_required: true`, `permission_level: approval_required`, 또는 승인 사유가 있는 `waiting_reason`을 사용자 승인 대기로 인식한다. 승인 대기 알림은 Slack/지원 채널 presentation의 `infinity:approve:<intent-id>`·`infinity:reject:<intent-id>` callback 버튼을 함께 보낸다.

@@ -22,7 +22,8 @@ DEFAULT_BUCKET = os.environ.get("INFINITY_ACTION_QUEUE_BUCKET", "infinity-action
 INBOX_PREFIX = "action_requests/inbox/"
 PROCESSED_PREFIX = "action_requests/processed/"
 REJECTED_PREFIX = "action_requests/rejected/"
-ALLOWED_ACTIONS = {"resolve_waiting", "archive_request", "refresh_dashboard", "knowledge_research"}
+ALLOWED_ACTIONS = {"resolve_waiting", "archive_request", "backlog_promote", "backlog_reject", "refresh_dashboard", "knowledge_research"}
+ALLOWED_SCOPES = {"간단히 처리", "중간", "고도처리", "장기작업"}
 INTENT_ID_RE = re.compile(r"^[a-z][a-z0-9]*(?:-[a-z0-9]+)+$")
 KNOWLEDGE_LOOP_ID_RE = re.compile(r"^kl-loop-[a-z0-9]+(?:-[a-z0-9]+)+$")
 
@@ -78,6 +79,7 @@ def clean_record(raw: dict[str, Any]) -> dict[str, str]:
         "title": str(raw.get("title") or "").strip(),
         "page": str(raw.get("page") or "").strip(),
         "note": str(raw.get("note") or "").strip(),
+        "processing_scope": str(raw.get("processing_scope") or "").strip(),
     }
 
 
@@ -91,6 +93,12 @@ def validate_record(record: dict[str, str], data: dict[str, Any]) -> str:
         return "unsupported_action"
     if record["action"] != "refresh_dashboard" and not is_knowledge_loop and not has_open_intent(record["intent_id"], data):
         return "intent_not_open"
+    if record["action"] == "backlog_promote" and record["processing_scope"] not in ALLOWED_SCOPES:
+        return "invalid_processing_scope"
+    if record["action"] in {"backlog_promote", "backlog_reject"}:
+        found = find_open(data, record["intent_id"])
+        if not found or found[0] != "backlog":
+            return "intent_not_in_backlog"
     return ""
 
 
@@ -202,6 +210,30 @@ def archive_yaml(record: dict[str, str], data: dict[str, Any]) -> bool:
     return True
 
 
+def backlog_promote_yaml(record: dict[str, str], data: dict[str, Any]) -> bool:
+    found = find_open(data, record["intent_id"])
+    if not found or found[0] != "backlog":
+        return False
+    _, item = found
+    promoted = normalize_entry(dict(item), "inbox")
+    promoted["processing_scope"] = record["processing_scope"]
+    promoted["status"] = "inbox"
+    promoted["notification_channel"] = promoted.get("notification_channel") or "slack"
+    promoted["notification_target"] = promoted.get("notification_target") or "channel:C0BR41W31MM"
+    promoted["next_action"] = promoted.get("next_action") or "범위에 맞는 실행 계획을 만들고 확인 가능한 첫 결과를 남긴다."
+    data["lanes"]["backlog"] = [x for x in data["lanes"]["backlog"] if x.get("id") != record["intent_id"]]
+    data["lanes"]["inbox"].append(promoted)
+    return True
+
+
+def backlog_reject_yaml(record: dict[str, str], data: dict[str, Any]) -> bool:
+    found = find_open(data, record["intent_id"])
+    if not found or found[0] != "backlog":
+        return False
+    data["lanes"]["backlog"] = [x for x in data["lanes"]["backlog"] if x.get("id") != record["intent_id"]]
+    return True
+
+
 def write_local_request(record: dict[str, str]) -> Path:
     target_dir = ACTION_LOG_DIR / "requests"
     target_dir.mkdir(parents=True, exist_ok=True)
@@ -276,6 +308,20 @@ def process(bucket: str, apply: bool, limit: int) -> list[dict[str, str]]:
                 result["intent_transition"] = "open_to_archive"
             else:
                 result["intent_transition"] = "already_archived_or_missing"
+        elif record["action"] == "backlog_promote":
+            changed = backlog_promote_yaml(record, data)
+            if changed:
+                save_registry(data, INTENTS)
+                result["intent_transition"] = "backlog_to_inbox"
+            else:
+                result["intent_transition"] = "already_promoted_or_missing"
+        elif record["action"] == "backlog_reject":
+            changed = backlog_reject_yaml(record, data)
+            if changed:
+                save_registry(data, INTENTS)
+                result["intent_transition"] = "backlog_deleted"
+            else:
+                result["intent_transition"] = "already_rejected_or_missing"
         append_action_log(record, key)
         local_path = write_local_request(record)
         move_s3_object(s3, bucket, key, PROCESSED_PREFIX)

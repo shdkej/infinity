@@ -18,7 +18,7 @@ except ModuleNotFoundError:
     from scripts.project_executor_registry import resolve_fields
 
 ROOT = Path(__file__).resolve().parents[1]
-LANES = ("Inbox", "Active", "Waiting", "Archive")
+LANES = ("Backlog", "Inbox", "Active", "Waiting", "Archive")
 MAX_ACTIVE = 3
 FRESH_MINUTES = 25
 EXPANSION_TARGET_MIN = 50
@@ -28,7 +28,7 @@ def split_sections(text: str) -> dict[str, str]:
     if text.lstrip().startswith(("version:", "{", "---")):
         data = yaml.safe_load(text) or {}
         sections = {}
-        for lane, key in (("Inbox", "inbox"), ("Active", "active"), ("Waiting", "waiting")):
+        for lane, key in (("Backlog", "backlog"), ("Inbox", "inbox"), ("Active", "active"), ("Waiting", "waiting")):
             blocks = []
             for item in data.get("lanes", {}).get(key, []):
                 blocks.append(f"### [{item.get('id')}] {item.get('task_name') or item.get('title')}\n" + "\n".join(f"- {k}: {v}" for k, v in item.items() if k not in {"id", "title", "task_name"}))
@@ -41,7 +41,7 @@ def split_sections(text: str) -> dict[str, str]:
 def parse_entries(text: str, lane: str) -> list[dict[str, Any]]:
     if text.lstrip().startswith(("version:", "{", "---")):
         data = yaml.safe_load(text) or {}
-        key = {"Inbox": "inbox", "Active": "active", "Waiting": "waiting", "Archive": "archive"}[lane]
+        key = {"Backlog": "backlog", "Inbox": "inbox", "Active": "active", "Waiting": "waiting", "Archive": "archive"}[lane]
         rows = data.get("lanes", {}).get(key, []) if key != "archive" else data.get("archive", [])
         return [{"id": str(item.get("id") or ""), "title": str(item.get("task_name") or item.get("title") or ""), "lane": lane, "fields": {str(k): str(v) for k, v in item.items()}} for item in rows]
     starts = list(re.finditer(r"^### \[([^\]]+)\]\s*(.+?)\s*$", text, re.M))
@@ -53,7 +53,7 @@ def parse_entries(text: str, lane: str) -> list[dict[str, Any]]:
     return entries
 
 def expected_status(lane: str) -> set[str]:
-    return {"Inbox": {"", "inbox"}, "Active": {"active"}, "Waiting": {"waiting", "blocked", "deadline_missed", "experiment_failed"}, "Archive": {"archived", "completed", "complete", "done"}}[lane]
+    return {"Backlog": {"backlog"}, "Inbox": {"", "inbox"}, "Active": {"active"}, "Waiting": {"waiting", "blocked", "deadline_missed", "experiment_failed"}, "Archive": {"archived", "completed", "complete", "done"}}[lane]
 
 def fresh_trace(intent_id: str, repo: Path, reference: dt.datetime, sha: str) -> dict[str, str] | None:
     path = repo / "data" / "traces" / f"{intent_id}.json"
@@ -261,7 +261,11 @@ def human_plan_format_errors(entry: dict[str, Any], repo: Path, sha: str) -> lis
 
 def build_plan(text: str, sha: str, repo: Path) -> dict[str, Any]:
     sections = split_sections(text)
-    missing = [lane for lane in LANES if lane not in sections]
+    # Backlog is a human-review queue and older fixtures may not declare it.
+    # Treat an absent backlog as empty so the dispatcher contract stays
+    # backwards compatible while new registries expose the lane explicitly.
+    missing = [lane for lane in LANES if lane != "Backlog" and lane not in sections]
+    sections.setdefault("Backlog", "")
     if missing:
         raise ValueError("missing_lanes:" + ",".join(missing))
     entries = [entry for lane in LANES for entry in parse_entries(sections[lane], lane)]
@@ -276,6 +280,7 @@ def build_plan(text: str, sha: str, repo: Path) -> dict[str, Any]:
         format_errors = human_plan_format_errors(entry, repo, sha)
         if format_errors:
             invalid.append({"intent_id": entry["id"], "lane": entry["lane"], "status": status, "reason": "task_plan_format_violation", "missing_fields": format_errors})
+    backlog = [e for e in entries if e["lane"] == "Backlog"]
     inbox = [e for e in entries if e["lane"] == "Inbox"]
     active = [e for e in entries if e["lane"] == "Active"]
     waiting = [e for e in entries if e["lane"] == "Waiting"]
@@ -361,7 +366,7 @@ def build_plan(text: str, sha: str, repo: Path) -> dict[str, Any]:
         if ids or reasons:
             followups.append({"intent_id": entry["id"], "report": report, "follow_up_intent_ids": ids.group(1) if ids else "", "follow_up_not_created_reasons": reasons.group(1) if reasons else ""})
     dispatch_required = bool(handoff or followups or invalid)
-    return {"schema_version": 1, "run_id": "dispatch-" + uuid.uuid4().hex, "at": reference.replace(microsecond=0).isoformat().replace("+00:00", "Z"), "canonical_sha": sha, "counts": {"inbox": len(inbox), "active": len(active), "waiting": len(waiting), "archive": sum(e["lane"] == "Archive" for e in entries)}, "invalid_state": invalid, "live_active": live, "resume_candidates": resume, "expansion_candidates": expansion, "missing_plan_repair_candidates": missing_plan_repair, "plan_activation_candidates": plan_activation, "timebox_reassessment_candidates": timebox_reassessment, "terminalization_candidates": terminalization, "waiting_closeout_candidates": waiting_closeout, "dependency_blocked": dependency_blocked, "waiting_retry_candidates": waiting_retry, "promote_candidates": promote, "handoff_candidates": handoff, "follow_up_candidates": followups, "dispatch_required": dispatch_required, "no_work": not dispatch_required and not invalid}
+    return {"schema_version": 1, "run_id": "dispatch-" + uuid.uuid4().hex, "at": reference.replace(microsecond=0).isoformat().replace("+00:00", "Z"), "canonical_sha": sha, "counts": {"backlog": len(backlog), "inbox": len(inbox), "active": len(active), "waiting": len(waiting), "archive": sum(e["lane"] == "Archive" for e in entries)}, "invalid_state": invalid, "live_active": live, "resume_candidates": resume, "expansion_candidates": expansion, "missing_plan_repair_candidates": missing_plan_repair, "plan_activation_candidates": plan_activation, "timebox_reassessment_candidates": timebox_reassessment, "terminalization_candidates": terminalization, "waiting_closeout_candidates": waiting_closeout, "dependency_blocked": dependency_blocked, "waiting_retry_candidates": waiting_retry, "promote_candidates": promote, "handoff_candidates": handoff, "follow_up_candidates": followups, "dispatch_required": dispatch_required, "no_work": not dispatch_required and not invalid}
 
 def main() -> int:
     parser = argparse.ArgumentParser()

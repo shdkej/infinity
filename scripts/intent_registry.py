@@ -26,7 +26,7 @@ def clean_title(value: Any, intent_id: str = "") -> str:
 def load_registry(path: Path = REGISTRY) -> dict[str, Any]:
     data = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
     data.setdefault("lanes", {})
-    for lane in ("inbox", "active", "waiting"):
+    for lane in ("backlog", "inbox", "active", "waiting"):
         data["lanes"].setdefault(lane, [])
     return data
 
@@ -47,7 +47,7 @@ def normalize_entry(entry: dict[str, Any], status: str | None = None) -> dict[st
 
 def open_entries(data: dict[str, Any]) -> list[dict[str, Any]]:
     entries: list[dict[str, Any]] = []
-    for lane in ("inbox", "active", "waiting"):
+    for lane in ("backlog", "inbox", "active", "waiting"):
         entries.extend(normalize_entry(item, lane) for item in data.get("lanes", {}).get(lane, []))
     return entries
 
@@ -65,7 +65,7 @@ def all_entries(data: dict[str, Any]) -> list[dict[str, Any]]:
 
 
 def find_open(data: dict[str, Any], intent_id: str) -> tuple[str, dict[str, Any]] | None:
-    for lane in ("inbox", "active", "waiting"):
+    for lane in ("backlog", "inbox", "active", "waiting"):
         for item in data.get("lanes", {}).get(lane, []):
             if str(item.get("id") or "") == intent_id:
                 return lane, item

@@ -20,3 +20,4 @@ DREAMS.md
 data/dispatcher-terminal-notifications.json
 scripts/__pycache__/
 **/__pycache__/
+.watcher-runs/

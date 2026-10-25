@@ -59,7 +59,7 @@ def main() -> int:
     errors: list[str] = []
 
     seen: set[str] = set()
-    for lane in ("inbox", "active", "waiting"):
+    for lane in ("backlog", "inbox", "active", "waiting"):
         for item in data.get("lanes", {}).get(lane, []):
             intent_id = str(item.get("id") or "")
             title = str(item.get("title") or "")
@@ -69,7 +69,8 @@ def main() -> int:
                 errors.append(f"{lane}: {intent_id} requires matching title/task_name")
             if title.startswith("#") or title.startswith("[") or re.match(r"^-\s*\w+\s*:", title):
                 errors.append(f"{lane}: {intent_id} has malformed title")
-            missing = [key for key in ("notification_channel", "notification_target") if not item.get(key)]
+            required_notifications = lane != "backlog"
+            missing = [key for key in ("notification_channel", "notification_target") if required_notifications and not item.get(key)]
             if missing: errors.append(f"{lane}: {intent_id} missing terminal notification field(s): {', '.join(missing)}")
             intent_fields = ("user_intent", "desired_outcome", "out_of_scope", "success_evidence")
             missing_intent = [key for key in intent_fields if not str(item.get(key) or "").strip()]
