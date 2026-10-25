@@ -50,7 +50,8 @@ backlog_triage:
     - /home/ubuntu/workspace/projects/minimalmoeum
     - /home/ubuntu/workspace/projects/policycock
     decision: rejected
-    rejection_reason: Infinity dirty 산출물과 Space 미추적 생성물의 존재만 확인되며 특정 결함·실패 테스트·기술 부채·대표 지표가 없어 변화의 의미가 없음
+    rejection_reason: Infinity dirty 산출물과 Space 미추적 생성물의 존재만 확인되며 특정 결함·실패 테스트·기술
+      부채·대표 지표가 없어 변화의 의미가 없음
   promotion: none
   delegation: none
   next_action: 구체적인 변경 파일·실패 테스트·영향 지표가 포함된 developer 신호가 생길 때만 재검토
