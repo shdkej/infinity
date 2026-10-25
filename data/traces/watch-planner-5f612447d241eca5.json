@@ -76,6 +76,15 @@
         "logs/agent-wiki-query.md"
       ],
       "note": ""
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-fc31358a74b24463aa68a940c9b19801",
+      "canonical_sha": "5abf29aa19bddc790e99ea2ee6c551f9dbe717a2",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher-v2",
+      "timestamp": "2026-10-25T23:40:03Z",
+      "status": "accepted"
     }
   ],
   "artifacts": [],

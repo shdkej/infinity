@@ -2,7 +2,8 @@ version: 1
 format: infinity-intents-yaml
 lanes:
   backlog: []
-  inbox:
+  inbox: []
+  waiting:
   - id: watch-planner-5f612447d241eca5
     title: 두 프로젝트의 고객 문의 채널과 전용 마케팅 지표 원천을 확정·연결한다
     task_name: 두 프로젝트의 고객 문의 채널과 전용 마케팅 지표 원천을 확정·연결한다
@@ -38,7 +39,6 @@ lanes:
     notification_channel: slack
     notification_target: channel:C0BR41W31MM
   active: []
-  waiting: []
 backlog_triage:
   cycle_id: backlog-triage-2026-10-25-role-watchers-r3
   source_revision: 3caaffcd
