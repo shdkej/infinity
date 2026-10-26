@@ -57,10 +57,10 @@ lanes:
     notification_target: channel:C0BR41W31MM
   active: []
 backlog_triage:
-  cycle_id: backlog-triage-2026-10-26-role-watchers-r10
-  source_revision: b23fcb86
-  result: one_promoted
-  checked_at: '2026-10-26T04:00:00Z'
+  cycle_id: backlog-triage-2026-10-26-role-watchers-r11
+  source_revision: 9d0d9323
+  result: rejected_grouped_no_new_promotion
+  checked_at: '2026-10-26T04:30:00Z'
   grouping:
     group_id: repeated-developer-repository-state
     member_ids:
@@ -68,8 +68,9 @@ backlog_triage:
     - watch-developer-9f7c67da71e3bfd7
     - watch-developer-ef897a5eec57171f
     - watch-developer-39420a15f59df4e9
-    reason: 기존 반복 신호만 그룹화하며, 원격 불일치와 실제 코드 변경이 확인된 신규 신호는 실행 후보로 분리
-    preservation_reason: 기존 반복 signal ID는 보존하고, 신규 signal은 Inbox 태스크로 승격해 조정 근거를 보존
+    - watch-developer-baafaa5de2ae95eb
+    reason: 동일한 저장소 변경·테스트·기술 부채 관찰 목적과 Space/Infinity 변경면을 기존 그룹으로 통합
+    preservation_reason: 기존 signal ID와 직전 구체 변경 신호의 판단을 보존하고, 반복 후보의 중복 Inbox 생성을 방지
   decisions:
   - id: watch-developer-d26656970fa1e65a
     watcher_role: developer
@@ -118,11 +119,21 @@ backlog_triage:
     evidence_paths:
     - /home/ubuntu/workspace/knowledge-lab/infinity/.watcher-runs/20261026T030001Z/INTENTS.yaml
     decision: rejected
-    rejection_reason: 기존 Planner Waiting snapshot의 반복이며 새 실패·마감 위반·원격 상태 불일치·승인 경계
-      사건이 없어 운영 조치 근거가 없음
+    rejection_reason: 기존 Planner Waiting snapshot의 반복이며 새 실패·마감 위반·원격 상태 불일치·승인 경계 사건이 없어 운영 조치 근거가 없음
+  - id: watch-developer-baafaa5de2ae95eb
+    watcher_role: developer
+    source: role-watcher:developer
+    signal: baafaa5de2ae95eb
+    evidence_verified: true
+    evidence_paths:
+    - /home/ubuntu/workspace/knowledge-lab/infinity
+    - /home/ubuntu/workspace/space
+    - /home/ubuntu/workspace/projects/minimalmoeum
+    - /home/ubuntu/workspace/projects/policycock
+    decision: rejected_grouped
   promotion: watch-developer-d26656970fa1e65a
-  delegation: developer judgment completed; direct evidence independently verified
-  next_action: Inbox 태스크의 Developer 검증으로 병합 순서와 승인 경계를 확정
+  delegation: developer delegation unavailable (not_found); direct evidence independently verified
+  next_action: 새 구체 변경 또는 대표지표 변화가 관찰될 때만 다음 후보를 승격
 previous_triage:
   cycle_id: backlog-triage-2026-10-26-role-watchers-r6
   result: rejected_one_no_new_promotion
