@@ -136,12 +136,12 @@ backlog_triage:
     watcher_role: operator
     source: role-watcher:operator
     signal: 7572810f93237caf
-    evidence_verified: true
+    evidence_verified: false
     evidence_paths:
     - /home/ubuntu/workspace/knowledge-lab/infinity/.watcher-runs/20261026T113001Z/INTENTS.yaml
     decision: rejected_grouped
-    rejection_reason: 구체적인 실패·대기·마감·원격 상태 변화가 없는 자기참조 snapshot이며 기존 operator 반복 후보와
-      동일해 Inbox로 승격하지 않음
+    rejection_reason: 지정된 evidence_path가 실제로 존재하지 않고, 최신 watcher snapshot도 구체적인 실패·대기·마감·원격
+      상태 변화를 입증하지 않는 자기참조 반복 후보이므로 Inbox로 승격하지 않음
   - id: watch-developer-d26656970fa1e65a
     watcher_role: developer
     source: role-watcher:developer
