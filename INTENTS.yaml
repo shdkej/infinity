@@ -396,10 +396,10 @@ lanes:
     notification_target: channel:C0BR41W31MM
   active: []
 backlog_triage:
-  cycle_id: backlog-triage-2026-10-26-role-watchers-r18
-  source_revision: 67307137
-  result: rejected_grouped_no_new_promotion
-  checked_at: '2026-10-26T08:00:02Z'
+  cycle_id: backlog-triage-2026-10-26-role-watchers-r19
+  source_revision: d6bd1baa423675982b4cb7a623bed40a5a90ad5a
+  result: rejected_grouped_waiting_no_new_promotion
+  checked_at: '2026-10-26T09:30:02Z'
   grouping:
     group_id: repeated-developer-repository-state
     member_ids:
@@ -414,6 +414,7 @@ backlog_triage:
     - watch-developer-34baef99ac9e26a1
     - watch-developer-c530e1d6063c07e1
     - watch-developer-a609277493ff6310
+    - watch-developer-68af20a464c443a8
     reason: 동일한 저장소 변경·테스트·기술 부채 관찰 목적과 Space/Infinity 변경면을 기존 그룹으로 통합
     preservation_reason: 기존 signal ID와 직전 구체 변경 신호의 판단을 보존하고, 반복 후보의 중복 Inbox 생성을
       방지
@@ -668,10 +669,42 @@ backlog_triage:
     decision: rejected
     rejection_reason: 기존 Planner Waiting snapshot의 반복이며 새 실패·마감 위반·원격 상태 불일치·승인 경계
       사건·대표지표 변화가 없어 운영 조치 근거가 없음
-  promotion: watch-developer-d26656970fa1e65a
-  delegation: role-developer-c9748663463b7446 및 role-operator-e12042e8eedd1dfb 위임은
-    회수 단계에서 not_found로 종료되어 저장소와 원격 와처 근거를 직접 재확인함
-  next_action: 새 구체 변경 또는 대표지표 변화가 관찰될 때만 다음 후보를 승격
+  - id: watch-developer-68af20a464c443a8
+    watcher_role: developer
+    source: role-watcher:developer
+    signal: 68af20a464c443a8
+    evidence_verified: true
+    evidence_paths:
+    - /home/ubuntu/workspace/knowledge-lab/infinity
+    - /home/ubuntu/workspace/space
+    - /home/ubuntu/workspace/projects/minimalmoeum
+    - /home/ubuntu/workspace/projects/policycock
+    decision: rejected_grouped
+    rejection_reason: 기존 repeated-developer-repository-state 그룹과 동일한 저장소·변경면이며 신규 코드·실패 테스트·기술 부채·대표지표 변화가 없어 중복 후보로 통합
+  - id: watch-operator-1d0cab66a0227c33
+    watcher_role: operator
+    source: role-watcher:operator
+    signal: 1d0cab66a0227c33
+    evidence_verified: true
+    evidence_paths:
+    - /home/ubuntu/workspace/knowledge-lab/infinity/.watcher-runs/20261026T093001Z/INTENTS.yaml
+    decision: rejected
+    rejection_reason: 기존 Planner Waiting snapshot의 반복이며 새 실패·마감 위반·원격 상태 불일치·승인 경계 사건·대표지표 변화가 없어 운영 조치 근거가 없음
+  - id: watch-planner-5f612447d241eca5
+    watcher_role: planner
+    source: role-watcher:planner
+    signal: 5f612447d241eca5
+    evidence_verified: true
+    evidence_paths:
+    - /home/ubuntu/workspace/projects/minimalmoeum/TASKS.md
+    - /home/ubuntu/workspace/projects/policycock/TASKS.md
+    decision: waiting
+    rejection_reason: MM-001·PC-001이 blocked이고 정확한 채널·마케팅 지표 원천 확인은 외부 접근·권한이 필요해 승인 전 Inbox 승격을 하지 않음
+  promotion: null
+  delegation: role-developer-68af20a464c443a8, role-operator-1d0cab66a0227c33,
+    role-planner-5f612447d241eca5 위임은 회수 단계에서 not_found로 종료되어 저장소·프로젝트 문서와 원격
+    와처 근거를 직접 재확인함
+  next_action: 외부 채널·지표 원천 접근 승인 또는 새 구체 변경·대표지표 변화가 관찰될 때만 재검토
 previous_triage:
   cycle_id: backlog-triage-2026-10-26-role-watchers-r6
   result: rejected_one_no_new_promotion
