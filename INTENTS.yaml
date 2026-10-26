@@ -600,8 +600,31 @@ backlog_triage:
     decision: rejected
     rejection_reason: 기존 Planner Waiting snapshot의 반복이며 새 실패·마감 위반·원격 상태 불일치·승인 경계
       사건·대표지표 변화가 없어 운영 조치 근거가 없음
+  - id: watch-developer-c9748663463b7446
+    watcher_role: developer
+    source: role-watcher:developer
+    signal: c9748663463b7446
+    evidence_verified: true
+    evidence_paths:
+    - /home/ubuntu/workspace/knowledge-lab/infinity
+    - /home/ubuntu/workspace/space
+    - /home/ubuntu/workspace/projects/minimalmoeum
+    - /home/ubuntu/workspace/projects/policycock
+    decision: rejected_grouped
+    rejection_reason: 기존 repeated-developer-repository-state 그룹과 동일한 저장소·변경면이며 Space의
+      1 ahead/1 behind와 생성 데이터 외에 신규 코드·실패 테스트·기술 부채·대표지표 변화가 없어 중복 후보로 통합
+  - id: watch-operator-e12042e8eedd1dfb
+    watcher_role: operator
+    source: role-watcher:operator
+    signal: e12042e8eedd1dfb
+    evidence_verified: true
+    evidence_paths:
+    - /home/ubuntu/workspace/knowledge-lab/infinity/.watcher-runs/20261026T090001Z/INTENTS.yaml
+    decision: rejected
+    rejection_reason: 기존 Planner Waiting snapshot의 반복이며 새 실패·마감 위반·원격 상태 불일치·승인 경계
+      사건·대표지표 변화가 없어 운영 조치 근거가 없음
   promotion: watch-developer-d26656970fa1e65a
-  delegation: role-developer-a04d61992b68489e1 및 role-operator-a828bcc981dd3016 위임은
+  delegation: role-developer-c9748663463b7446 및 role-operator-e12042e8eedd1dfb 위임은
     회수 단계에서 not_found로 종료되어 저장소와 원격 와처 근거를 직접 재확인함
   next_action: 새 구체 변경 또는 대표지표 변화가 관찰될 때만 다음 후보를 승격
 previous_triage:
