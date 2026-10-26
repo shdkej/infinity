@@ -46,35 +46,6 @@ lanes:
     last_observed_at: '2026-10-26T13:32:04Z'
     observation_note: origin/main의 Infinity 카드 가시성·main 배포 경로 관련 코드 변경 3건을 확인했으며 기존
       후보의 동일 변경면으로 유지
-  - id: watch-operator-current
-    dedupe_key: role-watcher:operator:operations_signal
-    title: 실패·대기·마감·원격 상태를 운영 태스크로 정리한다
-    task_name: 실패·대기·마감·원격 상태를 운영 태스크로 정리한다
-    status: backlog
-    priority: normal
-    task_type: watcher_candidate
-    target_agent: genie
-    watcher_role: operator
-    source: role-watcher:operator
-    signal_type: operations_signal
-    signal: a00b426ab06f7edd
-    evidence_paths:
-    - /home/ubuntu/workspace/knowledge-lab/infinity/INTENTS.yaml
-    created_at: '2026-10-26T14:30:02Z'
-    last_observed_at: '2026-10-26T14:30:02Z'
-    registration_reason: operator 와처가 이전 관찰 이후 달라진 구체 신호를 감지해 사람이 검토할 후보로 등록했다.
-    user_intent: operator 역할의 새 운영 신호를 사람이 판단 가능한 작업 후보로 만든다.
-    why_now: 이번 실행에서 이전 관찰과 달라진 구체 신호가 감지되었다.
-    desired_outcome: Genie가 근거를 확인해 중복은 묶고, 가치 있는 후보만 Inbox로 승격한다.
-    suggested_checks:
-    - 근거 파일·지표의 실제 변경 확인
-    - 현재 목표·대표 지표와의 연결 확인
-    - 이미 해결된 문제인지 확인
-    out_of_scope: 신호만으로 자동 구현·공개 발행·결제·권한 변경을 실행하지 않는다.
-    success_evidence: 동일 목적 후보가 한 건으로 유지되고, triage 결과와 다음 행동이 남는다.
-    next_action: Genie가 근거를 검증한 뒤 유지·통합·거절·Inbox 승격 중 하나를 기록한다.
-    notification_channel: slack
-    notification_target: channel:C0BR41W31MM
   inbox: []
   waiting:
   - id: watch-planner-5f612447d241eca5
@@ -106,10 +77,10 @@ lanes:
     notification_target: channel:C0BR41W31MM
   active: []
 backlog_triage:
-  cycle_id: backlog-triage-2026-10-26-role-watchers-r25
-  source_revision: 1c9aaeb13803c0fc2a36520018e8f4b9f664cac5
-  result: rejected_invalid_evidence_no_new_promotion
-  checked_at: '2026-10-26T14:00:02Z'
+  cycle_id: backlog-triage-2026-10-26-role-watchers-r26
+  source_revision: d052bd2ed30560b5ebb9dda4e219f7d5d85f8325
+  result: rejected_self_reference_no_new_promotion
+  checked_at: '2026-10-26T14:30:02Z'
   grouping:
     group_id: repeated-developer-repository-state
     member_ids:
@@ -495,9 +466,17 @@ backlog_triage:
     decision: rejected_grouped
     rejection_reason: 구체적인 실패·대기·마감·원격 상태 변화가 없는 자기참조 snapshot이며 기존 operator 반복 후보와
       동일해 Inbox로 승격하지 않음
+  - id: watch-operator-current
+    watcher_role: operator
+    source: role-watcher:operator
+    signal: a00b426ab06f7edd
+    evidence_verified: true
+    evidence_paths:
+    - /home/ubuntu/workspace/knowledge-lab/infinity/INTENTS.yaml
+    decision: rejected_grouped
+    rejection_reason: 이전 invalid 후보 제거로 INTENTS.yaml 자체가 변경된 자기참조성 digest이며, 신규 실패·대기·마감·원격 상태 변화나 대표지표 변화가 없어 Inbox로 승격하지 않음
   promotion: null
-  delegation: role-watcher:operator:operations_signal 위임 호출은 not_found로 종료되어 직접 증거를
-    재확인함
+  delegation: role-watcher:operator:operations_signal 위임 호출은 not_found로 종료되어 직접 증거를 재확인함
   next_action: 외부 채널·지표 원천 접근 승인 또는 새 구체 변경·대표지표 변화가 관찰될 때만 재검토
 previous_triage:
   cycle_id: backlog-triage-2026-10-26-role-watchers-r6
