@@ -216,10 +216,10 @@ lanes:
     notification_target: channel:C0BR41W31MM
   active: []
 backlog_triage:
-  cycle_id: backlog-triage-2026-10-26-role-watchers-r16
-  source_revision: 2fbc4aae
+  cycle_id: backlog-triage-2026-10-26-role-watchers-r17
+  source_revision: 67307137
   result: rejected_grouped_no_new_promotion
-  checked_at: '2026-10-26T07:00:03Z'
+  checked_at: '2026-10-26T07:30:02Z'
   grouping:
     group_id: repeated-developer-repository-state
     member_ids:
@@ -233,6 +233,7 @@ backlog_triage:
     - watch-developer-098bbcf7563b4439
     - watch-developer-34baef99ac9e26a1
     - watch-developer-c530e1d6063c07e1
+    - watch-developer-a609277493ff6310
     reason: 동일한 저장소 변경·테스트·기술 부채 관찰 목적과 Space/Infinity 변경면을 기존 그룹으로 통합
     preservation_reason: 기존 signal ID와 직전 구체 변경 신호의 판단을 보존하고, 반복 후보의 중복 Inbox 생성을
       방지
@@ -391,6 +392,29 @@ backlog_triage:
     evidence_verified: true
     evidence_paths:
     - /home/ubuntu/workspace/knowledge-lab/infinity/.watcher-runs/20261026T070001Z/INTENTS.yaml
+    decision: rejected
+    rejection_reason: 기존 Planner Waiting snapshot의 반복이며 새 실패·마감 위반·원격 상태 불일치·승인 경계
+      사건이 없어 운영 조치 근거가 없음
+  - id: watch-developer-a609277493ff6310
+    watcher_role: developer
+    source: role-watcher:developer
+    signal: a609277493ff6310
+    evidence_verified: true
+    evidence_paths:
+    - /home/ubuntu/workspace/knowledge-lab/infinity
+    - /home/ubuntu/workspace/space
+    - /home/ubuntu/workspace/projects/minimalmoeum
+    - /home/ubuntu/workspace/projects/policycock
+    decision: rejected_grouped
+    rejection_reason: 기존 반복 그룹과 동일한 저장소·변경면이며 Space의 1 ahead/1 behind와 생성 데이터 외에 신규
+      코드·실패 테스트·기술 부채·대표지표 변화가 없어 중복 후보로 통합
+  - id: watch-operator-84da735a7ffc7aff
+    watcher_role: operator
+    source: role-watcher:operator
+    signal: 84da735a7ffc7aff
+    evidence_verified: true
+    evidence_paths:
+    - /home/ubuntu/workspace/knowledge-lab/infinity/.watcher-runs/20261026T073001Z/INTENTS.yaml
     decision: rejected
     rejection_reason: 기존 Planner Waiting snapshot의 반복이며 새 실패·마감 위반·원격 상태 불일치·승인 경계
       사건이 없어 운영 조치 근거가 없음
