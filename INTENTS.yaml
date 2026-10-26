@@ -1,7 +1,31 @@
 version: 1
 format: infinity-intents-yaml
 lanes:
-  backlog: []
+  backlog:
+  - id: watch-developer-b17c118221671c84
+    title: 저장소 변경·테스트·기술 부채 신호를 개선 태스크로 정리한다
+    task_name: 저장소 변경·테스트·기술 부채 신호를 개선 태스크로 정리한다
+    status: backlog
+    priority: normal
+    task_type: watcher_candidate
+    target_agent: genie
+    watcher_role: developer
+    source: role-watcher:developer
+    signal_type: repository_signal
+    signal: b17c118221671c84
+    evidence_paths:
+    - /home/ubuntu/workspace/knowledge-lab/infinity
+    - /home/ubuntu/workspace/space
+    - /home/ubuntu/workspace/projects/minimalmoeum
+    - /home/ubuntu/workspace/projects/policycock
+    created_at: '2026-10-26T02:00:02Z'
+    user_intent: developer 역할의 새 운영 신호를 사람이 판단 가능한 작업 후보로 만든다.
+    desired_outcome: Genie가 중복·가치를 검토해 묶거나 버리거나 실행 가능한 Inbox 태스크로 만든다.
+    out_of_scope: 신호만으로 자동 구현·공개 발행·결제·권한 변경을 실행하지 않는다.
+    success_evidence: 신호가 Backlog에 한 번 기록되고, triage 결과와 다음 행동이 남는다.
+    next_action: Genie가 유사 후보를 묶고 불필요한 후보를 거절한 뒤 실행 후보를 선택한다.
+    notification_channel: slack
+    notification_target: channel:C0BR41W31MM
   inbox: []
   active: []
   waiting:
@@ -27,7 +51,8 @@ lanes:
     approval_boundary: 계정 연결·권한·시크릿·유료 집행·외부 발송은 사전 승인 후 진행
     next_action: Planner가 두 프로젝트의 채널·지표 원천을 조사하고 승인 필요 항목을 분리한다.
     waiting_on: external
-    blocker: 두 프로젝트의 고객 문의 관리 채널과 전용 마케팅 analytics 원천·대시보드가 로컬 문서와 공통 inbox에 없어 정확한 경로·접근 검증을 완료할 수 없음
+    blocker: 두 프로젝트의 고객 문의 관리 채널과 전용 마케팅 analytics 원천·대시보드가 로컬 문서와 공통 inbox에 없어 정확한
+      경로·접근 검증을 완료할 수 없음
     retry_policy: autonomous
     notification_channel: slack
     notification_target: channel:C0BR41W31MM
@@ -53,7 +78,8 @@ backlog_triage:
     - /home/ubuntu/workspace/projects/minimalmoeum
     - /home/ubuntu/workspace/projects/policycock
     decision: rejected
-    rejection_reason: Infinity는 운영 로그·review 산출물 dirty 상태이고 Space는 생성 데이터 1건이며 두 프로젝트는 clean이다. 신규 코드 변경·실패 테스트·대표 지표 변화가 없어 실행 가능한 신호가 아님
+    rejection_reason: Infinity는 운영 로그·review 산출물 dirty 상태이고 Space는 생성 데이터 1건이며 두 프로젝트는
+      clean이다. 신규 코드 변경·실패 테스트·대표 지표 변화가 없어 실행 가능한 신호가 아님
   promotion: none
   delegation: developer judgment completed
   next_action: 구체적인 변경 파일·실패 테스트·영향 지표가 결합된 새 신호가 생길 때만 재검토
