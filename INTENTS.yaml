@@ -576,10 +576,10 @@ lanes:
     notification_target: channel:C0BR41W31MM
   active: []
 backlog_triage:
-  cycle_id: backlog-triage-2026-10-26-role-watchers-r22
-  source_revision: bd6539978339f82b0700ba9244b73c487e0b78e7
+  cycle_id: backlog-triage-2026-10-26-role-watchers-r23
+  source_revision: 906009c2ef033d671df936ebd6288e6bbde7d360
   result: rejected_grouped_no_new_promotion
-  checked_at: '2026-10-26T11:00:02Z'
+  checked_at: '2026-10-26T11:30:02Z'
   grouping:
     group_id: repeated-developer-repository-state
     member_ids:
@@ -587,6 +587,27 @@ backlog_triage:
     reason: 동일한 저장소·변경면과 기존 반복 신호를 재확인했으며 신규 구현·실패 테스트·대표지표 변화가 없음
     preservation_reason: 기존 반복 그룹의 판단을 보존하고 중복 Inbox 생성을 방지
   decisions:
+  - id: watch-developer-686a25159dde5ec9
+    watcher_role: developer
+    source: role-watcher:developer
+    signal: 686a25159dde5ec9
+    evidence_verified: true
+    evidence_paths:
+    - /home/ubuntu/workspace/knowledge-lab/infinity
+    - /home/ubuntu/workspace/space
+    - /home/ubuntu/workspace/projects/minimalmoeum
+    - /home/ubuntu/workspace/projects/policycock
+    decision: rejected_grouped
+    rejection_reason: 기존 repeated-developer-repository-state와 동일한 저장소·변경면이며 신규 코드·실패 테스트·기술 부채·대표지표 변화가 없음
+  - id: watch-operator-7572810f93237caf
+    watcher_role: operator
+    source: role-watcher:operator
+    signal: 7572810f93237caf
+    evidence_verified: true
+    evidence_paths:
+    - /home/ubuntu/workspace/knowledge-lab/infinity/.watcher-runs/20261026T113001Z/INTENTS.yaml
+    decision: rejected_grouped
+    rejection_reason: 구체적인 실패·대기·마감·원격 상태 변화가 없는 자기참조 snapshot이며 기존 operator 반복 후보와 동일해 Inbox로 승격하지 않음
   - id: watch-developer-d26656970fa1e65a
     watcher_role: developer
     source: role-watcher:developer
