@@ -500,6 +500,51 @@ lanes:
     next_action: Genie가 유사 후보를 묶고 불필요한 후보를 거절한 뒤 실행 후보를 선택한다.
     notification_channel: slack
     notification_target: channel:C0BR41W31MM
+  - id: watch-developer-686a25159dde5ec9
+    title: 저장소 변경·테스트·기술 부채 신호를 개선 태스크로 정리한다
+    task_name: 저장소 변경·테스트·기술 부채 신호를 개선 태스크로 정리한다
+    status: backlog
+    priority: normal
+    task_type: watcher_candidate
+    target_agent: genie
+    watcher_role: developer
+    source: role-watcher:developer
+    signal_type: repository_signal
+    signal: 686a25159dde5ec9
+    evidence_paths:
+    - /home/ubuntu/workspace/knowledge-lab/infinity
+    - /home/ubuntu/workspace/space
+    - /home/ubuntu/workspace/projects/minimalmoeum
+    - /home/ubuntu/workspace/projects/policycock
+    created_at: '2026-10-26T11:30:02Z'
+    user_intent: developer 역할의 새 운영 신호를 사람이 판단 가능한 작업 후보로 만든다.
+    desired_outcome: Genie가 중복·가치를 검토해 묶거나 버리거나 실행 가능한 Inbox 태스크로 만든다.
+    out_of_scope: 신호만으로 자동 구현·공개 발행·결제·권한 변경을 실행하지 않는다.
+    success_evidence: 신호가 Backlog에 한 번 기록되고, triage 결과와 다음 행동이 남는다.
+    next_action: Genie가 유사 후보를 묶고 불필요한 후보를 거절한 뒤 실행 후보를 선택한다.
+    notification_channel: slack
+    notification_target: channel:C0BR41W31MM
+  - id: watch-operator-7572810f93237caf
+    title: 실패·대기·마감·원격 상태를 운영 태스크로 정리한다
+    task_name: 실패·대기·마감·원격 상태를 운영 태스크로 정리한다
+    status: backlog
+    priority: normal
+    task_type: watcher_candidate
+    target_agent: genie
+    watcher_role: operator
+    source: role-watcher:operator
+    signal_type: operations_signal
+    signal: 7572810f93237caf
+    evidence_paths:
+    - /home/ubuntu/workspace/knowledge-lab/infinity/.watcher-runs/20261026T113001Z/INTENTS.yaml
+    created_at: '2026-10-26T11:30:02Z'
+    user_intent: operator 역할의 새 운영 신호를 사람이 판단 가능한 작업 후보로 만든다.
+    desired_outcome: Genie가 중복·가치를 검토해 묶거나 버리거나 실행 가능한 Inbox 태스크로 만든다.
+    out_of_scope: 신호만으로 자동 구현·공개 발행·결제·권한 변경을 실행하지 않는다.
+    success_evidence: 신호가 Backlog에 한 번 기록되고, triage 결과와 다음 행동이 남는다.
+    next_action: Genie가 유사 후보를 묶고 불필요한 후보를 거절한 뒤 실행 후보를 선택한다.
+    notification_channel: slack
+    notification_target: channel:C0BR41W31MM
   inbox: []
   waiting:
   - id: watch-planner-5f612447d241eca5
@@ -870,7 +915,8 @@ backlog_triage:
     evidence_paths:
     - /home/ubuntu/workspace/knowledge-lab/infinity/.watcher-runs/20261026T103001Z/INTENTS.yaml
     decision: rejected
-    rejection_reason: 구체적인 실패·대기·마감·원격 상태 변화가 없는 자기참조 snapshot이며 기존 operator 반복 후보와 동일해 Inbox로 승격하지 않음
+    rejection_reason: 구체적인 실패·대기·마감·원격 상태 변화가 없는 자기참조 snapshot이며 기존 operator 반복 후보와
+      동일해 Inbox로 승격하지 않음
   - id: watch-developer-56ab2db094fa5f97
     watcher_role: developer
     source: role-watcher:developer
@@ -882,7 +928,8 @@ backlog_triage:
     - /home/ubuntu/workspace/projects/minimalmoeum
     - /home/ubuntu/workspace/projects/policycock
     decision: rejected_grouped
-    rejection_reason: 기존 repeated-developer-repository-state와 동일한 저장소·변경면이며 신규 코드·실패 테스트·기술 부채·대표지표 변화가 없음
+    rejection_reason: 기존 repeated-developer-repository-state와 동일한 저장소·변경면이며 신규 코드·실패
+      테스트·기술 부채·대표지표 변화가 없음
   - id: watch-operator-9e4d2f90b683ad4b
     watcher_role: operator
     source: role-watcher:operator
@@ -891,9 +938,11 @@ backlog_triage:
     evidence_paths:
     - /home/ubuntu/workspace/knowledge-lab/infinity/.watcher-runs/20261026T110001Z/INTENTS.yaml
     decision: rejected_grouped
-    rejection_reason: 구체적인 실패·대기·마감·원격 상태 변화가 없는 자기참조 snapshot이며 기존 operator 반복 후보와 동일해 Inbox로 승격하지 않음
+    rejection_reason: 구체적인 실패·대기·마감·원격 상태 변화가 없는 자기참조 snapshot이며 기존 operator 반복 후보와
+      동일해 Inbox로 승격하지 않음
   promotion: null
-  delegation: role-developer-56ab2db094fa5f97, role-operator-9e4d2f90b683ad4b 위임 호출은 not_found로 종료되어 직접 증거를 재확인함
+  delegation: role-developer-56ab2db094fa5f97, role-operator-9e4d2f90b683ad4b 위임 호출은
+    not_found로 종료되어 직접 증거를 재확인함
   next_action: 외부 채널·지표 원천 접근 승인 또는 새 구체 변경·대표지표 변화가 관찰될 때만 재검토
 previous_triage:
   cycle_id: backlog-triage-2026-10-26-role-watchers-r6
