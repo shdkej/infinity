@@ -30,6 +30,10 @@ class RoleWatcherTests(unittest.TestCase):
                 second = role_watchers.append_candidates(["planner"], apply=True)
             self.assertEqual(first["added"], ["watch-planner-current"])
             self.assertEqual(second["added"], [])
+            saved = yaml.safe_load(registry.read_text(encoding="utf-8"))
+            item = saved["lanes"]["backlog"][0]
+            self.assertTrue(item["registration_reason"])
+            self.assertTrue(item["next_action"])
 
     def test_non_concrete_change_is_observed_but_not_added(self):
         with tempfile.TemporaryDirectory() as directory:

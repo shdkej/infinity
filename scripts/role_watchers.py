@@ -214,6 +214,7 @@ def append_candidates(roles: list[str], apply: bool) -> dict[str, Any]:
             "evidence_paths": evidence,
             "created_at": now,
             "last_observed_at": now,
+            "registration_reason": f"{role} 와처가 이전 관찰 이후 달라진 구체 신호를 감지해 사람이 검토할 후보로 등록했다.",
             "user_intent": f"{role} 역할의 새 운영 신호를 사람이 판단 가능한 작업 후보로 만든다.",
             "why_now": "이번 실행에서 이전 관찰과 달라진 구체 신호가 감지되었다.",
             "desired_outcome": "Genie가 근거를 확인해 중복은 묶고, 가치 있는 후보만 Inbox로 승격한다.",

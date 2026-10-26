@@ -9,6 +9,8 @@
 5. `planner`, `developer`, `marketing`, `design`, `operator` 역할 중 실제 판단이 필요한 태스크는 해당 역할의 서브에이전트에 위임합니다. 공개 발행·비용·권한·파괴적 변경은 승인 전 Waiting입니다.
 6. 원장·상태 변경은 중복 없이 하나의 커밋으로 남기고 non-force push합니다. 제품 코드나 다른 dirty 변경은 stage하지 않습니다.
 
+7. 모든 Backlog 후보는 대시보드에서 바로 판단할 수 있도록 `registration_reason`(왜 등록됐는지)와 `next_action`(지금 무엇을 할지)을 필수로 기록합니다. `evidence_paths`는 이유를 확인할 수 있는 실제 근거 경로를 함께 제공합니다. 이 세 필드 중 하나라도 비어 있으면 새 후보를 만들지 말고 후보 생성 규칙부터 보완합니다.
+
 매 주기에는 새 신호가 없으면 `no_action`으로 끝냅니다. 와처는 매 주기 실행하지만, 파일 존재·기준 문서·빈 레지스트리처럼 변화의 의미가 없는 상태는 후보로 만들지 않습니다. “항상 태스크 생성”은 금지하며, “항상 감시”와 **구체적인 변화가 있을 때만 후보 생성**을 보장합니다.
 
 와처 후보의 식별자는 신호 해시가 아니라 `role-watcher:{역할}:{신호종류}`입니다. 따라서 같은 역할의 같은 목적 후보는 Backlog·Inbox·Active·Waiting 전체에서 한 건만 유지하고, 새 관찰은 기존 후보의 근거와 `last_observed_at`만 갱신합니다. 기존 레거시 후보는 `scripts/dedupe_role_backlog.py`로 최신 후보 하나를 남기고 `merged_from`·`dedupe_reason`을 기록합니다.
