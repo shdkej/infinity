@@ -1,0 +1,106 @@
+{
+  "schema_version": 2,
+  "intent_id": "watch-developer-d26656970fa1e65a",
+  "status": "waiting",
+  "trace_completeness": "partial",
+  "backfill_source": "dispatcher_missing_trace",
+  "request": {
+    "raw": {
+      "status": "missing",
+      "reason": "dispatcher backfill: intake trace was absent"
+    },
+    "normalized_query": {
+      "status": "missing",
+      "reason": "dispatcher backfill: intake trace was absent"
+    },
+    "user_intent": {
+      "status": "missing",
+      "reason": "dispatcher backfill: intake trace was absent"
+    },
+    "desired_outcome": {
+      "status": "missing",
+      "reason": "dispatcher backfill: intake trace was absent"
+    },
+    "out_of_scope": {
+      "status": "missing",
+      "reason": "dispatcher backfill: intake trace was absent"
+    },
+    "success_evidence": {
+      "status": "missing",
+      "reason": "dispatcher backfill: intake trace was absent"
+    }
+  },
+  "events": [
+    {
+      "type": "intake",
+      "at": "2026-10-26T04:05:14Z",
+      "context_pack": "",
+      "context_pack_status": "missing",
+      "context_pack_reason": "dispatcher backfill: intake context pack was absent",
+      "evidence_paths": []
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-0e0cd42b59c941b393f09ce5ac07ca3c",
+      "canonical_sha": "2b7538e5ba4700d27042c8f72b9d4932fdc4d412",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-10-26T04:05:14Z",
+      "status": "accepted"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-0e0cd42b59c941b393f09ce5ac07ca3c",
+      "canonical_sha": "2b7538e5ba4700d27042c8f72b9d4932fdc4d412",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher-v2",
+      "timestamp": "2026-10-26T04:05:15Z",
+      "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-10-26T04:06:12Z",
+      "context_pack": "intents/context/watch-developer-d26656970fa1e65a.json",
+      "evidence_paths": [
+        "artifacts/watch-developer-d26656970fa1e65a/work/repository-reconciliation.md",
+        "reports/watch-developer-d26656970fa1e65a/20261026T0408Z.html"
+      ],
+      "searches": [
+        "Space Infinity 원격 변경 불일치 ahead behind dirty 파일 백로그 제어"
+      ],
+      "wiki_pages": [
+        "agent-wiki/content/docs/outputs/Meta/AGENTS.mdx",
+        "agent-wiki/content/docs/outputs/Integration/Marketing.mdx",
+        "agent-wiki/content/docs/outputs/Meta/Fail_experience.mdx",
+        "agent-wiki/content/docs/outputs/Human/Evolve.mdx"
+      ],
+      "operational_log_sections": [
+        "logs/agent-wiki-query.md"
+      ],
+      "note": ""
+    }
+  ],
+  "artifacts": [],
+  "verifications": [
+    {
+      "label": "workflow role review",
+      "type": "role_review",
+      "at": "2026-10-26T04:06:12Z",
+      "roles": [
+        "planner",
+        "developer",
+        "marketer",
+        "operator"
+      ],
+      "evidence_paths": [
+        "artifacts/watch-developer-d26656970fa1e65a/work/repository-reconciliation.md"
+      ],
+      "status": "blocked",
+      "next_role": "owner-approval"
+    }
+  ],
+  "next_decision": {
+    "status": "blocked",
+    "value": "Space 소유자 승인과 충돌 판정 후 dirty 파일 보존 상태로 병합·테스트·원격 검증 재개"
+  }
+}

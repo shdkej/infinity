@@ -2,11 +2,12 @@ version: 1
 format: infinity-intents-yaml
 lanes:
   backlog: []
-  inbox:
+  inbox: []
+  waiting:
   - id: watch-developer-d26656970fa1e65a
     title: Space와 Infinity 원격 변경 불일치 및 백로그 제어 변경을 조정한다
     task_name: Space와 Infinity 원격 변경 불일치 및 백로그 제어 변경을 조정한다
-    status: inbox
+    status: waiting
     priority: high
     task_type: developer_verification
     target_agent: genie
@@ -24,6 +25,16 @@ lanes:
     representative_metric: 원격 불일치 저장소의 검증·조정 완료 비율, 목표 100%
     approval_boundary: 강제 push·파괴적 변경·외부 발행·비용·권한 변경은 사전 승인 후 진행
     next_action: Developer가 두 저장소의 커밋·변경면을 비교하고 병합 순서와 보존할 dirty 파일을 확정한다.
+    waiting_on: approval
+    blocker: Space HEAD 9d9787e와 origin/main 4917f4c가 ahead/behind이고 미추적 status/dist/content-live.json이 있어 병합 기준·순서 및 dirty 보존에 소유자 승인이 필요함
+    artifact: artifacts/watch-developer-d26656970fa1e65a/work/repository-reconciliation.md
+    report: reports/watch-developer-d26656970fa1e65a/20261026T0408Z.html
+    context_pack: intents/context/watch-developer-d26656970fa1e65a.json
+    knowledge_status: retained_in_infinity
+    knowledge_decision: retain_in_infinity
+    knowledge_targets: []
+    knowledge_reflection: Knowledge Lab의 에이전트 운영·변경 경계 기준을 적용했으나 새 장기 지식으로 승격할 일반화 결과는 없음
+    knowledge_commit: pending
     retry_policy: autonomous
   active: []
   waiting:

@@ -1,0 +1,121 @@
+{
+  "context_pack_version": 3,
+  "status": "ready",
+  "route": "infinity",
+  "request": "Space와 Infinity의 원격 변경 불일치, 로컬 dirty 파일, Infinity 백로그 제어 원장 변경을 비교하고 보존 범위·병합 순서·승인 경계를 확정한다.",
+  "built_at": "2026-10-26T04:05:53.664413+00:00",
+  "required_documents": [
+    "/home/ubuntu/workspace/prompt-archive/LLM.md",
+    "README.md",
+    "schema/agent-rules.md",
+    "source/openclaw-system/docs/DOCUMENT_SEARCH_PIPELINE.md",
+    "source/openclaw-system/docs/USER_CONTEXT.md",
+    "source/openclaw-system/docs/SERVICE_REGISTRY.md",
+    "source/openclaw-system/docs/INFINITY_OPERATING_RULES.md",
+    "infinity/ARTIFACT_RULES.md",
+    "infinity/EXECUTION_LEARNING_CONTRACT.md",
+    "infinity/INTENTS.yaml",
+    "agent-wiki/content/docs/index.mdx"
+  ],
+  "search_scopes": [
+    "agent-wiki/content/docs/",
+    "source/openclaw-system/docs/",
+    "source/openclaw-system/data/daily-reviews/",
+    "source/openclaw-system/data/daily-tracking/",
+    "source/openclaw-system/data/photo-insights/"
+  ],
+  "selected_context": [
+    {
+      "path": "agent-wiki/content/docs/outputs/Meta/AGENTS.mdx",
+      "reason": "zg hybrid discovery; indexed section retained for targeted reading",
+      "verification": "indexed-section",
+      "locator": {
+        "start_line": 305,
+        "end_line": 308,
+        "heading": "통합된 판단: 실행 원장에서 지식으로 승격하기",
+        "heading_level": "2",
+        "scope": "AGENTS",
+        "excerpt": "여기에 credential 경계도 포함된다. 로그인, 비밀번호, 세션 같은 비밀값은 모델 프롬프트 안으로 넣지 않고 별도 실행 표면에 둬야 한다. 브라우저 원격 제어가 가능해져도 핵심은 `모델이 무엇을 아는가`보다 `비밀을 노출하지 않은 채 작업을 어디까지 이어갈 수 있는가`와 `어떤 라우터/재개 경로로 같은 일을 반복할 수 있는가`다.  ## 관련 문서 - [[../mapped/Human/Principle]]"
+      }
+    },
+    {
+      "path": "agent-wiki/content/docs/outputs/Integration/Marketing.mdx",
+      "reason": "zg hybrid discovery; indexed section retained for targeted reading",
+      "verification": "indexed-section",
+      "locator": {
+        "start_line": 117,
+        "end_line": 259,
+        "heading": "외부/실행 산출물 연결",
+        "heading_level": "2",
+        "scope": "마케팅",
+        "excerpt": "## 외부/실행 산출물 연결 `source/external-links/marketing/2026-06-18-youtube-satur-repeat-purchase-brand.md`는 초기 브랜드 운영을 멋진 세계관 제작보다 상품력, 재구매, 기존 고객 접점, 고객 태그 같은 반복 신호로 보게 한다. Marketing에서는 이를 브랜드 콘텐츠론으로 키우지 않고 `기존 고객 증거` 행에 흡수한다. SmartStore나 작은 제품 후보에서는 광고로 신규 유입을 늘리기 전에 같은 고객이 다시 살 이유, 주변에 드러내고 싶은 언어, 문의·후기·태그가 만드는 자부심 신호를 먼저 봐야 한다.  `source/external-links/marketing/2026-05-26-aeo-agent-ready-research.md`는 AEO/GEO를 검색 순위 해킹이 아니라 AI와 에이전트가 제품을 발견하고, 읽고, 비교할 수 있는 공개 설명면 관리로 좁혀 준다. Marketing에서는 이를 트래픽 확대 과제로 바로 승격하지 않고 `응답 표면`과 `에이전트 유통` 행의 감사 기준으로 흡수한다. Virtue prelaunch에서는 robots, sitemap, llms 후보, 문서 공개 여부보다 먼저 사람이 보아도 에이전트가 보아도 같은 제품 범주, 대상 job, 첫 결과, 한계를 설명하는 내부 문장이 있어야 한다. 따라서 공개 AEO 반영은 승인 이후의 일이"
+      }
+    },
+    {
+      "path": "agent-wiki/content/docs/outputs/Meta/AGENTS.mdx",
+      "reason": "zg hybrid discovery; indexed section retained for targeted reading",
+      "verification": "indexed-section",
+      "locator": {
+        "start_line": 309,
+        "end_line": 318,
+        "heading": "승격 규칙",
+        "heading_level": "2",
+        "scope": "AGENTS",
+        "excerpt": "- [[../mapped/Communication/Document]]  ## Source Links  - `source/external-links/marketing/2026-06-18-agent-authorization-boundary.md` - `source/openclaw-system/data/ai-news/2026-08-27-ai-news.md` - `source/openclaw-system/data/ai-news/2026-08-28-ai-news.md`  ## 통합된 판단: 실행 원장에서 지식으로 승격하기"
+      }
+    },
+    {
+      "path": "agent-wiki/content/docs/outputs/Meta/Fail_experience.mdx",
+      "reason": "zg hybrid discovery; indexed section retained for targeted reading",
+      "verification": "indexed-section",
+      "locator": {
+        "start_line": 31,
+        "end_line": 43,
+        "heading": "판단 모델 1. 실패는 `빠진 전제`에서 커진다",
+        "heading_level": "2",
+        "scope": "Fail_experience",
+        "excerpt": "## 판단 모델 1. 실패는 `빠진 전제`에서 커진다 원문에서 가장 반복되는 실패는 고난도 지식 부족보다 확인 가능한 전제를 통과시킨 데서 생긴다.  | 빠진 전제 | 원문 장면 | 다음 확인 표면 | | --- | --- | --- | | 백업 | 미디어 폴더, C 드라이브, OneTab, OneNote 유실 | 변경 전 사본, 동기화 검증, 복구 테스트 | | 호환성 | NVMe와 SATA 차이를 알면서도 어댑터를 막연히 기대함 | 실제 장비 조합, 포트, 전원, 데이터 이동 경로 | | 상태 확인 | 복붙만 함, 코드 수정 후 확인 안 함, 테스트 후 원복 안 함 | 변경 후 결과 확인, 원복 체크, 작은 변경 단위 | | 책임 범위 | 벽지, 음식물쓰레기, 유통기한, 떨어진 물건 | 찜찜함이 생긴 순간 바로 치우기·묻기·확인하기 | | 목표 조건 | 알고리즘 공부를 원했지만 자료와 측정 목표를 만들지 않음 | 자료 위치, 반복 단위, 측정 기준, 다음 확인 날짜 |  이 모델에서 `막연히 되겠지`는 지식의 빈칸이 아니라 검증을 미룬 신호다. 기술 이름을 아는 것과 내 장비·내 데이터·내 운영 절차에서 실제로 되돌릴 수 있는지는 다르다."
+      }
+    },
+    {
+      "path": "agent-wiki/content/docs/outputs/Human/Evolve.mdx",
+      "reason": "zg hybrid discovery; indexed section retained for targeted reading",
+      "verification": "indexed-section",
+      "locator": {
+        "start_line": 22,
+        "end_line": 29,
+        "heading": "원문 범위",
+        "heading_level": "2",
+        "scope": "점진적으로 개선하기",
+        "excerpt": "## 원문 범위 - 점진적 개선: 반대 의견, 이전의 잘못, 작은 것부터 시작하기, 틀에 끼워 넣기보다 틀 만들기 - 점진주의의 한계: 초기 나쁜 경험, 쿤의 패러다임 전환, 변증법의 억압 가능성, 세계대전 이후 진보 낙관론 경계 - 복잡성: 환원주의, 복잡계, 빼는 것, `0 -> 1`, 창의성, 혼돈과 카오스 - 사람 변화: 본성, 습관, 환경 deep dive, 현재를 소홀히 한 경험, 세대별 가치관 변화 - 기준과 측정: 수파리, 귀류법, 측정 가능한 기준, 선택을 측정하고 개선하기 - 혼잡성 정리: 책·서재·이력서·민원·회사 자산·태그·카테고리·모노레포/멀티레포·쿠버네티스·인덱스"
+      }
+    }
+  ],
+  "selected_operational_logs": [
+    {
+      "path": "logs/agent-wiki-query.md",
+      "reason": "bounded operational-log preflight; not part of the Agent Wiki index",
+      "verification": "matched",
+      "matches": [
+        "47:- 상태: Knowledge Lab parent의 원장 변경은 `2bf875c`로 원격 반영됐다. Agent Wiki 문서 변경은 `next` 실행 파일 부재로 아직 빌드·커밋·push되지 않았다. 다음 작업은 Agent Wiki 의존성을 복구한 뒤 빌드·변경 검증·커밋·push를 순서대로 재시도하는 것이다.",
+        "323:- raw KL: `source/shdkej-content/`를 최신 원본 미러로 갱신했다. 원격 `shdkej.github.io` `master`의 `9954db8`에서 변경된 노트 14개와 삭제된 원본 2개를 반영했다.",
+        "108:- 결과: [[insights/infinity-archive-knowledge-promotion|실행 원장에서 지식으로 승격하기]]에 최종 리서치 원문 경계를 보강했다. 버전 트래커 최신값은 기존 maintenance 원칙과 중복되어 보류했고, 주간 리뷰와 archive upstream 후보는 이번 변경의 직접 승격 대상으로 삼지 않았다."
+      ]
+    }
+  ],
+  "preflight": {
+    "tool": "zg",
+    "query": "Space와 Infinity의 원격 변경 불일치, 로컬 dirty 파일, Infinity 백로그 제어 원장 변경을 비교하고 보존 범위·병합 순서·승인 경계를 확정한다.",
+    "discovery": "hybrid+fts RRF",
+    "verification": "indexed section locator",
+    "result_count": 5
+  },
+  "selected_context_required": true,
+  "rules": [
+    "Read every required document before creating or executing an intent.",
+    "Read every selected_context locator section first (including its heading and line window); expand to adjacent sections only when needed, and record the exact paths in the execution trace.",
+    "Read only the matched sections of selected_operational_logs; they are operational evidence, not compiled knowledge.",
+    "Search the declared scopes for task-specific evidence; do not treat a search hit as a confirmed fact without its source.",
+    "Record the resulting context pack path in the intent and re-check it before handoff."
+  ]
+}
