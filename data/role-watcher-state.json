@@ -3,15 +3,15 @@
   "roles": {
     "planner": {
       "digest": "5f612447d241eca5",
-      "observed_at": "2026-10-26T07:00:03Z",
+      "observed_at": "2026-10-26T07:30:02Z",
       "evidence_paths": [
         "/home/ubuntu/workspace/projects/minimalmoeum/TASKS.md",
         "/home/ubuntu/workspace/projects/policycock/TASKS.md"
       ]
     },
     "developer": {
-      "digest": "34baef99ac9e26a1",
-      "observed_at": "2026-10-26T07:00:03Z",
+      "digest": "a609277493ff6310",
+      "observed_at": "2026-10-26T07:30:02Z",
       "evidence_paths": [
         "/home/ubuntu/workspace/knowledge-lab/infinity",
         "/home/ubuntu/workspace/space",
@@ -21,14 +21,14 @@
     },
     "marketing": {
       "digest": "74d35e089717dee0",
-      "observed_at": "2026-10-26T07:00:03Z",
+      "observed_at": "2026-10-26T07:30:02Z",
       "evidence_paths": [
         "/home/ubuntu/workspace/knowledge-lab/source/openclaw-system/data/agent-inbox/marketing.jsonl"
       ]
     },
     "design": {
       "digest": "36d19824aa4682c7",
-      "observed_at": "2026-10-26T07:00:03Z",
+      "observed_at": "2026-10-26T07:30:02Z",
       "evidence_paths": [
         "/home/ubuntu/workspace/knowledge-lab/source/openclaw-system/data/photo-insights/README.md",
         "/home/ubuntu/workspace/knowledge-lab/source/openclaw-system/data/photo-insights/application-candidates.md",
@@ -40,10 +40,10 @@
       ]
     },
     "operator": {
-      "digest": "297a773aef8d6b17",
-      "observed_at": "2026-10-26T07:00:03Z",
+      "digest": "84da735a7ffc7aff",
+      "observed_at": "2026-10-26T07:30:02Z",
       "evidence_paths": [
-        "/home/ubuntu/workspace/knowledge-lab/infinity/.watcher-runs/20261026T070001Z/INTENTS.yaml"
+        "/home/ubuntu/workspace/knowledge-lab/infinity/.watcher-runs/20261026T073001Z/INTENTS.yaml"
       ]
     }
   }
