@@ -1,31 +1,7 @@
 version: 1
 format: infinity-intents-yaml
 lanes:
-  backlog:
-  - id: watch-developer-39420a15f59df4e9
-    title: 저장소 변경·테스트·기술 부채 신호를 개선 태스크로 정리한다
-    task_name: 저장소 변경·테스트·기술 부채 신호를 개선 태스크로 정리한다
-    status: backlog
-    priority: normal
-    task_type: watcher_candidate
-    target_agent: genie
-    watcher_role: developer
-    source: role-watcher:developer
-    signal_type: repository_signal
-    signal: 39420a15f59df4e9
-    evidence_paths:
-    - /home/ubuntu/workspace/knowledge-lab/infinity
-    - /home/ubuntu/workspace/space
-    - /home/ubuntu/workspace/projects/minimalmoeum
-    - /home/ubuntu/workspace/projects/policycock
-    created_at: '2026-10-26T03:30:02Z'
-    user_intent: developer 역할의 새 운영 신호를 사람이 판단 가능한 작업 후보로 만든다.
-    desired_outcome: Genie가 중복·가치를 검토해 묶거나 버리거나 실행 가능한 Inbox 태스크로 만든다.
-    out_of_scope: 신호만으로 자동 구현·공개 발행·결제·권한 변경을 실행하지 않는다.
-    success_evidence: 신호가 Backlog에 한 번 기록되고, triage 결과와 다음 행동이 남는다.
-    next_action: Genie가 유사 후보를 묶고 불필요한 후보를 거절한 뒤 실행 후보를 선택한다.
-    notification_channel: slack
-    notification_target: channel:C0BR41W31MM
+  backlog: []
   inbox: []
   active: []
   waiting:
@@ -57,19 +33,32 @@ lanes:
     notification_channel: slack
     notification_target: channel:C0BR41W31MM
 backlog_triage:
-  cycle_id: backlog-triage-2026-10-26-role-watchers-r8
-  source_revision: 09325a04
-  result: two_rejected_no_promotion
-  checked_at: '2026-10-26T03:15:00Z'
+  cycle_id: backlog-triage-2026-10-26-role-watchers-r9
+  source_revision: 04f1bcb4
+  result: one_rejected_no_promotion
+  checked_at: '2026-10-26T03:30:00Z'
   grouping:
     group_id: repeated-developer-repository-state
     member_ids:
     - watch-developer-b17c118221671c84
     - watch-developer-9f7c67da71e3bfd7
     - watch-developer-ef897a5eec57171f
+    - watch-developer-39420a15f59df4e9
     reason: 동일한 네 저장소 경로에서 운영 산출물·생성 데이터만 반복 관찰되어 같은 목적·근거·변경면으로 묶음
     preservation_reason: 기존 및 신규 signal ID를 모두 보존하되 실행 후보는 만들지 않음
   decisions:
+  - id: watch-developer-39420a15f59df4e9
+    watcher_role: developer
+    source: role-watcher:developer
+    signal: 39420a15f59df4e9
+    evidence_verified: true
+    evidence_paths:
+    - /home/ubuntu/workspace/knowledge-lab/infinity
+    - /home/ubuntu/workspace/space
+    - /home/ubuntu/workspace/projects/minimalmoeum
+    - /home/ubuntu/workspace/projects/policycock
+    decision: rejected_grouped
+    rejection_reason: 네 저장소에 운영 로그·review 산출물과 생성 데이터만 있고 신규 코드·실패 테스트·기술 부채·원격 불일치·대표 지표 변화가 없어 기존 반복 신호와 동일함
   - id: watch-developer-ef897a5eec57171f
     watcher_role: developer
     source: role-watcher:developer
@@ -81,8 +70,7 @@ backlog_triage:
     - /home/ubuntu/workspace/projects/minimalmoeum
     - /home/ubuntu/workspace/projects/policycock
     decision: rejected_grouped
-    rejection_reason: Infinity의 운영 로그·review 산출물 dirty 상태와 Space의 생성 데이터만 확인되며 신규
-      코드·실패 테스트·기술 부채·대표 지표 변화가 없음
+    rejection_reason: Infinity의 운영 로그·review 산출물 dirty 상태와 Space의 생성 데이터만 확인되며 신규 코드·실패 테스트·기술 부채·대표 지표 변화가 없음
   - id: watch-operator-8a71586377980128
     watcher_role: operator
     source: role-watcher:operator
@@ -91,11 +79,9 @@ backlog_triage:
     evidence_paths:
     - /home/ubuntu/workspace/knowledge-lab/infinity/.watcher-runs/20261026T030001Z/INTENTS.yaml
     decision: rejected
-    rejection_reason: 기존 Planner Waiting snapshot의 반복이며 새 실패·마감 위반·원격 상태 불일치·승인 경계
-      사건이 없어 운영 조치 근거가 없음
+    rejection_reason: 기존 Planner Waiting snapshot의 반복이며 새 실패·마감 위반·원격 상태 불일치·승인 경계 사건이 없어 운영 조치 근거가 없음
   promotion: none
-  delegation: developer and operator judgments requested; direct evidence independently
-    verified
+  delegation: developer judgment requested and returned rejected_grouped; direct evidence independently verified
   next_action: 구체적인 변경 파일·실패 테스트·마감·원격 불일치·승인 사건이 포함될 때만 후보 생성
 previous_triage:
   cycle_id: backlog-triage-2026-10-26-role-watchers-r6
