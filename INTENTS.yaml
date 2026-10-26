@@ -102,10 +102,10 @@ lanes:
     notification_target: channel:C0BR41W31MM
   active: []
 backlog_triage:
-  cycle_id: backlog-triage-2026-10-26-role-watchers-r11
-  source_revision: 9d0d9323
+  cycle_id: backlog-triage-2026-10-26-role-watchers-r12
+  source_revision: 5c9c5257
   result: rejected_grouped_no_new_promotion
-  checked_at: '2026-10-26T04:30:00Z'
+  checked_at: '2026-10-26T05:00:00Z'
   grouping:
     group_id: repeated-developer-repository-state
     member_ids:
@@ -114,6 +114,7 @@ backlog_triage:
     - watch-developer-ef897a5eec57171f
     - watch-developer-39420a15f59df4e9
     - watch-developer-baafaa5de2ae95eb
+    - watch-developer-645c51f908744fb8
     reason: 동일한 저장소 변경·테스트·기술 부채 관찰 목적과 Space/Infinity 변경면을 기존 그룹으로 통합
     preservation_reason: 기존 signal ID와 직전 구체 변경 신호의 판단을 보존하고, 반복 후보의 중복 Inbox 생성을
       방지
@@ -178,6 +179,28 @@ backlog_triage:
     - /home/ubuntu/workspace/projects/minimalmoeum
     - /home/ubuntu/workspace/projects/policycock
     decision: rejected_grouped
+    rejection_reason: Space의 기존 ahead/behind 및 Infinity 백로그 제어 변경은 직전 d26656970fa1e65a 신호에서 이미 승격·기록된 동일 변경면이며, 이번 후보에서 신규 코드·실패 테스트·기술 부채·대표지표 변화는 확인되지 않음
+  - id: watch-developer-645c51f908744fb8
+    watcher_role: developer
+    source: role-watcher:developer
+    signal: 645c51f908744fb8
+    evidence_verified: true
+    evidence_paths:
+    - /home/ubuntu/workspace/knowledge-lab/infinity
+    - /home/ubuntu/workspace/space
+    - /home/ubuntu/workspace/projects/minimalmoeum
+    - /home/ubuntu/workspace/projects/policycock
+    decision: rejected_grouped
+    rejection_reason: baafaa5de2ae95eb와 동일한 저장소·변경면이며 Space의 기존 원격 불일치와 생성 데이터 외에 신규 코드·실패 테스트·기술 부채·대표지표 변화가 없어 중복 후보로 통합
+  - id: watch-operator-5e7fff9210f6b9b3
+    watcher_role: operator
+    source: role-watcher:operator
+    signal: 5e7fff9210f6b9b3
+    evidence_verified: true
+    evidence_paths:
+    - /home/ubuntu/workspace/knowledge-lab/infinity/.watcher-runs/20261026T050001Z/INTENTS.yaml
+    decision: rejected
+    rejection_reason: 기존 Planner Waiting snapshot을 반복할 뿐 새 실패·마감 위반·원격 불일치·승인 경계 사건이 없어 운영 조치 근거가 없음
   promotion: watch-developer-d26656970fa1e65a
   delegation: developer delegation unavailable (not_found); direct evidence independently
     verified
