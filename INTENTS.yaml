@@ -2,7 +2,29 @@ version: 1
 format: infinity-intents-yaml
 lanes:
   backlog: []
-  inbox: []
+  inbox:
+  - id: watch-developer-d26656970fa1e65a
+    title: Space와 Infinity 원격 변경 불일치 및 백로그 제어 변경을 조정한다
+    task_name: Space와 Infinity 원격 변경 불일치 및 백로그 제어 변경을 조정한다
+    status: inbox
+    priority: high
+    task_type: developer_verification
+    target_agent: genie
+    watcher_role: developer
+    source: role-watcher:developer
+    signal: d26656970fa1e65a
+    evidence_paths:
+    - /home/ubuntu/workspace/space
+    - /home/ubuntu/workspace/knowledge-lab/infinity
+    created_at: '2026-10-26T04:00:02Z'
+    user_intent: Space의 로컬·원격 변경과 Infinity 원격 원장의 백로그 제어 변경을 안전하게 조정한다.
+    desired_outcome: 두 저장소의 변경을 비교·검증하고, 무관한 dirty 변경을 보존한 채 필요한 병합·원격 동기화 계획을 확정한다.
+    out_of_scope: 강제 push, 제품 코드의 임의 삭제·되돌리기, 외부 발행·비용·권한 변경
+    success_evidence: 원격 변경과 로컬 변경의 충돌·보존 범위가 문서화되고, 승인 경계가 필요한 항목은 Waiting으로 분리된다.
+    representative_metric: 원격 불일치 저장소의 검증·조정 완료 비율, 목표 100%
+    approval_boundary: 강제 push·파괴적 변경·외부 발행·비용·권한 변경은 사전 승인 후 진행
+    next_action: Developer가 두 저장소의 커밋·변경면을 비교하고 병합 순서와 보존할 dirty 파일을 확정한다.
+    retry_policy: autonomous
   active: []
   waiting:
   - id: watch-planner-5f612447d241eca5
@@ -35,7 +57,7 @@ lanes:
 backlog_triage:
   cycle_id: backlog-triage-2026-10-26-role-watchers-r10
   source_revision: b23fcb86
-  result: one_rejected_no_promotion
+  result: one_promoted
   checked_at: '2026-10-26T04:00:00Z'
   grouping:
     group_id: repeated-developer-repository-state
@@ -44,9 +66,8 @@ backlog_triage:
     - watch-developer-9f7c67da71e3bfd7
     - watch-developer-ef897a5eec57171f
     - watch-developer-39420a15f59df4e9
-    - watch-developer-d26656970fa1e65a
-    reason: 동일한 네 저장소 경로에서 운영 산출물·생성 데이터만 반복 관찰되어 같은 목적·근거·변경면으로 묶음
-    preservation_reason: 기존 및 신규 signal ID를 모두 보존하되 실행 후보는 만들지 않음
+    reason: 기존 반복 신호만 그룹화하며, 원격 불일치와 실제 코드 변경이 확인된 신규 신호는 실행 후보로 분리
+    preservation_reason: 기존 반복 signal ID는 보존하고, 신규 signal은 Inbox 태스크로 승격해 조정 근거를 보존
   decisions:
   - id: watch-developer-d26656970fa1e65a
     watcher_role: developer
@@ -58,8 +79,8 @@ backlog_triage:
     - /home/ubuntu/workspace/space
     - /home/ubuntu/workspace/projects/minimalmoeum
     - /home/ubuntu/workspace/projects/policycock
-    decision: rejected_grouped
-    rejection_reason: 네 저장소의 운영 로그·review 산출물과 생성 데이터만 반복되며 신규 코드·실패 테스트·기술 부채·원격 불일치·대표 지표 변화가 없어 기존 반복 그룹과 동일함
+    decision: promoted
+    promotion_reason: Space의 ahead/behind 원격 불일치와 Infinity 백로그 제어 코드 변경이라는 구체적 변경면이 확인되어 기존 반복 그룹과 분리
   - id: watch-developer-39420a15f59df4e9
     watcher_role: developer
     source: role-watcher:developer
@@ -93,9 +114,9 @@ backlog_triage:
     - /home/ubuntu/workspace/knowledge-lab/infinity/.watcher-runs/20261026T030001Z/INTENTS.yaml
     decision: rejected
     rejection_reason: 기존 Planner Waiting snapshot의 반복이며 새 실패·마감 위반·원격 상태 불일치·승인 경계 사건이 없어 운영 조치 근거가 없음
-  promotion: none
-  delegation: developer judgment requested (session result not recoverable); direct evidence independently verified
-  next_action: 구체적인 변경 파일·실패 테스트·마감·원격 불일치·승인 사건이 포함될 때만 후보 생성
+  promotion: watch-developer-d26656970fa1e65a
+  delegation: developer judgment completed; direct evidence independently verified
+  next_action: Inbox 태스크의 Developer 검증으로 병합 순서와 승인 경계를 확정
 previous_triage:
   cycle_id: backlog-triage-2026-10-26-role-watchers-r6
   result: rejected_one_no_new_promotion
