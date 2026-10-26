@@ -441,10 +441,10 @@ lanes:
     notification_target: channel:C0BR41W31MM
   active: []
 backlog_triage:
-  cycle_id: backlog-triage-2026-10-26-role-watchers-r19
-  source_revision: d6bd1baa423675982b4cb7a623bed40a5a90ad5a
-  result: rejected_grouped_waiting_no_new_promotion
-  checked_at: '2026-10-26T09:30:02Z'
+  cycle_id: backlog-triage-2026-10-26-role-watchers-r20
+  source_revision: 6e47471fa3c68f3fad7aa791e9f2bee9f725350a
+  result: rejected_grouped_no_new_promotion
+  checked_at: '2026-10-26T10:00:02Z'
   grouping:
     group_id: repeated-developer-repository-state
     member_ids:
@@ -746,11 +746,37 @@ backlog_triage:
     - /home/ubuntu/workspace/projects/minimalmoeum/TASKS.md
     - /home/ubuntu/workspace/projects/policycock/TASKS.md
     decision: waiting
-    rejection_reason: MM-001·PC-001이 blocked이고 정확한 채널·마케팅 지표 원천 확인은 외부 접근·권한이 필요해
-      승인 전 Inbox 승격을 하지 않음
+    rejection_reason: MM-001·PC-001이 blocked이고 정확한 채널·마케팅 지표 원천 확인은 외부 접근·권한이 필요해 승인 전 Inbox 승격을 하지 않음
+  - id: watch-developer-27499b9463bebcca
+    watcher_role: developer
+    source: role-watcher:developer
+    signal: 27499b9463bebcca
+    evidence_verified: true
+    evidence_paths:
+    - /home/ubuntu/workspace/knowledge-lab/infinity
+    - /home/ubuntu/workspace/space
+    - /home/ubuntu/workspace/projects/minimalmoeum
+    - /home/ubuntu/workspace/projects/policycock
+    decision: rejected_grouped
+    rejection_reason: 기존 repeated-developer-repository-state와 동일한 변경면이며 신규 코드·실패 테스트·기술 부채·대표지표 변화가 없음
+  - id: watch-operator-0bbc1972ed1241dc
+    watcher_role: operator
+    source: role-watcher:operator
+    signal: 0bbc1972ed1241dc
+    evidence_verified: true
+    evidence_paths:
+    - /home/ubuntu/workspace/knowledge-lab/infinity/.watcher-runs/20261026T100001Z/INTENTS.yaml
+    decision: rejected
+    rejection_reason: 기존 Planner Waiting snapshot의 반복이며 새 실패·마감 위반·원격 상태 불일치·승인 경계 사건·대표지표 변화가 없음
   promotion: null
-  delegation: role-developer-68af20a464c443a8, role-operator-1d0cab66a0227c33, role-planner-5f612447d241eca5
-    위임은 회수 단계에서 not_found로 종료되어 저장소·프로젝트 문서와 원격 와처 근거를 직접 재확인함
+  delegation: role-developer-68af20a464c443a8, role-operator-1d0cab66a0227c33, role-planner-5f612447d241eca5,
+    role-developer-27499b9463bebcca, role-operator-0bbc1972ed1241dc 위임 호출은 not_found로 종료되어 직접 증거를 재확인함
+  grouping:
+    group_id: repeated-developer-repository-state
+    member_ids:
+    - watch-developer-27499b9463bebcca
+    reason: 동일한 저장소·변경면과 기존 반복 신호를 재확인했으며 신규 구현·실패 테스트·대표지표 변화가 없음
+    preservation_reason: 기존 반복 그룹의 판단을 보존하고 중복 Inbox 생성을 방지
   next_action: 외부 채널·지표 원천 접근 승인 또는 새 구체 변경·대표지표 변화가 관찰될 때만 재검토
 previous_triage:
   cycle_id: backlog-triage-2026-10-26-role-watchers-r6
