@@ -1,26 +1,26 @@
 {
-  "generated_at": "2026-10-25T03:00:11.984Z",
+  "generated_at": "2026-10-26T03:00:10.318Z",
   "summary": {
-    "total": 1492,
-    "wiki_reflected": 199,
-    "not_reflected": 1293,
+    "total": 1496,
+    "wiki_reflected": 200,
+    "not_reflected": 1296,
     "by_status": {
-      "queued": 1303,
+      "queued": 1307,
       "reviewed": 102,
       "integrated": 10,
       "selected": 4,
       "rejected": 73
     },
     "by_layer": {
-      "openclaw-system": 1156,
+      "openclaw-system": 1160,
       "infinity": 80,
       "external-links": 181,
       "shdkej-content": 74,
       "root": 1
     },
     "by_promotion_state": {
-      "not_applicable": 1291,
-      "reflected": 199,
+      "not_applicable": 1294,
+      "reflected": 200,
       "pending_promotion": 2
     }
   },
@@ -31,7 +31,81 @@
       "source_layer": "openclaw-system",
       "reason": "자동 수집됨; 내용 판정 대기",
       "reviewed_at": "",
-      "modified_at": "2026-10-24T22:34:45Z",
+      "modified_at": "2026-10-25T23:31:09Z",
+      "promotion_targets": [],
+      "reflection_basis": [],
+      "promotion_state": "not_applicable",
+      "promotion_reason": "자동 수집됨; 내용 판정 대기",
+      "promotion_target_note": "",
+      "wiki_reflected": false
+    },
+    {
+      "source": "source/openclaw-system/reports/infinity-backlog-tests.log",
+      "status": "queued",
+      "source_layer": "openclaw-system",
+      "reason": "자동 수집됨; 내용 판정 대기",
+      "reviewed_at": "",
+      "modified_at": "2026-10-25T23:14:49Z",
+      "promotion_targets": [],
+      "reflection_basis": [],
+      "promotion_state": "not_applicable",
+      "promotion_reason": "자동 수집됨; 내용 판정 대기",
+      "promotion_target_note": "",
+      "wiki_reflected": false
+    },
+    {
+      "source": "source/openclaw-system/docs/MINIMALMOEUM_AGENT_IMPLEMENTATION.md",
+      "status": "queued",
+      "source_layer": "openclaw-system",
+      "reason": "자동 수집됨; 내용 판정 대기",
+      "reviewed_at": "",
+      "modified_at": "2026-10-25T22:38:27Z",
+      "promotion_targets": [
+        "/docs/outputs/Meta/MinimalCollection"
+      ],
+      "reflection_basis": [
+        "wiki_source_link"
+      ],
+      "promotion_state": "reflected",
+      "promotion_reason": "Agent Wiki outputs 출처 링크 또는 ingest target이 명시됨",
+      "promotion_target_note": "",
+      "wiki_reflected": true
+    },
+    {
+      "source": "source/openclaw-system/data/daily-review-drafts/2026-10-25-review.md",
+      "status": "queued",
+      "source_layer": "openclaw-system",
+      "reason": "자동 수집됨; 내용 판정 대기",
+      "reviewed_at": "",
+      "modified_at": "2026-10-25T21:00:51Z",
+      "promotion_targets": [],
+      "reflection_basis": [],
+      "promotion_state": "not_applicable",
+      "promotion_reason": "자동 수집됨; 내용 판정 대기",
+      "promotion_target_note": "",
+      "wiki_reflected": false
+    },
+    {
+      "source": "source/openclaw-system/acquire-email-summary-state.json",
+      "status": "queued",
+      "source_layer": "openclaw-system",
+      "reason": "자동 수집됨; 내용 판정 대기",
+      "reviewed_at": "",
+      "modified_at": "2026-10-25T12:01:52Z",
+      "promotion_targets": [],
+      "reflection_basis": [],
+      "promotion_state": "not_applicable",
+      "promotion_reason": "자동 수집됨; 내용 판정 대기",
+      "promotion_target_note": "",
+      "wiki_reflected": false
+    },
+    {
+      "source": "source/openclaw-system/data/ai-news/2026-10-25-ai-news.md",
+      "status": "queued",
+      "source_layer": "openclaw-system",
+      "reason": "자동 수집됨; 내용 판정 대기",
+      "reviewed_at": "",
+      "modified_at": "2026-10-25T03:00:52Z",
       "promotion_targets": [],
       "reflection_basis": [],
       "promotion_state": "not_applicable",
@@ -5352,20 +5426,6 @@
       "reason": "자동 수집됨; 내용 판정 대기",
       "reviewed_at": "",
       "modified_at": "2026-10-22T15:18:29Z",
-      "promotion_targets": [],
-      "reflection_basis": [],
-      "promotion_state": "not_applicable",
-      "promotion_reason": "자동 수집됨; 내용 판정 대기",
-      "promotion_target_note": "",
-      "wiki_reflected": false
-    },
-    {
-      "source": "source/openclaw-system/acquire-email-summary-state.json",
-      "status": "queued",
-      "source_layer": "openclaw-system",
-      "reason": "자동 수집됨; 내용 판정 대기",
-      "reviewed_at": "",
-      "modified_at": "2026-10-22T12:02:21Z",
       "promotion_targets": [],
       "reflection_basis": [],
       "promotion_state": "not_applicable",
@@ -11215,7 +11275,7 @@
       "source_layer": "openclaw-system",
       "reason": "최근 활성 정본 또는 재사용 가능한 원자료; raw 검색 허용",
       "reviewed_at": "2026-09-01T10:01:07Z",
-      "modified_at": "2026-10-12T07:43:40Z",
+      "modified_at": "2026-10-25T21:46:06Z",
       "promotion_targets": [],
       "reflection_basis": [],
       "promotion_state": "not_applicable",
