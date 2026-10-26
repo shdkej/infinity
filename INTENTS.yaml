@@ -1,42 +1,32 @@
 version: 1
 format: infinity-intents-yaml
 lanes:
-  backlog: []
-  inbox: []
-  waiting:
-  - id: watch-developer-d26656970fa1e65a
-    title: Space와 Infinity 원격 변경 불일치 및 백로그 제어 변경을 조정한다
-    task_name: Space와 Infinity 원격 변경 불일치 및 백로그 제어 변경을 조정한다
-    status: waiting
-    priority: high
-    task_type: developer_verification
+  backlog:
+  - id: watch-developer-baafaa5de2ae95eb
+    title: 저장소 변경·테스트·기술 부채 신호를 개선 태스크로 정리한다
+    task_name: 저장소 변경·테스트·기술 부채 신호를 개선 태스크로 정리한다
+    status: backlog
+    priority: normal
+    task_type: watcher_candidate
     target_agent: genie
     watcher_role: developer
     source: role-watcher:developer
-    signal: d26656970fa1e65a
+    signal_type: repository_signal
+    signal: baafaa5de2ae95eb
     evidence_paths:
-    - /home/ubuntu/workspace/space
     - /home/ubuntu/workspace/knowledge-lab/infinity
-    created_at: '2026-10-26T04:00:02Z'
-    user_intent: Space의 로컬·원격 변경과 Infinity 원격 원장의 백로그 제어 변경을 안전하게 조정한다.
-    desired_outcome: 두 저장소의 변경을 비교·검증하고, 무관한 dirty 변경을 보존한 채 필요한 병합·원격 동기화 계획을 확정한다.
-    out_of_scope: 강제 push, 제품 코드의 임의 삭제·되돌리기, 외부 발행·비용·권한 변경
-    success_evidence: 원격 변경과 로컬 변경의 충돌·보존 범위가 문서화되고, 승인 경계가 필요한 항목은 Waiting으로 분리된다.
-    representative_metric: 원격 불일치 저장소의 검증·조정 완료 비율, 목표 100%
-    approval_boundary: 강제 push·파괴적 변경·외부 발행·비용·권한 변경은 사전 승인 후 진행
-    next_action: Developer가 두 저장소의 커밋·변경면을 비교하고 병합 순서와 보존할 dirty 파일을 확정한다.
-    waiting_on: approval
-    blocker: Space HEAD 9d9787e와 origin/main 4917f4c가 ahead/behind이고 미추적 status/dist/content-live.json이 있어 병합 기준·순서 및 dirty 보존에 소유자 승인이 필요함
-    artifact: artifacts/watch-developer-d26656970fa1e65a/work/repository-reconciliation.md
-    report: reports/watch-developer-d26656970fa1e65a/20261026T0408Z.html
-    context_pack: intents/context/watch-developer-d26656970fa1e65a.json
-    knowledge_status: retained_in_infinity
-    knowledge_decision: retain_in_infinity
-    knowledge_targets: []
-    knowledge_reflection: Knowledge Lab의 에이전트 운영·변경 경계 기준을 적용했으나 새 장기 지식으로 승격할 일반화 결과는 없음
-    knowledge_commit: pending
-    retry_policy: autonomous
-  active: []
+    - /home/ubuntu/workspace/space
+    - /home/ubuntu/workspace/projects/minimalmoeum
+    - /home/ubuntu/workspace/projects/policycock
+    created_at: '2026-10-26T04:30:02Z'
+    user_intent: developer 역할의 새 운영 신호를 사람이 판단 가능한 작업 후보로 만든다.
+    desired_outcome: Genie가 중복·가치를 검토해 묶거나 버리거나 실행 가능한 Inbox 태스크로 만든다.
+    out_of_scope: 신호만으로 자동 구현·공개 발행·결제·권한 변경을 실행하지 않는다.
+    success_evidence: 신호가 Backlog에 한 번 기록되고, triage 결과와 다음 행동이 남는다.
+    next_action: Genie가 유사 후보를 묶고 불필요한 후보를 거절한 뒤 실행 후보를 선택한다.
+    notification_channel: slack
+    notification_target: channel:C0BR41W31MM
+  inbox: []
   waiting:
   - id: watch-planner-5f612447d241eca5
     title: 두 프로젝트의 고객 문의 채널과 전용 마케팅 지표 원천을 확정·연결한다
@@ -65,6 +55,7 @@ lanes:
     retry_policy: autonomous
     notification_channel: slack
     notification_target: channel:C0BR41W31MM
+  active: []
 backlog_triage:
   cycle_id: backlog-triage-2026-10-26-role-watchers-r10
   source_revision: b23fcb86
@@ -91,7 +82,8 @@ backlog_triage:
     - /home/ubuntu/workspace/projects/minimalmoeum
     - /home/ubuntu/workspace/projects/policycock
     decision: promoted
-    promotion_reason: Space의 ahead/behind 원격 불일치와 Infinity 백로그 제어 코드 변경이라는 구체적 변경면이 확인되어 기존 반복 그룹과 분리
+    promotion_reason: Space의 ahead/behind 원격 불일치와 Infinity 백로그 제어 코드 변경이라는 구체적 변경면이
+      확인되어 기존 반복 그룹과 분리
   - id: watch-developer-39420a15f59df4e9
     watcher_role: developer
     source: role-watcher:developer
@@ -103,7 +95,8 @@ backlog_triage:
     - /home/ubuntu/workspace/projects/minimalmoeum
     - /home/ubuntu/workspace/projects/policycock
     decision: rejected_grouped
-    rejection_reason: 네 저장소에 운영 로그·review 산출물과 생성 데이터만 있고 신규 코드·실패 테스트·기술 부채·원격 불일치·대표 지표 변화가 없어 기존 반복 신호와 동일함
+    rejection_reason: 네 저장소에 운영 로그·review 산출물과 생성 데이터만 있고 신규 코드·실패 테스트·기술 부채·원격 불일치·대표
+      지표 변화가 없어 기존 반복 신호와 동일함
   - id: watch-developer-ef897a5eec57171f
     watcher_role: developer
     source: role-watcher:developer
@@ -115,7 +108,8 @@ backlog_triage:
     - /home/ubuntu/workspace/projects/minimalmoeum
     - /home/ubuntu/workspace/projects/policycock
     decision: rejected_grouped
-    rejection_reason: Infinity의 운영 로그·review 산출물 dirty 상태와 Space의 생성 데이터만 확인되며 신규 코드·실패 테스트·기술 부채·대표 지표 변화가 없음
+    rejection_reason: Infinity의 운영 로그·review 산출물 dirty 상태와 Space의 생성 데이터만 확인되며 신규
+      코드·실패 테스트·기술 부채·대표 지표 변화가 없음
   - id: watch-operator-8a71586377980128
     watcher_role: operator
     source: role-watcher:operator
@@ -124,7 +118,8 @@ backlog_triage:
     evidence_paths:
     - /home/ubuntu/workspace/knowledge-lab/infinity/.watcher-runs/20261026T030001Z/INTENTS.yaml
     decision: rejected
-    rejection_reason: 기존 Planner Waiting snapshot의 반복이며 새 실패·마감 위반·원격 상태 불일치·승인 경계 사건이 없어 운영 조치 근거가 없음
+    rejection_reason: 기존 Planner Waiting snapshot의 반복이며 새 실패·마감 위반·원격 상태 불일치·승인 경계
+      사건이 없어 운영 조치 근거가 없음
   promotion: watch-developer-d26656970fa1e65a
   delegation: developer judgment completed; direct evidence independently verified
   next_action: Inbox 태스크의 Developer 검증으로 병합 순서와 승인 경계를 확정
