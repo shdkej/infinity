@@ -71,6 +71,30 @@ lanes:
     next_action: Genie가 유사 후보를 묶고 불필요한 후보를 거절한 뒤 실행 후보를 선택한다.
     notification_channel: slack
     notification_target: channel:C0BR41W31MM
+  - id: watch-developer-c530e1d6063c07e1
+    title: 저장소 변경·테스트·기술 부채 신호를 개선 태스크로 정리한다
+    task_name: 저장소 변경·테스트·기술 부채 신호를 개선 태스크로 정리한다
+    status: backlog
+    priority: normal
+    task_type: watcher_candidate
+    target_agent: genie
+    watcher_role: developer
+    source: role-watcher:developer
+    signal_type: repository_signal
+    signal: c530e1d6063c07e1
+    evidence_paths:
+    - /home/ubuntu/workspace/knowledge-lab/infinity
+    - /home/ubuntu/workspace/space
+    - /home/ubuntu/workspace/projects/minimalmoeum
+    - /home/ubuntu/workspace/projects/policycock
+    created_at: '2026-10-26T06:30:02Z'
+    user_intent: developer 역할의 새 운영 신호를 사람이 판단 가능한 작업 후보로 만든다.
+    desired_outcome: Genie가 중복·가치를 검토해 묶거나 버리거나 실행 가능한 Inbox 태스크로 만든다.
+    out_of_scope: 신호만으로 자동 구현·공개 발행·결제·권한 변경을 실행하지 않는다.
+    success_evidence: 신호가 Backlog에 한 번 기록되고, triage 결과와 다음 행동이 남는다.
+    next_action: Genie가 유사 후보를 묶고 불필요한 후보를 거절한 뒤 실행 후보를 선택한다.
+    notification_channel: slack
+    notification_target: channel:C0BR41W31MM
   inbox: []
   waiting:
   - id: watch-planner-5f612447d241eca5
