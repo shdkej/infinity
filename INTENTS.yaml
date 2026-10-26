@@ -43,7 +43,9 @@ lanes:
     - watch-developer-f8abcaf03c902949
     dedupe_reason: 같은 역할·목적·변경면의 반복 후보를 최신 근거 한 건으로 통합
     last_deduped_at: '2026-10-26T11:46:29Z'
-    last_observed_at: '2026-10-26T13:30:02Z'
+    last_observed_at: '2026-10-26T13:32:04Z'
+    observation_note: origin/main의 Infinity 카드 가시성·main 배포 경로 관련 코드 변경 3건을 확인했으며 기존 후보의 동일 변경면으로 유지
+    next_action: Infinity UI 변경을 하나의 실행 후보로 구체화하고 카드 정보 표시와 main 배포 경로를 검증한다.
   - id: watch-operator-7572810f93237caf
     title: 실패·대기·마감·원격 상태를 운영 태스크로 정리한다
     task_name: 실패·대기·마감·원격 상태를 운영 태스크로 정리한다
@@ -112,10 +114,10 @@ lanes:
     notification_target: channel:C0BR41W31MM
   active: []
 backlog_triage:
-  cycle_id: backlog-triage-2026-10-26-role-watchers-r23
-  source_revision: 906009c2ef033d671df936ebd6288e6bbde7d360
-  result: rejected_grouped_no_new_promotion
-  checked_at: '2026-10-26T11:30:02Z'
+  cycle_id: backlog-triage-2026-10-26-role-watchers-r24
+  source_revision: 0f20cf688f048f5b310b2ea9f74dc28a45090972
+  result: updated_existing_no_new_promotion
+  checked_at: '2026-10-26T13:32:04Z'
   grouping:
     group_id: repeated-developer-repository-state
     member_ids:
@@ -133,9 +135,9 @@ backlog_triage:
     - /home/ubuntu/workspace/space
     - /home/ubuntu/workspace/projects/minimalmoeum
     - /home/ubuntu/workspace/projects/policycock
-    decision: rejected_grouped
-    rejection_reason: 기존 repeated-developer-repository-state와 동일한 저장소·변경면이며 신규 코드·실패
-      테스트·기술 부채·대표지표 변화가 없음
+    decision: keep_update
+    preservation_reason: origin/main에서 Infinity backlog 카드의 registration_reason·next_action 표시와 main 배포 경로를 실제로 변경했으므로 기존 후보를 유지하고 관찰 근거만 갱신한다. 동일 UI·배포 변경면에 집중되어 별도 후보로 분산하지 않는다.
+    next_action: Infinity UI 변경을 하나의 실행 후보로 구체화하고 카드 정보 표시 및 main 배포 경로를 검증한다.
   - id: watch-operator-7572810f93237caf
     watcher_role: operator
     source: role-watcher:operator
