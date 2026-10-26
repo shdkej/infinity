@@ -12,7 +12,7 @@ lanes:
     watcher_role: developer
     source: role-watcher:developer
     signal_type: repository_signal
-    signal: fa0ffc2d7118c6ca
+    signal: 7e0d6f3111d7da2b
     evidence_paths:
     - /home/ubuntu/workspace/space
     - /home/ubuntu/workspace/projects/minimalmoeum
@@ -43,7 +43,7 @@ lanes:
     - watch-developer-f8abcaf03c902949
     dedupe_reason: 같은 역할·목적·변경면의 반복 후보를 최신 근거 한 건으로 통합
     last_deduped_at: '2026-10-26T11:46:29Z'
-    last_observed_at: '2026-10-26T13:32:04Z'
+    last_observed_at: '2026-10-26T15:00:02Z'
     observation_note: origin/main의 Infinity 카드 가시성·main 배포 경로 관련 코드 변경 3건을 확인했으며 기존
       후보의 동일 변경면으로 유지
   inbox: []
@@ -474,9 +474,11 @@ backlog_triage:
     evidence_paths:
     - /home/ubuntu/workspace/knowledge-lab/infinity/INTENTS.yaml
     decision: rejected_grouped
-    rejection_reason: 이전 invalid 후보 제거로 INTENTS.yaml 자체가 변경된 자기참조성 digest이며, 신규 실패·대기·마감·원격 상태 변화나 대표지표 변화가 없어 Inbox로 승격하지 않음
+    rejection_reason: 이전 invalid 후보 제거로 INTENTS.yaml 자체가 변경된 자기참조성 digest이며, 신규 실패·대기·마감·원격
+      상태 변화나 대표지표 변화가 없어 Inbox로 승격하지 않음
   promotion: null
-  delegation: role-watcher:operator:operations_signal 위임 호출은 not_found로 종료되어 직접 증거를 재확인함
+  delegation: role-watcher:operator:operations_signal 위임 호출은 not_found로 종료되어 직접 증거를
+    재확인함
   next_action: 외부 채널·지표 원천 접근 승인 또는 새 구체 변경·대표지표 변화가 관찰될 때만 재검토
 previous_triage:
   cycle_id: backlog-triage-2026-10-26-role-watchers-r6
