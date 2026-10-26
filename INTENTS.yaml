@@ -531,10 +531,10 @@ lanes:
     notification_target: channel:C0BR41W31MM
   active: []
 backlog_triage:
-  cycle_id: backlog-triage-2026-10-26-role-watchers-r21
-  source_revision: 052dd3c20e26c1981cfb76ba151f85ac59b10352
+  cycle_id: backlog-triage-2026-10-26-role-watchers-r22
+  source_revision: bd6539978339f82b0700ba9244b73c487e0b78e7
   result: rejected_grouped_no_new_promotion
-  checked_at: '2026-10-26T10:30:02Z'
+  checked_at: '2026-10-26T11:00:02Z'
   grouping:
     group_id: repeated-developer-repository-state
     member_ids:
@@ -870,11 +870,30 @@ backlog_triage:
     evidence_paths:
     - /home/ubuntu/workspace/knowledge-lab/infinity/.watcher-runs/20261026T103001Z/INTENTS.yaml
     decision: rejected
-    rejection_reason: 구체적인 실패·대기·마감·원격 상태 변화가 없는 자기참조 snapshot이며 기존 operator 반복 후보와
-      동일해 Inbox로 승격하지 않음
+    rejection_reason: 구체적인 실패·대기·마감·원격 상태 변화가 없는 자기참조 snapshot이며 기존 operator 반복 후보와 동일해 Inbox로 승격하지 않음
+  - id: watch-developer-56ab2db094fa5f97
+    watcher_role: developer
+    source: role-watcher:developer
+    signal: 56ab2db094fa5f97
+    evidence_verified: true
+    evidence_paths:
+    - /home/ubuntu/workspace/knowledge-lab/infinity
+    - /home/ubuntu/workspace/space
+    - /home/ubuntu/workspace/projects/minimalmoeum
+    - /home/ubuntu/workspace/projects/policycock
+    decision: rejected_grouped
+    rejection_reason: 기존 repeated-developer-repository-state와 동일한 저장소·변경면이며 신규 코드·실패 테스트·기술 부채·대표지표 변화가 없음
+  - id: watch-operator-9e4d2f90b683ad4b
+    watcher_role: operator
+    source: role-watcher:operator
+    signal: 9e4d2f90b683ad4b
+    evidence_verified: true
+    evidence_paths:
+    - /home/ubuntu/workspace/knowledge-lab/infinity/.watcher-runs/20261026T110001Z/INTENTS.yaml
+    decision: rejected_grouped
+    rejection_reason: 구체적인 실패·대기·마감·원격 상태 변화가 없는 자기참조 snapshot이며 기존 operator 반복 후보와 동일해 Inbox로 승격하지 않음
   promotion: null
-  delegation: role-developer-1ec2d4f0cdf0e3a9, role-operator-ed1501220538e732 위임 호출은
-    not_found로 종료되어 직접 증거를 재확인함
+  delegation: role-developer-56ab2db094fa5f97, role-operator-9e4d2f90b683ad4b 위임 호출은 not_found로 종료되어 직접 증거를 재확인함
   next_action: 외부 채널·지표 원천 접근 승인 또는 새 구체 변경·대표지표 변화가 관찰될 때만 재검토
 previous_triage:
   cycle_id: backlog-triage-2026-10-26-role-watchers-r6
