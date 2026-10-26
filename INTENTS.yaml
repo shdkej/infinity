@@ -126,8 +126,8 @@ lanes:
     notification_target: channel:C0BR41W31MM
   active: []
 backlog_triage:
-  cycle_id: backlog-triage-2026-10-26-role-watchers-r14
-  source_revision: 8a18ef73
+  cycle_id: backlog-triage-2026-10-26-role-watchers-r15
+  source_revision: 17c406ac
   result: rejected_grouped_no_new_promotion
   checked_at: '2026-10-26T06:30:00Z'
   grouping:
@@ -141,6 +141,7 @@ backlog_triage:
     - watch-developer-645c51f908744fb8
     - watch-developer-8892fe5030880ffd
     - watch-developer-098bbcf7563b4439
+    - watch-developer-c530e1d6063c07e1
     reason: 동일한 저장소 변경·테스트·기술 부채 관찰 목적과 Space/Infinity 변경면을 기존 그룹으로 통합
     preservation_reason: 기존 signal ID와 직전 구체 변경 신호의 판단을 보존하고, 반복 후보의 중복 Inbox 생성을
       방지
@@ -266,8 +267,21 @@ backlog_triage:
     decision: rejected_grouped
     rejection_reason: 기존 반복 그룹과 동일한 저장소·변경면이며 Space의 1 ahead/1 behind와 생성 데이터 외에 신규
       코드·실패 테스트·기술 부채·대표지표 변화가 없어 중복 후보로 통합
+  - id: watch-developer-c530e1d6063c07e1
+    watcher_role: developer
+    source: role-watcher:developer
+    signal: c530e1d6063c07e1
+    evidence_verified: true
+    evidence_paths:
+    - /home/ubuntu/workspace/knowledge-lab/infinity
+    - /home/ubuntu/workspace/space
+    - /home/ubuntu/workspace/projects/minimalmoeum
+    - /home/ubuntu/workspace/projects/policycock
+    decision: rejected_grouped
+    rejection_reason: 기존 반복 그룹과 동일한 저장소·변경면이며 Space의 1 ahead/1 behind와 생성 데이터 외에 신규
+      코드·실패 테스트·기술 부채·대표지표 변화가 없어 중복 후보로 통합
   promotion: watch-developer-d26656970fa1e65a
-  delegation: developer/operator 위임을 시도했으나 회수 불가하여 저장소 상태를 직접 재확인함
+  delegation: developer 위임은 회수 단계에서 not_found로 종료되어 저장소 상태를 직접 재확인함
   next_action: 새 구체 변경 또는 대표지표 변화가 관찰될 때만 다음 후보를 승격
 previous_triage:
   cycle_id: backlog-triage-2026-10-26-role-watchers-r6
