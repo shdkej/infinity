@@ -20,6 +20,7 @@ git -C "$ROOT" fetch origin main --quiet
 git -C "$ROOT" worktree add --detach "$WORKTREE" origin/main >/dev/null
 cd "$WORKTREE"
 python3 scripts/role_watchers.py --apply >"$LOG_DIR/role-watchers-$STAMP.json"
+python3 scripts/dedupe_role_backlog.py --apply >"$LOG_DIR/role-backlog-dedupe-$STAMP.yaml"
 
 if ! git diff --quiet -- INTENTS.yaml data/role-watcher-state.json; then
   git add INTENTS.yaml data/role-watcher-state.json

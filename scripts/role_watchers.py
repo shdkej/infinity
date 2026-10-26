@@ -21,6 +21,7 @@ import yaml
 ROOT = Path(__file__).resolve().parents[1]
 REGISTRY = ROOT / "INTENTS.yaml"
 STATE = ROOT / "data" / "role-watcher-state.json"
+CANONICAL_ROOT = Path("/home/ubuntu/workspace/knowledge-lab/infinity")
 PROJECTS = Path("/home/ubuntu/workspace/projects")
 MARKETING_INBOX = Path("/home/ubuntu/workspace/knowledge-lab/source/openclaw-system/data/agent-inbox/marketing.jsonl")
 ROLE_IDS = ("planner", "developer", "marketing", "design", "operator")
@@ -87,7 +88,10 @@ def signal_for(role: str) -> tuple[str, list[str], str, str, bool]:
         return digest, evidence, "planning_signal", "프로젝트의 막힘·마감·다음 행동을 검증 태스크로 정리한다", bool(signals)
 
     if role == "developer":
-        repos = [Path("/home/ubuntu/workspace/knowledge-lab/infinity"), Path("/home/ubuntu/workspace/space")]
+        # Infinity's own INTENTS/state commits are watcher bookkeeping, not a
+        # developer signal. Exclude that repo so collection cannot trigger
+        # itself on every run.
+        repos = [Path("/home/ubuntu/workspace/space")]
         repos.extend(path for path in PROJECTS.glob("*") if path.is_dir())
         snapshots: list[bytes] = []
         evidence: list[str] = []
@@ -133,7 +137,7 @@ def signal_for(role: str) -> tuple[str, list[str], str, str, bool]:
             lanes = data.get("lanes", {})
             state = {lane: [str(item.get("id")) for item in lanes.get(lane, [])] for lane in ("backlog", "inbox", "active", "waiting")}
             digest = sha_bytes([json.dumps(state, sort_keys=True).encode()])
-            evidence = [str(REGISTRY)]
+            evidence = [str(CANONICAL_ROOT / "INTENTS.yaml")]
             concrete = bool(state.get("active") or state.get("waiting"))
         except (OSError, yaml.YAMLError):
             digest, evidence = "unavailable", [str(REGISTRY)]
@@ -144,7 +148,13 @@ def signal_for(role: str) -> tuple[str, list[str], str, str, bool]:
 
 
 def candidate_id(role: str, digest: str) -> str:
-    return f"watch-{role}-{digest}"
+    # One open candidate per role/purpose. The signal digest belongs in the
+    # record as evidence; it must not become the task identity.
+    return f"watch-{role}-current"
+
+
+def dedupe_key(role: str, kind: str) -> str:
+    return f"role-watcher:{role}:{kind}"
 
 
 def load_state() -> dict[str, Any]:
@@ -176,10 +186,21 @@ def append_candidates(roles: list[str], apply: bool) -> dict[str, Any]:
         if not apply or not changed or not concrete:
             continue
         intent_id = candidate_id(role, digest)
-        if intent_id in existing:
+        key = dedupe_key(role, kind)
+        open_item = next((item for lane in ("backlog", "inbox", "active", "waiting")
+                          for item in lanes.get(lane, []) or []
+                          if isinstance(item, dict) and (
+                              item.get("dedupe_key") == key or
+                              (item.get("watcher_role") == role and item.get("title") == title)
+                          )), None)
+        if open_item:
+            # Refresh evidence on the existing task without opening a repeat.
+            if apply and changed:
+                open_item.update({"signal": digest, "evidence_paths": evidence, "last_observed_at": now})
             continue
         backlog.append({
             "id": intent_id,
+            "dedupe_key": key,
             "title": title,
             "task_name": title,
             "status": "backlog",
@@ -192,11 +213,14 @@ def append_candidates(roles: list[str], apply: bool) -> dict[str, Any]:
             "signal": digest,
             "evidence_paths": evidence,
             "created_at": now,
+            "last_observed_at": now,
             "user_intent": f"{role} 역할의 새 운영 신호를 사람이 판단 가능한 작업 후보로 만든다.",
-            "desired_outcome": "Genie가 중복·가치를 검토해 묶거나 버리거나 실행 가능한 Inbox 태스크로 만든다.",
+            "why_now": "이번 실행에서 이전 관찰과 달라진 구체 신호가 감지되었다.",
+            "desired_outcome": "Genie가 근거를 확인해 중복은 묶고, 가치 있는 후보만 Inbox로 승격한다.",
+            "suggested_checks": ["근거 파일·지표의 실제 변경 확인", "현재 목표·대표 지표와의 연결 확인", "이미 해결된 문제인지 확인"],
             "out_of_scope": "신호만으로 자동 구현·공개 발행·결제·권한 변경을 실행하지 않는다.",
-            "success_evidence": "신호가 Backlog에 한 번 기록되고, triage 결과와 다음 행동이 남는다.",
-            "next_action": "Genie가 유사 후보를 묶고 불필요한 후보를 거절한 뒤 실행 후보를 선택한다.",
+            "success_evidence": "동일 목적 후보가 한 건으로 유지되고, triage 결과와 다음 행동이 남는다.",
+            "next_action": "Genie가 근거를 검증한 뒤 유지·통합·거절·Inbox 승격 중 하나를 기록한다.",
             "notification_channel": "slack",
             "notification_target": "channel:C0BR41W31MM",
         })

@@ -26,6 +26,8 @@ data/traces/{id}.json ← Intent별 intake·execution·archive trace
 scripts/dispatch_terminal_notifications.py ← 원격 `origin/main` terminal 상태를 원 대화에 1회 조정·발송
 scripts/backlog_watcher.py ← PostHog·Grafana read-only 신호를 중복 제거해 Backlog 후보로 기록
 scripts/run_backlog_watcher.sh ← 충돌 없는 worktree에서 와처를 실행하고 변경 시 원격 반영
+scripts/role_watchers.py ← 기획·개발·마케팅·디자인·운영 역할별 변화 신호를 상세 후보로 기록
+scripts/dedupe_role_backlog.py ← 기존 역할 와처 반복 후보를 최신 근거 한 건으로 통합
 docs/dispatcher-implementation.md ← 디스패처 내부 구현·환경변수·검증 명령
 docs/intent-trace-contract.md ← Intent trace 입력·실행·Archive 계약
 docs/infinity-evaluator.md ← Infinity 품질 평가 기준과 실행 지침

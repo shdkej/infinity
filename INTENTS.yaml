@@ -2,504 +2,6 @@ version: 1
 format: infinity-intents-yaml
 lanes:
   backlog:
-  - id: watch-developer-baafaa5de2ae95eb
-    title: 저장소 변경·테스트·기술 부채 신호를 개선 태스크로 정리한다
-    task_name: 저장소 변경·테스트·기술 부채 신호를 개선 태스크로 정리한다
-    status: backlog
-    priority: normal
-    task_type: watcher_candidate
-    target_agent: genie
-    watcher_role: developer
-    source: role-watcher:developer
-    signal_type: repository_signal
-    signal: baafaa5de2ae95eb
-    evidence_paths:
-    - /home/ubuntu/workspace/knowledge-lab/infinity
-    - /home/ubuntu/workspace/space
-    - /home/ubuntu/workspace/projects/minimalmoeum
-    - /home/ubuntu/workspace/projects/policycock
-    created_at: '2026-10-26T04:30:02Z'
-    user_intent: developer 역할의 새 운영 신호를 사람이 판단 가능한 작업 후보로 만든다.
-    desired_outcome: Genie가 중복·가치를 검토해 묶거나 버리거나 실행 가능한 Inbox 태스크로 만든다.
-    out_of_scope: 신호만으로 자동 구현·공개 발행·결제·권한 변경을 실행하지 않는다.
-    success_evidence: 신호가 Backlog에 한 번 기록되고, triage 결과와 다음 행동이 남는다.
-    next_action: Genie가 유사 후보를 묶고 불필요한 후보를 거절한 뒤 실행 후보를 선택한다.
-    notification_channel: slack
-    notification_target: channel:C0BR41W31MM
-  - id: watch-developer-645c51f908744fb8
-    title: 저장소 변경·테스트·기술 부채 신호를 개선 태스크로 정리한다
-    task_name: 저장소 변경·테스트·기술 부채 신호를 개선 태스크로 정리한다
-    status: backlog
-    priority: normal
-    task_type: watcher_candidate
-    target_agent: genie
-    watcher_role: developer
-    source: role-watcher:developer
-    signal_type: repository_signal
-    signal: 645c51f908744fb8
-    evidence_paths:
-    - /home/ubuntu/workspace/knowledge-lab/infinity
-    - /home/ubuntu/workspace/space
-    - /home/ubuntu/workspace/projects/minimalmoeum
-    - /home/ubuntu/workspace/projects/policycock
-    created_at: '2026-10-26T05:00:02Z'
-    user_intent: developer 역할의 새 운영 신호를 사람이 판단 가능한 작업 후보로 만든다.
-    desired_outcome: Genie가 중복·가치를 검토해 묶거나 버리거나 실행 가능한 Inbox 태스크로 만든다.
-    out_of_scope: 신호만으로 자동 구현·공개 발행·결제·권한 변경을 실행하지 않는다.
-    success_evidence: 신호가 Backlog에 한 번 기록되고, triage 결과와 다음 행동이 남는다.
-    next_action: Genie가 유사 후보를 묶고 불필요한 후보를 거절한 뒤 실행 후보를 선택한다.
-    notification_channel: slack
-    notification_target: channel:C0BR41W31MM
-  - id: watch-operator-5e7fff9210f6b9b3
-    title: 실패·대기·마감·원격 상태를 운영 태스크로 정리한다
-    task_name: 실패·대기·마감·원격 상태를 운영 태스크로 정리한다
-    status: backlog
-    priority: normal
-    task_type: watcher_candidate
-    target_agent: genie
-    watcher_role: operator
-    source: role-watcher:operator
-    signal_type: operations_signal
-    signal: 5e7fff9210f6b9b3
-    evidence_paths:
-    - /home/ubuntu/workspace/knowledge-lab/infinity/.watcher-runs/20261026T050001Z/INTENTS.yaml
-    created_at: '2026-10-26T05:00:02Z'
-    user_intent: operator 역할의 새 운영 신호를 사람이 판단 가능한 작업 후보로 만든다.
-    desired_outcome: Genie가 중복·가치를 검토해 묶거나 버리거나 실행 가능한 Inbox 태스크로 만든다.
-    out_of_scope: 신호만으로 자동 구현·공개 발행·결제·권한 변경을 실행하지 않는다.
-    success_evidence: 신호가 Backlog에 한 번 기록되고, triage 결과와 다음 행동이 남는다.
-    next_action: Genie가 유사 후보를 묶고 불필요한 후보를 거절한 뒤 실행 후보를 선택한다.
-    notification_channel: slack
-    notification_target: channel:C0BR41W31MM
-  - id: watch-developer-c530e1d6063c07e1
-    title: 저장소 변경·테스트·기술 부채 신호를 개선 태스크로 정리한다
-    task_name: 저장소 변경·테스트·기술 부채 신호를 개선 태스크로 정리한다
-    status: backlog
-    priority: normal
-    task_type: watcher_candidate
-    target_agent: genie
-    watcher_role: developer
-    source: role-watcher:developer
-    signal_type: repository_signal
-    signal: c530e1d6063c07e1
-    evidence_paths:
-    - /home/ubuntu/workspace/knowledge-lab/infinity
-    - /home/ubuntu/workspace/space
-    - /home/ubuntu/workspace/projects/minimalmoeum
-    - /home/ubuntu/workspace/projects/policycock
-    created_at: '2026-10-26T06:30:02Z'
-    user_intent: developer 역할의 새 운영 신호를 사람이 판단 가능한 작업 후보로 만든다.
-    desired_outcome: Genie가 중복·가치를 검토해 묶거나 버리거나 실행 가능한 Inbox 태스크로 만든다.
-    out_of_scope: 신호만으로 자동 구현·공개 발행·결제·권한 변경을 실행하지 않는다.
-    success_evidence: 신호가 Backlog에 한 번 기록되고, triage 결과와 다음 행동이 남는다.
-    next_action: Genie가 유사 후보를 묶고 불필요한 후보를 거절한 뒤 실행 후보를 선택한다.
-    notification_channel: slack
-    notification_target: channel:C0BR41W31MM
-  - id: watch-developer-34baef99ac9e26a1
-    title: 저장소 변경·테스트·기술 부채 신호를 개선 태스크로 정리한다
-    task_name: 저장소 변경·테스트·기술 부채 신호를 개선 태스크로 정리한다
-    status: backlog
-    priority: normal
-    task_type: watcher_candidate
-    target_agent: genie
-    watcher_role: developer
-    source: role-watcher:developer
-    signal_type: repository_signal
-    signal: 34baef99ac9e26a1
-    evidence_paths:
-    - /home/ubuntu/workspace/knowledge-lab/infinity
-    - /home/ubuntu/workspace/space
-    - /home/ubuntu/workspace/projects/minimalmoeum
-    - /home/ubuntu/workspace/projects/policycock
-    created_at: '2026-10-26T07:00:03Z'
-    user_intent: developer 역할의 새 운영 신호를 사람이 판단 가능한 작업 후보로 만든다.
-    desired_outcome: Genie가 중복·가치를 검토해 묶거나 버리거나 실행 가능한 Inbox 태스크로 만든다.
-    out_of_scope: 신호만으로 자동 구현·공개 발행·결제·권한 변경을 실행하지 않는다.
-    success_evidence: 신호가 Backlog에 한 번 기록되고, triage 결과와 다음 행동이 남는다.
-    next_action: Genie가 유사 후보를 묶고 불필요한 후보를 거절한 뒤 실행 후보를 선택한다.
-    notification_channel: slack
-    notification_target: channel:C0BR41W31MM
-  - id: watch-operator-297a773aef8d6b17
-    title: 실패·대기·마감·원격 상태를 운영 태스크로 정리한다
-    task_name: 실패·대기·마감·원격 상태를 운영 태스크로 정리한다
-    status: backlog
-    priority: normal
-    task_type: watcher_candidate
-    target_agent: genie
-    watcher_role: operator
-    source: role-watcher:operator
-    signal_type: operations_signal
-    signal: 297a773aef8d6b17
-    evidence_paths:
-    - /home/ubuntu/workspace/knowledge-lab/infinity/.watcher-runs/20261026T070001Z/INTENTS.yaml
-    created_at: '2026-10-26T07:00:03Z'
-    user_intent: operator 역할의 새 운영 신호를 사람이 판단 가능한 작업 후보로 만든다.
-    desired_outcome: Genie가 중복·가치를 검토해 묶거나 버리거나 실행 가능한 Inbox 태스크로 만든다.
-    out_of_scope: 신호만으로 자동 구현·공개 발행·결제·권한 변경을 실행하지 않는다.
-    success_evidence: 신호가 Backlog에 한 번 기록되고, triage 결과와 다음 행동이 남는다.
-    next_action: Genie가 유사 후보를 묶고 불필요한 후보를 거절한 뒤 실행 후보를 선택한다.
-    notification_channel: slack
-    notification_target: channel:C0BR41W31MM
-  - id: watch-developer-a609277493ff6310
-    title: 저장소 변경·테스트·기술 부채 신호를 개선 태스크로 정리한다
-    task_name: 저장소 변경·테스트·기술 부채 신호를 개선 태스크로 정리한다
-    status: backlog
-    priority: normal
-    task_type: watcher_candidate
-    target_agent: genie
-    watcher_role: developer
-    source: role-watcher:developer
-    signal_type: repository_signal
-    signal: a609277493ff6310
-    evidence_paths:
-    - /home/ubuntu/workspace/knowledge-lab/infinity
-    - /home/ubuntu/workspace/space
-    - /home/ubuntu/workspace/projects/minimalmoeum
-    - /home/ubuntu/workspace/projects/policycock
-    created_at: '2026-10-26T07:30:02Z'
-    user_intent: developer 역할의 새 운영 신호를 사람이 판단 가능한 작업 후보로 만든다.
-    desired_outcome: Genie가 중복·가치를 검토해 묶거나 버리거나 실행 가능한 Inbox 태스크로 만든다.
-    out_of_scope: 신호만으로 자동 구현·공개 발행·결제·권한 변경을 실행하지 않는다.
-    success_evidence: 신호가 Backlog에 한 번 기록되고, triage 결과와 다음 행동이 남는다.
-    next_action: Genie가 유사 후보를 묶고 불필요한 후보를 거절한 뒤 실행 후보를 선택한다.
-    notification_channel: slack
-    notification_target: channel:C0BR41W31MM
-  - id: watch-operator-84da735a7ffc7aff
-    title: 실패·대기·마감·원격 상태를 운영 태스크로 정리한다
-    task_name: 실패·대기·마감·원격 상태를 운영 태스크로 정리한다
-    status: backlog
-    priority: normal
-    task_type: watcher_candidate
-    target_agent: genie
-    watcher_role: operator
-    source: role-watcher:operator
-    signal_type: operations_signal
-    signal: 84da735a7ffc7aff
-    evidence_paths:
-    - /home/ubuntu/workspace/knowledge-lab/infinity/.watcher-runs/20261026T073001Z/INTENTS.yaml
-    created_at: '2026-10-26T07:30:02Z'
-    user_intent: operator 역할의 새 운영 신호를 사람이 판단 가능한 작업 후보로 만든다.
-    desired_outcome: Genie가 중복·가치를 검토해 묶거나 버리거나 실행 가능한 Inbox 태스크로 만든다.
-    out_of_scope: 신호만으로 자동 구현·공개 발행·결제·권한 변경을 실행하지 않는다.
-    success_evidence: 신호가 Backlog에 한 번 기록되고, triage 결과와 다음 행동이 남는다.
-    next_action: Genie가 유사 후보를 묶고 불필요한 후보를 거절한 뒤 실행 후보를 선택한다.
-    notification_channel: slack
-    notification_target: channel:C0BR41W31MM
-  - id: watch-developer-a04d61992b68489e
-    title: 저장소 변경·테스트·기술 부채 신호를 개선 태스크로 정리한다
-    task_name: 저장소 변경·테스트·기술 부채 신호를 개선 태스크로 정리한다
-    status: backlog
-    priority: normal
-    task_type: watcher_candidate
-    target_agent: genie
-    watcher_role: developer
-    source: role-watcher:developer
-    signal_type: repository_signal
-    signal: a04d61992b68489e
-    evidence_paths:
-    - /home/ubuntu/workspace/knowledge-lab/infinity
-    - /home/ubuntu/workspace/space
-    - /home/ubuntu/workspace/projects/minimalmoeum
-    - /home/ubuntu/workspace/projects/policycock
-    created_at: '2026-10-26T08:00:02Z'
-    user_intent: developer 역할의 새 운영 신호를 사람이 판단 가능한 작업 후보로 만든다.
-    desired_outcome: Genie가 중복·가치를 검토해 묶거나 버리거나 실행 가능한 Inbox 태스크로 만든다.
-    out_of_scope: 신호만으로 자동 구현·공개 발행·결제·권한 변경을 실행하지 않는다.
-    success_evidence: 신호가 Backlog에 한 번 기록되고, triage 결과와 다음 행동이 남는다.
-    next_action: Genie가 유사 후보를 묶고 불필요한 후보를 거절한 뒤 실행 후보를 선택한다.
-    notification_channel: slack
-    notification_target: channel:C0BR41W31MM
-  - id: watch-operator-a828bcc981dd3016
-    title: 실패·대기·마감·원격 상태를 운영 태스크로 정리한다
-    task_name: 실패·대기·마감·원격 상태를 운영 태스크로 정리한다
-    status: backlog
-    priority: normal
-    task_type: watcher_candidate
-    target_agent: genie
-    watcher_role: operator
-    source: role-watcher:operator
-    signal_type: operations_signal
-    signal: a828bcc981dd3016
-    evidence_paths:
-    - /home/ubuntu/workspace/knowledge-lab/infinity/.watcher-runs/20261026T080001Z/INTENTS.yaml
-    created_at: '2026-10-26T08:00:02Z'
-    user_intent: operator 역할의 새 운영 신호를 사람이 판단 가능한 작업 후보로 만든다.
-    desired_outcome: Genie가 중복·가치를 검토해 묶거나 버리거나 실행 가능한 Inbox 태스크로 만든다.
-    out_of_scope: 신호만으로 자동 구현·공개 발행·결제·권한 변경을 실행하지 않는다.
-    success_evidence: 신호가 Backlog에 한 번 기록되고, triage 결과와 다음 행동이 남는다.
-    next_action: Genie가 유사 후보를 묶고 불필요한 후보를 거절한 뒤 실행 후보를 선택한다.
-    notification_channel: slack
-    notification_target: channel:C0BR41W31MM
-  - id: watch-developer-f8abcaf03c902949
-    title: 저장소 변경·테스트·기술 부채 신호를 개선 태스크로 정리한다
-    task_name: 저장소 변경·테스트·기술 부채 신호를 개선 태스크로 정리한다
-    status: backlog
-    priority: normal
-    task_type: watcher_candidate
-    target_agent: genie
-    watcher_role: developer
-    source: role-watcher:developer
-    signal_type: repository_signal
-    signal: f8abcaf03c902949
-    evidence_paths:
-    - /home/ubuntu/workspace/knowledge-lab/infinity
-    - /home/ubuntu/workspace/space
-    - /home/ubuntu/workspace/projects/minimalmoeum
-    - /home/ubuntu/workspace/projects/policycock
-    created_at: '2026-10-26T08:30:02Z'
-    user_intent: developer 역할의 새 운영 신호를 사람이 판단 가능한 작업 후보로 만든다.
-    desired_outcome: Genie가 중복·가치를 검토해 묶거나 버리거나 실행 가능한 Inbox 태스크로 만든다.
-    out_of_scope: 신호만으로 자동 구현·공개 발행·결제·권한 변경을 실행하지 않는다.
-    success_evidence: 신호가 Backlog에 한 번 기록되고, triage 결과와 다음 행동이 남는다.
-    next_action: Genie가 유사 후보를 묶고 불필요한 후보를 거절한 뒤 실행 후보를 선택한다.
-    notification_channel: slack
-    notification_target: channel:C0BR41W31MM
-  - id: watch-operator-c1502eab90dffe16
-    title: 실패·대기·마감·원격 상태를 운영 태스크로 정리한다
-    task_name: 실패·대기·마감·원격 상태를 운영 태스크로 정리한다
-    status: backlog
-    priority: normal
-    task_type: watcher_candidate
-    target_agent: genie
-    watcher_role: operator
-    source: role-watcher:operator
-    signal_type: operations_signal
-    signal: c1502eab90dffe16
-    evidence_paths:
-    - /home/ubuntu/workspace/knowledge-lab/infinity/.watcher-runs/20261026T083001Z/INTENTS.yaml
-    created_at: '2026-10-26T08:30:02Z'
-    user_intent: operator 역할의 새 운영 신호를 사람이 판단 가능한 작업 후보로 만든다.
-    desired_outcome: Genie가 중복·가치를 검토해 묶거나 버리거나 실행 가능한 Inbox 태스크로 만든다.
-    out_of_scope: 신호만으로 자동 구현·공개 발행·결제·권한 변경을 실행하지 않는다.
-    success_evidence: 신호가 Backlog에 한 번 기록되고, triage 결과와 다음 행동이 남는다.
-    next_action: Genie가 유사 후보를 묶고 불필요한 후보를 거절한 뒤 실행 후보를 선택한다.
-    notification_channel: slack
-    notification_target: channel:C0BR41W31MM
-  - id: watch-developer-c9748663463b7446
-    title: 저장소 변경·테스트·기술 부채 신호를 개선 태스크로 정리한다
-    task_name: 저장소 변경·테스트·기술 부채 신호를 개선 태스크로 정리한다
-    status: backlog
-    priority: normal
-    task_type: watcher_candidate
-    target_agent: genie
-    watcher_role: developer
-    source: role-watcher:developer
-    signal_type: repository_signal
-    signal: c9748663463b7446
-    evidence_paths:
-    - /home/ubuntu/workspace/knowledge-lab/infinity
-    - /home/ubuntu/workspace/space
-    - /home/ubuntu/workspace/projects/minimalmoeum
-    - /home/ubuntu/workspace/projects/policycock
-    created_at: '2026-10-26T09:00:02Z'
-    user_intent: developer 역할의 새 운영 신호를 사람이 판단 가능한 작업 후보로 만든다.
-    desired_outcome: Genie가 중복·가치를 검토해 묶거나 버리거나 실행 가능한 Inbox 태스크로 만든다.
-    out_of_scope: 신호만으로 자동 구현·공개 발행·결제·권한 변경을 실행하지 않는다.
-    success_evidence: 신호가 Backlog에 한 번 기록되고, triage 결과와 다음 행동이 남는다.
-    next_action: Genie가 유사 후보를 묶고 불필요한 후보를 거절한 뒤 실행 후보를 선택한다.
-    notification_channel: slack
-    notification_target: channel:C0BR41W31MM
-  - id: watch-operator-e12042e8eedd1dfb
-    title: 실패·대기·마감·원격 상태를 운영 태스크로 정리한다
-    task_name: 실패·대기·마감·원격 상태를 운영 태스크로 정리한다
-    status: backlog
-    priority: normal
-    task_type: watcher_candidate
-    target_agent: genie
-    watcher_role: operator
-    source: role-watcher:operator
-    signal_type: operations_signal
-    signal: e12042e8eedd1dfb
-    evidence_paths:
-    - /home/ubuntu/workspace/knowledge-lab/infinity/.watcher-runs/20261026T090001Z/INTENTS.yaml
-    created_at: '2026-10-26T09:00:02Z'
-    user_intent: operator 역할의 새 운영 신호를 사람이 판단 가능한 작업 후보로 만든다.
-    desired_outcome: Genie가 중복·가치를 검토해 묶거나 버리거나 실행 가능한 Inbox 태스크로 만든다.
-    out_of_scope: 신호만으로 자동 구현·공개 발행·결제·권한 변경을 실행하지 않는다.
-    success_evidence: 신호가 Backlog에 한 번 기록되고, triage 결과와 다음 행동이 남는다.
-    next_action: Genie가 유사 후보를 묶고 불필요한 후보를 거절한 뒤 실행 후보를 선택한다.
-    notification_channel: slack
-    notification_target: channel:C0BR41W31MM
-  - id: watch-developer-68af20a464c443a8
-    title: 저장소 변경·테스트·기술 부채 신호를 개선 태스크로 정리한다
-    task_name: 저장소 변경·테스트·기술 부채 신호를 개선 태스크로 정리한다
-    status: backlog
-    priority: normal
-    task_type: watcher_candidate
-    target_agent: genie
-    watcher_role: developer
-    source: role-watcher:developer
-    signal_type: repository_signal
-    signal: 68af20a464c443a8
-    evidence_paths:
-    - /home/ubuntu/workspace/knowledge-lab/infinity
-    - /home/ubuntu/workspace/space
-    - /home/ubuntu/workspace/projects/minimalmoeum
-    - /home/ubuntu/workspace/projects/policycock
-    created_at: '2026-10-26T09:30:02Z'
-    user_intent: developer 역할의 새 운영 신호를 사람이 판단 가능한 작업 후보로 만든다.
-    desired_outcome: Genie가 중복·가치를 검토해 묶거나 버리거나 실행 가능한 Inbox 태스크로 만든다.
-    out_of_scope: 신호만으로 자동 구현·공개 발행·결제·권한 변경을 실행하지 않는다.
-    success_evidence: 신호가 Backlog에 한 번 기록되고, triage 결과와 다음 행동이 남는다.
-    next_action: Genie가 유사 후보를 묶고 불필요한 후보를 거절한 뒤 실행 후보를 선택한다.
-    notification_channel: slack
-    notification_target: channel:C0BR41W31MM
-  - id: watch-operator-1d0cab66a0227c33
-    title: 실패·대기·마감·원격 상태를 운영 태스크로 정리한다
-    task_name: 실패·대기·마감·원격 상태를 운영 태스크로 정리한다
-    status: backlog
-    priority: normal
-    task_type: watcher_candidate
-    target_agent: genie
-    watcher_role: operator
-    source: role-watcher:operator
-    signal_type: operations_signal
-    signal: 1d0cab66a0227c33
-    evidence_paths:
-    - /home/ubuntu/workspace/knowledge-lab/infinity/.watcher-runs/20261026T093001Z/INTENTS.yaml
-    created_at: '2026-10-26T09:30:02Z'
-    user_intent: operator 역할의 새 운영 신호를 사람이 판단 가능한 작업 후보로 만든다.
-    desired_outcome: Genie가 중복·가치를 검토해 묶거나 버리거나 실행 가능한 Inbox 태스크로 만든다.
-    out_of_scope: 신호만으로 자동 구현·공개 발행·결제·권한 변경을 실행하지 않는다.
-    success_evidence: 신호가 Backlog에 한 번 기록되고, triage 결과와 다음 행동이 남는다.
-    next_action: Genie가 유사 후보를 묶고 불필요한 후보를 거절한 뒤 실행 후보를 선택한다.
-    notification_channel: slack
-    notification_target: channel:C0BR41W31MM
-  - id: watch-developer-27499b9463bebcca
-    title: 저장소 변경·테스트·기술 부채 신호를 개선 태스크로 정리한다
-    task_name: 저장소 변경·테스트·기술 부채 신호를 개선 태스크로 정리한다
-    status: backlog
-    priority: normal
-    task_type: watcher_candidate
-    target_agent: genie
-    watcher_role: developer
-    source: role-watcher:developer
-    signal_type: repository_signal
-    signal: 27499b9463bebcca
-    evidence_paths:
-    - /home/ubuntu/workspace/knowledge-lab/infinity
-    - /home/ubuntu/workspace/space
-    - /home/ubuntu/workspace/projects/minimalmoeum
-    - /home/ubuntu/workspace/projects/policycock
-    created_at: '2026-10-26T10:00:02Z'
-    user_intent: developer 역할의 새 운영 신호를 사람이 판단 가능한 작업 후보로 만든다.
-    desired_outcome: Genie가 중복·가치를 검토해 묶거나 버리거나 실행 가능한 Inbox 태스크로 만든다.
-    out_of_scope: 신호만으로 자동 구현·공개 발행·결제·권한 변경을 실행하지 않는다.
-    success_evidence: 신호가 Backlog에 한 번 기록되고, triage 결과와 다음 행동이 남는다.
-    next_action: Genie가 유사 후보를 묶고 불필요한 후보를 거절한 뒤 실행 후보를 선택한다.
-    notification_channel: slack
-    notification_target: channel:C0BR41W31MM
-  - id: watch-operator-0bbc1972ed1241dc
-    title: 실패·대기·마감·원격 상태를 운영 태스크로 정리한다
-    task_name: 실패·대기·마감·원격 상태를 운영 태스크로 정리한다
-    status: backlog
-    priority: normal
-    task_type: watcher_candidate
-    target_agent: genie
-    watcher_role: operator
-    source: role-watcher:operator
-    signal_type: operations_signal
-    signal: 0bbc1972ed1241dc
-    evidence_paths:
-    - /home/ubuntu/workspace/knowledge-lab/infinity/.watcher-runs/20261026T100001Z/INTENTS.yaml
-    created_at: '2026-10-26T10:00:02Z'
-    user_intent: operator 역할의 새 운영 신호를 사람이 판단 가능한 작업 후보로 만든다.
-    desired_outcome: Genie가 중복·가치를 검토해 묶거나 버리거나 실행 가능한 Inbox 태스크로 만든다.
-    out_of_scope: 신호만으로 자동 구현·공개 발행·결제·권한 변경을 실행하지 않는다.
-    success_evidence: 신호가 Backlog에 한 번 기록되고, triage 결과와 다음 행동이 남는다.
-    next_action: Genie가 유사 후보를 묶고 불필요한 후보를 거절한 뒤 실행 후보를 선택한다.
-    notification_channel: slack
-    notification_target: channel:C0BR41W31MM
-  - id: watch-developer-1ec2d4f0cdf0e3a9
-    title: 저장소 변경·테스트·기술 부채 신호를 개선 태스크로 정리한다
-    task_name: 저장소 변경·테스트·기술 부채 신호를 개선 태스크로 정리한다
-    status: backlog
-    priority: normal
-    task_type: watcher_candidate
-    target_agent: genie
-    watcher_role: developer
-    source: role-watcher:developer
-    signal_type: repository_signal
-    signal: 1ec2d4f0cdf0e3a9
-    evidence_paths:
-    - /home/ubuntu/workspace/knowledge-lab/infinity
-    - /home/ubuntu/workspace/space
-    - /home/ubuntu/workspace/projects/minimalmoeum
-    - /home/ubuntu/workspace/projects/policycock
-    created_at: '2026-10-26T10:30:02Z'
-    user_intent: developer 역할의 새 운영 신호를 사람이 판단 가능한 작업 후보로 만든다.
-    desired_outcome: Genie가 중복·가치를 검토해 묶거나 버리거나 실행 가능한 Inbox 태스크로 만든다.
-    out_of_scope: 신호만으로 자동 구현·공개 발행·결제·권한 변경을 실행하지 않는다.
-    success_evidence: 신호가 Backlog에 한 번 기록되고, triage 결과와 다음 행동이 남는다.
-    next_action: Genie가 유사 후보를 묶고 불필요한 후보를 거절한 뒤 실행 후보를 선택한다.
-    notification_channel: slack
-    notification_target: channel:C0BR41W31MM
-  - id: watch-operator-ed1501220538e732
-    title: 실패·대기·마감·원격 상태를 운영 태스크로 정리한다
-    task_name: 실패·대기·마감·원격 상태를 운영 태스크로 정리한다
-    status: backlog
-    priority: normal
-    task_type: watcher_candidate
-    target_agent: genie
-    watcher_role: operator
-    source: role-watcher:operator
-    signal_type: operations_signal
-    signal: ed1501220538e732
-    evidence_paths:
-    - /home/ubuntu/workspace/knowledge-lab/infinity/.watcher-runs/20261026T103001Z/INTENTS.yaml
-    created_at: '2026-10-26T10:30:02Z'
-    user_intent: operator 역할의 새 운영 신호를 사람이 판단 가능한 작업 후보로 만든다.
-    desired_outcome: Genie가 중복·가치를 검토해 묶거나 버리거나 실행 가능한 Inbox 태스크로 만든다.
-    out_of_scope: 신호만으로 자동 구현·공개 발행·결제·권한 변경을 실행하지 않는다.
-    success_evidence: 신호가 Backlog에 한 번 기록되고, triage 결과와 다음 행동이 남는다.
-    next_action: Genie가 유사 후보를 묶고 불필요한 후보를 거절한 뒤 실행 후보를 선택한다.
-    notification_channel: slack
-    notification_target: channel:C0BR41W31MM
-  - id: watch-developer-56ab2db094fa5f97
-    title: 저장소 변경·테스트·기술 부채 신호를 개선 태스크로 정리한다
-    task_name: 저장소 변경·테스트·기술 부채 신호를 개선 태스크로 정리한다
-    status: backlog
-    priority: normal
-    task_type: watcher_candidate
-    target_agent: genie
-    watcher_role: developer
-    source: role-watcher:developer
-    signal_type: repository_signal
-    signal: 56ab2db094fa5f97
-    evidence_paths:
-    - /home/ubuntu/workspace/knowledge-lab/infinity
-    - /home/ubuntu/workspace/space
-    - /home/ubuntu/workspace/projects/minimalmoeum
-    - /home/ubuntu/workspace/projects/policycock
-    created_at: '2026-10-26T11:00:02Z'
-    user_intent: developer 역할의 새 운영 신호를 사람이 판단 가능한 작업 후보로 만든다.
-    desired_outcome: Genie가 중복·가치를 검토해 묶거나 버리거나 실행 가능한 Inbox 태스크로 만든다.
-    out_of_scope: 신호만으로 자동 구현·공개 발행·결제·권한 변경을 실행하지 않는다.
-    success_evidence: 신호가 Backlog에 한 번 기록되고, triage 결과와 다음 행동이 남는다.
-    next_action: Genie가 유사 후보를 묶고 불필요한 후보를 거절한 뒤 실행 후보를 선택한다.
-    notification_channel: slack
-    notification_target: channel:C0BR41W31MM
-  - id: watch-operator-9e4d2f90b683ad4b
-    title: 실패·대기·마감·원격 상태를 운영 태스크로 정리한다
-    task_name: 실패·대기·마감·원격 상태를 운영 태스크로 정리한다
-    status: backlog
-    priority: normal
-    task_type: watcher_candidate
-    target_agent: genie
-    watcher_role: operator
-    source: role-watcher:operator
-    signal_type: operations_signal
-    signal: 9e4d2f90b683ad4b
-    evidence_paths:
-    - /home/ubuntu/workspace/knowledge-lab/infinity/.watcher-runs/20261026T110001Z/INTENTS.yaml
-    created_at: '2026-10-26T11:00:02Z'
-    user_intent: operator 역할의 새 운영 신호를 사람이 판단 가능한 작업 후보로 만든다.
-    desired_outcome: Genie가 중복·가치를 검토해 묶거나 버리거나 실행 가능한 Inbox 태스크로 만든다.
-    out_of_scope: 신호만으로 자동 구현·공개 발행·결제·권한 변경을 실행하지 않는다.
-    success_evidence: 신호가 Backlog에 한 번 기록되고, triage 결과와 다음 행동이 남는다.
-    next_action: Genie가 유사 후보를 묶고 불필요한 후보를 거절한 뒤 실행 후보를 선택한다.
-    notification_channel: slack
-    notification_target: channel:C0BR41W31MM
   - id: watch-developer-686a25159dde5ec9
     title: 저장소 변경·테스트·기술 부채 신호를 개선 태스크로 정리한다
     task_name: 저장소 변경·테스트·기술 부채 신호를 개선 태스크로 정리한다
@@ -524,6 +26,22 @@ lanes:
     next_action: Genie가 유사 후보를 묶고 불필요한 후보를 거절한 뒤 실행 후보를 선택한다.
     notification_channel: slack
     notification_target: channel:C0BR41W31MM
+    dedupe_key: role-watcher:developer:repository_signal
+    merged_from:
+    - watch-developer-1ec2d4f0cdf0e3a9
+    - watch-developer-27499b9463bebcca
+    - watch-developer-34baef99ac9e26a1
+    - watch-developer-56ab2db094fa5f97
+    - watch-developer-645c51f908744fb8
+    - watch-developer-68af20a464c443a8
+    - watch-developer-a04d61992b68489e
+    - watch-developer-a609277493ff6310
+    - watch-developer-baafaa5de2ae95eb
+    - watch-developer-c530e1d6063c07e1
+    - watch-developer-c9748663463b7446
+    - watch-developer-f8abcaf03c902949
+    dedupe_reason: 같은 역할·목적·변경면의 반복 후보를 최신 근거 한 건으로 통합
+    last_deduped_at: '2026-10-26T11:46:29Z'
   - id: watch-operator-7572810f93237caf
     title: 실패·대기·마감·원격 상태를 운영 태스크로 정리한다
     task_name: 실패·대기·마감·원격 상태를 운영 태스크로 정리한다
@@ -545,6 +63,20 @@ lanes:
     next_action: Genie가 유사 후보를 묶고 불필요한 후보를 거절한 뒤 실행 후보를 선택한다.
     notification_channel: slack
     notification_target: channel:C0BR41W31MM
+    dedupe_key: role-watcher:operator:operations_signal
+    merged_from:
+    - watch-operator-0bbc1972ed1241dc
+    - watch-operator-1d0cab66a0227c33
+    - watch-operator-297a773aef8d6b17
+    - watch-operator-5e7fff9210f6b9b3
+    - watch-operator-84da735a7ffc7aff
+    - watch-operator-9e4d2f90b683ad4b
+    - watch-operator-a828bcc981dd3016
+    - watch-operator-c1502eab90dffe16
+    - watch-operator-e12042e8eedd1dfb
+    - watch-operator-ed1501220538e732
+    dedupe_reason: 같은 역할·목적·변경면의 반복 후보를 최신 근거 한 건으로 통합
+    last_deduped_at: '2026-10-26T11:46:29Z'
   inbox: []
   waiting:
   - id: watch-planner-5f612447d241eca5
@@ -598,7 +130,8 @@ backlog_triage:
     - /home/ubuntu/workspace/projects/minimalmoeum
     - /home/ubuntu/workspace/projects/policycock
     decision: rejected_grouped
-    rejection_reason: 기존 repeated-developer-repository-state와 동일한 저장소·변경면이며 신규 코드·실패 테스트·기술 부채·대표지표 변화가 없음
+    rejection_reason: 기존 repeated-developer-repository-state와 동일한 저장소·변경면이며 신규 코드·실패
+      테스트·기술 부채·대표지표 변화가 없음
   - id: watch-operator-7572810f93237caf
     watcher_role: operator
     source: role-watcher:operator
@@ -607,7 +140,8 @@ backlog_triage:
     evidence_paths:
     - /home/ubuntu/workspace/knowledge-lab/infinity/.watcher-runs/20261026T113001Z/INTENTS.yaml
     decision: rejected_grouped
-    rejection_reason: 구체적인 실패·대기·마감·원격 상태 변화가 없는 자기참조 snapshot이며 기존 operator 반복 후보와 동일해 Inbox로 승격하지 않음
+    rejection_reason: 구체적인 실패·대기·마감·원격 상태 변화가 없는 자기참조 snapshot이며 기존 operator 반복 후보와
+      동일해 Inbox로 승격하지 않음
   - id: watch-developer-d26656970fa1e65a
     watcher_role: developer
     source: role-watcher:developer

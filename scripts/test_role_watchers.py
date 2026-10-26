@@ -15,7 +15,7 @@ class RoleWatcherTests(unittest.TestCase):
     def test_candidate_id_is_stable(self):
         self.assertEqual(
             role_watchers.candidate_id("planner", "abc123"),
-            "watch-planner-abc123",
+            "watch-planner-current",
         )
 
     def test_same_digest_is_not_added_twice(self):
@@ -28,7 +28,7 @@ class RoleWatcherTests(unittest.TestCase):
             with patch.object(role_watchers, "REGISTRY", registry), patch.object(role_watchers, "STATE", state), patch.object(role_watchers, "signal_for", return_value=signal):
                 first = role_watchers.append_candidates(["planner"], apply=True)
                 second = role_watchers.append_candidates(["planner"], apply=True)
-            self.assertEqual(first["added"], ["watch-planner-digest-1"])
+            self.assertEqual(first["added"], ["watch-planner-current"])
             self.assertEqual(second["added"], [])
 
     def test_non_concrete_change_is_observed_but_not_added(self):
