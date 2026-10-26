@@ -261,10 +261,10 @@ lanes:
     notification_target: channel:C0BR41W31MM
   active: []
 backlog_triage:
-  cycle_id: backlog-triage-2026-10-26-role-watchers-r17
+  cycle_id: backlog-triage-2026-10-26-role-watchers-r18
   source_revision: 67307137
   result: rejected_grouped_no_new_promotion
-  checked_at: '2026-10-26T07:30:02Z'
+  checked_at: '2026-10-26T08:00:02Z'
   grouping:
     group_id: repeated-developer-repository-state
     member_ids:
@@ -463,8 +463,33 @@ backlog_triage:
     decision: rejected
     rejection_reason: 기존 Planner Waiting snapshot의 반복이며 새 실패·마감 위반·원격 상태 불일치·승인 경계
       사건이 없어 운영 조치 근거가 없음
+  - id: watch-developer-a04d61992b68489e
+    watcher_role: developer
+    source: role-watcher:developer
+    signal: a04d61992b68489e
+    evidence_verified: true
+    evidence_paths:
+    - /home/ubuntu/workspace/knowledge-lab/infinity
+    - /home/ubuntu/workspace/space
+    - /home/ubuntu/workspace/projects/minimalmoeum
+    - /home/ubuntu/workspace/projects/policycock
+    decision: rejected_grouped
+    rejection_reason: 기존 repeated-developer-repository-state 그룹과 동일한 저장소·변경면이며 Infinity 운영 로그와
+      review 산출물, Space의 1 ahead/1 behind 및 생성 데이터 외에 신규 코드·실패 테스트·기술 부채·대표지표 변화가 없어
+      중복 후보로 통합
+  - id: watch-operator-a828bcc981dd3016
+    watcher_role: operator
+    source: role-watcher:operator
+    signal: a828bcc981dd3016
+    evidence_verified: true
+    evidence_paths:
+    - /home/ubuntu/workspace/knowledge-lab/infinity/.watcher-runs/20261026T080001Z/INTENTS.yaml
+    decision: rejected
+    rejection_reason: 기존 Planner Waiting snapshot의 반복이며 새 실패·마감 위반·원격 상태 불일치·승인 경계 사건·대표지표
+      변화가 없어 운영 조치 근거가 없음
   promotion: watch-developer-d26656970fa1e65a
-  delegation: developer/operator 위임은 회수 단계에서 not_found로 종료되어 저장소 상태를 직접 재확인함
+  delegation: role-developer-a04d61992b68489e1 및 role-operator-a828bcc981dd3016 위임은 회수 단계에서 not_found로
+    종료되어 저장소와 원격 와처 근거를 직접 재확인함
   next_action: 새 구체 변경 또는 대표지표 변화가 관찰될 때만 다음 후보를 승격
 previous_triage:
   cycle_id: backlog-triage-2026-10-26-role-watchers-r6
