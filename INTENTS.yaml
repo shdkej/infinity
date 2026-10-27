@@ -1,51 +1,7 @@
 version: 1
 format: infinity-intents-yaml
 lanes:
-  backlog:
-  - id: watch-developer-686a25159dde5ec9
-    title: 저장소 변경·테스트·기술 부채 신호를 개선 태스크로 정리한다
-    task_name: 저장소 변경·테스트·기술 부채 신호를 개선 태스크로 정리한다
-    status: backlog
-    priority: normal
-    task_type: watcher_candidate
-    target_agent: genie
-    watcher_role: developer
-    source: role-watcher:developer
-    signal_type: repository_signal
-    signal: 19f958c621558a14
-    evidence_paths:
-    - /home/ubuntu/workspace/space
-    - /home/ubuntu/workspace/projects/minimalmoeum
-    - /home/ubuntu/workspace/projects/policycock
-    created_at: '2026-10-26T11:30:02Z'
-    registration_reason: developer 와처가 이전 관찰 이후 달라진 저장소 변경·테스트·기술 부채 신호를 감지해 사람이 검토할
-      후보로 등록했다.
-    user_intent: developer 역할의 새 운영 신호를 사람이 판단 가능한 작업 후보로 만든다.
-    desired_outcome: Genie가 중복·가치를 검토해 묶거나 버리거나 실행 가능한 Inbox 태스크로 만든다.
-    out_of_scope: 신호만으로 자동 구현·공개 발행·결제·권한 변경을 실행하지 않는다.
-    success_evidence: 신호가 Backlog에 한 번 기록되고, triage 결과와 다음 행동이 남는다.
-    next_action: Infinity UI 변경을 하나의 실행 후보로 구체화하고 카드 정보 표시와 main 배포 경로를 검증한다.
-    notification_channel: slack
-    notification_target: channel:C0BR41W31MM
-    dedupe_key: role-watcher:developer:repository_signal
-    merged_from:
-    - watch-developer-1ec2d4f0cdf0e3a9
-    - watch-developer-27499b9463bebcca
-    - watch-developer-34baef99ac9e26a1
-    - watch-developer-56ab2db094fa5f97
-    - watch-developer-645c51f908744fb8
-    - watch-developer-68af20a464c443a8
-    - watch-developer-a04d61992b68489e
-    - watch-developer-a609277493ff6310
-    - watch-developer-baafaa5de2ae95eb
-    - watch-developer-c530e1d6063c07e1
-    - watch-developer-c9748663463b7446
-    - watch-developer-f8abcaf03c902949
-    dedupe_reason: 같은 역할·목적·변경면의 반복 후보를 최신 근거 한 건으로 통합
-    last_deduped_at: '2026-10-26T11:46:29Z'
-    last_observed_at: '2026-10-27T15:00:03Z'
-    observation_note: origin/main의 Infinity 카드 가시성·main 배포 경로 관련 코드 변경 3건을 확인했으며 기존
-      후보의 동일 변경면으로 유지
+  backlog: []
   inbox: []
   waiting:
   - id: watch-planner-5f612447d241eca5
@@ -77,10 +33,10 @@ lanes:
     notification_target: channel:C0BR41W31MM
   active: []
 backlog_triage:
-  cycle_id: backlog-triage-2026-10-26-role-watchers-r26
-  source_revision: d052bd2ed30560b5ebb9dda4e219f7d5d85f8325
-  result: rejected_self_reference_no_new_promotion
-  checked_at: '2026-10-26T14:30:02Z'
+  cycle_id: backlog-triage-2026-10-27-role-watchers-r27
+  source_revision: 1721e7086665025cdb0d0c286f1c1b75c462a172
+  result: rejected_grouped_no_new_promotion
+  checked_at: '2026-10-27T15:00:03Z'
   grouping:
     group_id: repeated-developer-repository-state
     member_ids:
@@ -476,6 +432,18 @@ backlog_triage:
     decision: rejected_grouped
     rejection_reason: 이전 invalid 후보 제거로 INTENTS.yaml 자체가 변경된 자기참조성 digest이며, 신규 실패·대기·마감·원격
       상태 변화나 대표지표 변화가 없어 Inbox로 승격하지 않음
+  - id: watch-developer-686a25159dde5ec9
+    watcher_role: developer
+    source: role-watcher:developer
+    signal: 19f958c621558a14
+    evidence_verified: true
+    evidence_paths:
+    - /home/ubuntu/workspace/space
+    - /home/ubuntu/workspace/space/infra-aws-static-sites/sites/status/dist/content-live.json
+    - /home/ubuntu/workspace/projects/minimalmoeum
+    - /home/ubuntu/workspace/projects/policycock
+    decision: rejected_grouped
+    rejection_reason: Space의 미추적 Apify 생성 JSON 1건으로 digest가 바뀌었을 뿐 신규 코드·실패 테스트·기술부채·원격 불일치·대표지표 변화가 없어 기존 반복 그룹과 동일하므로 Inbox로 승격하지 않음
   promotion: null
   delegation: role-watcher:operator:operations_signal 위임 호출은 not_found로 종료되어 직접 증거를
     재확인함
