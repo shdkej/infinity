@@ -443,7 +443,8 @@ backlog_triage:
     - /home/ubuntu/workspace/projects/minimalmoeum
     - /home/ubuntu/workspace/projects/policycock
     decision: rejected_grouped
-    rejection_reason: Space의 미추적 Apify 생성 JSON 1건으로 digest가 바뀌었을 뿐 신규 코드·실패 테스트·기술부채·원격 불일치·대표지표 변화가 없어 기존 반복 그룹과 동일하므로 Inbox로 승격하지 않음
+    rejection_reason: Space의 미추적 Apify 생성 JSON 1건으로 digest가 바뀌었을 뿐 신규 코드·실패 테스트·기술부채·원격
+      불일치·대표지표 변화가 없어 기존 반복 그룹과 동일하므로 Inbox로 승격하지 않음
   - id: watch-operator-current
     watcher_role: operator
     source: role-watcher:operator
@@ -453,7 +454,9 @@ backlog_triage:
     - /home/ubuntu/workspace/knowledge-lab/infinity/INTENTS.yaml
     - /home/ubuntu/workspace/knowledge-lab/infinity/.watcher-runs/20261027T153001Z/INTENTS.yaml
     decision: rejected_grouped
-    rejection_reason: 최신 원격 원장의 후보와 watcher snapshot은 자기참조 INTENTS.yaml만 근거로 하며, 이전과 동일한 operator signal이다. 독립적인 실패·대기·마감 위반·원격 불일치·승인 경계 사건 또는 대표지표 변화가 없어 기존 operator 반복 그룹으로 통합하고 Inbox로 승격하지 않음
+    rejection_reason: 최신 원격 원장의 후보와 watcher snapshot은 자기참조 INTENTS.yaml만 근거로 하며, 이전과
+      동일한 operator signal이다. 독립적인 실패·대기·마감 위반·원격 불일치·승인 경계 사건 또는 대표지표 변화가 없어 기존 operator
+      반복 그룹으로 통합하고 Inbox로 승격하지 않음
     next_action: 새 독립 운영 증거 또는 대표지표 변화가 관찰될 때만 같은 dedupe 키를 재검토
   promotion: null
   delegation: role-watcher:operator:operations_signal 위임 호출은 not_found로 종료되어 직접 증거를
