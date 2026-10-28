@@ -7,23 +7,9 @@ SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 OPENCLAW_BIN="/home/ubuntu/.npm-global/bin/openclaw"
 STATE_DIR="${INFINITY_DISPATCHER_STATE_DIR:-/home/ubuntu/.openclaw/state/infinity-dispatcher-runs}"
-TERMINAL_STATE_FILE="${INFINITY_TERMINAL_STATE_FILE:-$ROOT/data/dispatcher-terminal-notifications.json}"
 LOCK_FILE="${INFINITY_DISPATCHER_LOCK_FILE:-/tmp/infinity-dispatcher.lock}"
 AGENT_TIMEOUT_SECONDS="${INFINITY_DISPATCHER_AGENT_TIMEOUT_SECONDS:-480}"
 DISPATCHER_SESSION_KEY="${INFINITY_DISPATCHER_SESSION_KEY:-agent:genie:infinity-dispatcher-command-v1}"
-CHANGE_NOTIFICATION_CHANNEL="${INFINITY_CHANGE_NOTIFICATION_CHANNEL:-}"
-CHANGE_NOTIFICATION_TARGET="${INFINITY_CHANGE_NOTIFICATION_TARGET:-}"
-TERMINAL_NOTIFICATION_CHANNEL="${INFINITY_TERMINAL_NOTIFICATION_CHANNEL:-}"
-TERMINAL_NOTIFICATION_TARGET="${INFINITY_TERMINAL_NOTIFICATION_TARGET:-}"
-NOTIFICATION_CARD_DIR="${INFINITY_NOTIFICATION_CARD_DIR:-/home/ubuntu/.openclaw/state/infinity-dispatcher-runs/cards}"
-CHANGE_NOTIFICATION_ARGS=()
-if [[ -n "$CHANGE_NOTIFICATION_CHANNEL" && -n "$CHANGE_NOTIFICATION_TARGET" ]]; then
-  CHANGE_NOTIFICATION_ARGS+=(--change-channel "$CHANGE_NOTIFICATION_CHANNEL" --change-target "$CHANGE_NOTIFICATION_TARGET")
-fi
-if [[ -n "$TERMINAL_NOTIFICATION_CHANNEL" && -n "$TERMINAL_NOTIFICATION_TARGET" ]]; then
-  CHANGE_NOTIFICATION_ARGS+=(--terminal-channel "$TERMINAL_NOTIFICATION_CHANNEL" --terminal-target "$TERMINAL_NOTIFICATION_TARGET")
-fi
-CHANGE_NOTIFICATION_ARGS+=(--card-dir "$NOTIFICATION_CARD_DIR")
 mkdir -p "$STATE_DIR" 2>/dev/null || { printf '%s\n' 'Infinity 점검을 시작하지 못했습니다. 원격 상태를 다시 확인한 뒤 재개하겠습니다.'; exit 0; }
 exec 9>"$LOCK_FILE"
 flock -n 9 || exit 0
@@ -60,28 +46,6 @@ trap 'git -C "$ROOT" worktree remove --force "$VERIFY_ROOT" >/dev/null 2>&1 || t
 test -z "$(git -C "$VERIFY_ROOT" status --porcelain)" || bootstrap_failure
 python3 "$VERIFY_ROOT/scripts/prepare_dispatch_cycle.py" --repo "$VERIFY_ROOT" --json >"$PLAN_FILE" || bootstrap_failure
 
-TERMINAL_EXIT=0
-POST_TERMINAL_EXIT=0
-DASHBOARD_EXIT=0
-TERMINAL_RESULT="$(python3 "$VERIFY_ROOT/scripts/dispatch_terminal_notifications.py" --repo "$VERIFY_ROOT" --state "$TERMINAL_STATE_FILE" --deliver --openclaw-bin "$OPENCLAW_BIN" "${CHANGE_NOTIFICATION_ARGS[@]}" 2>&1)" || TERMINAL_EXIT=$?
-DASHBOARD_RESULT="$(python3 "$ROOT/scripts/process_action_requests.py" --apply --limit 10 --json 2>&1)" || DASHBOARD_EXIT=$?
-[[ "$TERMINAL_EXIT" -ne 0 ]] && TERMINAL_RESULT="terminal_error(exit=${TERMINAL_EXIT}):${TERMINAL_RESULT}"
-[[ "$DASHBOARD_EXIT" -ne 0 ]] && DASHBOARD_RESULT="dashboard_error(exit=${DASHBOARD_EXIT}):${DASHBOARD_RESULT}"
-
-# Dashboard actions may change the canonical INTENTS registry. Persist those
-# changes from the clean dispatcher worktree; consuming S3 alone is not a
-# completed resolve_waiting transition.
-if [[ "$DASHBOARD_EXIT" -eq 0 ]] && ! git -C "$ROOT" diff --quiet -- INTENTS.yaml artifacts/dashboard-actions intents/archive; then
-  git -C "$ROOT" add INTENTS.yaml artifacts/dashboard-actions intents/archive
-  git -C "$ROOT" commit -m "chore(infinity): persist dashboard action transition" >/dev/null
-  git -C "$ROOT" push origin HEAD:main >/dev/null 2>&1 || bootstrap_failure
-  PUSHED_SHA="$(git -C "$ROOT" rev-parse HEAD 2>/dev/null)" || bootstrap_failure
-  REMOTE_SHA="$(git -C "$ROOT" ls-remote origin refs/heads/main | awk '{print $1}')" || bootstrap_failure
-  [[ -n "$REMOTE_SHA" && "$PUSHED_SHA" == "$REMOTE_SHA" ]] || bootstrap_failure
-  # Rebuild the plan from the action transition so a button click can be
-  # dispatched in this cycle instead of waiting for the next cron tick.
-  python3 "$VERIFY_ROOT/scripts/prepare_dispatch_cycle.py" --repo "$ROOT" --json >"$PLAN_FILE" || bootstrap_failure
-fi
 HANDOFF_EXIT=0
 HANDOFF_STATE="not_needed"
 HANDOFF_VERIFY_EXIT=0
@@ -213,33 +177,21 @@ else
   HANDOFF_STATE="not_needed"
 fi
 
-# Genie may move an intent to Waiting or Archive during this cycle.  Reconciling
-# only before the handoff silently delays that state transition until a later
-# cron run; send its origin-thread notification now and persist the receipt.
-POST_TERMINAL_RESULT="$(python3 "$VERIFY_ROOT/scripts/dispatch_terminal_notifications.py" --repo "$VERIFY_ROOT" --state "$TERMINAL_STATE_FILE" --deliver --openclaw-bin "$OPENCLAW_BIN" "${CHANGE_NOTIFICATION_ARGS[@]}" 2>&1)" || POST_TERMINAL_EXIT=$?
-[[ "$POST_TERMINAL_EXIT" -ne 0 ]] && POST_TERMINAL_RESULT="terminal_post_handoff_error(exit=${POST_TERMINAL_EXIT}):${POST_TERMINAL_RESULT}"
-
-python3 - "$RUN_FILE" "$PLAN_FILE" "$POST_PLAN_FILE" "$TERMINAL_RESULT" "$POST_TERMINAL_RESULT" "$DASHBOARD_RESULT" "$HANDOFF_EXIT" "$HANDOFF_STATE" "$TERMINAL_EXIT" "$POST_TERMINAL_EXIT" "$DASHBOARD_EXIT" "$HANDOFF_VERIFY_EXIT" <<'PY'
+python3 - "$RUN_FILE" "$PLAN_FILE" "$POST_PLAN_FILE" "$HANDOFF_EXIT" "$HANDOFF_STATE" "$HANDOFF_VERIFY_EXIT" <<'PY'
 import json, sys
 from pathlib import Path
 post_plan = json.loads(Path(sys.argv[3]).read_text()) if Path(sys.argv[3]).stat().st_size else None
 Path(sys.argv[1]).write_text(json.dumps({
-  "outcome": "attention" if int(sys.argv[10]) or int(sys.argv[11]) or int(sys.argv[7]) or int(sys.argv[12]) else "handoff_verified" if sys.argv[8] == "verified" else "no_dispatch_needed",
+  "outcome": "attention" if int(sys.argv[6]) or int(sys.argv[4]) else "handoff_verified" if sys.argv[5] == "verified" else "no_dispatch_needed",
   "plan": json.loads(Path(sys.argv[2]).read_text()),
   "post_handoff_plan": post_plan,
-  "terminal": sys.argv[4],
-  "post_handoff_terminal": sys.argv[5],
-  "dashboard_actions": sys.argv[6],
-  "genie_exit": int(sys.argv[7]),
-  "genie_handoff_state": sys.argv[8],
-  "terminal_exit": int(sys.argv[9]),
-  "post_handoff_terminal_exit": int(sys.argv[10]),
-  "dashboard_exit": int(sys.argv[11]),
-  "handoff_verify_exit": int(sys.argv[12]),
+  "genie_exit": int(sys.argv[4]),
+  "genie_handoff_state": sys.argv[5],
+  "handoff_verify_exit": int(sys.argv[6]),
 }, ensure_ascii=False, indent=2) + "\n")
 PY
 FINAL_EXIT="$HANDOFF_EXIT"
-if [[ "$TERMINAL_EXIT" -ne 0 || "$POST_TERMINAL_EXIT" -ne 0 || "$DASHBOARD_EXIT" -ne 0 || "$HANDOFF_VERIFY_EXIT" -ne 0 || "$HANDOFF_EXIT" -ne 0 ]]; then
+if [[ "$HANDOFF_VERIFY_EXIT" -ne 0 || "$HANDOFF_EXIT" -ne 0 ]]; then
   python3 - "$RUN_FILE" <<'PY'
 import json, sys
 from pathlib import Path

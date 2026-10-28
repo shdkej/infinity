@@ -26,16 +26,16 @@
 4. 일치하지 않거나 만료·중복·잘못된 스레드이면 후속 작업을 실행하지 않고 해당 상태를 기록한다. 필요한 경우 원래 질문을 만료 처리한 뒤 번호 fallback을 보낸다.
 5. callback continuation이 끝난 뒤에만 대시보드 action queue와 일반 Inbox/Active/Waiting 흐름으로 넘어간다.
 
-### 0. Dashboard action queue 처리
+### 0. Dashboard action queue 처리 (전용 크론 소유)
 
-Inbox/Active를 보기 전에 먼저 Infinity 대시보드 버튼 큐를 확인한다. 대시보드 버튼은 사용자가 Waiting에 걸린 외부 조건을 바꾼 명시 신호이므로, 일반 Waiting 반복 금지보다 우선한다.
+실제 S3 action queue 소비는 `scripts/run_dashboard_actions_cron.sh`가 담당한다. Heartbeat/Genie 실행은 이 큐를 직접 소비하지 않으며, 다음 작업 실행 주기에서 원격 `INTENTS.yaml`의 전이 결과를 읽는다. 버튼 크론의 처리 결과는 사용자 알림 크론이 별도로 전달한다.
 
-1. `/home/ubuntu/workspace/knowledge-lab/infinity`에서 `python3 scripts/process_action_requests.py --apply --limit 10 --json`을 실행한다.
-2. 처리 결과가 비어 있으면 기존 Heartbeat 흐름으로 넘어간다.
-3. `resolve_waiting` 요청이 accepted이면 해당 intent를 Waiting 반복 금지 대상에서 제외하고, `next_action`과 `blocker`를 다시 읽어 가능한 가역 작업을 즉시 시도한다.
-4. 요청을 처리하면 사용자에게 `접수됨 → 처리 시작 → 남은 blocker`가 구분되는 짧은 Telegram 알림을 남긴다.
-5. action queue 처리만으로 완료를 선언하지 않는다. 큐 처리는 사용자 트리거 수신이며, 실제 intent 실행·검증·Archive는 지니 계약을 따른다.
-6. rejected 요청은 rejection reason을 기록하고 같은 실패를 반복하지 않도록 dedupe marker를 해제한다.
+대시보드 버튼은 사용자가 Waiting에 걸린 외부 조건을 바꾼 명시 신호이므로, 작업 실행 디스패처는 새 원격 전이를 읽을 때 일반 Waiting 반복 금지보다 우선한다.
+
+1. 버튼 크론이 `/home/ubuntu/workspace/knowledge-lab/infinity`에서 `python3 scripts/process_action_requests.py --apply --limit 10 --json`을 실행한다.
+2. `resolve_waiting` 요청이 accepted이면 해당 intent를 Waiting 반복 금지 대상에서 제외하고, 다음 작업 실행 주기가 `next_action`과 `blocker`를 다시 읽어 가능한 가역 작업을 시도한다.
+3. action queue 처리만으로 완료를 선언하지 않는다. 큐 처리는 사용자 트리거 수신이며, 실제 intent 실행·검증·Archive는 지니 계약을 따른다.
+4. rejected 요청은 rejection reason을 기록하고 같은 실패를 반복하지 않도록 dedupe marker를 해제한다.
 
 ### 1. Inbox 처리
 

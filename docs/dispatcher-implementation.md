@@ -4,10 +4,12 @@
 
 ## 실행 진입점
 
-- 스케줄 진입점: `scripts/run_dispatcher_cycle.sh`
+- 작업 실행 스케줄 진입점: `scripts/run_dispatcher_cycle.sh`
+- 대시보드 버튼 처리 크론: `scripts/run_dashboard_actions_cron.sh`
+- 알림 발송 크론: `scripts/run_notification_cron.sh`
 - 계획 생성: `scripts/prepare_dispatch_cycle.py`
-- 대시보드 액션 소비: `scripts/process_action_requests.py`
-- terminal 및 상태변경 통보: `scripts/dispatch_terminal_notifications.py`
+- 대시보드 액션 소비 구현: `scripts/process_action_requests.py`
+- terminal 및 상태변경 통보 구현: `scripts/dispatch_terminal_notifications.py`
 - trace 기록: `scripts/record_intent_trace.py`
 - 프로젝트 실행자 해석: `scripts/project_executor_registry.py`, `data/project-executors.yaml`
 - 실행 cycle 기록: `/home/ubuntu/.openclaw/state/infinity-dispatcher-runs/`
@@ -18,11 +20,11 @@
 2. `git fetch --prune origin main` 후 `FETCH_HEAD`와 `origin/main` SHA가 같은지 확인합니다.
 3. 최신 `origin/main`으로 검증용 detached worktree를 만듭니다.
 4. `prepare_dispatch_cycle.py`가 `INTENTS.yaml`을 읽어 promotion, resume, plan activation, expansion, terminalization 후보를 계산합니다.
-5. terminal notification과 대시보드 action queue를 처리합니다. 같은 과정에서 `INTENTS.yaml` 및 월별 Archive YAML을 읽어 새 Intent와 Inbox/Active/Waiting 사이의 상태 전이를 exactly-once로 통보합니다.
-6. 대시보드 action이 원장을 바꾸면 계획을 다시 계산합니다.
-7. handoff 대상마다 `dispatcher_handoff` trace를 남기고 Genie 실행 세션에 넘깁니다.
-8. 실행 뒤 원격 상태와 계획을 다시 읽어 실행 증거와 상태 전이를 검증합니다.
-9. terminal notification을 다시 조정하고 cycle record를 저장합니다.
+5. handoff 대상마다 `dispatcher_handoff` trace를 남기고 Genie 실행 세션에 넘깁니다.
+6. 실행 뒤 원격 상태와 계획을 다시 읽어 실행 증거와 상태 전이를 검증합니다.
+7. 작업 실행 cycle record를 저장합니다.
+
+대시보드 버튼과 알림은 작업 실행과 분리된 독립 크론입니다. 버튼 크론은 원격 `origin/main`을 확인한 뒤 S3 action queue를 소비하고, 원장 변경을 별도 커밋·push합니다. 알림 크론은 `origin/main`의 원장을 읽어 PNG 카드·텍스트 fallback·승인 버튼을 exactly-once로 발송합니다. 두 크론은 각각 독립 `flock`을 사용합니다.
 
 ## 격리·중복 방지
 
@@ -35,10 +37,14 @@
 ## 환경변수
 
 - `INFINITY_DISPATCHER_STATE_DIR`: cycle record 저장 경로
-- `INFINITY_TERMINAL_STATE_FILE`: terminal notification receipt 경로
+- `INFINITY_TERMINAL_STATE_FILE`: 알림 receipt 경로
 - `INFINITY_DISPATCHER_LOCK_FILE`: 단일 실행 잠금 경로
 - `INFINITY_DISPATCHER_AGENT_TIMEOUT_SECONDS`: Genie 실행 제한 시간
 - `INFINITY_DISPATCHER_SESSION_KEY`: Genie handoff 세션 키
+- `INFINITY_DASHBOARD_ACTION_STATE_DIR`: 대시보드 크론 실행 기록 경로
+- `INFINITY_DASHBOARD_ACTION_LOCK_FILE`: 대시보드 크론 잠금 경로
+- `INFINITY_NOTIFICATION_STATE_DIR`: 알림 크론 실행·카드 경로
+- `INFINITY_NOTIFICATION_LOCK_FILE`: 알림 크론 잠금 경로
 - `INFINITY_CHANGE_NOTIFICATION_CHANNEL`: 새 Intent/상태변경 통보 채널
 - `INFINITY_CHANGE_NOTIFICATION_TARGET`: 새 Intent/상태변경 통보 대상
 - `INFINITY_TERMINAL_NOTIFICATION_CHANNEL`: 완료·승인·차단·실패 통보 채널 override
