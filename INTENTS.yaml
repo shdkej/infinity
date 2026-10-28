@@ -13,15 +13,44 @@ lanes:
     watcher_role: developer
     source: role-watcher:developer
     signal_type: repository_signal
-    signal: 9a309ea83c014b72
+    signal: fc9b4f680356f241
     evidence_paths:
     - /home/ubuntu/workspace/space
     - /home/ubuntu/workspace/projects/minimalmoeum
     - /home/ubuntu/workspace/projects/policycock
     created_at: '2026-10-28T00:00:02Z'
-    last_observed_at: '2026-10-28T00:00:02Z'
+    last_observed_at: '2026-10-28T12:00:02Z'
     registration_reason: developer 와처가 이전 관찰 이후 달라진 구체 신호를 감지해 사람이 검토할 후보로 등록했다.
     user_intent: developer 역할의 새 운영 신호를 사람이 판단 가능한 작업 후보로 만든다.
+    why_now: 이번 실행에서 이전 관찰과 달라진 구체 신호가 감지되었다.
+    desired_outcome: Genie가 근거를 확인해 중복은 묶고, 가치 있는 후보만 Inbox로 승격한다.
+    suggested_checks:
+    - 근거 파일·지표의 실제 변경 확인
+    - 현재 목표·대표 지표와의 연결 확인
+    - 이미 해결된 문제인지 확인
+    out_of_scope: 신호만으로 자동 구현·공개 발행·결제·권한 변경을 실행하지 않는다.
+    success_evidence: 동일 목적 후보가 한 건으로 유지되고, triage 결과와 다음 행동이 남는다.
+    next_action: Genie가 근거를 검증한 뒤 유지·통합·거절·Inbox 승격 중 하나를 기록한다.
+    notification_channel: slack
+    notification_target: channel:C0BR41W31MM
+  - id: watch-operator-current
+    dedupe_key: role-watcher:operator:operations_signal
+    title: 실패·대기·마감·원격 상태를 운영 태스크로 정리한다
+    task_name: 실패·대기·마감·원격 상태를 운영 태스크로 정리한다
+    status: backlog
+    priority: normal
+    task_type: watcher_candidate
+    target_agent: genie
+    watcher_role: operator
+    source: role-watcher:operator
+    signal_type: operations_signal
+    signal: 0af0a0e3e7c51580
+    evidence_paths:
+    - /home/ubuntu/workspace/knowledge-lab/infinity/INTENTS.yaml
+    created_at: '2026-10-28T12:00:02Z'
+    last_observed_at: '2026-10-28T12:00:02Z'
+    registration_reason: operator 와처가 이전 관찰 이후 달라진 구체 신호를 감지해 사람이 검토할 후보로 등록했다.
+    user_intent: operator 역할의 새 운영 신호를 사람이 판단 가능한 작업 후보로 만든다.
     why_now: 이번 실행에서 이전 관찰과 달라진 구체 신호가 감지되었다.
     desired_outcome: Genie가 근거를 확인해 중복은 묶고, 가치 있는 후보만 Inbox로 승격한다.
     suggested_checks:
@@ -84,7 +113,8 @@ backlog_triage:
     evidence_verified: false
     evidence_paths: []
     decision: rejected
-    rejection_reason: source_ref와 evidence_paths가 비어 있어 TimeoutError의 실제 로그·영향·대표지표 변화를 확인할 수 없으므로 후보 생성 필수 근거 조건을 충족하지 못함
+    rejection_reason: source_ref와 evidence_paths가 비어 있어 TimeoutError의 실제 로그·영향·대표지표
+      변화를 확인할 수 없으므로 후보 생성 필수 근거 조건을 충족하지 못함
     next_action: 실제 source_ref와 오류 로그가 제공될 때만 재등록
   - id: watch-operator-current
     watcher_role: operator
@@ -94,7 +124,8 @@ backlog_triage:
     evidence_paths:
     - /home/ubuntu/workspace/knowledge-lab/infinity/INTENTS.yaml
     decision: rejected_grouped
-    rejection_reason: 지정된 근거가 자기참조 INTENTS.yaml뿐이며 독립적인 실패·대기·마감 위반·원격 불일치·대표지표 변화가 없어 기존 operator 반복 그룹으로 통합함
+    rejection_reason: 지정된 근거가 자기참조 INTENTS.yaml뿐이며 독립적인 실패·대기·마감 위반·원격 불일치·대표지표 변화가
+      없어 기존 operator 반복 그룹으로 통합함
     next_action: 새 독립 운영 증거 또는 대표지표 변화가 관찰될 때만 동일 dedupe 키를 재검토
   - id: watch-developer-current
     watcher_role: developer
@@ -526,7 +557,8 @@ backlog_triage:
       반복 그룹으로 통합하고 Inbox로 승격하지 않음
     next_action: 새 독립 운영 증거 또는 대표지표 변화가 관찰될 때만 같은 dedupe 키를 재검토
   promotion: null
-  delegation: role-watcher:developer:repository_signal 위임 완료; operator 위임은 not_found로 종료되어 직접 증거를 재확인함
+  delegation: role-watcher:developer:repository_signal 위임 완료; operator 위임은 not_found로
+    종료되어 직접 증거를 재확인함
   next_action: 외부 채널·지표 원천 접근 승인 또는 새 구체 변경·대표지표 변화가 관찰될 때만 재검토
 previous_triage:
   cycle_id: backlog-triage-2026-10-26-role-watchers-r6
