@@ -1,37 +1,37 @@
 {
-  "generated_at": "2026-10-27T03:00:08.925Z",
+  "generated_at": "2026-10-28T03:00:10.248Z",
   "summary": {
-    "total": 1498,
+    "total": 1500,
     "wiki_reflected": 200,
-    "not_reflected": 1298,
+    "not_reflected": 1300,
     "by_status": {
-      "queued": 1309,
+      "queued": 1311,
       "reviewed": 102,
       "integrated": 10,
       "selected": 4,
       "rejected": 73
     },
     "by_layer": {
-      "openclaw-system": 1162,
+      "openclaw-system": 1164,
       "infinity": 80,
       "external-links": 181,
       "shdkej-content": 74,
       "root": 1
     },
     "by_promotion_state": {
-      "not_applicable": 1296,
+      "not_applicable": 1298,
       "reflected": 200,
       "pending_promotion": 2
     }
   },
   "entries": [
     {
-      "source": "source/openclaw-system/data/daily-review-drafts/2026-10-26-review.md",
+      "source": "source/openclaw-system/data/red-reviews/2026-10.md",
       "status": "queued",
       "source_layer": "openclaw-system",
       "reason": "자동 수집됨; 내용 판정 대기",
       "reviewed_at": "",
-      "modified_at": "2026-10-26T21:01:08Z",
+      "modified_at": "2026-10-27T23:51:58Z",
       "promotion_targets": [],
       "reflection_basis": [],
       "promotion_state": "not_applicable",
@@ -40,12 +40,12 @@
       "wiki_reflected": false
     },
     {
-      "source": "source/openclaw-system/data/red-reviews/2026-10.md",
+      "source": "source/openclaw-system/data/daily-review-drafts/2026-10-27-review.md",
       "status": "queued",
       "source_layer": "openclaw-system",
       "reason": "자동 수집됨; 내용 판정 대기",
       "reviewed_at": "",
-      "modified_at": "2026-10-26T13:22:31Z",
+      "modified_at": "2026-10-27T21:01:36Z",
       "promotion_targets": [],
       "reflection_basis": [],
       "promotion_state": "not_applicable",
@@ -59,7 +59,35 @@
       "source_layer": "openclaw-system",
       "reason": "자동 수집됨; 내용 판정 대기",
       "reviewed_at": "",
-      "modified_at": "2026-10-26T12:01:56Z",
+      "modified_at": "2026-10-27T12:01:57Z",
+      "promotion_targets": [],
+      "reflection_basis": [],
+      "promotion_state": "not_applicable",
+      "promotion_reason": "자동 수집됨; 내용 판정 대기",
+      "promotion_target_note": "",
+      "wiki_reflected": false
+    },
+    {
+      "source": "source/openclaw-system/data/ai-news/2026-10-27-ai-news.md",
+      "status": "queued",
+      "source_layer": "openclaw-system",
+      "reason": "자동 수집됨; 내용 판정 대기",
+      "reviewed_at": "",
+      "modified_at": "2026-10-27T03:01:39Z",
+      "promotion_targets": [],
+      "reflection_basis": [],
+      "promotion_state": "not_applicable",
+      "promotion_reason": "자동 수집됨; 내용 판정 대기",
+      "promotion_target_note": "",
+      "wiki_reflected": false
+    },
+    {
+      "source": "source/openclaw-system/data/daily-review-drafts/2026-10-26-review.md",
+      "status": "queued",
+      "source_layer": "openclaw-system",
+      "reason": "자동 수집됨; 내용 판정 대기",
+      "reviewed_at": "",
+      "modified_at": "2026-10-26T21:01:08Z",
       "promotion_targets": [],
       "reflection_basis": [],
       "promotion_state": "not_applicable",
