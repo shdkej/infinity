@@ -50,7 +50,7 @@ lanes:
     desired_outcome: 사용자가 범위를 선택해 Inbox로 옮기거나 거절할 수 있는 후보를 만든다.
     out_of_scope: 자동 실행, 외부 발송, 결제, 권한 변경
     success_evidence: 중복 없이 Backlog에 기록되고 대시보드에서 승격·거절할 수 있다.
-    next_action: 사용자가 작업범위를 선택해 Inbox 승격 여부를 결정한다.
+    next_action: source_ref와 실제 오류 로그가 없으므로 후보를 승격하지 않고 근거 부족으로 거절한다.
     notification_channel: slack
     notification_target: channel:C0BR41W31MM
   - id: watch-operator-current
@@ -79,7 +79,7 @@ lanes:
     - 이미 해결된 문제인지 확인
     out_of_scope: 신호만으로 자동 구현·공개 발행·결제·권한 변경을 실행하지 않는다.
     success_evidence: 동일 목적 후보가 한 건으로 유지되고, triage 결과와 다음 행동이 남는다.
-    next_action: Genie가 근거를 검증한 뒤 유지·통합·거절·Inbox 승격 중 하나를 기록한다.
+    next_action: 독립 운영 증거가 없으면 기존 operator 반복 그룹으로 통합한다.
     notification_channel: slack
     notification_target: channel:C0BR41W31MM
   inbox: []
@@ -113,19 +113,38 @@ lanes:
     notification_target: channel:C0BR41W31MM
   active: []
 backlog_triage:
-  cycle_id: backlog-triage-2026-10-28-role-watchers-r28
-  source_revision: d4d0d8dde63d1826ad2a5dd7e54936d54f5c4519
-  result: keep_update_no_new_promotion
-  checked_at: '2026-10-28T00:00:02Z'
+  cycle_id: backlog-triage-2026-10-28-role-watchers-r29
+  source_revision: 338141d703faa09e7bfb62dd9f9d9a373eb6bfdc
+  result: keep_update_rejected_grouped_no_new_promotion
+  checked_at: '2026-10-28T06:00:02Z'
   grouping:
     group_id: repeated-developer-repository-state
     member_ids:
     - watch-developer-27499b9463bebcca
+    - watch-operator-current
     reason: 동일한 repository_signal 변경면을 기존 반복 그룹으로 유지하되 content-live.json의 실제 지표 변화는
       관찰 근거로 갱신함
     preservation_reason: 코드·테스트·원격 불일치는 없어 Inbox로 승격하지 않고 생성 산출물 freshness 검증 후보를
       한 건으로 유지
   decisions:
+  - id: watch-posthog-b6e70f210545
+    source: posthog
+    signal: TimeoutError
+    evidence_verified: false
+    evidence_paths: []
+    decision: rejected
+    rejection_reason: source_ref와 evidence_paths가 비어 있어 TimeoutError의 실제 로그·영향·대표지표 변화를 확인할 수 없으므로 후보 생성 필수 근거 조건을 충족하지 못함
+    next_action: 실제 source_ref와 오류 로그가 제공될 때만 재등록
+  - id: watch-operator-current
+    watcher_role: operator
+    source: role-watcher:operator
+    signal: 16b18cc7d146b22a
+    evidence_verified: false
+    evidence_paths:
+    - /home/ubuntu/workspace/knowledge-lab/infinity/INTENTS.yaml
+    decision: rejected_grouped
+    rejection_reason: 지정된 근거가 자기참조 INTENTS.yaml뿐이며 독립적인 실패·대기·마감 위반·원격 불일치·대표지표 변화가 없어 기존 operator 반복 그룹으로 통합함
+    next_action: 새 독립 운영 증거 또는 대표지표 변화가 관찰될 때만 동일 dedupe 키를 재검토
   - id: watch-developer-current
     watcher_role: developer
     source: role-watcher:developer
@@ -556,8 +575,7 @@ backlog_triage:
       반복 그룹으로 통합하고 Inbox로 승격하지 않음
     next_action: 새 독립 운영 증거 또는 대표지표 변화가 관찰될 때만 같은 dedupe 키를 재검토
   promotion: null
-  delegation: role-watcher:developer:repository_signal 위임 완료; 생성 산출물의 실제 지표 변화 판단을
-    반영함
+  delegation: role-watcher:developer:repository_signal 위임 완료; operator 위임은 not_found로 종료되어 직접 증거를 재확인함
   next_action: 외부 채널·지표 원천 접근 승인 또는 새 구체 변경·대표지표 변화가 관찰될 때만 재검토
 previous_triage:
   cycle_id: backlog-triage-2026-10-26-role-watchers-r6
