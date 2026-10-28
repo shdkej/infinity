@@ -93,10 +93,10 @@ lanes:
     notification_target: channel:C0BR41W31MM
   active: []
 backlog_triage:
-  cycle_id: backlog-triage-2026-10-28-role-watchers-r29
-  source_revision: 338141d703faa09e7bfb62dd9f9d9a373eb6bfdc
+  cycle_id: backlog-triage-2026-10-28-role-watchers-r30
+  source_revision: 3becdefb417046f243b2ec5653be30fd6b2c2096
   result: keep_update_rejected_grouped_no_new_promotion
-  checked_at: '2026-10-28T06:00:02Z'
+  checked_at: '2026-10-28T12:00:02Z'
   grouping:
     group_id: repeated-developer-repository-state
     member_ids:
@@ -107,6 +107,16 @@ backlog_triage:
     preservation_reason: 코드·테스트·원격 불일치는 없어 Inbox로 승격하지 않고 생성 산출물 freshness 검증 후보를
       한 건으로 유지
   decisions:
+  - id: watch-operator-current
+    watcher_role: operator
+    source: role-watcher:operator
+    signal: 0af0a0e3e7c51580
+    evidence_verified: false
+    evidence_paths:
+    - /home/ubuntu/workspace/knowledge-lab/infinity/INTENTS.yaml
+    decision: rejected_grouped
+    rejection_reason: evidence_path가 자기참조 INTENTS.yaml뿐이며 독립적인 실패·대기·마감 위반·원격 불일치·대표지표 변화가 없어 기존 operator 반복 그룹으로 통합함
+    next_action: 새 독립 운영 증거 또는 대표지표 변화가 관찰될 때만 동일 dedupe 키를 재검토
   - id: watch-posthog-b6e70f210545
     source: posthog
     signal: TimeoutError
@@ -130,7 +140,7 @@ backlog_triage:
   - id: watch-developer-current
     watcher_role: developer
     source: role-watcher:developer
-    signal: 9a309ea83c014b72
+    signal: fc9b4f680356f241
     evidence_verified: true
     evidence_paths:
     - /home/ubuntu/workspace/space
@@ -138,10 +148,8 @@ backlog_triage:
     - /home/ubuntu/workspace/projects/minimalmoeum
     - /home/ubuntu/workspace/projects/policycock
     decision: keep_update
-    preservation_reason: content-live.json에 followers·Threads·fetchedAt의 실제 변화가 있어
-      후보를 유지하되 코드 변경·실패 테스트·원격 불일치가 없어 Inbox로 승격하지 않음
-    next_action: content-live.json이 의도된 생성 산출물인지 확인하고 게시물 날짜와 fetchedAt 일관성 및 생성·커밋
-      정책을 검증한다.
+    preservation_reason: Space의 fd54511 소스 변경은 확인했지만 content-live.json이 untracked라 생성·커밋 정책과 빌드·링크 검증 전에는 Inbox로 승격하지 않음
+    next_action: content-live.json의 의도된 배포 산출물 여부를 확인하고 status/agent-room 빌드 및 링크 동작을 검증한다.
   - id: watch-developer-686a25159dde5ec9
     watcher_role: developer
     source: role-watcher:developer
