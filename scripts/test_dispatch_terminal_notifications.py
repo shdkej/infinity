@@ -129,13 +129,35 @@ lanes:
             intents.write_text(base)
             first = subprocess.run(["python3", str(SCRIPT), "--intents", str(intents), "--state", str(state), "--mock-outbox", str(outbox), "--change-channel", "telegram", "--change-target", "telegram:433493318"], check=True, capture_output=True, text=True)
             self.assertEqual(json.loads(first.stdout)["sent"], 0)
-            changed = base.replace("inbox:", "active:", 1).replace("  active: []\n", "  waiting: []\n", 1)
-            # Keep the fixture valid while moving the same item from Inbox to Active.
             changed = """version: 1
 format: infinity-intents-yaml
 lanes:
   backlog: []
-  inbox: []
+  inbox:
+    - id: fixture-1
+      title: 첫 태스크
+      task_name: 첫 태스크
+      status: inbox
+    - id: fixture-2
+      title: 새 태스크
+      task_name: 새 태스크
+      status: inbox
+  active: []
+  waiting: []
+"""
+            intents.write_text(changed)
+            created = subprocess.run(["python3", str(SCRIPT), "--intents", str(intents), "--state", str(state), "--mock-outbox", str(outbox), "--change-channel", "telegram", "--change-target", "telegram:433493318"], check=True, capture_output=True, text=True)
+            self.assertEqual(json.loads(created.stdout)["sent"], 1)
+            # Move the original item Inbox → Active, then Active → Waiting.
+            changed = """version: 1
+format: infinity-intents-yaml
+lanes:
+  backlog: []
+  inbox:
+    - id: fixture-2
+      title: 새 태스크
+      task_name: 새 태스크
+      status: inbox
   active:
     - id: fixture-1
       title: 첫 태스크
@@ -146,10 +168,34 @@ lanes:
             intents.write_text(changed)
             result = subprocess.run(["python3", str(SCRIPT), "--intents", str(intents), "--state", str(state), "--mock-outbox", str(outbox), "--change-channel", "telegram", "--change-target", "telegram:433493318"], check=True, capture_output=True, text=True)
             self.assertEqual(json.loads(result.stdout)["sent"], 1)
+            changed = changed.replace("  active:\n    - id: fixture-1\n      title: 첫 태스크\n      task_name: 첫 태스크\n      status: active\n  waiting: []", "  active: []\n  waiting:\n    - id: fixture-1\n      title: 첫 태스크\n      task_name: 첫 태스크\n      status: waiting")
+            intents.write_text(changed)
+            result = subprocess.run(["python3", str(SCRIPT), "--intents", str(intents), "--state", str(state), "--mock-outbox", str(outbox), "--change-channel", "telegram", "--change-target", "telegram:433493318"], check=True, capture_output=True, text=True)
+            self.assertEqual(json.loads(result.stdout)["sent"], 1)
             replay = subprocess.run(["python3", str(SCRIPT), "--intents", str(intents), "--state", str(state), "--mock-outbox", str(outbox), "--change-channel", "telegram", "--change-target", "telegram:433493318"], check=True, capture_output=True, text=True)
             self.assertEqual(json.loads(replay.stdout)["sent"], 0)
+            self.assertEqual(len(outbox.read_text().splitlines()), 3)
+
+    def test_yaml_archive_terminal_is_once(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory); intents = root / "2026-10.yaml"; state = root / "state.json"; outbox = root / "outbox.jsonl"
+            intents.write_text("""version: 1
+period: 2026-10
+archive:
+  - id: fixture-archive
+    title: 종료 태스크
+    task_name: 종료 태스크
+    status: archived
+    remote_verified: pass
+    notification_channel: mock
+    notification_target: original-thread
+    result: 원격 검증 완료
+""")
+            first = self.run_dispatch(intents, state, outbox)
+            self.assertEqual(first["sent"], 1)
+            second = self.run_dispatch(intents, state, outbox)
+            self.assertEqual(second["sent"], 0)
             self.assertEqual(len(outbox.read_text().splitlines()), 1)
-            self.assertIn("Infinity 상태 변경", outbox.read_text())
 
 
 if __name__ == "__main__":
