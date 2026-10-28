@@ -44,7 +44,7 @@
 - `INFINITY_TERMINAL_NOTIFICATION_CHANNEL`: 완료·승인·차단·실패 통보 채널 override
 - `INFINITY_TERMINAL_NOTIFICATION_TARGET`: 완료·승인·차단·실패 통보 대상 override
 
-Telegram 운영 설정에서는 두 목적지 override를 모두 `telegram`과 현재 대화 ID로 지정합니다. 모든 알림은 공통 `presentation` 카드(`title`, `tone`, 본문, 근거, 승인 버튼)를 함께 보내며, 일반 텍스트는 카드 미지원 클라이언트용 fallback입니다.
+Telegram 운영 설정에서는 두 목적지 override를 모두 `telegram`과 현재 대화 ID로 지정합니다. 모든 알림은 생성된 PNG 이미지 카드(`title`, 상태 톤, 본문, 근거, 푸터)를 media로 첨부하고, 공통 `presentation` 메타데이터와 일반 텍스트 fallback을 함께 보냅니다. 승인 대기에는 inline 버튼을 추가합니다.
 
 ## 점검 명령
 
