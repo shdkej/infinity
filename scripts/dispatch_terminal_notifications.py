@@ -148,6 +148,12 @@ def destination(fields: dict[str, str]) -> dict[str, str] | None:
     return value
 
 
+def terminal_destination(args: argparse.Namespace, fields: dict[str, str]) -> dict[str, str] | None:
+    if args.terminal_channel and args.terminal_target:
+        return {"channel": args.terminal_channel, "target": args.terminal_target}
+    return destination(fields)
+
+
 def fingerprint(entry: dict[str, object], state: str) -> str:
     fields: dict[str, str] = entry["fields"]  # type: ignore[assignment]
     useful = [fields.get(key, "") for key in ("report", "result", "blocker", "next_action", "remote_commit")]
@@ -170,6 +176,37 @@ def message(entry: dict[str, object], state: str) -> str:
     return f"Infinity {label} · {entry['id']} {entry['title']}\n사유: {detail}\n다음: {action}"
 
 
+def tone(state: str) -> str:
+    return {
+        "completed": "success",
+        "approval": "warning",
+        "deadline_missed": "danger",
+        "experiment_failed": "danger",
+        "blocked": "danger",
+        "created": "info",
+        "changed": "info",
+    }.get(state, "neutral")
+
+
+def card(entry: dict[str, object], state: str, body_override: str | None = None) -> dict[str, object]:
+    fields: dict[str, str] = entry["fields"]  # type: ignore[assignment]
+    if body_override:
+        body = body_override
+    elif state in {"created", "changed"}:
+        body = change_message(entry, state, None)
+    else:
+        body = message(entry, state)
+    blocks: list[dict[str, object]] = [{"type": "text", "text": body}]
+    proof = " · ".join(filter(None, (fields.get("remote_commit"), fields.get("report"))))
+    if proof:
+        blocks.append({"type": "context", "text": f"근거: {proof}"})
+    buttons = approval_buttons(entry, state)
+    if buttons:
+        blocks.append({"type": "divider"})
+        blocks.append({"type": "buttons", "buttons": buttons})
+    return {"title": f"Infinity · {state}", "tone": tone(state), "blocks": blocks}
+
+
 def load(path: Path) -> dict[str, object]:
     if path.exists():
         data = json.loads(path.read_text())
@@ -187,21 +224,23 @@ def save(path: Path, data: dict[str, object]) -> None:
     tmp.replace(path)
 
 
-def presentation(entry: dict[str, object], state: str) -> dict[str, object] | None:
+def approval_buttons(entry: dict[str, object], state: str) -> list[dict[str, object]]:
     if state != "approval":
-        return None
+        return []
     intent_id = str(entry["id"])
-    return {
-        "buttons": [{
+    return [{
             "label": "승인",
             "action": {"type": "callback", "value": f"infinity:approve:{intent_id}"},
-            "style": "primary",
+            "style": "success",
         }, {
             "label": "보류/거절",
             "action": {"type": "callback", "value": f"infinity:reject:{intent_id}"},
-            "style": "secondary",
+            "style": "danger",
         }]
-    }
+
+
+def presentation(entry: dict[str, object], state: str) -> dict[str, object]:
+    return card(entry, state)
 
 
 def send(dest: dict[str, str], body: str, args: argparse.Namespace, card: dict[str, object] | None = None) -> str:
@@ -287,6 +326,8 @@ def main() -> int:
     parser.add_argument("--openclaw-bin", default="openclaw")
     parser.add_argument("--change-channel", default="", help="destination for new/open status changes")
     parser.add_argument("--change-target", default="", help="destination for new/open status changes")
+    parser.add_argument("--terminal-channel", default="", help="override destination for terminal notices")
+    parser.add_argument("--terminal-target", default="", help="override destination for terminal notices")
     args = parser.parse_args()
     if args.intents:
         text = args.intents.read_text()
@@ -332,14 +373,15 @@ def main() -> int:
                   existing = deliveries.get(key)
                   if not existing:
                       receipt = {"intent_id": intent_id, "terminal_state": kind, "destination": identity, "fingerprint": identity, "remote_sha": remote_sha, "claimed_at": now(), "state": "claimed"}
-                      outcome = claim_and_send(ledger, deliveries, key, receipt, dest, change_message(entry, kind, previous), args)
+                      change_body = change_message(entry, kind, previous)
+                      outcome = claim_and_send(ledger, deliveries, key, receipt, dest, change_body, args, card(entry, kind, change_body))
                       sent += outcome == "sent"
               observed[intent_id] = signature
               continue
           if not terminal:
               continue
           fields: dict[str, str] = entry["fields"]  # type: ignore[assignment]
-          dest = destination(fields)
+          dest = terminal_destination(args, fields)
           if not dest:
               skipped += 1
               continue

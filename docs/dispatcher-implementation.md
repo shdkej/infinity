@@ -41,6 +41,10 @@
 - `INFINITY_DISPATCHER_SESSION_KEY`: Genie handoff 세션 키
 - `INFINITY_CHANGE_NOTIFICATION_CHANNEL`: 새 Intent/상태변경 통보 채널
 - `INFINITY_CHANGE_NOTIFICATION_TARGET`: 새 Intent/상태변경 통보 대상
+- `INFINITY_TERMINAL_NOTIFICATION_CHANNEL`: 완료·승인·차단·실패 통보 채널 override
+- `INFINITY_TERMINAL_NOTIFICATION_TARGET`: 완료·승인·차단·실패 통보 대상 override
+
+Telegram 운영 설정에서는 두 목적지 override를 모두 `telegram`과 현재 대화 ID로 지정합니다. 모든 알림은 공통 `presentation` 카드(`title`, `tone`, 본문, 근거, 승인 버튼)를 함께 보내며, 일반 텍스트는 카드 미지원 클라이언트용 fallback입니다.
 
 ## 점검 명령
 

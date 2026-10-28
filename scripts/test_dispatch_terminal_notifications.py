@@ -84,9 +84,21 @@ class TerminalNotificationTest(unittest.TestCase):
             self.assertEqual(self.run_dispatch(intents, state, outbox)["sent"], 1)
             payload = json.loads(outbox.read_text())
             self.assertIn("Infinity 승인/결정 필요", payload["message"])
-            values = [button["action"]["value"] for button in payload["presentation"]["buttons"]]
+            self.assertEqual(payload["presentation"]["tone"], "warning")
+            values = [button["action"]["value"] for button in payload["presentation"]["blocks"][-1]["buttons"]]
             self.assertIn("infinity:approve:fixture-2", values)
             self.assertIn("infinity:reject:fixture-2", values)
+
+    def test_terminal_destination_override_and_card(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory); intents = root / "INTENTS.md"; state = root / "state.json"; outbox = root / "outbox.jsonl"
+            intents.write_text(registry(archived=True))
+            result = subprocess.run(["python3", str(SCRIPT), "--intents", str(intents), "--state", str(state), "--mock-outbox", str(outbox), "--terminal-channel", "telegram", "--terminal-target", "telegram:433493318"], check=True, capture_output=True, text=True)
+            self.assertEqual(json.loads(result.stdout)["sent"], 1)
+            payload = json.loads(outbox.read_text())
+            self.assertEqual(payload["destination"], {"channel": "telegram", "target": "telegram:433493318"})
+            self.assertEqual(payload["presentation"]["tone"], "success")
+            self.assertEqual(payload["presentation"]["blocks"][0]["type"], "text")
 
     def test_concurrent_replay_emits_one_message(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
