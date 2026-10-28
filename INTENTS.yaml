@@ -1,7 +1,27 @@
 version: 1
 format: infinity-intents-yaml
 lanes:
-  backlog: []
+  backlog:
+  - id: watch-posthog-b6e70f210545
+    title: 모니터링 와처 오류를 확인한다
+    task_name: 모니터링 와처 오류를 확인한다
+    status: backlog
+    priority: normal
+    task_type: maintenance
+    target_agent: genie
+    source: posthog
+    signal_type: watcher_error
+    problem_key: posthog::watcher_error
+    signal: TimeoutError
+    source_ref: ''
+    created_at: '2026-10-28T21:16:30Z'
+    user_intent: 모니터링 신호를 사람이 확인 가능한 작업 후보로 만든다.
+    desired_outcome: 사용자가 범위를 선택해 Inbox로 옮기거나 거절할 수 있는 후보를 만든다.
+    out_of_scope: 자동 실행, 외부 발송, 결제, 권한 변경
+    success_evidence: 중복 없이 Backlog에 기록되고 대시보드에서 승격·거절할 수 있다.
+    next_action: 사용자가 작업범위를 선택해 Inbox 승격 여부를 결정한다.
+    notification_channel: telegram
+    notification_target: telegram:433493318
   inbox: []
   waiting:
   - id: watch-planner-5f612447d241eca5
@@ -58,7 +78,8 @@ backlog_triage:
     - /home/ubuntu/workspace/projects/minimalmoeum
     - /home/ubuntu/workspace/projects/policycock
     decision: rejected_grouped
-    rejection_reason: Space의 변경은 travel-data.json generatedAt 타임스탬프 동기화뿐이며 신규 코드·실패 테스트·기술부채·대표지표 변화가 없어 기존 반복 그룹과 동일함
+    rejection_reason: Space의 변경은 travel-data.json generatedAt 타임스탬프 동기화뿐이며 신규 코드·실패
+      테스트·기술부채·대표지표 변화가 없어 기존 반복 그룹과 동일함
     next_action: 소스 코드·테스트 실패·기술부채 또는 대표지표 변화가 관찰될 때만 동일 dedupe 키를 재검토
   - id: watch-operator-current
     watcher_role: operator
@@ -68,7 +89,8 @@ backlog_triage:
     evidence_paths:
     - /home/ubuntu/workspace/knowledge-lab/infinity/INTENTS.yaml
     decision: rejected_grouped
-    rejection_reason: evidence_path가 자기참조 INTENTS.yaml뿐이며 독립적인 실패·대기·마감 위반·원격 불일치·대표지표 변화가 없어 기존 operator 반복 그룹으로 통합함
+    rejection_reason: evidence_path가 자기참조 INTENTS.yaml뿐이며 독립적인 실패·대기·마감 위반·원격 불일치·대표지표
+      변화가 없어 기존 operator 반복 그룹으로 통합함
     next_action: 새 독립 운영 증거 또는 대표지표 변화가 관찰될 때만 동일 dedupe 키를 재검토
   - id: watch-operator-current
     watcher_role: operator
