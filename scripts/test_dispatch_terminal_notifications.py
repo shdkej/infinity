@@ -8,6 +8,8 @@ import tempfile
 import unittest
 from pathlib import Path
 
+from PIL import Image
+
 
 SCRIPT = Path(__file__).with_name("dispatch_terminal_notifications.py")
 
@@ -99,6 +101,10 @@ class TerminalNotificationTest(unittest.TestCase):
             self.assertEqual(payload["destination"], {"channel": "telegram", "target": "telegram:433493318"})
             self.assertEqual(payload["presentation"]["tone"], "success")
             self.assertEqual(payload["presentation"]["blocks"][0]["type"], "text")
+            media = Path(payload["media"])
+            self.assertTrue(media.exists())
+            with Image.open(media) as image:
+                self.assertEqual(image.size, (1200, 675))
 
     def test_concurrent_replay_emits_one_message(self) -> None:
         with tempfile.TemporaryDirectory() as directory:

@@ -222,8 +222,8 @@ def append_candidates(roles: list[str], apply: bool) -> dict[str, Any]:
             "out_of_scope": "신호만으로 자동 구현·공개 발행·결제·권한 변경을 실행하지 않는다.",
             "success_evidence": "동일 목적 후보가 한 건으로 유지되고, triage 결과와 다음 행동이 남는다.",
             "next_action": "Genie가 근거를 검증한 뒤 유지·통합·거절·Inbox 승격 중 하나를 기록한다.",
-            "notification_channel": "slack",
-            "notification_target": "channel:C0BR41W31MM",
+            "notification_channel": "telegram",
+            "notification_target": "telegram:433493318",
         })
         existing.add(intent_id)
         added.append(intent_id)

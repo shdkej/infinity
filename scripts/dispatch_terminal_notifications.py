@@ -290,7 +290,11 @@ def render_card(entry: dict[str, object], state: str, body: str, card_dir: Path)
         if not raw:
             lines.append("")
     y = title_y + 18
-    for line in lines[:8]:
+    max_body_lines = max(1, (575 - y - 14) // 45)
+    visible_lines = lines[:max_body_lines]
+    if len(lines) > max_body_lines and visible_lines:
+        visible_lines[-1] = visible_lines[-1][:35] + "…"
+    for line in visible_lines:
         draw.text((86, y), line, font=font_body, fill=(214, 220, 228))
         y += 45
     draw.text((86, 575), f"Infinity · {entry['id']}", font=font_footer, fill=(145, 155, 168))

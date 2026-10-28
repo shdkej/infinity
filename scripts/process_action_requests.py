@@ -218,8 +218,8 @@ def backlog_promote_yaml(record: dict[str, str], data: dict[str, Any]) -> bool:
     promoted = normalize_entry(dict(item), "inbox")
     promoted["processing_scope"] = record["processing_scope"]
     promoted["status"] = "inbox"
-    promoted["notification_channel"] = promoted.get("notification_channel") or "slack"
-    promoted["notification_target"] = promoted.get("notification_target") or "channel:C0BR41W31MM"
+    promoted["notification_channel"] = promoted.get("notification_channel") or "telegram"
+    promoted["notification_target"] = promoted.get("notification_target") or "telegram:433493318"
     promoted["next_action"] = promoted.get("next_action") or "범위에 맞는 실행 계획을 만들고 확인 가능한 첫 결과를 남긴다."
     data["lanes"]["backlog"] = [x for x in data["lanes"]["backlog"] if x.get("id") != record["intent_id"]]
     data["lanes"]["inbox"].append(promoted)

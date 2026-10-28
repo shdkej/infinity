@@ -206,8 +206,8 @@ def append_candidates(candidates: list[dict[str, Any]], apply: bool) -> list[str
             "out_of_scope": "자동 실행, 외부 발송, 결제, 권한 변경",
             "success_evidence": "중복 없이 Backlog에 기록되고 대시보드에서 승격·거절할 수 있다.",
             "next_action": "사용자가 작업범위를 선택해 Inbox 승격 여부를 결정한다.",
-            "notification_channel": "slack",
-            "notification_target": "channel:C0BR41W31MM",
+            "notification_channel": "telegram",
+            "notification_target": "telegram:433493318",
         }
         backlog.append(item)
         existing_ids.add(intent_id)

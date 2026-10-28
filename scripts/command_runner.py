@@ -112,8 +112,8 @@ def intent_register(args: dict[str, Any]) -> dict[str, Any]:
         "priority": args.get("priority", "normal"), "projects": args.get("projects", []),
         "task_type": args.get("task_type", "implementation"),
         "ai_judgment": args.get("ai_judgment", {}),
-        "notification_channel": args.get("notification_channel", "slack"),
-        "notification_target": args.get("notification_target", ""),
+        "notification_channel": args.get("notification_channel", "telegram"),
+        "notification_target": args.get("notification_target", "telegram:433493318"),
     }, "inbox")
     data["lanes"]["inbox"].append(item)
     save_registry(data)

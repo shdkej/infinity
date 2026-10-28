@@ -29,8 +29,8 @@ lanes:
     blocker: 두 프로젝트의 고객 문의 관리 채널과 전용 마케팅 analytics 원천·대시보드가 로컬 문서와 공통 inbox에 없어 정확한
       경로·접근 검증을 완료할 수 없음
     retry_policy: autonomous
-    notification_channel: slack
-    notification_target: channel:C0BR41W31MM
+    notification_channel: telegram
+    notification_target: telegram:433493318
   active: []
 backlog_triage:
   cycle_id: backlog-triage-2026-10-28-role-watchers-r31
