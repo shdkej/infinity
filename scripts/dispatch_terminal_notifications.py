@@ -19,7 +19,6 @@ import hashlib
 import json
 import subprocess
 import sys
-import tempfile
 from pathlib import Path
 
 import yaml
@@ -298,7 +297,10 @@ def main() -> int:
         texts = [text]
     # Keep the process lock outside the Git worktree; the receipt JSON is the
     # durable artifact, while a lock is only a live-process coordination aid.
-    lock_path = args.lock or (Path(tempfile.gettempdir()) / ("infinity-terminal-notifier-" + hashlib.sha256(str(args.state.resolve()).encode()).hexdigest() + ".lock"))
+    # Keep the coordination lock beside the durable ledger.  This survives the
+    # clean detached worktree used by the dispatcher and avoids an unrelated
+    # system-temporary lock namespace.
+    lock_path = args.lock or args.state.with_suffix(args.state.suffix + ".lock")
     lock_path.parent.mkdir(parents=True, exist_ok=True)
     with lock_path.open("w") as lock:
       fcntl.flock(lock, fcntl.LOCK_EX)
