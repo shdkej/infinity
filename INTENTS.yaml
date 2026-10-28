@@ -1,7 +1,38 @@
 version: 1
 format: infinity-intents-yaml
 lanes:
-  backlog: []
+  backlog:
+  - id: watch-developer-current
+    dedupe_key: role-watcher:developer:repository_signal
+    title: 저장소 변경·테스트·기술 부채 신호를 개선 태스크로 정리한다
+    task_name: 저장소 변경·테스트·기술 부채 신호를 개선 태스크로 정리한다
+    status: backlog
+    priority: normal
+    task_type: watcher_candidate
+    target_agent: genie
+    watcher_role: developer
+    source: role-watcher:developer
+    signal_type: repository_signal
+    signal: 9a309ea83c014b72
+    evidence_paths:
+    - /home/ubuntu/workspace/space
+    - /home/ubuntu/workspace/projects/minimalmoeum
+    - /home/ubuntu/workspace/projects/policycock
+    created_at: '2026-10-28T00:00:02Z'
+    last_observed_at: '2026-10-28T00:00:02Z'
+    registration_reason: developer 와처가 이전 관찰 이후 달라진 구체 신호를 감지해 사람이 검토할 후보로 등록했다.
+    user_intent: developer 역할의 새 운영 신호를 사람이 판단 가능한 작업 후보로 만든다.
+    why_now: 이번 실행에서 이전 관찰과 달라진 구체 신호가 감지되었다.
+    desired_outcome: Genie가 근거를 확인해 중복은 묶고, 가치 있는 후보만 Inbox로 승격한다.
+    suggested_checks:
+    - 근거 파일·지표의 실제 변경 확인
+    - 현재 목표·대표 지표와의 연결 확인
+    - 이미 해결된 문제인지 확인
+    out_of_scope: 신호만으로 자동 구현·공개 발행·결제·권한 변경을 실행하지 않는다.
+    success_evidence: 동일 목적 후보가 한 건으로 유지되고, triage 결과와 다음 행동이 남는다.
+    next_action: Genie가 근거를 검증한 뒤 유지·통합·거절·Inbox 승격 중 하나를 기록한다.
+    notification_channel: slack
+    notification_target: channel:C0BR41W31MM
   inbox: []
   waiting:
   - id: watch-planner-5f612447d241eca5
