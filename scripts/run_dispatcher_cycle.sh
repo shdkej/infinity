@@ -11,6 +11,12 @@ TERMINAL_STATE_FILE="${INFINITY_TERMINAL_STATE_FILE:-$ROOT/data/dispatcher-termi
 LOCK_FILE="${INFINITY_DISPATCHER_LOCK_FILE:-/tmp/infinity-dispatcher.lock}"
 AGENT_TIMEOUT_SECONDS="${INFINITY_DISPATCHER_AGENT_TIMEOUT_SECONDS:-480}"
 DISPATCHER_SESSION_KEY="${INFINITY_DISPATCHER_SESSION_KEY:-agent:genie:infinity-dispatcher-command-v1}"
+CHANGE_NOTIFICATION_CHANNEL="${INFINITY_CHANGE_NOTIFICATION_CHANNEL:-}"
+CHANGE_NOTIFICATION_TARGET="${INFINITY_CHANGE_NOTIFICATION_TARGET:-}"
+CHANGE_NOTIFICATION_ARGS=()
+if [[ -n "$CHANGE_NOTIFICATION_CHANNEL" && -n "$CHANGE_NOTIFICATION_TARGET" ]]; then
+  CHANGE_NOTIFICATION_ARGS+=(--change-channel "$CHANGE_NOTIFICATION_CHANNEL" --change-target "$CHANGE_NOTIFICATION_TARGET")
+fi
 mkdir -p "$STATE_DIR" 2>/dev/null || { printf '%s\n' 'Infinity 점검을 시작하지 못했습니다. 원격 상태를 다시 확인한 뒤 재개하겠습니다.'; exit 0; }
 exec 9>"$LOCK_FILE"
 flock -n 9 || exit 0
@@ -50,7 +56,7 @@ python3 "$VERIFY_ROOT/scripts/prepare_dispatch_cycle.py" --repo "$VERIFY_ROOT" -
 TERMINAL_EXIT=0
 POST_TERMINAL_EXIT=0
 DASHBOARD_EXIT=0
-TERMINAL_RESULT="$(python3 "$VERIFY_ROOT/scripts/dispatch_terminal_notifications.py" --repo "$VERIFY_ROOT" --state "$TERMINAL_STATE_FILE" --deliver --openclaw-bin "$OPENCLAW_BIN" 2>&1)" || TERMINAL_EXIT=$?
+TERMINAL_RESULT="$(python3 "$VERIFY_ROOT/scripts/dispatch_terminal_notifications.py" --repo "$VERIFY_ROOT" --state "$TERMINAL_STATE_FILE" --deliver --openclaw-bin "$OPENCLAW_BIN" "${CHANGE_NOTIFICATION_ARGS[@]}" 2>&1)" || TERMINAL_EXIT=$?
 DASHBOARD_RESULT="$(python3 "$ROOT/scripts/process_action_requests.py" --apply --limit 10 --json 2>&1)" || DASHBOARD_EXIT=$?
 [[ "$TERMINAL_EXIT" -ne 0 ]] && TERMINAL_RESULT="terminal_error(exit=${TERMINAL_EXIT}):${TERMINAL_RESULT}"
 [[ "$DASHBOARD_EXIT" -ne 0 ]] && DASHBOARD_RESULT="dashboard_error(exit=${DASHBOARD_EXIT}):${DASHBOARD_RESULT}"
@@ -203,7 +209,7 @@ fi
 # Genie may move an intent to Waiting or Archive during this cycle.  Reconciling
 # only before the handoff silently delays that state transition until a later
 # cron run; send its origin-thread notification now and persist the receipt.
-POST_TERMINAL_RESULT="$(python3 "$VERIFY_ROOT/scripts/dispatch_terminal_notifications.py" --repo "$VERIFY_ROOT" --state "$TERMINAL_STATE_FILE" --deliver --openclaw-bin "$OPENCLAW_BIN" 2>&1)" || POST_TERMINAL_EXIT=$?
+POST_TERMINAL_RESULT="$(python3 "$VERIFY_ROOT/scripts/dispatch_terminal_notifications.py" --repo "$VERIFY_ROOT" --state "$TERMINAL_STATE_FILE" --deliver --openclaw-bin "$OPENCLAW_BIN" "${CHANGE_NOTIFICATION_ARGS[@]}" 2>&1)" || POST_TERMINAL_EXIT=$?
 [[ "$POST_TERMINAL_EXIT" -ne 0 ]] && POST_TERMINAL_RESULT="terminal_post_handoff_error(exit=${POST_TERMINAL_EXIT}):${POST_TERMINAL_RESULT}"
 
 python3 - "$RUN_FILE" "$PLAN_FILE" "$POST_PLAN_FILE" "$TERMINAL_RESULT" "$POST_TERMINAL_RESULT" "$DASHBOARD_RESULT" "$HANDOFF_EXIT" "$HANDOFF_STATE" "$TERMINAL_EXIT" "$POST_TERMINAL_EXIT" "$DASHBOARD_EXIT" "$HANDOFF_VERIFY_EXIT" <<'PY'

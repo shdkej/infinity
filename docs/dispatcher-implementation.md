@@ -7,7 +7,7 @@
 - 스케줄 진입점: `scripts/run_dispatcher_cycle.sh`
 - 계획 생성: `scripts/prepare_dispatch_cycle.py`
 - 대시보드 액션 소비: `scripts/process_action_requests.py`
-- terminal 통보: `scripts/dispatch_terminal_notifications.py`
+- terminal 및 상태변경 통보: `scripts/dispatch_terminal_notifications.py`
 - trace 기록: `scripts/record_intent_trace.py`
 - 프로젝트 실행자 해석: `scripts/project_executor_registry.py`, `data/project-executors.yaml`
 - 실행 cycle 기록: `/home/ubuntu/.openclaw/state/infinity-dispatcher-runs/`
@@ -18,7 +18,7 @@
 2. `git fetch --prune origin main` 후 `FETCH_HEAD`와 `origin/main` SHA가 같은지 확인합니다.
 3. 최신 `origin/main`으로 검증용 detached worktree를 만듭니다.
 4. `prepare_dispatch_cycle.py`가 `INTENTS.yaml`을 읽어 promotion, resume, plan activation, expansion, terminalization 후보를 계산합니다.
-5. terminal notification과 대시보드 action queue를 처리합니다.
+5. terminal notification과 대시보드 action queue를 처리합니다. 같은 과정에서 `INTENTS.yaml` 및 월별 Archive YAML을 읽어 새 Intent와 Inbox/Active/Waiting 사이의 상태 전이를 exactly-once로 통보합니다.
 6. 대시보드 action이 원장을 바꾸면 계획을 다시 계산합니다.
 7. handoff 대상마다 `dispatcher_handoff` trace를 남기고 Genie 실행 세션에 넘깁니다.
 8. 실행 뒤 원격 상태와 계획을 다시 읽어 실행 증거와 상태 전이를 검증합니다.
@@ -39,6 +39,8 @@
 - `INFINITY_DISPATCHER_LOCK_FILE`: 단일 실행 잠금 경로
 - `INFINITY_DISPATCHER_AGENT_TIMEOUT_SECONDS`: Genie 실행 제한 시간
 - `INFINITY_DISPATCHER_SESSION_KEY`: Genie handoff 세션 키
+- `INFINITY_CHANGE_NOTIFICATION_CHANNEL`: 새 Intent/상태변경 통보 채널
+- `INFINITY_CHANGE_NOTIFICATION_TARGET`: 새 Intent/상태변경 통보 대상
 
 ## 점검 명령
 

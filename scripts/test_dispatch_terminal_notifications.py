@@ -111,6 +111,46 @@ class TerminalNotificationTest(unittest.TestCase):
             self.assertEqual(retried["sent"], 1)
             self.assertEqual(len(outbox.read_text().splitlines()), 1)
 
+    def test_yaml_new_intent_and_status_change_are_once(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory); intents = root / "INTENTS.yaml"; state = root / "state.json"; outbox = root / "outbox.jsonl"
+            base = """version: 1
+format: infinity-intents-yaml
+lanes:
+  backlog: []
+  inbox:
+    - id: fixture-1
+      title: 첫 태스크
+      task_name: 첫 태스크
+      status: inbox
+  active: []
+  waiting: []
+"""
+            intents.write_text(base)
+            first = subprocess.run(["python3", str(SCRIPT), "--intents", str(intents), "--state", str(state), "--mock-outbox", str(outbox), "--change-channel", "telegram", "--change-target", "telegram:433493318"], check=True, capture_output=True, text=True)
+            self.assertEqual(json.loads(first.stdout)["sent"], 0)
+            changed = base.replace("inbox:", "active:", 1).replace("  active: []\n", "  waiting: []\n", 1)
+            # Keep the fixture valid while moving the same item from Inbox to Active.
+            changed = """version: 1
+format: infinity-intents-yaml
+lanes:
+  backlog: []
+  inbox: []
+  active:
+    - id: fixture-1
+      title: 첫 태스크
+      task_name: 첫 태스크
+      status: active
+  waiting: []
+"""
+            intents.write_text(changed)
+            result = subprocess.run(["python3", str(SCRIPT), "--intents", str(intents), "--state", str(state), "--mock-outbox", str(outbox), "--change-channel", "telegram", "--change-target", "telegram:433493318"], check=True, capture_output=True, text=True)
+            self.assertEqual(json.loads(result.stdout)["sent"], 1)
+            replay = subprocess.run(["python3", str(SCRIPT), "--intents", str(intents), "--state", str(state), "--mock-outbox", str(outbox), "--change-channel", "telegram", "--change-target", "telegram:433493318"], check=True, capture_output=True, text=True)
+            self.assertEqual(json.loads(replay.stdout)["sent"], 0)
+            self.assertEqual(len(outbox.read_text().splitlines()), 1)
+            self.assertIn("Infinity 상태 변경", outbox.read_text())
+
 
 if __name__ == "__main__":
     unittest.main()

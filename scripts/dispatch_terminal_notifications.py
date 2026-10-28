@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Reconcile remote Infinity terminal states into one destination-aware notice.
+"""Reconcile Infinity terminal states and open-state changes into notices.
 
 The dispatcher deliberately has no implicit Telegram default.  An intent must carry
 ``notification_channel`` and ``notification_target`` captured at intake; that makes
@@ -21,6 +21,8 @@ import subprocess
 import sys
 import tempfile
 from pathlib import Path
+
+import yaml
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -44,6 +46,29 @@ def sections(text: str) -> dict[str, str]:
 
 
 def entries(text: str) -> list[dict[str, object]]:
+    """Parse either the current YAML registry or the legacy Markdown registry."""
+    if text.lstrip().startswith(("version:", "---", "{")):
+        data = yaml.safe_load(text) or {}
+        rows: list[tuple[str, list[dict[str, object]]]] = []
+        lanes = data.get("lanes", {}) or {}
+        rows.extend((lane, lanes.get(key, []) or []) for lane, key in (
+            ("Backlog", "backlog"), ("Inbox", "inbox"),
+            ("Active", "active"), ("Waiting", "waiting"),
+        ))
+        rows.append(("Archive", data.get("archive", []) or []))
+        records: list[dict[str, object]] = []
+        for lane, items in rows:
+            for item in items:
+                if not isinstance(item, dict) or not item.get("id"):
+                    continue
+                fields = {str(k): str(v) for k, v in item.items()}
+                records.append({
+                    "id": str(item["id"]),
+                    "title": str(item.get("task_name") or item.get("title") or item["id"]),
+                    "lane": lane.lower(),
+                    "fields": fields,
+                })
+        return records
     records: list[dict[str, object]] = []
     for lane, body in sections(text).items():
         if lane not in OPEN_LANES:
@@ -58,6 +83,24 @@ def entries(text: str) -> list[dict[str, object]]:
                 key, value = line[2:].split(":", 1)
                 current["fields"][key.strip()] = value.strip()  # type: ignore[index]
     return records
+
+
+def state_signature(entry: dict[str, object]) -> dict[str, str]:
+    fields: dict[str, str] = entry["fields"]  # type: ignore[assignment]
+    return {
+        "lane": str(entry["lane"]),
+        "status": fields.get("status", str(entry["lane"])).lower(),
+        "title": str(entry["title"]),
+    }
+
+
+def change_message(entry: dict[str, object], kind: str, previous: dict[str, str] | None) -> str:
+    current = state_signature(entry)
+    if kind == "created":
+        return f"Infinity 새 태스크 · {entry['id']} {entry['title']}\n상태: {current['lane']}"
+    before = f"{previous.get('lane')} / {previous.get('status')}" if previous else "미확인"
+    after = f"{current['lane']} / {current['status']}"
+    return f"Infinity 상태 변경 · {entry['id']} {entry['title']}\n{before} → {after}"
 
 
 def phase(entry: dict[str, object]) -> str | None:
@@ -191,10 +234,47 @@ def send(dest: dict[str, str], body: str, args: argparse.Namespace, card: dict[s
     return "delivery_unknown"
 
 
-def remote_text(repo: Path) -> tuple[str, str]:
+def remote_texts(repo: Path) -> tuple[list[str], str]:
     subprocess.run(["git", "fetch", "origin", "main"], cwd=repo, check=True, capture_output=True, text=True)
     sha = subprocess.check_output(["git", "rev-parse", "origin/main"], cwd=repo, text=True).strip()
-    return subprocess.check_output(["git", "show", "origin/main:INTENTS.yaml"], cwd=repo, text=True), sha
+    texts = [subprocess.check_output(["git", "show", "origin/main:INTENTS.yaml"], cwd=repo, text=True)]
+    archive_paths = subprocess.check_output(
+        ["git", "ls-tree", "-r", "--name-only", "origin/main", "intents/archive"],
+        cwd=repo, text=True,
+    ).splitlines()
+    for path in archive_paths:
+        if not path.endswith((".yaml", ".yml")):
+            continue
+        texts.append(subprocess.check_output(["git", "show", f"origin/main:{path}"], cwd=repo, text=True))
+    return texts, sha
+
+
+def change_destination(args: argparse.Namespace, fields: dict[str, str]) -> dict[str, str] | None:
+    channel = args.change_channel or fields.get("notification_channel", "")
+    target = args.change_target or fields.get("notification_target", "")
+    if not channel or not target:
+        return None
+    return {"channel": channel, "target": target}
+
+
+def claim_and_send(
+    ledger: dict[str, object],
+    deliveries: dict[str, dict[str, str]],
+    key: str,
+    receipt: dict[str, str],
+    dest: dict[str, str],
+    body: str,
+    args: argparse.Namespace,
+    card: dict[str, object] | None = None,
+) -> str:
+    deliveries[key] = receipt
+    receipt["attempt_started_at"] = now()
+    save(args.state, ledger)
+    outcome = send(dest, body, args, card)
+    receipt["state"] = outcome
+    receipt[("sent_at" if outcome == "sent" else "updated_at")] = now()
+    save(args.state, ledger)
+    return outcome
 
 
 def main() -> int:
@@ -206,12 +286,16 @@ def main() -> int:
     parser.add_argument("--mock-outbox", help="safe JSONL delivery sink")
     parser.add_argument("--deliver", action="store_true", help="enable host OpenClaw CLI delivery")
     parser.add_argument("--openclaw-bin", default="openclaw")
+    parser.add_argument("--change-channel", default="", help="destination for new/open status changes")
+    parser.add_argument("--change-target", default="", help="destination for new/open status changes")
     args = parser.parse_args()
     if args.intents:
         text = args.intents.read_text()
         remote_sha = "fixture:" + hashlib.sha256(text.encode()).hexdigest()
     else:
-        text, remote_sha = remote_text(args.repo)
+        texts, remote_sha = remote_texts(args.repo)
+    if args.intents:
+        texts = [text]
     # Keep the process lock outside the Git worktree; the receipt JSON is the
     # durable artifact, while a lock is only a live-process coordination aid.
     lock_path = args.lock or (Path(tempfile.gettempdir()) / ("infinity-terminal-notifier-" + hashlib.sha256(str(args.state.resolve()).encode()).hexdigest() + ".lock"))
@@ -222,8 +306,34 @@ def main() -> int:
       deliveries: dict[str, dict[str, str]] = ledger["deliveries"]  # type: ignore[assignment]
       sent = skipped = 0
       current_receipts: set[str] = set()
-      for entry in entries(text):
+      all_entries = [entry for source in texts for entry in entries(source)]
+      observed: dict[str, dict[str, str]] = ledger.setdefault("observed_intents", {})  # type: ignore[assignment]
+      baseline_ready = bool(ledger.get("observed_initialized"))
+      current_ids: set[str] = set()
+      for entry in all_entries:
+          intent_id = str(entry["id"])
+          current_ids.add(intent_id)
           terminal = phase(entry)
+          signature = state_signature(entry)
+          previous = observed.get(intent_id)
+          if not terminal and str(entry["lane"]) != "archive":
+              fields: dict[str, str] = entry["fields"]  # type: ignore[assignment]
+              dest = change_destination(args, fields)
+              state_changed = previous is not None and any(
+                  previous.get(key) != signature.get(key) for key in ("lane", "status")
+              )
+              kind = "" if not baseline_ready else "created" if previous is None else "changed" if state_changed else ""
+              if kind and dest:
+                  identity = "|".join(("change", kind, intent_id, dest["channel"], dest["target"], json.dumps(signature, sort_keys=True, ensure_ascii=False)))
+                  key = hashlib.sha256(identity.encode()).hexdigest()
+                  current_receipts.add(key)
+                  existing = deliveries.get(key)
+                  if not existing:
+                      receipt = {"intent_id": intent_id, "terminal_state": kind, "destination": identity, "fingerprint": identity, "remote_sha": remote_sha, "claimed_at": now(), "state": "claimed"}
+                      outcome = claim_and_send(ledger, deliveries, key, receipt, dest, change_message(entry, kind, previous), args)
+                      sent += outcome == "sent"
+              observed[intent_id] = signature
+              continue
           if not terminal:
               continue
           fields: dict[str, str] = entry["fields"]  # type: ignore[assignment]
@@ -255,18 +365,15 @@ def main() -> int:
           # acceptance is thus never replayed as a duplicate; operators inspect a
           # ``claimed``/``delivery_unknown`` receipt and decide a manual remedy.
           receipt = existing or {"intent_id": str(entry["id"]), "terminal_state": terminal, "destination": identity, "fingerprint": fingerprint(entry, terminal), "remote_sha": remote_sha, "claimed_at": now(), "state": "claimed"}
-          deliveries[key] = receipt
-          receipt["attempt_started_at"] = now()
-          save(args.state, ledger)
           # A durable claim makes concurrent runs safe.  A claimed receipt is safe
           # to retry after an interrupted process because no transport result was
-          # recorded.  ``delivery_unknown`` is intentionally never replayed: CLI
-          # acceptance is ambiguous and automatic replay could duplicate a notice.
-          outcome = send(dest, message(entry, terminal), args, presentation(entry, terminal))
-          receipt["state"] = outcome
-          receipt[("sent_at" if outcome == "sent" else "updated_at")] = now()
-          save(args.state, ledger)
+          # recorded.  ``delivery_unknown`` is intentionally never replayed.
+          outcome = claim_and_send(ledger, deliveries, key, receipt, dest, message(entry, terminal), args, presentation(entry, terminal))
           sent += outcome == "sent"
+          observed[intent_id] = state_signature(entry)
+      for intent_id in set(observed) - current_ids:
+          observed.pop(intent_id, None)
+      ledger["observed_initialized"] = True
       # An older terminal state can be replaced by Archive or lose its
       # addressable origin during explicit user closeout.  Retain that receipt
       # for audit, but do not let a no-longer-current ambiguous delivery keep
