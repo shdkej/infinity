@@ -21,6 +21,7 @@ import subprocess
 import sys
 from pathlib import Path
 
+from PIL import Image, ImageDraw, ImageFont
 import yaml
 
 
@@ -243,17 +244,75 @@ def presentation(entry: dict[str, object], state: str) -> dict[str, object]:
     return card(entry, state)
 
 
-def send(dest: dict[str, str], body: str, args: argparse.Namespace, card: dict[str, object] | None = None) -> str:
+def render_card(entry: dict[str, object], state: str, body: str, card_dir: Path) -> Path:
+    """Render a real Telegram-visible image card; presentation remains metadata/UI."""
+    card_dir.mkdir(parents=True, exist_ok=True)
+    digest = hashlib.sha256(f"{entry['id']}|{state}|{body}".encode()).hexdigest()[:16]
+    path = card_dir / f"{digest}.png"
+    if path.exists():
+        return path
+    colors = {
+        "completed": ((24, 37, 43), (108, 220, 181), "완료"),
+        "approval": ((49, 39, 24), (255, 205, 91), "승인 필요"),
+        "blocked": ((49, 28, 32), (255, 126, 126), "진행 차단"),
+        "deadline_missed": ((49, 28, 32), (255, 126, 126), "마감 실패"),
+        "experiment_failed": ((49, 28, 32), (255, 126, 126), "실험 실패"),
+        "created": ((25, 36, 57), (123, 183, 255), "새 태스크"),
+        "changed": ((25, 36, 57), (123, 183, 255), "상태 변경"),
+    }
+    background, accent, label = colors.get(state, ((31, 35, 42), (180, 190, 205), state))
+    image = Image.new("RGB", (1200, 675), background)
+    draw = ImageDraw.Draw(image)
+    bold = "/usr/share/fonts/opentype/noto/NotoSansCJK-Bold.ttc"
+    regular = "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc"
+    try:
+        font_label = ImageFont.truetype(bold, 28, index=0)
+        font_title = ImageFont.truetype(bold, 42, index=0)
+        font_body = ImageFont.truetype(regular, 29, index=0)
+        font_footer = ImageFont.truetype(regular, 22, index=0)
+    except OSError:
+        font_label = font_title = font_body = font_footer = ImageFont.load_default()
+    draw.rounded_rectangle((52, 48, 1148, 627), radius=30, fill=(18, 22, 28), outline=accent, width=3)
+    draw.rounded_rectangle((86, 82, 270, 132), radius=24, fill=accent)
+    draw.text((112, 92), label, font=font_label, fill=(12, 16, 20))
+    title_lines = [str(entry["title"])[i:i + 24] for i in range(0, len(str(entry["title"])), 24)] or ["Infinity"]
+    title_y = 170
+    for line in title_lines[:2]:
+        draw.text((86, title_y), line, font=font_title, fill=(247, 249, 252))
+        title_y += 58
+    lines: list[str] = []
+    for raw in body.splitlines():
+        words = list(raw)
+        while words:
+            take = min(len(words), 38)
+            lines.append("".join(words[:take]))
+            words = words[take:]
+        if not raw:
+            lines.append("")
+    y = title_y + 18
+    for line in lines[:8]:
+        draw.text((86, y), line, font=font_body, fill=(214, 220, 228))
+        y += 45
+    draw.text((86, 575), f"Infinity · {entry['id']}", font=font_footer, fill=(145, 155, 168))
+    image.save(path, format="PNG", optimize=True)
+    return path
+
+
+def send(dest: dict[str, str], body: str, args: argparse.Namespace, card: dict[str, object] | None = None, media_path: Path | None = None) -> str:
     if args.mock_outbox:
         with Path(args.mock_outbox).open("a") as outbox:
             payload: dict[str, object] = {"destination": dest, "message": body}
             if card:
                 payload["presentation"] = card
+            if media_path:
+                payload["media"] = str(media_path)
             outbox.write(json.dumps(payload, ensure_ascii=False) + "\n")
         return "sent"
     if not args.deliver:
         raise RuntimeError("delivery requires --deliver (or use --mock-outbox)")
     command = [args.openclaw_bin, "message", "send", "--json", "--channel", dest["channel"], "--target", dest["target"], "--message", body]
+    if media_path:
+        command.extend(["--media", str(media_path)])
     if card:
         command.extend(["--presentation", json.dumps(card, ensure_ascii=False, separators=(",", ":"))])
     if dest.get("thread"):
@@ -304,11 +363,12 @@ def claim_and_send(
     body: str,
     args: argparse.Namespace,
     card: dict[str, object] | None = None,
+    media_path: Path | None = None,
 ) -> str:
     deliveries[key] = receipt
     receipt["attempt_started_at"] = now()
     save(args.state, ledger)
-    outcome = send(dest, body, args, card)
+    outcome = send(dest, body, args, card, media_path)
     receipt["state"] = outcome
     receipt[("sent_at" if outcome == "sent" else "updated_at")] = now()
     save(args.state, ledger)
@@ -328,7 +388,9 @@ def main() -> int:
     parser.add_argument("--change-target", default="", help="destination for new/open status changes")
     parser.add_argument("--terminal-channel", default="", help="override destination for terminal notices")
     parser.add_argument("--terminal-target", default="", help="override destination for terminal notices")
+    parser.add_argument("--card-dir", type=Path, default=None, help="generated Telegram card image directory")
     args = parser.parse_args()
+    args.card_dir = args.card_dir or args.state.parent / "cards"
     if args.intents:
         text = args.intents.read_text()
         remote_sha = "fixture:" + hashlib.sha256(text.encode()).hexdigest()
@@ -374,7 +436,10 @@ def main() -> int:
                   if not existing:
                       receipt = {"intent_id": intent_id, "terminal_state": kind, "destination": identity, "fingerprint": identity, "remote_sha": remote_sha, "claimed_at": now(), "state": "claimed"}
                       change_body = change_message(entry, kind, previous)
-                      outcome = claim_and_send(ledger, deliveries, key, receipt, dest, change_body, args, card(entry, kind, change_body))
+                      outcome = claim_and_send(
+                          ledger, deliveries, key, receipt, dest, change_body, args,
+                          card(entry, kind, change_body), render_card(entry, kind, change_body, args.card_dir),
+                      )
                       sent += outcome == "sent"
               observed[intent_id] = signature
               continue
@@ -412,7 +477,11 @@ def main() -> int:
           # A durable claim makes concurrent runs safe.  A claimed receipt is safe
           # to retry after an interrupted process because no transport result was
           # recorded.  ``delivery_unknown`` is intentionally never replayed.
-          outcome = claim_and_send(ledger, deliveries, key, receipt, dest, message(entry, terminal), args, presentation(entry, terminal))
+          terminal_body = message(entry, terminal)
+          outcome = claim_and_send(
+              ledger, deliveries, key, receipt, dest, terminal_body, args,
+              presentation(entry, terminal), render_card(entry, terminal, terminal_body, args.card_dir),
+          )
           sent += outcome == "sent"
           observed[intent_id] = state_signature(entry)
       for intent_id in set(observed) - current_ids:
