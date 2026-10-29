@@ -94,13 +94,40 @@ def state_signature(entry: dict[str, object]) -> dict[str, str]:
     }
 
 
+def status_emoji(state: str) -> str:
+    return {
+        "completed": "✅",
+        "approval": "⚠️",
+        "blocked": "⛔",
+        "deadline_missed": "⏰",
+        "experiment_failed": "❌",
+        "created": "🆕",
+        "changed": "🔄",
+    }.get(state, "ℹ️")
+
+
+def text_summary(entry: dict[str, object], state: str) -> str:
+    """Keep the first preview line readable without opening the PNG card."""
+    return f"{status_emoji(state)} {entry['title']}"
+
+
+def image_body(body: str) -> str:
+    """Keep status emoji in the text fallback, not in the limited card font."""
+    lines = body.splitlines()
+    if lines and any(lines[0].startswith(emoji) for emoji in {
+        "✅", "⚠️", "⛔", "⏰", "❌", "🆕", "🔄", "ℹ️",
+    }):
+        return "\n".join(lines[1:])
+    return body
+
+
 def change_message(entry: dict[str, object], kind: str, previous: dict[str, str] | None) -> str:
     current = state_signature(entry)
     if kind == "created":
-        return f"Infinity 새 태스크 · {entry['id']} {entry['title']}\n상태: {current['lane']}"
+        return f"{text_summary(entry, kind)}\nInfinity 새 태스크 · {entry['id']}\n상태: {current['lane']}"
     before = f"{previous.get('lane')} / {previous.get('status')}" if previous else "미확인"
     after = f"{current['lane']} / {current['status']}"
-    return f"Infinity 상태 변경 · {entry['id']} {entry['title']}\n{before} → {after}"
+    return f"{text_summary(entry, kind)}\nInfinity 상태 변경 · {entry['id']}\n{before} → {after}"
 
 
 def phase(entry: dict[str, object]) -> str | None:
@@ -166,7 +193,7 @@ def message(entry: dict[str, object], state: str) -> str:
     if state == "completed":
         detail = fields.get("result") or fields.get("metric_result") or "원격 검증을 통과했습니다."
         proof = " · ".join(filter(None, (fields.get("remote_commit"), fields.get("report"), "remote verified")))
-        return f"Infinity 완료 · {entry['id']} {entry['title']}\n{detail}\n검증: {proof}"
+        return f"{text_summary(entry, state)}\nInfinity 완료 · {entry['id']}\n{detail}\n검증: {proof}"
     label = {
         "approval": "승인/결정 필요",
         "deadline_missed": "마감 실패",
@@ -174,7 +201,7 @@ def message(entry: dict[str, object], state: str) -> str:
     }.get(state, "진행 차단")
     detail = fields.get("blocker") or fields.get("waiting_reason") or "구체 사유가 원장에 없습니다."
     action = fields.get("next_action") or fields.get("next_retry_condition") or "원장을 확인해 주세요."
-    return f"Infinity {label} · {entry['id']} {entry['title']}\n사유: {detail}\n다음: {action}"
+    return f"{text_summary(entry, state)}\nInfinity {label} · {entry['id']}\n사유: {detail}\n다음: {action}"
 
 
 def tone(state: str) -> str:
@@ -281,7 +308,7 @@ def render_card(entry: dict[str, object], state: str, body: str, card_dir: Path)
         draw.text((86, title_y), line, font=font_title, fill=(247, 249, 252))
         title_y += 58
     lines: list[str] = []
-    for raw in body.splitlines():
+    for raw in image_body(body).splitlines():
         words = list(raw)
         while words:
             take = min(len(words), 38)

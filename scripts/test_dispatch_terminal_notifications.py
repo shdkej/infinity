@@ -41,8 +41,11 @@ class TerminalNotificationTest(unittest.TestCase):
             self.assertEqual(self.run_dispatch(intents, state, outbox)["sent"], 0)
             lines = outbox.read_text().splitlines()
             self.assertEqual(len(lines), 2)
-            self.assertIn("Infinity 완료", lines[0])
-            self.assertIn("Infinity 승인/결정 필요", lines[1])
+            first_payload, second_payload = (json.loads(line) for line in lines)
+            self.assertTrue(first_payload["message"].startswith("✅ 완료 카드\n"))
+            self.assertIn("Infinity 완료", first_payload["message"])
+            self.assertTrue(second_payload["message"].startswith("⚠️ 승인 카드\n"))
+            self.assertIn("Infinity 승인/결정 필요", second_payload["message"])
             receipts = json.loads(state.read_text())["deliveries"]
             self.assertEqual({receipt["state"] for receipt in receipts.values()}, {"sent"})
             self.assertTrue(all(receipt["remote_sha"].startswith("fixture:") for receipt in receipts.values()))
@@ -85,6 +88,7 @@ class TerminalNotificationTest(unittest.TestCase):
             intents.write_text(registry(waiting=True).replace("- waiting_on: user\n", "- approval_required: true\n- permission_level: approval_required\n"))
             self.assertEqual(self.run_dispatch(intents, state, outbox)["sent"], 1)
             payload = json.loads(outbox.read_text())
+            self.assertTrue(payload["message"].startswith("⚠️ 승인 카드\n"))
             self.assertIn("Infinity 승인/결정 필요", payload["message"])
             self.assertEqual(payload["presentation"]["tone"], "warning")
             values = [button["action"]["value"] for button in payload["presentation"]["blocks"][-1]["buttons"]]
@@ -166,6 +170,8 @@ lanes:
             intents.write_text(changed)
             created = subprocess.run(["python3", str(SCRIPT), "--intents", str(intents), "--state", str(state), "--mock-outbox", str(outbox), "--change-channel", "telegram", "--change-target", "telegram:433493318"], check=True, capture_output=True, text=True)
             self.assertEqual(json.loads(created.stdout)["sent"], 1)
+            created_payload = json.loads(outbox.read_text().splitlines()[0])
+            self.assertTrue(created_payload["message"].startswith("🆕 새 태스크\n"))
             # Move the original item Inbox → Active, then Active → Waiting.
             changed = """version: 1
 format: infinity-intents-yaml
