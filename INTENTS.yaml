@@ -41,11 +41,11 @@ lanes:
     watcher_role: operator
     source: role-watcher:operator
     signal_type: operations_signal
-    signal: 0af0a0e3e7c51580
+    signal: a1acb9d455c93b2c
     evidence_paths:
     - /home/ubuntu/workspace/knowledge-lab/infinity/INTENTS.yaml
     created_at: '2026-10-29T06:00:02Z'
-    last_observed_at: '2026-10-29T06:00:02Z'
+    last_observed_at: '2026-10-29T12:00:02Z'
     registration_reason: operator 와처가 이전 관찰 이후 달라진 구체 신호를 감지해 사람이 검토할 후보로 등록했다.
     user_intent: operator 역할의 새 운영 신호를 사람이 판단 가능한 작업 후보로 만든다.
     why_now: 이번 실행에서 이전 관찰과 달라진 구체 신호가 감지되었다.
