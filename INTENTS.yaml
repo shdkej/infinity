@@ -13,13 +13,13 @@ lanes:
     watcher_role: developer
     source: role-watcher:developer
     signal_type: repository_signal
-    signal: cdabac5df32056a7
+    signal: 0745d09e21e0d5f3
     evidence_paths:
     - /home/ubuntu/workspace/space
     - /home/ubuntu/workspace/projects/minimalmoeum
     - /home/ubuntu/workspace/projects/policycock
     created_at: '2026-10-29T00:00:02Z'
-    last_observed_at: '2026-10-29T18:00:03Z'
+    last_observed_at: '2026-10-30T12:00:03Z'
     registration_reason: developer 와처가 Space의 실제 기능 변경과 원격 동기화 상태 변화를 감지해 검토 후보로 등록했다.
     user_intent: developer 역할의 새 저장소 변경 신호를 검증 가능한 구현 태스크로 만든다.
     why_now: Space에 cron 상세·실행 로그·agent flow 등 사용자-facing 기능 커밋이 연속 반영되었다.
