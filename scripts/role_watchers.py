@@ -21,7 +21,7 @@ import yaml
 ROOT = Path(__file__).resolve().parents[1]
 REGISTRY = ROOT / "INTENTS.yaml"
 STATE = ROOT / "data" / "role-watcher-state.json"
-CANONICAL_ROOT = Path("/home/ubuntu/workspace/knowledge-lab/infinity")
+CANONICAL_ROOT = Path("/home/ubuntu/workspace/infinity")
 PROJECTS = Path("/home/ubuntu/workspace/projects")
 MARKETING_INBOX = Path("/home/ubuntu/workspace/knowledge-lab/source/openclaw-system/data/agent-inbox/marketing.jsonl")
 ROLE_IDS = ("planner", "developer", "marketing", "design", "operator")

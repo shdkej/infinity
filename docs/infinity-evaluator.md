@@ -4,9 +4,9 @@
 Infinity의 intent 처리 품질을 독립적으로 평가하고, 다음 pickup/구조화/실행에서 참고할 수 있는 재사용 가능한 평가를 남긴다.
 
 ## 반드시 읽을 문서
-- `/home/ubuntu/workspace/knowledge-lab/infinity/README.md`의 `운영 품질 평가` 섹션
-- `/home/ubuntu/workspace/knowledge-lab/infinity/README.md`의 `반복 운영 학습` 섹션
-- `/home/ubuntu/workspace/knowledge-lab/infinity/INTENTS.yaml`
+- `/home/ubuntu/workspace/infinity/README.md`의 `운영 품질 평가` 섹션
+- `/home/ubuntu/workspace/infinity/README.md`의 `반복 운영 학습` 섹션
+- `/home/ubuntu/workspace/infinity/INTENTS.yaml`
 
 ## 토큰 절약 읽기 규칙
 - 정기 evaluator는 README의 평가 기준과 최근 heartbeat/report 1~2개만 확인한다.

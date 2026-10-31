@@ -112,7 +112,7 @@ def main() -> int:
     parser.add_argument("intent_id")
     parser.add_argument(
         "--repo",
-        default="/home/ubuntu/workspace/knowledge-lab/infinity",
+        default="/home/ubuntu/workspace/infinity",
         help="Infinity checkout path",
     )
     args = parser.parse_args()

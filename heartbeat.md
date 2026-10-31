@@ -32,7 +32,7 @@
 
 대시보드 버튼은 사용자가 Waiting에 걸린 외부 조건을 바꾼 명시 신호이므로, 작업 실행 디스패처는 새 원격 전이를 읽을 때 일반 Waiting 반복 금지보다 우선한다.
 
-1. 버튼 크론이 `/home/ubuntu/workspace/knowledge-lab/infinity`에서 `python3 scripts/process_action_requests.py --apply --limit 10 --json`을 실행한다.
+1. 버튼 크론이 `/home/ubuntu/workspace/infinity`에서 `python3 scripts/process_action_requests.py --apply --limit 10 --json`을 실행한다.
 2. `resolve_waiting` 요청이 accepted이면 해당 intent를 Waiting 반복 금지 대상에서 제외하고, 다음 작업 실행 주기가 `next_action`과 `blocker`를 다시 읽어 가능한 가역 작업을 시도한다.
 3. action queue 처리만으로 완료를 선언하지 않는다. 큐 처리는 사용자 트리거 수신이며, 실제 intent 실행·검증·Archive는 지니 계약을 따른다.
 4. rejected 요청은 rejection reason을 기록하고 같은 실패를 반복하지 않도록 dedupe marker를 해제한다.
@@ -143,7 +143,7 @@ Intent의 `context` 필드(파일 경로, 서비스명 등)에서 프로젝트�
 - 경로 기반: 최상위 디렉토리 또는 리포지토리 루트 (예: `kop-web`, `security-automation`)
 - 명시적 태그: Intent에 `project: xxx` 필드가 있으면 그것을 사용
 - 고정 프로젝트 매핑:
-  - `infinity`: `/home/ubuntu/workspace/knowledge-lab/infinity`, `INTENTS.md`, Infinity kanban/dashboard/report/archive.
+  - `infinity`: `/home/ubuntu/workspace/infinity`, `INTENTS.md`, Infinity kanban/dashboard/report/archive.
   - `space`: `/home/ubuntu/workspace/space`, `infra-aws-static-sites`, `infra-cloudflare-images`, `infra-dns`, `infra-oracle`, `minikube`, 정적 사이트 배포와 개인 인프라.
   - `monitoring_personal`: `/home/ubuntu/workspace/monitoring_personal`, Prometheus, Loki, Promtail, YACE, PostHog exporter, Docker Compose/K8s 개인 모니터링 스택.
 - `monitoring`이라는 느슨한 태그가 개인 모니터링 repo, TICK/Prometheus/Loki/PostHog exporter, `/home/ubuntu/workspace/monitoring_personal` 중 하나를 가리키면 `monitoring_personal`로 정규화한다.
