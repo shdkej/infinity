@@ -8,7 +8,18 @@ STATE_FILE="${INFINITY_TERMINAL_STATE_FILE:-$ROOT/data/dispatcher-terminal-notif
 STATE_DIR="${INFINITY_NOTIFICATION_STATE_DIR:-/home/ubuntu/.openclaw/state/infinity-dispatcher-runs}"
 LOCK_FILE="${INFINITY_NOTIFICATION_LOCK_FILE:-$STATE_DIR/notifications.lock}"
 CARD_DIR="${INFINITY_NOTIFICATION_CARD_DIR:-$STATE_DIR/cards}"
-OPENCLAW_BIN="${OPENCLAW_BIN:-/home/ubuntu/.npm-global/bin/openclaw}"
+NVM_DIR="${NVM_DIR:-$HOME/.nvm}"
+if [[ ! -s "$NVM_DIR/nvm.sh" ]]; then
+  printf '%s\n' 'NVM initialization script is unavailable; notifications cannot be delivered.' >&2
+  exit 1
+fi
+. "$NVM_DIR/nvm.sh"
+nvm use --silent default >/dev/null
+OPENCLAW_BIN="${OPENCLAW_BIN:-${NVM_BIN:-}/openclaw}"
+if [[ ! -x "$OPENCLAW_BIN" ]]; then
+  printf 'OpenClaw CLI is unavailable at %s.\n' "$OPENCLAW_BIN" >&2
+  exit 1
+fi
 mkdir -p "$STATE_DIR" "$CARD_DIR" || exit 0
 exec 9>"$LOCK_FILE"
 flock -n 9 || exit 0

@@ -5,7 +5,18 @@ umask 077
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
-OPENCLAW_BIN="/home/ubuntu/.npm-global/bin/openclaw"
+NVM_DIR="${NVM_DIR:-$HOME/.nvm}"
+if [[ ! -s "$NVM_DIR/nvm.sh" ]]; then
+  printf '%s\n' 'NVM initialization script is unavailable; dispatcher cannot start.' >&2
+  exit 1
+fi
+. "$NVM_DIR/nvm.sh"
+nvm use --silent default >/dev/null
+OPENCLAW_BIN="${OPENCLAW_BIN:-${NVM_BIN:-}/openclaw}"
+if [[ ! -x "$OPENCLAW_BIN" ]]; then
+  printf 'OpenClaw CLI is unavailable at %s.\n' "$OPENCLAW_BIN" >&2
+  exit 1
+fi
 STATE_DIR="${INFINITY_DISPATCHER_STATE_DIR:-/home/ubuntu/.openclaw/state/infinity-dispatcher-runs}"
 LOCK_FILE="${INFINITY_DISPATCHER_LOCK_FILE:-/tmp/infinity-dispatcher.lock}"
 AGENT_TIMEOUT_SECONDS="${INFINITY_DISPATCHER_AGENT_TIMEOUT_SECONDS:-480}"

@@ -32,9 +32,19 @@ if ! git diff --quiet -- INTENTS.yaml data/role-watcher-state.json; then
 fi
 
 # Genie performs semantic grouping/rejection after deterministic collection.
-OPENCLAW_BIN="/home/ubuntu/.npm-global/bin/openclaw"
+OPENCLAW_BIN="${OPENCLAW_BIN:-}"
+NVM_DIR="${NVM_DIR:-$HOME/.nvm}"
+if [[ -z "$OPENCLAW_BIN" && -s "$NVM_DIR/nvm.sh" ]]; then
+  . "$NVM_DIR/nvm.sh"
+  if nvm use --silent default >/dev/null; then
+    OPENCLAW_BIN="${NVM_BIN:-}/openclaw"
+  fi
+fi
 if [[ -x "$OPENCLAW_BIN" ]]; then
   "$OPENCLAW_BIN" agent --agent genie --session-key agent:genie:role-watcher-backlog-manager \
     --message-file "$WORKTREE/docs/ROLE_WATCHER_BACKLOG_MANAGER.md" --thinking low --timeout 480 --json \
     >>"$LOG_DIR/role-backlog-manager-$STAMP.json" 2>&1 || true
+else
+  printf '[%s] OpenClaw CLI unavailable from NVM default; semantic grouping skipped.\n' \
+    "$(date -u +%FT%TZ)" >>"$LOG_DIR/role-watchers-cron.log"
 fi
