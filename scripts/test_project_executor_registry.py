@@ -8,7 +8,9 @@ from project_executor_registry import resolve_fields
 
 
 def main() -> int:
-    assert resolve_fields({"project_id": "policycock"})["executor"]["agent_id"] == "policycock"
+    assert resolve_fields({"project_id": "policycock"})["executor"]["agent_id"] == "genie"
+    assert resolve_fields({"project_id": "policycock"})["executor"]["workspace"].endswith("workspace-genie")
+    assert resolve_fields({"project_id": "minimalmoeum"})["executor"]["agent_id"] == "genie"
     assert resolve_fields({"project_id": "minimalmoeum"})["executor"]["repository"].endswith("/minimalmoeum")
     assert resolve_fields({"context": "/home/ubuntu/workspace/projects/policycock/PROJECT.md"})["project_id"] == "policycock"
     assert resolve_fields({})["reason"] == "project_id_required"

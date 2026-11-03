@@ -4,9 +4,9 @@
 
 ## 실행 진입점
 
-- 작업 실행 스케줄 진입점: `scripts/run_dispatcher_cycle.sh`
-- 대시보드 버튼 처리 크론: `scripts/run_dashboard_actions_cron.sh`
-- 알림 발송 크론: `scripts/run_notification_cron.sh`
+- 작업 실행 진입점: `scripts/run_registered_dispatcher_cycle.sh` (등록된 프로젝트 디스패처 wrapper)
+- 대시보드 버튼 처리 진입점: `scripts/run_dashboard_actions_cron.sh`
+- 알림 발송 진입점: `scripts/run_notification_cron.sh`
 - 계획 생성: `scripts/prepare_dispatch_cycle.py`
 - 대시보드 액션 소비 구현: `scripts/process_action_requests.py`
 - terminal 및 상태변경 통보 구현: `scripts/dispatch_terminal_notifications.py`
@@ -24,7 +24,9 @@
 6. 실행 뒤 원격 상태와 계획을 다시 읽어 실행 증거와 상태 전이를 검증합니다.
 7. 작업 실행 cycle record를 저장합니다.
 
-대시보드 버튼과 알림은 작업 실행과 분리된 독립 크론입니다. 버튼 크론은 원격 `origin/main`을 확인한 뒤 S3 action queue를 소비하고, 원장 변경을 별도 커밋·push합니다. 알림 크론은 `origin/main`의 원장을 읽어 PNG 카드·텍스트 fallback·승인 버튼을 exactly-once로 발송합니다. 두 크론은 각각 독립 `flock`을 사용합니다.
+대시보드 버튼과 알림은 작업 실행과 분리된 독립 크론입니다. 세 작업 실행기는 호스트의 system crontab에 등록되어 각각 10분 간격으로 실행됩니다(디스패처 분 `*/10`, 버튼 소비 분 `1-59/10`, 알림 분 `2-59/10`). 버튼 크론은 원격 `origin/main`을 확인한 뒤 S3 action queue를 소비하고, 원장 변경을 별도 커밋·push합니다. 알림 크론은 `origin/main`의 원장을 읽어 PNG 카드·텍스트 fallback·승인 버튼을 exactly-once로 발송합니다. 각 실행기는 독립 `flock`을 사용합니다.
+
+호스트 crontab과 OpenClaw cron registry는 서로 다른 스케줄 원장입니다. Status Dashboard의 크론 수집기는 `openclaw cron list --json`만 조회하므로, 위 system-crontab 작업은 대시보드의 크론 목록에 표시되지 않습니다. 인박스 작업 디스패처는 현재도 system crontab에서 실행되며, 크론 목록에 없다는 이유만으로 제거하거나 비활성으로 판단하지 않습니다. 역할별 백로그 watcher는 상시 운용하지 않으며, 프로젝트 작업 처리는 이 디스패처와 Genie 실행 흐름이 담당합니다.
 
 ## 격리·중복 방지
 
@@ -65,10 +67,10 @@ python3 scripts/validate_intent_trace.py --all
 
 `HEAD`와 `origin/main`이 다르거나 정합성·trace 검증이 실패하면 완료로 보고하지 않습니다.
 
-## 프로젝트 에이전트 접목
+## 프로젝트 실행자 접목
 
-- Infinity의 실행 소유자는 계속 `genie`입니다. `project_id`가 있는 Intent는 `project-executors.yaml`에서 도메인 실행자를 해석해 dispatcher plan의 `project_executor`로 전달합니다.
-- Genie는 `dispatch=genie_to_project_agent`인 항목을 받으면 등록된 `agent_id`로만 도메인 작업을 넘깁니다. 프로젝트 에이전트는 자기 workspace의 정체성 파일과 등록된 프로젝트 저장소 문서를 읽고, 프로젝트 저장소의 `TASKS.md`에 결과를 남깁니다.
-- 프로젝트 에이전트는 Infinity 원장을 직접 소유하지 않습니다. Genie가 결과를 회수해 Intent trace·상태·artifact 경로·커밋/원격 SHA를 Infinity에 기록합니다.
-- `project_id`가 없거나 registry에 없는 값이면 프로젝트 에이전트로 추정 라우팅하지 않고 Genie가 범위를 확인합니다.
-- 새 프로젝트를 추가할 때는 `PROJECTS.md`, 전용 workspace, 프로젝트 저장소를 만든 뒤 `data/project-executors.yaml`과 registry 테스트를 같은 변경에 갱신합니다.
+- Infinity의 실행 소유자는 `genie`입니다. `project_id`가 있는 Intent는 `project-executors.yaml`에서 프로젝트 저장소와 필수 문서를 해석해 dispatcher plan의 `project_executor`로 전달합니다.
+- 등록 프로젝트의 executor는 Genie 본인입니다. Genie는 전달된 저장소·문서 목록을 직접 확인하고 프로젝트 저장소의 `TASKS.md`와 산출물을 갱신합니다. 프로젝트별 상시 에이전트 workspace나 추가 위임 홉은 만들지 않습니다.
+- Genie가 프로젝트 결과와 Git 증거를 소유하며 Intent trace·상태·artifact 경로·원격 SHA를 Infinity에 기록합니다.
+- `project_id`가 없거나 registry에 없는 값이면 추정 라우팅하지 않고 SAM을 통해 범위를 확인합니다.
+- 새 프로젝트를 추가할 때는 `PROJECTS.md`, 프로젝트 저장소와 문서 경계를 등록하고 `data/project-executors.yaml` 및 registry 검증을 함께 갱신합니다. 프로젝트 전용 에이전트는 기본 구조에 포함하지 않습니다.

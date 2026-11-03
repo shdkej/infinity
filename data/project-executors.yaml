@@ -1,8 +1,8 @@
 version: 1
 executors:
   policycock:
-    agent_id: policycock
-    workspace: /home/ubuntu/.openclaw/workspace-policycock
+    agent_id: genie
+    workspace: /home/ubuntu/.openclaw/workspace-genie
     repository: /home/ubuntu/workspace/projects/policycock
     task_file: TASKS.md
     required_documents:
@@ -11,10 +11,10 @@ executors:
       - /home/ubuntu/workspace/projects/policycock/CHANNELS.md
       - /home/ubuntu/workspace/projects/policycock/TASKS.md
       - /home/ubuntu/workspace/projects/policycock/AGENTS.md
-    dispatch: genie_to_project_agent
+    dispatch: genie_direct
   minimalmoeum:
-    agent_id: minimalmoeum
-    workspace: /home/ubuntu/.openclaw/workspace-minimalmoeum
+    agent_id: genie
+    workspace: /home/ubuntu/.openclaw/workspace-genie
     repository: /home/ubuntu/workspace/projects/minimalmoeum
     task_file: TASKS.md
     required_documents:
@@ -23,4 +23,4 @@ executors:
       - /home/ubuntu/workspace/projects/minimalmoeum/CHANNELS.md
       - /home/ubuntu/workspace/projects/minimalmoeum/TASKS.md
       - /home/ubuntu/workspace/projects/minimalmoeum/AGENTS.md
-    dispatch: genie_to_project_agent
+    dispatch: genie_direct
