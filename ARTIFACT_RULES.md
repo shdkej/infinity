@@ -256,14 +256,16 @@ Infinity 문서는 아래 4개 역할로 통일한다. 새 문서를 만들 때 
 
 신규 Archive intent는 실행 방식이 검증 가능해야 한다.
 
-- `execution_mode: single_genie_roles` — 지니가 네 역할 관점을 직접 기록하는 경량 실행. 단, `research_mode: exploratory_research`에서는 출처 확인과 설명형 브리프만 남기는 명시 예외다.
-- `research_mode: exploratory_research` — 사례·시장 지형·트렌드를 설명하는 기본 리서치. 출처 확인과 전체 Markdown 브리프 및 검증된 HTML report를 요구하며 Red·역할 세션은 요구하지 않는다.
+- `execution_mode: single_genie_roles` — 과거 Archive의 호환용 값이다. 신규 Genie 실행에는 사용하지 않는다.
+- `research_mode: exploratory_research` — 사례·시장 지형·트렌드를 설명하는 기본 리서치. 출처 확인과 전체 Markdown 브리프 및 검증된 HTML report를 요구한다. 추천/결정용 Deep Research와 Red 검증은 요구하지 않지만, 결과물을 만드는 실제 요청이면 네 역할 세션과 간결한 교차 검토를 요구한다.
 - `research_mode: decision_research` — 투자·도입·구매·출시·가격/수익성·법률 또는 명시적 검증을 위한 의사결정 리서치. Deep Research와 역할·Red 게이트를 적용한다.
-- `execution_mode: multi_subagent_roles` — Planner, Developer, Marketer, Operator가 실제 별도 서브에이전트로 실행된 중요 작업.
-- `execution_mode: multi_subagent_roles_blocked` — 중요 작업이지만 역할 서브에이전트 실행이 불가능해 Waiting에 남긴 상태.
-- `execution_mode: single_genie_roles_fallback_user_approved` — 중요 작업이지만 사용자가 단일 처리 fallback을 명시 승인한 상태.
+- `execution_mode: multi_subagent_roles` — 모든 신규 Genie Intent/실행의 기본값. Planner, Developer, Marketer, Operator가 각기 임시 서브에이전트로 실행되며 간단 작업도 산출물 분량만 줄인다. SAM이 Genie Intent를 만들지 않고 직접 반환하는 읽기 전용 상태 답변만 역할 세션을 생략한다.
+- `execution_mode: multi_subagent_roles_blocked` — 네 역할 중 하나라도 실행되지 못한 경우. 완료로 Archive하지 않고 복구 또는 재개 조건과 함께 Waiting에 둔다.
+- `execution_mode: single_genie_roles_fallback_user_approved` — 역할 세션을 실제로 실행할 수 없고 사용자가 이번 작업의 직접 실행 fallback을 명시 승인한 경우에만 사용한다.
 
-`multi_subagent_roles` 완료 원장에는 `role_subagents`에 planner/developer/marketer/operator session id를 남긴다. 해당 값이 없으면 Archive 완료로 보지 않는다.
+신규 작업은 `complexity_tier: simple|medium|complex`를 기록한다. 간단은 각 역할 1–3개 bullet과 한 차례 짧은 상호 검토, 중간은 근거·위험·다음 행동을 포함한 각 역할 섹션과 한 차례 반박·응답, 복잡은 역할별 독립 산출물과 필요한 조정 라운드를 사용한다. Genie는 근거로 결론을 통합하며 다수결로 결정하지 않는다.
+
+`multi_subagent_roles` 완료 원장에는 `role_subagents`에 planner/developer/marketer/operator의 각각의 session id, 1차 판단, 교차 검토 상태와 결론을 남긴다. 네 역할 중 하나라도 증거가 없으면 Archive 완료로 보지 않는다.
 
 ### 프로젝트 연속성 게이트
 

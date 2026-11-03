@@ -59,7 +59,7 @@ def create_knowledge_research_intent(record: dict[str, str], data: dict[str, Any
     item = normalize_entry({
         "id": intent_id, "title": title, "status": "inbox", "target_agent": "genie",
         "priority": "normal", "permission": "L0-research-and-strategy",
-        "research_mode": "exploratory_research", "execution_mode": "single_genie_roles",
+        "research_mode": "exploratory_research", "execution_mode": "multi_subagent_roles",
         "projects": ["agent-wiki", "infinity", "knowledge-lab"], "task_type": "research",
         "origin_loop_id": record["intent_id"], "source_url": record["page"],
         "goal": record["note"] or title,
