@@ -20,13 +20,16 @@
 2. `git fetch --prune origin main` 후 `FETCH_HEAD`와 `origin/main` SHA가 같은지 확인합니다.
 3. 최신 `origin/main`으로 검증용 detached worktree를 만듭니다.
 4. `prepare_dispatch_cycle.py`가 `INTENTS.yaml`을 읽어 promotion, resume, plan activation, expansion, terminalization 후보를 계산합니다.
-5. handoff 대상마다 `dispatcher_handoff` trace를 남기고 Genie 실행 세션에 넘깁니다.
-6. 실행 뒤 원격 상태와 계획을 다시 읽어 실행 증거와 상태 전이를 검증합니다.
-7. 작업 실행 cycle record를 저장합니다.
+5. handoff 대상마다 `dispatcher_handoff` trace를 먼저 남겨 custody를 고정하고 Genie 실행 세션에 넘깁니다.
+6. Genie는 모든 handoff/resume에서 canonical intake trace의 Context Pack 경로를 확인합니다. 실제 경로의 파일·JSON·`infinity` route를 검증하고 pack과 route-required 문서, 선택된 Wiki locator/page 및 operational-log section, 필요한 task evidence를 읽은 뒤에만 substantive work를 시작합니다.
+7. intake pack이 누락·stale·invalid이면 임의 경로를 만들거나 intake 기록을 꾸미지 않습니다. 등록된 `context.pack.build` 명령으로 새 non-colliding pack을 생성하고, 실제로 읽은 문서·검색·근거를 `trace.execution.record`로 추가 기록한 다음 `validate_intent_trace.py data/traces/{intent-id}.json`를 통과시킵니다. 원래 intake 누락은 missing/partial로 보존하며 복구 execution을 별도로 기록합니다.
+8. builder, 필수 문서 읽기, trace 기록 또는 검증에 실패하면 substantive work를 중단하고 정확한 명령·경로·오류를 blocker로 반환합니다. custody/handoff 기록과 실행 evidence 기록은 별개이며, dispatcher의 사전 custody timing을 대체하지 않습니다.
+9. 실행 뒤 원격 상태와 계획을 다시 읽어 실행 증거와 상태 전이를 검증합니다.
+10. 작업 실행 cycle record를 저장합니다.
 
 대시보드 버튼과 알림은 작업 실행과 분리된 독립 크론입니다. 세 작업 실행기는 호스트의 system crontab에 등록되어 각각 10분 간격으로 실행됩니다(디스패처 분 `*/10`, 버튼 소비 분 `1-59/10`, 알림 분 `2-59/10`). 버튼 크론은 원격 `origin/main`을 확인한 뒤 S3 action queue를 소비하고, 원장 변경을 별도 커밋·push합니다. 알림 크론은 `origin/main`의 원장을 읽어 PNG 카드·텍스트 fallback·승인 버튼을 exactly-once로 발송합니다. 각 실행기는 독립 `flock`을 사용합니다.
 
-호스트 crontab과 OpenClaw cron registry는 서로 다른 스케줄 원장입니다. Status Dashboard의 크론 수집기는 `openclaw cron list --json`만 조회하므로, 위 system-crontab 작업은 대시보드의 크론 목록에 표시되지 않습니다. 인박스 작업 디스패처는 현재도 system crontab에서 실행되며, 크론 목록에 없다는 이유만으로 제거하거나 비활성으로 판단하지 않습니다. 역할별 백로그 watcher는 상시 운용하지 않으며, 프로젝트 작업 처리는 이 디스패처와 Genie 실행 흐름이 담당합니다.
+호스트의 Linux system crontab(`/etc/crontab` 또는 해당 사용자 crontab)은 OS가 실행하는 스케줄 원장이고, OpenClaw cron registry는 Gateway가 관리하는 별도 원장입니다. 이 dispatcher의 실제 10분 스케줄은 호스트 system crontab의 `run_registered_dispatcher_cycle.sh` 항목이며 OpenClaw cron registry 항목이 아닙니다. Status Dashboard의 크론 수집기는 `openclaw cron list --json`만 조회하므로, system-crontab 작업은 대시보드의 OpenClaw 크론 목록에 표시되지 않습니다. 인박스 작업 디스패처는 현재도 system crontab에서 실행되며, 크론 목록에 없다는 이유만으로 제거하거나 비활성으로 판단하지 않습니다. 역할별 백로그 watcher는 상시 운용하지 않으며, 프로젝트 작업 처리는 이 디스패처와 Genie 실행 흐름이 담당합니다.
 
 ## 격리·중복 방지
 
