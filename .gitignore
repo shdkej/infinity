@@ -21,3 +21,11 @@ data/dispatcher-terminal-notifications.json
 scripts/__pycache__/
 **/__pycache__/
 .watcher-runs/
+
+# Local review renders and sample previews
+.review-render/
+/reports/card-sample/
+
+# Transient dispatcher runtime files
+/data/*.lock
+/data/role-watcher-executions.jsonl
