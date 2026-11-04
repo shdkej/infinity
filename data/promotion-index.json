@@ -1,25 +1,25 @@
 {
-  "generated_at": "2026-11-03T03:00:10.194Z",
+  "generated_at": "2026-11-04T03:00:11.046Z",
   "summary": {
-    "total": 1460,
+    "total": 1461,
     "wiki_reflected": 198,
-    "not_reflected": 1262,
+    "not_reflected": 1263,
     "by_status": {
-      "queued": 1278,
+      "queued": 1279,
       "integrated": 10,
       "reviewed": 102,
       "selected": 4,
       "rejected": 66
     },
     "by_layer": {
-      "openclaw-system": 1124,
+      "openclaw-system": 1125,
       "infinity": 80,
       "external-links": 181,
       "shdkej-content": 74,
       "root": 1
     },
     "by_promotion_state": {
-      "not_applicable": 1260,
+      "not_applicable": 1261,
       "reflected": 198,
       "pending_promotion": 2
     }
@@ -31,7 +31,21 @@
       "source_layer": "openclaw-system",
       "reason": "자동 수집됨; 내용 판정 대기",
       "reviewed_at": "",
-      "modified_at": "2026-11-03T02:51:11Z",
+      "modified_at": "2026-11-04T02:41:36Z",
+      "promotion_targets": [],
+      "reflection_basis": [],
+      "promotion_state": "not_applicable",
+      "promotion_reason": "자동 수집됨; 내용 판정 대기",
+      "promotion_target_note": "",
+      "wiki_reflected": false
+    },
+    {
+      "source": "source/openclaw-system/data/daily-review-drafts/2026-11-03-review.md",
+      "status": "queued",
+      "source_layer": "openclaw-system",
+      "reason": "자동 수집됨; 내용 판정 대기",
+      "reviewed_at": "",
+      "modified_at": "2026-11-03T21:02:15Z",
       "promotion_targets": [],
       "reflection_basis": [],
       "promotion_state": "not_applicable",
@@ -12243,7 +12257,7 @@
       "source_layer": "openclaw-system",
       "reason": "최근 활성 정본 또는 재사용 가능한 원자료; raw 검색 허용",
       "reviewed_at": "2026-09-01T09:58:12Z",
-      "modified_at": "2026-11-03T02:31:06Z",
+      "modified_at": "2026-11-03T03:48:15Z",
       "promotion_targets": [
         "/docs/outputs/Meta/AGENTS",
         "/docs/outputs/deep-knowledge/monitoring"
