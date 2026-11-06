@@ -135,13 +135,11 @@ lanes:
     notification_reply_to: '1793845695.691209'
     notification_origin: 'channel:C0BR41W31MM;reply_to:1793845695.691209'
     next_action: >-
-      USAspending API가 응답하면 89233126FNA400754, 15JPSS23F00000692,
-      2033H624F00068의 award detail과 전체 transaction history 원문을 각각 저장해
-      날짜·수정번호·금액·설명·parent award·수행기간을 재대조한다. 이번 exact-id
-      query 2회는 HTTP 503이었다. API가 계속 불가하면 공식 SAM/기관 경로별 접근
-      결과를 기록하고 transaction/첨부가 없다고 추론하지 않는다. DOE SC Oak Ridge
-      89243126FSC400871 P00001 공개 수정문서/주문 첨부와 ICE의 별도 제품 lineage는
-      별도 후속 leaf로 유지한다.
+      정확 PIID 재조회, award detail, 전체 transaction history 원문 저장을 완료했다.
+      다음 evidence leaf는 DOE SC Oak Ridge 89243126FSC400871 P00001 공개 수정문서/주문
+      첨부의 공식 접근 경로 확인이다. ICE의 별도 제품 lineage도 독립 후속 leaf로 둔다.
+      과거 USAspending HTTP 503과 이번 HTTP 200 응답을 모두 보존하며 미발견을 부재로
+      추론하지 않는다.
     artifact:
       - artifacts/research-us-it-opportunity-20261106/work/market-map.md
       - artifacts/research-us-it-opportunity-20261106/work/market-map.html

@@ -59,17 +59,17 @@
 
 ICE FinalMobile order `70CMSD25FR0000087` transaction history에는 2025-08-11 수정번호 `0`의 $29,022 한 건만 보인다. 별도로 ICE/Homeland Security Investigations의 `70CMSD26FR0000041`은 2026-07-08 기본 의무액 $25,693.20의 “forensics examinations” agent-license 주문이고, 2026-07-31 `P00001`은 funding-only/accounting correction으로 $0이다. 이 별도 order에는 제품명이 없어 FinalMobile과 동일 제품인지, 기존 주문의 갱신/후속인지 공개 거래기록만으로는 연결되지 않는다. 세부 응답과 API 경로는 `public-spend-observations.json`에 저장했다.
 
-### 추가 연방 보안조달 스크리닝 (재검증 대기)
+### 추가 연방 보안조달 스크리닝 (정확 ID 재조회 완료)
 
-앞선 성공한 USAspending CrowdStrike 검색의 첫 페이지(계약 유형 C, 거래액 내림차순, 100행, `hasNext=true`)에서 다음 세 행이 선별되었다. 다만 이 검색의 전체 응답 본문과 정확한 조회시각은 저장소에 남아 있지 않으며, 이번 실행의 정확 award-id 재조회 2회는 HTTP 503을 반환했다. 따라서 아래 값들은 **검증 완료 사례가 아니라 재조회할 거래 리드**로만 취급한다. 검색 정렬·첫 페이지 조건 때문에 대표 표본도 아니다.
+2026-11-06 22:23 UTC에 USAspending 공식 API로 세 PIID의 transaction 검색, award detail, 전체 거래 이력을 재조회했다. 응답은 모두 HTTP 200이며 각 이력은 단일 페이지(`hasNext=false`)다. 이전 선별행과 대응되는 수정 거래가 확인되어 해당 행은 이제 screening lead가 아니라 공식 API 응답으로 재검증된 조달 거래다. 완전한 검색·award-detail·거래-history 응답은 `public-spend-observations.json`의 `exact_id_revalidation_20261106T2223Z`에 원문으로 보존했다.
 
-| PIID / 구매기관 | 이전 검색에서 보인 거래행 | 해석 경계 및 현재 검증 상태 |
+| PIID / 구매기관 | 재조회된 이력 | 해석 경계 |
 |---|---|---|
-| DOE/NNSA `89233126FNA400754`, Thundercat Technology | `P00001`, 2026-05-12, $9,924,171; 설명 `CROWDSTRIKE FALCON AND FALCON COMPLETE LICENSES`. 별도 SAM 공고 미러는 원 award의 Falcon/Falcon Complete 라이선스 명칭과 2026-01-06 수여를 보여준다. | 미러는 원 award만 뒷받침하고 해당 P00001 거래를 검증하지 않는다. 거래행 원문이 재조회되기 전 수량·CLIN·단가나 전체 계약금액으로 해석하지 않는다. |
-| DOJ `15JPSS23F00000692`, Thundercat Technology | `P00016`, 2025-12-02, $4,649,687.97; 설명상 CrowdStrike 라이선스·지원 연간 갱신. | 재조회 전 screening lead. 갱신 문구만으로 라이선스 수·단가, 실제 ARR 또는 민간 구매의사를 확정할 수 없다. |
-| Treasury/Fiscal Service `2033H624F00068`, FCN Inc. | `P00008`, 2026-01-21, $1,701,003.89; 설명은 option period 2 행사 및 in-scope services 추가를 언급. | 거래액이 CrowdStrike에만 귀속된다는 증거가 아니다. 공식 Fiscal Service 목록은 FCN, 해당 award, “Crowdstrike products and services”, “Work Continues” 상태를 확인하지만 P00008 금액이나 item scope는 보여주지 않는다. |
+| DOE/NNSA `89233126FNA400754`, Thundercat Technology | 거래 이력 3건: 기본 `0` $1,750,637(2026-01-06), `P00001` $9,924,171(2026-05-12), `P00002` $0(2026-09-04). 최신 award obligation은 $11,674,808, 수행기간 2026-01-01–2027-05-31(잠재 종료 2029-05-31). | P00001 설명은 Falcon/Falcon Complete licenses. 원문 확인은 수정 거래의 존재·금액·설명을 검증하지만 SKU별 수량, CLIN, 단가를 주지 않는다. |
+| DOJ `15JPSS23F00000692`, Thundercat Technology | 거래 이력 8건(`hasNext=false`): 기본 $1,417,931.50(2023-09-11), `P00014` $11,100(2025-09-23), `P00015` $325,101.85(2025-09-29), `P00016` $4,649,687.97(2025-12-02), `P00017` $6,972.50(2026-05-07), `P00018` $14,043.10 및 `P00019` $273,188.02(2026-09-11), `P00020` $273,188.02(2026-09-29). 최신 obligation $6,971,212.96, 현재 수행기간 2023-09-13–2027-09-12(잠재 종료 2028-09-12). | 설명은 JMD/OCIO/CSS용 CrowdStrike license/support의 annual renewal. 단일 변동액을 연간 가격·ARR로 보거나 거래 반복을 민간 지불의사로 외삽하지 않는다. |
+| Treasury/Fiscal Service `2033H624F00068`, FCN Inc. | 거래 이력 13건(`hasNext=false`). `P00008` $1,701,003.89(2026-01-21)은 option period two와 in-scope services, `P00010` $70,981.77(2026-08-13)은 within-scope items, `P00011` $507,069.03(2026-09-18)은 in-scope upgrade. 최신 obligation $5,330,666.69; 수행기간 2024-02-01–2027-01-31(잠재 종료 2029-01-31). | 현재 기록은 award 수준 CrowdStrike products/services를 확인한다. 수정별 금액·설명은 확인되지만, 그 금액의 제품별 귀속·라이선스 수량·단가를 분리할 수 없다. |
 
-DOE/NNSA의 SAM award-notice 미러는 정식 공고 페이지 자체가 아니며, Treasury 목록은 거래/가격표가 아니다. USAspending의 공식 API 계약은 검색 필터·페이지·정렬 및 거래 이력 필드의 의미를 설명할 뿐 이 세 거래의 원문을 대신하지 않는다. API 503은 이번 재조회가 실패했다는 뜻이지 award나 첨부가 없다는 뜻이 아니다. 선별행, 실패 응답 기록, 접근한 원문 링크와 역할별 제한은 `public-spend-observations.json`에 구분 저장했다.
+각 거래의 거래금액은 수정 행의 federal action obligation이며 제품 매출/순액이 아니다. DOE/NNSA의 별도 SAM 공고 미러는 원 award의 제품명/수여를 보강할 뿐 USAspending 응답을 대체하지 않는다. USAspending API 계약 문서는 endpoint와 필드 의미만 설명한다. 세 구매기관 사례는 제한적 연방 조달 증거이며, 민간 WTP·TAM·vendor revenue·제품별 CLIN/수량/단가를 입증하지 않는다. Planner·Developer·Marketer·Operator 교차검토도 이 경계를 유지하기로 했다.
 
 **비교 제한:** 이 사례들은 공개된 특정 조달의 범위와 단계만 보여준다. 국가 IT 지출 또는 민간시장 추정치가 아니며, 금액 차이는 조달 범위·대상·회계·시점·통화 차이와 실제 수요가 함께 반영될 수 있다. 미국 award의 obligation/outlay와 한국 RFP의 예정예산은 직접 비교하지 않는다.
 

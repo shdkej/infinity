@@ -424,7 +424,7 @@
       "note": "Stored three selected transaction rows as screening leads with an explicit raw-response/timestamp gap; did not promote to fully verified transactions. Treasury PDF independently confirms award identity and description, not P00008 amount/scope; DOE SAM-notice mirror only corroborates original award, not P00001. Planner says license wording does not prove CLIN/count and Treasury in-scope services may not be licenses; Developer says wait for full transaction histories; Marketer rejects private WTP/TAM/ARR inference; Operator requires source types and 503 separated. Intent remains active; next evidence leaf is full transaction and award-detail re-fetch for three exact PIIDs when the API is available."
     },
     {
-      "type": "role_review",
+      "type": "backfill",
       "run_id": "dispatch-c585f31544504a06a2f0c9934f2f7e80",
       "at": "2026-11-06T21:47:37Z",
       "roles": [
@@ -446,6 +446,47 @@
       ],
       "status": "pass",
       "conclusion": "Planner: selected rows are narrow federal purchase signals; no CLIN/count from DOE wording, no added licenses inferred from Treasury in-scope services. Developer: action amount only, first-page/non-raw limitation and HTTP 503 require re-fetch before confidence increases. Marketer: no private demand, WTP, TAM, vendor revenue, or ARR inference. Operator: preserve filters/sort, raw-response gap, exact replay failure, official Treasury primary source and DOE secondary mirror distinctly."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-ea02589e5dd94a84abeac61c5e08f733",
+      "canonical_sha": "a40e8bd14fc69128ed6482168b736736d820ebd7",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-11-06T22:22:28Z",
+      "status": "accepted"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-ea02589e5dd94a84abeac61c5e08f733",
+      "canonical_sha": "a40e8bd14fc69128ed6482168b736736d820ebd7",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher-v2",
+      "timestamp": "2026-11-06T22:22:28Z",
+      "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-11-06T22:24:00Z",
+      "context_pack": "intents/context/research-us-it-opportunity-20261106.json",
+      "evidence_paths": [
+        "artifacts/research-us-it-opportunity-20261106/work/public-spend-observations.json",
+        "artifacts/research-us-it-opportunity-20261106/work/market-map.md",
+        "artifacts/research-us-it-opportunity-20261106/work/market-map.html"
+      ],
+      "searches": [
+        "USAspending official API exact PIIDs 89233126FNA400754, 15JPSS23F00000692, 2033H624F00068: transaction search + award detail + POST transaction histories; all HTTP 200; single-page histories hasNext=false; full raw responses saved."
+      ],
+      "wiki_pages": [],
+      "operational_log_sections": [],
+      "note": "Verified prior screening leads against current full API response. Updated Markdown/HTML, retained limits on CLIN/quantity/unit price and no inference to private demand, ARR, TAM, or vendor revenue. Role cross-review: Planner evidence target; Developer source chain; Marketer buyer-inference boundary; Operator provenance/absent fields.",
+      "run_id": "dispatch-ea02589e5dd94a84abeac61c5e08f733",
+      "role_sessions": {
+        "planner": "/root/planner_resume",
+        "developer": "/root/developer_resume",
+        "marketer": "/root/marketer_resume",
+        "operator": "/root/operator_resume"
+      }
     }
   ],
   "artifacts": [
@@ -699,10 +740,62 @@
       ],
       "status": "pass",
       "conclusion": "Planner: DOE modification proves additional in-scope licenses but not options/CLIN scope; split DOE amendment and ICE follow-on/product-lineage work. Developer: use transaction metadata as transaction evidence only, do not infer option exercise or license quantities. Marketer: federal purchase signals do not establish private demand/WTP/TAM. Operator: preserve exact full transaction API response bodies and separate award-detail from transaction endpoint; do not claim attachments do not exist. Genie integrated these limits and kept separate ICE award lineage."
+    },
+    {
+      "label": "workflow role review",
+      "type": "role_review",
+      "at": "2026-11-06T22:23:40Z",
+      "roles": [
+        "planner"
+      ],
+      "evidence_paths": [
+        "Independent review selected exact-ID full USAspending search, award detail, and transaction-history recheck as this cycle leaf; preserve all three PIIDs and metadata; keep DOE SC and ICE lineages separate."
+      ],
+      "status": "pass",
+      "next_role": "developer"
+    },
+    {
+      "label": "workflow role review",
+      "type": "role_review",
+      "at": "2026-11-06T22:23:41Z",
+      "roles": [
+        "developer"
+      ],
+      "evidence_paths": [
+        "API returned HTTP 200 for search/detail/history; all histories have hasNext=false. Full raw responses saved. Cross-review: retain product-level caveats; verify parent/period fields without upgrading to unit-price or revenue claims."
+      ],
+      "status": "pass",
+      "next_role": "marketer"
+    },
+    {
+      "label": "workflow role review",
+      "type": "role_review",
+      "at": "2026-11-06T22:23:42Z",
+      "roles": [
+        "marketer"
+      ],
+      "evidence_paths": [
+        "Federal awards are narrow public-buyer behavior, not private WTP/TAM/customer satisfaction/vendor revenue; separate verified rows from prior 503 leads; further work should verify distinct buyer-side sources."
+      ],
+      "status": "pass",
+      "next_role": "operator"
+    },
+    {
+      "label": "workflow role review",
+      "type": "role_review",
+      "at": "2026-11-06T22:23:43Z",
+      "roles": [
+        "operator"
+      ],
+      "evidence_paths": [
+        "Preserved request parameters, UTC/server timestamps, HTTP statuses, raw history, absent line-item data, and previous 503s; no inference from unavailable fields."
+      ],
+      "status": "pass",
+      "next_role": null
     }
   ],
   "next_decision": {
     "status": "in_progress",
-    "value": "USAspending API가 응답하면 DOE NNSA 89233126FNA400754, DOJ 15JPSS23F00000692, Treasury 2033H624F00068의 award detail과 전체 transaction history를 저장·대조한다. 현재 exact-id 재조회 2회는 HTTP 503이며 세 선별행의 전체 검색 raw body도 로컬에 없어 재검증 대기다. DOE SC Oak Ridge P00001 첨부와 ICE 제품 lineage는 독립 후속 leaf로 유지한다."
+    "value": "Autonomously check official DOE SC Oak Ridge 89243126FSC400871 P00001 amendment/attachment paths; if no public access, preserve exact URLs/status and maintain separate ICE product-lineage follow-up."
   }
 }
