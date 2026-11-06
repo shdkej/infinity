@@ -264,6 +264,24 @@
       "session_key": "agent:genie:infinity-dispatcher-v2",
       "timestamp": "2026-11-06T20:16:22Z",
       "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "run_id": "dispatch-55aa141258bc4d70a74b2f21d30cebd0",
+      "at": "2026-11-06T20:19:09Z",
+      "context_pack": "intents/context/research-us-it-opportunity-20261106.json",
+      "evidence_paths": [
+        "artifacts/research-us-it-opportunity-20261106/work/market-map.md",
+        "artifacts/research-us-it-opportunity-20261106/work/market-map.html",
+        "artifacts/research-us-it-opportunity-20261106/work/public-spend-observations.json"
+      ],
+      "searches": [
+        "USAspending DOE PIID 89243126FSC400871 and API parent award NNG15SC33B",
+        "USAspending ICE PIID 70CMSD25FR0000087 and API parent award NNG15SD74B"
+      ],
+      "wiki_pages": [],
+      "operational_log_sections": [],
+      "note": "Confirmed both public software/security awards are delivery orders under NASA multiple-award GWACs; DOE solicitation ID is blank and the ICE record has one initial transaction with potential options. Added parent vehicle metadata. Keep Intent active; exact line scope and actual option exercise remain the next evidence target, not a blocker to broader exploratory work."
     }
   ],
   "artifacts": [
