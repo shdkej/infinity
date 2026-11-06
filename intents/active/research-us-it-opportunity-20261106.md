@@ -21,7 +21,7 @@
 - notification_target: channel:C0BR41W31MM
 - notification_reply_to: 1793845695.691209
 - notification_origin: channel:C0BR41W31MM;reply_to:1793845695.691209
-- next_action: 카테고리별 구매자·반복 업무·현행 대체재·가격/도입 신호를 심화 조사하고 미국 직접 진출과 한국 적용의 차이를 별도로 검증한다.
+- next_action: Census 2023 ABS와 NIA 원설문에서 클라우드 이용 문항·분모·추정가중치를 대조하고, 정의 일치 여부가 확인되기 전 양국 비율 비교를 보류한다.
 - artifact: artifacts/research-us-it-opportunity-20261106/work/market-map.md
 - artifact: artifacts/research-us-it-opportunity-20261106/work/market-map.html
 
@@ -29,3 +29,4 @@
 - Intake commit local SHA: `0cccde31084b79a60f47c1d9f3d7a7391e874348`
 - Intake commit remote SHA (`origin/main`): `0cccde31084b79a60f47c1d9f3d7a7391e874348`
 - `verify_git_publish.sh`: PASS
+- artifact: artifacts/research-us-it-opportunity-20261106/work/public-spend-observations.json

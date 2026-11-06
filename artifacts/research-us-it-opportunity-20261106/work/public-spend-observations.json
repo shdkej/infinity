@@ -1,0 +1,68 @@
+{
+  "retrieved_at": "2026-11-06T19:04:21Z",
+  "source_url": "https://api.usaspending.gov/api/v2/awards/CONT_AWD_36C10B23F0346_3600_47QSWA18D008Q_4732/",
+  "definition_source": "https://www.usaspending.gov/federal-spending-guide",
+  "field_scope_note": "Preserve source field names. total_obligation is the award record field; total_account_outlay is an account-linked outlay field and is not interchangeable with award obligation or proof of vendor revenue.",
+  "record": {
+    "id": 279970166,
+    "generated_unique_award_id": "CONT_AWD_36C10B23F0346_3600_47QSWA18D008Q_4732",
+    "piid": "36C10B23F0346",
+    "category": "contract",
+    "type": "C",
+    "type_description": "DELIVERY ORDER",
+    "description": "VA CYBERSECURITY OPERATIONS CENTER NEXT GENERATION II (CSOC NG II) SUPPORT",
+    "total_obligation": 219083824.48,
+    "total_account_outlay": 147432546.43,
+    "total_account_obligation": 157903087.69,
+    "base_exercised_options": 219083824.48,
+    "base_and_all_options": 331158125.88,
+    "date_signed": "2023-09-28",
+    "period_of_performance": {
+      "start_date": "2023-09-29",
+      "end_date": "2027-09-28",
+      "last_modified_date": "2026-09-25",
+      "potential_end_date": "2028-12-28 00:00:00"
+    },
+    "recipient": {
+      "recipient_name": "MAVERIS LLC",
+      "recipient_uei": "NEKWPBM5VT33"
+    },
+    "awarding_agency": {
+      "office_agency_name": "TECHNOLOGY ACQUISITION CENTER NJ (36C10B)",
+      "toptier_agency": {
+        "name": "Department of Veterans Affairs",
+        "code": "036",
+        "abbreviation": "VA",
+        "slug": "department-of-veterans-affairs"
+      },
+      "subtier_agency": {
+        "name": "Department of Veterans Affairs",
+        "code": "3600",
+        "abbreviation": "VA"
+      }
+    },
+    "funding_agency": {
+      "office_agency_name": "TECHNOLOGY ACQUISITION CENTER NJ (36C10B)",
+      "toptier_agency": {
+        "name": "Department of Veterans Affairs",
+        "code": "036",
+        "abbreviation": "VA",
+        "slug": "department-of-veterans-affairs"
+      },
+      "subtier_agency": {
+        "name": "Department of Veterans Affairs",
+        "code": "3600",
+        "abbreviation": "VA"
+      }
+    },
+    "latest_transaction_contract_data": {
+      "product_or_service_code": "R499",
+      "product_or_service_description": "SUPPORT- PROFESSIONAL: OTHER",
+      "naics": "541511",
+      "naics_description": "CUSTOM COMPUTER PROGRAMMING SERVICES",
+      "type_of_contract_pricing_description": "FIRM FIXED PRICE",
+      "number_of_offers_received": "3",
+      "extent_competed_description": "FULL AND OPEN COMPETITION"
+    }
+  }
+}

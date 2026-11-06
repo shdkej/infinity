@@ -111,20 +111,90 @@
       ],
       "operational_log_sections": [],
       "note": "1차 비랭킹 카테고리 지도와 날짜/관측기간/한계를 갖춘 9개 출처 레지스터 작성. 구매의사/시장 크기로 과장하지 않음."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-a7cbe5c1178348a6bc20073385cc66e5",
+      "canonical_sha": "08d708cfab1f938feeb2e01e975a71d7ca96f584",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-11-06T19:00:14Z",
+      "status": "accepted"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-a7cbe5c1178348a6bc20073385cc66e5",
+      "canonical_sha": "08d708cfab1f938feeb2e01e975a71d7ca96f584",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher-v2",
+      "timestamp": "2026-11-06T19:00:14Z",
+      "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-11-06T19:07:50Z",
+      "context_pack": "intents/context/research-us-it-opportunity-20261106.json",
+      "evidence_paths": [
+        "artifacts/research-us-it-opportunity-20261106/work/market-map.md"
+      ],
+      "searches": [
+        "USAspending award API, KISA 2025/2024 public procurement notices, NIA enterprise informatization statistics"
+      ],
+      "wiki_pages": [],
+      "operational_log_sections": [],
+      "note": "공공 구매사례는 한 건별 procurement evidence only; US vs KR values not compared"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-7ed064ca5b7e443db5c44f27c9b5c5b1",
+      "canonical_sha": "08d708cfab1f938feeb2e01e975a71d7ca96f584",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-11-06T19:10:15Z",
+      "status": "accepted"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-7ed064ca5b7e443db5c44f27c9b5c5b1",
+      "canonical_sha": "08d708cfab1f938feeb2e01e975a71d7ca96f584",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher-v2",
+      "timestamp": "2026-11-06T19:10:14Z",
+      "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-11-06T19:13:25Z",
+      "context_pack": "intents/context/research-us-it-opportunity-20261106.json",
+      "evidence_paths": [
+        "artifacts/research-us-it-opportunity-20261106/work/market-map.md"
+      ],
+      "searches": [
+        "Census ABS 2023/2024 methodology, BTOS methodology, NIA 2024 survey and 2025 statistical quality report"
+      ],
+      "wiki_pages": [],
+      "operational_log_sections": [],
+      "note": "US-Korea headline rates not comparable now; matched cloud measure and >=10-worker denominator is a conditional follow-up; adoption not purchase demand."
     }
   ],
   "artifacts": [
     {
       "path": "artifacts/research-us-it-opportunity-20261106/work/market-map.md",
       "kind": "research_working_artifact",
-      "created_at": "2026-11-06T18:34:42Z",
+      "created_at": "2026-11-06T19:05:00Z",
       "status": "draft"
     },
     {
       "path": "artifacts/research-us-it-opportunity-20261106/work/market-map.html",
       "kind": "research_working_artifact",
-      "created_at": "2026-11-06T18:34:42Z",
+      "created_at": "2026-11-06T19:05:00Z",
       "status": "draft"
+    },
+    {
+      "path": "artifacts/research-us-it-opportunity-20261106/work/public-spend-observations.json",
+      "kind": "source_evidence_snapshot",
+      "created_at": "2026-11-06T19:04:21Z",
+      "status": "captured"
     }
   ],
   "verifications": [
@@ -209,10 +279,79 @@
       ],
       "status": "pass",
       "conclusion": "비랭킹 범위 지도 유지; 모집단/기간/지리와 출처종류 분리; 근거강도와 최신성 별도 표기; 트렌드/채택/직무/규칙은 구매·유지 증거와 구분. Operator 요청에 따라 category별 demand rung/unknown 표 추가."
+    },
+    {
+      "label": "buyer spend evidence cross-review",
+      "type": "role_review",
+      "at": "2026-11-06T19:05:00Z",
+      "roles": [
+        "planner",
+        "developer",
+        "marketer",
+        "operator"
+      ],
+      "evidence_paths": [
+        "artifacts/research-us-it-opportunity-20261106/work/public-spend-observations.json",
+        "artifacts/research-us-it-opportunity-20261106/work/market-map.md"
+      ],
+      "status": "pass",
+      "conclusion": "VA award record retained exact total_obligation and total_account_outlay fields; described as one public cyber operations/support service contract, not software-only or private WTP. KISA 2025-145 99.7M and separate 2024-081 78M are estimated budgets for distinct research/training procurements, not awarded/paid; not compared with US values."
+    },
+    {
+      "label": "workflow role review",
+      "type": "role_review",
+      "at": "2026-11-06T19:10:14Z",
+      "roles": [
+        "planner"
+      ],
+      "evidence_paths": [
+        "ABS 2023 reference 2022; BTOS rolling biweekly; NIA 2024 survey reference 2023. Different populations and exact question/denominator prevent direct national-rate comparison."
+      ],
+      "status": "pass",
+      "next_role": "developer"
+    },
+    {
+      "label": "workflow role review",
+      "type": "role_review",
+      "at": "2026-11-06T19:10:14Z",
+      "roles": [
+        "developer"
+      ],
+      "evidence_paths": [
+        "NIA quality report confirms 2023 reference period, fieldwork 2024-07-29 to 2024-10-06, 12,500 sample/12,203 completes and 2023Q4 Business Register frame; Census 2024 ABS differs from 2023 tech module."
+      ],
+      "status": "pass",
+      "next_role": "marketer"
+    },
+    {
+      "label": "workflow role review",
+      "type": "role_review",
+      "at": "2026-11-06T19:10:14Z",
+      "roles": [
+        "marketer"
+      ],
+      "evidence_paths": [
+        "Adoption rates are context/hypothesis signals only, not startup demand, spending, WTP or unmet need; next evidence must target buyers and actual purchasing/retention."
+      ],
+      "status": "pass",
+      "next_role": "operator"
+    },
+    {
+      "label": "workflow role review",
+      "type": "role_review",
+      "at": "2026-11-06T19:10:14Z",
+      "roles": [
+        "operator"
+      ],
+      "evidence_paths": [
+        "Preserved source URLs/dates, population, reference and field periods, sample frame/completes, question-window caveats; direct comparison remains no-go until harmonized."
+      ],
+      "status": "pass",
+      "next_role": "genie"
     }
   ],
   "next_decision": {
     "status": "in_progress",
-    "value": "다음 라운드에서 카테고리별 buyer workflow·현행 대체재·가격/도입 신호와 미국/한국 차이를 심화하고 Markdown/HTML을 일치시킨다."
+    "value": "Inspect exact cloud-use questionnaire items, categories and estimation weights across 2023 ABS and NIA; retain no-go unless definitions and denominator align."
   }
 }
