@@ -1,0 +1,50 @@
+{
+  "schema_version": 2,
+  "intent_id": "research-us-it-opportunity-20261106",
+  "status": "inbox",
+  "trace_completeness": "complete",
+  "request": {
+    "raw": {
+      "status": "recorded",
+      "value": "인피니티에 미국 IT 시장 카테고리 조사 좀 부탁해; 창업기회탐색으로 인피니티 등록"
+    },
+    "normalized_query": {
+      "status": "recorded",
+      "value": "창업 기회 탐색을 위한 미국 IT 시장 카테고리와 인접 영역의 폭넓은 탐색 지도: 대표 기업·제품, 고객 문제, 사업 모델, 대체 접근, 변화 신호, 미국 진출과 국내 적용 가능성을 구분하고 단일 추천으로 수렴하지 않기"
+    },
+    "user_intent": {
+      "status": "recorded",
+      "value": "미국 IT 시장의 카테고리를 창업 기회 탐색 관점에서 폭넓게 이해한다."
+    },
+    "desired_outcome": {
+      "status": "recorded",
+      "value": "주요 카테고리와 인접 분야, 대표 기업·제품, 고객 문제와 사업 모델, 대체 접근, 변화 신호를 연결한 한국어 탐색 지도를 제공한다. 미국 직접 진출과 미국 사례의 국내 적용은 구분하며, 근거와 불확실성을 함께 표시한다."
+    },
+    "out_of_scope": {
+      "status": "recorded",
+      "value": "특정 사업 기회 하나를 최종 추천하거나 투자·출시 결정을 대신하지 않는다. 제품 구현, 유료 조사·광고·주문, 외부 연락·게시를 하지 않는다."
+    },
+    "success_evidence": {
+      "status": "recorded",
+      "value": "최종 Markdown과 읽기 쉬운 HTML에 시장 카테고리·인접 영역·대체 접근·유사 사례·변화 신호가 폭넓게 포함되고, 대표 사례는 출처 링크와 날짜·근거 수준을 갖춘다. 공식 자료와 공개 리뷰·커뮤니티 후기를 구분하며, 미국 진출과 국내 적용 경로를 따로 설명하고 단일 결론으로 과도하게 좁히지 않는다."
+    }
+  },
+  "events": [
+    {
+      "type": "intake",
+      "at": "2026-11-06T13:11:39Z",
+      "context_pack": "intents/context/research-us-it-opportunity-20261106.json",
+      "evidence_paths": [
+        "INTENTS.yaml",
+        "intents/context/research-us-it-opportunity-20261106.json",
+        "docs/intent-trace-contract.md"
+      ]
+    }
+  ],
+  "artifacts": [],
+  "verifications": [],
+  "next_decision": {
+    "status": "in_progress",
+    "value": "Genie가 같은 Context Pack을 재검토하고 미국 IT 시장 카테고리·인접 분야를 넓게 탐색해 대표 사례와 열린 질문이 있는 리서치 지도를 작성한다."
+  }
+}

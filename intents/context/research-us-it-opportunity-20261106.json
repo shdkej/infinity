@@ -1,0 +1,121 @@
+{
+  "context_pack_version": 3,
+  "status": "ready",
+  "route": "infinity",
+  "request": "창업 기회 탐색을 위해 미국 IT 시장의 주요 카테고리와 인접 영역을 폭넓게 조사한다. 대표 기업·제품, 고객 문제, 사업 모델, 대체 접근과 변화 신호를 탐색 지도로 정리한다. 미국 직접 진출과 미국 사례의 국내 적용은 모두 열어 두되 구분해서 다루고, 특정 기회 추천이나 사업 결정으로 성급히 좁히지 않는다.",
+  "built_at": "2026-11-06T13:09:21.756368+00:00",
+  "required_documents": [
+    "/home/ubuntu/workspace/prompt-archive/LLM.md",
+    "README.md",
+    "schema/agent-rules.md",
+    "source/openclaw-system/docs/DOCUMENT_SEARCH_PIPELINE.md",
+    "source/openclaw-system/docs/USER_CONTEXT.md",
+    "source/openclaw-system/docs/SERVICE_REGISTRY.md",
+    "source/openclaw-system/docs/INFINITY_OPERATING_RULES.md",
+    "/home/ubuntu/workspace/infinity/ARTIFACT_RULES.md",
+    "/home/ubuntu/workspace/infinity/EXECUTION_LEARNING_CONTRACT.md",
+    "/home/ubuntu/workspace/infinity/INTENTS.yaml",
+    "agent-wiki/content/docs/index.mdx"
+  ],
+  "search_scopes": [
+    "agent-wiki/content/docs/",
+    "source/openclaw-system/docs/",
+    "source/openclaw-system/data/daily-reviews/",
+    "source/openclaw-system/data/daily-tracking/",
+    "source/openclaw-system/data/photo-insights/"
+  ],
+  "selected_context": [
+    {
+      "path": "agent-wiki/content/docs/outputs/deep-knowledge/ai.mdx",
+      "reason": "zg hybrid discovery; indexed section retained for targeted reading",
+      "verification": "indexed-section",
+      "locator": {
+        "start_line": 104,
+        "end_line": 116,
+        "heading": "AI에게 위임할 수 있는 것",
+        "heading_level": "3",
+        "scope": "AI::AI 사용법, 맡길 것과 체화할 것을 나누기",
+        "excerpt": "### AI에게 위임할 수 있는 것 - 초안 작성과 구조화 - 역할별 시뮬레이션 - 자료 탐색과 빠른 비교 - 누락 점검과 체크리스트 생성 - 로그와 문서를 기반으로 한 재정리 - 독학을 돕는 역할 분담: Advisor, Librarian, Tutor, Editor, Roommate처럼 조언·수집·튜터링·편집·동료 역할을 나눈다. - 리서치 결과를 사례 목록, 핵심 추출, 내 상황 적용, 산업·분야·작업 레이어의 위치 확인까지 연결한다. - 요약 HTML, 전체 Markdown, ZG 검색 매핑, 분량·흐름 품질을 함께 남겨 재사용 가능한 리서치 패키지로 만든다. - 이미지 한 장을 여러 장의 스토리보드로 확장하는 영상 입력처럼, 생성 결과보다 다음 작업으로 이어지는 구조를 설계한다.  즉 저자에게 AI는 대체자보다 **결정 가능한 상태를 빨리 만들어 주는 인턴, 운영자, 공동작업자**에 가깝다. `빠짐을 막게 하라`, `결정만 하면 되는 구조로 가야 된다`는 문장은 이 노드의 위임 철학을 가장 압축해서 보여 준다."
+      }
+    },
+    {
+      "path": "agent-wiki/content/docs/outputs/Communication/Document.mdx",
+      "reason": "zg hybrid discovery; indexed section retained for targeted reading",
+      "verification": "indexed-section",
+      "locator": {
+        "start_line": 17,
+        "end_line": 21,
+        "heading": "원문 흐름 요약",
+        "heading_level": "2",
+        "scope": "Document",
+        "excerpt": "## 원문 흐름 요약 원문은 좋은 문서화의 조건으로 최신성, 검색성, 접근성, 수정 용이성을 먼저 놓는다. 이어 TDD 링크 3개처럼 바로 전달할 수 있는 자료 묶음, 개발자용·고객용 문서 구분, Swagger 같은 자동 문서화, 사내 위키와 Confluence의 입력 창구 문제로 이동한다.  중반에는 코드와 데이터도 결국 찾고 쓸 수 있어야 자산이 된다는 질문, 트러블슈팅 접수 구조, README와 제품 소개 페이지, 사용 가이드, 공식 문서의 한계가 이어진다. 후반에는 자동/수동 문서화, 메타 문서함, 신입 가이드·테크스펙·배포 절차·비상 행동 방침, UTM·국제화·히스토리 문서·프로젝트 한 페이지·시각화가 붙으면서 문서가 정보 저장소를 넘어 운영 기억과 배포 후 이해 환경을 설계하는 문제로 확장된다."
+      }
+    },
+    {
+      "path": "agent-wiki/content/docs/outputs/Integration/Business.mdx",
+      "reason": "zg hybrid discovery; indexed section retained for targeted reading",
+      "verification": "indexed-section",
+      "locator": {
+        "start_line": 232,
+        "end_line": 249,
+        "heading": "운영 판단판",
+        "heading_level": "2",
+        "scope": "비즈니스",
+        "excerpt": "## 운영 판단판  | 판단 축 | 원문 표식 | 판정 기준 | | --- | --- | --- | | 신용할 수 있는 사람 | 정직함, 일 처리, 좋은 사람, 개발자 능력 | 착함만 보지 말고 문제 정의, 실행, 주변 생산성, 변질 가능성을 함께 본다. | | 개인 문제와 구조 문제 | 신입, 퇴사자, 선임, 착취 가능성 | 불만을 성격 문제로 닫기 전에 개인 역량, 관계 마찰, 온보딩 설계, 조직 착취, 현실 교육을 나눠 본다. | | 성장 경험 | 이직 이유, 신인 선수, 스시 장인, 팀 선택 | 사람을 붙잡는 힘은 보상만이 아니라 더 큰 세계, 좋은 선임, 도약 가능한 경험 구조에서 나온다. | | 창업과 고객 적합성 | 창업 계기, startup, 애자일, 고객 창출 | 내 욕망으로 시작해도 관심, 구매 의사, 피드백, 초기 경험 품질을 통과해야 사업 후보가 된다. | | 수익 후보 승격 | 워크샵/질문카드 철회, 아이템 검증 | 좋은 학습 맥락이 곧 상품 후보는 아니며, 문제 크기·반복 구매성·유통 표면을 통과해야 다음 검증으로 간다. | | 구매 상황 포지셔닝 | 질문카드 포지셔닝, 워크숍 사용 장면 | 붐비는 물건명은 수요 다리로만 쓰고, 구매 이유는 특정 방·작업·다음 행동으로 먼저 설명한다. | | 가격·제한 신뢰 | AI pricing, credit, cap, value unit | 사용량 단위와 제한 문구가 고객"
+      }
+    },
+    {
+      "path": "agent-wiki/content/docs/outputs/Integration/Business.mdx",
+      "reason": "zg hybrid discovery; indexed section retained for targeted reading",
+      "verification": "indexed-section",
+      "locator": {
+        "start_line": 20,
+        "end_line": 30,
+        "heading": "핵심 판단 모델",
+        "heading_level": "2",
+        "scope": "비즈니스",
+        "excerpt": "## 핵심 판단 모델 원문의 `Business`는 경영 이론 요약집이 아니라 사람·조직·고객·제품을 함께 보는 사업 판단 노드다. 채용, 신입 온보딩, 창업 동기, 스타트업 검증, 대기업 혁신, 앱 불편 사례는 서로 떨어진 메모처럼 보이지만 모두 한 질문으로 모인다. `사람, 조직, 제품, 외부 경험을 어떤 기준으로 연결하면 오래 가는 비즈니스가 되는가?`  | 판단면 | 원문 질문 | Business 노드에서 읽는 방식 | | --- | --- | --- | | 사람 | 누구와 함께 일할 수 있고, 신용은 어떻게 확인하는가? | 정직함과 착함만이 아니라 문제 정의, 실행력, 변질 가능성, 주변 생산성까지 함께 본다. | | 조직 | 좋은 회사는 무엇으로 유지되고, 신입·퇴사·선임 문제는 누구 책임인가? | 개인 결함으로 빨리 닫지 않고 온보딩, 성장 경험, 현실 교육, 착취 가능성을 분리한다. | | 사업 | 창업 욕망은 고객이 원하는 것과 어떻게 만나는가? | 내 기술·자아실현 욕구에서 시작하더라도 관심, 구매 의사, 피드백, 초기 경험 품질을 통과해야 한다. | | 제품 | 사용자는 어디서 멈추고 불편을 느끼는가? | 느린 검색, 앱 분절, 반복 인증, 강제 입력 같은 마찰을 고객 창출 실패 신호로 읽는다. | | 외부 경험 | 더 큰 세계, 해외시장, 다른 회사의 방식은 어떻게 내부 학습이 되는가? | 외국인 채용, 부트캠프 "
+      }
+    },
+    {
+      "path": "agent-wiki/content/docs/outputs/Fundamental/Data_Structure.mdx",
+      "reason": "zg hybrid discovery; indexed section retained for targeted reading",
+      "verification": "indexed-section",
+      "locator": {
+        "start_line": 44,
+        "end_line": 52,
+        "heading": "원문 발췌 구조",
+        "heading_level": "2",
+        "scope": "Data_Structure",
+        "excerpt": "## 원문 발췌 구조 - 선택 기준 층: 접근 방식, 메모리 공간, 순서성, 중복, 변경 빈도처럼 `무엇을 빨리 하고 싶은가`를 먼저 적는다. - 기본 구조 층: 배열, 연결 리스트, 해시 테이블, 트리, 그래프, 스택/큐/힙으로 내려가며 각 구조의 대표 연산 차이를 붙든다. - 알고리즘 접속 층: BFS/DFS, 정렬, DP, 분할 정복, 다익스트라로 이동하며 구조와 풀이를 분리하지 않는다. - 탐색 가속 층: 우선순위 큐, trie, DB 인덱스, 검색 엔진 메모로 넘어가 `찾기 위해 미리 조직하는 법`을 확장한다. - 언어/시스템 층: Golang, Python, Redis 자료형과 메모리 스택/힙 구분을 덧대며 추상 개념이 실제 구현에서 어떻게 바뀌는지 확인한다.  이 배열을 보면 원문은 교과서 챕터 순서대로 정리된 문서가 아니라, **기본 구조 → 문제 풀이 → 검색 최적화 → 실제 구현 층**으로 넓어지는 학습 노드다."
+      }
+    }
+  ],
+  "selected_operational_logs": [
+    {
+      "path": "logs/agent-wiki-query.md",
+      "reason": "bounded operational-log preflight; not part of the Agent Wiki index",
+      "verification": "matched",
+      "matches": [
+        "18:## 2026-09-19 11:27 UTC | 소규모 창업팀이 대형 소프트웨어 회사로 성장한 사례",
+        "20:- query: Figma·Notion처럼 극소수 창업팀에서 시작해 대형 소프트웨어 회사가 된 사례를 확인했다.",
+        "24:- 결과: 창업자 수(2~3명)와 현재 규모는 각 사의 공식 기업·투자자 자료로 확인하고, 창업팀이 작았다는 사실과 초기 전체 직원 수는 구분해 짧은 사례 지도로 답변한다."
+      ]
+    }
+  ],
+  "preflight": {
+    "tool": "zg",
+    "query": "창업 기회 탐색을 위해 미국 IT 시장의 주요 카테고리와 인접 영역을 폭넓게 조사한다. 대표 기업·제품, 고객 문제, 사업 모델, 대체 접근과 변화 신호를 탐색 지도로 정리한다. 미국 직접 진출과 미국 사례의 국내 적용은 모두 열어 두되 구분해서 다루고, 특정 기회 추천이나 사업 결정으로 성급히 좁히지 않는다.",
+    "discovery": "hybrid+fts RRF",
+    "verification": "indexed section locator",
+    "result_count": 5
+  },
+  "selected_context_required": true,
+  "rules": [
+    "Read every required document before creating or executing an intent.",
+    "Read every selected_context locator section first (including its heading and line window); expand to adjacent sections only when needed, and record the exact paths in the execution trace.",
+    "Read only the matched sections of selected_operational_logs; they are operational evidence, not compiled knowledge.",
+    "Search the declared scopes for task-specific evidence; do not treat a search hit as a confirmed fact without its source.",
+    "Record the resulting context pack path in the intent and re-check it before handoff."
+  ]
+}
