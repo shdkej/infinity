@@ -82,10 +82,10 @@ lanes:
   - id: research-us-it-opportunity-20261106
     title: 미국 IT 시장 카테고리로 창업 기회 탐색
     task_name: 미국 IT 시장 카테고리로 창업 기회 탐색
-    status: inbox
+    status: active
     research_mode: exploratory_research
     target_agent: genie
-    execution_mode: single_genie_roles
+    execution_mode: multi_subagent_roles
     complexity_tier: lightweight
     permission_level: L0-research-and-draft-only
     task_type: research
@@ -105,6 +105,23 @@ lanes:
     notification_reply_to: '1793845695.691209'
     notification_origin: 'channel:C0BR41W31MM;reply_to:1793845695.691209'
     next_action: Genie가 Context Pack을 다시 확인하고 미국 IT 시장의 주요 카테고리·인접 분야·대표 사례·변화 신호를 폭넓게 조사해 Markdown 및 HTML 탐색 지도를 작성한다.
+    role_subagents:
+      planner:
+        session_id: /root/planner
+        first_judgment: 폭넓은 카테고리 탐색 지도, 분류 기준 및 근거 레이블; 단일 추천 금지
+        cross_review: developer·marketer 관점과 통합 예정
+      developer:
+        session_id: /root/developer
+        first_judgment: 날짜가 있는 1차 출처와 정성 후기 분리, Markdown+HTML이 현실적인 산출물
+        cross_review: planner·marketer 관점과 통합 예정
+      marketer:
+        session_id: /root/marketer
+        first_judgment: 고객 문제·예산·워크플로 반복과 검증 수요를 구분하고 트렌드를 구매의사로 오인 금지
+        cross_review: planner·developer 관점과 통합 예정
+      operator:
+        status: blocked
+        blocker: 임시 역할 세션 동시 실행 한도 도달; operator 관점 교차검토 미완료
+
   waiting:
   - id: watch-planner-5f612447d241eca5
     title: 두 프로젝트의 고객 문의 채널과 전용 마케팅 지표 원천을 확정·연결한다

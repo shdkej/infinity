@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "intent_id": "research-us-it-opportunity-20261106",
-  "status": "inbox",
+  "status": "active",
   "trace_completeness": "complete",
   "request": {
     "raw": {
@@ -39,12 +39,40 @@
         "intents/context/research-us-it-opportunity-20261106.json",
         "docs/intent-trace-contract.md"
       ]
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-0c8a4b86950047b6a7a7a58571a628ff",
+      "canonical_sha": "e0500e1b35cc4b4690d62016741b3844792b9df3",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-11-06T18:00:05Z",
+      "status": "accepted"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-0c8a4b86950047b6a7a7a58571a628ff",
+      "canonical_sha": "e0500e1b35cc4b4690d62016741b3844792b9df3",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher-v2",
+      "timestamp": "2026-11-06T18:00:04Z",
+      "status": "accepted"
+    },
+    {
+      "type": "promotion",
+      "at": "2026-11-06T18:03:00Z",
+      "from": "inbox",
+      "to": "active",
+      "dispatcher_run_id": "dispatch-0c8a4b86950047b6a7a7a58571a628ff",
+      "evidence_paths": [
+        "INTENTS.yaml"
+      ]
     }
   ],
   "artifacts": [],
   "verifications": [],
   "next_decision": {
     "status": "in_progress",
-    "value": "Genie가 같은 Context Pack을 재검토하고 미국 IT 시장 카테고리·인접 분야를 넓게 탐색해 대표 사례와 열린 질문이 있는 리서치 지도를 작성한다."
+    "value": "역할별 검토 완료 후 탐색 지도 산출물의 근거 수집과 Markdown/HTML 작성 진행"
   }
 }
