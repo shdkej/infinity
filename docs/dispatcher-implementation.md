@@ -16,21 +16,24 @@
 
 ## 한 사이클의 내부 순서
 
-1. `git pull --ff-only origin main`으로 작업 저장소를 동기화합니다.
-2. `git fetch --prune origin main` 후 `FETCH_HEAD`와 `origin/main` SHA가 같은지 확인합니다.
+1. 기존 canonical checkout이 `main`이 아니면 보존 가능한 경우에만 기존 `main`으로 전환하고, `git pull --ff-only origin main`으로 동기화합니다.
+2. `git fetch --prune origin main` 후 `FETCH_HEAD`, `origin/main`, canonical checkout의 `HEAD`가 모두 같은 SHA인지 확인합니다. 일치하지 않으면 계획·쓰기 단계에 진입하지 않고 nonzero exit로 크론 실패를 기록합니다.
 3. 최신 `origin/main`으로 검증용 detached worktree를 만듭니다.
 4. `prepare_dispatch_cycle.py`가 `INTENTS.yaml`을 읽어 promotion, resume, plan activation, expansion, terminalization 후보를 계산합니다.
 5. handoff 대상마다 `dispatcher_handoff` trace를 남기고 Genie 실행 세션에 넘깁니다.
 6. 실행 뒤 원격 상태와 계획을 다시 읽어 실행 증거와 상태 전이를 검증합니다.
 7. 작업 실행 cycle record를 저장합니다.
 
-대시보드 버튼과 알림은 작업 실행과 분리된 독립 크론입니다. 세 작업 실행기는 호스트의 system crontab에 등록되어 각각 10분 간격으로 실행됩니다(디스패처 분 `*/10`, 버튼 소비 분 `1-59/10`, 알림 분 `2-59/10`). 버튼 크론은 원격 `origin/main`을 확인한 뒤 S3 action queue를 소비하고, 원장 변경을 별도 커밋·push합니다. 알림 크론은 `origin/main`의 원장을 읽어 PNG 카드·텍스트 fallback·승인 버튼을 exactly-once로 발송합니다. 각 실행기는 독립 `flock`을 사용합니다.
+디스패처는 OpenClaw automation `Infinity dispatcher (origin/main)`(ID `033a86c8-758b-4639-897e-c67b79785e91`)에서 10분마다 `bash scripts/run_registered_dispatcher_cycle.sh`로 실행합니다. OpenClaw 스케줄 원장을 단일 주 스케줄러로 사용하며, system crontab에는 디스패처를 중복 등록하지 않습니다. 기존 자동화 항목을 재사용하며 새 working checkout이나 별도 job은 만들지 않습니다. dispatcher 스크립트가 계획 검증 때 만드는 임시 detached worktree는 검증에만 쓰며, 작업·trace 기록은 canonical `main` checkout에서 수행합니다.
 
-호스트 crontab과 OpenClaw cron registry는 서로 다른 스케줄 원장입니다. Status Dashboard의 크론 수집기는 `openclaw cron list --json`만 조회하므로, 위 system-crontab 작업은 대시보드의 크론 목록에 표시되지 않습니다. 인박스 작업 디스패처는 현재도 system crontab에서 실행되며, 크론 목록에 없다는 이유만으로 제거하거나 비활성으로 판단하지 않습니다. 역할별 백로그 watcher는 상시 운용하지 않으며, 프로젝트 작업 처리는 이 디스패처와 Genie 실행 흐름이 담당합니다.
+대시보드 버튼과 상태/완료 알림은 디스패처와 분리된 호스트 crontab 작업으로 각각 10분 간격 실행됩니다(버튼 소비 분 `1-59/10`, 알림 분 `2-59/10`). 버튼 크론은 원격 `origin/main`을 확인한 뒤 S3 action queue를 소비하고, 원장 변경을 별도 커밋·push합니다. 알림 크론은 `origin/main`의 원장을 읽어 PNG 카드·텍스트 fallback·승인 버튼을 exactly-once로 발송합니다. 각 실행기는 독립 `flock`을 사용합니다.
+
+호스트 crontab과 OpenClaw cron registry는 별도 스케줄 원장입니다. Status Dashboard의 크론 수집기는 `openclaw cron list --json`만 조회하므로 호스트의 버튼·알림 작업은 크론 목록에 표시되지 않지만, 디스패처는 OpenClaw automation 목록에 표시됩니다. 호스트 crontab에서 디스패처가 빠졌다고 비활성으로 판단하지 않습니다. 역할별 백로그 watcher는 상시 운용하지 않으며, 프로젝트 작업 처리는 이 디스패처와 Genie 실행 흐름이 담당합니다.
 
 ## 격리·중복 방지
 
 - OpenClaw 스케줄은 `sessionTarget=isolated`, 실행 에이전트는 `genie`입니다.
+- 등록 payload는 모델 대화가 없는 command 실행이며, 제한 시간은 600초입니다. bootstrap, handoff, 후속 검증 실패는 nonzero exit로 전달해 OpenClaw 실행 이력에 실패로 남깁니다.
 - 디스패처 실행 세션 키 기본값은 `agent:genie:infinity-dispatcher-v2`입니다.
 - `flock` 잠금으로 이전 사이클이 끝나지 않은 동안 중복 사이클을 시작하지 않습니다.
 - Genie 실행은 기본 480초, 전체 크론은 600초 제한입니다.

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Cron entrypoint: every dispatcher cycle must pass the Infinity command registry.
+# OpenClaw cron entrypoint: every dispatcher cycle must pass the Infinity command registry.
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"

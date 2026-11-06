@@ -39,5 +39,5 @@ python3 scripts/command_runner.py plan.json --apply
 
 상태 원장은 계속 `INTENTS.yaml` 하나이며, 명령 실행기는 기존 dispatcher를 우회하지 않습니다. `role.fanout`은 네 역할의 공유 계약과 회수 지점을 고정하고, dispatcher/Genie가 네 역할을 실제로 병렬 인계한 뒤 synthesis·Red가 결과를 닫습니다.
 
-10분 주기의 Infinity 크론도 `scripts/run_registered_dispatcher_cycle.sh`를 통해 `dispatcher.cycle` 등록 명령으로 진입합니다. 이 명령은 기존의 원격 동기화·계획·Genie 인계·터미널 알림 절차를 보존하면서, 크론 진입 자체를 레지스트리·권한·command_id·실행 원장 경계 안에 둡니다.
+10분 주기의 Infinity dispatcher는 OpenClaw automation에서 `scripts/run_registered_dispatcher_cycle.sh`를 통해 `dispatcher.cycle` 등록 명령으로 진입합니다. 이 명령은 canonical `main` checkout과 `origin/main` SHA를 확인하고, 원격 동기화·계획·Genie 인계를 레지스트리·권한·command_id·실행 원장 경계 안에서 수행합니다. bootstrap이나 handoff 검증 실패는 nonzero exit로 OpenClaw 실행 이력에 남습니다. 사용자 상태/완료 알림은 별도 호스트 알림 크론이 담당합니다.
 `context.pack.build`는 `zg`를 재구현하지 않고 Knowledge Lab의 정본 builder를 호출합니다. 결과에는 `query`, `result_count`, `selected_paths`가 포함되며, 후속 `trace.execution.record`는 실제 읽은 `wiki_pages`와 `evidence_paths`를 별도로 남깁니다.

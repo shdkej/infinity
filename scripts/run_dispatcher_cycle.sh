@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# The only Infinity dispatcher schedule is the host's existing 10-minute cron.
+# The OpenClaw automation owns the only 10-minute Infinity dispatcher schedule.
 set -u -o pipefail
 umask 077
 
@@ -21,7 +21,7 @@ STATE_DIR="${INFINITY_DISPATCHER_STATE_DIR:-/home/ubuntu/.openclaw/state/infinit
 LOCK_FILE="${INFINITY_DISPATCHER_LOCK_FILE:-/tmp/infinity-dispatcher.lock}"
 AGENT_TIMEOUT_SECONDS="${INFINITY_DISPATCHER_AGENT_TIMEOUT_SECONDS:-480}"
 DISPATCHER_SESSION_KEY="${INFINITY_DISPATCHER_SESSION_KEY:-agent:genie:infinity-dispatcher-command-v1}"
-mkdir -p "$STATE_DIR" 2>/dev/null || { printf '%s\n' 'Infinity 점검을 시작하지 못했습니다. 원격 상태를 다시 확인한 뒤 재개하겠습니다.'; exit 0; }
+mkdir -p "$STATE_DIR" 2>/dev/null || { printf '%s\n' 'Infinity 점검을 시작하지 못했습니다. 원격 상태를 다시 확인한 뒤 재개하겠습니다.'; exit 1; }
 exec 9>"$LOCK_FILE"
 flock -n 9 || exit 0
 
@@ -39,8 +39,15 @@ from pathlib import Path
 Path(sys.argv[1]).write_text(json.dumps({"outcome":"canonical_fetch_failed","user_failure":{"stage":"canonical_fetch_failed","message":"Infinity 점검을 시작하지 못했습니다. 원격 상태를 다시 확인한 뒤 재개하겠습니다."}}, ensure_ascii=False, indent=2)+"\n")
 PY
   printf '%s\n' 'Infinity 점검을 시작하지 못했습니다. 원격 상태를 다시 확인한 뒤 재개하겠습니다.'
-  exit 0
+  exit 1
 }
+
+# Keep the canonical checkout on main. Never let a scheduled run update or
+# write through a feature branch; switch only when Git can preserve local work.
+CHECKED_OUT_BRANCH="$(git -C "$ROOT" symbolic-ref --quiet --short HEAD 2>/dev/null || true)"
+if [[ "$CHECKED_OUT_BRANCH" != "main" ]]; then
+  git -C "$ROOT" switch main >/dev/null 2>&1 || bootstrap_failure
+fi
 
 # The dispatcher owns the repository sync boundary: pull before planning, and
 # never treat a local commit as complete until the remote ref proves it.
@@ -52,6 +59,8 @@ git -C "$ROOT" fetch --prune origin main >/dev/null 2>&1 || bootstrap_failure
 FETCHED_MAIN_SHA="$(git -C "$ROOT" rev-parse FETCH_HEAD 2>/dev/null)" || bootstrap_failure
 ORIGIN_MAIN_SHA="$(git -C "$ROOT" rev-parse refs/remotes/origin/main 2>/dev/null)" || bootstrap_failure
 [[ "$FETCHED_MAIN_SHA" == "$ORIGIN_MAIN_SHA" ]] || bootstrap_failure
+PRIMARY_HEAD_SHA="$(git -C "$ROOT" rev-parse HEAD 2>/dev/null)" || bootstrap_failure
+[[ "$PRIMARY_HEAD_SHA" == "$ORIGIN_MAIN_SHA" ]] || bootstrap_failure
 git -C "$ROOT" worktree add --detach "$VERIFY_ROOT" origin/main >/dev/null 2>&1 || bootstrap_failure
 trap 'git -C "$ROOT" worktree remove --force "$VERIFY_ROOT" >/dev/null 2>&1 || true; rm -f "$PLAN_FILE" "$POST_PLAN_FILE" "$PROMPT_FILE" "$PROMPT_STAGE_FILE"' EXIT
 test -z "$(git -C "$VERIFY_ROOT" status --porcelain)" || bootstrap_failure
@@ -210,6 +219,6 @@ path = Path(sys.argv[1]); data = json.loads(path.read_text())
 data["user_failure"] = {"stage":"dispatcher","message":"Infinity 작업 일부를 확인하지 못했습니다. 원격 상태를 다시 확인한 뒤 재개하겠습니다."}
 path.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n")
 PY
-  FINAL_EXIT=0
+  FINAL_EXIT=1
 fi
 exit "$FINAL_EXIT"
