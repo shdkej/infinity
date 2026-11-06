@@ -1,8 +1,8 @@
 ### [research-us-it-opportunity-20261106] 미국 IT 시장 카테고리로 창업 기회 탐색
-- status: inbox
+- status: active
 - research_mode: exploratory_research
 - target_agent: genie
-- execution_mode: single_genie_roles
+- execution_mode: multi_subagent_roles
 - complexity_tier: lightweight
 - permission_level: L0-research-and-draft-only
 - task_type: research
@@ -21,7 +21,9 @@
 - notification_target: channel:C0BR41W31MM
 - notification_reply_to: 1793845695.691209
 - notification_origin: channel:C0BR41W31MM;reply_to:1793845695.691209
-- next_action: Genie가 Context Pack을 다시 확인하고 미국 IT 시장의 주요 카테고리·인접 분야·대표 사례·변화 신호를 폭넓게 조사해 Markdown 및 HTML 탐색 지도를 작성한다.
+- next_action: 카테고리별 구매자·반복 업무·현행 대체재·가격/도입 신호를 심화 조사하고 미국 직접 진출과 한국 적용의 차이를 별도로 검증한다.
+- artifact: artifacts/research-us-it-opportunity-20261106/work/market-map.md
+- artifact: artifacts/research-us-it-opportunity-20261106/work/market-map.html
 
 ### Publish receipt
 - Intake commit local SHA: `0cccde31084b79a60f47c1d9f3d7a7391e874348`

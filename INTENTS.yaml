@@ -134,23 +134,27 @@ lanes:
     notification_target: channel:C0BR41W31MM
     notification_reply_to: '1793845695.691209'
     notification_origin: 'channel:C0BR41W31MM;reply_to:1793845695.691209'
-    next_action: Genie가 Context Pack을 다시 확인하고 미국 IT 시장의 주요 카테고리·인접 분야·대표 사례·변화 신호를 폭넓게 조사해 Markdown 및 HTML 탐색 지도를 작성한다.
+    next_action: 카테고리별 구매자·반복 업무·현행 대체재·가격/도입 신호를 심화 조사하고 미국 직접 진출과 한국 적용의 차이를 별도로 검증한다.
+    artifact:
+      - artifacts/research-us-it-opportunity-20261106/work/market-map.md
+      - artifacts/research-us-it-opportunity-20261106/work/market-map.html
     role_subagents:
       planner:
-        session_id: /root/planner
-        first_judgment: 폭넓은 카테고리 탐색 지도, 분류 기준 및 근거 레이블; 단일 추천 금지
-        cross_review: developer·marketer 관점과 통합 예정
+        session_id: /root/planner_c3
+        first_judgment: 비랭킹 커버리지 지도, 인접 업무와 대안 구조; 지불의사·세그먼트 차이는 미해결
+        cross_review: 상호검토 반영 — 모집단·기간·지리 분리와 비랭킹 증거 단계 사다리 추가
       developer:
-        session_id: /root/developer
-        first_judgment: 날짜가 있는 1차 출처와 정성 후기 분리, Markdown+HTML이 현실적인 산출물
-        cross_review: planner·marketer 관점과 통합 예정
+        session_id: /root/developer_c3
+        first_judgment: 공식 통계·규칙·벤더 주장 분리, 날짜/모집단/관측기간 유지
+        cross_review: 상호검토 반영 — 근거 강도와 최신성을 분리해 표기
       marketer:
-        session_id: /root/marketer
-        first_judgment: 고객 문제·예산·워크플로 반복과 검증 수요를 구분하고 트렌드를 구매의사로 오인 금지
-        cross_review: planner·developer 관점과 통합 예정
+        session_id: /root/marketer_c3
+        first_judgment: 구매자 업무의 빈도·손실·현재 대안·예산권자 검증; 한국 적용 별도
+        cross_review: 상호검토 반영 — 트렌드/채택과 구매·반복사용 증거를 분리
       operator:
-        status: blocked
-        blocker: 임시 역할 세션 동시 실행 한도 도달; operator 관점 교차검토 미완료
+        session_id: /root/operator_c3
+        first_judgment: 출처 스냅샷·읽기성·L0 경계 확인
+        cross_review: 상호검토 반영 — 카테고리별 근거 강도·최신성·구매 단계 표 추가; 화면 렌더는 미검증
 
 backlog_triage:
   latest_cycle:

@@ -59,7 +59,7 @@
       "status": "accepted"
     },
     {
-      "type": "promotion",
+      "type": "backfill",
       "at": "2026-11-06T18:03:00Z",
       "from": "inbox",
       "to": "active",
@@ -67,12 +67,152 @@
       "evidence_paths": [
         "INTENTS.yaml"
       ]
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-c02cef0de9904f93a3f0f2ebffecfcb9",
+      "canonical_sha": "76a36fa3ba17c52db2ba331162f04a4030674f11",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher-v2",
+      "timestamp": "2026-11-06T18:10:04Z",
+      "status": "accepted"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-d63abcef683049d689ee042e8ef9d39a",
+      "canonical_sha": "69c92e6db6f735f10ed0c497cbb37e7c0059152c",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-11-06T18:30:15Z",
+      "status": "accepted"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-d63abcef683049d689ee042e8ef9d39a",
+      "canonical_sha": "69c92e6db6f735f10ed0c497cbb37e7c0059152c",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher-v2",
+      "timestamp": "2026-11-06T18:30:15Z",
+      "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-11-06T18:34:42Z",
+      "context_pack": "intents/context/research-us-it-opportunity-20261106.json",
+      "evidence_paths": [
+        "artifacts/research-us-it-opportunity-20261106/work/market-map.md"
+      ],
+      "searches": [
+        "official Census ABS/CES, BLS, SEC, CMS sources plus AWS/GitHub/Stripe/Epic product pages; opened and source-graded"
+      ],
+      "wiki_pages": [
+        "agent-wiki/content/docs/outputs/deep-knowledge/ai.mdx:104-116",
+        "agent-wiki/content/docs/outputs/Integration/Business.mdx:195-205,232-249"
+      ],
+      "operational_log_sections": [],
+      "note": "1차 비랭킹 카테고리 지도와 날짜/관측기간/한계를 갖춘 9개 출처 레지스터 작성. 구매의사/시장 크기로 과장하지 않음."
     }
   ],
-  "artifacts": [],
-  "verifications": [],
+  "artifacts": [
+    {
+      "path": "artifacts/research-us-it-opportunity-20261106/work/market-map.md",
+      "kind": "research_working_artifact",
+      "created_at": "2026-11-06T18:34:42Z",
+      "status": "draft"
+    },
+    {
+      "path": "artifacts/research-us-it-opportunity-20261106/work/market-map.html",
+      "kind": "research_working_artifact",
+      "created_at": "2026-11-06T18:34:42Z",
+      "status": "draft"
+    }
+  ],
+  "verifications": [
+    {
+      "label": "workflow role review",
+      "type": "role_review",
+      "at": "2026-11-06T18:10:17Z",
+      "roles": [
+        "operator"
+      ],
+      "evidence_paths": [
+        "검토: intake/context pack provenance is traceable and current, but market evidence absent; preserve source dates and distinguish primary sources from community/review anecdotes; maintain L0 exploratory boundary."
+      ],
+      "status": "pass",
+      "next_role": "genie"
+    },
+    {
+      "label": "workflow role review",
+      "type": "role_review",
+      "at": "2026-11-06T18:34:42Z",
+      "roles": [
+        "planner"
+      ],
+      "evidence_paths": [
+        "비랭킹 coverage map: established categories + adjacent workflows + alternatives; 각 영역 buyer, repetitive task, workaround, signal, US/Korea overlay; willingness-to-pay unknown, overlap and segment variation remain."
+      ],
+      "status": "pass",
+      "next_role": "developer"
+    },
+    {
+      "label": "workflow role review",
+      "type": "role_review",
+      "at": "2026-11-06T18:34:42Z",
+      "roles": [
+        "developer"
+      ],
+      "evidence_paths": [
+        "Separate official adoption data, legal rules, and vendor capability claims; preserve population, geography, observation period, publication/access dates. Vendor pages are not independent outcome evidence."
+      ],
+      "status": "pass",
+      "next_role": "marketer"
+    },
+    {
+      "label": "workflow role review",
+      "type": "role_review",
+      "at": "2026-11-06T18:34:42Z",
+      "roles": [
+        "marketer"
+      ],
+      "evidence_paths": [
+        "Screen for buyer pain, workflow frequency/severity, current spend/workaround, budget owner and willingness to pilot; treat trend/adoption/job outlook as hypotheses, not demand. Korea transfer needs distinct validation."
+      ],
+      "status": "pass",
+      "next_role": "operator"
+    },
+    {
+      "label": "workflow role review",
+      "type": "role_review",
+      "at": "2026-11-06T18:34:42Z",
+      "roles": [
+        "operator"
+      ],
+      "evidence_paths": [
+        "Markdown and HTML now have readable layouts and source register; keep publication/observation/access dates, primary/vendor separation, and L0 research-only scope."
+      ],
+      "status": "pass",
+      "next_role": "genie"
+    },
+    {
+      "label": "role cross-review synthesis",
+      "type": "role_review",
+      "at": "2026-11-06T18:35:00Z",
+      "roles": [
+        "planner",
+        "developer",
+        "marketer",
+        "operator"
+      ],
+      "evidence_paths": [
+        "artifacts/research-us-it-opportunity-20261106/work/market-map.md",
+        "artifacts/research-us-it-opportunity-20261106/work/market-map.html"
+      ],
+      "status": "pass",
+      "conclusion": "비랭킹 범위 지도 유지; 모집단/기간/지리와 출처종류 분리; 근거강도와 최신성 별도 표기; 트렌드/채택/직무/규칙은 구매·유지 증거와 구분. Operator 요청에 따라 category별 demand rung/unknown 표 추가."
+    }
+  ],
   "next_decision": {
     "status": "in_progress",
-    "value": "역할별 검토 완료 후 탐색 지도 산출물의 근거 수집과 Markdown/HTML 작성 진행"
+    "value": "다음 라운드에서 카테고리별 buyer workflow·현행 대체재·가격/도입 신호와 미국/한국 차이를 심화하고 Markdown/HTML을 일치시킨다."
   }
 }
