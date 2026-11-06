@@ -57,7 +57,7 @@ Infinity는 자연어를 곧바로 파일·셸 작업으로 실행하지 않는�
 
 `role.fanout`은 Planner·Developer·Marketer·Operator를 하나의 공유 목표·성공 증거 계약 아래 병렬로 기록한다. 역할별 판단은 독립적으로 열어두되, 공유 계약과 `role-fanout.json`을 통해 synthesis가 네 결과를 모두 회수할 수 있게 한다. 실제 원격 에이전트 인계는 기존 dispatcher/Genie 경로가 담당하며, 이 명령은 그 병렬 계획을 대체하지 않는다.
 
-10분 주기 작업 실행은 OpenClaw automation `Infinity dispatcher (origin/main)`이 `scripts/run_registered_dispatcher_cycle.sh`를 호출하며, 이 진입점은 `dispatcher.cycle` 등록 명령을 `command_runner.py --apply`로 실행한다. 대시보드 버튼 처리와 알림 발송은 각각 `scripts/run_dashboard_actions_cron.sh`, `scripts/run_notification_cron.sh`를 호출하는 별도 호스트 크론으로 유지한다. 세 진입점은 작업 실행·사용자 액션·외부 알림의 잠금과 실패 범위를 분리한다.
+10분 주기 작업 실행은 OpenClaw automation `Infinity dispatcher (origin/main)`이 `scripts/run_registered_dispatcher_cycle.sh`를 호출하며, 이 진입점은 `dispatcher.cycle` 등록 명령을 `command_runner.py --apply`로 실행한다. 대시보드 버튼 처리와 알림 발송도 각각 OpenClaw automation `Infinity dashboard action consumer`(ID `96de3438-03de-443e-a558-bbf84d902743`, UTC `1-59/10`)와 `Infinity notification reconciler`(ID `bc3e54e3-70f3-43f3-9909-c451b57ec531`, UTC `2-59/10`)로 분리한다. 세 진입점은 작업 실행·사용자 액션·외부 알림의 잠금과 실패 범위를 분리하며, 세 작업의 실행 실패 알림은 Telegram으로 보낸다.
 
 `context.pack.build`는 Knowledge Lab의 정본 Context Pack builder를 통해 `zg` preflight를 실행하고, 명령 결과에 요청 쿼리·후보 수·선택 경로를 반환한다. `trace.execution.record`는 실제로 읽은 Context Pack·검색어·Wiki/운영 로그·근거 경로를 execution trace에 기록한다. 검색 실패나 필수 경로 누락은 명령 실패로 남기며, 검색 결과가 없는 경우에는 Context Pack의 `no-wiki-match` 기록을 보존한다.
 

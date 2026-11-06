@@ -26,9 +26,9 @@
 
 디스패처는 OpenClaw automation `Infinity dispatcher (origin/main)`(ID `033a86c8-758b-4639-897e-c67b79785e91`)에서 10분마다 `bash scripts/run_registered_dispatcher_cycle.sh`로 실행합니다. OpenClaw 스케줄 원장을 단일 주 스케줄러로 사용하며, system crontab에는 디스패처를 중복 등록하지 않습니다. 기존 자동화 항목을 재사용하며 새 working checkout이나 별도 job은 만들지 않습니다. dispatcher 스크립트가 계획 검증 때 만드는 임시 detached worktree는 검증에만 쓰며, 작업·trace 기록은 canonical `main` checkout에서 수행합니다.
 
-대시보드 버튼과 상태/완료 알림은 디스패처와 분리된 호스트 crontab 작업으로 각각 10분 간격 실행됩니다(버튼 소비 분 `1-59/10`, 알림 분 `2-59/10`). 버튼 크론은 원격 `origin/main`을 확인한 뒤 S3 action queue를 소비하고, 원장 변경을 별도 커밋·push합니다. 알림 크론은 `origin/main`의 원장을 읽어 PNG 카드·텍스트 fallback·승인 버튼을 exactly-once로 발송합니다. 각 실행기는 독립 `flock`을 사용합니다.
+대시보드 버튼과 상태/완료 알림은 디스패처와 분리된 OpenClaw automation으로 각각 10분 간격 실행됩니다. `Infinity dashboard action consumer`(ID `96de3438-03de-443e-a558-bbf84d902743`)는 UTC 기준 `1-59/10`, `Infinity notification reconciler`(ID `bc3e54e3-70f3-43f3-9909-c451b57ec531`)는 UTC 기준 `2-59/10`에 실행합니다. 버튼 작업은 원격 `origin/main`을 확인한 뒤 S3 action queue를 소비하고, 원장 변경을 별도 커밋·push합니다. 알림 작업은 `origin/main`의 원장을 읽어 PNG 카드·텍스트 fallback·승인 버튼을 exactly-once로 발송하며, 생성·상태·terminal 알림의 목적지는 Telegram 대화 `433493318`입니다. 세 OpenClaw 작업 모두 실행 실패 알림도 같은 Telegram 대화로 보냅니다. 각 실행기는 독립 `flock`을 사용합니다.
 
-호스트 crontab과 OpenClaw cron registry는 별도 스케줄 원장입니다. Status Dashboard의 크론 수집기는 `openclaw cron list --json`만 조회하므로 호스트의 버튼·알림 작업은 크론 목록에 표시되지 않지만, 디스패처는 OpenClaw automation 목록에 표시됩니다. 호스트 crontab에서 디스패처가 빠졌다고 비활성으로 판단하지 않습니다. 역할별 백로그 watcher는 상시 운용하지 않으며, 프로젝트 작업 처리는 이 디스패처와 Genie 실행 흐름이 담당합니다.
+Status Dashboard의 크론 수집기는 OpenClaw automation 목록을 조회하므로 이제 디스패처·버튼 처리·알림 작업이 모두 같은 스케줄 원장에 표시됩니다. system crontab에는 이 세 Infinity 작업을 중복 등록하지 않습니다. 역할별 백로그 watcher는 상시 운용하지 않으며, 프로젝트 작업 처리는 이 디스패처와 Genie 실행 흐름이 담당합니다.
 
 ## 격리·중복 방지
 
