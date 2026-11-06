@@ -138,23 +138,24 @@ lanes:
     artifact:
       - artifacts/research-us-it-opportunity-20261106/work/market-map.md
       - artifacts/research-us-it-opportunity-20261106/work/market-map.html
+      - artifacts/research-us-it-opportunity-20261106/work/public-spend-observations.json
     role_subagents:
       planner:
-        session_id: /root/planner_c3
-        first_judgment: 비랭킹 커버리지 지도, 인접 업무와 대안 구조; 지불의사·세그먼트 차이는 미해결
-        cross_review: 상호검토 반영 — 모집단·기간·지리 분리와 비랭킹 증거 단계 사다리 추가
+        session_id: /root/planner_d4
+        first_judgment: 공개조달은 특정 공공구매 신호만; 미국 obligation/outlay와 한국 예정예산 수치 비교 금지
+        cross_review: '범위·시점·조달 회계 기준 분리; 국가 간 금액 비교 배제'
       developer:
-        session_id: /root/developer_c3
-        first_judgment: 공식 통계·규칙·벤더 주장 분리, 날짜/모집단/관측기간 유지
-        cross_review: 상호검토 반영 — 근거 강도와 최신성을 분리해 표기
+        session_id: /root/developer_d4
+        first_judgment: USAspending obligation과 account outlay 분리; VA 계약은 서비스/운영 지원
+        cross_review: '계약 ceiling·지출·매출 추정 금지; exact API 필드 보존'
       marketer:
-        session_id: /root/marketer_c3
-        first_judgment: 구매자 업무의 빈도·손실·현재 대안·예산권자 검증; 한국 적용 별도
-        cross_review: 상호검토 반영 — 트렌드/채택과 구매·반복사용 증거를 분리
+        session_id: /root/marketer_d4
+        first_judgment: 실제 구매/유지 증거와 리스트가격·공고·후기 분리; WTP 별도 검증
+        cross_review: '공공 공고는 공공 구매 의도에 한정, 민간 software WTP와 분리'
       operator:
-        session_id: /root/operator_c3
-        first_judgment: 출처 스냅샷·읽기성·L0 경계 확인
-        cross_review: 상호검토 반영 — 카테고리별 근거 강도·최신성·구매 단계 표 추가; 화면 렌더는 미검증
+        session_id: /root/operator_d4
+        first_judgment: 특정 공개조달 신호로만 사용; 미국/한국 금액·회계단계 비교 금지
+        cross_review: 'source payload와 조회시각 보존, 두 KISA notice는 별도 건으로 처리'
 
 backlog_triage:
   latest_cycle:
