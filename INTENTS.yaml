@@ -134,7 +134,7 @@ lanes:
     notification_target: channel:C0BR41W31MM
     notification_reply_to: '1793845695.691209'
     notification_origin: 'channel:C0BR41W31MM;reply_to:1793845695.691209'
-    next_action: USAspending transaction history에서 DOE CrowdStrike ELA의 in-scope 추가 라이선스 수정($60,628.28)과 ICE FinalMobile award의 초기 거래 1건을 확인했다. 별도 ICE HSI order 70CMSD26FR0000041은 forensic-agent licenses $25,693.20 및 $0 accounting-only P00001이나 제품명/FinalMobile 연결은 없다. 다음 evidence leaf는 이 별도 order의 NASA SEWP/기관 SOW·CLIN 첨부를 찾아 제품·license scope와 FinalMobile 연결 여부를 확인하고, 미공개 시 그 경계를 기록한다.
+    next_action: NASA SEWP 또는 기관 조달 자료에서 DOE PIID 89243126FSC400871 P00001 수정문서/주문 첨부를 찾아 additional-license CLIN, SKU·수량·단가 공개 여부를 확인한다. 거래 API에는 +$60,628.28 수정 설명만 있고 itemized schedule은 없다. 이후 별도 leaf로 ICE FinalMobile 후속 award/옵션 행사와 70CMSD26FR0000041 제품·첨부를 확인하며, 명시적 문서 연결 없이는 두 ICE order를 같은 제품/갱신으로 합치지 않는다.
     artifact:
       - artifacts/research-us-it-opportunity-20261106/work/market-map.md
       - artifacts/research-us-it-opportunity-20261106/work/market-map.html

@@ -2,7 +2,7 @@
   "retrieved_at": "2026-11-06T19:04:21Z",
   "source_url": "https://api.usaspending.gov/api/v2/awards/CONT_AWD_36C10B23F0346_3600_47QSWA18D008Q_4732/",
   "definition_source": "https://www.usaspending.gov/federal-spending-guide",
-  "field_scope_note": "Preserve source field names. total_obligation is the award record field; total_account_outlay is an account-linked outlay field and is not interchangeable with award obligation or proof of vendor revenue.",
+  "field_scope_note": "Preserve source field names. total_obligation is the award record field; total_account_outlay is an account-linked outlay field and is not interchangeable with award obligation or proof of vendor revenue. Transaction history records preserve action_date, modification_number, action_type_description, federal_action_obligation and description; they do not expose itemized SKU/quantity/price in these responses.",
   "record": {
     "id": 279970166,
     "generated_unique_award_id": "CONT_AWD_36C10B23F0346_3600_47QSWA18D008Q_4732",
@@ -162,6 +162,457 @@
         }
       },
       "field_scope_note": "Award description says contract renews FinalMobile mobile-forensics software. Preserve current obligation/outlay separately from base_and_all_options; the award does not prove SaaS subscription or annual recurring revenue. Parent award is NASA multiple-award GWAC; this award API record has one initial transaction and the displayed potential value includes options."
+    },
+    {
+      "retrieved_at": "2026-11-06T20:58:30Z",
+      "source_url": "https://api.usaspending.gov/api/v2/awards/CONT_AWD_70CMSD26FR0000041_7012_NNG15SD74B_8000/",
+      "record": {
+        "generated_unique_award_id": "CONT_AWD_70CMSD26FR0000041_7012_NNG15SD74B_8000",
+        "piid": "70CMSD26FR0000041",
+        "type_description": "DELIVERY ORDER",
+        "description": "THIS ORDER PROVIDES LICENSES FOR AGENTS TO USE DURING FORENSICS EXAMINATIONS OF EVIDENCE FOR THE HUMAN EXPLOITATION RESCUE OPERATION PROGRAM.",
+        "total_obligation": 25693.2,
+        "total_account_outlay": 25693.2,
+        "base_exercised_options": 25693.2,
+        "base_and_all_options": 25693.2,
+        "date_signed": "2026-07-08",
+        "period_of_performance": {
+          "start_date": "2026-07-20",
+          "end_date": "2027-07-19",
+          "last_modified_date": "2026-07-31",
+          "potential_end_date": "2027-07-19 00:00:00"
+        },
+        "recipient": {
+          "recipient_name": "SOFTWARE INFORMATION RESOURCE CORP.",
+          "recipient_uei": "EJJMMJHYDFH6"
+        },
+        "awarding_agency": {
+          "toptier_agency": {
+            "name": "Department of Homeland Security",
+            "abbreviation": "DHS"
+          },
+          "subtier_agency": {
+            "name": "U.S. Immigration and Customs Enforcement",
+            "code": "7012"
+          },
+          "office_agency_name": "INVESTIGATIONS AND OPERATIONS SUPPORT DALLAS"
+        },
+        "latest_transaction_contract_data": {
+          "product_or_service_code": "DA10",
+          "product_or_service_description": "IT AND TELECOM - BUSINESS APPLICATION/APPLICATION DEVELOPMENT SOFTWARE AS A SERVICE",
+          "number_of_offers_received": "6",
+          "solicitation_identifier": null
+        },
+        "parent_award": {
+          "piid": "NNG15SD74B",
+          "generated_unique_award_id": "CONT_IDV_NNG15SD74B_8000",
+          "idv_type_description": "GWAC",
+          "multiple_or_single_aw_desc": "MULTIPLE AWARD",
+          "agency_name": "National Aeronautics and Space Administration"
+        }
+      },
+      "field_scope_note": "Separate ICE/Homeland Security Investigations delivery order for forensic-examination agent licenses. The record does not name the product or link it to FinalMobile PIID 70CMSD25FR0000087; same recipient/agency/workflow is not proof of product or renewal identity."
+    }
+  ],
+  "transaction_histories": [
+    {
+      "retrieved_at_utc": "2026-11-06T21:04:12Z",
+      "method": "POST",
+      "endpoint": "https://api.usaspending.gov/api/v2/transactions/",
+      "http_status": 200,
+      "request": {
+        "award_id": "CONT_AWD_89243126FSC400871_8900_NNG15SC33B_8000",
+        "page": 1,
+        "limit": 100
+      },
+      "response_body": {
+        "page_metadata": {
+          "page": 1,
+          "next": null,
+          "previous": null,
+          "hasNext": false,
+          "hasPrevious": false
+        },
+        "results": [
+          {
+            "id": "CONT_TX_8900_8000_89243126FSC400871_P00001_NNG15SC33B_0",
+            "type": "C",
+            "type_description": "DELIVERY ORDER",
+            "action_date": "2026-08-28",
+            "action_type": "B",
+            "action_type_description": "SUPPLEMENTAL AGREEMENT FOR WORK WITHIN SCOPE",
+            "modification_number": "P00001",
+            "description": "CROWDSTRIKE, INC. ENTERPRISE LICENSE AGREEMENT (ELA) - SC LABS - ADD ADDITIONAL LICENSES",
+            "federal_action_obligation": 60628.28,
+            "face_value_loan_guarantee": 0.0,
+            "original_loan_subsidy_cost": 0.0
+          },
+          {
+            "id": "CONT_TX_8900_8000_89243126FSC400871_0_NNG15SC33B_0",
+            "type": "C",
+            "type_description": "DELIVERY ORDER",
+            "action_date": "2026-06-04",
+            "action_type": null,
+            "action_type_description": null,
+            "modification_number": "0",
+            "description": "CROWDSTRIKE, INC. ENTERPRISE LICENSE AGREEMENT (ELA) - SC LABS",
+            "federal_action_obligation": 1751043.22,
+            "face_value_loan_guarantee": 0.0,
+            "original_loan_subsidy_cost": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "retrieved_at_utc": "2026-11-06T21:04:13Z",
+      "method": "POST",
+      "endpoint": "https://api.usaspending.gov/api/v2/transactions/",
+      "http_status": 200,
+      "request": {
+        "award_id": "CONT_AWD_70CMSD25FR0000087_7012_NNG15SD74B_8000",
+        "page": 1,
+        "limit": 100
+      },
+      "response_body": {
+        "page_metadata": {
+          "page": 1,
+          "next": null,
+          "previous": null,
+          "hasNext": false,
+          "hasPrevious": false
+        },
+        "results": [
+          {
+            "id": "CONT_TX_7012_8000_70CMSD25FR0000087_0_NNG15SD74B_0",
+            "type": "C",
+            "type_description": "DELIVERY ORDER",
+            "action_date": "2025-08-11",
+            "action_type": null,
+            "action_type_description": null,
+            "modification_number": "0",
+            "description": "THIS CONTRACT RENEWS FINALMOBILE FORENSICS SOFTWARE SUPPORTING HOMELAND SECURITY INVESTIGATIONS OPERATIONS BY ENSURING CONTINUITY IN CRITICAL FORENSIC CAPABILITIES FOR MOBILE DATA ANALYSIS",
+            "federal_action_obligation": 29022.0,
+            "face_value_loan_guarantee": 0.0,
+            "original_loan_subsidy_cost": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "retrieved_at_utc": "2026-11-06T21:04:14Z",
+      "method": "POST",
+      "endpoint": "https://api.usaspending.gov/api/v2/transactions/",
+      "http_status": 200,
+      "request": {
+        "award_id": "CONT_AWD_70CMSD26FR0000041_7012_NNG15SD74B_8000",
+        "page": 1,
+        "limit": 100
+      },
+      "response_body": {
+        "page_metadata": {
+          "page": 1,
+          "next": null,
+          "previous": null,
+          "hasNext": false,
+          "hasPrevious": false
+        },
+        "results": [
+          {
+            "id": "CONT_TX_7012_8000_70CMSD26FR0000041_P00001_NNG15SD74B_0",
+            "type": "C",
+            "type_description": "DELIVERY ORDER",
+            "action_date": "2026-07-31",
+            "action_type": "C",
+            "action_type_description": "FUNDING ONLY ACTION",
+            "modification_number": "P00001",
+            "description": "THIS ORDER PROVIDES LICENSES FOR AGENTS TO USE DURING FORENSICS EXAMINATIONS OF EVIDENCE FOR THE HUMAN EXPLOITATION RESCUE OPERATION PROGRAM. THIS ADMINISTRATIVE MOD CORRECTS A LINE OF ACCOUNTING.",
+            "federal_action_obligation": 0.0,
+            "face_value_loan_guarantee": 0.0,
+            "original_loan_subsidy_cost": 0.0
+          },
+          {
+            "id": "CONT_TX_7012_8000_70CMSD26FR0000041_0_NNG15SD74B_0",
+            "type": "C",
+            "type_description": "DELIVERY ORDER",
+            "action_date": "2026-07-08",
+            "action_type": null,
+            "action_type_description": null,
+            "modification_number": "0",
+            "description": "THIS ORDER PROVIDES LICENSES FOR AGENTS TO USE DURING FORENSICS EXAMINATIONS OF EVIDENCE FOR THE HUMAN EXPLOITATION RESCUE OPERATION PROGRAM.",
+            "federal_action_obligation": 25693.2,
+            "face_value_loan_guarantee": 0.0,
+            "original_loan_subsidy_cost": 0.0
+          }
+        ]
+      }
+    }
+  ],
+  "award_detail_responses": [
+    {
+      "retrieved_at_utc": "2026-11-06T21:06:14Z",
+      "request_url": "https://api.usaspending.gov/api/v2/awards/CONT_AWD_70CMSD26FR0000041_7012_NNG15SD74B_8000/",
+      "http_status": 200,
+      "response_body": {
+        "id": 360107485,
+        "generated_unique_award_id": "CONT_AWD_70CMSD26FR0000041_7012_NNG15SD74B_8000",
+        "piid": "70CMSD26FR0000041",
+        "category": "contract",
+        "type": "C",
+        "type_description": "DELIVERY ORDER",
+        "description": "THIS ORDER PROVIDES LICENSES FOR AGENTS TO USE DURING FORENSICS EXAMINATIONS OF EVIDENCE FOR THE HUMAN EXPLOITATION RESCUE OPERATION PROGRAM.",
+        "total_obligation": 25693.2,
+        "subaward_count": 0,
+        "total_subaward_amount": null,
+        "date_signed": "2026-07-08",
+        "base_exercised_options": 25693.2,
+        "base_and_all_options": 25693.2,
+        "total_account_outlay": 25693.2,
+        "total_account_obligation": 25693.2,
+        "account_outlays_by_defc": [
+          {
+            "code": "Q",
+            "amount": 25693.2
+          }
+        ],
+        "account_obligations_by_defc": [
+          {
+            "code": "Q",
+            "amount": 25693.2
+          }
+        ],
+        "parent_award": {
+          "agency_id": 862,
+          "agency_name": "National Aeronautics and Space Administration",
+          "agency_slug": "national-aeronautics-and-space-administration",
+          "sub_agency_id": "8000",
+          "sub_agency_name": "National Aeronautics and Space Administration",
+          "award_id": 351431407,
+          "generated_unique_award_id": "CONT_IDV_NNG15SD74B_8000",
+          "idv_type_description": "GWAC",
+          "multiple_or_single_aw_desc": "MULTIPLE AWARD",
+          "piid": "NNG15SD74B",
+          "type_of_idc_description": null
+        },
+        "latest_transaction_contract_data": {
+          "idv_type_description": null,
+          "type_of_idc_description": null,
+          "referenced_idv_agency_iden": "8000",
+          "referenced_idv_agency_desc": "NATIONAL AERONAUTICS AND SPACE ADMINISTRATION",
+          "solicitation_identifier": null,
+          "solicitation_procedures": "MAFO",
+          "number_of_offers_received": "6",
+          "extent_competed": "D",
+          "type_set_aside": null,
+          "type_set_aside_description": null,
+          "evaluated_preference": "NONE",
+          "fed_biz_opps": "Y",
+          "fed_biz_opps_description": "YES",
+          "small_business_competitive": false,
+          "product_or_service_code": "DA10",
+          "naics": "541519",
+          "naics_description": "OTHER COMPUTER RELATED SERVICES",
+          "sea_transportation": null,
+          "clinger_cohen_act_planning": "N",
+          "labor_standards": "X",
+          "cost_or_pricing_data": null,
+          "domestic_or_foreign_entity": "A",
+          "foreign_funding": "X",
+          "major_program": null,
+          "program_acronym": null,
+          "subcontracting_plan": "B",
+          "multi_year_contract": null,
+          "consolidated_contract": "D",
+          "type_of_contract_pricing": "J",
+          "national_interest_action": null,
+          "multiple_or_single_award_description": null,
+          "solicitation_procedures_description": "SUBJECT TO MULTIPLE AWARD FAIR OPPORTUNITY",
+          "extent_competed_description": "FULL AND OPEN COMPETITION AFTER EXCLUSION OF SOURCES",
+          "other_than_full_and_open": null,
+          "other_than_full_and_open_description": null,
+          "commercial_item_acquisition": "A",
+          "commercial_item_acquisition_description": "COMMERCIAL PRODUCTS/SERVICES",
+          "commercial_item_test_program": "N",
+          "commercial_item_test_program_description": "NO",
+          "evaluated_preference_description": "NO PREFERENCE USED",
+          "fair_opportunity_limited": "FAIR",
+          "fair_opportunity_limited_description": "FAIR OPPORTUNITY GIVEN",
+          "product_or_service_description": "IT AND TELECOM - BUSINESS APPLICATION/APPLICATION DEVELOPMENT SOFTWARE AS A SERVICE",
+          "dod_claimant_program": null,
+          "dod_claimant_program_description": null,
+          "dod_acquisition_program": null,
+          "dod_acquisition_program_description": null,
+          "information_technology_commercial_item_category": null,
+          "information_technology_commercial_item_category_description": null,
+          "sea_transportation_description": null,
+          "clinger_cohen_act_planning_description": "NO",
+          "construction_wage_rate": "X",
+          "construction_wage_rate_description": "NOT APPLICABLE",
+          "labor_standards_description": "NOT APPLICABLE",
+          "materials_supplies": "X",
+          "materials_supplies_description": "NOT APPLICABLE",
+          "cost_or_pricing_data_description": null,
+          "domestic_or_foreign_entity_description": "U.S. OWNED BUSINESS",
+          "foreign_funding_description": "NOT APPLICABLE",
+          "interagency_contracting_authority": "X",
+          "interagency_contracting_authority_description": "NOT APPLICABLE",
+          "price_evaluation_adjustment": null,
+          "subcontracting_plan_description": "PLAN NOT REQUIRED",
+          "multi_year_contract_description": null,
+          "purchase_card_as_payment_method": "N",
+          "purchase_card_as_payment_method_description": "NO",
+          "consolidated_contract_description": "NOT CONSOLIDATED",
+          "type_of_contract_pricing_description": "FIRM FIXED PRICE",
+          "national_interest_action_description": null
+        },
+        "funding_agency": {
+          "id": 776,
+          "has_agency_page": true,
+          "toptier_agency": {
+            "name": "Department of Homeland Security",
+            "code": "070",
+            "abbreviation": "DHS",
+            "slug": "department-of-homeland-security"
+          },
+          "subtier_agency": {
+            "name": "U.S. Immigration and Customs Enforcement",
+            "code": "7012",
+            "abbreviation": "ICE"
+          },
+          "office_agency_name": "HOMELAND SECURITY INVESTIGATIONS DIVISION 6"
+        },
+        "awarding_agency": {
+          "id": 776,
+          "has_agency_page": true,
+          "toptier_agency": {
+            "name": "Department of Homeland Security",
+            "code": "070",
+            "abbreviation": "DHS",
+            "slug": "department-of-homeland-security"
+          },
+          "subtier_agency": {
+            "name": "U.S. Immigration and Customs Enforcement",
+            "code": "7012",
+            "abbreviation": "ICE"
+          },
+          "office_agency_name": "INVESTIGATIONS AND OPERATIONS SUPPORT DALLAS"
+        },
+        "period_of_performance": {
+          "start_date": "2026-07-20",
+          "end_date": "2027-07-19",
+          "last_modified_date": "2026-07-31",
+          "potential_end_date": "2027-07-19 00:00:00"
+        },
+        "recipient": {
+          "recipient_hash": "2a71ed51-39c8-082f-31a0-f31d55a0a651-C",
+          "recipient_name": "SOFTWARE INFORMATION RESOURCE CORP.",
+          "recipient_uei": "EJJMMJHYDFH6",
+          "recipient_unique_id": null,
+          "parent_recipient_hash": "354c4bb4-322b-c0d7-0e51-36882184cc5f-P",
+          "parent_recipient_name": "SOFTWARE INFORMATION RESOURCE",
+          "parent_recipient_uei": "NYQ8DFDUJVX1",
+          "parent_recipient_unique_id": null,
+          "business_categories": [
+            "Category Business",
+            "Corporate Entity Not Tax Exempt",
+            "Minority Owned Business",
+            "Self-Certified Small Disadvantaged Business",
+            "Small Business",
+            "Special Designations",
+            "Indian (Subcontinent) American Owned Business",
+            "U.S.-Owned Business",
+            "Woman Owned Business",
+            "Women Owned Small Business"
+          ],
+          "location": {
+            "location_country_code": "USA",
+            "country_name": "UNITED STATES",
+            "state_code": "DC",
+            "state_name": "DISTRICT OF COLUMBIA",
+            "city_name": "WASHINGTON",
+            "county_code": "001",
+            "county_name": "DISTRICT OF COLUMBIA",
+            "address_line1": "730 24TH ST NW STE 3",
+            "address_line2": null,
+            "address_line3": null,
+            "congressional_code": "98",
+            "zip4": "2500",
+            "zip5": "20037",
+            "foreign_postal_code": null,
+            "foreign_province": null
+          }
+        },
+        "executive_details": {
+          "officers": [
+            {
+              "name": null,
+              "amount": null
+            },
+            {
+              "name": null,
+              "amount": null
+            },
+            {
+              "name": null,
+              "amount": null
+            },
+            {
+              "name": null,
+              "amount": null
+            },
+            {
+              "name": null,
+              "amount": null
+            }
+          ]
+        },
+        "place_of_performance": {
+          "location_country_code": "USA",
+          "country_name": "UNITED STATES",
+          "county_code": "600",
+          "county_name": "FAIRFAX CITY",
+          "city_name": "FAIRFAX",
+          "state_code": "VA",
+          "state_name": "VIRGINIA",
+          "congressional_code": "11",
+          "zip4": "4744",
+          "zip5": "22030",
+          "address_line1": null,
+          "address_line2": null,
+          "address_line3": null,
+          "foreign_province": null,
+          "foreign_postal_code": null
+        },
+        "psc_hierarchy": {
+          "toptier_code": {
+            "code": "D",
+            "description": "IT AND TELECOM - INFORMATION TECHNOLOGY AND TELECOMMUNICATIONS"
+          },
+          "midtier_code": {
+            "code": "DA",
+            "description": "IT AND TELECOM - APLLICATIONS"
+          },
+          "subtier_code": {},
+          "base_code": {
+            "code": "DA10",
+            "description": "IT AND TELECOM - BUSINESS APPLICATION/APPLICATION DEVELOPMENT SOFTWARE AS A SERVICE"
+          }
+        },
+        "naics_hierarchy": {
+          "toptier_code": {
+            "code": "54",
+            "description": "Professional, Scientific, and Technical Services"
+          },
+          "midtier_code": {
+            "code": "5415",
+            "description": "Computer Systems Design and Related Services"
+          },
+          "base_code": {
+            "code": "541519",
+            "description": "Other Computer Related Services"
+          }
+        },
+        "total_outlay": 25693.2
+      }
     }
   ]
 }

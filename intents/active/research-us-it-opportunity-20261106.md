@@ -21,7 +21,7 @@
 - notification_target: channel:C0BR41W31MM
 - notification_reply_to: 1793845695.691209
 - notification_origin: channel:C0BR41W31MM;reply_to:1793845695.691209
-- next_action: DOE CrowdStrike ELA와 ICE FinalMobile 갱신은 모두 NASA multiple-award GWAC의 delivery order다. 다음 evidence leaf는 공개 USAspending transaction history와 접근 가능한 조달 첨부에서 line-item 범위와 옵션 행사/갱신 연결을 확인한다. DOE solicitation ID는 원 기록에서 비어 있고 ICE 기록은 한 초기 transaction만 보여 공개자료 한계를 함께 기록한다.
+- next_action: NASA SEWP 또는 기관 조달 자료에서 DOE PIID 89243126FSC400871 P00001 수정문서/주문 첨부를 찾아 additional-license CLIN, SKU·수량·단가 공개 여부를 확인한다. 거래 API에는 +$60,628.28 수정 설명만 있고 itemized schedule은 없다. 이후 별도 leaf로 ICE FinalMobile 후속 award/옵션 행사와 70CMSD26FR0000041 제품·첨부를 확인하며, 명시적 문서 연결 없이는 두 ICE order를 같은 제품/갱신으로 합치지 않는다.
 - artifact: artifacts/research-us-it-opportunity-20261106/work/market-map.md
 - artifact: artifacts/research-us-it-opportunity-20261106/work/market-map.html
 - artifact: artifacts/research-us-it-opportunity-20261106/work/public-spend-observations.json

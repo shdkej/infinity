@@ -53,6 +53,12 @@
 | 한국 / 한국인터넷진흥원(KISA) | 2025-145 입찰공고 「전국 정보보호최고책임자(CISO) 대상 현황 조사 및 긴급 교육」, 게시 2025-08-04; 계약기간은 계약 후 2025-12-12까지. 공고에서 학술연구용역으로 명시. | 공고의 `소요예산` 99,700,000원(VAT 포함), 입찰 예정예산/공고 단계. 낙찰·계약액·실지급액은 이 기록만으로 확인하지 않음. | 한국 공공 구매자가 CISO 현황 조사 및 교육 용역에 예산을 배정해 경쟁입찰을 낸 관측 사례. | 보안 SaaS 구매가 아닌 조사·교육 서비스이며, 예정예산은 체결 또는 지급 증거가 아니다. 미국 계약과 기간·범위·회계단계·통화를 맞추지 않았으므로 수치 비교 금지. |
 | 한국 / KISA (별도 이전 건) | 2024-081 「정보보호 최고책임자 지정 신고 실태조사」 사전규격공개, 2024-04-05; 용역 기간/공고 범위가 2025-145와 다름. | 78,000,000원(VAT 포함) 예정예산. | 별도 시점의 제한된 공공 연구용역 예산 신호. | 2025-145의 99.7M과 동일 입찰의 수정액이 아니다. 개별 공고이며 수주/지급액 아님. 반복 구매나 시장 추세로 간주하지 않는다. |
 
+### Transaction history로 확인한 수정 범위
+
+2026-11-06 조회한 공식 USAspending `POST /api/v2/transactions/` 결과를 별도 보존했다. DOE CrowdStrike ELA에는 2026-06-04 수정번호 `0`의 초기 의무액 $1,751,043.22와 2026-08-28 `P00001`의 “SUPPLEMENTAL AGREEMENT FOR WORK WITHIN SCOPE” / “ADD ADDITIONAL LICENSES” 추가 의무액 $60,628.28가 있어 현재 award obligation $1,811,671.50과 합치한다. 이는 같은 order 내 license 추가 수정의 직접 기록이지만 SKU·수량·단가 또는 전체 CLIN schedule은 보여주지 않으며, 옵션 행사라고 부를 근거도 없다.
+
+ICE FinalMobile order `70CMSD25FR0000087` transaction history에는 2025-08-11 수정번호 `0`의 $29,022 한 건만 보인다. 별도로 ICE/Homeland Security Investigations의 `70CMSD26FR0000041`은 2026-07-08 기본 의무액 $25,693.20의 “forensics examinations” agent-license 주문이고, 2026-07-31 `P00001`은 funding-only/accounting correction으로 $0이다. 이 별도 order에는 제품명이 없어 FinalMobile과 동일 제품인지, 기존 주문의 갱신/후속인지 공개 거래기록만으로는 연결되지 않는다. 세부 응답과 API 경로는 `public-spend-observations.json`에 저장했다.
+
 **비교 제한:** 이 사례들은 공개된 특정 조달의 범위와 단계만 보여준다. 국가 IT 지출 또는 민간시장 추정치가 아니며, 금액 차이는 조달 범위·대상·회계·시점·통화 차이와 실제 수요가 함께 반영될 수 있다. 미국 award의 obligation/outlay와 한국 RFP의 예정예산은 직접 비교하지 않는다.
 
 ### 미국·한국 기업 기술통계의 비교 가능성
@@ -71,7 +77,8 @@
 
 ## 다음 탐색에서 검증할 것
 
-1. **다음 evidence leaf(Active):** 두 NASA multiple-award GWAC delivery order의 공식 transaction history와 공개 조달 첨부에서 line-item 범위, 옵션 행사 및 갱신 연결을 확인한다. 현재 DOE 기록의 solicitation ID는 비어 있고 ICE는 한 초기 transaction만 표시하므로, 공개자료가 부족하면 그 경계를 적고 두 연방 사례를 시장 수요로 일반화하지 않는다.
+1. **다음 evidence leaf (Active):** DOE PIID `89243126FSC400871`, modification `P00001`의 공개 수정문서/주문 첨부를 NASA SEWP 또는 기관 조달 자료에서 찾아 additional-license CLIN, SKU·수량·단가가 있는지 확인한다. 현재 transaction API는 “ADD ADDITIONAL LICENSES”와 +$60,628.28만 보이고 itemized schedule은 없다. 검색 결과가 없다는 이유만으로 첨부가 없다고 단정하지 않고, 실제 문서 링크/접근 결과를 기록한다.
+2. ICE FinalMobile PIID `70CMSD25FR0000087`의 2026-09-26 이후 옵션 행사 또는 후속 award가 있는지 공식 거래내역에서 확인한다. 별도 ICE order `70CMSD26FR0000041`의 SOW/CLIN도 찾아 제품 정체를 확인하되, 공통 수령자·기관·forensics 문구만으로 두 order를 같은 제품이나 갱신으로 연결하지 않는다. 공개자료가 연결을 증명하지 못하면 미확인으로 둔다.
 2. 공개 후기/커뮤니티는 불편·대안 언어를 찾는 정성 신호로만 쓰고, 표본·플랫폼 편향을 표시한다. 공식 통계나 벤더 사례와 한데 합쳐 수요 수치로 만들지 않는다.
 3. 회사별 가격·유통·고객 사례, 도입/이탈 또는 교체 신호를 날짜와 함께 수집한다. 가격·기능 페이지는 조사일 스냅샷으로 취급한다.
 4. 대체재를 incumbent suite, 내부 구축, 오픈소스, 서비스/아웃소싱, 스프레드시트/이메일, 미해결로 나눠 실제 경쟁 단위를 찾는다.
@@ -107,6 +114,8 @@
 
 | S21 | [USAspending DOE award PIID 89243126FSC400871](https://www.usaspending.gov/award/CONT_AWD_89243126FSC400871_8900_NNG15SC33B_8000/), API 응답 2026-11-06 | 공식 연방조달 award, 미국 DOE SC Oak Ridge | CrowdStrike ELA description, EMERGENT LLC recipient, 2026-06~2027-05 delivery order; obligation $1.812M, outlay $1.751M, PSC DJ10, 3 offers | 단일 리셀러 경유 기업 라이선스 조달 사례; vendor revenue·반복 구매·민간 WTP 아님. |
 | S22 | [USAspending DHS/ICE award PIID 70CMSD25FR0000087](https://www.usaspending.gov/award/CONT_AWD_70CMSD25FR0000087_7012_NNG15SD74B_8000), API 응답 2026-11-06 | 공식 연방조달 award, 미국 ICE | FinalMobile mobile-forensics software 갱신 설명; obligation/outlay $29,022, potential base+options $87,066; 2025-09~2026-09 기본기간 | 옵션은 실행 의무액이 아니며, 설명의 갱신은 SaaS·정기 ARR 증명이 아님. |
+| S23 | [USAspending transaction history API](https://api.usaspending.gov/api/v2/transactions/) 및 [공식 API contract](https://github.com/fedspendingtransparency/usaspending-api/blob/master/usaspending_api/api_contracts/contracts/v2/transactions.md), 조회 2026-11-06 | 공식 연방조달 거래내역 API, DOE·ICE | DOE 2 transactions: initial $1,751,043.22와 in-scope additional-license mod +$60,628.28; ICE FinalMobile 1 initial transaction; 별도 ICE forensic-agent order와 $0 accounting mod | 기록은 modification description/amount/date를 보일 뿐 SKU·수량·CLIN schedule을 제공하지 않음. 새 ICE order를 FinalMobile 갱신과 연결하지 않음. |
+| S24 | [USAspending DHS/ICE award PIID 70CMSD26FR0000041](https://api.usaspending.gov/api/v2/awards/CONT_AWD_70CMSD26FR0000041_7012_NNG15SD74B_8000/), 조회 2026-11-06 | 공식 연방조달 award, 미국 ICE HSI | forensic evidence examination을 위한 agent licenses, $25,693.20 obligation; NASA multiple-award GWAC delivery order | description에 제품명이 없어 FinalMobile과 동일성/갱신 연결을 입증하지 않음. |
 
 ## 역할 교차검토 요약
 
@@ -115,6 +124,11 @@
 - Developer: 2024 ABS는 reference year 2023이며 그 해 module에는 기술이 없고, 2023 ABS technology module은 reference year 2022라는 조사연도 혼동을 방지했다. BTOS AI 문항 개정 및 고빈도 기간도 별도 표시한다.
 - Marketer: 채택률은 수요/구매를 증명하지 않으며 세그먼트의 문제·예산권자·구매 행동·WTP 검증을 위한 가설 신호로만 사용한다.
 - Operator: NIA 2025 품질진단 보고서의 기준기간·조사기간·표본틀·완료 수를 추가 보존했다. headline 비교는 보류하되 더 좁은 공통 질문·10인 이상 분모로 재구성 가능성은 후속 확인한다.
+- Planner (transaction leaf): DOE는 초기 award 이후 날짜·금액이 있는 in-scope 추가 라이선스 수정까지 확인됐지만 옵션 행사나 line-item scope는 아니다. ICE FinalMobile의 `renews` 설명/잠재 옵션은 실제 후속 갱신 proof가 아니며, 70CMSD26FR0000041은 별도 lineage leaf로 유지한다.
+- Developer: 공식 `POST /api/v2/transactions/`가 거래 ID·action date·modification·설명·의무액을 준다. DOE의 +$60,628.28은 additional-license modification; SKU·수량·가격을 추정하거나 옵션 행사로 부르지 않는다.
+- Marketer: 세 건은 공공 구매 행동 사례일 뿐 민간 buyer pain, 구매 의향, WTP 또는 TAM으로 일반화하지 않는다. 별도 ICE forensic-license order를 FinalMobile 갱신으로 합치지 않는다.
+- Operator: award detail과 transaction history는 서로 다른 API 응답이므로 HTTP 상태와 원문을 별도로 저장한다. transaction 응답 원문을 JSON에 보존했고, 공개 조달 첨부는 이번 검색에서 직접 확인되지 않아 “첨부 없음”으로 표현하지 않는다.
+- Genie 통합: DOE P00001 첨부의 CLIN/scope 확인과 ICE 후속 award/70CMSD26FR0000041 제품 식별을 별도 leaf로 분할한다; attachment 공개 여부와 product lineage는 증거로 확인되기 전까지 unknown이다.
 
 ## 한계·확신도
 
