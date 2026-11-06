@@ -487,6 +487,48 @@
         "marketer": "/root/marketer_resume",
         "operator": "/root/operator_resume"
       }
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-9abc35c6e77942de98b0dd31c1ad7408",
+      "canonical_sha": "26bc90941c4b4ccb22debf56cbe057e1d2c2809a",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-11-06T22:52:28Z",
+      "status": "accepted"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-9abc35c6e77942de98b0dd31c1ad7408",
+      "canonical_sha": "26bc90941c4b4ccb22debf56cbe057e1d2c2809a",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher-v2",
+      "timestamp": "2026-11-06T22:52:28Z",
+      "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-11-06T22:58:20Z",
+      "context_pack": "intents/context/research-us-it-opportunity-20261106.json",
+      "evidence_paths": [
+        "artifacts/research-us-it-opportunity-20261106/work/public-spend-observations.json",
+        "artifacts/research-us-it-opportunity-20261106/work/market-map.md",
+        "artifacts/research-us-it-opportunity-20261106/work/market-map.html"
+      ],
+      "searches": [
+        "SAM.gov official paths for DOE 89243126FSC400871: SAM search JS shell HTTP 200; exact API requests returned runtime HTTP 404; GSA docs say SAM account/API key required for Contract Awards API/search. Contents remain unknown, not absent.",
+        "USAspending official keyword FinalMobile exact query: 10 results, HTTP 200, hasNext=false; full details/history HTTP 200 for 70CMSD20FR0000130 (V3GATE) and 70CMSD25FR0000087 (SIRC); full payload saved."
+      ],
+      "wiki_pages": [],
+      "operational_log_sections": [],
+      "note": "Cross-review supports recurrence of named FinalMobile software in two distinct ICE awards and later renewal description. Periods are adjacent; different prime recipients/parent vehicles and 2020 closeout action do not prove seamless use or identical scope. Keep 70CMSD26FR0000041 unlinked, and all public procurement signals separate from private WTP/TAM/ARR/vendor revenue.",
+      "run_id": "dispatch-9abc35c6e77942de98b0dd31c1ad7408",
+      "role_sessions": {
+        "planner": "/root/planner_run9",
+        "developer": "/root/developer_run9",
+        "marketer": "/root/marketer_run9",
+        "operator": "/root/operator_run9"
+      }
     }
   ],
   "artifacts": [
@@ -792,10 +834,62 @@
       ],
       "status": "pass",
       "next_role": null
+    },
+    {
+      "label": "workflow role review",
+      "type": "role_review",
+      "at": "2026-11-06T22:58:00Z",
+      "roles": [
+        "planner"
+      ],
+      "evidence_paths": [
+        "Cross-review: the 2020 and 2025 ICE USAspending records support recurrence of the FinalMobile name and later renewal wording; keep distinct awards, reseller, scope, options, and ARR separate."
+      ],
+      "status": "pass",
+      "next_role": "developer"
+    },
+    {
+      "label": "workflow role review",
+      "type": "role_review",
+      "at": "2026-11-06T22:58:01Z",
+      "roles": [
+        "developer"
+      ],
+      "evidence_paths": [
+        "Cross-review: old and new periods are adjacent but separate NASA GWACs and prime recipients; 2020 closeout action posted during 2025 record period. No proof of seamless service, identical SKU, or product lineage for 2026 agent-license PIID."
+      ],
+      "status": "pass",
+      "next_role": "marketer"
+    },
+    {
+      "label": "workflow role review",
+      "type": "role_review",
+      "at": "2026-11-06T22:58:02Z",
+      "roles": [
+        "marketer"
+      ],
+      "evidence_paths": [
+        "Repeated federal procurement of named FinalMobile supports only a narrow agency purchasing observation; not satisfaction, private WTP, SaaS retention, TAM, or revenue. Do not sum obligations into annual price."
+      ],
+      "status": "pass",
+      "next_role": "operator"
+    },
+    {
+      "label": "workflow role review",
+      "type": "role_review",
+      "at": "2026-11-06T22:58:03Z",
+      "roles": [
+        "operator"
+      ],
+      "evidence_paths": [
+        "Full raw keyword result, exact filter/page/sort, timestamps/statuses, and award detail/history are saved. Ten-row result and hasNext=false scope only this query, not proof of absence of other awards; access search miss is not attachment absence."
+      ],
+      "status": "pass",
+      "next_role": null
     }
   ],
   "next_decision": {
     "status": "in_progress",
-    "value": "Autonomously check official DOE SC Oak Ridge 89243126FSC400871 P00001 amendment/attachment paths; if no public access, preserve exact URLs/status and maintain separate ICE product-lineage follow-up."
+    "value": "Next evidence leaf: validate another distinct official public-buyer security/software procurement and its transaction history, preserving buyer/product/obligation limits; DOE attachment resumes only with authenticated SAM account/API key."
   }
 }

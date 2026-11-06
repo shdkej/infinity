@@ -2492,5 +2492,1050 @@
         }
       }
     ]
+  },
+  "ice_finalmobile_search_20261106T2254Z": {
+    "retrieved_at_utc": "2026-11-06T22:55:22Z",
+    "server_date_header": "Fri, 06 Nov 2026 22:55:22 GMT",
+    "method": "POST",
+    "endpoint": "https://api.usaspending.gov/api/v2/search/spending_by_transaction/",
+    "request": {
+      "filters": {
+        "keywords": [
+          "FinalMobile"
+        ],
+        "award_type_codes": [
+          "C"
+        ]
+      },
+      "fields": [
+        "Award ID",
+        "Mod",
+        "Recipient Name",
+        "Action Date",
+        "Transaction Amount",
+        "Awarding Agency",
+        "Awarding Sub Agency",
+        "Transaction Description",
+        "PSC",
+        "NAICS"
+      ],
+      "page": 1,
+      "limit": 100,
+      "sort": "Transaction Amount",
+      "order": "desc"
+    },
+    "http_status": 200,
+    "response_body": {
+      "limit": 100,
+      "results": [
+        {
+          "Award ID": "70CMSD25FR0000087",
+          "Mod": "0",
+          "Recipient Name": "SOFTWARE INFORMATION RESOURCE CORP.",
+          "Action Date": "2025-08-11",
+          "Transaction Amount": 29022.0,
+          "Awarding Agency": "Department of Homeland Security",
+          "Awarding Sub Agency": "U.S. Immigration and Customs Enforcement",
+          "Transaction Description": "THIS CONTRACT RENEWS FINALMOBILE FORENSICS SOFTWARE SUPPORTING HOMELAND SECURITY INVESTIGATIONS OPERATIONS BY ENSURING CONTINUITY IN CRITICAL FORENSIC CAPABILITIES FOR MOBILE DATA ANALYSIS",
+          "PSC": {
+            "code": "7A21",
+            "description": "IT AND TELECOM - BUSINESS APPLICATION SOFTWARE (PERPETUAL LICENSE SOFTWARE)"
+          },
+          "NAICS": {
+            "code": "541519",
+            "description": "OTHER COMPUTER RELATED SERVICES"
+          },
+          "generated_internal_id": "CONT_AWD_70CMSD25FR0000087_7012_NNG15SD74B_8000",
+          "internal_id": 291194670
+        },
+        {
+          "Award ID": "70CMSD20FR0000130",
+          "Mod": "P00001",
+          "Recipient Name": "V3GATE, LLC",
+          "Action Date": "2021-08-10",
+          "Transaction Amount": 25908.15,
+          "Awarding Agency": "Department of Homeland Security",
+          "Awarding Sub Agency": "U.S. Immigration and Customs Enforcement",
+          "Transaction Description": "FINALMOBILE",
+          "PSC": {
+            "code": "7030",
+            "description": "INFORMATION TECHNOLOGY SOFTWARE"
+          },
+          "NAICS": {
+            "code": "541519",
+            "description": "OTHER COMPUTER RELATED SERVICES"
+          },
+          "generated_internal_id": "CONT_AWD_70CMSD20FR0000130_7012_NNG15SD27B_8000",
+          "internal_id": 291192681
+        },
+        {
+          "Award ID": "70CMSD20FR0000130",
+          "Mod": "P00003",
+          "Recipient Name": "V3GATE, LLC",
+          "Action Date": "2022-06-27",
+          "Transaction Amount": 25908.15,
+          "Awarding Agency": "Department of Homeland Security",
+          "Awarding Sub Agency": "U.S. Immigration and Customs Enforcement",
+          "Transaction Description": "FINALMOBILE",
+          "PSC": {
+            "code": "7030",
+            "description": "INFORMATION TECHNOLOGY SOFTWARE"
+          },
+          "NAICS": {
+            "code": "541519",
+            "description": "OTHER COMPUTER RELATED SERVICES"
+          },
+          "generated_internal_id": "CONT_AWD_70CMSD20FR0000130_7012_NNG15SD27B_8000",
+          "internal_id": 291192681
+        },
+        {
+          "Award ID": "70CMSD20FR0000130",
+          "Mod": "P00005",
+          "Recipient Name": "V3GATE, LLC",
+          "Action Date": "2023-04-27",
+          "Transaction Amount": 25908.15,
+          "Awarding Agency": "Department of Homeland Security",
+          "Awarding Sub Agency": "U.S. Immigration and Customs Enforcement",
+          "Transaction Description": "FINALMOBILE",
+          "PSC": {
+            "code": "7030",
+            "description": "INFORMATION TECHNOLOGY SOFTWARE"
+          },
+          "NAICS": {
+            "code": "541519",
+            "description": "OTHER COMPUTER RELATED SERVICES"
+          },
+          "generated_internal_id": "CONT_AWD_70CMSD20FR0000130_7012_NNG15SD27B_8000",
+          "internal_id": 291192681
+        },
+        {
+          "Award ID": "70CMSD20FR0000130",
+          "Mod": "P00006",
+          "Recipient Name": "V3GATE, LLC",
+          "Action Date": "2024-07-16",
+          "Transaction Amount": 25908.15,
+          "Awarding Agency": "Department of Homeland Security",
+          "Awarding Sub Agency": "U.S. Immigration and Customs Enforcement",
+          "Transaction Description": "FINALMOBILE",
+          "PSC": {
+            "code": "7030",
+            "description": "INFORMATION TECHNOLOGY SOFTWARE"
+          },
+          "NAICS": {
+            "code": "541519",
+            "description": "OTHER COMPUTER RELATED SERVICES"
+          },
+          "generated_internal_id": "CONT_AWD_70CMSD20FR0000130_7012_NNG15SD27B_8000",
+          "internal_id": 291192681
+        },
+        {
+          "Award ID": "70CMSD20FR0000130",
+          "Mod": "0",
+          "Recipient Name": "V3GATE, LLC",
+          "Action Date": "2020-08-13",
+          "Transaction Amount": 25857.3,
+          "Awarding Agency": "Department of Homeland Security",
+          "Awarding Sub Agency": "U.S. Immigration and Customs Enforcement",
+          "Transaction Description": "FINALMOBILE",
+          "PSC": {
+            "code": "7030",
+            "description": "INFORMATION TECHNOLOGY SOFTWARE"
+          },
+          "NAICS": {
+            "code": "541519",
+            "description": "OTHER COMPUTER RELATED SERVICES"
+          },
+          "generated_internal_id": "CONT_AWD_70CMSD20FR0000130_7012_NNG15SD27B_8000",
+          "internal_id": 291192681
+        },
+        {
+          "Award ID": "15BPCC25F00000001",
+          "Mod": "0",
+          "Recipient Name": "FINAL DATA INC.",
+          "Action Date": "2024-10-28",
+          "Transaction Amount": 2990.0,
+          "Awarding Agency": "Department of Justice",
+          "Awarding Sub Agency": "Federal Prison System / Bureau of Prisons",
+          "Transaction Description": "FY25-OST-FINALMOBILE-OY3",
+          "PSC": {
+            "code": "7A20",
+            "description": "IT AND TELECOM - APPLICATION DEVELOPMENT SOFTWARE (PERPETUAL LICENSE SOFTWARE)"
+          },
+          "NAICS": {
+            "code": "541519",
+            "description": "OTHER COMPUTER RELATED SERVICES"
+          },
+          "generated_internal_id": "CONT_AWD_15BPCC25F00000001_1540_15BNAS22D00000110_1540",
+          "internal_id": 278193335
+        },
+        {
+          "Award ID": "70CMSD20FR0000130",
+          "Mod": "P00002",
+          "Recipient Name": "V3GATE, LLC",
+          "Action Date": "2021-11-05",
+          "Transaction Amount": 0.0,
+          "Awarding Agency": "Department of Homeland Security",
+          "Awarding Sub Agency": "U.S. Immigration and Customs Enforcement",
+          "Transaction Description": "FINALMOBILE",
+          "PSC": {
+            "code": "7030",
+            "description": "INFORMATION TECHNOLOGY SOFTWARE"
+          },
+          "NAICS": {
+            "code": "541519",
+            "description": "OTHER COMPUTER RELATED SERVICES"
+          },
+          "generated_internal_id": "CONT_AWD_70CMSD20FR0000130_7012_NNG15SD27B_8000",
+          "internal_id": 291192681
+        },
+        {
+          "Award ID": "70CMSD20FR0000130",
+          "Mod": "P00007",
+          "Recipient Name": "V3GATE, LLC",
+          "Action Date": "2025-12-02",
+          "Transaction Amount": 0.0,
+          "Awarding Agency": "Department of Homeland Security",
+          "Awarding Sub Agency": "U.S. Immigration and Customs Enforcement",
+          "Transaction Description": "THIS MODIFICATION IS TO CLOSEOUT THE CONTRACT FOR FINALMOBILE SOFTWARE LICENSES UTILIZED BY HOMELAND SECURITY INVESTIGATIONS IN DIGITAL FORENSIC INVESTIGATIONS.",
+          "PSC": {
+            "code": "7030",
+            "description": "INFORMATION TECHNOLOGY SOFTWARE"
+          },
+          "NAICS": {
+            "code": "541519",
+            "description": "OTHER COMPUTER RELATED SERVICES"
+          },
+          "generated_internal_id": "CONT_AWD_70CMSD20FR0000130_7012_NNG15SD27B_8000",
+          "internal_id": 291192681
+        },
+        {
+          "Award ID": "70CMSD20FR0000130",
+          "Mod": "P00004",
+          "Recipient Name": "V3GATE, LLC",
+          "Action Date": "2022-08-03",
+          "Transaction Amount": 0.0,
+          "Awarding Agency": "Department of Homeland Security",
+          "Awarding Sub Agency": "U.S. Immigration and Customs Enforcement",
+          "Transaction Description": "FINALMOBILE",
+          "PSC": {
+            "code": "7030",
+            "description": "INFORMATION TECHNOLOGY SOFTWARE"
+          },
+          "NAICS": {
+            "code": "541519",
+            "description": "OTHER COMPUTER RELATED SERVICES"
+          },
+          "generated_internal_id": "CONT_AWD_70CMSD20FR0000130_7012_NNG15SD27B_8000",
+          "internal_id": 291192681
+        }
+      ],
+      "page_metadata": {
+        "page": 1,
+        "next": null,
+        "previous": null,
+        "hasNext": false,
+        "hasPrevious": false
+      },
+      "messages": [
+        "For searches, time period start and end dates are currently limited to an earliest date of 2007-10-01.  For data going back to 2000-10-01, use either the Custom Award Download feature on the website or one of our download or bulk_download API endpoints as listed on https://api.usaspending.gov/docs/endpoints. ",
+        "The following filters from the request were not used: {'keyword_search'}. See https://api.usaspending.gov/docs/endpoints for a list of appropriate filters"
+      ]
+    },
+    "record_details": [
+      {
+        "piid": "70CMSD25FR0000087",
+        "generated_unique_award_id": "CONT_AWD_70CMSD25FR0000087_7012_NNG15SD74B_8000",
+        "retrieved_at_utc": "2026-11-06T22:55:24Z",
+        "search_row": {
+          "Award ID": "70CMSD25FR0000087",
+          "Mod": "0",
+          "Recipient Name": "SOFTWARE INFORMATION RESOURCE CORP.",
+          "Action Date": "2025-08-11",
+          "Transaction Amount": 29022.0,
+          "Awarding Agency": "Department of Homeland Security",
+          "Awarding Sub Agency": "U.S. Immigration and Customs Enforcement",
+          "Transaction Description": "THIS CONTRACT RENEWS FINALMOBILE FORENSICS SOFTWARE SUPPORTING HOMELAND SECURITY INVESTIGATIONS OPERATIONS BY ENSURING CONTINUITY IN CRITICAL FORENSIC CAPABILITIES FOR MOBILE DATA ANALYSIS",
+          "PSC": {
+            "code": "7A21",
+            "description": "IT AND TELECOM - BUSINESS APPLICATION SOFTWARE (PERPETUAL LICENSE SOFTWARE)"
+          },
+          "NAICS": {
+            "code": "541519",
+            "description": "OTHER COMPUTER RELATED SERVICES"
+          },
+          "generated_internal_id": "CONT_AWD_70CMSD25FR0000087_7012_NNG15SD74B_8000",
+          "internal_id": 291194670
+        },
+        "award_detail": {
+          "server_date_header": "Fri, 06 Nov 2026 22:55:23 GMT",
+          "http_status": 200,
+          "endpoint": "https://api.usaspending.gov/api/v2/awards/CONT_AWD_70CMSD25FR0000087_7012_NNG15SD74B_8000/",
+          "response_body": {
+            "id": 291194670,
+            "generated_unique_award_id": "CONT_AWD_70CMSD25FR0000087_7012_NNG15SD74B_8000",
+            "piid": "70CMSD25FR0000087",
+            "category": "contract",
+            "type": "C",
+            "type_description": "DELIVERY ORDER",
+            "description": "THIS CONTRACT RENEWS FINALMOBILE FORENSICS SOFTWARE SUPPORTING HOMELAND SECURITY INVESTIGATIONS OPERATIONS BY ENSURING CONTINUITY IN CRITICAL FORENSIC CAPABILITIES FOR MOBILE DATA ANALYSIS",
+            "total_obligation": 29022.0,
+            "subaward_count": 0,
+            "total_subaward_amount": null,
+            "date_signed": "2025-08-11",
+            "base_exercised_options": 29022.0,
+            "base_and_all_options": 87066.0,
+            "total_account_outlay": 29022.0,
+            "total_account_obligation": 29022.0,
+            "account_outlays_by_defc": [
+              {
+                "code": "Q",
+                "amount": 29022.0
+              }
+            ],
+            "account_obligations_by_defc": [
+              {
+                "code": "Q",
+                "amount": 29022.0
+              }
+            ],
+            "parent_award": {
+              "agency_id": 862,
+              "agency_name": "National Aeronautics and Space Administration",
+              "agency_slug": "national-aeronautics-and-space-administration",
+              "sub_agency_id": "8000",
+              "sub_agency_name": "National Aeronautics and Space Administration",
+              "award_id": 351431407,
+              "generated_unique_award_id": "CONT_IDV_NNG15SD74B_8000",
+              "idv_type_description": "GWAC",
+              "multiple_or_single_aw_desc": "MULTIPLE AWARD",
+              "piid": "NNG15SD74B",
+              "type_of_idc_description": null
+            },
+            "latest_transaction_contract_data": {
+              "idv_type_description": null,
+              "type_of_idc_description": null,
+              "referenced_idv_agency_iden": "8000",
+              "referenced_idv_agency_desc": "NATIONAL AERONAUTICS AND SPACE ADMINISTRATION",
+              "solicitation_identifier": null,
+              "solicitation_procedures": "MAFO",
+              "number_of_offers_received": "2",
+              "extent_competed": "D",
+              "type_set_aside": "SBA",
+              "type_set_aside_description": "SMALL BUSINESS SET ASIDE - TOTAL",
+              "evaluated_preference": "NONE",
+              "fed_biz_opps": "Y",
+              "fed_biz_opps_description": "YES",
+              "small_business_competitive": false,
+              "product_or_service_code": "7A21",
+              "naics": "541519",
+              "naics_description": "OTHER COMPUTER RELATED SERVICES",
+              "sea_transportation": null,
+              "clinger_cohen_act_planning": "N",
+              "labor_standards": "X",
+              "cost_or_pricing_data": null,
+              "domestic_or_foreign_entity": "A",
+              "foreign_funding": "X",
+              "major_program": null,
+              "program_acronym": null,
+              "subcontracting_plan": "B",
+              "multi_year_contract": null,
+              "consolidated_contract": "D",
+              "type_of_contract_pricing": "J",
+              "national_interest_action": null,
+              "multiple_or_single_award_description": null,
+              "solicitation_procedures_description": "SUBJECT TO MULTIPLE AWARD FAIR OPPORTUNITY",
+              "extent_competed_description": "FULL AND OPEN COMPETITION AFTER EXCLUSION OF SOURCES",
+              "other_than_full_and_open": null,
+              "other_than_full_and_open_description": null,
+              "commercial_item_acquisition": "A",
+              "commercial_item_acquisition_description": "COMMERCIAL PRODUCTS/SERVICES",
+              "commercial_item_test_program": "N",
+              "commercial_item_test_program_description": "NO",
+              "evaluated_preference_description": "NO PREFERENCE USED",
+              "fair_opportunity_limited": "CSA",
+              "fair_opportunity_limited_description": "COMPETITIVE SET ASIDE",
+              "product_or_service_description": "IT AND TELECOM - BUSINESS APPLICATION SOFTWARE (PERPETUAL LICENSE SOFTWARE)",
+              "dod_claimant_program": null,
+              "dod_claimant_program_description": null,
+              "dod_acquisition_program": null,
+              "dod_acquisition_program_description": null,
+              "information_technology_commercial_item_category": null,
+              "information_technology_commercial_item_category_description": null,
+              "sea_transportation_description": null,
+              "clinger_cohen_act_planning_description": "NO",
+              "construction_wage_rate": "X",
+              "construction_wage_rate_description": "NOT APPLICABLE",
+              "labor_standards_description": "NOT APPLICABLE",
+              "materials_supplies": "X",
+              "materials_supplies_description": "NOT APPLICABLE",
+              "cost_or_pricing_data_description": null,
+              "domestic_or_foreign_entity_description": "U.S. OWNED BUSINESS",
+              "foreign_funding_description": "NOT APPLICABLE",
+              "interagency_contracting_authority": "X",
+              "interagency_contracting_authority_description": "NOT APPLICABLE",
+              "price_evaluation_adjustment": null,
+              "subcontracting_plan_description": "PLAN NOT REQUIRED",
+              "multi_year_contract_description": null,
+              "purchase_card_as_payment_method": "N",
+              "purchase_card_as_payment_method_description": "NO",
+              "consolidated_contract_description": "NOT CONSOLIDATED",
+              "type_of_contract_pricing_description": "FIRM FIXED PRICE",
+              "national_interest_action_description": null
+            },
+            "funding_agency": {
+              "id": 776,
+              "has_agency_page": true,
+              "toptier_agency": {
+                "name": "Department of Homeland Security",
+                "code": "070",
+                "abbreviation": "DHS",
+                "slug": "department-of-homeland-security"
+              },
+              "subtier_agency": {
+                "name": "U.S. Immigration and Customs Enforcement",
+                "code": "7012",
+                "abbreviation": "ICE"
+              },
+              "office_agency_name": "HOMELAND SECURITY INVESTIGATIONS DIVISION 4"
+            },
+            "awarding_agency": {
+              "id": 776,
+              "has_agency_page": true,
+              "toptier_agency": {
+                "name": "Department of Homeland Security",
+                "code": "070",
+                "abbreviation": "DHS",
+                "slug": "department-of-homeland-security"
+              },
+              "subtier_agency": {
+                "name": "U.S. Immigration and Customs Enforcement",
+                "code": "7012",
+                "abbreviation": "ICE"
+              },
+              "office_agency_name": "INVESTIGATIONS AND OPERATIONS SUPPORT DALLAS"
+            },
+            "period_of_performance": {
+              "start_date": "2025-09-27",
+              "end_date": "2026-09-26",
+              "last_modified_date": "2025-08-11",
+              "potential_end_date": "2028-09-26 00:00:00"
+            },
+            "recipient": {
+              "recipient_hash": "2a71ed51-39c8-082f-31a0-f31d55a0a651-C",
+              "recipient_name": "SOFTWARE INFORMATION RESOURCE CORP.",
+              "recipient_uei": "EJJMMJHYDFH6",
+              "recipient_unique_id": null,
+              "parent_recipient_hash": "354c4bb4-322b-c0d7-0e51-36882184cc5f-P",
+              "parent_recipient_name": "SOFTWARE INFORMATION RESOURCE",
+              "parent_recipient_uei": "NYQ8DFDUJVX1",
+              "parent_recipient_unique_id": null,
+              "business_categories": [
+                "Category Business",
+                "Corporate Entity Not Tax Exempt",
+                "Minority Owned Business",
+                "Self-Certified Small Disadvantaged Business",
+                "Small Business",
+                "Special Designations",
+                "Indian (Subcontinent) American Owned Business",
+                "U.S.-Owned Business",
+                "Woman Owned Business",
+                "Women Owned Small Business"
+              ],
+              "location": {
+                "location_country_code": "USA",
+                "country_name": "UNITED STATES",
+                "state_code": "DC",
+                "state_name": "DISTRICT OF COLUMBIA",
+                "city_name": "WASHINGTON",
+                "county_code": "001",
+                "county_name": "DISTRICT OF COLUMBIA",
+                "address_line1": "730 24TH ST NW STE 3",
+                "address_line2": null,
+                "address_line3": null,
+                "congressional_code": "98",
+                "zip4": "2500",
+                "zip5": "20037",
+                "foreign_postal_code": null,
+                "foreign_province": null
+              }
+            },
+            "executive_details": {
+              "officers": [
+                {
+                  "name": "BHAVNA  GANDHI",
+                  "amount": 150000.0
+                },
+                {
+                  "name": "AJAY  GANDHI",
+                  "amount": 125000.0
+                },
+                {
+                  "name": null,
+                  "amount": null
+                },
+                {
+                  "name": null,
+                  "amount": null
+                },
+                {
+                  "name": null,
+                  "amount": null
+                }
+              ]
+            },
+            "place_of_performance": {
+              "location_country_code": "USA",
+              "country_name": "UNITED STATES",
+              "county_code": "600",
+              "county_name": "FAIRFAX CITY",
+              "city_name": "FAIRFAX",
+              "state_code": "VA",
+              "state_name": "VIRGINIA",
+              "congressional_code": "11",
+              "zip4": "2514",
+              "zip5": "22030",
+              "address_line1": null,
+              "address_line2": null,
+              "address_line3": null,
+              "foreign_province": null,
+              "foreign_postal_code": null
+            },
+            "psc_hierarchy": {
+              "toptier_code": {},
+              "midtier_code": {
+                "code": "7A",
+                "description": "IT AND TELECOM - APLLICATIONS"
+              },
+              "subtier_code": {},
+              "base_code": {
+                "code": "7A21",
+                "description": "IT AND TELECOM - BUSINESS APPLICATION SOFTWARE (PERPETUAL LICENSE SOFTWARE)"
+              }
+            },
+            "naics_hierarchy": {
+              "toptier_code": {
+                "code": "54",
+                "description": "Professional, Scientific, and Technical Services"
+              },
+              "midtier_code": {
+                "code": "5415",
+                "description": "Computer Systems Design and Related Services"
+              },
+              "base_code": {
+                "code": "541519",
+                "description": "Other Computer Related Services"
+              }
+            },
+            "total_outlay": 29022.0
+          }
+        },
+        "transaction_history": {
+          "server_date_header": "Fri, 06 Nov 2026 22:55:24 GMT",
+          "http_status": 200,
+          "endpoint": "https://api.usaspending.gov/api/v2/transactions/",
+          "request": {
+            "award_id": "CONT_AWD_70CMSD25FR0000087_7012_NNG15SD74B_8000",
+            "page": 1,
+            "limit": 100
+          },
+          "response_body": {
+            "page_metadata": {
+              "page": 1,
+              "next": null,
+              "previous": null,
+              "hasNext": false,
+              "hasPrevious": false
+            },
+            "results": [
+              {
+                "id": "CONT_TX_7012_8000_70CMSD25FR0000087_0_NNG15SD74B_0",
+                "type": "C",
+                "type_description": "DELIVERY ORDER",
+                "action_date": "2025-08-11",
+                "action_type": null,
+                "action_type_description": null,
+                "modification_number": "0",
+                "description": "THIS CONTRACT RENEWS FINALMOBILE FORENSICS SOFTWARE SUPPORTING HOMELAND SECURITY INVESTIGATIONS OPERATIONS BY ENSURING CONTINUITY IN CRITICAL FORENSIC CAPABILITIES FOR MOBILE DATA ANALYSIS",
+                "federal_action_obligation": 29022.0,
+                "face_value_loan_guarantee": 0.0,
+                "original_loan_subsidy_cost": 0.0
+              }
+            ]
+          }
+        }
+      },
+      {
+        "piid": "70CMSD20FR0000130",
+        "generated_unique_award_id": "CONT_AWD_70CMSD20FR0000130_7012_NNG15SD27B_8000",
+        "retrieved_at_utc": "2026-11-06T22:55:25Z",
+        "search_row": {
+          "Award ID": "70CMSD20FR0000130",
+          "Mod": "P00001",
+          "Recipient Name": "V3GATE, LLC",
+          "Action Date": "2021-08-10",
+          "Transaction Amount": 25908.15,
+          "Awarding Agency": "Department of Homeland Security",
+          "Awarding Sub Agency": "U.S. Immigration and Customs Enforcement",
+          "Transaction Description": "FINALMOBILE",
+          "PSC": {
+            "code": "7030",
+            "description": "INFORMATION TECHNOLOGY SOFTWARE"
+          },
+          "NAICS": {
+            "code": "541519",
+            "description": "OTHER COMPUTER RELATED SERVICES"
+          },
+          "generated_internal_id": "CONT_AWD_70CMSD20FR0000130_7012_NNG15SD27B_8000",
+          "internal_id": 291192681
+        },
+        "award_detail": {
+          "server_date_header": "Fri, 06 Nov 2026 22:55:24 GMT",
+          "http_status": 200,
+          "endpoint": "https://api.usaspending.gov/api/v2/awards/CONT_AWD_70CMSD20FR0000130_7012_NNG15SD27B_8000/",
+          "response_body": {
+            "id": 291192681,
+            "generated_unique_award_id": "CONT_AWD_70CMSD20FR0000130_7012_NNG15SD27B_8000",
+            "piid": "70CMSD20FR0000130",
+            "category": "contract",
+            "type": "C",
+            "type_description": "DELIVERY ORDER",
+            "description": "FINALMOBILE",
+            "total_obligation": 129489.9,
+            "subaward_count": 0,
+            "total_subaward_amount": null,
+            "date_signed": "2020-08-13",
+            "base_exercised_options": 129489.9,
+            "base_and_all_options": 129489.9,
+            "total_account_outlay": 77724.45,
+            "total_account_obligation": 129489.9,
+            "account_outlays_by_defc": [
+              {
+                "code": "Q",
+                "amount": 77724.45
+              }
+            ],
+            "account_obligations_by_defc": [
+              {
+                "code": "Q",
+                "amount": 129489.9
+              }
+            ],
+            "parent_award": {
+              "agency_id": 862,
+              "agency_name": "National Aeronautics and Space Administration",
+              "agency_slug": "national-aeronautics-and-space-administration",
+              "sub_agency_id": "8000",
+              "sub_agency_name": "National Aeronautics and Space Administration",
+              "award_id": 351431362,
+              "generated_unique_award_id": "CONT_IDV_NNG15SD27B_8000",
+              "idv_type_description": "GWAC",
+              "multiple_or_single_aw_desc": "MULTIPLE AWARD",
+              "piid": "NNG15SD27B",
+              "type_of_idc_description": null
+            },
+            "latest_transaction_contract_data": {
+              "idv_type_description": null,
+              "type_of_idc_description": null,
+              "referenced_idv_agency_iden": "8000",
+              "referenced_idv_agency_desc": "NATIONAL AERONAUTICS AND SPACE ADMINISTRATION",
+              "solicitation_identifier": null,
+              "solicitation_procedures": "MAFO",
+              "number_of_offers_received": "4",
+              "extent_competed": "D",
+              "type_set_aside": null,
+              "type_set_aside_description": null,
+              "evaluated_preference": "NONE",
+              "fed_biz_opps": "Y",
+              "fed_biz_opps_description": "YES",
+              "small_business_competitive": false,
+              "product_or_service_code": "7030",
+              "naics": "541519",
+              "naics_description": "OTHER COMPUTER RELATED SERVICES",
+              "sea_transportation": null,
+              "clinger_cohen_act_planning": "N",
+              "labor_standards": "X",
+              "cost_or_pricing_data": null,
+              "domestic_or_foreign_entity": "A",
+              "foreign_funding": "X",
+              "major_program": null,
+              "program_acronym": null,
+              "subcontracting_plan": "B",
+              "multi_year_contract": null,
+              "consolidated_contract": "D",
+              "type_of_contract_pricing": "J",
+              "national_interest_action": null,
+              "multiple_or_single_award_description": null,
+              "solicitation_procedures_description": "SUBJECT TO MULTIPLE AWARD FAIR OPPORTUNITY",
+              "extent_competed_description": "FULL AND OPEN COMPETITION AFTER EXCLUSION OF SOURCES",
+              "other_than_full_and_open": null,
+              "other_than_full_and_open_description": null,
+              "commercial_item_acquisition": "A",
+              "commercial_item_acquisition_description": "COMMERCIAL PRODUCTS/SERVICES",
+              "commercial_item_test_program": "N",
+              "commercial_item_test_program_description": "NO",
+              "evaluated_preference_description": "NO PREFERENCE USED",
+              "fair_opportunity_limited": "FAIR",
+              "fair_opportunity_limited_description": "FAIR OPPORTUNITY GIVEN",
+              "product_or_service_description": "INFORMATION TECHNOLOGY SOFTWARE",
+              "dod_claimant_program": null,
+              "dod_claimant_program_description": null,
+              "dod_acquisition_program": null,
+              "dod_acquisition_program_description": null,
+              "information_technology_commercial_item_category": null,
+              "information_technology_commercial_item_category_description": null,
+              "sea_transportation_description": null,
+              "clinger_cohen_act_planning_description": "NO",
+              "construction_wage_rate": "X",
+              "construction_wage_rate_description": "NOT APPLICABLE",
+              "labor_standards_description": "NOT APPLICABLE",
+              "materials_supplies": "X",
+              "materials_supplies_description": "NOT APPLICABLE",
+              "cost_or_pricing_data_description": null,
+              "domestic_or_foreign_entity_description": "U.S. OWNED BUSINESS",
+              "foreign_funding_description": "NOT APPLICABLE",
+              "interagency_contracting_authority": "X",
+              "interagency_contracting_authority_description": "NOT APPLICABLE",
+              "price_evaluation_adjustment": null,
+              "subcontracting_plan_description": "PLAN NOT REQUIRED",
+              "multi_year_contract_description": null,
+              "purchase_card_as_payment_method": "N",
+              "purchase_card_as_payment_method_description": "NO",
+              "consolidated_contract_description": "NOT CONSOLIDATED",
+              "type_of_contract_pricing_description": "FIRM FIXED PRICE",
+              "national_interest_action_description": null
+            },
+            "funding_agency": {
+              "id": 776,
+              "has_agency_page": true,
+              "toptier_agency": {
+                "name": "Department of Homeland Security",
+                "code": "070",
+                "abbreviation": "DHS",
+                "slug": "department-of-homeland-security"
+              },
+              "subtier_agency": {
+                "name": "U.S. Immigration and Customs Enforcement",
+                "code": "7012",
+                "abbreviation": "ICE"
+              },
+              "office_agency_name": "HOMELAND SECURITY INVESTIGATIONS DIVISION 4"
+            },
+            "awarding_agency": {
+              "id": 776,
+              "has_agency_page": true,
+              "toptier_agency": {
+                "name": "Department of Homeland Security",
+                "code": "070",
+                "abbreviation": "DHS",
+                "slug": "department-of-homeland-security"
+              },
+              "subtier_agency": {
+                "name": "U.S. Immigration and Customs Enforcement",
+                "code": "7012",
+                "abbreviation": "ICE"
+              },
+              "office_agency_name": "INVESTIGATIONS AND OPERATIONS SUPPORT DALLAS"
+            },
+            "period_of_performance": {
+              "start_date": "2020-08-13",
+              "end_date": "2025-09-26",
+              "last_modified_date": "2025-12-02",
+              "potential_end_date": "2025-09-26 00:00:00"
+            },
+            "recipient": {
+              "recipient_hash": "d46ad2a7-ed19-9535-4f24-787705845610-C",
+              "recipient_name": "V3GATE, LLC",
+              "recipient_uei": "J4KHM5JY79E3",
+              "recipient_unique_id": null,
+              "parent_recipient_hash": "d46ad2a7-ed19-9535-4f24-787705845610-P",
+              "parent_recipient_name": "V3GATE, LLC",
+              "parent_recipient_uei": "J4KHM5JY79E3",
+              "parent_recipient_unique_id": null,
+              "business_categories": [
+                "Category Business",
+                "Hispanic American Owned Business",
+                "Limited Liability Corporation",
+                "Minority Owned Business",
+                "Partnership or Limited Liability Partnership",
+                "Service Disabled Veteran Owned Business",
+                "Small Business",
+                "Special Designations",
+                "U.S.-Owned Business",
+                "Veteran Owned Business"
+              ],
+              "location": {
+                "location_country_code": "USA",
+                "country_name": "UNITED STATES",
+                "state_code": "CO",
+                "state_name": "COLORADO",
+                "city_name": "COLORADO SPRINGS",
+                "county_code": "041",
+                "county_name": "EL PASO",
+                "address_line1": "555 MIDDLE CREEK PKWY STE 120",
+                "address_line2": null,
+                "address_line3": null,
+                "congressional_code": "05",
+                "zip4": "3798",
+                "zip5": "80921",
+                "foreign_postal_code": null,
+                "foreign_province": null
+              }
+            },
+            "executive_details": {
+              "officers": [
+                {
+                  "name": "OSCAR T VALDEZ",
+                  "amount": 1586206.0
+                },
+                {
+                  "name": "THADDEUS R RZONCA",
+                  "amount": 1483274.0
+                },
+                {
+                  "name": "GUY E NIELSEN",
+                  "amount": 1463730.0
+                },
+                {
+                  "name": "MATTHEW J RZONCA",
+                  "amount": 1483274.0
+                },
+                {
+                  "name": "MATT  EHRHARDT",
+                  "amount": 1094484.0
+                }
+              ]
+            },
+            "place_of_performance": {
+              "location_country_code": "USA",
+              "country_name": "UNITED STATES",
+              "county_code": "041",
+              "county_name": "EL PASO",
+              "city_name": "COLORADO SPRINGS",
+              "state_code": "CO",
+              "state_name": "COLORADO",
+              "congressional_code": "05",
+              "zip4": "3798",
+              "zip5": "80921",
+              "address_line1": null,
+              "address_line2": null,
+              "address_line3": null,
+              "foreign_province": null,
+              "foreign_postal_code": null
+            },
+            "psc_hierarchy": {
+              "toptier_code": {},
+              "midtier_code": {
+                "code": "70",
+                "description": "INFORMATION TECHNOLOGY EQUIPMENT (INCLD FIRMWARE) SOFTWARE,SUPPLIES& SUPPORT EQUIPMENT"
+              },
+              "subtier_code": {},
+              "base_code": {
+                "code": "7030",
+                "description": "INFORMATION TECHNOLOGY SOFTWARE"
+              }
+            },
+            "naics_hierarchy": {
+              "toptier_code": {
+                "code": "54",
+                "description": "Professional, Scientific, and Technical Services"
+              },
+              "midtier_code": {
+                "code": "5415",
+                "description": "Computer Systems Design and Related Services"
+              },
+              "base_code": {
+                "code": "541519",
+                "description": "Other Computer Related Services"
+              }
+            },
+            "total_outlay": 77724.45
+          }
+        },
+        "transaction_history": {
+          "server_date_header": "Fri, 06 Nov 2026 22:55:25 GMT",
+          "http_status": 200,
+          "endpoint": "https://api.usaspending.gov/api/v2/transactions/",
+          "request": {
+            "award_id": "CONT_AWD_70CMSD20FR0000130_7012_NNG15SD27B_8000",
+            "page": 1,
+            "limit": 100
+          },
+          "response_body": {
+            "page_metadata": {
+              "page": 1,
+              "next": null,
+              "previous": null,
+              "hasNext": false,
+              "hasPrevious": false
+            },
+            "results": [
+              {
+                "id": "CONT_TX_7012_8000_70CMSD20FR0000130_P00007_NNG15SD27B_0",
+                "type": "C",
+                "type_description": "DELIVERY ORDER",
+                "action_date": "2025-12-02",
+                "action_type": "K",
+                "action_type_description": "CLOSE OUT",
+                "modification_number": "P00007",
+                "description": "THIS MODIFICATION IS TO CLOSEOUT THE CONTRACT FOR FINALMOBILE SOFTWARE LICENSES UTILIZED BY HOMELAND SECURITY INVESTIGATIONS IN DIGITAL FORENSIC INVESTIGATIONS.",
+                "federal_action_obligation": 0.0,
+                "face_value_loan_guarantee": 0.0,
+                "original_loan_subsidy_cost": 0.0
+              },
+              {
+                "id": "CONT_TX_7012_8000_70CMSD20FR0000130_P00006_NNG15SD27B_0",
+                "type": "C",
+                "type_description": "DELIVERY ORDER",
+                "action_date": "2024-07-16",
+                "action_type": "G",
+                "action_type_description": "EXERCISE AN OPTION",
+                "modification_number": "P00006",
+                "description": "FINALMOBILE",
+                "federal_action_obligation": 25908.15,
+                "face_value_loan_guarantee": 0.0,
+                "original_loan_subsidy_cost": 0.0
+              },
+              {
+                "id": "CONT_TX_7012_8000_70CMSD20FR0000130_P00005_NNG15SD27B_0",
+                "type": "C",
+                "type_description": "DELIVERY ORDER",
+                "action_date": "2023-04-27",
+                "action_type": "G",
+                "action_type_description": "EXERCISE AN OPTION",
+                "modification_number": "P00005",
+                "description": "FINALMOBILE",
+                "federal_action_obligation": 25908.15,
+                "face_value_loan_guarantee": 0.0,
+                "original_loan_subsidy_cost": 0.0
+              },
+              {
+                "id": "CONT_TX_7012_8000_70CMSD20FR0000130_P00004_NNG15SD27B_0",
+                "type": "C",
+                "type_description": "DELIVERY ORDER",
+                "action_date": "2022-08-03",
+                "action_type": "M",
+                "action_type_description": "OTHER ADMINISTRATIVE ACTION",
+                "modification_number": "P00004",
+                "description": "FINALMOBILE",
+                "federal_action_obligation": 0.0,
+                "face_value_loan_guarantee": 0.0,
+                "original_loan_subsidy_cost": 0.0
+              },
+              {
+                "id": "CONT_TX_7012_8000_70CMSD20FR0000130_P00003_NNG15SD27B_0",
+                "type": "C",
+                "type_description": "DELIVERY ORDER",
+                "action_date": "2022-06-27",
+                "action_type": "G",
+                "action_type_description": "EXERCISE AN OPTION",
+                "modification_number": "P00003",
+                "description": "FINALMOBILE",
+                "federal_action_obligation": 25908.15,
+                "face_value_loan_guarantee": 0.0,
+                "original_loan_subsidy_cost": 0.0
+              },
+              {
+                "id": "CONT_TX_7012_8000_70CMSD20FR0000130_P00002_NNG15SD27B_0",
+                "type": "C",
+                "type_description": "DELIVERY ORDER",
+                "action_date": "2021-11-05",
+                "action_type": "M",
+                "action_type_description": "OTHER ADMINISTRATIVE ACTION",
+                "modification_number": "P00002",
+                "description": "FINALMOBILE",
+                "federal_action_obligation": 0.0,
+                "face_value_loan_guarantee": 0.0,
+                "original_loan_subsidy_cost": 0.0
+              },
+              {
+                "id": "CONT_TX_7012_8000_70CMSD20FR0000130_P00001_NNG15SD27B_0",
+                "type": "C",
+                "type_description": "DELIVERY ORDER",
+                "action_date": "2021-08-10",
+                "action_type": "G",
+                "action_type_description": "EXERCISE AN OPTION",
+                "modification_number": "P00001",
+                "description": "FINALMOBILE",
+                "federal_action_obligation": 25908.15,
+                "face_value_loan_guarantee": 0.0,
+                "original_loan_subsidy_cost": 0.0
+              },
+              {
+                "id": "CONT_TX_7012_8000_70CMSD20FR0000130_0_NNG15SD27B_0",
+                "type": "C",
+                "type_description": "DELIVERY ORDER",
+                "action_date": "2020-08-13",
+                "action_type": null,
+                "action_type_description": null,
+                "modification_number": "0",
+                "description": "FINALMOBILE",
+                "federal_action_obligation": 25857.3,
+                "face_value_loan_guarantee": 0.0,
+                "original_loan_subsidy_cost": 0.0
+              }
+            ]
+          }
+        }
+      }
+    ]
+  },
+  "doe_sc_p00001_official_access_check_20261106T2256Z": {
+    "intent": "Check public official route for PIID 89243126FSC400871 P00001 amendment/order attachment; do not infer nonexistence from failed discovery.",
+    "access_checks": [
+      {
+        "label": "SAM contract-opportunity search page",
+        "requested_at_utc": "2026-11-06T22:57:25Z",
+        "method": "GET",
+        "url": "https://sam.gov/search/?index=opp&keywords=89243126FSC400871",
+        "http_status": 200,
+        "server_date_header": "Fri, 06 Nov 2026 22:57:26 GMT",
+        "content_type": "text/html; charset=utf-8",
+        "bytes": 43308,
+        "sha256": "e6db61d83422f72d674ef2f201d5d29a1069ff8309cb9553d50be815654b845a",
+        "response_excerpt": "<!doctype html> <html lang=\"en\" data-beasties-container>   <head><base href=\"/search/\">     <meta charset=\"utf-8\">     <title>SAM.gov | Search</title>     <meta name=\"google-site-verification\" content=\"{\"GOOGLE_SITE_VERI"
+      },
+      {
+        "label": "SAM Contract Awards API exact PIID without api_key",
+        "requested_at_utc": "2026-11-06T22:57:25Z",
+        "method": "GET",
+        "url": "https://api.sam.gov/contract-awards/v1/search?piid=89243126FSC400871&limit=100&format=json",
+        "http_status": 404,
+        "server_date_header": "Fri, 06 Nov 2026 22:57:27 GMT",
+        "content_type": null,
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "response_excerpt": ""
+      },
+      {
+        "label": "SAM Opportunities API exact identifier without api_key",
+        "requested_at_utc": "2026-11-06T22:57:25Z",
+        "method": "GET",
+        "url": "https://api.sam.gov/opportunities/v2/search?noticeid=89243126FSC400871&postedFrom=01%2F01%2F2026&postedTo=11%2F06%2F2026&limit=100",
+        "http_status": 404,
+        "server_date_header": "Fri, 06 Nov 2026 22:57:28 GMT",
+        "content_type": null,
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "response_excerpt": ""
+      }
+    ],
+    "official_documentation": [
+      {
+        "url": "https://open.gsa.gov/api/contract-awards/",
+        "retrieved_at_utc": "2026-11-06T22:57:25Z",
+        "supports": "SAM Contract Awards API search requires a registered SAM account and API key for public revealed contract data; documentation endpoint is https://api.sam.gov/contract-awards/v1/search."
+      },
+      {
+        "url": "https://open.gsa.gov/api/get-opportunities-public-api/",
+        "retrieved_at_utc": "2026-11-06T22:57:25Z",
+        "supports": "Opportunities API requires api_key and is for published opportunity notices; it is not direct proof that a contract award attachment exists or is absent."
+      },
+      {
+        "url": "https://sam.gov/fpds",
+        "retrieved_at_utc": "2026-11-06T22:57:25Z",
+        "supports": "Public contract-award search is transitioned to SAM.gov; page states sign-in is required to view search results."
+      }
+    ],
+    "interpretation": "The SAM opportunity search page returned the JavaScript shell (HTTP 200); API routes tried from this runtime returned HTTP 404. GSA documents describe account/API-key prerequisites, but the 404s do not prove an attachment is unavailable or absent. No direct official amendment/attachment document was located in this run; contents, CLIN, SKU, quantity, and unit price remain unverified."
   }
 }

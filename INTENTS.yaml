@@ -135,11 +135,12 @@ lanes:
     notification_reply_to: '1793845695.691209'
     notification_origin: 'channel:C0BR41W31MM;reply_to:1793845695.691209'
     next_action: >-
-      정확 PIID 재조회, award detail, 전체 transaction history 원문 저장을 완료했다.
-      다음 evidence leaf는 DOE SC Oak Ridge 89243126FSC400871 P00001 공개 수정문서/주문
-      첨부의 공식 접근 경로 확인이다. ICE의 별도 제품 lineage도 독립 후속 leaf로 둔다.
-      과거 USAspending HTTP 503과 이번 HTTP 200 응답을 모두 보존하며 미발견을 부재로
-      추론하지 않는다.
+      정확 PIID 재조회와 FinalMobile ICE 두 award의 공식 USAspending detail/history
+      확인을 완료했다. 다음 evidence leaf는 별도 공공 구매자/보안 소프트웨어 조달을
+      공식 거래 기록으로 확인하고 제품범위와 obligation을 분리하는 것이다. DOE SC Oak
+      Ridge P00001 첨부/CLIN은 SAM 계정/API-key 의존 경로에서 미확인이다; 인증정보가
+      있을 때만 재개하고 미발견을 부재로 추론하지 않는다. ICE 70CMSD26FR0000041은
+      제품명이 없어 FinalMobile과 별도 lineage로 유지한다.
     artifact:
       - artifacts/research-us-it-opportunity-20261106/work/market-map.md
       - artifacts/research-us-it-opportunity-20261106/work/market-map.html
