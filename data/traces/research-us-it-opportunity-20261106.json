@@ -175,6 +175,95 @@
       "wiki_pages": [],
       "operational_log_sections": [],
       "note": "US-Korea headline rates not comparable now; matched cloud measure and >=10-worker denominator is a conditional follow-up; adoption not purchase demand."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-fb6868e3a09f493caa272316857a40b1",
+      "canonical_sha": "720218c986fa2be39da88cacf2d04674aab764a1",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-11-06T19:42:28Z",
+      "status": "accepted"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-faea365ccdba49cd835b9603af696e70",
+      "canonical_sha": "720218c986fa2be39da88cacf2d04674aab764a1",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-11-06T19:52:28Z",
+      "status": "accepted"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-faea365ccdba49cd835b9603af696e70",
+      "canonical_sha": "720218c986fa2be39da88cacf2d04674aab764a1",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher-v2",
+      "timestamp": "2026-11-06T19:52:28Z",
+      "status": "accepted"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-546dcfff9e5c499fbb8e30a101dfd1eb",
+      "canonical_sha": "720218c986fa2be39da88cacf2d04674aab764a1",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-11-06T20:02:28Z",
+      "status": "accepted"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-546dcfff9e5c499fbb8e30a101dfd1eb",
+      "canonical_sha": "720218c986fa2be39da88cacf2d04674aab764a1",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher-v2",
+      "timestamp": "2026-11-06T20:02:41Z",
+      "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "run_id": "dispatch-546dcfff9e5c499fbb8e30a101dfd1eb",
+      "at": "2026-11-06T20:08:00Z",
+      "context_pack": "intents/context/research-us-it-opportunity-20261106.json",
+      "evidence_paths": [
+        "artifacts/research-us-it-opportunity-20261106/work/market-map.md",
+        "artifacts/research-us-it-opportunity-20261106/work/market-map.html",
+        "artifacts/research-us-it-opportunity-20261106/work/public-spend-observations.json"
+      ],
+      "searches": [
+        "Census 2023 ABS Instructions G.3",
+        "NSF/NCSES 2023 ABS Table 77",
+        "NIA 2025 statistical quality report",
+        "USAspending DOE PIID 89243126FSC400871",
+        "USAspending ICE PIID 70CMSD25FR0000087"
+      ],
+      "wiki_pages": [
+        "outputs/deep-knowledge/ai.mdx:104-116",
+        "outputs/Integration/Business.mdx:195-205,232-249",
+        "outputs/Idea/Information.mdx:261-269",
+        "outputs/Communication/Blogging.mdx:144-152"
+      ],
+      "operational_log_sections": [],
+      "note": "ABS 2023 tech module and NIA 2024 survey are not headline-rate comparable; ABS Table 77 permits size strata review only, not harmonization. Added two federal cybersecurity/software purchase observations: DOE CrowdStrike ELA delivery order and ICE FinalMobile renewal. Exact scope/options and NIA response coding remain unverified; adoption/procurement observations are not private WTP or market size. Both orders route through NASA multiple-award GWACs (NNG15SC33B and NNG15SD74B); DOE has no solicitation ID in the award record, and ICE shows one base transaction. These facts limit scope/renewal inference."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-55aa141258bc4d70a74b2f21d30cebd0",
+      "canonical_sha": "c39e5db76cec31151c425d4165c89505464df583",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-11-06T20:15:32Z",
+      "status": "accepted"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-55aa141258bc4d70a74b2f21d30cebd0",
+      "canonical_sha": "c39e5db76cec31151c425d4165c89505464df583",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher-v2",
+      "timestamp": "2026-11-06T20:16:22Z",
+      "status": "accepted"
     }
   ],
   "artifacts": [
@@ -348,10 +437,66 @@
       ],
       "status": "pass",
       "next_role": "genie"
+    },
+    {
+      "label": "dispatcher role cross-review",
+      "type": "role_review",
+      "at": "2026-11-06T20:08:00Z",
+      "roles": [
+        "planner"
+      ],
+      "session_key": "agent:genie:subagent:508e4be6-963f-4260-b769-3bd45524324c",
+      "evidence_paths": [
+        "Do not equate same cloud label with same measure; direct rates no-go, conditional reconstruction only if source data/denominator align."
+      ],
+      "status": "pass",
+      "next_role": "genie"
+    },
+    {
+      "label": "dispatcher role cross-review",
+      "type": "role_review",
+      "at": "2026-11-06T20:08:00Z",
+      "roles": [
+        "developer"
+      ],
+      "session_key": "agent:genie:subagent:359a2d7d-417e-4f0f-9918-40be71a61e59",
+      "evidence_paths": [
+        "ABS uses weights; do not claim weights are absent. Tables/microdata may permit a narrower reconstruction; currently unproven."
+      ],
+      "status": "pass",
+      "next_role": "genie"
+    },
+    {
+      "label": "dispatcher role cross-review",
+      "type": "role_review",
+      "at": "2026-11-06T20:08:00Z",
+      "roles": [
+        "marketer"
+      ],
+      "session_key": "agent:genie:subagent:3417de71-6cb8-498d-9dda-9fba6ed0b566",
+      "evidence_paths": [
+        "Initial unrelated Naver-commerce suggestion rejected; corrected to buyer/decision-maker validation, no winner or WTP inferred."
+      ],
+      "status": "pass",
+      "next_role": "genie"
+    },
+    {
+      "label": "dispatcher role cross-review",
+      "type": "role_review",
+      "at": "2026-11-06T20:08:00Z",
+      "roles": [
+        "operator"
+      ],
+      "session_key": "agent:genie:subagent:a93999a3-b6e3-47a3-a6a4-91c653bc5861",
+      "evidence_paths": [
+        "No blocker to public evidence collection; exact NIA response coding and option/scope details remain unverified, so retain in_progress."
+      ],
+      "status": "pass",
+      "next_role": "genie"
     }
   ],
   "next_decision": {
     "status": "in_progress",
-    "value": "Inspect exact cloud-use questionnaire items, categories and estimation weights across 2023 ABS and NIA; retain no-go unless definitions and denominator align."
+    "value": "DOE CrowdStrike ELA와 ICE FinalMobile 갱신은 모두 NASA multiple-award GWAC의 delivery order다. 다음 evidence leaf는 공개 USAspending transaction history와 접근 가능한 조달 첨부에서 line-item 범위와 옵션 행사/갱신 연결을 확인한다. DOE solicitation ID는 원 기록에서 비어 있고 ICE 기록은 한 초기 transaction만 보여 공개자료 한계를 함께 기록한다."
   }
 }

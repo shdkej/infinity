@@ -64,5 +64,104 @@
       "number_of_offers_received": "3",
       "extent_competed_description": "FULL AND OPEN COMPETITION"
     }
-  }
+  },
+  "additional_records": [
+    {
+      "retrieved_at": "2026-11-06T20:04:00Z",
+      "source_url": "https://api.usaspending.gov/api/v2/awards/CONT_AWD_89243126FSC400871_8900_NNG15SC33B_8000/",
+      "record": {
+        "generated_unique_award_id": "CONT_AWD_89243126FSC400871_8900_NNG15SC33B_8000",
+        "piid": "89243126FSC400871",
+        "type_description": "DELIVERY ORDER",
+        "description": "CROWDSTRIKE, INC. ENTERPRISE LICENSE AGREEMENT (ELA) - SC LABS",
+        "total_obligation": 1811671.5,
+        "total_outlay": 1751043.22,
+        "base_exercised_options": 1811671.5,
+        "base_and_all_options": 1811671.5,
+        "date_signed": "2026-06-04",
+        "period_of_performance": {
+          "start_date": "2026-06-01",
+          "end_date": "2027-05-30"
+        },
+        "recipient": {
+          "recipient_name": "EMERGENT, LLC",
+          "parent_recipient_name": "MYTHICS, INC."
+        },
+        "awarding_agency": {
+          "toptier_agency": {
+            "name": "Department of Energy",
+            "abbreviation": "DOE"
+          },
+          "office_agency_name": "SC OAK RIDGE OFFICE"
+        },
+        "latest_transaction_contract_data": {
+          "product_or_service_code": "DJ10",
+          "product_or_service_description": "IT AND TELECOM - SECURITY AND COMPLIANCE AS A SERVICE",
+          "naics": "541519",
+          "number_of_offers_received": "3",
+          "extent_competed_description": "FULL AND OPEN COMPETITION",
+          "type_of_contract_pricing_description": "FIRM FIXED PRICE",
+          "solicitation_identifier": null
+        },
+        "parent_award": {
+          "piid": "NNG15SC33B",
+          "generated_unique_award_id": "CONT_IDV_NNG15SC33B_8000",
+          "idv_type_description": "GWAC",
+          "multiple_or_single_aw_desc": "MULTIPLE AWARD",
+          "agency_name": "National Aeronautics and Space Administration"
+        }
+      },
+      "field_scope_note": "API total_obligation and total_outlay are separately preserved. This delivery order to reseller EMERGENT for a CrowdStrike enterprise license is one public procurement observation, not vendor revenue or market-wide demand. Parent award is NASA multiple-award GWAC; USAspending page shows no solicitation ID."
+    },
+    {
+      "retrieved_at": "2026-11-06T20:05:00Z",
+      "source_url": "https://api.usaspending.gov/api/v2/awards/CONT_AWD_70CMSD25FR0000087_7012_NNG15SD74B_8000/",
+      "record": {
+        "generated_unique_award_id": "CONT_AWD_70CMSD25FR0000087_7012_NNG15SD74B_8000",
+        "piid": "70CMSD25FR0000087",
+        "type_description": "DELIVERY ORDER",
+        "description": "THIS CONTRACT RENEWS FINALMOBILE FORENSICS SOFTWARE SUPPORTING HOMELAND SECURITY INVESTIGATIONS OPERATIONS BY ENSURING CONTINUITY IN CRITICAL FORENSIC CAPABILITIES FOR MOBILE DATA ANALYSIS",
+        "total_obligation": 29022.0,
+        "total_outlay": 29022.0,
+        "base_exercised_options": 29022.0,
+        "base_and_all_options": 87066.0,
+        "date_signed": "2025-08-11",
+        "period_of_performance": {
+          "start_date": "2025-09-27",
+          "end_date": "2026-09-26",
+          "potential_end_date": "2028-09-26"
+        },
+        "recipient": {
+          "recipient_name": "SOFTWARE INFORMATION RESOURCE CORP.",
+          "parent_recipient_name": "SOFTWARE INFORMATION RESOURCE"
+        },
+        "awarding_agency": {
+          "toptier_agency": {
+            "name": "Department of Homeland Security",
+            "abbreviation": "DHS"
+          },
+          "subtier_agency": {
+            "name": "U.S. Immigration and Customs Enforcement",
+            "abbreviation": "ICE"
+          }
+        },
+        "latest_transaction_contract_data": {
+          "product_or_service_code": "7A21",
+          "product_or_service_description": "IT AND TELECOM - BUSINESS APPLICATION SOFTWARE (PERPETUAL LICENSE SOFTWARE)",
+          "naics": "541519",
+          "number_of_offers_received": "2",
+          "extent_competed_description": "FULL AND OPEN COMPETITION AFTER EXCLUSION OF SOURCES",
+          "type_of_contract_pricing_description": "FIRM FIXED PRICE"
+        },
+        "parent_award": {
+          "piid": "NNG15SD74B",
+          "generated_unique_award_id": "CONT_IDV_NNG15SD74B_8000",
+          "idv_type_description": "GWAC",
+          "multiple_or_single_aw_desc": "MULTIPLE AWARD",
+          "agency_name": "National Aeronautics and Space Administration"
+        }
+      },
+      "field_scope_note": "Award description says contract renews FinalMobile mobile-forensics software. Preserve current obligation/outlay separately from base_and_all_options; the award does not prove SaaS subscription or annual recurring revenue. Parent award is NASA multiple-award GWAC; this award API record has one initial transaction and the displayed potential value includes options."
+    }
+  ]
 }

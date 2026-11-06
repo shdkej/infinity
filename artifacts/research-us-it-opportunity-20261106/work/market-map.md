@@ -48,6 +48,8 @@
 | 국가/구매자 | 공개 기록과 범위 | 금액·단계 | 수요 증거의 의미 | 경계 |
 |---|---|---|---|---|
 | 미국 / Department of Veterans Affairs (VA) | USAspending 계약 PIID `36C10B23F0346`; prime recipient Maveris LLC; “VA Cybersecurity Operations Center Next Generation II (CSOC NG II) Support”; performance period 2023-09-29–2027-09-28; PSC R499(기타 전문 지원), NAICS 541511(custom programming). | API 응답 조회일 2026-11-06: `total_obligation` $219,083,824.48; 별도 필드 `total_account_outlay` $147,432,546.43; `base_and_all_options` $331,158,125.88. 경쟁 제안 3건으로 기록. | 한 대형 연방 구매자가 장기간 사이버 운영/지원 서비스를 조달한 관측 사례. obligations는 정부의 지출 약정, outlays는 실제 지급을 나타내므로 다른 단계·집계 필드다. | 다년간 서비스·인력·운영이 결합된 계약이다. `total_obligation`을 제품 예산, 연간 매출, 민간 WTP로 볼 수 없다. 계정 outlay를 계약 총 지급액으로 단정하지 않는다. line-item 증거 없이 소프트웨어 몫을 분리할 수 없다. |
+| 미국 / Department of Energy (DOE), SC Oak Ridge Office | USAspending PIID `89243126FSC400871`; `CROWDSTRIKE, INC. ENTERPRISE LICENSE AGREEMENT (ELA) - SC LABS`; NASA multiple-award GWAC `NNG15SC33B` delivery order, performance 2026-06-01–2027-05-30; recipient EMERGENT LLC(리셀러). USAspending의 solicitation ID는 비어 있음. | 2026-11-06 API 스냅샷: `total_obligation` $1,811,671.50; `total_outlay` $1,751,043.22; fixed-price, full-and-open competition, 3 offers; PSC DJ10 (Security and Compliance as a Service). | 연방 연구기관 단위에서 CrowdStrike enterprise license를 조달한 구체 사례. obligation과 outlay를 별도 필드로 확인. | 단일 delivery order이며 공개 API상 공급자는 리셀러다. 연간 시장규모·민간 WTP·독립 소프트웨어 가격/매출로 일반화하지 않는다. |
+| 미국 / U.S. Immigration and Customs Enforcement (ICE), DHS | USAspending PIID `70CMSD25FR0000087`; 설명상 FinalMobile mobile-forensics software 갱신, NASA multiple-award GWAC `NNG15SD74B` delivery order; prime recipient Software Information Resource Corp.; 2025-09-27–2026-09-26, 옵션 포함 잠재기간 2028-09-26까지. | API 스냅샷 2026-11-06: `total_obligation`/`total_outlay` $29,022; `base_and_all_options` $87,066; 고정가격, 경쟁제한 후 경쟁, 2 offers; PSC 7A21 perpetual-license software. | 조사 업무용 모바일 분석 소프트웨어의 계약상 갱신/연속성 사례 1건. | 설명의 “renews”를 구독 SaaS나 연간 반복매출로 해석하지 않는다. 현재 의무액과 옵션 전체 잠재액을 분리하며 시장 크기로 외삽하지 않는다. |
 | 한국 / 한국인터넷진흥원(KISA) | 2025-145 입찰공고 「전국 정보보호최고책임자(CISO) 대상 현황 조사 및 긴급 교육」, 게시 2025-08-04; 계약기간은 계약 후 2025-12-12까지. 공고에서 학술연구용역으로 명시. | 공고의 `소요예산` 99,700,000원(VAT 포함), 입찰 예정예산/공고 단계. 낙찰·계약액·실지급액은 이 기록만으로 확인하지 않음. | 한국 공공 구매자가 CISO 현황 조사 및 교육 용역에 예산을 배정해 경쟁입찰을 낸 관측 사례. | 보안 SaaS 구매가 아닌 조사·교육 서비스이며, 예정예산은 체결 또는 지급 증거가 아니다. 미국 계약과 기간·범위·회계단계·통화를 맞추지 않았으므로 수치 비교 금지. |
 | 한국 / KISA (별도 이전 건) | 2024-081 「정보보호 최고책임자 지정 신고 실태조사」 사전규격공개, 2024-04-05; 용역 기간/공고 범위가 2025-145와 다름. | 78,000,000원(VAT 포함) 예정예산. | 별도 시점의 제한된 공공 연구용역 예산 신호. | 2025-145의 99.7M과 동일 입찰의 수정액이 아니다. 개별 공고이며 수주/지급액 아님. 반복 구매나 시장 추세로 간주하지 않는다. |
 
@@ -55,21 +57,21 @@
 
 ### 미국·한국 기업 기술통계의 비교 가능성
 
-**판정: 현재 공개 숫자는 직접 비교 불가(조건부 재검토 가능).** 세 조사는 서로 다른 질문·모집단·측정 창을 사용한다. 특히 “2024년 기업정보화통계조사”의 2024는 조사 실시연도이고, 공식 품질진단은 결과가 2023년 기준이며 2023-01~12를 대상으로 2024-07-29~10-06 수집됐다고 명시한다. 따라서 2024년에 측정한 값으로 단순 표기하면 안 된다.
+**판정: headline 비율 직접 비교는 불가하며, 좁은 정의 일치 비교만 별도 검토한다.** Census 2023 ABS는 reference year 2022의 기술 모듈에서 “2020–2022년 동안” 클라우드 등을 사업의 프로세스·방법에 사용했는지 묻는다. 답은 미적용, 적용 가능하나 미사용, 시험했으나 프로세스에 미사용, 프로세스에 사용, 모름으로 나뉜다. 이는 기준일 현재의 모든 클라우드 서비스 이용 여부와 같지 않다.
 
-| 조사 | 모집단·단위 | 기준/수집 시점 | 문항·측정 | 비교 판정 |
+| 조사 | 모집단·단위 | 기준/측정 창과 질문 | 추정·분모 단서 | 비교 판정 |
 |---|---|---|---|---|
-| 미국 Census 2023 ABS | 미국 employer businesses, 비고용 사업체 제외. 수신 단위는 기업(firm); 일부 산업 제외. | 조사명 2023은 reference year 2022를 뜻함. | 2023 ABS에는 technology module이 있었음. 기술 사용 시점을 포함하는 선택 문항이지, 모든 조사연도에 반복되는 동일한 현행 채택 문항은 아님. | NIA와 1년 기준시점 차이, 모집단/사업체 규모·분류 및 질문 차이. 2023 ABS의 기술 수치를 NIA 2023 기준 수치와 곧바로 국가별 순위로 비교하지 않는다. |
-| 미국 Census BTOS | 2023-09-11 이후 미국 내 농업 제외 전체 고용 사업체(단일·다중 사업장); 연간 약 120만 표본을 6개 패널로 순환. | 격주 조사, 표본은 약 12주마다 응답; 통상 직전 2주 및 향후 6개월 전망. | 상시 경기 질문과 보충 문항. AI 사용 문항은 2025-11에 문구가 바뀌었다고 Census 시각화가 공지. | ABS와도 별도 조사. 현행 AI 사용/전망은 연간 NIA의 2023 기준 기술 이용 여부와 다른 기간·질문이다. |
-| 한국 NIA 기업정보화통계조사(2024 조사) | 전국 종사자 10인 이상 민간 기업체, 기업체 단위; 12,500 표본 중 12,203 응답 완료. 표본틀은 2023년 4분기 기업통계등록부. | 기준기간 2023-01~12, 기준시점 2023-12-31; 실제 수집 2024-07-29~10-06; 연간 공표. | 4개 영역 35개 항목 중 클라우드, 데이터/AI, 정보화 투자·인력·효과 포함. 구체 기준시점은 항목별 통계표 주석 확인 필요. | 모집단의 10인 하한은 미국 고용사업체 전체와 다르다. 동일 기술 정의·단위·시점·가중치를 맞춘 항목을 확보하기 전에는 headline 비율의 직접 비교를 보류한다. |
+| 미국 Census 2023 ABS | 일부 산업 제외 미국 employer businesses, 기업(firm) 단위; 비고용 기업 제외 | 2023은 수집연도이며 reference year는 2022. 기술 모듈은 2020–2022년의 사업 프로세스/방법 내 기술 사용을 질문 | 특성 추정은 해당 항목 응답이 하나 이상 있는 기업을 포함하며 비응답 조정을 하지 않았다고 방법론이 설명. 기업 규모는 3월 12일 급여기간 고용으로 분류 | NIA의 2023년 말 상태 문항과 기간·질문·분모가 다름 |
+| 미국 Census BTOS | 미국의 농업 제외 고용 사업체, 단일·다중 사업장 포함 | 격주 조사; 통상 직전 2주 또는 향후 6개월 전망. AI 문항은 시기별 문구 변경 | 패널·고빈도 추정 | ABS 및 NIA 연간 기준 조사와 다른 측정 창·문항 |
+| 한국 NIA 기업정보화통계조사(2024 조사) | 전국 종사자 10인 이상 민간 기업체; 기업체 단위; 12,500 표본 중 12,203 응답완료 | 기준기간 2023년, 기준시점 2023-12-31; 현장조사 2024-07-29~10-06. 클라우드 이용/유형 문항과 목적·미이용 사유 문항 포함 | 표본설계와 지역·조직형태·산업·규모 모집단 주변합에 대한 가중/사후보정이 설명됨. 연도별 문항 예시와 서비스 분류도 변경 | ABS와 서비스 개념·응답범주·기간·응답분모/추정 절차가 같다는 근거가 부족 |
 
-**가능한 제한 비교:** 공통 기술(예: 클라우드 서비스 이용)을 하나 고르고, 미국 자료에서 10인 이상 employer firms로 분모를 재구성할 수 있는지 확인한다. 이어 사업체/기업체 단위, 산업 제외, 정확한 질문·정의, 2022 vs 2023 기준시점, 표본/가중 및 item-specific date를 맞춘다. 모든 조건이 문서화되고 수치가 같은 정의의 추정치로 재계산될 때만 같은 표에서 비교한다. 그렇지 않으면 국가별 맥락 사례로 별도 제시한다.
+**10인 이상 크기 구간 재구성은 일부 가능하지만 충분조건이 아니다.** Census/NCSES의 ABS Table 77은 회사 규모 구간별 클라우드 기술 표를 제공하므로 크기 구간을 합치는 방식은 검토할 수 있다. 그러나 2020–2022년 “생산 기술” 사용과 2023-12-31 현재 클라우드 이용은 같은 관측치가 아니다. 고용 기준일, 산업 범위, 기업 단위, 문항 정의·응답범주, 항목 응답 분모 및 추정치를 각각 원표에서 확인하고 정렬하기 전에는 한 표의 국가별 headline 비교를 하지 않는다. 조사된 NIA 설문지 PDF에서 응답 선택지의 세부 코딩은 확인하지 못했으므로 이를 임의로 맞다고 가정하지 않는다.
 
-창업 기회 판단에서는 어떤 경우에도 이 채택률을 구매의도·지출·WTP·미충족 수요로 읽지 않는다. 채택은 특정 세그먼트의 구매자 인터뷰와 실제 예산/조달/유지 증거를 찾기 위한 가설 생성 신호다.
+이 채택률은 구매의도·지출·WTP·미충족 수요가 아니다. 다음 탐색은 통계 headline 추가 비교 대신 구체 구매자 세그먼트의 구매·갱신·예산 집행 흔적과 현재 대안을 찾는 것으로 전환한다.
 
 ## 다음 탐색에서 검증할 것
 
-1. 각 영역에서 특정 구매자 세그먼트와 자주 반복되는 업무 하나를 고른 뒤, 빈도·손실·현재 지출/인력·대체재를 독립 출처와 고객 표현으로 확인한다.
+1. **다음 evidence leaf(Active):** 두 NASA multiple-award GWAC delivery order의 공식 transaction history와 공개 조달 첨부에서 line-item 범위, 옵션 행사 및 갱신 연결을 확인한다. 현재 DOE 기록의 solicitation ID는 비어 있고 ICE는 한 초기 transaction만 표시하므로, 공개자료가 부족하면 그 경계를 적고 두 연방 사례를 시장 수요로 일반화하지 않는다.
 2. 공개 후기/커뮤니티는 불편·대안 언어를 찾는 정성 신호로만 쓰고, 표본·플랫폼 편향을 표시한다. 공식 통계나 벤더 사례와 한데 합쳐 수요 수치로 만들지 않는다.
 3. 회사별 가격·유통·고객 사례, 도입/이탈 또는 교체 신호를 날짜와 함께 수집한다. 가격·기능 페이지는 조사일 스냅샷으로 취급한다.
 4. 대체재를 incumbent suite, 내부 구축, 오픈소스, 서비스/아웃소싱, 스프레드시트/이메일, 미해결로 나눠 실제 경쟁 단위를 찾는다.
@@ -99,6 +101,12 @@
 | S15 | [Census 2023 ABS methodology](https://www.census.gov/programs-surveys/abs/technical-documentation/methodology.2023.html), [Census 2024 ABS methodology](https://www.census.gov/programs-surveys/abs/technical-documentation/methodology.2024.html), 접근 2026-11-06 | 공식 조사방법론, 미국 | 조사명 연도와 reference year 구분; employer-business 모집단·비고용 제외; 2023 ABS 기술 module과 2024 ABS의 다른 module 구성 | 서로 다른 ABS 조사연도의 module은 동일 문항 시계열로 취급 불가; Census도 다른 경제조사와 비교 시 주의 고지. |
 | S16 | [Census BTOS data/methodology](https://www.census.gov/data/experimental-data-products/business-trends-and-outlook-survey.html), [BTOS methodology PDF](https://www.census.gov/hfp/btos/downloads/methodology/Business_Trends_and_Outlook_Survey_Methodology_V6.pdf), 접근 2026-11-06 | 공식·실험적 고빈도 사업체 조사, 미국 | 2023-09-11 이후 농업 제외 단일·다중 사업장 고용 사업체; 2주 reference/6개월 전망, 격주 패널; 표본·비응답 조정 | BTOS는 NIA 연간 기준기간 문항의 직접 대체물이 아님; AI 문항 변경 시계열도 별도 확인 필요. |
 | S17 | [NIA 2024 survey announcement](https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?bcIdx=27028&cbIdx=99835), [국가데이터처 2025 정기통계품질진단 보고서](https://sri.kostat.go.kr/boardDownload.es?bid=67&list_no=442669&seq=1), 접근 2026-11-06 | 공식 표본·조사방법 정보, 한국 | 10인 이상 모집단; 기준기간 2023년; 2024-07-29~10-06 조사; 12,500 표본, 12,203 응답완료; 기업통계등록부 표본틀 및 사후추정 주의 | 항목마다 기준시점이 다를 수 있어 해당 표/문항 정의 대조 필요. |
+| S18 | [Census 2023 ABS Instructions, G.3](https://www2.census.gov/programs-surveys/abs/information/ABS-2023-Instructions.pdf), 접근 2026-11-06 | 공식 설문지, 미국 | 2020–2022 기간 및 클라우드 등 기술을 사업 프로세스/방법에 사용했는지와 응답범주 | 설문 문항 자체이지 국가 간 조화 추정치가 아님. |
+| S19 | [NSF/NCSES, 2023 ABS Table 77](https://ncses.nsf.gov/pubs/nsf25303/assets/data-tables/tables/nsf25303-tab077.xlsx), 접근 2026-11-06 | 공식 통계표, 미국 | 생산기술로 사용한 클라우드 기반 시스템·앱을 회사 규모별로 제시; 10인 이상 구간 재집계 가능성 확인 | 크기 구간 정렬은 기간·질문·모집단·추정 차이를 해결하지 않음. |
+| S20 | [국가데이터처, 2025 정기통계품질진단: 기업정보화통계조사](https://sri.kostat.go.kr/boardDownload.es?bid=67&list_no=442669&seq=1), 접근 2026-11-06 | 공식 품질진단, 한국 | NIA 문항(Q20 클라우드 이용/유형, Q21 목적, Q22 미이용 사유), 조사 기준기간·수집기간 및 설계/가중 정보 | 확인한 설문지 사본은 세부 응답 선택지 판독이 어려워 정확한 코드 일치 여부는 미확인. |
+
+| S21 | [USAspending DOE award PIID 89243126FSC400871](https://www.usaspending.gov/award/CONT_AWD_89243126FSC400871_8900_NNG15SC33B_8000/), API 응답 2026-11-06 | 공식 연방조달 award, 미국 DOE SC Oak Ridge | CrowdStrike ELA description, EMERGENT LLC recipient, 2026-06~2027-05 delivery order; obligation $1.812M, outlay $1.751M, PSC DJ10, 3 offers | 단일 리셀러 경유 기업 라이선스 조달 사례; vendor revenue·반복 구매·민간 WTP 아님. |
+| S22 | [USAspending DHS/ICE award PIID 70CMSD25FR0000087](https://www.usaspending.gov/award/CONT_AWD_70CMSD25FR0000087_7012_NNG15SD74B_8000), API 응답 2026-11-06 | 공식 연방조달 award, 미국 ICE | FinalMobile mobile-forensics software 갱신 설명; obligation/outlay $29,022, potential base+options $87,066; 2025-09~2026-09 기본기간 | 옵션은 실행 의무액이 아니며, 설명의 갱신은 SaaS·정기 ARR 증명이 아님. |
 
 ## 역할 교차검토 요약
 
@@ -115,4 +123,4 @@
 
 ### 교차검토에서 반영한 조정
 
-네 역할은 독립 판단 후 서로의 기준을 검토했다. 이번 방법론 검토 결과, 헤드라인 비율의 국가 간 직접 비교는 불가하되 인구·질문·시점·추정법을 좁혀 일치시키는 제한 비교는 향후 가능성만 열어두기로 했다. 채택 지표는 구매 수요가 아니며, 시장 순위나 WTP 근거로 사용하지 않는다. 앞선 구매사례 검토의 미국 obligation/outlay와 한국 예정예산 분리 원칙도 유지한다.
+네 역할은 독립 판단 후 서로의 기준을 검토했다. 이번 방법론 검토 결과, 헤드라인 비율의 국가 간 직접 비교는 불가하되 인구·질문·시점·추정법을 좁혀 일치시키는 제한 비교는 향후 가능성만 열어두기로 했다. 채택 지표는 구매 수요가 아니며, 시장 순위나 WTP 근거로 사용하지 않는다. 앞선 구매사례 검토의 미국 obligation/outlay와 한국 예정예산 분리 원칙도 유지한다. 이번 교차검토에서 Developer는 Census에 가중치 적용이 있다는 점을 들어 “가중치 부재”를 비교 불가 이유로 쓰지 말라고 정정했고, Planner·Operator는 공통 분모 재구성은 원표/원자료로 입증되기 전까지 미확정이라고 반박·보완했다. Marketer는 구매자·예산권자 검증으로 방향을 좁히되 adoption/조달 기록만으로 구매 수요나 WTP를 단정하지 말라고 했다. Genie는 이를 반영해 국가 비율 순위는 보류하고 DOE·ICE 두 공개조달을 별도 사례 신호로만 추가했다. 두 건 모두 단일 연방기록이며 민간시장 결론을 뒷받침하지 않는다.

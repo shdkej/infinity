@@ -21,9 +21,10 @@
 - notification_target: channel:C0BR41W31MM
 - notification_reply_to: 1793845695.691209
 - notification_origin: channel:C0BR41W31MM;reply_to:1793845695.691209
-- next_action: Census 2023 ABS와 NIA 원설문에서 클라우드 이용 문항·분모·추정가중치를 대조하고, 정의 일치 여부가 확인되기 전 양국 비율 비교를 보류한다.
+- next_action: DOE CrowdStrike ELA와 ICE FinalMobile 갱신은 모두 NASA multiple-award GWAC의 delivery order다. 다음 evidence leaf는 공개 USAspending transaction history와 접근 가능한 조달 첨부에서 line-item 범위와 옵션 행사/갱신 연결을 확인한다. DOE solicitation ID는 원 기록에서 비어 있고 ICE 기록은 한 초기 transaction만 보여 공개자료 한계를 함께 기록한다.
 - artifact: artifacts/research-us-it-opportunity-20261106/work/market-map.md
 - artifact: artifacts/research-us-it-opportunity-20261106/work/market-map.html
+- artifact: artifacts/research-us-it-opportunity-20261106/work/public-spend-observations.json
 
 ### Publish receipt
 - Intake commit local SHA: `0cccde31084b79a60f47c1d9f3d7a7391e874348`
