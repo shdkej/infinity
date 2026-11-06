@@ -350,6 +350,102 @@
         "operator": "agent:genie:subagent:df39d90f-f04c-40aa-a7ba-242e77b37b58"
       },
       "note": "Direct transaction-history POST queries confirmed DOE initial obligation $1,751,043.22 plus 2026-08-28 P00001 in-scope additional-license modification +$60,628.28; ICE FinalMobile has one initial $29,022 transaction; a separate ICE 70CMSD26FR0000041 forensic-agent-license order has $25,693.20 initial obligation plus $0 funding-only accounting correction. Stored complete raw response bodies separately from interpretation. No CLIN/SKU/license count/unit price or public attachment was verified. Role cross-review keeps DOE modification separate from option exercise, ICE “renews” description separate from an actual later renewal, and the other ICE order separate from FinalMobile absent explicit lineage. Intent remains active; next leaf targets DOE P00001 modification documents/CLIN."
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-0332ad36ecbe4b10adadfed561abc3d8",
+      "canonical_sha": "c140fcc0a8393a2d53c2442d9b356f8ba2f185e6",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-11-06T21:32:28Z",
+      "status": "accepted"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-0332ad36ecbe4b10adadfed561abc3d8",
+      "canonical_sha": "c140fcc0a8393a2d53c2442d9b356f8ba2f185e6",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher-v2",
+      "timestamp": "2026-11-06T21:32:57Z",
+      "status": "accepted"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-0332ad36ecbe4b10adadfed561abc3d8",
+      "canonical_sha": "c140fcc0a8393a2d53c2442d9b356f8ba2f185e6",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher-v2",
+      "timestamp": "2026-11-06T21:36:38Z",
+      "status": "accepted"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-c585f31544504a06a2f0c9934f2f7e80",
+      "canonical_sha": "c140fcc0a8393a2d53c2442d9b356f8ba2f185e6",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-11-06T21:42:28Z",
+      "status": "accepted"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-c585f31544504a06a2f0c9934f2f7e80",
+      "canonical_sha": "c140fcc0a8393a2d53c2442d9b356f8ba2f185e6",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher-v2",
+      "timestamp": "2026-11-06T21:42:53Z",
+      "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "run_id": "dispatch-c585f31544504a06a2f0c9934f2f7e80",
+      "at": "2026-11-06T21:47:37Z",
+      "context_pack": "intents/context/research-us-it-opportunity-20261106.json",
+      "evidence_paths": [
+        "artifacts/research-us-it-opportunity-20261106/work/market-map.md",
+        "artifacts/research-us-it-opportunity-20261106/work/market-map.html",
+        "artifacts/research-us-it-opportunity-20261106/work/public-spend-observations.json",
+        "INTENTS.yaml",
+        "intents/active/research-us-it-opportunity-20261106.md"
+      ],
+      "searches": [
+        "Earlier successful POST spending_by_transaction keyword=CrowdStrike,type C,page 1,limit 100,sort Transaction Amount desc; 100 results/hasNext=true (full raw body and exact retrieval timestamp were not preserved locally)",
+        "Two exact-award-id POST replay attempts in this cycle returned HTTP 503; no response records",
+        "Opened official Treasury Fiscal Service ARC/FSA contract list; confirmed FCN / award 2033H624F00068 / Crowdstrike products and services / Work Continues; no transaction amount or line-item scope",
+        "Opened secondary mirror of DOE/NNSA SAM original award notice for 89233126FNA400754; confirms original award description/date only, not P00001",
+        "Opened official USAspending API contracts for search and transaction-history methods"
+      ],
+      "role_sessions": {
+        "planner": "/root/planner_doe_attachment_leaf",
+        "developer": "/root/developer_doe_attachment_research",
+        "marketer": "/root/marketer_buyer_signal",
+        "operator": "/root/operator_evidence_chain"
+      },
+      "note": "Stored three selected transaction rows as screening leads with an explicit raw-response/timestamp gap; did not promote to fully verified transactions. Treasury PDF independently confirms award identity and description, not P00008 amount/scope; DOE SAM-notice mirror only corroborates original award, not P00001. Planner says license wording does not prove CLIN/count and Treasury in-scope services may not be licenses; Developer says wait for full transaction histories; Marketer rejects private WTP/TAM/ARR inference; Operator requires source types and 503 separated. Intent remains active; next evidence leaf is full transaction and award-detail re-fetch for three exact PIIDs when the API is available."
+    },
+    {
+      "type": "role_review",
+      "run_id": "dispatch-c585f31544504a06a2f0c9934f2f7e80",
+      "at": "2026-11-06T21:47:37Z",
+      "roles": [
+        "planner",
+        "developer",
+        "marketer",
+        "operator"
+      ],
+      "session_keys": {
+        "planner": "/root/planner_doe_attachment_leaf",
+        "developer": "/root/developer_doe_attachment_research",
+        "marketer": "/root/marketer_buyer_signal",
+        "operator": "/root/operator_evidence_chain"
+      },
+      "evidence_paths": [
+        "artifacts/research-us-it-opportunity-20261106/work/market-map.md",
+        "artifacts/research-us-it-opportunity-20261106/work/market-map.html",
+        "artifacts/research-us-it-opportunity-20261106/work/public-spend-observations.json"
+      ],
+      "status": "pass",
+      "conclusion": "Planner: selected rows are narrow federal purchase signals; no CLIN/count from DOE wording, no added licenses inferred from Treasury in-scope services. Developer: action amount only, first-page/non-raw limitation and HTTP 503 require re-fetch before confidence increases. Marketer: no private demand, WTP, TAM, vendor revenue, or ARR inference. Operator: preserve filters/sort, raw-response gap, exact replay failure, official Treasury primary source and DOE secondary mirror distinctly."
     }
   ],
   "artifacts": [
@@ -607,6 +703,6 @@
   ],
   "next_decision": {
     "status": "in_progress",
-    "value": "NASA SEWP 또는 기관 조달 자료에서 DOE PIID 89243126FSC400871 P00001 수정문서/주문 첨부를 찾아 additional-license CLIN, SKU·수량·단가 공개 여부를 확인한다. 거래 API에는 +$60,628.28 수정 설명만 있고 itemized schedule은 없다. 이후 별도 leaf로 ICE FinalMobile 후속 award/옵션 행사와 70CMSD26FR0000041 제품·첨부를 확인하며, 명시적 문서 연결 없이는 두 ICE order를 같은 제품/갱신으로 합치지 않는다."
+    "value": "USAspending API가 응답하면 DOE NNSA 89233126FNA400754, DOJ 15JPSS23F00000692, Treasury 2033H624F00068의 award detail과 전체 transaction history를 저장·대조한다. 현재 exact-id 재조회 2회는 HTTP 503이며 세 선별행의 전체 검색 raw body도 로컬에 없어 재검증 대기다. DOE SC Oak Ridge P00001 첨부와 ICE 제품 lineage는 독립 후속 leaf로 유지한다."
   }
 }

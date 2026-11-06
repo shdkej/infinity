@@ -21,7 +21,7 @@
 - notification_target: channel:C0BR41W31MM
 - notification_reply_to: 1793845695.691209
 - notification_origin: channel:C0BR41W31MM;reply_to:1793845695.691209
-- next_action: NASA SEWP 또는 기관 조달 자료에서 DOE PIID 89243126FSC400871 P00001 수정문서/주문 첨부를 찾아 additional-license CLIN, SKU·수량·단가 공개 여부를 확인한다. 거래 API에는 +$60,628.28 수정 설명만 있고 itemized schedule은 없다. 이후 별도 leaf로 ICE FinalMobile 후속 award/옵션 행사와 70CMSD26FR0000041 제품·첨부를 확인하며, 명시적 문서 연결 없이는 두 ICE order를 같은 제품/갱신으로 합치지 않는다.
+- next_action: USAspending API가 응답하면 89233126FNA400754, 15JPSS23F00000692, 2033H624F00068의 award detail과 전체 transaction history 원문을 각각 저장해 날짜·수정번호·금액·설명·parent award·수행기간을 재대조한다. 이번 exact-id query 2회는 HTTP 503이었다. API가 계속 불가하면 공식 SAM/기관 경로별 접근 결과를 기록하고 transaction/첨부가 없다고 추론하지 않는다. DOE SC Oak Ridge 89243126FSC400871 P00001 공개 수정문서/주문 첨부와 ICE의 별도 제품 lineage는 별도 후속 leaf로 유지한다.
 - artifact: artifacts/research-us-it-opportunity-20261106/work/market-map.md
 - artifact: artifacts/research-us-it-opportunity-20261106/work/market-map.html
 - artifact: artifacts/research-us-it-opportunity-20261106/work/public-spend-observations.json

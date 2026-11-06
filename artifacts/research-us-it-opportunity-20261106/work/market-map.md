@@ -59,6 +59,18 @@
 
 ICE FinalMobile order `70CMSD25FR0000087` transaction history에는 2025-08-11 수정번호 `0`의 $29,022 한 건만 보인다. 별도로 ICE/Homeland Security Investigations의 `70CMSD26FR0000041`은 2026-07-08 기본 의무액 $25,693.20의 “forensics examinations” agent-license 주문이고, 2026-07-31 `P00001`은 funding-only/accounting correction으로 $0이다. 이 별도 order에는 제품명이 없어 FinalMobile과 동일 제품인지, 기존 주문의 갱신/후속인지 공개 거래기록만으로는 연결되지 않는다. 세부 응답과 API 경로는 `public-spend-observations.json`에 저장했다.
 
+### 추가 연방 보안조달 스크리닝 (재검증 대기)
+
+앞선 성공한 USAspending CrowdStrike 검색의 첫 페이지(계약 유형 C, 거래액 내림차순, 100행, `hasNext=true`)에서 다음 세 행이 선별되었다. 다만 이 검색의 전체 응답 본문과 정확한 조회시각은 저장소에 남아 있지 않으며, 이번 실행의 정확 award-id 재조회 2회는 HTTP 503을 반환했다. 따라서 아래 값들은 **검증 완료 사례가 아니라 재조회할 거래 리드**로만 취급한다. 검색 정렬·첫 페이지 조건 때문에 대표 표본도 아니다.
+
+| PIID / 구매기관 | 이전 검색에서 보인 거래행 | 해석 경계 및 현재 검증 상태 |
+|---|---|---|
+| DOE/NNSA `89233126FNA400754`, Thundercat Technology | `P00001`, 2026-05-12, $9,924,171; 설명 `CROWDSTRIKE FALCON AND FALCON COMPLETE LICENSES`. 별도 SAM 공고 미러는 원 award의 Falcon/Falcon Complete 라이선스 명칭과 2026-01-06 수여를 보여준다. | 미러는 원 award만 뒷받침하고 해당 P00001 거래를 검증하지 않는다. 거래행 원문이 재조회되기 전 수량·CLIN·단가나 전체 계약금액으로 해석하지 않는다. |
+| DOJ `15JPSS23F00000692`, Thundercat Technology | `P00016`, 2025-12-02, $4,649,687.97; 설명상 CrowdStrike 라이선스·지원 연간 갱신. | 재조회 전 screening lead. 갱신 문구만으로 라이선스 수·단가, 실제 ARR 또는 민간 구매의사를 확정할 수 없다. |
+| Treasury/Fiscal Service `2033H624F00068`, FCN Inc. | `P00008`, 2026-01-21, $1,701,003.89; 설명은 option period 2 행사 및 in-scope services 추가를 언급. | 거래액이 CrowdStrike에만 귀속된다는 증거가 아니다. 공식 Fiscal Service 목록은 FCN, 해당 award, “Crowdstrike products and services”, “Work Continues” 상태를 확인하지만 P00008 금액이나 item scope는 보여주지 않는다. |
+
+DOE/NNSA의 SAM award-notice 미러는 정식 공고 페이지 자체가 아니며, Treasury 목록은 거래/가격표가 아니다. USAspending의 공식 API 계약은 검색 필터·페이지·정렬 및 거래 이력 필드의 의미를 설명할 뿐 이 세 거래의 원문을 대신하지 않는다. API 503은 이번 재조회가 실패했다는 뜻이지 award나 첨부가 없다는 뜻이 아니다. 선별행, 실패 응답 기록, 접근한 원문 링크와 역할별 제한은 `public-spend-observations.json`에 구분 저장했다.
+
 **비교 제한:** 이 사례들은 공개된 특정 조달의 범위와 단계만 보여준다. 국가 IT 지출 또는 민간시장 추정치가 아니며, 금액 차이는 조달 범위·대상·회계·시점·통화 차이와 실제 수요가 함께 반영될 수 있다. 미국 award의 obligation/outlay와 한국 RFP의 예정예산은 직접 비교하지 않는다.
 
 ### 미국·한국 기업 기술통계의 비교 가능성
@@ -77,8 +89,9 @@ ICE FinalMobile order `70CMSD25FR0000087` transaction history에는 2025-08-11 �
 
 ## 다음 탐색에서 검증할 것
 
-1. **다음 evidence leaf (Active):** DOE PIID `89243126FSC400871`, modification `P00001`의 공개 수정문서/주문 첨부를 NASA SEWP 또는 기관 조달 자료에서 찾아 additional-license CLIN, SKU·수량·단가가 있는지 확인한다. 현재 transaction API는 “ADD ADDITIONAL LICENSES”와 +$60,628.28만 보이고 itemized schedule은 없다. 검색 결과가 없다는 이유만으로 첨부가 없다고 단정하지 않고, 실제 문서 링크/접근 결과를 기록한다.
-2. ICE FinalMobile PIID `70CMSD25FR0000087`의 2026-09-26 이후 옵션 행사 또는 후속 award가 있는지 공식 거래내역에서 확인한다. 별도 ICE order `70CMSD26FR0000041`의 SOW/CLIN도 찾아 제품 정체를 확인하되, 공통 수령자·기관·forensics 문구만으로 두 order를 같은 제품이나 갱신으로 연결하지 않는다. 공개자료가 연결을 증명하지 못하면 미확인으로 둔다.
+1. **다음 evidence leaf (Active):** USAspending API가 응답하면 `89233126FNA400754`, `15JPSS23F00000692`, `2033H624F00068`의 award detail과 전체 transaction history 원문을 각각 저장해 날짜·수정번호·금액·설명·parent award·수행기간을 재대조한다. 현재 두 targeted query가 HTTP 503이므로 이 세 행은 screening lead 상태다. API가 계속 불가하면 공식 SAM/기관 route별 접근 결과를 기록하고, 기록·첨부가 없다고 추론하지 않는다.
+2. 별도 후속 leaf로 DOE SC Oak Ridge PIID `89243126FSC400871` P00001 공식 수정문서/주문 첨부를 찾는다. 공개 자료에서 아직 CLIN·SKU·수량·단가를 확인하지 못했고, GSA의 Contract Awards API는 SAM 계정/API key가 필요하다고 안내한다. SEWP 절차 페이지는 기관이 DO를 발행하고 수정은 PMO를 거친다고 설명할 뿐 이 주문의 첨부 공개 여부를 입증하지 않는다. 접근 불가나 검색 실패를 “첨부 없음”으로 바꾸지 않는다.
+3. ICE FinalMobile PIID `70CMSD25FR0000087`의 후속 award/옵션과 별도 ICE `70CMSD26FR0000041`의 SOW/CLIN은 또 다른 leaf로 유지한다. 제품명이 명시적으로 연결되지 않는 한 같은 상품·갱신으로 합치지 않는다.
 2. 공개 후기/커뮤니티는 불편·대안 언어를 찾는 정성 신호로만 쓰고, 표본·플랫폼 편향을 표시한다. 공식 통계나 벤더 사례와 한데 합쳐 수요 수치로 만들지 않는다.
 3. 회사별 가격·유통·고객 사례, 도입/이탈 또는 교체 신호를 날짜와 함께 수집한다. 가격·기능 페이지는 조사일 스냅샷으로 취급한다.
 4. 대체재를 incumbent suite, 내부 구축, 오픈소스, 서비스/아웃소싱, 스프레드시트/이메일, 미해결로 나눠 실제 경쟁 단위를 찾는다.
@@ -116,6 +129,9 @@ ICE FinalMobile order `70CMSD25FR0000087` transaction history에는 2025-08-11 �
 | S22 | [USAspending DHS/ICE award PIID 70CMSD25FR0000087](https://www.usaspending.gov/award/CONT_AWD_70CMSD25FR0000087_7012_NNG15SD74B_8000), API 응답 2026-11-06 | 공식 연방조달 award, 미국 ICE | FinalMobile mobile-forensics software 갱신 설명; obligation/outlay $29,022, potential base+options $87,066; 2025-09~2026-09 기본기간 | 옵션은 실행 의무액이 아니며, 설명의 갱신은 SaaS·정기 ARR 증명이 아님. |
 | S23 | [USAspending transaction history API](https://api.usaspending.gov/api/v2/transactions/) 및 [공식 API contract](https://github.com/fedspendingtransparency/usaspending-api/blob/master/usaspending_api/api_contracts/contracts/v2/transactions.md), 조회 2026-11-06 | 공식 연방조달 거래내역 API, DOE·ICE | DOE 2 transactions: initial $1,751,043.22와 in-scope additional-license mod +$60,628.28; ICE FinalMobile 1 initial transaction; 별도 ICE forensic-agent order와 $0 accounting mod | 기록은 modification description/amount/date를 보일 뿐 SKU·수량·CLIN schedule을 제공하지 않음. 새 ICE order를 FinalMobile 갱신과 연결하지 않음. |
 | S24 | [USAspending DHS/ICE award PIID 70CMSD26FR0000041](https://api.usaspending.gov/api/v2/awards/CONT_AWD_70CMSD26FR0000041_7012_NNG15SD74B_8000/), 조회 2026-11-06 | 공식 연방조달 award, 미국 ICE HSI | forensic evidence examination을 위한 agent licenses, $25,693.20 obligation; NASA multiple-award GWAC delivery order | description에 제품명이 없어 FinalMobile과 동일성/갱신 연결을 입증하지 않음. |
+| S25 | [USAspending spending-by-transaction API contract](https://github.com/fedspendingtransparency/usaspending-api/blob/master/usaspending_api/api_contracts/contracts/v2/search/spending_by_transaction.md), 접근 2026-11-06 | 공식 API 문서 | keyword/type 필터, 필드, pagination, 정렬 방식 설명 | API 스펙은 개별 award 거래 증거가 아님. 이번 100행 검색의 원문 전체와 정확 조회시각은 보존되지 않아 세 행은 재검증 대기. |
+| S26 | [Treasury Fiscal Service, ARC/FSA contract list](https://fr.fiscal.treasury.gov/files/doing-business-with-fiscal-service/ARC-FSA.pdf), 접근 2026-11-06, PDF p.1/텍스트 행 990–997 | 공식 기관 계약 목록, 미국 Treasury | FCN Inc.; parent `NNG15SC71B`; order `2033H624F00068`; “Crowdstrike products and services”; “Excepted or Exempt - Work Continues” | 거래내역·지출액·P00008 scope를 제공하지 않는다. 상태 문자열은 구매량 또는 갱신을 뜻하지 않는다. |
+| S27 | [DOE/NNSA 89233126QNA000448 award notice mirror](https://www.governmentcontracts.us/government-contracts/opportunity-details/78853974975300159.htm?searchText=computer), 접근 2026-11-06 | SAM 공고의 2차 미러, 미국 DOE/NNSA | 원 award의 날짜, Thundercat, Falcon/Falcon Complete 라이선스 description; order `89233126FNA400754` | 사이트가 공식 공고가 아니라고 고지한다. 원 award 설명만 확인하며 P00001/후속 거래 리드 미검증. |
 
 ## 역할 교차검토 요약
 
@@ -138,3 +154,5 @@ ICE FinalMobile order `70CMSD25FR0000087` transaction history에는 2025-08-11 �
 ### 교차검토에서 반영한 조정
 
 네 역할은 독립 판단 후 서로의 기준을 검토했다. 이번 방법론 검토 결과, 헤드라인 비율의 국가 간 직접 비교는 불가하되 인구·질문·시점·추정법을 좁혀 일치시키는 제한 비교는 향후 가능성만 열어두기로 했다. 채택 지표는 구매 수요가 아니며, 시장 순위나 WTP 근거로 사용하지 않는다. 앞선 구매사례 검토의 미국 obligation/outlay와 한국 예정예산 분리 원칙도 유지한다. 이번 교차검토에서 Developer는 Census에 가중치 적용이 있다는 점을 들어 “가중치 부재”를 비교 불가 이유로 쓰지 말라고 정정했고, Planner·Operator는 공통 분모 재구성은 원표/원자료로 입증되기 전까지 미확정이라고 반박·보완했다. Marketer는 구매자·예산권자 검증으로 방향을 좁히되 adoption/조달 기록만으로 구매 수요나 WTP를 단정하지 말라고 했다. Genie는 이를 반영해 국가 비율 순위는 보류하고 DOE·ICE 두 공개조달을 별도 사례 신호로만 추가했다. 두 건 모두 단일 연방기록이며 민간시장 결론을 뒷받침하지 않는다.
+
+이번 추가 스크리닝에서는 Planner가 DOE 라이선스 description을 CLIN·수량 증거로 보지 말고 Treasury의 “in-scope services”를 추가 라이선스로 해석하지 말라고 제한했다. Developer는 100행 첫 페이지 결과의 전체 원문 미보존 및 targeted API replay 503 때문에 거래별 재검증 전 확신도를 올리지 않도록 했다. Marketer는 연방 구매·갱신 언어를 민간 구매 pain, WTP, TAM, vendor revenue 또는 ARR로 일반화하지 말라고 했고, Operator는 성공했던 query 요약·실패한 replay·공식 Treasury 목록·DOE 원 award의 2차 미러를 출처 유형별로 분리하도록 했다. Genie는 세 거래를 screening lead로만 남기고 full award/transaction 응답 재조회 leaf를 다음에 둔다.

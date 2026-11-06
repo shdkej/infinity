@@ -614,5 +614,114 @@
         "total_outlay": 25693.2
       }
     }
-  ]
+  ],
+  "screening_search_addition": {
+    "recorded_at_utc": "2026-11-06T21:45:23Z",
+    "discovery_query": {
+      "endpoint": "https://api.usaspending.gov/api/v2/search/spending_by_transaction/",
+      "method": "POST",
+      "filters": {
+        "keywords": [
+          "CrowdStrike"
+        ],
+        "award_type_codes": [
+          "C"
+        ]
+      },
+      "fields": [
+        "Award ID",
+        "Mod",
+        "Recipient Name",
+        "Action Date",
+        "Transaction Amount",
+        "Awarding Agency",
+        "Awarding Sub Agency",
+        "Transaction Description",
+        "PSC",
+        "NAICS"
+      ],
+      "page": 1,
+      "limit": 100,
+      "sort": "Transaction Amount",
+      "order": "desc",
+      "prior_response_summary": {
+        "http_status": 200,
+        "result_count": 100,
+        "hasNext": true
+      },
+      "provenance_limit": "This earlier successful result is available only as a selected-row summary in the runtime context; the complete response body and exact retrieval timestamp were not preserved locally. Treat these rows as screening leads, not independently revalidated source records."
+    },
+    "selected_transaction_leads": [
+      {
+        "award_id": "89233126FNA400754",
+        "recipient": "THUNDERCAT TECHNOLOGY, LLC",
+        "agency": "Department of Energy / National Nuclear Security Administration",
+        "modification_number": "P00001",
+        "action_date": "2026-05-12",
+        "reported_transaction_amount": 9924171.0,
+        "transaction_description": "CROWDSTRIKE FALCON AND FALCON COMPLETE LICENSES",
+        "interpretation_limit": "Action-level screening observation only; no raw body locally preserved, no quantities/CLIN/unit prices; not vendor revenue or market size."
+      },
+      {
+        "award_id": "15JPSS23F00000692",
+        "recipient": "THUNDERCAT TECHNOLOGY, LLC",
+        "agency": "Department of Justice",
+        "modification_number": "P00016",
+        "action_date": "2025-12-02",
+        "reported_transaction_amount": 4649687.97,
+        "transaction_description": "Annual renewal of CrowdStrike software licenses and support",
+        "interpretation_limit": "Description and amount are a screening lead pending replay; does not establish license count, unit price, private demand, recognized revenue or annual recurring revenue."
+      },
+      {
+        "award_id": "2033H624F00068",
+        "recipient": "FCN, INC.",
+        "agency": "Department of the Treasury / Bureau of the Fiscal Service",
+        "modification_number": "P00008",
+        "action_date": "2026-01-21",
+        "reported_transaction_amount": 1701003.89,
+        "transaction_description": "EXERCISE OPTION PERIOD TWO AND ADD IN SCOPE SERVICES",
+        "interpretation_limit": "Description indicates option-period-two exercise and in-scope services at transaction level; does not by itself identify which portion concerns CrowdStrike or prove additional licenses."
+      }
+    ],
+    "replay_attempts": {
+      "endpoint": "https://api.usaspending.gov/api/v2/search/spending_by_transaction/",
+      "date_utc": "2026-11-06",
+      "attempt_count": 2,
+      "http_statuses": [
+        503,
+        503
+      ],
+      "requests": [
+        "exact award_ids for all three leads, award_type_codes C; selected transaction fields; page 1, limit 100",
+        "exact DOJ award ID 15JPSS23F00000692, type C; fields Award ID/Mod/Action Date/Transaction Amount/Awarding Agency/Transaction Description; page 1, limit 10"
+      ],
+      "timestamp_note": "Exact probe timestamps were not logged. Both calls failed before returning records; no claim that records are unavailable or nonexistent."
+    },
+    "official_corroboration": [
+      {
+        "url": "https://fr.fiscal.treasury.gov/files/doing-business-with-fiscal-service/ARC-FSA.pdf",
+        "source_type": "official Treasury Fiscal Service contract list",
+        "observed_at_utc": "2026-11-06T21:45:23Z",
+        "supports": "The list names FCN Inc., award 2033H624F00068, description “Crowdstrike products and services,” and status “Excepted or Exempt - Work Continues.” It does not show P00008 amount or item-level scope."
+      },
+      {
+        "url": "https://www.governmentcontracts.us/government-contracts/opportunity-details/78853974975300159.htm?searchText=computer",
+        "source_type": "secondary mirror of an official SAM award notice; page disclaims that it is official public notice",
+        "observed_at_utc": "2026-11-06T21:45:23Z",
+        "supports": "DOE/NNSA award 89233126FNA400754, Thundercat recipient, award date Jan 6 2026 and description Falcon/Falcon Complete licenses; this is the original award notice, not P00001 validation."
+      },
+      {
+        "url": "https://github.com/fedspendingtransparency/usaspending-api/blob/master/usaspending_api/api_contracts/contracts/v2/search/spending_by_transaction.md",
+        "source_type": "official USAspending API contract",
+        "supports": "POST endpoint accepts filters/fields, paging, and result sort; used only for method/query provenance, not to validate selected transaction rows."
+      }
+    ],
+    "role_synthesis": {
+      "planner": "Keep the three exact-PIID actions as narrow public-procurement signals; DOE license wording is not CLIN/quantity evidence, and Treasury in-scope services are not necessarily added licenses.",
+      "developer": "Treat reported amounts as action-level transaction amounts; the full first-page response is absent and two targeted replays returned 503, so fetch complete award histories before upgrading confidence.",
+      "marketer": "Federal purchase/renewal language does not establish private-buyer pain, WTP, TAM, vendor-recognized revenue, or recurring revenue.",
+      "operator": "Preserve original filter/page/sort metadata and source links; distinguish official Treasury record, secondary SAM-notice mirror, summarized API leads, and failed replay."
+    },
+    "next_evidence_leaf": "Re-fetch and save full award-detail plus transaction-history responses for 89233126FNA400754, 15JPSS23F00000692, and 2033H624F00068 when the official USAspending API responds; reconcile dates, modification amounts/descriptions, parent awards, and period of performance. If API remains unavailable, check official SAM/agency routes and record exact access status; do not infer missing records or line items."
+  }
 }
