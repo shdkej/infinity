@@ -3537,5 +3537,686 @@
       }
     ],
     "interpretation": "The SAM opportunity search page returned the JavaScript shell (HTTP 200); API routes tried from this runtime returned HTTP 404. GSA documents describe account/API-key prerequisites, but the 404s do not prove an attachment is unavailable or absent. No direct official amendment/attachment document was located in this run; contents, CLIN, SKU, quantity, and unit price remain unverified."
+  },
+  "distinct_buyer_security_purchase_20261106T2334Z": {
+    "retrieved_at_utc": "2026-11-06T23:34:24Z",
+    "server_date_header": "Fri, 06 Nov 2026 23:34:24 GMT",
+    "method": "POST",
+    "endpoint": "https://api.usaspending.gov/api/v2/search/spending_by_transaction/",
+    "request": {
+      "filters": {
+        "keywords": [
+          "SentinelOne"
+        ],
+        "award_type_codes": [
+          "C"
+        ]
+      },
+      "fields": [
+        "Award ID",
+        "Mod",
+        "Recipient Name",
+        "Action Date",
+        "Transaction Amount",
+        "Awarding Agency",
+        "Awarding Sub Agency",
+        "Transaction Description",
+        "PSC",
+        "NAICS"
+      ],
+      "page": 1,
+      "limit": 100,
+      "sort": "Transaction Amount",
+      "order": "desc"
+    },
+    "http_status": 200,
+    "response_body": {
+      "limit": 100,
+      "results": [
+        {
+          "Award ID": "89233126FNA400756",
+          "Mod": "0",
+          "Recipient Name": "THUNDERCAT TECHNOLOGY, LLC",
+          "Action Date": "2026-01-16",
+          "Transaction Amount": 5087160.0,
+          "Awarding Agency": "Department of Energy",
+          "Awarding Sub Agency": "Department of Energy",
+          "Transaction Description": "SENTINELONE LICENSES",
+          "PSC": {
+            "code": "7A21",
+            "description": "IT AND TELECOM - BUSINESS APPLICATION SOFTWARE (PERPETUAL LICENSE SOFTWARE)"
+          },
+          "NAICS": {
+            "code": "541519",
+            "description": "OTHER COMPUTER RELATED SERVICES"
+          },
+          "generated_internal_id": "CONT_AWD_89233126FNA400756_8900_NNG15SC92B_8000",
+          "internal_id": 354360819
+        },
+        {
+          "Award ID": "80TECH26FA015",
+          "Mod": "0",
+          "Recipient Name": "THUNDERCAT TECHNOLOGY, LLC",
+          "Action Date": "2025-12-11",
+          "Transaction Amount": 3366493.98,
+          "Awarding Agency": "National Aeronautics and Space Administration",
+          "Awarding Sub Agency": "National Aeronautics and Space Administration",
+          "Transaction Description": "THIS DELIVERY ORDER IS FOR SENTINELONE LICENSING SUBSCRIPTION AND DATA RETENTION PER QUOTE JF127752 DATED 11/17/2025.",
+          "PSC": {
+            "code": "DA10",
+            "description": "IT AND TELECOM - BUSINESS APPLICATION/APPLICATION DEVELOPMENT SOFTWARE AS A SERVICE"
+          },
+          "NAICS": {
+            "code": "541519",
+            "description": "OTHER COMPUTER RELATED SERVICES"
+          },
+          "generated_internal_id": "CONT_AWD_80TECH26FA015_8000_NNG15SC92B_8000",
+          "internal_id": 353476396
+        },
+        {
+          "Award ID": "80NSSC24FA251",
+          "Mod": "0",
+          "Recipient Name": "THUNDERCAT TECHNOLOGY, LLC",
+          "Action Date": "2024-01-29",
+          "Transaction Amount": 1232330.0,
+          "Awarding Agency": "National Aeronautics and Space Administration",
+          "Awarding Sub Agency": "National Aeronautics and Space Administration",
+          "Transaction Description": "THIS IS A TASK ORDER FOR SENTINELONE LICENSING SUBSCRIPTION AND DATA RETENTION. QUOTE JF083318 V2.1 01/11/2024  PERIOD OF PERFORMANCE: THE BASE PERIOD OF COVERAGE IS 09/28/2023 TO DATE OF AWARD THE PERIOD OF PERFORMANCE IS DATE OF AWARD TO 09/27/2024",
+          "PSC": {
+            "code": "DA10",
+            "description": "IT AND TELECOM - BUSINESS APPLICATION/APPLICATION DEVELOPMENT SOFTWARE AS A SERVICE"
+          },
+          "NAICS": {
+            "code": "541519",
+            "description": "OTHER COMPUTER RELATED SERVICES"
+          },
+          "generated_internal_id": "CONT_AWD_80NSSC24FA251_8000_NNG15SD26B_8000",
+          "internal_id": 291845150
+        },
+        {
+          "Award ID": "15M10326FA4700320",
+          "Mod": "P00001",
+          "Recipient Name": "GOVSMART, INC.",
+          "Action Date": "2026-11-03",
+          "Transaction Amount": 320580.0,
+          "Awarding Agency": "Department of Justice",
+          "Awarding Sub Agency": "U.S. Marshals Service",
+          "Transaction Description": "THIS IS A REQUEST TO RENEW SENTINELONE (S1) SINGULARITY PLATFORM TO INCLUDE ENDPOINT DATA GATEWAY (EDG) AND MOBILE DEFENSE FOR THE PO NETWORKS. THE RENEWAL POP:  10/14/2026 TO 10/13/2027",
+          "PSC": {
+            "code": "7G21",
+            "description": "IT AND TELECOM - NETWORK: DIGITAL NETWORK PRODUCTS (HARDWARE AND PERPETUAL LICENSE SOFTWARE)"
+          },
+          "NAICS": {
+            "code": "541519",
+            "description": "OTHER COMPUTER RELATED SERVICES"
+          },
+          "generated_internal_id": "CONT_AWD_15M10326FA4700320_1544_NNG15SD11B_8000",
+          "internal_id": 363066381
+        },
+        {
+          "Award ID": "75N98025F00004",
+          "Mod": "P00002",
+          "Recipient Name": "PANAMERICA COMPUTERS, INC.",
+          "Action Date": "2026-09-28",
+          "Transaction Amount": 184900.33,
+          "Awarding Agency": "Department of Health and Human Services",
+          "Awarding Sub Agency": "National Institutes of Health",
+          "Transaction Description": "SENTINELONE SOFTWARE & SUPPORT RENEWAL OPTION PERIOD 2 PERIOD OF PERFORMANCE: 09/30/26--9/29/27",
+          "PSC": {
+            "code": "H370",
+            "description": "INSPECTION- ADP EQUIPMENT/SOFTWARE/SUPPLIES/SUPPORT EQUIPMENT"
+          },
+          "NAICS": {
+            "code": "541519",
+            "description": "OTHER COMPUTER RELATED SERVICES"
+          },
+          "generated_internal_id": "CONT_AWD_75N98025F00004_7529_HHSN316201500030W_7529",
+          "internal_id": 291653600
+        },
+        {
+          "Award ID": "75N98025F00004",
+          "Mod": "P00001",
+          "Recipient Name": "PANAMERICA COMPUTERS, INC.",
+          "Action Date": "2025-09-16",
+          "Transaction Amount": 118723.62,
+          "Awarding Agency": "Department of Health and Human Services",
+          "Awarding Sub Agency": "National Institutes of Health",
+          "Transaction Description": "PANAMERICA COMPUTERS INC:1108918 [25-000656] - SENTINELONE SOFTWARE & SUPPORT BASE 09/30/25--9/29/26",
+          "PSC": {
+            "code": "H370",
+            "description": "INSPECTION- ADP EQUIPMENT/SOFTWARE/SUPPLIES/SUPPORT EQUIPMENT"
+          },
+          "NAICS": {
+            "code": "541519",
+            "description": "OTHER COMPUTER RELATED SERVICES"
+          },
+          "generated_internal_id": "CONT_AWD_75N98025F00004_7529_HHSN316201500030W_7529",
+          "internal_id": 291653600
+        },
+        {
+          "Award ID": "80NSSC23FA532",
+          "Mod": "0",
+          "Recipient Name": "THUNDERCAT TECHNOLOGY, LLC",
+          "Action Date": "2023-05-09",
+          "Transaction Amount": 113781.25,
+          "Awarding Agency": "National Aeronautics and Space Administration",
+          "Awarding Sub Agency": "National Aeronautics and Space Administration",
+          "Transaction Description": "SENTINELONE UNIVERSITY TRAINING PACKS",
+          "PSC": {
+            "code": "DA01",
+            "description": "IT AND TELECOM - BUSINESS APPLICATION/APPLICATION DEVELOPMENT SUPPORT SERVICES (LABOR)"
+          },
+          "NAICS": {
+            "code": "541519",
+            "description": "OTHER COMPUTER RELATED SERVICES"
+          },
+          "generated_internal_id": "CONT_AWD_80NSSC23FA532_8000_NNG15SD26B_8000",
+          "internal_id": 291841581
+        },
+        {
+          "Award ID": "20341425F00017",
+          "Mod": "0",
+          "Recipient Name": "INTEGRATION TECHNOLOGIES GROUP, INC.",
+          "Action Date": "2025-03-26",
+          "Transaction Amount": 62121.32,
+          "Awarding Agency": "Department of the Treasury",
+          "Awarding Sub Agency": "Bureau of the Fiscal Service",
+          "Transaction Description": "SENTINELONE ATTIVO THREATDETECTION, THREATPATH, AND THREATSTRIKE SUITE OF SOFTWARE FOR MANAGED ENDPOINTS AND HONEYPOT PROFILES.",
+          "PSC": {
+            "code": "7J20",
+            "description": "IT AND TELECOM - SECURITY AND COMPLIANCE PRODUCTS (HARDWARE AND PERPETUAL LICENSE SOFTWARE)"
+          },
+          "NAICS": {
+            "code": "541519",
+            "description": "OTHER COMPUTER RELATED SERVICES"
+          },
+          "generated_internal_id": "CONT_AWD_20341425F00017_2036_NNG15SC79B_8000",
+          "internal_id": 279037327
+        },
+        {
+          "Award ID": "6913G619F500157",
+          "Mod": "0",
+          "Recipient Name": "EPOCH CONCEPTS LLC",
+          "Action Date": "2019-09-13",
+          "Transaction Amount": 51000.0,
+          "Awarding Agency": "Department of Transportation",
+          "Awarding Sub Agency": "Immediate Office of the Secretary of Transportation",
+          "Transaction Description": "SENTINELONE DNDPOINT PROTECTION AND ENDPOINT DETECTION AND RESPONSE SOLUTION LICENSES",
+          "PSC": {
+            "code": "7030",
+            "description": "INFORMATION TECHNOLOGY SOFTWARE"
+          },
+          "NAICS": {
+            "code": "541519",
+            "description": "OTHER COMPUTER RELATED SERVICES"
+          },
+          "generated_internal_id": "CONT_AWD_6913G619F500157_6901_NNG15SD30B_8000",
+          "internal_id": 291028477
+        },
+        {
+          "Award ID": "80NSSC24FA251",
+          "Mod": "P00001",
+          "Recipient Name": "THUNDERCAT TECHNOLOGY, LLC",
+          "Action Date": "2024-06-25",
+          "Transaction Amount": 0.0,
+          "Awarding Agency": "National Aeronautics and Space Administration",
+          "Awarding Sub Agency": "National Aeronautics and Space Administration",
+          "Transaction Description": "THIS IS A TASK ORDER FOR SENTINELONE LICENSING SUBSCRIPTION AND DATA RETENTION. QUOTE JF083318 V2.1 01/11/2024  PERIOD OF PERFORMANCE: THE BASE PERIOD OF COVERAGE IS 09/28/2023 TO DATE OF AWARD THE PERIOD OF PERFORMANCE IS DATE OF AWARD TO 09/27/2024",
+          "PSC": {
+            "code": "DA10",
+            "description": "IT AND TELECOM - BUSINESS APPLICATION/APPLICATION DEVELOPMENT SOFTWARE AS A SERVICE"
+          },
+          "NAICS": {
+            "code": "541519",
+            "description": "OTHER COMPUTER RELATED SERVICES"
+          },
+          "generated_internal_id": "CONT_AWD_80NSSC24FA251_8000_NNG15SD26B_8000",
+          "internal_id": 291845150
+        },
+        {
+          "Award ID": "80TECH26FA015",
+          "Mod": "P00002",
+          "Recipient Name": "THUNDERCAT TECHNOLOGY, LLC",
+          "Action Date": "2026-05-20",
+          "Transaction Amount": 0.0,
+          "Awarding Agency": "National Aeronautics and Space Administration",
+          "Awarding Sub Agency": "National Aeronautics and Space Administration",
+          "Transaction Description": "THIS DELIVERY ORDER IS FOR SENTINELONE LICENSING SUBSCRIPTION AND DATA RETENTION PER QUOTE JF127752 DATED 11/17/2025.",
+          "PSC": {
+            "code": "DA10",
+            "description": "IT AND TELECOM - BUSINESS APPLICATION/APPLICATION DEVELOPMENT SOFTWARE AS A SERVICE"
+          },
+          "NAICS": {
+            "code": "541519",
+            "description": "OTHER COMPUTER RELATED SERVICES"
+          },
+          "generated_internal_id": "CONT_AWD_80TECH26FA015_8000_NNG15SC92B_8000",
+          "internal_id": 353476396
+        },
+        {
+          "Award ID": "89233126FNA400756",
+          "Mod": "P00001",
+          "Recipient Name": "THUNDERCAT TECHNOLOGY, LLC",
+          "Action Date": "2026-09-04",
+          "Transaction Amount": 0.0,
+          "Awarding Agency": "Department of Energy",
+          "Awarding Sub Agency": "Department of Energy",
+          "Transaction Description": "SENTINELONE LICENSES",
+          "PSC": {
+            "code": "7A21",
+            "description": "IT AND TELECOM - BUSINESS APPLICATION SOFTWARE (PERPETUAL LICENSE SOFTWARE)"
+          },
+          "NAICS": {
+            "code": "541519",
+            "description": "OTHER COMPUTER RELATED SERVICES"
+          },
+          "generated_internal_id": "CONT_AWD_89233126FNA400756_8900_NNG15SC92B_8000",
+          "internal_id": 354360819
+        },
+        {
+          "Award ID": "80TECH26FA015",
+          "Mod": "P00001",
+          "Recipient Name": "THUNDERCAT TECHNOLOGY, LLC",
+          "Action Date": "2025-12-17",
+          "Transaction Amount": 0.0,
+          "Awarding Agency": "National Aeronautics and Space Administration",
+          "Awarding Sub Agency": "National Aeronautics and Space Administration",
+          "Transaction Description": "THIS DELIVERY ORDER IS FOR SENTINELONE LICENSING SUBSCRIPTION AND DATA RETENTION PER QUOTE JF127752 DATED 11/17/2025.",
+          "PSC": {
+            "code": "DA10",
+            "description": "IT AND TELECOM - BUSINESS APPLICATION/APPLICATION DEVELOPMENT SOFTWARE AS A SERVICE"
+          },
+          "NAICS": {
+            "code": "541519",
+            "description": "OTHER COMPUTER RELATED SERVICES"
+          },
+          "generated_internal_id": "CONT_AWD_80TECH26FA015_8000_NNG15SC92B_8000",
+          "internal_id": 353476396
+        },
+        {
+          "Award ID": "15M10326FA4700320",
+          "Mod": "0",
+          "Recipient Name": "GOVSMART, INC.",
+          "Action Date": "2026-09-29",
+          "Transaction Amount": 0.0,
+          "Awarding Agency": "Department of Justice",
+          "Awarding Sub Agency": "U.S. Marshals Service",
+          "Transaction Description": "THIS IS A REQUEST TO RENEW SENTINELONE (S1) SINGULARITY PLATFORM TO INCLUDE ENDPOINT DATA GATEWAY (EDG) AND MOBILE DEFENSE FOR THE PO NETWORKS.  THE RENEWAL POP:  10/14/2026 TO 10/13/2027",
+          "PSC": {
+            "code": "7G21",
+            "description": "IT AND TELECOM - NETWORK: DIGITAL NETWORK PRODUCTS (HARDWARE AND PERPETUAL LICENSE SOFTWARE)"
+          },
+          "NAICS": {
+            "code": "541519",
+            "description": "OTHER COMPUTER RELATED SERVICES"
+          },
+          "generated_internal_id": "CONT_AWD_15M10326FA4700320_1544_NNG15SD11B_8000",
+          "internal_id": 363066381
+        }
+      ],
+      "page_metadata": {
+        "page": 1,
+        "next": null,
+        "previous": null,
+        "hasNext": false,
+        "hasPrevious": false
+      },
+      "messages": [
+        "For searches, time period start and end dates are currently limited to an earliest date of 2007-10-01.  For data going back to 2000-10-01, use either the Custom Award Download feature on the website or one of our download or bulk_download API endpoints as listed on https://api.usaspending.gov/docs/endpoints. ",
+        "The following filters from the request were not used: {'keyword_search'}. See https://api.usaspending.gov/docs/endpoints for a list of appropriate filters"
+      ]
+    },
+    "selected_awards": [
+      {
+        "piid": "80TECH26FA015",
+        "generated_unique_award_id": "CONT_AWD_80TECH26FA015_8000_NNG15SC92B_8000",
+        "search_row": {
+          "Award ID": "80TECH26FA015",
+          "Mod": "0",
+          "Recipient Name": "THUNDERCAT TECHNOLOGY, LLC",
+          "Action Date": "2025-12-11",
+          "Transaction Amount": 3366493.98,
+          "Awarding Agency": "National Aeronautics and Space Administration",
+          "Awarding Sub Agency": "National Aeronautics and Space Administration",
+          "Transaction Description": "THIS DELIVERY ORDER IS FOR SENTINELONE LICENSING SUBSCRIPTION AND DATA RETENTION PER QUOTE JF127752 DATED 11/17/2025.",
+          "PSC": {
+            "code": "DA10",
+            "description": "IT AND TELECOM - BUSINESS APPLICATION/APPLICATION DEVELOPMENT SOFTWARE AS A SERVICE"
+          },
+          "NAICS": {
+            "code": "541519",
+            "description": "OTHER COMPUTER RELATED SERVICES"
+          },
+          "generated_internal_id": "CONT_AWD_80TECH26FA015_8000_NNG15SC92B_8000",
+          "internal_id": 353476396
+        },
+        "award_detail": {
+          "retrieved_at_utc": "2026-11-06T23:34:25Z",
+          "server_date_header": "Fri, 06 Nov 2026 23:34:25 GMT",
+          "http_status": 200,
+          "endpoint": "https://api.usaspending.gov/api/v2/awards/CONT_AWD_80TECH26FA015_8000_NNG15SC92B_8000/",
+          "response_body": {
+            "id": 353476396,
+            "generated_unique_award_id": "CONT_AWD_80TECH26FA015_8000_NNG15SC92B_8000",
+            "piid": "80TECH26FA015",
+            "category": "contract",
+            "type": "C",
+            "type_description": "DELIVERY ORDER",
+            "description": "THIS DELIVERY ORDER IS FOR SENTINELONE LICENSING SUBSCRIPTION AND DATA RETENTION PER QUOTE JF127752 DATED 11/17/2025.",
+            "total_obligation": 3366493.98,
+            "subaward_count": 0,
+            "total_subaward_amount": null,
+            "date_signed": "2025-12-11",
+            "base_exercised_options": 3366493.98,
+            "base_and_all_options": 3366493.98,
+            "total_account_outlay": 3366493.98,
+            "total_account_obligation": 3366493.98,
+            "account_outlays_by_defc": [
+              {
+                "code": "Q",
+                "amount": 3366493.98
+              }
+            ],
+            "account_obligations_by_defc": [
+              {
+                "code": "Q",
+                "amount": 3366493.98
+              }
+            ],
+            "parent_award": {
+              "agency_id": 862,
+              "agency_name": "National Aeronautics and Space Administration",
+              "agency_slug": "national-aeronautics-and-space-administration",
+              "sub_agency_id": "8000",
+              "sub_agency_name": "National Aeronautics and Space Administration",
+              "award_id": 351431332,
+              "generated_unique_award_id": "CONT_IDV_NNG15SC92B_8000",
+              "idv_type_description": "GWAC",
+              "multiple_or_single_aw_desc": "MULTIPLE AWARD",
+              "piid": "NNG15SC92B",
+              "type_of_idc_description": null
+            },
+            "latest_transaction_contract_data": {
+              "idv_type_description": null,
+              "type_of_idc_description": null,
+              "referenced_idv_agency_iden": "8000",
+              "referenced_idv_agency_desc": "NATIONAL AERONAUTICS AND SPACE ADMINISTRATION",
+              "solicitation_identifier": "80TECH26QA010",
+              "solicitation_procedures": "MAFO",
+              "number_of_offers_received": "1",
+              "extent_competed": "D",
+              "type_set_aside": "SBA",
+              "type_set_aside_description": "SMALL BUSINESS SET ASIDE - TOTAL",
+              "evaluated_preference": "NONE",
+              "fed_biz_opps": "Y",
+              "fed_biz_opps_description": "YES",
+              "small_business_competitive": false,
+              "product_or_service_code": "DA10",
+              "naics": "541519",
+              "naics_description": "OTHER COMPUTER RELATED SERVICES",
+              "sea_transportation": null,
+              "clinger_cohen_act_planning": "N",
+              "labor_standards": "X",
+              "cost_or_pricing_data": null,
+              "domestic_or_foreign_entity": "A",
+              "foreign_funding": "X",
+              "major_program": null,
+              "program_acronym": null,
+              "subcontracting_plan": "B",
+              "multi_year_contract": null,
+              "consolidated_contract": "D",
+              "type_of_contract_pricing": "J",
+              "national_interest_action": null,
+              "multiple_or_single_award_description": null,
+              "solicitation_procedures_description": "SUBJECT TO MULTIPLE AWARD FAIR OPPORTUNITY",
+              "extent_competed_description": "FULL AND OPEN COMPETITION AFTER EXCLUSION OF SOURCES",
+              "other_than_full_and_open": null,
+              "other_than_full_and_open_description": null,
+              "commercial_item_acquisition": "A",
+              "commercial_item_acquisition_description": "COMMERCIAL PRODUCTS/SERVICES",
+              "commercial_item_test_program": "N",
+              "commercial_item_test_program_description": "NO",
+              "evaluated_preference_description": "NO PREFERENCE USED",
+              "fair_opportunity_limited": "CSA",
+              "fair_opportunity_limited_description": "COMPETITIVE SET ASIDE",
+              "product_or_service_description": "IT AND TELECOM - BUSINESS APPLICATION/APPLICATION DEVELOPMENT SOFTWARE AS A SERVICE",
+              "dod_claimant_program": null,
+              "dod_claimant_program_description": null,
+              "dod_acquisition_program": null,
+              "dod_acquisition_program_description": null,
+              "information_technology_commercial_item_category": null,
+              "information_technology_commercial_item_category_description": null,
+              "sea_transportation_description": null,
+              "clinger_cohen_act_planning_description": "NO",
+              "construction_wage_rate": "X",
+              "construction_wage_rate_description": "NOT APPLICABLE",
+              "labor_standards_description": "NOT APPLICABLE",
+              "materials_supplies": "X",
+              "materials_supplies_description": "NOT APPLICABLE",
+              "cost_or_pricing_data_description": null,
+              "domestic_or_foreign_entity_description": "U.S. OWNED BUSINESS",
+              "foreign_funding_description": "NOT APPLICABLE",
+              "interagency_contracting_authority": "X",
+              "interagency_contracting_authority_description": "NOT APPLICABLE",
+              "price_evaluation_adjustment": null,
+              "subcontracting_plan_description": "PLAN NOT REQUIRED",
+              "multi_year_contract_description": null,
+              "purchase_card_as_payment_method": "N",
+              "purchase_card_as_payment_method_description": "NO",
+              "consolidated_contract_description": "NOT CONSOLIDATED",
+              "type_of_contract_pricing_description": "FIRM FIXED PRICE",
+              "national_interest_action_description": null
+            },
+            "funding_agency": {
+              "id": 862,
+              "has_agency_page": true,
+              "toptier_agency": {
+                "name": "National Aeronautics and Space Administration",
+                "code": "080",
+                "abbreviation": "NASA",
+                "slug": "national-aeronautics-and-space-administration"
+              },
+              "subtier_agency": {
+                "name": "National Aeronautics and Space Administration",
+                "code": "8000",
+                "abbreviation": "NASA"
+              },
+              "office_agency_name": "NASA IT PROCUREMENT OFFICE"
+            },
+            "awarding_agency": {
+              "id": 862,
+              "has_agency_page": true,
+              "toptier_agency": {
+                "name": "National Aeronautics and Space Administration",
+                "code": "080",
+                "abbreviation": "NASA",
+                "slug": "national-aeronautics-and-space-administration"
+              },
+              "subtier_agency": {
+                "name": "National Aeronautics and Space Administration",
+                "code": "8000",
+                "abbreviation": "NASA"
+              },
+              "office_agency_name": "NASA IT PROCUREMENT OFFICE"
+            },
+            "period_of_performance": {
+              "start_date": "2025-12-11",
+              "end_date": "2026-10-31",
+              "last_modified_date": "2026-05-21",
+              "potential_end_date": "2026-10-31 00:00:00"
+            },
+            "recipient": {
+              "recipient_hash": "dbceb126-f729-60e7-d55a-ba235f519653-C",
+              "recipient_name": "THUNDERCAT TECHNOLOGY, LLC",
+              "recipient_uei": "UER4AJLUB8D5",
+              "recipient_unique_id": null,
+              "parent_recipient_hash": "04e54f04-2944-44e2-2897-258c898cbf3c-P",
+              "parent_recipient_name": "THUNDERCAT TECHNOLOGY  LLC",
+              "parent_recipient_uei": "S2SKMY4U8KH5",
+              "parent_recipient_unique_id": null,
+              "business_categories": [
+                "Category Business",
+                "Corporate Entity Not Tax Exempt",
+                "Limited Liability Corporation",
+                "Service Disabled Veteran Owned Business",
+                "Small Business",
+                "Special Designations",
+                "U.S.-Owned Business",
+                "Veteran Owned Business"
+              ],
+              "location": {
+                "location_country_code": "USA",
+                "country_name": "UNITED STATES",
+                "state_code": "VA",
+                "state_name": "VIRGINIA",
+                "city_name": "RESTON",
+                "county_code": "059",
+                "county_name": "FAIRFAX",
+                "address_line1": "11190 SUNRISE VALLEY DR STE 200",
+                "address_line2": null,
+                "address_line3": null,
+                "congressional_code": "11",
+                "zip4": "4393",
+                "zip5": "20191",
+                "foreign_postal_code": null,
+                "foreign_province": null
+              }
+            },
+            "executive_details": {
+              "officers": [
+                {
+                  "name": null,
+                  "amount": null
+                },
+                {
+                  "name": null,
+                  "amount": null
+                },
+                {
+                  "name": null,
+                  "amount": null
+                },
+                {
+                  "name": null,
+                  "amount": null
+                },
+                {
+                  "name": null,
+                  "amount": null
+                }
+              ]
+            },
+            "place_of_performance": {
+              "location_country_code": "USA",
+              "country_name": "UNITED STATES",
+              "county_code": "059",
+              "county_name": "FAIRFAX",
+              "city_name": "RESTON",
+              "state_code": "VA",
+              "state_name": "VIRGINIA",
+              "congressional_code": "11",
+              "zip4": "4392",
+              "zip5": "20191",
+              "address_line1": null,
+              "address_line2": null,
+              "address_line3": null,
+              "foreign_province": null,
+              "foreign_postal_code": null
+            },
+            "psc_hierarchy": {
+              "toptier_code": {
+                "code": "D",
+                "description": "IT AND TELECOM - INFORMATION TECHNOLOGY AND TELECOMMUNICATIONS"
+              },
+              "midtier_code": {
+                "code": "DA",
+                "description": "IT AND TELECOM - APLLICATIONS"
+              },
+              "subtier_code": {},
+              "base_code": {
+                "code": "DA10",
+                "description": "IT AND TELECOM - BUSINESS APPLICATION/APPLICATION DEVELOPMENT SOFTWARE AS A SERVICE"
+              }
+            },
+            "naics_hierarchy": {
+              "toptier_code": {
+                "code": "54",
+                "description": "Professional, Scientific, and Technical Services"
+              },
+              "midtier_code": {
+                "code": "5415",
+                "description": "Computer Systems Design and Related Services"
+              },
+              "base_code": {
+                "code": "541519",
+                "description": "Other Computer Related Services"
+              }
+            },
+            "total_outlay": 3366493.98
+          }
+        },
+        "transaction_history": {
+          "retrieved_at_utc": "2026-11-06T23:34:25Z",
+          "server_date_header": "Fri, 06 Nov 2026 23:34:25 GMT",
+          "http_status": 200,
+          "endpoint": "https://api.usaspending.gov/api/v2/transactions/",
+          "request": {
+            "award_id": "CONT_AWD_80TECH26FA015_8000_NNG15SC92B_8000",
+            "page": 1,
+            "limit": 100
+          },
+          "response_body": {
+            "page_metadata": {
+              "page": 1,
+              "next": null,
+              "previous": null,
+              "hasNext": false,
+              "hasPrevious": false
+            },
+            "results": [
+              {
+                "id": "CONT_TX_8000_8000_80TECH26FA015_P00002_NNG15SC92B_0",
+                "type": "C",
+                "type_description": "DELIVERY ORDER",
+                "action_date": "2026-05-20",
+                "action_type": "M",
+                "action_type_description": "OTHER ADMINISTRATIVE ACTION",
+                "modification_number": "P00002",
+                "description": "THIS DELIVERY ORDER IS FOR SENTINELONE LICENSING SUBSCRIPTION AND DATA RETENTION PER QUOTE JF127752 DATED 11/17/2025.",
+                "federal_action_obligation": 0.0,
+                "face_value_loan_guarantee": 0.0,
+                "original_loan_subsidy_cost": 0.0
+              },
+              {
+                "id": "CONT_TX_8000_8000_80TECH26FA015_P00001_NNG15SC92B_0",
+                "type": "C",
+                "type_description": "DELIVERY ORDER",
+                "action_date": "2025-12-17",
+                "action_type": "M",
+                "action_type_description": "OTHER ADMINISTRATIVE ACTION",
+                "modification_number": "P00001",
+                "description": "THIS DELIVERY ORDER IS FOR SENTINELONE LICENSING SUBSCRIPTION AND DATA RETENTION PER QUOTE JF127752 DATED 11/17/2025.",
+                "federal_action_obligation": 0.0,
+                "face_value_loan_guarantee": 0.0,
+                "original_loan_subsidy_cost": 0.0
+              },
+              {
+                "id": "CONT_TX_8000_8000_80TECH26FA015_0_NNG15SC92B_0",
+                "type": "C",
+                "type_description": "DELIVERY ORDER",
+                "action_date": "2025-12-11",
+                "action_type": null,
+                "action_type_description": null,
+                "modification_number": "0",
+                "description": "THIS DELIVERY ORDER IS FOR SENTINELONE LICENSING SUBSCRIPTION AND DATA RETENTION PER QUOTE JF127752 DATED 11/17/2025.",
+                "federal_action_obligation": 3366493.98,
+                "face_value_loan_guarantee": 0.0,
+                "original_loan_subsidy_cost": 0.0
+              }
+            ]
+          }
+        }
+      }
+    ]
   }
 }
