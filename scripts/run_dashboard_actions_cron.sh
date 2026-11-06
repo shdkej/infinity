@@ -27,7 +27,7 @@ EXIT_CODE=$?
 
 if [[ "$EXIT_CODE" -eq 0 ]] && ! git -C "$ROOT" diff --quiet -- INTENTS.yaml artifacts/dashboard-actions intents/archive; then
   git -C "$ROOT" add INTENTS.yaml artifacts/dashboard-actions intents/archive
-  git -C "$ROOT" commit -m "chore(infinity): persist dashboard action transition" >/dev/null 2>&1 || fail "could not commit dashboard action transition"
+  git -C "$ROOT" commit --only -m "chore(infinity): persist dashboard action transition" -- INTENTS.yaml artifacts/dashboard-actions intents/archive >/dev/null 2>&1 || fail "could not commit dashboard action transition"
   git -C "$ROOT" push origin HEAD:main >/dev/null 2>&1 || fail "could not push dashboard action transition"
   PUSHED_SHA="$(git -C "$ROOT" rev-parse HEAD 2>/dev/null)" || fail "cannot resolve pushed HEAD"
   REMOTE_SHA="$(git -C "$ROOT" ls-remote origin refs/heads/main | awk '{print $1}')" || fail "cannot verify remote main"
