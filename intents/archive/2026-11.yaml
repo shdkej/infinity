@@ -67,7 +67,11 @@ archive:
   reports:
   - path: reports/research-us-it-opportunity-20261106/20261107T0303Z-final.html
     role: final
-  commits: []
+  commits:
+  - repo: infinity
+    sha: 91fd732c48bf8b8232ae5af2abc85920e5203b4c
+    note: Archive transition; archive remote verifier and live dashboard card check passed
+  remote_proof: artifacts/research-us-it-opportunity-20261106/work/remote-proof.txt
   urls: []
   next_action: No continuation
   next_actions:

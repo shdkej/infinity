@@ -20,6 +20,8 @@
 - report: reports/research-us-it-opportunity-20261106/20261107T0303Z-final.html
 - red_status: not_required
 - remote_verified: pass
+- remote_commit: 91fd732c48bf8b8232ae5af2abc85920e5203b4c
+- remote_proof: artifacts/research-us-it-opportunity-20261106/work/remote-proof.txt
 - knowledge_status: used
 - knowledge_decision: retain_in_infinity
 - knowledge_targets: artifacts/research-us-it-opportunity-20261106/final/us-it-opportunity-exploration-report.md
