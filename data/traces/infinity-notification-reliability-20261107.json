@@ -40,6 +40,42 @@
         "scripts/test_dispatch_terminal_notifications.py",
         "artifacts/infinity-dispatcher-notify/notification-contract.md"
       ]
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-729b91de396a4a3ebc0d0e6c546ad39d",
+      "canonical_sha": "91c9268847b1f0cabf075bd190366db9b57dc9d7",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-11-07T12:53:20Z",
+      "status": "accepted"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-19ee82d255914ae693e8d84bf0a99cc4",
+      "canonical_sha": "91c9268847b1f0cabf075bd190366db9b57dc9d7",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-11-07T13:03:20Z",
+      "status": "accepted"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-1104aad4d6284da6a39564a16d42d200",
+      "canonical_sha": "91c9268847b1f0cabf075bd190366db9b57dc9d7",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-11-07T13:12:32Z",
+      "status": "accepted"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-f79631086a1640739df1cb929e8566ae",
+      "canonical_sha": "e9ab19074583922e1ced36d99b5842902adb9538",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-11-07T13:22:29Z",
+      "status": "accepted"
     }
   ],
   "artifacts": [],

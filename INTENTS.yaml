@@ -78,10 +78,40 @@ lanes:
     next_action: 사용자가 작업범위를 선택해 Inbox 승격 여부를 결정한다.
     notification_channel: telegram
     notification_target: telegram:433493318
-  inbox:
+  inbox: []
+  waiting:
+  - id: watch-planner-5f612447d241eca5
+    title: 두 프로젝트의 고객 문의 채널과 전용 마케팅 지표 원천을 확정·연결한다
+    task_name: 두 프로젝트의 고객 문의 채널과 전용 마케팅 지표 원천을 확정·연결한다
+    status: waiting
+    priority: normal
+    task_type: planning_verification
+    target_agent: genie
+    watcher_role: planner
+    source: role-watcher:planner
+    signal: 5f612447d241eca5
+    evidence_paths:
+    - /home/ubuntu/workspace/projects/minimalmoeum/TASKS.md
+    - /home/ubuntu/workspace/projects/policycock/TASKS.md
+    created_at: '2026-10-25T23:27:28Z'
+    user_intent: 두 프로젝트에서 blocked 상태인 고객 문의 채널과 전용 마케팅 지표 원천을 확인한다.
+    desired_outcome: MM-001·PC-001의 정확한 채널·대시보드 경로·담당·검증 방법을 문서화해 blocked 상태를 해소한다.
+    out_of_scope: 계정 연결, 권한 부여, 시크릿 등록, 유료 집행, 외부 공개·발송
+    success_evidence: 두 프로젝트의 CHANNELS.md에 정확한 채널과 대시보드 경로가 기록되고 실제 접근 가능 여부가 확인된다.
+    representative_metric: 채널·대시보드 경로가 확인·문서화된 프로젝트 비율, 목표 100%
+    approval_boundary: 계정 연결·권한·시크릿·유료 집행·외부 발송은 사전 승인 후 진행
+    next_action: Planner가 두 프로젝트의 채널·지표 원천을 조사하고 승인 필요 항목을 분리한다.
+    waiting_on: external
+    blocker: 두 프로젝트의 고객 문의 관리 채널과 전용 마케팅 analytics 원천·대시보드가 로컬 문서와 공통 inbox에 없어 정확한
+      경로·접근 검증을 완료할 수 없음
+    retry_policy: autonomous
+    notification_channel: telegram
+    notification_target: telegram:433493318
+  active:
   - id: infinity-notification-reliability-20261107
     title: Infinity 알림 reconciler의 오류 로그와 실행 timeout을 보강한다
-    status: inbox
+    task_name: Infinity 알림 reconciler의 오류 로그와 실행 timeout을 보강한다
+    status: active
     priority: high
     task_type: maintenance
     target_agent: genie
@@ -114,36 +144,6 @@ lanes:
     next_action: Genie가 Planner·Developer·Marketer·Operator 관점으로 검토한 뒤 구조화 진단 로그와 bounded timeout을 구현하고 회귀 검증한다.
     notification_channel: telegram
     notification_target: telegram:433493318
-
-  waiting:
-  - id: watch-planner-5f612447d241eca5
-    title: 두 프로젝트의 고객 문의 채널과 전용 마케팅 지표 원천을 확정·연결한다
-    task_name: 두 프로젝트의 고객 문의 채널과 전용 마케팅 지표 원천을 확정·연결한다
-    status: waiting
-    priority: normal
-    task_type: planning_verification
-    target_agent: genie
-    watcher_role: planner
-    source: role-watcher:planner
-    signal: 5f612447d241eca5
-    evidence_paths:
-    - /home/ubuntu/workspace/projects/minimalmoeum/TASKS.md
-    - /home/ubuntu/workspace/projects/policycock/TASKS.md
-    created_at: '2026-10-25T23:27:28Z'
-    user_intent: 두 프로젝트에서 blocked 상태인 고객 문의 채널과 전용 마케팅 지표 원천을 확인한다.
-    desired_outcome: MM-001·PC-001의 정확한 채널·대시보드 경로·담당·검증 방법을 문서화해 blocked 상태를 해소한다.
-    out_of_scope: 계정 연결, 권한 부여, 시크릿 등록, 유료 집행, 외부 공개·발송
-    success_evidence: 두 프로젝트의 CHANNELS.md에 정확한 채널과 대시보드 경로가 기록되고 실제 접근 가능 여부가 확인된다.
-    representative_metric: 채널·대시보드 경로가 확인·문서화된 프로젝트 비율, 목표 100%
-    approval_boundary: 계정 연결·권한·시크릿·유료 집행·외부 발송은 사전 승인 후 진행
-    next_action: Planner가 두 프로젝트의 채널·지표 원천을 조사하고 승인 필요 항목을 분리한다.
-    waiting_on: external
-    blocker: 두 프로젝트의 고객 문의 관리 채널과 전용 마케팅 analytics 원천·대시보드가 로컬 문서와 공통 inbox에 없어 정확한
-      경로·접근 검증을 완료할 수 없음
-    retry_policy: autonomous
-    notification_channel: telegram
-    notification_target: telegram:433493318
-  active: []
   latest_cycle:
     cycle_id: backlog-triage-2026-10-29-role-watchers-r32
     source_revision: c25c14b01ee7af8d1f97021346279c8b77b684d3
