@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "intent_id": "infinity-notification-reliability-20261107",
-  "status": "active",
+  "status": "archived",
   "trace_completeness": "complete",
   "request": {
     "raw": {
@@ -112,6 +112,20 @@
       "session_key": "agent:genie:infinity-dispatcher",
       "timestamp": "2026-11-07T13:22:29Z",
       "status": "accepted"
+    },
+    {
+      "type": "archive",
+      "at": "2026-11-07T13:40:00Z",
+      "report_path": "reports/infinity-notification-reliability-20261107/20261107T1334Z-final.html",
+      "artifact_paths": [
+        "artifacts/infinity-notification-reliability-20261107/final/implementation-summary.md"
+      ],
+      "verification": {
+        "red_status": "pass",
+        "red_report_path": "artifacts/infinity-notification-reliability-20261107/work/red/final-review.md",
+        "remote_verified": "pass",
+        "remote_proof_path": "artifacts/infinity-notification-reliability-20261107/work/remote-proof.md"
+      }
     }
   ],
   "artifacts": [
@@ -160,11 +174,16 @@
       "label": "Red independent review",
       "status": "pass",
       "path": "artifacts/infinity-notification-reliability-20261107/work/red/final-review.md"
+    },
+    {
+      "label": "remote Archive and dashboard endpoint",
+      "status": "pass",
+      "path": "artifacts/infinity-notification-reliability-20261107/work/remote-proof.md"
     }
   ],
   "next_decision": {
-    "status": "in_progress",
-    "value": "Red PASS 후 구현 변경을 scoped commit/push하고 원격 main의 SHA와 Archive 원장을 검증한다."
+    "status": "completed",
+    "value": "구현·Red 검토·Archive 전이가 origin/main에서 검증되었다. 추가 작업 없음."
   },
   "execution_mode": "multi_subagent_roles",
   "complexity_tier": "medium"

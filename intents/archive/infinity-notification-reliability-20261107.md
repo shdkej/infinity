@@ -32,6 +32,9 @@
   - repo: infinity
     sha: 25a7add21035d2bf531f6980f9acee97cc9b47fc
     note: Bounded notification reliability implementation, tests, and role/review evidence; pushed to main
+  - repo: infinity
+    sha: d1ecac204606a7c9c83f57d5faeaf3af9fb2291c
+    note: Archive transition; remote verifier passed
 - red_status: pass
 - red_report: artifacts/infinity-notification-reliability-20261107/work/red/final-review.md
 - remote_verified: pass

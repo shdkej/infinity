@@ -135,6 +135,9 @@ archive:
   - repo: infinity
     sha: 25a7add21035d2bf531f6980f9acee97cc9b47fc
     note: Implementation and mock regression suite; remote main verified.
+  - repo: infinity
+    sha: d1ecac204606a7c9c83f57d5faeaf3af9fb2291c
+    note: Archive transition; remote verifier passed
   next_action: No continuation
   next_actions:
   - No continuation; requested runtime repair and bounded regression verification
