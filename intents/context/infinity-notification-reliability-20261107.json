@@ -1,6 +1,6 @@
 {
   "context_pack_version": 3,
-  "status": "ready",
+  "status": "active",
   "route": "infinity",
   "request": "dispatcher notification delivery failures logs timeouts exactly-once receipts retry",
   "built_at": "2026-11-07T12:43:46.027731+00:00",

@@ -17,8 +17,10 @@ import datetime as dt
 import fcntl
 import hashlib
 import json
+import re
 import subprocess
 import sys
+import time
 from pathlib import Path
 
 from PIL import Image, ImageDraw, ImageFont
@@ -27,6 +29,124 @@ import yaml
 
 ROOT = Path(__file__).resolve().parents[1]
 OPEN_LANES = {"Inbox", "Active", "Waiting", "Archive"}
+SAFE_PRE_ACCEPTANCE_FAILURES = {"command_start_failed", "run_timeout"}
+
+
+class BoundedCommandError(RuntimeError):
+    def __init__(self, phase: str, failure_class: str, *, returncode: int | None = None):
+        super().__init__(failure_class)
+        self.phase = phase
+        self.failure_class = failure_class
+        self.returncode = returncode
+
+
+def emit_event(
+    phase: str,
+    failure_class: str,
+    *,
+    intent_id: str | None = None,
+    receipt_key: str | None = None,
+    outcome: str = "error",
+    elapsed_ms: int | None = None,
+    exit_status: int | None = None,
+    stderr: str = "",
+    body: str = "",
+    destination: dict[str, str] | None = None,
+) -> None:
+    """Emit bounded structured diagnostics without message/address payloads."""
+    safe_stderr = stderr.replace(body, "[redacted-body]") if body else stderr
+    if destination:
+        for value in destination.values():
+            if value:
+                safe_stderr = safe_stderr.replace(value, "[redacted-destination]")
+    safe_stderr = re.sub(r"\x1b\[[0-9;]*[A-Za-z]", "", safe_stderr)
+    safe_stderr = re.sub(r"(?i)\bBearer\s+[^\s,;]+", "Bearer [redacted]", safe_stderr)
+    safe_stderr = re.sub(r"(?i)https?://[^\s]+", "[redacted-url]", safe_stderr)
+    safe_stderr = re.sub(
+        r"(?i)(authorization|token|api[_-]?key|secret|password)(\s*[:=]\s*)[^\s,;]+",
+        r"\1\2[redacted]", safe_stderr,
+    )
+    safe_stderr = re.sub(r"\b[A-Za-z0-9_-]{40,}\b", "[redacted-token]", safe_stderr)
+    safe_stderr = re.sub(r"\s+", " ", safe_stderr).strip()[:240]
+    event: dict[str, object] = {
+        "event": "infinity_notification_failure",
+        "at": now(),
+        "phase": phase,
+        "failure_class": failure_class,
+        "outcome": outcome,
+    }
+    if intent_id:
+        event["intent_id"] = intent_id
+    if receipt_key:
+        event["receipt_id"] = receipt_key[:16]
+    if elapsed_ms is not None:
+        event["elapsed_ms"] = elapsed_ms
+    if exit_status is not None:
+        event["exit_status"] = exit_status
+    if stderr:
+        event["stderr_redacted"] = safe_stderr or "[omitted]"
+        event["stderr_bytes"] = len(stderr.encode("utf-8", errors="replace"))
+    print(json.dumps(event, ensure_ascii=False, sort_keys=True), file=sys.stderr, flush=True)
+
+
+def remaining_seconds(args: argparse.Namespace) -> float:
+    remaining = args.deadline_monotonic - time.monotonic()
+    if remaining <= 0:
+        raise BoundedCommandError("run", "run_timeout")
+    return remaining
+
+
+def run_bounded(
+    command: list[str],
+    *,
+    cwd: Path | None,
+    timeout_seconds: float,
+    args: argparse.Namespace,
+    phase: str,
+    intent_id: str | None = None,
+    receipt_key: str | None = None,
+    body: str = "",
+    destination: dict[str, str] | None = None,
+) -> subprocess.CompletedProcess[str]:
+    try:
+        timeout = min(timeout_seconds, remaining_seconds(args))
+    except BoundedCommandError:
+        emit_event(phase, "run_timeout", intent_id=intent_id, receipt_key=receipt_key,
+                   outcome="retryable_pre_acceptance" if phase == "send" else "error",
+                   body=body, destination=destination)
+        raise
+    started = time.monotonic()
+    try:
+        result = subprocess.run(command, cwd=cwd, text=True, capture_output=True, timeout=timeout)
+    except subprocess.TimeoutExpired as exc:
+        elapsed = int((time.monotonic() - started) * 1000)
+        stderr = exc.stderr.decode(errors="replace") if isinstance(exc.stderr, bytes) else (exc.stderr or "")
+        emit_event(phase, "timeout", intent_id=intent_id, receipt_key=receipt_key,
+                   outcome="ambiguous" if phase == "send" else "error", elapsed_ms=elapsed,
+                   stderr=stderr, body=body, destination=destination)
+        raise BoundedCommandError(phase, "timeout") from exc
+    except OSError as exc:
+        elapsed = int((time.monotonic() - started) * 1000)
+        # Popen raises OSError only when the child could not be started, before
+        # the transport could accept a request; this is the sole safe retry case.
+        if phase == "send":
+            emit_event(phase, "command_start_failed", intent_id=intent_id,
+                       receipt_key=receipt_key, outcome="retryable_pre_acceptance",
+                       elapsed_ms=elapsed, stderr=type(exc).__name__, body=body,
+                       destination=destination)
+            raise BoundedCommandError(phase, "command_start_failed") from exc
+        emit_event(phase, "command_start_failed", outcome="error", elapsed_ms=elapsed)
+        raise BoundedCommandError(phase, "command_start_failed") from exc
+    elapsed = int((time.monotonic() - started) * 1000)
+    if result.returncode:
+        if phase != "send":
+            emit_event(phase, "command_failed", outcome="error", elapsed_ms=elapsed,
+                       exit_status=result.returncode, stderr=result.stderr)
+            raise BoundedCommandError(phase, "command_failed", returncode=result.returncode)
+        emit_event(phase, "nonzero_exit", intent_id=intent_id, receipt_key=receipt_key,
+                   outcome="ambiguous", elapsed_ms=elapsed, exit_status=result.returncode,
+                   stderr=result.stderr, body=body, destination=destination)
+    return result
 
 
 def now() -> str:
@@ -177,8 +297,9 @@ def destination(fields: dict[str, str]) -> dict[str, str] | None:
 
 
 def terminal_destination(args: argparse.Namespace, fields: dict[str, str]) -> dict[str, str] | None:
-    if args.terminal_channel and args.terminal_target:
-        return {"channel": args.terminal_channel, "target": args.terminal_target}
+    # Terminal notices follow the intake-captured origin just like state-change
+    # notices. Keep the legacy CLI options parseable for compatibility, but
+    # never let a global/default route redirect an intent's terminal outcome.
     return destination(fields)
 
 
@@ -329,7 +450,11 @@ def render_card(entry: dict[str, object], state: str, body: str, card_dir: Path)
     return path
 
 
-def send(dest: dict[str, str], body: str, args: argparse.Namespace, card: dict[str, object] | None = None, media_path: Path | None = None) -> str:
+def send(
+    dest: dict[str, str], body: str, args: argparse.Namespace,
+    card: dict[str, object] | None = None, media_path: Path | None = None,
+    *, intent_id: str, receipt_key: str,
+) -> tuple[str, str | None]:
     if args.mock_outbox:
         with Path(args.mock_outbox).open("a") as outbox:
             payload: dict[str, object] = {"destination": dest, "message": body}
@@ -338,7 +463,7 @@ def send(dest: dict[str, str], body: str, args: argparse.Namespace, card: dict[s
             if media_path:
                 payload["media"] = str(media_path)
             outbox.write(json.dumps(payload, ensure_ascii=False) + "\n")
-        return "sent"
+        return "sent", None
     if not args.deliver:
         raise RuntimeError("delivery requires --deliver (or use --mock-outbox)")
     command = [args.openclaw_bin, "message", "send", "--json", "--channel", dest["channel"], "--target", dest["target"], "--message", body]
@@ -350,39 +475,59 @@ def send(dest: dict[str, str], body: str, args: argparse.Namespace, card: dict[s
         command.extend(["--thread-id", dest["thread"]])
     if dest.get("reply_to"):
         command.extend(["--reply-to", dest["reply_to"]])
-    result = subprocess.run(command, text=True, capture_output=True)
+    try:
+        result = run_bounded(command, cwd=None, timeout_seconds=args.send_timeout_seconds,
+                             args=args, phase="send", intent_id=intent_id,
+                             receipt_key=receipt_key, body=body, destination=dest)
+    except BoundedCommandError as exc:
+        if exc.failure_class in {"command_start_failed", "run_timeout"}:
+            return "failed_before_acceptance", exc.failure_class
+        return "delivery_unknown", exc.failure_class
     if result.returncode:
-        return "failed_before_acceptance"
+        return "delivery_unknown", "nonzero_exit"
     try:
         payload = json.loads(result.stdout)
     except json.JSONDecodeError:
-        return "delivery_unknown"
+        emit_event("send", "malformed_response", intent_id=intent_id, receipt_key=receipt_key,
+                   outcome="ambiguous", stderr=result.stderr, body=body, destination=dest)
+        return "delivery_unknown", "malformed_response"
+    if not isinstance(payload, dict):
+        emit_event("send", "malformed_response", intent_id=intent_id, receipt_key=receipt_key,
+                   outcome="ambiguous", stderr=result.stderr, body=body, destination=dest)
+        return "delivery_unknown", "malformed_response"
     if payload.get("ok") is True or payload.get("success") is True or payload.get("messageId") or payload.get("message_id"):
-        return "sent"
-    return "delivery_unknown"
+        return "sent", None
+    failure_class = "lost_response" if not result.stdout.strip() else "unconfirmed_response"
+    emit_event("send", failure_class, intent_id=intent_id, receipt_key=receipt_key,
+               outcome="ambiguous", stderr=result.stderr, body=body, destination=dest)
+    return "delivery_unknown", failure_class
 
 
-def remote_texts(repo: Path) -> tuple[list[str], str]:
-    subprocess.run(["git", "fetch", "origin", "main"], cwd=repo, check=True, capture_output=True, text=True)
-    sha = subprocess.check_output(["git", "rev-parse", "origin/main"], cwd=repo, text=True).strip()
-    texts = [subprocess.check_output(["git", "show", "origin/main:INTENTS.yaml"], cwd=repo, text=True)]
-    archive_paths = subprocess.check_output(
-        ["git", "ls-tree", "-r", "--name-only", "origin/main", "intents/archive"],
-        cwd=repo, text=True,
+def remote_texts(repo: Path, args: argparse.Namespace) -> tuple[list[str], str]:
+    def git(command: list[str]) -> str:
+        result = run_bounded(command, cwd=repo, timeout_seconds=args.git_timeout_seconds,
+                             args=args, phase="git")
+        if result.returncode:
+            raise BoundedCommandError("git", "command_failed", returncode=result.returncode)
+        return result.stdout
+
+    git(["git", "fetch", "origin", "main"])
+    sha = git(["git", "rev-parse", "origin/main"]).strip()
+    texts = [git(["git", "show", "origin/main:INTENTS.yaml"])]
+    archive_paths = git(
+        ["git", "ls-tree", "-r", "--name-only", "origin/main", "intents/archive"]
     ).splitlines()
     for path in archive_paths:
         if not path.endswith((".yaml", ".yml")):
             continue
-        texts.append(subprocess.check_output(["git", "show", f"origin/main:{path}"], cwd=repo, text=True))
+        texts.append(git(["git", "show", f"origin/main:{path}"]))
     return texts, sha
 
 
 def change_destination(args: argparse.Namespace, fields: dict[str, str]) -> dict[str, str] | None:
-    channel = args.change_channel or fields.get("notification_channel", "")
-    target = args.change_target or fields.get("notification_target", "")
-    if not channel or not target:
-        return None
-    return {"channel": channel, "target": target}
+    # Change notices must follow the same intake-captured route as terminal
+    # notices. Global cron defaults are not an origin and cannot fill gaps.
+    return destination(fields)
 
 
 def claim_and_send(
@@ -399,11 +544,37 @@ def claim_and_send(
     deliveries[key] = receipt
     receipt["attempt_started_at"] = now()
     save(args.state, ledger)
-    outcome = send(dest, body, args, card, media_path)
+    try:
+        outcome, failure_class = send(dest, body, args, card, media_path,
+                                     intent_id=receipt.get("intent_id", ""), receipt_key=key)
+    except Exception as exc:
+        outcome, failure_class = "delivery_unknown", "unexpected_send_error"
+        emit_event("send", failure_class, intent_id=receipt.get("intent_id", ""),
+                   receipt_key=key, outcome="ambiguous", stderr=type(exc).__name__,
+                   body=body, destination=dest)
     receipt["state"] = outcome
+    if failure_class:
+        receipt["failure_class"] = failure_class
+    else:
+        receipt.pop("failure_class", None)
     receipt[("sent_at" if outcome == "sent" else "updated_at")] = now()
     save(args.state, ledger)
     return outcome
+
+
+def acquire_lock_bounded(lock, args: argparse.Namespace) -> None:
+    """Keep exclusive receipt serialization while honoring the run deadline."""
+    while True:
+        try:
+            fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
+            return
+        except BlockingIOError:
+            try:
+                remaining = remaining_seconds(args)
+            except BoundedCommandError as exc:
+                emit_event("lock", exc.failure_class, outcome="error")
+                raise BoundedCommandError("lock", exc.failure_class) from exc
+            time.sleep(min(0.05, remaining))
 
 
 def main() -> int:
@@ -415,18 +586,25 @@ def main() -> int:
     parser.add_argument("--mock-outbox", help="safe JSONL delivery sink")
     parser.add_argument("--deliver", action="store_true", help="enable host OpenClaw CLI delivery")
     parser.add_argument("--openclaw-bin", default="openclaw")
-    parser.add_argument("--change-channel", default="", help="destination for new/open status changes")
-    parser.add_argument("--change-target", default="", help="destination for new/open status changes")
-    parser.add_argument("--terminal-channel", default="", help="override destination for terminal notices")
-    parser.add_argument("--terminal-target", default="", help="override destination for terminal notices")
+    parser.add_argument("--change-channel", default="", help=argparse.SUPPRESS)
+    parser.add_argument("--change-target", default="", help=argparse.SUPPRESS)
+    parser.add_argument("--terminal-channel", default="", help=argparse.SUPPRESS)
+    parser.add_argument("--terminal-target", default="", help=argparse.SUPPRESS)
     parser.add_argument("--card-dir", type=Path, default=None, help="generated Telegram card image directory")
+    parser.add_argument("--send-timeout-seconds", type=float, default=20.0)
+    parser.add_argument("--git-timeout-seconds", type=float, default=10.0)
+    parser.add_argument("--run-timeout-seconds", type=float, default=110.0)
     args = parser.parse_args()
+    for name in ("send_timeout_seconds", "git_timeout_seconds", "run_timeout_seconds"):
+        if getattr(args, name) <= 0:
+            parser.error(f"--{name.replace('_', '-')} must be greater than zero")
+    args.deadline_monotonic = time.monotonic() + args.run_timeout_seconds
     args.card_dir = args.card_dir or args.state.parent / "cards"
     if args.intents:
         text = args.intents.read_text()
         remote_sha = "fixture:" + hashlib.sha256(text.encode()).hexdigest()
     else:
-        texts, remote_sha = remote_texts(args.repo)
+        texts, remote_sha = remote_texts(args.repo, args)
     if args.intents:
         texts = [text]
     # Keep the process lock outside the Git worktree; the receipt JSON is the
@@ -437,7 +615,7 @@ def main() -> int:
     lock_path = args.lock or args.state.with_suffix(args.state.suffix + ".lock")
     lock_path.parent.mkdir(parents=True, exist_ok=True)
     with lock_path.open("w") as lock:
-      fcntl.flock(lock, fcntl.LOCK_EX)
+      acquire_lock_bounded(lock, args)
       ledger = load(args.state)
       deliveries: dict[str, dict[str, str]] = ledger["deliveries"]  # type: ignore[assignment]
       sent = skipped = 0
@@ -464,14 +642,34 @@ def main() -> int:
                   key = hashlib.sha256(identity.encode()).hexdigest()
                   current_receipts.add(key)
                   existing = deliveries.get(key)
-                  if not existing:
-                      receipt = {"intent_id": intent_id, "terminal_state": kind, "destination": identity, "fingerprint": identity, "remote_sha": remote_sha, "claimed_at": now(), "state": "claimed"}
-                      change_body = change_message(entry, kind, previous)
-                      outcome = claim_and_send(
-                          ledger, deliveries, key, receipt, dest, change_body, args,
-                          card(entry, kind, change_body), render_card(entry, kind, change_body, args.card_dir),
-                      )
-                      sent += outcome == "sent"
+                  if existing:
+                      if existing.get("state") == "failed_before_acceptance":
+                          if existing.get("failure_class") in SAFE_PRE_ACCEPTANCE_FAILURES:
+                              existing.pop("attempt_started_at", None)
+                              existing.pop("failure_class", None)
+                              existing["state"] = "claimed"
+                          else:
+                              existing["state"] = "delivery_unknown"
+                              existing["failure_class"] = "legacy_unverified_pre_acceptance"
+                              existing["updated_at"] = now()
+                              save(args.state, ledger)
+                              emit_event("receipt", "legacy_unverified_pre_acceptance",
+                                         intent_id=intent_id, receipt_key=key,
+                                         outcome="ambiguous")
+                              observed[intent_id] = signature
+                              continue
+                      elif existing.get("state") == "claimed" and not existing.get("attempt_started_at"):
+                          pass
+                      else:
+                          observed[intent_id] = signature
+                          continue
+                  receipt = existing or {"intent_id": intent_id, "terminal_state": kind, "destination": identity, "fingerprint": identity, "remote_sha": remote_sha, "claimed_at": now(), "state": "claimed"}
+                  change_body = change_message(entry, kind, previous)
+                  outcome = claim_and_send(
+                      ledger, deliveries, key, receipt, dest, change_body, args,
+                      card(entry, kind, change_body), render_card(entry, kind, change_body, args.card_dir),
+                  )
+                  sent += outcome == "sent"
               observed[intent_id] = signature
               continue
           if not terminal:
@@ -492,11 +690,23 @@ def main() -> int:
               # before it could invoke the transport and is safe to retry.  Once
               # an attempt began, replay could duplicate a provider-accepted
               # message; leave a durable uncertain receipt and exit non-zero.
-              if existing.get("state") in {"failed_before_acceptance"}:
-                  # The CLI exited non-zero before it accepted the request, so a
-                  # later reconciliation may retry without duplicating delivery.
-                  existing.pop("attempt_started_at", None)
-                  existing["state"] = "claimed"
+              if existing.get("state") == "failed_before_acceptance":
+                  # Retry only receipts created with explicit evidence that the
+                  # transport did not start. Legacy unclassified receipts are
+                  # ambiguous and must never be replayed automatically.
+                  if existing.get("failure_class") in SAFE_PRE_ACCEPTANCE_FAILURES:
+                      existing.pop("attempt_started_at", None)
+                      existing.pop("failure_class", None)
+                      existing["state"] = "claimed"
+                  else:
+                      existing["state"] = "delivery_unknown"
+                      existing["failure_class"] = "legacy_unverified_pre_acceptance"
+                      existing["updated_at"] = now()
+                      save(args.state, ledger)
+                      emit_event("receipt", "legacy_unverified_pre_acceptance",
+                                 intent_id=str(entry["id"]), receipt_key=key,
+                                 outcome="ambiguous")
+                      continue
               elif existing.get("state") == "claimed" and not existing.get("attempt_started_at"):
                   pass
               else:
@@ -536,4 +746,10 @@ def main() -> int:
 
 
 if __name__ == "__main__":
-    raise SystemExit(main())
+    try:
+        raise SystemExit(main())
+    except BoundedCommandError:
+        raise SystemExit(1)
+    except Exception as exc:
+        emit_event("runtime", "unexpected_error", outcome="error", stderr=type(exc).__name__)
+        raise SystemExit(1)

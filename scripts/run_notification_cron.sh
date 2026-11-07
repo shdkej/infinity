@@ -10,28 +10,54 @@ LOCK_FILE="${INFINITY_NOTIFICATION_LOCK_FILE:-$STATE_DIR/notifications.lock}"
 CARD_DIR="${INFINITY_NOTIFICATION_CARD_DIR:-$STATE_DIR/cards}"
 NVM_DIR="${NVM_DIR:-$HOME/.nvm}"
 if [[ ! -s "$NVM_DIR/nvm.sh" ]]; then
-  printf '%s\n' 'NVM initialization script is unavailable; notifications cannot be delivered.' >&2
+  printf '%s\n' '{"event":"infinity_notification_failure","phase":"setup","failure_class":"nvm_unavailable","outcome":"error"}' >&2
   exit 1
 fi
-. "$NVM_DIR/nvm.sh"
-nvm use --silent default >/dev/null
+if ! . "$NVM_DIR/nvm.sh" 2>/dev/null; then
+  printf '%s\n' '{"event":"infinity_notification_failure","phase":"setup","failure_class":"nvm_init_failed","outcome":"error"}' >&2
+  exit 1
+fi
+if ! nvm use --silent default >/dev/null 2>&1; then
+  printf '%s\n' '{"event":"infinity_notification_failure","phase":"setup","failure_class":"nvm_use_failed","outcome":"error"}' >&2
+  exit 1
+fi
 OPENCLAW_BIN="${OPENCLAW_BIN:-${NVM_BIN:-}/openclaw}"
 if [[ ! -x "$OPENCLAW_BIN" ]]; then
-  printf 'OpenClaw CLI is unavailable at %s.\n' "$OPENCLAW_BIN" >&2
+  printf '%s\n' '{"event":"infinity_notification_failure","phase":"setup","failure_class":"openclaw_cli_unavailable","outcome":"error"}' >&2
   exit 1
 fi
-mkdir -p "$STATE_DIR" "$CARD_DIR" || exit 0
-exec 9>"$LOCK_FILE"
-flock -n 9 || exit 0
+if ! command -v timeout >/dev/null 2>&1; then
+  printf '%s\n' '{"event":"infinity_notification_failure","phase":"setup","failure_class":"timeout_utility_unavailable","outcome":"error"}' >&2
+  exit 1
+fi
+if ! mkdir -p "$STATE_DIR" "$CARD_DIR" 2>/dev/null; then
+  printf '%s\n' '{"event":"infinity_notification_failure","phase":"setup","failure_class":"state_directory_unavailable","outcome":"error"}' >&2
+  exit 1
+fi
+exec 9>"$LOCK_FILE" 2>/dev/null || {
+  printf '%s\n' '{"event":"infinity_notification_failure","phase":"lock","failure_class":"lock_file_unavailable","outcome":"error"}' >&2
+  exit 1
+}
+if flock -n 9; then
+  :
+else
+  flock_status=$?
+  if [[ $flock_status -eq 1 ]]; then
+    printf '%s\n' '{"event":"infinity_notification_skip","phase":"lock","reason":"already_running"}' >&2
+    exit 0
+  fi
+  printf '%s\n' '{"event":"infinity_notification_failure","phase":"lock","failure_class":"lock_failed","outcome":"error"}' >&2
+  exit "$flock_status"
+fi
 
-CHANNEL="${INFINITY_CHANGE_NOTIFICATION_CHANNEL:-telegram}"
-TARGET="${INFINITY_CHANGE_NOTIFICATION_TARGET:-telegram:433493318}"
-TERMINAL_CHANNEL="${INFINITY_TERMINAL_NOTIFICATION_CHANNEL:-$CHANNEL}"
-TERMINAL_TARGET="${INFINITY_TERMINAL_NOTIFICATION_TARGET:-$TARGET}"
-
-python3 "$ROOT/scripts/dispatch_terminal_notifications.py" \
+timeout --signal=TERM --kill-after=5s 120s python3 "$ROOT/scripts/dispatch_terminal_notifications.py" \
   --repo "$ROOT" --state "$STATE_FILE" --deliver --openclaw-bin "$OPENCLAW_BIN" \
-  --change-channel "$CHANNEL" --change-target "$TARGET" \
-  --terminal-channel "$TERMINAL_CHANNEL" --terminal-target "$TERMINAL_TARGET" \
+  --send-timeout-seconds 20 --git-timeout-seconds 10 --run-timeout-seconds 110 \
   --card-dir "$CARD_DIR"
-exit $?
+run_status=$?
+if [[ $run_status -eq 124 || $run_status -eq 137 ]]; then
+  printf '{"event":"infinity_notification_failure","phase":"run","failure_class":"outer_timeout","outcome":"ambiguous","exit_status":%d}\n' "$run_status" >&2
+elif [[ $run_status -eq 125 ]]; then
+  printf '%s\n' '{"event":"infinity_notification_failure","phase":"run","failure_class":"timeout_utility_failed","outcome":"error","exit_status":125}' >&2
+fi
+exit "$run_status"
