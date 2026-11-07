@@ -91,15 +91,25 @@ NASA의 SentinelOne order `80TECH26FA015`는 별도 보안 소프트웨어 구�
 
 이 채택률은 구매의도·지출·WTP·미충족 수요가 아니다. 다음 탐색은 통계 headline 추가 비교 대신 구체 구매자 세그먼트의 구매·갱신·예산 집행 흔적과 현재 대안을 찾는 것으로 전환한다.
 
+### DOE P00001 공개 첨부 접근과 구매 문서 경계
+
+2026-11-07에 DOE SC Oak Ridge `89243126FSC400871` 및 USAspending에 연결된 solicitation 식별자 `89243126QNA000448`로 SAM.gov 검색 페이지를 확인했다. 두 페이지 모두 HTTP 200이지만 서버 응답은 검색 결과를 포함하지 않는 JavaScript shell이었다. GSA의 [Contract Awards API 안내](https://open.gsa.gov/api/contract-awards/)는 공개(revealed) 계약 자료 조회에도 SAM.gov 계정과 API key가 필요하다고 설명한다. 인증을 사용하거나 우회하지 않았다.
+
+[NASA SEWP V 주문 안내](https://www.sewp.nasa.gov/sewpv/ordering.shtml)는 발행기관이 delivery order를 발행하고, 수정도 SEWP PMO를 거치며, 주문 처리에 계약자 quote 및 line items/pricing가 필요하다고 명시한다. [SEWP V 계약 정보](https://www.sewp.nasa.gov/sewpv/contract_info.shtml)와 공개 계약자 페이지는 차량·prime 계약자 수준 자료다. 이 일반 절차는 해당 DOE 주문의 실제 quote, 첨부 또는 CLIN 내용을 입증하지 않는다. 이번 비인증 공개 경로에서 P00001 원문 첨부는 찾지 못했다. 이는 조사한 경로의 결과일 뿐 첨부가 없다는 뜻이 아니다. SKU·수량·단가는 계속 미확인이다. 요청·응답 상태, UTC, hash와 범위는 `public-spend-observations.json`의 `doe_p00001_public_access_recheck_20261107T0035Z`에 기록했다.
+
+### 엔드포인트 운영 신호: 정성 리드와 공식 복원력 자료 분리
+
+Reddit 검색 색인에서 관리 콘솔 복잡성·정보 탐색 문제와 Microsoft Defender 번들로의 전환 고려가 리드로 나타났고, 반대로 대규모 fleet 운영자에게 안정성과 지원이 좋았다는 반례도 나타났다. 그러나 대상 글 직접 요청은 HTTP 403이었고 본문을 확인하지 못했다. 그러므로 이는 검증된 고객 발언이나 빈도·이탈·구매 의향 자료가 아니라 후속 조사 질문을 만드는 discovery lead로만 보존한다. G2 결과는 직접 접근이 차단되어 사용하지 않았고 재시도·스크래핑을 하지 않았다. 검색 및 접근 정보는 같은 JSON snapshot의 `endpoint_security_operational_signal_discovery_20261107T0046Z`에 있다.
+
+독립적인 공식 자료는 사건의 실제 규모와 통제 대안을 조금 더 좁혀 준다. [Microsoft는 2024년 7월 사고 당시 Windows 기기 850만 대 미만 1%가 영향을 받은 것으로 추정](https://blogs.microsoft.com/blog/2024/07/20/helping-our-customers-through-the-crowdstrike-outage/)하고 안전한 배포와 재해복구를 강조했다. [CrowdStrike의 사후 원인분석](https://www.crowdstrike.com/en-us/blog/channel-file-291-rca-available/)은 Windows 센서에 배포한 Rapid Response Content 설정 오류와 개선을 설명한다. 한편 [Intune update rings](https://learn.microsoft.com/intune/intune-service/protect/windows-10-update-rings)는 테스트·파일럿·프로덕션 단계 배포를 문서화한다. 이는 Windows/관리형 update rollout 대안의 존재를 보여주지만, 해당 ring이 Falcon의 vendor-managed Rapid Response Content를 통제한다는 뜻은 아니다. 사건 하나와 공급자 자체 RCA는 반복 빈도·신규 도구 수요·WTP/TAM을 입증하지 않는다.
+
 ## 다음 탐색에서 검증할 것
 
-1. **다음 evidence leaf:** DOE SC Oak Ridge PIID `89243126FSC400871` P00001 공식 수정문서/주문 첨부 접근 경로를 검토한다. SAM 계정/API key 없이 공개 가능한 공식 원문 경로가 있는지 확인하고, 첨부가 없다고 추론하지 않는다.
-2. 별도 후속 leaf로 DOE SC Oak Ridge PIID `89243126FSC400871` P00001 공식 수정문서/주문 첨부를 찾는다. 공개 자료에서 아직 CLIN·SKU·수량·단가를 확인하지 못했고, GSA의 Contract Awards API는 SAM 계정/API key가 필요하다고 안내한다. SEWP 절차 페이지는 기관이 DO를 발행하고 수정은 PMO를 거친다고 설명할 뿐 이 주문의 첨부 공개 여부를 입증하지 않는다. 접근 불가나 검색 실패를 “첨부 없음”으로 바꾸지 않는다.
-3. ICE FinalMobile PIID `70CMSD25FR0000087`의 후속 award/옵션과 별도 ICE `70CMSD26FR0000041`의 SOW/CLIN은 또 다른 leaf로 유지한다. 제품명이 명시적으로 연결되지 않는 한 같은 상품·갱신으로 합치지 않는다.
-2. 공개 후기/커뮤니티는 불편·대안 언어를 찾는 정성 신호로만 쓰고, 표본·플랫폼 편향을 표시한다. 공식 통계나 벤더 사례와 한데 합쳐 수요 수치로 만들지 않는다.
-3. 회사별 가격·유통·고객 사례, 도입/이탈 또는 교체 신호를 날짜와 함께 수집한다. 가격·기능 페이지는 조사일 스냅샷으로 취급한다.
-4. 대체재를 incumbent suite, 내부 구축, 오픈소스, 서비스/아웃소싱, 스프레드시트/이메일, 미해결로 나눠 실제 경쟁 단위를 찾는다.
-5. 현재 확인된 자료에는 미국/한국 구매 의사, 유지율, 서비스 가능 시장 비교가 없다. 따라서 이 보고서에서 단일 승자나 TAM을 제시하지 않는다.
+1. **다음 evidence leaf:** 보안 에이전트의 vendor-managed content와 OS/app 배포 도구(Intune/Autopatch/기존 endpoint suites)가 제공하는 pause, staged rollout, rollback/recovery 경계를 공식 문서로 대조한다. 결과는 “기능 있음/없음”이 아니라 정확한 payload와 통제 주체 단위로 비교하고, 중복 제품 제안 전에 기존 해결책을 확인한다.
+2. 다음으로 독립적인 buyer evidence(실제 구매·갱신·교체 또는 접근 가능한 직접 사용자 인터뷰/후기)를 찾아 alert tuning·복구 부담이 어느 규모와 예산권자에게 중요한지 검증한다. 검색 색인 스니펫은 확인 질문으로만 쓰고, WTP나 이탈 증거로 집계하지 않는다.
+3. DOE P00001 문서 확인은 SAM 계정/API key 또는 해당 order/quote 원문이 합법적으로 접근 가능해질 때 재개한다. 인증을 추정·우회하거나 외부에 연락하지 않으며, 첨부 부재를 추론하지 않는다.
+4. ICE FinalMobile 후속 award/옵션과 `70CMSD26FR0000041` SOW/CLIN은 제품명으로 이어지지 않는 한 별도 lineage로 유지한다.
+5. 현재 자료는 미국/한국 구매 의사, 유지율, WTP 또는 서비스 가능 시장 비교를 제공하지 않는다. 따라서 단일 승자나 TAM을 제시하지 않는다.
 
 ## 근거 레지스터
 
@@ -137,6 +147,41 @@ NASA의 SentinelOne order `80TECH26FA015`는 별도 보안 소프트웨어 구�
 | S26 | [Treasury Fiscal Service, ARC/FSA contract list](https://fr.fiscal.treasury.gov/files/doing-business-with-fiscal-service/ARC-FSA.pdf), 접근 2026-11-06, PDF p.1/텍스트 행 990–997 | 공식 기관 계약 목록, 미국 Treasury | FCN Inc.; parent `NNG15SC71B`; order `2033H624F00068`; “Crowdstrike products and services”; “Excepted or Exempt - Work Continues” | 거래내역·지출액·P00008 scope를 제공하지 않는다. 상태 문자열은 구매량 또는 갱신을 뜻하지 않는다. |
 | S27 | [DOE/NNSA 89233126QNA000448 award notice mirror](https://www.governmentcontracts.us/government-contracts/opportunity-details/78853974975300159.htm?searchText=computer), 접근 2026-11-06 | SAM 공고의 2차 미러, 미국 DOE/NNSA | 원 award의 날짜, Thundercat, Falcon/Falcon Complete 라이선스 description; order `89233126FNA400754` | 사이트가 공식 공고가 아니라고 고지한다. 원 award 설명만 확인하며 P00001/후속 거래 리드 미검증. |
 
+| S28 | [NASA SEWP V Ordering Information](https://www.sewp.nasa.gov/sewpv/ordering.shtml), 접근 2026-11-07 | 공식 주문 절차, 미국 federal GWAC | order modifications must route through PMO; order processing requirements include contractor quote and line items/pricing | 일반 절차만 설명; 특정 DOE order의 내용/첨부는 아님. |
+| S29 | [GSA SAM.gov Contract Awards API](https://open.gsa.gov/api/contract-awards/), 접근 2026-11-07 | 공식 API 문서 | revealed award data requires registered SAM account and API key | API 접근요건이지 해당 PIID 첨부 존재/부재 판정이 아님. |
+| S30 | [SAM.gov award search shell](https://sam.gov/search/?index=awards&keywords=89243126FSC400871) 및 [solicitation search shell](https://sam.gov/search/?index=opp&keywords=89243126QNA000448), 조회 2026-11-07 00:34 UTC | 공식 검색화면 접근 기록 | 두 페이지 HTTP 200, 동일 JavaScript shell 반환; 서버 HTML에 검색결과 없음 | UI 결과가 없다는 뜻이 아님. 무인증 직접 응답만으로 기록/첨부 존재 여부를 판단할 수 없음. |
+| S31 | [Microsoft Official Blog: CrowdStrike outage response](https://blogs.microsoft.com/blog/2024/07/20/helping-our-customers-through-the-crowdstrike-outage/), 게시 2024-07-20 | 직접 대응 OS 공급자의 사고 대응 기록 | 8.5 million Windows devices, less than 1% estimate; safe deployment and disaster recovery emphasis | 단일 공급망 사고 추정치; 빈도·시장 수요/WTP를 측정하지 않음. |
+| S32 | [CrowdStrike Channel File 291 RCA](https://www.crowdstrike.com/en-us/blog/channel-file-291-rca-available/), 게시 2024-08-06 | 공급자 자체 사후 분석, 미국/글로벌 | Windows sensor content configuration update failure and mitigations/process learnings | 공급자 자체 보고; 고객 발생률이나 신규 시장 규모를 측정하지 않음. |
+| S33 | [Microsoft Intune Windows update rings](https://learn.microsoft.com/intune/intune-service/protect/windows-10-update-rings) 및 [Windows update deployment channels](https://learn.microsoft.com/windows/deployment/update/get-started-updates-channels-tools), 접근 2026-11-07 | 공식 제품/관리 문서 | test/pilot/production-style phased OS/update deployments and policy controls exist | 이 기능들이 third-party Falcon Rapid Response Content를 제어한다고 문서가 말하지 않음. 기존 대안의 경계만 보강. |
+| S34 | [r/sysadmin: Any reviews on CrowdStrike?](https://www.reddit.com/r/sysadmin/comments/1p2ufgk/any_reviews_on_crowdstrike/) 및 [CrowdStrike thoughts](https://www.reddit.com/r/sysadmin/comments/1ugqsyd/crowdstrike_thoughts/), 검색색인 조회 2026-11-07 | UGC discovery lead, 미국 Reddit | 검색색인이 console complexity 관련 불만과 대규모 fleet 운영의 안정성/지원 만족 반례를 표면화 | 직접 GET은 두 URL 모두 HTTP 403, 본문 미확인. 고객 증언 검증·표본 대표성·빈도 근거로 쓰지 않음. |
+| S35 | [Reddit: Anyone move from CrowdStrike to Defender for Endpoint recently?](https://www.reddit.com/r/sysadmin/comments/1rsysav/anyone_move_from_crowdstrike_to_defender_for/), 검색색인 조회 2026-11-07 | UGC discovery lead, 미국 Reddit | subscription bundle을 이유로 Defender 전환을 고려하는 게시물 검색 신호 | 직접 GET HTTP 403; 전환 실행 여부·구매 결정·가격절감액 확인 안 됨. |
+
+## Palo Alto Networks 연방 조달과 자산관리·감사 신호 — 서로 연결하지 말 것
+
+USAspending 공식 API의 2026-11-07 조회에서 Palo Alto Networks 키워드로 정렬한 첫 100개 거래행(page 1, `hasNext=true`) 중 SSA와 Department of the Army award를 상세·전체 history까지 재검증했다. 둘은 각기 다른 federal award지만 검색은 비완전하며 prime은 Palo Alto Networks가 아니다.
+
+| 구매·계약 역할 | award / 거래내역 | 금액 필드와 범위 | 해석 한계 |
+|---|---|---|---|
+| SSA 구매·수여 / Carahsoft prime | PIID `28321325FDX030100`, GSA FSS `47QSWA18D008F`; description은 Palo Alto 차세대 firewall 및 전문서비스, 단일 firewall platform 전환·mainframe/intranet 연동을 말한다. 수행기간 2025-05-01–2027-04-30. history 5행: 2025 기본 $3,883,521.50; 2026-01 P00001 $4,696,867.80; 2026-04 P00002 $0; 2026-06 P00003 $823,417.76(첫 option year에 빠졌던 professional-services CLIN 2건); 2026-09 P00004 $2,191,514.40(option year inventory spreadsheet에서 빠진 hardware CLIN 수정). | `total_obligation` $11,595,321.46; `total_account_outlay` $8,580,389.30; 별도 `base_and_all_options` $25,029,199.19. 5행 obligation 합계는 award detail과 일치. | 옵션 포함액을 지출·매출로 보지 않는다. P00004가 첨부 inventory spreadsheet를 언급하지만 그 파일 자체는 확보하지 못했다. CLIN/품목별 수량·가격 및 Palo Alto 직접 매출은 알 수 없다. |
+| Army가 award / Navy office가 funding / Greenbrier prime | PIID `W519TC25F0425`, parent NASA multiple-award GWAC `NNG15SD49B`; description상 INDOPACOM의 탐지·방지를 위한 Palo Alto 네트워크 SW·HW·subscription 서비스 패키지. 수여기관 Department of the Army, funding office는 Department of the Navy / CDR US Pacific Command. 수행기간 2025-09-26–2026-09-25. history 6행: base 두 건 각 $2,952,434.49, 2025-12 P00001 두 건 $0, 2026-03 P00002 두 건 $0. | `total_obligation` 및 `base_and_all_options` 각각 $5,904,868.98; `total_account_outlay=0`, `total_outlay=null`(다른 필드임). history의 6행 합계는 obligation과 일치. | base/수정별 paired row는 서로 다른 transaction ID지만 날짜·mod·금액·설명이 같아 원인을 확인하지 못했다. 임의 dedupe하거나 별도 award 2건으로 세지 않는다. zero account outlay 필드와 null total_outlay를 지급 부재·벤더 수입으로 해석하지 않는다. 수량/단가·제품별 배분 미확인. 5 offers/full-and-open은 경쟁절차 필드이지 가격 발견 증거가 아니다. |
+
+**해석:** 이는 서로 다른 federal procurement buyer가 네트워크 보안 패키지를 산 사례 두 건으로, federal/public segment의 조달 행동 및 구성요소·CLIN 복잡성 가설을 좁히는 신호다. 만족도, 사용성과, audit remediation, recurring private demand, 예산권자·pain 빈도, vendor revenue/ARR, WTP/TAM은 입증하지 않는다. routine inventory/contract reconciliation 또는 mission architecture라는 대안 설명도 가능하다.
+
+별도 맥락으로 SSA OIG report 142315(2025-08-06; audit window 2024-01–2025-03)는 비통계 표본 firewall 40개와 관련 문서를 검토했고, inventory·patch/update·annual rule review·change management·privileged access/logs·backup·advanced-feature administration에서 deficiency를 보고했다. account/password 이슈는 검토 후 시정되어 권고가 없었고 physical firewall security에서는 deficiency가 없었다. 상세 민감 findings/recommendations는 별도 전달되어 공개 요약에 포함되지 않았다. Jan 29 2026 OIG compilation의 해당 보고서 항목은 2,5,6,8,9,10,11,13번 권고의 세부/상태를 민감정보로 withheld했고, Spring 2026 SAR(Appendix E; 보고기간 2025-10-01–2026-03-31)은 1*,2,3,7,8,10,11,13을 open으로 열거했다. 별표는 보고서 표기를 유지한다. 이는 각각 그 cutoff 날짜의 스냅샷이지 2026-11 현재 상태가 아니다. 해당 audit가 위 SSA award의 원인·scope·성과라는 직접 근거는 없다.
+
+또 다른 별도 축인 GAO-26-108937(2026-09-30)은 civilian CFO Act 22개 기관의 networked IoT/OT inventory를 보았다. SSA는 초기 inventory의 필수 필드를 마련했으나 반복 유지하지 못한 상태로 표기됐다. 이는 firewall inventory 또는 위 Palo Alto contract와 다른 자산 범주·법적 기준이다. GAO-26-107668(2026)은 Section 889 대상 통신/영상장비를 다룬 선택 기관 6곳의 방법을 기록한다. DoD는 asset inventory 검색, network scan, 물리 검색을 사용했으며 procurement-record search는 표에 나타나지 않았다. Army Corps of Engineers Huntsville의 2026-07 공보는 Army Reserve·National Guard·DLA 시설 OT inventory 계약과 Army Reserve 약 10,000개 장치 기록, 후속 remediation/sustainment 계획을 소개한다. 이들은 현재 존재하는 공공 자산 가시성·서비스 대안의 예시이며, firewall 제품 주문과 동등하거나 새 제품 수요를 증명하지 않는다.
+
+다음 탐색 leaf는 이 federal 사례에서 출발해 연방 asset visibility / inventory 서비스를 기존 시스템·서비스가 어떻게 충족하는지 비교하고, 공개 buyer 자료로 반복 업무·책임자·예산 증거가 독립적으로 드러나는지 확인한다. 연방·DoD·IoT/OT·firewall 범주를 섞지 않으며 공개 문서의 접근 제한은 부재로 추론하지 않는다.
+
+| S36 | [USAspending SSA award PIID 28321325FDX030100](https://www.usaspending.gov/award/CONT_AWD_28321325FDX030100_2800_47QSWA18D008F_4732/) 및 공식 [USAspending transaction API](https://api.usaspending.gov/api/v2/transactions/) 응답, 2026-11-07 | SSA federal delivery order; Carahsoft prime; API search/detail/history 원문은 `public-spend-observations.json`에 response hash와 함께 보존 | 5 history rows와 detail amount의 합치, NGFW/professional-services description 및 hardware/pro services amendments | prime receipt·SKU별 금액·사용 결과가 아니며 100행 keyword search는 `hasNext=true`; P00004가 언급한 첨부 spreadsheet 미확보. |
+| S37 | [USAspending Army award PIID W519TC25F0425](https://www.usaspending.gov/award/CONT_AWD_W519TC25F0425_9700_NNG15SD49B_8000/) 및 official transaction API, 2026-11-07 | Army awarding org; Navy funding office; INDOPACOM description; Greenbrier prime; NASA GWAC vehicle | 6 transaction rows/$5,904,868.98 obligation; Army/Palo Alto package description | paired IDs retained; `total_account_outlay=0` vs `total_outlay=null`; not two awards, price discovery, or vendor revenue. |
+| S38 | [SSA OIG Firewall Administration report 142315](https://oig.ssa.gov/assets/uploads/142315.pdf), [official landing page](https://oig.ssa.gov/audit-reports/2025-08-07-firewall-administration/) | Official SSA OIG public audit summary, Aug 6 2025; audit Jan 2024–Mar 2025; non-statistical 40-firewall sample | Inventory, patching, rules/review, change, access/logging, backup and advanced-feature administration gaps | Sensitive details separately transmitted to SSA and withheld from public summary; no demonstrated link to Palo Alto order. |
+| S39 | [SSA OIG unimplemented recommendations as of Jan 29 2026 (002612)](https://oig.ssa.gov/assets/uploads/002612.pdf) | Official SSA OIG dated status compilation | 142315 recs 2,5,6,8,9,10,11,13 listed; details/status marked sensitive | Only Jan 29 cutoff; not current status. |
+| S40 | [SSA OIG Spring 2026 Semiannual Report](https://oig.ssa.gov/assets/uploads/2026-spring-sar.pdf), Appendix E | Official OIG report covering 2025-10-01–2026-03-31 | 142315 open recs 1*,2,3,7,8,10,11,13 | Snapshot cutoff Mar 31; preserves asterisk; does not resolve later status or link to award. |
+| S41 | [GAO-26-108937, IoT and OT networked-device inventory](https://files.gao.gov/reports/GAO-26-108937/index.html), 2026-09-30 | Official GAO review of 22 civilian CFO Act agencies; SSA initial IoT/OT inventory fields vs recurring maintenance | 15 established, 11 maintained, 10 had all required fields, 7 fully addressed requirements | IoT/OT statutory scope differs from firewall inventory and Palo Alto order. |
+| S42 | [GAO-26-107668, Selected Agencies Have Taken Steps to Address Risks of Equipment Linked to China](https://files.gao.gov/reports/GAO-26-107668/index.html), 2026 | Official GAO review of six selected agencies through Dec 2025; DoD methods include inventory search, network scan, physical search | Shows existing institutional search/control alternatives; DoD row does not list procurement-record search | Section 889 covered telecommunications/video hardware scope, not Palo Alto firewall software or buyer pain WTP. |
+| S43 | [U.S. Army Corps of Engineers Huntsville, OT risk and inventory program](https://www.army.mil/article-amp/294305/huntsville_center_expertise_identifies_prioritizes_operational_technology_risks), 2026-07-31 | Official Army public affairs article | Army Reserve OT inventory completed; DLA final products and Army National Guard work; nearly 10,000 Army Reserve OT devices recorded; remediation/sustainment planning follows | Public-sector service/contract example for facility OT; separate from INDOPACOM enterprise security order and not standalone software demand. |
+
 ## 역할 교차검토 요약
 
 - Planner: 비랭킹 커버리지 맵으로 만들고, 카테고리마다 구매자·업무·대안·신호·근거·미국/한국 오버레이를 분리한다. 모집단/시점 차이가 직접 비교를 왜곡하지 않도록 범주별 증거 단계 사다리를 추가했다. 카테고리 중첩, 세그먼트 차이, 대체재, 지불의사 공백은 남긴다.
@@ -149,6 +194,17 @@ NASA의 SentinelOne order `80TECH26FA015`는 별도 보안 소프트웨어 구�
 - Marketer: 세 건은 공공 구매 행동 사례일 뿐 민간 buyer pain, 구매 의향, WTP 또는 TAM으로 일반화하지 않는다. 별도 ICE forensic-license order를 FinalMobile 갱신으로 합치지 않는다.
 - Operator: award detail과 transaction history는 서로 다른 API 응답이므로 HTTP 상태와 원문을 별도로 저장한다. transaction 응답 원문을 JSON에 보존했고, 공개 조달 첨부는 이번 검색에서 직접 확인되지 않아 “첨부 없음”으로 표현하지 않는다.
 - Genie 통합: DOE P00001 첨부의 CLIN/scope 확인과 ICE 후속 award/70CMSD26FR0000041 제품 식별을 별도 leaf로 분할한다; attachment 공개 여부와 product lineage는 증거로 확인되기 전까지 unknown이다.
+
+- Planner (dispatch-295764d0809e406b9c4286b886d48d64): order-doc 성공 기준은 해당 order에 귀속되는 공식 원문 첨부와 line-item evidence; 공개되지 않으면 검색 범위와 접근 경계만 기록한다.
+- Developer (run3): 현재 파일 접근을 검증하지 못해 재현성 판정은 보류했다. 이전 Developer 리뷰는 exact query/permalink/status와 403를 보존하고 Reddit/G2 결과를 discovery lead로만 다루며 G2 재시도·스크래핑·접근통제 우회를 금지했다.
+- Marketer (CMO 지원): 검색 스니펫은 질문 발굴, Microsoft/CrowdStrike 사건 자료는 구체적 resilience failure 사례에 유용하나, 어느 것도 빈도·WTP·TAM을 증명하지 않는다. 긍정 반례와 함께 표현한다.
+- Operator: 인증 없는 공개 경로만 사용하고 외부 문의·로그인·시크릿 입력 없이 수행한다. 명시된 Infinity 파일만 stage/push하며 unrelated worktree를 보존한다.
+- Genie 교차조정: 문서 접근 불가와 실제 문서 부재를 구분한다. 기존 Intune/Autopatch stage deployment는 대안 신호지만 Falcon content 업데이트를 제어한다고 확대하지 않는다. 다음 leaf는 payload·통제 주체별 기능 비교와 독립 buyer evidence다.
+- Planner (dispatch-66249915ff5c4f77931be4b30764adee 재검토): SSA와 Army/DoD 기록은 두 개의 제한된 연방 구매사례다. SSA OIG 권고 상태는 Jan 29 및 Mar 31, 2026 cutoff로만 표현하고, current status·award 인과관계는 열어 두지 않는다. Army search는 `hasNext=true`; paired transaction rows는 별도 IDs로 보존한다. 다음 leaf는 audit finding과 공개 award scope의 직접 겹침 여부를 확인한다.
+- Developer: SSA 5 history rows는 $11,595,321.46 obligation과 정확히 합산되지만 $25,029,199.19는 base+all-options다. Army detail은 $5,904,868.98; account outlay 0과 `total_outlay=null` 구분. Army는 awarding Army, funding Navy office, INDOPACOM scope, Greenbrier prime이다. 6 paired rows를 지우거나 중복 award로 세지 않으며 합산액은 detail과 맞는다.
+- Marketer (CMO 지원): safe segment hypothesis는 복잡한 인프라·공식 조달/자산 책임을 가진 federal/regulated operators까지다. 통합방화벽·inventory/CLIN 수정은 문제 정의보다 구매 구성 및 bookkeeping일 수도 있다. private pain/WTP/TAM/ARR, 만족도, remedy, startup opportunity는 증거가 아니다. 필요한 다음 증거는 독립 agency의 반복 업무·비용·예산권자·현재 control 및 대안이다.
+- Operator: 이번 최신 역할 세션은 모델 소유 검증 `403 Forbidden`(fresh request 권고)로 실패했다. 재개 조건은 새 역할 요청이 그 검증을 통과하는 것. 앞선 `/root/operator_run3b`의 공개경로만 사용·명시 파일 stage 운영판단은 유지하되, 이번 증거의 새 Operator cross-review 완료로 간주하지 않는다.
+- 추가 공개 대안 검토: GAO-26-107668의 DoD inventory/scan/physical-search 절차와 Army Corps Huntsville OT inventory 계약은 기존 내부통제·서비스 대안을 보여주나 SSA firewall audit나 Palo Alto award와 다른 시스템 범주다. 신생 제품 수요로 읽지 않는다.
 
 ## 한계·확신도
 

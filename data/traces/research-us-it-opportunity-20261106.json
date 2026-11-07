@@ -45,8 +45,8 @@
       "run_id": "dispatch-0c8a4b86950047b6a7a7a58571a628ff",
       "canonical_sha": "e0500e1b35cc4b4690d62016741b3844792b9df3",
       "agent": "genie",
-      "session_key": "agent:genie:infinity-dispatcher",
-      "timestamp": "2026-11-06T18:00:05Z",
+      "session_key": "agent:genie:infinity-dispatcher-v2",
+      "timestamp": "2026-11-06T18:00:04Z",
       "status": "accepted"
     },
     {
@@ -54,8 +54,8 @@
       "run_id": "dispatch-0c8a4b86950047b6a7a7a58571a628ff",
       "canonical_sha": "e0500e1b35cc4b4690d62016741b3844792b9df3",
       "agent": "genie",
-      "session_key": "agent:genie:infinity-dispatcher-v2",
-      "timestamp": "2026-11-06T18:00:04Z",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-11-06T18:00:05Z",
       "status": "accepted"
     },
     {
@@ -107,9 +107,15 @@
       ],
       "wiki_pages": [
         "agent-wiki/content/docs/outputs/deep-knowledge/ai.mdx:104-116",
-        "agent-wiki/content/docs/outputs/Integration/Business.mdx:195-205,232-249"
+        "agent-wiki/content/docs/outputs/Integration/Business.mdx:195-205,232-249",
+        "agent-wiki/content/docs/outputs/deep-knowledge/ai.mdx",
+        "agent-wiki/content/docs/outputs/Communication/Document.mdx",
+        "agent-wiki/content/docs/outputs/Integration/Business.mdx",
+        "agent-wiki/content/docs/outputs/Fundamental/Data_Structure.mdx"
       ],
-      "operational_log_sections": [],
+      "operational_log_sections": [
+        "logs/agent-wiki-query.md"
+      ],
       "note": "1차 비랭킹 카테고리 지도와 날짜/관측기간/한계를 갖춘 9개 출처 레지스터 작성. 구매의사/시장 크기로 과장하지 않음."
     },
     {
@@ -140,18 +146,16 @@
       "searches": [
         "USAspending award API, KISA 2025/2024 public procurement notices, NIA enterprise informatization statistics"
       ],
-      "wiki_pages": [],
-      "operational_log_sections": [],
+      "wiki_pages": [
+        "agent-wiki/content/docs/outputs/deep-knowledge/ai.mdx",
+        "agent-wiki/content/docs/outputs/Communication/Document.mdx",
+        "agent-wiki/content/docs/outputs/Integration/Business.mdx",
+        "agent-wiki/content/docs/outputs/Fundamental/Data_Structure.mdx"
+      ],
+      "operational_log_sections": [
+        "logs/agent-wiki-query.md"
+      ],
       "note": "공공 구매사례는 한 건별 procurement evidence only; US vs KR values not compared"
-    },
-    {
-      "type": "dispatcher_handoff",
-      "run_id": "dispatch-7ed064ca5b7e443db5c44f27c9b5c5b1",
-      "canonical_sha": "08d708cfab1f938feeb2e01e975a71d7ca96f584",
-      "agent": "genie",
-      "session_key": "agent:genie:infinity-dispatcher",
-      "timestamp": "2026-11-06T19:10:15Z",
-      "status": "accepted"
     },
     {
       "type": "dispatcher_handoff",
@@ -160,6 +164,15 @@
       "agent": "genie",
       "session_key": "agent:genie:infinity-dispatcher-v2",
       "timestamp": "2026-11-06T19:10:14Z",
+      "status": "accepted"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-7ed064ca5b7e443db5c44f27c9b5c5b1",
+      "canonical_sha": "08d708cfab1f938feeb2e01e975a71d7ca96f584",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-11-06T19:10:15Z",
       "status": "accepted"
     },
     {
@@ -172,8 +185,15 @@
       "searches": [
         "Census ABS 2023/2024 methodology, BTOS methodology, NIA 2024 survey and 2025 statistical quality report"
       ],
-      "wiki_pages": [],
-      "operational_log_sections": [],
+      "wiki_pages": [
+        "agent-wiki/content/docs/outputs/deep-knowledge/ai.mdx",
+        "agent-wiki/content/docs/outputs/Communication/Document.mdx",
+        "agent-wiki/content/docs/outputs/Integration/Business.mdx",
+        "agent-wiki/content/docs/outputs/Fundamental/Data_Structure.mdx"
+      ],
+      "operational_log_sections": [
+        "logs/agent-wiki-query.md"
+      ],
       "note": "US-Korea headline rates not comparable now; matched cloud measure and >=10-worker denominator is a conditional follow-up; adoption not purchase demand."
     },
     {
@@ -242,9 +262,15 @@
         "outputs/deep-knowledge/ai.mdx:104-116",
         "outputs/Integration/Business.mdx:195-205,232-249",
         "outputs/Idea/Information.mdx:261-269",
-        "outputs/Communication/Blogging.mdx:144-152"
+        "outputs/Communication/Blogging.mdx:144-152",
+        "agent-wiki/content/docs/outputs/deep-knowledge/ai.mdx",
+        "agent-wiki/content/docs/outputs/Communication/Document.mdx",
+        "agent-wiki/content/docs/outputs/Integration/Business.mdx",
+        "agent-wiki/content/docs/outputs/Fundamental/Data_Structure.mdx"
       ],
-      "operational_log_sections": [],
+      "operational_log_sections": [
+        "logs/agent-wiki-query.md"
+      ],
       "note": "ABS 2023 tech module and NIA 2024 survey are not headline-rate comparable; ABS Table 77 permits size strata review only, not harmonization. Added two federal cybersecurity/software purchase observations: DOE CrowdStrike ELA delivery order and ICE FinalMobile renewal. Exact scope/options and NIA response coding remain unverified; adoption/procurement observations are not private WTP or market size. Both orders route through NASA multiple-award GWACs (NNG15SC33B and NNG15SD74B); DOE has no solicitation ID in the award record, and ICE shows one base transaction. These facts limit scope/renewal inference."
     },
     {
@@ -279,8 +305,15 @@
         "USAspending DOE PIID 89243126FSC400871 and API parent award NNG15SC33B",
         "USAspending ICE PIID 70CMSD25FR0000087 and API parent award NNG15SD74B"
       ],
-      "wiki_pages": [],
-      "operational_log_sections": [],
+      "wiki_pages": [
+        "agent-wiki/content/docs/outputs/deep-knowledge/ai.mdx",
+        "agent-wiki/content/docs/outputs/Communication/Document.mdx",
+        "agent-wiki/content/docs/outputs/Integration/Business.mdx",
+        "agent-wiki/content/docs/outputs/Fundamental/Data_Structure.mdx"
+      ],
+      "operational_log_sections": [
+        "logs/agent-wiki-query.md"
+      ],
       "note": "Confirmed both public software/security awards are delivery orders under NASA multiple-award GWACs; DOE solicitation ID is blank and the ICE record has one initial transaction with potential options. Added parent vehicle metadata. Keep Intent active; exact line scope and actual option exercise remain the next evidence target, not a blocker to broader exploratory work."
     },
     {
@@ -340,9 +373,15 @@
         "outputs/deep-knowledge/ai.mdx:104-116",
         "outputs/Integration/Business.mdx:195-205,232-249",
         "outputs/Idea/Information.mdx:261-269",
-        "outputs/Communication/Blogging.mdx:144-152"
+        "outputs/Communication/Blogging.mdx:144-152",
+        "agent-wiki/content/docs/outputs/deep-knowledge/ai.mdx",
+        "agent-wiki/content/docs/outputs/Communication/Document.mdx",
+        "agent-wiki/content/docs/outputs/Integration/Business.mdx",
+        "agent-wiki/content/docs/outputs/Fundamental/Data_Structure.mdx"
       ],
-      "operational_log_sections": [],
+      "operational_log_sections": [
+        "logs/agent-wiki-query.md"
+      ],
       "role_sessions": {
         "planner": "agent:genie:subagent:b6c1d372-5d2c-4a20-935f-e6e8edfdb765",
         "developer": "agent:genie:subagent:06b0bbbb-a617-4c5c-975c-88fd0fd79db9",
@@ -406,7 +445,7 @@
         "artifacts/research-us-it-opportunity-20261106/work/market-map.html",
         "artifacts/research-us-it-opportunity-20261106/work/public-spend-observations.json",
         "INTENTS.yaml",
-        "intents/active/research-us-it-opportunity-20261106.md"
+        "intents/archive/research-us-it-opportunity-20261106.md"
       ],
       "searches": [
         "Earlier successful POST spending_by_transaction keyword=CrowdStrike,type C,page 1,limit 100,sort Transaction Amount desc; 100 results/hasNext=true (full raw body and exact retrieval timestamp were not preserved locally)",
@@ -421,7 +460,16 @@
         "marketer": "/root/marketer_buyer_signal",
         "operator": "/root/operator_evidence_chain"
       },
-      "note": "Stored three selected transaction rows as screening leads with an explicit raw-response/timestamp gap; did not promote to fully verified transactions. Treasury PDF independently confirms award identity and description, not P00008 amount/scope; DOE SAM-notice mirror only corroborates original award, not P00001. Planner says license wording does not prove CLIN/count and Treasury in-scope services may not be licenses; Developer says wait for full transaction histories; Marketer rejects private WTP/TAM/ARR inference; Operator requires source types and 503 separated. Intent remains active; next evidence leaf is full transaction and award-detail re-fetch for three exact PIIDs when the API is available."
+      "note": "Stored three selected transaction rows as screening leads with an explicit raw-response/timestamp gap; did not promote to fully verified transactions. Treasury PDF independently confirms award identity and description, not P00008 amount/scope; DOE SAM-notice mirror only corroborates original award, not P00001. Planner says license wording does not prove CLIN/count and Treasury in-scope services may not be licenses; Developer says wait for full transaction histories; Marketer rejects private WTP/TAM/ARR inference; Operator requires source types and 503 separated. Intent remains active; next evidence leaf is full transaction and award-detail re-fetch for three exact PIIDs when the API is available.",
+      "wiki_pages": [
+        "agent-wiki/content/docs/outputs/deep-knowledge/ai.mdx",
+        "agent-wiki/content/docs/outputs/Communication/Document.mdx",
+        "agent-wiki/content/docs/outputs/Integration/Business.mdx",
+        "agent-wiki/content/docs/outputs/Fundamental/Data_Structure.mdx"
+      ],
+      "operational_log_sections": [
+        "logs/agent-wiki-query.md"
+      ]
     },
     {
       "type": "backfill",
@@ -477,8 +525,15 @@
       "searches": [
         "USAspending official API exact PIIDs 89233126FNA400754, 15JPSS23F00000692, 2033H624F00068: transaction search + award detail + POST transaction histories; all HTTP 200; single-page histories hasNext=false; full raw responses saved."
       ],
-      "wiki_pages": [],
-      "operational_log_sections": [],
+      "wiki_pages": [
+        "agent-wiki/content/docs/outputs/deep-knowledge/ai.mdx",
+        "agent-wiki/content/docs/outputs/Communication/Document.mdx",
+        "agent-wiki/content/docs/outputs/Integration/Business.mdx",
+        "agent-wiki/content/docs/outputs/Fundamental/Data_Structure.mdx"
+      ],
+      "operational_log_sections": [
+        "logs/agent-wiki-query.md"
+      ],
       "note": "Verified prior screening leads against current full API response. Updated Markdown/HTML, retained limits on CLIN/quantity/unit price and no inference to private demand, ARR, TAM, or vendor revenue. Role cross-review: Planner evidence target; Developer source chain; Marketer buyer-inference boundary; Operator provenance/absent fields.",
       "run_id": "dispatch-ea02589e5dd94a84abeac61c5e08f733",
       "role_sessions": {
@@ -519,8 +574,15 @@
         "SAM.gov official paths for DOE 89243126FSC400871: SAM search JS shell HTTP 200; exact API requests returned runtime HTTP 404; GSA docs say SAM account/API key required for Contract Awards API/search. Contents remain unknown, not absent.",
         "USAspending official keyword FinalMobile exact query: 10 results, HTTP 200, hasNext=false; full details/history HTTP 200 for 70CMSD20FR0000130 (V3GATE) and 70CMSD25FR0000087 (SIRC); full payload saved."
       ],
-      "wiki_pages": [],
-      "operational_log_sections": [],
+      "wiki_pages": [
+        "agent-wiki/content/docs/outputs/deep-knowledge/ai.mdx",
+        "agent-wiki/content/docs/outputs/Communication/Document.mdx",
+        "agent-wiki/content/docs/outputs/Integration/Business.mdx",
+        "agent-wiki/content/docs/outputs/Fundamental/Data_Structure.mdx"
+      ],
+      "operational_log_sections": [
+        "logs/agent-wiki-query.md"
+      ],
       "note": "Cross-review supports recurrence of named FinalMobile software in two distinct ICE awards and later renewal description. Periods are adjacent; different prime recipients/parent vehicles and 2020 closeout action do not prove seamless use or identical scope. Keep 70CMSD26FR0000041 unlinked, and all public procurement signals separate from private WTP/TAM/ARR/vendor revenue.",
       "run_id": "dispatch-9abc35c6e77942de98b0dd31c1ad7408",
       "role_sessions": {
@@ -560,8 +622,15 @@
       "searches": [
         "USAspending official keyword SentinelOne exact query, contract award type C, transaction amount descending, page 1/100: HTTP 200, 14 rows, hasNext=false. NASA PIID 80TECH26FA015 detail/history HTTP 200, 3 history rows and no next page; full raw saved."
       ],
-      "wiki_pages": [],
-      "operational_log_sections": [],
+      "wiki_pages": [
+        "agent-wiki/content/docs/outputs/deep-knowledge/ai.mdx",
+        "agent-wiki/content/docs/outputs/Communication/Document.mdx",
+        "agent-wiki/content/docs/outputs/Integration/Business.mdx",
+        "agent-wiki/content/docs/outputs/Fundamental/Data_Structure.mdx"
+      ],
+      "operational_log_sections": [
+        "logs/agent-wiki-query.md"
+      ],
       "note": "NASA IT Procurement Office order via parent GWAC NNG15SC92B to THUNDERCAT reseller describes SentinelOne licensing subscription/data retention; base obligation/outlay $3,366,493.98; P00001/P00002 $0. MAFO, total small-business set-aside, one offer. No SKU/seats/unit price/direct revenue/ARR/private WTP/TAM inference. DOE access and ICE product-lineage blockers remain separate.",
       "run_id": "dispatch-64027cf9dee44d89b9a3cf759ab49bdf",
       "role_sessions": {
@@ -601,7 +670,238 @@
       "searches": [
         "USAspending API exact-award transaction search, award details, and all paginated transaction histories for DOE/NNSA 89233126FNA400754, DOJ 15JPSS23F00000692, Treasury 2033H624F00068; HTTP 200; page 2 fetched for Treasury"
       ],
-      "note": "Three previously screened CrowdStrike procurement leads were revalidated from official API raw responses. Histories are 3, 8, and 13 rows; obligations and in-scope descriptions only, not itemized quantities/CLIN or vendor revenue."
+      "note": "Three previously screened CrowdStrike procurement leads were revalidated from official API raw responses. Histories are 3, 8, and 13 rows; obligations and in-scope descriptions only, not itemized quantities/CLIN or vendor revenue.",
+      "wiki_pages": [
+        "agent-wiki/content/docs/outputs/deep-knowledge/ai.mdx",
+        "agent-wiki/content/docs/outputs/Communication/Document.mdx",
+        "agent-wiki/content/docs/outputs/Integration/Business.mdx",
+        "agent-wiki/content/docs/outputs/Fundamental/Data_Structure.mdx"
+      ],
+      "operational_log_sections": [
+        "logs/agent-wiki-query.md"
+      ]
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-2f280de52ad947f18f46b67aa3d5be68",
+      "canonical_sha": "93ec8f7aff836f39f497276eac65c010348dd7a1",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-11-07T00:32:29Z",
+      "status": "accepted"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-2f280de52ad947f18f46b67aa3d5be68",
+      "canonical_sha": "93ec8f7aff836f39f497276eac65c010348dd7a1",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher-v2",
+      "timestamp": "2026-11-07T00:35:44Z",
+      "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-11-07T00:35:44Z",
+      "context_pack": "intents/context/research-us-it-opportunity-20261106.json",
+      "evidence_paths": [
+        "artifacts/research-us-it-opportunity-20261106/work/public-spend-observations.json",
+        "artifacts/research-us-it-opportunity-20261106/work/market-map.md",
+        "artifacts/research-us-it-opportunity-20261106/work/market-map.html"
+      ],
+      "wiki_pages": [
+        "/home/ubuntu/workspace/knowledge-lab/agent-wiki/content/docs/index.mdx",
+        "/home/ubuntu/workspace/knowledge-lab/agent-wiki/content/docs/outputs/Integration/Business.mdx",
+        "agent-wiki/content/docs/outputs/deep-knowledge/ai.mdx",
+        "agent-wiki/content/docs/outputs/Communication/Document.mdx",
+        "agent-wiki/content/docs/outputs/Integration/Business.mdx",
+        "agent-wiki/content/docs/outputs/Fundamental/Data_Structure.mdx"
+      ],
+      "preference_sources": [
+        "/home/ubuntu/workspace/prompt-archive/TASTE.md",
+        "/home/ubuntu/workspace/prompt-archive/Content_Strategy.md"
+      ],
+      "searches": [
+        "SAM.gov exact PIID and solicitation-id search pages; HTTP 200 JavaScript shell, no result payload exposed in response",
+        "NASA SEWP V official ordering and contract-info pages; HTTP 200 with hash and extracted ordering/modification requirements",
+        "GSA Open Technology Contract Awards API documentation; account/API-key access requirement reviewed",
+        "web search for exact PIID 89243126QNA000448 in SAM/DOE/SEWP official domains returned no indexed result"
+      ],
+      "role_sessions": {
+        "planner": "/root/planner_run2",
+        "developer": "/root/developer_run2",
+        "marketer": "/root/marketer_run2",
+        "operator": "/root/operator_run2"
+      },
+      "cross_review": "Public procurement records support the award/vehicle and official process only; no direct order attachment was found in unauthenticated public routes. Do not infer attachment absence or itemized scope.",
+      "operational_log_sections": [
+        "logs/agent-wiki-query.md"
+      ]
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-295764d0809e406b9c4286b886d48d64",
+      "canonical_sha": "93ec8f7aff836f39f497276eac65c010348dd7a1",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-11-07T00:42:36Z",
+      "status": "accepted"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-295764d0809e406b9c4286b886d48d64",
+      "canonical_sha": "93ec8f7aff836f39f497276eac65c010348dd7a1",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher-v2",
+      "timestamp": "2026-11-07T00:42:36Z",
+      "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-11-07T00:46:41Z",
+      "context_pack": "intents/context/research-us-it-opportunity-20261106.json",
+      "evidence_paths": [
+        "artifacts/research-us-it-opportunity-20261106/work/public-spend-observations.json",
+        "artifacts/research-us-it-opportunity-20261106/work/market-map.md",
+        "artifacts/research-us-it-opportunity-20261106/work/market-map.html"
+      ],
+      "searches": [
+        "Exact official SAM/DOE/SEWP routes for DOE PIID/solicitation and NASA SEWP order process",
+        "Reddit search-index discovery leads for endpoint-security operational pain/counterexamples; direct GET 403, no retries",
+        "Primary-source comparison of Microsoft outage response, CrowdStrike RCA, and Microsoft Intune staged rollout documentation"
+      ],
+      "knowledge_sources": [
+        "/home/ubuntu/workspace/knowledge-lab/agent-wiki/content/docs/index.mdx",
+        "/home/ubuntu/workspace/knowledge-lab/agent-wiki/content/docs/outputs/Integration/Business.mdx",
+        "/home/ubuntu/workspace/prompt-archive/TASTE.md",
+        "/home/ubuntu/workspace/prompt-archive/Content_Strategy.md"
+      ],
+      "role_sessions": {
+        "planner": "/root/planner_run3",
+        "developer": "/root/developer_run3",
+        "marketer": "/root/marketer_run3",
+        "operator": "/root/operator_run3b"
+      },
+      "cross_review": "Agreement: procurement and incident reports are bounded signals, not private demand/WTP/TAM; user posts are discovery leads only due HTTP 403; preserve positive counterexample, assess existing controls, and do not infer Intune rings manage Falcon Rapid Response Content.",
+      "wiki_pages": [
+        "agent-wiki/content/docs/outputs/deep-knowledge/ai.mdx",
+        "agent-wiki/content/docs/outputs/Communication/Document.mdx",
+        "agent-wiki/content/docs/outputs/Integration/Business.mdx",
+        "agent-wiki/content/docs/outputs/Fundamental/Data_Structure.mdx"
+      ],
+      "operational_log_sections": [
+        "logs/agent-wiki-query.md"
+      ]
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-1f4855d2689a438986114d8ec162a216",
+      "canonical_sha": "69480fb57c0a3f1138af5fa5e7fb41dc4700bc06",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-11-07T00:52:28Z",
+      "status": "accepted"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-1f4855d2689a438986114d8ec162a216",
+      "canonical_sha": "69480fb57c0a3f1138af5fa5e7fb41dc4700bc06",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher-v2",
+      "timestamp": "2026-11-07T00:52:28Z",
+      "status": "accepted"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-66249915ff5c4f77931be4b30764adee",
+      "canonical_sha": "69480fb57c0a3f1138af5fa5e7fb41dc4700bc06",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-11-07T01:05:32Z",
+      "status": "accepted"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-66249915ff5c4f77931be4b30764adee",
+      "canonical_sha": "69480fb57c0a3f1138af5fa5e7fb41dc4700bc06",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher-v2",
+      "timestamp": "2026-11-07T01:05:32Z",
+      "status": "accepted"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-6738e73c073b4dadb469b86c687857d9",
+      "canonical_sha": "69480fb57c0a3f1138af5fa5e7fb41dc4700bc06",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-11-07T01:28:45Z",
+      "status": "accepted"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-6738e73c073b4dadb469b86c687857d9",
+      "canonical_sha": "69480fb57c0a3f1138af5fa5e7fb41dc4700bc06",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher-v2",
+      "timestamp": "2026-11-07T01:29:50Z",
+      "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-11-07T01:30:00Z",
+      "run_id": "dispatch-6738e73c073b4dadb469b86c687857d9",
+      "canonical_sha": "69480fb57c0a3f1138af5fa5e7fb41dc4700bc06",
+      "context_pack": "intents/context/research-us-it-opportunity-20261106.json",
+      "evidence_paths": [
+        "artifacts/research-us-it-opportunity-20261106/work/public-spend-observations.json",
+        "artifacts/research-us-it-opportunity-20261106/work/market-map.md",
+        "artifacts/research-us-it-opportunity-20261106/work/market-map.html"
+      ],
+      "evidence_keys": [
+        "palo_alto_networks_ssa_award_20261107T0055Z",
+        "palo_alto_networks_army_order_20261107T0109Z",
+        "ssa_firewall_oversight_sources_20261107T0130Z",
+        "federal_asset_visibility_alternatives_20261107T0120Z"
+      ],
+      "searches": [
+        "USAspending official API keyword Palo Alto Networks: page 1/100 sorted transaction amount, hasNext=true; inspected SSA PIID 28321325FDX030100 and Army PIID W519TC25F0425 award detail + all five/six history rows.",
+        "Official SSA OIG Firewall Administration report 142315; Jan 29 2026 unimplemented recommendation compilation; Spring 2026 SAR Appendix E, cutoff Mar 31 2026.",
+        "Official GAO-26-108937 IoT/OT inventories and GAO-26-107668 Section 889 search methods; Army Corps Huntsville OT inventory service article.",
+        "SAM solicitation page for SSA ID returned HTTP 200 JavaScript shell; no static parsed result/attachment. This is not evidence of document absence."
+      ],
+      "role_sessions": {
+        "planner": "/root/planner_0105",
+        "developer": "/root/developer_0105",
+        "marketer": "/root/marketer_0105",
+        "operator": "/root/operator_0105 (blocked twice: 403 Forbidden, model ownership verification) ; prior operational review /root/operator_run3b"
+      },
+      "cross_review": "Planner: two bounded federal awards, search non-exhaustive, oversight cutoff-only and causal link unproven. Developer: SSA 5-row total equals obligation and differs from options; Army 6 paired rows equal detail, preserve paired IDs and distinguish total_account_outlay=0 from total_outlay=null; Army awarding Army, funding Navy office, INDOPACOM mission, Greenbrier prime. Marketer: complex public/regulated infrastructure is only a segment hypothesis; routine reconciliation is a plausible alternative; no private pain/WTP/TAM/ARR/outcomes. Operator re-review blocked by runtime 403; exact blocker and fresh-owner-verified request resume condition recorded. GAO IoT/OT, Section 889 hardware and Army facility OT services are adjacent alternatives, not identical scope.",
+      "result": "SSA: 5 history rows sum to total_obligation $11,595,321.46; total_account_outlay $8,580,389.30; base_and_all_options $25,029,199.19. Army: 6 rows sum to total_obligation $5,904,868.98; account outlay field zero and total_outlay null. SSA audit 40 non-stat sample (Jan 2024–Mar 2025); public detail sensitive. OIG status snapshots differ by cutoff. Both keyword searches are page 1 with hasNext=true. Army Corp facility OT inventory article shows existing service alternative; GAO reports show agency inventory/scan controls and coverage limits.",
+      "checks": [
+        "trace JSON serialization passed",
+        "evidence snapshot JSON serialization passed",
+        "market-map Markdown updated",
+        "market-map HTML updated",
+        "INTENTS YAML/detail next_action and artifact refs preserved"
+      ],
+      "wiki_pages": [
+        "agent-wiki/content/docs/outputs/deep-knowledge/ai.mdx",
+        "agent-wiki/content/docs/outputs/Communication/Document.mdx",
+        "agent-wiki/content/docs/outputs/Integration/Business.mdx",
+        "agent-wiki/content/docs/outputs/Fundamental/Data_Structure.mdx"
+      ],
+      "operational_log_sections": [
+        "logs/agent-wiki-query.md"
+      ]
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-bea9bb8fa1f942039b8cae7c9aa5a43a",
+      "canonical_sha": "ddfc3f7bf01e5c09afb1e52f305e35bea303d075",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-11-07T02:36:58Z",
+      "status": "accepted"
     }
   ],
   "artifacts": [
@@ -609,19 +909,36 @@
       "path": "artifacts/research-us-it-opportunity-20261106/work/market-map.md",
       "kind": "research_working_artifact",
       "created_at": "2026-11-06T19:05:00Z",
-      "status": "draft"
+      "status": "draft",
+      "label": "Working research map (Markdown)"
     },
     {
       "path": "artifacts/research-us-it-opportunity-20261106/work/market-map.html",
       "kind": "research_working_artifact",
       "created_at": "2026-11-06T19:05:00Z",
-      "status": "draft"
+      "status": "draft",
+      "label": "Working research map (HTML)"
     },
     {
       "path": "artifacts/research-us-it-opportunity-20261106/work/public-spend-observations.json",
       "kind": "source_evidence_snapshot",
       "created_at": "2026-11-06T19:04:21Z",
-      "status": "captured"
+      "status": "captured",
+      "label": "Captured public-spending evidence snapshot"
+    },
+    {
+      "label": "Final exploratory research brief",
+      "path": "artifacts/research-us-it-opportunity-20261106/final/us-it-opportunity-exploration-report.md",
+      "kind": "final_research_brief",
+      "created_at": "2026-11-07T03:03:00Z",
+      "status": "created"
+    },
+    {
+      "label": "Final rich HTML report",
+      "path": "reports/research-us-it-opportunity-20261106/20261107T0303Z-final.html",
+      "kind": "final_html_report",
+      "created_at": "2026-11-07T03:03:00Z",
+      "status": "created"
     }
   ],
   "verifications": [
@@ -1014,7 +1331,7 @@
     }
   ],
   "next_decision": {
-    "status": "in_progress",
-    "value": "Next bounded evidence leaf: search Palo Alto Networks transactions and verify one buyer other than NASA, DOE, or ICE through exact award detail and complete history; keep buyer, reseller, obligation, and product scope distinct."
+    "status": "hold",
+    "value": "User explicitly ended no-deadline exploration. Final Markdown/HTML assembled only from existing material; no new evidence leaf or role retry. Archive transition awaits remote verification."
   }
 }
