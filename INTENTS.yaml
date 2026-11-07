@@ -135,32 +135,38 @@ lanes:
     notification_reply_to: '1793845695.691209'
     notification_origin: 'channel:C0BR41W31MM;reply_to:1793845695.691209'
     next_action: >-
-      DOE P00001 첨부의 비인증 공개경로를 확인했으나 SAM 검색은 결과 없는 JS shell이며
-      GSA Contract Awards API는 계정/API key 경계를 둔다. NASA SEWP 공개 가이드는
-      order 수정·line items/pricing 절차만 설명하고 실제 첨부/CLIN은 미확인이다.
-      Reddit 후기 검색색인은 HTTP 403으로 discovery lead로만 기록했다. Microsoft와
-      CrowdStrike 공식 사건자료는 resilience 실패 사례, Intune rings는 OS/app 배포의
-      기존 대안을 보여주지만 신규 수요/WTP를 증명하지 않는다. 다음 leaf는 vendor-managed
-      security content와 OS/app rollout 통제의 기능 경계 및 독립 buyer evidence를 비교한다.
+      SSA PIID 28321325FDX030100 및 Army PIID W519TC25F0425의 USAspending detail/history를 보존했다.
+      둘은 별도 federal buyer 사례이며 search page 1은 hasNext=true다. Army paired transaction rows,
+      SSA obligation/outlay/options 필드를 구분했다. SSA OIG firewall report 142315와 Jan/Mar 2026
+      recommendation snapshot, GAO IoT/OT 및 Section 889 inventory evidence, Army Corps facility-OT
+      inventory services는 각각 범위·cutoff가 다르고 Palo Alto award와의 causality는 확인되지 않았다.
+      다음 leaf는 공공 asset-visibility 대안과 독립 buyer의 반복 업무·책임자·비용·예산 신호를 공개
+      원자료에서 확인한다. 비공개/인증 문서 접근 부재를 실제 부재로 해석하지 않는다.
     artifact:
       - artifacts/research-us-it-opportunity-20261106/work/market-map.md
       - artifacts/research-us-it-opportunity-20261106/work/market-map.html
       - artifacts/research-us-it-opportunity-20261106/work/public-spend-observations.json
     latest_role_sessions:
       planner:
-        session_id: /root/planner_run3
-        judgment: 공식 order 첨부와 line-item evidence를 성공 기준으로 두며, 접근 불가를 첨부 부재로 보지 않음
+        session_id: /root/planner_0105
+        judgment: SSA·Army는 서로 다른 federal procurement cases; OIG status는 Jan 29/Mar 31 cutoff로만 기록하고 인과·현재상태 추론을 금지
       developer:
-        session_id: /root/developer_run3
-        judgment: 해당 세션에서 로컬 artifact를 직접 검증하지 못함; 403 검색자료는 provenance를 보존하고 검증 testimony로 취급하지 않음
+        session_id: /root/developer_0105
+        judgment: SSA 5행 obligation 합계 일치; Army 6 paired rows/detail 합계 일치; total_account_outlay 0과 total_outlay null 등 API 필드를 분리
       marketer:
-        session_id: /root/marketer_run3
-        judgment: outage는 구체적 resilience 사례지만 빈도/WTP/TAM을 입증하지 않음; Reddit은 질문 발굴 리드
+        session_id: /root/marketer_0105
+        judgment: 복잡 인프라·조달/자산책임이 있는 공공·regulated segment 가설만 가능; routine reconciliation 설명도 가능하며 WTP/TAM/ARR·성과는 미입증
       operator:
-        session_id: /root/operator_run3b
-        judgment: 인증·외부 문의 없이 공개 경로만 조회하고 명시적 파일만 원격 반영
+        session_id: /root/operator_0105
+        status: blocked
+        blocker: 재검토 세션이 403 Forbidden — model request ownership 검증 실패; 새 요청이 그 검증을 통과해야 재개
       cross_review: >-
-        조달·사고자료는 범위가 좁은 신호, UGC는 직접 확인되지 않은 discovery lead다. 기존 Intune rings가 Falcon content를 통제한다고 추론하지 않고 다음에 payload별 대안과 독립 buyer evidence를 확인한다.
+        역할 합의: 두 구매기록은 federal security procurement 사례이지 시장·vendor revenue·성과 증거가 아니다.
+        Planner는 dated oversight snapshots와 search hasNext=true를 강조했고 Developer는 history arithmetic,
+        paired IDs와 agency/prime 역할 구분을 교차검토했다. Marketer는 public-sector buyer hypothesis와
+        routine acquisition bookkeeping 대안을 함께 남기고 독립 buyer의 반복 업무·비용·예산 자료를 요구했다.
+        Operator의 이번 교차검토는 403으로 미완료이며 이전 운영검토만 유지한다. GAO IoT/OT·Section 889와
+        Army facility OT inventory는 firewall award와 별도 자산/정책 범위다.
     role_subagents:
       planner:
         session_id: /root/planner_doe_attachment_leaf
