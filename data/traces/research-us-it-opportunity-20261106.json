@@ -570,6 +570,38 @@
         "marketer": "/root/marketer_run10",
         "operator": "/root/operator_run10"
       }
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-feab6f822d8d418fa1d9f34f62c23953",
+      "canonical_sha": "5fa24b593b157b951f6c8dd924e2414da5ea800d",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-11-07T00:02:28Z",
+      "status": "accepted"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-feab6f822d8d418fa1d9f34f62c23953",
+      "canonical_sha": "5fa24b593b157b951f6c8dd924e2414da5ea800d",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher-v2",
+      "timestamp": "2026-11-07T00:04:30Z",
+      "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-11-07T00:04:30Z",
+      "context_pack": "intents/context/research-us-it-opportunity-20261106.json",
+      "evidence_paths": [
+        "artifacts/research-us-it-opportunity-20261106/work/public-spend-observations.json",
+        "artifacts/research-us-it-opportunity-20261106/work/market-map.md",
+        "artifacts/research-us-it-opportunity-20261106/work/market-map.html"
+      ],
+      "searches": [
+        "USAspending API exact-award transaction search, award details, and all paginated transaction histories for DOE/NNSA 89233126FNA400754, DOJ 15JPSS23F00000692, Treasury 2033H624F00068; HTTP 200; page 2 fetched for Treasury"
+      ],
+      "note": "Three previously screened CrowdStrike procurement leads were revalidated from official API raw responses. Histories are 3, 8, and 13 rows; obligations and in-scope descriptions only, not itemized quantities/CLIN or vendor revenue."
     }
   ],
   "artifacts": [

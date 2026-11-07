@@ -4218,5 +4218,2361 @@
         }
       }
     ]
+  },
+  "exact_id_revalidation_20261107T0004Z": {
+    "retrieved_at_utc": "2026-11-07T00:03:54.736437+00:00",
+    "search": {
+      "method": "POST",
+      "endpoint": "https://api.usaspending.gov/api/v2/search/spending_by_transaction/",
+      "request": {
+        "filters": {
+          "award_ids": [
+            "89233126FNA400754",
+            "15JPSS23F00000692",
+            "2033H624F00068"
+          ],
+          "award_type_codes": [
+            "C"
+          ]
+        },
+        "fields": [
+          "Award ID",
+          "Mod",
+          "Recipient Name",
+          "Action Date",
+          "Transaction Amount",
+          "Awarding Agency",
+          "Awarding Sub Agency",
+          "Transaction Description",
+          "PSC",
+          "NAICS"
+        ],
+        "page": 1,
+        "limit": 100,
+        "sort": "Transaction Amount",
+        "order": "desc"
+      },
+      "server_date_header": "Sat, 07 Nov 2026 00:03:55 GMT",
+      "http_status": 200,
+      "response_body": {
+        "limit": 100,
+        "results": [
+          {
+            "Award ID": "89233126FNA400754",
+            "Mod": "P00001",
+            "Recipient Name": "THUNDERCAT TECHNOLOGY, LLC",
+            "Action Date": "2026-05-12",
+            "Transaction Amount": 9924171.0,
+            "Awarding Agency": "Department of Energy",
+            "Awarding Sub Agency": "Department of Energy",
+            "Transaction Description": "CROWDSTRIKE FALCON AND FALCON COMPLETE LICENSES",
+            "PSC": {
+              "code": "7A21",
+              "description": "IT AND TELECOM - BUSINESS APPLICATION SOFTWARE (PERPETUAL LICENSE SOFTWARE)"
+            },
+            "NAICS": {
+              "code": "541519",
+              "description": "OTHER COMPUTER RELATED SERVICES"
+            },
+            "generated_internal_id": "CONT_AWD_89233126FNA400754_8900_NNG15SC92B_8000",
+            "internal_id": 354186238
+          },
+          {
+            "Award ID": "15JPSS23F00000692",
+            "Mod": "P00016",
+            "Recipient Name": "THUNDERCAT TECHNOLOGY, LLC",
+            "Action Date": "2025-12-02",
+            "Transaction Amount": 4649687.97,
+            "Awarding Agency": "Department of Justice",
+            "Awarding Sub Agency": "Offices, Boards and Divisions",
+            "Transaction Description": "DOWO: ANNUAL RENEWAL OF CROWDSTRIKE SOFTWARE LICENSES AND SUPPORT FOR JMD/OCIO/CSS.",
+            "PSC": {
+              "code": "7J20",
+              "description": "IT AND TELECOM - SECURITY AND COMPLIANCE PRODUCTS (HARDWARE AND PERPETUAL LICENSE SOFTWARE)"
+            },
+            "NAICS": {
+              "code": "541519",
+              "description": "OTHER COMPUTER RELATED SERVICES"
+            },
+            "generated_internal_id": "CONT_AWD_15JPSS23F00000692_1501_NNG15SD26B_8000",
+            "internal_id": 278313963
+          },
+          {
+            "Award ID": "89233126FNA400754",
+            "Mod": "0",
+            "Recipient Name": "THUNDERCAT TECHNOLOGY, LLC",
+            "Action Date": "2026-01-06",
+            "Transaction Amount": 1750637.0,
+            "Awarding Agency": "Department of Energy",
+            "Awarding Sub Agency": "Department of Energy",
+            "Transaction Description": "CROWDSTRIKE FALCON AND FALCON COMPLETE LICENSES",
+            "PSC": {
+              "code": "7A21",
+              "description": "IT AND TELECOM - BUSINESS APPLICATION SOFTWARE (PERPETUAL LICENSE SOFTWARE)"
+            },
+            "NAICS": {
+              "code": "541519",
+              "description": "OTHER COMPUTER RELATED SERVICES"
+            },
+            "generated_internal_id": "CONT_AWD_89233126FNA400754_8900_NNG15SC92B_8000",
+            "internal_id": 354186238
+          },
+          {
+            "Award ID": "2033H624F00068",
+            "Mod": "P00008",
+            "Recipient Name": "FCN, INC.",
+            "Action Date": "2026-01-21",
+            "Transaction Amount": 1701003.89,
+            "Awarding Agency": "Department of the Treasury",
+            "Awarding Sub Agency": "Bureau of the Fiscal Service",
+            "Transaction Description": "CROWDSTRIKE PRODUCTS AND SERVICES - EXERCISE OPTION PERIOD TWO AND ADD IN SCOPE SERVICES",
+            "PSC": {
+              "code": "7J20",
+              "description": "IT AND TELECOM - SECURITY AND COMPLIANCE PRODUCTS (HARDWARE AND PERPETUAL LICENSE SOFTWARE)"
+            },
+            "NAICS": {
+              "code": "541519",
+              "description": "OTHER COMPUTER RELATED SERVICES"
+            },
+            "generated_internal_id": "CONT_AWD_2033H624F00068_2036_NNG15SC71B_8000",
+            "internal_id": 279033286
+          },
+          {
+            "Award ID": "2033H624F00068",
+            "Mod": "P00002",
+            "Recipient Name": "FCN, INC.",
+            "Action Date": "2025-01-21",
+            "Transaction Amount": 1606535.4,
+            "Awarding Agency": "Department of the Treasury",
+            "Awarding Sub Agency": "Bureau of the Fiscal Service",
+            "Transaction Description": "CROWDSTRIKE PRODUCTS AND SERVICES",
+            "PSC": {
+              "code": "7J20",
+              "description": "IT AND TELECOM - SECURITY AND COMPLIANCE PRODUCTS (HARDWARE AND PERPETUAL LICENSE SOFTWARE)"
+            },
+            "NAICS": {
+              "code": "541519",
+              "description": "OTHER COMPUTER RELATED SERVICES"
+            },
+            "generated_internal_id": "CONT_AWD_2033H624F00068_2036_NNG15SC71B_8000",
+            "internal_id": 279033286
+          },
+          {
+            "Award ID": "15JPSS23F00000692",
+            "Mod": "0",
+            "Recipient Name": "THUNDERCAT TECHNOLOGY, LLC",
+            "Action Date": "2023-09-11",
+            "Transaction Amount": 1417931.5,
+            "Awarding Agency": "Department of Justice",
+            "Awarding Sub Agency": "Offices, Boards and Divisions",
+            "Transaction Description": "ANNUAL RENEWAL OF CROWDSTRIKE SOFTWARE LICENSES AND SUPPORT FOR JMD/OCIO/CSS..",
+            "PSC": {
+              "code": "7J20",
+              "description": "IT AND TELECOM - SECURITY AND COMPLIANCE PRODUCTS (HARDWARE AND PERPETUAL LICENSE SOFTWARE)"
+            },
+            "NAICS": {
+              "code": "541519",
+              "description": "OTHER COMPUTER RELATED SERVICES"
+            },
+            "generated_internal_id": "CONT_AWD_15JPSS23F00000692_1501_NNG15SD26B_8000",
+            "internal_id": 278313963
+          },
+          {
+            "Award ID": "2033H624F00068",
+            "Mod": "0",
+            "Recipient Name": "FCN, INC.",
+            "Action Date": "2024-01-31",
+            "Transaction Amount": 1277132.99,
+            "Awarding Agency": "Department of the Treasury",
+            "Awarding Sub Agency": "Bureau of the Fiscal Service",
+            "Transaction Description": "CROWDSTRIKE PRODUCTS AND SERVICES",
+            "PSC": {
+              "code": "7J20",
+              "description": "IT AND TELECOM - SECURITY AND COMPLIANCE PRODUCTS (HARDWARE AND PERPETUAL LICENSE SOFTWARE)"
+            },
+            "NAICS": {
+              "code": "541519",
+              "description": "OTHER COMPUTER RELATED SERVICES"
+            },
+            "generated_internal_id": "CONT_AWD_2033H624F00068_2036_NNG15SC71B_8000",
+            "internal_id": 279033286
+          },
+          {
+            "Award ID": "2033H624F00068",
+            "Mod": "P00011",
+            "Recipient Name": "FCN, INC.",
+            "Action Date": "2026-09-18",
+            "Transaction Amount": 507069.03,
+            "Awarding Agency": "Department of the Treasury",
+            "Awarding Sub Agency": "Bureau of the Fiscal Service",
+            "Transaction Description": "CROWDSTRIKE PRODUCTS AND SERVICES - ADD IN SCOPE UPGRADE",
+            "PSC": {
+              "code": "7J20",
+              "description": "IT AND TELECOM - SECURITY AND COMPLIANCE PRODUCTS (HARDWARE AND PERPETUAL LICENSE SOFTWARE)"
+            },
+            "NAICS": {
+              "code": "541519",
+              "description": "OTHER COMPUTER RELATED SERVICES"
+            },
+            "generated_internal_id": "CONT_AWD_2033H624F00068_2036_NNG15SC71B_8000",
+            "internal_id": 279033286
+          },
+          {
+            "Award ID": "15JPSS23F00000692",
+            "Mod": "P00015",
+            "Recipient Name": "THUNDERCAT TECHNOLOGY, LLC",
+            "Action Date": "2025-09-29",
+            "Transaction Amount": 325101.85,
+            "Awarding Agency": "Department of Justice",
+            "Awarding Sub Agency": "Offices, Boards and Divisions",
+            "Transaction Description": "DOWO: ANNUAL RENEWAL OF CROWDSTRIKE SOFTWARE LICENSES AND SUPPORT FOR JMD/OCIO/CSS.",
+            "PSC": {
+              "code": "7J20",
+              "description": "IT AND TELECOM - SECURITY AND COMPLIANCE PRODUCTS (HARDWARE AND PERPETUAL LICENSE SOFTWARE)"
+            },
+            "NAICS": {
+              "code": "541519",
+              "description": "OTHER COMPUTER RELATED SERVICES"
+            },
+            "generated_internal_id": "CONT_AWD_15JPSS23F00000692_1501_NNG15SD26B_8000",
+            "internal_id": 278313963
+          },
+          {
+            "Award ID": "15JPSS23F00000692",
+            "Mod": "P00019",
+            "Recipient Name": "THUNDERCAT TECHNOLOGY, LLC",
+            "Action Date": "2026-09-11",
+            "Transaction Amount": 273188.02,
+            "Awarding Agency": "Department of Justice",
+            "Awarding Sub Agency": "Offices, Boards and Divisions",
+            "Transaction Description": "DOWO: ANNUAL RENEWAL OF CROWDSTRIKE SOFTWARE LICENSES AND SUPPORT FOR JMD/OCIO/CSS.",
+            "PSC": {
+              "code": "7J20",
+              "description": "IT AND TELECOM - SECURITY AND COMPLIANCE PRODUCTS (HARDWARE AND PERPETUAL LICENSE SOFTWARE)"
+            },
+            "NAICS": {
+              "code": "541519",
+              "description": "OTHER COMPUTER RELATED SERVICES"
+            },
+            "generated_internal_id": "CONT_AWD_15JPSS23F00000692_1501_NNG15SD26B_8000",
+            "internal_id": 278313963
+          },
+          {
+            "Award ID": "15JPSS23F00000692",
+            "Mod": "P00020",
+            "Recipient Name": "THUNDERCAT TECHNOLOGY, LLC",
+            "Action Date": "2026-09-29",
+            "Transaction Amount": 273188.02,
+            "Awarding Agency": "Department of Justice",
+            "Awarding Sub Agency": "Offices, Boards and Divisions",
+            "Transaction Description": "DOWO: ANNUAL RENEWAL OF CROWDSTRIKE SOFTWARE LICENSES AND SUPPORT FOR JMD/OCIO/CSS.",
+            "PSC": {
+              "code": "7J20",
+              "description": "IT AND TELECOM - SECURITY AND COMPLIANCE PRODUCTS (HARDWARE AND PERPETUAL LICENSE SOFTWARE)"
+            },
+            "NAICS": {
+              "code": "541519",
+              "description": "OTHER COMPUTER RELATED SERVICES"
+            },
+            "generated_internal_id": "CONT_AWD_15JPSS23F00000692_1501_NNG15SD26B_8000",
+            "internal_id": 278313963
+          },
+          {
+            "Award ID": "2033H624F00068",
+            "Mod": "P00005",
+            "Recipient Name": "FCN, INC.",
+            "Action Date": "2025-04-23",
+            "Transaction Amount": 81000.0,
+            "Awarding Agency": "Department of the Treasury",
+            "Awarding Sub Agency": "Bureau of the Fiscal Service",
+            "Transaction Description": "CROWDSTRIKE PRODUCTS AND SERVICES - OBLIGATE FUNDING FOR IN SCOPE ITEMS",
+            "PSC": {
+              "code": "7J20",
+              "description": "IT AND TELECOM - SECURITY AND COMPLIANCE PRODUCTS (HARDWARE AND PERPETUAL LICENSE SOFTWARE)"
+            },
+            "NAICS": {
+              "code": "541519",
+              "description": "OTHER COMPUTER RELATED SERVICES"
+            },
+            "generated_internal_id": "CONT_AWD_2033H624F00068_2036_NNG15SC71B_8000",
+            "internal_id": 279033286
+          },
+          {
+            "Award ID": "2033H624F00068",
+            "Mod": "P00010",
+            "Recipient Name": "FCN, INC.",
+            "Action Date": "2026-08-13",
+            "Transaction Amount": 70981.77,
+            "Awarding Agency": "Department of the Treasury",
+            "Awarding Sub Agency": "Bureau of the Fiscal Service",
+            "Transaction Description": "ADD ADDITIONAL WITHIN SCOPE ITEMS, OBLIGATE FUNDS AND ADJUST FUTURE OPTION YEARS TO REFLECT CHANGES.",
+            "PSC": {
+              "code": "7J20",
+              "description": "IT AND TELECOM - SECURITY AND COMPLIANCE PRODUCTS (HARDWARE AND PERPETUAL LICENSE SOFTWARE)"
+            },
+            "NAICS": {
+              "code": "541519",
+              "description": "OTHER COMPUTER RELATED SERVICES"
+            },
+            "generated_internal_id": "CONT_AWD_2033H624F00068_2036_NNG15SC71B_8000",
+            "internal_id": 279033286
+          },
+          {
+            "Award ID": "2033H624F00068",
+            "Mod": "P00001",
+            "Recipient Name": "FCN, INC.",
+            "Action Date": "2024-07-03",
+            "Transaction Amount": 59400.0,
+            "Awarding Agency": "Department of the Treasury",
+            "Awarding Sub Agency": "Bureau of the Fiscal Service",
+            "Transaction Description": "CROWDSTRIKE PRODUCTS AND SERVICES",
+            "PSC": {
+              "code": "7J20",
+              "description": "IT AND TELECOM - SECURITY AND COMPLIANCE PRODUCTS (HARDWARE AND PERPETUAL LICENSE SOFTWARE)"
+            },
+            "NAICS": {
+              "code": "541519",
+              "description": "OTHER COMPUTER RELATED SERVICES"
+            },
+            "generated_internal_id": "CONT_AWD_2033H624F00068_2036_NNG15SC71B_8000",
+            "internal_id": 279033286
+          },
+          {
+            "Award ID": "2033H624F00068",
+            "Mod": "P00004",
+            "Recipient Name": "FCN, INC.",
+            "Action Date": "2025-03-13",
+            "Transaction Amount": 44744.86,
+            "Awarding Agency": "Department of the Treasury",
+            "Awarding Sub Agency": "Bureau of the Fiscal Service",
+            "Transaction Description": "CROWDSTRIKE PRODUCTS AND SERVICES",
+            "PSC": {
+              "code": "7J20",
+              "description": "IT AND TELECOM - SECURITY AND COMPLIANCE PRODUCTS (HARDWARE AND PERPETUAL LICENSE SOFTWARE)"
+            },
+            "NAICS": {
+              "code": "541519",
+              "description": "OTHER COMPUTER RELATED SERVICES"
+            },
+            "generated_internal_id": "CONT_AWD_2033H624F00068_2036_NNG15SC71B_8000",
+            "internal_id": 279033286
+          },
+          {
+            "Award ID": "15JPSS23F00000692",
+            "Mod": "P00018",
+            "Recipient Name": "THUNDERCAT TECHNOLOGY, LLC",
+            "Action Date": "2026-09-11",
+            "Transaction Amount": 14043.1,
+            "Awarding Agency": "Department of Justice",
+            "Awarding Sub Agency": "Offices, Boards and Divisions",
+            "Transaction Description": "DOWO: ANNUAL RENEWAL OF CROWDSTRIKE SOFTWARE LICENSES AND SUPPORT FOR JMD/OCIO/CSS.",
+            "PSC": {
+              "code": "7J20",
+              "description": "IT AND TELECOM - SECURITY AND COMPLIANCE PRODUCTS (HARDWARE AND PERPETUAL LICENSE SOFTWARE)"
+            },
+            "NAICS": {
+              "code": "541519",
+              "description": "OTHER COMPUTER RELATED SERVICES"
+            },
+            "generated_internal_id": "CONT_AWD_15JPSS23F00000692_1501_NNG15SD26B_8000",
+            "internal_id": 278313963
+          },
+          {
+            "Award ID": "15JPSS23F00000692",
+            "Mod": "P00014",
+            "Recipient Name": "THUNDERCAT TECHNOLOGY, LLC",
+            "Action Date": "2025-09-23",
+            "Transaction Amount": 11100.0,
+            "Awarding Agency": "Department of Justice",
+            "Awarding Sub Agency": "Offices, Boards and Divisions",
+            "Transaction Description": "DOWO: ANNUAL RENEWAL OF CROWDSTRIKE SOFTWARE LICENSES AND SUPPORT FOR JMD/OCIO/CSS.",
+            "PSC": {
+              "code": "7J20",
+              "description": "IT AND TELECOM - SECURITY AND COMPLIANCE PRODUCTS (HARDWARE AND PERPETUAL LICENSE SOFTWARE)"
+            },
+            "NAICS": {
+              "code": "541519",
+              "description": "OTHER COMPUTER RELATED SERVICES"
+            },
+            "generated_internal_id": "CONT_AWD_15JPSS23F00000692_1501_NNG15SD26B_8000",
+            "internal_id": 278313963
+          },
+          {
+            "Award ID": "15JPSS23F00000692",
+            "Mod": "P00017",
+            "Recipient Name": "THUNDERCAT TECHNOLOGY, LLC",
+            "Action Date": "2026-05-07",
+            "Transaction Amount": 6972.5,
+            "Awarding Agency": "Department of Justice",
+            "Awarding Sub Agency": "Offices, Boards and Divisions",
+            "Transaction Description": "DOWO: ANNUAL RENEWAL OF CROWDSTRIKE SOFTWARE LICENSES AND SUPPORT FOR JMD/OCIO/CSS.",
+            "PSC": {
+              "code": "7J20",
+              "description": "IT AND TELECOM - SECURITY AND COMPLIANCE PRODUCTS (HARDWARE AND PERPETUAL LICENSE SOFTWARE)"
+            },
+            "NAICS": {
+              "code": "541519",
+              "description": "OTHER COMPUTER RELATED SERVICES"
+            },
+            "generated_internal_id": "CONT_AWD_15JPSS23F00000692_1501_NNG15SD26B_8000",
+            "internal_id": 278313963
+          },
+          {
+            "Award ID": "89233126FNA400754",
+            "Mod": "P00002",
+            "Recipient Name": "THUNDERCAT TECHNOLOGY, LLC",
+            "Action Date": "2026-09-04",
+            "Transaction Amount": 0.0,
+            "Awarding Agency": "Department of Energy",
+            "Awarding Sub Agency": "Department of Energy",
+            "Transaction Description": "CROWDSTRIKE FALCON AND FALCON COMPLETE LICENSES",
+            "PSC": {
+              "code": "7A21",
+              "description": "IT AND TELECOM - BUSINESS APPLICATION SOFTWARE (PERPETUAL LICENSE SOFTWARE)"
+            },
+            "NAICS": {
+              "code": "541519",
+              "description": "OTHER COMPUTER RELATED SERVICES"
+            },
+            "generated_internal_id": "CONT_AWD_89233126FNA400754_8900_NNG15SC92B_8000",
+            "internal_id": 354186238
+          },
+          {
+            "Award ID": "2033H624F00068",
+            "Mod": "P00009",
+            "Recipient Name": "FCN, INC.",
+            "Action Date": "2026-05-13",
+            "Transaction Amount": 0.0,
+            "Awarding Agency": "Department of the Treasury",
+            "Awarding Sub Agency": "Bureau of the Fiscal Service",
+            "Transaction Description": "CROWDSTRIKE PRODUCTS AND SERVICES - TO INCORPORATE CLAUSE 52.222-90 ADDRESSING DEI DISCRIMINATION BY FEDERAL CONTRACTORS (APR 2026).",
+            "PSC": {
+              "code": "7J20",
+              "description": "IT AND TELECOM - SECURITY AND COMPLIANCE PRODUCTS (HARDWARE AND PERPETUAL LICENSE SOFTWARE)"
+            },
+            "NAICS": {
+              "code": "541519",
+              "description": "OTHER COMPUTER RELATED SERVICES"
+            },
+            "generated_internal_id": "CONT_AWD_2033H624F00068_2036_NNG15SC71B_8000",
+            "internal_id": 279033286
+          },
+          {
+            "Award ID": "2033H624F00068",
+            "Mod": "P00003",
+            "Recipient Name": "FCN, INC.",
+            "Action Date": "2025-02-19",
+            "Transaction Amount": 0.0,
+            "Awarding Agency": "Department of the Treasury",
+            "Awarding Sub Agency": "Bureau of the Fiscal Service",
+            "Transaction Description": "CROWDSTRIKE PRODUCTS AND SERVICES",
+            "PSC": {
+              "code": "7J20",
+              "description": "IT AND TELECOM - SECURITY AND COMPLIANCE PRODUCTS (HARDWARE AND PERPETUAL LICENSE SOFTWARE)"
+            },
+            "NAICS": {
+              "code": "541519",
+              "description": "OTHER COMPUTER RELATED SERVICES"
+            },
+            "generated_internal_id": "CONT_AWD_2033H624F00068_2036_NNG15SC71B_8000",
+            "internal_id": 279033286
+          },
+          {
+            "Award ID": "2033H624F00068",
+            "Mod": "A00001",
+            "Recipient Name": "FCN, INC.",
+            "Action Date": "2026-10-28",
+            "Transaction Amount": 0.0,
+            "Awarding Agency": "Department of the Treasury",
+            "Awarding Sub Agency": "Departmental Offices",
+            "Transaction Description": "CROWDSTRIKE PRODUCTS AND SERVICES",
+            "PSC": {
+              "code": "7J20",
+              "description": "IT AND TELECOM - SECURITY AND COMPLIANCE PRODUCTS (HARDWARE AND PERPETUAL LICENSE SOFTWARE)"
+            },
+            "NAICS": {
+              "code": "541519",
+              "description": "OTHER COMPUTER RELATED SERVICES"
+            },
+            "generated_internal_id": "CONT_AWD_2033H624F00068_2036_NNG15SC71B_8000",
+            "internal_id": 279033286
+          },
+          {
+            "Award ID": "2033H624F00068",
+            "Mod": "P00006",
+            "Recipient Name": "FCN, INC.",
+            "Action Date": "2025-05-29",
+            "Transaction Amount": 0.0,
+            "Awarding Agency": "Department of the Treasury",
+            "Awarding Sub Agency": "Bureau of the Fiscal Service",
+            "Transaction Description": "CROWDSTRIKE PRODUCTS AND SERVICES - INCORPORATE A NON-DISCLOSURE AGREEMENT",
+            "PSC": {
+              "code": "7J20",
+              "description": "IT AND TELECOM - SECURITY AND COMPLIANCE PRODUCTS (HARDWARE AND PERPETUAL LICENSE SOFTWARE)"
+            },
+            "NAICS": {
+              "code": "541519",
+              "description": "OTHER COMPUTER RELATED SERVICES"
+            },
+            "generated_internal_id": "CONT_AWD_2033H624F00068_2036_NNG15SC71B_8000",
+            "internal_id": 279033286
+          },
+          {
+            "Award ID": "2033H624F00068",
+            "Mod": "P00007",
+            "Recipient Name": "FCN, INC.",
+            "Action Date": "2025-09-11",
+            "Transaction Amount": -17201.25,
+            "Awarding Agency": "Department of the Treasury",
+            "Awarding Sub Agency": "Bureau of the Fiscal Service",
+            "Transaction Description": "CROWDSTRIKE PRODUCTS AND SERVICES - TERMINATION FOR CONVENIENCE (PARTIAL) TERMINATION EFFECTIVE DATE 09/10/2025.  DEOBLIGATING $17,201.25",
+            "PSC": {
+              "code": "7J20",
+              "description": "IT AND TELECOM - SECURITY AND COMPLIANCE PRODUCTS (HARDWARE AND PERPETUAL LICENSE SOFTWARE)"
+            },
+            "NAICS": {
+              "code": "541519",
+              "description": "OTHER COMPUTER RELATED SERVICES"
+            },
+            "generated_internal_id": "CONT_AWD_2033H624F00068_2036_NNG15SC71B_8000",
+            "internal_id": 279033286
+          }
+        ],
+        "page_metadata": {
+          "page": 1,
+          "next": null,
+          "previous": null,
+          "hasNext": false,
+          "hasPrevious": false
+        },
+        "messages": [
+          "For searches, time period start and end dates are currently limited to an earliest date of 2007-10-01.  For data going back to 2000-10-01, use either the Custom Award Download feature on the website or one of our download or bulk_download API endpoints as listed on https://api.usaspending.gov/docs/endpoints. "
+        ]
+      }
+    },
+    "records": [
+      {
+        "piid": "89233126FNA400754",
+        "generated_unique_award_id": "CONT_AWD_89233126FNA400754_8900_NNG15SC92B_8000",
+        "search_rows": [
+          {
+            "Award ID": "89233126FNA400754",
+            "Mod": "P00001",
+            "Recipient Name": "THUNDERCAT TECHNOLOGY, LLC",
+            "Action Date": "2026-05-12",
+            "Transaction Amount": 9924171.0,
+            "Awarding Agency": "Department of Energy",
+            "Awarding Sub Agency": "Department of Energy",
+            "Transaction Description": "CROWDSTRIKE FALCON AND FALCON COMPLETE LICENSES",
+            "PSC": {
+              "code": "7A21",
+              "description": "IT AND TELECOM - BUSINESS APPLICATION SOFTWARE (PERPETUAL LICENSE SOFTWARE)"
+            },
+            "NAICS": {
+              "code": "541519",
+              "description": "OTHER COMPUTER RELATED SERVICES"
+            },
+            "generated_internal_id": "CONT_AWD_89233126FNA400754_8900_NNG15SC92B_8000",
+            "internal_id": 354186238
+          },
+          {
+            "Award ID": "89233126FNA400754",
+            "Mod": "0",
+            "Recipient Name": "THUNDERCAT TECHNOLOGY, LLC",
+            "Action Date": "2026-01-06",
+            "Transaction Amount": 1750637.0,
+            "Awarding Agency": "Department of Energy",
+            "Awarding Sub Agency": "Department of Energy",
+            "Transaction Description": "CROWDSTRIKE FALCON AND FALCON COMPLETE LICENSES",
+            "PSC": {
+              "code": "7A21",
+              "description": "IT AND TELECOM - BUSINESS APPLICATION SOFTWARE (PERPETUAL LICENSE SOFTWARE)"
+            },
+            "NAICS": {
+              "code": "541519",
+              "description": "OTHER COMPUTER RELATED SERVICES"
+            },
+            "generated_internal_id": "CONT_AWD_89233126FNA400754_8900_NNG15SC92B_8000",
+            "internal_id": 354186238
+          },
+          {
+            "Award ID": "89233126FNA400754",
+            "Mod": "P00002",
+            "Recipient Name": "THUNDERCAT TECHNOLOGY, LLC",
+            "Action Date": "2026-09-04",
+            "Transaction Amount": 0.0,
+            "Awarding Agency": "Department of Energy",
+            "Awarding Sub Agency": "Department of Energy",
+            "Transaction Description": "CROWDSTRIKE FALCON AND FALCON COMPLETE LICENSES",
+            "PSC": {
+              "code": "7A21",
+              "description": "IT AND TELECOM - BUSINESS APPLICATION SOFTWARE (PERPETUAL LICENSE SOFTWARE)"
+            },
+            "NAICS": {
+              "code": "541519",
+              "description": "OTHER COMPUTER RELATED SERVICES"
+            },
+            "generated_internal_id": "CONT_AWD_89233126FNA400754_8900_NNG15SC92B_8000",
+            "internal_id": 354186238
+          }
+        ],
+        "award_detail": {
+          "retrieved_at_utc": "2026-11-07T00:03:54.736437+00:00",
+          "server_date_header": "Sat, 07 Nov 2026 00:03:56 GMT",
+          "endpoint": "https://api.usaspending.gov/api/v2/awards/CONT_AWD_89233126FNA400754_8900_NNG15SC92B_8000/",
+          "http_status": 200,
+          "response_body": {
+            "id": 354186238,
+            "generated_unique_award_id": "CONT_AWD_89233126FNA400754_8900_NNG15SC92B_8000",
+            "piid": "89233126FNA400754",
+            "category": "contract",
+            "type": "C",
+            "type_description": "DELIVERY ORDER",
+            "description": "CROWDSTRIKE FALCON AND FALCON COMPLETE LICENSES",
+            "total_obligation": 11674808.0,
+            "subaward_count": 0,
+            "total_subaward_amount": null,
+            "date_signed": "2026-01-06",
+            "base_exercised_options": 11674808.0,
+            "base_and_all_options": 32433456.0,
+            "total_account_outlay": 11674808.0,
+            "total_account_obligation": 11674808.0,
+            "account_outlays_by_defc": [
+              {
+                "code": "Q",
+                "amount": 11674808.0
+              }
+            ],
+            "account_obligations_by_defc": [
+              {
+                "code": "Q",
+                "amount": 11674808.0
+              }
+            ],
+            "parent_award": {
+              "agency_id": 862,
+              "agency_name": "National Aeronautics and Space Administration",
+              "agency_slug": "national-aeronautics-and-space-administration",
+              "sub_agency_id": "8000",
+              "sub_agency_name": "National Aeronautics and Space Administration",
+              "award_id": 351431332,
+              "generated_unique_award_id": "CONT_IDV_NNG15SC92B_8000",
+              "idv_type_description": "GWAC",
+              "multiple_or_single_aw_desc": "MULTIPLE AWARD",
+              "piid": "NNG15SC92B",
+              "type_of_idc_description": null
+            },
+            "latest_transaction_contract_data": {
+              "idv_type_description": null,
+              "type_of_idc_description": null,
+              "referenced_idv_agency_iden": "8000",
+              "referenced_idv_agency_desc": "NATIONAL AERONAUTICS AND SPACE ADMINISTRATION",
+              "solicitation_identifier": "89233126QNA000448",
+              "solicitation_procedures": "MAFO",
+              "number_of_offers_received": "4",
+              "extent_competed": "D",
+              "type_set_aside": null,
+              "type_set_aside_description": null,
+              "evaluated_preference": "NONE",
+              "fed_biz_opps": "Y",
+              "fed_biz_opps_description": "YES",
+              "small_business_competitive": false,
+              "product_or_service_code": "7A21",
+              "naics": "541519",
+              "naics_description": "OTHER COMPUTER RELATED SERVICES",
+              "sea_transportation": null,
+              "clinger_cohen_act_planning": "N",
+              "labor_standards": "X",
+              "cost_or_pricing_data": null,
+              "domestic_or_foreign_entity": "A",
+              "foreign_funding": "X",
+              "major_program": null,
+              "program_acronym": null,
+              "subcontracting_plan": "B",
+              "multi_year_contract": null,
+              "consolidated_contract": "D",
+              "type_of_contract_pricing": "J",
+              "national_interest_action": null,
+              "multiple_or_single_award_description": null,
+              "solicitation_procedures_description": "SUBJECT TO MULTIPLE AWARD FAIR OPPORTUNITY",
+              "extent_competed_description": "FULL AND OPEN COMPETITION AFTER EXCLUSION OF SOURCES",
+              "other_than_full_and_open": null,
+              "other_than_full_and_open_description": null,
+              "commercial_item_acquisition": "A",
+              "commercial_item_acquisition_description": "COMMERCIAL PRODUCTS/SERVICES",
+              "commercial_item_test_program": "N",
+              "commercial_item_test_program_description": "NO",
+              "evaluated_preference_description": "NO PREFERENCE USED",
+              "fair_opportunity_limited": "FAIR",
+              "fair_opportunity_limited_description": "FAIR OPPORTUNITY GIVEN",
+              "product_or_service_description": "IT AND TELECOM - BUSINESS APPLICATION SOFTWARE (PERPETUAL LICENSE SOFTWARE)",
+              "dod_claimant_program": null,
+              "dod_claimant_program_description": null,
+              "dod_acquisition_program": null,
+              "dod_acquisition_program_description": null,
+              "information_technology_commercial_item_category": "B",
+              "information_technology_commercial_item_category_description": "COMMERCIAL PRODUCT",
+              "sea_transportation_description": null,
+              "clinger_cohen_act_planning_description": "NO",
+              "construction_wage_rate": "X",
+              "construction_wage_rate_description": "NOT APPLICABLE",
+              "labor_standards_description": "NOT APPLICABLE",
+              "materials_supplies": "X",
+              "materials_supplies_description": "NOT APPLICABLE",
+              "cost_or_pricing_data_description": null,
+              "domestic_or_foreign_entity_description": "U.S. OWNED BUSINESS",
+              "foreign_funding_description": "NOT APPLICABLE",
+              "interagency_contracting_authority": "X",
+              "interagency_contracting_authority_description": "NOT APPLICABLE",
+              "price_evaluation_adjustment": null,
+              "subcontracting_plan_description": "PLAN NOT REQUIRED",
+              "multi_year_contract_description": null,
+              "purchase_card_as_payment_method": "N",
+              "purchase_card_as_payment_method_description": "NO",
+              "consolidated_contract_description": "NOT CONSOLIDATED",
+              "type_of_contract_pricing_description": "FIRM FIXED PRICE",
+              "national_interest_action_description": null
+            },
+            "funding_agency": {
+              "id": 930,
+              "has_agency_page": true,
+              "toptier_agency": {
+                "name": "Department of Energy",
+                "code": "089",
+                "abbreviation": "DOE",
+                "slug": "department-of-energy"
+              },
+              "subtier_agency": {
+                "name": "Department of Energy",
+                "code": "8900",
+                "abbreviation": "DOE"
+              },
+              "office_agency_name": "NNSA WEAPONS ACTIVITIES FUNDS"
+            },
+            "awarding_agency": {
+              "id": 930,
+              "has_agency_page": true,
+              "toptier_agency": {
+                "name": "Department of Energy",
+                "code": "089",
+                "abbreviation": "DOE",
+                "slug": "department-of-energy"
+              },
+              "subtier_agency": {
+                "name": "Department of Energy",
+                "code": "8900",
+                "abbreviation": "DOE"
+              },
+              "office_agency_name": "NNSA NON-MO CNTRCTNG OPS DIV"
+            },
+            "period_of_performance": {
+              "start_date": "2026-01-01",
+              "end_date": "2027-05-31",
+              "last_modified_date": "2026-09-04",
+              "potential_end_date": "2029-05-31 00:00:00"
+            },
+            "recipient": {
+              "recipient_hash": "dbceb126-f729-60e7-d55a-ba235f519653-C",
+              "recipient_name": "THUNDERCAT TECHNOLOGY, LLC",
+              "recipient_uei": "UER4AJLUB8D5",
+              "recipient_unique_id": null,
+              "parent_recipient_hash": "04e54f04-2944-44e2-2897-258c898cbf3c-P",
+              "parent_recipient_name": "THUNDERCAT TECHNOLOGY  LLC",
+              "parent_recipient_uei": "S2SKMY4U8KH5",
+              "parent_recipient_unique_id": null,
+              "business_categories": [
+                "Category Business",
+                "Corporate Entity Not Tax Exempt",
+                "Limited Liability Corporation",
+                "Service Disabled Veteran Owned Business",
+                "Small Business",
+                "Special Designations",
+                "U.S.-Owned Business",
+                "Veteran Owned Business"
+              ],
+              "location": {
+                "location_country_code": "USA",
+                "country_name": "UNITED STATES",
+                "state_code": "VA",
+                "state_name": "VIRGINIA",
+                "city_name": "RESTON",
+                "county_code": "059",
+                "county_name": "FAIRFAX",
+                "address_line1": "11190 SUNRISE VALLEY DR STE 200",
+                "address_line2": null,
+                "address_line3": null,
+                "congressional_code": "11",
+                "zip4": "4393",
+                "zip5": "20191",
+                "foreign_postal_code": null,
+                "foreign_province": null
+              }
+            },
+            "executive_details": {
+              "officers": [
+                {
+                  "name": null,
+                  "amount": null
+                },
+                {
+                  "name": null,
+                  "amount": null
+                },
+                {
+                  "name": null,
+                  "amount": null
+                },
+                {
+                  "name": null,
+                  "amount": null
+                },
+                {
+                  "name": null,
+                  "amount": null
+                }
+              ]
+            },
+            "place_of_performance": {
+              "location_country_code": "USA",
+              "country_name": "UNITED STATES",
+              "county_code": "059",
+              "county_name": "FAIRFAX",
+              "city_name": "RESTON",
+              "state_code": "VA",
+              "state_name": "VIRGINIA",
+              "congressional_code": "11",
+              "zip4": "4393",
+              "zip5": "20191",
+              "address_line1": null,
+              "address_line2": null,
+              "address_line3": null,
+              "foreign_province": null,
+              "foreign_postal_code": null
+            },
+            "psc_hierarchy": {
+              "toptier_code": {},
+              "midtier_code": {
+                "code": "7A",
+                "description": "IT AND TELECOM - APLLICATIONS"
+              },
+              "subtier_code": {},
+              "base_code": {
+                "code": "7A21",
+                "description": "IT AND TELECOM - BUSINESS APPLICATION SOFTWARE (PERPETUAL LICENSE SOFTWARE)"
+              }
+            },
+            "naics_hierarchy": {
+              "toptier_code": {
+                "code": "54",
+                "description": "Professional, Scientific, and Technical Services"
+              },
+              "midtier_code": {
+                "code": "5415",
+                "description": "Computer Systems Design and Related Services"
+              },
+              "base_code": {
+                "code": "541519",
+                "description": "Other Computer Related Services"
+              }
+            },
+            "total_outlay": 11674808.0
+          }
+        },
+        "transaction_history": {
+          "retrieved_at_utc": "2026-11-07T00:03:54.736437+00:00",
+          "server_date_header": "Sat, 07 Nov 2026 00:03:56 GMT",
+          "endpoint": "https://api.usaspending.gov/api/v2/transactions/",
+          "request": {
+            "award_id": "CONT_AWD_89233126FNA400754_8900_NNG15SC92B_8000"
+          },
+          "http_status": 200,
+          "response_body": {
+            "page_metadata": {
+              "page": 1,
+              "next": null,
+              "previous": null,
+              "hasNext": false,
+              "hasPrevious": false
+            },
+            "results": [
+              {
+                "id": "CONT_TX_8900_8000_89233126FNA400754_P00002_NNG15SC92B_0",
+                "type": "C",
+                "type_description": "DELIVERY ORDER",
+                "action_date": "2026-09-04",
+                "action_type": "M",
+                "action_type_description": "OTHER ADMINISTRATIVE ACTION",
+                "modification_number": "P00002",
+                "description": "CROWDSTRIKE FALCON AND FALCON COMPLETE LICENSES",
+                "federal_action_obligation": 0.0,
+                "face_value_loan_guarantee": 0.0,
+                "original_loan_subsidy_cost": 0.0
+              },
+              {
+                "id": "CONT_TX_8900_8000_89233126FNA400754_P00001_NNG15SC92B_0",
+                "type": "C",
+                "type_description": "DELIVERY ORDER",
+                "action_date": "2026-05-12",
+                "action_type": "G",
+                "action_type_description": "EXERCISE AN OPTION",
+                "modification_number": "P00001",
+                "description": "CROWDSTRIKE FALCON AND FALCON COMPLETE LICENSES",
+                "federal_action_obligation": 9924171.0,
+                "face_value_loan_guarantee": 0.0,
+                "original_loan_subsidy_cost": 0.0
+              },
+              {
+                "id": "CONT_TX_8900_8000_89233126FNA400754_0_NNG15SC92B_0",
+                "type": "C",
+                "type_description": "DELIVERY ORDER",
+                "action_date": "2026-01-06",
+                "action_type": null,
+                "action_type_description": null,
+                "modification_number": "0",
+                "description": "CROWDSTRIKE FALCON AND FALCON COMPLETE LICENSES",
+                "federal_action_obligation": 1750637.0,
+                "face_value_loan_guarantee": 0.0,
+                "original_loan_subsidy_cost": 0.0
+              }
+            ]
+          }
+        }
+      },
+      {
+        "piid": "15JPSS23F00000692",
+        "generated_unique_award_id": "CONT_AWD_15JPSS23F00000692_1501_NNG15SD26B_8000",
+        "search_rows": [
+          {
+            "Award ID": "15JPSS23F00000692",
+            "Mod": "P00016",
+            "Recipient Name": "THUNDERCAT TECHNOLOGY, LLC",
+            "Action Date": "2025-12-02",
+            "Transaction Amount": 4649687.97,
+            "Awarding Agency": "Department of Justice",
+            "Awarding Sub Agency": "Offices, Boards and Divisions",
+            "Transaction Description": "DOWO: ANNUAL RENEWAL OF CROWDSTRIKE SOFTWARE LICENSES AND SUPPORT FOR JMD/OCIO/CSS.",
+            "PSC": {
+              "code": "7J20",
+              "description": "IT AND TELECOM - SECURITY AND COMPLIANCE PRODUCTS (HARDWARE AND PERPETUAL LICENSE SOFTWARE)"
+            },
+            "NAICS": {
+              "code": "541519",
+              "description": "OTHER COMPUTER RELATED SERVICES"
+            },
+            "generated_internal_id": "CONT_AWD_15JPSS23F00000692_1501_NNG15SD26B_8000",
+            "internal_id": 278313963
+          },
+          {
+            "Award ID": "15JPSS23F00000692",
+            "Mod": "0",
+            "Recipient Name": "THUNDERCAT TECHNOLOGY, LLC",
+            "Action Date": "2023-09-11",
+            "Transaction Amount": 1417931.5,
+            "Awarding Agency": "Department of Justice",
+            "Awarding Sub Agency": "Offices, Boards and Divisions",
+            "Transaction Description": "ANNUAL RENEWAL OF CROWDSTRIKE SOFTWARE LICENSES AND SUPPORT FOR JMD/OCIO/CSS..",
+            "PSC": {
+              "code": "7J20",
+              "description": "IT AND TELECOM - SECURITY AND COMPLIANCE PRODUCTS (HARDWARE AND PERPETUAL LICENSE SOFTWARE)"
+            },
+            "NAICS": {
+              "code": "541519",
+              "description": "OTHER COMPUTER RELATED SERVICES"
+            },
+            "generated_internal_id": "CONT_AWD_15JPSS23F00000692_1501_NNG15SD26B_8000",
+            "internal_id": 278313963
+          },
+          {
+            "Award ID": "15JPSS23F00000692",
+            "Mod": "P00015",
+            "Recipient Name": "THUNDERCAT TECHNOLOGY, LLC",
+            "Action Date": "2025-09-29",
+            "Transaction Amount": 325101.85,
+            "Awarding Agency": "Department of Justice",
+            "Awarding Sub Agency": "Offices, Boards and Divisions",
+            "Transaction Description": "DOWO: ANNUAL RENEWAL OF CROWDSTRIKE SOFTWARE LICENSES AND SUPPORT FOR JMD/OCIO/CSS.",
+            "PSC": {
+              "code": "7J20",
+              "description": "IT AND TELECOM - SECURITY AND COMPLIANCE PRODUCTS (HARDWARE AND PERPETUAL LICENSE SOFTWARE)"
+            },
+            "NAICS": {
+              "code": "541519",
+              "description": "OTHER COMPUTER RELATED SERVICES"
+            },
+            "generated_internal_id": "CONT_AWD_15JPSS23F00000692_1501_NNG15SD26B_8000",
+            "internal_id": 278313963
+          },
+          {
+            "Award ID": "15JPSS23F00000692",
+            "Mod": "P00019",
+            "Recipient Name": "THUNDERCAT TECHNOLOGY, LLC",
+            "Action Date": "2026-09-11",
+            "Transaction Amount": 273188.02,
+            "Awarding Agency": "Department of Justice",
+            "Awarding Sub Agency": "Offices, Boards and Divisions",
+            "Transaction Description": "DOWO: ANNUAL RENEWAL OF CROWDSTRIKE SOFTWARE LICENSES AND SUPPORT FOR JMD/OCIO/CSS.",
+            "PSC": {
+              "code": "7J20",
+              "description": "IT AND TELECOM - SECURITY AND COMPLIANCE PRODUCTS (HARDWARE AND PERPETUAL LICENSE SOFTWARE)"
+            },
+            "NAICS": {
+              "code": "541519",
+              "description": "OTHER COMPUTER RELATED SERVICES"
+            },
+            "generated_internal_id": "CONT_AWD_15JPSS23F00000692_1501_NNG15SD26B_8000",
+            "internal_id": 278313963
+          },
+          {
+            "Award ID": "15JPSS23F00000692",
+            "Mod": "P00020",
+            "Recipient Name": "THUNDERCAT TECHNOLOGY, LLC",
+            "Action Date": "2026-09-29",
+            "Transaction Amount": 273188.02,
+            "Awarding Agency": "Department of Justice",
+            "Awarding Sub Agency": "Offices, Boards and Divisions",
+            "Transaction Description": "DOWO: ANNUAL RENEWAL OF CROWDSTRIKE SOFTWARE LICENSES AND SUPPORT FOR JMD/OCIO/CSS.",
+            "PSC": {
+              "code": "7J20",
+              "description": "IT AND TELECOM - SECURITY AND COMPLIANCE PRODUCTS (HARDWARE AND PERPETUAL LICENSE SOFTWARE)"
+            },
+            "NAICS": {
+              "code": "541519",
+              "description": "OTHER COMPUTER RELATED SERVICES"
+            },
+            "generated_internal_id": "CONT_AWD_15JPSS23F00000692_1501_NNG15SD26B_8000",
+            "internal_id": 278313963
+          },
+          {
+            "Award ID": "15JPSS23F00000692",
+            "Mod": "P00018",
+            "Recipient Name": "THUNDERCAT TECHNOLOGY, LLC",
+            "Action Date": "2026-09-11",
+            "Transaction Amount": 14043.1,
+            "Awarding Agency": "Department of Justice",
+            "Awarding Sub Agency": "Offices, Boards and Divisions",
+            "Transaction Description": "DOWO: ANNUAL RENEWAL OF CROWDSTRIKE SOFTWARE LICENSES AND SUPPORT FOR JMD/OCIO/CSS.",
+            "PSC": {
+              "code": "7J20",
+              "description": "IT AND TELECOM - SECURITY AND COMPLIANCE PRODUCTS (HARDWARE AND PERPETUAL LICENSE SOFTWARE)"
+            },
+            "NAICS": {
+              "code": "541519",
+              "description": "OTHER COMPUTER RELATED SERVICES"
+            },
+            "generated_internal_id": "CONT_AWD_15JPSS23F00000692_1501_NNG15SD26B_8000",
+            "internal_id": 278313963
+          },
+          {
+            "Award ID": "15JPSS23F00000692",
+            "Mod": "P00014",
+            "Recipient Name": "THUNDERCAT TECHNOLOGY, LLC",
+            "Action Date": "2025-09-23",
+            "Transaction Amount": 11100.0,
+            "Awarding Agency": "Department of Justice",
+            "Awarding Sub Agency": "Offices, Boards and Divisions",
+            "Transaction Description": "DOWO: ANNUAL RENEWAL OF CROWDSTRIKE SOFTWARE LICENSES AND SUPPORT FOR JMD/OCIO/CSS.",
+            "PSC": {
+              "code": "7J20",
+              "description": "IT AND TELECOM - SECURITY AND COMPLIANCE PRODUCTS (HARDWARE AND PERPETUAL LICENSE SOFTWARE)"
+            },
+            "NAICS": {
+              "code": "541519",
+              "description": "OTHER COMPUTER RELATED SERVICES"
+            },
+            "generated_internal_id": "CONT_AWD_15JPSS23F00000692_1501_NNG15SD26B_8000",
+            "internal_id": 278313963
+          },
+          {
+            "Award ID": "15JPSS23F00000692",
+            "Mod": "P00017",
+            "Recipient Name": "THUNDERCAT TECHNOLOGY, LLC",
+            "Action Date": "2026-05-07",
+            "Transaction Amount": 6972.5,
+            "Awarding Agency": "Department of Justice",
+            "Awarding Sub Agency": "Offices, Boards and Divisions",
+            "Transaction Description": "DOWO: ANNUAL RENEWAL OF CROWDSTRIKE SOFTWARE LICENSES AND SUPPORT FOR JMD/OCIO/CSS.",
+            "PSC": {
+              "code": "7J20",
+              "description": "IT AND TELECOM - SECURITY AND COMPLIANCE PRODUCTS (HARDWARE AND PERPETUAL LICENSE SOFTWARE)"
+            },
+            "NAICS": {
+              "code": "541519",
+              "description": "OTHER COMPUTER RELATED SERVICES"
+            },
+            "generated_internal_id": "CONT_AWD_15JPSS23F00000692_1501_NNG15SD26B_8000",
+            "internal_id": 278313963
+          }
+        ],
+        "award_detail": {
+          "retrieved_at_utc": "2026-11-07T00:03:54.736437+00:00",
+          "server_date_header": "Sat, 07 Nov 2026 00:03:57 GMT",
+          "endpoint": "https://api.usaspending.gov/api/v2/awards/CONT_AWD_15JPSS23F00000692_1501_NNG15SD26B_8000/",
+          "http_status": 200,
+          "response_body": {
+            "id": 278313963,
+            "generated_unique_award_id": "CONT_AWD_15JPSS23F00000692_1501_NNG15SD26B_8000",
+            "piid": "15JPSS23F00000692",
+            "category": "contract",
+            "type": "C",
+            "type_description": "DELIVERY ORDER",
+            "description": "ANNUAL RENEWAL OF CROWDSTRIKE SOFTWARE LICENSES AND SUPPORT FOR JMD/OCIO/CSS..",
+            "total_obligation": 6971212.96,
+            "subaward_count": 0,
+            "total_subaward_amount": null,
+            "date_signed": "2023-09-11",
+            "base_exercised_options": 40488199.45,
+            "base_and_all_options": 43909053.22,
+            "total_account_outlay": 11430527.19,
+            "total_account_obligation": 11436545.13,
+            "account_outlays_by_defc": [
+              {
+                "code": "Q",
+                "amount": 11430527.19
+              }
+            ],
+            "account_obligations_by_defc": [
+              {
+                "code": "Q",
+                "amount": 11436545.13
+              }
+            ],
+            "parent_award": {
+              "agency_id": 862,
+              "agency_name": "National Aeronautics and Space Administration",
+              "agency_slug": "national-aeronautics-and-space-administration",
+              "sub_agency_id": "8000",
+              "sub_agency_name": "National Aeronautics and Space Administration",
+              "award_id": 351431361,
+              "generated_unique_award_id": "CONT_IDV_NNG15SD26B_8000",
+              "idv_type_description": "GWAC",
+              "multiple_or_single_aw_desc": "MULTIPLE AWARD",
+              "piid": "NNG15SD26B",
+              "type_of_idc_description": null
+            },
+            "latest_transaction_contract_data": {
+              "idv_type_description": null,
+              "type_of_idc_description": null,
+              "referenced_idv_agency_iden": "8000",
+              "referenced_idv_agency_desc": "NATIONAL AERONAUTICS AND SPACE ADMINISTRATION",
+              "solicitation_identifier": null,
+              "solicitation_procedures": "MAFO",
+              "number_of_offers_received": "3",
+              "extent_competed": "D",
+              "type_set_aside": null,
+              "type_set_aside_description": null,
+              "evaluated_preference": "NONE",
+              "fed_biz_opps": "Y",
+              "fed_biz_opps_description": "YES",
+              "small_business_competitive": false,
+              "product_or_service_code": "7J20",
+              "naics": "541519",
+              "naics_description": "OTHER COMPUTER RELATED SERVICES",
+              "sea_transportation": null,
+              "clinger_cohen_act_planning": "N",
+              "labor_standards": "X",
+              "cost_or_pricing_data": null,
+              "domestic_or_foreign_entity": "A",
+              "foreign_funding": "X",
+              "major_program": null,
+              "program_acronym": null,
+              "subcontracting_plan": "B",
+              "multi_year_contract": null,
+              "consolidated_contract": "D",
+              "type_of_contract_pricing": "J",
+              "national_interest_action": null,
+              "multiple_or_single_award_description": null,
+              "solicitation_procedures_description": "SUBJECT TO MULTIPLE AWARD FAIR OPPORTUNITY",
+              "extent_competed_description": "FULL AND OPEN COMPETITION AFTER EXCLUSION OF SOURCES",
+              "other_than_full_and_open": null,
+              "other_than_full_and_open_description": null,
+              "commercial_item_acquisition": "A",
+              "commercial_item_acquisition_description": "COMMERCIAL PRODUCTS/SERVICES",
+              "commercial_item_test_program": "N",
+              "commercial_item_test_program_description": "NO",
+              "evaluated_preference_description": "NO PREFERENCE USED",
+              "fair_opportunity_limited": "FAIR",
+              "fair_opportunity_limited_description": "FAIR OPPORTUNITY GIVEN",
+              "product_or_service_description": "IT AND TELECOM - SECURITY AND COMPLIANCE PRODUCTS (HARDWARE AND PERPETUAL LICENSE SOFTWARE)",
+              "dod_claimant_program": null,
+              "dod_claimant_program_description": null,
+              "dod_acquisition_program": null,
+              "dod_acquisition_program_description": null,
+              "information_technology_commercial_item_category": null,
+              "information_technology_commercial_item_category_description": null,
+              "sea_transportation_description": null,
+              "clinger_cohen_act_planning_description": "NO",
+              "construction_wage_rate": "X",
+              "construction_wage_rate_description": "NOT APPLICABLE",
+              "labor_standards_description": "NOT APPLICABLE",
+              "materials_supplies": "X",
+              "materials_supplies_description": "NOT APPLICABLE",
+              "cost_or_pricing_data_description": null,
+              "domestic_or_foreign_entity_description": "U.S. OWNED BUSINESS",
+              "foreign_funding_description": "NOT APPLICABLE",
+              "interagency_contracting_authority": "X",
+              "interagency_contracting_authority_description": "NOT APPLICABLE",
+              "price_evaluation_adjustment": null,
+              "subcontracting_plan_description": "PLAN NOT REQUIRED",
+              "multi_year_contract_description": null,
+              "purchase_card_as_payment_method": "N",
+              "purchase_card_as_payment_method_description": "NO",
+              "consolidated_contract_description": "NOT CONSOLIDATED",
+              "type_of_contract_pricing_description": "FIRM FIXED PRICE",
+              "national_interest_action_description": null
+            },
+            "funding_agency": {
+              "id": 253,
+              "has_agency_page": true,
+              "toptier_agency": {
+                "name": "Department of Justice",
+                "code": "015",
+                "abbreviation": "DOJ",
+                "slug": "department-of-justice"
+              },
+              "subtier_agency": {
+                "name": "Offices, Boards and Divisions",
+                "code": "1501",
+                "abbreviation": null
+              },
+              "office_agency_name": "CYBERSECURITY SERVICES STAFF (JMD)"
+            },
+            "awarding_agency": {
+              "id": 253,
+              "has_agency_page": true,
+              "toptier_agency": {
+                "name": "Department of Justice",
+                "code": "015",
+                "abbreviation": "DOJ",
+                "slug": "department-of-justice"
+              },
+              "subtier_agency": {
+                "name": "Offices, Boards and Divisions",
+                "code": "1501",
+                "abbreviation": null
+              },
+              "office_agency_name": "JMD-PROCUREMENT SERVICES SECTION"
+            },
+            "period_of_performance": {
+              "start_date": "2023-09-13",
+              "end_date": "2027-09-12",
+              "last_modified_date": "2026-10-16",
+              "potential_end_date": "2028-09-12 00:00:00"
+            },
+            "recipient": {
+              "recipient_hash": "dbceb126-f729-60e7-d55a-ba235f519653-C",
+              "recipient_name": "THUNDERCAT TECHNOLOGY, LLC",
+              "recipient_uei": "UER4AJLUB8D5",
+              "recipient_unique_id": null,
+              "parent_recipient_hash": "04e54f04-2944-44e2-2897-258c898cbf3c-P",
+              "parent_recipient_name": "THUNDERCAT TECHNOLOGY  LLC",
+              "parent_recipient_uei": "S2SKMY4U8KH5",
+              "parent_recipient_unique_id": null,
+              "business_categories": [
+                "Category Business",
+                "Corporate Entity Not Tax Exempt",
+                "Limited Liability Corporation",
+                "Service Disabled Veteran Owned Business",
+                "Small Business",
+                "Special Designations",
+                "U.S.-Owned Business",
+                "Veteran Owned Business"
+              ],
+              "location": {
+                "location_country_code": "USA",
+                "country_name": "UNITED STATES",
+                "state_code": "VA",
+                "state_name": "VIRGINIA",
+                "city_name": "RESTON",
+                "county_code": "059",
+                "county_name": "FAIRFAX",
+                "address_line1": "11190 SUNRISE VALLEY DR STE 200",
+                "address_line2": null,
+                "address_line3": null,
+                "congressional_code": "11",
+                "zip4": "4393",
+                "zip5": "20191",
+                "foreign_postal_code": null,
+                "foreign_province": null
+              }
+            },
+            "executive_details": {
+              "officers": [
+                {
+                  "name": "THOMAS  DEIERLEIN",
+                  "amount": 5193329.0
+                },
+                {
+                  "name": "DAVID  SCHLOSSER",
+                  "amount": 4128446.0
+                },
+                {
+                  "name": "KYLE  LANGDON",
+                  "amount": 2101133.0
+                },
+                {
+                  "name": "DAN  SCHNEIDER",
+                  "amount": 2591447.0
+                },
+                {
+                  "name": "MATTHEW  SMITH",
+                  "amount": 2601223.0
+                }
+              ]
+            },
+            "place_of_performance": {
+              "location_country_code": "USA",
+              "country_name": "UNITED STATES",
+              "county_code": "059",
+              "county_name": "FAIRFAX",
+              "city_name": "RESTON",
+              "state_code": "VA",
+              "state_name": "VIRGINIA",
+              "congressional_code": "11",
+              "zip4": "4393",
+              "zip5": "20191",
+              "address_line1": null,
+              "address_line2": null,
+              "address_line3": null,
+              "foreign_province": null,
+              "foreign_postal_code": null
+            },
+            "psc_hierarchy": {
+              "toptier_code": {},
+              "midtier_code": {
+                "code": "7J",
+                "description": "IT AND TELECOM - SECURITY AND COMPLIANCE"
+              },
+              "subtier_code": {},
+              "base_code": {
+                "code": "7J20",
+                "description": "IT AND TELECOM - SECURITY AND COMPLIANCE PRODUCTS (HARDWARE AND PERPETUAL LICENSE SOFTWARE)"
+              }
+            },
+            "naics_hierarchy": {
+              "toptier_code": {
+                "code": "54",
+                "description": "Professional, Scientific, and Technical Services"
+              },
+              "midtier_code": {
+                "code": "5415",
+                "description": "Computer Systems Design and Related Services"
+              },
+              "base_code": {
+                "code": "541519",
+                "description": "Other Computer Related Services"
+              }
+            },
+            "total_outlay": 11430527.19
+          }
+        },
+        "transaction_history": {
+          "retrieved_at_utc": "2026-11-07T00:03:54.736437+00:00",
+          "server_date_header": "Sat, 07 Nov 2026 00:03:58 GMT",
+          "endpoint": "https://api.usaspending.gov/api/v2/transactions/",
+          "request": {
+            "award_id": "CONT_AWD_15JPSS23F00000692_1501_NNG15SD26B_8000"
+          },
+          "http_status": 200,
+          "response_body": {
+            "page_metadata": {
+              "page": 1,
+              "next": null,
+              "previous": null,
+              "hasNext": false,
+              "hasPrevious": false
+            },
+            "results": [
+              {
+                "id": "CONT_TX_1501_8000_15JPSS23F00000692_P00020_NNG15SD26B_0",
+                "type": "C",
+                "type_description": "DELIVERY ORDER",
+                "action_date": "2026-09-29",
+                "action_type": "C",
+                "action_type_description": "FUNDING ONLY ACTION",
+                "modification_number": "P00020",
+                "description": "DOWO: ANNUAL RENEWAL OF CROWDSTRIKE SOFTWARE LICENSES AND SUPPORT FOR JMD/OCIO/CSS.",
+                "federal_action_obligation": 273188.02,
+                "face_value_loan_guarantee": 0.0,
+                "original_loan_subsidy_cost": 0.0
+              },
+              {
+                "id": "CONT_TX_1501_8000_15JPSS23F00000692_P00018_NNG15SD26B_0",
+                "type": "C",
+                "type_description": "DELIVERY ORDER",
+                "action_date": "2026-09-11",
+                "action_type": "G",
+                "action_type_description": "EXERCISE AN OPTION",
+                "modification_number": "P00018",
+                "description": "DOWO: ANNUAL RENEWAL OF CROWDSTRIKE SOFTWARE LICENSES AND SUPPORT FOR JMD/OCIO/CSS.",
+                "federal_action_obligation": 14043.1,
+                "face_value_loan_guarantee": 0.0,
+                "original_loan_subsidy_cost": 0.0
+              },
+              {
+                "id": "CONT_TX_1501_8000_15JPSS23F00000692_P00019_NNG15SD26B_0",
+                "type": "C",
+                "type_description": "DELIVERY ORDER",
+                "action_date": "2026-09-11",
+                "action_type": "A",
+                "action_type_description": "ADDITIONAL WORK (NEW AGREEMENT, JUSTIFICATION REQUIRED)",
+                "modification_number": "P00019",
+                "description": "DOWO: ANNUAL RENEWAL OF CROWDSTRIKE SOFTWARE LICENSES AND SUPPORT FOR JMD/OCIO/CSS.",
+                "federal_action_obligation": 273188.02,
+                "face_value_loan_guarantee": 0.0,
+                "original_loan_subsidy_cost": 0.0
+              },
+              {
+                "id": "CONT_TX_1501_8000_15JPSS23F00000692_P00017_NNG15SD26B_0",
+                "type": "C",
+                "type_description": "DELIVERY ORDER",
+                "action_date": "2026-05-07",
+                "action_type": "C",
+                "action_type_description": "FUNDING ONLY ACTION",
+                "modification_number": "P00017",
+                "description": "DOWO: ANNUAL RENEWAL OF CROWDSTRIKE SOFTWARE LICENSES AND SUPPORT FOR JMD/OCIO/CSS.",
+                "federal_action_obligation": 6972.5,
+                "face_value_loan_guarantee": 0.0,
+                "original_loan_subsidy_cost": 0.0
+              },
+              {
+                "id": "CONT_TX_1501_8000_15JPSS23F00000692_P00016_NNG15SD26B_0",
+                "type": "C",
+                "type_description": "DELIVERY ORDER",
+                "action_date": "2025-12-02",
+                "action_type": "C",
+                "action_type_description": "FUNDING ONLY ACTION",
+                "modification_number": "P00016",
+                "description": "DOWO: ANNUAL RENEWAL OF CROWDSTRIKE SOFTWARE LICENSES AND SUPPORT FOR JMD/OCIO/CSS.",
+                "federal_action_obligation": 4649687.97,
+                "face_value_loan_guarantee": 0.0,
+                "original_loan_subsidy_cost": 0.0
+              },
+              {
+                "id": "CONT_TX_1501_8000_15JPSS23F00000692_P00015_NNG15SD26B_0",
+                "type": "C",
+                "type_description": "DELIVERY ORDER",
+                "action_date": "2025-09-29",
+                "action_type": "B",
+                "action_type_description": "SUPPLEMENTAL AGREEMENT FOR WORK WITHIN SCOPE",
+                "modification_number": "P00015",
+                "description": "DOWO: ANNUAL RENEWAL OF CROWDSTRIKE SOFTWARE LICENSES AND SUPPORT FOR JMD/OCIO/CSS.",
+                "federal_action_obligation": 325101.85,
+                "face_value_loan_guarantee": 0.0,
+                "original_loan_subsidy_cost": 0.0
+              },
+              {
+                "id": "CONT_TX_1501_8000_15JPSS23F00000692_P00014_NNG15SD26B_0",
+                "type": "C",
+                "type_description": "DELIVERY ORDER",
+                "action_date": "2025-09-23",
+                "action_type": "C",
+                "action_type_description": "FUNDING ONLY ACTION",
+                "modification_number": "P00014",
+                "description": "DOWO: ANNUAL RENEWAL OF CROWDSTRIKE SOFTWARE LICENSES AND SUPPORT FOR JMD/OCIO/CSS.",
+                "federal_action_obligation": 11100.0,
+                "face_value_loan_guarantee": 0.0,
+                "original_loan_subsidy_cost": 0.0
+              },
+              {
+                "id": "CONT_TX_1501_8000_15JPSS23F00000692_0_NNG15SD26B_0",
+                "type": "C",
+                "type_description": "DELIVERY ORDER",
+                "action_date": "2023-09-11",
+                "action_type": null,
+                "action_type_description": null,
+                "modification_number": "0",
+                "description": "ANNUAL RENEWAL OF CROWDSTRIKE SOFTWARE LICENSES AND SUPPORT FOR JMD/OCIO/CSS..",
+                "federal_action_obligation": 1417931.5,
+                "face_value_loan_guarantee": 0.0,
+                "original_loan_subsidy_cost": 0.0
+              }
+            ]
+          }
+        }
+      },
+      {
+        "piid": "2033H624F00068",
+        "generated_unique_award_id": "CONT_AWD_2033H624F00068_2036_NNG15SC71B_8000",
+        "search_rows": [
+          {
+            "Award ID": "2033H624F00068",
+            "Mod": "P00008",
+            "Recipient Name": "FCN, INC.",
+            "Action Date": "2026-01-21",
+            "Transaction Amount": 1701003.89,
+            "Awarding Agency": "Department of the Treasury",
+            "Awarding Sub Agency": "Bureau of the Fiscal Service",
+            "Transaction Description": "CROWDSTRIKE PRODUCTS AND SERVICES - EXERCISE OPTION PERIOD TWO AND ADD IN SCOPE SERVICES",
+            "PSC": {
+              "code": "7J20",
+              "description": "IT AND TELECOM - SECURITY AND COMPLIANCE PRODUCTS (HARDWARE AND PERPETUAL LICENSE SOFTWARE)"
+            },
+            "NAICS": {
+              "code": "541519",
+              "description": "OTHER COMPUTER RELATED SERVICES"
+            },
+            "generated_internal_id": "CONT_AWD_2033H624F00068_2036_NNG15SC71B_8000",
+            "internal_id": 279033286
+          },
+          {
+            "Award ID": "2033H624F00068",
+            "Mod": "P00002",
+            "Recipient Name": "FCN, INC.",
+            "Action Date": "2025-01-21",
+            "Transaction Amount": 1606535.4,
+            "Awarding Agency": "Department of the Treasury",
+            "Awarding Sub Agency": "Bureau of the Fiscal Service",
+            "Transaction Description": "CROWDSTRIKE PRODUCTS AND SERVICES",
+            "PSC": {
+              "code": "7J20",
+              "description": "IT AND TELECOM - SECURITY AND COMPLIANCE PRODUCTS (HARDWARE AND PERPETUAL LICENSE SOFTWARE)"
+            },
+            "NAICS": {
+              "code": "541519",
+              "description": "OTHER COMPUTER RELATED SERVICES"
+            },
+            "generated_internal_id": "CONT_AWD_2033H624F00068_2036_NNG15SC71B_8000",
+            "internal_id": 279033286
+          },
+          {
+            "Award ID": "2033H624F00068",
+            "Mod": "0",
+            "Recipient Name": "FCN, INC.",
+            "Action Date": "2024-01-31",
+            "Transaction Amount": 1277132.99,
+            "Awarding Agency": "Department of the Treasury",
+            "Awarding Sub Agency": "Bureau of the Fiscal Service",
+            "Transaction Description": "CROWDSTRIKE PRODUCTS AND SERVICES",
+            "PSC": {
+              "code": "7J20",
+              "description": "IT AND TELECOM - SECURITY AND COMPLIANCE PRODUCTS (HARDWARE AND PERPETUAL LICENSE SOFTWARE)"
+            },
+            "NAICS": {
+              "code": "541519",
+              "description": "OTHER COMPUTER RELATED SERVICES"
+            },
+            "generated_internal_id": "CONT_AWD_2033H624F00068_2036_NNG15SC71B_8000",
+            "internal_id": 279033286
+          },
+          {
+            "Award ID": "2033H624F00068",
+            "Mod": "P00011",
+            "Recipient Name": "FCN, INC.",
+            "Action Date": "2026-09-18",
+            "Transaction Amount": 507069.03,
+            "Awarding Agency": "Department of the Treasury",
+            "Awarding Sub Agency": "Bureau of the Fiscal Service",
+            "Transaction Description": "CROWDSTRIKE PRODUCTS AND SERVICES - ADD IN SCOPE UPGRADE",
+            "PSC": {
+              "code": "7J20",
+              "description": "IT AND TELECOM - SECURITY AND COMPLIANCE PRODUCTS (HARDWARE AND PERPETUAL LICENSE SOFTWARE)"
+            },
+            "NAICS": {
+              "code": "541519",
+              "description": "OTHER COMPUTER RELATED SERVICES"
+            },
+            "generated_internal_id": "CONT_AWD_2033H624F00068_2036_NNG15SC71B_8000",
+            "internal_id": 279033286
+          },
+          {
+            "Award ID": "2033H624F00068",
+            "Mod": "P00005",
+            "Recipient Name": "FCN, INC.",
+            "Action Date": "2025-04-23",
+            "Transaction Amount": 81000.0,
+            "Awarding Agency": "Department of the Treasury",
+            "Awarding Sub Agency": "Bureau of the Fiscal Service",
+            "Transaction Description": "CROWDSTRIKE PRODUCTS AND SERVICES - OBLIGATE FUNDING FOR IN SCOPE ITEMS",
+            "PSC": {
+              "code": "7J20",
+              "description": "IT AND TELECOM - SECURITY AND COMPLIANCE PRODUCTS (HARDWARE AND PERPETUAL LICENSE SOFTWARE)"
+            },
+            "NAICS": {
+              "code": "541519",
+              "description": "OTHER COMPUTER RELATED SERVICES"
+            },
+            "generated_internal_id": "CONT_AWD_2033H624F00068_2036_NNG15SC71B_8000",
+            "internal_id": 279033286
+          },
+          {
+            "Award ID": "2033H624F00068",
+            "Mod": "P00010",
+            "Recipient Name": "FCN, INC.",
+            "Action Date": "2026-08-13",
+            "Transaction Amount": 70981.77,
+            "Awarding Agency": "Department of the Treasury",
+            "Awarding Sub Agency": "Bureau of the Fiscal Service",
+            "Transaction Description": "ADD ADDITIONAL WITHIN SCOPE ITEMS, OBLIGATE FUNDS AND ADJUST FUTURE OPTION YEARS TO REFLECT CHANGES.",
+            "PSC": {
+              "code": "7J20",
+              "description": "IT AND TELECOM - SECURITY AND COMPLIANCE PRODUCTS (HARDWARE AND PERPETUAL LICENSE SOFTWARE)"
+            },
+            "NAICS": {
+              "code": "541519",
+              "description": "OTHER COMPUTER RELATED SERVICES"
+            },
+            "generated_internal_id": "CONT_AWD_2033H624F00068_2036_NNG15SC71B_8000",
+            "internal_id": 279033286
+          },
+          {
+            "Award ID": "2033H624F00068",
+            "Mod": "P00001",
+            "Recipient Name": "FCN, INC.",
+            "Action Date": "2024-07-03",
+            "Transaction Amount": 59400.0,
+            "Awarding Agency": "Department of the Treasury",
+            "Awarding Sub Agency": "Bureau of the Fiscal Service",
+            "Transaction Description": "CROWDSTRIKE PRODUCTS AND SERVICES",
+            "PSC": {
+              "code": "7J20",
+              "description": "IT AND TELECOM - SECURITY AND COMPLIANCE PRODUCTS (HARDWARE AND PERPETUAL LICENSE SOFTWARE)"
+            },
+            "NAICS": {
+              "code": "541519",
+              "description": "OTHER COMPUTER RELATED SERVICES"
+            },
+            "generated_internal_id": "CONT_AWD_2033H624F00068_2036_NNG15SC71B_8000",
+            "internal_id": 279033286
+          },
+          {
+            "Award ID": "2033H624F00068",
+            "Mod": "P00004",
+            "Recipient Name": "FCN, INC.",
+            "Action Date": "2025-03-13",
+            "Transaction Amount": 44744.86,
+            "Awarding Agency": "Department of the Treasury",
+            "Awarding Sub Agency": "Bureau of the Fiscal Service",
+            "Transaction Description": "CROWDSTRIKE PRODUCTS AND SERVICES",
+            "PSC": {
+              "code": "7J20",
+              "description": "IT AND TELECOM - SECURITY AND COMPLIANCE PRODUCTS (HARDWARE AND PERPETUAL LICENSE SOFTWARE)"
+            },
+            "NAICS": {
+              "code": "541519",
+              "description": "OTHER COMPUTER RELATED SERVICES"
+            },
+            "generated_internal_id": "CONT_AWD_2033H624F00068_2036_NNG15SC71B_8000",
+            "internal_id": 279033286
+          },
+          {
+            "Award ID": "2033H624F00068",
+            "Mod": "P00009",
+            "Recipient Name": "FCN, INC.",
+            "Action Date": "2026-05-13",
+            "Transaction Amount": 0.0,
+            "Awarding Agency": "Department of the Treasury",
+            "Awarding Sub Agency": "Bureau of the Fiscal Service",
+            "Transaction Description": "CROWDSTRIKE PRODUCTS AND SERVICES - TO INCORPORATE CLAUSE 52.222-90 ADDRESSING DEI DISCRIMINATION BY FEDERAL CONTRACTORS (APR 2026).",
+            "PSC": {
+              "code": "7J20",
+              "description": "IT AND TELECOM - SECURITY AND COMPLIANCE PRODUCTS (HARDWARE AND PERPETUAL LICENSE SOFTWARE)"
+            },
+            "NAICS": {
+              "code": "541519",
+              "description": "OTHER COMPUTER RELATED SERVICES"
+            },
+            "generated_internal_id": "CONT_AWD_2033H624F00068_2036_NNG15SC71B_8000",
+            "internal_id": 279033286
+          },
+          {
+            "Award ID": "2033H624F00068",
+            "Mod": "P00003",
+            "Recipient Name": "FCN, INC.",
+            "Action Date": "2025-02-19",
+            "Transaction Amount": 0.0,
+            "Awarding Agency": "Department of the Treasury",
+            "Awarding Sub Agency": "Bureau of the Fiscal Service",
+            "Transaction Description": "CROWDSTRIKE PRODUCTS AND SERVICES",
+            "PSC": {
+              "code": "7J20",
+              "description": "IT AND TELECOM - SECURITY AND COMPLIANCE PRODUCTS (HARDWARE AND PERPETUAL LICENSE SOFTWARE)"
+            },
+            "NAICS": {
+              "code": "541519",
+              "description": "OTHER COMPUTER RELATED SERVICES"
+            },
+            "generated_internal_id": "CONT_AWD_2033H624F00068_2036_NNG15SC71B_8000",
+            "internal_id": 279033286
+          },
+          {
+            "Award ID": "2033H624F00068",
+            "Mod": "A00001",
+            "Recipient Name": "FCN, INC.",
+            "Action Date": "2026-10-28",
+            "Transaction Amount": 0.0,
+            "Awarding Agency": "Department of the Treasury",
+            "Awarding Sub Agency": "Departmental Offices",
+            "Transaction Description": "CROWDSTRIKE PRODUCTS AND SERVICES",
+            "PSC": {
+              "code": "7J20",
+              "description": "IT AND TELECOM - SECURITY AND COMPLIANCE PRODUCTS (HARDWARE AND PERPETUAL LICENSE SOFTWARE)"
+            },
+            "NAICS": {
+              "code": "541519",
+              "description": "OTHER COMPUTER RELATED SERVICES"
+            },
+            "generated_internal_id": "CONT_AWD_2033H624F00068_2036_NNG15SC71B_8000",
+            "internal_id": 279033286
+          },
+          {
+            "Award ID": "2033H624F00068",
+            "Mod": "P00006",
+            "Recipient Name": "FCN, INC.",
+            "Action Date": "2025-05-29",
+            "Transaction Amount": 0.0,
+            "Awarding Agency": "Department of the Treasury",
+            "Awarding Sub Agency": "Bureau of the Fiscal Service",
+            "Transaction Description": "CROWDSTRIKE PRODUCTS AND SERVICES - INCORPORATE A NON-DISCLOSURE AGREEMENT",
+            "PSC": {
+              "code": "7J20",
+              "description": "IT AND TELECOM - SECURITY AND COMPLIANCE PRODUCTS (HARDWARE AND PERPETUAL LICENSE SOFTWARE)"
+            },
+            "NAICS": {
+              "code": "541519",
+              "description": "OTHER COMPUTER RELATED SERVICES"
+            },
+            "generated_internal_id": "CONT_AWD_2033H624F00068_2036_NNG15SC71B_8000",
+            "internal_id": 279033286
+          },
+          {
+            "Award ID": "2033H624F00068",
+            "Mod": "P00007",
+            "Recipient Name": "FCN, INC.",
+            "Action Date": "2025-09-11",
+            "Transaction Amount": -17201.25,
+            "Awarding Agency": "Department of the Treasury",
+            "Awarding Sub Agency": "Bureau of the Fiscal Service",
+            "Transaction Description": "CROWDSTRIKE PRODUCTS AND SERVICES - TERMINATION FOR CONVENIENCE (PARTIAL) TERMINATION EFFECTIVE DATE 09/10/2025.  DEOBLIGATING $17,201.25",
+            "PSC": {
+              "code": "7J20",
+              "description": "IT AND TELECOM - SECURITY AND COMPLIANCE PRODUCTS (HARDWARE AND PERPETUAL LICENSE SOFTWARE)"
+            },
+            "NAICS": {
+              "code": "541519",
+              "description": "OTHER COMPUTER RELATED SERVICES"
+            },
+            "generated_internal_id": "CONT_AWD_2033H624F00068_2036_NNG15SC71B_8000",
+            "internal_id": 279033286
+          }
+        ],
+        "award_detail": {
+          "retrieved_at_utc": "2026-11-07T00:03:54.736437+00:00",
+          "server_date_header": "Sat, 07 Nov 2026 00:03:58 GMT",
+          "endpoint": "https://api.usaspending.gov/api/v2/awards/CONT_AWD_2033H624F00068_2036_NNG15SC71B_8000/",
+          "http_status": 200,
+          "response_body": {
+            "id": 279033286,
+            "generated_unique_award_id": "CONT_AWD_2033H624F00068_2036_NNG15SC71B_8000",
+            "piid": "2033H624F00068",
+            "category": "contract",
+            "type": "C",
+            "type_description": "DELIVERY ORDER",
+            "description": "CROWDSTRIKE PRODUCTS AND SERVICES",
+            "total_obligation": 5330666.69,
+            "subaward_count": 0,
+            "total_subaward_amount": null,
+            "date_signed": "2024-01-31",
+            "base_exercised_options": 5330666.69,
+            "base_and_all_options": 9905610.74,
+            "total_account_outlay": 4752615.89,
+            "total_account_obligation": 4823597.66,
+            "account_outlays_by_defc": [
+              {
+                "code": "Q",
+                "amount": 4752615.89
+              }
+            ],
+            "account_obligations_by_defc": [
+              {
+                "code": "Q",
+                "amount": 4823597.66
+              }
+            ],
+            "parent_award": {
+              "agency_id": 862,
+              "agency_name": "National Aeronautics and Space Administration",
+              "agency_slug": "national-aeronautics-and-space-administration",
+              "sub_agency_id": "8000",
+              "sub_agency_name": "National Aeronautics and Space Administration",
+              "award_id": 351431311,
+              "generated_unique_award_id": "CONT_IDV_NNG15SC71B_8000",
+              "idv_type_description": "GWAC",
+              "multiple_or_single_aw_desc": "MULTIPLE AWARD",
+              "piid": "NNG15SC71B",
+              "type_of_idc_description": null
+            },
+            "latest_transaction_contract_data": {
+              "idv_type_description": null,
+              "type_of_idc_description": null,
+              "referenced_idv_agency_iden": "8000",
+              "referenced_idv_agency_desc": "NATIONAL AERONAUTICS AND SPACE ADMINISTRATION",
+              "solicitation_identifier": "SEWP RFQ 294463",
+              "solicitation_procedures": "MAFO",
+              "number_of_offers_received": "2",
+              "extent_competed": "D",
+              "type_set_aside": "SBA",
+              "type_set_aside_description": "SMALL BUSINESS SET ASIDE - TOTAL",
+              "evaluated_preference": "NONE",
+              "fed_biz_opps": "X",
+              "fed_biz_opps_description": "NOT APPLICABLE",
+              "small_business_competitive": false,
+              "product_or_service_code": "7J20",
+              "naics": "541519",
+              "naics_description": "OTHER COMPUTER RELATED SERVICES",
+              "sea_transportation": null,
+              "clinger_cohen_act_planning": "N",
+              "labor_standards": "X",
+              "cost_or_pricing_data": null,
+              "domestic_or_foreign_entity": "A",
+              "foreign_funding": "X",
+              "major_program": null,
+              "program_acronym": null,
+              "subcontracting_plan": "B",
+              "multi_year_contract": null,
+              "consolidated_contract": "D",
+              "type_of_contract_pricing": "J",
+              "national_interest_action": null,
+              "multiple_or_single_award_description": null,
+              "solicitation_procedures_description": "SUBJECT TO MULTIPLE AWARD FAIR OPPORTUNITY",
+              "extent_competed_description": "FULL AND OPEN COMPETITION AFTER EXCLUSION OF SOURCES",
+              "other_than_full_and_open": null,
+              "other_than_full_and_open_description": null,
+              "commercial_item_acquisition": "A",
+              "commercial_item_acquisition_description": "COMMERCIAL PRODUCTS/SERVICES",
+              "commercial_item_test_program": "N",
+              "commercial_item_test_program_description": "NO",
+              "evaluated_preference_description": "NO PREFERENCE USED",
+              "fair_opportunity_limited": "CSA",
+              "fair_opportunity_limited_description": "COMPETITIVE SET ASIDE",
+              "product_or_service_description": "IT AND TELECOM - SECURITY AND COMPLIANCE PRODUCTS (HARDWARE AND PERPETUAL LICENSE SOFTWARE)",
+              "dod_claimant_program": null,
+              "dod_claimant_program_description": null,
+              "dod_acquisition_program": null,
+              "dod_acquisition_program_description": null,
+              "information_technology_commercial_item_category": null,
+              "information_technology_commercial_item_category_description": null,
+              "sea_transportation_description": null,
+              "clinger_cohen_act_planning_description": "NO",
+              "construction_wage_rate": "X",
+              "construction_wage_rate_description": "NOT APPLICABLE",
+              "labor_standards_description": "NOT APPLICABLE",
+              "materials_supplies": "X",
+              "materials_supplies_description": "NOT APPLICABLE",
+              "cost_or_pricing_data_description": null,
+              "domestic_or_foreign_entity_description": "U.S. OWNED BUSINESS",
+              "foreign_funding_description": "NOT APPLICABLE",
+              "interagency_contracting_authority": "X",
+              "interagency_contracting_authority_description": "NOT APPLICABLE",
+              "price_evaluation_adjustment": null,
+              "subcontracting_plan_description": "PLAN NOT REQUIRED",
+              "multi_year_contract_description": null,
+              "purchase_card_as_payment_method": "N",
+              "purchase_card_as_payment_method_description": "NO",
+              "consolidated_contract_description": "NOT CONSOLIDATED",
+              "type_of_contract_pricing_description": "FIRM FIXED PRICE",
+              "national_interest_action_description": null
+            },
+            "funding_agency": {
+              "id": 479,
+              "has_agency_page": true,
+              "toptier_agency": {
+                "name": "Department of the Treasury",
+                "code": "020",
+                "abbreviation": "TREAS",
+                "slug": "department-of-the-treasury"
+              },
+              "subtier_agency": {
+                "name": "Bureau of the Fiscal Service",
+                "code": "2036",
+                "abbreviation": null
+              },
+              "office_agency_name": "OFFICE OF INFORMATION TECHNOLOGY"
+            },
+            "awarding_agency": {
+              "id": 457,
+              "has_agency_page": true,
+              "toptier_agency": {
+                "name": "Department of the Treasury",
+                "code": "020",
+                "abbreviation": "TREAS",
+                "slug": "department-of-the-treasury"
+              },
+              "subtier_agency": {
+                "name": "Departmental Offices",
+                "code": "2001",
+                "abbreviation": "DO"
+              },
+              "office_agency_name": "TCSC FISCAL SERVICE ACCOUNTING"
+            },
+            "period_of_performance": {
+              "start_date": "2024-02-01",
+              "end_date": "2027-01-31",
+              "last_modified_date": "2026-10-28",
+              "potential_end_date": "2029-01-31 00:00:00"
+            },
+            "recipient": {
+              "recipient_hash": "3792ca7f-d5d2-d89c-872b-8c64e4e6390e-C",
+              "recipient_name": "FCN, INC.",
+              "recipient_uei": "JEANDJTZ8HJ3",
+              "recipient_unique_id": null,
+              "parent_recipient_hash": "d53f3ca2-bd26-1913-ff42-f25313e3c6c3-P",
+              "parent_recipient_name": "FCN INC",
+              "parent_recipient_uei": "QMSEC7DE98U6",
+              "parent_recipient_unique_id": null,
+              "business_categories": [
+                "Category Business",
+                "Corporate Entity Not Tax Exempt",
+                "Small Business",
+                "Special Designations",
+                "U.S.-Owned Business",
+                "Woman Owned Business",
+                "Women Owned Small Business"
+              ],
+              "location": {
+                "location_country_code": "USA",
+                "country_name": "UNITED STATES",
+                "state_code": "MD",
+                "state_name": "MARYLAND",
+                "city_name": "ROCKVILLE",
+                "county_code": "031",
+                "county_name": "MONTGOMERY",
+                "address_line1": "2600 TOWER OAKS BLVD STE 575",
+                "address_line2": null,
+                "address_line3": null,
+                "congressional_code": "08",
+                "zip4": "4218",
+                "zip5": "20852",
+                "foreign_postal_code": null,
+                "foreign_province": null
+              }
+            },
+            "executive_details": {
+              "officers": [
+                {
+                  "name": "ANNE  SULLIVAN",
+                  "amount": 1200000.0
+                },
+                {
+                  "name": "DENNIS  SULLIVAN",
+                  "amount": 1200000.0
+                },
+                {
+                  "name": "RICK  LOSSNER",
+                  "amount": 1000000.0
+                },
+                {
+                  "name": "STUART  MILLER",
+                  "amount": 1000000.0
+                },
+                {
+                  "name": "PHIL  BEAULIEU",
+                  "amount": 1000000.0
+                }
+              ]
+            },
+            "place_of_performance": {
+              "location_country_code": "USA",
+              "country_name": "UNITED STATES",
+              "county_code": "031",
+              "county_name": "MONTGOMERY",
+              "city_name": "ROCKVILLE",
+              "state_code": "MD",
+              "state_name": "MARYLAND",
+              "congressional_code": "08",
+              "zip4": "1741",
+              "zip5": "20852",
+              "address_line1": null,
+              "address_line2": null,
+              "address_line3": null,
+              "foreign_province": null,
+              "foreign_postal_code": null
+            },
+            "psc_hierarchy": {
+              "toptier_code": {},
+              "midtier_code": {
+                "code": "7J",
+                "description": "IT AND TELECOM - SECURITY AND COMPLIANCE"
+              },
+              "subtier_code": {},
+              "base_code": {
+                "code": "7J20",
+                "description": "IT AND TELECOM - SECURITY AND COMPLIANCE PRODUCTS (HARDWARE AND PERPETUAL LICENSE SOFTWARE)"
+              }
+            },
+            "naics_hierarchy": {
+              "toptier_code": {
+                "code": "54",
+                "description": "Professional, Scientific, and Technical Services"
+              },
+              "midtier_code": {
+                "code": "5415",
+                "description": "Computer Systems Design and Related Services"
+              },
+              "base_code": {
+                "code": "541519",
+                "description": "Other Computer Related Services"
+              }
+            },
+            "total_outlay": 4752615.89
+          }
+        },
+        "transaction_history": {
+          "retrieved_at_utc": "2026-11-07T00:03:54.736437+00:00",
+          "server_date_header": "Sat, 07 Nov 2026 00:03:59 GMT",
+          "endpoint": "https://api.usaspending.gov/api/v2/transactions/",
+          "request": {
+            "award_id": "CONT_AWD_2033H624F00068_2036_NNG15SC71B_8000"
+          },
+          "http_status": 200,
+          "response_body": {
+            "page_metadata": {
+              "page": 1,
+              "next": 2,
+              "previous": null,
+              "hasNext": true,
+              "hasPrevious": false
+            },
+            "results": [
+              {
+                "id": "CONT_TX_2036_8000_2033H624F00068_A00001_NNG15SC71B_0",
+                "type": "C",
+                "type_description": "DELIVERY ORDER",
+                "action_date": "2026-10-28",
+                "action_type": "T",
+                "action_type_description": "TRANSFER ACTION",
+                "modification_number": "A00001",
+                "description": "CROWDSTRIKE PRODUCTS AND SERVICES",
+                "federal_action_obligation": 0.0,
+                "face_value_loan_guarantee": 0.0,
+                "original_loan_subsidy_cost": 0.0
+              },
+              {
+                "id": "CONT_TX_2036_8000_2033H624F00068_P00011_NNG15SC71B_0",
+                "type": "C",
+                "type_description": "DELIVERY ORDER",
+                "action_date": "2026-09-18",
+                "action_type": "B",
+                "action_type_description": "SUPPLEMENTAL AGREEMENT FOR WORK WITHIN SCOPE",
+                "modification_number": "P00011",
+                "description": "CROWDSTRIKE PRODUCTS AND SERVICES - ADD IN SCOPE UPGRADE",
+                "federal_action_obligation": 507069.03,
+                "face_value_loan_guarantee": 0.0,
+                "original_loan_subsidy_cost": 0.0
+              },
+              {
+                "id": "CONT_TX_2036_8000_2033H624F00068_P00010_NNG15SC71B_0",
+                "type": "C",
+                "type_description": "DELIVERY ORDER",
+                "action_date": "2026-08-13",
+                "action_type": "B",
+                "action_type_description": "SUPPLEMENTAL AGREEMENT FOR WORK WITHIN SCOPE",
+                "modification_number": "P00010",
+                "description": "ADD ADDITIONAL WITHIN SCOPE ITEMS, OBLIGATE FUNDS AND ADJUST FUTURE OPTION YEARS TO REFLECT CHANGES.",
+                "federal_action_obligation": 70981.77,
+                "face_value_loan_guarantee": 0.0,
+                "original_loan_subsidy_cost": 0.0
+              },
+              {
+                "id": "CONT_TX_2036_8000_2033H624F00068_P00009_NNG15SC71B_0",
+                "type": "C",
+                "type_description": "DELIVERY ORDER",
+                "action_date": "2026-05-13",
+                "action_type": "M",
+                "action_type_description": "OTHER ADMINISTRATIVE ACTION",
+                "modification_number": "P00009",
+                "description": "CROWDSTRIKE PRODUCTS AND SERVICES - TO INCORPORATE CLAUSE 52.222-90 ADDRESSING DEI DISCRIMINATION BY FEDERAL CONTRACTORS (APR 2026).",
+                "federal_action_obligation": 0.0,
+                "face_value_loan_guarantee": 0.0,
+                "original_loan_subsidy_cost": 0.0
+              },
+              {
+                "id": "CONT_TX_2036_8000_2033H624F00068_P00008_NNG15SC71B_0",
+                "type": "C",
+                "type_description": "DELIVERY ORDER",
+                "action_date": "2026-01-21",
+                "action_type": "G",
+                "action_type_description": "EXERCISE AN OPTION",
+                "modification_number": "P00008",
+                "description": "CROWDSTRIKE PRODUCTS AND SERVICES - EXERCISE OPTION PERIOD TWO AND ADD IN SCOPE SERVICES",
+                "federal_action_obligation": 1701003.89,
+                "face_value_loan_guarantee": 0.0,
+                "original_loan_subsidy_cost": 0.0
+              },
+              {
+                "id": "CONT_TX_2036_8000_2033H624F00068_P00007_NNG15SC71B_0",
+                "type": "C",
+                "type_description": "DELIVERY ORDER",
+                "action_date": "2025-09-11",
+                "action_type": "F",
+                "action_type_description": "TERMINATE FOR CONVENIENCE (COMPLETE OR PARTIAL)",
+                "modification_number": "P00007",
+                "description": "CROWDSTRIKE PRODUCTS AND SERVICES - TERMINATION FOR CONVENIENCE (PARTIAL) TERMINATION EFFECTIVE DATE 09/10/2025.  DEOBLIGATING $17,201.25",
+                "federal_action_obligation": -17201.25,
+                "face_value_loan_guarantee": 0.0,
+                "original_loan_subsidy_cost": 0.0
+              },
+              {
+                "id": "CONT_TX_2036_8000_2033H624F00068_P00006_NNG15SC71B_0",
+                "type": "C",
+                "type_description": "DELIVERY ORDER",
+                "action_date": "2025-05-29",
+                "action_type": "B",
+                "action_type_description": "SUPPLEMENTAL AGREEMENT FOR WORK WITHIN SCOPE",
+                "modification_number": "P00006",
+                "description": "CROWDSTRIKE PRODUCTS AND SERVICES - INCORPORATE A NON-DISCLOSURE AGREEMENT",
+                "federal_action_obligation": 0.0,
+                "face_value_loan_guarantee": 0.0,
+                "original_loan_subsidy_cost": 0.0
+              },
+              {
+                "id": "CONT_TX_2036_8000_2033H624F00068_P00005_NNG15SC71B_0",
+                "type": "C",
+                "type_description": "DELIVERY ORDER",
+                "action_date": "2025-04-23",
+                "action_type": "B",
+                "action_type_description": "SUPPLEMENTAL AGREEMENT FOR WORK WITHIN SCOPE",
+                "modification_number": "P00005",
+                "description": "CROWDSTRIKE PRODUCTS AND SERVICES - OBLIGATE FUNDING FOR IN SCOPE ITEMS",
+                "federal_action_obligation": 81000.0,
+                "face_value_loan_guarantee": 0.0,
+                "original_loan_subsidy_cost": 0.0
+              },
+              {
+                "id": "CONT_TX_2036_8000_2033H624F00068_P00004_NNG15SC71B_0",
+                "type": "C",
+                "type_description": "DELIVERY ORDER",
+                "action_date": "2025-03-13",
+                "action_type": "B",
+                "action_type_description": "SUPPLEMENTAL AGREEMENT FOR WORK WITHIN SCOPE",
+                "modification_number": "P00004",
+                "description": "CROWDSTRIKE PRODUCTS AND SERVICES",
+                "federal_action_obligation": 44744.86,
+                "face_value_loan_guarantee": 0.0,
+                "original_loan_subsidy_cost": 0.0
+              },
+              {
+                "id": "CONT_TX_2036_8000_2033H624F00068_P00003_NNG15SC71B_0",
+                "type": "C",
+                "type_description": "DELIVERY ORDER",
+                "action_date": "2025-02-19",
+                "action_type": "M",
+                "action_type_description": "OTHER ADMINISTRATIVE ACTION",
+                "modification_number": "P00003",
+                "description": "CROWDSTRIKE PRODUCTS AND SERVICES",
+                "federal_action_obligation": 0.0,
+                "face_value_loan_guarantee": 0.0,
+                "original_loan_subsidy_cost": 0.0
+              }
+            ]
+          },
+          "pages": [
+            {
+              "page": 1,
+              "response_body": {
+                "page_metadata": {
+                  "page": 1,
+                  "next": 2,
+                  "previous": null,
+                  "hasNext": true,
+                  "hasPrevious": false
+                },
+                "results": [
+                  {
+                    "id": "CONT_TX_2036_8000_2033H624F00068_A00001_NNG15SC71B_0",
+                    "type": "C",
+                    "type_description": "DELIVERY ORDER",
+                    "action_date": "2026-10-28",
+                    "action_type": "T",
+                    "action_type_description": "TRANSFER ACTION",
+                    "modification_number": "A00001",
+                    "description": "CROWDSTRIKE PRODUCTS AND SERVICES",
+                    "federal_action_obligation": 0.0,
+                    "face_value_loan_guarantee": 0.0,
+                    "original_loan_subsidy_cost": 0.0
+                  },
+                  {
+                    "id": "CONT_TX_2036_8000_2033H624F00068_P00011_NNG15SC71B_0",
+                    "type": "C",
+                    "type_description": "DELIVERY ORDER",
+                    "action_date": "2026-09-18",
+                    "action_type": "B",
+                    "action_type_description": "SUPPLEMENTAL AGREEMENT FOR WORK WITHIN SCOPE",
+                    "modification_number": "P00011",
+                    "description": "CROWDSTRIKE PRODUCTS AND SERVICES - ADD IN SCOPE UPGRADE",
+                    "federal_action_obligation": 507069.03,
+                    "face_value_loan_guarantee": 0.0,
+                    "original_loan_subsidy_cost": 0.0
+                  },
+                  {
+                    "id": "CONT_TX_2036_8000_2033H624F00068_P00010_NNG15SC71B_0",
+                    "type": "C",
+                    "type_description": "DELIVERY ORDER",
+                    "action_date": "2026-08-13",
+                    "action_type": "B",
+                    "action_type_description": "SUPPLEMENTAL AGREEMENT FOR WORK WITHIN SCOPE",
+                    "modification_number": "P00010",
+                    "description": "ADD ADDITIONAL WITHIN SCOPE ITEMS, OBLIGATE FUNDS AND ADJUST FUTURE OPTION YEARS TO REFLECT CHANGES.",
+                    "federal_action_obligation": 70981.77,
+                    "face_value_loan_guarantee": 0.0,
+                    "original_loan_subsidy_cost": 0.0
+                  },
+                  {
+                    "id": "CONT_TX_2036_8000_2033H624F00068_P00009_NNG15SC71B_0",
+                    "type": "C",
+                    "type_description": "DELIVERY ORDER",
+                    "action_date": "2026-05-13",
+                    "action_type": "M",
+                    "action_type_description": "OTHER ADMINISTRATIVE ACTION",
+                    "modification_number": "P00009",
+                    "description": "CROWDSTRIKE PRODUCTS AND SERVICES - TO INCORPORATE CLAUSE 52.222-90 ADDRESSING DEI DISCRIMINATION BY FEDERAL CONTRACTORS (APR 2026).",
+                    "federal_action_obligation": 0.0,
+                    "face_value_loan_guarantee": 0.0,
+                    "original_loan_subsidy_cost": 0.0
+                  },
+                  {
+                    "id": "CONT_TX_2036_8000_2033H624F00068_P00008_NNG15SC71B_0",
+                    "type": "C",
+                    "type_description": "DELIVERY ORDER",
+                    "action_date": "2026-01-21",
+                    "action_type": "G",
+                    "action_type_description": "EXERCISE AN OPTION",
+                    "modification_number": "P00008",
+                    "description": "CROWDSTRIKE PRODUCTS AND SERVICES - EXERCISE OPTION PERIOD TWO AND ADD IN SCOPE SERVICES",
+                    "federal_action_obligation": 1701003.89,
+                    "face_value_loan_guarantee": 0.0,
+                    "original_loan_subsidy_cost": 0.0
+                  },
+                  {
+                    "id": "CONT_TX_2036_8000_2033H624F00068_P00007_NNG15SC71B_0",
+                    "type": "C",
+                    "type_description": "DELIVERY ORDER",
+                    "action_date": "2025-09-11",
+                    "action_type": "F",
+                    "action_type_description": "TERMINATE FOR CONVENIENCE (COMPLETE OR PARTIAL)",
+                    "modification_number": "P00007",
+                    "description": "CROWDSTRIKE PRODUCTS AND SERVICES - TERMINATION FOR CONVENIENCE (PARTIAL) TERMINATION EFFECTIVE DATE 09/10/2025.  DEOBLIGATING $17,201.25",
+                    "federal_action_obligation": -17201.25,
+                    "face_value_loan_guarantee": 0.0,
+                    "original_loan_subsidy_cost": 0.0
+                  },
+                  {
+                    "id": "CONT_TX_2036_8000_2033H624F00068_P00006_NNG15SC71B_0",
+                    "type": "C",
+                    "type_description": "DELIVERY ORDER",
+                    "action_date": "2025-05-29",
+                    "action_type": "B",
+                    "action_type_description": "SUPPLEMENTAL AGREEMENT FOR WORK WITHIN SCOPE",
+                    "modification_number": "P00006",
+                    "description": "CROWDSTRIKE PRODUCTS AND SERVICES - INCORPORATE A NON-DISCLOSURE AGREEMENT",
+                    "federal_action_obligation": 0.0,
+                    "face_value_loan_guarantee": 0.0,
+                    "original_loan_subsidy_cost": 0.0
+                  },
+                  {
+                    "id": "CONT_TX_2036_8000_2033H624F00068_P00005_NNG15SC71B_0",
+                    "type": "C",
+                    "type_description": "DELIVERY ORDER",
+                    "action_date": "2025-04-23",
+                    "action_type": "B",
+                    "action_type_description": "SUPPLEMENTAL AGREEMENT FOR WORK WITHIN SCOPE",
+                    "modification_number": "P00005",
+                    "description": "CROWDSTRIKE PRODUCTS AND SERVICES - OBLIGATE FUNDING FOR IN SCOPE ITEMS",
+                    "federal_action_obligation": 81000.0,
+                    "face_value_loan_guarantee": 0.0,
+                    "original_loan_subsidy_cost": 0.0
+                  },
+                  {
+                    "id": "CONT_TX_2036_8000_2033H624F00068_P00004_NNG15SC71B_0",
+                    "type": "C",
+                    "type_description": "DELIVERY ORDER",
+                    "action_date": "2025-03-13",
+                    "action_type": "B",
+                    "action_type_description": "SUPPLEMENTAL AGREEMENT FOR WORK WITHIN SCOPE",
+                    "modification_number": "P00004",
+                    "description": "CROWDSTRIKE PRODUCTS AND SERVICES",
+                    "federal_action_obligation": 44744.86,
+                    "face_value_loan_guarantee": 0.0,
+                    "original_loan_subsidy_cost": 0.0
+                  },
+                  {
+                    "id": "CONT_TX_2036_8000_2033H624F00068_P00003_NNG15SC71B_0",
+                    "type": "C",
+                    "type_description": "DELIVERY ORDER",
+                    "action_date": "2025-02-19",
+                    "action_type": "M",
+                    "action_type_description": "OTHER ADMINISTRATIVE ACTION",
+                    "modification_number": "P00003",
+                    "description": "CROWDSTRIKE PRODUCTS AND SERVICES",
+                    "federal_action_obligation": 0.0,
+                    "face_value_loan_guarantee": 0.0,
+                    "original_loan_subsidy_cost": 0.0
+                  }
+                ]
+              }
+            },
+            {
+              "retrieved_at_utc": "2026-11-07T00:04:20.866370+00:00",
+              "server_date_header": "Sat, 07 Nov 2026 00:04:20 GMT",
+              "endpoint": "https://api.usaspending.gov/api/v2/transactions/",
+              "request": {
+                "award_id": "CONT_AWD_2033H624F00068_2036_NNG15SC71B_8000",
+                "page": 2
+              },
+              "http_status": 200,
+              "response_body": {
+                "page_metadata": {
+                  "page": 2,
+                  "next": null,
+                  "previous": 1,
+                  "hasNext": false,
+                  "hasPrevious": true
+                },
+                "results": [
+                  {
+                    "id": "CONT_TX_2036_8000_2033H624F00068_P00002_NNG15SC71B_0",
+                    "type": "C",
+                    "type_description": "DELIVERY ORDER",
+                    "action_date": "2025-01-21",
+                    "action_type": "G",
+                    "action_type_description": "EXERCISE AN OPTION",
+                    "modification_number": "P00002",
+                    "description": "CROWDSTRIKE PRODUCTS AND SERVICES",
+                    "federal_action_obligation": 1606535.4,
+                    "face_value_loan_guarantee": 0.0,
+                    "original_loan_subsidy_cost": 0.0
+                  },
+                  {
+                    "id": "CONT_TX_2036_8000_2033H624F00068_P00001_NNG15SC71B_0",
+                    "type": "C",
+                    "type_description": "DELIVERY ORDER",
+                    "action_date": "2024-07-03",
+                    "action_type": "B",
+                    "action_type_description": "SUPPLEMENTAL AGREEMENT FOR WORK WITHIN SCOPE",
+                    "modification_number": "P00001",
+                    "description": "CROWDSTRIKE PRODUCTS AND SERVICES",
+                    "federal_action_obligation": 59400.0,
+                    "face_value_loan_guarantee": 0.0,
+                    "original_loan_subsidy_cost": 0.0
+                  },
+                  {
+                    "id": "CONT_TX_2036_8000_2033H624F00068_0_NNG15SC71B_0",
+                    "type": "C",
+                    "type_description": "DELIVERY ORDER",
+                    "action_date": "2024-01-31",
+                    "action_type": null,
+                    "action_type_description": null,
+                    "modification_number": "0",
+                    "description": "CROWDSTRIKE PRODUCTS AND SERVICES",
+                    "federal_action_obligation": 1277132.99,
+                    "face_value_loan_guarantee": 0.0,
+                    "original_loan_subsidy_cost": 0.0
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
   }
 }

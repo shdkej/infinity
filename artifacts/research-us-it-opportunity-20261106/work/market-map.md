@@ -64,18 +64,17 @@ NASA의 SentinelOne order `80TECH26FA015`는 별도 보안 소프트웨어 구�
 
 **DOE P00001 첨부 접근 경계:** USAspending은 P00001의 추가 라이선스 transaction을 보여주지만 첨부·CLIN 정보를 제공하지 않았다. 2026-11-06 SAM.gov 검색 페이지는 HTTP 200의 JavaScript shell로 응답했고, 정확 PIID로 시도한 SAM API 두 경로는 이 런타임에서 HTTP 404였다. GSA 문서는 Contract Awards API에 등록 계정/API key가 필요하고 SAM 계약-award 결과 열람도 로그인이 필요하다고 안내한다. 이는 접근 조건과 이번 경로의 결과일 뿐 첨부가 없거나 비공개라는 증거가 아니다. 첨부, CLIN, SKU, 수량, 단가는 계속 미확인이다. 정확 URL·UTC·HTTP status·응답 hash 및 공식 문서 링크는 `public-spend-observations.json`의 `doe_sc_p00001_official_access_check_20261106T2256Z`에 기록했다.
 
-### 추가 연방 보안조달 스크리닝 (정확 ID 재조회 완료)
+### 추가 연방 보안조달 스크리닝 (정확 ID 재검증)
 
-2026-11-06 22:23 UTC에 USAspending 공식 API로 세 PIID의 transaction 검색, award detail, 전체 거래 이력을 재조회했다. 응답은 모두 HTTP 200이며 각 이력은 단일 페이지(`hasNext=false`)다. 이전 선별행과 대응되는 수정 거래가 확인되어 해당 행은 이제 screening lead가 아니라 공식 API 응답으로 재검증된 조달 거래다. 완전한 검색·award-detail·거래-history 응답은 `public-spend-observations.json`의 `exact_id_revalidation_20261106T2223Z`에 원문으로 보존했다.
+2026-11-07 00:03–00:04 UTC에 USAspending 공식 API에서 세 PIID의 거래 검색, award detail, transaction history를 재조회했다. 검색·detail·history 응답은 HTTP 200이며, Treasury 이력은 10행 첫 페이지와 3행 두 번째 페이지를 모두 받아 총 13행으로 확인했다. 원문 요청/응답은 `public-spend-observations.json`의 `exact_id_revalidation_20261107T0004Z`에 보존했다.
 
-| PIID / 구매기관 | 재조회된 이력 | 해석 경계 |
+| PIID / 구매기관 | 재검증된 이력 | 해석 경계 |
 |---|---|---|
-| DOE/NNSA `89233126FNA400754`, Thundercat Technology | 거래 이력 3건: 기본 `0` $1,750,637(2026-01-06), `P00001` $9,924,171(2026-05-12), `P00002` $0(2026-09-04). 최신 award obligation은 $11,674,808, 수행기간 2026-01-01–2027-05-31(잠재 종료 2029-05-31). | P00001 설명은 Falcon/Falcon Complete licenses. 원문 확인은 수정 거래의 존재·금액·설명을 검증하지만 SKU별 수량, CLIN, 단가를 주지 않는다. |
-| DOJ `15JPSS23F00000692`, Thundercat Technology | 거래 이력 8건(`hasNext=false`): 기본 $1,417,931.50(2023-09-11), `P00014` $11,100(2025-09-23), `P00015` $325,101.85(2025-09-29), `P00016` $4,649,687.97(2025-12-02), `P00017` $6,972.50(2026-05-07), `P00018` $14,043.10 및 `P00019` $273,188.02(2026-09-11), `P00020` $273,188.02(2026-09-29). 최신 obligation $6,971,212.96, 현재 수행기간 2023-09-13–2027-09-12(잠재 종료 2028-09-12). | 설명은 JMD/OCIO/CSS용 CrowdStrike license/support의 annual renewal. 단일 변동액을 연간 가격·ARR로 보거나 거래 반복을 민간 지불의사로 외삽하지 않는다. |
-| Treasury/Fiscal Service `2033H624F00068`, FCN Inc. | 거래 이력 13건(`hasNext=false`). `P00008` $1,701,003.89(2026-01-21)은 option period two와 in-scope services, `P00010` $70,981.77(2026-08-13)은 within-scope items, `P00011` $507,069.03(2026-09-18)은 in-scope upgrade. 최신 obligation $5,330,666.69; 수행기간 2024-02-01–2027-01-31(잠재 종료 2029-01-31). | 현재 기록은 award 수준 CrowdStrike products/services를 확인한다. 수정별 금액·설명은 확인되지만, 그 금액의 제품별 귀속·라이선스 수량·단가를 분리할 수 없다. |
+| DOE/NNSA `89233126FNA400754`, Thundercat Technology | NASA GWAC `NNG15SC92B` delivery order. 3행: 기본 $1,750,637(2026-01-06), `P00001` $9,924,171(2026-05-12), `P00002` $0(2026-09-04). 최신 award obligation $11,674,808; 수행기간 2026-01-01–2027-05-31(잠재 종료 2029-05-31). | 거래 설명은 Falcon/Falcon Complete licenses. 수정 행은 존재·날짜·금액·설명을 확인하지만 SKU 수량, CLIN, 단가를 보여주지 않는다. |
+| DOJ `15JPSS23F00000692`, Thundercat Technology | NASA GWAC `NNG15SD26B` delivery order. 전체 8행: 기본 $1,417,931.50(2023-09-11); `P00014` $11,100(2025-09-23), `P00015` $325,101.85(2025-09-29), `P00016` $4,649,687.97(2025-12-02), `P00017` $6,972.50(2026-05-07), `P00018` $14,043.10 및 `P00019` $273,188.02(2026-09-11), `P00020` $273,188.02(2026-09-29). 최신 obligation $6,971,212.96; 수행기간 2023-09-13–2027-09-12(잠재 종료 2028-09-12). | 설명은 JMD/OCIO/CSS용 CrowdStrike license/support의 annual renewal. 개별 변동액을 연간 가격·ARR로 보거나 반복 거래를 민간 지불의사로 외삽하지 않는다. |
+| Treasury/Fiscal Service `2033H624F00068`, FCN Inc. | NASA GWAC `NNG15SC71B` delivery order. 전체 13행(페이지 1=10, 페이지 2=3). 주요 행: `P00008` $1,701,003.89(2026-01-21, option period two 및 in-scope services), `P00010` $70,981.77(2026-08-13, additional within-scope items), `P00011` $507,069.03(2026-09-18, in-scope upgrade); `A00001` $0(2026-10-28). 최신 obligation $5,330,666.69; 수행기간 2024-02-01–2027-01-31(잠재 종료 2029-01-31). | award 수준 CrowdStrike products/services를 확인한다. 수정별 금액·설명은 있으나 제품별 귀속, 라이선스 수량·단가를 분리하지 못한다. |
 
-각 거래의 거래금액은 수정 행의 federal action obligation이며 제품 매출/순액이 아니다. DOE/NNSA의 별도 SAM 공고 미러는 원 award의 제품명/수여를 보강할 뿐 USAspending 응답을 대체하지 않는다. USAspending API 계약 문서는 endpoint와 필드 의미만 설명한다. 세 구매기관 사례는 제한적 연방 조달 증거이며, 민간 WTP·TAM·vendor revenue·제품별 CLIN/수량/단가를 입증하지 않는다. Planner·Developer·Marketer·Operator 교차검토도 이 경계를 유지하기로 했다.
-
+모든 금액은 USAspending transaction의 federal action obligation이며 vendor 매출/순액이 아니다. 이 세 공공 구매 기록은 연방 조달 관찰치이지 민간 WTP·TAM·ARR를 입증하지 않는다. 옵션·수정·in-scope 표현도 제품 단위의 갱신률이나 사용량 증거로 해석하지 않는다.
 **비교 제한:** 이 사례들은 공개된 특정 조달의 범위와 단계만 보여준다. 국가 IT 지출 또는 민간시장 추정치가 아니며, 금액 차이는 조달 범위·대상·회계·시점·통화 차이와 실제 수요가 함께 반영될 수 있다. 미국 award의 obligation/outlay와 한국 RFP의 예정예산은 직접 비교하지 않는다.
 
 ### 미국·한국 기업 기술통계의 비교 가능성
@@ -94,7 +93,7 @@ NASA의 SentinelOne order `80TECH26FA015`는 별도 보안 소프트웨어 구�
 
 ## 다음 탐색에서 검증할 것
 
-1. **다음 evidence leaf (Active):** USAspending API가 응답하면 `89233126FNA400754`, `15JPSS23F00000692`, `2033H624F00068`의 award detail과 전체 transaction history 원문을 각각 저장해 날짜·수정번호·금액·설명·parent award·수행기간을 재대조한다. 현재 두 targeted query가 HTTP 503이므로 이 세 행은 screening lead 상태다. API가 계속 불가하면 공식 SAM/기관 route별 접근 결과를 기록하고, 기록·첨부가 없다고 추론하지 않는다.
+1. **다음 evidence leaf:** DOE SC Oak Ridge PIID `89243126FSC400871` P00001 공식 수정문서/주문 첨부 접근 경로를 검토한다. SAM 계정/API key 없이 공개 가능한 공식 원문 경로가 있는지 확인하고, 첨부가 없다고 추론하지 않는다.
 2. 별도 후속 leaf로 DOE SC Oak Ridge PIID `89243126FSC400871` P00001 공식 수정문서/주문 첨부를 찾는다. 공개 자료에서 아직 CLIN·SKU·수량·단가를 확인하지 못했고, GSA의 Contract Awards API는 SAM 계정/API key가 필요하다고 안내한다. SEWP 절차 페이지는 기관이 DO를 발행하고 수정은 PMO를 거친다고 설명할 뿐 이 주문의 첨부 공개 여부를 입증하지 않는다. 접근 불가나 검색 실패를 “첨부 없음”으로 바꾸지 않는다.
 3. ICE FinalMobile PIID `70CMSD25FR0000087`의 후속 award/옵션과 별도 ICE `70CMSD26FR0000041`의 SOW/CLIN은 또 다른 leaf로 유지한다. 제품명이 명시적으로 연결되지 않는 한 같은 상품·갱신으로 합치지 않는다.
 2. 공개 후기/커뮤니티는 불편·대안 언어를 찾는 정성 신호로만 쓰고, 표본·플랫폼 편향을 표시한다. 공식 통계나 벤더 사례와 한데 합쳐 수요 수치로 만들지 않는다.
