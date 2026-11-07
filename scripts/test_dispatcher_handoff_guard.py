@@ -4,6 +4,11 @@ from __future__ import annotations
 
 import unittest
 from pathlib import Path
+import json
+import re
+import subprocess
+import sys
+import tempfile
 
 
 SOURCE = Path(__file__).with_name("run_dispatcher_cycle.sh").read_text()
@@ -38,6 +43,35 @@ class DispatcherHandoffGuardTest(unittest.TestCase):
         self.assertIn('valid explicit future `deadline`', SOURCE)
         self.assertIn('never add a child leaf', SOURCE)
         self.assertNotIn('add 1–5 evidence-bearing exploratory leaves', SOURCE)
+
+    def test_prompt_keeps_lane_and_intent_path_placeholders_literal(self):
+        match = re.search(
+            r'''(?s)if ! python3 - "\$PLAN_FILE" "\$PROMPT_STAGE_FILE" <<'PY'\n(.*?)\nPY\n  then''',
+            SOURCE,
+        )
+        self.assertIsNotNone(match, "could not find the prompt-generation heredoc")
+        plan = {
+            "canonical_sha": "fixture-sha",
+            "run_id": "fixture-run",
+            "handoff_candidates": [],
+            "waiting_closeout_candidates": [],
+            "expansion_candidates": [],
+        }
+        with tempfile.TemporaryDirectory() as tmp:
+            plan_path = Path(tmp) / "plan.json"
+            prompt_path = Path(tmp) / "prompt.txt"
+            plan_path.write_text(json.dumps(plan), encoding="utf-8")
+            plan_path_arg = str(plan_path)
+            prompt_path_arg = str(prompt_path)
+            result = subprocess.run(
+                [sys.executable, "-", plan_path_arg, prompt_path_arg],
+                input=match.group(1), text=True, capture_output=True, check=False,
+            )
+            self.assertEqual(result.returncode, 0, result.stderr)
+            prompt = prompt_path.read_text(encoding="utf-8")
+        self.assertIn("intents/{lane}/{id}.md", prompt)
+        self.assertIn("intents/archive/{id}.md", prompt)
+        self.assertNotIn("intents/None.md", prompt)
 
 
 if __name__ == "__main__":
