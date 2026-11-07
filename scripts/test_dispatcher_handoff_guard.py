@@ -30,7 +30,14 @@ class DispatcherHandoffGuardTest(unittest.TestCase):
 
     def test_handoff_failure_is_converted_to_a_controlled_result(self):
         self.assertIn('|| "$HANDOFF_EXIT" -ne 0', SOURCE)
-        self.assertIn('FINAL_EXIT=0', SOURCE)
+        self.assertIn('FINAL_EXIT=1', SOURCE)
+
+    def test_prompt_and_verifier_gate_expansion_on_live_explicit_deadline(self):
+        self.assertIn('Plan.at < deadline', SOURCE)
+        self.assertIn('verified_at >= deadline', SOURCE)
+        self.assertIn('valid explicit future `deadline`', SOURCE)
+        self.assertIn('never add a child leaf', SOURCE)
+        self.assertNotIn('add 1–5 evidence-bearing exploratory leaves', SOURCE)
 
 
 if __name__ == "__main__":

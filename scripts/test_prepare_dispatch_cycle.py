@@ -13,6 +13,16 @@ spec.loader.exec_module(prepare)
 def block(intent_id, status, extra=""):
     return f"### [{intent_id}] task\n- status: {status}\n- target_agent: genie\n{extra}"
 
+def deadline_fields(deadline):
+    return "".join([
+        f"- deadline: {deadline}\n", "- deadline_local: fixture UTC\n",
+        "- task_plan: artifacts/work-1/task-plan.json\n",
+        "- task_plan_doc: artifacts/work-1/task-plan.md\n",
+        "- task_plan_template: ARTIFACT_RULES.md#대형-작업-태스크-계획\n",
+        "- trace: data/traces/work-1.json\n", "- notification_channel: slack\n",
+        "- notification_target: channel:C0\n", "- notification_reply_to: 1.2\n",
+    ])
+
 class PlanTests(unittest.TestCase):
     def test_metadata_is_not_an_intent_count(self):
         text = "## Inbox\n" + block("work-1", "inbox") + "\n## Active\n" + block("work-2", "active", "- goal: x\n" * 23) + "\n## Waiting\n\n## Archive\n"
@@ -42,11 +52,27 @@ class PlanTests(unittest.TestCase):
     def test_exploratory_research_skips_deadline_plan_contract_and_dispatches(self):
         text = "## Inbox\n\n## Active\n" + block(
             "research-1", "active",
-            "- deadline: 2026-09-05T06:00:00Z\n- research_mode: exploratory_research\n",
+            "- deadline: 2099-09-05T06:00:00Z\n- research_mode: exploratory_research\n",
         ) + "\n## Waiting\n\n## Archive\n"
         plan = prepare.build_plan(text, "fixture", Path(tempfile.mkdtemp()))
         self.assertFalse(plan["invalid_state"])
         self.assertEqual(plan["handoff_candidates"][0]["intent_id"], "research-1")
+
+    def test_no_deadline_exploratory_intent_routes_to_terminal_closeout(self):
+        text = "## Inbox\n\n## Active\n" + block(
+            "research-1", "active", "- research_mode: exploratory_research\n"
+        ) + "\n## Waiting\n\n## Archive\n"
+        plan = prepare.build_plan(text, "fixture", Path(tempfile.mkdtemp()))
+        self.assertFalse(plan["expansion_candidates"])
+        self.assertEqual([item["intent_id"] for item in plan["terminalization_candidates"]], ["research-1"])
+        self.assertEqual([item["intent_id"] for item in plan["handoff_candidates"]], ["research-1"])
+
+    def test_no_deadline_missing_plan_routes_to_closeout_not_leaf_repair(self):
+        text = "## Inbox\n\n## Active\n" + block("work-1", "active") + "\n## Waiting\n\n## Archive\n"
+        plan = prepare.build_plan(text, "fixture", Path(tempfile.mkdtemp()))
+        self.assertFalse(plan["missing_plan_repair_candidates"])
+        self.assertEqual(plan["terminalization_candidates"][0]["task_state"]["state"], "no_deadline_missing_plan")
+        self.assertEqual(plan["handoff_candidates"][0]["intent_id"], "work-1")
 
     def test_deadline_active_card_with_observability_fields_is_valid(self):
         extra = "".join([
@@ -93,6 +119,19 @@ class PlanTests(unittest.TestCase):
         text = "## Inbox\n\n## Active\n" + block("work-1", "active", "- task_plan: artifacts/work-1/task-plan.json\n") + "\n## Waiting\n\n## Archive\n"
         plan = prepare.build_plan(text, "fixture", repo)
         self.assertEqual(plan["timebox_reassessment_candidates"][0]["task_state"]["task_id"], "T1")
+        self.assertFalse(plan["timebox_reassessment_candidates"][0]["timebox_reassessment"]["allow_split"])
+
+    def test_explicit_future_deadline_allows_timebox_split_reassessment(self):
+        repo = Path(tempfile.mkdtemp())
+        (repo / "artifacts" / "work-1").mkdir(parents=True)
+        tasks = {"tasks": [{
+            "id": "T1", "title": "시간 제한 작업", "status": "active",
+            "started_at": "2020-01-01T00:00:00Z", "max_minutes": 10,
+        }]}
+        (repo / "artifacts" / "work-1" / "task-plan.json").write_text(json.dumps(tasks))
+        text = "## Inbox\n\n## Active\n" + block("work-1", "active", deadline_fields("2099-01-01T00:00:00Z")) + "\n## Waiting\n\n## Archive\n"
+        plan = prepare.build_plan(text, "fixture", repo)
+        self.assertTrue(plan["timebox_reassessment_candidates"][0]["timebox_reassessment"]["allow_split"])
 
     def test_completed_plan_is_terminalization_candidate(self):
         repo = Path(tempfile.mkdtemp())
@@ -177,14 +216,75 @@ class PlanTests(unittest.TestCase):
             "min_ready_tasks": 3, "expansion_brief": "다음 근거 공백을 검증 가능한 leaf로 분해",
         }}
         (repo / "artifacts" / "work-1" / "task-plan.json").write_text(json.dumps(tasks))
-        text = "## Inbox\n\n## Active\n" + block("work-1", "active", "- task_plan: artifacts/work-1/task-plan.json\n- task_plan_doc: artifacts/work-1/task-plan.md\n") + "\n## Waiting\n\n## Archive\n"
+        text = "## Inbox\n\n## Active\n" + block("work-1", "active", deadline_fields("2099-01-01T00:00:00Z")) + "\n## Waiting\n\n## Archive\n"
         plan = prepare.build_plan(text, "fixture", repo)
         candidate = plan["expansion_candidates"][0]
         self.assertEqual(candidate["expansion"]["batch_size"], 6)
         self.assertEqual(candidate["expansion"]["target_total_tasks"], 60)
         self.assertEqual(candidate["expansion"]["current_leaf_ids"], ["T1.1"])
         self.assertEqual(candidate["expansion"]["task_plan_doc"], "artifacts/work-1/task-plan.md")
+        self.assertEqual(candidate["expansion"]["deadline"], "2099-01-01T00:00:00+00:00")
         self.assertEqual([item["intent_id"] for item in plan["handoff_candidates"]], ["work-1"])
+
+    def test_no_deadline_suppresses_replenishment_and_completed_plan_terminalizes(self):
+        repo = Path(tempfile.mkdtemp())
+        (repo / "artifacts" / "work-1").mkdir(parents=True)
+        tasks = {"tasks": [{"id": "T1.1", "title": "완료", "status": "done"}], "expansion_policy": {
+            "enabled": True, "target_total_tasks": 60, "batch_size": 6,
+            "min_ready_tasks": 3, "expansion_brief": "다음 근거 공백을 검증 가능한 leaf로 분해",
+        }}
+        (repo / "artifacts" / "work-1" / "task-plan.json").write_text(json.dumps(tasks))
+        text = "## Inbox\n\n## Active\n" + block("work-1", "active", "- task_plan: artifacts/work-1/task-plan.json\n- task_plan_doc: artifacts/work-1/task-plan.md\n") + "\n## Waiting\n\n## Archive\n"
+        plan = prepare.build_plan(text, "fixture", repo)
+        self.assertFalse(plan["expansion_candidates"])
+        self.assertEqual([item["intent_id"] for item in plan["terminalization_candidates"]], ["work-1"])
+        self.assertEqual([item["intent_id"] for item in plan["handoff_candidates"]], ["work-1"])
+
+    def test_deadline_must_be_valid_timezone_aware_and_future_for_expansion(self):
+        for deadline in ("", "not-a-date", "2099-01-01", "2000-01-01T00:00:00Z"):
+            with self.subTest(deadline=deadline):
+                repo = Path(tempfile.mkdtemp())
+                (repo / "artifacts" / "work-1").mkdir(parents=True)
+                tasks = {"tasks": [{"id": "T1.1", "title": "완료", "status": "done"}], "expansion_policy": {
+                    "enabled": True, "target_total_tasks": 60, "batch_size": 6,
+                    "min_ready_tasks": 3, "expansion_brief": "다음 근거 공백을 검증 가능한 leaf로 분해",
+                }}
+                (repo / "artifacts" / "work-1" / "task-plan.json").write_text(json.dumps(tasks))
+                extra = deadline_fields(deadline) if deadline else "- task_plan: artifacts/work-1/task-plan.json\n"
+                text = "## Inbox\n\n## Active\n" + block("work-1", "active", extra) + "\n## Waiting\n\n## Archive\n"
+                plan = prepare.build_plan(text, "fixture", repo)
+                self.assertFalse(plan["expansion_candidates"])
+                self.assertEqual([item["intent_id"] for item in plan["terminalization_candidates"]], ["work-1"])
+                if deadline and deadline != "2000-01-01T00:00:00Z":
+                    self.assertEqual(plan["terminalization_candidates"][0]["deadline_issue"], "invalid_or_timezone_naive_canonical_deadline_suppresses_expansion")
+
+    def test_expired_deadline_stops_existing_active_leaf_and_terminalizes(self):
+        repo = Path(tempfile.mkdtemp())
+        (repo / "artifacts" / "work-1").mkdir(parents=True)
+        tasks = {"tasks": [{"id": "T1", "title": "현재 leaf", "status": "active"}], "expansion_policy": {
+            "enabled": True, "target_total_tasks": 60, "batch_size": 6,
+            "min_ready_tasks": 3, "expansion_brief": "다음 근거 공백을 검증 가능한 leaf로 분해",
+        }}
+        (repo / "artifacts" / "work-1" / "task-plan.json").write_text(json.dumps(tasks))
+        text = "## Inbox\n\n## Active\n" + block("work-1", "active", deadline_fields("2000-01-01T00:00:00Z")) + "\n## Waiting\n\n## Archive\n"
+        plan = prepare.build_plan(text, "fixture", repo)
+        self.assertFalse(plan["expansion_candidates"])
+        self.assertFalse(plan["live_active"])
+        self.assertFalse(plan["plan_activation_candidates"])
+        self.assertEqual(plan["terminalization_candidates"][0]["task_state"]["state"], "deadline_reached")
+
+    def test_no_deadline_does_not_replenish_while_existing_leaf_is_pending(self):
+        repo = Path(tempfile.mkdtemp())
+        (repo / "artifacts" / "work-1").mkdir(parents=True)
+        tasks = {"tasks": [{"id": "T1.1", "title": "기존 작업", "status": "pending"}], "expansion_policy": {
+            "enabled": True, "target_total_tasks": 60, "batch_size": 6,
+            "min_ready_tasks": 3, "expansion_brief": "다음 근거 공백을 검증 가능한 leaf로 분해",
+        }}
+        (repo / "artifacts" / "work-1" / "task-plan.json").write_text(json.dumps(tasks))
+        text = "## Inbox\n\n## Active\n" + block("work-1", "active", "- task_plan: artifacts/work-1/task-plan.json\n") + "\n## Waiting\n\n## Archive\n"
+        plan = prepare.build_plan(text, "fixture", repo)
+        self.assertFalse(plan["expansion_candidates"])
+        self.assertEqual(plan["plan_activation_candidates"][0]["task_state"]["task_id"], "T1.1")
 
     def test_expansion_never_exceeds_its_target(self):
         repo = Path(tempfile.mkdtemp())
@@ -194,7 +294,7 @@ class PlanTests(unittest.TestCase):
             "min_ready_tasks": 3, "expansion_brief": "후속 근거 검증",
         }}
         (repo / "artifacts" / "work-1" / "task-plan.json").write_text(json.dumps(tasks))
-        text = "## Inbox\n\n## Active\n" + block("work-1", "active", "- task_plan: artifacts/work-1/task-plan.json\n") + "\n## Waiting\n\n## Archive\n"
+        text = "## Inbox\n\n## Active\n" + block("work-1", "active", deadline_fields("2099-01-01T00:00:00Z")) + "\n## Waiting\n\n## Archive\n"
         plan = prepare.build_plan(text, "fixture", repo)
         self.assertFalse(plan["expansion_candidates"])
 
@@ -206,7 +306,7 @@ class PlanTests(unittest.TestCase):
             "min_ready_tasks": 3, "expansion_brief": "후속 근거 검증",
         }}
         (repo / "artifacts" / "work-1" / "task-plan.json").write_text(json.dumps(tasks))
-        text = "## Inbox\n\n## Active\n" + block("work-1", "active", "- task_plan: artifacts/work-1/task-plan.json\n") + "\n## Waiting\n\n## Archive\n"
+        text = "## Inbox\n\n## Active\n" + block("work-1", "active", deadline_fields("2099-01-01T00:00:00Z")) + "\n## Waiting\n\n## Archive\n"
         plan = prepare.build_plan(text, "fixture", repo)
         self.assertEqual(plan["invalid_state"][0]["reason"], "invalid_expansion_policy")
         self.assertNotIn("work-1", [item["intent_id"] for item in plan["handoff_candidates"]])

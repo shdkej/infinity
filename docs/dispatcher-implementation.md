@@ -37,7 +37,7 @@ Status Dashboard의 크론 수집기는 OpenClaw automation 목록을 조회하�
 - 디스패처 실행 세션 키 기본값은 `agent:genie:infinity-dispatcher-v2`입니다.
 - `flock` 잠금으로 이전 사이클이 끝나지 않은 동안 중복 사이클을 시작하지 않습니다.
 - Genie 실행은 기본 480초, 전체 크론은 600초 제한입니다.
-- 장기 작업은 task-plan의 의존성·ready leaf를 기준으로 한 번에 실행하며, `expansion_policy`가 있는 경우에만 제한된 batch를 추가합니다.
+- 장기 작업은 task-plan의 의존성·ready leaf를 기준으로 실행합니다. 제한 batch 자동 추가는 `expansion_policy`와 사용자가 명시한 유효한 미래 canonical Intent `deadline`이 함께 있을 때만 허용하며, deadline이 없거나 지났으면 기존 계획을 마친 뒤 terminalization으로 보냅니다.
 
 ## 환경변수
 

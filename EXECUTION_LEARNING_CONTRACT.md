@@ -10,8 +10,8 @@
 - `active`, `waiting`, `rework`은 서로 중복하지 않는다. `active + waiting <= elapsed`여야 하며, `rework`은 active 안에서 별도 표기한다.
 - Red의 timebox는 품질 게이트 면제가 아니다. 미해결 P0, timeout, 미응답은 pass가 아니라 정확한 blocker를 가진 Waiting이다.
 - **실험 종료:** 이 계약을 적용한 대형 태스크가 절대 마감을 넘기면 Active를 유지하거나 handoff만 반복하지 않는다. 다음 dispatcher cycle에서 `status: deadline_missed`·마지막 실질 증거·실패 리포트·새 승인 필요 여부를 기록하고 Waiting 레인에 둔다. 이는 재개 보류 레인일 뿐 성공 상태가 아니며, 원 요청 스레드에 별도 terminal 알림을 남긴다.
-- **완료의 의미:** 기능이 먼저 동작해도 `quality_iteration_active`일 뿐 Archive가 아니다. deadline 도달 또는 사용자의 명시 조기 종료 전에는 디자인·실제 렌더·접근성·운영 품질을 개선한다.
-- **기본 마감:** 사용자가 절대 마감을 생략하면 다음 이탈리아 현지 08:00을 기본 deadline으로 사용한다. Intent에는 `deadline_local: Europe/Rome`과 UTC 환산값을 함께 기록하며, 사용자가 별도 시간대·시각을 말하면 그 값이 우선한다.
+- **완료의 의미:** 사용자가 명시한 절대 deadline이 있는 작업은 그 deadline 또는 사용자의 명시 조기 종료 전까지 승인된 범위 안의 계획된 품질 작업을 진행할 수 있다. deadline이 없는 작업에는 자동 `quality_iteration_active` 기간을 만들지 않는다. 기존 계획의 leaf를 마친 뒤 보유 근거로 closeout하며, 새 leaf를 자동 추가하지 않는다.
+- **마감 기록:** deadline은 사용자가 명시한 절대 마감만 canonical Intent `deadline`에 기록한다. 사용자가 마감을 생략하면 시각을 추정·기본값으로 생성하지 않고 필드를 비워 둔다. `deadline_local`은 명시된 시각의 표시용일 뿐 독립적인 deadline이 아니다.
 
 ## 실질 진전·마감·알림 게이트
 
@@ -61,7 +61,7 @@ notification_reply_to: {original-thread-ts}
 
 - `notification_channel`, `notification_target`, `notification_reply_to`는 Intake부터 Archive notifier 입력까지 immutable하게 보존한다. Archive 요약/코멘트만으로 대체하지 않는다.
 - Archive는 remote verification뿐 아니라 원 대화 destination의 delivery receipt 또는 명시적인 `delivery_unknown` 기록이 있을 때만 terminal로 닫는다.
-- 기능 완주가 deadline보다 빠르면 terminal completion 대신 quality-iteration 상태를 원 스레드에 한 번 알린다.
+- 명시된 canonical Intent deadline 전에 기능 leaf가 끝났더라도, task plan에 이미 포함된 작업 또는 deadline 전에 한정된 expansion policy가 허용한 작업이 남아 있을 때만 진행 상태를 유지한다. deadline이 없거나 허용된 계획이 끝났으면 새 quality-iteration leaf를 만들지 않고 terminal closeout을 수행한다.
 
 ## intent별 ledger
 

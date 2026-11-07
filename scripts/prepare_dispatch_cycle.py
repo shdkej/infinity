@@ -78,7 +78,25 @@ def fresh_trace(intent_id: str, repo: Path, reference: dt.datetime, sha: str) ->
             return {"at": at.isoformat(), "status": status or "execution", "path": str(path.relative_to(repo))}
     return None
 
-def task_plan_state(entry: dict[str, Any], repo: Path, sha: str) -> dict[str, Any]:
+def intent_deadline(entry: dict[str, Any]) -> dt.datetime | None:
+    """Parse the canonical Intent deadline only when it is timezone-aware."""
+    raw_deadline = entry["fields"].get("deadline", "").strip()
+    if not raw_deadline:
+        return None
+    try:
+        deadline = dt.datetime.fromisoformat(raw_deadline.replace("Z", "+00:00"))
+        if deadline.tzinfo is None or deadline.utcoffset() is None:
+            return None
+        return deadline
+    except (TypeError, ValueError):
+        return None
+
+def explicit_future_deadline(entry: dict[str, Any], reference: dt.datetime) -> dt.datetime | None:
+    """Return a recorded canonical deadline only while it is still future."""
+    deadline = intent_deadline(entry)
+    return deadline if deadline is not None and reference < deadline else None
+
+def task_plan_state(entry: dict[str, Any], repo: Path, sha: str, reference: dt.datetime) -> dict[str, Any]:
     """Return the currently executable task from the canonical task plan.
 
     An Active Intent without an active plan task is not an execution resume.
@@ -86,10 +104,10 @@ def task_plan_state(entry: dict[str, Any], repo: Path, sha: str) -> dict[str, An
     malformed), otherwise a dispatcher can repeatedly hand it off without
     doing work.
     """
-    if entry["fields"].get("research_mode", "").strip().lower() == "exploratory_research":
-        return {"state": "exploratory"}
     path = entry["fields"].get("task_plan", "")
     if not path:
+        if entry["fields"].get("research_mode", "").strip().lower() == "exploratory_research":
+            return {"state": "exploratory"} if explicit_future_deadline(entry, reference) else {"state": "complete_or_invalid"}
         return {"state": "missing_plan"}
     try:
         raw = (repo / path).read_text(encoding="utf-8") if sha == "fixture" else subprocess.check_output(
@@ -137,8 +155,11 @@ def task_plan_state(entry: dict[str, Any], repo: Path, sha: str) -> dict[str, An
         return {"state": "blocked_dependencies"}
     return {"state": "complete_or_invalid"}
 
-def task_plan_expansion(entry: dict[str, Any], repo: Path, sha: str) -> dict[str, Any] | None:
-    """Return a bounded replenishment request for an opted-in long-running plan."""
+def task_plan_expansion(entry: dict[str, Any], repo: Path, sha: str, reference: dt.datetime) -> dict[str, Any] | None:
+    """Return bounded replenishment only for an explicitly deadline-bound plan still before deadline."""
+    deadline = explicit_future_deadline(entry, reference)
+    if deadline is None:
+        return None
     path = entry["fields"].get("task_plan", "")
     if not path:
         return None
@@ -171,7 +192,7 @@ def task_plan_expansion(entry: dict[str, Any], repo: Path, sha: str) -> dict[str
         task_plan_doc = entry["fields"].get("task_plan_doc", "")
         if not task_plan_doc:
             return {"state": "invalid_expansion_policy"}
-        return {"state": "replenish", "task_plan": path, "task_plan_doc": task_plan_doc, "target_total_tasks": target, "batch_size": min(batch, target - total), "current_total_tasks": total, "current_leaf_ids": sorted(str(task.get("id")) for task in leaf_tasks), "ready_tasks": ready, "expansion_brief": brief}
+        return {"state": "replenish", "deadline": deadline.isoformat(), "task_plan": path, "task_plan_doc": task_plan_doc, "target_total_tasks": target, "batch_size": min(batch, target - total), "current_total_tasks": total, "current_leaf_ids": sorted(str(task.get("id")) for task in leaf_tasks), "ready_tasks": ready, "expansion_brief": brief}
     return None
 
 def canonical(repo: Path, intents: Path | None) -> tuple[str, str]:
@@ -195,6 +216,9 @@ def due_autonomous_retry(entry: dict[str, Any], reference: dt.datetime) -> bool:
     fields = entry["fields"]
     if fields.get("waiting_on", "").lower() != "agent" or fields.get("retry_policy", "").lower() != "autonomous":
         return False
+    deadline = intent_deadline(entry)
+    if deadline is not None and reference >= deadline:
+        return False
     # `waiting_on: agent` means that the dispatcher owns the next move.  A
     # retry timestamp can postpone that move, but its absence must not turn an
     # agent-owned blocker into a permanent queue orphan.
@@ -207,18 +231,14 @@ def due_autonomous_retry(entry: dict[str, Any], reference: dt.datetime) -> bool:
         return False
     if retry_at > reference:
         return False
-    deadline = fields.get("deadline", "").split()[0]
-    try:
-        return reference < dt.datetime.fromisoformat(deadline.replace("Z", "+00:00"))
-    except ValueError:
-        return True
+    return True
 
-def waiting_closeout_reason(entry: dict[str, Any], repo: Path, sha: str) -> str | None:
+def waiting_closeout_reason(entry: dict[str, Any], repo: Path, sha: str, reference: dt.datetime) -> str | None:
     """Identify completed work held only by an internal archive record."""
     fields = entry["fields"]
     if fields.get("waiting_on", "").lower() != "internal":
         return None
-    if task_plan_state(entry, repo, sha).get("state") == "complete_or_invalid":
+    if task_plan_state(entry, repo, sha, reference).get("state") == "complete_or_invalid":
         return "completed_plan_has_only_internal_closeout_work"
     return None
 
@@ -287,13 +307,20 @@ def build_plan(text: str, sha: str, repo: Path) -> dict[str, Any]:
     reference = dt.datetime.now(dt.timezone.utc)
     live, resume, plan_activation, missing_plan_repair, timebox_reassessment, dependency_blocked, terminalization, waiting_closeout, expansion = [], [], [], [], [], [], [], [], []
     for entry in active:
-        task_state = task_plan_state(entry, repo, sha)
+        deadline = intent_deadline(entry)
+        if deadline is not None and reference >= deadline:
+            item = {"intent_id": entry["id"], "title": entry["title"], "evidence": fresh_trace(entry["id"], repo, reference, sha), "task_state": {"state": "deadline_reached", "deadline": deadline.isoformat()}}
+            terminalization.append(item)
+            continue
+        task_state = task_plan_state(entry, repo, sha, reference)
         item = {"intent_id": entry["id"], "title": entry["title"], "evidence": fresh_trace(entry["id"], repo, reference, sha), "task_state": task_state}
+        if entry["fields"].get("deadline", "").strip() and deadline is None:
+            item["deadline_issue"] = "invalid_or_timezone_naive_canonical_deadline_suppresses_expansion"
         executor = project_executor(entry)
         if executor:
             item["project_executor"] = executor
             item["project_task_id"] = entry["fields"].get("project_task_id") or entry["id"]
-        expansion_state = task_plan_expansion(entry, repo, sha)
+        expansion_state = task_plan_expansion(entry, repo, sha, reference)
         if expansion_state and expansion_state["state"] == "invalid_expansion_policy":
             invalid.append({"intent_id": entry["id"], "lane": entry["lane"], "status": entry["fields"].get("status", ""), "reason": "invalid_expansion_policy"})
         elif expansion_state and expansion_state["state"] == "replenish":
@@ -301,12 +328,18 @@ def build_plan(text: str, sha: str, repo: Path) -> dict[str, Any]:
         if task_state["state"] == "activate_pending":
             plan_activation.append(item)
         elif task_state["state"] == "missing_plan":
-            # A missing plan is an agent-owned setup defect. Dispatch it to
-            # repair rather than treating the card as a user-facing blocker.
-            missing_plan_repair.append(item)
+            # Do not manufacture the first evidence-bearing leaf for a task
+            # without an explicit future deadline. Close out from existing
+            # artifacts instead; user/external boundaries remain for closeout.
+            if explicit_future_deadline(entry, reference):
+                missing_plan_repair.append(item)
+            else:
+                item["task_state"] = {"state": "no_deadline_missing_plan"}
+                terminalization.append(item)
         elif task_state["state"] in {"active", "exploratory"}:
             (live if item["evidence"] else resume).append(item)
         elif task_state["state"] == "timebox_expired":
+            item["timebox_reassessment"] = {"allow_split": explicit_future_deadline(entry, reference) is not None}
             timebox_reassessment.append(item)
         elif task_state["state"] == "blocked_dependencies":
             dependency_blocked.append(item)
@@ -320,7 +353,7 @@ def build_plan(text: str, sha: str, repo: Path) -> dict[str, Any]:
         else:
             invalid.append({"intent_id": entry["id"], "lane": entry["lane"], "status": entry["fields"].get("status", ""), "reason": "task_plan_has_no_active_or_pending_task", "task_state": task_state})
     for entry in waiting:
-        reason = waiting_closeout_reason(entry, repo, sha)
+        reason = waiting_closeout_reason(entry, repo, sha, reference)
         if reason:
             waiting_closeout.append({"intent_id": entry["id"], "title": entry["title"], "target_agent": "genie", "reason": reason})
     slots = max(0, MAX_ACTIVE - len(active))
