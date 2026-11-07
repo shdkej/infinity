@@ -107,46 +107,7 @@ lanes:
     retry_policy: autonomous
     notification_channel: telegram
     notification_target: telegram:433493318
-  active:
-  - id: infinity-notification-reliability-20261107
-    title: Infinity 알림 reconciler의 오류 로그와 실행 timeout을 보강한다
-    task_name: Infinity 알림 reconciler의 오류 로그와 실행 timeout을 보강한다
-    status: active
-    priority: high
-    task_type: maintenance
-    target_agent: genie
-    projects: [infinity]
-    follow_up_intent_id: infinity-dispatcher-notify
-    difference: 이전 notifier 구현 이후 확인된 10회 delivery_uncertain 종료와 180초 전체 timeout 문제를 대상으로, 전송 단계별 비밀 제거 로그·호출별 timeout·안전한 재시도/중복 방지 복구를 보완한다.
-    user_intent: 알림 reconciler의 반복 실패와 무응답 timeout을 고쳐 운영 알림이 안정적으로 처리되게 한다.
-    desired_outcome: 전송 실패 원인과 intent 식별자가 비밀 없이 로그에 남고, 각 외부 호출과 전체 실행이 제한 시간 안에 끝나며, 안전한 재시도와 중복 방지 동작이 검증된 상태.
-    out_of_scope: 실제 Telegram 알림 시험 발송, 불확실한 기존 전송의 강제 재발송, credential·권한·공개 범위 변경, 다른 자동화 설정 변경
-    success_evidence: timeout·비-0 exit·stderr가 intent 식별자와 함께 redacted structured log로 남는 회귀검증, exactly-once receipt 불변, 전체 실행 timeout 이하의 검증 실행, scoped commit/push 원격 SHA PASS
-    context_pack: intents/context/infinity-notification-reliability-20261107.json
-    context_documents_checked:
-    - /home/ubuntu/workspace/prompt-archive/LLM.md
-    - /home/ubuntu/workspace/knowledge-lab/README.md
-    - /home/ubuntu/workspace/knowledge-lab/schema/agent-rules.md
-    - /home/ubuntu/workspace/knowledge-lab/source/openclaw-system/docs/DOCUMENT_SEARCH_PIPELINE.md
-    - /home/ubuntu/workspace/knowledge-lab/source/openclaw-system/docs/USER_CONTEXT.md
-    - /home/ubuntu/workspace/knowledge-lab/source/openclaw-system/docs/SERVICE_REGISTRY.md
-    - /home/ubuntu/workspace/knowledge-lab/source/openclaw-system/docs/INFINITY_OPERATING_RULES.md
-    - ARTIFACT_RULES.md
-    - EXECUTION_LEARNING_CONTRACT.md
-    - INTENTS.yaml
-    - /home/ubuntu/workspace/knowledge-lab/agent-wiki/content/docs/index.mdx
-    context_searches:
-    - 'agent-wiki/content/docs/: dispatcher notification delivery failures logs timeouts exactly-once receipts retry — 직접 일치 없음; Context Pack 후보 확인'
-    - 'source/openclaw-system/docs/: notification|dispatcher|delivery_unknown|delivery_uncertain|cron timeout — INFINITY_OPERATING_RULES.md 등 운영 문서 확인'
-    - 'source/openclaw-system/data/daily-reviews/, daily-tracking/, photo-insights/: 동일 검색어 — 일치 없음'
-    - 'logs/agent-wiki-query.md: notification|dispatcher|timeout|delivery — 관련 과거 notifier 보고만 확인'
-    approval_boundary: 외부 알림 시험 전송은 별도 승인 없이 하지 않는다. 원격 커밋·코드 변경과 mock 기반 검증은 이번 요청 범위다.
-    artifact: artifacts/infinity-notification-reliability-20261107/final/implementation-summary.md; artifacts/infinity-notification-reliability-20261107/work/role-review.md; artifacts/infinity-notification-reliability-20261107/work/implementation-notes.md; artifacts/infinity-notification-reliability-20261107/work/red/final-review.md; reports/infinity-notification-reliability-20261107/20261107T1334Z-final.html
-    red_status: pass
-    red_report: artifacts/infinity-notification-reliability-20261107/work/red/final-review.md
-    next_action: Red PASS 및 mock 검증 완료. 최신 origin/main 기준으로 commit/push 후 remote SHA 검증과 archive closeout을 수행한다.
-    notification_channel: telegram
-    notification_target: telegram:433493318
+  active: []
   latest_cycle:
     cycle_id: backlog-triage-2026-10-29-role-watchers-r32
     source_revision: c25c14b01ee7af8d1f97021346279c8b77b684d3

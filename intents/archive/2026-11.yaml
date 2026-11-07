@@ -5,16 +5,21 @@ archive:
   title: 미국 IT 시장 카테고리로 창업 기회 탐색
   task_name: 미국 IT 시장 카테고리로 창업 기회 탐색
   status: archived
-  completed_at: 2026-11-07T03:03:00Z
-  archived_at: 2026-11-07T03:03:00Z
+  completed_at: 2026-11-07 03:03:00+00:00
+  archived_at: 2026-11-07 03:03:00+00:00
   research_mode: exploratory_research
   target_agent: genie
   execution_mode: multi_subagent_roles
   complexity_tier: lightweight
   permission_level: L0-research-and-draft-only
   task_type: research
-  projects: [research-bank, knowledge-lab]
-  topics: [ai-agents, security, product]
+  projects:
+  - research-bank
+  - knowledge-lab
+  topics:
+  - ai-agents
+  - security
+  - product
   context_pack: intents/context/research-us-it-opportunity-20261106.json
   trace: data/traces/research-us-it-opportunity-20261106.json
   detail: intents/archive/research-us-it-opportunity-20261106.md
@@ -30,7 +35,8 @@ archive:
   knowledge_status: used
   knowledge_decision: retain_in_infinity
   knowledge_targets: artifacts/research-us-it-opportunity-20261106/final/us-it-opportunity-exploration-report.md
-  knowledge_reflection: 카테고리 신호와 구매 증거의 경계를 보존하고 민간 WTP·TAM·ARR 또는 제품 성과를 공공 기록에서 추론하지 않는다.
+  knowledge_reflection: 카테고리 신호와 구매 증거의 경계를 보존하고 민간 WTP·TAM·ARR 또는 제품 성과를 공공 기록에서
+    추론하지 않는다.
   knowledge_commit: no-promotion-needed
   notification_channel: slack
   notification_target: channel:C0BR41W31MM
@@ -48,12 +54,16 @@ archive:
     operator:
       session_id: /root/operator_evidence_chain
       judgment: 기존 공개 경로·추적성 검토
-  role_review_limitation: 마지막 SSA/Army 추가분의 Operator 재검토 요청은 model ownership verification 403으로 실패했다. 재시도하지 않았으며 이번 추가분의 Operator 재검토 완료로 간주하지 않는다.
-  cross_review: 기존 네 역할 교차검토를 반영했다. 두 federal awards는 시장규모·vendor revenue·성과 증거가 아니며 GAO IoT/OT, Section 889, facility OT inventory는 범위가 다른 대안 신호다. SSA OIG cutoff와 award 간 인과는 미확인이다.
+  role_review_limitation: 마지막 SSA/Army 추가분의 Operator 재검토 요청은 model ownership verification
+    403으로 실패했다. 재시도하지 않았으며 이번 추가분의 Operator 재검토 완료로 간주하지 않는다.
+  cross_review: 기존 네 역할 교차검토를 반영했다. 두 federal awards는 시장규모·vendor revenue·성과 증거가 아니며
+    GAO IoT/OT, Section 889, facility OT inventory는 범위가 다른 대안 신호다. SSA OIG cutoff와
+    award 간 인과는 미확인이다.
   archive_project: 미국 IT 카테고리 창업 기회 탐색 지도
   archive_state: 탐색형 리서치 종료, 단일 기회 미선정
   result_criteria: 한국어 카테고리·인접 분야·대안·변화 신호 지도를 작성하고 근거 강도·시점·한계를 함께 보존
-  result_summary: 기존 공개자료와 시장지도를 비랭킹 탐색 브리프로 정리했다. 공공 조달은 제한된 사례 신호일 뿐 민간 수요, WTP, TAM, ARR, vendor 매출이나 제품 성과를 입증하지 않는다.
+  result_summary: 기존 공개자료와 시장지도를 비랭킹 탐색 브리프로 정리했다. 공공 조달은 제한된 사례 신호일 뿐 민간 수요, WTP,
+    TAM, ARR, vendor 매출이나 제품 성과를 입증하지 않는다.
   artifacts:
   - path: artifacts/research-us-it-opportunity-20261106/final/us-it-opportunity-exploration-report.md
     role: research
@@ -70,7 +80,8 @@ archive:
   commits:
   - repo: infinity
     sha: 91fd732c48bf8b8232ae5af2abc85920e5203b4c
-    note: Archive transition; archive remote verifier and live dashboard card check passed
+    note: Archive transition; archive remote verifier and live dashboard card check
+      passed
   remote_proof: artifacts/research-us-it-opportunity-20261106/work/remote-proof.txt
   urls: []
   next_action: No continuation
@@ -79,5 +90,71 @@ archive:
   limitations:
   - 구매자 빈도·손실·예산권자·민간 구매/유지/WTP는 검증되지 않았다.
   - SSA OIG status는 2026-01-29 및 2026-03-31 cutoff 스냅샷이며 award 인과·현재 상태는 미확인이다.
-  - USAspending keyword search는 hasNext=true로 비완전하며 contract line-item, SKU, quantity, unit price는 일부 미확인이다.
+  - USAspending keyword search는 hasNext=true로 비완전하며 contract line-item, SKU, quantity,
+    unit price는 일부 미확인이다.
   - Operator 추가 재검토는 403으로 차단됐으며 과거 Operator 검토만 보존했다.
+- id: infinity-notification-reliability-20261107
+  title: Infinity 알림 reconciler의 오류 로그와 실행 timeout을 보강한다
+  task_name: Infinity 알림 reconciler의 오류 로그와 실행 timeout을 보강한다
+  status: archived
+  completed_at: '2026-11-07T13:40:00Z'
+  archived_at: '2026-11-07T13:40:00Z'
+  target_agent: genie
+  execution_mode: multi_subagent_roles
+  complexity_tier: medium
+  task_type: maintenance
+  projects:
+  - infinity
+  topics:
+  - automation
+  - workflow
+  user_intent: 알림 reconciler의 반복 실패와 무응답 timeout을 고쳐 운영 알림이 안정적으로 처리되게 한다.
+  desired_outcome: 비밀 없는 구조화 오류 로그, bounded 외부 호출/전체 실행, 안전한 retry와 at-most-once receipt.
+  out_of_scope: 실제 Telegram 발송, credential·권한·cron 설정 변경, Gateway/runtime 재시작
+  success_evidence: 19 mock regression tests, Red PASS, implementation commit remote
+    main 확인, Archive remote verification PASS.
+  context_pack: intents/context/infinity-notification-reliability-20261107.json
+  trace: data/traces/infinity-notification-reliability-20261107.json
+  detail: intents/archive/infinity-notification-reliability-20261107.md
+  artifact: artifacts/infinity-notification-reliability-20261107/final/implementation-summary.md
+  supporting_work:
+  - artifacts/infinity-notification-reliability-20261107/work/role-review.md
+  - artifacts/infinity-notification-reliability-20261107/work/implementation-notes.md
+  - artifacts/infinity-notification-reliability-20261107/work/red/final-review.md
+  report: reports/infinity-notification-reliability-20261107/20261107T1334Z-final.html
+  red_status: pass
+  red_report: artifacts/infinity-notification-reliability-20261107/work/red/final-review.md
+  remote_verified: pass
+  remote_proof: artifacts/infinity-notification-reliability-20261107/work/remote-proof.md
+  notification_channel: telegram
+  notification_target: telegram:433493318
+  result_summary: Dispatcher failure handling is bounded and structured. Both notice
+    types preserve intake-captured destination/thread metadata; 19 mock-only regression
+    tests and Red independent review passed.
+  commits:
+  - repo: infinity
+    sha: 25a7add21035d2bf531f6980f9acee97cc9b47fc
+    note: Implementation and mock regression suite; remote main verified.
+  next_action: No continuation
+  next_actions:
+  - No continuation; requested runtime repair and bounded regression verification
+    are complete.
+  knowledge_status: raw
+  knowledge_decision: retain_in_infinity
+  knowledge_targets: artifacts/infinity-notification-reliability-20261107/final/implementation-summary.md
+  knowledge_reflection: A global destination is not a substitute for an intent's captured
+    origin; ambiguous acceptance must remain durably non-replayable.
+  knowledge_commit: no-promotion-needed
+  role_subagents:
+    planner:
+      session_id: agent:main:subagent:5c19535e-988d-4df1-9fd7-f69b91a5b7b9
+    developer:
+      session_id: agent:genie:main
+    marketer:
+      session_id: agent:marketing:subagent:cf3a2c77-0b1d-46a8-84d9-106c85176d1a
+    operator:
+      session_id: agent:main:subagent:726c55ee-2dbb-4148-a602-ffb0ed258beb
+  cross_review: 'Red review identified destination override failures in terminal and
+    state-change notices. Both were fixed: only intent-captured origin routes are
+    used. Timeout/lost/malformed/nonzero outcomes are non-replayable; only positive
+    pre-acceptance failures retry.'
