@@ -1,0 +1,51 @@
+{
+  "schema_version": 2,
+  "intent_id": "infinity-notification-reliability-20261107",
+  "status": "inbox",
+  "trace_completeness": "complete",
+  "request": {
+    "raw": {
+      "status": "recorded",
+      "value": "로그 남기게해주고 타임아웃 수정해주고 에러안나게해줘"
+    },
+    "normalized_query": {
+      "status": "recorded",
+      "value": "Infinity 알림 reconciler의 전송 오류를 안전하게 기록하고 CLI/전체 실행 시간 제한을 둬 반복 실패와 전체 timeout을 방지한다."
+    },
+    "user_intent": {
+      "status": "recorded",
+      "value": "알림 reconciler의 반복 실패와 무응답 timeout을 고쳐 운영 알림이 안정적으로 처리되게 한다."
+    },
+    "desired_outcome": {
+      "status": "recorded",
+      "value": "전송 실패 원인과 intent 식별자가 비밀 없이 로그에 남고, 각 외부 호출과 전체 실행이 제한 시간 안에 끝나며, 안전한 재시도와 중복 방지 동작이 검증된 상태."
+    },
+    "out_of_scope": {
+      "status": "recorded",
+      "value": "실제 Telegram 알림을 시험 발송하지 않는다. 불확실한 기존 전송을 강제 재발송하지 않는다. credential, 권한, 공개 범위, 다른 자동화 설정은 변경하지 않는다."
+    },
+    "success_evidence": {
+      "status": "recorded",
+      "value": "timeout/비-0 exit/stderr가 식별자와 함께 redacted structured log로 남는 회귀검증, exactly-once receipt 불변, 전체 실행 timeout 이하의 검증 실행, scoped commit/push 원격 SHA PASS."
+    }
+  },
+  "events": [
+    {
+      "type": "intake",
+      "at": "2026-11-07T12:46:48Z",
+      "context_pack": "intents/context/infinity-notification-reliability-20261107.json",
+      "evidence_paths": [
+        "scripts/run_notification_cron.sh",
+        "scripts/dispatch_terminal_notifications.py",
+        "scripts/test_dispatch_terminal_notifications.py",
+        "artifacts/infinity-dispatcher-notify/notification-contract.md"
+      ]
+    }
+  ],
+  "artifacts": [],
+  "verifications": [],
+  "next_decision": {
+    "status": "in_progress",
+    "value": "Genie가 네 역할 관점 검토 후 구조화 로그·bounded subprocess timeout을 구현하고 회귀 검증한다."
+  }
+}

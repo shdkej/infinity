@@ -1,0 +1,176 @@
+{
+  "context_pack_version": 3,
+  "status": "ready",
+  "route": "infinity",
+  "request": "dispatcher notification delivery failures logs timeouts exactly-once receipts retry",
+  "built_at": "2026-11-07T12:43:46.027731+00:00",
+  "required_documents": [
+    "/home/ubuntu/workspace/prompt-archive/LLM.md",
+    "README.md",
+    "schema/agent-rules.md",
+    "source/openclaw-system/docs/DOCUMENT_SEARCH_PIPELINE.md",
+    "source/openclaw-system/docs/USER_CONTEXT.md",
+    "source/openclaw-system/docs/SERVICE_REGISTRY.md",
+    "source/openclaw-system/docs/INFINITY_OPERATING_RULES.md",
+    "/home/ubuntu/workspace/infinity/ARTIFACT_RULES.md",
+    "/home/ubuntu/workspace/infinity/EXECUTION_LEARNING_CONTRACT.md",
+    "/home/ubuntu/workspace/infinity/INTENTS.yaml",
+    "agent-wiki/content/docs/index.mdx"
+  ],
+  "search_scopes": [
+    "agent-wiki/content/docs/",
+    "source/openclaw-system/docs/",
+    "source/openclaw-system/data/daily-reviews/",
+    "source/openclaw-system/data/daily-tracking/",
+    "source/openclaw-system/data/photo-insights/"
+  ],
+  "selected_context": [
+    {
+      "path": "agent-wiki/content/docs/outputs/Meta/Fail_experience.mdx",
+      "reason": "zg hybrid discovery; indexed section retained for targeted reading",
+      "verification": "indexed-section",
+      "locator": {
+        "start_line": 1,
+        "end_line": 9,
+        "heading": "",
+        "heading_level": "",
+        "scope": "",
+        "excerpt": "--- title: \"Fail_experience\" type: mapped-note tags: [mapped, meta, failure, review, operations] source_file: \"[[source/shdkej-content/Meta/Fail_experience.md]]\" source_name: Fail_experience created: 2026-04-14 updated: 2026-06-05 11:17 UTC status: stable-developing"
+      }
+    },
+    {
+      "path": "agent-wiki/content/docs/outputs/Integration/Marketing.mdx",
+      "reason": "zg hybrid discovery; indexed section retained for targeted reading",
+      "verification": "indexed-section",
+      "locator": {
+        "start_line": 285,
+        "end_line": 290,
+        "heading": "통합된 판단: 첫 세션 온보딩 게이트",
+        "heading_level": "2",
+        "scope": "마케팅",
+        "excerpt": "## 통합된 판단: 첫 세션 온보딩 게이트  - 출처: `source/external-links/marketing/2026-06-20-prelaunch-seeded-proof-onboarding.md`, `source/external-links/marketing/2026-06-21-ai-curiosity-entry-gap.md`, `source/external-links/marketing/2026-06-21-add-preinput-proof-bridge.md`, `source/external-links/marketing/2026-06-22-empty-state-triad-onboarding.md`, `source/external-links/marketing/2026-06-23-week-one-activation-observation.md`, `source/external-links/marketing/2026-06-23-first-week-feedback-consistency.md`, `source/external-links/marketing/2026-06-24-secondary-onboarding-return-path.md`, `source/external-links/marketing/2026-06-25-time-to-next-value-bridge.md`, `source/external-links/marketing/2026-06-2"
+      }
+    },
+    {
+      "path": "agent-wiki/content/docs/outputs/Idea/Travel.mdx",
+      "reason": "zg hybrid discovery; indexed section retained for targeted reading",
+      "verification": "indexed-section",
+      "locator": {
+        "start_line": 329,
+        "end_line": 335,
+        "heading": "관련 source",
+        "heading_level": "2",
+        "scope": "Travel",
+        "excerpt": "## 관련 source  - `source/openclaw-system/docs/LOCAL_REVIEW_AUTOMATION.md` - `source/openclaw-system/data/travel-content-feedback/2026-08-23-locationless-context.json` - `source/openclaw-system/data/travel-content-feedback/2026-08-23-send-log.json` - `source/openclaw-system/data/daily-reviews/2026-08-23-review.md`"
+      }
+    },
+    {
+      "path": "agent-wiki/content/docs/outputs/Human/Principle.mdx",
+      "reason": "zg hybrid discovery; indexed section retained for targeted reading",
+      "verification": "indexed-section",
+      "locator": {
+        "start_line": 138,
+        "end_line": 141,
+        "heading": "1. 충분한 첫 뼈대가 전체를 살린다",
+        "heading_level": "3",
+        "scope": "원칙::반복 패턴",
+        "excerpt": "## 반복 패턴  ### 1. 충분한 첫 뼈대가 전체를 살린다"
+      }
+    },
+    {
+      "path": "agent-wiki/content/docs/outputs/deep-knowledge/container.mdx",
+      "reason": "zg hybrid discovery; indexed section retained for targeted reading",
+      "verification": "indexed-section",
+      "locator": {
+        "start_line": 301,
+        "end_line": 306,
+        "heading": "후속 정리 기준",
+        "heading_level": "2",
+        "scope": "Container",
+        "excerpt": "## 후속 정리 기준 - Docker / OCI 런타임 / Podman 계열의 새 메모는 실행 고정 축을 더 정확히 만들 때만 흡수한다. - Helm, ArgoCD, Spinnaker, EKS 메모는 도구 이름을 늘리기보다 로컬 실험에서 관리형 운영으로 책임이 이동하는 지점을 바꿀 때만 반영한다. - service mesh와 ingress/gateway 메모는 트래픽 제어 위치나 롤백 경로를 더 분명히 할 때만 남긴다. - 작업 이력은 본문에 누적하지 않고 Knowledge Lab `logs/agent-wiki-query.md`로 보낸다."
+      }
+    }
+  ],
+  "selected_operational_logs": [
+    {
+      "path": "logs/agent-wiki-query.md",
+      "reason": "bounded operational-log preflight; not part of the Agent Wiki index",
+      "verification": "matched",
+      "matches": [
+        "155:- 결과: 변경 감지 대상에 운영 교훈 원장을 추가했다. 실행은 기존 Infinity dispatcher와 권한 게이트만 담당하며, 반복 교훈은 근거·효과·검증 기준이 갖춰진 경우에만 승인 대기 개선 intent가 된다.",
+        "430:- 질문: Dispatcher 전용 대시보드를 제거하고 Overview에서 각 레이어 상세 화면으로 이동할 수 있게 한다.",
+        "435:- 결과: Grafana Stat의 값 링크만으로는 값이 없는 `N/A` 패널에서 이동할 수 없음을 실제 UI에서 확인했다. 그래서 네 상세 대시보드를 상단에 개별 링크로 노출하고, 값이 있는 카드에도 대응 링크를 두어 지표 상태와 무관하게 진입할 수 있도록 했다. Dispatcher 대시보드 JSON과 ConfigMap generator만 제거하고 exporter/수집은 유지했다. source commit `5196cb72c5db4db3c627f1dd643d8eb04ee6b0a8`, Argo CD `Synced / Healthy`, Grafana sidecar reload 200, Dispatcher UID `infinity-dispatcher-status`의 live URL `Dashboard not found`를 확인했다. SAM이 Overview에서 네 링크를 각각 눌러 `layer-business`, `layer-customer`, `layer-product`, `layer-system`으로 이동하는 것을 확인했다."
+      ]
+    }
+  ],
+  "preflight": {
+    "tool": "zg",
+    "query": "dispatcher notification delivery failures logs timeouts exactly-once receipts retry",
+    "discovery": "hybrid+fts RRF",
+    "verification": "indexed section locator",
+    "result_count": 5
+  },
+  "selected_context_required": true,
+  "rules": [
+    "Read every required document before creating or executing an intent.",
+    "Read every selected_context locator section first (including its heading and line window); expand to adjacent sections only when needed, and record the exact paths in the execution trace.",
+    "Read only the matched sections of selected_operational_logs; they are operational evidence, not compiled knowledge.",
+    "Search the declared scopes for task-specific evidence; do not treat a search hit as a confirmed fact without its source.",
+    "Record the resulting context pack path in the intent and re-check it before handoff."
+  ],
+  "context_documents_checked": [
+    "/home/ubuntu/workspace/prompt-archive/LLM.md",
+    "/home/ubuntu/workspace/knowledge-lab/README.md",
+    "/home/ubuntu/workspace/knowledge-lab/schema/agent-rules.md",
+    "/home/ubuntu/workspace/knowledge-lab/source/openclaw-system/docs/DOCUMENT_SEARCH_PIPELINE.md",
+    "/home/ubuntu/workspace/knowledge-lab/source/openclaw-system/docs/USER_CONTEXT.md",
+    "/home/ubuntu/workspace/knowledge-lab/source/openclaw-system/docs/SERVICE_REGISTRY.md",
+    "/home/ubuntu/workspace/knowledge-lab/source/openclaw-system/docs/INFINITY_OPERATING_RULES.md",
+    "ARTIFACT_RULES.md",
+    "EXECUTION_LEARNING_CONTRACT.md",
+    "INTENTS.yaml",
+    "/home/ubuntu/workspace/knowledge-lab/agent-wiki/content/docs/index.mdx",
+    "artifacts/infinity-dispatcher-notify/notification-contract.md",
+    "scripts/run_notification_cron.sh",
+    "scripts/dispatch_terminal_notifications.py"
+  ],
+  "context_searches": [
+    {
+      "scope": "agent-wiki/content/docs/",
+      "query": "dispatcher notification delivery failures logs timeouts exactly-once receipts retry",
+      "result": "no direct Infinity notification match; five indexed candidates inspected"
+    },
+    {
+      "scope": "source/openclaw-system/docs/",
+      "query": "notification|dispatcher|delivery_unknown|delivery_uncertain|cron timeout",
+      "result": "matched INFINITY_OPERATING_RULES.md and related automation docs; domain rules read"
+    },
+    {
+      "scope": "source/openclaw-system/data/daily-reviews/",
+      "query": "notification|dispatcher|delivery_unknown|delivery_uncertain|cron timeout",
+      "result": "no matches"
+    },
+    {
+      "scope": "source/openclaw-system/data/daily-tracking/",
+      "query": "notification|dispatcher|delivery_unknown|delivery_uncertain|cron timeout",
+      "result": "no matches"
+    },
+    {
+      "scope": "source/openclaw-system/data/photo-insights/",
+      "query": "notification|dispatcher|delivery_unknown|delivery_uncertain|cron timeout",
+      "result": "no matches"
+    },
+    {
+      "scope": "logs/agent-wiki-query.md",
+      "query": "notification|dispatcher|timeout|delivery",
+      "result": "searched matching sections; no task-specific implementation evidence"
+    }
+  ],
+  "task_evidence_summary": {
+    "automation": "Infinity notification reconciler",
+    "job_id": "bc3e54e3-70f3-43f3-9909-c451b57ec531",
+    "observed_failures": "10 runs exited 2 with delivery_uncertain=1; one run timed out at 180.8s",
+    "recovery": "runs resumed successfully at 2026-11-07T09:12:12Z and later; current consecutiveErrors=0",
+    "source": "OpenClaw cron run history inspected during intake; no outbound test message sent"
+  }
+}
