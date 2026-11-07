@@ -35,6 +35,9 @@
   - repo: infinity
     sha: d1ecac204606a7c9c83f57d5faeaf3af9fb2291c
     note: Archive transition; remote verifier passed
+  - repo: infinity
+    sha: 8c3283f567113cc22a3cec31d540395e5d7bac16
+    note: Remote proof record; verifier rerun passed
 - red_status: pass
 - red_report: artifacts/infinity-notification-reliability-20261107/work/red/final-review.md
 - remote_verified: pass

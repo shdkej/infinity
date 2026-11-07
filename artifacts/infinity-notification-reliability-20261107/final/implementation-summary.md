@@ -11,7 +11,7 @@ Both state-change and terminal notices use the intent's intake-captured destinat
 - 19 mock-only regression tests passed, including timeout/ambiguous no-replay cases, setup failure, concurrency, and origin address/thread preservation for state-change and terminal notices despite legacy override arguments.
 - Python compilation, cron shell syntax, INTENTS consistency, trace validation, and `git diff --check` passed.
 - Independent Red re-review passed with no remaining scoped P1/P2 findings: [review](../work/red/final-review.md).
-- Implementation commit `25a7add21035d2bf531f6980f9acee97cc9b47fc` is present on remote `main`; the final Archive transition is being verified separately.
+- Implementation commit `25a7add21035d2bf531f6980f9acee97cc9b47fc`, Archive transition commit `d1ecac204606a7c9c83f57d5faeaf3af9fb2291c`, and closeout proof commit `8c3283f567113cc22a3cec31d540395e5d7bac16` are present on remote `main`; `verify_archive_remote.py` passed after the Archive and closeout pushes.
 
 No live Telegram notification was sent. No cron settings, credentials, runtime configuration, or Gateway process were changed.
 
