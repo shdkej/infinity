@@ -1,30 +1,72 @@
 {
-  "generated_at": "2026-11-08T03:33:16.382Z",
+  "generated_at": "2026-11-09T03:00:08.760Z",
   "summary": {
-    "total": 1475,
+    "total": 1476,
     "wiki_reflected": 198,
-    "not_reflected": 1277,
+    "not_reflected": 1278,
     "by_status": {
+      "queued": 1292,
       "reviewed": 104,
-      "queued": 1291,
       "integrated": 10,
       "selected": 4,
       "rejected": 66
     },
     "by_layer": {
+      "openclaw-system": 1138,
       "infinity": 82,
-      "openclaw-system": 1137,
       "external-links": 181,
       "shdkej-content": 74,
       "root": 1
     },
     "by_promotion_state": {
-      "not_applicable": 1275,
+      "not_applicable": 1276,
       "reflected": 198,
       "pending_promotion": 2
     }
   },
   "entries": [
+    {
+      "source": "source/openclaw-system/data/daily-review-drafts/2026-11-08-review.md",
+      "status": "queued",
+      "source_layer": "openclaw-system",
+      "reason": "자동 수집됨; 내용 판정 대기",
+      "reviewed_at": "",
+      "modified_at": "2026-11-08T21:01:29Z",
+      "promotion_targets": [],
+      "reflection_basis": [],
+      "promotion_state": "not_applicable",
+      "promotion_reason": "자동 수집됨; 내용 판정 대기",
+      "promotion_target_note": "",
+      "wiki_reflected": false
+    },
+    {
+      "source": "source/openclaw-system/data/promotion-feedback.jsonl",
+      "status": "queued",
+      "source_layer": "openclaw-system",
+      "reason": "자동 수집됨; 내용 판정 대기",
+      "reviewed_at": "",
+      "modified_at": "2026-11-08T19:31:12Z",
+      "promotion_targets": [],
+      "reflection_basis": [],
+      "promotion_state": "not_applicable",
+      "promotion_reason": "자동 수집됨; 내용 판정 대기",
+      "promotion_target_note": "",
+      "wiki_reflected": false
+    },
+    {
+      "source": "source/openclaw-system/data/red-reviews/2026-11.md",
+      "status": "queued",
+      "source_layer": "openclaw-system",
+      "reason": "자동 수집됨; 내용 판정 대기",
+      "reviewed_at": "",
+      "modified_at": "2026-11-08T12:35:14Z",
+      "promotion_targets": [],
+      "reflection_basis": [],
+      "promotion_state": "not_applicable",
+      "promotion_reason": "자동 수집됨; 내용 판정 대기",
+      "promotion_target_note": "",
+      "wiki_reflected": false
+    },
     {
       "source": "source/infinity/archive/upstream/infinity-notification-reliability-20261107.md",
       "status": "reviewed",
@@ -50,20 +92,6 @@
       "reflection_basis": [],
       "promotion_state": "not_applicable",
       "promotion_reason": "Archive 완료·검증은 확인됨; 재사용 소비자 경로는 별도 결정 필요",
-      "promotion_target_note": "",
-      "wiki_reflected": false
-    },
-    {
-      "source": "source/openclaw-system/data/red-reviews/2026-11.md",
-      "status": "queued",
-      "source_layer": "openclaw-system",
-      "reason": "자동 수집됨; 내용 판정 대기",
-      "reviewed_at": "",
-      "modified_at": "2026-11-08T03:32:57Z",
-      "promotion_targets": [],
-      "reflection_basis": [],
-      "promotion_state": "not_applicable",
-      "promotion_reason": "자동 수집됨; 내용 판정 대기",
       "promotion_target_note": "",
       "wiki_reflected": false
     },
@@ -7356,20 +7384,6 @@
       "wiki_reflected": false
     },
     {
-      "source": "source/openclaw-system/data/promotion-feedback.jsonl",
-      "status": "queued",
-      "source_layer": "openclaw-system",
-      "reason": "자동 수집됨; 내용 판정 대기",
-      "reviewed_at": "",
-      "modified_at": "2026-10-04T19:30:10Z",
-      "promotion_targets": [],
-      "reflection_basis": [],
-      "promotion_state": "not_applicable",
-      "promotion_reason": "자동 수집됨; 내용 판정 대기",
-      "promotion_target_note": "",
-      "wiki_reflected": false
-    },
-    {
       "source": "source/openclaw-system/data/daily-reviews/2026-10-02-review.md",
       "status": "selected",
       "source_layer": "openclaw-system",
@@ -12405,7 +12419,7 @@
       "source_layer": "openclaw-system",
       "reason": "최근 활성 정본 또는 재사용 가능한 원자료; raw 검색 허용",
       "reviewed_at": "2026-09-01T09:58:12Z",
-      "modified_at": "2026-11-01T12:35:41Z",
+      "modified_at": "2026-11-08T12:34:09Z",
       "promotion_targets": [],
       "reflection_basis": [],
       "promotion_state": "not_applicable",
