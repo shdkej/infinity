@@ -87,6 +87,7 @@ Infinity는 자연어를 곧바로 파일·셸 작업으로 실행하지 않는�
 
 ### 접수·상태 전이의 최소 불변식
 
+- **접수 전 사용자 의도 구체화:** Infinity에 태스크를 등록하기 전, 요청을 받은 오케스트레이터(SAM)는 `grill-me` 방식으로 한 번에 가장 중요한 질문 하나씩 사용자에게 묻는다. 목표·대상·범위와 제외 사항·원하는 결과·성공 기준·제약·승인 경계를 가능한 한 명확히 하며, 이미 제공된 맥락은 되묻지 않는다. 접수 내용이나 실행 결과를 바꿀 수 있는 불확실성이 남아 있으면 접수하지 않고 필요한 질문을 이어간다. 충분히 구체화되면 Context Pack을 만들고 아래 intake 절차를 진행한다. 단순하고 명확해 직접 처리하는 요청은 이 Infinity 접수 절차의 대상이 아니다.
 - 접수 작업을 시작하기 전에 `git fetch origin main`과 `git pull --ff-only origin main`을 실행하고 `HEAD == origin/main`을 확인한다. checkout이 dirty이거나 fast-forward할 수 없으면 관련 없는 변경을 stash·폐기·rebase하지 않고, 최신 `origin/main`에서 clean temporary worktree를 만들거나 정확한 차단 사유를 보고한다. stale/diverged checkout에서 등록하지 않는다.
 - 접수 전 `origin/main:INTENTS.yaml`의 세 열린 lane과 월별 Archive에서 같은 목적의 Intent를 검색한다. 기존 열린 Intent는 재사용하고, Archive에 있으면 결과를 안내한다.
 - 비단순 Intent는 Context Pack을 먼저 읽고, 실제로 확인한 문서 목록(`context_documents_checked`)과 검색 범위·검색어(`context_searches`)를 남긴다. 원문 요청·정규화 쿼리·Context Pack 경로·`INTENTS.yaml` 근거·다음 결정을 포함한 Context Map trace를 `scripts/record_intent_trace.py intake`로 생성한 뒤 `scripts/validate_intent_trace.py`로 검증한다. 필수 필드가 누락되거나 trace가 invalid이면 등록을 차단한다.
