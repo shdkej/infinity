@@ -1,25 +1,25 @@
 {
-  "generated_at": "2026-11-10T03:00:09.342Z",
+  "generated_at": "2026-11-11T03:00:09.030Z",
   "summary": {
-    "total": 1477,
+    "total": 1479,
     "wiki_reflected": 198,
-    "not_reflected": 1279,
+    "not_reflected": 1281,
     "by_status": {
-      "queued": 1293,
+      "queued": 1295,
       "reviewed": 104,
       "integrated": 10,
       "selected": 4,
       "rejected": 66
     },
     "by_layer": {
-      "openclaw-system": 1139,
+      "openclaw-system": 1141,
       "infinity": 82,
       "external-links": 181,
       "shdkej-content": 74,
       "root": 1
     },
     "by_promotion_state": {
-      "not_applicable": 1277,
+      "not_applicable": 1279,
       "reflected": 198,
       "pending_promotion": 2
     }
@@ -31,7 +31,49 @@
       "source_layer": "openclaw-system",
       "reason": "자동 수집됨; 내용 판정 대기",
       "reviewed_at": "",
-      "modified_at": "2026-11-10T02:03:33Z",
+      "modified_at": "2026-11-10T22:43:51Z",
+      "promotion_targets": [],
+      "reflection_basis": [],
+      "promotion_state": "not_applicable",
+      "promotion_reason": "자동 수집됨; 내용 판정 대기",
+      "promotion_target_note": "",
+      "wiki_reflected": false
+    },
+    {
+      "source": "source/openclaw-system/docs/CRON_AUDIT_AUTOMATION.md",
+      "status": "queued",
+      "source_layer": "openclaw-system",
+      "reason": "자동 수집됨; 내용 판정 대기",
+      "reviewed_at": "",
+      "modified_at": "2026-11-10T22:27:47Z",
+      "promotion_targets": [],
+      "reflection_basis": [],
+      "promotion_state": "not_applicable",
+      "promotion_reason": "자동 수집됨; 내용 판정 대기",
+      "promotion_target_note": "",
+      "wiki_reflected": false
+    },
+    {
+      "source": "source/openclaw-system/docs/CRON_OBSERVABILITY.md",
+      "status": "queued",
+      "source_layer": "openclaw-system",
+      "reason": "자동 수집됨; 내용 판정 대기",
+      "reviewed_at": "",
+      "modified_at": "2026-11-10T22:27:47Z",
+      "promotion_targets": [],
+      "reflection_basis": [],
+      "promotion_state": "not_applicable",
+      "promotion_reason": "자동 수집됨; 내용 판정 대기",
+      "promotion_target_note": "",
+      "wiki_reflected": false
+    },
+    {
+      "source": "source/openclaw-system/data/promotion-feedback.jsonl",
+      "status": "queued",
+      "source_layer": "openclaw-system",
+      "reason": "자동 수집됨; 내용 판정 대기",
+      "reviewed_at": "",
+      "modified_at": "2026-11-10T19:30:17Z",
       "promotion_targets": [],
       "reflection_basis": [],
       "promotion_state": "not_applicable",
@@ -74,20 +116,6 @@
       "reason": "자동 수집됨; 내용 판정 대기",
       "reviewed_at": "",
       "modified_at": "2026-11-09T21:02:55Z",
-      "promotion_targets": [],
-      "reflection_basis": [],
-      "promotion_state": "not_applicable",
-      "promotion_reason": "자동 수집됨; 내용 판정 대기",
-      "promotion_target_note": "",
-      "wiki_reflected": false
-    },
-    {
-      "source": "source/openclaw-system/data/promotion-feedback.jsonl",
-      "status": "queued",
-      "source_layer": "openclaw-system",
-      "reason": "자동 수집됨; 내용 판정 대기",
-      "reviewed_at": "",
-      "modified_at": "2026-11-09T19:30:15Z",
       "promotion_targets": [],
       "reflection_basis": [],
       "promotion_state": "not_applicable",
@@ -12495,7 +12523,7 @@
       "source_layer": "openclaw-system",
       "reason": "최근 활성 정본 또는 재사용 가능한 원자료; raw 검색 허용",
       "reviewed_at": "2026-09-01T09:58:12Z",
-      "modified_at": "2026-11-07T03:28:41Z",
+      "modified_at": "2026-11-10T21:35:50Z",
       "promotion_targets": [
         "/docs/outputs/Meta/AGENTS",
         "/docs/outputs/deep-knowledge/monitoring"
