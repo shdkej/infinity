@@ -80,10 +80,39 @@ lanes:
     notification_target: telegram:433493318
   inbox: []
   waiting:
+
+  - id: watch-planner-5f612447d241eca5
+    title: 두 프로젝트의 고객 문의 채널과 전용 마케팅 지표 원천을 확정·연결한다
+    task_name: 두 프로젝트의 고객 문의 채널과 전용 마케팅 지표 원천을 확정·연결한다
+    status: waiting
+    priority: normal
+    task_type: planning_verification
+    target_agent: genie
+    watcher_role: planner
+    source: role-watcher:planner
+    signal: 5f612447d241eca5
+    evidence_paths:
+    - /home/ubuntu/workspace/projects/minimalmoeum/TASKS.md
+    - /home/ubuntu/workspace/projects/policycock/TASKS.md
+    created_at: '2026-10-25T23:27:28Z'
+    user_intent: 두 프로젝트에서 blocked 상태인 고객 문의 채널과 전용 마케팅 지표 원천을 확인한다.
+    desired_outcome: MM-001·PC-001의 정확한 채널·대시보드 경로·담당·검증 방법을 문서화해 blocked 상태를 해소한다.
+    out_of_scope: 계정 연결, 권한 부여, 시크릿 등록, 유료 집행, 외부 공개·발송
+    success_evidence: 두 프로젝트의 CHANNELS.md에 정확한 채널과 대시보드 경로가 기록되고 실제 접근 가능 여부가 확인된다.
+    representative_metric: 채널·대시보드 경로가 확인·문서화된 프로젝트 비율, 목표 100%
+    approval_boundary: 계정 연결·권한·시크릿·유료 집행·외부 발송은 사전 승인 후 진행
+    next_action: Planner가 두 프로젝트의 채널·지표 원천을 조사하고 승인 필요 항목을 분리한다.
+    waiting_on: external
+    blocker: 두 프로젝트의 고객 문의 관리 채널과 전용 마케팅 analytics 원천·대시보드가 로컬 문서와 공통 inbox에 없어 정확한
+      경로·접근 검증을 완료할 수 없음
+    retry_policy: autonomous
+    notification_channel: telegram
+    notification_target: telegram:433493318
+  active:
   - id: reel-room-studio-20261113
     title: Reel Room·Instagram Maker 통합 릴스 스튜디오 구현
     task_name: Reel Room·Instagram Maker 통합 릴스 스튜디오 구현
-    status: waiting
+    status: active
     priority: normal
     task_type: implementation
     target_agent: genie
@@ -100,14 +129,10 @@ lanes:
       구현 실행
     success_evidence: 원문 보존·미디어 검증·오류 경계 테스트, 프런트 빌드, 모바일·데스크톱 실제 렌더, 업로드→선택→조합→MP4/커버/SRT/프로젝트 JSON→재열기 검증, 의도 파일의
       master push·원격 SHA 일치
-    approval_boundary: 소스 구현·검증·기본 브랜치 push는 승인 범위. 운영 배포·외부 발송·유료 실호출·권한 변경은 별도 명시 승인 필요.
-    waiting_on: user
-    waiting_reason: production_deployment_approval_required
-    blocker: 로컬 구현·검증 및 소스 master 반영 완료. 운영 배포·유료 실제 생성 검증의 승인 대기.
-    next_action: 운영 서비스 배포·Instagram Maker 두 진입 주소 전환 및 유료 AI 검증 1회(이미지 2장·음성 1개·추천 1회)의 승인 여부를 사용자에게 확인한다.
-    pending_decision: 검증·원격 반영된 통합 스튜디오를 운영 환경에 배포할지 결정
+    approval_boundary: 2026-11-13 사용자 “ㅇㅇ ㄱㄱ”로 운영 배포·Instagram Maker 주소 전환·이미지 2장·음성 1개·추천 1회 검증 승인. 외부 발송·추가 비용·권한 변경은 제외.
+    next_action: 승인된 운영 배포·기존 주소 전환과 유료 AI 검증을 실행하고 라이브·영구 저장을 확인한다.
     implementation_status: verified_and_published
-    deployment_status: not_approved
+    deployment_status: approved_in_progress
     source_repository: /home/ubuntu/workspace/video-automation
     source_branch: master
     source_commit: a6c01640e17c766287a81ef888e9f58394c7c9c2
@@ -161,34 +186,6 @@ lanes:
       paid_generation: not_run
       source_publish: PASS; local HEAD equals origin/master
     dedupe_key: video-automation:human-script-integrated-reels-studio:20261113
-  - id: watch-planner-5f612447d241eca5
-    title: 두 프로젝트의 고객 문의 채널과 전용 마케팅 지표 원천을 확정·연결한다
-    task_name: 두 프로젝트의 고객 문의 채널과 전용 마케팅 지표 원천을 확정·연결한다
-    status: waiting
-    priority: normal
-    task_type: planning_verification
-    target_agent: genie
-    watcher_role: planner
-    source: role-watcher:planner
-    signal: 5f612447d241eca5
-    evidence_paths:
-    - /home/ubuntu/workspace/projects/minimalmoeum/TASKS.md
-    - /home/ubuntu/workspace/projects/policycock/TASKS.md
-    created_at: '2026-10-25T23:27:28Z'
-    user_intent: 두 프로젝트에서 blocked 상태인 고객 문의 채널과 전용 마케팅 지표 원천을 확인한다.
-    desired_outcome: MM-001·PC-001의 정확한 채널·대시보드 경로·담당·검증 방법을 문서화해 blocked 상태를 해소한다.
-    out_of_scope: 계정 연결, 권한 부여, 시크릿 등록, 유료 집행, 외부 공개·발송
-    success_evidence: 두 프로젝트의 CHANNELS.md에 정확한 채널과 대시보드 경로가 기록되고 실제 접근 가능 여부가 확인된다.
-    representative_metric: 채널·대시보드 경로가 확인·문서화된 프로젝트 비율, 목표 100%
-    approval_boundary: 계정 연결·권한·시크릿·유료 집행·외부 발송은 사전 승인 후 진행
-    next_action: Planner가 두 프로젝트의 채널·지표 원천을 조사하고 승인 필요 항목을 분리한다.
-    waiting_on: external
-    blocker: 두 프로젝트의 고객 문의 관리 채널과 전용 마케팅 analytics 원천·대시보드가 로컬 문서와 공통 inbox에 없어 정확한
-      경로·접근 검증을 완료할 수 없음
-    retry_policy: autonomous
-    notification_channel: telegram
-    notification_target: telegram:433493318
-  active: []
   latest_cycle:
     cycle_id: backlog-triage-2026-10-29-role-watchers-r32
     source_revision: c25c14b01ee7af8d1f97021346279c8b77b684d3
