@@ -80,6 +80,86 @@ lanes:
     notification_target: telegram:433493318
   inbox: []
   waiting:
+  - id: reel-room-studio-20261113
+    title: Reel Room·Instagram Maker 통합 릴스 스튜디오 구현
+    task_name: Reel Room·Instagram Maker 통합 릴스 스튜디오 구현
+    status: waiting
+    priority: normal
+    task_type: implementation
+    target_agent: genie
+    execution_owner: codex
+    execution_mode: codex_cli_collaboration
+    complexity_tier: complex
+    source: codex_cli
+    created_at: '2026-11-13T11:16:20Z'
+    updated_at: '2026-11-13T11:16:20Z'
+    user_intent: Reel Room과 Instagram Maker를 통합해 사람이 쓴 대본을 중심으로 키워드·후킹·이미지·참고 자료를 선택하고 조합하는 릴스 제작 프로그램을 사용한다.
+    desired_outcome: 원문 보존, 다양한 AI 키워드·후킹, 복수 이미지 후보 선택, 참고 이미지·영상 첨부/추천, 직접 녹음과 AI 내레이션, 대본 자막, 저장·재열기와 세로 릴스 결과
+      확인을 하나의 프로젝트에서 연결한다.
+    out_of_scope: 첨부 사진 UI 모방, 원문 대본 임의 재작성, 공개 게시·외부 메시지, 사용자 미승인 운영 배포·유료 검증 호출·계정/권한 변경, 기존 무관한 변경 포함, 중복 Genie
+      구현 실행
+    success_evidence: 원문 보존·미디어 검증·오류 경계 테스트, 프런트 빌드, 모바일·데스크톱 실제 렌더, 업로드→선택→조합→MP4/커버/SRT/프로젝트 JSON→재열기 검증, 의도 파일의
+      master push·원격 SHA 일치
+    approval_boundary: 소스 구현·검증·기본 브랜치 push는 승인 범위. 운영 배포·외부 발송·유료 실호출·권한 변경은 별도 명시 승인 필요.
+    waiting_on: user
+    waiting_reason: production_deployment_approval_required
+    blocker: 운영 배포는 승인되지 않았다. 로컬 브라우저 통합 검증과 소스 원격 반영은 Codex가 계속 진행 중이다.
+    next_action: Codex가 브라우저 통합 검증과 master 원격 반영을 마친 뒤 해당 증거를 갱신한다. 운영 배포는 준비된 변경·복구 방법을 제시하고 별도 명시 승인 후에만 재개한다.
+    pending_decision: 검증·원격 반영된 통합 스튜디오를 운영 환경에 배포할지 결정
+    implementation_status: local_integration_verification_in_progress
+    deployment_status: not_approved
+    source_repository: /home/ubuntu/workspace/video-automation
+    source_branch: master
+    source_commit: null
+    source_remote_verified: pending
+    context_pack: intents/context/reel-room-studio-20261113.json
+    initial_product_context_pack: intents/context/reel-room-studio-20261113-product.json
+    context_documents_checked:
+    - /home/ubuntu/workspace/prompt-archive/LLM.md
+    - /home/ubuntu/workspace/knowledge-lab/README.md
+    - /home/ubuntu/workspace/knowledge-lab/schema/agent-rules.md
+    - /home/ubuntu/workspace/knowledge-lab/source/openclaw-system/docs/DOCUMENT_SEARCH_PIPELINE.md
+    - /home/ubuntu/workspace/knowledge-lab/source/openclaw-system/docs/USER_CONTEXT.md
+    - /home/ubuntu/workspace/knowledge-lab/source/openclaw-system/docs/SERVICE_REGISTRY.md
+    - /home/ubuntu/workspace/knowledge-lab/source/openclaw-system/docs/OPENCLAW_COMMON.md
+    - /home/ubuntu/workspace/knowledge-lab/source/openclaw-system/docs/INFINITY_OPERATING_RULES.md
+    - /home/ubuntu/workspace/infinity/ARTIFACT_RULES.md
+    - /home/ubuntu/workspace/infinity/EXECUTION_LEARNING_CONTRACT.md
+    - /home/ubuntu/workspace/infinity/INTENTS.yaml
+    - /home/ubuntu/workspace/knowledge-lab/agent-wiki/content/docs/index.mdx
+    - /home/ubuntu/workspace/infinity/README.md
+    - /home/ubuntu/workspace/infinity/heartbeat.md
+    - /home/ubuntu/workspace/infinity/docs/command-execution.md
+    - /home/ubuntu/workspace/infinity/docs/intent-trace-contract.md
+    - /home/ubuntu/workspace/projects/PROJECTS.md
+    - /home/ubuntu/workspace/video-automation/README.md
+    - /home/ubuntu/workspace/video-automation/docs/STUDIO.md
+    context_searches:
+    - Reel Room Instagram Maker 대본 키워드 후킹 릴스 제작 통합, 직접 녹음과 AI 내레이션, Codex 구현 기록과 미승인 운영 배포 경계
+    - 'origin/main Inbox Active Waiting Archive: reel room | instagram maker | 릴스 | video-automation'
+    detail: intents/active/reel-room-studio-20261113.md
+    artifact: artifacts/reel-room-studio-20261113/work/implementation-status.md
+    trace: data/traces/reel-room-studio-20261113.json
+    metric_question: 사용자가 쓴 대본을 보존한 채 선택한 후킹·소재·음성으로 릴스 결과를 만들고 다시 열 수 있는가?
+    metric_signal: 저장→추천/업로드→선택→조합→MP4/SRT/커버→재열기 통합 검증 결과
+    metric_decision_rule: 핵심 흐름과 원문 보존 검증이 통과하고 소스 원격 SHA가 일치하면 로컬 구현을 완료로 기록한다. 배포 완료는 별도 승인 후 라이브 검증으로 판단한다.
+    notification_channel: delivery_unknown
+    notification_target: missing-at-intake
+    notification_reason: Codex 직접 대화에는 OpenClaw 발송 가능한 Slack/Telegram 원점이 없으며 외부 메시지 요청도 없다. 기존 notifier 예약값으로 발송하지
+      않는다.
+    origin:
+      provider: codex_cli
+      session_id: 01a1d48d-86d8-70d0-94e3-a36084a5dde5
+      workspace_id: ws-E3W-XA
+      tab_id: tab-hMqhUf
+    verification:
+      provider_tests: 47 passed; mocked paid APIs
+      integration_tests: 180 passed, 49 warnings; reported by parent Codex
+      browser: pending
+      commons_search: live free search returned 10 image/video items
+      paid_generation: not_run
+      source_publish: pending
+    dedupe_key: video-automation:human-script-integrated-reels-studio:20261113
   - id: watch-planner-5f612447d241eca5
     title: 두 프로젝트의 고객 문의 채널과 전용 마케팅 지표 원천을 확정·연결한다
     task_name: 두 프로젝트의 고객 문의 채널과 전용 마케팅 지표 원천을 확정·연결한다
