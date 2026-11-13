@@ -47,4 +47,13 @@ Naver SearchAd 직접 조회·선택/저장, 기존 스킬 YouTube API 연결, �
 
 source f8d5edef7c2d1563c6edbc65ad24adbf5af04a18 push 완료. 전체 212개 테스트와 UI 빌드, 실제 Naver/YouTube/Commons 검색과 3개 화면폭의 브라우저 흐름 통과. GitHub image build 43429546562 성공, 운영 revision74에서 후속 기능 검증 완료. 세부 계획·후속 증거는 work/keyword-*에 기록한다. Waiting은 유료 AI 검증 보류만 의미한다. 후속 개발/배포는 완료했으며 실제 검색·브라우저·기존 파일14개 보존을 확인했다.
 
-현재 운영: source f8d5ede, Space manifest35d738f, revision74 ready1. 최종 후속 증거: `work/keyword-status.md`, `keyword-deployment.json`, `keyword-browser-production.json`.
+키워드 후속 배포 당시: source f8d5ede, Space manifest35d738f, revision74 ready1. 최종 후속 증거: `work/keyword-status.md`, `keyword-deployment.json`, `keyword-browser-production.json`.
+
+
+## 참고영상 파일 연결 수정
+
+> 유튜브 참고소재로 넣었는데 4번에서 소재 선택이 안되네
+
+YouTube는 references만 보관하는데 4번은 assets만 표시하여 연결이 끊겼다. 3·4번 보관한 참고자료와 파일 연결 상태를 표시하고, 원본 영상 파일을 연결하면 해당 장면에 바로 지정하도록 수정했다. 실제 파일 연결은 reference_id와 함께 저장한다. 원본 대본·기존 소재는 보존한다.
+
+현재 운영 source02cf36a, Space manifest00fd6d6, revision75 ready1. 전체215개 테스트·UI build, 운영 파일 연결→선택→재열기→2초 1080×1920 MP4 출력과 기존 파일17개 보존 확인. 운영 YouTube 직접 접근은 로그인 확인으로 거부되어 원본 파일이 필요하다. 유료 AI 실호출 보류 유지. 근거: work/reference-material-fix.md 및 reference-material-production.json.

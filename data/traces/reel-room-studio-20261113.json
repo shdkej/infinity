@@ -174,6 +174,29 @@
       ],
       "operational_log_sections": [],
       "note": "후속 운영 revision 74 검증 완료. 실제 Naver/YouTube/Commons 검색, 모바일/데스크톱 흐름, 기존 파일 14개 보존 통과. 유료 AI 호출 0회, 실호출 검증은 사용자 요청으로 보류 유지."
+    },
+    {
+      "type": "execution",
+      "at": "2026-11-13T13:30:19Z",
+      "context_pack": "intents/context/reel-room-studio-20261113-product.json",
+      "evidence_paths": [
+        "artifacts/reel-room-studio-20261113/work/reference-material-fix.md",
+        "artifacts/reel-room-studio-20261113/work/reference-material-production.json",
+        "artifacts/reel-room-studio-20261113/work/reference-material-deployment.json",
+        "artifacts/reel-room-studio-20261113/work/reference-material-persistence.json"
+      ],
+      "searches": [
+        "saved YouTube references vs scene asset selector; production metadata access and original file association"
+      ],
+      "wiki_pages": [
+        "agent-wiki/content/docs/outputs/Health/Curiosity.mdx",
+        "agent-wiki/content/docs/outputs/Fundamental/Network.mdx",
+        "agent-wiki/content/docs/outputs/deep-knowledge/product.mdx",
+        "agent-wiki/content/docs/outputs/Integration/Tool.mdx",
+        "agent-wiki/content/docs/outputs/Communication/Teamwork.mdx"
+      ],
+      "operational_log_sections": [],
+      "note": "4번 참고소재 누락 수정 운영 revision75 검증. 원본파일 연결→장면선택→재열기→1080×1920 MP4,215 tests,기존17파일보존. 직접YouTube다운로드는로그인제한으로불가;유료AI검증보류."
     }
   ],
   "artifacts": [
@@ -226,10 +249,22 @@
     {
       "label": "Pinned deployed image and ready pod",
       "path": "artifacts/reel-room-studio-20261113/work/keyword-deployment.json"
+    },
+    {
+      "label": "215 tests including saved reference association and rollback",
+      "path": "artifacts/reel-room-studio-20261113/work/reference-material-suite.log"
+    },
+    {
+      "label": "Production reference file connection and MP4 render",
+      "path": "artifacts/reel-room-studio-20261113/work/reference-material-production.json"
+    },
+    {
+      "label": "Revision75 and persistent files",
+      "path": "artifacts/reel-room-studio-20261113/work/reference-material-deployment.json"
     }
   ],
   "next_decision": {
     "status": "deferred_by_user",
-    "value": "키워드·참고 검색·브라우저 AI 키 후속 운영 배포까지 검증했다. 사용자 요청 시 보류된 유료 AI 검증만 재개한다."
+    "value": "참고영상 파일 연결 수정까지 운영 검증했다. YouTube URL만으로 파일을 가져오기는 로그인 제한으로 미지원이다. 사용자 요청 시 보류된 유료 AI 검증만 재개한다."
   }
 }

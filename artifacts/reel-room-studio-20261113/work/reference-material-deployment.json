@@ -1,0 +1,14 @@
+{
+  "revision": "75",
+  "ready": 1,
+  "image": "ghcr.io/shdkej/video-automation:02cf36a27d590b5a47b732f757604efd84397d9e",
+  "manifest_commit": "00fd6d6cd5f99dbf48257a7ec4e04236f57e57c1",
+  "build_run": "43433124746",
+  "pods": [
+    {
+      "name": "reel-room-656f479b45-tbr6h",
+      "image_id": "ghcr.io/shdkej/video-automation@sha256:03a20c583216b0badbdbfcd70244c78a04ffb3b32d804a5a4078739bff7452df",
+      "phase": "Running"
+    }
+  ]
+}

@@ -111,5 +111,10 @@
     ],
     "verified": "Existing owner credential directly returned 58 Naver SearchAd keyword rows for 세계여행; no OpenAI call.",
     "plan": "artifacts/reel-room-studio-20261113/work/keyword-api-plan.md"
+  },
+  "reference_material_followup": {
+    "request": "유튜브 참고소재로 넣었는데 4번에서 소재 선택이 안되네",
+    "evidence": "references with zero assets; frontend asset-only selector; direct metadata extraction requires YouTube sign-in",
+    "plan": "artifacts/reel-room-studio-20261113/work/reference-material-fix.md"
   }
 }
