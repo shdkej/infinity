@@ -105,9 +105,9 @@ lanes:
     implementation_status: verified_and_published
     deployment_status: approved_in_progress
     waiting_on: user
-    waiting_reason: openai_usage_limit_confirmation
-    blocker: 운영 OpenAI 생성 호출 429. 사용자 크레딧·사용 한도 확인 대기. 승인된 배포·수동 제작 검증은 Codex가 계속 수행한다.
-    pending_decision: 계정 한도 해결 후 AI 실호출 검증 재개 여부
+    waiting_reason: paid_ai_validation_deferred_by_user
+    blocker: OpenAI 생성 호출 429 이후 사용자가 AI 실호출 검증 보류를 요청했다. 배포·수동 제작·무료 참고 검색 검증은 계속한다.
+    pending_decision: 사용자가 AI 검증 재개를 요청하면 계정 한도 확인 후 실행
     source_repository: /home/ubuntu/workspace/video-automation
     source_branch: master
     source_commit: a6c01640e17c766287a81ef888e9f58394c7c9c2
