@@ -22,7 +22,7 @@
 - 테스트 작성 및 실행
 - 로컬 빌드
 - lint, format 자동 수정
-- INTENTS.md status 업데이트
+- INTENTS.yaml status 업데이트
 - reports/ 결과 기록
 -  내 변경사항 커밋 & 푸시 (리포트, 상태 업데이트, GATES.md 등)
 - prompt-archive 레포 내 파일 수정 후 커밋 & 푸시

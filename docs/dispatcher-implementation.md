@@ -1,6 +1,6 @@
 # Dispatcher 구현 참고
 
-이 문서는 Infinity 디스패처의 코드 수준 동작을 설명합니다. 운영자가 따라야 할 순서와 상태 원칙은 [README.md](../README.md)와 각 정본 문서를 우선합니다.
+이 문서는 Infinity 디스패처의 코드 수준 동작을 설명합니다. 실행 순서는 [heartbeat.md](../heartbeat.md), 문서별 책임은 [README.md](../README.md)를 따릅니다.
 
 ## 실행 진입점
 
@@ -56,6 +56,14 @@ Status Dashboard의 크론 수집기는 OpenClaw automation 목록을 조회하�
 - `INFINITY_TERMINAL_NOTIFICATION_TARGET`: 완료·승인·차단·실패 통보 대상 override
 
 Telegram 운영 설정에서는 두 목적지 override를 모두 `telegram`과 현재 대화 ID로 지정합니다. 모든 알림은 생성된 PNG 이미지 카드(`title`, 상태 톤, 본문, 근거, 푸터)를 media로 첨부하고, 일반 텍스트 fallback의 첫 줄에는 `상태 이모지 · 태스크 이름`을 고정해 이미지 미리보기를 열지 않아도 핵심을 읽을 수 있게 합니다. 그 다음 줄부터 상세 사유·검증 정보를 보내며, 공통 `presentation` 메타데이터도 함께 보냅니다. 승인 대기에는 inline 버튼을 추가합니다.
+
+## 알림 전달 계약
+
+- 모든 새 open Intent는 접수 시 `notification_channel`, `notification_target`과 해당하는 `notification_thread` 또는 `notification_reply_to`를 기록합니다. 후속 상태·Archive에도 원점을 보존합니다.
+- notifier는 `origin/main:INTENTS.yaml`과 월별 Archive YAML을 읽습니다. Archive는 `remote_verified: pass`, Waiting은 실제 blocker 또는 승인 조건이 있을 때만 terminal 후보입니다. 원점 없는 과거 항목은 추정 발송하지 않습니다.
+- `data/dispatcher-terminal-notifications.json`은 intent·terminal state·destination 키로 송신 전 durable claim을 남깁니다. `sent`, `failed_before_acceptance`, `delivery_unknown`을 구분하며 불확실 수신은 자동 재송하지 않고 실패 알림으로 드러냅니다. 최초 실행은 현재 원장을 기준선으로 저장합니다.
+- 승인 대기는 `waiting_on: user`, `approval`, `approval_required: true`, `permission_level: approval_required` 또는 승인 사유가 있는 `waiting_reason`으로 판단합니다. 버튼 callback은 `infinity:approve:<intent-id>` / `infinity:reject:<intent-id>`입니다.
+- `resolve_waiting`은 Waiting → Active 전이, `archive_request`는 명시된 open Intent의 월별 Archive·상세 생성을 수행합니다. 버튼 처리 크론이 요청 ID·전이 기록을 push한 뒤 작업 dispatcher가 다음 cycle에서 이어갑니다. 요청 큐 소비와 실제 태스크 완료를 구분합니다.
 
 ## 점검 명령
 

@@ -5,72 +5,37 @@
 
 ## 디렉터리 책임
 
-| 경로 | 역할 | 수명 |
-|------|------|------|
-| `intents/active/{id}.md` | 활성 Intent의 **현재 상태와 다음 액션만** | 진행 중 |
-| `../source/infinity/archive/{id}.md` (Knowledge Lab) | 유효 판정된 Intent의 **canonical final index** (결과 요약 + 산출물·리포트·커밋·URL 링크) | 선별 보관 |
-| `artifacts/{id}/work/...` | 태스크 계획, `T1.*` 조사 노트, 근거 수집, 초안, 역할별 검토, Red 판정 등 **중간 산출물** | 추적·재검토용 |
-| `artifacts/{id}/final/...` | 사용자의 원 질문에 답하는 **최종 재사용 산출물**. 리서치 브리프, 확정 설계안, 구현물, 데이터 | 영구·우선 노출 |
-| `reports/{id}/{timestamp}.html` | 단일 실행 로그 (heartbeat run 결과, 진행 보고) | 누적 |
-| `reports/heartbeat/` | **전역** heartbeat 요약만 (intent 결과 보고서가 아님) | 누적 |
+| 경로 | 역할 |
+| --- | --- |
+| `INTENTS.yaml` | Backlog·Inbox·Active·Waiting 상태 원장과 월별 Archive manifest |
+| `intents/archive/YYYY-MM.yaml` | 대시보드가 읽는 완료 카드 원장 |
+| `intents/active/{id}.md` → `intents/archive/{id}.md` | 현재 맥락·다음 행동 → 완료 상세와 결과 링크 인덱스 |
+| `artifacts/{id}/work/` | 계획·근거·초안·역할 검토. 최종 후보는 `candidate/`, Red 판정은 `red/` |
+| `artifacts/{id}/final/` | 사용자 질문에 답하는 최종 재사용 원문·구현물·데이터 |
+| `reports/{id}/{timestamp}.html` | 실행별 결과 요약과 검증·메타·로그 |
+| `data/traces/{id}.json` | 요청·실행·검증 이력 ([trace 계약](docs/intent-trace-contract.md)) |
+| `../knowledge-lab/source/infinity/archive/{id}.md` | 지식으로 선별한 결과만 보관하는 KL source |
+
+`reports/heartbeat/`는 의미 있는 전역 변화 기록에만 사용합니다. no-op 생존 확인 리포트는 만들지 않습니다. 개별 Markdown 상세는 YAML 상태 원장을 대신하지 않습니다.
 
 ## Archive Tag Standard
 
-Archive intent는 대시보드에서 프로젝트별/성격별로 묶어 볼 수 있도록 아래 3축 태그를 포함한다.
+완료 항목은 세 축으로 분류합니다. 새 프로젝트 태그는 반복될 때만 추가하고, 일회성 이름은 본문이나 topics에 둡니다.
 
-| 필드 | 필수 | 값 규칙 | 책임 |
-|------|------|---------|------|
-| `projects` | 필수 | 1~3개, controlled vocabulary | 어떤 프로젝트/제품/시스템에 걸린 일인가 |
-| `task_type` | 필수 | 정확히 1개, MECE | 이 태스크의 주된 성격은 무엇인가 |
-| `topics` | 선택 | 0~3개, controlled vocabulary | 보조 주제/렌즈는 무엇인가 |
+| 필드 | 개수 | 값 |
+| --- | --- | --- |
+| `projects` | 1~3 | `virtue`, `infinity`, `knowledge-lab`, `agent-wiki`, `openclaw`, `infrastructure`, `personal-ops`, `research-bank`, `naver-shopping` |
+| `task_type` | 1 | `research`(조사), `strategy`(방향), `design`(설계), `implementation`(생성·수정), `verification`(검증), `maintenance`(정리·복구), `monitoring`(감시), `coordination`(인계) |
+| `topics` | 0~3 | `growth`, `marketing`, `product`, `activation`, `retention`, `analytics`, `ai-agents`, `llm`, `wiki`, `automation`, `workflow`, `dashboard`, `infra`, `security`, `calendar`, `review`, `finance`, `health`, `content` |
 
-### Project Tags
-
-프로젝트 태그는 여러 개를 허용한다. 다만 한 태스크에 3개를 넘기지 않는다.
-
-- `virtue` — Virtue / 덕 쌓기 앱, 관련 마케팅·제품·계측 문서
-- `infinity` — Infinity 운영 시스템, 큐, 대시보드, 태스크 원장
-- `knowledge-lab` — Knowledge Lab 원본/source/wiki 체계
-- `agent-wiki` — 공개 agent-wiki 사이트, diary/publish/build 흐름
-- `openclaw` — OpenClaw 런타임, 스킬, 에이전트 운영
-- `infrastructure` — 서버, 배포, DNS, Kubernetes, GitHub Actions, 보안
-- `personal-ops` — 회고, 생활 기록, 캘린더, 자동화된 개인 운영
-- `research-bank` — 특정 실행 프로젝트에 묶이지 않는 외부 리서치/학습 자산
-- `naver-shopping` — 네이버쇼핑몰/스마트스토어 수익화 에이전트, 전략, 지표, 승인 대기, 운영 라우팅
-
-새 프로젝트 태그는 반복될 가능성이 높고 위 목록으로 표현이 어려울 때만 추가한다. 일회성 이름은 `topics` 또는 원장 본문에 남긴다.
-
-### Task Type Tags
-
-`task_type`은 정확히 하나만 고른다.
-
-- `research` — 외부/내부 자료 조사, 시장·기술·사례 리서치
-- `strategy` — 방향성, 포지셔닝, 기준표, 운영 원칙 수립
-- `design` — UX/IA/문서 구조/시스템 설계
-- `implementation` — 코드/문서/설정의 실제 생성·수정
-- `verification` — 빌드, 배포, 원격 raw/page/API, 지표 확인
-- `maintenance` — 정리, 마이그레이션, 깨진 상태 복구, 워크플로우 보강
-- `monitoring` — 주기 점검, 알림, 상태 감시
-- `coordination` — 로컬/클라우드/서브에이전트 위임과 작업 라우팅
-
-여러 성격이 섞이면 최종 산출물의 주된 책임을 기준으로 하나만 선택한다. 예를 들어 "리서치 후 내부 브리프 작성"은 `research`, "리서치를 바탕으로 제품 기준표 확정"은 `strategy`, "깨진 자동화 수정"은 `maintenance`다.
-
-### Topic Tags
-
-`topics`는 보조 필터다. 최대 3개만 쓴다.
-
-- `growth`, `marketing`, `product`, `activation`, `retention`, `analytics`
-- `ai-agents`, `llm`, `wiki`, `automation`, `workflow`, `dashboard`
-- `infra`, `security`, `calendar`, `review`, `finance`, `health`, `content`
-
-`topics`는 프로젝트 태그와 중복 의미로 쓰지 않는다. 예를 들어 Virtue 마케팅 작업은 `projects: [virtue]`, `topics: [marketing]`처럼 둔다.
+태스크 성격은 최종 결과의 주된 책임으로 하나만 고르고, topics는 projects와 같은 뜻을 반복하지 않습니다. `title`과 `task_name`은 대상·행동·산출물이 보이는 동일한 한국어 제목으로 씁니다.
 
 ## 핵심 원칙
 
 1. **Reports는 실행 로그이고 결과물이 아니다.** 동일한 결론을 두 번 찾기 위해 사람이 reports 디렉터리를 뒤져야 하면 운영 실패다. 결과는 archive intent에 요약하고, 산출물은 `artifacts/{id}/final/`에 둔다.
 2. **중간 산출물과 최종 산출물을 섞지 않는다.** `T1.*`, source notes, 비교 작업지, 역할별 초안, Red 검토/재검토, task plan은 모두 `artifacts/{id}/work/`에 둔다. 사용자가 열어야 하는 답·권고·재사용 원문은 `artifacts/{id}/final/`에만 둔다. `work/` 문서는 최종 결과를 대체하거나 Archive의 대표 링크가 될 수 없다.
 3. **Active intent는 짧게 유지한다.** 분석/결과를 본문에 누적하지 말고, 산출물은 `artifacts/{id}/work/` 또는 `artifacts/{id}/final/`에 만들고 active intent에서는 참조만 한다.
-   - **상세 표시 계약:** Active Intent가 `work/`에 읽을 수 있는 중간 산출물을 만들면, `INTENTS.md` 카드와 해당 detail intent의 `artifact:`에 현재 사용자에게 의미 있는 Markdown 경로를 함께 열거한다. 대시보드가 GitHub 디렉터리 API 제한을 만나도 raw 경로로 중간 결과를 표시할 수 있어야 한다. 새 evidence leaf가 문서를 추가·대체하면 같은 커밋에서 이 목록도 갱신한다. 계획 JSON, 이미지 원본, 해시·원시 캡처만은 이 목록의 기본 대상이 아니다.
+   - **상세 표시 계약:** Active Intent가 `work/`에 읽을 수 있는 중간 산출물을 만들면, `INTENTS.yaml` 카드와 해당 detail intent의 `artifact:`에 현재 사용자에게 의미 있는 Markdown 경로를 함께 열거한다. 대시보드가 GitHub 디렉터리 API 제한을 만나도 raw 경로로 중간 결과를 표시할 수 있어야 한다. 새 evidence leaf가 문서를 추가·대체하면 같은 커밋에서 이 목록도 갱신한다. 계획 JSON, 이미지 원본, 해시·원시 캡처만은 이 목록의 기본 대상이 아니다.
 4. **완료 시 archive intent가 canonical index가 된다.** 사용자가 "그래서 뭐 했더라"를 찾을 때 한 파일만 봐도 최종 산출물 / 최종 리포트 / 커밋 / URL 까지 한 번에 도달해야 한다.
 5. **`drafts/`는 폐기.** 과거 drafts 산출물은 모두 `artifacts/{id}/`로 이동했다. 모든 신규 detail 링크는 `artifacts/{id}/work/`, `artifacts/{id}/final/` 또는 `intents/archive/{id}.md`만 가리킨다.
 6. **Archive는 프로젝트 종료와 다를 수 있다.** 프로젝트성 작업은 한 intent가 설계·조사·MVP 같은 한 단계를 끝내고 Archive로 가더라도, 원래 사용자 목표가 남아 있으면 반드시 다음 intent를 `Inbox`/`Active`/`Waiting` 중 하나로 연결한다. Archive 요약에는 `next` 또는 후속 intent id를 남긴다.
@@ -81,7 +46,7 @@ Archive intent는 대시보드에서 프로젝트별/성격별로 묶어 볼 수
 
 `exploratory_research`의 `final/`에는 주제 범위와 탐색 지도, 주요 갈래, 대표 사례, 발견 사이의 연결, 불확실성, 열어 둔 다음 질문을 둔다. 결론·추천·선택지 비교·버린 대안·사용자의 다음 행동은 요구하지 않는다. `decision_research`의 `final/`에는 원 질문에 대한 결론을 먼저 두고, 그 결론을 바꾸는 조건·핵심 발견·선택지 비교·버린 대안·다음 결정 하나를 분리한다. 의사결정형의 각 핵심 발견은 `주장 → 직접 근거 → 해석 → 한계/반증`을 한 덩어리로 남긴다. 어느 모드든 출처 수를 채우는 목적의 중복 자료, 조사 과정의 나열, 역할명·태스크 ID는 최종 본문에 넣지 않는다.
 
-작업 중 생기는 `T1`/`T1.1` 메모와 Red 문서는 증거 추적에는 필요하지만 **최종 답이 아니다**. 모든 리서치는 원 질문에 답하는 **전체 Markdown 원문**을 `artifacts/{id}/final/{slug}-report.md`에 반드시 보존하고, 동일 내용을 읽기 좋게 요약한 `reports/{id}/{timestamp}.html`을 함께 만든다. `exploratory_research`도 HTML report와 research-report validator를 생략하지 않지만, Deep Research·역할 분리·Red 검증은 요구하지 않는다. `decision_research`의 최종 후보는 먼저 `work/candidate/`에 만들고, Red는 그 후보와 최종 HTML Report를 함께 검토한다. Red 문서는 `work/red/`에 판정·차단 사유·재검토 범위를 기록한다. PASS 뒤에만 검토한 동일 원문을 `final/`로 이동(또는 내용 동일성이 검증된 복사)하며, 최종 HTML 리포트는 이 MD 원문을 축약·표시하는 읽기 표면일 뿐 원문을 대체하지 않는다. 두 모드 모두 쉬운 한국어로 쓰고, 필요한 전문어는 짧은 뜻이나 예시로 풀어 쓴다.
+작업 중 생기는 `T1`/`T1.1` 메모와 Red 문서는 증거 추적에는 필요하지만 **최종 답이 아니다**. 모든 리서치는 원 질문에 답하는 **전체 Markdown 원문**을 `artifacts/{id}/final/{slug}-report.md`에 반드시 보존하고, 동일 내용을 읽기 좋게 요약한 `reports/{id}/{timestamp}.html`을 함께 만든다. `exploratory_research`도 HTML report와 research-report validator를 생략하지 않지만, Deep Research·Red 검증은 요구하지 않는다. 네 역할 참여는 [Execution Mode 기록](#execution-mode-기록)을 따른다. `decision_research`의 최종 후보는 먼저 `work/candidate/`에 만들고, Red는 그 후보와 최종 HTML Report를 함께 검토한다. Red 문서는 `work/red/`에 판정·차단 사유·재검토 범위를 기록한다. PASS 뒤에만 검토한 동일 원문을 `final/`로 이동(또는 내용 동일성이 검증된 복사)하며, 최종 HTML 리포트는 이 MD 원문을 축약·표시하는 읽기 표면일 뿐 원문을 대체하지 않는다. 두 모드 모두 쉬운 한국어로 쓰고, 필요한 전문어는 짧은 뜻이나 예시로 풀어 쓴다.
 
 **리서치 보존 게이트:** 2026-09-13 이후 Archive하는 리서치는 `final_artifact: artifacts/{id}/final/{slug}-report.md`를 명시하고, 그 파일이 비어 있지 않으며 원격 `main`의 **동일 Archive 원장**도 같은 경로를 가리켜야 한다. `work/candidate/*.md`, `work/` 문서, HTML report만으로는 리서치 완료·Archive를 인정하지 않는다. 이 규칙은 `exploratory_research`와 `decision_research` 모두에 적용한다. 이전 Archive는 경로 체계가 달라 자동 실패시키지 않으며, 수정·재검증 시 이 형식으로 이관한다.
 
@@ -89,8 +54,8 @@ Archive intent는 대시보드에서 프로젝트별/성격별로 묶어 볼 수
 
 커뮤니티·SNS·언론에 걸친 사례 조사(예: 특정 지원사업 기수의 참가 사례)에 적용한다. 2026-11-10 Kimi 지시로 SAM 설계안과 Hermes 레드팀 검증을 합쳐 정본화했다. 기존 리서치 품질 계약·보존 게이트를 대체하지 않고 수집 단계만 구체화한다.
 
-1. **목적을 먼저 고정한다.** 사례 발굴(참고용, `exploratory_research`)인지 전체에 대한 판단(대표성 필요, `decision_research`)인지 Intent에 적는다. 불명확하면 접수 단계에서 한 번만 묻는다. 발굴이면 2·3을, 판단이면 1을 필수로 적용한다.
-2. **판단형은 표본 틀(sampling frame)부터 만든다.** 공식 선정 목록·참여기관 자료로 전체 N을 확정하고, 팀별 공개 흔적(공식·언론·SNS·커뮤니티) 유무를 역으로 확인한다. 흔적이 없는 팀은 `무응답`으로 센다. 종료 기준은 `N 중 몇 확인`처럼 분모가 있는 숫자로 쓴다. 목록이 비공개이면 이를 한계로 명시하고 발굴형으로 격하한다.
+1. **목적을 먼저 고정한다.** 사례 발굴(참고용, `exploratory_research`)인지 전체에 대한 판단(대표성 필요, `decision_research`)인지 Intent에 적는다. 불명확하면 접수 단계에서 한 번만 묻는다. 발굴이면 검색·스노볼을, 전체 판단이면 표본 틀과 분모 확인을 필수로 적용한다.
+2. **판단형은 표본 틀(sampling frame)부터 만든다.** 공식 선정 목록·참여기관 자료로 전체 N을 확정하고, 팀별 공개 흔적(공식·언론·SNS·커뮤니티) 유무를 역으로 확인한다. 흔적이 없는 팀은 `확인 가능한 공개 자료 없음`으로 남긴다. 종료 기준은 `N 중 몇 확인`처럼 분모가 있는 숫자로 쓴다. 목록이 비공개이면 이를 한계로 명시하고 발굴형으로 격하한다.
 3. **발굴형은 검색 시작 + 스노볼 확장을 쓴다.** 키워드 조합(기수명·후기·선정·탈락·중도 포기·데모데이·팀명)으로 시작하고, 발견한 사례의 링크·태그·언급을 따라 확장한다. 긍정·부정·무응답을 같은 기준으로 찾는다.
 4. **출처를 층으로 나눈다.** 공식 / 언론·전문매체 / 커뮤니티 / SNS(Instagram·Threads·YouTube 등). 공식 발표와 개인 경험을 분리하고, 같은 사례의 중복 인용은 한 건으로 센다.
 5. **SNS 한계를 결과물에 명시한다.** Instagram·Threads는 로그인 벽·알고리즘 필터로 검색 커버리지의 분모를 알 수 없다. 공개 게시물만 수동 확인하고, 자동 대량 수집·비공개 계정은 쓰지 않는다. 개인 식별 인용은 피하거나 익명화한다. 채널별로 `확인 범위·기간·방법·막힌 지점`을 final에 적는다.
@@ -112,7 +77,6 @@ Archive 전에는 다음 여섯 항목을 한 번에 확인한다. 이는 파일
 | 리포트 흐름 품질 | 모든 리서치, HTML이 있는 산출물 | `report_flow_check` | 탐색형은 주제 범위/지도 → 발견·사례 → 불확실성·열린 질문, 의사결정형은 결론 → 근거/비교 → 한계 → 다음 행동 순서가 보이고 내부 로그가 본문을 대체하지 않음 |
 | 활용 스킬 | 해당 작업에서 스킬을 실제 사용했거나 특정 스킬이 요구된 경우 | `skills_used: [{name, purpose, evidence_path}]` | 상세의 `사용한 스킬`에서 이름·용도·근거가 보임 |
 
-- **HTML 범위는 일관되게 유지한다.** 탐색형 리서치도 전체 Markdown 브리프를 원문으로 보존하면서, 핵심 축·발견·출처·불확실성·다음 탐색 가지를 담은 HTML 요약을 함께 제공한다. 의사결정 리서치와 사용자-facing 산출물은 여기에 판단 기준과 다음 결정을 추가한다.
 - **길이는 분량 목표가 아니다.** `report_length`는 과도하게 짧거나 긴 결과를 발견하는 관측값이다. `report_length_judgment`는 탐색형에서는 범위·발견·불확실성·열린 질문이, 의사결정형에서는 결론·근거·한계·다음 행동이 독해 가능한 밀도로 들어 있는지를 기준으로 작성자가 판정하고, Red가 필요한 작업에서는 재검토한다. 글자 수만 채우기 위한 반복은 실패다.
 - **흐름 검사는 모드에 맞춘다.** 탐색형은 주제의 넓은 지도를 먼저 펼치고 발견과 열린 질문으로 끝낸다. 의사결정형은 결론, 근거/비교, 한계/반증, 다음 행동이 서로 섞이거나 빠지지 않아야 한다. 이 규칙은 `Report 양식`의 구조·Red 검토와 함께 적용한다.
 - **스킬은 자동으로 추측해 적지 않는다.** 실제로 읽고 사용한 스킬만 남긴다. 단순 도구 호출은 스킬 사용이 아니다. 작업에 적용 가능한 스킬이 없으면 `skills_used: []`와 사유를 기록한다.
@@ -126,7 +90,7 @@ PRD가 필요한 대형 작업은 PRD가 승인·고정된 직후, 구현 전에
 
 계획을 작성·재계획하기 전에는 `ARTIFACT_RULES.md`의 이 섹션과 가장 가까운 기존 `task-plan.md` 예시를 실제로 읽는다. Intent에는 `task_plan_template: ARTIFACT_RULES.md#대형-작업-태스크-계획`을 기록한다. 이 preflight 없이 임의 JSON 구조, 표, 문서 형식을 새로 만들면 계획은 무효이며 실행으로 진행하지 않는다.
 
-동시에 사람이 읽는 `artifacts/{intent-id}/work/task-plan.md`도 만든다. 이 문서는 PRD 링크, 태스크별 상태·완료 증거·다음 행동, 그리고 append-only `— 계획 변경` 기록을 담는다. `INTENTS.md`의 `task_plan_doc`으로 연결하며, JSON 상태나 deviation이 바뀌면 같은 커밋에서 함께 갱신한다. **트리 본문(`● Tn`부터 `└─ — 보호 경계`까지)은 반드시 ` ```text ` fenced code block 안에 둔다.** 대시보드 Markdown renderer가 공백과 `│` 연결선을 일반 문단으로 접지 않게 하는 표시 계약이다.
+동시에 사람이 읽는 `artifacts/{intent-id}/work/task-plan.md`도 만든다. 이 문서는 PRD 링크, 태스크별 상태·완료 증거·다음 행동, 그리고 append-only `— 계획 변경` 기록을 담는다. `INTENTS.yaml`의 `task_plan_doc`으로 연결하며, JSON 상태나 deviation이 바뀌면 같은 커밋에서 함께 갱신한다. **트리 본문(`● Tn`부터 `└─ — 보호 경계`까지)은 반드시 ` ```text ` fenced code block 안에 둔다.** 대시보드 Markdown renderer가 공백과 `│` 연결선을 일반 문단으로 접지 않게 하는 표시 계약이다.
 
 사람이 읽는 계획은 **`치안 지도 3차 실험 — 실행 타임라인`의 구조를 정본**으로 사용한다. 부모 `T1`은 기능 단위 미니 사이클이고, 그 아래 `T1.1…`에 계획·구현/조사·Red·마감 확인을 들여쓴다. 제목은 `# {작업명} — 실행 타임라인`, 첫 줄은 반드시 ``마감 · 실행 · 태스크: 완료/미완료 집계``, 각 leaf는 `상태 · 예상/최대 · 의존`, `증거:`, `시작/완료/실제:`를 차례로 둔다. 연결선·`● / ◐ / ○` 상태, 중간 `├─ — {시각} · {변경 대상}`의 append-only 계획 변경 기록, 마지막 `└─ — 보호 경계`와 `**지금 다음 행동:**`을 생략하지 않는다.
 
@@ -169,31 +133,18 @@ PRD가 필요한 대형 작업은 PRD가 승인·고정된 직후, 구현 전에
 - **장기 자동 확장:** automatic evidence-leaf replenishment additionally requires an explicitly user-provided, timezone-aware timestamp in the canonical Intent `deadline` field, with dispatcher time before that deadline. Never infer or invent a deadline. Without a valid future `deadline`, finish only leaves already in the plan and terminalize after they complete; do not replenish. For eligible deadline-bound work, only tasks where 50~60 leaves are appropriate may declare `expansion_policy`: `enabled: true`, `target_total_tasks: 50..60`, `batch_size: 1..10`, `min_ready_tasks: 1..10`, and an `expansion_brief` describing scope, evidence, and boundaries. The dispatcher may propose one batch only when pending+active leaves are below `min_ready_tasks` and total leaves are below target. Never alter or remove completed leaves; record new leaves in both JSON and `task-plan.md`. Markdown entries must include leaf ID, status, `예상/최대`, dependencies, and `증거:`, plus an append-only `— 계획 변경` entry naming added IDs. Post-handoff verification enforces the contract. If the deadline is absent, invalid, or reached, no batch is eligible and completed plans follow normal terminalization.
 - **마감 예산과 반복 사이클:** 자동 반복 실행/leaf 추가는 사용자가 명시한 canonical Intent `deadline`이 유효하고 현재 시각보다 미래일 때만 설계한다. `deadline`까지 남은 시간이 현재 leaf의 `max_minutes` 합계보다 2배 이상 길고, `task_type: monitoring`이거나 원문에 “계속/반복/마감까지”가 있으면 단발성 계획으로 닫지 않는다. `task-plan.json`에 `cycle_policy`를 둔다: `mode: repeat`, `cycle_minutes`, `next_cycle_trigger`, `final_deadline`, `dedupe_key`, `minimum_cycles`. `task-plan.md` 첫 줄에는 `반복: C1/C2… · 다음 사이클 조건 · 최종 마감`을 표시하고, 각 반복 수집은 부모 `Tn` 미니 사이클과 실제 증거를 가진 leaf로 기록한다. 같은 수집을 다시 하는 경우에도 기존 leaf의 시간을 늘리지 않고 새 `C2`, `C3` 사이클을 append하며 `— 계획 변경`에 추가 이유·새 범위·예상 시간을 남긴다. 완료 leaf가 남아 있어도 유효한 canonical `deadline` 전에는 다음 사이클을 Active로 만들고, 마감 시점에만 Red·최종 보고·Archive로 닫는다. 명시적 deadline이 없으면 반복 leaf를 추가하지 않는다.
 - `deviations`: 원래 계획에 없던 작업·순서 변경·대체 경로를 `{at, reason, impact, task_ids}`로 append-only 기록한다. 카드에서는 `— 계획 변경 N건`으로 분리 표시한다.
-- `INTENTS.md`에는 `task_plan`과 `trace` 경로를 함께 남긴다. `trace`의 `dispatcher_handoff` 수는 카드의 **실행 회차**이며, 진전 수가 아니다.
+- `INTENTS.yaml`에는 `task_plan`과 `trace` 경로를 함께 남긴다. `trace`의 `dispatcher_handoff` 수는 카드의 **실행 회차**이며, 진전 수가 아니다.
 - 각 cycle은 태스크 상태 또는 deviation을 바꿀 때에만 계획 파일을 갱신한다. handoff만으로 `done`을 올릴 수 없다.
 - 완료 전에는 `done/total`, 현재 `active` 태스크, deviation 근거가 acceptance evidence와 일치해야 한다. 새 태스크가 필요하면 기존 태스크를 숨기거나 덮어쓰지 말고 deviation을 남긴다.
 
 ## 문서 역할 표준
 
-Infinity 문서는 아래 4개 역할로 통일한다. 새 문서를 만들 때 이 역할을 벗어나는 `detail`, `draft`, `summary copy` 문서를 따로 만들지 않는다.
+문서 역할·경로는 위 [디렉터리 책임](#디렉터리-책임)을 따릅니다. 같은 결과를 `detail`, `draft`, `summary copy` 이름으로 다시 만들지 않습니다.
 
-| 역할 | 경로 | 책임 | 대시보드 표시 |
-|------|------|------|---------------|
-| Intent 원장 | `knowledge-lab/source/infinity/archive/{id}.md` | 유효 판정된 Intent의 최종 상태, 결과 요약, 성공 기준 충족 여부, 링크 인덱스 | `Intent 원장` |
-| Work Artifact | `artifacts/{id}/work/...` | 태스크 계획, T1 조사, 근거 수집, 초안, 역할별·Red 검토. 추적용이며 최종 링크가 아님 | `중간 산출물` |
-| Final Artifact | `artifacts/{id}/final/...` | 원 질문에 직접 답하는 재사용 가능한 최종본. 조사 브리프, 확정 설계안, 구현물, 데이터 | `최종 산출물` |
-| Report | `reports/{id}/{timestamp}.html` | 특정 실행 1회의 HTML 로그. 무엇을 했고 무엇을 검증했는지 기록 | `Report` |
-
-### 중복 금지
-
-- `Intent 원장`과 `Detail`이 같은 파일을 가리키게 만들지 않는다.
-- 완료된 Intent의 `detail` 링크가 필요하면 `intents/archive/{id}.md` 하나만 canonical detail로 쓴다.
-- active 상태에서 임시 상세가 필요하면 `intents/active/{id}.md` 또는 `artifacts/{id}/work/...` 중 하나를 선택한다. 같은 내용을 둘 다 만들지 않는다.
-- 대시보드/자동화는 같은 path가 `archive`와 `detail` 양쪽에서 발견되면 하나의 `Intent 원장`으로 합쳐야 한다.
-- 사람이 읽는 최종 요약은 Report에만 남기지 말고 반드시 Intent 원장의 `result_summary`, `artifacts`, `reports`, `commits`, `urls`, `next_actions`에 반영한다.
-- Archive의 `artifacts` 첫 항목은 반드시 `artifacts/{id}/final/...`이어야 하며, `work/`는 필요할 때만 `supporting_work`로 별도 나열한다. Archive 카드·대시보드의 기본 링크는 `final/`과 최종 HTML Report만 사용한다.
-- 신규 Report는 Markdown으로 만들지 않는다. 과거 `.md` report는 legacy로만 읽고, 새 실행 로그는 반드시 HTML이다.
-- 프로젝트성 작업에서 `next_actions`가 "구현", "배포", "검증", "승인 후 실행"처럼 실제 후속 단계를 가리키면, 같은 turn 또는 같은 heartbeat에서 후속 intent를 만든다. 사용자가 다시 요청해야만 이어지는 상태로 두지 않는다.
+- 완료 상세는 `intents/archive/{id}.md` 하나로 연결합니다. UI에서 같은 경로가 archive/detail 양쪽에 있으면 한 항목으로 표시합니다.
+- Active의 중간 결과는 상세 또는 `work/`에 한 번만 쓰고 링크합니다. 완료 카드의 대표 artifact는 `final/`이며 `work/`는 필요한 검토 근거만 `supporting_work`로 연결합니다.
+- `result_summary`, 결과·리포트·커밋·URL·다음 행동은 완료 상세에서 찾을 수 있어야 합니다.
+- 실행 Report는 HTML 하나로 둡니다. 전체 Markdown 원문은 리서치의 최종 artifact이고, 과거 Markdown Report는 이력입니다. 명시된 마감이 있는 작업은 성공·`deadline_missed`·명시 중단 모두 `reports/{id}/{timestamp}-terminal.md`를 남깁니다. 완료/미완료 leaf, 차단 원인·시도한 대안, 자율 재시도/사용자 결정, 구체적 개선을 담고 최종 상태·원 대화 알림에 연결합니다([KL 마감 기록 계약](../knowledge-lab/source/openclaw-system/docs/INFINITY_OPERATING_RULES.md#lifecycle-archive-and-records)).
 
 ## Archive Intent 표준 포맷
 
@@ -299,25 +250,44 @@ Infinity 문서는 아래 4개 역할로 통일한다. 새 문서를 만들 때 
 
 ## Heartbeat가 지켜야 할 흐름
 
-1. 실행 결과를 `reports/{id}/{timestamp}.html`로 남긴다 — 이것은 **로그**다. (양식은 아래 "Report 양식" 참고)
-2. 중간 산출물은 `artifacts/{id}/work/`, 검증된 최종 산출물은 `artifacts/{id}/final/`로 만든다. active intent 본문에 두지 않는다.
-3. Intent가 완료되면:
-   - 원래 프로젝트 목표가 끝났는지 먼저 판정하고, 끝나지 않았으면 후속 intent id 또는 Waiting blocker를 만든다.
-   - `intents/active/{id}.md` → `intents/archive/{id}.md`로 이동
-   - 위 표준 포맷으로 재작성하면서 artifacts / reports / commits / urls 링크
-   - `INTENTS.md`의 Active 블록 제거, 같은 UTC 시각을 `completed_at: YYYY-MM-DDTHH:MM:SSZ`로 정식 Archive 블록에 기록하고 완료 코멘트에도 추가한다 (`<!-- {id} completed YYYY-MM-DDTHH:MM → intents/archive/{id}.md [projects: virtue; type: strategy; topics: activation,analytics] (한 줄 결과) -->`). 주석만으로 완료 시각을 남기지 않는다. 대시보드는 정식 블록의 날짜로 최근 완료 순서와 월 그룹을 정한다.
-   - Archive 전환 변경을 Infinity 저장소에 commit/push하고, 대시보드가 읽는 원격 `main`에서 해당 Archive 코멘트가 보이는지 확인한다. Knowledge Lab 승격이 있으면 해당 Knowledge Lab 변경은 별도 저장소 변경으로 commit/push·검증한다. Infinity의 부모 submodule pointer는 없다.
-4. 대시보드 등 외부 도구가 detail 링크를 기대하면 archive 경로가 유효한지 확인한다.
-5. 완료 직후 같은 내용을 `detail` 파일로 다시 만들지 않는다. 추가 원문이 필요하면 `artifacts/{id}/work/` 또는 `artifacts/{id}/final/`에 별도 역할을 부여한다.
+실행 순서는 [heartbeat의 종료 절차](heartbeat.md#6-결과와-archive를-함께-닫는다)를 따릅니다. 완료 상세를 만든 뒤 열린 lane에서 제거하고 **월별 YAML 카드**를 같은 변경에 기록합니다. `INTENTS.yaml`의 `archive.files`에는 `intents/archive/YYYY-MM.yaml`만 넣습니다. Markdown 상세·artifact·report 경로를 manifest에 직접 등록하거나 완료 주석만 남기지 않습니다.
+
+월별 카드의 최소 연결 예시입니다. 값은 실제 결과와 검증 증거로 채우며, `remote_verified: pass`는 원격 검증 이후에만 기록합니다.
+
+```yaml
+archive:
+  - id: example-01
+    title: 대상 작업의 결과를 확인한다
+    task_name: 대상 작업의 결과를 확인한다
+    status: archived
+    completed_at: '2026-01-01T00:00:00Z'
+    detail: intents/archive/example-01.md
+    artifact: artifacts/example-01/final/result.md
+    report: reports/example-01/20260101T000000Z.html
+    trace: data/traces/example-01.json
+    red_status: pass
+    remote_verified: pass
+    notification_channel: <접수 때 기록한 채널>
+    notification_target: <접수 때 기록한 대상>
+```
+
+리서치는 같은 카드·상세에 `final_artifact`를 기록합니다. 태그·후속 Intent·thread/reply 메타도 보존합니다. 상세 원장에는 아래 지식 판정을 함께 남깁니다.
+
+| `knowledge_status` / `knowledge_decision` | 조건 |
+| --- | --- |
+| `raw` / `retain_in_infinity` | 단순 실행 기록·일회성 결과. `knowledge_reflection`에 보존 이유 기록 |
+| `promoted` / `promote` | 장기 판단에 재사용할 지식. KL source·ingest 등록과 필요한 실제 반영 완료 |
+| `superseded` / `supersede` | 기존 지식으로 대체. ingest `integrated`와 대체 근거 기록 |
+
+`knowledge_targets`, `knowledge_reflection`, `knowledge_commit`을 기록하며 `candidate`로 Archive하지 않습니다. Context Pack v3+는 `knowledge_log: logs/agent-wiki-query.md#{id}`와 KL의 `[id]` 검색 영수증이 필요합니다. 영수증에는 질문·검색·결과·선택된 Wiki 경로·사용한 운영 로그를 남깁니다. 실제 ingest/승격 작업은 `artifacts/{id}/knowledge-flow.md`에 source·ingest 상태·대상·저장소별 commit을 연결합니다. 세부 지식 승격 경계는 [KL 운영 계약](../knowledge-lab/source/openclaw-system/docs/INFINITY_OPERATING_RULES.md#lifecycle-archive-and-records)을 따릅니다.
+
+검증 진입점은 `check_intents_consistency.py INTENTS.yaml`, `validate_intent_trace.py`, `check_knowledge_promotion.py <intent-id>`, 리서치의 `validate_research_report.py <report.html>`입니다. push 후 `verify_archive_remote.py <intent-id>`와 실제 대시보드 카드·링크를 확인합니다. 실패는 근거와 재개 조건으로 남기며, 내부 마감 누락은 지니가 마칩니다.
 
 ## Report 양식 (HTML, 결론 2축)
 
-최종 보고(Report)는 **HTML로 작성**하고, **"결론 2축"을 맨 위에 큼직하게** 둔다. 그 아래에는 사용자가 HTML만 열어도 핵심 내용을 바로 읽을 수 있는 본문을 둔다. 상세·메타·로그는 접는다.
-이 2축은 사후에 파싱하는 것이 아니라, **작업이 끝나는 순간 에이전트가 직접 도출해 채우는 산출물**이다.
+`reports/_TEMPLATE.html`의 `rich-v1` 구조를 사용합니다. 맨 위에 맥락과 결과를 한 줄씩 쓰고, 본문에는 사용자가 읽을 핵심 내용을 넣으며 상세·실행 메타는 접습니다. 리포트는 최종 원문을 대체하지 않습니다.
 
-Report는 여전히 실행 로그지만, 특히 조사형(`research`, `wiki`, `doc`)은 얇은 링크 카드가 되면 실패다. 핵심 발견, 근거, 비교, 다음 판단이 HTML 안에 포함되어야 한다. Artifact는 원문/재사용 산출물이고, Report는 그 실행의 읽을 수 있는 요약 표면이다.
-
-보고서를 쓰기 전에는 먼저 **MECE 구조**를 잡는다. 핵심 발견, 옵션, 리스크, 다음 액션은 서로 중복되지 않게 나누고, 사용자가 판단해야 할 주요 축이 빠지지 않았는지 확인한 뒤 HTML을 채운다. 예를 들어 리서치 보고서는 `문제/맥락`, `선택지`, `근거`, `제약`, `추천`, `다음 결정`이 서로 섞이지 않게 배치한다.
+작성 전에 발견·근거·제약·다음 질문/결정이 겹치지 않게 나눕니다. 탐색형은 탐색 지도와 열린 질문, 의사결정형은 결론과 선택 근거를 중심으로 씁니다. 내부 로그나 링크 목록만으로 본문을 대신하지 않습니다.
 
 ### 결론 2축 (필수)
 
@@ -339,28 +309,15 @@ Report는 여전히 실행 로그지만, 특히 조사형(`research`, `wiki`, `d
 
 ### 작성 규칙
 
-- 위치: 모든 리서치는 `artifacts/{id}/final/{slug}-report.md`와 `reports/{id}/{timestamp}.html`을 함께 둔다.
-- 템플릿: `reports/_TEMPLATE.html` 을 복사해 `{{...}}` 자리표시자를 치환한다. (`_`로 시작하는 파일은 대시보드가 무시한다)
-- 완료 게이트: 모든 리서치의 `reports/{id}/{timestamp}.html`은 실제로 존재하고 비어 있지 않으며, `<html`, `<body`, `axis ax1`, `axis ax2`, `<details`를 포함하고 `python3 scripts/validate_research_report.py`를 통과해야 한다.
-- `decision_research` Report는 `핵심 내용 · 리서치 본문` 영역을 반드시 채운다. 최소 3개, 가능하면 5~7개의 핵심 발견을 쓰고, 각 발견은 사용자가 다음 결정을 할 수 있을 만큼 구체적이어야 한다.
-- 핵심 발견과 옵션 비교는 MECE하게 쓴다. 같은 발견을 표현만 바꿔 반복하지 말고, 비용/속도/품질/리스크/실행 난이도처럼 서로 다른 판단 축으로 나눈다.
-- `decision_research` Report에는 반드시 `근거 · 소스`, `다음 판단`, 필요 시 `옵션 비교` 또는 `추천안`이 들어간다. 탐색형 브리프에는 짧은 출처 목록과 불확실성만 남긴다.
-- **리서치 HTML 최종 게이트:** 모든 리서치가 Archive 전에 `python3 scripts/validate_research_report.py reports/{id}/{timestamp}.html`을 실행한다.
-- **리치 리포트 기본값:** 모든 리서치의 final HTML은 `reports/_TEMPLATE.html`의 `rich-v1` 구조를 사용하며 `final/`의 전체 MD 원문을 요약한다. 탐색형 리서치는 추천·결론으로 과도하게 수렴하지 않고 탐색 지도·불확실성·열린 질문을 HTML에 보존한다.
-- Red는 `decision_research` 최종 Report를 artifact와 별개로 직접 읽고, `요청에 답하는 결론`, `발견의 구체성`, `근거와 해석의 구분`, `사용자가 취할 다음 판단` 네 항목을 PASS/FAIL로 남긴다. 탐색형 리서치에는 Red를 호출하지 않는다.
-- 긴 표는 모바일에서 좌우 스크롤을 요구하지 않게 2열 이하로 줄이거나, 항목형 카드/목록으로 바꾼다. URL, 코드, 파일 경로, 긴 단어는 줄바꿈되게 작성한다.
-- 모든 리서치 및 산출물 위임 작업도 같은 규칙을 따른다. 위임받은 에이전트가 코드·문서 변경은 끝냈지만 HTML report를 남기지 않았다면, Heartbeat는 직접 `reports/_TEMPLATE.html`로 관측 결과를 보강해 HTML report를 만든 뒤 완료한다. 모든 리서치는 먼저 `final/`에 전체 Markdown 원문을 보존하고, 그 원문과 HTML 요약을 함께 완료물로 닫는다.
-- `decision_research` 및 산출물 작업은 Markdown report만으로 신규 완료를 인정하지 않는다. 탐색형 리서치의 Markdown 브리프는 최종 산출물로 인정한다.
-- **제약**: 대시보드는 이 파일을 `iframe sandbox="allow-same-origin"` 으로 렌더하므로 **JS·외부 리소스는 동작하지 않는다.** 스타일은 인라인 `<style>` 로만, 접기는 `<details>`(JS 불필요)로 한다.
-- 모바일 기준은 390px 폭이다. 브라우저 검증이 가능하면 `document.documentElement.scrollWidth <= window.innerWidth`를 확인하고, 어렵다면 템플릿 CSS의 `overflow-x:hidden`, 긴 텍스트 wrapping, 모바일 테이블 stacking 규칙을 깨지 않았는지 눈으로 확인한다.
-- 디자인은 **"Quiet Note"** 시스템을 따른다 — 따뜻한 본(bone) 배경(`--bg #f4f2ea`) + 저채도 단일 악센트. `_TEMPLATE.html`의 CSS는 그대로 두고 `:root`의 **`--a1`/`--a1-deep` 두 줄만 카테고리색으로 교체**한다 (축2는 항상 sage 고정):
-  - 조사형(research/wiki/doc): `--a1:#5a6f8a; --a1-deep:#3f536e;` (slate-blue) — 라벨 "무엇을 조사했나 / 핵심 결과"
-  - 개선형(marketing/product/dev/build/pages): `--a1:#a9745a; --a1-deep:#8a5c45;` (clay) — 라벨 "무엇이 문제였나 / 어떻게 해결하나"
-  - 감시형(monitor/maintenance/router): `--a1:#b08545; --a1-deep:#8a6633;` (muted gold) — 라벨 "무엇을 점검했나 / 이상 여부·조치"
-- 구조: **eyebrow(id·상태) → 제목 + dek 한 줄 → 결론 2축(좌측 컬러 라인) → `<details open>` 핵심 내용 → `<details open>` 상세 → `<details>` 메타**. JS 없이 CSS `animation-delay`로 스태거 로드.
-- 같은 시점의 보고를 `.md` 와 `.html` 로 함께 두면 대시보드는 **`.html` 을 우선** 노출한다. 신규 보고는 `.html` 하나만 만든다.
-
-> Report 는 여전히 "실행 로그"다. 2축은 그 로그의 결론을 사람이 한눈에 보게 하는 장치이며, canonical index 는 `intents/archive/{id}.md` 에 둔다는 원칙은 그대로다. 원장에도 동일한 2축(`result_summary`가 축2에 해당)을 남긴다.
+- `reports/_TEMPLATE.html`을 복사해 `{{...}}`를 치환합니다. `<html`, `<body`, `axis ax1`, `axis ax2`, `<details`와 반응형 CSS를 보존합니다. `_`로 시작하는 파일은 대시보드가 숨깁니다.
+- 모든 리서치는 `final/{slug}-report.md`의 전체 원문과 HTML 요약을 함께 제공합니다. HTML에는 실질 발견 3개 이상, 연결된 출처 3개 이상, 근거·해석 구분, 다음 탐색 또는 판단을 담고 `python3 scripts/validate_research_report.py reports/{id}/{timestamp}.html`을 통과해야 합니다. 수를 채우려고 같은 내용을 반복하지 않습니다.
+- 탐색형에 추천·결론·Red를 억지로 요구하지 않습니다. 의사결정형은 근거·비교·버린 대안·다음 판단을 담고, Red가 원문과 HTML을 직접 읽어 요청 부합·발견의 구체성·근거와 해석·다음 판단을 검증합니다.
+- 위임 결과에 Report가 빠졌으면 관측한 결과로 보강한 뒤 닫습니다. 조사 원문·HTML·검증 중 누락된 것을 채팅 요약으로 대체하지 않습니다.
+- 마케팅 Report의 상세에는 계승한 기준·새로 배운 점·다음 실행에서 바꿀 규칙을 남깁니다. 반복 가능한 판단만 해당 마케팅 정본에 승격합니다.
+- 대시보드는 `iframe sandbox="allow-same-origin"`을 사용합니다. JS나 외부 리소스에 의존하지 않고 인라인 `<style>`과 `<details>`로 작성합니다.
+- 모바일 390px에서 긴 URL·코드·경로가 줄바꿈되고 표가 가로 넘침을 만들지 않아야 합니다. 브라우저에서 `document.documentElement.scrollWidth <= window.innerWidth`, 제목·두 축·핵심 본문을 확인합니다. 브라우저 검증을 못 했으면 CSS 점검과 실제 렌더 미검증을 구분합니다.
+- 디자인은 템플릿의 Quiet Note를 유지합니다. 배경 `#f4f2ea`, 축2 sage는 고정하고 `--a1` / `--a1-deep`만 성격별로 바꿉니다: 조사 `#5a6f8a` / `#3f536e`, 개선 `#a9745a` / `#8a5c45`, 감시 `#b08545` / `#8a6633`.
+- 순서는 `id·상태 → 제목·dek → 두 축 → 핵심 내용 → 상세 → 메타`입니다. 같은 실행의 Markdown·HTML Report를 중복 생성하지 않습니다. 기존 두 형식이 함께 있으면 HTML을 우선 표시합니다.
 
 ## Migration Note (현 상태)
 

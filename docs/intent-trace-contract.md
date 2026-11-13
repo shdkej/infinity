@@ -76,7 +76,7 @@ The writer does not move an `INTENTS.yaml` lane or assert a remote commit; it
 records the proof supplied by the workflow. Record the archive event only after
 the normal Archive remote-verification gate has passed.
 
-For default `exploratory_research`, pass `--research-mode exploratory_research`; its archive requires a Markdown brief and remote proof, records `red_status: not_required`, and does not take a Red report path.
+For default `exploratory_research`, pass `--research-mode exploratory_research`; the trace writer requires a Markdown brief and remote proof, records `red_status: not_required`, and does not take a Red report path. The overall delivery still requires the HTML report and report validation in [ARTIFACT_RULES.md](../ARTIFACT_RULES.md#리서치-최종본-품질-계약); trace validation alone does not prove completion.
 
 Dispatcher acceptance is recorded as a `dispatcher_handoff` event. It contains
 the dispatcher `run_id`, `canonical_sha`, `agent`, `session_key`, UTC

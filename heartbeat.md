@@ -1,529 +1,79 @@
-# Heartbeat Agent
+# Infinity 실행 절차
 
-> 스케줄에 따라 깨어나서 INTENTS.md의 의도를 자율 실행하는 에이전트.
-> 사용자는 의도와 판단만, 에이전트는 실행과 보고를 담당한다.
+OpenClaw dispatcher가 큐를 읽고 지니에게 작업을 넘기는 순서입니다. 저장소 간 접수·승인 기준은 [KL 운영 계약](../knowledge-lab/source/openclaw-system/docs/INFINITY_OPERATING_RULES.md), 실행기·스케줄·잠금은 [Dispatcher 구현](docs/dispatcher-implementation.md)이 소유합니다.
 
-## 동작 프로토콜
+## 1. 최신 상태와 사용자 결정을 확인한다
 
-## 지니 단일 실행 게이트
+1. `origin/main`을 fetch하고 현재 브랜치·변경·미푸시 커밋을 확인합니다. 안전하게 fast-forward한 뒤 `HEAD == origin/main`을 검증합니다. 다른 작업의 변경을 stash·폐기·rebase하지 않습니다. 접수 시 깨끗한 임시 worktree를 쓸 수 있고, 정기 dispatcher의 canonical checkout 요건은 구현 문서를 따릅니다.
+2. `INTENTS.yaml`의 `lanes.backlog/inbox/active/waiting`과 `archive.files`의 월별 YAML을 읽습니다. 같은 목적의 열린 Intent는 재사용하고, 이미 종료된 결과는 안내합니다. 새 범위가 있을 때만 차이를 적어 후속 Intent를 만듭니다.
+3. 현재 wake에 사용자 버튼 callback이 있으면 먼저 처리합니다. provider/workspace·channel·message/thread·user·value·intent/run/question ID를 outbound 기록과 대조하고 원 질문과 선택지를 복원합니다. 일치한 결정만 같은 흐름에서 이어가며, 만료·중복·불일치는 실행하지 않습니다. Active Intent가 아직 없다는 이유로 접수 전 질문의 응답을 버리지 않습니다.
+4. S3 버튼 큐는 전용 `run_dashboard_actions_cron.sh`만 소비합니다. 실행 dispatcher는 다음 주기에 원격 전이 결과를 읽습니다. `resolve_waiting`은 재개 신호이고, 버튼 수신 자체는 작업 완료가 아닙니다.
 
-모든 Inbox/Active Intent는 `target_agent: genie`로 정규화한다. 기존 `target_agent: marketer` 같은 역할 표기는 `delegated_role`로 보존하고, 직접 실행하지 않는다. `research`, `simple-doc`, `monitor`, `execute_local`, `verify_local` 등 mode와 작업 크기는 지니 내부 단계의 입력일 뿐 라우팅 예외가 아니다.
+## 2. Inbox를 실행 가능한 요청으로 만든다
 
-- Heartbeat는 Inbox를 구조화하고 `genie`에 전달할 실행 입력을 만든다.
-- 실제 태스크 실행·보고·검증·Archive는 `/home/ubuntu/.openclaw/workspace-genie/GENIE_WORKFLOW.md` 계약을 따르는 지니가 소유한다.
-- Heartbeat Agent, Local Claude Code, 별도 workflow-master가 지니를 우회해 태스크를 직접 끝내지 않는다.
-- 지니 세션 생성이나 dispatch가 불가능하면 실행하지 말고 Intent를 `Waiting`에 두며, 원인과 재개 조건을 기록한다.
+접수 전 사용자 의도 구체화와 Context Pack은 [KL 운영 계약](../knowledge-lab/source/openclaw-system/docs/INFINITY_OPERATING_RULES.md#intake-and-evidence)을 따릅니다. SAM은 `grill-me` 방식으로 한 번에 중요한 질문 하나씩 확인합니다. 제공된 맥락을 다시 묻지 않고, 목표·결과·제외 범위·성공 증거·승인 경계를 바꾸는 불확실성만 해소합니다.
 
-매 Heartbeat마다 아래 순서를 따른다.
+- 새 항목은 `INTENTS.yaml`의 lane 배열에 객체로 기록합니다. `id`, 동일한 한국어 `title`·`task_name`, lane에 맞는 `status`, `target_agent: genie`를 둡니다. 제목은 대상·행동·산출물을 알아볼 수 있게 쓰고 내부 ID·영어 태그를 제목으로 대신하지 않습니다.
+- 사용자 의도(`user_intent`), 원하는 결과(`desired_outcome`), 제외 범위(`out_of_scope`), 성공 증거(`success_evidence`)를 분리합니다. 알림 원점 `notification_channel`·`notification_target`과 해당하는 thread/reply 메타를 보존합니다.
+- Context Pack의 필수 문서와 선택된 Wiki 구간·운영 로그를 실제로 읽고 `context_documents_checked`, `context_searches`를 남깁니다. [trace 계약](docs/intent-trace-contract.md)의 writer로 intake를 기록하고 검증합니다. 검색 결과 없음과 검색 도구 실패를 구분합니다.
+- 비단순 산출물 작업은 `metric_question`, `metric_signal`, `metric_decision_rule`을 기록합니다. 기존 `target_agent: marketer` 등은 `delegated_role`로 보존하고 실행은 지니가 맡습니다. source-agent 협업이면 [협업 계약](AGENT_COLLABORATION.md)도 확인합니다.
+- 커밋 전 원장·trace와 `python3 scripts/prepare_dispatch_cycle.py --repo . --intents INTENTS.yaml --json`으로 로컬 카드를 검사합니다. 이 명령은 오류를 `invalid_state`에 담고도 exit 0일 수 있으므로 해당 ID의 오류가 없는지 직접 확인합니다. 요청 경로만 commit/push하고 [원격 검증기](../knowledge-lab/source/openclaw-system/scripts/verify_git_publish.sh)를 통과한 뒤, 원격 YAML의 해당 ID와 `python3 scripts/prepare_dispatch_cycle.py --repo . --json`의 판정을 다시 확인합니다. 슬롯 부족·의존성 대기는 실행 오류와 구분합니다. fetch·trace·원장·계획·push·SHA 검증 중 하나라도 실패하면 접수 완료로 보고하지 않습니다.
 
-### -1. 현재 사용자 callback continuation
+Backlog는 관찰 후보입니다. 사용자가 처리 범위를 선택한 뒤 Inbox로 승격하며, 후보가 있다는 이유로 자동 실행하지 않습니다. 후보 정리는 [백로그 정리 계약](docs/ROLE_WATCHER_BACKLOG_MANAGER.md)을 따릅니다.
 
-이번 wake에 Slack `interactionType: block_action` 또는 지원 채널의 버튼 callback이 함께 들어오면, 이를 일반 heartbeat의 과거 맥락이 아니라 현재 사용자 결정으로 처리한다.
+## 3. 실행 대상을 고른다
 
-1. `provider/workspace + channel_id + message_ts/messageId + thread_ts + user_id + value + intent/run/question id` 복합 키로 outbound 버튼 기록과 inbound를 대조한다.
-2. 일치하면 원래 스레드의 질문과 직전 선택지를 다시 읽고, callback 수신 → 상태 복원 → 다음 질문/가역 작업/승인 경계까지 같은 응답 흐름에서 이어간다.
-3. `Active` intent가 없다는 이유로 callback을 폐기하지 않는다. grill-me 선택은 아직 Intent가 생성되기 전에도 유효한 결정 이벤트다.
-4. 일치하지 않거나 만료·중복·잘못된 스레드이면 후속 작업을 실행하지 않고 해당 상태를 기록한다. 필요한 경우 원래 질문을 만료 처리한 뒤 번호 fallback을 보낸다.
-5. callback continuation이 끝난 뒤에만 대시보드 action queue와 일반 Inbox/Active/Waiting 흐름으로 넘어간다.
+- 실행 가능한 승인·재개 항목과 우선순위를 확인합니다. 코드의 우선순위는 `critical > high > normal > low`이며, 명시된 deadline과 의존성도 확인합니다.
+- Active는 최대 3개이며 같은 프로젝트의 쓰기는 하나씩 처리합니다. 프로젝트 연결은 `data/project-executors.yaml`로 확인하고, 등록되지 않은 프로젝트나 경로를 추정해 라우팅하지 않습니다.
+- `waiting_on: user|external`은 조건 변화 전 재실행하지 않습니다. `waiting_on: agent`와 `retry_policy: autonomous`는 `next_retry_at` 이후 재시도하며, 시각이 없으면 다음 cycle에서 처리합니다. 명시된 deadline이 지났으면 신규 실행 대신 종료를 판단합니다.
+- Active 카드만으로 중복 실행을 막지 않습니다. 세션/프로세스, 최근 report, lock owner 또는 terminal report를 확인합니다. 살아 있는 근거 없이 중복 차단만 반복되면 guard를 해제하고 `stale_guard_released`를 기록합니다.
+- 실제로 처리할 변화가 없으면 종료합니다. no-op commit/push, 생존 확인용 report, 같은 차단의 반복 알림은 만들지 않습니다.
 
-### 0. Dashboard action queue 처리 (전용 크론 소유)
+## 4. 지니에게 실행과 검증을 넘긴다
 
-실제 S3 action queue 소비는 `scripts/run_dashboard_actions_cron.sh`가 담당한다. Heartbeat/Genie 실행은 이 큐를 직접 소비하지 않으며, 다음 작업 실행 주기에서 원격 `INTENTS.yaml`의 전이 결과를 읽는다. 버튼 크론의 처리 결과는 사용자 알림 크론이 별도로 전달한다.
+모든 Inbox/Active Intent의 실행·보고·검증은 [GENIE_WORKFLOW.md](../../.openclaw/workspace-genie/GENIE_WORKFLOW.md)를 따릅니다. Heartbeat나 별도 로컬 실행자가 이를 우회해 완료하지 않습니다. 지니 dispatch가 불가능하면 원인과 재개 조건을 남깁니다.
 
-대시보드 버튼은 사용자가 Waiting에 걸린 외부 조건을 바꾼 명시 신호이므로, 작업 실행 디스패처는 새 원격 전이를 읽을 때 일반 Waiting 반복 금지보다 우선한다.
+인계에는 Intent ID·목표·Context Pack·기존 근거·승인 경계·검증 방법·산출물 경로를 포함합니다. 실행마다 [trace](docs/intent-trace-contract.md)에 실제 검색·읽은 문서·근거를 남깁니다. 문서·역할 결과·Red·사용자 보고는 한국어로 쓰되 코드·경로·고유명사는 원문을 유지합니다.
 
-1. 버튼 크론이 `/home/ubuntu/workspace/infinity`에서 `python3 scripts/process_action_requests.py --apply --limit 10 --json`을 실행한다.
-2. `resolve_waiting` 요청이 accepted이면 해당 intent를 Waiting 반복 금지 대상에서 제외하고, 다음 작업 실행 주기가 `next_action`과 `blocker`를 다시 읽어 가능한 가역 작업을 시도한다.
-3. action queue 처리만으로 완료를 선언하지 않는다. 큐 처리는 사용자 트리거 수신이며, 실제 intent 실행·검증·Archive는 지니 계약을 따른다.
-4. rejected 요청은 rejection reason을 기록하고 같은 실패를 반복하지 않도록 dedupe marker를 해제한다.
+| 판단 | 정본과 실행 기준 |
+| --- | --- |
+| 권한 | [PERMISSIONS.md](PERMISSIONS.md). 허용된 범위는 실행하고 미승인 외부 행동은 [GATES.md](GATES.md)에 남김 |
+| 실행 위치 | OpenClaw의 `Cloud prepares, Local executes`와 지니 workflow. 로컬 도구·세션 접근은 해당 환경의 규칙 적용 |
+| 역할 협업 | Planner·Developer·Marketer·Operator 임시 세션과 교차 검토. 세션 증거·실패 시 1회 재시도·fallback 경계는 지니 workflow 및 [실행 방식 기록](ARTIFACT_RULES.md#execution-mode-기록) |
+| 고객·시장·브랜드 판단 | CMO 책임. 임시 Marketer 역할이 CMO 결정권을 대신하지 않음 |
+| 리서치 | 기본 `exploratory_research`; 중요한 선택·도입·구매·명시 검증은 `decision_research`. [최종본 품질 계약](ARTIFACT_RULES.md#리서치-최종본-품질-계약) 적용 |
+| 큰 작업·마감 | [태스크 계획](ARTIFACT_RULES.md#대형-작업-태스크-계획)과 [실행 학습](EXECUTION_LEARNING_CONTRACT.md). leaf ≤30분, 새 계획 전 정본 양식·기존 예시 확인 |
+| 시각 산출물 | [비주얼 납품 계약](VISUAL_DELIVERY_CONTRACT.md), 실제 렌더와 필요한 Red 직접 검수 |
 
-### 1. Inbox 처리
+사용자가 명시한 미래 `deadline`과 적법한 계획 정책이 있을 때만 자동 leaf 확장을 허용합니다. deadline을 추정하거나, 이미 끝난 계획을 활동량 유지 목적으로 늘리지 않습니다. stage 진전은 새 artifact/test/render/commit/blocker의 증거로 판단하며 handoff 횟수를 성과로 세지 않습니다. 대형 작업의 두 cycle 연속 무진전·복구·마감 처리는 실행 학습 계약을 따릅니다.
 
-INTENTS.md의 `## Inbox` 섹션을 먼저 확인한다. 자유 형식 텍스트가 있으면:
+## 5. 대기에는 담당과 재개 조건을 남긴다
 
-먼저 `AGENT_COLLABORATION.md`를 필요한 만큼 읽어 source-agent -> target-agent 요청인지 판별한다. Inbox 항목에 `target_agent`가 이미 있으면 원래 역할을 `delegated_role`로 보존하되, 실행 target은 `genie`로 정규화한다.
+| `waiting_on` | 남길 것 | 처리 |
+| --- | --- | --- |
+| `user` | 필요한 결정·승인·입력, `blocker`, `next_action` | 현재 승인 범위로 해결할 수 없는 것만 요청 |
+| `external` | 외부 조건과 확인 방법 | 조건이 바뀌면 재개 |
+| `agent` | 실패 근거·시도한 대안·`retry_policy`·`next_retry_at` | 자율 재시도 |
+| `internal` | 누락된 Report·Archive·지식 판정·원격 증거 | dispatcher가 종료 묶음을 마침 |
 
-1. 내용을 분석하여 구조화된 Intent로 변환
-2. 적절한 ID 부여 (카테고리-번호, 예: monitor-02, dev-01)
-3. priority, permission, goal, success_criteria를 추론하여 채움
-4. 단순 조회·상태 확인이 아니면 `metric_question`, `metric_signal`, `metric_decision_rule`을 함께 채움. `metric_question`은 "무엇이 바뀌면 다음 결정을 바꿀 것인가?"에 대한 한 문장으로 제한한다.
-5. `## Active`가 3개 미만이면 `status: active`로 추가
-6. `## Active`가 이미 3개면 Inbox에 남기고 간단한 구조화 메모만 추가
-7. Inbox에서 Active로 이동한 항목만 제거
-8. Telegram 알림은 실제 실행, blocker, 완료처럼 사용자에게 의미 있는 변화가 있을 때만 보낸다.
+안전하게 가능한 복구 경로를 확인한 뒤 차단을 선언합니다. 같은 이유가 반복되면 대안·필요한 사용자 결정·프로토콜 수정 중 하나로 연결하고 같은 보고를 쌓지 않습니다. 상세 복구 순서와 역할 세션 재시도 한도는 [실행 학습 계약](EXECUTION_LEARNING_CONTRACT.md)을 따릅니다.
 
-완료/감사 report를 읽은 뒤에는 `follow_up_intent_ids`와 `follow_up_not_created_reasons`를 확인한다. 기존 목표를 닫기 위해 필요한 후속 조치가 있고 근거 신호·기대 산출물·완료 기준을 채울 수 있으면 `INFINITY_OPERATING_RULES.md`의 Completion-report follow-up capture 계약에 따라 Inbox에 별도 intent를 등록한다. 기존 Inbox/Active/Waiting 항목과 동일 목적이면 새 intent를 만들지 않고 기존 id를 report에 연결한다. 등록 후에는 INTENTS.md를 다시 읽어 원래 Inbox 항목이 제거되고 새 intent가 올바른 lane에 있는지 검증한다.
+승인을 기다리는 초안·후보·링크는 `pending_decision`, `pending_posts`, `pending_threads`, `pending_links` 중 해당 필드에 안전한 라벨로 표시합니다. 비밀값·비공개 링크는 원장에 넣지 않습니다. 대시보드에서 요약·상세가 실제로 읽히는지 확인하고, 전용 notifier가 대기 사유·시도한 대안·필요 입력·재시도 시각과 receipt를 기록하게 합니다.
 
-`marketing-*` 또는 `target_agent: marketer` 요청은 두 번짜리 Marketing growth review cron을 기다리지 않는다. Heartbeat/Infinity router가 실행 가능한 marketing intent로 취급하고, 필요한 경우 Marketer 학습 루프로 바로 넘긴다.
+## 6. 결과와 Archive를 함께 닫는다
 
-사용자가 명시 승인한 `Active` 상태의 `marketing-*` 구현 intent는 routine triage가 아니다. Telegram 알림은 조용히 유지할 수 있지만, 라우터는 이를 `NO_REPLY`로 무시하지 않고 한 번의 bounded 실행 단위로 처리해야 한다. 이때 가능한 결과는 (a) 승인 범위 안의 작은 구현/검증/리포트, (b) 정확한 blocker를 `Waiting`에 남김, (c) 로컬 실행 프롬프트/준비 리포트 작성 중 하나다.
+산출물 경로·Report 양식·Archive 객체·지식 판정은 [ARTIFACT_RULES.md](ARTIFACT_RULES.md)가 소유합니다. 아래 순서로 확인합니다.
 
-추론이 어려운 필드는 비워두지 말고 Telegram으로 사용자에게 질문한다.
+1. **결과 확정:** 요청과 성공 증거를 대조해 `final/`과 읽을 수 있는 HTML Report를 완성합니다. 모든 리서치는 전체 Markdown 원문과 HTML을 함께 둡니다. 탐색형은 Red `not_required`, 의사결정형·그 외 산출물은 필요한 Red PASS와 증거를 확인합니다.
+2. **종료 기록:** `metric_result`, `metric_next_decision`(`null`/`hold`는 이유 포함), 다음 행동, 지식 판정, 필요한 KL 검색 영수증을 남깁니다. 후속 작업은 중복 검색 후 연결하고 승인 범위 밖 실행은 하지 않습니다.
+3. **상태 이동:** 열린 lane에서 제거하고 `intents/archive/YYYY-MM.yaml`에 객체를 넣으며, 상세는 `intents/archive/{id}.md`로 연결합니다. 동일 ID의 lane 중복을 만들지 않고 `completed_at`·trace·알림 원점을 보존합니다.
+4. **검증·게시:** 원장·trace·지식·리서치 검증을 실행하고 요청 변경만 commit/push합니다. `python3 scripts/verify_archive_remote.py <intent-id>`로 원격 원장·상세·결과를 확인합니다. trace의 archive event는 증거를 확보한 뒤 writer로 기록하고 해당 변경도 게시합니다.
+5. **화면·전달:** 실제 대시보드 카드와 결과 링크를 확인합니다. 검증 후 `remote_verified: pass`와 근거가 원격에 반영되어야 전용 notifier가 완료를 전달합니다. receipt 또는 `delivery_unknown`을 확인하고 로컬 생성·원격 반영·실제 전달을 구분해 보고합니다.
 
-### 2. 의도 읽기
+실행이 `done`인데 마감 기록만 빠진 경우 새 작업처럼 재인계하지 않고 같은 cycle에서 종료를 마칩니다. 마감 도달·사용자 종료 지시는 [KL 종료 계약](../knowledge-lab/source/openclaw-system/docs/INFINITY_OPERATING_RULES.md#lifecycle-archive-and-records)을 적용합니다. 확보한 결과와 미완료 leaf를 구분하고, 성공하지 못한 작업을 성공으로 Archive하지 않습니다. 최종 산출물을 만들 수 없거나 실제 사용자·외부 차단이 있으면 `deadline_missed`와 실패 리포트·재개 조건을 남깁니다.
 
-INTENTS.md의 `## Active` 섹션에서 실행 가능한 Intent를 필터링한다. `Waiting` 중 `waiting_on: agent`와 `retry_policy: autonomous`가 있고 `next_retry_at`이 지난 항목은 deadline 전 자동 재개 대상으로 취급한다. 사용자 결정·외부 조건 대기만 반복 실행하지 않는다.
+## 7. 알림과 반복 개선
 
-- `active` → 계획 수립 또는 실행 대상
-- `in_progress` → 진행 중, 다음 마일스톤 실행
-- `waiting` → `## Waiting`으로 이동하고 같은 질문 반복 금지
-- `blocked` → legacy alias. 새 항목은 `waiting`을 사용
-- `archived` → 아카이브 처리 후 건너뜀
+상태·terminal 알림은 `run_notification_cron.sh`와 `dispatch_terminal_notifications.py`가 담당합니다. 실행 에이전트가 중복 발송하지 않습니다. 알림 원점, override, durable receipt, 불확실 수신 처리, PNG·텍스트·승인 버튼은 [Dispatcher 구현](docs/dispatcher-implementation.md#알림-전달-계약)을 따릅니다. `delivery_unknown`을 임의 성공이나 자동 재송으로 바꾸지 않습니다.
 
-중복 실행 방지는 `Active` 레인 존재만으로 판단하지 않는다. duplicate gate를 적용하려면 살아 있는 실행 증거가 있어야 한다: 실행 중인 세션/프로세스 id, 최근 90분 안의 진행 report, 명시적 lock owner/started_at, 또는 곧 Archive될 terminal report 중 하나다. 같은 intent가 Active에 남아 있는데 진행 report 없이 duplicate-gate report만 반복되면 stale guard로 간주하고, 중복 no-op을 계속 만들지 말고 한 번 `Inbox`로 되돌리거나 실제 재개를 시도한 뒤 `stale_guard_released`를 기록한다.
-
-### 절대 마감 대형 태스크의 hard-stop
-
-- **기능 단위 미니 사이클이 기본 단위다.** T1=기획, T2=구현, T3=Red, T4=마감처럼 전체 프로세스를 순차 태스크로 쪼개지 않는다. 하나의 사용자 기능·상태·결정마다 `계획 → 구현/조사 → Red 검증 → 마감 확인`을 완료한 뒤 다음 기능 사이클로 이동한다.
-- **계획 양식 발견은 실행 전제다.** 새 task plan을 쓰기 전에 `ARTIFACT_RULES.md`의 `대형 작업 태스크 계획`과 가장 가까운 기존 `task-plan.md`를 읽고, Intent의 `task_plan_template`에 정본 경로를 남긴다. 이 증거가 없으면 계획을 임의 형식으로 만들거나 dispatcher에 넘기지 않는다.
-- 각 leaf는 최대 30분이다. task-plan에는 `cycle_id`, `cycle_goal`, `max_minutes`(≤30), `validation`, `closure_check`, `evidence`를 반드시 기록한다. 30분을 넘길 조짐이면 진행률을 부풀리지 말고 기능을 더 작은 leaf로 나누고 계획 변경을 기록한다.
-- Red는 각 leaf 직후 해당 변화의 사용성·안전 경계·회귀를 판정한다. 전체 Intent의 최종 Red는 leaf별 Red를 대체하지 않으며, leaf `closure_check`는 다음 leaf 진입 조건일 뿐 Archive가 아니다.
-- 기능 완료 후 새 데이터 범위·새 지역·새 외부 의존성이 생기면 기존 Intent 상태를 되돌리지 않는다. 기존 Intent를 정상 마감하고 확장 범위는 새 Intent로 등록한다.
-- `EXECUTION_LEARNING_CONTRACT.md` 적용 Intent는 handoff나 세션 자체가 아니라 새 artifact/test/render/commit/blocker를 `stage_evidence_at`으로 남긴 경우에만 진전으로 인정한다.
-- 이전 실질 증거 이후 두 dispatcher cycle이 연속으로 비어 있으면 `stale_progress`로 Waiting 전환하고, 자동 handoff를 중단한다.
-- 브라우저·GPU·렌더러·빌드·로컬 세션 차단은 곧바로 Waiting으로 옮기지 않는다. 원인 단계(프로필 lock, WebGL, runtime config, network tile, 상호작용)를 관측하고, 현재 경로 복구 → 격리 프로필/소프트웨어 렌더 → 다른 관리 브라우저·노드·원격 렌더 → 재현 가능한 코드 검증 순으로 자율 대안을 시도한다. 각 시도는 evidence 또는 실패 로그를 남긴다.
-- 위 대안이 안전하게 소진됐거나 사용자·외부 승인 없이는 다음 단계가 불가능할 때만 Waiting을 사용한다. Waiting 전환 cycle에는 원 요청 대화로 원인·시도한 대안·다음 자율 시도/필요 입력·재시도 시각을 보내고 receipt 또는 `delivery_unknown`을 기록한다. 이 통보가 없으면 상태 전환은 불완전하다.
-- deadline이 지난 Active Intent는 먼저 **마감 종료 묶음**을 수행한다: 확보된 증거로 final Markdown을 확정하고, 사용자/Intent가 요구한 HTML Report를 만들며, Archive 원장·상세·원격 검증·대시보드 확인·원 스레드 통보까지 같은 종료 흐름으로 닫는다. 미완료 leaf는 실패 사실과 후속 조사 범위로 남긴다. 최종 산출물 자체를 만들 수 없거나 실제 사용자·외부 차단이 있을 때만 `deadline_missed` failure report와 재개 조건을 남겨 Waiting으로 이동한다. 마감 후 사용자가 “마무리/종료/아카이브”를 지시한 경우에도 동일 묶음을 먼저 실행하며, 부분 요약만 보내고 Report·Archive를 누락해서는 안 된다.
-- 기능 완주가 deadline보다 빠르면 `quality_iteration_active`로 유지한다. 시각 산출물은 `BRAND.md → DESIGN.md → DESIGN_SYSTEM.md` 확인·390px/desktop 실제 capture·Red 직접 판정 전에는 완료가 아니다. 지도는 실제 canvas의 장소/도로·zoom/pan·거리/위치·레이어 상호작용이 모두 검증돼야 한다.
-- Archive terminal notifier는 Intake의 channel/target/reply metadata가 원격 Archive 입력에도 존재하고, 해당 원 대화의 delivery receipt 또는 `delivery_unknown`을 기록한 경우에만 실행한다.
-
-### 3. 우선순위 정렬
-
-1. `blocked` 중 승인된 항목 (즉시 실행)
-2. `critical` > `high` > `medium` > `low`
-3. deadline 임박 항목 우선
-
-### 4. 상태 점검
-
-각 Intent에 대해:
-
-- `reports/{intent-id}/` 에서 이전 실행 결과 확인
-- context에 명시된 파일/서비스의 현재 상태 확인
-- 다음에 취할 액션 결정
-
-### 5. 실행 위치 라우팅
-
-권한 레벨을 확인하기 전에 Intent를 먼저 `Cloud prepares, Local executes` 기준으로 분류한다.
-
-| mode | 처리 주체 | 기준 |
-|------|-----------|------|
-| `research` | Cloud | 웹 조사, 문서/이슈 읽기, 비교, 요약 |
-| `prepare` | Cloud | 실행 계획, 명령어 후보, 패치/테스트 전략 초안 |
-| `monitor` | Cloud | 반복 상태 체크, 변경 감시, 리마인드 |
-| `draft` | Cloud | 문서/보고서/커밋 메시지/PR 설명 초안 |
-| `execute_local` | Local Claude Code | 파일 수정, 코드 실행, 테스트, 빌드, 브라우저/터미널 조작 |
-| `verify_local` | Local Claude Code | 로컬 상태·로그인 세션·런타임 기반 검증 |
-| `needs_review` | User Gate | 파괴적/외부 영향/비용/권한 변경/애매한 판단 |
-
-기본 원칙:
-
-- 클라우드는 직접 고치려고 하지 말고, 로컬이 바로 실행할 수 있게 조사·정리·초안·순서화를 먼저 수행한다.
-- 로컬 상태, 파일 변경, 테스트/빌드, 개인 인증 세션, 민감 데이터가 필요한 순간부터 `execute_local` 또는 `verify_local`로 넘긴다.
-- 로컬 실행은 Claude Code에 위임한다. 사용자가 별도 제한을 두지 않은 경우 Claude Code 호출에는 `--dangerously-skip-permissions`를 포함하되, Infinity의 L2/L3 경계는 그대로 적용한다.
-- 클라우드에서 준비한 자료가 충분하지 않으면 먼저 `prepare` 리포트를 남기고, 로컬 실행 프롬프트에는 목표·근거·파일 후보·검증 게이트·금지 사항을 함께 전달한다.
-
-### 6. 권한 확인 및 실행
-
-PERMISSIONS.md의 권한 레벨에 따라:
-
-| 레벨 | 행동 |
-|------|------|
-| L0 (자율) | Cloud research/prepare/monitor는 즉시 수행. Local 검증이 필요하면 Claude Code로 위임 가능. 변화 있을 때만 Telegram 요약 알림 |
-| L1 (알림) | 허용된 로컬 파일 수정/테스트/빌드는 Claude Code로 위임 후 결과를 Telegram으로 알림 |
-| L2 (에이전트 검토 후 자체 승인 가능) | `PERMISSIONS.md`의 L2 자체 승인 조건을 모두 만족하면 `agent-approved L2`로 리포트에 기록하고 실행. 조건을 만족하지 못하면 GATES.md에 등록 + Telegram 승인 요청 |
-| L3 (금지) | 실행하지 않음. 사용자에게 직접 수행 안내 |
-
-### 7. 병렬 스케줄링
-
-실행 가능한 Intent가 여러 개일 때, 다음 규칙으로 병렬 실행 대상을 결정한다.
-
-#### 프로젝트 판별
-
-Intent의 `context` 필드(파일 경로, 서비스명 등)에서 프로젝트를 추출한다.
-- 경로 기반: 최상위 디렉토리 또는 리포지토리 루트 (예: `kop-web`, `security-automation`)
-- 명시적 태그: Intent에 `project: xxx` 필드가 있으면 그것을 사용
-- 고정 프로젝트 매핑:
-  - `infinity`: `/home/ubuntu/workspace/infinity`, `INTENTS.md`, Infinity kanban/dashboard/report/archive.
-  - `space`: `/home/ubuntu/workspace/space`, `infra-aws-static-sites`, `infra-cloudflare-images`, `infra-dns`, `infra-oracle`, `minikube`, 정적 사이트 배포와 개인 인프라.
-  - `monitoring_personal`: `/home/ubuntu/workspace/monitoring_personal`, Prometheus, Loki, Promtail, YACE, PostHog exporter, Docker Compose/K8s 개인 모니터링 스택.
-- `monitoring`이라는 느슨한 태그가 개인 모니터링 repo, TICK/Prometheus/Loki/PostHog exporter, `/home/ubuntu/workspace/monitoring_personal` 중 하나를 가리키면 `monitoring_personal`로 정규화한다.
-- 프로젝트 판별 불가 시: 각각 독립 프로젝트로 간주
-
-#### 스케줄링 규칙
-
-1. 실행 가능한 Intent를 우선순위순으로 정렬
-2. **같은 프로젝트**의 Intent는 동시에 실행하지 않는다 (파일 충돌 방지). 가장 높은 우선순위 1개만 선택
-3. **서로 다른 프로젝트**의 Intent는 최대 **3개**까지 병렬 실행
-4. 남은 Intent는 다음 Heartbeat에서 처리
-
-#### 병렬 실행 방식
-
-선택된 Intent들을 각각 독립된 Agent로 동시 spawn한다.
-
-```
-Heartbeat
-  ├── Agent 1: Intent A (project: kop-web)      → genie
-  ├── Agent 2: Intent B (project: monitoring)   → genie
-  └── Agent 3: Intent C (project: mimo)         → genie
-```
-
-- 각 Agent는 독립적으로 실행되며, 리포트도 각각 `reports/{intent-id}/`에 기록
-- 한 Agent의 실패가 다른 Agent에 영향을 주지 않는다
-- 모든 Agent 완료 후 Heartbeat 리포트에 병렬 실행 요약을 기록
-
-### 8. 실행
-
-각 Intent에 대해 지니에게 전달할 실행 입력을 만든다. Cloud/Local 구분은 지니가 네 역할을 거치며 결정한다.
-
-- **Cloud 작업** (조사, 비교, 요약, 계획, 초안으로 Intent/result를 만드는 일): 지니가 Knowledge Lab과 Planner·Developer·Marketer·Operator 네 임시 역할 세션을 모두 운영하고 결과를 통합. Genie Intent 없이 SAM이 직접 처리하는 읽기 전용 상태 전달만 세션 생략
-- **Local 작업** (코드 수정, 테스트, 빌드, 브라우저/터미널 조작으로 결과를 만드는 일): 네 역할을 모두 임시 세션으로 실행하되, 실제 코드·운영 변경은 Developer/Operator를 단일 파일 owner로 정해 Claude Code 등에 위임
-- **Claude Code 호출 경로(임시 기본값)**: 당분간 Infinity의 local Claude 위임은 새 `claude -p` 프로세스보다 기존 pt/purplemux Claude Code tmux pane을 우선 사용한다. OpenClaw workspace의 `skills/pt-claude-tmux/SKILL.md` 절차를 따른다: `tmux -L purple`로 Claude pane을 찾고, capture로 현재 상태를 확인한 뒤, `C-c`와 `/clear`로 stale prompt를 정리하고, 하나의 짧고 경계가 분명한 prompt를 보낸 다음 결과를 capture한다. 사용 가능한 pt Claude pane이 없거나 busy/unsafe 상태이면 한 번만 bounded `claude --dangerously-skip-permissions -p` 호출로 fallback할 수 있다.
-- **Claude Code 작업 규칙**: 지니가 `local-code`, multi-file/shared behavior, 단일 내부 문서, 리포트, `simple-doc`을 모두 workflow-master 흐름과 네 역할 세션 안에서 처리한다. 별도의 직접 lightweight prompt 예외는 없다.
-- **리서치 분류 우선**: 사례 설명·시장 지형·트렌드·카테고리/도구 지도·"어떤 것이 있나"는 기본 `exploratory_research`다. 이 모드는 탐색형 브리프와 근거·불확실성의 깊이를 정하며, 연구 Intent를 생성하면 네 역할을 실행한다. Intent 없이 SAM이 직접 끝내는 읽기 전용 상태 응답만 예외다. 투자·도입·구매·벤더선정·출시/배포·가격/수익성·법률/컴플라이언스 또는 명시적 "검증"만 `decision_research`다.
-- **실행 모드**: 모든 Genie Intent/실제 프로젝트 실행은 `multi_subagent_roles`로 실행한다. Intent 없이 SAM이 직접 수행하는 읽기 전용 상태 전달만 역할 실행 없는 모드로 남긴다. 탐색형 리서치·작은 문서 작업도 네 역할 세션을 실행하되 산출물과 검토는 짧게 한다.
-- **역할 분리**: Planner, Developer, Marketer, Operator를 모두 별도 임시 서브에이전트로 실행한다. 네 역할은 독립 판단을 제출한 뒤 다른 역할의 핵심 근거를 읽고 한 차례 반박·보완 또는 동의 근거를 남긴다. 복잡도에 따라 간단 작업은 각 1–3개 bullet, 중간 작업은 근거·위험·다음 행동이 있는 짧은 섹션, 복잡 작업은 역할별 독립 산출물과 필요한 추가 조정 라운드를 수행한다. 지니는 표결이 아니라 근거와 책임 경계로 최종 통합한다.
-- **역할 서브에이전트 실행 절차**: 지니는 `spawn_agent`가 바로 없으면 `tool_search`로 `spawn_agent`/`subagent` 도구를 로드한다. `role-{intent-id}-planner`, `role-{intent-id}-developer`, `role-{intent-id}-marketer`, `role-{intent-id}-operator` label로 네 역할을 실행한다. 각 역할은 파일을 직접 수정하지 않고 `role`, `judgment`, `concerns`, `proposal`, `handoff`, `evidence_paths`를 반환한다. 첫 결과 후 서로의 핵심 판단을 공유해 교차 검토한다. 지니는 `subagents list` 또는 `sessions_list search role-{intent-id}`로 네 개 `sessionKey`/`sessionId`/status를 확인하고 complexity tier, 각 1차 결과·상호 리뷰·통합 결정을 report와 archive 원장에 남긴다.
-- **Fallback 금지**: 네 역할 중 하나라도 시작되지 않거나 session id를 확인할 수 없으면 실패 역할만 1회 재시도하고, 다시 실패하면 조용히 단일 처리로 낮추지 않는다. `execution_mode: multi_subagent_roles_blocked`, `fallback_reason`, `next_retry_condition`을 남기고 Waiting으로 둔다. 사용자 명시 승인 때만 `single_genie_roles_fallback_user_approved`를 허용한다.
-- **검증 경계**: `decision_research`와 산출물 작업만 마지막에 Red 검증을 요청한다. 탐색형 리서치는 `red_status: not_required`로 닫고, 요청 답변·출처 링크·불확실성만 확인한다.
-- **시각 산출물 게이트**: Instagram 이미지, 카드, 다이어그램, 로고성 그래픽처럼 사용자가 보는 PNG/SVG/JPG 산출물은 Red가 실제 렌더 이미지를 보고 검증해야 한다. 파일 존재, 키워드 포함, SVG 문법 통과만으로는 pass가 아니다. 사용자가 원형·화살표·3분할·참조 스타일을 요구했으면 원형성, 균등 분할, 접선 방향 화살표, 시각적 중심, 텍스트 충돌, 3초 내 메시지 이해를 각각 판정한다. 하나라도 실패하면 Archive하지 않고 수정 intent를 만들거나 Waiting에 둔다.
-- **마케팅 학습 루프**: `marketing-*`, `target_agent: marketer`, activation, onboarding, retention, monetization, positioning, AI value/proxy 관련 intent는 Marketer가 `/home/ubuntu/.openclaw/workspace-marketing/MARKETING_LEARNINGS.md`를 1순위로 읽고, 이전 마케팅 산출물을 근거로 학습하게 한다. 위임 프롬프트에 `/home/ubuntu/.openclaw/workspace-marketing/MARKETING_LEARNINGS.md`, `INTENTS.md` Archive 요약, `artifacts/marketing-*`, `reports/marketing-*/*.html`, 관련 Virtue `apps/web/docs/`를 참고해 계승/수정/충돌 지점을 명시하라고 넣는다. Naver Shopping 등 다른 source agent가 만든 target-agent 요청도 같은 루프로 처리하되, source agent 산출물은 요청 근거로만 쓰고 Marketer output을 네이버 수요 증거로 오인하지 않는다.
-- **마케팅 언어 규칙**: `marketing-*` 또는 `target_agent: marketer` 산출물은 기본적으로 한국어로 작성한다. Infinity Inbox 제목, intent 본문, artifact 본문, report 본문, archive summary, SAM internal inbox note, Waiting 이유, 다음 액션까지 모두 한국어 우선으로 쓴다. 파일 경로, URL, 코드, CLI 명령, 환경변수, JSON 필드명, 고유 서비스명/제품명만 필요할 때 원문을 유지한다. 영어 초안이나 영어 제목을 먼저 만들고 번역하는 흐름이 아니라, 처음부터 한국어 정본을 만든다.
-- **지니·Red 언어 규칙**: 모든 `target_agent: genie` 실행과 Red 검증은 마케팅 여부와 관계없이 Intent 본문, PRD, task-plan, artifact, HTML report, Waiting/완료 사유, Archive 요약을 처음부터 한국어로 작성한다. 파일 경로, URL, 코드, CLI 명령, JSON 필드명, 환경변수, API/제품 고유명사와 짧은 직접 인용만 원문을 유지한다. 지니는 역할 서브에이전트와 Red 요청에도 이 계약을 전달하고, 영문 응답을 그대로 정본 산출물로 남기지 않는다.
-
-Claude Code 위임 프롬프트에는 최소한 아래를 포함한다.
-
-```markdown
-Infinity Intent: {intent-id} {title}
-Mode: execute_local | verify_local
-Invocation: Prefer the existing pt/purplemux Claude pane via `tmux -L purple`; capture first, clear stale input, send this bounded prompt once, then capture the result. Fall back to a fresh bounded Claude Code call only if no usable pt pane exists.
-Workflow: Always run through Genie at `/home/ubuntu/.openclaw/workspace-genie/GENIE_WORKFLOW.md`. Run Planner → Developer → Marketer → Operator and Red before Archive for `decision_research` and deliverable work; exploratory research follows the research-mode exception below.
-Research mode: Default `exploratory_research` for cases, market landscapes, trends, category/tool maps, and "what is out there?" requests. It controls research breadth and user-facing claims, not role participation: every research Intent runs all four temporary role subagents and one cross-review, with concise outputs for simple work; only a read-only status answer handled directly by SAM without a Genie Intent is exempt. It does not require decision-grade Deep Research or Red unless separately triggered by the deliverable. Use `decision_research` only for an explicit investment/adoption/purchase/vendor/launch/deploy/pricing-revenue/legal decision or explicit validation request; then apply its normal Deep Research and Red gates in addition to the same four role sessions. For every Genie Intent, load `spawn_agent` via `tool_search` if needed, spawn labels `role-{intent-id}-planner|developer|marketer|operator`, record sessionKey/sessionId/status and complexity, have them exchange critiques, then synthesize. If role sessions cannot run or session ids cannot be verified, leave Waiting instead of silently downgrading.
-Goal: {goal}
-Context: {relevant files, urls, prior reports}
-Prepared findings: {cloud research/prepare summary}
-Marketing learning context: For marketing/activation/retention/monetization/positioning/AI-value work, make Marketer read `/home/ubuntu/.openclaw/workspace-marketing/MARKETING_LEARNINGS.md` first, then prior `INTENTS.md` marketing Archive summaries, `artifacts/marketing-*`, `reports/marketing-*/*.html`, and relevant Virtue `apps/web/docs/` before proposing new claims. Require explicit inherited assumptions, changed assumptions, conflicts, and 1-3 durable learning candidates for `/home/ubuntu/.openclaw/workspace-marketing/MARKETING_LEARNINGS.md`.
-Language: For marketing/activation/retention/monetization/positioning/AI-value work, write the canonical output in Korean from the start. Use Korean for Infinity intent titles/body, artifacts, HTML report prose, archive summaries, Waiting/blocker notes, and SAM internal inbox summaries. Keep only file paths, URLs, code/JSON field names, CLI commands, and proper nouns in the original language when useful.
-
-General Intent title rule: 모든 Intent 제목은 사용자가 제목만 읽어도 태스크 종류와 결과를 알 수 있는 한국어 문장으로 작성한다. `research-30`, `strategy`, `build dashboard`, `fix issue` 같은 ID·영어 태그·모호한 내부 코드명을 제목으로 쓰지 않는다. 권장 형식은 `[대상] [행동/산출물]`이며, 예를 들면 `개인 맞춤 공공정보 서비스 시장·MVP·수익화 검증`, `Infinity Archive 카드 노출 오류 수정`, `대시보드 제목 한글 태스크명 규칙 적용`처럼 쓴다. ID·task_type·execution_mode는 메타데이터로만 남긴다. Inbox 등록 시 이 규칙을 만족하지 못하면 제목을 한국어로 정규화한 뒤 등록한다.
-Allowed: L0/L1 actions only unless user approval exists
-Forbidden: L2/L3 actions without explicit approval
-Verification: {tests/build/lint/screenshot/direct inspection}
-Report back to: 모든 리서치는 `artifacts/{intent-id}/final/{slug}-report.md`에 전체 Markdown 원문을 남긴다. `decision_research`는 그 원문을 요약한 reports/{intent-id}/{timestamp}.html도 함께 남기고, `exploratory_research`는 final Markdown 브리프를 대표 결과로 삼는다.
-HTML report contract:
-- This contract applies to `decision_research` and non-research deliverables only. `exploratory_research` is explicitly excluded.
-- Create the final run report as HTML, not Markdown.
-- This applies to every completion, including `simple-doc`, no-op checks, and tasks that would otherwise be direct lightweight prompts.
-- A new `.md` report may be kept as a legacy/raw log, but it never satisfies the completion gate by itself.
-- Use reports/_TEMPLATE.html and fill axis 1, axis 2, core content, details, and execution metadata.
-- Before writing the HTML, outline the report in a MECE structure. Findings, options, risks, evidence, and next actions should not repeat each other, and the main decision axes should not be missing.
-- For research/wiki/doc work, do not produce a thin wrapper around artifact links. Put the essential findings directly in the HTML: 3-7 key findings, evidence/source notes, recommendation or option comparison, and next decision.
-- Treat 390px mobile as the primary viewport. Long URLs, code, paths, and table cells must wrap; wide tables should become stacked rows/cards or short lists instead of requiring horizontal scrolling.
-- Before claiming done, verify the file exists and contains <html, <body, axis ax1, axis ax2, and <details.
-- When browser verification is available, check that `document.documentElement.scrollWidth <= window.innerWidth` at a 390px viewport.
-- If the delegated work itself cannot write the report, return enough facts for Heartbeat to write the HTML report before archiving.
-- Do not mark the Infinity intent complete with only a chat summary or .md report.
-```
-
-실행 중 L2 액션이 필요해지면:
-1. 현재까지의 L0/L1 작업은 완료
-2. `PERMISSIONS.md`의 L2 자체 승인 조건을 확인
-3. 조건을 모두 만족하면 `agent-approved L2`로 리포트에 판단 근거·영향 범위·검증 결과를 남기고 진행
-4. 조건을 만족하지 못하면 GATES.md에 등록하고 Intent status를 `blocked`로 변경
-
-실행 중 L3 액션이 필요해지면:
-1. 실행하지 않음
-2. 현재까지의 안전한 작업만 기록
-3. 사용자에게 직접 수행 또는 명시 승인 필요 사항을 안내
-
-### 9. 결과 기록 (결론 2축 HTML)
-
-`exploratory_research` 예외: 결과는 `artifacts/{intent-id}/final/{slug}-report.md`의 전체 Markdown 브리프와 채널 답변으로 기록한다. 질문 답변, 짧은 출처 목록, 확인하지 못한 점만 요구하며 이 절의 HTML·rich-v1·validator·Red 규칙을 적용하지 않는다.
-
-보고는 `reports/{intent-id}/{timestamp}.html` 로 기록한다. **양식·카테고리별 축 라벨·작성 규칙은 `ARTIFACT_RULES.md`의 "Report 양식 (HTML, 결론 2축)"이 단일 출처다.**
-
-`simple-doc`처럼 작고 직접 처리한 작업도 예외가 아니다. 새 Markdown report만 남기고 완료 처리하지 않는다. Markdown은 보조 로그로 둘 수 있지만, 완료/Archive/INTENTS 링크는 HTML report를 기준으로 한다.
-
-보고를 쓰기 전에 먼저 이 작업의 **결론 2축**을 각각 한 줄로 도출하고, 그 아래 본문은 **MECE 구조**로 나눈다. 이것이 자동 추출의 핵심이다 — 사후 파싱이 아니라 작업 종료 시점에 에이전트가 직접 결론과 구조를 산출한다.
-
-1. Intent id prefix로 작업 성격(조사형/개선형/감시형/범용)과 축 라벨을 선택한다.
-2. **축1(맥락/대상/문제)** 과 **축2(결과/해법/발견)** 를 각각 한 줄로 정한다. 비우지 않는다.
-3. 본문을 MECE하게 나눈다. 같은 말을 반복하지 말고, `문제/맥락`, `선택지`, `근거`, `제약/리스크`, `추천`, `다음 결정`처럼 판단 축이 겹치지 않게 배치한다.
-4. `reports/_TEMPLATE.html` 을 복사해 `rich-v1` 표식, 2축, 핵심 내용·수행 작업·산출물·메타·다음 액션을 채운다. CSS·viewport·모바일 규칙을 제거하거나 단순 태그 나열로 대체하지 않는다.
-   - 조사형(`research`, `wiki`, `doc`)은 `핵심 내용 · 리서치 본문`을 비우지 않는다. 핵심 발견 3~7개, 근거/소스, 추천안 또는 옵션 비교, 다음 판단을 HTML 안에 직접 쓴다.
-   - 핵심 발견 3~7개는 같은 의미를 다른 말로 반복하지 않는다. 각각은 서로 다른 판단 축이나 근거를 담당해야 한다.
-   - 모바일 390px 기준으로 읽히게 쓴다. 긴 표를 그대로 붙이지 말고 카드/목록으로 요약하며, 좌우 스크롤을 요구하지 않는다.
-5. 같은 2축을 완료 시 Knowledge Lab의 `source/infinity/archive/{id}.md` 의 `result_summary`(축2)에도 반영한다.
-6. 완료 전에 `python3 scripts/validate_research_report.py reports/{id}/{timestamp}.html`을 실행한다. 연구형 final report는 템플릿의 rich-v1 표식·반응형 구조·본문 품질을 모두 통과해야 한다. 브라우저 검증이 가능하면 390px viewport에서 `document.documentElement.scrollWidth <= window.innerWidth`와 첫 화면의 제목·두 결론축·핵심 발견 진입점을 직접 확인한다.
-7. Claude Code/workflow-master가 HTML report를 남기지 않고 종료했으면, Heartbeat가 관측한 변경·검증·커밋 결과로 `reports/_TEMPLATE.html` 기반 report를 직접 작성한 뒤에만 archive한다.
-8. 마케팅 관련 report의 `<details>`에는 `계승한 기준`, `이번에 새로 배운 것`, `다음 Marketer에게 넘길 규칙`을 포함한다. durable learning candidate가 있으면 `/home/ubuntu/.openclaw/workspace-marketing/MARKETING_LEARNINGS.md`에 승격하거나, 애매하면 report 안에만 보류한다.
-
-```
-헤더:  [intent-id] 제목                          [상태 뱃지]
-─────────────────────────────────────────────
-{축1 라벨}  맥락/문제 한 줄
-{축2 라벨}  결과/해법 한 줄
-─────────────────────────────────────────────
-▸ 상세 — 수행한 작업 / 산출물        (details, 접힘)
-▸ 실행 메타 / 다음 액션              (details, 접힘)
-```
-
-Report는 실행 로그다. 2축은 그 로그의 결론을 한눈에 보게 하는 장치이고, 사용자가 나중에 볼 최종 문서는 Knowledge Lab의 `source/infinity/archive/{intent-id}.md`의 `Intent 원장`이다.
-
-완료 처리 시 문서 역할은 반드시 아래처럼 통일한다.
-
-1. `Intent 원장`: 유효 판정된 경우에만 Knowledge Lab의 `source/infinity/archive/{id}.md` 하나를 canonical final index로 만든다.
-2. `Work Artifact`: `T1.*`, 근거 수집, 초안, 역할별 메모, Red 검토는 `artifacts/{id}/work/`에 둔다. 최종 후보는 `work/candidate/`, Red 판정은 `work/red/`에 둔다.
-3. `Final Artifact`: 모든 리서치는 원 질문에 답하는 전체 Markdown 원문을 `artifacts/{id}/final/{slug}-report.md`에 둔다. `decision_research`와 산출물 작업은 Red PASS 뒤의 재사용 최종본만 이 경로에 두고, 탐색형 리서치는 출처 확인 브리프를 같은 경로에 둔다. `work/candidate/`는 최종본이 아니다.
-4. `Report`: 실행 과정 로그는 `reports/{id}/{timestamp}.html`에 두되, decision research의 final HTML은 `final/{slug}-report.md`를 읽어 사용자가 바로 판단할 수 있게 요약한다. HTML만 남겨 Archive하지 않는다.
-5. `Detail`이라는 별도 최종 문서는 만들지 않는다. archive path와 detail path가 같아지는 중복 구조를 생성하지 않는다.
-6. `INTENTS.md` 완료 코멘트에는 archive path와 한 줄 결과를 함께 남겨 대시보드가 `Intent 원장` 카드로 요약할 수 있게 한다.
-
-Archive gate:
-
-- `decision_research`와 산출물 작업의 Archive 전제는 `red_status: pass`와 Red report 경로다. 탐색형 리서치는 `red_status: not_required`다.
-- **Archive 원장 분리 게이트:** 대시보드가 읽는 Archive 정본은 `intents/archive/YYYY-MM.yaml` 월별 원장이다. `INTENTS.yaml`의 `archive.files`에는 월별 YAML만 남기고, `intents/archive/{intent-id}.md` 상세 원장·`artifacts/`·`reports/` 경로를 직접 등록하지 않는다. 상세 Markdown은 월별 YAML 카드의 `detail`/근거 링크로만 연결한다. 월별 YAML 카드가 없거나 manifest 형식이 어기면 Archive 전환·push·완료 통보를 중단하고 `python3 scripts/check_intents_consistency.py INTENTS.yaml` 실패 상태로 둔다.
-- 시각 산출물은 Red report에 렌더 이미지 직접 검수 결과가 있어야 한다. 기하학적 요구(원형, 3분할, 화살표 방향, 정렬), 레이아웃 충돌, 텍스트 위계, 메시지 선명도가 빠지면 pass가 아니다.
-- `decision_research`와 산출물 작업에서 Red가 `수정 필요`, `보류`, 타임아웃, 미응답이면 Archive하지 않고 `Waiting`에 남긴다.
-- `decision_research`와 산출물 작업에서만 `red_status`가 없거나 Red report가 없는 완료 선언은 무효다.
-
-### 원격 반영 게이트 (필수)
-
-Infinity에서 산출물·상태·Report·Archive를 만든 것만으로는 등록 또는 완료로 보지 않는다.
-
-1. 의미 있는 변경을 Infinity 저장소에 커밋하고 matching `origin`에 push한다.
-2. Infinity 저장소의 `git status --short --branch`가 clean인지 확인하고, 원격 `main`이 방금 만든 커밋을 가리키는지 확인한다.
-3. 위 원격 확인이 끝나기 전에는 `status: completed`, `archived` 전환, 완료 통보를 하지 않는다. push 실패·검증 불명확은 `Waiting`에 남기고 재개 조건을 기록한다.
-
-Archive 완료 보고 직전에는 반드시 아래 명령을 실행하고, 출력 한 줄을 완료 report와 사용자 보고에 남긴다.
-
-```bash
-python3 scripts/verify_archive_remote.py {intent-id}
-```
-
-이 명령이 실패하면 `Archive 완료`, `완료했습니다`, `대시보드에 반영` 같은 표현을 쓰지 않는다. 로컬 파일 생성 또는 로컬 commit이 Infinity 원격에서 확인되지 않으면 아직 완료가 아니다.
-
-완료 Report에는 `infinity_commit`, `infinity_push_verified`를 기록한다. Knowledge Lab 승격이 있으면 그 저장소의 별도 커밋·원격 검증 근거를 기록하되, Infinity의 부모 포인터 검증으로 취급하지 않는다. 사용자가 “등록 완료”라고 부르는 시점은 이 원격 반영 게이트까지 통과한 시점이다.
-
-### 10. Telegram 알림
-
-`scripts/dispatch_terminal_notifications.py`를 사용하여 terminal 알림을 발송한다. 구형 `scripts/notify.sh`는 사용하지 않는다.
-
-마케팅/세스고딘 작업은 하트비트·대시보드·일일 회고에서 확인할 수 있게 기록만 남기고, Telegram 실시간 알림은 기본적으로 보내지 않는다. 후보 발굴, Inbox 등록, 학습 노트 저장, 완료 report, Archive 전환, routine Waiting 업데이트 모두 조용히 처리한다. 사용자가 현재 대화에서 명시적으로 요청한 승인 질문이나 비마케팅 시스템 장애가 아니라면 `NO_REPLY`로 닫는다.
-
-단, `NO_REPLY`는 사용자에게 실시간 알림을 보내지 않는다는 뜻이지, 승인된 Active 작업을 실행하지 않는다는 뜻이 아니다. 특히 `approval: user-approved`가 있는 `marketing-*` 구현 intent는 다음 라우터 사이클에서 작업 대상으로 잡혀야 하며, 실행 결과는 Archive/report/Waiting 또는 내부 inbox에 남긴다.
-
-마케팅/세스고딘 작업이 SAM에게 전달할 routine 신호가 있으면 사용자 채팅 대신 `/home/ubuntu/workspace/knowledge-lab/source/openclaw-system/data/agent-inbox/marketing.jsonl`에 JSONL 한 줄로 남긴다. 필드는 `ts`, `source`, `scope`, `item_id`, `signal`, `diagnosis`, `action_candidate`, `measurement`, `routing`, `artifacts`, `urgency`, `needs_sam_decision`, `needs_user_approval`, `user_visible`를 기본으로 한다. 이 큐는 에이전트끼리 주고받는 보조 입력이며, target-agent 실행 트리거가 아니다. 실행이 필요한 협업 요청은 `INTENTS.md` Inbox의 `marketing-*` 또는 `target_agent: marketer` intent로 존재해야 한다. local Claude는 메시지 수신·판단을 위해 호출하지 않는다. local Claude는 실제 로컬 파일/코드/테스트/브라우저/빌드/검증이 필요한 경우에만 사용한다.
-
-KST 07시 아침 리캡은 OpenClaw 로컬 cron이 소유한다. GitHub scheduled workflow는 지연/누락될 수 있으므로 아침 리캡 책임자로 쓰지 않는다. 07시 리캡은 최근 24시간 변화 요약 1개만 사용자에게 보인다. 리캡은 raw commit log가 아니라 완료 Archive, 다음 Inbox/Active, Waiting/GATES 대기를 한눈에 보이는 카드형 텍스트로 보낸다. 시간대별 상태는 `NO_REPLY`와 작업 있음 섹션으로 분리하지 말고, `⬜️HH`(조용함) / `🟩HH 짧은 작업 메모`(의미 있는 변화) 형식의 한 줄짜리 시간대 타임라인으로 보여준다.
-
-GitHub Actions push 기반 Telegram 알림은 사용하지 않는다. 일반 push는 원격 원장/대시보드/서브모듈 동기화만 담당하고, 사용자 채팅 알림은 OpenClaw cron 리캡, 명시적 승인 요청, 반복 실패/장애처럼 현재 판단이 필요한 경우에만 별도 경로로 보낸다.
-
-**알림 포맷:**
-
-진행 알림:
-```
-📋 [Intent: {id}] {이름}
-
-상태: {현재 상황 한 줄}
-수행: {이번 Heartbeat에서 한 일}
-다음: {다음 Heartbeat에서 할 일}
-```
-
-승인 요청:
-```
-🔐 [Intent: {id}] 승인 요청
-
-액션: {실행할 L2 액션}
-변경: {변경 내용}
-영향: {영향 범위}
-
-✅ 승인  |  ❌ 거부  |  💬 수정 지시
-```
-
-완료 알림:
-```
-✅ [Intent: {id}] 완료
-
-결과: {달성 결과}
-원인: {근본 원인}
-조치: {수행한 조치}
-교훈: {재사용 가능한 인사이트}
-```
-
-## 커밋 규칙 (no-op이면 커밋하지 않는다)
-
-GitHub Actions push 알림은 사용하지 않는다. 그래도 **변화 없는 Heartbeat는 아무것도 커밋·push하지 않는다.** push는 원격 원장과 대시보드 상태를 바꾸는 기록 행위이므로, 의미 있는 변경이 있을 때만 남긴다.
-
-- 이번 Heartbeat에서 사용자에게 의미 있는 변화(실제 실행/완료/blocker/승인요청/상태 전환)가 **없으면**: 작업 디렉토리를 그대로 두고 **커밋도 push도 하지 않는다.** 조용히 종료한다.
-- **liveness 리포트를 만들지 않는다.** `reports/heartbeat/{timestamp}.md` 같은 "조용한 종료/idle" 요약 파일을 남기지 않는다. heartbeat가 언제 돌았는지를 git에 기록하지 않는다(추적하지 않는다).
-- 의미 있는 변화가 **있을 때만** 해당 산출물(리포트/INTENTS.md/GATES.md/코드)을 커밋·push한다. push 자체는 사용자 알림을 만들지 않는다.
-- 마케팅 후보를 `INTENTS.md`에 등록하는 준비 단계는 의미 있는 기록이지만 사용자 알림은 보내지 않는다. 이후 실제 실행 완료 리포트나 승인/blocker는 대시보드/리캡 또는 별도 승인 요청 경로에서 다룬다.
-
-> 결과적으로 push = 의미 있는 원장 변화다. Telegram 알림 여부는 push가 아니라 사용자 판단 필요성으로 결정한다.
-
-## Intent 생명주기 관리
-
-```
-Inbox ──→ Active ──→ in_progress ──→ archived
-             │             │
-             │             └──→ waiting (사용자 결정/외부 조건 대기)
-             │                       │
-             │                       ├── 승인/조건 충족 → Active
-             │                       └── 취소/불필요 → archived
-             │
-             └──→ archived/cancelled
-```
-
-- `Inbox → Active`: 구조화 후 Active 슬롯이 있을 때
-- `Active → in_progress`: 실제 실행 시작 시
-- `in_progress → waiting`: 사용자 결정, 외부 조건, 안전 확인 대기가 필요할 때
-- `waiting → Active`: 승인 수신 또는 조건 충족 시
-- `in_progress → archived`: success_criteria 충족 또는 사용자가 완료 처리할 때
-
-### 실행 완료 신호와 Registry 종료의 동기화
-
-Genie 실행 기록이 `done`이고 `artifacts/{intent-id}/final/`에 해당 Intent의 최종 산출물이 존재하면, 다음 Heartbeat에서 이를 단순 진행 신호로 소비하지 않는다. 반드시 같은 사이클에 (1) 최종 산출물 경로를 trace의 `artifacts`에 기록하고, (2) 필요한 검증 결과를 `verifications`에 기록하며, (3) `next_decision.status`를 `archived` 또는 실제 차단 사유가 있는 `waiting`으로 닫고, (4) canonical Intent를 열린 lane에서 제거한 뒤 Archive 원장과 대시보드 Archive comment를 남긴다. 탐색형 리서치는 HTML·Red를 새로 요구하지 않지만 최종 Markdown 브리프와 출처·불확실성 기록을 필수로 확인한다. `done` 증거가 있는데 Active에 남겨두는 것은 유효한 대기 상태가 아니라 종료 누락으로 판정하며, 완료 묶음을 같은 사이클에 재개한다.
-
-산출물 Intent의 완료 report에는 `metric_result`와 `metric_next_decision`을 반드시 남긴다. 신호가 아직 없거나 측정 대상이 아니면 `null` 또는 `hold`와 사유를 기록한다.
-
-### waiting_on 필드 (2026-07-15 필수)
-
-`waiting` 전환 시 누구를 기다리는지 반드시 명시한다. 아침 리캡이 이 필드로 "내 공" 블록을 만든다 — 필드가 없으면 사용자 손 대기가 리캡에서 침묵 속에 묻힌다 (ops-12가 3일간 그랬다).
-
-```markdown
-- waiting_on: user | external | agent
-```
-
-- `user`: 사용자 행동 필요 (로컬 실행, 결정, 승인). 리캡 최상단 "내 공"에 경과일과 함께 노출된다.
-- `external`: 외부 조건 (배포 대기, 서드파티 응답).
-- `agent`: 다른 에이전트/크론 사이클 대기.
-
-### Waiting 표시 필드 (2026-08-20 필수)
-
-`waiting`은 "멈춤"만 보여주면 안 된다. 사용자가 승인하거나 확인해야 하는 대상이 있으면 카드에서 바로 읽히게 구조화 필드를 남긴다.
-
-```markdown
-- pending_threads: C01 여행용 파우치와 칫솔 / C02 여행용 멀티플러그와 종이세제
-- pending_posts: ...
-- pending_links: ...
-- pending_decision: ...
-```
-
-- 공개 게시·제휴 링크·메시지·상품 후보·초안처럼 사용자 승인을 기다리는 산출물이 있으면 `blocker`와 `next_action`만 쓰지 말고 `pending_*` 필드를 함께 둔다.
-- 카드에는 안전한 제목/라벨/후보명만 노출한다.
-- 상세 모달이나 artifact에는 실제 초안 본문과 근거를 노출하되, 비공개 short URL, credential, token, member-only 값은 공개 원장에 쓰지 않는다.
-- 사용자가 "무엇이 대기 중인지 모르겠다"고 느끼면 운영 실패다. Waiting 갱신 후 대시보드에서 카드 요약과 상세가 실제로 읽히는지 확인한다.
-
-### notified 마커 (2026-07-16부터 필수)
-
-완료는 통보까지가 완료다. Archive 주석에 사용자 통보 시각을 남긴다:
-
-```markdown
-<!-- ops-16 completed 2026-07-16T09:00Z notified: 2026-07-16T09:01Z → ... -->
-```
-
-2026-07-16 이후 완료분에 `notified`가 없으면 아침 리캡이 "완료됐지만 미통보 N건"으로 잡아낸다. 통보 1회 유실이 영구 침묵이 되지 않게 하는 안전장치다.
-
-## GATES.md 관리
-
-승인 요청 시 GATES.md "대기 중" 섹션에 추가:
-
-```markdown
-### [intent-id] 액션 설명
-- requested: YYYY-MM-DD HH:MM
-- action: 구체적 명령어 또는 작업
-- reason: 왜 이 액션이 필요한지
-- impact: 영향 범위
-```
-
-승인/거부 시 "처리 완료" 섹션으로 이동:
-
-```markdown
-### [intent-id] 액션 설명
-- requested: YYYY-MM-DD HH:MM
-- resolved: YYYY-MM-DD HH:MM
-- decision: approved | rejected | modified
-- note: 사용자 코멘트 (있으면)
-```
-
-## 실행 원칙
-
-### 기존 리소스 우선 (Reuse Before Create)
-
-새로운 서비스나 컴포넌트를 만들기 전에 반드시 기존 리소스로 해결할 수 있는지 먼저 확인한다.
-
-1. **기존 설정 동기화 누락 확인** — 로컬과 배포 환경의 설정이 다른 경우가 많다
-2. **기존 exporter/서비스 설정 확장** — 새 exporter 대신 기존 것에 job/target 추가
-3. **대시보드 쿼리 수정** — 메트릭명이 다를 뿐 동일한 데이터가 이미 수집 중일 수 있다
-4. **그래도 안 되면** 최소한의 새 컴포넌트 생성
-
-이 순서를 건너뛰고 새 리소스를 만들려 하면 사용자에게 근거를 제시하고 확인받는다.
-
-## 실행 제약
-
-- 한 번의 Heartbeat에서 최대 3개 Intent를 병렬 처리 (같은 프로젝트는 1개만)
-- 개별 Intent 실행 시간이 10분을 초과하면 중간 저장 후 다음 Heartbeat로 이월
-- 에러 발생 시 3회까지 재시도, 이후 blocked 처리 + 사용자 알림
-- 이전 Heartbeat가 아직 실행 중이면 새 Heartbeat 건너뜀 (중복 방지)
-
-## 아카이브 처리
-
-> 자세한 경로 규칙: `ARTIFACT_RULES.md`
-
-Intent가 완료 기준을 충족하거나 사용자가 완료 처리하면:
-
-1. `intents/active/{id}.md`를 완료 처리한 뒤 지식 승격 여부를 판정한다. 승격하는 경우에만 Knowledge Lab의 `source/infinity/archive/{id}.md`에 **canonical final index** 포맷으로 저장한다. 승격하지 않는 실행 결과는 KL로 복사하지 않는다.
-   - 최소 필드: `id`, `status: archived`, `completed_at`, `result_summary`, `artifacts`, `reports`, `commits`, `urls`, `next_actions`
-   - 지식 판정 필드: `knowledge_status`, `knowledge_decision`, `knowledge_targets`, `knowledge_reflection`, `knowledge_commit`
-   - 사용자-facing `Archive Card` 블록을 반드시 남긴다:
-     ```
-     ## Archive Card
-
-     [프로젝트]
-     {사람이 알아볼 프로젝트명}
-
-     [상태]
-     {실행 준비 완료 | 검증 완료 | 운영 반영 완료 | 보류 해소 완료 ...}
-
-     [결과 기준]
-     {결과를 판단할 기준}
-
-     [다음 행동]
-     {후속 실행 1개 또는 없음}
-     ```
-2. `T1`·근거·초안·Red 문서는 `artifacts/{id}/work/`, Red PASS 뒤의 최종본은 `artifacts/{id}/final/`에 보관한다. archive intent의 대표 artifact는 반드시 `final/`이고, `work/`는 필요한 경우만 검토 근거로 연결한다. **active intent 본문에 결과를 누적하지 않는다.**
-3. 실행 로그는 `reports/{id}/{timestamp}.html`에 남기되, **로그이지 결론이 아니다.** 동일 결론을 reports에서 찾아 헤매게 하지 않는다.
-4. `INTENTS.md`의 `## Inbox`, `## Active`, 또는 `## Waiting`에서 해당 블록/코멘트를 제거하고, 승격된 경우에만 `## Archive`에 KL source 링크를 남긴다.
-   - 완료된 `completed/resolved/archived` 코멘트는 `## Archive`에만 있어야 한다. Inbox/Active/Waiting에 완료 코멘트가 남아 있으면 다음 리캡과 대시보드가 이미 끝난 작업을 다음 작업으로 오인한다.
-   - Archive 완료 코멘트는 완료 시각 내림차순으로 둔다. 완료 처리 후 `python3 scripts/check_intents_consistency.py INTENTS.md`를 실행해 open lane의 완료 코멘트 잔존과 Archive 역순 깨짐을 검증한다.
-   - Archive 전환은 항상 의미 있는 원장 변경이다. Infinity 저장소 commit/push와 원격 `main` 확인이 끝나기 전에는 Archive 완료로 보고하지 않는다. Knowledge Lab 승격이 있으면 그 변경은 해당 저장소에서 별도로 commit/push·검증한다.
-5. 대시보드 등 외부 소비자가 `detail:` 경로를 참조한다면 archive 경로가 유효한지 확인한다.
-6. 원 요청 대화를 잃지 않도록 intake 시 `notification_channel`, `notification_target`, 그리고 필요한 경우 Telegram `notification_thread` 또는 Slack `notification_reply_to`를 불변 메타데이터로 기록한다. 원격 Archive 검증이 끝난 뒤에는 `remote_verified: pass`와 commit/report 근거를 남긴다. 기존 로컬 Infinity dispatcher가 원격 `origin/main`을 조정해 이 기록을 정확히 한 번 통보한다. origin이 없는 과거 intent는 추정 발송하지 않는다.
-6. 완료 직후 같은 내용을 `Detail` 문서로 다시 만들지 않는다. 최종 문서는 `Intent 원장`, 원문 산출물은 `Artifact`, 실행 로그는 `Report`로 분리한다.
-7. 프로젝트성 작업은 Archive 전에 원래 사용자 목표가 끝났는지 판정한다. 끝나지 않았으면 후속 intent를 `Inbox`/`Active`/`Waiting` 중 하나로 만들고 archive 요약에 `next: {id}`를 남긴다.
-8. Archive Card의 `[다음 행동]`이 실제 실행을 뜻하면 `python3 scripts/archive_next_action_intake.py --apply`로 후속 intent를 생성하거나, 동일 목적의 열린 intent id를 archive의 `next_action_intent`에 연결한다. 공개 발행·외부 계정·광고·비용·자격증명·권한 변경은 후속 intent를 만들 수는 있지만 실행 전 사용자 승인이 필요하다.
-9. Archive 직전에 `python3 scripts/check_knowledge_promotion.py {intent-id}`를 실행한다. 모든 완료 Intent는 다음 중 하나로 닫는다.
-   - 승격 판정은 ‘보편적 일반 원칙인가’만으로 제한하지 않는다. **마스터님의 장기 의사결정·사업·생활 지식으로 다시 참고할 가치가 있는가**를 독립 기준으로 본다. 탐색형 리서치라도 사용자의 실제 선택 기준·문제 구조·검증 프레임을 보존하면 `promote` 대상으로 삼을 수 있다.
-   - 단순 실행 로그·일회성 후보·사용자 판단에 재진입할 이유가 없는 자료는 승격하지 않는다. 승격 여부가 애매하면 사용자 지식으로서의 재사용 장면과 다음 판단을 먼저 기록하고 결정한다.
-   - `knowledge_status: promoted` + `knowledge_decision: promote`: 완료 원장을 `/home/ubuntu/workspace/knowledge-lab/source/infinity/archive/{id}.md`에 저장하고 `/home/ubuntu/workspace/knowledge-lab/ingest/INDEX.md`에 `source: source/infinity/archive/{id}.md`로 등록해 `status: selected`에서 `integrated`로 닫는다. ingest는 입력 등록·판정만 소유하며, 별도 지식 소비자의 파일·커밋은 이 흐름에서 수정하지 않는다.
-   - `knowledge_status: raw` + `knowledge_decision: retain_in_infinity`: 장기 지식으로 승격하지 않을 근거를 `knowledge_reflection`에 남긴다. 실행 로그/단일 작업 세부는 Infinity 원장에만 둔다.
-   - `knowledge_status: superseded` + `knowledge_decision: supersede`: 기존 지식으로 대체된 경우에도 ingest index에 archive를 등록하고 `status: integrated`와 대체 이유만 기록한다.
-   - `candidate`는 보류 상태로 Archive할 수 없다. 승격 대상으로 판정했으면 같은 완료 흐름에서 실제 Knowledge Lab 반영까지 끝내야 한다.
-   - 검증 스크립트가 실패하면 Archive 전이를 완료로 보고하지 않고, `Waiting`에 ingest 등록/반영 대상과 재개 조건을 남긴다.
-
-```
-INTENTS.md                ← 활성 Intent만 (가볍게)
-intents/active/  ← 진행 중 상태/다음 액션만
-Knowledge Lab source/infinity/archive/ ← KL에 선별 보관된 Intent 원본
-artifacts/{id}/work/  ← T1·근거·초안·Red 검토 등 중간 산출물
-artifacts/{id}/final/ ← 사용자 질문에 답하는 최종 산출물
-reports/{id}/    ← 실행 로그 (heartbeat run 보고)
-reports/heartbeat/ ← 전역 heartbeat 요약
-```
-
-## 자기 개선
-
-Heartbeat 결과에서 반복되는 패턴 감지 시:
-1. `lessons-learned.md`에 교훈 기록
-2. 관련 에이전트 `.md` 파일에 체크리스트 추가 제안 (L2)
-3. 동일 유형 Intent의 예상 소요 Heartbeat 횟수 학습
+일반 push 알림과 의미 없는 진행 알림은 보내지 않습니다. 리캡·예외 알림은 KL 운영 계약을 따릅니다. 반복되어 다음 행동을 바꾸는 규칙만 소유 문서에 반영하고, 사건·검토 결과는 해당 report/artifact에 둡니다. 별도 `lessons-learned.md`를 만들지 않습니다. 평가 기준은 [Evaluator](docs/infinity-evaluator.md)에 둡니다.
