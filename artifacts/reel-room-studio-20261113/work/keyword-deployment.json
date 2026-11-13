@@ -1,0 +1,12 @@
+{
+  "revision": "74",
+  "ready": 1,
+  "image": "ghcr.io/shdkej/video-automation:f8d5edef7c2d1563c6edbc65ad24adbf5af04a18",
+  "pods": [
+    {
+      "name": "reel-room-c4bd9b575-4vjpc",
+      "image_id": "ghcr.io/shdkej/video-automation@sha256:bbdcb5cdc12434be4cdd955c823d8cbb7c83258346cca3d4a3c97b61a483165e",
+      "phase": "Running"
+    }
+  ]
+}

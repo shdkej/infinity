@@ -36,3 +36,15 @@ Reel Room과 Instagram Maker를 통합해 사람이 쓴 대본을 중심으로 �
 2026-11-13T11:41:53Z 사용자 응답: “ㅇㅇ ㄱㄱ”. 직전 요청한 운영 배포·두 기존 주소 전환과 이미지 2장·음성 1개·추천 1회 실제 검증을 승인했다. 외부 메시지 발송은 요청하지 않았다.
 
 최종 검증: final-production-verification.json, deployment-final.json, browser-redirects.json. 배포 재승인은 필요하지 않으며, 다음 대기는 AI 검증 재개 결정이다.
+
+## 후속 요청과 실행 — 키워드·참고 검색·클라이언트 AI 키
+
+> 키워드는 내 스킬에 있는 api를 직접 호출하게 할 수 없나? ai 를 호출 안하더라도
+
+> 참고영상이나 이미지도 쉽게 잘 찾을 수 있게 해줄 수 있나? 그리고 ai 키는 클라이언트단에서도 받을 수 있게 해줘
+
+Naver SearchAd 직접 조회·선택/저장, 기존 스킬 YouTube API 연결, 내 키워드 바로 검색/출처 필터/이미지·영상 미리보기/보관을 구현했다. OpenAI 키는 현재 탭 메모리와 AI 요청에만 사용하고 서버 환경·프로젝트·브라우저 저장소에 남기지 않는다. 실제 유료 AI 호출은 하지 않았다.
+
+source f8d5edef7c2d1563c6edbc65ad24adbf5af04a18 push 완료. 전체 212개 테스트와 UI 빌드, 실제 Naver/YouTube/Commons 검색과 3개 화면폭의 브라우저 흐름 통과. GitHub image build 43429546562 성공, 운영 revision74에서 후속 기능 검증 완료. 세부 계획·후속 증거는 work/keyword-*에 기록한다. Waiting은 유료 AI 검증 보류만 의미한다. 후속 개발/배포는 완료했으며 실제 검색·브라우저·기존 파일14개 보존을 확인했다.
+
+현재 운영: source f8d5ede, Space manifest35d738f, revision74 ready1. 최종 후속 증거: `work/keyword-status.md`, `keyword-deployment.json`, `keyword-browser-production.json`.

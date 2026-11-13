@@ -130,6 +130,50 @@
         "logs/agent-wiki-query.md"
       ],
       "note": "운영 revision 73, source b5d8b42, 파일 7개 보존·새 MP4·무료 검색·기존 주소 이동 검증 PASS. 사용자 지시에 따라 유료 AI 검증 보류."
+    },
+    {
+      "type": "execution",
+      "at": "2026-11-13T13:02:00Z",
+      "context_pack": "intents/context/reel-room-studio-20261113-product.json",
+      "evidence_paths": [
+        "artifacts/reel-room-studio-20261113/work/keyword-api-plan.md",
+        "artifacts/reel-room-studio-20261113/work/keyword-browser-local.json",
+        "artifacts/reel-room-studio-20261113/work/keyword-suite.log"
+      ],
+      "searches": [
+        "keyword-title searchad_keyword.py/datalab_trend.py/youtube_keyword.py actual provider contracts and existing credential presence"
+      ],
+      "wiki_pages": [
+        "agent-wiki/content/docs/outputs/Health/Curiosity.mdx",
+        "agent-wiki/content/docs/outputs/Fundamental/Network.mdx",
+        "agent-wiki/content/docs/outputs/deep-knowledge/product.mdx",
+        "agent-wiki/content/docs/outputs/Integration/Tool.mdx",
+        "agent-wiki/content/docs/outputs/Communication/Teamwork.mdx"
+      ],
+      "operational_log_sections": [],
+      "note": "사용자가 요청한 직접 키워드 API·쉬운 참고 검색·클라이언트 AI 키 입력 구현. source f8d5ede push; 전체212 tests, 실제무료검색/브라우저검증 통과. GHCR빌드중이며유료AI검증보류유지."
+    },
+    {
+      "type": "execution",
+      "at": "2026-11-13T13:05:35Z",
+      "context_pack": "intents/context/reel-room-studio-20261113-product.json",
+      "evidence_paths": [
+        "artifacts/reel-room-studio-20261113/work/keyword-status.md",
+        "artifacts/reel-room-studio-20261113/work/keyword-deployment.json",
+        "artifacts/reel-room-studio-20261113/work/keyword-browser-production.json"
+      ],
+      "searches": [
+        "keyword-title searchad_keyword.py/datalab_trend.py/youtube_keyword.py actual provider contracts and existing credential presence"
+      ],
+      "wiki_pages": [
+        "agent-wiki/content/docs/outputs/Health/Curiosity.mdx",
+        "agent-wiki/content/docs/outputs/Fundamental/Network.mdx",
+        "agent-wiki/content/docs/outputs/deep-knowledge/product.mdx",
+        "agent-wiki/content/docs/outputs/Integration/Tool.mdx",
+        "agent-wiki/content/docs/outputs/Communication/Teamwork.mdx"
+      ],
+      "operational_log_sections": [],
+      "note": "후속 운영 revision 74 검증 완료. 실제 Naver/YouTube/Commons 검색, 모바일/데스크톱 흐름, 기존 파일 14개 보존 통과. 유료 AI 호출 0회, 실호출 검증은 사용자 요청으로 보류 유지."
     }
   ],
   "artifacts": [
@@ -166,10 +210,26 @@
     {
       "label": "Paid API",
       "result": "deferred_by_user_after_429"
+    },
+    {
+      "label": "212 tests including keyword/client credential boundaries",
+      "path": "artifacts/reel-room-studio-20261113/work/keyword-suite.log"
+    },
+    {
+      "label": "Actual local search and browser key isolation",
+      "path": "artifacts/reel-room-studio-20261113/work/keyword-browser-local.json"
+    },
+    {
+      "label": "Live revision74 followup verification",
+      "path": "artifacts/reel-room-studio-20261113/work/keyword-browser-production.json"
+    },
+    {
+      "label": "Pinned deployed image and ready pod",
+      "path": "artifacts/reel-room-studio-20261113/work/keyword-deployment.json"
     }
   ],
   "next_decision": {
     "status": "deferred_by_user",
-    "value": "AI 실호출 검증 재개 요청 시 계정 한도를 확인한다. 운영 배포는 완료했다."
+    "value": "키워드·참고 검색·브라우저 AI 키 후속 운영 배포까지 검증했다. 사용자 요청 시 보류된 유료 AI 검증만 재개한다."
   }
 }

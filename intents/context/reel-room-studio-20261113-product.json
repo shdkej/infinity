@@ -101,5 +101,15 @@
     "Read only the matched sections of selected_operational_logs; they are operational evidence, not compiled knowledge.",
     "Search the declared scopes for task-specific evidence; do not treat a search hit as a confirmed fact without its source.",
     "Record the resulting context pack path in the intent and re-check it before handoff."
-  ]
+  ],
+  "keyword_api_followup": {
+    "request": "키워드는 내 스킬에 있는 api를 직접 호출하게 할 수 없나? ai 를 호출 안하더라도",
+    "sources": [
+      "/home/ubuntu/workspace/prompt-archive/skills/keyword-title/SKILL.md",
+      "/home/ubuntu/workspace/prompt-archive/skills/keyword-title/references/inflow.md",
+      "/home/ubuntu/workspace/prompt-archive/skills/keyword-title/scripts/searchad_keyword.py"
+    ],
+    "verified": "Existing owner credential directly returned 58 Naver SearchAd keyword rows for 세계여행; no OpenAI call.",
+    "plan": "artifacts/reel-room-studio-20261113/work/keyword-api-plan.md"
+  }
 }

@@ -1,0 +1,390 @@
+FFFFFFFFFFFFFFFFFF                                                       [100%]
+=================================== FAILURES ===================================
+_________ test_measured_keywords_work_without_openai_and_survive_edits _________
+
+client = <starlette.testclient.TestClient object at 0xf1417ca20380>
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0xf1417cb35d90>
+
+    def test_measured_keywords_work_without_openai_and_survive_edits(client, monkeypatch):
+        def get(url, **kwargs):
+            assert url == 'https://api.searchad.naver.com/keywordstool'
+            assert kwargs['params'] == {'hintKeywords': '세계여행,신혼여행', 'showDetail': '1'}
+            assert kwargs['headers']['X-Customer'] == '12345'
+            assert kwargs['headers']['X-Signature']
+            return httpx.Response(200, json={'keywordList': [
+                {'relKeyword': '세계여행', 'monthlyPcQcCnt': 330, 'monthlyMobileQcCnt': 1040, 'compIdx': '높음'},
+                {'relKeyword': '여행준비', 'monthlyPcQcCnt': '< 10', 'monthlyMobileQcCnt': 200, 'compIdx': '중간'},
+                {'relKeyword': '희귀여행', 'monthlyPcQcCnt': '< 10', 'monthlyMobileQcCnt': '<10', 'compIdx': '낮음'},
+            ]})
+        monkeypatch.setattr(httpx, 'get', get)
+        p = client.post('/api/studio/projects', json={'script': '내가 쓴 원문', 'hook': '나의 첫 문장'}).json()
+        base = '/api/studio/projects/' + p['id']
+        response = client.post(base + '/keywords/search', json={'query': '세계 여행, 신혼여행,세계여행'})
+>       assert response.status_code == 200, response.text
+E       AssertionError: {"detail":"Not Found"}
+E       assert 404 == 200
+E        +  where 404 = <Response [404 Not Found]>.status_code
+
+tests/test_studio_keywords.py:37: AssertionError
+_____________________ test_bad_seeds_never_call_provider[] _____________________
+
+client = <starlette.testclient.TestClient object at 0xf1417bdcf620>
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0xf1417bdb3410>
+query = ''
+
+    @pytest.mark.parametrize('query', ['', '  ', ', ,', 'a,b,c,d,e,f', 'x' * 101, '!!!', '\ud83d'])
+    def test_bad_seeds_never_call_provider(client, monkeypatch, query):
+        def forbidden(*args, **kwargs):
+            pytest.fail('invalid input reached a provider')
+        monkeypatch.setattr(httpx, 'get', forbidden)
+        p = client.post('/api/studio/projects', json={}).json()
+>       assert client.post(f"/api/studio/projects/{p['id']}/keywords/search", json={'query': query}).status_code == 422
+E       AssertionError: assert 404 == 422
+E        +  where 404 = <Response [404 Not Found]>.status_code
+E        +    where <Response [404 Not Found]> = post('/api/studio/projects/bab78ea8d9004bb28544635a5fd01820/keywords/search', json={'query': ''})
+E        +      where post = <starlette.testclient.TestClient object at 0xf1417bdcf620>.post
+
+tests/test_studio_keywords.py:59: AssertionError
+____________________ test_bad_seeds_never_call_provider[  ] ____________________
+
+client = <starlette.testclient.TestClient object at 0xf1417b457d70>
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0xf1417b4272c0>
+query = '  '
+
+    @pytest.mark.parametrize('query', ['', '  ', ', ,', 'a,b,c,d,e,f', 'x' * 101, '!!!', '\ud83d'])
+    def test_bad_seeds_never_call_provider(client, monkeypatch, query):
+        def forbidden(*args, **kwargs):
+            pytest.fail('invalid input reached a provider')
+        monkeypatch.setattr(httpx, 'get', forbidden)
+        p = client.post('/api/studio/projects', json={}).json()
+>       assert client.post(f"/api/studio/projects/{p['id']}/keywords/search", json={'query': query}).status_code == 422
+E       AssertionError: assert 404 == 422
+E        +  where 404 = <Response [404 Not Found]>.status_code
+E        +    where <Response [404 Not Found]> = post('/api/studio/projects/b5277b9d158244f1a17baa52932e8db3/keywords/search', json={'query': '  '})
+E        +      where post = <starlette.testclient.TestClient object at 0xf1417b457d70>.post
+
+tests/test_studio_keywords.py:59: AssertionError
+___________________ test_bad_seeds_never_call_provider[, ,] ____________________
+
+client = <starlette.testclient.TestClient object at 0xf1417b433110>
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0xf1417b431790>
+query = ', ,'
+
+    @pytest.mark.parametrize('query', ['', '  ', ', ,', 'a,b,c,d,e,f', 'x' * 101, '!!!', '\ud83d'])
+    def test_bad_seeds_never_call_provider(client, monkeypatch, query):
+        def forbidden(*args, **kwargs):
+            pytest.fail('invalid input reached a provider')
+        monkeypatch.setattr(httpx, 'get', forbidden)
+        p = client.post('/api/studio/projects', json={}).json()
+>       assert client.post(f"/api/studio/projects/{p['id']}/keywords/search", json={'query': query}).status_code == 422
+E       AssertionError: assert 404 == 422
+E        +  where 404 = <Response [404 Not Found]>.status_code
+E        +    where <Response [404 Not Found]> = post('/api/studio/projects/e38e716493394b7187ebe0741ab91327/keywords/search', json={'query': ', ,'})
+E        +      where post = <starlette.testclient.TestClient object at 0xf1417b433110>.post
+
+tests/test_studio_keywords.py:59: AssertionError
+_______________ test_bad_seeds_never_call_provider[a,b,c,d,e,f] ________________
+
+client = <starlette.testclient.TestClient object at 0xf1417aac59d0>
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0xf1417b4afe00>
+query = 'a,b,c,d,e,f'
+
+    @pytest.mark.parametrize('query', ['', '  ', ', ,', 'a,b,c,d,e,f', 'x' * 101, '!!!', '\ud83d'])
+    def test_bad_seeds_never_call_provider(client, monkeypatch, query):
+        def forbidden(*args, **kwargs):
+            pytest.fail('invalid input reached a provider')
+        monkeypatch.setattr(httpx, 'get', forbidden)
+        p = client.post('/api/studio/projects', json={}).json()
+>       assert client.post(f"/api/studio/projects/{p['id']}/keywords/search", json={'query': query}).status_code == 422
+E       AssertionError: assert 404 == 422
+E        +  where 404 = <Response [404 Not Found]>.status_code
+E        +    where <Response [404 Not Found]> = post('/api/studio/projects/42fbc59b10634644b478cd0e327c931c/keywords/search', json={'query': 'a,b,c,d,e,f'})
+E        +      where post = <starlette.testclient.TestClient object at 0xf1417aac59d0>.post
+
+tests/test_studio_keywords.py:59: AssertionError
+_ test_bad_seeds_never_call_provider[xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx] _
+
+client = <starlette.testclient.TestClient object at 0xf1417bdcfb90>
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0xf1417cb35ca0>
+query = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
+
+    @pytest.mark.parametrize('query', ['', '  ', ', ,', 'a,b,c,d,e,f', 'x' * 101, '!!!', '\ud83d'])
+    def test_bad_seeds_never_call_provider(client, monkeypatch, query):
+        def forbidden(*args, **kwargs):
+            pytest.fail('invalid input reached a provider')
+        monkeypatch.setattr(httpx, 'get', forbidden)
+        p = client.post('/api/studio/projects', json={}).json()
+>       assert client.post(f"/api/studio/projects/{p['id']}/keywords/search", json={'query': query}).status_code == 422
+E       AssertionError: assert 404 == 422
+E        +  where 404 = <Response [404 Not Found]>.status_code
+E        +    where <Response [404 Not Found]> = post('/api/studio/projects/61a19b53054f497a97f589c03529ae93/keywords/search', json={'query': 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'})
+E        +      where post = <starlette.testclient.TestClient object at 0xf1417bdcfb90>.post
+
+tests/test_studio_keywords.py:59: AssertionError
+___________________ test_bad_seeds_never_call_provider[!!!] ____________________
+
+client = <starlette.testclient.TestClient object at 0xf1417ab02cf0>
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0xf1417b431cd0>
+query = '!!!'
+
+    @pytest.mark.parametrize('query', ['', '  ', ', ,', 'a,b,c,d,e,f', 'x' * 101, '!!!', '\ud83d'])
+    def test_bad_seeds_never_call_provider(client, monkeypatch, query):
+        def forbidden(*args, **kwargs):
+            pytest.fail('invalid input reached a provider')
+        monkeypatch.setattr(httpx, 'get', forbidden)
+        p = client.post('/api/studio/projects', json={}).json()
+>       assert client.post(f"/api/studio/projects/{p['id']}/keywords/search", json={'query': query}).status_code == 422
+E       AssertionError: assert 404 == 422
+E        +  where 404 = <Response [404 Not Found]>.status_code
+E        +    where <Response [404 Not Found]> = post('/api/studio/projects/a9b11b8e274547f1b31f2056fe36ae90/keywords/search', json={'query': '!!!'})
+E        +      where post = <starlette.testclient.TestClient object at 0xf1417ab02cf0>.post
+
+tests/test_studio_keywords.py:59: AssertionError
+__________________ test_bad_seeds_never_call_provider[\ud83d] __________________
+
+client = <starlette.testclient.TestClient object at 0xf1417ab528d0>
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0xf1417ab4e750>
+query = '\ud83d'
+
+    @pytest.mark.parametrize('query', ['', '  ', ', ,', 'a,b,c,d,e,f', 'x' * 101, '!!!', '\ud83d'])
+    def test_bad_seeds_never_call_provider(client, monkeypatch, query):
+        def forbidden(*args, **kwargs):
+            pytest.fail('invalid input reached a provider')
+        monkeypatch.setattr(httpx, 'get', forbidden)
+        p = client.post('/api/studio/projects', json={}).json()
+>       assert client.post(f"/api/studio/projects/{p['id']}/keywords/search", json={'query': query}).status_code == 422
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_studio_keywords.py:59: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+.venv/lib/python3.12/site-packages/starlette/testclient.py:555: in post
+    return super().post(
+.venv/lib/python3.12/site-packages/httpx/_client.py:1144: in post
+    return self.request(
+.venv/lib/python3.12/site-packages/starlette/testclient.py:454: in request
+    return super().request(
+.venv/lib/python3.12/site-packages/httpx/_client.py:812: in request
+    request = self.build_request(
+.venv/lib/python3.12/site-packages/httpx/_client.py:378: in build_request
+    return Request(
+.venv/lib/python3.12/site-packages/httpx/_models.py:408: in __init__
+    headers, stream = encode_request(
+.venv/lib/python3.12/site-packages/httpx/_content.py:216: in encode_request
+    return encode_json(json)
+           ^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+json = {'query': '\ud83d'}
+
+    def encode_json(json: Any) -> tuple[dict[str, str], ByteStream]:
+        body = json_dumps(
+            json, ensure_ascii=False, separators=(",", ":"), allow_nan=False
+>       ).encode("utf-8")
+          ^^^^^^^^^^^^^^^
+E       UnicodeEncodeError: 'utf-8' codec can't encode character '\ud83d' in position 10: surrogates not allowed
+
+.venv/lib/python3.12/site-packages/httpx/_content.py:179: UnicodeEncodeError
+_____________ test_missing_credentials_disables_only_measurements ______________
+
+client = <starlette.testclient.TestClient object at 0xf1417b4aef90>
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0xf1417ab03230>
+
+    def test_missing_credentials_disables_only_measurements(client, monkeypatch):
+        monkeypatch.delenv('NAVER_SEARCH_CUSTOMER_ID')
+>       assert client.get('/api/studio/capabilities').json().get('keyword_search') is False
+E       AssertionError: assert None is False
+E        +  where None = <built-in method get of dict object at 0xf1417a53ebc0>('keyword_search')
+E        +    where <built-in method get of dict object at 0xf1417a53ebc0> = {'ai_text': False, 'ai_images': False, 'ai_narration': False, 'reference_search': True}.get
+E        +      where {'ai_text': False, 'ai_images': False, 'ai_narration': False, 'reference_search': True} = json()
+E        +        where json = <Response [200 OK]>.json
+E        +          where <Response [200 OK]> = get('/api/studio/capabilities')
+E        +            where get = <starlette.testclient.TestClient object at 0xf1417b4aef90>.get
+
+tests/test_studio_keywords.py:64: AssertionError
+__ test_provider_failures_do_not_leak_secrets_or_overwrite_research[401-502] ___
+
+client = <starlette.testclient.TestClient object at 0xf1417a9b2de0>
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0xf1417aba32c0>
+provider_status = 401, expected = 502
+
+    @pytest.mark.parametrize('provider_status,expected', [(401, 502), (403, 502), (429, 429), (500, 502)])
+    def test_provider_failures_do_not_leak_secrets_or_overwrite_research(client, monkeypatch, provider_status, expected):
+        p = client.post('/api/studio/projects', json={}).json()
+        base = f"/api/studio/projects/{p['id']}"
+        monkeypatch.setattr(httpx, 'get', lambda *a, **k: httpx.Response(200, json={'keywordList': []}))
+        prior = client.post(base + '/keywords/search', json={'query': '여행'}).json()
+        monkeypatch.setattr(httpx, 'get', lambda *a, **k: httpx.Response(provider_status, text='test-secret private-provider-body'))
+        response = client.post(base + '/keywords/search', json={'query': '여행'})
+>       assert response.status_code == expected
+E       assert 404 == 502
+E        +  where 404 = <Response [404 Not Found]>.status_code
+
+tests/test_studio_keywords.py:78: AssertionError
+__ test_provider_failures_do_not_leak_secrets_or_overwrite_research[403-502] ___
+
+client = <starlette.testclient.TestClient object at 0xf1417a2eec90>
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0xf1417a2c9070>
+provider_status = 403, expected = 502
+
+    @pytest.mark.parametrize('provider_status,expected', [(401, 502), (403, 502), (429, 429), (500, 502)])
+    def test_provider_failures_do_not_leak_secrets_or_overwrite_research(client, monkeypatch, provider_status, expected):
+        p = client.post('/api/studio/projects', json={}).json()
+        base = f"/api/studio/projects/{p['id']}"
+        monkeypatch.setattr(httpx, 'get', lambda *a, **k: httpx.Response(200, json={'keywordList': []}))
+        prior = client.post(base + '/keywords/search', json={'query': '여행'}).json()
+        monkeypatch.setattr(httpx, 'get', lambda *a, **k: httpx.Response(provider_status, text='test-secret private-provider-body'))
+        response = client.post(base + '/keywords/search', json={'query': '여행'})
+>       assert response.status_code == expected
+E       assert 404 == 502
+E        +  where 404 = <Response [404 Not Found]>.status_code
+
+tests/test_studio_keywords.py:78: AssertionError
+__ test_provider_failures_do_not_leak_secrets_or_overwrite_research[429-429] ___
+
+client = <starlette.testclient.TestClient object at 0xf1417a34ac90>
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0xf1417a308da0>
+provider_status = 429, expected = 429
+
+    @pytest.mark.parametrize('provider_status,expected', [(401, 502), (403, 502), (429, 429), (500, 502)])
+    def test_provider_failures_do_not_leak_secrets_or_overwrite_research(client, monkeypatch, provider_status, expected):
+        p = client.post('/api/studio/projects', json={}).json()
+        base = f"/api/studio/projects/{p['id']}"
+        monkeypatch.setattr(httpx, 'get', lambda *a, **k: httpx.Response(200, json={'keywordList': []}))
+        prior = client.post(base + '/keywords/search', json={'query': '여행'}).json()
+        monkeypatch.setattr(httpx, 'get', lambda *a, **k: httpx.Response(provider_status, text='test-secret private-provider-body'))
+        response = client.post(base + '/keywords/search', json={'query': '여행'})
+>       assert response.status_code == expected
+E       assert 404 == 429
+E        +  where 404 = <Response [404 Not Found]>.status_code
+
+tests/test_studio_keywords.py:78: AssertionError
+__ test_provider_failures_do_not_leak_secrets_or_overwrite_research[500-502] ___
+
+client = <starlette.testclient.TestClient object at 0xf1417a31c920>
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0xf1417a31d190>
+provider_status = 500, expected = 502
+
+    @pytest.mark.parametrize('provider_status,expected', [(401, 502), (403, 502), (429, 429), (500, 502)])
+    def test_provider_failures_do_not_leak_secrets_or_overwrite_research(client, monkeypatch, provider_status, expected):
+        p = client.post('/api/studio/projects', json={}).json()
+        base = f"/api/studio/projects/{p['id']}"
+        monkeypatch.setattr(httpx, 'get', lambda *a, **k: httpx.Response(200, json={'keywordList': []}))
+        prior = client.post(base + '/keywords/search', json={'query': '여행'}).json()
+        monkeypatch.setattr(httpx, 'get', lambda *a, **k: httpx.Response(provider_status, text='test-secret private-provider-body'))
+        response = client.post(base + '/keywords/search', json={'query': '여행'})
+>       assert response.status_code == expected
+E       assert 404 == 502
+E        +  where 404 = <Response [404 Not Found]>.status_code
+
+tests/test_studio_keywords.py:78: AssertionError
+_________ test_malformed_data_is_not_claimed_as_an_empty_success[None] _________
+
+client = <starlette.testclient.TestClient object at 0xf1417a3ae330>
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0xf1417a3af680>
+payload = None
+
+    @pytest.mark.parametrize('payload', [None, {}, {'keywordList': None}, {'keywordList': [None]}])
+    def test_malformed_data_is_not_claimed_as_an_empty_success(client, monkeypatch, payload):
+        monkeypatch.setattr(httpx, 'get', lambda *a, **k: httpx.Response(200, json=payload))
+        p = client.post('/api/studio/projects', json={}).json()
+>       assert client.post(f"/api/studio/projects/{p['id']}/keywords/search", json={'query': '여행'}).status_code == 502
+E       AssertionError: assert 404 == 502
+E        +  where 404 = <Response [404 Not Found]>.status_code
+E        +    where <Response [404 Not Found]> = post('/api/studio/projects/e6c6cf6909dd483997572d72b06cf418/keywords/search', json={'query': '여행'})
+E        +      where post = <starlette.testclient.TestClient object at 0xf1417a3ae330>.post
+
+tests/test_studio_keywords.py:87: AssertionError
+_______ test_malformed_data_is_not_claimed_as_an_empty_success[payload1] _______
+
+client = <starlette.testclient.TestClient object at 0xf141799f0ad0>
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0xf141799b7890>
+payload = {}
+
+    @pytest.mark.parametrize('payload', [None, {}, {'keywordList': None}, {'keywordList': [None]}])
+    def test_malformed_data_is_not_claimed_as_an_empty_success(client, monkeypatch, payload):
+        monkeypatch.setattr(httpx, 'get', lambda *a, **k: httpx.Response(200, json=payload))
+        p = client.post('/api/studio/projects', json={}).json()
+>       assert client.post(f"/api/studio/projects/{p['id']}/keywords/search", json={'query': '여행'}).status_code == 502
+E       AssertionError: assert 404 == 502
+E        +  where 404 = <Response [404 Not Found]>.status_code
+E        +    where <Response [404 Not Found]> = post('/api/studio/projects/d30f3cc5e70b4c4080feb7f2cae97f43/keywords/search', json={'query': '여행'})
+E        +      where post = <starlette.testclient.TestClient object at 0xf141799f0ad0>.post
+
+tests/test_studio_keywords.py:87: AssertionError
+_______ test_malformed_data_is_not_claimed_as_an_empty_success[payload2] _______
+
+client = <starlette.testclient.TestClient object at 0xf1417a30a6c0>
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0xf1417a3ace30>
+payload = {'keywordList': None}
+
+    @pytest.mark.parametrize('payload', [None, {}, {'keywordList': None}, {'keywordList': [None]}])
+    def test_malformed_data_is_not_claimed_as_an_empty_success(client, monkeypatch, payload):
+        monkeypatch.setattr(httpx, 'get', lambda *a, **k: httpx.Response(200, json=payload))
+        p = client.post('/api/studio/projects', json={}).json()
+>       assert client.post(f"/api/studio/projects/{p['id']}/keywords/search", json={'query': '여행'}).status_code == 502
+E       AssertionError: assert 404 == 502
+E        +  where 404 = <Response [404 Not Found]>.status_code
+E        +    where <Response [404 Not Found]> = post('/api/studio/projects/acdb137265be47bcb3b3fa67c5f15d87/keywords/search', json={'query': '여행'})
+E        +      where post = <starlette.testclient.TestClient object at 0xf1417a30a6c0>.post
+
+tests/test_studio_keywords.py:87: AssertionError
+_______ test_malformed_data_is_not_claimed_as_an_empty_success[payload3] _______
+
+client = <starlette.testclient.TestClient object at 0xf14179a2f590>
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0xf14179a2c050>
+payload = {'keywordList': [None]}
+
+    @pytest.mark.parametrize('payload', [None, {}, {'keywordList': None}, {'keywordList': [None]}])
+    def test_malformed_data_is_not_claimed_as_an_empty_success(client, monkeypatch, payload):
+        monkeypatch.setattr(httpx, 'get', lambda *a, **k: httpx.Response(200, json=payload))
+        p = client.post('/api/studio/projects', json={}).json()
+>       assert client.post(f"/api/studio/projects/{p['id']}/keywords/search", json={'query': '여행'}).status_code == 502
+E       AssertionError: assert 404 == 502
+E        +  where 404 = <Response [404 Not Found]>.status_code
+E        +    where <Response [404 Not Found]> = post('/api/studio/projects/427fda5ac20043628fb9789d54abc224/keywords/search', json={'query': '여행'})
+E        +      where post = <starlette.testclient.TestClient object at 0xf14179a2f590>.post
+
+tests/test_studio_keywords.py:87: AssertionError
+__________ test_timeout_is_actionable_and_unknown_counts_are_not_zero __________
+
+client = <starlette.testclient.TestClient object at 0xf14179a7c5c0>
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0xf14179a6b740>
+
+    def test_timeout_is_actionable_and_unknown_counts_are_not_zero(client, monkeypatch):
+        p = client.post('/api/studio/projects', json={}).json()
+        base = f"/api/studio/projects/{p['id']}"
+        def timeout(*args, **kwargs):
+            raise httpx.ReadTimeout('private address')
+        monkeypatch.setattr(httpx, 'get', timeout)
+        r = client.post(base + '/keywords/search', json={'query': '여행'})
+>       assert r.status_code == 504 and 'private address' not in r.text
+E       assert (404 == 504)
+E        +  where 404 = <Response [404 Not Found]>.status_code
+
+tests/test_studio_keywords.py:97: AssertionError
+=============================== warnings summary ===============================
+.venv/lib/python3.12/site-packages/fastapi/testclient.py:1
+  /home/ubuntu/workspace/video-automation/.venv/lib/python3.12/site-packages/fastapi/testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED tests/test_studio_keywords.py::test_measured_keywords_work_without_openai_and_survive_edits
+FAILED tests/test_studio_keywords.py::test_bad_seeds_never_call_provider[] - ...
+FAILED tests/test_studio_keywords.py::test_bad_seeds_never_call_provider[  ]
+FAILED tests/test_studio_keywords.py::test_bad_seeds_never_call_provider[, ,]
+FAILED tests/test_studio_keywords.py::test_bad_seeds_never_call_provider[a,b,c,d,e,f]
+FAILED tests/test_studio_keywords.py::test_bad_seeds_never_call_provider[xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx]
+FAILED tests/test_studio_keywords.py::test_bad_seeds_never_call_provider[!!!]
+FAILED tests/test_studio_keywords.py::test_bad_seeds_never_call_provider[\ud83d]
+FAILED tests/test_studio_keywords.py::test_missing_credentials_disables_only_measurements
+FAILED tests/test_studio_keywords.py::test_provider_failures_do_not_leak_secrets_or_overwrite_research[401-502]
+FAILED tests/test_studio_keywords.py::test_provider_failures_do_not_leak_secrets_or_overwrite_research[403-502]
+FAILED tests/test_studio_keywords.py::test_provider_failures_do_not_leak_secrets_or_overwrite_research[429-429]
+FAILED tests/test_studio_keywords.py::test_provider_failures_do_not_leak_secrets_or_overwrite_research[500-502]
+FAILED tests/test_studio_keywords.py::test_malformed_data_is_not_claimed_as_an_empty_success[None]
+FAILED tests/test_studio_keywords.py::test_malformed_data_is_not_claimed_as_an_empty_success[payload1]
+FAILED tests/test_studio_keywords.py::test_malformed_data_is_not_claimed_as_an_empty_success[payload2]
+FAILED tests/test_studio_keywords.py::test_malformed_data_is_not_claimed_as_an_empty_success[payload3]
+FAILED tests/test_studio_keywords.py::test_timeout_is_actionable_and_unknown_counts_are_not_zero
+18 failed, 1 warning in 1.53s

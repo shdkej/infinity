@@ -1,0 +1,193 @@
+FFFFFF..................................................FF               [100%]
+=================================== FAILURES ===================================
+_____ test_browser_key_is_per_request_and_does_not_leak[suggestions-body0] _____
+
+setup = (<starlette.testclient.TestClient object at 0xe19514454ec0>, <Mock id='248030442810128'>, PosixPath('/tmp/pytest-of-ubuntu/pytest-27/test_browser_key_is_per_reques0'), '/api/studio/projects/fceb30d98ace44149406e26cd95a6191')
+route = 'suggestions', body = {}
+
+    @pytest.mark.parametrize('route,body', [('suggestions', {}), ('images', {'prompt': '바다', 'count': 2}), ('narration', {'voice': 'nova'})])
+    def test_browser_key_is_per_request_and_does_not_leak(setup, route, body):
+        client, factory, root, base = setup
+        response = client.post(base + '/' + route, json=body, headers={'X-OpenAI-API-Key': 'browser-key-placeholder'})
+>       assert factory.call_args.kwargs['api_key'] == 'browser-key-placeholder'
+E       AssertionError: assert 'server-key-placeholder' == 'browser-key-placeholder'
+E         
+E         - browser-key-placeholder
+E         ? ^ ^^^
+E         + server-key-placeholder
+E         ? ^^ ^
+
+tests/test_studio_client_key.py:33: AssertionError
+_______ test_browser_key_is_per_request_and_does_not_leak[images-body1] ________
+
+setup = (<starlette.testclient.TestClient object at 0xe19513f19880>, <Mock id='248030400863776'>, PosixPath('/tmp/pytest-of-ubuntu/pytest-27/test_browser_key_is_per_reques1'), '/api/studio/projects/0085d15c5b084c46b0c056ce8fd1e08a')
+route = 'images', body = {'prompt': '바다', 'count': 2}
+
+    @pytest.mark.parametrize('route,body', [('suggestions', {}), ('images', {'prompt': '바다', 'count': 2}), ('narration', {'voice': 'nova'})])
+    def test_browser_key_is_per_request_and_does_not_leak(setup, route, body):
+        client, factory, root, base = setup
+        response = client.post(base + '/' + route, json=body, headers={'X-OpenAI-API-Key': 'browser-key-placeholder'})
+>       assert factory.call_args.kwargs['api_key'] == 'browser-key-placeholder'
+E       AssertionError: assert 'server-key-placeholder' == 'browser-key-placeholder'
+E         
+E         - browser-key-placeholder
+E         ? ^ ^^^
+E         + server-key-placeholder
+E         ? ^^ ^
+
+tests/test_studio_client_key.py:33: AssertionError
+______ test_browser_key_is_per_request_and_does_not_leak[narration-body2] ______
+
+setup = (<starlette.testclient.TestClient object at 0xe19512dc8c20>, <Mock id='248030382819952'>, PosixPath('/tmp/pytest-of-ubuntu/pytest-27/test_browser_key_is_per_reques2'), '/api/studio/projects/3ae750bb2e9e480c9dbc6c67658034c8')
+route = 'narration', body = {'voice': 'nova'}
+
+    @pytest.mark.parametrize('route,body', [('suggestions', {}), ('images', {'prompt': '바다', 'count': 2}), ('narration', {'voice': 'nova'})])
+    def test_browser_key_is_per_request_and_does_not_leak(setup, route, body):
+        client, factory, root, base = setup
+        response = client.post(base + '/' + route, json=body, headers={'X-OpenAI-API-Key': 'browser-key-placeholder'})
+>       assert factory.call_args.kwargs['api_key'] == 'browser-key-placeholder'
+E       AssertionError: assert 'server-key-placeholder' == 'browser-key-placeholder'
+E         
+E         - browser-key-placeholder
+E         ? ^ ^^^
+E         + server-key-placeholder
+E         ? ^^ ^
+
+tests/test_studio_client_key.py:33: AssertionError
+____________ test_invalid_browser_key_cannot_fall_back_to_server[] _____________
+
+setup = (<starlette.testclient.TestClient object at 0xe19512e1d310>, <Mock id='248030383167952'>, PosixPath('/tmp/pytest-of-ubuntu/pytest-27/test_invalid_browser_key_canno0'), '/api/studio/projects/9330cd01fefe43eaa23e44b074cb5a31')
+key = ''
+
+    @pytest.mark.parametrize('key', ['', 'two words', 'a' * 513])
+    def test_invalid_browser_key_cannot_fall_back_to_server(setup, key):
+        client, factory, _, base = setup
+        response = client.post(base + '/suggestions', json={}, headers={'X-OpenAI-API-Key': key})
+        assert response.status_code == 422
+>       factory.assert_not_called()
+
+tests/test_studio_client_key.py:48: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <Mock id='248030383167952'>
+
+    def assert_not_called(self):
+        """assert that the mock was never called.
+        """
+        if self.call_count != 0:
+            msg = ("Expected '%s' to not have been called. Called %s times.%s"
+                   % (self._mock_name or 'mock',
+                      self.call_count,
+                      self._calls_repr()))
+>           raise AssertionError(msg)
+E           AssertionError: Expected 'mock' to not have been called. Called 1 times.
+E           Calls: [call(api_key='server-key-placeholder', timeout=60.0, max_retries=1)].
+
+/usr/lib/python3.12/unittest/mock.py:905: AssertionError
+________ test_invalid_browser_key_cannot_fall_back_to_server[two words] ________
+
+setup = (<starlette.testclient.TestClient object at 0xe19512c7ffe0>, <Mock id='248030381469968'>, PosixPath('/tmp/pytest-of-ubuntu/pytest-27/test_invalid_browser_key_canno1'), '/api/studio/projects/828e19363e894ff190ba2ac123eaf09b')
+key = 'two words'
+
+    @pytest.mark.parametrize('key', ['', 'two words', 'a' * 513])
+    def test_invalid_browser_key_cannot_fall_back_to_server(setup, key):
+        client, factory, _, base = setup
+        response = client.post(base + '/suggestions', json={}, headers={'X-OpenAI-API-Key': key})
+        assert response.status_code == 422
+>       factory.assert_not_called()
+
+tests/test_studio_client_key.py:48: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <Mock id='248030381469968'>
+
+    def assert_not_called(self):
+        """assert that the mock was never called.
+        """
+        if self.call_count != 0:
+            msg = ("Expected '%s' to not have been called. Called %s times.%s"
+                   % (self._mock_name or 'mock',
+                      self.call_count,
+                      self._calls_repr()))
+>           raise AssertionError(msg)
+E           AssertionError: Expected 'mock' to not have been called. Called 1 times.
+E           Calls: [call(api_key='server-key-placeholder', timeout=60.0, max_retries=1)].
+
+/usr/lib/python3.12/unittest/mock.py:905: AssertionError
+_ test_invalid_browser_key_cannot_fall_back_to_server[aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa] _
+
+setup = (<starlette.testclient.TestClient object at 0xe19512d514c0>, <Mock id='248030382330784'>, PosixPath('/tmp/pytest-of-ubuntu/pytest-27/test_invalid_browser_key_canno2'), '/api/studio/projects/9619b21957e942e1a2ce4dcd2b7a51cb')
+key = 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa...aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
+
+    @pytest.mark.parametrize('key', ['', 'two words', 'a' * 513])
+    def test_invalid_browser_key_cannot_fall_back_to_server(setup, key):
+        client, factory, _, base = setup
+        response = client.post(base + '/suggestions', json={}, headers={'X-OpenAI-API-Key': key})
+        assert response.status_code == 422
+>       factory.assert_not_called()
+
+tests/test_studio_client_key.py:48: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <Mock id='248030382330784'>
+
+    def assert_not_called(self):
+        """assert that the mock was never called.
+        """
+        if self.call_count != 0:
+            msg = ("Expected '%s' to not have been called. Called %s times.%s"
+                   % (self._mock_name or 'mock',
+                      self.call_count,
+                      self._calls_repr()))
+>           raise AssertionError(msg)
+E           AssertionError: Expected 'mock' to not have been called. Called 1 times.
+E           Calls: [call(api_key='server-key-placeholder', timeout=60.0, max_retries=1)].
+
+/usr/lib/python3.12/unittest/mock.py:905: AssertionError
+__________ test_youtube_only_search_uses_skill_key_and_skips_commons ___________
+
+ai = <module 'web.studio_ai' from '/home/ubuntu/workspace/video-automation/web/studio_ai.py'>
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0xe1951298b5f0>
+project = {'script': '  다합에서 숙소를 옮겼어요.\n바다를 매일 걸었어요.  ', 'topic': '다합 여행', 'audience': '여행 준비하는 사람', 'goal': '경험 공유', ...}
+
+    def test_youtube_only_search_uses_skill_key_and_skips_commons(ai, monkeypatch, project):
+        monkeypatch.setenv('GOG_YOUTUBE_API_KEY', 'skill-youtube-placeholder')
+        def handler(request):
+            assert request.url.host == 'www.googleapis.com'
+            assert request.url.params['key'] == 'skill-youtube-placeholder'
+            assert request.url.params['q'] == '다합 여행'
+            return httpx.Response(200, json={'items': [{'id': {'videoId': 'abcdefghijk'}, 'snippet': {
+                'title': '다합 여행', 'channelTitle': '여행 기록', 'thumbnails': {}}}]})
+        http_mock(ai, monkeypatch, handler)
+>       result = ai.search_references(project, '다합 여행', 'video', provider='youtube')
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       TypeError: search_references() got an unexpected keyword argument 'provider'
+
+tests/test_studio_ai.py:388: TypeError
+______________ test_youtube_source_cannot_silently_return_images _______________
+
+ai = <module 'web.studio_ai' from '/home/ubuntu/workspace/video-automation/web/studio_ai.py'>
+project = {'script': '  다합에서 숙소를 옮겼어요.\n바다를 매일 걸었어요.  ', 'topic': '다합 여행', 'audience': '여행 준비하는 사람', 'goal': '경험 공유', ...}
+
+    def test_youtube_source_cannot_silently_return_images(ai, project):
+        with pytest.raises(ValueError):
+>           ai.search_references(project, '다합', 'image', provider='youtube')
+E           TypeError: search_references() got an unexpected keyword argument 'provider'
+
+tests/test_studio_ai.py:395: TypeError
+=============================== warnings summary ===============================
+.venv/lib/python3.12/site-packages/fastapi/testclient.py:1
+  /home/ubuntu/workspace/video-automation/.venv/lib/python3.12/site-packages/fastapi/testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED tests/test_studio_client_key.py::test_browser_key_is_per_request_and_does_not_leak[suggestions-body0]
+FAILED tests/test_studio_client_key.py::test_browser_key_is_per_request_and_does_not_leak[images-body1]
+FAILED tests/test_studio_client_key.py::test_browser_key_is_per_request_and_does_not_leak[narration-body2]
+FAILED tests/test_studio_client_key.py::test_invalid_browser_key_cannot_fall_back_to_server[]
+FAILED tests/test_studio_client_key.py::test_invalid_browser_key_cannot_fall_back_to_server[two words]
+FAILED tests/test_studio_client_key.py::test_invalid_browser_key_cannot_fall_back_to_server[aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa]
+FAILED tests/test_studio_ai.py::test_youtube_only_search_uses_skill_key_and_skips_commons
+FAILED tests/test_studio_ai.py::test_youtube_source_cannot_silently_return_images
+8 failed, 50 passed, 1 warning in 1.62s
