@@ -1,0 +1,19 @@
+{
+  "project_id": "01bb845a4da845f795160ad628eb9a81",
+  "script_origin": "Codex-authored verification sample, not user autobiography",
+  "paid_requests": {
+    "suggestions": {
+      "status": "error",
+      "detail": "/projects/01bb845a4da845f795160ad628eb9a81/suggestions: HTTP 422 {\"detail\":\"OpenAI 추천 실패. API 사용 한도 또는 요청 빈도를 확인한 뒤 다시 시도해 주세요.\"}"
+    },
+    "images": {
+      "status": "error",
+      "detail": "/projects/01bb845a4da845f795160ad628eb9a81/images: HTTP 422 {\"detail\":\"OpenAI 이미지 생성 실패. API 사용 한도 또는 요청 빈도를 확인한 뒤 다시 시도해 주세요.\"}"
+    },
+    "narration": {
+      "status": "error",
+      "detail": "/projects/01bb845a4da845f795160ad628eb9a81/narration: HTTP 422 {\"detail\":\"OpenAI 내레이션 생성 실패. API 사용 한도 또는 요청 빈도를 확인한 뒤 다시 시도해 주세요.\"}"
+    }
+  },
+  "original_script_preserved": true
+}

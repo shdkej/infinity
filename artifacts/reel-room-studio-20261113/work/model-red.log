@@ -1,0 +1,32 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+____ test_images_request_count_decode_real_bytes_and_report_partial_failure ____
+
+ai = <module 'web.studio_ai' from '/home/ubuntu/workspace/video-automation/web/studio_ai.py'>
+project = {'script': '  다합에서 숙소를 옮겼어요.\n바다를 매일 걸었어요.  ', 'topic': '다합 여행', 'audience': '여행 준비하는 사람', 'goal': '경험 공유', ...}
+tmp_path = PosixPath('/tmp/pytest-of-ubuntu/pytest-18/test_images_request_count_deco0')
+
+    def test_images_request_count_decode_real_bytes_and_report_partial_failure(ai, project, tmp_path):
+        client = Mock()
+        client.images.generate.return_value = SimpleNamespace(data=[
+            SimpleNamespace(b64_json=base64.b64encode(png_bytes()).decode()),
+            SimpleNamespace(b64_json='invalid-base64')])
+        ai.OpenAI = Mock(return_value=client)
+        result = ai.generate_images(project, '바닷가에서 걷는 장면', 3, tmp_path)
+        assert len(result['images']) == 1 and len(result['errors']) == 2
+        saved = Path(result['images'][0]['path'])
+        with Image.open(saved) as picture:
+            assert picture.format == 'PNG' and picture.size == (32, 48)
+        assert result['images'][0]['prompt'] == '바닷가에서 걷는 장면'
+        assert client.images.generate.call_args.kwargs['n'] == 3
+>       assert client.images.generate.call_args.kwargs['model'] == 'gpt-image-1.5'
+E       AssertionError: assert 'gpt-image-1' == 'gpt-image-1.5'
+E         
+E         - gpt-image-1.5
+E         ?            --
+E         + gpt-image-1
+
+tests/test_studio_ai.py:132: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_studio_ai.py::test_images_request_count_decode_real_bytes_and_report_partial_failure
+1 failed in 0.95s
