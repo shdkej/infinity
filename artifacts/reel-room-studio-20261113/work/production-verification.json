@@ -1,0 +1,16 @@
+{
+  "project_id": "53c9f4b98e3b4cd9815cff0882b4fd4c",
+  "render_id": "0fd7cf7b3afb4829a13b756c30f2f780",
+  "original_script_preserved": true,
+  "asset_count": 3,
+  "scene_count": 2,
+  "video_sha256": "eda2487e495d539e3383211a32beaa4087b84631717ad32a7df02d6b5cd5394b",
+  "outputs": {
+    "video": "/api/studio/projects/53c9f4b98e3b4cd9815cff0882b4fd4c/renders/0fd7cf7b3afb4829a13b756c30f2f780/reel.mp4",
+    "cover": "/api/studio/projects/53c9f4b98e3b4cd9815cff0882b4fd4c/renders/0fd7cf7b3afb4829a13b756c30f2f780/cover.jpg",
+    "subtitles": "/api/studio/projects/53c9f4b98e3b4cd9815cff0882b4fd4c/renders/0fd7cf7b3afb4829a13b756c30f2f780/subtitles.srt",
+    "project": "/api/studio/projects/53c9f4b98e3b4cd9815cff0882b4fd4c/renders/0fd7cf7b3afb4829a13b756c30f2f780/project.json"
+  },
+  "status": "pass",
+  "fixture": "Synthetic diagnostic images and audio; not user recording or AI generation"
+}

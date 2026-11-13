@@ -1,0 +1,7 @@
+{
+  "revision": "73",
+  "ready_replicas": 1,
+  "image": "ghcr.io/shdkej/video-automation:b5d8b42e49280ff68fc45c078ada23916c8b5efa",
+  "pod": "reel-room-54f6f6bd79-z44zz",
+  "image_id": "ghcr.io/shdkej/video-automation@sha256:7cce8be049cbda86880ca48940f8839b82b9d361ac8e02074439d92830c5c2b8"
+}

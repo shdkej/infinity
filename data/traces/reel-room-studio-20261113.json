@@ -106,6 +106,30 @@
         "logs/agent-wiki-query.md"
       ],
       "note": "사용자 “ㅇㅇ ㄱㄱ”: 운영 배포·기존 두 주소 전환·이미지 2장·음성 1개·추천 1회 검증 승인."
+    },
+    {
+      "type": "execution",
+      "at": "2026-11-13T12:21:57Z",
+      "context_pack": "intents/context/reel-room-studio-20261113.json",
+      "evidence_paths": [
+        "artifacts/reel-room-studio-20261113/work/implementation-status.md",
+        "artifacts/reel-room-studio-20261113/work/final-production-verification.json"
+      ],
+      "searches": [
+        "Reel Room Instagram Maker 대본 키워드 후킹 릴스 제작 통합, 직접 녹음과 AI 내레이션, Codex 구현 기록과 미승인 운영 배포 경계",
+        "origin/main Inbox Active Waiting Archive duplicate check"
+      ],
+      "wiki_pages": [
+        "agent-wiki/content/docs/outputs/Idea/Article.mdx",
+        "agent-wiki/content/docs/outputs/deep-knowledge/ai.mdx",
+        "agent-wiki/content/docs/outputs/Meta/My_space.mdx",
+        "agent-wiki/content/docs/outputs/deep-knowledge/devops.mdx",
+        "agent-wiki/content/docs/outputs/Meta/Fail_experience.mdx"
+      ],
+      "operational_log_sections": [
+        "logs/agent-wiki-query.md"
+      ],
+      "note": "운영 revision 73, source b5d8b42, 파일 7개 보존·새 MP4·무료 검색·기존 주소 이동 검증 PASS. 사용자 지시에 따라 유료 AI 검증 보류."
     }
   ],
   "artifacts": [
@@ -120,25 +144,32 @@
   ],
   "verifications": [
     {
-      "label": "186 pytest passed",
+      "label": "186 full-suite tests",
       "path": "artifacts/reel-room-studio-20261113/work/pytest.log"
     },
     {
-      "label": "source remote verified",
-      "source_commit": "a6c01640e17c766287a81ef888e9f58394c7c9c2",
-      "result": "pass"
+      "label": "50 provider regression tests after model and dependency fixes",
+      "path": "artifacts/reel-room-studio-20261113/work/dependency-provider-tests.log"
     },
     {
-      "label": "browser manual flow and 375/768/1440px",
-      "result": "pass"
+      "label": "Live deployment revision 73",
+      "path": "artifacts/reel-room-studio-20261113/work/deployment-final.json"
     },
     {
-      "label": "production and paid API",
-      "result": "not_run"
+      "label": "Persistent files and final render",
+      "path": "artifacts/reel-room-studio-20261113/work/final-production-verification.json"
+    },
+    {
+      "label": "Legacy URL redirects",
+      "path": "artifacts/reel-room-studio-20261113/work/browser-redirects.json"
+    },
+    {
+      "label": "Paid API",
+      "result": "deferred_by_user_after_429"
     }
   ],
   "next_decision": {
-    "status": "external_confirmation_pending",
-    "value": "OpenAI 계정 사용 한도 확인. 배포는 승인 범위에서 Codex가 계속 진행."
+    "status": "deferred_by_user",
+    "value": "AI 실호출 검증 재개 요청 시 계정 한도를 확인한다. 운영 배포는 완료했다."
   }
 }

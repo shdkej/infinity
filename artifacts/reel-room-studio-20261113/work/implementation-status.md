@@ -1,44 +1,32 @@
-# Reel Room 통합 스튜디오 — 구현·검증 기록
+# Reel Room 통합 스튜디오 — 운영 검증 결과
 
-최종 로컬 검증 기록: 2026-11-13T11:34:52Z. 소스 원격 반영 완료, 운영 배포 승인 대기.
+기록 시각: 2026-11-13T12:21:57Z. 운영 배포·기존 주소 연결 완료. 유료 AI 실호출 검증은 사용자 요청으로 보류.
 
-## 구현과 검증 결과
+## 현재 결과
 
-사람이 쓴 대본을 보존하며 키워드·후킹·첨부/추천 소재·복수 이미지 후보를 선택하고 장면·음성·자막으로 조합한다. 직접 녹음과 AI 내레이션을 모두 구현했다. 사용법은 video-automation README, 기술 계약은 docs/STUDIO.md가 소유한다.
+- 운영: https://reel.oracle.shdkej.com/ . 기존 Basic Auth 유지.
+- 운영에 사용한 source `b5d8b42e49280ff68fc45c078ada23916c8b5efa`, 배포 시 master 원격 SHA 일치 PASS. 이후 배포 주석만 수정한 문서 커밋 `4baee7e83fab00f34d07127e5c38dbddfb17eb6c`도 master 원격 검증 PASS. 최종 컨테이너 빌드: https://github.com/shdkej/video-automation/actions/runs/43421516272 .
+- 운영 manifest: Space `2c2e5923033a2d832592a5dc84670ceb4f474270`. Deployment revision 73, ready 1, digest `sha256:7cce8be049cbda86880ca48940f8839b82b9d361ac8e02074439d92830c5c2b8`.
+- Instagram Maker 독립 주소와 Infinity 내 주소(슬래시 유무 포함)가 스튜디오로 이동한다. Space 정적 배포 43422740715·43422987340 성공, 실제 브라우저 이동 검증 PASS.
 
-- 전체 Python 테스트: 186 passed, 49 warnings. 기존 라이브러리 deprecation warning, 실패 없음. 공급자 50개 테스트는 유료 API 모의 응답이다.
-- TypeScript/Vite build PASS, 대상 oxlint 0 errors, git diff --check PASS.
-- 실제 브라우저: 수동 대본 → 이미지 2개 → 녹음 6초 → 2개 장면 → 1080×1920 H.264/AAC MP4 → 저장/재열기. 원문 보존·SRT/커버/JSON 출력 확인. 375/768/1440px 넘침·페이지 오류 없음.
-- AI 추천 UI의 선택/원문 보존과 이모지 500자 경계, 참고 자료 50개 상한에서 저장 유지 검증. 업로드 실패 복구·짧은 비디오/긴 오디오 스트림·미확인 수치 추천 차단의 회귀 테스트 포함.
-- Commons 실제 무료 검색: travel city → 이미지·영상 10건. 유료 OpenAI 생성·음성 및 실제 YouTube API 검색은 실행하지 않았다.
-- 테스트 이미지와 음성은 합성 fixture다. 실제 사용자 녹음이나 AI 생성 결과로 표시하지 않는다.
+## 확인한 동작
 
-## 원격 반영과 배포 준비
+- 전체 Python 테스트 186 passed / 49 deprecation warnings. 모델·패키지 수정 뒤 공급자 테스트 50 passed. TypeScript/Vite build, 대상 lint, Docker의 Studio import 검증 PASS.
+- 운영 API에서 대본 저장 → 이미지 2개·녹음 6초 업로드 → 자막 2장면 → 실제 1080×1920 MP4(영상·음성) → 저장/재열기·다운로드 PASS. 테스트 소재와 음성은 합성 fixture이며 실제 사용자 녹음이나 AI 생성물이 아니다.
+- 운영 브라우저에서 MP4 재생, 375/768/1440px 넘침·페이지 오류 없음, 기존 자동 컷 업로드 화면 확인.
+- 새 이미지로 Pod 교체 후 프로젝트 전체 JSON 및 소재·출력 7개 파일 SHA256 일치. 교체한 이미지에서 다시 MP4 출력 PASS.
+- 실제 Commons 참고 검색에서 이미지·영상 10개 확인.
 
-- 소스 master `a6c01640e17c766287a81ef888e9f58394c7c9c2`: scoped verify_git_publish PASS, origin/master와 일치.
-- Space main `f4c435cc5468cd5ac4b4a149fe6d9190f8e64334`: 준비 패치와 운영 README만 반영, scoped 원격 검증 PASS. 실제 deployment.yaml·정적 진입은 아직 변경하지 않음.
-- Knowledge Lab main `3d3fb323a28de8dc3db971002f4deaac22803009`: 범위·구현 결정 문서 반영, scoped 원격 검증 PASS.
-- GHCR 빌드: https://github.com/shdkej/video-automation/actions/runs/43417940924 . 이 기록 작성 시 진행 중이며 배포 전 성공을 확인해야 한다.
-- 준비 패치 2개 모두 git apply --check PASS. source SHA 고정·영구 저장 경로·기존 인증 유지·직전 이미지 복구 순서를 Space README에 기록했다.
-- 운영 배포, 운영 주소 실제 동작, Pod 재시작 이후 저장 유지, 유료 AI 품질은 아직 미검증이다.
+## 수정과 남은 한계
 
-## 승인과 실행 경계
+초기 기본 이미지 모델의 종료와 컨테이너의 httpx 의존성 누락을 운영 검증에서 찾았다. gpt-image-1.5로 변경하고 OpenAI 2.44.0/httpx 0.28.1을 명시했으며 Docker import 검증을 추가했다. 중간 Pod의 임시 패키지 설치는 최종 검증으로 취급하지 않았고, 새 이미지에서 다시 확인했다.
 
-실제 실행자는 Codex 세션 `01a1d48d-86d8-70d0-94e3-a36084a5dde5`이며 purplemux `ws-E3W-XA` / `tab-hMqhUf`에서 작업한다. OpenClaw/Genie 인계·실행은 하지 않았다. 현재 Infinity 기록은 중복 빌드를 만드는 실행 요청이 아니다.
+운영 키의 무료 모델 목록 조회는 인증 성공했지만 추천·이미지·음성 생성 요청은 상류 429로 실패했다. 이후 사용자가 “AI 실호출 검증은 보류해”라고 응답했다. 추가 유료 호출·키 교체·결제 설정 변경은 하지 않았다. 성공 생성 품질은 미검증이다. 자막은 장면 단위이며 자동 발화 정렬은 제공하지 않는다.
 
-Waiting은 운영 배포의 미승인 경계를 나타낸다. 로컬 QA와 소스 원격 반영은 이미 승인된 Codex 작업으로 계속 진행한다. 운영 서비스 교체·공개 게시·외부 발송·유료 검증 호출은 이 기록으로 승인되지 않는다. 사용자 마감은 제시되지 않았으므로 임의 deadline이나 재시도 일정을 만들지 않았다.
+Argo CD는 기존 다른 비공개 서브모듈 인증 실패로 자동 동기화가 멈춰 있다. 이번에는 원격 게시한 동일 대상 Deployment만 직접 적용했다. 전역 설정은 변경하지 않았고 운영·복구 절차는 Space apps/reel-room/README.md에 기록했다.
 
-원점은 현재 Codex 대화이며 Slack/Telegram 주소가 없다. `notification_channel: delivery_unknown` 및 `notification_target: missing-at-intake`는 실제 채널이 아니라 기존 notifier가 명시적으로 발송하지 않는 예약값이다. 세션 식별자는 `origin`으로 따로 보존한다. 자동 알림·스케줄·실행자 레지스트리는 변경하지 않았다.
+## 실행·맥락·상태
 
-## 중복·맥락 확인
+Codex 세션 01a1d48d-86d8-70d0-94e3-a36084a5dde5, purplemux ws-E3W-XA/tab-hMqhUf가 실행했다. 기존 Context Pack 두 개는 intents/context/reel-room-studio-20261113.json 및 reel-room-studio-20261113-product.json이다. 별도의 Genie 구현 인계나 외부 메시지를 만들지 않았다. notification_channel delivery_unknown은 발송 불가 예약값이다.
 
-- Infinity 원격 `origin/main` SHA `9d40b23998e20970874c2f751a203705cc1f8a5f`에서 Inbox/Active/Waiting와 월별 Archive를 `reel room`, `instagram maker`, `릴스`, `video-automation`으로 검색했다. 동일 통합 도구 제작은 없다. 과거 `content-amalfi-ravello-day-reel-20260918`은 단일 여행 릴스 초안으로 목적이 다르다.
-- 등록 프로젝트 목록과 실행자 레지스트리에 video-automation이 없어 `project_id`나 실행자 경로를 새로 추정·등록하지 않았다. 실제 저장소 README와 `docs/STUDIO.md`, 서비스 레지스트리의 Reel Room 연결을 사용한다.
-- 접수 Context Pack: `intents/context/reel-room-studio-20261113.json`. 준비 당시 product Pack: `intents/context/reel-room-studio-20261113-product.json`. 두 기록을 다른 시점의 조회로 보존하며 선행 검색을 소급한 것으로 표시하지 않는다.
-- 선택된 Wiki 구간은 제품·출처·검증 책임의 일반 참고다. 해당 구간을 사용자 원 발화나 이번 구현의 실행 증거로 취급하지 않는다. 선택된 운영 로그의 기존 캐러셀/디스크 기록도 배포 허가로 확대하지 않았다.
-
-## 다음 판단
-
-운영 서비스 배포·Instagram Maker 두 진입 주소 전환 및 유료 AI 검증 1회(이미지 2장·음성 1개·추천 1회)의 승인 여부를 사용자에게 확인한다.
-
-소스 완료와 운영 완료를 분리한다. 전체 작업은 Waiting/user를 유지하며 중복 Genie 빌드나 외부 알림을 만들지 않는다.
+사용자의 “ㅇㅇ ㄱㄱ”로 배포·주소 전환·실호출 검증을 승인받았고, 이후 유료 검증만 명시적으로 보류됐다. 원장은 Waiting/user를 유지하며 기다리는 대상은 AI 검증 재개 결정이다. 운영 배포의 재승인을 요구하지 않는다. 상세 증거: deployment-verification.md, final-production-verification.json, deployment-final.json, browser-redirects.json, browser-production.log, pytest.log.

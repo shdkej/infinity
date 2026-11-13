@@ -1,0 +1,17 @@
+[
+  {
+    "url": "https://instagram-maker.aws.shdkej.com/",
+    "target": "https://reel.oracle.shdkej.com/",
+    "redirect": true
+  },
+  {
+    "url": "https://infinity.aws.shdkej.com/instagram-maker/",
+    "target": "https://reel.oracle.shdkej.com/",
+    "redirect": true
+  },
+  {
+    "url": "https://infinity.aws.shdkej.com/instagram-maker",
+    "target": "https://reel.oracle.shdkej.com/",
+    "redirect": true
+  }
+]

@@ -1,0 +1,20 @@
+{
+  "project_id": "53c9f4b98e3b4cd9815cff0882b4fd4c",
+  "source_sha": "b5d8b42e49280ff68fc45c078ada23916c8b5efa",
+  "persistent_files_verified": 7,
+  "project_unchanged_across_replacement": true,
+  "reference_count": 10,
+  "reference_kinds": [
+    "image",
+    "video"
+  ],
+  "final_render_id": "76db697b641747ef89d46c0eabbff934",
+  "video_dimensions": [
+    1080,
+    1920
+  ],
+  "video_duration": 6.0,
+  "audio_present": true,
+  "paid_ai": "deferred_by_user_after_429",
+  "status": "pass"
+}

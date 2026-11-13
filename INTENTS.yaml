@@ -92,7 +92,7 @@ lanes:
     complexity_tier: complex
     source: codex_cli
     created_at: '2026-11-13T11:16:20Z'
-    updated_at: '2026-11-13T11:34:52Z'
+    updated_at: '2026-11-13T12:21:57Z'
     user_intent: Reel Room과 Instagram Maker를 통합해 사람이 쓴 대본을 중심으로 키워드·후킹·이미지·참고 자료를 선택하고 조합하는 릴스 제작 프로그램을 사용한다.
     desired_outcome: 원문 보존, 다양한 AI 키워드·후킹, 복수 이미지 후보 선택, 참고 이미지·영상 첨부/추천, 직접 녹음과 AI 내레이션, 대본 자막, 저장·재열기와 세로 릴스 결과
       확인을 하나의 프로젝트에서 연결한다.
@@ -101,16 +101,19 @@ lanes:
     success_evidence: 원문 보존·미디어 검증·오류 경계 테스트, 프런트 빌드, 모바일·데스크톱 실제 렌더, 업로드→선택→조합→MP4/커버/SRT/프로젝트 JSON→재열기 검증, 의도 파일의
       master push·원격 SHA 일치
     approval_boundary: 2026-11-13 사용자 “ㅇㅇ ㄱㄱ”로 운영 배포·Instagram Maker 주소 전환·이미지 2장·음성 1개·추천 1회 검증 승인. 외부 발송·추가 비용·권한 변경은 제외.
-    next_action: 승인된 운영 배포·기존 주소 전환과 유료 AI 검증을 실행하고 라이브·영구 저장을 확인한다.
+    next_action: 사용자가 AI 실호출 검증 재개를 요청하면 계정 한도 확인 후 보류된 검증만 이어간다.
     implementation_status: verified_and_published
-    deployment_status: approved_in_progress
+    deployment_status: verified_live
+    deployment_revision: 73
+    deployment_manifest_commit: 2c2e5923033a2d832592a5dc84670ceb4f474270
     waiting_on: user
     waiting_reason: paid_ai_validation_deferred_by_user
-    blocker: OpenAI 생성 호출 429 이후 사용자가 AI 실호출 검증 보류를 요청했다. 배포·수동 제작·무료 참고 검색 검증은 계속한다.
+    blocker: 배포·주소 통합·운영 검증 완료. 계정 429 이후 유료 AI 실호출 검증은 사용자 요청으로 보류.
     pending_decision: 사용자가 AI 검증 재개를 요청하면 계정 한도 확인 후 실행
     source_repository: /home/ubuntu/workspace/video-automation
     source_branch: master
-    source_commit: a6c01640e17c766287a81ef888e9f58394c7c9c2
+    source_commit: b5d8b42e49280ff68fc45c078ada23916c8b5efa
+    source_documentation_commit: 4baee7e83fab00f34d07127e5c38dbddfb17eb6c
     source_remote_verified: pass
     context_pack: intents/context/reel-room-studio-20261113.json
     initial_product_context_pack: intents/context/reel-room-studio-20261113-product.json
@@ -155,10 +158,13 @@ lanes:
       tab_id: tab-hMqhUf
     verification:
       provider_tests: 50 passed; mocked paid APIs
-      integration_tests: 186 passed, 49 warnings; final direct run
+      integration_tests: 186 passed, 49 warnings; before model and packaging correction; provider 50 passed after correction
       browser: PASS; manual script, 2 images, 6s recording, MP4, reopening, 375/768/1440px
       commons_search: live free search returned 10 image/video items
-      paid_generation: not_run
+      paid_generation: deferred_by_user_after_upstream_429
+      deployment: PASS; revision 73, ready 1, immutable source b5d8b42
+      persistence: PASS; project and 7 file hashes identical across pod replacement
+      static_entries: PASS; three legacy URL forms navigate to Reel Room
       source_publish: PASS; local HEAD equals origin/master
     dedupe_key: video-automation:human-script-integrated-reels-studio:20261113
 
