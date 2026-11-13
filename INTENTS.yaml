@@ -92,7 +92,7 @@ lanes:
     complexity_tier: complex
     source: codex_cli
     created_at: '2026-11-13T11:16:20Z'
-    updated_at: '2026-11-13T11:16:20Z'
+    updated_at: '2026-11-13T11:34:52Z'
     user_intent: Reel Room과 Instagram Maker를 통합해 사람이 쓴 대본을 중심으로 키워드·후킹·이미지·참고 자료를 선택하고 조합하는 릴스 제작 프로그램을 사용한다.
     desired_outcome: 원문 보존, 다양한 AI 키워드·후킹, 복수 이미지 후보 선택, 참고 이미지·영상 첨부/추천, 직접 녹음과 AI 내레이션, 대본 자막, 저장·재열기와 세로 릴스 결과
       확인을 하나의 프로젝트에서 연결한다.
@@ -103,15 +103,15 @@ lanes:
     approval_boundary: 소스 구현·검증·기본 브랜치 push는 승인 범위. 운영 배포·외부 발송·유료 실호출·권한 변경은 별도 명시 승인 필요.
     waiting_on: user
     waiting_reason: production_deployment_approval_required
-    blocker: 운영 배포는 승인되지 않았다. 로컬 브라우저 통합 검증과 소스 원격 반영은 Codex가 계속 진행 중이다.
-    next_action: Codex가 브라우저 통합 검증과 master 원격 반영을 마친 뒤 해당 증거를 갱신한다. 운영 배포는 준비된 변경·복구 방법을 제시하고 별도 명시 승인 후에만 재개한다.
+    blocker: 로컬 구현·검증 및 소스 master 반영 완료. 운영 배포·유료 실제 생성 검증의 승인 대기.
+    next_action: 운영 서비스 배포·Instagram Maker 두 진입 주소 전환 및 유료 AI 검증 1회(이미지 2장·음성 1개·추천 1회)의 승인 여부를 사용자에게 확인한다.
     pending_decision: 검증·원격 반영된 통합 스튜디오를 운영 환경에 배포할지 결정
-    implementation_status: local_integration_verification_in_progress
+    implementation_status: verified_and_published
     deployment_status: not_approved
     source_repository: /home/ubuntu/workspace/video-automation
     source_branch: master
-    source_commit: null
-    source_remote_verified: pending
+    source_commit: a6c01640e17c766287a81ef888e9f58394c7c9c2
+    source_remote_verified: pass
     context_pack: intents/context/reel-room-studio-20261113.json
     initial_product_context_pack: intents/context/reel-room-studio-20261113-product.json
     context_documents_checked:
@@ -140,6 +140,7 @@ lanes:
     detail: intents/active/reel-room-studio-20261113.md
     artifact: artifacts/reel-room-studio-20261113/work/implementation-status.md
     trace: data/traces/reel-room-studio-20261113.json
+    report: reports/reel-room-studio-20261113/20261113-studio.html
     metric_question: 사용자가 쓴 대본을 보존한 채 선택한 후킹·소재·음성으로 릴스 결과를 만들고 다시 열 수 있는가?
     metric_signal: 저장→추천/업로드→선택→조합→MP4/SRT/커버→재열기 통합 검증 결과
     metric_decision_rule: 핵심 흐름과 원문 보존 검증이 통과하고 소스 원격 SHA가 일치하면 로컬 구현을 완료로 기록한다. 배포 완료는 별도 승인 후 라이브 검증으로 판단한다.
@@ -153,12 +154,12 @@ lanes:
       workspace_id: ws-E3W-XA
       tab_id: tab-hMqhUf
     verification:
-      provider_tests: 47 passed; mocked paid APIs
-      integration_tests: 180 passed, 49 warnings; reported by parent Codex
-      browser: pending
+      provider_tests: 50 passed; mocked paid APIs
+      integration_tests: 186 passed, 49 warnings; final direct run
+      browser: PASS; manual script, 2 images, 6s recording, MP4, reopening, 375/768/1440px
       commons_search: live free search returned 10 image/video items
       paid_generation: not_run
-      source_publish: pending
+      source_publish: PASS; local HEAD equals origin/master
     dedupe_key: video-automation:human-script-integrated-reels-studio:20261113
   - id: watch-planner-5f612447d241eca5
     title: 두 프로젝트의 고객 문의 채널과 전용 마케팅 지표 원천을 확정·연결한다
