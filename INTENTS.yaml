@@ -251,9 +251,8 @@ lanes:
     metric_question: 입문 독자가 아렌트의 핵심 개념을 관계로 이해하고 현대적 적용과 그 한계를 구분할 수 있는가?
     metric_signal: 최종 보고서에 핵심 개념 지도, 복수 개념 간 연결, 3개 이상의 근거 있는 현대 적용 사례, 사례별 적용 한계/반론이 모두 있는지 확인한다.
     metric_decision_rule: 각 요소가 신뢰할 수 있는 출처로 뒷받침되면 충족으로 본다. 사례 수나 근거가 부족하면 연결을 억지로 보태지 말고 한계로 밝힌다.
-    notification_channel: slack
-    notification_target: channel:C0BR41W31MM
-    notification_reply_to: '1794633623.676999'
+    notification_channel: telegram
+    notification_target: telegram:433493318
     next_action: 초안은 work에 보존됨. Genie가 출처·내용을 검증하고 HTML 리포트 및 완료 기준을 채워 final로 닫는다.
 
   latest_cycle:
