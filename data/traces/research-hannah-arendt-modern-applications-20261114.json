@@ -1,0 +1,49 @@
+{
+  "schema_version": 2,
+  "intent_id": "research-hannah-arendt-modern-applications-20261114",
+  "status": "inbox",
+  "trace_completeness": "complete",
+  "request": {
+    "raw": {
+      "status": "recorded",
+      "value": "한나아렌트님에 대해 인피니티로 조사해줘. 입문용 사상지도와 현대적 적용"
+    },
+    "normalized_query": {
+      "status": "recorded",
+      "value": "한나 아렌트의 입문용 사상 지도를 만들고 주요 개념 간 관계와 현대적 적용 사례·한계를 탐색한다."
+    },
+    "user_intent": {
+      "status": "recorded",
+      "value": "아렌트 사상을 처음 접하는 독자가 전체 구도를 이해하고 오늘날의 정치·사회 현상에 연결해 볼 수 있도록 한다."
+    },
+    "desired_outcome": {
+      "status": "recorded",
+      "value": "쉬운 한국어의 탐색형 보고서로 주요 저작을 짧게 맥락화하고 핵심 개념의 관계, 현대적 적용 사례, 적용의 한계와 반론, 신뢰할 수 있는 출처를 제시한다."
+    },
+    "out_of_scope": {
+      "status": "recorded",
+      "value": "단일 권고나 현재 정치인 평가를 만들지 않는다. 근거 없는 현대사례 연결, 사상가의 입장을 단순 구호로 환원, 공개 발행이나 외부 메시지는 하지 않는다."
+    },
+    "success_evidence": {
+      "status": "recorded",
+      "value": "전체 Markdown 원문과 읽기 쉬운 HTML 리포트가 존재하며, 주요 개념 지도·개념 간 연결·복수의 근거 있는 현대 적용·각 적용의 한계/반론·출처가 확인된다."
+    }
+  },
+  "events": [
+    {
+      "type": "intake",
+      "at": "2026-11-14T05:33:09Z",
+      "context_pack": "intents/context/research-hannah-arendt-modern-applications-20261114.json",
+      "evidence_paths": [
+        "INTENTS.yaml",
+        "intents/context/research-hannah-arendt-modern-applications-20261114.json"
+      ]
+    }
+  ],
+  "artifacts": [],
+  "verifications": [],
+  "next_decision": {
+    "status": "in_progress",
+    "value": "Inbox에 등록하고 Genie가 Context Pack을 재확인한 뒤 탐색형 조사에 착수한다."
+  }
+}
