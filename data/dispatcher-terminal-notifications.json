@@ -1,5 +1,16 @@
 {
   "deliveries": {
+    "0fef33797c7c6eb97be510edc03acd26a74fb8d47df0cc7b936064ca3b7672db": {
+      "attempt_started_at": "2026-11-07T12:52:01Z",
+      "claimed_at": "2026-11-07T12:52:01Z",
+      "destination": "change|created|infinity-notification-reliability-20261107|telegram|telegram:433493318|{\"lane\": \"inbox\", \"status\": \"inbox\", \"title\": \"Infinity 알림 reconciler의 오류 로그와 실행 timeout을 보강한다\"}",
+      "fingerprint": "change|created|infinity-notification-reliability-20261107|telegram|telegram:433493318|{\"lane\": \"inbox\", \"status\": \"inbox\", \"title\": \"Infinity 알림 reconciler의 오류 로그와 실행 timeout을 보강한다\"}",
+      "intent_id": "infinity-notification-reliability-20261107",
+      "remote_sha": "91c9268847b1f0cabf075bd190366db9b57dc9d7",
+      "sent_at": "2026-11-07T12:52:47Z",
+      "state": "sent",
+      "terminal_state": "created"
+    },
     "1019754cf14b23aaa9f5c1c77640b28fd78ebe16805483de90d2061b25c23015": {
       "attempt_started_at": "2026-09-07T15:30:02Z",
       "claimed_at": "2026-09-07T15:30:02Z",
@@ -55,6 +66,30 @@
       "state": "sent",
       "terminal_state": "completed"
     },
+    "1a9e5214afea748b44305eb57f8d38938f217477182c6fc8c73000d4934bbe05": {
+      "attempt_started_at": "2026-11-07T09:06:22Z",
+      "claimed_at": "2026-11-07T03:12:01Z",
+      "delivery_confirmation": "Telegram gateway confirmed photo messageId 17540 at 2026-11-07T09:06:57Z",
+      "destination": "research-us-it-opportunity-20261106|completed|telegram|telegram:433493318|||research-us-it-opportunity-20261106|completed|reports/research-us-it-opportunity-20261106/20261107T0303Z-final.html|||No continuation|",
+      "fingerprint": "research-us-it-opportunity-20261106|completed|reports/research-us-it-opportunity-20261106/20261107T0303Z-final.html|||No continuation|",
+      "intent_id": "research-us-it-opportunity-20261106",
+      "remote_sha": "91fd732c48bf8b8232ae5af2abc85920e5203b4c",
+      "sent_at": "2026-11-07T09:06:57Z",
+      "state": "sent",
+      "terminal_state": "completed",
+      "updated_at": "2026-11-07T09:00:24Z"
+    },
+    "20405cdad9c584940919fdd40bee0275ada64362163b19de08b6ce19f3c25b4a": {
+      "attempt_started_at": "2026-10-28T20:43:14Z",
+      "claimed_at": "2026-10-28T20:43:14Z",
+      "destination": "research-sf-human-interface-20261022|completed|slack|channel:C0BR41W31MM|||research-sf-human-interface-20261022|completed|reports/research-sf-human-interface-20261022/20261022T0648Z-final.html|||원격 Archive 검증과 대시보드 카드 표시를 확인한다.|",
+      "fingerprint": "research-sf-human-interface-20261022|completed|reports/research-sf-human-interface-20261022/20261022T0648Z-final.html|||원격 Archive 검증과 대시보드 카드 표시를 확인한다.|",
+      "intent_id": "research-sf-human-interface-20261022",
+      "remote_sha": "c5b2581f18b6bfc90b0524de6035499e79955064",
+      "sent_at": "2026-10-28T20:45:13Z",
+      "state": "sent",
+      "terminal_state": "completed"
+    },
     "209dec656a46ae7f4cbff2776fcccf635910acac9cdb7ded99a1074520fa7ece": {
       "attempt_started_at": "2026-09-06T09:02:38Z",
       "claimed_at": "2026-09-06T09:02:38Z",
@@ -76,6 +111,18 @@
       "sent_at": "2026-09-06T20:02:40Z",
       "state": "sent",
       "terminal_state": "blocked"
+    },
+    "24fdee820e04b81740f15081e7d8ea6f3e85a81c338b7ef30957e4c5f49f6e84": {
+      "attempt_started_at": "2026-11-07T13:32:02Z",
+      "claimed_at": "2026-11-07T13:32:02Z",
+      "destination": "change|changed|infinity-notification-reliability-20261107|telegram|telegram:433493318|{\"lane\": \"active\", \"status\": \"active\", \"title\": \"Infinity 알림 reconciler의 오류 로그와 실행 timeout을 보강한다\"}",
+      "fingerprint": "change|changed|infinity-notification-reliability-20261107|telegram|telegram:433493318|{\"lane\": \"active\", \"status\": \"active\", \"title\": \"Infinity 알림 reconciler의 오류 로그와 실행 timeout을 보강한다\"}",
+      "intent_id": "infinity-notification-reliability-20261107",
+      "remote_sha": "81ba068ab0cfab432f5217d06764267ebdaae095",
+      "state": "superseded",
+      "superseded_at": "2026-11-07T13:42:31Z",
+      "terminal_state": "changed",
+      "updated_at": "2026-11-07T13:32:32Z"
     },
     "352a4588b642ccbb52025be5ab19166aad78b5a357e5a59a6ad680b25cc9696f": {
       "attempt_started_at": "2026-09-12T01:52:23Z",
@@ -121,6 +168,39 @@
       "state": "sent",
       "terminal_state": "approval"
     },
+    "4b6c421926018dd8bface971eaff0024d5b0c14a19f563d94245be98afa8c7ea": {
+      "attempt_started_at": "2026-10-28T21:02:29Z",
+      "claimed_at": "2026-10-28T21:02:29Z",
+      "destination": "research-design-architecture-20261021|completed|telegram|telegram:433493318|||research-design-architecture-20261021|completed|reports/research-design-architecture-20261021/20261021T1601Z-final.html||||",
+      "fingerprint": "research-design-architecture-20261021|completed|reports/research-design-architecture-20261021/20261021T1601Z-final.html||||",
+      "intent_id": "research-design-architecture-20261021",
+      "remote_sha": "9d7bdfb3c24f33d657a4b0dba46175b67014f87d",
+      "sent_at": "2026-10-28T21:02:52Z",
+      "state": "sent",
+      "terminal_state": "completed"
+    },
+    "57deb43d593b861d4b690cb05cb3706310fb4338f7d013ca2fe82489752aa90f": {
+      "attempt_started_at": "2026-10-28T21:02:05Z",
+      "claimed_at": "2026-10-28T21:02:05Z",
+      "destination": "research-sf-human-interface-more-20261022|completed|telegram|telegram:433493318|||research-sf-human-interface-more-20261022|completed|reports/research-sf-human-interface-more-20261022/20261022T1520Z-final.html|||실제 인터페이스 평가가 필요하면 음성·AI 동반자, 신체 확장, 게임 접근성, 감시 중 하나를 별도 decision_research로 전환|",
+      "fingerprint": "research-sf-human-interface-more-20261022|completed|reports/research-sf-human-interface-more-20261022/20261022T1520Z-final.html|||실제 인터페이스 평가가 필요하면 음성·AI 동반자, 신체 확장, 게임 접근성, 감시 중 하나를 별도 decision_research로 전환|",
+      "intent_id": "research-sf-human-interface-more-20261022",
+      "remote_sha": "9d7bdfb3c24f33d657a4b0dba46175b67014f87d",
+      "sent_at": "2026-10-28T21:02:18Z",
+      "state": "sent",
+      "terminal_state": "completed"
+    },
+    "629dd0a3358c54fbd7c559fab49308454147af9a7dcb5073820f91edfde5a81c": {
+      "attempt_started_at": "2026-10-28T21:02:18Z",
+      "claimed_at": "2026-10-28T21:02:18Z",
+      "destination": "research-sf-human-interface-20261022|completed|telegram|telegram:433493318|||research-sf-human-interface-20261022|completed|reports/research-sf-human-interface-20261022/20261022T0648Z-final.html|||원격 Archive 검증과 대시보드 카드 표시를 확인한다.|",
+      "fingerprint": "research-sf-human-interface-20261022|completed|reports/research-sf-human-interface-20261022/20261022T0648Z-final.html|||원격 Archive 검증과 대시보드 카드 표시를 확인한다.|",
+      "intent_id": "research-sf-human-interface-20261022",
+      "remote_sha": "9d7bdfb3c24f33d657a4b0dba46175b67014f87d",
+      "sent_at": "2026-10-28T21:02:29Z",
+      "state": "sent",
+      "terminal_state": "completed"
+    },
     "64bab1e27491f6717125414754e737dcaa923416fac3dae6e30f5e4458af9108": {
       "attempt_started_at": "2026-10-04T23:43:15Z",
       "claimed_at": "2026-10-04T23:43:15Z",
@@ -131,6 +211,67 @@
       "sent_at": "2026-10-04T23:43:47Z",
       "state": "sent",
       "terminal_state": "approval"
+    },
+    "6c26070d97cdea7dc0aee9e8988d9ec3b784ad190ae31558cab61127266e5fcd": {
+      "attempt_started_at": "2026-11-06T18:02:03Z",
+      "claimed_at": "2026-11-06T18:02:03Z",
+      "destination": "change|changed|research-us-it-opportunity-20261106|telegram|telegram:433493318|{\"lane\": \"inbox\", \"status\": \"active\", \"title\": \"미국 IT 시장 카테고리로 창업 기회 탐색\"}",
+      "fingerprint": "change|changed|research-us-it-opportunity-20261106|telegram|telegram:433493318|{\"lane\": \"inbox\", \"status\": \"active\", \"title\": \"미국 IT 시장 카테고리로 창업 기회 탐색\"}",
+      "intent_id": "research-us-it-opportunity-20261106",
+      "remote_sha": "76a36fa3ba17c52db2ba331162f04a4030674f11",
+      "state": "superseded",
+      "superseded_at": "2026-11-06T18:12:09Z",
+      "terminal_state": "changed",
+      "updated_at": "2026-11-06T18:02:11Z"
+    },
+    "6f77a21b3aba2a6b5d04b7e32f72c7413634d9444affe44a4590d2f2eb084548": {
+      "attempt_started_at": "2026-10-28T20:45:13Z",
+      "claimed_at": "2026-10-28T20:45:13Z",
+      "destination": "research-design-architecture-20261021|completed|slack|channel:C0BR41W31MM|||research-design-architecture-20261021|completed|reports/research-design-architecture-20261021/20261021T1601Z-final.html||||",
+      "fingerprint": "research-design-architecture-20261021|completed|reports/research-design-architecture-20261021/20261021T1601Z-final.html||||",
+      "intent_id": "research-design-architecture-20261021",
+      "remote_sha": "c5b2581f18b6bfc90b0524de6035499e79955064",
+      "state": "superseded",
+      "superseded_at": "2026-10-28T21:02:52Z",
+      "terminal_state": "completed"
+    },
+    "738b2cdaa0d15c2a9fa55cf01ddd971d291e130d86d1a6dd9f6a9218fe4f8927": {
+      "attempt_started_at": "2026-10-29T00:02:02Z",
+      "claimed_at": "2026-10-29T00:02:02Z",
+      "destination": "change|created|watch-developer-current|telegram|telegram:433493318|{\"lane\": \"backlog\", \"status\": \"backlog\", \"title\": \"저장소 변경·테스트·기술 부채 신호를 개선 태스크로 정리한다\"}",
+      "fingerprint": "change|created|watch-developer-current|telegram|telegram:433493318|{\"lane\": \"backlog\", \"status\": \"backlog\", \"title\": \"저장소 변경·테스트·기술 부채 신호를 개선 태스크로 정리한다\"}",
+      "intent_id": "watch-developer-current",
+      "remote_sha": "c25c14b01ee7af8d1f97021346279c8b77b684d3",
+      "state": "superseded",
+      "superseded_at": "2026-10-29T00:12:02Z",
+      "terminal_state": "created",
+      "updated_at": "2026-10-29T00:02:16Z"
+    },
+    "78ee6a1b634bfff53035bac6845195f7abc1ea9d75ee84afd86190f5e168d4b9": {
+      "attempt_started_at": "2026-11-07T19:31:14Z",
+      "claimed_at": "2026-11-07T13:52:01Z",
+      "destination": "research-us-it-opportunity-20261106|completed|slack|channel:C0BR41W31MM||1793845695.691209|research-us-it-opportunity-20261106|completed|reports/research-us-it-opportunity-20261106/20261107T0303Z-final.html|||No continuation|",
+      "failure_class": "timeout",
+      "fingerprint": "research-us-it-opportunity-20261106|completed|reports/research-us-it-opportunity-20261106/20261107T0303Z-final.html|||No continuation|",
+      "intent_id": "research-us-it-opportunity-20261106",
+      "manual_retry_review": "2026-11-07T19:29Z: prior CLI error confirmed Channel unavailable: slack before gateway send; official Slack plugin reinstalled; 2026-11-10T23:50Z: user confirmed no alert received; replacement completion summary delivered to configured Telegram chat (messageId 17705), so prior Slack timeout was closed without replay",
+      "remote_sha": "ee44797a91af5650ffa87c0c0e963bafb0b025e7",
+      "state": "superseded",
+      "superseded_at": "2026-11-10T23:50:00Z",
+      "terminal_state": "completed",
+      "updated_at": "2026-11-07T19:31:34Z"
+    },
+    "7b1c4605c4a571b20483614e760d64d3cfd8a8db013ac4bfe0b5d295d5de08a2": {
+      "attempt_started_at": "2026-10-28T21:22:03Z",
+      "claimed_at": "2026-10-28T21:22:02Z",
+      "destination": "change|created|watch-posthog-b6e70f210545|telegram|telegram:433493318|{\"lane\": \"backlog\", \"status\": \"backlog\", \"title\": \"모니터링 와처 오류를 확인한다\"}",
+      "fingerprint": "change|created|watch-posthog-b6e70f210545|telegram|telegram:433493318|{\"lane\": \"backlog\", \"status\": \"backlog\", \"title\": \"모니터링 와처 오류를 확인한다\"}",
+      "intent_id": "watch-posthog-b6e70f210545",
+      "remote_sha": "41d1fa2163ea58c4a7c316d2c631c9cf410bc576",
+      "state": "superseded",
+      "superseded_at": "2026-10-28T21:32:02Z",
+      "terminal_state": "created",
+      "updated_at": "2026-10-28T21:22:38Z"
     },
     "7b9624514723698dd36dcd0e809dd7a3f74697984ab49da0259900c71594a74e": {
       "attempt_started_at": "2026-09-10T23:33:49Z",
@@ -165,6 +306,39 @@
       "state": "sent",
       "terminal_state": "blocked"
     },
+    "99ed341e4fb431339fd47d40b5b0e2a81674fb618501c95609c35af613bdc0a4": {
+      "attempt_started_at": "2026-10-28T21:00:36Z",
+      "claimed_at": "2026-10-28T21:00:36Z",
+      "destination": "research-review-curation-method-korea-20260913|completed|telegram|telegram:433493318|||research-review-curation-method-korea-20260913|completed|reports/research-review-curation-method-korea-20260913/20260913T1502Z-final.html||||e5c6a100d5a22da3c1140f81dce28210d1acab2e",
+      "fingerprint": "research-review-curation-method-korea-20260913|completed|reports/research-review-curation-method-korea-20260913/20260913T1502Z-final.html||||e5c6a100d5a22da3c1140f81dce28210d1acab2e",
+      "intent_id": "research-review-curation-method-korea-20260913",
+      "remote_sha": "9d7bdfb3c24f33d657a4b0dba46175b67014f87d",
+      "sent_at": "2026-10-28T21:00:44Z",
+      "state": "sent",
+      "terminal_state": "completed"
+    },
+    "9a8aa9930ad7db4d913b88c069d0e9363967dffd500a9cec01b6e83975f65f04": {
+      "attempt_started_at": "2026-10-28T20:40:52Z",
+      "claimed_at": "2026-10-28T20:40:52Z",
+      "destination": "research-sf-human-interface-more-20261022|completed|slack|channel:C0BR41W31MM||1792650029.793169|research-sf-human-interface-more-20261022|completed|reports/research-sf-human-interface-more-20261022/20261022T1520Z-final.html|||실제 인터페이스 평가가 필요하면 음성·AI 동반자, 신체 확장, 게임 접근성, 감시 중 하나를 별도 decision_research로 전환|",
+      "fingerprint": "research-sf-human-interface-more-20261022|completed|reports/research-sf-human-interface-more-20261022/20261022T1520Z-final.html|||실제 인터페이스 평가가 필요하면 음성·AI 동반자, 신체 확장, 게임 접근성, 감시 중 하나를 별도 decision_research로 전환|",
+      "intent_id": "research-sf-human-interface-more-20261022",
+      "remote_sha": "c5b2581f18b6bfc90b0524de6035499e79955064",
+      "sent_at": "2026-10-28T20:43:14Z",
+      "state": "sent",
+      "terminal_state": "completed"
+    },
+    "a36ad0a4bd8c00f3bb31fbedf40ca120a7f6fa5ac5237b616c91920ebd57f140": {
+      "attempt_started_at": "2026-10-28T21:00:44Z",
+      "claimed_at": "2026-10-28T21:00:44Z",
+      "destination": "minimal-shorts-apple-early-product-20260913|completed|telegram|telegram:433493318|||minimal-shorts-apple-early-product-20260913|completed|reports/minimal-shorts-apple-early-product-20260913/20260913T1502Z-final.html||||e5c6a100d5a22da3c1140f81dce28210d1acab2e",
+      "fingerprint": "minimal-shorts-apple-early-product-20260913|completed|reports/minimal-shorts-apple-early-product-20260913/20260913T1502Z-final.html||||e5c6a100d5a22da3c1140f81dce28210d1acab2e",
+      "intent_id": "minimal-shorts-apple-early-product-20260913",
+      "remote_sha": "9d7bdfb3c24f33d657a4b0dba46175b67014f87d",
+      "sent_at": "2026-10-28T21:00:54Z",
+      "state": "sent",
+      "terminal_state": "completed"
+    },
     "a673ee55e159568daee483bcd60fdc4d2fa9e3b9a1121092ef37acf1aa6f1e5e": {
       "attempt_started_at": "2026-09-05T09:50:02Z",
       "claimed_at": "2026-09-05T09:50:02Z",
@@ -175,6 +349,18 @@
       "sent_at": "2026-09-05T09:50:14Z",
       "state": "sent",
       "terminal_state": "completed"
+    },
+    "a7cd44abac53779f5e32c62cc6e475e23ad14ec93a55d860d10c65f6b981c96f": {
+      "attempt_started_at": "2026-10-29T00:02:16Z",
+      "claimed_at": "2026-10-29T00:02:16Z",
+      "destination": "change|created|watch-operator-current|telegram|telegram:433493318|{\"lane\": \"backlog\", \"status\": \"backlog\", \"title\": \"실패·대기·마감·원격 상태를 운영 태스크로 정리한다\"}",
+      "fingerprint": "change|created|watch-operator-current|telegram|telegram:433493318|{\"lane\": \"backlog\", \"status\": \"backlog\", \"title\": \"실패·대기·마감·원격 상태를 운영 태스크로 정리한다\"}",
+      "intent_id": "watch-operator-current",
+      "remote_sha": "c25c14b01ee7af8d1f97021346279c8b77b684d3",
+      "state": "superseded",
+      "superseded_at": "2026-10-29T00:12:02Z",
+      "terminal_state": "created",
+      "updated_at": "2026-10-29T00:02:23Z"
     },
     "a8972bcd28971311aee580fe0af38d711165a1184779cb6c4977b441214709e8": {
       "attempt_started_at": "2026-09-10T23:20:03Z",
@@ -197,6 +383,41 @@
       "sent_at": "2026-10-03T15:13:07Z",
       "state": "sent",
       "terminal_state": "approval"
+    },
+    "b278db1af12aac750c25e1829a013b4389d8d8cab386486b4d6791a000a824b2": {
+      "attempt_started_at": "2026-11-06T18:12:03Z",
+      "claimed_at": "2026-11-06T18:12:03Z",
+      "destination": "change|changed|research-us-it-opportunity-20261106|telegram|telegram:433493318|{\"lane\": \"active\", \"status\": \"active\", \"title\": \"미국 IT 시장 카테고리로 창업 기회 탐색\"}",
+      "fingerprint": "change|changed|research-us-it-opportunity-20261106|telegram|telegram:433493318|{\"lane\": \"active\", \"status\": \"active\", \"title\": \"미국 IT 시장 카테고리로 창업 기회 탐색\"}",
+      "intent_id": "research-us-it-opportunity-20261106",
+      "remote_sha": "1106ed1044e1741e0b5c1e0858685ca58d0ac37c",
+      "state": "superseded",
+      "superseded_at": "2026-11-06T18:22:03Z",
+      "terminal_state": "changed",
+      "updated_at": "2026-11-06T18:12:09Z"
+    },
+    "b4261869653eda8f9544eadf0b96979f0aa0738b0dc81f3d3b45a79e2d9831c4": {
+      "attempt_started_at": "2026-10-28T21:00:54Z",
+      "claimed_at": "2026-10-28T21:00:54Z",
+      "destination": "research-github-skills-20260912|completed|telegram|telegram:433493318|||research-github-skills-20260912|completed|reports/research-github-skills-20260912/20260913T0012Z-final.html|||closed via intents/archive/pilot-github-research-skill-kang-chen-approval.md; 재개 시 새 Intent 생성|dcfad1fe47944f9bd8711d4c135434bf2a706dd0",
+      "fingerprint": "research-github-skills-20260912|completed|reports/research-github-skills-20260912/20260913T0012Z-final.html|||closed via intents/archive/pilot-github-research-skill-kang-chen-approval.md; 재개 시 새 Intent 생성|dcfad1fe47944f9bd8711d4c135434bf2a706dd0",
+      "intent_id": "research-github-skills-20260912",
+      "remote_sha": "9d7bdfb3c24f33d657a4b0dba46175b67014f87d",
+      "sent_at": "2026-10-28T21:02:05Z",
+      "state": "sent",
+      "terminal_state": "completed"
+    },
+    "b68714b78137c378a7ca19ae8a639d01cd0b3e93fa5c7f48d6a28a4bccb0a196": {
+      "attempt_started_at": "2026-11-06T13:32:05Z",
+      "claimed_at": "2026-11-06T13:32:03Z",
+      "destination": "change|created|research-us-it-opportunity-20261106|telegram|telegram:433493318|{\"lane\": \"inbox\", \"status\": \"inbox\", \"title\": \"미국 IT 시장 카테고리로 창업 기회 탐색\"}",
+      "fingerprint": "change|created|research-us-it-opportunity-20261106|telegram|telegram:433493318|{\"lane\": \"inbox\", \"status\": \"inbox\", \"title\": \"미국 IT 시장 카테고리로 창업 기회 탐색\"}",
+      "intent_id": "research-us-it-opportunity-20261106",
+      "remote_sha": "e0500e1b35cc4b4690d62016741b3844792b9df3",
+      "state": "superseded",
+      "superseded_at": "2026-11-06T13:42:03Z",
+      "terminal_state": "created",
+      "updated_at": "2026-11-06T13:32:27Z"
     },
     "b7491cbeea65860f8c5af914b550c856eb02a4e66c2a2e22ba3b3b8e5ff2f12b": {
       "attempt_started_at": "2026-10-02T22:40:04Z",
@@ -227,7 +448,8 @@
       "fingerprint": "research-richard-sapper-comprehensive-20260916|completed|reports/research-richard-sapper-comprehensive-20260916/20260916T0844Z-final.html||||e32cd2cc5a31aecfbfa274f1bf2f1aef0bad4d26",
       "intent_id": "research-richard-sapper-comprehensive-20260916",
       "remote_sha": "a9992079c44ad2f570ed7e89ecaa20bc951fff00",
-      "state": "claimed",
+      "state": "superseded",
+      "superseded_at": "2026-10-11T12:00:05Z",
       "terminal_state": "completed"
     },
     "bdcfe8ff460c469c5c2a22fa59e96375b410cf4153efcb920f5c5cdd51a9b3cf": {
@@ -241,6 +463,17 @@
       "state": "sent",
       "terminal_state": "approval"
     },
+    "d1ac24af22dc62e91534e349cbce5eeec10300e3aa1adf3439562705aa37bc96": {
+      "attempt_started_at": "2026-10-28T21:00:27Z",
+      "claimed_at": "2026-10-28T21:00:27Z",
+      "destination": "research-richard-sapper-comprehensive-20260916|completed|telegram|telegram:433493318|||research-richard-sapper-comprehensive-20260916|completed|reports/research-richard-sapper-comprehensive-20260916/20260916T0844Z-final.html||||e32cd2cc5a31aecfbfa274f1bf2f1aef0bad4d26",
+      "fingerprint": "research-richard-sapper-comprehensive-20260916|completed|reports/research-richard-sapper-comprehensive-20260916/20260916T0844Z-final.html||||e32cd2cc5a31aecfbfa274f1bf2f1aef0bad4d26",
+      "intent_id": "research-richard-sapper-comprehensive-20260916",
+      "remote_sha": "9d7bdfb3c24f33d657a4b0dba46175b67014f87d",
+      "sent_at": "2026-10-28T21:00:36Z",
+      "state": "sent",
+      "terminal_state": "completed"
+    },
     "d65277aacd1b3e9b4efd1b3271a996b87f164d8401b03111161e8ebddaaa260a": {
       "attempt_started_at": "2026-10-02T11:48:44Z",
       "claimed_at": "2026-10-02T11:48:44Z",
@@ -252,6 +485,17 @@
       "state": "sent",
       "terminal_state": "completed"
     },
+    "e23ce42b30d66c521865431515543ccd07cb12d920eda410fa64f4f6eb8b6078": {
+      "attempt_started_at": "2026-10-28T20:39:29Z",
+      "claimed_at": "2026-10-28T20:39:29Z",
+      "destination": "watch-planner-5f612447d241eca5|blocked|slack|channel:C0BR41W31MM|||watch-planner-5f612447d241eca5|blocked|||두 프로젝트의 고객 문의 관리 채널과 전용 마케팅 analytics 원천·대시보드가 로컬 문서와 공통 inbox에 없어 정확한 경로·접근 검증을 완료할 수 없음|Planner가 두 프로젝트의 채널·지표 원천을 조사하고 승인 필요 항목을 분리한다.|",
+      "fingerprint": "watch-planner-5f612447d241eca5|blocked|||두 프로젝트의 고객 문의 관리 채널과 전용 마케팅 analytics 원천·대시보드가 로컬 문서와 공통 inbox에 없어 정확한 경로·접근 검증을 완료할 수 없음|Planner가 두 프로젝트의 채널·지표 원천을 조사하고 승인 필요 항목을 분리한다.|",
+      "intent_id": "watch-planner-5f612447d241eca5",
+      "remote_sha": "c5b2581f18b6bfc90b0524de6035499e79955064",
+      "sent_at": "2026-10-28T20:40:52Z",
+      "state": "sent",
+      "terminal_state": "blocked"
+    },
     "e262f5246e99539436d491fc043c3a443fb5eb864f2be9f4d0e508825629c291": {
       "attempt_started_at": "2026-10-02T11:29:58Z",
       "claimed_at": "2026-10-02T11:29:58Z",
@@ -259,7 +503,8 @@
       "fingerprint": "content-amalfi-ravello-day-reel-20260918|completed|reports/content-amalfi-ravello-day-reel-20260918/20260919T1032Z-final.html|||공개 게시가 필요해지면 별도 승인·권리 검토 Intent를 만든다.|9fdbb4d0a3cf89a0b72b2c5aa34e48b3e1893f66",
       "intent_id": "content-amalfi-ravello-day-reel-20260918",
       "remote_sha": "a9992079c44ad2f570ed7e89ecaa20bc951fff00",
-      "state": "claimed",
+      "state": "superseded",
+      "superseded_at": "2026-10-11T12:00:05Z",
       "terminal_state": "completed"
     },
     "e6699d5e97972ab53546a949a03145a0ed119b862231fdb7f5406c7ab4a5c2fa": {
@@ -272,6 +517,17 @@
       "sent_at": "2026-10-02T11:38:37Z",
       "state": "sent",
       "terminal_state": "completed"
+    },
+    "e77499f96d489079362b74880d4ae5cfcb9265ec17421759543d4bdf91892ff8": {
+      "attempt_started_at": "2026-10-28T21:00:04Z",
+      "claimed_at": "2026-10-28T21:00:04Z",
+      "destination": "watch-planner-5f612447d241eca5|blocked|telegram|telegram:433493318|||watch-planner-5f612447d241eca5|blocked|||두 프로젝트의 고객 문의 관리 채널과 전용 마케팅 analytics 원천·대시보드가 로컬 문서와 공통 inbox에 없어 정확한 경로·접근 검증을 완료할 수 없음|Planner가 두 프로젝트의 채널·지표 원천을 조사하고 승인 필요 항목을 분리한다.|",
+      "fingerprint": "watch-planner-5f612447d241eca5|blocked|||두 프로젝트의 고객 문의 관리 채널과 전용 마케팅 analytics 원천·대시보드가 로컬 문서와 공통 inbox에 없어 정확한 경로·접근 검증을 완료할 수 없음|Planner가 두 프로젝트의 채널·지표 원천을 조사하고 승인 필요 항목을 분리한다.|",
+      "intent_id": "watch-planner-5f612447d241eca5",
+      "remote_sha": "9d7bdfb3c24f33d657a4b0dba46175b67014f87d",
+      "sent_at": "2026-10-28T21:00:27Z",
+      "state": "sent",
+      "terminal_state": "blocked"
     },
     "ee270fc8bd008d1e284c972ae1dfb0884d560643f65299dff9ad138abc01611e": {
       "attempt_started_at": "2026-09-06T09:26:10Z",
@@ -294,6 +550,19 @@
       "sent_at": "2026-10-02T11:48:44Z",
       "state": "sent",
       "terminal_state": "completed"
+    },
+    "f8950b4710f3dafb542c81d0834d91647dd825b98682cf55adc4092ed3b42430": {
+      "attempt_started_at": "2026-11-07T13:42:01Z",
+      "claimed_at": "2026-11-07T13:42:01Z",
+      "delivery_confirmation": "Telegram gateway confirmed photo messageId 17570 at 2026-11-07T13:42:11Z",
+      "destination": "infinity-notification-reliability-20261107|completed|telegram|telegram:433493318|||infinity-notification-reliability-20261107|completed|reports/infinity-notification-reliability-20261107/20261107T1334Z-final.html|||No continuation|",
+      "fingerprint": "infinity-notification-reliability-20261107|completed|reports/infinity-notification-reliability-20261107/20261107T1334Z-final.html|||No continuation|",
+      "intent_id": "infinity-notification-reliability-20261107",
+      "remote_sha": "d1ecac204606a7c9c83f57d5faeaf3af9fb2291c",
+      "sent_at": "2026-11-07T13:42:11Z",
+      "state": "sent",
+      "terminal_state": "completed",
+      "updated_at": "2026-11-07T13:42:31Z"
     }
   },
   "legacy_state_observed": true,
@@ -309,5 +578,73 @@
     "research-36",
     "research-37"
   ],
+  "observed_initialized": true,
+  "observed_intents": {
+    "infinity-notification-reliability-20261107": {
+      "lane": "archive",
+      "status": "archived",
+      "title": "Infinity 알림 reconciler의 오류 로그와 실행 timeout을 보강한다"
+    },
+    "minimal-shorts-apple-early-product-20260913": {
+      "lane": "archive",
+      "status": "archived",
+      "title": "애플 초기 제품으로 만드는 미니멀 모으기 첫 숏츠"
+    },
+    "research-design-architecture-20261021": {
+      "lane": "archive",
+      "status": "archived",
+      "title": "디자인 기사 장소의 건축 방식과 현재 사용 방식 조사"
+    },
+    "research-github-skills-20260912": {
+      "lane": "archive",
+      "status": "archived",
+      "title": "GitHub 리서치 스킬 후보 조사"
+    },
+    "research-review-curation-method-korea-20260913": {
+      "lane": "archive",
+      "status": "archived",
+      "title": "국내 리뷰·큐레이션 실전 가이드 조사"
+    },
+    "research-richard-sapper-comprehensive-20260916": {
+      "lane": "archive",
+      "status": "archived",
+      "title": "리처드 사퍼 종합 리서치"
+    },
+    "research-sf-human-interface-20261022": {
+      "lane": "archive",
+      "status": "archived",
+      "title": "SF 영화 사례로 인간에게 편한 인터페이스 조건 조사"
+    },
+    "research-sf-human-interface-more-20261022": {
+      "lane": "archive",
+      "status": "archived",
+      "title": "SF 소설·영화·다매체의 인간 친화적 인터페이스 사례 확장 조사"
+    },
+    "research-us-it-opportunity-20261106": {
+      "lane": "archive",
+      "status": "archived",
+      "title": "미국 IT 시장 카테고리로 창업 기회 탐색"
+    },
+    "watch-developer-current": {
+      "lane": "backlog",
+      "status": "backlog",
+      "title": "저장소 변경·테스트·기술 부채 신호를 개선 태스크로 정리한다"
+    },
+    "watch-operator-current": {
+      "lane": "backlog",
+      "status": "backlog",
+      "title": "실패·대기·마감·원격 상태를 운영 태스크로 정리한다"
+    },
+    "watch-planner-5f612447d241eca5": {
+      "lane": "waiting",
+      "status": "waiting",
+      "title": "두 프로젝트의 고객 문의 채널과 전용 마케팅 지표 원천을 확정·연결한다"
+    },
+    "watch-posthog-b6e70f210545": {
+      "lane": "backlog",
+      "status": "backlog",
+      "title": "모니터링 와처 오류를 확인한다"
+    }
+  },
   "version": 2
 }
