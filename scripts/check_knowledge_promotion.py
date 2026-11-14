@@ -6,12 +6,18 @@ from __future__ import annotations
 import argparse
 import json
 import re
+import subprocess
 import sys
 from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-KNOWLEDGE_LAB = ROOT.parent
+# Knowledge Lab is a sibling checkout named ``knowledge-lab``.  Older
+# deployments placed its contents directly under the workspace parent; keep
+# that fallback for relocated/legacy layouts, but prefer the registered path.
+KNOWLEDGE_LAB = ROOT.parent / "knowledge-lab"
+if not KNOWLEDGE_LAB.exists():
+    KNOWLEDGE_LAB = ROOT.parent
 ARCHIVE = KNOWLEDGE_LAB / "source" / "infinity" / "archive"
 INFINITY_ARCHIVE = ROOT / "intents" / "archive"
 INGEST_INDEX = KNOWLEDGE_LAB / "ingest" / "INDEX.md"
@@ -64,12 +70,29 @@ def context_log_errors(intent_id: str, text: str) -> list[str]:
     expected = f"logs/agent-wiki-query.md#{intent_id}"
     if receipt != expected:
         return [f"Context Pack v2 requires knowledge_log: {expected}"]
-    if not QUERY_LOG.is_file():
-        return [f"Knowledge Lab query log is missing: {QUERY_LOG}"]
-    log_text = QUERY_LOG.read_text(encoding="utf-8")
+    log_text = QUERY_LOG.read_text(encoding="utf-8") if QUERY_LOG.is_file() else ""
     heading = re.search(rf"(?m)^## [^\n]*\[{re.escape(intent_id)}\][^\n]*$", log_text)
+    # Infinity and Knowledge Lab are separate checkouts.  A valid receipt may
+    # already be pushed while the local KL worktree is intentionally dirty or
+    # behind; verify the canonical main blob before reporting it absent.
     if not heading:
-        return [f"Knowledge Lab query log has no heading tagged [{intent_id}]"]
+        fetch = subprocess.run(
+            ["git", "-C", str(KNOWLEDGE_LAB), "fetch", "origin", "main", "--quiet"],
+            text=True,
+            capture_output=True,
+        )
+        remote = subprocess.run(
+            ["git", "-C", str(KNOWLEDGE_LAB), "show", "origin/main:logs/agent-wiki-query.md"],
+            text=True,
+            capture_output=True,
+        )
+        if remote.returncode == 0:
+            log_text = remote.stdout
+            heading = re.search(rf"(?m)^## [^\n]*\[{re.escape(intent_id)}\][^\n]*$", log_text)
+        elif fetch.returncode != 0 and not log_text:
+            return [f"Knowledge Lab query log is missing locally and origin/main could not be read: {fetch.stderr.strip()}"]
+    if not heading:
+        return [f"Knowledge Lab local log and origin/main have no heading tagged [{intent_id}]"]
     end = re.search(r"(?m)^## ", log_text[heading.end():])
     entry = log_text[heading.start(): heading.end() + (end.start() if end else len(log_text[heading.end():]))]
     pages = [item.get("path") for item in pack.get("selected_context", []) if isinstance(item, dict)]

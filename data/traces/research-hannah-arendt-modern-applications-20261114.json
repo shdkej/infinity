@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "intent_id": "research-hannah-arendt-modern-applications-20261114",
-  "status": "inbox",
+  "status": "active",
   "trace_completeness": "complete",
   "request": {
     "raw": {
@@ -137,12 +137,100 @@
       "session_key": "agent:genie:infinity-dispatcher-command-v1",
       "timestamp": "2026-11-14T06:48:42Z",
       "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-11-14T11:22:51Z",
+      "context_pack": "intents/context/research-hannah-arendt-modern-applications-20261114.json",
+      "evidence_paths": [
+        "artifacts/research-hannah-arendt-modern-applications-20261114/final/hannah-arendt-concept-map-report.md",
+        "reports/research-hannah-arendt-modern-applications-20261114/2026-11-14T0650Z.html"
+      ],
+      "searches": [
+        "Hannah Arendt political thought concepts works; Hannah Arendt; 한나 아렌트 사상 정치철학 입문 현대적 적용",
+        "exact: Arendt; 아렌트"
+      ],
+      "wiki_pages": [
+        "agent-wiki/content/docs/outputs/deep-knowledge/product.mdx",
+        "agent-wiki/content/docs/outputs/Integration/Marketing.mdx",
+        "agent-wiki/content/docs/outputs/Meta/AGENTS.mdx"
+      ],
+      "operational_log_sections": [
+        "logs/agent-wiki-query.md"
+      ],
+      "note": "Current query receipt recorded in KL; generic Context Pack sources were read but were not used as Arendt evidence. Corrected Markdown UNHCR paragraph to match HTML and current official data. Full Red review pending."
+    },
+    {
+      "type": "execution",
+      "at": "2026-11-14T11:38:56Z",
+      "context_pack": "intents/context/research-hannah-arendt-modern-applications-20261114.json",
+      "evidence_paths": [
+        "artifacts/research-hannah-arendt-modern-applications-20261114/final/hannah-arendt-concept-map-report.md",
+        "reports/research-hannah-arendt-modern-applications-20261114/2026-11-14T0650Z.html",
+        "reports/research-hannah-arendt-modern-applications-20261114/red-final-review.md",
+        "reports/research-hannah-arendt-modern-applications-20261114/390px-final.png"
+      ],
+      "searches": [
+        "Red full report follow-up: source parity and mobile first screen passed; status/trace lifecycle mismatch remains",
+        "UNHCR official indexed explainer result: end-2025 117.8m forcibly displaced, 4.5m stateless, 1.6m overlap; direct URL HTTP 403 in Red session"
+      ],
+      "wiki_pages": [
+        "agent-wiki/content/docs/outputs/deep-knowledge/product.mdx",
+        "agent-wiki/content/docs/outputs/Integration/Marketing.mdx",
+        "agent-wiki/content/docs/outputs/Meta/AGENTS.mdx"
+      ],
+      "operational_log_sections": [
+        "logs/agent-wiki-query.md"
+      ],
+      "note": "Recovered four completed role session outputs and added their session/run provenance to final Markdown. Same Red follow-up run 2cc58fa4-3db6-44e0-86ef-0d4ef90e4fb5 returned FAIL only because current HTML Red metadata and trace next_decision had not yet been synchronized to its findings; preserve both review failures and request one final same-child check after synchronization."
+    },
+    {
+      "type": "execution",
+      "at": "2026-11-14T11:47:17Z",
+      "context_pack": "intents/context/research-hannah-arendt-modern-applications-20261114.json",
+      "evidence_paths": [
+        "artifacts/research-hannah-arendt-modern-applications-20261114/final/hannah-arendt-concept-map-report.md",
+        "reports/research-hannah-arendt-modern-applications-20261114/2026-11-14T0650Z.html",
+        "reports/research-hannah-arendt-modern-applications-20261114/red-final-review.md",
+        "reports/research-hannah-arendt-modern-applications-20261114/390px-final.png"
+      ],
+      "searches": [
+        "Same-child final Red follow-up PASS; first two FAIL verdicts preserved",
+        "Official UNHCR explainer source parity and 390px current render reviewed; direct page remains 403 in Red review"
+      ],
+      "wiki_pages": [
+        "agent-wiki/content/docs/outputs/deep-knowledge/product.mdx",
+        "agent-wiki/content/docs/outputs/Integration/Marketing.mdx",
+        "agent-wiki/content/docs/outputs/Meta/AGENTS.mdx"
+      ],
+      "operational_log_sections": [
+        "logs/agent-wiki-query.md"
+      ],
+      "note": "Final Red follow-up PASS recorded in append-only Red review; final metadata screenshot refreshed. Preserve prior FAILs. Intent remains active until Archive and remote verifier pass."
     }
   ],
   "artifacts": [],
-  "verifications": [],
+  "verifications": [
+    {
+      "label": "workflow role review",
+      "type": "role_review",
+      "at": "2026-11-14T11:36:50Z",
+      "roles": [
+        "planner",
+        "developer",
+        "marketer",
+        "operator"
+      ],
+      "evidence_paths": [
+        "artifacts/research-hannah-arendt-modern-applications-20261114/final/hannah-arendt-concept-map-report.md",
+        "reports/research-hannah-arendt-modern-applications-20261114/2026-11-14T0650Z.html"
+      ],
+      "status": "pass",
+      "next_role": null
+    }
+  ],
   "next_decision": {
     "status": "in_progress",
-    "value": "Inbox에 등록하고 Genie가 Context Pack을 재확인한 뒤 탐색형 조사에 착수한다."
+    "value": "Prepare final artifact pointers and monthly Archive entry; run Archive remote verification, then record terminal trace event and verify final main SHA."
   }
 }

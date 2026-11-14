@@ -164,3 +164,61 @@ archive:
     state-change notices. Both were fixed: only intent-captured origin routes are
     used. Timeout/lost/malformed/nonzero outcomes are non-replayable; only positive
     pre-acceptance failures retry.'
+
+- id: research-hannah-arendt-modern-applications-20261114
+  title: 한나 아렌트 입문용 사상 지도와 현대적 적용 조사
+  task_name: 한나 아렌트 입문용 사상 지도와 현대적 적용 조사
+  status: archived
+  completed_at: '2026-11-14T11:49:26Z'
+  archived_at: '2026-11-14T11:49:26Z'
+  research_mode: exploratory_research
+  target_agent: genie
+  execution_mode: multi_subagent_roles
+  complexity_tier: lightweight
+  permission_level: L0-research-and-draft-only
+  task_type: research
+  topics: [political-theory, Hannah-Arendt, research]
+  context_pack: intents/context/research-hannah-arendt-modern-applications-20261114.json
+  trace: data/traces/research-hannah-arendt-modern-applications-20261114.json
+  detail: intents/archive/research-hannah-arendt-modern-applications-20261114.md
+  artifact: artifacts/research-hannah-arendt-modern-applications-20261114/final/hannah-arendt-concept-map-report.md
+  final_artifact: artifacts/research-hannah-arendt-modern-applications-20261114/final/hannah-arendt-concept-map-report.md
+  supporting_work:
+  - artifacts/research-hannah-arendt-modern-applications-20261114/work/hannah-arendt-concept-map-draft.md
+  - reports/research-hannah-arendt-modern-applications-20261114/390px-final.png
+  report: reports/research-hannah-arendt-modern-applications-20261114/2026-11-14T0650Z.html
+  red_status: pass
+  red_report: reports/research-hannah-arendt-modern-applications-20261114/red-final-review.md
+  remote_verified: pending
+  knowledge_status: raw
+  knowledge_decision: retain_in_infinity
+  knowledge_targets: artifacts/research-hannah-arendt-modern-applications-20261114/final/hannah-arendt-concept-map-report.md
+  knowledge_reflection: 아렌트 주제별 지식이 없고 선택된 일반 제품·마케팅·운영 페이지는 이 연구의 근거가 아니어서 승격하지 않고 Infinity에 보존한다.
+  knowledge_log: logs/agent-wiki-query.md#research-hannah-arendt-modern-applications-20261114
+  knowledge_commit: no-promotion-needed
+  report_length: 1479
+  report_length_judgment: fit
+  report_flow_check: pass — 범위·독자 안내 → 개념 지도 → 현대 적용과 반론 → 한계·열린 질문
+  next_action: No continuation
+  role_subagents:
+    planner:
+      session_id: agent:genie:subagent:9ba809d0-9119-474f-bec6-74eb06cfcdf4
+      run_id: 2e021422-91d1-4570-a0d6-e39a5e5c3598
+    developer:
+      session_id: agent:genie:subagent:a698eec6-67f5-449b-a088-747278c52963
+      runs: [80104997-867b-462c-876b-f2c1dca5af38, 3ab8c2be-4eda-45ab-9ed9-2cdd7b90aecb]
+    marketer:
+      session_id: agent:genie:subagent:4b4f8e26-9ff4-4d54-bb7e-64ec9cc049f4
+      run_id: 2d8b01a5-9f68-4ac8-a2cb-aa31b18ee130
+    operator:
+      session_id: agent:genie:subagent:a094b5b1-b8bb-4dfd-9a34-3e5be27fed85
+      run_id: b21a1727-d68a-46b8-be99-1e77aca28e87
+    red:
+      session_id: agent:red:subagent:208c09c4-267f-4c00-8de6-d535e454ccf3
+      run_id: 06c1e911-8f8d-4fd4-a5e5-02b88df79405
+  cross_review: 네 역할은 입문 효용과 신중한 해석에 합의했고 기준일·범주 중복, 초록 접근 한계, 첫 읽기 경로·HTML 출처·렌더·상태 이력을 보완했다. Developer 재검토가 역할 요약의 오래된 판정을 바로잡아 기록을 최신화했다.
+  result_summary: 아렌트의 주요 저작과 개념 관계를 쉬운 한국어로 정리하고 권리·디지털 공론장·관료제 책임·사실적 진실의 현대 적용에 반론과 한계를 붙였다. Markdown과 HTML의 출처·읽기 경로가 일치하고 390px 화면은 잘림 없이 읽힘을 Red가 확인했다.
+  limitations:
+  - UNHCR 원문 페이지는 Red 환경에서 403으로 직접 열리지 않아 공식 검색 인덱스 근거와 원문 직접 열람을 구분했다.
+  - 일부 2026년 학술 자료는 초록/검색 노출 범위만 확인했다.
+  - 현대 적용은 개념적 분석이며 개별 국가·플랫폼·조직 사례 연구는 아니다.
