@@ -38,6 +38,60 @@
         "INTENTS.yaml",
         "intents/context/research-hannah-arendt-modern-applications-20261114.json"
       ]
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-5e931750b8c944c3b27cb9f5ed9baee0",
+      "canonical_sha": "8a25ad8285844e75e5540376053e7510876d0118",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher-v2",
+      "timestamp": "2026-11-14T05:42:34Z",
+      "status": "accepted"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-7d5322cb682f4fcda2b53edb3a91e780",
+      "canonical_sha": "8a25ad8285844e75e5540376053e7510876d0118",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-11-14T05:52:32Z",
+      "status": "accepted"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-7d5322cb682f4fcda2b53edb3a91e780",
+      "canonical_sha": "8a25ad8285844e75e5540376053e7510876d0118",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher-v2",
+      "timestamp": "2026-11-14T05:52:33Z",
+      "status": "accepted"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-9b587e0240774755afac7d7fa8bf1c9f",
+      "canonical_sha": "8a25ad8285844e75e5540376053e7510876d0118",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-11-14T06:02:30Z",
+      "status": "accepted"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-392d4dd49ebf4fd89521da9e6558ece6",
+      "canonical_sha": "8a25ad8285844e75e5540376053e7510876d0118",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher",
+      "timestamp": "2026-11-14T06:12:30Z",
+      "status": "accepted"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-392d4dd49ebf4fd89521da9e6558ece6",
+      "canonical_sha": "8a25ad8285844e75e5540376053e7510876d0118",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher-v2",
+      "timestamp": "2026-11-14T06:12:29Z",
+      "status": "accepted"
     }
   ],
   "artifacts": [],

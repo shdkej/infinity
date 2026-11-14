@@ -295,6 +295,19 @@
       "state": "sent",
       "terminal_state": "approval"
     },
+    "91907d0db3d25adc38b83b7e5b5013f468511f0c391c6c36e429472f3197b6bb": {
+      "attempt_started_at": "2026-11-14T05:42:01Z",
+      "claimed_at": "2026-11-14T05:42:01Z",
+      "destination": "change|created|research-hannah-arendt-modern-applications-20261114|slack|channel:C0BR41W31MM|{\"lane\": \"inbox\", \"status\": \"inbox\", \"title\": \"한나 아렌트 입문용 사상 지도와 현대적 적용 조사\"}",
+      "failure_class": "timeout",
+      "fingerprint": "change|created|research-hannah-arendt-modern-applications-20261114|slack|channel:C0BR41W31MM|{\"lane\": \"inbox\", \"status\": \"inbox\", \"title\": \"한나 아렌트 입문용 사상 지도와 현대적 적용 조사\"}",
+      "intent_id": "research-hannah-arendt-modern-applications-20261114",
+      "remote_sha": "8a25ad8285844e75e5540376053e7510876d0118",
+      "state": "superseded",
+      "superseded_at": "2026-11-14T05:52:02Z",
+      "terminal_state": "created",
+      "updated_at": "2026-11-14T05:42:21Z"
+    },
     "9440a6907a0fe84fab603322ee0fd2de7aff3c0d7d04c79be9add234c7d7fa67": {
       "attempt_started_at": "2026-09-06T22:13:39Z",
       "claimed_at": "2026-09-06T22:13:39Z",
@@ -599,6 +612,11 @@
       "lane": "archive",
       "status": "archived",
       "title": "GitHub 리서치 스킬 후보 조사"
+    },
+    "research-hannah-arendt-modern-applications-20261114": {
+      "lane": "inbox",
+      "status": "inbox",
+      "title": "한나 아렌트 입문용 사상 지도와 현대적 적용 조사"
     },
     "research-review-curation-method-korea-20260913": {
       "lane": "archive",

@@ -20,7 +20,9 @@ except ModuleNotFoundError:
 ROOT = Path(__file__).resolve().parents[1]
 LANES = ("Backlog", "Inbox", "Active", "Waiting", "Archive")
 MAX_ACTIVE = 3
-FRESH_MINUTES = 25
+# A synchronous dispatcher handoff is capped at 8 minutes. Do not let an
+# accepted-but-failed handoff suppress the next 10-minute recovery cycle.
+FRESH_MINUTES = 8
 EXPANSION_TARGET_MIN = 50
 EXPANSION_TARGET_MAX = 60
 
@@ -107,7 +109,10 @@ def task_plan_state(entry: dict[str, Any], repo: Path, sha: str, reference: dt.d
     path = entry["fields"].get("task_plan", "")
     if not path:
         if entry["fields"].get("research_mode", "").strip().lower() == "exploratory_research":
-            return {"state": "exploratory"} if explicit_future_deadline(entry, reference) else {"state": "complete_or_invalid"}
+                # Exploratory research does not require a task plan or a
+                # deadline. A deadline gates automatic leaf expansion, not
+                # the initial execution of a user-approved research intent.
+                return {"state": "exploratory"}
         return {"state": "missing_plan"}
     try:
         raw = (repo / path).read_text(encoding="utf-8") if sha == "fixture" else subprocess.check_output(
