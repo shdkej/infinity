@@ -54,6 +54,7 @@ fi
 git -C "$ROOT" pull --ff-only origin main >/dev/null 2>&1 || bootstrap_failure
 
 # Planning and terminal checks must not depend on a dirty primary checkout.
+test -z "$(git -C "$ROOT" status --porcelain)" || bootstrap_failure
 VERIFY_ROOT="$(mktemp -d /tmp/infinity-dispatcher-verify-XXXXXX)"
 git -C "$ROOT" fetch --prune origin main >/dev/null 2>&1 || bootstrap_failure
 FETCHED_MAIN_SHA="$(git -C "$ROOT" rev-parse FETCH_HEAD 2>/dev/null)" || bootstrap_failure
@@ -79,26 +80,53 @@ then
   # Custody must be durable before Genie is invoked.  This is intentionally a
   # dispatcher-owned write, not an instruction that a delegated session may
   # forget to perform.
-  while IFS= read -r INTENT_ID; do
-    [[ -z "$INTENT_ID" ]] && continue
-    python3 "$ROOT/scripts/record_intent_trace.py" dispatcher-handoff \
-      --intent-id "$INTENT_ID" \
-      --run-id "$(python3 - "$PLAN_FILE" <<'PY'
+  DISPATCH_RUN_ID="$(python3 - "$PLAN_FILE" <<'PY'
 import json, sys
 print(json.load(open(sys.argv[1]))["run_id"])
 PY
-)" \
-      --canonical-sha "$(python3 - "$PLAN_FILE" <<'PY'
+)"
+PLAN_CANONICAL_SHA="$(python3 - "$PLAN_FILE" <<'PY'
 import json, sys
 print(json.load(open(sys.argv[1]))["canonical_sha"])
 PY
 )"
-  done < <(python3 - "$PLAN_FILE" <<'PY'
+mapfile -t HANDOFF_IDS < <(python3 - "$PLAN_FILE" <<'PY'
 import json, sys
 for item in json.load(open(sys.argv[1]))["handoff_candidates"]:
     print(item["intent_id"])
 PY
 )
+HANDOFF_PATHS=()
+  for INTENT_ID in "${HANDOFF_IDS[@]}"; do
+    [[ -z "$INTENT_ID" ]] && continue
+    python3 "$ROOT/scripts/record_intent_trace.py" dispatcher-handoff \
+      --intent-id "$INTENT_ID" \
+      --run-id "$DISPATCH_RUN_ID" \
+      --canonical-sha "$PLAN_CANONICAL_SHA" \
+      --session-key "$DISPATCHER_SESSION_KEY" || bootstrap_failure
+    TRACE_PATH="data/traces/${INTENT_ID}.json"
+    python3 "$ROOT/scripts/validate_intent_trace.py" "$ROOT/$TRACE_PATH" >/dev/null || bootstrap_failure
+    HANDOFF_PATHS+=("$TRACE_PATH")
+  done
+  if ((${#HANDOFF_PATHS[@]})); then
+    git -C "$ROOT" add -- "${HANDOFF_PATHS[@]}" || bootstrap_failure
+    git -C "$ROOT" diff --cached --check || bootstrap_failure
+    git -C "$ROOT" commit -m "chore(infinity): record dispatcher handoff" >/dev/null || bootstrap_failure
+    git -C "$ROOT" push origin main >/dev/null || bootstrap_failure
+    git -C "$ROOT" fetch origin main >/dev/null 2>&1 || bootstrap_failure
+    HANDOFF_HEAD_SHA="$(git -C "$ROOT" rev-parse HEAD 2>/dev/null)" || bootstrap_failure
+    HANDOFF_REMOTE_SHA="$(git -C "$ROOT" rev-parse origin/main 2>/dev/null)" || bootstrap_failure
+    [[ "$HANDOFF_HEAD_SHA" == "$HANDOFF_REMOTE_SHA" ]] || bootstrap_failure
+    python3 - "$PLAN_FILE" "$HANDOFF_HEAD_SHA" <<'PY'
+import json, sys
+path, sha = sys.argv[1:]
+plan = json.load(open(path))
+plan["canonical_sha"] = sha
+with open(path, "w", encoding="utf-8") as stream:
+    json.dump(plan, stream, ensure_ascii=False, indent=2)
+    stream.write("\n")
+PY
+  fi
   # Write the handoff atomically and never call the CLI with an empty message.
   if ! python3 - "$PLAN_FILE" "$PROMPT_STAGE_FILE" "$DISPATCHER_SESSION_KEY" <<'PY'
 import json, sys
@@ -119,7 +147,7 @@ Do not create schedules. Do not use dashboard_actions as work status. Your sole 
 
 For every missing_plan_repair_candidate (emitted only for an Active Intent with a valid explicit future `deadline`), create the required contract-compliant task-plan, add its card references, activate the first evidence-bearing leaf, and execute it in this cycle. Never create a repair plan or first leaf for a no-deadline Active Intent; route it to terminal closeout from existing evidence. Whenever an Active Intent creates or replaces a human-readable Markdown work artifact, update both its canonical INTENTS.yaml card and its detail intent (when present) with the current `artifact:` paths in the same commit, so the dashboard can display them even when GitHub directory listing is rate-limited. Automatic evidence-leaf expansion is permitted only when the canonical Intent field `deadline` contains a valid timezone-aware timestamp explicitly supplied by the user and the dispatch plan timestamp is before it. Never infer or invent a deadline from `delivery_not_before`, task timeboxes, `decision_deadline`, or an assumed duration. With no valid explicit deadline, finish only already-planned leaves; once they are complete, trigger normal terminal closeout from existing evidence or honor an explicit user stop, without replenishing leaves. For an explicit deadline, stop task execution/expansion at or after that timestamp and run one atomic terminal bundle: final Markdown, any user- or Intent-required HTML report, Archive card/detail transition, remote archive verification, dashboard Archive-card check, then original-thread notice. Before committing any Archive transition, run `python3 scripts/check_intents_consistency.py INTENTS.yaml`; for research intents also run `python3 scripts/verify_archive_remote.py <intent-id>` after the report and monthly ledger are present. If either check fails, do not push or notify terminal completion. A partial prose summary is not terminal work and never substitutes for the bundle. Internal report/commit/verification closeout is agent-owned and is not a Waiting condition; use Waiting only for a real user/external/approval blocker with an exact exit condition.
 
-Before substantive work, record exactly one `dispatcher_handoff` event with `python3 scripts/record_intent_trace.py dispatcher-handoff --intent-id <id> --run-id {plan["run_id"]} --canonical-sha {plan["canonical_sha"]} --session-key {dispatcher_session_key}`. Do not hand-edit the trace or create another event for this run. Run `python3 scripts/validate_intent_trace.py data/traces/<intent-id>.json`, then commit and push only explicit Infinity files, fetch, and prove HEAD == origin/main. Preserve approval boundaries. If starting is unsafe, record a precise Waiting or stale_guard_released reason; never claim completion.
+The dispatcher wrapper has already recorded exactly one `dispatcher_handoff` event per candidate, validated the trace, and committed/pushed those trace files before invoking you. Verify that the matching `run_id` and session key `{dispatcher_session_key}` are present in the remote trace. Do not append or hand-edit another handoff event for this run. Continue the requested work, then commit/push only its explicit Infinity files and prove HEAD == origin/main. Preserve approval boundaries. If starting is unsafe, record a precise Waiting or stale_guard_released reason; never claim completion.
 
 Return JSON containing intent IDs, session evidence, state changes, commit, and remote proof.'''
 if plan.get("waiting_closeout_candidates"):
