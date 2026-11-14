@@ -218,9 +218,26 @@ def dispatcher_handoff(args: argparse.Namespace) -> None:
         "timestamp": timestamp(args.at),
         "status": "accepted",
     }
-    if any(existing == event for existing in data.get("events", []) if isinstance(existing, dict)):
+    events = data.setdefault("events", [])
+    # One run has one durable handoff receipt, even if a retrying caller uses
+    # a different session-key alias for the same run.
+    if any(
+        isinstance(existing, dict)
+        and existing.get("type") == "dispatcher_handoff"
+        and existing.get("run_id") == args.run_id
+        for existing in events
+    ):
         return
-    data.setdefault("events", []).append(event)
+    events.append(event)
+    # Tool and agent writes can arrive out of timestamp order. Keep the trace
+    # contract chronological without dropping or rewriting historical events.
+    def event_time(item: dict) -> datetime:
+        field = "timestamp" if item.get("type") == "dispatcher_handoff" else "at"
+        value = item.get(field)
+        if not isinstance(value, str):
+            raise ValueError(f"trace event has no {field} timestamp")
+        return datetime.fromisoformat(value.replace("Z", "+00:00"))
+    events.sort(key=event_time)
     write_atomic(path, data)
 
 
