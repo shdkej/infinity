@@ -76,7 +76,7 @@ The writer does not move an `INTENTS.yaml` lane or assert a remote commit; it
 records the proof supplied by the workflow. Record the archive event only after
 the normal Archive remote-verification gate has passed.
 
-For default `exploratory_research`, pass `--research-mode exploratory_research`; the trace writer requires a Markdown brief and remote proof, records `red_status: not_required`, and does not take a Red report path. The overall delivery still requires the HTML report and report validation in [ARTIFACT_RULES.md](../ARTIFACT_RULES.md#리서치-최종본-품질-계약); trace validation alone does not prove completion.
+For default `exploratory_research`, pass `--research-mode exploratory_research`; the trace writer requires the final report, Red report, and remote proof, and records `red_status: pass`. Archive events dated 2026-11-14 or later require Red evidence for every research mode. Earlier archive events retain their historical status; do not fabricate Red results retroactively. The review scope differs by mode: exploratory Red checks evidence, scope, uncertainty, readability, and rendered presentation without forcing a recommendation; decision research also checks decision logic and counterevidence. The overall delivery still requires the HTML report and report validation in [ARTIFACT_RULES.md](../ARTIFACT_RULES.md#리서치-최종본-품질-계약); trace validation alone does not prove completion.
 
 Dispatcher acceptance is recorded as a `dispatcher_handoff` event. It contains
 the dispatcher `run_id`, `canonical_sha`, `agent`, `session_key`, UTC

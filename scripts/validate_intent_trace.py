@@ -5,7 +5,7 @@ from __future__ import annotations
 import argparse
 import json
 import sys
-from datetime import datetime
+from datetime import datetime, timezone
 from pathlib import Path
 import re
 
@@ -13,6 +13,7 @@ ROOT = Path(__file__).resolve().parents[1]
 VALID_STATES = {"inbox", "active", "waiting", "archived"}
 VALID_EVENTS = {"intake", "execution", "archive", "backfill", "dispatcher_handoff"}
 SHA40 = re.compile(r"^[0-9a-f]{40}$")
+RED_PASS_REQUIRED_FROM = datetime(2026, 11, 14, tzinfo=timezone.utc)
 
 
 def error(errors: list[str], trace: Path, message: str) -> None:
@@ -194,13 +195,22 @@ def validate(trace: Path) -> list[str]:
             if not local_path_ok(event.get("report_path")):
                 error(errors, trace, f"events[{index}].report_path must name an existing final report")
             verification = event.get("verification")
-            exploratory = event.get("research_mode") == "exploratory_research"
-            expected_red_status = "not_required" if exploratory else "pass"
-            if not isinstance(verification, dict) or verification.get("red_status") != expected_red_status:
-                error(errors, trace, f"events[{index}].verification.red_status must be {expected_red_status}")
+            archive_time = parse_time(event.get("at"))
+            red_required = archive_time is None or archive_time >= RED_PASS_REQUIRED_FROM
+            if red_required:
+                if not isinstance(verification, dict) or verification.get("red_status") != "pass":
+                    error(errors, trace, f"events[{index}].verification.red_status must be pass")
+            else:
+                # Preserve truthful historical records; never invent a Red PASS retroactively.
+                exploratory = event.get("research_mode") == "exploratory_research"
+                expected = "not_required" if exploratory else "pass"
+                if not isinstance(verification, dict) or verification.get("red_status") != expected:
+                    error(errors, trace, f"events[{index}].verification.red_status must be {expected} for a historical archive")
             if not isinstance(verification, dict) or verification.get("remote_verified") != "pass":
                 error(errors, trace, f"events[{index}].verification.remote_verified must be pass")
-            if not exploratory and (not isinstance(verification, dict) or not local_path_ok(verification.get("red_report_path"))):
+            if red_required and (not isinstance(verification, dict) or not local_path_ok(verification.get("red_report_path"))):
+                error(errors, trace, f"events[{index}].verification.red_report_path must name Red evidence")
+            if not red_required and event.get("research_mode") != "exploratory_research" and (not isinstance(verification, dict) or not local_path_ok(verification.get("red_report_path"))):
                 error(errors, trace, f"events[{index}].verification.red_report_path must name Red evidence")
             if not isinstance(verification, dict) or not local_path_ok(verification.get("remote_proof_path")):
                 error(errors, trace, f"events[{index}].verification.remote_proof_path must name remote proof")

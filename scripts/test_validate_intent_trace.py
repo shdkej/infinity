@@ -39,6 +39,25 @@ def run_case(name: str, data: dict, expected_ok: bool) -> None:
 
 run_case("active-valid", record(), True)
 run_case("archive-valid", record("archived"), True)
+exploratory_archive = record("archived")
+exploratory_archive["events"][-1]["research_mode"] = "exploratory_research"
+exploratory_archive["events"][-1]["at"] = "2026-11-14T00:00:00Z"
+run_case("exploratory-archive-valid-with-red-pass", exploratory_archive, True)
+exploratory_without_status = record("archived")
+exploratory_without_status["events"][-1]["research_mode"] = "exploratory_research"
+exploratory_without_status["events"][-1]["at"] = "2026-11-14T00:00:00Z"
+exploratory_without_status["events"][-1]["verification"].pop("red_status")
+run_case("exploratory-archive-requires-red-pass", exploratory_without_status, False)
+exploratory_without_report = record("archived")
+exploratory_without_report["events"][-1]["research_mode"] = "exploratory_research"
+exploratory_without_report["events"][-1]["at"] = "2026-11-14T00:00:00Z"
+exploratory_without_report["events"][-1]["verification"].pop("red_report_path")
+run_case("exploratory-archive-requires-red-report", exploratory_without_report, False)
+legacy_exploratory_archive = record("archived")
+legacy_exploratory_archive["events"][-1]["research_mode"] = "exploratory_research"
+legacy_exploratory_archive["events"][-1]["verification"]["red_status"] = "not_required"
+legacy_exploratory_archive["events"][-1]["verification"].pop("red_report_path")
+run_case("legacy-exploratory-archive-preserves-historical-status", legacy_exploratory_archive, True)
 broken = record("archived")
 broken["events"] = broken["events"][:-1]
 run_case("archive-requires-event", broken, False)
@@ -88,4 +107,4 @@ with tempfile.TemporaryDirectory() as directory:
         run_case("dispatcher-writer-produces-auditable-handoff", stored, True)
     finally:
         writer.TRACES = previous_traces
-print("TRACE VALIDATOR FIXTURES PASSED (13)")
+print("TRACE VALIDATOR FIXTURES PASSED (17)")

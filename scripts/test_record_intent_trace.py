@@ -13,6 +13,59 @@ validator = importlib.util.module_from_spec(VALIDATOR_SPEC)
 VALIDATOR_SPEC.loader.exec_module(validator)
 
 class LegacyTraceTest(unittest.TestCase):
+    def test_exploratory_archive_records_required_red_evidence(self):
+        with tempfile.TemporaryDirectory() as raw:
+            root = Path(raw) / "repo"
+            root.mkdir()
+            for relative in ("report.html", "red-review.md", "remote-proof.txt"):
+                (root / relative).write_text("evidence", encoding="utf-8")
+            previous_root, previous_traces = record.ROOT, record.TRACES
+            try:
+                record.ROOT = root
+                record.TRACES = root / "data" / "traces"
+                record.TRACES.mkdir(parents=True)
+                target = record.trace_path("exploratory-red")
+                target.write_text(json.dumps({"intent_id": "exploratory-red", "status": "active", "events": []}), encoding="utf-8")
+                args = type("Args", (), {
+                    "intent_id": "exploratory-red", "report_path": "report.html",
+                    "red_report_path": "red-review.md", "remote_proof_path": "remote-proof.txt",
+                    "research_mode": "exploratory_research", "evidence": [], "artifact": [],
+                    "at": "2026-09-10T00:02:00Z", "decision_status": "implemented",
+                    "next_decision": "done",
+                })()
+                record.archive(args)
+                archived = json.loads(target.read_text(encoding="utf-8"))
+            finally:
+                record.ROOT, record.TRACES = previous_root, previous_traces
+        event = archived["events"][-1]
+        self.assertEqual(event["verification"]["red_status"], "pass")
+        self.assertEqual(event["verification"]["red_report_path"], "red-review.md")
+        self.assertIn("red-review.md", event["evidence_paths"])
+
+    def test_exploratory_archive_rejects_missing_red_evidence(self):
+        with tempfile.TemporaryDirectory() as raw:
+            root = Path(raw) / "repo"
+            root.mkdir()
+            (root / "report.html").write_text("report", encoding="utf-8")
+            (root / "remote-proof.txt").write_text("proof", encoding="utf-8")
+            previous_root, previous_traces = record.ROOT, record.TRACES
+            try:
+                record.ROOT = root
+                record.TRACES = root / "data" / "traces"
+                record.TRACES.mkdir(parents=True)
+                record.trace_path("exploratory-no-red").write_text(json.dumps({"intent_id": "exploratory-no-red", "events": []}), encoding="utf-8")
+                args = type("Args", (), {
+                    "intent_id": "exploratory-no-red", "report_path": "report.html",
+                    "red_report_path": "missing-red.md", "remote_proof_path": "remote-proof.txt",
+                    "research_mode": "exploratory_research", "evidence": [], "artifact": [],
+                    "at": "2026-09-10T00:02:00Z", "decision_status": "implemented",
+                    "next_decision": "done",
+                })()
+                with self.assertRaises(SystemExit):
+                    record.archive(args)
+            finally:
+                record.ROOT, record.TRACES = previous_root, previous_traces
+
     def test_new_intake_records_user_intent_contract(self):
         with tempfile.TemporaryDirectory() as raw:
             previous = record.TRACES

@@ -46,7 +46,7 @@
 
 `exploratory_research`의 `final/`에는 주제 범위와 탐색 지도, 주요 갈래, 대표 사례, 발견 사이의 연결, 불확실성, 열어 둔 다음 질문을 둔다. 결론·추천·선택지 비교·버린 대안·사용자의 다음 행동은 요구하지 않는다. `decision_research`의 `final/`에는 원 질문에 대한 결론을 먼저 두고, 그 결론을 바꾸는 조건·핵심 발견·선택지 비교·버린 대안·다음 결정 하나를 분리한다. 의사결정형의 각 핵심 발견은 `주장 → 직접 근거 → 해석 → 한계/반증`을 한 덩어리로 남긴다. 어느 모드든 출처 수를 채우는 목적의 중복 자료, 조사 과정의 나열, 역할명·태스크 ID는 최종 본문에 넣지 않는다.
 
-작업 중 생기는 `T1`/`T1.1` 메모와 Red 문서는 증거 추적에는 필요하지만 **최종 답이 아니다**. 모든 리서치는 원 질문에 답하는 **전체 Markdown 원문**을 `artifacts/{id}/final/{slug}-report.md`에 반드시 보존하고, 동일 내용을 읽기 좋게 요약한 `reports/{id}/{timestamp}.html`을 함께 만든다. `exploratory_research`도 HTML report와 research-report validator를 생략하지 않지만, Deep Research·Red 검증은 요구하지 않는다. 네 역할 참여는 [Execution Mode 기록](#execution-mode-기록)을 따른다. `decision_research`의 최종 후보는 먼저 `work/candidate/`에 만들고, Red는 그 후보와 최종 HTML Report를 함께 검토한다. Red 문서는 `work/red/`에 판정·차단 사유·재검토 범위를 기록한다. PASS 뒤에만 검토한 동일 원문을 `final/`로 이동(또는 내용 동일성이 검증된 복사)하며, 최종 HTML 리포트는 이 MD 원문을 축약·표시하는 읽기 표면일 뿐 원문을 대체하지 않는다. 두 모드 모두 쉬운 한국어로 쓰고, 필요한 전문어는 짧은 뜻이나 예시로 풀어 쓴다.
+작업 중 생기는 `T1`/`T1.1` 메모와 Red 문서는 증거 추적에는 필요하지만 **최종 답이 아니다**. 모든 리서치는 원 질문에 답하는 **전체 Markdown 원문**을 `artifacts/{id}/final/{slug}-report.md`에 반드시 보존하고, 동일 내용을 읽기 좋게 요약한 `reports/{id}/{timestamp}.html`을 함께 만든다. 2026-11-14 이후 Archive하는 탐색형·의사결정형 리서치는 모두 HTML report, research-report validator, Red `PASS`를 거친다. 탐색형 Red는 사실 근거·범위·불확실성·가독성·화면 표시를 확인하며, 의사결정형 추천이나 결론 수렴을 강제하지 않는다. 변경일 이전 Archive 기록은 당시 상태 그대로 보존하고 PASS를 소급 생성하지 않는다. 네 역할 참여는 [Execution Mode 기록](#execution-mode-기록)을 따른다. `decision_research`의 최종 후보는 먼저 `work/candidate/`에 만들고, Red는 그 후보와 최종 HTML Report를 함께 검토한다. Red 문서는 `work/red/`에 판정·차단 사유·재검토 범위를 기록한다. PASS 뒤에만 검토한 동일 원문을 `final/`로 이동(또는 내용 동일성이 검증된 복사)하며, 최종 HTML 리포트는 이 MD 원문을 축약·표시하는 읽기 표면일 뿐 원문을 대체하지 않는다. 두 모드 모두 쉬운 한국어로 쓰고, 필요한 전문어는 짧은 뜻이나 예시로 풀어 쓴다.
 
 **리서치 보존 게이트:** 2026-09-13 이후 Archive하는 리서치는 `final_artifact: artifacts/{id}/final/{slug}-report.md`를 명시하고, 그 파일이 비어 있지 않으며 원격 `main`의 **동일 Archive 원장**도 같은 경로를 가리켜야 한다. `work/candidate/*.md`, `work/` 문서, HTML report만으로는 리서치 완료·Archive를 인정하지 않는다. 이 규칙은 `exploratory_research`와 `decision_research` 모두에 적용한다. 이전 Archive는 경로 체계가 달라 자동 실패시키지 않으며, 수정·재검증 시 이 형식으로 이관한다.
 
@@ -222,7 +222,7 @@ PRD가 필요한 대형 작업은 PRD가 승인·고정된 직후, 구현 전에
 신규 Archive intent는 실행 방식이 검증 가능해야 한다.
 
 - `execution_mode: single_genie_roles` — 과거 Archive의 호환용 값이다. 신규 Genie 실행에는 사용하지 않는다.
-- `research_mode: exploratory_research` — 사례·시장 지형·트렌드를 설명하는 기본 리서치. 출처 확인과 전체 Markdown 브리프 및 검증된 HTML report를 요구한다. 추천/결정용 Deep Research와 Red 검증은 요구하지 않지만, 결과물을 만드는 실제 요청이면 네 역할 세션과 간결한 교차 검토를 요구한다.
+- `research_mode: exploratory_research` — 사례·시장 지형·트렌드를 설명하는 기본 리서치. 출처 확인, 전체 Markdown 브리프, 검증된 HTML report, 2026-11-14 이후 Archive 시 Red `PASS`를 요구한다. 추천/결정용 Deep Research는 요구하지 않지만, 결과물을 만드는 실제 요청이면 네 역할 세션과 간결한 교차 검토를 요구한다. 변경일 이전 Archive의 `not_required` 판정은 역사 기록으로 보존하며 소급 변경하지 않는다.
 - `research_mode: decision_research` — 투자·도입·구매·출시·가격/수익성·법률 또는 명시적 검증을 위한 의사결정 리서치. Deep Research와 역할·Red 게이트를 적용한다.
 - `execution_mode: multi_subagent_roles` — 모든 신규 Genie Intent/실행의 기본값. Planner, Developer, Marketer, Operator가 각기 임시 서브에이전트로 실행되며 간단 작업도 산출물 분량만 줄인다. SAM이 Genie Intent를 만들지 않고 직접 반환하는 읽기 전용 상태 답변만 역할 세션을 생략한다.
 - `execution_mode: multi_subagent_roles_blocked` — 네 역할 중 하나라도 실행되지 못한 경우. 완료로 Archive하지 않고 복구 또는 재개 조건과 함께 Waiting에 둔다.
