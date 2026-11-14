@@ -44,7 +44,7 @@
       "run_id": "dispatch-5e931750b8c944c3b27cb9f5ed9baee0",
       "canonical_sha": "8a25ad8285844e75e5540376053e7510876d0118",
       "agent": "genie",
-      "session_key": "agent:genie:infinity-dispatcher-v2",
+      "session_key": "agent:genie:infinity-dispatcher-command-v1",
       "timestamp": "2026-11-14T05:42:34Z",
       "status": "accepted"
     },
@@ -53,7 +53,7 @@
       "run_id": "dispatch-7d5322cb682f4fcda2b53edb3a91e780",
       "canonical_sha": "8a25ad8285844e75e5540376053e7510876d0118",
       "agent": "genie",
-      "session_key": "agent:genie:infinity-dispatcher",
+      "session_key": "agent:genie:infinity-dispatcher-command-v1",
       "timestamp": "2026-11-14T05:52:32Z",
       "status": "accepted"
     },
@@ -62,7 +62,7 @@
       "run_id": "dispatch-7d5322cb682f4fcda2b53edb3a91e780",
       "canonical_sha": "8a25ad8285844e75e5540376053e7510876d0118",
       "agent": "genie",
-      "session_key": "agent:genie:infinity-dispatcher-v2",
+      "session_key": "agent:genie:infinity-dispatcher-command-v1",
       "timestamp": "2026-11-14T05:52:33Z",
       "status": "accepted"
     },
@@ -71,7 +71,7 @@
       "run_id": "dispatch-9b587e0240774755afac7d7fa8bf1c9f",
       "canonical_sha": "8a25ad8285844e75e5540376053e7510876d0118",
       "agent": "genie",
-      "session_key": "agent:genie:infinity-dispatcher",
+      "session_key": "agent:genie:infinity-dispatcher-command-v1",
       "timestamp": "2026-11-14T06:02:30Z",
       "status": "accepted"
     },
@@ -80,7 +80,7 @@
       "run_id": "dispatch-392d4dd49ebf4fd89521da9e6558ece6",
       "canonical_sha": "8a25ad8285844e75e5540376053e7510876d0118",
       "agent": "genie",
-      "session_key": "agent:genie:infinity-dispatcher-v2",
+      "session_key": "agent:genie:infinity-dispatcher-command-v1",
       "timestamp": "2026-11-14T06:12:29Z",
       "status": "accepted"
     },
@@ -89,7 +89,7 @@
       "run_id": "dispatch-392d4dd49ebf4fd89521da9e6558ece6",
       "canonical_sha": "8a25ad8285844e75e5540376053e7510876d0118",
       "agent": "genie",
-      "session_key": "agent:genie:infinity-dispatcher",
+      "session_key": "agent:genie:infinity-dispatcher-command-v1",
       "timestamp": "2026-11-14T06:12:30Z",
       "status": "accepted"
     },
@@ -98,7 +98,7 @@
       "run_id": "dispatch-22238c199bbe4a78970bf83d5a67989b",
       "canonical_sha": "0e2e59631b6fa5bed4a2033bb4d41b52cc0a6dcb",
       "agent": "genie",
-      "session_key": "agent:genie:infinity-dispatcher-v2",
+      "session_key": "agent:genie:infinity-dispatcher-command-v1",
       "timestamp": "2026-11-14T06:23:23Z",
       "status": "accepted"
     },
@@ -107,8 +107,17 @@
       "run_id": "dispatch-22238c199bbe4a78970bf83d5a67989b",
       "canonical_sha": "0e2e59631b6fa5bed4a2033bb4d41b52cc0a6dcb",
       "agent": "genie",
-      "session_key": "agent:genie:infinity-dispatcher",
+      "session_key": "agent:genie:infinity-dispatcher-command-v1",
       "timestamp": "2026-11-14T06:23:24Z",
+      "status": "accepted"
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-5471527d60754be38a2c9b0827592196",
+      "canonical_sha": "8ef49c966df0c46333ee399fd97b7de5b9c9d498",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher-command-v1",
+      "timestamp": "2026-11-14T06:31:54Z",
       "status": "accepted"
     }
   ],

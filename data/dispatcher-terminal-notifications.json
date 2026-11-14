@@ -292,7 +292,8 @@
       "fingerprint": "change|changed|research-hannah-arendt-modern-applications-20261114|slack|channel:C0BR41W31MM|{\"lane\": \"active\", \"status\": \"active\", \"title\": \"한나 아렌트 입문용 사상 지도와 현대적 적용 조사\"}",
       "intent_id": "research-hannah-arendt-modern-applications-20261114",
       "remote_sha": "0e2e59631b6fa5bed4a2033bb4d41b52cc0a6dcb",
-      "state": "delivery_unknown",
+      "state": "superseded",
+      "superseded_at": "2026-11-14T06:32:03Z",
       "terminal_state": "changed",
       "updated_at": "2026-11-14T06:22:22Z"
     },
