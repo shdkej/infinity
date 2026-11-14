@@ -11,3 +11,8 @@
 - Knowledge receipt: `logs/agent-wiki-query.md#research-hannah-arendt-modern-applications-20261114`, present on Knowledge Lab `origin/main` at `85254cc2833f2a413a4fb444c5c81fe9c9d45023`.
 
 This proof records the passing archive-transition gate. The terminal trace event and this proof record are published only after that gate, then the final remote state is checked again.
+
+## Final trace and live-card check
+
+- Terminal trace/proof commit: `1ccf862b4bce76a03b8d51308e18711b3b41e218`; `verify_git_publish.sh` confirmed local and `origin/main` matched, and `verify_archive_remote.py` passed again.
+- Live Infinity Kanban was opened read-only at `https://infinity.aws.shdkej.com/` after that commit. The visible Archive area listed `research-hannah-arendt-modern-applications-20261114` as `archived` dated `2026-11-14`, with the research category and `No continuation` next action. The card summary and detail were rendered in the page body (observed 2026-11-14 11:55 UTC).
