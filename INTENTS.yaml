@@ -217,6 +217,7 @@ lanes:
     success_evidence: 전체 Markdown 원문과 읽기 쉬운 HTML 리포트가 존재하며, 주요 개념 지도·개념 간 연결·복수의 근거 있는 현대 적용·각 적용의 한계/반론·출처가 확인된다.
     approval_boundary: 탐색형 조사와 내부 산출물 작성만 승인 범위다. 공개 발행·외부 발송·비용 지출·권한 변경은 포함하지 않는다.
     context_pack: intents/context/research-hannah-arendt-modern-applications-20261114.json
+    artifact: artifacts/research-hannah-arendt-modern-applications-20261114/work/hannah-arendt-concept-map-draft.md
     context_documents_checked:
     - /home/ubuntu/workspace/prompt-archive/LLM.md
     - /home/ubuntu/workspace/knowledge-lab/README.md
@@ -253,7 +254,7 @@ lanes:
     notification_channel: slack
     notification_target: channel:C0BR41W31MM
     notification_reply_to: '1794633623.676999'
-    next_action: Genie가 Context Pack과 검색 공백을 재확인하고 탐색형 조사를 시작한다.
+    next_action: 초안은 work에 보존됨. Genie가 출처·내용을 검증하고 HTML 리포트 및 완료 기준을 채워 final로 닫는다.
 
   latest_cycle:
     cycle_id: backlog-triage-2026-10-29-role-watchers-r32
