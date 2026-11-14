@@ -100,3 +100,51 @@
 기존 세 내용 결함(HTML UNHCR 출처 누락, HTML 읽기 경로 누락, 이전 캡처 사용)은 수정됐고 최신 모바일 첫 화면은 직접 확인했다. UNHCR 원문 URL은 이번에도 403이었으므로 **공식 검색 인덱스 결과와 원문 직접 열람은 구별**했다. 리포트 validator와 trace validator는 모두 통과했다. 다만 HTML에 남은 Red 실패/재검토 대기 상태 문구는 현재 후속 판정과 모순되고 trace의 검증 상태도 갱신되지 않았다.
 
 따라서 후속 전체 판정은 **FAIL (수정 필요)**이다. 남은 최소 조치는 HTML의 Red 상태 문구와 trace lifecycle 상태를 현재 결과에 맞추는 것이다. 이 후속은 기존 FAIL을 소급 삭제하거나 최초 검토 범위를 축소하지 않는다.
+
+## 최종 후속 검토 — 역할·상태·trace 동기화본 (2026-11-14 11:43 UTC)
+
+이 검토는 최초 전체 **FAIL**과 직전 수정본 후속 **FAIL**을 그대로 보존한다. 해당 두 판정 뒤 역할 요약, HTML 상태 이력, trace의 role-review 증거가 추가·정리된 현재 canonical Markdown·HTML·trace·PNG를 다시 확인했다. 원문 산출물이나 trace는 이 Red가 수정하지 않았다.
+
+### 요구사항별 검증
+
+#### 1. 방향이 맞나? — 입문 지도의 방향과 범위
+- 판정: **PASS**
+- 직접 증거: 현재 Markdown과 HTML은 아렌트 입문 사상 지도·주요 저작·핵심 개념과 현대 적용 네 갈래를 제공하고 특정 정치인·정파 평가를 배제한다. 현대 적용의 한계와 반론도 본문에 있다.
+- 반례 확인: 적용을 아렌트의 직접 주장 또는 개별 사례의 실증 결과로 혼동하지 않도록 구분한다. 역할 통합 문단도 분석적 개념 연결이 선형 이론을 뜻하지 않는다고 밝힌다.
+- 다음 조치: 없음.
+
+#### 2. 다음 액션이 있나? — 독자의 다음 탐색과 workflow 후속
+- 판정: **PASS**
+- 직접 증거: Markdown·HTML 모두 네 열린 질문과 입문 첫 읽기 경로를 포함한다. HTML의 실행 메타데이터는 현재 2차 후속 검토 진행 중·Archive 미완료를 표시한다.
+- 반례 확인: 독자 경로는 유일한 정전 순서로 과장하지 않는다. 작업 상태는 아직 archive 전이며, 현행 trace도 `active`이므로 완료/보관을 가장하지 않는다.
+- 다음 조치: 산출물 소유자가 Red 통과 뒤 기존 Archive 절차를 마무리한다.
+
+#### 3. 선택이 맞나? — 근거·반례·불확실성
+- 판정: **PASS (증거 한계 명시 범위)**
+- 직접 증거: 양쪽 산출물의 UNHCR 설명 링크와 2025년 말 수치·중복 설명이 일치한다. 앞선 후속 기록에는 공식 검색 인덱스 결과 `turn3search0`가 원 페이지 직접 열람이 아님을 명시했고, Red의 단일 접근 시도는 403으로 기록했다. 학술자료의 초록/본문 접근 한계도 보고서에 표시되어 있다.
+- 반례 확인: 공식 검색 결과를 원 페이지 직접 열람으로 바꾸어 말하지 않는다. 통계는 이론의 증명이나 별도 범주의 합계로 사용하지 않는다.
+- 다음 조치: 없음. 원자료 직접 열람 사실을 추가로 주장할 경우에는 접근 가능한 공식 본문 증거가 필요하다.
+
+#### 4. 요청과 맞나? — 문서·역할 검토·출처 정합성
+- 판정: **PASS**
+- 직접 증거: 현재 Markdown의 역할 절에는 Planner `9ba809d0… / 2e021422…`, Marketer `4b4f8e26… / 2d8b01a5…`, Operator `a094b5b1… / b21a1727…`, Developer 최초 `a698eec6… / 80104997…` 및 재검토 `a698eec6… / 3ab8c2be…`가 명시되어 있다. Developer 재검토는 과거 지적과 현재 상태를 구분하고 이전 역할 요약 충돌을 최신 판단으로 고쳤다고 기록한다. 두 파일의 현재 본문·출처·첫 읽기 경로는 정합적이다.
+- 반례 확인: 역할 검토를 Red 전체 검토로 취급하지 않는다. 현재 trace의 단일 `role_review` verification은 네 역할 모두 `status: pass`이며, 별도 Red 최종 검토 이력과 구분된다.
+- 다음 조치: 없음.
+
+#### 5. 가독성·HTML 렌더
+- 판정: **PASS (요청된 모바일 첫 화면 범위)**
+- 직접 증거: 최신 `390px-final.png`(390×844)를 이번 후속에서 직접 열어 보았다. H1 두 줄, 두 결론 축, 핵심 발견 첫 항목이 보이며 가로 잘림이 없다. HTML quality validator는 `PASS research report quality`를 반환했다.
+- 반례 확인: 시각 판정은 지정된 390px 첫 화면에 한정하며, 전체 세로 길이의 모든 링크 동작을 주장하지 않는다. 이번에 확인한 PNG의 파일 시각은 HTML보다 뒤라 최신 캡처 주장과 모순되지 않는다.
+- 다음 조치: 없음.
+
+#### 6. 선택·상태·trace 기록이 현재 단계에 맞나?
+- 판정: **PASS**
+- 직접 증거: trace validator는 `TRACE VALIDATION PASSED`를 반환한다. trace는 `status: active`, `trace_completeness: complete`이고 최근 실행 기록에 보고서·Red 기록·최신 PNG, 선택 wiki 경로 3개 및 `logs/agent-wiki-query.md`가 남아 있다. `verifications`에는 4역할 `role_review`가 `pass`로 기록되어 있다. HTML은 최초 전체 FAIL, 1차 후속 FAIL, 현재 2차 후속 검토 진행 중 및 Archive 미완료를 구분한다.
+- 반례 확인: trace `next_decision`의 실제 문구는 “Synchronize Red follow-up verdict and trace lifecycle, then request final PASS from the same Red review before Archive.”로, 요청 메시지의 짧은 요약과 문구 자체는 다르다. 하지만 현재 단계의 실질적 다음 단계(동일 Red 검토의 최종 판정 후 통과 시 Archive)와 모순되지는 않는다. `active`는 아직 archive event가 없다는 상태와 맞고, trace 계약상 최종 Red 증거·원격 증거 전 archive를 기록하면 안 된다. 두 validator의 성공도 상태 자체가 완료됐다는 뜻으로 확대하지 않는다.
+- 다음 조치: Red 결과 기록 이후 Infinity 소유자가 trace의 다음 결정과 archive 전이를 기존 절차로 갱신한다. 현재 Red는 요청대로 Markdown·HTML·trace·PNG를 수정하지 않는다.
+
+### 최종 결론
+
+직전 후속의 남은 두 지적(역할 통합 문단의 오래된 Developer 상태 요약, HTML/trace 상태 동기화)은 현재 역할 기록과 상태 이력으로 해소됐다. Trace의 `active`·Archive 미완료 표시는 현재 검토가 끝나기 전의 정상 진행 상태이며, 필수 role-review 증거와 Context Pack 경로도 기록되어 있다. UNHCR 페이지의 직접 403 한계는 유지하되 공식 검색 인덱스 근거와 구별되어 있다.
+
+요구사항 6개 모두 통과하므로 이번 최종 후속 판정은 **PASS**다. 이는 최초 FAIL 및 직전 후속 FAIL을 소급 삭제하지 않는다. 이 후속 결과가 전달된 뒤의 trace 최종 반영·Archive 및 원격 검증은 아직 이 검토의 직접 확인 범위가 아니다.
