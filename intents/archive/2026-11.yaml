@@ -189,7 +189,13 @@ archive:
   report: reports/research-hannah-arendt-modern-applications-20261114/2026-11-14T0650Z.html
   red_status: pass
   red_report: reports/research-hannah-arendt-modern-applications-20261114/red-final-review.md
-  remote_verified: pending
+  remote_verified: pass
+  remote_commit: aed23323ab70b6368b7ce7eb6c6d921ff63ce9a5
+  remote_proof: artifacts/research-hannah-arendt-modern-applications-20261114/work/remote-proof.md
+  commits:
+  - repo: infinity
+    sha: aed23323ab70b6368b7ce7eb6c6d921ff63ce9a5
+    note: Final reports and Archive transition; publish verification and archive remote verifier passed
   knowledge_status: raw
   knowledge_decision: retain_in_infinity
   knowledge_targets: artifacts/research-hannah-arendt-modern-applications-20261114/final/hannah-arendt-concept-map-report.md

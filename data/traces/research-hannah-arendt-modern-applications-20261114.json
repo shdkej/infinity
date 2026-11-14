@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "intent_id": "research-hannah-arendt-modern-applications-20261114",
-  "status": "active",
+  "status": "archived",
   "trace_completeness": "complete",
   "request": {
     "raw": {
@@ -207,9 +207,49 @@
         "logs/agent-wiki-query.md"
       ],
       "note": "Final Red follow-up PASS recorded in append-only Red review; final metadata screenshot refreshed. Preserve prior FAILs. Intent remains active until Archive and remote verifier pass."
+    },
+    {
+      "type": "archive",
+      "at": "2026-11-14T11:55:11Z",
+      "report_path": "reports/research-hannah-arendt-modern-applications-20261114/2026-11-14T0650Z.html",
+      "evidence_paths": [
+        "intents/archive/research-hannah-arendt-modern-applications-20261114.md",
+        "intents/archive/2026-11.yaml",
+        "artifacts/research-hannah-arendt-modern-applications-20261114/final/hannah-arendt-concept-map-report.md",
+        "reports/research-hannah-arendt-modern-applications-20261114/390px-final.png",
+        "reports/research-hannah-arendt-modern-applications-20261114/red-review-390px.md",
+        "intents/context/research-hannah-arendt-modern-applications-20261114.json",
+        "reports/research-hannah-arendt-modern-applications-20261114/2026-11-14T0650Z.html",
+        "reports/research-hannah-arendt-modern-applications-20261114/red-final-review.md",
+        "artifacts/research-hannah-arendt-modern-applications-20261114/work/remote-proof.md"
+      ],
+      "research_mode": "exploratory_research",
+      "verification": {
+        "red_status": "pass",
+        "red_report_path": "reports/research-hannah-arendt-modern-applications-20261114/red-final-review.md",
+        "remote_verified": "pass",
+        "remote_proof_path": "artifacts/research-hannah-arendt-modern-applications-20261114/work/remote-proof.md"
+      }
     }
   ],
-  "artifacts": [],
+  "artifacts": [
+    {
+      "label": "Final Markdown",
+      "path": "artifacts/research-hannah-arendt-modern-applications-20261114/final/hannah-arendt-concept-map-report.md"
+    },
+    {
+      "label": "Final HTML",
+      "path": "reports/research-hannah-arendt-modern-applications-20261114/2026-11-14T0650Z.html"
+    },
+    {
+      "label": "390px render",
+      "path": "reports/research-hannah-arendt-modern-applications-20261114/390px-final.png"
+    },
+    {
+      "label": "Red review",
+      "path": "reports/research-hannah-arendt-modern-applications-20261114/red-final-review.md"
+    }
+  ],
   "verifications": [
     {
       "label": "workflow role review",
@@ -227,10 +267,20 @@
       ],
       "status": "pass",
       "next_role": null
+    },
+    {
+      "label": "Red verification evidence",
+      "path": "reports/research-hannah-arendt-modern-applications-20261114/red-final-review.md",
+      "status": "pass"
+    },
+    {
+      "label": "Remote verification evidence",
+      "path": "artifacts/research-hannah-arendt-modern-applications-20261114/work/remote-proof.md",
+      "status": "pass"
     }
   ],
   "next_decision": {
-    "status": "in_progress",
-    "value": "Prepare final artifact pointers and monthly Archive entry; run Archive remote verification, then record terminal trace event and verify final main SHA."
+    "status": "archived",
+    "value": "No continuation; archived after Red PASS and remote verification"
   }
 }

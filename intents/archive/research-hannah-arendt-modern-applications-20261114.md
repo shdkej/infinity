@@ -16,7 +16,9 @@
 - report: reports/research-hannah-arendt-modern-applications-20261114/2026-11-14T0650Z.html
 - red_status: pass
 - red_report: reports/research-hannah-arendt-modern-applications-20261114/red-final-review.md
-- remote_verified: pending
+- remote_verified: pass
+- remote_commit: aed23323ab70b6368b7ce7eb6c6d921ff63ce9a5
+- remote_proof: artifacts/research-hannah-arendt-modern-applications-20261114/work/remote-proof.md
 - notification_channel: telegram
 - notification_target: telegram:433493318
 - research_artifact_policy: all artifact-producing research archives dated 2026-11-14 or later require Red PASS and a Red report path, including exploratory research.
