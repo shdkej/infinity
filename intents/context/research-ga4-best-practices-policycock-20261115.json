@@ -1,0 +1,109 @@
+{
+  "context_pack_version": 3,
+  "status": "ready",
+  "route": "infinity",
+  "request": "Research GA4 best practices for the currently unconnected analytics setup in the policycock / All-of-Us Policy product. Focus on official Google documentation for measurement design, GA4 vs PostHog responsibility boundaries, traffic acquisition and search/return measurement, event and conversion configuration, reporting, data quality and validation, and privacy/PII/consent considerations. Make this an exploratory Korean brief, not a vendor decision, legal advice, implementation plan, or code/account change. Use current project docs as the application context; do not claim there are observed analytics results.",
+  "built_at": "2026-11-15T00:26:35.386652+00:00",
+  "required_documents": [
+    "/home/ubuntu/workspace/prompt-archive/LLM.md",
+    "README.md",
+    "schema/agent-rules.md",
+    "source/openclaw-system/docs/DOCUMENT_SEARCH_PIPELINE.md",
+    "source/openclaw-system/docs/USER_CONTEXT.md",
+    "source/openclaw-system/docs/SERVICE_REGISTRY.md",
+    "source/openclaw-system/docs/OPENCLAW_COMMON.md",
+    "source/openclaw-system/docs/INFINITY_OPERATING_RULES.md",
+    "/home/ubuntu/workspace/infinity/ARTIFACT_RULES.md",
+    "/home/ubuntu/workspace/infinity/EXECUTION_LEARNING_CONTRACT.md",
+    "/home/ubuntu/workspace/infinity/INTENTS.yaml",
+    "agent-wiki/content/docs/index.mdx"
+  ],
+  "search_scopes": [
+    "agent-wiki/content/docs/",
+    "source/openclaw-system/docs/",
+    "source/openclaw-system/data/daily-reviews/",
+    "source/openclaw-system/data/daily-tracking/",
+    "source/openclaw-system/data/photo-insights/"
+  ],
+  "selected_context": [
+    {
+      "path": "agent-wiki/content/docs/outputs/blog/Note_Management.mdx",
+      "reason": "zg hybrid discovery; indexed section retained for targeted reading",
+      "verification": "indexed-section",
+      "locator": {
+        "start_line": 263,
+        "end_line": 271,
+        "heading": "Why it matters",
+        "heading_level": "2",
+        "scope": "Note_Management",
+        "excerpt": "## Why it matters This idea connects dashboard design, agent participation, and knowledge organization.  An archive becomes more useful when it is reopened as a worktable rather than left as a warehouse. The point is not to keep adding items to a static list, but to spread out the capture, reclassify what changed, and pull reusable pieces back into active work.  When the material is mixed media, the visible surface has to come first. A photo set, a 9-frame storyboard, or a batch of captures is easier to reuse when the order is fixed before generation, not after it.  That applies especially to daily captures, image sets, and other mixed media inputs: first make the material visible, then deci"
+      }
+    },
+    {
+      "path": "agent-wiki/content/docs/outputs/deep-knowledge/data.mdx",
+      "reason": "zg hybrid discovery; indexed section retained for targeted reading",
+      "verification": "indexed-section",
+      "locator": {
+        "start_line": 1,
+        "end_line": 9,
+        "heading": "",
+        "heading_level": "",
+        "scope": "",
+        "excerpt": "--- title: \"Data\" type: mapped-note tags: [mapped, deep-knowledge, data, database, search, analytics] source_file: \"source/shdkej-content/Deep Knowledge/Data.md\" source_name: Data created: 2026-04-19 updated: 2026-06-16 status: stable-developing"
+      }
+    },
+    {
+      "path": "agent-wiki/content/docs/outputs/Communication/Blogging.mdx",
+      "reason": "zg hybrid discovery; indexed section retained for targeted reading",
+      "verification": "indexed-section",
+      "locator": {
+        "start_line": 198,
+        "end_line": 203,
+        "heading": "출처",
+        "heading_level": "2",
+        "scope": "Blogging",
+        "excerpt": "## 출처  - Infinity Artifact: `infinity/artifacts/research-37/channel-top-bottom-lessons-20260828.md` - Archive: `infinity/intents/archive/research-37.md` - Source summary: see the provenance section below."
+      }
+    },
+    {
+      "path": "agent-wiki/content/docs/outputs/Integration/Marketing.mdx",
+      "reason": "zg hybrid discovery; indexed section retained for targeted reading",
+      "verification": "indexed-section",
+      "locator": {
+        "start_line": 285,
+        "end_line": 290,
+        "heading": "통합된 판단: 첫 세션 온보딩 게이트",
+        "heading_level": "2",
+        "scope": "마케팅",
+        "excerpt": "## 통합된 판단: 첫 세션 온보딩 게이트  - 출처: `source/external-links/marketing/2026-06-20-prelaunch-seeded-proof-onboarding.md`, `source/external-links/marketing/2026-06-21-ai-curiosity-entry-gap.md`, `source/external-links/marketing/2026-06-21-add-preinput-proof-bridge.md`, `source/external-links/marketing/2026-06-22-empty-state-triad-onboarding.md`, `source/external-links/marketing/2026-06-23-week-one-activation-observation.md`, `source/external-links/marketing/2026-06-23-first-week-feedback-consistency.md`, `source/external-links/marketing/2026-06-24-secondary-onboarding-return-path.md`, `source/external-links/marketing/2026-06-25-time-to-next-value-bridge.md`, `source/external-links/marketing/2026-06-2"
+      }
+    }
+  ],
+  "selected_operational_logs": [
+    {
+      "path": "logs/agent-wiki-query.md",
+      "reason": "bounded operational-log preflight; not part of the Agent Wiki index",
+      "verification": "matched",
+      "matches": [
+        "112:- ingest: 최근 source 중 `AI_RESEARCH_BRIEFING.md`, `EVALUATION_NOTES.md`, `OPENCLAW_RUNTIME_MAINTENANCE.md`, `LOCAL_REVIEW_AUTOMATION.md`, `daily-reviews/2026-09-09-review.md`, `wiki-retrieval-test-20q-02.md`, `version_trackers.yaml`을 후보로 점검했다.",
+        "116:- 결과: [[diary/2026-09-09|2026-09-09 일일 인덱스]]를 추가했다. AI research briefing, 평가 기준, runtime maintenance, local review automation, Infinity 회수성 재검증, 버전 트래커 최신값은 기존 운영 문서와 중복되거나 실행 설정에 가까워 별도 승격하지 않았다.",
+        "122:- 읽은 문서: [[index|중앙 목차]], [[insights/structure-before-scale|확장 전에 구조를 본다]], [[insights/context-over-inventory|맥락이 목록보다 중요하다]], `DOCUMENT_SEARCH_PIPELINE.md`, `APP_WEB_RESEARCH_STATS_SOURCES.md`."
+      ]
+    }
+  ],
+  "preflight": {
+    "tool": "zg",
+    "query": "Research GA4 best practices for the currently unconnected analytics setup in the policycock / All-of-Us Policy product. Focus on official Google documentation for measurement design, GA4 vs PostHog responsibility boundaries, traffic acquisition and search/return measurement, event and conversion configuration, reporting, data quality and validation, and privacy/PII/consent considerations. Make this an exploratory Korean brief, not a vendor decision, legal advice, implementation plan, or code/account change. Use current project docs as the application context; do not claim there are observed analytics results.",
+    "discovery": "hybrid+fts RRF",
+    "verification": "indexed section locator",
+    "result_count": 4
+  },
+  "selected_context_required": true,
+  "rules": [
+    "Read every required document before creating or executing an intent.",
+    "Read every selected_context locator section first (including its heading and line window); expand to adjacent sections only when needed, and record the exact paths in the execution trace.",
+    "Read only the matched sections of selected_operational_logs; they are operational evidence, not compiled knowledge.",
+    "Search the declared scopes for task-specific evidence; do not treat a search hit as a confirmed fact without its source.",
+    "Record the resulting context pack path in the intent and re-check it before handoff."
+  ]
+}

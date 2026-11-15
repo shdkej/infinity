@@ -78,7 +78,70 @@ lanes:
     next_action: 사용자가 작업범위를 선택해 Inbox 승격 여부를 결정한다.
     notification_channel: telegram
     notification_target: telegram:433493318
-  inbox: []
+  inbox:
+  - id: research-ga4-best-practices-policycock-20261115
+    title: 모두의정책에 적용할 GA4 베스트프랙티스를 조사한다
+    task_name: 모두의정책에 적용할 GA4 베스트프랙티스를 조사한다
+    status: inbox
+    priority: normal
+    task_type: research
+    research_mode: exploratory_research
+    target_agent: genie
+    source: slack
+    created_at: '2026-11-15T00:22:10Z'
+    project_id: policycock
+    execution_mode: multi_subagent_roles
+    complexity_tier: lightweight
+    permission_level: L0-research-and-draft-only
+    topics:
+    - analytics
+    - product
+    user_intent: GA4를 모두의정책의 현재 미연결 분석 계획에 적용할 때 참고할 공식 권고와 한계를 파악한다.
+    desired_outcome: 모두의정책 정적 랜딩과 향후 서비스 맥락에 적용할 수 있는 한국어 설명형 탐색 보고서. Google 공식 자료에 근거해 GA4·PostHog 역할 분리, 측정 설계, 이벤트·전환, 데이터 품질, 개인정보·동의 고려사항과 미확정 항목을 정리한다.
+    out_of_scope: GA4/Google 계정·속성 생성 또는 설정, 자격증명 접근, 코드 수정, 추적 활성화, 신규 고객 데이터 수집, 법률 자문, PC-001 해결, 공개·비용·권한 변경은 포함하지 않는다.
+    success_evidence: Infinity 최종 Markdown 원문과 읽기 가능한 HTML 리포트가 있고, 열어 확인한 Google 공식 출처 3개 이상에 핵심 설명이 연결되며, 기존 프로젝트의 GA4/PostHog 역할 구분·미연결 상태·개인정보 한계가 보존되고 실제 분석 수치나 법적 결론을 추정하지 않는다.
+    approval_boundary: 공개 Google 문서 기반 탐색만 승인됨. GA4/Google 계정 접근, 속성·코드·측정 설정 변경, 추적 활성화, 고객 데이터 수집, 법률 해석, 공개·비용·권한 변경은 별도 승인 전 금지.
+    next_action: Genie가 Context Pack과 프로젝트 문서를 다시 읽고, 선택된 Agent Wiki 경로와 일치한 운영 로그를 execution trace에 기록한 뒤, 최신 Google 공식 GA4 자료를 확인해 설명형 한국어 리포트를 작성한다. PostHog와의 역할은 현재 문서 기준으로 비교하고, 실제 데이터·설정은 확인된 것처럼 표현하지 않는다.
+    context_pack: intents/context/research-ga4-best-practices-policycock-20261115.json
+    context_documents_checked:
+    - /home/ubuntu/workspace/prompt-archive/LLM.md
+    - /home/ubuntu/workspace/knowledge-lab/README.md
+    - /home/ubuntu/workspace/knowledge-lab/schema/agent-rules.md
+    - /home/ubuntu/workspace/knowledge-lab/source/openclaw-system/docs/DOCUMENT_SEARCH_PIPELINE.md
+    - /home/ubuntu/workspace/knowledge-lab/source/openclaw-system/docs/USER_CONTEXT.md
+    - /home/ubuntu/workspace/knowledge-lab/source/openclaw-system/docs/SERVICE_REGISTRY.md
+    - /home/ubuntu/workspace/knowledge-lab/source/openclaw-system/docs/OPENCLAW_COMMON.md
+    - /home/ubuntu/workspace/knowledge-lab/source/openclaw-system/docs/INFINITY_OPERATING_RULES.md
+    - /home/ubuntu/workspace/infinity/ARTIFACT_RULES.md
+    - /home/ubuntu/workspace/infinity/EXECUTION_LEARNING_CONTRACT.md
+    - /home/ubuntu/workspace/infinity/INTENTS.yaml
+    - /home/ubuntu/workspace/knowledge-lab/agent-wiki/content/docs/index.mdx
+    - /home/ubuntu/workspace/infinity/README.md
+    - /home/ubuntu/workspace/projects/PROJECTS.md
+    - /home/ubuntu/workspace/projects/policycock/PROJECT.md
+    - /home/ubuntu/workspace/projects/policycock/CHANNELS.md
+    - /home/ubuntu/workspace/projects/policycock/TASKS.md
+    - /home/ubuntu/workspace/projects/policycock/AGENTS.md
+    - /home/ubuntu/workspace/projects/policycock/docs/INTEGRATIONS.md
+    - /home/ubuntu/workspace/knowledge-lab/agent-wiki/content/docs/outputs/blog/Note_Management.mdx
+    - /home/ubuntu/workspace/knowledge-lab/agent-wiki/content/docs/outputs/deep-knowledge/data.mdx
+    - /home/ubuntu/workspace/knowledge-lab/agent-wiki/content/docs/outputs/Communication/Blogging.mdx
+    - /home/ubuntu/workspace/knowledge-lab/agent-wiki/content/docs/outputs/Integration/Marketing.mdx
+    - /home/ubuntu/workspace/knowledge-lab/logs/agent-wiki-query.md#L112-L122
+    context_searches:
+    - 'Context Pack `zg` hybrid+FTS RRF search over the full normalized request; 4 selected Agent Wiki sections read at their exact locator ranges.'
+    - 'Declared Context Pack scopes searched for GA4, Google Analytics, and analytics guidance; no direct GA4 practice page found, with closest reusable analytics context in Agent Wiki Data/Marketing and a daily review.'
+    - 'PolicyCock PROJECT.md, CHANNELS.md, TASKS.md, AGENTS.md, and docs/INTEGRATIONS.md searched/read: GA4 is planned for acquisition/search/return, PostHog for behavior/conversion/errors; neither analytics tool is connected and PC-001 remains blocked.'
+    - 'origin/main INTENTS.yaml and Archive records searched for GA4, Google Analytics, and equivalent analytics best-practice requests; no duplicate found.'
+    context_search: GA4 Google Analytics measurement best practices for policycock; official guidance, GA4/PostHog responsibility boundary, events/conversions, privacy, data quality.
+    trace: data/traces/research-ga4-best-practices-policycock-20261115.json
+    metric_question: Which official GA4 setup and operating practices are relevant to the current policycock landing while preserving the documented GA4/PostHog responsibility boundary?
+    metric_signal: A source-linked Korean exploratory brief that covers official recommendations, project fit, data-quality checks, privacy/consent considerations, and unresolved setup facts without inventing observed analytics.
+    metric_decision_rule: Present official guidance separately from project-specific interpretation. Do not convert research into a GA4 configuration, tracking activation, privacy-policy change, or performance claim; leave those decisions for a separate approval.
+    notification_channel: slack
+    notification_target: channel:C0BR41W31MM
+    notification_reply_to: '1794702130.802219'
+    notification_origin: channel:C0BR41W31MM;reply_to:1794702130.802219
   waiting:
   - id: reel-room-studio-20261113
     title: Reel Room·Instagram Maker 통합 릴스 스튜디오 구현
