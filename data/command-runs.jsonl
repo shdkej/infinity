@@ -3750,3 +3750,4 @@
 {"command_id": "dispatcher-cycle-20261114T051228Z-1351740", "name": "dispatcher.cycle", "at": "2026-11-14T05:12:31Z", "result": {"status": "changed", "dispatcher": "scripts/run_dispatcher_cycle.sh", "output": ""}}
 {"command_id": "dispatcher-cycle-20261114T052228Z-1358234", "name": "dispatcher.cycle", "at": "2026-11-14T05:22:32Z", "result": {"status": "changed", "dispatcher": "scripts/run_dispatcher_cycle.sh", "output": ""}}
 {"command_id": "dispatcher-cycle-20261114T053228Z-1372852", "name": "dispatcher.cycle", "at": "2026-11-14T05:32:31Z", "result": {"status": "changed", "dispatcher": "scripts/run_dispatcher_cycle.sh", "output": ""}}
+{"command_id": "dispatcher-recovery-ga4-active-20261115-01", "name": "intent.move", "at": "2026-11-15T03:46:05Z", "result": {"status": "changed", "intent_id": "research-ga4-best-practices-policycock-20261115", "from": "inbox", "to": "active"}}

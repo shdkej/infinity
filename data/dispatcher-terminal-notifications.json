@@ -135,6 +135,18 @@
       "state": "sent",
       "terminal_state": "blocked"
     },
+    "37324f2b4c9c6e12c7c4794a386ed9c5b8616207801ba44c2a40716b2d00dcda": {
+      "attempt_started_at": "2026-11-15T03:42:01Z",
+      "claimed_at": "2026-11-15T03:42:01Z",
+      "destination": "change|changed|research-ga4-best-practices-policycock-20261115|telegram|telegram:433493318|{\"lane\": \"inbox\", \"status\": \"active\", \"title\": \"모두의정책에 적용할 GA4 베스트프랙티스를 조사한다\"}",
+      "failure_class": "timeout",
+      "fingerprint": "change|changed|research-ga4-best-practices-policycock-20261115|telegram|telegram:433493318|{\"lane\": \"inbox\", \"status\": \"active\", \"title\": \"모두의정책에 적용할 GA4 베스트프랙티스를 조사한다\"}",
+      "intent_id": "research-ga4-best-practices-policycock-20261115",
+      "remote_sha": "df6653c51d0358eb221df248e7f7f4f8d5b482bb",
+      "state": "delivery_unknown",
+      "terminal_state": "changed",
+      "updated_at": "2026-11-15T03:42:21Z"
+    },
     "382b2959045c501450b3e124932b66cbfb1bd9ee4318a1301e7e40b891408d9d": {
       "attempt_started_at": "2026-09-06T09:53:04Z",
       "claimed_at": "2026-09-06T09:53:04Z",
@@ -636,7 +648,7 @@
     },
     "research-ga4-best-practices-policycock-20261115": {
       "lane": "inbox",
-      "status": "inbox",
+      "status": "active",
       "title": "모두의정책에 적용할 GA4 베스트프랙티스를 조사한다"
     },
     "research-github-skills-20260912": {
