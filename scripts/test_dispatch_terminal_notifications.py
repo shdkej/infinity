@@ -29,8 +29,9 @@ def registry(waiting: bool = False, archived: bool = False) -> str:
 
 
 class TerminalNotificationTest(unittest.TestCase):
-    def run_dispatch(self, intents: Path, state: Path, outbox: Path) -> dict:
-        result = subprocess.run(["python3", str(SCRIPT), "--intents", str(intents), "--state", str(state), "--mock-outbox", str(outbox)], check=True, capture_output=True, text=True)
+    def run_dispatch(self, intents: Path, state: Path, outbox: Path, env: dict[str, str] | None = None) -> dict:
+        run_env = {**os.environ, **(env or {})}
+        result = subprocess.run(["python3", str(SCRIPT), "--intents", str(intents), "--state", str(state), "--mock-outbox", str(outbox)], check=True, capture_output=True, text=True, env=run_env)
         return json.loads(result.stdout)
 
     def test_archive_once_replay_waiting_and_noop(self) -> None:
@@ -112,19 +113,22 @@ class TerminalNotificationTest(unittest.TestCase):
             self.assertIn("infinity:approve:fixture-2", values)
             self.assertIn("infinity:reject:fixture-2", values)
 
-    def test_terminal_destination_ignores_legacy_override_and_preserves_origin(self) -> None:
+    def test_terminal_destination_uses_configured_telegram_override(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory); intents = root / "INTENTS.md"; state = root / "state.json"; outbox = root / "outbox.jsonl"
             source = registry(archived=True).replace(
                 "notification_channel: mock\n- notification_target: original-thread",
-                "notification_channel: telegram\n- notification_target: telegram:111111\n- notification_thread: 77",
+                "notification_channel: slack\n- notification_target: channel:C123\n- notification_reply_to: 1788296972.847769",
             )
             intents.write_text(source)
-            result = subprocess.run(["python3", str(SCRIPT), "--intents", str(intents), "--state", str(state), "--mock-outbox", str(outbox), "--terminal-channel", "telegram", "--terminal-target", "telegram:433493318"], check=True, capture_output=True, text=True)
-            self.assertEqual(json.loads(result.stdout)["sent"], 1)
+            result = self.run_dispatch(intents, state, outbox, {
+                "INFINITY_TERMINAL_NOTIFICATION_CHANNEL": "telegram",
+                "INFINITY_TERMINAL_NOTIFICATION_TARGET": "telegram:433493318",
+            })
+            self.assertEqual(result["sent"], 1)
             payload = json.loads(outbox.read_text())
             self.assertEqual(payload["destination"], {
-                "channel": "telegram", "target": "telegram:111111", "thread": "77",
+                "channel": "telegram", "target": "telegram:433493318",
             })
             self.assertEqual(payload["presentation"]["tone"], "success")
             self.assertEqual(payload["presentation"]["blocks"][0]["type"], "text")
@@ -132,6 +136,88 @@ class TerminalNotificationTest(unittest.TestCase):
             self.assertTrue(media.exists())
             with Image.open(media) as image:
                 self.assertEqual(image.size, (1200, 675))
+
+    def test_partial_override_does_not_mix_with_origin_destination(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory); intents = root / "INTENTS.md"; state = root / "state.json"; outbox = root / "outbox.jsonl"
+            intents.write_text(registry(archived=True).replace(
+                "notification_channel: mock\n- notification_target: original-thread",
+                "notification_channel: slack\n- notification_target: channel:C123\n- notification_reply_to: 1788296972.847769",
+            ))
+            result = self.run_dispatch(intents, state, outbox, {
+                "INFINITY_TERMINAL_NOTIFICATION_CHANNEL": "telegram",
+            })
+            self.assertEqual(result["sent"], 1)
+            self.assertEqual(json.loads(outbox.read_text())["destination"], {
+                "channel": "slack", "target": "channel:C123", "reply_to": "1788296972.847769",
+            })
+
+    def test_missing_origin_stays_silent_even_with_override(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory); intents = root / "INTENTS.md"; state = root / "state.json"; outbox = root / "outbox.jsonl"
+            intents.write_text(registry(archived=True).replace(
+                "- notification_channel: mock\n- notification_target: original-thread\n", "",
+            ))
+            result = self.run_dispatch(intents, state, outbox, {
+                "INFINITY_TERMINAL_NOTIFICATION_CHANNEL": "telegram",
+                "INFINITY_TERMINAL_NOTIFICATION_TARGET": "telegram:433493318",
+            })
+            self.assertEqual(result, {"sent": 0, "skipped_missing_destination": 1, "delivery_uncertain": 0})
+            self.assertFalse(outbox.exists())
+
+    def test_changed_override_destination_gets_separate_receipt(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory); intents = root / "INTENTS.md"; state = root / "state.json"; outbox = root / "outbox.jsonl"
+            intents.write_text(registry(archived=True))
+            first = self.run_dispatch(intents, state, outbox, {
+                "INFINITY_TERMINAL_NOTIFICATION_CHANNEL": "telegram",
+                "INFINITY_TERMINAL_NOTIFICATION_TARGET": "telegram:433493318",
+            })
+            second = self.run_dispatch(intents, state, outbox, {
+                "INFINITY_TERMINAL_NOTIFICATION_CHANNEL": "telegram",
+                "INFINITY_TERMINAL_NOTIFICATION_TARGET": "telegram:544604429",
+            })
+            self.assertEqual((first["sent"], second["sent"]), (1, 1))
+            payloads = [json.loads(line) for line in outbox.read_text().splitlines()]
+            self.assertEqual([payload["destination"]["target"] for payload in payloads], [
+                "telegram:433493318", "telegram:544604429",
+            ])
+            receipts = json.loads(state.read_text())["deliveries"]
+            self.assertEqual(len(receipts), 2)
+            self.assertEqual({receipt["state"] for receipt in receipts.values()}, {"sent"})
+
+    def test_change_notice_uses_configured_telegram_override(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory); intents = root / "INTENTS.yaml"; state = root / "state.json"; outbox = root / "outbox.jsonl"
+            empty = "version: 1\nlanes:\n  backlog: []\n  inbox: []\n  active: []\n  waiting: []\narchive: []\n"
+            item = """version: 1
+lanes:
+  backlog: []
+  inbox:
+    - id: fixture-new
+      task_name: 새 작업
+      status: inbox
+      notification_channel: slack
+      notification_target: channel:C123
+      notification_reply_to: 1788296972.847769
+  active: []
+  waiting: []
+archive: []
+"""
+            intents.write_text(empty)
+            env = {
+                "INFINITY_CHANGE_NOTIFICATION_CHANNEL": "telegram",
+                "INFINITY_CHANGE_NOTIFICATION_TARGET": "telegram:433493318",
+            }
+            self.run_dispatch(intents, state, outbox, env)
+            intents.write_text(item)
+            result = self.run_dispatch(intents, state, outbox, env)
+            self.assertEqual(result["sent"], 1)
+            payload = json.loads(outbox.read_text())
+            self.assertEqual(payload["destination"], {
+                "channel": "telegram", "target": "telegram:433493318",
+            })
+            self.assertTrue(payload["message"].startswith("🆕 새 작업\n"))
 
     def test_concurrent_replay_emits_one_message(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
@@ -357,7 +443,7 @@ lanes:
             created_payload = json.loads(outbox.read_text().splitlines()[0])
             self.assertTrue(created_payload["message"].startswith("🆕 새 태스크\n"))
             self.assertEqual(created_payload["destination"], {
-                "channel": "telegram", "target": "telegram:222222", "thread": "88",
+                "channel": "telegram", "target": "telegram:433493318",
             })
             # Move the original item Inbox → Active, then Active → Waiting.
             changed = """version: 1
@@ -387,7 +473,7 @@ lanes:
             self.assertEqual(json.loads(result.stdout)["sent"], 1)
             changed_payload = json.loads(outbox.read_text().splitlines()[1])
             self.assertEqual(changed_payload["destination"], {
-                "channel": "telegram", "target": "telegram:111111", "thread": "77",
+                "channel": "telegram", "target": "telegram:433493318",
             })
             changed = changed.replace("  active:\n    - id: fixture-1\n      title: 첫 태스크\n      task_name: 첫 태스크\n      status: active\n      notification_channel: telegram\n      notification_target: telegram:111111\n      notification_thread: \"77\"\n  waiting: []", "  active: []\n  waiting:\n    - id: fixture-1\n      title: 첫 태스크\n      task_name: 첫 태스크\n      status: waiting\n      notification_channel: telegram\n      notification_target: telegram:111111\n      notification_thread: \"77\"")
             intents.write_text(changed)

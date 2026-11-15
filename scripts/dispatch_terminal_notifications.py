@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 """Reconcile Infinity terminal states and open-state changes into notices.
 
-The dispatcher deliberately has no implicit Telegram default.  An intent must carry
-``notification_channel`` and ``notification_target`` captured at intake; that makes
-the original conversation addressable and prevents an archive from being broadcast
-to an unrelated chat.  The durable ledger is keyed by intent, terminal phase, and
-that destination, so a later dispatcher/cron replay is silent.
+The dispatcher has no implicit destination: an intent must carry
+``notification_channel`` and ``notification_target`` captured at intake. When an
+explicit configured channel+target override is present, it takes precedence for
+that addressable intent. The durable ledger is keyed by intent, terminal phase, and
+the effective destination, so a later dispatcher/cron replay is silent.
 
 Use ``--mock-outbox`` for tests.  Real delivery is opt-in via ``--deliver`` and the
 host-owned OpenClaw CLI; it is never selected by default.
@@ -17,6 +17,7 @@ import datetime as dt
 import fcntl
 import hashlib
 import json
+import os
 import re
 import subprocess
 import sys
@@ -274,33 +275,44 @@ def phase(entry: dict[str, object]) -> str | None:
     return None
 
 
-def destination(fields: dict[str, str]) -> dict[str, str] | None:
-    channel, target = fields.get("notification_channel", ""), fields.get("notification_target", "")
-    if not channel or not target:
+def destination(
+    fields: dict[str, str], channel_override: str = "", target_override: str = "",
+) -> dict[str, str] | None:
+    origin_channel = fields.get("notification_channel", "")
+    origin_target = fields.get("notification_target", "")
+    # Overrides cannot invent an origin for legacy records that have no
+    # addressable destination. This prevents global routes from broadcasting
+    # stale terminal states or reclassifying explicit closure markers.
+    if not origin_channel or not origin_target:
         return None
     # ``delivery_unknown`` and ``missing-at-intake`` are explicit closure
     # markers, not transport destinations.  Treating them as a delivery route
     # creates a permanent retry receipt for an intent that was deliberately
     # archived without an addressable origin thread.
-    if channel.lower() == "delivery_unknown" or target.lower() == "missing-at-intake":
+    if (
+        origin_channel.lower() == "delivery_unknown"
+        or origin_target.lower() == "missing-at-intake"
+    ):
         return None
+    use_override = bool(channel_override and target_override)
+    channel, target = (
+        (channel_override, target_override) if use_override else (origin_channel, origin_target)
+    )
     value = {"channel": channel, "target": target}
     # The OpenClaw transport has different thread primitives.  A Telegram forum
     # topic is a ``thread-id``; Slack conversation replies use ``reply-to``.
     # Do not reuse one field across them or an otherwise valid Slack notice can
     # land outside its originating thread.
-    if fields.get("notification_thread") and channel == "telegram":
+    same_origin = channel == origin_channel and target == origin_target
+    if same_origin and fields.get("notification_thread") and channel == "telegram":
         value["thread"] = fields["notification_thread"]
-    if fields.get("notification_reply_to"):
+    if same_origin and fields.get("notification_reply_to") and channel == "slack":
         value["reply_to"] = fields["notification_reply_to"]
     return value
 
 
 def terminal_destination(args: argparse.Namespace, fields: dict[str, str]) -> dict[str, str] | None:
-    # Terminal notices follow the intake-captured origin just like state-change
-    # notices. Keep the legacy CLI options parseable for compatibility, but
-    # never let a global/default route redirect an intent's terminal outcome.
-    return destination(fields)
+    return destination(fields, args.terminal_channel, args.terminal_target)
 
 
 def fingerprint(entry: dict[str, object], state: str) -> str:
@@ -525,9 +537,7 @@ def remote_texts(repo: Path, args: argparse.Namespace) -> tuple[list[str], str]:
 
 
 def change_destination(args: argparse.Namespace, fields: dict[str, str]) -> dict[str, str] | None:
-    # Change notices must follow the same intake-captured route as terminal
-    # notices. Global cron defaults are not an origin and cannot fill gaps.
-    return destination(fields)
+    return destination(fields, args.change_channel, args.change_target)
 
 
 def claim_and_send(
@@ -586,10 +596,26 @@ def main() -> int:
     parser.add_argument("--mock-outbox", help="safe JSONL delivery sink")
     parser.add_argument("--deliver", action="store_true", help="enable host OpenClaw CLI delivery")
     parser.add_argument("--openclaw-bin", default="openclaw")
-    parser.add_argument("--change-channel", default="", help=argparse.SUPPRESS)
-    parser.add_argument("--change-target", default="", help=argparse.SUPPRESS)
-    parser.add_argument("--terminal-channel", default="", help=argparse.SUPPRESS)
-    parser.add_argument("--terminal-target", default="", help=argparse.SUPPRESS)
+    parser.add_argument(
+        "--change-channel",
+        default=os.environ.get("INFINITY_CHANGE_NOTIFICATION_CHANNEL", ""),
+        help=argparse.SUPPRESS,
+    )
+    parser.add_argument(
+        "--change-target",
+        default=os.environ.get("INFINITY_CHANGE_NOTIFICATION_TARGET", ""),
+        help=argparse.SUPPRESS,
+    )
+    parser.add_argument(
+        "--terminal-channel",
+        default=os.environ.get("INFINITY_TERMINAL_NOTIFICATION_CHANNEL", ""),
+        help=argparse.SUPPRESS,
+    )
+    parser.add_argument(
+        "--terminal-target",
+        default=os.environ.get("INFINITY_TERMINAL_NOTIFICATION_TARGET", ""),
+        help=argparse.SUPPRESS,
+    )
     parser.add_argument("--card-dir", type=Path, default=None, help="generated Telegram card image directory")
     parser.add_argument("--send-timeout-seconds", type=float, default=20.0)
     parser.add_argument("--git-timeout-seconds", type=float, default=10.0)

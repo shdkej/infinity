@@ -59,7 +59,7 @@ Telegram 운영 설정에서는 두 목적지 override를 모두 `telegram`과 �
 
 ## 알림 전달 계약
 
-- 모든 새 open Intent는 접수 시 `notification_channel`, `notification_target`과 해당하는 `notification_thread` 또는 `notification_reply_to`를 기록합니다. 후속 상태·Archive에도 원점을 보존합니다.
+- 모든 새 open Intent는 접수 시 `notification_channel`, `notification_target`과 해당하는 `notification_thread` 또는 `notification_reply_to`를 기록합니다. 후속 상태·Archive에도 원점을 보존합니다. 실행 환경에 해당 알림의 채널·대상 override가 모두 설정되면 캡처된 목적지보다 override를 우선합니다. 단, 목적지 원점이 없는 과거 항목이나 명시적 `delivery_unknown`/`missing-at-intake` 표식은 자동으로 전역 대화에 보내지 않습니다. 목적지를 바꿀 때 원본의 thread/reply 메타데이터도 재사용하지 않습니다.
 - notifier는 `origin/main:INTENTS.yaml`과 월별 Archive YAML을 읽습니다. Archive는 `remote_verified: pass`, Waiting은 실제 blocker 또는 승인 조건이 있을 때만 terminal 후보입니다. 원점 없는 과거 항목은 추정 발송하지 않습니다.
 - `data/dispatcher-terminal-notifications.json`은 intent·terminal state·destination 키로 송신 전 durable claim을 남깁니다. `sent`, `failed_before_acceptance`, `delivery_unknown`을 구분하며 불확실 수신은 자동 재송하지 않고 실패 알림으로 드러냅니다. 최초 실행은 현재 원장을 기준선으로 저장합니다.
 - 승인 대기는 `waiting_on: user`, `approval`, `approval_required: true`, `permission_level: approval_required` 또는 승인 사유가 있는 `waiting_reason`으로 판단합니다. 버튼 callback은 `infinity:approve:<intent-id>` / `infinity:reject:<intent-id>`입니다.
