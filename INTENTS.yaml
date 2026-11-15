@@ -294,6 +294,14 @@ lanes:
     transitioned_at: '2026-11-15T03:46:05Z'
     transition_reason: Dispatcher-selected promotion; complete lane move after prior
       status-only edit
+    artifact: artifacts/research-ga4-best-practices-policycock-20261115/final/ga4-best-practices-report.md
+    report: reports/research-ga4-best-practices-policycock-20261115/20261115T0401Z-final.html
+    red_report: artifacts/research-ga4-best-practices-policycock-20261115/work/red/final-review.md
+    supporting_artifacts:
+    - artifacts/research-ga4-best-practices-policycock-20261115/work/roles/role-review.md
+    - artifacts/research-ga4-best-practices-policycock-20261115/work/red/ga4-report-390x844.png
+    local_result_status: research_validator_pass; red_review_pass; 390px_render_pass
+    local_only: true
   latest_cycle:
     cycle_id: backlog-triage-2026-10-29-role-watchers-r32
     source_revision: c25c14b01ee7af8d1f97021346279c8b77b684d3
