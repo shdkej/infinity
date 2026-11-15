@@ -44,6 +44,15 @@
         "/home/ubuntu/workspace/projects/policycock/AGENTS.md",
         "/home/ubuntu/workspace/projects/policycock/docs/INTEGRATIONS.md"
       ]
+    },
+    {
+      "type": "dispatcher_handoff",
+      "run_id": "dispatch-9a8741c0da1249998754cc899f330ed5",
+      "canonical_sha": "440e8bc8ada659118f599922694ddf49f4842fa5",
+      "agent": "genie",
+      "session_key": "agent:genie:infinity-dispatcher-command-v1",
+      "timestamp": "2026-11-15T03:34:20Z",
+      "status": "accepted"
     }
   ],
   "artifacts": [],
