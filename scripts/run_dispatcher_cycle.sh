@@ -54,7 +54,10 @@ fi
 git -C "$ROOT" pull --ff-only origin main >/dev/null 2>&1 || bootstrap_failure
 
 # Planning and terminal checks must not depend on a dirty primary checkout.
-test -z "$(git -C "$ROOT" status --porcelain)" || bootstrap_failure
+# The notification ledger is local runtime state (and was tracked by legacy
+# history despite being ignored). It must not block canonical dispatch; all
+# other changes still stop the cycle before planning or writes.
+test -z "$(git -C "$ROOT" status --porcelain -- . ':(exclude)data/dispatcher-terminal-notifications.json')" || bootstrap_failure
 VERIFY_ROOT="$(mktemp -d /tmp/infinity-dispatcher-verify-XXXXXX)"
 git -C "$ROOT" fetch --prune origin main >/dev/null 2>&1 || bootstrap_failure
 FETCHED_MAIN_SHA="$(git -C "$ROOT" rev-parse FETCH_HEAD 2>/dev/null)" || bootstrap_failure

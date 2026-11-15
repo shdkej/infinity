@@ -591,7 +591,11 @@ def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--repo", type=Path, default=ROOT)
     parser.add_argument("--intents", type=Path, help="fixture/local snapshot; production omits this and reads origin/main")
-    parser.add_argument("--state", type=Path, default=ROOT / "data/dispatcher-terminal-notifications.json")
+    default_state = Path(os.environ.get(
+        "INFINITY_TERMINAL_STATE_FILE",
+        Path.home() / ".openclaw/state/infinity-dispatcher-runs/dispatcher-terminal-notifications.json",
+    ))
+    parser.add_argument("--state", type=Path, default=default_state)
     parser.add_argument("--lock", type=Path, help="exclusive reconciliation lock (defaults beside state)")
     parser.add_argument("--mock-outbox", help="safe JSONL delivery sink")
     parser.add_argument("--deliver", action="store_true", help="enable host OpenClaw CLI delivery")

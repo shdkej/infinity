@@ -48,7 +48,7 @@ commands:
     idempotency: command_id
     handler: dispatcher_cycle
     required: []
-    writes: [INTENTS.yaml, data/traces, data/dispatcher-terminal-notifications.json]
+    writes: [INTENTS.yaml, data/traces]
   git.verify:
     permission: L0
     idempotency: none

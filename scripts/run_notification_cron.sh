@@ -4,8 +4,8 @@ set -u -o pipefail
 umask 077
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
-STATE_FILE="${INFINITY_TERMINAL_STATE_FILE:-$ROOT/data/dispatcher-terminal-notifications.json}"
 STATE_DIR="${INFINITY_NOTIFICATION_STATE_DIR:-/home/ubuntu/.openclaw/state/infinity-dispatcher-runs}"
+STATE_FILE="${INFINITY_TERMINAL_STATE_FILE:-$STATE_DIR/dispatcher-terminal-notifications.json}"
 LOCK_FILE="${INFINITY_NOTIFICATION_LOCK_FILE:-$STATE_DIR/notifications.lock}"
 CARD_DIR="${INFINITY_NOTIFICATION_CARD_DIR:-$STATE_DIR/cards}"
 NVM_DIR="${NVM_DIR:-$HOME/.nvm}"
