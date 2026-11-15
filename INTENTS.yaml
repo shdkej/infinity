@@ -82,7 +82,7 @@ lanes:
   - id: research-ga4-best-practices-policycock-20261115
     title: 모두의정책에 적용할 GA4 베스트프랙티스를 조사한다
     task_name: 모두의정책에 적용할 GA4 베스트프랙티스를 조사한다
-    status: inbox
+    status: active
     priority: normal
     task_type: research
     research_mode: exploratory_research
