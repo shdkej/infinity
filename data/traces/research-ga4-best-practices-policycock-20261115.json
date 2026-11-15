@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "intent_id": "research-ga4-best-practices-policycock-20261115",
-  "status": "active",
+  "status": "archived",
   "trace_completeness": "complete",
   "request": {
     "raw": {
@@ -77,6 +77,23 @@
         "logs/agent-wiki-query.md"
       ],
       "note": "Read-only exploratory research. GA4/PostHog remain unconnected; no account/code/data/legal work."
+    },
+    {
+      "type": "archive",
+      "at": "2026-11-15T06:57:21Z",
+      "report_path": "reports/research-ga4-best-practices-policycock-20261115/20261115T0401Z-final.html",
+      "evidence_paths": [
+        "reports/research-ga4-best-practices-policycock-20261115/20261115T0401Z-final.html",
+        "artifacts/research-ga4-best-practices-policycock-20261115/work/red/final-review.md",
+        "artifacts/research-ga4-best-practices-policycock-20261115/work/remote-proof.md"
+      ],
+      "research_mode": "exploratory_research",
+      "verification": {
+        "red_status": "pass",
+        "red_report_path": "artifacts/research-ga4-best-practices-policycock-20261115/work/red/final-review.md",
+        "remote_verified": "pass",
+        "remote_proof_path": "artifacts/research-ga4-best-practices-policycock-20261115/work/remote-proof.md"
+      }
     }
   ],
   "artifacts": [
@@ -125,10 +142,20 @@
         "artifacts/research-ga4-best-practices-policycock-20261115/work/red/final-review.md",
         "artifacts/research-ga4-best-practices-policycock-20261115/work/red/ga4-report-390x844.png"
       ]
+    },
+    {
+      "label": "Red verification evidence",
+      "path": "artifacts/research-ga4-best-practices-policycock-20261115/work/red/final-review.md",
+      "status": "pass"
+    },
+    {
+      "label": "Remote verification evidence",
+      "path": "artifacts/research-ga4-best-practices-policycock-20261115/work/remote-proof.md",
+      "status": "pass"
     }
   ],
   "next_decision": {
-    "status": "in_progress",
-    "value": "Archive 레코드가 main에 올라간 뒤 remote verifier와 화면 확인을 완료하고 최종 proof를 기록한다."
+    "status": "completed",
+    "value": "탐색 보고서 마감. 실제 GA4 연결·설정·추적은 별도 승인 필요."
   }
 }

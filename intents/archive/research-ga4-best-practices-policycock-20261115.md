@@ -24,7 +24,7 @@
 - context_pack: intents/context/research-ga4-best-practices-policycock-20261115.json
 - red_status: pass
 - red_report: artifacts/research-ga4-best-practices-policycock-20261115/work/red/final-review.md
-- remote_verified: pending
+- remote_verified: pass
 - remote_proof: artifacts/research-ga4-best-practices-policycock-20261115/work/remote-proof.md
 - notification_channel: slack
 - notification_target: channel:C0BR41W31MM
@@ -47,6 +47,9 @@
   - repo: infinity
     sha: 4da30fac2bc24059bf247ec108ec38da7a9f2c8c
     note: Final report, HTML, Red evidence and role review pushed to main.
+  - repo: infinity
+    sha: 6c3e5eb1f92e01980cc90f982317a8e007513d97
+    note: Archive transition pushed; remote verifier and dashboard card/link checks passed.
 - next_action: No continuation
 
 ## Archive Card
