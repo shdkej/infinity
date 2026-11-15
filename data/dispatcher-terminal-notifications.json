@@ -478,6 +478,19 @@
       "superseded_at": "2026-10-11T12:00:05Z",
       "terminal_state": "completed"
     },
+    "bb461479c6010c9b585601f825b4402e4b1bf1b7b3fb2dbabee35dfa8f1dda98": {
+      "attempt_started_at": "2026-11-15T00:42:01Z",
+      "claimed_at": "2026-11-15T00:42:01Z",
+      "destination": "change|created|research-ga4-best-practices-policycock-20261115|slack|channel:C0BR41W31MM|{\"lane\": \"inbox\", \"status\": \"inbox\", \"title\": \"모두의정책에 적용할 GA4 베스트프랙티스를 조사한다\"}",
+      "failure_class": "timeout",
+      "fingerprint": "change|created|research-ga4-best-practices-policycock-20261115|slack|channel:C0BR41W31MM|{\"lane\": \"inbox\", \"status\": \"inbox\", \"title\": \"모두의정책에 적용할 GA4 베스트프랙티스를 조사한다\"}",
+      "intent_id": "research-ga4-best-practices-policycock-20261115",
+      "remote_sha": "58dd38231d0bbb18869ea4e3de554bc8c57b9615",
+      "state": "superseded",
+      "superseded_at": "2026-11-15T00:52:01Z",
+      "terminal_state": "created",
+      "updated_at": "2026-11-15T00:42:21Z"
+    },
     "bdcfe8ff460c469c5c2a22fa59e96375b410cf4153efcb920f5c5cdd51a9b3cf": {
       "attempt_started_at": "2026-10-04T18:40:35Z",
       "claimed_at": "2026-10-04T18:40:35Z",
@@ -620,6 +633,11 @@
       "lane": "archive",
       "status": "archived",
       "title": "디자인 기사 장소의 건축 방식과 현재 사용 방식 조사"
+    },
+    "research-ga4-best-practices-policycock-20261115": {
+      "lane": "inbox",
+      "status": "inbox",
+      "title": "모두의정책에 적용할 GA4 베스트프랙티스를 조사한다"
     },
     "research-github-skills-20260912": {
       "lane": "archive",
