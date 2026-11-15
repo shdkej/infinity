@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "intent_id": "research-ga4-best-practices-policycock-20261115",
-  "status": "inbox",
+  "status": "active",
   "trace_completeness": "complete",
   "request": {
     "raw": {
@@ -53,12 +53,82 @@
       "session_key": "agent:genie:infinity-dispatcher-command-v1",
       "timestamp": "2026-11-15T03:34:20Z",
       "status": "accepted"
+    },
+    {
+      "type": "execution",
+      "at": "2026-11-15T04:07:04Z",
+      "context_pack": "intents/context/research-ga4-best-practices-policycock-20261115.json",
+      "evidence_paths": [
+        "artifacts/research-ga4-best-practices-policycock-20261115/work/candidate/ga4-best-practices-report.md",
+        "artifacts/research-ga4-best-practices-policycock-20261115/work/roles/role-review.md",
+        "reports/research-ga4-best-practices-policycock-20261115/20261115T0401Z-final.html"
+      ],
+      "searches": [
+        "official Google Analytics Help: acquisition scopes and Search Console link",
+        "official Google Analytics Help: events, data quality, privacy, consent mode"
+      ],
+      "wiki_pages": [
+        "agent-wiki/content/docs/outputs/blog/Note_Management.mdx",
+        "agent-wiki/content/docs/outputs/deep-knowledge/data.mdx",
+        "agent-wiki/content/docs/outputs/Communication/Blogging.mdx",
+        "agent-wiki/content/docs/outputs/Integration/Marketing.mdx"
+      ],
+      "operational_log_sections": [
+        "logs/agent-wiki-query.md"
+      ],
+      "note": "Read-only exploratory research. GA4/PostHog remain unconnected; no account/code/data/legal work."
     }
   ],
-  "artifacts": [],
-  "verifications": [],
+  "artifacts": [
+    {
+      "label": "final report",
+      "path": "artifacts/research-ga4-best-practices-policycock-20261115/final/ga4-best-practices-report.md"
+    },
+    {
+      "label": "final HTML",
+      "path": "reports/research-ga4-best-practices-policycock-20261115/20261115T0401Z-final.html"
+    }
+  ],
+  "verifications": [
+    {
+      "label": "workflow role review",
+      "type": "role_review",
+      "at": "2026-11-15T04:07:04Z",
+      "roles": [
+        "planner",
+        "developer",
+        "marketer",
+        "operator"
+      ],
+      "evidence_paths": [
+        "artifacts/research-ga4-best-practices-policycock-20261115/work/roles/role-review.md"
+      ],
+      "status": "pass",
+      "next_role": null
+    },
+    {
+      "label": "research report quality",
+      "type": "research_report",
+      "at": "2026-11-15T06:55:00Z",
+      "status": "pass",
+      "evidence_paths": [
+        "artifacts/research-ga4-best-practices-policycock-20261115/final/ga4-best-practices-report.md",
+        "reports/research-ga4-best-practices-policycock-20261115/20261115T0401Z-final.html"
+      ]
+    },
+    {
+      "label": "independent Red and mobile render review",
+      "type": "red_review",
+      "at": "2026-11-15T04:18:00Z",
+      "status": "pass",
+      "evidence_paths": [
+        "artifacts/research-ga4-best-practices-policycock-20261115/work/red/final-review.md",
+        "artifacts/research-ga4-best-practices-policycock-20261115/work/red/ga4-report-390x844.png"
+      ]
+    }
+  ],
   "next_decision": {
     "status": "in_progress",
-    "value": "Genie prepares the exploratory report. After reviewing evidence, the user may decide separately whether to configure or implement tracking; this research makes no measurement or implementation decision."
+    "value": "Archive 레코드가 main에 올라간 뒤 remote verifier와 화면 확인을 완료하고 최종 proof를 기록한다."
   }
 }

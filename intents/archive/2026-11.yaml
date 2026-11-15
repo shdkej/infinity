@@ -31,7 +31,7 @@ archive:
   - artifacts/research-us-it-opportunity-20261106/work/public-spend-observations.json
   report: reports/research-us-it-opportunity-20261106/20261107T0303Z-final.html
   red_status: not_required
-  remote_verified: pass
+  remote_verified: pending
   knowledge_status: used
   knowledge_decision: retain_in_infinity
   knowledge_targets: artifacts/research-us-it-opportunity-20261106/final/us-it-opportunity-exploration-report.md
@@ -228,3 +228,58 @@ archive:
   - UNHCR 원문 페이지는 Red 환경에서 403으로 직접 열리지 않아 공식 검색 인덱스 근거와 원문 직접 열람을 구분했다.
   - 일부 2026년 학술 자료는 초록/검색 노출 범위만 확인했다.
   - 현대 적용은 개념적 분석이며 개별 국가·플랫폼·조직 사례 연구는 아니다.
+- id: research-ga4-best-practices-policycock-20261115
+  title: 모두의정책에 적용할 GA4 베스트프랙티스를 조사한다
+  task_name: 모두의정책에 적용할 GA4 베스트프랙티스를 조사한다
+  status: archived
+  completed_at: '2026-11-15T06:52:06Z'
+  archived_at: '2026-11-15T06:52:06Z'
+  research_mode: exploratory_research
+  target_agent: genie
+  execution_mode: multi_subagent_roles
+  complexity_tier: lightweight
+  permission_level: L0-research-and-draft-only
+  task_type: research
+  projects:
+  - infinity
+  - virtue
+  topics:
+  - analytics
+  - product
+  context_pack: intents/context/research-ga4-best-practices-policycock-20261115.json
+  trace: data/traces/research-ga4-best-practices-policycock-20261115.json
+  detail: intents/archive/research-ga4-best-practices-policycock-20261115.md
+  artifact: artifacts/research-ga4-best-practices-policycock-20261115/final/ga4-best-practices-report.md
+  final_artifact: artifacts/research-ga4-best-practices-policycock-20261115/final/ga4-best-practices-report.md
+  report: reports/research-ga4-best-practices-policycock-20261115/20261115T0401Z-final.html
+  red_status: pass
+  red_report: artifacts/research-ga4-best-practices-policycock-20261115/work/red/final-review.md
+  remote_verified: pass
+  remote_proof: artifacts/research-ga4-best-practices-policycock-20261115/work/remote-proof.md
+  notification_channel: slack
+  notification_target: channel:C0BR41W31MM
+  notification_reply_to: '1794702130.802219'
+  notification_origin: channel:C0BR41W31MM;reply_to:1794702130.802219
+  report_length: 8187
+  report_length_judgment: fit
+  report_flow_check: '탐색형: 프로젝트 맥락 → 발견과 측정 축 → 공식 근거 → 미확정 사항·한계·열린 질문.'
+  skills_used: []
+  skills_used_reason: 실행 기록에 스킬 사용 근거가 없어 사용했다고 기록하지 않음.
+  knowledge_status: raw
+  knowledge_decision: retain_in_infinity
+  knowledge_targets: artifacts/research-ga4-best-practices-policycock-20261115/final/ga4-best-practices-report.md
+  knowledge_reflection: 프로젝트 특화 경계와 미확정 설정을 보존하기 위해 Infinity에 유지하며 새 일반 지식 승격은 하지
+    않는다.
+  knowledge_log: logs/agent-wiki-query.md#research-ga4-best-practices-policycock-20261115
+  knowledge_commit: no-promotion-needed
+  result_summary: 공식 Google 자료 10개로 유입·검색, 이벤트·전환, 데이터 품질, 개인정보·동의 적용 가능성과 한계를 정리했다.
+    분석 계정·코드·데이터·법률 결론은 확인하지 않았다.
+  result_criteria: 공식 자료 기반 한국어 보고서, GA4/PostHog 경계와 미연결 상태 보존, 미측정치·법률 결론 추정 없음.
+  metric_result: Research validator PASS; Red PASS; 390×844 렌더 PASS; Markdown 8,187자;
+    공식 출처 10개.
+  metric_next_decision: 조사는 종료. 측정 연결·설정은 별도 승인 Intent로 다룬다.
+  next_action: No continuation — GA4 연결·추적 활성화는 별도 승인 없이 진행하지 않는다.
+  commits:
+  - repo: infinity
+    sha: 4da30fac2bc24059bf247ec108ec38da7a9f2c8c
+    note: Final Markdown, HTML report, Red evidence and role review pushed to main.
