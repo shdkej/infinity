@@ -65,6 +65,12 @@ Telegram 운영 설정에서는 두 목적지 override를 모두 `telegram`과 �
 - 승인 대기는 `waiting_on: user`, `approval`, `approval_required: true`, `permission_level: approval_required` 또는 승인 사유가 있는 `waiting_reason`으로 판단합니다. 버튼 callback은 `infinity:approve:<intent-id>` / `infinity:reject:<intent-id>`입니다.
 - `resolve_waiting`은 Waiting → Active 전이, `archive_request`는 명시된 open Intent의 월별 Archive·상세 생성을 수행합니다. 버튼 처리 크론이 요청 ID·전이 기록을 push한 뒤 작업 dispatcher가 다음 cycle에서 이어갑니다. 요청 큐 소비와 실제 태스크 완료를 구분합니다.
 
+## Hermes WSL 이관 준비(활성화 전)
+
+`/home/sam/workspace/infinity`의 `scripts/run_hermes_infinity_cron.sh`는 새 호스트의 준비 진입점입니다. `dispatcher|consumer|notifier --check`는 로컬 확인만 하며 Git/S3/발송을 호출하지 않습니다. 실행 모드는 Ubuntu consumer 중지 확인을 별도 운영 절차로 받은 후 생성할 비공개 상태 파일(`~/.hermes/state/infinity/ubuntu-consumer-stopped.confirmed`)과 **실제 운영 영수증 원본**(`~/.hermes/state/infinity/dispatcher-terminal-notifications.json`, SHA256 `a33b0be96db917069d3b66761ab7dc8aa92aacb3a06e6e1a64d761028c724666`)이 없으면 차단합니다. 상태 파일은 중지 확인의 증거가 아니므로 단독 생성·활성화하지 않습니다. 영수증은 Git이나 Slack으로 옮기지 않고 기존 `delivery_unknown`/원점 없는 항목을 재송하지 않습니다.
+
+Hermes 내장 cron의 세 독립 작업은 현재 `paused`, `no-agent`, `catch-up off`, UTC에서 10분 간격으로만 *준비*합니다. 스크립트는 `~/.hermes/scripts/infinity-{dispatcher,consumer,notifier}.sh`에서 이 진입점을 호출합니다. dispatcher와 notifier는 OpenClaw 전용 handoff/전송을 Hermes로 대체하고 검증하기 전까지 **항상 실패 차단**됩니다. consumer만 모든 선행조건이 충족되면 기존 S3→원장 commit/push wrapper를 최대 180초로 호출합니다. 기존 Ubuntu 소비자의 중지·in-flight 종료, S3 인증, `HEAD == origin/main`, 영수증 인계, Telegram 전송/버튼 및 실패 알림 경로를 각각 검증하기 전에는 어떤 새 예약도 재개하지 않습니다. 알림의 논리 target `telegram:433493318`은 영수증 중복 제거 키이므로 원장 내부에서 숫자 ID로 바꾸지 않습니다. Hermes 전송 API의 ID 정규화가 필요하면 전송 경계에서만 적용합니다.
+
 ## 점검 명령
 
 ```bash
