@@ -101,6 +101,12 @@ lanes:
     release_slot: pilot-release-01
     release_slot_start_at: '2026-11-18T11:02:00Z'
     release_slot_end_at: '2026-11-18T11:22:00Z'
+    telemetry_task_id: miniapp-image-tools-20261118-posthog-01
+    telemetry_slot: pilot-posthog-01
+    telemetry_slot_start_at: '2026-11-18T11:55:26Z'
+    telemetry_slot_end_at: '2026-11-18T12:15:26Z'
+    telemetry_plan_revision: 7
+    telemetry_auth_instruction: 사용자 승인으로 호스트별 ~/.env의 PostHog 키 이름 확인 및 기존 계정 인증 사용 허용; 비밀값 비공개.
     user_intent: 이미지 미니앱의 WSL 인테이크와 실제 브라우저 QA·계측·배포 연결을 승인된 단일 슬롯에서 검증한다.
     desired_outcome: 안전한 범위의 복구·실제 다운로드와 렌더 증거·원격 소스 SHA 및 미검증 연결의 정확한 구분.
     out_of_scope: Ubuntu 직접 실행, 무등록 dispatcher 라우트, 타 Infinity 이전 작업, 신규 cron·권한·유료 리소스, 타 사이트 또는 전체 버킷 삭제.
@@ -125,10 +131,10 @@ lanes:
     release_evidence_commit: da30854ae59c8d1ae2a205935ab7cf549b7a4fe1
     release_workflow_run: '44292646921'
     release_live_url: https://images.aws.shdkej.com/tools/image-converter/
-    report: reports/miniapp-image-tools-20261118-qa-01/20261118T1116Z.html
-    waiting_on: external
-    blocker: 라이브 하위 경로와 실제 브라우저 다운로드는 확인했으나 앱 전용 PostHog 로그인·수집키 및 동일 QA ID 서버 조회가 없어 계측 보류.
-    next_action: SAM이 앱 프로젝트 접근을 명시적으로 배정한다. 보호 릴리스 슬롯 종료 뒤 자동 재시도 없음.
+    report: reports/miniapp-image-tools-20261118-qa-01/20261118T1201Z.html
+    waiting_on: user
+    blocker: 기존 US PostHog 조직에서 개인 API 인증은 성공했으나 허용 프로젝트 수 1개를 기존 Default project가 사용 중이며 앱 전용 프로젝트가 없다. 기존 프로젝트/Virtue 키 재사용·유료 변경 불가; 다섯 이벤트 동일 QA ID 조회 및 합성 제외 미검증.
+    next_action: 사용자가 기존 앱 전용 프로젝트 접근을 제공하거나 현재 조직의 프로젝트 한도를 별도로 해소할지 결정한다. 이번 슬롯의 자동 재시도·연장 없음.
     notification_channel: slack
     notification_target: channel:C0CE0DV9MM2
     notification_reply_to: '1794983278.888719'

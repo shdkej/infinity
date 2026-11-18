@@ -81,6 +81,16 @@
       "wiki_pages": ["agent-wiki/content/docs/outputs/blog/Deploy_ERP_server_story.mdx", "agent-wiki/content/docs/outputs/blog/Note_Management.mdx", "agent-wiki/content/docs/outputs/Integration/Tool.mdx", "agent-wiki/content/docs/outputs/Fundamental/Architecture.mdx"],
       "operational_log_sections": ["logs/agent-wiki-query.md"],
       "note": "Action 44292646921 succeeded at source a8e26d8; live browser PNG to WebP saved and opened 160x80; analytics app authentication and same-ID query remain blocked"
+    },
+    {
+      "type": "execution",
+      "at": "2026-11-18T12:01:00Z",
+      "context_pack": "intents/context/miniapp-image-tools-20261118-qa-01.json",
+      "evidence_paths": ["intents/waiting/miniapp-image-tools-20261118-qa-01.md", "reports/miniapp-image-tools-20261118-qa-01/20261118T1201Z.html"],
+      "searches": ["miniapp PostHog authenticated account project capacity and collection boundary"],
+      "wiki_pages": ["agent-wiki/content/docs/outputs/blog/Deploy_ERP_server_story.mdx", "agent-wiki/content/docs/outputs/blog/Note_Management.mdx", "agent-wiki/content/docs/outputs/Integration/Tool.mdx", "agent-wiki/content/docs/outputs/Fundamental/Architecture.mdx"],
+      "operational_log_sections": ["logs/agent-wiki-query.md"],
+      "note": "new guarded task miniapp-image-tools-20261118-posthog-01, plan revision 7, pilot-posthog-01 11:55:26Z-12:15:26Z. Prior Context Pack wiki/log paths inherited from earlier QA trace, not re-read as this narrow follow-up. User authorized host-specific ~/.env and browser Google login. /home/sam/.env POSTHOG_ACCESS_TOKEN name present; /home/ubuntu/.env and /mnt/c/Users/msi/.env absent. Existing management token authenticated US organization sam; one existing Default project ID 424014 uses account project feature limit 1. No MFA blocker, no app-specific project; no browser collection key deployment, five-event same-ID query or exclusion proof. No secret values stored."
     }
   ],
   "artifacts": [],
@@ -109,10 +119,21 @@
       "evidence_paths": ["intents/waiting/miniapp-image-tools-20261118-qa-01.md"],
       "status": "warn",
       "next_role": "operator"
+    },
+    {
+      "label": "PostHog authentication/capacity changed-scope independent roles and cross-review",
+      "type": "role_review",
+      "at": "2026-11-18T12:01:00Z",
+      "roles": ["planner", "developer", "marketer", "operator"],
+      "evidence_paths": ["intents/waiting/miniapp-image-tools-20261118-qa-01.md"],
+      "status": "warn",
+      "next_role": "user",
+      "sessions": {"independent": "deleg_193bd07f", "cross_review": "deleg_578069ed"},
+      "synthesis": "Existing account authentication succeeds but no app-specific project capacity; do not reuse unrelated project or count synthetic traffic as user success."
     }
   ],
   "next_decision": {
     "status": "waiting",
-    "value": "SAM explicitly allocates app-specific PostHog project access; no auto-retry after slot end"
+    "value": "User provides existing miniapp-specific PostHog project access or decides how to resolve existing organization's one-project limit; no auto-retry after slot end"
   }
 }

@@ -125,6 +125,18 @@
     "verification": "indexed section locator",
     "result_count": 5
   },
+  "posthog_followup": {
+    "task_id": "miniapp-image-tools-20261118-posthog-01",
+    "plan_revision": 7,
+    "slot": "pilot-posthog-01",
+    "start_at": "2026-11-18T11:55:26Z",
+    "end_at": "2026-11-18T12:15:26Z",
+    "authorized_auth_instruction": "User permitted host-specific ~/.env lookup and browser Google login; no secret values retained.",
+    "credential_locations_checked": ["/home/sam/.env: POSTHOG_ACCESS_TOKEN name present", "/home/ubuntu/.env: absent", "/mnt/c/Users/msi/.env: absent"],
+    "observed_auth": "Personal management token authorized in existing US organization; no MFA or missing-auth blocker; EU unauthorized.",
+    "observed_capacity": "One existing Default project ID 424014; account feature organizations_projects limit 1; no miniapp-specific project.",
+    "decision": "Keep Waiting; no project reuse, billing, client key, deployment or synthetic capture without app-specific project."
+  },
   "selected_context_required": true,
   "rules": [
     "Read every required document before creating or executing an intent.",

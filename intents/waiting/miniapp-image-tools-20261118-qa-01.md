@@ -1,6 +1,11 @@
 # [miniapp-image-tools-20261118-qa-01] 이미지 미니앱 보호 QA·연결 복구
 
 - 상태: Waiting — 라이브 하위 경로·합성 브라우저 다운로드는 검증했으나 앱 전용 PostHog 수집·조회는 미검증입니다. 사용자 트래픽·계측 완료가 아닙니다.
+- 새 인증·계측 task `miniapp-image-tools-20261118-posthog-01`, plan revision 7, slot `pilot-posthog-01` (2026-11-18T11:55:26Z–12:15:26Z hard stop). 동일 Intent의 후속 슬롯이며 deadline·재개·병렬 인스턴스가 아닙니다. 사용자가 `~/.env` 확인과 브라우저 Google 로그인을 허용했습니다.
+- 이번 호스트별 확인: WSL `/home/sam/.env` 존재, 관련 키 이름은 `POSTHOG_ACCESS_TOKEN`; `/home/ubuntu/.env` 없음, Windows `/mnt/c/Users/msi/.env` 없음(다른 시스템 사용자 홈에서도 없음). 값은 저장·게시하지 않았습니다. 기존 개인 API 토큰은 US PostHog 인증에 성공(조직 `sam`, org ID `019e2686-843b-0000-2617-45fd00eb5b46`), EU는 401입니다. MFA나 로그인 부재가 현재 차단 원인은 아닙니다.
+- 기존 조직의 프로젝트 목록은 `Default project` 하나(ID `424014`, 2026-05-14 생성, 기존 이벤트 수집 이력 있음)이고 계정의 `organizations_projects` 한도가 1개입니다. 해당 프로젝트는 미니앱 전용으로 검증되지 않아 재사용·이름 변경하지 않았고, 새 조직/계정·유료 한도 변경·Virtue 키 사용도 하지 않았습니다. 전용 공개 브라우저 키를 앱에 연결하거나 배포하지 않았습니다.
+- 따라서 이번 슬롯의 브라우저 5종 이벤트 요청·동일 `qa_run_id` 서버 조회·사용자 지표에서 `synthetic` 제외 검증은 수행 불가입니다. 합성 테스트를 사용자 성공으로 계상하지 않습니다. 보고: `reports/miniapp-image-tools-20261118-qa-01/20261118T1201Z.html`.
+- 좁은 4역할 독립 검토 `deleg_193bd07f`, 교차 검토 `deleg_578069ed`: 인증된 앱 전용 프로젝트가 없으면 배포·수집 성공을 주장하지 말고 동일 ID 5종/필터 의미를 실제 조회로 입증해야 한다는 결론. 지니는 프로젝트 한도 때문에 안전하게 Waiting 유지.
 - 승인: plan revision 4, slot pilot-qa-01, 2026-11-18T10:40:05Z–11:00:05Z. 연장·재실행·새 cron 없음.
 - 최초 인테이크 실제 시각: 2026-11-18T10:56:36Z. 위 시간은 Intent deadline이 아니라 원래 QA 슬롯 범위입니다. 동일 Intent에 plan revision 5, 릴리스 task `miniapp-image-tools-20261118-release-01`, slot `pilot-release-01` (2026-11-18T11:02:00Z–11:22:00Z hard stop)을 연결했습니다. 새 Intent나 자동 재시도는 없습니다.
 - 연결 체크포인트: Space `infra-aws-static-sites/sites/miniapp-image-tools/qa/connection-checkpoint.md`, commit `cb55c7856fec37b2895538712c45605dc2eb9104`. PostHog 브라우저는 `/login`으로 이동했고 저장된 로그인과 로컬 kubeconfig는 없습니다. Virtue 키를 전용 앱 키로 사용하지 않습니다.
@@ -9,7 +14,7 @@
 - 프로젝트: miniapp-image-tools; 소스: `shdkej/space`의 `infra-aws-static-sites/sites/miniapp-image-tools/`; KL WSL 라우트 커밋 `b60dec5805ca6408cf9c57e8be2226beed911a9b`; Space 소스 커밋 `93fb596` (원격 main merge `a6f6a4e1251ec97cda2910ae6ec04020c51dd61c`).
 - Pack: `intents/context/miniapp-image-tools-20261118-qa-01.json`; trace: `data/traces/miniapp-image-tools-20261118-qa-01.json`.
 - 검증: KL 3 unittest PASS, `zg status` 123/123 ready, Space Node header 3 PASS, 실제 Chromium desktop/390px 모바일과 다운로드·EXIF 90/270·흰 배경·오류·reset 확인. 합성 스크린샷과 열린 출력: `space/infra-aws-static-sites/sites/miniapp-image-tools/qa/evidence/`. 이 검증은 사용자 트래픽이 아닙니다.
-- 차단: PostHog의 이 앱 전용 인증된 프로젝트·리전·브라우저 수집키와 동일 qa_run_id 서버 조회가 없음. 합성 트래픽의 사용자 지표 제외도 서버에서 미확인. 사용자 이미지/파일명/EXIF를 이벤트·Slack에 전송하지 않음.
+- 차단: 기존 US 조직 1프로젝트 한도가 이미 사용 중이어서 앱 전용 프로젝트·브라우저 수집키와 동일 qa_run_id 서버 조회가 없음. 합성 트래픽의 사용자 지표 제외도 서버에서 미확인. 사용자 이미지/파일명/EXIF를 이벤트·Slack에 전송하지 않음.
 - 원문 스레드: `#desk` channel `C0CE0DV9MM2`, thread `1794983278.888719`; 이 child는 Slack 발신·dispatcher activation을 하지 않음.
 - 역할 QA 검토: independent `deleg_c72eb559`, cross-review `deleg_b55a3547`; 결론은 배포·분석 성공 주장 보류.
-- 다음 행동: SAM이 앱 전용 PostHog 접근을 명시적으로 배정합니다. 이번 보호 릴리스 슬롯의 결과는 trace/report에 기록하며, 종료 후 자동 재시도하지 않습니다.
+- 다음 행동: 사용자가 기존 앱 전용 PostHog 프로젝트 접근을 제공하거나 현 조직의 프로젝트 한도 해소 방식을 결정합니다. 이번 보호 계측 슬롯 종료 후 자동 재시도하지 않습니다.
