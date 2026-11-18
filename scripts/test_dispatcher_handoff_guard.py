@@ -46,7 +46,7 @@ class DispatcherHandoffGuardTest(unittest.TestCase):
 
     def test_prompt_keeps_lane_and_intent_path_placeholders_literal(self):
         match = re.search(
-            r'''(?s)if ! python3 - "\$PLAN_FILE" "\$PROMPT_STAGE_FILE" <<'PY'\n(.*?)\nPY\n  then''',
+            r'''(?s)if ! python3 - "\$PLAN_FILE" "\$PROMPT_STAGE_FILE" "\$DISPATCHER_SESSION_KEY" "\$ROOT" <<'PY'\n(.*?)\nPY\n  then''',
             SOURCE,
         )
         self.assertIsNotNone(match, "could not find the prompt-generation heredoc")
@@ -64,7 +64,7 @@ class DispatcherHandoffGuardTest(unittest.TestCase):
             plan_path_arg = str(plan_path)
             prompt_path_arg = str(prompt_path)
             result = subprocess.run(
-                [sys.executable, "-", plan_path_arg, prompt_path_arg],
+                [sys.executable, "-", plan_path_arg, prompt_path_arg, "fixture-session", str(Path(__file__).resolve().parents[1])],
                 input=match.group(1), text=True, capture_output=True, check=False,
             )
             self.assertEqual(result.returncode, 0, result.stderr)

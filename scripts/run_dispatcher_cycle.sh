@@ -5,19 +5,28 @@ umask 077
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
-NVM_DIR="${NVM_DIR:-$HOME/.nvm}"
-if [[ ! -s "$NVM_DIR/nvm.sh" ]]; then
-  printf '%s\n' 'NVM initialization script is unavailable; dispatcher cannot start.' >&2
+INFINITY_EXECUTOR="${INFINITY_EXECUTOR:-openclaw}"
+if [[ "$INFINITY_EXECUTOR" == hermes ]]; then
+  HERMES_BIN="${HERMES_BIN:-$(command -v hermes || true)}"
+  [[ -n "$HERMES_BIN" && -x "$HERMES_BIN" ]] || { printf 'Hermes CLI unavailable.\n' >&2; exit 1; }
+elif [[ "$INFINITY_EXECUTOR" == openclaw ]]; then
+  NVM_DIR="${NVM_DIR:-$HOME/.nvm}"
+  if [[ ! -s "$NVM_DIR/nvm.sh" ]]; then
+    printf '%s\n' 'NVM initialization script is unavailable; dispatcher cannot start.' >&2
+    exit 1
+  fi
+  . "$NVM_DIR/nvm.sh"
+  nvm use --silent default >/dev/null
+  OPENCLAW_BIN="${OPENCLAW_BIN:-${NVM_BIN:-}/openclaw}"
+  if [[ ! -x "$OPENCLAW_BIN" ]]; then
+    printf 'OpenClaw CLI is unavailable at %s.\n' "$OPENCLAW_BIN" >&2
+    exit 1
+  fi
+else
+  printf 'Unknown dispatcher executor.\n' >&2
   exit 1
 fi
-. "$NVM_DIR/nvm.sh"
-nvm use --silent default >/dev/null
-OPENCLAW_BIN="${OPENCLAW_BIN:-${NVM_BIN:-}/openclaw}"
-if [[ ! -x "$OPENCLAW_BIN" ]]; then
-  printf 'OpenClaw CLI is unavailable at %s.\n' "$OPENCLAW_BIN" >&2
-  exit 1
-fi
-STATE_DIR="${INFINITY_DISPATCHER_STATE_DIR:-/home/ubuntu/.openclaw/state/infinity-dispatcher-runs}"
+STATE_DIR="${INFINITY_DISPATCHER_STATE_DIR:-${INFINITY_HERMES_STATE_DIR:-/home/ubuntu/.openclaw/state/infinity-dispatcher-runs}}"
 LOCK_FILE="${INFINITY_DISPATCHER_LOCK_FILE:-/tmp/infinity-dispatcher.lock}"
 AGENT_TIMEOUT_SECONDS="${INFINITY_DISPATCHER_AGENT_TIMEOUT_SECONDS:-480}"
 DISPATCHER_SESSION_KEY="${INFINITY_DISPATCHER_SESSION_KEY:-agent:genie:infinity-dispatcher-command-v1}"
@@ -131,10 +140,11 @@ with open(path, "w", encoding="utf-8") as stream:
 PY
   fi
   # Write the handoff atomically and never call the CLI with an empty message.
-  if ! python3 - "$PLAN_FILE" "$PROMPT_STAGE_FILE" "$DISPATCHER_SESSION_KEY" <<'PY'
+  if ! python3 - "$PLAN_FILE" "$PROMPT_STAGE_FILE" "$DISPATCHER_SESSION_KEY" "$ROOT" <<'PY'
 import json, sys
 plan = json.load(open(sys.argv[1]))
 dispatcher_session_key = sys.argv[3]
+repo_root = sys.argv[4]
 class _LiteralIntentPath:
     """Preserve the one literal `{intent-id}` path token in the f-string."""
     def __sub__(self, _other):
@@ -146,7 +156,7 @@ Canonical revision: {plan["canonical_sha"]}
 Dispatcher run: {plan["run_id"]}
 Plan: {json.dumps(plan, ensure_ascii=False)}
 
-Do not create schedules. Do not use dashboard_actions as work status. Your sole execution repository is `/home/ubuntu/workspace/infinity`: begin by `cd /home/ubuntu/workspace/infinity && git fetch origin main`, then compare that repository's `origin/main` with the canonical revision. Do not treat a revision from any other checkout as an Infinity stale guard. If this Infinity revision changed, make no mutation and return that reason. Repair each invalid_state item only by moving it to its contract-correct lane or recording its exact blocker. For every promotion candidate, move only that canonical Inbox block to Active, never exceeding three Active intents. For every waiting_retry_candidate, move the canonical Waiting block to Active and attempt the stated autonomous alternative; do not ask the user again unless a real approval boundary remains. If the only autonomous blocker is a missing task-plan, create the required `artifacts/{intent-id}/work/task-plan.json` and `task-plan.md` from `ARTIFACT_RULES.md#대형-작업-태스크-계획`, add `task_plan`, `task_plan_doc`, and `task_plan_template` to the canonical card, then activate its first evidence-bearing leaf and execute it. Do not send that planning prerequisite to Waiting. This repair is permitted only with a valid explicit future canonical `deadline`; otherwise do not create a repair plan/leaf and use existing-material closeout. This missing-plan first-leaf repair applies only when the Intent has a valid explicit future canonical `deadline`; for every other missing-plan case, do not create a plan or leaf and use existing-material closeout. For each handoff/resume candidate, execute or resume it yourself; do not return it to the main agent. **Exploratory research exception:** an `exploratory_research` Intent may start without a task plan or deadline; execute it from its recorded success evidence and do not terminalize it solely because no deadline/plan exists. A plan_activation_candidate has no active task: first mark exactly its named pending task Active in both task-plan.json and task-plan.md, preserve its dependencies, set started_at, and commit/push that transition, then execute it. A terminalization_candidate can mean a completed plan, an explicit deadline reached with unfinished tasks, or a no-deadline missing-plan closeout: verify its Archive contract (required report, Red result, remote proof, and domain gates), preserve unfinished task IDs as incomplete, and never claim unperformed work is done. `INTENTS.yaml` is the canonical lifecycle source; an individual `intents/{{lane}}/{{id}}.md` file is optional. If that file is absent but the registry block and required evidence exist, create `intents/archive/{{id}}.md` from the registry fields, move the registry block to Archive, and finish agent-owned closeout. Normalize a legacy trace with `scripts/record_intent_trace.py` before treating its old shape as a blocker. Otherwise move it to Waiting only for a user, external, approval, or genuinely missing artifact condition; never use Waiting for a missing optional intent file. Never activate a task until every depends_on task is done. Never call a broad 'quality iteration' a task: it must be an explicitly Active leaf task with a concrete evidence target. A timebox_reassessment_candidate has hit max_minutes: do not continue blindly. Record a dashed plan change. Split it into smaller leaves only when `timebox_reassessment.allow_split` is true (a valid explicit future Intent `deadline`); otherwise switch to a verified alternative within the existing leaf or record its precise blocker and close out with the task incomplete—never add a child leaf. Recalculate remaining deadline budget before any allowed split. If the active leaf cannot produce new evidence, record its precise blocker and move it to the correct lane instead of accepting another empty handoff. Inspect follow_up_candidates explicitly: create only safe, non-duplicate Inbox follow-ups with the original notification metadata; leave approval-boundary follow-ups Waiting with their exact blocker.
+Do not create schedules. Do not use dashboard_actions as work status. Your sole execution repository is `{repo_root}`: begin by `cd {repo_root} && git fetch origin main`, then compare that repository's `origin/main` with the canonical revision. Do not treat a revision from any other checkout as an Infinity stale guard. If this Infinity revision changed, make no mutation and return that reason. Repair each invalid_state item only by moving it to its contract-correct lane or recording its exact blocker. For every promotion candidate, move only that canonical Inbox block to Active, never exceeding three Active intents. For every waiting_retry_candidate, move the canonical Waiting block to Active and attempt the stated autonomous alternative; do not ask the user again unless a real approval boundary remains. If the only autonomous blocker is a missing task-plan, create the required `artifacts/{intent-id}/work/task-plan.json` and `task-plan.md` from `ARTIFACT_RULES.md#대형-작업-태스크-계획`, add `task_plan`, `task_plan_doc`, and `task_plan_template` to the canonical card, then activate its first evidence-bearing leaf and execute it. Do not send that planning prerequisite to Waiting. This repair is permitted only with a valid explicit future canonical `deadline`; otherwise do not create a repair plan/leaf and use existing-material closeout. This missing-plan first-leaf repair applies only when the Intent has a valid explicit future canonical `deadline`; for every other missing-plan case, do not create a plan or leaf and use existing-material closeout. For each handoff/resume candidate, execute or resume it yourself; do not return it to the main agent. **Exploratory research exception:** an `exploratory_research` Intent may start without a task plan or deadline; execute it from its recorded success evidence and do not terminalize it solely because no deadline/plan exists. A plan_activation_candidate has no active task: first mark exactly its named pending task Active in both task-plan.json and task-plan.md, preserve its dependencies, set started_at, and commit/push that transition, then execute it. A terminalization_candidate can mean a completed plan, an explicit deadline reached with unfinished tasks, or a no-deadline missing-plan closeout: verify its Archive contract (required report, Red result, remote proof, and domain gates), preserve unfinished task IDs as incomplete, and never claim unperformed work is done. `INTENTS.yaml` is the canonical lifecycle source; an individual `intents/{{lane}}/{{id}}.md` file is optional. If that file is absent but the registry block and required evidence exist, create `intents/archive/{{id}}.md` from the registry fields, move the registry block to Archive, and finish agent-owned closeout. Normalize a legacy trace with `scripts/record_intent_trace.py` before treating its old shape as a blocker. Otherwise move it to Waiting only for a user, external, approval, or genuinely missing artifact condition; never use Waiting for a missing optional intent file. Never activate a task until every depends_on task is done. Never call a broad 'quality iteration' a task: it must be an explicitly Active leaf task with a concrete evidence target. A timebox_reassessment_candidate has hit max_minutes: do not continue blindly. Record a dashed plan change. Split it into smaller leaves only when `timebox_reassessment.allow_split` is true (a valid explicit future Intent `deadline`); otherwise switch to a verified alternative within the existing leaf or record its precise blocker and close out with the task incomplete—never add a child leaf. Recalculate remaining deadline budget before any allowed split. If the active leaf cannot produce new evidence, record its precise blocker and move it to the correct lane instead of accepting another empty handoff. Inspect follow_up_candidates explicitly: create only safe, non-duplicate Inbox follow-ups with the original notification metadata; leave approval-boundary follow-ups Waiting with their exact blocker.
 
 For every missing_plan_repair_candidate (emitted only for an Active Intent with a valid explicit future `deadline`), create the required contract-compliant task-plan, add its card references, activate the first evidence-bearing leaf, and execute it in this cycle. Never create a repair plan or first leaf for a no-deadline Active Intent; route it to terminal closeout from existing evidence. Whenever an Active Intent creates or replaces a human-readable Markdown work artifact, update both its canonical INTENTS.yaml card and its detail intent (when present) with the current `artifact:` paths in the same commit, so the dashboard can display them even when GitHub directory listing is rate-limited. Automatic evidence-leaf expansion is permitted only when the canonical Intent field `deadline` contains a valid timezone-aware timestamp explicitly supplied by the user and the dispatch plan timestamp is before it. Never infer or invent a deadline from `delivery_not_before`, task timeboxes, `decision_deadline`, or an assumed duration. With no valid explicit deadline, finish only already-planned leaves; once they are complete, trigger normal terminal closeout from existing evidence or honor an explicit user stop, without replenishing leaves. For an explicit deadline, stop task execution/expansion at or after that timestamp and run one atomic terminal bundle: final Markdown, any user- or Intent-required HTML report, Archive card/detail transition, remote archive verification, dashboard Archive-card check, then original-thread notice. Before committing any Archive transition, run `python3 scripts/check_intents_consistency.py INTENTS.yaml`; for research intents also run `python3 scripts/verify_archive_remote.py <intent-id>` after the report and monthly ledger are present. If either check fails, do not push or notify terminal completion. A partial prose summary is not terminal work and never substitutes for the bundle. Internal report/commit/verification closeout is agent-owned and is not a Waiting condition; use Waiting only for a real user/external/approval blocker with an exact exit condition.
 
@@ -171,7 +181,11 @@ PY
     HANDOFF_VERIFY_EXIT=1
   else
     mv "$PROMPT_STAGE_FILE" "$PROMPT_FILE"
-    timeout --foreground "${AGENT_TIMEOUT_SECONDS}s" "$OPENCLAW_BIN" agent --agent genie --session-key "$DISPATCHER_SESSION_KEY" --message-file "$PROMPT_FILE" --thinking low --timeout "$AGENT_TIMEOUT_SECONDS" --json >"$STATE_DIR/$(basename "$RUN_FILE" .json)-genie.json" 2>&1
+    if [[ "$INFINITY_EXECUTOR" == hermes ]]; then
+      timeout --foreground "${AGENT_TIMEOUT_SECONDS}s" "$HERMES_BIN" chat --query-file "$PROMPT_FILE" --oneshot --in "$ROOT" --run-budget "$AGENT_TIMEOUT_SECONDS" -Q >"$STATE_DIR/$(basename "$RUN_FILE" .json)-genie.json" 2>&1
+    else
+      timeout --foreground "${AGENT_TIMEOUT_SECONDS}s" "$OPENCLAW_BIN" agent --agent genie --session-key "$DISPATCHER_SESSION_KEY" --message-file "$PROMPT_FILE" --thinking low --timeout "$AGENT_TIMEOUT_SECONDS" --json >"$STATE_DIR/$(basename "$RUN_FILE" .json)-genie.json" 2>&1
+    fi
     HANDOFF_EXIT=$?
     HANDOFF_STATE="returned"
     [[ "$HANDOFF_EXIT" -eq 124 ]] && HANDOFF_STATE="timeout"

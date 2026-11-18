@@ -8,22 +8,34 @@ STATE_DIR="${INFINITY_NOTIFICATION_STATE_DIR:-/home/ubuntu/.openclaw/state/infin
 STATE_FILE="${INFINITY_TERMINAL_STATE_FILE:-$STATE_DIR/dispatcher-terminal-notifications.json}"
 LOCK_FILE="${INFINITY_NOTIFICATION_LOCK_FILE:-$STATE_DIR/notifications.lock}"
 CARD_DIR="${INFINITY_NOTIFICATION_CARD_DIR:-$STATE_DIR/cards}"
-NVM_DIR="${NVM_DIR:-$HOME/.nvm}"
-if [[ ! -s "$NVM_DIR/nvm.sh" ]]; then
-  printf '%s\n' '{"event":"infinity_notification_failure","phase":"setup","failure_class":"nvm_unavailable","outcome":"error"}' >&2
-  exit 1
-fi
-if ! . "$NVM_DIR/nvm.sh" 2>/dev/null; then
-  printf '%s\n' '{"event":"infinity_notification_failure","phase":"setup","failure_class":"nvm_init_failed","outcome":"error"}' >&2
-  exit 1
-fi
-if ! nvm use --silent default >/dev/null 2>&1; then
-  printf '%s\n' '{"event":"infinity_notification_failure","phase":"setup","failure_class":"nvm_use_failed","outcome":"error"}' >&2
-  exit 1
-fi
-OPENCLAW_BIN="${OPENCLAW_BIN:-${NVM_BIN:-}/openclaw}"
-if [[ ! -x "$OPENCLAW_BIN" ]]; then
-  printf '%s\n' '{"event":"infinity_notification_failure","phase":"setup","failure_class":"openclaw_cli_unavailable","outcome":"error"}' >&2
+INFINITY_NOTIFICATION_TRANSPORT="${INFINITY_NOTIFICATION_TRANSPORT:-openclaw}"
+if [[ "$INFINITY_NOTIFICATION_TRANSPORT" == hermes ]]; then
+  OPENCLAW_BIN="$ROOT/scripts/hermes_telegram_send.py"
+  if [[ ! -x "$OPENCLAW_BIN" ]]; then
+    printf '%s\n' '{"event":"infinity_notification_failure","phase":"setup","failure_class":"hermes_telegram_bridge_unavailable","outcome":"error"}' >&2
+    exit 1
+  fi
+elif [[ "$INFINITY_NOTIFICATION_TRANSPORT" == openclaw ]]; then
+  NVM_DIR="${NVM_DIR:-$HOME/.nvm}"
+  if [[ ! -s "$NVM_DIR/nvm.sh" ]]; then
+    printf '%s\n' '{"event":"infinity_notification_failure","phase":"setup","failure_class":"nvm_unavailable","outcome":"error"}' >&2
+    exit 1
+  fi
+  if ! . "$NVM_DIR/nvm.sh" 2>/dev/null; then
+    printf '%s\n' '{"event":"infinity_notification_failure","phase":"setup","failure_class":"nvm_init_failed","outcome":"error"}' >&2
+    exit 1
+  fi
+  if ! nvm use --silent default >/dev/null 2>&1; then
+    printf '%s\n' '{"event":"infinity_notification_failure","phase":"setup","failure_class":"nvm_use_failed","outcome":"error"}' >&2
+    exit 1
+  fi
+  OPENCLAW_BIN="${OPENCLAW_BIN:-${NVM_BIN:-}/openclaw}"
+  if [[ ! -x "$OPENCLAW_BIN" ]]; then
+    printf '%s\n' '{"event":"infinity_notification_failure","phase":"setup","failure_class":"openclaw_cli_unavailable","outcome":"error"}' >&2
+    exit 1
+  fi
+else
+  printf '%s\n' '{"event":"infinity_notification_failure","phase":"setup","failure_class":"unknown_transport","outcome":"error"}' >&2
   exit 1
 fi
 if ! command -v timeout >/dev/null 2>&1; then
