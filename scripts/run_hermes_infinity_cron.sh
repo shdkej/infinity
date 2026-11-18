@@ -45,6 +45,10 @@ exec 8>"$STATE_DIR/canonical-git.lock"
 flock -n 8 || exit 0
 [[ "$(git -C "$ROOT" symbolic-ref --quiet --short HEAD)" == main ]] || exit 75
 export PYTHONPATH="${INFINITY_PYDEPS:-$HOME/.local/share/infinity-pydeps}${PYTHONPATH:+:$PYTHONPATH}"
+if [[ "$ROLE" == dispatcher ]]; then
+  export HERMES_GUARD_PYTHON="${HERMES_GUARD_PYTHON:-$(command -v python3)}"
+  "$HERMES_GUARD_PYTHON" -c 'import psutil' >/dev/null 2>&1 || exit 75
+fi
 export PATH="/usr/bin:$PATH"
 if [[ "$ROLE" == dispatcher ]]; then
   export INFINITY_EXECUTOR=hermes

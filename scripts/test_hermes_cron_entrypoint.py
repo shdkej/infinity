@@ -73,7 +73,8 @@ class HermesCronEntrypointTest(unittest.TestCase):
     def test_dispatcher_hermes_handoff_retains_original_safety_pipeline(self):
         source = (ROOT / "scripts/run_dispatcher_cycle.sh").read_text()
         self.assertIn('INFINITY_EXECUTOR', source)
-        self.assertIn('"$HERMES_BIN" chat --query-file', source)
+        self.assertIn('route_hermes_task.py', source)
+        self.assertIn('--task-id "$GUARD_TASK_ID" --end-at "$GUARD_END_AT"', source)
         self.assertIn('Canonical revision: {plan["canonical_sha"]}', source)
         self.assertIn('git -C "$ROOT" push origin main', source)
         self.assertNotIn('`/home/ubuntu/workspace/infinity`', source)

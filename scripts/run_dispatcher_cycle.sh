@@ -7,8 +7,9 @@ SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 INFINITY_EXECUTOR="${INFINITY_EXECUTOR:-openclaw}"
 if [[ "$INFINITY_EXECUTOR" == hermes ]]; then
-  HERMES_BIN="${HERMES_BIN:-$(command -v hermes || true)}"
-  [[ -n "$HERMES_BIN" && -x "$HERMES_BIN" ]] || { printf 'Hermes CLI unavailable.\n' >&2; exit 1; }
+  HERMES_GUARD_ROUTE="${INFINITY_HERMES_GUARD_ROUTE:-$HOME/workspace/workspace-maestro/scripts/route_hermes_task.py}"
+  [[ -f "$HERMES_GUARD_ROUTE" ]] || { printf 'Shared Hermes guard route unavailable.\n' >&2; exit 1; }
+  command -v hermes >/dev/null || { printf 'Hermes CLI unavailable.\n' >&2; exit 1; }
 elif [[ "$INFINITY_EXECUTOR" == openclaw ]]; then
   NVM_DIR="${NVM_DIR:-$HOME/.nvm}"
   if [[ ! -s "$NVM_DIR/nvm.sh" ]]; then
@@ -182,7 +183,19 @@ PY
   else
     mv "$PROMPT_STAGE_FILE" "$PROMPT_FILE"
     if [[ "$INFINITY_EXECUTOR" == hermes ]]; then
-      timeout --foreground "${AGENT_TIMEOUT_SECONDS}s" "$HERMES_BIN" chat --query-file "$PROMPT_FILE" --oneshot --in "$ROOT" --run-budget "$AGENT_TIMEOUT_SECONDS" -Q >"$STATE_DIR/$(basename "$RUN_FILE" .json)-genie.json" 2>&1
+      GUARD_TASK_ID="infinity-dispatcher-$(basename "$RUN_FILE" .json)"
+      GUARD_END_AT="$(python3 - "$AGENT_TIMEOUT_SECONDS" <<'PY'
+from datetime import datetime, timedelta, timezone
+import sys
+print((datetime.now(timezone.utc) + timedelta(seconds=int(sys.argv[1]))).isoformat())
+PY
+)"
+      # Reuse the miniapp-qualified, private task-guard ledger and lock. Its
+      # receipt is not delivery proof; the remote post-handoff check remains.
+      timeout --foreground "$((AGENT_TIMEOUT_SECONDS + 10))s" "$HERMES_GUARD_PYTHON" "$HERMES_GUARD_ROUTE" \
+        --task-id "$GUARD_TASK_ID" --end-at "$GUARD_END_AT" \
+        --cwd "$ROOT" --query-file "$PROMPT_FILE" \
+        >"$STATE_DIR/$(basename "$RUN_FILE" .json)-genie.json" 2>&1
     else
       timeout --foreground "${AGENT_TIMEOUT_SECONDS}s" "$OPENCLAW_BIN" agent --agent genie --session-key "$DISPATCHER_SESSION_KEY" --message-file "$PROMPT_FILE" --thinking low --timeout "$AGENT_TIMEOUT_SECONDS" --json >"$STATE_DIR/$(basename "$RUN_FILE" .json)-genie.json" 2>&1
     fi
