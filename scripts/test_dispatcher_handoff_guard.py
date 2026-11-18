@@ -37,6 +37,13 @@ class DispatcherHandoffGuardTest(unittest.TestCase):
         self.assertIn('|| "$HANDOFF_EXIT" -ne 0', SOURCE)
         self.assertIn('FINAL_EXIT=1', SOURCE)
 
+    def test_pending_is_durable_before_trace_and_guarded_child(self):
+        self.assertIn('dispatcher_handoff_fence.py" --state-dir "$STATE_DIR" reserve', SOURCE)
+        self.assertLess(SOURCE.index('dispatcher_handoff_fence.py" --state-dir "$STATE_DIR" reserve'),
+                        SOURCE.index('record_intent_trace.py" dispatcher-handoff'))
+        self.assertLess(SOURCE.index('dispatcher_handoff_fence.py" --state-dir "$STATE_DIR" reserve'),
+                        SOURCE.index('"$HERMES_GUARD_PYTHON" "$HERMES_GUARD_ROUTE"'))
+
     def test_prompt_and_verifier_gate_expansion_on_live_explicit_deadline(self):
         self.assertIn('Plan.at < deadline', SOURCE)
         self.assertIn('verified_at >= deadline', SOURCE)

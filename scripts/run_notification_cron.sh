@@ -9,7 +9,14 @@ STATE_FILE="${INFINITY_TERMINAL_STATE_FILE:-$STATE_DIR/dispatcher-terminal-notif
 LOCK_FILE="${INFINITY_NOTIFICATION_LOCK_FILE:-$STATE_DIR/notifications.lock}"
 CARD_DIR="${INFINITY_NOTIFICATION_CARD_DIR:-$STATE_DIR/cards}"
 INFINITY_NOTIFICATION_TRANSPORT="${INFINITY_NOTIFICATION_TRANSPORT:-openclaw}"
+RECEIPT_CHECKPOINT_ARGS=()
 if [[ "$INFINITY_NOTIFICATION_TRANSPORT" == hermes ]]; then
+  CHECKPOINT="$STATE_DIR/notification-receipt-checkpoint.sqlite3"
+  if [[ ! -f "$STATE_FILE" || ! -f "$CHECKPOINT" ]]; then
+    printf '%s\n' '{"event":"infinity_notification_failure","phase":"setup","failure_class":"receipt_checkpoint_unavailable","outcome":"error"}' >&2
+    exit 1
+  fi
+  RECEIPT_CHECKPOINT_ARGS=(--receipt-checkpoint "$CHECKPOINT")
   OPENCLAW_BIN="$ROOT/scripts/hermes_telegram_send.py"
   if [[ ! -x "$OPENCLAW_BIN" ]]; then
     printf '%s\n' '{"event":"infinity_notification_failure","phase":"setup","failure_class":"hermes_telegram_bridge_unavailable","outcome":"error"}' >&2
@@ -64,6 +71,7 @@ fi
 
 timeout --signal=TERM --kill-after=5s 120s python3 "$ROOT/scripts/dispatch_terminal_notifications.py" \
   --repo "$ROOT" --state "$STATE_FILE" --deliver --openclaw-bin "$OPENCLAW_BIN" \
+  "${RECEIPT_CHECKPOINT_ARGS[@]}" \
   --send-timeout-seconds 20 --git-timeout-seconds 10 --run-timeout-seconds 110 \
   --card-dir "$CARD_DIR"
 run_status=$?

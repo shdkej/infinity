@@ -40,9 +40,15 @@ PLAN_FILE="$(mktemp)"
 POST_PLAN_FILE="$(mktemp)"
 PROMPT_FILE="$(mktemp)"
 PROMPT_STAGE_FILE="${PROMPT_FILE}.stage"
+FENCE_RESERVED=false
+FENCE_LAUNCH_ENTERED=false
 trap 'rm -f "$PLAN_FILE" "$POST_PLAN_FILE" "$PROMPT_FILE" "$PROMPT_STAGE_FILE"' EXIT
 
 bootstrap_failure() {
+  if [[ "$FENCE_RESERVED" == true && "$FENCE_LAUNCH_ENTERED" == false ]]; then
+    python3 "$ROOT/scripts/dispatcher_handoff_fence.py" --state-dir "$STATE_DIR" resolve \
+      --run-id "$DISPATCH_RUN_ID" --outcome nonstarted --prelaunch >/dev/null 2>&1 || true
+  fi
   python3 - "$RUN_FILE" <<'PY'
 import json, sys
 from pathlib import Path
@@ -109,6 +115,26 @@ for item in json.load(open(sys.argv[1]))["handoff_candidates"]:
     print(item["intent_id"])
 PY
 )
+  if [[ "$INFINITY_EXECUTOR" == hermes ]]; then
+    GUARD_TASK_ID="infinity-dispatcher-$(basename "$RUN_FILE" .json)"
+    mapfile -t FENCE_IDS < <(python3 - "$PLAN_FILE" <<'PY'
+import json, sys
+plan = json.load(open(sys.argv[1]))
+seen = set()
+for name in ("handoff_candidates", "invalid_state", "follow_up_candidates"):
+    for item in plan.get(name, []):
+        intent_id = item.get("intent_id", "")
+        if intent_id and intent_id not in seen:
+            print(intent_id)
+            seen.add(intent_id)
+PY
+)
+    ((${#FENCE_IDS[@]})) || bootstrap_failure
+    python3 "$ROOT/scripts/dispatcher_handoff_fence.py" --state-dir "$STATE_DIR" reserve \
+      --run-id "$DISPATCH_RUN_ID" --task-id "$GUARD_TASK_ID" \
+      --canonical-sha "$PLAN_CANONICAL_SHA" "${FENCE_IDS[@]}" || bootstrap_failure
+    FENCE_RESERVED=true
+  fi
 HANDOFF_PATHS=()
   for INTENT_ID in "${HANDOFF_IDS[@]}"; do
     [[ -z "$INTENT_ID" ]] && continue
@@ -183,7 +209,6 @@ PY
   else
     mv "$PROMPT_STAGE_FILE" "$PROMPT_FILE"
     if [[ "$INFINITY_EXECUTOR" == hermes ]]; then
-      GUARD_TASK_ID="infinity-dispatcher-$(basename "$RUN_FILE" .json)"
       GUARD_END_AT="$(python3 - "$AGENT_TIMEOUT_SECONDS" <<'PY'
 from datetime import datetime, timedelta, timezone
 import sys
@@ -192,18 +217,30 @@ PY
 )"
       # Reuse the miniapp-qualified, private task-guard ledger and lock. Its
       # receipt is not delivery proof; the remote post-handoff check remains.
+      GUARD_RESULT_FILE="$STATE_DIR/$(basename "$RUN_FILE" .json)-genie.json"
+      FENCE_LAUNCH_ENTERED=true
       timeout --foreground "$((AGENT_TIMEOUT_SECONDS + 10))s" "$HERMES_GUARD_PYTHON" "$HERMES_GUARD_ROUTE" \
         --task-id "$GUARD_TASK_ID" --end-at "$GUARD_END_AT" \
         --cwd "$ROOT" --query-file "$PROMPT_FILE" \
-        >"$STATE_DIR/$(basename "$RUN_FILE" .json)-genie.json" 2>&1
+        >"$GUARD_RESULT_FILE" 2>&1
     else
       timeout --foreground "${AGENT_TIMEOUT_SECONDS}s" "$OPENCLAW_BIN" agent --agent genie --session-key "$DISPATCHER_SESSION_KEY" --message-file "$PROMPT_FILE" --thinking low --timeout "$AGENT_TIMEOUT_SECONDS" --json >"$STATE_DIR/$(basename "$RUN_FILE" .json)-genie.json" 2>&1
     fi
     HANDOFF_EXIT=$?
     HANDOFF_STATE="returned"
     [[ "$HANDOFF_EXIT" -eq 124 ]] && HANDOFF_STATE="timeout"
+    if [[ "$FENCE_RESERVED" == true && "$HANDOFF_EXIT" -eq 4 ]]; then
+      # Only a matching guard `busy` receipt proves this run spawned no child.
+      python3 "$ROOT/scripts/dispatcher_handoff_fence.py" --state-dir "$STATE_DIR" resolve \
+        --run-id "$DISPATCH_RUN_ID" --outcome nonstarted \
+        --receipt "$GUARD_RESULT_FILE" --exit-code "$HANDOFF_EXIT" >/dev/null 2>&1 || true
+    fi
   fi
   rm -f "$PROMPT_STAGE_FILE"
+  if [[ "$FENCE_RESERVED" == true && "$FENCE_LAUNCH_ENTERED" == false ]]; then
+    python3 "$ROOT/scripts/dispatcher_handoff_fence.py" --state-dir "$STATE_DIR" resolve \
+      --run-id "$DISPATCH_RUN_ID" --outcome nonstarted --prelaunch >/dev/null 2>&1 || true
+  fi
   if [[ "$HANDOFF_STATE" != prompt_generation_* && "$HANDOFF_EXIT" -eq 0 ]]; then
     if ! python3 "$ROOT/scripts/prepare_dispatch_cycle.py" --repo "$ROOT" --json >"$POST_PLAN_FILE"; then
       HANDOFF_VERIFY_EXIT=1
@@ -261,6 +298,17 @@ PY
       HANDOFF_STATE="post_handoff_unverified"
     else
       HANDOFF_STATE="verified"
+      if [[ "$FENCE_RESERVED" == true ]]; then
+        VERIFIED_REMOTE_SHA="$(git -C "$ROOT" rev-parse origin/main 2>/dev/null)"
+        if ! python3 "$ROOT/scripts/dispatcher_handoff_fence.py" --state-dir "$STATE_DIR" resolve \
+          --run-id "$DISPATCH_RUN_ID" --outcome verified \
+          --receipt "$GUARD_RESULT_FILE" --exit-code "$HANDOFF_EXIT" \
+          --post-plan "$POST_PLAN_FILE" --remote-sha "$VERIFIED_REMOTE_SHA" \
+          --repo "$ROOT"; then
+          HANDOFF_VERIFY_EXIT=1
+          HANDOFF_STATE="fence_unverified"
+        fi
+      fi
     fi
   fi
 else

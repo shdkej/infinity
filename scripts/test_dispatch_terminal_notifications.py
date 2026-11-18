@@ -11,6 +11,8 @@ import tempfile
 import time
 import unittest
 from pathlib import Path
+from unittest.mock import patch
+import dispatch_terminal_notifications as notifier
 
 from PIL import Image
 
@@ -29,6 +31,62 @@ def registry(waiting: bool = False, archived: bool = False) -> str:
 
 
 class TerminalNotificationTest(unittest.TestCase):
+    def test_checkpoint_claim_precedes_mock_transport(self):
+        from notification_receipt_guard import initialize, verify
+        import hashlib
+        from argparse import Namespace
+        from contextlib import closing
+        from typing import cast
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp); state = root / "state.json"; baseline = root / "baseline.json"
+            checkpoint = root / "checkpoint.sqlite3"
+            ledger: dict[str, object] = {"deliveries": {}, "observed_intents": {}}
+            baseline.write_text(json.dumps(ledger)); state.write_text(baseline.read_text())
+            initialize(checkpoint, baseline, state, hashlib.sha256(baseline.read_bytes()).hexdigest())
+            args = Namespace(state=state, receipt_checkpoint=checkpoint)
+            def inspect_before_transport(*_args, **_kwargs):
+                persisted = json.loads(state.read_text())
+                self.assertIn("new", persisted["deliveries"])
+                self.assertTrue(persisted["deliveries"]["new"].get("attempt_started_at"))
+                verify(checkpoint, persisted)
+                with closing(notifier.receipt_guard._connect(checkpoint)) as db:
+                    self.assertEqual(db.execute("SELECT count(*) FROM receipts").fetchone()[0], 1)
+                return "sent", None
+            with patch.object(notifier, "send", side_effect=inspect_before_transport):
+                outcome = notifier.claim_and_send(
+                    ledger, cast(dict[str, dict[str, str]], ledger["deliveries"]), "new", {"state": "claimed", "destination": "fixture|telegram:1"},
+                    {"channel": "mock", "target": "fixture"}, "body", args)
+            self.assertEqual(outcome, "sent")
+
+    def test_receipt_checkpoint_blocks_stale_restore_without_duplicate_mock_send(self):
+        from notification_receipt_guard import initialize
+        import hashlib
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp); intents = root / "INTENTS.md"; state = root / "state.json"
+            baseline = root / "baseline.json"; checkpoint = root / "checkpoint.sqlite3"; outbox = root / "outbox.jsonl"
+            intents.write_text(registry(archived=True))
+            original = {"version": 2, "deliveries": {}, "observed_intents": {}}
+            baseline.write_text(json.dumps(original)); state.write_text(baseline.read_text())
+            initialize(checkpoint, baseline, state, hashlib.sha256(baseline.read_bytes()).hexdigest())
+            cmd = [sys.executable, str(SCRIPT), "--intents", str(intents), "--state", str(state),
+                   "--mock-outbox", str(outbox), "--receipt-checkpoint", str(checkpoint)]
+            first = subprocess.run(cmd, capture_output=True, text=True)
+            self.assertEqual(first.returncode, 0, first.stderr)
+            self.assertEqual(len(outbox.read_text().splitlines()), 1)
+            state.write_text(baseline.read_text())
+            second = subprocess.run(cmd, capture_output=True, text=True)
+            self.assertNotEqual(second.returncode, 0)
+            self.assertEqual(len(outbox.read_text().splitlines()), 1)
+
+    def test_save_syncs_claim_file_and_directory_before_transport(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "ledger.json"
+            real_sync = os.fsync
+            with patch.object(notifier.os, "fsync", wraps=real_sync) as synced:
+                notifier.save(path, {"deliveries": {}, "observed_intents": {}})
+            self.assertGreaterEqual(synced.call_count, 2)
+            self.assertEqual(path.stat().st_mode & 0o777, 0o600)
+
     def run_dispatch(self, intents: Path, state: Path, outbox: Path, env: dict[str, str] | None = None) -> dict:
         run_env = {**os.environ, **(env or {})}
         result = subprocess.run(["python3", str(SCRIPT), "--intents", str(intents), "--state", str(state), "--mock-outbox", str(outbox)], check=True, capture_output=True, text=True, env=run_env)

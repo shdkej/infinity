@@ -83,6 +83,8 @@ class HermesCronEntrypointTest(unittest.TestCase):
         source = (ROOT / "scripts/run_notification_cron.sh").read_text()
         self.assertIn('INFINITY_NOTIFICATION_TRANSPORT', source)
         self.assertIn('hermes_telegram_send.py', source)
+        self.assertIn('notification-receipt-checkpoint.sqlite3', source)
+        self.assertIn('--receipt-checkpoint', source)
         self.assertIn('--state "$STATE_FILE" --deliver', source)
 
     def test_all_roles_share_canonical_git_lock(self):

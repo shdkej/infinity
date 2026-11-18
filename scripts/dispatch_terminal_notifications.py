@@ -26,6 +26,7 @@ from pathlib import Path
 
 from PIL import Image, ImageDraw, ImageFont
 import yaml
+import notification_receipt_guard as receipt_guard
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -381,8 +382,23 @@ def load(path: Path) -> dict[str, object]:
 def save(path: Path, data: dict[str, object]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     tmp = path.with_suffix(path.suffix + ".tmp")
-    tmp.write_text(json.dumps(data, ensure_ascii=False, indent=2, sort_keys=True) + "\n")
-    tmp.replace(path)
+    fd = os.open(tmp, os.O_CREAT | os.O_TRUNC | os.O_WRONLY | getattr(os, "O_NOFOLLOW", 0), 0o600)
+    try:
+        os.fchmod(fd, 0o600)
+        with os.fdopen(fd, "w", encoding="utf-8") as stream:
+            fd = -1
+            stream.write(json.dumps(data, ensure_ascii=False, indent=2, sort_keys=True) + "\n")
+            stream.flush()
+            os.fsync(stream.fileno())
+        os.replace(tmp, path)
+        parent_fd = os.open(path.parent, os.O_RDONLY | os.O_DIRECTORY)
+        try:
+            os.fsync(parent_fd)
+        finally:
+            os.close(parent_fd)
+    finally:
+        if fd >= 0:
+            os.close(fd)
 
 
 def approval_buttons(entry: dict[str, object], state: str) -> list[dict[str, object]]:
@@ -540,6 +556,14 @@ def change_destination(args: argparse.Namespace, fields: dict[str, str]) -> dict
     return destination(fields, args.change_channel, args.change_target)
 
 
+def persist(args: argparse.Namespace, ledger: dict[str, object]) -> None:
+    save(args.state, ledger)
+    if args.receipt_checkpoint:
+        # A failed checkpoint stops before transport. The attempt marker was
+        # already fsynced in the ledger; it must never be reset implicitly.
+        receipt_guard.record(args.receipt_checkpoint, ledger)
+
+
 def claim_and_send(
     ledger: dict[str, object],
     deliveries: dict[str, dict[str, str]],
@@ -553,7 +577,7 @@ def claim_and_send(
 ) -> str:
     deliveries[key] = receipt
     receipt["attempt_started_at"] = now()
-    save(args.state, ledger)
+    persist(args, ledger)
     try:
         outcome, failure_class = send(dest, body, args, card, media_path,
                                      intent_id=receipt.get("intent_id", ""), receipt_key=key)
@@ -568,7 +592,7 @@ def claim_and_send(
     else:
         receipt.pop("failure_class", None)
     receipt[("sent_at" if outcome == "sent" else "updated_at")] = now()
-    save(args.state, ledger)
+    persist(args, ledger)
     return outcome
 
 
@@ -596,6 +620,8 @@ def main() -> int:
         Path.home() / ".openclaw/state/infinity-dispatcher-runs/dispatcher-terminal-notifications.json",
     ))
     parser.add_argument("--state", type=Path, default=default_state)
+    parser.add_argument("--receipt-checkpoint", type=Path,
+                        help="required existing private monotonic checkpoint for migrated notifier")
     parser.add_argument("--lock", type=Path, help="exclusive reconciliation lock (defaults beside state)")
     parser.add_argument("--mock-outbox", help="safe JSONL delivery sink")
     parser.add_argument("--deliver", action="store_true", help="enable host OpenClaw CLI delivery")
@@ -646,7 +672,11 @@ def main() -> int:
     lock_path.parent.mkdir(parents=True, exist_ok=True)
     with lock_path.open("w") as lock:
       acquire_lock_bounded(lock, args)
+      if args.receipt_checkpoint and not args.state.is_file():
+          raise ValueError("operational receipt ledger missing; refusing regeneration")
       ledger = load(args.state)
+      if args.receipt_checkpoint:
+          receipt_guard.verify(args.receipt_checkpoint, ledger)
       deliveries: dict[str, dict[str, str]] = ledger["deliveries"]  # type: ignore[assignment]
       sent = skipped = 0
       current_receipts: set[str] = set()
@@ -682,7 +712,7 @@ def main() -> int:
                               existing["state"] = "delivery_unknown"
                               existing["failure_class"] = "legacy_unverified_pre_acceptance"
                               existing["updated_at"] = now()
-                              save(args.state, ledger)
+                              persist(args, ledger)
                               emit_event("receipt", "legacy_unverified_pre_acceptance",
                                          intent_id=intent_id, receipt_key=key,
                                          outcome="ambiguous")
@@ -732,7 +762,7 @@ def main() -> int:
                       existing["state"] = "delivery_unknown"
                       existing["failure_class"] = "legacy_unverified_pre_acceptance"
                       existing["updated_at"] = now()
-                      save(args.state, ledger)
+                      persist(args, ledger)
                       emit_event("receipt", "legacy_unverified_pre_acceptance",
                                  intent_id=str(entry["id"]), receipt_key=key,
                                  outcome="ambiguous")
@@ -766,7 +796,7 @@ def main() -> int:
           if key not in current_receipts and receipt.get("state") in {"claimed", "failed_before_acceptance", "delivery_unknown"}:
               receipt["state"] = "superseded"
               receipt["superseded_at"] = now()
-      save(args.state, ledger)
+      persist(args, ledger)
       fcntl.flock(lock, fcntl.LOCK_UN)
     unknown = sum(1 for receipt in deliveries.values() if receipt.get("state") in {"claimed", "failed_before_acceptance", "delivery_unknown"})
     print(json.dumps({"sent": sent, "skipped_missing_destination": skipped, "delivery_uncertain": unknown}, ensure_ascii=False))
