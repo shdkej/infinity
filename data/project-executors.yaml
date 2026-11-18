@@ -24,3 +24,14 @@ executors:
       - /home/ubuntu/workspace/projects/minimalmoeum/TASKS.md
       - /home/ubuntu/workspace/projects/minimalmoeum/AGENTS.md
     dispatch: genie_direct
+  miniapp-image-tools:
+    agent_id: genie
+    workspace: /home/sam/workspace/space/infra-aws-static-sites/sites/miniapp-image-tools
+    repository: /home/sam/workspace/space
+    required_documents:
+      - /home/sam/workspace/prompt-archive/LLM.md
+      - /home/sam/workspace/knowledge-lab/source/openclaw-system/docs/projects/MINIAPP_IMAGE_TOOLS_PILOT.md
+      - /home/sam/workspace/knowledge-lab/source/openclaw-system/docs/INFINITY_OPERATING_RULES.md
+      - /home/sam/workspace/space/infra-aws-static-sites/sites/miniapp-image-tools/README.md
+      - /home/sam/workspace/space/infra-aws-static-sites/sites/miniapp-image-tools/qa/checkpoint.md
+    dispatch: genie_direct

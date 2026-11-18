@@ -58,6 +58,29 @@
         "logs/agent-wiki-query.md"
       ],
       "note": "browser QA synthetic, PostHog/deploy unverified"
+    },
+    {
+      "type": "execution",
+      "at": "2026-11-18T11:13:40Z",
+      "context_pack": "intents/context/miniapp-image-tools-20261118-qa-01.json",
+      "evidence_paths": [
+        "intents/waiting/miniapp-image-tools-20261118-qa-01.md",
+        "reports/miniapp-image-tools-20261118-qa-01/20261118T1116Z.html"
+      ],
+      "searches": ["miniapp image tools QA WSL intake PostHog deploy"],
+      "wiki_pages": ["agent-wiki/content/docs/outputs/blog/Deploy_ERP_server_story.mdx", "agent-wiki/content/docs/outputs/blog/Note_Management.mdx", "agent-wiki/content/docs/outputs/Integration/Tool.mdx", "agent-wiki/content/docs/outputs/Fundamental/Architecture.mdx"],
+      "operational_log_sections": ["logs/agent-wiki-query.md"],
+      "note": "release task miniapp-image-tools-20261118-release-01 in slot pilot-release-01; Space checkpoint cb55c78, UI/workflow a8e26d8; at this event Action 44292646921 was in progress; PostHog login gap remains"
+    },
+    {
+      "type": "execution",
+      "at": "2026-11-18T11:16:30Z",
+      "context_pack": "intents/context/miniapp-image-tools-20261118-qa-01.json",
+      "evidence_paths": ["reports/miniapp-image-tools-20261118-qa-01/20261118T1116Z.html"],
+      "searches": ["miniapp image tools QA WSL intake PostHog deploy"],
+      "wiki_pages": ["agent-wiki/content/docs/outputs/blog/Deploy_ERP_server_story.mdx", "agent-wiki/content/docs/outputs/blog/Note_Management.mdx", "agent-wiki/content/docs/outputs/Integration/Tool.mdx", "agent-wiki/content/docs/outputs/Fundamental/Architecture.mdx"],
+      "operational_log_sections": ["logs/agent-wiki-query.md"],
+      "note": "Action 44292646921 succeeded at source a8e26d8; live browser PNG to WebP saved and opened 160x80; analytics app authentication and same-ID query remain blocked"
     }
   ],
   "artifacts": [],
@@ -77,10 +100,19 @@
       ],
       "status": "warn",
       "next_role": "operator"
+    },
+    {
+      "label": "release changed-scope cross-review and resolver",
+      "type": "role_review",
+      "at": "2026-11-18T11:13:40Z",
+      "roles": ["planner", "developer", "marketer", "operator"],
+      "evidence_paths": ["intents/waiting/miniapp-image-tools-20261118-qa-01.md"],
+      "status": "warn",
+      "next_role": "operator"
     }
   ],
   "next_decision": {
-    "status": "in_progress",
-    "value": "new approved slot after external access proof"
+    "status": "waiting",
+    "value": "SAM explicitly allocates app-specific PostHog project access; no auto-retry after slot end"
   }
 }
