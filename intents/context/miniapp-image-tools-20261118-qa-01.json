@@ -1,0 +1,136 @@
+{
+  "context_pack_version": 3,
+  "status": "ready",
+  "route": "infinity",
+  "request": "miniapp image tools QA WSL intake PostHog deploy",
+  "built_at": "2026-11-18T10:54:18.016548+00:00",
+  "required_documents": [
+    "/home/ubuntu/workspace/prompt-archive/LLM.md",
+    "README.md",
+    "schema/agent-rules.md",
+    "source/openclaw-system/docs/DOCUMENT_SEARCH_PIPELINE.md",
+    "source/openclaw-system/docs/USER_CONTEXT.md",
+    "source/openclaw-system/docs/SERVICE_REGISTRY.md",
+    "source/openclaw-system/docs/OPENCLAW_COMMON.md",
+    "source/openclaw-system/docs/INFINITY_OPERATING_RULES.md",
+    "/home/ubuntu/workspace/infinity/ARTIFACT_RULES.md",
+    "/home/ubuntu/workspace/infinity/EXECUTION_LEARNING_CONTRACT.md",
+    "/home/ubuntu/workspace/infinity/INTENTS.yaml",
+    "agent-wiki/content/docs/index.mdx"
+  ],
+  "resolved_required_documents": [
+    "/home/sam/workspace/prompt-archive/LLM.md",
+    "/home/sam/workspace/knowledge-lab/README.md",
+    "/home/sam/workspace/knowledge-lab/schema/agent-rules.md",
+    "/home/sam/workspace/knowledge-lab/source/openclaw-system/docs/DOCUMENT_SEARCH_PIPELINE.md",
+    "/home/sam/workspace/knowledge-lab/source/openclaw-system/docs/USER_CONTEXT.md",
+    "/home/sam/workspace/knowledge-lab/source/openclaw-system/docs/SERVICE_REGISTRY.md",
+    "/home/sam/workspace/knowledge-lab/source/openclaw-system/docs/OPENCLAW_COMMON.md",
+    "/home/sam/workspace/knowledge-lab/source/openclaw-system/docs/INFINITY_OPERATING_RULES.md",
+    "/home/sam/workspace/infinity/ARTIFACT_RULES.md",
+    "/home/sam/workspace/infinity/EXECUTION_LEARNING_CONTRACT.md",
+    "/home/sam/workspace/infinity/INTENTS.yaml",
+    "/home/sam/workspace/knowledge-lab/agent-wiki/content/docs/index.mdx"
+  ],
+  "search_scopes": [
+    "agent-wiki/content/docs/",
+    "source/openclaw-system/docs/",
+    "source/openclaw-system/data/daily-reviews/",
+    "source/openclaw-system/data/daily-tracking/",
+    "source/openclaw-system/data/photo-insights/"
+  ],
+  "selected_context": [
+    {
+      "path": "agent-wiki/content/docs/outputs/blog/Deploy_ERP_server_story.mdx",
+      "reason": "zg hybrid discovery; indexed section retained for targeted reading",
+      "verification": "indexed-section",
+      "locator": {
+        "start_line": 2,
+        "end_line": 4,
+        "heading": "title: \"Deploy_ERP_server_story\"",
+        "heading_level": "2",
+        "scope": "",
+        "excerpt": "title: \"Deploy_ERP_server_story\" ---"
+      }
+    },
+    {
+      "path": "agent-wiki/content/docs/outputs/blog/Note_Management.mdx",
+      "reason": "zg hybrid discovery; indexed section retained for targeted reading",
+      "verification": "indexed-section",
+      "locator": {
+        "start_line": 263,
+        "end_line": 271,
+        "heading": "Why it matters",
+        "heading_level": "2",
+        "scope": "Note_Management",
+        "excerpt": "## Why it matters This idea connects dashboard design, agent participation, and knowledge organization.  An archive becomes more useful when it is reopened as a worktable rather than left as a warehouse. The point is not to keep adding items to a static list, but to spread out the capture, reclassify what changed, and pull reusable pieces back into active work.  When the material is mixed media, the visible surface has to come first. A photo set, a 9-frame storyboard, or a batch of captures is easier to reuse when the order is fixed before generation, not after it.  That applies especially to daily captures, image sets, and other mixed media inputs: first make the material visible, then deci"
+      }
+    },
+    {
+      "path": "agent-wiki/content/docs/outputs/Integration/Tool.mdx",
+      "reason": "zg hybrid discovery; indexed section retained for targeted reading",
+      "verification": "indexed-section",
+      "locator": {
+        "start_line": 200,
+        "end_line": 206,
+        "heading": "E. 하부 운영 기억",
+        "heading_level": "3",
+        "scope": "도구::원문 발췌 구조",
+        "excerpt": "### E. 하부 운영 기억 - bash cheatsheet, startup files, 한글 입력기, distro 경험 - sudo, backup, cron, iptables, ssh, DB, DNS, storage, NFS, WSL - Git 설정, rebase/merge 충돌, stash, hooks, 대용량 파일 정리  문제 해결 후 다시 손을 대야 하는 항목들이 길게 축적되어 있다."
+      }
+    },
+    {
+      "path": "agent-wiki/content/docs/outputs/blog/Deploy_ERP_server_story.mdx",
+      "reason": "zg hybrid discovery; indexed section retained for targeted reading",
+      "verification": "indexed-section",
+      "locator": {
+        "start_line": 86,
+        "end_line": 96,
+        "heading": "구조 전환: Compose-only에서 Dockerfile 포함 구조로",
+        "heading_level": "2",
+        "scope": "Deploy_ERP_server_story",
+        "excerpt": "## 구조 전환: Compose-only에서 Dockerfile 포함 구조로 원문은 Dockerfile을 도입해 다음 작업을 이미지 빌드 단계로 이동시킨다.  - vim 설치 - `odoo.conf`의 addons 경로 변경 - 기본 project addon 제거  그리고 `image: odoo:10.0` 대신 `build: ./`로 바꾼다.  이 변화의 의미는 분명하다."
+      }
+    },
+    {
+      "path": "agent-wiki/content/docs/outputs/Fundamental/Architecture.mdx",
+      "reason": "zg hybrid discovery; indexed section retained for targeted reading",
+      "verification": "indexed-section",
+      "locator": {
+        "start_line": 311,
+        "end_line": 316,
+        "heading": "통합된 판단: 변경 친화적 운영 구조",
+        "heading_level": "2",
+        "scope": "Architecture",
+        "excerpt": "## 통합된 판단: 변경 친화적 운영 구조  - 출처: `agent-wiki/content/docs/index.mdx`의 이용 경계, `agent-wiki/content/docs/outputs/Fundamental/Architecture.mdx`, `agent-wiki/content/docs/outputs/Fundamental/Software.mdx`, `agent-wiki/content/docs/outputs/Fundamental/Coding.mdx`, `agent-wiki/content/docs/outputs/blog/Deploy_ERP_server_story.mdx` - 역할: \"변경 가능성과 느슨한 결합이 장기 안정성을 만든다\"는 README 논지 묶음을 운영 가능한 synthesis로 승격 - 상태: 초안 · 완벽한 첫 구조보다 변경 반경, 상태 소유권, 검증 리듬을 먼저 고정하는 판단 모델"
+      }
+    }
+  ],
+  "selected_operational_logs": [
+    {
+      "path": "logs/agent-wiki-query.md",
+      "reason": "bounded operational-log preflight; not part of the Agent Wiki index",
+      "verification": "matched",
+      "matches": [
+        "779:## 2026-11-18 — 이미지 처리 미니앱 파일럿 준비 [miniapp-image-tools-pilot-20261118]",
+        "786:- 정본: `source/openclaw-system/docs/projects/MINIAPP_IMAGE_TOOLS_PILOT.md`. SAM 인테이크·역할 검토 진행 중이며 앱/계측/일일 자동화 완료로 보고하지 않는다.",
+        "794:- 상세 상태·메시지 증거·취소/회수 경로는 MINIAPP_IMAGE_TOOLS_PILOT.md §7을 따른다."
+      ]
+    }
+  ],
+  "preflight": {
+    "tool": "zg",
+    "query": "miniapp image tools QA WSL intake PostHog deploy",
+    "discovery": "hybrid+fts RRF",
+    "verification": "indexed section locator",
+    "result_count": 5
+  },
+  "selected_context_required": true,
+  "rules": [
+    "Read every required document before creating or executing an intent.",
+    "Read every selected_context locator section first (including its heading and line window); expand to adjacent sections only when needed, and record the exact paths in the execution trace.",
+    "Read only the matched sections of selected_operational_logs; they are operational evidence, not compiled knowledge.",
+    "Search the declared scopes for task-specific evidence; do not treat a search hit as a confirmed fact without its source.",
+    "Record the resulting context pack path in the intent and re-check it before handoff."
+  ]
+}

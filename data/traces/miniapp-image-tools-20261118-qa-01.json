@@ -1,0 +1,86 @@
+{
+  "schema_version": 2,
+  "intent_id": "miniapp-image-tools-20261118-qa-01",
+  "status": "waiting",
+  "trace_completeness": "complete",
+  "request": {
+    "raw": {
+      "status": "recorded",
+      "value": "Approved guarded QA/connection recovery task_id=miniapp-image-tools-20261118-qa-01; project_id=miniapp-image-tools; plan_revision=4; slot pilot-qa-01; start_at=2026-11-18T10:40:05Z; HARD end_at=2026-11-18T11:00:05Z."
+    },
+    "normalized_query": {
+      "status": "recorded",
+      "value": "miniapp image tools QA WSL intake PostHog deploy"
+    },
+    "user_intent": {
+      "status": "recorded",
+      "value": "WSL 단일 보호 슬롯에서 미니앱 인테이크·브라우저 QA·연결을 검증한다"
+    },
+    "desired_outcome": {
+      "status": "recorded",
+      "value": "실제 QA 증거, 원격 SHA, 앱 전용 계측·라이브 상태의 정확한 구분"
+    },
+    "out_of_scope": {
+      "status": "recorded",
+      "value": "Ubuntu 직접 실행, 이전 작업, 신규 cron, 안전하지 않은 버킷 동기화·권한 변경"
+    },
+    "success_evidence": {
+      "status": "recorded",
+      "value": "Pack/trace/원격 원장, 화면·다운로드, 앱 전용 PostHog 동일 QA ID 조회, 안전한 라이브 URL"
+    }
+  },
+  "events": [
+    {
+      "type": "intake",
+      "at": "2026-11-18T10:56:36Z",
+      "context_pack": "intents/context/miniapp-image-tools-20261118-qa-01.json",
+      "evidence_paths": [
+        "INTENTS.yaml"
+      ]
+    },
+    {
+      "type": "execution",
+      "at": "2026-11-18T10:56:36Z",
+      "context_pack": "intents/context/miniapp-image-tools-20261118-qa-01.json",
+      "evidence_paths": [
+        "reports/miniapp-image-tools-20261118-qa-01/20261118T1055Z.html"
+      ],
+      "searches": [
+        "miniapp image tools QA WSL intake PostHog deploy"
+      ],
+      "wiki_pages": [
+        "agent-wiki/content/docs/outputs/blog/Deploy_ERP_server_story.mdx",
+        "agent-wiki/content/docs/outputs/blog/Note_Management.mdx",
+        "agent-wiki/content/docs/outputs/Integration/Tool.mdx",
+        "agent-wiki/content/docs/outputs/Fundamental/Architecture.mdx"
+      ],
+      "operational_log_sections": [
+        "logs/agent-wiki-query.md"
+      ],
+      "note": "browser QA synthetic, PostHog/deploy unverified"
+    }
+  ],
+  "artifacts": [],
+  "verifications": [
+    {
+      "label": "workflow role review",
+      "type": "role_review",
+      "at": "2026-11-18T10:56:36Z",
+      "roles": [
+        "planner",
+        "developer",
+        "marketer",
+        "operator"
+      ],
+      "evidence_paths": [
+        "intents/waiting/miniapp-image-tools-20261118-qa-01.md"
+      ],
+      "status": "warn",
+      "next_role": "operator"
+    }
+  ],
+  "next_decision": {
+    "status": "in_progress",
+    "value": "new approved slot after external access proof"
+  }
+}

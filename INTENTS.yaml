@@ -80,6 +80,48 @@ lanes:
     notification_target: telegram:433493318
   inbox: []
   waiting:
+  - id: miniapp-image-tools-20261118-qa-01
+    dedupe_key: miniapp-image-tools:pilot-qa-01
+    project_id: miniapp-image-tools
+    title: 이미지 미니앱 보호 QA·연결 복구
+    task_name: 이미지 미니앱 보호 QA·연결 복구
+    status: waiting
+    priority: normal
+    task_type: verification
+    target_agent: genie
+    execution_owner: windows_genie_wsl
+    execution_mode: hermes_guarded_child_wsl
+    source: user_approved_qa_slot
+    plan_revision: 4
+    created_at: '2026-11-18T10:40:05Z'
+    deadline: '2026-11-18T11:00:05Z'
+    user_intent: 이미지 미니앱의 WSL 인테이크와 실제 브라우저 QA·계측·배포 연결을 승인된 단일 슬롯에서 검증한다.
+    desired_outcome: 안전한 범위의 복구·실제 다운로드와 렌더 증거·원격 소스 SHA 및 미검증 연결의 정확한 구분.
+    out_of_scope: Ubuntu 직접 실행, 무등록 dispatcher 라우트, 타 Infinity 이전 작업, 신규 cron·권한·유료 리소스, 타 사이트 또는 전체 버킷 삭제.
+    success_evidence: 실물 Pack/trace와 원격 원장, 브라우저 다운로드 MIME·화소·화면, 앱 전용 PostHog 동일 QA ID 조회, 안전한 라이브 URL.
+    metric_question: 합성 브라우저 변환과 수집·라이브 경로가 각각 검증되는가?
+    metric_signal: 실제 저장 파일 검증 및 같은 QA ID 서버 조회와 라이브 HTTP 상태
+    metric_decision_rule: 어느 하나라도 미확인이면 출시·사용자 성공 주장을 보류한다.
+    context_pack: intents/context/miniapp-image-tools-20261118-qa-01.json
+    context_documents_checked:
+    - /home/sam/workspace/prompt-archive/LLM.md
+    - /home/sam/workspace/knowledge-lab/source/openclaw-system/docs/INFINITY_OPERATING_RULES.md
+    - /home/sam/workspace/infinity/ARTIFACT_RULES.md
+    - /home/sam/workspace/infinity/EXECUTION_LEARNING_CONTRACT.md
+    - /home/sam/workspace/knowledge-lab/agent-wiki/content/docs/index.mdx
+    context_searches:
+    - miniapp image tools QA WSL intake PostHog deploy
+    trace: data/traces/miniapp-image-tools-20261118-qa-01.json
+    detail: intents/waiting/miniapp-image-tools-20261118-qa-01.md
+    source_repository: https://github.com/shdkej/space
+    source_commit: 93fb596
+    source_remote_verified: pass
+    waiting_on: external
+    blocker: 이 앱 전용 PostHog 인증·조회 부재와 새 정적 하위경로 403; 안전한 기존 배포 소유·권한 미확인.
+    next_action: SAM이 앱 프로젝트 접근과 안전한 배포 경로를 검증하고 새 승인 슬롯을 배정한다.
+    notification_channel: slack
+    notification_target: channel:C0CE0DV9MM2
+    notification_reply_to: '1794983278.888719'
   - id: reel-room-studio-20261113
     title: Reel Room·Instagram Maker 통합 릴스 스튜디오 구현
     task_name: Reel Room·Instagram Maker 통합 릴스 스튜디오 구현
