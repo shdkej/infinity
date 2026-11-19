@@ -92,8 +92,17 @@
       "operational_log_sections": ["logs/agent-wiki-query.md"],
       "note": "new guarded task miniapp-image-tools-20261118-posthog-01, plan revision 7, pilot-posthog-01 11:55:26Z-12:15:26Z. Prior Context Pack wiki/log paths inherited from earlier QA trace, not re-read as this narrow follow-up. User authorized host-specific ~/.env and browser Google login. /home/sam/.env POSTHOG_ACCESS_TOKEN name present; /home/ubuntu/.env and /mnt/c/Users/msi/.env absent. Existing management token authenticated US organization sam; one existing Default project ID 424014 uses account project feature limit 1. No MFA blocker, no app-specific project; no browser collection key deployment, five-event same-ID query or exclusion proof. No secret values stored."
     }
+    ,{
+      "type": "execution",
+      "at": "2026-11-19T03:34:39Z",
+      "context_pack": "intents/context/miniapp-image-tools-20261118-qa-01.json",
+      "evidence_paths": ["intents/waiting/miniapp-image-tools-20261118-qa-01.md", "reports/miniapp-image-tools-20261118-qa-01/20261119T0334Z.html"],
+      "note": "Daily closeout: compared plan revision 2, Windows sender result, observation and known evidence. Actor reported normal exit_code 0 before fixed end_at; final guard/lock cleanup receipt not independently available. No additional execution, retry, extension, slot or deployment."
+    }
   ],
-  "artifacts": [],
+  "artifacts": [
+    {"path":"reports/miniapp-image-tools-20261118-qa-01/20261119T0334Z.html","type":"report","status":"recorded","at":"2026-11-19T03:34:39Z","summary":"Daily closeout; measurement unavailable, Waiting retained; final guard cleanup unverified."}
+  ],
   "verifications": [
     {
       "label": "workflow role review",
