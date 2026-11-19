@@ -34,3 +34,6 @@
 - action_policy: 관측은 검증된 Windows guarded 실행 경로, 읽기 전용·최초 end_at 고정·중복이면 중지. SAM 계획은 결과/원격 증거 회수 및 계획 기록만 허용. 추가 비용, 권한, PostHog 프로젝트 변경, 앱 변경·배포는 금지.
 - result_destination: 이 detail 파일과 원문 Slack thread `C0CE0DV9MM2/1794983278.888719`.
 - 판정 기준: 실제 사용자 지표의 원천·표본·관측시각·합성 제외를 입증할 수 있을 때만 지표 기반 목표를 세운다. 근거가 없으면 해당 공백을 기록하고 계측 접근 가능 범위의 다음 절차만 제안한다.
+
+- 10:06 KST handoff status: Slack 전송 영수증과 Windows `U0CHX8QA7S8`의 실제 ACK를 확인했다 ([handoff](https://shdkej.slack.com/archives/C0CE0DV9MM2/p1795050316300149), [guard ACK](https://shdkej.slack.com/archives/C0CE0DV9MM2/p1795050359542979)). guard 상태는 `running`, 최초 종료 시각 `2026-11-19T01:20:00Z` 유지다. 결과는 아직 대기 중이며 미수집/0으로 간주하지 않는다.
+- 10:20 SAM 계획 예약: `f94e2c4f-b3b8-49d3-a17e-3e488809c5a4`, declarationKey `miniapp-image-tools:20261119:clockin-plan-01`, agent `main`, isolated, 단발 `2026-11-19T01:20:00Z`, delete-after-run, delivery none. 저장 후 `cron get`에서 시각·소유자·본문·활성 상태를 재확인했다.
