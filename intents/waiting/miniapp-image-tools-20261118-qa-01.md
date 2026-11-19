@@ -37,3 +37,12 @@
 
 - 10:06 KST handoff status: Slack 전송 영수증과 Windows `U0CHX8QA7S8`의 실제 ACK를 확인했다 ([handoff](https://shdkej.slack.com/archives/C0CE0DV9MM2/p1795050316300149), [guard ACK](https://shdkej.slack.com/archives/C0CE0DV9MM2/p1795050359542979)). guard 상태는 `running`, 최초 종료 시각 `2026-11-19T01:20:00Z` 유지다. 결과는 아직 대기 중이며 미수집/0으로 간주하지 않는다.
 - 10:20 SAM 계획 예약: `f94e2c4f-b3b8-49d3-a17e-3e488809c5a4`, declarationKey `miniapp-image-tools:20261119:clockin-plan-01`, agent `main`, isolated, 단발 `2026-11-19T01:20:00Z`, delete-after-run, delivery none. 저장 후 `cron get`에서 시각·소유자·본문·활성 상태를 재확인했다.
+
+### 관측 결과 · miniapp-image-tools-20261119-observe-01
+
+- 슬롯: plan `miniapp-image-tools-20261119` revision 1; `clockin-observation-01` revision 1; 2026-11-19T01:05:00Z–01:20:00Z hard stop. 읽기 전용 원천 관측의 결과를 이 기존 Intent detail에만 추가; 앱·PostHog·배포 변경 없음.
+- observed_at: 2026-11-19T01:08:04Z (원격 소스/Intent 조회 및 라이브 HTML), 2026-11-19T01:08:52Z (라이브 HTML 재확인). 라이브 `https://images.aws.shdkej.com/tools/image-converter/` HTML GET 200, 한 개의 인라인 스크립트와 외부 스크립트 0개. 앱의 `capture`에는 미설정 analytics host/key에서 반환하는 가드가 있고 라이브 HTML에 `__IMAGE_TOOLS_ANALYTICS__` 할당은 없다. 이 출고 페이지에서 앱 전용 PostHog 브라우저 수집은 비활성 상태로 판독된다. 이 HTTP 조회 2건은 사용자 표본이나 사용자 성공 이벤트가 아니다.
+- 출처·귀속: `shdkej/space` 원격 main `3a2b71f0f705d6acd5fcebc7ed1f48060c2d4e8c`의 `infra-aws-static-sites/sites/miniapp-image-tools/dist/index.html` blob `474a00564440b1fae69ea79f8e2a42fd7b6af9c3` (로컬 Space HEAD `01124a0fb61b0cda5b0bb04a26f48e04d48d3863`의 동일 blob), `dist/index.html:42–60` 및 `README.md:13–17`. 기존 Infinity QA/릴리스 보고는 합성 브라우저 검증이며 실사용 지표 원천이 아니다.
+- PostHog 귀속: 전일 인증 조회 결과의 현 조직 `Default project` 424014는 앱 전용으로 증명되지 않았다. 이번 슬롯에서 그 프로젝트나 다른 프로젝트의 이벤트를 조회하거나 키를 사용하지 않았다. 2026-11-19 현재 앱 전용 프로젝트/서버 데이터의 존재·접근 가능 여부는 미확인; 실제 사용자 이벤트 표본·분모·성공률은 **unknown**, 관측된 0건이 아니다.
+- QA 제외: 앱 코드의 `?qa=1`은 `traffic_kind=synthetic`과 `qa_run_id`를 지정하고 비-QA는 `traffic_kind=user`로 표시하도록 설계되어 있다. 실제 서버 수집과 `traffic_kind != synthetic` 필터 적용은 미검증이며 제외된 실사용 집계는 없다.
+- 판정: 현재 확인된 앱 전용 사용자 지표 원천 없음(출고 앱 수집 비활성); 기존 계정/조직 밖의 소스와 PostHog 서버 데이터는 조회하지 않았으므로 접근·데이터 존재를 단정하지 않는다. Waiting 유지.
