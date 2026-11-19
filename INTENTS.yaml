@@ -106,6 +106,11 @@ lanes:
     telemetry_slot_start_at: '2026-11-18T11:55:26Z'
     telemetry_slot_end_at: '2026-11-18T12:15:26Z'
     telemetry_plan_revision: 7
+    shared_posthog_task_id: miniapp-image-tools-20261119-shared-posthog-01
+    shared_posthog_slot: direct-user-shared-posthog-01
+    shared_posthog_intake_at: '2026-11-19T05:57:25Z'
+    shared_posthog_slot_end_at: '2026-11-19T06:18:00Z'
+    shared_posthog_project_id: 424014
     telemetry_auth_instruction: 사용자 승인으로 호스트별 ~/.env의 PostHog 키 이름 확인 및 기존 계정 인증 사용 허용; 비밀값 비공개.
     user_intent: 이미지 미니앱의 WSL 인테이크와 실제 브라우저 QA·계측·배포 연결을 승인된 단일 슬롯에서 검증한다.
     desired_outcome: 안전한 범위의 복구·실제 다운로드와 렌더 증거·원격 소스 SHA 및 미검증 연결의 정확한 구분.
@@ -126,15 +131,15 @@ lanes:
     trace: data/traces/miniapp-image-tools-20261118-qa-01.json
     detail: intents/waiting/miniapp-image-tools-20261118-qa-01.md
     source_repository: https://github.com/shdkej/space
-    source_commit: a8e26d8ac2ca60babf0b339e19b3f538765f3d42
+    source_commit: 3d0344cc2a7073837fcbc45bf1ba60eec1657528
     source_remote_verified: pass
     release_evidence_commit: da30854ae59c8d1ae2a205935ab7cf549b7a4fe1
-    release_workflow_run: '44292646921'
+    release_workflow_run: '44469814029'
     release_live_url: https://images.aws.shdkej.com/tools/image-converter/
-    report: reports/miniapp-image-tools-20261118-qa-01/20261118T1201Z.html
-    waiting_on: user
-    blocker: 기존 US PostHog 조직에서 개인 API 인증은 성공했으나 허용 프로젝트 수 1개를 기존 Default project가 사용 중이며 앱 전용 프로젝트가 없다. 기존 프로젝트/Virtue 키 재사용·유료 변경 불가; 다섯 이벤트 동일 QA ID 조회 및 합성 제외 미검증.
-    next_action: 사용자가 기존 앱 전용 프로젝트 접근을 제공하거나 현재 조직의 프로젝트 한도를 별도로 해소할지 결정한다. 이번 슬롯의 자동 재시도·연장 없음.
+    report: reports/miniapp-image-tools-20261118-qa-01/20261119T0611Z.html
+    waiting_on: external
+    blocker: 공유 Default project 424014 승인 후 라이브 5종 동일 QA ID·합성 제외까지 검증. 원문 Slack terminal delivery 영수증과 이번 guard 최종 상태는 이 child에서 독립 확인 불가하여 Archive 보류.
+    next_action: SAM parent가 기존 원문 Slack handoff/recovery에서 delivery 및 guard receipt를 확인한다. 미확인 시 Waiting 유지; 새 실행·자동 재시도·연장 없음.
     notification_channel: slack
     notification_target: channel:C0CE0DV9MM2
     notification_reply_to: '1794983278.888719'

@@ -137,6 +137,20 @@
     "observed_capacity": "One existing Default project ID 424014; account feature organizations_projects limit 1; no miniapp-specific project.",
     "decision": "Keep Waiting; no project reuse, billing, client key, deployment or synthetic capture without app-specific project."
   },
+  "shared_posthog_followup": {
+    "task_id": "miniapp-image-tools-20261119-shared-posthog-01",
+    "slot": "direct-user-shared-posthog-01",
+    "intake_at": "2026-11-19T05:57:25Z",
+    "end_at": "2026-11-19T06:18:00Z",
+    "scope_change": "User approved sharing Default project 424014 PUBLIC collection token with miniapp, overriding prior no-reuse decision only for this project; private query token remains server-side.",
+    "observed_at": "2026-11-19T06:10:28Z",
+    "source_commit": "3d0344cc2a7073837fcbc45bf1ba60eec1657528",
+    "action_run": "44469814029",
+    "qa_run_id": "84b4c7ef-6bd4-4e1d-9ee3-baf7eadc1485",
+    "same_id_five_event_counts": [1, 1, 1, 1, 1],
+    "synthetic_exclusion": "actual server query user-and-not-synthetic numerator 0 / same-ID denominator 5",
+    "status": "Waiting pending parent Slack delivery and final guard receipt; no automatic retry"
+  },
   "selected_context_required": true,
   "rules": [
     "Read every required document before creating or executing an intent.",

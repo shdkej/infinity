@@ -1,6 +1,6 @@
 # [miniapp-image-tools-20261118-qa-01] 이미지 미니앱 보호 QA·연결 복구
 
-- 상태: Waiting — 라이브 하위 경로·합성 브라우저 다운로드는 검증했으나 앱 전용 PostHog 수집·조회는 미검증입니다. 사용자 트래픽·계측 완료가 아닙니다.
+- 상태: Waiting — 2026-11-19 공유 프로젝트 승인 후 라이브 앱·합성 5종 수집·합성 제외는 검증했습니다. 원문 Slack terminal delivery와 이번 guard 최종 영수증은 이 child에서 독립 확인할 수 없어 Archive는 보류합니다. 합성 QA는 사용자 성공이 아닙니다.
 - 새 인증·계측 task `miniapp-image-tools-20261118-posthog-01`, plan revision 7, slot `pilot-posthog-01` (2026-11-18T11:55:26Z–12:15:26Z hard stop). 동일 Intent의 후속 슬롯이며 deadline·재개·병렬 인스턴스가 아닙니다. 사용자가 `~/.env` 확인과 브라우저 Google 로그인을 허용했습니다.
 - 이번 호스트별 확인: WSL `/home/sam/.env` 존재, 관련 키 이름은 `POSTHOG_ACCESS_TOKEN`; `/home/ubuntu/.env` 없음, Windows `/mnt/c/Users/msi/.env` 없음(다른 시스템 사용자 홈에서도 없음). 값은 저장·게시하지 않았습니다. 기존 개인 API 토큰은 US PostHog 인증에 성공(조직 `sam`, org ID `019e2686-843b-0000-2617-45fd00eb5b46`), EU는 401입니다. MFA나 로그인 부재가 현재 차단 원인은 아닙니다.
 - 기존 조직의 프로젝트 목록은 `Default project` 하나(ID `424014`, 2026-05-14 생성, 기존 이벤트 수집 이력 있음)이고 계정의 `organizations_projects` 한도가 1개입니다. 해당 프로젝트는 미니앱 전용으로 검증되지 않아 재사용·이름 변경하지 않았고, 새 조직/계정·유료 한도 변경·Virtue 키 사용도 하지 않았습니다. 전용 공개 브라우저 키를 앱에 연결하거나 배포하지 않았습니다.
@@ -68,3 +68,13 @@
 - 산출물/배포: 앱 소스는 오늘 변경하지 않았습니다. 확인 가능한 라이브 URL은 `https://images.aws.shdkej.com/tools/image-converter/`; 이전 배포 source SHA `a8e26d8` 및 다운로드 검증은 전일 기록이며 오늘 재검증은 아닙니다. 오늘 새로운 PostHog 지표/사용자 표본/배포 revision은 없습니다.
 - 다음 결정 후보: 동일 Intent를 `Waiting`으로 유지합니다. 다음 계측 단계는 기존의 미니앱 전용 PostHog 프로젝트 접근 또는 현 조직 1-project 한도에 대한 결정/근거가 생기기 전에는 배정하지 않습니다. 비용·권한·계정 변경은 실행하지 않았습니다. 다음 유효 슬롯도 만들지 않았습니다.
 - 리포트: `reports/miniapp-image-tools-20261118-qa-01/20261119T0334Z.html`. 원문 보고 대상은 Slack `C0CE0DV9MM2` thread `1794983278.888719`.
+
+## 2026-11-19 공유 PostHog 승인 · 직접 사용자 슬롯
+
+- 이번 승인: 기존 US 조직 Default project ID `424014`의 공개 수집 토큰을 미니앱과 공유. 종전 전용 프로젝트/재사용 금지는 이 승인 범위에서만 대체됩니다. 개인 조회 토큰은 서버 쿼리에만 사용하고 공개·저장하지 않았습니다. `observed_at=2026-11-19T06:02:50Z` 인증 조회 HTTP 200, project 424014·US 수집 host 및 공개 토큰 형식을 확인했습니다. 다른 기존 이벤트는 읽기/변경/재분류하지 않았습니다.
+- 새 task `miniapp-image-tools-20261119-shared-posthog-01`, slot `direct-user-shared-posthog-01`, 실제 인테이크 `2026-11-19T05:57:25Z`, 고정 `end_at=2026-11-19T06:18:00Z` (15:18 KST). 이는 Intent deadline이 아닙니다. guard 원장의 고정시각·최종 상태는 이 CLI child에서 별도로 읽을 수 없어 미확인으로 둡니다. 재시도·연장·새 task/cron 없음.
+- 독립 4역할 `deleg_296f06f8`와 단일 교차검토 `deleg_52d26b51` 완료(Planner/Developer/Marketer/Operator). 교차검토에는 일부 역할에 다른 역할 전체 원문이 전달되지 않아 제한을 기록합니다. 지니 통합: 공유 프로젝트 승인으로 용량 차단 해소; 실사용 수치는 app/traffic 필터와 합성 제외의 서버 조회 외에는 주장하지 않음.
+- Space source `3d0344cc2a7073837fcbc45bf1ba60eec1657528` 원격 main 재조회 일치; 전용 workflow Action `44469814029` 성공(동일 source), scoped 두 HTML object만 게시. 기존 broad `--delete` 보호·공유 concurrency 유지. 5 Node tests PASS. `observed_at=2026-11-19T06:08:12Z` 라이브 `/tools/image-converter/`와 `index.html` 각 HTTP 200·예상 산출물 SHA-256 `9bd1978a7feeef65e530abeb52876a9e06016264fd5c31b2e0f5831d7920d836` 일치, `/`·`/sort/` HTTP 200.
+- 실제 라이브 합성 브라우저 `qa_run_id=84b4c7ef-6bd4-4e1d-9ee3-baf7eadc1485`: 160×80 PNG 선택→WebP 변환→다운로드 버튼, 손상 PNG로 고정 코드 오류 유도. Network `/i/v0/e/` 요청 5건 HTTP 200, `app_id=miniapp-image-tools`, `traffic_kind=synthetic`, `$process_person_profile=false`, `credentials:omit` 코드와 속성 allowlist 확인. 이미지·파일명·EXIF·원시 픽셀·자유 텍스트 오류 필드는 전송되지 않았고 다른 외부 요청은 관측되지 않았습니다. 브라우저 다운로드 버튼은 OS 저장 완료의 새로운 증거가 아니며 이전 슬롯의 실제 저장/열기 검증을 재사용합니다.
+- `observed_at=2026-11-19T06:10:28Z` 인증된 PostHog HogQL project 424014 서버 조회: 동일 ID/앱의 `download_requested`, `image_selected`, `transform_failed`, `transform_started`, `transform_succeeded` 각각 1건. 실제 쿼리 `countIf(traffic_kind='user' AND traffic_kind!='synthetic')/count()` 결과 `0/5` (synthetic=5). 별도 앱 사용자 중심 최근 1일 쿼리는 `app_id='miniapp-image-tools' AND traffic_kind='user' AND traffic_kind!='synthetic'` 명시, 조회 결과 이벤트 0건; 이는 고객 성공/고객 분모가 0이라는 주장이 아닙니다. `?qa=1` 태그는 사용자 조작 가능하므로 신뢰된 고객 신원 증명은 아닙니다.
+- 남은 차단: 원문 Slack terminal delivery receipt 및 guard 최종 상태 확인은 SAM parent/guard 원장 소유이며 이 child는 Slack 발신·guard 조작을 하지 않습니다. 따라서 보고는 `reports/miniapp-image-tools-20261118-qa-01/20261119T0611Z.html`, Intent Waiting 유지; 외부 수집과 제품 기능 게이트는 위 범위에서 통과. 자동 재시도 없음.
