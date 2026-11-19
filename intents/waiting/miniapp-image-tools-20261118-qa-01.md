@@ -37,3 +37,14 @@
 
 - 10:06 KST handoff status: Slack 전송 영수증과 Windows `U0CHX8QA7S8`의 실제 ACK를 확인했다 ([handoff](https://shdkej.slack.com/archives/C0CE0DV9MM2/p1795050316300149), [guard ACK](https://shdkej.slack.com/archives/C0CE0DV9MM2/p1795050359542979)). guard 상태는 `running`, 최초 종료 시각 `2026-11-19T01:20:00Z` 유지다. 결과는 아직 대기 중이며 미수집/0으로 간주하지 않는다.
 - 10:20 SAM 계획 예약: `f94e2c4f-b3b8-49d3-a17e-3e488809c5a4`, declarationKey `miniapp-image-tools:20261119:clockin-plan-01`, agent `main`, isolated, 단발 `2026-11-19T01:20:00Z`, delete-after-run, delivery none. 저장 후 `cron get`에서 시각·소유자·본문·활성 상태를 재확인했다.
+
+## 2026-11-19 일일 계획 갱신 · revision 2
+
+- 비교 기준: remote `origin/main` SHA `71205c8116f11d0f432f270ea105167d3a388fe9`, 동일 Intent의 `miniapp-image-tools-20261119` revision 1 및 아래 기록된 관측 결과. 원문 Slack thread를 최신까지 읽었으나 task_id `miniapp-image-tools-20261119-observe-01`의 결과/guard 회신은 찾지 못했습니다. 따라서 Infinity Intent detail의 관측 기록을 결과 근거로 사용하고, guard 종료 상태는 미확인으로 분리합니다.
+- 관측 task/가드: `miniapp-image-tools-20261119-observe-01`, `clockin-observation-01` revision 1; 최초 고정 `end_at=2026-11-19T01:20:00Z` (10:20 KST). revision 1에 기록된 `observed_at=01:08:04Z`, `01:08:52Z`의 읽기 전용 HTML/소스 확인 결과를 확인했습니다. 원래 guard의 최종 상태·finished_at/lock 정리 여부를 입증하는 회신/증거는 발견하지 못했으므로 guard 완료를 주장하지 않습니다. 실행을 재시작·연장하지 않습니다.
+- 오늘 목표: 라이브 앱의 실제 사용자 계측 가능 여부와 사용자 이벤트를 합성 QA와 구분할 수 있는 데이터 원천을 확인 가능한 증거로 좁힙니다. 우선순위는 (1) 사용자 지표의 프로젝트 귀속·접근 경로, (2) 실제 관측 시각 및 표본/분모, (3) QA/synthetic 제외가 서버 집계에서 적용됐다는 증거입니다.
+- 확인된 관측: 라이브 페이지 GET은 두 시점 모두 HTTP 200이었으나 이는 사용자 표본이 아닙니다. 출고 HTML에서 analytics host/key 할당이 없어 앱 전용 브라우저 수집은 비활성으로 판독됩니다. 실제 PostHog 서버 이벤트·프로젝트 전용성·접근은 이번 관측에서 조회하지 않았습니다. 따라서 사용자 이벤트 수와 분모, 성공률은 `unknown / measurement unavailable`이며 0으로 기록하지 않습니다. `?qa=1`의 `traffic_kind=synthetic` 설계는 확인했지만 서버 수집·`traffic_kind != synthetic` 필터 및 제외 결과는 미검증입니다. 전일 브라우저 변환/다운로드는 합성 QA 증거로만 유지하고 실사용 지표에 합산하지 않습니다.
+- 기대 결과: 계획 단계에서는 지표 기반 성과 목표를 두지 않습니다. 기대 결과는 기존 Waiting 상태를 유지하면서 측정 공백과 필요한 증거 조건을 명시하는 것입니다. 계측 접근·추가 권한·프로젝트 변경·비용·앱 수정/배포는 범위 밖입니다.
+- 반증/진행 기준: 앱 수집 활성화를 뒷받침하는 배포된 analytics 설정, 프로젝트 귀속을 보이는 서버 원천, 실제 observed_at과 표본/분모, 동일한 집계에서 synthetic/QA 제외가 검증된 기록이 나오면 “현재 앱 전용 사용자 지표 원천 없음” 판단을 재검토합니다. HTTP 200, 합성 다운로드, 코드상 QA 태그만으로는 반증이 되지 않습니다.
+- 다음 단계 결정: 확인 가능한 관측은 수집 비활성을 가리키고 서버 지표 접근·QA 제외의 증거는 없습니다. 기존 PostHog 프로젝트 한도/앱 전용성 문제도 남아 있어 오늘 10:40 KST 슬롯에 배정할 증거 기반의 승인된 ≤30분 실행 단계가 없습니다. task/slot을 추가하거나 예약하지 않습니다. 정오 점검도 예약하지 않으며, 해당 호출자는 선행 결과·guard를 먼저 확인해야 합니다.
+- action_policy: SAM 계획·기존 증거 기록만. 관측 task는 재시작·연장 금지; 추가 비용·권한·프로젝트·앱·배포 변경 금지. result_destination: 이 기존 Infinity Intent detail 및 원문 Slack thread `C0CE0DV9MM2/1794983278.888719`.
