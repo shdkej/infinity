@@ -139,7 +139,10 @@ lanes:
     report: reports/miniapp-image-tools-20261118-qa-01/20261119T0611Z.html
     waiting_on: internal
     blocker: 실행 차단 없음. 11/19 두 작업 정상 종료와 실행 잠금 해제 확인. 남은 완료 인덱스 정리는 내부 처리이며 다음 일과를 막지 않는다.
-    next_action: SAM이 확인된 종료 영수증을 바탕으로 기존 완료 기록을 정리한다. 일일 업무는 현재 프로젝트 지표와 최신 사용자 지시로 계속하며 과거 guard 영수증 재승인을 요구하지 않는다.
+    current_task_id: miniapp-20261120-resume
+    current_task_start_at: '2026-11-20T06:44:31Z'
+    current_task_end_at: '2026-11-20T07:09:31Z'
+    next_action: Windows 지니가 고정된 수동 재개 구간에 기존 guarded route로 최근 24시간 사용자/합성 지표와 변환·다운로드를 확인하고, 결과를 원문 스레드에 보고한다.
     notification_channel: slack
     notification_target: channel:C0CE0DV9MM2
     notification_reply_to: '1794983278.888719'
