@@ -137,9 +137,9 @@ lanes:
     release_workflow_run: '44469814029'
     release_live_url: https://images.aws.shdkej.com/tools/image-converter/
     report: reports/miniapp-image-tools-20261118-qa-01/20261119T0611Z.html
-    waiting_on: external
-    blocker: 공유 Default project 424014 승인 후 라이브 5종 동일 QA ID·합성 제외까지 검증. 원문 Slack terminal delivery 영수증과 이번 guard 최종 상태는 이 child에서 독립 확인 불가하여 Archive 보류.
-    next_action: SAM parent가 기존 원문 Slack handoff/recovery에서 delivery 및 guard receipt를 확인한다. 미확인 시 Waiting 유지; 새 실행·자동 재시도·연장 없음.
+    waiting_on: internal
+    blocker: 실행 차단 없음. 11/19 두 작업 정상 종료와 실행 잠금 해제 확인. 남은 완료 인덱스 정리는 내부 처리이며 다음 일과를 막지 않는다.
+    next_action: SAM이 확인된 종료 영수증을 바탕으로 기존 완료 기록을 정리한다. 일일 업무는 현재 프로젝트 지표와 최신 사용자 지시로 계속하며 과거 guard 영수증 재승인을 요구하지 않는다.
     notification_channel: slack
     notification_target: channel:C0CE0DV9MM2
     notification_reply_to: '1794983278.888719'

@@ -1,5 +1,17 @@
 # [miniapp-image-tools-20261118-qa-01] 이미지 미니앱 보호 QA·연결 복구
 
+## 현재 상태 — 2026-11-20 운영 복구
+
+미니앱 배포와 5종 이벤트의 실제 서버 수집·합성 제외는 완료됐다. 계측 작업과 관측 작업의 종료 확인도 완료됐다. 과거 절의 인증·전용 프로젝트·종료 확인 대기는 현재 실행 차단이 아니다. 실제 고객 성과는 아직 별도 관측 대상이다.
+
+- 최종 영수증: https://shdkej.slack.com/archives/C0CE0DV9MM2/p1795071804571179 (Windows 지니, 2026-11-19 07:03:15Z 원장 조회).
+- shared-posthog-01: completed, finished_at2026-11-19T06:14:51.162251Z, exit_code0. observe-01: completed, finished_at2026-11-19T01:10:46.290632Z, exit_code0. 해당 child/route/guard 프로세스 부재, active.lock 비차단 획득으로 해제 확인.
+- 수신 확인: https://shdkej.slack.com/archives/C0CE0DV9MM2/p1795071826432229. 계측 결과 원문1795068961.516329와 Infinity ad873976, Space3d0344c/Action44469814029를 연결한다.
+- 11/20 출근은 이 영수증을 기록에 옮기지 않은 채 다시 요구해 실행하지 못했다. 12:30에는 원문의 영수증을 찾고도 무관한 로컬 변경을 이유로 기록을 갱신하지 않았다. 두 건 모두 제품 작업 실패가 아닌 SAM의 운영 실패다.
+- Codex는 원격 main을 fast-forward하며 무관한 data/dispatcher-terminal-notifications.json 변경을 바이트 단위로 보존했고, 이 영수증을 detail/trace/원장에 연결했다. 남은 완료 인덱스 정리는 waiting_on:internal이며 사용자/외부 승인 대기가 아니다. 완료 인덱스 정리를 다음 Windows 업무의 선행조건으로 삼지 않는다.
+- 사용자 현재 지시: 진행 절차를 단순하게 바꾸고 Slack을 짧고 줄 구분 있게 고친다. 일일 출근/마감 두 예약과 기존 Windows 시간 제한 실행을 재사용한다. 과거 계획 단계 예약/매일 준비 게이트를 반복하지 않는다.
+
+
 - 상태: Waiting — 2026-11-19 공유 프로젝트 승인 후 라이브 앱·합성 5종 수집·합성 제외는 검증했습니다. 원문 Slack terminal delivery와 이번 guard 최종 영수증은 이 child에서 독립 확인할 수 없어 Archive는 보류합니다. 합성 QA는 사용자 성공이 아닙니다.
 - 새 인증·계측 task `miniapp-image-tools-20261118-posthog-01`, plan revision 7, slot `pilot-posthog-01` (2026-11-18T11:55:26Z–12:15:26Z hard stop). 동일 Intent의 후속 슬롯이며 deadline·재개·병렬 인스턴스가 아닙니다. 사용자가 `~/.env` 확인과 브라우저 Google 로그인을 허용했습니다.
 - 이번 호스트별 확인: WSL `/home/sam/.env` 존재, 관련 키 이름은 `POSTHOG_ACCESS_TOKEN`; `/home/ubuntu/.env` 없음, Windows `/mnt/c/Users/msi/.env` 없음(다른 시스템 사용자 홈에서도 없음). 값은 저장·게시하지 않았습니다. 기존 개인 API 토큰은 US PostHog 인증에 성공(조직 `sam`, org ID `019e2686-843b-0000-2617-45fd00eb5b46`), EU는 401입니다. MFA나 로그인 부재가 현재 차단 원인은 아닙니다.

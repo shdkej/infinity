@@ -67,49 +67,108 @@
         "intents/waiting/miniapp-image-tools-20261118-qa-01.md",
         "reports/miniapp-image-tools-20261118-qa-01/20261118T1116Z.html"
       ],
-      "searches": ["miniapp image tools QA WSL intake PostHog deploy"],
-      "wiki_pages": ["agent-wiki/content/docs/outputs/blog/Deploy_ERP_server_story.mdx", "agent-wiki/content/docs/outputs/blog/Note_Management.mdx", "agent-wiki/content/docs/outputs/Integration/Tool.mdx", "agent-wiki/content/docs/outputs/Fundamental/Architecture.mdx"],
-      "operational_log_sections": ["logs/agent-wiki-query.md"],
+      "searches": [
+        "miniapp image tools QA WSL intake PostHog deploy"
+      ],
+      "wiki_pages": [
+        "agent-wiki/content/docs/outputs/blog/Deploy_ERP_server_story.mdx",
+        "agent-wiki/content/docs/outputs/blog/Note_Management.mdx",
+        "agent-wiki/content/docs/outputs/Integration/Tool.mdx",
+        "agent-wiki/content/docs/outputs/Fundamental/Architecture.mdx"
+      ],
+      "operational_log_sections": [
+        "logs/agent-wiki-query.md"
+      ],
       "note": "release task miniapp-image-tools-20261118-release-01 in slot pilot-release-01; Space checkpoint cb55c78, UI/workflow a8e26d8; at this event Action 44292646921 was in progress; PostHog login gap remains"
     },
     {
       "type": "execution",
       "at": "2026-11-18T11:16:30Z",
       "context_pack": "intents/context/miniapp-image-tools-20261118-qa-01.json",
-      "evidence_paths": ["reports/miniapp-image-tools-20261118-qa-01/20261118T1116Z.html"],
-      "searches": ["miniapp image tools QA WSL intake PostHog deploy"],
-      "wiki_pages": ["agent-wiki/content/docs/outputs/blog/Deploy_ERP_server_story.mdx", "agent-wiki/content/docs/outputs/blog/Note_Management.mdx", "agent-wiki/content/docs/outputs/Integration/Tool.mdx", "agent-wiki/content/docs/outputs/Fundamental/Architecture.mdx"],
-      "operational_log_sections": ["logs/agent-wiki-query.md"],
+      "evidence_paths": [
+        "reports/miniapp-image-tools-20261118-qa-01/20261118T1116Z.html"
+      ],
+      "searches": [
+        "miniapp image tools QA WSL intake PostHog deploy"
+      ],
+      "wiki_pages": [
+        "agent-wiki/content/docs/outputs/blog/Deploy_ERP_server_story.mdx",
+        "agent-wiki/content/docs/outputs/blog/Note_Management.mdx",
+        "agent-wiki/content/docs/outputs/Integration/Tool.mdx",
+        "agent-wiki/content/docs/outputs/Fundamental/Architecture.mdx"
+      ],
+      "operational_log_sections": [
+        "logs/agent-wiki-query.md"
+      ],
       "note": "Action 44292646921 succeeded at source a8e26d8; live browser PNG to WebP saved and opened 160x80; analytics app authentication and same-ID query remain blocked"
     },
     {
       "type": "execution",
       "at": "2026-11-18T12:01:00Z",
       "context_pack": "intents/context/miniapp-image-tools-20261118-qa-01.json",
-      "evidence_paths": ["intents/waiting/miniapp-image-tools-20261118-qa-01.md", "reports/miniapp-image-tools-20261118-qa-01/20261118T1201Z.html"],
-      "searches": ["miniapp PostHog authenticated account project capacity and collection boundary"],
-      "wiki_pages": ["agent-wiki/content/docs/outputs/blog/Deploy_ERP_server_story.mdx", "agent-wiki/content/docs/outputs/blog/Note_Management.mdx", "agent-wiki/content/docs/outputs/Integration/Tool.mdx", "agent-wiki/content/docs/outputs/Fundamental/Architecture.mdx"],
-      "operational_log_sections": ["logs/agent-wiki-query.md"],
+      "evidence_paths": [
+        "intents/waiting/miniapp-image-tools-20261118-qa-01.md",
+        "reports/miniapp-image-tools-20261118-qa-01/20261118T1201Z.html"
+      ],
+      "searches": [
+        "miniapp PostHog authenticated account project capacity and collection boundary"
+      ],
+      "wiki_pages": [
+        "agent-wiki/content/docs/outputs/blog/Deploy_ERP_server_story.mdx",
+        "agent-wiki/content/docs/outputs/blog/Note_Management.mdx",
+        "agent-wiki/content/docs/outputs/Integration/Tool.mdx",
+        "agent-wiki/content/docs/outputs/Fundamental/Architecture.mdx"
+      ],
+      "operational_log_sections": [
+        "logs/agent-wiki-query.md"
+      ],
       "note": "new guarded task miniapp-image-tools-20261118-posthog-01, plan revision 7, pilot-posthog-01 11:55:26Z-12:15:26Z. Prior Context Pack wiki/log paths inherited from earlier QA trace, not re-read as this narrow follow-up. User authorized host-specific ~/.env and browser Google login. /home/sam/.env POSTHOG_ACCESS_TOKEN name present; /home/ubuntu/.env and /mnt/c/Users/msi/.env absent. Existing management token authenticated US organization sam; one existing Default project ID 424014 uses account project feature limit 1. No MFA blocker, no app-specific project; no browser collection key deployment, five-event same-ID query or exclusion proof. No secret values stored."
-    }
-    ,{
+    },
+    {
       "type": "execution",
       "at": "2026-11-19T03:34:39Z",
       "context_pack": "intents/context/miniapp-image-tools-20261118-qa-01.json",
-      "evidence_paths": ["intents/waiting/miniapp-image-tools-20261118-qa-01.md", "reports/miniapp-image-tools-20261118-qa-01/20261119T0334Z.html"],
+      "evidence_paths": [
+        "intents/waiting/miniapp-image-tools-20261118-qa-01.md",
+        "reports/miniapp-image-tools-20261118-qa-01/20261119T0334Z.html"
+      ],
       "note": "Daily closeout: compared plan revision 2, Windows sender result, observation and known evidence. Actor reported normal exit_code 0 before fixed end_at; final guard/lock cleanup receipt not independently available. No additional execution, retry, extension, slot or deployment."
     },
     {
       "type": "execution",
       "at": "2026-11-19T06:10:28Z",
       "context_pack": "intents/context/miniapp-image-tools-20261118-qa-01.json",
-      "evidence_paths": ["intents/waiting/miniapp-image-tools-20261118-qa-01.md", "reports/miniapp-image-tools-20261118-qa-01/20261119T0611Z.html"],
+      "evidence_paths": [
+        "intents/waiting/miniapp-image-tools-20261118-qa-01.md",
+        "reports/miniapp-image-tools-20261118-qa-01/20261119T0611Z.html"
+      ],
       "note": "Direct-user shared-PostHog task miniapp-image-tools-20261119-shared-posthog-01, slot direct-user-shared-posthog-01, hard end 06:18Z. US project 424014 public token approved; Space source 3d0344c, Action 44469814029. Live same-ID five synthetic events each one, server-side user-and-not-synthetic exclusion 0/5. Parent Slack delivery and final guard receipt unavailable in child; Waiting, no retry."
+    },
+    {
+      "type": "backfill",
+      "at": "2026-11-20T06:42:10Z",
+      "context_pack": "intents/context/miniapp-image-tools-20261118-qa-01.json",
+      "evidence_paths": [
+        "intents/waiting/miniapp-image-tools-20261118-qa-01.md"
+      ],
+      "note": "SAM control recovery: original Windows final receipt1795071804.571179 and SAM receipt1795071826.432229 confirm both observe/shared-posthog completed exit0 and lock released. No project re-execution. Stale external blocker removed; archive bookkeeping internal, not a daily-execution prerequisite."
     }
   ],
   "artifacts": [
-    {"path":"reports/miniapp-image-tools-20261118-qa-01/20261119T0334Z.html","type":"report","status":"recorded","at":"2026-11-19T03:34:39Z","summary":"Daily closeout; measurement unavailable, Waiting retained; final guard cleanup unverified."},
-    {"path":"reports/miniapp-image-tools-20261118-qa-01/20261119T0611Z.html","type":"report","status":"recorded","at":"2026-11-19T06:10:28Z","summary":"Shared PostHog collection and synthetic exclusion verified; terminal delivery/guard receipt pending."}
+    {
+      "path": "reports/miniapp-image-tools-20261118-qa-01/20261119T0334Z.html",
+      "type": "report",
+      "status": "recorded",
+      "at": "2026-11-19T03:34:39Z",
+      "summary": "Daily closeout; measurement unavailable, Waiting retained; final guard cleanup unverified."
+    },
+    {
+      "path": "reports/miniapp-image-tools-20261118-qa-01/20261119T0611Z.html",
+      "type": "report",
+      "status": "recorded",
+      "at": "2026-11-19T06:10:28Z",
+      "summary": "Shared PostHog collection and synthetic exclusion verified; terminal delivery/guard receipt pending."
+    }
   ],
   "verifications": [
     {
@@ -132,8 +191,15 @@
       "label": "release changed-scope cross-review and resolver",
       "type": "role_review",
       "at": "2026-11-18T11:13:40Z",
-      "roles": ["planner", "developer", "marketer", "operator"],
-      "evidence_paths": ["intents/waiting/miniapp-image-tools-20261118-qa-01.md"],
+      "roles": [
+        "planner",
+        "developer",
+        "marketer",
+        "operator"
+      ],
+      "evidence_paths": [
+        "intents/waiting/miniapp-image-tools-20261118-qa-01.md"
+      ],
       "status": "warn",
       "next_role": "operator"
     },
@@ -141,27 +207,47 @@
       "label": "PostHog authentication/capacity changed-scope independent roles and cross-review",
       "type": "role_review",
       "at": "2026-11-18T12:01:00Z",
-      "roles": ["planner", "developer", "marketer", "operator"],
-      "evidence_paths": ["intents/waiting/miniapp-image-tools-20261118-qa-01.md"],
+      "roles": [
+        "planner",
+        "developer",
+        "marketer",
+        "operator"
+      ],
+      "evidence_paths": [
+        "intents/waiting/miniapp-image-tools-20261118-qa-01.md"
+      ],
       "status": "warn",
       "next_role": "user",
-      "sessions": {"independent": "deleg_193bd07f", "cross_review": "deleg_578069ed"},
+      "sessions": {
+        "independent": "deleg_193bd07f",
+        "cross_review": "deleg_578069ed"
+      },
       "synthesis": "Existing account authentication succeeds but no app-specific project capacity; do not reuse unrelated project or count synthetic traffic as user success."
     },
     {
       "label": "shared PostHog changed-scope roles and one cross-review",
       "type": "role_review",
       "at": "2026-11-19T06:10:28Z",
-      "roles": ["planner", "developer", "marketer", "operator"],
-      "evidence_paths": ["intents/waiting/miniapp-image-tools-20261118-qa-01.md"],
+      "roles": [
+        "planner",
+        "developer",
+        "marketer",
+        "operator"
+      ],
+      "evidence_paths": [
+        "intents/waiting/miniapp-image-tools-20261118-qa-01.md"
+      ],
       "status": "warn",
       "next_role": "operator",
-      "sessions": {"independent": "deleg_296f06f8", "cross_review": "deleg_52d26b51"},
+      "sessions": {
+        "independent": "deleg_296f06f8",
+        "cross_review": "deleg_52d26b51"
+      },
       "synthesis": "All four independent roles completed; cross-review completed with incomplete sharing of peer full assertions in some role prompts. Verified shared-project deployment, five same-ID synthetic captures and actual exclusion; no customer success claim."
     }
   ],
   "next_decision": {
-    "status": "waiting",
-    "value": "Shared project capture and exclusion verified; parent obtains original-thread delivery and final guard receipt before Archive. No automatic retry or extension."
+    "status": "recorded",
+    "value": "No missing user permission or execution cleanup. Internal archive bookkeeping may proceed separately; daily Windows execution uses latest project evidence and original local guard."
   }
 }
