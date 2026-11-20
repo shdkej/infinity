@@ -132,7 +132,19 @@
         "intents/waiting/miniapp-image-tools-20261118-qa-01.md",
         "reports/miniapp-image-tools-20261118-qa-01/20261119T0334Z.html"
       ],
-      "note": "Daily closeout: compared plan revision 2, Windows sender result, observation and known evidence. Actor reported normal exit_code 0 before fixed end_at; final guard/lock cleanup receipt not independently available. No additional execution, retry, extension, slot or deployment."
+      "note": "Daily closeout: compared plan revision 2, Windows sender result, observation and known evidence. Actor reported normal exit_code 0 before fixed end_at; final guard/lock cleanup receipt not independently available. No additional execution, retry, extension, slot or deployment.",
+      "searches": [
+        "miniapp image tools operational result and guard receipt"
+      ],
+      "wiki_pages": [
+        "agent-wiki/content/docs/outputs/blog/Deploy_ERP_server_story.mdx",
+        "agent-wiki/content/docs/outputs/blog/Note_Management.mdx",
+        "agent-wiki/content/docs/outputs/Integration/Tool.mdx",
+        "agent-wiki/content/docs/outputs/Fundamental/Architecture.mdx"
+      ],
+      "operational_log_sections": [
+        "logs/agent-wiki-query.md"
+      ]
     },
     {
       "type": "execution",
@@ -142,7 +154,19 @@
         "intents/waiting/miniapp-image-tools-20261118-qa-01.md",
         "reports/miniapp-image-tools-20261118-qa-01/20261119T0611Z.html"
       ],
-      "note": "Direct-user shared-PostHog task miniapp-image-tools-20261119-shared-posthog-01, slot direct-user-shared-posthog-01, hard end 06:18Z. US project 424014 public token approved; Space source 3d0344c, Action 44469814029. Live same-ID five synthetic events each one, server-side user-and-not-synthetic exclusion 0/5. Parent Slack delivery and final guard receipt unavailable in child; Waiting, no retry."
+      "note": "Direct-user shared-PostHog task miniapp-image-tools-20261119-shared-posthog-01, slot direct-user-shared-posthog-01, hard end 06:18Z. US project 424014 public token approved; Space source 3d0344c, Action 44469814029. Live same-ID five synthetic events each one, server-side user-and-not-synthetic exclusion 0/5. Parent Slack delivery and final guard receipt unavailable in child; Waiting, no retry.",
+      "searches": [
+        "miniapp image tools operational result and guard receipt"
+      ],
+      "wiki_pages": [
+        "agent-wiki/content/docs/outputs/blog/Deploy_ERP_server_story.mdx",
+        "agent-wiki/content/docs/outputs/blog/Note_Management.mdx",
+        "agent-wiki/content/docs/outputs/Integration/Tool.mdx",
+        "agent-wiki/content/docs/outputs/Fundamental/Architecture.mdx"
+      ],
+      "operational_log_sections": [
+        "logs/agent-wiki-query.md"
+      ]
     },
     {
       "type": "backfill",
@@ -152,6 +176,28 @@
         "intents/waiting/miniapp-image-tools-20261118-qa-01.md"
       ],
       "note": "SAM control recovery: original Windows final receipt1795071804.571179 and SAM receipt1795071826.432229 confirm both observe/shared-posthog completed exit0 and lock released. No project re-execution. Stale external blocker removed; archive bookkeeping internal, not a daily-execution prerequisite."
+    },
+    {
+      "type": "execution",
+      "at": "2026-11-20T06:53:32Z",
+      "context_pack": "intents/context/miniapp-image-tools-20261118-qa-01.json",
+      "evidence_paths": [
+        "intents/waiting/miniapp-image-tools-20261118-qa-01.md"
+      ],
+      "note": "Genie report for miniapp-20261120-resume: guarded run reported normally ended before fixed end_at 2026-11-20T07:09:31Z; exact task-guard finished_at/exit_code not included. Last-24h app_id=miniapp-image-tools user-traffic event query returned 0 events; this is not zero visitors or a known denominator. Synthetic transform/download passed; no reproducible error; no code/deploy change. Candidate only: improve discoverability of the miniapp entry link; not approved or executed.",
+      "source_message": "https://shdkej.slack.com/archives/C0CE0DV9MM2/p1795157612646079",
+      "searches": [
+        "miniapp-image-tools-20261120-resume recent 24h user events transform download discoverability"
+      ],
+      "wiki_pages": [
+        "agent-wiki/content/docs/outputs/blog/Deploy_ERP_server_story.mdx",
+        "agent-wiki/content/docs/outputs/blog/Note_Management.mdx",
+        "agent-wiki/content/docs/outputs/Integration/Tool.mdx",
+        "agent-wiki/content/docs/outputs/Fundamental/Architecture.mdx"
+      ],
+      "operational_log_sections": [
+        "logs/agent-wiki-query.md"
+      ]
     }
   ],
   "artifacts": [
@@ -160,14 +206,16 @@
       "type": "report",
       "status": "recorded",
       "at": "2026-11-19T03:34:39Z",
-      "summary": "Daily closeout; measurement unavailable, Waiting retained; final guard cleanup unverified."
+      "summary": "Daily closeout; measurement unavailable, Waiting retained; final guard cleanup unverified.",
+      "label": "Daily closeout; measurement unavailable, Waiting retained; final guard cleanup unverified."
     },
     {
       "path": "reports/miniapp-image-tools-20261118-qa-01/20261119T0611Z.html",
       "type": "report",
       "status": "recorded",
       "at": "2026-11-19T06:10:28Z",
-      "summary": "Shared PostHog collection and synthetic exclusion verified; terminal delivery/guard receipt pending."
+      "summary": "Shared PostHog collection and synthetic exclusion verified; terminal delivery/guard receipt pending.",
+      "label": "Shared PostHog collection and synthetic exclusion verified; terminal delivery/guard receipt pending."
     }
   ],
   "verifications": [

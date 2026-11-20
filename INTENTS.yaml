@@ -142,7 +142,9 @@ lanes:
     current_task_id: miniapp-20261120-resume
     current_task_start_at: '2026-11-20T06:44:31Z'
     current_task_end_at: '2026-11-20T07:09:31Z'
-    next_action: Windows 지니가 고정된 수동 재개 구간에 기존 guarded route로 최근 24시간 사용자/합성 지표와 변환·다운로드를 확인하고, 결과를 원문 스레드에 보고한다.
+    current_task_reported_at: '2026-11-20T06:53:32Z'
+    current_task_result: 최근 24시간 user 이벤트 조회 0건(방문자 0명 의미 아님); 합성 변환·다운로드 정상, 재현 오류 없음. 보호 실행은 기한 전 정상 종료로 보고됐으나 finished_at/exit_code 원장값은 미포함.
+    next_action: 진입 링크 발견 가능성 개선은 검토 후보로만 기록; 고객 방문·성과를 추론하지 말고 이번 결과 재사용.
     notification_channel: slack
     notification_target: channel:C0CE0DV9MM2
     notification_reply_to: '1794983278.888719'
