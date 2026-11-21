@@ -69,3 +69,7 @@ YouTube는 references만 보관하는데 4번은 assets만 표시하여 연결�
 ## Gemini 기본·정밀 분석 · 2026-11-21
 
 레퍼런스 분석은 Gemini 3.1 Flash-Lite와 3.8 Flash로 실행합니다. 운영 서버에서 사진 한 장 기본 분석과 배포 후 캐시 재사용을 확인했습니다. 최초 정밀 호출의 타임아웃을 보완해 운영 배포했습니다. [실행 보고서](../../reports/reel-room-studio-20261113/20261121-gemini-templates.html).
+
+## 레퍼런스 규격·분위기별 글꼴 · 2026-11-21
+
+원본 규격과 네 가지 글꼴을 연결했습니다. 소스 ba869f5, Space aa83b66, 운영 Pod Ready. 원본 1030×1280과 같은 JPG·MP4를 확인했습니다. [실행 보고서](../../reports/reel-room-studio-20261113/20261121-reference-format.html).
