@@ -61,3 +61,7 @@ YouTube는 references만 보관하는데 4번은 assets만 표시하여 연결�
 ## 아카이브 디자인 템플릿 연결 · 2026-11-21
 
 실제 아카이브 사진의 색감과 글자 위치를 추정하여 편집·저장하고 교체 사진과 문구에 재사용합니다. 릴스와 장면별 JPG 묶음 출력을 검증했습니다. 소스 master 412b9a6, 테스트 216개 통과. 운영 인증 후 확인은 대기 상태입니다. [실행 리포트](../../reports/reel-room-studio-20261113/20261121-archive-templates.html) · [배포 이미지 빌드](https://github.com/shdkej/video-automation/actions/runs/44871099724).
+
+## AI 레퍼런스 디자인 분석 · 2026-11-21
+
+선택한 아카이브 사진의 문구와 색상·위치·회전을 분석하는 비전 경로를 운영에 반영했습니다. 소스 acb214e, Space c97b197. 운영 Pod Ready, UI와 API 등록 확인. 전체 217개 테스트 통과. 브라우저와 카드·MP4 출력에는 모의 분석 데이터를 사용했습니다. [실행 보고서](../../reports/reel-room-studio-20261113/20261121-vision-templates.html).
