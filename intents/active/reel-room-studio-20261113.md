@@ -57,3 +57,7 @@ source f8d5edef7c2d1563c6edbc65ad24adbf5af04a18 push 완료. 전체 212개 테�
 YouTube는 references만 보관하는데 4번은 assets만 표시하여 연결이 끊겼다. 3·4번 보관한 참고자료와 파일 연결 상태를 표시하고, 원본 영상 파일을 연결하면 해당 장면에 바로 지정하도록 수정했다. 실제 파일 연결은 reference_id와 함께 저장한다. 원본 대본·기존 소재는 보존한다.
 
 현재 운영 source02cf36a, Space manifest00fd6d6, revision75 ready1. 전체215개 테스트·UI build, 운영 파일 연결→선택→재열기→2초 1080×1920 MP4 출력과 기존 파일17개 보존 확인. 운영 YouTube 직접 접근은 로그인 확인으로 거부되어 원본 파일이 필요하다. 유료 AI 실호출 보류 유지. 근거: work/reference-material-fix.md 및 reference-material-production.json.
+
+## 아카이브 디자인 템플릿 연결 · 2026-11-21
+
+실제 아카이브 사진의 색감과 글자 위치를 추정하여 편집·저장하고 교체 사진과 문구에 재사용합니다. 릴스와 장면별 JPG 묶음 출력을 검증했습니다. 소스 master 412b9a6, 테스트 216개 통과. 운영 인증 후 확인은 대기 상태입니다. [실행 리포트](../../reports/reel-room-studio-20261113/20261121-archive-templates.html) · [배포 이미지 빌드](https://github.com/shdkej/video-automation/actions/runs/44871099724).
