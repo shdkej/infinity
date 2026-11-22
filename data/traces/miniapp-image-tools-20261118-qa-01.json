@@ -198,6 +198,28 @@
       "operational_log_sections": [
         "logs/agent-wiki-query.md"
       ]
+    },
+    {
+      "type": "execution",
+      "at": "2026-11-22T00:44:44Z",
+      "context_pack": "intents/context/miniapp-image-tools-20261118-qa-01.json",
+      "evidence_paths": [
+        "intents/waiting/miniapp-image-tools-20261118-qa-01.md"
+      ],
+      "source_message": "https://shdkej.slack.com/archives/C0CE0DV9MM2/p1795308078598369",
+      "searches": [
+        "miniapp-image-tools-20261122-work entry path discoverability"
+      ],
+      "note": "Windows Genie reported first image-site screen links to /sort/ only; inspected /sort/ has no converter link; direct converter URL opens. Visitor volume/search traffic/user navigation unknown, so link gap is not asserted as cause of zero recent user events. No customer-facing change or deployment. Follow-up homepage-link hypothesis is separate from this completed research; CMO recommended preserving image-sort entry, task-oriented link wording, and a small unprompted 5-person/30-second usability check; arrival and download reported separately, not generalized to conversion.",
+      "wiki_pages": [
+        "agent-wiki/content/docs/outputs/blog/Deploy_ERP_server_story.mdx",
+        "agent-wiki/content/docs/outputs/blog/Note_Management.mdx",
+        "agent-wiki/content/docs/outputs/Integration/Tool.mdx",
+        "agent-wiki/content/docs/outputs/Fundamental/Architecture.mdx"
+      ],
+      "operational_log_sections": [
+        "logs/agent-wiki-query.md"
+      ]
     }
   ],
   "artifacts": [
@@ -296,6 +318,6 @@
   ],
   "next_decision": {
     "status": "recorded",
-    "value": "No missing user permission or execution cleanup. Internal archive bookkeeping may proceed separately; daily Windows execution uses latest project evidence and original local guard."
+    "value": "Research task completed and recorded; keep the existing intent Waiting because real customer behavior/results remain unknown. Homepage converter-link proposal is follow-up scope, not implemented or deployed; no new Windows task or cron."
   }
 }
