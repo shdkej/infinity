@@ -73,3 +73,7 @@ YouTube는 references만 보관하는데 4번은 assets만 표시하여 연결�
 ## 레퍼런스 규격·분위기별 글꼴 · 2026-11-21
 
 원본 규격과 네 가지 글꼴을 연결했습니다. 소스 ba869f5, Space aa83b66, 운영 Pod Ready. 원본 1030×1280과 같은 JPG·MP4를 확인했습니다. [실행 보고서](../../reports/reel-room-studio-20261113/20261121-reference-format.html).
+
+## 영역별 글꼴과 배경 · 2026-11-22
+
+한 카드 안에서 글꼴 네 가지를 조합하고 사진·단색·일러스트 배경을 선택할 수 있습니다. 소스 c526bc7, Space bb3a42c의 배포 및 실제 800×1000 JPG·MP4 출력을 확인했습니다. [실행 보고서](../../reports/reel-room-studio-20261113/20261122-region-background.html).
