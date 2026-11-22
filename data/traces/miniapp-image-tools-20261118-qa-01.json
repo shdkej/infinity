@@ -220,6 +220,18 @@
       "operational_log_sections": [
         "logs/agent-wiki-query.md"
       ]
+    },
+    {
+      "type": "backfill",
+      "at": "2026-11-22T07:52:02Z",
+      "change_id": "miniapp-three-day-20261123-25",
+      "source": "current user request",
+      "request": "앞으로 3일동안 업무 진행시키고 경과 보내줘",
+      "evidence_paths": [
+        "INTENTS.yaml",
+        "intents/waiting/miniapp-image-tools-20261118-qa-01.md"
+      ],
+      "note": "Prospective operating-plan change: run existing SAM jobs on November 23–25 KST, work 10:00–10:30, report daily at 12:30 including no-result/blockage; final report November 25. Existing job IDs reused with bounded date triggers. These future executions are scheduled, not completed. Preserve November 22 actual completion and approval boundaries."
     }
   ],
   "artifacts": [
@@ -317,7 +329,7 @@
     }
   ],
   "next_decision": {
-    "status": "recorded",
-    "value": "Research task completed and recorded; keep the existing intent Waiting because real customer behavior/results remain unknown. Homepage converter-link proposal is follow-up scope, not implemented or deployed; no new Windows task or cron."
+    "status": "scheduled",
+    "value": "11/23~25 KST 기존 SAM 일과로 매일 목표 하나를 Windows 지니에게 인계하고 12:30 원문에 경과 보고. 25일 종합 보고 후 자동 신규 업무 종료. 미래 결과는 실제 영수증으로 확인."
   }
 }

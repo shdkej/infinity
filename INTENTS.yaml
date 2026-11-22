@@ -154,7 +154,17 @@ lanes:
     current_task_result_summary: '확인한 이미지 사이트 첫 화면과 /sort/에는 변환기 링크가 없고 직접 URL은 열림. 방문자·검색 유입·실제 탐색 행동은 미확인. 제품 변경 없음.'
     current_task_followup: '첫 화면 링크 추가는 별도 개선 가설; 고딘 의견 반영해 기존 이미지 정리 진입을 보존하고 과제 기반 소규모 사용성 점검을 제안. 이번 조사 완료와 분리.'
     current_task_result: 'miniapp-20261122-work 조사·기록 완료: 확인한 첫 화면과 /sort/에서 변환기 링크를 찾지 못했고 직접 URL은 열림. 방문자·검색 유입·사용자 탐색은 미확인; 고객 대면 변경 없음.'
-    next_action: '기존 Intent Waiting 유지. 첫 화면 링크는 고딘 의견을 반영한 별도 개선 가설로 남기며, 새 작업·크론은 만들지 않음.'
+    daily_run_window:
+      start_date: '2026-11-23'
+      end_date: '2026-11-25'
+      timezone: Asia/Seoul
+      work_at: '10:00'
+      slot_end_at: '10:30'
+      report_at: '12:30'
+      final_report_date: '2026-11-25'
+      status: scheduled
+      requested_days: 3
+    next_action: '11/23~25 기존 SAM 일과로 하루 목표 하나를 Windows 지니에게 맡기고 매일12:30 원문에 경과 보고. 25일 종합 보고 후 기간 종료.'
     notification_channel: slack
     notification_target: channel:C0CE0DV9MM2
     notification_reply_to: '1794983278.888719'
