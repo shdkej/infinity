@@ -144,8 +144,10 @@ lanes:
     current_task_start_at: '2026-11-22T00:33:10Z'
     current_task_end_at: '2026-11-22T01:03:10Z'
     current_task_completion_criteria: 원문 스레드에 조사 근거·출처·한계·다음 개선안 한 가지 보고, 같은 Intent 기록 갱신
-    current_task_handoff_attempt_at: '2026-11-22T00:35:35Z'
-    current_task_handoff_status: sending
+    current_task_handoff_attempt_at: '2026-11-22T00:35:58Z'
+    current_task_handoff_status: sent
+    current_task_handoff_message_id: '1795307758.568009'
+    current_task_handoff_queue_id: convq_5783337d16bbc508b1ddbdd245dd44d3
     current_task_result: 인계 전 기록 준비 완료; 최신 근거는 2026-11-20 사용자 이벤트 무표본 및 기존 앱 경로 검증.
     next_action: task miniapp-20261122-work를 기존 Windows guarded route로 한 번 인계하고 결과를 같은 Intent에 기록.
     notification_channel: slack
