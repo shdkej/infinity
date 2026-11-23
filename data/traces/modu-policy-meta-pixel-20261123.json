@@ -56,12 +56,31 @@
       ],
       "operational_log_sections": [],
       "note": "사용자가 직전 구체화한 전용 픽셀 설정을 승인함"
+    },
+    {
+      "type": "execution",
+      "at": "2026-11-23T13:31:35Z",
+      "context_pack": "intents/context/modu-policy-meta-pixel-20261123.json",
+      "evidence_paths": [
+        "artifacts/modu-policy-meta-pixel-20261123/work/pixel-check.md"
+      ],
+      "searches": [
+        "모두의정책 광고 동의 신규 신청 광고 전환 측정 Meta 픽셀"
+      ],
+      "wiki_pages": [
+        "agent-wiki/content/docs/outputs/Integration/Marketing.mdx",
+        "agent-wiki/content/docs/outputs/Human/Evolve.mdx",
+        "agent-wiki/content/docs/outputs/deep-knowledge/operation.mdx",
+        "agent-wiki/content/docs/outputs/Fundamental/Math.mdx"
+      ],
+      "operational_log_sections": [],
+      "note": "전용 데이터 세트 생성 및 운영 PageView 요청과 Lead 분기 테스트 확인. 이벤트 관리자 미집계."
     }
   ],
   "artifacts": [],
   "verifications": [],
   "next_decision": {
     "status": "in_progress",
-    "value": "전용 픽셀 생성 경로와 소스의 신청 성공 분기를 확인하고, 광고 동의 후 홈 조회와 신규 신청 전환만 보내도록 검증한다."
+    "value": "최종 운영 검증 파일과 실제 수신 확인 상태를 함께 기록한다."
   }
 }
