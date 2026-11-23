@@ -35,3 +35,5 @@ Google Search Console에서 HTML 태그로 URL 접두어 속성의 소유권 확
 사용자 보안문자 입력 후 사이트 등록 목록과 관리 보고서에서 소유확인 완료를 확인했다. 사이트맵 제출 목록에는 sitemap.xml이 2026년 11월 23일 22:14:15 KST에 등록됐다.
 
 홈과 아동수당·청년기본소득·기후동행카드 URL 검사 결과는 각각 HTTP 200 OK였다. 네 URL 모두 robots.txt 수집 가능, 로봇 메타 수집 및 노출 허용이었다. 홈의 첫 검사에서 표시됐던 robots.txt 미존재 메시지는 재조회 시 정상으로 바뀌었다. 신규 사이트의 수집·진단·노출/클릭 보고서에는 아직 데이터가 없다. 위 결과로 실제 검색 색인 등재를 확인할 수 없다.
+
+네이버의 별도 ‘색인 상태 확인’ 메뉴에서는 네 URL 각각 ‘URL 검사 결과가 없습니다’로 표시됐습니다. 실제 색인 등재 여부는 미확인이다. [배포 검증](https://github.com/shdkej/space/blob/dbe05aeed0e57198fdcdcc41fa6dd7625d0f221b/infra-aws-static-sites/sites/policycock/qa/deployment.json)

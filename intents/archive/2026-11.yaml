@@ -393,6 +393,7 @@ archive:
   summary: 질문형 정책 페이지 3개를 공개하고 구글과 네이버에 사이트맵을 제출했습니다. 구글이 검사한 URL 4개는 발견됐지만 아직 색인되지 않았고, 네이버는 4개 모두 수집이 가능한 상태였습니다.
   red_status: pass
   red_report: artifacts/modu-policy-search-followup-20261123/work/review.md
-  report_length: 1845
+  report_length: 1917
   report_length_judgment: fit
   report_flow_check: 정책 페이지 → 엔진별 제출·URL 검사 → 측정 한계
+  naver_index_check: 홈·아동수당·청년기본소득·기후동행카드 모두 URL 검사 결과 없음
