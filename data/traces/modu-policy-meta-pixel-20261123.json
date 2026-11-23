@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "intent_id": "modu-policy-meta-pixel-20261123",
-  "status": "active",
+  "status": "archived",
   "trace_completeness": "complete",
   "request": {
     "raw": {
@@ -75,12 +75,45 @@
       ],
       "operational_log_sections": [],
       "note": "전용 데이터 세트 생성 및 운영 PageView 요청과 Lead 분기 테스트 확인. 이벤트 관리자 미집계."
+    },
+    {
+      "type": "archive",
+      "at": "2026-11-23T13:33:51Z",
+      "report_path": "reports/modu-policy-meta-pixel-20261123/20261123T133329Z.html",
+      "evidence_paths": [
+        "reports/modu-policy-meta-pixel-20261123/20261123T133329Z.html",
+        "artifacts/modu-policy-meta-pixel-20261123/work/review.md",
+        "artifacts/modu-policy-meta-pixel-20261123/work/remote-proof.md"
+      ],
+      "research_mode": "exploratory_research",
+      "verification": {
+        "red_status": "pass",
+        "red_report_path": "artifacts/modu-policy-meta-pixel-20261123/work/review.md",
+        "remote_verified": "pass",
+        "remote_proof_path": "artifacts/modu-policy-meta-pixel-20261123/work/remote-proof.md"
+      }
     }
   ],
-  "artifacts": [],
-  "verifications": [],
+  "artifacts": [
+    {
+      "label": "전용 픽셀 설치 결과",
+      "path": "reports/modu-policy-meta-pixel-20261123/20261123T133329Z.html"
+    }
+  ],
+  "verifications": [
+    {
+      "label": "Red verification evidence",
+      "path": "artifacts/modu-policy-meta-pixel-20261123/work/review.md",
+      "status": "pass"
+    },
+    {
+      "label": "Remote verification evidence",
+      "path": "artifacts/modu-policy-meta-pixel-20261123/work/remote-proof.md",
+      "status": "pass"
+    }
+  ],
   "next_decision": {
-    "status": "in_progress",
-    "value": "최종 운영 검증 파일과 실제 수신 확인 상태를 함께 기록한다."
+    "status": "implemented",
+    "value": "실사용 이후 Meta 관리자 수신·집계 상태 확인 가능"
   }
 }
