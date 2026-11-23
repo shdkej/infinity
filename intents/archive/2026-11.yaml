@@ -397,3 +397,53 @@ archive:
   report_length_judgment: fit
   report_flow_check: 정책 페이지 → 엔진별 제출·URL 검사 → 측정 한계
   naver_index_check: 홈·아동수당·청년기본소득·기후동행카드 모두 URL 검사 결과 없음
+- id: modu-policy-meta-pixel-20261123
+  title: 모두의정책 전용 Meta 픽셀 생성 및 광고 동의 기반 전환 측정
+  task_name: 모두의정책 전용 Meta 픽셀 생성 및 광고 동의 기반 전환 측정
+  status: archived
+  target_agent: genie
+  task_type: implementation
+  execution_mode: multi_subagent_roles
+  created_at: '2026-11-23T13:22:51+00:00'
+  projects:
+  - policycock
+  user_intent: 모두의정책 전용 Meta 픽셀을 생성하고 광고 동의 후 홈 PageView와 실제 신규 신청 Lead를 측정한다.
+  desired_outcome: 운영 사이트가 전용 픽셀을 사용하고 동의자가 홈을 보거나 실제 신규 신청을 완료한 시점에 해당 이벤트를 전송한다.
+  out_of_scope: 광고 집행·예산 설정, 개인정보·정책 관심 정보의 Meta 전송, 동의 전 추적, 테스트용 허위 운영 신청
+  success_evidence: 전용 픽셀의 생성 또는 연결 증거, 미동의 시 전송 없음, 동의 후 홈 PageView, 신규 신청 성공에만 Lead 1회, 실패·중복에는 Lead 없음, 배포 및 운영 검증과 실제 수신 확인 상태
+  notification_channel: codex
+  notification_target: originating-conversation
+  context_pack: intents/context/modu-policy-meta-pixel-20261123.json
+  context_documents_checked:
+  - /home/ubuntu/workspace/prompt-archive/LLM.md
+  - README.md
+  - schema/agent-rules.md
+  - source/openclaw-system/docs/DOCUMENT_SEARCH_PIPELINE.md
+  - source/openclaw-system/docs/USER_CONTEXT.md
+  - source/openclaw-system/docs/SERVICE_REGISTRY.md
+  - agent-wiki/content/docs/index.mdx
+  - agent-wiki/content/docs/outputs/Idea/Information.mdx
+  - agent-wiki/content/docs/outputs/Integration/Business.mdx
+  - agent-wiki/content/docs/outputs/Integration/Marketing.mdx
+  - agent-wiki/content/docs/outputs/Human/Evolve.mdx
+  - agent-wiki/content/docs/outputs/deep-knowledge/operation.mdx
+  - agent-wiki/content/docs/outputs/Fundamental/Math.mdx
+  context_searches:
+  - 모두의정책 광고 동의 신규 신청 광고 전환 측정 Meta 픽셀
+  task_plan: artifacts/modu-policy-meta-pixel-20261123/work/task-plan.json
+  trace: data/traces/modu-policy-meta-pixel-20261123.json
+  metric_question: 광고 동의와 실제 신규 신청 성공에 맞춰 이벤트가 한 번씩만 전송되는가?
+  metric_signal: 동의 분기별 Meta 네트워크 요청과 PageView·Lead 이벤트 수, 실제 수신 상태
+  metric_decision_rule: 운영 반영·실제 수신 여부와 테스트 시나리오 검증을 구분해 기록
+  next_action: 실사용 이후 Meta 관리자 집계·귀속 여부 확인 가능
+  completed_at: '2026-11-23T13:33:29+00:00'
+  archived_at: '2026-11-23T13:33:29+00:00'
+  report: reports/modu-policy-meta-pixel-20261123/20261123T133329Z.html
+  final_artifact: reports/modu-policy-meta-pixel-20261123/20261123T133329Z.html
+  summary: 모두의정책 전용 Meta 픽셀을 설치했습니다. 운영 홈페이지에서 광고 동의 전에는 Meta 요청이 없었고, 동의 후 PageView 1건에 HTTP 200 응답을 받았습니다.
+  red_status: pass
+  red_report: artifacts/modu-policy-meta-pixel-20261123/work/review.md
+  report_length: 1791
+  report_length_judgment: fit
+  report_flow_check: 추적 범위 → 운영 PageView → 신청 분기 테스트 → 관리자 집계 한계
+  latest_evidence: artifacts/modu-policy-meta-pixel-20261123/work/pixel-check.md

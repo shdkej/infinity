@@ -5,17 +5,21 @@
       "id": "T1",
       "title": "전용 픽셀 생성·광고 동의 및 전환 구현",
       "owner": "genie",
-      "status": "active",
-      "started_at": "2026-11-23T13:22:51+00:00"
+      "status": "done",
+      "started_at": "2026-11-23T13:22:51+00:00",
+      "completed_at": "2026-11-23T13:33:29+00:00",
+      "evidence": "artifacts/modu-policy-meta-pixel-20261123/work/pixel-check.md"
     },
     {
       "id": "T2",
       "title": "동의·신청 결과별 회귀 검증, 배포·운영 확인",
       "owner": "genie",
-      "status": "pending",
+      "status": "done",
       "depends_on": [
         "T1"
-      ]
+      ],
+      "completed_at": "2026-11-23T13:33:29+00:00",
+      "evidence": "artifacts/modu-policy-meta-pixel-20261123/work/pixel-check.md"
     }
   ]
 }
