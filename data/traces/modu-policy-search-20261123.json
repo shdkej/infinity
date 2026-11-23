@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "intent_id": "modu-policy-search-20261123",
-  "status": "active",
+  "status": "archived",
   "trace_completeness": "complete",
   "request": {
     "raw": {
@@ -55,12 +55,45 @@
       ],
       "operational_log_sections": [],
       "note": "사용자 요청을 처리 중인 Codex 부모와 네 역할에서 범위 및 구현을 검토한다."
+    },
+    {
+      "type": "archive",
+      "at": "2026-11-23T12:00:33Z",
+      "report_path": "reports/modu-policy-search-20261123/20261123T115945Z.html",
+      "evidence_paths": [
+        "reports/modu-policy-search-20261123/20261123T115945Z.html",
+        "artifacts/modu-policy-search-20261123/work/review.md",
+        "artifacts/modu-policy-search-20261123/work/remote-proof.md"
+      ],
+      "research_mode": "exploratory_research",
+      "verification": {
+        "red_status": "pass",
+        "red_report_path": "artifacts/modu-policy-search-20261123/work/review.md",
+        "remote_verified": "pass",
+        "remote_proof_path": "artifacts/modu-policy-search-20261123/work/remote-proof.md"
+      }
     }
   ],
-  "artifacts": [],
-  "verifications": [],
+  "artifacts": [
+    {
+      "label": "검색 설정 보고서",
+      "path": "reports/modu-policy-search-20261123/20261123T115945Z.html"
+    }
+  ],
+  "verifications": [
+    {
+      "label": "Red verification evidence",
+      "path": "artifacts/modu-policy-search-20261123/work/review.md",
+      "status": "pass"
+    },
+    {
+      "label": "Remote verification evidence",
+      "path": "artifacts/modu-policy-search-20261123/work/remote-proof.md",
+      "status": "pass"
+    }
+  ],
   "next_decision": {
-    "status": "in_progress",
-    "value": "현재 Codex 실행에서 변경 후 회귀 테스트·배포·운영 URL을 검증한다."
+    "status": "implemented",
+    "value": "검색 노출과 AI 인용은 별도 실측 대상"
   }
 }
