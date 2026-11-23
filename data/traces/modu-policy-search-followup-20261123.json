@@ -1,0 +1,67 @@
+{
+  "schema_version": 2,
+  "intent_id": "modu-policy-search-followup-20261123",
+  "status": "active",
+  "trace_completeness": "complete",
+  "request": {
+    "raw": {
+      "status": "recorded",
+      "value": "1번 2번 진행해줘 egolite 써도 되고"
+    },
+    "normalized_query": {
+      "status": "recorded",
+      "value": "모두의정책 구글·네이버 색인 상태 점검 및 질문형 정책 페이지 게시"
+    },
+    "user_intent": {
+      "status": "recorded",
+      "value": "앞서 제안한 구글·네이버 실제 색인 및 사이트맵 점검과 질문형 정책 페이지 게시를 진행한다."
+    },
+    "desired_outcome": {
+      "status": "recorded",
+      "value": "각 엔진에서 확인 가능한 실제 색인·사이트맵 상태를 구분하여 보고하고 질문형 정책 페이지 2~3개를 공개한다."
+    },
+    "out_of_scope": {
+      "status": "recorded",
+      "value": "검색 순위·색인 보장, 신규 유료 비용·타인 계정 사용 및 사이트 소유권 변경"
+    },
+    "success_evidence": {
+      "status": "recorded",
+      "value": "확인 출처와 시각이 있는 엔진별 색인·사이트맵 상태 또는 구체적인 접근 한계, 신규 공개 페이지 URL·본문·정책 출처·사이트맵·운영 HTTP 검증"
+    }
+  },
+  "events": [
+    {
+      "type": "intake",
+      "at": "2026-11-23T12:08:25Z",
+      "context_pack": "intents/context/modu-policy-search-followup-20261123.json",
+      "evidence_paths": [
+        "INTENTS.yaml"
+      ]
+    },
+    {
+      "type": "execution",
+      "at": "2026-11-23T12:08:25Z",
+      "context_pack": "intents/context/modu-policy-search-followup-20261123.json",
+      "evidence_paths": [
+        "artifacts/modu-policy-search-followup-20261123/work/task-plan.json"
+      ],
+      "searches": [
+        "모두의정책 정책콕 구글 네이버 색인 질문형 정책 출처"
+      ],
+      "wiki_pages": [
+        "agent-wiki/content/docs/outputs/Idea/Information.mdx",
+        "agent-wiki/content/docs/outputs/Idea/Reading.mdx",
+        "agent-wiki/content/docs/outputs/Fundamental/Network.mdx",
+        "agent-wiki/content/docs/outputs/deep-knowledge/data.mdx"
+      ],
+      "operational_log_sections": [],
+      "note": "기존 검색 설정 이후 엔진별 실제 상태와 신규 질문형 페이지를 다룬다."
+    }
+  ],
+  "artifacts": [],
+  "verifications": [],
+  "next_decision": {
+    "status": "in_progress",
+    "value": "구글·네이버의 사이트별 상태를 확인하고 질문형 정책 페이지를 검증한다."
+  }
+}

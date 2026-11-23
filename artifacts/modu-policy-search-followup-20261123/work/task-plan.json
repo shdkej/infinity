@@ -1,0 +1,21 @@
+{
+  "intent_id": "modu-policy-search-followup-20261123",
+  "tasks": [
+    {
+      "id": "T1",
+      "title": "검색엔진 색인·사이트맵 확인 및 질문형 페이지 배포",
+      "owner": "genie",
+      "status": "active",
+      "started_at": "2026-11-23T12:08:25+00:00"
+    },
+    {
+      "id": "T2",
+      "title": "운영 URL 및 상태 검증과 보고",
+      "owner": "genie",
+      "status": "pending",
+      "depends_on": [
+        "T1"
+      ]
+    }
+  ]
+}
