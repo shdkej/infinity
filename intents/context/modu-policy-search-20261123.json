@@ -1,0 +1,116 @@
+{
+  "context_pack_version": 3,
+  "status": "ready",
+  "route": "product",
+  "request": "모두의정책 정책콕 정책 기록 공식 출처 검색 최적화",
+  "built_at": "2026-11-23T11:52:06.096182+00:00",
+  "required_documents": [
+    "/home/ubuntu/workspace/prompt-archive/LLM.md",
+    "README.md",
+    "schema/agent-rules.md",
+    "source/openclaw-system/docs/DOCUMENT_SEARCH_PIPELINE.md",
+    "source/openclaw-system/docs/USER_CONTEXT.md",
+    "source/openclaw-system/docs/SERVICE_REGISTRY.md",
+    "agent-wiki/content/docs/index.mdx",
+    "agent-wiki/content/docs/outputs/Idea/Information.mdx",
+    "agent-wiki/content/docs/outputs/Integration/Business.mdx"
+  ],
+  "resolved_required_documents": [
+    "/home/sam/workspace/prompt-archive/LLM.md",
+    "/home/sam/workspace/knowledge-lab/README.md",
+    "/home/sam/workspace/knowledge-lab/schema/agent-rules.md",
+    "/home/sam/workspace/knowledge-lab/source/openclaw-system/docs/DOCUMENT_SEARCH_PIPELINE.md",
+    "/home/sam/workspace/knowledge-lab/source/openclaw-system/docs/USER_CONTEXT.md",
+    "/home/sam/workspace/knowledge-lab/source/openclaw-system/docs/SERVICE_REGISTRY.md",
+    "/home/sam/workspace/knowledge-lab/agent-wiki/content/docs/index.mdx",
+    "/home/sam/workspace/knowledge-lab/agent-wiki/content/docs/outputs/Idea/Information.mdx",
+    "/home/sam/workspace/knowledge-lab/agent-wiki/content/docs/outputs/Integration/Business.mdx"
+  ],
+  "search_scopes": [
+    "agent-wiki/content/docs/",
+    "source/infinity/archive/"
+  ],
+  "selected_context": [
+    {
+      "path": "agent-wiki/content/docs/outputs/deep-knowledge/data.mdx",
+      "reason": "zg hybrid discovery; indexed section retained for targeted reading",
+      "verification": "indexed-section",
+      "locator": {
+        "start_line": 185,
+        "end_line": 187,
+        "heading": "책의 한계는 기록 방식의 한계다",
+        "heading_level": "3",
+        "scope": "Data::보존 형식과 변환 비용을 따로 보는 이유",
+        "excerpt": "### 책의 한계는 기록 방식의 한계다 직급을 적어 둔 책은 기록의 중요성을 보여 주지만, 사람이 바뀔 때마다 다시 써야 한다. 특정 직급만 모아 둔 책을 따로 만들면 조회는 쉬워지지만 같은 내용을 여러 번 관리해야 한다. 이 비유는 RDB, 검색 인덱스, 분석 복제본의 관계를 이해하는 데도 그대로 이어진다. 읽기 쉬운 표면을 늘릴수록 동기화와 책임 경계가 필요해진다."
+      }
+    },
+    {
+      "path": "agent-wiki/content/docs/outputs/Idea/Information.mdx",
+      "reason": "zg hybrid discovery; indexed section retained for targeted reading",
+      "verification": "indexed-section",
+      "locator": {
+        "start_line": 261,
+        "end_line": 269,
+        "heading": "다음 심화 후보",
+        "heading_level": "2",
+        "scope": "Information",
+        "excerpt": "## 다음 심화 후보 - `정책콕` 제품 방향 가설: 정책 뉴스의 양이 아니라 `내 삶에 관련 있는 정책 변화 → 이해 → 다음 행동`의 흐름을 따라가게 하는 도구로 정의한다. 2026-10-02 회고와 비공개 Threads 후보에서 조건부 승격했으며, 아직 반복 사용·사업 성과 전이므로 `hypothesis`로 유지한다. - 정책콕의 다음 검증은 사업계획서의 문제공감성·수익실현성·관심도 세 가설을 분리하고, 각 가설의 확인 증거와 다음 검증 행동을 한 줄씩 남긴 뒤 실제 정책 변화 한 사례에 연결하는 것이다. - 출처: `source/openclaw-system/data/daily-reviews/2026-10-02-review.md`, `source/openclaw-system/data/daily-reviews/2026-10-02-threads-candidate.md` - 사업계획 원문 보존: `source/openclaw-system/data/policycock-brief.md` — 2026-10-17 사용자 제공 원문. 위키의 정책콕 가설은 이 원문을 축약한 것이며, 원문 전체를 대체하지 않는다. - `Information` 안의 사례들을 `발견 구조`, `플랫폼 통제`, `멘탈 모델`, `공적 영향력`의 네 축으로 다시 추적해 더 압축할 수 있다. - `Article`, `Journal`, `Exploration`과 함께 정보"
+      }
+    },
+    {
+      "path": "agent-wiki/content/docs/outputs/Idea/Information.mdx",
+      "reason": "zg hybrid discovery; indexed section retained for targeted reading",
+      "verification": "indexed-section",
+      "locator": {
+        "start_line": 167,
+        "end_line": 169,
+        "heading": "개인 영향력 vs 공적 책임",
+        "heading_level": "3",
+        "scope": "Information::중요한 판단 축",
+        "excerpt": "### 개인 영향력 vs 공적 책임 영향력은 단순 확장 자산이 아니라, 받은 도움을 돌려주고 공적 신뢰를 어디에 쓸지 결정하는 책임 문제로 읽힌다."
+      }
+    },
+    {
+      "path": "agent-wiki/content/docs/outputs/Fundamental/Math.mdx",
+      "reason": "zg hybrid discovery; indexed section retained for targeted reading",
+      "verification": "indexed-section",
+      "locator": {
+        "start_line": 255,
+        "end_line": 272,
+        "heading": "응용 사례를 피드백 표로 압축하기",
+        "heading_level": "2",
+        "scope": "Math",
+        "excerpt": "## 응용 사례를 피드백 표로 압축하기 원문 후반의 블록체인과 드론 메모는 `Math`라는 제목과 멀어 보이지만, 이 페이지에서는 둘 다 **상태를 직접 믿지 않고 측정·검증·보정 절차로 안정성을 만드는 사례**로 읽는다. 블록체인은 사회적 신뢰를 기록 검증 루프로 바꾸고, 드론은 물리적 자세를 센서-출력 제어 루프로 닫는다.  | 사례 | 흔들리는 상태 | 안정화 장치 | 남길 원문 질감 | | --- | --- | --- | --- | | 블록체인 | 기록 신뢰, 참여자 합의, 공개 장부의 실제 감시 여부 | 해시, 머클트리, 공개키, 합의 알고리즘, 보증 정책 | `누가 감시하는가`, `중앙기관을 줄인 비용은 어디로 이동하는가`라는 의심 | | 드론 | 자세, 출력, 센서 노이즈, 배터리·무게 제약 | 센서 평균값, 필터, PID, ESC, 모터 출력 | `센서값 초기화 → 필터 → PID → ESC → 모터`로 닫히는 제작 순서 | | 무선통신 | 전파 도달성, 체감 속도, 연결 안정성 | 주파수, 출력, 감쇠, 안테나, 셀 구조 | TV와 모바일 안정성 차이를 서비스 체감에서 거꾸로 묻는 질문 |  따라서 후속 편집에서 응용 사례를 만날 때는 사례의 최신성보다 `검증 가능한 관계가 어디에 생기는가`를 먼저 본다. 이 표는 사례를 한 번에 묶어 원문 질감을 보존하고, 이어지는 섹션들은 각각 다른 판정 일을 맡긴다.  | 후반 "
+      }
+    },
+    {
+      "path": "agent-wiki/content/docs/outputs/deep-knowledge/data.mdx",
+      "reason": "zg hybrid discovery; indexed section retained for targeted reading",
+      "verification": "indexed-section",
+      "locator": {
+        "start_line": 103,
+        "end_line": 105,
+        "heading": "단일 저장소 vs 목적별 분리",
+        "heading_level": "3",
+        "scope": "Data::반복해서 보이는 판단 축",
+        "excerpt": "### 단일 저장소 vs 목적별 분리 운영계 DB, 검색용 인덱스, 분석계 저장소를 한 덩어리로 보지 않는다. 읽는 목적이 다르면 저장 경로를 분리해야 한다는 감각이 강하다. 원문 후반의 `단일 진실 원천` 메모도 결국 아무 곳에나 같은 책임을 얹지 말고, 진실을 고정하는 층과 읽기 최적화를 담당하는 층을 나누려는 고민으로 읽힌다."
+      }
+    }
+  ],
+  "selected_operational_logs": [],
+  "preflight": {
+    "tool": "zg",
+    "query": "모두의정책 정책콕 정책 기록 공식 출처 검색 최적화",
+    "discovery": "hybrid+fts RRF",
+    "verification": "indexed section locator",
+    "result_count": 5
+  },
+  "selected_context_required": true,
+  "rules": [
+    "Read every required document before creating or executing an intent.",
+    "Read every selected_context locator section first (including its heading and line window); expand to adjacent sections only when needed, and record the exact paths in the execution trace.",
+    "Read only the matched sections of selected_operational_logs; they are operational evidence, not compiled knowledge.",
+    "Search the declared scopes for task-specific evidence; do not treat a search hit as a confirmed fact without its source.",
+    "Record the resulting context pack path in the intent and re-check it before handoff."
+  ]
+}

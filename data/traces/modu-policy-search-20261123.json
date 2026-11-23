@@ -1,0 +1,66 @@
+{
+  "schema_version": 2,
+  "intent_id": "modu-policy-search-20261123",
+  "status": "active",
+  "trace_completeness": "complete",
+  "request": {
+    "raw": {
+      "status": "recorded",
+      "value": "마케팅스킬스 써서 모두의정책에 seo,geo 세팅해줘"
+    },
+    "normalized_query": {
+      "status": "recorded",
+      "value": "모두의정책 공개 페이지에 검색 메타데이터·정책 출처·크롤링 경로 적용"
+    },
+    "user_intent": {
+      "status": "recorded",
+      "value": "마케팅스킬스 써서 모두의정책에 seo,geo 세팅해줘"
+    },
+    "desired_outcome": {
+      "status": "recorded",
+      "value": "공개 URL에서 검색엔진과 AI 검색이 정책 설명·기록과 출처를 읽을 수 있도록 서비스에 반영한다."
+    },
+    "out_of_scope": {
+      "status": "recorded",
+      "value": "미공개 정책·개인정보 공개, 외부 계정 설정, 순위·인용률 보장"
+    },
+    "success_evidence": {
+      "status": "recorded",
+      "value": "운영 정적 HTML의 고유 메타데이터·대표 URL·구조화 데이터·출처와 robots.txt·sitemap.xml HTTP 응답 및 회귀 검증"
+    }
+  },
+  "events": [
+    {
+      "type": "intake",
+      "at": "2026-11-23T11:52:48Z",
+      "context_pack": "intents/context/modu-policy-search-20261123.json",
+      "evidence_paths": [
+        "INTENTS.yaml"
+      ]
+    },
+    {
+      "type": "execution",
+      "at": "2026-11-23T11:52:48Z",
+      "context_pack": "intents/context/modu-policy-search-20261123.json",
+      "evidence_paths": [
+        "artifacts/modu-policy-search-20261123/work/task-plan.json"
+      ],
+      "searches": [
+        "모두의정책 정책콕 정책 기록 공식 출처 검색 최적화"
+      ],
+      "wiki_pages": [
+        "agent-wiki/content/docs/outputs/deep-knowledge/data.mdx",
+        "agent-wiki/content/docs/outputs/Idea/Information.mdx",
+        "agent-wiki/content/docs/outputs/Fundamental/Math.mdx"
+      ],
+      "operational_log_sections": [],
+      "note": "사용자 요청을 처리 중인 Codex 부모와 네 역할에서 범위 및 구현을 검토한다."
+    }
+  ],
+  "artifacts": [],
+  "verifications": [],
+  "next_decision": {
+    "status": "in_progress",
+    "value": "현재 Codex 실행에서 변경 후 회귀 테스트·배포·운영 URL을 검증한다."
+  }
+}

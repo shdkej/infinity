@@ -1,0 +1,21 @@
+{
+  "intent_id": "modu-policy-search-20261123",
+  "tasks": [
+    {
+      "id": "T1",
+      "title": "검색 설정과 공개 정책 정적 HTML 적용, 테스트 및 배포",
+      "status": "active",
+      "owner": "genie",
+      "started_at": "2026-11-23T11:52:48+00:00"
+    },
+    {
+      "id": "T2",
+      "title": "운영 응답·사이트맵·출처 검증 및 결과 기록",
+      "status": "pending",
+      "owner": "genie",
+      "depends_on": [
+        "T1"
+      ]
+    }
+  ]
+}
