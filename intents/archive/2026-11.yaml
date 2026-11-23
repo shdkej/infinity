@@ -286,3 +286,61 @@ archive:
   - repo: infinity
     sha: 6c3e5eb1f92e01980cc90f982317a8e007513d97
     note: Archive transition pushed; remote verifier and dashboard card/link checks passed.
+- id: modu-policy-search-20261123
+  title: 모두의정책 공개 페이지에 검색 메타데이터·정책 출처·크롤링 경로 적용
+  task_name: 모두의정책 공개 페이지에 검색 메타데이터·정책 출처·크롤링 경로 적용
+  status: archived
+  target_agent: genie
+  task_type: implementation
+  execution_mode: multi_subagent_roles
+  created_at: '2026-11-23T11:52:48+00:00'
+  projects:
+  - policycock
+  user_intent: 마케팅스킬스 써서 모두의정책에 seo,geo 세팅해줘
+  desired_outcome: 공개 URL에서 검색엔진과 AI 검색이 정책 설명·기록과 출처를 읽을 수 있도록 서비스에 반영한다.
+  out_of_scope: 미공개 정책·개인정보 공개, 외부 계정 설정, 순위·인용률 보장
+  success_evidence: 운영 정적 HTML의 고유 메타데이터·대표 URL·구조화 데이터·출처와 robots.txt·sitemap.xml HTTP 응답 및 회귀 검증
+  notification_channel: codex
+  notification_target: originating-conversation
+  context_pack: intents/context/modu-policy-search-20261123.json
+  context_documents_checked:
+  - /home/ubuntu/workspace/prompt-archive/LLM.md
+  - README.md
+  - schema/agent-rules.md
+  - source/openclaw-system/docs/DOCUMENT_SEARCH_PIPELINE.md
+  - source/openclaw-system/docs/USER_CONTEXT.md
+  - source/openclaw-system/docs/SERVICE_REGISTRY.md
+  - agent-wiki/content/docs/index.mdx
+  - agent-wiki/content/docs/outputs/Idea/Information.mdx
+  - agent-wiki/content/docs/outputs/Integration/Business.mdx
+  - agent-wiki/content/docs/outputs/deep-knowledge/data.mdx
+  - agent-wiki/content/docs/outputs/Idea/Information.mdx
+  - agent-wiki/content/docs/outputs/Fundamental/Math.mdx
+  context_searches:
+  - 모두의정책 정책콕 정책 기록 공식 출처 검색 최적화
+  task_plan: artifacts/modu-policy-search-20261123/work/task-plan.json
+  trace: data/traces/modu-policy-search-20261123.json
+  metric_question: 검색기가 자바스크립트 없이 공개 정책과 출처를 읽을 수 있는가?
+  metric_signal: 사이트맵 URL 상태와 초기 HTML 본문·출처·대표 주소
+  metric_decision_rule: 실제 운영 응답과 공개 데이터의 일치를 검증한 뒤 마감
+  next_action: 검색엔진 색인·인용은 별도 실측 대상
+  completed_at: '2026-11-23T11:59:45+00:00'
+  archived_at: '2026-11-23T11:59:45+00:00'
+  report: reports/modu-policy-search-20261123/20261123T115945Z.html
+  final_artifact: https://policy.minimalcollector.com/
+  summary: 모두의정책 공개 페이지 14개에 검색용 대표 주소와 구조화 데이터를 적용했습니다. 정책 10개의 기록 42건은 자바스크립트를 꺼도 출처와 함께 읽을 수 있습니다.
+  red_status: pass
+  red_report: artifacts/modu-policy-search-20261123/work/review.md
+  report_length: 1698
+  report_length_judgment: fit
+  report_flow_check: 변경 전 문제 → 운영 반영 → 검증 → 측정 범위
+  skills_used:
+  - name: seo-audit
+    purpose: 크롤링·페이지별 메타 점검
+    evidence_path: https://github.com/shdkej/prompt-archive/tree/main/skills/shared/marketingskills/skills/seo-audit
+  - name: schema
+    purpose: 구조화 데이터 적용
+    evidence_path: https://github.com/shdkej/prompt-archive/tree/main/skills/shared/marketingskills/skills/schema
+  - name: ai-seo
+    purpose: 근거를 인용할 수 있는 정책 본문 구성
+    evidence_path: https://github.com/shdkej/prompt-archive/tree/main/skills/shared/marketingskills/skills/ai-seo
