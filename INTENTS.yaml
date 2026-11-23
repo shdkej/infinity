@@ -145,7 +145,9 @@ lanes:
     current_task_end_at: '2026-11-23T01:30:00Z'
     current_task_completion_criteria: 종료 전 원문 보고와 Intent 기록에 실제 diff·데스크톱/모바일·링크 동작·기존 정리 흐름·실사용 지표 여부를 구분 기록
     current_task_handoff_attempt_at: '2026-11-23T01:00:00Z'
-    current_task_handoff_status: attempted
+    current_task_handoff_status: sent
+    current_task_handoff_message_id: '1795395684.786199'
+    current_task_handoff_queue_id: convq_c7337e930ec39bf6fc261a1dd75499fb
     current_task_status: in_progress
     current_task_result_summary: '진입 링크 개선 목표를 기존 결과와 승인 범위에 근거해 정하고, 최신 원격 기록에 업무·종료·완료 기준을 반영함. Windows guard 인계 대기.'
     current_task_followup: '10:30 KST 고정 종료 후 결과를 기록한다. 변경/검증이 미완료여도 연장·재시도하지 않는다.'
