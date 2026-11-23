@@ -3,19 +3,24 @@
   "tasks": [
     {
       "id": "T1",
-      "title": "검색엔진 색인·사이트맵 확인 및 질문형 페이지 배포",
+      "title": "질문형 정책 페이지 배포·공식 출처 검증",
       "owner": "genie",
-      "status": "active",
-      "started_at": "2026-11-23T12:08:25+00:00"
+      "status": "done",
+      "started_at": "2026-11-23T12:08:25+00:00",
+      "completed_at": "2026-11-23T12:59:17+00:00",
+      "evidence": "artifacts/modu-policy-search-followup-20261123/work/release-check.md"
     },
     {
       "id": "T2",
-      "title": "운영 URL 및 상태 검증과 보고",
+      "title": "권한 확보 후 구글·네이버의 색인 및 사이트맵 처리 상태 확인",
       "owner": "genie",
-      "status": "pending",
+      "status": "waiting",
       "depends_on": [
         "T1"
-      ]
+      ],
+      "waiting_on": "user",
+      "resume_condition": "Google은 기존 속성 접근 권한이 있는 계정으로 전환하거나 현재 계정을 신규 소유자로 등록할지 확인한다. 네이버는 전달한 ego 브라우저 공간 14에서 사용자 로그인을 마친 뒤 재개한다.",
+      "evidence": "artifacts/modu-policy-search-followup-20261123/work/index-console-check.md"
     }
   ]
 }
