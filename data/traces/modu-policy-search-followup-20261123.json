@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "intent_id": "modu-policy-search-followup-20261123",
-  "status": "active",
+  "status": "archived",
   "trace_completeness": "complete",
   "request": {
     "raw": {
@@ -151,12 +151,45 @@
       ],
       "operational_log_sections": [],
       "note": "네이버 소유확인과 사이트맵 제출 및 4개 URL 검사 완료"
+    },
+    {
+      "type": "archive",
+      "at": "2026-11-23T13:19:23Z",
+      "report_path": "reports/modu-policy-search-followup-20261123/20261123T131833Z.html",
+      "evidence_paths": [
+        "reports/modu-policy-search-followup-20261123/20261123T131833Z.html",
+        "artifacts/modu-policy-search-followup-20261123/work/review.md",
+        "artifacts/modu-policy-search-followup-20261123/work/remote-proof.md"
+      ],
+      "research_mode": "exploratory_research",
+      "verification": {
+        "red_status": "pass",
+        "red_report_path": "artifacts/modu-policy-search-followup-20261123/work/review.md",
+        "remote_verified": "pass",
+        "remote_proof_path": "artifacts/modu-policy-search-followup-20261123/work/remote-proof.md"
+      }
     }
   ],
-  "artifacts": [],
-  "verifications": [],
+  "artifacts": [
+    {
+      "label": "질문형 페이지와 검색엔진 점검 보고서",
+      "path": "reports/modu-policy-search-followup-20261123/20261123T131833Z.html"
+    }
+  ],
+  "verifications": [
+    {
+      "label": "Red verification evidence",
+      "path": "artifacts/modu-policy-search-followup-20261123/work/review.md",
+      "status": "pass"
+    },
+    {
+      "label": "Remote verification evidence",
+      "path": "artifacts/modu-policy-search-followup-20261123/work/remote-proof.md",
+      "status": "pass"
+    }
+  ],
   "next_decision": {
-    "status": "in_progress",
-    "value": "콘솔 결과와 공개 페이지를 종합해 마감한다."
+    "status": "implemented",
+    "value": "엔진의 색인과 노출 변화는 집계 이후 확인 가능"
   }
 }
