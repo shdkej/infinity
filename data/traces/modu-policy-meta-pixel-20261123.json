@@ -1,0 +1,67 @@
+{
+  "schema_version": 2,
+  "intent_id": "modu-policy-meta-pixel-20261123",
+  "status": "active",
+  "trace_completeness": "complete",
+  "request": {
+    "raw": {
+      "status": "recorded",
+      "value": "응 해줘"
+    },
+    "normalized_query": {
+      "status": "recorded",
+      "value": "모두의정책 전용 Meta 픽셀 생성 및 광고 동의 기반 전환 측정"
+    },
+    "user_intent": {
+      "status": "recorded",
+      "value": "모두의정책 전용 Meta 픽셀을 생성하고 광고 동의 후 홈 PageView와 실제 신규 신청 Lead를 측정한다."
+    },
+    "desired_outcome": {
+      "status": "recorded",
+      "value": "운영 사이트가 전용 픽셀을 사용하고 동의자가 홈을 보거나 실제 신규 신청을 완료한 시점에 해당 이벤트를 전송한다."
+    },
+    "out_of_scope": {
+      "status": "recorded",
+      "value": "광고 집행·예산 설정, 개인정보·정책 관심 정보의 Meta 전송, 동의 전 추적, 테스트용 허위 운영 신청"
+    },
+    "success_evidence": {
+      "status": "recorded",
+      "value": "전용 픽셀의 생성 또는 연결 증거, 미동의 시 전송 없음, 동의 후 홈 PageView, 신규 신청 성공에만 Lead 1회, 실패·중복에는 Lead 없음, 배포 및 운영 검증과 실제 수신 확인 상태"
+    }
+  },
+  "events": [
+    {
+      "type": "intake",
+      "at": "2026-11-23T13:22:51Z",
+      "context_pack": "intents/context/modu-policy-meta-pixel-20261123.json",
+      "evidence_paths": [
+        "INTENTS.yaml"
+      ]
+    },
+    {
+      "type": "execution",
+      "at": "2026-11-23T13:22:51Z",
+      "context_pack": "intents/context/modu-policy-meta-pixel-20261123.json",
+      "evidence_paths": [
+        "artifacts/modu-policy-meta-pixel-20261123/work/task-plan.json"
+      ],
+      "searches": [
+        "모두의정책 광고 동의 신규 신청 광고 전환 측정 Meta 픽셀"
+      ],
+      "wiki_pages": [
+        "agent-wiki/content/docs/outputs/Integration/Marketing.mdx",
+        "agent-wiki/content/docs/outputs/Human/Evolve.mdx",
+        "agent-wiki/content/docs/outputs/deep-knowledge/operation.mdx",
+        "agent-wiki/content/docs/outputs/Fundamental/Math.mdx"
+      ],
+      "operational_log_sections": [],
+      "note": "사용자가 직전 구체화한 전용 픽셀 설정을 승인함"
+    }
+  ],
+  "artifacts": [],
+  "verifications": [],
+  "next_decision": {
+    "status": "in_progress",
+    "value": "전용 픽셀 생성 경로와 소스의 신청 성공 분기를 확인하고, 광고 동의 후 홈 조회와 신규 신청 전환만 보내도록 검증한다."
+  }
+}
