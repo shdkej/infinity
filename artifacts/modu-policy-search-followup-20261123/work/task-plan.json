@@ -12,14 +12,24 @@
     },
     {
       "id": "T2",
-      "title": "권한 확보 후 구글·네이버의 색인 및 사이트맵 처리 상태 확인",
+      "title": "구글 Search Console 소유권·사이트맵·URL 색인 상태 확인",
       "owner": "genie",
-      "status": "active",
+      "status": "done",
       "depends_on": [
         "T1"
       ],
       "evidence": "artifacts/modu-policy-search-followup-20261123/work/index-console-check.md",
-      "started_at": "2026-11-23T13:03:31+00:00"
+      "started_at": "2026-11-23T13:03:31+00:00",
+      "completed_at": "2026-11-23T13:10:21+00:00"
+    },
+    {
+      "id": "T3",
+      "title": "네이버 소유확인 및 사이트맵·색인 점검",
+      "owner": "genie",
+      "status": "waiting",
+      "waiting_on": "user",
+      "resume_condition": "사용자가 인계받은 ego 공간 14에서 네이버 소유확인 보안문자(CAPTCHA)를 완료하면 소유확인 결과를 다시 조회하고 사이트맵과 색인 상태를 점검한다.",
+      "evidence": "artifacts/modu-policy-search-followup-20261123/work/index-console-check.md"
     }
   ]
 }
