@@ -153,3 +153,11 @@
 - 미완료: Windows 결과는 운영 첫 화면에 아직 반영되지 않았다고 명시했다. SAM은 전체 사이트 배포의 삭제 영향 확인 후 안전한 경로로 게시하고 운영 화면에서 새 링크와 `/sort/`를 확인하도록 요청했다(`1795396246.105539`). 고정 종료 10:30 KST 전 추가 결과가 없었다. 데스크톱/모바일 렌더·링크 목적지 동작도 확인 증거가 없다. 배포는 완료로 보지 않는다.
 - 지표/검증: 당일 실사용 이벤트·사용자 수·기간은 측정되지 않았다. 이는 사용자 0명/이벤트 0건을 뜻하지 않는다. 합성 QA 및 실제 사용자 테스트 증거도 이번 결과에 없다.
 - 판정/다음: 오늘 task는 소스 수정 보고만 있고 배포·화면 검증이 남아 미완료다. 연장·재시도는 하지 않는다. 다음 정규 일과에서 안전한 게시 경로와 운영 화면 확인 필요성을 검토한다. 다음 날짜는 계획이며 오늘 실행으로 기록하지 않는다. 상세: `reports/miniapp-image-tools-20261118-qa-01/20261123T1230KST.html`.
+
+## 2026-11-23 사용자 직접 위임 후속 — 첫 화면 운영 게시
+
+- 이 후속은 오전 고정 종료 작업 `miniapp-20261123-work`의 연장·재실행이 아니다. 사용자가 Space 배포를 위임하고, 승인 범위 안의 적극적인 마무리·Git 더티 파일 보존/충돌 해결·행동방침 갱신을 요청한 별도 지시다. 기존 Intent는 Waiting 유지한다.
+- 역할 검토: Hermes 네 독립 자식 `deleg_351779ff`의 Planner·Developer·Marketer·Operator가 모두 completed로 종료했다. Planner는 소스/라이브 차이와 범위, Developer는 홈 두 객체와 `/sort/`·변환기 소유 분리, Marketer는 두 링크의 위계와 사용자 효과 미측정, Operator는 전체 버킷 `sync --delete`의 잠재 삭제 위험을 지적했다. 네 자식의 1회 교차 검토 `deleg_c6a10659`도 각각 completed. Operator 교차안의 *converter 전용 workflow 실행*은 홈 객체를 배포하지 못하므로 채택하지 않고, Developer의 **홈 전용 정확한 두 키 배포**를 선택했다. 독립 사전 코드 검토는 첫 안의 CloudFront 검증·롤백 문제를 지적했고 수정본 재검토는 PASS였다. 실패 전 검증 Action 두 건은 쓰기 전 중단했다.
+- 실행: Space `image-annotator-home-release.yml`을 추가해 기존 OIDC 역할·도메인 공동 concurrency로 `index.html`·`styles.css`만 업로드, CloudFront 경로 세 개만 무효화했다. 전체 `--delete`·IAM·비용·데이터/API 변경 없음. 최종 소스 `02b94a7004671e2cfdce3dfe10f9425560e1cc7e`, [Action 45139835636](https://github.com/shdkej/space/actions/runs/45139835636) 성공. 반복 가능한 경로와 QA는 Space `infra-aws-static-sites/sites/image-annotator/{README,DEPLOYMENT}.md`에 기록했다.
+- 독립 재조회: 라이브 `/` HTML과 `/styles.css`가 소스 바이트와 일치하고 `/`·`/sort/`·`/tools/image-converter/`가 모두 200이다. ego lite 실제 화면 900px·390px에서 기존 ‘사진 추가·정리’와 새 ‘이미지 크기·형식 바꾸기’가 함께 표시되고 각 링크를 눌러 두 목적지로 이동했으며 390px의 가로 넘침이 없었다. 실사용자 이벤트·발견성 개선 효과·롤백 장애 복구는 검증하지 않았다.
+- 행동 기준: 공용 Prompt Archive `LLM.md`와 지니의 `AGENTS.md`·`SOUL.md`·`genie-workflow`에 승인 범위 내 끝까지 실행, dirty 변경 보존·최신 원격 통합, Space의 좁은 배포 책임을 추가했다. SAM의 별도 SOUL/설정은 대리 수정하지 않았다. 오전 작업의 당시 마감 사실은 그대로 두고 이 후속 증거로 운영 반영 미완료 항목만 해소한다.
