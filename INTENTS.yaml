@@ -80,50 +80,6 @@ lanes:
     notification_target: telegram:433493318
   inbox: []
   waiting:
-  - id: modu-policy-search-followup-20261123
-    title: 모두의정책 구글·네이버 색인 상태 점검 및 질문형 정책 페이지 게시
-    task_name: 모두의정책 구글·네이버 색인 상태 점검 및 질문형 정책 페이지 게시
-    status: waiting
-    target_agent: genie
-    task_type: implementation
-    execution_mode: multi_subagent_roles
-    created_at: '2026-11-23T12:08:25+00:00'
-    projects:
-    - policycock
-    parent_intent_id: modu-policy-search-20261123
-    user_intent: 앞서 제안한 구글·네이버 실제 색인 및 사이트맵 점검과 질문형 정책 페이지 게시를 진행한다.
-    desired_outcome: 각 엔진에서 확인 가능한 실제 색인·사이트맵 상태를 구분하여 보고하고 질문형 정책 페이지 2~3개를 공개한다.
-    out_of_scope: 검색 순위·색인 보장, 신규 유료 비용·타인 계정 사용 및 사이트 소유권 변경
-    success_evidence: 확인 출처와 시각이 있는 엔진별 색인·사이트맵 상태 또는 구체적인 접근 한계, 신규 공개 페이지 URL·본문·정책 출처·사이트맵·운영 HTTP 검증
-    notification_channel: codex
-    notification_target: originating-conversation
-    context_pack: intents/context/modu-policy-search-followup-20261123.json
-    context_documents_checked:
-    - /home/ubuntu/workspace/prompt-archive/LLM.md
-    - README.md
-    - schema/agent-rules.md
-    - source/openclaw-system/docs/DOCUMENT_SEARCH_PIPELINE.md
-    - source/openclaw-system/docs/USER_CONTEXT.md
-    - source/openclaw-system/docs/SERVICE_REGISTRY.md
-    - agent-wiki/content/docs/index.mdx
-    - agent-wiki/content/docs/outputs/Idea/Information.mdx
-    - agent-wiki/content/docs/outputs/Integration/Business.mdx
-    - agent-wiki/content/docs/outputs/Idea/Information.mdx
-    - agent-wiki/content/docs/outputs/Idea/Reading.mdx
-    - agent-wiki/content/docs/outputs/Fundamental/Network.mdx
-    - agent-wiki/content/docs/outputs/deep-knowledge/data.mdx
-    context_searches:
-    - 모두의정책 정책콕 구글 네이버 색인 질문형 정책 출처
-    task_plan: artifacts/modu-policy-search-followup-20261123/work/task-plan.json
-    trace: data/traces/modu-policy-search-followup-20261123.json
-    metric_question: 정책 질문에 답하는 새 운영 URL이 있고 검색엔진의 수집/색인 결과를 확인할 수 있는가?
-    metric_signal: 공개 페이지 수·접근 상태·공식 출처와 엔진별 사이트맵 처리 및 URL 검사 상태
-    metric_decision_rule: 운영 게시와 검색엔진 처리 결과를 분리하고 미확인 상태는 미확인으로 표기
-    next_action: Google은 기존 속성 접근 권한이 있는 계정으로 전환하거나 현재 계정을 신규 소유자로 등록할지 확인한다. 네이버는 전달한 ego 브라우저 공간 14에서 사용자 로그인을 마친 뒤 재개한다.
-    waiting_on: user
-    waiting_reason: 구글 검색 속성 권한과 네이버 로그인이 필요해 엔진별 색인·사이트맵 상태 미확인
-    resume_condition: Google은 기존 속성 접근 권한이 있는 계정으로 전환하거나 현재 계정을 신규 소유자로 등록할지 확인한다. 네이버는 전달한 ego 브라우저 공간 14에서 사용자 로그인을 마친 뒤 재개한다.
-    latest_evidence: artifacts/modu-policy-search-followup-20261123/work/index-console-check.md
   - id: miniapp-image-tools-20261118-qa-01
     dedupe_key: miniapp-image-tools:pilot-qa-01
     project_id: miniapp-image-tools
@@ -337,7 +293,49 @@ lanes:
     retry_policy: autonomous
     notification_channel: telegram
     notification_target: telegram:433493318
-  active: []
+  active:
+  - id: modu-policy-search-followup-20261123
+    title: 모두의정책 구글·네이버 색인 상태 점검 및 질문형 정책 페이지 게시
+    task_name: 모두의정책 구글·네이버 색인 상태 점검 및 질문형 정책 페이지 게시
+    status: active
+    target_agent: genie
+    task_type: implementation
+    execution_mode: multi_subagent_roles
+    created_at: '2026-11-23T12:08:25+00:00'
+    projects:
+    - policycock
+    parent_intent_id: modu-policy-search-20261123
+    user_intent: 앞서 제안한 구글·네이버 실제 색인 및 사이트맵 점검과 질문형 정책 페이지 게시를 진행한다.
+    desired_outcome: 각 엔진에서 확인 가능한 실제 색인·사이트맵 상태를 구분하여 보고하고 질문형 정책 페이지 2~3개를 공개한다.
+    out_of_scope: 검색 순위·색인 보장, 신규 유료 비용·타인 계정 사용 및 사이트 소유권 변경
+    success_evidence: 확인 출처와 시각이 있는 엔진별 색인·사이트맵 상태 또는 구체적인 접근 한계, 신규 공개 페이지 URL·본문·정책 출처·사이트맵·운영 HTTP 검증
+    notification_channel: codex
+    notification_target: originating-conversation
+    context_pack: intents/context/modu-policy-search-followup-20261123.json
+    context_documents_checked:
+    - /home/ubuntu/workspace/prompt-archive/LLM.md
+    - README.md
+    - schema/agent-rules.md
+    - source/openclaw-system/docs/DOCUMENT_SEARCH_PIPELINE.md
+    - source/openclaw-system/docs/USER_CONTEXT.md
+    - source/openclaw-system/docs/SERVICE_REGISTRY.md
+    - agent-wiki/content/docs/index.mdx
+    - agent-wiki/content/docs/outputs/Idea/Information.mdx
+    - agent-wiki/content/docs/outputs/Integration/Business.mdx
+    - agent-wiki/content/docs/outputs/Idea/Information.mdx
+    - agent-wiki/content/docs/outputs/Idea/Reading.mdx
+    - agent-wiki/content/docs/outputs/Fundamental/Network.mdx
+    - agent-wiki/content/docs/outputs/deep-knowledge/data.mdx
+    context_searches:
+    - 모두의정책 정책콕 구글 네이버 색인 질문형 정책 출처
+    task_plan: artifacts/modu-policy-search-followup-20261123/work/task-plan.json
+    trace: data/traces/modu-policy-search-followup-20261123.json
+    metric_question: 정책 질문에 답하는 새 운영 URL이 있고 검색엔진의 수집/색인 결과를 확인할 수 있는가?
+    metric_signal: 공개 페이지 수·접근 상태·공식 출처와 엔진별 사이트맵 처리 및 URL 검사 상태
+    metric_decision_rule: 운영 게시와 검색엔진 처리 결과를 분리하고 미확인 상태는 미확인으로 표기
+    next_action: 네이버 인계 세션과 구글 권한 설정 위임을 바탕으로 각 콘솔에서 사이트맵 처리 상태 및 실제 색인 결과를 확인한다.
+    latest_evidence: artifacts/modu-policy-search-followup-20261123/work/index-console-check.md
+    resumed_at: '2026-11-23T13:03:31+00:00'
   latest_cycle:
     cycle_id: backlog-triage-2026-10-29-role-watchers-r32
     source_revision: c25c14b01ee7af8d1f97021346279c8b77b684d3
