@@ -430,3 +430,4 @@
 - 19:33 KST 발송 직전 검사에서 r2 진행 중·고정 종료 20:30 미도과·run `running`·감독 job `enabled`·원격 기록 `prepared` 확인 후 native 전송 완료. Slack sent 영수증 `1795516420.694159`, queue `convq_97ca970aaebf3d9cf6a2a2f1743a326d`; 전송은 Windows 수락·실행 증거와 별개다.
 
 - 19:45 KST 최신 원격 상태 점검: `miniapp-20261124-r2-t05` handoff는 sent이나 이후 결과·guard 종료·잠금 해제 갱신 없음. 동일 ID 업무 재전송 대신 상태 확인 1회만 준비; 고정 종료 20:30 KST.
+- 실제 발송 직전 19:46 KST 재검사: 날짜 11/24, 구간 r2, 고정 20:30 종료 전, run `running`, 감독 job `enabled`, 최신 원격 기록 일치. 상태만 요청했고 sent 영수증 `1795517213.706259`, queue `convq_b3800df487bd672c099f41b904f78e0f`; Windows 회신/실행은 아직 미확인.

@@ -1403,8 +1403,8 @@
     }
   ],
   "next_decision": {
-    "status": "r2_t05_status_check_prepared",
-    "value": "t05 handoff is sent; no current result/guard/lock update in latest remote. Prepare one status-only request, fixed end 20:30 KST; customer outcome unmeasured."
+    "status": "r2_t05_status_check_sent",
+    "value": "One status-only request for the already-sent t05 was sent at 19:46 KST (1795517213.706259; queue convq_b3800df487bd672c099f41b904f78e0f). Windows result/guard/lock remain unconfirmed; fixed end 20:30 KST. Customer outcome unmeasured."
   },
   "handoff_attempts": [
     {
@@ -1447,8 +1447,11 @@
       "at": "2026-11-24T10:45:00Z",
       "task_id": "miniapp-20261124-r2-t05",
       "window": "r2",
-      "status": "prepared",
-      "reason": "No newer result/guard/lock receipt in latest remote ledger; one status request only, no task resend."
+      "status": "sent",
+      "reason": "No newer result/guard/lock receipt in latest remote ledger; one status request only, no task resend.",
+      "sent_at": "2026-11-24T10:46:45Z",
+      "message_id": "1795517213.706259",
+      "queue_id": "convq_b3800df487bd672c099f41b904f78e0f"
     }
   ]
 }
