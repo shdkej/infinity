@@ -1068,6 +1068,16 @@
       "status": "browser_and_regression_in_progress_release_unverified",
       "next": "Keep one existing child running; verify tests and current two-key restore path before any app-only release, then read final guard exit and lock release separately.",
       "customer_outcomes": "unmeasured"
+    },
+    {
+      "type": "task_handoff_prepared",
+      "at": "2026-11-24T13:15:00Z",
+      "task_id": "miniapp-20261124-r3-t04",
+      "window": "r3",
+      "sequence": 4,
+      "end_at": "2026-11-24T14:30:00Z",
+      "status": "prepared",
+      "goal": "Verify corrupt/unsupported synthetic image rejection and recovery by selecting a valid PNG in the same live browser page; only fix a demonstrated defect with test, approved app-only release and live verification before fixed end."
     }
   ],
   "artifacts": [
@@ -1674,21 +1684,43 @@
       "project_id": 424014,
       "host": "us.posthog.com",
       "http_status": 200,
-      "window_utc": {"start_inclusive": "2026-11-24T05:30:00Z", "end_exclusive": "2026-11-24T12:41:30Z"},
+      "window_utc": {
+        "start_inclusive": "2026-11-24T05:30:00Z",
+        "end_exclusive": "2026-11-24T12:41:30Z"
+      },
       "observed_at": "2026-11-24T12:43:40.169418Z",
       "server_predicate": "properties.app_id='miniapp-image-tools' AND event IN ('image_selected','transform_started','transform_succeeded','transform_failed','download_requested') AND properties.traffic_kind IN ('synthetic','user') AND timestamp >= toDateTime('2026-11-24 05:30:00','UTC') AND timestamp < toDateTime('2026-11-24 12:41:30','UTC')",
       "projection": "event, properties.traffic_kind AS traffic_kind, count() AS count; GROUP BY event, traffic_kind",
       "validated_result_rows": 8,
       "counts": {
-        "image_selected": {"synthetic": 72, "user": 2},
-        "transform_started": {"synthetic": 81, "user": 1},
-        "transform_succeeded": {"synthetic": 81, "user": 1},
-        "transform_failed": {"synthetic": 26, "user": 0},
-        "download_requested": {"synthetic": 68, "user": 0}
+        "image_selected": {
+          "synthetic": 72,
+          "user": 2
+        },
+        "transform_started": {
+          "synthetic": 81,
+          "user": 1
+        },
+        "transform_succeeded": {
+          "synthetic": 81,
+          "user": 1
+        },
+        "transform_failed": {
+          "synthetic": 26,
+          "user": 0
+        },
+        "download_requested": {
+          "synthetic": 68,
+          "user": 0
+        }
       },
       "validation": "HTTP 200; columns exactly event,traffic_kind,count; all returned rows valid nonnegative integer counts, allowed labels, no duplicate or extra rows, no partial/background response; two absent cells zero only after complete success",
       "customer_outcomes": "unmeasured; public client user label is not a unique confirmed person; download_requested is not OS save; synthetic is not customer metric",
-      "roles": {"independent": "deleg_17b36cee", "cross_review": "deleg_ce8556b3", "four_each_completed": true},
+      "roles": {
+        "independent": "deleg_17b36cee",
+        "cross_review": "deleg_ce8556b3",
+        "four_each_completed": true
+      },
       "guard": {
         "state": "completed",
         "exit_code": 0,
@@ -1697,7 +1729,10 @@
         "end_at": "2026-11-24T14:30:00+00:00",
         "lock_free_verified_at": "2026-11-24T12:51:25.065804+00:00"
       },
-      "evidence_paths": ["intents/waiting/miniapp-image-tools-20261118-qa-01.md", "reports/miniapp-image-tools-20261118-qa-01/20261124T1243Z-r3-t03.html"]
+      "evidence_paths": [
+        "intents/waiting/miniapp-image-tools-20261118-qa-01.md",
+        "reports/miniapp-image-tools-20261118-qa-01/20261124T1243Z-r3-t03.html"
+      ]
     }
   ],
   "next_decision": {
@@ -1774,8 +1809,7 @@
       "sent_at": "2026-11-24T12:18:25Z",
       "message_id": "1795522715.346669",
       "queue_id": "convq_70f7ac689dc4aaf9e646e74350af3caf"
-    }
-,
+    },
     {
       "type": "task_status_check_prepared",
       "at": "2026-11-24T12:45:30Z",
@@ -1786,6 +1820,16 @@
       "sent_at": "2026-11-24T12:45:30Z",
       "message_id": "1795524335.092199",
       "queue_id": "convq_08af5d2122183d83ccd2b3f83a9760aa"
+    },
+    {
+      "type": "task_handoff_prepared",
+      "at": "2026-11-24T13:15:00Z",
+      "task_id": "miniapp-20261124-r3-t04",
+      "window": "r3",
+      "sequence": 4,
+      "end_at": "2026-11-24T14:30:00Z",
+      "status": "prepared",
+      "goal": "Verify synthetic corrupt/unsupported input rejection and valid PNG recovery without repeating prior 0B/mobile/race checks; no expanded analytics, costs or permissions."
     }
   ],
   "task_records": [
@@ -1821,7 +1865,24 @@
       "analytics_verification_at": "2026-11-24T12:43:40.169418Z",
       "analytics_result": "query_success_http_200_complete_8_rows",
       "customer_outcomes": "unmeasured",
-      "roles": {"independent": "deleg_17b36cee", "cross_review": "deleg_ce8556b3", "four_each_completed": true}
+      "roles": {
+        "independent": "deleg_17b36cee",
+        "cross_review": "deleg_ce8556b3",
+        "four_each_completed": true
+      }
+    },
+    {
+      "task_id": "miniapp-20261124-r3-t04",
+      "window": "r3",
+      "sequence": 4,
+      "status": "prepared",
+      "at": "2026-11-24T13:15:00Z",
+      "goal": "Verify corrupt/unsupported synthetic image rejection and recovery by selecting valid PNG; change/deploy only if a real defect reproduces and full completion fits fixed end.",
+      "end_at": "2026-11-24T14:30:00Z",
+      "handoff_attempt": "prepared",
+      "message_id": null,
+      "queue_id": null,
+      "customer_outcomes": "unmeasured"
     }
   ],
   "process_cleanup_verifications": [

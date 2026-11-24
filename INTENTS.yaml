@@ -158,12 +158,12 @@ lanes:
     prior_r3_t02_lock_released_verified_at: '2026-11-24T12:28:29.123670Z'
     prior_r3_t02_process_result: graceful_close_requested_still_present
     prior_r3_t02_process_identity: Narrator.exe PID 27296, owner SAM-PC/msi, session 1, created 2026-11-24T07:24:00.1520640Z; remains after one graceful close request
-    current_task_id: miniapp-20261124-r3-t03
-    current_task_goal: 승인된 기존 PostHog 5종 이벤트만 집계해 앱 사용·변환 결과의 관측 가능한 현황과 계측 공백을 구분하고, 고객 성과는 증거 범위를 넘어 주장하지 않음
-    current_task_start_at: '2026-11-24T12:30:52Z'
+    current_task_id: miniapp-20261124-r3-t04
+    current_task_goal: 실제 합성 이미지 입력 흐름에서 손상·미지원 파일 거부 후 유효 이미지 재선택 복구를 검증하고, 재현되는 결함만 최소 개선
+    current_task_start_at: '2026-11-24T13:15:00Z'
     current_task_end_at: '2026-11-24T14:30:00Z'
-    current_task_handoff_attempt_at: '2026-11-24T12:30:52Z'
-    current_task_completion_criteria: 기존 PostHog 공유 프로젝트에서 승인된 image_selected/transform_started/transform_succeeded/transform_failed/download_requested만 지정 기간·기존 app_id·허용된 synthetic/user 분리로 집계. person/distinct ID·파일/이미지 속성·새 이벤트를 조회/저장하지 말 것. 기간·필터·집계건수·쿼리 성공/실패를 기록하고 데이터 없음·조회 실패·미측정을 분리; 표본/분모 한계로 고객 성과를 단정하지 않음. 결과를 정본 trace/detail에 반영하고 관련 파일만 원격 main에 검증·반영; Windows 부모 종료/guard/잠금 증거도 같은 task_id에 기록.
+    current_task_handoff_attempt_at: '2026-11-24T13:15:00Z'
+    current_task_completion_criteria: Windows 실제 브라우저에서 무해한 합성 손상 이미지와 명확한 미지원 형식 입력의 안내·미리보기·변환/다운로드 상태를 기록하고, 같은 페이지에서 유효 PNG 재선택 후 변환·다운로드·저장물 재디코딩을 확인한다. 0B/모바일/옵션 경합 기존 QA를 반복하지 않는다. 실제 결함일 때만 작은 수정·회귀테스트·기존 앱 전용 배포·두 경로 라이브 확인을 고정 종료 전 안전하게 완료; 아니면 no-change 근거와 다음 후보 기록. 기존 계측·비용·권한·다른 앱 데이터 확대 금지, 고객성과 미측정 분리. 정본 detail/trace와 같은 task_id guard 종료/exit/lock 상태 기록; 관련 파일만 main 검증·반영.
     prior_task_handoff_message_id: '1795506439.083149'
     prior_task_handoff_queue_id: convq_8a215ed203754328f7789be184b789a3
     prior_task_status_check_at: '2026-11-24T07:30:47Z'
@@ -187,32 +187,35 @@ lanes:
     prior_r2_t06_guard_exit_code: 0
     prior_r2_t06_lock_released_verified_at: '2026-11-24T11:24:09.929899Z'
     prior_r2_t06_summary: mobile keyboard recovery QA pass at 390x844 and 320x720; synthetic only, customer outcomes unmeasured; no product change.
-    current_task_status: aggregate_verified_guard_completed
-    current_task_result_summary: 'US project 424014 bounded HogQL HTTP 200, 8 grouped rows; five event x synthetic/user counts in the task verification. Guard 12:51:04Z completed/exit 0 and lock 12:51:25Z free. Customer/unique people unmeasured; Narrator PID 27296 separate blocked issue.'
-    current_task_followup: 'Retain Waiting for Narrator until interactive unlock; r3 interval report pending. No additional PID termination attempt.'
-    current_task_result: aggregate_verified_guard_completed
-    current_task_status_at: '2026-11-24T12:43:40.169418Z'
-    current_task_guard_status: completed
-    current_task_guard_exit_code: 0
-    current_task_guard_finished_at: '2026-11-24T12:51:04.864391+00:00'
-    current_task_lock_released_verified_at: '2026-11-24T12:51:25.065804+00:00'
+    current_task_status: handoff_prepared_windows_execution_pending
+    current_task_result_summary: 'r3-t04 prepared for corrupt/unsupported synthetic input rejection and valid PNG recovery QA; no execution or product result confirmed yet. r3-t03 aggregate/guard result remains in task history. Customer outcomes unmeasured.'
+    current_task_followup: 'Await Windows parent result for r3-t04; do not overlap. Narrator PID 27296 cleanup remains blocked until interactive unlock.'
+    current_task_result: pending
+    current_task_status_at: '2026-11-24T13:15:00Z'
+    current_task_guard_status: not_started
+    current_task_guard_exit_code: null
+    current_task_guard_finished_at: null
+    current_task_lock_released_verified_at: null
+    prior_r3_t03_status: aggregate_verified_guard_completed
+    prior_r3_t03_result_summary: 'US project 424014 bounded HogQL HTTP 200, 8 grouped rows; five event x synthetic/user counts in the task verification. Guard 12:51:04Z completed/exit 0 and lock 12:51:25Z free. Customer/unique people unmeasured; Narrator PID 27296 separate blocked issue.'
     prior_r3_t01_status_check_at: '2026-11-24T11:46:05Z'
     prior_r3_t01_status_check_status: recorded_running_snapshot
     prior_r3_t01_status_check_task_id: miniapp-20261124-r3-t01
-    current_task_status_check_at: '2026-11-24T12:45:30Z'
-    current_task_status_check_status: sent
-    current_task_status_check_task_id: miniapp-20261124-r3-t03
-    current_task_status_check_message_id: '1795524335.092199'
-    current_task_status_check_queue_id: convq_08af5d2122183d83ccd2b3f83a9760aa
-    current_task_status_check_snapshot: 'As of the parent remote read at 12:45:30Z no result/guard/lock receipt was published; status request sent once, not a work resend.'
-    current_task_guard_started_at: '2026-11-24T12:42:15.010036+00:00'
-    current_task_lock_status: free_verified_at_2026-11-24T12:51:25.065804Z
-    current_task_analytics_project_id: 424014
-    current_task_analytics_window_start_at: '2026-11-24T05:30:00Z'
-    current_task_analytics_window_end_exclusive_at: '2026-11-24T12:41:30Z'
-    current_task_analytics_observed_at: '2026-11-24T12:43:40.169418Z'
-    current_task_analytics_status: query_success_http_200_complete_8_rows
-    current_task_analytics_counts:
+    prior_task_status_check_at: '2026-11-24T12:45:30Z'
+    prior_task_status_check_status: sent
+    prior_task_status_check_task_id: miniapp-20261124-r3-t03
+    prior_task_status_check_message_id: '1795524335.092199'
+    prior_task_status_check_queue_id: convq_08af5d2122183d83ccd2b3f83a9760aa
+    prior_task_status_check_snapshot: 'As of the parent remote read at 12:45:30Z no result/guard/lock receipt was published; status request sent once, not a work resend.'
+    prior_r3_t03_guard_started_at: '2026-11-24T12:42:15.010036+00:00'
+    prior_r3_t03_guard_status: completed_exit_0
+    prior_r3_t03_lock_status: free_verified_at_2026-11-24T12:51:25.065804Z
+    prior_r3_t03_analytics_project_id: 424014
+    prior_r3_t03_analytics_window_start_at: '2026-11-24T05:30:00Z'
+    prior_r3_t03_analytics_window_end_exclusive_at: '2026-11-24T12:41:30Z'
+    prior_r3_t03_analytics_observed_at: '2026-11-24T12:43:40.169418Z'
+    prior_r3_t03_analytics_status: query_success_http_200_complete_8_rows
+    prior_r3_t03_analytics_counts:
       image_selected: {synthetic: 72, user: 2}
       transform_started: {synthetic: 81, user: 1}
       transform_succeeded: {synthetic: 81, user: 1}
@@ -229,10 +232,10 @@ lanes:
     current_task_live_sha256: null
     report: reports/miniapp-image-tools-20261118-qa-01/20261124T1243Z-r3-t03.html
     prior_r3_t01_handoff_receipt: sent 1795520034.423279; queue convq_f4220e1e2f1315988e3e5697a899d49c
-    current_task_handoff_status: sent
-    current_task_handoff_message_id: '1795523874.479619'
-    current_task_handoff_queue_id: convq_9593dc8cb25c61f13231159ad238504a
-    current_task_handoff_receipt: sent 1795523874.479619; queue convq_9593dc8cb25c61f13231159ad238504a
+    current_task_handoff_status: prepared
+    current_task_handoff_message_id: null
+    current_task_handoff_queue_id: null
+    current_task_handoff_receipt: pending send and receipt
     daily_run_window:
       start_date: '2026-11-23'
       end_date: '2026-11-25'
@@ -353,15 +356,17 @@ lanes:
         start_at: '2026-11-24T11:30:00Z'
         end_at: '2026-11-24T14:30:00Z'
         status: running
-        task_sequence: 3
-        current_task_id: miniapp-20261124-r3-t03
-        current_task_goal: 승인된 기존 PostHog 5종 이벤트만 집계해 앱 사용·변환 결과의 관측 가능한 현황과 계측 공백을 구분하고, 고객 성과는 증거 범위를 넘어 주장하지 않음
+        task_sequence: 4
+        current_task_id: miniapp-20261124-r3-t04
+        current_task_goal: 실제 합성 이미지 입력 흐름에서 손상·미지원 파일 거부 후 유효 이미지 재선택 복구를 검증하고, 재현되는 결함만 최소 개선
         current_task_end_at: '2026-11-24T14:30:00Z'
-        current_task_completion_criteria: 'Windows task: aggregate only approved PostHog events image_selected, transform_started, transform_succeeded, transform_failed, download_requested using the existing app_id and allowed synthetic/user split. Do not read or store person/distinct IDs or file/image properties; add no events, costs, or permissions. Record time range, filters, counts, and query success/failure; distinguish zero from unavailable and unmeasured; do not claim customer outcomes beyond evidence. Record evidence in the existing Intent trace/detail and commit only related files. Parent records guard/lock status under this task ID.'
-        handoff_attempt_at: '2026-11-24T12:30:52Z'
-        handoff_status: sent
-        handoff_message_id: '1795523874.479619'
-        handoff_queue_id: convq_9593dc8cb25c61f13231159ad238504a
+        current_task_completion_criteria: 'Windows actual browser: test harmless synthetic corrupt image and clearly unsupported type; record messaging, preview and transform/download states; reselect valid PNG in same page, transform/download and re-decode saved output. Do not repeat 0B, mobile or option-race QA. Only if a real defect reproduces, apply minimal fix, regression test, existing app-only deploy and live verification safely before fixed end; otherwise document no-change evidence and next candidate. No analytics, cost, permission, or other-app-data expansion; customer outcomes remain unmeasured. Record same-task guard/exit/lock receipt in canonical detail/trace and commit only related files to main.'
+        handoff_attempt_at: '2026-11-24T13:15:00Z'
+        handoff_status: prepared
+        handoff_message_id: null
+        handoff_queue_id: null
+        prior_task_handoff_message_id: '1795523874.479619'
+        prior_task_handoff_queue_id: convq_9593dc8cb25c61f13231159ad238504a
         prior_task_id: miniapp-20261124-r3-t02
         prior_task_status: cleanup_blocked_process_remains
         prior_task_guard_finished_at: '2026-11-24T12:28:14.119473Z'
@@ -372,21 +377,21 @@ lanes:
         prior_r3_t01_status_check_task_id: miniapp-20261124-r3-t01
         prior_r3_t01_status_check_message_id: '1795520747.881739'
         prior_r3_t01_status_check_queue_id: convq_a13995fcc87bd672c099f41b904e9aff8
-        current_task_status_check_status: sent
-        current_task_status_check_at: '2026-11-24T12:45:30Z'
-        current_task_status_check_task_id: miniapp-20261124-r3-t03
-        current_task_status_check_message_id: '1795524335.092199'
-        current_task_status_check_queue_id: convq_08af5d2122183d83ccd2b3f83a9760aa
-        current_task_status_check_snapshot_at: '2026-11-24T12:45:30Z'
-        current_task_status_check_snapshot: No newer result/guard/lock receipt for r3-t03; one status-only request sent, no work resubmitted.
-        current_task_status: aggregate_verified_guard_completed
-        current_task_result: aggregate_verified_guard_completed
-        current_task_guard_status: completed_exit_0
-        current_task_lock_status: free_verified_at_2026-11-24T12:51:25.065804Z
-        current_task_analytics_status: query_success_http_200_complete_8_rows
-        current_task_analytics_observed_at: '2026-11-24T12:43:40.169418Z'
-        current_task_analytics_window: '[2026-11-24T05:30:00Z,2026-11-24T12:41:30Z)'
-        current_task_analytics_counts:
+        prior_task_status_check_status: sent
+        prior_task_status_check_at: '2026-11-24T12:45:30Z'
+        prior_task_status_check_task_id: miniapp-20261124-r3-t03
+        prior_task_status_check_message_id: '1795524335.092199'
+        prior_task_status_check_queue_id: convq_08af5d2122183d83ccd2b3f83a9760aa
+        prior_task_status_check_snapshot_at: '2026-11-24T12:45:30Z'
+        prior_task_status_check_snapshot: No newer result/guard/lock receipt for r3-t03; one status-only request sent, no work resubmitted.
+        current_task_status: handoff_prepared_windows_execution_pending
+        current_task_result: pending
+        current_task_guard_status: not_started
+        current_task_lock_status: unknown
+        current_task_analytics_status: not_applicable_for_browser_qa
+        prior_r3_t03_analytics_observed_at: '2026-11-24T12:43:40.169418Z'
+        prior_r3_t03_analytics_window: '[2026-11-24T05:30:00Z,2026-11-24T12:41:30Z)'
+        prior_r3_t03_analytics_counts:
           image_selected: {synthetic: 72, user: 2}
           transform_started: {synthetic: 81, user: 1}
           transform_succeeded: {synthetic: 81, user: 1}
@@ -398,7 +403,7 @@ lanes:
         prior_r3_t01_product_source_sha: dc43b456354f3f03edf402a8dfce0a10172f8d81
         prior_r3_t01_product_evidence_sha: 93da7d6de0cad3def7d837ca95d442b684216ad2
         prior_r3_t01_release_run: '45387803883'
-        current_task_product_result: bounded_aggregate_verified_customer_outcomes_unmeasured
+        current_task_product_result: pending_windows_browser_qa_customer_outcomes_unmeasured
         prior_task_process_result: graceful_close_requested_still_present
         prior_task_process_observed_at: '2026-11-24T12:24:29Z'
         prior_task_process_identity: Narrator.exe PID 27296, SAM-PC\msi, session 1, created 2026-11-24T07:24:00.1520640Z
@@ -407,8 +412,8 @@ lanes:
         current_task_product_evidence_sha: null
         current_task_release_run: null
         prior_task_guard_final_receipt: completed_exit_0_at_2026-11-24T12:28:14.119473Z_lock_free_at_12:28:29.123670Z_process_still_present
-        current_task_guard_final_receipt: completed_exit_0_at_2026-11-24T12:51:04.864391Z_lock_free_at_12:51:25.065804Z
-        goal: Bounded five-event aggregate only; Narrator cleanup remains separately blocked until user unlocks.
+        current_task_guard_final_receipt: pending_windows_parent
+        goal: Reproduce a distinct corrupt/unsupported input rejection and valid-image recovery issue; change only if evidenced.
       prior_task_status_check_at: '2026-11-24T09:45:00Z'
       prior_task_status_check_status: sent
       prior_task_status_check_task_id: miniapp-20261124-r2-t03
@@ -426,14 +431,14 @@ lanes:
       handoff_queue_id: convq_97ca970aaebf3d9cf6a2a2f1743a326d
       report_status: sent
       report_message_id: '1795519852.919859'
-      next_action: r3-t02 Narrator PID 27296 정상 창 닫기 요청 후 잔존; 잠금 해제된 대화형 데스크톱에서 동일 인스턴스 신원을 재검증해 단일 PID 정리·부재 확인. r3-t01 완료와 당시 상태 요청 영수증은 보존; r3-t02 guard/lock은 자식 종료 후 부모가 확인. 고정 14:30Z 종료.
+      next_action: r3-t04에서 합성 손상/미지원 입력 거부와 유효 PNG 재선택 복구를 기존 라이브에서 확인; 재현 결함만 작은 수정·테스트·앱 전용 배포·라이브 검증, 아니면 근거와 종료 영수증 기록. Narrator PID 27296은 대화형 Windows 잠금 해제 전 종료 재시도 금지. 고정 14:30Z 종료.
       prior_r2_t05_status_check_at: '2026-11-24T10:45:00Z'
       prior_r2_t05_status_check_status: prepared
       prior_r2_t05_status_check_task_id: miniapp-20261124-r2-t05
       prior_r2_t05_status_check_message_id: '1795517213.706259'
       prior_r2_t05_status_check_queue_id: convq_b3800df487bd672c099f41b904f78e0f
       prior_r2_t05_status_check_reason: 최신 원격에 t05 결과/guard/잠금 갱신 없음; 동일 ID 업무 재전송 없이 상태 1회 확인.
-    next_action: r3-t03 상태 회신을 기다린다. handoff sent 1795523874.479619; 12:45:30Z 동일 ID status-only 요청 sent 1795524335.092199. 업무 재전송 금지; 고정 end_at 14:30Z. 구간 보고 pending.
+    next_action: r3-t04 입력 오류·복구 QA 결과를 고정 end_at 이전 회수하고, 23:30 KST 종합 마감에서 최종 run 보고·감독 종료를 처리한다. r3-t03 aggregate/guard 종료·lock 해제는 완료; 고객 성과 미측정.
     notification_channel: slack
     notification_target: channel:C0CE0DV9MM2
     notification_reply_to: '1794983278.888719'
