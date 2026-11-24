@@ -183,14 +183,14 @@ lanes:
     prior_r2_t06_guard_exit_code: 0
     prior_r2_t06_lock_released_verified_at: '2026-11-24T11:24:09.929899Z'
     prior_r2_t06_summary: mobile keyboard recovery QA pass at 390x844 and 320x720; synthetic only, customer outcomes unmeasured; no product change.
-    current_task_status: product_released_guard_exit_pending
-    current_task_result_summary: r3-t01 실제 Chromium 제어 지연 경합 재현·RED→GREEN Node 11/11; 선택 토큰 분리. Space dc43b456, 앱 전용 Action 45387803883 성공, 두 라이브 본문 SHA dee66985 일치·합성 저장물 재디코딩. guard 종료/잠금은 부모 확인 대기.
-    current_task_followup: 제어 지연 QA는 고객 발생/이해/성과 증거가 아님. 실물 기기·스크린리더 발화·PostHog 수집 미검증; r1 Narrator PID 27296 정리 별도 대기. 부모가 동일 ID guard exit와 잠금 해제를 읽어 최종 영수증 갱신.
-    current_task_result: product_live_verified_guard_receipt_pending
-    current_task_guard_status: running
-    current_task_guard_exit_code: null
-    current_task_guard_finished_at: null
-    current_task_lock_released_verified_at: null
+    current_task_status: defect_fixed_released_live_verified_guard_completed
+    current_task_result_summary: r3-t01 실제 Chromium 제어 지연 경합 재현·RED→GREEN Node 11/11; 선택 토큰 분리. Space dc43b456, 앱 전용 Action 45387803883 성공, 두 라이브 본문 SHA dee66985 일치·합성 저장물 재디코딩. guard 11:58:40Z completed/exit 0, lock 11:59:02Z free.
+    current_task_followup: 제어 지연 QA는 고객 발생/이해/성과 증거가 아님. 실물 기기·스크린리더 발화·PostHog 수집 미검증; r1 Narrator PID 27296 정리 별도 대기.
+    current_task_result: product_live_verified_guard_completed
+    current_task_guard_status: completed
+    current_task_guard_exit_code: 0
+    current_task_guard_finished_at: '2026-11-24T11:58:40.152152+00:00'
+    current_task_lock_released_verified_at: '2026-11-24T11:59:02.214699+00:00'
     current_task_status_check_at: '2026-11-24T11:46:05Z'
     current_task_status_check_status: recorded_running_snapshot
     current_task_status_check_task_id: miniapp-20261124-r3-t01
@@ -344,7 +344,7 @@ lanes:
         current_task_product_source_sha: dc43b456354f3f03edf402a8dfce0a10172f8d81
         current_task_product_evidence_sha: 93da7d6de0cad3def7d837ca95d442b684216ad2
         current_task_release_run: '45387803883'
-        current_task_guard_final_receipt: pending_child_exit_and_lock_readback_by_parent
+        current_task_guard_final_receipt: completed_exit_0_at_2026-11-24T11:58:40.152152Z_lock_free_at_11:59:02.214699Z
         goal: r2 모바일 복구 통과 뒤 미재현으로 남은 헤더 읽기 설정 변경 경합 후보를 재현 검증하고 필요한 경우에만 최소 수정·라이브 확인
       prior_task_status_check_at: '2026-11-24T09:45:00Z'
       prior_task_status_check_status: sent
