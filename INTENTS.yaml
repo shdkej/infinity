@@ -195,15 +195,15 @@ lanes:
     prior_r3_t04_guard_exit_code: 0
     prior_r3_t04_guard_finished_at: '2026-11-24T13:31:12.314251+00:00'
     prior_r3_t04_lock_released_verified_at: '2026-11-24T13:31:30.267831+00:00'
-    current_task_status: browser_qa_pass_no_product_change_guard_running
+    current_task_status: browser_qa_pass_no_product_change_guard_completed
     current_task_result_summary: 'Live same-page synthetic JPEG/WebP each to JPEG and WebP: four separately saved and independently Pillow-decoded 80x40 outputs; decodable 10000x1 JPEG saved/decoded 80x1; >10000 edge rejected. Exactly 12MiB and 20m pixels accepted only at selection with padded/header-edited candidates; +1B and 20m+ rejected. Node 11/11. No reproduced product defect or new release; customer outcomes unmeasured.'
-    current_task_followup: 'Guard exit/lock receipt belongs to parent after child exits. r3 interval report pending; Narrator PID 27296 remains separate pending interactive Windows unlock.'
+    current_task_followup: 'r3 interval report pending; Narrator PID 27296 remains separate pending interactive Windows unlock.'
     current_task_result: synthetic_jpeg_webp_boundary_qa_pass_no_change
     current_task_status_at: '2026-11-24T13:54:06Z'
-    current_task_guard_status: running_at_snapshot
-    current_task_guard_exit_code: null
-    current_task_guard_finished_at: null
-    current_task_lock_released_verified_at: null
+    current_task_guard_status: completed
+    current_task_guard_exit_code: 0
+    current_task_guard_finished_at: '2026-11-24T14:00:59.198202+00:00'
+    current_task_lock_released_verified_at: '2026-11-24T14:01:42.129832+00:00'
     prior_r3_t03_status: aggregate_verified_guard_completed
     prior_r3_t03_result_summary: 'US project 424014 bounded HogQL HTTP 200, 8 grouped rows; five event x synthetic/user counts in the task verification. Guard 12:51:04Z completed/exit 0 and lock 12:51:25Z free. Customer/unique people unmeasured; Narrator PID 27296 separate blocked issue.'
     prior_r3_t01_status_check_at: '2026-11-24T11:46:05Z'
@@ -408,10 +408,10 @@ lanes:
         prior_r3_t04_status_check_queue_id: convq_c75d9a4e945aa174971333b1e56960bb
         prior_r3_t04_status_check_task_id: miniapp-20261124-r3-t04
         prior_r3_t04_status_check_reason: Product QA result was published but parent guard/exit/lock receipt was pending; same-task status requested once, no resend.
-        current_task_status: browser_qa_pass_no_product_change_guard_running
+        current_task_status: browser_qa_pass_no_product_change_guard_completed
         current_task_result: synthetic_jpeg_webp_boundary_qa_pass_no_change
-        current_task_guard_status: running_at_snapshot_parent_receipt_pending
-        current_task_lock_status: held_until_child_exit_parent_to_verify
+        current_task_guard_status: completed_exit_0
+        current_task_lock_status: free_verified_at_2026-11-24T14:01:42.129832Z
         current_task_analytics_status: not_applicable_for_browser_qa
         prior_r3_t03_analytics_observed_at: '2026-11-24T12:43:40.169418Z'
         prior_r3_t03_analytics_window: '[2026-11-24T05:30:00Z,2026-11-24T12:41:30Z)'
@@ -440,8 +440,9 @@ lanes:
         prior_r3_t04_browser_qa_observed_at: '2026-11-24T13:25:51Z'
         prior_r3_t04_product_result: synthetic_live_rejection_recovery_pass_no_change_customer_outcomes_unmeasured
         current_task_report: reports/miniapp-image-tools-20261118-qa-01/20261124T1354Z-r3-t05.html
+        current_task_guard_final_receipt: completed_exit_0_at_2026-11-24T14:00:59.198202Z_lock_free_14:01:42.129832Z
         goal: Validate supported JPEG/WebP roundtrip and size/pixel boundary without expanding data collection.
-        next_action: Await same-task guard exit and nonblocking lock readback by parent; r3 interval report remains pending at 23:30 KST. Narrator cleanup separately blocked.
+        next_action: r3 interval report pending at 23:30 KST. Narrator cleanup separately blocked.
       prior_task_status_check_at: '2026-11-24T09:45:00Z'
       prior_task_status_check_status: sent
       prior_task_status_check_task_id: miniapp-20261124-r2-t03

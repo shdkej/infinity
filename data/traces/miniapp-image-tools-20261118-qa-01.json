@@ -1783,7 +1783,7 @@
       "type": "browser_qa",
       "at": "2026-11-24T13:54:06Z",
       "task_id": "miniapp-20261124-r3-t05",
-      "status": "product_qa_pass_no_change_guard_exit_pending",
+      "status": "product_qa_pass_no_change_guard_completed",
       "live_url": "https://images.aws.shdkej.com/tools/image-converter/?qa=1",
       "browser_task_space": 65,
       "fixtures": "Pillow-decoded JPEG 160x80 2829B, WebP 160x80 714B, JPEG 10000x1 3130B and 10001x1 3134B; padded JPEG exact 12582912B/+1B selection-only; edited SOF JPEG 5000x4000/5000x4001 header-only",
@@ -1800,11 +1800,12 @@
       },
       "guard": {
         "state_at_snapshot": "running",
+        "final_state": "completed",
         "started_at": "2026-11-24T13:51:11.486813+00:00",
         "end_at": "2026-11-24T14:30:00+00:00",
-        "exit_code": null,
-        "finished_at": null,
-        "lock_release": "parent_to_verify_after_child_exit"
+        "exit_code": 0,
+        "finished_at": "2026-11-24T14:00:59.198202+00:00",
+        "lock_free_verified_at": "2026-11-24T14:01:42.129832+00:00"
       },
       "customer_outcomes": "unmeasured; synthetic QA is not customer success or OS-save evidence for users",
       "evidence_paths": [
@@ -1815,8 +1816,8 @@
     }
   ],
   "next_decision": {
-    "status": "r3_t05_browser_qa_pass_guard_exit_pending_waiting_narrator",
-    "value": "Synthetic JPEG/WebP four output combinations saved and independently decoded; 10000x1 JPEG saved/decoded, byte/pixel boundary selection checked with explicitly limited padded/header-only evidence. No reproduced product defect or new deployment. Parent must verify guard exit and nonblocking lock after this child ends; r3 interval report remains pending. Customer outcomes unmeasured; original Narrator PID 27296 separately blocked until interactive Windows unlock."
+    "status": "r3_t05_browser_qa_pass_guard_completed_waiting_narrator",
+    "value": "Synthetic JPEG/WebP four output combinations saved and independently decoded; 10000x1 JPEG saved/decoded, byte/pixel boundary selection checked with explicitly limited padded/header-only evidence. No reproduced product defect or new deployment. Parent verified guard completed/exit 0 at 14:00:59Z and shared lock free at 14:01:42Z; r3 interval report remains pending. Customer outcomes unmeasured; original Narrator PID 27296 separately blocked until interactive Windows unlock."
   },
   "handoff_attempts": [
     {
@@ -2017,7 +2018,7 @@
       "product_result": "synthetic_jpeg_webp_boundary_qa_pass_no_change",
       "browser_qa_observed_at": "2026-11-24T13:54:06Z",
       "guard_started_at": "2026-11-24T13:51:11.486813+00:00",
-      "guard_final_receipt": null,
+      "guard_final_receipt": "completed_exit_0_at_2026-11-24T14:00:59.198202Z_lock_free_14:01:42.129832Z",
       "report": "reports/miniapp-image-tools-20261118-qa-01/20261124T1354Z-r3-t05.html",
       "roles": {
         "independent": "deleg_7ac149ec",
