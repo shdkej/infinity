@@ -187,7 +187,7 @@ lanes:
     prior_r2_t06_guard_exit_code: 0
     prior_r2_t06_lock_released_verified_at: '2026-11-24T11:24:09.929899Z'
     prior_r2_t06_summary: mobile keyboard recovery QA pass at 390x844 and 320x720; synthetic only, customer outcomes unmeasured; no product change.
-    current_task_status: handoff_prepared_windows_execution_pending
+    current_task_status: handoff_sent_windows_execution_pending
     current_task_result_summary: 'r3-t04 prepared for corrupt/unsupported synthetic input rejection and valid PNG recovery QA; no execution or product result confirmed yet. r3-t03 aggregate/guard result remains in task history. Customer outcomes unmeasured.'
     current_task_followup: 'Await Windows parent result for r3-t04; do not overlap. Narrator PID 27296 cleanup remains blocked until interactive unlock.'
     current_task_result: pending
@@ -232,10 +232,10 @@ lanes:
     current_task_live_sha256: null
     report: reports/miniapp-image-tools-20261118-qa-01/20261124T1243Z-r3-t03.html
     prior_r3_t01_handoff_receipt: sent 1795520034.423279; queue convq_f4220e1e2f1315988e3e5697a899d49c
-    current_task_handoff_status: prepared
-    current_task_handoff_message_id: null
-    current_task_handoff_queue_id: null
-    current_task_handoff_receipt: pending send and receipt
+    current_task_handoff_status: sent
+    current_task_handoff_message_id: '1795526386.876779'
+    current_task_handoff_queue_id: convq_83ec1fd73a49ebdf044d8dfb5c14e39f
+    current_task_handoff_receipt: sent 1795526386.876779; queue convq_83ec1fd73a49ebdf044d8dfb5c14e39f
     daily_run_window:
       start_date: '2026-11-23'
       end_date: '2026-11-25'
@@ -362,9 +362,9 @@ lanes:
         current_task_end_at: '2026-11-24T14:30:00Z'
         current_task_completion_criteria: 'Windows actual browser: test harmless synthetic corrupt image and clearly unsupported type; record messaging, preview and transform/download states; reselect valid PNG in same page, transform/download and re-decode saved output. Do not repeat 0B, mobile or option-race QA. Only if a real defect reproduces, apply minimal fix, regression test, existing app-only deploy and live verification safely before fixed end; otherwise document no-change evidence and next candidate. No analytics, cost, permission, or other-app-data expansion; customer outcomes remain unmeasured. Record same-task guard/exit/lock receipt in canonical detail/trace and commit only related files to main.'
         handoff_attempt_at: '2026-11-24T13:15:00Z'
-        handoff_status: prepared
-        handoff_message_id: null
-        handoff_queue_id: null
+        handoff_status: sent
+        handoff_message_id: '1795526386.876779'
+        handoff_queue_id: convq_83ec1fd73a49ebdf044d8dfb5c14e39f
         prior_task_handoff_message_id: '1795523874.479619'
         prior_task_handoff_queue_id: convq_9593dc8cb25c61f13231159ad238504a
         prior_task_id: miniapp-20261124-r3-t02
@@ -384,7 +384,7 @@ lanes:
         prior_task_status_check_queue_id: convq_08af5d2122183d83ccd2b3f83a9760aa
         prior_task_status_check_snapshot_at: '2026-11-24T12:45:30Z'
         prior_task_status_check_snapshot: No newer result/guard/lock receipt for r3-t03; one status-only request sent, no work resubmitted.
-        current_task_status: handoff_prepared_windows_execution_pending
+        current_task_status: handoff_sent_windows_execution_pending
         current_task_result: pending
         current_task_guard_status: not_started
         current_task_lock_status: unknown

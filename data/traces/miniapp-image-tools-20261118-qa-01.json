@@ -1078,6 +1078,17 @@
       "end_at": "2026-11-24T14:30:00Z",
       "status": "prepared",
       "goal": "Verify corrupt/unsupported synthetic image rejection and recovery by selecting a valid PNG in the same live browser page; only fix a demonstrated defect with test, approved app-only release and live verification before fixed end."
+    },
+    {
+      "type": "task_handoff_sent",
+      "at": "2026-11-24T13:19:46Z",
+      "task_id": "miniapp-20261124-r3-t04",
+      "window": "r3",
+      "sequence": 4,
+      "end_at": "2026-11-24T14:30:00Z",
+      "status": "sent",
+      "message_id": "1795526386.876779",
+      "queue_id": "convq_83ec1fd73a49ebdf044d8dfb5c14e39f"
     }
   ],
   "artifacts": [
@@ -1828,8 +1839,11 @@
       "window": "r3",
       "sequence": 4,
       "end_at": "2026-11-24T14:30:00Z",
-      "status": "prepared",
-      "goal": "Verify synthetic corrupt/unsupported input rejection and valid PNG recovery without repeating prior 0B/mobile/race checks; no expanded analytics, costs or permissions."
+      "status": "sent",
+      "goal": "Verify synthetic corrupt/unsupported input rejection and valid PNG recovery without repeating prior 0B/mobile/race checks; no expanded analytics, costs or permissions.",
+      "sent_at": "2026-11-24T13:19:46Z",
+      "message_id": "1795526386.876779",
+      "queue_id": "convq_83ec1fd73a49ebdf044d8dfb5c14e39f"
     }
   ],
   "task_records": [
@@ -1875,14 +1889,15 @@
       "task_id": "miniapp-20261124-r3-t04",
       "window": "r3",
       "sequence": 4,
-      "status": "prepared",
+      "status": "handoff_sent_windows_execution_pending",
       "at": "2026-11-24T13:15:00Z",
       "goal": "Verify corrupt/unsupported synthetic image rejection and recovery by selecting valid PNG; change/deploy only if a real defect reproduces and full completion fits fixed end.",
       "end_at": "2026-11-24T14:30:00Z",
-      "handoff_attempt": "prepared",
-      "message_id": null,
-      "queue_id": null,
-      "customer_outcomes": "unmeasured"
+      "handoff_attempt": "sent",
+      "message_id": "1795526386.876779",
+      "queue_id": "convq_83ec1fd73a49ebdf044d8dfb5c14e39f",
+      "customer_outcomes": "unmeasured",
+      "sent_at": "2026-11-24T13:19:46Z"
     }
   ],
   "process_cleanup_verifications": [
