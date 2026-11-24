@@ -141,28 +141,31 @@ lanes:
     release_workflow_run: '45343956525'
     release_live_url: https://images.aws.shdkej.com/tools/image-converter/
     waiting_on: internal
-    blocker: 'r1-t04 차단 없음; 시험한 키보드 전용 결과·다운로드 경로 통과, 코드 변경·신규 배포 없음. 실사용 성과는 미측정; 다음 판단은 SAM 감독 소유.'
-    current_task_id: miniapp-20261124-r1-t04
-    current_task_goal: '변환 후 결과 자동 스크롤에서 키보드만으로 변환·다운로드 결과에 도달 가능한지 모바일 뷰포트 합성 재현; 결함이면 최소 수정·테스트·앱 전용 배포·라이브 확인, 아니면 근거·후보 기록'
-    current_task_start_at: '2026-11-24T07:00:00Z'
+    blocker: r1-t05 인계 대기; 현재 차단은 보고되지 않음.
+    current_task_id: miniapp-20261124-r1-t05
+    current_task_goal: 모바일 합성 QA에서 변환 완료 안내가 스크린리더에 전달되고 결과 위치를 찾을 수 있는지 확인; 실제 차단이
+      재현되면 최소 수정·테스트·앱 전용 배포·라이브 확인, 아니면 근거와 다음 후보 기록
+    current_task_start_at: '2026-11-24T07:15:00Z'
     current_task_end_at: '2026-11-24T08:30:00Z'
-    current_task_completion_criteria: '키보드 조작 재현/기대 결과, 변경 시 테스트·앱 전용 배포·라이브 모바일 확인, 보호 종료/잠금 증거; 합성 QA와 고객 성과 구분'
-    current_task_handoff_attempt_at: '2026-11-24T07:00:00Z'
-    current_task_handoff_status: sent
-    current_task_handoff_message_id: '1795503765.109059'
-    current_task_handoff_queue_id: convq_6a4d5510eaaf794a86ce9bc04d2e31a4
+    current_task_completion_criteria: 스크린리더 또는 사용 가능한 보조기술로 입력·변환 완료 안내와 결과/다운로드 탐색
+      재현; 기능 변경 시 테스트·앱 전용 배포·라이브 확인 및 보호 실행 종료/잠금 증거. 접근 불가 시 조회 실패로 기록하고 고객 성과는
+      미측정으로 분리
+    current_task_handoff_attempt_at: '2026-11-24T07:15:00Z'
+    current_task_handoff_status: attempting
+    current_task_handoff_message_id: ''
+    current_task_handoff_queue_id: ''
     current_task_status_check_at: ''
     current_task_status_check_status: ''
     current_task_status_check_message_id: ''
     current_task_status_check_queue_id: ''
-    current_task_status: completed
-    current_task_result_summary: '라이브 390×844 모바일 에뮬레이션에서 변환 후 자동 스크롤과 키보드 Tab→다운로드 초점 표시·Enter/Space 저장·파일 재디코딩 통과. 재현 결함 없어 코드 변경·신규 배포 없음; 고객 성과 미측정.'
-    current_task_followup: 'SAM 감독 판단 후보: 실제 스크린리더에서 변환 완료 상태와 결과 위치가 충분히 안내되는지 확인. 새 ID/인계는 감독 소유.'
-    current_task_result: 'ego lite live mobile 390×844/desktop 1280×800, synthetic file injected by browser helper (keyboard-only file picker unverified). After Enter transform, mobile scrollY 0→620 and activeElement BODY; Tab reached visible download focus with solid 3px outline; Shift+Tab returned transform; Enter/Space triggered four download events. Four saved WebP files reopened as 80×40 RGB 568B, same SHA-256. App tests 7/7; no source edit, commit, new Action or deployment. Existing release 45343956525 retained. Guard completed exit_code=0 finished_at=2026-11-24T07:10:39.802780+00:00; lock free verified at 2026-11-24T07:10:53Z.'
-    current_task_guard_status: completed
-    current_task_guard_exit_code: 0
-    current_task_guard_finished_at: '2026-11-24T07:10:39.802780+00:00'
-    current_task_lock_released_verified_at: '2026-11-24T07:10:53Z'
+    current_task_status: running
+    current_task_result_summary: ''
+    current_task_followup: ''
+    current_task_result: ''
+    current_task_guard_status: ''
+    current_task_guard_exit_code: ''
+    current_task_guard_finished_at: ''
+    current_task_lock_released_verified_at: ''
     report: reports/miniapp-image-tools-20261118-qa-01/20261124T1230KST.html
     current_task_handoff_receipt: ''
     daily_run_window:
@@ -201,14 +204,15 @@ lanes:
         start_at: '2026-11-24T05:30:00Z'
         end_at: '2026-11-24T08:30:00Z'
         status: running
-        task_sequence: 4
-        current_task_id: miniapp-20261124-r1-t04
-        current_task_goal: '변환 후 결과 자동 스크롤에서 키보드만으로 변환·다운로드 결과에 도달 가능한지 모바일 뷰포트 합성 재현; 결함이면 최소 수정·테스트·앱 전용 배포·라이브 확인, 아니면 근거·후보 기록'
+        task_sequence: 5
+        current_task_id: miniapp-20261124-r1-t05
+        current_task_goal: 모바일 합성 QA에서 변환 완료 안내가 스크린리더에 전달되고 결과 위치를 찾을 수 있는지 확인; 실제
+          차단이 재현되면 최소 수정·테스트·앱 전용 배포·라이브 확인, 아니면 근거와 다음 후보 기록
         current_task_end_at: '2026-11-24T08:30:00Z'
-        handoff_attempt_at: '2026-11-24T07:00:00Z'
-        handoff_status: sent
-        handoff_message_id: '1795503765.109059'
-        handoff_queue_id: convq_6a4d5510eaaf794a86ce9bc04d2e31a4
+        handoff_attempt_at: '2026-11-24T07:15:00Z'
+        handoff_status: attempting
+        handoff_message_id: ''
+        handoff_queue_id: ''
         status_check_at: ''
         status_check_status: ''
         status_check_message_id: ''
@@ -238,8 +242,8 @@ lanes:
         task_sequence: 0
         report_status: pending
         goal: 앞선 결과로 남은 개선을 실행하고 변경 전후 근거·회귀 검증·다음 판단 정리
-    next_action: r1-t04 모바일 키보드 포커스 흐름 결과·보호 종료 회수; 17:30 r1 구간 보고 및 후속 판단; 23:30 종합 보고 후
-      종료.
+    next_action: r1-t05 스크린리더 완료 안내·결과 위치 탐색 확인 및 guard/잠금 증거 회수; 17:30 r1 구간 보고와
+      후속 판단; 23:30 종합 마감
     notification_channel: slack
     notification_target: channel:C0CE0DV9MM2
     notification_reply_to: '1794983278.888719'
