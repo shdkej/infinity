@@ -173,7 +173,7 @@ lanes:
     current_task_guard_finished_at: '2026-11-24T09:13:11.829869+00:00'
     current_task_lock_released_verified_at: '2026-11-24T09:13:22Z'
     report: reports/miniapp-image-tools-20261118-qa-01/20261124T1230KST.html
-    current_task_handoff_receipt: sent 1795511017.606359; queue convq_2a2c305e6ddbfeb7a8de71c20663ffae
+    current_task_handoff_receipt: pending
     daily_run_window:
       start_date: '2026-11-23'
       end_date: '2026-11-25'
@@ -266,7 +266,7 @@ lanes:
         task_sequence: 0
         report_status: pending
         goal: 앞선 결과로 남은 개선을 실행하고 변경 전후 근거·회귀 검증·다음 판단 정리
-      next_action: r2-t02 입력 경계 QA 종료·잠금 해제 및 동일 ID 기록 완료; 20:30 r2 구간 보고는 별도 pending, r3는 SAM 판단 전 새 ID로 실행하지 않음.
+      next_action: r2-t03 오류 안내 정확성·정상 재시도 검증 인계 준비 기록 완료; 20:30 r2 구간 보고 pending.
     next_action: r2-t03 오류 안내 정확성·복구 검증; 20:30 r2 보고 및 23:30 종합 마감은 계약에 따라 확인.
     notification_channel: slack
     notification_target: channel:C0CE0DV9MM2

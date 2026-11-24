@@ -1269,6 +1269,6 @@
   ],
   "next_decision": {
     "status": "handoff_prepared",
-    "value": "r2-t02 completed_no_change with guard exit 0 and lock released. r2-t03 tests whether 0B/damaged/unsupported/oversize input guidance matches cause and recovery; dispatch pending final clock/run/job check."
+    "value": "r2-t03 task sequence 3, fixed end_at 11:30Z, prepared and pushed to main; same-ID status confirms r2-t02 completed_no_change and lock free. Dispatch must follow final live KST/run/job check."
   }
 }
