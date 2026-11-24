@@ -156,9 +156,9 @@ lanes:
     current_task_start_at: '2026-11-24T11:31:12Z'
     current_task_end_at: '2026-11-24T14:30:00Z'
     current_task_handoff_attempt_at: '2026-11-24T11:31:12Z'
-    current_task_handoff_status: prepared
-    current_task_handoff_message_id: null
-    current_task_handoff_queue_id: null
+    current_task_handoff_status: sent
+    current_task_handoff_message_id: '1795520034.423279'
+    current_task_handoff_queue_id: convq_f4220e1e2f1315988e3e5697a899d49c
     current_task_completion_criteria: Windows 실제 브라우저에서 지연 헤더 읽기 도중 format/edge 설정 변경을 재현하고 선택 상태·변환 복구를 확인; 실제 결함이면 기존 승인된 범위 내 최소 회귀 테스트·수정·앱 전용 배포·라이브 검증, 미재현이면 근거/재현 한계 기록. guard 종료·잠금 해제 기록, 고객 성과 미측정·합성 QA 구분; 비용/권한/데이터 범위 확대 금지.
     prior_task_handoff_message_id: '1795506439.083149'
     prior_task_handoff_queue_id: convq_8a215ed203754328f7789be184b789a3
@@ -192,7 +192,7 @@ lanes:
     current_task_guard_finished_at: null
     current_task_lock_released_verified_at: null
     report: reports/miniapp-image-tools-20261118-qa-01/20261124T1230KST.html
-    current_task_handoff_receipt: pending actual send receipt for r3-t01
+    current_task_handoff_receipt: sent 1795520034.423279; queue convq_f4220e1e2f1315988e3e5697a899d49c
     daily_run_window:
       start_date: '2026-11-23'
       end_date: '2026-11-25'
@@ -319,7 +319,9 @@ lanes:
         current_task_end_at: '2026-11-24T14:30:00Z'
         current_task_completion_criteria: Windows 실제 브라우저에서 지연 헤더 읽기 도중 format/edge 설정 변경을 재현하고 선택 상태·변환 복구를 확인; 결함이면 기존 승인 범위 내 최소 수정·회귀 테스트·앱 전용 배포·라이브 검증, 아니면 재현 한계와 다음 판단 기록. guard 종료·잠금 해제·고객성과 미측정 구분.
         handoff_attempt_at: '2026-11-24T11:31:12Z'
-        handoff_status: prepared
+        handoff_status: sent
+        handoff_message_id: '1795520034.423279'
+        handoff_queue_id: convq_f4220e1e2f1315988e3e5697a899d49c
         report_status: pending
         goal: r2 모바일 복구 통과 뒤 미재현으로 남은 헤더 읽기 설정 변경 경합 후보를 재현 검증하고 필요한 경우에만 최소 수정·라이브 확인
       prior_task_status_check_at: '2026-11-24T09:45:00Z'
@@ -339,14 +341,14 @@ lanes:
       handoff_queue_id: convq_97ca970aaebf3d9cf6a2a2f1743a326d
       report_status: sent
       report_message_id: '1795519852.919859'
-      next_action: r3-t01 handoff 준비 원격 기록 완료; 발송 직전 시간·run·감독 활성 상태 재검사. 고정 14:30Z 종료.
+      next_action: r3-t01 sent 1795520034.423279; Windows 실행·종료 증거 대기. 고정 14:30Z 종료.
       current_task_status_check_at: '2026-11-24T10:45:00Z'
       current_task_status_check_status: prepared
       current_task_status_check_task_id: miniapp-20261124-r2-t05
       current_task_status_check_message_id: '1795517213.706259'
       current_task_status_check_queue_id: convq_b3800df487bd672c099f41b904f78e0f
       current_task_status_check_reason: 최신 원격에 t05 결과/guard/잠금 갱신 없음; 동일 ID 업무 재전송 없이 상태 1회 확인.
-    next_action: r3-t01 handoff prepared; Windows 수락 전. r2 report sent 1795519852.919859.
+    next_action: r3-t01 sent 1795520034.423279; Windows 결과 대기. r2 report sent 1795519852.919859.
     notification_channel: slack
     notification_target: channel:C0CE0DV9MM2
     notification_reply_to: '1794983278.888719'

@@ -1040,6 +1040,17 @@
       "end_at": "2026-11-24T14:30:00Z",
       "status": "prepared",
       "goal": "Reproduce the unverified race where format/edge settings change during image-header reading; make a minimal fix, regression test, app-only release and live verification only if an actual defect is demonstrated."
+    },
+    {
+      "type": "task_handoff_sent",
+      "at": "2026-11-24T11:33:46Z",
+      "task_id": "miniapp-20261124-r3-t01",
+      "window": "r3",
+      "sequence": 1,
+      "end_at": "2026-11-24T14:30:00Z",
+      "status": "sent",
+      "message_id": "1795520034.423279",
+      "queue_id": "convq_f4220e1e2f1315988e3e5697a899d49c"
     }
   ],
   "artifacts": [
