@@ -264,8 +264,8 @@ lanes:
         current_task_status_check_at: '2026-11-24T10:45:00Z'
         current_task_status_check_status: sent
         current_task_status_check_task_id: miniapp-20261124-r2-t05
-        current_task_execution_snapshot_at: '2026-11-24T10:47:06Z'
-        current_task_execution_snapshot: guard running, lock held; restore Action 45377373714 success, app-only release Action 45377563324 success; live child verification and final guard receipt pending.
+        current_task_execution_snapshot_at: '2026-11-24T10:49:18Z'
+        current_task_execution_snapshot: guard completed/exit 0 at 10:48:12Z; app-only release and live readback verified; active.lock free at 10:49:18Z. r2 report remains pending.
         current_task_status_check_message_id: '1795517213.706259'
         current_task_status_check_queue_id: convq_b3800df487bd672c099f41b904f78e0f
         last_task_status: copy_released_live_verified
