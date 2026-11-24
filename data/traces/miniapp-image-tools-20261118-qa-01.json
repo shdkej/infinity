@@ -584,13 +584,15 @@
     {
       "label": "r1-t07 mobile final viewport result visibility reproduction",
       "type": "handoff_prepared",
-      "at": "2026-11-24T08:00:00Z",
+      "at": "2026-11-24T08:01:21Z",
       "task_id": "miniapp-20261124-r1-t07",
-      "status": "prepared",
+      "status": "sent",
       "evidence_paths": [
         "intents/waiting/miniapp-image-tools-20261118-qa-01.md"
       ],
-      "limits": "Prepared in r1; handoff receipt pending; no Windows acceptance or product result yet."
+      "limits": "Prepared in r1; handoff receipt pending; no Windows acceptance or product result yet.",
+      "message_id": "1795507291.567359",
+      "queue_id": "convq_a74978e8adf58de4ef2a198496f9387d"
     }
   ],
   "artifacts": [
@@ -857,7 +859,7 @@
     }
   ],
   "next_decision": {
-    "status": "prepared",
-    "value": "r1-t07 prepared; before send recheck time/window/run/job, then handoff or expire."
+    "status": "dispatched",
+    "value": "r1-t07 sent; await same-task mobile final viewport reproduction, guard/lock receipt; choose follow-up from evidence; r1 report at 17:30 KST."
   }
 }
