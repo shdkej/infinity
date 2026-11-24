@@ -185,7 +185,7 @@ lanes:
     prior_r2_t06_summary: mobile keyboard recovery QA pass at 390x844 and 320x720; synthetic only, customer outcomes unmeasured; no product change.
     current_task_status: handoff_prepared
     current_task_result_summary: r3-t01 handoff prepared; r2-t06 결과는 prior 결과 및 trace에 보존.
-    current_task_followup: 이전 r2-t06: 파일 선택은 브라우저 helper 사용(전체 키보드 OS 파일 선택기 미검증). 스크린리더 발화·실물 폰·고객 성과 미검증.
+    current_task_followup: '이전 r2-t06: 파일 선택은 브라우저 helper 사용(전체 키보드 OS 파일 선택기 미검증). 스크린리더 발화·실물 폰·고객 성과 미검증.'
     current_task_result: handoff_prepared
     current_task_guard_status: not_started
     current_task_guard_exit_code: null
