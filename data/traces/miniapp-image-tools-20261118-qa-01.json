@@ -1373,16 +1373,38 @@
         "end_at": "2026-11-24T11:30:00+00:00",
         "lock_free_verified_at": "2026-11-24T10:27:44Z"
       },
-      "actions": {"rehearse": 45372785034, "restore": 45373229127, "release": 45373438908},
-      "live": {"converter_paths": ["/tools/image-converter/", "/tools/image-converter/index.html"], "status": 200, "sha256": "3636ab22d9b66ea11797430ea056ec7166864ca6447d7e8f4ac17bbbfd3e09c9", "zero_byte_copy": "long_r2_t03_source_copy_live", "root_and_sort_reachability": 200},
-      "roles": ["planner", "developer", "marketer", "operator"],
-      "sessions": {"independent": "deleg_cfae41a5", "cross_review": "deleg_6cc4da09", "child": "proc_182e92aeaa0b"},
+      "actions": {
+        "rehearse": 45372785034,
+        "restore": 45373229127,
+        "release": 45373438908
+      },
+      "live": {
+        "converter_paths": [
+          "/tools/image-converter/",
+          "/tools/image-converter/index.html"
+        ],
+        "status": 200,
+        "sha256": "3636ab22d9b66ea11797430ea056ec7166864ca6447d7e8f4ac17bbbfd3e09c9",
+        "zero_byte_copy": "long_r2_t03_source_copy_live",
+        "root_and_sort_reachability": 200
+      },
+      "roles": [
+        "planner",
+        "developer",
+        "marketer",
+        "operator"
+      ],
+      "sessions": {
+        "independent": "deleg_cfae41a5",
+        "cross_review": "deleg_6cc4da09",
+        "child": "proc_182e92aeaa0b"
+      },
       "limits": "Identical-content write and independent restore verified; forced partial-write failure not tested, S3 version restore unavailable. CMO shortened empty-file copy and upper status not deployed. Synthetic QA only; no real customer outcome, screen reader or PostHog ingestion proof. r2 interval HTML report remains pending."
     }
   ],
   "next_decision": {
-    "status": "r2_t04_completed_r2_report_pending",
-    "value": "r2-t04 same-task status check sent at 19:16 KST (1795515392.935409), then existing guard completed at 19:23:34 KST/exit 0 and lock free verified at 19:27:44 KST; recovery rehearsed, emergency restore proven, app-only Action 45373438908 and live two-path readback passed. No new execution dispatched. CMO short empty-file copy/upper status separate; r2 HTML report remains pending until 20:30 KST."
+    "status": "r2_t05_handoff_prepared_r2_report_pending",
+    "value": "r2-t04 completed: restore rehearsal and restore action, release action 45373438908, live two-path SHA match; guard completed/exit 0 and lock free 19:27:44 KST. r2-t05 sequence 5 prepared at 19:31 KST for exact CMO-proposed 0B/top-status copy, fixed 20:30 KST end; send requires final time/run/job check. Customer outcome remains unmeasured."
   },
   "handoff_attempts": [
     {
@@ -1406,6 +1428,16 @@
       "message_id": "1795515392.935409",
       "queue_id": "convq_44b524efa690695a8a5f44620ab56c48",
       "sent_at": "2026-11-24T10:16:32Z"
+    },
+    {
+      "type": "task_handoff_prepared",
+      "at": "2026-11-24T10:31:10Z",
+      "task_id": "miniapp-20261124-r2-t05",
+      "window": "r2",
+      "sequence": 5,
+      "end_at": "2026-11-24T11:30:00Z",
+      "status": "prepared",
+      "goal": "Validate minimal application of the already CMO-proposed empty-file error and top status copy; focused regression, app-only deployment and live verification if warranted; no scope expansion."
     }
   ]
 }

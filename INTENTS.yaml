@@ -146,15 +146,14 @@ lanes:
     prior_r2_t03_task_id: miniapp-20261124-r2-t03
     prior_r2_t03_status: source_published_deploy_blocked
     prior_r2_t03_result_summary: 0B 안내 불일치 수정·Node 9/9·Space SHA b8ee2e45; 앱 배포 보류, 라이브 구 문구. guard exit 0·잠금 해제.
-    current_task_id: miniapp-20261124-r2-t04
-    current_task_goal: 기존 승인 경로에서 두 S3 객체의 읽기·복원·롤백 안전성 입증; 입증 시에만 앱 전용 배포·라이브 확인
-    current_task_start_at: '2026-11-24T10:00:30Z'
+    current_task_id: miniapp-20261124-r2-t05
+    current_task_goal: CMO가 제안한 0B 오류·상단 상태 문구의 최소 적용 여부를 검증하고, 적용 시 배포·라이브 경로 확인
+    current_task_start_at: '2026-11-24T10:31:10Z'
     current_task_end_at: '2026-11-24T11:30:00Z'
-    current_task_handoff_attempt_at: '2026-11-24T10:00:30Z'
-    current_task_handoff_status: sent
-    current_task_handoff_message_id: '1795514630.548399'
-    current_task_handoff_queue_id: convq_2c51dafc7d86f214689ff73c00182117
-    current_task_completion_criteria: 기존 승인 자격만으로 대상 두 객체의 읽기·복원 방법과 안전한 롤백을 검증; 입증 시 기존 앱 전용 배포·라이브 문구 및 기존 경로 확인, 미입증 시 배포 금지 및 차단 근거 기록. 신규 IAM/비용/다른 앱 접근 금지. 고정 11:30Z 종료·guard/잠금 확인.
+    current_task_handoff_attempt_at: '2026-11-24T10:31:10Z'
+    current_task_handoff_status: prepared
+    current_task_completion_criteria: >-
+      기존 CMO 제안 문구만 적용(0B 오류: 파일이 비어 있어 변환할 수 없습니다. 다른 이미지 파일을 선택해 주세요.; 상단 상태: 선택한 파일이 비어 있습니다.); 기존 오류 코드·기타 안내·계측 유지. 회귀 테스트, 앱 전용 배포, 두 converter URL 라이브 검증 및 /·/sort/ 도달성, guard 종료·잠금 해제 확인. 적용이 불필요/위험하면 근거와 no-change 기록. 고정 11:30Z 종료, 신규 비용/권한/데이터 범위 확대 금지.
     prior_task_handoff_message_id: '1795506439.083149'
     prior_task_handoff_queue_id: convq_8a215ed203754328f7789be184b789a3
     prior_task_status_check_at: '2026-11-24T07:30:47Z'
@@ -172,14 +171,14 @@ lanes:
     prior_r2_t02_guard_finished_at: '2026-11-24T09:13:11.829869+00:00'
     prior_r2_t02_guard_exit_code: 0
     prior_r2_t02_lock_released_verified_at: '2026-11-24T09:13:22Z'
-    current_task_status: completed_recovery_verified_released
-    current_task_result_summary: 기존 OIDC 자격으로 대상 두 S3 객체 HEAD/GET 및 동일 본문·메타데이터 PutObject 복원 연습, 긴급 restore Action 성공. 앱 전용 release Action 45373438908 성공·라이브 두 경로 동일 0B 수정 문구 확인; CMO 짧은 문구·상단 상태는 미반영. Node 9/9, 합성 0B 거부·정상 다운로드 복구. 고객 성과 미측정.
-    current_task_followup: CMO의 짧은 0B 문구·상단 상태 변경은 별도 인계 판단; 부분 실패 kill 실험, 실제 고객 이해·스크린리더 발화는 이번 증거 밖. 구 baseline 복원은 mode=restore 경로로 검증됨.
-    current_task_result: recovery_rehearsed_release_live_verified
-    current_task_guard_status: completed
-    current_task_guard_exit_code: 0
-    current_task_guard_finished_at: '2026-11-24T10:23:34.312858+00:00'
-    current_task_lock_released_verified_at: '2026-11-24T10:27:44Z'
+    current_task_status: handoff_prepared
+    current_task_result_summary: null
+    current_task_followup: 기존 CMO 제안 문구 적용 여부를 확인; 고객 성과 미측정.
+    current_task_result: null
+    current_task_guard_status: null
+    current_task_guard_exit_code: null
+    current_task_guard_finished_at: null
+    current_task_lock_released_verified_at: null
     report: reports/miniapp-image-tools-20261118-qa-01/20261124T1230KST.html
     current_task_handoff_receipt: sent 1795514630.548399; queue convq_2c51dafc7d86f214689ff73c00182117
     daily_run_window:
@@ -247,15 +246,13 @@ lanes:
         start_at: '2026-11-24T08:30:00Z'
         end_at: '2026-11-24T11:30:00Z'
         status: running
-        task_sequence: 4
-        current_task_id: miniapp-20261124-r2-t04
-        current_task_goal: 기존 승인 경로에서 두 S3 객체 읽기·복원·롤백 안전성 입증; 입증 시에만 앱 전용 배포·라이브 확인
+        task_sequence: 5
+        current_task_id: miniapp-20261124-r2-t05
+        current_task_goal: CMO가 제안한 0B 오류·상단 상태 문구의 최소 적용 여부를 검증하고, 적용 시 배포·라이브 경로 확인
         current_task_end_at: '2026-11-24T11:30:00Z'
-        current_task_completion_criteria: 기존 승인 자격만으로 읽기·복원·롤백 검증; 입증 시 앱 전용 배포·라이브 확인, 미입증이면 배포 금지·차단 근거 기록; 신규 권한/비용/다른 앱 데이터 제외; guard 종료·잠금 확인.
-        handoff_attempt_at: '2026-11-24T10:00:30Z'
-        handoff_status: sent
-        handoff_message_id: '1795514630.548399'
-        handoff_queue_id: convq_2c51dafc7d86f214689ff73c00182117
+        current_task_completion_criteria: 기존 CMO 제안 문구만 적용; 회귀 테스트, 앱 전용 배포·두 converter URL 라이브 확인 및 /·/sort/ 도달성, guard 종료·잠금 해제 확인. 적용이 불필요/위험하면 근거와 no-change 기록; 신규 비용/권한/데이터 범위 확대 금지.
+        handoff_attempt_at: '2026-11-24T10:31:10Z'
+        handoff_status: prepared
         report_status: pending
         current_task_status_check_at: '2026-11-24T10:15:38Z'
         current_task_status_check_status: sent
@@ -295,8 +292,17 @@ lanes:
       prior_task_status_check_task_id: miniapp-20261124-r2-t03
       prior_task_status_check_message_id: '1795513609.377209'
       prior_task_status_check_queue_id: convq_c529ac4db654882a9a0376b1f9834b7c
-      next_action: r2-t04 prepared; 기존 승인 자격 내 복원/롤백 경로 확인, 입증 전 배포 금지. r2 보고 20:30 pending.
-    next_action: r2-t04 실행 여부·결과·guard·잠금 상태 확인 응답 대기; 20:30 r2 보고 pending.
+      last_task_status: recovery_rehearsed_release_live_verified
+      last_task_id: miniapp-20261124-r2-t04
+      last_task_result: 두 S3 객체의 본문·메타데이터 복원 및 긴급 restore 입증, 앱 전용 Action 45373438908 성공·라이브 두 경로 동일 SHA 확인; 고객 성과 미측정.
+      last_task_guard_finished_at: '2026-11-24T10:23:34.312858+00:00'
+      last_task_guard_exit_code: 0
+      last_task_lock_released_verified_at: '2026-11-24T10:27:44Z'
+      handoff_attempt_at: '2026-11-24T10:31:10Z'
+      handoff_status: prepared
+      report_status: pending
+      next_action: r2-t05 CMO 제안 문구 최소 검증·필요 시 앱 전용 배포; 고정 11:30Z 종료. 20:30 보고 pending.
+    next_action: r2-t05 handoff prepared, 발송 직전 시각/run/job 재확인 필요; 20:30 r2 보고 pending.
     notification_channel: slack
     notification_target: channel:C0CE0DV9MM2
     notification_reply_to: '1794983278.888719'

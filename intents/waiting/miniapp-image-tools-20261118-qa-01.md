@@ -419,3 +419,10 @@
 - 복원 문턱 통과 뒤 앱 전용 `mode=release` Action `45373438908` **success**, workflow SHA `a9dec7ee734a6debd20e6e86c3c003fa66a1c973`, 앱 HTML은 앞서 게시한 Space SHA `b8ee2e45`와 변경 없음. Node 테스트 **9/9**; 두 키만 업로드·객체 본문/헤더 재조회·CloudFront 두 경로 무효화 대기·공개 두 경로 바이트 비교 성공. 부모의 독립 확인에서 `/tools/image-converter/` 및 `/tools/image-converter/index.html` 둘 다 HTTP 200, SHA-256 `3636ab22d9b66ea11797430ea056ec7166864ca6447d7e8f4ac17bbbfd3e09c9` 일치, 긴 0B 수정 문구가 라이브에 있음. `/`와 `/sort/`는 각각 200 도달성만 확인했다. 자식 ego lite 합성 0B 거부→유효 PNG WebP 다운로드·디코딩 확인(상세는 Space `infra-aws-static-sites/sites/miniapp-image-tools/qa/release-checkpoint.md`).
 - **구분**: CMO가 제안한 짧은 오류 “파일이 비어 있어 변환할 수 없습니다. 다른 이미지 파일을 선택해 주세요.” 및 상단 “선택한 파일이 비어 있습니다.”는 이 작업에서 수정·배포하지 않았다. 현재 라이브는 앞서 게시된 긴 0B 오류이며 상단 옛 크기 안내도 남았다. 실제 고객 이해/성과·실물 기기·스크린리더 발화·PostHog 수집은 이번 검증이 아니다. 별도 t05 Narrator PID `27296`에는 손대지 않았다. 다음 후보는 짧은 0B 오류 및 상단 상태의 동시 수정 여부를 CMO/SAM이 별도 결정하는 것.
 - 보호 guard 원장: 시작 `2026-11-24T10:08:26.352655Z`, 종료 **`2026-11-24T10:23:34.312858Z`** (19:23:34 KST), 고정 종료 `11:30:00Z` 이전, `completed`/exit **0**. 부모가 `2026-11-24T10:27:44Z`에 공용 `active.lock` 비차단 획득으로 **잠금 해제** 확인. 19:16 KST의 동일 ID 상태조회는 실행 중 스냅샷이며 새 실행이 아니었다. 네 역할 독립 `deleg_cfae41a5`·교차 `deleg_6cc4da09`를 선행했고, 자식 제품 결과와 guard 종료를 분리해 검증했다. r2 구간 전체 HTML 리포트는 별도 운영 계약에 따라 아직 pending이며, 이 단일 작업을 Intent archived로 바꾸지 않는다.
+
+
+### 2026-11-24 19:31 KST · r2-t05 문구 정합성 후속 작업 준비
+
+- r2-t04 종료: 복원 연습·독립 restore, 앱 전용 Action `45373438908`, 라이브 converter 두 경로 HTTP 200·SHA 동일 확인; guard completed/exit 0, 19:27:44 KST 잠금 해제. 고객 성과는 미측정.
+- 신규 `miniapp-20261124-r2-t05`, sequence 5, 고정 `end_at=2026-11-24T11:30:00Z`: CMO가 이미 제안한 0B 오류 “파일이 비어 있어 변환할 수 없습니다. 다른 이미지 파일을 선택해 주세요.” 및 상단 상태 “선택한 파일이 비어 있습니다.”만 적용 후보로 검증한다. 기존 오류 코드·기타 안내·허용 계측은 유지하고, 회귀 테스트와 기존 앱 전용 배포/라이브 경로를 확인한다. 불필요하거나 안전하지 않으면 no-change 근거를 남긴다. 고객 이해/성과 추정 금지.
+- 19:31 KST 원격 원장에 r2 sequence·작업 목표·완료 기준·고정 종료 및 handoff `prepared` 기록. 최종 전송 직전 현재 시간·r2·run·감독 job 재확인 후 발송 여부 결정.
