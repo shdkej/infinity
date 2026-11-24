@@ -276,6 +276,18 @@
       ],
       "source_message": "https://shdkej.slack.com/archives/C0CE0DV9MM2/p1795482603441479",
       "note": "User requested review and restart of the ineffective daily workflow. Both existing cron jobs disabled; November 25 work/report canceled. Correct Nov 24 incomplete classification: Windows explicitly reported pre-deadline normal completion and lock release at 10:10 KST. Functional/telemetry QA passed; runtime completion is executor-reported, not an independent guard-ledger verification. Customer outcome remains unmeasured. No automatic restart or new job."
+    },
+    {
+      "type": "backfill",
+      "at": "2026-11-24T05:05:22Z",
+      "change_id": "miniapp-three-hour-20261124",
+      "request": "다음 루프 진행해보자. 이번엔 대신 하루에 끝나는데 3시간씩 나눠서 여러번 실험 할 수있게",
+      "evidence_paths": [
+        "INTENTS.yaml",
+        "intents/waiting/miniapp-image-tools-20261118-qa-01.md"
+      ],
+      "source_message": "https://shdkej.slack.com/archives/C0CE0DV9MM2/p1795496370965079",
+      "note": "New authorized run: three 3-hour windows on Nov 24 KST 14:30–23:30. Reuse two cron jobs for 15-minute supervision and final one-shot closeout. Supervisor owns task IDs/dispatch; foreground SAM records results and can wake the same supervisor. Windows reported deadline supports 3h, max150 turns and no automatic follow-up. Future execution and continuous 3h behavior are unverified; prior morning completion and stop history preserved."
     }
   ],
   "artifacts": [
@@ -381,7 +393,7 @@
     }
   ],
   "next_decision": {
-    "status": "paused",
-    "value": "사용자 요청으로 파일럿 중단. 11/24 실제 완료·종료 보고 연결을 정정하고 하루 한 건 제한·후속 실행 단절·상태 전달 누락을 재설계한다. 새 실행은 예약하지 않음."
+    "status": "scheduled",
+    "value": "miniapp-20261124-3h 오늘14:30부터 세3시간 구간으로 실행·검증·후속 판단. SAM 감독 단일 인계, Windows 보호 실행·종료 영수증 기록,23:30 종합 종료."
   }
 }
