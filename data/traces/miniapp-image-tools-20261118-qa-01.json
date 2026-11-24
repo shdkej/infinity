@@ -530,6 +530,56 @@
       "limits": "Only existing five approved app-specific events and shared account; no identities, other app data, pageviews, or session replay. Separate observed counts, query failures, unmeasured, and zero.",
       "handoff_message_id": "1795506439.083149",
       "handoff_queue_id": "convq_8a215ed203754328f7789be184b789a3"
+    },
+    {
+      "type": "task_completed",
+      "at": "2026-11-24T07:52:21Z",
+      "task_id": "miniapp-20261124-r1-t06",
+      "state": "completed",
+      "guard_state": "completed",
+      "exit_code": 0,
+      "guard_started_at": "2026-11-24T07:50:31.647248+00:00",
+      "guard_finished_at": "2026-11-24T07:52:10.840124+00:00",
+      "end_at": "2026-11-24T08:30:00+00:00",
+      "active_lock": "free_verified",
+      "lookup_status": "success_http_200",
+      "observed_at": "2026-11-24T07:51:51Z",
+      "query_window_start_inclusive": "2026-11-23T07:45:00Z",
+      "query_window_end_exclusive": "2026-11-24T07:45:00Z",
+      "project_id": "424014",
+      "app_id": "miniapp-image-tools",
+      "traffic_kinds": [
+        "user",
+        "synthetic"
+      ],
+      "event_counts": {
+        "image_selected": {
+          "user": 1,
+          "synthetic": 17
+        },
+        "transform_started": {
+          "user": 0,
+          "synthetic": 28
+        },
+        "transform_succeeded": {
+          "user": 0,
+          "synthetic": 28
+        },
+        "transform_failed": {
+          "user": 0,
+          "synthetic": 0
+        },
+        "download_requested": {
+          "user": 0,
+          "synthetic": 26
+        }
+      },
+      "customer_outcome_status": "unmeasured",
+      "interpretation": "Counts are observed matching events from successful aggregate query, including zero cells; user tag can be set by public client, not verified people, and download_requested is not OS save completion. Customer visitors, unique users, task completion and conversion rate not measured.",
+      "source_changed": false,
+      "analytics_changed": false,
+      "new_deployment": false,
+      "prior_task_cleanup": "Narrator PID 27296 from t05 still awaiting interactive desktop unlock/termination; not part of t06 guard lock."
     }
   ],
   "artifacts": [
@@ -771,6 +821,28 @@
       },
       "limits": "Windows LockApp prevented real Narrator attachment/speech observation; DOM/AX and pointer download are not screen-reader evidence. Narrator PID 27296 remained; synthetic mobile emulation, not customer outcomes or physical phone.",
       "next_role": "user"
+    },
+    {
+      "label": "r1-t06 app-filtered five-event PostHog aggregate and guard exit",
+      "type": "analytics_aggregate",
+      "at": "2026-11-24T07:52:21Z",
+      "task_id": "miniapp-20261124-r1-t06",
+      "status": "pass",
+      "evidence_paths": [
+        "intents/waiting/miniapp-image-tools-20261118-qa-01.md"
+      ],
+      "roles": [
+        "planner",
+        "developer",
+        "marketer",
+        "operator"
+      ],
+      "sessions": {
+        "independent": "deleg_53cdd2ab",
+        "cross_review": "deleg_4fd57e0f",
+        "child": "local-d3584343b664bc29051c8e21fe8f68a85c994bd145c7a6686038723115818484"
+      },
+      "limits": "Only five event aggregate counts for app_id and user/synthetic labels over fixed 24h; no individual customer/download success or conversion denominator measured; t05 Narrator cleanup separate."
     }
   ],
   "next_decision": {
