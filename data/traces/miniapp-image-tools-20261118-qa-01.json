@@ -479,14 +479,16 @@
       "type": "backfill",
       "at": "2026-11-24T07:15:00Z",
       "task_id": "miniapp-20261124-r1-t05",
-      "status": "handoff_prepared",
+      "status": "sent",
       "goal": "스크린리더 완료 안내·결과 위치 탐색 재현; 결함 시 최소 수정·테스트·배포·라이브 확인, 미측정 구분",
       "end_at": "2026-11-24T08:30:00Z",
       "evidence_paths": [
         "INTENTS.yaml",
         "intents/waiting/miniapp-image-tools-20261118-qa-01.md"
       ],
-      "note": "r1-t04 완료 기록을 원격에서 확인하고 새 ID sequence 5를 준비; 발송 전 재확인 필수"
+      "note": "native Slack handoff delivered; this receipt confirms delivery only, Windows acceptance/execution/product result not yet verified",
+      "message_id": "1795504692.489039",
+      "queue_id": "convq_b4e6a7dcffb39a43c0a59f8c76c371d7"
     }
   ],
   "artifacts": [

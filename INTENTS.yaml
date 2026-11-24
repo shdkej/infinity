@@ -151,14 +151,14 @@ lanes:
       재현; 기능 변경 시 테스트·앱 전용 배포·라이브 확인 및 보호 실행 종료/잠금 증거. 접근 불가 시 조회 실패로 기록하고 고객 성과는
       미측정으로 분리
     current_task_handoff_attempt_at: '2026-11-24T07:15:00Z'
-    current_task_handoff_status: attempting
-    current_task_handoff_message_id: ''
-    current_task_handoff_queue_id: ''
+    current_task_handoff_status: sent
+    current_task_handoff_message_id: '1795504692.489039'
+    current_task_handoff_queue_id: convq_b4e6a7dcffb39a43c0a59f8c76c371d7
     current_task_status_check_at: ''
     current_task_status_check_status: ''
     current_task_status_check_message_id: ''
     current_task_status_check_queue_id: ''
-    current_task_status: running
+    current_task_status: dispatched_execution_unconfirmed
     current_task_result_summary: ''
     current_task_followup: ''
     current_task_result: ''
@@ -210,9 +210,9 @@ lanes:
           차단이 재현되면 최소 수정·테스트·앱 전용 배포·라이브 확인, 아니면 근거와 다음 후보 기록
         current_task_end_at: '2026-11-24T08:30:00Z'
         handoff_attempt_at: '2026-11-24T07:15:00Z'
-        handoff_status: attempting
-        handoff_message_id: ''
-        handoff_queue_id: ''
+        handoff_status: sent
+        handoff_message_id: '1795504692.489039'
+        handoff_queue_id: convq_b4e6a7dcffb39a43c0a59f8c76c371d7
         status_check_at: ''
         status_check_status: ''
         status_check_message_id: ''
