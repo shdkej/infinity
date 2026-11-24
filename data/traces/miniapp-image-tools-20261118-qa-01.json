@@ -1618,11 +1618,41 @@
         "child": "proc_f59a6a9a681b"
       },
       "limits": "File selection via helper, not keyboard-only OS picker; mobile browser emulation not physical device; adjacent header-read/settings-change race noted in code but not reproduced in asked flow; customer outcome, screen-reader speech and PostHog ingestion unverified. r2 HTML report pending."
+    },
+    {
+      "label": "r3-t01 controlled native-header settings race, regression and live app release",
+      "type": "execution_and_live",
+      "at": "2026-11-24T11:54:25Z",
+      "task_id": "miniapp-20261124-r3-t01",
+      "status": "product_live_verified_guard_exit_pending",
+      "evidence_paths": [
+        "intents/waiting/miniapp-image-tools-20261118-qa-01.md",
+        "https://github.com/shdkej/space/commit/dc43b456354f3f03edf402a8dfce0a10172f8d81",
+        "https://github.com/shdkej/space/commit/93da7d6de0cad3def7d837ca95d442b684216ad2",
+        "https://github.com/shdkej/space/actions/runs/45387279476",
+        "https://github.com/shdkej/space/actions/runs/45387424267",
+        "https://github.com/shdkej/space/actions/runs/45387581651",
+        "https://github.com/shdkej/space/actions/runs/45387803883"
+      ],
+      "guard": {
+        "state": "pending_child_exit_readback",
+        "exit_code": null,
+        "finished_at": null,
+        "end_at": "2026-11-24T14:30:00Z",
+        "lock_free_verified_at": null
+      },
+      "source_sha": "dc43b456354f3f03edf402a8dfce0a10172f8d81",
+      "evidence_sha": "93da7d6de0cad3def7d837ca95d442b684216ad2",
+      "actions": {"preflight": 45387279476, "rehearse": 45387424267, "restore": 45387581651, "release": 45387803883},
+      "live": {"converter_http_status": 200, "bytes_each": 17940, "sha256": "dee66985a1dd09a33cdcd5ccf0f9dd9a98c20953a3c41672d2815622b1b59e39", "root_and_sort_reachability": 200},
+      "tests": "Chromium controlled Blob.arrayBuffer native completion/stalled selected state before fix, RED 1 failed/1 passed, GREEN Node 11/11; released live A/settings race, late A/B, 0B rejection, valid reselect and two saved decoded JPEG/WebP 80x40 RGB",
+      "sessions": {"independent": "deleg_6196645b", "cross_review": "deleg_e8f9bbc2", "read_only_red": "deleg_36eb4b8f"},
+      "limits": "Controlled delay is not ordinary customer incidence. Synthetic files and browser helper selection; no physical device, actual screen-reader speech, customer outcome or PostHog ingestion. Forced runner kill/partial-write restoration untested; product verification distinct from guard exit and lock receipt. r3 final interval report pending."
     }
   ],
   "next_decision": {
-    "status": "r2_t06_completed_no_product_change_r2_report_pending",
-    "value": "t06 guard completed 20:23:57 KST/exit 0, lock free verified 20:24:09 KST. Ego lite mobile emulation 390/320: synthetic 0B rejection followed by valid PNG helper reselect, keyboard transform/download and two WebP files reopened. No app code change or new release, QA doc Space SHA b6ed6a8. Adjacent header-read/settings-change race is separate candidate, not reproduced in this flow. r2 interval HTML report remains pending until 20:30 KST."
+    "status": "r3_t01_product_live_verified_guard_exit_pending",
+    "value": "Controlled native Blob header-read settings race reproduced in Chromium; minimal selection-token fix RED/GREEN 11/11, app-only Action 45387803883 success and two live bodies SHA dee66985 match. Parent must verify this child guard exit and shared lock after child exits. Customer outcome unmeasured; r3 interval report pending."
   },
   "handoff_attempts": [
     {

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ko" data-infinity-report="rich-v1">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<!--
+  Infinity 보고 양식 — "Quiet Note" 디자인 시스템 (모바일 우선 · 결론 2축 + 핵심 내용)
+  ────────────────────────────────────────────────────────────
+  제약: 대시보드 iframe(sandbox=allow-same-origin)에서 렌더 → JS·외부 리소스 금지, 인라인 CSS만.
+  접기는 <details>(JS 불필요). {{...}} 자리표시자를 치환해 reports/{id}/{timestamp}.html 로 저장.
+  리서치형 report는 HTML만 열어도 핵심 발견·근거·비교·다음 판단이 읽혀야 한다.
+  작성 전 MECE 구조를 먼저 잡고, 핵심 발견/옵션/리스크/다음 액션이 서로 겹치지 않게 채운다.
+
+  ▷ 카테고리별 색: :root 의 --a1/--a1-deep 두 줄만 교체한다. (축2는 항상 sage 고정)
+     · 조사형 (research/wiki/doc)            : --a1:#a9745a; --a1-deep:#8a5c45;  (slate-blue)  라벨 "무엇을 조사했나 / 핵심 결과"
+     · 개선형 (marketing/product/dev/build/pages): --a1:#a9745a; --a1-deep:#8a5c45;  (clay)        라벨 "무엇이 문제였나 / 어떻게 해결하나"
+     · 감시형 (monitor/maintenance/router)   : --a1:#b08545; --a1-deep:#8a6633;  (muted gold)  라벨 "무엇을 점검했나 / 이상 여부·조치"
+-->
+<title>Infinity Report</title>
+<style>
+  :root{
+    --bg:#f4f2ea; --panel:#fbfaf5; --ink:#2c2a25; --soft:#807c70; --faint:#a8a496; --line:#e3dfd2;
+    --a2:#5f7a5e; --a2-deep:#3f5740;            /* 축2(결과/해법/조치) = sage, 고정 */
+    --a1:#a9745a; --a1-deep:#8a5c45;            /* 축1 = 카테고리색 (기본: 조사형 slate-blue) */
+    --sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0; width:100%; max-width:100%; overflow-x:hidden;}
+  body{background:var(--bg); color:var(--ink); font-family:var(--sans);
+    font-size:14px; line-height:1.68; -webkit-font-smoothing:antialiased;}
+  .sheet{width:min(100%,720px); max-width:720px; margin:0 auto; padding:32px 18px 40px;}
+  /* Reports must be readable at the first paint; no animation-dependent content. */
+  .reveal{opacity:1;}
+
+  .eyebrow{display:flex; align-items:center; gap:10px; font-family:var(--mono);
+    font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--soft); flex-wrap:wrap;}
+  .eyebrow .id{color:var(--a2-deep); font-weight:600;}
+  .eyebrow .dot{width:5px; height:5px; border-radius:50%; background:var(--a2);}
+  .eyebrow .status{color:var(--a2-deep);}
+  h1{font-size:clamp(24px,7vw,29px); line-height:1.3; font-weight:700; letter-spacing:0; margin:20px 0 0; overflow-wrap:anywhere;}
+  .dek{font-size:15.5px; color:var(--soft); margin:13px 0 0; max-width:52ch;}
+  .hr{height:1px; background:var(--line); margin:30px 0;}
+
+  .axis{padding:0 0 4px 18px; position:relative; margin-bottom:26px;}
+  .axis::before{content:""; position:absolute; left:0; top:6px; bottom:6px; width:2px; border-radius:2px;}
+  .axis.ax1::before{background:var(--a1);} .axis.ax2::before{background:var(--a2);}
+  .axis.ax1{--ul:var(--a1);} .axis.ax2{--ul:var(--a2);}
+  .axis .label{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase;
+    margin-bottom:9px; display:flex; align-items:center; gap:8px;}
+  .axis.ax1 .label{color:var(--a1-deep);} .axis.ax2 .label{color:var(--a2-deep);}
+  .axis .label .n{font-weight:600; opacity:.6;}
+  .axis .text{font-size:clamp(16px,4.4vw,18px); line-height:1.62; color:#37352e; overflow-wrap:anywhere;}
+  .axis .text b{font-weight:700; color:var(--ink); border-bottom:2px solid var(--ul);}
+  ol.find{list-style:none; counter-reset:f; margin:16px 0 0; padding:0;}
+  ol.find li{position:relative; padding:8px 0 8px 26px; font-size:15px; color:#37352e; border-top:1px solid var(--line);}
+  ol.find li:first-child{border-top:none;}
+  ol.find li::before{counter-increment:f; content:counter(f); position:absolute; left:0; top:9px;
+    font-family:var(--mono); font-size:12px; font-weight:600; color:var(--a1-deep);}
+
+  details{border:1px solid var(--line); border-radius:8px; background:var(--panel); margin-bottom:10px; overflow:hidden;}
+  summary{cursor:pointer; list-style:none; padding:14px 16px; display:flex; align-items:center; gap:11px;
+    font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft);}
+  summary::-webkit-details-marker{display:none;}
+  summary .chev{width:8px; height:8px; border-right:2px solid var(--a2-deep); border-bottom:2px solid var(--a2-deep);
+    transform:rotate(-45deg); transition:.25s; flex:none; margin-left:2px;}
+  details[open] summary .chev{transform:rotate(45deg);}
+  summary:hover{color:var(--ink);}
+  .body{padding:2px 16px 18px; min-width:0;}
+  .section{margin:4px 0 18px;}
+  .section-title{font-family:var(--mono); font-size:10.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--a1-deep); margin:0 0 8px;}
+  .callout{border-left:2px solid var(--a2); background:#f2efe5; padding:11px 13px; color:#4a473f; margin:12px 0 16px;}
+  .content-grid{display:grid; grid-template-columns:1fr; gap:10px; margin:10px 0;}
+  .mini-card{border:1px solid var(--line); background:#f8f6ef; border-radius:8px; padding:12px 13px; min-width:0;}
+  .mini-card b{display:block; color:var(--ink); margin-bottom:5px;}
+  .mini-card p{margin:0;}
+  table{border-collapse:collapse; width:100%; max-width:100%; table-layout:fixed; font-size:13px; margin:4px 0 12px;}
+  th,td{border-bottom:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top; overflow-wrap:anywhere; word-break:break-word;}
+  th{font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft); font-weight:600;}
+  td:first-child{color:var(--a2-deep); font-weight:600; white-space:normal;}
+  .body p{color:var(--soft); overflow-wrap:anywhere;}
+  .body ul{margin:6px 0; padding-left:18px;} .body li{margin:5px 0;}
+  code{font-family:var(--mono); font-size:12px; background:#edeae0; padding:1px 6px; border-radius:3px; color:var(--a2-deep); overflow-wrap:anywhere; word-break:break-word;}
+  pre{white-space:pre-wrap; overflow-wrap:anywhere; word-break:break-word; max-width:100%;}
+  a{color:var(--a2-deep); text-underline-offset:3px; overflow-wrap:anywhere; word-break:break-word;}
+  .chips{display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px;}
+  .chip{font-family:var(--mono); font-size:10.5px; letter-spacing:.05em; color:var(--soft); border:1px solid var(--line); border-radius:999px; padding:3px 10px;}
+  .foot{margin-top:30px; padding-top:15px; border-top:1px solid var(--line);
+    display:flex; flex-wrap:wrap; gap:6px 14px; justify-content:space-between; font-family:var(--mono); font-size:10px;
+    letter-spacing:.13em; text-transform:uppercase; color:var(--faint);}
+
+  @media (min-width:720px){
+    .sheet{padding:48px 34px 46px;}
+    .eyebrow{letter-spacing:.18em;}
+    .eyebrow .status{margin-left:auto;}
+    .axis{padding-left:22px; margin-bottom:30px;}
+    .content-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
+  }
+  @media (max-width:640px){
+    table,thead,tbody,tr,th,td{display:block; width:100%;}
+    thead{display:none;}
+    tr{border:1px solid var(--line); border-radius:8px; padding:9px 10px; margin:0 0 10px; background:#f8f6ef;}
+    td{border-bottom:0; padding:5px 0;}
+    td:first-child{font-family:var(--mono); font-size:11px; letter-spacing:.05em;}
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="eyebrow reveal">
+    <span class="dot"></span>
+    <span class="id">miniapp-image-tools-20261118-qa-01 · r3-t01</span>
+    <span>Research Note</span>
+    <span class="status">제품 라이브 검증 · guard 종료 영수증 대기</span>
+  </div>
+  <h1 class="reveal" style="animation-delay:.05s">헤더 읽기 중 설정 변경 경합 수정</h1>
+  <p class="dek reveal" style="animation-delay:.09s">실제 Chromium에서 제어된 네이티브 헤더 읽기 지연으로 결함을 재현하고, 최소 회귀 수정과 앱 전용 릴리스까지 검증했습니다. 고객 성과는 미측정입니다.</p>
+
+  <div class="hr reveal" style="animation-delay:.12s"></div>
+
+  <div class="axis ax1 reveal" style="animation-delay:.16s">
+    <div class="label"><span class="n">01</span> 무엇이 문제였나</div>
+    <div class="text"><b>파일은 남아 있지만 선택 완료가 사라졌습니다.</b> Blob.arrayBuffer 네이티브 결과 완료 뒤 설정을 바꾸고 응답을 전달하자 “이미지를 확인하고 있습니다.”가 지속되고 변환이 비활성화됐습니다. 제어 지연 합성 QA이며 일반 고객 발생률을 나타내지 않습니다.</div>
+  </div>
+
+  <div class="axis ax2 reveal" style="animation-delay:.22s">
+    <div class="label"><span class="n">02</span> 어떻게 해결했나</div>
+    <div class="text">파일 선택 토큰과 설정·변환 세대를 분리했습니다. RED→GREEN Node 11/11, 현행 t05 두 객체 복원 리허설·독립 restore 후 앱 전용 Action 45387803883 성공. 두 공개 본문이 동일 SHA이고 라이브 브라우저 변환·저장물 재디코딩을 통과했습니다.</div>
+    <!-- 선택: 핵심 항목 나열
+    <ol class="find"><li>...</li></ol> -->
+  </div>
+
+  <div class="reveal" style="animation-delay:.27s">
+  <details open>
+    <summary><span class="chev"></span> 핵심 내용 · 리서치 본문</summary>
+    <div class="body">
+      <div class="section">
+        <div class="section-title">핵심 발견</div>
+        <ol class="find">
+          <li>제어 지연 전: 실제 파일 A는 input에 있으나 소스 “확인 중”, 변환·다운로드 비활성. 다른 파일 B 선택은 복구 가능.</li>
+          <li>수정 후: 설정 변경 중 A 선택 완료, 늦은 A보다 최신 B 우선, 0B 거부 뒤 정상 B 재선택·변환·저장.</li>
+          <li>라이브 두 URL은 각각 HTTP 200, 17,940B, SHA-256 dee66985a1dd09a33cdcd5ccf0f9dd9a98c20953a3c41672d2815622b1b59e39; /와 /sort/는 200 도달성만 확인.</li>
+        </ol>
+      </div>
+
+      <div class="callout">제품 릴리스는 확인됐습니다. 보호 자식이 끝난 뒤 부모가 동일 ID의 SQLite exit/finished_at와 공용 lock 해제를 별도 읽어 최종 영수증을 남기고, r3 전체 구간 종합 보고는 예정된 감독 절차에서 판단합니다.</div>
+
+      <div class="content-grid">
+        <div class="mini-card">
+          <b>근거 · 소스</b>
+          <p>Space source dc43b456, QA 93da7d6; preflight 45387279476, rehearse 45387424267, restore 45387581651, release 45387803883. Space qa/release-checkpoint.md에 상세.</p>
+        </div>
+        <div class="mini-card">
+          <b>다음 판단</b>
+          <p>고객 인지·효과, 물리 기기·스크린리더 발화·PostHog 수집은 시험하지 않았습니다. 구간 후속 목표는 감독이 결정; 이 task를 재발송하거나 종료시각을 연장하지 않습니다.</p>
+        </div>
+      </div>
+    </div>
+  </details>
+
+  <details open>
+    <summary><span class="chev"></span> 시험·릴리스 경계</summary>
+    <div class="body"><p>라이브 ego lite Chromium에서 Blob.prototype.arrayBuffer의 실제 네이티브 결과 전달만 제어했습니다. 수정 전 stuck 상태를 후속 브라우저 호출에서도 확인했습니다. 수정 후 A/설정 편집, A→B 역순 완료, 0B 거부→재선택을 라이브 재시험하고 JPEG·WebP 80×40 RGB 저장 파일을 독립 디코딩했습니다. 입력은 합성 파일이며 browser helper로 골랐습니다.</p><p>직전 t05 immutable source 80966e76과 두 S3 객체의 SHA 0c4f03f1…4533b, HEAD/GET/헤더를 검증했습니다. 동일 본문 두 키 쓰기/읽기 리허설과 독립 restore 뒤 두 키만 릴리스하고 정확한 CDN 경로를 무효화했습니다. 버전 복원과 강제 러너 중단·부분 쓰기 시험은 미수행입니다. 기존 r1 Narrator PID 27296 정리 대기는 별도입니다.</p></div>
+  </details>
+
+  <details>
+    <summary><span class="chev"></span> 실행 메타 · 산출물</summary>
+    <div class="body">
+      <div class="chips">
+        <span class="chip">2026-11-24T11:54:25Z</span>
+        <span class="chip">miniapp-20261124-r3-t01</span>
+        <span class="chip">r3-t01 진행 → product_live_verified_guard_exit_pending</span>
+        <span class="chip">execution_mode: hermes_guarded_child_wsl</span>
+      </div>
+      <ul>
+        <li>산출물 <code>infra-aws-static-sites/sites/miniapp-image-tools/qa/release-checkpoint.md</code></li>
+        <li>역할 서브에이전트 <code>선행 독립 4역할 deleg_6196645b · 교차 deleg_e8f9bbc2</code></li>
+        <li>Planner <code>deleg_6196645b (parent receipt)</code> · Developer <code>deleg_6196645b (parent receipt)</code></li>
+        <li>Marketer <code>deleg_6196645b (parent receipt)</code> · Operator <code>deleg_6196645b (parent receipt)</code></li>
+        <li>역할 결과 요약 <code>재현 전 수정 금지; A/B 선택 경합 분리; 고객 성과 미주장; 직전 t05 복원 검증 후 릴리스</code></li>
+        <li>지니 종합 <code>제어 지연 결함 확인→최소 선택 토큰 분리→복원 게이트→라이브 재시험; guard 최종 상태는 부모 대기</code></li>
+        <li>Red 검증 <code>PASS</code> · <code>독립 변경 검토 deleg_36eb4b8f; 회귀 11/11</code></li>
+        <li>원격 반영 <code>Space origin/main QA 93da7d6, source dc43b456; Action 45387803883 success; live 두 URL 동일 SHA</code></li>
+      </ul>
+    </div>
+  </details>
+  </div>
+
+  <div class="foot reveal" style="animation-delay:.3s">
+    <span>Agent-First Heartbeat</span>
+    <span>Infinity · Intent Note</span>
+  </div>
+</div>
+</body>
+</html>
