@@ -141,12 +141,17 @@ lanes:
     release_workflow_run: '45343956525'
     release_live_url: https://images.aws.shdkej.com/tools/image-converter/
     waiting_on: user
-    blocker: r1-t05의 스크린리더 실발화·탐색 QA는 Windows LockApp 잠금으로 접근 불가. 시험에서 시작한 Narrator PID 27296은 접근 거부로 종료하지 못해 잠금 해제된 대화형 데스크톱에서 해당 PID만 종료·부재 확인 필요; 제품 결함 판정은 보류.
+    blocker: r1-t05의 스크린리더 실발화·탐색 QA는 Windows LockApp 잠금으로 접근 불가. 시험에서 시작한 Narrator
+      PID 27296은 접근 거부로 종료하지 못해 잠금 해제된 대화형 데스크톱에서 해당 PID만 종료·부재 확인 필요; 제품 결함 판정은 보류.
     current_task_id: miniapp-20261124-r2-t01
-    current_task_goal: 반복 변환과 잘못된 입력 후 복구 흐름을 모바일·데스크톱에서 재현하고, 실제 오류/마찰이 있을 때만 최소 수정·기존 승인 배포·라이브 검증
+    current_task_goal: 반복 변환과 잘못된 입력 후 복구 흐름을 모바일·데스크톱에서 재현하고, 실제 오류/마찰이 있을 때만 최소
+      수정·기존 승인 배포·라이브 검증
     current_task_start_at: '2026-11-24T08:30:00Z'
     current_task_end_at: '2026-11-24T11:30:00Z'
-    current_task_completion_criteria: 기존 승인 앱만 사용해 합성 입력 2회 연속 변환·다운로드와 거부된 잘못된 입력 뒤 정상 입력 복구를 390px/701px에서 확인. 오류·마찰 재현 시 최소 수정·테스트·기존 승인 앱 전용 배포·라이브 검증, 미재현 시 조건/한계·다음 후보 기록. 다른 앱/데이터·새 비용·권한·식별·페이지뷰·세션재생 제외. 고정 end_at 준수, guard 종료·잠금 확인.
+    current_task_completion_criteria: 기존 승인 앱만 사용해 합성 입력 2회 연속 변환·다운로드와 거부된 잘못된 입력
+      뒤 정상 입력 복구를 390px/701px에서 확인. 오류·마찰 재현 시 최소 수정·테스트·기존 승인 앱 전용 배포·라이브 검증, 미재현
+      시 조건/한계·다음 후보 기록. 다른 앱/데이터·새 비용·권한·식별·페이지뷰·세션재생 제외. 고정 end_at 준수, guard 종료·잠금
+      확인.
     current_task_handoff_attempt_at: '2026-11-24T08:32:44Z'
     current_task_handoff_status: sent
     current_task_handoff_message_id: '1795509171.676709'
@@ -158,9 +163,17 @@ lanes:
     prior_task_status_check_message_id: '1795505513.609889'
     prior_task_status_check_queue_id: convq_f6aab1db4a22caa5924fdd523c18e510
     current_task_status: completed_no_change
-    current_task_result_summary: 390·701px 각 WebP 80×40→JPEG 64×32 연속 변환·다운로드 두 번과 손상 PNG 거부/이전 결과 무효화→정상 PNG 64×32 재변환·저장 복구 통과. 저장 파일 6개 재디코딩. 결함 미재현, 수정·신규 배포 없음, 고객 성과 미측정.
-    current_task_followup: 실제 사용자의 오류 안내 이해·재시도 흐름은 별도 관찰 후보; 701px 결과 첫 화면 아래 발견성/물리 터치는 미검증, t05 Narrator PID 27296 정리 별도 대기.
-    current_task_result: 'ego lite 라이브 합성 QA ?qa=1: 390×844·701×844 각각 WebP 80×40 702B, JPEG 64×32 888B, 손상 PNG 선택 후 오류 표시·미리보기 제거·변환/다운로드 비활성화, 정상 파일 재선택 뒤 PNG 64×32 224B 재저장. 부모가 6개 파일 Pillow 디코딩 확인. 각 너비에서 변환 직후 손상 파일 선택의 경합 후 700ms에도 오류 상태 유지, 낡은 결과 재노출 없음(모든 타이밍 증명 아님). 701 첫 결과는 화면 아래여서 일반 휠 스크롤로 도달했으며 터치 경로 증거 아님. 기존 Node 7/7; 소스·배포 변경 없음. guard 2026-11-24T08:40:04.549337Z completed exit 0, 08:40:16Z active.lock 해제 확인.'
+    current_task_result_summary: 390·701px 각 WebP 80×40→JPEG 64×32 연속 변환·다운로드 두 번과
+      손상 PNG 거부/이전 결과 무효화→정상 PNG 64×32 재변환·저장 복구 통과. 저장 파일 6개 재디코딩. 결함 미재현, 수정·신규
+      배포 없음, 고객 성과 미측정.
+    current_task_followup: 실제 사용자의 오류 안내 이해·재시도 흐름은 별도 관찰 후보; 701px 결과 첫 화면 아래 발견성/물리
+      터치는 미검증, t05 Narrator PID 27296 정리는 별도 대기.
+    current_task_result: 'ego lite 라이브 합성 QA ?qa=1: 390×844·701×844 각각 WebP 80×40
+      702B, JPEG 64×32 888B, 손상 PNG 선택 후 오류 표시·미리보기 제거·변환/다운로드 비활성화, 정상 파일 재선택 뒤 PNG
+      64×32 224B 재저장. 부모가 6개 파일 Pillow 디코딩 확인. 각 너비에서 변환 직후 손상 파일 선택의 경합 후 700ms에도
+      오류 상태 유지, 낡은 결과 재노출 없음(모든 타이밍 증명 아님). 701 첫 결과는 화면 아래여서 일반 휠 스크롤로 도달했으며 터치 경로
+      증거 아님. 기존 Node 7/7; 소스·배포 변경 없음. guard 2026-11-24T08:40:04.549337Z completed
+      exit 0, 08:40:16Z active.lock 해제 확인.'
     current_task_guard_status: completed
     current_task_guard_exit_code: 0
     current_task_guard_finished_at: '2026-11-24T08:40:04.549337+00:00'
@@ -205,7 +218,8 @@ lanes:
         status: running
         task_sequence: 8
         current_task_id: miniapp-20261124-r1-t08
-        current_task_goal: 701–760px 경계에서 터치형 포인터로 변환 후 결과·다운로드 도달성을 확인하고, 재현되는 마찰이 있을 때만 최소 수정·배포·라이브 검증
+        current_task_goal: 701–760px 경계에서 터치형 포인터로 변환 후 결과·다운로드 도달성을 확인하고, 재현되는 마찰이
+          있을 때만 최소 수정·배포·라이브 검증
         current_task_end_at: '2026-11-24T08:30:00Z'
         handoff_attempt_at: '2026-11-24T08:15:00Z'
         handoff_status: sent
@@ -233,7 +247,8 @@ lanes:
         status: running
         task_sequence: 1
         current_task_id: miniapp-20261124-r2-t01
-        current_task_goal: 반복 변환과 잘못된 입력 후 복구 흐름을 모바일·데스크톱에서 재현하고, 실제 오류/마찰이 있을 때만 최소 수정·기존 승인 배포·라이브 검증
+        current_task_goal: 반복 변환과 잘못된 입력 후 복구 흐름을 모바일·데스크톱에서 재현하고, 실제 오류/마찰이 있을 때만
+          최소 수정·기존 승인 배포·라이브 검증
         current_task_end_at: '2026-11-24T11:30:00Z'
         handoff_attempt_at: '2026-11-24T08:30:00Z'
         handoff_status: sent
@@ -253,10 +268,17 @@ lanes:
         task_sequence: 0
         report_status: pending
         goal: 앞선 결과로 남은 개선을 실행하고 변경 전후 근거·회귀 검증·다음 판단 정리
-    next_action: r2-t01 실행·결과/guard/잠금 회수 후 같은 구간의 다음 의미 있는 판단; 20:30 r2 보고; 23:30 종합 마감
+      next_action: r2-t01 종료·guard exit 0·잠금 해제 확인; same-task 결과 확인 요청 sent 1795509931.304839,
+        회신 대기. 20:30 r2 보고; 후속은 새 task ID 판단.
+    next_action: r2-t01 실행·결과/guard/잠금 회수 후 같은 구간의 다음 의미 있는 판단; 20:30 r2 보고; 23:30
+      종합 마감
     notification_channel: slack
     notification_target: channel:C0CE0DV9MM2
     notification_reply_to: '1794983278.888719'
+    current_task_status_check_at: '2026-11-24T08:45:23Z'
+    current_task_status_check_status: sent
+    current_task_status_check_message_id: '1795509931.304839'
+    current_task_status_check_queue_id: convq_d1a9b31945c418c0f1623e371c8155b8
   - id: reel-room-studio-20261113
     title: Reel Room·Instagram Maker 통합 릴스 스튜디오 구현
     task_name: Reel Room·Instagram Maker 통합 릴스 스튜디오 구현

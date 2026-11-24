@@ -815,6 +815,20 @@
       "new_deployment": false,
       "customer_outcome_status": "unmeasured",
       "next_candidate": "Small real-user observation of error message comprehension and valid retry, CMO/SAM decision."
+    },
+    {
+      "type": "supervision",
+      "at": "2026-11-24T08:45:23Z",
+      "task_id": "miniapp-20261124-r2-t01",
+      "status": "sent",
+      "evidence_paths": [
+        "INTENTS.yaml",
+        "intents/waiting/miniapp-image-tools-20261118-qa-01.md"
+      ],
+      "report_message_id": null,
+      "handoff_message_id": "1795509931.304839",
+      "handoff_queue_id": "convq_d1a9b31945c418c0f1623e371c8155b8",
+      "limits": "One same-task result confirmation only; does not dispatch/restart work or establish Windows acknowledgement."
     }
   ],
   "artifacts": [
@@ -1147,7 +1161,7 @@
     }
   ],
   "next_decision": {
-    "status": "dispatched",
-    "value": "r1 report sent 1795509062.983379. r2-t01 sent 1795509171.676709, fixed end_at 11:30Z; await same-task execution/guard/lock result."
+    "status": "awaiting_same_task_confirmation",
+    "value": "r2-t01 completed_no_change from latest remote parent record: repeated conversion/download and corrupt-to-valid recovery passed in synthetic browser; guard completed exit 0, lock released. Same-task confirmation sent 1795509931.304839; customer outcomes unmeasured."
   }
 }
