@@ -201,8 +201,12 @@ lanes:
     prior_r3_t04_guard_finished_at: '2026-11-24T13:31:12.314251+00:00'
     prior_r3_t04_lock_released_verified_at: '2026-11-24T13:31:30.267831+00:00'
     prior_r3_t05_result_summary: 'Four separately decoded JPEG/WebP 80x40 outputs and decoded 10000x1 edge output; 12MiB padded and 20m edited-header cases selection-only. Node 11/11, no product change/release; customer outcomes unmeasured.'
-    current_task_status: evidence_reconciled_guard_receipt_pending_parent
+    current_task_status: evidence_reconciled_guard_completed
     current_task_result: r3_t01_t05_evidence_matrix_prepared
+    current_task_guard_status: completed
+    current_task_guard_exit_code: 0
+    current_task_guard_finished_at: '2026-11-24T14:27:53.640518+00:00'
+    current_task_lock_released_verified_at: '2026-11-24T14:28:28.731513+00:00'
     current_task_followup: 'SAM r3 interval report pending; Narrator PID 27296 separately blocked until interactive unlock.'
     prior_r3_t03_status: aggregate_verified_guard_completed
     prior_r3_t03_result_summary: 'US project 424014 bounded HogQL HTTP 200, 8 grouped rows; five event x synthetic/user counts in the task verification. Guard 12:51:04Z completed/exit 0 and lock 12:51:25Z free. Customer/unique people unmeasured; Narrator PID 27296 separate blocked issue.'
@@ -421,10 +425,13 @@ lanes:
         prior_r3_t05_result: synthetic_jpeg_webp_boundary_qa_pass_no_change
         prior_r3_t05_guard_status: completed_exit_0
         prior_r3_t05_lock_status: free_verified_at_2026-11-24T14:01:42.129832Z
-        current_task_status: evidence_reconciled_guard_receipt_pending_parent
+        current_task_status: evidence_reconciled_guard_completed
         current_task_result: r3_t01_t05_evidence_matrix_prepared
-        current_task_guard_status: pending_parent_after_child_exit
-        current_task_lock_status: pending_parent_after_child_exit
+        current_task_guard_status: completed
+        current_task_guard_exit_code: 0
+        current_task_guard_finished_at: '2026-11-24T14:27:53.640518+00:00'
+        current_task_lock_status: free_verified_at_2026-11-24T14:28:28.731513Z
+        current_task_lock_released_verified_at: '2026-11-24T14:28:28.731513+00:00'
         current_task_analytics_status: not_requeried
         prior_r3_t03_analytics_observed_at: '2026-11-24T12:43:40.169418Z'
         prior_r3_t03_analytics_window: '[2026-11-24T05:30:00Z,2026-11-24T12:41:30Z)'
@@ -456,7 +463,7 @@ lanes:
         prior_r3_t05_guard_final_receipt: completed_exit_0_at_2026-11-24T14:00:59.198202Z_lock_free_14:01:42.129832Z
         current_task_report: reports/miniapp-image-tools-20261118-qa-01/20261124T1423Z-r3-t06.html
         goal: Reconcile existing r3-t01 through t05 evidence for SAM's pending interval closeout; no new execution.
-        next_action: SAM interval report pending at 23:30 KST; parent records t06 guard/lock after child exit. Narrator cleanup separately blocked.
+        next_action: SAM interval report pending; t06 guard/lock parent receipt recorded. Narrator cleanup separately blocked.
       prior_task_status_check_at: '2026-11-24T09:45:00Z'
       prior_task_status_check_status: sent
       prior_task_status_check_task_id: miniapp-20261124-r2-t03

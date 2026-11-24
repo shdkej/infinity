@@ -1841,19 +1841,19 @@
       "type": "evidence_reconciliation",
       "at": "2026-11-24T14:23:00Z",
       "task_id": "miniapp-20261124-r3-t06",
-      "status": "evidence_reconciled_guard_receipt_pending_parent",
+      "status": "evidence_reconciled_guard_completed",
       "source_tasks": ["miniapp-20261124-r3-t01", "miniapp-20261124-r3-t02", "miniapp-20261124-r3-t03", "miniapp-20261124-r3-t04", "miniapp-20261124-r3-t05"],
       "finding": "One released synthetic race fix; Narrator cleanup still blocked; bounded 5-event aggregate is not customer outcome; corrupt/unsupported PNG recovery and JPEG/WebP boundary QA passed without product changes. All five prior guards completed exit 0 before 14:30Z and locks were separately verified free. Initial individual reports with pending guard labels are as-of snapshots; later detail/trace receipts are final.",
       "customer_outcomes": "unmeasured; actual AT speech and real-device behavior unverified",
       "new_execution": "none: no browser/API/PostHog rerun, product change or deployment",
       "roles": {"independent": "deleg_a7fe0654", "cross_review": "deleg_5d3ce208", "four_each_completed": true, "source": "parent handoff"},
-      "guard": {"end_at": "2026-11-24T14:30:00Z", "state": "pending_parent_after_child_exit", "lock": "pending_parent_after_child_exit"},
+      "guard": {"end_at": "2026-11-24T14:30:00Z", "state": "completed", "exit_code": 0, "finished_at": "2026-11-24T14:27:53.640518+00:00", "lock_free_verified_at": "2026-11-24T14:28:28.731513+00:00", "lock_readonly_absent_at": "2026-11-24T14:31:20.701620+00:00", "source": "parent SQLite readback and nonblocking flock; later read-only lslocks observation"},
       "evidence_paths": ["reports/miniapp-image-tools-20261118-qa-01/20261124T1423Z-r3-t06.html", "intents/waiting/miniapp-image-tools-20261118-qa-01.md"]
     }
   ],
   "next_decision": {
-    "status": "r3_t06_evidence_reconciled_guard_receipt_pending_parent_waiting_narrator",
-    "value": "Existing r3-t01 through t05 reports and later detail/trace guard receipts reconciled in r3-t06 HTML evidence matrix. One live released fix, two no-change synthetic QA passes, one bounded aggregate and one blocked Narrator cleanup. No customer outcome or actual AT speech verified. r3 interval report pending for SAM; t06 guard exit and lock need parent readback after this child exits."
+    "status": "r3_t06_evidence_reconciled_guard_completed_waiting_narrator",
+    "value": "Existing r3-t01 through t05 reports and later detail/trace guard receipts reconciled in r3-t06 HTML evidence matrix. One live released fix, two no-change synthetic QA passes, one bounded aggregate and one blocked Narrator cleanup. No customer outcome or actual AT speech verified. t06 guard completed exit 0 at 14:27:53Z; lock free verified at 14:28:28Z. SAM r3 interval report pending."
   },
   "handoff_attempts": [
     {
@@ -2075,7 +2075,7 @@
       "task_id": "miniapp-20261124-r3-t06",
       "window": "r3",
       "sequence": 6,
-      "status": "evidence_reconciled_guard_receipt_pending_parent",
+      "status": "evidence_reconciled_guard_completed",
       "at": "2026-11-24T14:15:00Z",
       "goal": "Reconcile r3 tasks 1–5 against existing evidence, guard/lock receipts and reports; produce concise evidence matrix and next candidate without repeating tests or changing code/deploy.",
       "end_at": "2026-11-24T14:30:00Z",
@@ -2094,7 +2094,7 @@
       },
       "product_change": false,
       "new_customer_metric": false,
-      "guard_final_receipt": "pending_parent_after_child_exit"
+      "guard_final_receipt": "completed_exit_0_at_2026-11-24T14:27:53.640518Z_lock_free_14:28:28.731513Z"
     }
   ],
   "process_cleanup_verifications": [
