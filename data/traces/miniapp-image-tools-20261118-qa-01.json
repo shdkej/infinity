@@ -1777,11 +1777,46 @@
         "reports/miniapp-image-tools-20261118-qa-01/20261124T1325Z-r3-t04.html",
         "C:/Users/msi/ego/miniapp-r3-t04-20261124/ (private synthetic fixtures and saved outputs)"
       ]
+    },
+    {
+      "label": "r3-t05 live synthetic JPEG/WebP saved output and bounded input edges",
+      "type": "browser_qa",
+      "at": "2026-11-24T13:54:06Z",
+      "task_id": "miniapp-20261124-r3-t05",
+      "status": "product_qa_pass_no_change_guard_exit_pending",
+      "live_url": "https://images.aws.shdkej.com/tools/image-converter/?qa=1",
+      "browser_task_space": 65,
+      "fixtures": "Pillow-decoded JPEG 160x80 2829B, WebP 160x80 714B, JPEG 10000x1 3130B and 10001x1 3134B; padded JPEG exact 12582912B/+1B selection-only; edited SOF JPEG 5000x4000/5000x4001 header-only",
+      "observations": "JPEG and WebP each selected without error, transformed to JPEG and WebP with preview/status/download active. Exactly 12MiB padded and exactly 20m header-only accepted by predecode selection; +1B and 20m+ rejected; decodable 10000x1 accepted and converted, 10001x1 rejected. Rejections show guidance, data-error=true, transform/download disabled and preview hidden, empty result metadata.",
+      "saved_outputs": "Five distinct saveAs browser download events, failure null; independent Pillow full load: JPEG->JPEG 80x40 RGB 1389B, JPEG->WebP 80x40 RGB 862B, WebP->JPEG 80x40 RGB 1431B, WebP->WebP 80x40 RGB 872B, edge 10000x1 JPEG->JPEG 80x1 RGB 768B. Padded and header-only candidates are not full-decode/conversion evidence.",
+      "limits": "Source input <=12MiB, each edge <=10000, total <=20m; output <=12m pixels and <=64MiB. Selection limit codes inferred from code: file_too_large and pixel_limit; no analytics query or full-decode proof for padded/20m cases.",
+      "tests": "node --test tests/*.test.mjs: 11/11 pass",
+      "live_readback": "Both exact converter URLs HTTP 200, 17940B, sha256 dee66985a1dd09a33cdcd5ccf0f9dd9a98c20953a3c41672d2815622b1b59e39, unchanged r3-t01",
+      "release": "none; no reproduced product defect; existing r2-t05-pinned restore not safe for current live and not dispatched",
+      "roles": {
+        "independent": "deleg_7ac149ec",
+        "cross_review": "deleg_d0eb8d7e",
+        "four_each_completed": true
+      },
+      "guard": {
+        "state_at_snapshot": "running",
+        "started_at": "2026-11-24T13:51:11.486813+00:00",
+        "end_at": "2026-11-24T14:30:00+00:00",
+        "exit_code": null,
+        "finished_at": null,
+        "lock_release": "parent_to_verify_after_child_exit"
+      },
+      "customer_outcomes": "unmeasured; synthetic QA is not customer success or OS-save evidence for users",
+      "evidence_paths": [
+        "intents/waiting/miniapp-image-tools-20261118-qa-01.md",
+        "reports/miniapp-image-tools-20261118-qa-01/20261124T1354Z-r3-t05.html",
+        "C:/Users/msi/ego/miniapp-r3-t05-20261124/ (private synthetic fixtures and saved outputs)"
+      ]
     }
   ],
   "next_decision": {
-    "status": "r3_t04_browser_qa_pass_guard_completed_waiting_narrator",
-    "value": "Three distinct synthetic input failure paths recovered to saved and independently decoded PNG without a reproduced product defect or new deployment. Parent verified r3-t04 guard completed/exit 0 at 13:31:12Z and shared lock free at 13:31:30Z; r3 interval report remains pending. Customer outcomes unmeasured; original Narrator PID 27296 separately blocked until interactive Windows unlock."
+    "status": "r3_t05_browser_qa_pass_guard_exit_pending_waiting_narrator",
+    "value": "Synthetic JPEG/WebP four output combinations saved and independently decoded; 10000x1 JPEG saved/decoded, byte/pixel boundary selection checked with explicitly limited padded/header-only evidence. No reproduced product defect or new deployment. Parent must verify guard exit and nonblocking lock after this child ends; r3 interval report remains pending. Customer outcomes unmeasured; original Narrator PID 27296 separately blocked until interactive Windows unlock."
   },
   "handoff_attempts": [
     {
@@ -1978,7 +2013,17 @@
       "completion_criteria": "Windows actual browser: transform/download harmless synthetic JPEG and WebP and independently decode saved outputs; inspect size/pixel limit boundary. Only evidenced defects receive minimal fix, tests, existing app-only deploy and live verification before fixed end. No new analytics, cost, permission, or other-app data. Record guard exit and shared lock release.",
       "message_id": "1795528064.765319",
       "queue_id": "convq_b8119ca320f3e27c53802a4c20830075",
-      "sent_at": "2026-11-24T13:47:00Z"
+      "sent_at": "2026-11-24T13:47:00Z",
+      "product_result": "synthetic_jpeg_webp_boundary_qa_pass_no_change",
+      "browser_qa_observed_at": "2026-11-24T13:54:06Z",
+      "guard_started_at": "2026-11-24T13:51:11.486813+00:00",
+      "guard_final_receipt": null,
+      "report": "reports/miniapp-image-tools-20261118-qa-01/20261124T1354Z-r3-t05.html",
+      "roles": {
+        "independent": "deleg_7ac149ec",
+        "cross_review": "deleg_d0eb8d7e",
+        "four_each_completed": true
+      }
     }
   ],
   "process_cleanup_verifications": [

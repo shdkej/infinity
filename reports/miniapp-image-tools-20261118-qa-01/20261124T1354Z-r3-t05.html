@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko" data-infinity-report="rich-v1">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Infinity Report · r3-t05</title>
+<style>
+/* reports/_TEMPLATE.html Quiet Note 구조·토큰을 사용; 외부 자원과 JS 없음 */
+:root{--bg:#f4f2ea;--panel:#fbfaf5;--ink:#2c2a25;--soft:#807c70;--line:#e3dfd2;--a1:#b08545;--a1-deep:#8a6633;--a2:#5f7a5e;--a2-deep:#3f5740;--sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;--mono:ui-monospace,"SF Mono",Menlo,monospace}
+*{box-sizing:border-box}html,body{margin:0;width:100%;max-width:100%;overflow-x:hidden}body{background:var(--bg);color:var(--ink);font:14px/1.68 var(--sans)}.sheet{width:min(100%,720px);margin:auto;padding:48px 34px}.eyebrow,.foot{font:11px var(--mono);letter-spacing:.1em;color:var(--soft)}.eyebrow .id{color:var(--a2-deep);font-weight:600}h1{font-size:clamp(24px,7vw,29px);line-height:1.3;margin:20px 0 0;overflow-wrap:anywhere}.dek{font-size:15.5px;color:var(--soft)}.hr{height:1px;background:var(--line);margin:30px 0}.axis{padding:0 0 4px 22px;position:relative;margin-bottom:30px}.axis:before{content:"";position:absolute;left:0;top:6px;bottom:6px;width:2px;background:var(--a1)}.axis.ax2:before{background:var(--a2)}.axis .label,.section-title{font:11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--a1-deep)}.axis.ax2 .label{color:var(--a2-deep)}.axis .text{font-size:17px;line-height:1.62}details{border:1px solid var(--line);border-radius:8px;background:var(--panel);margin-bottom:10px;overflow:hidden}summary{cursor:pointer;padding:14px 16px;font:11px var(--mono);letter-spacing:.1em;color:var(--soft)}.body{padding:2px 16px 18px}.body li{margin:8px 0}.callout{border-left:2px solid var(--a2);background:#f2efe5;padding:11px 13px}.content-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.mini-card{border:1px solid var(--line);padding:12px;min-width:0}code{font-family:var(--mono);overflow-wrap:anywhere}.foot{border-top:1px solid var(--line);padding-top:15px;margin-top:30px}@media(max-width:640px){.sheet{padding:32px 18px}.content-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="sheet">
+  <div class="eyebrow"><span class="id">miniapp-image-tools-20261118-qa-01 / r3-t05</span> · 점검 · 제품 QA 통과, 보호 종료 영수증 대기</div>
+  <h1>JPEG·WebP 변환과 입력 경계 검증</h1>
+  <p class="dek">합성 입력으로 실제 라이브 페이지를 검사했습니다. 저장 파일은 별도 디코더로 확인했고, 헤더만 수락된 경계는 변환 성공으로 세지 않았습니다.</p>
+  <div class="hr"></div>
+  <div class="axis ax1"><div class="label">01 무엇을 점검했나</div><div class="text">합성 JPEG와 WebP를 각각 JPEG·WebP로 변환하고 실제 저장물을 다시 열었습니다. 입력의 12MiB, 한 변 10,000px, 총 2,000만 화소 경계도 별도로 확인했습니다.</div></div>
+  <div class="axis ax2"><div class="label">02 이상 여부·조치</div><div class="text">실제 저장물 다섯 개를 모두 독립 디코딩했습니다. 제한값 초과는 선택 단계에서 거부됐고, 재현된 제품 결함이 없어 코드나 라이브 배포를 바꾸지 않았습니다. 고객 성과는 미측정입니다.</div></div>
+  <details open><summary>핵심 내용 · 리서치 본문</summary><div class="body"><div class="section"><div class="section-title">핵심 발견</div><ol>
+    <li>JPEG 160×80과 WebP 160×80 입력에서 JPEG·WebP 네 조합 출력이 모두 80×40 RGB로 저장·완전 디코딩됐습니다. 각각 1389B, 862B, 1431B, 872B입니다.</li>
+    <li>정상 JPEG 10000×1은 변환·저장 후 JPEG 80×1 RGB/768B로 디코딩됐습니다. 정상 JPEG 10001×1은 선택 단계에서 <code>pixel_limit</code> 안내와 함께 거부됐습니다.</li>
+    <li>12MiB 패딩 입력과 5000×4000 헤더 수정 입력은 선택까지만 수락됐습니다. 12MiB+1B와 5000×4001은 거부됐습니다. 앞의 수락은 전체 디코딩이나 저장물 성공이 아닙니다.</li>
+  </ol></div><div class="callout">no-change: 결함 재현 없음. r3 구간 보고는 pending, Intent는 Waiting. 보호 종료·잠금 해제는 자식 종료 후 부모가 같은 ID로 검증해야 합니다.</div><div class="content-grid"><div class="mini-card"><b>근거 · 소스</b><p>ego lite task space 65, 라이브 <code>?qa=1</code> 같은 페이지; 5개 download 이벤트를 클릭 전 준비해 별도 saveAs, Pillow 완전 로딩. Node 11/11. 두 라이브 경로 각각 HTTP 200·17940B·동일 SHA-256 dee66985…b59e39.</p></div><div class="mini-card"><b>다음 판단</b><p>실제 고객 이해·성과와 대형 경계 파일의 완전 변환은 미검증. Narrator PID 27296은 별도 대화형 잠금 해제 대기이며 이 작업에서는 건드리지 않았습니다.</p></div></div></div></details>
+  <details open><summary>경계·릴리스·증거 해석</summary><div class="body"><p>소스 제한: 입력 0B 초과~12×1024×1024B, 각 변 ≤10,000px, 총 ≤20,000,000px; 출력 ≤12,000,000px와 ≤64MiB입니다. 12MiB 정확값은 패딩 JPEG의 헤더 선택만 수락, +1B는 <code>file_too_large</code> 분기로 거부. 5000×4000/5000×4001은 JPEG SOF 치수만 바꾼 헤더 전용 후보로 각각 선택 수락/거부(<code>pixel_limit</code>)입니다. 모두 선택과 전체 디코딩을 구별했습니다.</p><p>거부 시 status 오류, 미리보기 숨김, 비어 있는 결과 메타, 변환·다운로드 비활성을 확인했습니다. 정상 변환의 완료 안내·미리보기·다운로드 활성과 저장 파일의 실제 JPEG/WebP 형식·치수를 확인했습니다. 출력은 Git 밖 <code>C:/Users/msi/ego/miniapp-r3-t05-20261124/</code>에 있습니다.</p><p>앱 소스/테스트/QA/릴리스는 변경하지 않았습니다. 기존 workflow의 복원 기준은 r2-t05로 낡아 현재 r3-t01 라이브 본문에 대한 안전한 릴리스 경로가 아닙니다. 필요 시 두 정확한 S3 객체를 직전 라이브 기준으로 재고정하고 각각 복원 연습해야 합니다. 이 작업에서는 배포를 시작하지 않았습니다.</p></div></details>
+  <details><summary>실행 메타 · 산출물</summary><div class="body"><p>2026-11-24 13:54Z · r3-t05 single guarded child · Waiting → Waiting · browser QA / no release</p><ul><li>산출물 <code>reports/miniapp-image-tools-20261118-qa-01/20261124T1354Z-r3-t05.html</code></li><li>Planner/Developer/Marketer/Operator 독립 <code>deleg_7ac149ec</code> 및 교차 <code>deleg_d0eb8d7e</code>: 각각 네 완료 로그 확인.</li><li>역할 종합: 저장물 디코딩 우선, 헤더 선택 한정, 고객성과 분리, 직전 라이브 복원 게이트. 불완전 헤더는 미입증 결함이라 파서 변경 없음.</li><li>guard는 13:51:11.486813Z 시작, 고정 종료 14:30Z; 최종 exit/lock 영수증은 부모 확인 대기.</li><li>별도 Red 없음. Infinity 원격 SHA는 게시 후 확인. 제품 라이브 두 경로 읽기 완료.</li></ul></div></details>
+  <div class="foot">Agent-First Heartbeat · Infinity · Intent Note</div>
+</div>
+</body>
+</html>
