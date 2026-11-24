@@ -234,7 +234,7 @@
       "note": "Prospective operating-plan change: run existing SAM jobs on November 23–25 KST, work 10:00–10:30, report daily at 12:30 including no-result/blockage; final report November 25. Existing job IDs reused with bounded date triggers. These future executions are scheduled, not completed. Preserve November 22 actual completion and approval boundaries."
     },
     {
-      "type": "daily_closeout",
+      "type": "backfill",
       "at": "2026-11-23T03:30:00Z",
       "task_id": "miniapp-20261123-work",
       "source": "Slack original thread and current Infinity handoff receipt",
@@ -247,10 +247,11 @@
       "handoff_queue_id": "convq_c7337e930ec39bf6fc261a1dd75499fb",
       "result_message_id": "1795396228.451549",
       "followup_message_id": "1795396246.105539",
-      "summary": "Windows Genie reported first-screen source link addition and existing /sort/ button preservation, with Space commit d5aad0004a772a4c5edb01f500edd945a2ad6216; its result said live homepage not yet updated. No follow-up by fixed 10:30 KST end. Deployment and desktop/mobile/render/link verification remain unconfirmed; user metrics and observation period unmeasured, not zero. No retry or extension."
+      "summary": "Windows Genie reported first-screen source link addition and existing /sort/ button preservation, with Space commit d5aad0004a772a4c5edb01f500edd945a2ad6216; its result said live homepage not yet updated. No follow-up by fixed 10:30 KST end. Deployment and desktop/mobile/render/link verification remain unconfirmed; user metrics and observation period unmeasured, not zero. No retry or extension.",
+      "original_type": "daily_closeout"
     },
     {
-      "type": "daily_closeout",
+      "type": "backfill",
       "at": "2026-11-24T03:30:00Z",
       "task_id": "miniapp-20261124-work",
       "source": "current Infinity handoff receipt, Windows Genie evidence and existing report",
@@ -262,7 +263,19 @@
       ],
       "handoff_message_id": "1795482081.190789",
       "handoff_queue_id": "convq_d8a70a6c0fbe368d744669122f330040",
-      "summary": "Live synthetic PNG-to-WebP download and re-decode passed; same QA ID produced four synthetic events, one each, server-side, excluded from user events. User-filtered five-event query for prior 24h returned no rows (0 qualifying event records, not zero visitors); visitor/session denominator and outcome unmeasured. CloudFront domain-wide Requests=109 is not a miniapp denominator; standard access logs disabled. Final guard finished_at/exit_code and unlock receipt not found in current Infinity records, so current task remains incomplete. No code/deploy/permissions/cost changes. Next date is plan only."
+      "summary": "Live synthetic PNG-to-WebP download and re-decode passed; same QA ID produced four synthetic events, one each, server-side, excluded from user events. User-filtered five-event query for prior 24h returned no rows (0 qualifying event records, not zero visitors); visitor/session denominator and outcome unmeasured. CloudFront domain-wide Requests=109 is not a miniapp denominator; standard access logs disabled. Final guard finished_at/exit_code and unlock receipt not found in current Infinity records, so current task remains incomplete. No code/deploy/permissions/cost changes. Next date is plan only.",
+      "original_type": "daily_closeout"
+    },
+    {
+      "type": "backfill",
+      "at": "2026-11-24T03:49:29Z",
+      "change_id": "miniapp-user-stop-20261124",
+      "evidence_paths": [
+        "INTENTS.yaml",
+        "intents/waiting/miniapp-image-tools-20261118-qa-01.md"
+      ],
+      "source_message": "https://shdkej.slack.com/archives/C0CE0DV9MM2/p1795482603441479",
+      "note": "User requested review and restart of the ineffective daily workflow. Both existing cron jobs disabled; November 25 work/report canceled. Correct Nov 24 incomplete classification: Windows explicitly reported pre-deadline normal completion and lock release at 10:10 KST. Functional/telemetry QA passed; runtime completion is executor-reported, not an independent guard-ledger verification. Customer outcome remains unmeasured. No automatic restart or new job."
     }
   ],
   "artifacts": [
@@ -287,7 +300,8 @@
       "type": "report",
       "status": "recorded",
       "at": "2026-11-23T03:30:00Z",
-      "summary": "Daily closeout: source link change reported; live deployment and browser verification incomplete; user metrics unmeasured."
+      "summary": "Daily closeout: source link change reported; live deployment and browser verification incomplete; user metrics unmeasured.",
+      "label": "reports/miniapp-image-tools-20261118-qa-01/20261123T1230KST.html"
     }
   ],
   "verifications": [
@@ -367,7 +381,7 @@
     }
   ],
   "next_decision": {
-    "status": "scheduled",
-    "value": "2026-11-24 정규 일과에서 첫 화면 링크 배포의 안전 경로와 라이브 검증을 다음 목표로 검토. 이는 계획이며 11/23 완료 사실이 아님."
+    "status": "paused",
+    "value": "사용자 요청으로 파일럿 중단. 11/24 실제 완료·종료 보고 연결을 정정하고 하루 한 건 제한·후속 실행 단절·상태 전달 누락을 재설계한다. 새 실행은 예약하지 않음."
   }
 }
