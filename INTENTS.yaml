@@ -248,15 +248,16 @@ lanes:
         start_at: '2026-11-24T08:30:00Z'
         end_at: '2026-11-24T11:30:00Z'
         status: running
-        task_sequence: 5
-        current_task_id: miniapp-20261124-r2-t05
-        current_task_goal: CMO가 제안한 0B 오류·상단 상태 문구의 최소 적용 여부를 검증하고, 적용 시 배포·라이브 경로 확인
+        task_sequence: 6
+        current_task_id: miniapp-20261124-r2-t06
+        current_task_goal: 배포된 0B 오류 개선의 모바일 좁은 화면·키보드 조작 복구 경로를 실제 재현하고, 이상이 있으면 증거와 최소 대안을 기록
         current_task_end_at: '2026-11-24T11:30:00Z'
-        current_task_completion_criteria: 기존 CMO 제안 문구만 적용; 회귀 테스트, 앱 전용 배포·두 converter URL 라이브 확인 및 /·/sort/ 도달성, guard 종료·잠금 해제 확인. 적용이 불필요/위험하면 근거와 no-change 기록; 신규 비용/권한/데이터 범위 확대 금지.
-        handoff_attempt_at: '2026-11-24T10:31:10Z'
-        handoff_status: sent
-        handoff_message_id: '1795516420.694159'
-        handoff_queue_id: convq_97ca970aaebf3d9cf6a2a2f1743a326d
+        current_task_completion_criteria: Windows 실제 브라우저에서 좁은 viewport와 키보드로 빈 파일 오류→다른 이미지 선택→변환/다운로드 가능 여부를 확인; 구체적 실패가 있으면 최소 수정·검증·앱 전용 배포·라이브 확인이 시간 내 안전할 때만 수행하고, 아니면 재현 증거/다음 후보 기록. guard 종료·잠금 해제 기록, 고객성과 미측정 및 합성 QA 구분; 비용/권한/데이터 확대 금지.
+        prior_handoff_message_id: '1795516420.694159'
+        handoff_attempt_at: '2026-11-24T11:15:45Z'
+        handoff_status: prepared
+        handoff_message_id: null
+        handoff_queue_id: null
         report_status: pending
         prior_current_task_status_check_at: '2026-11-24T10:15:38Z'
         prior_current_task_status_check_status: sent
@@ -268,8 +269,10 @@ lanes:
         current_task_execution_snapshot: guard completed/exit 0 at 10:48:12Z; app-only release and live readback verified; active.lock free at 10:49:18Z. r2 report remains pending.
         current_task_status_check_message_id: '1795517213.706259'
         current_task_status_check_queue_id: convq_b3800df487bd672c099f41b904f78e0f
-        last_task_status: copy_released_live_verified
-        last_task_id: miniapp-20261124-r2-t05
+        prior_task_status: copy_released_live_verified
+        prior_task_id: miniapp-20261124-r2-t05
+        last_task_status: handoff_prepared
+        last_task_id: miniapp-20261124-r2-t06
         last_task_result: CMO 지정 0B 상단·오류 문구만 적용, Node 9/9; 두 대상 객체 현행 직전 본문 복원 연습·독립 restore 후 Action 45377563324 성공, converter 두 경로 200·동일 SHA, /·/sort/ 200. guard exit 0·lock free.
         last_task_guard_finished_at: '2026-11-24T10:48:12.591294+00:00'
         last_task_guard_exit_code: 0
@@ -318,14 +321,14 @@ lanes:
       handoff_message_id: '1795516420.694159'
       handoff_queue_id: convq_97ca970aaebf3d9cf6a2a2f1743a326d
       report_status: pending
-      next_action: r2-t05 CMO 제안 문구 최소 검증·필요 시 앱 전용 배포; 고정 11:30Z 종료. 20:30 보고 pending.
+      next_action: r2-t06 모바일 좁은 화면·키보드 오류 복구 경로 확인; 고정 11:30Z 종료. 20:30 보고 pending.
       current_task_status_check_at: '2026-11-24T10:45:00Z'
       current_task_status_check_status: prepared
       current_task_status_check_task_id: miniapp-20261124-r2-t05
       current_task_status_check_message_id: '1795517213.706259'
       current_task_status_check_queue_id: convq_b3800df487bd672c099f41b904f78e0f
       current_task_status_check_reason: 최신 원격에 t05 결과/guard/잠금 갱신 없음; 동일 ID 업무 재전송 없이 상태 1회 확인.
-    next_action: r2-t05 인계 sent(1795516420.694159); Windows 작업·종료 증거 대기, 20:30 r2 보고 pending.
+    next_action: r2-t06 상태 1회 인계 예정; Windows 작업·종료 증거 대기, 20:30 r2 보고 pending.
     notification_channel: slack
     notification_target: channel:C0CE0DV9MM2
     notification_reply_to: '1794983278.888719'

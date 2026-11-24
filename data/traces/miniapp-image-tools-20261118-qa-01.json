@@ -997,6 +997,18 @@
         "https://github.com/shdkej/space/blob/main/infra-aws-static-sites/sites/miniapp-image-tools/qa/release-checkpoint.md"
       ],
       "note": "Consolidated the final result that supersedes the 10:47Z in-flight snapshot. Current task is complete; r2 report remains pending until its 20:30 KST boundary. Customer outcomes remain unmeasured."
+    },
+    {
+      "type": "task_handoff_prepared",
+      "at": "2026-11-24T11:15:45Z",
+      "task_id": "miniapp-20261124-r2-t06",
+      "window": "r2",
+      "sequence": 6,
+      "end_at": "2026-11-24T11:30:00Z",
+      "status": "prepared",
+      "goal": "Reproduce the deployed empty-file recovery flow at narrow mobile viewport and with keyboard; record any concrete issue and a safe smallest fix/verification path, or no-change evidence.",
+      "completion_criteria": "Windows browser validation of empty-file error → choose another image → convert/download; only fix and app-only deploy if safely completable within window; record guard completion and lock-free receipt; customer outcomes remain unmeasured.",
+      "note": "r2-t05 latest remote evidence verified complete and live. Existing report pending at 20:30 KST. No new scope."
     }
   ],
   "artifacts": [

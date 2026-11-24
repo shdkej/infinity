@@ -441,3 +441,10 @@
 - **직전 상태 복원 문턱:** t04가 게시한 두 S3 키의 현재 SHA `3636ab22d9b66ea11797430ea056ec7166864ca6447d7e8f4ac17bbbfd3e09c9`와 HEAD/GET 본문·길이·메타데이터, 고정 b8 소스 재구성을 앱 전용 preflight Action `45377073596` 성공으로 확인했다. 두 키 동일 본문 PutObject→GET/HEAD·메타데이터 재확인과 정확한 두 경로 무효화 `mode=rehearse` Action `45377194178` 성공; 독립 `mode=restore` Action `45377373714`도 **새 배포 전에** 성공. 현재 workflow는 직전 b8 본문을 복원 대상으로 사용하고 다른 본문이면 쓰기 전 중단한다. 버전 기반 복원·강제 부분 쓰기 실패 시뮬레이션은 하지 않았다. 기존 OIDC 자격만 사용, 새 IAM/비용·다른 앱 데이터 쓰기·버킷 전체 삭제 없음.
 - 앱 전용 `mode=release` Action **`45377563324` `completed/success`**, SHA `80966e7`에서 두 키만 게시·GET/HEAD·정확한 두 CloudFront 경로 무효화 대기·공개 본문 비교 확인. 부모 독립 조회: `/tools/image-converter/` 및 `/tools/image-converter/index.html` 각각 HTTP 200, **17,896B·동일 SHA-256 `0c4f03f1ddb99bf9f4bbcb462e00ef853c38819496cbb52a2f44f46d4094533b`**; 승인된 두 문구 각 1회, 옛 긴 0B 문구 없음. `/` 및 `/sort/` 각각 HTTP 200 **도달성만** 확인. 자식 ego lite `?qa=1` 합성 0B 거부·다운로드 비활성/미리보기 숨김 뒤 정상 PNG 선택·WebP 저장·80×40 RGB 재디코딩 확인. Space `infra-aws-static-sites/sites/miniapp-image-tools/qa/release-checkpoint.md`에 상세. 릴리스 무효화 ID는 로그에 없으나 Action 단계 완료로 대기 성공 확인.
 - 고객 이해·실사용 성과, 물리 기기·스크린리더 발화·PostHog 수집은 미측정. 별도 r1 Narrator PID `27296`에는 손대지 않았다. r2 구간 HTML 보고서는 별도 pending이고 이 단일 task 완료로 Intent를 archived 처리하지 않는다.
+
+
+### 2026-11-24 20:15 KST · r2-t06 좁은 화면·키보드 복구 경로 확인 준비
+
+- r2-t05의 원격 최신 결과를 확인: CMO 승인 문구 배포·두 converter URL 라이브 SHA 일치, `/`·`/sort/` HTTP 200, guard exit 0 및 잠금 해제. 고객 성과는 미측정. r2 구간 보고는 20:30 KST pending.
+- 신규 `miniapp-20261124-r2-t06`, sequence 6, 고정 `end_at=2026-11-24T11:30:00Z` (20:30 KST). 실제 Windows 브라우저에서 좁은 viewport·키보드로 0B 오류 후 다른 이미지 선택과 변환/다운로드 복구를 재현한다. 구체적 결함이 없다면 변경을 억지로 만들지 않고 QA 증거·다음 후보를 기록한다. 결함이 있어도 남은 시간 안에 작은 수정·테스트·앱 전용 배포·라이브 검증이 안전하게 완료될 때만 실행한다. guard 종료·잠금 해제를 같은 ID에 기록한다.
+- task 인계 시도는 원격 기록 준비 상태. 실제 전송 직전 현재 KST·구간·고정 종료·run·감독 enabled를 재검사한다.
