@@ -1667,8 +1667,8 @@
     }
   ],
   "next_decision": {
-    "status": "r3_t01_product_live_verified_guard_exit_pending",
-    "value": "Controlled native Blob header-read settings race reproduced in Chromium; minimal selection-token fix RED/GREEN 11/11, app-only Action 45387803883 success and two live bodies SHA dee66985 match. Parent must verify this child guard exit and shared lock after child exits. Customer outcome unmeasured; r3 interval report pending."
+    "status": "r3_t02_cleanup_blocked_process_remains",
+    "value": "Original QA Narrator PID 27296 identity cross-checked, one CloseMainWindow request returned true but the same instance remains at 12:24:29Z. Interactive desktop unlock and exact-PID identity/readback route required; parent guard/lock readback and r3 interval report pending. AT speech and customer outcomes unverified."
   },
   "handoff_attempts": [
     {
@@ -1747,13 +1747,47 @@
       "task_id": "miniapp-20261124-r3-t02",
       "window": "r3",
       "sequence": 2,
-      "status": "handoff_sent",
+      "status": "cleanup_graceful_close_requested_still_present",
       "at": "2026-11-24T12:16:12Z",
       "goal": "Verify and safely resolve the one outstanding Narrator PID 27296 only if process identity is certain; otherwise record blocker and safe next step.",
       "end_at": "2026-11-24T14:30:00Z",
       "handoff_attempt": "sent",
       "message_id": "1795522715.346669",
-      "queue_id": "convq_70f7ac689dc4aaf9e646e74350af3caf"
+      "queue_id": "convq_70f7ac689dc4aaf9e646e74350af3caf",
+      "process_observed_at": "2026-11-24T12:24:29.8446418Z",
+      "process_result": "same_original_instance_still_present_after_one_graceful_request",
+      "guard_final_receipt": "pending_parent_readback_after_child_exit"
+    }
+  ],
+  "process_cleanup_verifications": [
+    {
+      "task_id": "miniapp-20261124-r3-t02",
+      "at": "2026-11-24T12:24:29.8446418Z",
+      "historical_source": "/home/sam/.hermes/task-guard/miniapp-20261124-r1-t05.stdout:94,143,150,677,681",
+      "identity": {
+        "pid": 27296,
+        "name": "Narrator.exe",
+        "owner": "SAM-PC\\msi",
+        "session_id": 1,
+        "created_at_utc": "2026-11-24T07:24:00.1520640Z",
+        "main_window_handle_at_action": 133516,
+        "path_readable": false
+      },
+      "action_at": "2026-11-24T12:24:17.3921522Z",
+      "action": "single_live_process_object_CloseMainWindow",
+      "close_return": true,
+      "readback_at": "2026-11-24T12:24:18.2905660Z",
+      "fresh_readback_at": "2026-11-24T12:24:29.8446418Z",
+      "same_instance_still_present": true,
+      "lockapp_process_present": true,
+      "lockapp_does_not_prove_locked_desktop": true,
+      "decision": "blocked_stop_without_retry_or_force",
+      "safe_next": "User unlocks the interactive Windows desktop; recheck exact PID, creation time, owner and session, request only graceful exit of that instance and verify absence. Preserve on access denial or uncertainty.",
+      "roles": {"independent": "deleg_90e164dc", "cross_review": "deleg_69c362e6", "four_each_completed": true},
+      "product_code_deploy_analytics_changed": false,
+      "at_speech_navigation_and_customer_outcomes": "unverified",
+      "guard_and_shared_lock": "pending_parent_readback_after_child_exit",
+      "evidence_paths": ["intents/waiting/miniapp-image-tools-20261118-qa-01.md", "reports/miniapp-image-tools-20261118-qa-01/20261124T1225Z-r3-t02.html"]
     }
   ]
 }

@@ -141,8 +141,8 @@ lanes:
     release_workflow_run: '45387803883'
     release_live_url: https://images.aws.shdkej.com/tools/image-converter/
     waiting_on: user
-    blocker: r1-t05의 스크린리더 실발화·탐색 QA는 Windows LockApp 잠금으로 접근 불가. 시험에서 시작한 Narrator
-      PID 27296은 접근 거부로 종료하지 못해 잠금 해제된 대화형 데스크톱에서 해당 PID만 종료·부재 확인 필요; 제품 결함 판정은 보류.
+    blocker: r1-t05의 스크린리더 실발화·탐색 QA는 Windows LockApp 잠금으로 접근 불가. r3-t02에서 원래 시험의 Narrator
+      PID 27296을 식별하고 정상 창 닫기를 한 번 요청했으나 동일 인스턴스가 잔존. 잠금 해제된 대화형 데스크톱에서 해당 PID만 안전하게 정리·부재 확인 필요; 제품 결함 판정은 보류.
     prior_r2_t03_task_id: miniapp-20261124-r2-t03
     prior_r2_t03_status: source_published_deploy_blocked
     prior_r2_t03_result_summary: 0B 안내 불일치 수정·Node 9/9·Space SHA b8ee2e45; 앱 배포 보류, 라이브 구 문구. guard exit 0·잠금 해제.
@@ -183,12 +183,12 @@ lanes:
     prior_r2_t06_guard_exit_code: 0
     prior_r2_t06_lock_released_verified_at: '2026-11-24T11:24:09.929899Z'
     prior_r2_t06_summary: mobile keyboard recovery QA pass at 390x844 and 320x720; synthetic only, customer outcomes unmeasured; no product change.
-    current_task_status: handoff_prepared
-    current_task_result_summary: r3-t02 준비 완료; r3-t01 완료·라이브 검증 증거는 상세/trace에 보존. Windows의 기존 Narrator PID 27296 단일 식별·안전 종료 여부 확인 대기.
-    current_task_followup: PID가 재사용됐거나 신원 불확실하면 종료 금지. 성공하더라도 스크린리더 발화/실기기 QA 또는 고객 성과로 간주하지 않음.
-    current_task_result: handoff_prepared
-    current_task_status_at: '2026-11-24T12:16:12Z'
-    current_task_guard_status: not_started
+    current_task_status: cleanup_graceful_close_requested_still_present
+    current_task_result_summary: 원본 QA의 Narrator PID 27296과 현재 시작시각·소유자·세션 일치. 12:24:17Z CloseMainWindow 한 번은 true였으나 12:24:29Z 동일 인스턴스 잔존; 추가 종료·강제 종료 없음. AT 발화/고객 성과 미검증.
+    current_task_followup: 대화형 Windows 잠금 해제 후 동일 생성시각·소유자·세션 재대조, 이 PID 하나만 정상 종료·부재 재조회. 권한 거부면 사용자 로컬 관리 경로로 이관, 강제 종료/승격/우회 금지.
+    current_task_result: cleanup_blocked_process_remains
+    current_task_status_at: '2026-11-24T12:24:29Z'
+    current_task_guard_status: pending_parent_readback_after_child_exit
     current_task_guard_exit_code: null
     current_task_guard_finished_at: null
     current_task_lock_released_verified_at: null
@@ -199,7 +199,7 @@ lanes:
     current_task_status_check_status: not_requested
     current_task_status_check_task_id: miniapp-20261124-r3-t02
     current_task_guard_started_at: null
-    current_task_lock_status: not_started
+    current_task_lock_status: pending_parent_readback_after_child_exit
     prior_r3_t01_source_sha: dc43b456354f3f03edf402a8dfce0a10172f8d81
     prior_r3_t01_evidence_sha: 93da7d6de0cad3def7d837ca95d442b684216ad2
     prior_r3_t01_release_run: '45387803883'
@@ -208,7 +208,7 @@ lanes:
     current_task_evidence_sha: null
     current_task_release_run: null
     current_task_live_sha256: null
-    report: reports/miniapp-image-tools-20261118-qa-01/20261124T1230KST.html
+    report: reports/miniapp-image-tools-20261118-qa-01/20261124T1225Z-r3-t02.html
     prior_r3_t01_handoff_receipt: sent 1795520034.423279; queue convq_f4220e1e2f1315988e3e5697a899d49c
     current_task_handoff_receipt: sent 1795522715.346669; queue convq_70f7ac689dc4aaf9e646e74350af3caf
     daily_run_window:
@@ -349,15 +349,17 @@ lanes:
         report_status: pending
         current_task_execution_snapshot_at: '2026-11-24T11:58:40Z'
         current_task_execution_snapshot: r3-t01 product/live verified; guard completed exit 0 and shared lock free; r3-t02 handoff sent 1795522715.346669
-        current_task_product_result: not_applicable_process_cleanup_check
         prior_r3_t01_product_source_sha: dc43b456354f3f03edf402a8dfce0a10172f8d81
         prior_r3_t01_product_evidence_sha: 93da7d6de0cad3def7d837ca95d442b684216ad2
         prior_r3_t01_release_run: '45387803883'
         current_task_product_result: not_applicable_process_cleanup_check
+        current_task_process_result: graceful_close_requested_still_present
+        current_task_process_observed_at: '2026-11-24T12:24:29Z'
+        current_task_process_identity: Narrator.exe PID 27296, SAM-PC\msi, session 1, created 2026-11-24T07:24:00.1520640Z
         current_task_product_source_sha: null
         current_task_product_evidence_sha: null
         current_task_release_run: null
-        current_task_guard_final_receipt: pending
+        current_task_guard_final_receipt: pending_parent_readback_after_child_exit
         goal: Verify and, only if safe, resolve the outstanding Narrator PID 27296 without broad process cleanup or unverified screen-reader claims.
       prior_task_status_check_at: '2026-11-24T09:45:00Z'
       prior_task_status_check_status: sent
@@ -376,14 +378,14 @@ lanes:
       handoff_queue_id: convq_97ca970aaebf3d9cf6a2a2f1743a326d
       report_status: sent
       report_message_id: '1795519852.919859'
-      next_action: r3-t01 제품 릴리스·라이브 검증 완료. 당시 20:45 KST 상태 요청 영수증 sent 1795520747.881739 보존; 현재 guard 종료·잠금 해제는 자식 종료 후 부모가 별도 확인. 고정 14:30Z 종료.
+      next_action: r3-t02 Narrator PID 27296 정상 창 닫기 요청 후 잔존; 잠금 해제된 대화형 데스크톱에서 동일 인스턴스 신원을 재검증해 단일 PID 정리·부재 확인. r3-t01 완료와 당시 상태 요청 영수증은 보존; r3-t02 guard/lock은 자식 종료 후 부모가 확인. 고정 14:30Z 종료.
       prior_r2_t05_status_check_at: '2026-11-24T10:45:00Z'
       prior_r2_t05_status_check_status: prepared
       prior_r2_t05_status_check_task_id: miniapp-20261124-r2-t05
       prior_r2_t05_status_check_message_id: '1795517213.706259'
       prior_r2_t05_status_check_queue_id: convq_b3800df487bd672c099f41b904f78e0f
       prior_r2_t05_status_check_reason: 최신 원격에 t05 결과/guard/잠금 갱신 없음; 동일 ID 업무 재전송 없이 상태 1회 확인.
-    next_action: r3-t01 제품 라이브 검증 완료; 부모가 동일 ID guard 종료·잠금 해제 영수증을 읽어 반영. 3시간 구간 종합 보고는 별도 pending.
+    next_action: r3-t02 정상 닫기 요청 후에도 동일 Narrator PID 잔존; 사용자 대화형 Windows 잠금 해제 후 해당 PID만 재확인·정리. 부모가 r3-t02 guard 종료·잠금 해제 영수증을 별도 읽어 반영. 3시간 구간 종합 보고는 별도 pending.
     notification_channel: slack
     notification_target: channel:C0CE0DV9MM2
     notification_reply_to: '1794983278.888719'
