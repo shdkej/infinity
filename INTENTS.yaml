@@ -131,13 +131,13 @@ lanes:
     trace: data/traces/miniapp-image-tools-20261118-qa-01.json
     detail: intents/waiting/miniapp-image-tools-20261118-qa-01.md
     source_repository: https://github.com/shdkej/space
-    source_commit: dfe8582e67bd7b0e19f530325e455b3d009179ec
+    source_commit: 06b40cf070944a1384cf11f69cd12b05ce41de50
     source_remote_verified: pass
-    release_evidence_commit: 5eaedda21bc7632608b6b022f5f2236e2b7cc4ce
-    release_workflow_run: '45335134749'
+    release_evidence_commit: c93fd908ef37eb73be32787c8083688b2e7c74f7
+    release_workflow_run: '45340408863'
     release_live_url: https://images.aws.shdkej.com/tools/image-converter/
     waiting_on: internal
-    blocker: r1-t01 보호 실행·배포·라이브 확인 완료; r1 구간은 감독의 다음 판단 대기. 기존 오전 업무 결과는 분리 보존.
+    blocker: 'r1-t02 차단 없음; 보호 실행·배포·라이브 확인 완료. r1 구간 후속 판단은 SAM 감독 소유; 기존 오전 업무 결과는 분리 보존.'
     current_task_id: miniapp-20261124-r1-t02
     current_task_goal: 좁은 화면에서 크기·형식을 바꿔 연속 변환할 때 입력 설정 유지·결과 재노출 불편을 재현하고, 문제가 있으면 최소 수정·테스트·승인 배포·라이브 모바일 검증; 없으면 근거와 다음 후보 기록
     current_task_start_at: '2026-11-24T06:15:00Z'
@@ -151,14 +151,14 @@ lanes:
     current_task_status_check_status: sent
     current_task_status_check_message_id: '1795501837.091079'
     current_task_status_check_queue_id: convq_acdc45af3cb6e5f1e24a46db0aa4f9be
-    current_task_status: dispatched
-    current_task_result_summary: ''
-    current_task_followup: 'r1-t02는 r1-t01 완료 뒤 후보에 근거한 새 작업. 고정 end_at 내 실행/완료 증거를 회수한다.'
-    current_task_result: ''
-    current_task_guard_status: unknown
-    current_task_guard_exit_code: null
-    current_task_guard_finished_at: null
-    current_task_lock_released_verified_at: null
+    current_task_status: completed
+    current_task_result_summary: '390×844 합성 연속 변환의 설정 유지·결과 재노출·저장 WebP/JPEG 재디코딩 통과. 설정 변경 후 무효화된 결과에 성공 안내가 남는 마찰을 재현해 재변환 안내로 최소 수정; 테스트 6/6·앱 전용 배포·라이브 모바일/데스크톱 확인. 고객 성과 미측정.'
+    current_task_followup: 'SAM 감독 판단 후보: 작은 이미지의 파일 크기가 0.00MB로 표시되는 관찰을 KB 표기로 명확히 할지 검증. 새 ID/인계는 감독 소유.'
+    current_task_result: 'Space source 06b40cf070944a1384cf11f69cd12b05ce41de50; QA record c93fd908ef37eb73be32787c8083688b2e7c74f7; app-only Action 45340408863 success. Live 390×844 three conversions WebP 80×40, WebP 64×32, JPEG 64×32 saved/decode; desktop 1280×800 64×32 WebP saved/decode; home and /sort/ HTTP 200 only. Guard completed exit_code=0 finished_at=2026-11-24T06:30:33.330515+00:00; lock free verified at 2026-11-24T06:30:52Z.'
+    current_task_guard_status: completed
+    current_task_guard_exit_code: 0
+    current_task_guard_finished_at: '2026-11-24T06:30:33.330515+00:00'
+    current_task_lock_released_verified_at: '2026-11-24T06:30:52Z'
 
     report: reports/miniapp-image-tools-20261118-qa-01/20261124T1230KST.html
     current_task_handoff_receipt: ''
@@ -215,8 +215,11 @@ lanes:
         current_status_check_message_id: '1795501837.091079'
         current_status_check_queue_id: convq_acdc45af3cb6e5f1e24a46db0aa4f9be
         report_status: pending
-        last_task_status: dispatched
+        last_task_status: completed
         last_task_id: miniapp-20261124-r1-t02
+        last_task_guard_finished_at: '2026-11-24T06:30:33.330515+00:00'
+        last_task_guard_exit_code: 0
+        last_task_lock_released_verified_at: '2026-11-24T06:30:52Z'
         goal: '입력→변환→다운로드의 재현 가능한 불편을 찾아 작은 개선·배포·라이브 확인'
       - id: r2
         start_at: '2026-11-24T08:30:00Z'

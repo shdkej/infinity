@@ -368,6 +368,24 @@
       "message_id": "1795501837.091079",
       "queue_id": "convq_acdc45af3cb6e5f1e24a46db0aa4f9be",
       "note": "Single status-only request; task was not re-dispatched. Windows acceptance/result/guard and lock state remain unknown pending reply."
+    },
+    {
+      "type": "task_completed",
+      "at": "2026-11-24T06:30:52Z",
+      "task_id": "miniapp-20261124-r1-t02",
+      "state": "completed",
+      "exit_code": 0,
+      "guard_started_at": "2026-11-24T06:21:04.540546+00:00",
+      "guard_finished_at": "2026-11-24T06:30:33.330515+00:00",
+      "end_at": "2026-11-24T08:30:00+00:00",
+      "active_lock": "free_verified",
+      "status_request_message_id": "1795501837.091079",
+      "blocker": "none_observed",
+      "summary": "Synthetic 390x844 three-conversion sequence retained settings and revealed result/download; after setting changes old success guidance was stale, fixed and live-verified. No customer outcome measured.",
+      "source_commit": "06b40cf070944a1384cf11f69cd12b05ce41de50",
+      "qa_commit": "c93fd908ef37eb73be32787c8083688b2e7c74f7",
+      "release_run": "45340408863",
+      "next_candidate": "Small synthetic image shows 0.00MB size; investigate KB clarity; SAM supervisor owns any new ID."
     }
   ],
   "artifacts": [
@@ -402,6 +420,14 @@
       "at": "2026-11-24T05:46:38Z",
       "task_id": "miniapp-20261124-r1-t01",
       "label": "r1 mobile result discovery: before/after and live screenshots"
+    },
+    {
+      "path": "https://github.com/shdkej/space/blob/main/infra-aws-static-sites/sites/miniapp-image-tools/qa/release-checkpoint.md",
+      "type": "qa_evidence",
+      "status": "verified",
+      "at": "2026-11-24T06:30:52Z",
+      "task_id": "miniapp-20261124-r1-t02",
+      "label": "r1-t02 repeated settings, before/after guidance and mobile/desktop live QA"
     }
   ],
   "verifications": [
@@ -501,6 +527,29 @@
         "child": "local-0a5ba70f668eb757b02d1edcd5332d3db0252525309fada431ca7d103ebdb79c"
       },
       "limits": "Synthetic QA only; no measured customer outcome; home and /sort/ HTTP reachability only."
+    },
+    {
+      "label": "r1-t02 guarded completion, app release and live synthetic file re-decode",
+      "type": "execution_and_live",
+      "at": "2026-11-24T06:30:52Z",
+      "task_id": "miniapp-20261124-r1-t02",
+      "status": "pass",
+      "evidence_paths": [
+        "intents/waiting/miniapp-image-tools-20261118-qa-01.md",
+        "https://github.com/shdkej/space/actions/runs/45340408863"
+      ],
+      "roles": [
+        "planner",
+        "developer",
+        "marketer",
+        "operator"
+      ],
+      "sessions": {
+        "independent": "deleg_97287d76",
+        "cross_review": "deleg_7e629110",
+        "child": "local-2c91f8767342767f05a90cd5b245cb02998fd2b35d347b1ead4d9c3319a376d7"
+      },
+      "limits": "Synthetic mobile emulation and desktop QA, no physical device or measured customer outcome; home/sort reachability only."
     }
   ],
   "next_decision": {
