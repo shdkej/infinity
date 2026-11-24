@@ -1051,6 +1051,23 @@
       "status": "sent",
       "message_id": "1795520034.423279",
       "queue_id": "convq_f4220e1e2f1315988e3e5697a899d49c"
+    },
+    {
+      "type": "task_status_snapshot",
+      "at": "2026-11-24T11:46:05Z",
+      "task_id": "miniapp-20261124-r3-t01",
+      "window": "r3",
+      "guard": {
+        "state": "running",
+        "started_at": "2026-11-24T11:40:16.652357+00:00",
+        "end_at": "2026-11-24T14:30:00+00:00",
+        "finished_at": null,
+        "exit_code": null,
+        "lock": "held_at_snapshot"
+      },
+      "status": "browser_and_regression_in_progress_release_unverified",
+      "next": "Keep one existing child running; verify tests and current two-key restore path before any app-only release, then read final guard exit and lock release separately.",
+      "customer_outcomes": "unmeasured"
     }
   ],
   "artifacts": [

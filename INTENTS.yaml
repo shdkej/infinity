@@ -183,14 +183,19 @@ lanes:
     prior_r2_t06_guard_exit_code: 0
     prior_r2_t06_lock_released_verified_at: '2026-11-24T11:24:09.929899Z'
     prior_r2_t06_summary: mobile keyboard recovery QA pass at 390x844 and 320x720; synthetic only, customer outcomes unmeasured; no product change.
-    current_task_status: handoff_prepared
-    current_task_result_summary: r3-t01 handoff prepared; r2-t06 결과는 prior 결과 및 trace에 보존.
+    current_task_status: running_status_checked
+    current_task_result_summary: '11:46:05Z 단발 조회: 동일 ID 보호 실행 running, 실제 브라우저 경합 시험·최소 수정/회귀·릴리스 안전성 검토 중. 제품 결과·배포 미확정.'
     current_task_followup: '이전 r2-t06: 파일 선택은 브라우저 helper 사용(전체 키보드 OS 파일 선택기 미검증). 스크린리더 발화·실물 폰·고객 성과 미검증.'
-    current_task_result: handoff_prepared
-    current_task_guard_status: not_started
+    current_task_result: pending_guarded_child_result
+    current_task_guard_status: running
     current_task_guard_exit_code: null
     current_task_guard_finished_at: null
     current_task_lock_released_verified_at: null
+    current_task_status_check_at: '2026-11-24T11:46:05Z'
+    current_task_status_check_status: recorded_running_snapshot
+    current_task_status_check_task_id: miniapp-20261124-r3-t01
+    current_task_guard_started_at: '2026-11-24T11:40:16.652357+00:00'
+    current_task_lock_status: held_at_status_check
     report: reports/miniapp-image-tools-20261118-qa-01/20261124T1230KST.html
     current_task_handoff_receipt: sent 1795520034.423279; queue convq_f4220e1e2f1315988e3e5697a899d49c
     daily_run_window:
@@ -329,6 +334,8 @@ lanes:
         current_task_status_check_queue_id: convq_a13995fcc87bd672c099f41b904e9aff8
         current_task_status_check_reason: No newer result/guard/lock receipt; one current-status request only, no task resend.
         report_status: pending
+        current_task_execution_snapshot_at: '2026-11-24T11:46:05Z'
+        current_task_execution_snapshot: guard running, exit/finished pending; active.lock held; source/test and browser in progress; release unverified
         goal: r2 모바일 복구 통과 뒤 미재현으로 남은 헤더 읽기 설정 변경 경합 후보를 재현 검증하고 필요한 경우에만 최소 수정·라이브 확인
       prior_task_status_check_at: '2026-11-24T09:45:00Z'
       prior_task_status_check_status: sent
@@ -358,11 +365,11 @@ lanes:
     notification_channel: slack
     notification_target: channel:C0CE0DV9MM2
     notification_reply_to: '1794983278.888719'
-    current_task_status_check_at: '2026-11-24T10:15:38Z'
-    current_task_status_check_status: sent
-    current_task_status_check_task_id: miniapp-20261124-r2-t04
-    current_task_status_check_message_id: '1795515392.935409'
-    current_task_status_check_queue_id: convq_44b524efa690695a8a5f44620ab56c48
+    prior_r2_t04_status_check_at: '2026-11-24T10:15:38Z'
+    prior_r2_t04_status_check_status: sent
+    prior_r2_t04_status_check_task_id: miniapp-20261124-r2-t04
+    prior_r2_t04_status_check_message_id: '1795515392.935409'
+    prior_r2_t04_status_check_queue_id: convq_44b524efa690695a8a5f44620ab56c48
   - id: reel-room-studio-20261113
     title: Reel Room·Instagram Maker 통합 릴스 스튜디오 구현
     task_name: Reel Room·Instagram Maker 통합 릴스 스튜디오 구현
