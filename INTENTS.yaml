@@ -249,6 +249,9 @@ lanes:
         handoff_message_id: '1795512849.994749'
         handoff_queue_id: convq_ce399fd84c0462957e1b7c90884d659e
         report_status: pending
+        prior_task_status_check_at: '2026-11-24T09:45:00Z'
+        prior_task_status_check_status: prepared
+        prior_task_status_check_task_id: miniapp-20261124-r2-t03
         last_task_status: completed_no_change
         last_task_id: miniapp-20261124-r2-t02
         last_task_result: completed_no_change; guard exit 0; lock released; 0B guidance accuracy and user comprehension unverified; customer outcomes unmeasured.
@@ -266,7 +269,10 @@ lanes:
         task_sequence: 0
         report_status: pending
         goal: 앞선 결과로 남은 개선을 실행하고 변경 전후 근거·회귀 검증·다음 판단 정리
-      next_action: r2-t03 전송 완료(1795512849.994749); Windows 수락·실행·결과는 별도 증거 대기. 20:30 r2 구간 보고 pending.
+      prior_task_status_check_at: '2026-11-24T09:45:00Z'
+      prior_task_status_check_status: prepared
+      prior_task_status_check_task_id: miniapp-20261124-r2-t03
+      next_action: r2-t03 인계 sent; 결과/guard/lock 미확인이라 같은 ID 상태 조회 1회 준비. 20:30 r2 보고 pending.
     next_action: r2-t03 전송 완료(1795512849.994749); Windows 실행/결과 별도 확인. 20:30 r2 보고 및 23:30 종합 마감은 계약에 따라 확인.
     notification_channel: slack
     notification_target: channel:C0CE0DV9MM2
