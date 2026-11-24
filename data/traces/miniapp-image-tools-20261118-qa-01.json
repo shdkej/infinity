@@ -457,6 +457,23 @@
         "INTENTS.yaml",
         "intents/waiting/miniapp-image-tools-20261118-qa-01.md"
       ]
+    },
+    {
+      "type": "task_completed",
+      "at": "2026-11-24T07:10:53Z",
+      "task_id": "miniapp-20261124-r1-t04",
+      "state": "completed",
+      "exit_code": 0,
+      "guard_started_at": "2026-11-24T07:06:29.546542+00:00",
+      "guard_finished_at": "2026-11-24T07:10:39.802780+00:00",
+      "end_at": "2026-11-24T08:30:00+00:00",
+      "active_lock": "free_verified",
+      "blocker": "none_observed",
+      "summary": "Live mobile emulation: post-transform auto-scroll revealed result and download; Tab reached visible focused download and Enter/Space saved four matching WebP files in mobile/desktop; no reproducible defect, no code/deploy change; customer outcomes unmeasured.",
+      "source_changed": false,
+      "new_deployment": false,
+      "previous_release_run": "45343956525",
+      "next_candidate": "Actual screen reader completion-state and result-location announcement; SAM supervisor owns new ID."
     }
   ],
   "artifacts": [
@@ -652,6 +669,28 @@
         "child": "local-7b5286a6ec0c0accccced92b9ca8798526fe3bc5b365002cdfa8a5190a3f2f5c"
       },
       "limits": "Synthetic browser emulation, not physical phone/customer outcome/PostHog ingestion; home/sort HTTP reachability only."
+    },
+    {
+      "label": "r1-t04 guarded completion and keyboard navigation after mobile auto-scroll",
+      "type": "execution_and_live",
+      "at": "2026-11-24T07:10:53Z",
+      "task_id": "miniapp-20261124-r1-t04",
+      "status": "pass",
+      "evidence_paths": [
+        "intents/waiting/miniapp-image-tools-20261118-qa-01.md"
+      ],
+      "roles": [
+        "planner",
+        "developer",
+        "marketer",
+        "operator"
+      ],
+      "sessions": {
+        "independent": "deleg_4b957af9",
+        "cross_review": "deleg_3787e887",
+        "child": "local-aa17b52a6e7ebd1c303402785e4d76a3c2d2d3ad519b3b6344ce6a04bfe7c7bd"
+      },
+      "limits": "Synthetic mobile viewport emulation, file injected via browser helper; keyboard-only file picker, screen reader, physical mobile and customer outcome not tested."
     }
   ],
   "next_decision": {
