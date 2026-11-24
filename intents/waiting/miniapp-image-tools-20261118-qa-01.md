@@ -406,3 +406,5 @@
 - r2-t03 보호 실행 `completed/exit 0`, `active.lock` 해제 확인. 0B 문구 수정은 Space `main` SHA `b8ee2e45f638dc7809ea9f57fa2c4c02372a4d49`, Node 9/9이나 롤백 전제가 미입증되어 앱 배포 보류; 라이브에는 기존 문구가 남는다.
 - 신규 `miniapp-20261124-r2-t04`, sequence 4, 고정 `end_at=2026-11-24T11:30:00Z`(20:30 KST): 기존 승인 자격으로 `tools/image-converter/index.html` 및 `tools/image-converter/` 대상 객체의 본문·메타데이터/버전 읽기, 복원 방법, 안전한 롤백을 검증한다. 입증되면 기존 앱 전용 workflow로만 배포·라이브 문구 및 기존 경로 확인; 입증되지 않으면 배포하지 않고 시도·차단 근거·기존 권한 안의 대안을 기록한다. 신규 IAM/비용/다른 앱 접근 금지.
 - 완료 증거는 롤백 가능성 실제 검증, 배포 시 라이브 반영·경로 확인, guard 종료와 잠금 해제다. 고객 이해·성과는 미측정. 준비 시 원격 run running·r2, supervisor enabled 확인; 실제 전송 직전 재검사한다.
+
+- 19:03 KST 최종 발송 직전 검사에서 KST 11/24 r2, 고정 `end_at=11:30Z` 미도과, run `running`, supervisor `enabled`, 최신 원격 HEAD `54038276` 확인. native 전송 sent 영수증 `1795514630.548399`, queue `convq_2c51dafc7d86f214689ff73c00182117`. 전송은 Windows 실행 수락·제품 결과를 증명하지 않는다.

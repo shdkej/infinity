@@ -151,9 +151,9 @@ lanes:
     current_task_start_at: '2026-11-24T10:00:30Z'
     current_task_end_at: '2026-11-24T11:30:00Z'
     current_task_handoff_attempt_at: '2026-11-24T10:00:30Z'
-    current_task_handoff_status: prepared
-    current_task_handoff_message_id: pending
-    current_task_handoff_queue_id: pending
+    current_task_handoff_status: sent
+    current_task_handoff_message_id: '1795514630.548399'
+    current_task_handoff_queue_id: convq_2c51dafc7d86f214689ff73c00182117
     current_task_completion_criteria: 기존 승인 자격만으로 대상 두 객체의 읽기·복원 방법과 안전한 롤백을 검증; 입증 시 기존 앱 전용 배포·라이브 문구 및 기존 경로 확인, 미입증 시 배포 금지 및 차단 근거 기록. 신규 IAM/비용/다른 앱 접근 금지. 고정 11:30Z 종료·guard/잠금 확인.
     prior_task_handoff_message_id: '1795506439.083149'
     prior_task_handoff_queue_id: convq_8a215ed203754328f7789be184b789a3
@@ -181,7 +181,7 @@ lanes:
     current_task_guard_finished_at: null
     current_task_lock_released_verified_at: null
     report: reports/miniapp-image-tools-20261118-qa-01/20261124T1230KST.html
-    current_task_handoff_receipt: pending
+    current_task_handoff_receipt: sent 1795514630.548399; queue convq_2c51dafc7d86f214689ff73c00182117
     daily_run_window:
       start_date: '2026-11-23'
       end_date: '2026-11-25'
@@ -253,9 +253,9 @@ lanes:
         current_task_end_at: '2026-11-24T11:30:00Z'
         current_task_completion_criteria: 기존 승인 자격만으로 읽기·복원·롤백 검증; 입증 시 앱 전용 배포·라이브 확인, 미입증이면 배포 금지·차단 근거 기록; 신규 권한/비용/다른 앱 데이터 제외; guard 종료·잠금 확인.
         handoff_attempt_at: '2026-11-24T10:00:30Z'
-        handoff_status: prepared
-        handoff_message_id: pending
-        handoff_queue_id: pending
+        handoff_status: sent
+        handoff_message_id: '1795514630.548399'
+        handoff_queue_id: convq_2c51dafc7d86f214689ff73c00182117
         report_status: pending
         prior_task_status_check_at: '2026-11-24T09:45:00Z'
         prior_task_status_check_status: sent
@@ -288,7 +288,7 @@ lanes:
       prior_task_status_check_message_id: '1795513609.377209'
       prior_task_status_check_queue_id: convq_c529ac4db654882a9a0376b1f9834b7c
       next_action: r2-t04 prepared; 기존 승인 자격 내 복원/롤백 경로 확인, 입증 전 배포 금지. r2 보고 20:30 pending.
-    next_action: r2-t04 인계 준비; 실제 발송 전 구간/end_at/run/supervisor 재확인.
+    next_action: r2-t04 sent(1795514630.548399); Windows 실행 결과·guard·잠금은 별도 대기. 20:30 r2 보고 pending.
     notification_channel: slack
     notification_target: channel:C0CE0DV9MM2
     notification_reply_to: '1794983278.888719'

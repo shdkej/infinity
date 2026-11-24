@@ -1354,18 +1354,20 @@
     }
   ],
   "next_decision": {
-    "status": "handoff_prepared",
-    "value": "miniapp-20261124-r2-t04 sequence 4 prepared: validate existing-authorized read/restore/rollback for two S3 target objects; deploy only after rollback safety proof. Fixed end_at 11:30Z; pre-send recheck required; r2 report pending."
+    "status": "handoff_sent_pending_windows",
+    "value": "r2-t04 sent 1795514630.548399; Windows execution, result and guard/lock are separate and pending. Fixed end_at 11:30Z; r2 report pending at 20:30 KST."
   },
   "handoff_attempts": [
     {
       "type": "task_handoff_prepared",
-      "at": "2026-11-24T10:00:30Z",
+      "at": "2026-11-24T10:03:55Z",
       "task_id": "miniapp-20261124-r2-t04",
       "window": "r2",
       "sequence": 4,
       "end_at": "2026-11-24T11:30:00Z",
-      "status": "prepared_not_sent"
+      "status": "sent",
+      "message_id": "1795514630.548399",
+      "queue_id": "convq_2c51dafc7d86f214689ff73c00182117"
     }
   ]
 }
