@@ -829,6 +829,17 @@
       "handoff_message_id": "1795509931.304839",
       "handoff_queue_id": "convq_d1a9b31945c418c0f1623e371c8155b8",
       "limits": "One same-task result confirmation only; does not dispatch/restart work or establish Windows acknowledgement."
+    },
+    {
+      "label": "r2-t02 prepared: bounded input-boundary robustness follow-up",
+      "type": "handoff_prepared",
+      "at": "2026-11-24T09:00:00Z",
+      "task_id": "miniapp-20261124-r2-t02",
+      "status": "prepared",
+      "evidence_paths": [
+        "intents/waiting/miniapp-image-tools-20261118-qa-01.md"
+      ],
+      "limits": "Handoff not yet sent or accepted; synthetic inputs only; no customer outcome or live product change claimed."
     }
   ],
   "artifacts": [
@@ -1161,7 +1172,7 @@
     }
   ],
   "next_decision": {
-    "status": "awaiting_same_task_confirmation",
-    "value": "r2-t01 completed_no_change from latest remote parent record: repeated conversion/download and corrupt-to-valid recovery passed in synthetic browser; guard completed exit 0, lock released. Same-task confirmation sent 1795509931.304839; customer outcomes unmeasured."
+    "status": "handoff_prepared",
+    "value": "r2-t01 completed_no_change with guard exit 0 and lock released; r2-t02 prepared to check bounded input format/corruption/size boundaries and valid-input recovery, without broad data or instrumentation."
   }
 }
