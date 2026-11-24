@@ -686,6 +686,55 @@
       "limits": "Sent at 2026-11-24T08:17:58Z after verifying r1, fixed end_at 08:30Z, run running and supervisor enabled. Sent receipt is not Windows acceptance/execution evidence.",
       "message_id": "1795508286.708149",
       "queue_id": "convq_ba4072aca4e2dc1374fe9235191e511b"
+    },
+    {
+      "type": "task_completed",
+      "at": "2026-11-24T08:25:31Z",
+      "task_id": "miniapp-20261124-r1-t08",
+      "state": "completed_no_change",
+      "guard_state": "completed",
+      "exit_code": 0,
+      "guard_started_at": "2026-11-24T08:21:49.824122+00:00",
+      "guard_finished_at": "2026-11-24T08:25:19.417362+00:00",
+      "end_at": "2026-11-24T08:30:00+00:00",
+      "active_lock": "free_verified",
+      "synthetic_touch_qa": {
+        "701x844": {
+          "initial_scroll_y": 0,
+          "initial_download_bottom": 1364.5,
+          "up_swipes": 2,
+          "after_scroll_y": 688,
+          "download_y": [
+            627.7,
+            676.5
+          ],
+          "hit_target": "download",
+          "touch_tap_saved_webp": [
+            80,
+            40
+          ]
+        },
+        "760x844": {
+          "initial_scroll_y": 0,
+          "initial_download_bottom": 1402.7,
+          "up_swipes": 2,
+          "after_scroll_y": 726,
+          "download_y": [
+            627.9,
+            676.7
+          ],
+          "hit_target": "download",
+          "touch_tap_saved_webp": [
+            80,
+            40
+          ]
+        }
+      },
+      "assessment": "Two natural touch swipes and tap reached/saved converted result at both widths; initial below-fold visibility gap remains but no touch access failure in emulation. Synthetic browser QA only, not physical device/customer outcome.",
+      "source_changed": false,
+      "new_deployment": false,
+      "customer_outcome_status": "unmeasured",
+      "next_candidate": "Physical 701–760px touch device and dynamic browser chrome result discovery; SAM decides new ID."
     }
   ],
   "artifacts": [
@@ -971,6 +1020,28 @@
         "child": "local-ced44bc400d022380df94bfa41635f7534136b84e4f825664929b1063a6ad0bf"
       },
       "limits": "Synthetic Chromium emulation, not physical touch device/screen reader or measured customer outcome; 701–760 result below viewport but reachable; file selected via browser helper, keyboard-only file picker untested."
+    },
+    {
+      "label": "r1-t08 touch-emulated swipe-tap download after below-fold result",
+      "type": "execution_and_live",
+      "at": "2026-11-24T08:25:31Z",
+      "task_id": "miniapp-20261124-r1-t08",
+      "status": "pass_with_limits",
+      "evidence_paths": [
+        "intents/waiting/miniapp-image-tools-20261118-qa-01.md"
+      ],
+      "roles": [
+        "planner",
+        "developer",
+        "marketer",
+        "operator"
+      ],
+      "sessions": {
+        "independent": "deleg_4fd0330b",
+        "cross_review": "deleg_0f214a1f",
+        "child": "local-c27b971b8efbb5f8ac64630cdd72f82cb6af669d679d878ace2ef658ac2b78d2"
+      },
+      "limits": "Emulated touch, not physical phone or observed customer discovery/success; helper selected input file; t05 Narrator cleanup separate."
     }
   ],
   "next_decision": {

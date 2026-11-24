@@ -157,14 +157,14 @@ lanes:
     prior_task_status_check_status: sent
     prior_task_status_check_message_id: '1795505513.609889'
     prior_task_status_check_queue_id: convq_f6aab1db4a22caa5924fdd523c18e510
-    current_task_status: running
-    current_task_result_summary: ''
-    current_task_followup: r1-t07에서 화면 밖 결과는 페이지 스크롤·Tab으로 도달 가능했으나 터치형 발견성은 미검증. r1-t05 Narrator PID 27296 정리 대기는 별도 유지.
-    current_task_result: ''
-    current_task_guard_status: pending
-    current_task_guard_exit_code: ''
-    current_task_guard_finished_at: ''
-    current_task_lock_released_verified_at: ''
+    current_task_status: completed_no_change
+    current_task_result_summary: 701·760px 터치 에뮬레이션에서 결과는 처음 화면 아래였으나 각각 위쪽 스와이프 2회로 다운로드가 화면 안에 들어왔고 터치 탭 저장·WebP 80×40 재디코딩 통과. 재현 차단 없어 코드 변경·신규 배포 없음. 실기기·고객 성과 미측정.
+    current_task_followup: 실물 701–760px 터치 기기와 주소창 변화 상태의 결과 발견성 관찰은 별도 후보; t05 Narrator PID 27296 정리는 별도 미해결.
+    current_task_result: 'ego lite 합성 터치 QA: 701×844 변환 직후 scrollY=0·버튼 하단 1364.5px, 손가락 위쪽 스와이프 2회 뒤 scrollY=688·버튼 y627.7–676.5px hit-test=download; 터치 탭 저장 WebP 80×40 RGB 570B 재디코딩. 760×844 상단 초기화 후 재변환 직후 scrollY=0·버튼 하단 1402.7px, 스와이프 2회 뒤 scrollY=726·버튼 y627.9–676.7px hit-test=download; 터치 탭 저장 WebP 80×40 RGB 570B 재디코딩. 완료 안내는 미리보기/내려받기를 지시. 기존 테스트 7/7, 코드·배포 변경 없음. 실제 터치 기기·고객 성과 미측정. guard 2026-11-24T08:25:19.417362Z completed exit 0, active.lock 08:25:31Z 해제 확인.'
+    current_task_guard_status: completed
+    current_task_guard_exit_code: 0
+    current_task_guard_finished_at: '2026-11-24T08:25:19.417362+00:00'
+    current_task_lock_released_verified_at: '2026-11-24T08:25:31Z'
     report: reports/miniapp-image-tools-20261118-qa-01/20261124T1230KST.html
     current_task_handoff_receipt: sent 1795508286.708149; queue convq_ba4072aca4e2dc1374fe9235191e511b
     daily_run_window:
@@ -220,11 +220,11 @@ lanes:
         prior_task_status_check_status: sent
         prior_task_status_check_message_id: '1795505513.609889'
         prior_task_status_check_queue_id: convq_f6aab1db4a22caa5924fdd523c18e510
-        last_task_status: completed_no_change_with_boundary_visibility_limit
-        last_task_id: miniapp-20261124-r1-t07
-        last_task_guard_finished_at: '2026-11-24T08:12:00.218596+00:00'
+        last_task_status: completed_no_change
+        last_task_id: miniapp-20261124-r1-t08
+        last_task_guard_finished_at: '2026-11-24T08:25:19.417362+00:00'
         last_task_guard_exit_code: 0
-        last_task_lock_released_verified_at: '2026-11-24T08:12:23Z'
+        last_task_lock_released_verified_at: '2026-11-24T08:25:31Z'
         goal: 입력→변환→다운로드의 재현 가능한 불편을 찾아 작은 개선·배포·라이브 확인
       - id: r2
         start_at: '2026-11-24T08:30:00Z'
