@@ -499,6 +499,24 @@
       "note": "One status-only request sent. Delivery receipt does not confirm Windows acceptance, execution, or product result.",
       "message_id": "1795505513.609889",
       "queue_id": "convq_f6aab1db4a22caa5924fdd523c18e510"
+    },
+    {
+      "type": "task_completed",
+      "at": "2026-11-24T07:35:40Z",
+      "task_id": "miniapp-20261124-r1-t05",
+      "state": "completed_at_access_blocked",
+      "guard_state": "completed",
+      "exit_code": 0,
+      "guard_started_at": "2026-11-24T07:22:01.316718+00:00",
+      "guard_finished_at": "2026-11-24T07:35:21.339009+00:00",
+      "end_at": "2026-11-24T08:30:00+00:00",
+      "active_lock": "free_verified",
+      "blocker": "Locked Windows desktop prevented Narrator speech/result navigation; Narrator PID 27296 started for QA remained in Windows session 1 due Access denied on stop; user needs to unlock interactive desktop and close only that PID, then verify absence.",
+      "summary": "Actual screen-reader completion announcement and result/download navigation unverified. Live mobile-emulated synthetic conversion DOM and WebP re-decode confirmed separately; no reproduced converter defect, app source change or new deployment. Customer outcomes unmeasured.",
+      "source_changed": false,
+      "new_deployment": false,
+      "previous_release_run": "45343956525",
+      "next_candidate": "After user unlock and Narrator cleanup, SAM may assign new task to repeat real AT speech recap and result/download navigation on unlocked desktop."
     }
   ],
   "artifacts": [
@@ -716,6 +734,30 @@
         "child": "local-aa17b52a6e7ebd1c303402785e4d76a3c2d2d3ad519b3b6344ce6a04bfe7c7bd"
       },
       "limits": "Synthetic mobile viewport emulation, file injected via browser helper; keyboard-only file picker, screen reader, physical mobile and customer outcome not tested."
+    },
+    {
+      "label": "r1-t05 guard completed but actual Narrator speech/navigation inaccessible and cleanup pending",
+      "type": "execution_and_live",
+      "at": "2026-11-24T07:35:40Z",
+      "task_id": "miniapp-20261124-r1-t05",
+      "status": "warn",
+      "evidence_paths": [
+        "intents/waiting/miniapp-image-tools-20261118-qa-01.md",
+        "https://github.com/shdkej/space/blob/main/infra-aws-static-sites/sites/miniapp-image-tools/qa/release-checkpoint.md"
+      ],
+      "roles": [
+        "planner",
+        "developer",
+        "marketer",
+        "operator"
+      ],
+      "sessions": {
+        "independent": "deleg_77800652",
+        "cross_review": "deleg_3a4c4376",
+        "child": "local-efde2b781d79c4144da5678fc419a59ee9149f5c386119a048c34981842ca3dc"
+      },
+      "limits": "Windows LockApp prevented real Narrator attachment/speech observation; DOM/AX and pointer download are not screen-reader evidence. Narrator PID 27296 remained; synthetic mobile emulation, not customer outcomes or physical phone.",
+      "next_role": "user"
     }
   ],
   "next_decision": {

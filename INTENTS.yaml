@@ -140,8 +140,8 @@ lanes:
     release_evidence_commit: 5552cfe07390ba17cd85e1a93aa2bb6fa0a21af0
     release_workflow_run: '45343956525'
     release_live_url: https://images.aws.shdkej.com/tools/image-converter/
-    waiting_on: internal
-    blocker: r1-t05 인계 대기; 현재 차단은 보고되지 않음.
+    waiting_on: user
+    blocker: r1-t05의 스크린리더 실발화·탐색 QA는 Windows LockApp 잠금으로 접근 불가. 시험에서 시작한 Narrator PID 27296은 접근 거부로 종료하지 못해 잠금 해제된 대화형 데스크톱에서 해당 PID만 종료·부재 확인 필요; 제품 결함 판정은 보류.
     current_task_id: miniapp-20261124-r1-t05
     current_task_goal: 모바일 합성 QA에서 변환 완료 안내가 스크린리더에 전달되고 결과 위치를 찾을 수 있는지 확인; 실제 차단이
       재현되면 최소 수정·테스트·앱 전용 배포·라이브 확인, 아니면 근거와 다음 후보 기록
@@ -158,14 +158,14 @@ lanes:
     current_task_status_check_status: sent
     current_task_status_check_message_id: '1795505513.609889'
     current_task_status_check_queue_id: convq_f6aab1db4a22caa5924fdd523c18e510
-    current_task_status: dispatched_execution_unconfirmed
-    current_task_result_summary: ''
-    current_task_followup: ''
-    current_task_result: ''
-    current_task_guard_status: ''
-    current_task_guard_exit_code: ''
-    current_task_guard_finished_at: ''
-    current_task_lock_released_verified_at: ''
+    current_task_status: completed_at_access_blocked
+    current_task_result_summary: 스크린리더 실제 안내·탐색은 잠긴 Windows 세션 때문에 미검증; 합성 브라우저 DOM·WebP 재디코딩만 확인. 제품 결함 판정·수정·신규 배포 없음. Narrator PID 27296 종료 대기.
+    current_task_followup: 사용자가 Windows 대화형 데스크톱을 잠금 해제하고 이 시험에서 시작한 Narrator PID 27296만 종료한 뒤 부재 확인. 별도 SAM 승인 작업에서 실발화·결과/다운로드 탐색 재시험 후보.
+    current_task_result: 'guard 완료(16:35:21 KST), exit 0, 16:35:40 KST active.lock 해제 확인. Windows LockApp으로 Narrator speech recap 실기록/ego 탐색 불가; 음성 직접 청취·녹음 없음. 라이브 390×844 모바일 에뮬레이션에 270B 합성 PNG→WebP 80×40 RGB 570B 저장·재디코딩, DOM role=status/aria-live=polite·결과/다운로드 존재만 확인(AT 증거 아님). 앱 테스트 7/7, 코드 변경·새 Action·배포 없음; 기존 Action 45343956525 유지. 고객 성과 미측정. Narrator PID 27296 잔존(접근 거부로 정리 미완료).'
+    current_task_guard_status: completed
+    current_task_guard_exit_code: 0
+    current_task_guard_finished_at: '2026-11-24T07:35:21.339009+00:00'
+    current_task_lock_released_verified_at: '2026-11-24T07:35:40Z'
     report: reports/miniapp-image-tools-20261118-qa-01/20261124T1230KST.html
     current_task_handoff_receipt: ''
     daily_run_window:
@@ -222,11 +222,11 @@ lanes:
         current_status_check_message_id: '1795505513.609889'
         current_status_check_queue_id: convq_f6aab1db4a22caa5924fdd523c18e510
         report_status: pending
-        last_task_status: completed
-        last_task_id: miniapp-20261124-r1-t04
-        last_task_guard_finished_at: '2026-11-24T07:10:39.802780+00:00'
+        last_task_status: completed_at_access_blocked
+        last_task_id: miniapp-20261124-r1-t05
+        last_task_guard_finished_at: '2026-11-24T07:35:21.339009+00:00'
         last_task_guard_exit_code: 0
-        last_task_lock_released_verified_at: '2026-11-24T07:10:53Z'
+        last_task_lock_released_verified_at: '2026-11-24T07:35:40Z'
         goal: 입력→변환→다운로드의 재현 가능한 불편을 찾아 작은 개선·배포·라이브 확인
       - id: r2
         start_at: '2026-11-24T08:30:00Z'
