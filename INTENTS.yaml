@@ -385,7 +385,10 @@ lanes:
         prior_task_status_check_snapshot_at: '2026-11-24T12:45:30Z'
         prior_task_status_check_snapshot: No newer result/guard/lock receipt for r3-t03; one status-only request sent, no work resubmitted.
         current_task_status_check_at: '2026-11-24T13:32:01Z'
-        current_task_status_check_status: prepared
+        current_task_status_check_status: sent
+        current_task_status_check_sent_at: '2026-11-24T13:32:49Z'
+        current_task_status_check_message_id: '1795527160.320609'
+        current_task_status_check_queue_id: convq_c75d9a4e945aa174971333b1e56960bb
         current_task_status_check_task_id: miniapp-20261124-r3-t04
         current_task_status_check_reason: Product QA result is published but parent guard/exit/lock receipt remains pending; request same-task final status once, no task resend.
         current_task_status: browser_qa_pass_no_product_change_guard_pending_parent

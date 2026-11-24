@@ -569,3 +569,5 @@
 
 - 최신 `origin/main`에 동일 ID의 라이브 합성 QA PASS/무변경 결과가 올라왔다. guard 종료/exit 및 `active.lock` 해제는 부모 확인 pending으로 남아 있어, 새 업무 없이 이 task의 종료·잠금 상태만 한 번 요청한다. 고정 end `14:30Z`; 재전송하지 않는다.
 - 요청 시도 `2026-11-24T13:32:01Z`를 원장/trace에 먼저 기록한다.
+
+- 2026-11-24T13:32:49Z 발송 직전 재검사: KST 22:32, r3, 고정 `14:30Z` 미도과, run `running`, supervisor `enabled`, 최신 원격 준비 기록 일치. Windows에 같은 ID의 guard 종료/exit/lock 확인만 요청(sent `1795527160.320609`, queue `convq_c75d9a4e945aa174971333b1e56960bb`); 제품 작업 재전송 없음.

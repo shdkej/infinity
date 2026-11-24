@@ -1882,8 +1882,11 @@
       "at": "2026-11-24T13:32:01Z",
       "task_id": "miniapp-20261124-r3-t04",
       "window": "r3",
-      "status": "prepared",
-      "reason": "Product QA result is published but parent guard/exit/lock receipt remains pending; request same-task final status once, no task resend."
+      "status": "sent",
+      "reason": "Product QA result is published but parent guard/exit/lock receipt remains pending; request same-task final status once, no task resend.",
+      "sent_at": "2026-11-24T13:32:49Z",
+      "message_id": "1795527160.320609",
+      "queue_id": "convq_c75d9a4e945aa174971333b1e56960bb"
     }
   ],
   "task_records": [
@@ -1947,8 +1950,11 @@
         "cross_review": "deleg_04ec4cc5",
         "four_each_completed": true
       },
-      "status_check_attempt": "prepared",
-      "status_check_at": "2026-11-24T13:32:01Z"
+      "status_check_attempt": "sent",
+      "status_check_at": "2026-11-24T13:32:01Z",
+      "status_check_sent_at": "2026-11-24T13:32:49Z",
+      "status_check_message_id": "1795527160.320609",
+      "status_check_queue_id": "convq_c75d9a4e945aa174971333b1e56960bb"
     }
   ],
   "process_cleanup_verifications": [
