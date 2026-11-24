@@ -268,7 +268,7 @@ lanes:
       requested_days: 3
     experiment_run:
       run_id: miniapp-20261124-3h
-      status: running
+      status: finished
       date: '2026-11-24'
       timezone: Asia/Seoul
       start_at: '2026-11-24T05:30:00Z'
@@ -277,7 +277,12 @@ lanes:
       dispatch_owner: sam_supervisor_cron
       supervisor_job_id: eb75facc-7686-4746-a399-4ef6d881048e
       closeout_job_id: 8e116857-63f9-4475-8e55-4a7c386e4a16
-      final_report_status: pending
+      final_report_status: prepared
+      final_report_prepared_at: '2026-11-24T14:32:41Z'
+      final_report_delivery_receipt: unobserved_until_cron_delivery
+      supervisor_disable_status: disabled_verified
+      supervisor_disabled_at: '2026-11-24T14:32:41Z'
+      supervisor_enabled: false
       configuration_status: verified
       setup_receipts:
         windows_capability_message_id: '1795496370.965079'
@@ -288,7 +293,7 @@ lanes:
       - id: r1
         start_at: '2026-11-24T05:30:00Z'
         end_at: '2026-11-24T08:30:00Z'
-        status: running
+        status: finished
         task_sequence: 8
         current_task_id: miniapp-20261124-r1-t08
         current_task_goal: 701–760px 경계에서 터치형 포인터로 변환 후 결과·다운로드 도달성을 확인하고, 재현되는 마찰이
@@ -317,7 +322,7 @@ lanes:
       - id: r2
         start_at: '2026-11-24T08:30:00Z'
         end_at: '2026-11-24T11:30:00Z'
-        status: running
+        status: finished
         task_sequence: 6
         current_task_id: miniapp-20261124-r2-t06
         current_task_goal: 배포된 0B 오류 개선의 모바일 좁은 화면·키보드 조작 복구 경로를 실제 재현하고, 이상이 있으면 증거와 최소 대안을 기록
@@ -372,7 +377,7 @@ lanes:
       - id: r3
         start_at: '2026-11-24T11:30:00Z'
         end_at: '2026-11-24T14:30:00Z'
-        status: running
+        status: finished
         task_sequence: 6
         current_task_id: miniapp-20261124-r3-t06
         current_task_goal: r3 작업 1~5의 완료 증거와 한계를 대조해 종합 보고용 근거표 및 다음 우선 후보를 정리하고 기록 정합성을 닫기
@@ -432,6 +437,10 @@ lanes:
         current_task_guard_finished_at: '2026-11-24T14:27:53.640518+00:00'
         current_task_lock_status: free_verified_at_2026-11-24T14:28:28.731513Z
         current_task_lock_released_verified_at: '2026-11-24T14:28:28.731513+00:00'
+        current_task_lock_readonly_check_at: '2026-11-24T14:31:20.701620Z'
+        current_task_status_check_message_id: '1795530668.226219'
+        current_task_status_check_queue_id: convq_329a2958cebdadd9f36bd914fbc0ef2c
+        current_task_status_check_at: '2026-11-24T14:32:41Z'
         current_task_analytics_status: not_requeried
         prior_r3_t03_analytics_observed_at: '2026-11-24T12:43:40.169418Z'
         prior_r3_t03_analytics_window: '[2026-11-24T05:30:00Z,2026-11-24T12:41:30Z)'
@@ -441,7 +450,7 @@ lanes:
           transform_succeeded: {synthetic: 81, user: 1}
           transform_failed: {synthetic: 26, user: 0}
           download_requested: {synthetic: 68, user: 0}
-        report_status: pending
+        report_status: prepared
         prior_r3_t01_execution_snapshot_at: '2026-11-24T11:58:40Z'
         prior_r3_t01_execution_snapshot: r3-t01 product/live verified; guard completed exit 0 and shared lock free; r3-t02 handoff sent 1795522715.346669
         prior_r3_t01_product_source_sha: dc43b456354f3f03edf402a8dfce0a10172f8d81

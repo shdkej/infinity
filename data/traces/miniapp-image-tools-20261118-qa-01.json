@@ -2145,5 +2145,33 @@
         "reports/miniapp-image-tools-20261118-qa-01/20261124T1225Z-r3-t02.html"
       ]
     }
+  ],
+  "closeout_events": [
+    {
+      "type": "same_day_experiment_run_closeout_prepared",
+      "at": "2026-11-24T14:32:41Z",
+      "run_id": "miniapp-20261124-3h",
+      "status": "finished",
+      "meaning": "Fixed schedule ended; not a claim that all tasks succeeded.",
+      "supervisor_job_id": "eb75facc-7686-4746-a399-4ef6d881048e",
+      "supervisor_enabled": false,
+      "supervisor_disable_verified_at": "2026-11-24T14:32:41Z",
+      "closeout_job_id": "8e116857-63f9-4475-8e55-4a7c386e4a16",
+      "final_report_status": "prepared",
+      "delivery_receipt": "not_observed_yet",
+      "existing_run_records_in_window": "none returned for runAtMs [2026-11-24T14:30:00Z,2026-11-24T15:00:00Z); earlier 12:30 KST delivered receipt is not this report",
+      "r1_r2_reports": "existing sent receipts retained",
+      "r3_report": "prepared in this scheduled response; do not mark sent until actual delivery receipt",
+      "r3_t06_guard_and_lock": "completed/exit 0 at 14:27:53.640518Z; lock free at 14:28:28.731513Z; read-only lslocks no locks at 14:31:20.701620Z; parent receipt published in b81a7eb0",
+      "status_check_message_id": "1795530668.226219",
+      "status_check_queue_id": "convq_329a2958cebdadd9f36bd914fbc0ef2c",
+      "customer_outcomes": "unmeasured; no inferred or filled values",
+      "next_day_resume": false,
+      "evidence_paths": [
+        "INTENTS.yaml",
+        "intents/waiting/miniapp-image-tools-20261118-qa-01.md",
+        "reports/miniapp-image-tools-20261118-qa-01/20261124T1423Z-r3-t06.html"
+      ]
+    }
   ]
 }
