@@ -1735,8 +1735,11 @@
       "window": "r3",
       "sequence": 2,
       "end_at": "2026-11-24T14:30:00Z",
-      "status": "prepared",
-      "goal": "Verify exact identity/state of the outstanding Narrator PID 27296; terminate only that exact process normally if identity is certain and access permits, otherwise record blocker without force. No broad process cleanup or customer/product claims."
+      "status": "sent",
+      "goal": "Verify exact identity/state of the outstanding Narrator PID 27296; terminate only that exact process normally if identity is certain and access permits, otherwise record blocker without force. No broad process cleanup or customer/product claims.",
+      "sent_at": "2026-11-24T12:18:25Z",
+      "message_id": "1795522715.346669",
+      "queue_id": "convq_70f7ac689dc4aaf9e646e74350af3caf"
     }
   ],
   "task_records": [
@@ -1744,11 +1747,13 @@
       "task_id": "miniapp-20261124-r3-t02",
       "window": "r3",
       "sequence": 2,
-      "status": "handoff_prepared",
+      "status": "handoff_sent",
       "at": "2026-11-24T12:16:12Z",
       "goal": "Verify and safely resolve the one outstanding Narrator PID 27296 only if process identity is certain; otherwise record blocker and safe next step.",
       "end_at": "2026-11-24T14:30:00Z",
-      "handoff_attempt": "prepared"
+      "handoff_attempt": "sent",
+      "message_id": "1795522715.346669",
+      "queue_id": "convq_70f7ac689dc4aaf9e646e74350af3caf"
     }
   ]
 }

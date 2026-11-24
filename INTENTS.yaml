@@ -156,9 +156,9 @@ lanes:
     current_task_start_at: '2026-11-24T12:16:12Z'
     current_task_end_at: '2026-11-24T14:30:00Z'
     current_task_handoff_attempt_at: '2026-11-24T12:16:12Z'
-    current_task_handoff_status: prepared
-    current_task_handoff_message_id: null
-    current_task_handoff_queue_id: null
+    current_task_handoff_status: sent
+    current_task_handoff_message_id: '1795522715.346669'
+    current_task_handoff_queue_id: convq_70f7ac689dc4aaf9e646e74350af3caf
     current_task_completion_criteria: Windows에서 PID 27296의 프로세스명·소유자·시작 시각·세션을 확인해 기존 Narrator QA 프로세스와 일치하는지 검증; 일치가 확실하고 접근 가능한 경우 그 PID만 정상 종료 후 부재 확인, 아니면 종료하지 않고 원인·다음 안전 경로 기록. 부모 종료/guard/잠금 확인을 같은 task_id에 남김; 제품 결과·고객 성과와 구분, 권한 확대 금지.
     prior_task_handoff_message_id: '1795506439.083149'
     prior_task_handoff_queue_id: convq_8a215ed203754328f7789be184b789a3
@@ -210,7 +210,7 @@ lanes:
     current_task_live_sha256: null
     report: reports/miniapp-image-tools-20261118-qa-01/20261124T1230KST.html
     prior_r3_t01_handoff_receipt: sent 1795520034.423279; queue convq_f4220e1e2f1315988e3e5697a899d49c
-    current_task_handoff_receipt: prepared; awaiting final eligibility check
+    current_task_handoff_receipt: sent 1795522715.346669; queue convq_70f7ac689dc4aaf9e646e74350af3caf
     daily_run_window:
       start_date: '2026-11-23'
       end_date: '2026-11-25'
@@ -337,9 +337,9 @@ lanes:
         current_task_end_at: '2026-11-24T14:30:00Z'
         current_task_completion_criteria: Windows에서 PID 27296의 프로세스명·소유자·시작 시각·세션을 확인해 기존 Narrator QA 프로세스와 일치하는지 검증; 일치가 확실하고 접근 가능할 때 해당 PID만 정상 종료 후 부재 확인, 아니면 종료하지 않고 차단 근거 기록. 부모 종료/guard/잠금 확인 기록, 제품 결과·고객 성과와 구분.
         handoff_attempt_at: '2026-11-24T12:16:12Z'
-        handoff_status: prepared
-        handoff_message_id: null
-        handoff_queue_id: null
+        handoff_status: sent
+        handoff_message_id: '1795522715.346669'
+        handoff_queue_id: convq_70f7ac689dc4aaf9e646e74350af3caf
         prior_r3_t01_status_check_at: '2026-11-24T11:45:47Z'
         prior_r3_t01_status_check_status: sent
         prior_r3_t01_status_check_task_id: miniapp-20261124-r3-t01
@@ -348,7 +348,7 @@ lanes:
         current_task_status_check_status: not_requested
         report_status: pending
         current_task_execution_snapshot_at: '2026-11-24T11:58:40Z'
-        current_task_execution_snapshot: r3-t01 product/live verified; guard completed exit 0 and shared lock free; r3-t02 handoff prepared, not sent
+        current_task_execution_snapshot: r3-t01 product/live verified; guard completed exit 0 and shared lock free; r3-t02 handoff sent 1795522715.346669
         current_task_product_result: not_applicable_process_cleanup_check
         prior_r3_t01_product_source_sha: dc43b456354f3f03edf402a8dfce0a10172f8d81
         prior_r3_t01_product_evidence_sha: 93da7d6de0cad3def7d837ca95d442b684216ad2

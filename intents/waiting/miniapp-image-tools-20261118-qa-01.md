@@ -496,3 +496,4 @@
 - 최신 origin/main `2ea209da`에서 r3-t01 최종 결과 확인: 지연 헤더 읽기/설정 경합 결함 수정·Node 11/11·Space `dc43b456`·앱 전용 Action `45387803883`·라이브 SHA `dee66985…`; guard completed/exit 0 및 lock free. 고객 성과 미측정.
 - r3 sequence 2 `miniapp-20261124-r3-t02`, 고정 end_at `2026-11-24T14:30:00Z`: r1에 남은 Narrator PID `27296`의 정확한 프로세스명·소유자·시작시각·세션을 확인한다. 기존 QA 프로세스와 일치가 확실하고 현재 접근 가능한 때에만 해당 PID를 정상 종료하고 부재를 확인한다. 신원 불명/재사용/접근 거부면 강제 종료 없이 원인과 안전한 후속 경로를 기록한다. 실발화 QA나 고객 성과로 과장하지 않는다.
 - handoff 원격 준비 기록 시각 `2026-11-24T12:16:12Z`; 발송 직전 KST·구간·end_at·run·감독 enabled 재검사 필수.
+- 21:18 KST 최종 검사: r3·고정 end_at 14:30Z 미도과, run `running`, 감독 job `enabled`, 원격 SHA `ac7c3554`, handoff prepared. Native 전송 sent `1795522715.346669`, queue `convq_70f7ac689dc4aaf9e646e74350af3caf`; 이는 Windows 실행 수락·처리 결과 증거와 별개다.
