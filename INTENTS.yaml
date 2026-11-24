@@ -378,7 +378,9 @@ lanes:
         prior_r3_t05_guard_exit_code: 0
         prior_r3_t05_lock_released_verified_at: '2026-11-24T14:01:42.129832Z'
         handoff_attempt_at: '2026-11-24T14:15:00Z'
-        handoff_status: prepared
+        handoff_status: sent
+        handoff_message_id: '1795529868.509459'
+        handoff_queue_id: convq_da77eaff32e9dbf0a44c3308b01d9a90
         prior_r3_t04_status: browser_qa_pass_no_product_change_guard_completed
         prior_r3_t04_guard_finished_at: '2026-11-24T13:31:12.314251Z'
         prior_r3_t04_guard_exit_code: 0

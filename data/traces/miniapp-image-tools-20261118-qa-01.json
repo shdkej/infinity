@@ -1099,6 +1099,18 @@
       "end_at": "2026-11-24T14:30:00Z",
       "status": "prepared_windows_execution_pending",
       "customer_outcomes": "unmeasured"
+    },
+    {
+      "type": "task_handoff_sent",
+      "at": "2026-11-24T14:17:00Z",
+      "task_id": "miniapp-20261124-r3-t06",
+      "window": "r3",
+      "sequence": 6,
+      "end_at": "2026-11-24T14:30:00Z",
+      "status": "sent_windows_execution_pending",
+      "message_id": "1795529868.509459",
+      "queue_id": "convq_da77eaff32e9dbf0a44c3308b01d9a90",
+      "customer_outcomes": "unmeasured"
     }
   ],
   "artifacts": [
@@ -1946,8 +1958,11 @@
     {
       "task_id": "miniapp-20261124-r3-t06",
       "at": "2026-11-24T14:15:00Z",
-      "status": "prepared",
-      "conversation_ref": "conv_325a58464418d0dba24510d3dede7507"
+      "status": "sent",
+      "conversation_ref": "conv_325a58464418d0dba24510d3dede7507",
+      "message_id": "1795529868.509459",
+      "queue_id": "convq_da77eaff32e9dbf0a44c3308b01d9a90",
+      "sent_at": "2026-11-24T14:17:00Z"
     }
   ],
   "task_records": [
@@ -2046,14 +2061,17 @@
       "task_id": "miniapp-20261124-r3-t06",
       "window": "r3",
       "sequence": 6,
-      "status": "handoff_prepared_windows_execution_pending",
+      "status": "handoff_sent_windows_execution_pending",
       "at": "2026-11-24T14:15:00Z",
       "goal": "Reconcile r3 tasks 1–5 against existing evidence, guard/lock receipts and reports; produce concise evidence matrix and next candidate without repeating tests or changing code/deploy.",
       "end_at": "2026-11-24T14:30:00Z",
-      "handoff_attempt": "prepared",
+      "handoff_attempt": "sent",
       "customer_outcomes": "unmeasured",
       "completion_criteria": "Reconcile records only; no browser/API/analytics reruns or app changes. Record parent guard exit and lock release before fixed end.",
-      "report": "pending"
+      "report": "pending",
+      "message_id": "1795529868.509459",
+      "queue_id": "convq_da77eaff32e9dbf0a44c3308b01d9a90",
+      "sent_at": "2026-11-24T14:17:00Z"
     }
   ],
   "process_cleanup_verifications": [
