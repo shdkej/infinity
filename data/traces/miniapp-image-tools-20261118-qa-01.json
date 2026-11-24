@@ -741,13 +741,15 @@
       "type": "supervision",
       "at": "2026-11-24T08:30:52Z",
       "task_id": "miniapp-20261124-r2-t01",
-      "status": "prepared",
+      "status": "sent",
       "evidence_paths": [
         "INTENTS.yaml",
         "intents/waiting/miniapp-image-tools-20261118-qa-01.md"
       ],
       "report_message_id": "1795509062.983379",
-      "limits": "R1 report delivery confirmed; r2 task handoff not yet sent or accepted. Customer outcomes remain unmeasured."
+      "limits": "Delivery receipt confirmed; Windows acceptance/execution not yet observed. Customer outcomes remain unmeasured.",
+      "handoff_message_id": "1795509171.676709",
+      "handoff_queue_id": "convq_5286e85306b63fe3f81e94d06a83565d"
     }
   ],
   "artifacts": [
@@ -1058,7 +1060,7 @@
     }
   ],
   "next_decision": {
-    "status": "prepared",
-    "value": "r1 report sent 1795509062.983379. r2-t01 sequence 1 prepared with fixed end_at 11:30Z; final time/run/job check required before sending."
+    "status": "dispatched",
+    "value": "r1 report sent 1795509062.983379. r2-t01 sent 1795509171.676709, fixed end_at 11:30Z; await same-task execution/guard/lock result."
   }
 }
