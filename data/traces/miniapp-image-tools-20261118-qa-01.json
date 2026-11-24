@@ -386,6 +386,13 @@
       "qa_commit": "c93fd908ef37eb73be32787c8083688b2e7c74f7",
       "release_run": "45340408863",
       "next_candidate": "Small synthetic image shows 0.00MB size; investigate KB clarity; SAM supervisor owns any new ID."
+    },
+    {
+      "type": "task_result_and_handoff_prepared",
+      "at": "2026-11-24T06:45:00Z",
+      "task_id": "miniapp-20261124-r1-t03",
+      "status": "prepared",
+      "summary": "r1-t02 completed; next task to validate small-image file-size 0.00MB clarity. Fixed end_at 08:30Z; no dispatch receipt yet."
     }
   ],
   "artifacts": [
@@ -553,7 +560,7 @@
     }
   ],
   "next_decision": {
-    "status": "dispatched",
-    "value": "Await Windows execution/result and guard/lock evidence for miniapp-20261124-r1-t02; do not overlap."
+    "status": "handoff_prepared",
+    "value": "Dispatch miniapp-20261124-r1-t03 only after final time/window/run/job-enabled check; r1-t02 completed and lock released."
   }
 }
