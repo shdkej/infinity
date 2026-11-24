@@ -173,14 +173,14 @@ lanes:
     prior_r2_t02_guard_finished_at: '2026-11-24T09:13:11.829869+00:00'
     prior_r2_t02_guard_exit_code: 0
     prior_r2_t02_lock_released_verified_at: '2026-11-24T09:13:22Z'
-    current_task_status: running_release_succeeded_live_pending_at_1947
-    current_task_result_summary: '19:47:06 KST 중간 조회: 기존 보호 실행 running·active.lock held, 종료/exit 미발생. Space SHA 80966e7 제품 문구/복구 기준 소스 게시, 앱 전용 독립 restore Action 45377373714 success, release Action 45377563324 success; 라이브/자식 최종 결과는 아직 확인 중.'
-    current_task_followup: 기존 CMO 제안 문구 적용 여부를 확인; 고객 성과 미측정.
-    current_task_result: null
-    current_task_guard_status: null
-    current_task_guard_exit_code: null
-    current_task_guard_finished_at: null
-    current_task_lock_released_verified_at: null
+    current_task_status: completed_copy_released_live_verified
+    current_task_result_summary: 0B 상단·오류에 CMO 지정 문구만 적용, 기존 오류 코드·기타 문구 유지. RED→GREEN 및 Node 9/9, 현재 직전 본문 S3 두 키 복원 연습·독립 restore 후 앱 전용 Action 45377563324 성공. 두 converter URL 200·동일 SHA와 문구, /·/sort/ 200 및 합성 0B→정상 PNG 복구·WebP 디코딩 확인. guard exit 0·잠금 해제; 고객 성과 미측정.
+    current_task_followup: 실제 고객 이해·성과·스크린리더 발화·PostHog 수집은 미검증. 강제 러너 종료·부분 쓰기 상황은 재현하지 않았고, 구 복원 workflow는 현재 main에서 b8 직전 본문을 기준으로만 동작한다.
+    current_task_result: copy_released_live_verified
+    current_task_guard_status: completed
+    current_task_guard_exit_code: 0
+    current_task_guard_finished_at: '2026-11-24T10:48:12.591294+00:00'
+    current_task_lock_released_verified_at: '2026-11-24T10:49:18Z'
     report: reports/miniapp-image-tools-20261118-qa-01/20261124T1230KST.html
     current_task_handoff_receipt: sent 1795516420.694159; queue convq_97ca970aaebf3d9cf6a2a2f1743a326d
     daily_run_window:
@@ -268,12 +268,16 @@ lanes:
         current_task_execution_snapshot: guard running, lock held; restore Action 45377373714 success, app-only release Action 45377563324 success; live child verification and final guard receipt pending.
         current_task_status_check_message_id: '1795517213.706259'
         current_task_status_check_queue_id: convq_b3800df487bd672c099f41b904f78e0f
-        last_task_status: recovery_rehearsed_release_live_verified
-        last_task_id: miniapp-20261124-r2-t04
-        last_task_result: 두 S3 객체의 기존 본문·메타데이터 읽기/동일 복원 연습 및 긴급 restore 입증 후 Action 45373438908 앱 전용 배포 성공. 라이브 두 경로 200·동일 SHA, 긴 0B 수정 문구 확인; CMO 짧은 문구·상단 상태 미반영.
-        last_task_guard_finished_at: '2026-11-24T10:23:34.312858+00:00'
+        last_task_status: copy_released_live_verified
+        last_task_id: miniapp-20261124-r2-t05
+        last_task_result: CMO 지정 0B 상단·오류 문구만 적용, Node 9/9; 두 대상 객체 현행 직전 본문 복원 연습·독립 restore 후 Action 45377563324 성공, converter 두 경로 200·동일 SHA, /·/sort/ 200. guard exit 0·lock free.
+        last_task_guard_finished_at: '2026-11-24T10:48:12.591294+00:00'
         last_task_guard_exit_code: 0
-        last_task_lock_released_verified_at: '2026-11-24T10:27:44Z'
+        last_task_lock_released_verified_at: '2026-11-24T10:49:18Z'
+        prior_r2_t04_status: recovery_rehearsed_release_live_verified
+        prior_r2_t04_guard_finished_at: '2026-11-24T10:23:34.312858+00:00'
+        prior_r2_t04_guard_exit_code: 0
+        prior_r2_t04_lock_released_verified_at: '2026-11-24T10:27:44Z'
         prior_task_status_check_at: '2026-11-24T09:45:00Z'
         prior_task_status_check_status: sent
         prior_task_status_check_task_id: miniapp-20261124-r2-t03

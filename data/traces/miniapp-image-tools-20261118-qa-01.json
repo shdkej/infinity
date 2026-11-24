@@ -1411,11 +1411,36 @@
       "actions": {"restore": 45377373714, "release": 45377563324, "conclusion": "success"},
       "evidence_paths": ["intents/waiting/miniapp-image-tools-20261118-qa-01.md"],
       "note": "One status-only readback for SAM, not a second execution; product child live QA and final guard/lock receipts still pending at this timestamp."
+    },
+    {
+      "label": "r2-t05 CMO empty-file copy, immediate-prior restoration and live release",
+      "type": "execution_and_live",
+      "at": "2026-11-24T10:49:18Z",
+      "task_id": "miniapp-20261124-r2-t05",
+      "status": "copy_released_live_verified",
+      "evidence_paths": [
+        "intents/waiting/miniapp-image-tools-20261118-qa-01.md",
+        "https://github.com/shdkej/space/commit/80966e76cec4e197240ac836ba1513106eda7a20",
+        "https://github.com/shdkej/space/actions/runs/45377073596",
+        "https://github.com/shdkej/space/actions/runs/45377194178",
+        "https://github.com/shdkej/space/actions/runs/45377373714",
+        "https://github.com/shdkej/space/actions/runs/45377563324",
+        "https://github.com/shdkej/space/blob/main/infra-aws-static-sites/sites/miniapp-image-tools/qa/release-checkpoint.md"
+      ],
+      "guard": {"state": "completed", "exit_code": 0, "started_at": "2026-11-24T10:38:10.590535+00:00", "finished_at": "2026-11-24T10:48:12.591294+00:00", "end_at": "2026-11-24T11:30:00+00:00", "lock_free_verified_at": "2026-11-24T10:49:18Z"},
+      "actions": {"preflight": 45377073596, "rehearse": 45377194178, "restore": 45377373714, "release": 45377563324},
+      "space_source_sha": "80966e76cec4e197240ac836ba1513106eda7a20",
+      "space_evidence_sha": "fa6e9bbf18914697ea151ee2ccafbef381702339",
+      "live": {"converter_paths": ["/tools/image-converter/", "/tools/image-converter/index.html"], "http_status": 200, "bytes_each": 17896, "sha256": "0c4f03f1ddb99bf9f4bbcb462e00ef853c38819496cbb52a2f44f46d4094533b", "cmo_zero_byte_source_and_error": "present_once_each", "root_and_sort_reachability": 200},
+      "tests": "TDD RED verified, focused GREEN 3/3, all Node 9/9; synthetic ego 0B rejection and valid PNG-to-WebP download/redecode",
+      "roles": ["planner", "developer", "marketer", "operator"],
+      "sessions": {"independent": "deleg_0a8fd298", "cross_review": "deleg_bfe95aff", "child": "proc_20d84d97bab5"},
+      "limits": "Historical 19:47 status_snapshot remains true as-of then, now superseded by final result. Forced partial-write/runner death untested; synthetic QA not customer understanding, physical device, screen reader or PostHog ingestion. r2 interval HTML report pending."
     }
   ],
   "next_decision": {
-    "status": "r2_t05_running_release_succeeded_live_pending",
-    "value": "One status-only request for already-sent t05 was received at 19:46 KST (1795517213.706259); actual guarded child running/lock held as of 19:47:06 KST. Independent restore and app-only release Actions 45377373714/45377563324 success at Space SHA 80966e7; live child QA, guard finish/exit and lock release pending. No re-dispatch; fixed end 20:30 KST; customer outcome unmeasured."
+    "status": "r2_t05_completed_r2_report_pending",
+    "value": "The same t05 status check requested at 19:46 KST had an in-flight snapshot at 19:47:06 KST. Its existing guard then completed at 19:48:12 KST/exit 0; lock free verified 19:49:18 KST. Prior-object recovery and app-only release Actions succeeded; two converter paths display exact CMO zero-byte strings and /,/sort/ reachability pass. No re-dispatch. Customer outcome unmeasured; r2 interval HTML report pending."
   },
   "handoff_attempts": [
     {
