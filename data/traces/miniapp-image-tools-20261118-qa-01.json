@@ -855,6 +855,54 @@
       "message_id": "1795511752.371019",
       "queue_id": "convq_e28a186e20e1c173baa9810b76d0e5dc",
       "limits": "Delivery receipt confirms request only; Windows execution/guard/lock and product result remain unverified."
+    },
+    {
+      "type": "task_completed",
+      "at": "2026-11-24T09:13:22Z",
+      "task_id": "miniapp-20261124-r2-t02",
+      "state": "completed_no_change",
+      "guard_state": "completed",
+      "exit_code": 0,
+      "guard_started_at": "2026-11-24T09:09:18.582657+00:00",
+      "guard_finished_at": "2026-11-24T09:13:11.829869+00:00",
+      "end_at": "2026-11-24T11:30:00+00:00",
+      "active_lock": "free_verified",
+      "synthetic_live_qa": {
+        "supported_inputs": [
+          "PNG",
+          "JPEG",
+          "WebP"
+        ],
+        "unsupported_valid_inputs": [
+          "GIF 78B",
+          "SVG 106B",
+          "AVIF 316B"
+        ],
+        "rejected_other": [
+          "corrupt PNG 14B",
+          "zero PNG 0B",
+          "12MiB+1B PNG",
+          "PNG IHDR 10001x1 45B",
+          "PNG IHDR 5000x4001 45B"
+        ],
+        "each_rejection": "error; previous preview/src/meta cleared; transform/download disabled; valid PNG reselect/transform/save succeeds",
+        "selection_only_incomplete_fixtures": [
+          "exact 12MiB",
+          "IHDR 10000x1",
+          "IHDR 5000x4000"
+        ],
+        "selection_only_limit": "not proof of valid large image decode"
+      },
+      "saved_unique_files_decoded": 15,
+      "decoded_dimensions": [
+        32,
+        16
+      ],
+      "existing_tests_passed": "7/7",
+      "source_changed": false,
+      "new_deployment": false,
+      "customer_outcome_status": "unmeasured",
+      "next_candidate": "With a resource budget, test a genuinely valid exact-12MiB decoded source and genuine large image, separately authorized and ID."
     }
   ],
   "artifacts": [
@@ -1184,10 +1232,32 @@
         "child": "local-580779ad9ed06378ce77382b805f678c70715ff065163445a5cf536e7a3ff579"
       },
       "limits": "Synthetic ego browser and helper file selection; 701 used wheel not touch; one observed async race does not prove all schedules; no real customer outcome, physical device or new deployment."
+    },
+    {
+      "label": "r2-t02 supported/unsupported input and boundary isolation with recovery",
+      "type": "execution_and_live",
+      "at": "2026-11-24T09:13:22Z",
+      "task_id": "miniapp-20261124-r2-t02",
+      "status": "pass_with_limits",
+      "evidence_paths": [
+        "intents/waiting/miniapp-image-tools-20261118-qa-01.md"
+      ],
+      "roles": [
+        "planner",
+        "developer",
+        "marketer",
+        "operator"
+      ],
+      "sessions": {
+        "independent": "deleg_2397e657",
+        "cross_review": "deleg_2cb1dd7d",
+        "child": "local-ae07ca08e008d4c40caef4e6fbfa9eda604e11d31c5face5834a8a05485939b8"
+      },
+      "limits": "Synthetic ego Chromium; boundary-in fixtures intentionally incomplete and selected only; larger image decoding, OS file chooser, real users and other browsers not verified."
     }
   ],
   "next_decision": {
-    "status": "status_check_sent",
-    "value": "Single status check sent for r2-t02; receipt 1795511752.371019. Await same-task Windows result/guard/lock evidence; no work re-dispatched."
+    "status": "task_completed_no_change",
+    "value": "r2-t02 completed/exit 0 at 09:13:11Z and lock free 09:13:22Z; status check 1795511752.371019 is now resolved by same-task receipt. r2 interval report remains pending; no new task without SAM handoff."
   }
 }
