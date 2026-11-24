@@ -1670,7 +1670,7 @@
       "type": "analytics_aggregate",
       "at": "2026-11-24T12:43:40.169418Z",
       "task_id": "miniapp-20261124-r3-t03",
-      "status": "query_success_guard_pending_parent",
+      "status": "query_success_guard_completed",
       "project_id": 424014,
       "host": "us.posthog.com",
       "http_status": 200,
@@ -1689,7 +1689,14 @@
       "validation": "HTTP 200; columns exactly event,traffic_kind,count; all returned rows valid nonnegative integer counts, allowed labels, no duplicate or extra rows, no partial/background response; two absent cells zero only after complete success",
       "customer_outcomes": "unmeasured; public client user label is not a unique confirmed person; download_requested is not OS save; synthetic is not customer metric",
       "roles": {"independent": "deleg_17b36cee", "cross_review": "deleg_ce8556b3", "four_each_completed": true},
-      "guard": "child must not claim exit or lock release; parent readback pending under same task ID and immutable end_at=2026-11-24T14:30:00Z",
+      "guard": {
+        "state": "completed",
+        "exit_code": 0,
+        "started_at": "2026-11-24T12:42:15.010036+00:00",
+        "finished_at": "2026-11-24T12:51:04.864391+00:00",
+        "end_at": "2026-11-24T14:30:00+00:00",
+        "lock_free_verified_at": "2026-11-24T12:51:25.065804+00:00"
+      },
       "evidence_paths": ["intents/waiting/miniapp-image-tools-20261118-qa-01.md", "reports/miniapp-image-tools-20261118-qa-01/20261124T1243Z-r3-t03.html"]
     }
   ],
@@ -1801,7 +1808,7 @@
       "task_id": "miniapp-20261124-r3-t03",
       "window": "r3",
       "sequence": 3,
-      "status": "aggregate_verified_guard_pending_parent",
+      "status": "aggregate_verified_guard_completed",
       "at": "2026-11-24T12:30:52Z",
       "goal": "Aggregate counts for only the five approved existing PostHog event types, with no user identifiers or sensitive/file properties; separate zero, query failure and unmeasured; do not claim customer outcomes beyond evidence.",
       "end_at": "2026-11-24T14:30:00Z",
@@ -1810,7 +1817,7 @@
       "queue_id": "convq_9593dc8cb25c61f13231159ad238504a",
       "process_observed_at": null,
       "process_result": null,
-      "guard_final_receipt": null,
+      "guard_final_receipt": "completed_exit_0_at_2026-11-24T12:51:04.864391Z_lock_free_12:51:25.065804Z",
       "analytics_verification_at": "2026-11-24T12:43:40.169418Z",
       "analytics_result": "query_success_http_200_complete_8_rows",
       "customer_outcomes": "unmeasured",

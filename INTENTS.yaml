@@ -187,15 +187,15 @@ lanes:
     prior_r2_t06_guard_exit_code: 0
     prior_r2_t06_lock_released_verified_at: '2026-11-24T11:24:09.929899Z'
     prior_r2_t06_summary: mobile keyboard recovery QA pass at 390x844 and 320x720; synthetic only, customer outcomes unmeasured; no product change.
-    current_task_status: aggregate_query_success_guard_pending_parent
-    current_task_result_summary: 'US project 424014 bounded HogQL HTTP 200, 8 grouped rows; five event x synthetic/user counts in the task verification. Customer/unique people unmeasured. Guard exit/lock pending parent readback; Narrator PID 27296 remains a separate blocked issue.'
-    current_task_followup: 'Parent reads same task ID SQLite exit/deadline and shared lock after child ends; retain Waiting for Narrator until interactive unlock, and r3 interval report pending.'
-    current_task_result: aggregate_verified_child_guard_pending
+    current_task_status: aggregate_verified_guard_completed
+    current_task_result_summary: 'US project 424014 bounded HogQL HTTP 200, 8 grouped rows; five event x synthetic/user counts in the task verification. Guard 12:51:04Z completed/exit 0 and lock 12:51:25Z free. Customer/unique people unmeasured; Narrator PID 27296 separate blocked issue.'
+    current_task_followup: 'Retain Waiting for Narrator until interactive unlock; r3 interval report pending. No additional PID termination attempt.'
+    current_task_result: aggregate_verified_guard_completed
     current_task_status_at: '2026-11-24T12:43:40.169418Z'
-    current_task_guard_status: pending_parent_readback
-    current_task_guard_exit_code: null
-    current_task_guard_finished_at: null
-    current_task_lock_released_verified_at: null
+    current_task_guard_status: completed
+    current_task_guard_exit_code: 0
+    current_task_guard_finished_at: '2026-11-24T12:51:04.864391+00:00'
+    current_task_lock_released_verified_at: '2026-11-24T12:51:25.065804+00:00'
     prior_r3_t01_status_check_at: '2026-11-24T11:46:05Z'
     prior_r3_t01_status_check_status: recorded_running_snapshot
     prior_r3_t01_status_check_task_id: miniapp-20261124-r3-t01
@@ -205,8 +205,8 @@ lanes:
     current_task_status_check_message_id: '1795524335.092199'
     current_task_status_check_queue_id: convq_08af5d2122183d83ccd2b3f83a9760aa
     current_task_status_check_snapshot: 'As of the parent remote read at 12:45:30Z no result/guard/lock receipt was published; status request sent once, not a work resend.'
-    current_task_guard_started_at: null
-    current_task_lock_status: pending_parent_readback
+    current_task_guard_started_at: '2026-11-24T12:42:15.010036+00:00'
+    current_task_lock_status: free_verified_at_2026-11-24T12:51:25.065804Z
     current_task_analytics_project_id: 424014
     current_task_analytics_window_start_at: '2026-11-24T05:30:00Z'
     current_task_analytics_window_end_exclusive_at: '2026-11-24T12:41:30Z'
@@ -379,10 +379,10 @@ lanes:
         current_task_status_check_queue_id: convq_08af5d2122183d83ccd2b3f83a9760aa
         current_task_status_check_snapshot_at: '2026-11-24T12:45:30Z'
         current_task_status_check_snapshot: No newer result/guard/lock receipt for r3-t03; one status-only request sent, no work resubmitted.
-        current_task_status: aggregate_query_success_guard_pending_parent
-        current_task_result: aggregate_verified_child_guard_pending
-        current_task_guard_status: pending_parent_readback
-        current_task_lock_status: pending_parent_readback
+        current_task_status: aggregate_verified_guard_completed
+        current_task_result: aggregate_verified_guard_completed
+        current_task_guard_status: completed_exit_0
+        current_task_lock_status: free_verified_at_2026-11-24T12:51:25.065804Z
         current_task_analytics_status: query_success_http_200_complete_8_rows
         current_task_analytics_observed_at: '2026-11-24T12:43:40.169418Z'
         current_task_analytics_window: '[2026-11-24T05:30:00Z,2026-11-24T12:41:30Z)'
@@ -407,7 +407,7 @@ lanes:
         current_task_product_evidence_sha: null
         current_task_release_run: null
         prior_task_guard_final_receipt: completed_exit_0_at_2026-11-24T12:28:14.119473Z_lock_free_at_12:28:29.123670Z_process_still_present
-        current_task_guard_final_receipt: pending_parent_readback_after_child_exit
+        current_task_guard_final_receipt: completed_exit_0_at_2026-11-24T12:51:04.864391Z_lock_free_at_12:51:25.065804Z
         goal: Bounded five-event aggregate only; Narrator cleanup remains separately blocked until user unlocks.
       prior_task_status_check_at: '2026-11-24T09:45:00Z'
       prior_task_status_check_status: sent
