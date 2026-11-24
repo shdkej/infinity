@@ -368,11 +368,17 @@ lanes:
         start_at: '2026-11-24T11:30:00Z'
         end_at: '2026-11-24T14:30:00Z'
         status: running
-        task_sequence: 5
-        current_task_id: miniapp-20261124-r3-t05
-        current_task_goal: 실제 JPEG/WebP 유효 입력과 크기 제한 경계의 변환·저장 흐름을 확인하고, 재현되는 사용성/오류만 최소 개선
+        task_sequence: 6
+        current_task_id: miniapp-20261124-r3-t06
+        current_task_goal: r3 작업 1~5의 완료 증거와 한계를 대조해 종합 보고용 근거표 및 다음 우선 후보를 정리하고 기록 정합성을 닫기
         current_task_end_at: '2026-11-24T14:30:00Z'
-        current_task_completion_criteria: 'Windows actual browser: verify supported synthetic JPEG and WebP inputs through transform/download and independently decode saved outputs; inspect documented size/pixel-limit boundary using harmless synthetic fixtures only. Only reproduced defects may receive minimal fix, tests, existing app-only deploy and live verification within immutable end_at. Otherwise record no-change evidence and next candidate. Do not repeat PNG corrupt/recovery, mobile 0B, or analytics. No new analytics/cost/permission/other-app-data; customer outcomes unmeasured. Record guard exit and shared-lock release for this task; commit only related files to main.'
+        current_task_completion_criteria: 'Windows parent: reconcile each r3 task against its existing report/trace, product result, guard exit and lock receipt; distinguish deployed fixes, synthetic QA, analytics observations, blocked Narrator cleanup and unmeasured customer outcomes. Produce concise evidence matrix/next candidate without repeating browser/API/analytics checks or changing app code/deploy. Commit only related records; record guard exit and shared-lock release for this task before fixed end_at.'
+        prior_r3_t05_status: synthetic_jpeg_webp_boundary_qa_pass_no_change_guard_completed
+        prior_r3_t05_guard_finished_at: '2026-11-24T14:00:59.198202Z'
+        prior_r3_t05_guard_exit_code: 0
+        prior_r3_t05_lock_released_verified_at: '2026-11-24T14:01:42.129832Z'
+        handoff_attempt_at: '2026-11-24T14:15:00Z'
+        handoff_status: prepared
         prior_r3_t04_status: browser_qa_pass_no_product_change_guard_completed
         prior_r3_t04_guard_finished_at: '2026-11-24T13:31:12.314251Z'
         prior_r3_t04_guard_exit_code: 0
