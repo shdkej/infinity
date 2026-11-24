@@ -255,9 +255,9 @@ lanes:
         current_task_completion_criteria: Windows 실제 브라우저에서 좁은 viewport와 키보드로 빈 파일 오류→다른 이미지 선택→변환/다운로드 가능 여부를 확인; 구체적 실패가 있으면 최소 수정·검증·앱 전용 배포·라이브 확인이 시간 내 안전할 때만 수행하고, 아니면 재현 증거/다음 후보 기록. guard 종료·잠금 해제 기록, 고객성과 미측정 및 합성 QA 구분; 비용/권한/데이터 확대 금지.
         prior_handoff_message_id: '1795516420.694159'
         handoff_attempt_at: '2026-11-24T11:15:45Z'
-        handoff_status: prepared
-        handoff_message_id: null
-        handoff_queue_id: null
+        handoff_status: sent
+        handoff_message_id: '1795519008.904259'
+        handoff_queue_id: convq_b70b28dce2adf240485d0186ee35deba
         report_status: pending
         prior_current_task_status_check_at: '2026-11-24T10:15:38Z'
         prior_current_task_status_check_status: sent
@@ -328,7 +328,7 @@ lanes:
       current_task_status_check_message_id: '1795517213.706259'
       current_task_status_check_queue_id: convq_b3800df487bd672c099f41b904f78e0f
       current_task_status_check_reason: 최신 원격에 t05 결과/guard/잠금 갱신 없음; 동일 ID 업무 재전송 없이 상태 1회 확인.
-    next_action: r2-t06 상태 1회 인계 예정; Windows 작업·종료 증거 대기, 20:30 r2 보고 pending.
+    next_action: r2-t06 인계 sent(1795519008.904259); Windows 작업·종료 증거 대기, 20:30 r2 보고 pending.
     notification_channel: slack
     notification_target: channel:C0CE0DV9MM2
     notification_reply_to: '1794983278.888719'

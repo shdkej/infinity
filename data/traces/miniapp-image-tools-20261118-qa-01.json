@@ -1005,10 +1005,22 @@
       "window": "r2",
       "sequence": 6,
       "end_at": "2026-11-24T11:30:00Z",
-      "status": "prepared",
+      "status": "sent",
       "goal": "Reproduce the deployed empty-file recovery flow at narrow mobile viewport and with keyboard; record any concrete issue and a safe smallest fix/verification path, or no-change evidence.",
       "completion_criteria": "Windows browser validation of empty-file error → choose another image → convert/download; only fix and app-only deploy if safely completable within window; record guard completion and lock-free receipt; customer outcomes remain unmeasured.",
-      "note": "r2-t05 latest remote evidence verified complete and live. Existing report pending at 20:30 KST. No new scope."
+      "note": "r2-t05 latest remote evidence verified complete and live. Existing report pending at 20:30 KST. No new scope.",
+      "sent_at": "2026-11-24T11:16:48Z",
+      "message_id": "1795519008.904259",
+      "queue_id": "convq_b70b28dce2adf240485d0186ee35deba"
+    },
+    {
+      "type": "handoff_receipt",
+      "at": "2026-11-24T11:16:48Z",
+      "task_id": "miniapp-20261124-r2-t06",
+      "status": "sent",
+      "message_id": "1795519008.904259",
+      "queue_id": "convq_b70b28dce2adf240485d0186ee35deba",
+      "note": "Native conversation send receipt; delivery is not Windows task acceptance or product result."
     }
   ],
   "artifacts": [
