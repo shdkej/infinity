@@ -831,15 +831,17 @@
       "limits": "One same-task result confirmation only; does not dispatch/restart work or establish Windows acknowledgement."
     },
     {
-      "label": "r2-t02 prepared: bounded input-boundary robustness follow-up",
-      "type": "handoff_prepared",
-      "at": "2026-11-24T09:00:00Z",
+      "label": "r2-t02 bounded input-boundary task handed to Windows",
+      "type": "handoff",
+      "at": "2026-11-24T09:03:29Z",
       "task_id": "miniapp-20261124-r2-t02",
-      "status": "prepared",
+      "status": "sent",
       "evidence_paths": [
         "intents/waiting/miniapp-image-tools-20261118-qa-01.md"
       ],
-      "limits": "Handoff not yet sent or accepted; synthetic inputs only; no customer outcome or live product change claimed."
+      "limits": "Slack delivery receipt only; Windows acceptance/execution and product outcome not yet evidenced. Synthetic inputs only; no customer outcome claimed.",
+      "message_id": "1795511017.606359",
+      "queue_id": "convq_2a2c305e6ddbfeb7a8de71c20663ffae"
     }
   ],
   "artifacts": [
@@ -1172,7 +1174,7 @@
     }
   ],
   "next_decision": {
-    "status": "handoff_prepared",
-    "value": "r2-t01 completed_no_change with guard exit 0 and lock released; r2-t02 prepared to check bounded input format/corruption/size boundaries and valid-input recovery, without broad data or instrumentation."
+    "status": "handoff_sent",
+    "value": "r2-t02 handed to Windows with fixed 20:30 KST end; receipt 1795511017.606359. Await same-task result/guard/lock evidence; delivery is not execution acceptance."
   }
 }

@@ -148,7 +148,9 @@ lanes:
     current_task_start_at: '2026-11-24T08:30:00Z'
     current_task_end_at: '2026-11-24T11:30:00Z'
     current_task_handoff_attempt_at: '2026-11-24T09:00:00Z'
-    current_task_handoff_status: prepared
+    current_task_handoff_status: sent
+    current_task_handoff_message_id: '1795511017.606359'
+    current_task_handoff_queue_id: convq_2a2c305e6ddbfeb7a8de71c20663ffae
     current_task_completion_criteria: 기존 승인 앱에서 합성 지원/비지원 포맷과 손상·크기 경계 입력을 제한적으로 시험해 입력별 오류 표시, 이전 결과 무효화, 정상 입력 복구를 확인. 재현 결함만 수정·테스트·기존 승인 앱 전용 배포·라이브 확인; 무재현이면 범위·증거·다음 후보 기록. 신규 비용·권한·다른 앱 데이터·식별/페이지뷰/세션재생/민감정보 수집 제외. 고정 end_at 준수, guard 종료·잠금 해제 확인.
     prior_task_handoff_message_id: '1795506439.083149'
     prior_task_handoff_queue_id: convq_8a215ed203754328f7789be184b789a3
@@ -245,7 +247,9 @@ lanes:
         current_task_end_at: '2026-11-24T11:30:00Z'
         current_task_completion_criteria: 기존 승인 앱에서 합성 지원/비지원 포맷과 손상·경계 크기 입력을 제한적으로 시험해 입력별 오류 표시, 이전 결과 무효화, 정상 입력 복구를 확인. 재현 결함만 수정·테스트·기존 승인 앱 전용 배포·라이브 확인; 무재현이면 범위·증거·다음 후보 기록. 신규 비용·권한·다른 앱 데이터·식별/페이지뷰/세션재생/민감정보 수집 제외. guard 종료와 잠금 해제 확인.
         handoff_attempt_at: '2026-11-24T09:00:00Z'
-        handoff_status: prepared
+        handoff_status: sent
+        handoff_message_id: '1795511017.606359'
+        handoff_queue_id: convq_2a2c305e6ddbfeb7a8de71c20663ffae
         report_status: pending
         last_task_status: completed_no_change
         last_task_id: miniapp-20261124-r2-t01
@@ -269,6 +273,7 @@ lanes:
     current_task_status_check_status: sent
     current_task_status_check_message_id: '1795509931.304839'
     current_task_status_check_queue_id: convq_d1a9b31945c418c0f1623e371c8155b8
+    current_task_handoff_receipt: sent 1795511017.606359; queue convq_2a2c305e6ddbfeb7a8de71c20663ffae
   - id: reel-room-studio-20261113
     title: Reel Room·Instagram Maker 통합 릴스 스튜디오 구현
     task_name: Reel Room·Instagram Maker 통합 릴스 스튜디오 구현
