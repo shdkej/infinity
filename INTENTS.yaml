@@ -147,10 +147,10 @@ lanes:
     current_task_handoff_status: sent
     current_task_handoff_message_id: '1795501098.299669'
     current_task_handoff_queue_id: convq_b5f3b33076f1b0313f21d77c5f4818cb
-    current_task_status_check_at: ''
-    current_task_status_check_status: ''
-    current_task_status_check_message_id: ''
-    current_task_status_check_queue_id: ''
+    current_task_status_check_at: '2026-11-24T06:30:00Z'
+    current_task_status_check_status: sent
+    current_task_status_check_message_id: '1795501837.091079'
+    current_task_status_check_queue_id: convq_acdc45af3cb6e5f1e24a46db0aa4f9be
     current_task_status: dispatched
     current_task_result_summary: ''
     current_task_followup: 'r1-t02는 r1-t01 완료 뒤 후보에 근거한 새 작업. 고정 end_at 내 실행/완료 증거를 회수한다.'
@@ -210,6 +210,10 @@ lanes:
         status_check_status: sent
         status_check_message_id: '1795499148.316479'
         status_check_queue_id: convq_91563ac2f0bfcad456037f75a91470ae
+        current_status_check_at: '2026-11-24T06:30:00Z'
+        current_status_check_status: sent
+        current_status_check_message_id: '1795501837.091079'
+        current_status_check_queue_id: convq_acdc45af3cb6e5f1e24a46db0aa4f9be
         report_status: pending
         last_task_status: dispatched
         last_task_id: miniapp-20261124-r1-t02
