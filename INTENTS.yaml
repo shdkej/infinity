@@ -146,16 +146,20 @@ lanes:
     prior_r2_t03_task_id: miniapp-20261124-r2-t03
     prior_r2_t03_status: source_published_deploy_blocked
     prior_r2_t03_result_summary: 0B 안내 불일치 수정·Node 9/9·Space SHA b8ee2e45; 앱 배포 보류, 라이브 구 문구. guard exit 0·잠금 해제.
-    current_task_id: miniapp-20261124-r2-t05
-    current_task_goal: CMO가 제안한 0B 오류·상단 상태 문구의 최소 적용 여부를 검증하고, 적용 시 배포·라이브 경로 확인
-    current_task_start_at: '2026-11-24T10:31:10Z'
+    prior_r2_t05_task_id: miniapp-20261124-r2-t05
+    prior_r2_t05_result: copy_released_live_verified
+    prior_r2_t05_guard_finished_at: '2026-11-24T10:48:12.591294+00:00'
+    prior_r2_t05_guard_exit_code: 0
+    prior_r2_t05_lock_released_verified_at: '2026-11-24T10:49:18Z'
+    current_task_id: miniapp-20261124-r2-t06
+    current_task_goal: 좁은 모바일 에뮬레이션·키보드에서 0B 거부 후 유효 파일 재선택·변환·다운로드 복구 검증
+    current_task_start_at: '2026-11-24T11:15:45Z'
     current_task_end_at: '2026-11-24T11:30:00Z'
-    current_task_handoff_attempt_at: '2026-11-24T10:31:10Z'
+    current_task_handoff_attempt_at: '2026-11-24T11:15:45Z'
     current_task_handoff_status: sent
-    current_task_handoff_message_id: '1795516420.694159'
-    current_task_handoff_queue_id: convq_97ca970aaebf3d9cf6a2a2f1743a326d
-    current_task_completion_criteria: >-
-      기존 CMO 제안 문구만 적용(0B 오류: 파일이 비어 있어 변환할 수 없습니다. 다른 이미지 파일을 선택해 주세요.; 상단 상태: 선택한 파일이 비어 있습니다.); 기존 오류 코드·기타 안내·계측 유지. 회귀 테스트, 앱 전용 배포, 두 converter URL 라이브 검증 및 /·/sort/ 도달성, guard 종료·잠금 해제 확인. 적용이 불필요/위험하면 근거와 no-change 기록. 고정 11:30Z 종료, 신규 비용/권한/데이터 범위 확대 금지.
+    current_task_handoff_message_id: '1795519008.904259'
+    current_task_handoff_queue_id: convq_b70b28dce2adf240485d0186ee35deba
+    current_task_completion_criteria: 실제 브라우저 390×844·320×720에서 0B 거부 후 정상 선택·키보드 변환/다운로드·파일 재디코딩 확인; 결함 없으면 제품 무변경, guard 종료/잠금 해제·합성 QA 한계 기록.
     prior_task_handoff_message_id: '1795506439.083149'
     prior_task_handoff_queue_id: convq_8a215ed203754328f7789be184b789a3
     prior_task_status_check_at: '2026-11-24T07:30:47Z'
@@ -173,16 +177,16 @@ lanes:
     prior_r2_t02_guard_finished_at: '2026-11-24T09:13:11.829869+00:00'
     prior_r2_t02_guard_exit_code: 0
     prior_r2_t02_lock_released_verified_at: '2026-11-24T09:13:22Z'
-    current_task_status: completed_copy_released_live_verified
-    current_task_result_summary: 0B 상단·오류에 CMO 지정 문구만 적용, 기존 오류 코드·기타 문구 유지. RED→GREEN 및 Node 9/9, 현재 직전 본문 S3 두 키 복원 연습·독립 restore 후 앱 전용 Action 45377563324 성공. 두 converter URL 200·동일 SHA와 문구, /·/sort/ 200 및 합성 0B→정상 PNG 복구·WebP 디코딩 확인. guard exit 0·잠금 해제; 고객 성과 미측정.
-    current_task_followup: 실제 고객 이해·성과·스크린리더 발화·PostHog 수집은 미검증. 강제 러너 종료·부분 쓰기 상황은 재현하지 않았고, 구 복원 workflow는 현재 main에서 b8 직전 본문을 기준으로만 동작한다.
-    current_task_result: copy_released_live_verified
+    current_task_status: completed_no_product_change
+    current_task_result_summary: ego lite 실제 라이브 브라우저의 모바일 에뮬레이션 390×844·320×720에서 0B 거부 뒤 정상 PNG 재선택, 키보드 변환/다운로드 복구. 저장 WebP 각 80×40 RGB 재디코딩·가로 넘침 없음. Node 9/9, 제품 코드·배포 Action 무변경, QA 문서 Space SHA b6ed6a8. guard exit 0·잠금 해제. 합성 QA, 고객 성과 미측정.
+    current_task_followup: 파일 선택은 브라우저 helper 사용(전체 키보드 OS 파일 선택기 미검증). 헤더 읽기 도중 설정 변경 경합은 이번 요청 흐름에서 미재현한 인접 후보; 별도 승인 시 재현 검토. 스크린리더 발화·실물 폰·고객 성과 미검증.
+    current_task_result: mobile_keyboard_recovery_pass_no_change
     current_task_guard_status: completed
     current_task_guard_exit_code: 0
-    current_task_guard_finished_at: '2026-11-24T10:48:12.591294+00:00'
-    current_task_lock_released_verified_at: '2026-11-24T10:49:18Z'
+    current_task_guard_finished_at: '2026-11-24T11:23:57.291875+00:00'
+    current_task_lock_released_verified_at: '2026-11-24T11:24:09.929899Z'
     report: reports/miniapp-image-tools-20261118-qa-01/20261124T1230KST.html
-    current_task_handoff_receipt: sent 1795516420.694159; queue convq_97ca970aaebf3d9cf6a2a2f1743a326d
+    current_task_handoff_receipt: sent 1795519008.904259; queue convq_b70b28dce2adf240485d0186ee35deba
     daily_run_window:
       start_date: '2026-11-23'
       end_date: '2026-11-25'
@@ -271,12 +275,12 @@ lanes:
         current_task_status_check_queue_id: convq_b3800df487bd672c099f41b904f78e0f
         prior_task_status: copy_released_live_verified
         prior_task_id: miniapp-20261124-r2-t05
-        last_task_status: handoff_prepared
+        last_task_status: mobile_keyboard_recovery_pass_no_change
         last_task_id: miniapp-20261124-r2-t06
-        last_task_result: CMO 지정 0B 상단·오류 문구만 적용, Node 9/9; 두 대상 객체 현행 직전 본문 복원 연습·독립 restore 후 Action 45377563324 성공, converter 두 경로 200·동일 SHA, /·/sort/ 200. guard exit 0·lock free.
-        last_task_guard_finished_at: '2026-11-24T10:48:12.591294+00:00'
+        last_task_result: 390·320px ego lite 모바일 에뮬레이션 0B 거부→유효 PNG 재선택→키보드 변환·다운로드·WebP 80×40 재디코딩 PASS. 제품 코드·신규 Action 없음, Space QA SHA b6ed6a8. guard exit 0·lock free.
+        last_task_guard_finished_at: '2026-11-24T11:23:57.291875+00:00'
         last_task_guard_exit_code: 0
-        last_task_lock_released_verified_at: '2026-11-24T10:49:18Z'
+        last_task_lock_released_verified_at: '2026-11-24T11:24:09.929899Z'
         prior_r2_t04_status: recovery_rehearsed_release_live_verified
         prior_r2_t04_guard_finished_at: '2026-11-24T10:23:34.312858+00:00'
         prior_r2_t04_guard_exit_code: 0

@@ -1524,11 +1524,25 @@
         "child": "proc_20d84d97bab5"
       },
       "limits": "Historical 19:47 status_snapshot remains true as-of then, now superseded by final result. Forced partial-write/runner death untested; synthetic QA not customer understanding, physical device, screen reader or PostHog ingestion. r2 interval HTML report pending."
+    },
+    {
+      "label": "r2-t06 mobile keyboard recovery after zero-byte error",
+      "type": "execution_and_live",
+      "at": "2026-11-24T11:24:09.929899Z",
+      "task_id": "miniapp-20261124-r2-t06",
+      "status": "mobile_keyboard_recovery_pass_no_change",
+      "evidence_paths": ["intents/waiting/miniapp-image-tools-20261118-qa-01.md", "https://github.com/shdkej/space/commit/b6ed6a8087ea45faa633d81d472c5c86d4c3aaf1"],
+      "guard": {"state": "completed", "exit_code": 0, "started_at": "2026-11-24T11:20:30.232404+00:00", "finished_at": "2026-11-24T11:23:57.291875+00:00", "end_at": "2026-11-24T11:30:00+00:00", "lock_free_verified_at": "2026-11-24T11:24:09.929899Z"},
+      "product": {"code_change": false, "new_release": false, "qa_doc_sha": "b6ed6a8087ea45faa633d81d472c5c86d4c3aaf1", "live_sha256_unchanged": "0c4f03f1ddb99bf9f4bbcb462e00ef853c38819496cbb52a2f44f46d4094533b", "node_tests": "9/9"},
+      "browser": {"tool": "ego lite", "viewports": ["390x844", "320x720"], "flow": "synthetic 0B rejected, valid PNG helper reselect, Tab/Shift+Tab focus visible, Enter/Space transform and download, two WebP 80x40 RGB files decoded", "horizontal_overflow": false},
+      "roles": ["planner", "developer", "marketer", "operator"],
+      "sessions": {"independent": "deleg_405e04ee", "cross_review": "deleg_686c3e10", "child": "proc_f59a6a9a681b"},
+      "limits": "File selection via helper, not keyboard-only OS picker; mobile browser emulation not physical device; adjacent header-read/settings-change race noted in code but not reproduced in asked flow; customer outcome, screen-reader speech and PostHog ingestion unverified. r2 HTML report pending."
     }
   ],
   "next_decision": {
-    "status": "r2_t05_completed_r2_report_pending",
-    "value": "Task completed at 19:48:12 KST with guard exit 0 and lock free verified 19:49:18 KST. Existing approved copy is live at both converter paths; app-only release and regression checks passed. Await 20:30 KST r2 report boundary, then reassess r3. Customer outcome unmeasured."
+    "status": "r2_t06_completed_no_product_change_r2_report_pending",
+    "value": "t06 guard completed 20:23:57 KST/exit 0, lock free verified 20:24:09 KST. Ego lite mobile emulation 390/320: synthetic 0B rejection followed by valid PNG helper reselect, keyboard transform/download and two WebP files reopened. No app code change or new release, QA doc Space SHA b6ed6a8. Adjacent header-read/settings-change race is separate candidate, not reproduced in this flow. r2 interval HTML report remains pending until 20:30 KST."
   },
   "handoff_attempts": [
     {
