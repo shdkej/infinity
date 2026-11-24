@@ -1021,6 +1021,25 @@
       "message_id": "1795519008.904259",
       "queue_id": "convq_b70b28dce2adf240485d0186ee35deba",
       "note": "Native conversation send receipt; delivery is not Windows task acceptance or product result."
+    },
+    {
+      "type": "window_report_sent",
+      "at": "2026-11-24T11:30:00Z",
+      "window": "r2",
+      "status": "sent",
+      "message_id": "1795519852.919859",
+      "queue_id": "convq_99daa2c023f23821ac88b1a76748b62f",
+      "summary": "Mobile keyboard recovery QA pass; product unchanged, synthetic QA, customer outcomes unmeasured."
+    },
+    {
+      "type": "task_handoff_prepared",
+      "at": "2026-11-24T11:31:12Z",
+      "task_id": "miniapp-20261124-r3-t01",
+      "window": "r3",
+      "sequence": 1,
+      "end_at": "2026-11-24T14:30:00Z",
+      "status": "prepared",
+      "goal": "Reproduce the unverified race where format/edge settings change during image-header reading; make a minimal fix, regression test, app-only release and live verification only if an actual defect is demonstrated."
     }
   ],
   "artifacts": [
@@ -1531,12 +1550,45 @@
       "at": "2026-11-24T11:24:09.929899Z",
       "task_id": "miniapp-20261124-r2-t06",
       "status": "mobile_keyboard_recovery_pass_no_change",
-      "evidence_paths": ["intents/waiting/miniapp-image-tools-20261118-qa-01.md", "https://github.com/shdkej/space/commit/b6ed6a8087ea45faa633d81d472c5c86d4c3aaf1"],
-      "guard": {"state": "completed", "exit_code": 0, "started_at": "2026-11-24T11:20:30.232404+00:00", "finished_at": "2026-11-24T11:23:57.291875+00:00", "end_at": "2026-11-24T11:30:00+00:00", "lock_free_verified_at": "2026-11-24T11:24:09.929899Z"},
-      "product": {"code_change": false, "new_release": false, "qa_doc_sha": "b6ed6a8087ea45faa633d81d472c5c86d4c3aaf1", "live_sha256_unchanged": "0c4f03f1ddb99bf9f4bbcb462e00ef853c38819496cbb52a2f44f46d4094533b", "node_tests": "9/9"},
-      "browser": {"tool": "ego lite", "viewports": ["390x844", "320x720"], "flow": "synthetic 0B rejected, valid PNG helper reselect, Tab/Shift+Tab focus visible, Enter/Space transform and download, two WebP 80x40 RGB files decoded", "horizontal_overflow": false},
-      "roles": ["planner", "developer", "marketer", "operator"],
-      "sessions": {"independent": "deleg_405e04ee", "cross_review": "deleg_686c3e10", "child": "proc_f59a6a9a681b"},
+      "evidence_paths": [
+        "intents/waiting/miniapp-image-tools-20261118-qa-01.md",
+        "https://github.com/shdkej/space/commit/b6ed6a8087ea45faa633d81d472c5c86d4c3aaf1"
+      ],
+      "guard": {
+        "state": "completed",
+        "exit_code": 0,
+        "started_at": "2026-11-24T11:20:30.232404+00:00",
+        "finished_at": "2026-11-24T11:23:57.291875+00:00",
+        "end_at": "2026-11-24T11:30:00+00:00",
+        "lock_free_verified_at": "2026-11-24T11:24:09.929899Z"
+      },
+      "product": {
+        "code_change": false,
+        "new_release": false,
+        "qa_doc_sha": "b6ed6a8087ea45faa633d81d472c5c86d4c3aaf1",
+        "live_sha256_unchanged": "0c4f03f1ddb99bf9f4bbcb462e00ef853c38819496cbb52a2f44f46d4094533b",
+        "node_tests": "9/9"
+      },
+      "browser": {
+        "tool": "ego lite",
+        "viewports": [
+          "390x844",
+          "320x720"
+        ],
+        "flow": "synthetic 0B rejected, valid PNG helper reselect, Tab/Shift+Tab focus visible, Enter/Space transform and download, two WebP 80x40 RGB files decoded",
+        "horizontal_overflow": false
+      },
+      "roles": [
+        "planner",
+        "developer",
+        "marketer",
+        "operator"
+      ],
+      "sessions": {
+        "independent": "deleg_405e04ee",
+        "cross_review": "deleg_686c3e10",
+        "child": "proc_f59a6a9a681b"
+      },
       "limits": "File selection via helper, not keyboard-only OS picker; mobile browser emulation not physical device; adjacent header-read/settings-change race noted in code but not reproduced in asked flow; customer outcome, screen-reader speech and PostHog ingestion unverified. r2 HTML report pending."
     }
   ],
