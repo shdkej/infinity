@@ -1750,7 +1750,7 @@
       "type": "browser_qa",
       "at": "2026-11-24T13:25:51Z",
       "task_id": "miniapp-20261124-r3-t04",
-      "status": "completed_no_product_change_guard_pending_parent",
+      "status": "completed_no_product_change_guard_completed",
       "live_url": "https://images.aws.shdkej.com/tools/image-converter/?qa=1",
       "fixtures": "Independent Pillow: seed PNG 160x80 301B, recovery PNG 120x60 449B, actual decodable GIF 48x24 90B; bad PNG header 301B and valid header/damaged body 33B undecodable",
       "observations": "Seed valid result precedes each failure. Bad header: invalid_file at selection; real GIF: unsupported_format at selection; damaged body: accepted by header, decode_failed on transform. Each failure invalidates preview/meta and download; valid PNG reselect clears error, transforms to PNG and enables new preview/download in same page.",
@@ -1765,11 +1765,12 @@
       },
       "customer_outcomes": "unmeasured; synthetic browser QA does not show real customer comprehension or success",
       "guard": {
-        "state": "pending_parent_after_child_exit",
+        "state": "completed",
+        "started_at": "2026-11-24T13:23:21.662078+00:00",
         "end_at": "2026-11-24T14:30:00Z",
-        "exit_code": null,
-        "finished_at": null,
-        "lock_free_verified_at": null
+        "exit_code": 0,
+        "finished_at": "2026-11-24T13:31:12.314251+00:00",
+        "lock_free_verified_at": "2026-11-24T13:31:30.267831+00:00"
       },
       "evidence_paths": [
         "intents/waiting/miniapp-image-tools-20261118-qa-01.md",
@@ -1779,8 +1780,8 @@
     }
   ],
   "next_decision": {
-    "status": "r3_t04_browser_qa_pass_guard_pending_parent_waiting_narrator",
-    "value": "Three distinct synthetic input failure paths recovered to saved and independently decoded PNG without a reproduced product defect or new deployment. Parent must verify r3-t04 guard exit/deadline and shared lock after child ends; r3 interval report remains pending. Customer outcomes unmeasured; original Narrator PID 27296 separately blocked until interactive Windows unlock."
+    "status": "r3_t04_browser_qa_pass_guard_completed_waiting_narrator",
+    "value": "Three distinct synthetic input failure paths recovered to saved and independently decoded PNG without a reproduced product defect or new deployment. Parent verified r3-t04 guard completed/exit 0 at 13:31:12Z and shared lock free at 13:31:30Z; r3 interval report remains pending. Customer outcomes unmeasured; original Narrator PID 27296 separately blocked until interactive Windows unlock."
   },
   "handoff_attempts": [
     {
@@ -1943,7 +1944,7 @@
       "sent_at": "2026-11-24T13:19:46Z",
       "product_result": "synthetic_live_rejection_recovery_pass_no_change",
       "browser_qa_observed_at": "2026-11-24T13:25:51Z",
-      "guard_final_receipt": "pending_parent_after_child_exit",
+      "guard_final_receipt": "completed_exit_0_at_2026-11-24T13:31:12.314251Z_lock_free_13:31:30.267831Z",
       "report": "reports/miniapp-image-tools-20261118-qa-01/20261124T1325Z-r3-t04.html",
       "roles": {
         "independent": "deleg_78ae1124",

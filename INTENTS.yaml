@@ -187,15 +187,15 @@ lanes:
     prior_r2_t06_guard_exit_code: 0
     prior_r2_t06_lock_released_verified_at: '2026-11-24T11:24:09.929899Z'
     prior_r2_t06_summary: mobile keyboard recovery QA pass at 390x844 and 320x720; synthetic only, customer outcomes unmeasured; no product change.
-    current_task_status: browser_qa_pass_no_product_change_guard_pending_parent
+    current_task_status: browser_qa_pass_no_product_change_guard_completed
     current_task_result_summary: 'Live ego lite same-page synthetic bad-header PNG and decodable GIF rejected at selection; header-valid damaged body failed at transform. Each stale result invalidated; distinct valid PNG reselect recovered and three browser-saved PNG outputs independently decoded 80x40. Node 11/11. No reproduced product defect, code change or new release. Customer outcomes unmeasured.'
-    current_task_followup: 'Parent to read actual guard state/exit/finished_at vs immutable end and nonblocking shared lock after child exits; r3 interval report pending. Narrator PID 27296 remains separate pending interactive Windows unlock.'
+    current_task_followup: 'r3 interval report pending. Narrator PID 27296 remains separate pending interactive Windows unlock; do not attempt additional termination.'
     current_task_result: synthetic_live_rejection_recovery_pass_no_change
     current_task_status_at: '2026-11-24T13:25:51Z'
-    current_task_guard_status: pending_parent_after_child_exit
-    current_task_guard_exit_code: null
-    current_task_guard_finished_at: null
-    current_task_lock_released_verified_at: null
+    current_task_guard_status: completed
+    current_task_guard_exit_code: 0
+    current_task_guard_finished_at: '2026-11-24T13:31:12.314251+00:00'
+    current_task_lock_released_verified_at: '2026-11-24T13:31:30.267831+00:00'
     prior_r3_t03_status: aggregate_verified_guard_completed
     prior_r3_t03_result_summary: 'US project 424014 bounded HogQL HTTP 200, 8 grouped rows; five event x synthetic/user counts in the task verification. Guard 12:51:04Z completed/exit 0 and lock 12:51:25Z free. Customer/unique people unmeasured; Narrator PID 27296 separate blocked issue.'
     prior_r3_t01_status_check_at: '2026-11-24T11:46:05Z'
@@ -391,10 +391,10 @@ lanes:
         current_task_status_check_queue_id: convq_c75d9a4e945aa174971333b1e56960bb
         current_task_status_check_task_id: miniapp-20261124-r3-t04
         current_task_status_check_reason: Product QA result is published but parent guard/exit/lock receipt remains pending; request same-task final status once, no task resend.
-        current_task_status: browser_qa_pass_no_product_change_guard_pending_parent
+        current_task_status: browser_qa_pass_no_product_change_guard_completed
         current_task_result: synthetic_live_rejection_recovery_pass_no_change
-        current_task_guard_status: pending_parent_after_child_exit
-        current_task_lock_status: pending_parent_after_child_exit
+        current_task_guard_status: completed_exit_0
+        current_task_lock_status: free_verified_at_2026-11-24T13:31:30.267831Z
         current_task_analytics_status: not_applicable_for_browser_qa
         prior_r3_t03_analytics_observed_at: '2026-11-24T12:43:40.169418Z'
         prior_r3_t03_analytics_window: '[2026-11-24T05:30:00Z,2026-11-24T12:41:30Z)'
@@ -419,7 +419,7 @@ lanes:
         current_task_product_evidence_sha: null
         current_task_release_run: null
         prior_task_guard_final_receipt: completed_exit_0_at_2026-11-24T12:28:14.119473Z_lock_free_at_12:28:29.123670Z_process_still_present
-        current_task_guard_final_receipt: pending_windows_parent
+        current_task_guard_final_receipt: completed_exit_0_at_2026-11-24T13:31:12.314251Z_lock_free_at_13:31:30.267831Z
         current_task_browser_qa_observed_at: '2026-11-24T13:25:51Z'
         current_task_browser_qa_result: 'Bad PNG header and actual GIF rejected at selection; PNG with intact header/damaged body accepted then failed decode at transform. Previous result invalidated each time; distinct valid PNG reselect saved and independently decoded three PNG 80x40 RGBA outputs. Node 11/11; no product edit/release.'
         current_task_report: reports/miniapp-image-tools-20261118-qa-01/20261124T1325Z-r3-t04.html
