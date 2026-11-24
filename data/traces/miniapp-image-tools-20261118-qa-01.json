@@ -419,6 +419,31 @@
       "qa_commit": "5552cfe07390ba17cd85e1a93aa2bb6fa0a21af0",
       "release_run": "45343956525",
       "next_candidate": "Keyboard-only focus/result discovery after mobile auto-scroll; SAM supervisor owns new ID."
+    },
+    {
+      "type": "task_completed",
+      "at": "2026-11-24T06:57:53Z",
+      "task_id": "miniapp-20261124-r1-t03",
+      "state": "completed",
+      "exit_code": 0,
+      "guard_finished_at": "2026-11-24T06:57:39.085211+00:00",
+      "end_at": "2026-11-24T08:30:00Z",
+      "active_lock": "free_verified",
+      "summary": "Source-size clarity fix passed 7/7 tests, app-only release and synthetic live mobile-emulation/desktop verification; customer outcome unmeasured.",
+      "release_run": "45343956525",
+      "next_candidate": "Test keyboard-only focus reachability after mobile automatic result scroll; SAM supervisor owns new ID."
+    },
+    {
+      "type": "handoff_attempt",
+      "at": "2026-11-24T07:00:00Z",
+      "task_id": "miniapp-20261124-r1-t04",
+      "status": "attempted",
+      "end_at": "2026-11-24T08:30:00Z",
+      "goal": "After conversion auto-scroll, reproduce whether keyboard-only interaction can reach result/download in mobile viewport; if defective, minimal fix, tests, app-only deploy and live mobile check; otherwise record evidence and next candidate.",
+      "evidence_paths": [
+        "INTENTS.yaml",
+        "intents/waiting/miniapp-image-tools-20261118-qa-01.md"
+      ]
     }
   ],
   "artifacts": [
@@ -617,7 +642,7 @@
     }
   ],
   "next_decision": {
-    "status": "dispatched",
-    "value": "Await Windows r1-t03 execution/result and guard/lock evidence; do not overlap."
+    "status": "handoff_pending",
+    "value": "r1-t04 recorded before send; dispatch only after final time/run/job check."
   }
 }

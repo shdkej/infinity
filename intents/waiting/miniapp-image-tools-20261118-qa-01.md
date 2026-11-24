@@ -266,3 +266,9 @@
 - 수정 전 새 테스트 실패, 수정 후 앱 Node 테스트 7/7 통과. Space 소스 SHA `3b9faeef227d97e48b3dfe42b71894ee0d738e7b`, [앱 전용 Action 45343956525](https://github.com/shdkej/space/actions/runs/45343956525) 성공(변환기 HTML 두 객체만 게시, 전체 버킷 삭제 없음), QA 기록 SHA `5552cfe07390ba17cd85e1a93aa2bb6fa0a21af0`. 라이브 두 변환기 URL 200과 공개 수집 토큰 한 곳만 제외한 소스 내용 일치. 실제 ego lite 390×844 **모바일 에뮬레이션**과 1280×800 데스크톱에서 `270B` 표기, 변환·브라우저 파일 저장·WebP 재디코딩을 확인했다. 모바일에서 옵션 변경 후 이전 결과 무효화·재변환 안내, 결과 재노출을 재확인했다. 홈과 `/sort/`는 HTTP 200 도달성만 확인. [Space QA 상세](https://github.com/shdkej/space/blob/main/infra-aws-static-sites/sites/miniapp-image-tools/qa/release-checkpoint.md).
 - 한계: 합성 QA이며 물리적 휴대전화·실제 고객 혼란/개선 효과·PostHog 수집·홈/정리 기능 전수 회귀는 확인하지 않았다. 다음 **별도 후보**는 모바일 자동 스크롤 후 키보드만으로 결과에 도달하는 포커스 흐름 점검. 새 목표/ID/인계는 SAM 감독이 판단한다. r1-t03 제품 작업은 완료했으나 17:30 r1 구간 보고는 pending이다.
 - 부모의 Planner·Developer·Marketer·Operator 독립 완료 `deleg_4a4acf6e`, 교차 검토 `deleg_a57801a6`: 실제 바이트와 UI 표기를 분리하고 경계값을 시험하며 고객 효과를 주장하지 않는 기준을 채택했다. 보호 자식 `local-7b5286a6ec0c0accccced92b9ca8798526fe3bc5b365002cdfa8a5190a3f2f5c`의 산출물을 부모가 guard 원장·잠금과 Space Action·라이브 소스 표기 대상으로 독립 확인했다.
+
+### 2026-11-24 16:00 KST · r1-t03 완료, r1-t04 준비
+
+- 최신 원격 `13ee4a2f`에서 `miniapp-20261124-r1-t03` 완료 증거를 확인했다: 합성 270B PNG의 `0.00MB` 불명확성을 B/KB/MB 표시로 수정, 앱 테스트 7/7, 변환기 범위 전용 배포 및 모바일 에뮬레이션/데스크톱 라이브 합성 확인. guard exit 0, 종료 `06:57:39Z`, 잠금 해제 `06:57:53Z`. 실제 고객 성과는 미측정이며 작업 완료와 분리한다.
+- r1의 다음 의미 있는 후보로 모바일 자동 스크롤 뒤 키보드 전용 포커스 흐름을 선택했다. 새 task `miniapp-20261124-r1-t04`, 고정 `end_at=2026-11-24T08:30:00Z` (17:30 KST). 재현 시 결함에 한해 최소 수정·테스트·기존 앱 전용 배포·라이브 모바일 확인; 아니면 근거와 다음 후보를 기록한다. 합성 검증·고객 성과 구분, 종료 전 guard/잠금 증거 포함.
+- 원장 sequence 4와 trace 인계 시도를 먼저 기록했다. 전송 전 현재 날짜/구간/run/job/end_at을 재검사한다.
