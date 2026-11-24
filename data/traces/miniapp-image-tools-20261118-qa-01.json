@@ -288,6 +288,15 @@
       ],
       "source_message": "https://shdkej.slack.com/archives/C0CE0DV9MM2/p1795496370965079",
       "note": "New authorized run: three 3-hour windows on Nov 24 KST 14:30–23:30. Reuse two cron jobs for 15-minute supervision and final one-shot closeout. Supervisor owns task IDs/dispatch; foreground SAM records results and can wake the same supervisor. Windows reported deadline supports 3h, max150 turns and no automatic follow-up. Future execution and continuous 3h behavior are unverified; prior morning completion and stop history preserved."
+    },
+    {
+      "type": "execution",
+      "at": "2026-11-24T05:30:13Z",
+      "evidence_paths": [
+        "INTENTS.yaml",
+        "intents/waiting/miniapp-image-tools-20261118-qa-01.md"
+      ],
+      "note": "Started authorized three-hour experiment run r1 with task miniapp-20261124-r1-t01; fixed end_at 2026-11-24T08:30:00Z. Mobile-inclusive reproducible flow friction → smallest safe fix/deploy/live check, or evidence and next candidate. Handoff recorded pending before send; morning task remains historical and excluded."
     }
   ],
   "artifacts": [
@@ -393,7 +402,7 @@
     }
   ],
   "next_decision": {
-    "status": "scheduled",
-    "value": "miniapp-20261124-3h 오늘14:30부터 세3시간 구간으로 실행·검증·후속 판단. SAM 감독 단일 인계, Windows 보호 실행·종료 영수증 기록,23:30 종합 종료."
+    "status": "in_progress",
+    "value": "r1 task miniapp-20261124-r1-t01 dispatched; await Windows evidence and decide same-window follow-up."
   }
 }

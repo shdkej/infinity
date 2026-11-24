@@ -137,23 +137,23 @@ lanes:
     release_workflow_run: '44469814029'
     release_live_url: https://images.aws.shdkej.com/tools/image-converter/
     waiting_on: internal
-    blocker: 새 사용자 지시로 오늘14:30부터3시간씩 세 구간 운영 준비. 미래 실행은 아직 미실행이며 기존 오전 업무는 완료 상태 보존.
-    current_task_id: miniapp-20261124-work
-    current_task_goal: 라이브 변환·다운로드와 앱 계측 수신·사용자 이벤트 구분 확인
-    current_task_start_at: '2026-11-24T01:00:00Z'
-    current_task_end_at: '2026-11-24T01:30:00Z'
-    current_task_completion_criteria: 종료 전 변환·다운로드, 서버 이벤트 수신·합성 제외, 실사용 지표의 표본/분모 한계를 구분 기록
-    current_task_handoff_attempt_at: '2026-11-24T01:00:00Z'
-    current_task_handoff_status: sent
-    current_task_handoff_message_id: '1795482081.190789'
-    current_task_handoff_queue_id: convq_d8a70a6c0fbe368d744669122f330040
-    current_task_status: completed
-    current_task_result_summary: '11/24 합성 변환·다운로드와 서버 이벤트 4건 확인. Windows 정상 종료·잠금 해제 보고가 있어 마감의 증거 누락 판정 정정. 고객 방문·전환 효과는 미측정.'
-    current_task_followup: '오전 점검 완료. 새로운 run miniapp-20261124-3h는14:30 시작; 오전 작업 ID를 재실행하지 않는다.'
-    current_task_result: '11/24 라이브 합성 PNG→WebP 다운로드·저장 파일 재검증 및 동일 QA ID synthetic 4건 서버 수신 통과. 실사용 조건 24시간 이벤트 조회는 빈 결과이며 방문자·세션 수와 효과는 미측정. Windows가 원문1795482603.441479에서 기한 전 정상 종료·잠금 해제를 보고함. Codex의 원격 guard 원장 독립 재조회는 하지 않았고 finished_at/exit_code 수치는 미기록. 소스·배포·계측·권한·비용 변경 없음.'
+    blocker: 오늘3시간 구간 실험 실행 중; 기존 오전 업무 결과는 새 run 실적과 분리 보존.
+    current_task_id: miniapp-20261124-r1-t01
+    current_task_goal: 모바일 포함 실제 입력→변환→다운로드 흐름에서 재현 가능한 사용 불편을 찾아 개선하고 승인 범위의 배포·라이브 검증까지 완료; 문제가 없으면 증거와 다음 후보 기록
+    current_task_start_at: '2026-11-24T05:30:00Z'
+    current_task_end_at: '2026-11-24T08:30:00Z'
+    current_task_completion_criteria: 재현 조건과 전후 근거, 실제 코드 변경 시 테스트·전용 배포·라이브 모바일/데스크톱 검증, Windows 보호 실행 종료/잠금 확인, 고객성과와 합성 QA 구분 기록
+    current_task_handoff_attempt_at: '2026-11-24T05:30:00Z'
+    current_task_handoff_status: pending
+    current_task_handoff_message_id: ''
+    current_task_handoff_queue_id: ''
+    current_task_status: dispatched
+    current_task_result_summary: ''
+    current_task_followup: 'r1 결과에 따라 구간 내 후속 작업을 새 task ID로 판단; 17:30 이전 인계 결과 회수.'
+    current_task_result: ''
 
     report: reports/miniapp-image-tools-20261118-qa-01/20261124T1230KST.html
-    current_task_handoff_receipt: 'Slack handoff1795482081.190789; Windows result/termination1795482603.441479. 결과 보고와 종료 보고는 존재하며 guard 원장 독립 검증과 구분.'
+    current_task_handoff_receipt: ''
     daily_run_window:
       start_date: '2026-11-23'
       end_date: '2026-11-25'
@@ -169,7 +169,7 @@ lanes:
       requested_days: 3
     experiment_run:
       run_id: miniapp-20261124-3h
-      status: scheduled
+      status: running
       date: '2026-11-24'
       timezone: Asia/Seoul
       start_at: '2026-11-24T05:30:00Z'
@@ -189,8 +189,13 @@ lanes:
       - id: r1
         start_at: '2026-11-24T05:30:00Z'
         end_at: '2026-11-24T08:30:00Z'
-        status: planned
-        task_sequence: 0
+        status: running
+        task_sequence: 1
+        current_task_id: miniapp-20261124-r1-t01
+        current_task_goal: 모바일 포함 실제 입력→변환→다운로드 흐름의 재현 가능한 불편을 찾아 작은 개선·배포·라이브 검증; 문제가 없으면 근거와 후보 기록
+        current_task_end_at: '2026-11-24T08:30:00Z'
+        handoff_attempt_at: '2026-11-24T05:30:00Z'
+        handoff_status: pending
         report_status: pending
         goal: '입력→변환→다운로드의 재현 가능한 불편을 찾아 작은 개선·배포·라이브 확인'
       - id: r2
@@ -207,7 +212,7 @@ lanes:
         task_sequence: 0
         report_status: pending
         goal: '앞선 결과로 남은 개선을 실행하고 변경 전후 근거·회귀 검증·다음 판단 정리'
-    next_action: '오늘14:30~23:30 세 구간에서 개선·배포·검증을 반복한다. SAM 감독이 새 ID로 인계하고 Windows 결과에 따라 다음 작업을 선택. 17:30/20:30 구간 보고, 23:30 종합 보고 후 종료.'
+    next_action: 'r1의 Windows 실행·결과를 같은 task_id로 회수하고, 증거에 따라 구간 내 후속 일을 선택한다. 17:30/20:30 구간 보고, 23:30 종합 보고 후 종료.'
     notification_channel: slack
     notification_target: channel:C0CE0DV9MM2
     notification_reply_to: '1794983278.888719'
