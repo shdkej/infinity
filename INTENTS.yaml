@@ -258,7 +258,7 @@ lanes:
         handoff_queue_id: convq_2c51dafc7d86f214689ff73c00182117
         report_status: pending
         current_task_status_check_at: '2026-11-24T10:15:38Z'
-        current_task_status_check_status: pending_send
+        current_task_status_check_status: sent
         current_task_status_check_task_id: miniapp-20261124-r2-t04
         prior_task_status_check_at: '2026-11-24T09:45:00Z'
         prior_task_status_check_status: sent
@@ -296,10 +296,10 @@ lanes:
     notification_target: channel:C0CE0DV9MM2
     notification_reply_to: '1794983278.888719'
     current_task_status_check_at: '2026-11-24T10:15:38Z'
-    current_task_status_check_status: pending_send
+    current_task_status_check_status: sent
     current_task_status_check_task_id: miniapp-20261124-r2-t04
-    current_task_status_check_message_id: null
-    current_task_status_check_queue_id: null
+    current_task_status_check_message_id: '1795515392.935409'
+    current_task_status_check_queue_id: convq_44b524efa690695a8a5f44620ab56c48
   - id: reel-room-studio-20261113
     title: Reel Room·Instagram Maker 통합 릴스 스튜디오 구현
     task_name: Reel Room·Instagram Maker 통합 릴스 스튜디오 구현

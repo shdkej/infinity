@@ -410,4 +410,4 @@
 - 19:03 KST 최종 발송 직전 검사에서 KST 11/24 r2, 고정 `end_at=11:30Z` 미도과, run `running`, supervisor `enabled`, 최신 원격 HEAD `54038276` 확인. native 전송 sent 영수증 `1795514630.548399`, queue `convq_2c51dafc7d86f214689ff73c00182117`. 전송은 Windows 실행 수락·제품 결과를 증명하지 않는다.
 
 
-- 2026-11-24 19:15 KST 감독 확인: r2-t04의 최신 원격 기록은 handoff sent이나 현재 결과·종료·guard·잠금 갱신 없음. 감독 job enabled, 구간 r2 및 task end_at 20:30 KST 확인 후 같은 task_id의 상태 1회 요청을 준비함; send 영수증은 아직 없음.
+- 2026-11-24 19:15 KST 감독 확인: r2-t04의 최신 원격 기록은 handoff sent이나 현재 결과·종료·guard·잠금 갱신 없음. 감독 job enabled, 구간 r2 및 task end_at 20:30 KST 확인 후 같은 task_id의 상태 1회 요청을 준비함; 19:16 KST 단일 상태요청 sent 영수증 `1795515392.935409` (queue `convq_44b524efa690695a8a5f44620ab56c48`); 새 실행 요청 아님.
