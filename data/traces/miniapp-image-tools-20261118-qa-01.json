@@ -580,6 +580,17 @@
       "analytics_changed": false,
       "new_deployment": false,
       "prior_task_cleanup": "Narrator PID 27296 from t05 still awaiting interactive desktop unlock/termination; not part of t06 guard lock."
+    },
+    {
+      "label": "r1-t07 mobile final viewport result visibility reproduction",
+      "type": "handoff_prepared",
+      "at": "2026-11-24T08:00:00Z",
+      "task_id": "miniapp-20261124-r1-t07",
+      "status": "prepared",
+      "evidence_paths": [
+        "intents/waiting/miniapp-image-tools-20261118-qa-01.md"
+      ],
+      "limits": "Prepared in r1; handoff receipt pending; no Windows acceptance or product result yet."
     }
   ],
   "artifacts": [
@@ -846,7 +857,7 @@
     }
   ],
   "next_decision": {
-    "status": "dispatched",
-    "value": "r1-t06 sent; collect app-only aggregates and guard/lock receipt; r1 report at 17:30"
+    "status": "prepared",
+    "value": "r1-t07 prepared; before send recheck time/window/run/job, then handoff or expire."
   }
 }
