@@ -1351,11 +1351,38 @@
         "child": "local-799549977b17d01e7ec941ab91156cdb4a3f98d67625a590c1f7422b70fd83b6"
       },
       "limits": "Guard exit 0 and source commit are not app deployment. No app Action; live old copy; synthetic QA not real customer understanding. Rollback prerequisite unverified."
+    },
+    {
+      "label": "r2-t04 two-object restore proof, app-only release and live readback",
+      "type": "execution_and_live",
+      "at": "2026-11-24T10:27:44Z",
+      "task_id": "miniapp-20261124-r2-t04",
+      "status": "recovery_rehearsed_release_live_verified",
+      "evidence_paths": [
+        "intents/waiting/miniapp-image-tools-20261118-qa-01.md",
+        "https://github.com/shdkej/space/actions/runs/45372785034",
+        "https://github.com/shdkej/space/actions/runs/45373229127",
+        "https://github.com/shdkej/space/actions/runs/45373438908",
+        "https://github.com/shdkej/space/blob/main/infra-aws-static-sites/sites/miniapp-image-tools/qa/release-checkpoint.md"
+      ],
+      "guard": {
+        "state": "completed",
+        "exit_code": 0,
+        "started_at": "2026-11-24T10:08:26.352655+00:00",
+        "finished_at": "2026-11-24T10:23:34.312858+00:00",
+        "end_at": "2026-11-24T11:30:00+00:00",
+        "lock_free_verified_at": "2026-11-24T10:27:44Z"
+      },
+      "actions": {"rehearse": 45372785034, "restore": 45373229127, "release": 45373438908},
+      "live": {"converter_paths": ["/tools/image-converter/", "/tools/image-converter/index.html"], "status": 200, "sha256": "3636ab22d9b66ea11797430ea056ec7166864ca6447d7e8f4ac17bbbfd3e09c9", "zero_byte_copy": "long_r2_t03_source_copy_live", "root_and_sort_reachability": 200},
+      "roles": ["planner", "developer", "marketer", "operator"],
+      "sessions": {"independent": "deleg_cfae41a5", "cross_review": "deleg_6cc4da09", "child": "proc_182e92aeaa0b"},
+      "limits": "Identical-content write and independent restore verified; forced partial-write failure not tested, S3 version restore unavailable. CMO shortened empty-file copy and upper status not deployed. Synthetic QA only; no real customer outcome, screen reader or PostHog ingestion proof. r2 interval HTML report remains pending."
     }
   ],
   "next_decision": {
-    "status": "status_check_sent_pending_windows",
-    "value": "r2-t04 same-task status check sent at 19:16 KST, message 1795515392.935409; no new execution dispatched. Await Windows reply; r2 report remains due 20:30 KST."
+    "status": "r2_t04_completed_r2_report_pending",
+    "value": "r2-t04 same-task status check sent at 19:16 KST (1795515392.935409), then existing guard completed at 19:23:34 KST/exit 0 and lock free verified at 19:27:44 KST; recovery rehearsed, emergency restore proven, app-only Action 45373438908 and live two-path readback passed. No new execution dispatched. CMO short empty-file copy/upper status separate; r2 HTML report remains pending until 20:30 KST."
   },
   "handoff_attempts": [
     {

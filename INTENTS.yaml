@@ -172,14 +172,14 @@ lanes:
     prior_r2_t02_guard_finished_at: '2026-11-24T09:13:11.829869+00:00'
     prior_r2_t02_guard_exit_code: 0
     prior_r2_t02_lock_released_verified_at: '2026-11-24T09:13:22Z'
-    current_task_status: handoff_prepared
-    current_task_result_summary: null
-    current_task_followup: 배포는 복원 안전성이 입증될 때만; 고객 이해도·성과 미측정.
-    current_task_result: null
-    current_task_guard_status: null
-    current_task_guard_exit_code: null
-    current_task_guard_finished_at: null
-    current_task_lock_released_verified_at: null
+    current_task_status: completed_recovery_verified_released
+    current_task_result_summary: 기존 OIDC 자격으로 대상 두 S3 객체 HEAD/GET 및 동일 본문·메타데이터 PutObject 복원 연습, 긴급 restore Action 성공. 앱 전용 release Action 45373438908 성공·라이브 두 경로 동일 0B 수정 문구 확인; CMO 짧은 문구·상단 상태는 미반영. Node 9/9, 합성 0B 거부·정상 다운로드 복구. 고객 성과 미측정.
+    current_task_followup: CMO의 짧은 0B 문구·상단 상태 변경은 별도 인계 판단; 부분 실패 kill 실험, 실제 고객 이해·스크린리더 발화는 이번 증거 밖. 구 baseline 복원은 mode=restore 경로로 검증됨.
+    current_task_result: recovery_rehearsed_release_live_verified
+    current_task_guard_status: completed
+    current_task_guard_exit_code: 0
+    current_task_guard_finished_at: '2026-11-24T10:23:34.312858+00:00'
+    current_task_lock_released_verified_at: '2026-11-24T10:27:44Z'
     report: reports/miniapp-image-tools-20261118-qa-01/20261124T1230KST.html
     current_task_handoff_receipt: sent 1795514630.548399; queue convq_2c51dafc7d86f214689ff73c00182117
     daily_run_window:
@@ -260,17 +260,22 @@ lanes:
         current_task_status_check_at: '2026-11-24T10:15:38Z'
         current_task_status_check_status: sent
         current_task_status_check_task_id: miniapp-20261124-r2-t04
+        last_task_status: recovery_rehearsed_release_live_verified
+        last_task_id: miniapp-20261124-r2-t04
+        last_task_result: 두 S3 객체의 기존 본문·메타데이터 읽기/동일 복원 연습 및 긴급 restore 입증 후 Action 45373438908 앱 전용 배포 성공. 라이브 두 경로 200·동일 SHA, 긴 0B 수정 문구 확인; CMO 짧은 문구·상단 상태 미반영.
+        last_task_guard_finished_at: '2026-11-24T10:23:34.312858+00:00'
+        last_task_guard_exit_code: 0
+        last_task_lock_released_verified_at: '2026-11-24T10:27:44Z'
         prior_task_status_check_at: '2026-11-24T09:45:00Z'
         prior_task_status_check_status: sent
         prior_task_status_check_task_id: miniapp-20261124-r2-t03
         prior_task_status_check_message_id: '1795513609.377209'
         prior_task_status_check_queue_id: convq_c529ac4db654882a9a0376b1f9834b7c
-        last_task_status: source_published_deploy_blocked
-        last_task_id: miniapp-20261124-r2-t03
-        last_task_result: 0B 문구 오류 재현·최소 수정·Node 9/9·Space SHA b8ee2e45; 앱 신규 배포 보류(기존 S3 두 객체 롤백 경로 미검증), 라이브 구 문구 유지. guard exit 0·lock free.
-        last_task_guard_finished_at: '2026-11-24T09:45:22.339432+00:00'
-        last_task_guard_exit_code: 0
-        last_task_lock_released_verified_at: '2026-11-24T09:45:33Z'
+        prior_r2_t03_status: source_published_deploy_blocked
+        prior_r2_t03_result: 0B 문구 오류 재현·최소 수정·Node 9/9·Space SHA b8ee2e45; 당시 앱 신규 배포 보류(기존 S3 두 객체 롤백 경로 미검증), 라이브 구 문구 유지.
+        prior_r2_t03_guard_finished_at: '2026-11-24T09:45:22.339432+00:00'
+        prior_r2_t03_guard_exit_code: 0
+        prior_r2_t03_lock_released_verified_at: '2026-11-24T09:45:33Z'
         prior_r2_t02_task_id: miniapp-20261124-r2-t02
         prior_r2_t02_guard_finished_at: '2026-11-24T09:13:11.829869+00:00'
         prior_r2_t02_guard_exit_code: 0
