@@ -593,6 +593,85 @@
       "limits": "Prepared in r1; handoff receipt pending; no Windows acceptance or product result yet.",
       "message_id": "1795507291.567359",
       "queue_id": "convq_a74978e8adf58de4ef2a198496f9387d"
+    },
+    {
+      "type": "task_completed",
+      "at": "2026-11-24T08:12:23Z",
+      "task_id": "miniapp-20261124-r1-t07",
+      "state": "completed_no_change_with_boundary_visibility_limit",
+      "guard_state": "completed",
+      "exit_code": 0,
+      "guard_started_at": "2026-11-24T08:05:26.943474+00:00",
+      "guard_finished_at": "2026-11-24T08:12:00.218596+00:00",
+      "end_at": "2026-11-24T08:30:00+00:00",
+      "active_lock": "free_verified",
+      "observed_at": "2026-11-24T08:07:41Z/2026-11-24T08:10:44Z",
+      "synthetic_qa": {
+        "viewport_390x844": {
+          "settled_samples": 9,
+          "scroll_y": 620,
+          "status_y": [
+            154.2,
+            203.8
+          ],
+          "heading_y": [
+            248.8,
+            278.55
+          ],
+          "download_y": [
+            629.58,
+            678.38
+          ],
+          "saved_webp_dimensions": [
+            640,
+            480
+          ],
+          "saved_webp_bytes": 1110
+        },
+        "boundary_700x844": {
+          "settled_scroll_y": 599,
+          "download_y": [
+            851.08,
+            899.88
+          ],
+          "button_below_viewport": true,
+          "keyboard_focus_reachable": true
+        },
+        "boundary_701x844": {
+          "settled_scroll_y": 0,
+          "heading_y": [
+            869.48,
+            899.23
+          ],
+          "download_y": [
+            1450.27,
+            1499.06
+          ],
+          "keyboard_focus_reachable": true,
+          "saved_webp_dimensions": [
+            640,
+            480
+          ]
+        },
+        "boundary_760x844": {
+          "settled_scroll_y": 0,
+          "heading_y": [
+            880.53,
+            910.28
+          ],
+          "download_y": [
+            1461.31,
+            1510.11
+          ],
+          "keyboard_focus_reachable": true
+        }
+      },
+      "assessment": "390 mobile final screen fully visible and save/decode succeeded; 700-760 final screen visibility gap observed but ordinary scroll/Tab reaches and 701 keyboard save succeeded. Physical touch-device discoverability not verified; no code/test change or new deployment.",
+      "source_changed": false,
+      "new_deployment": false,
+      "previous_release_run": "45343956525",
+      "customer_outcome_status": "unmeasured",
+      "next_candidate": "SAM-approved physical touch-device 701–760px and dynamic browser chrome result discoverability check; change scroll breakpoint/target only on observed friction."
     }
   ],
   "artifacts": [
@@ -856,6 +935,28 @@
         "child": "local-d3584343b664bc29051c8e21fe8f68a85c994bd145c7a6686038723115818484"
       },
       "limits": "Only five event aggregate counts for app_id and user/synthetic labels over fixed 24h; no individual customer/download success or conversion denominator measured; t05 Narrator cleanup separate."
+    },
+    {
+      "label": "r1-t07 final settled mobile viewport after conversion with boundary visibility limit",
+      "type": "execution_and_live",
+      "at": "2026-11-24T08:12:23Z",
+      "task_id": "miniapp-20261124-r1-t07",
+      "status": "warn",
+      "evidence_paths": [
+        "intents/waiting/miniapp-image-tools-20261118-qa-01.md"
+      ],
+      "roles": [
+        "planner",
+        "developer",
+        "marketer",
+        "operator"
+      ],
+      "sessions": {
+        "independent": "deleg_ec364947",
+        "cross_review": "deleg_8cd4ce01",
+        "child": "local-ced44bc400d022380df94bfa41635f7534136b84e4f825664929b1063a6ad0bf"
+      },
+      "limits": "Synthetic Chromium emulation, not physical touch device/screen reader or measured customer outcome; 701–760 result below viewport but reachable; file selected via browser helper, keyboard-only file picker untested."
     }
   ],
   "next_decision": {
