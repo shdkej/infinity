@@ -367,7 +367,9 @@ lanes:
         prior_r3_t04_lock_released_verified_at: '2026-11-24T13:31:30.267831Z'
         prior_r3_t04_customer_outcomes: unmeasured
         handoff_attempt_at: '2026-11-24T13:45:00Z'
-        handoff_status: prepared
+        handoff_status: sent
+        handoff_message_id: '1795528064.765319'
+        handoff_queue_id: convq_b8119ca320f3e27c53802a4c20830075
         prior_task_handoff_message_id: '1795523874.479619'
         prior_task_handoff_queue_id: convq_9593dc8cb25c61f13231159ad238504a
         prior_task_id: miniapp-20261124-r3-t02
@@ -394,8 +396,8 @@ lanes:
         current_task_status_check_queue_id: convq_c75d9a4e945aa174971333b1e56960bb
         current_task_status_check_task_id: miniapp-20261124-r3-t04
         current_task_status_check_reason: Product QA result is published but parent guard/exit/lock receipt remains pending; request same-task final status once, no task resend.
-        current_task_status: handoff_prepared
-        current_task_result: pending_windows_execution
+        current_task_status: handoff_sent_windows_execution_pending
+        current_task_result: windows_acceptance_and_execution_pending
         current_task_guard_status: pending
         current_task_lock_status: pending
         current_task_analytics_status: not_applicable_for_browser_qa
@@ -427,7 +429,7 @@ lanes:
         prior_r3_t04_product_result: synthetic_live_rejection_recovery_pass_no_change_customer_outcomes_unmeasured
         current_task_report: pending_windows_execution
         goal: Validate supported JPEG/WebP roundtrip and size/pixel boundary without expanding data collection.
-        next_action: Await Windows execution of r3-t05 through fixed 14:30Z; at/after 23:30 KST perform one-shot closeout and disable supervisor.
+        next_action: Await Windows execution/result and same-task guard/lock receipt through fixed 14:30Z; closeout job handles 23:30 KST report and supervisor disable.
       prior_task_status_check_at: '2026-11-24T09:45:00Z'
       prior_task_status_check_status: sent
       prior_task_status_check_task_id: miniapp-20261124-r2-t03

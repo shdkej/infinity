@@ -1888,6 +1888,14 @@
       "sent_at": "2026-11-24T13:32:49Z",
       "message_id": "1795527160.320609",
       "queue_id": "convq_c75d9a4e945aa174971333b1e56960bb"
+    },
+    {
+      "task_id": "miniapp-20261124-r3-t05",
+      "at": "2026-11-24T13:47:00Z",
+      "status": "sent",
+      "message_id": "1795528064.765319",
+      "queue_id": "convq_b8119ca320f3e27c53802a4c20830075",
+      "conversation_ref": "conv_325a58464418d0dba24510d3dede7507"
     }
   ],
   "task_records": [
@@ -1961,13 +1969,16 @@
       "task_id": "miniapp-20261124-r3-t05",
       "window": "r3",
       "sequence": 5,
-      "status": "handoff_prepared_pending_final_gate",
+      "status": "handoff_sent_windows_execution_pending",
       "at": "2026-11-24T13:45:00Z",
       "goal": "Verify supported synthetic JPEG/WebP roundtrip and documented size/pixel-limit boundary; change only for reproduced defect.",
       "end_at": "2026-11-24T14:30:00Z",
-      "handoff_attempt": "prepared_not_sent",
+      "handoff_attempt": "sent",
       "customer_outcomes": "unmeasured",
-      "completion_criteria": "Windows actual browser: transform/download harmless synthetic JPEG and WebP and independently decode saved outputs; inspect size/pixel limit boundary. Only evidenced defects receive minimal fix, tests, existing app-only deploy and live verification before fixed end. No new analytics, cost, permission, or other-app data. Record guard exit and shared lock release."
+      "completion_criteria": "Windows actual browser: transform/download harmless synthetic JPEG and WebP and independently decode saved outputs; inspect size/pixel limit boundary. Only evidenced defects receive minimal fix, tests, existing app-only deploy and live verification before fixed end. No new analytics, cost, permission, or other-app data. Record guard exit and shared lock release.",
+      "message_id": "1795528064.765319",
+      "queue_id": "convq_b8119ca320f3e27c53802a4c20830075",
+      "sent_at": "2026-11-24T13:47:00Z"
     }
   ],
   "process_cleanup_verifications": [
