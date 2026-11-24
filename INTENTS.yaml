@@ -258,12 +258,12 @@ lanes:
         handoff_message_id: '1795516420.694159'
         handoff_queue_id: convq_97ca970aaebf3d9cf6a2a2f1743a326d
         report_status: pending
+        prior_current_task_status_check_at: '2026-11-24T10:15:38Z'
+        prior_current_task_status_check_status: sent
+        prior_current_task_status_check_task_id: miniapp-20261124-r2-t04
         current_task_status_check_at: '2026-11-24T10:45:00Z'
         current_task_status_check_status: prepared
         current_task_status_check_task_id: miniapp-20261124-r2-t05
-        current_task_status_check_at: '2026-11-24T10:15:38Z'
-        current_task_status_check_status: sent
-        current_task_status_check_task_id: miniapp-20261124-r2-t04
         last_task_status: recovery_rehearsed_release_live_verified
         last_task_id: miniapp-20261124-r2-t04
         last_task_result: 두 S3 객체의 기존 본문·메타데이터 읽기/동일 복원 연습 및 긴급 restore 입증 후 Action 45373438908 앱 전용 배포 성공. 라이브 두 경로 200·동일 SHA, 긴 0B 수정 문구 확인; CMO 짧은 문구·상단 상태 미반영.
