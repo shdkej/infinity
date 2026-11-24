@@ -1403,8 +1403,8 @@
     }
   ],
   "next_decision": {
-    "status": "r2_t05_sent_r2_report_pending",
-    "value": "r2-t04 completed with restore proof, release action 45373438908 and live two-path SHA match; guard exit 0 and lock free. r2-t05 sequence 5 sent at 19:33 KST, message 1795516420.694159, queue convq_97ca970aaebf3d9cf6a2a2f1743a326d; Windows acceptance/result pending; fixed end 20:30 KST. Customer outcome unmeasured."
+    "status": "r2_t05_status_check_prepared",
+    "value": "t05 handoff is sent; no current result/guard/lock update in latest remote. Prepare one status-only request, fixed end 20:30 KST; customer outcome unmeasured."
   },
   "handoff_attempts": [
     {
@@ -1441,6 +1441,14 @@
       "sent_at": "2026-11-24T10:33:40Z",
       "message_id": "1795516420.694159",
       "queue_id": "convq_97ca970aaebf3d9cf6a2a2f1743a326d"
+    },
+    {
+      "type": "task_status_check_prepared",
+      "at": "2026-11-24T10:45:00Z",
+      "task_id": "miniapp-20261124-r2-t05",
+      "window": "r2",
+      "status": "prepared",
+      "reason": "No newer result/guard/lock receipt in latest remote ledger; one status request only, no task resend."
     }
   ]
 }

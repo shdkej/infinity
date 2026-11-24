@@ -258,6 +258,9 @@ lanes:
         handoff_message_id: '1795516420.694159'
         handoff_queue_id: convq_97ca970aaebf3d9cf6a2a2f1743a326d
         report_status: pending
+        current_task_status_check_at: '2026-11-24T10:45:00Z'
+        current_task_status_check_status: prepared
+        current_task_status_check_task_id: miniapp-20261124-r2-t05
         current_task_status_check_at: '2026-11-24T10:15:38Z'
         current_task_status_check_status: sent
         current_task_status_check_task_id: miniapp-20261124-r2-t04
@@ -308,6 +311,10 @@ lanes:
       handoff_queue_id: convq_97ca970aaebf3d9cf6a2a2f1743a326d
       report_status: pending
       next_action: r2-t05 CMO 제안 문구 최소 검증·필요 시 앱 전용 배포; 고정 11:30Z 종료. 20:30 보고 pending.
+      current_task_status_check_at: '2026-11-24T10:45:00Z'
+      current_task_status_check_status: prepared
+      current_task_status_check_task_id: miniapp-20261124-r2-t05
+      current_task_status_check_reason: 최신 원격에 t05 결과/guard/잠금 갱신 없음; 동일 ID 업무 재전송 없이 상태 1회 확인.
     next_action: r2-t05 인계 sent(1795516420.694159); Windows 작업·종료 증거 대기, 20:30 r2 보고 pending.
     notification_channel: slack
     notification_target: channel:C0CE0DV9MM2
