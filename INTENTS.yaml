@@ -173,8 +173,8 @@ lanes:
     prior_r2_t02_guard_finished_at: '2026-11-24T09:13:11.829869+00:00'
     prior_r2_t02_guard_exit_code: 0
     prior_r2_t02_lock_released_verified_at: '2026-11-24T09:13:22Z'
-    current_task_status: handoff_prepared
-    current_task_result_summary: null
+    current_task_status: running_release_succeeded_live_pending_at_1947
+    current_task_result_summary: '19:47:06 KST 중간 조회: 기존 보호 실행 running·active.lock held, 종료/exit 미발생. Space SHA 80966e7 제품 문구/복구 기준 소스 게시, 앱 전용 독립 restore Action 45377373714 success, release Action 45377563324 success; 라이브/자식 최종 결과는 아직 확인 중.'
     current_task_followup: 기존 CMO 제안 문구 적용 여부를 확인; 고객 성과 미측정.
     current_task_result: null
     current_task_guard_status: null
@@ -264,6 +264,8 @@ lanes:
         current_task_status_check_at: '2026-11-24T10:45:00Z'
         current_task_status_check_status: sent
         current_task_status_check_task_id: miniapp-20261124-r2-t05
+        current_task_execution_snapshot_at: '2026-11-24T10:47:06Z'
+        current_task_execution_snapshot: guard running, lock held; restore Action 45377373714 success, app-only release Action 45377563324 success; live child verification and final guard receipt pending.
         current_task_status_check_message_id: '1795517213.706259'
         current_task_status_check_queue_id: convq_b3800df487bd672c099f41b904f78e0f
         last_task_status: recovery_rehearsed_release_live_verified

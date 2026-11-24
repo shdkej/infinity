@@ -1400,11 +1400,22 @@
         "child": "proc_182e92aeaa0b"
       },
       "limits": "Identical-content write and independent restore verified; forced partial-write failure not tested, S3 version restore unavailable. CMO shortened empty-file copy and upper status not deployed. Synthetic QA only; no real customer outcome, screen reader or PostHog ingestion proof. r2 interval HTML report remains pending."
+    },
+    {
+      "type": "status_snapshot",
+      "at": "2026-11-24T10:47:06Z",
+      "task_id": "miniapp-20261124-r2-t05",
+      "status": "running_release_action_succeeded_live_pending",
+      "guard": {"state": "running", "started_at": "2026-11-24T10:38:10.590535+00:00", "finished_at": null, "end_at": "2026-11-24T11:30:00+00:00", "exit_code": null, "lock": "held"},
+      "space_sha": "80966e76cec4e197240ac836ba1513106eda7a20",
+      "actions": {"restore": 45377373714, "release": 45377563324, "conclusion": "success"},
+      "evidence_paths": ["intents/waiting/miniapp-image-tools-20261118-qa-01.md"],
+      "note": "One status-only readback for SAM, not a second execution; product child live QA and final guard/lock receipts still pending at this timestamp."
     }
   ],
   "next_decision": {
-    "status": "r2_t05_status_check_sent",
-    "value": "One status-only request for the already-sent t05 was sent at 19:46 KST (1795517213.706259; queue convq_b3800df487bd672c099f41b904f78e0f). Windows result/guard/lock remain unconfirmed; fixed end 20:30 KST. Customer outcome unmeasured."
+    "status": "r2_t05_running_release_succeeded_live_pending",
+    "value": "One status-only request for already-sent t05 was received at 19:46 KST (1795517213.706259); actual guarded child running/lock held as of 19:47:06 KST. Independent restore and app-only release Actions 45377373714/45377563324 success at Space SHA 80966e7; live child QA, guard finish/exit and lock release pending. No re-dispatch; fixed end 20:30 KST; customer outcome unmeasured."
   },
   "handoff_attempts": [
     {

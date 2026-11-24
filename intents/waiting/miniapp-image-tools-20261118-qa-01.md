@@ -431,3 +431,5 @@
 
 - 19:45 KST 최신 원격 상태 점검: `miniapp-20261124-r2-t05` handoff는 sent이나 이후 결과·guard 종료·잠금 해제 갱신 없음. 동일 ID 업무 재전송 대신 상태 확인 1회만 준비; 고정 종료 20:30 KST.
 - 실제 발송 직전 19:46 KST 재검사: 날짜 11/24, 구간 r2, 고정 20:30 종료 전, run `running`, 감독 job `enabled`, 최신 원격 기록 일치. 상태만 요청했고 sent 영수증 `1795517213.706259`, queue `convq_b3800df487bd672c099f41b904f78e0f`; Windows 회신/실행은 아직 미확인.
+
+- **19:47:06 KST 동일 ID 실제 상태 조회:** Windows 보호 원장에 `miniapp-20261124-r2-t05` `running`(시작 10:38:10.590535Z, 고정 종료 11:30Z), `finished_at`/exit code 없음, 공용 `active.lock` held. 기존 자식 재전송 없음. Space 소스 SHA `80966e76cec4e197240ac836ba1513106eda7a20`에서 0B 문구·현재 직전 본문 롤백 기준을 게시했다. 앱 전용 독립 `mode=restore` Action `45377373714`와 `mode=release` Action `45377563324`은 둘 다 `completed/success` 및 같은 SHA를 GitHub에서 확인했다. **이 중간 조회는 자식 라이브·루트/정리기 확인과 guard 최종 종료/잠금 해제 증거가 아님**; 최종 제품 출력·실제 종료 뒤 별도 영수증 필요. 다른 앱 데이터/IAM/비용/계측 확대는 승인 범위 밖, 고객 성과는 미측정.
