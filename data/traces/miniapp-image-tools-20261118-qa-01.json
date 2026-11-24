@@ -933,11 +933,13 @@
       "type": "status_check",
       "at": "2026-11-24T09:45:00Z",
       "task_id": "miniapp-20261124-r2-t03",
-      "status": "prepared",
+      "status": "sent",
       "evidence_paths": [
         "intents/waiting/miniapp-image-tools-20261118-qa-01.md"
       ],
-      "limits": "Windows parent execution, guard and lock remain unconfirmed; no task resend."
+      "limits": "Native delivery receipt only; Windows parent execution, guard and lock remain unconfirmed; no task resend.",
+      "message_id": "1795513609.377209",
+      "queue_id": "convq_c529ac4db654882a9a0376b1f9834b7c"
     }
   ],
   "artifacts": [
@@ -1292,7 +1294,7 @@
     }
   ],
   "next_decision": {
-    "status": "status_check_prepared",
-    "value": "r2-t03 handoff sent 1795512849.994749; one same-task status check prepared at 18:45 KST. Await Windows result/guard/lock; r2 report remains pending for 20:30."
+    "status": "status_check_sent_pending_windows",
+    "value": "r2-t03 status check sent once at 18:46 KST (1795513609.377209); awaiting same-task Windows result/guard/lock. r2 report remains pending for 20:30."
   }
 }
