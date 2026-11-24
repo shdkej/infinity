@@ -163,7 +163,6 @@ lanes:
     current_task_start_at: '2026-11-24T12:30:52Z'
     current_task_end_at: '2026-11-24T14:30:00Z'
     current_task_handoff_attempt_at: '2026-11-24T12:30:52Z'
-    current_task_handoff_status: sent
     current_task_completion_criteria: 기존 PostHog 공유 프로젝트에서 승인된 image_selected/transform_started/transform_succeeded/transform_failed/download_requested만 지정 기간·기존 app_id·허용된 synthetic/user 분리로 집계. person/distinct ID·파일/이미지 속성·새 이벤트를 조회/저장하지 말 것. 기간·필터·집계건수·쿼리 성공/실패를 기록하고 데이터 없음·조회 실패·미측정을 분리; 표본/분모 한계로 고객 성과를 단정하지 않음. 결과를 정본 trace/detail에 반영하고 관련 파일만 원격 main에 검증·반영; Windows 부모 종료/guard/잠금 증거도 같은 task_id에 기록.
     prior_task_handoff_message_id: '1795506439.083149'
     prior_task_handoff_queue_id: convq_8a215ed203754328f7789be184b789a3
@@ -188,12 +187,12 @@ lanes:
     prior_r2_t06_guard_exit_code: 0
     prior_r2_t06_lock_released_verified_at: '2026-11-24T11:24:09.929899Z'
     prior_r2_t06_summary: mobile keyboard recovery QA pass at 390x844 and 320x720; synthetic only, customer outcomes unmeasured; no product change.
-    current_task_status: handoff_prepared
-    current_task_result_summary: 'r3-t02 guard completed/exit 0, lock free; exact Narrator instance remains and safe follow-up requires interactive Windows unlock. Independent next task prepared: aggregate only the five approved existing PostHog event types.'
-    current_task_followup: 'Query aggregate counts only, no user identifiers or sensitive properties; record query boundaries and distinguish zero from unavailable/unmeasured.'
-    current_task_result: handoff_sent
-    current_task_status_at: '2026-11-24T12:30:52Z'
-    current_task_guard_status: not_started
+    current_task_status: aggregate_query_success_guard_pending_parent
+    current_task_result_summary: 'US project 424014 bounded HogQL HTTP 200, 8 grouped rows; five event x synthetic/user counts in the task verification. Customer/unique people unmeasured. Guard exit/lock pending parent readback; Narrator PID 27296 remains a separate blocked issue.'
+    current_task_followup: 'Parent reads same task ID SQLite exit/deadline and shared lock after child ends; retain Waiting for Narrator until interactive unlock, and r3 interval report pending.'
+    current_task_result: aggregate_verified_child_guard_pending
+    current_task_status_at: '2026-11-24T12:43:40.169418Z'
+    current_task_guard_status: pending_parent_readback
     current_task_guard_exit_code: null
     current_task_guard_finished_at: null
     current_task_lock_released_verified_at: null
@@ -203,8 +202,23 @@ lanes:
     current_task_status_check_at: '2026-11-24T12:45:30Z'
     current_task_status_check_status: sent
     current_task_status_check_task_id: miniapp-20261124-r3-t03
+    current_task_status_check_message_id: '1795524335.092199'
+    current_task_status_check_queue_id: convq_08af5d2122183d83ccd2b3f83a9760aa
+    current_task_status_check_snapshot: 'As of the parent remote read at 12:45:30Z no result/guard/lock receipt was published; status request sent once, not a work resend.'
     current_task_guard_started_at: null
-    current_task_lock_status: not_started
+    current_task_lock_status: pending_parent_readback
+    current_task_analytics_project_id: 424014
+    current_task_analytics_window_start_at: '2026-11-24T05:30:00Z'
+    current_task_analytics_window_end_exclusive_at: '2026-11-24T12:41:30Z'
+    current_task_analytics_observed_at: '2026-11-24T12:43:40.169418Z'
+    current_task_analytics_status: query_success_http_200_complete_8_rows
+    current_task_analytics_counts:
+      image_selected: {synthetic: 72, user: 2}
+      transform_started: {synthetic: 81, user: 1}
+      transform_succeeded: {synthetic: 81, user: 1}
+      transform_failed: {synthetic: 26, user: 0}
+      download_requested: {synthetic: 68, user: 0}
+    current_task_customer_outcomes: unmeasured
     prior_r3_t01_source_sha: dc43b456354f3f03edf402a8dfce0a10172f8d81
     prior_r3_t01_evidence_sha: 93da7d6de0cad3def7d837ca95d442b684216ad2
     prior_r3_t01_release_run: '45387803883'
@@ -213,7 +227,7 @@ lanes:
     current_task_evidence_sha: null
     current_task_release_run: null
     current_task_live_sha256: null
-    report: reports/miniapp-image-tools-20261118-qa-01/20261124T1225Z-r3-t02.html
+    report: reports/miniapp-image-tools-20261118-qa-01/20261124T1243Z-r3-t03.html
     prior_r3_t01_handoff_receipt: sent 1795520034.423279; queue convq_f4220e1e2f1315988e3e5697a899d49c
     current_task_handoff_status: sent
     current_task_handoff_message_id: '1795523874.479619'
@@ -363,25 +377,38 @@ lanes:
         current_task_status_check_task_id: miniapp-20261124-r3-t03
         current_task_status_check_message_id: '1795524335.092199'
         current_task_status_check_queue_id: convq_08af5d2122183d83ccd2b3f83a9760aa
-        report_status: pending
-        current_task_execution_snapshot_at: '2026-11-24T11:58:40Z'
-        current_task_execution_snapshot: r3-t01 product/live verified; guard completed exit 0 and shared lock free; r3-t02 handoff sent 1795522715.346669
         current_task_status_check_snapshot_at: '2026-11-24T12:45:30Z'
         current_task_status_check_snapshot: No newer result/guard/lock receipt for r3-t03; one status-only request sent, no work resubmitted.
+        current_task_status: aggregate_query_success_guard_pending_parent
+        current_task_result: aggregate_verified_child_guard_pending
+        current_task_guard_status: pending_parent_readback
+        current_task_lock_status: pending_parent_readback
+        current_task_analytics_status: query_success_http_200_complete_8_rows
+        current_task_analytics_observed_at: '2026-11-24T12:43:40.169418Z'
+        current_task_analytics_window: '[2026-11-24T05:30:00Z,2026-11-24T12:41:30Z)'
+        current_task_analytics_counts:
+          image_selected: {synthetic: 72, user: 2}
+          transform_started: {synthetic: 81, user: 1}
+          transform_succeeded: {synthetic: 81, user: 1}
+          transform_failed: {synthetic: 26, user: 0}
+          download_requested: {synthetic: 68, user: 0}
+        report_status: pending
+        prior_r3_t01_execution_snapshot_at: '2026-11-24T11:58:40Z'
+        prior_r3_t01_execution_snapshot: r3-t01 product/live verified; guard completed exit 0 and shared lock free; r3-t02 handoff sent 1795522715.346669
         prior_r3_t01_product_source_sha: dc43b456354f3f03edf402a8dfce0a10172f8d81
         prior_r3_t01_product_evidence_sha: 93da7d6de0cad3def7d837ca95d442b684216ad2
         prior_r3_t01_release_run: '45387803883'
-        current_task_product_result: not_applicable_process_cleanup_check
+        current_task_product_result: bounded_aggregate_verified_customer_outcomes_unmeasured
         prior_task_process_result: graceful_close_requested_still_present
         prior_task_process_observed_at: '2026-11-24T12:24:29Z'
         prior_task_process_identity: Narrator.exe PID 27296, SAM-PC\msi, session 1, created 2026-11-24T07:24:00.1520640Z
-        current_task_process_result: not_started
+        current_task_process_result: not_applicable_analytics_no_narrator_retry
         current_task_product_source_sha: null
         current_task_product_evidence_sha: null
         current_task_release_run: null
         prior_task_guard_final_receipt: completed_exit_0_at_2026-11-24T12:28:14.119473Z_lock_free_at_12:28:29.123670Z_process_still_present
-        current_task_guard_final_receipt: not_started
-        goal: Verify and, only if safe, resolve the outstanding Narrator PID 27296 without broad process cleanup or unverified screen-reader claims.
+        current_task_guard_final_receipt: pending_parent_readback_after_child_exit
+        goal: Bounded five-event aggregate only; Narrator cleanup remains separately blocked until user unlocks.
       prior_task_status_check_at: '2026-11-24T09:45:00Z'
       prior_task_status_check_status: sent
       prior_task_status_check_task_id: miniapp-20261124-r2-t03

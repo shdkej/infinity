@@ -519,8 +519,25 @@
 - 21:30:52 KST 원격 원장에 task ID·목표·완료 기준·고정 기한·sequence 기록 완료. 원격 원장·trace·상세 반영 후 발송 직전 날짜/구간/end_at/run/supervisor 활성 여부를 다시 검사한다.
 - 21:37:45 KST 최종 검사: r3, 고정 end_at 14:30Z 미도과, run `running`, supervisor `enabled`, 원격 main `9996482a`, task prepared. native handoff sent `1795523874.479619`, queue `convq_9593dc8cb25c61f13231159ad238504a`. 전송 영수증은 Windows 실행 수락·실행·제품 결과 증거와 별개.
 
+### 2026-11-24 21:43:40 KST · r3-t03 승인된 5종 이벤트 제한 집계
 
-### 2026-11-24 21:45 KST · r3-t03 상태 조회 1회
+- 동일 ID `miniapp-20261124-r3-t03`, 불변 hard end `2026-11-24T14:30:00Z`. 사전 정본 확인: 기존 US 공유 PostHog `Default project` **424014**는 사용자 승인 대상이며, Space 앱 코드·README의 5종 이벤트·`app_id='miniapp-image-tools'`·`traffic_kind` 계약과 일치한다. 공식 PostHog Query API의 `HogQLQuery` POST 경로를 확인했다. `/home/sam/.env`는 소유자 `sam`·일반 파일·단일 링크를 확인하고 0664→0600으로 좁힌 뒤 정확한 기존 `POSTHOG_ACCESS_TOKEN`만 프로세스 메모리에서 사용했다. 비밀값·HTTP 원문·원시 이벤트를 출력/저장하지 않았다.
+- 집계 기간은 **[2026-11-24T05:30:00Z, 2026-11-24T12:41:30Z)** (UTC, 끝 미포함), 관측 시각은 별도 **2026-11-24T12:43:40.169418Z**. `POST https://us.posthog.com/api/projects/424014/query`에서 `HogQLQuery`: `SELECT event, properties.traffic_kind AS traffic_kind, count() AS count FROM events WHERE properties.app_id='miniapp-image-tools' AND event IN ('image_selected','transform_started','transform_succeeded','transform_failed','download_requested') AND properties.traffic_kind IN ('synthetic','user') AND timestamp >= toDateTime('2026-11-24 05:30:00','UTC') AND timestamp < toDateTime('2026-11-24 12:41:30','UTC') GROUP BY event, traffic_kind ORDER BY event, traffic_kind`. 서버 측 제한 후 세 집계 열만 반환; project-wide 원시 데이터/식별자/파일·이미지 속성/페이지뷰는 읽지 않았다.
+- HTTP **200**, 열은 정확히 `event,traffic_kind,count`, 반환 집계 행 **8개**. 성공·완전한 응답, 허용 이벤트/라벨, 비음수 정수, 중복·추가 행 없음과 부분/백그라운드 상태 부재를 검증한 뒤 누락한 2개 셀만 0으로 채웠다. 아래 값은 순서대로 **synthetic / user** 수집 이벤트 횟수:
 
-- 최신 원격 main에서 `miniapp-20261124-r3-t03` 인계 sent `1795523874.479619` 이후 결과·guard·잠금 영수증이 없어 같은 ID의 상태만 한 번 요청했다. 업무 재전송은 하지 않았다.
-- Native Slack status request sent `1795524335.092199` (queue `convq_08af5d2122183d83ccd2b3f83a9760aa`). 이 영수증은 Windows 수락·실행·PostHog 조회 결과를 증명하지 않는다. 고정 `end_at=2026-11-24T14:30:00Z`; 다음은 회신/다음 tick에서 실제 상태 확인이다.
+  | 이벤트 | synthetic | user |
+  | --- | ---: | ---: |
+  | `image_selected` | 72 | 2 |
+  | `transform_started` | 81 | 1 |
+  | `transform_succeeded` | 81 | 1 |
+  | `transform_failed` | 26 | 0 |
+  | `download_requested` | 68 | 0 |
+
+- `user`는 공개 클라이언트 라벨로 고유·확인된 사람 수가 아니다. 건수 사이의 차이는 동일 사용자 여정/이탈률이 아니며 `download_requested`는 OS 저장 완료가 아니다. synthetic은 고객 지표가 아니다. 방문자·고유 사용자·과업 완료·전환 분모·고객 성공/효과는 **미측정**; 위 0은 성공한 제한 조회의 해당 셀에 맞는 수집 이벤트 0건이지 조회 실패나 고객 0명이 아니다. 코드·계측·권한·비용·배포 변경 없음.
+- 독립 4역할 완료 manifest와 로그 `deleg_17b36cee`(Planner 범위/0건 경계, Developer 서버 측 집계/열 검사, Marketer 고객 해석 제한, Operator 자격증명·guard 분리), 교차 검토 4역할 완료 `deleg_ce8556b3`를 자식에서 재확인했고 중복 위임하지 않았다. 범위와 값의 해석에는 동의; 일부 사전 역할의 가변 관측 종료 제안은 이번 고정 종료 `12:41:30Z`로 확정했다. 지니 판정은 집계 조회 성공, 고객 성과 미측정이다.
+- 보고 `reports/miniapp-image-tools-20261118-qa-01/20261124T1243Z-r3-t03.html`. 같은 task ID의 SQLite 최종 state·exit_code·finished_at vs hard end와 공유 `active.lock` 비차단 해제는 **자식 종료 뒤 부모가 직접 확인·기록**한다. 이번 자식은 guard exit/lock을 완료라고 주장하지 않는다. r3 구간 종합 보고도 별도 pending. 기존 Narrator PID 27296은 사용자 대화형 Windows 잠금 해제 전 재시도 금지로 그대로 대기; 스크린리더 실발화는 미검증이다. Intent `Waiting` 유지.
+
+### 2026-11-24 21:45 KST · r3-t03 부모 상태 조회 1회 (당시 원격 스냅샷)
+
+- 부모가 당시 최신 원격 main에서 `miniapp-20261124-r3-t03` 인계 sent `1795523874.479619` 이후 **아직 게시된** 결과·guard·잠금 영수증이 없음을 확인하고 같은 ID의 상태만 한 번 요청했다. 이 집계 관측 시각 `12:43:40Z`보다 뒤의 요청이지만 당시 원격 미게시는 조회 미실행을 뜻하지 않는다. 업무 재전송은 하지 않았다.
+- Native Slack status request sent `1795524335.092199` (queue `convq_08af5d2122183d83ccd2b3f83a9760aa`). 그 자체는 Windows 실행/조회 결과를 증명하지 않는다. 고정 `end_at=2026-11-24T14:30:00Z`; 이후 부모는 게시된 집계와 종료 후 guard/잠금 영수증을 별도로 회수한다.

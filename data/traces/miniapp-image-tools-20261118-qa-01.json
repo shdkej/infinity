@@ -1664,11 +1664,38 @@
         "read_only_red": "deleg_36eb4b8f"
       },
       "limits": "Controlled delay is not ordinary customer incidence. Synthetic files and browser helper selection; no physical device, actual screen-reader speech, customer outcome or PostHog ingestion. Forced runner kill/partial-write restoration untested; product verification distinct from guard exit and lock receipt. r3 final interval report pending."
+    },
+    {
+      "label": "r3-t03 bounded five-event PostHog aggregate; guard exit pending parent",
+      "type": "analytics_aggregate",
+      "at": "2026-11-24T12:43:40.169418Z",
+      "task_id": "miniapp-20261124-r3-t03",
+      "status": "query_success_guard_pending_parent",
+      "project_id": 424014,
+      "host": "us.posthog.com",
+      "http_status": 200,
+      "window_utc": {"start_inclusive": "2026-11-24T05:30:00Z", "end_exclusive": "2026-11-24T12:41:30Z"},
+      "observed_at": "2026-11-24T12:43:40.169418Z",
+      "server_predicate": "properties.app_id='miniapp-image-tools' AND event IN ('image_selected','transform_started','transform_succeeded','transform_failed','download_requested') AND properties.traffic_kind IN ('synthetic','user') AND timestamp >= toDateTime('2026-11-24 05:30:00','UTC') AND timestamp < toDateTime('2026-11-24 12:41:30','UTC')",
+      "projection": "event, properties.traffic_kind AS traffic_kind, count() AS count; GROUP BY event, traffic_kind",
+      "validated_result_rows": 8,
+      "counts": {
+        "image_selected": {"synthetic": 72, "user": 2},
+        "transform_started": {"synthetic": 81, "user": 1},
+        "transform_succeeded": {"synthetic": 81, "user": 1},
+        "transform_failed": {"synthetic": 26, "user": 0},
+        "download_requested": {"synthetic": 68, "user": 0}
+      },
+      "validation": "HTTP 200; columns exactly event,traffic_kind,count; all returned rows valid nonnegative integer counts, allowed labels, no duplicate or extra rows, no partial/background response; two absent cells zero only after complete success",
+      "customer_outcomes": "unmeasured; public client user label is not a unique confirmed person; download_requested is not OS save; synthetic is not customer metric",
+      "roles": {"independent": "deleg_17b36cee", "cross_review": "deleg_ce8556b3", "four_each_completed": true},
+      "guard": "child must not claim exit or lock release; parent readback pending under same task ID and immutable end_at=2026-11-24T14:30:00Z",
+      "evidence_paths": ["intents/waiting/miniapp-image-tools-20261118-qa-01.md", "reports/miniapp-image-tools-20261118-qa-01/20261124T1243Z-r3-t03.html"]
     }
   ],
   "next_decision": {
-    "status": "r3_t02_cleanup_blocked_process_remains",
-    "value": "Original QA Narrator PID 27296 identity cross-checked, one CloseMainWindow request returned true but the same instance remains at 12:24:29Z. Interactive desktop unlock and exact-PID identity/readback route required; parent guard/lock readback and r3 interval report pending. AT speech and customer outcomes unverified."
+    "status": "r3_t03_aggregate_success_guard_pending_parent_waiting_narrator",
+    "value": "Bounded five-event aggregate succeeded with customer outcomes unmeasured. Parent must verify r3-t03 guard exit/deadline and shared lock after child ends; r3 interval report remains pending. Original Narrator PID 27296 remains separately blocked until interactive Windows unlock; do not retry now or claim AT speech."
   },
   "handoff_attempts": [
     {
@@ -1774,7 +1801,7 @@
       "task_id": "miniapp-20261124-r3-t03",
       "window": "r3",
       "sequence": 3,
-      "status": "handoff_sent",
+      "status": "aggregate_verified_guard_pending_parent",
       "at": "2026-11-24T12:30:52Z",
       "goal": "Aggregate counts for only the five approved existing PostHog event types, with no user identifiers or sensitive/file properties; separate zero, query failure and unmeasured; do not claim customer outcomes beyond evidence.",
       "end_at": "2026-11-24T14:30:00Z",
@@ -1783,7 +1810,11 @@
       "queue_id": "convq_9593dc8cb25c61f13231159ad238504a",
       "process_observed_at": null,
       "process_result": null,
-      "guard_final_receipt": null
+      "guard_final_receipt": null,
+      "analytics_verification_at": "2026-11-24T12:43:40.169418Z",
+      "analytics_result": "query_success_http_200_complete_8_rows",
+      "customer_outcomes": "unmeasured",
+      "roles": {"independent": "deleg_17b36cee", "cross_review": "deleg_ce8556b3", "four_each_completed": true}
     }
   ],
   "process_cleanup_verifications": [
