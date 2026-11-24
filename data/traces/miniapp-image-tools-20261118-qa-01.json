@@ -735,6 +735,19 @@
       "new_deployment": false,
       "customer_outcome_status": "unmeasured",
       "next_candidate": "Physical 701–760px touch device and dynamic browser chrome result discovery; SAM decides new ID."
+    },
+    {
+      "label": "r1 report delivered; r2-t01 prepared for repeat/error-recovery QA",
+      "type": "supervision",
+      "at": "2026-11-24T08:30:52Z",
+      "task_id": "miniapp-20261124-r2-t01",
+      "status": "prepared",
+      "evidence_paths": [
+        "INTENTS.yaml",
+        "intents/waiting/miniapp-image-tools-20261118-qa-01.md"
+      ],
+      "report_message_id": "1795509062.983379",
+      "limits": "R1 report delivery confirmed; r2 task handoff not yet sent or accepted. Customer outcomes remain unmeasured."
     }
   ],
   "artifacts": [
@@ -1045,7 +1058,7 @@
     }
   ],
   "next_decision": {
-    "status": "dispatched",
-    "value": "r1-t08 sent 1795508286.708149; await same-task result and guard/lock receipt; r1 report at 17:30 KST."
+    "status": "prepared",
+    "value": "r1 report sent 1795509062.983379. r2-t01 sequence 1 prepared with fixed end_at 11:30Z; final time/run/job check required before sending."
   }
 }
