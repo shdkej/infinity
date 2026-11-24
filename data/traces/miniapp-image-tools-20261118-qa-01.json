@@ -334,6 +334,18 @@
       "qa_commit": "5eaedda21bc7632608b6b022f5f2236e2b7cc4ce",
       "release_run": "45335134749",
       "next_candidate": "Repeat transform on narrow screen after changing edge or format; SAM supervisor owns any new ID."
+    },
+    {
+      "type": "handoff_attempt",
+      "at": "2026-11-24T06:15:00Z",
+      "task_id": "miniapp-20261124-r1-t02",
+      "status": "attempted",
+      "end_at": "2026-11-24T08:30:00Z",
+      "goal": "좁은 화면에서 크기·형식을 바꿔 연속 변환할 때 입력 설정 유지·결과 재노출 불편을 재현하고, 문제가 있으면 최소 수정·테스트·승인 배포·라이브 모바일 검증; 없으면 근거와 다음 후보 기록",
+      "evidence_paths": [
+        "INTENTS.yaml",
+        "intents/waiting/miniapp-image-tools-20261118-qa-01.md"
+      ]
     }
   ],
   "artifacts": [
@@ -470,7 +482,7 @@
     }
   ],
   "next_decision": {
-    "status": "in_progress",
-    "value": "Await Windows status reply for miniapp-20261124-r1-t01; do not create overlapping work until execution/guard state is clarified."
+    "status": "dispatch_prepared",
+    "value": "r1-t02 prepared from completed r1-t01; send only after immediate time/window/run/supervisor recheck."
   }
 }
