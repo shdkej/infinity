@@ -151,15 +151,20 @@ lanes:
     prior_r2_t05_guard_finished_at: '2026-11-24T10:48:12.591294+00:00'
     prior_r2_t05_guard_exit_code: 0
     prior_r2_t05_lock_released_verified_at: '2026-11-24T10:49:18Z'
-    current_task_id: miniapp-20261124-r3-t02
-    current_task_goal: r1에서 남은 Narrator PID 27296의 정확한 프로세스 신원·상태를 확인하고, 동일 PID가 여전히 해당 시험에서 시작한 프로세스일 때만 안전하게 종료·부재 검증; 불확실하거나 권한 차단이면 강제 종료 없이 원인 기록
-    current_task_start_at: '2026-11-24T12:16:12Z'
+    prior_r3_t02_task_id: miniapp-20261124-r3-t02
+    prior_r3_t02_status: cleanup_blocked_process_remains
+    prior_r3_t02_guard_finished_at: '2026-11-24T12:28:14.119473Z'
+    prior_r3_t02_guard_exit_code: 0
+    prior_r3_t02_lock_released_verified_at: '2026-11-24T12:28:29.123670Z'
+    prior_r3_t02_process_result: graceful_close_requested_still_present
+    prior_r3_t02_process_identity: Narrator.exe PID 27296, owner SAM-PC/msi, session 1, created 2026-11-24T07:24:00.1520640Z; remains after one graceful close request
+    current_task_id: miniapp-20261124-r3-t03
+    current_task_goal: 승인된 기존 PostHog 5종 이벤트만 집계해 앱 사용·변환 결과의 관측 가능한 현황과 계측 공백을 구분하고, 고객 성과는 증거 범위를 넘어 주장하지 않음
+    current_task_start_at: '2026-11-24T12:30:52Z'
     current_task_end_at: '2026-11-24T14:30:00Z'
-    current_task_handoff_attempt_at: '2026-11-24T12:16:12Z'
-    current_task_handoff_status: sent
-    current_task_handoff_message_id: '1795522715.346669'
-    current_task_handoff_queue_id: convq_70f7ac689dc4aaf9e646e74350af3caf
-    current_task_completion_criteria: Windows에서 PID 27296의 프로세스명·소유자·시작 시각·세션을 확인해 기존 Narrator QA 프로세스와 일치하는지 검증; 일치가 확실하고 접근 가능한 경우 그 PID만 정상 종료 후 부재 확인, 아니면 종료하지 않고 원인·다음 안전 경로 기록. 부모 종료/guard/잠금 확인을 같은 task_id에 남김; 제품 결과·고객 성과와 구분, 권한 확대 금지.
+    current_task_handoff_attempt_at: '2026-11-24T12:30:52Z'
+    current_task_handoff_status: prepared
+    current_task_completion_criteria: 기존 PostHog 공유 프로젝트에서 승인된 image_selected/transform_started/transform_succeeded/transform_failed/download_requested만 지정 기간·기존 app_id·허용된 synthetic/user 분리로 집계. person/distinct ID·파일/이미지 속성·새 이벤트를 조회/저장하지 말 것. 기간·필터·집계건수·쿼리 성공/실패를 기록하고 데이터 없음·조회 실패·미측정을 분리; 표본/분모 한계로 고객 성과를 단정하지 않음. 결과를 정본 trace/detail에 반영하고 관련 파일만 원격 main에 검증·반영; Windows 부모 종료/guard/잠금 증거도 같은 task_id에 기록.
     prior_task_handoff_message_id: '1795506439.083149'
     prior_task_handoff_queue_id: convq_8a215ed203754328f7789be184b789a3
     prior_task_status_check_at: '2026-11-24T07:30:47Z'
@@ -183,23 +188,23 @@ lanes:
     prior_r2_t06_guard_exit_code: 0
     prior_r2_t06_lock_released_verified_at: '2026-11-24T11:24:09.929899Z'
     prior_r2_t06_summary: mobile keyboard recovery QA pass at 390x844 and 320x720; synthetic only, customer outcomes unmeasured; no product change.
-    current_task_status: cleanup_blocked_guard_completed
-    current_task_result_summary: 원본 QA의 Narrator PID 27296과 현재 시작시각·소유자·세션 일치. 12:24:17Z CloseMainWindow 한 번은 true였으나 12:28:29Z에도 동일 인스턴스 잔존; 추가 종료·강제 종료 없음. guard 12:28:14Z completed/exit 0, lock 12:28:29Z free. AT 발화/고객 성과 미검증.
-    current_task_followup: 대화형 Windows 잠금 해제 후 동일 생성시각·소유자·세션 재대조, 이 PID 하나만 정상 종료·부재 재조회. 권한 거부면 사용자 로컬 관리 경로로 이관, 강제 종료/승격/우회 금지.
-    current_task_result: cleanup_blocked_process_remains
-    current_task_status_at: '2026-11-24T12:28:29Z'
-    current_task_guard_status: completed
-    current_task_guard_exit_code: 0
-    current_task_guard_finished_at: '2026-11-24T12:28:14.119473+00:00'
-    current_task_lock_released_verified_at: '2026-11-24T12:28:29.123670+00:00'
+    current_task_status: handoff_prepared
+    current_task_result_summary: 'r3-t02 guard completed/exit 0, lock free; exact Narrator instance remains and safe follow-up requires interactive Windows unlock. Independent next task prepared: aggregate only the five approved existing PostHog event types.'
+    current_task_followup: 'Query aggregate counts only, no user identifiers or sensitive properties; record query boundaries and distinguish zero from unavailable/unmeasured.'
+    current_task_result: handoff_prepared
+    current_task_status_at: '2026-11-24T12:30:52Z'
+    current_task_guard_status: not_started
+    current_task_guard_exit_code: null
+    current_task_guard_finished_at: null
+    current_task_lock_released_verified_at: null
     prior_r3_t01_status_check_at: '2026-11-24T11:46:05Z'
     prior_r3_t01_status_check_status: recorded_running_snapshot
     prior_r3_t01_status_check_task_id: miniapp-20261124-r3-t01
     current_task_status_check_at: null
     current_task_status_check_status: not_requested
-    current_task_status_check_task_id: miniapp-20261124-r3-t02
-    current_task_guard_started_at: '2026-11-24T12:23:02.882248+00:00'
-    current_task_lock_status: free_verified_at_2026-11-24T12:28:29.123670Z
+    current_task_status_check_task_id: miniapp-20261124-r3-t03
+    current_task_guard_started_at: null
+    current_task_lock_status: not_started
     prior_r3_t01_source_sha: dc43b456354f3f03edf402a8dfce0a10172f8d81
     prior_r3_t01_evidence_sha: 93da7d6de0cad3def7d837ca95d442b684216ad2
     prior_r3_t01_release_run: '45387803883'
@@ -210,7 +215,7 @@ lanes:
     current_task_live_sha256: null
     report: reports/miniapp-image-tools-20261118-qa-01/20261124T1225Z-r3-t02.html
     prior_r3_t01_handoff_receipt: sent 1795520034.423279; queue convq_f4220e1e2f1315988e3e5697a899d49c
-    current_task_handoff_receipt: sent 1795522715.346669; queue convq_70f7ac689dc4aaf9e646e74350af3caf
+    current_task_handoff_receipt: prepared; no transmission yet
     daily_run_window:
       start_date: '2026-11-23'
       end_date: '2026-11-25'
@@ -331,15 +336,18 @@ lanes:
         start_at: '2026-11-24T11:30:00Z'
         end_at: '2026-11-24T14:30:00Z'
         status: running
-        task_sequence: 2
-        current_task_id: miniapp-20261124-r3-t02
-        current_task_goal: r1 잔여 Narrator PID 27296의 정확한 프로세스 신원·상태 확인 및 안전한 단일 PID 정리
+        task_sequence: 3
+        current_task_id: miniapp-20261124-r3-t03
+        current_task_goal: 승인된 기존 PostHog 5종 이벤트만 집계해 앱 사용·변환 결과의 관측 가능한 현황과 계측 공백을 구분하고, 고객 성과는 증거 범위를 넘어 주장하지 않음
         current_task_end_at: '2026-11-24T14:30:00Z'
-        current_task_completion_criteria: Windows에서 PID 27296의 프로세스명·소유자·시작 시각·세션을 확인해 기존 Narrator QA 프로세스와 일치하는지 검증; 일치가 확실하고 접근 가능할 때 해당 PID만 정상 종료 후 부재 확인, 아니면 종료하지 않고 차단 근거 기록. 부모 종료/guard/잠금 확인 기록, 제품 결과·고객 성과와 구분.
-        handoff_attempt_at: '2026-11-24T12:16:12Z'
-        handoff_status: sent
-        handoff_message_id: '1795522715.346669'
-        handoff_queue_id: convq_70f7ac689dc4aaf9e646e74350af3caf
+        current_task_completion_criteria: 기존 PostHog 공유 프로젝트에서 승인된 image_selected/transform_started/transform_succeeded/transform_failed/download_requested만 지정 기간·기존 app_id·허용된 synthetic/user 분리로 집계. person/distinct ID·파일/이미지 속성·새 이벤트를 조회/저장하지 말 것. 기간·필터·집계건수·쿼리 성공/실패를 기록하고 데이터 없음·조회 실패·미측정을 분리; 표본/분모 한계로 고객 성과를 단정하지 않음. 결과를 정본 trace/detail에 반영하고 관련 파일만 원격 main에 검증·반영; Windows 부모 종료/guard/잠금 증거도 같은 task_id에 기록.
+        handoff_attempt_at: '2026-11-24T12:30:52Z'
+        handoff_status: prepared
+        prior_task_id: miniapp-20261124-r3-t02
+        prior_task_status: cleanup_blocked_process_remains
+        prior_task_guard_finished_at: '2026-11-24T12:28:14.119473Z'
+        prior_task_guard_exit_code: 0
+        prior_task_lock_released_verified_at: '2026-11-24T12:28:29.123670Z'
         prior_r3_t01_status_check_at: '2026-11-24T11:45:47Z'
         prior_r3_t01_status_check_status: sent
         prior_r3_t01_status_check_task_id: miniapp-20261124-r3-t01
@@ -353,13 +361,15 @@ lanes:
         prior_r3_t01_product_evidence_sha: 93da7d6de0cad3def7d837ca95d442b684216ad2
         prior_r3_t01_release_run: '45387803883'
         current_task_product_result: not_applicable_process_cleanup_check
-        current_task_process_result: graceful_close_requested_still_present
-        current_task_process_observed_at: '2026-11-24T12:24:29Z'
-        current_task_process_identity: Narrator.exe PID 27296, SAM-PC\msi, session 1, created 2026-11-24T07:24:00.1520640Z
+        prior_task_process_result: graceful_close_requested_still_present
+        prior_task_process_observed_at: '2026-11-24T12:24:29Z'
+        prior_task_process_identity: Narrator.exe PID 27296, SAM-PC\msi, session 1, created 2026-11-24T07:24:00.1520640Z
+        current_task_process_result: not_started
         current_task_product_source_sha: null
         current_task_product_evidence_sha: null
         current_task_release_run: null
-        current_task_guard_final_receipt: completed_exit_0_at_2026-11-24T12:28:14.119473Z_lock_free_at_12:28:29.123670Z_process_still_present
+        prior_task_guard_final_receipt: completed_exit_0_at_2026-11-24T12:28:14.119473Z_lock_free_at_12:28:29.123670Z_process_still_present
+        current_task_guard_final_receipt: not_started
         goal: Verify and, only if safe, resolve the outstanding Narrator PID 27296 without broad process cleanup or unverified screen-reader claims.
       prior_task_status_check_at: '2026-11-24T09:45:00Z'
       prior_task_status_check_status: sent
