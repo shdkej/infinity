@@ -264,15 +264,15 @@ lanes:
         task_sequence: 0
         report_status: pending
         goal: 앞선 결과로 남은 개선을 실행하고 변경 전후 근거·회귀 검증·다음 판단 정리
-      next_action: r2-t02 입력 경계 QA 진행; 고정 end_at 20:30 KST. 20:30 r2 결과 보고 후 r3 판단.
-    next_action: r2-t02 실행·결과/guard/잠금 회수; 20:30 r2 보고; 23:30 종합 마감
+      next_action: r2-t02 상태 확인 회신 대기; 수신 시 같은 task ID의 결과/guard/잠금 확인 후 후속 판단. 고정 end_at 20:30 KST.
+    next_action: r2-t02 같은-ID 상태 회신 대기; 결과/guard/잠금 확인 후 20:30 r2 보고 및 r3 판단; 23:30 종합 마감
     notification_channel: slack
     notification_target: channel:C0CE0DV9MM2
     notification_reply_to: '1794983278.888719'
-    current_task_status_check_at: '2026-11-24T08:45:23Z'
+    current_task_status_check_at: '2026-11-24T09:16:01Z'
     current_task_status_check_status: sent
-    current_task_status_check_message_id: '1795509931.304839'
-    current_task_status_check_queue_id: convq_d1a9b31945c418c0f1623e371c8155b8
+    current_task_status_check_message_id: '1795511752.371019'
+    current_task_status_check_queue_id: convq_e28a186e20e1c173baa9810b76d0e5dc
     current_task_handoff_receipt: sent 1795511017.606359; queue convq_2a2c305e6ddbfeb7a8de71c20663ffae
   - id: reel-room-studio-20261113
     title: Reel Room·Instagram Maker 통합 릴스 스튜디오 구현

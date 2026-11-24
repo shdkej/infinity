@@ -842,6 +842,19 @@
       "limits": "Slack delivery receipt only; Windows acceptance/execution and product outcome not yet evidenced. Synthetic inputs only; no customer outcome claimed.",
       "message_id": "1795511017.606359",
       "queue_id": "convq_2a2c305e6ddbfeb7a8de71c20663ffae"
+    },
+    {
+      "label": "r2-t02 single status check requested",
+      "type": "status_check",
+      "at": "2026-11-24T09:16:01Z",
+      "task_id": "miniapp-20261124-r2-t02",
+      "status": "sent_pending_response",
+      "evidence_paths": [
+        "intents/waiting/miniapp-image-tools-20261118-qa-01.md"
+      ],
+      "message_id": "1795511752.371019",
+      "queue_id": "convq_e28a186e20e1c173baa9810b76d0e5dc",
+      "limits": "Delivery receipt confirms request only; Windows execution/guard/lock and product result remain unverified."
     }
   ],
   "artifacts": [
@@ -1174,7 +1187,7 @@
     }
   ],
   "next_decision": {
-    "status": "handoff_sent",
-    "value": "r2-t02 handed to Windows with fixed 20:30 KST end; receipt 1795511017.606359. Await same-task result/guard/lock evidence; delivery is not execution acceptance."
+    "status": "status_check_sent",
+    "value": "Single status check sent for r2-t02; receipt 1795511752.371019. Await same-task Windows result/guard/lock evidence; no work re-dispatched."
   }
 }
