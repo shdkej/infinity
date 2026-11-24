@@ -147,6 +147,10 @@ lanes:
     current_task_handoff_status: sent
     current_task_handoff_message_id: '1795498309.979919'
     current_task_handoff_queue_id: convq_c4a80c2aef93c2cc54ebb2d07ef5335c
+    current_task_status_check_at: '2026-11-24T05:45:48Z'
+    current_task_status_check_status: sent
+    current_task_status_check_message_id: '1795499148.316479'
+    current_task_status_check_queue_id: convq_91563ac2f0bfcad456037f75a91470ae
     current_task_status: dispatched
     current_task_result_summary: ''
     current_task_followup: 'r1 결과에 따라 구간 내 후속 작업을 새 task ID로 판단; 17:30 이전 인계 결과 회수.'
@@ -198,6 +202,10 @@ lanes:
         handoff_status: sent
         handoff_message_id: '1795498309.979919'
         handoff_queue_id: convq_c4a80c2aef93c2cc54ebb2d07ef5335c
+        status_check_at: '2026-11-24T05:45:48Z'
+        status_check_status: sent
+        status_check_message_id: '1795499148.316479'
+        status_check_queue_id: convq_91563ac2f0bfcad456037f75a91470ae
         report_status: pending
         goal: '입력→변환→다운로드의 재현 가능한 불편을 찾아 작은 개선·배포·라이브 확인'
       - id: r2

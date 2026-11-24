@@ -309,6 +309,15 @@
       "evidence_paths": [
         "INTENTS.yaml"
       ]
+    },
+    {
+      "type": "status_check",
+      "at": "2026-11-24T05:45:48Z",
+      "task_id": "miniapp-20261124-r1-t01",
+      "status": "sent",
+      "message_id": "1795499148.316479",
+      "queue_id": "convq_91563ac2f0bfcad456037f75a91470ae",
+      "note": "Single status-only request; task was not re-dispatched. Windows execution/result/guard state remain unconfirmed pending reply."
     }
   ],
   "artifacts": [
@@ -415,6 +424,6 @@
   ],
   "next_decision": {
     "status": "in_progress",
-    "value": "r1 task miniapp-20261124-r1-t01 dispatched; await Windows evidence and decide same-window follow-up."
+    "value": "Await Windows status reply for miniapp-20261124-r1-t01; do not create overlapping work until execution/guard state is clarified."
   }
 }
