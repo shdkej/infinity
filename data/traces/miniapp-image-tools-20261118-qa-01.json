@@ -517,6 +517,17 @@
       "new_deployment": false,
       "previous_release_run": "45343956525",
       "next_candidate": "After user unlock and Narrator cleanup, SAM may assign new task to repeat real AT speech recap and result/download navigation on unlocked desktop."
+    },
+    {
+      "label": "r1-t06 approved app-only PostHog aggregate check",
+      "type": "execution_and_measurement",
+      "at": "2026-11-24T07:46:00Z",
+      "task_id": "miniapp-20261124-r1-t06",
+      "status": "dispatched_pending",
+      "evidence_paths": [
+        "intents/waiting/miniapp-image-tools-20261118-qa-01.md"
+      ],
+      "limits": "Only existing five approved app-specific events and shared account; no identities, other app data, pageviews, or session replay. Separate observed counts, query failures, unmeasured, and zero."
     }
   ],
   "artifacts": [
@@ -761,7 +772,7 @@
     }
   ],
   "next_decision": {
-    "status": "dispatched",
-    "value": "r1-t05 발송 직전 시각·run·감독 활성 재확인 후 전송; 17:30 r1 보고"
+    "status": "prepared_pending_handoff",
+    "value": "r1-t06: approved five-event miniapp-only aggregate measurement; final time/run/job check immediately before handoff"
   }
 }

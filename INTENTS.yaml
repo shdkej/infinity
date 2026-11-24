@@ -147,18 +147,16 @@ lanes:
       재현되면 최소 수정·테스트·앱 전용 배포·라이브 확인, 아니면 근거와 다음 후보 기록
     current_task_start_at: '2026-11-24T07:15:00Z'
     current_task_end_at: '2026-11-24T08:30:00Z'
-    current_task_completion_criteria: 스크린리더 또는 사용 가능한 보조기술로 입력·변환 완료 안내와 결과/다운로드 탐색
-      재현; 기능 변경 시 테스트·앱 전용 배포·라이브 확인 및 보호 실행 종료/잠금 증거. 접근 불가 시 조회 실패로 기록하고 고객 성과는
-      미측정으로 분리
-    current_task_handoff_attempt_at: '2026-11-24T07:15:00Z'
-    current_task_handoff_status: sent
-    current_task_handoff_message_id: '1795504692.489039'
-    current_task_handoff_queue_id: convq_b4e6a7dcffb39a43c0a59f8c76c371d7
+    current_task_completion_criteria: 기존 승인된 공유 계정·5종 이벤트만 사용하고 miniapp 앱 필터를 명시; 개인 식별자·다른 앱 데이터·페이지뷰/세션 재생은 열람하지 않는다. 조회 기간·이벤트별 건수/조회실패/미측정/0건을 분리 기록하고 결과·측정 한계를 원격 반영; 코드/계측/배포 변경 없음. guard 종료·잠금 상태 확인.
+    current_task_handoff_attempt_at: '2026-11-24T07:46:00Z'
+    current_task_handoff_status: pending
+    current_task_handoff_message_id: ''
+    current_task_handoff_queue_id: ''
     current_task_status_check_at: '2026-11-24T07:30:47Z'
     current_task_status_check_status: sent
     current_task_status_check_message_id: '1795505513.609889'
     current_task_status_check_queue_id: convq_f6aab1db4a22caa5924fdd523c18e510
-    current_task_status: completed_at_access_blocked
+    current_task_status: dispatched
     current_task_result_summary: 스크린리더 실제 안내·탐색은 잠긴 Windows 세션 때문에 미검증; 합성 브라우저 DOM·WebP 재디코딩만 확인. 제품 결함 판정·수정·신규 배포 없음. Narrator PID 27296 종료 대기.
     current_task_followup: 사용자가 Windows 대화형 데스크톱을 잠금 해제하고 이 시험에서 시작한 Narrator PID 27296만 종료한 뒤 부재 확인. 별도 SAM 승인 작업에서 실발화·결과/다운로드 탐색 재시험 후보.
     current_task_result: 'guard 완료(16:35:21 KST), exit 0, 16:35:40 KST active.lock 해제 확인. Windows LockApp으로 Narrator speech recap 실기록/ego 탐색 불가; 음성 직접 청취·녹음 없음. 라이브 390×844 모바일 에뮬레이션에 270B 합성 PNG→WebP 80×40 RGB 570B 저장·재디코딩, DOM role=status/aria-live=polite·결과/다운로드 존재만 확인(AT 증거 아님). 앱 테스트 7/7, 코드 변경·새 Action·배포 없음; 기존 Action 45343956525 유지. 고객 성과 미측정. Narrator PID 27296 잔존(접근 거부로 정리 미완료).'
@@ -204,11 +202,13 @@ lanes:
         start_at: '2026-11-24T05:30:00Z'
         end_at: '2026-11-24T08:30:00Z'
         status: running
-        task_sequence: 5
-        current_task_id: miniapp-20261124-r1-t05
-        current_task_goal: 모바일 합성 QA에서 변환 완료 안내가 스크린리더에 전달되고 결과 위치를 찾을 수 있는지 확인; 실제
-          차단이 재현되면 최소 수정·테스트·앱 전용 배포·라이브 확인, 아니면 근거와 다음 후보 기록
+        task_sequence: 6
+        current_task_id: miniapp-20261124-r1-t06
+        current_task_goal: 기존 승인된 PostHog 5종 이벤트의 미니앱 전용 집계만 조회해 이벤트별 관측량·기간·조회 한계를 구분하고 고객성과 측정 여부를 판정
         current_task_end_at: '2026-11-24T08:30:00Z'
+        handoff_attempt_at: '2026-11-24T07:46:00Z'
+        handoff_status: pending
+        report_status: pending
         handoff_attempt_at: '2026-11-24T07:15:00Z'
         handoff_status: sent
         handoff_message_id: '1795504692.489039'
