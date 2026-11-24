@@ -258,3 +258,11 @@
 - 인계는 원장/trace 업데이트 후 실제 발송 직전 시각·구간·end_at·run 상태·supervisor enabled를 다시 검사한다.
 
 - 15:47 KST 최종 발송 전 검사: 현재 r1, 종료 17:30 KST 전, 최신 원격 run=`running`, 감독 job=`enabled`; 준비한 `r1-t03` 인계를 전송했다. Slack sent 영수증 `1795502847.537309` (queue `convq_ab415e75d872be33a4f63c52ce54500d`). 이는 예약 전송 증거이며 Windows 실행 수락·제품 결과 증거는 아니다.
+
+### 2026-11-24 15:57 KST · r1-t03 크기 표기·보호 종료
+
+- `miniapp-20261124-r1-t03`은 보호 실행으로 `2026-11-24T06:50:20.692159+00:00`에 시작해 `2026-11-24T06:57:39.085211+00:00`(< 고정 종료 `2026-11-24T08:30:00+00:00`)에 정상 종료됐다. 부모가 guard SQLite에서 **state=completed, exit_code=0**을 직접 조회하고 15:57:53 KST에 공용 `active.lock` 비차단 획득으로 해제를 확인했다. stderr 0바이트; 차단 없음. 비공개 자식 출력은 guard 상태 경로에 보존했으며 같은 ID 재전송·새 작업 개시는 없다. 실행 영수증은 고객 성과의 근거가 아니다.
+- 변경 전 라이브에서 합성 160×80 PNG의 실제 `File.size=270B`였지만 원본 크기는 `0.00MB`로 표시됐다. 0바이트 파일이나 업로드 실패는 아니다. 원본 표기만 B(<1024), KB(<1MiB), MB(그 이상)로 분기해 같은 파일이 `270B`로 보이도록 했다. 0→`0B`(선택은 기존대로 거부), 1→`1B`, 1023→`1023B`, 1024→`1.00KB`, 1MiB−1→`1023.99KB`, 1MiB→`1.00MB` 경계 테스트를 수행했고 12MiB 입력은 허용·12MiB+1은 기존 규칙대로 거부됐다. 결과 크기 라벨·제한·기존 계측 종류는 변경하지 않았다.
+- 수정 전 새 테스트 실패, 수정 후 앱 Node 테스트 7/7 통과. Space 소스 SHA `3b9faeef227d97e48b3dfe42b71894ee0d738e7b`, [앱 전용 Action 45343956525](https://github.com/shdkej/space/actions/runs/45343956525) 성공(변환기 HTML 두 객체만 게시, 전체 버킷 삭제 없음), QA 기록 SHA `5552cfe07390ba17cd85e1a93aa2bb6fa0a21af0`. 라이브 두 변환기 URL 200과 공개 수집 토큰 한 곳만 제외한 소스 내용 일치. 실제 ego lite 390×844 **모바일 에뮬레이션**과 1280×800 데스크톱에서 `270B` 표기, 변환·브라우저 파일 저장·WebP 재디코딩을 확인했다. 모바일에서 옵션 변경 후 이전 결과 무효화·재변환 안내, 결과 재노출을 재확인했다. 홈과 `/sort/`는 HTTP 200 도달성만 확인. [Space QA 상세](https://github.com/shdkej/space/blob/main/infra-aws-static-sites/sites/miniapp-image-tools/qa/release-checkpoint.md).
+- 한계: 합성 QA이며 물리적 휴대전화·실제 고객 혼란/개선 효과·PostHog 수집·홈/정리 기능 전수 회귀는 확인하지 않았다. 다음 **별도 후보**는 모바일 자동 스크롤 후 키보드만으로 결과에 도달하는 포커스 흐름 점검. 새 목표/ID/인계는 SAM 감독이 판단한다. r1-t03 제품 작업은 완료했으나 17:30 r1 구간 보고는 pending이다.
+- 부모의 Planner·Developer·Marketer·Operator 독립 완료 `deleg_4a4acf6e`, 교차 검토 `deleg_a57801a6`: 실제 바이트와 UI 표기를 분리하고 경계값을 시험하며 고객 효과를 주장하지 않는 기준을 채택했다. 보호 자식 `local-7b5286a6ec0c0accccced92b9ca8798526fe3bc5b365002cdfa8a5190a3f2f5c`의 산출물을 부모가 guard 원장·잠금과 Space Action·라이브 소스 표기 대상으로 독립 확인했다.

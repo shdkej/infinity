@@ -402,6 +402,23 @@
       "message_id": "1795502847.537309",
       "queue_id": "convq_ab415e75d872be33a4f63c52ce54500d",
       "summary": "Windows handoff delivered; delivery receipt only, execution acceptance/result not yet verified."
+    },
+    {
+      "type": "task_completed",
+      "at": "2026-11-24T06:57:53Z",
+      "task_id": "miniapp-20261124-r1-t03",
+      "state": "completed",
+      "exit_code": 0,
+      "guard_started_at": "2026-11-24T06:50:20.692159+00:00",
+      "guard_finished_at": "2026-11-24T06:57:39.085211+00:00",
+      "end_at": "2026-11-24T08:30:00+00:00",
+      "active_lock": "free_verified",
+      "blocker": "none_observed",
+      "summary": "Nonzero synthetic PNG 270B displayed 0.00MB; changed source label to 270B, app tests 7/7, scoped release and live mobile/desktop synthetic WebP save/decode; no customer outcome measured.",
+      "source_commit": "3b9faeef227d97e48b3dfe42b71894ee0d738e7b",
+      "qa_commit": "5552cfe07390ba17cd85e1a93aa2bb6fa0a21af0",
+      "release_run": "45343956525",
+      "next_candidate": "Keyboard-only focus/result discovery after mobile auto-scroll; SAM supervisor owns new ID."
     }
   ],
   "artifacts": [
@@ -444,6 +461,14 @@
       "at": "2026-11-24T06:30:52Z",
       "task_id": "miniapp-20261124-r1-t02",
       "label": "r1-t02 repeated settings, before/after guidance and mobile/desktop live QA"
+    },
+    {
+      "path": "https://github.com/shdkej/space/blob/main/infra-aws-static-sites/sites/miniapp-image-tools/qa/release-checkpoint.md",
+      "type": "qa_evidence",
+      "status": "verified",
+      "at": "2026-11-24T06:57:53Z",
+      "task_id": "miniapp-20261124-r1-t03",
+      "label": "r1-t03 source-size before/after, unit boundaries and live converter QA"
     }
   ],
   "verifications": [
@@ -566,6 +591,29 @@
         "child": "local-2c91f8767342767f05a90cd5b245cb02998fd2b35d347b1ead4d9c3319a376d7"
       },
       "limits": "Synthetic mobile emulation and desktop QA, no physical device or measured customer outcome; home/sort reachability only."
+    },
+    {
+      "label": "r1-t03 guard, app-scoped release, live synthetic source-size and WebP",
+      "type": "execution_and_live",
+      "at": "2026-11-24T06:57:53Z",
+      "task_id": "miniapp-20261124-r1-t03",
+      "status": "pass",
+      "evidence_paths": [
+        "intents/waiting/miniapp-image-tools-20261118-qa-01.md",
+        "https://github.com/shdkej/space/actions/runs/45343956525"
+      ],
+      "roles": [
+        "planner",
+        "developer",
+        "marketer",
+        "operator"
+      ],
+      "sessions": {
+        "independent": "deleg_4a4acf6e",
+        "cross_review": "deleg_a57801a6",
+        "child": "local-7b5286a6ec0c0accccced92b9ca8798526fe3bc5b365002cdfa8a5190a3f2f5c"
+      },
+      "limits": "Synthetic browser emulation, not physical phone/customer outcome/PostHog ingestion; home/sort HTTP reachability only."
     }
   ],
   "next_decision": {
