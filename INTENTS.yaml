@@ -151,7 +151,7 @@ lanes:
     current_task_handoff_status: sent
     current_task_handoff_message_id: '1795512849.994749'
     current_task_handoff_queue_id: convq_ce399fd84c0462957e1b7c90884d659e
-    current_task_completion_criteria: 기존 승인 앱에서 합성 지원/비지원 포맷과 손상·크기 경계 입력을 제한적으로 시험해 입력별 오류 표시, 이전 결과 무효화, 정상 입력 복구를 확인. 재현 결함만 수정·테스트·기존 승인 앱 전용 배포·라이브 확인; 무재현이면 범위·증거·다음 후보 기록. 신규 비용·권한·다른 앱 데이터·식별/페이지뷰/세션재생/민감정보 수집 제외. 고정 end_at 준수, guard 종료·잠금 해제 확인.
+    current_task_completion_criteria: 0B·지원외/손상·12MiB 초과 입력별 안내 정확성, 오류 격리와 정상 파일 재시도 확인; 혼동 재현 시 최소 수정·테스트·기존 앱 전용 배포·라이브 확인. 합성 QA와 고객 성과/사용자 이해도 구분, 새 비용·권한·다른 앱 데이터·페이지뷰/식별/세션재생/민감정보 제외, 고정 end_at·guard 종료·잠금 해제 확인.
     prior_task_handoff_message_id: '1795506439.083149'
     prior_task_handoff_queue_id: convq_8a215ed203754328f7789be184b789a3
     prior_task_status_check_at: '2026-11-24T07:30:47Z'
@@ -164,14 +164,19 @@ lanes:
     prior_r2_task_guard_exit_code: 0
     prior_r2_task_lock_released_verified_at: '2026-11-24T08:40:16Z'
     prior_r2_task_handoff_receipt: sent 1795509171.676709; queue convq_5286e85306b63fe3f81e94d06a83565d
-    current_task_status: handoff_prepared
-    current_task_result_summary: '합성 라이브 QA: 지원 PNG·JPEG·WebP 입력 변환/다운로드 통과; 실제 GIF·SVG·AVIF, 손상 PNG, 0B, 12MiB+1B, 10,001px 변·2,000만 화소 초과 헤더 거부 후 이전 결과 무효화·정상 PNG 복구. 저장 파일 15개 재디코딩. 재현 결함 없음, 코드·배포 무변경.'
-    current_task_followup: 정확히 12MiB 및 10,000px/2,000만 화소 경계는 불완전한 합성 PNG의 선택 단계만 관찰; 유효한 대형 이미지 디코딩은 자원 제한을 둔 별도 후보. 0B는 '12MB 이하' 일반 문구가 나와 실제 사용자 이해도 별도 후보. 고객 성과·실기기/타 브라우저는 미측정. t05 Narrator PID 27296 정리는 별도 대기.
-    current_task_result: 'ego lite 라이브 ?qa=1, 합성 정상 PNG 89B→WebP 562B, JPEG 637B→PNG 118B, WebP 78B→JPEG 766B. 유효 GIF 78B/SVG 106B/AVIF 316B·손상 PNG 14B·0B·12MiB+1B·헤더상 10001×1/5000×4001 선택 거부, 모두 기존 미리보기/메타 제거·변환/다운로드 비활성화 후 정상 PNG 재선택·WebP 저장 복구. 경계 정확히 12MiB/10000×1/5000×4000은 불완전한 헤더의 선택 허용일 뿐 디코딩 통과 아님. 부모가 별개 저장 15개 Pillow 32×16 재디코딩. Node 7/7, 코드·신규 Action 없음. guard 2026-11-24T09:13:11.829869Z completed exit 0, active.lock 09:13:22Z 해제 확인.'
+    prior_r2_t02_task_id: miniapp-20261124-r2-t02
+    prior_r2_t02_task_status: completed_no_change
+    prior_r2_t02_guard_finished_at: '2026-11-24T09:13:11.829869+00:00'
+    prior_r2_t02_guard_exit_code: 0
+    prior_r2_t02_lock_released_verified_at: '2026-11-24T09:13:22Z'
+    current_task_status: source_published_deploy_blocked
+    current_task_result_summary: '합성 라이브에서 0B의 부정확한 12MB 상한 안내 재현. 0B만 문구 수정·회귀 테스트 9/9·Space main SHA b8ee2e45; 신규 앱 배포 없음(롤백용 S3 두 객체 본문/메타데이터·버전 확보 불가). 따라서 라이브는 이전 문구 그대로, 제품 완료 아님. guard completed exit 0·잠금 해제.'
+    current_task_followup: 기존 승인 권한 안에서 대상 두 S3 객체의 읽기·복원 경로와 정확한 롤백을 검증해야만 앱 전용 배포/라이브 완료 가능; 새 권한·비용 확대는 요청하지 않음. 같은 ID의 보호 실행은 종료돼 자동 재전송하지 않으며 SAM이 후속 인계 판단. 합성 문구 수정은 고객 이해·성과 측정 아님; t05 Narrator PID 27296 정리 별도.
+    current_task_result: '라이브 ?qa=1 합성 0B PNG의 기존 12MB 이하 안내를 재현; 손상 PNG, GIF/SVG/AVIF, 12MiB+1B는 각 원인별 기존 문구와 오류 격리·이전 결과 무효화·정상 PNG 복구를 확인. 부모가 합성 WebP 8개(각 2×2) 재디코딩. 로컬 수정본 브라우저에서 0B 전용 빈 파일 안내, 초과 용량 안내 유지, 정상 다운로드 확인. 신규 테스트 RED→GREEN, Node 9/9. 소스 SHA b8ee2e45f638dc7809ea9f57fa2c4c02372a4d49 원격 main 확인; 자동 Action 45367991427 detect success/deploy skipped, 수동 앱 Action 실행 안 함. 현재 라이브는 구 문구. S3 정확한 두 객체의 읽기/복원 증거를 기존 자격으로 얻지 못해 배포 보류. guard 2026-11-24T09:45:22.339432Z completed exit 0, 09:45:33Z active.lock 해제.'
     current_task_guard_status: completed
     current_task_guard_exit_code: 0
-    current_task_guard_finished_at: '2026-11-24T09:13:11.829869+00:00'
-    current_task_lock_released_verified_at: '2026-11-24T09:13:22Z'
+    current_task_guard_finished_at: '2026-11-24T09:45:22.339432+00:00'
+    current_task_lock_released_verified_at: '2026-11-24T09:45:33Z'
     report: reports/miniapp-image-tools-20261118-qa-01/20261124T1230KST.html
     current_task_handoff_receipt: sent 1795512849.994749; queue convq_ce399fd84c0462957e1b7c90884d659e
     daily_run_window:
@@ -254,12 +259,15 @@ lanes:
         prior_task_status_check_task_id: miniapp-20261124-r2-t03
         prior_task_status_check_message_id: '1795513609.377209'
         prior_task_status_check_queue_id: convq_c529ac4db654882a9a0376b1f9834b7c
-        last_task_status: completed_no_change
-        last_task_id: miniapp-20261124-r2-t02
-        last_task_result: completed_no_change; guard exit 0; lock released; 0B guidance accuracy and user comprehension unverified; customer outcomes unmeasured.
-        last_task_guard_finished_at: '2026-11-24T09:13:11.829869+00:00'
+        last_task_status: source_published_deploy_blocked
+        last_task_id: miniapp-20261124-r2-t03
+        last_task_result: 0B 문구 오류 재현·최소 수정·Node 9/9·Space SHA b8ee2e45; 앱 신규 배포 보류(기존 S3 두 객체 롤백 경로 미검증), 라이브 구 문구 유지. guard exit 0·lock free.
+        last_task_guard_finished_at: '2026-11-24T09:45:22.339432+00:00'
         last_task_guard_exit_code: 0
-        last_task_lock_released_verified_at: '2026-11-24T09:13:22Z'
+        last_task_lock_released_verified_at: '2026-11-24T09:45:33Z'
+        prior_r2_t02_task_id: miniapp-20261124-r2-t02
+        prior_r2_t02_guard_finished_at: '2026-11-24T09:13:11.829869+00:00'
+        prior_r2_t02_guard_exit_code: 0
         prior_r2_task_id: miniapp-20261124-r2-t01
         prior_r2_task_guard_finished_at: '2026-11-24T08:40:04.549337+00:00'
         prior_r2_task_guard_exit_code: 0
@@ -276,8 +284,8 @@ lanes:
       prior_task_status_check_task_id: miniapp-20261124-r2-t03
       prior_task_status_check_message_id: '1795513609.377209'
       prior_task_status_check_queue_id: convq_c529ac4db654882a9a0376b1f9834b7c
-      next_action: r2-t03 본 작업 결과/guard/lock은 미확인; 동일 ID 상태 확인 1회 sent(1795513609.377209). 20:30 r2 보고 pending.
-    next_action: r2-t03 전송 완료(1795512849.994749); Windows 실행/결과 별도 확인. 20:30 r2 보고 및 23:30 종합 마감은 계약에 따라 확인.
+      next_action: r2-t03 guard·잠금 영수증 기록 완료. 소스 SHA b8ee2e45 게시됐지만 라이브 구 문구 유지; 승인된 기존 S3 두 객체의 읽기·복원/롤백 경로 확인 전 앱 배포 보류. r2 구간 보고는 pending, r3는 SAM 인계 전 실행하지 않음.
+    next_action: 같은 ID의 배포 차단·근거·종료 보고 완료; 새 권한/비용 추가 없이 대상 두 객체 복구 가능성 판단을 SAM에게 요청. 20:30 r2 보고·23:30 종합 마감은 별도 감독 계약.
     notification_channel: slack
     notification_target: channel:C0CE0DV9MM2
     notification_reply_to: '1794983278.888719'

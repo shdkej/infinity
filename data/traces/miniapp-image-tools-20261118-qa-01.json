@@ -940,6 +940,43 @@
       "limits": "Native delivery receipt only; Windows parent execution, guard and lock remain unconfirmed; no task resend.",
       "message_id": "1795513609.377209",
       "queue_id": "convq_c529ac4db654882a9a0376b1f9834b7c"
+    },
+    {
+      "type": "task_completed",
+      "at": "2026-11-24T09:45:33Z",
+      "task_id": "miniapp-20261124-r2-t03",
+      "state": "source_published_deploy_blocked",
+      "guard_state": "completed",
+      "exit_code": 0,
+      "guard_started_at": "2026-11-24T09:38:51.116428+00:00",
+      "guard_finished_at": "2026-11-24T09:45:22.339432+00:00",
+      "end_at": "2026-11-24T11:30:00+00:00",
+      "active_lock": "free_verified",
+      "synthetic_live_qa": {
+        "zero_byte_png": "old misleading 12MB 이하 message reproduced",
+        "corrupt_png": "rejected with damaged/unsupported message",
+        "unsupported_gif_svg_avif": "rejected with PNG/JPEG/WebP message",
+        "over_12mib_png": "rejected with 12MB limit message",
+        "each_rejection": "old preview/download invalidated, fresh valid PNG recovery saved and decoded"
+      },
+      "saved_files_decoded": 8,
+      "decoded_dimensions": [
+        2,
+        2
+      ],
+      "source_commit": "b8ee2e45f638dc7809ea9f57fa2c4c02372a4d49",
+      "tests_passed": "9/9",
+      "source_changed": true,
+      "new_deployment": false,
+      "auto_action": {
+        "id": "45367991427",
+        "detect": "success",
+        "deploy": "skipped"
+      },
+      "live_current_state": "old misleading zero-byte message remains; new copy not yet deployed",
+      "blocker": "No verified read/restore path for two existing S3 object bodies/metadata or versions using existing credentials; local AWS credentials parsing failed, no IAM/cost expansion.",
+      "customer_outcome_status": "unmeasured",
+      "next_candidate": "Under existing authorized access, validate read+restore of two target objects and rollback before app-only release; SAM to hand off remaining work."
     }
   ],
   "artifacts": [
@@ -1291,10 +1328,33 @@
         "child": "local-ae07ca08e008d4c40caef4e6fbfa9eda604e11d31c5face5834a8a05485939b8"
       },
       "limits": "Synthetic ego Chromium; boundary-in fixtures intentionally incomplete and selected only; larger image decoding, OS file chooser, real users and other browsers not verified."
+    },
+    {
+      "label": "r2-t03 empty-file copy mismatch reproduced, source fix published, deployment blocked",
+      "type": "execution_source_and_live_before_release",
+      "at": "2026-11-24T09:45:33Z",
+      "task_id": "miniapp-20261124-r2-t03",
+      "status": "partial_blocked",
+      "evidence_paths": [
+        "intents/waiting/miniapp-image-tools-20261118-qa-01.md",
+        "https://github.com/shdkej/space/commit/b8ee2e45f638dc7809ea9f57fa2c4c02372a4d49"
+      ],
+      "roles": [
+        "planner",
+        "developer",
+        "marketer",
+        "operator"
+      ],
+      "sessions": {
+        "independent": "deleg_10999c97",
+        "cross_review": "deleg_6cca131d",
+        "child": "local-799549977b17d01e7ec941ab91156cdb4a3f98d67625a590c1f7422b70fd83b6"
+      },
+      "limits": "Guard exit 0 and source commit are not app deployment. No app Action; live old copy; synthetic QA not real customer understanding. Rollback prerequisite unverified."
     }
   ],
   "next_decision": {
-    "status": "status_check_sent_pending_windows",
-    "value": "r2-t03 status check sent once at 18:46 KST (1795513609.377209); awaiting same-task Windows result/guard/lock. r2 report remains pending for 20:30."
+    "status": "source_published_deploy_blocked",
+    "value": "r2-t03 guard completed exit 0 and lock free; 0B copy fix committed to Space main b8ee2e45, tests 9/9, no app Action. Need verified existing-access read+restore/rollback for two S3 objects before release; 20:30 r2 interval report still pending. No duplicate task dispatch."
   }
 }
