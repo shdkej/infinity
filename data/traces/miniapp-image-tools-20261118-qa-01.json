@@ -1645,10 +1645,24 @@
       },
       "source_sha": "dc43b456354f3f03edf402a8dfce0a10172f8d81",
       "evidence_sha": "93da7d6de0cad3def7d837ca95d442b684216ad2",
-      "actions": {"preflight": 45387279476, "rehearse": 45387424267, "restore": 45387581651, "release": 45387803883},
-      "live": {"converter_http_status": 200, "bytes_each": 17940, "sha256": "dee66985a1dd09a33cdcd5ccf0f9dd9a98c20953a3c41672d2815622b1b59e39", "root_and_sort_reachability": 200},
+      "actions": {
+        "preflight": 45387279476,
+        "rehearse": 45387424267,
+        "restore": 45387581651,
+        "release": 45387803883
+      },
+      "live": {
+        "converter_http_status": 200,
+        "bytes_each": 17940,
+        "sha256": "dee66985a1dd09a33cdcd5ccf0f9dd9a98c20953a3c41672d2815622b1b59e39",
+        "root_and_sort_reachability": 200
+      },
       "tests": "Chromium controlled Blob.arrayBuffer native completion/stalled selected state before fix, RED 1 failed/1 passed, GREEN Node 11/11; released live A/settings race, late A/B, 0B rejection, valid reselect and two saved decoded JPEG/WebP 80x40 RGB",
-      "sessions": {"independent": "deleg_6196645b", "cross_review": "deleg_e8f9bbc2", "read_only_red": "deleg_36eb4b8f"},
+      "sessions": {
+        "independent": "deleg_6196645b",
+        "cross_review": "deleg_e8f9bbc2",
+        "read_only_red": "deleg_36eb4b8f"
+      },
       "limits": "Controlled delay is not ordinary customer incidence. Synthetic files and browser helper selection; no physical device, actual screen-reader speech, customer outcome or PostHog ingestion. Forced runner kill/partial-write restoration untested; product verification distinct from guard exit and lock receipt. r3 final interval report pending."
     }
   ],
@@ -1713,6 +1727,28 @@
       "sent_at": "2026-11-24T11:45:47Z",
       "message_id": "1795520747.881739",
       "queue_id": "convq_a13995fcc87bd672c099f41b904e9aff8"
+    },
+    {
+      "type": "task_handoff_prepared",
+      "at": "2026-11-24T12:16:12Z",
+      "task_id": "miniapp-20261124-r3-t02",
+      "window": "r3",
+      "sequence": 2,
+      "end_at": "2026-11-24T14:30:00Z",
+      "status": "prepared",
+      "goal": "Verify exact identity/state of the outstanding Narrator PID 27296; terminate only that exact process normally if identity is certain and access permits, otherwise record blocker without force. No broad process cleanup or customer/product claims."
+    }
+  ],
+  "task_records": [
+    {
+      "task_id": "miniapp-20261124-r3-t02",
+      "window": "r3",
+      "sequence": 2,
+      "status": "handoff_prepared",
+      "at": "2026-11-24T12:16:12Z",
+      "goal": "Verify and safely resolve the one outstanding Narrator PID 27296 only if process identity is certain; otherwise record blocker and safe next step.",
+      "end_at": "2026-11-24T14:30:00Z",
+      "handoff_attempt": "prepared"
     }
   ]
 }

@@ -151,15 +151,15 @@ lanes:
     prior_r2_t05_guard_finished_at: '2026-11-24T10:48:12.591294+00:00'
     prior_r2_t05_guard_exit_code: 0
     prior_r2_t05_lock_released_verified_at: '2026-11-24T10:49:18Z'
-    current_task_id: miniapp-20261124-r3-t01
-    current_task_goal: 파일 헤더 읽기 중 변환 설정을 바꿨을 때 선택 상태가 복구되지 않는 경합 후보를 재현하고, 실제 결함일 때만 최소 수정·배포·라이브 검증
-    current_task_start_at: '2026-11-24T11:31:12Z'
+    current_task_id: miniapp-20261124-r3-t02
+    current_task_goal: r1에서 남은 Narrator PID 27296의 정확한 프로세스 신원·상태를 확인하고, 동일 PID가 여전히 해당 시험에서 시작한 프로세스일 때만 안전하게 종료·부재 검증; 불확실하거나 권한 차단이면 강제 종료 없이 원인 기록
+    current_task_start_at: '2026-11-24T12:16:12Z'
     current_task_end_at: '2026-11-24T14:30:00Z'
-    current_task_handoff_attempt_at: '2026-11-24T11:31:12Z'
-    current_task_handoff_status: sent
-    current_task_handoff_message_id: '1795520034.423279'
-    current_task_handoff_queue_id: convq_f4220e1e2f1315988e3e5697a899d49c
-    current_task_completion_criteria: Windows 실제 브라우저에서 지연 헤더 읽기 도중 format/edge 설정 변경을 재현하고 선택 상태·변환 복구를 확인; 실제 결함이면 기존 승인된 범위 내 최소 회귀 테스트·수정·앱 전용 배포·라이브 검증, 미재현이면 근거/재현 한계 기록. guard 종료·잠금 해제 기록, 고객 성과 미측정·합성 QA 구분; 비용/권한/데이터 범위 확대 금지.
+    current_task_handoff_attempt_at: '2026-11-24T12:16:12Z'
+    current_task_handoff_status: prepared
+    current_task_handoff_message_id: null
+    current_task_handoff_queue_id: null
+    current_task_completion_criteria: Windows에서 PID 27296의 프로세스명·소유자·시작 시각·세션을 확인해 기존 Narrator QA 프로세스와 일치하는지 검증; 일치가 확실하고 접근 가능한 경우 그 PID만 정상 종료 후 부재 확인, 아니면 종료하지 않고 원인·다음 안전 경로 기록. 부모 종료/guard/잠금 확인을 같은 task_id에 남김; 제품 결과·고객 성과와 구분, 권한 확대 금지.
     prior_task_handoff_message_id: '1795506439.083149'
     prior_task_handoff_queue_id: convq_8a215ed203754328f7789be184b789a3
     prior_task_status_check_at: '2026-11-24T07:30:47Z'
@@ -183,25 +183,34 @@ lanes:
     prior_r2_t06_guard_exit_code: 0
     prior_r2_t06_lock_released_verified_at: '2026-11-24T11:24:09.929899Z'
     prior_r2_t06_summary: mobile keyboard recovery QA pass at 390x844 and 320x720; synthetic only, customer outcomes unmeasured; no product change.
-    current_task_status: defect_fixed_released_live_verified_guard_completed
-    current_task_result_summary: r3-t01 실제 Chromium 제어 지연 경합 재현·RED→GREEN Node 11/11; 선택 토큰 분리. Space dc43b456, 앱 전용 Action 45387803883 성공, 두 라이브 본문 SHA dee66985 일치·합성 저장물 재디코딩. guard 11:58:40Z completed/exit 0, lock 11:59:02Z free.
-    current_task_followup: 제어 지연 QA는 고객 발생/이해/성과 증거가 아님. 실물 기기·스크린리더 발화·PostHog 수집 미검증; r1 Narrator PID 27296 정리 별도 대기.
-    current_task_result: product_live_verified_guard_completed
-    current_task_guard_status: completed
-    current_task_guard_exit_code: 0
-    current_task_guard_finished_at: '2026-11-24T11:58:40.152152+00:00'
-    current_task_lock_released_verified_at: '2026-11-24T11:59:02.214699+00:00'
-    current_task_status_check_at: '2026-11-24T11:46:05Z'
-    current_task_status_check_status: recorded_running_snapshot
-    current_task_status_check_task_id: miniapp-20261124-r3-t01
-    current_task_guard_started_at: '2026-11-24T11:40:16.652357+00:00'
-    current_task_lock_status: held_at_status_check
-    current_task_source_sha: dc43b456354f3f03edf402a8dfce0a10172f8d81
-    current_task_evidence_sha: 93da7d6de0cad3def7d837ca95d442b684216ad2
-    current_task_release_run: '45387803883'
-    current_task_live_sha256: dee66985a1dd09a33cdcd5ccf0f9dd9a98c20953a3c41672d2815622b1b59e39
+    current_task_status: handoff_prepared
+    current_task_result_summary: r3-t02 준비 완료; r3-t01 완료·라이브 검증 증거는 상세/trace에 보존. Windows의 기존 Narrator PID 27296 단일 식별·안전 종료 여부 확인 대기.
+    current_task_followup: PID가 재사용됐거나 신원 불확실하면 종료 금지. 성공하더라도 스크린리더 발화/실기기 QA 또는 고객 성과로 간주하지 않음.
+    current_task_result: handoff_prepared
+    current_task_status_at: '2026-11-24T12:16:12Z'
+    current_task_guard_status: not_started
+    current_task_guard_exit_code: null
+    current_task_guard_finished_at: null
+    current_task_lock_released_verified_at: null
+    prior_r3_t01_status_check_at: '2026-11-24T11:46:05Z'
+    prior_r3_t01_status_check_status: recorded_running_snapshot
+    prior_r3_t01_status_check_task_id: miniapp-20261124-r3-t01
+    current_task_status_check_at: null
+    current_task_status_check_status: not_requested
+    current_task_status_check_task_id: miniapp-20261124-r3-t02
+    current_task_guard_started_at: null
+    current_task_lock_status: not_started
+    prior_r3_t01_source_sha: dc43b456354f3f03edf402a8dfce0a10172f8d81
+    prior_r3_t01_evidence_sha: 93da7d6de0cad3def7d837ca95d442b684216ad2
+    prior_r3_t01_release_run: '45387803883'
+    prior_r3_t01_live_sha256: dee66985a1dd09a33cdcd5ccf0f9dd9a98c20953a3c41672d2815622b1b59e39
+    current_task_source_sha: null
+    current_task_evidence_sha: null
+    current_task_release_run: null
+    current_task_live_sha256: null
     report: reports/miniapp-image-tools-20261118-qa-01/20261124T1230KST.html
-    current_task_handoff_receipt: sent 1795520034.423279; queue convq_f4220e1e2f1315988e3e5697a899d49c
+    prior_r3_t01_handoff_receipt: sent 1795520034.423279; queue convq_f4220e1e2f1315988e3e5697a899d49c
+    current_task_handoff_receipt: prepared; awaiting final eligibility check
     daily_run_window:
       start_date: '2026-11-23'
       end_date: '2026-11-25'
@@ -322,30 +331,34 @@ lanes:
         start_at: '2026-11-24T11:30:00Z'
         end_at: '2026-11-24T14:30:00Z'
         status: running
-        task_sequence: 1
-        current_task_id: miniapp-20261124-r3-t01
-        current_task_goal: 파일 헤더 읽기 중 변환 설정 변경 경합 후보를 재현하고 실제 결함일 때만 최소 개선·배포·라이브 검증
+        task_sequence: 2
+        current_task_id: miniapp-20261124-r3-t02
+        current_task_goal: r1 잔여 Narrator PID 27296의 정확한 프로세스 신원·상태 확인 및 안전한 단일 PID 정리
         current_task_end_at: '2026-11-24T14:30:00Z'
-        current_task_completion_criteria: Windows 실제 브라우저에서 지연 헤더 읽기 도중 format/edge 설정 변경을 재현하고 선택 상태·변환 복구를 확인; 결함이면 기존 승인 범위 내 최소 수정·회귀 테스트·앱 전용 배포·라이브 검증, 아니면 재현 한계와 다음 판단 기록. guard 종료·잠금 해제·고객성과 미측정 구분.
-        handoff_attempt_at: '2026-11-24T11:31:12Z'
-        handoff_status: sent
-        handoff_message_id: '1795520034.423279'
-        handoff_queue_id: convq_f4220e1e2f1315988e3e5697a899d49c
-        current_task_status_check_at: '2026-11-24T11:45:47Z'
-        current_task_status_check_status: sent
-        current_task_status_check_task_id: miniapp-20261124-r3-t01
-        current_task_status_check_message_id: '1795520747.881739'
-        current_task_status_check_queue_id: convq_a13995fcc87bd672c099f41b904e9aff8
-        current_task_status_check_reason: No newer result/guard/lock receipt; one current-status request only, no task resend.
+        current_task_completion_criteria: Windows에서 PID 27296의 프로세스명·소유자·시작 시각·세션을 확인해 기존 Narrator QA 프로세스와 일치하는지 검증; 일치가 확실하고 접근 가능할 때 해당 PID만 정상 종료 후 부재 확인, 아니면 종료하지 않고 차단 근거 기록. 부모 종료/guard/잠금 확인 기록, 제품 결과·고객 성과와 구분.
+        handoff_attempt_at: '2026-11-24T12:16:12Z'
+        handoff_status: prepared
+        handoff_message_id: null
+        handoff_queue_id: null
+        prior_r3_t01_status_check_at: '2026-11-24T11:45:47Z'
+        prior_r3_t01_status_check_status: sent
+        prior_r3_t01_status_check_task_id: miniapp-20261124-r3-t01
+        prior_r3_t01_status_check_message_id: '1795520747.881739'
+        prior_r3_t01_status_check_queue_id: convq_a13995fcc87bd672c099f41b904e9aff8
+        current_task_status_check_status: not_requested
         report_status: pending
-        current_task_execution_snapshot_at: '2026-11-24T11:46:05Z'
-        current_task_execution_snapshot: guard running, exit/finished pending; active.lock held; source/test and browser in progress; release unverified
-        current_task_product_result: defect_reproduced_fixed_released_live_verified
-        current_task_product_source_sha: dc43b456354f3f03edf402a8dfce0a10172f8d81
-        current_task_product_evidence_sha: 93da7d6de0cad3def7d837ca95d442b684216ad2
-        current_task_release_run: '45387803883'
-        current_task_guard_final_receipt: completed_exit_0_at_2026-11-24T11:58:40.152152Z_lock_free_at_11:59:02.214699Z
-        goal: r2 모바일 복구 통과 뒤 미재현으로 남은 헤더 읽기 설정 변경 경합 후보를 재현 검증하고 필요한 경우에만 최소 수정·라이브 확인
+        current_task_execution_snapshot_at: '2026-11-24T11:58:40Z'
+        current_task_execution_snapshot: r3-t01 product/live verified; guard completed exit 0 and shared lock free; r3-t02 handoff prepared, not sent
+        current_task_product_result: not_applicable_process_cleanup_check
+        prior_r3_t01_product_source_sha: dc43b456354f3f03edf402a8dfce0a10172f8d81
+        prior_r3_t01_product_evidence_sha: 93da7d6de0cad3def7d837ca95d442b684216ad2
+        prior_r3_t01_release_run: '45387803883'
+        current_task_product_result: not_applicable_process_cleanup_check
+        current_task_product_source_sha: null
+        current_task_product_evidence_sha: null
+        current_task_release_run: null
+        current_task_guard_final_receipt: pending
+        goal: Verify and, only if safe, resolve the outstanding Narrator PID 27296 without broad process cleanup or unverified screen-reader claims.
       prior_task_status_check_at: '2026-11-24T09:45:00Z'
       prior_task_status_check_status: sent
       prior_task_status_check_task_id: miniapp-20261124-r2-t03
