@@ -903,6 +903,17 @@
       "new_deployment": false,
       "customer_outcome_status": "unmeasured",
       "next_candidate": "With a resource budget, test a genuinely valid exact-12MiB decoded source and genuine large image, separately authorized and ID."
+    },
+    {
+      "label": "r2-t03 error-copy accuracy and recovery task prepared",
+      "type": "handoff_preparation",
+      "at": "2026-11-24T09:31:00Z",
+      "task_id": "miniapp-20261124-r2-t03",
+      "status": "prepared",
+      "evidence_paths": [
+        "intents/waiting/miniapp-image-tools-20261118-qa-01.md"
+      ],
+      "limits": "Synthetic QA; user comprehension and customer outcomes remain unmeasured. Fixed end_at 2026-11-24T11:30:00Z; no handoff receipt yet."
     }
   ],
   "artifacts": [
@@ -1257,7 +1268,7 @@
     }
   ],
   "next_decision": {
-    "status": "task_completed_no_change",
-    "value": "r2-t02 completed/exit 0 at 09:13:11Z and lock free 09:13:22Z; status check 1795511752.371019 is now resolved by same-task receipt. r2 interval report remains pending; no new task without SAM handoff."
+    "status": "handoff_prepared",
+    "value": "r2-t02 completed_no_change with guard exit 0 and lock released. r2-t03 tests whether 0B/damaged/unsupported/oversize input guidance matches cause and recovery; dispatch pending final clock/run/job check."
   }
 }
