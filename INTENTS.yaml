@@ -166,10 +166,10 @@ lanes:
     current_task_completion_criteria: Windows 실제 브라우저에서 무해한 합성 손상 이미지와 명확한 미지원 형식 입력의 안내·미리보기·변환/다운로드 상태를 기록하고, 같은 페이지에서 유효 PNG 재선택 후 변환·다운로드·저장물 재디코딩을 확인한다. 0B/모바일/옵션 경합 기존 QA를 반복하지 않는다. 실제 결함일 때만 작은 수정·회귀테스트·기존 앱 전용 배포·두 경로 라이브 확인을 고정 종료 전 안전하게 완료; 아니면 no-change 근거와 다음 후보 기록. 기존 계측·비용·권한·다른 앱 데이터 확대 금지, 고객성과 미측정 분리. 정본 detail/trace와 같은 task_id guard 종료/exit/lock 상태 기록; 관련 파일만 main 검증·반영.
     prior_task_handoff_message_id: '1795506439.083149'
     prior_task_handoff_queue_id: convq_8a215ed203754328f7789be184b789a3
-    prior_task_status_check_at: '2026-11-24T07:30:47Z'
-    prior_task_status_check_status: sent
-    prior_task_status_check_message_id: '1795505513.609889'
-    prior_task_status_check_queue_id: convq_f6aab1db4a22caa5924fdd523c18e510
+    prior_r1_t05_status_check_at: '2026-11-24T07:30:47Z'
+    prior_r1_t05_status_check_status: sent
+    prior_r1_t05_status_check_message_id: '1795505513.609889'
+    prior_r1_t05_status_check_queue_id: convq_f6aab1db4a22caa5924fdd523c18e510
     prior_r2_task_id: miniapp-20261124-r2-t01
     prior_r2_task_status: completed_no_change
     prior_r2_task_guard_finished_at: '2026-11-24T08:40:04.549337+00:00'
@@ -187,12 +187,12 @@ lanes:
     prior_r2_t06_guard_exit_code: 0
     prior_r2_t06_lock_released_verified_at: '2026-11-24T11:24:09.929899Z'
     prior_r2_t06_summary: mobile keyboard recovery QA pass at 390x844 and 320x720; synthetic only, customer outcomes unmeasured; no product change.
-    current_task_status: handoff_sent_windows_execution_pending
-    current_task_result_summary: 'r3-t04 prepared for corrupt/unsupported synthetic input rejection and valid PNG recovery QA; no execution or product result confirmed yet. r3-t03 aggregate/guard result remains in task history. Customer outcomes unmeasured.'
-    current_task_followup: 'Await Windows parent result for r3-t04; do not overlap. Narrator PID 27296 cleanup remains blocked until interactive unlock.'
-    current_task_result: pending
-    current_task_status_at: '2026-11-24T13:15:00Z'
-    current_task_guard_status: not_started
+    current_task_status: browser_qa_pass_no_product_change_guard_pending_parent
+    current_task_result_summary: 'Live ego lite same-page synthetic bad-header PNG and decodable GIF rejected at selection; header-valid damaged body failed at transform. Each stale result invalidated; distinct valid PNG reselect recovered and three browser-saved PNG outputs independently decoded 80x40. Node 11/11. No reproduced product defect, code change or new release. Customer outcomes unmeasured.'
+    current_task_followup: 'Parent to read actual guard state/exit/finished_at vs immutable end and nonblocking shared lock after child exits; r3 interval report pending. Narrator PID 27296 remains separate pending interactive Windows unlock.'
+    current_task_result: synthetic_live_rejection_recovery_pass_no_change
+    current_task_status_at: '2026-11-24T13:25:51Z'
+    current_task_guard_status: pending_parent_after_child_exit
     current_task_guard_exit_code: null
     current_task_guard_finished_at: null
     current_task_lock_released_verified_at: null
@@ -230,7 +230,7 @@ lanes:
     current_task_evidence_sha: null
     current_task_release_run: null
     current_task_live_sha256: null
-    report: reports/miniapp-image-tools-20261118-qa-01/20261124T1243Z-r3-t03.html
+    report: reports/miniapp-image-tools-20261118-qa-01/20261124T1325Z-r3-t04.html
     prior_r3_t01_handoff_receipt: sent 1795520034.423279; queue convq_f4220e1e2f1315988e3e5697a899d49c
     current_task_handoff_status: sent
     current_task_handoff_message_id: '1795526386.876779'
@@ -384,10 +384,10 @@ lanes:
         prior_task_status_check_queue_id: convq_08af5d2122183d83ccd2b3f83a9760aa
         prior_task_status_check_snapshot_at: '2026-11-24T12:45:30Z'
         prior_task_status_check_snapshot: No newer result/guard/lock receipt for r3-t03; one status-only request sent, no work resubmitted.
-        current_task_status: handoff_sent_windows_execution_pending
-        current_task_result: pending
-        current_task_guard_status: not_started
-        current_task_lock_status: unknown
+        current_task_status: browser_qa_pass_no_product_change_guard_pending_parent
+        current_task_result: synthetic_live_rejection_recovery_pass_no_change
+        current_task_guard_status: pending_parent_after_child_exit
+        current_task_lock_status: pending_parent_after_child_exit
         current_task_analytics_status: not_applicable_for_browser_qa
         prior_r3_t03_analytics_observed_at: '2026-11-24T12:43:40.169418Z'
         prior_r3_t03_analytics_window: '[2026-11-24T05:30:00Z,2026-11-24T12:41:30Z)'
@@ -403,7 +403,7 @@ lanes:
         prior_r3_t01_product_source_sha: dc43b456354f3f03edf402a8dfce0a10172f8d81
         prior_r3_t01_product_evidence_sha: 93da7d6de0cad3def7d837ca95d442b684216ad2
         prior_r3_t01_release_run: '45387803883'
-        current_task_product_result: pending_windows_browser_qa_customer_outcomes_unmeasured
+        current_task_product_result: live_synthetic_rejection_and_recovery_pass_customer_outcomes_unmeasured
         prior_task_process_result: graceful_close_requested_still_present
         prior_task_process_observed_at: '2026-11-24T12:24:29Z'
         prior_task_process_identity: Narrator.exe PID 27296, SAM-PC\msi, session 1, created 2026-11-24T07:24:00.1520640Z
@@ -413,6 +413,11 @@ lanes:
         current_task_release_run: null
         prior_task_guard_final_receipt: completed_exit_0_at_2026-11-24T12:28:14.119473Z_lock_free_at_12:28:29.123670Z_process_still_present
         current_task_guard_final_receipt: pending_windows_parent
+        current_task_browser_qa_observed_at: '2026-11-24T13:25:51Z'
+        current_task_browser_qa_result: 'Bad PNG header and actual GIF rejected at selection; PNG with intact header/damaged body accepted then failed decode at transform. Previous result invalidated each time; distinct valid PNG reselect saved and independently decoded three PNG 80x40 RGBA outputs. Node 11/11; no product edit/release.'
+        current_task_report: reports/miniapp-image-tools-20261118-qa-01/20261124T1325Z-r3-t04.html
+        current_task_roles_independent: deleg_78ae1124
+        current_task_roles_cross_review: deleg_04ec4cc5
         goal: Reproduce a distinct corrupt/unsupported input rejection and valid-image recovery issue; change only if evidenced.
       prior_task_status_check_at: '2026-11-24T09:45:00Z'
       prior_task_status_check_status: sent

@@ -1744,11 +1744,29 @@
         "intents/waiting/miniapp-image-tools-20261118-qa-01.md",
         "reports/miniapp-image-tools-20261118-qa-01/20261124T1243Z-r3-t03.html"
       ]
+    },
+    {
+      "label": "r3-t04 same-page live synthetic corrupt/unsupported rejection and PNG recovery",
+      "type": "browser_qa",
+      "at": "2026-11-24T13:25:51Z",
+      "task_id": "miniapp-20261124-r3-t04",
+      "status": "completed_no_product_change_guard_pending_parent",
+      "live_url": "https://images.aws.shdkej.com/tools/image-converter/?qa=1",
+      "fixtures": "Independent Pillow: seed PNG 160x80 301B, recovery PNG 120x60 449B, actual decodable GIF 48x24 90B; bad PNG header 301B and valid header/damaged body 33B undecodable",
+      "observations": "Seed valid result precedes each failure. Bad header: invalid_file at selection; real GIF: unsupported_format at selection; damaged body: accepted by header, decode_failed on transform. Each failure invalidates preview/meta and download; valid PNG reselect clears error, transforms to PNG and enables new preview/download in same page.",
+      "saved_outputs": "Three separate browser download events saved via saveAs, failure null; Pillow independently decoded PNG signature, 80x40 RGBA, 707B each; sha256 376b86587d6d8b609ceeb44d76c96e25ea770cb12dd60631231e437a1e0ffc34",
+      "tests": "node --test tests/*.test.mjs: 11/11 pass",
+      "live_readback": "Two exact converter paths HTTP 200, 17940B each, sha256 dee66985a1dd09a33cdcd5ccf0f9dd9a98c20953a3c41672d2815622b1b59e39; unchanged r3-t01",
+      "release": "none; no defect reproduced, stale r2-t05 restore workflow not executed",
+      "roles": {"independent": "deleg_78ae1124", "cross_review": "deleg_04ec4cc5", "four_each_completed": true},
+      "customer_outcomes": "unmeasured; synthetic browser QA does not show real customer comprehension or success",
+      "guard": {"state": "pending_parent_after_child_exit", "end_at": "2026-11-24T14:30:00Z", "exit_code": null, "finished_at": null, "lock_free_verified_at": null},
+      "evidence_paths": ["intents/waiting/miniapp-image-tools-20261118-qa-01.md", "reports/miniapp-image-tools-20261118-qa-01/20261124T1325Z-r3-t04.html", "C:/Users/msi/ego/miniapp-r3-t04-20261124/ (private synthetic fixtures and saved outputs)"]
     }
   ],
   "next_decision": {
-    "status": "r3_t03_aggregate_success_guard_pending_parent_waiting_narrator",
-    "value": "Bounded five-event aggregate succeeded with customer outcomes unmeasured. Parent must verify r3-t03 guard exit/deadline and shared lock after child ends; r3 interval report remains pending. Original Narrator PID 27296 remains separately blocked until interactive Windows unlock; do not retry now or claim AT speech."
+    "status": "r3_t04_browser_qa_pass_guard_pending_parent_waiting_narrator",
+    "value": "Three distinct synthetic input failure paths recovered to saved and independently decoded PNG without a reproduced product defect or new deployment. Parent must verify r3-t04 guard exit/deadline and shared lock after child ends; r3 interval report remains pending. Customer outcomes unmeasured; original Narrator PID 27296 separately blocked until interactive Windows unlock."
   },
   "handoff_attempts": [
     {
@@ -1897,7 +1915,12 @@
       "message_id": "1795526386.876779",
       "queue_id": "convq_83ec1fd73a49ebdf044d8dfb5c14e39f",
       "customer_outcomes": "unmeasured",
-      "sent_at": "2026-11-24T13:19:46Z"
+      "sent_at": "2026-11-24T13:19:46Z",
+      "product_result": "synthetic_live_rejection_recovery_pass_no_change",
+      "browser_qa_observed_at": "2026-11-24T13:25:51Z",
+      "guard_final_receipt": "pending_parent_after_child_exit",
+      "report": "reports/miniapp-image-tools-20261118-qa-01/20261124T1325Z-r3-t04.html",
+      "roles": {"independent": "deleg_78ae1124", "cross_review": "deleg_04ec4cc5", "four_each_completed": true}
     }
   ],
   "process_cleanup_verifications": [
