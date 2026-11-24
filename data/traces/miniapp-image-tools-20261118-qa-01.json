@@ -914,6 +914,19 @@
         "intents/waiting/miniapp-image-tools-20261118-qa-01.md"
       ],
       "limits": "Synthetic QA; user comprehension and customer outcomes remain unmeasured. Fixed end_at 2026-11-24T11:30:00Z; no handoff receipt yet."
+    },
+    {
+      "label": "r2-t03 error-copy accuracy and recovery task handed to Windows",
+      "type": "handoff",
+      "at": "2026-11-24T09:34:09Z",
+      "task_id": "miniapp-20261124-r2-t03",
+      "status": "sent",
+      "evidence_paths": [
+        "intents/waiting/miniapp-image-tools-20261118-qa-01.md"
+      ],
+      "limits": "Slack delivery receipt only; Windows acceptance/execution, guard completion, lock status and product outcome remain separate evidence. Synthetic QA; customer outcome and user comprehension unmeasured.",
+      "message_id": "1795512849.994749",
+      "queue_id": "convq_ce399fd84c0462957e1b7c90884d659e"
     }
   ],
   "artifacts": [
@@ -1268,7 +1281,7 @@
     }
   ],
   "next_decision": {
-    "status": "handoff_prepared",
-    "value": "r2-t03 task sequence 3, fixed end_at 11:30Z, prepared and pushed to main; same-ID status confirms r2-t02 completed_no_change and lock free. Dispatch must follow final live KST/run/job check."
+    "status": "handoff_sent_pending_windows",
+    "value": "r2-t03 sent 1795512849.994749 with fixed end_at 11:30Z. This proves delivery request only; wait for same-task Windows result/guard/lock. r2 report remains pending for the 20:30 KST checkpoint."
   }
 }

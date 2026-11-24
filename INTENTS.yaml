@@ -148,9 +148,9 @@ lanes:
     current_task_start_at: '2026-11-24T09:30:00Z'
     current_task_end_at: '2026-11-24T11:30:00Z'
     current_task_handoff_attempt_at: '2026-11-24T09:31:00Z'
-    current_task_handoff_status: prepared
-    current_task_handoff_message_id: ''
-    current_task_handoff_queue_id: null
+    current_task_handoff_status: sent
+    current_task_handoff_message_id: '1795512849.994749'
+    current_task_handoff_queue_id: convq_ce399fd84c0462957e1b7c90884d659e
     current_task_completion_criteria: 기존 승인 앱에서 합성 지원/비지원 포맷과 손상·크기 경계 입력을 제한적으로 시험해 입력별 오류 표시, 이전 결과 무효화, 정상 입력 복구를 확인. 재현 결함만 수정·테스트·기존 승인 앱 전용 배포·라이브 확인; 무재현이면 범위·증거·다음 후보 기록. 신규 비용·권한·다른 앱 데이터·식별/페이지뷰/세션재생/민감정보 수집 제외. 고정 end_at 준수, guard 종료·잠금 해제 확인.
     prior_task_handoff_message_id: '1795506439.083149'
     prior_task_handoff_queue_id: convq_8a215ed203754328f7789be184b789a3
@@ -173,7 +173,7 @@ lanes:
     current_task_guard_finished_at: '2026-11-24T09:13:11.829869+00:00'
     current_task_lock_released_verified_at: '2026-11-24T09:13:22Z'
     report: reports/miniapp-image-tools-20261118-qa-01/20261124T1230KST.html
-    current_task_handoff_receipt: pending
+    current_task_handoff_receipt: sent 1795512849.994749; queue convq_ce399fd84c0462957e1b7c90884d659e
     daily_run_window:
       start_date: '2026-11-23'
       end_date: '2026-11-25'
@@ -245,9 +245,9 @@ lanes:
         current_task_end_at: '2026-11-24T11:30:00Z'
         current_task_completion_criteria: 0B·지원외/손상·12MiB 초과 입력별 안내 정확성, 오류 격리와 정상 파일 재시도 확인; 혼동이 재현될 때만 최소 수정·테스트·기존 앱 배포·라이브 확인. 합성 QA와 고객 성과/사용자 이해도 구분, 신규 비용·권한·다른 앱 데이터·페이지뷰/식별/세션재생/민감정보 제외, guard 종료·잠금 해제 확인.
         handoff_attempt_at: '2026-11-24T09:31:00Z'
-        handoff_status: prepared
-        handoff_message_id: ''
-        handoff_queue_id: null
+        handoff_status: sent
+        handoff_message_id: '1795512849.994749'
+        handoff_queue_id: convq_ce399fd84c0462957e1b7c90884d659e
         report_status: pending
         last_task_status: completed_no_change
         last_task_id: miniapp-20261124-r2-t02
@@ -266,8 +266,8 @@ lanes:
         task_sequence: 0
         report_status: pending
         goal: 앞선 결과로 남은 개선을 실행하고 변경 전후 근거·회귀 검증·다음 판단 정리
-      next_action: r2-t03 오류 안내 정확성·정상 재시도 검증 인계 준비 기록 완료; 20:30 r2 구간 보고 pending.
-    next_action: r2-t03 오류 안내 정확성·복구 검증; 20:30 r2 보고 및 23:30 종합 마감은 계약에 따라 확인.
+      next_action: r2-t03 전송 완료(1795512849.994749); Windows 수락·실행·결과는 별도 증거 대기. 20:30 r2 구간 보고 pending.
+    next_action: r2-t03 전송 완료(1795512849.994749); Windows 실행/결과 별도 확인. 20:30 r2 보고 및 23:30 종합 마감은 계약에 따라 확인.
     notification_channel: slack
     notification_target: channel:C0CE0DV9MM2
     notification_reply_to: '1794983278.888719'
