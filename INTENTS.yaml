@@ -151,7 +151,9 @@ lanes:
     current_task_start_at: '2026-11-24T10:31:10Z'
     current_task_end_at: '2026-11-24T11:30:00Z'
     current_task_handoff_attempt_at: '2026-11-24T10:31:10Z'
-    current_task_handoff_status: prepared
+    current_task_handoff_status: sent
+    current_task_handoff_message_id: '1795516420.694159'
+    current_task_handoff_queue_id: convq_97ca970aaebf3d9cf6a2a2f1743a326d
     current_task_completion_criteria: >-
       기존 CMO 제안 문구만 적용(0B 오류: 파일이 비어 있어 변환할 수 없습니다. 다른 이미지 파일을 선택해 주세요.; 상단 상태: 선택한 파일이 비어 있습니다.); 기존 오류 코드·기타 안내·계측 유지. 회귀 테스트, 앱 전용 배포, 두 converter URL 라이브 검증 및 /·/sort/ 도달성, guard 종료·잠금 해제 확인. 적용이 불필요/위험하면 근거와 no-change 기록. 고정 11:30Z 종료, 신규 비용/권한/데이터 범위 확대 금지.
     prior_task_handoff_message_id: '1795506439.083149'
@@ -180,7 +182,7 @@ lanes:
     current_task_guard_finished_at: null
     current_task_lock_released_verified_at: null
     report: reports/miniapp-image-tools-20261118-qa-01/20261124T1230KST.html
-    current_task_handoff_receipt: sent 1795514630.548399; queue convq_2c51dafc7d86f214689ff73c00182117
+    current_task_handoff_receipt: sent 1795516420.694159; queue convq_97ca970aaebf3d9cf6a2a2f1743a326d
     daily_run_window:
       start_date: '2026-11-23'
       end_date: '2026-11-25'
@@ -252,7 +254,9 @@ lanes:
         current_task_end_at: '2026-11-24T11:30:00Z'
         current_task_completion_criteria: 기존 CMO 제안 문구만 적용; 회귀 테스트, 앱 전용 배포·두 converter URL 라이브 확인 및 /·/sort/ 도달성, guard 종료·잠금 해제 확인. 적용이 불필요/위험하면 근거와 no-change 기록; 신규 비용/권한/데이터 범위 확대 금지.
         handoff_attempt_at: '2026-11-24T10:31:10Z'
-        handoff_status: prepared
+        handoff_status: sent
+        handoff_message_id: '1795516420.694159'
+        handoff_queue_id: convq_97ca970aaebf3d9cf6a2a2f1743a326d
         report_status: pending
         current_task_status_check_at: '2026-11-24T10:15:38Z'
         current_task_status_check_status: sent
@@ -299,10 +303,12 @@ lanes:
       last_task_guard_exit_code: 0
       last_task_lock_released_verified_at: '2026-11-24T10:27:44Z'
       handoff_attempt_at: '2026-11-24T10:31:10Z'
-      handoff_status: prepared
+      handoff_status: sent
+      handoff_message_id: '1795516420.694159'
+      handoff_queue_id: convq_97ca970aaebf3d9cf6a2a2f1743a326d
       report_status: pending
       next_action: r2-t05 CMO 제안 문구 최소 검증·필요 시 앱 전용 배포; 고정 11:30Z 종료. 20:30 보고 pending.
-    next_action: r2-t05 handoff prepared, 발송 직전 시각/run/job 재확인 필요; 20:30 r2 보고 pending.
+    next_action: r2-t05 인계 sent(1795516420.694159); Windows 작업·종료 증거 대기, 20:30 r2 보고 pending.
     notification_channel: slack
     notification_target: channel:C0CE0DV9MM2
     notification_reply_to: '1794983278.888719'

@@ -426,3 +426,5 @@
 - r2-t04 종료: 복원 연습·독립 restore, 앱 전용 Action `45373438908`, 라이브 converter 두 경로 HTTP 200·SHA 동일 확인; guard completed/exit 0, 19:27:44 KST 잠금 해제. 고객 성과는 미측정.
 - 신규 `miniapp-20261124-r2-t05`, sequence 5, 고정 `end_at=2026-11-24T11:30:00Z`: CMO가 이미 제안한 0B 오류 “파일이 비어 있어 변환할 수 없습니다. 다른 이미지 파일을 선택해 주세요.” 및 상단 상태 “선택한 파일이 비어 있습니다.”만 적용 후보로 검증한다. 기존 오류 코드·기타 안내·허용 계측은 유지하고, 회귀 테스트와 기존 앱 전용 배포/라이브 경로를 확인한다. 불필요하거나 안전하지 않으면 no-change 근거를 남긴다. 고객 이해/성과 추정 금지.
 - 19:31 KST 원격 원장에 r2 sequence·작업 목표·완료 기준·고정 종료 및 handoff `prepared` 기록. 최종 전송 직전 현재 시간·r2·run·감독 job 재확인 후 발송 여부 결정.
+
+- 19:33 KST 발송 직전 검사에서 r2 진행 중·고정 종료 20:30 미도과·run `running`·감독 job `enabled`·원격 기록 `prepared` 확인 후 native 전송 완료. Slack sent 영수증 `1795516420.694159`, queue `convq_97ca970aaebf3d9cf6a2a2f1743a326d`; 전송은 Windows 수락·실행 증거와 별개다.

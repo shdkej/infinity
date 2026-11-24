@@ -1403,8 +1403,8 @@
     }
   ],
   "next_decision": {
-    "status": "r2_t05_handoff_prepared_r2_report_pending",
-    "value": "r2-t04 completed: restore rehearsal and restore action, release action 45373438908, live two-path SHA match; guard completed/exit 0 and lock free 19:27:44 KST. r2-t05 sequence 5 prepared at 19:31 KST for exact CMO-proposed 0B/top-status copy, fixed 20:30 KST end; send requires final time/run/job check. Customer outcome remains unmeasured."
+    "status": "r2_t05_sent_r2_report_pending",
+    "value": "r2-t04 completed with restore proof, release action 45373438908 and live two-path SHA match; guard exit 0 and lock free. r2-t05 sequence 5 sent at 19:33 KST, message 1795516420.694159, queue convq_97ca970aaebf3d9cf6a2a2f1743a326d; Windows acceptance/result pending; fixed end 20:30 KST. Customer outcome unmeasured."
   },
   "handoff_attempts": [
     {
@@ -1436,8 +1436,11 @@
       "window": "r2",
       "sequence": 5,
       "end_at": "2026-11-24T11:30:00Z",
-      "status": "prepared",
-      "goal": "Validate minimal application of the already CMO-proposed empty-file error and top status copy; focused regression, app-only deployment and live verification if warranted; no scope expansion."
+      "status": "sent",
+      "goal": "Validate minimal application of the already CMO-proposed empty-file error and top status copy; focused regression, app-only deployment and live verification if warranted; no scope expansion.",
+      "sent_at": "2026-11-24T10:33:40Z",
+      "message_id": "1795516420.694159",
+      "queue_id": "convq_97ca970aaebf3d9cf6a2a2f1743a326d"
     }
   ]
 }
