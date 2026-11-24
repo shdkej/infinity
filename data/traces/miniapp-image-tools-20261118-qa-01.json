@@ -489,6 +489,14 @@
       "note": "native Slack handoff delivered; this receipt confirms delivery only, Windows acceptance/execution/product result not yet verified",
       "message_id": "1795504692.489039",
       "queue_id": "convq_b4e6a7dcffb39a43c0a59f8c76c371d7"
+    },
+    {
+      "type": "status_check",
+      "at": "2026-11-24T07:30:47Z",
+      "task_id": "miniapp-20261124-r1-t05",
+      "status": "prepared",
+      "end_at": "2026-11-24T08:30:00Z",
+      "note": "One status-only request prepared; original handoff is already sent and will not be repeated."
     }
   ],
   "artifacts": [

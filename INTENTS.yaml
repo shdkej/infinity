@@ -154,8 +154,8 @@ lanes:
     current_task_handoff_status: sent
     current_task_handoff_message_id: '1795504692.489039'
     current_task_handoff_queue_id: convq_b4e6a7dcffb39a43c0a59f8c76c371d7
-    current_task_status_check_at: ''
-    current_task_status_check_status: ''
+    current_task_status_check_at: '2026-11-24T07:30:47Z'
+    current_task_status_check_status: prepared
     current_task_status_check_message_id: ''
     current_task_status_check_queue_id: ''
     current_task_status: dispatched_execution_unconfirmed
@@ -213,12 +213,12 @@ lanes:
         handoff_status: sent
         handoff_message_id: '1795504692.489039'
         handoff_queue_id: convq_b4e6a7dcffb39a43c0a59f8c76c371d7
-        status_check_at: ''
-        status_check_status: ''
+        status_check_at: '2026-11-24T07:30:47Z'
+        status_check_status: prepared
         status_check_message_id: ''
         status_check_queue_id: ''
-        current_status_check_at: ''
-        current_status_check_status: ''
+        current_status_check_at: '2026-11-24T07:30:47Z'
+        current_status_check_status: prepared
         current_status_check_message_id: ''
         current_status_check_queue_id: ''
         report_status: pending
@@ -242,7 +242,7 @@ lanes:
         task_sequence: 0
         report_status: pending
         goal: 앞선 결과로 남은 개선을 실행하고 변경 전후 근거·회귀 검증·다음 판단 정리
-    next_action: r1-t05 스크린리더 완료 안내·결과 위치 탐색 확인 및 guard/잠금 증거 회수; 17:30 r1 구간 보고와
+    next_action: r1-t05 상태 확인 1회 요청; 결과/guard/잠금 회수 후 같은 구간 후속 판단; 17:30 r1 구간 보고와
       후속 판단; 23:30 종합 마감
     notification_channel: slack
     notification_target: channel:C0CE0DV9MM2
