@@ -408,3 +408,6 @@
 - 완료 증거는 롤백 가능성 실제 검증, 배포 시 라이브 반영·경로 확인, guard 종료와 잠금 해제다. 고객 이해·성과는 미측정. 준비 시 원격 run running·r2, supervisor enabled 확인; 실제 전송 직전 재검사한다.
 
 - 19:03 KST 최종 발송 직전 검사에서 KST 11/24 r2, 고정 `end_at=11:30Z` 미도과, run `running`, supervisor `enabled`, 최신 원격 HEAD `54038276` 확인. native 전송 sent 영수증 `1795514630.548399`, queue `convq_2c51dafc7d86f214689ff73c00182117`. 전송은 Windows 실행 수락·제품 결과를 증명하지 않는다.
+
+
+- 2026-11-24 19:15 KST 감독 확인: r2-t04의 최신 원격 기록은 handoff sent이나 현재 결과·종료·guard·잠금 갱신 없음. 감독 job enabled, 구간 r2 및 task end_at 20:30 KST 확인 후 같은 task_id의 상태 1회 요청을 준비함; send 영수증은 아직 없음.

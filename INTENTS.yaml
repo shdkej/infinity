@@ -257,6 +257,9 @@ lanes:
         handoff_message_id: '1795514630.548399'
         handoff_queue_id: convq_2c51dafc7d86f214689ff73c00182117
         report_status: pending
+        current_task_status_check_at: '2026-11-24T10:15:38Z'
+        current_task_status_check_status: pending_send
+        current_task_status_check_task_id: miniapp-20261124-r2-t04
         prior_task_status_check_at: '2026-11-24T09:45:00Z'
         prior_task_status_check_status: sent
         prior_task_status_check_task_id: miniapp-20261124-r2-t03
@@ -288,14 +291,15 @@ lanes:
       prior_task_status_check_message_id: '1795513609.377209'
       prior_task_status_check_queue_id: convq_c529ac4db654882a9a0376b1f9834b7c
       next_action: r2-t04 prepared; 기존 승인 자격 내 복원/롤백 경로 확인, 입증 전 배포 금지. r2 보고 20:30 pending.
-    next_action: r2-t04 sent(1795514630.548399); Windows 실행 결과·guard·잠금은 별도 대기. 20:30 r2 보고 pending.
+    next_action: r2-t04 실행 여부·결과·guard·잠금 상태 확인 응답 대기; 20:30 r2 보고 pending.
     notification_channel: slack
     notification_target: channel:C0CE0DV9MM2
     notification_reply_to: '1794983278.888719'
-    current_task_status_check_at: '2026-11-24T09:16:01Z'
-    current_task_status_check_status: sent
-    current_task_status_check_message_id: '1795511752.371019'
-    current_task_status_check_queue_id: convq_e28a186e20e1c173baa9810b76d0e5dc
+    current_task_status_check_at: '2026-11-24T10:15:38Z'
+    current_task_status_check_status: pending_send
+    current_task_status_check_task_id: miniapp-20261124-r2-t04
+    current_task_status_check_message_id: null
+    current_task_status_check_queue_id: null
   - id: reel-room-studio-20261113
     title: Reel Room·Instagram Maker 통합 릴스 스튜디오 구현
     task_name: Reel Room·Instagram Maker 통합 릴스 스튜디오 구현

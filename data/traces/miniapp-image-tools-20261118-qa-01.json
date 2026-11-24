@@ -1354,8 +1354,8 @@
     }
   ],
   "next_decision": {
-    "status": "handoff_sent_pending_windows",
-    "value": "r2-t04 sent 1795514630.548399; Windows execution, result and guard/lock are separate and pending. Fixed end_at 11:30Z; r2 report pending at 20:30 KST."
+    "status": "status_check_pending_send",
+    "value": "r2-t04 handoff sent; no newer Windows result/guard/lock recorded as of 19:15 KST. One same-task status check prepared; no duplicate work handoff."
   },
   "handoff_attempts": [
     {
@@ -1368,6 +1368,14 @@
       "status": "sent",
       "message_id": "1795514630.548399",
       "queue_id": "convq_2c51dafc7d86f214689ff73c00182117"
+    },
+    {
+      "type": "task_status_check_prepared",
+      "at": "2026-11-24T10:15:38Z",
+      "task_id": "miniapp-20261124-r2-t04",
+      "window": "r2",
+      "status": "pending_send",
+      "reason": "No newer result/guard/lock receipt in latest remote ledger."
     }
   ]
 }
