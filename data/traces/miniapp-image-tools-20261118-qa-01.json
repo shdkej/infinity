@@ -1942,7 +1942,7 @@
       "queue_id": "convq_83ec1fd73a49ebdf044d8dfb5c14e39f",
       "customer_outcomes": "unmeasured",
       "sent_at": "2026-11-24T13:19:46Z",
-      "product_result": "synthetic_live_rejection_recovery_pass_no_change",
+      "product_result": "synthetic_live_rejection_recovery_pass_no_change_customer_outcomes_unmeasured",
       "browser_qa_observed_at": "2026-11-24T13:25:51Z",
       "guard_final_receipt": "completed_exit_0_at_2026-11-24T13:31:12.314251Z_lock_free_13:31:30.267831Z",
       "report": "reports/miniapp-image-tools-20261118-qa-01/20261124T1325Z-r3-t04.html",
@@ -1956,6 +1956,18 @@
       "status_check_sent_at": "2026-11-24T13:32:49Z",
       "status_check_message_id": "1795527160.320609",
       "status_check_queue_id": "convq_c75d9a4e945aa174971333b1e56960bb"
+    },
+    {
+      "task_id": "miniapp-20261124-r3-t05",
+      "window": "r3",
+      "sequence": 5,
+      "status": "handoff_prepared_pending_final_gate",
+      "at": "2026-11-24T13:45:00Z",
+      "goal": "Verify supported synthetic JPEG/WebP roundtrip and documented size/pixel-limit boundary; change only for reproduced defect.",
+      "end_at": "2026-11-24T14:30:00Z",
+      "handoff_attempt": "prepared_not_sent",
+      "customer_outcomes": "unmeasured",
+      "completion_criteria": "Windows actual browser: transform/download harmless synthetic JPEG and WebP and independently decode saved outputs; inspect size/pixel limit boundary. Only evidenced defects receive minimal fix, tests, existing app-only deploy and live verification before fixed end. No new analytics, cost, permission, or other-app data. Record guard exit and shared lock release."
     }
   ],
   "process_cleanup_verifications": [
