@@ -163,7 +163,7 @@ lanes:
     current_task_start_at: '2026-11-24T12:30:52Z'
     current_task_end_at: '2026-11-24T14:30:00Z'
     current_task_handoff_attempt_at: '2026-11-24T12:30:52Z'
-    current_task_handoff_status: prepared
+    current_task_handoff_status: sent
     current_task_completion_criteria: 기존 PostHog 공유 프로젝트에서 승인된 image_selected/transform_started/transform_succeeded/transform_failed/download_requested만 지정 기간·기존 app_id·허용된 synthetic/user 분리로 집계. person/distinct ID·파일/이미지 속성·새 이벤트를 조회/저장하지 말 것. 기간·필터·집계건수·쿼리 성공/실패를 기록하고 데이터 없음·조회 실패·미측정을 분리; 표본/분모 한계로 고객 성과를 단정하지 않음. 결과를 정본 trace/detail에 반영하고 관련 파일만 원격 main에 검증·반영; Windows 부모 종료/guard/잠금 증거도 같은 task_id에 기록.
     prior_task_handoff_message_id: '1795506439.083149'
     prior_task_handoff_queue_id: convq_8a215ed203754328f7789be184b789a3
@@ -191,7 +191,7 @@ lanes:
     current_task_status: handoff_prepared
     current_task_result_summary: 'r3-t02 guard completed/exit 0, lock free; exact Narrator instance remains and safe follow-up requires interactive Windows unlock. Independent next task prepared: aggregate only the five approved existing PostHog event types.'
     current_task_followup: 'Query aggregate counts only, no user identifiers or sensitive properties; record query boundaries and distinguish zero from unavailable/unmeasured.'
-    current_task_result: handoff_prepared
+    current_task_result: handoff_sent
     current_task_status_at: '2026-11-24T12:30:52Z'
     current_task_guard_status: not_started
     current_task_guard_exit_code: null
@@ -215,7 +215,10 @@ lanes:
     current_task_live_sha256: null
     report: reports/miniapp-image-tools-20261118-qa-01/20261124T1225Z-r3-t02.html
     prior_r3_t01_handoff_receipt: sent 1795520034.423279; queue convq_f4220e1e2f1315988e3e5697a899d49c
-    current_task_handoff_receipt: prepared; no transmission yet
+    current_task_handoff_status: sent
+    current_task_handoff_message_id: '1795523874.479619'
+    current_task_handoff_queue_id: convq_9593dc8cb25c61f13231159ad238504a
+    current_task_handoff_receipt: sent 1795523874.479619; queue convq_9593dc8cb25c61f13231159ad238504a
     daily_run_window:
       start_date: '2026-11-23'
       end_date: '2026-11-25'
@@ -342,7 +345,9 @@ lanes:
         current_task_end_at: '2026-11-24T14:30:00Z'
         current_task_completion_criteria: 'Windows task: aggregate only approved PostHog events image_selected, transform_started, transform_succeeded, transform_failed, download_requested using the existing app_id and allowed synthetic/user split. Do not read or store person/distinct IDs or file/image properties; add no events, costs, or permissions. Record time range, filters, counts, and query success/failure; distinguish zero from unavailable and unmeasured; do not claim customer outcomes beyond evidence. Record evidence in the existing Intent trace/detail and commit only related files. Parent records guard/lock status under this task ID.'
         handoff_attempt_at: '2026-11-24T12:30:52Z'
-        handoff_status: prepared
+        handoff_status: sent
+        handoff_message_id: '1795523874.479619'
+        handoff_queue_id: convq_9593dc8cb25c61f13231159ad238504a
         prior_task_id: miniapp-20261124-r3-t02
         prior_task_status: cleanup_blocked_process_remains
         prior_task_guard_finished_at: '2026-11-24T12:28:14.119473Z'

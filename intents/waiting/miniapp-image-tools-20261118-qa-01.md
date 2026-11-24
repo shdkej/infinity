@@ -517,3 +517,4 @@
 - 원격 최신 r3-t02 결과를 확인: 보호 실행 `completed`/exit 0, `active.lock` 해제 확인. Narrator PID 27296은 원본 QA와 생성시각·소유자·세션이 일치하지만 정상 창 닫기 1회 뒤에도 동일 인스턴스가 남았다. 추가 종료·강제 종료·승격은 하지 않았다. 안전 후속은 사용자가 대화형 Windows 데스크톱을 잠금 해제한 뒤의 단일 재검증이다.
 - r3 sequence 3 `miniapp-20261124-r3-t03`, 고정 `end_at=2026-11-24T14:30:00Z`: 승인된 PostHog 5종 이벤트만 기존 app_id와 허용 synthetic/user 분리로 기간 한정 집계한다. distinct/person ID, 민감 속성, 파일·이미지 정보는 읽거나 기록하지 않는다. 집계 0건·조회 실패·미측정을 구분하고 고객 성과를 과장하지 않는다. 코드·이벤트·권한·비용 변경은 범위 밖.
 - 21:30:52 KST 원격 원장에 task ID·목표·완료 기준·고정 기한·sequence 기록 완료. 원격 원장·trace·상세 반영 후 발송 직전 날짜/구간/end_at/run/supervisor 활성 여부를 다시 검사한다.
+- 21:37:45 KST 최종 검사: r3, 고정 end_at 14:30Z 미도과, run `running`, supervisor `enabled`, 원격 main `9996482a`, task prepared. native handoff sent `1795523874.479619`, queue `convq_9593dc8cb25c61f13231159ad238504a`. 전송 영수증은 Windows 실행 수락·실행·제품 결과 증거와 별개.
