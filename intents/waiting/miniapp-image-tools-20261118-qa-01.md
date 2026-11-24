@@ -179,3 +179,9 @@
 - 서버 수신 `observed_at=2026-11-24T01:05:50Z–01:05:52Z`, 인증된 읽기 전용 HogQL, US `Default project` ID `424014`. `2026-11-24T01:04:00Z ≤ timestamp < 01:12:00Z`, `properties.app_id='miniapp-image-tools' AND properties.qa_run_id='8c30670e-53bb-4101-92de-7eac472d06ad'`에서 위 4개 이벤트 각각 synthetic 1건, 합계 4건. 같은 범위의 `count()=4`, `countIf(traffic_kind='synthetic')=4`, `countIf(traffic_kind='user' AND traffic_kind!='synthetic')=0`으로 합성 제외를 서버 조회로 확인했다. 요청 200과 서버 수신을 별도 증거로 취급한다.
 - 별도 실사용 조회 `observed_at=2026-11-24T01:05:51Z`: 동일 US project 424014의 `2026-11-23T01:05:00Z ≤ timestamp < 2026-11-24T01:05:00Z`(24시간), `app_id='miniapp-image-tools' AND traffic_kind='user' AND traffic_kind!='synthetic'`, 위 5개 허용 이벤트만 event별 `count()` 집계. HTTP 200, 결과 행 없음: **이 필터의 수집 이벤트 표본 0건**이며 방문자·세션 분모는 알 수 없다. 노출/유입/실제 사용자 수·다운로드 완료·전환율·개선 효과는 추정하지 않는다. `?qa=1` 태그는 신뢰된 신원 증명이 아니다.
 - 판정/다음: 이번 합성 기능·수집·제외 확인은 통과. 고객 성과는 미측정으로 기존 Intent `Waiting` 유지. 다음 정규 일과에서 관측 창과 유입·방문 분모의 검증 가능한 원천을 먼저 확인하고, 증거 없으면 개선 효과를 주장하지 않는다. 상세 HTML `reports/miniapp-image-tools-20261118-qa-01/20261124T0106Z.html`.
+
+### 2026-11-24 보조 읽기 전용 확인 · 방문 분모 원천
+
+- 확인 시각 `2026-11-24T01:09Z–01:10Z`: Space 최신 원격의 이미지 사이트 운영 문서·Terraform 경로와 AWS CloudFront 설정/CloudWatch 집계만 읽었습니다. 소스·배포·설정은 변경하지 않았습니다.
+- `images.aws.shdkej.com` 배포의 CloudFront 표준 액세스 로그는 `Enabled=false`이며 로그 버킷도 비어 있습니다. CloudWatch `AWS/CloudFront Requests`는 2026-11-23T01:05Z–2026-11-24T01:05Z에 109건을 반환했지만, 이는 이미지 도메인 전체의 HTTP 요청 합계입니다. 고유 방문자·세션이 아니며 정적 자산과 다른 경로 요청을 포함할 수 있어 미니앱 방문 분모로 쓸 수 없습니다.
+- 따라서 현재 확인한 원천만으로는 미니앱의 방문자/세션 분모를 산출할 수 없습니다. 기존 PostHog 이벤트 24시간 조회의 빈 결과와 합쳐도 방문자가 0명이었다는 뜻은 아닙니다. CloudFront 로그를 켜거나 페이지뷰 계측을 추가하는 변경은 개인정보·보관 범위가 달라지므로 별도 승인·설계 전에는 하지 않습니다.
