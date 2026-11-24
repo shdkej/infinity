@@ -148,9 +148,9 @@ lanes:
     current_task_end_at: '2026-11-24T08:30:00Z'
     current_task_completion_criteria: '키보드 조작 재현/기대 결과, 변경 시 테스트·앱 전용 배포·라이브 모바일 확인, 보호 종료/잠금 증거; 합성 QA와 고객 성과 구분'
     current_task_handoff_attempt_at: '2026-11-24T07:00:00Z'
-    current_task_handoff_status: attempted_pending_send
-    current_task_handoff_message_id: ''
-    current_task_handoff_queue_id: ''
+    current_task_handoff_status: sent
+    current_task_handoff_message_id: '1795503765.109059'
+    current_task_handoff_queue_id: convq_6a4d5510eaaf794a86ce9bc04d2e31a4
     current_task_status_check_at: ''
     current_task_status_check_status: ''
     current_task_status_check_message_id: ''
@@ -206,9 +206,9 @@ lanes:
         current_task_goal: '변환 후 결과 자동 스크롤에서 키보드만으로 변환·다운로드 결과에 도달 가능한지 모바일 뷰포트 합성 재현; 결함이면 최소 수정·테스트·앱 전용 배포·라이브 확인, 아니면 근거·후보 기록'
         current_task_end_at: '2026-11-24T08:30:00Z'
         handoff_attempt_at: '2026-11-24T07:00:00Z'
-        handoff_status: attempted_pending_send
-        handoff_message_id: ''
-        handoff_queue_id: ''
+        handoff_status: sent
+        handoff_message_id: '1795503765.109059'
+        handoff_queue_id: convq_6a4d5510eaaf794a86ce9bc04d2e31a4
         status_check_at: ''
         status_check_status: ''
         status_check_message_id: ''

@@ -444,6 +444,19 @@
         "INTENTS.yaml",
         "intents/waiting/miniapp-image-tools-20261118-qa-01.md"
       ]
+    },
+    {
+      "type": "handoff",
+      "at": "2026-11-24T07:02:36Z",
+      "task_id": "miniapp-20261124-r1-t04",
+      "status": "sent",
+      "channel": "slack",
+      "message_id": "1795503765.109059",
+      "queue_id": "convq_6a4d5510eaaf794a86ce9bc04d2e31a4",
+      "evidence_paths": [
+        "INTENTS.yaml",
+        "intents/waiting/miniapp-image-tools-20261118-qa-01.md"
+      ]
     }
   ],
   "artifacts": [
@@ -642,7 +655,7 @@
     }
   ],
   "next_decision": {
-    "status": "handoff_pending",
-    "value": "r1-t04 recorded before send; dispatch only after final time/run/job check."
+    "status": "dispatched",
+    "value": "Await Windows r1-t04 result and guard/lock evidence; do not overlap."
   }
 }
