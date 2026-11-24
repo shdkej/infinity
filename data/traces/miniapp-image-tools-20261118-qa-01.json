@@ -1354,7 +1354,18 @@
     }
   ],
   "next_decision": {
-    "status": "source_published_deploy_blocked",
-    "value": "r2-t03 guard completed exit 0 and lock free; 0B copy fix committed to Space main b8ee2e45, tests 9/9, no app Action. Need verified existing-access read+restore/rollback for two S3 objects before release; 20:30 r2 interval report still pending. No duplicate task dispatch."
-  }
+    "status": "handoff_prepared",
+    "value": "miniapp-20261124-r2-t04 sequence 4 prepared: validate existing-authorized read/restore/rollback for two S3 target objects; deploy only after rollback safety proof. Fixed end_at 11:30Z; pre-send recheck required; r2 report pending."
+  },
+  "handoff_attempts": [
+    {
+      "type": "task_handoff_prepared",
+      "at": "2026-11-24T10:00:30Z",
+      "task_id": "miniapp-20261124-r2-t04",
+      "window": "r2",
+      "sequence": 4,
+      "end_at": "2026-11-24T11:30:00Z",
+      "status": "prepared_not_sent"
+    }
+  ]
 }
