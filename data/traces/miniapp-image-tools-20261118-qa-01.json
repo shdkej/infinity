@@ -297,6 +297,18 @@
         "intents/waiting/miniapp-image-tools-20261118-qa-01.md"
       ],
       "note": "Started authorized three-hour experiment run r1 with task miniapp-20261124-r1-t01; fixed end_at 2026-11-24T08:30:00Z. Mobile-inclusive reproducible flow friction → smallest safe fix/deploy/live check, or evidence and next candidate. Handoff recorded pending before send; morning task remains historical and excluded."
+    },
+    {
+      "type": "handoff",
+      "at": "2026-11-24T05:31:40Z",
+      "task_id": "miniapp-20261124-r1-t01",
+      "status": "sent",
+      "channel": "slack",
+      "message_id": "1795498309.979919",
+      "queue_id": "convq_c4a80c2aef93c2cc54ebb2d07ef5335c",
+      "evidence_paths": [
+        "INTENTS.yaml"
+      ]
     }
   ],
   "artifacts": [

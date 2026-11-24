@@ -144,9 +144,9 @@ lanes:
     current_task_end_at: '2026-11-24T08:30:00Z'
     current_task_completion_criteria: 재현 조건과 전후 근거, 실제 코드 변경 시 테스트·전용 배포·라이브 모바일/데스크톱 검증, Windows 보호 실행 종료/잠금 확인, 고객성과와 합성 QA 구분 기록
     current_task_handoff_attempt_at: '2026-11-24T05:30:00Z'
-    current_task_handoff_status: pending
-    current_task_handoff_message_id: ''
-    current_task_handoff_queue_id: ''
+    current_task_handoff_status: sent
+    current_task_handoff_message_id: '1795498309.979919'
+    current_task_handoff_queue_id: convq_c4a80c2aef93c2cc54ebb2d07ef5335c
     current_task_status: dispatched
     current_task_result_summary: ''
     current_task_followup: 'r1 결과에 따라 구간 내 후속 작업을 새 task ID로 판단; 17:30 이전 인계 결과 회수.'
@@ -195,7 +195,9 @@ lanes:
         current_task_goal: 모바일 포함 실제 입력→변환→다운로드 흐름의 재현 가능한 불편을 찾아 작은 개선·배포·라이브 검증; 문제가 없으면 근거와 후보 기록
         current_task_end_at: '2026-11-24T08:30:00Z'
         handoff_attempt_at: '2026-11-24T05:30:00Z'
-        handoff_status: pending
+        handoff_status: sent
+        handoff_message_id: '1795498309.979919'
+        handoff_queue_id: convq_c4a80c2aef93c2cc54ebb2d07ef5335c
         report_status: pending
         goal: '입력→변환→다운로드의 재현 가능한 불편을 찾아 작은 개선·배포·라이브 확인'
       - id: r2
