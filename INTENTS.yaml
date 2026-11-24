@@ -142,29 +142,29 @@ lanes:
     release_live_url: https://images.aws.shdkej.com/tools/image-converter/
     waiting_on: user
     blocker: r1-t05의 스크린리더 실발화·탐색 QA는 Windows LockApp 잠금으로 접근 불가. 시험에서 시작한 Narrator PID 27296은 접근 거부로 종료하지 못해 잠금 해제된 대화형 데스크톱에서 해당 PID만 종료·부재 확인 필요; 제품 결함 판정은 보류.
-    current_task_id: miniapp-20261124-r1-t07
-    current_task_goal: 모바일 변환 후 자동 스크롤이 멈춘 최종 화면에서 결과·다운로드가 잘 보이는지 합성 재현하고, 재현되는 불편만 작은 수정·배포·라이브 검증
-    current_task_start_at: '2026-11-24T08:00:00Z'
+    current_task_id: miniapp-20261124-r1-t08
+    current_task_goal: 701–760px 경계에서 터치형 포인터로 변환 후 결과·다운로드 도달성을 확인하고, 재현되는 마찰이 있을 때만 최소 수정·배포·라이브 검증
+    current_task_start_at: '2026-11-24T08:15:00Z'
     current_task_end_at: '2026-11-24T08:30:00Z'
-    current_task_completion_criteria: 승인된 Space 미니앱만 재사용해 모바일 viewport에서 합성 파일 변환 후 자동 스크롤 안정화가 끝난 최종 화면의 결과·다운로드 가시성과 사용 흐름을 재현 확인. 재현되는 불편이 있으면 최소 수정·테스트·승인된 앱 전용 배포·라이브 검증, 없으면 no-change 근거/다음 후보 기록. 다른 앱/데이터·새 비용·권한·식별·페이지뷰·세션재생은 제외. 고정 end_at 준수, guard 종료·잠금 상태 확인.
-    current_task_handoff_attempt_at: '2026-11-24T08:01:21Z'
-    current_task_handoff_status: sent
-    current_task_handoff_message_id: '1795507291.567359'
-    current_task_handoff_queue_id: convq_a74978e8adf58de4ef2a198496f9387d
+    current_task_completion_criteria: 승인된 Space 미니앱만 재사용해 701–760px 너비의 터치형 포인터에서 합성 변환 후 결과·다운로드 도달성을 확인. 마찰 재현 시 최소 수정·테스트·승인된 앱 전용 배포·라이브 검증, 미재현 시 조건/한계와 다음 후보 기록. 다른 앱/데이터·새 비용·권한·식별·페이지뷰·세션재생 제외. 고정 end_at 준수, guard 종료·잠금 확인.
+    current_task_handoff_attempt_at: '2026-11-24T08:15:00Z'
+    current_task_handoff_status: prepared
+    current_task_handoff_message_id: ''
+    current_task_handoff_queue_id: ''
     prior_task_handoff_message_id: '1795506439.083149'
     prior_task_handoff_queue_id: convq_8a215ed203754328f7789be184b789a3
     prior_task_status_check_at: '2026-11-24T07:30:47Z'
     prior_task_status_check_status: sent
     prior_task_status_check_message_id: '1795505513.609889'
     prior_task_status_check_queue_id: convq_f6aab1db4a22caa5924fdd523c18e510
-    current_task_status: completed_no_change_with_boundary_visibility_limit
-    current_task_result_summary: 390×844 합성 변환 후 안정된 최종 화면에서 결과·다운로드 가시/저장 재디코딩 통과. 700px는 버튼 하단 899.88px(844px 화면 아래), 701·760px는 자동 스크롤 없이 결과가 아래에 있으나 일반 스크롤·Tab으로 도달/저장 가능. 터치 발견성은 미검증; 무변경·신규 배포 없음.
-    current_task_followup: 실제 701–760px 터치 기기·브라우저 주소창 변화에서 결과 발견이 불편한지 관찰 후보(SAM 별도 승인). r1-t05 Narrator PID 27296 정리 대기는 별도 유지.
-    current_task_result: '실제 ego lite 합성 QA 390×844: scrollY=620, 안정 9회, 결과 제목 y248.8–278.55, 완료 안내 y154.2–203.8, 다운로드 y629.58–678.38(<844), 가림 없음; 저장 WebP 640×480 RGB 재디코딩. 700×844 안정 시 버튼 y851.08–899.88(화면 하단 아래); 701/760 안정 시 scrollY=0 결과 제목 y869.48/880.53부터 아래. 이 경계에서 Tab은 버튼을 화면 안으로 스크롤·포커스하며 701 저장 WebP 재디코딩. 320·390 움직임 줄이기 최종 화면도 버튼 가시. 화면 밖 결과의 터치 발견성은 실제 기기로 검증하지 않아 무결함 일반화 금지. 코드·테스트 변경 및 신규 Action 없음, 고객 성과 미측정. guard 2026-11-24T08:12:00.218596Z completed exit 0, active.lock 08:12:23Z 해제 확인.'
-    current_task_guard_status: completed
-    current_task_guard_exit_code: 0
-    current_task_guard_finished_at: '2026-11-24T08:12:00.218596+00:00'
-    current_task_lock_released_verified_at: '2026-11-24T08:12:23Z'
+    current_task_status: pending
+    current_task_result_summary: ''
+    current_task_followup: r1-t07에서 화면 밖 결과는 페이지 스크롤·Tab으로 도달 가능했으나 터치형 발견성은 미검증. r1-t05 Narrator PID 27296 정리 대기는 별도 유지.
+    current_task_result: ''
+    current_task_guard_status: pending
+    current_task_guard_exit_code: ''
+    current_task_guard_finished_at: ''
+    current_task_lock_released_verified_at: ''
     report: reports/miniapp-image-tools-20261118-qa-01/20261124T1230KST.html
     current_task_handoff_receipt: ''
     daily_run_window:
@@ -203,14 +203,14 @@ lanes:
         start_at: '2026-11-24T05:30:00Z'
         end_at: '2026-11-24T08:30:00Z'
         status: running
-        task_sequence: 7
-        current_task_id: miniapp-20261124-r1-t07
-        current_task_goal: 모바일 변환 후 자동 스크롤이 멈춘 최종 화면에서 결과·다운로드가 잘 보이는지 합성 재현하고, 재현되는 불편만 작은 수정·배포·라이브 검증
+        task_sequence: 8
+        current_task_id: miniapp-20261124-r1-t08
+        current_task_goal: 701–760px 경계에서 터치형 포인터로 변환 후 결과·다운로드 도달성을 확인하고, 재현되는 마찰이 있을 때만 최소 수정·배포·라이브 검증
         current_task_end_at: '2026-11-24T08:30:00Z'
-        handoff_attempt_at: '2026-11-24T08:01:21Z'
-        handoff_status: sent
-        handoff_message_id: '1795507291.567359'
-        handoff_queue_id: convq_a74978e8adf58de4ef2a198496f9387d
+        handoff_attempt_at: '2026-11-24T08:15:00Z'
+        handoff_status: prepared
+        handoff_message_id: ''
+        handoff_queue_id: ''
         report_status: pending
         prior_task_handoff_attempt_at: '2026-11-24T07:15:00Z'
         prior_task_handoff_status: sent
@@ -240,7 +240,7 @@ lanes:
         task_sequence: 0
         report_status: pending
         goal: 앞선 결과로 남은 개선을 실행하고 변경 전후 근거·회귀 검증·다음 판단 정리
-    next_action: r1-t07 실행·결과/guard/잠금 회수 후 같은 구간 후속 판단; 17:30 r1 구간 보고와
+    next_action: r1-t08 실행·결과/guard/잠금 회수 후 같은 구간 후속 판단; 17:30 r1 구간 보고와
       후속 판단; 23:30 종합 마감
     notification_channel: slack
     notification_target: channel:C0CE0DV9MM2

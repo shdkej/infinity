@@ -672,6 +672,18 @@
       "previous_release_run": "45343956525",
       "customer_outcome_status": "unmeasured",
       "next_candidate": "SAM-approved physical touch-device 701–760px and dynamic browser chrome result discoverability check; change scroll breakpoint/target only on observed friction."
+    },
+    {
+      "label": "r1-t07 completion recovered; r1-t08 prepared",
+      "type": "supervision",
+      "at": "2026-11-24T08:15:00Z",
+      "task_id": "miniapp-20261124-r1-t08",
+      "status": "prepared",
+      "evidence_paths": [
+        "INTENTS.yaml",
+        "intents/waiting/miniapp-image-tools-20261118-qa-01.md"
+      ],
+      "limits": "r1-t07 guard completed exit 0 and lock release verified; synthetic viewport emulation only, customer outcome and physical touch-device discovery unmeasured. t08 task ID/goal/fixed end_at/handoff attempt prepared; dispatch receipt pending."
     }
   ],
   "artifacts": [
@@ -960,7 +972,7 @@
     }
   ],
   "next_decision": {
-    "status": "dispatched",
-    "value": "r1-t07 sent; await same-task mobile final viewport reproduction, guard/lock receipt; choose follow-up from evidence; r1 report at 17:30 KST."
+    "status": "prepared",
+    "value": "r1-t07 closed with settled-view evidence and boundary visibility limitation; r1-t08 prepared for touch-pointer reachability at 701–760px, fixed end 17:30 KST; verify window/run/job immediately before send."
   }
 }
