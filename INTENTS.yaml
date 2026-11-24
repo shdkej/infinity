@@ -179,6 +179,12 @@ lanes:
       supervisor_job_id: eb75facc-7686-4746-a399-4ef6d881048e
       closeout_job_id: 8e116857-63f9-4475-8e55-4a7c386e4a16
       final_report_status: pending
+      configuration_status: verified
+      setup_receipts:
+        windows_capability_message_id: '1795496370.965079'
+        windows_contract_message_id: '1795497232.043649'
+        windows_ack_message_id: '1795497267.795839'
+        sam_contract_run_id: miniapp-three-hour-contract-20261124
       windows:
       - id: r1
         start_at: '2026-11-24T05:30:00Z'
