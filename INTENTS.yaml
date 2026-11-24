@@ -148,16 +148,16 @@ lanes:
     current_task_end_at: '2026-11-24T08:30:00Z'
     current_task_completion_criteria: 승인된 Space 미니앱만 재사용해 701–760px 너비의 터치형 포인터에서 합성 변환 후 결과·다운로드 도달성을 확인. 마찰 재현 시 최소 수정·테스트·승인된 앱 전용 배포·라이브 검증, 미재현 시 조건/한계와 다음 후보 기록. 다른 앱/데이터·새 비용·권한·식별·페이지뷰·세션재생 제외. 고정 end_at 준수, guard 종료·잠금 확인.
     current_task_handoff_attempt_at: '2026-11-24T08:15:00Z'
-    current_task_handoff_status: prepared
-    current_task_handoff_message_id: ''
-    current_task_handoff_queue_id: ''
+    current_task_handoff_status: sent
+    current_task_handoff_message_id: '1795508286.708149'
+    current_task_handoff_queue_id: convq_ba4072aca4e2dc1374fe9235191e511b
     prior_task_handoff_message_id: '1795506439.083149'
     prior_task_handoff_queue_id: convq_8a215ed203754328f7789be184b789a3
     prior_task_status_check_at: '2026-11-24T07:30:47Z'
     prior_task_status_check_status: sent
     prior_task_status_check_message_id: '1795505513.609889'
     prior_task_status_check_queue_id: convq_f6aab1db4a22caa5924fdd523c18e510
-    current_task_status: pending
+    current_task_status: running
     current_task_result_summary: ''
     current_task_followup: r1-t07에서 화면 밖 결과는 페이지 스크롤·Tab으로 도달 가능했으나 터치형 발견성은 미검증. r1-t05 Narrator PID 27296 정리 대기는 별도 유지.
     current_task_result: ''
@@ -166,7 +166,7 @@ lanes:
     current_task_guard_finished_at: ''
     current_task_lock_released_verified_at: ''
     report: reports/miniapp-image-tools-20261118-qa-01/20261124T1230KST.html
-    current_task_handoff_receipt: ''
+    current_task_handoff_receipt: sent 1795508286.708149; queue convq_ba4072aca4e2dc1374fe9235191e511b
     daily_run_window:
       start_date: '2026-11-23'
       end_date: '2026-11-25'
@@ -208,9 +208,9 @@ lanes:
         current_task_goal: 701–760px 경계에서 터치형 포인터로 변환 후 결과·다운로드 도달성을 확인하고, 재현되는 마찰이 있을 때만 최소 수정·배포·라이브 검증
         current_task_end_at: '2026-11-24T08:30:00Z'
         handoff_attempt_at: '2026-11-24T08:15:00Z'
-        handoff_status: prepared
-        handoff_message_id: ''
-        handoff_queue_id: ''
+        handoff_status: sent
+        handoff_message_id: '1795508286.708149'
+        handoff_queue_id: convq_ba4072aca4e2dc1374fe9235191e511b
         report_status: pending
         prior_task_handoff_attempt_at: '2026-11-24T07:15:00Z'
         prior_task_handoff_status: sent
