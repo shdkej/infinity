@@ -318,6 +318,22 @@
       "message_id": "1795499148.316479",
       "queue_id": "convq_91563ac2f0bfcad456037f75a91470ae",
       "note": "Single status-only request; task was not re-dispatched. Windows execution/result/guard state remain unconfirmed pending reply."
+    },
+    {
+      "type": "task_completed",
+      "at": "2026-11-24T05:46:38Z",
+      "task_id": "miniapp-20261124-r1-t01",
+      "state": "completed",
+      "exit_code": 0,
+      "guard_started_at": "2026-11-24T05:36:27.391074+00:00",
+      "guard_finished_at": "2026-11-24T05:46:22.518601+00:00",
+      "end_at": "2026-11-24T08:30:00+00:00",
+      "active_lock": "free_verified",
+      "summary": "Reproduced mobile post-conversion result/download below viewport; minimal conditional reveal released and live mobile/desktop synthetic WebP saved and decoded; customer outcomes unmeasured.",
+      "source_commit": "dfe8582e67bd7b0e19f530325e455b3d009179ec",
+      "qa_commit": "5eaedda21bc7632608b6b022f5f2236e2b7cc4ce",
+      "release_run": "45335134749",
+      "next_candidate": "Repeat transform on narrow screen after changing edge or format; SAM supervisor owns any new ID."
     }
   ],
   "artifacts": [
@@ -344,6 +360,14 @@
       "at": "2026-11-23T03:30:00Z",
       "summary": "Daily closeout: source link change reported; live deployment and browser verification incomplete; user metrics unmeasured.",
       "label": "reports/miniapp-image-tools-20261118-qa-01/20261123T1230KST.html"
+    },
+    {
+      "path": "https://github.com/shdkej/space/blob/main/infra-aws-static-sites/sites/miniapp-image-tools/qa/release-checkpoint.md",
+      "type": "qa_evidence",
+      "status": "verified",
+      "at": "2026-11-24T05:46:38Z",
+      "task_id": "miniapp-20261124-r1-t01",
+      "label": "r1 mobile result discovery: before/after and live screenshots"
     }
   ],
   "verifications": [
@@ -420,6 +444,29 @@
         "cross_review": "deleg_52d26b51"
       },
       "synthesis": "All four independent roles completed; cross-review completed with incomplete sharing of peer full assertions in some role prompts. Verified shared-project deployment, five same-ID synthetic captures and actual exclusion; no customer success claim."
+    },
+    {
+      "label": "r1-t01 guard receipt, Space release and live synthetic QA",
+      "type": "execution_and_live",
+      "at": "2026-11-24T05:46:38Z",
+      "task_id": "miniapp-20261124-r1-t01",
+      "status": "pass",
+      "evidence_paths": [
+        "intents/waiting/miniapp-image-tools-20261118-qa-01.md",
+        "https://github.com/shdkej/space/actions/runs/45335134749"
+      ],
+      "roles": [
+        "planner",
+        "developer",
+        "marketer",
+        "operator"
+      ],
+      "sessions": {
+        "independent": "deleg_b2bdd11a",
+        "cross_review": "deleg_f9f65a52",
+        "child": "local-0a5ba70f668eb757b02d1edcd5332d3db0252525309fada431ca7d103ebdb79c"
+      },
+      "limits": "Synthetic QA only; no measured customer outcome; home and /sort/ HTTP reachability only."
     }
   ],
   "next_decision": {

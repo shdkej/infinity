@@ -131,13 +131,13 @@ lanes:
     trace: data/traces/miniapp-image-tools-20261118-qa-01.json
     detail: intents/waiting/miniapp-image-tools-20261118-qa-01.md
     source_repository: https://github.com/shdkej/space
-    source_commit: 3d0344cc2a7073837fcbc45bf1ba60eec1657528
+    source_commit: dfe8582e67bd7b0e19f530325e455b3d009179ec
     source_remote_verified: pass
-    release_evidence_commit: da30854ae59c8d1ae2a205935ab7cf549b7a4fe1
-    release_workflow_run: '44469814029'
+    release_evidence_commit: 5eaedda21bc7632608b6b022f5f2236e2b7cc4ce
+    release_workflow_run: '45335134749'
     release_live_url: https://images.aws.shdkej.com/tools/image-converter/
     waiting_on: internal
-    blocker: 오늘3시간 구간 실험 실행 중; 기존 오전 업무 결과는 새 run 실적과 분리 보존.
+    blocker: r1-t01 보호 실행·배포·라이브 확인 완료; r1 구간은 감독의 다음 판단 대기. 기존 오전 업무 결과는 분리 보존.
     current_task_id: miniapp-20261124-r1-t01
     current_task_goal: 모바일 포함 실제 입력→변환→다운로드 흐름에서 재현 가능한 사용 불편을 찾아 개선하고 승인 범위의 배포·라이브 검증까지 완료; 문제가 없으면 증거와 다음 후보 기록
     current_task_start_at: '2026-11-24T05:30:00Z'
@@ -151,10 +151,14 @@ lanes:
     current_task_status_check_status: sent
     current_task_status_check_message_id: '1795499148.316479'
     current_task_status_check_queue_id: convq_91563ac2f0bfcad456037f75a91470ae
-    current_task_status: dispatched
-    current_task_result_summary: ''
-    current_task_followup: 'r1 결과에 따라 구간 내 후속 작업을 새 task ID로 판단; 17:30 이전 인계 결과 회수.'
-    current_task_result: ''
+    current_task_status: completed
+    current_task_result_summary: '모바일 390×844에서 변환 후 다운로드가 화면 아래에 숨는 마찰 재현; 조건부 결과 스크롤 수정·5/5 테스트·앱 전용 배포·라이브 모바일/데스크톱 WebP 저장·재디코딩 확인. 고객 성과 미측정.'
+    current_task_followup: 'SAM 감독 판단 후보: 좁은 화면에서 크기·형식을 바꿔 반복 변환할 때 설정 유지와 결과 재노출 검증. 새 ID/인계는 SAM 감독 소유.'
+    current_task_result: 'Space source dfe8582e67bd7b0e19f530325e455b3d009179ec; QA evidence 5eaedda21bc7632608b6b022f5f2236e2b7cc4ce; Action 45335134749 success; live 390×844/1280×800 synthetic WebP 80×40 save/decode; guard completed exit_code=0 finished_at=2026-11-24T05:46:22.518601+00:00, lock free at 2026-11-24T05:46:38Z. Home and /sort/ HTTP 200 only.'
+    current_task_guard_status: completed
+    current_task_guard_exit_code: 0
+    current_task_guard_finished_at: '2026-11-24T05:46:22.518601+00:00'
+    current_task_lock_released_verified_at: '2026-11-24T05:46:38Z'
 
     report: reports/miniapp-image-tools-20261118-qa-01/20261124T1230KST.html
     current_task_handoff_receipt: ''
@@ -207,6 +211,11 @@ lanes:
         status_check_message_id: '1795499148.316479'
         status_check_queue_id: convq_91563ac2f0bfcad456037f75a91470ae
         report_status: pending
+        last_task_status: completed
+        last_task_id: miniapp-20261124-r1-t01
+        last_task_guard_finished_at: '2026-11-24T05:46:22.518601+00:00'
+        last_task_guard_exit_code: 0
+        last_task_lock_released_verified_at: '2026-11-24T05:46:38Z'
         goal: '입력→변환→다운로드의 재현 가능한 불편을 찾아 작은 개선·배포·라이브 확인'
       - id: r2
         start_at: '2026-11-24T08:30:00Z'

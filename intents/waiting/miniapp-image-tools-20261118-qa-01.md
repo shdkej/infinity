@@ -224,3 +224,11 @@
 - 인계 시도/발송 영수증은 원장에 기록한다. 종료 후 같은 ID를 재전송하지 않는다.
 
 - 14:45 KST 정기 확인: 원격 원장에는 이 task의 인계가 `sent`이고 결과/부모 종료 보고가 아직 없다. 동일 task를 재전송하지 않고 현재 상태만 한 번 조회 요청했다. Slack 발송 영수증 `1795499148.316479` (queue `convq_91563ac2f0bfcad456037f75a91470ae`); 실행 수락·제품 결과·guard 종료/잠금은 미확인이다.
+
+### 2026-11-24 14:46 KST · r1-t01 실행 종료와 라이브 검증
+
+- `miniapp-20261124-r1-t01`의 보호 자식은 14:36:27 KST에 시작해 **14:46:22 KST에 정상 종료**했다. 부모가 `tasks.sqlite3`에서 `state=completed`, `exit_code=0`, `finished_at=2026-11-24T05:46:22.518601+00:00` (< 고정 `end_at=2026-11-24T08:30:00+00:00`)을 직접 조회했고, 14:46:38 KST에 공용 `active.lock`의 비차단 획득으로 해제를 확인했다. 비공개 stdout/stderr는 guard 상태 디렉터리에 보존했으며 stderr는 0바이트였다. 이 영수증은 보호 실행의 종료 증거이지 고객 성과 증거가 아니다. 새 작업 ID를 발급하거나 동일 ID를 재전송하지 않았다.
+- 재현: 실제 라이브 ego lite 모바일 390×844에서 합성 160×80 PNG를 80×40 WebP로 변환했을 때 성공 문구는 화면 하단에 있었으나 결과 제목(y=869)과 다운로드 버튼(y=1226–1274)은 첫 화면 아래였다. 수동 스크롤 후 다운로드와 파일 재디코딩은 가능해 변환 실패가 아니라 **결과 발견성 마찰**이다. 전 이미지 `Space/infra-aws-static-sites/sites/miniapp-image-tools/qa/evidence/r1-before-mobile-390.png`.
+- 수정·검증: 화면 너비 ≤700px에서 변환 성공 후 다운로드 버튼이 화면 밖일 때만 기존 결과 영역을 보이게 스크롤하고 움직임 줄이기 설정을 존중한다. Space 소스 SHA `dfe8582e67bd7b0e19f530325e455b3d009179ec`; Node 테스트 5/5, 앱 전용 수동 [Action 45335134749](https://github.com/shdkej/space/actions/runs/45335134749) 성공(변환기 HTML 두 객체만 게시, 전체 버킷 삭제 없음). 라이브 모바일 390×844에서는 결과·다운로드가 화면 안에 나타나고 저장한 WebP를 80×40으로 재디코딩했다. 데스크톱 1280×800에서도 기존 결과/다운로드와 파일 디코딩을 확인했다. 라이브 HTML은 공개 수집 토큰을 비교에서 제외한 뒤 소스와 일치했고, `/`와 `/sort/`는 HTTP 200이다(기능 전수 회귀는 아님). QA 기록·스크린샷·샘플은 [Space 검증 기록](https://github.com/shdkej/space/blob/main/infra-aws-static-sites/sites/miniapp-image-tools/qa/release-checkpoint.md) 및 `qa/evidence/r1-*`; 마지막 증거 커밋 `5eaedda21bc7632608b6b022f5f2236e2b7cc4ce`를 원격에서 확인했다.
+- 합성 QA는 실제 고객의 발견성·전환 개선 증거가 아니며 방문/세션 분모와 고객 성과는 미측정이다. 다음 **후보**는 좁은 화면에서 크기·형식을 바꿔 반복 변환할 때 설정 유지와 결과 재노출을 확인하는 것; 목표·새 ID·인계는 SAM 감독이 결정한다. 이 `r1-t01`의 제품 작업은 완료했지만 17:30 구간 보고 상태는 SAM 소유로 pending이다.
+- 역할 검토: 부모의 Planner·Developer·Marketer·Operator 네 독립 완료 `deleg_b2bdd11a`와 상호 교차 검토 `deleg_f9f65a52`는 결과/다운로드 발견성 가설을 실제 재현으로만 판정하고, 재현 전 릴리스 금지·고객 효과 미주장·종료 영수증 확인을 요구했다. 보호 자식 세션 `local-0a5ba70f668eb757b02d1edcd5332d3db0252525309fada431ca7d103ebdb79c`의 결과를 부모가 guard 원장·잠금·Space 원격 Action과 대조했다.
