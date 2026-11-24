@@ -155,9 +155,9 @@ lanes:
     current_task_handoff_message_id: '1795504692.489039'
     current_task_handoff_queue_id: convq_b4e6a7dcffb39a43c0a59f8c76c371d7
     current_task_status_check_at: '2026-11-24T07:30:47Z'
-    current_task_status_check_status: prepared
-    current_task_status_check_message_id: ''
-    current_task_status_check_queue_id: ''
+    current_task_status_check_status: sent
+    current_task_status_check_message_id: '1795505513.609889'
+    current_task_status_check_queue_id: convq_f6aab1db4a22caa5924fdd523c18e510
     current_task_status: dispatched_execution_unconfirmed
     current_task_result_summary: ''
     current_task_followup: ''
@@ -214,13 +214,13 @@ lanes:
         handoff_message_id: '1795504692.489039'
         handoff_queue_id: convq_b4e6a7dcffb39a43c0a59f8c76c371d7
         status_check_at: '2026-11-24T07:30:47Z'
-        status_check_status: prepared
-        status_check_message_id: ''
-        status_check_queue_id: ''
+        status_check_status: sent
+        status_check_message_id: '1795505513.609889'
+        status_check_queue_id: convq_f6aab1db4a22caa5924fdd523c18e510
         current_status_check_at: '2026-11-24T07:30:47Z'
-        current_status_check_status: prepared
-        current_status_check_message_id: ''
-        current_status_check_queue_id: ''
+        current_status_check_status: sent
+        current_status_check_message_id: '1795505513.609889'
+        current_status_check_queue_id: convq_f6aab1db4a22caa5924fdd523c18e510
         report_status: pending
         last_task_status: completed
         last_task_id: miniapp-20261124-r1-t04

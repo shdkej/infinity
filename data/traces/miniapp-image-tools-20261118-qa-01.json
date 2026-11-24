@@ -494,9 +494,11 @@
       "type": "status_check",
       "at": "2026-11-24T07:30:47Z",
       "task_id": "miniapp-20261124-r1-t05",
-      "status": "prepared",
+      "status": "sent",
       "end_at": "2026-11-24T08:30:00Z",
-      "note": "One status-only request prepared; original handoff is already sent and will not be repeated."
+      "note": "One status-only request sent. Delivery receipt does not confirm Windows acceptance, execution, or product result.",
+      "message_id": "1795505513.609889",
+      "queue_id": "convq_f6aab1db4a22caa5924fdd523c18e510"
     }
   ],
   "artifacts": [
