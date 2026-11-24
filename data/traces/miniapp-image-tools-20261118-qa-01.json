@@ -1835,11 +1835,25 @@
         "reports/miniapp-image-tools-20261118-qa-01/20261124T1354Z-r3-t05.html",
         "C:/Users/msi/ego/miniapp-r3-t05-20261124/ (private synthetic fixtures and saved outputs)"
       ]
+    },
+    {
+      "label": "r3-t06 existing evidence matrix and record reconciliation",
+      "type": "evidence_reconciliation",
+      "at": "2026-11-24T14:23:00Z",
+      "task_id": "miniapp-20261124-r3-t06",
+      "status": "evidence_reconciled_guard_receipt_pending_parent",
+      "source_tasks": ["miniapp-20261124-r3-t01", "miniapp-20261124-r3-t02", "miniapp-20261124-r3-t03", "miniapp-20261124-r3-t04", "miniapp-20261124-r3-t05"],
+      "finding": "One released synthetic race fix; Narrator cleanup still blocked; bounded 5-event aggregate is not customer outcome; corrupt/unsupported PNG recovery and JPEG/WebP boundary QA passed without product changes. All five prior guards completed exit 0 before 14:30Z and locks were separately verified free. Initial individual reports with pending guard labels are as-of snapshots; later detail/trace receipts are final.",
+      "customer_outcomes": "unmeasured; actual AT speech and real-device behavior unverified",
+      "new_execution": "none: no browser/API/PostHog rerun, product change or deployment",
+      "roles": {"independent": "deleg_a7fe0654", "cross_review": "deleg_5d3ce208", "four_each_completed": true, "source": "parent handoff"},
+      "guard": {"end_at": "2026-11-24T14:30:00Z", "state": "pending_parent_after_child_exit", "lock": "pending_parent_after_child_exit"},
+      "evidence_paths": ["reports/miniapp-image-tools-20261118-qa-01/20261124T1423Z-r3-t06.html", "intents/waiting/miniapp-image-tools-20261118-qa-01.md"]
     }
   ],
   "next_decision": {
-    "status": "r3_t05_browser_qa_pass_guard_completed_waiting_narrator",
-    "value": "Synthetic JPEG/WebP four output combinations saved and independently decoded; 10000x1 JPEG saved/decoded, byte/pixel boundary selection checked with explicitly limited padded/header-only evidence. No reproduced product defect or new deployment. Parent verified guard completed/exit 0 at 14:00:59Z and shared lock free at 14:01:42Z; r3 interval report remains pending. Customer outcomes unmeasured; original Narrator PID 27296 separately blocked until interactive Windows unlock."
+    "status": "r3_t06_evidence_reconciled_guard_receipt_pending_parent_waiting_narrator",
+    "value": "Existing r3-t01 through t05 reports and later detail/trace guard receipts reconciled in r3-t06 HTML evidence matrix. One live released fix, two no-change synthetic QA passes, one bounded aggregate and one blocked Narrator cleanup. No customer outcome or actual AT speech verified. r3 interval report pending for SAM; t06 guard exit and lock need parent readback after this child exits."
   },
   "handoff_attempts": [
     {
@@ -2008,7 +2022,7 @@
       "task_id": "miniapp-20261124-r3-t04",
       "window": "r3",
       "sequence": 4,
-      "status": "handoff_sent_windows_execution_pending",
+      "status": "synthetic_live_rejection_recovery_pass_no_change_guard_completed",
       "at": "2026-11-24T13:15:00Z",
       "goal": "Verify corrupt/unsupported synthetic image rejection and recovery by selecting valid PNG; change/deploy only if a real defect reproduces and full completion fits fixed end.",
       "end_at": "2026-11-24T14:30:00Z",
@@ -2036,7 +2050,7 @@
       "task_id": "miniapp-20261124-r3-t05",
       "window": "r3",
       "sequence": 5,
-      "status": "handoff_sent_windows_execution_pending",
+      "status": "synthetic_jpeg_webp_boundary_qa_pass_no_change_guard_completed",
       "at": "2026-11-24T13:45:00Z",
       "goal": "Verify supported synthetic JPEG/WebP roundtrip and documented size/pixel-limit boundary; change only for reproduced defect.",
       "end_at": "2026-11-24T14:30:00Z",
@@ -2061,17 +2075,26 @@
       "task_id": "miniapp-20261124-r3-t06",
       "window": "r3",
       "sequence": 6,
-      "status": "handoff_sent_windows_execution_pending",
+      "status": "evidence_reconciled_guard_receipt_pending_parent",
       "at": "2026-11-24T14:15:00Z",
       "goal": "Reconcile r3 tasks 1–5 against existing evidence, guard/lock receipts and reports; produce concise evidence matrix and next candidate without repeating tests or changing code/deploy.",
       "end_at": "2026-11-24T14:30:00Z",
       "handoff_attempt": "sent",
       "customer_outcomes": "unmeasured",
       "completion_criteria": "Reconcile records only; no browser/API/analytics reruns or app changes. Record parent guard exit and lock release before fixed end.",
-      "report": "pending",
+      "report": "reports/miniapp-image-tools-20261118-qa-01/20261124T1423Z-r3-t06.html",
       "message_id": "1795529868.509459",
       "queue_id": "convq_da77eaff32e9dbf0a44c3308b01d9a90",
-      "sent_at": "2026-11-24T14:17:00Z"
+      "sent_at": "2026-11-24T14:17:00Z",
+      "roles": {
+        "independent": "deleg_a7fe0654",
+        "cross_review": "deleg_5d3ce208",
+        "four_each_completed": true,
+        "receipt_source": "parent handoff; child did not spawn roles"
+      },
+      "product_change": false,
+      "new_customer_metric": false,
+      "guard_final_receipt": "pending_parent_after_child_exit"
     }
   ],
   "process_cleanup_verifications": [
