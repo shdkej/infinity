@@ -1741,6 +1741,18 @@
       "message_id": "1795522715.346669",
       "queue_id": "convq_70f7ac689dc4aaf9e646e74350af3caf"
     }
+,
+    {
+      "type": "task_status_check_prepared",
+      "at": "2026-11-24T12:45:30Z",
+      "task_id": "miniapp-20261124-r3-t03",
+      "window": "r3",
+      "status": "sent",
+      "reason": "No newer result/guard/lock receipt in latest remote ledger; one status-only request, no task resend.",
+      "sent_at": "2026-11-24T12:45:30Z",
+      "message_id": "1795524335.092199",
+      "queue_id": "convq_08af5d2122183d83ccd2b3f83a9760aa"
+    }
   ],
   "task_records": [
     {

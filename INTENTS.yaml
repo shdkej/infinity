@@ -200,8 +200,8 @@ lanes:
     prior_r3_t01_status_check_at: '2026-11-24T11:46:05Z'
     prior_r3_t01_status_check_status: recorded_running_snapshot
     prior_r3_t01_status_check_task_id: miniapp-20261124-r3-t01
-    current_task_status_check_at: null
-    current_task_status_check_status: not_requested
+    current_task_status_check_at: '2026-11-24T12:45:30Z'
+    current_task_status_check_status: sent
     current_task_status_check_task_id: miniapp-20261124-r3-t03
     current_task_guard_started_at: null
     current_task_lock_status: not_started
@@ -358,10 +358,16 @@ lanes:
         prior_r3_t01_status_check_task_id: miniapp-20261124-r3-t01
         prior_r3_t01_status_check_message_id: '1795520747.881739'
         prior_r3_t01_status_check_queue_id: convq_a13995fcc87bd672c099f41b904e9aff8
-        current_task_status_check_status: not_requested
+        current_task_status_check_status: sent
+        current_task_status_check_at: '2026-11-24T12:45:30Z'
+        current_task_status_check_task_id: miniapp-20261124-r3-t03
+        current_task_status_check_message_id: '1795524335.092199'
+        current_task_status_check_queue_id: convq_08af5d2122183d83ccd2b3f83a9760aa
         report_status: pending
         current_task_execution_snapshot_at: '2026-11-24T11:58:40Z'
         current_task_execution_snapshot: r3-t01 product/live verified; guard completed exit 0 and shared lock free; r3-t02 handoff sent 1795522715.346669
+        current_task_status_check_snapshot_at: '2026-11-24T12:45:30Z'
+        current_task_status_check_snapshot: No newer result/guard/lock receipt for r3-t03; one status-only request sent, no work resubmitted.
         prior_r3_t01_product_source_sha: dc43b456354f3f03edf402a8dfce0a10172f8d81
         prior_r3_t01_product_evidence_sha: 93da7d6de0cad3def7d837ca95d442b684216ad2
         prior_r3_t01_release_run: '45387803883'
@@ -400,7 +406,7 @@ lanes:
       prior_r2_t05_status_check_message_id: '1795517213.706259'
       prior_r2_t05_status_check_queue_id: convq_b3800df487bd672c099f41b904f78e0f
       prior_r2_t05_status_check_reason: 최신 원격에 t05 결과/guard/잠금 갱신 없음; 동일 ID 업무 재전송 없이 상태 1회 확인.
-    next_action: r3-t02 정상 닫기 요청 후에도 동일 Narrator PID 잔존; 사용자 대화형 Windows 잠금 해제 후 해당 PID만 재확인·정리. 부모가 r3-t02 guard 종료·잠금 해제 영수증을 별도 읽어 반영. 3시간 구간 종합 보고는 별도 pending.
+    next_action: r3-t03 상태 회신을 기다린다. handoff sent 1795523874.479619; 12:45:30Z 동일 ID status-only 요청 sent 1795524335.092199. 업무 재전송 금지; 고정 end_at 14:30Z. 구간 보고 pending.
     notification_channel: slack
     notification_target: channel:C0CE0DV9MM2
     notification_reply_to: '1794983278.888719'
