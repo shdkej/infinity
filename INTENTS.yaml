@@ -151,14 +151,14 @@ lanes:
     current_task_completion_criteria: 재현 조건·실제 byte/표시 전후 근거, 변경 시 테스트·전용 배포·라이브 동작,
       보호 종료/잠금 증거; 고객 성과와 합성 QA 구분
     current_task_handoff_attempt_at: '2026-11-24T06:45:00Z'
-    current_task_handoff_status: attempted
-    current_task_handoff_message_id: ''
-    current_task_handoff_queue_id: ''
+    current_task_handoff_status: sent
+    current_task_handoff_message_id: '1795502847.537309'
+    current_task_handoff_queue_id: convq_ab415e75d872be33a4f63c52ce54500d
     current_task_status_check_at: '2026-11-24T06:30:00Z'
     current_task_status_check_status: sent
     current_task_status_check_message_id: '1795501837.091079'
     current_task_status_check_queue_id: convq_acdc45af3cb6e5f1e24a46db0aa4f9be
-    current_task_status: handoff_prepared
+    current_task_status: dispatched
     current_task_result_summary: ''
     current_task_followup: ''
     current_task_result: ''
@@ -210,9 +210,9 @@ lanes:
           명확성 문제 여부 판단; 문제면 최소 수정·테스트·앱 전용 배포·라이브 모바일/데스크톱 확인, 아니면 근거와 후속 후보 기록
         current_task_end_at: '2026-11-24T08:30:00Z'
         handoff_attempt_at: '2026-11-24T06:45:00Z'
-        handoff_status: attempted
-        handoff_message_id: ''
-        handoff_queue_id: ''
+        handoff_status: sent
+        handoff_message_id: '1795502847.537309'
+        handoff_queue_id: convq_ab415e75d872be33a4f63c52ce54500d
         status_check_at: ''
         status_check_status: ''
         status_check_message_id: ''

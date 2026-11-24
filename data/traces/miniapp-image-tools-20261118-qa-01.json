@@ -393,6 +393,15 @@
       "task_id": "miniapp-20261124-r1-t03",
       "status": "prepared",
       "summary": "r1-t02 completed; next task to validate small-image file-size 0.00MB clarity. Fixed end_at 08:30Z; no dispatch receipt yet."
+    },
+    {
+      "type": "handoff_sent",
+      "at": "2026-11-24T06:47:00Z",
+      "task_id": "miniapp-20261124-r1-t03",
+      "status": "sent",
+      "message_id": "1795502847.537309",
+      "queue_id": "convq_ab415e75d872be33a4f63c52ce54500d",
+      "summary": "Windows handoff delivered; delivery receipt only, execution acceptance/result not yet verified."
     }
   ],
   "artifacts": [
@@ -560,7 +569,7 @@
     }
   ],
   "next_decision": {
-    "status": "handoff_prepared",
-    "value": "Dispatch miniapp-20261124-r1-t03 only after final time/window/run/job-enabled check; r1-t02 completed and lock released."
+    "status": "dispatched",
+    "value": "Await Windows r1-t03 execution/result and guard/lock evidence; do not overlap."
   }
 }
