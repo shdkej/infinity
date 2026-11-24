@@ -183,23 +183,23 @@ lanes:
     prior_r2_t06_guard_exit_code: 0
     prior_r2_t06_lock_released_verified_at: '2026-11-24T11:24:09.929899Z'
     prior_r2_t06_summary: mobile keyboard recovery QA pass at 390x844 and 320x720; synthetic only, customer outcomes unmeasured; no product change.
-    current_task_status: cleanup_graceful_close_requested_still_present
-    current_task_result_summary: 원본 QA의 Narrator PID 27296과 현재 시작시각·소유자·세션 일치. 12:24:17Z CloseMainWindow 한 번은 true였으나 12:24:29Z 동일 인스턴스 잔존; 추가 종료·강제 종료 없음. AT 발화/고객 성과 미검증.
+    current_task_status: cleanup_blocked_guard_completed
+    current_task_result_summary: 원본 QA의 Narrator PID 27296과 현재 시작시각·소유자·세션 일치. 12:24:17Z CloseMainWindow 한 번은 true였으나 12:28:29Z에도 동일 인스턴스 잔존; 추가 종료·강제 종료 없음. guard 12:28:14Z completed/exit 0, lock 12:28:29Z free. AT 발화/고객 성과 미검증.
     current_task_followup: 대화형 Windows 잠금 해제 후 동일 생성시각·소유자·세션 재대조, 이 PID 하나만 정상 종료·부재 재조회. 권한 거부면 사용자 로컬 관리 경로로 이관, 강제 종료/승격/우회 금지.
     current_task_result: cleanup_blocked_process_remains
-    current_task_status_at: '2026-11-24T12:24:29Z'
-    current_task_guard_status: pending_parent_readback_after_child_exit
-    current_task_guard_exit_code: null
-    current_task_guard_finished_at: null
-    current_task_lock_released_verified_at: null
+    current_task_status_at: '2026-11-24T12:28:29Z'
+    current_task_guard_status: completed
+    current_task_guard_exit_code: 0
+    current_task_guard_finished_at: '2026-11-24T12:28:14.119473+00:00'
+    current_task_lock_released_verified_at: '2026-11-24T12:28:29.123670+00:00'
     prior_r3_t01_status_check_at: '2026-11-24T11:46:05Z'
     prior_r3_t01_status_check_status: recorded_running_snapshot
     prior_r3_t01_status_check_task_id: miniapp-20261124-r3-t01
     current_task_status_check_at: null
     current_task_status_check_status: not_requested
     current_task_status_check_task_id: miniapp-20261124-r3-t02
-    current_task_guard_started_at: null
-    current_task_lock_status: pending_parent_readback_after_child_exit
+    current_task_guard_started_at: '2026-11-24T12:23:02.882248+00:00'
+    current_task_lock_status: free_verified_at_2026-11-24T12:28:29.123670Z
     prior_r3_t01_source_sha: dc43b456354f3f03edf402a8dfce0a10172f8d81
     prior_r3_t01_evidence_sha: 93da7d6de0cad3def7d837ca95d442b684216ad2
     prior_r3_t01_release_run: '45387803883'
@@ -359,7 +359,7 @@ lanes:
         current_task_product_source_sha: null
         current_task_product_evidence_sha: null
         current_task_release_run: null
-        current_task_guard_final_receipt: pending_parent_readback_after_child_exit
+        current_task_guard_final_receipt: completed_exit_0_at_2026-11-24T12:28:14.119473Z_lock_free_at_12:28:29.123670Z_process_still_present
         goal: Verify and, only if safe, resolve the outstanding Narrator PID 27296 without broad process cleanup or unverified screen-reader claims.
       prior_task_status_check_at: '2026-11-24T09:45:00Z'
       prior_task_status_check_status: sent

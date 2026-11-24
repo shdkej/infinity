@@ -1756,7 +1756,7 @@
       "queue_id": "convq_70f7ac689dc4aaf9e646e74350af3caf",
       "process_observed_at": "2026-11-24T12:24:29.8446418Z",
       "process_result": "same_original_instance_still_present_after_one_graceful_request",
-      "guard_final_receipt": "pending_parent_readback_after_child_exit"
+      "guard_final_receipt": "completed_exit_0_at_2026-11-24T12:28:14.119473Z_lock_free_12:28:29.123670Z_process_still_present"
     }
   ],
   "process_cleanup_verifications": [
@@ -1786,7 +1786,18 @@
       "roles": {"independent": "deleg_90e164dc", "cross_review": "deleg_69c362e6", "four_each_completed": true},
       "product_code_deploy_analytics_changed": false,
       "at_speech_navigation_and_customer_outcomes": "unverified",
-      "guard_and_shared_lock": "pending_parent_readback_after_child_exit",
+      "guard_and_shared_lock": {
+        "state": "completed",
+        "exit_code": 0,
+        "started_at": "2026-11-24T12:23:02.882248+00:00",
+        "finished_at": "2026-11-24T12:28:14.119473+00:00",
+        "end_at": "2026-11-24T14:30:00+00:00",
+        "lock_free_verified_at": "2026-11-24T12:28:29.123670+00:00"
+      },
+      "parent_process_readback": {
+        "at": "2026-11-24T12:28:29.5864177Z",
+        "same_pid_and_creation_time_still_present": true
+      },
       "evidence_paths": ["intents/waiting/miniapp-image-tools-20261118-qa-01.md", "reports/miniapp-image-tools-20261118-qa-01/20261124T1225Z-r3-t02.html"]
     }
   ]
