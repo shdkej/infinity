@@ -1758,10 +1758,24 @@
       "tests": "node --test tests/*.test.mjs: 11/11 pass",
       "live_readback": "Two exact converter paths HTTP 200, 17940B each, sha256 dee66985a1dd09a33cdcd5ccf0f9dd9a98c20953a3c41672d2815622b1b59e39; unchanged r3-t01",
       "release": "none; no defect reproduced, stale r2-t05 restore workflow not executed",
-      "roles": {"independent": "deleg_78ae1124", "cross_review": "deleg_04ec4cc5", "four_each_completed": true},
+      "roles": {
+        "independent": "deleg_78ae1124",
+        "cross_review": "deleg_04ec4cc5",
+        "four_each_completed": true
+      },
       "customer_outcomes": "unmeasured; synthetic browser QA does not show real customer comprehension or success",
-      "guard": {"state": "pending_parent_after_child_exit", "end_at": "2026-11-24T14:30:00Z", "exit_code": null, "finished_at": null, "lock_free_verified_at": null},
-      "evidence_paths": ["intents/waiting/miniapp-image-tools-20261118-qa-01.md", "reports/miniapp-image-tools-20261118-qa-01/20261124T1325Z-r3-t04.html", "C:/Users/msi/ego/miniapp-r3-t04-20261124/ (private synthetic fixtures and saved outputs)"]
+      "guard": {
+        "state": "pending_parent_after_child_exit",
+        "end_at": "2026-11-24T14:30:00Z",
+        "exit_code": null,
+        "finished_at": null,
+        "lock_free_verified_at": null
+      },
+      "evidence_paths": [
+        "intents/waiting/miniapp-image-tools-20261118-qa-01.md",
+        "reports/miniapp-image-tools-20261118-qa-01/20261124T1325Z-r3-t04.html",
+        "C:/Users/msi/ego/miniapp-r3-t04-20261124/ (private synthetic fixtures and saved outputs)"
+      ]
     }
   ],
   "next_decision": {
@@ -1862,6 +1876,14 @@
       "sent_at": "2026-11-24T13:19:46Z",
       "message_id": "1795526386.876779",
       "queue_id": "convq_83ec1fd73a49ebdf044d8dfb5c14e39f"
+    },
+    {
+      "type": "task_status_check_prepared",
+      "at": "2026-11-24T13:32:01Z",
+      "task_id": "miniapp-20261124-r3-t04",
+      "window": "r3",
+      "status": "prepared",
+      "reason": "Product QA result is published but parent guard/exit/lock receipt remains pending; request same-task final status once, no task resend."
     }
   ],
   "task_records": [
@@ -1920,7 +1942,13 @@
       "browser_qa_observed_at": "2026-11-24T13:25:51Z",
       "guard_final_receipt": "pending_parent_after_child_exit",
       "report": "reports/miniapp-image-tools-20261118-qa-01/20261124T1325Z-r3-t04.html",
-      "roles": {"independent": "deleg_78ae1124", "cross_review": "deleg_04ec4cc5", "four_each_completed": true}
+      "roles": {
+        "independent": "deleg_78ae1124",
+        "cross_review": "deleg_04ec4cc5",
+        "four_each_completed": true
+      },
+      "status_check_attempt": "prepared",
+      "status_check_at": "2026-11-24T13:32:01Z"
     }
   ],
   "process_cleanup_verifications": [

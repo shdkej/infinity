@@ -564,3 +564,8 @@
 - **각 실패 직후 같은 페이지**에서 distinct recovery.png 재선택: 오류 해제·변환 활성, 이전 결과 비활성 유지 → PNG 80×40 새 결과·미리보기·다운로드 활성·완료 안내. ego 다운로드 이벤트를 클릭 전에 준비하고 `saveAs`로 세 출력 파일을 Windows 절대 경로에 저장했다(`failure=null`); Pillow가 세 파일의 실제 PNG 시그니처·완전 디코딩·80×40 RGBA·각 707B를 독립 확인했다. 세 파일 SHA-256은 동일 `376b86587d6d8b609ceeb44d76c96e25ea770cb12dd60631231e437a1e0ffc34`이며 별도 경로로 각각 저장했다. 비공개 fixture/출력: `C:/Users/msi/ego/miniapp-r3-t04-20261124/`; 브라우저 task space 종료.
 - Node `node --test tests/*.test.mjs` **11/11 PASS**. 이 경로에서 제품 결함 미재현으로 **앱 코드·테스트·README·QA 문서 변경/새 배포 없음**; 현재 Space checkout의 다른 status 앱 dirty 파일·미푸시 커밋은 보존했다. 읽기 전용 라이브 두 변환기 URL은 각 HTTP 200, 17,940B, 동일 SHA-256 `dee66985a1dd09a33cdcd5ccf0f9dd9a98c20953a3c41672d2815622b1b59e39` (기존 r3-t01)였으며 이번 릴리스 Action이 아니다. 따라서 낡은 r2-t05 복원 workflow는 실행·재고정하지 않았다.
 - 판정은 합성 브라우저 경로의 무결함/복구 통과뿐이다. 사용자 오류 이해·실제 저장·고객 성과와 물리 기기·스크린리더 발화·PostHog 서버 수신은 **미측정/미검증**. 별도 Narrator PID 27296은 사용자 대화형 Windows 잠금 해제 전 조작하지 않았다. 개별 보고 `reports/miniapp-image-tools-20261118-qa-01/20261124T1325Z-r3-t04.html`; r3 구간 종합 보고는 별도 pending. 이 자식은 guard 종료/잠금을 스스로 완료라 기록하지 않는다. 부모가 종료 뒤 SQLite `state/exit_code/finished_at/end_at` 및 공용 잠금 비차단 획득 시각을 같은 ID에 추가한다. Intent는 Waiting 유지.
+
+### 2026-11-24 22:32 KST · r3-t04 종료 영수증 확인 요청 준비
+
+- 최신 `origin/main`에 동일 ID의 라이브 합성 QA PASS/무변경 결과가 올라왔다. guard 종료/exit 및 `active.lock` 해제는 부모 확인 pending으로 남아 있어, 새 업무 없이 이 task의 종료·잠금 상태만 한 번 요청한다. 고정 end `14:30Z`; 재전송하지 않는다.
+- 요청 시도 `2026-11-24T13:32:01Z`를 원장/trace에 먼저 기록한다.
