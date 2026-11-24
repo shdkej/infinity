@@ -322,6 +322,12 @@ lanes:
         handoff_status: sent
         handoff_message_id: '1795520034.423279'
         handoff_queue_id: convq_f4220e1e2f1315988e3e5697a899d49c
+        current_task_status_check_at: '2026-11-24T11:45:47Z'
+        current_task_status_check_status: sent
+        current_task_status_check_task_id: miniapp-20261124-r3-t01
+        current_task_status_check_message_id: '1795520747.881739'
+        current_task_status_check_queue_id: convq_a13995fcc87bd672c099f41b904e9aff8
+        current_task_status_check_reason: No newer result/guard/lock receipt; one current-status request only, no task resend.
         report_status: pending
         goal: r2 모바일 복구 통과 뒤 미재현으로 남은 헤더 읽기 설정 변경 경합 후보를 재현 검증하고 필요한 경우에만 최소 수정·라이브 확인
       prior_task_status_check_at: '2026-11-24T09:45:00Z'
@@ -341,7 +347,7 @@ lanes:
       handoff_queue_id: convq_97ca970aaebf3d9cf6a2a2f1743a326d
       report_status: sent
       report_message_id: '1795519852.919859'
-      next_action: r3-t01 sent 1795520034.423279; Windows 실행·종료 증거 대기. 고정 14:30Z 종료.
+      next_action: r3-t01 sent 1795520034.423279; 20:45 KST 상태 요청 sent 1795520747.881739, Windows 실행·종료 증거 대기. 고정 14:30Z 종료.
       current_task_status_check_at: '2026-11-24T10:45:00Z'
       current_task_status_check_status: prepared
       current_task_status_check_task_id: miniapp-20261124-r2-t05

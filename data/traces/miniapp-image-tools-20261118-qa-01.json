@@ -1653,6 +1653,17 @@
       "sent_at": "2026-11-24T10:46:45Z",
       "message_id": "1795517213.706259",
       "queue_id": "convq_b3800df487bd672c099f41b904f78e0f"
+    },
+    {
+      "type": "task_status_check_prepared",
+      "at": "2026-11-24T11:45:47Z",
+      "task_id": "miniapp-20261124-r3-t01",
+      "window": "r3",
+      "status": "sent",
+      "reason": "No newer result/guard/lock receipt; one current-status request only, no task resend.",
+      "sent_at": "2026-11-24T11:45:47Z",
+      "message_id": "1795520747.881739",
+      "queue_id": "convq_a13995fcc87bd672c099f41b904e9aff8"
     }
   ]
 }
