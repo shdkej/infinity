@@ -296,8 +296,8 @@ lanes:
         status: running
         goal: 계정·기존글·조회확인과 맥락에맞는 첫글1개 게시
         task_sequence: 1
-        report_status: pending
-        report_message_id: null
+        report_status: sent
+        report_message_id: '1795600846.134169'
         exhausted: false
         metrics:
           target: 10
