@@ -1339,7 +1339,8 @@
     {
       "type": "execution",
       "at": "2026-11-25T07:51:47Z",
-      "context_pack": "/home/ubuntu/workspace/knowledge-lab/reports/context-packs/2026-11-18-agent-daily-operations.json",
+      "context_pack": "../knowledge-lab/reports/context-packs/2026-11-18-agent-daily-operations.json",
+      "context_pack_original": "/home/ubuntu/workspace/knowledge-lab/reports/context-packs/2026-11-18-agent-daily-operations.json",
       "evidence_paths": [
         "scripts/miniapp_experiment.py",
         "intents/waiting/miniapp-image-tools-20261118-qa-01.md"
@@ -2124,11 +2125,48 @@
         "reports/miniapp-image-tools-20261118-qa-01/20261124T1423Z-r3-t06.html",
         "intents/waiting/miniapp-image-tools-20261118-qa-01.md"
       ]
+    },
+    {
+      "label": "2026-11-25 r1-t01 exact account Threads publication and first platform views",
+      "type": "threads_public_post",
+      "at": "2026-11-25T08:10:14.649Z",
+      "task_id": "miniapp-20261125-r1-t01",
+      "status": "posted_guard_pending",
+      "account": "_archivenoh",
+      "account_evidence": "Ego Lite taskSpace 74: home composer and profile navigation target /@_archivenoh; profile edit control and modal author _archivenoh verified before posting",
+      "recent_public_posts_inspected": 10,
+      "older_post_view_access": "2026-10-04 post DeC5l6UI5EU displayed 조회 1회; not included in today's metric",
+      "post": {
+        "id": "DgKEVWij6oq",
+        "url": "https://www.threads.com/@_archivenoh/post/DgKEVWij6oq",
+        "text": "막 쓰고 싶다, 잘 쓰고 싶다. 글을 쓸 때 일단 쓰고 고치는 편인가요, 첫 문장부터 다듬는 편인가요?",
+        "published_at": "2026-11-25T08:09:35Z",
+        "published_at_source": "Threads post time[datetime] from exact URL",
+        "views": 0,
+        "observed_at": "2026-11-25T08:10:14.649Z",
+        "evidence": "https://www.threads.com/insights/post/DgKEVWij6oq"
+      },
+      "customer_outcomes": "platform-displayed post views 0/10 at first snapshot, not unique humans or self-view customer outcome; no older-post aggregation",
+      "roles": {
+        "independent": "deleg_5f0d7d30",
+        "cross_review": "deleg_7d876406",
+        "source": "parent handoff, no duplicate children"
+      },
+      "guard": {
+        "state": "pending_parent_after_child_exit",
+        "exit_code": null,
+        "finished_at": null,
+        "lock_free_verified_at": null
+      },
+      "evidence_paths": [
+        "intents/waiting/miniapp-image-tools-20261118-qa-01.md",
+        "reports/miniapp-image-tools-20261118-qa-01/20261125T0810Z-r1-t01.html"
+      ]
     }
   ],
   "next_decision": {
-    "status": "scheduled_preparing",
-    "value": "Activate verified same-day schedule after remote registry/helper publication; confirm 17:00 handoff and correct-account execution."
+    "status": "running_waiting_guard_and_window_report",
+    "value": "r1-t01 post URL and 0-view first snapshot recorded; parent verifies guard exit and lock after child ends; supervisor observes at 18:45 KST and reports at 19:00."
   },
   "handoff_attempts": [
     {

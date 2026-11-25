@@ -18,6 +18,14 @@
 
 정본: KL `source/openclaw-system/docs/projects/AGENT_DAILY_OPERATIONS_PRD.md`. 아래 과거 이력과 현재 실험을 구분한다.
 
+## r1-t01 직접 실행 — 2026-11-25 17:09–17:10 KST
+
+- 계정: Ego Lite 기존 taskSpace 74의 로그인 상태에서 홈 작성자 링크 `/@_archivenoh`, 프로필의 `프로필 편집`, 작성 창의 `_archivenoh`를 게시 직전에 대조했다. 공개 프로필만 보고 로그인 계정이라고 추정하지 않았다.
+- 최근 공개 Threads 글 10개를 확인했다(2026-08-29–10-04): [10/04](https://www.threads.com/@_archivenoh/post/DeC5l6UI5EU), [9/24](https://www.threads.com/@_archivenoh/post/DdpRVQJCDhW), [9/23](https://www.threads.com/@_archivenoh/post/Ddmy1XxCBZa), [9/18](https://www.threads.com/@_archivenoh/post/DdaRpcjiMKK), [9/11](https://www.threads.com/@_archivenoh/post/DdHpt76CNPu), [9/09](https://www.threads.com/@_archivenoh/post/DdCr9-oiCe6), [9/08](https://www.threads.com/@_archivenoh/post/DdAA8r0iLyS), [9/05](https://www.threads.com/@_archivenoh/post/Dc4dDthiKkQ), [9/03](https://www.threads.com/@_archivenoh/post/DczKdD0iE0p), [8/29](https://www.threads.com/@_archivenoh/post/DcmSJsZCPQV). 대부분 이미지/포스터 기반 여행 기록으로 본문 텍스트가 노출되지 않았고, 9/05는 “세계여행 3달차 팔레르모 도착”, 9/03은 “이집트에서 한달 끝, 다음 한달은 이탈리아 일주”라는 실제 텍스트가 보였다. 9/18 미디어 대체 텍스트에도 여행/식사 기록이 있으나 이를 현재 경험으로 옮기지 않았다. 프로필 소개는 “막 쓰고 싶다 잘 쓰고 싶다”. 기존 글의 10/04 상세에는 플랫폼 `조회 1회`가 표시돼 게시물별 조회 접근 가능성을 확인했지만 이 과거 조회는 오늘 목표에 합산하지 않았다.
+- 새 원문: “막 쓰고 싶다, 잘 쓰고 싶다. 글을 쓸 때 일단 쓰고 고치는 편인가요, 첫 문장부터 다듬는 편인가요?” 17:09:35 KST (`2026-11-25T08:09:35Z`) 발행. 게시 직전 작성자와 동일 문장 기게시 여부를 확인한 뒤 게시 버튼을 한 번만 눌렀다. [공개 글 URL](https://www.threads.com/@_archivenoh/post/DgKEVWij6oq)에서 작성자·정확한 문구·`time[datetime]`을 다시 확인했다. 게시물 옵션에서 답글/인용 대상은 `모든 사람`, 다른 위치 동시 공유는 `해제`였으며 계정 공개 범위나 친구 목록을 변경하지 않았다.
+- 첫 조회: [해당 글의 Threads 게시물 인사이트](https://www.threads.com/insights/post/DgKEVWij6oq)에서 `2026-11-25T08:10:14.649Z`에 `조회수 0`, `조회한 사람 0`, `팔로우 0` 표시. 원문에 “아직 답글이 없습니다”가 표시돼 당시 답글 0. 팔로우 *변화량*은 비교 기준이 없어 null. 새 글 1개의 플랫폼 표시 조회 0/10만 집계했으며 이전 글, 자가 검증 방문, 고객/고유인원 추정은 합산하지 않았다. 다음 정규 관측은 18:45 KST; 새로고침 반복은 하지 않았다.
+- 독립 4역할 `deleg_5f0d7d30`·교차 검토 `deleg_7d876406`은 부모가 선행 완료했다고 인계했다. 이번 child는 다시 위임하지 않았다. guard 종료·exit_code·공용 잠금 해제는 이 child가 확인하거나 주장하지 않으며 `pending_parent_after_child_exit`로 남긴다. r1 구간 보고는 19시 감독 소유이며 현재 Waiting을 유지한다. 개별 보고: `reports/miniapp-image-tools-20261118-qa-01/20261125T0810Z-r1-t01.html`.
+
 ## 현재 결과 — 2026-11-25 검토, 11/24 실험 종료
 
 **판정: 제품 개선과 후속 작업은 실제로 이어졌지만, 즉시 전환·구간 보고·고객 목표 선택은 부족했다.** 11/24 14:30–23:30 KST에 작업 20개(8/6/6)가 기록됐고 제품 배포 6회를 GitHub Action에서 직접 확인했다. 배포 횟수는 개선 종류나 고객 실험 성공 횟수가 아니다. 빈 파일 안내를 두 차례 다듬어 배포한 것을 포함한다.

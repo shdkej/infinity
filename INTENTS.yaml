@@ -200,9 +200,9 @@ lanes:
     prior_r3_t04_lock_released_verified_at: '2026-11-24T13:31:30.267831+00:00'
     prior_r3_t05_result_summary: Four separately decoded JPEG/WebP 80x40 outputs and decoded 10000x1 edge output; 12MiB padded and 20m
       edited-header cases selection-only. Node 11/11, no product change/release; customer outcomes unmeasured.
-    current_task_status: null
-    current_task_result: null
-    current_task_guard_status: null
+    current_task_status: posted_guard_pending
+    current_task_result: _archivenoh 원문 1개 게시·원문 URL 확인; 17:10:14 KST 게시물 인사이트 조회수 0. guard 종료·잠금은 부모 확인 대기.
+    current_task_guard_status: pending_parent_after_child_exit
     current_task_guard_exit_code: null
     current_task_guard_finished_at: null
     current_task_lock_released_verified_at: null
@@ -271,7 +271,7 @@ lanes:
       next_day_resume: false
     experiment_run:
       run_id: miniapp-20261125-2h
-      status: planned
+      status: running
       date: '2026-11-25'
       timezone: Asia/Seoul
       start_at: '2026-11-25T08:00:00Z'
@@ -293,7 +293,7 @@ lanes:
       - id: r1
         start_at: '2026-11-25T08:00:00Z'
         end_at: '2026-11-25T10:00:00Z'
-        status: planned
+        status: running
         goal: 계정·기존글·조회확인과 맥락에맞는 첫글1개 게시
         task_sequence: 1
         report_status: pending
@@ -302,12 +302,18 @@ lanes:
         metrics:
           target: 10
           unit: threads_post_views
-          observed_at: null
-          posts: []
-          total_views: null
-          replies: null
+          observed_at: '2026-11-25T08:10:14.649Z'
+          posts:
+          - id: DgKEVWij6oq
+            url: https://www.threads.com/@_archivenoh/post/DgKEVWij6oq
+            published_at: '2026-11-25T08:09:35Z'
+            views: 0
+            observed_at: '2026-11-25T08:10:14.649Z'
+            evidence: https://www.threads.com/insights/post/DgKEVWij6oq
+          total_views: 0
+          replies: 0
           follows_delta: null
-          status: unmeasured
+          status: measured_first_snapshot
         observation_due_at: '2026-11-25T09:45:00Z'
       - id: r2
         start_at: '2026-11-25T10:00:00Z'
@@ -353,14 +359,30 @@ lanes:
         goal: Threads _archivenoh의 정확한로그인·최근공개글·조회접근을확인하고 맥락에맞는짧은원문글1개를게시해 첫조회스냅샷/게시URL을기록한다. 미니앱홍보로고정하지않는다.
         start_at: '2026-11-25T08:00:00Z'
         end_at: '2026-11-25T10:00:00Z'
-        status: prepared
+        status: posted_guard_pending
         handoff_status: sent
         handoff_message_id: '1795593652.728089'
-        result_summary: null
-        changes: []
+        result_summary: 정확한 로그인 _archivenoh의 프로필 편집·작성자 표시를 재확인하고 최근 공개 Threads 글 10개를 살폈다. 17:09:35 KST 원문 1개 게시, 원문 페이지 재확인. 17:10:14 KST 게시물 인사이트 조회수 0; 자가 조회를 고객 성과로 세지 않음.
+        changes:
+        - https://www.threads.com/@_archivenoh/post/DgKEVWij6oq
         release_runs: []
+        post:
+          id: DgKEVWij6oq
+          url: https://www.threads.com/@_archivenoh/post/DgKEVWij6oq
+          published_at: '2026-11-25T08:09:35Z'
+          text: 막 쓰고 싶다, 잘 쓰고 싶다. 글을 쓸 때 일단 쓰고 고치는 편인가요, 첫 문장부터 다듬는 편인가요?
+          views: 0
+          observed_at: '2026-11-25T08:10:14.649Z'
+          evidence: https://www.threads.com/insights/post/DgKEVWij6oq
+        account_verified_at: '2026-11-25T08:09:35Z'
+        browser_task_space: 74
+        prior_posts_inspected: 10
+        roles:
+          independent: deleg_5f0d7d30
+          cross_review: deleg_7d876406
+          completion_receipts: parent_previously_verified
         guard:
-          state: not_started
+          state: pending_parent_after_child_exit
           exit_code: null
           finished_at: null
           lock_free_verified_at: null
@@ -369,12 +391,18 @@ lanes:
       metrics:
         target: 10
         unit: threads_post_views
-        observed_at: null
-        posts: []
-        total_views: null
-        replies: null
+        observed_at: '2026-11-25T08:10:14.649Z'
+        posts:
+        - id: DgKEVWij6oq
+          url: https://www.threads.com/@_archivenoh/post/DgKEVWij6oq
+          published_at: '2026-11-25T08:09:35Z'
+          views: 0
+          observed_at: '2026-11-25T08:10:14.649Z'
+          evidence: https://www.threads.com/insights/post/DgKEVWij6oq
+        total_views: 0
+        replies: 0
         follows_delta: null
-        status: unmeasured
+        status: measured_first_snapshot
       public_promotion:
         status: authorized
         platform: Threads
@@ -389,15 +417,15 @@ lanes:
         - paid_ads
         - mass_engagement
         - security_or_visibility_changes
-        account_verified: false
-      next_action: 17시 정확한계정·기존글·조회확인과첫게시를 하나의 업무로 인계. 미니앱/다른계정/앱계측성과 합산금지.
+        account_verified: true
+      next_action: r1 18:45 KST 새 글 조회를 다음 감독 관측에서 한 번 확인하고 19시 구간 보고. 자가 조회를 고객 성과로 세지 않음.
       setup_receipts:
         windows_guard_browser_message_id: '1795592153.192409'
         windows_account_public_message_id: '1795592691.132499'
-        account_auth_status: checking_existing_authentication
+        account_auth_status: authenticated_exact_handle_verified_2026-11-25T08:09:35Z
         sam_contract_run_id: threads-twohour-contract-20261125
         helper_test_count: 27
-    next_action: 17시 정확한계정·기존글·조회확인과첫게시를 하나의 업무로 인계. 미니앱/다른계정/앱계측성과 합산금지.
+    next_action: r1 18:45 KST 새 글 조회를 다음 감독 관측에서 한 번 확인하고 19시 구간 보고. 자가 조회를 고객 성과로 세지 않음.
     notification_channel: slack
     notification_target: channel:C0CE0DV9MM2
     notification_reply_to: '1794983278.888719'
