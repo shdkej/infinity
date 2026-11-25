@@ -203,13 +203,21 @@ lanes:
     prior_20261125_r1_task_result: "_archivenoh 원문 게시 완료. 17:10 첫 조회 0회는 과거 관측. Windows 17:17 종료·잠금 해제 영수증을 뒤늦게 원장에 반영."
     prior_20261125_r1_guard_finished_at: '2026-11-25T08:16:05.525932Z'
     prior_20261125_r1_lock_released_verified_at: '2026-11-25T08:17:14Z'
-    current_task_status: completed
-    current_task_result: '13:04Z 원문 조회수 214/10·외부 답글 3건 관측. 관련 공개 대화 열람 후 다른 계정 글에 맥락 답글 1건을 13:08Z 확인. 신규 원문 0건; 추가 글 근거 부족.'
-    current_task_guard_status: completed
-    current_task_guard_exit_code: 0
-    current_task_guard_finished_at: '2026-11-25T13:19:32.248398+00:00'
-    current_task_lock_released_verified_at: '2026-11-25T13:19:49.582405+00:00'
-    current_task_followup: SAM의 r3 종합 보고 대기; 동일 ID 부모 guard와 잠금 확인 완료.
+    prior_20261125_r3_t01_status: completed
+    prior_20261125_r3_t01_result: '13:04Z 조회 214, 외부 답글 3건, 관련 답글 1건, 새 원문 없음.'
+    prior_20261125_r3_t01_guard_finished_at: '2026-11-25T13:19:32.248398+00:00'
+    prior_20261125_r3_t01_lock_released_verified_at: '2026-11-25T13:19:49.582405+00:00'
+    current_task_status: prepared
+    current_task_id: miniapp-20261125-r3-t02
+    current_task_goal: 2026-11-25 오늘 새 원문 게시물 전체의 현재 Threads 표시 조회수를 한 번 관측하고 계측 증거와 시각을 기록한다. 반복 새로고침 없이 기존 post insights를 조회한다.
+    current_task_start_at: '2026-11-25T13:57:30Z'
+    current_task_end_at: '2026-11-25T14:00:00Z'
+    current_task_result: null
+    current_task_guard_status: not_started
+    current_task_guard_exit_code: null
+    current_task_guard_finished_at: null
+    current_task_lock_released_verified_at: null
+    current_task_followup: 측정 시도 후 2026-11-25T14:00:00Z 고정 종료 전에 guard·잠금 영수증을 기록.
     prior_r3_t03_status: aggregate_verified_guard_completed
     prior_r3_t03_result_summary: US project 424014 bounded HogQL HTTP 200, 8 grouped rows; five event x synthetic/user counts in the task
       verification. Guard 12:51:04Z completed/exit 0 and lock 12:51:25Z free. Customer/unique people unmeasured; Narrator PID 27296 separate
@@ -403,6 +411,24 @@ lanes:
         receipt_repair_requested_at: "2026-11-25T13:18:20Z"
         receipt_repair_message_id: "1795612758.367589"
         completion_criteria: 현재 게시물 및 관련 공개 대화 실제 확인, 계정 정확성 유지, 답글은 관련성과 실질 기여가 있을 때만 하루 최대5개, 원문은 필요할 때만 하루 최대3개, 게시 시 URL·시각·플랫폼 표시 조회 또는 미측정 사유 기록, 실제 종료·잠금 영수증 기록. 고정 종료 2026-11-25T14:00:00Z.
+      - id: miniapp-20261125-r3-t02
+        window_id: r3
+        goal: 2026-11-25 오늘 새 원문 게시물 전체의 현재 Threads 표시 조회수를 한 번 관측하고 계측 증거와 시각을 기록한다. 반복 새로고침 없이 기존 post insights를 조회한다.
+        start_at: '2026-11-25T13:57:30Z'
+        end_at: '2026-11-25T14:00:00Z'
+        status: prepared
+        handoff_status: prepared
+        handoff_message_id: null
+        result_summary: null
+        changes: []
+        release_runs: []
+        guard:
+          state: not_started
+          exit_code: null
+          finished_at: null
+          lock_free_verified_at: null
+        status_check_at: null
+        completion_criteria: 고정 종료 2026-11-25T14:00:00Z 전에 오늘 새 원문 전체의 현재 표시 조회수를 한 번 확인하고, 게시물별 ID·URL·views 또는 미측정·관측시각·insights 근거를 기록한다. metrics.obs_attempted_at은 조회 성공/실패 모두 실제 시도 후 기록한다. 반복 조회·자가조회는 하지 않으며 Windows guarded entrypoint 안에서 실행하고 실제 종료·잠금 영수증을 남긴다.
       - id: miniapp-20261125-r1-t01
         window_id: r1
         goal: Threads _archivenoh의 정확한로그인·최근공개글·조회접근을확인하고 맥락에맞는짧은원문글1개를게시해 첫조회스냅샷/게시URL을기록한다. 미니앱홍보로고정하지않는다.

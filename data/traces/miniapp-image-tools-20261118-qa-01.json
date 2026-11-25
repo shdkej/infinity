@@ -1429,6 +1429,17 @@
         "https://shdkej.slack.com/archives/C0CE0DV9MM2/p1795612994747899",
         "https://github.com/shdkej/infinity/blob/main/reports/miniapp-image-tools-20261118-qa-01/20261125T1311Z-r3-t01.html"
       ]
+    },
+    {
+      "type": "backfill",
+      "at": "2026-11-25T13:57:30Z",
+      "task_id": "miniapp-20261125-r3-t02",
+      "status": "prepared",
+      "evidence_paths": [
+        "INTENTS.yaml",
+        "intents/waiting/miniapp-image-tools-20261118-qa-01.md"
+      ],
+      "reason": "Helper metrics_observation_due triggered one focused read of current platform-displayed views for all new posts. Fixed window end 14:00Z preserved; no repeated refresh or new post is requested."
     }
   ],
   "artifacts": [

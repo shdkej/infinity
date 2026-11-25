@@ -720,3 +720,9 @@
 
 - 인계 `1795611726.462139` 뒤 원문 Slack 스레드 `C0CE0DV9MM2/1794983278.888719`를 실제 읽었다. Windows 발신자 `U0CHX8QA7S8`의 동일 작업 결과 `1795612994.747899`에서 guard `completed`/exit 0, 종료 `13:19:32.248398Z`, 공용 잠금 해제 확인 `13:19:49.582405Z`를 대조했다. 이는 이전 13:36 확인 결과의 “새 발신 없음”과 달리 실제 thread 조회에서 확인된 원문 증거다.
 - 원격 `INTENTS.yaml`의 동일 task guard 값과 이미 게시된 상세 결과가 일치한다. 상태를 바꾸거나 실행을 재개하지 않고 `receipt_checked_at/result`만 수정했다. 증거: [Windows 원문 결과](https://shdkej.slack.com/archives/C0CE0DV9MM2/p1795612994747899), [task 보고서](https://github.com/shdkej/infinity/blob/main/reports/miniapp-image-tools-20261118-qa-01/20261125T1311Z-r3-t01.html).
+
+
+### 2026-11-25T13:57:30Z · r3-t02 단회 조회 관측 준비
+
+- helper의 `metrics_observation_due`에 따라 미사용 ID `miniapp-20261125-r3-t02`를 준비했다. 이는 오늘 새 원문 게시물 전체의 현재 플랫폼 표시 조회수를 한 번만 읽어 게시물별 최신값/미측정·시각·근거와 `obs_attempted_at`을 남기는 집중 관측이며, 새 게시/반복 새로고침은 포함하지 않는다.
+- 고정 종료 `2026-11-25T14:00:00Z`; guard는 not_started이며 같은 ID로 Windows guarded entrypoint에 한 번만 인계한다.
