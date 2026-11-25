@@ -198,6 +198,7 @@ def snapshot(run, now):
         "window_id": window_id(current) if current else None,
         "current_task": copy.deepcopy(current_task), "reports_due": [],
         "dispatch_allowed": False, "reuse_task_id": None, "status_check_task_id": None,
+        "reconcile_task_id": None,
         "metrics": copy.deepcopy(run.get("metrics")),
         "window_summaries": [summarize_window(run, window) for window in windows],
     }
@@ -233,10 +234,19 @@ def snapshot(run, now):
         if needs_observation:
             result["reasons"].append("metrics_observation_due")
     if unsafe:
-        # A confirmed running/accepted worker needs no repeated model wakeups.
+        # A status request is not a terminal receipt. Reconcile the original thread
+        # after ten minutes, then at most every fifteen minutes while unresolved.
+        # This only wakes the supervisor; it never relaxes the dispatch/lock gate.
         for task in unsafe:
             guard = task.get("guard") or {}
             if task.get("status_check_at"):
+                checked = task.get("receipt_checked_at")
+                since = parse_time(checked or task["status_check_at"])
+                interval = 900 if checked else 600
+                if (now - since).total_seconds() >= interval:
+                    result["reconcile_task_id"] = task["id"]
+                    result["reasons"].append("receipt_reconciliation_due")
+                    break
                 continue
             if now >= parse_time(task["end_at"]):
                 result["status_check_task_id"] = task["id"]

@@ -85,7 +85,42 @@ class Decisions(unittest.TestCase):
         self.assertEqual(result["status_check_task_id"], "t1")
         self.assertFalse(result["dispatch_allowed"])
         self.run["tasks"][0]["status_check_at"] = "2026-11-25T17:10:00+09:00"
-        self.assertFalse(self.snap()["fire"])
+        self.assertIsNone(self.snap()["status_check_task_id"])
+        self.assertFalse(self.snap()["dispatch_allowed"])
+
+    def test_posted_result_missing_parent_receipt_wakes_reconciliation(self):
+        self.run["tasks"] = [task("posted_guard_pending", result_summary="published",
+                                  guard={"state": "pending_parent_after_child_exit"},
+                                  status_check_at="2026-11-25T17:15:00+09:00")]
+        self.assertFalse(self.snap("17:24:59")["fire"])
+        result = self.snap("17:25:00")
+        self.assertTrue(result["fire"])
+        self.assertEqual(result.get("reconcile_task_id"), "t1")
+        self.assertIn("receipt_reconciliation_due", result["reasons"])
+        self.assertFalse(result["dispatch_allowed"])
+        self.assertIsNone(result["status_check_task_id"])
+
+    def test_receipt_rechecks_are_spaced_and_never_release_a_live_guard(self):
+        self.run["tasks"] = [task(status_check_at="2026-11-25T17:15:00+09:00",
+                                  receipt_checked_at="2026-11-25T17:25:00+09:00")]
+        self.assertFalse(self.snap("17:39:59")["fire"])
+        result = self.snap("17:40:00")
+        self.assertEqual(result.get("reconcile_task_id"), "t1")
+        self.assertFalse(result["dispatch_allowed"])
+        self.run["tasks"] = [finished(receipt_checked_at="2026-11-25T17:25:00+09:00")]
+        self.assertTrue(self.snap("17:40:00")["dispatch_allowed"])
+        self.assertIsNone(self.snap("17:40:00").get("reconcile_task_id"))
+
+    def test_queried_previous_window_cannot_go_silent_until_end_of_day(self):
+        self.run["tasks"] = [task("posted_guard_pending", guard={},
+                                  status_check_at="2026-11-25T17:15:00+09:00")]
+        for window in self.run["windows"][:2]:
+            window["report_status"] = "sent"
+        result = self.snap("21:51:00")
+        self.assertTrue(result["fire"])
+        self.assertEqual(result.get("reconcile_task_id"), "t1")
+        self.assertFalse(result["dispatch_allowed"])
+        self.assertFalse(self.snap("23:00:00")["fire"])
 
     def test_prepared_unsent_reuses_id_but_uncertain_send_never_dispatches(self):
         self.run["tasks"] = [task("prepared", handoff_status="prepared",
