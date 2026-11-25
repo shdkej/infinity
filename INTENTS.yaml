@@ -203,7 +203,7 @@ lanes:
     prior_20261125_r1_task_result: "_archivenoh 원문 게시 완료. 17:10 첫 조회 0회는 과거 관측. Windows 17:17 종료·잠금 해제 영수증을 뒤늦게 원장에 반영."
     prior_20261125_r1_guard_finished_at: '2026-11-25T08:16:05.525932Z'
     prior_20261125_r1_lock_released_verified_at: '2026-11-25T08:17:14Z'
-    current_task_status: observed_replied_guard_completed
+    current_task_status: completed
     current_task_result: '13:04Z 원문 조회수 214/10·외부 답글 3건 관측. 관련 공개 대화 열람 후 다른 계정 글에 맥락 답글 1건을 13:08Z 확인. 신규 원문 0건; 추가 글 근거 부족.'
     current_task_guard_status: completed
     current_task_guard_exit_code: 0
@@ -368,7 +368,7 @@ lanes:
         goal: 현재 원문 DgKEVWij6oq의 조회·답글을 확인하고, 실제 관련 공개 대화를 몇 건 읽어 맥락에 맞을 때만 선제 답글(일일 상한5개 이내)로 기여한다. 유용하고 새 근거가 있을 때만 후속 원문 최대1개를 게시하고 첫 조회를 기록한다.
         start_at: '2026-11-25T13:00:14Z'
         end_at: '2026-11-25T14:00:00Z'
-        status: observed_replied_guard_completed
+        status: completed
         handoff_status: sent
         handoff_message_id: '1795611726.462139'
         handoff_queue_id: convq_40a5b43bafbaa01994ee598ac0baff80
