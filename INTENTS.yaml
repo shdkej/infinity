@@ -372,7 +372,7 @@ lanes:
           exit_code: null
           finished_at: null
           lock_free_verified_at: null
-        status_check_at: null
+        status_check_at: "2026-11-25T13:06:00.205333+00:00"
         completion_criteria: 현재 게시물 및 관련 공개 대화 실제 확인, 계정 정확성 유지, 답글은 관련성과 실질 기여가 있을 때만 하루 최대5개, 원문은 필요할 때만 하루 최대3개, 게시 시 URL·시각·플랫폼 표시 조회 또는 미측정 사유 기록, 실제 종료·잠금 영수증 기록. 고정 종료 2026-11-25T14:00:00Z.
       - id: miniapp-20261125-r1-t01
         window_id: r1
