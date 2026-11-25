@@ -714,3 +714,9 @@
 ### 2026-11-25T12:00:35Z · r2 구간 보고 영수증
 
 - r2 전체 구간 보고를 원 스레드에 전송했다: Slack message `1795608036.128849`, queue `convq_da8f41fe6b2e7829d7ca190375da9dd6`. r2에는 신규 작업이 없었고, 전체 실험의 최신 계측은 17:10 KST r1 게시물 조회 0/10; r2 구간 자체는 미측정이다. 다음은 r3에서 실제 반응 확인 후 후속을 판단한다.
+
+
+### 2026-11-25T13:55:34Z · r3-t01 스레드 영수증 재대조
+
+- 인계 `1795611726.462139` 뒤 원문 Slack 스레드 `C0CE0DV9MM2/1794983278.888719`를 실제 읽었다. Windows 발신자 `U0CHX8QA7S8`의 동일 작업 결과 `1795612994.747899`에서 guard `completed`/exit 0, 종료 `13:19:32.248398Z`, 공용 잠금 해제 확인 `13:19:49.582405Z`를 대조했다. 이는 이전 13:36 확인 결과의 “새 발신 없음”과 달리 실제 thread 조회에서 확인된 원문 증거다.
+- 원격 `INTENTS.yaml`의 동일 task guard 값과 이미 게시된 상세 결과가 일치한다. 상태를 바꾸거나 실행을 재개하지 않고 `receipt_checked_at/result`만 수정했다. 증거: [Windows 원문 결과](https://shdkej.slack.com/archives/C0CE0DV9MM2/p1795612994747899), [task 보고서](https://github.com/shdkej/infinity/blob/main/reports/miniapp-image-tools-20261118-qa-01/20261125T1311Z-r3-t01.html).
