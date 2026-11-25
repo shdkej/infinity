@@ -1361,6 +1361,17 @@
         "logs/OPERATING_LESSONS.md"
       ],
       "note": "User resumed 2h x 3 today, changed target to Threads _archivenoh and confirmed 10 views. Prepare existing two jobs with read-only trigger and full-window report aggregation; no owner impersonation. Old trace repaired without inventing missing historical search; 27 helper tests passed. Windows browser and public account verified, posting authentication still being checked. Context Pack selected locator pages were read directly; operational log references reuse original matched sections and retain current-match checks rather than claiming a new zg search."
+    },
+    {
+      "type": "backfill",
+      "at": "2026-11-25T08:15:10Z",
+      "status": "status_check_requested",
+      "task_id": "miniapp-20261125-r1-t01",
+      "evidence_paths": [
+        "INTENTS.yaml",
+        "intents/waiting/miniapp-image-tools-20261118-qa-01.md"
+      ],
+      "reason": "Supervisor recorded one due status-only query; request delivery receipt is pending."
     }
   ],
   "artifacts": [

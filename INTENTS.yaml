@@ -386,7 +386,7 @@ lanes:
           exit_code: null
           finished_at: null
           lock_free_verified_at: null
-        status_check_at: null
+        status_check_at: '2026-11-25T08:15:10Z'
         completion_criteria: 계정재확인·새게시URL/시각·플랫폼표시조회또는미측정이유·개인경험발명없음·실제guard종료/잠금증거를동일task에원격기록.30분내결과목표,최종기한19시불변.
       metrics:
         target: 10
