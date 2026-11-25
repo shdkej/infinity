@@ -285,10 +285,10 @@ lanes:
       dispatch_owner: sam_supervisor_cron
       supervisor_job_id: eb75facc-7686-4746-a399-4ef6d881048e
       closeout_job_id: 8e116857-63f9-4475-8e55-4a7c386e4a16
-      configuration_status: preparing
+      configuration_status: verified
       final_report_status: pending
       final_report_delivery_receipt: null
-      supervisor_enabled: false
+      supervisor_enabled: true
       windows:
       - id: r1
         start_at: '2026-11-25T08:00:00Z'
@@ -303,7 +303,7 @@ lanes:
           target: 10
           unit: threads_post_views
           observed_at: null
-          posts: &id001 []
+          posts: []
           total_views: null
           replies: null
           follows_delta: null
@@ -322,7 +322,7 @@ lanes:
           target: 10
           unit: threads_post_views
           observed_at: null
-          posts: *id001
+          posts: []
           total_views: null
           replies: null
           follows_delta: null
@@ -341,7 +341,7 @@ lanes:
           target: 10
           unit: threads_post_views
           observed_at: null
-          posts: *id001
+          posts: []
           total_views: null
           replies: null
           follows_delta: null
@@ -370,7 +370,7 @@ lanes:
         target: 10
         unit: threads_post_views
         observed_at: null
-        posts: *id001
+        posts: []
         total_views: null
         replies: null
         follows_delta: null
@@ -391,6 +391,12 @@ lanes:
         - security_or_visibility_changes
         account_verified: false
       next_action: 17시 정확한계정·기존글·조회확인과첫게시를 하나의 업무로 인계. 미니앱/다른계정/앱계측성과 합산금지.
+      setup_receipts:
+        windows_guard_browser_message_id: '1795592153.192409'
+        windows_account_public_message_id: '1795592691.132499'
+        account_auth_status: checking_existing_authentication
+        sam_contract_run_id: threads-twohour-contract-20261125
+        helper_test_count: 27
     next_action: 17시 정확한계정·기존글·조회확인과첫게시를 하나의 업무로 인계. 미니앱/다른계정/앱계측성과 합산금지.
     notification_channel: slack
     notification_target: channel:C0CE0DV9MM2
