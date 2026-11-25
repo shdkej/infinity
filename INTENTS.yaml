@@ -83,8 +83,8 @@ lanes:
   - id: miniapp-image-tools-20261118-qa-01
     dedupe_key: miniapp-image-tools:pilot-qa-01
     project_id: miniapp-image-tools
-    title: 이미지 미니앱 보호 QA·연결 복구
-    task_name: 이미지 미니앱 보호 QA·연결 복구
+    title: 오늘 2시간×3회 Threads _archivenoh 조회10회 실험
+    task_name: 오늘 2시간×3회 Threads _archivenoh 조회10회 실험
     status: waiting
     priority: normal
     task_type: verification
@@ -111,15 +111,11 @@ lanes:
     shared_posthog_intake_at: '2026-11-19T05:57:25Z'
     shared_posthog_slot_end_at: '2026-11-19T06:18:00Z'
     shared_posthog_project_id: 424014
-    telemetry_auth_instruction: 사용자 승인으로 호스트별 ~/.env의 PostHog 키 이름 확인 및 기존 계정 인증 사용
-      허용; 비밀값 비공개.
+    telemetry_auth_instruction: 사용자 승인으로 호스트별 ~/.env의 PostHog 키 이름 확인 및 기존 계정 인증 사용 허용; 비밀값 비공개.
     user_intent: 기존 이미지 미니앱을 하루 안에3시간씩 여러 구간으로 개선·배포·검증하고 결과로 다음 실험을 이어간다.
-    desired_outcome: 오늘 세 구간의 실제 개선·검증 결과와 후속 판단, 짧은 구간 보고와 종합 보고. 독촉 없이 후속 작업이 이어지는지
-      확인.
-    out_of_scope: Ubuntu 직접 실행, 무등록 dispatcher 라우트, 타 Infinity 이전 작업, 신규 cron·권한·유료
-      리소스, 타 사이트 또는 전체 버킷 삭제.
-    success_evidence: 실물 Pack/trace와 원격 원장, 브라우저 다운로드 MIME·화소·화면, 앱 전용 PostHog 동일
-      QA ID 조회, 안전한 라이브 URL.
+    desired_outcome: 오늘 세 구간의 실제 개선·검증 결과와 후속 판단, 짧은 구간 보고와 종합 보고. 독촉 없이 후속 작업이 이어지는지 확인.
+    out_of_scope: Ubuntu 직접 실행, 무등록 dispatcher 라우트, 타 Infinity 이전 작업, 신규 cron·권한·유료 리소스, 타 사이트 또는 전체 버킷 삭제.
+    success_evidence: 실물 Pack/trace와 원격 원장, 브라우저 다운로드 MIME·화소·화면, 앱 전용 PostHog 동일 QA ID 조회, 안전한 라이브 URL.
     metric_question: 합성 브라우저 변환과 수집·라이브 경로가 각각 검증되는가?
     metric_signal: 실제 저장 파일 검증 및 같은 QA ID 서버 조회와 라이브 HTTP 상태
     metric_decision_rule: 어느 하나라도 미확인이면 출시·사용자 성공 주장을 보류한다.
@@ -140,9 +136,8 @@ lanes:
     release_evidence_commit: 93da7d6de0cad3def7d837ca95d442b684216ad2
     release_workflow_run: '45387803883'
     release_live_url: https://images.aws.shdkej.com/tools/image-converter/
-    waiting_on: user
-    blocker: r1-t05의 스크린리더 실발화·탐색 QA는 Windows LockApp 잠금으로 접근 불가. r3-t02에서 원래 시험의 Narrator
-      PID 27296을 식별하고 정상 창 닫기를 한 번 요청했으나 동일 인스턴스가 잔존. 잠금 해제된 대화형 데스크톱에서 해당 PID만 안전하게 정리·부재 확인 필요; 제품 결함 판정은 보류.
+    waiting_on: agent
+    blocker: 17시 시작 예정. _archivenoh 계정·조회 접근은 Windows 확인 중. 과거 Narrator는 이번 선행차단 아님.
     prior_r2_t03_task_id: miniapp-20261124-r2-t03
     prior_r2_t03_status: source_published_deploy_blocked
     prior_r2_t03_result_summary: 0B 안내 불일치 수정·Node 9/9·Space SHA b8ee2e45; 앱 배포 보류, 라이브 구 문구. guard exit 0·잠금 해제.
@@ -157,13 +152,14 @@ lanes:
     prior_r3_t02_guard_exit_code: 0
     prior_r3_t02_lock_released_verified_at: '2026-11-24T12:28:29.123670Z'
     prior_r3_t02_process_result: graceful_close_requested_still_present
-    prior_r3_t02_process_identity: Narrator.exe PID 27296, owner SAM-PC/msi, session 1, created 2026-11-24T07:24:00.1520640Z; remains after one graceful close request
-    current_task_id: miniapp-20261124-r3-t06
-    current_task_goal: r3-t01~t05의 기존 증거와 한계를 정합화하고 SAM 종합 보고용 근거표·후속 후보를 정리
-    current_task_start_at: '2026-11-24T14:15:00Z'
-    current_task_end_at: '2026-11-24T14:30:00Z'
-    current_task_handoff_attempt_at: '2026-11-24T14:15:00Z'
-    current_task_completion_criteria: 기존 다섯 작업의 보고·trace·guard/lock 영수증만 대조해 개별 HTML 근거표와 다음 후보를 게시한다. 제품/계측 재실행 없이 Waiting·구간 보고 pending 유지; 이 자식의 guard/lock 최종 영수증은 종료 뒤 부모가 확인한다.
+    prior_r3_t02_process_identity: Narrator.exe PID 27296, owner SAM-PC/msi, session 1, created 2026-11-24T07:24:00.1520640Z; remains
+      after one graceful close request
+    current_task_id: null
+    current_task_goal: null
+    current_task_start_at: null
+    current_task_end_at: null
+    current_task_handoff_attempt_at: null
+    current_task_completion_criteria: null
     prior_r3_t05_handoff_attempt_at: '2026-11-24T13:45:00Z'
     prior_r3_t05_handoff_status: sent
     prior_r3_t05_handoff_message_id: '1795528064.765319'
@@ -191,25 +187,30 @@ lanes:
     prior_r2_t06_guard_finished_at: '2026-11-24T11:23:57.291875Z'
     prior_r2_t06_guard_exit_code: 0
     prior_r2_t06_lock_released_verified_at: '2026-11-24T11:24:09.929899Z'
-    prior_r2_t06_summary: mobile keyboard recovery QA pass at 390x844 and 320x720; synthetic only, customer outcomes unmeasured; no product change.
+    prior_r2_t06_summary: mobile keyboard recovery QA pass at 390x844 and 320x720; synthetic only, customer outcomes unmeasured; no product
+      change.
     prior_r3_t04_status: browser_qa_pass_no_product_change_guard_completed
-    prior_r3_t04_result_summary: 'Live same-page synthetic bad-header PNG and GIF rejection, damaged-body transform failure, valid PNG recovery and three saved PNG decodes 80x40; Node 11/11; no app change/release. Customer outcomes unmeasured.'
+    prior_r3_t04_result_summary: Live same-page synthetic bad-header PNG and GIF rejection, damaged-body transform failure, valid PNG
+      recovery and three saved PNG decodes 80x40; Node 11/11; no app change/release. Customer outcomes unmeasured.
     prior_r3_t04_result: synthetic_live_rejection_recovery_pass_no_change
     prior_r3_t04_status_at: '2026-11-24T13:25:51Z'
     prior_r3_t04_guard_status: completed
     prior_r3_t04_guard_exit_code: 0
     prior_r3_t04_guard_finished_at: '2026-11-24T13:31:12.314251+00:00'
     prior_r3_t04_lock_released_verified_at: '2026-11-24T13:31:30.267831+00:00'
-    prior_r3_t05_result_summary: 'Four separately decoded JPEG/WebP 80x40 outputs and decoded 10000x1 edge output; 12MiB padded and 20m edited-header cases selection-only. Node 11/11, no product change/release; customer outcomes unmeasured.'
-    current_task_status: evidence_reconciled_guard_completed
-    current_task_result: r3_t01_t05_evidence_matrix_prepared
-    current_task_guard_status: completed
-    current_task_guard_exit_code: 0
-    current_task_guard_finished_at: '2026-11-24T14:27:53.640518+00:00'
-    current_task_lock_released_verified_at: '2026-11-24T14:28:28.731513+00:00'
-    current_task_followup: "Final report delivered and verified on 2026-11-25; no automatic restart. Narrator cleanup remains unresolved in last executor evidence."
+    prior_r3_t05_result_summary: Four separately decoded JPEG/WebP 80x40 outputs and decoded 10000x1 edge output; 12MiB padded and 20m
+      edited-header cases selection-only. Node 11/11, no product change/release; customer outcomes unmeasured.
+    current_task_status: null
+    current_task_result: null
+    current_task_guard_status: null
+    current_task_guard_exit_code: null
+    current_task_guard_finished_at: null
+    current_task_lock_released_verified_at: null
+    current_task_followup: null
     prior_r3_t03_status: aggregate_verified_guard_completed
-    prior_r3_t03_result_summary: 'US project 424014 bounded HogQL HTTP 200, 8 grouped rows; five event x synthetic/user counts in the task verification. Guard 12:51:04Z completed/exit 0 and lock 12:51:25Z free. Customer/unique people unmeasured; Narrator PID 27296 separate blocked issue.'
+    prior_r3_t03_result_summary: US project 424014 bounded HogQL HTTP 200, 8 grouped rows; five event x synthetic/user counts in the task
+      verification. Guard 12:51:04Z completed/exit 0 and lock 12:51:25Z free. Customer/unique people unmeasured; Narrator PID 27296 separate
+      blocked issue.
     prior_r3_t01_status_check_at: '2026-11-24T11:46:05Z'
     prior_r3_t01_status_check_status: recorded_running_snapshot
     prior_r3_t01_status_check_task_id: miniapp-20261124-r3-t01
@@ -218,7 +219,8 @@ lanes:
     prior_task_status_check_task_id: miniapp-20261124-r3-t03
     prior_task_status_check_message_id: '1795524335.092199'
     prior_task_status_check_queue_id: convq_08af5d2122183d83ccd2b3f83a9760aa
-    prior_task_status_check_snapshot: 'As of the parent remote read at 12:45:30Z no result/guard/lock receipt was published; status request sent once, not a work resend.'
+    prior_task_status_check_snapshot: As of the parent remote read at 12:45:30Z no result/guard/lock receipt was published; status request
+      sent once, not a work resend.
     prior_r3_t03_guard_started_at: '2026-11-24T12:42:15.010036+00:00'
     prior_r3_t03_guard_status: completed_exit_0
     prior_r3_t03_lock_status: free_verified_at_2026-11-24T12:51:25.065804Z
@@ -228,12 +230,22 @@ lanes:
     prior_r3_t03_analytics_observed_at: '2026-11-24T12:43:40.169418Z'
     prior_r3_t03_analytics_status: query_success_http_200_complete_8_rows
     prior_r3_t03_analytics_counts:
-      image_selected: {synthetic: 72, user: 2}
-      transform_started: {synthetic: 81, user: 1}
-      transform_succeeded: {synthetic: 81, user: 1}
-      transform_failed: {synthetic: 26, user: 0}
-      download_requested: {synthetic: 68, user: 0}
-    current_task_customer_outcomes: unmeasured
+      image_selected:
+        synthetic: 72
+        user: 2
+      transform_started:
+        synthetic: 81
+        user: 1
+      transform_succeeded:
+        synthetic: 81
+        user: 1
+      transform_failed:
+        synthetic: 26
+        user: 0
+      download_requested:
+        synthetic: 68
+        user: 0
+    current_task_customer_outcomes: null
     prior_r3_t01_source_sha: dc43b456354f3f03edf402a8dfce0a10172f8d81
     prior_r3_t01_evidence_sha: 93da7d6de0cad3def7d837ca95d442b684216ad2
     prior_r3_t01_release_run: '45387803883'
@@ -246,28 +258,150 @@ lanes:
     prior_r3_t05_report: reports/miniapp-image-tools-20261118-qa-01/20261124T1354Z-r3-t05.html
     report: reports/miniapp-image-tools-20261118-qa-01/20261124T1423Z-r3-t06.html
     prior_r3_t01_handoff_receipt: sent 1795520034.423279; queue convq_f4220e1e2f1315988e3e5697a899d49c
-    current_task_handoff_status: sent
+    current_task_handoff_status: null
     prior_r3_t04_handoff_message_id: '1795526386.876779'
     prior_r3_t04_handoff_queue_id: convq_83ec1fd73a49ebdf044d8dfb5c14e39f
     prior_r3_t04_handoff_receipt: sent 1795526386.876779; queue convq_83ec1fd73a49ebdf044d8dfb5c14e39f
-    current_task_handoff_message_id: '1795529868.509459'
-    current_task_handoff_queue_id: convq_da77eaff32e9dbf0a44c3308b01d9a90
-    current_task_handoff_receipt: sent 1795529868.509459; queue convq_da77eaff32e9dbf0a44c3308b01d9a90
+    current_task_handoff_message_id: null
+    current_task_handoff_queue_id: null
+    current_task_handoff_receipt: null
     daily_run_window:
-      start_date: '2026-11-23'
-      end_date: '2026-11-25'
-      timezone: Asia/Seoul
-      work_at: '10:00'
-      slot_end_at: '10:30'
-      report_at: '12:30'
-      final_report_date: '2026-11-25'
-      status: paused
-      paused_at: '2026-11-24T03:49:29Z'
-      pause_reason: user_requested_review_and_redesign
-      final_report_date_cancelled: true
-      requested_days: 3
+      start_at: '2026-11-25T08:00:00Z'
+      end_at: '2026-11-25T14:00:00Z'
+      next_day_resume: false
     experiment_run:
-      run_id: miniapp-20261124-3h
+      run_id: miniapp-20261125-2h
+      status: planned
+      date: '2026-11-25'
+      timezone: Asia/Seoul
+      start_at: '2026-11-25T08:00:00Z'
+      end_at: '2026-11-25T14:00:00Z'
+      target_service: Threads
+      target_account: _archivenoh
+      goal: 이번실험에서새로게시한Threads원문글의플랫폼조회수합계10회
+      target_views: 10
+      goal_confirmed_by_user: 10회만 해도 큰건데
+      interval_minutes: 3
+      dispatch_owner: sam_supervisor_cron
+      supervisor_job_id: eb75facc-7686-4746-a399-4ef6d881048e
+      closeout_job_id: 8e116857-63f9-4475-8e55-4a7c386e4a16
+      configuration_status: preparing
+      final_report_status: pending
+      final_report_delivery_receipt: null
+      supervisor_enabled: false
+      windows:
+      - id: r1
+        start_at: '2026-11-25T08:00:00Z'
+        end_at: '2026-11-25T10:00:00Z'
+        status: planned
+        goal: 계정·기존글·조회확인과 맥락에맞는 첫글1개 게시
+        task_sequence: 1
+        report_status: pending
+        report_message_id: null
+        exhausted: false
+        metrics:
+          target: 10
+          unit: threads_post_views
+          observed_at: null
+          posts: &id001 []
+          total_views: null
+          replies: null
+          follows_delta: null
+          status: unmeasured
+        observation_due_at: '2026-11-25T09:45:00Z'
+      - id: r2
+        start_at: '2026-11-25T10:00:00Z'
+        end_at: '2026-11-25T12:00:00Z'
+        status: planned
+        goal: 첫반응으로 다른표현/형식글1개·관련대화에 소수답글
+        task_sequence: 0
+        report_status: pending
+        report_message_id: null
+        exhausted: false
+        metrics:
+          target: 10
+          unit: threads_post_views
+          observed_at: null
+          posts: *id001
+          total_views: null
+          replies: null
+          follows_delta: null
+          status: unmeasured
+        observation_due_at: '2026-11-25T11:45:00Z'
+      - id: r3
+        start_at: '2026-11-25T12:00:00Z'
+        end_at: '2026-11-25T14:00:00Z'
+        status: planned
+        goal: 반응있는주제후속최대1개·조회10회판정과마감
+        task_sequence: 0
+        report_status: pending
+        report_message_id: null
+        exhausted: false
+        metrics:
+          target: 10
+          unit: threads_post_views
+          observed_at: null
+          posts: *id001
+          total_views: null
+          replies: null
+          follows_delta: null
+          status: unmeasured
+        observation_due_at: '2026-11-25T13:45:00Z'
+      tasks:
+      - id: miniapp-20261125-r1-t01
+        window_id: r1
+        goal: Threads _archivenoh의 정확한로그인·최근공개글·조회접근을확인하고 맥락에맞는짧은원문글1개를게시해 첫조회스냅샷/게시URL을기록한다. 미니앱홍보로고정하지않는다.
+        start_at: '2026-11-25T08:00:00Z'
+        end_at: '2026-11-25T10:00:00Z'
+        status: prepared
+        handoff_status: prepared
+        handoff_message_id: null
+        result_summary: null
+        changes: []
+        release_runs: []
+        guard:
+          state: not_started
+          exit_code: null
+          finished_at: null
+          lock_free_verified_at: null
+        status_check_at: null
+        completion_criteria: 계정재확인·새게시URL/시각·플랫폼표시조회또는미측정이유·개인경험발명없음·실제guard종료/잠금증거를동일task에원격기록.30분내결과목표,최종기한19시불변.
+      metrics:
+        target: 10
+        unit: threads_post_views
+        observed_at: null
+        posts: *id001
+        total_views: null
+        replies: null
+        follows_delta: null
+        status: unmeasured
+      public_promotion:
+        status: authorized
+        platform: Threads
+        account: _archivenoh
+        max_original_posts: 3
+        max_proactive_public_replies: 5
+        authorization_quote: _archivenoh 계정을 써주고 쓰레드로 하고 계정활성화나 여러 방안을 써주고 미니앱이 아니라 다른 어프로치를 해도 듀ㅐ
+        exclusions:
+        - other_accounts
+        - Instagram
+        - DM
+        - paid_ads
+        - mass_engagement
+        - security_or_visibility_changes
+        account_verified: false
+      next_action: 17시 정확한계정·기존글·조회확인과첫게시를 하나의 업무로 인계. 미니앱/다른계정/앱계측성과 합산금지.
+    next_action: 17시 정확한계정·기존글·조회확인과첫게시를 하나의 업무로 인계. 미니앱/다른계정/앱계측성과 합산금지.
+    notification_channel: slack
+    notification_target: channel:C0CE0DV9MM2
+    notification_reply_to: '1794983278.888719'
+    prior_r2_t04_status_check_at: '2026-11-24T10:15:38Z'
+    prior_r2_t04_status_check_status: sent
+    prior_r2_t04_status_check_task_id: miniapp-20261124-r2-t04
+    prior_r2_t04_status_check_message_id: '1795515392.935409'
+    prior_r2_t04_status_check_queue_id: convq_44b524efa690695a8a5f44620ab56c48
+    experiment_history:
+    - run_id: miniapp-20261124-3h
       status: finished
       date: '2026-11-24'
       timezone: Asia/Seoul
@@ -277,12 +411,13 @@ lanes:
       dispatch_owner: sam_supervisor_cron
       supervisor_job_id: eb75facc-7686-4746-a399-4ef6d881048e
       closeout_job_id: 8e116857-63f9-4475-8e55-4a7c386e4a16
-      final_report_status: "delivered"
+      final_report_status: delivered
       final_report_message_id: '1795531097.181849'
       final_report_sent_at: '2026-11-24T14:38:17.181849Z'
       final_report_verified_at: '2026-11-25T00:38:15Z'
       final_report_prepared_at: '2026-11-24T14:32:41Z'
-      final_report_delivery_receipt: "cron runAtMs=1795530600015 deliveryStatus=delivered; Slack message 1795531097.181849 independently read back"
+      final_report_delivery_receipt: cron runAtMs=1795530600015 deliveryStatus=delivered; Slack message 1795531097.181849 independently
+        read back
       supervisor_disable_status: disabled_verified
       supervisor_disabled_at: '2026-11-24T14:32:41Z'
       supervisor_enabled: false
@@ -299,8 +434,7 @@ lanes:
         status: finished
         task_sequence: 8
         current_task_id: miniapp-20261124-r1-t08
-        current_task_goal: 701–760px 경계에서 터치형 포인터로 변환 후 결과·다운로드 도달성을 확인하고, 재현되는 마찰이
-          있을 때만 최소 수정·배포·라이브 검증
+        current_task_goal: 701–760px 경계에서 터치형 포인터로 변환 후 결과·다운로드 도달성을 확인하고, 재현되는 마찰이 있을 때만 최소 수정·배포·라이브 검증
         current_task_end_at: '2026-11-24T08:30:00Z'
         handoff_attempt_at: '2026-11-24T08:15:00Z'
         handoff_status: sent
@@ -330,7 +464,8 @@ lanes:
         current_task_id: miniapp-20261124-r2-t06
         current_task_goal: 배포된 0B 오류 개선의 모바일 좁은 화면·키보드 조작 복구 경로를 실제 재현하고, 이상이 있으면 증거와 최소 대안을 기록
         current_task_end_at: '2026-11-24T11:30:00Z'
-        current_task_completion_criteria: Windows 실제 브라우저에서 좁은 viewport와 키보드로 빈 파일 오류→다른 이미지 선택→변환/다운로드 가능 여부를 확인; 구체적 실패가 있으면 최소 수정·검증·앱 전용 배포·라이브 확인이 시간 내 안전할 때만 수행하고, 아니면 재현 증거/다음 후보 기록. guard 종료·잠금 해제 기록, 고객성과 미측정 및 합성 QA 구분; 비용/권한/데이터 확대 금지.
+        current_task_completion_criteria: Windows 실제 브라우저에서 좁은 viewport와 키보드로 빈 파일 오류→다른 이미지 선택→변환/다운로드 가능 여부를 확인; 구체적 실패가 있으면 최소 수정·검증·앱
+          전용 배포·라이브 확인이 시간 내 안전할 때만 수행하고, 아니면 재현 증거/다음 후보 기록. guard 종료·잠금 해제 기록, 고객성과 미측정 및 합성 QA 구분; 비용/권한/데이터 확대 금지.
         prior_handoff_message_id: '1795516420.694159'
         handoff_attempt_at: '2026-11-24T11:15:45Z'
         handoff_status: sent
@@ -345,14 +480,16 @@ lanes:
         current_task_status_check_status: sent
         current_task_status_check_task_id: miniapp-20261124-r2-t05
         current_task_execution_snapshot_at: '2026-11-24T10:49:18Z'
-        current_task_execution_snapshot: guard completed/exit 0 at 10:48:12Z; app-only release and live readback verified; active.lock free at 10:49:18Z. r2 report remains pending.
+        current_task_execution_snapshot: guard completed/exit 0 at 10:48:12Z; app-only release and live readback verified; active.lock
+          free at 10:49:18Z. r2 report remains pending.
         current_task_status_check_message_id: '1795517213.706259'
         current_task_status_check_queue_id: convq_b3800df487bd672c099f41b904f78e0f
         prior_task_status: copy_released_live_verified
         prior_task_id: miniapp-20261124-r2-t05
         last_task_status: mobile_keyboard_recovery_pass_no_change
         last_task_id: miniapp-20261124-r2-t06
-        last_task_result: 390·320px ego lite 모바일 에뮬레이션 0B 거부→유효 PNG 재선택→키보드 변환·다운로드·WebP 80×40 재디코딩 PASS. 제품 코드·신규 Action 없음, Space QA SHA b6ed6a8. guard exit 0·lock free.
+        last_task_result: 390·320px ego lite 모바일 에뮬레이션 0B 거부→유효 PNG 재선택→키보드 변환·다운로드·WebP 80×40 재디코딩 PASS. 제품 코드·신규 Action 없음, Space QA
+          SHA b6ed6a8. guard exit 0·lock free.
         last_task_guard_finished_at: '2026-11-24T11:23:57.291875+00:00'
         last_task_guard_exit_code: 0
         last_task_lock_released_verified_at: '2026-11-24T11:24:09.929899Z'
@@ -385,7 +522,10 @@ lanes:
         current_task_id: miniapp-20261124-r3-t06
         current_task_goal: r3 작업 1~5의 완료 증거와 한계를 대조해 종합 보고용 근거표 및 다음 우선 후보를 정리하고 기록 정합성을 닫기
         current_task_end_at: '2026-11-24T14:30:00Z'
-        current_task_completion_criteria: 'Windows parent: reconcile each r3 task against its existing report/trace, product result, guard exit and lock receipt; distinguish deployed fixes, synthetic QA, analytics observations, blocked Narrator cleanup and unmeasured customer outcomes. Produce concise evidence matrix/next candidate without repeating browser/API/analytics checks or changing app code/deploy. Commit only related records; record guard exit and shared-lock release for this task before fixed end_at.'
+        current_task_completion_criteria: 'Windows parent: reconcile each r3 task against its existing report/trace, product result, guard
+          exit and lock receipt; distinguish deployed fixes, synthetic QA, analytics observations, blocked Narrator cleanup and unmeasured
+          customer outcomes. Produce concise evidence matrix/next candidate without repeating browser/API/analytics checks or changing
+          app code/deploy. Commit only related records; record guard exit and shared-lock release for this task before fixed end_at.'
         prior_r3_t05_status: synthetic_jpeg_webp_boundary_qa_pass_no_change_guard_completed
         prior_r3_t05_guard_finished_at: '2026-11-24T14:00:59.198202Z'
         prior_r3_t05_guard_exit_code: 0
@@ -428,7 +568,8 @@ lanes:
         prior_r3_t04_status_check_message_id: '1795527160.320609'
         prior_r3_t04_status_check_queue_id: convq_c75d9a4e945aa174971333b1e56960bb
         prior_r3_t04_status_check_task_id: miniapp-20261124-r3-t04
-        prior_r3_t04_status_check_reason: Product QA result was published but parent guard/exit/lock receipt was pending; same-task status requested once, no resend.
+        prior_r3_t04_status_check_reason: Product QA result was published but parent guard/exit/lock receipt was pending; same-task status
+          requested once, no resend.
         prior_r3_t05_browser_qa_status: browser_qa_pass_no_product_change_guard_completed
         prior_r3_t05_result: synthetic_jpeg_webp_boundary_qa_pass_no_change
         prior_r3_t05_guard_status: completed_exit_0
@@ -448,15 +589,26 @@ lanes:
         prior_r3_t03_analytics_observed_at: '2026-11-24T12:43:40.169418Z'
         prior_r3_t03_analytics_window: '[2026-11-24T05:30:00Z,2026-11-24T12:41:30Z)'
         prior_r3_t03_analytics_counts:
-          image_selected: {synthetic: 72, user: 2}
-          transform_started: {synthetic: 81, user: 1}
-          transform_succeeded: {synthetic: 81, user: 1}
-          transform_failed: {synthetic: 26, user: 0}
-          download_requested: {synthetic: 68, user: 0}
-        report_status: "sent"
+          image_selected:
+            synthetic: 72
+            user: 2
+          transform_started:
+            synthetic: 81
+            user: 1
+          transform_succeeded:
+            synthetic: 81
+            user: 1
+          transform_failed:
+            synthetic: 26
+            user: 0
+          download_requested:
+            synthetic: 68
+            user: 0
+        report_status: sent
         report_message_id: '1795531097.181849'
         prior_r3_t01_execution_snapshot_at: '2026-11-24T11:58:40Z'
-        prior_r3_t01_execution_snapshot: r3-t01 product/live verified; guard completed exit 0 and shared lock free; r3-t02 handoff sent 1795522715.346669
+        prior_r3_t01_execution_snapshot: r3-t01 product/live verified; guard completed exit 0 and shared lock free; r3-t02 handoff sent
+          1795522715.346669
         prior_r3_t01_product_source_sha: dc43b456354f3f03edf402a8dfce0a10172f8d81
         prior_r3_t01_product_evidence_sha: 93da7d6de0cad3def7d837ca95d442b684216ad2
         prior_r3_t01_release_run: '45387803883'
@@ -476,40 +628,33 @@ lanes:
         prior_r3_t05_guard_final_receipt: completed_exit_0_at_2026-11-24T14:00:59.198202Z_lock_free_14:01:42.129832Z
         current_task_report: reports/miniapp-image-tools-20261118-qa-01/20261124T1423Z-r3-t06.html
         goal: Reconcile existing r3-t01 through t05 evidence for SAM's pending interval closeout; no new execution.
-        next_action: "Final report delivered at 2026-11-24T14:38:17Z; t06 guard/lock receipt complete. No automatic restart; Narrator cleanup unresolved."
+        next_action: Final report delivered at 2026-11-24T14:38:17Z; t06 guard/lock receipt complete. No automatic restart; Narrator cleanup
+          unresolved.
       prior_task_status_check_at: '2026-11-24T09:45:00Z'
       prior_task_status_check_status: sent
       prior_task_status_check_task_id: miniapp-20261124-r2-t03
       prior_task_status_check_message_id: '1795513609.377209'
       prior_task_status_check_queue_id: convq_c529ac4db654882a9a0376b1f9834b7c
-      last_task_status: "evidence_reconciled_guard_completed"
-      last_task_id: "miniapp-20261124-r3-t06"
-      last_task_result: "r3-t01~t05 근거표 정합화, t06 guard exit 0·잠금 해제 및 최종 보고 전달 확인. 고객 성과 미측정."
-      last_task_guard_finished_at: "2026-11-24T14:27:53.640518Z"
+      last_task_status: evidence_reconciled_guard_completed
+      last_task_id: miniapp-20261124-r3-t06
+      last_task_result: r3-t01~t05 근거표 정합화, t06 guard exit 0·잠금 해제 및 최종 보고 전달 확인. 고객 성과 미측정.
+      last_task_guard_finished_at: '2026-11-24T14:27:53.640518Z'
       last_task_guard_exit_code: 0
-      last_task_lock_released_verified_at: "2026-11-24T14:28:28.731513Z"
-      handoff_attempt_at: "2026-11-24T14:15:00Z"
+      last_task_lock_released_verified_at: '2026-11-24T14:28:28.731513Z'
+      handoff_attempt_at: '2026-11-24T14:15:00Z'
       handoff_status: sent
-      handoff_message_id: "1795529868.509459"
-      handoff_queue_id: "convq_da77eaff32e9dbf0a44c3308b01d9a90"
+      handoff_message_id: '1795529868.509459'
+      handoff_queue_id: convq_da77eaff32e9dbf0a44c3308b01d9a90
       report_status: sent
-      report_message_id: "1795531097.181849"
-      next_action: "11/24 실험과 최종 보고 종료. 자동 재개 없음. 새 실행 전에 즉시 후속 인계 권한·구간 전체 보고·고객 검증 목표를 검토한다. Narrator 정리는 대화형 Windows 잠금 해제와 원 인스턴스 재확인 후 판단하며 고객 성과는 미측정."
+      report_message_id: '1795531097.181849'
+      next_action: 11/24 실험과 최종 보고 종료. 자동 재개 없음. 새 실행 전에 즉시 후속 인계 권한·구간 전체 보고·고객 검증 목표를 검토한다. Narrator 정리는 대화형 Windows 잠금 해제와 원 인스턴스 재확인
+        후 판단하며 고객 성과는 미측정.
       prior_r2_t05_status_check_at: '2026-11-24T10:45:00Z'
       prior_r2_t05_status_check_status: prepared
       prior_r2_t05_status_check_task_id: miniapp-20261124-r2-t05
       prior_r2_t05_status_check_message_id: '1795517213.706259'
       prior_r2_t05_status_check_queue_id: convq_b3800df487bd672c099f41b904f78e0f
       prior_r2_t05_status_check_reason: 최신 원격에 t05 결과/guard/잠금 갱신 없음; 동일 ID 업무 재전송 없이 상태 1회 확인.
-    next_action: "11/24 실험과 최종 보고 종료. 자동 재개 없음. 새 실행 전에 즉시 후속 인계 권한·구간 전체 보고·고객 검증 목표를 검토한다. Narrator 정리는 대화형 Windows 잠금 해제와 원 인스턴스 재확인 후 판단하며 고객 성과는 미측정."
-    notification_channel: slack
-    notification_target: channel:C0CE0DV9MM2
-    notification_reply_to: '1794983278.888719'
-    prior_r2_t04_status_check_at: '2026-11-24T10:15:38Z'
-    prior_r2_t04_status_check_status: sent
-    prior_r2_t04_status_check_task_id: miniapp-20261124-r2-t04
-    prior_r2_t04_status_check_message_id: '1795515392.935409'
-    prior_r2_t04_status_check_queue_id: convq_44b524efa690695a8a5f44620ab56c48
   - id: reel-room-studio-20261113
     title: Reel Room·Instagram Maker 통합 릴스 스튜디오 구현
     task_name: Reel Room·Instagram Maker 통합 릴스 스튜디오 구현

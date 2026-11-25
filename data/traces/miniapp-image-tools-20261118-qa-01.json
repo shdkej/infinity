@@ -2,7 +2,7 @@
   "schema_version": 2,
   "intent_id": "miniapp-image-tools-20261118-qa-01",
   "status": "waiting",
-  "trace_completeness": "complete",
+  "trace_completeness": "partial",
   "request": {
     "raw": {
       "status": "recorded",
@@ -290,16 +290,22 @@
       "note": "New authorized run: three 3-hour windows on Nov 24 KST 14:30–23:30. Reuse two cron jobs for 15-minute supervision and final one-shot closeout. Supervisor owns task IDs/dispatch; foreground SAM records results and can wake the same supervisor. Windows reported deadline supports 3h, max150 turns and no automatic follow-up. Future execution and continuous 3h behavior are unverified; prior morning completion and stop history preserved."
     },
     {
-      "type": "execution",
+      "type": "backfill",
       "at": "2026-11-24T05:30:13Z",
       "evidence_paths": [
         "INTENTS.yaml",
         "intents/waiting/miniapp-image-tools-20261118-qa-01.md"
       ],
-      "note": "Started authorized three-hour experiment run r1 with task miniapp-20261124-r1-t01; fixed end_at 2026-11-24T08:30:00Z. Mobile-inclusive reproducible flow friction → smallest safe fix/deploy/live check, or evidence and next candidate. Handoff recorded pending before send; morning task remains historical and excluded."
+      "note": "Started authorized three-hour experiment run r1 with task miniapp-20261124-r1-t01; fixed end_at 2026-11-24T08:30:00Z. Mobile-inclusive reproducible flow friction → smallest safe fix/deploy/live check, or evidence and next candidate. Handoff recorded pending before send; morning task remains historical and excluded.",
+      "original_type": "execution",
+      "original_event_index": 15,
+      "backfill_source": "existing_task_record_normalized_20261125",
+      "context_pack": "../knowledge-lab/reports/context-packs/2026-11-18-agent-daily-operations.json",
+      "context_capture_status": "historical_execution_search_receipt_missing",
+      "context_capture_note": "Existing operations Context Pack linked for interpretation. This original execution record omitted its actual search terms and per-page read receipts; normalization does not reconstruct or assert those missing actions."
     },
     {
-      "type": "handoff",
+      "type": "backfill",
       "at": "2026-11-24T05:31:40Z",
       "task_id": "miniapp-20261124-r1-t01",
       "status": "sent",
@@ -308,19 +314,28 @@
       "queue_id": "convq_c4a80c2aef93c2cc54ebb2d07ef5335c",
       "evidence_paths": [
         "INTENTS.yaml"
-      ]
+      ],
+      "original_type": "handoff",
+      "original_event_index": 16,
+      "backfill_source": "existing_task_record_normalized_20261125"
     },
     {
-      "type": "status_check",
+      "type": "backfill",
       "at": "2026-11-24T05:45:48Z",
       "task_id": "miniapp-20261124-r1-t01",
       "status": "sent",
       "message_id": "1795499148.316479",
       "queue_id": "convq_91563ac2f0bfcad456037f75a91470ae",
-      "note": "Single status-only request; task was not re-dispatched. Windows execution/result/guard state remain unconfirmed pending reply."
+      "note": "Single status-only request; task was not re-dispatched. Windows execution/result/guard state remain unconfirmed pending reply.",
+      "original_type": "status_check",
+      "original_event_index": 17,
+      "evidence_paths": [
+        "intents/waiting/miniapp-image-tools-20261118-qa-01.md"
+      ],
+      "backfill_source": "existing_task_record_normalized_20261125"
     },
     {
-      "type": "task_completed",
+      "type": "backfill",
       "at": "2026-11-24T05:46:38Z",
       "task_id": "miniapp-20261124-r1-t01",
       "state": "completed",
@@ -333,10 +348,16 @@
       "source_commit": "dfe8582e67bd7b0e19f530325e455b3d009179ec",
       "qa_commit": "5eaedda21bc7632608b6b022f5f2236e2b7cc4ce",
       "release_run": "45335134749",
-      "next_candidate": "Repeat transform on narrow screen after changing edge or format; SAM supervisor owns any new ID."
+      "next_candidate": "Repeat transform on narrow screen after changing edge or format; SAM supervisor owns any new ID.",
+      "original_type": "task_completed",
+      "original_event_index": 18,
+      "evidence_paths": [
+        "intents/waiting/miniapp-image-tools-20261118-qa-01.md"
+      ],
+      "backfill_source": "existing_task_record_normalized_20261125"
     },
     {
-      "type": "handoff_attempt",
+      "type": "backfill",
       "at": "2026-11-24T06:15:00Z",
       "task_id": "miniapp-20261124-r1-t02",
       "status": "attempted",
@@ -345,10 +366,13 @@
       "evidence_paths": [
         "INTENTS.yaml",
         "intents/waiting/miniapp-image-tools-20261118-qa-01.md"
-      ]
+      ],
+      "original_type": "handoff_attempt",
+      "original_event_index": 19,
+      "backfill_source": "existing_task_record_normalized_20261125"
     },
     {
-      "type": "handoff",
+      "type": "backfill",
       "at": "2026-11-24T06:18:18Z",
       "task_id": "miniapp-20261124-r1-t02",
       "status": "sent",
@@ -358,19 +382,28 @@
       "evidence_paths": [
         "INTENTS.yaml",
         "intents/waiting/miniapp-image-tools-20261118-qa-01.md"
-      ]
+      ],
+      "original_type": "handoff",
+      "original_event_index": 20,
+      "backfill_source": "existing_task_record_normalized_20261125"
     },
     {
-      "type": "status_check",
+      "type": "backfill",
       "at": "2026-11-24T06:30:00Z",
       "task_id": "miniapp-20261124-r1-t02",
       "status": "sent",
       "message_id": "1795501837.091079",
       "queue_id": "convq_acdc45af3cb6e5f1e24a46db0aa4f9be",
-      "note": "Single status-only request; task was not re-dispatched. Windows acceptance/result/guard and lock state remain unknown pending reply."
+      "note": "Single status-only request; task was not re-dispatched. Windows acceptance/result/guard and lock state remain unknown pending reply.",
+      "original_type": "status_check",
+      "original_event_index": 21,
+      "evidence_paths": [
+        "intents/waiting/miniapp-image-tools-20261118-qa-01.md"
+      ],
+      "backfill_source": "existing_task_record_normalized_20261125"
     },
     {
-      "type": "task_completed",
+      "type": "backfill",
       "at": "2026-11-24T06:30:52Z",
       "task_id": "miniapp-20261124-r1-t02",
       "state": "completed",
@@ -385,26 +418,44 @@
       "source_commit": "06b40cf070944a1384cf11f69cd12b05ce41de50",
       "qa_commit": "c93fd908ef37eb73be32787c8083688b2e7c74f7",
       "release_run": "45340408863",
-      "next_candidate": "Small synthetic image shows 0.00MB size; investigate KB clarity; SAM supervisor owns any new ID."
+      "next_candidate": "Small synthetic image shows 0.00MB size; investigate KB clarity; SAM supervisor owns any new ID.",
+      "original_type": "task_completed",
+      "original_event_index": 22,
+      "evidence_paths": [
+        "intents/waiting/miniapp-image-tools-20261118-qa-01.md"
+      ],
+      "backfill_source": "existing_task_record_normalized_20261125"
     },
     {
-      "type": "task_result_and_handoff_prepared",
+      "type": "backfill",
       "at": "2026-11-24T06:45:00Z",
       "task_id": "miniapp-20261124-r1-t03",
       "status": "prepared",
-      "summary": "r1-t02 completed; next task to validate small-image file-size 0.00MB clarity. Fixed end_at 08:30Z; no dispatch receipt yet."
+      "summary": "r1-t02 completed; next task to validate small-image file-size 0.00MB clarity. Fixed end_at 08:30Z; no dispatch receipt yet.",
+      "original_type": "task_result_and_handoff_prepared",
+      "original_event_index": 23,
+      "evidence_paths": [
+        "intents/waiting/miniapp-image-tools-20261118-qa-01.md"
+      ],
+      "backfill_source": "existing_task_record_normalized_20261125"
     },
     {
-      "type": "handoff_sent",
+      "type": "backfill",
       "at": "2026-11-24T06:47:00Z",
       "task_id": "miniapp-20261124-r1-t03",
       "status": "sent",
       "message_id": "1795502847.537309",
       "queue_id": "convq_ab415e75d872be33a4f63c52ce54500d",
-      "summary": "Windows handoff delivered; delivery receipt only, execution acceptance/result not yet verified."
+      "summary": "Windows handoff delivered; delivery receipt only, execution acceptance/result not yet verified.",
+      "original_type": "handoff_sent",
+      "original_event_index": 24,
+      "evidence_paths": [
+        "intents/waiting/miniapp-image-tools-20261118-qa-01.md"
+      ],
+      "backfill_source": "existing_task_record_normalized_20261125"
     },
     {
-      "type": "task_completed",
+      "type": "backfill",
       "at": "2026-11-24T06:57:53Z",
       "task_id": "miniapp-20261124-r1-t03",
       "state": "completed",
@@ -418,10 +469,16 @@
       "source_commit": "3b9faeef227d97e48b3dfe42b71894ee0d738e7b",
       "qa_commit": "5552cfe07390ba17cd85e1a93aa2bb6fa0a21af0",
       "release_run": "45343956525",
-      "next_candidate": "Keyboard-only focus/result discovery after mobile auto-scroll; SAM supervisor owns new ID."
+      "next_candidate": "Keyboard-only focus/result discovery after mobile auto-scroll; SAM supervisor owns new ID.",
+      "original_type": "task_completed",
+      "original_event_index": 25,
+      "evidence_paths": [
+        "intents/waiting/miniapp-image-tools-20261118-qa-01.md"
+      ],
+      "backfill_source": "existing_task_record_normalized_20261125"
     },
     {
-      "type": "task_completed",
+      "type": "backfill",
       "at": "2026-11-24T06:57:53Z",
       "task_id": "miniapp-20261124-r1-t03",
       "state": "completed",
@@ -431,10 +488,16 @@
       "active_lock": "free_verified",
       "summary": "Source-size clarity fix passed 7/7 tests, app-only release and synthetic live mobile-emulation/desktop verification; customer outcome unmeasured.",
       "release_run": "45343956525",
-      "next_candidate": "Test keyboard-only focus reachability after mobile automatic result scroll; SAM supervisor owns new ID."
+      "next_candidate": "Test keyboard-only focus reachability after mobile automatic result scroll; SAM supervisor owns new ID.",
+      "original_type": "task_completed",
+      "original_event_index": 26,
+      "evidence_paths": [
+        "intents/waiting/miniapp-image-tools-20261118-qa-01.md"
+      ],
+      "backfill_source": "existing_task_record_normalized_20261125"
     },
     {
-      "type": "handoff_attempt",
+      "type": "backfill",
       "at": "2026-11-24T07:00:00Z",
       "task_id": "miniapp-20261124-r1-t04",
       "status": "attempted",
@@ -443,10 +506,13 @@
       "evidence_paths": [
         "INTENTS.yaml",
         "intents/waiting/miniapp-image-tools-20261118-qa-01.md"
-      ]
+      ],
+      "original_type": "handoff_attempt",
+      "original_event_index": 27,
+      "backfill_source": "existing_task_record_normalized_20261125"
     },
     {
-      "type": "handoff",
+      "type": "backfill",
       "at": "2026-11-24T07:02:36Z",
       "task_id": "miniapp-20261124-r1-t04",
       "status": "sent",
@@ -456,10 +522,13 @@
       "evidence_paths": [
         "INTENTS.yaml",
         "intents/waiting/miniapp-image-tools-20261118-qa-01.md"
-      ]
+      ],
+      "original_type": "handoff",
+      "original_event_index": 28,
+      "backfill_source": "existing_task_record_normalized_20261125"
     },
     {
-      "type": "task_completed",
+      "type": "backfill",
       "at": "2026-11-24T07:10:53Z",
       "task_id": "miniapp-20261124-r1-t04",
       "state": "completed",
@@ -473,7 +542,13 @@
       "source_changed": false,
       "new_deployment": false,
       "previous_release_run": "45343956525",
-      "next_candidate": "Actual screen reader completion-state and result-location announcement; SAM supervisor owns new ID."
+      "next_candidate": "Actual screen reader completion-state and result-location announcement; SAM supervisor owns new ID.",
+      "original_type": "task_completed",
+      "original_event_index": 29,
+      "evidence_paths": [
+        "intents/waiting/miniapp-image-tools-20261118-qa-01.md"
+      ],
+      "backfill_source": "existing_task_record_normalized_20261125"
     },
     {
       "type": "backfill",
@@ -491,17 +566,23 @@
       "queue_id": "convq_b4e6a7dcffb39a43c0a59f8c76c371d7"
     },
     {
-      "type": "status_check",
+      "type": "backfill",
       "at": "2026-11-24T07:30:47Z",
       "task_id": "miniapp-20261124-r1-t05",
       "status": "sent",
       "end_at": "2026-11-24T08:30:00Z",
       "note": "One status-only request sent. Delivery receipt does not confirm Windows acceptance, execution, or product result.",
       "message_id": "1795505513.609889",
-      "queue_id": "convq_f6aab1db4a22caa5924fdd523c18e510"
+      "queue_id": "convq_f6aab1db4a22caa5924fdd523c18e510",
+      "original_type": "status_check",
+      "original_event_index": 31,
+      "evidence_paths": [
+        "intents/waiting/miniapp-image-tools-20261118-qa-01.md"
+      ],
+      "backfill_source": "existing_task_record_normalized_20261125"
     },
     {
-      "type": "task_completed",
+      "type": "backfill",
       "at": "2026-11-24T07:35:40Z",
       "task_id": "miniapp-20261124-r1-t05",
       "state": "completed_at_access_blocked",
@@ -516,11 +597,17 @@
       "source_changed": false,
       "new_deployment": false,
       "previous_release_run": "45343956525",
-      "next_candidate": "After user unlock and Narrator cleanup, SAM may assign new task to repeat real AT speech recap and result/download navigation on unlocked desktop."
+      "next_candidate": "After user unlock and Narrator cleanup, SAM may assign new task to repeat real AT speech recap and result/download navigation on unlocked desktop.",
+      "original_type": "task_completed",
+      "original_event_index": 32,
+      "evidence_paths": [
+        "intents/waiting/miniapp-image-tools-20261118-qa-01.md"
+      ],
+      "backfill_source": "existing_task_record_normalized_20261125"
     },
     {
       "label": "r1-t06 approved app-only PostHog aggregate check",
-      "type": "execution_and_measurement",
+      "type": "backfill",
       "at": "2026-11-24T07:46:00Z",
       "task_id": "miniapp-20261124-r1-t06",
       "status": "sent",
@@ -529,10 +616,13 @@
       ],
       "limits": "Only existing five approved app-specific events and shared account; no identities, other app data, pageviews, or session replay. Separate observed counts, query failures, unmeasured, and zero.",
       "handoff_message_id": "1795506439.083149",
-      "handoff_queue_id": "convq_8a215ed203754328f7789be184b789a3"
+      "handoff_queue_id": "convq_8a215ed203754328f7789be184b789a3",
+      "original_type": "execution_and_measurement",
+      "original_event_index": 33,
+      "backfill_source": "existing_task_record_normalized_20261125"
     },
     {
-      "type": "task_completed",
+      "type": "backfill",
       "at": "2026-11-24T07:52:21Z",
       "task_id": "miniapp-20261124-r1-t06",
       "state": "completed",
@@ -579,11 +669,17 @@
       "source_changed": false,
       "analytics_changed": false,
       "new_deployment": false,
-      "prior_task_cleanup": "Narrator PID 27296 from t05 still awaiting interactive desktop unlock/termination; not part of t06 guard lock."
+      "prior_task_cleanup": "Narrator PID 27296 from t05 still awaiting interactive desktop unlock/termination; not part of t06 guard lock.",
+      "original_type": "task_completed",
+      "original_event_index": 34,
+      "evidence_paths": [
+        "intents/waiting/miniapp-image-tools-20261118-qa-01.md"
+      ],
+      "backfill_source": "existing_task_record_normalized_20261125"
     },
     {
       "label": "r1-t07 mobile final viewport result visibility reproduction",
-      "type": "handoff_prepared",
+      "type": "backfill",
       "at": "2026-11-24T08:01:21Z",
       "task_id": "miniapp-20261124-r1-t07",
       "status": "sent",
@@ -592,10 +688,13 @@
       ],
       "limits": "Prepared in r1; handoff receipt pending; no Windows acceptance or product result yet.",
       "message_id": "1795507291.567359",
-      "queue_id": "convq_a74978e8adf58de4ef2a198496f9387d"
+      "queue_id": "convq_a74978e8adf58de4ef2a198496f9387d",
+      "original_type": "handoff_prepared",
+      "original_event_index": 35,
+      "backfill_source": "existing_task_record_normalized_20261125"
     },
     {
-      "type": "task_completed",
+      "type": "backfill",
       "at": "2026-11-24T08:12:23Z",
       "task_id": "miniapp-20261124-r1-t07",
       "state": "completed_no_change_with_boundary_visibility_limit",
@@ -671,11 +770,17 @@
       "new_deployment": false,
       "previous_release_run": "45343956525",
       "customer_outcome_status": "unmeasured",
-      "next_candidate": "SAM-approved physical touch-device 701–760px and dynamic browser chrome result discoverability check; change scroll breakpoint/target only on observed friction."
+      "next_candidate": "SAM-approved physical touch-device 701–760px and dynamic browser chrome result discoverability check; change scroll breakpoint/target only on observed friction.",
+      "original_type": "task_completed",
+      "original_event_index": 36,
+      "evidence_paths": [
+        "intents/waiting/miniapp-image-tools-20261118-qa-01.md"
+      ],
+      "backfill_source": "existing_task_record_normalized_20261125"
     },
     {
       "label": "r1-t07 completion recovered; r1-t08 prepared",
-      "type": "supervision",
+      "type": "backfill",
       "at": "2026-11-24T08:15:00Z",
       "task_id": "miniapp-20261124-r1-t08",
       "status": "sent",
@@ -685,10 +790,13 @@
       ],
       "limits": "Sent at 2026-11-24T08:17:58Z after verifying r1, fixed end_at 08:30Z, run running and supervisor enabled. Sent receipt is not Windows acceptance/execution evidence.",
       "message_id": "1795508286.708149",
-      "queue_id": "convq_ba4072aca4e2dc1374fe9235191e511b"
+      "queue_id": "convq_ba4072aca4e2dc1374fe9235191e511b",
+      "original_type": "supervision",
+      "original_event_index": 37,
+      "backfill_source": "existing_task_record_normalized_20261125"
     },
     {
-      "type": "task_completed",
+      "type": "backfill",
       "at": "2026-11-24T08:25:31Z",
       "task_id": "miniapp-20261124-r1-t08",
       "state": "completed_no_change",
@@ -734,11 +842,17 @@
       "source_changed": false,
       "new_deployment": false,
       "customer_outcome_status": "unmeasured",
-      "next_candidate": "Physical 701–760px touch device and dynamic browser chrome result discovery; SAM decides new ID."
+      "next_candidate": "Physical 701–760px touch device and dynamic browser chrome result discovery; SAM decides new ID.",
+      "original_type": "task_completed",
+      "original_event_index": 38,
+      "evidence_paths": [
+        "intents/waiting/miniapp-image-tools-20261118-qa-01.md"
+      ],
+      "backfill_source": "existing_task_record_normalized_20261125"
     },
     {
       "label": "r1 report delivered; r2-t01 prepared for repeat/error-recovery QA",
-      "type": "supervision",
+      "type": "backfill",
       "at": "2026-11-24T08:30:52Z",
       "task_id": "miniapp-20261124-r2-t01",
       "status": "sent",
@@ -749,10 +863,13 @@
       "report_message_id": "1795509062.983379",
       "limits": "Delivery receipt confirmed; Windows acceptance/execution not yet observed. Customer outcomes remain unmeasured.",
       "handoff_message_id": "1795509171.676709",
-      "handoff_queue_id": "convq_5286e85306b63fe3f81e94d06a83565d"
+      "handoff_queue_id": "convq_5286e85306b63fe3f81e94d06a83565d",
+      "original_type": "supervision",
+      "original_event_index": 39,
+      "backfill_source": "existing_task_record_normalized_20261125"
     },
     {
-      "type": "task_completed",
+      "type": "backfill",
       "at": "2026-11-24T08:40:16Z",
       "task_id": "miniapp-20261124-r2-t01",
       "state": "completed_no_change",
@@ -814,10 +931,16 @@
       "source_changed": false,
       "new_deployment": false,
       "customer_outcome_status": "unmeasured",
-      "next_candidate": "Small real-user observation of error message comprehension and valid retry, CMO/SAM decision."
+      "next_candidate": "Small real-user observation of error message comprehension and valid retry, CMO/SAM decision.",
+      "original_type": "task_completed",
+      "original_event_index": 40,
+      "evidence_paths": [
+        "intents/waiting/miniapp-image-tools-20261118-qa-01.md"
+      ],
+      "backfill_source": "existing_task_record_normalized_20261125"
     },
     {
-      "type": "supervision",
+      "type": "backfill",
       "at": "2026-11-24T08:45:23Z",
       "task_id": "miniapp-20261124-r2-t01",
       "status": "sent",
@@ -828,11 +951,14 @@
       "report_message_id": null,
       "handoff_message_id": "1795509931.304839",
       "handoff_queue_id": "convq_d1a9b31945c418c0f1623e371c8155b8",
-      "limits": "One same-task result confirmation only; does not dispatch/restart work or establish Windows acknowledgement."
+      "limits": "One same-task result confirmation only; does not dispatch/restart work or establish Windows acknowledgement.",
+      "original_type": "supervision",
+      "original_event_index": 41,
+      "backfill_source": "existing_task_record_normalized_20261125"
     },
     {
       "label": "r2-t02 bounded input-boundary task handed to Windows",
-      "type": "handoff",
+      "type": "backfill",
       "at": "2026-11-24T09:03:29Z",
       "task_id": "miniapp-20261124-r2-t02",
       "status": "sent",
@@ -841,23 +967,13 @@
       ],
       "limits": "Slack delivery receipt only; Windows acceptance/execution and product outcome not yet evidenced. Synthetic inputs only; no customer outcome claimed.",
       "message_id": "1795511017.606359",
-      "queue_id": "convq_2a2c305e6ddbfeb7a8de71c20663ffae"
+      "queue_id": "convq_2a2c305e6ddbfeb7a8de71c20663ffae",
+      "original_type": "handoff",
+      "original_event_index": 42,
+      "backfill_source": "existing_task_record_normalized_20261125"
     },
     {
-      "label": "r2-t02 single status check requested",
-      "type": "status_check",
-      "at": "2026-11-24T09:16:01Z",
-      "task_id": "miniapp-20261124-r2-t02",
-      "status": "sent_pending_response",
-      "evidence_paths": [
-        "intents/waiting/miniapp-image-tools-20261118-qa-01.md"
-      ],
-      "message_id": "1795511752.371019",
-      "queue_id": "convq_e28a186e20e1c173baa9810b76d0e5dc",
-      "limits": "Delivery receipt confirms request only; Windows execution/guard/lock and product result remain unverified."
-    },
-    {
-      "type": "task_completed",
+      "type": "backfill",
       "at": "2026-11-24T09:13:22Z",
       "task_id": "miniapp-20261124-r2-t02",
       "state": "completed_no_change",
@@ -902,22 +1018,47 @@
       "source_changed": false,
       "new_deployment": false,
       "customer_outcome_status": "unmeasured",
-      "next_candidate": "With a resource budget, test a genuinely valid exact-12MiB decoded source and genuine large image, separately authorized and ID."
+      "next_candidate": "With a resource budget, test a genuinely valid exact-12MiB decoded source and genuine large image, separately authorized and ID.",
+      "original_type": "task_completed",
+      "original_event_index": 44,
+      "evidence_paths": [
+        "intents/waiting/miniapp-image-tools-20261118-qa-01.md"
+      ],
+      "backfill_source": "existing_task_record_normalized_20261125"
+    },
+    {
+      "label": "r2-t02 single status check requested",
+      "type": "backfill",
+      "at": "2026-11-24T09:16:01Z",
+      "task_id": "miniapp-20261124-r2-t02",
+      "status": "sent_pending_response",
+      "evidence_paths": [
+        "intents/waiting/miniapp-image-tools-20261118-qa-01.md"
+      ],
+      "message_id": "1795511752.371019",
+      "queue_id": "convq_e28a186e20e1c173baa9810b76d0e5dc",
+      "limits": "Delivery receipt confirms request only; Windows execution/guard/lock and product result remain unverified.",
+      "original_type": "status_check",
+      "original_event_index": 43,
+      "backfill_source": "existing_task_record_normalized_20261125"
     },
     {
       "label": "r2-t03 error-copy accuracy and recovery task prepared",
-      "type": "handoff_preparation",
+      "type": "backfill",
       "at": "2026-11-24T09:31:00Z",
       "task_id": "miniapp-20261124-r2-t03",
       "status": "prepared",
       "evidence_paths": [
         "intents/waiting/miniapp-image-tools-20261118-qa-01.md"
       ],
-      "limits": "Synthetic QA; user comprehension and customer outcomes remain unmeasured. Fixed end_at 2026-11-24T11:30:00Z; no handoff receipt yet."
+      "limits": "Synthetic QA; user comprehension and customer outcomes remain unmeasured. Fixed end_at 2026-11-24T11:30:00Z; no handoff receipt yet.",
+      "original_type": "handoff_preparation",
+      "original_event_index": 45,
+      "backfill_source": "existing_task_record_normalized_20261125"
     },
     {
       "label": "r2-t03 error-copy accuracy and recovery task handed to Windows",
-      "type": "handoff",
+      "type": "backfill",
       "at": "2026-11-24T09:34:09Z",
       "task_id": "miniapp-20261124-r2-t03",
       "status": "sent",
@@ -926,11 +1067,14 @@
       ],
       "limits": "Slack delivery receipt only; Windows acceptance/execution, guard completion, lock status and product outcome remain separate evidence. Synthetic QA; customer outcome and user comprehension unmeasured.",
       "message_id": "1795512849.994749",
-      "queue_id": "convq_ce399fd84c0462957e1b7c90884d659e"
+      "queue_id": "convq_ce399fd84c0462957e1b7c90884d659e",
+      "original_type": "handoff",
+      "original_event_index": 46,
+      "backfill_source": "existing_task_record_normalized_20261125"
     },
     {
       "label": "r2-t03 status check prepared",
-      "type": "status_check",
+      "type": "backfill",
       "at": "2026-11-24T09:45:00Z",
       "task_id": "miniapp-20261124-r2-t03",
       "status": "sent",
@@ -939,10 +1083,13 @@
       ],
       "limits": "Native delivery receipt only; Windows parent execution, guard and lock remain unconfirmed; no task resend.",
       "message_id": "1795513609.377209",
-      "queue_id": "convq_c529ac4db654882a9a0376b1f9834b7c"
+      "queue_id": "convq_c529ac4db654882a9a0376b1f9834b7c",
+      "original_type": "status_check",
+      "original_event_index": 47,
+      "backfill_source": "existing_task_record_normalized_20261125"
     },
     {
-      "type": "task_completed",
+      "type": "backfill",
       "at": "2026-11-24T09:45:33Z",
       "task_id": "miniapp-20261124-r2-t03",
       "state": "source_published_deploy_blocked",
@@ -976,10 +1123,16 @@
       "live_current_state": "old misleading zero-byte message remains; new copy not yet deployed",
       "blocker": "No verified read/restore path for two existing S3 object bodies/metadata or versions using existing credentials; local AWS credentials parsing failed, no IAM/cost expansion.",
       "customer_outcome_status": "unmeasured",
-      "next_candidate": "Under existing authorized access, validate read+restore of two target objects and rollback before app-only release; SAM to hand off remaining work."
+      "next_candidate": "Under existing authorized access, validate read+restore of two target objects and rollback before app-only release; SAM to hand off remaining work.",
+      "original_type": "task_completed",
+      "original_event_index": 48,
+      "evidence_paths": [
+        "intents/waiting/miniapp-image-tools-20261118-qa-01.md"
+      ],
+      "backfill_source": "existing_task_record_normalized_20261125"
     },
     {
-      "type": "status_update",
+      "type": "backfill",
       "at": "2026-11-24T11:00:32Z",
       "task_id": "miniapp-20261124-r2-t05",
       "status": "copy_released_live_verified",
@@ -991,15 +1144,26 @@
         "lock_free_verified_at": "2026-11-24T10:49:18Z"
       },
       "evidence_paths": [
+        "intents/waiting/miniapp-image-tools-20261118-qa-01.md"
+      ],
+      "note": "Consolidated the final result that supersedes the 10:47Z in-flight snapshot. Current task is complete; r2 report remains pending until its 20:30 KST boundary. Customer outcomes remain unmeasured.",
+      "original_type": "status_update",
+      "original_event_index": 49,
+      "backfill_source": "existing_task_record_normalized_20261125",
+      "original_evidence_paths": [
         "intents/waiting/miniapp-image-tools-20261118-qa-01.md",
         "https://github.com/shdkej/space/commit/80966e76cec4e197240ac836ba1513106eda7a20",
         "https://github.com/shdkej/space/actions/runs/45377563324",
         "https://github.com/shdkej/space/blob/main/infra-aws-static-sites/sites/miniapp-image-tools/qa/release-checkpoint.md"
       ],
-      "note": "Consolidated the final result that supersedes the 10:47Z in-flight snapshot. Current task is complete; r2 report remains pending until its 20:30 KST boundary. Customer outcomes remain unmeasured."
+      "evidence_urls": [
+        "https://github.com/shdkej/space/commit/80966e76cec4e197240ac836ba1513106eda7a20",
+        "https://github.com/shdkej/space/actions/runs/45377563324",
+        "https://github.com/shdkej/space/blob/main/infra-aws-static-sites/sites/miniapp-image-tools/qa/release-checkpoint.md"
+      ]
     },
     {
-      "type": "task_handoff_prepared",
+      "type": "backfill",
       "at": "2026-11-24T11:15:45Z",
       "task_id": "miniapp-20261124-r2-t06",
       "window": "r2",
@@ -1011,38 +1175,62 @@
       "note": "r2-t05 latest remote evidence verified complete and live. Existing report pending at 20:30 KST. No new scope.",
       "sent_at": "2026-11-24T11:16:48Z",
       "message_id": "1795519008.904259",
-      "queue_id": "convq_b70b28dce2adf240485d0186ee35deba"
+      "queue_id": "convq_b70b28dce2adf240485d0186ee35deba",
+      "original_type": "task_handoff_prepared",
+      "original_event_index": 50,
+      "evidence_paths": [
+        "intents/waiting/miniapp-image-tools-20261118-qa-01.md"
+      ],
+      "backfill_source": "existing_task_record_normalized_20261125"
     },
     {
-      "type": "handoff_receipt",
+      "type": "backfill",
       "at": "2026-11-24T11:16:48Z",
       "task_id": "miniapp-20261124-r2-t06",
       "status": "sent",
       "message_id": "1795519008.904259",
       "queue_id": "convq_b70b28dce2adf240485d0186ee35deba",
-      "note": "Native conversation send receipt; delivery is not Windows task acceptance or product result."
+      "note": "Native conversation send receipt; delivery is not Windows task acceptance or product result.",
+      "original_type": "handoff_receipt",
+      "original_event_index": 51,
+      "evidence_paths": [
+        "intents/waiting/miniapp-image-tools-20261118-qa-01.md"
+      ],
+      "backfill_source": "existing_task_record_normalized_20261125"
     },
     {
-      "type": "window_report_sent",
+      "type": "backfill",
       "at": "2026-11-24T11:30:00Z",
       "window": "r2",
       "status": "sent",
       "message_id": "1795519852.919859",
       "queue_id": "convq_99daa2c023f23821ac88b1a76748b62f",
-      "summary": "Mobile keyboard recovery QA pass; product unchanged, synthetic QA, customer outcomes unmeasured."
+      "summary": "Mobile keyboard recovery QA pass; product unchanged, synthetic QA, customer outcomes unmeasured.",
+      "original_type": "window_report_sent",
+      "original_event_index": 52,
+      "evidence_paths": [
+        "intents/waiting/miniapp-image-tools-20261118-qa-01.md"
+      ],
+      "backfill_source": "existing_task_record_normalized_20261125"
     },
     {
-      "type": "task_handoff_prepared",
+      "type": "backfill",
       "at": "2026-11-24T11:31:12Z",
       "task_id": "miniapp-20261124-r3-t01",
       "window": "r3",
       "sequence": 1,
       "end_at": "2026-11-24T14:30:00Z",
       "status": "prepared",
-      "goal": "Reproduce the unverified race where format/edge settings change during image-header reading; make a minimal fix, regression test, app-only release and live verification only if an actual defect is demonstrated."
+      "goal": "Reproduce the unverified race where format/edge settings change during image-header reading; make a minimal fix, regression test, app-only release and live verification only if an actual defect is demonstrated.",
+      "original_type": "task_handoff_prepared",
+      "original_event_index": 53,
+      "evidence_paths": [
+        "intents/waiting/miniapp-image-tools-20261118-qa-01.md"
+      ],
+      "backfill_source": "existing_task_record_normalized_20261125"
     },
     {
-      "type": "task_handoff_sent",
+      "type": "backfill",
       "at": "2026-11-24T11:33:46Z",
       "task_id": "miniapp-20261124-r3-t01",
       "window": "r3",
@@ -1050,10 +1238,16 @@
       "end_at": "2026-11-24T14:30:00Z",
       "status": "sent",
       "message_id": "1795520034.423279",
-      "queue_id": "convq_f4220e1e2f1315988e3e5697a899d49c"
+      "queue_id": "convq_f4220e1e2f1315988e3e5697a899d49c",
+      "original_type": "task_handoff_sent",
+      "original_event_index": 54,
+      "evidence_paths": [
+        "intents/waiting/miniapp-image-tools-20261118-qa-01.md"
+      ],
+      "backfill_source": "existing_task_record_normalized_20261125"
     },
     {
-      "type": "task_status_snapshot",
+      "type": "backfill",
       "at": "2026-11-24T11:46:05Z",
       "task_id": "miniapp-20261124-r3-t01",
       "window": "r3",
@@ -1067,20 +1261,32 @@
       },
       "status": "browser_and_regression_in_progress_release_unverified",
       "next": "Keep one existing child running; verify tests and current two-key restore path before any app-only release, then read final guard exit and lock release separately.",
-      "customer_outcomes": "unmeasured"
+      "customer_outcomes": "unmeasured",
+      "original_type": "task_status_snapshot",
+      "original_event_index": 55,
+      "evidence_paths": [
+        "intents/waiting/miniapp-image-tools-20261118-qa-01.md"
+      ],
+      "backfill_source": "existing_task_record_normalized_20261125"
     },
     {
-      "type": "task_handoff_prepared",
+      "type": "backfill",
       "at": "2026-11-24T13:15:00Z",
       "task_id": "miniapp-20261124-r3-t04",
       "window": "r3",
       "sequence": 4,
       "end_at": "2026-11-24T14:30:00Z",
       "status": "prepared",
-      "goal": "Verify corrupt/unsupported synthetic image rejection and recovery by selecting a valid PNG in the same live browser page; only fix a demonstrated defect with test, approved app-only release and live verification before fixed end."
+      "goal": "Verify corrupt/unsupported synthetic image rejection and recovery by selecting a valid PNG in the same live browser page; only fix a demonstrated defect with test, approved app-only release and live verification before fixed end.",
+      "original_type": "task_handoff_prepared",
+      "original_event_index": 56,
+      "evidence_paths": [
+        "intents/waiting/miniapp-image-tools-20261118-qa-01.md"
+      ],
+      "backfill_source": "existing_task_record_normalized_20261125"
     },
     {
-      "type": "task_handoff_sent",
+      "type": "backfill",
       "at": "2026-11-24T13:19:46Z",
       "task_id": "miniapp-20261124-r3-t04",
       "window": "r3",
@@ -1088,20 +1294,32 @@
       "end_at": "2026-11-24T14:30:00Z",
       "status": "sent",
       "message_id": "1795526386.876779",
-      "queue_id": "convq_83ec1fd73a49ebdf044d8dfb5c14e39f"
+      "queue_id": "convq_83ec1fd73a49ebdf044d8dfb5c14e39f",
+      "original_type": "task_handoff_sent",
+      "original_event_index": 57,
+      "evidence_paths": [
+        "intents/waiting/miniapp-image-tools-20261118-qa-01.md"
+      ],
+      "backfill_source": "existing_task_record_normalized_20261125"
     },
     {
-      "type": "task_handoff_prepared",
+      "type": "backfill",
       "at": "2026-11-24T14:15:00Z",
       "task_id": "miniapp-20261124-r3-t06",
       "window": "r3",
       "sequence": 6,
       "end_at": "2026-11-24T14:30:00Z",
       "status": "prepared_windows_execution_pending",
-      "customer_outcomes": "unmeasured"
+      "customer_outcomes": "unmeasured",
+      "original_type": "task_handoff_prepared",
+      "original_event_index": 58,
+      "evidence_paths": [
+        "intents/waiting/miniapp-image-tools-20261118-qa-01.md"
+      ],
+      "backfill_source": "existing_task_record_normalized_20261125"
     },
     {
-      "type": "task_handoff_sent",
+      "type": "backfill",
       "at": "2026-11-24T14:17:00Z",
       "task_id": "miniapp-20261124-r3-t06",
       "window": "r3",
@@ -1110,7 +1328,38 @@
       "status": "sent_windows_execution_pending",
       "message_id": "1795529868.509459",
       "queue_id": "convq_da77eaff32e9dbf0a44c3308b01d9a90",
-      "customer_outcomes": "unmeasured"
+      "customer_outcomes": "unmeasured",
+      "original_type": "task_handoff_sent",
+      "original_event_index": 59,
+      "evidence_paths": [
+        "intents/waiting/miniapp-image-tools-20261118-qa-01.md"
+      ],
+      "backfill_source": "existing_task_record_normalized_20261125"
+    },
+    {
+      "type": "execution",
+      "at": "2026-11-25T07:51:47Z",
+      "context_pack": "/home/ubuntu/workspace/knowledge-lab/reports/context-packs/2026-11-18-agent-daily-operations.json",
+      "evidence_paths": [
+        "scripts/miniapp_experiment.py",
+        "intents/waiting/miniapp-image-tools-20261118-qa-01.md"
+      ],
+      "searches": [
+        "Reuse selected operations context; inspect native SAM owner denial, runtime trigger documentation, current Threads account evidence and run registry"
+      ],
+      "wiki_pages": [
+        "agent-wiki/content/docs/outputs/Integration/Work.mdx",
+        "agent-wiki/content/docs/outputs/Idea/Journal.mdx",
+        "agent-wiki/content/docs/outputs/Communication/Open_Source.mdx",
+        "agent-wiki/content/docs/outputs/blog/Life_Tracking.mdx",
+        "agent-wiki/content/docs/outputs/Human/Standard.mdx"
+      ],
+      "operational_log_sections": [
+        "logs/agent-wiki-query.md",
+        "logs/EVALUATION_RECAP.md",
+        "logs/OPERATING_LESSONS.md"
+      ],
+      "note": "User resumed 2h x 3 today, changed target to Threads _archivenoh and confirmed 10 views. Prepare existing two jobs with read-only trigger and full-window report aggregation; no owner impersonation. Old trace repaired without inventing missing historical search; 27 helper tests passed. Windows browser and public account verified, posting authentication still being checked. Context Pack selected locator pages were read directly; operational log references reuse original matched sections and retain current-match checks rather than claiming a new zg search."
     }
   ],
   "artifacts": [
@@ -1139,28 +1388,31 @@
       "label": "reports/miniapp-image-tools-20261118-qa-01/20261123T1230KST.html"
     },
     {
-      "path": "https://github.com/shdkej/space/blob/main/infra-aws-static-sites/sites/miniapp-image-tools/qa/release-checkpoint.md",
       "type": "qa_evidence",
       "status": "verified",
       "at": "2026-11-24T05:46:38Z",
       "task_id": "miniapp-20261124-r1-t01",
-      "label": "r1 mobile result discovery: before/after and live screenshots"
+      "label": "r1 mobile result discovery: before/after and live screenshots",
+      "url": "https://github.com/shdkej/space/blob/main/infra-aws-static-sites/sites/miniapp-image-tools/qa/release-checkpoint.md",
+      "location_kind": "external"
     },
     {
-      "path": "https://github.com/shdkej/space/blob/main/infra-aws-static-sites/sites/miniapp-image-tools/qa/release-checkpoint.md",
       "type": "qa_evidence",
       "status": "verified",
       "at": "2026-11-24T06:30:52Z",
       "task_id": "miniapp-20261124-r1-t02",
-      "label": "r1-t02 repeated settings, before/after guidance and mobile/desktop live QA"
+      "label": "r1-t02 repeated settings, before/after guidance and mobile/desktop live QA",
+      "url": "https://github.com/shdkej/space/blob/main/infra-aws-static-sites/sites/miniapp-image-tools/qa/release-checkpoint.md",
+      "location_kind": "external"
     },
     {
-      "path": "https://github.com/shdkej/space/blob/main/infra-aws-static-sites/sites/miniapp-image-tools/qa/release-checkpoint.md",
       "type": "qa_evidence",
       "status": "verified",
       "at": "2026-11-24T06:57:53Z",
       "task_id": "miniapp-20261124-r1-t03",
-      "label": "r1-t03 source-size before/after, unit boundaries and live converter QA"
+      "label": "r1-t03 source-size before/after, unit boundaries and live converter QA",
+      "url": "https://github.com/shdkej/space/blob/main/infra-aws-static-sites/sites/miniapp-image-tools/qa/release-checkpoint.md",
+      "location_kind": "external"
     }
   ],
   "verifications": [
@@ -1557,7 +1809,8 @@
       "evidence_paths": [
         "intents/waiting/miniapp-image-tools-20261118-qa-01.md"
       ],
-      "note": "One status-only readback for SAM, not a second execution; product child live QA and final guard/lock receipts still pending at this timestamp."
+      "note": "One status-only readback for SAM, not a second execution; product child live QA and final guard/lock receipts still pending at this timestamp.",
+      "label": "miniapp-20261124-r2-t05 status_snapshot at 2026-11-24T10:47:06Z"
     },
     {
       "label": "r2-t05 CMO empty-file copy, immediate-prior restoration and live release",
@@ -1874,8 +2127,8 @@
     }
   ],
   "next_decision": {
-    "status": "run_finished_report_delivered_reviewed",
-    "value": "11/24 실험과 최종 보고 종료. 자동 재개 없음. 새 실행 전에 즉시 후속 인계 권한·구간 전체 보고·고객 검증 목표를 검토한다. Narrator 정리는 대화형 Windows 잠금 해제와 원 인스턴스 재확인 후 판단하며 고객 성과는 미측정."
+    "status": "scheduled_preparing",
+    "value": "Activate verified same-day schedule after remote registry/helper publication; confirm 17:00 handoff and correct-account execution."
   },
   "handoff_attempts": [
     {
@@ -2239,6 +2492,65 @@
         "intents/waiting/miniapp-image-tools-20261118-qa-01.md",
         "https://shdkej.slack.com/archives/C0CE0DV9MM2/p1795531097181849"
       ]
+    }
+  ],
+  "trace_completeness_reason": "Original 2026-11-24T05:30:13Z execution did not capture its actual context-search/read receipt; historical task and delivery evidence remain recorded without reconstructing missing searches.",
+  "schema_repairs": [
+    {
+      "at": "2026-11-25T07:34:10Z",
+      "scope": "Historical schema normalization only; no new product, customer, execution, delivery or guard result asserted.",
+      "normalized_event_original_indices": [
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59
+      ],
+      "event_normalization": "Nonstandard historical types and the execution missing its original context receipt are backfill records; original_type/index, timestamp and original payload are retained. Existing local detail is linked as the source record.",
+      "chronology": "Stable sort by recorded event time; original timestamps retained, including the 09:13:22 completion preceding the 09:16:01 status query.",
+      "external_artifacts_moved_to_url": 3,
+      "verification_labels_added": 1,
+      "context_gap": "Known existing operations Context Pack is linked as a reference; missing original execution searches are not invented and trace_completeness is partial.",
+      "event_external_evidence_urls_moved": 3
     }
   ]
 }
