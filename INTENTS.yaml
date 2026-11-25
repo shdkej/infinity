@@ -321,8 +321,8 @@ lanes:
         status: planned
         goal: 첫반응으로 다른표현/형식글1개·관련대화에 소수답글
         task_sequence: 0
-        report_status: pending
-        report_message_id: null
+        report_status: sent
+        report_message_id: '1795608036.128849'
         exhausted: false
         metrics:
           target: 10
