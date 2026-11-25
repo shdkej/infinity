@@ -337,9 +337,9 @@ lanes:
       - id: r3
         start_at: '2026-11-25T12:00:00Z'
         end_at: '2026-11-25T14:00:00Z'
-        status: planned
+        status: running
         goal: 반응있는주제후속최대1개·조회10회판정과마감
-        task_sequence: 0
+        task_sequence: 1
         report_status: pending
         report_message_id: null
         exhausted: false
@@ -354,6 +354,24 @@ lanes:
           status: unmeasured
         observation_due_at: '2026-11-25T13:45:00Z'
       tasks:
+      - id: miniapp-20261125-r3-t01
+        window_id: r3
+        goal: 현재 원문 DgKEVWij6oq의 조회·답글을 확인하고, 실제 관련 공개 대화를 몇 건 읽어 맥락에 맞을 때만 선제 답글(일일 상한5개 이내)로 기여한다. 유용하고 새 근거가 있을 때만 후속 원문 최대1개를 게시하고 첫 조회를 기록한다.
+        start_at: '2026-11-25T13:00:14Z'
+        end_at: '2026-11-25T14:00:00Z'
+        status: prepared
+        handoff_status: prepared
+        handoff_message_id: null
+        result_summary: null
+        changes: []
+        release_runs: []
+        guard:
+          state: not_started
+          exit_code: null
+          finished_at: null
+          lock_free_verified_at: null
+        status_check_at: null
+        completion_criteria: 현재 게시물 및 관련 공개 대화 실제 확인, 계정 정확성 유지, 답글은 관련성과 실질 기여가 있을 때만 하루 최대5개, 원문은 필요할 때만 하루 최대3개, 게시 시 URL·시각·플랫폼 표시 조회 또는 미측정 사유 기록, 실제 종료·잠금 영수증 기록. 고정 종료 2026-11-25T14:00:00Z.
       - id: miniapp-20261125-r1-t01
         window_id: r1
         goal: Threads _archivenoh의 정확한로그인·최근공개글·조회접근을확인하고 맥락에맞는짧은원문글1개를게시해 첫조회스냅샷/게시URL을기록한다. 미니앱홍보로고정하지않는다.
