@@ -2221,7 +2221,7 @@
       "type": "threads_public_reply",
       "at": "2026-11-25T13:08:15.777Z",
       "task_id": "miniapp-20261125-r3-t01",
-      "status": "observed_replied_guard_pending",
+      "status": "observed_replied_guard_completed",
       "account": "_archivenoh",
       "account_evidence": "Ego Lite taskSpace 75 Profile 3: own profile edit dialog showed username _archivenoh; reply composer showed same author before one send",
       "original_post": {
@@ -2257,10 +2257,11 @@
         "source": "parent handoff, no duplicate children"
       },
       "guard": {
-        "state": "pending_parent_after_child_exit",
-        "exit_code": null,
-        "finished_at": null,
-        "lock_free_verified_at": null
+        "state": "completed",
+        "exit_code": 0,
+        "finished_at": "2026-11-25T13:19:32.248398+00:00",
+        "lock_free_verified_at": "2026-11-25T13:19:49.582405+00:00",
+        "source": "parent SQLite row and nonblocking active.lock acquisition after child exit"
       },
       "evidence_paths": [
         "INTENTS.yaml",
