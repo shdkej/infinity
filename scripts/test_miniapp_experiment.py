@@ -58,6 +58,29 @@ class Decisions(unittest.TestCase):
                            ("18:00:00", "2026-11-26")]:
             self.assertFalse(self.snap(time, date)["fire"])
 
+    def test_next_task_proposal_is_concrete_but_does_not_write_or_bypass_lock(self):
+        self.run["tasks"] = [finished(id="miniapp-20261125-r1-t01")]
+        before = copy.deepcopy(self.run)
+        proposed = self.snap().get("proposed_task")
+        self.assertIsNotNone(proposed)
+        self.assertEqual(proposed["id"], "miniapp-20261125-r1-t02")
+        self.assertEqual(proposed["window_id"], "r1")
+        self.assertEqual(proposed["status"], "prepared")
+        self.assertEqual(proposed["guard"]["state"], "not_started")
+        self.assertEqual(helper.parse_time(proposed["end_at"]), helper.parse_time(self.run["windows"][0]["end_at"]))
+        self.assertEqual(self.run, before)
+        self.run["tasks"][0]["guard"]["state"] = "running"
+        self.assertIsNone(self.snap()["proposed_task"])
+
+    def test_proposal_moves_to_current_window_without_resending_old_task(self):
+        self.run["tasks"] = [finished(id="miniapp-20261125-r1-t01")]
+        result = self.snap("21:51:00")
+        self.assertIsNotNone(result.get("proposed_task"))
+        self.assertEqual(result["proposed_task"]["id"], "miniapp-20261125-r3-t01")
+        self.assertEqual(helper.parse_time(result["proposed_task"]["end_at"]), helper.parse_time(helper.END))
+        self.assertIsNone(result["reuse_task_id"])
+        self.assertIsNone(self.snap("23:00:00")["proposed_task"])
+
     def test_running_waits_without_model_even_after_ten_minutes(self):
         self.run["tasks"] = [task()]
         self.assertFalse(self.snap()["fire"])

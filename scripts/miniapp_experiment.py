@@ -199,6 +199,7 @@ def snapshot(run, now):
         "current_task": copy.deepcopy(current_task), "reports_due": [],
         "dispatch_allowed": False, "reuse_task_id": None, "status_check_task_id": None,
         "reconcile_task_id": None,
+        "proposed_task": None,
         "metrics": copy.deepcopy(run.get("metrics")),
         "window_summaries": [summarize_window(run, window) for window in windows],
     }
@@ -260,6 +261,21 @@ def snapshot(run, now):
                 result["reasons"].append("unconfirmed_handoff_status_check")
                 break
     result["fire"] = bool(result["reasons"])
+    if result["dispatch_allowed"] and not result["reuse_task_id"]:
+        prefix = f"miniapp-20261125-{window_id(current)}-t"
+        serial, used = 1, {task["id"] for task in tasks}
+        while f"{prefix}{serial:02d}" in used:
+            serial += 1
+        result["proposed_task"] = {
+            "id": f"{prefix}{serial:02d}", "window_id": window_id(current),
+            "goal": None, "start_at": now.astimezone(timezone.utc).isoformat(),
+            "end_at": current["end_at"], "status": "prepared",
+            "handoff_status": "prepared", "handoff_message_id": None,
+            "result_summary": None, "changes": [], "release_runs": [],
+            "guard": {"state": "not_started", "exit_code": None,
+                      "finished_at": None, "lock_free_verified_at": None},
+            "status_check_at": None,
+        }
     return result
 
 
