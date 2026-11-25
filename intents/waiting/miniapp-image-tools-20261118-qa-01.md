@@ -41,8 +41,16 @@
 ## r3-t01 준비 — 2026-11-25
 
 - 작업 `miniapp-20261125-r3-t01`, 고정 종료 `2026-11-25T14:00:00Z` (23:00 KST). 현재 원문 `DgKEVWij6oq`의 조회·답글을 확인하고, 실제 관련 공개 대화를 읽은 뒤 의미 있는 경우에만 하루 총5개 이내의 선제 답글을 작성한다. 근거가 있고 유용할 때만 후속 원문을 최대1개 게시한다. 게시 직전 정확한 계정을 확인하며, 반복/무관 답글은 하지 않는다.
-- 현재 준비 상태는 `prepared`; Windows 진입점은 실행 전 현재 live lock을 확인한다. 실제 활동·게시·조회·guard 종료는 아직 검증되지 않았다. 종료는 기존 23시 KST 그대로다.
+- 13:02Z 인계 당시 준비 상태는 `prepared`였고 Windows 진입점의 live lock 확인이 선행 조건이었다. 아래 후속 관측/게시 결과는 별도이며, guard 종료는 부모 사후 확인 전까지 미확인이다. 종료는 기존 23시 KST 그대로다.
 - 인계 영수증: 2026-11-25T13:02:06Z 전송 성공, Slack `1795611726.462139` (queue `convq_40a5b43bafbaa01994ee598ac0baff80`). 인계는 실제 실행 시작이나 게시·목표 달성 증거가 아니다.
+
+## r3-t01 공개 대화 관측·참여 — 2026-11-25 22:04–22:08 KST
+
+- Ego Lite 설치본 `0.6.3.17` 가이드 확인 후 기본 `Profile 3`의 단일 taskSpace **75** 사용. 22:04 KST [기존 원문 인사이트](https://www.threads.com/insights/post/DgKEVWij6oq)에 플랫폼 표시 **조회수 214회**를 `2026-11-25T13:04:49.237Z`에 관측했다. 원문 페이지에도 `조회 214회`와 외부 작성자 **답글 3건**이 보였다([원문](https://www.threads.com/@_archivenoh/post/DgKEVWij6oq)). 조회수는 오늘 새 원문 한 건의 최신 스냅샷만 사용해 **214/10**, r1 첫 0회와 더하지 않는다. 외부 답글은 우리의 선제 답글 수가 아니다. 인사이트의 조회한 사람 183은 조회수와 다른 지표로, 고유 고객·실제 방문/전환·자가 조회 제외를 입증하지 않는다. 팔로우 변화량은 기준이 없어 미측정이다.
+- 본인 홈의 `프로필 편집` 대화창에 정확한 사용자 이름 `_archivenoh`, 답글 작성창에 같은 작성자가 표시됨을 게시 전에 대조했다. 공개 프로필만 보고 로그인 계정을 추정하거나 계정 공개 범위를 변경하지 않았다. 관련 공개 대화는 [글 잘 쓰는 법](https://www.threads.com/@schopen_saju01/post/DgKl6kmmD92), [장편 소설 탈고](https://www.threads.com/@hoonhoon_2027/post/DgKhsSmkq-i), [두 번째 책 퇴고](https://www.threads.com/@nwsugm/post/DgKkAvRmDEh), [부사·감정 설명 퇴고](https://www.threads.com/@cheerfulyoonkyeom/post/DgJ8oBVjzRE), [첫 문장을 고치는 답글](https://www.threads.com/@40age.start/post/DgKiiRyma14)을 직접 열어 공개 문맥과 기존 반응을 확인했다. 잘린 본문이나 유관성 낮은 대화에는 답글을 억지로 달지 않았다.
+- 다른 작성자의 [퇴고 글](https://www.threads.com/@cheerfulyoonkyeom/post/DgJ8oBVjzRE)에 부사를 무조건 지우기보다 감정 설명 한 문장을 장면/행동으로 바꿔 보는 제안과 퇴고 종료 기준 질문을 **선제 답글 1건**으로 남겼다. `2026-11-25T13:08:08Z` 게시 버튼 한 번만 클릭했고, `게시되었습니다`, 원문에 새 `_archivenoh` 답글, [자신의 답글 URL](https://www.threads.com/@_archivenoh/post/DgKmf-lD9Nn)의 작성자·대상 문맥·`time[datetime]=2026-11-25T13:08:08.000Z`를 다시 확인했다. 전체 문구와 대상/자기 URL은 같은 ID의 원장 `reply_records`와 trace verification에 보존했다. 하루 누적 확정 선제 답글은 **1/5**(r1 0, r2 작업 없음). 외부에서 받은 답글 3건과 혼합하지 않는다.
+- **신규 원문 0건:** 기존 원문이 목표 10회를 이미 넘어섰고, 읽은 대화에서 별도 후속 원문으로 만들 만한 새로운 근거나 효용은 확인하지 못했다. 게시 할당량을 채우기 위한 글·무관 답글·DM·리포스트·유료/대량 반응·자기 조회 반복 없음. 독립 네 역할 `deleg_34cac69a`, 교차 네 역할 `deleg_d4a2629f`는 부모가 선행 완료한 인계를 재사용했고 이 자식은 중복 호출하지 않았다.
+- 결과는 개별 보고 `reports/miniapp-image-tools-20261118-qa-01/20261125T1311Z-r3-t01.html`. **이 자식 자신의 guard 종료/exit code와 공유 `active.lock` 해제는 선언하지 않는다.** 부모가 자식 종료 후 SQLite 같은 ID와 비차단 잠금을 확인해 동일 ID에 더한다. r3 종합 보고는 SAM 소유 `pending`, Intent는 Waiting 유지. 새 작업/연장/다음 날 재개 없음.
 
 ## 현재 결과 — 2026-11-25 검토, 11/24 실험 종료
 
