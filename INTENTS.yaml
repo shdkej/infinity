@@ -213,6 +213,10 @@ lanes:
     current_task_start_at: '2026-11-25T13:57:30Z'
     current_task_end_at: '2026-11-25T14:00:00Z'
     current_task_result: null
+    current_task_handoff_status: sent
+    current_task_handoff_message_id: '1795615108.539579'
+    current_task_handoff_queue_id: convq_b73ecb24a749454e8f643e58aaff0566
+    current_task_handoff_attempt_at: '2026-11-25T13:58:35Z'
     current_task_guard_status: not_started
     current_task_guard_exit_code: null
     current_task_guard_finished_at: null
@@ -417,8 +421,10 @@ lanes:
         start_at: '2026-11-25T13:57:30Z'
         end_at: '2026-11-25T14:00:00Z'
         status: prepared
-        handoff_status: prepared
-        handoff_message_id: null
+        handoff_status: sent
+        handoff_message_id: '1795615108.539579'
+        handoff_queue_id: convq_b73ecb24a749454e8f643e58aaff0566
+        handoff_attempt_at: '2026-11-25T13:58:35Z'
         result_summary: null
         changes: []
         release_runs: []

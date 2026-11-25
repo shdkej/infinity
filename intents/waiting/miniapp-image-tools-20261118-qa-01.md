@@ -726,3 +726,5 @@
 
 - helper의 `metrics_observation_due`에 따라 미사용 ID `miniapp-20261125-r3-t02`를 준비했다. 이는 오늘 새 원문 게시물 전체의 현재 플랫폼 표시 조회수를 한 번만 읽어 게시물별 최신값/미측정·시각·근거와 `obs_attempted_at`을 남기는 집중 관측이며, 새 게시/반복 새로고침은 포함하지 않는다.
 - 고정 종료 `2026-11-25T14:00:00Z`; guard는 not_started이며 같은 ID로 Windows guarded entrypoint에 한 번만 인계한다.
+
+- 13:58:28Z 발송 직전 원격 run/window/end/ID를 재검사했고, Windows에 동일한 r3-t02 한 차례 인계했다: Slack `1795615108.539579`, queue `convq_b73ecb24a749454e8f643e58aaff0566`. 이 전송 영수증은 조회 실행·수치·종료 영수증이 아니다.

@@ -1440,6 +1440,19 @@
         "intents/waiting/miniapp-image-tools-20261118-qa-01.md"
       ],
       "reason": "Helper metrics_observation_due triggered one focused read of current platform-displayed views for all new posts. Fixed window end 14:00Z preserved; no repeated refresh or new post is requested."
+    },
+    {
+      "type": "backfill",
+      "at": "2026-11-25T13:58:35Z",
+      "task_id": "miniapp-20261125-r3-t02",
+      "status": "sent",
+      "message_id": "1795615108.539579",
+      "queue_id": "convq_b73ecb24a749454e8f643e58aaff0566",
+      "evidence_paths": [
+        "INTENTS.yaml",
+        "intents/waiting/miniapp-image-tools-20261118-qa-01.md"
+      ],
+      "reason": "After checking latest remote run/window/end and the same prepared ID, sent one focused metrics-observation handoff. Delivery receipt does not prove execution or measurement."
     }
   ],
   "artifacts": [
