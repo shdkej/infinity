@@ -137,7 +137,7 @@ lanes:
     release_workflow_run: '45387803883'
     release_live_url: https://images.aws.shdkej.com/tools/image-converter/
     waiting_on: agent
-    blocker: 17시 시작 예정. _archivenoh 계정·조회 접근은 Windows 확인 중. 과거 Narrator는 이번 선행차단 아님.
+    blocker: "17:17 Windows 종료 영수증의 원장 누락을 복구. 현재 조회 재관측과 후속 대화 인계를 감독이 진행한다."
     prior_r2_t03_task_id: miniapp-20261124-r2-t03
     prior_r2_t03_status: source_published_deploy_blocked
     prior_r2_t03_result_summary: 0B 안내 불일치 수정·Node 9/9·Space SHA b8ee2e45; 앱 배포 보류, 라이브 구 문구. guard exit 0·잠금 해제.
@@ -200,12 +200,12 @@ lanes:
     prior_r3_t04_lock_released_verified_at: '2026-11-24T13:31:30.267831+00:00'
     prior_r3_t05_result_summary: Four separately decoded JPEG/WebP 80x40 outputs and decoded 10000x1 edge output; 12MiB padded and 20m
       edited-header cases selection-only. Node 11/11, no product change/release; customer outcomes unmeasured.
-    current_task_status: posted_guard_pending
-    current_task_result: _archivenoh 원문 1개 게시·원문 URL 확인; 17:10:14 KST 게시물 인사이트 조회수 0. guard 종료·잠금은 부모 확인 대기.
-    current_task_guard_status: pending_parent_after_child_exit
-    current_task_guard_exit_code: null
-    current_task_guard_finished_at: null
-    current_task_lock_released_verified_at: null
+    current_task_status: "completed"
+    current_task_result: "_archivenoh 원문 게시 완료. 17:10 첫 조회 0회는 과거 관측이며 현재 값 미측정. Windows 17:17 종료·잠금 해제 영수증을 뒤늦게 원장에 반영."
+    current_task_guard_status: "completed"
+    current_task_guard_exit_code: 0
+    current_task_guard_finished_at: "2026-11-25T08:16:05.525932Z"
+    current_task_lock_released_verified_at: "2026-11-25T08:17:14Z"
     current_task_followup: null
     prior_r3_t03_status: aggregate_verified_guard_completed
     prior_r3_t03_result_summary: US project 424014 bounded HogQL HTTP 200, 8 grouped rows; five event x synthetic/user counts in the task
@@ -271,7 +271,7 @@ lanes:
       next_day_resume: false
     experiment_run:
       run_id: miniapp-20261125-2h
-      status: running
+      status: "running"
       date: '2026-11-25'
       timezone: Asia/Seoul
       start_at: '2026-11-25T08:00:00Z'
@@ -359,10 +359,11 @@ lanes:
         goal: Threads _archivenoh의 정확한로그인·최근공개글·조회접근을확인하고 맥락에맞는짧은원문글1개를게시해 첫조회스냅샷/게시URL을기록한다. 미니앱홍보로고정하지않는다.
         start_at: '2026-11-25T08:00:00Z'
         end_at: '2026-11-25T10:00:00Z'
-        status: posted_guard_pending
+        status: completed
         handoff_status: sent
         handoff_message_id: '1795593652.728089'
-        result_summary: 정확한 로그인 _archivenoh의 프로필 편집·작성자 표시를 재확인하고 최근 공개 Threads 글 10개를 살폈다. 17:09:35 KST 원문 1개 게시, 원문 페이지 재확인. 17:10:14 KST 게시물 인사이트 조회수 0; 자가 조회를 고객 성과로 세지 않음.
+        result_summary: 정확한 로그인 _archivenoh의 프로필 편집·작성자 표시를 재확인하고 최근 공개 Threads 글 10개를 살폈다. 17:09:35 KST 원문 1개 게시, 원문 페이지 재확인. 17:10:14
+          KST 게시물 인사이트 조회수 0; 자가 조회를 고객 성과로 세지 않음.
         changes:
         - https://www.threads.com/@_archivenoh/post/DgKEVWij6oq
         release_runs: []
@@ -382,12 +383,15 @@ lanes:
           cross_review: deleg_7d876406
           completion_receipts: parent_previously_verified
         guard:
-          state: pending_parent_after_child_exit
-          exit_code: null
-          finished_at: null
-          lock_free_verified_at: null
+          state: completed
+          exit_code: 0
+          finished_at: '2026-11-25T08:16:05.525932Z'
+          lock_free_verified_at: '2026-11-25T08:17:14Z'
+          evidence_url: https://shdkej.slack.com/archives/C0CE0DV9MM2/p1795594639774739
+          evidence_source: Windows parent actual Slack receipt; reconciled by Codex, not a fresh lock probe
         status_check_at: '2026-11-25T08:15:10Z'
         completion_criteria: 계정재확인·새게시URL/시각·플랫폼표시조회또는미측정이유·개인경험발명없음·실제guard종료/잠금증거를동일task에원격기록.30분내결과목표,최종기한19시불변.
+        receipt_reconciled_at: '2026-11-25T12:54:46.606096+00:00'
       metrics:
         target: 10
         unit: threads_post_views
@@ -418,7 +422,7 @@ lanes:
         - mass_engagement
         - security_or_visibility_changes
         account_verified: true
-      next_action: r1 18:45 KST 새 글 조회를 다음 감독 관측에서 한 번 확인하고 19시 구간 보고. 자가 조회를 고객 성과로 세지 않음.
+      next_action: "감독이 r3 새 작업을 즉시 인계: 현재 원문 조회·답글 확인 후 관련 공개 대화에 기여하고, 실제 근거가 있으면 후속 원문 최대1개. 23시 고정 종료, 일일 원문3개/선제답글5개 상한 유지. Windows 진입점에서 현재 잠금을 다시 확인."
       setup_receipts:
         windows_guard_browser_message_id: '1795592153.192409'
         windows_account_public_message_id: '1795592691.132499'
