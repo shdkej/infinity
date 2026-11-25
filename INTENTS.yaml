@@ -354,8 +354,8 @@ lanes:
         start_at: '2026-11-25T08:00:00Z'
         end_at: '2026-11-25T10:00:00Z'
         status: prepared
-        handoff_status: prepared
-        handoff_message_id: null
+        handoff_status: sent
+        handoff_message_id: '1795593652.728089'
         result_summary: null
         changes: []
         release_runs: []
