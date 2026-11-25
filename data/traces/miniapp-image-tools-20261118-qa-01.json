@@ -1405,6 +1405,15 @@
         "logs/OPERATING_LESSONS.md"
       ],
       "note": "User reported first Threads post succeeded but follow-up stalled. Windows terminal receipt existed at17:17 KST; foreground SAM acknowledged but did not persist. Reconciled actual completed/exit0 and lock-free timestamps; added ten-minute receipt reconciliation and fifteen-minute bounded rechecks without relaxing dispatch lock. Thirty relevant tests pass after three regression tests first failed."
+    },
+    {
+      "type": "backfill",
+      "at": "2026-11-25T13:02:10Z",
+      "evidence_paths": [
+        "INTENTS.yaml",
+        "intents/waiting/miniapp-image-tools-20261118-qa-01.md"
+      ],
+      "note": "r3 task miniapp-20261125-r3-t01 handoff sent; Slack message 1795611726.462139, queue convq_40a5b43bafbaa01994ee598ac0baff80. Dispatch receipt only; task execution and current live-lock state remain unverified."
     }
   ],
   "artifacts": [

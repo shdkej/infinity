@@ -360,8 +360,10 @@ lanes:
         start_at: '2026-11-25T13:00:14Z'
         end_at: '2026-11-25T14:00:00Z'
         status: prepared
-        handoff_status: prepared
-        handoff_message_id: null
+        handoff_status: sent
+        handoff_message_id: '1795611726.462139'
+        handoff_queue_id: convq_40a5b43bafbaa01994ee598ac0baff80
+        handoff_attempt_at: '2026-11-25T13:02:10Z'
         result_summary: null
         changes: []
         release_runs: []
