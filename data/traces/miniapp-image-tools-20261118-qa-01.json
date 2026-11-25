@@ -1372,6 +1372,15 @@
         "intents/waiting/miniapp-image-tools-20261118-qa-01.md"
       ],
       "reason": "Supervisor recorded one due status-only query; request delivery receipt is pending."
+    },
+    {
+      "type": "backfill",
+      "at": "2026-11-25T08:16:00Z",
+      "status": "status_check_sent",
+      "task_id": "miniapp-20261125-r1-t01",
+      "message_id": "1795594624.812469",
+      "queue_id": "convq_42b182b31c4942fcc0e06687c34c34bf",
+      "reason": "Sent one status-only request after the due status_check_at was recorded; no reply/guard evidence confirmed yet."
     }
   ],
   "artifacts": [
