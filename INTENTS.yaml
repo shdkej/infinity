@@ -286,7 +286,7 @@ lanes:
       next_day_resume: false
     experiment_run:
       run_id: miniapp-20261125-2h
-      status: "running"
+      status: "finished"
       date: '2026-11-25'
       timezone: Asia/Seoul
       start_at: '2026-11-25T08:00:00Z'
@@ -301,14 +301,18 @@ lanes:
       supervisor_job_id: eb75facc-7686-4746-a399-4ef6d881048e
       closeout_job_id: 8e116857-63f9-4475-8e55-4a7c386e4a16
       configuration_status: verified
-      final_report_status: pending
+      final_report_status: prepared
+      final_report_prepared_at: '2026-11-25T14:02:20Z'
+      final_report: reports/miniapp-image-tools-20261118-qa-01/20261125T1400Z.html
       final_report_delivery_receipt: null
-      supervisor_enabled: true
+      supervisor_enabled: false
+      supervisor_disabled_at: '2026-11-25T14:01:51.340Z'
+      supervisor_disable_status: disabled_verified
       windows:
       - id: r1
         start_at: '2026-11-25T08:00:00Z'
         end_at: '2026-11-25T10:00:00Z'
-        status: running
+        status: finished
         goal: 계정·기존글·조회확인과 맥락에맞는 첫글1개 게시
         task_sequence: 1
         report_status: sent
@@ -333,7 +337,7 @@ lanes:
       - id: r2
         start_at: '2026-11-25T10:00:00Z'
         end_at: '2026-11-25T12:00:00Z'
-        status: planned
+        status: finished
         goal: 첫반응으로 다른표현/형식글1개·관련대화에 소수답글
         task_sequence: 0
         report_status: sent
@@ -352,10 +356,10 @@ lanes:
       - id: r3
         start_at: '2026-11-25T12:00:00Z'
         end_at: '2026-11-25T14:00:00Z'
-        status: running
+        status: finished
         goal: 반응있는주제후속최대1개·조회10회판정과마감
         task_sequence: 1
-        report_status: pending
+        report_status: prepared
         report_message_id: null
         exhausted: false
         metrics:
@@ -425,6 +429,9 @@ lanes:
         handoff_message_id: '1795615108.539579'
         handoff_queue_id: convq_b73ecb24a749454e8f643e58aaff0566
         handoff_attempt_at: '2026-11-25T13:58:35Z'
+        status_check_at: '2026-11-25T14:01:45Z'
+        status_check_message_id: '1795615304.995919'
+        status_check_result: no_reply_observed_at_closeout
         result_summary: null
         changes: []
         release_runs: []
@@ -510,7 +517,7 @@ lanes:
         account_auth_status: authenticated_exact_handle_verified_2026-11-25T08:09:35Z
         sam_contract_run_id: threads-twohour-contract-20261125
         helper_test_count: 27
-    next_action: r3-t01의 13:04Z 원문 214조회·13:08Z 맥락 답글 1건 및 부모 guard·잠금 확인 완료. SAM의 r3 구간 보고 대기; 자가 조회를 고객 성과로 세지 않음.
+    next_action: 'run miniapp-20261125-2h는 고정 23:00 KST 종료. r3-t02 결과/가드 영수증 미확인; 종료 후 재실행하지 않음. 다음 제안: 향후 별도 승인된 실험은 종료 전 계측 영수증 회수 cutoff를 두고 마감.'
     notification_channel: slack
     notification_target: channel:C0CE0DV9MM2
     notification_reply_to: '1794983278.888719'

@@ -728,3 +728,14 @@
 - 고정 종료 `2026-11-25T14:00:00Z`; guard는 not_started이며 같은 ID로 Windows guarded entrypoint에 한 번만 인계한다.
 
 - 13:58:28Z 발송 직전 원격 run/window/end/ID를 재검사했고, Windows에 동일한 r3-t02 한 차례 인계했다: Slack `1795615108.539579`, queue `convq_b73ecb24a749454e8f643e58aaff0566`. 이 전송 영수증은 조회 실행·수치·종료 영수증이 아니다.
+
+
+## 2026-11-25 same-day closeout
+
+The fixed run `miniapp-20261125-2h` ended at 23:00 KST and is recorded `finished` (time ended, not all tasks successful). The supervisor was disabled and verified at 23:01:51 KST; its saved definition/history remain intact. No next-day run or post-deadline execution was started.
+
+- **Threads views:** the only new original was [DgKEVWij6oq](https://www.threads.com/@_archivenoh/post/DgKEVWij6oq). Its latest valid platform snapshot was **214 views at 2026-11-25T13:04:49.237Z** (214/10). The earlier 0 at 08:10:14.649Z is historical, not added. Views are not unique customers.
+- **Execution across all windows:** r1 one original after exact-handle authentication; r2 no tasks; r3-t01 one substantive reply in a relevant public conversation, no additional original. Its guard exit 0 and lock-free state were verified.
+- **Unresolved:** r3-t02 was handed off for one final metrics read. No actual execution/measurement/guard receipt was visible by closeout. One status-only request was sent after fixed end; no reply was observed at report preparation. No restart, forced lock clearing, or extension.
+- **Next proposal:** for any separately authorized future run, set a pre-end cutoff to capture measurement and termination receipts. No automatic next-day work.
+- **Report:** `reports/miniapp-image-tools-20261118-qa-01/20261125T1400Z.html` (prepared; final delivery receipt not yet available).

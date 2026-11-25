@@ -1453,6 +1453,55 @@
         "intents/waiting/miniapp-image-tools-20261118-qa-01.md"
       ],
       "reason": "After checking latest remote run/window/end and the same prepared ID, sent one focused metrics-observation handoff. Delivery receipt does not prove execution or measurement."
+    },
+    {
+      "type": "backfill",
+      "at": "2026-11-25T14:02:20Z",
+      "run_id": "miniapp-20261125-2h",
+      "status": "run_finished_supervisor_disabled_verified",
+      "meaning": "Fixed schedule ended; not all tasks asserted successful.",
+      "windows": {
+        "r1": {
+          "tasks": 1,
+          "summary": "exact account auth; one new original; first snapshot 0 at 08:10:14Z"
+        },
+        "r2": {
+          "tasks": 0,
+          "metrics": "unmeasured"
+        },
+        "r3": {
+          "tasks": 2,
+          "summary": "one substantive reply; no new original; t01 guard completed/lock free; t02 result unconfirmed"
+        }
+      },
+      "metric": {
+        "target": 10,
+        "unit": "Threads platform views on today's new original posts",
+        "latest_valid_total": 214,
+        "observed_at": "2026-11-25T13:04:49.237Z",
+        "post_ids": [
+          "DgKEVWij6oq"
+        ],
+        "older_snapshot_not_added": "0 at 2026-11-25T08:10:14.649Z",
+        "customer_outcomes": "unmeasured; platform views are not unique customers"
+      },
+      "supervisor": {
+        "job_id": "eb75facc-7686-4746-a399-4ef6d881048e",
+        "enabled": false,
+        "verified_at": "2026-11-25T14:01:51.340Z"
+      },
+      "r3_t02": {
+        "handoff_message_id": "1795615108.539579",
+        "status_check_message_id": "1795615304.995919",
+        "status_check_result": "no reply observed at closeout; execution, measurement and guard/lock state unconfirmed; no re-dispatch"
+      },
+      "final_report_status": "prepared",
+      "no_next_day_work": true,
+      "evidence_paths": [
+        "INTENTS.yaml",
+        "intents/waiting/miniapp-image-tools-20261118-qa-01.md",
+        "reports/miniapp-image-tools-20261118-qa-01/20261125T1400Z.html"
+      ]
     }
   ],
   "artifacts": [
@@ -1506,6 +1555,14 @@
       "label": "r1-t03 source-size before/after, unit boundaries and live converter QA",
       "url": "https://github.com/shdkej/space/blob/main/infra-aws-static-sites/sites/miniapp-image-tools/qa/release-checkpoint.md",
       "location_kind": "external"
+    },
+    {
+      "type": "report",
+      "status": "prepared",
+      "at": "2026-11-25T14:02:20Z",
+      "path": "reports/miniapp-image-tools-20261118-qa-01/20261125T1400Z.html",
+      "label": "Threads same-day run closeout; platform views 214/10 at 13:04:49Z; r3-t02 unconfirmed",
+      "url": "https://github.com/shdkej/infinity/blob/main/reports/miniapp-image-tools-20261118-qa-01/20261125T1400Z.html"
     }
   ],
   "verifications": [
@@ -2310,8 +2367,8 @@
     }
   ],
   "next_decision": {
-    "status": "in_progress",
-    "value": "r3-t01 observed 214 platform views and 3 inbound replies at 13:04Z, confirmed one substantive outbound reply at 13:08Z. Parent must verify same-ID guard exit and shared lock after child exits; SAM owns pending r3 report. No new task or quota-driven original."
+    "status": "open",
+    "value": "Run ended at fixed time. No automatic next-day work. If a future run is separately authorized, require metrics and guard/lock receipts before the fixed-end cutoff; r3-t02 remains execution-unconfirmed."
   },
   "handoff_attempts": [
     {
