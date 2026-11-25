@@ -1842,18 +1842,40 @@
       "at": "2026-11-24T14:23:00Z",
       "task_id": "miniapp-20261124-r3-t06",
       "status": "evidence_reconciled_guard_completed",
-      "source_tasks": ["miniapp-20261124-r3-t01", "miniapp-20261124-r3-t02", "miniapp-20261124-r3-t03", "miniapp-20261124-r3-t04", "miniapp-20261124-r3-t05"],
+      "source_tasks": [
+        "miniapp-20261124-r3-t01",
+        "miniapp-20261124-r3-t02",
+        "miniapp-20261124-r3-t03",
+        "miniapp-20261124-r3-t04",
+        "miniapp-20261124-r3-t05"
+      ],
       "finding": "One released synthetic race fix; Narrator cleanup still blocked; bounded 5-event aggregate is not customer outcome; corrupt/unsupported PNG recovery and JPEG/WebP boundary QA passed without product changes. All five prior guards completed exit 0 before 14:30Z and locks were separately verified free. Initial individual reports with pending guard labels are as-of snapshots; later detail/trace receipts are final.",
       "customer_outcomes": "unmeasured; actual AT speech and real-device behavior unverified",
       "new_execution": "none: no browser/API/PostHog rerun, product change or deployment",
-      "roles": {"independent": "deleg_a7fe0654", "cross_review": "deleg_5d3ce208", "four_each_completed": true, "source": "parent handoff"},
-      "guard": {"end_at": "2026-11-24T14:30:00Z", "state": "completed", "exit_code": 0, "finished_at": "2026-11-24T14:27:53.640518+00:00", "lock_free_verified_at": "2026-11-24T14:28:28.731513+00:00", "lock_readonly_absent_at": "2026-11-24T14:31:20.701620+00:00", "source": "parent SQLite readback and nonblocking flock; later read-only lslocks observation"},
-      "evidence_paths": ["reports/miniapp-image-tools-20261118-qa-01/20261124T1423Z-r3-t06.html", "intents/waiting/miniapp-image-tools-20261118-qa-01.md"]
+      "roles": {
+        "independent": "deleg_a7fe0654",
+        "cross_review": "deleg_5d3ce208",
+        "four_each_completed": true,
+        "source": "parent handoff"
+      },
+      "guard": {
+        "end_at": "2026-11-24T14:30:00Z",
+        "state": "completed",
+        "exit_code": 0,
+        "finished_at": "2026-11-24T14:27:53.640518+00:00",
+        "lock_free_verified_at": "2026-11-24T14:28:28.731513+00:00",
+        "lock_readonly_absent_at": "2026-11-24T14:31:20.701620+00:00",
+        "source": "parent SQLite readback and nonblocking flock; later read-only lslocks observation"
+      },
+      "evidence_paths": [
+        "reports/miniapp-image-tools-20261118-qa-01/20261124T1423Z-r3-t06.html",
+        "intents/waiting/miniapp-image-tools-20261118-qa-01.md"
+      ]
     }
   ],
   "next_decision": {
-    "status": "r3_t06_evidence_reconciled_guard_completed_waiting_narrator",
-    "value": "Existing r3-t01 through t05 reports and later detail/trace guard receipts reconciled in r3-t06 HTML evidence matrix. One live released fix, two no-change synthetic QA passes, one bounded aggregate and one blocked Narrator cleanup. No customer outcome or actual AT speech verified. t06 guard completed exit 0 at 14:27:53Z; lock free verified at 14:28:28Z. SAM r3 interval report pending."
+    "status": "run_finished_report_delivered_reviewed",
+    "value": "11/24 실험과 최종 보고 종료. 자동 재개 없음. 새 실행 전에 즉시 후속 인계 권한·구간 전체 보고·고객 검증 목표를 검토한다. Narrator 정리는 대화형 Windows 잠금 해제와 원 인스턴스 재확인 후 판단하며 고객 성과는 미측정."
   },
   "handoff_attempts": [
     {
@@ -2171,6 +2193,51 @@
         "INTENTS.yaml",
         "intents/waiting/miniapp-image-tools-20261118-qa-01.md",
         "reports/miniapp-image-tools-20261118-qa-01/20261124T1423Z-r3-t06.html"
+      ]
+    },
+    {
+      "type": "same_day_experiment_delivery_reviewed",
+      "at": "2026-11-25T00:38:15Z",
+      "run_id": "miniapp-20261124-3h",
+      "final_report_status": "delivered",
+      "closeout_job_id": "8e116857-63f9-4475-8e55-4a7c386e4a16",
+      "run_at_ms": 1795530600015,
+      "delivery_status": "delivered",
+      "message_id": "1795531097.181849",
+      "message_sent_at": "2026-11-24T14:38:17.181849Z",
+      "evidence": "Current cron runs/get and native Slack thread readback; both experiment jobs disabled, no next-day restart.",
+      "customer_outcomes": "unmeasured",
+      "window_task_counts": {
+        "r1": 8,
+        "r2": 6,
+        "r3": 6
+      },
+      "release_run_ids": [
+        45335134749,
+        45340408863,
+        45343956525,
+        45373438908,
+        45377563324,
+        45387803883
+      ],
+      "live_readback": {
+        "status": 200,
+        "bytes": 17940,
+        "sha256": "dee66985a1dd09a33cdcd5ccf0f9dd9a98c20953a3c41672d2815622b1b59e39",
+        "paths": [
+          "/tools/image-converter/",
+          "/tools/image-converter/index.html"
+        ]
+      },
+      "limitations": [
+        "Windows guard receipts were reported by executor, not independently queried from this host.",
+        "Customer outcomes and actual screen-reader speech remain unverified.",
+        "r1/r2 reports summarized final no-change QA and omitted earlier window deployments.",
+        "SAM reported immediate supervisor wake denied by session permissions at Slack 1795499519.344349"
+      ],
+      "evidence_paths": [
+        "intents/waiting/miniapp-image-tools-20261118-qa-01.md",
+        "https://shdkej.slack.com/archives/C0CE0DV9MM2/p1795531097181849"
       ]
     }
   ]

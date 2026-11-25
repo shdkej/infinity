@@ -207,7 +207,7 @@ lanes:
     current_task_guard_exit_code: 0
     current_task_guard_finished_at: '2026-11-24T14:27:53.640518+00:00'
     current_task_lock_released_verified_at: '2026-11-24T14:28:28.731513+00:00'
-    current_task_followup: 'SAM r3 interval report pending; Narrator PID 27296 separately blocked until interactive unlock.'
+    current_task_followup: "Final report delivered and verified on 2026-11-25; no automatic restart. Narrator cleanup remains unresolved in last executor evidence."
     prior_r3_t03_status: aggregate_verified_guard_completed
     prior_r3_t03_result_summary: 'US project 424014 bounded HogQL HTTP 200, 8 grouped rows; five event x synthetic/user counts in the task verification. Guard 12:51:04Z completed/exit 0 and lock 12:51:25Z free. Customer/unique people unmeasured; Narrator PID 27296 separate blocked issue.'
     prior_r3_t01_status_check_at: '2026-11-24T11:46:05Z'
@@ -277,9 +277,12 @@ lanes:
       dispatch_owner: sam_supervisor_cron
       supervisor_job_id: eb75facc-7686-4746-a399-4ef6d881048e
       closeout_job_id: 8e116857-63f9-4475-8e55-4a7c386e4a16
-      final_report_status: prepared
+      final_report_status: "delivered"
+      final_report_message_id: '1795531097.181849'
+      final_report_sent_at: '2026-11-24T14:38:17.181849Z'
+      final_report_verified_at: '2026-11-25T00:38:15Z'
       final_report_prepared_at: '2026-11-24T14:32:41Z'
-      final_report_delivery_receipt: unobserved_until_cron_delivery
+      final_report_delivery_receipt: "cron runAtMs=1795530600015 deliveryStatus=delivered; Slack message 1795531097.181849 independently read back"
       supervisor_disable_status: disabled_verified
       supervisor_disabled_at: '2026-11-24T14:32:41Z'
       supervisor_enabled: false
@@ -450,7 +453,8 @@ lanes:
           transform_succeeded: {synthetic: 81, user: 1}
           transform_failed: {synthetic: 26, user: 0}
           download_requested: {synthetic: 68, user: 0}
-        report_status: prepared
+        report_status: "sent"
+        report_message_id: '1795531097.181849'
         prior_r3_t01_execution_snapshot_at: '2026-11-24T11:58:40Z'
         prior_r3_t01_execution_snapshot: r3-t01 product/live verified; guard completed exit 0 and shared lock free; r3-t02 handoff sent 1795522715.346669
         prior_r3_t01_product_source_sha: dc43b456354f3f03edf402a8dfce0a10172f8d81
@@ -472,32 +476,32 @@ lanes:
         prior_r3_t05_guard_final_receipt: completed_exit_0_at_2026-11-24T14:00:59.198202Z_lock_free_14:01:42.129832Z
         current_task_report: reports/miniapp-image-tools-20261118-qa-01/20261124T1423Z-r3-t06.html
         goal: Reconcile existing r3-t01 through t05 evidence for SAM's pending interval closeout; no new execution.
-        next_action: SAM interval report pending; t06 guard/lock parent receipt recorded. Narrator cleanup separately blocked.
+        next_action: "Final report delivered at 2026-11-24T14:38:17Z; t06 guard/lock receipt complete. No automatic restart; Narrator cleanup unresolved."
       prior_task_status_check_at: '2026-11-24T09:45:00Z'
       prior_task_status_check_status: sent
       prior_task_status_check_task_id: miniapp-20261124-r2-t03
       prior_task_status_check_message_id: '1795513609.377209'
       prior_task_status_check_queue_id: convq_c529ac4db654882a9a0376b1f9834b7c
-      last_task_status: recovery_rehearsed_release_live_verified
-      last_task_id: miniapp-20261124-r2-t04
-      last_task_result: 두 S3 객체의 본문·메타데이터 복원 및 긴급 restore 입증, 앱 전용 Action 45373438908 성공·라이브 두 경로 동일 SHA 확인; 고객 성과 미측정.
-      last_task_guard_finished_at: '2026-11-24T10:23:34.312858+00:00'
+      last_task_status: "evidence_reconciled_guard_completed"
+      last_task_id: "miniapp-20261124-r3-t06"
+      last_task_result: "r3-t01~t05 근거표 정합화, t06 guard exit 0·잠금 해제 및 최종 보고 전달 확인. 고객 성과 미측정."
+      last_task_guard_finished_at: "2026-11-24T14:27:53.640518Z"
       last_task_guard_exit_code: 0
-      last_task_lock_released_verified_at: '2026-11-24T10:27:44Z'
-      handoff_attempt_at: '2026-11-24T10:31:10Z'
+      last_task_lock_released_verified_at: "2026-11-24T14:28:28.731513Z"
+      handoff_attempt_at: "2026-11-24T14:15:00Z"
       handoff_status: sent
-      handoff_message_id: '1795516420.694159'
-      handoff_queue_id: convq_97ca970aaebf3d9cf6a2a2f1743a326d
+      handoff_message_id: "1795529868.509459"
+      handoff_queue_id: "convq_da77eaff32e9dbf0a44c3308b01d9a90"
       report_status: sent
-      report_message_id: '1795519852.919859'
-      next_action: r3-t04에서 합성 손상/미지원 입력 거부와 유효 PNG 재선택 복구를 기존 라이브에서 확인; 재현 결함만 작은 수정·테스트·앱 전용 배포·라이브 검증, 아니면 근거와 종료 영수증 기록. Narrator PID 27296은 대화형 Windows 잠금 해제 전 종료 재시도 금지. 고정 14:30Z 종료.
+      report_message_id: "1795531097.181849"
+      next_action: "11/24 실험과 최종 보고 종료. 자동 재개 없음. 새 실행 전에 즉시 후속 인계 권한·구간 전체 보고·고객 검증 목표를 검토한다. Narrator 정리는 대화형 Windows 잠금 해제와 원 인스턴스 재확인 후 판단하며 고객 성과는 미측정."
       prior_r2_t05_status_check_at: '2026-11-24T10:45:00Z'
       prior_r2_t05_status_check_status: prepared
       prior_r2_t05_status_check_task_id: miniapp-20261124-r2-t05
       prior_r2_t05_status_check_message_id: '1795517213.706259'
       prior_r2_t05_status_check_queue_id: convq_b3800df487bd672c099f41b904f78e0f
       prior_r2_t05_status_check_reason: 최신 원격에 t05 결과/guard/잠금 갱신 없음; 동일 ID 업무 재전송 없이 상태 1회 확인.
-    next_action: r3-t04 입력 오류·복구 QA 결과를 고정 end_at 이전 회수하고, 23:30 KST 종합 마감에서 최종 run 보고·감독 종료를 처리한다. r3-t03 aggregate/guard 종료·lock 해제는 완료; 고객 성과 미측정.
+    next_action: "11/24 실험과 최종 보고 종료. 자동 재개 없음. 새 실행 전에 즉시 후속 인계 권한·구간 전체 보고·고객 검증 목표를 검토한다. Narrator 정리는 대화형 Windows 잠금 해제와 원 인스턴스 재확인 후 판단하며 고객 성과는 미측정."
     notification_channel: slack
     notification_target: channel:C0CE0DV9MM2
     notification_reply_to: '1794983278.888719'
