@@ -2599,11 +2599,35 @@
       "roles": {"independent": "deleg_5d681a6f", "cross_review": "deleg_e697d2d7", "source": "parent handoff reported; no duplicate child delegation in this narrow follow-up"},
       "guard": {"state": "completed", "exit_code": 0, "started_at": "2026-11-26T09:29:35.249827Z", "finished_at": "2026-11-26T09:40:08.455408Z", "lock_free_verified_at": "2026-11-26T09:40:25.919746Z", "source": "parent read private SQLite row and lslocks no holder after child exit; observation time is not exact unlock time"},
       "evidence_paths": ["INTENTS.yaml", "intents/waiting/miniapp-image-tools-20261118-qa-01.md", "reports/miniapp-image-tools-20261118-qa-01/20261126T0933Z-r1-t02.html"]
+    },
+    {
+      "label": "2026-11-26 r2-t01 second Threads original and substantive proactive reply",
+      "type": "threads_public_post",
+      "at": "2026-11-26T10:11:24Z",
+      "task_id": "miniapp-20261126-r2-t01",
+      "status": "product_completed_guard_pending_parent",
+      "account": "_archivenoh",
+      "account_evidence": "Ego Lite 0.6.3.17 Profile 3 taskSpace 155; own profile edit username and original/reply composer author _archivenoh immediately before submit",
+      "first_original": {"id": "DgMuNsRj08E", "url": "https://www.threads.com/@_archivenoh/post/DgMuNsRj08E", "published_at": "2026-11-26T08:54:01Z", "views": 15, "obs_attempted_at": "2026-11-26T10:06:18.624Z", "observed_at": "2026-11-26T10:06:18.624Z", "source": "https://www.threads.com/insights/post/DgMuNsRj08E", "previous_views": 12, "previous_observed_at": "2026-11-26T09:31:00.870Z", "previous_excluded_from_sum": true},
+      "second_original": {"id": "DgM2pLlD23S", "url": "https://www.threads.com/@_archivenoh/post/DgM2pLlD23S", "published_at": "2026-11-26T10:07:40Z", "text": "퇴고를 한 번에 끝내려 하면 내용과 말맛을 동시에 보느라 놓치는 게 생긴다.\n\n가상의 안내문을 예로 들면, 초고 ‘신청 일정이 바뀝니다.’ 첫 회차에는 ‘신청 마감이 금요일에서 목요일로 앞당겨집니다.’처럼 바뀐 사실을 정확히 적는다. 잠시 뒤 다시 읽는 두 번째 회차에는 ‘신청 마감: 목요일 오후 6시(기존 금요일).’처럼 읽는 순서와 호흡을 살핀다.\n\n첫 회차는 뜻, 다음 회차는 읽히는 리듬. 시간을 떼어놓으면 서로 다른 문제를 볼 수 있다.", "views": 0, "obs_attempted_at": "2026-11-26T10:08:06.972Z", "observed_at": "2026-11-26T10:08:06.972Z", "source": "https://www.threads.com/insights/post/DgM2pLlD23S", "verification": "exact public URL author, full DOM text, time[datetime]; no parent"},
+      "target_views": 1000,
+      "latest_original_views_sum": 15,
+      "mixed_observation_times": true,
+      "daily_inbound_observed": 5,
+      "daily_inbound_responses_sent": 4,
+      "daily_proactive_replies_sent": 1,
+      "inbound_handling": "First original and activity showed no new substantive question; pre-existing life.innovator agreement remains unanswered by choice. No repeat replies to four previously handled targets.",
+      "reply": {"kind": "proactive", "target_url": "https://www.threads.com/@_.pearl_shine/post/DgLNGrqkgbT", "url": "https://www.threads.com/@_archivenoh/post/DgM3EckD21U", "published_at": "2026-11-26T10:11:24Z", "text": "교정이 이미 필요한 작업이면 그 자체로 충분히 쓸모 있어요. 한 가지 확장해보자면, 원문을 붙이고 ‘맞춤법만 고친 버전 / 뜻이 흐린 문장 2곳과 이유 / 원문 그대로 둘 문장’을 따로 요청해 보세요. 바뀐 사실이나 말투는 마지막에 직접 고르면, 단순 교정보다 판단할 재료가 남을 것 같아요.", "verification": "exact public URL author, full DOM text, time[datetime], parent _.pearl_shine original; one submit"},
+      "conversation_participation": "Sampled recent 퇴고, 초고, 글쓰기, 문장 고치기 and 글 쓰기 어려워 public posts; commercial/self-promotional and unrelated items skipped. Selected a substantive correction-workflow question for one first reply; not a quota.",
+      "roles": {"independent": "deleg_0e781ff8", "cross_review": "deleg_02fad575", "source": "parent handoff reported; no duplicate delegation in guarded child"},
+      "guard": {"state": "pending_parent_verification", "exit_code": null, "finished_at": null, "lock_free_verified_at": null, "source": "parent must read actual SQLite row and shared lock only after child exit"},
+      "followup": "r2-t02 separately scheduled at 2026-11-26T11:00:00Z; r2 window report pending for SAM; do not run next task here",
+      "evidence_paths": ["INTENTS.yaml", "intents/waiting/miniapp-image-tools-20261118-qa-01.md", "reports/miniapp-image-tools-20261118-qa-01/20261126T1012Z-r2-t01.html"]
     }
   ],
   "next_decision": {
     "status": "in_progress",
-    "value": "r1-t02 public follow-up observed and replied; parent guard exit/lock receipt and 19:00 window report pending; r2 starts at10:00Z, 23:00 KST fixed closeout."
+    "value": "r2-t01 second original and one proactive reply publicly verified, two mixed-time insight snapshots total 15/1000; parent guard/lock receipt pending. r2-t02 at 11:00Z and r2 window report pending; 23:00 KST fixed closeout."
   },
   "handoff_attempts": [
     {
