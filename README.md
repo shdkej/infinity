@@ -77,6 +77,8 @@ dispatcher 점검은 exit 0만 보지 말고 JSON의 `invalid_state`를 확인�
 
 `python3 scripts/miniapp_experiment.py snapshot --remote`는 원격 현재 run의 날짜·구간·준비 작업·종료/잠금 영수증을 읽어 인계 가능 여부를 반환합니다. 직접 상태를 쓰거나 작업을 보내지 않습니다. `normalization_proposals`가 있으면 감독이 같은 ID의 실제 근거를 확인해 원장에 반영·push한 뒤 다시 읽습니다. `planned_tasks_only` 구간에서는 시각이 된 사전 등록 작업만 실행하며, 마지막 관측을 우선하고 기한이 임박하면 새 인계를 막습니다.
 
+`pdca_required` run에서는 이전 관측 task의 실제 종료 근거·Check/Act와 다음 Plan의 변경 연결을 추가 검사합니다. `pdca_close_required_windows`와 `pdca_plan_required_window`는 SAM이 원장에 판단을 반영한 뒤 다시 읽을 신호입니다. 관측 업무와 기존 잠금 보호는 그대로 유지합니다. schema와 판정 기준은 KL PRD를 따릅니다.
+
 검증은 `python3 -m unittest discover -s scripts -p 'test_miniapp_experiment.py'`와 원장/단일 trace 검사입니다. 기존 supervisor와 closeout 예약만 사용하며 보고는 native send의 실제 본문·영수증으로 확인합니다. 중단은 두 예약 disable과 run.enabled=false입니다. 설정·테스트 통과와 실제 구간 이행은 별도로 판정합니다.
 
 ## 알려진 한계

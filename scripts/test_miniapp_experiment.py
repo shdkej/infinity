@@ -517,5 +517,109 @@ class Loading(unittest.TestCase):
             helper.snapshot(run, helper.parse_time("2026-11-25T17:30:00+09:00"))
 
 
+
+class PdcaGates(unittest.TestCase):
+    def setUp(self):
+        self.run = run_fixture()
+        self.run["pdca_required"] = True
+        for i, w in enumerate(self.run["windows"]):
+            w["planned_tasks_only"] = True
+            w["observation_due_at"] = f"2026-11-25T{18+i*2}:00:00+09:00"
+            w["pdca"] = {"hypothesis": "A concrete choice prompts useful replies",
+                         "changed_variable": "topic", "success_rule": "one substantive reply",
+                         "plan_at": "2026-11-25T16:00:00+09:00"}
+            for n, kind in enumerate(("engagement", "observation")):
+                self.run["tasks"].append(task("prepared", id=f"r{i+1}-t{n+1}",
+                    window_id=w["id"], kind=kind,
+                    start_at=f"2026-11-25T{17+i*2+n}:00:00+09:00", end_at=w["end_at"],
+                    handoff_status="prepared", handoff_message_id=None,
+                    guard={"state": "not_started", "exit_code": None,
+                           "finished_at": None, "lock_free_verified_at": None}))
+
+    def snap(self, time):
+        return helper.snapshot(self.run, helper.parse_time(f"2026-11-25T{time}+09:00"))
+
+    def finish_first(self):
+        for t in self.run["tasks"][:2]:
+            t.update(status="completed", handoff_status="sent", handoff_message_id=t["id"], result_summary="Observed replies")
+            t["guard"] = {"state": "completed", "exit_code": 0,
+                          "finished_at": "2026-11-25T18:20:00+09:00",
+                          "lock_free_verified_at": "2026-11-25T18:21:00+09:00"}
+        self.run["windows"][0]["metrics"] = {"observed_at": "2026-11-25T18:15:00+09:00"}
+
+    def close_first_pdca(self):
+        self.finish_first()
+        self.run["windows"][0]["pdca"].update(
+            check_at="2026-11-25T18:30:00+09:00", act_at="2026-11-25T18:31:00+09:00",
+            observation_status="observed", check_task_ids=["r1-t2"], decision="refine",
+            learning="Views but no useful reply", next_change="question specificity")
+        self.run["windows"][1]["pdca"].update(
+            plan_at="2026-11-25T18:32:00+09:00", based_on_window_id="r1",
+            source_task_ids=["r1-t2"], changed_variable="question specificity")
+
+    def test_missing_first_hypothesis_wakes_planner_without_dispatch(self):
+        self.run["windows"][0]["pdca"]["hypothesis"] = None
+        s = self.snap("17:00:00")
+        self.assertFalse(s["dispatch_allowed"])
+        self.assertEqual(s.get("pdca_plan_required_window"), "r1")
+        self.assertTrue(s["fire"])
+
+    def test_next_loop_cannot_repeat_plan_without_previous_check_and_act(self):
+        self.finish_first()
+        s = self.snap("19:00:00")
+        self.assertFalse(s["dispatch_allowed"])
+        self.assertEqual(s.get("pdca_close_required_windows"), ["r1"])
+
+    def test_actual_previous_learning_opens_next_loop_and_does_not_mutate(self):
+        self.close_first_pdca()
+        before = copy.deepcopy(self.run)
+        s = self.snap("19:00:00")
+        self.assertTrue(s["dispatch_allowed"])
+        self.assertEqual(s["reuse_task_id"], "r2-t1")
+        self.assertEqual(self.run, before)
+
+    def test_changed_variable_must_apply_previous_action(self):
+        self.close_first_pdca()
+        self.run["windows"][1]["pdca"]["changed_variable"] = "unrelated topic"
+        s = self.snap("19:00:00")
+        self.assertFalse(s["dispatch_allowed"])
+        self.assertEqual(s.get("pdca_plan_required_window"), "r2")
+
+    def test_fabricated_or_future_check_cannot_open_dispatch(self):
+        for change in ({"check_task_ids": ["foreign-task"]},
+                       {"check_at": "2026-11-25T20:00:00+09:00"},
+                       {"act_at": "2026-11-25T18:00:00+09:00"}):
+            with self.subTest(change=change):
+                self.setUp(); self.close_first_pdca()
+                self.run["windows"][0]["pdca"].update(change)
+                self.assertFalse(self.snap("19:00:00")["dispatch_allowed"])
+
+    def test_documented_unavailable_observation_can_continue_as_inconclusive(self):
+        self.close_first_pdca()
+        self.run["windows"][0]["metrics"] = {"observed_at": None}
+        p = self.run["windows"][0]["pdca"]
+        p.update(observation_status="unavailable", decision="inconclusive", learning="Insights unavailable; task result records failed read")
+        self.assertTrue(self.snap("19:00:00")["dispatch_allowed"])
+        p["decision"] = "keep"
+        self.assertFalse(self.snap("19:00:00")["dispatch_allowed"])
+
+    def test_observation_still_runs_when_plan_metadata_is_incomplete(self):
+        self.run["tasks"][0] = finished(id="r1-t1")
+        self.run["windows"][0]["pdca"] = {}
+        self.assertEqual(self.snap("18:00:00")["reuse_task_id"], "r1-t2")
+
+    def test_completed_followup_wakes_pdca_close_before_next_window(self):
+        self.finish_first()
+        s = self.snap("18:30:00")
+        self.assertTrue(s["fire"])
+        self.assertEqual(s.get("pdca_close_required_windows"), ["r1"])
+        self.assertFalse(s["dispatch_allowed"])
+
+    def test_live_guard_and_day_end_are_never_bypassed_by_pdca(self):
+        self.close_first_pdca()
+        self.run["tasks"][1]["guard"]["lock_free_verified_at"] = None
+        self.assertFalse(self.snap("19:00:00")["dispatch_allowed"])
+        self.assertFalse(self.snap("23:00:00")["fire"])
+
 if __name__ == "__main__":
     unittest.main()

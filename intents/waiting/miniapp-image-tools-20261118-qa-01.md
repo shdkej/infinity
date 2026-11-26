@@ -1,5 +1,17 @@
 # [miniapp-image-tools-20261118-qa-01] Threads _archivenoh · 오늘 조회 1,000회 실험
 
+## 11/27 PDCA 세 루프 — 예약 준비
+
+검증: 관련 helper59개 통과. 저장소 전체181개 중180개 통과, 변경하지 않은 `test_prepare_dispatch_cycle.PlanTests.test_no_deadline_exploratory_intent_routes_to_terminal_closeout` 1개 실패(예상 research-1, 실제 빈 후보). 해당 테스트/모듈의 기존 HEAD 일치를 확인했으며 오늘 PDCA 감독 경로와 무관하다. 별도 dispatcher 결함으로 남긴다. 이전 trace의 이동된 Context Pack 경로8곳을 실제 `logs/context-packs/` 위치로 정정했다.
+
+사용자 원문: “응 좋아. 가설 - 실행 - 확인 - 개선 PDCA 사이클로 계속 개선되게끔 오늘도 3루프 돌려줘”. 오늘17–19/19–21/21–23시 KST, 목표는 오늘 새 원문 합계1,000회다. 게시·응답·관측은 Windows 지니, 판단 연결·인계·보고는 SAM이 기존 두 예약으로 수행한다. 다음 날 자동 재개는 없다.
+
+첫 가설은 기존 계정의 여행·미니멀·실용적 선택 맥락이 일반 퇴고 조언보다 유효 대화 신호를 얻는지다. 공개된 실제 기록에서 소재를 고르며 사적 경험·현재 위치를 만들지 않는다. 첫 후속에서 유효응답1건 이상이면 유지/보강, 조회50 이상·응답0이면 질문/첫문장 한 축 수정, 조회50 미만·응답0이면 독자 고민 한 축을 바꾼다. 실패·짧은 관측은 판단 보류와 개선으로 기록하며 통계적 성공으로 포장하지 않는다. 50회는 행동 선택선이고 하루 목표1,000회와 별개다.
+
+오늘 원장에 새 ID6개·가설·판정 기준을 준비했다. r2/r3 소재는 현재 미정이며 실제 이전 Check/Act에서 정한다. helper는 실제 종료 관측 task를 근거로 한 Check/Act와 다음 Plan의 변경 연결을 검사한다. 관측은 계획 메타데이터 누락으로 차단하지 않는다. 기존 실행 잠금·시각 경계는 유지한다.
+
+11/26 기록은 run 전체를 history에 보존했다. 당시 실제 조회76회·새 글3개·새 글 댓글1건·기존 글 응답4건·선제1건이 비교 출발점이다. 오늘 지표와 과거 조회/댓글은 합산하지 않는다. 정본 [11/27 PDCA 계약](https://github.com/shdkej/knowledge-lab/blob/main/source/openclaw-system/docs/projects/AGENT_DAILY_OPERATIONS_PRD.md). 준비·설정과 실제 오늘 실행 성과를 구분한다.
+
 ## 오늘 실행 계약 — 2026-11-26
 
 ### 17시 인계 누락 복구

@@ -229,7 +229,55 @@ def summarize_window(run, window):
         "metrics": copy.deepcopy(window.get("metrics")),
         "observation_due_at": window.get("observation_due_at"),
         "report_status": window.get("report_status"), "exhausted": window.get("exhausted") is True,
+        "pdca": copy.deepcopy(window.get("pdca")),
     }
+
+
+
+def pdca_closed(run, window, now):
+    """A decision must cite this window's finished observation, including failure."""
+    p = window.get("pdca") or {}
+    ids = p.get("check_task_ids")
+    evidence = [t for t in run["tasks"] if t["window_id"] == window_id(window)
+                and isinstance(ids, list) and t["id"] in ids]
+    if (not ids or not isinstance(ids, list) or len(evidence) != len(set(ids))
+            or not any(t.get("kind") == "observation" for t in evidence)
+            or not all(terminal_safe(t, now) for t in evidence)
+            or p.get("decision") not in {"keep", "refine", "pivot", "inconclusive"}
+            or not p.get("learning") or not p.get("next_change")):
+        return False
+    try:
+        check, act = parse_time(p.get("check_at")), parse_time(p.get("act_at"))
+        if not parse_time(window["start_at"]) <= check <= act <= now:
+            return False
+        if p.get("observation_status") == "unavailable":
+            return p["decision"] == "inconclusive"
+        observed = (window.get("metrics") or {}).get("observed_at")
+        return (p.get("observation_status") == "observed" and bool(observed)
+                and parse_time(window["observation_due_at"]) <= parse_time(observed) <= check)
+    except (ValueError, TypeError, KeyError):
+        return False
+
+
+def pdca_plan_ready(window, previous, now):
+    p = window.get("pdca") or {}
+    if not all(isinstance(p.get(k), str) and p[k].strip()
+               for k in ("hypothesis", "changed_variable", "success_rule")):
+        return False
+    try:
+        planned = parse_time(p.get("plan_at"))
+        if planned > now:
+            return False
+        if previous is None:
+            return True
+        old = previous.get("pdca") or {}
+        return (p.get("based_on_window_id") == window_id(previous)
+                and p.get("changed_variable") == old.get("next_change")
+                and isinstance(p.get("source_task_ids"), list)
+                and set(p["source_task_ids"]) == set(old.get("check_task_ids") or [])
+                and planned >= parse_time(old.get("act_at")))
+    except (ValueError, TypeError):
+        return False
 
 
 def snapshot(run, now):
@@ -249,6 +297,7 @@ def snapshot(run, now):
         "dispatch_allowed": False, "reuse_task_id": None, "status_check_task_id": None,
         "reconcile_task_id": None,
         "normalization_proposals": [], "dispatch_blocked_reason": None,
+        "pdca_close_required_windows": [], "pdca_plan_required_window": None,
         "proposed_task": None,
         "metrics": copy.deepcopy(run.get("metrics")),
         "window_summaries": [summarize_window(run, window) for window in windows],
@@ -356,6 +405,33 @@ def snapshot(run, now):
                 result["status_check_task_id"] = task["id"]
                 result["reasons"].append("unconfirmed_handoff_status_check")
                 break
+    if run.get("pdca_required") and not unsafe:
+        for window in windows:
+            observations = [t for t in tasks if t["window_id"] == window_id(window)
+                            and t.get("kind") == "observation"]
+            if (parse_time(window["start_at"]) <= now and observations
+                    and all(terminal_safe(t, now) for t in observations)
+                    and not pdca_closed(run, window, now)):
+                result["pdca_close_required_windows"].append(window_id(window))
+        pending = next((t for t in tasks if t["id"] == result["reuse_task_id"]), None)
+        if result["dispatch_allowed"] and (not pending or pending.get("kind") != "observation"):
+            index = windows.index(current)
+            previous = windows[index - 1] if index else None
+            if previous and not pdca_closed(run, previous, now):
+                if window_id(previous) not in result["pdca_close_required_windows"]:
+                    result["pdca_close_required_windows"].append(window_id(previous))
+                result["dispatch_blocked_reason"] = "previous_pdca_not_closed"
+            elif not pdca_plan_ready(current, previous, now):
+                result["pdca_plan_required_window"] = window_id(current)
+                result["dispatch_blocked_reason"] = "pdca_plan_not_ready"
+            if result["dispatch_blocked_reason"]:
+                result["dispatch_allowed"] = False
+                result["reuse_task_id"] = None
+                result["reasons"] = [x for x in result["reasons"] if x != "prepared_task_ready"]
+        if result["pdca_close_required_windows"]:
+            result["reasons"].append("pdca_check_act_required")
+        if result["pdca_plan_required_window"]:
+            result["reasons"].append("pdca_plan_required")
     result["fire"] = bool(result["reasons"])
     if result["dispatch_allowed"] and not result["reuse_task_id"]:
         prefix = f"{run['run_id'].removesuffix('-2h')}-{window_id(current)}-t"
