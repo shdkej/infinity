@@ -2629,7 +2629,7 @@
       "type": "threads_followup_observation",
       "at": "2026-11-26T11:07:14.930Z",
       "task_id": "miniapp-20261126-r2-t02",
-      "status": "product_completed_guard_pending_parent",
+      "status": "completed_guard_verified",
       "account": "_archivenoh",
       "account_evidence": "Ego Lite 0.6.3.17 Profile 3 taskSpace 157 own profile edit dialog username _archivenoh; space finished",
       "posts": [
@@ -2654,14 +2654,14 @@
       "conversation_participation": "Read recent 퇴고 and 글쓰기 고민 public conversations including cheerfulyoonkyeom, 0_0jengjeng, ajaeyjw, producer_eun and hyojin_writer; already replied, selling, private diary/plans and promotion were not useful first-reply targets.",
       "next_content_decision": "Only separate r3-t01 at 12:00Z may test a reader-first ambiguity/first-read example against the prior stopping criterion and meaning/rhythm sequence; no third original in this task.",
       "roles": {"independent":"deleg_49588696","cross_review":"deleg_cac5e22e","source":"parent completion handoff; no duplicate delegation"},
-      "guard": {"state":"pending_parent_after_child_exit","exit_code":null,"finished_at":null,"lock_free_verified_at":null,"source":"parent to read private SQLite and lock after child exits"},
+      "guard": {"state":"completed","exit_code":0,"started_at":"2026-11-26T11:05:35.003647Z","finished_at":"2026-11-26T11:20:20.441486Z","lock_free_verified_at":"2026-11-26T11:20:37.923542Z","source":"parent SQLite read and read-only lslocks no holder; check time is not exact unlock time"},
       "followup": "SAM 21:00 KST r2 report pending; next r3 ID not started or posted",
       "evidence_paths": ["INTENTS.yaml", "intents/waiting/miniapp-image-tools-20261118-qa-01.md", "reports/miniapp-image-tools-20261118-qa-01/20261126T1109Z-r2-t02.html"]
     }
   ],
   "next_decision": {
     "status": "in_progress",
-    "value": "r2-t02 fresh 11:07Z insights 17+24=41/1000, two previously missed old-original inbound comments corrected daily observed 5 to 7 without retroactive task changes; no new public sends. Parent guard/lock receipt and SAM r2 21:00 KST report pending; r3 starts only at its separate 12:00Z ID. Fixed 23:00 KST closeout."
+    "value": "r2-t02 fresh 11:07Z insights 17+24=41/1000, two previously missed old-original inbound comments corrected daily observed 5 to 7 without retroactive task changes; no new public sends. Parent guard completed/exit 0 and lock-free observed; SAM r2 21:00 KST report pending; r3 starts only at its separate 12:00Z ID. Fixed 23:00 KST closeout."
   },
   "handoff_attempts": [
     {
