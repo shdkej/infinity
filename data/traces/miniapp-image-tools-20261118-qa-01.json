@@ -1625,7 +1625,7 @@
     },
     {
       "type": "closeout",
-      "at": "2026-11-26T14:04:34Z",
+      "at": "2026-11-26T14:05:22.072Z",
       "run_id": "miniapp-20261126-2h",
       "status": "finished",
       "enabled": false,
@@ -1642,9 +1642,16 @@
       "target_views": 1000,
       "latest_observed_at": "2026-11-26T13:04:52.012Z",
       "report": "reports/miniapp-image-tools-20261118-qa-01/20261126T1400Z-final.html",
-      "report_status": "prepared",
+      "report_status": "sent",
       "delivery_operation_id": "miniapp-20261126-2h:report:final",
-      "delivery_receipt": null,
+      "delivery_receipt": {
+        "status": "sent",
+        "message_id": "1795701922.071789",
+        "queue_id": "convq_0c044fca22acae8c984fceb9c77743f4",
+        "operation_id": "miniapp-20261126-2h:report:final",
+        "thread_id": "1794983278.888719",
+        "body_readback_verified_at": "2026-11-26T14:05:22.072Z"
+      },
       "note": "No new Windows work or next-day restart. 214 historical views excluded. Final send/readback still pending."
     }
   ],
@@ -1710,11 +1717,13 @@
     },
     {
       "type": "report",
-      "status": "prepared",
+      "status": "sent",
       "at": "2026-11-26T14:04:34Z",
       "path": "reports/miniapp-image-tools-20261118-qa-01/20261126T1400Z-final.html",
       "label": "Three-cycle closeout; latest views 76/1000 at 13:04:52Z; native final delivery pending",
-      "url": "https://github.com/shdkej/infinity/blob/main/reports/miniapp-image-tools-20261118-qa-01/20261126T1400Z-final.html"
+      "url": "https://github.com/shdkej/infinity/blob/main/reports/miniapp-image-tools-20261118-qa-01/20261126T1400Z-final.html",
+      "sent_at": "2026-11-26T14:05:22.072Z",
+      "message_id": "1795701922.071789"
     }
   ],
   "verifications": [
@@ -3367,7 +3376,7 @@
       ]
     }
   ],
-  "trace_completeness_reason": "Three windows/task guard evidence and latest metrics recorded. Final Slack native delivery receipt and readback remain pending.",
+  "trace_completeness_reason": "Three windows and guard receipts verified; final native Slack message was sent with stable operationId and exact original-thread body readback.",
   "schema_repairs": [
     {
       "at": "2026-11-25T07:34:10Z",
