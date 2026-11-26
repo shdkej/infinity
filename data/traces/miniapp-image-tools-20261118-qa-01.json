@@ -1526,6 +1526,30 @@
         "logs/OPERATING_LESSONS.md"
       ],
       "note": "11/26 review: 11/25 22:04 views 214/10; inbound replies 3, later outbound reply 1. r2 empty; r3-t02 router expired exit5, guard never started. Final summary delivery not proven by generic delivered flag. No new execution. Missing final summary repaired 2026-11-26 with native sent receipt 1795676705.260879 and exact original-thread body read-back."
+    },
+    {
+      "type": "execution",
+      "at": "2026-11-26T07:24:06Z",
+      "context_pack": "/home/ubuntu/workspace/knowledge-lab/reports/context-packs/2026-11-18-agent-daily-operations.json",
+      "evidence_paths": [
+        "intents/waiting/miniapp-image-tools-20261118-qa-01.md"
+      ],
+      "searches": [
+        "Reused operations Context Pack: reread selected wiki locators and three matched logs; actual previous run, helper regressions, and native two-cron configuration. No new zg search."
+      ],
+      "wiki_pages": [
+        "agent-wiki/content/docs/outputs/Integration/Work.mdx",
+        "agent-wiki/content/docs/outputs/Idea/Journal.mdx",
+        "agent-wiki/content/docs/outputs/Communication/Open_Source.mdx",
+        "agent-wiki/content/docs/outputs/blog/Life_Tracking.mdx",
+        "agent-wiki/content/docs/outputs/Human/Standard.mdx"
+      ],
+      "operational_log_sections": [
+        "logs/agent-wiki-query.md",
+        "logs/EVALUATION_RECAP.md",
+        "logs/OPERATING_LESSONS.md"
+      ],
+      "note": "User authorized Nov26 three2h cycles with real replies and follow-up; first two originals planned, 6 timed tasks. Guard/status/future/cutoff/planned-phase regressions plus independent running-stall and unsent-expiry findings fixed; 47 tests pass. Content result remains future/unmeasured."
     }
   ],
   "artifacts": [
@@ -2391,8 +2415,8 @@
     }
   ],
   "next_decision": {
-    "status": "open",
-    "value": "11/26 review and missing final summary delivered to original thread; body read-back matched message 1795676705.260879. Run finished and reservations disabled. Future improvement candidates: terminal-state consistency, pre-deadline dispatch cutoff, final-body receipt check. No new run started."
+    "status": "in_progress",
+    "value": "Publish canonical run/helper and validate two native schedules plus original-thread handoff contract; observe actual planned phases at17/18/19/20/21/22 KST and final23 report."
   },
   "handoff_attempts": [
     {

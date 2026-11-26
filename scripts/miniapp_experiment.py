@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Read-only decisions and whole-window reports for the 2026-11-25 experiment.
+"""Read-only decisions and whole-window reports for the current daily experiment.
 
 Examples (JSON on stdout; errors exit nonzero without exposing API output):
   python3 scripts/miniapp_experiment.py snapshot --remote
@@ -12,22 +12,22 @@ import copy
 from datetime import datetime, timedelta, timezone
 import json
 from pathlib import Path
+import re
 import subprocess
 import sys
 
 import yaml
 
 INTENT_ID = "miniapp-image-tools-20261118-qa-01"
-RUN_ID = "miniapp-20261125-2h"
 REMOTE_ENDPOINT = "repos/shdkej/infinity/contents/INTENTS.yaml?ref=main"
-START = "2026-11-25T17:00:00+09:00"
-END = "2026-11-25T23:00:00+09:00"
 TERMINAL = {"completed", "completed_no_change", "completed_with_blockers", "failed",
             "blocked", "partial_blocked", "expired", "timed_out", "cancelled", "done"}
 GUARD_TERMINAL = {"completed", "failed", "expired", "timed_out", "cancelled", "terminated"}
 UNSENT = {None, "pending", "prepared", "not_sent"}
 PENDING = {"pending", "prepared", "queued", "ready"}
 BLOCKED = {"failed", "blocked", "partial_blocked", "completed_with_blockers", "expired", "timed_out"}
+GENERAL_MINUTES = 20
+OBSERVATION_MINUTES = 15
 
 
 def parse_time(value):
@@ -81,8 +81,9 @@ def extract_run(registry):
     if len(matches) != 1:
         raise ValueError("expected exactly one experiment Intent")
     run = matches[0].get("experiment_run")
-    if not isinstance(run, dict) or run.get("run_id") != RUN_ID:
-        raise ValueError("current experiment run does not match expected run")
+    if not isinstance(run, dict):
+        raise ValueError("current experiment run must be a mapping")
+    validate_run(run)
     return run
 
 
@@ -91,24 +92,33 @@ def window_id(window):
 
 
 def validate_run(run):
-    if run.get("run_id") != RUN_ID:
+    match = re.fullmatch(r"miniapp-(\d{8})-2h", str(run.get("run_id", "")))
+    day = str(run.get("date", ""))
+    if not match or match[1] != day.replace("-", "") or run.get("timezone") != "Asia/Seoul":
         raise ValueError("unexpected experiment run")
+    run_start, run_end = parse_time(run.get("start_at")), parse_time(run.get("end_at"))
+    seoul = timezone(timedelta(hours=9))
+    if (run_start.astimezone(seoul).date().isoformat() != day
+            or run_end.astimezone(seoul).date().isoformat() != day
+            or (run_end - run_start).total_seconds() != 21600):
+        raise ValueError("run must cover six hours on its declared day")
     windows = run.get("windows")
     tasks = run.get("tasks")
     if not isinstance(windows, list) or len(windows) != 3 or not isinstance(tasks, list):
         raise ValueError("run requires three windows and a tasks list")
-    expected = parse_time(START)
+    expected = run_start
     ids = []
     for window in windows:
         wid = window_id(window)
         start, end = parse_time(window.get("start_at")), parse_time(window.get("end_at"))
         if start != expected or (end - start).total_seconds() != 7200:
             raise ValueError("windows must be contiguous two-hour intervals on the approved day")
-        if window.get("observation_due_at") and parse_time(window["observation_due_at"]) != end - timedelta(minutes=15):
-            raise ValueError("window observation must be fifteen minutes before its end")
+        if window.get("observation_due_at") and not (
+                start <= parse_time(window["observation_due_at"]) <= end - timedelta(minutes=OBSERVATION_MINUTES)):
+            raise ValueError("window observation must leave at least fifteen minutes before its end")
         ids.append(wid)
         expected = end
-    if ids != ["r1", "r2", "r3"] or expected != parse_time(END):
+    if ids != ["r1", "r2", "r3"] or expected != run_end:
         raise ValueError("unexpected experiment windows")
     task_ids = set()
     for task in tasks:
@@ -127,15 +137,51 @@ def guard_released(task, now):
     guard = task.get("guard") or {}
     if guard.get("state") not in GUARD_TERMINAL:
         return False
+    if guard.get("task_id", task["id"]) != task["id"] or type(guard.get("exit_code")) is not int:
+        return False
+    if guard["state"] == "completed" and guard["exit_code"] != 0:
+        return False
     if not guard.get("finished_at") or not guard.get("lock_free_verified_at"):
         return False
     finished = parse_time(guard["finished_at"])
     released = parse_time(guard["lock_free_verified_at"])
-    return finished <= released <= now
+    return parse_time(task["start_at"]) <= finished <= released <= now
+
+
+def router_rejected_before_start(task, now):
+    """An explicit expired-router receipt proves this task never owned the lock.
+
+    This is not a release receipt: every other sent task still passes its own gate.
+    """
+    guard = task.get("guard") or {}
+    checked = task.get("receipt_checked_at")
+    return (task.get("status") == "expired" and type(task.get("router_exit_code")) is int
+            and task["router_exit_code"] == 5
+            and guard.get("state") == "not_started"
+            and all(guard.get(key) is None for key in ("exit_code", "finished_at", "lock_free_verified_at"))
+            and bool(task.get("receipt_evidence_url")) and bool(checked)
+            and parse_time(task["end_at"]) <= parse_time(checked) <= now)
+
+
+def expired_without_handoff(task, now):
+    """Close an unsent deadline miss only when no delivery or process was attempted."""
+    guard = task.get("guard") or {}
+    expired = task.get("expired_at")
+    return (task.get("status") == "expired" and task.get("handoff_status") in {"not_sent", "prepared"}
+            and all(not task.get(key) for key in (
+                "handoff_message_id", "handoff_queue_id", "handoff_attempt_at", "handoff_at",
+                "sent_at", "handoff_receipt", "actual_started_at"))
+            and guard.get("state") == "not_started"
+            and all(guard.get(key) is None for key in (
+                "started_at", "exit_code", "finished_at", "lock_free_verified_at"))
+            and bool(task.get("expiry_reason")) and bool(expired)
+            and parse_time(task["end_at"]) <= parse_time(expired) <= now)
 
 
 def terminal_safe(task, now):
-    return task.get("status") in TERMINAL and guard_released(task, now)
+    return (bool(task.get("result_summary")) and task.get("status") in TERMINAL
+            and (guard_released(task, now) or router_rejected_before_start(task, now)
+                 or expired_without_handoff(task, now)))
 
 
 def unsent(task):
@@ -191,19 +237,21 @@ def snapshot(run, now):
     current = next((window for window in windows
                     if parse_time(window["start_at"]) <= now < parse_time(window["end_at"])), None)
     ordered = sorted(enumerate(tasks), key=lambda pair:
-                     (parse_time(pair[1].get("start_at") or START), pair[0]))
-    current_task = ordered[-1][1] if ordered else None
+                     (parse_time(pair[1]["start_at"]), pair[0]))
+    due_tasks = [task for _, task in ordered if parse_time(task["start_at"]) <= now]
+    current_task = due_tasks[-1] if due_tasks else None
     result = {
-        "run_id": RUN_ID, "now": now.isoformat(), "fire": False, "reasons": [],
+        "run_id": run["run_id"], "now": now.isoformat(), "fire": False, "reasons": [],
         "window_id": window_id(current) if current else None,
         "current_task": copy.deepcopy(current_task), "reports_due": [],
         "dispatch_allowed": False, "reuse_task_id": None, "status_check_task_id": None,
         "reconcile_task_id": None,
+        "normalization_proposals": [], "dispatch_blocked_reason": None,
         "proposed_task": None,
         "metrics": copy.deepcopy(run.get("metrics")),
         "window_summaries": [summarize_window(run, window) for window in windows],
     }
-    if not current or not (parse_time(START) <= now < parse_time(END)):
+    if not current or not (parse_time(run["start_at"]) <= now < parse_time(run["end_at"])):
         return result
     if run.get("enabled") is False or run.get("status") in {"finished", "completed", "cancelled", "stopped"}:
         return result
@@ -214,6 +262,17 @@ def snapshot(run, now):
         result["reasons"].append("window_report_due")
     # A previous-window process still owns the same lock. Result reports do not bypass it.
     unsafe = [task for _, task in ordered if not unsent(task) and not terminal_safe(task, now)]
+    # A result label is not a machine state. Ask the supervisor to persist the
+    # verified state, then re-read; this read-only helper does not open the gate.
+    for task in unsafe:
+        if (task.get("status") not in TERMINAL and task.get("result_summary")
+                and guard_released(task, now)):
+            state = task["guard"]["state"]
+            result["normalization_proposals"].append({
+                "task_id": task["id"], "status": "failed" if state == "terminated" else state,
+                "reason": "same_task_result_and_guard_receipt_verified"})
+    if result["normalization_proposals"]:
+        result["reasons"].append("task_status_normalization_required")
     observation_due = parse_time(current.get("observation_due_at") or current["end_at"])
     metrics = current.get("metrics") or {}
     observation_recorded = any(value and observation_due <= parse_time(value) <= now for value in
@@ -221,18 +280,31 @@ def snapshot(run, now):
     needs_observation = now >= observation_due and not observation_recorded
     if not unsafe:
         candidates = [task for _, task in ordered if task["window_id"] == window_id(current) and unsent(task)
+                      and parse_time(task["start_at"]) <= now
                       and (not current.get("exhausted") or task.get("required") is True or needs_observation)]
+        if needs_observation:
+            candidates = [task for task in candidates if task.get("kind") == "observation"]
+        remaining_minutes = (parse_time(current["end_at"]) - now).total_seconds() / 60
         if candidates:
             pending = candidates[0]
-            if not pending.get("end_at") or now < parse_time(pending["end_at"]):
+            minimum = OBSERVATION_MINUTES if pending.get("kind") == "observation" else GENERAL_MINUTES
+            if remaining_minutes >= minimum:
                 result["reuse_task_id"] = pending["id"]
                 result["dispatch_allowed"] = True
                 result["reasons"].append("prepared_task_ready")
+            else:
+                result["dispatch_blocked_reason"] = "insufficient_time_before_window_end"
+        elif current.get("planned_tasks_only"):
+            result["dispatch_blocked_reason"] = "no_due_planned_task"
         elif not current.get("exhausted") or needs_observation:
-            result["dispatch_allowed"] = True
-            if not needs_observation:
-                result["reasons"].append("task_terminal_guard_released" if tasks else "first_task")
-        if needs_observation:
+            minimum = OBSERVATION_MINUTES if needs_observation else GENERAL_MINUTES
+            if remaining_minutes >= minimum:
+                result["dispatch_allowed"] = True
+                if not needs_observation:
+                    result["reasons"].append("task_terminal_guard_released" if tasks else "first_task")
+            else:
+                result["dispatch_blocked_reason"] = "insufficient_time_before_window_end"
+        if needs_observation and result["dispatch_allowed"]:
             result["reasons"].append("metrics_observation_due")
     if unsafe:
         # A status request is not a terminal receipt. Reconcile the original thread
@@ -240,10 +312,17 @@ def snapshot(run, now):
         # This only wakes the supervisor; it never relaxes the dispatch/lock gate.
         for task in unsafe:
             guard = task.get("guard") or {}
+            running = task.get("status") in {"running", "accepted"} or guard.get("state") == "running"
+            if guard_released(task, now) and not task.get("result_summary"):
+                result["reconcile_task_id"] = task["id"]
+                result["reasons"].append("terminal_result_missing")
+                break
+            if any(item["task_id"] == task["id"] for item in result["normalization_proposals"]):
+                continue
             if task.get("status_check_at"):
                 checked = task.get("receipt_checked_at")
                 since = parse_time(checked or task["status_check_at"])
-                interval = 900 if checked else 600
+                interval = 900 if checked or running else 600
                 if (now - since).total_seconds() >= interval:
                     result["reconcile_task_id"] = task["id"]
                     result["reasons"].append("receipt_reconciliation_due")
@@ -253,21 +332,34 @@ def snapshot(run, now):
                 result["status_check_task_id"] = task["id"]
                 result["reasons"].append("task_deadline_status_check")
                 break
-            if task.get("status") in {"running", "accepted"} or guard.get("state") == "running":
+            since = (guard.get("started_at") or task.get("actual_started_at") or task.get("handoff_at")
+                     or task.get("sent_at") or task.get("handoff_attempt_at") or task.get("start_at"))
+            if running:
+                target = task.get("execution_target_minutes", 45)
+                if type(target) is not int or target <= 0:
+                    raise ValueError("execution target must be a positive integer of minutes")
+                if (now - parse_time(since)).total_seconds() >= target * 60:
+                    result["status_check_task_id"] = task["id"]
+                    result["reasons"].append("execution_target_status_check")
+                    break
+                if needs_observation and task.get("kind") != "observation":
+                    result["status_check_task_id"] = task["id"]
+                    result["reasons"].append("observation_blocked_status_check")
+                    break
                 continue
-            since = task.get("handoff_at") or task.get("sent_at") or task.get("handoff_attempt_at") or task.get("start_at")
             if since and (now - parse_time(since)).total_seconds() >= 600:
                 result["status_check_task_id"] = task["id"]
                 result["reasons"].append("unconfirmed_handoff_status_check")
                 break
     result["fire"] = bool(result["reasons"])
     if result["dispatch_allowed"] and not result["reuse_task_id"]:
-        prefix = f"miniapp-20261125-{window_id(current)}-t"
+        prefix = f"{run['run_id'].removesuffix('-2h')}-{window_id(current)}-t"
         serial, used = 1, {task["id"] for task in tasks}
         while f"{prefix}{serial:02d}" in used:
             serial += 1
         result["proposed_task"] = {
             "id": f"{prefix}{serial:02d}", "window_id": window_id(current),
+            "kind": "observation" if needs_observation else "engagement",
             "goal": None, "start_at": now.astimezone(timezone.utc).isoformat(),
             "end_at": current["end_at"], "status": "prepared",
             "handoff_status": "prepared", "handoff_message_id": None,
@@ -295,7 +387,7 @@ def main(argv=None):
         run = extract_run(load_registry(args.remote, args.registry))
         result = snapshot(run, parse_time(args.now) if args.now else datetime.now(timezone.utc))
         if args.command == "report":
-            result = {"run_id": RUN_ID, "metrics": copy.deepcopy(run.get("metrics")),
+            result = {"run_id": run["run_id"], "metrics": copy.deepcopy(run.get("metrics")),
                       "window": next(item for item in result["window_summaries"] if item["window_id"] == args.window)}
         print(json.dumps(result, ensure_ascii=False, separators=(",", ":"), default=str))
         return 0

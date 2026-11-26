@@ -83,8 +83,8 @@ lanes:
   - id: miniapp-image-tools-20261118-qa-01
     dedupe_key: miniapp-image-tools:pilot-qa-01
     project_id: miniapp-image-tools
-    title: 오늘 2시간×3회 Threads _archivenoh 조회10회 실험
-    task_name: 오늘 2시간×3회 Threads _archivenoh 조회10회 실험
+    title: Threads _archivenoh 활성화 · 11/26 2시간×3회
+    task_name: Threads _archivenoh 활성화 · 11/26 2시간×3회
     status: waiting
     priority: normal
     task_type: verification
@@ -92,7 +92,7 @@ lanes:
     execution_owner: windows_genie_wsl
     execution_mode: hermes_guarded_child_wsl
     source: user_approved_qa_slot
-    plan_revision: 6
+    plan_revision: 7
     created_at: '2026-11-18T10:56:36Z'
     original_slot: pilot-qa-01
     original_slot_start_at: '2026-11-18T10:40:05Z'
@@ -112,13 +112,14 @@ lanes:
     shared_posthog_slot_end_at: '2026-11-19T06:18:00Z'
     shared_posthog_project_id: 424014
     telemetry_auth_instruction: 사용자 승인으로 호스트별 ~/.env의 PostHog 키 이름 확인 및 기존 계정 인증 사용 허용; 비밀값 비공개.
-    user_intent: 기존 이미지 미니앱을 하루 안에3시간씩 여러 구간으로 개선·배포·검증하고 결과로 다음 실험을 이어간다.
-    desired_outcome: 오늘 세 구간의 실제 개선·검증 결과와 후속 판단, 짧은 구간 보고와 종합 보고. 독촉 없이 후속 작업이 이어지는지 확인.
-    out_of_scope: Ubuntu 직접 실행, 무등록 dispatcher 라우트, 타 Infinity 이전 작업, 신규 cron·권한·유료 리소스, 타 사이트 또는 전체 버킷 삭제.
-    success_evidence: 실물 Pack/trace와 원격 원장, 브라우저 다운로드 MIME·화소·화면, 앱 전용 PostHog 동일 QA ID 조회, 안전한 라이브 URL.
-    metric_question: 합성 브라우저 변환과 수집·라이브 경로가 각각 검증되는가?
-    metric_signal: 실제 저장 파일 검증 및 같은 QA ID 서버 조회와 라이브 HTTP 상태
-    metric_decision_rule: 어느 하나라도 미확인이면 출시·사용자 성공 주장을 보류한다.
+    user_intent: 응 잘 진행되게 조치해주고 지금은 사실상 글 하나 띡 쓰고 끝이었어. 어떤 결과 확인도 없이. 스레드 활성화를 위해서는 답글 다는것도 중요하고 다른 글을 또 썼어도 됐는데 진행이 미진했어. 개선해주고 오늘도 3회
+      진행하자
+    desired_outcome: 첫 두 구간 원문 1개씩 계획, 세 구간 모두 받은 답글 처리·관련 대화 참여·지연 관측·다음 선택·짧은 보고.
+    out_of_scope: 다른 계정·DM·광고/비용·대량반응·계정 보안/공개범위 변경·구간 연장·다음 날 자동 재개.
+    success_evidence: 각 구간의 실제 게시/답글 URL·관측 시각·원격 원장·guard/lock 영수증·Slack 보고 본문과 message_id.
+    metric_question: 게시 뒤 관측과 대화가 세 구간에서 실제로 이어졌는가?
+    metric_signal: 신규 원문 최신 조회 합계, 받은/응답한/선제 답글, 이어진 대화, 후속을 닫은 구간 수.
+    metric_decision_rule: 조회 목표와 운영 완료는 별도 판정. 조회 10회 달성으로 예정된 후속을 생략하지 않는다.
     context_pack: intents/context/miniapp-image-tools-20261118-qa-01.json
     context_documents_checked:
     - /home/sam/workspace/prompt-archive/LLM.md
@@ -137,7 +138,7 @@ lanes:
     release_workflow_run: '45387803883'
     release_live_url: https://images.aws.shdkej.com/tools/image-converter/
     waiting_on: agent
-    blocker: 11/25 실험 종료. 조회 목표 달성, 구간 누락·완료 상태 반영 지연·최종 보고 누락으로 운영 검증 미달.
+    blocker: null
     prior_r2_t03_task_id: miniapp-20261124-r2-t03
     prior_r2_t03_status: source_published_deploy_blocked
     prior_r2_t03_result_summary: 0B 안내 불일치 수정·Node 9/9·Space SHA b8ee2e45; 앱 배포 보류, 라이브 구 문구. guard exit 0·잠금 해제.
@@ -154,7 +155,9 @@ lanes:
     prior_r3_t02_process_result: graceful_close_requested_still_present
     prior_r3_t02_process_identity: Narrator.exe PID 27296, owner SAM-PC/msi, session 1, created 2026-11-24T07:24:00.1520640Z; remains
       after one graceful close request
-    current_task_completion_criteria: 23시 이전 최종 조회와 guard 종료 확인; 기한 내 미시작으로 미달. 종료 후 재실행하지 않는다.
+    current_task_completion_criteria: 정확한 _archivenoh 계정·실제 대화 읽기·당일 게시/답글 상한 준수·URL/시각/관측값 또는 실패 원인 기록. 받은 답글과 보낸 답글을 구분하고 같은 대상 중복 응답
+      금지. 자신의 실행 결과를 같은 tasks[].id에 기록하며 부모가 실제 guard 종료/exit code/잠금 확인을 병합한다. status는 completed 등 표준값, 상세 설명은 result_summary. 고정 기한 연장·다음
+      ID 발급·다음 날 재개 금지.
     prior_r3_t05_handoff_attempt_at: '2026-11-24T13:45:00Z'
     prior_r3_t05_handoff_status: sent
     prior_r3_t05_handoff_message_id: '1795528064.765319'
@@ -202,18 +205,19 @@ lanes:
     prior_20261125_r3_t01_result: '13:04Z 조회 214, 외부 답글 3건, 관련 답글 1건, 새 원문 없음.'
     prior_20261125_r3_t01_guard_finished_at: '2026-11-25T13:19:32.248398+00:00'
     prior_20261125_r3_t01_lock_released_verified_at: '2026-11-25T13:19:49.582405+00:00'
-    current_task_status: expired
-    current_task_id: miniapp-20261125-r3-t02
-    current_task_goal: 2026-11-25 오늘 새 원문 게시물 전체의 현재 Threads 표시 조회수를 한 번 관측하고 계측 증거와 시각을 기록한다. 반복 새로고침 없이 기존 post insights를 조회한다.
-    current_task_start_at: '2026-11-25T13:57:30Z'
-    current_task_end_at: '2026-11-25T14:00:00Z'
-    current_task_result: 기한 경과로 router 진입 거절(exit 5). guard 미시작, 마지막 조회 미실행. Windows 23:02 실제 영수증으로 확인.
-    current_task_handoff_attempt_at: '2026-11-25T13:58:35Z'
+    current_task_status: prepared
+    current_task_id: miniapp-20261126-r1-t01
+    current_task_goal: 어제 원문 DgKEVWij6oq와 답글 DgKmf-lD9Nn의 현재 반응을 확인한다. 받은 답글 3건의 실제 내용을 읽고 미응답 질문·구체 의견에 응답한다. 실제 대화/기존 공개 글/예시라고 명시한 문장에서
+      새로운 관점의 원문 1개를 게시하고 첫 관측과 18시 후속을 준비한다.
+    current_task_start_at: '2026-11-26T08:00:00Z'
+    current_task_end_at: '2026-11-26T10:00:00Z'
+    current_task_result: null
+    current_task_handoff_attempt_at: null
     current_task_guard_status: not_started
     current_task_guard_exit_code: null
     current_task_guard_finished_at: null
     current_task_lock_released_verified_at: null
-    current_task_followup: 기한 만료로 종료. 새 계측·게시·다음 날 자동 재개 없음.
+    current_task_followup: 18시 예정 후속 관측·응답. SAM 감독이 기한/잠금/현재 원장 재확인 후 인계한다.
     prior_r3_t03_status: aggregate_verified_guard_completed
     prior_r3_t03_result_summary: US project 424014 bounded HogQL HTTP 200, 8 grouped rows; five event x synthetic/user counts in the task
       verification. Guard 12:51:04Z completed/exit 0 and lock 12:51:25Z free. Customer/unique people unmeasured; Narrator PID 27296 separate
@@ -252,255 +256,347 @@ lanes:
       download_requested:
         synthetic: 68
         user: 0
-    current_task_customer_outcomes: null
     prior_r3_t01_source_sha: dc43b456354f3f03edf402a8dfce0a10172f8d81
     prior_r3_t01_evidence_sha: 93da7d6de0cad3def7d837ca95d442b684216ad2
     prior_r3_t01_release_run: '45387803883'
     prior_r3_t01_live_sha256: dee66985a1dd09a33cdcd5ccf0f9dd9a98c20953a3c41672d2815622b1b59e39
-    current_task_source_sha: null
-    current_task_evidence_sha: null
-    current_task_release_run: null
     prior_r3_t05_live_sha256: dee66985a1dd09a33cdcd5ccf0f9dd9a98c20953a3c41672d2815622b1b59e39
     prior_r3_t04_report: reports/miniapp-image-tools-20261118-qa-01/20261124T1325Z-r3-t04.html
     prior_r3_t05_report: reports/miniapp-image-tools-20261118-qa-01/20261124T1354Z-r3-t05.html
     report: reports/miniapp-image-tools-20261118-qa-01/20261124T1423Z-r3-t06.html
     prior_r3_t01_handoff_receipt: sent 1795520034.423279; queue convq_f4220e1e2f1315988e3e5697a899d49c
-    current_task_handoff_status: sent
+    current_task_handoff_status: prepared
     prior_r3_t04_handoff_message_id: '1795526386.876779'
     prior_r3_t04_handoff_queue_id: convq_83ec1fd73a49ebdf044d8dfb5c14e39f
     prior_r3_t04_handoff_receipt: sent 1795526386.876779; queue convq_83ec1fd73a49ebdf044d8dfb5c14e39f
-    current_task_handoff_message_id: '1795615108.539579'
-    current_task_handoff_queue_id: convq_b73ecb24a749454e8f643e58aaff0566
-    current_task_handoff_receipt: sent 1795615108.539579; queue convq_b73ecb24a749454e8f643e58aaff0566
+    current_task_handoff_message_id: null
+    current_task_handoff_queue_id: null
+    current_task_handoff_receipt: null
     daily_run_window:
-      start_at: '2026-11-25T08:00:00Z'
-      end_at: '2026-11-25T14:00:00Z'
+      start_at: '2026-11-26T08:00:00Z'
+      end_at: '2026-11-26T14:00:00Z'
       next_day_resume: false
     experiment_run:
-      run_id: miniapp-20261125-2h
-      status: "finished"
-      date: '2026-11-25'
+      run_id: miniapp-20261126-2h
+      status: scheduled
+      enabled: true
+      date: '2026-11-26'
       timezone: Asia/Seoul
-      start_at: '2026-11-25T08:00:00Z'
-      end_at: '2026-11-25T14:00:00Z'
+      start_at: '2026-11-26T08:00:00Z'
+      end_at: '2026-11-26T14:00:00Z'
       target_service: Threads
       target_account: _archivenoh
-      goal: 이번실험에서새로게시한Threads원문글의플랫폼조회수합계10회
+      goal: 관측→응답·게시→지연 관측→다음 선택을 세 구간에서 수행하며 오늘 새 원문들의 플랫폼 조회 합계 10회를 확인한다. 조회 달성은 조기 종료 조건이 아니다.
       target_views: 10
       goal_confirmed_by_user: 10회만 해도 큰건데
+      restart_authority: 응 잘 진행되게 조치해주고 지금은 사실상 글 하나 띡 쓰고 끝이었어. 어떤 결과 확인도 없이. 스레드 활성화를 위해서는 답글 다는것도 중요하고 다른 글을 또 썼어도 됐는데 진행이 미진했어. 개선해주고
+        오늘도 3회 진행하자
       interval_minutes: 3
       dispatch_owner: sam_supervisor_cron
       supervisor_job_id: eb75facc-7686-4746-a399-4ef6d881048e
       closeout_job_id: 8e116857-63f9-4475-8e55-4a7c386e4a16
-      configuration_status: verified
-      final_report_status: sent
-      final_report_prepared_at: '2026-11-25T14:02:20Z'
-      final_report: reports/miniapp-image-tools-20261118-qa-01/20261125T1400Z.html
-      final_report_delivery_receipt: sent 1795676705.260879; original thread body verified 2026-11-26
-      final_report_message_id: '1795676705.260879'
-      final_report_delivered_at: '2026-11-26T07:05:05.260879Z'
-      final_report_delivery_repaired: true
-      final_report_review: intents/waiting/miniapp-image-tools-20261118-qa-01.md
+      configuration_status: preparing
       supervisor_enabled: false
-      supervisor_disabled_at: '2026-11-25T14:01:51.340Z'
-      supervisor_disable_status: disabled_verified
+      final_report_status: pending
+      final_report: null
+      final_report_delivery_receipt: null
       windows:
       - id: r1
-        start_at: '2026-11-25T08:00:00Z'
-        end_at: '2026-11-25T10:00:00Z'
-        status: finished
-        goal: 계정·기존글·조회확인과 맥락에맞는 첫글1개 게시
-        task_sequence: 1
-        report_status: sent
-        report_message_id: '1795600846.134169'
+        start_at: '2026-11-26T08:00:00Z'
+        end_at: '2026-11-26T10:00:00Z'
+        status: scheduled
+        goal: 어제 원문 DgKEVWij6oq와 답글 DgKmf-lD9Nn의 현재 반응을 확인한다. 받은 답글 3건의 실제 내용을 읽고 미응답 질문·구체 의견에 응답한다. 실제 대화/기존 공개 글/예시라고 명시한 문장에서 새로운 관점의
+          원문 1개를 게시하고 첫 관측과 18시 후속을 준비한다.
+        task_sequence: 2
+        planned_tasks_only: true
+        report_status: pending
+        report_message_id: null
         exhausted: false
-        metrics:
-          target: 10
-          unit: threads_post_views
-          observed_at: '2026-11-25T08:10:14.649Z'
-          posts:
-          - id: DgKEVWij6oq
-            url: https://www.threads.com/@_archivenoh/post/DgKEVWij6oq
-            published_at: '2026-11-25T08:09:35Z'
-            views: 0
-            observed_at: '2026-11-25T08:10:14.649Z'
-            evidence: https://www.threads.com/insights/post/DgKEVWij6oq
-          total_views: 0
-          replies: 0
-          follows_delta: null
-          status: measured_first_snapshot
-        observation_due_at: '2026-11-25T09:45:00Z'
-      - id: r2
-        start_at: '2026-11-25T10:00:00Z'
-        end_at: '2026-11-25T12:00:00Z'
-        status: finished
-        goal: 첫반응으로 다른표현/형식글1개·관련대화에 소수답글
-        task_sequence: 0
-        report_status: sent
-        report_message_id: '1795608036.128849'
-        exhausted: false
+        observation_due_at: '2026-11-26T09:00:00Z'
         metrics:
           target: 10
           unit: threads_post_views
           observed_at: null
+          obs_attempted_at: null
           posts: []
           total_views: null
-          replies: null
+          inbound_replies_observed: null
+          inbound_responses_sent: null
+          proactive_replies_sent: null
+          conversations_continued: null
           follows_delta: null
           status: unmeasured
-        observation_due_at: '2026-11-25T11:45:00Z'
-      - id: r3
-        start_at: '2026-11-25T12:00:00Z'
-        end_at: '2026-11-25T14:00:00Z'
-        status: finished
-        goal: 반응있는주제후속최대1개·조회10회판정과마감
+        loop_completion:
+          followup_observed_at: null
+          inbound_handling_summary: null
+          conversation_participation_summary: null
+          next_content_decision: null
+          status: pending
+      - id: r2
+        start_at: '2026-11-26T10:00:00Z'
+        end_at: '2026-11-26T12:00:00Z'
+        status: scheduled
+        goal: 1차 반응·질문을 읽고 아직 답하지 않은 유효 댓글에 응답한다. 구체적인 문장 예시나 다른 관점의 두 번째 원문 1개를 게시하고 관련 공개 대화에 도움이 되는 답글을 남긴다. 오늘 신규 원문·응답 기록을 대조해 중복을
+          막는다.
         task_sequence: 2
-        report_status: sent
-        report_message_id: '1795676705.260879'
+        planned_tasks_only: true
+        report_status: pending
+        report_message_id: null
         exhausted: false
+        observation_due_at: '2026-11-26T11:00:00Z'
         metrics:
           target: 10
           unit: threads_post_views
-          observed_at: '2026-11-25T13:04:49.237Z'
-          posts:
-          - id: DgKEVWij6oq
-            url: https://www.threads.com/@_archivenoh/post/DgKEVWij6oq
-            published_at: '2026-11-25T08:09:35Z'
-            views: 214
-            observed_at: '2026-11-25T13:04:49.237Z'
-            evidence: https://www.threads.com/insights/post/DgKEVWij6oq
-          total_views: 214
-          replies: 1
+          observed_at: null
+          obs_attempted_at: null
+          posts: []
+          total_views: null
+          inbound_replies_observed: null
+          inbound_responses_sent: null
+          proactive_replies_sent: null
+          conversations_continued: null
           follows_delta: null
-          status: measured_latest_snapshot_goal_reached
-        observation_due_at: '2026-11-25T13:45:00Z'
+          status: unmeasured
+        loop_completion:
+          followup_observed_at: null
+          inbound_handling_summary: null
+          conversation_participation_summary: null
+          next_content_decision: null
+          status: pending
+      - id: r3
+        start_at: '2026-11-26T12:00:00Z'
+        end_at: '2026-11-26T14:00:00Z'
+        status: scheduled
+        goal: 오늘 글과 작성 답글의 새 반응·미응답을 처리한다. 앞선 두 글과 겹치지 않는 유용한 후속 소재가 있으면 세 번째 원문을 게시한다. 이미 조회 목표를 넘겼다는 이유로 후보 검토·대화 참여를 생략하지 않는다.
+        task_sequence: 2
+        planned_tasks_only: true
+        report_status: pending
+        report_message_id: null
+        exhausted: false
+        observation_due_at: '2026-11-26T13:00:00Z'
+        metrics:
+          target: 10
+          unit: threads_post_views
+          observed_at: null
+          obs_attempted_at: null
+          posts: []
+          total_views: null
+          inbound_replies_observed: null
+          inbound_responses_sent: null
+          proactive_replies_sent: null
+          conversations_continued: null
+          follows_delta: null
+          status: unmeasured
+        loop_completion:
+          followup_observed_at: null
+          inbound_handling_summary: null
+          conversation_participation_summary: null
+          next_content_decision: null
+          status: pending
       tasks:
-      - id: miniapp-20261125-r3-t01
-        window_id: r3
-        goal: 현재 원문 DgKEVWij6oq의 조회·답글을 확인하고, 실제 관련 공개 대화를 몇 건 읽어 맥락에 맞을 때만 선제 답글(일일 상한5개 이내)로 기여한다. 유용하고 새 근거가 있을 때만 후속 원문 최대1개를 게시하고 첫 조회를 기록한다.
-        start_at: '2026-11-25T13:00:14Z'
-        end_at: '2026-11-25T14:00:00Z'
-        status: completed
-        handoff_status: sent
-        handoff_message_id: '1795611726.462139'
-        handoff_queue_id: convq_40a5b43bafbaa01994ee598ac0baff80
-        handoff_attempt_at: '2026-11-25T13:02:10Z'
-        result_summary: '원문 인사이트 214조회(13:04:49Z), 외부에서 온 답글 3건. 관련 공개 대화를 읽고 다른 작성자 퇴고 글에 실질 답글 1건(13:08:08Z) 게시·공개 URL 확인. 신규 원문 0건: 이미 조회 목표를 넘겼고 새 근거로 별도 글을 낼 필요가 없음.'
-        changes:
-        - https://www.threads.com/@_archivenoh/post/DgKmf-lD9Nn
-        release_runs: []
-        browser_task_space: 75
-        account_verification: '게시 전 본인 프로필 편집·답글 작성창에서 _archivenoh 확인; 확인 시각 초 단위 미기록'
-        original_posts_created: 0
-        proactive_replies_confirmed: 1
-        observed_inbound_replies: 3
-        reply_records:
-        - target_url: https://www.threads.com/@cheerfulyoonkyeom/post/DgJ8oBVjzRE
-          reply_url: https://www.threads.com/@_archivenoh/post/DgKmf-lD9Nn
-          published_at: '2026-11-25T13:08:08Z'
-          text: '부사를 전부 지우기보다, 한 문단에서 감정을 설명하는 문장 하나만 장면이나 행동으로 바꿔 읽어보면 어떨까요? 그 뒤에 남길 문장도 더 또렷해질 것 같아요. 퇴고를 멈추는 기준은 어떻게 정하세요?'
-          evidence: 'Threads 대상 글의 게시되었습니다 표시·_archivenoh 작성자·공개 답글 URL·time[datetime] 확인'
-        roles:
-          independent: deleg_34cac69a
-          cross_review: deleg_d4a2629f
-          completion_receipts: parent_previously_verified
-        guard:
-          state: completed
-          exit_code: 0
-          finished_at: '2026-11-25T13:19:32.248398+00:00'
-          lock_free_verified_at: '2026-11-25T13:19:49.582405+00:00'
-        status_check_at: "2026-11-25T13:06:00.205333+00:00"
-        receipt_checked_at: "2026-11-25T13:55:34Z"
-        receipt_check_result: "Read original Slack thread C0CE0DV9MM2/1794983278.888719 after handoff 1795611726.462139. Windows sender U0CHX8QA7S8 posted same-task result at 1795612994.747899: completed/exit 0 finished 2026-11-25T13:19:32.248398Z; parent confirmed lock-free 13:19:49.582405Z. Evidence: https://shdkej.slack.com/archives/C0CE0DV9MM2/p1795612994747899 and https://github.com/shdkej/infinity/blob/main/reports/miniapp-image-tools-20261118-qa-01/20261125T1311Z-r3-t01.html. Existing task guard fields match; no restart or new request."
-        receipt_repair_requested_at: "2026-11-25T13:18:20Z"
-        receipt_repair_message_id: "1795612758.367589"
-        completion_criteria: 현재 게시물 및 관련 공개 대화 실제 확인, 계정 정확성 유지, 답글은 관련성과 실질 기여가 있을 때만 하루 최대5개, 원문은 필요할 때만 하루 최대3개, 게시 시 URL·시각·플랫폼 표시 조회 또는 미측정 사유 기록, 실제 종료·잠금 영수증 기록. 고정 종료 2026-11-25T14:00:00Z.
-      - id: miniapp-20261125-r3-t02
-        window_id: r3
-        goal: 2026-11-25 오늘 새 원문 게시물 전체의 현재 Threads 표시 조회수를 한 번 관측하고 계측 증거와 시각을 기록한다. 반복 새로고침 없이 기존 post insights를 조회한다.
-        start_at: '2026-11-25T13:57:30Z'
-        end_at: '2026-11-25T14:00:00Z'
-        status: expired
-        handoff_status: sent
-        handoff_message_id: '1795615108.539579'
-        handoff_queue_id: convq_b73ecb24a749454e8f643e58aaff0566
-        handoff_attempt_at: '2026-11-25T13:58:35Z'
-        status_check_at: '2026-11-25T14:01:45Z'
-        status_check_message_id: '1795615304.995919'
-        status_check_result: expired_before_guard_start_confirmed_by_windows_receipt
-        result_summary: 22:58:28 인계 뒤 23:00 기한 경과로 router가 exit 5 반환. guard SQLite 행 없음, 조회 시도 미확인·새 지표 없음.
-        router_exit_code: 5
-        receipt_checked_at: 2026-11-26T07:04:23.911089+00:00
-        receipt_evidence_url: https://shdkej.slack.com/archives/C0CE0DV9MM2/p1795615331199329
+      - id: miniapp-20261126-r1-t01
+        window_id: r1
+        kind: engagement
+        required: true
+        goal: 어제 원문 DgKEVWij6oq와 답글 DgKmf-lD9Nn의 현재 반응을 확인한다. 받은 답글 3건의 실제 내용을 읽고 미응답 질문·구체 의견에 응답한다. 실제 대화/기존 공개 글/예시라고 명시한 문장에서 새로운 관점의
+          원문 1개를 게시하고 첫 관측과 18시 후속을 준비한다.
+        start_at: '2026-11-26T08:00:00Z'
+        end_at: '2026-11-26T10:00:00Z'
+        wrap_up_by: '2026-11-26T09:45:00Z'
+        execution_target_minutes: 35
+        status: prepared
+        handoff_status: prepared
+        handoff_message_id: null
+        handoff_queue_id: null
+        handoff_attempt_at: null
+        result_summary: null
         changes: []
         release_runs: []
+        reply_records: []
         guard:
           state: not_started
           exit_code: null
           finished_at: null
           lock_free_verified_at: null
         status_check_at: null
-        completion_criteria: 고정 종료 2026-11-25T14:00:00Z 전에 오늘 새 원문 전체의 현재 표시 조회수를 한 번 확인하고, 게시물별 ID·URL·views 또는 미측정·관측시각·insights 근거를 기록한다. metrics.obs_attempted_at은 조회 성공/실패 모두 실제 시도 후 기록한다. 반복 조회·자가조회는 하지 않으며 Windows guarded entrypoint 안에서 실행하고 실제 종료·잠금 영수증을 남긴다.
-      - id: miniapp-20261125-r1-t01
+        receipt_checked_at: null
+        completion_criteria: 정확한 _archivenoh 계정·실제 대화 읽기·당일 게시/답글 상한 준수·URL/시각/관측값 또는 실패 원인 기록. 받은 답글과 보낸 답글을 구분하고 같은 대상 중복 응답 금지. 자신의 실행
+          결과를 같은 tasks[].id에 기록하며 부모가 실제 guard 종료/exit code/잠금 확인을 병합한다. status는 completed 등 표준값, 상세 설명은 result_summary. 고정 기한 연장·다음 ID
+          발급·다음 날 재개 금지.
+      - id: miniapp-20261126-r1-t02
         window_id: r1
-        goal: Threads _archivenoh의 정확한로그인·최근공개글·조회접근을확인하고 맥락에맞는짧은원문글1개를게시해 첫조회스냅샷/게시URL을기록한다. 미니앱홍보로고정하지않는다.
-        start_at: '2026-11-25T08:00:00Z'
-        end_at: '2026-11-25T10:00:00Z'
-        status: completed
-        handoff_status: sent
-        handoff_message_id: '1795593652.728089'
-        result_summary: 정확한 로그인 _archivenoh의 프로필 편집·작성자 표시를 재확인하고 최근 공개 Threads 글 10개를 살폈다. 17:09:35 KST 원문 1개 게시, 원문 페이지 재확인. 17:10:14
-          KST 게시물 인사이트 조회수 0; 자가 조회를 고객 성과로 세지 않음.
-        changes:
-        - https://www.threads.com/@_archivenoh/post/DgKEVWij6oq
+        kind: observation
+        required: true
+        goal: 오늘 새 원문 전체의 현재 조회·답글을 한 번 재관측하고 미응답 질문/구체 의견에 응답한다. 작성한 답글에 상대의 새 답변이 있는지 확인하며 관련 대화에 유용한 기여가 있으면 참여한다. 게시물별 시각/조회, 받은·응답한·선제
+          답글, 이어진 대화, 다음 원문 판단을 기록한다. 이 구간 관측·응답·다음 선택을 닫고 종료 15분 전 부모 종료 영수증까지 회수한다.
+        start_at: '2026-11-26T09:00:00Z'
+        end_at: '2026-11-26T10:00:00Z'
+        wrap_up_by: '2026-11-26T09:45:00Z'
+        execution_target_minutes: 35
+        status: prepared
+        handoff_status: prepared
+        handoff_message_id: null
+        handoff_queue_id: null
+        handoff_attempt_at: null
+        result_summary: null
+        changes: []
         release_runs: []
-        post:
-          id: DgKEVWij6oq
-          url: https://www.threads.com/@_archivenoh/post/DgKEVWij6oq
-          published_at: '2026-11-25T08:09:35Z'
-          text: 막 쓰고 싶다, 잘 쓰고 싶다. 글을 쓸 때 일단 쓰고 고치는 편인가요, 첫 문장부터 다듬는 편인가요?
-          views: 0
-          observed_at: '2026-11-25T08:10:14.649Z'
-          evidence: https://www.threads.com/insights/post/DgKEVWij6oq
-        account_verified_at: '2026-11-25T08:09:35Z'
-        browser_task_space: 74
-        prior_posts_inspected: 10
-        roles:
-          independent: deleg_5f0d7d30
-          cross_review: deleg_7d876406
-          completion_receipts: parent_previously_verified
+        reply_records: []
         guard:
-          state: completed
-          exit_code: 0
-          finished_at: '2026-11-25T08:16:05.525932Z'
-          lock_free_verified_at: '2026-11-25T08:17:14Z'
-          evidence_url: https://shdkej.slack.com/archives/C0CE0DV9MM2/p1795594639774739
-          evidence_source: Windows parent actual Slack receipt; reconciled by Codex, not a fresh lock probe
-        status_check_at: '2026-11-25T08:15:10Z'
-        completion_criteria: 계정재확인·새게시URL/시각·플랫폼표시조회또는미측정이유·개인경험발명없음·실제guard종료/잠금증거를동일task에원격기록.30분내결과목표,최종기한19시불변.
-        receipt_reconciled_at: '2026-11-25T12:54:46.606096+00:00'
+          state: not_started
+          exit_code: null
+          finished_at: null
+          lock_free_verified_at: null
+        status_check_at: null
+        receipt_checked_at: null
+        completion_criteria: 정확한 _archivenoh 계정·실제 대화 읽기·당일 게시/답글 상한 준수·URL/시각/관측값 또는 실패 원인 기록. 받은 답글과 보낸 답글을 구분하고 같은 대상 중복 응답 금지. 자신의 실행
+          결과를 같은 tasks[].id에 기록하며 부모가 실제 guard 종료/exit code/잠금 확인을 병합한다. status는 completed 등 표준값, 상세 설명은 result_summary. 고정 기한 연장·다음 ID
+          발급·다음 날 재개 금지.
+      - id: miniapp-20261126-r2-t01
+        window_id: r2
+        kind: engagement
+        required: true
+        goal: 1차 반응·질문을 읽고 아직 답하지 않은 유효 댓글에 응답한다. 구체적인 문장 예시나 다른 관점의 두 번째 원문 1개를 게시하고 관련 공개 대화에 도움이 되는 답글을 남긴다. 오늘 신규 원문·응답 기록을 대조해 중복을
+          막는다.
+        start_at: '2026-11-26T10:00:00Z'
+        end_at: '2026-11-26T12:00:00Z'
+        wrap_up_by: '2026-11-26T11:45:00Z'
+        execution_target_minutes: 35
+        status: prepared
+        handoff_status: prepared
+        handoff_message_id: null
+        handoff_queue_id: null
+        handoff_attempt_at: null
+        result_summary: null
+        changes: []
+        release_runs: []
+        reply_records: []
+        guard:
+          state: not_started
+          exit_code: null
+          finished_at: null
+          lock_free_verified_at: null
+        status_check_at: null
+        receipt_checked_at: null
+        completion_criteria: 정확한 _archivenoh 계정·실제 대화 읽기·당일 게시/답글 상한 준수·URL/시각/관측값 또는 실패 원인 기록. 받은 답글과 보낸 답글을 구분하고 같은 대상 중복 응답 금지. 자신의 실행
+          결과를 같은 tasks[].id에 기록하며 부모가 실제 guard 종료/exit code/잠금 확인을 병합한다. status는 completed 등 표준값, 상세 설명은 result_summary. 고정 기한 연장·다음 ID
+          발급·다음 날 재개 금지.
+      - id: miniapp-20261126-r2-t02
+        window_id: r2
+        kind: observation
+        required: true
+        goal: 오늘 새 원문 전체의 현재 조회·답글을 한 번 재관측하고 미응답 질문/구체 의견에 응답한다. 작성한 답글에 상대의 새 답변이 있는지 확인하며 관련 대화에 유용한 기여가 있으면 참여한다. 게시물별 시각/조회, 받은·응답한·선제
+          답글, 이어진 대화, 다음 원문 판단을 기록한다. 이 구간 관측·응답·다음 선택을 닫고 종료 15분 전 부모 종료 영수증까지 회수한다.
+        start_at: '2026-11-26T11:00:00Z'
+        end_at: '2026-11-26T12:00:00Z'
+        wrap_up_by: '2026-11-26T11:45:00Z'
+        execution_target_minutes: 35
+        status: prepared
+        handoff_status: prepared
+        handoff_message_id: null
+        handoff_queue_id: null
+        handoff_attempt_at: null
+        result_summary: null
+        changes: []
+        release_runs: []
+        reply_records: []
+        guard:
+          state: not_started
+          exit_code: null
+          finished_at: null
+          lock_free_verified_at: null
+        status_check_at: null
+        receipt_checked_at: null
+        completion_criteria: 정확한 _archivenoh 계정·실제 대화 읽기·당일 게시/답글 상한 준수·URL/시각/관측값 또는 실패 원인 기록. 받은 답글과 보낸 답글을 구분하고 같은 대상 중복 응답 금지. 자신의 실행
+          결과를 같은 tasks[].id에 기록하며 부모가 실제 guard 종료/exit code/잠금 확인을 병합한다. status는 completed 등 표준값, 상세 설명은 result_summary. 고정 기한 연장·다음 ID
+          발급·다음 날 재개 금지.
+      - id: miniapp-20261126-r3-t01
+        window_id: r3
+        kind: engagement
+        required: true
+        goal: 오늘 글과 작성 답글의 새 반응·미응답을 처리한다. 앞선 두 글과 겹치지 않는 유용한 후속 소재가 있으면 세 번째 원문을 게시한다. 이미 조회 목표를 넘겼다는 이유로 후보 검토·대화 참여를 생략하지 않는다.
+        start_at: '2026-11-26T12:00:00Z'
+        end_at: '2026-11-26T14:00:00Z'
+        wrap_up_by: '2026-11-26T13:45:00Z'
+        execution_target_minutes: 35
+        status: prepared
+        handoff_status: prepared
+        handoff_message_id: null
+        handoff_queue_id: null
+        handoff_attempt_at: null
+        result_summary: null
+        changes: []
+        release_runs: []
+        reply_records: []
+        guard:
+          state: not_started
+          exit_code: null
+          finished_at: null
+          lock_free_verified_at: null
+        status_check_at: null
+        receipt_checked_at: null
+        completion_criteria: 정확한 _archivenoh 계정·실제 대화 읽기·당일 게시/답글 상한 준수·URL/시각/관측값 또는 실패 원인 기록. 받은 답글과 보낸 답글을 구분하고 같은 대상 중복 응답 금지. 자신의 실행
+          결과를 같은 tasks[].id에 기록하며 부모가 실제 guard 종료/exit code/잠금 확인을 병합한다. status는 completed 등 표준값, 상세 설명은 result_summary. 고정 기한 연장·다음 ID
+          발급·다음 날 재개 금지.
+      - id: miniapp-20261126-r3-t02
+        window_id: r3
+        kind: observation
+        required: true
+        goal: 오늘 새 원문 전체의 현재 조회·답글을 한 번 재관측하고 미응답 질문/구체 의견에 응답한다. 작성한 답글에 상대의 새 답변이 있는지 확인하며 관련 대화에 유용한 기여가 있으면 참여한다. 게시물별 시각/조회, 받은·응답한·선제
+          답글, 이어진 대화, 다음 원문 판단을 기록한다. 이 구간 관측·응답·다음 선택을 닫고 종료 15분 전 부모 종료 영수증까지 회수한다.
+        start_at: '2026-11-26T13:00:00Z'
+        end_at: '2026-11-26T14:00:00Z'
+        wrap_up_by: '2026-11-26T13:45:00Z'
+        execution_target_minutes: 35
+        status: prepared
+        handoff_status: prepared
+        handoff_message_id: null
+        handoff_queue_id: null
+        handoff_attempt_at: null
+        result_summary: null
+        changes: []
+        release_runs: []
+        reply_records: []
+        guard:
+          state: not_started
+          exit_code: null
+          finished_at: null
+          lock_free_verified_at: null
+        status_check_at: null
+        receipt_checked_at: null
+        completion_criteria: 정확한 _archivenoh 계정·실제 대화 읽기·당일 게시/답글 상한 준수·URL/시각/관측값 또는 실패 원인 기록. 받은 답글과 보낸 답글을 구분하고 같은 대상 중복 응답 금지. 자신의 실행
+          결과를 같은 tasks[].id에 기록하며 부모가 실제 guard 종료/exit code/잠금 확인을 병합한다. status는 completed 등 표준값, 상세 설명은 result_summary. 고정 기한 연장·다음 ID
+          발급·다음 날 재개 금지.
       metrics:
         target: 10
         unit: threads_post_views
-        observed_at: '2026-11-25T13:04:49.237Z'
-        posts:
-        - id: DgKEVWij6oq
-          url: https://www.threads.com/@_archivenoh/post/DgKEVWij6oq
-          published_at: '2026-11-25T08:09:35Z'
-          views: 214
-          observed_at: '2026-11-25T13:04:49.237Z'
-          evidence: https://www.threads.com/insights/post/DgKEVWij6oq
-        total_views: 214
-        replies: 1
+        observed_at: null
+        obs_attempted_at: null
+        posts: []
+        total_views: null
+        inbound_replies_observed: null
+        inbound_responses_sent: null
+        proactive_replies_sent: null
+        conversations_continued: null
         follows_delta: null
-        status: measured_latest_snapshot_goal_reached
+        status: unmeasured
+      prior_post_observations:
+      - id: DgKEVWij6oq
+        url: https://www.threads.com/@_archivenoh/post/DgKEVWij6oq
+        historical_views: 214
+        historical_observed_at: '2026-11-25T13:04:49.237Z'
+        today_baseline_views: null
+        today_baseline_observed_at: null
+        excluded_from_today_goal: true
       public_promotion:
         status: authorized
         platform: Threads
         account: _archivenoh
+        planned_original_posts: 2
         max_original_posts: 3
         max_proactive_public_replies: 5
-        authorization_quote: _archivenoh 계정을 써주고 쓰레드로 하고 계정활성화나 여러 방안을 써주고 미니앱이 아니라 다른 어프로치를 해도 듀ㅐ
+        max_inbound_responses: 10
+        authorization_quote: 스레드 활성화를 위해서는 답글 다는것도 중요하고 다른 글을 또 썼어도 됐는데 진행이 미진했어. 개선해주고 오늘도 3회 진행하자
         exclusions:
         - other_accounts
         - Instagram
@@ -508,15 +604,13 @@ lanes:
         - paid_ads
         - mass_engagement
         - security_or_visibility_changes
-        account_verified: true
-      next_action: 11/26 결과 검토와 누락된 최종 요약 전달 확인 완료. 같은 원문 메시지 1795676705.260879. 새 작업·계측·게시 자동 재개 없음.
+        account_verified: false
+      next_action: 17시 r1-t01 실행, 18시 r1-t02 후속 관측·응답. 구간당 예정 두 작업을 끝내고 다음 구간으로 진행.
       setup_receipts:
-        windows_guard_browser_message_id: '1795592153.192409'
-        windows_account_public_message_id: '1795592691.132499'
-        account_auth_status: authenticated_exact_handle_verified_2026-11-25T08:09:35Z
-        sam_contract_run_id: threads-twohour-contract-20261125
-        helper_test_count: 27
-    next_action: 11/26 결과 검토 완료. 다음 실험 전 완료 상태 정규화·마감 전 인계 제한·최종 보고 본문 영수증 검증이 필요하며 새 실행은 시작하지 않는다.
+        helper_verification: pending
+        sam_contract_message_id: null
+        windows_contract_reply_id: null
+    next_action: 17시 r1-t01 실행, 18시 r1-t02 후속 관측·응답. 구간당 예정 두 작업을 끝내고 다음 구간으로 진행.
     notification_channel: slack
     notification_target: channel:C0CE0DV9MM2
     notification_reply_to: '1794983278.888719'
@@ -605,16 +699,16 @@ lanes:
         current_task_status_check_status: sent
         current_task_status_check_task_id: miniapp-20261124-r2-t05
         current_task_execution_snapshot_at: '2026-11-24T10:49:18Z'
-        current_task_execution_snapshot: guard completed/exit 0 at 10:48:12Z; app-only release and live readback verified; active.lock
-          free at 10:49:18Z. r2 report remains pending.
+        current_task_execution_snapshot: guard completed/exit 0 at 10:48:12Z; app-only release and live readback verified; active.lock free
+          at 10:49:18Z. r2 report remains pending.
         current_task_status_check_message_id: '1795517213.706259'
         current_task_status_check_queue_id: convq_b3800df487bd672c099f41b904f78e0f
         prior_task_status: copy_released_live_verified
         prior_task_id: miniapp-20261124-r2-t05
         last_task_status: mobile_keyboard_recovery_pass_no_change
         last_task_id: miniapp-20261124-r2-t06
-        last_task_result: 390·320px ego lite 모바일 에뮬레이션 0B 거부→유효 PNG 재선택→키보드 변환·다운로드·WebP 80×40 재디코딩 PASS. 제품 코드·신규 Action 없음, Space QA
-          SHA b6ed6a8. guard exit 0·lock free.
+        last_task_result: 390·320px ego lite 모바일 에뮬레이션 0B 거부→유효 PNG 재선택→키보드 변환·다운로드·WebP 80×40 재디코딩 PASS. 제품 코드·신규 Action 없음, Space QA SHA
+          b6ed6a8. guard exit 0·lock free.
         last_task_guard_finished_at: '2026-11-24T11:23:57.291875+00:00'
         last_task_guard_exit_code: 0
         last_task_lock_released_verified_at: '2026-11-24T11:24:09.929899Z'
@@ -649,8 +743,8 @@ lanes:
         current_task_end_at: '2026-11-24T14:30:00Z'
         current_task_completion_criteria: 'Windows parent: reconcile each r3 task against its existing report/trace, product result, guard
           exit and lock receipt; distinguish deployed fixes, synthetic QA, analytics observations, blocked Narrator cleanup and unmeasured
-          customer outcomes. Produce concise evidence matrix/next candidate without repeating browser/API/analytics checks or changing
-          app code/deploy. Commit only related records; record guard exit and shared-lock release for this task before fixed end_at.'
+          customer outcomes. Produce concise evidence matrix/next candidate without repeating browser/API/analytics checks or changing app
+          code/deploy. Commit only related records; record guard exit and shared-lock release for this task before fixed end_at.'
         prior_r3_t05_status: synthetic_jpeg_webp_boundary_qa_pass_no_change_guard_completed
         prior_r3_t05_guard_finished_at: '2026-11-24T14:00:59.198202Z'
         prior_r3_t05_guard_exit_code: 0
@@ -780,6 +874,252 @@ lanes:
       prior_r2_t05_status_check_message_id: '1795517213.706259'
       prior_r2_t05_status_check_queue_id: convq_b3800df487bd672c099f41b904f78e0f
       prior_r2_t05_status_check_reason: 최신 원격에 t05 결과/guard/잠금 갱신 없음; 동일 ID 업무 재전송 없이 상태 1회 확인.
+    - run_id: miniapp-20261125-2h
+      status: finished
+      date: '2026-11-25'
+      timezone: Asia/Seoul
+      start_at: '2026-11-25T08:00:00Z'
+      end_at: '2026-11-25T14:00:00Z'
+      target_service: Threads
+      target_account: _archivenoh
+      goal: 이번실험에서새로게시한Threads원문글의플랫폼조회수합계10회
+      target_views: 10
+      goal_confirmed_by_user: 10회만 해도 큰건데
+      interval_minutes: 3
+      dispatch_owner: sam_supervisor_cron
+      supervisor_job_id: eb75facc-7686-4746-a399-4ef6d881048e
+      closeout_job_id: 8e116857-63f9-4475-8e55-4a7c386e4a16
+      configuration_status: verified
+      final_report_status: sent
+      final_report_prepared_at: '2026-11-25T14:02:20Z'
+      final_report: reports/miniapp-image-tools-20261118-qa-01/20261125T1400Z.html
+      final_report_delivery_receipt: sent 1795676705.260879; original thread body verified 2026-11-26
+      final_report_message_id: '1795676705.260879'
+      final_report_delivered_at: '2026-11-26T07:05:05.260879Z'
+      final_report_delivery_repaired: true
+      final_report_review: intents/waiting/miniapp-image-tools-20261118-qa-01.md
+      supervisor_enabled: false
+      supervisor_disabled_at: '2026-11-25T14:01:51.340Z'
+      supervisor_disable_status: disabled_verified
+      windows:
+      - id: r1
+        start_at: '2026-11-25T08:00:00Z'
+        end_at: '2026-11-25T10:00:00Z'
+        status: finished
+        goal: 계정·기존글·조회확인과 맥락에맞는 첫글1개 게시
+        task_sequence: 1
+        report_status: sent
+        report_message_id: '1795600846.134169'
+        exhausted: false
+        metrics:
+          target: 10
+          unit: threads_post_views
+          observed_at: '2026-11-25T08:10:14.649Z'
+          posts:
+          - id: DgKEVWij6oq
+            url: https://www.threads.com/@_archivenoh/post/DgKEVWij6oq
+            published_at: '2026-11-25T08:09:35Z'
+            views: 0
+            observed_at: '2026-11-25T08:10:14.649Z'
+            evidence: https://www.threads.com/insights/post/DgKEVWij6oq
+          total_views: 0
+          replies: 0
+          follows_delta: null
+          status: measured_first_snapshot
+        observation_due_at: '2026-11-25T09:45:00Z'
+      - id: r2
+        start_at: '2026-11-25T10:00:00Z'
+        end_at: '2026-11-25T12:00:00Z'
+        status: finished
+        goal: 첫반응으로 다른표현/형식글1개·관련대화에 소수답글
+        task_sequence: 0
+        report_status: sent
+        report_message_id: '1795608036.128849'
+        exhausted: false
+        metrics:
+          target: 10
+          unit: threads_post_views
+          observed_at: null
+          posts: []
+          total_views: null
+          replies: null
+          follows_delta: null
+          status: unmeasured
+        observation_due_at: '2026-11-25T11:45:00Z'
+      - id: r3
+        start_at: '2026-11-25T12:00:00Z'
+        end_at: '2026-11-25T14:00:00Z'
+        status: finished
+        goal: 반응있는주제후속최대1개·조회10회판정과마감
+        task_sequence: 2
+        report_status: sent
+        report_message_id: '1795676705.260879'
+        exhausted: false
+        metrics:
+          target: 10
+          unit: threads_post_views
+          observed_at: '2026-11-25T13:04:49.237Z'
+          posts:
+          - id: DgKEVWij6oq
+            url: https://www.threads.com/@_archivenoh/post/DgKEVWij6oq
+            published_at: '2026-11-25T08:09:35Z'
+            views: 214
+            observed_at: '2026-11-25T13:04:49.237Z'
+            evidence: https://www.threads.com/insights/post/DgKEVWij6oq
+          total_views: 214
+          replies: 1
+          follows_delta: null
+          status: measured_latest_snapshot_goal_reached
+        observation_due_at: '2026-11-25T13:45:00Z'
+      tasks:
+      - id: miniapp-20261125-r3-t01
+        window_id: r3
+        goal: 현재 원문 DgKEVWij6oq의 조회·답글을 확인하고, 실제 관련 공개 대화를 몇 건 읽어 맥락에 맞을 때만 선제 답글(일일 상한5개 이내)로 기여한다. 유용하고 새 근거가 있을 때만 후속 원문 최대1개를 게시하고 첫
+          조회를 기록한다.
+        start_at: '2026-11-25T13:00:14Z'
+        end_at: '2026-11-25T14:00:00Z'
+        status: completed
+        handoff_status: sent
+        handoff_message_id: '1795611726.462139'
+        handoff_queue_id: convq_40a5b43bafbaa01994ee598ac0baff80
+        handoff_attempt_at: '2026-11-25T13:02:10Z'
+        result_summary: '원문 인사이트 214조회(13:04:49Z), 외부에서 온 답글 3건. 관련 공개 대화를 읽고 다른 작성자 퇴고 글에 실질 답글 1건(13:08:08Z) 게시·공개 URL 확인. 신규 원문 0건: 이미
+          조회 목표를 넘겼고 새 근거로 별도 글을 낼 필요가 없음.'
+        changes:
+        - https://www.threads.com/@_archivenoh/post/DgKmf-lD9Nn
+        release_runs: []
+        browser_task_space: 75
+        account_verification: 게시 전 본인 프로필 편집·답글 작성창에서 _archivenoh 확인; 확인 시각 초 단위 미기록
+        original_posts_created: 0
+        proactive_replies_confirmed: 1
+        observed_inbound_replies: 3
+        reply_records:
+        - target_url: https://www.threads.com/@cheerfulyoonkyeom/post/DgJ8oBVjzRE
+          reply_url: https://www.threads.com/@_archivenoh/post/DgKmf-lD9Nn
+          published_at: '2026-11-25T13:08:08Z'
+          text: 부사를 전부 지우기보다, 한 문단에서 감정을 설명하는 문장 하나만 장면이나 행동으로 바꿔 읽어보면 어떨까요? 그 뒤에 남길 문장도 더 또렷해질 것 같아요. 퇴고를 멈추는 기준은 어떻게 정하세요?
+          evidence: Threads 대상 글의 게시되었습니다 표시·_archivenoh 작성자·공개 답글 URL·time[datetime] 확인
+        roles:
+          independent: deleg_34cac69a
+          cross_review: deleg_d4a2629f
+          completion_receipts: parent_previously_verified
+        guard:
+          state: completed
+          exit_code: 0
+          finished_at: '2026-11-25T13:19:32.248398+00:00'
+          lock_free_verified_at: '2026-11-25T13:19:49.582405+00:00'
+        status_check_at: '2026-11-25T13:06:00.205333+00:00'
+        receipt_checked_at: '2026-11-25T13:55:34Z'
+        receipt_check_result: 'Read original Slack thread C0CE0DV9MM2/1794983278.888719 after handoff 1795611726.462139. Windows sender
+          U0CHX8QA7S8 posted same-task result at 1795612994.747899: completed/exit 0 finished 2026-11-25T13:19:32.248398Z; parent confirmed
+          lock-free 13:19:49.582405Z. Evidence: https://shdkej.slack.com/archives/C0CE0DV9MM2/p1795612994747899 and https://github.com/shdkej/infinity/blob/main/reports/miniapp-image-tools-20261118-qa-01/20261125T1311Z-r3-t01.html.
+          Existing task guard fields match; no restart or new request.'
+        receipt_repair_requested_at: '2026-11-25T13:18:20Z'
+        receipt_repair_message_id: '1795612758.367589'
+        completion_criteria: 현재 게시물 및 관련 공개 대화 실제 확인, 계정 정확성 유지, 답글은 관련성과 실질 기여가 있을 때만 하루 최대5개, 원문은 필요할 때만 하루 최대3개, 게시 시 URL·시각·플랫폼 표시 조회
+          또는 미측정 사유 기록, 실제 종료·잠금 영수증 기록. 고정 종료 2026-11-25T14:00:00Z.
+      - id: miniapp-20261125-r3-t02
+        window_id: r3
+        goal: 2026-11-25 오늘 새 원문 게시물 전체의 현재 Threads 표시 조회수를 한 번 관측하고 계측 증거와 시각을 기록한다. 반복 새로고침 없이 기존 post insights를 조회한다.
+        start_at: '2026-11-25T13:57:30Z'
+        end_at: '2026-11-25T14:00:00Z'
+        status: expired
+        handoff_status: sent
+        handoff_message_id: '1795615108.539579'
+        handoff_queue_id: convq_b73ecb24a749454e8f643e58aaff0566
+        handoff_attempt_at: '2026-11-25T13:58:35Z'
+        status_check_at: null
+        status_check_message_id: '1795615304.995919'
+        status_check_result: expired_before_guard_start_confirmed_by_windows_receipt
+        result_summary: 22:58:28 인계 뒤 23:00 기한 경과로 router가 exit 5 반환. guard SQLite 행 없음, 조회 시도 미확인·새 지표 없음.
+        router_exit_code: 5
+        receipt_checked_at: 2026-11-26 07:04:23.911089+00:00
+        receipt_evidence_url: https://shdkej.slack.com/archives/C0CE0DV9MM2/p1795615331199329
+        changes: []
+        release_runs: []
+        guard:
+          state: not_started
+          exit_code: null
+          finished_at: null
+          lock_free_verified_at: null
+        completion_criteria: 고정 종료 2026-11-25T14:00:00Z 전에 오늘 새 원문 전체의 현재 표시 조회수를 한 번 확인하고, 게시물별 ID·URL·views 또는 미측정·관측시각·insights 근거를 기록한다.
+          metrics.obs_attempted_at은 조회 성공/실패 모두 실제 시도 후 기록한다. 반복 조회·자가조회는 하지 않으며 Windows guarded entrypoint 안에서 실행하고 실제 종료·잠금 영수증을 남긴다.
+      - id: miniapp-20261125-r1-t01
+        window_id: r1
+        goal: Threads _archivenoh의 정확한로그인·최근공개글·조회접근을확인하고 맥락에맞는짧은원문글1개를게시해 첫조회스냅샷/게시URL을기록한다. 미니앱홍보로고정하지않는다.
+        start_at: '2026-11-25T08:00:00Z'
+        end_at: '2026-11-25T10:00:00Z'
+        status: completed
+        handoff_status: sent
+        handoff_message_id: '1795593652.728089'
+        result_summary: 정확한 로그인 _archivenoh의 프로필 편집·작성자 표시를 재확인하고 최근 공개 Threads 글 10개를 살폈다. 17:09:35 KST 원문 1개 게시, 원문 페이지 재확인. 17:10:14
+          KST 게시물 인사이트 조회수 0; 자가 조회를 고객 성과로 세지 않음.
+        changes:
+        - https://www.threads.com/@_archivenoh/post/DgKEVWij6oq
+        release_runs: []
+        post:
+          id: DgKEVWij6oq
+          url: https://www.threads.com/@_archivenoh/post/DgKEVWij6oq
+          published_at: '2026-11-25T08:09:35Z'
+          text: 막 쓰고 싶다, 잘 쓰고 싶다. 글을 쓸 때 일단 쓰고 고치는 편인가요, 첫 문장부터 다듬는 편인가요?
+          views: 0
+          observed_at: '2026-11-25T08:10:14.649Z'
+          evidence: https://www.threads.com/insights/post/DgKEVWij6oq
+        account_verified_at: '2026-11-25T08:09:35Z'
+        browser_task_space: 74
+        prior_posts_inspected: 10
+        roles:
+          independent: deleg_5f0d7d30
+          cross_review: deleg_7d876406
+          completion_receipts: parent_previously_verified
+        guard:
+          state: completed
+          exit_code: 0
+          finished_at: '2026-11-25T08:16:05.525932Z'
+          lock_free_verified_at: '2026-11-25T08:17:14Z'
+          evidence_url: https://shdkej.slack.com/archives/C0CE0DV9MM2/p1795594639774739
+          evidence_source: Windows parent actual Slack receipt; reconciled by Codex, not a fresh lock probe
+        status_check_at: '2026-11-25T08:15:10Z'
+        completion_criteria: 계정재확인·새게시URL/시각·플랫폼표시조회또는미측정이유·개인경험발명없음·실제guard종료/잠금증거를동일task에원격기록.30분내결과목표,최종기한19시불변.
+        receipt_reconciled_at: '2026-11-25T12:54:46.606096+00:00'
+      metrics:
+        target: 10
+        unit: threads_post_views
+        observed_at: '2026-11-25T13:04:49.237Z'
+        posts:
+        - id: DgKEVWij6oq
+          url: https://www.threads.com/@_archivenoh/post/DgKEVWij6oq
+          published_at: '2026-11-25T08:09:35Z'
+          views: 214
+          observed_at: '2026-11-25T13:04:49.237Z'
+          evidence: https://www.threads.com/insights/post/DgKEVWij6oq
+        total_views: 214
+        replies: 1
+        follows_delta: null
+        status: measured_latest_snapshot_goal_reached
+      public_promotion:
+        status: authorized
+        platform: Threads
+        account: _archivenoh
+        max_original_posts: 3
+        max_proactive_public_replies: 5
+        authorization_quote: _archivenoh 계정을 써주고 쓰레드로 하고 계정활성화나 여러 방안을 써주고 미니앱이 아니라 다른 어프로치를 해도 듀ㅐ
+        exclusions:
+        - other_accounts
+        - Instagram
+        - DM
+        - paid_ads
+        - mass_engagement
+        - security_or_visibility_changes
+        account_verified: true
+      next_action: 11/26 결과 검토와 누락된 최종 요약 전달 확인 완료. 같은 원문 메시지 1795676705.260879. 새 작업·계측·게시 자동 재개 없음.
+      setup_receipts:
+        windows_guard_browser_message_id: '1795592153.192409'
+        windows_account_public_message_id: '1795592691.132499'
+        account_auth_status: authenticated_exact_handle_verified_2026-11-25T08:09:35Z
+        sam_contract_run_id: threads-twohour-contract-20261125
+        helper_test_count: 27
+
   - id: reel-room-studio-20261113
     title: Reel Room·Instagram Maker 통합 릴스 스튜디오 구현
     task_name: Reel Room·Instagram Maker 통합 릴스 스튜디오 구현

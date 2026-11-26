@@ -13,6 +13,9 @@ import miniapp_experiment as helper
 def run_fixture():
     return {
         "run_id": "miniapp-20261125-2h", "status": "scheduled",
+        "date": "2026-11-25", "timezone": "Asia/Seoul",
+        "start_at": "2026-11-25T17:00:00+09:00",
+        "end_at": "2026-11-25T23:00:00+09:00",
         "metrics": {"user_page_views": None, "target": 10},
         "tasks": [],
         "windows": [
@@ -77,13 +80,43 @@ class Decisions(unittest.TestCase):
         result = self.snap("21:51:00")
         self.assertIsNotNone(result.get("proposed_task"))
         self.assertEqual(result["proposed_task"]["id"], "miniapp-20261125-r3-t01")
-        self.assertEqual(helper.parse_time(result["proposed_task"]["end_at"]), helper.parse_time(helper.END))
+        self.assertEqual(helper.parse_time(result["proposed_task"]["end_at"]), helper.parse_time(self.run["end_at"]))
         self.assertIsNone(result["reuse_task_id"])
         self.assertIsNone(self.snap("23:00:00")["proposed_task"])
 
     def test_running_waits_without_model_even_after_ten_minutes(self):
         self.run["tasks"] = [task()]
         self.assertFalse(self.snap()["fire"])
+
+    def test_running_task_checks_once_at_execution_target_then_reconciles_every_fifteen_minutes(self):
+        self.run["tasks"] = [task(execution_target_minutes=35)]
+        self.assertFalse(self.snap("17:34:59")["fire"])
+        result = self.snap("17:35:00")
+        self.assertEqual(result["status_check_task_id"], "t1")
+        self.assertIn("execution_target_status_check", result["reasons"])
+        self.assertFalse(result["dispatch_allowed"])
+        self.run["tasks"][0]["status_check_at"] = "2026-11-25T17:35:00+09:00"
+        self.assertFalse(self.snap("17:49:59")["fire"])
+        self.assertEqual(self.snap("17:50:00")["reconcile_task_id"], "t1")
+        self.run["tasks"][0]["receipt_checked_at"] = "2026-11-25T17:50:00+09:00"
+        self.assertFalse(self.snap("18:04:59")["fire"])
+        self.assertEqual(self.snap("18:05:00")["reconcile_task_id"], "t1")
+        self.assertFalse(self.snap("18:15:00")["dispatch_allowed"])
+
+    def test_observation_due_checks_blocking_running_task_without_interrupting_observation_itself(self):
+        self.run["windows"][0]["observation_due_at"] = "2026-11-25T18:00:00+09:00"
+        self.run["tasks"] = [task(execution_target_minutes=90)]
+        result = self.snap("18:00:00")
+        self.assertEqual(result["status_check_task_id"], "t1")
+        self.assertIn("observation_blocked_status_check", result["reasons"])
+        self.assertFalse(result["dispatch_allowed"])
+        self.run["tasks"][0].update({"kind": "observation", "start_at": "2026-11-25T18:00:00+09:00"})
+        self.assertFalse(self.snap("18:01:00")["fire"])
+
+    def test_legacy_running_target_defaults_to_forty_five_minutes(self):
+        self.run["tasks"] = [task()]
+        self.assertFalse(self.snap("17:44:59")["fire"])
+        self.assertEqual(self.snap("17:45:00")["status_check_task_id"], "t1")
 
     def test_result_and_released_guard_are_both_required(self):
         self.run["tasks"] = [finished()]
@@ -92,6 +125,80 @@ class Decisions(unittest.TestCase):
         self.assertFalse(self.snap()["dispatch_allowed"])
         self.run["tasks"][0]["guard"]["lock_free_verified_at"] = "2026-11-25T17:19:00+09:00"
         self.assertFalse(self.snap()["dispatch_allowed"])
+
+    def test_custom_status_with_receipt_requires_explicit_normalization_before_dispatch(self):
+        item = finished()
+        item["status"] = "observed_replied_guard_completed"
+        self.run["tasks"] = [item]
+        before = copy.deepcopy(self.run)
+        result = self.snap()
+        self.assertFalse(result["dispatch_allowed"])
+        self.assertEqual(result.get("normalization_proposals"), [{
+            "task_id": "t1", "status": "completed",
+            "reason": "same_task_result_and_guard_receipt_verified"}])
+        self.assertIn("task_status_normalization_required", result["reasons"])
+        self.assertEqual(self.run, before)
+        item["status"] = "completed"
+        self.assertTrue(self.snap()["dispatch_allowed"])
+
+    def test_terminal_guard_receipt_rejects_bad_exit_identity_and_time(self):
+        for field, value in [("exit_code", None), ("exit_code", True), ("exit_code", 9),
+                             ("task_id", "another-task"),
+                             ("finished_at", "2026-11-25T16:59:59+09:00"),
+                             ("lock_free_verified_at", "2026-11-25T17:31:00+09:00")]:
+            item = finished()
+            item["guard"][field] = value
+            self.run["tasks"] = [item]
+            self.assertFalse(self.snap()["dispatch_allowed"], (field, value))
+
+    def test_unknown_or_running_guard_is_never_normalized(self):
+        for state in (None, "running", "pending_parent_after_child_exit", "unknown"):
+            item = finished()
+            item["status"] = "observed_replied_guard_completed"
+            item["guard"]["state"] = state
+            self.run["tasks"] = [item]
+            result = self.snap()
+            self.assertFalse(result["dispatch_allowed"])
+            self.assertEqual(result.get("normalization_proposals"), [])
+
+    def test_completed_guard_without_result_requires_reconciliation(self):
+        item = finished()
+        item["result_summary"] = None
+        self.run["tasks"] = [item]
+        result = self.snap()
+        self.assertFalse(result["dispatch_allowed"])
+        self.assertEqual(result.get("reconcile_task_id"), "t1")
+
+    def test_router_expired_without_guard_requires_receipt_and_does_not_hide_live_task(self):
+        expired = task("expired", id="expired", guard={"state": "not_started"},
+                       router_exit_code=5, result_summary="router refused expired task",
+                       receipt_checked_at="2026-11-25T19:01:00+09:00",
+                       receipt_evidence_url="https://example.test/exact-task-receipt")
+        self.run["tasks"] = [expired]
+        self.assertTrue(self.snap("19:30:00")["dispatch_allowed"])
+        self.run["tasks"].append(task())
+        self.assertFalse(self.snap("19:30:00")["dispatch_allowed"])
+        self.run["tasks"] = [dict(expired, receipt_evidence_url=None)]
+        self.assertFalse(self.snap("19:30:00")["dispatch_allowed"])
+        self.run["tasks"] = [dict(expired, receipt_checked_at="2026-11-25T17:25:00+09:00")]
+        self.assertFalse(self.snap()["dispatch_allowed"])
+
+    def test_definitely_unsent_expired_task_can_close_without_inventing_guard_receipt(self):
+        expired = task("expired", handoff_status="not_sent", handoff_message_id=None,
+                       guard={"state": "not_started", "exit_code": None, "finished_at": None,
+                              "lock_free_verified_at": None},
+                       expiry_reason="window ended before dispatch", expired_at="2026-11-25T19:00:00+09:00",
+                       result_summary="not sent before deadline")
+        self.run["tasks"] = [expired]
+        self.assertTrue(self.snap("19:03:00")["dispatch_allowed"])
+        for field, value in [("handoff_message_id", "m1"), ("handoff_queue_id", "q1"),
+                             ("handoff_attempt_at", "2026-11-25T18:58:00+09:00"),
+                             ("handoff_status", "uncertain"), ("expiry_reason", None),
+                             ("expired_at", "2026-11-25T18:59:00+09:00")]:
+            self.run["tasks"] = [dict(expired, **{field: value})]
+            self.assertFalse(self.snap("19:03:00")["dispatch_allowed"], field)
+        self.run["tasks"] = [expired, task(id="live")]
+        self.assertFalse(self.snap("19:03:00")["dispatch_allowed"])
 
     def test_failed_expired_or_timeout_can_advance_after_guard_releases(self):
         for status in ("failed", "timed_out", "expired"):
@@ -194,8 +301,8 @@ class Decisions(unittest.TestCase):
         self.run["tasks"] = [task(end_at="2026-11-25T10:00:00Z")]
         self.assertFalse(self.snap()["fire"])
 
-    def test_observation_deadline_must_be_fifteen_minutes_before_window_end(self):
-        self.run["windows"][0]["observation_due_at"] = "2026-11-25T18:44:00+09:00"
+    def test_observation_deadline_must_leave_at_least_fifteen_minutes(self):
+        self.run["windows"][0]["observation_due_at"] = "2026-11-25T18:46:00+09:00"
         with self.assertRaises(ValueError):
             self.snap()
 
@@ -210,11 +317,74 @@ class Decisions(unittest.TestCase):
         self.assertFalse(self.snap("18:48:00")["fire"])
 
     def test_observation_waits_for_running_guard_then_dispatches(self):
+        self.run["windows"][0]["observation_due_at"] = "2026-11-25T18:30:00+09:00"
         self.run["tasks"] = [task()]
         self.run["windows"][0]["exhausted"] = True
-        self.assertFalse(self.snap("18:45:00")["fire"])
+        self.assertEqual(self.snap("18:30:00")["status_check_task_id"], "t1")
+        self.assertFalse(self.snap("18:30:00")["dispatch_allowed"])
         self.run["tasks"] = [finished()]
-        self.assertIn("metrics_observation_due", self.snap("18:48:00")["reasons"])
+        self.assertIn("metrics_observation_due", self.snap("18:33:00")["reasons"])
+
+    def test_late_prepared_work_and_late_observation_are_not_dispatched(self):
+        pending = task("prepared", handoff_status="prepared", handoff_message_id=None, guard={})
+        self.run["tasks"] = [pending]
+        self.assertTrue(self.snap("18:40:00")["dispatch_allowed"])
+        self.assertFalse(self.snap("18:40:01")["dispatch_allowed"])
+        pending["kind"] = "observation"
+        self.assertTrue(self.snap("18:45:00")["dispatch_allowed"])
+        result = self.snap("18:45:01")
+        self.assertFalse(result["dispatch_allowed"])
+        self.assertIsNone(result["proposed_task"])
+        self.assertEqual(result.get("dispatch_blocked_reason"), "insufficient_time_before_window_end")
+
+    def test_observation_due_supersedes_prepared_general_work(self):
+        self.run["windows"][0]["observation_due_at"] = "2026-11-25T18:30:00+09:00"
+        self.run["tasks"] = [
+            task("prepared", handoff_status="prepared", handoff_message_id=None, guard={}),
+            task("prepared", id="observe", kind="observation", required=True,
+                 start_at="2026-11-25T18:30:00+09:00", handoff_status="prepared",
+                 handoff_message_id=None, guard={})]
+        self.assertEqual(self.snap("18:30:00")["reuse_task_id"], "observe")
+
+    def test_fixed_plan_waits_for_future_observation_without_inventing_tasks(self):
+        self.run["windows"][0].update({"planned_tasks_only": True,
+                                       "observation_due_at": "2026-11-25T18:30:00+09:00"})
+        self.run["tasks"] = [finished(), task("prepared", id="observe", kind="observation",
+            start_at="2026-11-25T18:30:00+09:00", handoff_status="prepared",
+            handoff_message_id=None, guard={})]
+        result = self.snap("17:30:00")
+        self.assertFalse(result["fire"])
+        self.assertFalse(result["dispatch_allowed"])
+        self.assertIsNone(result["proposed_task"])
+        self.assertEqual(self.snap("18:30:00")["reuse_task_id"], "observe")
+        self.run["tasks"] = [finished()]
+        result = self.snap("18:30:00")
+        self.assertFalse(result["dispatch_allowed"])
+        self.assertIsNone(result["proposed_task"])
+        self.assertEqual(result.get("dispatch_blocked_reason"), "no_due_planned_task")
+
+    def test_current_task_does_not_point_to_a_future_scheduled_phase(self):
+        self.run["tasks"] = [finished(), task("prepared", id="later", kind="observation",
+            start_at="2026-11-25T18:30:00+09:00", handoff_status="prepared",
+            handoff_message_id=None, guard={})]
+        self.assertEqual(self.snap()["current_task"]["id"], "t1")
+
+    def test_reaching_view_goal_does_not_suppress_due_engagement(self):
+        self.run["metrics"] = {"target": 10, "total_views": 214}
+        self.run["windows"][0]["planned_tasks_only"] = True
+        self.run["tasks"] = [task("prepared", handoff_status="prepared",
+                                  handoff_message_id=None, guard={})]
+        self.assertTrue(self.snap()["dispatch_allowed"])
+
+    def test_current_run_uses_matching_date_and_windows_without_day_hardcode(self):
+        today = json.loads(json.dumps(self.run).replace("20261125", "20261126").replace("2026-11-25", "2026-11-26"))
+        result = helper.snapshot(today, helper.parse_time("2026-11-26T17:00:00+09:00"))
+        self.assertEqual(result["run_id"], "miniapp-20261126-2h")
+        self.assertEqual(result["proposed_task"]["id"], "miniapp-20261126-r1-t01")
+        self.assertFalse(helper.snapshot(today, helper.parse_time("2026-11-27T17:00:00+09:00"))["fire"])
+        today["date"] = "2026-11-27"
+        with self.assertRaises(ValueError):
+            helper.snapshot(today, helper.parse_time("2026-11-26T17:00:00+09:00"))
 
     def test_failed_observation_attempt_prevents_infinite_retry(self):
         self.run["tasks"] = [finished()]
@@ -274,7 +444,7 @@ class Loading(unittest.TestCase):
         return {"lanes": {"Active": [{"id": helper.INTENT_ID, "experiment_run": run_fixture()}]}}
 
     def test_extract_exact_intent_and_run(self):
-        self.assertEqual(helper.extract_run(self.registry())["run_id"], helper.RUN_ID)
+        self.assertEqual(helper.extract_run(self.registry())["run_id"], run_fixture()["run_id"])
         registry = self.registry()
         registry["lanes"]["Active"][0]["experiment_run"]["run_id"] = "old-run"
         with self.assertRaises(ValueError):

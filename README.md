@@ -71,6 +71,14 @@ dispatcher 점검은 exit 0만 보지 말고 JSON의 `invalid_state`를 확인�
 
 검증한 요청 변경만 기본 브랜치에 commit/push하고 원격 SHA를 확인합니다([공통 Git 기준](../prompt-archive/LLM.md#5-운영-기록과-완료-판정)). Archive 검증은 `python3 scripts/verify_archive_remote.py <intent-id>`와 실제 카드·링크 확인까지 필요합니다. 대시보드 배포는 Space의 별도 절차와 승인 범위를 따릅니다.
 
+## 일일 Threads 실험 감독
+
+이 파일럿은 기존 Intent `miniapp-image-tools-20261118-qa-01`의 `experiment_run`을 사용합니다. 현재 승인 일정과 행동 범위는 [KL PRD](../knowledge-lab/source/openclaw-system/docs/projects/AGENT_DAILY_OPERATIONS_PRD.md), 실행 상태와 과거 결과는 해당 Intent 상세가 소유합니다.
+
+`python3 scripts/miniapp_experiment.py snapshot --remote`는 원격 현재 run의 날짜·구간·준비 작업·종료/잠금 영수증을 읽어 인계 가능 여부를 반환합니다. 직접 상태를 쓰거나 작업을 보내지 않습니다. `normalization_proposals`가 있으면 감독이 같은 ID의 실제 근거를 확인해 원장에 반영·push한 뒤 다시 읽습니다. `planned_tasks_only` 구간에서는 시각이 된 사전 등록 작업만 실행하며, 마지막 관측을 우선하고 기한이 임박하면 새 인계를 막습니다.
+
+검증은 `python3 -m unittest discover -s scripts -p 'test_miniapp_experiment.py'`와 원장/단일 trace 검사입니다. 기존 supervisor와 closeout 예약만 사용하며 보고는 native send의 실제 본문·영수증으로 확인합니다. 중단은 두 예약 disable과 run.enabled=false입니다. 설정·테스트 통과와 실제 구간 이행은 별도로 판정합니다.
+
 ## 알려진 한계
 
 - 과거 trace에는 삭제된 `INTENTS.md` 참조와 누락 필드가 남아 있습니다. 2026-11-13 문서 정리 전 검사에서 현재 YAML 원장은 통과했지만 전체 trace 검증은 실패했습니다. 과거 증거를 추정해 채우지 않고 실제 원문을 확인할 때 보정합니다.
