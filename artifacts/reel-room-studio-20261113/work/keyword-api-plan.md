@@ -2,7 +2,7 @@
 
 Goal: keyword-title 스킬의 Naver SearchAd API를 Reel Room 서버에서 직접 호출하고 AI 없이 실제 연관어·월간 검색량을 선택·저장한다.
 Architecture: web/studio_keywords.py (credential/signing/provider/measurement normalization); studio.py adds an independent capability and persisted project endpoint; KeywordResearch.tsx renders editable seeds and selectable measured results. OpenAI requests remain optional and separate.
-Source: prompt-archive/skills/keyword-title/{SKILL.md,references/inflow.md,scripts/searchad_keyword.py}; actual existing credential call returned 58 rows for 세계여행. Existing product Context Pack is reused and extended, not a new Intent.
+Source: prompt-archive/skills/custom/keyword-title/{SKILL.md,references/inflow.md,scripts/searchad_keyword.py}; actual existing credential call returned 58 rows for 세계여행. Existing product Context Pack is reused and extended, not a new Intent.
 Constraints: preserve human script/hooks/assets; no paid AI validation; server-only existing skill credentials; scoped commit/push master; existing approved production Deployment only; preserve unrelated work.
 
 - [x] TDD: assert endpoint works with no OpenAI key; normalizes multiple seeds, preserves <10 and unknown counts, source/time, and saved research after later edits/reopen. Reject missing/invalid queries; safe missing credential, upstream timeout/429/malformed responses. Mock only external HTTP.
