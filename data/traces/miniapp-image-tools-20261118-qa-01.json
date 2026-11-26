@@ -2412,11 +2412,63 @@
         "intents/waiting/miniapp-image-tools-20261118-qa-01.md",
         "reports/miniapp-image-tools-20261118-qa-01/20261125T1311Z-r3-t01.html"
       ]
+    },
+    {
+      "label": "workflow role review",
+      "type": "role_review",
+      "at": "2026-11-26T07:31:06Z",
+      "roles": [
+        "planner"
+      ],
+      "evidence_paths": [
+        "intents/waiting/miniapp-image-tools-20261118-qa-01.md"
+      ],
+      "status": "pass",
+      "next_role": null
+    },
+    {
+      "label": "workflow role review",
+      "type": "role_review",
+      "at": "2026-11-26T07:31:06Z",
+      "roles": [
+        "developer"
+      ],
+      "evidence_paths": [
+        "intents/waiting/miniapp-image-tools-20261118-qa-01.md"
+      ],
+      "status": "pass",
+      "next_role": null
+    },
+    {
+      "label": "workflow role review",
+      "type": "role_review",
+      "at": "2026-11-26T07:31:06Z",
+      "roles": [
+        "marketer"
+      ],
+      "evidence_paths": [
+        "intents/waiting/miniapp-image-tools-20261118-qa-01.md"
+      ],
+      "status": "pass",
+      "next_role": null
+    },
+    {
+      "label": "workflow role review",
+      "type": "role_review",
+      "at": "2026-11-26T07:31:06Z",
+      "roles": [
+        "operator"
+      ],
+      "evidence_paths": [
+        "intents/waiting/miniapp-image-tools-20261118-qa-01.md"
+      ],
+      "status": "pass",
+      "next_role": null
     }
   ],
   "next_decision": {
-    "status": "in_progress",
-    "value": "Publish canonical run/helper and validate two native schedules plus original-thread handoff contract; observe actual planned phases at17/18/19/20/21/22 KST and final23 report."
+    "status": "open",
+    "value": "Today Nov26 run scheduled17–23KST; six timed phases and two native jobs verified enabled. Windows accepted contract1795678017.824249. First actual execution and19/21/23 reports are future, not yet verified. Capture actual posts/replies/followup evidence per phase; no next-day resume."
   },
   "handoff_attempts": [
     {

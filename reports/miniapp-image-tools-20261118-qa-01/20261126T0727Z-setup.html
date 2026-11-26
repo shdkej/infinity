@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ko" data-infinity-report="rich-v1">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<!--
+  Infinity 보고 양식 — "Quiet Note" 디자인 시스템 (모바일 우선 · 결론 2축 + 핵심 내용)
+  ────────────────────────────────────────────────────────────
+  제약: 대시보드 iframe(sandbox=allow-same-origin)에서 렌더 → JS·외부 리소스 금지, 인라인 CSS만.
+  접기는 <details>(JS 불필요). {{...}} 자리표시자를 치환해 reports/{id}/{timestamp}.html 로 저장.
+  리서치형 report는 HTML만 열어도 핵심 발견·근거·비교·다음 판단이 읽혀야 한다.
+  작성 전 MECE 구조를 먼저 잡고, 핵심 발견/옵션/리스크/다음 액션이 서로 겹치지 않게 채운다.
+
+  ▷ 카테고리별 색: :root 의 --a1/--a1-deep 두 줄만 교체한다. (축2는 항상 sage 고정)
+     · 조사형 (research/wiki/doc)            : --a1:#5a6f8a; --a1-deep:#3f536e;  (slate-blue)  라벨 "무엇을 조사했나 / 핵심 결과"
+     · 개선형 (marketing/product/dev/build/pages): --a1:#a9745a; --a1-deep:#8a5c45;  (clay)        라벨 "무엇이 문제였나 / 어떻게 해결하나"
+     · 감시형 (monitor/maintenance/router)   : --a1:#b08545; --a1-deep:#8a6633;  (muted gold)  라벨 "무엇을 점검했나 / 이상 여부·조치"
+-->
+<title>Threads 후속 세 회차 · 준비 검증</title>
+<style>
+  :root{
+    --bg:#f4f2ea; --panel:#fbfaf5; --ink:#2c2a25; --soft:#807c70; --faint:#a8a496; --line:#e3dfd2;
+    --a2:#5f7a5e; --a2-deep:#3f5740;            /* 축2(결과/해법/조치) = sage, 고정 */
+    --a1:#5a6f8a; --a1-deep:#3f536e;            /* 축1 = 카테고리색 (기본: 조사형 slate-blue) */
+    --sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0; width:100%; max-width:100%; overflow-x:hidden;}
+  body{background:var(--bg); color:var(--ink); font-family:var(--sans);
+    font-size:14px; line-height:1.68; -webkit-font-smoothing:antialiased;}
+  .sheet{width:min(100%,720px); max-width:720px; margin:0 auto; padding:32px 18px 40px;}
+  /* Reports must be readable at the first paint; no animation-dependent content. */
+  .reveal{opacity:1;}
+
+  .eyebrow{display:flex; align-items:center; gap:10px; font-family:var(--mono);
+    font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--soft); flex-wrap:wrap;}
+  .eyebrow .id{color:var(--a2-deep); font-weight:600;}
+  .eyebrow .dot{width:5px; height:5px; border-radius:50%; background:var(--a2);}
+  .eyebrow .status{color:var(--a2-deep);}
+  h1{font-size:clamp(24px,7vw,29px); line-height:1.3; font-weight:700; letter-spacing:0; margin:20px 0 0; overflow-wrap:anywhere;}
+  .dek{font-size:15.5px; color:var(--soft); margin:13px 0 0; max-width:52ch;}
+  .hr{height:1px; background:var(--line); margin:30px 0;}
+
+  .axis{padding:0 0 4px 18px; position:relative; margin-bottom:26px;}
+  .axis::before{content:""; position:absolute; left:0; top:6px; bottom:6px; width:2px; border-radius:2px;}
+  .axis.ax1::before{background:var(--a1);} .axis.ax2::before{background:var(--a2);}
+  .axis.ax1{--ul:var(--a1);} .axis.ax2{--ul:var(--a2);}
+  .axis .label{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase;
+    margin-bottom:9px; display:flex; align-items:center; gap:8px;}
+  .axis.ax1 .label{color:var(--a1-deep);} .axis.ax2 .label{color:var(--a2-deep);}
+  .axis .label .n{font-weight:600; opacity:.6;}
+  .axis .text{font-size:clamp(16px,4.4vw,18px); line-height:1.62; color:#37352e; overflow-wrap:anywhere;}
+  .axis .text b{font-weight:700; color:var(--ink); border-bottom:2px solid var(--ul);}
+  ol.find{list-style:none; counter-reset:f; margin:16px 0 0; padding:0;}
+  ol.find li{position:relative; padding:8px 0 8px 26px; font-size:15px; color:#37352e; border-top:1px solid var(--line);}
+  ol.find li:first-child{border-top:none;}
+  ol.find li::before{counter-increment:f; content:counter(f); position:absolute; left:0; top:9px;
+    font-family:var(--mono); font-size:12px; font-weight:600; color:var(--a1-deep);}
+
+  details{border:1px solid var(--line); border-radius:8px; background:var(--panel); margin-bottom:10px; overflow:hidden;}
+  summary{cursor:pointer; list-style:none; padding:14px 16px; display:flex; align-items:center; gap:11px;
+    font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft);}
+  summary::-webkit-details-marker{display:none;}
+  summary .chev{width:8px; height:8px; border-right:2px solid var(--a2-deep); border-bottom:2px solid var(--a2-deep);
+    transform:rotate(-45deg); transition:.25s; flex:none; margin-left:2px;}
+  details[open] summary .chev{transform:rotate(45deg);}
+  summary:hover{color:var(--ink);}
+  .body{padding:2px 16px 18px; min-width:0;}
+  .section{margin:4px 0 18px;}
+  .section-title{font-family:var(--mono); font-size:10.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--a1-deep); margin:0 0 8px;}
+  .callout{border-left:2px solid var(--a2); background:#f2efe5; padding:11px 13px; color:#4a473f; margin:12px 0 16px;}
+  .content-grid{display:grid; grid-template-columns:1fr; gap:10px; margin:10px 0;}
+  .mini-card{border:1px solid var(--line); background:#f8f6ef; border-radius:8px; padding:12px 13px; min-width:0;}
+  .mini-card b{display:block; color:var(--ink); margin-bottom:5px;}
+  .mini-card p{margin:0;}
+  table{border-collapse:collapse; width:100%; max-width:100%; table-layout:fixed; font-size:13px; margin:4px 0 12px;}
+  th,td{border-bottom:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top; overflow-wrap:anywhere; word-break:break-word;}
+  th{font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft); font-weight:600;}
+  td:first-child{color:var(--a2-deep); font-weight:600; white-space:normal;}
+  .body p{color:var(--soft); overflow-wrap:anywhere;}
+  .body ul{margin:6px 0; padding-left:18px;} .body li{margin:5px 0;}
+  code{font-family:var(--mono); font-size:12px; background:#edeae0; padding:1px 6px; border-radius:3px; color:var(--a2-deep); overflow-wrap:anywhere; word-break:break-word;}
+  pre{white-space:pre-wrap; overflow-wrap:anywhere; word-break:break-word; max-width:100%;}
+  a{color:var(--a2-deep); text-underline-offset:3px; overflow-wrap:anywhere; word-break:break-word;}
+  .chips{display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px;}
+  .chip{font-family:var(--mono); font-size:10.5px; letter-spacing:.05em; color:var(--soft); border:1px solid var(--line); border-radius:999px; padding:3px 10px;}
+  .foot{margin-top:30px; padding-top:15px; border-top:1px solid var(--line);
+    display:flex; flex-wrap:wrap; gap:6px 14px; justify-content:space-between; font-family:var(--mono); font-size:10px;
+    letter-spacing:.13em; text-transform:uppercase; color:var(--faint);}
+
+  @media (min-width:720px){
+    .sheet{padding:48px 34px 46px;}
+    .eyebrow{letter-spacing:.18em;}
+    .eyebrow .status{margin-left:auto;}
+    .axis{padding-left:22px; margin-bottom:30px;}
+    .content-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
+  }
+  @media (max-width:640px){
+    table,thead,tbody,tr,th,td{display:block; width:100%;}
+    thead{display:none;}
+    tr{border:1px solid var(--line); border-radius:8px; padding:9px 10px; margin:0 0 10px; background:#f8f6ef;}
+    td{border-bottom:0; padding:5px 0;}
+    td:first-child{font-family:var(--mono); font-size:11px; letter-spacing:.05em;}
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="eyebrow reveal">
+    <span class="dot"></span>
+    <span class="id">miniapp-image-tools-20261118-qa-01</span>
+    <span>Operation Note</span>
+    <span class="status">준비 검증 · 오늘 실행 예정</span>
+  </div>
+  <h1 class="reveal" style="animation-delay:.05s">게시 뒤 대화와 결과 확인까지, 세 회차</h1>
+  <p class="dek reveal" style="animation-delay:.09s">11/26 17–23시 KST. 첫 두 회차 새 글을 계획하고, 각 회차 한 시간 뒤 반응을 다시 확인합니다. 실제 콘텐츠 성과는 실행 후 판단합니다.</p>
+
+  <div class="hr reveal" style="animation-delay:.12s"></div>
+
+  <div class="axis ax1 reveal" style="animation-delay:.16s">
+    <div class="label"><span class="n">01</span> 어제 멈춘 지점</div>
+    <div class="text">조회 목표는 달성했지만 <b>후속 대화·관측·다음 게시와 최종 보고</b>가 이어지지 않았습니다. 받은 답글을 읽은 것과 응답한 것을 구분합니다.</div>
+  </div>
+
+  <div class="axis ax2 reveal" style="animation-delay:.22s">
+    <div class="label"><span class="n">02</span> 오늘 바꾼 실행</div>
+    <div class="text">17·19·21시 실행과 18·20·22시 후속을 <b>여섯 작업으로 사전 등록</b>했습니다. 상태 정체와 마감 직전 인계를 막고 19·21·23시 실제 보고 본문을 확인합니다.</div>
+    <!-- 선택: 핵심 항목 나열
+    <ol class="find"><li>...</li></ol> -->
+  </div>
+
+  <div class="reveal" style="animation-delay:.27s">
+  <details open>
+    <summary><span class="chev"></span> 핵심 내용 · 오늘 실행</summary>
+    <div class="body">
+      <div class="section">
+        <div class="section-title">핵심 발견</div>
+        <ol class="find">
+          <li>첫 두 회차 원문 1개씩 계획, 세 번째는 실제 반응을 보고 결정합니다. 받은 답글을 먼저 처리하고 관련 공개 대화에 구체적으로 기여합니다.</li>
+          <li>완료 상태 불일치, running 상태의 침묵, 미발송 만료 후 차단을 재현·수정했습니다. 관련 47개 테스트와 독립 운영 재검토를 통과했습니다.</li>
+          <li>최종 보고를 명시적 native send로 바꿨습니다. 일반 delivered 표시나 상태 요청이 아니라 실제 메시지 본문과 ID로 전달을 판정합니다.</li>
+        </ol>
+      </div>
+
+      <div class="callout">조회 10회 달성은 활동 종료 조건이 아닙니다. 관측·응답·다음 선택을 세 구간 모두 마쳤는지 별도로 평가합니다.</div>
+
+      <div class="content-grid">
+        <div class="mini-card">
+          <b>근거 · 소스</b>
+          <p>원장 3구간·6작업, 기존 helper 47개 회귀 테스트, 기획·개발·마케팅·운영 검토. 기존 두 예약만 재사용하고 이전 run은 보존했습니다.</p>
+        </div>
+        <div class="mini-card">
+          <b>다음 판단</b>
+          <p>19·21·23시 실제 게시 URL, 대화 기록, 관측 시각과 보고 영수증으로 평가합니다. 준비 검증을 실행 성공으로 세지 않습니다.</p>
+        </div>
+      </div>
+    </div>
+  </details>
+
+  <details open>
+    <summary><span class="chev"></span> 오늘 일정과 검증 범위</summary>
+    <div class="body"><table><tr><th>구간</th><th>실행</th><th>후속</th></tr><tr><td>17–19시</td><td>어제 미응답 처리·첫 새 글</td><td>18시 재관측·응답</td></tr><tr><td>19–21시</td><td>반응 반영·두 번째 새 글</td><td>20시 재관측·응답</td></tr><tr><td>21–23시</td><td>대화와 선택적 세 번째 글</td><td>22시 최종 관측·정리</td></tr></table><p>허용 범위: Threads _archivenoh. 하루 원문 최대 3개·선제 답글 5개·받은 답글 응답 10개. 같은 댓글에 새 반응 없이 반복 답글을 달지 않습니다. 다른 계정·DM·광고·대량반응·보안 설정 변경은 제외합니다.</p><p>관측 지표: 오늘 새 원문 최신 조회 합계, 받은/응답한/선제 답글, 대화가 이어진 건수. 어제 214회는 과거 기록이며 오늘 목표 합계에 포함하지 않습니다. 오늘 지표는 아직 미측정입니다.</p><p>검증 범위: 준비 코드·시각 경계·원장·예약 저장·계약 전달. 실제 게시와 세 회차 후속 이행, 19·21·23시 보고는 미래 실행 증거로 확인합니다.</p><p><a href="https://github.com/shdkej/knowledge-lab/blob/main/source/openclaw-system/docs/projects/AGENT_DAILY_OPERATIONS_PRD.md">운영 계약</a> · <a href="https://shdkej.slack.com/archives/C0CE0DV9MM2/p1795677981489529">같은 Slack 원문에 전달한 계약</a></p></div>
+  </details>
+
+  <details>
+    <summary><span class="chev"></span> 실행 메타 · 산출물</summary>
+    <div class="body">
+      <div class="chips">
+        <span class="chip">2026-11-26T07:27:30.162440+00:00</span>
+        <span class="chip">사용자 후속 누락 평가·오늘 3회 재개</span>
+        <span class="chip">전일 종료 → 오늘 예약 활성·시작 전</span>
+        <span class="chip">execution_mode: 기존 SAM 감독·Windows 실행</span>
+      </div>
+      <ul>
+        <li>산출물 <code>INTENTS.yaml + scripts/miniapp_experiment.py</code></li>
+        <li>역할 서브에이전트 <code>Planner / Developer / Marketer / Operator</code></li>
+        <li>Planner <code>/root/threads_today_planner</code> · Developer <code>/root/threads_followup_helper</code></li>
+        <li>Marketer <code>/root/threads_today_marketer</code> · Operator <code>/root/threads_today_operator_review</code></li>
+        <li>역할 결과 요약 <code>기획:후속 사전등록 / 마케팅:2개 글 계획·응답 우선 / 개발:상태·시각 gate / 운영:2개 반례 수정 재검증</code></li>
+        <li>지니 종합 <code>Codex가 설정·계약 통합. Windows 실행은 예정 시각 이후 별도 증거로 기록.</code></li>
+        <li>Red 검증 <code>독립 Operator 검토 통과; 실제 콘텐츠/마감 미검증</code> · <code>기존 Intent 오늘 실행 계약</code></li>
+        <li>원격 반영 <code>코드·원장 a0199069, PRD e5d152a main 반영. 설정 영수증은 현재 Intent에 기록.</code></li>
+      </ul>
+    </div>
+  </details>
+  </div>
+
+  <div class="foot reveal" style="animation-delay:.3s">
+    <span>Agent-First Heartbeat</span>
+    <span>Infinity · Intent Note</span>
+  </div>
+</div>
+</body>
+</html>

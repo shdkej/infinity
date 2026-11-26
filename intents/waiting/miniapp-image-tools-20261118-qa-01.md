@@ -13,6 +13,14 @@
 
 검토 역할: Planner `/root/threads_today_planner`, Developer `/root/threads_followup_helper`, Marketer `/root/threads_today_marketer`, Operator `/root/threads_today_operator_review`. 기획·마케팅은 2개 새 원문 계획+3회 후속을 채택했고, 운영은 running 침묵과 미발송 만료 후 차단을 반례로 제시했다. 작은 Windows 업무에서는 이 준비 검토를 재사용한다. 독립 검토와 root 운영 통합을 구분한다.
 
+### 11/26 준비 검증과 예약 활성
+
+관련 47개 테스트, 원장 일관성, 단일 trace를 통과했다. 시각 시뮬레이션에서 17/18/19/20/21/22시에 각 예정 ID가 선택되고, 시작 전·23시 이후·다음 날은 인계가 닫혔다. 운영 검토의 running 침묵·확실한 미발송 만료 차단도 수정·재검증했다. 이는 실제 브라우저 실행과 구분한다.
+
+두 기존 예약의 저장값을 재조회해 활성·오늘 23시 단발 마감·delivery none·기존 trusted/계정/실패 알림 보존을 확인했다. 실제 Gateway는 16:27:05.831에 시작 전 조건을 평가했고 새 모델 run을 시작하지 않았다. 원문 [계약 메시지](https://shdkej.slack.com/archives/C0CE0DV9MM2/p1795677981489529)를 본문까지 재조회했고, Windows는 [16:26:57 수신 확인](https://shdkej.slack.com/archives/C0CE0DV9MM2/p1795678017824249)에서 6개 ID·후속 필수·부모 종료 영수증·17시 전 실행 금지를 확인했다. 첫 실제 실행과 구간 결과는 아직 예정 상태다.
+
+[준비 검증 HTML](../../reports/miniapp-image-tools-20261118-qa-01/20261126T0727Z-setup.html). 구현은 Infinity a0199069, 계약은 KL e5d152a에 먼저 반영했다. 롤백은 두 예약을 disable한 뒤 `/home/ubuntu/.openclaw/cron/backups/threads-20261126-before.json`의 해당 두 job 설정을 native update로 복원하며, 이미 게시한 콘텐츠나 실행 이력을 되돌리지 않는다. helper 소스는 이전 Git 이력으로 복원 가능하다.
+
 ## 결과 확인 — 2026-11-26
 
 **조회 목표는 달성했지만, 2시간씩 세 번 자율 운영하는 목표는 미달했다.** 11/25 22:04:49 KST의 마지막 유효 관측은 새 원문 1개 **214/10회 조회**, 받은 답글 3건이다. 22:08:08에 관련 공개 대화에 답글 1건을 작성했다. 214회는 그 답글을 작성하기 전 값이므로 대화 참여의 증가 효과로 해석하지 않는다. 고유 고객 수·팔로워 증가·11/26 현재 조회는 미측정이다. [원문](https://www.threads.com/@_archivenoh/post/DgKEVWij6oq), [직접 작성한 답글](https://www.threads.com/@_archivenoh/post/DgKmf-lD9Nn).
