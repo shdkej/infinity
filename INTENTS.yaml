@@ -112,8 +112,7 @@ lanes:
     shared_posthog_slot_end_at: '2026-11-19T06:18:00Z'
     shared_posthog_project_id: 424014
     telemetry_auth_instruction: 사용자 승인으로 호스트별 ~/.env의 PostHog 키 이름 확인 및 기존 계정 인증 사용 허용; 비밀값 비공개.
-    user_intent: 응 잘 진행되게 조치해주고 지금은 사실상 글 하나 띡 쓰고 끝이었어. 어떤 결과 확인도 없이. 스레드 활성화를 위해서는 답글 다는것도 중요하고 다른 글을 또 썼어도 됐는데 진행이 미진했어. 개선해주고 오늘도 3회
-      진행하자
+    user_intent: 응 잘 진행되게 조치해주고 지금은 사실상 글 하나 띡 쓰고 끝이었어. 어떤 결과 확인도 없이. 스레드 활성화를 위해서는 답글 다는것도 중요하고 다른 글을 또 썼어도 됐는데 진행이 미진했어. 개선해주고 오늘도 3회 진행하자
     desired_outcome: 첫 두 구간 원문 1개씩 계획, 세 구간 모두 받은 답글 처리·관련 대화 참여·지연 관측·다음 선택·짧은 보고.
     out_of_scope: 다른 계정·DM·광고/비용·대량반응·계정 보안/공개범위 변경·구간 연장·다음 날 자동 재개.
     success_evidence: 각 구간의 실제 게시/답글 URL·관측 시각·원격 원장·guard/lock 영수증·Slack 보고 본문과 message_id.
@@ -153,11 +152,11 @@ lanes:
     prior_r3_t02_guard_exit_code: 0
     prior_r3_t02_lock_released_verified_at: '2026-11-24T12:28:29.123670Z'
     prior_r3_t02_process_result: graceful_close_requested_still_present
-    prior_r3_t02_process_identity: Narrator.exe PID 27296, owner SAM-PC/msi, session 1, created 2026-11-24T07:24:00.1520640Z; remains
-      after one graceful close request
-    current_task_completion_criteria: 정확한 _archivenoh 계정·실제 대화 읽기·당일 게시/답글 상한 준수·URL/시각/관측값 또는 실패 원인 기록. 받은 답글과 보낸 답글을 구분하고 같은 대상 중복 응답
-      금지. 자신의 실행 결과를 같은 tasks[].id에 기록하며 부모가 실제 guard 종료/exit code/잠금 확인을 병합한다. status는 completed 등 표준값, 상세 설명은 result_summary. 고정 기한 연장·다음
-      ID 발급·다음 날 재개 금지.
+    prior_r3_t02_process_identity: Narrator.exe PID 27296, owner SAM-PC/msi, session 1, created 2026-11-24T07:24:00.1520640Z; remains after one
+      graceful close request
+    current_task_completion_criteria: 정확한 _archivenoh 계정·실제 대화 읽기·당일 게시/답글 상한 준수·URL/시각/관측값 또는 실패 원인 기록. 받은 답글과 보낸 답글을 구분하고 같은 대상 중복 응답 금지. 자신의
+      실행 결과를 같은 tasks[].id에 기록하며 부모가 실제 guard 종료/exit code/잠금 확인을 병합한다. status는 completed 등 표준값, 상세 설명은 result_summary. 고정 기한 연장·다음 ID 발급·다음 날
+      재개 금지.
     prior_r3_t05_handoff_attempt_at: '2026-11-24T13:45:00Z'
     prior_r3_t05_handoff_status: sent
     prior_r3_t05_handoff_message_id: '1795528064.765319'
@@ -185,30 +184,29 @@ lanes:
     prior_r2_t06_guard_finished_at: '2026-11-24T11:23:57.291875Z'
     prior_r2_t06_guard_exit_code: 0
     prior_r2_t06_lock_released_verified_at: '2026-11-24T11:24:09.929899Z'
-    prior_r2_t06_summary: mobile keyboard recovery QA pass at 390x844 and 320x720; synthetic only, customer outcomes unmeasured; no product
-      change.
+    prior_r2_t06_summary: mobile keyboard recovery QA pass at 390x844 and 320x720; synthetic only, customer outcomes unmeasured; no product change.
     prior_r3_t04_status: browser_qa_pass_no_product_change_guard_completed
-    prior_r3_t04_result_summary: Live same-page synthetic bad-header PNG and GIF rejection, damaged-body transform failure, valid PNG
-      recovery and three saved PNG decodes 80x40; Node 11/11; no app change/release. Customer outcomes unmeasured.
+    prior_r3_t04_result_summary: Live same-page synthetic bad-header PNG and GIF rejection, damaged-body transform failure, valid PNG recovery
+      and three saved PNG decodes 80x40; Node 11/11; no app change/release. Customer outcomes unmeasured.
     prior_r3_t04_result: synthetic_live_rejection_recovery_pass_no_change
     prior_r3_t04_status_at: '2026-11-24T13:25:51Z'
     prior_r3_t04_guard_status: completed
     prior_r3_t04_guard_exit_code: 0
     prior_r3_t04_guard_finished_at: '2026-11-24T13:31:12.314251+00:00'
     prior_r3_t04_lock_released_verified_at: '2026-11-24T13:31:30.267831+00:00'
-    prior_r3_t05_result_summary: Four separately decoded JPEG/WebP 80x40 outputs and decoded 10000x1 edge output; 12MiB padded and 20m
-      edited-header cases selection-only. Node 11/11, no product change/release; customer outcomes unmeasured.
-    prior_20261125_r1_task_result: "_archivenoh 원문 게시 완료. 17:10 첫 조회 0회는 과거 관측. Windows 17:17 종료·잠금 해제 영수증을 뒤늦게 원장에 반영."
+    prior_r3_t05_result_summary: Four separately decoded JPEG/WebP 80x40 outputs and decoded 10000x1 edge output; 12MiB padded and 20m edited-header
+      cases selection-only. Node 11/11, no product change/release; customer outcomes unmeasured.
+    prior_20261125_r1_task_result: _archivenoh 원문 게시 완료. 17:10 첫 조회 0회는 과거 관측. Windows 17:17 종료·잠금 해제 영수증을 뒤늦게 원장에 반영.
     prior_20261125_r1_guard_finished_at: '2026-11-25T08:16:05.525932Z'
     prior_20261125_r1_lock_released_verified_at: '2026-11-25T08:17:14Z'
     prior_20261125_r3_t01_status: completed
-    prior_20261125_r3_t01_result: '13:04Z 조회 214, 외부 답글 3건, 관련 답글 1건, 새 원문 없음.'
+    prior_20261125_r3_t01_result: 13:04Z 조회 214, 외부 답글 3건, 관련 답글 1건, 새 원문 없음.
     prior_20261125_r3_t01_guard_finished_at: '2026-11-25T13:19:32.248398+00:00'
     prior_20261125_r3_t01_lock_released_verified_at: '2026-11-25T13:19:49.582405+00:00'
     current_task_status: prepared
     current_task_id: miniapp-20261126-r1-t01
-    current_task_goal: 어제 원문 DgKEVWij6oq와 답글 DgKmf-lD9Nn의 현재 반응을 확인한다. 받은 답글 3건의 실제 내용을 읽고 미응답 질문·구체 의견에 응답한다. 실제 대화/기존 공개 글/예시라고 명시한 문장에서
-      새로운 관점의 원문 1개를 게시하고 첫 관측과 18시 후속을 준비한다.
+    current_task_goal: 어제 원문 DgKEVWij6oq와 답글 DgKmf-lD9Nn의 현재 반응을 확인한다. 받은 답글 3건의 실제 내용을 읽고 미응답 질문·구체 의견에 응답한다. 실제 대화/기존 공개 글/예시라고 명시한 문장에서 새로운
+      관점의 원문 1개를 게시하고 첫 관측과 18:25 후속을 준비한다.
     current_task_start_at: '2026-11-26T08:00:00Z'
     current_task_end_at: '2026-11-26T10:00:00Z'
     current_task_result: null
@@ -217,11 +215,10 @@ lanes:
     current_task_guard_exit_code: null
     current_task_guard_finished_at: null
     current_task_lock_released_verified_at: null
-    current_task_followup: 18시 예정 후속 관측·응답. SAM 감독이 기한/잠금/현재 원장 재확인 후 인계한다.
+    current_task_followup: 18:25 예정 후속 관측·응답. 첫 인계 누락 복구로 r1 내부 시각만 조정. 구간 종료19시는 유지.
     prior_r3_t03_status: aggregate_verified_guard_completed
-    prior_r3_t03_result_summary: US project 424014 bounded HogQL HTTP 200, 8 grouped rows; five event x synthetic/user counts in the task
-      verification. Guard 12:51:04Z completed/exit 0 and lock 12:51:25Z free. Customer/unique people unmeasured; Narrator PID 27296 separate
-      blocked issue.
+    prior_r3_t03_result_summary: US project 424014 bounded HogQL HTTP 200, 8 grouped rows; five event x synthetic/user counts in the task verification.
+      Guard 12:51:04Z completed/exit 0 and lock 12:51:25Z free. Customer/unique people unmeasured; Narrator PID 27296 separate blocked issue.
     prior_r3_t01_status_check_at: '2026-11-24T11:46:05Z'
     prior_r3_t01_status_check_status: recorded_running_snapshot
     prior_r3_t01_status_check_task_id: miniapp-20261124-r3-t01
@@ -230,8 +227,8 @@ lanes:
     prior_task_status_check_task_id: miniapp-20261124-r3-t03
     prior_task_status_check_message_id: '1795524335.092199'
     prior_task_status_check_queue_id: convq_08af5d2122183d83ccd2b3f83a9760aa
-    prior_task_status_check_snapshot: As of the parent remote read at 12:45:30Z no result/guard/lock receipt was published; status request
-      sent once, not a work resend.
+    prior_task_status_check_snapshot: As of the parent remote read at 12:45:30Z no result/guard/lock receipt was published; status request sent
+      once, not a work resend.
     prior_r3_t03_guard_started_at: '2026-11-24T12:42:15.010036+00:00'
     prior_r3_t03_guard_status: completed_exit_0
     prior_r3_t03_lock_status: free_verified_at_2026-11-24T12:51:25.065804Z
@@ -289,8 +286,8 @@ lanes:
       goal: 관측→응답·게시→지연 관측→다음 선택을 세 구간에서 수행하며 오늘 새 원문들의 플랫폼 조회 합계 1,000회를 확인한다. 조회 달성은 조기 종료 조건이 아니다.
       target_views: 1000
       goal_confirmed_by_user: 목표 조회수 1000
-      restart_authority: 응 잘 진행되게 조치해주고 지금은 사실상 글 하나 띡 쓰고 끝이었어. 어떤 결과 확인도 없이. 스레드 활성화를 위해서는 답글 다는것도 중요하고 다른 글을 또 썼어도 됐는데 진행이 미진했어. 개선해주고
-        오늘도 3회 진행하자
+      restart_authority: 응 잘 진행되게 조치해주고 지금은 사실상 글 하나 띡 쓰고 끝이었어. 어떤 결과 확인도 없이. 스레드 활성화를 위해서는 답글 다는것도 중요하고 다른 글을 또 썼어도 됐는데 진행이 미진했어. 개선해주고 오늘도 3회
+        진행하자
       interval_minutes: 3
       dispatch_owner: sam_supervisor_cron
       supervisor_job_id: eb75facc-7686-4746-a399-4ef6d881048e
@@ -305,14 +302,14 @@ lanes:
         start_at: '2026-11-26T08:00:00Z'
         end_at: '2026-11-26T10:00:00Z'
         status: scheduled
-        goal: 어제 원문 DgKEVWij6oq와 답글 DgKmf-lD9Nn의 현재 반응을 확인한다. 받은 답글 3건의 실제 내용을 읽고 미응답 질문·구체 의견에 응답한다. 실제 대화/기존 공개 글/예시라고 명시한 문장에서 새로운 관점의
-          원문 1개를 게시하고 첫 관측과 18시 후속을 준비한다.
+        goal: 어제 원문 DgKEVWij6oq와 답글 DgKmf-lD9Nn의 현재 반응을 확인한다. 받은 답글 3건의 실제 내용을 읽고 미응답 질문·구체 의견에 응답한다. 실제 대화/기존 공개 글/예시라고 명시한 문장에서 새로운 관점의 원문 1개를
+          게시하고 첫 관측과 18:25 후속을 준비한다.
         task_sequence: 2
         planned_tasks_only: true
         report_status: pending
         report_message_id: null
         exhausted: false
-        observation_due_at: '2026-11-26T09:00:00Z'
+        observation_due_at: '2026-11-26T09:25:00Z'
         metrics:
           target: 1000
           unit: threads_post_views
@@ -336,8 +333,7 @@ lanes:
         start_at: '2026-11-26T10:00:00Z'
         end_at: '2026-11-26T12:00:00Z'
         status: scheduled
-        goal: 1차 반응·질문을 읽고 아직 답하지 않은 유효 댓글에 응답한다. 구체적인 문장 예시나 다른 관점의 두 번째 원문 1개를 게시하고 관련 공개 대화에 도움이 되는 답글을 남긴다. 오늘 신규 원문·응답 기록을 대조해 중복을
-          막는다.
+        goal: 1차 반응·질문을 읽고 아직 답하지 않은 유효 댓글에 응답한다. 구체적인 문장 예시나 다른 관점의 두 번째 원문 1개를 게시하고 관련 공개 대화에 도움이 되는 답글을 남긴다. 오늘 신규 원문·응답 기록을 대조해 중복을 막는다.
         task_sequence: 2
         planned_tasks_only: true
         report_status: pending
@@ -398,13 +394,13 @@ lanes:
         window_id: r1
         kind: engagement
         required: true
-        goal: 어제 원문 DgKEVWij6oq와 답글 DgKmf-lD9Nn의 현재 반응을 확인한다. 받은 답글 3건의 실제 내용을 읽고 미응답 질문·구체 의견에 응답한다. 실제 대화/기존 공개 글/예시라고 명시한 문장에서 새로운 관점의
-          원문 1개를 게시하고 첫 관측과 18시 후속을 준비한다.
+        goal: 어제 원문 DgKEVWij6oq와 답글 DgKmf-lD9Nn의 현재 반응을 확인한다. 받은 답글 3건의 실제 내용을 읽고 미응답 질문·구체 의견에 응답한다. 실제 대화/기존 공개 글/예시라고 명시한 문장에서 새로운 관점의 원문 1개를
+          게시하고 첫 관측과 18:25 후속을 준비한다.
         start_at: '2026-11-26T08:00:00Z'
         end_at: '2026-11-26T10:00:00Z'
-        wrap_up_by: '2026-11-26T08:45:00Z'
-        execution_target_minutes: 35
-        max_execution_minutes: 45
+        wrap_up_by: '2026-11-26T09:20:00Z'
+        execution_target_minutes: 25
+        max_execution_minutes: 35
         status: prepared
         handoff_status: prepared
         handoff_message_id: null
@@ -421,20 +417,20 @@ lanes:
           lock_free_verified_at: null
         status_check_at: null
         receipt_checked_at: null
-        completion_criteria: 정확한 _archivenoh 계정·실제 대화 읽기·당일 게시/답글 상한 준수·URL/시각/관측값 또는 실패 원인 기록. 받은 답글과 보낸 답글을 구분하고 같은 대상 중복 응답 금지. 자신의 실행
-          결과를 같은 tasks[].id에 기록하며 부모가 실제 guard 종료/exit code/잠금 확인을 병합한다. status는 completed 등 표준값, 상세 설명은 result_summary. 고정 기한 연장·다음 ID
-          발급·다음 날 재개 금지.
+        completion_criteria: 정확한 _archivenoh 계정·실제 대화 읽기·당일 게시/답글 상한 준수·URL/시각/관측값 또는 실패 원인 기록. 받은 답글과 보낸 답글을 구분하고 같은 대상 중복 응답 금지. 자신의 실행 결과를
+          같은 tasks[].id에 기록하며 부모가 실제 guard 종료/exit code/잠금 확인을 병합한다. status는 completed 등 표준값, 상세 설명은 result_summary. 고정 기한 연장·다음 ID 발급·다음 날 재개
+          금지.
       - id: miniapp-20261126-r1-t02
         window_id: r1
         kind: observation
         required: true
-        goal: 오늘 새 원문 전체의 현재 조회·답글을 한 번 재관측하고 미응답 질문/구체 의견에 응답한다. 작성한 답글에 상대의 새 답변이 있는지 확인하며 관련 대화에 유용한 기여가 있으면 참여한다. 게시물별 시각/조회, 받은·응답한·선제
-          답글, 이어진 대화, 다음 원문 판단을 기록한다. 이 구간 관측·응답·다음 선택을 닫고 종료 15분 전 부모 종료 영수증까지 회수한다.
-        start_at: '2026-11-26T09:00:00Z'
+        goal: 오늘 새 원문 전체의 현재 조회·답글을 한 번 재관측하고 미응답 질문/구체 의견에 응답한다. 작성한 답글에 상대의 새 답변이 있는지 확인하며 관련 대화에 유용한 기여가 있으면 참여한다. 게시물별 시각/조회, 받은·응답한·선제 답글,
+          이어진 대화, 다음 원문 판단을 기록한다. 이 구간 관측·응답·다음 선택을 닫고 종료 15분 전 부모 종료 영수증까지 회수한다.
+        start_at: '2026-11-26T09:25:00Z'
         end_at: '2026-11-26T10:00:00Z'
-        wrap_up_by: '2026-11-26T09:45:00Z'
-        execution_target_minutes: 35
-        max_execution_minutes: 45
+        wrap_up_by: '2026-11-26T09:50:00Z'
+        execution_target_minutes: 20
+        max_execution_minutes: 25
         status: prepared
         handoff_status: prepared
         handoff_message_id: null
@@ -451,15 +447,14 @@ lanes:
           lock_free_verified_at: null
         status_check_at: null
         receipt_checked_at: null
-        completion_criteria: 정확한 _archivenoh 계정·실제 대화 읽기·당일 게시/답글 상한 준수·URL/시각/관측값 또는 실패 원인 기록. 받은 답글과 보낸 답글을 구분하고 같은 대상 중복 응답 금지. 자신의 실행
-          결과를 같은 tasks[].id에 기록하며 부모가 실제 guard 종료/exit code/잠금 확인을 병합한다. status는 completed 등 표준값, 상세 설명은 result_summary. 고정 기한 연장·다음 ID
-          발급·다음 날 재개 금지.
+        completion_criteria: 정확한 _archivenoh 계정·실제 대화 읽기·당일 게시/답글 상한 준수·URL/시각/관측값 또는 실패 원인 기록. 받은 답글과 보낸 답글을 구분하고 같은 대상 중복 응답 금지. 자신의 실행 결과를
+          같은 tasks[].id에 기록하며 부모가 실제 guard 종료/exit code/잠금 확인을 병합한다. status는 completed 등 표준값, 상세 설명은 result_summary. 고정 기한 연장·다음 ID 발급·다음 날 재개
+          금지.
       - id: miniapp-20261126-r2-t01
         window_id: r2
         kind: engagement
         required: true
-        goal: 1차 반응·질문을 읽고 아직 답하지 않은 유효 댓글에 응답한다. 구체적인 문장 예시나 다른 관점의 두 번째 원문 1개를 게시하고 관련 공개 대화에 도움이 되는 답글을 남긴다. 오늘 신규 원문·응답 기록을 대조해 중복을
-          막는다.
+        goal: 1차 반응·질문을 읽고 아직 답하지 않은 유효 댓글에 응답한다. 구체적인 문장 예시나 다른 관점의 두 번째 원문 1개를 게시하고 관련 공개 대화에 도움이 되는 답글을 남긴다. 오늘 신규 원문·응답 기록을 대조해 중복을 막는다.
         start_at: '2026-11-26T10:00:00Z'
         end_at: '2026-11-26T12:00:00Z'
         wrap_up_by: '2026-11-26T10:45:00Z'
@@ -481,15 +476,15 @@ lanes:
           lock_free_verified_at: null
         status_check_at: null
         receipt_checked_at: null
-        completion_criteria: 정확한 _archivenoh 계정·실제 대화 읽기·당일 게시/답글 상한 준수·URL/시각/관측값 또는 실패 원인 기록. 받은 답글과 보낸 답글을 구분하고 같은 대상 중복 응답 금지. 자신의 실행
-          결과를 같은 tasks[].id에 기록하며 부모가 실제 guard 종료/exit code/잠금 확인을 병합한다. status는 completed 등 표준값, 상세 설명은 result_summary. 고정 기한 연장·다음 ID
-          발급·다음 날 재개 금지.
+        completion_criteria: 정확한 _archivenoh 계정·실제 대화 읽기·당일 게시/답글 상한 준수·URL/시각/관측값 또는 실패 원인 기록. 받은 답글과 보낸 답글을 구분하고 같은 대상 중복 응답 금지. 자신의 실행 결과를
+          같은 tasks[].id에 기록하며 부모가 실제 guard 종료/exit code/잠금 확인을 병합한다. status는 completed 등 표준값, 상세 설명은 result_summary. 고정 기한 연장·다음 ID 발급·다음 날 재개
+          금지.
       - id: miniapp-20261126-r2-t02
         window_id: r2
         kind: observation
         required: true
-        goal: 오늘 새 원문 전체의 현재 조회·답글을 한 번 재관측하고 미응답 질문/구체 의견에 응답한다. 작성한 답글에 상대의 새 답변이 있는지 확인하며 관련 대화에 유용한 기여가 있으면 참여한다. 게시물별 시각/조회, 받은·응답한·선제
-          답글, 이어진 대화, 다음 원문 판단을 기록한다. 이 구간 관측·응답·다음 선택을 닫고 종료 15분 전 부모 종료 영수증까지 회수한다.
+        goal: 오늘 새 원문 전체의 현재 조회·답글을 한 번 재관측하고 미응답 질문/구체 의견에 응답한다. 작성한 답글에 상대의 새 답변이 있는지 확인하며 관련 대화에 유용한 기여가 있으면 참여한다. 게시물별 시각/조회, 받은·응답한·선제 답글,
+          이어진 대화, 다음 원문 판단을 기록한다. 이 구간 관측·응답·다음 선택을 닫고 종료 15분 전 부모 종료 영수증까지 회수한다.
         start_at: '2026-11-26T11:00:00Z'
         end_at: '2026-11-26T12:00:00Z'
         wrap_up_by: '2026-11-26T11:45:00Z'
@@ -511,9 +506,9 @@ lanes:
           lock_free_verified_at: null
         status_check_at: null
         receipt_checked_at: null
-        completion_criteria: 정확한 _archivenoh 계정·실제 대화 읽기·당일 게시/답글 상한 준수·URL/시각/관측값 또는 실패 원인 기록. 받은 답글과 보낸 답글을 구분하고 같은 대상 중복 응답 금지. 자신의 실행
-          결과를 같은 tasks[].id에 기록하며 부모가 실제 guard 종료/exit code/잠금 확인을 병합한다. status는 completed 등 표준값, 상세 설명은 result_summary. 고정 기한 연장·다음 ID
-          발급·다음 날 재개 금지.
+        completion_criteria: 정확한 _archivenoh 계정·실제 대화 읽기·당일 게시/답글 상한 준수·URL/시각/관측값 또는 실패 원인 기록. 받은 답글과 보낸 답글을 구분하고 같은 대상 중복 응답 금지. 자신의 실행 결과를
+          같은 tasks[].id에 기록하며 부모가 실제 guard 종료/exit code/잠금 확인을 병합한다. status는 completed 등 표준값, 상세 설명은 result_summary. 고정 기한 연장·다음 ID 발급·다음 날 재개
+          금지.
       - id: miniapp-20261126-r3-t01
         window_id: r3
         kind: engagement
@@ -540,15 +535,15 @@ lanes:
           lock_free_verified_at: null
         status_check_at: null
         receipt_checked_at: null
-        completion_criteria: 정확한 _archivenoh 계정·실제 대화 읽기·당일 게시/답글 상한 준수·URL/시각/관측값 또는 실패 원인 기록. 받은 답글과 보낸 답글을 구분하고 같은 대상 중복 응답 금지. 자신의 실행
-          결과를 같은 tasks[].id에 기록하며 부모가 실제 guard 종료/exit code/잠금 확인을 병합한다. status는 completed 등 표준값, 상세 설명은 result_summary. 고정 기한 연장·다음 ID
-          발급·다음 날 재개 금지.
+        completion_criteria: 정확한 _archivenoh 계정·실제 대화 읽기·당일 게시/답글 상한 준수·URL/시각/관측값 또는 실패 원인 기록. 받은 답글과 보낸 답글을 구분하고 같은 대상 중복 응답 금지. 자신의 실행 결과를
+          같은 tasks[].id에 기록하며 부모가 실제 guard 종료/exit code/잠금 확인을 병합한다. status는 completed 등 표준값, 상세 설명은 result_summary. 고정 기한 연장·다음 ID 발급·다음 날 재개
+          금지.
       - id: miniapp-20261126-r3-t02
         window_id: r3
         kind: observation
         required: true
-        goal: 오늘 새 원문 전체의 현재 조회·답글을 한 번 재관측하고 미응답 질문/구체 의견에 응답한다. 작성한 답글에 상대의 새 답변이 있는지 확인하며 관련 대화에 유용한 기여가 있으면 참여한다. 게시물별 시각/조회, 받은·응답한·선제
-          답글, 이어진 대화, 다음 원문 판단을 기록한다. 이 구간 관측·응답·다음 선택을 닫고 종료 15분 전 부모 종료 영수증까지 회수한다.
+        goal: 오늘 새 원문 전체의 현재 조회·답글을 한 번 재관측하고 미응답 질문/구체 의견에 응답한다. 작성한 답글에 상대의 새 답변이 있는지 확인하며 관련 대화에 유용한 기여가 있으면 참여한다. 게시물별 시각/조회, 받은·응답한·선제 답글,
+          이어진 대화, 다음 원문 판단을 기록한다. 이 구간 관측·응답·다음 선택을 닫고 종료 15분 전 부모 종료 영수증까지 회수한다.
         start_at: '2026-11-26T13:00:00Z'
         end_at: '2026-11-26T14:00:00Z'
         wrap_up_by: '2026-11-26T13:45:00Z'
@@ -570,9 +565,9 @@ lanes:
           lock_free_verified_at: null
         status_check_at: null
         receipt_checked_at: null
-        completion_criteria: 정확한 _archivenoh 계정·실제 대화 읽기·당일 게시/답글 상한 준수·URL/시각/관측값 또는 실패 원인 기록. 받은 답글과 보낸 답글을 구분하고 같은 대상 중복 응답 금지. 자신의 실행
-          결과를 같은 tasks[].id에 기록하며 부모가 실제 guard 종료/exit code/잠금 확인을 병합한다. status는 completed 등 표준값, 상세 설명은 result_summary. 고정 기한 연장·다음 ID
-          발급·다음 날 재개 금지.
+        completion_criteria: 정확한 _archivenoh 계정·실제 대화 읽기·당일 게시/답글 상한 준수·URL/시각/관측값 또는 실패 원인 기록. 받은 답글과 보낸 답글을 구분하고 같은 대상 중복 응답 금지. 자신의 실행 결과를
+          같은 tasks[].id에 기록하며 부모가 실제 guard 종료/exit code/잠금 확인을 병합한다. status는 completed 등 표준값, 상세 설명은 result_summary. 고정 기한 연장·다음 ID 발급·다음 날 재개
+          금지.
       metrics:
         target: 1000
         unit: threads_post_views
@@ -616,15 +611,21 @@ lanes:
         helper_verification: 50 related tests passed; independent operator regressions rechecked; wrap-up boundaries verified
         sam_contract_message_id: '1795677981.489529'
         windows_contract_reply_id: '1795678017.824249'
-      setup_verified_at: 2026-11-26T07:29:05.383462+00:00
+      setup_verified_at: 2026-11-26 07:29:05.383462+00:00
       closeout_enabled: true
       supervisor_native_trigger_evaluated_at: '2026-11-26T07:27:05.831Z'
       setup_report: reports/miniapp-image-tools-20261118-qa-01/20261126T0727Z-setup.html
       delivery_contract: explicit_native_send_and_body_readback_for_all_window_reports
       setup_automatic_model_run_started: false
-
-      goal_updated_at: 2026-11-26T07:37:43.886088+00:00
-
+      goal_updated_at: 2026-11-26 07:37:43.886088+00:00
+      recovery:
+        requested_by_user: 왜 안하는거 같지 5시 넘었는데
+        diagnosed_at: '2026-11-26T08:39:40Z'
+        cause: Agent conversations_send schema lacks operationId; native Gateway conversations.send supports it. Supervisor did not use the available
+          CLI path. No handoff sent; cutoff later blocked retry.
+        first_window_adjustment: Reuse r1-t01 now; wrap by18:20. r1-t02 starts18:25 and wraps18:50. Fixed19/21/23 window ends unchanged. No duplicate
+          handoff or new ID.
+        status: recovering
     next_action: 17시 r1-t01 실행, 18시 r1-t02 후속 관측·응답. 구간당 예정 두 작업을 끝내고 다음 구간으로 진행.
     notification_channel: slack
     notification_target: channel:C0CE0DV9MM2
@@ -650,8 +651,7 @@ lanes:
       final_report_sent_at: '2026-11-24T14:38:17.181849Z'
       final_report_verified_at: '2026-11-25T00:38:15Z'
       final_report_prepared_at: '2026-11-24T14:32:41Z'
-      final_report_delivery_receipt: cron runAtMs=1795530600015 deliveryStatus=delivered; Slack message 1795531097.181849 independently
-        read back
+      final_report_delivery_receipt: cron runAtMs=1795530600015 deliveryStatus=delivered; Slack message 1795531097.181849 independently read back
       supervisor_disable_status: disabled_verified
       supervisor_disabled_at: '2026-11-24T14:32:41Z'
       supervisor_enabled: false
@@ -698,8 +698,8 @@ lanes:
         current_task_id: miniapp-20261124-r2-t06
         current_task_goal: 배포된 0B 오류 개선의 모바일 좁은 화면·키보드 조작 복구 경로를 실제 재현하고, 이상이 있으면 증거와 최소 대안을 기록
         current_task_end_at: '2026-11-24T11:30:00Z'
-        current_task_completion_criteria: Windows 실제 브라우저에서 좁은 viewport와 키보드로 빈 파일 오류→다른 이미지 선택→변환/다운로드 가능 여부를 확인; 구체적 실패가 있으면 최소 수정·검증·앱
-          전용 배포·라이브 확인이 시간 내 안전할 때만 수행하고, 아니면 재현 증거/다음 후보 기록. guard 종료·잠금 해제 기록, 고객성과 미측정 및 합성 QA 구분; 비용/권한/데이터 확대 금지.
+        current_task_completion_criteria: Windows 실제 브라우저에서 좁은 viewport와 키보드로 빈 파일 오류→다른 이미지 선택→변환/다운로드 가능 여부를 확인; 구체적 실패가 있으면 최소 수정·검증·앱 전용 배포·라이브
+          확인이 시간 내 안전할 때만 수행하고, 아니면 재현 증거/다음 후보 기록. guard 종료·잠금 해제 기록, 고객성과 미측정 및 합성 QA 구분; 비용/권한/데이터 확대 금지.
         prior_handoff_message_id: '1795516420.694159'
         handoff_attempt_at: '2026-11-24T11:15:45Z'
         handoff_status: sent
@@ -714,16 +714,16 @@ lanes:
         current_task_status_check_status: sent
         current_task_status_check_task_id: miniapp-20261124-r2-t05
         current_task_execution_snapshot_at: '2026-11-24T10:49:18Z'
-        current_task_execution_snapshot: guard completed/exit 0 at 10:48:12Z; app-only release and live readback verified; active.lock free
-          at 10:49:18Z. r2 report remains pending.
+        current_task_execution_snapshot: guard completed/exit 0 at 10:48:12Z; app-only release and live readback verified; active.lock free at
+          10:49:18Z. r2 report remains pending.
         current_task_status_check_message_id: '1795517213.706259'
         current_task_status_check_queue_id: convq_b3800df487bd672c099f41b904f78e0f
         prior_task_status: copy_released_live_verified
         prior_task_id: miniapp-20261124-r2-t05
         last_task_status: mobile_keyboard_recovery_pass_no_change
         last_task_id: miniapp-20261124-r2-t06
-        last_task_result: 390·320px ego lite 모바일 에뮬레이션 0B 거부→유효 PNG 재선택→키보드 변환·다운로드·WebP 80×40 재디코딩 PASS. 제품 코드·신규 Action 없음, Space QA SHA
-          b6ed6a8. guard exit 0·lock free.
+        last_task_result: 390·320px ego lite 모바일 에뮬레이션 0B 거부→유효 PNG 재선택→키보드 변환·다운로드·WebP 80×40 재디코딩 PASS. 제품 코드·신규 Action 없음, Space QA SHA b6ed6a8.
+          guard exit 0·lock free.
         last_task_guard_finished_at: '2026-11-24T11:23:57.291875+00:00'
         last_task_guard_exit_code: 0
         last_task_lock_released_verified_at: '2026-11-24T11:24:09.929899Z'
@@ -756,10 +756,10 @@ lanes:
         current_task_id: miniapp-20261124-r3-t06
         current_task_goal: r3 작업 1~5의 완료 증거와 한계를 대조해 종합 보고용 근거표 및 다음 우선 후보를 정리하고 기록 정합성을 닫기
         current_task_end_at: '2026-11-24T14:30:00Z'
-        current_task_completion_criteria: 'Windows parent: reconcile each r3 task against its existing report/trace, product result, guard
-          exit and lock receipt; distinguish deployed fixes, synthetic QA, analytics observations, blocked Narrator cleanup and unmeasured
-          customer outcomes. Produce concise evidence matrix/next candidate without repeating browser/API/analytics checks or changing app
-          code/deploy. Commit only related records; record guard exit and shared-lock release for this task before fixed end_at.'
+        current_task_completion_criteria: 'Windows parent: reconcile each r3 task against its existing report/trace, product result, guard exit
+          and lock receipt; distinguish deployed fixes, synthetic QA, analytics observations, blocked Narrator cleanup and unmeasured customer
+          outcomes. Produce concise evidence matrix/next candidate without repeating browser/API/analytics checks or changing app code/deploy.
+          Commit only related records; record guard exit and shared-lock release for this task before fixed end_at.'
         prior_r3_t05_status: synthetic_jpeg_webp_boundary_qa_pass_no_change_guard_completed
         prior_r3_t05_guard_finished_at: '2026-11-24T14:00:59.198202Z'
         prior_r3_t05_guard_exit_code: 0
@@ -802,8 +802,8 @@ lanes:
         prior_r3_t04_status_check_message_id: '1795527160.320609'
         prior_r3_t04_status_check_queue_id: convq_c75d9a4e945aa174971333b1e56960bb
         prior_r3_t04_status_check_task_id: miniapp-20261124-r3-t04
-        prior_r3_t04_status_check_reason: Product QA result was published but parent guard/exit/lock receipt was pending; same-task status
-          requested once, no resend.
+        prior_r3_t04_status_check_reason: Product QA result was published but parent guard/exit/lock receipt was pending; same-task status requested
+          once, no resend.
         prior_r3_t05_browser_qa_status: browser_qa_pass_no_product_change_guard_completed
         prior_r3_t05_result: synthetic_jpeg_webp_boundary_qa_pass_no_change
         prior_r3_t05_guard_status: completed_exit_0
@@ -841,8 +841,7 @@ lanes:
         report_status: sent
         report_message_id: '1795531097.181849'
         prior_r3_t01_execution_snapshot_at: '2026-11-24T11:58:40Z'
-        prior_r3_t01_execution_snapshot: r3-t01 product/live verified; guard completed exit 0 and shared lock free; r3-t02 handoff sent
-          1795522715.346669
+        prior_r3_t01_execution_snapshot: r3-t01 product/live verified; guard completed exit 0 and shared lock free; r3-t02 handoff sent 1795522715.346669
         prior_r3_t01_product_source_sha: dc43b456354f3f03edf402a8dfce0a10172f8d81
         prior_r3_t01_product_evidence_sha: 93da7d6de0cad3def7d837ca95d442b684216ad2
         prior_r3_t01_release_run: '45387803883'
@@ -862,8 +861,7 @@ lanes:
         prior_r3_t05_guard_final_receipt: completed_exit_0_at_2026-11-24T14:00:59.198202Z_lock_free_14:01:42.129832Z
         current_task_report: reports/miniapp-image-tools-20261118-qa-01/20261124T1423Z-r3-t06.html
         goal: Reconcile existing r3-t01 through t05 evidence for SAM's pending interval closeout; no new execution.
-        next_action: Final report delivered at 2026-11-24T14:38:17Z; t06 guard/lock receipt complete. No automatic restart; Narrator cleanup
-          unresolved.
+        next_action: Final report delivered at 2026-11-24T14:38:17Z; t06 guard/lock receipt complete. No automatic restart; Narrator cleanup unresolved.
       prior_task_status_check_at: '2026-11-24T09:45:00Z'
       prior_task_status_check_status: sent
       prior_task_status_check_task_id: miniapp-20261124-r2-t03
@@ -881,8 +879,8 @@ lanes:
       handoff_queue_id: convq_da77eaff32e9dbf0a44c3308b01d9a90
       report_status: sent
       report_message_id: '1795531097.181849'
-      next_action: 11/24 실험과 최종 보고 종료. 자동 재개 없음. 새 실행 전에 즉시 후속 인계 권한·구간 전체 보고·고객 검증 목표를 검토한다. Narrator 정리는 대화형 Windows 잠금 해제와 원 인스턴스 재확인
-        후 판단하며 고객 성과는 미측정.
+      next_action: 11/24 실험과 최종 보고 종료. 자동 재개 없음. 새 실행 전에 즉시 후속 인계 권한·구간 전체 보고·고객 검증 목표를 검토한다. Narrator 정리는 대화형 Windows 잠금 해제와 원 인스턴스 재확인 후 판단하며
+        고객 성과는 미측정.
       prior_r2_t05_status_check_at: '2026-11-24T10:45:00Z'
       prior_r2_t05_status_check_status: prepared
       prior_r2_t05_status_check_task_id: miniapp-20261124-r2-t05
@@ -989,8 +987,7 @@ lanes:
       tasks:
       - id: miniapp-20261125-r3-t01
         window_id: r3
-        goal: 현재 원문 DgKEVWij6oq의 조회·답글을 확인하고, 실제 관련 공개 대화를 몇 건 읽어 맥락에 맞을 때만 선제 답글(일일 상한5개 이내)로 기여한다. 유용하고 새 근거가 있을 때만 후속 원문 최대1개를 게시하고 첫
-          조회를 기록한다.
+        goal: 현재 원문 DgKEVWij6oq의 조회·답글을 확인하고, 실제 관련 공개 대화를 몇 건 읽어 맥락에 맞을 때만 선제 답글(일일 상한5개 이내)로 기여한다. 유용하고 새 근거가 있을 때만 후속 원문 최대1개를 게시하고 첫 조회를 기록한다.
         start_at: '2026-11-25T13:00:14Z'
         end_at: '2026-11-25T14:00:00Z'
         status: completed
@@ -998,8 +995,8 @@ lanes:
         handoff_message_id: '1795611726.462139'
         handoff_queue_id: convq_40a5b43bafbaa01994ee598ac0baff80
         handoff_attempt_at: '2026-11-25T13:02:10Z'
-        result_summary: '원문 인사이트 214조회(13:04:49Z), 외부에서 온 답글 3건. 관련 공개 대화를 읽고 다른 작성자 퇴고 글에 실질 답글 1건(13:08:08Z) 게시·공개 URL 확인. 신규 원문 0건: 이미
-          조회 목표를 넘겼고 새 근거로 별도 글을 낼 필요가 없음.'
+        result_summary: '원문 인사이트 214조회(13:04:49Z), 외부에서 온 답글 3건. 관련 공개 대화를 읽고 다른 작성자 퇴고 글에 실질 답글 1건(13:08:08Z) 게시·공개 URL 확인. 신규 원문 0건: 이미 조회 목표를
+          넘겼고 새 근거로 별도 글을 낼 필요가 없음.'
         changes:
         - https://www.threads.com/@_archivenoh/post/DgKmf-lD9Nn
         release_runs: []
@@ -1025,14 +1022,14 @@ lanes:
           lock_free_verified_at: '2026-11-25T13:19:49.582405+00:00'
         status_check_at: '2026-11-25T13:06:00.205333+00:00'
         receipt_checked_at: '2026-11-25T13:55:34Z'
-        receipt_check_result: 'Read original Slack thread C0CE0DV9MM2/1794983278.888719 after handoff 1795611726.462139. Windows sender
-          U0CHX8QA7S8 posted same-task result at 1795612994.747899: completed/exit 0 finished 2026-11-25T13:19:32.248398Z; parent confirmed
-          lock-free 13:19:49.582405Z. Evidence: https://shdkej.slack.com/archives/C0CE0DV9MM2/p1795612994747899 and https://github.com/shdkej/infinity/blob/main/reports/miniapp-image-tools-20261118-qa-01/20261125T1311Z-r3-t01.html.
+        receipt_check_result: 'Read original Slack thread C0CE0DV9MM2/1794983278.888719 after handoff 1795611726.462139. Windows sender U0CHX8QA7S8
+          posted same-task result at 1795612994.747899: completed/exit 0 finished 2026-11-25T13:19:32.248398Z; parent confirmed lock-free 13:19:49.582405Z.
+          Evidence: https://shdkej.slack.com/archives/C0CE0DV9MM2/p1795612994747899 and https://github.com/shdkej/infinity/blob/main/reports/miniapp-image-tools-20261118-qa-01/20261125T1311Z-r3-t01.html.
           Existing task guard fields match; no restart or new request.'
         receipt_repair_requested_at: '2026-11-25T13:18:20Z'
         receipt_repair_message_id: '1795612758.367589'
-        completion_criteria: 현재 게시물 및 관련 공개 대화 실제 확인, 계정 정확성 유지, 답글은 관련성과 실질 기여가 있을 때만 하루 최대5개, 원문은 필요할 때만 하루 최대3개, 게시 시 URL·시각·플랫폼 표시 조회
-          또는 미측정 사유 기록, 실제 종료·잠금 영수증 기록. 고정 종료 2026-11-25T14:00:00Z.
+        completion_criteria: 현재 게시물 및 관련 공개 대화 실제 확인, 계정 정확성 유지, 답글은 관련성과 실질 기여가 있을 때만 하루 최대5개, 원문은 필요할 때만 하루 최대3개, 게시 시 URL·시각·플랫폼 표시 조회 또는 미측정
+          사유 기록, 실제 종료·잠금 영수증 기록. 고정 종료 2026-11-25T14:00:00Z.
       - id: miniapp-20261125-r3-t02
         window_id: r3
         goal: 2026-11-25 오늘 새 원문 게시물 전체의 현재 Threads 표시 조회수를 한 번 관측하고 계측 증거와 시각을 기록한다. 반복 새로고침 없이 기존 post insights를 조회한다.
@@ -1057,8 +1054,8 @@ lanes:
           exit_code: null
           finished_at: null
           lock_free_verified_at: null
-        completion_criteria: 고정 종료 2026-11-25T14:00:00Z 전에 오늘 새 원문 전체의 현재 표시 조회수를 한 번 확인하고, 게시물별 ID·URL·views 또는 미측정·관측시각·insights 근거를 기록한다.
-          metrics.obs_attempted_at은 조회 성공/실패 모두 실제 시도 후 기록한다. 반복 조회·자가조회는 하지 않으며 Windows guarded entrypoint 안에서 실행하고 실제 종료·잠금 영수증을 남긴다.
+        completion_criteria: 고정 종료 2026-11-25T14:00:00Z 전에 오늘 새 원문 전체의 현재 표시 조회수를 한 번 확인하고, 게시물별 ID·URL·views 또는 미측정·관측시각·insights 근거를 기록한다. metrics.obs_attempted_at은
+          조회 성공/실패 모두 실제 시도 후 기록한다. 반복 조회·자가조회는 하지 않으며 Windows guarded entrypoint 안에서 실행하고 실제 종료·잠금 영수증을 남긴다.
       - id: miniapp-20261125-r1-t01
         window_id: r1
         goal: Threads _archivenoh의 정확한로그인·최근공개글·조회접근을확인하고 맥락에맞는짧은원문글1개를게시해 첫조회스냅샷/게시URL을기록한다. 미니앱홍보로고정하지않는다.
@@ -1067,8 +1064,8 @@ lanes:
         status: completed
         handoff_status: sent
         handoff_message_id: '1795593652.728089'
-        result_summary: 정확한 로그인 _archivenoh의 프로필 편집·작성자 표시를 재확인하고 최근 공개 Threads 글 10개를 살폈다. 17:09:35 KST 원문 1개 게시, 원문 페이지 재확인. 17:10:14
-          KST 게시물 인사이트 조회수 0; 자가 조회를 고객 성과로 세지 않음.
+        result_summary: 정확한 로그인 _archivenoh의 프로필 편집·작성자 표시를 재확인하고 최근 공개 Threads 글 10개를 살폈다. 17:09:35 KST 원문 1개 게시, 원문 페이지 재확인. 17:10:14 KST 게시물
+          인사이트 조회수 0; 자가 조회를 고객 성과로 세지 않음.
         changes:
         - https://www.threads.com/@_archivenoh/post/DgKEVWij6oq
         release_runs: []
@@ -1134,7 +1131,6 @@ lanes:
         account_auth_status: authenticated_exact_handle_verified_2026-11-25T08:09:35Z
         sam_contract_run_id: threads-twohour-contract-20261125
         helper_test_count: 27
-
   - id: reel-room-studio-20261113
     title: Reel Room·Instagram Maker 통합 릴스 스튜디오 구현
     task_name: Reel Room·Instagram Maker 통합 릴스 스튜디오 구현
@@ -1148,18 +1144,12 @@ lanes:
     source: codex_cli
     created_at: '2026-11-13T11:16:20Z'
     updated_at: '2026-11-13T13:30:19Z'
-    user_intent: Reel Room과 Instagram Maker를 통합해 사람이 쓴 대본을 중심으로 키워드·후킹·이미지·참고 자료를
-      선택하고 조합하는 릴스 제작 프로그램을 사용한다.
-    desired_outcome: 원문 보존, 다양한 AI 키워드·후킹, 복수 이미지 후보 선택, 참고 이미지·영상 첨부/추천, 직접 녹음과 AI
-      내레이션, 대본 자막, 저장·재열기와 세로 릴스 결과 확인을 하나의 프로젝트에서 연결한다.
-    out_of_scope: 첨부 사진 UI 모방, 원문 대본 임의 재작성, 공개 게시·외부 메시지, 사용자 미승인 운영 배포·유료 검증 호출·계정/권한
-      변경, 기존 무관한 변경 포함, 중복 Genie 구현 실행
-    success_evidence: 원문 보존·미디어 검증·오류 경계 테스트, 프런트 빌드, 모바일·데스크톱 실제 렌더, 업로드→선택→조합→MP4/커버/SRT/프로젝트
-      JSON→재열기 검증, 의도 파일의 master push·원격 SHA 일치
-    approval_boundary: 2026-11-13 사용자 “ㅇㅇ ㄱㄱ”로 운영 배포·Instagram Maker 주소 전환·이미지 2장·음성
-      1개·추천 1회 검증 승인. 외부 발송·추가 비용·권한 변경은 제외.
-    next_action: 사용자가 유료 AI 검증 재개를 요청하면 계정 한도 확인 후 보류된 검증만 이어간다. 키워드·참고 검색·탭 AI 키
-      및 참고영상 파일 연결 수정 배포도 검증 완료.
+    user_intent: Reel Room과 Instagram Maker를 통합해 사람이 쓴 대본을 중심으로 키워드·후킹·이미지·참고 자료를 선택하고 조합하는 릴스 제작 프로그램을 사용한다.
+    desired_outcome: 원문 보존, 다양한 AI 키워드·후킹, 복수 이미지 후보 선택, 참고 이미지·영상 첨부/추천, 직접 녹음과 AI 내레이션, 대본 자막, 저장·재열기와 세로 릴스 결과 확인을 하나의 프로젝트에서 연결한다.
+    out_of_scope: 첨부 사진 UI 모방, 원문 대본 임의 재작성, 공개 게시·외부 메시지, 사용자 미승인 운영 배포·유료 검증 호출·계정/권한 변경, 기존 무관한 변경 포함, 중복 Genie 구현 실행
+    success_evidence: 원문 보존·미디어 검증·오류 경계 테스트, 프런트 빌드, 모바일·데스크톱 실제 렌더, 업로드→선택→조합→MP4/커버/SRT/프로젝트 JSON→재열기 검증, 의도 파일의 master push·원격 SHA 일치
+    approval_boundary: 2026-11-13 사용자 “ㅇㅇ ㄱㄱ”로 운영 배포·Instagram Maker 주소 전환·이미지 2장·음성 1개·추천 1회 검증 승인. 외부 발송·추가 비용·권한 변경은 제외.
+    next_action: 사용자가 유료 AI 검증 재개를 요청하면 계정 한도 확인 후 보류된 검증만 이어간다. 키워드·참고 검색·탭 AI 키 및 참고영상 파일 연결 수정 배포도 검증 완료.
     followup_status: verified_live
     reference_material_fix_status: verified_live
     reference_material_source_commit: 02cf36a27d590b5a47b732f757604efd84397d9e
@@ -1200,22 +1190,18 @@ lanes:
     - /home/ubuntu/workspace/video-automation/README.md
     - /home/ubuntu/workspace/video-automation/docs/STUDIO.md
     context_searches:
-    - Reel Room Instagram Maker 대본 키워드 후킹 릴스 제작 통합, 직접 녹음과 AI 내레이션, Codex 구현 기록과 미승인
-      운영 배포 경계
-    - 'origin/main Inbox Active Waiting Archive: reel room | instagram maker | 릴스
-      | video-automation'
+    - Reel Room Instagram Maker 대본 키워드 후킹 릴스 제작 통합, 직접 녹음과 AI 내레이션, Codex 구현 기록과 미승인 운영 배포 경계
+    - 'origin/main Inbox Active Waiting Archive: reel room | instagram maker | 릴스 | video-automation'
     detail: intents/active/reel-room-studio-20261113.md
     artifact: artifacts/reel-room-studio-20261113/work/implementation-status.md
     trace: data/traces/reel-room-studio-20261113.json
     report: reports/reel-room-studio-20261113/20261113-studio.html
     metric_question: 사용자가 쓴 대본을 보존한 채 선택한 후킹·소재·음성으로 릴스 결과를 만들고 다시 열 수 있는가?
     metric_signal: 저장→추천/업로드→선택→조합→MP4/SRT/커버→재열기 통합 검증 결과
-    metric_decision_rule: 핵심 흐름과 원문 보존 검증이 통과하고 소스 원격 SHA가 일치하면 로컬 구현을 완료로 기록한다. 배포
-      완료는 별도 승인 후 라이브 검증으로 판단한다.
+    metric_decision_rule: 핵심 흐름과 원문 보존 검증이 통과하고 소스 원격 SHA가 일치하면 로컬 구현을 완료로 기록한다. 배포 완료는 별도 승인 후 라이브 검증으로 판단한다.
     notification_channel: delivery_unknown
     notification_target: missing-at-intake
-    notification_reason: Codex 직접 대화에는 OpenClaw 발송 가능한 Slack/Telegram 원점이 없으며 외부 메시지
-      요청도 없다. 기존 notifier 예약값으로 발송하지 않는다.
+    notification_reason: Codex 직접 대화에는 OpenClaw 발송 가능한 Slack/Telegram 원점이 없으며 외부 메시지 요청도 없다. 기존 notifier 예약값으로 발송하지 않는다.
     origin:
       provider: codex_cli
       session_id: 01a1d48d-86d8-70d0-94e3-a36084a5dde5
@@ -1223,8 +1209,7 @@ lanes:
       tab_id: tab-hMqhUf
     verification:
       provider_tests: 50 passed; mocked paid APIs
-      integration_tests: 186 passed, 49 warnings; before model and packaging correction;
-        provider 50 passed after correction
+      integration_tests: 186 passed, 49 warnings; before model and packaging correction; provider 50 passed after correction
       browser: PASS; manual script, 2 images, 6s recording, MP4, reopening, 375/768/1440px
       commons_search: live free search returned 10 image/video items
       paid_generation: deferred_by_user_after_upstream_429
@@ -1255,8 +1240,7 @@ lanes:
     approval_boundary: 계정 연결·권한·시크릿·유료 집행·외부 발송은 사전 승인 후 진행
     next_action: Planner가 두 프로젝트의 채널·지표 원천을 조사하고 승인 필요 항목을 분리한다.
     waiting_on: external
-    blocker: 두 프로젝트의 고객 문의 관리 채널과 전용 마케팅 analytics 원천·대시보드가 로컬 문서와 공통 inbox에 없어 정확한
-      경로·접근 검증을 완료할 수 없음
+    blocker: 두 프로젝트의 고객 문의 관리 채널과 전용 마케팅 analytics 원천·대시보드가 로컬 문서와 공통 inbox에 없어 정확한 경로·접근 검증을 완료할 수 없음
     retry_policy: autonomous
     notification_channel: telegram
     notification_target: telegram:433493318
@@ -1270,8 +1254,7 @@ lanes:
     - group_id: role-watcher-developer-repository-signal
       member_ids:
       - watch-developer-current
-      preservation_reason: Space의 실제 기능 변경은 확인됐지만 테스트·배포/라이브 검증이 없어 Backlog 한 건으로
-        유지한다.
+      preservation_reason: Space의 실제 기능 변경은 확인됐지만 테스트·배포/라이브 검증이 없어 Backlog 한 건으로 유지한다.
     - group_id: role-watcher-operator-self-reference
       member_ids:
       - watch-operator-current
@@ -1304,8 +1287,7 @@ lanes:
       evidence_verified: false
       evidence_paths: []
       decision: rejected
-      rejection_reason: source_ref와 evidence_paths가 비어 있어 실제 오류 로그와 영향 범위를 확인할 수 없으며
-        후보 생성 필수 조건을 위반했다.
+      rejection_reason: source_ref와 evidence_paths가 비어 있어 실제 오류 로그와 영향 범위를 확인할 수 없으며 후보 생성 필수 조건을 위반했다.
       next_action: 실제 source_ref와 오류 로그가 제공될 때만 재등록한다.
   cycle_id: backlog-triage-2026-10-28-role-watchers-r31
   source_revision: 4e6b32e28c102a50618a635d484dc33be698e328
@@ -1316,10 +1298,8 @@ lanes:
     member_ids:
     - watch-developer-27499b9463bebcca
     - watch-operator-current
-    reason: 동일한 repository_signal 변경면을 기존 반복 그룹으로 유지하되 content-live.json의 실제 지표 변화는
-      관찰 근거로 갱신함
-    preservation_reason: 코드·테스트·원격 불일치는 없어 Inbox로 승격하지 않고 생성 산출물 freshness 검증 후보를
-      한 건으로 유지
+    reason: 동일한 repository_signal 변경면을 기존 반복 그룹으로 유지하되 content-live.json의 실제 지표 변화는 관찰 근거로 갱신함
+    preservation_reason: 코드·테스트·원격 불일치는 없어 Inbox로 승격하지 않고 생성 산출물 freshness 검증 후보를 한 건으로 유지
   decisions:
   - id: watch-developer-current
     watcher_role: developer
@@ -1332,8 +1312,7 @@ lanes:
     - /home/ubuntu/workspace/projects/minimalmoeum
     - /home/ubuntu/workspace/projects/policycock
     decision: rejected_grouped
-    rejection_reason: Space의 변경은 travel-data.json generatedAt 타임스탬프 동기화뿐이며 신규 코드·실패
-      테스트·기술부채·대표지표 변화가 없어 기존 반복 그룹과 동일함
+    rejection_reason: Space의 변경은 travel-data.json generatedAt 타임스탬프 동기화뿐이며 신규 코드·실패 테스트·기술부채·대표지표 변화가 없어 기존 반복 그룹과 동일함
     next_action: 소스 코드·테스트 실패·기술부채 또는 대표지표 변화가 관찰될 때만 동일 dedupe 키를 재검토
   - id: watch-operator-current
     watcher_role: operator
@@ -1343,8 +1322,7 @@ lanes:
     evidence_paths:
     - /home/ubuntu/workspace/knowledge-lab/infinity/INTENTS.yaml
     decision: rejected_grouped
-    rejection_reason: evidence_path가 자기참조 INTENTS.yaml뿐이며 독립적인 실패·대기·마감 위반·원격 불일치·대표지표
-      변화가 없어 기존 operator 반복 그룹으로 통합함
+    rejection_reason: evidence_path가 자기참조 INTENTS.yaml뿐이며 독립적인 실패·대기·마감 위반·원격 불일치·대표지표 변화가 없어 기존 operator 반복 그룹으로 통합함
     next_action: 새 독립 운영 증거 또는 대표지표 변화가 관찰될 때만 동일 dedupe 키를 재검토
   - id: watch-operator-current
     watcher_role: operator
@@ -1354,8 +1332,7 @@ lanes:
     evidence_paths:
     - /home/ubuntu/workspace/knowledge-lab/infinity/INTENTS.yaml
     decision: rejected_grouped
-    rejection_reason: evidence_path가 자기참조 INTENTS.yaml뿐이며 독립적인 실패·대기·마감 위반·원격 불일치·대표지표
-      변화가 없어 기존 operator 반복 그룹으로 통합함
+    rejection_reason: evidence_path가 자기참조 INTENTS.yaml뿐이며 독립적인 실패·대기·마감 위반·원격 불일치·대표지표 변화가 없어 기존 operator 반복 그룹으로 통합함
     next_action: 새 독립 운영 증거 또는 대표지표 변화가 관찰될 때만 동일 dedupe 키를 재검토
   - id: watch-posthog-b6e70f210545
     source: posthog
@@ -1363,8 +1340,7 @@ lanes:
     evidence_verified: false
     evidence_paths: []
     decision: rejected
-    rejection_reason: source_ref와 evidence_paths가 비어 있어 TimeoutError의 실제 로그·영향·대표지표
-      변화를 확인할 수 없으므로 후보 생성 필수 근거 조건을 충족하지 못함
+    rejection_reason: source_ref와 evidence_paths가 비어 있어 TimeoutError의 실제 로그·영향·대표지표 변화를 확인할 수 없으므로 후보 생성 필수 근거 조건을 충족하지 못함
     next_action: 실제 source_ref와 오류 로그가 제공될 때만 재등록
   - id: watch-operator-current
     watcher_role: operator
@@ -1374,8 +1350,7 @@ lanes:
     evidence_paths:
     - /home/ubuntu/workspace/knowledge-lab/infinity/INTENTS.yaml
     decision: rejected_grouped
-    rejection_reason: 지정된 근거가 자기참조 INTENTS.yaml뿐이며 독립적인 실패·대기·마감 위반·원격 불일치·대표지표 변화가
-      없어 기존 operator 반복 그룹으로 통합함
+    rejection_reason: 지정된 근거가 자기참조 INTENTS.yaml뿐이며 독립적인 실패·대기·마감 위반·원격 불일치·대표지표 변화가 없어 기존 operator 반복 그룹으로 통합함
     next_action: 새 독립 운영 증거 또는 대표지표 변화가 관찰될 때만 동일 dedupe 키를 재검토
   - id: watch-developer-current
     watcher_role: developer
@@ -1388,10 +1363,8 @@ lanes:
     - /home/ubuntu/workspace/projects/minimalmoeum
     - /home/ubuntu/workspace/projects/policycock
     decision: keep_update
-    preservation_reason: Space의 fd54511 소스 변경은 확인했지만 content-live.json이 untracked라
-      생성·커밋 정책과 빌드·링크 검증 전에는 Inbox로 승격하지 않음
-    next_action: content-live.json의 의도된 배포 산출물 여부를 확인하고 status/agent-room 빌드 및 링크
-      동작을 검증한다.
+    preservation_reason: Space의 fd54511 소스 변경은 확인했지만 content-live.json이 untracked라 생성·커밋 정책과 빌드·링크 검증 전에는 Inbox로 승격하지 않음
+    next_action: content-live.json의 의도된 배포 산출물 여부를 확인하고 status/agent-room 빌드 및 링크 동작을 검증한다.
   - id: watch-developer-686a25159dde5ec9
     watcher_role: developer
     source: role-watcher:developer
@@ -1403,9 +1376,8 @@ lanes:
     - /home/ubuntu/workspace/projects/minimalmoeum
     - /home/ubuntu/workspace/projects/policycock
     decision: keep_update
-    preservation_reason: origin/main에서 Infinity backlog 카드의 registration_reason·next_action
-      표시와 main 배포 경로를 실제로 변경했으므로 기존 후보를 유지하고 관찰 근거만 갱신한다. 동일 UI·배포 변경면에 집중되어 별도 후보로
-      분산하지 않는다.
+    preservation_reason: origin/main에서 Infinity backlog 카드의 registration_reason·next_action 표시와 main 배포 경로를 실제로 변경했으므로 기존 후보를 유지하고 관찰 근거만 갱신한다.
+      동일 UI·배포 변경면에 집중되어 별도 후보로 분산하지 않는다.
     next_action: Infinity UI 변경을 하나의 실행 후보로 구체화하고 카드 정보 표시 및 main 배포 경로를 검증한다.
   - id: watch-operator-7572810f93237caf
     watcher_role: operator
@@ -1415,8 +1387,7 @@ lanes:
     evidence_paths:
     - /home/ubuntu/workspace/knowledge-lab/infinity/.watcher-runs/20261026T113001Z/INTENTS.yaml
     decision: rejected_grouped
-    rejection_reason: 지정된 evidence_path가 실제로 존재하지 않고, 최신 watcher snapshot도 구체적인 실패·대기·마감·원격
-      상태 변화를 입증하지 않는 자기참조 반복 후보이므로 Inbox로 승격하지 않음
+    rejection_reason: 지정된 evidence_path가 실제로 존재하지 않고, 최신 watcher snapshot도 구체적인 실패·대기·마감·원격 상태 변화를 입증하지 않는 자기참조 반복 후보이므로 Inbox로 승격하지 않음
   - id: watch-developer-d26656970fa1e65a
     watcher_role: developer
     source: role-watcher:developer
@@ -1428,8 +1399,7 @@ lanes:
     - /home/ubuntu/workspace/projects/minimalmoeum
     - /home/ubuntu/workspace/projects/policycock
     decision: promoted
-    promotion_reason: Space의 ahead/behind 원격 불일치와 Infinity 백로그 제어 코드 변경이라는 구체적 변경면이
-      확인되어 기존 반복 그룹과 분리
+    promotion_reason: Space의 ahead/behind 원격 불일치와 Infinity 백로그 제어 코드 변경이라는 구체적 변경면이 확인되어 기존 반복 그룹과 분리
   - id: watch-developer-39420a15f59df4e9
     watcher_role: developer
     source: role-watcher:developer
@@ -1441,8 +1411,7 @@ lanes:
     - /home/ubuntu/workspace/projects/minimalmoeum
     - /home/ubuntu/workspace/projects/policycock
     decision: rejected_grouped
-    rejection_reason: 네 저장소에 운영 로그·review 산출물과 생성 데이터만 있고 신규 코드·실패 테스트·기술 부채·원격 불일치·대표
-      지표 변화가 없어 기존 반복 신호와 동일함
+    rejection_reason: 네 저장소에 운영 로그·review 산출물과 생성 데이터만 있고 신규 코드·실패 테스트·기술 부채·원격 불일치·대표 지표 변화가 없어 기존 반복 신호와 동일함
   - id: watch-developer-ef897a5eec57171f
     watcher_role: developer
     source: role-watcher:developer
@@ -1454,8 +1423,7 @@ lanes:
     - /home/ubuntu/workspace/projects/minimalmoeum
     - /home/ubuntu/workspace/projects/policycock
     decision: rejected_grouped
-    rejection_reason: Infinity의 운영 로그·review 산출물 dirty 상태와 Space의 생성 데이터만 확인되며 신규
-      코드·실패 테스트·기술 부채·대표 지표 변화가 없음
+    rejection_reason: Infinity의 운영 로그·review 산출물 dirty 상태와 Space의 생성 데이터만 확인되며 신규 코드·실패 테스트·기술 부채·대표 지표 변화가 없음
   - id: watch-operator-8a71586377980128
     watcher_role: operator
     source: role-watcher:operator
@@ -1464,8 +1432,7 @@ lanes:
     evidence_paths:
     - /home/ubuntu/workspace/knowledge-lab/infinity/.watcher-runs/20261026T030001Z/INTENTS.yaml
     decision: rejected
-    rejection_reason: 기존 Planner Waiting snapshot의 반복이며 새 실패·마감 위반·원격 상태 불일치·승인 경계
-      사건이 없어 운영 조치 근거가 없음
+    rejection_reason: 기존 Planner Waiting snapshot의 반복이며 새 실패·마감 위반·원격 상태 불일치·승인 경계 사건이 없어 운영 조치 근거가 없음
   - id: watch-developer-baafaa5de2ae95eb
     watcher_role: developer
     source: role-watcher:developer
@@ -1477,8 +1444,8 @@ lanes:
     - /home/ubuntu/workspace/projects/minimalmoeum
     - /home/ubuntu/workspace/projects/policycock
     decision: rejected_grouped
-    rejection_reason: Space의 기존 ahead/behind 및 Infinity 백로그 제어 변경은 직전 d26656970fa1e65a
-      신호에서 이미 승격·기록된 동일 변경면이며, 이번 후보에서 신규 코드·실패 테스트·기술 부채·대표지표 변화는 확인되지 않음
+    rejection_reason: Space의 기존 ahead/behind 및 Infinity 백로그 제어 변경은 직전 d26656970fa1e65a 신호에서 이미 승격·기록된 동일 변경면이며, 이번 후보에서 신규 코드·실패 테스트·기술 부채·대표지표
+      변화는 확인되지 않음
   - id: watch-developer-645c51f908744fb8
     watcher_role: developer
     source: role-watcher:developer
@@ -1490,8 +1457,7 @@ lanes:
     - /home/ubuntu/workspace/projects/minimalmoeum
     - /home/ubuntu/workspace/projects/policycock
     decision: rejected_grouped
-    rejection_reason: baafaa5de2ae95eb와 동일한 저장소·변경면이며 Space의 기존 원격 불일치와 생성 데이터 외에
-      신규 코드·실패 테스트·기술 부채·대표지표 변화가 없어 중복 후보로 통합
+    rejection_reason: baafaa5de2ae95eb와 동일한 저장소·변경면이며 Space의 기존 원격 불일치와 생성 데이터 외에 신규 코드·실패 테스트·기술 부채·대표지표 변화가 없어 중복 후보로 통합
   - id: watch-operator-5e7fff9210f6b9b3
     watcher_role: operator
     source: role-watcher:operator
@@ -1500,8 +1466,7 @@ lanes:
     evidence_paths:
     - /home/ubuntu/workspace/knowledge-lab/infinity/.watcher-runs/20261026T050001Z/INTENTS.yaml
     decision: rejected
-    rejection_reason: 기존 Planner Waiting snapshot을 반복할 뿐 새 실패·마감 위반·원격 불일치·승인 경계 사건이
-      없어 운영 조치 근거가 없음
+    rejection_reason: 기존 Planner Waiting snapshot을 반복할 뿐 새 실패·마감 위반·원격 불일치·승인 경계 사건이 없어 운영 조치 근거가 없음
   - id: watch-developer-8892fe5030880ffd
     watcher_role: developer
     source: role-watcher:developer
@@ -1513,8 +1478,7 @@ lanes:
     - /home/ubuntu/workspace/projects/minimalmoeum
     - /home/ubuntu/workspace/projects/policycock
     decision: rejected_grouped
-    rejection_reason: 기존 반복 그룹과 동일한 저장소·변경면이며 Space의 1 ahead/1 behind와 생성 데이터 외에 신규
-      코드·실패 테스트·기술 부채·대표지표 변화가 없어 중복 후보로 통합
+    rejection_reason: 기존 반복 그룹과 동일한 저장소·변경면이며 Space의 1 ahead/1 behind와 생성 데이터 외에 신규 코드·실패 테스트·기술 부채·대표지표 변화가 없어 중복 후보로 통합
   - id: watch-operator-b662b595d63fc7eb
     watcher_role: operator
     source: role-watcher:operator
@@ -1523,8 +1487,7 @@ lanes:
     evidence_paths:
     - /home/ubuntu/workspace/knowledge-lab/infinity/.watcher-runs/20261026T053001Z/INTENTS.yaml
     decision: rejected
-    rejection_reason: 기존 Planner Waiting snapshot의 반복이며 새 실패·마감 위반·원격 불일치·승인 경계 사건이
-      없어 운영 조치 근거가 없음
+    rejection_reason: 기존 Planner Waiting snapshot의 반복이며 새 실패·마감 위반·원격 불일치·승인 경계 사건이 없어 운영 조치 근거가 없음
   - id: watch-developer-098bbcf7563b4439
     watcher_role: developer
     source: role-watcher:developer
@@ -1536,8 +1499,7 @@ lanes:
     - /home/ubuntu/workspace/projects/minimalmoeum
     - /home/ubuntu/workspace/projects/policycock
     decision: rejected_grouped
-    rejection_reason: 기존 반복 그룹과 동일한 저장소·변경면이며 Space의 1 ahead/1 behind와 생성 데이터 외에 신규
-      코드·실패 테스트·기술 부채·대표지표 변화가 없어 중복 후보로 통합
+    rejection_reason: 기존 반복 그룹과 동일한 저장소·변경면이며 Space의 1 ahead/1 behind와 생성 데이터 외에 신규 코드·실패 테스트·기술 부채·대표지표 변화가 없어 중복 후보로 통합
   - id: watch-developer-c530e1d6063c07e1
     watcher_role: developer
     source: role-watcher:developer
@@ -1549,8 +1511,7 @@ lanes:
     - /home/ubuntu/workspace/projects/minimalmoeum
     - /home/ubuntu/workspace/projects/policycock
     decision: rejected_grouped
-    rejection_reason: 기존 반복 그룹과 동일한 저장소·변경면이며 Space의 1 ahead/1 behind와 생성 데이터 외에 신규
-      코드·실패 테스트·기술 부채·대표지표 변화가 없어 중복 후보로 통합
+    rejection_reason: 기존 반복 그룹과 동일한 저장소·변경면이며 Space의 1 ahead/1 behind와 생성 데이터 외에 신규 코드·실패 테스트·기술 부채·대표지표 변화가 없어 중복 후보로 통합
   - id: watch-developer-34baef99ac9e26a1
     watcher_role: developer
     source: role-watcher:developer
@@ -1562,8 +1523,7 @@ lanes:
     - /home/ubuntu/workspace/projects/minimalmoeum
     - /home/ubuntu/workspace/projects/policycock
     decision: rejected_grouped
-    rejection_reason: 기존 반복 그룹과 동일한 저장소·변경면이며 Space의 1 ahead/1 behind와 생성 데이터 외에 신규
-      코드·실패 테스트·기술 부채·대표지표 변화가 없어 중복 후보로 통합
+    rejection_reason: 기존 반복 그룹과 동일한 저장소·변경면이며 Space의 1 ahead/1 behind와 생성 데이터 외에 신규 코드·실패 테스트·기술 부채·대표지표 변화가 없어 중복 후보로 통합
   - id: watch-operator-297a773aef8d6b17
     watcher_role: operator
     source: role-watcher:operator
@@ -1572,8 +1532,7 @@ lanes:
     evidence_paths:
     - /home/ubuntu/workspace/knowledge-lab/infinity/.watcher-runs/20261026T070001Z/INTENTS.yaml
     decision: rejected
-    rejection_reason: 기존 Planner Waiting snapshot의 반복이며 새 실패·마감 위반·원격 상태 불일치·승인 경계
-      사건이 없어 운영 조치 근거가 없음
+    rejection_reason: 기존 Planner Waiting snapshot의 반복이며 새 실패·마감 위반·원격 상태 불일치·승인 경계 사건이 없어 운영 조치 근거가 없음
   - id: watch-developer-a609277493ff6310
     watcher_role: developer
     source: role-watcher:developer
@@ -1585,8 +1544,7 @@ lanes:
     - /home/ubuntu/workspace/projects/minimalmoeum
     - /home/ubuntu/workspace/projects/policycock
     decision: rejected_grouped
-    rejection_reason: 기존 반복 그룹과 동일한 저장소·변경면이며 Space의 1 ahead/1 behind와 생성 데이터 외에 신규
-      코드·실패 테스트·기술 부채·대표지표 변화가 없어 중복 후보로 통합
+    rejection_reason: 기존 반복 그룹과 동일한 저장소·변경면이며 Space의 1 ahead/1 behind와 생성 데이터 외에 신규 코드·실패 테스트·기술 부채·대표지표 변화가 없어 중복 후보로 통합
   - id: watch-operator-84da735a7ffc7aff
     watcher_role: operator
     source: role-watcher:operator
@@ -1595,8 +1553,7 @@ lanes:
     evidence_paths:
     - /home/ubuntu/workspace/knowledge-lab/infinity/.watcher-runs/20261026T073001Z/INTENTS.yaml
     decision: rejected
-    rejection_reason: 기존 Planner Waiting snapshot의 반복이며 새 실패·마감 위반·원격 상태 불일치·승인 경계
-      사건이 없어 운영 조치 근거가 없음
+    rejection_reason: 기존 Planner Waiting snapshot의 반복이며 새 실패·마감 위반·원격 상태 불일치·승인 경계 사건이 없어 운영 조치 근거가 없음
   - id: watch-developer-a04d61992b68489e
     watcher_role: developer
     source: role-watcher:developer
@@ -1608,9 +1565,8 @@ lanes:
     - /home/ubuntu/workspace/projects/minimalmoeum
     - /home/ubuntu/workspace/projects/policycock
     decision: rejected_grouped
-    rejection_reason: 기존 repeated-developer-repository-state 그룹과 동일한 저장소·변경면이며 Infinity
-      운영 로그와 review 산출물, Space의 1 ahead/1 behind 및 생성 데이터 외에 신규 코드·실패 테스트·기술 부채·대표지표
-      변화가 없어 중복 후보로 통합
+    rejection_reason: 기존 repeated-developer-repository-state 그룹과 동일한 저장소·변경면이며 Infinity 운영 로그와 review 산출물, Space의 1 ahead/1 behind 및 생성 데이터 외에
+      신규 코드·실패 테스트·기술 부채·대표지표 변화가 없어 중복 후보로 통합
   - id: watch-operator-a828bcc981dd3016
     watcher_role: operator
     source: role-watcher:operator
@@ -1619,8 +1575,7 @@ lanes:
     evidence_paths:
     - /home/ubuntu/workspace/knowledge-lab/infinity/.watcher-runs/20261026T080001Z/INTENTS.yaml
     decision: rejected
-    rejection_reason: 기존 Planner Waiting snapshot의 반복이며 새 실패·마감 위반·원격 상태 불일치·승인 경계
-      사건·대표지표 변화가 없어 운영 조치 근거가 없음
+    rejection_reason: 기존 Planner Waiting snapshot의 반복이며 새 실패·마감 위반·원격 상태 불일치·승인 경계 사건·대표지표 변화가 없어 운영 조치 근거가 없음
   - id: watch-developer-f8abcaf03c902949
     watcher_role: developer
     source: role-watcher:developer
@@ -1632,8 +1587,8 @@ lanes:
     - /home/ubuntu/workspace/projects/minimalmoeum
     - /home/ubuntu/workspace/projects/policycock
     decision: rejected_grouped
-    rejection_reason: 기존 repeated-developer-repository-state 그룹과 동일한 저장소·변경면이며 Space의
-      1 ahead/1 behind와 생성 데이터 외에 신규 코드·실패 테스트·기술 부채·대표지표 변화가 없어 중복 후보로 통합
+    rejection_reason: 기존 repeated-developer-repository-state 그룹과 동일한 저장소·변경면이며 Space의 1 ahead/1 behind와 생성 데이터 외에 신규 코드·실패 테스트·기술 부채·대표지표 변화가
+      없어 중복 후보로 통합
   - id: watch-operator-c1502eab90dffe16
     watcher_role: operator
     source: role-watcher:operator
@@ -1642,8 +1597,7 @@ lanes:
     evidence_paths:
     - /home/ubuntu/workspace/knowledge-lab/infinity/.watcher-runs/20261026T083001Z/INTENTS.yaml
     decision: rejected
-    rejection_reason: 기존 Planner Waiting snapshot의 반복이며 새 실패·마감 위반·원격 상태 불일치·승인 경계
-      사건·대표지표 변화가 없어 운영 조치 근거가 없음
+    rejection_reason: 기존 Planner Waiting snapshot의 반복이며 새 실패·마감 위반·원격 상태 불일치·승인 경계 사건·대표지표 변화가 없어 운영 조치 근거가 없음
   - id: watch-developer-c9748663463b7446
     watcher_role: developer
     source: role-watcher:developer
@@ -1655,8 +1609,8 @@ lanes:
     - /home/ubuntu/workspace/projects/minimalmoeum
     - /home/ubuntu/workspace/projects/policycock
     decision: rejected_grouped
-    rejection_reason: 기존 repeated-developer-repository-state 그룹과 동일한 저장소·변경면이며 Space의
-      1 ahead/1 behind와 생성 데이터 외에 신규 코드·실패 테스트·기술 부채·대표지표 변화가 없어 중복 후보로 통합
+    rejection_reason: 기존 repeated-developer-repository-state 그룹과 동일한 저장소·변경면이며 Space의 1 ahead/1 behind와 생성 데이터 외에 신규 코드·실패 테스트·기술 부채·대표지표 변화가
+      없어 중복 후보로 통합
   - id: watch-operator-e12042e8eedd1dfb
     watcher_role: operator
     source: role-watcher:operator
@@ -1665,8 +1619,7 @@ lanes:
     evidence_paths:
     - /home/ubuntu/workspace/knowledge-lab/infinity/.watcher-runs/20261026T090001Z/INTENTS.yaml
     decision: rejected
-    rejection_reason: 기존 Planner Waiting snapshot의 반복이며 새 실패·마감 위반·원격 상태 불일치·승인 경계
-      사건·대표지표 변화가 없어 운영 조치 근거가 없음
+    rejection_reason: 기존 Planner Waiting snapshot의 반복이며 새 실패·마감 위반·원격 상태 불일치·승인 경계 사건·대표지표 변화가 없어 운영 조치 근거가 없음
   - id: watch-developer-68af20a464c443a8
     watcher_role: developer
     source: role-watcher:developer
@@ -1678,8 +1631,7 @@ lanes:
     - /home/ubuntu/workspace/projects/minimalmoeum
     - /home/ubuntu/workspace/projects/policycock
     decision: rejected_grouped
-    rejection_reason: 기존 repeated-developer-repository-state 그룹과 동일한 저장소·변경면이며 신규
-      코드·실패 테스트·기술 부채·대표지표 변화가 없어 중복 후보로 통합
+    rejection_reason: 기존 repeated-developer-repository-state 그룹과 동일한 저장소·변경면이며 신규 코드·실패 테스트·기술 부채·대표지표 변화가 없어 중복 후보로 통합
   - id: watch-operator-1d0cab66a0227c33
     watcher_role: operator
     source: role-watcher:operator
@@ -1688,8 +1640,7 @@ lanes:
     evidence_paths:
     - /home/ubuntu/workspace/knowledge-lab/infinity/.watcher-runs/20261026T093001Z/INTENTS.yaml
     decision: rejected
-    rejection_reason: 기존 Planner Waiting snapshot의 반복이며 새 실패·마감 위반·원격 상태 불일치·승인 경계
-      사건·대표지표 변화가 없어 운영 조치 근거가 없음
+    rejection_reason: 기존 Planner Waiting snapshot의 반복이며 새 실패·마감 위반·원격 상태 불일치·승인 경계 사건·대표지표 변화가 없어 운영 조치 근거가 없음
   - id: watch-planner-5f612447d241eca5
     watcher_role: planner
     source: role-watcher:planner
@@ -1699,8 +1650,7 @@ lanes:
     - /home/ubuntu/workspace/projects/minimalmoeum/TASKS.md
     - /home/ubuntu/workspace/projects/policycock/TASKS.md
     decision: waiting
-    rejection_reason: MM-001·PC-001이 blocked이고 정확한 채널·마케팅 지표 원천 확인은 외부 접근·권한이 필요해
-      승인 전 Inbox 승격을 하지 않음
+    rejection_reason: MM-001·PC-001이 blocked이고 정확한 채널·마케팅 지표 원천 확인은 외부 접근·권한이 필요해 승인 전 Inbox 승격을 하지 않음
   - id: watch-developer-27499b9463bebcca
     watcher_role: developer
     source: role-watcher:developer
@@ -1712,8 +1662,7 @@ lanes:
     - /home/ubuntu/workspace/projects/minimalmoeum
     - /home/ubuntu/workspace/projects/policycock
     decision: rejected_grouped
-    rejection_reason: 기존 repeated-developer-repository-state와 동일한 변경면이며 신규 코드·실패 테스트·기술
-      부채·대표지표 변화가 없음
+    rejection_reason: 기존 repeated-developer-repository-state와 동일한 변경면이며 신규 코드·실패 테스트·기술 부채·대표지표 변화가 없음
   - id: watch-operator-0bbc1972ed1241dc
     watcher_role: operator
     source: role-watcher:operator
@@ -1722,8 +1671,7 @@ lanes:
     evidence_paths:
     - /home/ubuntu/workspace/knowledge-lab/infinity/.watcher-runs/20261026T100001Z/INTENTS.yaml
     decision: rejected
-    rejection_reason: 기존 Planner Waiting snapshot의 반복이며 새 실패·마감 위반·원격 상태 불일치·승인 경계
-      사건·대표지표 변화가 없음
+    rejection_reason: 기존 Planner Waiting snapshot의 반복이며 새 실패·마감 위반·원격 상태 불일치·승인 경계 사건·대표지표 변화가 없음
   - id: watch-developer-1ec2d4f0cdf0e3a9
     watcher_role: developer
     source: role-watcher:developer
@@ -1735,8 +1683,7 @@ lanes:
     - /home/ubuntu/workspace/projects/minimalmoeum
     - /home/ubuntu/workspace/projects/policycock
     decision: rejected_grouped
-    rejection_reason: 기존 repeated-developer-repository-state와 동일한 저장소·변경면이며 신규 코드·실패
-      테스트·기술 부채·대표지표 변화가 없음
+    rejection_reason: 기존 repeated-developer-repository-state와 동일한 저장소·변경면이며 신규 코드·실패 테스트·기술 부채·대표지표 변화가 없음
   - id: watch-operator-ed1501220538e732
     watcher_role: operator
     source: role-watcher:operator
@@ -1745,8 +1692,7 @@ lanes:
     evidence_paths:
     - /home/ubuntu/workspace/knowledge-lab/infinity/.watcher-runs/20261026T103001Z/INTENTS.yaml
     decision: rejected
-    rejection_reason: 구체적인 실패·대기·마감·원격 상태 변화가 없는 자기참조 snapshot이며 기존 operator 반복 후보와
-      동일해 Inbox로 승격하지 않음
+    rejection_reason: 구체적인 실패·대기·마감·원격 상태 변화가 없는 자기참조 snapshot이며 기존 operator 반복 후보와 동일해 Inbox로 승격하지 않음
   - id: watch-developer-56ab2db094fa5f97
     watcher_role: developer
     source: role-watcher:developer
@@ -1758,8 +1704,7 @@ lanes:
     - /home/ubuntu/workspace/projects/minimalmoeum
     - /home/ubuntu/workspace/projects/policycock
     decision: rejected_grouped
-    rejection_reason: 기존 repeated-developer-repository-state와 동일한 저장소·변경면이며 신규 코드·실패
-      테스트·기술 부채·대표지표 변화가 없음
+    rejection_reason: 기존 repeated-developer-repository-state와 동일한 저장소·변경면이며 신규 코드·실패 테스트·기술 부채·대표지표 변화가 없음
   - id: watch-operator-9e4d2f90b683ad4b
     watcher_role: operator
     source: role-watcher:operator
@@ -1768,8 +1713,7 @@ lanes:
     evidence_paths:
     - /home/ubuntu/workspace/knowledge-lab/infinity/.watcher-runs/20261026T110001Z/INTENTS.yaml
     decision: rejected_grouped
-    rejection_reason: 구체적인 실패·대기·마감·원격 상태 변화가 없는 자기참조 snapshot이며 기존 operator 반복 후보와
-      동일해 Inbox로 승격하지 않음
+    rejection_reason: 구체적인 실패·대기·마감·원격 상태 변화가 없는 자기참조 snapshot이며 기존 operator 반복 후보와 동일해 Inbox로 승격하지 않음
   - id: watch-operator-current
     watcher_role: operator
     source: role-watcher:operator
@@ -1778,8 +1722,7 @@ lanes:
     evidence_paths:
     - /home/ubuntu/workspace/knowledge-lab/infinity/INTENTS.yaml
     decision: rejected_grouped
-    rejection_reason: 이전 invalid 후보 제거로 INTENTS.yaml 자체가 변경된 자기참조성 digest이며, 신규 실패·대기·마감·원격
-      상태 변화나 대표지표 변화가 없어 Inbox로 승격하지 않음
+    rejection_reason: 이전 invalid 후보 제거로 INTENTS.yaml 자체가 변경된 자기참조성 digest이며, 신규 실패·대기·마감·원격 상태 변화나 대표지표 변화가 없어 Inbox로 승격하지 않음
   - id: watch-developer-686a25159dde5ec9
     watcher_role: developer
     source: role-watcher:developer
@@ -1791,8 +1734,7 @@ lanes:
     - /home/ubuntu/workspace/projects/minimalmoeum
     - /home/ubuntu/workspace/projects/policycock
     decision: rejected_grouped
-    rejection_reason: Space의 미추적 Apify 생성 JSON 1건으로 digest가 바뀌었을 뿐 신규 코드·실패 테스트·기술부채·원격
-      불일치·대표지표 변화가 없어 기존 반복 그룹과 동일하므로 Inbox로 승격하지 않음
+    rejection_reason: Space의 미추적 Apify 생성 JSON 1건으로 digest가 바뀌었을 뿐 신규 코드·실패 테스트·기술부채·원격 불일치·대표지표 변화가 없어 기존 반복 그룹과 동일하므로 Inbox로 승격하지 않음
   - id: watch-operator-current
     watcher_role: operator
     source: role-watcher:operator
@@ -1802,13 +1744,11 @@ lanes:
     - /home/ubuntu/workspace/knowledge-lab/infinity/INTENTS.yaml
     - /home/ubuntu/workspace/knowledge-lab/infinity/.watcher-runs/20261027T153001Z/INTENTS.yaml
     decision: rejected_grouped
-    rejection_reason: 최신 원격 원장의 후보와 watcher snapshot은 자기참조 INTENTS.yaml만 근거로 하며, 이전과
-      동일한 operator signal이다. 독립적인 실패·대기·마감 위반·원격 불일치·승인 경계 사건 또는 대표지표 변화가 없어 기존 operator
-      반복 그룹으로 통합하고 Inbox로 승격하지 않음
+    rejection_reason: 최신 원격 원장의 후보와 watcher snapshot은 자기참조 INTENTS.yaml만 근거로 하며, 이전과 동일한 operator signal이다. 독립적인 실패·대기·마감 위반·원격 불일치·승인 경계 사건 또는
+      대표지표 변화가 없어 기존 operator 반복 그룹으로 통합하고 Inbox로 승격하지 않음
     next_action: 새 독립 운영 증거 또는 대표지표 변화가 관찰될 때만 같은 dedupe 키를 재검토
   promotion: null
-  delegation: role-watcher:developer:repository_signal 위임 완료; operator 위임은 not_found로
-    종료되어 직접 증거를 재확인함
+  delegation: role-watcher:developer:repository_signal 위임 완료; operator 위임은 not_found로 종료되어 직접 증거를 재확인함
   next_action: 외부 채널·지표 원천 접근 승인 또는 새 구체 변경·대표지표 변화가 관찰될 때만 재검토
 previous_triage:
   cycle_id: backlog-triage-2026-10-26-role-watchers-r6
