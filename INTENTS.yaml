@@ -553,7 +553,9 @@ lanes:
           exit_code: null
           finished_at: null
           lock_free_verified_at: null
-        status_check_at: null
+        status_check_at: '2026-11-26T10:15:35.401089Z'
+        status_check_message_id: '1795688135.401089'
+        status_check_queue_id: convq_bee58dbfd13dab5c3403e00bd74a4f15
         receipt_checked_at: null
         completion_criteria: 정확한 _archivenoh 계정·실제 대화 읽기·당일 게시/답글 상한 준수·URL/시각/관측값 또는 실패 원인 기록. 받은 답글과 보낸 답글을 구분하고 같은 대상 중복
           응답 금지. 자신의 실행 결과를 같은 tasks[].id에 기록하며 부모가 실제 guard 종료/exit code/잠금 확인을 병합한다. status는 completed 등 표준값, 상세 설명은 result_summary.
