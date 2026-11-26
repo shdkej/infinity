@@ -356,8 +356,8 @@ lanes:
           기록을 대조해 중복을 막는다.
         task_sequence: 2
         planned_tasks_only: true
-        report_status: pending
-        report_message_id: null
+        report_status: sent
+        report_message_id: '1795694445.489509'
         exhausted: false
         observation_due_at: '2026-11-26T11:00:00Z'
         metrics:
