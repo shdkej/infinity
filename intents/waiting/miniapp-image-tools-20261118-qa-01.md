@@ -2,7 +2,9 @@
 
 ## 11/27 PDCA 세 루프 — 예약 준비
 
-검증: 관련 helper59개 통과. 저장소 전체181개 중180개 통과, 변경하지 않은 `test_prepare_dispatch_cycle.PlanTests.test_no_deadline_exploratory_intent_routes_to_terminal_closeout` 1개 실패(예상 research-1, 실제 빈 후보). 해당 테스트/모듈의 기존 HEAD 일치를 확인했으며 오늘 PDCA 감독 경로와 무관하다. 별도 dispatcher 결함으로 남긴다. 이전 trace의 이동된 Context Pack 경로8곳을 실제 `logs/context-packs/` 위치로 정정했다.
+실제 감독 사전 시험은 준비 메시지 `1795735367.584249`를 발송했으나 본문 재조회에서 멈췄다. Codex는 해당 원문 본문과 날짜 정정 `1795735487.202529`를 실제 확인했다. 정확한 메시지 ID 이후 조회 경로를 명시하고 같은 발송 영수증의 감독 재확인을 수행한다. 중복 발송이나 업무 시작은 하지 않는다.
+
+검증: 관련 helper60개 통과. 저장소 전체181개 중180개 통과, 변경하지 않은 `test_prepare_dispatch_cycle.PlanTests.test_no_deadline_exploratory_intent_routes_to_terminal_closeout` 1개 실패(예상 research-1, 실제 빈 후보). 해당 테스트/모듈의 기존 HEAD 일치를 확인했으며 오늘 PDCA 감독 경로와 무관하다. 별도 dispatcher 결함으로 남긴다. 이전 trace의 이동된 Context Pack 경로8곳을 실제 `logs/context-packs/` 위치로 정정했다.
 
 사용자 원문: “응 좋아. 가설 - 실행 - 확인 - 개선 PDCA 사이클로 계속 개선되게끔 오늘도 3루프 돌려줘”. 오늘17–19/19–21/21–23시 KST, 목표는 오늘 새 원문 합계1,000회다. 게시·응답·관측은 Windows 지니, 판단 연결·인계·보고는 SAM이 기존 두 예약으로 수행한다. 다음 날 자동 재개는 없다.
 
