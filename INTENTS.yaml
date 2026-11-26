@@ -432,16 +432,18 @@ lanes:
           published_at: '2026-11-26T08:52:37Z'
           text: 처음 쓴 감정을 지우지 않고 그 아래에 새로 쓰는 방식이 좋네요. 고친 문장이 매끈해져도 처음의 온도가 빠졌다면 원문을 다시 볼 수 있으니까요.
         guard:
-          state: running
-          exit_code: null
-          finished_at: null
-          lock_free_verified_at: null
+          state: completed
+          exit_code: 0
+          finished_at: '2026-11-26T09:03:18Z'
+          lock_free_verified_at: '2026-11-26T09:15:59Z'
           task_id: miniapp-20261126-r1-t01
           started_at: '2026-11-26T08:49:05Z'
         status_check_at: '2026-11-26T09:15:50Z'
         status_check_message_id: '1795684547.104539'
         status_check_queue_id: convq_1f0b14066f6a3bd76cc41b80a9aae30a
-        receipt_checked_at: '2026-11-26T08:51:15.567355+00:00'
+        receipt_checked_at: '2026-11-26T09:16:19.194Z'
+        execution_status_receipt_message_id: '1795684579.194469'
+        execution_status_receipt_evidence_url: https://shdkej.slack.com/archives/C0CE0DV9MM2/p1795684579194469
         result_report: reports/miniapp-image-tools-20261118-qa-01/20261126T0855Z-r1-t01.html
         product_evidence_at: '2026-11-26T08:54Z'
         completion_criteria: 정확한 _archivenoh 계정·실제 대화 읽기·당일 게시/답글 상한 준수·URL/시각/관측값 또는 실패 원인 기록. 받은 답글과 보낸 답글을 구분하고 같은 대상 중복 응답 금지. 자신의 실행 결과를
