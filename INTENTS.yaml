@@ -412,7 +412,7 @@ lanes:
         handoff_message_id: '1795682634.664439'
         handoff_queue_id: convq_05e2513b076fd876cdd2b7a88f708f88
         handoff_attempt_at: '2026-11-26T08:43:54Z'
-        result_summary: 'Ego Lite Profile 3 taskSpace 121: 프로필 편집·새 글 작성자 _archivenoh 확인. 어제 원문 조회 282회(오늘 목표 제외), 기존 선제 답글 14회 조회·새 답글 없음. 받은 구체 의견 3건을 읽고 각 1회 응답·URL/시간 재조회. 다른 글 선제 답글 0. 새 관점의 퇴고 중단 기준과 명시적 회의 문장 예시 원문 DgMuNsRj08E를 08:54:01Z 게시; 인사이트 첫 조회 0/1,000(08:54Z 분 단위 관측). 18:25 r1-t02 후속 별도 ID·구간 보고 pending. guard 종료/exit/lock은 부모 확인 대기.'
+        result_summary: 'Ego Lite Profile 3 taskSpace 121: 프로필 편집·새 글 작성자 _archivenoh 확인. 어제 원문 조회 282회(오늘 목표 제외), 기존 선제 답글 14회 조회·새 답글 없음. 받은 구체 의견 3건을 읽고 각 1회 응답·URL/시간 재조회. 다른 글 선제 답글 0. 새 관점의 퇴고 중단 기준과 명시적 회의 문장 예시 원문 DgMuNsRj08E를 08:54:01Z 게시; 인사이트 첫 조회 0/1,000(08:54Z 분 단위 관측). 18:25 r1-t02 후속 별도 ID·구간 보고 pending. Windows의 실제 guard 종료 09:03:18Z/exit 0와 09:15:59Z 잠금 비보유를 확인해 원장에 반영.'
         changes: []
         release_runs: []
         reply_records:
