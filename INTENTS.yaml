@@ -738,7 +738,7 @@ lanes:
         proactive_replies_sent: 1
         conversations_continued: 4
         follows_delta: null
-        status: r2_initial_observed_followup_pending
+        status: r2_followup_observed
       prior_post_observations:
       - id: DgKEVWij6oq
         url: https://www.threads.com/@_archivenoh/post/DgKEVWij6oq
@@ -766,7 +766,7 @@ lanes:
         account_verified: true
         account_evidence: Ego Lite Profile 3 taskSpace 121 own profile edit username and original composer author _archivenoh;
           no settings changed
-      next_action: r1-t02 부모 guard 종료/잠금 영수증 확인 완료; 19시 구간 보고 pending, 다음 r2 원문은 별도 예정 작업에서 결정.
+      next_action: r2-t02 제품 관측 41/1,000·누적 받은 7/응답 4/선제 1 확인. 부모가 동일 ID guard 종료·잠금을 병합하고 SAM은 21시 r2 보고를 별도 확인; r3은 12:00Z 별도 예정 ID로만 실행.
       setup_receipts:
         helper_verification: 50 related tests passed; independent operator regressions rechecked; wrap-up boundaries verified
         sam_contract_message_id: '1795677981.489529'
@@ -793,7 +793,7 @@ lanes:
         execution_receipt_message_id: '1795682961.386169'
         additional_observation: Windows first route rejected cwd before guard start; corrected checkout and began same ID.
           Lock held; no finished/exit/lock-free claim.
-    next_action: r1-t02 부모 guard 종료·잠금 영수증 확인 완료. 19시 구간 보고는 SAM 담당; 19/21시 다음 구간, 23시 고정 마감.
+    next_action: r2-t02 결과 41/1,000은 제품 관측이며 guard/잠금은 부모 확인 대기. SAM 21시 구간 보고 pending; r3 21시 별도 ID, 23시 고정 마감.
     notification_channel: slack
     notification_target: channel:C0CE0DV9MM2
     notification_reply_to: '1794983278.888719'
