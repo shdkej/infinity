@@ -2688,11 +2688,48 @@
       "roles": {"independent":"deleg_1c8ccfb1","cross_review":"deleg_7ee293f4","source":"parent completed read-only roles handoff; child did not duplicate"},
       "guard": {"state":"completed","exit_code":0,"started_at":"2026-11-26T12:05:20.763037Z","finished_at":"2026-11-26T12:16:57.613976Z","lock_free_verified_at":"2026-11-26T12:17:15.686647Z","source":"parent SQLite read and read-only lslocks no holder; check time is not exact unlock time"},
       "evidence_paths": ["INTENTS.yaml","intents/waiting/miniapp-image-tools-20261118-qa-01.md","reports/miniapp-image-tools-20261118-qa-01/20261126T1209Z-r3-t01.html"]
+    },
+    {
+      "label": "2026-11-26 r3-t02 three-original delayed insight and reply follow-up",
+      "type": "threads_followup_observation",
+      "at": "2026-11-26T13:05:17.712Z",
+      "task_id": "miniapp-20261126-r3-t02",
+      "status": "product_observed_parent_guard_pending",
+      "account": "_archivenoh",
+      "account_evidence": "Ego Lite 0.6.3.17 authorized Profile 3 new taskSpace 1; own profile edit dialog displayed username _archivenoh; no public send and no settings changed",
+      "posts": [
+        {"id":"DgMuNsRj08E","url":"https://www.threads.com/@_archivenoh/post/DgMuNsRj08E","published_at":"2026-11-26T08:54:01Z","views":17,"obs_attempted_at":"2026-11-26T13:04:04.533Z","observed_at":"2026-11-26T13:04:05.866Z","evidence":"https://www.threads.com/insights/post/DgMuNsRj08E"},
+        {"id":"DgM2pLlD23S","url":"https://www.threads.com/@_archivenoh/post/DgM2pLlD23S","published_at":"2026-11-26T10:07:40Z","views":24,"obs_attempted_at":"2026-11-26T13:04:05.908Z","observed_at":"2026-11-26T13:04:07.429Z","evidence":"https://www.threads.com/insights/post/DgM2pLlD23S"},
+        {"id":"DgNEc0yDw4K","url":"https://www.threads.com/@_archivenoh/post/DgNEc0yDw4K","published_at":"2026-11-26T12:08:19Z","views":35,"obs_attempted_at":"2026-11-26T13:04:07.466Z","observed_at":"2026-11-26T13:04:52.012Z","evidence":"https://www.threads.com/@_archivenoh/post/DgNEc0yDw4K","insight_views":34,"insight_observed_at":"2026-11-26T13:04:33.630Z","insight_source":"https://www.threads.com/insights/post/DgNEc0yDw4K","note":"Initial insight loading snapshot; loaded same page showed 34; later public original displayed 35 and is latest. No repeated refresh."}
+      ],
+      "target_views": 1000,
+      "latest_original_views_sum": 76,
+      "old_original_reply_views_and_historical_snapshots_excluded": true,
+      "inbound_new_this_task": 0,
+      "inbound_responses_sent_this_task": 0,
+      "proactive_replies_sent_this_task": 0,
+      "daily_inbound_observed": 7,
+      "daily_inbound_responses_sent": 4,
+      "daily_proactive_replies_sent": 1,
+      "conversations_continued": 4,
+      "reply_records": [],
+      "reply_decisions": [
+        {"target_url":"https://www.threads.com/@life.innovator/post/DgMwgDfn8yI","action":"no_reply","reason":"Prior agreement only, no new question or concrete proposal"},
+        {"target_url":"https://www.threads.com/@ruben.writer/post/DgL10ZZky_P","action":"no_reply","reason":"Previously recorded general opinion on yesterday original, no request"},
+        {"target_url":"https://www.threads.com/@text.mechanism/post/DgMLyuwk7p_","action":"no_reply","reason":"Previously recorded general opinion on yesterday original, no request"},
+        {"target_url":"https://www.threads.com/@moondal.1224/post/DgMx_S6nbnm","action":"no_proactive_reply","reason":"Already offers general reader-context advice; no concrete gap to add"}
+      ],
+      "inbound_handling": "Today first original still only prior life.innovator agreement, second and third have no replies. Activity and exact four earlier outbound response URLs DgMt8JAjwHW, DgMt_sSj3oU, DgMuDc9Dy2A, DgMyiwyj3lj plus proactive DgM3EckD21U showed no new counter-reply. Earlier inbound targets deduped; no duplicate/formality send.",
+      "conversation_participation": "Read public 글쓰기 독자 search: talk_ong personal diary, moondal.1224 existing reader advice, smartbusiness_book book promotion. No substantive question or useful missing advice; proactive zero, not a quota.",
+      "next_content_decision": "Daily three-original cap met; no fourth. 76/1000 displayed views is below goal, not unique customers or causal effect. Three product follow-up loops observed; SAM owns separate 23:00 KST final report, still pending. No next-day auto-resume.",
+      "roles": {"independent":"deleg_3f65099a","cross_review":"deleg_ba6d1a46","source":"parent completed read-only four-role handoff; child did not duplicate"},
+      "guard": {"state":"pending_parent_after_child_exit","exit_code":null,"finished_at":null,"lock_free_verified_at":null,"source":"parent must read exact SQLite row and shared lock after child exit; child makes no exit claim"},
+      "evidence_paths": ["INTENTS.yaml","intents/waiting/miniapp-image-tools-20261118-qa-01.md","reports/miniapp-image-tools-20261118-qa-01/20261126T1306Z-r3-t02.html"]
     }
   ],
   "next_decision": {
     "status": "in_progress",
-    "value": "r3-t01 three new originals latest 17+24+0=41/1000. Third original DgNEc0yDw4K at12:08:19Z; no new inbound or proactive replies, daily observed 7/responded 4/proactive 1. Parent guard/lock verification pending after child exit. Separate r3-t02 delayed observation at13:00Z and SAM 23:00 KST report remain pending."
+    "value": "r3-t02 product follow-up observed three originals latest 17+24+35=76/1000 at respective 13:04Z snapshots. No new inbound question or reply to five prior outbound branches; daily observed 7/responded 4/proactive 1, this task no send. Parent guard/lock verification pending after child exit. SAM 23:00 KST final report separately pending."
   },
   "handoff_attempts": [
     {
