@@ -2579,7 +2579,7 @@
       "type": "threads_followup_observation",
       "at": "2026-11-26T09:31:00.870Z",
       "task_id": "miniapp-20261126-r1-t02",
-      "status": "product_completed_guard_pending_parent",
+      "status": "completed_guard_verified",
       "account": "_archivenoh",
       "account_evidence": "Ego Lite 0.6.3.17 Profile 3 taskSpace 129, own profile edit dialog username _archivenoh",
       "post": {"id": "DgMuNsRj08E", "url": "https://www.threads.com/@_archivenoh/post/DgMuNsRj08E", "published_at": "2026-11-26T08:54:01Z", "views": 12, "obs_attempted_at": "2026-11-26T09:30:55.818Z", "observed_at": "2026-11-26T09:31:00.870Z", "source": "https://www.threads.com/insights/post/DgMuNsRj08E"},
@@ -2597,7 +2597,7 @@
       "conversation_participation": "Read all three t01 response branches and a related recent search; pre-existing cheerfulyoonkyeom reply avoided, no new proactive reply or original.",
       "next_content_decision": "At r2, consider a new concrete example about spaced revision instead of repeating the first original's stopping criterion; no r2 execution in this task.",
       "roles": {"independent": "deleg_5d681a6f", "cross_review": "deleg_e697d2d7", "source": "parent handoff reported; no duplicate child delegation in this narrow follow-up"},
-      "guard": {"state": "pending_parent_after_child_exit", "exit_code": null, "finished_at": null, "lock_free_verified_at": null, "source": "parent reads private SQLite and lock after child exit"},
+      "guard": {"state": "completed", "exit_code": 0, "started_at": "2026-11-26T09:29:35.249827Z", "finished_at": "2026-11-26T09:40:08.455408Z", "lock_free_verified_at": "2026-11-26T09:40:25.919746Z", "source": "parent read private SQLite row and lslocks no holder after child exit; observation time is not exact unlock time"},
       "evidence_paths": ["INTENTS.yaml", "intents/waiting/miniapp-image-tools-20261118-qa-01.md", "reports/miniapp-image-tools-20261118-qa-01/20261126T0933Z-r1-t02.html"]
     }
   ],
