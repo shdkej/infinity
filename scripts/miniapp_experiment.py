@@ -131,6 +131,8 @@ def validate_run(run):
         start, end = parse_time(task.get("start_at")), parse_time(task.get("end_at"))
         if not (parse_time(window["start_at"]) <= start < end == parse_time(window["end_at"])):
             raise ValueError("task timestamps must stay within its window and end at the window deadline")
+        if "wrap_up_by" in task and not start < parse_time(task["wrap_up_by"]) <= end:
+            raise ValueError("task wrap-up must follow its start and stay within its deadline")
 
 
 def guard_released(task, now):
@@ -287,13 +289,16 @@ def snapshot(run, now):
         remaining_minutes = (parse_time(current["end_at"]) - now).total_seconds() / 60
         if candidates:
             pending = candidates[0]
+            deadline = min(parse_time(current["end_at"]), parse_time(pending.get("wrap_up_by") or pending["end_at"]))
+            remaining_minutes = (deadline - now).total_seconds() / 60
             minimum = OBSERVATION_MINUTES if pending.get("kind") == "observation" else GENERAL_MINUTES
             if remaining_minutes >= minimum:
                 result["reuse_task_id"] = pending["id"]
                 result["dispatch_allowed"] = True
                 result["reasons"].append("prepared_task_ready")
             else:
-                result["dispatch_blocked_reason"] = "insufficient_time_before_window_end"
+                result["dispatch_blocked_reason"] = ("insufficient_time_before_task_wrap_up" if pending.get("wrap_up_by")
+                                                     else "insufficient_time_before_window_end")
         elif current.get("planned_tasks_only"):
             result["dispatch_blocked_reason"] = "no_due_planned_task"
         elif not current.get("exhausted") or needs_observation:

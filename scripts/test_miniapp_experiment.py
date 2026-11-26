@@ -337,6 +337,29 @@ class Decisions(unittest.TestCase):
         self.assertIsNone(result["proposed_task"])
         self.assertEqual(result.get("dispatch_blocked_reason"), "insufficient_time_before_window_end")
 
+    def test_prepared_engagement_must_fit_before_its_earlier_wrap_up(self):
+        self.run["tasks"] = [task("prepared", handoff_status="prepared", handoff_message_id=None,
+                                  guard={}, wrap_up_by="2026-11-25T17:45:00+09:00")]
+        self.assertTrue(self.snap("17:25:00")["dispatch_allowed"])
+        for time in ("17:25:01", "17:45:00", "17:50:00"):
+            result = self.snap(time)
+            self.assertFalse(result["dispatch_allowed"], time)
+            self.assertIsNone(result["proposed_task"])
+
+    def test_prepared_observation_keeps_fifteen_minutes_before_its_wrap_up(self):
+        self.run["windows"][0]["observation_due_at"] = "2026-11-25T18:00:00+09:00"
+        self.run["tasks"] = [task("prepared", kind="observation", start_at="2026-11-25T18:00:00+09:00",
+            wrap_up_by="2026-11-25T18:45:00+09:00", handoff_status="prepared", handoff_message_id=None, guard={})]
+        self.assertTrue(self.snap("18:30:00")["dispatch_allowed"])
+        self.assertFalse(self.snap("18:30:01")["dispatch_allowed"])
+
+    def test_wrap_up_must_be_a_valid_timestamp_within_its_task(self):
+        for value in (None, "malformed", "2026-11-25T17:45:00", "2026-11-25T16:59:59+09:00",
+                      "2026-11-25T17:00:00+09:00", "2026-11-25T19:00:01+09:00"):
+            self.run["tasks"] = [task(wrap_up_by=value)]
+            with self.assertRaises(ValueError, msg=value):
+                self.snap()
+
     def test_observation_due_supersedes_prepared_general_work(self):
         self.run["windows"][0]["observation_due_at"] = "2026-11-25T18:30:00+09:00"
         self.run["tasks"] = [

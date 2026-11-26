@@ -2468,7 +2468,7 @@
   ],
   "next_decision": {
     "status": "open",
-    "value": "Today Nov26 run scheduled17–23KST; six timed phases and two native jobs verified enabled. Windows accepted contract1795678017.824249. First actual execution and19/21/23 reports are future, not yet verified. Capture actual posts/replies/followup evidence per phase; no next-day resume."
+    "value": "Today Nov26 run scheduled17–23KST; six timed phases and two native jobs verified enabled. Windows accepted contract1795678017.824249. First actual execution and19/21/23 reports are future, not yet verified. Capture actual posts/replies/followup evidence per phase; no next-day resume. Wrap-up cutoff regression suite now50/50; local mobile390 and desktop1280 setup report rendered and inspected."
   },
   "handoff_attempts": [
     {

@@ -613,7 +613,7 @@ lanes:
         account_verified: false
       next_action: 17시 r1-t01 실행, 18시 r1-t02 후속 관측·응답. 구간당 예정 두 작업을 끝내고 다음 구간으로 진행.
       setup_receipts:
-        helper_verification: 47 related tests passed; independent operator regressions rechecked
+        helper_verification: 50 related tests passed; independent operator regressions rechecked; wrap-up boundaries verified
         sam_contract_message_id: '1795677981.489529'
         windows_contract_reply_id: '1795678017.824249'
       setup_verified_at: 2026-11-26T07:29:05.383462+00:00
