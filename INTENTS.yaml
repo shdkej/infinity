@@ -119,7 +119,7 @@ lanes:
     success_evidence: 각 구간의 실제 게시/답글 URL·관측 시각·원격 원장·guard/lock 영수증·Slack 보고 본문과 message_id.
     metric_question: 게시 뒤 관측과 대화가 세 구간에서 실제로 이어졌는가?
     metric_signal: 신규 원문 최신 조회 합계, 받은/응답한/선제 답글, 이어진 대화, 후속을 닫은 구간 수.
-    metric_decision_rule: 조회 목표와 운영 완료는 별도 판정. 조회 10회 달성으로 예정된 후속을 생략하지 않는다.
+    metric_decision_rule: 조회 목표와 운영 완료는 별도 판정. 조회 1,000회 달성으로 예정된 후속을 생략하지 않는다.
     context_pack: intents/context/miniapp-image-tools-20261118-qa-01.json
     context_documents_checked:
     - /home/sam/workspace/prompt-archive/LLM.md
@@ -286,9 +286,9 @@ lanes:
       end_at: '2026-11-26T14:00:00Z'
       target_service: Threads
       target_account: _archivenoh
-      goal: 관측→응답·게시→지연 관측→다음 선택을 세 구간에서 수행하며 오늘 새 원문들의 플랫폼 조회 합계 10회를 확인한다. 조회 달성은 조기 종료 조건이 아니다.
-      target_views: 10
-      goal_confirmed_by_user: 10회만 해도 큰건데
+      goal: 관측→응답·게시→지연 관측→다음 선택을 세 구간에서 수행하며 오늘 새 원문들의 플랫폼 조회 합계 1,000회를 확인한다. 조회 달성은 조기 종료 조건이 아니다.
+      target_views: 1000
+      goal_confirmed_by_user: 목표 조회수 1000
       restart_authority: 응 잘 진행되게 조치해주고 지금은 사실상 글 하나 띡 쓰고 끝이었어. 어떤 결과 확인도 없이. 스레드 활성화를 위해서는 답글 다는것도 중요하고 다른 글을 또 썼어도 됐는데 진행이 미진했어. 개선해주고
         오늘도 3회 진행하자
       interval_minutes: 3
@@ -314,7 +314,7 @@ lanes:
         exhausted: false
         observation_due_at: '2026-11-26T09:00:00Z'
         metrics:
-          target: 10
+          target: 1000
           unit: threads_post_views
           observed_at: null
           obs_attempted_at: null
@@ -345,7 +345,7 @@ lanes:
         exhausted: false
         observation_due_at: '2026-11-26T11:00:00Z'
         metrics:
-          target: 10
+          target: 1000
           unit: threads_post_views
           observed_at: null
           obs_attempted_at: null
@@ -375,7 +375,7 @@ lanes:
         exhausted: false
         observation_due_at: '2026-11-26T13:00:00Z'
         metrics:
-          target: 10
+          target: 1000
           unit: threads_post_views
           observed_at: null
           obs_attempted_at: null
@@ -574,7 +574,7 @@ lanes:
           결과를 같은 tasks[].id에 기록하며 부모가 실제 guard 종료/exit code/잠금 확인을 병합한다. status는 completed 등 표준값, 상세 설명은 result_summary. 고정 기한 연장·다음 ID
           발급·다음 날 재개 금지.
       metrics:
-        target: 10
+        target: 1000
         unit: threads_post_views
         observed_at: null
         obs_attempted_at: null
@@ -622,6 +622,8 @@ lanes:
       setup_report: reports/miniapp-image-tools-20261118-qa-01/20261126T0727Z-setup.html
       delivery_contract: explicit_native_send_and_body_readback_for_all_window_reports
       setup_automatic_model_run_started: false
+
+      goal_updated_at: 2026-11-26T07:37:43.886088+00:00
 
     next_action: 17시 r1-t01 실행, 18시 r1-t02 후속 관측·응답. 구간당 예정 두 작업을 끝내고 다음 구간으로 진행.
     notification_channel: slack
