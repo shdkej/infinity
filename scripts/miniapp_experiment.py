@@ -248,7 +248,7 @@ def pdca_closed(run, window, now):
         return False
     try:
         check, act = parse_time(p.get("check_at")), parse_time(p.get("act_at"))
-        if not parse_time(window["start_at"]) <= check <= act <= now:
+        if not parse_time(window.get("observation_due_at") or window["start_at"]) <= check <= act <= now:
             return False
         if p.get("observation_status") == "unavailable":
             return p["decision"] == "inconclusive"

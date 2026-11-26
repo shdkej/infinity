@@ -603,6 +603,13 @@ class PdcaGates(unittest.TestCase):
         p["decision"] = "keep"
         self.assertFalse(self.snap("19:00:00")["dispatch_allowed"])
 
+    def test_unavailable_check_cannot_be_prewritten_before_observation_slot(self):
+        self.close_first_pdca()
+        self.run["windows"][0]["pdca"].update(
+            observation_status="unavailable", decision="inconclusive",
+            check_at="2026-11-25T17:30:00+09:00")
+        self.assertFalse(self.snap("19:00:00")["dispatch_allowed"])
+
     def test_observation_still_runs_when_plan_metadata_is_incomplete(self):
         self.run["tasks"][0] = finished(id="r1-t1")
         self.run["windows"][0]["pdca"] = {}
