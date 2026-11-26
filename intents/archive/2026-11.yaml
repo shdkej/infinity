@@ -337,13 +337,13 @@ archive:
   skills_used:
   - name: seo-audit
     purpose: 크롤링·페이지별 메타 점검
-    evidence_path: https://github.com/shdkej/prompt-archive/tree/main/skills/shared/marketingskills/skills/seo-audit
+    evidence_path: https://github.com/shdkej/prompt-archive/tree/main/skills/external/marketingskills/skills/seo-audit
   - name: schema
     purpose: 구조화 데이터 적용
-    evidence_path: https://github.com/shdkej/prompt-archive/tree/main/skills/shared/marketingskills/skills/schema
+    evidence_path: https://github.com/shdkej/prompt-archive/tree/main/skills/external/marketingskills/skills/schema
   - name: ai-seo
     purpose: 근거를 인용할 수 있는 정책 본문 구성
-    evidence_path: https://github.com/shdkej/prompt-archive/tree/main/skills/shared/marketingskills/skills/ai-seo
+    evidence_path: https://github.com/shdkej/prompt-archive/tree/main/skills/external/marketingskills/skills/ai-seo
 - id: modu-policy-search-followup-20261123
   title: 모두의정책 구글·네이버 색인 상태 점검 및 질문형 정책 페이지 게시
   task_name: 모두의정책 구글·네이버 색인 상태 점검 및 질문형 정책 페이지 게시
