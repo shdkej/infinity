@@ -203,14 +203,14 @@ lanes:
     prior_20261125_r3_t01_result: 13:04Z 조회 214, 외부 답글 3건, 관련 답글 1건, 새 원문 없음.
     prior_20261125_r3_t01_guard_finished_at: '2026-11-25T13:19:32.248398+00:00'
     prior_20261125_r3_t01_lock_released_verified_at: '2026-11-25T13:19:49.582405+00:00'
-    current_task_status: prepared
+    current_task_status: handoff_sent
     current_task_id: miniapp-20261126-r1-t01
     current_task_goal: 어제 원문 DgKEVWij6oq와 답글 DgKmf-lD9Nn의 현재 반응을 확인한다. 받은 답글 3건의 실제 내용을 읽고 미응답 질문·구체 의견에 응답한다. 실제 대화/기존 공개 글/예시라고 명시한 문장에서 새로운
       관점의 원문 1개를 게시하고 첫 관측과 18:25 후속을 준비한다.
     current_task_start_at: '2026-11-26T08:00:00Z'
     current_task_end_at: '2026-11-26T10:00:00Z'
     current_task_result: null
-    current_task_handoff_attempt_at: null
+    current_task_handoff_attempt_at: '2026-11-26T08:43:54Z'
     current_task_guard_status: not_started
     current_task_guard_exit_code: null
     current_task_guard_finished_at: null
@@ -262,20 +262,20 @@ lanes:
     prior_r3_t05_report: reports/miniapp-image-tools-20261118-qa-01/20261124T1354Z-r3-t05.html
     report: reports/miniapp-image-tools-20261118-qa-01/20261124T1423Z-r3-t06.html
     prior_r3_t01_handoff_receipt: sent 1795520034.423279; queue convq_f4220e1e2f1315988e3e5697a899d49c
-    current_task_handoff_status: prepared
+    current_task_handoff_status: sent
     prior_r3_t04_handoff_message_id: '1795526386.876779'
     prior_r3_t04_handoff_queue_id: convq_83ec1fd73a49ebdf044d8dfb5c14e39f
     prior_r3_t04_handoff_receipt: sent 1795526386.876779; queue convq_83ec1fd73a49ebdf044d8dfb5c14e39f
-    current_task_handoff_message_id: null
-    current_task_handoff_queue_id: null
-    current_task_handoff_receipt: null
+    current_task_handoff_message_id: '1795682634.664439'
+    current_task_handoff_queue_id: convq_05e2513b076fd876cdd2b7a88f708f88
+    current_task_handoff_receipt: sent 1795682634.664439; queue convq_05e2513b076fd876cdd2b7a88f708f88
     daily_run_window:
       start_at: '2026-11-26T08:00:00Z'
       end_at: '2026-11-26T14:00:00Z'
       next_day_resume: false
     experiment_run:
       run_id: miniapp-20261126-2h
-      status: scheduled
+      status: running
       enabled: true
       date: '2026-11-26'
       timezone: Asia/Seoul
@@ -301,7 +301,7 @@ lanes:
       - id: r1
         start_at: '2026-11-26T08:00:00Z'
         end_at: '2026-11-26T10:00:00Z'
-        status: scheduled
+        status: running
         goal: 어제 원문 DgKEVWij6oq와 답글 DgKmf-lD9Nn의 현재 반응을 확인한다. 받은 답글 3건의 실제 내용을 읽고 미응답 질문·구체 의견에 응답한다. 실제 대화/기존 공개 글/예시라고 명시한 문장에서 새로운 관점의 원문 1개를
           게시하고 첫 관측과 18:25 후속을 준비한다.
         task_sequence: 2
@@ -401,11 +401,11 @@ lanes:
         wrap_up_by: '2026-11-26T09:20:00Z'
         execution_target_minutes: 25
         max_execution_minutes: 35
-        status: prepared
-        handoff_status: prepared
-        handoff_message_id: null
-        handoff_queue_id: null
-        handoff_attempt_at: null
+        status: handoff_sent
+        handoff_status: sent
+        handoff_message_id: '1795682634.664439'
+        handoff_queue_id: convq_05e2513b076fd876cdd2b7a88f708f88
+        handoff_attempt_at: '2026-11-26T08:43:54Z'
         result_summary: null
         changes: []
         release_runs: []
@@ -420,6 +420,7 @@ lanes:
         completion_criteria: 정확한 _archivenoh 계정·실제 대화 읽기·당일 게시/답글 상한 준수·URL/시각/관측값 또는 실패 원인 기록. 받은 답글과 보낸 답글을 구분하고 같은 대상 중복 응답 금지. 자신의 실행 결과를
           같은 tasks[].id에 기록하며 부모가 실제 guard 종료/exit code/잠금 확인을 병합한다. status는 completed 등 표준값, 상세 설명은 result_summary. 고정 기한 연장·다음 ID 발급·다음 날 재개
           금지.
+        handoff_at: '2026-11-26T08:43:54.664439Z'
       - id: miniapp-20261126-r1-t02
         window_id: r1
         kind: observation
@@ -626,7 +627,10 @@ lanes:
         first_window_adjustment: Reuse r1-t01 now; wrap by18:20. r1-t02 starts18:25 and wraps18:50. Fixed19/21/23 window ends unchanged. No duplicate
           handoff or new ID.
         status: recovering
-    next_action: 17시 r1-t01 실행, 18시 r1-t02 후속 관측·응답. 구간당 예정 두 작업을 끝내고 다음 구간으로 진행.
+        transport_verified_at: '2026-11-26T08:43:54.664439Z'
+        transport_verified_by: Native supervisor cron-request.dd002a45-692f-46cf-bac3-c262c875b95a sent original-thread handoff; actual Slack
+          body read back.
+    next_action: r1-t01 실제 실행·종료 영수증 확인 후18:25 r1-t02 후속 관측·응답.19/21시 다음 구간,23시 고정 마감.
     notification_channel: slack
     notification_target: channel:C0CE0DV9MM2
     notification_reply_to: '1794983278.888719'
