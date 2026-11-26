@@ -205,20 +205,24 @@ lanes:
     prior_20261125_r3_t01_result: 13:04Z 조회 214, 외부 답글 3건, 관련 답글 1건, 새 원문 없음.
     prior_20261125_r3_t01_guard_finished_at: '2026-11-25T13:19:32.248398+00:00'
     prior_20261125_r3_t01_lock_released_verified_at: '2026-11-25T13:19:49.582405+00:00'
-    current_task_status: completed
-    current_task_id: miniapp-20261126-r1-t02
-    current_task_goal: 오늘 새 원문 전체의 현재 조회·답글을 한 번 재관측하고 미응답 질문/구체 의견에 응답한다. 작성한 답글에 상대의 새 답변이 있는지 확인하며 관련 대화에 유용한 기여가 있으면 참여한다.
-      게시물별 시각/조회, 받은·응답한·선제 답글, 이어진 대화, 다음 원문 판단을 기록한다. 이 구간 관측·응답·다음 선택을 닫고 종료 15분 전 부모 종료 영수증까지 회수한다.
-    current_task_start_at: '2026-11-26T09:25:00Z'
-    current_task_end_at: '2026-11-26T10:00:00Z'
-    current_task_result: r1-t02 새 원문 DgMuNsRj08E 인사이트 09:31:00Z 조회 12/1,000; 새 원문의 동의 1건은 응답 보류. t01 답글에 kongbaguni 후속 구체
-      의견 1건을 읽고 09:31:51Z 1회 응답 DgMyiwyj3lj 검증. 선제 답글 이번 작업 0건. 다음 r2 글은 시간 간격을 둔 퇴고의 구체 예시 후보. 같은 ID guard 09:40:08Z completed/exit 0, 09:40:25Z 잠금 비보유 확인.
-    current_task_handoff_attempt_at: '2026-11-26T09:27:13Z'
-    current_task_guard_status: completed
-    current_task_guard_exit_code: 0
-    current_task_guard_finished_at: '2026-11-26T09:40:08.455408Z'
-    current_task_lock_released_verified_at: '2026-11-26T09:40:25.919746Z'
-    current_task_followup: r1 후속 관측·필요 응답 완료; 19시 구간 보고와 r2 별도 예정 작업은 각각 담당자·시각 대기. 조회 목표와 구간 운영 완료는 별도 판정.
+    current_task_status: handoff_sent
+    current_task_id: miniapp-20261126-r2-t01
+    current_task_goal: 1차 반응·질문을 읽고 아직 답하지 않은 유효 댓글에 응답한다. 구체적인 문장 예시나 다른 관점의 두 번째 원문 1개를 게시하고 관련 공개 대화에 도움이 되는 답글을 남긴다. 오늘 신규 원문·응답 기록을 대조해 중복을 막는다.
+    current_task_start_at: '2026-11-26T10:00:00Z'
+    current_task_end_at: '2026-11-26T12:00:00Z'
+    current_task_result: null
+    current_task_handoff_attempt_at: '2026-11-26T10:01:46.543309Z'
+    current_task_handoff_at: '2026-11-26T10:01:46.543309Z'
+    current_task_handoff_status: sent
+    current_task_handoff_message_id: '1795687306.543309'
+    current_task_handoff_queue_id: convq_0707ce94a656ac88a5d09c69c99e6c9a
+    current_task_handoff_receipt: sent 1795687306.543309; queue convq_0707ce94a656ac88a5d09c69c99e6c9a
+    current_task_guard_status: not_started
+    current_task_guard_exit_code: null
+    current_task_guard_finished_at: null
+    current_task_lock_released_verified_at: null
+    current_task_followup: Windows r2 t01 실행 대기; 결과·guard/잠금 영수증은 아직 없음.
+    current_task_completion_criteria: 정확한 _archivenoh 계정·실제 대화 읽기·당일 게시/답글 상한 준수·URL/시각/관측값 또는 실패 원인 기록. 받은 답글과 보낸 답글을 구분하고 같은 대상 중복 응답 금지. 자신의 실행 결과를 같은 tasks[].id에 기록하며 부모가 실제 guard 종료/exit code/잠금 확인을 병합한다. status는 completed 등 표준값, 상세 설명은 result_summary. 고정 기한 연장·다음 ID 발급·다음 날 재개 금지.
     prior_r3_t03_status: aggregate_verified_guard_completed
     prior_r3_t03_result_summary: US project 424014 bounded HogQL HTTP 200, 8 grouped rows; five event x synthetic/user counts
       in the task verification. Guard 12:51:04Z completed/exit 0 and lock 12:51:25Z free. Customer/unique people unmeasured;
@@ -534,11 +538,12 @@ lanes:
         wrap_up_by: '2026-11-26T10:45:00Z'
         execution_target_minutes: 35
         max_execution_minutes: 45
-        status: prepared
-        handoff_status: prepared
-        handoff_message_id: null
-        handoff_queue_id: null
-        handoff_attempt_at: null
+        status: handoff_sent
+        handoff_status: sent
+        handoff_message_id: '1795687306.543309'
+        handoff_queue_id: convq_0707ce94a656ac88a5d09c69c99e6c9a
+        handoff_attempt_at: '2026-11-26T10:01:46.543309Z'
+        handoff_at: '2026-11-26T10:01:46.543309Z'
         result_summary: null
         changes: []
         release_runs: []
