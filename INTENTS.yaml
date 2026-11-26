@@ -225,11 +225,11 @@ lanes:
     prior_r2_t02_status_check_queue_id: convq_14e5b763bef4c6f81d61cf80765515f2
     current_task_followup: 'Status-only request sent 2026-11-26T12:15:15Z; message 1795695353.420929, queue convq_e24f297983c5716f3b3e4ed210c55520. r3-t01 제품 증거와 guard·잠금 부모 영수증 확인. r3-t02 13:00Z 별도 예정 관측, r3 보고는 SAM 소유 pending; no re-dispatch.'
     current_task_completion_criteria: '정확한 _archivenoh 계정·실제 대화 읽기·당일 게시/답글 상한 준수·URL/시각/관측값 또는 실패 원인 기록. 받은 답글과 보낸 답글을 구분하고 같은 대상 중복 응답 금지. 자신의 실행 결과를 같은 tasks[].id에 기록하며 부모가 실제 guard 종료/exit code/잠금 확인을 병합한다. status는 completed 등 표준값, 상세 설명은 result_summary. 고정 기한 연장·다음 ID 발급·다음 날 재개 금지.'
-    current_task_status_check_at: '2026-11-26T12:15:15Z'
+    current_task_status_check_at: '2026-11-26T13:12:11Z'
     current_task_status_check_status: sent
-    current_task_status_check_task_id: 'miniapp-20261126-r3-t01'
-    current_task_status_check_message_id: '1795695353.420929'
-    current_task_status_check_queue_id: convq_e24f297983c5716f3b3e4ed210c55520
+    current_task_status_check_task_id: 'miniapp-20261126-r3-t02'
+    current_task_status_check_message_id: '1795698745.435659'
+    current_task_status_check_queue_id: convq_e567a4565f9c48b6f7585caac8f7e601
     prior_r3_t03_status: aggregate_verified_guard_completed
     prior_r3_t03_result_summary: US project 424014 bounded HogQL HTTP 200, 8 grouped rows; five event x synthetic/user counts
       in the task verification. Guard 12:51:04Z completed/exit 0 and lock 12:51:25Z free. Customer/unique people unmeasured;
@@ -767,7 +767,10 @@ lanes:
           exit_code: null
           finished_at: null
           lock_free_verified_at: null
-        status_check_at: null
+        status_check_at: '2026-11-26T13:12:11Z'
+        status_check_status: sent
+        status_check_message_id: '1795698745.435659'
+        status_check_queue_id: convq_e567a4565f9c48b6f7585caac8f7e601
         receipt_checked_at: null
         completion_criteria: 정확한 _archivenoh 계정·실제 대화 읽기·당일 게시/답글 상한 준수·URL/시각/관측값 또는 실패 원인 기록. 받은 답글과 보낸 답글을 구분하고 같은 대상 중복
           응답 금지. 자신의 실행 결과를 같은 tasks[].id에 기록하며 부모가 실제 guard 종료/exit code/잠금 확인을 병합한다. status는 completed 등 표준값, 상세 설명은 result_summary.
