@@ -2536,6 +2536,43 @@
       ],
       "status": "pass",
       "next_role": null
+    },
+    {
+      "label": "2026-11-26 r1-t01 Threads original and three inbound responses",
+      "type": "threads_public_post",
+      "at": "2026-11-26T08:54Z",
+      "task_id": "miniapp-20261126-r1-t01",
+      "status": "product_completed_guard_pending_parent",
+      "account": "_archivenoh",
+      "account_evidence": "Ego Lite Profile 3 taskSpace 121: own profile edit username and new original composer author _archivenoh; reply target contexts inspected",
+      "prior_post": {
+        "id": "DgKEVWij6oq",
+        "url": "https://www.threads.com/@_archivenoh/post/DgKEVWij6oq",
+        "views": 282,
+        "observed_at": "2026-11-26T08:49Z",
+        "excluded_from_today_goal": true,
+        "prior_proactive_reply_url": "https://www.threads.com/@_archivenoh/post/DgKmf-lD9Nn",
+        "prior_reply_views": 14,
+        "prior_reply_new_inbound": 0
+      },
+      "post": {
+        "id": "DgMuNsRj08E",
+        "url": "https://www.threads.com/@_archivenoh/post/DgMuNsRj08E",
+        "published_at": "2026-11-26T08:54:01Z",
+        "text": "퇴고를 멈추는 기준을 하나 정해두면 어떨까.\n\n예시 초고: ‘오늘 회의는 정말 길었다.’\n수정: ‘결론이 나지 않아 회의가 한 시간 더 이어졌다.’\n\n문장을 그럴듯하게 꾸민 게 아니라 독자에게 필요한 사실을 보탰다. 반대로 새 정보도, 더 정확한 감정도 생기지 않는 수정이라면 초고를 남겨도 된다.\n\n몇 번 고쳤는지보다 무엇이 선명해졌는지 확인하고 멈추기.",
+        "views": 0,
+        "observed_at": "2026-11-26T08:54Z",
+        "evidence": "https://www.threads.com/insights/post/DgMuNsRj08E"
+      },
+      "target_views": 1000,
+      "inbound_replies_observed": 3,
+      "inbound_responses_sent": 3,
+      "proactive_replies_sent": 0,
+      "reply_records_source": "INTENTS.yaml experiment_run.tasks[id=miniapp-20261126-r1-t01].reply_records",
+      "roles": {"independent": "deleg_10486f89", "cross_review": "deleg_e846b15e", "source": "parent handoff; child did not spawn"},
+      "guard": {"state": "running_at_child_write", "exit_code": null, "finished_at": null, "lock_free_verified_at": null, "source": "parent to verify after child exit"},
+      "followup": "r1-t02 2026-11-26T09:25:00Z separately scheduled; r1 report pending",
+      "evidence_paths": ["INTENTS.yaml", "intents/waiting/miniapp-image-tools-20261118-qa-01.md", "reports/miniapp-image-tools-20261118-qa-01/20261126T0855Z-r1-t01.html"]
     }
   ],
   "next_decision": {

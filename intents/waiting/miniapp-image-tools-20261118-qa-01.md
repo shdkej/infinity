@@ -33,7 +33,15 @@
 
 ## 결과 확인 — 2026-11-26
 
-**조회 목표는 달성했지만, 2시간씩 세 번 자율 운영하는 목표는 미달했다.** 11/25 22:04:49 KST의 마지막 유효 관측은 새 원문 1개 **214/10회 조회**, 받은 답글 3건이다. 22:08:08에 관련 공개 대화에 답글 1건을 작성했다. 214회는 그 답글을 작성하기 전 값이므로 대화 참여의 증가 효과로 해석하지 않는다. 고유 고객 수·팔로워 증가·11/26 현재 조회는 미측정이다. [원문](https://www.threads.com/@_archivenoh/post/DgKEVWij6oq), [직접 작성한 답글](https://www.threads.com/@_archivenoh/post/DgKmf-lD9Nn).
+### r1-t01 실행 · 2026-11-26 17:49–17:55 KST
+
+- 보호된 기존 작업 `miniapp-20261126-r1-t01`에서 Ego Lite 0.6.3.17, Profile 3, 단일 taskSpace 121을 사용했다. 공개 글만으로 소유를 추정하지 않고 계정 전용 `프로필 편집`의 사용자 이름 `_archivenoh`와 새 원문 작성창의 `_archivenoh`를 확인했다. 작성 옵션은 답글·인용 `모든 사람`, 다른 위치 공유 `해제`; 설정을 바꾸지 않았다. 실제 브라우저 작업 뒤 해당 taskSpace를 닫았다.
+- [어제 원문](https://www.threads.com/@_archivenoh/post/DgKEVWij6oq)은 08:49Z경 `조회 282회`였다. 전날 13:04:49Z의 214회와 다른 스냅샷이며 오늘 신규 원문 조회 합계에 넣지 않았다. 어제 [선제 답글](https://www.threads.com/@_archivenoh/post/DgKmf-lD9Nn)은 조회 14회, 화면에 새 답글 없음으로 확인했다. 세 받은 답글을 각각 실제 텍스트까지 읽었다: [jin_jja_1234](https://www.threads.com/@jin_jja_1234/post/DgKHgymEu5A)는 고치지 않아도 되는 때가 많다는 의견, [kongbaguni](https://www.threads.com/@kongbaguni/post/DgKFV74krYa)는 2–5차 퇴고가 필수라는 의견, [haru_of_hana](https://www.threads.com/@haru_of_hana/post/DgKIZEjEde-)는 원래 감정을 보존하며 밑에 새로 쓴다는 방식이었다. 명시 질문은 없었고 세 구체 의견 모두 맥락에 맞게 한 번씩 응답했다.
+- 받은 답글 응답 3건: [고치지 않는 기준](https://www.threads.com/@_archivenoh/post/DgMt8JAjwHW) `08:51:37Z`, [퇴고 회차별 관점](https://www.threads.com/@_archivenoh/post/DgMt_sSj3oU) `08:52:06Z`, [원문 감정 보존](https://www.threads.com/@_archivenoh/post/DgMuDc9Dy2A) `08:52:37Z`. 각 답글의 대상 부모 대화·작성자·본문·`time[datetime]`을 고유 URL에서 재조회했다. 각각 한 번만 게시했고 타인 글에 먼저 다는 답글은 이번 작업 0건이다. 답글 수를 조회수나 고객 수로 세지 않았다.
+- [오늘 새 원문](https://www.threads.com/@_archivenoh/post/DgMuNsRj08E)은 `2026-11-26T08:54:01Z`에 게시됐다. 어제의 초고 방식 선택 질문과 달리, 이번에는 퇴고를 멈출 기준을 다룬다. ‘오늘 회의는 정말 길었다’ → ‘결론이 나지 않아 회의가 한 시간 더 이어졌다’는 명시적 예시 문장으로, 실제 경험 주장이나 외부 수치가 아니다. 게시 1회 뒤 고유 URL에서 작성자·전체 문구·시간을 확인했다. [해당 인사이트](https://www.threads.com/insights/post/DgMuNsRj08E)에 08:54Z경 플랫폼 표시 `조회수 0`을 실제 관측하여 오늘 신규 원문 합계 첫 스냅샷은 **0/1,000**이다. 조회한 사람 0은 고객/고유 방문 성과로 해석하지 않는다. 관측 시각은 브라우저 호출의 분 단위 범위이며 초 단위 로그가 아니다.
+- SAM 인계 `1795682634.664439`와 실제 시작 `08:49:05Z`는 원격의 별개 영수증으로 보존했다. 부모가 선행한 독립 네 역할 `deleg_10486f89`·교차 `deleg_e846b15e`를 재사용하고 이 자식은 추가 위임하지 않았다. 이 실행자의 guard 종료·exit code·공유 lock free는 자식 종료 뒤 부모가 확인할 사항이며 아직 주장하지 않는다. r1 구간 보고는 SAM 담당 `pending`; 별도 `r1-t02`는 18:25–18:50 KST 지연 관측·필요 응답으로 남겨둔다. 개별 [HTML 결과](../../reports/miniapp-image-tools-20261118-qa-01/20261126T0855Z-r1-t01.html).
+
+**11/25 회고: 당시 조회 목표는 달성했지만, 2시간씩 세 번 자율 운영하는 목표는 미달했다.** 11/25 22:04:49 KST의 마지막 유효 관측은 새 원문 1개 **214/10회 조회**, 받은 답글 3건이다. 22:08:08에 관련 공개 대화에 답글 1건을 작성했다. 214회는 그 답글을 작성하기 전 값이므로 대화 참여의 증가 효과로 해석하지 않는다. 당시 고유 고객 수·팔로워 증가·11/26 조회는 미측정이었다. [원문](https://www.threads.com/@_archivenoh/post/DgKEVWij6oq), [직접 작성한 답글](https://www.threads.com/@_archivenoh/post/DgKmf-lD9Nn).
 
 - **구간 결과:** 17–19시 원문 게시 1건, 19–21시 후속 실행 없음, 21–23시 사용자 점검 후 조회 재관측과 관련 답글 1건. 유용한 새 근거가 없어 추가 원문을 만들지 않은 결정은 수량 미달로 보지 않는다. 받은 답글 3건에 응답했다는 증거는 없다.
 - **반복 정체:** r1 종료 영수증 누락에 더해 r3-t01도 guard 완료 후 `observed_replied_guard_completed`라는 상태로 남았다. helper의 종료 상태 목록과 맞지 않아 후속이 지연됐고 22:57에 `completed`로 정규화됐다. 완료 영수증은 [22:23 Windows 보고](https://shdkej.slack.com/archives/C0CE0DV9MM2/p1795612994747899)와 같은 ID의 guard 22:19:32/잠금 해제 22:19:49에 있다.
