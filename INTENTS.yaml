@@ -711,6 +711,11 @@ lanes:
         verified_by: supervisor_exact_message_readback
         codex_body_verified_at: '2026-11-26T23:26:58.369018+00:00'
         date_clarification_message_id: '1795735487.202529'
+        windows_readiness_message_id: '1795735596.257889'
+        windows_date_ack_message_id: '1795735602.509689'
+        windows_readiness_at: '2026-11-26T23:26:36.258Z'
+        windows_readiness_status: checkout_router_and_no_active_lock_verified
+        threads_login_status: recheck_at_execution
       setup_verified_at: '2026-11-26T23:21:16.949736+00:00'
     next_action: 17시 첫 가설 실행,18시 확인·개선. r2/r3 Plan은 직전 Act의 변경을 반영한 뒤 인계.23시 당일 종료.
     notification_channel: slack

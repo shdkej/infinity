@@ -1677,6 +1677,30 @@
         "logs/OPERATING_LESSONS.md"
       ],
       "note": "User renewed three2h loops for Nov27 and explicitly requires hypothesis-execution-check-improvement PDCA. Existing target1000/account/caps retained. First hypothesis aligns public account travel/minimal/practical choices; future plans require real previous Check/Act evidence and exact next_change linkage. Added nine PDCA tests after reproducing failures;59 focused tests passed. Nov26 complete run preserved in history; six new tasks prepared. Native schedule/Windows readiness pending; no content result claimed."
+    },
+    {
+      "type": "execution",
+      "at": "2026-11-26T23:31:54.849563Z",
+      "context_pack": "/home/ubuntu/workspace/knowledge-lab/logs/context-packs/2026-11-18-agent-daily-operations.json",
+      "evidence_paths": [
+        "intents/waiting/miniapp-image-tools-20261118-qa-01.md"
+      ],
+      "searches": [
+        "Native cron list/runs and remote snapshot readback; exact original-thread messages1795735367.584249,1795735596.257889,1795735602.509689. Reused documented context; no new knowledge search."
+      ],
+      "wiki_pages": [
+        "agent-wiki/content/docs/outputs/Integration/Work.mdx",
+        "agent-wiki/content/docs/outputs/Idea/Journal.mdx",
+        "agent-wiki/content/docs/outputs/Communication/Open_Source.mdx",
+        "agent-wiki/content/docs/outputs/blog/Life_Tracking.mdx",
+        "agent-wiki/content/docs/outputs/Human/Standard.mdx"
+      ],
+      "operational_log_sections": [
+        "logs/agent-wiki-query.md",
+        "logs/EVALUATION_RECAP.md",
+        "logs/OPERATING_LESSONS.md"
+      ],
+      "note": "Nov27 setup verified, not business execution:60 focused tests pass; full-suite prior run181 has one unchanged unrelated dispatcher failure. Both native schedules enabled and same-day guarded; supervisor second preflight cron-request.e2d1c120-231d-43e9-8b39-f1abee6cdc2c verified exact sent body/thread and remote main aae9c498. Windows confirmed valid checkout/router, six prepared tasks, no running guard/lock; actual Threads login remains for execution-time recheck. No duplicate send, publishing or observation started. PDCA requires previous actual Check/Act and next Plan change linkage; current remote snapshot fire=false, metrics unmeasured."
     }
   ],
   "artifacts": [

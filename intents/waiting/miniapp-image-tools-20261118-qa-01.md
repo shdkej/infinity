@@ -2,7 +2,9 @@
 
 ## 11/27 PDCA 세 루프 — 예약 준비
 
-실제 감독 사전 시험은 준비 메시지 `1795735367.584249`를 발송했으나 본문 재조회에서 멈췄다. Codex는 해당 원문 본문과 날짜 정정 `1795735487.202529`를 실제 확인했다. 정확한 메시지 ID 이후 조회 경로를 명시하고 같은 발송 영수증의 감독 재확인을 수행한다. 중복 발송이나 업무 시작은 하지 않는다.
+실제 감독 사전 시험에서 발견한 본문 조회 문제를 정확한 메시지 ID 조회로 수정했다. 두 번째 native 실행 `cron-request.e2d1c120-231d-43e9-8b39-f1abee6cdc2c`에서 기존 준비 메시지 본문·스레드를 확인하고 `preflight.status=sent`를 원격 main `aae9c498`에 기록했다. 중복 발송·업무 시작은 없었다.
+
+Windows 지니의 [08:26 준비 응답](https://shdkej.slack.com/archives/C0CE0DV9MM2/p1795735596257889)에서 자기 환경의 유효한 checkout·라우터 실행·당일 여섯 prepared ID·실행 및 잠금 보유자 부재를 확인했다. [날짜 정정 수신](https://shdkej.slack.com/archives/C0CE0DV9MM2/p1795735602509689)도 확인했다. 실제 Threads 로그인 유지는 미검증이며 17시 실행 직전 확인한다. 두 native 예약은 활성이고 마감은 11/27 23시 KST다. 현재 remote snapshot은 시작 전 `fire=false`, 오늘 지표는 미측정이다.
 
 검증: 관련 helper60개 통과. 저장소 전체181개 중180개 통과, 변경하지 않은 `test_prepare_dispatch_cycle.PlanTests.test_no_deadline_exploratory_intent_routes_to_terminal_closeout` 1개 실패(예상 research-1, 실제 빈 후보). 해당 테스트/모듈의 기존 HEAD 일치를 확인했으며 오늘 PDCA 감독 경로와 무관하다. 별도 dispatcher 결함으로 남긴다. 이전 trace의 이동된 Context Pack 경로8곳을 실제 `logs/context-packs/` 위치로 정정했다.
 
