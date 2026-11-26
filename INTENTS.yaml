@@ -290,8 +290,8 @@ lanes:
       next_day_resume: false
     experiment_run:
       run_id: miniapp-20261126-2h
-      status: running
-      enabled: true
+      status: finished
+      enabled: false
       date: '2026-11-26'
       timezone: Asia/Seoul
       start_at: '2026-11-26T08:00:00Z'
@@ -308,15 +308,18 @@ lanes:
       supervisor_job_id: eb75facc-7686-4746-a399-4ef6d881048e
       closeout_job_id: 8e116857-63f9-4475-8e55-4a7c386e4a16
       configuration_status: verified
-      supervisor_enabled: true
-      final_report_status: pending
-      final_report: null
+      supervisor_enabled: false
+      final_report_status: prepared
+      final_report: reports/miniapp-image-tools-20261118-qa-01/20261126T1400Z-final.html
+      finished_at: '2026-11-26T14:04:34Z'
+      final_report_prepared_at: '2026-11-26T14:04:34Z'
       final_report_delivery_receipt: null
+      closeout_note: 'All three windows and six tasks completed with verified guards; latest views 76/1000 at 2026-11-26T13:04:52.012Z. Final Slack delivery pending stable operationId receipt.'
       windows:
       - id: r1
         start_at: '2026-11-26T08:00:00Z'
         end_at: '2026-11-26T10:00:00Z'
-        status: running
+        status: completed
         goal: 어제 원문 DgKEVWij6oq와 답글 DgKmf-lD9Nn의 현재 반응을 확인한다. 받은 답글 3건의 실제 내용을 읽고 미응답 질문·구체 의견에 응답한다. 실제 대화/기존 공개 글/예시라고 명시한
           문장에서 새로운 관점의 원문 1개를 게시하고 첫 관측과 18:25 후속을 준비한다.
         task_sequence: 2
@@ -356,7 +359,7 @@ lanes:
       - id: r2
         start_at: '2026-11-26T10:00:00Z'
         end_at: '2026-11-26T12:00:00Z'
-        status: running
+        status: completed
         goal: 1차 반응·질문을 읽고 아직 답하지 않은 유효 댓글에 응답한다. 구체적인 문장 예시나 다른 관점의 두 번째 원문 1개를 게시하고 관련 공개 대화에 도움이 되는 답글을 남긴다. 오늘 신규 원문·응답
           기록을 대조해 중복을 막는다.
         task_sequence: 2
@@ -401,7 +404,7 @@ lanes:
       - id: r3
         start_at: '2026-11-26T12:00:00Z'
         end_at: '2026-11-26T14:00:00Z'
-        status: running
+        status: completed
         goal: 오늘 글과 작성 답글의 새 반응·미응답을 처리한다. 앞선 두 글과 겹치지 않는 유용한 후속 소재가 있으면 세 번째 원문을 게시한다. 이미 조회 목표를 넘겼다는 이유로 후보 검토·대화 참여를 생략하지
           않는다.
         task_sequence: 2

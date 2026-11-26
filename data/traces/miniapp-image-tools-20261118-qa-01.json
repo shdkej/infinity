@@ -1622,6 +1622,30 @@
         "logs/OPERATING_LESSONS.md"
       ],
       "note": "Windows reported router cwd validation failed before guard creation, corrected checkout and started SAME r1-t01 at2026-11-26T08:49:05Z. running and shared lock held confirmed. Persisted actual start and receipt, preserved unknown finish/exit/lock-free and all prior history. Both native schedules enabled; repair verified to actual execution start, not content/goal completion."
+    },
+    {
+      "type": "closeout",
+      "at": "2026-11-26T14:04:34Z",
+      "run_id": "miniapp-20261126-2h",
+      "status": "finished",
+      "enabled": false,
+      "supervisor_enabled": false,
+      "supervisor_job_id": "eb75facc-7686-4746-a399-4ef6d881048e",
+      "supervisor_disabled_verified_at": "2026-11-26T14:04:34Z",
+      "windows_completed": [
+        "r1",
+        "r2",
+        "r3"
+      ],
+      "completed_task_count": 6,
+      "latest_new_post_views": 76,
+      "target_views": 1000,
+      "latest_observed_at": "2026-11-26T13:04:52.012Z",
+      "report": "reports/miniapp-image-tools-20261118-qa-01/20261126T1400Z-final.html",
+      "report_status": "prepared",
+      "delivery_operation_id": "miniapp-20261126-2h:report:final",
+      "delivery_receipt": null,
+      "note": "No new Windows work or next-day restart. 214 historical views excluded. Final send/readback still pending."
     }
   ],
   "artifacts": [
@@ -1683,6 +1707,14 @@
       "path": "reports/miniapp-image-tools-20261118-qa-01/20261125T1400Z.html",
       "label": "Threads same-day run closeout; platform views 214/10 at 13:04:49Z; r3-t02 unconfirmed",
       "url": "https://github.com/shdkej/infinity/blob/main/reports/miniapp-image-tools-20261118-qa-01/20261125T1400Z.html"
+    },
+    {
+      "type": "report",
+      "status": "prepared",
+      "at": "2026-11-26T14:04:34Z",
+      "path": "reports/miniapp-image-tools-20261118-qa-01/20261126T1400Z-final.html",
+      "label": "Three-cycle closeout; latest views 76/1000 at 13:04:52Z; native final delivery pending",
+      "url": "https://github.com/shdkej/infinity/blob/main/reports/miniapp-image-tools-20261118-qa-01/20261126T1400Z-final.html"
     }
   ],
   "verifications": [
@@ -2569,10 +2601,24 @@
       "inbound_responses_sent": 3,
       "proactive_replies_sent": 0,
       "reply_records_source": "INTENTS.yaml experiment_run.tasks[id=miniapp-20261126-r1-t01].reply_records",
-      "roles": {"independent": "deleg_10486f89", "cross_review": "deleg_e846b15e", "source": "parent handoff; child did not spawn"},
-      "guard": {"state": "running_at_child_write", "exit_code": null, "finished_at": null, "lock_free_verified_at": null, "source": "parent to verify after child exit"},
+      "roles": {
+        "independent": "deleg_10486f89",
+        "cross_review": "deleg_e846b15e",
+        "source": "parent handoff; child did not spawn"
+      },
+      "guard": {
+        "state": "running_at_child_write",
+        "exit_code": null,
+        "finished_at": null,
+        "lock_free_verified_at": null,
+        "source": "parent to verify after child exit"
+      },
       "followup": "r1-t02 2026-11-26T09:25:00Z separately scheduled; r1 report pending",
-      "evidence_paths": ["INTENTS.yaml", "intents/waiting/miniapp-image-tools-20261118-qa-01.md", "reports/miniapp-image-tools-20261118-qa-01/20261126T0855Z-r1-t01.html"]
+      "evidence_paths": [
+        "INTENTS.yaml",
+        "intents/waiting/miniapp-image-tools-20261118-qa-01.md",
+        "reports/miniapp-image-tools-20261118-qa-01/20261126T0855Z-r1-t01.html"
+      ]
     },
     {
       "label": "2026-11-26 r1-t02 fresh Threads insights and inbound continuation",
@@ -2582,10 +2628,22 @@
       "status": "completed_guard_verified",
       "account": "_archivenoh",
       "account_evidence": "Ego Lite 0.6.3.17 Profile 3 taskSpace 129, own profile edit dialog username _archivenoh",
-      "post": {"id": "DgMuNsRj08E", "url": "https://www.threads.com/@_archivenoh/post/DgMuNsRj08E", "published_at": "2026-11-26T08:54:01Z", "views": 12, "obs_attempted_at": "2026-11-26T09:30:55.818Z", "observed_at": "2026-11-26T09:31:00.870Z", "source": "https://www.threads.com/insights/post/DgMuNsRj08E"},
+      "post": {
+        "id": "DgMuNsRj08E",
+        "url": "https://www.threads.com/@_archivenoh/post/DgMuNsRj08E",
+        "published_at": "2026-11-26T08:54:01Z",
+        "views": 12,
+        "obs_attempted_at": "2026-11-26T09:30:55.818Z",
+        "observed_at": "2026-11-26T09:31:00.870Z",
+        "source": "https://www.threads.com/insights/post/DgMuNsRj08E"
+      },
       "target_views": 1000,
       "latest_original_views_sum": 12,
-      "previous_snapshot": {"views": 0, "observed_at": "2026-11-26T08:54Z", "excluded_from_sum": true},
+      "previous_snapshot": {
+        "views": 0,
+        "observed_at": "2026-11-26T08:54Z",
+        "excluded_from_sum": true
+      },
       "inbound_replies_observed_this_task": 2,
       "inbound_responses_sent_this_task": 1,
       "proactive_replies_sent_this_task": 0,
@@ -2593,12 +2651,33 @@
       "daily_inbound_responses_sent": 4,
       "daily_proactive_replies_sent": 0,
       "inbound_handling": "life.innovator's new agreement on today's original has no question or concrete proposal; no forced reply. kongbaguni's concrete follow-up to t01 response received one answer.",
-      "reply": {"target_url": "https://www.threads.com/@kongbaguni/post/DgMuW8iEnrs", "url": "https://www.threads.com/@_archivenoh/post/DgMyiwyj3lj", "published_at": "2026-11-26T09:31:51Z", "text": "시간을 두고 다시 읽는 것도 퇴고의 한 회차로 빼두면 좋겠네요. 그때 어색한 곳을 먼저 표시하고, 다음 회차에 뜻이 흐린 문장부터 고치면 멈출 지점도 분명해질 것 같아요.", "verification": "unique public URL readback author, text, time[datetime], parent chain and target"},
+      "reply": {
+        "target_url": "https://www.threads.com/@kongbaguni/post/DgMuW8iEnrs",
+        "url": "https://www.threads.com/@_archivenoh/post/DgMyiwyj3lj",
+        "published_at": "2026-11-26T09:31:51Z",
+        "text": "시간을 두고 다시 읽는 것도 퇴고의 한 회차로 빼두면 좋겠네요. 그때 어색한 곳을 먼저 표시하고, 다음 회차에 뜻이 흐린 문장부터 고치면 멈출 지점도 분명해질 것 같아요.",
+        "verification": "unique public URL readback author, text, time[datetime], parent chain and target"
+      },
       "conversation_participation": "Read all three t01 response branches and a related recent search; pre-existing cheerfulyoonkyeom reply avoided, no new proactive reply or original.",
       "next_content_decision": "At r2, consider a new concrete example about spaced revision instead of repeating the first original's stopping criterion; no r2 execution in this task.",
-      "roles": {"independent": "deleg_5d681a6f", "cross_review": "deleg_e697d2d7", "source": "parent handoff reported; no duplicate child delegation in this narrow follow-up"},
-      "guard": {"state": "completed", "exit_code": 0, "started_at": "2026-11-26T09:29:35.249827Z", "finished_at": "2026-11-26T09:40:08.455408Z", "lock_free_verified_at": "2026-11-26T09:40:25.919746Z", "source": "parent read private SQLite row and lslocks no holder after child exit; observation time is not exact unlock time"},
-      "evidence_paths": ["INTENTS.yaml", "intents/waiting/miniapp-image-tools-20261118-qa-01.md", "reports/miniapp-image-tools-20261118-qa-01/20261126T0933Z-r1-t02.html"]
+      "roles": {
+        "independent": "deleg_5d681a6f",
+        "cross_review": "deleg_e697d2d7",
+        "source": "parent handoff reported; no duplicate child delegation in this narrow follow-up"
+      },
+      "guard": {
+        "state": "completed",
+        "exit_code": 0,
+        "started_at": "2026-11-26T09:29:35.249827Z",
+        "finished_at": "2026-11-26T09:40:08.455408Z",
+        "lock_free_verified_at": "2026-11-26T09:40:25.919746Z",
+        "source": "parent read private SQLite row and lslocks no holder after child exit; observation time is not exact unlock time"
+      },
+      "evidence_paths": [
+        "INTENTS.yaml",
+        "intents/waiting/miniapp-image-tools-20261118-qa-01.md",
+        "reports/miniapp-image-tools-20261118-qa-01/20261126T0933Z-r1-t02.html"
+      ]
     },
     {
       "label": "2026-11-26 r2-t01 second Threads original and substantive proactive reply",
@@ -2608,8 +2687,29 @@
       "status": "completed_guard_verified",
       "account": "_archivenoh",
       "account_evidence": "Ego Lite 0.6.3.17 Profile 3 taskSpace 155; own profile edit username and original/reply composer author _archivenoh immediately before submit",
-      "first_original": {"id": "DgMuNsRj08E", "url": "https://www.threads.com/@_archivenoh/post/DgMuNsRj08E", "published_at": "2026-11-26T08:54:01Z", "views": 15, "obs_attempted_at": "2026-11-26T10:06:18.624Z", "observed_at": "2026-11-26T10:06:18.624Z", "source": "https://www.threads.com/insights/post/DgMuNsRj08E", "previous_views": 12, "previous_observed_at": "2026-11-26T09:31:00.870Z", "previous_excluded_from_sum": true},
-      "second_original": {"id": "DgM2pLlD23S", "url": "https://www.threads.com/@_archivenoh/post/DgM2pLlD23S", "published_at": "2026-11-26T10:07:40Z", "text": "퇴고를 한 번에 끝내려 하면 내용과 말맛을 동시에 보느라 놓치는 게 생긴다.\n\n가상의 안내문을 예로 들면, 초고 ‘신청 일정이 바뀝니다.’ 첫 회차에는 ‘신청 마감이 금요일에서 목요일로 앞당겨집니다.’처럼 바뀐 사실을 정확히 적는다. 잠시 뒤 다시 읽는 두 번째 회차에는 ‘신청 마감: 목요일 오후 6시(기존 금요일).’처럼 읽는 순서와 호흡을 살핀다.\n\n첫 회차는 뜻, 다음 회차는 읽히는 리듬. 시간을 떼어놓으면 서로 다른 문제를 볼 수 있다.", "views": 0, "obs_attempted_at": "2026-11-26T10:08:06.972Z", "observed_at": "2026-11-26T10:08:06.972Z", "source": "https://www.threads.com/insights/post/DgM2pLlD23S", "verification": "exact public URL author, full DOM text, time[datetime]; no parent"},
+      "first_original": {
+        "id": "DgMuNsRj08E",
+        "url": "https://www.threads.com/@_archivenoh/post/DgMuNsRj08E",
+        "published_at": "2026-11-26T08:54:01Z",
+        "views": 15,
+        "obs_attempted_at": "2026-11-26T10:06:18.624Z",
+        "observed_at": "2026-11-26T10:06:18.624Z",
+        "source": "https://www.threads.com/insights/post/DgMuNsRj08E",
+        "previous_views": 12,
+        "previous_observed_at": "2026-11-26T09:31:00.870Z",
+        "previous_excluded_from_sum": true
+      },
+      "second_original": {
+        "id": "DgM2pLlD23S",
+        "url": "https://www.threads.com/@_archivenoh/post/DgM2pLlD23S",
+        "published_at": "2026-11-26T10:07:40Z",
+        "text": "퇴고를 한 번에 끝내려 하면 내용과 말맛을 동시에 보느라 놓치는 게 생긴다.\n\n가상의 안내문을 예로 들면, 초고 ‘신청 일정이 바뀝니다.’ 첫 회차에는 ‘신청 마감이 금요일에서 목요일로 앞당겨집니다.’처럼 바뀐 사실을 정확히 적는다. 잠시 뒤 다시 읽는 두 번째 회차에는 ‘신청 마감: 목요일 오후 6시(기존 금요일).’처럼 읽는 순서와 호흡을 살핀다.\n\n첫 회차는 뜻, 다음 회차는 읽히는 리듬. 시간을 떼어놓으면 서로 다른 문제를 볼 수 있다.",
+        "views": 0,
+        "obs_attempted_at": "2026-11-26T10:08:06.972Z",
+        "observed_at": "2026-11-26T10:08:06.972Z",
+        "source": "https://www.threads.com/insights/post/DgM2pLlD23S",
+        "verification": "exact public URL author, full DOM text, time[datetime]; no parent"
+      },
       "target_views": 1000,
       "latest_original_views_sum": 15,
       "mixed_observation_times": true,
@@ -2617,12 +2717,34 @@
       "daily_inbound_responses_sent": 4,
       "daily_proactive_replies_sent": 1,
       "inbound_handling": "First original and activity showed no new substantive question; pre-existing life.innovator agreement remains unanswered by choice. No repeat replies to four previously handled targets.",
-      "reply": {"kind": "proactive", "target_url": "https://www.threads.com/@_.pearl_shine/post/DgLNGrqkgbT", "url": "https://www.threads.com/@_archivenoh/post/DgM3EckD21U", "published_at": "2026-11-26T10:11:24Z", "text": "교정이 이미 필요한 작업이면 그 자체로 충분히 쓸모 있어요. 한 가지 확장해보자면, 원문을 붙이고 ‘맞춤법만 고친 버전 / 뜻이 흐린 문장 2곳과 이유 / 원문 그대로 둘 문장’을 따로 요청해 보세요. 바뀐 사실이나 말투는 마지막에 직접 고르면, 단순 교정보다 판단할 재료가 남을 것 같아요.", "verification": "exact public URL author, full DOM text, time[datetime], parent _.pearl_shine original; one submit"},
+      "reply": {
+        "kind": "proactive",
+        "target_url": "https://www.threads.com/@_.pearl_shine/post/DgLNGrqkgbT",
+        "url": "https://www.threads.com/@_archivenoh/post/DgM3EckD21U",
+        "published_at": "2026-11-26T10:11:24Z",
+        "text": "교정이 이미 필요한 작업이면 그 자체로 충분히 쓸모 있어요. 한 가지 확장해보자면, 원문을 붙이고 ‘맞춤법만 고친 버전 / 뜻이 흐린 문장 2곳과 이유 / 원문 그대로 둘 문장’을 따로 요청해 보세요. 바뀐 사실이나 말투는 마지막에 직접 고르면, 단순 교정보다 판단할 재료가 남을 것 같아요.",
+        "verification": "exact public URL author, full DOM text, time[datetime], parent _.pearl_shine original; one submit"
+      },
       "conversation_participation": "Sampled recent 퇴고, 초고, 글쓰기, 문장 고치기 and 글 쓰기 어려워 public posts; commercial/self-promotional and unrelated items skipped. Selected a substantive correction-workflow question for one first reply; not a quota.",
-      "roles": {"independent": "deleg_0e781ff8", "cross_review": "deleg_02fad575", "source": "parent handoff reported; no duplicate delegation in guarded child"},
-      "guard": {"state": "completed", "exit_code": 0, "started_at": "2026-11-26T10:04:48.389659Z", "finished_at": "2026-11-26T10:19:04.076441Z", "lock_free_verified_at": "2026-11-26T10:51:43.323472Z", "source": "parent SQLite read and read-only lslocks no holder; observation is not exact unlock time"},
+      "roles": {
+        "independent": "deleg_0e781ff8",
+        "cross_review": "deleg_02fad575",
+        "source": "parent handoff reported; no duplicate delegation in guarded child"
+      },
+      "guard": {
+        "state": "completed",
+        "exit_code": 0,
+        "started_at": "2026-11-26T10:04:48.389659Z",
+        "finished_at": "2026-11-26T10:19:04.076441Z",
+        "lock_free_verified_at": "2026-11-26T10:51:43.323472Z",
+        "source": "parent SQLite read and read-only lslocks no holder; observation is not exact unlock time"
+      },
       "followup": "r2-t02 separately scheduled at 2026-11-26T11:00:00Z; r2 window report pending for SAM; do not run next task here",
-      "evidence_paths": ["INTENTS.yaml", "intents/waiting/miniapp-image-tools-20261118-qa-01.md", "reports/miniapp-image-tools-20261118-qa-01/20261126T1012Z-r2-t01.html"]
+      "evidence_paths": [
+        "INTENTS.yaml",
+        "intents/waiting/miniapp-image-tools-20261118-qa-01.md",
+        "reports/miniapp-image-tools-20261118-qa-01/20261126T1012Z-r2-t01.html"
+      ]
     },
     {
       "label": "2026-11-26 r2-t02 fresh two-original insight observation and inbound correction",
@@ -2633,12 +2755,33 @@
       "account": "_archivenoh",
       "account_evidence": "Ego Lite 0.6.3.17 Profile 3 taskSpace 157 own profile edit dialog username _archivenoh; space finished",
       "posts": [
-        {"id":"DgMuNsRj08E","url":"https://www.threads.com/@_archivenoh/post/DgMuNsRj08E","published_at":"2026-11-26T08:54:01Z","views":17,"obs_attempted_at":"2026-11-26T11:07:02.032Z","observed_at":"2026-11-26T11:07:02.032Z","evidence":"https://www.threads.com/insights/post/DgMuNsRj08E","note":"first navigation start unlogged; selector ambiguity then same loaded page snapshot, no refresh"},
-        {"id":"DgM2pLlD23S","url":"https://www.threads.com/@_archivenoh/post/DgM2pLlD23S","published_at":"2026-11-26T10:07:40Z","views":24,"obs_attempted_at":"2026-11-26T11:07:07.615Z","observed_at":"2026-11-26T11:07:14.930Z","evidence":"https://www.threads.com/insights/post/DgM2pLlD23S"}
+        {
+          "id": "DgMuNsRj08E",
+          "url": "https://www.threads.com/@_archivenoh/post/DgMuNsRj08E",
+          "published_at": "2026-11-26T08:54:01Z",
+          "views": 17,
+          "obs_attempted_at": "2026-11-26T11:07:02.032Z",
+          "observed_at": "2026-11-26T11:07:02.032Z",
+          "evidence": "https://www.threads.com/insights/post/DgMuNsRj08E",
+          "note": "first navigation start unlogged; selector ambiguity then same loaded page snapshot, no refresh"
+        },
+        {
+          "id": "DgM2pLlD23S",
+          "url": "https://www.threads.com/@_archivenoh/post/DgM2pLlD23S",
+          "published_at": "2026-11-26T10:07:40Z",
+          "views": 24,
+          "obs_attempted_at": "2026-11-26T11:07:07.615Z",
+          "observed_at": "2026-11-26T11:07:14.930Z",
+          "evidence": "https://www.threads.com/insights/post/DgM2pLlD23S"
+        }
       ],
       "target_views": 1000,
       "latest_original_views_sum": 41,
-      "previous_snapshots_excluded": ["DgMuNsRj08E 15 at 10:06:18Z", "DgM2pLlD23S 0 at 10:08:06Z", "yesterday original 288 at 11:07:52Z"],
+      "previous_snapshots_excluded": [
+        "DgMuNsRj08E 15 at 10:06:18Z",
+        "DgM2pLlD23S 0 at 10:08:06Z",
+        "yesterday original 288 at 11:07:52Z"
+      ],
       "inbound_replies_observed_this_task_new_arrivals": 0,
       "inbound_responses_sent_this_task": 0,
       "proactive_replies_sent_this_task": 0,
@@ -2647,16 +2790,41 @@
       "daily_proactive_replies_sent": 1,
       "conversations_continued": 4,
       "previously_missed_inbound": [
-        {"url":"https://www.threads.com/@ruben.writer/post/DgL10ZZky_P","parent":"https://www.threads.com/@_archivenoh/post/DgKEVWij6oq","text":"저는 일단 끝까지 쓴 다음에 고치는 편이에요 ㅋㅍ","activity_relative_time":"10 hours before 11:07Z"},
-        {"url":"https://www.threads.com/@text.mechanism/post/DgMLyuwk7p_","parent":"https://www.threads.com/@_archivenoh/post/DgKEVWij6oq","text":"막 쓸라면 다듬어 봐야 합니다.","activity_relative_time":"7 hours before 11:07Z"}
+        {
+          "url": "https://www.threads.com/@ruben.writer/post/DgL10ZZky_P",
+          "parent": "https://www.threads.com/@_archivenoh/post/DgKEVWij6oq",
+          "text": "저는 일단 끝까지 쓴 다음에 고치는 편이에요 ㅋㅍ",
+          "activity_relative_time": "10 hours before 11:07Z"
+        },
+        {
+          "url": "https://www.threads.com/@text.mechanism/post/DgMLyuwk7p_",
+          "parent": "https://www.threads.com/@_archivenoh/post/DgKEVWij6oq",
+          "text": "막 쓸라면 다듬어 봐야 합니다.",
+          "activity_relative_time": "7 hours before 11:07Z"
+        }
       ],
       "inbound_handling": "Two current originals had no new replies beyond earlier agreement; four existing inbound-response branches and proactive DgM3EckD21U had no follow-up. Two missed old-original comments were earlier arrivals rather than this-slot arrivals; general opinions without a new question or concrete proposal, no forced response. Prior task snapshots remain historical.",
       "conversation_participation": "Read recent 퇴고 and 글쓰기 고민 public conversations including cheerfulyoonkyeom, 0_0jengjeng, ajaeyjw, producer_eun and hyojin_writer; already replied, selling, private diary/plans and promotion were not useful first-reply targets.",
       "next_content_decision": "Only separate r3-t01 at 12:00Z may test a reader-first ambiguity/first-read example against the prior stopping criterion and meaning/rhythm sequence; no third original in this task.",
-      "roles": {"independent":"deleg_49588696","cross_review":"deleg_cac5e22e","source":"parent completion handoff; no duplicate delegation"},
-      "guard": {"state":"completed","exit_code":0,"started_at":"2026-11-26T11:05:35.003647Z","finished_at":"2026-11-26T11:20:20.441486Z","lock_free_verified_at":"2026-11-26T11:20:37.923542Z","source":"parent SQLite read and read-only lslocks no holder; check time is not exact unlock time"},
+      "roles": {
+        "independent": "deleg_49588696",
+        "cross_review": "deleg_cac5e22e",
+        "source": "parent completion handoff; no duplicate delegation"
+      },
+      "guard": {
+        "state": "completed",
+        "exit_code": 0,
+        "started_at": "2026-11-26T11:05:35.003647Z",
+        "finished_at": "2026-11-26T11:20:20.441486Z",
+        "lock_free_verified_at": "2026-11-26T11:20:37.923542Z",
+        "source": "parent SQLite read and read-only lslocks no holder; check time is not exact unlock time"
+      },
       "followup": "SAM 21:00 KST r2 report pending; next r3 ID not started or posted",
-      "evidence_paths": ["INTENTS.yaml", "intents/waiting/miniapp-image-tools-20261118-qa-01.md", "reports/miniapp-image-tools-20261118-qa-01/20261126T1109Z-r2-t02.html"]
+      "evidence_paths": [
+        "INTENTS.yaml",
+        "intents/waiting/miniapp-image-tools-20261118-qa-01.md",
+        "reports/miniapp-image-tools-20261118-qa-01/20261126T1109Z-r2-t02.html"
+      ]
     },
     {
       "label": "2026-11-26 r3-t01 third reader-first Threads original and three-post insights",
@@ -2667,11 +2835,41 @@
       "account": "_archivenoh",
       "account_evidence": "Ego Lite 0.6.3.17 Profile 3 separate taskSpace 158; own profile edit username and original composer author _archivenoh before one submit; space finished",
       "posts": [
-        {"id":"DgMuNsRj08E","url":"https://www.threads.com/@_archivenoh/post/DgMuNsRj08E","published_at":"2026-11-26T08:54:01Z","views":17,"obs_attempted_at":"2026-11-26T12:06:52.251Z","observed_at":"2026-11-26T12:07:02.707Z","evidence":"https://www.threads.com/insights/post/DgMuNsRj08E","note":"First insight load only showed loading; later revisit yielded 17. Not an additional numeric snapshot."},
-        {"id":"DgM2pLlD23S","url":"https://www.threads.com/@_archivenoh/post/DgM2pLlD23S","published_at":"2026-11-26T10:07:40Z","views":24,"obs_attempted_at":"2026-11-26T12:06:53.301Z","observed_at":"2026-11-26T12:06:54.520Z","evidence":"https://www.threads.com/insights/post/DgM2pLlD23S"},
-        {"id":"DgNEc0yDw4K","url":"https://www.threads.com/@_archivenoh/post/DgNEc0yDw4K","published_at":"2026-11-26T12:08:19Z","views":0,"obs_attempted_at":"2026-11-26T12:08:38.217Z","observed_at":"2026-11-26T12:08:39.386Z","evidence":"https://www.threads.com/insights/post/DgNEc0yDw4K"}
+        {
+          "id": "DgMuNsRj08E",
+          "url": "https://www.threads.com/@_archivenoh/post/DgMuNsRj08E",
+          "published_at": "2026-11-26T08:54:01Z",
+          "views": 17,
+          "obs_attempted_at": "2026-11-26T12:06:52.251Z",
+          "observed_at": "2026-11-26T12:07:02.707Z",
+          "evidence": "https://www.threads.com/insights/post/DgMuNsRj08E",
+          "note": "First insight load only showed loading; later revisit yielded 17. Not an additional numeric snapshot."
+        },
+        {
+          "id": "DgM2pLlD23S",
+          "url": "https://www.threads.com/@_archivenoh/post/DgM2pLlD23S",
+          "published_at": "2026-11-26T10:07:40Z",
+          "views": 24,
+          "obs_attempted_at": "2026-11-26T12:06:53.301Z",
+          "observed_at": "2026-11-26T12:06:54.520Z",
+          "evidence": "https://www.threads.com/insights/post/DgM2pLlD23S"
+        },
+        {
+          "id": "DgNEc0yDw4K",
+          "url": "https://www.threads.com/@_archivenoh/post/DgNEc0yDw4K",
+          "published_at": "2026-11-26T12:08:19Z",
+          "views": 0,
+          "obs_attempted_at": "2026-11-26T12:08:38.217Z",
+          "observed_at": "2026-11-26T12:08:39.386Z",
+          "evidence": "https://www.threads.com/insights/post/DgNEc0yDw4K"
+        }
       ],
-      "new_original": {"url":"https://www.threads.com/@_archivenoh/post/DgNEc0yDw4K","published_at":"2026-11-26T12:08:19Z","text":"독자의 첫 읽기에서는 문장이 자연스러운지보다 ‘내가 무엇을 받는가’가 먼저 막힐 수 있다.\n\n가상의 모임 안내: ‘참여자에게 자료를 드립니다.’ 독자라면 어떤 자료인지, 누가 받는지, 언제 받는지 되묻게 된다. ‘모임 참석자에게 발표 자료 PDF를 종료 후 이메일로 보냅니다’처럼 빈칸을 채우면 참여할지 결정하기 쉽다.\n\n실제 안내라면 그 약속이 사실인지 먼저 확인하기. 문장을 예쁘게 고치는 일과 독자가 결정할 정보를 주는 일은 다르다.","verification":"single submit; exact public URL, author _archivenoh, full text, time[datetime], no parent; illustrative not lived experience"},
+      "new_original": {
+        "url": "https://www.threads.com/@_archivenoh/post/DgNEc0yDw4K",
+        "published_at": "2026-11-26T12:08:19Z",
+        "text": "독자의 첫 읽기에서는 문장이 자연스러운지보다 ‘내가 무엇을 받는가’가 먼저 막힐 수 있다.\n\n가상의 모임 안내: ‘참여자에게 자료를 드립니다.’ 독자라면 어떤 자료인지, 누가 받는지, 언제 받는지 되묻게 된다. ‘모임 참석자에게 발표 자료 PDF를 종료 후 이메일로 보냅니다’처럼 빈칸을 채우면 참여할지 결정하기 쉽다.\n\n실제 안내라면 그 약속이 사실인지 먼저 확인하기. 문장을 예쁘게 고치는 일과 독자가 결정할 정보를 주는 일은 다르다.",
+        "verification": "single submit; exact public URL, author _archivenoh, full text, time[datetime], no parent; illustrative not lived experience"
+      },
       "target_views": 1000,
       "latest_original_views_sum": 41,
       "old_post_reply_and_prior_snapshots_excluded": true,
@@ -2685,9 +2883,24 @@
       "inbound_handling": "Activity and both original threads: first only existing life.innovator agreement, second no replies; third no replies on readback. Existing four own inbound reply branches and proactive DgM3EckD21U had no new counter-response. No duplicate or formality reply.",
       "conversation_participation": "Sampled public searches 글쓰기 독자 and 글 모호한 문장. Private writing diary/plan, book advertising, unrelated promotional engagement, and already answered target were not useful proactive first replies. Zero this task, ceiling not quota.",
       "next_content_decision": "Third original distinctly tests reader-first recipient/content/timing of a fictional offer, versus stopping criteria and revision meaning/rhythm. Max three originals reached; separate r3-t02 delayed follow-up at 13:00Z remains required.",
-      "roles": {"independent":"deleg_1c8ccfb1","cross_review":"deleg_7ee293f4","source":"parent completed read-only roles handoff; child did not duplicate"},
-      "guard": {"state":"completed","exit_code":0,"started_at":"2026-11-26T12:05:20.763037Z","finished_at":"2026-11-26T12:16:57.613976Z","lock_free_verified_at":"2026-11-26T12:17:15.686647Z","source":"parent SQLite read and read-only lslocks no holder; check time is not exact unlock time"},
-      "evidence_paths": ["INTENTS.yaml","intents/waiting/miniapp-image-tools-20261118-qa-01.md","reports/miniapp-image-tools-20261118-qa-01/20261126T1209Z-r3-t01.html"]
+      "roles": {
+        "independent": "deleg_1c8ccfb1",
+        "cross_review": "deleg_7ee293f4",
+        "source": "parent completed read-only roles handoff; child did not duplicate"
+      },
+      "guard": {
+        "state": "completed",
+        "exit_code": 0,
+        "started_at": "2026-11-26T12:05:20.763037Z",
+        "finished_at": "2026-11-26T12:16:57.613976Z",
+        "lock_free_verified_at": "2026-11-26T12:17:15.686647Z",
+        "source": "parent SQLite read and read-only lslocks no holder; check time is not exact unlock time"
+      },
+      "evidence_paths": [
+        "INTENTS.yaml",
+        "intents/waiting/miniapp-image-tools-20261118-qa-01.md",
+        "reports/miniapp-image-tools-20261118-qa-01/20261126T1209Z-r3-t01.html"
+      ]
     },
     {
       "label": "2026-11-26 r3-t02 three-original delayed insight and reply follow-up",
@@ -2698,9 +2911,37 @@
       "account": "_archivenoh",
       "account_evidence": "Ego Lite 0.6.3.17 authorized Profile 3 new taskSpace 1; own profile edit dialog displayed username _archivenoh; no public send and no settings changed",
       "posts": [
-        {"id":"DgMuNsRj08E","url":"https://www.threads.com/@_archivenoh/post/DgMuNsRj08E","published_at":"2026-11-26T08:54:01Z","views":17,"obs_attempted_at":"2026-11-26T13:04:04.533Z","observed_at":"2026-11-26T13:04:05.866Z","evidence":"https://www.threads.com/insights/post/DgMuNsRj08E"},
-        {"id":"DgM2pLlD23S","url":"https://www.threads.com/@_archivenoh/post/DgM2pLlD23S","published_at":"2026-11-26T10:07:40Z","views":24,"obs_attempted_at":"2026-11-26T13:04:05.908Z","observed_at":"2026-11-26T13:04:07.429Z","evidence":"https://www.threads.com/insights/post/DgM2pLlD23S"},
-        {"id":"DgNEc0yDw4K","url":"https://www.threads.com/@_archivenoh/post/DgNEc0yDw4K","published_at":"2026-11-26T12:08:19Z","views":35,"obs_attempted_at":"2026-11-26T13:04:07.466Z","observed_at":"2026-11-26T13:04:52.012Z","evidence":"https://www.threads.com/@_archivenoh/post/DgNEc0yDw4K","insight_views":34,"insight_observed_at":"2026-11-26T13:04:33.630Z","insight_source":"https://www.threads.com/insights/post/DgNEc0yDw4K","note":"Initial insight loading snapshot; loaded same page showed 34; later public original displayed 35 and is latest. No repeated refresh."}
+        {
+          "id": "DgMuNsRj08E",
+          "url": "https://www.threads.com/@_archivenoh/post/DgMuNsRj08E",
+          "published_at": "2026-11-26T08:54:01Z",
+          "views": 17,
+          "obs_attempted_at": "2026-11-26T13:04:04.533Z",
+          "observed_at": "2026-11-26T13:04:05.866Z",
+          "evidence": "https://www.threads.com/insights/post/DgMuNsRj08E"
+        },
+        {
+          "id": "DgM2pLlD23S",
+          "url": "https://www.threads.com/@_archivenoh/post/DgM2pLlD23S",
+          "published_at": "2026-11-26T10:07:40Z",
+          "views": 24,
+          "obs_attempted_at": "2026-11-26T13:04:05.908Z",
+          "observed_at": "2026-11-26T13:04:07.429Z",
+          "evidence": "https://www.threads.com/insights/post/DgM2pLlD23S"
+        },
+        {
+          "id": "DgNEc0yDw4K",
+          "url": "https://www.threads.com/@_archivenoh/post/DgNEc0yDw4K",
+          "published_at": "2026-11-26T12:08:19Z",
+          "views": 35,
+          "obs_attempted_at": "2026-11-26T13:04:07.466Z",
+          "observed_at": "2026-11-26T13:04:52.012Z",
+          "evidence": "https://www.threads.com/@_archivenoh/post/DgNEc0yDw4K",
+          "insight_views": 34,
+          "insight_observed_at": "2026-11-26T13:04:33.630Z",
+          "insight_source": "https://www.threads.com/insights/post/DgNEc0yDw4K",
+          "note": "Initial insight loading snapshot; loaded same page showed 34; later public original displayed 35 and is latest. No repeated refresh."
+        }
       ],
       "target_views": 1000,
       "latest_original_views_sum": 76,
@@ -2714,17 +2955,48 @@
       "conversations_continued": 4,
       "reply_records": [],
       "reply_decisions": [
-        {"target_url":"https://www.threads.com/@life.innovator/post/DgMwgDfn8yI","action":"no_reply","reason":"Prior agreement only, no new question or concrete proposal"},
-        {"target_url":"https://www.threads.com/@ruben.writer/post/DgL10ZZky_P","action":"no_reply","reason":"Previously recorded general opinion on yesterday original, no request"},
-        {"target_url":"https://www.threads.com/@text.mechanism/post/DgMLyuwk7p_","action":"no_reply","reason":"Previously recorded general opinion on yesterday original, no request"},
-        {"target_url":"https://www.threads.com/@moondal.1224/post/DgMx_S6nbnm","action":"no_proactive_reply","reason":"Already offers general reader-context advice; no concrete gap to add"}
+        {
+          "target_url": "https://www.threads.com/@life.innovator/post/DgMwgDfn8yI",
+          "action": "no_reply",
+          "reason": "Prior agreement only, no new question or concrete proposal"
+        },
+        {
+          "target_url": "https://www.threads.com/@ruben.writer/post/DgL10ZZky_P",
+          "action": "no_reply",
+          "reason": "Previously recorded general opinion on yesterday original, no request"
+        },
+        {
+          "target_url": "https://www.threads.com/@text.mechanism/post/DgMLyuwk7p_",
+          "action": "no_reply",
+          "reason": "Previously recorded general opinion on yesterday original, no request"
+        },
+        {
+          "target_url": "https://www.threads.com/@moondal.1224/post/DgMx_S6nbnm",
+          "action": "no_proactive_reply",
+          "reason": "Already offers general reader-context advice; no concrete gap to add"
+        }
       ],
       "inbound_handling": "Today first original still only prior life.innovator agreement, second and third have no replies. Activity and exact four earlier outbound response URLs DgMt8JAjwHW, DgMt_sSj3oU, DgMuDc9Dy2A, DgMyiwyj3lj plus proactive DgM3EckD21U showed no new counter-reply. Earlier inbound targets deduped; no duplicate/formality send.",
       "conversation_participation": "Read public 글쓰기 독자 search: talk_ong personal diary, moondal.1224 existing reader advice, smartbusiness_book book promotion. No substantive question or useful missing advice; proactive zero, not a quota.",
       "next_content_decision": "Daily three-original cap met; no fourth. 76/1000 displayed views is below goal, not unique customers or causal effect. Three product follow-up loops observed; SAM owns separate 23:00 KST final report, still pending. No next-day auto-resume.",
-      "roles": {"independent":"deleg_3f65099a","cross_review":"deleg_ba6d1a46","source":"parent completed read-only four-role handoff; child did not duplicate"},
-      "guard": {"state":"completed","exit_code":0,"started_at":"2026-11-26T13:02:14.174303Z","finished_at":"2026-11-26T13:15:17.800954Z","lock_free_verified_at":"2026-11-26T13:15:34.100227Z","source":"parent SQLite read and read-only lslocks no holder; check time is not exact unlock time"},
-      "evidence_paths": ["INTENTS.yaml","intents/waiting/miniapp-image-tools-20261118-qa-01.md","reports/miniapp-image-tools-20261118-qa-01/20261126T1306Z-r3-t02.html"]
+      "roles": {
+        "independent": "deleg_3f65099a",
+        "cross_review": "deleg_ba6d1a46",
+        "source": "parent completed read-only four-role handoff; child did not duplicate"
+      },
+      "guard": {
+        "state": "completed",
+        "exit_code": 0,
+        "started_at": "2026-11-26T13:02:14.174303Z",
+        "finished_at": "2026-11-26T13:15:17.800954Z",
+        "lock_free_verified_at": "2026-11-26T13:15:34.100227Z",
+        "source": "parent SQLite read and read-only lslocks no holder; check time is not exact unlock time"
+      },
+      "evidence_paths": [
+        "INTENTS.yaml",
+        "intents/waiting/miniapp-image-tools-20261118-qa-01.md",
+        "reports/miniapp-image-tools-20261118-qa-01/20261126T1306Z-r3-t02.html"
+      ]
     }
   ],
   "next_decision": {
@@ -3095,7 +3367,7 @@
       ]
     }
   ],
-  "trace_completeness_reason": "Original 2026-11-24T05:30:13Z execution did not capture its actual context-search/read receipt; historical task and delivery evidence remain recorded without reconstructing missing searches.",
+  "trace_completeness_reason": "Three windows/task guard evidence and latest metrics recorded. Final Slack native delivery receipt and readback remain pending.",
   "schema_repairs": [
     {
       "at": "2026-11-25T07:34:10Z",
