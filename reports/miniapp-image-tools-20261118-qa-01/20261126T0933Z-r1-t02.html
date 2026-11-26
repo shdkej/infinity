@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ko" data-infinity-report="rich-v1">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>r1-t02 · Threads 후속 관측</title>
+<style>
+:root{--bg:#f4f2ea;--panel:#fbfaf5;--ink:#2c2a25;--soft:#807c70;--line:#e3dfd2;--a1:#b08545;--a2:#5f7a5e}
+*{box-sizing:border-box}html,body{margin:0;max-width:100%;overflow-x:hidden}body{background:var(--bg);color:var(--ink);font:15px/1.7 -apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif}.sheet{width:min(100%,720px);margin:auto;padding:36px 20px 44px}.eyebrow,.label,.foot{font:11px/1.5 ui-monospace,monospace;letter-spacing:.1em;color:var(--soft)}h1{font-size:28px;line-height:1.3;margin:19px 0 8px}.dek{color:var(--soft);margin:0 0 28px}.axis{padding-left:20px;border-left:2px solid;margin:26px 0}.ax1{border-color:var(--a1)}.ax2{border-color:var(--a2)}.axis .label{margin-bottom:8px}.axis .text{font-size:18px}details{border:1px solid var(--line);background:var(--panel);border-radius:8px;margin:12px 0;overflow:hidden}summary{cursor:pointer;padding:15px 17px;font:12px ui-monospace,monospace;color:var(--soft)}.body{padding:0 17px 18px}a{color:#3f5740;overflow-wrap:anywhere}li{margin:8px 0}p{margin:10px 0}code{overflow-wrap:anywhere}.callout{border-left:2px solid var(--a2);background:#f2efe5;padding:11px 13px}.foot{border-top:1px solid var(--line);padding-top:16px;margin-top:30px}@media(max-width:390px){.sheet{padding:24px 14px 34px}h1{font-size:24px}.axis .text{font-size:16px}}
+@media (max-width:640px){.sheet{padding:28px 16px 36px}.axis{padding-left:16px}}
+</style></head>
+<body><main class="sheet">
+<div class="eyebrow">INFINITY · miniapp-20261126-r1-t02 · 제품 후속 완료 / guard 부모 확인 대기</div>
+<h1>첫 글을 다시 읽고 대화를 이어갔다</h1><p class="dek">2026-11-26 18:30–18:32 KST · Threads @_archivenoh · r1 후속</p>
+<section class="axis ax1"><div class="label">01 · 무엇을 점검했나</div><div class="text"><a href="https://www.threads.com/@_archivenoh/post/DgMuNsRj08E">오늘 새 원문</a>의 인사이트와 받은 답글, t01에 작성한 세 답글의 이어진 대화를 확인했다. 계정 전용 프로필 편집의 사용자 이름은 <b>_archivenoh</b>였다.</div></section>
+<section class="axis ax2"><div class="label">02 · 이상 여부·조치</div><div class="text">09:31:00.870Z <a href="https://www.threads.com/insights/post/DgMuNsRj08E">인사이트</a> 표시 조회 <b>12/1,000회</b>. 이번 후속에서 받은 2건 중 구체 의견 1건만 응답, 선제 답글 0건·새 원문 0건. 이전 0회와 더하지 않았다.</div></section>
+<details open><summary>핵심 내용 · 공개 증거</summary><div class="body"><h2>핵심 발견</h2><ol>
+<li>게시물 ID <code>DgMuNsRj08E</code>, 게시 <code>08:54:01Z</code>. 관측 시도 <code>09:30:55.818Z</code>, 로딩 완료·표시 조회수 12 확인 <code>09:31:00.870Z</code>. 어제 원문 282회와 답글 조회는 오늘 새 원문 합계에서 제외. 조회한 사람 11명도 조회수나 고객 수로 치환하지 않는다.</li>
+<li><a href="https://www.threads.com/@life.innovator/post/DgMwgDfn8yI">오늘 새 원문에 달린 동의</a>는 질문·구체 입력이 없어 응답 보류. <a href="https://www.threads.com/@kongbaguni/post/DgMuW8iEnrs">t01 답글에 이어진 구체 의견</a>에는 <a href="https://www.threads.com/@_archivenoh/post/DgMyiwyj3lj">답글 1건</a>을 남겼다. 고유 URL에서 _archivenoh 작성자·전체 본문·부모 연결·게시 시각 <code>09:31:51Z</code> 확인.</li>
+<li>관련 ‘퇴고’ 최근 검색과 <a href="https://www.threads.com/@cheerfulyoonkyeom/post/DgJ8oBVjzRE">관련 공개 대화</a>를 읽었지만 후자는 <a href="https://www.threads.com/@_archivenoh/post/DgKmf-lD9Nn">전날 이미 답한 대상</a>이라 중복 참여하지 않았다. 오늘 누적 받은 5건·응답 4건·선제 0건, 대화 연장 4갈래. 수량을 채우기 위한 반응은 하지 않았다.</li>
+</ol><h2>근거 · 소스</h2><p>위의 공개 원문·댓글·답글 URL 및 계정 전용 Threads 인사이트. 09:31Z 읽기와 09:31:51Z 발행은 서로 다른 시점이다.</p></div></details>
+<details open><summary>판단 · 다음 구간</summary><div class="body"><h2>다음 판단</h2><div class="callout">조회 목표와 운영 구간의 종료는 별도다. 부모 guard 확인과 19시 보고가 남아 있다.</div><p>첫 원문은 퇴고를 멈추는 기준을 다뤘다. r2의 예정 두 번째 원문은 시간을 두고 읽는 퇴고를 서로 다른 회차의 구체 예시로 검토하되 같은 주장을 되풀이하지 않는다. 조회 변화가 이번 답글 때문이라는 인과 주장은 하지 않는다. 19시 구간 보고는 SAM 담당 pending이며 r2 실행은 별도 ID다.</p><p>Ego Lite 0.6.3.17 Profile 3 taskSpace 129. 부모 인계에서 독립 4역할 <code>deleg_5d681a6f</code>, 교차 4역할 <code>deleg_e697d2d7</code> 완료를 전달받아 재위임하지 않았다. 같은 작업 ID의 정본은 INTENTS.yaml, 단일 trace, 상세 Markdown. 이 자식의 guard 종료·exit code·공용 lock free는 부모가 자식 종료 후 검증하며 현재 미확인이다.</p></div></details>
+<div class="foot">Agent-First Heartbeat · Infinity Intent Note</div>
+</main></body></html>

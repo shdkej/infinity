@@ -2573,11 +2573,37 @@
       "guard": {"state": "running_at_child_write", "exit_code": null, "finished_at": null, "lock_free_verified_at": null, "source": "parent to verify after child exit"},
       "followup": "r1-t02 2026-11-26T09:25:00Z separately scheduled; r1 report pending",
       "evidence_paths": ["INTENTS.yaml", "intents/waiting/miniapp-image-tools-20261118-qa-01.md", "reports/miniapp-image-tools-20261118-qa-01/20261126T0855Z-r1-t01.html"]
+    },
+    {
+      "label": "2026-11-26 r1-t02 fresh Threads insights and inbound continuation",
+      "type": "threads_followup_observation",
+      "at": "2026-11-26T09:31:00.870Z",
+      "task_id": "miniapp-20261126-r1-t02",
+      "status": "product_completed_guard_pending_parent",
+      "account": "_archivenoh",
+      "account_evidence": "Ego Lite 0.6.3.17 Profile 3 taskSpace 129, own profile edit dialog username _archivenoh",
+      "post": {"id": "DgMuNsRj08E", "url": "https://www.threads.com/@_archivenoh/post/DgMuNsRj08E", "published_at": "2026-11-26T08:54:01Z", "views": 12, "obs_attempted_at": "2026-11-26T09:30:55.818Z", "observed_at": "2026-11-26T09:31:00.870Z", "source": "https://www.threads.com/insights/post/DgMuNsRj08E"},
+      "target_views": 1000,
+      "latest_original_views_sum": 12,
+      "previous_snapshot": {"views": 0, "observed_at": "2026-11-26T08:54Z", "excluded_from_sum": true},
+      "inbound_replies_observed_this_task": 2,
+      "inbound_responses_sent_this_task": 1,
+      "proactive_replies_sent_this_task": 0,
+      "daily_inbound_observed": 5,
+      "daily_inbound_responses_sent": 4,
+      "daily_proactive_replies_sent": 0,
+      "inbound_handling": "life.innovator's new agreement on today's original has no question or concrete proposal; no forced reply. kongbaguni's concrete follow-up to t01 response received one answer.",
+      "reply": {"target_url": "https://www.threads.com/@kongbaguni/post/DgMuW8iEnrs", "url": "https://www.threads.com/@_archivenoh/post/DgMyiwyj3lj", "published_at": "2026-11-26T09:31:51Z", "text": "시간을 두고 다시 읽는 것도 퇴고의 한 회차로 빼두면 좋겠네요. 그때 어색한 곳을 먼저 표시하고, 다음 회차에 뜻이 흐린 문장부터 고치면 멈출 지점도 분명해질 것 같아요.", "verification": "unique public URL readback author, text, time[datetime], parent chain and target"},
+      "conversation_participation": "Read all three t01 response branches and a related recent search; pre-existing cheerfulyoonkyeom reply avoided, no new proactive reply or original.",
+      "next_content_decision": "At r2, consider a new concrete example about spaced revision instead of repeating the first original's stopping criterion; no r2 execution in this task.",
+      "roles": {"independent": "deleg_5d681a6f", "cross_review": "deleg_e697d2d7", "source": "parent handoff reported; no duplicate child delegation in this narrow follow-up"},
+      "guard": {"state": "pending_parent_after_child_exit", "exit_code": null, "finished_at": null, "lock_free_verified_at": null, "source": "parent reads private SQLite and lock after child exit"},
+      "evidence_paths": ["INTENTS.yaml", "intents/waiting/miniapp-image-tools-20261118-qa-01.md", "reports/miniapp-image-tools-20261118-qa-01/20261126T0933Z-r1-t02.html"]
     }
   ],
   "next_decision": {
     "status": "in_progress",
-    "value": "Collect actual r1 result and guard exit;18:25 follow-up,19/21 next windows and23 fixed closeout."
+    "value": "r1-t02 public follow-up observed and replied; parent guard exit/lock receipt and 19:00 window report pending; r2 starts at10:00Z, 23:00 KST fixed closeout."
   },
   "handoff_attempts": [
     {
