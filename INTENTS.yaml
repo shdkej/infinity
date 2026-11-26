@@ -202,19 +202,19 @@ lanes:
     prior_20261125_r3_t01_result: 13:04Z 조회 214, 외부 답글 3건, 관련 답글 1건, 새 원문 없음.
     prior_20261125_r3_t01_guard_finished_at: '2026-11-25T13:19:32.248398+00:00'
     prior_20261125_r3_t01_lock_released_verified_at: '2026-11-25T13:19:49.582405+00:00'
-    current_task_status: handoff_sent
+    current_task_status: completed
     current_task_id: miniapp-20261126-r2-t02
     current_task_goal: '오늘 새 원문 전체의 현재 조회·답글을 한 번 재관측하고 미응답 질문/구체 의견에 응답한다. 작성한 답글에 상대의 새 답변이 있는지 확인하며 관련 대화에 유용한 기여가 있으면 참여한다. 게시물별 시각/조회, 받은·응답한·선제 답글, 이어진 대화, 다음 원문 판단을 기록한다. 이 구간 관측·응답·다음 선택을 닫고 종료 15분 전 부모 종료 영수증까지 회수한다.'
     current_task_start_at: '2026-11-26T11:00:00Z'
     current_task_end_at: '2026-11-26T12:00:00Z'
-    current_task_result: null
+    current_task_result: 'r2-t02 Ego Lite Profile 3 taskSpace 157: 계정 전용 프로필 편집에서 _archivenoh 확인. 두 원문 인사이트 11:07:02Z 17회와 11:07:14Z 24회, 최신 합계 41/1,000. 두 새 원문에 새 답글 0; 기존 자기 답글 다섯 갈래에 새 후속 없음. 활동에서 어제 원문의 ruben.writer·text.mechanism 예전 댓글 두 건을 이전 5건 집계 누락으로 발견해 받은 누적 7건으로 정정(이번 새 도착 아님). 질문/새 구체 제안 없어 응답·선제 답글·원문 신규 0. r3 별도 ID에서 독자 관점 후보 검토. 이 child의 guard 종료/잠금은 부모 확인 대기.'
     current_task_handoff_attempt_at: '2026-11-26T11:00:43Z'
     current_task_handoff_at: '2026-11-26T11:00:43Z'
     current_task_handoff_status: sent
     current_task_handoff_message_id: '1795690843.193359'
     current_task_handoff_queue_id: 'convq_ae2b46e91f50a405ce12dbc8e7af75c1'
     current_task_handoff_receipt: 'sent 1795690843.193359; queue convq_ae2b46e91f50a405ce12dbc8e7af75c1'
-    current_task_guard_status: not_started
+    current_task_guard_status: pending_parent_after_child_exit
     current_task_guard_exit_code: null
     current_task_guard_finished_at: null
     current_task_lock_released_verified_at: null
@@ -223,7 +223,7 @@ lanes:
     current_task_status_check_task_id: 'miniapp-20261126-r2-t02'
     current_task_status_check_message_id: '1795691547.271799'
     current_task_status_check_queue_id: 'convq_14e5b763bef4c6f81d61cf80765515f2'
-    current_task_followup: 'Status-only request sent 2026-11-26T11:12:27Z; message 1795691547.271799, queue convq_14e5b763bef4c6f81d61cf80765515f2. Guard/result/lock receipt still unconfirmed; no redispatch.'
+    current_task_followup: 'Status-only request sent 2026-11-26T11:12:27Z; message 1795691547.271799, queue convq_14e5b763bef4c6f81d61cf80765515f2. 당시 guard/result/lock 미확인. 이후 r2-t02 제품 관측 완료; 부모 guard/잠금 영수증 및 SAM 21시 구간 보고 대기. 재인계 없음.'
     current_task_completion_criteria: '정확한 _archivenoh 계정·실제 대화 읽기·당일 게시/답글 상한 준수·URL/시각/관측값 또는 실패 원인 기록. 받은 답글과 보낸 답글을 구분하고 같은 대상 중복 응답 금지. 자신의 실행 결과를 같은 tasks[].id에 기록하며 부모가 실제 guard 종료/exit code/잠금 확인을 병합한다. status는 completed 등 표준값, 상세 설명은 result_summary. 고정 기한 연장·다음 ID 발급·다음 날 재개 금지.'
     prior_r3_t03_status: aggregate_verified_guard_completed
     prior_r3_t03_result_summary: US project 424014 bounded HogQL HTTP 200, 8 grouped rows; five event x synthetic/user counts
@@ -363,36 +363,36 @@ lanes:
         metrics:
           target: 1000
           unit: threads_post_views
-          observed_at: '2026-11-26T10:08:06.972Z'
-          obs_attempted_at: '2026-11-26T10:08:06.972Z'
+          observed_at: '2026-11-26T11:07:14.930Z'
+          obs_attempted_at: '2026-11-26T11:07:07.615Z'
           posts:
           - id: DgMuNsRj08E
             url: https://www.threads.com/@_archivenoh/post/DgMuNsRj08E
             published_at: '2026-11-26T08:54:01Z'
-            views: 15
-            obs_attempted_at: '2026-11-26T10:06:18.624Z'
-            observed_at: '2026-11-26T10:06:18.624Z'
+            views: 17
+            obs_attempted_at: '2026-11-26T11:07:02.032Z'
+            observed_at: '2026-11-26T11:07:02.032Z'
             evidence: https://www.threads.com/insights/post/DgMuNsRj08E
           - id: DgM2pLlD23S
             url: https://www.threads.com/@_archivenoh/post/DgM2pLlD23S
             published_at: '2026-11-26T10:07:40Z'
-            views: 0
-            obs_attempted_at: '2026-11-26T10:08:06.972Z'
-            observed_at: '2026-11-26T10:08:06.972Z'
+            views: 24
+            obs_attempted_at: '2026-11-26T11:07:07.615Z'
+            observed_at: '2026-11-26T11:07:14.930Z'
             evidence: https://www.threads.com/insights/post/DgM2pLlD23S
-          total_views: 15
-          inbound_replies_observed: 5
+          total_views: 41
+          inbound_replies_observed: 7
           inbound_responses_sent: 4
           proactive_replies_sent: 1
           conversations_continued: 4
           follows_delta: null
-          status: initial_observed_followup_pending
+          status: followup_observed
         loop_completion:
-          followup_observed_at: null
-          inbound_handling_summary: '10:06Z 공개 첫 원문·활동에서 새 질문/구체 의견 없음. 기존 life.innovator 동의는 가치 없는 반복 응답을 피하여 보류. 기존 받은 5건·응답 4건 유지.'
-          conversation_participation_summary: '관련 퇴고/초고/글쓰기 및 문장 교정 검색의 여러 공개 대화를 읽었다. _.pearl_shine의 오타검수·문장 교정 고민에 구체적인 요청 방식과 본인 검토 기준으로 선제 답글 1건을 작성·공개 URL에서 확인. 기응답 대상 중복 없음.'
-          next_content_decision: '두 번째 원문은 가상의 안내문으로 첫 회차 사실 확인·시간을 둔 두 번째 회차 읽기 리듬을 구별했다. r2-t02 11:00Z 이후 두 글 반응과 이어진 대화를 별도 관측하고 r3 새 소재 유무 판단; 현재 조회 15는 효과/고객 수 증거가 아니다.'
-          status: pending
+          followup_observed_at: '2026-11-26T11:07:14.930Z'
+          inbound_handling_summary: '둘째 원문 답글 0, 첫 원문은 기존 life.innovator 동의 외 새 답글 0. 기존 네 응답 및 선제 답글 DgM3EckD21U에 새 후속 없음. 어제 원문에 일찍 달렸으나 앞선 집계에서 누락된 ruben.writer DgL10ZZky_P·text.mechanism DgMLyuwk7p_ 두 건을 활동/고유 URL로 확인, 누적 받은 5→7로 정정; 새 도착/이번 구간의 새 질문 아님. 일반 의견이라 형식적 응답 보류; 누적 응답 4 유지.'
+          conversation_participation_summary: '기존 네 응답 갈래와 _.pearl_shine 선제 답글 후속 확인(새 답변 없음). 퇴고·글쓰기 고민 최근 공개 글 여러 건 읽음: 기존 기응답 대화, 판매 글, 개인 집필 계획 및 교육 홍보는 맥락상 선제 답글 효용이 없어 0건; 이번 원문 0건.'
+          next_content_decision: 'r3-t01(21:00 KST) 별도 작업에서 독자가 처음 읽을 때 무엇이 모호한지 묻는 방식이나 초고 완주 후 독자 관점 확인을 새 후보로 검토. 첫 글 중단 기준/둘째 뜻·리듬 회차와 겹치지 않는 명시적 예시·효용이 있을 때만 세 번째 원문; 지금 미리 게시하지 않음. 41회 조회는 고유 고객/답글 효과 아님.'
+          status: completed
       - id: r3
         start_at: '2026-11-26T12:00:00Z'
         end_at: '2026-11-26T14:00:00Z'
@@ -609,18 +609,37 @@ lanes:
         wrap_up_by: '2026-11-26T11:45:00Z'
         execution_target_minutes: 35
         max_execution_minutes: 45
-        status: handoff_sent
+        status: completed
         handoff_status: sent
         handoff_message_id: '1795690843.193359'
         handoff_queue_id: convq_ae2b46e91f50a405ce12dbc8e7af75c1
         handoff_attempt_at: '2026-11-26T11:00:43Z'
         handoff_at: '2026-11-26T11:00:43Z'
-        result_summary: null
+        result_summary: 'Ego Lite Profile 3 taskSpace 157: 계정 전용 프로필 편집의 _archivenoh 확인. 11:07:02Z 첫 원문 인사이트 17회, 11:07:14Z 둘째 24회, 최신 합계 41/1,000. 두 새 원문 새 답글 0; 기존 응답 네 갈래·선제 답글 DgM3EckD21U에 새 후속 없음. 활동에서 어제 원문에 일찍 도착해 이전 집계가 누락한 두 일반 댓글을 고유 URL로 확인하여 받은 누적 7건으로 정정(이번 신규 도착 아님). 질문/구체 새 제안 없어 응답 0·선제 0·원문 0. 관련 공개 대화 읽고 형식 답글 보류; r3 후보만 기록. 이 child의 guard 종료와 lock은 부모 확인 대기.'
         changes: []
         release_runs: []
         reply_records: []
+        post_observations:
+        - id: DgMuNsRj08E
+          url: https://www.threads.com/@_archivenoh/post/DgMuNsRj08E
+          views: 17
+          obs_attempted_at: '2026-11-26T11:07:02.032Z'
+          observed_at: '2026-11-26T11:07:02.032Z'
+          source: https://www.threads.com/insights/post/DgMuNsRj08E
+        - id: DgM2pLlD23S
+          url: https://www.threads.com/@_archivenoh/post/DgM2pLlD23S
+          views: 24
+          obs_attempted_at: '2026-11-26T11:07:07.615Z'
+          observed_at: '2026-11-26T11:07:14.930Z'
+          source: https://www.threads.com/insights/post/DgM2pLlD23S
+        followup_observed_at: '2026-11-26T11:07:14.930Z'
+        inbound_handling_summary: 두 새 원문에 새 답글 없음. 이전 집계에서 놓친 어제 글의 ruben.writer·text.mechanism 일반 댓글 두 건을 활동/고유 URL로 발견해 누적 받은 7건으로 정정. 새 질문/구체 제안 없어 응답 0건; 기존 누적 응답 4건.
+        conversation_participation_summary: 기존 자기 답글 다섯 갈래와 최근 관련 공개 퇴고·글쓰기 대화 읽음; 새 후속 없고 판매/사적 일지/중복 맥락엔 선제 답글 보류. 이번 0건, 누적 선제 1건.
+        next_content_decision: r3 별도 ID에서 독자 관점의 첫 읽기/모호성 확인 후보를 두 원문의 퇴고 중단·회차별 리듬과 비교 후 유용한 예시가 있을 때만 게시. 현재는 원문 게시 없음.
+        result_report: reports/miniapp-image-tools-20261118-qa-01/20261126T1109Z-r2-t02.html
+        product_evidence_at: '2026-11-26T11:07:14.930Z'
         guard:
-          state: not_started
+          state: pending_parent_after_child_exit
           exit_code: null
           finished_at: null
           lock_free_verified_at: null
@@ -696,23 +715,25 @@ lanes:
       metrics:
         target: 1000
         unit: threads_post_views
-        observed_at: '2026-11-26T10:08:06.972Z'
-        obs_attempted_at: '2026-11-26T10:08:06.972Z'
+        observed_at: '2026-11-26T11:07:14.930Z'
+        obs_attempted_at: '2026-11-26T11:07:07.615Z'
         posts:
         - id: DgMuNsRj08E
           url: https://www.threads.com/@_archivenoh/post/DgMuNsRj08E
           published_at: '2026-11-26T08:54:01Z'
-          views: 15
-          observed_at: '2026-11-26T10:06:18.624Z'
+          views: 17
+          obs_attempted_at: '2026-11-26T11:07:02.032Z'
+          observed_at: '2026-11-26T11:07:02.032Z'
           evidence: https://www.threads.com/insights/post/DgMuNsRj08E
         - id: DgM2pLlD23S
           url: https://www.threads.com/@_archivenoh/post/DgM2pLlD23S
           published_at: '2026-11-26T10:07:40Z'
-          views: 0
-          observed_at: '2026-11-26T10:08:06.972Z'
+          views: 24
+          obs_attempted_at: '2026-11-26T11:07:07.615Z'
+          observed_at: '2026-11-26T11:07:14.930Z'
           evidence: https://www.threads.com/insights/post/DgM2pLlD23S
-        total_views: 15
-        inbound_replies_observed: 5
+        total_views: 41
+        inbound_replies_observed: 7
         inbound_responses_sent: 4
         proactive_replies_sent: 1
         conversations_continued: 4

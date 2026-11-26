@@ -2623,11 +2623,45 @@
       "guard": {"state": "completed", "exit_code": 0, "started_at": "2026-11-26T10:04:48.389659Z", "finished_at": "2026-11-26T10:19:04.076441Z", "lock_free_verified_at": "2026-11-26T10:51:43.323472Z", "source": "parent SQLite read and read-only lslocks no holder; observation is not exact unlock time"},
       "followup": "r2-t02 separately scheduled at 2026-11-26T11:00:00Z; r2 window report pending for SAM; do not run next task here",
       "evidence_paths": ["INTENTS.yaml", "intents/waiting/miniapp-image-tools-20261118-qa-01.md", "reports/miniapp-image-tools-20261118-qa-01/20261126T1012Z-r2-t01.html"]
+    },
+    {
+      "label": "2026-11-26 r2-t02 fresh two-original insight observation and inbound correction",
+      "type": "threads_followup_observation",
+      "at": "2026-11-26T11:07:14.930Z",
+      "task_id": "miniapp-20261126-r2-t02",
+      "status": "product_completed_guard_pending_parent",
+      "account": "_archivenoh",
+      "account_evidence": "Ego Lite 0.6.3.17 Profile 3 taskSpace 157 own profile edit dialog username _archivenoh; space finished",
+      "posts": [
+        {"id":"DgMuNsRj08E","url":"https://www.threads.com/@_archivenoh/post/DgMuNsRj08E","published_at":"2026-11-26T08:54:01Z","views":17,"obs_attempted_at":"2026-11-26T11:07:02.032Z","observed_at":"2026-11-26T11:07:02.032Z","evidence":"https://www.threads.com/insights/post/DgMuNsRj08E","note":"first navigation start unlogged; selector ambiguity then same loaded page snapshot, no refresh"},
+        {"id":"DgM2pLlD23S","url":"https://www.threads.com/@_archivenoh/post/DgM2pLlD23S","published_at":"2026-11-26T10:07:40Z","views":24,"obs_attempted_at":"2026-11-26T11:07:07.615Z","observed_at":"2026-11-26T11:07:14.930Z","evidence":"https://www.threads.com/insights/post/DgM2pLlD23S"}
+      ],
+      "target_views": 1000,
+      "latest_original_views_sum": 41,
+      "previous_snapshots_excluded": ["DgMuNsRj08E 15 at 10:06:18Z", "DgM2pLlD23S 0 at 10:08:06Z", "yesterday original 288 at 11:07:52Z"],
+      "inbound_replies_observed_this_task_new_arrivals": 0,
+      "inbound_responses_sent_this_task": 0,
+      "proactive_replies_sent_this_task": 0,
+      "daily_inbound_observed_corrected": 7,
+      "daily_inbound_responses_sent": 4,
+      "daily_proactive_replies_sent": 1,
+      "conversations_continued": 4,
+      "previously_missed_inbound": [
+        {"url":"https://www.threads.com/@ruben.writer/post/DgL10ZZky_P","parent":"https://www.threads.com/@_archivenoh/post/DgKEVWij6oq","text":"저는 일단 끝까지 쓴 다음에 고치는 편이에요 ㅋㅍ","activity_relative_time":"10 hours before 11:07Z"},
+        {"url":"https://www.threads.com/@text.mechanism/post/DgMLyuwk7p_","parent":"https://www.threads.com/@_archivenoh/post/DgKEVWij6oq","text":"막 쓸라면 다듬어 봐야 합니다.","activity_relative_time":"7 hours before 11:07Z"}
+      ],
+      "inbound_handling": "Two current originals had no new replies beyond earlier agreement; four existing inbound-response branches and proactive DgM3EckD21U had no follow-up. Two missed old-original comments were earlier arrivals rather than this-slot arrivals; general opinions without a new question or concrete proposal, no forced response. Prior task snapshots remain historical.",
+      "conversation_participation": "Read recent 퇴고 and 글쓰기 고민 public conversations including cheerfulyoonkyeom, 0_0jengjeng, ajaeyjw, producer_eun and hyojin_writer; already replied, selling, private diary/plans and promotion were not useful first-reply targets.",
+      "next_content_decision": "Only separate r3-t01 at 12:00Z may test a reader-first ambiguity/first-read example against the prior stopping criterion and meaning/rhythm sequence; no third original in this task.",
+      "roles": {"independent":"deleg_49588696","cross_review":"deleg_cac5e22e","source":"parent completion handoff; no duplicate delegation"},
+      "guard": {"state":"pending_parent_after_child_exit","exit_code":null,"finished_at":null,"lock_free_verified_at":null,"source":"parent to read private SQLite and lock after child exits"},
+      "followup": "SAM 21:00 KST r2 report pending; next r3 ID not started or posted",
+      "evidence_paths": ["INTENTS.yaml", "intents/waiting/miniapp-image-tools-20261118-qa-01.md", "reports/miniapp-image-tools-20261118-qa-01/20261126T1109Z-r2-t02.html"]
     }
   ],
   "next_decision": {
     "status": "in_progress",
-    "value": "r2-t01 second original and one proactive reply publicly verified, two mixed-time insight snapshots total 15/1000; parent guard completed/exit 0 and lock-free observed. r2-t02 at 11:00Z and r2 window report pending; 23:00 KST fixed closeout."
+    "value": "r2-t02 fresh 11:07Z insights 17+24=41/1000, two previously missed old-original inbound comments corrected daily observed 5 to 7 without retroactive task changes; no new public sends. Parent guard/lock receipt and SAM r2 21:00 KST report pending; r3 starts only at its separate 12:00Z ID. Fixed 23:00 KST closeout."
   },
   "handoff_attempts": [
     {
