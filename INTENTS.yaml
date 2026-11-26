@@ -314,8 +314,8 @@ lanes:
           문장에서 새로운 관점의 원문 1개를 게시하고 첫 관측과 18:25 후속을 준비한다.
         task_sequence: 2
         planned_tasks_only: true
-        report_status: pending
-        report_message_id: null
+        report_status: sent
+        report_message_id: '1795687244.016809'
         exhausted: false
         observation_due_at: '2026-11-26T09:25:00Z'
         metrics:

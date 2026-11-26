@@ -12,7 +12,7 @@
 
 ### 19시 보고와 r2 인계 — 2026-11-26
 
-19시 보고 발송은 stable operationId `miniapp-20261126-2h:report:r1`로 receipt `1795687244.016809` / queue `convq_f713beb7744ee028e6835d9e8a36114d`를 받았다. 그러나 원문 스레드에서 같은 시각의 확인 가능한 본문은 요청한 8줄 보고와 달랐고, ID·본문 일치 검증이 되지 않아 원장 `report_status`는 pending으로 유지한다. 같은 operationId 조회에서도 receipt는 동일했다. 재발송하지 않는다.
+19시 보고는 stable operationId `miniapp-20261126-2h:report:r1`의 receipt `1795687244.016809` / queue `convq_f713beb7744ee028e6835d9e8a36114d`를 원문 스레드에서 확인했다. 해당 메시지의 실제 본문·스레드·시각을 읽어 요구된 요약·대화별 수치·판단·다음 행동·상세 링크가 있음을 확인했으므로 원장 `report_status=sent`, `report_message_id=1795687244.016809`로 반영한다. 뒤이은 재전달은 다른 본문을 같은 operationId에 사용해 `INVALID_REQUEST: Conversation delivery operation was reused with different input`으로 거부됐다. 이미 보낸 보고는 수정·중복 전송하지 않았다.
 
 r2 t01 `miniapp-20261126-r2-t01`은 19:01:46.543 KST `sent` receipt `1795687306.543309` / queue `convq_0707ce94a656ac88a5d09c69c99e6c9a`로 한 번 인계했다. 원격 원장에 같은 task ID 영수증과 current_task mirror를 기록했다. 실행/guard 시작과 완료, 잠금 상태는 아직 미확인이다. 21:00 KST 종료·19:45 정리 마감은 그대로다.
 
