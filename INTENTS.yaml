@@ -438,7 +438,9 @@ lanes:
           lock_free_verified_at: null
           task_id: miniapp-20261126-r1-t01
           started_at: '2026-11-26T08:49:05Z'
-        status_check_at: null
+        status_check_at: '2026-11-26T09:15:50Z'
+        status_check_message_id: '1795684547.104539'
+        status_check_queue_id: convq_1f0b14066f6a3bd76cc41b80a9aae30a
         receipt_checked_at: '2026-11-26T08:51:15.567355+00:00'
         result_report: reports/miniapp-image-tools-20261118-qa-01/20261126T0855Z-r1-t01.html
         product_evidence_at: '2026-11-26T08:54Z'
