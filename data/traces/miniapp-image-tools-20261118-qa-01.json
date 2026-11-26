@@ -2663,7 +2663,7 @@
       "type": "threads_public_post",
       "at": "2026-11-26T12:08:39.386Z",
       "task_id": "miniapp-20261126-r3-t01",
-      "status": "product_evidence_recorded_guard_pending_parent",
+      "status": "completed_guard_verified",
       "account": "_archivenoh",
       "account_evidence": "Ego Lite 0.6.3.17 Profile 3 separate taskSpace 158; own profile edit username and original composer author _archivenoh before one submit; space finished",
       "posts": [
@@ -2686,7 +2686,7 @@
       "conversation_participation": "Sampled public searches 글쓰기 독자 and 글 모호한 문장. Private writing diary/plan, book advertising, unrelated promotional engagement, and already answered target were not useful proactive first replies. Zero this task, ceiling not quota.",
       "next_content_decision": "Third original distinctly tests reader-first recipient/content/timing of a fictional offer, versus stopping criteria and revision meaning/rhythm. Max three originals reached; separate r3-t02 delayed follow-up at 13:00Z remains required.",
       "roles": {"independent":"deleg_1c8ccfb1","cross_review":"deleg_7ee293f4","source":"parent completed read-only roles handoff; child did not duplicate"},
-      "guard": {"state":"pending_parent_exit_check","exit_code":null,"finished_at":null,"lock_free_verified_at":null},
+      "guard": {"state":"completed","exit_code":0,"started_at":"2026-11-26T12:05:20.763037Z","finished_at":"2026-11-26T12:16:57.613976Z","lock_free_verified_at":"2026-11-26T12:17:15.686647Z","source":"parent SQLite read and read-only lslocks no holder; check time is not exact unlock time"},
       "evidence_paths": ["INTENTS.yaml","intents/waiting/miniapp-image-tools-20261118-qa-01.md","reports/miniapp-image-tools-20261118-qa-01/20261126T1209Z-r3-t01.html"]
     }
   ],
