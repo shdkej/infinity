@@ -4,7 +4,7 @@
 
 ### 17시 인계 누락 복구
 
-복구 검증: 수정한 실제 감독을 실행한 뒤 **17:43:54 KST 인계 발송**을 원문 본문까지 확인했다([인계 메시지](https://shdkej.slack.com/archives/C0CE0DV9MM2/p1795682634664439), queue `convq_05e2513b076fd876cdd2b7a88f708f88`). 원장은 같은 ID의 sent 영수증을 반영했다. 실제 Windows guard 시작·콘텐츠 결과는 아직 확인 중이다.
+복구 검증: 수정한 실제 감독을 실행한 뒤 **17:43:54 KST 인계 발송**을 원문 본문까지 확인했다([인계 메시지](https://shdkej.slack.com/archives/C0CE0DV9MM2/p1795682634664439), queue `convq_05e2513b076fd876cdd2b7a88f708f88`). 원장은 같은 ID의 sent 영수증을 반영했다. Windows는 첫 경로 검증 실패 뒤 같은 ID로 경로를 수정했으며, **17:49:05 KST 실제 guard 시작·running·잠금 보유**를 [실행 영수증](https://shdkej.slack.com/archives/C0CE0DV9MM2/p1795682961386169)으로 확인했다. 게시·응답 결과와 종료는 아직 미확인이다.
 
 17:39 원격 원장·원문 조회에서 r1-t01은 미발송 prepared, Windows 실행 없음이었다. 감독은 operationId를 받지 않는 에이전트 도구를 이유로 반복 중단했고, native Gateway CLI 경로를 사용하지 않았다. 이후 17:25 시작 여유 제한도 넘겼다. 예약 정상 상태는 업무 실행을 의미하지 않았다.
 

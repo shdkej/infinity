@@ -1598,6 +1598,30 @@
         "logs/OPERATING_LESSONS.md"
       ],
       "note": "17:39 all tasks still prepared: model conversations_send schema lacks operationId, so supervisor repeatedly withheld sends. Corrected existing supervisor/closeout to native Gateway CLI. Actual repaired supervisor sent r1-t01 at08:43:54.664439Z, message1795682634.664439, queue convq_05e2513b076fd876cdd2b7a88f708f88; body read back and receipt persisted. SameID clarification1795682697.135579 corrected PRD URL and actual max35. r1 wrap18:20/followup18:25–18:50;19/21/23 end unchanged. Windows actual start remains unconfirmed at this record."
+    },
+    {
+      "type": "execution",
+      "at": "2026-11-26T08:52:07Z",
+      "context_pack": "/home/ubuntu/workspace/knowledge-lab/reports/context-packs/2026-11-18-agent-daily-operations.json",
+      "evidence_paths": [
+        "intents/waiting/miniapp-image-tools-20261118-qa-01.md"
+      ],
+      "searches": [
+        "Read original-thread Windows sender U0CHX8QA7S8 same-ID receipt1795682961.386169; exact guard start confirmed. Reused existing context; no new knowledge search."
+      ],
+      "wiki_pages": [
+        "agent-wiki/content/docs/outputs/Integration/Work.mdx",
+        "agent-wiki/content/docs/outputs/Idea/Journal.mdx",
+        "agent-wiki/content/docs/outputs/Communication/Open_Source.mdx",
+        "agent-wiki/content/docs/outputs/blog/Life_Tracking.mdx",
+        "agent-wiki/content/docs/outputs/Human/Standard.mdx"
+      ],
+      "operational_log_sections": [
+        "logs/agent-wiki-query.md",
+        "logs/EVALUATION_RECAP.md",
+        "logs/OPERATING_LESSONS.md"
+      ],
+      "note": "Windows reported router cwd validation failed before guard creation, corrected checkout and started SAME r1-t01 at2026-11-26T08:49:05Z. running and shared lock held confirmed. Persisted actual start and receipt, preserved unknown finish/exit/lock-free and all prior history. Both native schedules enabled; repair verified to actual execution start, not content/goal completion."
     }
   ],
   "artifacts": [
@@ -2516,7 +2540,7 @@
   ],
   "next_decision": {
     "status": "in_progress",
-    "value": "Verify Windows actual guard start/result, then18:25 followup;19/21 next cycles and23 closeout. No duplicate first handoff."
+    "value": "Collect actual r1 result and guard exit;18:25 follow-up,19/21 next windows and23 fixed closeout."
   },
   "handoff_attempts": [
     {

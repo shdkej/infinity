@@ -203,7 +203,7 @@ lanes:
     prior_20261125_r3_t01_result: 13:04Z 조회 214, 외부 답글 3건, 관련 답글 1건, 새 원문 없음.
     prior_20261125_r3_t01_guard_finished_at: '2026-11-25T13:19:32.248398+00:00'
     prior_20261125_r3_t01_lock_released_verified_at: '2026-11-25T13:19:49.582405+00:00'
-    current_task_status: handoff_sent
+    current_task_status: running
     current_task_id: miniapp-20261126-r1-t01
     current_task_goal: 어제 원문 DgKEVWij6oq와 답글 DgKmf-lD9Nn의 현재 반응을 확인한다. 받은 답글 3건의 실제 내용을 읽고 미응답 질문·구체 의견에 응답한다. 실제 대화/기존 공개 글/예시라고 명시한 문장에서 새로운
       관점의 원문 1개를 게시하고 첫 관측과 18:25 후속을 준비한다.
@@ -211,7 +211,7 @@ lanes:
     current_task_end_at: '2026-11-26T10:00:00Z'
     current_task_result: null
     current_task_handoff_attempt_at: '2026-11-26T08:43:54Z'
-    current_task_guard_status: not_started
+    current_task_guard_status: running
     current_task_guard_exit_code: null
     current_task_guard_finished_at: null
     current_task_lock_released_verified_at: null
@@ -401,7 +401,7 @@ lanes:
         wrap_up_by: '2026-11-26T09:20:00Z'
         execution_target_minutes: 25
         max_execution_minutes: 35
-        status: handoff_sent
+        status: running
         handoff_status: sent
         handoff_message_id: '1795682634.664439'
         handoff_queue_id: convq_05e2513b076fd876cdd2b7a88f708f88
@@ -411,16 +411,21 @@ lanes:
         release_runs: []
         reply_records: []
         guard:
-          state: not_started
+          state: running
           exit_code: null
           finished_at: null
           lock_free_verified_at: null
+          task_id: miniapp-20261126-r1-t01
+          started_at: '2026-11-26T08:49:05Z'
         status_check_at: null
-        receipt_checked_at: null
+        receipt_checked_at: '2026-11-26T08:51:15.567355+00:00'
         completion_criteria: 정확한 _archivenoh 계정·실제 대화 읽기·당일 게시/답글 상한 준수·URL/시각/관측값 또는 실패 원인 기록. 받은 답글과 보낸 답글을 구분하고 같은 대상 중복 응답 금지. 자신의 실행 결과를
           같은 tasks[].id에 기록하며 부모가 실제 guard 종료/exit code/잠금 확인을 병합한다. status는 completed 등 표준값, 상세 설명은 result_summary. 고정 기한 연장·다음 ID 발급·다음 날 재개
           금지.
         handoff_at: '2026-11-26T08:43:54.664439Z'
+        actual_started_at: '2026-11-26T08:49:05Z'
+        receipt_evidence_url: https://shdkej.slack.com/archives/C0CE0DV9MM2/p1795682961386169
+        execution_receipt_message_id: '1795682961.386169'
       - id: miniapp-20261126-r1-t02
         window_id: r1
         kind: observation
@@ -626,10 +631,14 @@ lanes:
           CLI path. No handoff sent; cutoff later blocked retry.
         first_window_adjustment: Reuse r1-t01 now; wrap by18:20. r1-t02 starts18:25 and wraps18:50. Fixed19/21/23 window ends unchanged. No duplicate
           handoff or new ID.
-        status: recovering
+        status: execution_started_verified
         transport_verified_at: '2026-11-26T08:43:54.664439Z'
         transport_verified_by: Native supervisor cron-request.dd002a45-692f-46cf-bac3-c262c875b95a sent original-thread handoff; actual Slack
           body read back.
+        execution_started_at: '2026-11-26T08:49:05Z'
+        execution_receipt_message_id: '1795682961.386169'
+        additional_observation: Windows first route rejected cwd before guard start; corrected checkout and began same ID. Lock held; no finished/exit/lock-free
+          claim.
     next_action: r1-t01 실제 실행·종료 영수증 확인 후18:25 r1-t02 후속 관측·응답.19/21시 다음 구간,23시 고정 마감.
     notification_channel: slack
     notification_target: channel:C0CE0DV9MM2
@@ -1135,6 +1144,7 @@ lanes:
         account_auth_status: authenticated_exact_handle_verified_2026-11-25T08:09:35Z
         sam_contract_run_id: threads-twohour-contract-20261125
         helper_test_count: 27
+    current_task_guard_started_at: '2026-11-26T08:49:05Z'
   - id: reel-room-studio-20261113
     title: Reel Room·Instagram Maker 통합 릴스 스튜디오 구현
     task_name: Reel Room·Instagram Maker 통합 릴스 스튜디오 구현
