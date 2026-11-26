@@ -2694,7 +2694,7 @@
       "type": "threads_followup_observation",
       "at": "2026-11-26T13:05:17.712Z",
       "task_id": "miniapp-20261126-r3-t02",
-      "status": "product_observed_parent_guard_pending",
+      "status": "completed_guard_verified",
       "account": "_archivenoh",
       "account_evidence": "Ego Lite 0.6.3.17 authorized Profile 3 new taskSpace 1; own profile edit dialog displayed username _archivenoh; no public send and no settings changed",
       "posts": [
@@ -2723,7 +2723,7 @@
       "conversation_participation": "Read public 글쓰기 독자 search: talk_ong personal diary, moondal.1224 existing reader advice, smartbusiness_book book promotion. No substantive question or useful missing advice; proactive zero, not a quota.",
       "next_content_decision": "Daily three-original cap met; no fourth. 76/1000 displayed views is below goal, not unique customers or causal effect. Three product follow-up loops observed; SAM owns separate 23:00 KST final report, still pending. No next-day auto-resume.",
       "roles": {"independent":"deleg_3f65099a","cross_review":"deleg_ba6d1a46","source":"parent completed read-only four-role handoff; child did not duplicate"},
-      "guard": {"state":"pending_parent_after_child_exit","exit_code":null,"finished_at":null,"lock_free_verified_at":null,"source":"parent must read exact SQLite row and shared lock after child exit; child makes no exit claim"},
+      "guard": {"state":"completed","exit_code":0,"started_at":"2026-11-26T13:02:14.174303Z","finished_at":"2026-11-26T13:15:17.800954Z","lock_free_verified_at":"2026-11-26T13:15:34.100227Z","source":"parent SQLite read and read-only lslocks no holder; check time is not exact unlock time"},
       "evidence_paths": ["INTENTS.yaml","intents/waiting/miniapp-image-tools-20261118-qa-01.md","reports/miniapp-image-tools-20261118-qa-01/20261126T1306Z-r3-t02.html"]
     }
   ],

@@ -207,23 +207,23 @@ lanes:
     current_task_goal: 오늘 새 원문 전체의 현재 조회·답글을 한 번 재관측하고 미응답 질문/구체 의견에 응답한다. 작성한 답글에 상대의 새 답변이 있는지 확인하며 관련 대화에 유용한 기여가 있으면 참여한다. 게시물별 시각/조회, 받은·응답한·선제 답글, 이어진 대화, 다음 원문 판단을 기록한다. 이 구간 관측·응답·다음 선택을 닫고 종료 15분 전 부모 종료 영수증까지 회수한다.
     current_task_start_at: '2026-11-26T13:00:00Z'
     current_task_end_at: '2026-11-26T14:00:00Z'
-    current_task_result: 'Ego Lite Profile 3 taskSpace 1 계정 전용 프로필 편집 _archivenoh. 13:04:05/07/33Z 인사이트 17/24/34, 셋째 공개 글 13:04:52Z 표시 35로 최신 17+24+35=76/1,000. 오늘 받은 누적 7/응답 4/선제 1 유지; 새 질문·후속 0, 이번 발송 0. 세 구간 제품 후속 관측 완료; SAM 23시 보고 별도 pending. guard·잠금은 부모 사후 확인 대기.'
+    current_task_result: 'Ego Lite Profile 3 taskSpace 1 계정 전용 프로필 편집 _archivenoh. 13:04:05/07/33Z 인사이트 17/24/34, 셋째 공개 글 13:04:52Z 표시 35로 최신 17+24+35=76/1,000. 오늘 받은 누적 7/응답 4/선제 1 유지; 새 질문·후속 0, 이번 발송 0. 세 구간 제품 후속 관측 완료; SAM 23시 보고 별도 pending. 부모가 SQLite 13:15:17.800954Z completed/exit 0, 13:15:34.100227Z 공용 잠금 비보유 확인(후자는 확인 시각).'
     current_task_handoff_attempt_at: '2026-11-26T13:00:20Z'
     current_task_handoff_at: '2026-11-26T13:00:20Z'
     current_task_handoff_status: sent
     current_task_handoff_message_id: '1795698033.516189'
     current_task_handoff_queue_id: convq_97e5506031bea972f5df724412655ce6
     current_task_handoff_receipt: 'sent 1795698033.516189; queue convq_97e5506031bea972f5df724412655ce6'
-    current_task_guard_status: pending_parent_after_child_exit
-    current_task_guard_exit_code: null
-    current_task_guard_finished_at: null
-    current_task_lock_released_verified_at: null
+    current_task_guard_status: completed
+    current_task_guard_exit_code: 0
+    current_task_guard_finished_at: '2026-11-26T13:15:17.800954Z'
+    current_task_lock_released_verified_at: '2026-11-26T13:15:34.100227Z'
     prior_r2_t02_status_check_at: '2026-11-26T11:12:27Z'
     prior_r2_t02_status_check_status: sent
     prior_r2_t02_status_check_task_id: miniapp-20261126-r2-t02
     prior_r2_t02_status_check_message_id: '1795691547.271799'
     prior_r2_t02_status_check_queue_id: convq_14e5b763bef4c6f81d61cf80765515f2
-    current_task_followup: 'r3-t02 제품 관측·대화 판단 기록; 부모가 이 자식 종료 뒤 동일 ID SQLite completed/exit/finished_at과 lock-free를 확인·병합할 것. SAM 23시 종합 보고 별도 pending. 이전 r3-t01 status-only receipt 1795695353.420929 보존.'
+    current_task_followup: 'r3-t02 제품 관측·대화 판단과 동일 ID 부모 guard/잠금 영수증 확인. SAM 23시 종합 보고 별도 pending. 이전 r3-t01 status-only receipt 1795695353.420929 및 r3-t02 status-only receipt 1795698745.435659 보존.'
     current_task_completion_criteria: '정확한 _archivenoh 계정·실제 대화 읽기·당일 게시/답글 상한 준수·URL/시각/관측값 또는 실패 원인 기록. 받은 답글과 보낸 답글을 구분하고 같은 대상 중복 응답 금지. 자신의 실행 결과를 같은 tasks[].id에 기록하며 부모가 실제 guard 종료/exit code/잠금 확인을 병합한다. status는 completed 등 표준값, 상세 설명은 result_summary. 고정 기한 연장·다음 ID 발급·다음 날 재개 금지.'
     current_task_status_check_at: '2026-11-26T13:12:11Z'
     current_task_status_check_status: sent
@@ -762,7 +762,7 @@ lanes:
         handoff_queue_id: convq_97e5506031bea972f5df724412655ce6
         handoff_attempt_at: '2026-11-26T13:00:20Z'
         handoff_at: '2026-11-26T13:00:20Z'
-        result_summary: 'Ego Lite 0.6.3.17 Profile 3 taskSpace 1 계정 전용 프로필 편집 _archivenoh 확인. 13:04Z 인사이트 17/24/34, 셋째 공개 원문 13:04:52Z 35로 최신; 세 글 76/1,000. 이번 새 질문·상대 후속·발송 0; 일일 받은 7/응답 4/선제 1 유지. 공개 대화 참여 효용 부족해 보류. 세 구간 제품 후속 완료, SAM 23시 보고 pending. 이 자식 guard 종료·잠금은 부모 사후 확인 대기.'
+        result_summary: 'Ego Lite 0.6.3.17 Profile 3 taskSpace 1 계정 전용 프로필 편집 _archivenoh 확인. 13:04Z 인사이트 17/24/34, 셋째 공개 원문 13:04:52Z 35로 최신; 세 글 76/1,000. 이번 새 질문·상대 후속·발송 0; 일일 받은 7/응답 4/선제 1 유지. 공개 대화 참여 효용 부족해 보류. 세 구간 제품 후속 완료, SAM 23시 보고 pending. 부모 SQLite 13:15:17.800954Z completed/exit 0, 13:15:34.100227Z 공용 잠금 비보유 확인.'
         changes: []
         release_runs: []
         reply_records: []
@@ -809,10 +809,11 @@ lanes:
         result_report: reports/miniapp-image-tools-20261118-qa-01/20261126T1306Z-r3-t02.html
         product_evidence_at: '2026-11-26T13:05:17.712Z'
         guard:
-          state: pending_parent_after_child_exit
-          exit_code: null
-          finished_at: null
-          lock_free_verified_at: null
+          state: completed
+          exit_code: 0
+          started_at: '2026-11-26T13:02:14.174303Z'
+          finished_at: '2026-11-26T13:15:17.800954Z'
+          lock_free_verified_at: '2026-11-26T13:15:34.100227Z'
         status_check_at: '2026-11-26T13:12:11Z'
         status_check_status: sent
         status_check_message_id: '1795698745.435659'
@@ -885,7 +886,7 @@ lanes:
         account_verified: true
         account_evidence: Ego Lite Profile 3 taskSpace 121 own profile edit username and original composer author _archivenoh;
           no settings changed
-      next_action: r3-t02 세 원문 최신 76/1,000과 미응답·선제 보류 판단 기록. 부모의 동일 ID guard 종료/잠금 영수증 병합 대기; SAM 23시 종합 보고는 별도 pending.
+      next_action: r3-t02 세 원문 최신 76/1,000과 미응답·선제 보류 판단 및 동일 ID guard 종료/잠금 영수증 확인. SAM 23시 종합 보고는 별도 pending.
       setup_receipts:
         helper_verification: 50 related tests passed; independent operator regressions rechecked; wrap-up boundaries verified
         sam_contract_message_id: '1795677981.489529'
@@ -1427,7 +1428,7 @@ lanes:
         account_auth_status: authenticated_exact_handle_verified_2026-11-25T08:09:35Z
         sam_contract_run_id: threads-twohour-contract-20261125
         helper_test_count: 27
-    current_task_guard_started_at: '2026-11-26T12:05:20.763037Z'
+    current_task_guard_started_at: '2026-11-26T13:02:14.174303Z'
   - id: reel-room-studio-20261113
     title: Reel Room·Instagram Maker 통합 릴스 스튜디오 구현
     task_name: Reel Room·Instagram Maker 통합 릴스 스튜디오 구현
