@@ -202,18 +202,18 @@ lanes:
     prior_20261125_r3_t01_result: 13:04Z 조회 214, 외부 답글 3건, 관련 답글 1건, 새 원문 없음.
     prior_20261125_r3_t01_guard_finished_at: '2026-11-25T13:19:32.248398+00:00'
     prior_20261125_r3_t01_lock_released_verified_at: '2026-11-25T13:19:49.582405+00:00'
-    current_task_status: completed
-    current_task_id: miniapp-20261126-r2-t02
+    current_task_status: handoff_sent
+    current_task_id: miniapp-20261126-r3-t01
     current_task_goal: '오늘 새 원문 전체의 현재 조회·답글을 한 번 재관측하고 미응답 질문/구체 의견에 응답한다. 작성한 답글에 상대의 새 답변이 있는지 확인하며 관련 대화에 유용한 기여가 있으면 참여한다. 게시물별 시각/조회, 받은·응답한·선제 답글, 이어진 대화, 다음 원문 판단을 기록한다. 이 구간 관측·응답·다음 선택을 닫고 종료 15분 전 부모 종료 영수증까지 회수한다.'
-    current_task_start_at: '2026-11-26T11:00:00Z'
-    current_task_end_at: '2026-11-26T12:00:00Z'
+    current_task_start_at: '2026-11-26T12:00:00Z'
+    current_task_end_at: '2026-11-26T14:00:00Z'
     current_task_result: 'r2-t02 Ego Lite Profile 3 taskSpace 157: 계정 전용 프로필 편집에서 _archivenoh 확인. 두 원문 인사이트 11:07:02Z 17회와 11:07:14Z 24회, 최신 합계 41/1,000. 두 새 원문에 새 답글 0; 기존 자기 답글 다섯 갈래에 새 후속 없음. 활동에서 어제 원문의 ruben.writer·text.mechanism 예전 댓글 두 건을 이전 5건 집계 누락으로 발견해 받은 누적 7건으로 정정(이번 새 도착 아님). 질문/새 구체 제안 없어 응답·선제 답글·원문 신규 0. r3 별도 ID에서 독자 관점 후보 검토. guard 11:20:20.441486Z completed/exit 0, 잠금 비보유 11:20:37.923542Z 확인.'
-    current_task_handoff_attempt_at: '2026-11-26T11:00:43Z'
-    current_task_handoff_at: '2026-11-26T11:00:43Z'
+    current_task_handoff_attempt_at: '2026-11-26T12:00:50Z'
+    current_task_handoff_at: '2026-11-26T12:00:50Z'
     current_task_handoff_status: sent
-    current_task_handoff_message_id: '1795690843.193359'
-    current_task_handoff_queue_id: 'convq_ae2b46e91f50a405ce12dbc8e7af75c1'
-    current_task_handoff_receipt: 'sent 1795690843.193359; queue convq_ae2b46e91f50a405ce12dbc8e7af75c1'
+    current_task_handoff_message_id: '1795694495.180959'
+    current_task_handoff_queue_id: convq_10a44c4634f229473c434facbc77a48e
+    current_task_handoff_receipt: 'sent 1795694495.180959; queue convq_10a44c4634f229473c434facbc77a48e'
     current_task_guard_status: completed
     current_task_guard_exit_code: 0
     current_task_guard_finished_at: '2026-11-26T11:20:20.441486Z'
@@ -665,11 +665,12 @@ lanes:
         wrap_up_by: '2026-11-26T12:45:00Z'
         execution_target_minutes: 35
         max_execution_minutes: 45
-        status: prepared
-        handoff_status: prepared
-        handoff_message_id: null
-        handoff_queue_id: null
-        handoff_attempt_at: null
+        status: handoff_sent
+        handoff_status: sent
+        handoff_message_id: '1795694495.180959'
+        handoff_queue_id: convq_10a44c4634f229473c434facbc77a48e
+        handoff_attempt_at: '2026-11-26T12:00:50Z'
+        handoff_at: '2026-11-26T12:00:50Z'
         result_summary: null
         changes: []
         release_runs: []
