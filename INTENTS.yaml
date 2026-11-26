@@ -281,9 +281,9 @@ lanes:
       dispatch_owner: sam_supervisor_cron
       supervisor_job_id: eb75facc-7686-4746-a399-4ef6d881048e
       closeout_job_id: 8e116857-63f9-4475-8e55-4a7c386e4a16
-      configuration_status: preparing
-      supervisor_enabled: false
-      closeout_enabled: false
+      configuration_status: verified
+      supervisor_enabled: true
+      closeout_enabled: true
       windows:
       - id: r1
         start_at: '2026-11-27T08:00:00Z'
@@ -699,13 +699,16 @@ lanes:
       final_report_message_id: null
       final_report_delivery_receipt: null
       next_action: 17시 첫 가설 실행,18시 확인·개선. r2/r3 Plan은 직전 Act의 변경을 반영한 뒤 인계.23시 당일 종료.
-      setup_receipts: {}
+      setup_receipts:
+        helper_verification: 59 focused tests passed;181 full-suite tests, one pre-existing unrelated prepare_dispatch_cycle failure recorded
+          in Intent detail; date/PDCA/lock boundaries checked.
       delivery_contract: explicit_native_send_and_body_readback_for_all_window_reports
       preflight:
         status: pending
         message_id: null
         queue_id: null
         verified_at: null
+      setup_verified_at: '2026-11-26T23:21:16.949736+00:00'
     next_action: 17시 첫 가설 실행,18시 확인·개선. r2/r3 Plan은 직전 Act의 변경을 반영한 뒤 인계.23시 당일 종료.
     notification_channel: slack
     notification_target: channel:C0CE0DV9MM2
