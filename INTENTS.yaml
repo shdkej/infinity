@@ -299,31 +299,31 @@ lanes:
         metrics:
           target: 1000
           unit: threads_post_views
-          observed_at: '2026-11-27T08:23:44.484Z'
-          obs_attempted_at: '2026-11-27T08:22:13.185Z'
+          observed_at: '2026-11-27T09:10:12.373Z'
+          obs_attempted_at: '2026-11-27T09:09:43.683Z'
           posts:
           - id: DgPPRvCD1da
             url: https://www.threads.com/@_archivenoh/post/DgPPRvCD1da
             published_at: '2026-11-27T08:21:24Z'
-            views: 0
-            obs_attempted_at: '2026-11-27T08:22:13.185Z'
-            observed_at: '2026-11-27T08:23:44.484Z'
+            views: 196
+            obs_attempted_at: '2026-11-27T09:09:43.683Z'
+            observed_at: '2026-11-27T09:10:12.373Z'
             evidence: https://www.threads.com/insights/post/DgPPRvCD1da
-          total_views: 0
-          new_post_replies_observed: 0
-          inbound_replies_observed: 0
+          total_views: 196
+          new_post_replies_observed: 1
+          inbound_replies_observed: 1
           inbound_responses_sent: 0
           proactive_replies_sent: 0
-          meaningful_external_responses: 0
+          meaningful_external_responses: 1
           conversations_continued: 0
           follows_delta: null
-          status: early_observed_pending_followup
+          status: followup_observed
         loop_completion:
-          followup_observed_at: null
-          inbound_handling_summary: null
-          conversation_participation_summary: null
-          next_content_decision: null
-          status: pending
+          followup_observed_at: '2026-11-27T09:10:12.373Z'
+          inbound_handling_summary: '새 글의 americano1234 구체 의견1건(08:32:37Z); 질문 없음. 같은 말의 형식 답글 보류, 응답0. 기존 자기 답글의 새 상대 후속은 활동 목록에서 확인되지 않음.'
+          conversation_participation_summary: '이번 관측은 새 원문과 계정 활동 확인; 새 선제 답글0, 중복 대상 발송 없음. 기존 공개 대화 탐색은 r1-t01에 기록.'
+          next_content_decision: '구체 외부 의견1건으로 refine 분기: 현지 대체 어려운 물건(맞는 신발)이라는 조건 한 가지 보강 제안. r2 Plan/실행은 SAM과 다음 작업 소유.'
+          status: observed_act_proposed_pending_guard
         pdca:
           hypothesis: 기존 계정의 여행·미니멀·실용적인 선택 맥락에서 독자가 겪는 구체 선택을 다루면 일반 퇴고 조언보다 유효한 대화 신호를 얻을 수 있다.
           changed_variable: 주제·독자 맥락
@@ -332,14 +332,15 @@ lanes:
           plan_at: '2026-11-26T23:16:26.346909+00:00'
           based_on_window_id: null
           source_task_ids: []
-          check_at: null
-          check_task_ids: []
-          observation_status: null
-          assessment: null
-          decision: null
-          learning: null
-          next_change: null
-          act_at: null
+          check_at: '2026-11-27T09:10:12.373Z'
+          check_task_ids:
+          - miniapp-20261127-r1-t02
+          observation_status: observed
+          assessment: '예측: 구체 선택 상황이 유효 대화 신호를 낼 수 있다. 실제: 게시 후 48.81분 인사이트 조회196, 새 원문에 구체 외부 경험/의견1건; 초기 0회는 2분 조기값. 짧은 단일 사례이며 퇴고 소재보다 우월하거나 고객 인과를 입증하지 않는다. guard 종료는 부모 확인 대기.'
+          decision: refine
+          learning: '신발 사이즈 때문에 현지 신발 조달이 어렵고 추우면 겉옷은 살 수 있다는 실제 댓글이 선택 기준을 현지 대체 가능성으로 구체화했다. 그 외 선호·구매 의도는 미확인.'
+          next_change: '같은 여행 짐 선택 맥락을 유지하고, 다음 예시에서 현지 대체가 어려운 물건(맞는 신발)이라는 조건 한 가지를 보강한다.'
+          act_at: '2026-11-27T09:19:42.149119Z'
       - id: r2
         start_at: '2026-11-27T10:00:00Z'
         end_at: '2026-11-27T12:00:00Z'
@@ -510,18 +511,50 @@ lanes:
         wrap_up_by: '2026-11-27T09:45:00Z'
         execution_target_minutes: 35
         max_execution_minutes: 45
-        status: handoff_sent
+        status: running
         handoff_status: sent
         handoff_message_id: '1795770040.647419'
         handoff_queue_id: convq_c1e87aa72ef478c2208aba81afc804a7
         handoff_attempt_at: '2026-11-27T09:00:40.647Z'
         handoff_at: '2026-11-27T09:00:40.647Z'
-        result_summary: null
+        result_summary: 'Ego Lite Profile 3 taskSpace27 계정 전용 편집 _archivenoh 확인. 원문 DgPPRvCD1da time 08:21:24Z 재확인, 09:10:12Z(경과48.81분) 인사이트 조회196/1,000. 공개 글 첫 화면 09:09:43Z 193회와 구분해 더 늦은 인사이트196만 합산. 새 글 americano1234의 구체 응답1건(08:32:37Z), 질문 없어 반복 재진술 답글 보류. 이번 응답·선제0, 기존 자기 답글에 새 후속 없음. PDCA refine 한 축 제안, r2 Plan은 SAM 소유. 본 자식 guard 종료/잠금은 부모 확인 대기.'
         changes: []
         release_runs: []
         reply_records: []
+        original_post_url: https://www.threads.com/@_archivenoh/post/DgPPRvCD1da
+        original_published_at: '2026-11-27T08:21:24Z'
+        post_observations:
+        - id: DgPPRvCD1da
+          url: https://www.threads.com/@_archivenoh/post/DgPPRvCD1da
+          views: 196
+          public_post_views_at_first_read: 193
+          public_post_observed_at: '2026-11-27T09:09:43.683Z'
+          obs_attempted_at: '2026-11-27T09:09:43.683Z'
+          observed_at: '2026-11-27T09:10:12.373Z'
+          elapsed_minutes_since_publish: 48.81
+          source: https://www.threads.com/insights/post/DgPPRvCD1da
+        inbound_observations:
+        - kind: new_post_reply
+          target_url: https://www.threads.com/@americano1234/post/DgPQjymIMmg
+          author: americano1234
+          published_at: '2026-11-27T08:32:37Z'
+          text: 발이작기때문에 현지에서 신발살수없을것같고 신발은 가져가고 옷은 춥다면 사입을수있음
+          substantive: true
+          action: no_reply
+          reason: 구체 의견이지만 질문은 없고 같은 말을 반복한 감사/동의 답글은 효용이 낮음; 새로운 검증 정보 없이 응답 수를 채우지 않음.
+        account_evidence: Ego Lite 0.6.3.17 authorized Profile 3 taskSpace27, own profile edit username _archivenoh; space finished.
+        inbound_handling_summary: 새 글 구체 의견1건, 미응답 질문0; 새 답글0. 활동 목록의 기존 자기 답글에 상대의 새 후속 없음.
+        conversation_participation_summary: 기존 전송 대상과 자기 답글 URL 대조; 관측 업무에서 선제 답글0. 새 대화 발송 없음.
+        result_report: reports/miniapp-image-tools-20261118-qa-01/20261127T0910Z-r1-t02.html
+        product_evidence_at: '2026-11-27T09:10:12.373Z'
+        product_receipt_status: observed_pending_parent_guard_verification
+        role_review:
+          independent: deleg_1938a5b7
+          cross_review: deleg_9316fe69
+          adopted: 계정 증명·지연 관측·댓글별 효용 판단·중복/상한 검증을 적용; 실제 구체 응답1건에 맞춰 PRD refine 분기 우선.
+          deferred: 사전 질문/첫문장 변경 또는 50회 미만 pivot 제안은 실제 구체 외부 응답이 있어 적용하지 않음. r2 Plan·새 원문은 SAM/다음 작업으로 이관.
         guard:
-          state: not_started
+          state: pending_parent_verification
           exit_code: null
           started_at: null
           finished_at: null
@@ -658,25 +691,25 @@ lanes:
       metrics:
         target: 1000
         unit: threads_post_views
-        observed_at: '2026-11-27T08:23:44.484Z'
-        obs_attempted_at: '2026-11-27T08:22:13.185Z'
+        observed_at: '2026-11-27T09:10:12.373Z'
+        obs_attempted_at: '2026-11-27T09:09:43.683Z'
         posts:
         - id: DgPPRvCD1da
           url: https://www.threads.com/@_archivenoh/post/DgPPRvCD1da
           published_at: '2026-11-27T08:21:24Z'
-          views: 0
-          obs_attempted_at: '2026-11-27T08:22:13.185Z'
-          observed_at: '2026-11-27T08:23:44.484Z'
+          views: 196
+          obs_attempted_at: '2026-11-27T09:09:43.683Z'
+          observed_at: '2026-11-27T09:10:12.373Z'
           evidence: https://www.threads.com/insights/post/DgPPRvCD1da
-        total_views: 0
-        new_post_replies_observed: 0
-        inbound_replies_observed: 0
+        total_views: 196
+        new_post_replies_observed: 1
+        inbound_replies_observed: 1
         inbound_responses_sent: 0
         proactive_replies_sent: 0
-        meaningful_external_responses: 0
+        meaningful_external_responses: 1
         conversations_continued: 0
         follows_delta: null
-        status: early_observed_pending_followup
+        status: followup_observed
       baseline:
         run_id: miniapp-20261126-2h
         observed_at: '2026-11-26T13:04:52.012Z'
@@ -747,7 +780,7 @@ lanes:
       final_report: null
       final_report_message_id: null
       final_report_delivery_receipt: null
-      next_action: r1-t01 원문 게시·조기 조회 0/1,000 및 동일 ID guard/잠금 영수증 확인. 18시 r1-t02에서 후속 Check·Act; r2/r3 Plan은 직전 Act의 변경을 반영한 뒤 인계. 23시 당일 종료.
+      next_action: r1-t02 후속 인사이트 196/1,000·구체 외부 의견1건으로 refine 한 축을 제안했다. 부모는 동일 ID guard 종료/잠금 영수증을 확인하고 병합; SAM이 19시 보고와 r2 Plan 연결을 소유. r2/r3 미실행, 23시 당일 종료.
       setup_receipts:
         helper_verification: 60 focused tests passed; full-suite prior run181 tests had one unchanged unrelated dispatcher failure, documented
           in Intent. Previous history and date/PDCA/lock boundaries checked.
@@ -1890,22 +1923,22 @@ lanes:
         execution_receipt_message_id: '1795682961.386169'
         additional_observation: Windows first route rejected cwd before guard start; corrected checkout and began same ID. Lock held; no finished/exit/lock-free
           claim.
-    current_task_id: miniapp-20261127-r1-t01
-    current_task_status: completed
-    current_task_goal: 기존 공개 계정의 여행·미니멀·실용적 선택 맥락을 확인하고 첫 가설의 원문1개를 게시한다. 미응답과 자기 답글의 새 반응을 우선 처리하고 관련 대화3–5개를 읽어 유용한 경우0–2개에 기여한다.
-    current_task_start_at: '2026-11-27T08:00:00Z'
+    current_task_id: miniapp-20261127-r1-t02
+    current_task_status: running
+    current_task_goal: 오늘 새 원문과 자기 답글의 반응을 지연 관측하고 구체 질문에 필요한 응답, r1 Check/Act 다음 변경 한 축을 제안한다.
+    current_task_start_at: '2026-11-27T09:00:00Z'
     current_task_end_at: '2026-11-27T10:00:00Z'
-    current_task_result: '원문 DgPPRvCD1da 08:21:24Z 게시 확인, 08:23:44Z 초기 조회 0/1,000. 이번 응답/선제 0. 부모 SQLite guard 08:35:10.804564Z completed/exit 0, 공용 잠금 08:35:25.040146Z 비보유 확인. 18시 Check/Act 별도 pending.'
-    current_task_guard_status: completed
-    current_task_guard_exit_code: 0
-    current_task_guard_started_at: '2026-11-27T08:04:24.292599Z'
-    current_task_guard_finished_at: '2026-11-27T08:35:10.804564Z'
-    current_task_lock_released_verified_at: '2026-11-27T08:35:25.040146Z'
+    current_task_result: 'r1-t02 09:10:12Z 인사이트 조회196/1,000(게시 후48.81분), 새 글 구체 외부 의견1건·응답0·선제0. 현지 대체 어려운 맞는 신발 조건 한 축을 r2 보강으로 제안. 이 자식 종료/잠금 검증은 부모 대기.'
+    current_task_guard_status: pending_parent_verification
+    current_task_guard_exit_code: null
+    current_task_guard_started_at: null
+    current_task_guard_finished_at: null
+    current_task_lock_released_verified_at: null
     current_task_handoff_status: sent
-    current_task_handoff_message_id: '1795766491.553509'
-    current_task_handoff_queue_id: convq_95e5a061324d4896d090be24c669993d
-    current_task_handoff_attempt_at: '2026-11-27T08:01:31.553509Z'
-    current_task_followup: 18시 예정 관측과 가설 판단·다음 변경.19시 다음 루프에 반영.
+    current_task_handoff_message_id: '1795770040.647419'
+    current_task_handoff_queue_id: convq_c1e87aa72ef478c2208aba81afc804a7
+    current_task_handoff_attempt_at: '2026-11-27T09:00:40.647Z'
+    current_task_followup: 부모는 같은 ID의 SQLite 종료·잠금 확인; SAM은 r1 보고와 r2 Plan·인계.
   - id: reel-room-studio-20261113
     title: Reel Room·Instagram Maker 통합 릴스 스튜디오 구현
     task_name: Reel Room·Instagram Maker 통합 릴스 스튜디오 구현

@@ -3095,6 +3095,28 @@
       "guard": {"state": "completed", "exit_code": 0, "started_at": "2026-11-27T08:04:24.292599Z", "finished_at": "2026-11-27T08:35:10.804564Z", "lock_free_verified_at": "2026-11-27T08:35:25.040146Z", "source": "parent SQLite read and read-only lslocks no holder; check time is not exact unlock time"},
       "followup": "SAM r1-t02 at 09:00Z owns later Check/Act; r1 report pending",
       "evidence_paths": ["INTENTS.yaml", "intents/waiting/miniapp-image-tools-20261118-qa-01.md", "reports/miniapp-image-tools-20261118-qa-01/20261127T0824Z-r1-t01.html"]
+    },
+    {
+      "label": "2026-11-27 r1-t02 actual Threads followup and one-axis Act proposal",
+      "type": "threads_followup_observation",
+      "task_id": "miniapp-20261127-r1-t02",
+      "at": "2026-11-27T09:10:12.373Z",
+      "status": "observed_pending_parent_guard_verification",
+      "account_evidence": "Ego Lite 0.6.3.17 Profile 3 taskSpace 27; own profile edit username _archivenoh; space finished",
+      "handoff": {"message_id": "1795770040.647419", "queue_id": "convq_c1e87aa72ef478c2208aba81afc804a7", "sent_at": "2026-11-27T09:00:40.647Z", "is_guard_start": false},
+      "post": {"id": "DgPPRvCD1da", "url": "https://www.threads.com/@_archivenoh/post/DgPPRvCD1da", "published_at": "2026-11-27T08:21:24Z", "elapsed_minutes": 48.81, "first_public_display_views": 193, "first_public_read_at": "2026-11-27T09:09:43.683Z", "latest_insight_views": 196, "observed_at": "2026-11-27T09:10:12.373Z", "source": "https://www.threads.com/insights/post/DgPPRvCD1da", "previous_early_views": 0, "previous_early_observed_at": "2026-11-27T08:23:44.484Z"},
+      "new_post_replies_observed": 1,
+      "meaningful_external_responses": 1,
+      "inbound": [{"url": "https://www.threads.com/@americano1234/post/DgPQjymIMmg", "author": "americano1234", "published_at": "2026-11-27T08:32:37Z", "text": "발이작기때문에 현지에서 신발살수없을것같고 신발은 가져가고 옷은 춥다면 사입을수있음", "action": "no_reply", "reason": "Concrete opinion, no unanswered question; no verified new information to add instead of paraphrasing"}],
+      "reply_records": [],
+      "inbound_responses_sent": 0,
+      "proactive_replies_sent": 0,
+      "prior_own_reply_followups": 0,
+      "pdca": {"check_at": "2026-11-27T09:10:12.373Z", "act_at": "2026-11-27T09:19:42.149119Z", "decision": "refine", "next_change": "Keep travel luggage choice context; add one condition about hard-to-replace locally suitable shoes", "r2_plan_owner": "SAM; not executed in this task"},
+      "roles": {"independent": "deleg_1938a5b7", "cross_review": "deleg_9316fe69", "adopted": "account proof, fresh followup, targeted reply judgment, duplicate/cap safety", "deferred": "zero-response first-line/question or low-view reader pivot branches did not match actual concrete response", "source": "parent handoff; child did not duplicate"},
+      "guard": {"state": "pending_parent_verification", "exit_code": null, "finished_at": null, "lock_free_verified_at": null, "source": "parent to read same-ID SQLite and shared lock after child exit"},
+      "followup": "r1 window report remains SAM-owned pending; no r2 execution here",
+      "evidence_paths": ["INTENTS.yaml", "intents/waiting/miniapp-image-tools-20261118-qa-01.md", "reports/miniapp-image-tools-20261118-qa-01/20261127T0910Z-r1-t02.html"]
     }
   ],
   "next_decision": {
