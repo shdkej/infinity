@@ -440,12 +440,12 @@ lanes:
         wrap_up_by: '2026-11-27T08:45:00Z'
         execution_target_minutes: 35
         max_execution_minutes: 45
-        status: prepared
-        handoff_status: prepared
-        handoff_message_id: null
-        handoff_queue_id: null
-        handoff_attempt_at: null
-        handoff_at: null
+        status: handoff_sent
+        handoff_status: sent
+        handoff_message_id: '1795766491.553509'
+        handoff_queue_id: convq_95e5a061324d4896d090be24c669993d
+        handoff_attempt_at: '2026-11-27T08:02:38Z'
+        handoff_at: '2026-11-27T08:02:38Z'
         result_summary: null
         changes: []
         release_runs: []
@@ -707,7 +707,7 @@ lanes:
         status: sent
         message_id: '1795735367.584249'
         queue_id: convq_9e6110e5f7b67c615e7288d8f14ad81f
-        verified_at: '2026-11-26T23:28:34Z'
+        verified_at: '2026-11-27T08:02:38Z'
         verified_by: supervisor_exact_message_readback
         codex_body_verified_at: '2026-11-26T23:26:58.369018+00:00'
         date_clarification_message_id: '1795735487.202529'
