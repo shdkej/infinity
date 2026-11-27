@@ -351,8 +351,11 @@ lanes:
         goal: r1 실제 Check/Act를 바탕으로 준비된 windows[].pdca를 읽고 변경 한 축을 적용해 원문 최대1개와 유용한 대화 참여를 실행한다. 사전 고정 소재를 반복하지 않는다.
         task_sequence: 2
         planned_tasks_only: true
-        report_status: pending
-        report_message_id: null
+        report_status: sent
+        report_message_id: '1795780992.352159'
+        report_queue_id: convq_d6220627194a4c11089243f1511d0408
+        report_verified_at: '2026-11-27T12:04:00Z'
+        report_delivery_receipt: sent; exact original-thread body read back and matched
         exhausted: false
         observation_due_at: '2026-11-27T11:00:00Z'
         metrics:
@@ -434,13 +437,14 @@ lanes:
           next_content_decision: null
           status: pending
         pdca:
-          hypothesis: null
-          changed_variable: null
+          hypothesis: '여행 짐 선택 맥락과 첫 문장은 유지하고 마지막 질문을 현지에서 대체하기 어려운 물건 하나와 그 이유로 좁히면, 독자의 실제 판단 근거가 더 구체적으로 드러날 수 있다.'
+          changed_variable: '여행 짐 선택 맥락과 첫 문장은 유지하고, 다음 원문의 마지막 질문만 ‘꼭 챙기는 물건’에서 ‘현지에서 대체하기 어려운 물건 하나와 그 이유’로 구체화한다.'
           success_rule: '첫 후속 약45–75분: 구체 외부 응답1건 이상이면 유지/보강; 조회50 이상·유효응답0이면 질문/첫문장 한 축 수정; 조회50 미만·응답0이면 독자 고민 한 축 변경. 실패/짧은 관측은 inconclusive.
             통계·인과 주장 금지.'
-          plan_at: null
-          based_on_window_id: null
-          source_task_ids: []
+          plan_at: '2026-11-27T12:04:00Z'
+          based_on_window_id: r2
+          source_task_ids:
+          - miniapp-20261127-r2-t02
           check_at: null
           check_task_ids: []
           observation_status: null
@@ -893,7 +897,7 @@ lanes:
         status: sent
         message_id: '1795735367.584249'
         queue_id: convq_9e6110e5f7b67c615e7288d8f14ad81f
-        verified_at: '2026-11-27T08:02:38Z'
+        verified_at: '2026-11-27T12:04:00Z'
         verified_by: supervisor_exact_message_readback
         codex_body_verified_at: '2026-11-26T23:26:58.369018+00:00'
         date_clarification_message_id: '1795735487.202529'
