@@ -418,22 +418,24 @@ lanes:
         metrics:
           target: 1000
           unit: threads_post_views
-          observed_at: '2026-11-27T12:19:46.500Z'
-          obs_attempted_at: '2026-11-27T12:19:02.278Z'
+          observed_at: '2026-11-27T13:13:22.046Z'
+          obs_attempted_at: '2026-11-27T13:09:35.515Z'
           posts:
           - id: DgPPRvCD1da
             url: https://www.threads.com/@_archivenoh/post/DgPPRvCD1da
             published_at: '2026-11-27T08:21:24Z'
             views: 207
-            observed_at: '2026-11-27T12:19:02.278Z'
+            elapsed_minutes: 291.97
+            observed_at: '2026-11-27T13:13:22.046Z'
             evidence: https://www.threads.com/insights/post/DgPPRvCD1da
           - id: DgPcNNsD8-h
             url: https://www.threads.com/@_archivenoh/post/DgPcNNsD8-h
             published_at: '2026-11-27T10:14:23Z'
-            views: 109
-            observed_at: '2026-11-27T12:19:46.500Z'
+            views: 110
+            elapsed_minutes: 177.56
+            observed_at: '2026-11-27T13:11:56.772Z'
             evidence: https://www.threads.com/insights/post/DgPcNNsD8-h
-          total_views: 316
+          total_views: 317
           new_post_replies_observed: 1
           inbound_replies_observed: 1
           inbound_responses_sent: 0
@@ -441,13 +443,15 @@ lanes:
           meaningful_external_responses: 1
           conversations_continued: 0
           follows_delta: null
-          status: early_snapshot_not_r3_check
+          new_concrete_inbound_this_task: 0
+          prior_own_reply_followups_new_this_task: 0
+          status: delayed_observation_existing_two_originals_r3_hypothesis_untested
         loop_completion:
-          followup_observed_at: null
-          inbound_handling_summary: null
-          conversation_participation_summary: null
-          next_content_decision: null
-          status: pending
+          followup_observed_at: '2026-11-27T13:13:40.764Z'
+          inbound_handling_summary: 'r1 기존 신발 의견1, r2 답글0. 11/25 자기 답글의 cheerfulyoonkyeom 후속은 r3-t01에 이미 관측되어 이번 신규0. 활동 새 좋아요·100조회 알림은 구체 답글 아님; 이번 응답0.'
+          conversation_participation_summary: '이번 관측에서 미응답 구체 질문 없음. 신규 선제0, 원문0, 공개 발송0. 수량을 채우지 않음.'
+          next_content_decision: 'r3의 질문 변경은 원문 미게시로 미실험. 다음 실행 후보에서 여행 짐 맥락과 첫 문장은 유지하고 마지막 질문만 발에 맞는 신발의 현지 대체 곤란을 판단할 때 먼저 확인하는 조건으로 바꾸는 한 축을 가설로 검토; 자동 게시·다음 날 재개 없음.'
+          status: observed_pending_parent_guard_verification
         pdca:
           hypothesis: '여행 짐 선택 맥락과 첫 문장은 유지하고 마지막 질문을 현지에서 대체하기 어려운 물건 하나와 그 이유로 좁히면, 독자의 실제 판단 근거가 더 구체적으로 드러날 수 있다.'
           changed_variable: '여행 짐 선택 맥락과 첫 문장은 유지하고, 다음 원문의 마지막 질문만 ‘꼭 챙기는 물건’에서 ‘현지에서 대체하기 어려운 물건 하나와 그 이유’로 구체화한다.'
@@ -457,14 +461,16 @@ lanes:
           based_on_window_id: r2
           source_task_ids:
           - miniapp-20261127-r2-t02
-          check_at: null
-          check_task_ids: []
-          observation_status: null
-          assessment: null
-          decision: null
-          learning: null
-          next_change: null
-          act_at: null
+          check_at: '2026-11-27T13:13:40.764Z'
+          check_task_ids:
+          - miniapp-20261127-r3-t02
+          observation_status: observed
+          hypothesis_test_status: untested_no_r3_original
+          assessment: '예측: r3에서 마지막 질문을 현지 대체 곤란 물건과 이유로 좁히면 판단 근거가 드러날 수 있다. 실제: 중복 방지를 위해 r3 원문은 미게시되어 그 변경의 노출·효과는 미실험. 기존 r1 207(291.97분)·r2 110(177.56분)으로 최신합317/1000, 목표 대비683 부족; r1 기존 신발 의견1, r2 답글0, 이번 새 구체 후속0. 조기합316보다 1 높으나 서로 다른 게시 시점의 조회를 질문 효과나 인과로 해석하지 않음. r3의 45–75분 노출 표본이 없어 50회 분기 미적용.'
+          decision: inconclusive
+          learning: 'r3 변경의 성패는 미판정. 기존 r1 의견에는 신발의 맞는 사이즈라는 실제 판단 조건이 있으나 r2 범주 질문에는 새 답변이 없다; 고객 선호·전환은 미확인.'
+          next_change: '다음 실행 후보에서 여행 짐 선택 맥락과 첫 문장은 유지하고 마지막 질문만 물건의 나열 대신 발에 맞는 신발을 현지에서 대체할 수 있는지 판단할 때 먼저 확인하는 조건을 묻는 한 축으로 바꾼다(미검증 가설, 자동 게시 없음).'
+          act_at: '2026-11-27T13:15:19Z'
       tasks:
       - id: miniapp-20261127-r1-t01
         window_id: r1
@@ -841,7 +847,7 @@ lanes:
         wrap_up_by: '2026-11-27T13:45:00Z'
         execution_target_minutes: 35
         max_execution_minutes: 45
-        status: handoff_sent
+        status: running
         handoff_status: sent
         handoff_message_id: '1795784433.255749'
         handoff_queue_id: convq_1d3486cabf35834b101d666090254883
@@ -849,14 +855,43 @@ lanes:
         handoff_at: '2026-11-27T13:00:33.255749Z'
         handoff_operation_id: miniapp-20261127-2h:handoff:miniapp-20261127-r3-t02
         handoff_delivery_receipt: sent; exact original-thread body read back and matched
-        result_summary: null
+        result_summary: 'Ego Lite 0.6.3.17 Profile 3 taskSpace32 계정 전용 편집에서 _archivenoh 확인 후 종료. r1 13:13:22Z 인사이트207(291.97분), r2 13:11:56Z 인사이트110(177.56분), 두 새 원문 최신합317/1000, 부족683. r1 기존 신발 의견1·r2 답글0; 어제 자기 답글 cheerfulyoonkyeom 후속은 r3-t01 기존 관측으로 이번 신규 제외. 이번 새 구체 응답0·답글/원문 공개 발송0. r3 질문 변경은 미게시로 미실험, 50회 분기 미적용; 다음 마지막 질문 한 축만 가설로 남김. 부모 guard 종료·잠금 검증 대기, SAM 23시 보고 별도.'
         changes: []
         release_runs: []
         reply_records: []
+        result_report: reports/miniapp-image-tools-20261118-qa-01/20261127T1315Z-r3-t02.html
+        product_evidence_at: '2026-11-27T13:13:40.764Z'
+        product_receipt_status: observed_pending_parent_guard_verification
+        posts_latest:
+        - id: DgPPRvCD1da
+          url: https://www.threads.com/@_archivenoh/post/DgPPRvCD1da
+          published_at: '2026-11-27T08:21:24Z'
+          views: 207
+          observed_at: '2026-11-27T13:13:22.046Z'
+          elapsed_minutes: 291.97
+          source: https://www.threads.com/insights/post/DgPPRvCD1da
+        - id: DgPcNNsD8-h
+          url: https://www.threads.com/@_archivenoh/post/DgPcNNsD8-h
+          published_at: '2026-11-27T10:14:23Z'
+          views: 110
+          observed_at: '2026-11-27T13:11:56.772Z'
+          elapsed_minutes: 177.56
+          source: https://www.threads.com/insights/post/DgPcNNsD8-h
+        daily_latest_views_sum: 317
+        new_concrete_inbound_this_task: 0
+        inbound_responses_sent_this_task: 0
+        proactive_replies_sent_this_task: 0
+        originals_sent_this_task: 0
+        hypothesis_test_status: untested_no_r3_original
+        role_review:
+          independent: deleg_a39a5589
+          cross_review: deleg_a175de2e
+          adopted: 'Planner 미게시 가설 미실험과 지연 관측, Developer 계정·동일 ID 영수증·trace 보존, Marketer 관측 근거에 의존한 질문 한 축, Operator 수량 비강제·실패와 0 구별·기한 준수.'
+          deferred: 'Marketer의 무엇을 먼저 뺄지 문구는 제거 우선순위 신호가 없어 보류. r3 질문 50회 분기나 인과 판정, 기존 후속의 신규 재집계, 중복 글·답글 발송 보류.'
         guard:
-          state: not_started
+          state: running
           exit_code: null
-          started_at: null
+          started_at: '2026-11-27T13:07:03.119432Z'
           finished_at: null
           lock_free_verified_at: null
         status_check_at: '2026-11-27T13:13:10Z'
@@ -871,24 +906,26 @@ lanes:
       metrics:
         target: 1000
         unit: threads_post_views
-        observed_at: '2026-11-27T12:19:46.500Z'
-        obs_attempted_at: '2026-11-27T12:19:02.278Z'
+        observed_at: '2026-11-27T13:13:22.046Z'
+        obs_attempted_at: '2026-11-27T13:09:35.515Z'
         posts:
         - id: DgPPRvCD1da
           url: https://www.threads.com/@_archivenoh/post/DgPPRvCD1da
           published_at: '2026-11-27T08:21:24Z'
           views: 207
-          obs_attempted_at: '2026-11-27T12:19:02.278Z'
-          observed_at: '2026-11-27T12:19:02.278Z'
+          obs_attempted_at: '2026-11-27T13:09:35.515Z'
+          observed_at: '2026-11-27T13:13:22.046Z'
+          elapsed_minutes: 291.97
           evidence: https://www.threads.com/insights/post/DgPPRvCD1da
         - id: DgPcNNsD8-h
           url: https://www.threads.com/@_archivenoh/post/DgPcNNsD8-h
           published_at: '2026-11-27T10:14:23Z'
-          views: 109
-          obs_attempted_at: '2026-11-27T12:19:46.500Z'
-          observed_at: '2026-11-27T12:19:46.500Z'
+          views: 110
+          obs_attempted_at: '2026-11-27T13:11:20.627Z'
+          observed_at: '2026-11-27T13:11:56.772Z'
+          elapsed_minutes: 177.56
           evidence: https://www.threads.com/insights/post/DgPcNNsD8-h
-        total_views: 316
+        total_views: 317
         new_post_replies_observed: 1
         inbound_replies_observed: 1
         inbound_responses_sent: 0
@@ -896,7 +933,9 @@ lanes:
         meaningful_external_responses: 1
         conversations_continued: 0
         follows_delta: null
-        status: r3_early_snapshot_not_delayed_check
+        new_concrete_inbound_this_task: 0
+        prior_own_reply_followups_new_this_task: 0
+        status: delayed_observation_existing_two_originals_r3_hypothesis_untested
       baseline:
         run_id: miniapp-20261126-2h
         observed_at: '2026-11-26T13:04:52.012Z'
@@ -2119,14 +2158,14 @@ lanes:
     prior_r2_t01_task_id: miniapp-20261127-r2-t01
     prior_r2_t01_result: '10:14:23Z 공개 원문 DgPcNNsD8-h 발행1, 10:15:36Z 조기 인사이트0; r1 최신205+신규0=205/1,000. 답글0. 부모 guard 10:27:02.699780Z completed/exit 0, 10:27:19.571303Z 잠금 비보유 확인.'
     current_task_id: miniapp-20261127-r3-t02
-    current_task_status: handoff_sent
+    current_task_status: running
     current_task_goal: 오늘 새 원문 전체와 자기 답글 반응의 지연 관측, 같은 창 PDCA Check/Act
     current_task_start_at: '2026-11-27T13:00:00Z'
     current_task_end_at: '2026-11-27T14:00:00Z'
-    current_task_result: null
-    current_task_guard_status: not_started
+    current_task_result: 'r3-t02 인사이트207+110=317/1000 at 13:13Z, 공개 발송0·이번 새 구체 답변0; r3 질문 미게시/미실험, 다음 질문 한 축 가설. 부모 guard 종료·잠금 검증 대기.'
+    current_task_guard_status: running
     current_task_guard_exit_code: null
-    current_task_guard_started_at: null
+    current_task_guard_started_at: '2026-11-27T13:07:03.119432Z'
     current_task_guard_finished_at: null
     current_task_lock_released_verified_at: null
     current_task_handoff_status: sent
@@ -2140,7 +2179,7 @@ lanes:
     current_task_status_check_queue_id: convq_2fd5fc1c2a18d6cd2d102a854896d18c
     current_task_status_check_operation_id: miniapp-20261127-2h:status-check:miniapp-20261127-r3-t02
     current_task_handoff_delivery_receipt: sent; exact original-thread body read back and matched. Handoff is not guard-start or product-result evidence.
-    current_task_followup: Windows same-ID r3-t02 result and parent guard exit/lock-free receipt pending; after completion close r3 Check/Act promptly.
+    current_task_followup: 'r3-t02 제품 관측·r3 Check/Act 기록. 부모의 동일 ID guard exit/lock-free 확인과 상태 영수증 병합 대기; SAM 23시 종합 별도 소유. Intent Waiting 유지.'
   - id: reel-room-studio-20261113
     title: Reel Room·Instagram Maker 통합 릴스 스튜디오 구현
     task_name: Reel Room·Instagram Maker 통합 릴스 스튜디오 구현
