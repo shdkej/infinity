@@ -3150,7 +3150,7 @@
       "type": "threads_followup_observation",
       "task_id": "miniapp-20261127-r2-t02",
       "at": "2026-11-27T11:09:41.171Z",
-      "status": "observed_act_proposed_pending_parent_guard",
+      "status": "completed_guard_verified",
       "account_evidence": "Ego Lite 0.6.3.17 Profile 3 separate taskSpace 29; account-only profile edit username _archivenoh at 11:06:07Z; space finished 11:12:54Z",
       "handoff": {"message_id": "1795777264.417069", "queue_id": "convq_18490e0b362bf57ac8373f7f7202b48c", "operation_id": "miniapp-20261127-2h:handoff:miniapp-20261127-r2-t02", "sent_at": "2026-11-27T11:01:04.417069Z", "is_guard_start": false},
       "status_check": {"message_id": "1795777996.089489", "queue_id": "convq_24b458a258f1100be9c458659407265f", "operation_id": "miniapp-20261127-2h:status-check:miniapp-20261127-r2-t02", "sent_at": "2026-11-27T11:13:16Z", "is_guard_completion": false},
@@ -3172,8 +3172,8 @@
       "reply_decisions": [{"target_url": "https://www.threads.com/@americano1234/post/DgPQjymIMmg", "action": "no_reply", "reason": "Existing r1 concrete shoe opinion with no unanswered question; no new contribution without repetition"}],
       "pdca": {"window": "r2", "changed_variable": "same travel luggage choice; add locally hard-to-replace correctly fitting shoes (already applied at r2 Do)", "observation_status": "observed", "decision": "refine", "reason": "r2 99 latest views >=50 and zero new meaningful replies at 55.30 minutes", "next_change": "Keep travel luggage choice and first line; change only final question to ask for one locally hard-to-replace item and why", "r3_plan_owner": "SAM"},
       "roles": {"independent": "deleg_b34831f7", "cross_review": "deleg_d573dbc1", "four_each_completed": true, "adopted": "actual delayed values, new-versus-old comment distinction, one-axis decision and parent-only guard proof", "deferred": "r1 Act reused as r2 Act, causality, quota-fill replies"},
-      "guard": {"state": "running", "exit_code": null, "started_at": "2026-11-27T11:04:10Z", "finished_at": null, "lock_free_verified_at": null, "source": "parent remote 6ade2f61 records same-ID guard start and status receipt; child does not assert own exit"},
-      "followup": "Parent verifies same-ID SQLite and read-only shared-lock no holder, then merges separate receipt; SAM owns 21:00 window report and r3 Plan; no next task execution here",
+      "guard": {"state": "completed", "exit_code": 0, "started_at": "2026-11-27T11:04:10.852100Z", "finished_at": "2026-11-27T11:23:01.246732Z", "lock_free_verified_at": "2026-11-27T11:23:16.187206Z", "source": "parent same-ID SQLite and read-only lslocks no holder; check time not exact unlock time"},
+      "followup": "Parent verified same-ID SQLite completion and read-only shared-lock no holder; SAM owns 21:00 window report and r3 Plan; no next task execution here",
       "evidence_paths": ["INTENTS.yaml", "intents/waiting/miniapp-image-tools-20261118-qa-01.md", "reports/miniapp-image-tools-20261118-qa-01/20261127T1113Z-r2-t02.html"]
     }
   ],
