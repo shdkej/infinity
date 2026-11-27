@@ -847,7 +847,7 @@ lanes:
         wrap_up_by: '2026-11-27T13:45:00Z'
         execution_target_minutes: 35
         max_execution_minutes: 45
-        status: running
+        status: completed
         handoff_status: sent
         handoff_message_id: '1795784433.255749'
         handoff_queue_id: convq_1d3486cabf35834b101d666090254883
@@ -855,13 +855,13 @@ lanes:
         handoff_at: '2026-11-27T13:00:33.255749Z'
         handoff_operation_id: miniapp-20261127-2h:handoff:miniapp-20261127-r3-t02
         handoff_delivery_receipt: sent; exact original-thread body read back and matched
-        result_summary: 'Ego Lite 0.6.3.17 Profile 3 taskSpace32 계정 전용 편집에서 _archivenoh 확인 후 종료. r1 13:13:22Z 인사이트207(291.97분), r2 13:11:56Z 인사이트110(177.56분), 두 새 원문 최신합317/1000, 부족683. r1 기존 신발 의견1·r2 답글0; 어제 자기 답글 cheerfulyoonkyeom 후속은 r3-t01 기존 관측으로 이번 신규 제외. 이번 새 구체 응답0·답글/원문 공개 발송0. r3 질문 변경은 미게시로 미실험, 50회 분기 미적용; 다음 마지막 질문 한 축만 가설로 남김. 부모 guard 종료·잠금 검증 대기, SAM 23시 보고 별도.'
+        result_summary: 'Ego Lite 0.6.3.17 Profile 3 taskSpace32 계정 전용 편집에서 _archivenoh 확인 후 종료. r1 13:13:22Z 인사이트207(291.97분), r2 13:11:56Z 인사이트110(177.56분), 두 새 원문 최신합317/1000, 부족683. r1 기존 신발 의견1·r2 답글0; 어제 자기 답글 cheerfulyoonkyeom 후속은 r3-t01 기존 관측으로 이번 신규 제외. 이번 새 구체 응답0·답글/원문 공개 발송0. r3 질문 변경은 미게시로 미실험, 50회 분기 미적용; 다음 마지막 질문 한 축만 가설로 남김. 부모 SQLite guard 13:20:31.728813Z completed/exit0, 13:20:48.276220Z 공용 잠금 비보유 확인; SAM 23시 보고 별도.'
         changes: []
         release_runs: []
         reply_records: []
         result_report: reports/miniapp-image-tools-20261118-qa-01/20261127T1315Z-r3-t02.html
         product_evidence_at: '2026-11-27T13:13:40.764Z'
-        product_receipt_status: observed_pending_parent_guard_verification
+        product_receipt_status: observed_guard_verified
         posts_latest:
         - id: DgPPRvCD1da
           url: https://www.threads.com/@_archivenoh/post/DgPPRvCD1da
@@ -889,18 +889,18 @@ lanes:
           adopted: 'Planner 미게시 가설 미실험과 지연 관측, Developer 계정·동일 ID 영수증·trace 보존, Marketer 관측 근거에 의존한 질문 한 축, Operator 수량 비강제·실패와 0 구별·기한 준수.'
           deferred: 'Marketer의 무엇을 먼저 뺄지 문구는 제거 우선순위 신호가 없어 보류. r3 질문 50회 분기나 인과 판정, 기존 후속의 신규 재집계, 중복 글·답글 발송 보류.'
         guard:
-          state: running
-          exit_code: null
+          state: completed
+          exit_code: 0
           started_at: '2026-11-27T13:07:03.119432Z'
-          finished_at: null
-          lock_free_verified_at: null
+          finished_at: '2026-11-27T13:20:31.728813Z'
+          lock_free_verified_at: '2026-11-27T13:20:48.276220Z'
         status_check_at: '2026-11-27T13:13:10Z'
         status_check_task_id: miniapp-20261127-r3-t02
         status_check_message_id: '1795785148.173789'
         status_check_queue_id: convq_2fd5fc1c2a18d6cd2d102a854896d18c
         status_check_operation_id: miniapp-20261127-2h:status-check:miniapp-20261127-r3-t02
         status_check_delivery_receipt: sent; exact original-thread body read back and matched
-        receipt_checked_at: null
+        receipt_checked_at: '2026-11-27T13:20:48.276220Z'
         completion_criteria: 같은 task ID와 실제 공개 URL/시각·관측값/실패 이유·PDCA 근거를 기록한다. 정확한 _archivenoh, 기존/오늘 URL 중복 방지와 상한 준수. 부모가 guard 종료·exit code·잠금
           비보유를 실제 확인한 뒤 표준 status로 main에 병합. 고정 기한 연장·새 ID·다음 날 재개 금지.
       metrics:
@@ -2158,16 +2158,16 @@ lanes:
     prior_r2_t01_task_id: miniapp-20261127-r2-t01
     prior_r2_t01_result: '10:14:23Z 공개 원문 DgPcNNsD8-h 발행1, 10:15:36Z 조기 인사이트0; r1 최신205+신규0=205/1,000. 답글0. 부모 guard 10:27:02.699780Z completed/exit 0, 10:27:19.571303Z 잠금 비보유 확인.'
     current_task_id: miniapp-20261127-r3-t02
-    current_task_status: running
+    current_task_status: completed
     current_task_goal: 오늘 새 원문 전체와 자기 답글 반응의 지연 관측, 같은 창 PDCA Check/Act
     current_task_start_at: '2026-11-27T13:00:00Z'
     current_task_end_at: '2026-11-27T14:00:00Z'
-    current_task_result: 'r3-t02 인사이트207+110=317/1000 at 13:13Z, 공개 발송0·이번 새 구체 답변0; r3 질문 미게시/미실험, 다음 질문 한 축 가설. 부모 guard 종료·잠금 검증 대기.'
-    current_task_guard_status: running
-    current_task_guard_exit_code: null
+    current_task_result: 'r3-t02 인사이트207+110=317/1000 at 13:13Z, 공개 발송0·이번 새 구체 답변0; r3 질문 미게시/미실험, 다음 질문 한 축 가설. 부모 guard 13:20:31.728813Z completed/exit0, 13:20:48.276220Z 잠금 비보유 확인.'
+    current_task_guard_status: completed
+    current_task_guard_exit_code: 0
     current_task_guard_started_at: '2026-11-27T13:07:03.119432Z'
-    current_task_guard_finished_at: null
-    current_task_lock_released_verified_at: null
+    current_task_guard_finished_at: '2026-11-27T13:20:31.728813Z'
+    current_task_lock_released_verified_at: '2026-11-27T13:20:48.276220Z'
     current_task_handoff_status: sent
     current_task_handoff_message_id: '1795784433.255749'
     current_task_handoff_queue_id: convq_1d3486cabf35834b101d666090254883
@@ -2179,7 +2179,7 @@ lanes:
     current_task_status_check_queue_id: convq_2fd5fc1c2a18d6cd2d102a854896d18c
     current_task_status_check_operation_id: miniapp-20261127-2h:status-check:miniapp-20261127-r3-t02
     current_task_handoff_delivery_receipt: sent; exact original-thread body read back and matched. Handoff is not guard-start or product-result evidence.
-    current_task_followup: 'r3-t02 제품 관측·r3 Check/Act 기록. 부모의 동일 ID guard exit/lock-free 확인과 상태 영수증 병합 대기; SAM 23시 종합 별도 소유. Intent Waiting 유지.'
+    current_task_followup: 'r3-t02 제품 관측·r3 Check/Act와 동일 ID guard 종료/잠금 영수증 확인 완료; SAM 23시 종합 별도 소유. Intent Waiting 유지.'
   - id: reel-room-studio-20261113
     title: Reel Room·Instagram Maker 통합 릴스 스튜디오 구현
     task_name: Reel Room·Instagram Maker 통합 릴스 스튜디오 구현
