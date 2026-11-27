@@ -666,12 +666,14 @@ lanes:
         wrap_up_by: '2026-11-27T11:45:00Z'
         execution_target_minutes: 35
         max_execution_minutes: 45
-        status: prepared
-        handoff_status: prepared
-        handoff_message_id: null
-        handoff_queue_id: null
-        handoff_attempt_at: null
-        handoff_at: null
+        status: handoff_sent
+        handoff_status: sent
+        handoff_message_id: '1795777264.417069'
+        handoff_queue_id: convq_18490e0b362bf57ac8373f7f7202b48c
+        handoff_attempt_at: '2026-11-27T11:01:04.417069Z'
+        handoff_at: '2026-11-27T11:01:04.417069Z'
+        handoff_operation_id: miniapp-20261127-2h:handoff:miniapp-20261127-r2-t02
+        handoff_delivery_receipt: sent; exact original-thread body read back and matched
         result_summary: null
         changes: []
         release_runs: []
