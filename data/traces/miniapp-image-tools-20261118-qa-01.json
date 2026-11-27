@@ -3117,10 +3117,25 @@
       "reply_records": [],
       "inbound_responses_sent": 0,
       "proactive_replies_sent": 0,
-      "roles": {"independent": "deleg_b1acd203", "cross_review": "deleg_024f9e52", "source": "parent handoff; no duplicate"},
-      "guard": {"state": "completed", "exit_code": 0, "started_at": "2026-11-27T08:04:24.292599Z", "finished_at": "2026-11-27T08:35:10.804564Z", "lock_free_verified_at": "2026-11-27T08:35:25.040146Z", "source": "parent SQLite read and read-only lslocks no holder; check time is not exact unlock time"},
+      "roles": {
+        "independent": "deleg_b1acd203",
+        "cross_review": "deleg_024f9e52",
+        "source": "parent handoff; no duplicate"
+      },
+      "guard": {
+        "state": "completed",
+        "exit_code": 0,
+        "started_at": "2026-11-27T08:04:24.292599Z",
+        "finished_at": "2026-11-27T08:35:10.804564Z",
+        "lock_free_verified_at": "2026-11-27T08:35:25.040146Z",
+        "source": "parent SQLite read and read-only lslocks no holder; check time is not exact unlock time"
+      },
       "followup": "SAM r1-t02 at 09:00Z owns later Check/Act; r1 report pending",
-      "evidence_paths": ["INTENTS.yaml", "intents/waiting/miniapp-image-tools-20261118-qa-01.md", "reports/miniapp-image-tools-20261118-qa-01/20261127T0824Z-r1-t01.html"]
+      "evidence_paths": [
+        "INTENTS.yaml",
+        "intents/waiting/miniapp-image-tools-20261118-qa-01.md",
+        "reports/miniapp-image-tools-20261118-qa-01/20261127T0824Z-r1-t01.html"
+      ]
     },
     {
       "label": "2026-11-27 r1-t02 actual Threads followup and one-axis Act proposal",
@@ -3129,20 +3144,69 @@
       "at": "2026-11-27T09:10:12.373Z",
       "status": "completed_guard_verified",
       "account_evidence": "Ego Lite 0.6.3.17 Profile 3 taskSpace 27; own profile edit username _archivenoh; space finished",
-      "handoff": {"message_id": "1795770040.647419", "queue_id": "convq_c1e87aa72ef478c2208aba81afc804a7", "sent_at": "2026-11-27T09:00:40.647Z", "is_guard_start": false},
-      "post": {"id": "DgPPRvCD1da", "url": "https://www.threads.com/@_archivenoh/post/DgPPRvCD1da", "published_at": "2026-11-27T08:21:24Z", "elapsed_minutes": 48.81, "first_public_display_views": 193, "first_public_read_at": "2026-11-27T09:09:43.683Z", "latest_insight_views": 196, "observed_at": "2026-11-27T09:10:12.373Z", "source": "https://www.threads.com/insights/post/DgPPRvCD1da", "previous_early_views": 0, "previous_early_observed_at": "2026-11-27T08:23:44.484Z"},
+      "handoff": {
+        "message_id": "1795770040.647419",
+        "queue_id": "convq_c1e87aa72ef478c2208aba81afc804a7",
+        "sent_at": "2026-11-27T09:00:40.647Z",
+        "is_guard_start": false
+      },
+      "post": {
+        "id": "DgPPRvCD1da",
+        "url": "https://www.threads.com/@_archivenoh/post/DgPPRvCD1da",
+        "published_at": "2026-11-27T08:21:24Z",
+        "elapsed_minutes": 48.81,
+        "first_public_display_views": 193,
+        "first_public_read_at": "2026-11-27T09:09:43.683Z",
+        "latest_insight_views": 196,
+        "observed_at": "2026-11-27T09:10:12.373Z",
+        "source": "https://www.threads.com/insights/post/DgPPRvCD1da",
+        "previous_early_views": 0,
+        "previous_early_observed_at": "2026-11-27T08:23:44.484Z"
+      },
       "new_post_replies_observed": 1,
       "meaningful_external_responses": 1,
-      "inbound": [{"url": "https://www.threads.com/@americano1234/post/DgPQjymIMmg", "author": "americano1234", "published_at": "2026-11-27T08:32:37Z", "text": "발이작기때문에 현지에서 신발살수없을것같고 신발은 가져가고 옷은 춥다면 사입을수있음", "action": "no_reply", "reason": "Concrete opinion, no unanswered question; no verified new information to add instead of paraphrasing"}],
+      "inbound": [
+        {
+          "url": "https://www.threads.com/@americano1234/post/DgPQjymIMmg",
+          "author": "americano1234",
+          "published_at": "2026-11-27T08:32:37Z",
+          "text": "발이작기때문에 현지에서 신발살수없을것같고 신발은 가져가고 옷은 춥다면 사입을수있음",
+          "action": "no_reply",
+          "reason": "Concrete opinion, no unanswered question; no verified new information to add instead of paraphrasing"
+        }
+      ],
       "reply_records": [],
       "inbound_responses_sent": 0,
       "proactive_replies_sent": 0,
       "prior_own_reply_followups": 0,
-      "pdca": {"check_at": "2026-11-27T09:10:12.373Z", "act_at": "2026-11-27T09:19:42.149119Z", "decision": "refine", "next_change": "Keep travel luggage choice context; add one condition about hard-to-replace locally suitable shoes", "r2_plan_owner": "SAM; not executed in this task"},
-      "roles": {"independent": "deleg_1938a5b7", "cross_review": "deleg_9316fe69", "adopted": "account proof, fresh followup, targeted reply judgment, duplicate/cap safety", "deferred": "zero-response first-line/question or low-view reader pivot branches did not match actual concrete response", "source": "parent handoff; child did not duplicate"},
-      "guard": {"state": "completed", "exit_code": 0, "started_at": "2026-11-27T09:07:11.024635Z", "finished_at": "2026-11-27T09:21:59.819481Z", "lock_free_verified_at": "2026-11-27T09:22:17.195309Z", "source": "parent same-ID SQLite read and read-only lslocks no holder; check time is not exact unlock time"},
+      "pdca": {
+        "check_at": "2026-11-27T09:10:12.373Z",
+        "act_at": "2026-11-27T09:19:42.149119Z",
+        "decision": "refine",
+        "next_change": "Keep travel luggage choice context; add one condition about hard-to-replace locally suitable shoes",
+        "r2_plan_owner": "SAM; not executed in this task"
+      },
+      "roles": {
+        "independent": "deleg_1938a5b7",
+        "cross_review": "deleg_9316fe69",
+        "adopted": "account proof, fresh followup, targeted reply judgment, duplicate/cap safety",
+        "deferred": "zero-response first-line/question or low-view reader pivot branches did not match actual concrete response",
+        "source": "parent handoff; child did not duplicate"
+      },
+      "guard": {
+        "state": "completed",
+        "exit_code": 0,
+        "started_at": "2026-11-27T09:07:11.024635Z",
+        "finished_at": "2026-11-27T09:21:59.819481Z",
+        "lock_free_verified_at": "2026-11-27T09:22:17.195309Z",
+        "source": "parent same-ID SQLite read and read-only lslocks no holder; check time is not exact unlock time"
+      },
       "followup": "r1 window report remains SAM-owned pending; no r2 execution here",
-      "evidence_paths": ["INTENTS.yaml", "intents/waiting/miniapp-image-tools-20261118-qa-01.md", "reports/miniapp-image-tools-20261118-qa-01/20261127T0910Z-r1-t02.html"]
+      "evidence_paths": [
+        "INTENTS.yaml",
+        "intents/waiting/miniapp-image-tools-20261118-qa-01.md",
+        "reports/miniapp-image-tools-20261118-qa-01/20261127T0910Z-r1-t02.html"
+      ]
     },
     {
       "label": "2026-11-27 r2-t01 one-axis travel luggage original and early insight",
@@ -3151,12 +3215,55 @@
       "at": "2026-11-27T10:15:44.927Z",
       "status": "completed_guard_verified",
       "account_evidence": "Ego Lite 0.6.3.17 Profile 3 taskSpace 28; account-only edit username and composer author _archivenoh; space finished",
-      "handoff": {"message_id": "1795773767.187769", "queue_id": "convq_bf0f06fa03b15549729175f3f8b4be1b", "operation_id": "miniapp-20261127-2h:handoff:miniapp-20261127-r2-t01", "sent_at": "2026-11-27T10:03:17Z", "is_guard_start": false},
-      "status_check": {"message_id": "1795774569.054119", "queue_id": "convq_eb71ab3cbdb0b1773df3baf2f7bb2ec9", "operation_id": "miniapp-20261127-2h:status-check:miniapp-20261127-r2-t01", "sent_at": "2026-11-27T10:16:36Z", "is_guard_completion": false},
-      "pdca": {"window": "r2", "phase": "Plan_to_Do", "based_on_window": "r1", "source_task_id": "miniapp-20261127-r1-t02", "changed_variable": "same travel luggage choice; add only locally hard-to-replace correctly fitting shoes", "check_and_act": "pending SAM-owned r2-t02 20:00 KST"},
-      "post": {"id": "DgPcNNsD8-h", "url": "https://www.threads.com/@_archivenoh/post/DgPcNNsD8-h", "published_at": "2026-11-27T10:14:23Z", "text": "기내수하물 짐 목록에 ‘현지에서 다시 구할 수 있나’를 먼저 적어본다.\n\n가상의 여행 준비라면 발에 맞는 신발을 현지에서 찾기 어려운 경우, 신발은 남기고 다른 물건부터 줄인다. 무게가 비슷해도 현지에서 다시 살 수 있는지는 다르다.\n\n여행지에서 대체하기 어려워 꼭 챙기는 물건이 있나요?", "views": 0, "observed_at": "2026-11-27T10:15:36.178Z", "source": "https://www.threads.com/insights/post/DgPcNNsD8-h", "parent": null},
+      "handoff": {
+        "message_id": "1795773767.187769",
+        "queue_id": "convq_bf0f06fa03b15549729175f3f8b4be1b",
+        "operation_id": "miniapp-20261127-2h:handoff:miniapp-20261127-r2-t01",
+        "sent_at": "2026-11-27T10:03:17Z",
+        "is_guard_start": false
+      },
+      "status_check": {
+        "message_id": "1795774569.054119",
+        "queue_id": "convq_eb71ab3cbdb0b1773df3baf2f7bb2ec9",
+        "operation_id": "miniapp-20261127-2h:status-check:miniapp-20261127-r2-t01",
+        "sent_at": "2026-11-27T10:16:36Z",
+        "is_guard_completion": false
+      },
+      "pdca": {
+        "window": "r2",
+        "phase": "Plan_to_Do",
+        "based_on_window": "r1",
+        "source_task_id": "miniapp-20261127-r1-t02",
+        "changed_variable": "same travel luggage choice; add only locally hard-to-replace correctly fitting shoes",
+        "check_and_act": "pending SAM-owned r2-t02 20:00 KST"
+      },
+      "post": {
+        "id": "DgPcNNsD8-h",
+        "url": "https://www.threads.com/@_archivenoh/post/DgPcNNsD8-h",
+        "published_at": "2026-11-27T10:14:23Z",
+        "text": "기내수하물 짐 목록에 ‘현지에서 다시 구할 수 있나’를 먼저 적어본다.\n\n가상의 여행 준비라면 발에 맞는 신발을 현지에서 찾기 어려운 경우, 신발은 남기고 다른 물건부터 줄인다. 무게가 비슷해도 현지에서 다시 살 수 있는지는 다르다.\n\n여행지에서 대체하기 어려워 꼭 챙기는 물건이 있나요?",
+        "views": 0,
+        "observed_at": "2026-11-27T10:15:36.178Z",
+        "source": "https://www.threads.com/insights/post/DgPcNNsD8-h",
+        "parent": null
+      },
       "early_snapshot_not_check": true,
-      "daily_posts_latest": [{"id": "DgPPRvCD1da", "url": "https://www.threads.com/@_archivenoh/post/DgPPRvCD1da", "views": 205, "observed_at": "2026-11-27T10:15:44.927Z", "source": "https://www.threads.com/insights/post/DgPPRvCD1da"}, {"id": "DgPcNNsD8-h", "url": "https://www.threads.com/@_archivenoh/post/DgPcNNsD8-h", "views": 0, "observed_at": "2026-11-27T10:15:36.178Z", "source": "https://www.threads.com/insights/post/DgPcNNsD8-h"}],
+      "daily_posts_latest": [
+        {
+          "id": "DgPPRvCD1da",
+          "url": "https://www.threads.com/@_archivenoh/post/DgPPRvCD1da",
+          "views": 205,
+          "observed_at": "2026-11-27T10:15:44.927Z",
+          "source": "https://www.threads.com/insights/post/DgPPRvCD1da"
+        },
+        {
+          "id": "DgPcNNsD8-h",
+          "url": "https://www.threads.com/@_archivenoh/post/DgPcNNsD8-h",
+          "views": 0,
+          "observed_at": "2026-11-27T10:15:36.178Z",
+          "source": "https://www.threads.com/insights/post/DgPcNNsD8-h"
+        }
+      ],
       "daily_latest_original_views_sum": 205,
       "target_views": 1000,
       "previous_snapshots_old_posts_and_reply_views_excluded": true,
@@ -3164,12 +3271,55 @@
       "inbound_responses_sent_this_task": 0,
       "proactive_replies_sent_this_task": 0,
       "reply_records": [],
-      "reply_decisions": [{"target_url": "https://www.threads.com/@americano1234/post/DgPQjymIMmg", "action": "no_reply", "reason": "Specific personal opinion but no question; repetition not useful"}, {"target_url": "https://www.threads.com/@dainty_dis/post/Df3YwESkxgo", "action": "no_proactive_reply", "reason": "No verified airline security rule"}, {"target_url": "https://www.threads.com/@kkdini_01/post/DLwuMeazZKa", "action": "no_proactive_reply", "reason": "Old personal overweight case without useful new answer"}, {"target_url": "https://www.threads.com/@oiing23/post/DB6jDW9O-Bn", "action": "no_proactive_reply", "reason": "Old airline weight/tag case, current rules not verified; search excerpt truncated"}, {"target_url": "https://www.threads.com/@dancing_mandu/post/DCl7H5XPL_T", "action": "no_proactive_reply", "reason": "Old full-flight baggage case; search excerpt truncated"}],
+      "reply_decisions": [
+        {
+          "target_url": "https://www.threads.com/@americano1234/post/DgPQjymIMmg",
+          "action": "no_reply",
+          "reason": "Specific personal opinion but no question; repetition not useful"
+        },
+        {
+          "target_url": "https://www.threads.com/@dainty_dis/post/Df3YwESkxgo",
+          "action": "no_proactive_reply",
+          "reason": "No verified airline security rule"
+        },
+        {
+          "target_url": "https://www.threads.com/@kkdini_01/post/DLwuMeazZKa",
+          "action": "no_proactive_reply",
+          "reason": "Old personal overweight case without useful new answer"
+        },
+        {
+          "target_url": "https://www.threads.com/@oiing23/post/DB6jDW9O-Bn",
+          "action": "no_proactive_reply",
+          "reason": "Old airline weight/tag case, current rules not verified; search excerpt truncated"
+        },
+        {
+          "target_url": "https://www.threads.com/@dancing_mandu/post/DCl7H5XPL_T",
+          "action": "no_proactive_reply",
+          "reason": "Old full-flight baggage case; search excerpt truncated"
+        }
+      ],
       "search_scope_change": "여행 짐 신발 search remained loading, changed once to 기내수하물; four unique related public search conversations, some truncated; no defensible helpful reply",
-      "roles": {"independent": "deleg_1698f144", "cross_review": "deleg_189e9b89", "source": "parent completed four-role handoff; child did not duplicate", "adopted": "identity, one-condition change, dedupe/caps, useful replies only, early insight separation", "deferred": "repeat r1 shoe-versus-coat question, causal/customer claims, premature pivot and quota-fill replies"},
-      "guard": {"state": "completed", "exit_code": 0, "started_at": "2026-11-27T10:07:03.077437Z", "finished_at": "2026-11-27T10:27:02.699780Z", "lock_free_verified_at": "2026-11-27T10:27:19.571303Z", "source": "parent same-ID SQLite and read-only lslocks no holder; check time not exact unlock time"},
+      "roles": {
+        "independent": "deleg_1698f144",
+        "cross_review": "deleg_189e9b89",
+        "source": "parent completed four-role handoff; child did not duplicate",
+        "adopted": "identity, one-condition change, dedupe/caps, useful replies only, early insight separation",
+        "deferred": "repeat r1 shoe-versus-coat question, causal/customer claims, premature pivot and quota-fill replies"
+      },
+      "guard": {
+        "state": "completed",
+        "exit_code": 0,
+        "started_at": "2026-11-27T10:07:03.077437Z",
+        "finished_at": "2026-11-27T10:27:02.699780Z",
+        "lock_free_verified_at": "2026-11-27T10:27:19.571303Z",
+        "source": "parent same-ID SQLite and read-only lslocks no holder; check time not exact unlock time"
+      },
       "followup": "SAM owns r2-t02 at 11:00Z for delayed Check/Act; r2 report remains pending; no next-day resume",
-      "evidence_paths": ["INTENTS.yaml", "intents/waiting/miniapp-image-tools-20261118-qa-01.md", "reports/miniapp-image-tools-20261118-qa-01/20261127T1015Z-r2-t01.html"]
+      "evidence_paths": [
+        "INTENTS.yaml",
+        "intents/waiting/miniapp-image-tools-20261118-qa-01.md",
+        "reports/miniapp-image-tools-20261118-qa-01/20261127T1015Z-r2-t01.html"
+      ]
     },
     {
       "label": "2026-11-27 r2-t02 delayed original observations and one-axis Check/Act",
@@ -3178,11 +3328,45 @@
       "at": "2026-11-27T11:09:41.171Z",
       "status": "completed_guard_verified",
       "account_evidence": "Ego Lite 0.6.3.17 Profile 3 separate taskSpace 29; account-only profile edit username _archivenoh at 11:06:07Z; space finished 11:12:54Z",
-      "handoff": {"message_id": "1795777264.417069", "queue_id": "convq_18490e0b362bf57ac8373f7f7202b48c", "operation_id": "miniapp-20261127-2h:handoff:miniapp-20261127-r2-t02", "sent_at": "2026-11-27T11:01:04.417069Z", "is_guard_start": false},
-      "status_check": {"message_id": "1795777996.089489", "queue_id": "convq_24b458a258f1100be9c458659407265f", "operation_id": "miniapp-20261127-2h:status-check:miniapp-20261127-r2-t02", "sent_at": "2026-11-27T11:13:16Z", "is_guard_completion": false},
+      "handoff": {
+        "message_id": "1795777264.417069",
+        "queue_id": "convq_18490e0b362bf57ac8373f7f7202b48c",
+        "operation_id": "miniapp-20261127-2h:handoff:miniapp-20261127-r2-t02",
+        "sent_at": "2026-11-27T11:01:04.417069Z",
+        "is_guard_start": false
+      },
+      "status_check": {
+        "message_id": "1795777996.089489",
+        "queue_id": "convq_24b458a258f1100be9c458659407265f",
+        "operation_id": "miniapp-20261127-2h:status-check:miniapp-20261127-r2-t02",
+        "sent_at": "2026-11-27T11:13:16Z",
+        "is_guard_completion": false
+      },
       "posts_latest": [
-        {"id": "DgPcNNsD8-h", "url": "https://www.threads.com/@_archivenoh/post/DgPcNNsD8-h", "published_at": "2026-11-27T10:14:23Z", "elapsed_minutes_at_latest": 55.30, "insight_views": 97, "insight_observed_at": "2026-11-27T11:06:47.100Z", "insight_source": "https://www.threads.com/insights/post/DgPcNNsD8-h", "views": 99, "observed_at": "2026-11-27T11:09:41.171Z", "source": "https://www.threads.com/@_archivenoh/post/DgPcNNsD8-h", "previous_early_views": 0, "previous_early_observed_at": "2026-11-27T10:15:36.178Z"},
-        {"id": "DgPPRvCD1da", "url": "https://www.threads.com/@_archivenoh/post/DgPPRvCD1da", "published_at": "2026-11-27T08:21:24Z", "views": 206, "observed_at": "2026-11-27T11:08:41.332Z", "source": "https://www.threads.com/insights/post/DgPPRvCD1da", "previous_views": 205, "previous_observed_at": "2026-11-27T10:15:44.927Z"}
+        {
+          "id": "DgPcNNsD8-h",
+          "url": "https://www.threads.com/@_archivenoh/post/DgPcNNsD8-h",
+          "published_at": "2026-11-27T10:14:23Z",
+          "elapsed_minutes_at_latest": 55.3,
+          "insight_views": 97,
+          "insight_observed_at": "2026-11-27T11:06:47.100Z",
+          "insight_source": "https://www.threads.com/insights/post/DgPcNNsD8-h",
+          "views": 99,
+          "observed_at": "2026-11-27T11:09:41.171Z",
+          "source": "https://www.threads.com/@_archivenoh/post/DgPcNNsD8-h",
+          "previous_early_views": 0,
+          "previous_early_observed_at": "2026-11-27T10:15:36.178Z"
+        },
+        {
+          "id": "DgPPRvCD1da",
+          "url": "https://www.threads.com/@_archivenoh/post/DgPPRvCD1da",
+          "published_at": "2026-11-27T08:21:24Z",
+          "views": 206,
+          "observed_at": "2026-11-27T11:08:41.332Z",
+          "source": "https://www.threads.com/insights/post/DgPPRvCD1da",
+          "previous_views": 205,
+          "previous_observed_at": "2026-11-27T10:15:44.927Z"
+        }
       ],
       "daily_latest_original_views_sum": 305,
       "target_views": 1000,
@@ -3195,12 +3379,43 @@
       "inbound_responses_sent_this_task": 0,
       "proactive_replies_sent_this_task": 0,
       "originals_sent_this_task": 0,
-      "reply_decisions": [{"target_url": "https://www.threads.com/@americano1234/post/DgPQjymIMmg", "action": "no_reply", "reason": "Existing r1 concrete shoe opinion with no unanswered question; no new contribution without repetition"}],
-      "pdca": {"window": "r2", "changed_variable": "same travel luggage choice; add locally hard-to-replace correctly fitting shoes (already applied at r2 Do)", "observation_status": "observed", "decision": "refine", "reason": "r2 99 latest views >=50 and zero new meaningful replies at 55.30 minutes", "next_change": "Keep travel luggage choice and first line; change only final question to ask for one locally hard-to-replace item and why", "r3_plan_owner": "SAM"},
-      "roles": {"independent": "deleg_b34831f7", "cross_review": "deleg_d573dbc1", "four_each_completed": true, "adopted": "actual delayed values, new-versus-old comment distinction, one-axis decision and parent-only guard proof", "deferred": "r1 Act reused as r2 Act, causality, quota-fill replies"},
-      "guard": {"state": "completed", "exit_code": 0, "started_at": "2026-11-27T11:04:10.852100Z", "finished_at": "2026-11-27T11:23:01.246732Z", "lock_free_verified_at": "2026-11-27T11:23:16.187206Z", "source": "parent same-ID SQLite and read-only lslocks no holder; check time not exact unlock time"},
+      "reply_decisions": [
+        {
+          "target_url": "https://www.threads.com/@americano1234/post/DgPQjymIMmg",
+          "action": "no_reply",
+          "reason": "Existing r1 concrete shoe opinion with no unanswered question; no new contribution without repetition"
+        }
+      ],
+      "pdca": {
+        "window": "r2",
+        "changed_variable": "same travel luggage choice; add locally hard-to-replace correctly fitting shoes (already applied at r2 Do)",
+        "observation_status": "observed",
+        "decision": "refine",
+        "reason": "r2 99 latest views >=50 and zero new meaningful replies at 55.30 minutes",
+        "next_change": "Keep travel luggage choice and first line; change only final question to ask for one locally hard-to-replace item and why",
+        "r3_plan_owner": "SAM"
+      },
+      "roles": {
+        "independent": "deleg_b34831f7",
+        "cross_review": "deleg_d573dbc1",
+        "four_each_completed": true,
+        "adopted": "actual delayed values, new-versus-old comment distinction, one-axis decision and parent-only guard proof",
+        "deferred": "r1 Act reused as r2 Act, causality, quota-fill replies"
+      },
+      "guard": {
+        "state": "completed",
+        "exit_code": 0,
+        "started_at": "2026-11-27T11:04:10.852100Z",
+        "finished_at": "2026-11-27T11:23:01.246732Z",
+        "lock_free_verified_at": "2026-11-27T11:23:16.187206Z",
+        "source": "parent same-ID SQLite and read-only lslocks no holder; check time not exact unlock time"
+      },
       "followup": "Parent verified same-ID SQLite completion and read-only shared-lock no holder; SAM owns 21:00 window report and r3 Plan; no next task execution here",
-      "evidence_paths": ["INTENTS.yaml", "intents/waiting/miniapp-image-tools-20261118-qa-01.md", "reports/miniapp-image-tools-20261118-qa-01/20261127T1113Z-r2-t02.html"]
+      "evidence_paths": [
+        "INTENTS.yaml",
+        "intents/waiting/miniapp-image-tools-20261118-qa-01.md",
+        "reports/miniapp-image-tools-20261118-qa-01/20261127T1113Z-r2-t02.html"
+      ]
     },
     {
       "label": "2026-11-27 r3-t01 bounded engagement; duplicate-original skip and early snapshot",
@@ -3208,13 +3423,47 @@
       "task_id": "miniapp-20261127-r3-t01",
       "at": "2026-11-27T12:19:46.500Z",
       "status": "completed_guard_verified",
-      "handoff": {"message_id": "1795781120.444939", "queue_id": "convq_f79cd2a1fd709b681c239c4815f1461b", "sent_at": "2026-11-27T12:05:20.444939Z", "is_guard_start": false},
+      "handoff": {
+        "message_id": "1795781120.444939",
+        "queue_id": "convq_f79cd2a1fd709b681c239c4815f1461b",
+        "sent_at": "2026-11-27T12:05:20.444939Z",
+        "is_guard_start": false
+      },
       "account_evidence": "Ego Lite 0.6.3.17 authorized Profile 3 separate taskSpace 30, account-only profile edit username _archivenoh; space finished; no send",
-      "pdca": {"window": "r3", "phase": "Plan_to_Do", "based_on_window": "r2", "source_task_id": "miniapp-20261127-r2-t02", "changed_variable": "keep travel luggage choice and first line, refine last question to locally hard-to-replace item and its reason", "decision_for_original": "skip_duplicate", "reason": "r2 original already asks which item is hard to replace at destination; adding why repeats same decision without distinct grounded customer value", "check_and_act": "pending SAM-owned r3-t02 22:00 KST"},
+      "pdca": {
+        "window": "r3",
+        "phase": "Plan_to_Do",
+        "based_on_window": "r2",
+        "source_task_id": "miniapp-20261127-r2-t02",
+        "changed_variable": "keep travel luggage choice and first line, refine last question to locally hard-to-replace item and its reason",
+        "decision_for_original": "skip_duplicate",
+        "reason": "r2 original already asks which item is hard to replace at destination; adding why repeats same decision without distinct grounded customer value",
+        "check_and_act": "pending SAM-owned r3-t02 22:00 KST"
+      },
       "originals_sent_this_task": 0,
       "original_post_url": null,
       "daily_originals_so_far": 2,
-      "posts_latest": [{"id": "DgPPRvCD1da", "url": "https://www.threads.com/@_archivenoh/post/DgPPRvCD1da", "published_at": "2026-11-27T08:21:24Z", "views": 207, "observed_at": "2026-11-27T12:19:02.278Z", "source": "https://www.threads.com/insights/post/DgPPRvCD1da", "previous_views": 206}, {"id": "DgPcNNsD8-h", "url": "https://www.threads.com/@_archivenoh/post/DgPcNNsD8-h", "published_at": "2026-11-27T10:14:23Z", "views": 109, "observed_at": "2026-11-27T12:19:46.500Z", "source": "https://www.threads.com/insights/post/DgPcNNsD8-h", "earlier_public_views": 108, "previous_views": 99}],
+      "posts_latest": [
+        {
+          "id": "DgPPRvCD1da",
+          "url": "https://www.threads.com/@_archivenoh/post/DgPPRvCD1da",
+          "published_at": "2026-11-27T08:21:24Z",
+          "views": 207,
+          "observed_at": "2026-11-27T12:19:02.278Z",
+          "source": "https://www.threads.com/insights/post/DgPPRvCD1da",
+          "previous_views": 206
+        },
+        {
+          "id": "DgPcNNsD8-h",
+          "url": "https://www.threads.com/@_archivenoh/post/DgPcNNsD8-h",
+          "published_at": "2026-11-27T10:14:23Z",
+          "views": 109,
+          "observed_at": "2026-11-27T12:19:46.500Z",
+          "source": "https://www.threads.com/insights/post/DgPcNNsD8-h",
+          "earlier_public_views": 108,
+          "previous_views": 99
+        }
+      ],
       "daily_latest_original_views_sum": 316,
       "target_views": 1000,
       "early_snapshot_not_r3_delayed_check": true,
@@ -3225,12 +3474,56 @@
       "reply_records": [],
       "inbound_responses_sent_this_task": 0,
       "proactive_replies_sent_this_task": 0,
-      "reply_decisions": [{"target_url": "https://www.threads.com/@americano1234/post/DgPQjymIMmg", "action": "no_reply", "reason": "old r1 shoe opinion already reflected in r2; no question"}, {"target_url": "https://www.threads.com/@cheerfulyoonkyeom/post/DgPl8UPGEld", "action": "no_reply", "reason": "new followup to Nov 25 own reply answers editing deadline but asks no new question; no substantive addition"}, {"target_url": "https://www.threads.com/@r_u_serious_log/post/DgC9_6Tk5dJ", "action": "no_proactive_reply", "reason": "many weight-check anecdotes, partial replies inaccessible and current rules unverified"}, {"target_url": "https://www.threads.com/@dainty_dis/post/Df3YwESkxgo", "action": "no_proactive_reply", "reason": "author already checked with airline and reports no carry-on"}, {"target_url": "https://www.threads.com/@leochoo.tech/post/DbHJjiZEyNP", "action": "no_proactive_reply", "reason": "July case has self followup but no current verified rule or question"}],
+      "reply_decisions": [
+        {
+          "target_url": "https://www.threads.com/@americano1234/post/DgPQjymIMmg",
+          "action": "no_reply",
+          "reason": "old r1 shoe opinion already reflected in r2; no question"
+        },
+        {
+          "target_url": "https://www.threads.com/@cheerfulyoonkyeom/post/DgPl8UPGEld",
+          "action": "no_reply",
+          "reason": "new followup to Nov 25 own reply answers editing deadline but asks no new question; no substantive addition"
+        },
+        {
+          "target_url": "https://www.threads.com/@r_u_serious_log/post/DgC9_6Tk5dJ",
+          "action": "no_proactive_reply",
+          "reason": "many weight-check anecdotes, partial replies inaccessible and current rules unverified"
+        },
+        {
+          "target_url": "https://www.threads.com/@dainty_dis/post/Df3YwESkxgo",
+          "action": "no_proactive_reply",
+          "reason": "author already checked with airline and reports no carry-on"
+        },
+        {
+          "target_url": "https://www.threads.com/@leochoo.tech/post/DbHJjiZEyNP",
+          "action": "no_proactive_reply",
+          "reason": "July case has self followup but no current verified rule or question"
+        }
+      ],
       "search_scope_change": "initial baggage search surfaced old rule anecdotes; once changed to recent 짐 줄이기 but results were unrelated life/ads; three baggage conversations read directly within ten minutes",
-      "roles": {"independent": "deleg_dfff2470", "cross_review": "deleg_84ceb8e9", "source": "parent completed four independent and cross-review judgments; child reused, did not duplicate", "adopted": "one-axis Plan, exact account and dedupe, local replaceability question evaluated against actual r2, helpful-reply-only, parent-only guard proof", "deferred": "near-duplicate original, unsupported regulation or customer experience, quota-fill replies and causal claim"},
-      "guard": {"state": "completed", "exit_code": 0, "started_at": "2026-11-27T12:08:04.013609Z", "finished_at": "2026-11-27T12:28:54.647393Z", "end_at": "2026-11-27T14:00:00Z", "lock_free_verified_at": "2026-11-27T12:29:09.774473Z", "source": "parent independent SQLite same-ID row plus read-only lslocks active.lock no holder; verification time not exact unlock time"},
+      "roles": {
+        "independent": "deleg_dfff2470",
+        "cross_review": "deleg_84ceb8e9",
+        "source": "parent completed four independent and cross-review judgments; child reused, did not duplicate",
+        "adopted": "one-axis Plan, exact account and dedupe, local replaceability question evaluated against actual r2, helpful-reply-only, parent-only guard proof",
+        "deferred": "near-duplicate original, unsupported regulation or customer experience, quota-fill replies and causal claim"
+      },
+      "guard": {
+        "state": "completed",
+        "exit_code": 0,
+        "started_at": "2026-11-27T12:08:04.013609Z",
+        "finished_at": "2026-11-27T12:28:54.647393Z",
+        "end_at": "2026-11-27T14:00:00Z",
+        "lock_free_verified_at": "2026-11-27T12:29:09.774473Z",
+        "source": "parent independent SQLite same-ID row plus read-only lslocks active.lock no holder; verification time not exact unlock time"
+      },
       "followup": "SAM-owned r3-t02 delayed Check/Act at 13:00Z and 23:00 KST final report pending; no next-day resumption",
-      "evidence_paths": ["INTENTS.yaml", "intents/waiting/miniapp-image-tools-20261118-qa-01.md", "reports/miniapp-image-tools-20261118-qa-01/20261127T1220Z-r3-t01.html"]
+      "evidence_paths": [
+        "INTENTS.yaml",
+        "intents/waiting/miniapp-image-tools-20261118-qa-01.md",
+        "reports/miniapp-image-tools-20261118-qa-01/20261127T1220Z-r3-t01.html"
+      ]
     },
     {
       "label": "2026-11-27 r3-t02 delayed observation and untested r3 question Check/Act",
@@ -3238,27 +3531,123 @@
       "task_id": "miniapp-20261127-r3-t02",
       "at": "2026-11-27T13:13:40.764Z",
       "status": "observed_guard_verified",
-      "handoff": {"message_id": "1795784433.255749", "queue_id": "convq_1d3486cabf35834b101d666090254883", "sent_at": "2026-11-27T13:00:33.255749Z", "is_guard_start": false},
-      "status_check": {"message_id": "1795785148.173789", "queue_id": "convq_2fd5fc1c2a18d6cd2d102a854896d18c", "sent_at": "2026-11-27T13:13:10Z", "is_product_receipt": false},
+      "handoff": {
+        "message_id": "1795784433.255749",
+        "queue_id": "convq_1d3486cabf35834b101d666090254883",
+        "sent_at": "2026-11-27T13:00:33.255749Z",
+        "is_guard_start": false
+      },
+      "status_check": {
+        "message_id": "1795785148.173789",
+        "queue_id": "convq_2fd5fc1c2a18d6cd2d102a854896d18c",
+        "sent_at": "2026-11-27T13:13:10Z",
+        "is_product_receipt": false
+      },
       "account_evidence": "Ego Lite 0.6.3.17 authorized Profile 3 independent taskSpace 32; account-only profile edit username _archivenoh; space finished 2026-11-27T13:13:50.605Z; no send",
-      "posts_latest": [{"id": "DgPPRvCD1da", "url": "https://www.threads.com/@_archivenoh/post/DgPPRvCD1da", "published_at": "2026-11-27T08:21:24Z", "views": 207, "observed_at": "2026-11-27T13:13:22.046Z", "elapsed_minutes": 291.97, "source": "https://www.threads.com/insights/post/DgPPRvCD1da", "previous_views": 207}, {"id": "DgPcNNsD8-h", "url": "https://www.threads.com/@_archivenoh/post/DgPcNNsD8-h", "published_at": "2026-11-27T10:14:23Z", "views": 110, "observed_at": "2026-11-27T13:11:56.772Z", "elapsed_minutes": 177.56, "source": "https://www.threads.com/insights/post/DgPcNNsD8-h", "previous_views": 109}],
+      "posts_latest": [
+        {
+          "id": "DgPPRvCD1da",
+          "url": "https://www.threads.com/@_archivenoh/post/DgPPRvCD1da",
+          "published_at": "2026-11-27T08:21:24Z",
+          "views": 207,
+          "observed_at": "2026-11-27T13:13:22.046Z",
+          "elapsed_minutes": 291.97,
+          "source": "https://www.threads.com/insights/post/DgPPRvCD1da",
+          "previous_views": 207
+        },
+        {
+          "id": "DgPcNNsD8-h",
+          "url": "https://www.threads.com/@_archivenoh/post/DgPcNNsD8-h",
+          "published_at": "2026-11-27T10:14:23Z",
+          "views": 110,
+          "observed_at": "2026-11-27T13:11:56.772Z",
+          "elapsed_minutes": 177.56,
+          "source": "https://www.threads.com/insights/post/DgPcNNsD8-h",
+          "previous_views": 109
+        }
+      ],
       "daily_latest_original_views_sum": 317,
       "target_views": 1000,
       "shortfall_views": 683,
-      "r1_existing_shoe_comment": {"url": "https://www.threads.com/@americano1234/post/DgPQjymIMmg", "counted_new_this_task": false},
+      "r1_existing_shoe_comment": {
+        "url": "https://www.threads.com/@americano1234/post/DgPQjymIMmg",
+        "counted_new_this_task": false
+      },
       "r2_post_replies": 0,
-      "prior_own_reply_followup": {"url": "https://www.threads.com/@cheerfulyoonkyeom/post/DgPl8UPGEld", "already_seen_in": "miniapp-20261127-r3-t01", "counted_new_this_task": false},
+      "prior_own_reply_followup": {
+        "url": "https://www.threads.com/@cheerfulyoonkyeom/post/DgPl8UPGEld",
+        "already_seen_in": "miniapp-20261127-r3-t01",
+        "counted_new_this_task": false
+      },
       "new_concrete_inbound_this_task": 0,
       "originals_sent_this_task": 0,
       "inbound_responses_sent_this_task": 0,
       "proactive_replies_sent_this_task": 0,
       "reply_records": [],
-      "reply_decisions": [{"target_url": "https://www.threads.com/@americano1234/post/DgPQjymIMmg", "action": "no_reply", "reason": "old r1 shoe opinion already reflected in r2; no unanswered question"}, {"target_url": "https://www.threads.com/@cheerfulyoonkyeom/post/DgPl8UPGEld", "action": "no_reply", "reason": "already observed in r3-t01, no new question or contribution"}],
-      "pdca": {"window": "r3", "phase": "Check_to_Act", "check_at": "2026-11-27T13:13:40.764Z", "act_at": "2026-11-27T13:15:19Z", "observation_status": "observed", "hypothesis_test_status": "untested_no_r3_original", "prediction": "a final-question change to locally hard-to-replace item and reason might elicit more specific decision rationale", "observed": "no r3 original exposure; old r1 207 and r2 110 latest, one old r1 shoe opinion, no new concrete inbound", "decision": "inconclusive", "threshold_applied_to_r3_question": false, "next_change": "keep travel-luggage context and first line; change only the next candidate's final question to ask which condition is checked first when deciding whether correctly fitting shoes can be replaced locally; untested hypothesis, no automatic next-day posting"},
-      "roles": {"independent": "deleg_a39a5589", "cross_review": "deleg_a175de2e", "four_each_completed": true, "adopted": "Planner untested hypothesis; Developer same-ID guard and separate receipts; Marketer evidence-dependent one axis; Operator no quota, failure != zero, hard stop", "deferred": "Marketer removal-priority wording unsupported by observation; r3 exposure threshold, duplicate reply or original and causal claims"},
-      "guard": {"state": "completed", "exit_code": 0, "started_at": "2026-11-27T13:07:03.119432Z", "finished_at": "2026-11-27T13:20:31.728813Z", "end_at": "2026-11-27T14:00:00Z", "lock_free_verified_at": "2026-11-27T13:20:48.276220Z", "source": "parent independent same-ID SQLite row and read-only lslocks active.lock no holder; verification time is not exact unlock time"},
+      "reply_decisions": [
+        {
+          "target_url": "https://www.threads.com/@americano1234/post/DgPQjymIMmg",
+          "action": "no_reply",
+          "reason": "old r1 shoe opinion already reflected in r2; no unanswered question"
+        },
+        {
+          "target_url": "https://www.threads.com/@cheerfulyoonkyeom/post/DgPl8UPGEld",
+          "action": "no_reply",
+          "reason": "already observed in r3-t01, no new question or contribution"
+        }
+      ],
+      "pdca": {
+        "window": "r3",
+        "phase": "Check_to_Act",
+        "check_at": "2026-11-27T13:13:40.764Z",
+        "act_at": "2026-11-27T13:15:19Z",
+        "observation_status": "observed",
+        "hypothesis_test_status": "untested_no_r3_original",
+        "prediction": "a final-question change to locally hard-to-replace item and reason might elicit more specific decision rationale",
+        "observed": "no r3 original exposure; old r1 207 and r2 110 latest, one old r1 shoe opinion, no new concrete inbound",
+        "decision": "inconclusive",
+        "threshold_applied_to_r3_question": false,
+        "next_change": "keep travel-luggage context and first line; change only the next candidate's final question to ask which condition is checked first when deciding whether correctly fitting shoes can be replaced locally; untested hypothesis, no automatic next-day posting"
+      },
+      "roles": {
+        "independent": "deleg_a39a5589",
+        "cross_review": "deleg_a175de2e",
+        "four_each_completed": true,
+        "adopted": "Planner untested hypothesis; Developer same-ID guard and separate receipts; Marketer evidence-dependent one axis; Operator no quota, failure != zero, hard stop",
+        "deferred": "Marketer removal-priority wording unsupported by observation; r3 exposure threshold, duplicate reply or original and causal claims"
+      },
+      "guard": {
+        "state": "completed",
+        "exit_code": 0,
+        "started_at": "2026-11-27T13:07:03.119432Z",
+        "finished_at": "2026-11-27T13:20:31.728813Z",
+        "end_at": "2026-11-27T14:00:00Z",
+        "lock_free_verified_at": "2026-11-27T13:20:48.276220Z",
+        "source": "parent independent same-ID SQLite row and read-only lslocks active.lock no holder; verification time is not exact unlock time"
+      },
       "followup": "Same-ID guard completed and lock-free verified by parent; SAM owns 23:00 final report; Intent Waiting",
-      "evidence_paths": ["INTENTS.yaml", "intents/waiting/miniapp-image-tools-20261118-qa-01.md", "reports/miniapp-image-tools-20261118-qa-01/20261127T1315Z-r3-t02.html"]
+      "evidence_paths": [
+        "INTENTS.yaml",
+        "intents/waiting/miniapp-image-tools-20261118-qa-01.md",
+        "reports/miniapp-image-tools-20261118-qa-01/20261127T1315Z-r3-t02.html"
+      ]
+    },
+    {
+      "label": "2026-11-27 result review and recovered closeout",
+      "at": "2026-11-27T15:52:49Z",
+      "status": "verified",
+      "run_id": "miniapp-20261127-2h",
+      "total_views": 317,
+      "hypotheses_exposed": 2,
+      "r3_hypothesis": "untested",
+      "slack_message_id": "1795794662.550159",
+      "slack_thread_ts": "1794983278.888719",
+      "slack_body_verified": true,
+      "native_jobs_disabled": true,
+      "registry": "pass",
+      "single_trace": "pass",
+      "render": "390px and 1280px",
+      "automatic_prevention": "not_implemented"
     }
   ],
   "next_decision": {

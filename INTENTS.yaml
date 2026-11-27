@@ -415,8 +415,8 @@ lanes:
         goal: r2 실제 Check/Act를 바탕으로 준비된 windows[].pdca를 읽고 변경 한 축을 적용해 원문 최대1개와 유용한 대화 참여를 실행한다. 사전 고정 소재를 반복하지 않는다.
         task_sequence: 2
         planned_tasks_only: true
-        report_status: pending
-        report_message_id: null
+        report_status: sent
+        report_message_id: '1795794662.550159'
         exhausted: false
         observation_due_at: '2026-11-27T13:00:00Z'
         metrics:
@@ -480,6 +480,10 @@ lanes:
           next_change: 다음 실행 후보에서 여행 짐 선택 맥락과 첫 문장은 유지하고 마지막 질문만 물건의 나열 대신 발에 맞는 신발을 현지에서 대체할 수 있는지 판단할 때 먼저 확인하는 조건을 묻는 한 축으로 바꾼다(미검증 가설, 자동
             게시 없음).
           act_at: '2026-11-27T13:15:19Z'
+        report_queue_id: convq_390a15234d00461f10bb1dc832fb207a
+        report_verified_at: '2026-11-27T15:52:49Z'
+        report_delivery_receipt: sent; exact 11/27 final message ID, original thread and 317/1000 body read back; recovered after missed 23:00
+          closeout
       tasks:
       - id: miniapp-20261127-r1-t01
         window_id: r1
@@ -1035,10 +1039,11 @@ lanes:
         - security_or_visibility_changes
         account_verified: true
         account_evidence: Ego Lite 승인 Profile 3 taskSpace30 계정 전용 프로필 편집 사용자 이름 _archivenoh 확인. 공간 종료; r3-t01 공개 발송 없음.
-      final_report_status: pending_recovery
+      final_report_status: sent
       final_report: reports/miniapp-image-tools-20261118-qa-01/20261127T1541Z-pdca-review.html
-      final_report_message_id: null
-      final_report_delivery_receipt: null
+      final_report_message_id: '1795794662.550159'
+      final_report_delivery_receipt: sent; exact 11/27 final message ID, original thread and 317/1000 body read back; recovered after missed 23:00
+        closeout
       next_action: 11/27 실측317/1000, 원문2·유효응답1·보낸답글0. r3 미게시로 미실험. 결과 검토와 마감 누락 복구 후 다음 실행은 미예약.
       setup_receipts:
         helper_verification: 60 focused tests passed; full-suite prior run181 tests had one unchanged unrelated dispatcher failure, documented
@@ -1080,6 +1085,21 @@ lanes:
         new_browser_work: false
         future_runs_scheduled: false
         prevention_status: date/run/receipt validation recommendation; code not changed
+        recovered_at: '2026-11-27T15:52:49Z'
+        final_message_id: '1795794662.550159'
+        status: recovered_verified
+      final_report_queue_id: convq_390a15234d00461f10bb1dc832fb207a
+      final_report_operation_id: miniapp-20261127-2h:report:final
+      final_report_verified_at: '2026-11-27T15:52:49Z'
+      review_verification:
+        registry: pass
+        single_trace: pass
+        metrics_sum: 207+110=317
+        render: 390px mobile and 1280px desktop inspected; final mobile typography rechecked
+        native_jobs: both disabled read back
+        slack_body: exact message verified
+        product_measurement_limit: saved Windows observations at 22:11-22:13 KST; no new browser observation
+        automatic_prevention: not_implemented
     next_action: 11/27 결과 확인과 개선안 검토. 다음 실험 일정은 미예약이며 자동 재개하지 않는다.
     notification_channel: slack
     notification_target: channel:C0CE0DV9MM2
@@ -2237,7 +2257,7 @@ lanes:
     current_task_status_check_operation_id: miniapp-20261127-2h:status-check:miniapp-20261127-r3-t02
     current_task_handoff_delivery_receipt: sent; exact original-thread body read back and matched. Handoff is not guard-start or product-result
       evidence.
-    current_task_followup: r3-t02 제품 관측·r3 Check/Act와 동일 ID guard 종료/잠금 영수증 확인 완료; SAM 23시 종합 별도 소유. Intent Waiting 유지.
+    current_task_followup: 11/27 최종 결과317/1000·r3미실험 보고 발송/본문 확인 완료. 당일 run 종료, 두 예약 비활성; 다음 일정 미예약.
   - id: reel-room-studio-20261113
     title: Reel Room·Instagram Maker 통합 릴스 스튜디오 구현
     task_name: Reel Room·Instagram Maker 통합 릴스 스튜디오 구현

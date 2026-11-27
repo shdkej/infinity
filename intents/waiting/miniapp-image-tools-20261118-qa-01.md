@@ -28,6 +28,8 @@ Meta는 답글이 Threads 조회의 거의 절반을 차지하며 대화를 만�
 
 trace의 미지원 `task_guard_start_reconciled` 유형은 원문·시각을 보존하고 `backfill`로 정규화했다. [종합 보고](../../reports/miniapp-image-tools-20261118-qa-01/20261127T1541Z-pdca-review.html), 원장·단일 trace, 원격 main, 최종 Slack 본문을 확인하고 영수증을 같은 run에 남긴다. 이후 자동 재발 방지 검사는 미구현이다.
 
+검증 완료: 원장·단일 trace 통과, 게시물 최신값 207+110=317 대조, HTML 390px/1280px 실제 렌더 확인. 두 native 예약 비활성 재조회와 원격 run의 fire=false를 확인했다. 최종 보고 [Slack 원문](https://shdkej.slack.com/archives/C0CE0DV9MM2/p1795794662550159)의 날짜·317회·미실험 본문을 정확한 메시지 ID로 다시 읽었다. 전송 영수증 convq_390a15234d00461f10bb1dc832fb207a; 보고 원문/상태는 현재 run에 기록했다. 자동 재발 방지 코드는 미구현이며 다음 일정은 미예약이다.
+
 ## 11/27 r3-t02 Check → Act · 22:07–22:20 KST (부모 guard 영수증 확인)
 
 - SAM의 동일 ID `miniapp-20261127-r3-t02` 인계 `1795784433.255749` / `convq_1d3486cabf35834b101d666090254883`는 요청 전송만 증명한다. 별도 상태 조회 `1795785148.173789` / `convq_2fd5fc1c2a18d6cd2d102a854896d18c`도 원격에 병합해 보존했다. 실제 guard SQLite 실행은 `13:07:03.119432Z` 시작, `13:20:31.728813Z` 종료, `completed`/exit `0`, 고정 end `14:00Z` 이전이다. 자식은 자기 종료를 선언하지 않았고 부모가 동일 ID SQLite를 별도 확인했다. 읽기 전용 `lslocks`에서 `13:20:48.276220Z` 공유 `active.lock` **비보유**를 확인했다. 이는 해제 순간이 아닌 확인 시각이다. 네 독립 역할 `deleg_a39a5589`와 네 교차 검토 `deleg_a175de2e`의 완료 로그를 재사용했으며 재위임하지 않았다.
