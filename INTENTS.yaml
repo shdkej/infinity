@@ -444,8 +444,8 @@ lanes:
         handoff_status: sent
         handoff_message_id: '1795766491.553509'
         handoff_queue_id: convq_95e5a061324d4896d090be24c669993d
-        handoff_attempt_at: '2026-11-27T08:02:38Z'
-        handoff_at: '2026-11-27T08:02:38Z'
+        handoff_attempt_at: '2026-11-27T08:01:31.553509Z'
+        handoff_at: '2026-11-27T08:01:31.553509Z'
         result_summary: null
         changes: []
         release_runs: []
