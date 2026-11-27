@@ -347,7 +347,7 @@ lanes:
       - id: r2
         start_at: '2026-11-27T10:00:00Z'
         end_at: '2026-11-27T12:00:00Z'
-        status: scheduled
+        status: in_progress
         goal: r1 실제 Check/Act를 바탕으로 준비된 windows[].pdca를 읽고 변경 한 축을 적용해 원문 최대1개와 유용한 대화 참여를 실행한다. 사전 고정 소재를 반복하지 않는다.
         task_sequence: 2
         planned_tasks_only: true
@@ -358,24 +358,31 @@ lanes:
         metrics:
           target: 1000
           unit: threads_post_views
-          observed_at: null
+          observed_at: '2026-11-27T10:15:36.178Z'
           obs_attempted_at: null
-          posts: []
-          total_views: null
-          new_post_replies_observed: null
-          inbound_replies_observed: null
-          inbound_responses_sent: null
-          proactive_replies_sent: null
-          meaningful_external_responses: null
-          conversations_continued: null
+          posts:
+          - id: DgPcNNsD8-h
+            url: https://www.threads.com/@_archivenoh/post/DgPcNNsD8-h
+            published_at: '2026-11-27T10:14:23Z'
+            views: 0
+            obs_attempted_at: null
+            observed_at: '2026-11-27T10:15:36.178Z'
+            evidence: https://www.threads.com/insights/post/DgPcNNsD8-h
+          total_views: 0
+          new_post_replies_observed: 0
+          inbound_replies_observed: 0
+          inbound_responses_sent: 0
+          proactive_replies_sent: 0
+          meaningful_external_responses: 0
+          conversations_continued: 0
           follows_delta: null
-          status: unmeasured
+          status: early_snapshot_not_followup
         loop_completion:
           followup_observed_at: null
           inbound_handling_summary: null
           conversation_participation_summary: null
           next_content_decision: null
-          status: pending
+          status: do_recorded_check_pending
         pdca:
           hypothesis: '현지에서 맞는 신발을 구하기 어렵다는 조건을 여행 짐 선택에 구체적으로 반영하면, 현지 대체 가능성을 묻는 일반 선택보다 독자의 실제 판단 근거를 더 분명히 끌어낼 수 있다.'
           changed_variable: '같은 여행 짐 선택 맥락을 유지하고, 다음 예시에서 현지 대체가 어려운 물건(맞는 신발)이라는 조건 한 가지를 보강한다.'
@@ -580,7 +587,7 @@ lanes:
         wrap_up_by: '2026-11-27T10:45:00Z'
         execution_target_minutes: 35
         max_execution_minutes: 45
-        status: handoff_sent
+        status: product_recorded_pending_guard
         handoff_status: sent
         handoff_message_id: '1795773767.187769'
         handoff_queue_id: convq_bf0f06fa03b15549729175f3f8b4be1b
@@ -588,14 +595,54 @@ lanes:
         handoff_at: '2026-11-27T10:03:17Z'
         handoff_operation_id: miniapp-20261127-2h:handoff:miniapp-20261127-r2-t01
         handoff_delivery_receipt: sent; exact original-thread body read back and matched
-        result_summary: null
-        changes: []
+        result_summary: 'Ego Lite Profile 3 taskSpace 28 계정 전용 프로필 편집과 작성창에서 _archivenoh 확인. r1 구체 댓글의 현지 맞는 신발 대체 곤란 조건만 보강한 가상 짐 목록 원문 DgPcNNsD8-h를 10:14:23Z 한 번 게시해 공개 작성자·전문·time 확인. 10:15:36Z 조기 인사이트 0회, r1 최신205회와 합계205/1,000. 새 질문/자기 답글 후속 없음; 관련 검색 대화 4개 모두 유용한 빈칸 없어 받은 응답·선제 답글0. r2-t02 20시 후속 Check/Act는 SAM 소유 pending. 자식은 guard 종료·잠금 해제를 주장하지 않음.'
+        changes:
+        - Threads 원문 1건 게시, r2 Plan→Do 및 조기 지표 기록; r2 Check/Act 미수행
         release_runs: []
         reply_records: []
+        original_post_url: https://www.threads.com/@_archivenoh/post/DgPcNNsD8-h
+        original_published_at: '2026-11-27T10:14:23Z'
+        original_post_text: |-
+          기내수하물 짐 목록에 ‘현지에서 다시 구할 수 있나’를 먼저 적어본다.
+
+          가상의 여행 준비라면 발에 맞는 신발을 현지에서 찾기 어려운 경우, 신발은 남기고 다른 물건부터 줄인다. 무게가 비슷해도 현지에서 다시 살 수 있는지는 다르다.
+
+          여행지에서 대체하기 어려워 꼭 챙기는 물건이 있나요?
+        insight_views: 0
+        insight_observed_at: '2026-11-27T10:15:36.178Z'
+        insight_source: https://www.threads.com/insights/post/DgPcNNsD8-h
+        daily_latest_views_sum: 205
+        daily_latest_views_observed_at: '2026-11-27T10:15:44.927Z'
+        inbound_handling_summary: 오늘 r1 구체 댓글1건은 질문이 없어 반복 답글 보류. 활동의 새 구체 질문·기존 자기 답글 후속 0. 이번 응답0.
+        conversation_participation_summary: 여행 짐 신발 검색 로딩 후 기내수하물로 한 번 좁혀 공개 대화4건을 읽었으나 규정/과거 짐 무게·항공 문맥에 검증된 기여 없음; 선제0.
+        reply_decisions:
+        - target_url: https://www.threads.com/@americano1234/post/DgPQjymIMmg
+          action: no_reply
+          reason: 구체 개인 의견이나 질문 없음. 같은 말을 되풀이하는 응답은 보류.
+        - target_url: https://www.threads.com/@dainty_dis/post/Df3YwESkxgo
+          action: no_proactive_reply
+          reason: 금속 책갈피 기내 반입 규정은 이 작업에서 검증되지 않음.
+        - target_url: https://www.threads.com/@kkdini_01/post/DLwuMeazZKa
+          action: no_proactive_reply
+          reason: 2025년 초과 무게 개인 상황, 현재 질문/검증된 새 도움 없음.
+        - target_url: https://www.threads.com/@oiing23/post/DB6jDW9O-Bn
+          action: no_proactive_reply
+          reason: 2024년 항공사 무게·태그 경험, 현재 정책 확인 없이 답변 금지.
+        - target_url: https://www.threads.com/@dancing_mandu/post/DCl7H5XPL_T
+          action: no_proactive_reply
+          reason: 2024년 만석과 위탁 짐 개인 사례, 새로 기여할 사실 없음.
+        result_report: reports/miniapp-image-tools-20261118-qa-01/20261127T1015Z-r2-t01.html
+        product_evidence_at: '2026-11-27T10:15:44.927Z'
+        product_receipt_status: published_early_insight_guard_pending
+        role_review:
+          independent: deleg_1698f144
+          cross_review: deleg_189e9b89
+          adopted: 부모 네 역할 판단·교차 검토 중 단일 조건 보강, 계정 증명, 중복·상한 게이트, 유용하지 않은 답글 보류와 조기 지표 분리를 적용.
+          deferred: 임의 고객 일반화·r1 질문 반복, 0회 조기값으로 pivot 판정, 수량 채우기용 선제 답글과 r2 Check/Act 선행은 보류.
         guard:
-          state: not_started
+          state: running
           exit_code: null
-          started_at: null
+          started_at: '2026-11-27T10:07:03.077437Z'
           finished_at: null
           lock_free_verified_at: null
         status_check_at: '2026-11-27T10:16:36Z'
@@ -703,17 +750,24 @@ lanes:
       metrics:
         target: 1000
         unit: threads_post_views
-        observed_at: '2026-11-27T09:10:12.373Z'
-        obs_attempted_at: '2026-11-27T09:09:43.683Z'
+        observed_at: '2026-11-27T10:15:44.927Z'
+        obs_attempted_at: '2026-11-27T10:15:39.405Z'
         posts:
         - id: DgPPRvCD1da
           url: https://www.threads.com/@_archivenoh/post/DgPPRvCD1da
           published_at: '2026-11-27T08:21:24Z'
-          views: 196
-          obs_attempted_at: '2026-11-27T09:09:43.683Z'
-          observed_at: '2026-11-27T09:10:12.373Z'
+          views: 205
+          obs_attempted_at: '2026-11-27T10:15:39.405Z'
+          observed_at: '2026-11-27T10:15:44.927Z'
           evidence: https://www.threads.com/insights/post/DgPPRvCD1da
-        total_views: 196
+        - id: DgPcNNsD8-h
+          url: https://www.threads.com/@_archivenoh/post/DgPcNNsD8-h
+          published_at: '2026-11-27T10:14:23Z'
+          views: 0
+          obs_attempted_at: null
+          observed_at: '2026-11-27T10:15:36.178Z'
+          evidence: https://www.threads.com/insights/post/DgPcNNsD8-h
+        total_views: 205
         new_post_replies_observed: 1
         inbound_replies_observed: 1
         inbound_responses_sent: 0
@@ -721,7 +775,7 @@ lanes:
         meaningful_external_responses: 1
         conversations_continued: 0
         follows_delta: null
-        status: followup_observed
+        status: r2_early_snapshot_check_pending
       baseline:
         run_id: miniapp-20261126-2h
         observed_at: '2026-11-26T13:04:52.012Z'
@@ -1935,22 +1989,28 @@ lanes:
         execution_receipt_message_id: '1795682961.386169'
         additional_observation: Windows first route rejected cwd before guard start; corrected checkout and began same ID. Lock held; no finished/exit/lock-free
           claim.
-    current_task_id: miniapp-20261127-r1-t02
-    current_task_status: completed
-    current_task_goal: 오늘 새 원문과 자기 답글의 반응을 지연 관측하고 구체 질문에 필요한 응답, r1 Check/Act 다음 변경 한 축을 제안한다.
-    current_task_start_at: '2026-11-27T09:00:00Z'
-    current_task_end_at: '2026-11-27T10:00:00Z'
-    current_task_result: 'r1-t02 09:10:12Z 인사이트 조회196/1,000(게시 후48.81분), 새 글 구체 외부 의견1건·응답0·선제0. 현지 대체 어려운 맞는 신발 조건 한 축을 r2 보강으로 제안. 부모 guard 09:21:59.819481Z completed/exit 0, 09:22:17.195309Z 잠금 비보유 확인.'
-    current_task_guard_status: completed
-    current_task_guard_exit_code: 0
-    current_task_guard_started_at: '2026-11-27T09:07:11.024635Z'
-    current_task_guard_finished_at: '2026-11-27T09:21:59.819481Z'
-    current_task_lock_released_verified_at: '2026-11-27T09:22:17.195309Z'
+    prior_r1_t02_task_id: miniapp-20261127-r1-t02
+    prior_r1_t02_task_result: 'r1 09:10:12Z 인사이트196, 구체 외부 의견1건·응답0·선제0. 맞는 신발 현지 대체 곤란 한 축 제안.'
+    prior_r1_t02_guard_finished_at: '2026-11-27T09:21:59.819481Z'
+    prior_r1_t02_lock_free_verified_at: '2026-11-27T09:22:17.195309Z'
+    prior_r1_t02_handoff_message_id: '1795770040.647419'
+    prior_r1_t02_handoff_queue_id: convq_c1e87aa72ef478c2208aba81afc804a7
+    current_task_id: miniapp-20261127-r2-t01
+    current_task_status: product_recorded_pending_guard
+    current_task_goal: r1 refine의 맞는 신발 현지 대체 곤란 조건을 적용한 별도 원문 최대1건과 유용한 대화 참여
+    current_task_start_at: '2026-11-27T10:00:00Z'
+    current_task_end_at: '2026-11-27T12:00:00Z'
+    current_task_result: '10:14:23Z 공개 원문 DgPcNNsD8-h 발행1, 10:15:36Z 조기 인사이트0; r1 최신205+신규0=205/1,000. 답글0, 20시 Check/Act와 부모 guard 종료 확인 pending.'
+    current_task_guard_status: running_child_exit_unverified
+    current_task_guard_exit_code: null
+    current_task_guard_started_at: '2026-11-27T10:07:03.077437Z'
+    current_task_guard_finished_at: null
+    current_task_lock_released_verified_at: null
     current_task_handoff_status: sent
-    current_task_handoff_message_id: '1795770040.647419'
-    current_task_handoff_queue_id: convq_c1e87aa72ef478c2208aba81afc804a7
-    current_task_handoff_attempt_at: '2026-11-27T09:00:40.647Z'
-    current_task_followup: 동일 ID SQLite 종료·잠금 확인 완료; SAM은 r1 보고와 r2 Plan·인계.
+    current_task_handoff_message_id: '1795773767.187769'
+    current_task_handoff_queue_id: convq_bf0f06fa03b15549729175f3f8b4be1b
+    current_task_handoff_attempt_at: '2026-11-27T10:03:17Z'
+    current_task_followup: 같은 ID 부모 SQLite 종료/exit/잠금 확인 후 병합. SAM의 r2-t02 20시 후속 Check/Act와 21시 구간 보고는 별도 pending.
   - id: reel-room-studio-20261113
     title: Reel Room·Instagram Maker 통합 릴스 스튜디오 구현
     task_name: Reel Room·Instagram Maker 통합 릴스 스튜디오 구현

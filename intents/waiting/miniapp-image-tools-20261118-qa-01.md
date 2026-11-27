@@ -1,5 +1,21 @@
 # [miniapp-image-tools-20261118-qa-01] Threads _archivenoh · 오늘 조회 1,000회 실험
 
+## 11/27 r2-t01 Plan → Do · 19:07–19:16 KST
+
+- 기존 동일 ID `miniapp-20261127-r2-t01` 실행. SAM의 10:03:17Z 요청 메시지 `1795773767.187769`·queue `convq_bf0f06fa03b15549729175f3f8b4be1b`·operation `miniapp-20261127-2h:handoff:miniapp-20261127-r2-t01`은 전송 영수증으로 따로 보존한다. 10:16:36Z 상태 조회 메시지 `1795774569.054119`·queue `convq_eb71ab3cbdb0b1773df3baf2f7bb2ec9`도 별도 전송 영수증으로 병합했으며 재인계/제품 완료 증거가 아니다. 같은 ID guard 시작은 SQLite에서 `2026-11-27T10:07:03.077437Z` running을 읽었으나 자식 실행자가 종료/exit/lock-free를 주장하지 않는다. 부모가 이미 완료한 네 독립 역할 `deleg_1698f144`·교차 검토 `deleg_189e9b89`를 재사용하고 중복 위임하지 않았다. 승인된 Ego Lite 0.6.3.17 Profile 3의 별도 taskSpace `28`에서 계정 전용 `프로필 편집` 사용자 이름 `_archivenoh`와 원문 작성창 작성자 `_archivenoh`를 확인했다. 답글·인용 `모든 사람` 및 함께 공유할 위치 `해제`를 읽고 변경하지 않았다. 작업 후 공간을 닫았다.
+- Plan: r1의 [08:21:24Z 원문](https://www.threads.com/@_archivenoh/post/DgPPRvCD1da)은 신발과 겉옷 중 챙길 것을 묻고, [americano1234 댓글](https://www.threads.com/@americano1234/post/DgPQjymIMmg)은 자기 발 사이즈 때문에 현지 신발 구매가 어렵다고 했다. r1 Check/Act의 `next_change`를 그대로 따라 여행 짐 선택 맥락에서 **맞는 신발의 현지 대체 곤란** 조건 한 가지만 보강했다. r1의 가상 일주일 여행·신발/겉옷 양자택일 질문을 재사용하지 않고, 짐 목록에 현지 대체 가능 여부를 표시하는 순서로 다른 첫 줄과 질문을 썼다. 이는 검증된 개인 댓글을 조건으로 사용한 가상 예시이지 일반 고객의 쇼핑 행동이나 작성자의 현재 여행 경험이 아니다.
+- Do: [새 공개 원문 `DgPcNNsD8-h`](https://www.threads.com/@_archivenoh/post/DgPcNNsD8-h)을 한 번 제출해 `_archivenoh` 작성자·전문·`time[datetime]=2026-11-27T10:14:23.000Z`를 고유 URL에서 확인했다. 전문:
+
+  > 기내수하물 짐 목록에 ‘현지에서 다시 구할 수 있나’를 먼저 적어본다.
+  >
+  > 가상의 여행 준비라면 발에 맞는 신발을 현지에서 찾기 어려운 경우, 신발은 남기고 다른 물건부터 줄인다. 무게가 비슷해도 현지에서 다시 살 수 있는지는 다르다.
+  >
+  > 여행지에서 대체하기 어려워 꼭 챙기는 물건이 있나요?
+
+- [새 글 인사이트](https://www.threads.com/insights/post/DgPcNNsD8-h)의 10:15:36.178Z 표시 조회 **0회**는 성공한 관측 0이며 `null`/실패가 아니다. [r1 글 인사이트](https://www.threads.com/insights/post/DgPPRvCD1da)의 더 늦은 10:15:44.927Z 조회 **205회**와 함께 오늘 신규 원문 2개 최신 합계 **205/1,000회**(205+0). 09:10 r1 인사이트196 및 공개193, 어제 글·답글 조회는 합산하지 않았다. 새 글 조기 조회는 r2-t02의 20:00 KST 지연 Check/Act가 아니며, 독자 수·인과 효과·가설 우위는 미확인이다. 이번 새 원문 응답 0, r1의 기존 구체 댓글1건은 새로운 질문이 없어 되풀이 답글 0, 활동·자기 답글에 새 구체 후속 0. 이번 받은 댓글 응답0/하루 상한10, 선제0/상한5, 오늘 원문 총2/상한3.
+- 관련 공개 대화는 처음 `여행 짐 신발` 검색이 오래 로딩되어 `기내수하물`로 한 번만 범위를 바꿔 검색 화면 네 고유 대화를 확인했다: [dainty_dis 금속 책갈피 기내반입](https://www.threads.com/@dainty_dis/post/Df3YwESkxgo)은 검증되지 않은 보안 규정 질문, [kkdini_01 짐 초과](https://www.threads.com/@kkdini_01/post/DLwuMeazZKa)는 2025년 개인 사례, [oiing23 기내 캐리온 태그](https://www.threads.com/@oiing23/post/DB6jDW9O-Bn)·[dancing_mandu 만석 위탁](https://www.threads.com/@dancing_mandu/post/DCl7H5XPL_T)은 2024년 사례로 검색 발췌가 잘렸다. 전체 답글을 읽거나 현재 항공 규정을 확인했다고 주장하지 않는다. 구체 질문에 검증된 답을 보태거나 유용한 빈칸을 찾지 못해 선제 답글 0, `reply_records=[]`; 쿼터 채우기 금지. 최근 자기 원문/답글과 r1의 댓글 URL을 대조해 중복 전송하지 않았다.
+- 채택: 계정·설정 확인, r1 의견 한 조건만 반영, URL/본문 중복 및 일일 상한, 유용하지 않은 선제/형식 답글 보류, 새 글 조기값 분리. 보류: r1 질문의 변형 재게시, 조기 0회에 따른 성급한 pivot, 고객 일반화. r2 `pdca`의 Plan은 SAM 준비 시각 `10:00:43Z`와 r1-t02 연결을 유지하고 이번에는 Do만 기록했다. `check_at`/`act_at`은 null로 보존, 후속 `miniapp-20261127-r2-t02`·21시 구간 보고는 SAM 소유 pending. 같은 ID 부모는 자식 종료 후 guard/exit/잠금과 원격 병합을 검증해야 한다. [HTML 상세](../../reports/miniapp-image-tools-20261118-qa-01/20261127T1015Z-r2-t01.html).
+
 ## 11/27 r1-t02 Check → Act · 18:09–18:10 KST
 
 - 기존 `miniapp-20261127-r1-t02`만 관측했다. SAM의 09:00:40Z 요청 메시지 `1795770040.647419`·queue `convq_c1e87aa72ef478c2208aba81afc804a7`은 전송 영수증이지 실제 guard 시작이 아니다. 09:13:50.885749Z 별도 상태조회 `1795770830.885749`·queue `convq_e1053fd6043225e65d0859c8c47b04ec`도 원격에서 보존했으며 이것은 재인계나 성과/guard 종료 증거가 아니다. 부모가 이미 완료한 독립 네 역할 `deleg_1938a5b7`과 교차 `deleg_9316fe69`을 재사용하고 새 위임·새 ID·r2 실행은 하지 않았다. Ego Lite 0.6.3.17 승인 Profile 3, 별도 taskSpace `27`의 계정 전용 `프로필 편집`에서 사용자 이름 `_archivenoh`를 확인하고 작업 후 공간을 닫았다.
