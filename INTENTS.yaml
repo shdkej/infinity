@@ -292,8 +292,11 @@ lanes:
         goal: 기존 공개 계정의 여행·미니멀·실용적 선택 맥락을 확인하고 첫 가설의 원문1개를 게시한다. 미응답과 자기 답글의 새 반응을 우선 처리하고 관련 대화3–5개를 읽어 유용한 경우0–2개에 기여한다.
         task_sequence: 2
         planned_tasks_only: true
-        report_status: pending
-        report_message_id: null
+        report_status: sent
+        report_message_id: '1795773667.812869'
+        report_queue_id: convq_36e90070c0ed9ddc4f68a9f781156a88
+        report_verified_at: '2026-11-27T10:00:43Z'
+        report_delivery_receipt: sent; exact original-thread body read back and matched
         exhausted: false
         observation_due_at: '2026-11-27T09:00:00Z'
         metrics:
@@ -374,13 +377,14 @@ lanes:
           next_content_decision: null
           status: pending
         pdca:
-          hypothesis: null
-          changed_variable: null
+          hypothesis: '현지에서 맞는 신발을 구하기 어렵다는 조건을 여행 짐 선택에 구체적으로 반영하면, 현지 대체 가능성을 묻는 일반 선택보다 독자의 실제 판단 근거를 더 분명히 끌어낼 수 있다.'
+          changed_variable: '같은 여행 짐 선택 맥락을 유지하고, 다음 예시에서 현지 대체가 어려운 물건(맞는 신발)이라는 조건 한 가지를 보강한다.'
           success_rule: '첫 후속 약45–75분: 구체 외부 응답1건 이상이면 유지/보강; 조회50 이상·유효응답0이면 질문/첫문장 한 축 수정; 조회50 미만·응답0이면 독자 고민 한 축 변경. 실패/짧은 관측은 inconclusive.
             통계·인과 주장 금지.'
-          plan_at: null
-          based_on_window_id: null
-          source_task_ids: []
+          plan_at: '2026-11-27T10:00:43Z'
+          based_on_window_id: r1
+          source_task_ids:
+          - miniapp-20261127-r1-t02
           check_at: null
           check_task_ids: []
           observation_status: null
