@@ -5,7 +5,7 @@
 ## 사용 흐름
 
 1. **요청:** 원하는 결과와 제약을 전달합니다. SAM이 이미 확인된 맥락을 활용하고, 실행 결과를 바꾸는 불확실성만 질문해 접수합니다.
-2. **실행:** 지니가 작업을 진행하고 근거·결과·다음 행동을 같은 Intent에 연결합니다.
+2. **실행:** 피오가 작업을 진행하고 근거·결과·다음 행동을 같은 Intent에 연결합니다.
 3. **판단:** Waiting 카드에서 대기 이유와 필요한 승인·입력을 확인합니다.
 4. **결과:** Archive 카드에서 결과 요약, 최종 산출물, Report를 엽니다.
 
@@ -51,11 +51,11 @@
 
 한 규칙은 소유 문서 한 곳에서 수정하고 다른 문서는 링크로 연결합니다. 사건 기록은 해당 실행의 report/artifact에 남깁니다. 새 안내서·누적 교훈 문서·같은 결과의 요약 사본을 늘리지 않습니다. 기존 경로·앵커를 옮길 때는 참조하는 문서와 도구도 함께 확인합니다.
 
-`prompt-archive/INFINITY.md`는 초기 설계 참고입니다. 현재 운영은 위 정본을 따릅니다. SAM은 비즈니스실의 접수·승인 경계, CMO는 고객실의 고객·시장 방향, 지니는 제품실의 실행·결과 통합을 맡습니다. 세부 역할은 [OpenClaw 공통 계약](../knowledge-lab/source/openclaw-system/docs/OPENCLAW_COMMON.md)에 둡니다.
+`prompt-archive/INFINITY.md`는 초기 설계 참고입니다. 현재 운영은 위 정본을 따릅니다. SAM은 비즈니스실의 접수·승인 경계, CMO는 고객실의 고객·시장 방향, 피오는 제품실의 실행·결과 통합을 맡습니다. 세부 역할은 [OpenClaw 공통 계약](../knowledge-lab/source/openclaw-system/docs/OPENCLAW_COMMON.md)에 둡니다.
 
 ## 실행·개발·검증
 
-이 저장소는 원장·Python/Bash 실행기·검증 스크립트를 소유합니다. 웹 화면 소스와 배포는 [Space의 Infinity README](../space/infra-aws-static-sites/sites/infinity/README.md)가 소유합니다. 데이터·외부 의존성은 GitHub 원장, OpenClaw/Genie, Knowledge Lab 검색, S3 버튼 큐, 설정된 알림 채널입니다. 세부 설정은 Dispatcher 문서에서 확인합니다.
+이 저장소는 원장·Python/Bash 실행기·검증 스크립트를 소유합니다. 웹 화면 소스와 배포는 [Space의 Infinity README](../space/infra-aws-static-sites/sites/infinity/README.md)가 소유합니다. 데이터·외부 의존성은 GitHub 원장, OpenClaw/Pio, Knowledge Lab 검색, S3 버튼 큐, 설정된 알림 채널입니다. 세부 설정은 Dispatcher 문서에서 확인합니다.
 
 저장소 루트에서 상태를 바꾸지 않는 점검부터 실행합니다.
 

@@ -221,14 +221,14 @@ PRD가 필요한 대형 작업은 PRD가 승인·고정된 직후, 구현 전에
 
 신규 Archive intent는 실행 방식이 검증 가능해야 한다.
 
-- `execution_mode: single_genie_roles` — 과거 Archive의 호환용 값이다. 신규 Genie 실행에는 사용하지 않는다.
+- `execution_mode: single_genie_roles` — 과거 Archive의 호환용 값이다. 신규 Pio 실행에는 사용하지 않는다.
 - `research_mode: exploratory_research` — 사례·시장 지형·트렌드를 설명하는 기본 리서치. 출처 확인, 전체 Markdown 브리프, 검증된 HTML report, 2026-11-14 이후 Archive 시 Red `PASS`를 요구한다. 추천/결정용 Deep Research는 요구하지 않지만, 결과물을 만드는 실제 요청이면 네 역할 세션과 간결한 교차 검토를 요구한다. 변경일 이전 Archive의 `not_required` 판정은 역사 기록으로 보존하며 소급 변경하지 않는다.
 - `research_mode: decision_research` — 투자·도입·구매·출시·가격/수익성·법률 또는 명시적 검증을 위한 의사결정 리서치. Deep Research와 역할·Red 게이트를 적용한다.
-- `execution_mode: multi_subagent_roles` — 모든 신규 Genie Intent/실행의 기본값. Planner, Developer, Marketer, Operator가 각기 임시 서브에이전트로 실행되며 간단 작업도 산출물 분량만 줄인다. SAM이 Genie Intent를 만들지 않고 직접 반환하는 읽기 전용 상태 답변만 역할 세션을 생략한다.
+- `execution_mode: multi_subagent_roles` — 모든 신규 Pio Intent/실행의 기본값. Planner, Developer, Marketer, Operator가 각기 임시 서브에이전트로 실행되며 간단 작업도 산출물 분량만 줄인다. SAM이 Pio Intent를 만들지 않고 직접 반환하는 읽기 전용 상태 답변만 역할 세션을 생략한다.
 - `execution_mode: multi_subagent_roles_blocked` — 네 역할 중 하나라도 실행되지 못한 경우. 완료로 Archive하지 않고 복구 또는 재개 조건과 함께 Waiting에 둔다.
 - `execution_mode: single_genie_roles_fallback_user_approved` — 역할 세션을 실제로 실행할 수 없고 사용자가 이번 작업의 직접 실행 fallback을 명시 승인한 경우에만 사용한다.
 
-신규 작업은 `complexity_tier: simple|medium|complex`를 기록한다. 간단은 각 역할 1–3개 bullet과 한 차례 짧은 상호 검토, 중간은 근거·위험·다음 행동을 포함한 각 역할 섹션과 한 차례 반박·응답, 복잡은 역할별 독립 산출물과 필요한 조정 라운드를 사용한다. Genie는 근거로 결론을 통합하며 다수결로 결정하지 않는다.
+신규 작업은 `complexity_tier: simple|medium|complex`를 기록한다. 간단은 각 역할 1–3개 bullet과 한 차례 짧은 상호 검토, 중간은 근거·위험·다음 행동을 포함한 각 역할 섹션과 한 차례 반박·응답, 복잡은 역할별 독립 산출물과 필요한 조정 라운드를 사용한다. Pio는 근거로 결론을 통합하며 다수결로 결정하지 않는다.
 
 `multi_subagent_roles` 완료 원장에는 `role_subagents`에 planner/developer/marketer/operator의 각각의 session id, 1차 판단, 교차 검토 상태와 결론을 남긴다. 네 역할 중 하나라도 증거가 없으면 Archive 완료로 보지 않는다.
 
@@ -281,7 +281,7 @@ archive:
 
 `knowledge_targets`, `knowledge_reflection`, `knowledge_commit`을 기록하며 `candidate`로 Archive하지 않습니다. Context Pack v3+는 `knowledge_log: logs/agent-wiki-query.md#{id}`와 KL의 `[id]` 검색 영수증이 필요합니다. 영수증에는 질문·검색·결과·선택된 Wiki 경로·사용한 운영 로그를 남깁니다. 실제 ingest/승격 작업은 `artifacts/{id}/knowledge-flow.md`에 source·ingest 상태·대상·저장소별 commit을 연결합니다. 세부 지식 승격 경계는 [KL 운영 계약](../knowledge-lab/source/openclaw-system/docs/INFINITY_OPERATING_RULES.md#lifecycle-archive-and-records)을 따릅니다.
 
-검증 진입점은 `check_intents_consistency.py INTENTS.yaml`, `validate_intent_trace.py`, `check_knowledge_promotion.py <intent-id>`, 리서치의 `validate_research_report.py <report.html>`입니다. push 후 `verify_archive_remote.py <intent-id>`와 실제 대시보드 카드·링크를 확인합니다. 실패는 근거와 재개 조건으로 남기며, 내부 마감 누락은 지니가 마칩니다.
+검증 진입점은 `check_intents_consistency.py INTENTS.yaml`, `validate_intent_trace.py`, `check_knowledge_promotion.py <intent-id>`, 리서치의 `validate_research_report.py <report.html>`입니다. push 후 `verify_archive_remote.py <intent-id>`와 실제 대시보드 카드·링크를 확인합니다. 실패는 근거와 재개 조건으로 남기며, 내부 마감 누락은 피오가 마칩니다.
 
 ## Report 양식 (HTML, 결론 2축)
 
