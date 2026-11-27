@@ -3272,7 +3272,8 @@
       "message_id": "1795529868.509459",
       "queue_id": "convq_da77eaff32e9dbf0a44c3308b01d9a90",
       "sent_at": "2026-11-24T14:17:00Z"
-    }
+    },
+    {"type":"task_status_check_prepared","at":"2026-11-27T11:13:16Z","task_id":"miniapp-20261127-r2-t02","window":"r2","status":"sent","reason":"One status-only request; exact same-ID thread reply confirms guard running and shared lock held; no task resend.","sent_at":"2026-11-27T11:13:16Z","message_id":"1795777996.089489","queue_id":"convq_24b458a258f1100be9c458659407265f","response_message_id":"1795778019.087349","response_at":"2026-11-27T11:13:39.087Z","guard_state":"running","guard_started_at":"2026-11-27T11:04:10Z","shared_lock":"held"}
   ],
   "task_records": [
     {

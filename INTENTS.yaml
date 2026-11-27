@@ -686,13 +686,12 @@ lanes:
         release_runs: []
         reply_records: []
         guard:
-          state: not_started
+          state: running
           exit_code: null
-          started_at: null
+          started_at: '2026-11-27T11:04:10Z'
           finished_at: null
           lock_free_verified_at: null
-        status_check_at: null
-        receipt_checked_at: null
+        receipt_checked_at: '2026-11-27T11:13:51.269Z'
         completion_criteria: 같은 task ID와 실제 공개 URL/시각·관측값/실패 이유·PDCA 근거를 기록한다. 정확한 _archivenoh, 기존/오늘 URL 중복 방지와 상한 준수. 부모가 guard 종료·exit code·잠금
           비보유를 실제 확인한 뒤 표준 status로 main에 병합. 고정 기한 연장·새 ID·다음 날 재개 금지.
       - id: miniapp-20261127-r3-t01
