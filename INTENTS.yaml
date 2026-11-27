@@ -674,6 +674,13 @@ lanes:
         handoff_at: '2026-11-27T11:01:04.417069Z'
         handoff_operation_id: miniapp-20261127-2h:handoff:miniapp-20261127-r2-t02
         handoff_delivery_receipt: sent; exact original-thread body read back and matched
+        status_check_at: '2026-11-27T11:13:16Z'
+        status_check_attempt: sent
+        status_check_sent_at: '2026-11-27T11:13:16Z'
+        status_check_message_id: '1795777996.089489'
+        status_check_queue_id: convq_24b458a258f1100be9c458659407265f
+        status_check_operation_id: miniapp-20261127-2h:status-check:miniapp-20261127-r2-t02
+        status_check_delivery_receipt: sent; exact original-thread body read back and matched
         result_summary: null
         changes: []
         release_runs: []
