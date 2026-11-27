@@ -440,7 +440,7 @@ lanes:
         wrap_up_by: '2026-11-27T08:45:00Z'
         execution_target_minutes: 35
         max_execution_minutes: 45
-        status: handoff_sent
+        status: running
         handoff_status: sent
         handoff_message_id: '1795766491.553509'
         handoff_queue_id: convq_95e5a061324d4896d090be24c669993d
@@ -451,13 +451,14 @@ lanes:
         release_runs: []
         reply_records: []
         guard:
-          state: not_started
+          state: running
           exit_code: null
-          started_at: null
+          started_at: '2026-11-27T08:04:24Z'
           finished_at: null
           lock_free_verified_at: null
+          source_message_id: '1795766673.982189'
         status_check_at: null
-        receipt_checked_at: null
+        receipt_checked_at: '2026-11-27T08:12:16Z'
         completion_criteria: 같은 task ID와 실제 공개 URL/시각·관측값/실패 이유·PDCA 근거를 기록한다. 정확한 _archivenoh, 기존/오늘 URL 중복 방지와 상한 준수. 부모가 guard 종료·exit code·잠금
           비보유를 실제 확인한 뒤 표준 status로 main에 병합. 고정 기한 연장·새 ID·다음 날 재개 금지.
       - id: miniapp-20261127-r1-t02

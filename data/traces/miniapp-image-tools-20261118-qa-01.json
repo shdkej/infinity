@@ -1701,6 +1701,18 @@
         "logs/OPERATING_LESSONS.md"
       ],
       "note": "Nov27 setup verified, not business execution:60 focused tests pass; full-suite prior run181 has one unchanged unrelated dispatcher failure. Both native schedules enabled and same-day guarded; supervisor second preflight cron-request.e2d1c120-231d-43e9-8b39-f1abee6cdc2c verified exact sent body/thread and remote main aae9c498. Windows confirmed valid checkout/router, six prepared tasks, no running guard/lock; actual Threads login remains for execution-time recheck. No duplicate send, publishing or observation started. PDCA requires previous actual Check/Act and next Plan change linkage; current remote snapshot fire=false, metrics unmeasured."
+    },
+    {
+      "type": "task_guard_start_reconciled",
+      "at": "2026-11-27T08:12:16Z",
+      "task_id": "miniapp-20261127-r1-t01",
+      "window": "r1",
+      "windows_report_message_id": "1795766673.982189",
+      "thread_ts": "1794983278.888719",
+      "guard_started_at": "2026-11-27T08:04:24Z",
+      "guard_state": "running",
+      "lock_state": "held",
+      "note": "Windows confirmed the exact task guard started and the shared lock is held. No result, exit code, finish time or lock-free receipt is yet confirmed; no redispatch or status-only request while active."
     }
   ],
   "artifacts": [
