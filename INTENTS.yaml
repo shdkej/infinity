@@ -407,7 +407,7 @@ lanes:
       - id: r3
         start_at: '2026-11-27T12:00:00Z'
         end_at: '2026-11-27T14:00:00Z'
-        status: scheduled
+        status: in_progress
         goal: r2 실제 Check/Act를 바탕으로 준비된 windows[].pdca를 읽고 변경 한 축을 적용해 원문 최대1개와 유용한 대화 참여를 실행한다. 사전 고정 소재를 반복하지 않는다.
         task_sequence: 2
         planned_tasks_only: true
@@ -418,18 +418,30 @@ lanes:
         metrics:
           target: 1000
           unit: threads_post_views
-          observed_at: null
-          obs_attempted_at: null
-          posts: []
-          total_views: null
-          new_post_replies_observed: null
-          inbound_replies_observed: null
-          inbound_responses_sent: null
-          proactive_replies_sent: null
-          meaningful_external_responses: null
-          conversations_continued: null
+          observed_at: '2026-11-27T12:19:46.500Z'
+          obs_attempted_at: '2026-11-27T12:19:02.278Z'
+          posts:
+          - id: DgPPRvCD1da
+            url: https://www.threads.com/@_archivenoh/post/DgPPRvCD1da
+            published_at: '2026-11-27T08:21:24Z'
+            views: 207
+            observed_at: '2026-11-27T12:19:02.278Z'
+            evidence: https://www.threads.com/insights/post/DgPPRvCD1da
+          - id: DgPcNNsD8-h
+            url: https://www.threads.com/@_archivenoh/post/DgPcNNsD8-h
+            published_at: '2026-11-27T10:14:23Z'
+            views: 109
+            observed_at: '2026-11-27T12:19:46.500Z'
+            evidence: https://www.threads.com/insights/post/DgPcNNsD8-h
+          total_views: 316
+          new_post_replies_observed: 1
+          inbound_replies_observed: 1
+          inbound_responses_sent: 0
+          proactive_replies_sent: 0
+          meaningful_external_responses: 1
+          conversations_continued: 0
           follows_delta: null
-          status: unmeasured
+          status: early_snapshot_not_r3_check
         loop_completion:
           followup_observed_at: null
           inbound_handling_summary: null
@@ -738,18 +750,72 @@ lanes:
         wrap_up_by: '2026-11-27T12:45:00Z'
         execution_target_minutes: 35
         max_execution_minutes: 45
-        status: handoff_sent
+        status: completed
         handoff_status: sent
         handoff_message_id: '1795781120.444939'
         handoff_queue_id: convq_f79cd2a1fd709b681c239c4815f1461b
         handoff_attempt_at: '2026-11-27T12:05:20.444939Z'
         handoff_at: '2026-11-27T12:05:20.444939Z'
-        result_summary: null
-        changes: []
+        result_summary: 'Profile3 Ego Lite taskSpace30 계정 전용 프로필 편집 _archivenoh 확인·공간 종료. r2 질문에 이미 현지 대체 곤란 물건을 묻고 있어 이유만 더한 r3 원문은 같은 판단의 중복으로 보류, 새 원문0. r1 기존 댓글에 새 질문 없음, r2 댓글0. 어제 자기 선제 답글에 오늘 cheerfulyoonkyeom의 마감 기준 답변1건은 질문/새 도움 빈칸 없어 응답0. 공개 관련 대화3개 전문·보이는 답글 확인, 선제0. 최신 인사이트 r1 207(12:19:02Z)+r2 109(12:19:46Z)=316/1,000, r3-t02 지연 Check/Act 아님. 부모 동일 ID guard 종료/잠금 영수증 pending.'
+        changes:
+        - r3 Plan 한 축과 r2 원문의 판단 문제 중복 대조 후 신규 원문 보류; 공개 발송 없음
         release_runs: []
         reply_records: []
+        original_post_url: null
+        original_skip_reason: 'r2의 마지막 질문이 이미 여행지에서 대체하기 어려운 물건을 묻는다. 이유만 추가한 r3 질문은 같은 짐 선택 판단을 반복하며 독자에게 별개의 확인 가능한 가치를 주지 못한다. 새 경험/구매/장소를 만들거나 다른 축을 바꾸지 않고 보류.'
+        account_evidence: 'Ego Lite 0.6.3.17 승인 Profile 3 별도 taskSpace30 계정 전용 프로필 편집 사용자 이름 _archivenoh; 공간 종료. 발송 없음.'
+        post_observations:
+        - id: DgPPRvCD1da
+          url: https://www.threads.com/@_archivenoh/post/DgPPRvCD1da
+          published_at: '2026-11-27T08:21:24Z'
+          views: 207
+          observed_at: '2026-11-27T12:19:02.278Z'
+          source: https://www.threads.com/insights/post/DgPPRvCD1da
+          prior_views: 206
+        - id: DgPcNNsD8-h
+          url: https://www.threads.com/@_archivenoh/post/DgPcNNsD8-h
+          published_at: '2026-11-27T10:14:23Z'
+          views: 109
+          observed_at: '2026-11-27T12:19:46.500Z'
+          source: https://www.threads.com/insights/post/DgPcNNsD8-h
+          earlier_public_views: 108
+          prior_views: 99
+        daily_latest_views_sum: 316
+        new_r3_post_replies: 0
+        prior_r1_post_replies: 1
+        r2_post_replies: 0
+        own_reply_new_external_followups: 1
+        inbound_responses_sent_this_task: 0
+        proactive_replies_sent_this_task: 0
+        originals_sent_this_task: 0
+        inbound_handling_summary: 'r1 기존 신발 댓글은 새 질문 없음, r2 원문 아직 답글 없음. 11/25 자기 선제 답글에 11/27 cheerfulyoonkyeom이 마감 59분59초가 퇴고 기준이라고 답함. 질문/새로 검증된 도움 빈칸이 없어 중복 감사·훈수 보류. 기존 답글 대상과 중복 발송 없음.'
+        conversation_participation_summary: '기내수하물 검색: 중량 측정 대화는 다수 경험담과 일부 답글 누락, 금속 책갈피 대화는 작성자가 이미 항공사에 문의해 불가 답변 받음, HK Express 쇼핑백 대화는 7월 경험·후속 설명. 검증된 새 항공 규정·유용한 빈칸 없어 선제0. 짐 줄이기 최근 검색으로 한 번 범위를 바꿨지만 무관한 생활·광고 결과여서 기존 기내수하물 대상만 전문 확인; 탐색 10분 이내.'
+        reply_decisions:
+        - target_url: https://www.threads.com/@americano1234/post/DgPQjymIMmg
+          action: no_reply
+          reason: r1 기존 구체 의견에 새 질문 없고 r2에서 이미 조건 반영.
+        - target_url: https://www.threads.com/@cheerfulyoonkyeom/post/DgPl8UPGEld
+          action: no_reply
+          reason: 어제 자기 답글에 오늘 마감 기준 답변이 왔지만 질문 없고 반복 감사 이상의 새 도움 없음.
+        - target_url: https://www.threads.com/@r_u_serious_log/post/DgC9_6Tk5dJ
+          action: no_proactive_reply
+          reason: 중량 측정 경험담 다수, 현행 항공사 규정 미검증·일부 답글 접근 제한.
+        - target_url: https://www.threads.com/@dainty_dis/post/Df3YwESkxgo
+          action: no_proactive_reply
+          reason: 글쓴이가 이미 항공사에 문의해 불가 답변 확인. 같은 정보 반복 불필요.
+        - target_url: https://www.threads.com/@leochoo.tech/post/DbHJjiZEyNP
+          action: no_proactive_reply
+          reason: 7월 HK Express 개별 경험·후속 설명에 현재 확인된 새 규정이나 질문 없음.
+        result_report: reports/miniapp-image-tools-20261118-qa-01/20261127T1220Z-r3-t01.html
+        product_evidence_at: '2026-11-27T12:19:46.500Z'
+        product_receipt_status: completed_guard_pending_parent
+        role_review:
+          independent: deleg_dfff2470
+          cross_review: deleg_84ceb8e9
+          adopted: '부모의 네 독립·교차 검토를 재사용. Marketer 질문의 현지 대체 곤란 명시를 채택하되 r2와 판단 문제 중복을 우선 점검해 미게시. Planner의 한 축 제한, Developer의 계정·중복·시각 검증, Operator의 유용한 답글만·종료 부모 확인을 적용.'
+          deferred: '거의 같은 짐/대체 질문으로 세 번째 원문 강행, 확인 안 된 항공 규정 답글, 기존 댓글·새 좋아요를 새 대화로 오집계, 조회 인과·우월성 주장 보류.'
         guard:
-          state: not_started
+          state: pending_parent_verification
           exit_code: null
           started_at: null
           finished_at: null
@@ -798,24 +864,24 @@ lanes:
       metrics:
         target: 1000
         unit: threads_post_views
-        observed_at: '2026-11-27T11:09:41.171Z'
-        obs_attempted_at: '2026-11-27T11:06:47.100Z'
+        observed_at: '2026-11-27T12:19:46.500Z'
+        obs_attempted_at: '2026-11-27T12:19:02.278Z'
         posts:
         - id: DgPPRvCD1da
           url: https://www.threads.com/@_archivenoh/post/DgPPRvCD1da
           published_at: '2026-11-27T08:21:24Z'
-          views: 206
-          obs_attempted_at: '2026-11-27T11:08:41.332Z'
-          observed_at: '2026-11-27T11:08:41.332Z'
+          views: 207
+          obs_attempted_at: '2026-11-27T12:19:02.278Z'
+          observed_at: '2026-11-27T12:19:02.278Z'
           evidence: https://www.threads.com/insights/post/DgPPRvCD1da
         - id: DgPcNNsD8-h
           url: https://www.threads.com/@_archivenoh/post/DgPcNNsD8-h
           published_at: '2026-11-27T10:14:23Z'
-          views: 99
-          obs_attempted_at: '2026-11-27T11:06:47.100Z'
-          observed_at: '2026-11-27T11:09:41.171Z'
-          evidence: https://www.threads.com/@_archivenoh/post/DgPcNNsD8-h
-        total_views: 305
+          views: 109
+          obs_attempted_at: '2026-11-27T12:19:46.500Z'
+          observed_at: '2026-11-27T12:19:46.500Z'
+          evidence: https://www.threads.com/insights/post/DgPcNNsD8-h
+        total_views: 316
         new_post_replies_observed: 1
         inbound_replies_observed: 1
         inbound_responses_sent: 0
@@ -823,7 +889,7 @@ lanes:
         meaningful_external_responses: 1
         conversations_continued: 0
         follows_delta: null
-        status: r2_followup_observed_guard_verified
+        status: r3_early_snapshot_not_delayed_check
       baseline:
         run_id: miniapp-20261126-2h
         observed_at: '2026-11-26T13:04:52.012Z'
@@ -888,13 +954,13 @@ lanes:
         - paid_ads
         - mass_engagement
         - security_or_visibility_changes
-        account_verified: false
-        account_evidence: null
+        account_verified: true
+        account_evidence: Ego Lite 승인 Profile 3 taskSpace30 계정 전용 프로필 편집 사용자 이름 _archivenoh 확인. 공간 종료; r3-t01 공개 발송 없음.
       final_report_status: pending
       final_report: null
       final_report_message_id: null
       final_report_delivery_receipt: null
-      next_action: r1-t02 후속 인사이트 196/1,000·구체 외부 의견1건으로 refine 한 축을 제안했다. 부모는 동일 ID guard 종료/잠금 영수증을 확인하고 병합; SAM이 19시 보고와 r2 Plan 연결을 소유. r2/r3 미실행, 23시 당일 종료.
+      next_action: r3-t01의 같은 짐 선택 질문 중복을 검증해 새 원문·답글 발송 없이 조기 최신316/1,000을 기록했다. 부모가 동일 ID guard 종료/잠금 영수증을 병합한다. 22시 r3-t02 지연 Check/Act 및 23시 종합은 SAM 소유 pending; 다음 날 자동 재개 없음.
       setup_receipts:
         helper_verification: 60 focused tests passed; full-suite prior run181 tests had one unchanged unrelated dispatcher failure, documented
           in Intent. Previous history and date/PDCA/lock boundaries checked.
@@ -2046,12 +2112,12 @@ lanes:
     prior_r2_t01_task_id: miniapp-20261127-r2-t01
     prior_r2_t01_result: '10:14:23Z 공개 원문 DgPcNNsD8-h 발행1, 10:15:36Z 조기 인사이트0; r1 최신205+신규0=205/1,000. 답글0. 부모 guard 10:27:02.699780Z completed/exit 0, 10:27:19.571303Z 잠금 비보유 확인.'
     current_task_id: miniapp-20261127-r3-t01
-    current_task_status: handoff_sent
+    current_task_status: completed_guard_pending_parent
     current_task_goal: r2 실제 Check/Act를 반영한 r3 원문 1개와 유용한 대화 참여
     current_task_start_at: '2026-11-27T12:00:00Z'
     current_task_end_at: '2026-11-27T14:00:00Z'
-    current_task_result: null
-    current_task_guard_status: not_started
+    current_task_result: 'r3-t01 공개 발송0: r2 질문과 판단 문제 중복으로 새 원문 보류. Profile3 계정 확인·관련 대화3개 확인; 최신 인사이트207+109=316/1,000. 어제 자기 답글의 오늘 상대 후속1건은 질문/추가 도움 없어 응답0, 선제0. r3-t02 지연 Check/Act·SAM 최종 보고 pending. 부모 guard 종료/잠금 검증 pending.'
+    current_task_guard_status: pending_parent_verification
     current_task_guard_exit_code: null
     current_task_guard_started_at: null
     current_task_guard_finished_at: null
@@ -2065,8 +2131,8 @@ lanes:
     current_task_status_check_message_id: null
     current_task_status_check_queue_id: null
     current_task_status_check_operation_id: null
-    current_task_status_check_receipt: sent; exact original-thread body read back and matched; awaiting actual Windows guard-start and result receipt
-    current_task_followup: r3-t01 handoff receipt persisted; await same-ID guard-start/result; next checkpoint after 15 minutes if unresolved.
+    current_task_handoff_delivery_receipt: sent; exact original-thread body read back and matched at handoff. This as-of request was not guard start or product result.
+    current_task_followup: r3-t01 제품 Plan→Do·조기 관측 기록 반영. 부모가 같은 ID SQLite 종료/exit/잠금 비보유를 확인해 별도 영수증 병합; SAM 소유 22시 r3-t02 Check/Act와 23시 종합은 pending.
   - id: reel-room-studio-20261113
     title: Reel Room·Instagram Maker 통합 릴스 스튜디오 구현
     task_name: Reel Room·Instagram Maker 통합 릴스 스튜디오 구현
