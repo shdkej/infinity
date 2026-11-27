@@ -859,7 +859,12 @@ lanes:
           started_at: null
           finished_at: null
           lock_free_verified_at: null
-        status_check_at: null
+        status_check_at: '2026-11-27T13:13:10Z'
+        status_check_task_id: miniapp-20261127-r3-t02
+        status_check_message_id: '1795785148.173789'
+        status_check_queue_id: convq_2fd5fc1c2a18d6cd2d102a854896d18c
+        status_check_operation_id: miniapp-20261127-2h:status-check:miniapp-20261127-r3-t02
+        status_check_delivery_receipt: sent; exact original-thread body read back and matched
         receipt_checked_at: null
         completion_criteria: 같은 task ID와 실제 공개 URL/시각·관측값/실패 이유·PDCA 근거를 기록한다. 정확한 _archivenoh, 기존/오늘 URL 중복 방지와 상한 준수. 부모가 guard 종료·exit code·잠금
           비보유를 실제 확인한 뒤 표준 status로 main에 병합. 고정 기한 연장·새 ID·다음 날 재개 금지.
@@ -2130,10 +2135,10 @@ lanes:
     current_task_handoff_attempt_at: '2026-11-27T13:00:33.255749Z'
     current_task_handoff_at: '2026-11-27T13:00:33.255749Z'
     current_task_handoff_operation_id: miniapp-20261127-2h:handoff:miniapp-20261127-r3-t02
-    current_task_status_check_at: null
-    current_task_status_check_message_id: null
-    current_task_status_check_queue_id: null
-    current_task_status_check_operation_id: null
+    current_task_status_check_at: '2026-11-27T13:13:10Z'
+    current_task_status_check_message_id: '1795785148.173789'
+    current_task_status_check_queue_id: convq_2fd5fc1c2a18d6cd2d102a854896d18c
+    current_task_status_check_operation_id: miniapp-20261127-2h:status-check:miniapp-20261127-r3-t02
     current_task_handoff_delivery_receipt: sent; exact original-thread body read back and matched. Handoff is not guard-start or product-result evidence.
     current_task_followup: Windows same-ID r3-t02 result and parent guard exit/lock-free receipt pending; after completion close r3 Check/Act promptly.
   - id: reel-room-studio-20261113
