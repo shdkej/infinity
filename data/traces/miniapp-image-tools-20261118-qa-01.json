@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "intent_id": "miniapp-image-tools-20261118-qa-01",
-  "status": "waiting",
+  "status": "active",
   "trace_completeness": "partial",
   "request": {
     "raw": {
@@ -1703,7 +1703,7 @@
       "note": "Nov27 setup verified, not business execution:60 focused tests pass; full-suite prior run181 has one unchanged unrelated dispatcher failure. Both native schedules enabled and same-day guarded; supervisor second preflight cron-request.e2d1c120-231d-43e9-8b39-f1abee6cdc2c verified exact sent body/thread and remote main aae9c498. Windows confirmed valid checkout/router, six prepared tasks, no running guard/lock; actual Threads login remains for execution-time recheck. No duplicate send, publishing or observation started. PDCA requires previous actual Check/Act and next Plan change linkage; current remote snapshot fire=false, metrics unmeasured."
     },
     {
-      "type": "task_guard_start_reconciled",
+      "type": "backfill",
       "at": "2026-11-27T08:12:16Z",
       "task_id": "miniapp-20261127-r1-t01",
       "window": "r1",
@@ -1712,7 +1712,33 @@
       "guard_started_at": "2026-11-27T08:04:24Z",
       "guard_state": "running",
       "lock_state": "held",
-      "note": "Windows confirmed the exact task guard started and the shared lock is held. No result, exit code, finish time or lock-free receipt is yet confirmed; no redispatch or status-only request while active."
+      "note": "Windows confirmed the exact task guard started and the shared lock is held. No result, exit code, finish time or lock-free receipt is yet confirmed; no redispatch or status-only request while active.",
+      "original_type": "task_guard_start_reconciled",
+      "schema_correction_note": "2026-11-27 review: preserve original receipt while normalizing unsupported event type; no finish evidence invented."
+    },
+    {
+      "type": "execution",
+      "at": "2026-11-27T15:48:40Z",
+      "context_pack": "/home/ubuntu/workspace/knowledge-lab/logs/context-packs/2026-11-18-agent-daily-operations.json",
+      "evidence_paths": [
+        "reports/miniapp-image-tools-20261118-qa-01/20261127T1541Z-pdca-review.html"
+      ],
+      "searches": [
+        "11/27 PDCA actual tasks, metrics, original-thread closeout and native cron runs; existing context pack locators reread"
+      ],
+      "wiki_pages": [
+        "agent-wiki/content/docs/outputs/Integration/Work.mdx",
+        "agent-wiki/content/docs/outputs/Idea/Journal.mdx",
+        "agent-wiki/content/docs/outputs/Communication/Open_Source.mdx",
+        "agent-wiki/content/docs/outputs/blog/Life_Tracking.mdx",
+        "agent-wiki/content/docs/outputs/Human/Standard.mdx"
+      ],
+      "operational_log_sections": [
+        "logs/agent-wiki-query.md",
+        "logs/EVALUATION_RECAP.md",
+        "logs/OPERATING_LESSONS.md"
+      ],
+      "note": ""
     }
   ],
   "artifacts": [
@@ -3237,7 +3263,7 @@
   ],
   "next_decision": {
     "status": "in_progress",
-    "value": "Verify today native schedules and Windows readiness, then17/18,19/20,21/22 phase execution with PDCA carryover and23 closeout."
+    "value": "11/27 결과317/1000·r3미실험. 누락 최종 보고 복구; 다음 실행 미예약."
   },
   "handoff_attempts": [
     {

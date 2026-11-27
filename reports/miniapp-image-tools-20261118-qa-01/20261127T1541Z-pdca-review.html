@@ -1,0 +1,132 @@
+<!DOCTYPE html><html lang="ko" data-infinity-report="rich-v1"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>11/27 Threads 가설 검증 결과</title><style>
+  :root{
+    --bg:#f4f2ea; --panel:#fbfaf5; --ink:#2c2a25; --soft:#807c70; --faint:#a8a496; --line:#e3dfd2;
+    --a2:#5f7a5e; --a2-deep:#3f5740;            /* 축2(결과/해법/조치) = sage, 고정 */
+    --a1:#5a6f8a; --a1-deep:#3f536e;            /* 축1 = 카테고리색 (기본: 조사형 slate-blue) */
+    --sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0; width:100%; max-width:100%; overflow-x:hidden;}
+  body{background:var(--bg); color:var(--ink); font-family:var(--sans);
+    font-size:14px; line-height:1.68; -webkit-font-smoothing:antialiased;}
+  .sheet{width:min(100%,720px); max-width:720px; margin:0 auto; padding:32px 18px 40px;}
+  /* Reports must be readable at the first paint; no animation-dependent content. */
+  .reveal{opacity:1;}
+
+  .eyebrow{display:flex; align-items:center; gap:10px; font-family:var(--mono);
+    font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--soft); flex-wrap:wrap;}
+  .eyebrow .id{color:var(--a2-deep); font-weight:600;}
+  .eyebrow .dot{width:5px; height:5px; border-radius:50%; background:var(--a2);}
+  .eyebrow .status{color:var(--a2-deep);}
+  h1{font-size:clamp(24px,7vw,29px); line-height:1.3; font-weight:700; letter-spacing:0; margin:20px 0 0; overflow-wrap:anywhere;}
+  .dek{font-size:15.5px; color:var(--soft); margin:13px 0 0; max-width:52ch;}
+  .hr{height:1px; background:var(--line); margin:30px 0;}
+
+  .axis{padding:0 0 4px 18px; position:relative; margin-bottom:26px;}
+  .axis::before{content:""; position:absolute; left:0; top:6px; bottom:6px; width:2px; border-radius:2px;}
+  .axis.ax1::before{background:var(--a1);} .axis.ax2::before{background:var(--a2);}
+  .axis.ax1{--ul:var(--a1);} .axis.ax2{--ul:var(--a2);}
+  .axis .label{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase;
+    margin-bottom:9px; display:flex; align-items:center; gap:8px;}
+  .axis.ax1 .label{color:var(--a1-deep);} .axis.ax2 .label{color:var(--a2-deep);}
+  .axis .label .n{font-weight:600; opacity:.6;}
+  .axis .text{font-size:clamp(16px,4.4vw,18px); line-height:1.62; color:#37352e; overflow-wrap:anywhere;}
+  .axis .text b{font-weight:700; color:var(--ink); border-bottom:2px solid var(--ul);}
+  ol.find{list-style:none; counter-reset:f; margin:16px 0 0; padding:0;}
+  ol.find li{position:relative; padding:8px 0 8px 26px; font-size:15px; color:#37352e; border-top:1px solid var(--line);}
+  ol.find li:first-child{border-top:none;}
+  ol.find li::before{counter-increment:f; content:counter(f); position:absolute; left:0; top:9px;
+    font-family:var(--mono); font-size:12px; font-weight:600; color:var(--a1-deep);}
+
+  details{border:1px solid var(--line); border-radius:8px; background:var(--panel); margin-bottom:10px; overflow:hidden;}
+  summary{cursor:pointer; list-style:none; padding:14px 16px; display:flex; align-items:center; gap:11px;
+    font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft);}
+  summary::-webkit-details-marker{display:none;}
+  summary .chev{width:8px; height:8px; border-right:2px solid var(--a2-deep); border-bottom:2px solid var(--a2-deep);
+    transform:rotate(-45deg); transition:.25s; flex:none; margin-left:2px;}
+  details[open] summary .chev{transform:rotate(45deg);}
+  summary:hover{color:var(--ink);}
+  .body{padding:2px 16px 18px; min-width:0;}
+  .section{margin:4px 0 18px;}
+  .section-title{font-family:var(--mono); font-size:10.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--a1-deep); margin:0 0 8px;}
+  .callout{border-left:2px solid var(--a2); background:#f2efe5; padding:11px 13px; color:#4a473f; margin:12px 0 16px;}
+  .content-grid{display:grid; grid-template-columns:1fr; gap:10px; margin:10px 0;}
+  .mini-card{border:1px solid var(--line); background:#f8f6ef; border-radius:8px; padding:12px 13px; min-width:0;}
+  .mini-card b{display:block; color:var(--ink); margin-bottom:5px;}
+  .mini-card p{margin:0;}
+  table{border-collapse:collapse; width:100%; max-width:100%; table-layout:fixed; font-size:13px; margin:4px 0 12px;}
+  th,td{border-bottom:1px solid var(--line); padding:9px 11px; text-align:left; vertical-align:top; overflow-wrap:anywhere; word-break:break-word;}
+  th{font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft); font-weight:600;}
+  td:first-child{color:var(--a2-deep); font-weight:600; white-space:normal;}
+  .body p{color:var(--soft); overflow-wrap:anywhere;}
+  .body ul{margin:6px 0; padding-left:18px;} .body li{margin:5px 0;}
+  code{font-family:var(--mono); font-size:12px; background:#edeae0; padding:1px 6px; border-radius:3px; color:var(--a2-deep); overflow-wrap:anywhere; word-break:break-word;}
+  pre{white-space:pre-wrap; overflow-wrap:anywhere; word-break:break-word; max-width:100%;}
+  a{color:var(--a2-deep); text-underline-offset:3px; overflow-wrap:anywhere; word-break:break-word;}
+  .chips{display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px;}
+  .chip{font-family:var(--mono); font-size:10.5px; letter-spacing:.05em; color:var(--soft); border:1px solid var(--line); border-radius:999px; padding:3px 10px;}
+  .foot{margin-top:30px; padding-top:15px; border-top:1px solid var(--line);
+    display:flex; flex-wrap:wrap; gap:6px 14px; justify-content:space-between; font-family:var(--mono); font-size:10px;
+    letter-spacing:.13em; text-transform:uppercase; color:var(--faint);}
+
+  @media (min-width:720px){
+    .sheet{padding:48px 34px 46px;}
+    .eyebrow{letter-spacing:.18em;}
+    .eyebrow .status{margin-left:auto;}
+    .axis{padding-left:22px; margin-bottom:30px;}
+    .content-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
+  }
+  @media (max-width:640px){
+    table,thead,tbody,tr,th,td{display:block; width:100%;}
+    thead{display:none;}
+    tr{border:1px solid var(--line); border-radius:8px; padding:9px 10px; margin:0 0 10px; background:#f8f6ef;}
+    td{border-bottom:0; padding:5px 0;}
+    td:first-child{font-family:var(--mono); font-size:11px; letter-spacing:.05em;}
+  }
+ h1{word-break:keep-all} h2{margin-top:34px;font-size:21px} p,li{overflow-wrap:anywhere} li{margin:12px 0} strong{color:#3f5740}</style></head><body><main class="sheet"><h1>11/27 최종 검토 — 조회 317회, 세 번째 가설은 미실험</h1>
+<p>11/28 새벽에 11/27 저장된 실행 증거를 검토했다. 마지막 실측은 <strong>317/1,000회(31.7%)</strong> — 22:11–22:13 KST 관측이다. 새 원문 2개, 그 글의 구체 외부 댓글 1개, 보낸 응답·선제 답글 각 0개. 여섯 작업과 세 관측은 실제 완료됐지만 새 가설을 노출한 루프는 둘이다. 지금의 실시간 조회가 아니다.</p>
+<table>
+<thead>
+<tr>
+<th>루프</th>
+<th>가설·실행</th>
+<th>첫 후속 관측</th>
+<th>마지막 값·판정</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>r1</td>
+<td>퇴고에서 여행 짐 선택으로 전환, 신발과 겉옷 선택 글</td>
+<td>48.81분 뒤 196회·구체 댓글 1</td>
+<td><a href="https://www.threads.com/@_archivenoh/post/DgPPRvCD1da">원문</a> 207회. 초기 신호, 주제 우월성 미검증</td>
+</tr>
+<tr>
+<td>r2</td>
+<td>댓글의 신발 사이즈/현지 대체 곤란 조건을 새 글에 반영</td>
+<td>55.30분 뒤 99회·댓글 0</td>
+<td><a href="https://www.threads.com/@_archivenoh/post/DgPcNNsD8-h">원문</a> 110회. 더 구체화하면 대화가 늘 것이라는 예측을 지지하지 않음; 기각은 아님</td>
+</tr>
+<tr>
+<td>r3</td>
+<td>질문에 이유를 추가하려 했으나 r2와 중복되어 미게시</td>
+<td>새 변경 노출 없음</td>
+<td>미실험. 기존 글 재관측을 가설 검증으로 세지 않음</td>
+</tr>
+</tbody>
+</table>
+<p>전날 76회 대비 4.17배지만 글 수·시각·노출 조건이 달라 인과 효과가 아니다. r1/r2도 첫 문장·질문 형태가 함께 달라 완전한 한 변수 비교가 아니다. 과거 자기 답글에 온 후속 1건은 오늘 새 원문 댓글에서 제외했다. 팔로워 증가·전환·고유 고객은 미측정이다.</p>
+<h3>다음 개선안 — 실행·예약 전</h3>
+<ol>
+<li><strong>새 글보다 대화부터 진행한다.</strong> 받은 구체 의견은 질문표가 없어도 후속으로 확인할 조건이 있는지 본다. 신발 댓글에는 “현지 대체가 어려운 건 사이즈 재고 때문인가요, 오래 걸어도 편한 신발을 다시 찾기 어려워서인가요?”처럼 모르는 조건 한 가지만 물을 수 있었다. 아직 보내지 않은 예시다. 반복 감사·할당량 채우기는 제외한다.</li>
+<li><strong>항공 규정 검색을 실제 짐 선택 경험으로 바꾼다.</strong> 이번에는 오래된 반입 규정·사례를 반복 읽고 선제 답글 0건으로 끝났다. 최근 ‘가져가서 안 쓴 물건’, ‘두고 가서 아쉬운 물건’ 대화의 전문·댓글을 읽고 새로 보탤 질문·검증 정보가 있는 경우만 2–3건 내에서 참여한다. 개인 경험을 꾸미지 않고 상대 후속 응답으로 효과를 본다.</li>
+<li><strong>중복이면 검증 행동을 바꾼다.</strong> 다음 세 루프 후보는 ① 받은 의견·최근 대화 참여 → ② 반응에서 나온 별개의 판단을 담은 원문 1개 → ③ 재관측·후속이다. 추가 글은 새 판단을 줄 때만 선택한다. 현재 경험이 없으면 과거 공개 기록을 시점과 함께 사용하고, 없던 경험은 만들지 않는다. 탐색 목적의 행동 변경은 인과 비교라고 부르지 않는다.</li>
+<li><strong>2시간은 실행·피드백 간격이다.</strong> 첫 관측을 게시 후 약 60분으로 맞추고 다음 실행 계획에 24시간 재측정을 포함한다. 1,000회 목표를 유지하면서 새 원문 조회, 답글 조회, 외부 구체 응답, 이어진 대화를 분리한다. ‘실제 변경 노출’과 ‘후속 회수’가 운영 완료 기준이다.</li>
+<li><strong>감독은 단순하게, 마감은 실제 값으로 검사한다.</strong> 각 업무의 네 역할 독립·교차 검토가 기록에 반복돼 PRD의 재사용 지침과 어긋났다. SAM의 짧은 판단과 Windows 실행으로 줄이는 것이 우선이다. 보고 전 현재 run ID·KST 날짜·URL·관측 시각·최신 합계·당일 메시지 영수증을 함께 검사하는 자동 보강이 필요하다. 이번에는 누락을 복구했으며 이 자동 검사를 구현한 것은 아니다.</li>
+</ol>
+<p>Meta는 답글이 Threads 조회의 거의 절반을 차지하며 대화를 만드는 글이 추천될 가능성이 높다고 설명한다(<a href="https://about.fb.com/news/2024/10/find-your-community-with-new-threads-educational-insights/">공식 안내</a>, 2024-10 발표·2025-06 갱신). 대화 참여를 시험할 근거이며 이 계정의 성과 보장은 아니다.</p>
+<h3>마감 누락 복구</h3>
+<p>23시 native closeout은 <code>ok</code>를 남겼지만 전날 76회와 <code>20261126T1400Z-final.html</code>을 오늘 보고로 잘못 참조했다. 현재 원장은 running/pending이고 23시 이후 원문 스레드 조회에는 메시지가 없었다. 이번 검토에서 supervisor를 실제 disable하고 당일 run을 복구 시각에 finished로 마감했다. 여섯 task·guard·지표·과거 이력을 보존했다. 새 Threads 브라우저 업무나 다음 날 예약은 실행하지 않았다.</p>
+<p>trace의 미지원 <code>task_guard_start_reconciled</code> 유형은 원문·시각을 보존하고 <code>backfill</code>로 정규화했다. <a href="https://github.com/shdkej/infinity/blob/main/intents/waiting/miniapp-image-tools-20261118-qa-01.md">종합 보고</a>, 원장·단일 trace, 원격 main, 최종 Slack 본문을 확인하고 영수증을 같은 run에 남긴다. 이후 자동 재발 방지 검사는 미구현이다.</p>
+</main></body></html>
