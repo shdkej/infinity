@@ -3072,7 +3072,7 @@
       "type": "threads_public_post",
       "task_id": "miniapp-20261127-r1-t01",
       "at": "2026-11-27T08:23:44.484Z",
-      "status": "product_completed_guard_pending_parent",
+      "status": "completed_guard_verified",
       "account_evidence": "Ego Lite 0.6.3.17 Profile 3 taskSpace 26, account-only edit username and composer author _archivenoh; space finished",
       "handoff_message_id": "1795766491.553509",
       "handoff_queue_id": "convq_95e5a061324d4896d090be24c669993d",
@@ -3092,7 +3092,7 @@
       "inbound_responses_sent": 0,
       "proactive_replies_sent": 0,
       "roles": {"independent": "deleg_b1acd203", "cross_review": "deleg_024f9e52", "source": "parent handoff; no duplicate"},
-      "guard": {"state": "running_at_child_write", "exit_code": null, "finished_at": null, "lock_free_verified_at": null},
+      "guard": {"state": "completed", "exit_code": 0, "started_at": "2026-11-27T08:04:24.292599Z", "finished_at": "2026-11-27T08:35:10.804564Z", "lock_free_verified_at": "2026-11-27T08:35:25.040146Z", "source": "parent SQLite read and read-only lslocks no holder; check time is not exact unlock time"},
       "followup": "SAM r1-t02 at 09:00Z owns later Check/Act; r1 report pending",
       "evidence_paths": ["INTENTS.yaml", "intents/waiting/miniapp-image-tools-20261118-qa-01.md", "reports/miniapp-image-tools-20261118-qa-01/20261127T0824Z-r1-t01.html"]
     }

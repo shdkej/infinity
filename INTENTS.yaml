@@ -447,13 +447,13 @@ lanes:
         wrap_up_by: '2026-11-27T08:45:00Z'
         execution_target_minutes: 35
         max_execution_minutes: 45
-        status: running
+        status: completed
         handoff_status: sent
         handoff_message_id: '1795766491.553509'
         handoff_queue_id: convq_95e5a061324d4896d090be24c669993d
         handoff_attempt_at: '2026-11-27T08:01:31.553509Z'
         handoff_at: '2026-11-27T08:01:31.553509Z'
-        result_summary: 'Ego Lite Profile 3 taskSpace 26: 계정 전용 편집과 작성자 _archivenoh 확인. 가상 일주일 여행의 기내수하물 신발/겉옷 선택 원문 DgPPRvCD1da 08:21:24Z 한 번 게시, 공개 작성자·본문·시간 확인. 08:23:44Z 인사이트 조회 0/1,000 (조기 측정, 18시 Check 아님). 활동·기존 대화에서 새 구체 후속 없음, 답글 0. 공개 대화 3개, 일반 여행 검색 부적합으로 기내수하물 한 차례 범위 변경; 검증된 빈칸 부족해 선제 0. guard 종료/잠금은 부모 사후 확인 대기.'
+        result_summary: 'Ego Lite Profile 3 taskSpace 26: 계정 전용 편집과 작성자 _archivenoh 확인. 가상 일주일 여행의 기내수하물 신발/겉옷 선택 원문 DgPPRvCD1da 08:21:24Z 한 번 게시, 공개 작성자·본문·시간 확인. 08:23:44Z 인사이트 조회 0/1,000 (조기 측정, 18시 Check 아님). 활동·기존 대화에서 새 구체 후속 없음, 답글 0. 공개 대화 3개, 일반 여행 검색 부적합으로 기내수하물 한 차례 범위 변경; 검증된 빈칸 부족해 선제 0. 부모 SQLite guard 08:35:10.804564Z completed/exit 0, 08:35:25.040146Z 공용 잠금 비보유 확인.'
         changes: []
         release_runs: []
         reply_records: []
@@ -487,13 +487,13 @@ lanes:
           reason: 일본 도시 선택 질문은 11/15 게시, 답글 41개; 실제 방문 근거 없는 추천 보류.
         result_report: reports/miniapp-image-tools-20261118-qa-01/20261127T0824Z-r1-t01.html
         product_evidence_at: '2026-11-27T08:23:44.484Z'
-        product_receipt_status: product_completed_guard_pending_parent
+        product_receipt_status: completed_guard_verified
         guard:
-          state: running
-          exit_code: null
-          started_at: '2026-11-27T08:04:24Z'
-          finished_at: null
-          lock_free_verified_at: null
+          state: completed
+          exit_code: 0
+          started_at: '2026-11-27T08:04:24.292599Z'
+          finished_at: '2026-11-27T08:35:10.804564Z'
+          lock_free_verified_at: '2026-11-27T08:35:25.040146Z'
           source_message_id: '1795766673.982189'
         status_check_at: null
         receipt_checked_at: '2026-11-27T08:12:16Z'
@@ -744,7 +744,7 @@ lanes:
       final_report: null
       final_report_message_id: null
       final_report_delivery_receipt: null
-      next_action: 17시 첫 가설 실행,18시 확인·개선. r2/r3 Plan은 직전 Act의 변경을 반영한 뒤 인계.23시 당일 종료.
+      next_action: r1-t01 원문 게시·조기 조회 0/1,000 및 동일 ID guard/잠금 영수증 확인. 18시 r1-t02에서 후속 Check·Act; r2/r3 Plan은 직전 Act의 변경을 반영한 뒤 인계. 23시 당일 종료.
       setup_receipts:
         helper_verification: 60 focused tests passed; full-suite prior run181 tests had one unchanged unrelated dispatcher failure, documented
           in Intent. Previous history and date/PDCA/lock boundaries checked.
@@ -1888,16 +1888,16 @@ lanes:
         additional_observation: Windows first route rejected cwd before guard start; corrected checkout and began same ID. Lock held; no finished/exit/lock-free
           claim.
     current_task_id: miniapp-20261127-r1-t01
-    current_task_status: running
+    current_task_status: completed
     current_task_goal: 기존 공개 계정의 여행·미니멀·실용적 선택 맥락을 확인하고 첫 가설의 원문1개를 게시한다. 미응답과 자기 답글의 새 반응을 우선 처리하고 관련 대화3–5개를 읽어 유용한 경우0–2개에 기여한다.
     current_task_start_at: '2026-11-27T08:00:00Z'
     current_task_end_at: '2026-11-27T10:00:00Z'
-    current_task_result: '원문 DgPPRvCD1da 08:21:24Z 게시 확인, 08:23:44Z 초기 조회 0/1,000. 이번 응답/선제 0; 18시 Check/Act와 부모 guard 종료 영수증 pending.'
-    current_task_guard_status: running
-    current_task_guard_exit_code: null
-    current_task_guard_started_at: '2026-11-27T08:04:24Z'
-    current_task_guard_finished_at: null
-    current_task_lock_released_verified_at: null
+    current_task_result: '원문 DgPPRvCD1da 08:21:24Z 게시 확인, 08:23:44Z 초기 조회 0/1,000. 이번 응답/선제 0. 부모 SQLite guard 08:35:10.804564Z completed/exit 0, 공용 잠금 08:35:25.040146Z 비보유 확인. 18시 Check/Act 별도 pending.'
+    current_task_guard_status: completed
+    current_task_guard_exit_code: 0
+    current_task_guard_started_at: '2026-11-27T08:04:24.292599Z'
+    current_task_guard_finished_at: '2026-11-27T08:35:10.804564Z'
+    current_task_lock_released_verified_at: '2026-11-27T08:35:25.040146Z'
     current_task_handoff_status: sent
     current_task_handoff_message_id: '1795766491.553509'
     current_task_handoff_queue_id: convq_95e5a061324d4896d090be24c669993d
