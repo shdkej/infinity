@@ -510,12 +510,12 @@ lanes:
         wrap_up_by: '2026-11-27T09:45:00Z'
         execution_target_minutes: 35
         max_execution_minutes: 45
-        status: prepared
-        handoff_status: prepared
-        handoff_message_id: null
-        handoff_queue_id: null
-        handoff_attempt_at: null
-        handoff_at: null
+        status: handoff_sent
+        handoff_status: sent
+        handoff_message_id: '1795770040.647419'
+        handoff_queue_id: convq_c1e87aa72ef478c2208aba81afc804a7
+        handoff_attempt_at: '2026-11-27T09:00:40.647Z'
+        handoff_at: '2026-11-27T09:00:40.647Z'
         result_summary: null
         changes: []
         release_runs: []
