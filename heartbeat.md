@@ -16,7 +16,7 @@ OpenClaw dispatcher가 큐를 읽고 지니에게 작업을 넘기는 순서입�
 - 새 항목은 `INTENTS.yaml`의 lane 배열에 객체로 기록합니다. `id`, 동일한 한국어 `title`·`task_name`, lane에 맞는 `status`, `target_agent: genie`를 둡니다. 제목은 대상·행동·산출물을 알아볼 수 있게 쓰고 내부 ID·영어 태그를 제목으로 대신하지 않습니다.
 - 사용자 의도(`user_intent`), 원하는 결과(`desired_outcome`), 제외 범위(`out_of_scope`), 성공 증거(`success_evidence`)를 분리합니다. 알림 원점 `notification_channel`·`notification_target`과 해당하는 thread/reply 메타를 보존합니다.
 - Context Pack의 필수 문서와 선택된 Wiki 구간·운영 로그를 실제로 읽고 `context_documents_checked`, `context_searches`를 남깁니다. [trace 계약](docs/intent-trace-contract.md)의 writer로 intake를 기록하고 검증합니다. 검색 결과 없음과 검색 도구 실패를 구분합니다.
-- 비단순 산출물 작업은 `metric_question`, `metric_signal`, `metric_decision_rule`을 기록합니다. 기존 `target_agent: marketer` 등은 `delegated_role`로 보존하고 실행은 지니가 맡습니다. source-agent 협업이면 [협업 계약](AGENT_COLLABORATION.md)도 확인합니다.
+- 비단순 산출물 작업은 `metric_question`, `metric_signal`, `metric_decision_rule`을 기록합니다. 기존 `target_agent: marketer` 등은 `delegated_role`로 보존하고 실행은 피오가 맡습니다. 원장의 `target_agent: genie`는 안정 ID이며 표시 이름 피오를 가리킵니다. source-agent 협업이면 [협업 계약](AGENT_COLLABORATION.md)도 확인합니다.
 - 커밋 전 원장·trace와 `python3 scripts/prepare_dispatch_cycle.py --repo . --intents INTENTS.yaml --json`으로 로컬 카드를 검사합니다. 이 명령은 오류를 `invalid_state`에 담고도 exit 0일 수 있으므로 해당 ID의 오류가 없는지 직접 확인합니다. 요청 경로만 commit/push하고 [원격 검증기](../knowledge-lab/source/openclaw-system/scripts/verify_git_publish.sh)를 통과한 뒤, 원격 YAML의 해당 ID와 `python3 scripts/prepare_dispatch_cycle.py --repo . --json`의 판정을 다시 확인합니다. 슬롯 부족·의존성 대기는 실행 오류와 구분합니다. fetch·trace·원장·계획·push·SHA 검증 중 하나라도 실패하면 접수 완료로 보고하지 않습니다.
 
 Backlog는 관찰 후보입니다. 사용자가 처리 범위를 선택한 뒤 Inbox로 승격하며, 후보가 있다는 이유로 자동 실행하지 않습니다. 후보 정리는 [백로그 정리 계약](docs/ROLE_WATCHER_BACKLOG_MANAGER.md)을 따릅니다.
