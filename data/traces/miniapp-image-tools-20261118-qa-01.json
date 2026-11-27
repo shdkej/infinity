@@ -3066,6 +3066,35 @@
         "intents/waiting/miniapp-image-tools-20261118-qa-01.md",
         "reports/miniapp-image-tools-20261118-qa-01/20261126T1306Z-r3-t02.html"
       ]
+    },
+    {
+      "label": "2026-11-27 r1-t01 original and first platform insight",
+      "type": "threads_public_post",
+      "task_id": "miniapp-20261127-r1-t01",
+      "at": "2026-11-27T08:23:44.484Z",
+      "status": "product_completed_guard_pending_parent",
+      "account_evidence": "Ego Lite 0.6.3.17 Profile 3 taskSpace 26, account-only edit username and composer author _archivenoh; space finished",
+      "handoff_message_id": "1795766491.553509",
+      "handoff_queue_id": "convq_95e5a061324d4896d090be24c669993d",
+      "post": {
+        "id": "DgPPRvCD1da",
+        "url": "https://www.threads.com/@_archivenoh/post/DgPPRvCD1da",
+        "published_at": "2026-11-27T08:21:24Z",
+        "text": "기내수하물 한 개만 가져갈 때, 여분 신발 한 켤레가 겉옷 자리를 차지한다.\n가상의 일주일 여행이다. 낮에는 오래 걷고 밤에는 숙소 근처만 나간다.\n이 일정이라면 신발을 남기고 겉옷은 현지 날씨를 확인한 뒤 결정하겠다.\n이런 일정에서 신발과 겉옷 중 무엇을 먼저 챙기시겠어요?",
+        "views": 0,
+        "obs_attempted_at": "2026-11-27T08:22:13.185Z",
+        "observed_at": "2026-11-27T08:23:44.484Z",
+        "source": "https://www.threads.com/insights/post/DgPPRvCD1da",
+        "parent": null
+      },
+      "early_snapshot_not_check": true,
+      "reply_records": [],
+      "inbound_responses_sent": 0,
+      "proactive_replies_sent": 0,
+      "roles": {"independent": "deleg_b1acd203", "cross_review": "deleg_024f9e52", "source": "parent handoff; no duplicate"},
+      "guard": {"state": "running_at_child_write", "exit_code": null, "finished_at": null, "lock_free_verified_at": null},
+      "followup": "SAM r1-t02 at 09:00Z owns later Check/Act; r1 report pending",
+      "evidence_paths": ["INTENTS.yaml", "intents/waiting/miniapp-image-tools-20261118-qa-01.md", "reports/miniapp-image-tools-20261118-qa-01/20261127T0824Z-r1-t01.html"]
     }
   ],
   "next_decision": {

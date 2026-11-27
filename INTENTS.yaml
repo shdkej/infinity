@@ -264,7 +264,7 @@ lanes:
       next_day_resume: false
     experiment_run:
       run_id: miniapp-20261127-2h
-      status: scheduled
+      status: running
       enabled: true
       date: '2026-11-27'
       timezone: Asia/Seoul
@@ -288,7 +288,7 @@ lanes:
       - id: r1
         start_at: '2026-11-27T08:00:00Z'
         end_at: '2026-11-27T10:00:00Z'
-        status: scheduled
+        status: in_progress
         goal: 기존 공개 계정의 여행·미니멀·실용적 선택 맥락을 확인하고 첫 가설의 원문1개를 게시한다. 미응답과 자기 답글의 새 반응을 우선 처리하고 관련 대화3–5개를 읽어 유용한 경우0–2개에 기여한다.
         task_sequence: 2
         planned_tasks_only: true
@@ -299,18 +299,25 @@ lanes:
         metrics:
           target: 1000
           unit: threads_post_views
-          observed_at: null
-          obs_attempted_at: null
-          posts: []
-          total_views: null
-          new_post_replies_observed: null
-          inbound_replies_observed: null
-          inbound_responses_sent: null
-          proactive_replies_sent: null
-          meaningful_external_responses: null
-          conversations_continued: null
+          observed_at: '2026-11-27T08:23:44.484Z'
+          obs_attempted_at: '2026-11-27T08:22:13.185Z'
+          posts:
+          - id: DgPPRvCD1da
+            url: https://www.threads.com/@_archivenoh/post/DgPPRvCD1da
+            published_at: '2026-11-27T08:21:24Z'
+            views: 0
+            obs_attempted_at: '2026-11-27T08:22:13.185Z'
+            observed_at: '2026-11-27T08:23:44.484Z'
+            evidence: https://www.threads.com/insights/post/DgPPRvCD1da
+          total_views: 0
+          new_post_replies_observed: 0
+          inbound_replies_observed: 0
+          inbound_responses_sent: 0
+          proactive_replies_sent: 0
+          meaningful_external_responses: 0
+          conversations_continued: 0
           follows_delta: null
-          status: unmeasured
+          status: early_observed_pending_followup
         loop_completion:
           followup_observed_at: null
           inbound_handling_summary: null
@@ -446,10 +453,41 @@ lanes:
         handoff_queue_id: convq_95e5a061324d4896d090be24c669993d
         handoff_attempt_at: '2026-11-27T08:01:31.553509Z'
         handoff_at: '2026-11-27T08:01:31.553509Z'
-        result_summary: null
+        result_summary: 'Ego Lite Profile 3 taskSpace 26: 계정 전용 편집과 작성자 _archivenoh 확인. 가상 일주일 여행의 기내수하물 신발/겉옷 선택 원문 DgPPRvCD1da 08:21:24Z 한 번 게시, 공개 작성자·본문·시간 확인. 08:23:44Z 인사이트 조회 0/1,000 (조기 측정, 18시 Check 아님). 활동·기존 대화에서 새 구체 후속 없음, 답글 0. 공개 대화 3개, 일반 여행 검색 부적합으로 기내수하물 한 차례 범위 변경; 검증된 빈칸 부족해 선제 0. guard 종료/잠금은 부모 사후 확인 대기.'
         changes: []
         release_runs: []
         reply_records: []
+        original_post_url: https://www.threads.com/@_archivenoh/post/DgPPRvCD1da
+        original_published_at: '2026-11-27T08:21:24Z'
+        original_post_text: |-
+          기내수하물 한 개만 가져갈 때, 여분 신발 한 켤레가 겉옷 자리를 차지한다.
+          가상의 일주일 여행이다. 낮에는 오래 걷고 밤에는 숙소 근처만 나간다.
+          이 일정이라면 신발을 남기고 겉옷은 현지 날씨를 확인한 뒤 결정하겠다.
+          이런 일정에서 신발과 겉옷 중 무엇을 먼저 챙기시겠어요?
+        post_observations:
+        - id: DgPPRvCD1da
+          url: https://www.threads.com/@_archivenoh/post/DgPPRvCD1da
+          views: 0
+          obs_attempted_at: '2026-11-27T08:22:13.185Z'
+          observed_at: '2026-11-27T08:23:44.484Z'
+          source: https://www.threads.com/insights/post/DgPPRvCD1da
+          note: 첫 접근 renderer 불응; 열린 인사이트 화면에서 성공 표시 0회. 새로고침 반복 없음.
+        account_evidence: Ego Lite 0.6.3.17 Profile 3 taskSpace 26, account-only profile edit username and original composer author _archivenoh; options everyone replies/quotes and cross-post off unchanged.
+        inbound_handling_summary: 활동 목록과 11/26 세 원문·기존 네 응답·선제 답글의 새 구체 질문/상대 후속 없음. 기존 life.innovator 동의·ruben.writer/text.mechanism 일반 의견에 중복·형식 응답 보류; 이번 받은/응답 0.
+        conversation_participation_summary: 여행 검색은 사고·광고·범용 추천 중심이라 기내수하물로 한 차례 좁혔다. dainty_dis 금속 책갈피는 규정 확답 불가, r_u_serious_log 중량 질문에는 이미 다수 답글, onziply 여행지 선택은 오래된 다수 답글. 보탤 검증된 사실/빈칸 없어 이번 선제 0.
+        reply_decisions:
+        - target_url: https://www.threads.com/@dainty_dis/post/Df3YwESkxgo
+          action: no_proactive_reply
+          reason: 금속 책갈피 휴대 허용 여부는 보안 규정 확인 없이 단정 불가.
+        - target_url: https://www.threads.com/@r_u_serious_log/post/DgC9_6Tk5dJ
+          action: no_proactive_reply
+          reason: 중량 측정 문의에 답글 17개 표시; 검증된 새 정보 없음.
+        - target_url: https://www.threads.com/@onziply/post/Dfwv2EkGBVP
+          action: no_proactive_reply
+          reason: 일본 도시 선택 질문은 11/15 게시, 답글 41개; 실제 방문 근거 없는 추천 보류.
+        result_report: reports/miniapp-image-tools-20261118-qa-01/20261127T0824Z-r1-t01.html
+        product_evidence_at: '2026-11-27T08:23:44.484Z'
+        product_receipt_status: product_completed_guard_pending_parent
         guard:
           state: running
           exit_code: null
@@ -617,18 +655,25 @@ lanes:
       metrics:
         target: 1000
         unit: threads_post_views
-        observed_at: null
-        obs_attempted_at: null
-        posts: []
-        total_views: null
-        new_post_replies_observed: null
-        inbound_replies_observed: null
-        inbound_responses_sent: null
-        proactive_replies_sent: null
-        meaningful_external_responses: null
-        conversations_continued: null
+        observed_at: '2026-11-27T08:23:44.484Z'
+        obs_attempted_at: '2026-11-27T08:22:13.185Z'
+        posts:
+        - id: DgPPRvCD1da
+          url: https://www.threads.com/@_archivenoh/post/DgPPRvCD1da
+          published_at: '2026-11-27T08:21:24Z'
+          views: 0
+          obs_attempted_at: '2026-11-27T08:22:13.185Z'
+          observed_at: '2026-11-27T08:23:44.484Z'
+          evidence: https://www.threads.com/insights/post/DgPPRvCD1da
+        total_views: 0
+        new_post_replies_observed: 0
+        inbound_replies_observed: 0
+        inbound_responses_sent: 0
+        proactive_replies_sent: 0
+        meaningful_external_responses: 0
+        conversations_continued: 0
         follows_delta: null
-        status: unmeasured
+        status: early_observed_pending_followup
       baseline:
         run_id: miniapp-20261126-2h
         observed_at: '2026-11-26T13:04:52.012Z'
@@ -1843,19 +1888,20 @@ lanes:
         additional_observation: Windows first route rejected cwd before guard start; corrected checkout and began same ID. Lock held; no finished/exit/lock-free
           claim.
     current_task_id: miniapp-20261127-r1-t01
-    current_task_status: prepared
+    current_task_status: running
     current_task_goal: 기존 공개 계정의 여행·미니멀·실용적 선택 맥락을 확인하고 첫 가설의 원문1개를 게시한다. 미응답과 자기 답글의 새 반응을 우선 처리하고 관련 대화3–5개를 읽어 유용한 경우0–2개에 기여한다.
     current_task_start_at: '2026-11-27T08:00:00Z'
     current_task_end_at: '2026-11-27T10:00:00Z'
-    current_task_result: null
-    current_task_guard_status: not_started
+    current_task_result: '원문 DgPPRvCD1da 08:21:24Z 게시 확인, 08:23:44Z 초기 조회 0/1,000. 이번 응답/선제 0; 18시 Check/Act와 부모 guard 종료 영수증 pending.'
+    current_task_guard_status: running
     current_task_guard_exit_code: null
+    current_task_guard_started_at: '2026-11-27T08:04:24Z'
     current_task_guard_finished_at: null
     current_task_lock_released_verified_at: null
-    current_task_handoff_status: prepared
-    current_task_handoff_message_id: null
-    current_task_handoff_queue_id: null
-    current_task_handoff_attempt_at: null
+    current_task_handoff_status: sent
+    current_task_handoff_message_id: '1795766491.553509'
+    current_task_handoff_queue_id: convq_95e5a061324d4896d090be24c669993d
+    current_task_handoff_attempt_at: '2026-11-27T08:01:31.553509Z'
     current_task_followup: 18시 예정 관측과 가설 판단·다음 변경.19시 다음 루프에 반영.
   - id: reel-room-studio-20261113
     title: Reel Room·Instagram Maker 통합 릴스 스튜디오 구현

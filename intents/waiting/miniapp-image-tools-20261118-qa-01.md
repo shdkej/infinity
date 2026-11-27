@@ -1,5 +1,20 @@
 # [miniapp-image-tools-20261118-qa-01] Threads _archivenoh · 오늘 조회 1,000회 실험
 
+## 11/27 r1-t01 Plan → Do · 17:04–17:24 KST
+
+- 사전 등록된 `miniapp-20261127-r1-t01`만 사용. SAM 인계 메시지 `1795766491.553509`/queue `convq_95e5a061324d4896d090be24c669993d`를 보존한다. 부모의 독립 네 역할 `deleg_b1acd203`, 교차 검토 `deleg_024f9e52`를 재사용하고 자식 추가 위임은 하지 않았다. Ego Lite 0.6.3.17 승인 Profile 3의 별도 taskSpace `26`에서 계정 전용 `프로필 편집`의 사용자 이름 `_archivenoh`와 발송 직전 새 원문 작성자 `_archivenoh`를 읽었다. 답글·인용 대상 `모든 사람`, 함께 공유할 위치 `해제`를 확인하고 설정은 바꾸지 않았다. 작업 후 공간을 종료했다.
+- Plan: 여행·미니멀·실용적 선택의 구체 상황이 일반 퇴고 조언보다 유효 대화 신호를 얻을 수 있다는 **검증 전 가설**. 공개 계정의 과거 [팔레르모 도착](https://www.threads.com/@_archivenoh/post/Dc4dDthiKkQ)·[이집트에서 이탈리아로 이동](https://www.threads.com/@_archivenoh/post/DczKdD0iE0p)은 당시 여행 기록일 뿐 오늘 위치/경험 증거가 아니다. 최근 네 원문은 퇴고/독자 문구에 집중됐고 새 글의 첫 줄·질문 끝은 겹치지 않는다. 정확한 현재 여행·개인 장면이 공개로 입증되지 않아 명시적인 `가상의 일주일 여행`을 선택했다. 활동 목록은 기존 [life.innovator 동의](https://www.threads.com/@life.innovator/post/DgMwgDfn8yI), [kongbaguni 후속](https://www.threads.com/@kongbaguni/post/DgMuW8iEnrs)과 이에 대한 [자기 응답](https://www.threads.com/@_archivenoh/post/DgMyiwyj3lj), 어제 [ruben.writer](https://www.threads.com/@ruben.writer/post/DgL10ZZky_P)·[text.mechanism](https://www.threads.com/@text.mechanism/post/DgMLyuwk7p_)만 보였고 새 구체 질문/자기 답글의 상대 재응답은 없었다. 어제 자기 [선제 답글](https://www.threads.com/@_archivenoh/post/DgM3EckD21U)도 재응답 근거 없음. 이번 받은/보낸 답글 0.
+- 공개 대화 탐색: 처음 `여행` 검색은 사고, 홍보, 범용 목적지 추천이 섞여 선택/짐의 실질 대화와 맞지 않아 `기내수하물`로 **한 번** 범위를 좁혔다. [dainty_dis](https://www.threads.com/@dainty_dis/post/Df3YwESkxgo): “쇠 책갈피 금속 책갈피 기내수하물로 들고탈수 있을까나? 외국가는데 위탁없이 갈건데, 이걸 비행기에 들고 타자니 애매하네. AI도 말이 다 다르고” — 보안 규정 확인 없이 확답 금지. [r_u_serious_log](https://www.threads.com/@r_u_serious_log/post/DgC9_6Tk5dJ): “기내수하물 중량이 10kg인데 기내수하물 중량은 어떻게 측정해? 해본적이 없어서 궁금하네” — 검색 화면에 답글 17개, 추가 검증 정보 없음. [onziply](https://www.threads.com/@onziply/post/Dfwv2EkGBVP): “일본 여행 많이 가본 사람들아 / 12월 초에 일본 가려고 하는데 이거 진짜 고민된다 ㅋㅋㅋㅋ / 도쿄 오사카 후쿠오카 삿포로 / 딱 한 군데만 갈 수 있다면 어디 갈 거야??? / 제발 이유까지 알려줘 ㅠㅠ 나 진짜 못 고르겠어 ㅋㅋㅋ” — 11/15 글·답글 41개, 개인 여행 경험 없이 추천하지 않음. 세 글의 검색 화면 공개 본문과 대상 URL을 읽었으며 상대 답글 전체는 읽지 않았다. 따라서 선제 0건(`reply_records=[]`); 수량 채우기 금지. 검색 탐색은 약 08:13–08:18Z로 한정했다.
+- Do: [원문 `DgPPRvCD1da`](https://www.threads.com/@_archivenoh/post/DgPPRvCD1da)을 `2026-11-27T08:21:24Z` 한 번 게시했다. 단독 공개 원문에서 작성자·전문·`time[datetime]`과 부모 대화가 아닌 원문임을 확인했다. 전문:
+
+  > 기내수하물 한 개만 가져갈 때, 여분 신발 한 켤레가 겉옷 자리를 차지한다.
+  > 가상의 일주일 여행이다. 낮에는 오래 걷고 밤에는 숙소 근처만 나간다.
+  > 이 일정이라면 신발을 남기고 겉옷은 현지 날씨를 확인한 뒤 결정하겠다.
+  > 이런 일정에서 신발과 겉옷 중 무엇을 먼저 챙기시겠어요?
+
+- 새 원문의 [인사이트](https://www.threads.com/insights/post/DgPPRvCD1da) 접근 시도 `08:22:13.185Z`: 첫 navigation은 렌더러 불응으로 스냅샷 실패했으나 이후 같은 인사이트 페이지의 `08:23:44.484Z` 표시 `조회수 0`을 직접 읽었다. 따라서 **0/1,000회**, `null`이나 실패가 아니다. 게시 후 약 2분의 조기 스냅샷이며 성과 판정/18시 Check가 아니다. 어제 글 조회, 11/26 신규 세 글의 76회, 자기 답글 조회를 합산하지 않았다. 새로운 글 답글 0, 이번 받은 댓글/응답/선제 답글 모두 0. 고유 고객·인과 효과는 미측정.
+- r1 `pdca`의 Plan은 기존 가설·주제 축·판정선을 유지, Do의 URL/시각/조기 조회만 같은 task와 window에 기록했다. 18시 `r1-t02` 지연 후속 Check/Act, 19시 구간 보고는 SAM 소유 `pending`; 오늘 run은 진행 중이고 다음 루프 소재를 미리 확정하지 않는다. 이 자식은 guard 종료·exit code·공유 잠금 해제를 확인하거나 주장하지 않는다. 종료 후 부모가 동일 ID SQLite/공유 lock을 검증하고 원격 SAM 수신 영수증을 병합해야 한다. [개별 HTML](../../reports/miniapp-image-tools-20261118-qa-01/20261127T0824Z-r1-t01.html).
+
 ## 11/27 PDCA 세 루프 — 예약 준비
 
 실제 감독 사전 시험에서 발견한 본문 조회 문제를 정확한 메시지 ID 조회로 수정했다. 두 번째 native 실행 `cron-request.e2d1c120-231d-43e9-8b39-f1abee6cdc2c`에서 기존 준비 메시지 본문·스레드를 확인하고 `preflight.status=sent`를 원격 main `aae9c498`에 기록했다. 중복 발송·업무 시작은 없었다.
