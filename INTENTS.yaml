@@ -756,7 +756,7 @@ lanes:
         handoff_queue_id: convq_f79cd2a1fd709b681c239c4815f1461b
         handoff_attempt_at: '2026-11-27T12:05:20.444939Z'
         handoff_at: '2026-11-27T12:05:20.444939Z'
-        result_summary: 'Profile3 Ego Lite taskSpace30 계정 전용 프로필 편집 _archivenoh 확인·공간 종료. r2 질문에 이미 현지 대체 곤란 물건을 묻고 있어 이유만 더한 r3 원문은 같은 판단의 중복으로 보류, 새 원문0. r1 기존 댓글에 새 질문 없음, r2 댓글0. 어제 자기 선제 답글에 오늘 cheerfulyoonkyeom의 마감 기준 답변1건은 질문/새 도움 빈칸 없어 응답0. 공개 관련 대화3개 전문·보이는 답글 확인, 선제0. 최신 인사이트 r1 207(12:19:02Z)+r2 109(12:19:46Z)=316/1,000, r3-t02 지연 Check/Act 아님. 부모 동일 ID guard 종료/잠금 영수증 pending.'
+        result_summary: 'Profile3 Ego Lite taskSpace30 계정 전용 프로필 편집 _archivenoh 확인·공간 종료. r2 질문에 이미 현지 대체 곤란 물건을 묻고 있어 이유만 더한 r3 원문은 같은 판단의 중복으로 보류, 새 원문0. r1 기존 댓글에 새 질문 없음, r2 댓글0. 어제 자기 선제 답글에 오늘 cheerfulyoonkyeom의 마감 기준 답변1건은 질문/새 도움 빈칸 없어 응답0. 공개 관련 대화3개 전문·보이는 답글 확인, 선제0. 최신 인사이트 r1 207(12:19:02Z)+r2 109(12:19:46Z)=316/1,000, r3-t02 지연 Check/Act 아님. 부모 SQLite guard 12:28:54.647393Z completed/exit 0, 12:29:09.774473Z 공용 잠금 비보유 확인.'
         changes:
         - r3 Plan 한 축과 r2 원문의 판단 문제 중복 대조 후 신규 원문 보류; 공개 발송 없음
         release_runs: []
@@ -808,18 +808,18 @@ lanes:
           reason: 7월 HK Express 개별 경험·후속 설명에 현재 확인된 새 규정이나 질문 없음.
         result_report: reports/miniapp-image-tools-20261118-qa-01/20261127T1220Z-r3-t01.html
         product_evidence_at: '2026-11-27T12:19:46.500Z'
-        product_receipt_status: completed_guard_pending_parent
+        product_receipt_status: completed_guard_verified
         role_review:
           independent: deleg_dfff2470
           cross_review: deleg_84ceb8e9
           adopted: '부모의 네 독립·교차 검토를 재사용. Marketer 질문의 현지 대체 곤란 명시를 채택하되 r2와 판단 문제 중복을 우선 점검해 미게시. Planner의 한 축 제한, Developer의 계정·중복·시각 검증, Operator의 유용한 답글만·종료 부모 확인을 적용.'
           deferred: '거의 같은 짐/대체 질문으로 세 번째 원문 강행, 확인 안 된 항공 규정 답글, 기존 댓글·새 좋아요를 새 대화로 오집계, 조회 인과·우월성 주장 보류.'
         guard:
-          state: pending_parent_verification
-          exit_code: null
-          started_at: null
-          finished_at: null
-          lock_free_verified_at: null
+          state: completed
+          exit_code: 0
+          started_at: '2026-11-27T12:08:04.013609Z'
+          finished_at: '2026-11-27T12:28:54.647393Z'
+          lock_free_verified_at: '2026-11-27T12:29:09.774473Z'
         status_check_at: '2026-11-27T12:18:33.652099Z'
         status_check_status: sent
         status_check_task_id: miniapp-20261127-r3-t01
@@ -827,7 +827,7 @@ lanes:
         status_check_queue_id: convq_f347ababf187afb2069588f443ab4b4c
         status_check_operation_id: miniapp-20261127-2h:status-check:miniapp-20261127-r3-t01
         status_check_delivery_receipt: sent; exact original-thread body read back and matched
-        receipt_checked_at: null
+        receipt_checked_at: '2026-11-27T12:29:09.774473Z'
         completion_criteria: 같은 task ID와 실제 공개 URL/시각·관측값/실패 이유·PDCA 근거를 기록한다. 정확한 _archivenoh, 기존/오늘 URL 중복 방지와 상한 준수. 부모가 guard 종료·exit code·잠금
           비보유를 실제 확인한 뒤 표준 status로 main에 병합. 고정 기한 연장·새 ID·다음 날 재개 금지.
       - id: miniapp-20261127-r3-t02
@@ -2112,27 +2112,27 @@ lanes:
     prior_r2_t01_task_id: miniapp-20261127-r2-t01
     prior_r2_t01_result: '10:14:23Z 공개 원문 DgPcNNsD8-h 발행1, 10:15:36Z 조기 인사이트0; r1 최신205+신규0=205/1,000. 답글0. 부모 guard 10:27:02.699780Z completed/exit 0, 10:27:19.571303Z 잠금 비보유 확인.'
     current_task_id: miniapp-20261127-r3-t01
-    current_task_status: completed_guard_pending_parent
+    current_task_status: completed
     current_task_goal: r2 실제 Check/Act를 반영한 r3 원문 1개와 유용한 대화 참여
     current_task_start_at: '2026-11-27T12:00:00Z'
     current_task_end_at: '2026-11-27T14:00:00Z'
-    current_task_result: 'r3-t01 공개 발송0: r2 질문과 판단 문제 중복으로 새 원문 보류. Profile3 계정 확인·관련 대화3개 확인; 최신 인사이트207+109=316/1,000. 어제 자기 답글의 오늘 상대 후속1건은 질문/추가 도움 없어 응답0, 선제0. r3-t02 지연 Check/Act·SAM 최종 보고 pending. 부모 guard 종료/잠금 검증 pending.'
-    current_task_guard_status: pending_parent_verification
-    current_task_guard_exit_code: null
-    current_task_guard_started_at: null
-    current_task_guard_finished_at: null
-    current_task_lock_released_verified_at: null
+    current_task_result: 'r3-t01 공개 발송0: r2 질문과 판단 문제 중복으로 새 원문 보류. Profile3 계정 확인·관련 대화3개 확인; 최신 인사이트207+109=316/1,000. 어제 자기 답글의 오늘 상대 후속1건은 질문/추가 도움 없어 응답0, 선제0. 부모 guard 12:28:54.647393Z completed/exit 0, 12:29:09.774473Z 잠금 비보유 확인. r3-t02 지연 Check/Act·SAM 최종 보고 pending.'
+    current_task_guard_status: completed
+    current_task_guard_exit_code: 0
+    current_task_guard_started_at: '2026-11-27T12:08:04.013609Z'
+    current_task_guard_finished_at: '2026-11-27T12:28:54.647393Z'
+    current_task_lock_released_verified_at: '2026-11-27T12:29:09.774473Z'
     current_task_handoff_status: sent
     current_task_handoff_message_id: '1795781120.444939'
     current_task_handoff_queue_id: convq_f79cd2a1fd709b681c239c4815f1461b
     current_task_handoff_attempt_at: '2026-11-27T12:05:20.444939Z'
     current_task_handoff_at: '2026-11-27T12:05:20.444939Z'
-    current_task_status_check_at: null
-    current_task_status_check_message_id: null
-    current_task_status_check_queue_id: null
-    current_task_status_check_operation_id: null
+    current_task_status_check_at: '2026-11-27T12:18:33.652099Z'
+    current_task_status_check_message_id: '1795781913.652099'
+    current_task_status_check_queue_id: convq_f347ababf187afb2069588f443ab4b4c
+    current_task_status_check_operation_id: miniapp-20261127-2h:status-check:miniapp-20261127-r3-t01
     current_task_handoff_delivery_receipt: sent; exact original-thread body read back and matched at handoff. This as-of request was not guard start or product result.
-    current_task_followup: r3-t01 제품 Plan→Do·조기 관측 기록 반영. 부모가 같은 ID SQLite 종료/exit/잠금 비보유를 확인해 별도 영수증 병합; SAM 소유 22시 r3-t02 Check/Act와 23시 종합은 pending.
+    current_task_followup: r3-t01 제품 Plan→Do·조기 관측과 동일 ID 종료/잠금 영수증 확인 완료; SAM 소유 22시 r3-t02 Check/Act와 23시 종합은 pending.
   - id: reel-room-studio-20261113
     title: Reel Room·Instagram Maker 통합 릴스 스튜디오 구현
     task_name: Reel Room·Instagram Maker 통합 릴스 스튜디오 구현
