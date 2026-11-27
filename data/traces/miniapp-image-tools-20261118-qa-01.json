@@ -3123,7 +3123,7 @@
       "type": "threads_public_post",
       "task_id": "miniapp-20261127-r2-t01",
       "at": "2026-11-27T10:15:44.927Z",
-      "status": "product_recorded_pending_guard",
+      "status": "completed_guard_verified",
       "account_evidence": "Ego Lite 0.6.3.17 Profile 3 taskSpace 28; account-only edit username and composer author _archivenoh; space finished",
       "handoff": {"message_id": "1795773767.187769", "queue_id": "convq_bf0f06fa03b15549729175f3f8b4be1b", "operation_id": "miniapp-20261127-2h:handoff:miniapp-20261127-r2-t01", "sent_at": "2026-11-27T10:03:17Z", "is_guard_start": false},
       "status_check": {"message_id": "1795774569.054119", "queue_id": "convq_eb71ab3cbdb0b1773df3baf2f7bb2ec9", "operation_id": "miniapp-20261127-2h:status-check:miniapp-20261127-r2-t01", "sent_at": "2026-11-27T10:16:36Z", "is_guard_completion": false},
@@ -3141,7 +3141,7 @@
       "reply_decisions": [{"target_url": "https://www.threads.com/@americano1234/post/DgPQjymIMmg", "action": "no_reply", "reason": "Specific personal opinion but no question; repetition not useful"}, {"target_url": "https://www.threads.com/@dainty_dis/post/Df3YwESkxgo", "action": "no_proactive_reply", "reason": "No verified airline security rule"}, {"target_url": "https://www.threads.com/@kkdini_01/post/DLwuMeazZKa", "action": "no_proactive_reply", "reason": "Old personal overweight case without useful new answer"}, {"target_url": "https://www.threads.com/@oiing23/post/DB6jDW9O-Bn", "action": "no_proactive_reply", "reason": "Old airline weight/tag case, current rules not verified; search excerpt truncated"}, {"target_url": "https://www.threads.com/@dancing_mandu/post/DCl7H5XPL_T", "action": "no_proactive_reply", "reason": "Old full-flight baggage case; search excerpt truncated"}],
       "search_scope_change": "여행 짐 신발 search remained loading, changed once to 기내수하물; four unique related public search conversations, some truncated; no defensible helpful reply",
       "roles": {"independent": "deleg_1698f144", "cross_review": "deleg_189e9b89", "source": "parent completed four-role handoff; child did not duplicate", "adopted": "identity, one-condition change, dedupe/caps, useful replies only, early insight separation", "deferred": "repeat r1 shoe-versus-coat question, causal/customer claims, premature pivot and quota-fill replies"},
-      "guard": {"state": "running", "exit_code": null, "started_at": "2026-11-27T10:07:03.077437Z", "finished_at": null, "lock_free_verified_at": null, "source": "child observed start row; parent must check exit and lock after child returns"},
+      "guard": {"state": "completed", "exit_code": 0, "started_at": "2026-11-27T10:07:03.077437Z", "finished_at": "2026-11-27T10:27:02.699780Z", "lock_free_verified_at": "2026-11-27T10:27:19.571303Z", "source": "parent same-ID SQLite and read-only lslocks no holder; check time not exact unlock time"},
       "followup": "SAM owns r2-t02 at 11:00Z for delayed Check/Act; r2 report remains pending; no next-day resume",
       "evidence_paths": ["INTENTS.yaml", "intents/waiting/miniapp-image-tools-20261118-qa-01.md", "reports/miniapp-image-tools-20261118-qa-01/20261127T1015Z-r2-t01.html"]
     }
