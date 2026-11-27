@@ -738,12 +738,12 @@ lanes:
         wrap_up_by: '2026-11-27T12:45:00Z'
         execution_target_minutes: 35
         max_execution_minutes: 45
-        status: prepared
-        handoff_status: prepared
-        handoff_message_id: null
-        handoff_queue_id: null
-        handoff_attempt_at: null
-        handoff_at: null
+        status: handoff_sent
+        handoff_status: sent
+        handoff_message_id: '1795781120.444939'
+        handoff_queue_id: convq_f79cd2a1fd709b681c239c4815f1461b
+        handoff_attempt_at: '2026-11-27T12:05:20.444939Z'
+        handoff_at: '2026-11-27T12:05:20.444939Z'
         result_summary: null
         changes: []
         release_runs: []
@@ -2039,27 +2039,28 @@ lanes:
     prior_r1_t02_handoff_queue_id: convq_c1e87aa72ef478c2208aba81afc804a7
     prior_r2_t01_task_id: miniapp-20261127-r2-t01
     prior_r2_t01_result: '10:14:23Z 공개 원문 DgPcNNsD8-h 발행1, 10:15:36Z 조기 인사이트0; r1 최신205+신규0=205/1,000. 답글0. 부모 guard 10:27:02.699780Z completed/exit 0, 10:27:19.571303Z 잠금 비보유 확인.'
-    current_task_id: miniapp-20261127-r2-t02
-    current_task_status: completed
-    current_task_goal: 두 신규 원문 지연 관측·자기 답글 후속·구체 미응답 확인과 r2 Check/Act 한 축 제안
-    current_task_start_at: '2026-11-27T11:00:00Z'
-    current_task_end_at: '2026-11-27T12:00:00Z'
-    current_task_result: 'r2 게시 후55.30분 최신 공개99·인사이트97, r1 최신206 → 두 원문305/1,000. r2 새 댓글0, r1 기존 신발 댓글1, 자기 답글 새 후속0. 답글·원문 발송 없음. r2 refine: 마지막 질문에서 대체 곤란 이유만 구체화. 부모 guard 11:23:01.246732Z completed/exit 0, 11:23:16.187206Z 잠금 비보유 확인.'
-    current_task_guard_status: completed
-    current_task_guard_exit_code: 0
-    current_task_guard_started_at: '2026-11-27T11:04:10.852100Z'
-    current_task_guard_finished_at: '2026-11-27T11:23:01.246732Z'
-    current_task_lock_released_verified_at: '2026-11-27T11:23:16.187206Z'
+    current_task_id: miniapp-20261127-r3-t01
+    current_task_status: handoff_sent
+    current_task_goal: r2 실제 Check/Act를 반영한 r3 원문 1개와 유용한 대화 참여
+    current_task_start_at: '2026-11-27T12:00:00Z'
+    current_task_end_at: '2026-11-27T14:00:00Z'
+    current_task_result: null
+    current_task_guard_status: not_started
+    current_task_guard_exit_code: null
+    current_task_guard_started_at: null
+    current_task_guard_finished_at: null
+    current_task_lock_released_verified_at: null
     current_task_handoff_status: sent
-    current_task_handoff_message_id: '1795777264.417069'
-    current_task_handoff_queue_id: convq_18490e0b362bf57ac8373f7f7202b48c
-    current_task_handoff_attempt_at: '2026-11-27T11:01:04.417069Z'
-    current_task_status_check_at: '2026-11-27T11:13:16Z'
-    current_task_status_check_message_id: '1795777996.089489'
-    current_task_status_check_queue_id: convq_24b458a258f1100be9c458659407265f
-    current_task_status_check_operation_id: miniapp-20261127-2h:status-check:miniapp-20261127-r2-t02
-    current_task_status_check_receipt: sent; exact original-thread body read back and matched; not execution/guard proof
-    current_task_followup: 같은 ID SQLite 종료/exit/잠금 비보유 확인 완료. SAM의 21시 보고와 r3 Plan은 별도 소유.
+    current_task_handoff_message_id: '1795781120.444939'
+    current_task_handoff_queue_id: convq_f79cd2a1fd709b681c239c4815f1461b
+    current_task_handoff_attempt_at: '2026-11-27T12:05:20.444939Z'
+    current_task_handoff_at: '2026-11-27T12:05:20.444939Z'
+    current_task_status_check_at: null
+    current_task_status_check_message_id: null
+    current_task_status_check_queue_id: null
+    current_task_status_check_operation_id: null
+    current_task_status_check_receipt: sent; exact original-thread body read back and matched; awaiting actual Windows guard-start and result receipt
+    current_task_followup: r3-t01 handoff receipt persisted; await same-ID guard-start/result; next checkpoint after 15 minutes if unresolved.
   - id: reel-room-studio-20261113
     title: Reel Room·Instagram Maker 통합 릴스 스튜디오 구현
     task_name: Reel Room·Instagram Maker 통합 릴스 스튜디오 구현
