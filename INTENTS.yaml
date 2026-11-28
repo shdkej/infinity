@@ -84,12 +84,12 @@ lanes:
         handoff_message_id: '1795829505.477199'
         handoff_queue_id: null
         handoff_at: '2026-11-28T01:31:45.477Z'
-        result_summary: 'Blocked before execution: the delivered handoff body omitted the run/task/account values. Windows reported Profile 3 username minimal_collector; _archivenoh not confirmed; guard not started; lock-free status unknown; no posts or replies. Corrected resend on the same operationId was rejected.'
+        result_summary: 'Blocked before execution: initial handoff body omitted run/task/account values and corrected resend on the same operationId was rejected. Windows confirmed Profile 3 still showed minimal_collector, not _archivenoh. Instagram Settings > Account switch was visible, but Threads identity remained unconfirmed; the attempted browser command required approval and was not run. No post/reply or guard execution; lock-free state remains unknown.'
         changes: []
         release_runs: []
         reply_records: []
         guard: {state: not_started, exit_code: null, started_at: null, finished_at: null, lock_free_verified_at: null}
-        status_check_at: '2026-11-28T01:37:15.759Z'
+        status_check_at: '2026-11-28T01:44:08.901Z'
       - id: threads-20261128-r1-t02
         window_id: r1
         kind: observation
