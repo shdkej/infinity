@@ -12,6 +12,177 @@ lanes:
     source: user-approved follow-up; PRD AGENT_DAILY_OPERATIONS_PRD.md
     context_pack: artifacts/threads-conversation-20261128-01/context-pack.md
     trace: data/traces/threads-conversation-20261128-01.json
+    experiment_run:
+      run_id: threads-20261128-2h
+      status: prepared
+      enabled: true
+      date: '2026-11-28'
+      timezone: Asia/Seoul
+      start_at: '2026-11-28T01:30:00Z'
+      end_at: '2026-11-28T07:30:00Z'
+      target_service: Threads
+      target_account: _archivenoh
+      goal: '오늘 새 원문 조회 합계 1,000회를 목표로 세 루프의 대화→원문→후속 PDCA를 실행한다.'
+      target_views: 1000
+      pdca_required: true
+      interval_minutes: 3
+      dispatch_owner: sam_supervisor_cron
+      supervisor_job_id: eb75facc-7686-4746-a399-4ef6d881048e
+      closeout_job_id: 8e116857-63f9-4475-8e55-4a7c386e4a16
+      configuration_status: pending_schedule_update
+      supervisor_enabled: false
+      closeout_enabled: false
+      account_confirmation: pending_windows_ego_switch
+      windows:
+      - id: r1
+        start_at: '2026-11-28T01:30:00Z'
+        end_at: '2026-11-28T03:30:00Z'
+        status: prepared
+        goal: '최근 짐 선택 경험 대화에 유용하게 참여한다. 새 원문은 게시하지 않는다.'
+        task_sequence: 2
+        planned_tasks_only: true
+        observation_due_at: '2026-11-28T02:45:00Z'
+        pdca:
+          hypothesis: '최근 짐 선택 경험에 실제로 보탬이 되거나 아직 모르는 결정 조건을 묻는 응답은, 원문만 게시할 때보다 유효한 대화 신호를 얻을 수 있다.'
+          changed_variable: '먼저 참여할 공개 대화의 선택 경험 관련성'
+          success_rule: 'r1에서 유용한 대화 참여와 상대의 구체 후속을 실제 URL·시각으로 확인한다. 반응이 없거나 관측이 불가능하면 효과를 주장하지 않고 inconclusive로 둔다.'
+          plan_at: '2026-11-28T00:58:00Z'
+          based_on_window_id: null
+          source_task_ids: []
+      - id: r2
+        start_at: '2026-11-28T03:30:00Z'
+        end_at: '2026-11-28T05:30:00Z'
+        status: prepared
+        goal: 'r1 실제 반응을 반영한 서로 다른 판단의 새 원문 최대 1개와 후속 확인.'
+        task_sequence: 2
+        planned_tasks_only: true
+        observation_due_at: '2026-11-28T04:45:00Z'
+      - id: r3
+        start_at: '2026-11-28T05:30:00Z'
+        end_at: '2026-11-28T07:30:00Z'
+        status: prepared
+        goal: '받은 반응 후속과 당일 결과 확인. 새 원문은 게시하지 않는다.'
+        task_sequence: 2
+        planned_tasks_only: true
+        observation_due_at: '2026-11-28T06:45:00Z'
+      tasks:
+      - id: threads-20261128-r1-t01
+        window_id: r1
+        kind: engagement
+        required: true
+        goal: '10:30–12:30 KST 대화 참여; 새 원문 0.'
+        start_at: '2026-11-28T01:30:00Z'
+        end_at: '2026-11-28T03:30:00Z'
+        wrap_up_by: '2026-11-28T02:05:00Z'
+        execution_target_minutes: 25
+        max_execution_minutes: 35
+        status: prepared
+        handoff_status: prepared
+        handoff_message_id: null
+        handoff_queue_id: null
+        result_summary: null
+        changes: []
+        release_runs: []
+        reply_records: []
+        guard: {state: not_started, exit_code: null, started_at: null, finished_at: null, lock_free_verified_at: null}
+        status_check_at: null
+      - id: threads-20261128-r1-t02
+        window_id: r1
+        kind: observation
+        required: true
+        goal: '11:45 KST 반응 확인; 실제 답글·후속 여부와 다음 변경 한 가지 기록.'
+        start_at: '2026-11-28T02:45:00Z'
+        end_at: '2026-11-28T03:30:00Z'
+        wrap_up_by: '2026-11-28T03:15:00Z'
+        execution_target_minutes: 15
+        max_execution_minutes: 30
+        status: prepared
+        handoff_status: prepared
+        handoff_message_id: null
+        handoff_queue_id: null
+        result_summary: null
+        changes: []
+        release_runs: []
+        guard: {state: not_started, exit_code: null, started_at: null, finished_at: null, lock_free_verified_at: null}
+        status_check_at: null
+      - id: threads-20261128-r2-t01
+        window_id: r2
+        kind: engagement
+        required: true
+        goal: '12:30–14:30 KST, r1 반응 근거를 반영한 새 원문 최대 1개와 필요한 대화.'
+        start_at: '2026-11-28T03:30:00Z'
+        end_at: '2026-11-28T05:30:00Z'
+        wrap_up_by: '2026-11-28T04:05:00Z'
+        execution_target_minutes: 20
+        max_execution_minutes: 30
+        status: prepared
+        handoff_status: prepared
+        handoff_message_id: null
+        handoff_queue_id: null
+        result_summary: null
+        changes: []
+        release_runs: []
+        reply_records: []
+        guard: {state: not_started, exit_code: null, started_at: null, finished_at: null, lock_free_verified_at: null}
+        status_check_at: null
+      - id: threads-20261128-r2-t02
+        window_id: r2
+        kind: observation
+        required: true
+        goal: '13:45 KST 게시 경과·최신 조회·댓글 관측 및 다음 변경 한 가지.'
+        start_at: '2026-11-28T04:45:00Z'
+        end_at: '2026-11-28T05:30:00Z'
+        wrap_up_by: '2026-11-28T05:15:00Z'
+        execution_target_minutes: 15
+        max_execution_minutes: 30
+        status: prepared
+        handoff_status: prepared
+        handoff_message_id: null
+        handoff_queue_id: null
+        result_summary: null
+        changes: []
+        release_runs: []
+        guard: {state: not_started, exit_code: null, started_at: null, finished_at: null, lock_free_verified_at: null}
+        status_check_at: null
+      - id: threads-20261128-r3-t01
+        window_id: r3
+        kind: engagement
+        required: true
+        goal: '14:30–16:30 KST, 새 원문 없이 받은 반응 후속과 필요한 대화.'
+        start_at: '2026-11-28T05:30:00Z'
+        end_at: '2026-11-28T07:30:00Z'
+        wrap_up_by: '2026-11-28T06:05:00Z'
+        execution_target_minutes: 25
+        max_execution_minutes: 35
+        status: prepared
+        handoff_status: prepared
+        handoff_message_id: null
+        handoff_queue_id: null
+        result_summary: null
+        changes: []
+        release_runs: []
+        reply_records: []
+        guard: {state: not_started, exit_code: null, started_at: null, finished_at: null, lock_free_verified_at: null}
+        status_check_at: null
+      - id: threads-20261128-r3-t02
+        window_id: r3
+        kind: observation
+        required: true
+        goal: '15:45 KST 당일 글·답글 최신 수치와 반응을 확인하고 판정한다.'
+        start_at: '2026-11-28T06:45:00Z'
+        end_at: '2026-11-28T07:30:00Z'
+        wrap_up_by: '2026-11-28T07:15:00Z'
+        execution_target_minutes: 15
+        max_execution_minutes: 30
+        status: prepared
+        handoff_status: prepared
+        handoff_message_id: null
+        handoff_queue_id: null
+        result_summary: null
+        changes: []
+        release_runs: []
+        guard: {state: not_started, exit_code: null, started_at: null, finished_at: null, lock_free_verified_at: null}
+        status_check_at: null
     next_action: Confirm helper compatibility and Windows router/guard readiness; preserve the authorized KST windows and record actual run evidence.
     notification_channel: slack
     notification_target: channel:C0CE0DV9MM2

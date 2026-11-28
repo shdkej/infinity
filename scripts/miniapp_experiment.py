@@ -72,12 +72,12 @@ def load_registry(remote=False, registry=None):
     return value
 
 
-def extract_run(registry):
+def extract_run(registry, intent_id=INTENT_ID):
     lanes = registry.get("lanes", {})
     if not isinstance(lanes, dict):
         raise ValueError("registry lanes must be a mapping")
     matches = [item for lane in lanes.values() if isinstance(lane, list)
-               for item in lane if isinstance(item, dict) and item.get("id") == INTENT_ID]
+               for item in lane if isinstance(item, dict) and item.get("id") == intent_id]
     if len(matches) != 1:
         raise ValueError("expected exactly one experiment Intent")
     run = matches[0].get("experiment_run")
@@ -92,7 +92,7 @@ def window_id(window):
 
 
 def validate_run(run):
-    match = re.fullmatch(r"miniapp-(\d{8})-2h", str(run.get("run_id", "")))
+    match = re.fullmatch(r"(?:miniapp|threads)-(\d{8})-2h", str(run.get("run_id", "")))
     day = str(run.get("date", ""))
     if not match or match[1] != day.replace("-", "") or run.get("timezone") != "Asia/Seoul":
         raise ValueError("unexpected experiment run")
@@ -460,12 +460,13 @@ def main(argv=None):
         source = command.add_mutually_exclusive_group()
         source.add_argument("--remote", action="store_true")
         source.add_argument("--registry", type=Path)
+        command.add_argument("--intent-id", default=INTENT_ID)
         command.add_argument("--now", help="ISO timestamp with timezone (default: now)")
         if name == "report":
             command.add_argument("--window", choices=("r1", "r2", "r3"), required=True)
     args = parser.parse_args(argv)
     try:
-        run = extract_run(load_registry(args.remote, args.registry))
+        run = extract_run(load_registry(args.remote, args.registry), args.intent_id)
         result = snapshot(run, parse_time(args.now) if args.now else datetime.now(timezone.utc))
         if args.command == "report":
             result = {"run_id": run["run_id"], "metrics": copy.deepcopy(run.get("metrics")),
