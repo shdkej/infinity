@@ -38,10 +38,41 @@
         "/home/ubuntu/workspace/knowledge-lab/source/openclaw-system/docs/projects/AGENT_DAILY_OPERATIONS_PRD.md",
         "scripts/miniapp_experiment.py"
       ]
+    },
+    {
+      "type": "existing_run_registered_and_schedules_verified",
+      "at": "2026-11-28T01:04:00Z",
+      "run_id": "threads-20261128-2h",
+      "task_ids": [
+        "threads-20261128-r1-t01",
+        "threads-20261128-r1-t02",
+        "threads-20261128-r2-t01",
+        "threads-20261128-r2-t02",
+        "threads-20261128-r3-t01",
+        "threads-20261128-r3-t02"
+      ],
+      "source_revision": "00deeabbd405e515328b2ad5902e0bdc0868b18d",
+      "supervisor_job_id": "eb75facc-7686-4746-a399-4ef6d881048e",
+      "supervisor_enabled": true,
+      "supervisor_schedule": "*/3 10-16 * * * Asia/Seoul; date-gated 10:27-16:30; ledger trigger",
+      "closeout_job_id": "8e116857-63f9-4475-8e55-4a7c386e4a16",
+      "closeout_enabled": true,
+      "closeout_at": "2026-11-28T07:30:00Z",
+      "read_only_24h_job_id": "320cfeac-bd7b-46aa-97fa-ebc50324ac78",
+      "read_only_24h_at": "2026-11-29T04:30:00Z",
+      "account_confirmation": "blocked: Windows Genie could not find Ego account switch; current username @minimal_collector; no logout or posting; handed UI to user",
+      "verification": "Existing job IDs retained; no replacement automation; current saved schedules re-read via cron list --all --json."
     }
   ],
   "artifacts": [],
-  "verifications": [],
+  "verifications": [
+    {
+      "type": "remote_ledger_and_helper",
+      "status": "verified",
+      "commit": "00deeabbd405e515328b2ad5902e0bdc0868b18d",
+      "detail": "6 task IDs validated by miniapp_experiment snapshot --intent-id; 60 tests pass."
+    }
+  ],
   "next_decision": {
     "status": "in_progress",
     "value": "Windows의 호환성 확인과 실제 준비/잠금/인계를 회수하고, 2026-11-28 16:30 KST 마감 및 11/29 13:30 KST 읽기 전용 관측을 실제 원장 증거로 마감한다."
