@@ -1,37 +1,37 @@
 {
-  "generated_at": "2026-11-27T19:30:07.567Z",
+  "generated_at": "2026-11-28T17:38:08.707Z",
   "summary": {
-    "total": 718,
-    "wiki_reflected": 198,
-    "not_reflected": 520,
+    "total": 716,
+    "wiki_reflected": 201,
+    "not_reflected": 515,
     "by_status": {
-      "queued": 262,
+      "queued": 256,
       "integrated": 17,
       "selected": 8,
-      "reviewed": 314,
-      "rejected": 117
+      "reviewed": 319,
+      "rejected": 116
     },
     "by_layer": {
-      "openclaw-system": 375,
+      "openclaw-system": 373,
       "external-links": 181,
       "root": 1,
       "infinity": 87,
       "shdkej-content": 74
     },
     "by_promotion_state": {
-      "not_applicable": 515,
-      "pending_promotion": 5,
-      "reflected": 198
+      "not_applicable": 513,
+      "pending_promotion": 2,
+      "reflected": 201
     }
   },
   "entries": [
     {
-      "source": "source/openclaw-system/docs/CRON_AUDIT_AUTOMATION.md",
+      "source": "source/openclaw-system/data/red-reviews/2026-11.md",
       "status": "queued",
       "source_layer": "openclaw-system",
       "reason": "원문 확인 완료; 현재성·재사용 범위 또는 소비자 경로 판단 대기",
       "reviewed_at": "",
-      "modified_at": "2026-11-27T19:30:03Z",
+      "modified_at": "2026-11-28T17:38:08Z",
       "promotion_targets": [],
       "reflection_basis": [],
       "promotion_state": "not_applicable",
@@ -40,12 +40,12 @@
       "wiki_reflected": false
     },
     {
-      "source": "source/openclaw-system/docs/CRON_OBSERVABILITY.md",
+      "source": "source/openclaw-system/data/quality-gates/README.md",
       "status": "queued",
       "source_layer": "openclaw-system",
       "reason": "원문 확인 완료; 현재성·재사용 범위 또는 소비자 경로 판단 대기",
       "reviewed_at": "",
-      "modified_at": "2026-11-27T19:30:03Z",
+      "modified_at": "2026-11-28T17:30:42Z",
       "promotion_targets": [],
       "reflection_basis": [],
       "promotion_state": "not_applicable",
@@ -59,7 +59,49 @@
       "source_layer": "openclaw-system",
       "reason": "원문 확인 완료; 현재성·재사용 범위 또는 소비자 경로 판단 대기",
       "reviewed_at": "",
-      "modified_at": "2026-11-27T19:30:03Z",
+      "modified_at": "2026-11-28T17:30:42Z",
+      "promotion_targets": [],
+      "reflection_basis": [],
+      "promotion_state": "not_applicable",
+      "promotion_reason": "원문 확인 완료; 현재성·재사용 범위 또는 소비자 경로 판단 대기",
+      "promotion_target_note": "",
+      "wiki_reflected": false
+    },
+    {
+      "source": "source/openclaw-system/docs/research/ACQUIRE_EMAIL_AUTOMATION.md",
+      "status": "queued",
+      "source_layer": "openclaw-system",
+      "reason": "원문 확인 완료; 현재성·재사용 범위 또는 소비자 경로 판단 대기",
+      "reviewed_at": "",
+      "modified_at": "2026-11-28T17:30:42Z",
+      "promotion_targets": [],
+      "reflection_basis": [],
+      "promotion_state": "not_applicable",
+      "promotion_reason": "원문 확인 완료; 현재성·재사용 범위 또는 소비자 경로 판단 대기",
+      "promotion_target_note": "",
+      "wiki_reflected": false
+    },
+    {
+      "source": "source/openclaw-system/docs/research/acquisition-pagination.md",
+      "status": "queued",
+      "source_layer": "openclaw-system",
+      "reason": "원문 확인 완료; 현재성·재사용 범위 또는 소비자 경로 판단 대기",
+      "reviewed_at": "",
+      "modified_at": "2026-11-28T17:30:42Z",
+      "promotion_targets": [],
+      "reflection_basis": [],
+      "promotion_state": "not_applicable",
+      "promotion_reason": "원문 확인 완료; 현재성·재사용 범위 또는 소비자 경로 판단 대기",
+      "promotion_target_note": "",
+      "wiki_reflected": false
+    },
+    {
+      "source": "source/openclaw-system/docs/runtime/CRON_OBSERVABILITY.md",
+      "status": "queued",
+      "source_layer": "openclaw-system",
+      "reason": "원문 확인 완료; 현재성·재사용 범위 또는 소비자 경로 판단 대기",
+      "reviewed_at": "",
+      "modified_at": "2026-11-28T17:30:42Z",
       "promotion_targets": [],
       "reflection_basis": [],
       "promotion_state": "not_applicable",
@@ -73,7 +115,7 @@
       "source_layer": "openclaw-system",
       "reason": "요청 대상과 실제 저장소를 연결하는 공통 정본으로 선별 보관",
       "reviewed_at": "",
-      "modified_at": "2026-11-27T19:30:03Z",
+      "modified_at": "2026-11-28T17:16:56Z",
       "promotion_targets": [],
       "reflection_basis": [],
       "promotion_state": "not_applicable",
@@ -87,7 +129,7 @@
       "source_layer": "openclaw-system",
       "reason": "에이전트 공통 사용자 맥락 정본으로 선별 보관",
       "reviewed_at": "",
-      "modified_at": "2026-11-27T19:30:03Z",
+      "modified_at": "2026-11-28T17:16:56Z",
       "promotion_targets": [],
       "reflection_basis": [],
       "promotion_state": "not_applicable",
@@ -96,12 +138,12 @@
       "wiki_reflected": false
     },
     {
-      "source": "source/openclaw-system/docs/projects/AGENT_DAILY_OPERATIONS_PRD.md",
+      "source": "source/openclaw-system/docs/projects/MODOO_STARTUP_ROUND2_ROUND1_SUPPORT_GUIDE_2026-10.md",
       "status": "queued",
       "source_layer": "openclaw-system",
       "reason": "원문 확인 완료; 현재성·재사용 범위 또는 소비자 경로 판단 대기",
       "reviewed_at": "",
-      "modified_at": "2026-11-27T19:30:03Z",
+      "modified_at": "2026-11-28T17:16:56Z",
       "promotion_targets": [],
       "reflection_basis": [],
       "promotion_state": "not_applicable",
@@ -110,16 +152,197 @@
       "wiki_reflected": false
     },
     {
-      "source": "source/openclaw-system/scripts/README.md",
+      "source": "source/openclaw-system/docs/projects/WORLD_TRAVEL_PROJECT.md",
       "status": "queued",
       "source_layer": "openclaw-system",
       "reason": "원문 확인 완료; 현재성·재사용 범위 또는 소비자 경로 판단 대기",
       "reviewed_at": "",
-      "modified_at": "2026-11-27T19:30:03Z",
+      "modified_at": "2026-11-28T17:16:56Z",
       "promotion_targets": [],
       "reflection_basis": [],
       "promotion_state": "not_applicable",
       "promotion_reason": "원문 확인 완료; 현재성·재사용 범위 또는 소비자 경로 판단 대기",
+      "promotion_target_note": "",
+      "wiki_reflected": false
+    },
+    {
+      "source": "source/openclaw-system/docs/research/GA4_GOOGLE_MARKETING_TOOLS_GUIDE.md",
+      "status": "integrated",
+      "source_layer": "openclaw-system",
+      "reason": "사용자 요청의 GA4·Google 마케팅 도구 가이드를 비공개 KL source에 선별 보존; 공개 위키 승격은 별도 판단",
+      "reviewed_at": "",
+      "modified_at": "2026-11-28T17:16:56Z",
+      "promotion_targets": [],
+      "reflection_basis": [],
+      "promotion_state": "not_applicable",
+      "promotion_reason": "사용자 요청의 GA4·Google 마케팅 도구 가이드를 비공개 KL source에 선별 보존; 공개 위키 승격은 별도 판단",
+      "promotion_target_note": "none (Agent Wiki 공개 컴파일은 별도 판단)",
+      "wiki_reflected": false
+    },
+    {
+      "source": "source/openclaw-system/docs/runtime/CRON_AUDIT_AUTOMATION.md",
+      "status": "queued",
+      "source_layer": "openclaw-system",
+      "reason": "원문 확인 완료; 현재성·재사용 범위 또는 소비자 경로 판단 대기",
+      "reviewed_at": "",
+      "modified_at": "2026-11-28T17:16:56Z",
+      "promotion_targets": [],
+      "reflection_basis": [],
+      "promotion_state": "not_applicable",
+      "promotion_reason": "원문 확인 완료; 현재성·재사용 범위 또는 소비자 경로 판단 대기",
+      "promotion_target_note": "",
+      "wiki_reflected": false
+    },
+    {
+      "source": "source/external-links/ai-agents/2026-08-31-ai-agent-architecture-microservices.md",
+      "status": "selected",
+      "source_layer": "external-links",
+      "reason": "고정 source blob이 저장소에서 읽히지 않아 원문 및 근거 행을 검증할 수 없음.",
+      "reviewed_at": "2026-11-27T20:01:41+00:00",
+      "modified_at": "2026-08-30T23:26:02Z",
+      "promotion_targets": [],
+      "reflection_basis": [],
+      "promotion_state": "pending_promotion",
+      "promotion_reason": "selected 상태지만 유효한 Agent Wiki outputs 연결이 없음",
+      "promotion_target_note": "",
+      "wiki_reflected": false
+    },
+    {
+      "source": "source/external-links/marketing/2026-06-11-youtube-brand-superfans.md",
+      "status": "queued",
+      "source_layer": "external-links",
+      "reason": "영상 본문·자막 미확인; 메타데이터만으로 주장을 검증하거나 재사용 판단할 수 없음.",
+      "reviewed_at": "2026-11-27T20:01:41+00:00",
+      "modified_at": "2026-06-11T23:31:54Z",
+      "promotion_targets": [],
+      "reflection_basis": [],
+      "promotion_state": "not_applicable",
+      "promotion_reason": "영상 본문·자막 미확인; 메타데이터만으로 주장을 검증하거나 재사용 판단할 수 없음.",
+      "promotion_target_note": "",
+      "wiki_reflected": false
+    },
+    {
+      "source": "source/external-links/marketing/2026-06-17-agentic-plg-context-moat.md",
+      "status": "selected",
+      "source_layer": "external-links",
+      "reason": "사용자 판정 후보. 첫 결과의 맥락·한계를 읽게 하는 제품 설계 관점이며, 과거 Infinity 반영 주장은 이 원문만으로 현재 위키 반영을 확인할 수 없음.",
+      "reviewed_at": "2026-11-27T20:01:41+00:00",
+      "modified_at": "2026-07-14T10:01:16Z",
+      "promotion_targets": [
+        "/docs/outputs/deep-knowledge/product"
+      ],
+      "reflection_basis": [
+        "wiki_source_link"
+      ],
+      "promotion_state": "reflected",
+      "promotion_reason": "Agent Wiki outputs 출처 링크 또는 ingest target이 명시됨",
+      "promotion_target_note": "",
+      "wiki_reflected": true
+    },
+    {
+      "source": "source/external-links/marketing/2026-06-18-agentic-web-access-policy.md",
+      "status": "reviewed",
+      "source_layer": "external-links",
+      "reason": "완료된 Infinity 내부 감사로 통합 기록이 있고, 현재는 공개 표면·정책 변경 없이 운영된다는 경계가 명시됨; 별도 위키 연결의 추가 가치 불명확.",
+      "reviewed_at": "2026-11-27T20:01:41+00:00",
+      "modified_at": "2026-07-15T10:01:17Z",
+      "promotion_targets": [],
+      "reflection_basis": [],
+      "promotion_state": "not_applicable",
+      "promotion_reason": "완료된 Infinity 내부 감사로 통합 기록이 있고, 현재는 공개 표면·정책 변경 없이 운영된다는 경계가 명시됨; 별도 위키 연결의 추가 가치 불명확.",
+      "promotion_target_note": "",
+      "wiki_reflected": false
+    },
+    {
+      "source": "source/external-links/marketing/2026-06-19-agent-readiness-discovery.md",
+      "status": "reviewed",
+      "source_layer": "external-links",
+      "reason": "Infinity marketing-69 완료 통합 기록과 미승인 공개 변경 경계가 명시되어 있어 추가 위키 승격보다 내부 연결이 적절함.",
+      "reviewed_at": "2026-11-27T20:01:41+00:00",
+      "modified_at": "2026-07-15T10:01:17Z",
+      "promotion_targets": [],
+      "reflection_basis": [],
+      "promotion_state": "not_applicable",
+      "promotion_reason": "Infinity marketing-69 완료 통합 기록과 미승인 공개 변경 경계가 명시되어 있어 추가 위키 승격보다 내부 연결이 적절함.",
+      "promotion_target_note": "",
+      "wiki_reflected": false
+    },
+    {
+      "source": "source/external-links/notion-social-media-content/items/2026-01-25-eopla.net-고통은-선택의-영역입니다.-Drop-Box의-추락-그-이후-이야기.md",
+      "status": "selected",
+      "source_layer": "external-links",
+      "reason": "사용자 판정 후보. 성숙 제품의 성장 둔화 원인과 고객 문제 재정의를 구분한 사례; Dropbox 사례로 한정해 제시.",
+      "reviewed_at": "2026-11-27T20:01:41+00:00",
+      "modified_at": "2026-11-26T23:40:13Z",
+      "promotion_targets": [
+        "/docs/outputs/Integration/Business"
+      ],
+      "reflection_basis": [
+        "wiki_source_link"
+      ],
+      "promotion_state": "reflected",
+      "promotion_reason": "Agent Wiki outputs 출처 링크 또는 ingest target이 명시됨",
+      "promotion_target_note": "",
+      "wiki_reflected": true
+    },
+    {
+      "source": "source/openclaw-system/data/daily-tracking/2026-09-22.md",
+      "status": "selected",
+      "source_layer": "openclaw-system",
+      "reason": "사용자 판정 후보. 젤라또 제작 과정을 보여준 장면에 대한 개인 구매 의향 관찰과 개인 작업 리듬 메모로 범위를 제한해 인용.",
+      "reviewed_at": "2026-11-27T20:01:41+00:00",
+      "modified_at": "2026-09-22T22:09:25Z",
+      "promotion_targets": [
+        "/docs/outputs/Integration/Design",
+        "/docs/outputs/Integration/Work"
+      ],
+      "reflection_basis": [
+        "wiki_source_link"
+      ],
+      "promotion_state": "reflected",
+      "promotion_reason": "Agent Wiki outputs 출처 링크 또는 ingest target이 명시됨",
+      "promotion_target_note": "",
+      "wiki_reflected": true
+    },
+    {
+      "source": "source/openclaw-system/docs/openclaw-evaluator.md",
+      "status": "reviewed",
+      "source_layer": "openclaw-system",
+      "reason": "2026-11-27 문서가 구형 독립 평가 크론을 폐기하고 현재 정본을 지정함; 기준만 재사용하며 공개 승격 불필요.",
+      "reviewed_at": "2026-11-27T20:01:41+00:00",
+      "modified_at": "2026-11-27T19:30:03Z",
+      "promotion_targets": [],
+      "reflection_basis": [],
+      "promotion_state": "not_applicable",
+      "promotion_reason": "2026-11-27 문서가 구형 독립 평가 크론을 폐기하고 현재 정본을 지정함; 기준만 재사용하며 공개 승격 불필요.",
+      "promotion_target_note": "",
+      "wiki_reflected": false
+    },
+    {
+      "source": "source/openclaw-system/docs/projects/AGENT_DAILY_OPERATIONS_PRD.md",
+      "status": "reviewed",
+      "source_layer": "openclaw-system",
+      "reason": "당일 운영 실행 결과와 미검증 가설을 구분한 내부 실행 기록으로 공개 위키에 일반화할 근거 없음.",
+      "reviewed_at": "2026-11-27T20:01:41+00:00",
+      "modified_at": "2026-11-28T17:16:56Z",
+      "promotion_targets": [],
+      "reflection_basis": [],
+      "promotion_state": "not_applicable",
+      "promotion_reason": "당일 운영 실행 결과와 미검증 가설을 구분한 내부 실행 기록으로 공개 위키에 일반화할 근거 없음.",
+      "promotion_target_note": "",
+      "wiki_reflected": false
+    },
+    {
+      "source": "source/openclaw-system/scripts/README.md",
+      "status": "reviewed",
+      "source_layer": "openclaw-system",
+      "reason": "실행 스크립트 안내 색인으로 재사용 범위는 내부 운영 문서이며 공개 위키 승격 근거 없음.",
+      "reviewed_at": "2026-11-27T20:01:41+00:00",
+      "modified_at": "2026-11-28T17:30:42Z",
+      "promotion_targets": [],
+      "reflection_basis": [],
+      "promotion_state": "not_applicable",
+      "promotion_reason": "실행 스크립트 안내 색인으로 재사용 범위는 내부 운영 문서이며 공개 위키 승격 근거 없음.",
       "promotion_target_note": "",
       "wiki_reflected": false
     },
@@ -138,54 +361,12 @@
       "wiki_reflected": false
     },
     {
-      "source": "source/external-links/marketing/2026-06-17-agentic-plg-context-moat.md",
-      "status": "selected",
-      "source_layer": "external-links",
-      "reason": "사용자 판정: 위키 반영 후보. 사람과 에이전트가 첫 결과의 문맥과 한계를 읽을 수 있게 하는 제품 설계 사례. 기존 Infinity 반영 주장은 별도 확인이 필요함.",
-      "reviewed_at": "2026-11-26T23:40:13+00:00",
-      "modified_at": "2026-07-14T10:01:16Z",
-      "promotion_targets": [],
-      "reflection_basis": [],
-      "promotion_state": "pending_promotion",
-      "promotion_reason": "selected 상태지만 유효한 Agent Wiki outputs 연결이 없음",
-      "promotion_target_note": "",
-      "wiki_reflected": false
-    },
-    {
-      "source": "source/external-links/notion-social-media-content/items/2026-01-25-eopla.net-고통은-선택의-영역입니다.-Drop-Box의-추락-그-이후-이야기.md",
-      "status": "selected",
-      "source_layer": "external-links",
-      "reason": "사용자 판정: 원문 확인 후 위키 반영 후보. 성장 둔화의 내부 요인 점검과 사용자 문제를 다시 정의한 사업 전환 사례.",
-      "reviewed_at": "2026-11-26T23:40:13+00:00",
-      "modified_at": "2026-11-26T23:40:13Z",
-      "promotion_targets": [],
-      "reflection_basis": [],
-      "promotion_state": "pending_promotion",
-      "promotion_reason": "selected 상태지만 유효한 Agent Wiki outputs 연결이 없음",
-      "promotion_target_note": "",
-      "wiki_reflected": false
-    },
-    {
-      "source": "source/openclaw-system/data/daily-tracking/2026-09-22.md",
-      "status": "selected",
-      "source_layer": "openclaw-system",
-      "reason": "사용자 판정: 위키 반영 후보. 제작 과정을 보여 주는 경험에 대한 구매 의향 관찰과 몰입 시간에 관한 작업 리듬 메모. 개인 관찰로 인용 범위를 제한함.",
-      "reviewed_at": "2026-11-26T23:40:13+00:00",
-      "modified_at": "2026-09-22T22:09:25Z",
-      "promotion_targets": [],
-      "reflection_basis": [],
-      "promotion_state": "pending_promotion",
-      "promotion_reason": "selected 상태지만 유효한 Agent Wiki outputs 연결이 없음",
-      "promotion_target_note": "",
-      "wiki_reflected": false
-    },
-    {
-      "source": "source/openclaw-system/docs/RETRO_SPACED_REMINDER_PROCESS.md",
+      "source": "source/openclaw-system/docs/reviews/RETRO_SPACED_REMINDER_PROCESS.md",
       "status": "selected",
       "source_layer": "openclaw-system",
       "reason": "사용자 판정: 위키 반영 후보. 회고에서 행동 규칙을 뽑아 간격을 두고 다시 적용하는 방법. 당시 전달 채널과 실제 효과는 별도 검증이 필요함.",
       "reviewed_at": "2026-11-26T23:40:13+00:00",
-      "modified_at": "2026-11-13T04:29:39Z",
+      "modified_at": "2026-11-28T17:16:56Z",
       "promotion_targets": [],
       "reflection_basis": [],
       "promotion_state": "pending_promotion",
@@ -226,20 +407,6 @@
       "wiki_reflected": false
     },
     {
-      "source": "source/external-links/ai-agents/2026-08-31-ai-agent-architecture-microservices.md",
-      "status": "selected",
-      "source_layer": "external-links",
-      "reason": "핀된 blob이 현재 저장소 객체 데이터베이스에서 읽히지 않아 원문·근거 행을 검증할 수 없음.",
-      "reviewed_at": "2026-11-26T23:16:40+00:00",
-      "modified_at": "2026-08-30T23:26:02Z",
-      "promotion_targets": [],
-      "reflection_basis": [],
-      "promotion_state": "pending_promotion",
-      "promotion_reason": "selected 상태지만 유효한 Agent Wiki outputs 연결이 없음",
-      "promotion_target_note": "",
-      "wiki_reflected": false
-    },
-    {
       "source": "source/external-links/communication/2026-05-19-okky-communication-collaboration.md",
       "status": "queued",
       "source_layer": "external-links",
@@ -273,25 +440,11 @@
       "source_layer": "openclaw-system",
       "reason": "기존 KL 공통 운영 계약 정본의 내부 보존 판정을 확인; 공개 Agent Wiki 승격과 별개.",
       "reviewed_at": "2026-11-26T23:16:40+00:00",
-      "modified_at": "2026-11-26T23:10:18Z",
+      "modified_at": "2026-11-28T17:16:56Z",
       "promotion_targets": [],
       "reflection_basis": [],
       "promotion_state": "not_applicable",
       "promotion_reason": "기존 KL 공통 운영 계약 정본의 내부 보존 판정을 확인; 공개 Agent Wiki 승격과 별개.",
-      "promotion_target_note": "",
-      "wiki_reflected": false
-    },
-    {
-      "source": "source/openclaw-system/docs/OPENCLAW_RUNTIME_MAINTENANCE.md",
-      "status": "reviewed",
-      "source_layer": "openclaw-system",
-      "reason": "OpenClaw 런타임 운영 정본은 KL 내부 운영 경로에 유지하며 공개 Agent Wiki 소비자 대상이 아님.",
-      "reviewed_at": "2026-11-26T23:16:40+00:00",
-      "modified_at": "2026-11-26T23:10:18Z",
-      "promotion_targets": [],
-      "reflection_basis": [],
-      "promotion_state": "not_applicable",
-      "promotion_reason": "OpenClaw 런타임 운영 정본은 KL 내부 운영 경로에 유지하며 공개 Agent Wiki 소비자 대상이 아님.",
       "promotion_target_note": "",
       "wiki_reflected": false
     },
@@ -324,16 +477,16 @@
       "wiki_reflected": false
     },
     {
-      "source": "source/openclaw-system/data/red-reviews/2026-11.md",
-      "status": "queued",
+      "source": "source/openclaw-system/docs/runtime/OPENCLAW_RUNTIME_MAINTENANCE.md",
+      "status": "reviewed",
       "source_layer": "openclaw-system",
-      "reason": "원문 확인 완료; 현재성·재사용 범위 또는 소비자 경로 판단 대기",
-      "reviewed_at": "",
-      "modified_at": "2026-11-26T23:10:18Z",
+      "reason": "OpenClaw 런타임 운영 정본은 KL 내부 운영 경로에 유지하며 공개 Agent Wiki 소비자 대상이 아님.",
+      "reviewed_at": "2026-11-26T23:16:40+00:00",
+      "modified_at": "2026-11-28T17:30:42Z",
       "promotion_targets": [],
       "reflection_basis": [],
       "promotion_state": "not_applicable",
-      "promotion_reason": "원문 확인 완료; 현재성·재사용 범위 또는 소비자 경로 판단 대기",
+      "promotion_reason": "OpenClaw 런타임 운영 정본은 KL 내부 운영 경로에 유지하며 공개 Agent Wiki 소비자 대상이 아님.",
       "promotion_target_note": "",
       "wiki_reflected": false
     },
@@ -3247,21 +3400,7 @@
       "wiki_reflected": false
     },
     {
-      "source": "source/openclaw-system/docs/GSTACK_OPENCLAW.md",
-      "status": "integrated",
-      "source_layer": "openclaw-system",
-      "reason": "기존 KL 운영 정본의 명시적 선별 판정을 원장에 반영",
-      "reviewed_at": "2026-11-26T22:22:47Z",
-      "modified_at": "2026-11-26T23:10:18Z",
-      "promotion_targets": [],
-      "reflection_basis": [],
-      "promotion_state": "not_applicable",
-      "promotion_reason": "기존 KL 운영 정본의 명시적 선별 판정을 원장에 반영",
-      "promotion_target_note": "",
-      "wiki_reflected": false
-    },
-    {
-      "source": "source/openclaw-system/docs/INSTAGRAM_CAROUSEL_PROMPT_SYSTEM.md",
+      "source": "source/openclaw-system/docs/content/INSTAGRAM_CAROUSEL_PROMPT_SYSTEM.md",
       "status": "reviewed",
       "source_layer": "openclaw-system",
       "reason": "Agent Wiki의 명시적 원문 참조 확인 · blog/Digital_Content.mdx",
@@ -3279,7 +3418,7 @@
       "wiki_reflected": true
     },
     {
-      "source": "source/openclaw-system/docs/MINIMALMOEUM_AGENT_IMPLEMENTATION.md",
+      "source": "source/openclaw-system/docs/projects/MINIMALMOEUM_AGENT_IMPLEMENTATION.md",
       "status": "reviewed",
       "source_layer": "openclaw-system",
       "reason": "Agent Wiki의 명시적 원문 참조 확인 · Meta/MinimalCollection.mdx",
@@ -3303,6 +3442,20 @@
       "reason": "기존 KL 운영 정본의 명시적 선별 판정을 원장에 반영",
       "reviewed_at": "2026-11-26T22:22:47Z",
       "modified_at": "2026-11-13T11:59:21Z",
+      "promotion_targets": [],
+      "reflection_basis": [],
+      "promotion_state": "not_applicable",
+      "promotion_reason": "기존 KL 운영 정본의 명시적 선별 판정을 원장에 반영",
+      "promotion_target_note": "",
+      "wiki_reflected": false
+    },
+    {
+      "source": "source/openclaw-system/docs/runtime/GSTACK_OPENCLAW.md",
+      "status": "integrated",
+      "source_layer": "openclaw-system",
+      "reason": "기존 KL 운영 정본의 명시적 선별 판정을 원장에 반영",
+      "reviewed_at": "2026-11-26T22:22:47Z",
+      "modified_at": "2026-11-26T23:10:18Z",
       "promotion_targets": [],
       "reflection_basis": [],
       "promotion_state": "not_applicable",
@@ -3377,20 +3530,6 @@
       "reflection_basis": [],
       "promotion_state": "not_applicable",
       "promotion_reason": "재현용 렌더·파생 탐색 자료 또는 운영 집계·실행 원장; 근거 원문은 보존",
-      "promotion_target_note": "",
-      "wiki_reflected": false
-    },
-    {
-      "source": "source/openclaw-system/reports/monthly-review-sources/2026-06-drive.md",
-      "status": "rejected",
-      "source_layer": "openclaw-system",
-      "reason": "drive-2026-06.md와 Git blob 내용이 같은 중복 사본",
-      "reviewed_at": "2026-11-26T22:22:47Z",
-      "modified_at": "2026-09-09T23:47:05Z",
-      "promotion_targets": [],
-      "reflection_basis": [],
-      "promotion_state": "not_applicable",
-      "promotion_reason": "drive-2026-06.md와 Git blob 내용이 같은 중복 사본",
       "promotion_target_note": "",
       "wiki_reflected": false
     },
@@ -4777,20 +4916,6 @@
       "wiki_reflected": false
     },
     {
-      "source": "source/openclaw-system/docs/research/GA4_GOOGLE_MARKETING_TOOLS_GUIDE.md",
-      "status": "integrated",
-      "source_layer": "openclaw-system",
-      "reason": "사용자 요청의 GA4·Google 마케팅 도구 가이드를 비공개 KL source에 선별 보존; 공개 위키 승격은 별도 판단",
-      "reviewed_at": "",
-      "modified_at": "2026-11-26T13:43:07Z",
-      "promotion_targets": [],
-      "reflection_basis": [],
-      "promotion_state": "not_applicable",
-      "promotion_reason": "사용자 요청의 GA4·Google 마케팅 도구 가이드를 비공개 KL source에 선별 보존; 공개 위키 승격은 별도 판단",
-      "promotion_target_note": "none (Agent Wiki 공개 컴파일은 별도 판단)",
-      "wiki_reflected": false
-    },
-    {
       "source": "source/openclaw-system/data/daily-reviews/2026-11-26-threads-candidate.md",
       "status": "queued",
       "source_layer": "openclaw-system",
@@ -4931,7 +5056,7 @@
       "wiki_reflected": false
     },
     {
-      "source": "source/openclaw-system/docs/AI_NEWS_AUTOMATION.md",
+      "source": "source/openclaw-system/docs/content/AI_NEWS_AUTOMATION.md",
       "status": "queued",
       "source_layer": "openclaw-system",
       "reason": "원문 확인 완료; 현재성·재사용 범위 또는 소비자 경로 판단 대기",
@@ -5099,7 +5224,7 @@
       "wiki_reflected": false
     },
     {
-      "source": "source/openclaw-system/docs/ACQUIRE_EMAIL_AUTOMATION.md",
+      "source": "source/openclaw-system/docs/content/AI_RESEARCH_BRIEFING.md",
       "status": "queued",
       "source_layer": "openclaw-system",
       "reason": "원문 확인 완료; 현재성·재사용 범위 또는 소비자 경로 판단 대기",
@@ -5113,7 +5238,7 @@
       "wiki_reflected": false
     },
     {
-      "source": "source/openclaw-system/docs/AI_RESEARCH_BRIEFING.md",
+      "source": "source/openclaw-system/docs/knowledge/PROMOTION_INDEX.md",
       "status": "queued",
       "source_layer": "openclaw-system",
       "reason": "원문 확인 완료; 현재성·재사용 범위 또는 소비자 경로 판단 대기",
@@ -5127,7 +5252,7 @@
       "wiki_reflected": false
     },
     {
-      "source": "source/openclaw-system/docs/MODOO_STARTUP_ROUND2_ROUND1_SUPPORT_GUIDE_2026-10.md",
+      "source": "source/openclaw-system/docs/research/MONOROUTER_MANUAL_2026-10.md",
       "status": "queued",
       "source_layer": "openclaw-system",
       "reason": "원문 확인 완료; 현재성·재사용 범위 또는 소비자 경로 판단 대기",
@@ -5141,7 +5266,7 @@
       "wiki_reflected": false
     },
     {
-      "source": "source/openclaw-system/docs/MONOROUTER_MANUAL_2026-10.md",
+      "source": "source/openclaw-system/docs/research/OPENCLAW_TEAM_USAGE_CASES_SOURCES.md",
       "status": "queued",
       "source_layer": "openclaw-system",
       "reason": "원문 확인 완료; 현재성·재사용 범위 또는 소비자 경로 판단 대기",
@@ -5155,7 +5280,7 @@
       "wiki_reflected": false
     },
     {
-      "source": "source/openclaw-system/docs/OPENCLAW_RUNTIME_HISTORY_INSTRUMENTATION_PROPOSAL.md",
+      "source": "source/openclaw-system/docs/runtime/OPENCLAW_RUNTIME_HISTORY_INSTRUMENTATION_PROPOSAL.md",
       "status": "queued",
       "source_layer": "openclaw-system",
       "reason": "원문 확인 완료; 현재성·재사용 범위 또는 소비자 경로 판단 대기",
@@ -5169,7 +5294,7 @@
       "wiki_reflected": false
     },
     {
-      "source": "source/openclaw-system/docs/OPENCLAW_TEAM_USAGE_CASES_SOURCES.md",
+      "source": "source/openclaw-system/docs/runtime/RUNYOUR_CPU_CLOUD_ACCESS.md",
       "status": "queued",
       "source_layer": "openclaw-system",
       "reason": "원문 확인 완료; 현재성·재사용 범위 또는 소비자 경로 판단 대기",
@@ -5183,7 +5308,7 @@
       "wiki_reflected": false
     },
     {
-      "source": "source/openclaw-system/docs/PROMOTION_INDEX.md",
+      "source": "source/openclaw-system/docs/runtime/SYSTEM_VISIBILITY_DESIGN_2026-07-15.md",
       "status": "queued",
       "source_layer": "openclaw-system",
       "reason": "원문 확인 완료; 현재성·재사용 범위 또는 소비자 경로 판단 대기",
@@ -5197,35 +5322,7 @@
       "wiki_reflected": false
     },
     {
-      "source": "source/openclaw-system/docs/RUNYOUR_CPU_CLOUD_ACCESS.md",
-      "status": "queued",
-      "source_layer": "openclaw-system",
-      "reason": "원문 확인 완료; 현재성·재사용 범위 또는 소비자 경로 판단 대기",
-      "reviewed_at": "",
-      "modified_at": "2026-11-13T04:29:39Z",
-      "promotion_targets": [],
-      "reflection_basis": [],
-      "promotion_state": "not_applicable",
-      "promotion_reason": "원문 확인 완료; 현재성·재사용 범위 또는 소비자 경로 판단 대기",
-      "promotion_target_note": "",
-      "wiki_reflected": false
-    },
-    {
-      "source": "source/openclaw-system/docs/SYSTEM_VISIBILITY_DESIGN_2026-07-15.md",
-      "status": "queued",
-      "source_layer": "openclaw-system",
-      "reason": "원문 확인 완료; 현재성·재사용 범위 또는 소비자 경로 판단 대기",
-      "reviewed_at": "",
-      "modified_at": "2026-11-13T04:29:39Z",
-      "promotion_targets": [],
-      "reflection_basis": [],
-      "promotion_state": "not_applicable",
-      "promotion_reason": "원문 확인 완료; 현재성·재사용 범위 또는 소비자 경로 판단 대기",
-      "promotion_target_note": "",
-      "wiki_reflected": false
-    },
-    {
-      "source": "source/openclaw-system/docs/VERSION_TRACKER_OPERATING.md",
+      "source": "source/openclaw-system/docs/runtime/VERSION_TRACKER_OPERATING.md",
       "status": "reviewed",
       "source_layer": "openclaw-system",
       "reason": "버전 트래커 운영 원칙은 Agent Wiki 승격을 보류하고 Knowledge Lab 원문으로 유지함",
@@ -5235,48 +5332,6 @@
       "reflection_basis": [],
       "promotion_state": "not_applicable",
       "promotion_reason": "버전 트래커 운영 원칙은 Agent Wiki 승격을 보류하고 Knowledge Lab 원문으로 유지함",
-      "promotion_target_note": "",
-      "wiki_reflected": false
-    },
-    {
-      "source": "source/openclaw-system/docs/WORLD_TRAVEL_PROJECT.md",
-      "status": "queued",
-      "source_layer": "openclaw-system",
-      "reason": "원문 확인 완료; 현재성·재사용 범위 또는 소비자 경로 판단 대기",
-      "reviewed_at": "",
-      "modified_at": "2026-11-13T04:29:39Z",
-      "promotion_targets": [],
-      "reflection_basis": [],
-      "promotion_state": "not_applicable",
-      "promotion_reason": "원문 확인 완료; 현재성·재사용 범위 또는 소비자 경로 판단 대기",
-      "promotion_target_note": "",
-      "wiki_reflected": false
-    },
-    {
-      "source": "source/openclaw-system/docs/WRITING_TECHNIQUES.md",
-      "status": "queued",
-      "source_layer": "openclaw-system",
-      "reason": "원문 확인 완료; 현재성·재사용 범위 또는 소비자 경로 판단 대기",
-      "reviewed_at": "",
-      "modified_at": "2026-11-13T04:29:39Z",
-      "promotion_targets": [],
-      "reflection_basis": [],
-      "promotion_state": "not_applicable",
-      "promotion_reason": "원문 확인 완료; 현재성·재사용 범위 또는 소비자 경로 판단 대기",
-      "promotion_target_note": "",
-      "wiki_reflected": false
-    },
-    {
-      "source": "source/openclaw-system/docs/acquisition-pagination.md",
-      "status": "queued",
-      "source_layer": "openclaw-system",
-      "reason": "원문 확인 완료; 현재성·재사용 범위 또는 소비자 경로 판단 대기",
-      "reviewed_at": "",
-      "modified_at": "2026-11-13T04:29:39Z",
-      "promotion_targets": [],
-      "reflection_basis": [],
-      "promotion_state": "not_applicable",
-      "promotion_reason": "원문 확인 완료; 현재성·재사용 범위 또는 소비자 경로 판단 대기",
       "promotion_target_note": "",
       "wiki_reflected": false
     },
@@ -6796,7 +6851,7 @@
       "source_layer": "openclaw-system",
       "reason": "원문 확인 완료; 현재성·재사용 범위 또는 소비자 경로 판단 대기",
       "reviewed_at": "2026-09-01T10:01:07Z",
-      "modified_at": "2026-11-13T04:30:31Z",
+      "modified_at": "2026-11-28T17:30:42Z",
       "promotion_targets": [],
       "reflection_basis": [],
       "promotion_state": "not_applicable",
@@ -6824,7 +6879,7 @@
       "source_layer": "openclaw-system",
       "reason": "최근 활성 정본 또는 재사용 가능한 원자료; raw 검색 허용",
       "reviewed_at": "2026-09-01T10:01:07Z",
-      "modified_at": "2026-08-09T21:23:57Z",
+      "modified_at": "2026-11-28T17:16:56Z",
       "promotion_targets": [],
       "reflection_basis": [],
       "promotion_state": "not_applicable",
@@ -6852,7 +6907,7 @@
       "source_layer": "openclaw-system",
       "reason": "최근 활성 정본 또는 재사용 가능한 원자료; raw 검색 허용",
       "reviewed_at": "2026-09-01T10:01:07Z",
-      "modified_at": "2026-08-09T21:23:57Z",
+      "modified_at": "2026-11-28T17:16:56Z",
       "promotion_targets": [],
       "reflection_basis": [],
       "promotion_state": "not_applicable",
@@ -7617,7 +7672,7 @@
       "wiki_reflected": false
     },
     {
-      "source": "source/openclaw-system/docs/APP_WEB_RESEARCH_STATS_SOURCES.md",
+      "source": "source/openclaw-system/docs/content/TOOL_CURATION_WORKFLOW.md",
       "status": "reviewed",
       "source_layer": "openclaw-system",
       "reason": "최근 활성 정본 또는 재사용 가능한 원자료; raw 검색 허용",
@@ -7631,7 +7686,7 @@
       "wiki_reflected": false
     },
     {
-      "source": "source/openclaw-system/docs/CRON_REDESIGN_2026-07-04.md",
+      "source": "source/openclaw-system/docs/knowledge/EVALUATION_NOTES.md",
       "status": "reviewed",
       "source_layer": "openclaw-system",
       "reason": "최근 활성 정본 또는 재사용 가능한 원자료; raw 검색 허용",
@@ -7645,7 +7700,7 @@
       "wiki_reflected": false
     },
     {
-      "source": "source/openclaw-system/docs/DATA_CAPTURE_RULES.md",
+      "source": "source/openclaw-system/docs/knowledge/OPERATING_LESSONS.md",
       "status": "reviewed",
       "source_layer": "openclaw-system",
       "reason": "최근 활성 정본 또는 재사용 가능한 원자료; raw 검색 허용",
@@ -7659,7 +7714,7 @@
       "wiki_reflected": false
     },
     {
-      "source": "source/openclaw-system/docs/EFFECTIVENESS_METRICS_2026-07-05.md",
+      "source": "source/openclaw-system/docs/knowledge/SIGNAL_TO_INTENT_PROPOSER.md",
       "status": "reviewed",
       "source_layer": "openclaw-system",
       "reason": "최근 활성 정본 또는 재사용 가능한 원자료; raw 검색 허용",
@@ -7673,7 +7728,7 @@
       "wiki_reflected": false
     },
     {
-      "source": "source/openclaw-system/docs/EVALUATION_NOTES.md",
+      "source": "source/openclaw-system/docs/projects/MARKETING_AGENT_INTERNAL_INBOX.md",
       "status": "reviewed",
       "source_layer": "openclaw-system",
       "reason": "최근 활성 정본 또는 재사용 가능한 원자료; raw 검색 허용",
@@ -7687,7 +7742,7 @@
       "wiki_reflected": false
     },
     {
-      "source": "source/openclaw-system/docs/LIFE_SYSTEM_WORKFLOW_ARTIFACT.md",
+      "source": "source/openclaw-system/docs/projects/TAXOPS_WORKFLOW.md",
       "status": "reviewed",
       "source_layer": "openclaw-system",
       "reason": "최근 활성 정본 또는 재사용 가능한 원자료; raw 검색 허용",
@@ -7701,7 +7756,7 @@
       "wiki_reflected": false
     },
     {
-      "source": "source/openclaw-system/docs/MARKETING_AGENT_INTERNAL_INBOX.md",
+      "source": "source/openclaw-system/docs/research/APP_WEB_RESEARCH_STATS_SOURCES.md",
       "status": "reviewed",
       "source_layer": "openclaw-system",
       "reason": "최근 활성 정본 또는 재사용 가능한 원자료; raw 검색 허용",
@@ -7715,7 +7770,7 @@
       "wiki_reflected": false
     },
     {
-      "source": "source/openclaw-system/docs/OPERATING_LESSONS.md",
+      "source": "source/openclaw-system/docs/reviews/DATA_CAPTURE_RULES.md",
       "status": "reviewed",
       "source_layer": "openclaw-system",
       "reason": "최근 활성 정본 또는 재사용 가능한 원자료; raw 검색 허용",
@@ -7729,7 +7784,7 @@
       "wiki_reflected": false
     },
     {
-      "source": "source/openclaw-system/docs/SIGNAL_TO_INTENT_PROPOSER.md",
+      "source": "source/openclaw-system/docs/reviews/EFFECTIVENESS_METRICS_2026-07-05.md",
       "status": "reviewed",
       "source_layer": "openclaw-system",
       "reason": "최근 활성 정본 또는 재사용 가능한 원자료; raw 검색 허용",
@@ -7743,7 +7798,7 @@
       "wiki_reflected": false
     },
     {
-      "source": "source/openclaw-system/docs/TAXOPS_WORKFLOW.md",
+      "source": "source/openclaw-system/docs/reviews/LIFE_SYSTEM_WORKFLOW_ARTIFACT.md",
       "status": "reviewed",
       "source_layer": "openclaw-system",
       "reason": "최근 활성 정본 또는 재사용 가능한 원자료; raw 검색 허용",
@@ -7757,30 +7812,16 @@
       "wiki_reflected": false
     },
     {
-      "source": "source/openclaw-system/docs/TOOL_CURATION_WORKFLOW.md",
+      "source": "source/openclaw-system/docs/runtime/CRON_REDESIGN_2026-07-04.md",
       "status": "reviewed",
       "source_layer": "openclaw-system",
       "reason": "최근 활성 정본 또는 재사용 가능한 원자료; raw 검색 허용",
       "reviewed_at": "2026-09-01T10:01:07Z",
-      "modified_at": "2026-11-13T04:29:39Z",
+      "modified_at": "2026-11-28T17:30:42Z",
       "promotion_targets": [],
       "reflection_basis": [],
       "promotion_state": "not_applicable",
       "promotion_reason": "최근 활성 정본 또는 재사용 가능한 원자료; raw 검색 허용",
-      "promotion_target_note": "",
-      "wiki_reflected": false
-    },
-    {
-      "source": "source/openclaw-system/docs/openclaw-evaluator.md",
-      "status": "queued",
-      "source_layer": "openclaw-system",
-      "reason": "원문 확인 완료; 현재성·재사용 범위 또는 소비자 경로 판단 대기",
-      "reviewed_at": "2026-09-01T10:01:07Z",
-      "modified_at": "2026-11-27T19:30:03Z",
-      "promotion_targets": [],
-      "reflection_basis": [],
-      "promotion_state": "not_applicable",
-      "promotion_reason": "원문 확인 완료; 현재성·재사용 범위 또는 소비자 경로 판단 대기",
       "promotion_target_note": "",
       "wiki_reflected": false
     },
@@ -8747,40 +8788,6 @@
       "wiki_reflected": false
     },
     {
-      "source": "source/openclaw-system/docs/GRILL_ME_AND_CALLBACK_RUNBOOK.md",
-      "status": "reviewed",
-      "source_layer": "openclaw-system",
-      "reason": "최근 활성 정본 또는 재사용 가능한 원자료; raw 검색 허용",
-      "reviewed_at": "2026-09-01T09:58:12Z",
-      "modified_at": "2026-11-13T04:29:39Z",
-      "promotion_targets": [],
-      "reflection_basis": [],
-      "promotion_state": "not_applicable",
-      "promotion_reason": "최근 활성 정본 또는 재사용 가능한 원자료; raw 검색 허용",
-      "promotion_target_note": "",
-      "wiki_reflected": false
-    },
-    {
-      "source": "source/openclaw-system/docs/INFINITY_ARCHIVE_KNOWLEDGE_2026-08.md",
-      "status": "reviewed",
-      "source_layer": "openclaw-system",
-      "reason": "최근 활성 정본 또는 재사용 가능한 원자료; raw 검색 허용",
-      "reviewed_at": "2026-09-01T09:58:12Z",
-      "modified_at": "2026-11-13T04:29:39Z",
-      "promotion_targets": [
-        "/docs/outputs/Integration/Exploration",
-        "/docs/outputs/Integration/Marketing",
-        "/docs/outputs/deep-knowledge/monitoring"
-      ],
-      "reflection_basis": [
-        "wiki_source_link"
-      ],
-      "promotion_state": "reflected",
-      "promotion_reason": "Agent Wiki outputs 출처 링크 또는 ingest target이 명시됨",
-      "promotion_target_note": "",
-      "wiki_reflected": true
-    },
-    {
       "source": "source/openclaw-system/docs/INFINITY_OPERATING_RULES.md",
       "status": "reviewed",
       "source_layer": "openclaw-system",
@@ -8800,12 +8807,46 @@
       "wiki_reflected": true
     },
     {
-      "source": "source/openclaw-system/docs/LOCAL_REVIEW_AUTOMATION.md",
+      "source": "source/openclaw-system/docs/content/X_API_TIMELINE_OPERATING.md",
       "status": "reviewed",
       "source_layer": "openclaw-system",
       "reason": "최근 활성 정본 또는 재사용 가능한 원자료; raw 검색 허용",
       "reviewed_at": "2026-09-01T09:58:12Z",
-      "modified_at": "2026-11-26T21:25:58Z",
+      "modified_at": "2026-11-13T04:29:39Z",
+      "promotion_targets": [],
+      "reflection_basis": [],
+      "promotion_state": "not_applicable",
+      "promotion_reason": "최근 활성 정본 또는 재사용 가능한 원자료; raw 검색 허용",
+      "promotion_target_note": "",
+      "wiki_reflected": false
+    },
+    {
+      "source": "source/openclaw-system/docs/knowledge/INFINITY_ARCHIVE_KNOWLEDGE_2026-08.md",
+      "status": "reviewed",
+      "source_layer": "openclaw-system",
+      "reason": "최근 활성 정본 또는 재사용 가능한 원자료; raw 검색 허용",
+      "reviewed_at": "2026-09-01T09:58:12Z",
+      "modified_at": "2026-11-13T04:29:39Z",
+      "promotion_targets": [
+        "/docs/outputs/Integration/Exploration",
+        "/docs/outputs/Integration/Marketing",
+        "/docs/outputs/deep-knowledge/monitoring"
+      ],
+      "reflection_basis": [
+        "wiki_source_link"
+      ],
+      "promotion_state": "reflected",
+      "promotion_reason": "Agent Wiki outputs 출처 링크 또는 ingest target이 명시됨",
+      "promotion_target_note": "",
+      "wiki_reflected": true
+    },
+    {
+      "source": "source/openclaw-system/docs/reviews/LOCAL_REVIEW_AUTOMATION.md",
+      "status": "reviewed",
+      "source_layer": "openclaw-system",
+      "reason": "최근 활성 정본 또는 재사용 가능한 원자료; raw 검색 허용",
+      "reviewed_at": "2026-09-01T09:58:12Z",
+      "modified_at": "2026-11-28T17:30:42Z",
       "promotion_targets": [
         "/docs/outputs/Idea/Travel"
       ],
@@ -8818,7 +8859,7 @@
       "wiki_reflected": true
     },
     {
-      "source": "source/openclaw-system/docs/X_API_TIMELINE_OPERATING.md",
+      "source": "source/openclaw-system/docs/runtime/GRILL_ME_AND_CALLBACK_RUNBOOK.md",
       "status": "reviewed",
       "source_layer": "openclaw-system",
       "reason": "최근 활성 정본 또는 재사용 가능한 원자료; raw 검색 허용",
@@ -9126,34 +9167,6 @@
       "wiki_reflected": false
     },
     {
-      "source": "source/external-links/marketing/2026-06-18-agentic-web-access-policy.md",
-      "status": "queued",
-      "source_layer": "external-links",
-      "reason": "원문에 integrated 판정이 있으나 현재 Agent Wiki의 직접 출처 연결을 확인할 수 없음",
-      "reviewed_at": "",
-      "modified_at": "2026-07-15T10:01:17Z",
-      "promotion_targets": [],
-      "reflection_basis": [],
-      "promotion_state": "not_applicable",
-      "promotion_reason": "원문에 integrated 판정이 있으나 현재 Agent Wiki의 직접 출처 연결을 확인할 수 없음",
-      "promotion_target_note": "",
-      "wiki_reflected": false
-    },
-    {
-      "source": "source/external-links/marketing/2026-06-19-agent-readiness-discovery.md",
-      "status": "queued",
-      "source_layer": "external-links",
-      "reason": "원문에 integrated 판정이 있으나 현재 Agent Wiki의 직접 출처 연결을 확인할 수 없음",
-      "reviewed_at": "",
-      "modified_at": "2026-07-15T10:01:17Z",
-      "promotion_targets": [],
-      "reflection_basis": [],
-      "promotion_state": "not_applicable",
-      "promotion_reason": "원문에 integrated 판정이 있으나 현재 Agent Wiki의 직접 출처 연결을 확인할 수 없음",
-      "promotion_target_note": "",
-      "wiki_reflected": false
-    },
-    {
       "source": "source/external-links/marketing/2026-07-01-reference-user-language-before-channel-scale.md",
       "status": "queued",
       "source_layer": "external-links",
@@ -9216,20 +9229,6 @@
       "reason": "원문 확인 완료; 현재성·재사용 범위 또는 소비자 경로 판단 대기",
       "reviewed_at": "",
       "modified_at": "2026-07-12T14:04:17Z",
-      "promotion_targets": [],
-      "reflection_basis": [],
-      "promotion_state": "not_applicable",
-      "promotion_reason": "원문 확인 완료; 현재성·재사용 범위 또는 소비자 경로 판단 대기",
-      "promotion_target_note": "",
-      "wiki_reflected": false
-    },
-    {
-      "source": "source/openclaw-system/data/quality-gates/README.md",
-      "status": "queued",
-      "source_layer": "openclaw-system",
-      "reason": "원문 확인 완료; 현재성·재사용 범위 또는 소비자 경로 판단 대기",
-      "reviewed_at": "",
-      "modified_at": "2026-07-11T23:08:03Z",
       "promotion_targets": [],
       "reflection_basis": [],
       "promotion_state": "not_applicable",
@@ -9808,20 +9807,6 @@
       "reflection_basis": [],
       "promotion_state": "not_applicable",
       "promotion_reason": "원문 확인 완료; 현재성·재사용 범위 또는 소비자 경로 판단 대기",
-      "promotion_target_note": "",
-      "wiki_reflected": false
-    },
-    {
-      "source": "source/external-links/marketing/2026-06-11-youtube-brand-superfans.md",
-      "status": "queued",
-      "source_layer": "external-links",
-      "reason": "외부 자료 원문 확인; 기존 위키와의 연결 및 재사용 가치 판단 대기",
-      "reviewed_at": "",
-      "modified_at": "2026-06-11T23:31:54Z",
-      "promotion_targets": [],
-      "reflection_basis": [],
-      "promotion_state": "not_applicable",
-      "promotion_reason": "외부 자료 원문 확인; 기존 위키와의 연결 및 재사용 가치 판단 대기",
       "promotion_target_note": "",
       "wiki_reflected": false
     },

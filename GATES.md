@@ -57,7 +57,7 @@
 
 ### [ops-01] weekly-main-workspace-autopush git sync를 결정적 스크립트로 이관
 - requested: 2026-07-04 04:00 UTC
-- action: openclaw workspace에 `system/scripts/weekly_workspace_sync.sh` 신규 생성 + 해당 크론 command payload를 스크립트 경로로 전환, 첫 실행 push 동반 테스트
+- action: openclaw workspace에 `system/scripts/runtime/weekly_workspace_sync.sh` 신규 생성 + 해당 크론 command payload를 스크립트 경로로 전환, 첫 실행 push 동반 테스트
 - reason: self-healer가 동일 git diff exit-code 실패에 프롬프트 패치 5겨 누적; LLM 판단 불필요한 git sync를 결정적 스크립트로 교체하면 패치 루프 자체가 사라짘
 - impact: 크론 설정 변경 + git push 동반 테스트 필요 — 롤백 가능 (크론 payload 복원)
 - resolved: 2026-07-04 (사용자 '승인')
