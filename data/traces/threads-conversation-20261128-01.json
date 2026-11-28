@@ -54,8 +54,8 @@
     },
     {
       "label": "Inbox dispatch exclusion",
-      "status": "pending_local_check",
-      "detail": "User requested this same Intent move to Waiting/waiting_on external, retaining SAM-owned scheduled run, all six task IDs, and the two scheduled jobs."
+      "status": "verified",
+      "detail": "The same Intent is Waiting/waiting_on external in origin/main 91f4bc1ac2f47bf7d11c8b1341cd4c3aaa4629c4; prepare_dispatch_cycle.py --repo . --json against that canonical SHA returned inbox=0, waiting=1, this Intent in neither promote_candidates nor handoff_candidates, invalid_state=[], dispatch_required=false. Six task IDs and the existing supervisor/closeout job IDs were preserved."
     }
   ],
   "next_decision": {
