@@ -84,12 +84,13 @@ lanes:
         handoff_message_id: '1795829505.477199'
         handoff_queue_id: null
         handoff_at: '2026-11-28T01:31:45.477Z'
-        result_summary: 'Blocked before execution: initial handoff body omitted run/task/account values and corrected resend on the same operationId was rejected. Windows confirmed Profile 3 still showed minimal_collector, not _archivenoh. Instagram Settings > Account switch was visible, but Threads identity remained unconfirmed; the attempted browser command required approval and was not run. No post/reply or guard execution; lock-free state remains unknown.'
+        result_summary: 'Blocked before execution. Windows confirmed Instagram account switch selected @_archivenoh, but Threads remained @minimal_collector; the existing Threads menus/settings exposed no account-switch option. The exact approved account was not confirmed. No post/reply and no guard execution; guard terminal state/exit and lock-free state remain unknown. Evidence: Windows report 1795830769.583189 (Instagram/Threads mismatch) and 1795831159.221299 (Threads menu/settings blocker), read in original thread C0CE0DV9MM2/1794983278.888719.'
         changes: []
         release_runs: []
         reply_records: []
         guard: {state: not_started, exit_code: null, started_at: null, finished_at: null, lock_free_verified_at: null}
-        status_check_at: '2026-11-28T01:44:08.901Z'
+        status_check_at: '2026-11-28T02:03:15Z'
+        receipt_checked_at: '2026-11-28T02:03:15Z'
       - id: threads-20261128-r1-t02
         window_id: r1
         kind: observation
