@@ -15,25 +15,25 @@ lanes:
     trace: data/traces/threads-conversation-20261128-01.json
     experiment_run:
       run_id: threads-20261128-2h
-      status: prepared
-      enabled: true
+      status: stopped
+      enabled: false
       date: '2026-11-28'
       timezone: Asia/Seoul
       start_at: '2026-11-28T01:30:00Z'
       end_at: '2026-11-28T07:30:00Z'
       target_service: Threads
       target_account: _archivenoh
-      goal: '오늘 새 원문 조회 합계 1,000회를 목표로 세 루프의 대화→원문→후속 PDCA를 실행한다.'
+      goal: 오늘 새 원문 조회 합계 1,000회를 목표로 세 루프의 대화→원문→후속 PDCA를 실행한다.
       target_views: 1000
       pdca_required: true
       interval_minutes: 3
       dispatch_owner: sam_supervisor_cron
       supervisor_job_id: eb75facc-7686-4746-a399-4ef6d881048e
       closeout_job_id: 8e116857-63f9-4475-8e55-4a7c386e4a16
-      configuration_status: verified
-      supervisor_enabled: true
+      configuration_status: stopped_by_user
+      supervisor_enabled: false
       supervisor_schedule: '*/3 10-16 * * * Asia/Seoul; trigger gate 2026-11-28 10:27–16:30 KST'
-      closeout_enabled: true
+      closeout_enabled: false
       closeout_at: '2026-11-28T07:30:00Z'
       account_confirmation: pending_windows_ego_switch
       windows:
@@ -41,39 +41,42 @@ lanes:
         start_at: '2026-11-28T01:30:00Z'
         end_at: '2026-11-28T03:30:00Z'
         status: prepared
-        goal: '최근 짐 선택 경험 대화에 유용하게 참여한다. 새 원문은 게시하지 않는다.'
+        goal: 최근 짐 선택 경험 대화에 유용하게 참여한다. 새 원문은 게시하지 않는다.
         task_sequence: 2
         planned_tasks_only: true
         observation_due_at: '2026-11-28T02:45:00Z'
         pdca:
-          hypothesis: '최근 짐 선택 경험에 실제로 보탬이 되거나 아직 모르는 결정 조건을 묻는 응답은, 원문만 게시할 때보다 유효한 대화 신호를 얻을 수 있다.'
-          changed_variable: '먼저 참여할 공개 대화의 선택 경험 관련성'
-          success_rule: 'r1에서 유용한 대화 참여와 상대의 구체 후속을 실제 URL·시각으로 확인한다. 반응이 없거나 관측이 불가능하면 효과를 주장하지 않고 inconclusive로 둔다.'
+          hypothesis: 최근 짐 선택 경험에 실제로 보탬이 되거나 아직 모르는 결정 조건을 묻는 응답은, 원문만 게시할 때보다 유효한 대화 신호를 얻을 수 있다.
+          changed_variable: 먼저 참여할 공개 대화의 선택 경험 관련성
+          success_rule: r1에서 유용한 대화 참여와 상대의 구체 후속을 실제 URL·시각으로 확인한다. 반응이 없거나 관측이 불가능하면 효과를 주장하지 않고 inconclusive로 둔다.
           plan_at: '2026-11-28T00:58:00Z'
           based_on_window_id: null
           source_task_ids: []
+        report_status: cancelled_by_user
       - id: r2
         start_at: '2026-11-28T03:30:00Z'
         end_at: '2026-11-28T05:30:00Z'
         status: prepared
-        goal: 'r1 실제 반응을 반영한 서로 다른 판단의 새 원문 최대 1개와 후속 확인.'
+        goal: r1 실제 반응을 반영한 서로 다른 판단의 새 원문 최대 1개와 후속 확인.
         task_sequence: 2
         planned_tasks_only: true
         observation_due_at: '2026-11-28T04:45:00Z'
+        report_status: cancelled_by_user
       - id: r3
         start_at: '2026-11-28T05:30:00Z'
         end_at: '2026-11-28T07:30:00Z'
         status: prepared
-        goal: '받은 반응 후속과 당일 결과 확인. 새 원문은 게시하지 않는다.'
+        goal: 받은 반응 후속과 당일 결과 확인. 새 원문은 게시하지 않는다.
         task_sequence: 2
         planned_tasks_only: true
         observation_due_at: '2026-11-28T06:45:00Z'
+        report_status: cancelled_by_user
       tasks:
       - id: threads-20261128-r1-t01
         window_id: r1
         kind: engagement
         required: true
-        goal: '10:30–12:30 KST 대화 참여; 새 원문 0.'
+        goal: 10:30–12:30 KST 대화 참여; 새 원문 0.
         start_at: '2026-11-28T01:30:00Z'
         end_at: '2026-11-28T03:30:00Z'
         wrap_up_by: '2026-11-28T02:05:00Z'
@@ -84,120 +87,178 @@ lanes:
         handoff_message_id: '1795829505.477199'
         handoff_queue_id: null
         handoff_at: '2026-11-28T01:31:45.477Z'
-        result_summary: 'Blocked before execution. Windows confirmed Instagram account switch selected @_archivenoh, but Threads remained @minimal_collector; the existing Threads menus/settings exposed no account-switch option. The exact approved account was not confirmed. No post/reply and no guard execution; guard terminal state/exit and lock-free state remain unknown. Evidence: Windows report 1795830769.583189 (Instagram/Threads mismatch) and 1795831159.221299 (Threads menu/settings blocker), read in original thread C0CE0DV9MM2/1794983278.888719.'
+        result_summary: 'Blocked before execution. Windows confirmed Instagram account switch selected @_archivenoh, but Threads remained @minimal_collector;
+          the existing Threads menus/settings exposed no account-switch option. The exact approved account was not confirmed. No post/reply and
+          no guard execution; guard terminal state/exit and lock-free state remain unknown. Evidence: Windows report 1795830769.583189 (Instagram/Threads
+          mismatch) and 1795831159.221299 (Threads menu/settings blocker), read in original thread C0CE0DV9MM2/1794983278.888719.'
         changes: []
         release_runs: []
         reply_records: []
-        guard: {state: not_started, exit_code: null, started_at: null, finished_at: null, lock_free_verified_at: null}
+        guard:
+          state: not_started
+          exit_code: null
+          started_at: null
+          finished_at: null
+          lock_free_verified_at: null
         status_check_at: '2026-11-28T02:36:09Z'
         receipt_checked_at: '2026-11-28T02:36:09Z'
+        stop_requested_at: '2026-11-28T02:51:52.094331+00:00'
       - id: threads-20261128-r1-t02
         window_id: r1
         kind: observation
         required: true
-        goal: '11:45 KST 반응 확인; 실제 답글·후속 여부와 다음 변경 한 가지 기록.'
+        goal: 11:45 KST 반응 확인; 실제 답글·후속 여부와 다음 변경 한 가지 기록.
         start_at: '2026-11-28T02:45:00Z'
         end_at: '2026-11-28T03:30:00Z'
         wrap_up_by: '2026-11-28T03:15:00Z'
         execution_target_minutes: 15
         max_execution_minutes: 30
-        status: prepared
+        status: cancelled
         handoff_status: prepared
         handoff_message_id: null
         handoff_queue_id: null
-        result_summary: null
+        result_summary: 사용자 작업중지 요청으로 미발송 업무 취소. 실행하지 않음.
         changes: []
         release_runs: []
-        guard: {state: not_started, exit_code: null, started_at: null, finished_at: null, lock_free_verified_at: null}
+        guard:
+          state: not_started
+          exit_code: null
+          started_at: null
+          finished_at: null
+          lock_free_verified_at: null
         status_check_at: null
+        stop_requested_at: '2026-11-28T02:51:52.094331+00:00'
+        cancelled_at: '2026-11-28T02:51:52.094331+00:00'
       - id: threads-20261128-r2-t01
         window_id: r2
         kind: engagement
         required: true
-        goal: '12:30–14:30 KST, r1 반응 근거를 반영한 새 원문 최대 1개와 필요한 대화.'
+        goal: 12:30–14:30 KST, r1 반응 근거를 반영한 새 원문 최대 1개와 필요한 대화.
         start_at: '2026-11-28T03:30:00Z'
         end_at: '2026-11-28T05:30:00Z'
         wrap_up_by: '2026-11-28T04:05:00Z'
         execution_target_minutes: 20
         max_execution_minutes: 30
-        status: prepared
+        status: cancelled
         handoff_status: prepared
         handoff_message_id: null
         handoff_queue_id: null
-        result_summary: null
+        result_summary: 사용자 작업중지 요청으로 미발송 업무 취소. 실행하지 않음.
         changes: []
         release_runs: []
         reply_records: []
-        guard: {state: not_started, exit_code: null, started_at: null, finished_at: null, lock_free_verified_at: null}
+        guard:
+          state: not_started
+          exit_code: null
+          started_at: null
+          finished_at: null
+          lock_free_verified_at: null
         status_check_at: null
+        stop_requested_at: '2026-11-28T02:51:52.094331+00:00'
+        cancelled_at: '2026-11-28T02:51:52.094331+00:00'
       - id: threads-20261128-r2-t02
         window_id: r2
         kind: observation
         required: true
-        goal: '13:45 KST 게시 경과·최신 조회·댓글 관측 및 다음 변경 한 가지.'
+        goal: 13:45 KST 게시 경과·최신 조회·댓글 관측 및 다음 변경 한 가지.
         start_at: '2026-11-28T04:45:00Z'
         end_at: '2026-11-28T05:30:00Z'
         wrap_up_by: '2026-11-28T05:15:00Z'
         execution_target_minutes: 15
         max_execution_minutes: 30
-        status: prepared
+        status: cancelled
         handoff_status: prepared
         handoff_message_id: null
         handoff_queue_id: null
-        result_summary: null
+        result_summary: 사용자 작업중지 요청으로 미발송 업무 취소. 실행하지 않음.
         changes: []
         release_runs: []
-        guard: {state: not_started, exit_code: null, started_at: null, finished_at: null, lock_free_verified_at: null}
+        guard:
+          state: not_started
+          exit_code: null
+          started_at: null
+          finished_at: null
+          lock_free_verified_at: null
         status_check_at: null
+        stop_requested_at: '2026-11-28T02:51:52.094331+00:00'
+        cancelled_at: '2026-11-28T02:51:52.094331+00:00'
       - id: threads-20261128-r3-t01
         window_id: r3
         kind: engagement
         required: true
-        goal: '14:30–16:30 KST, 새 원문 없이 받은 반응 후속과 필요한 대화.'
+        goal: 14:30–16:30 KST, 새 원문 없이 받은 반응 후속과 필요한 대화.
         start_at: '2026-11-28T05:30:00Z'
         end_at: '2026-11-28T07:30:00Z'
         wrap_up_by: '2026-11-28T06:05:00Z'
         execution_target_minutes: 25
         max_execution_minutes: 35
-        status: prepared
+        status: cancelled
         handoff_status: prepared
         handoff_message_id: null
         handoff_queue_id: null
-        result_summary: null
+        result_summary: 사용자 작업중지 요청으로 미발송 업무 취소. 실행하지 않음.
         changes: []
         release_runs: []
         reply_records: []
-        guard: {state: not_started, exit_code: null, started_at: null, finished_at: null, lock_free_verified_at: null}
+        guard:
+          state: not_started
+          exit_code: null
+          started_at: null
+          finished_at: null
+          lock_free_verified_at: null
         status_check_at: null
+        stop_requested_at: '2026-11-28T02:51:52.094331+00:00'
+        cancelled_at: '2026-11-28T02:51:52.094331+00:00'
       - id: threads-20261128-r3-t02
         window_id: r3
         kind: observation
         required: true
-        goal: '15:45 KST 당일 글·답글 최신 수치와 반응을 확인하고 판정한다.'
+        goal: 15:45 KST 당일 글·답글 최신 수치와 반응을 확인하고 판정한다.
         start_at: '2026-11-28T06:45:00Z'
         end_at: '2026-11-28T07:30:00Z'
         wrap_up_by: '2026-11-28T07:15:00Z'
         execution_target_minutes: 15
         max_execution_minutes: 30
-        status: prepared
+        status: cancelled
         handoff_status: prepared
         handoff_message_id: null
         handoff_queue_id: null
-        result_summary: null
+        result_summary: 사용자 작업중지 요청으로 미발송 업무 취소. 실행하지 않음.
         changes: []
         release_runs: []
-        guard: {state: not_started, exit_code: null, started_at: null, finished_at: null, lock_free_verified_at: null}
+        guard:
+          state: not_started
+          exit_code: null
+          started_at: null
+          finished_at: null
+          lock_free_verified_at: null
         status_check_at: null
-    waiting_on: external
-    waiting_reason: 'Windows Genie must verify the already-authorized Ego Profile 3 session is signed in as @_archivenoh before the first task can be handed off; no other account may publish.'
-    resume_condition: 'Windows Genie reports the actual Ego Profile 3 username as @_archivenoh in the original Slack thread; then SAM-owned supervisor resumes the existing six registered task IDs and preserves the saved schedules.'
-    next_action: 'Wait for Windows Genie account confirmation; SAM supervisor owns the scheduled run. Do not send this Intent through the general Pio Inbox dispatcher.'
+        stop_requested_at: '2026-11-28T02:51:52.094331+00:00'
+        cancelled_at: '2026-11-28T02:51:52.094331+00:00'
+      stopped_at: '2026-11-28T02:51:52.094331+00:00'
+      stop_reason: user_requested_stop
+      auto_resume: false
+      stop_request:
+        user_text: 작업중지
+        recorded_at: '2026-11-28T02:51:52.094331+00:00'
+        slack_message_id: '1795834170.561429'
+        scheduled_jobs_disabled:
+        - eb75facc-7686-4746-a399-4ef6d881048e
+        - 8e116857-63f9-4475-8e55-4a7c386e4a16
+        - 320cfeac-bd7b-46aa-97fa-ebc50324ac78
+        windows_stop_confirmation: confirmed
+        windows_stop_message_id: '1795834194.473339'
+        windows_stop_summary: 'Windows 지니: 11:49 KST 오늘 Threads guard 실행 기록·공용 잠금 보유자 없음. 중지 확인.'
+    waiting_on: user
+    waiting_reason: 사용자가 작업중지를 요청함. 오늘 실험·Ego 계정 확인/전환·내일 재관측 모두 중지.
+    resume_condition: 사용자가 새로 명시적으로 재개를 지시할 때만 일정·범위를 다시 확인한다. 계정 확인 회신만으로 재개하지 않는다.
+    next_action: 중지 유지. 새 게시·답글·조회·계정 전환·재시도·자동 재개 금지.
     notification_channel: slack
     notification_target: channel:C0CE0DV9MM2
-    user_intent: '승인된 다음 Threads 실험을 새 Intent로 등록하고, 기존 Windows router/guard를 통해 실제 예약·실행·관측·회수한다.'
-    desired_outcome: '당일 세 창의 실행/미실행과 결과를 최신 증거로 보고하고, 11/29 읽기 전용 24h 관측을 한 번 수행한다.'
-    out_of_scope: '이전 archived Intent 되살리기, 새 실행기 개발, 무관한 Threads 예약 변경, 계정/설정/권한 변경, 제한 초과 게시, 11/29 새 게시 재개'
-    success_evidence: 'Intent+trace가 origin/main에 있고, 정확한 예약 ID/저장시각 경계 및 Windows 접수 영수증, 실제 guard/lock 및 게시물 최신 지표·원문 URL·관측시각을 확인한다.'
+    user_intent: 승인된 다음 Threads 실험을 새 Intent로 등록하고, 기존 Windows router/guard를 통해 실제 예약·실행·관측·회수한다.
+    desired_outcome: 당일 세 창의 실행/미실행과 결과를 최신 증거로 보고하고, 11/29 읽기 전용 24h 관측을 한 번 수행한다.
+    out_of_scope: 이전 archived Intent 되살리기, 새 실행기 개발, 무관한 Threads 예약 변경, 계정/설정/권한 변경, 제한 초과 게시, 11/29 새 게시 재개
+    success_evidence: Intent+trace가 origin/main에 있고, 정확한 예약 ID/저장시각 경계 및 Windows 접수 영수증, 실제 guard/lock 및 게시물 최신 지표·원문 URL·관측시각을 확인한다.
     sam_schedule_owner: true
     dispatcher_excluded: true
   active: []

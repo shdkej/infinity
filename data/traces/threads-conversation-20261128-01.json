@@ -38,6 +38,30 @@
         "/home/ubuntu/workspace/knowledge-lab/source/openclaw-system/docs/projects/AGENT_DAILY_OPERATIONS_PRD.md",
         "scripts/miniapp_experiment.py"
       ]
+    },
+    {
+      "type": "execution",
+      "at": "2026-11-28T02:51:52Z",
+      "context_pack": "../knowledge-lab/logs/context-packs/2026-11-18-agent-daily-operations.json",
+      "evidence_paths": [
+        "INTENTS.yaml"
+      ],
+      "searches": [
+        "사용자 작업중지 요청과 현재 native cron·원장·세션 중지 상태를 직접 확인. 기존 Context Pack 재사용, 새 zg 검색 없음."
+      ],
+      "wiki_pages": [
+        "agent-wiki/content/docs/outputs/Integration/Work.mdx",
+        "agent-wiki/content/docs/outputs/Idea/Journal.mdx",
+        "agent-wiki/content/docs/outputs/Communication/Open_Source.mdx",
+        "agent-wiki/content/docs/outputs/blog/Life_Tracking.mdx",
+        "agent-wiki/content/docs/outputs/Human/Standard.mdx"
+      ],
+      "operational_log_sections": [
+        "logs/agent-wiki-query.md",
+        "logs/EVALUATION_RECAP.md",
+        "logs/OPERATING_LESSONS.md"
+      ],
+      "note": "사용자 작업중지로 감독·마감·24시간 재관측 예약을 disable 후 재조회. SAM 원문 세션 abort, 별도 소유자 세션은 진행 중 run 없음. run.enabled=false/status=stopped, 미발송 5개 취소, 기존 차단 이력 보존. Windows 중지 회신 1795834194.473339: 11:49 KST 오늘 guard 실행 기록·잠금 보유자 없음. 같은 대화에서 직접 확인한 operations Context Pack 재사용; 새 지식 검색/실험 진행 없음."
     }
   ],
   "artifacts": [],
@@ -59,7 +83,7 @@
     }
   ],
   "next_decision": {
-    "status": "waiting",
-    "value": "Wait for Windows Genie to verify the existing Ego Profile 3 username @_archivenoh, then resume only the existing six SAM-owned scheduled tasks; no general Inbox promotion or handoff."
+    "status": "paused_by_user",
+    "value": "중지 유지. 새 게시·답글·조회·계정 전환·재시도·자동 재개 금지."
   }
 }
