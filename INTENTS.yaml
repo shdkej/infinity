@@ -2,7 +2,23 @@ version: 1
 format: infinity-intents-yaml
 lanes:
   backlog: []
-  inbox: []
+  inbox:
+  - id: threads-conversation-20261128-01
+    title: Run the approved Threads conversation-first PDCA experiment
+    task_name: Run the approved Threads conversation-first PDCA experiment
+    status: inbox
+    owner: SAM + Windows Genie
+    created_at: '2026-11-28T00:50:00Z'
+    source: user-approved follow-up; PRD AGENT_DAILY_OPERATIONS_PRD.md
+    context_pack: artifacts/threads-conversation-20261128-01/context-pack.md
+    trace: data/traces/threads-conversation-20261128-01.json
+    next_action: Confirm helper compatibility and Windows router/guard readiness; preserve the authorized KST windows and record actual run evidence.
+    notification_channel: slack
+    notification_target: channel:C0CE0DV9MM2
+    user_intent: '승인된 다음 Threads 실험을 새 Intent로 등록하고, 기존 Windows router/guard를 통해 실제 예약·실행·관측·회수한다.'
+    desired_outcome: '당일 세 창의 실행/미실행과 결과를 최신 증거로 보고하고, 11/29 읽기 전용 24h 관측을 한 번 수행한다.'
+    out_of_scope: '이전 archived Intent 되살리기, 새 실행기 개발, 무관한 Threads 예약 변경, 계정/설정/권한 변경, 제한 초과 게시, 11/29 새 게시 재개'
+    success_evidence: 'Intent+trace가 origin/main에 있고, 정확한 예약 ID/저장시각 경계 및 Windows 접수 영수증, 실제 guard/lock 및 게시물 최신 지표·원문 URL·관측시각을 확인한다.'
   waiting: []
   active: []
   latest_cycle:

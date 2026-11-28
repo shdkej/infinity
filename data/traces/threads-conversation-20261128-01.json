@@ -1,0 +1,49 @@
+{
+  "schema_version": 2,
+  "intent_id": "threads-conversation-20261128-01",
+  "status": "inbox",
+  "trace_completeness": "complete",
+  "request": {
+    "raw": {
+      "status": "recorded",
+      "value": "사용자 승인 “오키 다음실험 고고”와 수정 “ㅇ니 샘이랑 지니헌테 얘기해서 처리해야지”: 2026-11-28 _archivenoh Threads 대화 우선 PDCA 실험을 SAM이 접수·조정하고 Windows 지니에게 인계해 예약·실행·관측·보고까지 책임진다."
+    },
+    "normalized_query": {
+      "status": "recorded",
+      "value": "Threads _archivenoh 대화 우선 PDCA: 실제 대화 참여 후 반응 기반 원문 1개 이하, 후속 관측 및 24시간 읽기 전용 재관측"
+    },
+    "user_intent": {
+      "status": "recorded",
+      "value": "승인된 다음 Threads 실험을 새 Intent로 등록하고, 기존 Windows router/guard를 통해 실제 예약·실행·관측·회수한다."
+    },
+    "desired_outcome": {
+      "status": "recorded",
+      "value": "당일 세 창의 실행/미실행과 결과를 최신 증거로 보고하고, 11/29 읽기 전용 24h 관측을 한 번 수행한다."
+    },
+    "out_of_scope": {
+      "status": "recorded",
+      "value": "이전 archived Intent 되살리기, 새 실행기 개발, 무관한 Threads 예약 변경, 계정/설정/권한 변경, 제한 초과 게시, 11/29 새 게시 재개"
+    },
+    "success_evidence": {
+      "status": "recorded",
+      "value": "Intent+trace가 origin/main에 있고, 정확한 예약 ID/저장시각 경계 및 Windows 접수 영수증, 실제 guard/lock 및 게시물 최신 지표·원문 URL·관측시각을 확인한다."
+    }
+  },
+  "events": [
+    {
+      "type": "intake",
+      "at": "2026-11-28T00:49:10Z",
+      "context_pack": "artifacts/threads-conversation-20261128-01/context-pack.md",
+      "evidence_paths": [
+        "/home/ubuntu/workspace/knowledge-lab/source/openclaw-system/docs/projects/AGENT_DAILY_OPERATIONS_PRD.md",
+        "scripts/miniapp_experiment.py"
+      ]
+    }
+  ],
+  "artifacts": [],
+  "verifications": [],
+  "next_decision": {
+    "status": "in_progress",
+    "value": "Windows의 호환성 확인과 실제 준비/잠금/인계를 회수하고, 2026-11-28 16:30 KST 마감 및 11/29 13:30 KST 읽기 전용 관측을 실제 원장 증거로 마감한다."
+  }
+}
