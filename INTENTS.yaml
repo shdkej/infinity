@@ -79,16 +79,17 @@ lanes:
         wrap_up_by: '2026-11-28T02:05:00Z'
         execution_target_minutes: 25
         max_execution_minutes: 35
-        status: prepared
-        handoff_status: prepared
-        handoff_message_id: null
+        status: blocked
+        handoff_status: sent
+        handoff_message_id: '1795829505.477199'
         handoff_queue_id: null
-        result_summary: null
+        handoff_at: '2026-11-28T01:31:45.477Z'
+        result_summary: 'Blocked before execution: the delivered handoff body omitted the run/task/account values. Windows reported Profile 3 username minimal_collector; _archivenoh not confirmed; guard not started; lock-free status unknown; no posts or replies. Corrected resend on the same operationId was rejected.'
         changes: []
         release_runs: []
         reply_records: []
         guard: {state: not_started, exit_code: null, started_at: null, finished_at: null, lock_free_verified_at: null}
-        status_check_at: null
+        status_check_at: '2026-11-28T01:37:15.759Z'
       - id: threads-20261128-r1-t02
         window_id: r1
         kind: observation
